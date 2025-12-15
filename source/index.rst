@@ -1,57 +1,82 @@
-#################################################
+.. IACT - Sistema de Dashboard Analytics documentation master file
+
+====================================================
 IACT - Sistema de Dashboard Analytics
-#################################################
+====================================================
 
-La documentación de IACT es un proyecto centralizado que articula el conocimiento 
-del Dashboard de Analytics. Su objetivo es facilitar la trazabilidad entre los 
-requerimientos de negocio, la implementación técnica y el control de gestión.
+.. image:: _static/img/logo.svg
+   :alt: IACT Logo
+   :align: center
+   :width: 200px
+
+----
+
+Bienvenido a la Documentación del Proyecto IACT
+================================================
+
+El proyecto IACT es una solución de **Dashboard Analytics** que conecta datos operativos con necesidades de análisis de negocio mediante un proceso ETL robusto y trazable.
+
+Arquitectura del Sistema
+------------------------
+
+* **Fuente de Datos:** MySQL (operativa, solo lectura)
+* **Destino Analítico:** PostgreSQL (optimizado para consultas)
+* **Backend:** Django REST Framework
+* **Frontend:** React (Dashboard)
+
+Estructura de la Documentación
+==============================
+
+Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 Dominios Primarios que gobiernan 21 Subdominios especializados.
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
-   :caption: Dominio de Producto
+   :caption: Base Cognitiva
 
-   producto/index
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Dominio del Sistema
-
-   sistema/index
+   base_cognitiva/index
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
-   :caption: Dominio de Gestión
+   :caption: Normativa
+
+   normativa/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Requisitos
+
+   requisitos/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Arquitectura Técnica
+
+   arquitectura_tecnica/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Gestión
 
    gestion/index
 
-Estructura de Documentación
-===========================
+Información Adicional
+====================
 
-El proyecto se divide en tres dominios fundamentales para garantizar la 
-separación de responsabilidades y la claridad del sistema:
+.. toctree::
+   :maxdepth: 1
+   :caption: Referencia
 
-.. grid:: 1 1 3 3
-   :gutter: 3
+   glossary
 
-   .. grid-item-card:: Dominio de Producto
-      :link: producto/index
+Índices y Búsqueda
+==================
 
-      Contiene la definición del "Qué". Incluye las Reglas de Negocio (BR), 
-      Casos de Uso (UC) y el análisis de requerimientos funcionales 
-      del Dashboard.
+* :ref:`genindex`
+* :ref:`search`
 
-   .. grid-item-card:: Dominio del Sistema
-      :link: sistema/index
+----
 
-      Detalla el "Cómo". Describe la arquitectura dual de bases de datos 
-      (MySQL y PostgreSQL), el flujo del proceso ETL y la implementación 
-      en Django y React.
-
-   .. grid-item-card:: Dominio de Gestión
-      :link: gestion/index
-
-      Presenta el "Cuándo". Incluye el WBS del proyecto, la gestión de 
-      riesgos, el plan de pruebas y el seguimiento de tareas pendientes (TODO).
+.. note::
+   **Versión:** 1.0.0  
+   **Fecha:** 2025  
+   **Equipo:** IACT Development Team

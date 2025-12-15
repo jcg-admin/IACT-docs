@@ -40,6 +40,7 @@ extensions = [
     'notfound.extension',
     'myst_parser',
     'sphinx-prompt',
+    'sphinx_jinja2_compat',
 
     # Nuevas extensiones
     'sphinxcontrib.spelling',  # Corrector ortográfico
@@ -85,6 +86,11 @@ master_doc = 'index'
 # Excluye carpetas de build y entornos virtuales
 exclude_patterns = [
     '_build',
+    '_metadata',
+    '_fundamentos_conceptuales',
+    '_ontologia_sbvr',
+    '_taxonomias_y_metamodelos',
+    '_metodologias_analiticas',
     'Thumbs.db',
     '.DS_Store',
     'venv',

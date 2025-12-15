@@ -304,3 +304,78 @@ details.sd-dropdown details.nested-schema[open] > summary:first-of-type {
 #custom-ask-ai-button {
     text-align: left;
 }
+
+/* ============================================
+   Estilos para Funcionalidades JS Adicionales
+   ============================================ */
+
+/* -- Elemento Resaltado (cuando se navega con hash) -- */
+.iact-highlighted {
+    animation: highlight-pulse 2s ease;
+    background-color: rgba(25, 156, 215, 0.15) !important;
+}
+
+@keyframes highlight-pulse {
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(25, 156, 215, 0.15);
+    }
+}
+
+/* -- Efecto Ripple para Tabs -- */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(25, 156, 215, 0.5);
+    width: 20px;
+    height: 20px;
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* -- Transiciones suaves para Admonitions -- */
+.admonition {
+    transition: border-left-width 0.2s ease;
+}
+
+/* -- Transiciones para bloques de código -- */
+div.highlight pre {
+    transition: border-left-width 0.2s ease;
+}
+
+/* -- Botón Back to Top (estilos adicionales) -- */
+#back-to-top:active {
+    transform: scale(0.95) !important;
+}
+
+/* -- Animaciones de Cards (preparación) -- */
+.sd-card {
+    will-change: opacity, transform;
+}
+
+/* -- Progress Bar de Lectura (estilos adicionales si necesarios) -- */
+#reading-progress-bar {
+    box-shadow: 0 2px 4px rgba(25, 156, 215, 0.3);
+}
+
+/* -- Mejoras visuales para modo oscuro personalizado -- */
+.iact-dark-mode .admonition {
+    background-color: rgba(25, 156, 215, 0.05);
+}
+
+.iact-dark-mode .sd-card {
+    background-color: rgba(56, 68, 82, 0.2);
+}
