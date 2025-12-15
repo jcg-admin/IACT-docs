@@ -1,11 +1,206 @@
+/* ============================================
+   IACT - Custom CSS para Sphinx + Furo
+   ============================================ */
 
-/* match logo size on main site */
+/* -- Colores Corporativos IACT -- */
+:root {
+    --iact-primary: #199cd7;      /* Azul principal */
+    --iact-secondary: #384452;    /* Gris azulado */
+    --iact-accent: #0276ba;       /* Azul oscuro */
+    --iact-success: #17a2b8;      /* Verde azulado (teal) */
+
+    /* Sphinx Design Colors */
+    --sd-color-success: #17a2b8;
+    --sd-color-success-text: #ffffff;
+}
+
+/* -- Variables de Furo (Modo Oscuro) -- */
+.dark {
+    --color-brand-primary: var(--iact-primary);
+    --color-brand-content: var(--iact-primary);
+    --color-link: var(--iact-primary);
+    --color-link--hover: #4ab8ea;
+}
+
+/* -- Header / Navegación Superior -- */
+.sidebar-brand-text {
+    color: var(--iact-primary) !important;
+    font-weight: 600;
+}
+
+/* -- Enlaces en el contenido -- */
+.content a {
+    transition: all 0.2s ease;
+}
+
+.content a:hover {
+    text-decoration: underline;
+    color: var(--iact-primary);
+}
+
+/* -- Botones y elementos interactivos -- */
+button, .btn {
+    transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* -- Tablas -- */
+table.docutils {
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+table.docutils th {
+    background-color: var(--iact-secondary);
+    color: white;
+    padding: 0.75em;
+    text-align: left;
+}
+
+table.docutils td {
+    padding: 0.75em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table.docutils tr:hover {
+    background-color: rgba(25, 156, 215, 0.05);
+}
+
+/* -- Admonitions (Notas, Advertencias, etc.) -- */
+.admonition {
+    border-left: 4px solid var(--iact-primary);
+}
+
+.admonition.note {
+    border-left-color: var(--iact-primary);
+}
+
+.admonition.warning {
+    border-left-color: #f39c12;
+}
+
+.admonition.important {
+    border-left-color: var(--iact-accent);
+}
+
+.admonition.tip {
+    border-left-color: #27ae60;
+}
+
+/* -- Bloques de Código -- */
+.highlight {
+    border-radius: 4px;
+    margin: 1em 0;
+}
+
+div.highlight pre {
+    border-left: 3px solid var(--iact-primary);
+}
+
+/* -- Botón de Copiar Código -- */
+.copybtn {
+    background-color: var(--iact-primary);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.copybtn:hover {
+    opacity: 1;
+}
+
+/* -- Barra de Búsqueda -- */
+.search-button {
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: rgba(25, 156, 215, 0.1);
+}
+
+/* -- Navegación TOC (Tabla de Contenidos) -- */
+.toc-tree li.scroll-current > .reference {
+    border-left: 3px solid var(--iact-primary);
+    padding-left: 1rem;
+}
+
+/* -- Footer -- */
+.footer {
+    border-top: 2px solid var(--iact-primary);
+}
+
+/* -- Cards de sphinx-design -- */
+.sd-card {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.sd-card:hover {
+    border-left-color: var(--iact-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* -- Tabs de sphinx-tabs -- */
+.sphinx-tabs-tab {
+    transition: all 0.2s ease;
+}
+
+.sphinx-tabs-tab[aria-selected="true"] {
+    border-bottom: 3px solid var(--iact-primary);
+    color: var(--iact-primary);
+}
+
+/* -- Scrollbar personalizado (solo webkit) -- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--iact-secondary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--iact-primary);
+}
+
+/* -- Mejoras de accesibilidad -- */
+a:focus, button:focus, input:focus {
+    outline: 2px solid var(--iact-primary);
+    outline-offset: 2px;
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+    .sidebar-brand-text {
+        font-size: 1.2em;
+    }
+
+    table.docutils {
+        font-size: 0.9em;
+    }
+}
+
+/* ============================================
+   Estilos Existentes del Proyecto IACT
+   ============================================ */
+
+/* -- Logo en Sidebar -- */
 .sidebar-logo {
     margin-top: 16px;
     height: 45px;
 }
 
-/* move announcement to bottom and allow wrapping */
+/* -- Announcement (Banner) -- */
+/* Mover announcement al bottom y permitir wrapping */
 .announcement {
     position: fixed;
     bottom: 0;
@@ -14,19 +209,22 @@
     z-index: 100;
     text-align: center;
 }
+
 .announcement-content {
     white-space: normal;
     line-height: 1.5;
 }
 
-/* keep announcement on footer from covering content */
+/* Evitar que el announcement cubra contenido */
 .main {
     padding-bottom: 60px;
 }
+
 .sidebar-drawer {
     padding-bottom: 62px;
 }
 
+/* -- Pantallas de Dispositivos -- */
 .device-screen-vertical {
     width: 365px;
 }
@@ -35,30 +233,35 @@
     width: 400px;
 }
 
+/* -- Tablas de Schema -- */
 table.schema-table-wrap {
-    width: 100%;    
+    width: 100%;
 }
-table.schema-tabl-wrap td:last-child, table.schema-table-wrap td:first-child {
-    border: none
+
+table.schema-table-wrap td:last-child,
+table.schema-table-wrap td:first-child {
+    border: none;
 }
+
 table.schema-table {
-    width: 100%;    
+    width: 100%;
 }
-table.schema-table td:last-child, table.schema-table td:first-child {
+
+table.schema-table td:last-child,
+table.schema-table td:first-child {
     border: 1px solid #303335;
 }
-details.sd-dropdown details.nested-schema > summary:first-of-type{
+
+/* -- Dropdowns Anidados -- */
+details.sd-dropdown details.nested-schema > summary:first-of-type {
     list-style: inside disclosure-closed;
 }
-details.sd-dropdown details.nested-schema[open] > summary:first-of-type{
+
+details.sd-dropdown details.nested-schema[open] > summary:first-of-type {
     list-style: inside disclosure-open;
 }
 
-:root {
-    --sd-color-success: #FFDBB9;
-    --sd-color-success-text: #212529;
-}
-
+/* -- Menu Selection -- */
 .menuselection {
     border: 1px solid var(--color-guilabel-border);
     background: var(--color-guilabel-background);
@@ -67,6 +270,7 @@ details.sd-dropdown details.nested-schema[open] > summary:first-of-type{
     padding: 4px 6px;
 }
 
+/* -- Reactions (Feedback) -- */
 .reactions {
     margin: 3em auto 1em auto;
     padding: 0.5em 1.5em;
@@ -86,16 +290,17 @@ details.sd-dropdown details.nested-schema[open] > summary:first-of-type{
     margin: 0px 1em;
 }
 
+/* -- Widget de AI (Kapa) -- */
 #kapa-widget-container {
-  z-index: 10000 !important;
-  position: absolute !important;
+    z-index: 10000 !important;
+    position: absolute !important;
 }
 
 .mantine-Modal-root {
-  z-index: 10000;
-  position: absolute;
+    z-index: 10000;
+    position: absolute;
 }
 
 #custom-ask-ai-button {
-  text-align: left;
+    text-align: left;
 }
