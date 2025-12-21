@@ -224,6 +224,42 @@ a:focus, button:focus, input:focus {
     padding-bottom: 62px;
 }
 
+/* Deshabilitar ancho problemático de Furo en pantallas medianas */
+@media (max-width: 82em) {
+    .sidebar-drawer {
+        width: auto !important;
+    }
+}
+
+/* Deshabilitar ancho fijo del contenido principal */
+.content {
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+/* Ocultar botones de tema y TOC */
+.content-icon-container {
+    display: none !important;
+}
+
+/* Ocultar left-details completo del footer */
+.bottom-of-page .left-details {
+    display: none !important;
+}
+
+/* Mostrar copyright en right-details */
+.bottom-of-page .right-details {
+    /*text-align: right !important;*/
+    width: 100% !important;
+}
+
+/* Estilo para el footer personalizado IACT */
+.iact-custom-footer {
+    color: #888;
+    font-size: 0.9em;
+    padding: 1em 0;
+}
+
 /* -- Pantallas de Dispositivos -- */
 .device-screen-vertical {
     width: 365px;

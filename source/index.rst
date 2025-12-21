@@ -59,15 +59,6 @@ Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 
 
    gestion/index
 
-Información Adicional
-====================
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Referencia
-
-   glossary
-
 Índices y Búsqueda
 ==================
 

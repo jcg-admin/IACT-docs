@@ -28,9 +28,9 @@ Subdominios
    :maxdepth: 2
    :caption: Contenido Público
 
-   glosario/index
+   IACT_Glossary_v1_0_0
 
 .. note::
-   Este dominio contiene subdominios adicionales de carácter interno que fundamentan 
-   teóricamente el modelo documental IACT. El glosario es el único subdominio visible 
-   públicamente y proporciona el vocabulario oficial del proyecto.
+   Este dominio contiene subdominios adicionales de carácter interno que fundamentan
+   teóricamente el modelo documental IACT. El glosario proporciona el vocabulario
+   oficial del proyecto.

@@ -25,12 +25,12 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.ifconfig',
 
-    # Extensiones para documentar código Python (desactivadas temporalmente)
-    # 'sphinx.ext.autodoc',  # Documentación automática desde docstrings
-    # 'sphinx.ext.autosummary',  # Resúmenes automáticos de módulos
-    # 'sphinx.ext.viewcode',  # Enlaces al código fuente
-    # 'sphinx.ext.napoleon',  # Soporte para docstrings Google/NumPy style
-    # 'sphinx_autodoc_typehints',  # Type hints en la documentación
+    # Extensiones para documentar código Python
+    'sphinx.ext.autodoc',  # Documentación automática desde docstrings
+    'sphinx.ext.autosummary',  # Resúmenes automáticos de módulos
+    'sphinx.ext.viewcode',  # Enlaces al código fuente
+    'sphinx.ext.napoleon',  # Soporte para docstrings Google/NumPy style
+    'sphinx_autodoc_typehints',  # Type hints en la documentación
 
     # Extensiones de interactividad y diseño
     'sphinx_design',
@@ -40,11 +40,11 @@ extensions = [
     'notfound.extension',
     'myst_parser',
     'sphinx-prompt',
-    'sphinx_jinja2_compat',
+    'sphinx_jinja',
 
     # Nuevas extensiones
     'sphinxcontrib.spelling',  # Corrector ortográfico
-    'openapi',  # Documentación de APIs REST
+    # 'sphinxcontrib.openapi',  # Documentación de APIs REST (comentado hasta instalar)
 ]
 
 # -- Configuración de Autodoc --
@@ -86,11 +86,6 @@ master_doc = 'index'
 # Excluye carpetas de build y entornos virtuales
 exclude_patterns = [
     '_build',
-    '_metadata',
-    '_fundamentos_conceptuales',
-    '_ontologia_sbvr',
-    '_taxonomias_y_metamodelos',
-    '_metodologias_analiticas',
     'Thumbs.db',
     '.DS_Store',
     'venv',
