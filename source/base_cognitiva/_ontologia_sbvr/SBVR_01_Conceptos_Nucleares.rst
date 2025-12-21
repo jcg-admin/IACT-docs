@@ -1,473 +1,759 @@
 .. meta::
    :artefacto: SBVR_01
-   :tipo: Ontologia
+   :tipo: Ontologia SBVR
    :dominio: base_cognitiva
    :subdominio: _ontologia_sbvr
    :estado: Aprobado
    :version: 1.0.0
    :fecha_creacion: 2025-12-18
-   :ultimo_cambio: 2025-12-18
-   :autor: Business Analyst Lead
+   :ultimo_cambio: 2025-12-20
+   :autor: Equipo IACT
    :clasificacion: Interno
 
-.. _sbvr_01_conceptos_nucleares:
+.. _sbvr-01:
 
-==========================================================
-SBVR_01 · Conceptos Nucleares
-==========================================================
+==============================================================================
+SBVR_01: Conceptos Nucleares
+==============================================================================
 
 .. contents:: Contenido
    :local:
    :depth: 2
 
-------------------------------------------------------------
-1. Propósito
-------------------------------------------------------------
+----
 
-Este documento define los conceptos fundamentales del dominio IACT utilizando
-la notación SBVR (Semantics of Business Vocabulary and Business Rules).
-Constituye el vocabulario base para toda regla de negocio del sistema.
+Proposito
+---------
 
-------------------------------------------------------------
-2. Notación SBVR Utilizada
-------------------------------------------------------------
+Este documento define los **conceptos nucleares** (sustantivos) del dominio
+IACT siguiendo el estandar SBVR. Estos conceptos forman el vocabulario base
+sobre el cual se construyen todas las reglas de negocio.
 
-Cada concepto se documenta con la siguiente estructura:
+.. note::
 
-- **Término:** Nombre del concepto (sustantivo o frase nominal)
-- **Definición:** Significado preciso en el contexto IACT
-- **Sinónimos:** Términos alternativos aceptados
-- **Tipo:** Clasificación (Entidad, Actor, Objeto, Evento, Estado)
-- **Relaciones:** Conexiones con otros conceptos (fact types)
+   **Notacion SBVR:**
 
-Convenciones tipográficas:
+   - **Conceptos** (sustantivos) se muestran subrayados: Usuario
+   - **Definiciones** se expresan en lenguaje controlado
+   - **Sinonimos** se listan como terminos alternativos aceptados
 
-- ``término`` — concepto definido en este vocabulario
-- *cursiva* — término técnico externo
-- **negrita** — énfasis
+----
 
-------------------------------------------------------------
-3. Conceptos de Actores
-------------------------------------------------------------
+1. Categorias de Conceptos
+--------------------------
 
-3.1. Usuario
-^^^^^^^^^^^^
+Los conceptos del dominio IACT se organizan en 5 categorias:
 
 .. list-table::
+   :header-rows: 1
    :widths: 25 75
-   :header-rows: 0
 
-   * - **Término**
-     - Usuario
-   * - **Definición**
-     - Persona autenticada que interactúa con el ``Sistema IACT`` a través
-       de una interfaz de usuario. Cada Usuario tiene uno o más ``Rol Funcional``,
-       un ``Perfil`` y pertenece a un ``Segmento de Datos``.
-   * - **Sinónimos**
-     - Usuario del Sistema
-   * - **Tipo**
-     - Actor
-   * - **Relaciones**
-     - | ``Usuario`` tiene uno o más ``Rol Funcional``
-       | ``Usuario`` tiene ``Perfil``
-       | ``Usuario`` pertenece a ``Segmento de Datos``
-       | ``Usuario`` inicia ``Sesión``
+   * - Categoria
+     - Descripcion
+   * - Actores
+     - Entidades que interactuan con el sistema
+   * - Seguridad
+     - Elementos del modelo de control de acceso
+   * - Dominio IVR
+     - Objetos del negocio de analitica de llamadas
+   * - Analitica
+     - Elementos de reporteria y visualizacion
+   * - Sistema
+     - Componentes tecnicos del sistema
 
-3.2. Cliente
-^^^^^^^^^^^^
+----
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+2. Categoria: Actores
+---------------------
 
-   * - **Término**
-     - Cliente
-   * - **Definición**
-     - Persona externa que interactúa con el ``Sistema IVR`` del cual IACT
-       recolecta y analiza datos. No interactúa directamente con el Sistema IACT.
-   * - **Sinónimos**
-     - Llamante, Cliente Final
-   * - **Tipo**
-     - Actor Externo
-   * - **Relaciones**
-     - | ``Cliente`` realiza ``Llamada``
-       | ``Cliente`` interactúa con ``Menú IVR``
-       | ``Cliente`` genera ``Evento IVR``
-
-------------------------------------------------------------
-4. Conceptos RBAC
-------------------------------------------------------------
-
-4.1. Rol Funcional
-^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
-
-   * - **Término**
-     - Rol Funcional
-   * - **Definición**
-     - Conjunto nombrado de permisos que representa una capacidad técnica
-       del sistema. Un ``Usuario`` puede tener múltiples roles funcionales
-       simultáneamente. Los permisos se acumulan (operación UNION).
-   * - **Sinónimos**
-     - Rol, Rol RBAC
-   * - **Tipo**
-     - Objeto
-   * - **Nota**
-     - El sistema define 18 roles funcionales organizados en 6 categorías:
-       Gestión de Usuarios, Reportes, Visualización, Análisis, Alertas,
-       Administración.
-   * - **Relaciones**
-     - | ``Rol Funcional`` otorga ``Permiso``
-       | ``Usuario`` tiene ``Rol Funcional``
-
-4.2. Perfil
+2.1 Usuario
 ^^^^^^^^^^^
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+.. code-block:: text
 
-   * - **Término**
-     - Perfil
-   * - **Definición**
-     - Configuración predefinida que determina módulos disponibles y límites
-       operativos para un ``Usuario``. Existen 4 perfiles base: BÁSICO,
-       ANALISTA, ADMINISTRADOR_SEGMENTO, ADMINISTRADOR.
-   * - **Sinónimos**
-     - Perfil de Usuario, Perfil de Módulos
-   * - **Tipo**
-     - Objeto
-   * - **Relaciones**
-     - | ``Usuario`` tiene ``Perfil``
-       | ``Perfil`` habilita ``Módulo``
-       | ``Perfil`` define límites operativos
+   CONCEPTO: Usuario
 
-4.3. Segmento de Datos
-^^^^^^^^^^^^^^^^^^^^^^
+   DEFINICION:
+   Persona que tiene una cuenta activa en el sistema IACT y puede
+   autenticarse para acceder a funcionalidades segun sus roles asignados.
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   SINONIMOS:
+   - Operador (contexto operacional)
+   - Cuenta (contexto tecnico)
 
-   * - **Término**
-     - Segmento de Datos
-   * - **Definición**
-     - Partición lógica de datos que restringe el alcance de información
-       visible para un ``Usuario``. Cada usuario pertenece a exactamente
-       un segmento.
-   * - **Sinónimos**
-     - Segmento, Data Segment
-   * - **Tipo**
-     - Objeto
-   * - **Valores**
-     - | OP: DATOS_OPERATIVOS (operación del IVR)
-       | FI: DATOS_FINANCIEROS (costos y facturación)
-       | TE: DATOS_TECNICOS (infraestructura y rendimiento)
-       | SU: DATOS_SUPERVISION (supervisión y control)
-       | CA: DATOS_CALIDAD (métricas de calidad)
-       | GE: DATOS_CONSOLIDADOS (datos agregados)
-   * - **Relaciones**
-     - | ``Usuario`` pertenece a ``Segmento de Datos``
-       | ``Segmento de Datos`` filtra ``Métrica``
-       | ``Segmento de Datos`` filtra ``Reporte``
+   CARACTERISTICAS:
+   - Tiene exactamente un username (unico)
+   - Tiene exactamente un email (unico)
+   - Tiene exactamente un estado (ACTIVO | INACTIVO | BLOQUEADO)
+   - Pertenece a exactamente un segmento de datos
+   - Puede tener uno o mas roles
 
-4.4. Permiso
-^^^^^^^^^^^^
+   REPRESENTACION BD:
+   Tabla: users
+   PK: user_id
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
-
-   * - **Término**
-     - Permiso
-   * - **Definición**
-     - Autorización atómica para ejecutar una acción específica en el sistema.
-       Los permisos se asignan a través de ``Rol Funcional`` o directamente
-       al ``Usuario`` (con fecha de expiración).
-   * - **Sinónimos**
-     - Permission, Autorización
-   * - **Tipo**
-     - Objeto
-   * - **Formato**
-     - ``recurso.accion[.modificador]`` (ej: reports.view.basic)
-   * - **Relaciones**
-     - | ``Rol Funcional`` otorga ``Permiso``
-       | ``Permiso`` autoriza acción sobre recurso
-
-------------------------------------------------------------
-5. Conceptos del Sistema
-------------------------------------------------------------
-
-5.1. Sistema IACT
+2.2 Administrador
 ^^^^^^^^^^^^^^^^^
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+.. code-block:: text
 
-   * - **Término**
-     - Sistema IACT
-   * - **Definición**
-     - Plataforma de software que captura, procesa y presenta métricas
-       de interacción entre ``Cliente`` y sistemas IVR.
-   * - **Sinónimos**
-     - IACT, Sistema, Plataforma IACT
-   * - **Tipo**
-     - Sistema
-   * - **Relaciones**
-     - | ``Sistema IACT`` recibe ``Evento IVR``
-       | ``Sistema IACT`` almacena ``Métrica``
-       | ``Sistema IACT`` presenta ``Dashboard``
+   CONCEPTO: Administrador
 
-5.2. Sistema IVR
-^^^^^^^^^^^^^^^^
+   DEFINICION:
+   Usuario que tiene asignado al menos uno de los roles de administracion
+   (R001, R015, R016, R017, R018).
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   SINONIMOS:
+   - Admin
+   - Usuario privilegiado
 
-   * - **Término**
-     - Sistema IVR
-   * - **Definición**
-     - Sistema externo de respuesta de voz interactiva que atiende
-       llamadas de ``Cliente`` y genera eventos capturados por IACT.
-   * - **Sinónimos**
-     - IVR, Plataforma IVR, Sistema de Voz
-   * - **Tipo**
-     - Sistema Externo
-   * - **Relaciones**
-     - | ``Sistema IVR`` recibe ``Llamada``
-       | ``Sistema IVR`` genera ``Evento IVR``
-       | ``Sistema IVR`` contiene ``Menú IVR``
+   NOTA:
+   Es un concepto derivado (subtipo de Usuario), no una entidad separada.
+   Se infiere por los roles asignados.
 
-------------------------------------------------------------
-6. Conceptos de Negocio
-------------------------------------------------------------
+2.3 Sistema Externo
+^^^^^^^^^^^^^^^^^^^
 
-6.1. Llamada
-^^^^^^^^^^^^
+.. code-block:: text
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   CONCEPTO: Sistema Externo
 
-   * - **Término**
-     - Llamada
-   * - **Definición**
-     - Interacción telefónica iniciada por un ``Cliente`` hacia el
-       ``Sistema IVR``, con inicio y fin definidos.
-   * - **Sinónimos**
-     - Llamada Telefónica, Interacción
-   * - **Tipo**
-     - Evento
-   * - **Relaciones**
-     - | ``Llamada`` es iniciada por ``Cliente``
-       | ``Llamada`` es atendida por ``Sistema IVR``
-       | ``Llamada`` tiene ``Duración``
-       | ``Llamada`` genera múltiples ``Evento IVR``
+   DEFINICION:
+   Componente de software fuera del perimetro de IACT que interactua
+   con el sistema mediante interfaces definidas.
 
-6.2. Evento IVR
-^^^^^^^^^^^^^^^
+   INSTANCIAS CONOCIDAS:
+   - Sistema IVR (fuente de datos MySQL)
+   - Proceso ETL (sincronizacion nocturna)
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   NOTA:
+   Los sistemas externos actuan como actores en ciertos casos de uso
+   pero no tienen cuenta de usuario.
 
-   * - **Término**
-     - Evento IVR
-   * - **Definición**
-     - Acción discreta ocurrida durante una ``Llamada``, registrada con
-       timestamp y atributos específicos.
-   * - **Sinónimos**
-     - Evento, Acción IVR
-   * - **Tipo**
-     - Evento
-   * - **Relaciones**
-     - | ``Evento IVR`` pertenece a ``Llamada``
-       | ``Evento IVR`` tiene ``Tipo de Evento``
-       | ``Evento IVR`` tiene ``Timestamp``
-       | ``Evento IVR`` genera ``Métrica``
+----
 
-6.3. Menú IVR
-^^^^^^^^^^^^^
+3. Categoria: Seguridad
+-----------------------
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+3.1 Rol
+^^^^^^^
 
-   * - **Término**
-     - Menú IVR
-   * - **Definición**
-     - Nodo de navegación en el ``Sistema IVR`` que presenta opciones
-       al ``Cliente`` y captura su selección.
-   * - **Sinónimos**
-     - Menú, Opción IVR, Nodo IVR
-   * - **Tipo**
-     - Objeto
-   * - **Relaciones**
-     - | ``Menú IVR`` pertenece a ``Sistema IVR``
-       | ``Menú IVR`` tiene ``Opciones``
-       | ``Cliente`` navega ``Menú IVR``
+.. code-block:: text
 
-6.4. Métrica
-^^^^^^^^^^^^
+   CONCEPTO: Rol
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   DEFINICION:
+   Conjunto nombrado de permisos que representa una funcion tecnica
+   dentro del sistema IACT.
 
-   * - **Término**
-     - Métrica
-   * - **Definición**
-     - Valor cuantitativo derivado de uno o más ``Evento IVR``,
-       calculado y almacenado para análisis.
-   * - **Sinónimos**
-     - Indicador, KPI, Medición
-   * - **Tipo**
-     - Objeto
-   * - **Relaciones**
-     - | ``Métrica`` se deriva de ``Evento IVR``
-       | ``Métrica`` se presenta en ``Dashboard``
-       | ``Métrica`` se incluye en ``Reporte``
+   SINONIMOS:
+   - Rol funcional
+   - Perfil de acceso
 
-------------------------------------------------------------
-7. Conceptos de Presentación
-------------------------------------------------------------
+   CARACTERISTICAS:
+   - Tiene exactamente un codigo (R001-R018)
+   - Tiene exactamente un nombre descriptivo
+   - Tiene uno o mas permisos asociados
+   - Es independiente (sin herencia de otros roles)
 
-7.1. Dashboard
-^^^^^^^^^^^^^^
+   CATALOGO:
+   El sistema define exactamente 18 roles funcionales:
 
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
+   +-------+-------------------------+----------------------+
+   | Codigo| Nombre                  | Categoria            |
+   +-------+-------------------------+----------------------+
+   | R001  | USERS_FULL_MANAGER      | Gestion de Usuarios  |
+   | R002  | USERS_VIEWER            | Gestion de Usuarios  |
+   | R003  | USERS_TEAM_MANAGER      | Gestion de Usuarios  |
+   | R004  | REPORTS_VIEWER          | Reportes             |
+   | R005  | REPORTS_EXPORTER        | Reportes             |
+   | R006  | REPORTS_ADVANCED_VIEWER | Reportes             |
+   | R007  | REPORTS_CREATOR         | Reportes             |
+   | R008  | DASHBOARD_VIEWER        | Visualizacion        |
+   | R009  | DASHBOARD_CUSTOMIZER    | Visualizacion        |
+   | R010  | DATA_ANALYST            | Analisis             |
+   | R011  | ALERTS_VIEWER           | Alertas              |
+   | R012  | ALERTS_CONFIGURATOR     | Alertas              |
+   | R013  | ALERTS_TEAM_MANAGER     | Alertas              |
+   | R014  | ALERTS_GLOBAL_ADMIN     | Alertas              |
+   | R015  | MODULES_ADMIN           | Administracion       |
+   | R016  | SYSTEM_ADMIN            | Administracion       |
+   | R017  | AUDIT_VIEWER            | Administracion       |
+   | R018  | SECURITY_ADMIN          | Administracion       |
+   +-------+-------------------------+----------------------+
 
-   * - **Término**
-     - Dashboard
-   * - **Definición**
-     - Interfaz visual que presenta ``Métrica`` de forma agregada
-       y actualizada, permitiendo monitoreo en tiempo real.
-   * - **Sinónimos**
-     - Tablero, Panel de Control
-   * - **Tipo**
-     - Objeto
-   * - **Relaciones**
-     - | ``Dashboard`` muestra ``Métrica``
-       | ``Usuario`` visualiza ``Dashboard``
-       | ``Dashboard`` contiene ``Widget``
+   REPRESENTACION BD:
+   Tabla: roles
+   PK: role_id
 
-7.2. Reporte
-^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 25 75
-   :header-rows: 0
-
-   * - **Término**
-     - Reporte
-   * - **Definición**
-     - Documento generado bajo demanda que presenta ``Métrica``
-       para un período y criterios específicos.
-   * - **Sinónimos**
-     - Informe, Report
-   * - **Tipo**
-     - Objeto
-   * - **Relaciones**
-     - | ``Reporte`` contiene ``Métrica``
-       | ``Usuario`` genera ``Reporte``
-       | ``Reporte`` tiene ``Formato`` (PDF, Excel, CSV)
-
-------------------------------------------------------------
-8. Conceptos de Seguridad
-------------------------------------------------------------
-
-8.1. Sesión
+3.2 Permiso
 ^^^^^^^^^^^
 
+.. code-block:: text
+
+   CONCEPTO: Permiso
+
+   DEFINICION:
+   Autorizacion atomica para ejecutar una accion especifica sobre
+   un recurso del sistema.
+
+   SINONIMOS:
+   - Privilegio
+   - Capacidad
+
+   FORMATO:
+   {recurso}.{accion}[.{modificador}]
+
+   EJEMPLOS:
+   - users.create
+   - reports.view
+   - reports.export.csv
+   - audit.logs.view
+
+   CARACTERISTICAS:
+   - Es atomico (una sola accion)
+   - Pertenece a uno o mas roles
+   - Puede asignarse directamente a usuario (temporal)
+
+   REPRESENTACION BD:
+   Tabla: permissions
+   PK: permission_id
+
+3.3 Sesion
+^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Sesion
+
+   DEFINICION:
+   Periodo de tiempo durante el cual un usuario autenticado mantiene
+   acceso activo al sistema.
+
+   SINONIMOS:
+   - Session
+   - Conexion activa
+
+   CARACTERISTICAS:
+   - Pertenece a exactamente un usuario
+   - Tiene exactamente un estado (ACTIVE | EXPIRED | CLOSED)
+   - Tiene fecha/hora de inicio
+   - Tiene fecha/hora de ultima actividad
+   - Es unica por usuario (sesion unica)
+
+   RESTRICCION:
+   Un usuario puede tener como maximo una sesion activa en cualquier
+   momento (politica de sesion unica).
+
+   REPRESENTACION BD:
+   Tabla: sessions
+   PK: session_id
+
+3.4 Segmento de Datos
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Segmento de Datos
+
+   DEFINICION:
+   Particion logica de los datos del sistema que determina el alcance
+   de visibilidad de un usuario.
+
+   SINONIMOS:
+   - Segmento
+   - Ambito de datos
+   - Data scope
+
+   INSTANCIAS CONOCIDAS:
+   - DATOS_CONSOLIDADOS (ve todos los centros)
+   - CENTRO_NORTE (ve solo centro norte)
+   - CENTRO_SUR (ve solo centro sur)
+   - CENTRO_ORIENTE (ve solo centro oriente)
+
+   CARACTERISTICAS:
+   - Usuario pertenece a exactamente un segmento
+   - Segmento filtra automaticamente los datos visibles
+
+   REPRESENTACION BD:
+   Tabla: data_segments
+   PK: segment_id
+
+3.5 Registro de Auditoria
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Registro de Auditoria
+
+   DEFINICION:
+   Entrada inmutable que documenta una accion ejecutada en el sistema,
+   incluyendo quien, cuando, que y resultado.
+
+   SINONIMOS:
+   - Log de auditoria
+   - Audit log
+   - Evento de auditoria
+
+   CARACTERISTICAS:
+   - Es inmutable (no se puede modificar ni eliminar)
+   - Registra: usuario, timestamp, accion, resultado, IP
+   - Tiene nivel de severidad (INFO, WARNING, CRITICAL)
+
+   REPRESENTACION BD:
+   Tabla: audit_logs
+   PK: log_id (BIGINT AUTO_INCREMENT)
+
+----
+
+4. Categoria: Dominio IVR
+-------------------------
+
+4.1 Llamada
+^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Llamada
+
+   DEFINICION:
+   Interaccion telefonica registrada en el sistema IVR que representa
+   un contacto de cliente con el centro de atencion.
+
+   SINONIMOS:
+   - Call
+   - Contacto telefonico
+   - Interaccion IVR
+
+   CARACTERISTICAS:
+   - Tiene fecha y hora de inicio
+   - Tiene duracion en segundos
+   - Origina en exactamente un centro
+   - Tiene un resultado (completada, abandonada, transferida)
+   - Tiene una navegacion de menu (opciones seleccionadas)
+
+   ORIGEN:
+   Datos provienen del sistema IVR (MySQL, solo lectura)
+
+   REPRESENTACION BD (origen):
+   Tabla: tbl_llamadas (MySQL IVR - READ ONLY)
+
+4.2 Centro
+^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Centro
+
+   DEFINICION:
+   Ubicacion fisica o logica donde se reciben y procesan las llamadas
+   del sistema IVR.
+
+   SINONIMOS:
+   - Centro de atencion
+   - Centro de llamadas
+   - Call center
+   - Centro de transferencia
+
+   CARACTERISTICAS:
+   - Tiene un codigo unico
+   - Tiene un nombre descriptivo
+   - Tiene una ubicacion geografica
+   - Puede recibir transferencias de otros centros
+
+   REPRESENTACION BD:
+   Tabla: centros
+   PK: centro_id
+
+4.3 Menu IVR
+^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Menu IVR
+
+   DEFINICION:
+   Estructura jerarquica de opciones que el sistema IVR presenta
+   al llamante para navegar hacia el servicio deseado.
+
+   SINONIMOS:
+   - Arbol IVR
+   - Estructura de navegacion
+   - Menu de opciones
+
+   CARACTERISTICAS:
+   - Tiene multiples niveles (jerarquia)
+   - Cada opcion tiene un codigo numerico (1-9, 0)
+   - Cada opcion lleva a otro menu o a un destino final
+
+   EJEMPLO:
+   1 -> Consulta de saldo
+   2 -> Pagos
+     2.1 -> Pago con tarjeta
+     2.2 -> Pago en efectivo
+   3 -> Hablar con ejecutivo
+
+4.4 Transferencia
+^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Transferencia
+
+   DEFINICION:
+   Accion de redirigir una llamada desde un centro o punto de atencion
+   hacia otro destino dentro del sistema IVR.
+
+   SINONIMOS:
+   - Transfer
+   - Redireccion
+
+   CARACTERISTICAS:
+   - Tiene un origen (centro o menu)
+   - Tiene un destino (centro o agente)
+   - Tiene una razon (seleccion usuario, regla automatica)
+   - Tiene un timestamp
+
+----
+
+5. Categoria: Analitica
+-----------------------
+
+5.1 Reporte
+^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Reporte
+
+   DEFINICION:
+   Documento estructurado que presenta datos agregados y metricas
+   del sistema IVR para un periodo y criterios especificos.
+
+   SINONIMOS:
+   - Informe
+   - Report
+
+   TIPOS:
+   - Reporte Trimestral de Llamadas
+   - Reporte de Transferencias por Centro
+   - Reporte de Problemas de Menu
+
+   CARACTERISTICAS:
+   - Tiene un tipo (predefinido)
+   - Tiene un rango de fechas
+   - Tiene filtros aplicados (centro, servicio)
+   - Puede exportarse a CSV, Excel, PDF
+
+   REPRESENTACION BD:
+   Tabla: tbl_reporte_llamadas_dia (precalculado)
+
+5.2 Dashboard
+^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Dashboard
+
+   DEFINICION:
+   Interfaz visual que presenta metricas y graficos en tiempo real
+   o casi-real sobre el comportamiento del sistema IVR.
+
+   SINONIMOS:
+   - Tablero
+   - Panel de control
+   - Vista ejecutiva
+
+   COMPONENTES:
+   - Tarjetas de metricas (KPIs)
+   - Graficos de lineas (tendencias)
+   - Graficos de barras (comparaciones)
+   - Graficos de torta (distribuciones)
+
+   CARACTERISTICAS:
+   - Puede personalizarse (usuarios con R009)
+   - Se actualiza periodicamente
+   - Respeta segmento de datos del usuario
+
+5.3 Metrica
+^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Metrica
+
+   DEFINICION:
+   Valor numerico calculado que representa una medida de desempeno
+   o comportamiento del sistema IVR.
+
+   SINONIMOS:
+   - KPI (Key Performance Indicator)
+   - Indicador
+   - Medida
+
+   EJEMPLOS:
+   - Total de llamadas (por periodo)
+   - Tiempo promedio de espera
+   - Tasa de abandono
+   - Llamadas por hora
+   - Transferencias por centro
+
+   CARACTERISTICAS:
+   - Tiene un nombre
+   - Tiene una formula de calculo
+   - Tiene una unidad de medida
+   - Tiene un periodo de agregacion
+
+5.4 Alerta
+^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Alerta
+
+   DEFINICION:
+   Notificacion automatica que se genera cuando una metrica supera
+   un umbral configurado.
+
+   SINONIMOS:
+   - Alarma
+   - Notificacion de umbral
+   - Warning
+
+   CARACTERISTICAS:
+   - Monitorea exactamente una metrica
+   - Tiene un umbral (valor limite)
+   - Tiene un operador de comparacion (>, <, =, >=, <=)
+   - Tiene uno o mas destinatarios
+   - Tiene un estado (ACTIVA | INACTIVA)
+
+   REPRESENTACION BD:
+   Tabla: alertas
+   PK: alerta_id
+
+----
+
+6. Categoria: Sistema
+---------------------
+
+6.1 Modulo
+^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Modulo
+
+   DEFINICION:
+   Componente funcional del sistema IACT que agrupa funcionalidades
+   relacionadas y puede asignarse a usuarios.
+
+   SINONIMOS:
+   - Funcionalidad
+   - Componente
+   - Feature
+
+   MODULOS IDENTIFICADOS:
+   - Gestion de Usuarios
+   - Reportes
+   - Dashboard
+   - Alertas
+   - Auditoria
+   - Administracion del Sistema
+
+   CARACTERISTICAS:
+   - Tiene un codigo unico
+   - Tiene permisos asociados
+   - Puede habilitarse/deshabilitarse por usuario
+
+6.2 Mensaje Interno
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Mensaje Interno
+
+   DEFINICION:
+   Comunicacion dentro del sistema IACT entre usuarios o desde
+   el sistema hacia usuarios, sin uso de correo electronico externo.
+
+   SINONIMOS:
+   - Notificacion interna
+   - Internal message
+   - Buzon interno
+
+   CARACTERISTICAS:
+   - Tiene un remitente (usuario o SISTEMA)
+   - Tiene uno o mas destinatarios
+   - Tiene asunto y cuerpo
+   - Tiene tipo (info, warning, alert)
+   - Tiene estado de lectura
+
+   RESTRICCION:
+   El sistema IACT NO envia correos electronicos externos.
+   Toda comunicacion es via mensajes internos (CNST_001).
+
+   REPRESENTACION BD:
+   Tabla: internal_messages
+   PK: message_id
+
+6.3 Job ETL
+^^^^^^^^^^^
+
+.. code-block:: text
+
+   CONCEPTO: Job ETL
+
+   DEFINICION:
+   Proceso programado que extrae datos del sistema IVR (MySQL),
+   los transforma y los carga en la base de datos IACT (PostgreSQL).
+
+   SINONIMOS:
+   - Proceso ETL
+   - Sincronizacion
+   - Stored procedure de actualizacion
+
+   CARACTERISTICAS:
+   - Se ejecuta diariamente a las 00:00 (medianoche)
+   - Es unidireccional (IVR -> IACT)
+   - Solo lectura en origen (MySQL)
+   - Escritura en destino (PostgreSQL)
+
+   INSTANCIA PRINCIPAL:
+   sp_actualizar_reportes_iact
+
+   REPRESENTACION BD:
+   Tabla: etl_jobs (configuracion)
+   Tabla: etl_logs (ejecuciones)
+
+----
+
+7. Relaciones entre Conceptos
+-----------------------------
+
+Vista general de como se relacionan los conceptos nucleares:
+
+.. code-block:: text
+
+   Usuario
+       |
+       +--- tiene ---> Rol (1:N)
+       |
+       +--- pertenece_a ---> Segmento de Datos (N:1)
+       |
+       +--- inicia ---> Sesion (1:1 activa)
+       |
+       +--- genera ---> Registro de Auditoria (1:N)
+       |
+       +--- recibe ---> Mensaje Interno (1:N)
+
+   Rol
+       |
+       +--- contiene ---> Permiso (1:N)
+
+   Llamada
+       |
+       +--- origina_en ---> Centro (N:1)
+       |
+       +--- navega ---> Menu IVR (N:N)
+       |
+       +--- genera ---> Transferencia (1:N)
+
+   Reporte
+       |
+       +--- contiene ---> Metrica (1:N)
+
+   Alerta
+       |
+       +--- monitorea ---> Metrica (N:1)
+       |
+       +--- notifica_a ---> Usuario (N:N)
+
+   Dashboard
+       |
+       +--- visualiza ---> Metrica (1:N)
+       |
+       +--- visualiza ---> Reporte (1:N)
+
+.. note::
+
+   Las relaciones detalladas se documentan en :ref:`sbvr-02` (Fact Types).
+
+----
+
+8. Glosario Rapido
+------------------
+
 .. list-table::
+   :header-rows: 1
    :widths: 25 75
-   :header-rows: 0
 
-   * - **Término**
-     - Sesión
-   * - **Definición**
-     - Período de interacción autenticada de un ``Usuario`` con el
-       ``Sistema IACT``, delimitado por login y logout.
-   * - **Sinónimos**
-     - Sesión de Usuario
-   * - **Tipo**
-     - Evento
-   * - **Relaciones**
-     - | ``Usuario`` inicia ``Sesión``
-       | ``Sesión`` tiene ``Duración``
-       | ``Sesión`` registra ``Acción de Usuario``
+   * - Concepto
+     - Definicion Corta
+   * - Usuario
+     - Persona con cuenta en IACT
+   * - Rol
+     - Conjunto de permisos (18 definidos)
+   * - Permiso
+     - Autorizacion atomica para una accion
+   * - Sesion
+     - Periodo de acceso activo
+   * - Segmento
+     - Particion de datos visible
+   * - Llamada
+     - Interaccion telefonica IVR
+   * - Centro
+     - Ubicacion de atencion
+   * - Reporte
+     - Documento con datos agregados
+   * - Dashboard
+     - Panel visual de metricas
+   * - Metrica
+     - Valor numerico de desempeno
+   * - Alerta
+     - Notificacion por umbral
+   * - Mensaje Interno
+     - Comunicacion dentro del sistema
 
-------------------------------------------------------------
-9. Diagrama de Relaciones
-------------------------------------------------------------
+----
 
-::
+9. Referencias
+--------------
 
-   ┌─────────────┐         ┌─────────────┐
-   │   Cliente   │────────▶│   Llamada   │
-   └─────────────┘ realiza └──────┬──────┘
-                                  │ genera
-                                  ▼
-   ┌─────────────┐         ┌─────────────┐
-   │ Sistema IVR │◀────────│  Evento IVR │
-   └─────────────┘ origina └──────┬──────┘
-                                  │ deriva
-                                  ▼
-   ┌─────────────┐         ┌─────────────┐
-   │   Usuario   │────────▶│   Métrica   │
-   └──────┬──────┘ analiza └──────┬──────┘
-          │                       │ presenta
-          │ visualiza             ▼
-          │                ┌─────────────┐
-          └───────────────▶│  Dashboard  │
-                           └─────────────┘
+Documentos Relacionados
+^^^^^^^^^^^^^^^^^^^^^^^
 
-------------------------------------------------------------
-10. Referencias
-------------------------------------------------------------
+- :ref:`sbvr-02` - Fact Types (relaciones entre conceptos)
+- :ref:`sbvr-03` - Reglas Estructurales (aleticas)
+- :ref:`sbvr-04` - Reglas Operativas (deonticas)
+- :ref:`fnd-02` - Reglas de Negocio (fundamentos)
 
-.. list-table::
-   :widths: 30 70
-   :header-rows: 1
+Fuentes
+^^^^^^^
 
-   * - Documento
-     - Referencia
-   * - Tipos de Regla de Negocio
-     - :doc:`SBVR_02_Tipos_Regla_Negocio`
-   * - Vocabulario Controlado
-     - :doc:`SBVR_03_Vocabulario_Controlado`
-   * - Modelo RBAC
-     - Modelo_RBAC_Completo_Sistema_IACT_v_0_0_1
-   * - Glosario IACT
-     - :doc:`/base_cognitiva/glosario/IACT_Glossary_v1_0_0`
-   * - Especificación SBVR
-     - SBVR 1.5 (OMG, 2019)
+- Modelo_RBAC_Completo_-_Sistema_IACT_-_v_0_0_1.md
+- OMG SBVR 1.5 Specification
+- Paper IBM: "SBVR Use Cases" (Linehan, 2008)
 
-------------------------------------------------------------
+----
+
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
-   :widths: 15 15 20 50
    :header-rows: 1
+   :widths: 15 15 20 50
 
-   * - Versión
+   * - Version
      - Fecha
      - Autor
      - Cambios
    * - 1.0.0
-     - 2025-12-18
-     - BA Lead
-     - Versión inicial con conceptos nucleares del dominio IACT
+     - 2025-12-20
+     - Equipo IACT
+     - Version inicial con 5 categorias y 17 conceptos
 
 ----
 
-**Trazabilidad:** Vocabulario base para toda regla de negocio en
-requisitos/reglas_negocio/. Ver :doc:`/trazabilidad/matrices/RTM_Master`.
+**Trazabilidad:** Este artefacto define el vocabulario base (sustantivos)
+del dominio IACT. Es prerequisito para SBVR_02 (Fact Types) y referenciado
+por todas las Business Rules en requisitos/reglas_negocio/.
