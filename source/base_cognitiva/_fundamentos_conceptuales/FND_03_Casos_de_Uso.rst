@@ -4,9 +4,9 @@
    :dominio: base_cognitiva
    :subdominio: _fundamentos_conceptuales
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2025-12-19
-   :ultimo_cambio: 2025-12-19
+   :ultimo_cambio: 2025-12-21
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -382,10 +382,19 @@ Las excepciones son situaciones de ERROR que impiden completar el UC.
 5. Tecnicas de Identificacion de UC
 -----------------------------------
 
-Existen tres tecnicas complementarias para identificar Casos de Uso:
+Existen **cuatro tecnicas complementarias** para identificar Casos de Uso.
 
-5.1 Tecnica 1: Derivacion desde Business Rules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. important::
+
+   **GAP Fundamental BR vs Sistema Completo:**
+
+   Las Business Rules solo generan aproximadamente el **22%** de los UC totales.
+   El **78% restante** debe identificarse mediante tecnicas complementarias.
+
+   Sin estas tecnicas adicionales, el sistema quedaria **78% incompleto**.
+
+5.1 Tecnica 1: Derivacion desde Business Rules (22%)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Las Business Rules de tipo **Desencadenador (Trigger)** generan UC directamente.
 
@@ -397,26 +406,58 @@ Las Business Rules de tipo **Desencadenador (Trigger)** generan UC directamente.
        v
    UC-007: Notificar Vencimiento Proximo
 
-   Cobertura: ~38% de los UC
+   PORCENTAJE: 22% de los UC totales
+   OUTPUT TIPICO: 10 UC en proyecto mediano
 
-5.2 Tecnica 2: Analisis CRUD
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   NATURALEZA: Deductiva (BR explicita -> UC)
 
-Para cada entidad del dominio, considerar operaciones basicas.
+5.2 Tecnica 2: Analisis CRUD (40%)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para cada entidad del dominio, considerar operaciones basicas segun su clasificacion.
+
+**Clasificacion de Entidades:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 35 40
+
+   * - Tipo Entidad
+     - UC Generados
+     - Ejemplo
+   * - **Maestro**
+     - CRUD completo (6 UC)
+     - Usuario, Producto, Centro
+   * - **Transaccional**
+     - C + R solamente (3 UC)
+     - Llamada, Auditoria, Sesion
+   * - **Tecnica**
+     - Sin UC directos
+     - ConfiguracionSistema, Log
 
 .. code-block:: text
 
-   ENTIDAD: Producto
+   ENTIDAD MAESTRA: Usuario
        |
-       +---> UC-040: Registrar Nuevo Producto (Create)
-       +---> UC-041: Consultar Producto (Read)
-       +---> UC-042: Modificar Producto (Update)
-       +---> UC-043: Eliminar Producto (Delete)
+       +---> UC-006: Crear Usuario (Create)
+       +---> UC-009: Listar Usuarios (Read - lista)
+       +---> UC-xxx: Ver Detalle Usuario (Read - detalle)
+       +---> UC-007: Modificar Usuario (Update)
+       +---> UC-008: Eliminar Usuario (Delete logico)
+       +---> UC-xxx: Buscar Usuario (Search)
 
-   Cobertura: ~40% de los UC
+   ENTIDAD TRANSACCIONAL: Llamada
+       |
+       +---> (sin Create - viene de IVR)
+       +---> UC-017: Consultar Llamadas (Read)
+       +---> UC-xxx: Ver Detalle Llamada (Read)
+       +---> (sin Update/Delete - inmutable)
 
-5.3 Tecnica 3: Eventos del Sistema (Larman)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   PORCENTAJE: 40% de los UC totales
+   OUTPUT TIPICO: 15-20 UC en proyecto mediano
+
+5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Identificar eventos externos que requieren respuesta del sistema.
 
@@ -425,51 +466,126 @@ Identificar eventos externos que requieren respuesta del sistema.
 Un evento del sistema es una ocurrencia externa, detectable por el sistema,
 que requiere una respuesta.
 
-**Caracteristicas de un evento valido:**
+**4 Caracteristicas Obligatorias de un Evento Valido:**
 
 .. code-block:: text
 
-   1. EXTERNO:     Originado fuera del sistema
-   2. DETECTABLE:  Sistema puede "sentir" que ocurrio
-   3. SIGNIFICATIVO: Tiene relevancia en el dominio
-   4. ATOMICO:     Ocurrencia puntual en el tiempo
+   1. EXTERNO:      Originado fuera del sistema (no interno)
+   2. DETECTABLE:   Sistema puede "sentir" que ocurrio
+   3. SIGNIFICATIVO: Tiene relevancia en el dominio de negocio
+   4. ATOMICO:      Ocurrencia puntual e indivisible en el tiempo
 
 **Ejemplos:**
 
 .. code-block:: text
 
    EVENTO VALIDO: "Usuario solicita reporte"
-     - Externo (usuario lo inicia)
-     - Detectable (request HTTP)
-     - Significativo (operacion de negocio)
-     - Atomico (momento especifico)
+     ✓ Externo (usuario lo inicia)
+     ✓ Detectable (request HTTP)
+     ✓ Significativo (operacion de negocio)
+     ✓ Atomico (momento especifico)
      --> Genera UC-017: Consultar Reporte
 
    NO ES EVENTO: "Usuario navega por el sistema"
-     - No es atomico (actividad continua)
-     - No requiere respuesta especifica
+     ✗ No es atomico (actividad continua)
+     ✗ No requiere respuesta especifica
      --> NO genera UC
 
-   Cobertura: ~22% de los UC
+   PORCENTAJE: 22% de los UC totales
+   OUTPUT TIPICO: 10-15 UC en proyecto mediano
 
-5.4 Complementariedad de Tecnicas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Sub-tecnicas del Modelo de Larman:**
+
+.. code-block:: text
+
+   2.1 Eventos del Sistema
+       Identificar cada interaccion significativa actor-sistema
+
+   2.2 Operaciones del Sistema
+       Para cada evento, definir la operacion que el sistema ejecuta
+
+   2.3 Responsabilidades del Sistema
+       Determinar que debe hacer el sistema en respuesta
+
+5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Identificar UC a partir de mockups, wireframes o necesidades de UI.
+
+.. code-block:: text
+
+   APLICA A:
+   - Dashboards y visualizaciones complejas
+   - Busquedas avanzadas con multiples filtros
+   - Acciones en lote (batch operations)
+   - Wizards multi-paso
+   - Configuraciones de usuario
+
+   EJEMPLO:
+
+   Mockup: "Dashboard con 5 widgets configurables"
+       |
+       +---> UC-025: Ver Dashboard Principal
+       +---> UC-030: Personalizar Dashboard
+       +---> UC-xxx: Configurar Widget
+       +---> UC-xxx: Reordenar Widgets
+
+   PORCENTAJE: 11% de los UC totales
+   OUTPUT TIPICO: 5-10 UC en proyecto mediano
+
+5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UC que provienen de necesidades explicitas no capturadas como BR.
+
+.. code-block:: text
+
+   APLICA A:
+   - Requisitos de compliance y auditoria
+   - Integraciones con sistemas externos
+   - Reporteria especifica de BI
+   - Administracion tecnica del sistema
+
+   EJEMPLO:
+
+   Stakeholder Legal: "Necesitamos exportar auditoria para regulador"
+       |
+       +---> UC-xxx: Exportar Log Auditoria para Compliance
+
+   Stakeholder TI: "Necesitamos monitorear estado del ETL"
+       |
+       +---> UC-xxx: Monitorear Estado ETL
+
+   PORCENTAJE: 5% de los UC totales
+   OUTPUT TIPICO: 2-5 UC en proyecto mediano
+
+5.6 Matriz de Cobertura Completa
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
    COBERTURA TOTAL:
 
-   +------------------+------------+
-   | Tecnica          | Cobertura  |
-   +------------------+------------+
-   | Business Rules   |    38%     |
-   | CRUD             |    40%     |
-   | Eventos (Larman) |    22%     |
-   +------------------+------------+
-   | TOTAL            |   100%     |
-   +------------------+------------+
+   +----------------------------------+------------+--------------+
+   | Tecnica                          | Porcentaje | UC Tipicos   |
+   +----------------------------------+------------+--------------+
+   | 1. Business Rules (Deductiva)    |    22%     | 10 UC        |
+   +----------------------------------+------------+--------------+
+   | 2. CRUD (Inductiva)              |    40%     | 18 UC        |
+   | 3. Larman/Eventos (Inductiva)    |    22%     | 10 UC        |
+   | 4. UI-Driven (Inductiva)         |    11%     |  5 UC        |
+   | 5. Stakeholders (Inductiva)      |     5%     |  2 UC        |
+   +----------------------------------+------------+--------------+
+   | TOTAL                            |   100%     | 45 UC        |
+   +----------------------------------+------------+--------------+
 
-   Las tres tecnicas son NECESARIAS para cobertura completa
+   NATURALEZA:
+   - Tecnica 1: DEDUCTIVA (BR explicita -> UC)
+   - Tecnicas 2-5: INDUCTIVAS (necesidades implicitas -> UC)
+
+   IMPLICACION CRITICA:
+   Si solo se usa Tecnica 1, el sistema queda 78% incompleto.
+   Las 4 tecnicas complementarias son OBLIGATORIAS.
 
 ----
 
@@ -698,6 +814,10 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.1.0
+     - 2025-12-21
+     - Equipo IACT
+     - Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades (Maestro/Transaccional/Tecnica). Agregadas 4 caracteristicas obligatorias de eventos.
    * - 1.0.0
      - 2025-12-19
      - Equipo IACT

@@ -4,9 +4,9 @@
    :dominio: base_cognitiva
    :subdominio: _fundamentos_conceptuales
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2025-12-19
-   :ultimo_cambio: 2025-12-19
+   :ultimo_cambio: 2025-12-21
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -481,39 +481,162 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
 
 .. code-block:: text
 
-   BR-NNN:
-     Definicion:    [Texto de la regla en lenguaje de negocio]
-     Tipo:          Fact | Constraint | Trigger | Inference | Calculation
-     Modalidad:     Aletica | Deontica (Obligation | Prohibition | Permission)
-     Fuente:        [Documento, regulacion, politica de origen]
-     Justificacion: [Por que existe esta regla]
-     Estatica:      Si | No (puede cambiar?)
-     Fecha Efectiva: YYYY-MM-DD
-     Ejemplo:       [Aplicacion concreta en el dominio]
+   BR_NNN:
+     Definicion:      [Texto de la regla en lenguaje de negocio]
+     Tipo:            Fact | Constraint | Trigger | Inference | Calculation
+     Modalidad:       Aletica | Deontica (Obligation | Prohibition | Permission)
+     Fuente:          [Documento, regulacion, politica de origen]
+     Justificacion:   [Por que existe esta regla]
+     Fecha Vigencia:  YYYY-MM-DD [desde cuando aplica]
+     Prioridad:       Alta | Media | Baja
+     Estatica/Dinamica: Estatica | Dinamica
+     Ejemplo:         [Aplicacion concreta en el dominio]
 
-5.2 Ejemplo Completo
+5.2 Descripcion de Campos
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Campos Obligatorios:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Campo
+     - Descripcion
+   * - **Definicion**
+     - Texto completo de la regla en lenguaje natural, comprensible por stakeholders
+   * - **Tipo**
+     - Uno de los 5 tipos: Fact, Constraint, Trigger, Inference, Calculation
+   * - **Modalidad**
+     - Aletica (verdad estructural) o Deontica (obligacion/prohibicion/permiso)
+   * - **Fuente**
+     - Documento, version y seccion especifica de donde proviene la regla
+   * - **Fecha Vigencia**
+     - Fecha a partir de la cual aplica la regla (formato YYYY-MM-DD)
+
+**Campos Adicionales:**
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Campo
+     - Descripcion
+   * - **Prioridad**
+     - Alta (critica, debe implementarse primero), Media (importante), Baja (deseable)
+   * - **Estatica/Dinamica**
+     - Estatica: proviene de ley/regulacion, dificil de cambiar. Dinamica: politica organizacional, puede cambiar por decision interna
+   * - **Justificacion**
+     - Razon de negocio por la cual existe la regla
+   * - **Ejemplo**
+     - Caso concreto de aplicacion en el dominio del proyecto
+
+5.3 Concepto: Estatica vs Dinamica
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   ESTATICA:
+   - Proviene de ley o regulacion permanente
+   - Muy dificil o imposible de cambiar
+   - Cambio requiere proceso legislativo o regulatorio
+   - Ejemplos: Leyes federales, estandares ISO, regulaciones OSHA
+
+   DINAMICA:
+   - Proviene de politica organizacional
+   - Puede cambiar por decision interna
+   - Cambio requiere aprobacion de ejecutivo o comite
+   - Ejemplos: Politicas corporativas, procedimientos internos, SLAs
+
+**Importancia de la clasificacion:**
+
+- Reglas ESTATICAS: Sistema debe cumplirlas sin excepciones
+- Reglas DINAMICAS: Considerar parametrizacion para facilitar cambios
+
+5.4 Ejemplo Completo
 ^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   BR-028:
-     Definicion:    "Solicitudes de compra que excedan $500 requieren
-                     aprobacion del gerente de departamento"
-     Tipo:          Constraint
-     Modalidad:     Deontica (Obligation)
-     Fuente:        Politica Financiera Corporativa v2.3, Seccion 4.2
-     Justificacion: Control de gastos y cumplimiento de auditoria interna
-     Estatica:      No (puede cambiar por decision del CFO)
-     Fecha Efectiva: 2023-01-01
-     Ejemplo:       Compra de reactivo por $750 requiere aprobacion
-                    del gerente de laboratorio antes de procesarse.
+   BR_028:
+     Definicion:      "Solicitudes de compra que excedan $500 requieren
+                       aprobacion del gerente de departamento"
+     Tipo:            Constraint
+     Modalidad:       Deontica (Obligation)
+     Fuente:          Politica Financiera Corporativa v2.3, Seccion 4.2
+     Justificacion:   Control de gastos y cumplimiento de auditoria interna
+     Fecha Vigencia:  2023-01-01
+     Prioridad:       Alta
+     Estatica/Dinamica: Dinamica (puede cambiar por decision del CFO)
+     Ejemplo:         Compra de reactivo por $750 requiere aprobacion
+                      del gerente de laboratorio antes de procesarse.
 
 ----
 
-6. Business Rules en el Contexto IACT
+6. Tecnicas de Elicitacion de BR
+--------------------------------
+
+6.1 Las 6 Preguntas Estrategicas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para descubrir Business Rules de manera sistematica, usar estas preguntas:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 40 30 30
+
+   * - Pregunta
+     - Tipo de BR que Descubre
+     - Ejemplo de Respuesta
+   * - "Quien puede hacer que?"
+     - Restriccion (acceso)
+     - "Solo gerentes pueden aprobar >$500"
+   * - "Que debe pasar cuando...?"
+     - Desencadenador
+     - "Cuando vence, notificar por email"
+   * - "Como se calcula X?"
+     - Calculo
+     - "Precio = Base + IVA - Descuento"
+   * - "Quien puede Y?"
+     - Restriccion (permiso)
+     - "Solo admin puede eliminar usuarios"
+   * - "Que pasa cuando Z?"
+     - Desencadenador o Inferencia
+     - "Cuenta queda bloqueada" (ver 6.2)
+   * - "En que casos se considera...?"
+     - Inferencia
+     - "Si >30 dias impago = Deudor"
+
+6.2 Distinguir Desencadenador de Inferencia
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   PREGUNTA CLAVE:
+   "Si esta regla se ejecuta, ¿el usuario puede OBSERVAR que algo ocurrio,
+    sin consultar la base de datos interna?"
+
+   - SI observa algo --> DESENCADENADOR (genera UC)
+   - NO observa nada --> INFERENCIA (solo FR interno)
+
+   EJEMPLO:
+
+   Pregunta: "Que pasa cuando un producto vence?"
+
+   Respuesta A: "Se envia email al responsable"
+     --> DESENCADENADOR (el email es observable)
+     --> Genera UC: "Notificar Vencimiento"
+
+   Respuesta B: "Se marca como 'Caduco' en el sistema"
+     --> INFERENCIA (solo cambia un flag interno)
+     --> NO genera UC, solo FR de logica interna
+
+----
+
+7. Business Rules en el Contexto IACT
 -------------------------------------
 
-6.1 Nomenclatura
+7.1 Nomenclatura
 ^^^^^^^^^^^^^^^^
 
 Las Business Rules en IACT siguen la convencion:
@@ -532,7 +655,7 @@ Las Business Rules en IACT siguen la convencion:
    - BR_002_ETL_Nocturno_Unidireccional.rst
    - BR_003_RBAC_Flat_Sin_Herencia.rst
 
-6.2 Ubicacion en el Modelo IACT
+7.2 Ubicacion en el Modelo IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -546,7 +669,7 @@ Las Business Rules en IACT siguen la convencion:
                 +--- BR_002_xxx.rst
                 +--- ...
 
-6.3 Relacion con Otros Artefactos
+7.3 Relacion con Otros Artefactos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -565,10 +688,10 @@ Las Business Rules en IACT siguen la convencion:
 
 ----
 
-7. Ejemplos en IACT
+8. Ejemplos en IACT
 -------------------
 
-7.1 BR de Tipo Restriccion
+8.1 BR de Tipo Restriccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -585,7 +708,7 @@ Las Business Rules en IACT siguen la convencion:
    Estatica:      Si
    Fecha Efectiva: 2025-01-01
 
-7.2 BR de Tipo Desencadenador
+8.2 BR de Tipo Desencadenador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -602,7 +725,7 @@ Las Business Rules en IACT siguen la convencion:
    Estatica:      No (horario puede ajustarse)
    Fecha Efectiva: 2025-01-15
 
-7.3 BR de Tipo Inferencia
+8.3 BR de Tipo Inferencia
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -620,7 +743,7 @@ Las Business Rules en IACT siguen la convencion:
 
 ----
 
-8. Referencias
+9. Referencias
 --------------
 
 Documentos Relacionados
@@ -652,6 +775,10 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.1.0
+     - 2025-12-21
+     - Equipo IACT
+     - Template BR ampliado: campos Fecha Vigencia, Prioridad, Estatica/Dinamica. Nueva seccion 6: Tecnicas de Elicitacion con 6 preguntas estrategicas.
    * - 1.0.0
      - 2025-12-19
      - Equipo IACT

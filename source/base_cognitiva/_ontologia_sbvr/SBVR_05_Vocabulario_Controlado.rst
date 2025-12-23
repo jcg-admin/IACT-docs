@@ -4,9 +4,9 @@
    :dominio: base_cognitiva
    :subdominio: _ontologia_sbvr
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2025-12-20
-   :ultimo_cambio: 2025-12-20
+   :ultimo_cambio: 2025-12-21
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -84,6 +84,9 @@ y las reglas de redaccion que garantizan precision y consistencia.
    * - **UNICAMENTE**
      - Sinonimo de SOLO
      - "Notificaciones UNICAMENTE via buzon interno"
+   * - **DEBERIA**
+     - Recomendado pero no obligatorio
+     - "Sistema DEBERIA enviar confirmacion por email"
 
 2.2 Keywords Aleticos
 ^^^^^^^^^^^^^^^^^^^^^
@@ -149,9 +152,6 @@ y las reglas de redaccion que garantizan precision y consistencia.
    * - Prohibido
      - Problema
      - Alternativa
-   * - deberia
-     - Ambiguo (¿obligatorio o sugerencia?)
-     - DEBE o PUEDE
    * - podria
      - Ambiguo (¿permiso o posibilidad?)
      - PUEDE
@@ -219,8 +219,7 @@ y las reglas de redaccion que garantizan precision y consistencia.
    "debe ser rapido"                  "debe responder en < 2 seg"
    "normalmente se hace"              "DEBE hacerse" o eliminar
    "el usuario puede o no"            "el usuario PUEDE" (implicito)
-   "deberia considerarse"             "DEBE" o eliminar
-   "es recomendable"                  "DEBE" o eliminar
+   "es recomendable"                  "DEBERIA" (si opcional) o "DEBE"
    "en la medida de lo posible"       Eliminar (no aporta)
    "segun sea necesario"              Especificar condicion
    "a menos que se indique"           SI [condicion] ENTONCES
@@ -367,6 +366,26 @@ Usar siempre el codigo oficial:
    ✓ "CADA usuario TIENE exactamente un segmento"
    ✓ "Registros de auditoria son inmutables"
 
+5.7 Patron para Recomendacion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   PATRON:
+   [Sujeto] DEBERIA [accion] [objeto]
+
+   NOTA: DEBERIA indica "recomendado pero no obligatorio"
+   Usar cuando la regla es una buena practica, no un requisito estricto.
+
+   EJEMPLOS:
+   ✓ "Sistema DEBERIA enviar confirmacion por email"
+   ✓ "Usuario DEBERIA cambiar password cada 90 dias"
+   ✓ "Dashboard DEBERIA cargar datos de ultimas 24 horas"
+
+   DIFERENCIA CON DEBE:
+   - DEBE: Obligatorio, sistema falla si no se cumple
+   - DEBERIA: Recomendado, sistema funciona sin ello pero es mejor practica
+
 ----
 
 6. Checklist de Validacion
@@ -377,8 +396,8 @@ Usar siempre el codigo oficial:
 
 .. code-block:: text
 
-   □ ¿Usa keywords permitidos (DEBE, NO DEBE, PUEDE, ES, TIENE)?
-   □ ¿Evita palabras ambiguas (deberia, normalmente, a veces)?
+   □ ¿Usa keywords permitidos (DEBE, DEBERIA, NO DEBE, PUEDE, ES, TIENE)?
+   □ ¿Evita palabras ambiguas (normalmente, a veces, podria)?
    □ ¿Evita palabras vagas (rapido, suficiente, varios)?
    □ ¿Usa terminos preferidos del dominio?
    □ ¿Especifica valores numericos cuando aplica?
@@ -397,7 +416,6 @@ Reglas que pueden validarse por patron:
 
    REGEX PARA DETECTAR PROBLEMAS:
 
-   /deberia/i          → WARNING: Usar DEBE o PUEDE
    /podria/i           → WARNING: Usar PUEDE
    /normalmente/i      → ERROR: Ambiguo
    /generalmente/i     → ERROR: Ambiguo
@@ -405,6 +423,8 @@ Reglas que pueden validarse por patron:
    /aproximadamente/i  → WARNING: Especificar valor
    /suficiente/i       → ERROR: Especificar cantidad
    /adecuado/i         → ERROR: Especificar criterio
+
+   NOTA: "deberia" es VALIDO, NO es un problema
 
 ----
 
@@ -420,7 +440,7 @@ Reglas que pueden validarse por patron:
 
    * - Incorrecto
      - Correcto
-   * - "El sistema deberia validar la sesion"
+   * - "El sistema podria validar la sesion"
      - "Sistema DEBE validar sesion activa"
    * - "Normalmente el usuario tiene un rol"
      - "Usuario DEBE tener al menos un rol"
@@ -434,6 +454,8 @@ Reglas que pueden validarse por patron:
      - "SI 3 intentos fallidos ENTONCES bloquear"
    * - "El reporte debe tener suficientes datos"
      - "Reporte DEBE contener al menos 1 registro"
+   * - "Es recomendable confirmar por email"
+     - "Sistema DEBERIA enviar confirmacion por email"
 
 ----
 
@@ -454,7 +476,10 @@ Referencia rapida alfabetica:
      - Cuantificador universal
    * - DEBE
      - Deontico
-     - Obligacion
+     - Obligacion incondicional
+   * - DEBERIA
+     - Deontico
+     - Recomendado pero no obligatorio
    * - ENTONCES
      - Condicional
      - Consecuencia de SI
@@ -519,6 +544,10 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.1.0
+     - 2025-12-21
+     - Equipo IACT
+     - Correccion: DEBERIA ahora es keyword VALIDO (recomendado pero no obligatorio). Agregado patron 5.7 para Recomendacion. Actualizado glosario y checklist.
    * - 1.0.0
      - 2025-12-20
      - Equipo IACT

@@ -5,9 +5,9 @@
    :subdominio: _taxonomias_y_metamodelos
    :subcarpeta: taxonomias
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2025-12-20
-   :ultimo_cambio: 2025-12-20
+   :ultimo_cambio: 2025-12-22
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -48,11 +48,12 @@ ubicaciones y relaciones entre artefactos.
    │   ├── Metamodelo (MTM_)
    │   └── Metodologia (METH_)
    │
-   ├── ARTEFACTO NORMATIVO (gobernanza/)
+   ├── ARTEFACTO NORMATIVO (normativa/)
    │   ├── Procedimiento (PROC_)
    │   ├── Estandar (STD_)
-   │   ├── Politica de Gobernanza (GOV_)
-   │   └── Restriccion (CNST_)
+   │   ├── Politica de Gobernanza (GOB_)
+   │   ├── Restriccion (CNST_)
+   │   └── Trazabilidad (RTM_, COV_)
    │
    ├── ARTEFACTO DE REQUISITOS (requisitos/)
    │   ├── Regla de Negocio (BR_)
@@ -60,14 +61,10 @@ ubicaciones y relaciones entre artefactos.
    │   ├── Requisito Funcional (FR_)
    │   └── Requisito No Funcional (NFR_)
    │
-   ├── ARTEFACTO ARQUITECTONICO (arquitectura/)
-   │   ├── Decision Arquitectonica (ADR_)
-   │   ├── Vista Arquitectonica (VIEW_)
-   │   └── Modelo de Datos (MDL_)
-   │
-   └── ARTEFACTO DE TRAZABILIDAD (gobernanza/trazabilidad/)
-       ├── Matriz RTM (RTM_)
-       └── Reporte de Cobertura (COV_)
+   └── ARTEFACTO ARQUITECTONICO (arquitectura/)
+       ├── Decision Arquitectonica (ADR_)
+       ├── Vista Arquitectonica (VIEW_)
+       └── Modelo de Datos (MDL_)
 
 ----
 
@@ -227,9 +224,9 @@ ubicaciones y relaciones entre artefactos.
 3.1 Procedimiento (PROC_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/procedimientos/
+**Ubicacion:** normativa/procedimientos/
 
-**Proposito:** Pasos para ejecutar procesos de gobernanza.
+**Proposito:** Pasos para ejecutar procesos del proyecto.
 
 **Ejemplos:**
 
@@ -240,7 +237,7 @@ ubicaciones y relaciones entre artefactos.
 3.2 Estandar (STD_)
 ^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/estandares/
+**Ubicacion:** normativa/estandares/
 
 **Proposito:** Reglas de formato, nomenclatura, estructura.
 
@@ -250,17 +247,17 @@ ubicaciones y relaciones entre artefactos.
 - STD_02: Estandar de Formato RST
 - STD_03: Estandar de Versionado
 
-3.3 Politica de Gobernanza (GOV_)
+3.3 Politica de Gobernanza (GOB_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/politicas/
+**Ubicacion:** normativa/gobernanza/
 
 **Proposito:** Lineamientos de alto nivel para gestion documental.
 
 3.4 Restriccion (CNST_)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/restricciones/
+**Ubicacion:** normativa/restricciones/
 
 **Proposito:** Limitaciones impuestas al proyecto.
 
@@ -399,7 +396,7 @@ ubicaciones y relaciones entre artefactos.
 6.1 Matriz RTM (RTM_)
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/trazabilidad/
+**Ubicacion:** normativa/trazabilidad/
 
 **Proposito:** Relacionar requisitos entre niveles.
 
@@ -412,7 +409,7 @@ ubicaciones y relaciones entre artefactos.
 6.2 Reporte de Cobertura (COV_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** gobernanza/trazabilidad/
+**Ubicacion:** normativa/trazabilidad/
 
 **Proposito:** Medir completitud de trazabilidad.
 
@@ -439,10 +436,10 @@ ubicaciones y relaciones entre artefactos.
      - META, GLOS, FND, SBVR, TXM, MTM, METH
      - ~25
      - Base semantica y conceptual
-   * - gobernanza
-     - PROC, STD, GOV, CNST, RTM, COV
-     - ~15
-     - Normas y trazabilidad
+   * - normativa
+     - PROC, STD, GOB, CNST, RTM, COV
+     - ~25
+     - Normas, gobernanza y trazabilidad
    * - requisitos
      - BR, UC, FR, NFR
      - ~350
@@ -560,11 +557,11 @@ ubicaciones y relaciones entre artefactos.
    * - base_cognitiva
      - 6
      - ~25
-     - ~8,000
-   * - gobernanza
-     - 4
-     - ~15
-     - ~3,000
+     - ~12,000
+   * - normativa
+     - 5
+     - ~25
+     - ~12,000
    * - requisitos
      - 4
      - ~350
@@ -574,9 +571,9 @@ ubicaciones y relaciones entre artefactos.
      - ~10
      - ~2,000
    * - **TOTAL**
-     - **17**
-     - **~400**
-     - **~28,000**
+     - **18**
+     - **~410**
+     - **~41,000**
 
 10.2 Por Estado
 ^^^^^^^^^^^^^^^
@@ -627,6 +624,10 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.1.0
+     - 2025-12-22
+     - Equipo IACT
+     - Correccion nomenclatura: dominio "gobernanza" renombrado a "normativa". Actualizado estructura de subdominios (procedimientos, estandares, gobernanza, restricciones, trazabilidad). Actualizado estadisticas.
    * - 1.0.0
      - 2025-12-20
      - Equipo IACT
