@@ -5,7 +5,7 @@ Restricciones Tecnicas
 
 :Estado: VIGENTE (Actualizado)
 :Documentos: 10
-:Lineas Totales: 10,071
+:Lineas Totales: 10,993
 :Ultima Actualizacion: 2026-01-03
 :Version: 1.1.0
 :Integracion RBAC: v5.1.1 (44 funciones atomicas)
@@ -26,30 +26,49 @@ Cambios en v1.1.0
 
 Fecha: 2026-01-03
 
-**Actualizaciones Globales (10 CNST):**
+**Actualizaciones Globales:**
 
-- Todos los CNST actualizados a v1.1.0
+- 5 archivos actualizados a v1.1.0 (CNST-001, 003, 005, 006, 010)
+- 5 archivos actualizados a v1.0.1 (CNST-002, 004, 007, 008, 009)
 - Fecha actualizada: 2025-12-17 → 2026-01-03
-- Estado cambiado: CONGELADO → VIGENTE
-- Referencias actualizadas: RBAC v4.0 → RBAC v5.1.1
-- Integracion con modelo de funciones atomicas (44 funciones)
+- Estado cambiado: Vigente → VIGENTE
+- Referencias RBAC: v4.0 → v5.1.1
+- Integracion con modelo de funciones atomicas (44 funciones, 8 modulos)
 
-**Ampliaciones de Contenido:**
+**Archivos v1.1.0 (Mayor - Cambios funcionales):**
 
-- CNST-005: Nueva seccion "Permisos Temporales" (+150 lineas)
-  * Modelo UserFunctionAssignment
-  * Middleware de validacion automatica
-  * API REST para gestion de permisos temporales
-  * Comando de limpieza automatica
+- CNST-001: Comunicaciones Prohibidas
+  * Actualizacion RBAC v5.1.1
+  * Clean Code: notify_by_role → notify_by_function
 
-- CNST-006: Nueva seccion "Patrones de Diseno Recomendados" (+300 lineas)
-  * 6 patrones documentados con ejemplos
-  * Balance antipatrones + patrones recomendados
-  * Guias positivas de arquitectura
+- CNST-003: Base de Datos Dual Inmutable
+  * Clean Code: IVRWriteProtectionMiddleware → IVRWriteProtection
+
+- CNST-005: Seguridad DRF Checklist
+  * Actualizacion RBAC v5.1.1
+  * Nueva seccion "Permisos Temporales" (+340 lineas)
+  * Clean Code: Is→Can, Throttle concisos, Serializer→Validator
+
+- CNST-006: Antipatrones Arquitectura
+  * Actualizacion RBAC v5.1.1
+  * Nueva seccion "Patrones Recomendados" (+455 lineas)
+  * Clean Code: vistas especificas, mejoras en ejemplos
+
+- CNST-010: Clasificacion Proteccion Datos
+  * Actualizacion RBAC v5.1.1
+  * ACCESS_MATRIX: roles → funciones atomicas
+  * Documentacion mejorada integracion RBAC
+
+**Archivos v1.0.1 (Patch - Solo metadatos):**
+
+- CNST-002, 004, 007, 008, 009: Actualizacion de metadatos sin cambios funcionales
 
 **Incremento Total:**
 
-- Lineas: 9,621 → 10,071 (+450 lineas, +4.7%)
+- Lineas: 9,621 → 10,993 (+1,372 lineas, +14.3%)
+- Principales incrementos:
+  * CNST-005: +354 lineas (Permisos Temporales)
+  * CNST-006: +520 lineas (Patrones Recomendados)
 - Cobertura: 98.5% → 100%
 
 ----
@@ -67,8 +86,8 @@ Historial de Versiones
      - Lineas
    * - 1.1.0
      - 2026-01-03
-     - Ampliaciones CNST-005 y CNST-006. Integracion RBAC v5.1.1
-     - 10,071
+     - Ampliaciones CNST-005 y CNST-006. Integracion RBAC v5.1.1. Clean Code aplicado
+     - 10,993
    * - 1.0.0
      - 2025-12-17
      - Version inicial completa
@@ -90,52 +109,52 @@ Catalogo de Restricciones
      - Estado
    * - CNST-001
      - Comunicaciones Prohibidas
-     - 685
+     - 694
      - 1.1.0
      - VIGENTE
    * - CNST-002
      - Gestion de Sesiones en BD
-     - 840
-     - 1.1.0
+     - 844
+     - 1.0.1
      - VIGENTE
    * - CNST-003
      - Base de Datos Dual Inmutable
-     - 901
+     - 905
      - 1.1.0
      - VIGENTE
    * - CNST-004
      - Actualizacion Datos ETL
-     - 920
-     - 1.1.0
+     - 924
+     - 1.0.1
      - VIGENTE
    * - CNST-005
      - Seguridad DRF Checklist
-     - 1,144
+     - 1,498
      - 1.1.0
      - VIGENTE
    * - CNST-006
      - Antipatrones Arquitectura
-     - 1,426
+     - 1,946
      - 1.1.0
      - VIGENTE
    * - CNST-007
      - Limites Performance SLA
-     - 1,061
-     - 1.1.0
+     - 1,065
+     - 1.0.1
      - VIGENTE
    * - CNST-008
      - Infraestructura Deployment
-     - 1,019
-     - 1.1.0
+     - 1,023
+     - 1.0.1
      - VIGENTE
    * - CNST-009
      - Logging Auditoria Inmutable
-     - 1,077
-     - 1.1.0
+     - 1,081
+     - 1.0.1
      - VIGENTE
    * - CNST-010
      - Clasificacion Proteccion Datos
-     - 998
+     - 1,013
      - 1.1.0
      - VIGENTE
 

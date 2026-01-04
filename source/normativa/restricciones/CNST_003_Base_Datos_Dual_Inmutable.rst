@@ -2,9 +2,9 @@ CNST-003: Base de Datos Dual con Inmutabilidad IVR
 ==================================================
 
 :ID: CNST-003
-:Versión: 1.0.0
-:Fecha: 2025-12-17
-:Estado: Vigente
+:Versión: 1.1.0
+:Fecha: 2026-01-03
+:Estado: VIGENTE
 :Clasificación: CRÍTICO - NO NEGOCIABLE
 :Origen: Restricción del cliente
 
@@ -112,7 +112,7 @@ Tablas disponibles (solo lectura):
        outcome VARCHAR(50),        -- COMPLETED, ABANDONED, TRANSFERRED
        direction VARCHAR(20)       -- INBOUND, OUTBOUND
    )
-   
+
    -- Tabla: queues (colas del IVR)
    queues (
        queue_id INT PRIMARY KEY,
@@ -120,7 +120,7 @@ Tablas disponibles (solo lectura):
        queue_type VARCHAR(50),
        is_active BOOLEAN
    )
-   
+
    -- Tabla: ivr_options (menú IVR)
    ivr_options (
        option_id INT PRIMARY KEY,
@@ -153,7 +153,7 @@ Tablas principales:
        avg_wait_time DECIMAL(10,2),
        created_at TIMESTAMP DEFAULT NOW()
    )
-   
+
    -- Usuarios del dashboard (RBAC)
    users (
        id SERIAL PRIMARY KEY,
@@ -163,7 +163,7 @@ Tablas principales:
        is_active BOOLEAN DEFAULT TRUE,
        -- ... campos Django User
    )
-   
+
    -- Logs de auditoría (CNST-009)
    user_action_logs (
        id SERIAL PRIMARY KEY,
@@ -172,7 +172,7 @@ Tablas principales:
        resource VARCHAR(100),
        created_at TIMESTAMP DEFAULT NOW()
    )
-   
+
    -- Mensajes internos (CNST-001)
    internal_messages (
        id SERIAL PRIMARY KEY,
@@ -192,10 +192,10 @@ Settings de Base de Datos
 .. code-block:: python
 
    # api/config/settings/base.py
-   
+
    import os
    from decouple import config
-   
+
    DATABASES = {
        # Base principal: Analytics (PostgreSQL)
        'default': {
@@ -210,7 +210,7 @@ Settings de Base de Datos
                'connect_timeout': 10,
            },
        },
-       
+
        # Base IVR: Solo lectura (MariaDB)
        'ivr_readonly': {
            'ENGINE': 'django.db.backends.mysql',
@@ -227,7 +227,7 @@ Settings de Base de Datos
            },
        },
    }
-   
+
    # Routers de base de datos
    DATABASE_ROUTERS = [
        'apps.common.routers.IVRReadOnlyRouter',
@@ -240,40 +240,40 @@ Database Router
 .. code-block:: python
 
    # api/apps/common/routers.py
-   
+
    class IVRReadOnlyRouter:
        """
        Router para base de datos IVR (solo lectura).
-       
+
        CNST-003: Esta base es INMUTABLE.
        Solo permite operaciones SELECT.
        Rechaza INSERT, UPDATE, DELETE.
-       
+
        Modelos ruteados a IVR:
        - IVRCall
-       - IVRQueue  
+       - IVRQueue
        - IVROption
        """
-       
+
        IVR_MODELS = {'ivrcall', 'ivrqueue', 'ivroption'}
-       
+
        def db_for_read(self, model, **hints):
            """Leer de ivr_readonly para modelos IVR."""
            if model._meta.model_name in self.IVR_MODELS:
                return 'ivr_readonly'
            return None
-       
+
        def db_for_write(self, model, **hints):
            """
            PROHIBIR escritura en IVR.
-           
+
            Retorna None para que Django lance error si se intenta escribir.
            El middleware IVRWriteProtection proporciona mensaje más claro.
            """
            if model._meta.model_name in self.IVR_MODELS:
                return None  # Forzar error
            return None
-       
+
        def allow_relation(self, obj1, obj2, **hints):
            """
            Permitir relaciones entre modelos IVR.
@@ -281,13 +281,13 @@ Database Router
            """
            obj1_ivr = obj1._meta.model_name in self.IVR_MODELS
            obj2_ivr = obj2._meta.model_name in self.IVR_MODELS
-           
+
            if obj1_ivr and obj2_ivr:
                return True
            if obj1_ivr or obj2_ivr:
                return False
            return None
-       
+
        def allow_migrate(self, db, app_label, model_name=None, **hints):
            """NUNCA migrar a base IVR."""
            if db == 'ivr_readonly':
@@ -300,22 +300,22 @@ Database Router
    class AnalyticsRouter:
        """
        Router para base de datos Analytics.
-       
+
        Permite todas las operaciones en modelos propios de IACT.
        """
-       
+
        def db_for_read(self, model, **hints):
            """Leer de default (Analytics)."""
            return 'default'
-       
+
        def db_for_write(self, model, **hints):
            """Escribir en default (Analytics)."""
            return 'default'
-       
+
        def allow_relation(self, obj1, obj2, **hints):
            """Permitir relaciones en Analytics."""
            return True
-       
+
        def allow_migrate(self, db, app_label, model_name=None, **hints):
            """Migrar solo a Analytics."""
            return db == 'default'
@@ -326,25 +326,25 @@ Modelos IVR (Solo Lectura)
 .. code-block:: python
 
    # api/apps/ivr/models.py
-   
+
    from django.db import models
-   
+
    class IVRCall(models.Model):
        """
        Modelo de llamadas IVR (SOLO LECTURA).
-       
+
        CNST-003: Este modelo es de solo lectura.
        NO ejecutar save(), create(), update(), delete().
-       
+
        Uso correcto:
            calls = IVRCall.objects.filter(call_date__gte=start_date)
-       
+
        Uso PROHIBIDO:
            IVRCall.objects.create(...)  # ERROR
            call.save()                   # ERROR
            call.delete()                 # ERROR
        """
-       
+
        call_id = models.BigAutoField(primary_key=True)
        queue_id = models.IntegerField()
        call_date = models.DateTimeField()
@@ -352,18 +352,18 @@ Modelos IVR (Solo Lectura)
        wait_time = models.IntegerField(help_text='Tiempo de espera en segundos')
        outcome = models.CharField(max_length=50)
        direction = models.CharField(max_length=20)
-       
+
        class Meta:
            managed = False  # Django NO gestiona esta tabla
            db_table = 'calls'
-       
+
        def save(self, *args, **kwargs):
            """PROHIBIDO: Base IVR es inmutable."""
            raise PermissionError(
                'CNST-003: Base IVR es de solo lectura. '
                'No se permite save() en IVRCall.'
            )
-       
+
        def delete(self, *args, **kwargs):
            """PROHIBIDO: Base IVR es inmutable."""
            raise PermissionError(
@@ -375,24 +375,24 @@ Modelos IVR (Solo Lectura)
    class IVRQueue(models.Model):
        """
        Modelo de colas IVR (SOLO LECTURA).
-       
+
        CNST-003: Este modelo es de solo lectura.
        """
-       
+
        queue_id = models.AutoField(primary_key=True)
        queue_name = models.CharField(max_length=100)
        queue_type = models.CharField(max_length=50)
        is_active = models.BooleanField()
-       
+
        class Meta:
            managed = False
            db_table = 'queues'
-       
+
        def save(self, *args, **kwargs):
            raise PermissionError(
                'CNST-003: Base IVR es de solo lectura.'
            )
-       
+
        def delete(self, *args, **kwargs):
            raise PermissionError(
                'CNST-003: Base IVR es de solo lectura.'
@@ -402,24 +402,24 @@ Modelos IVR (Solo Lectura)
    class IVROption(models.Model):
        """
        Modelo de opciones del menú IVR (SOLO LECTURA).
-       
+
        CNST-003: Este modelo es de solo lectura.
        """
-       
+
        option_id = models.AutoField(primary_key=True)
        option_key = models.CharField(max_length=10)
        option_description = models.CharField(max_length=200)
        parent_option_id = models.IntegerField(null=True, blank=True)
-       
+
        class Meta:
            managed = False
            db_table = 'ivr_options'
-       
+
        def save(self, *args, **kwargs):
            raise PermissionError(
                'CNST-003: Base IVR es de solo lectura.'
            )
-       
+
        def delete(self, *args, **kwargs):
            raise PermissionError(
                'CNST-003: Base IVR es de solo lectura.'
@@ -431,34 +431,34 @@ Middleware de Protección
 .. code-block:: python
 
    # api/apps/common/middleware.py
-   
+
    from django.http import JsonResponse
    import logging
-   
+
    logger = logging.getLogger('security')
-   
-   class IVRWriteProtectionMiddleware:
+
+   class IVRWriteProtection:
        """
        Middleware de protección contra escritura en IVR.
-       
+
        Detecta y bloquea intentos de escritura a base IVR.
        Proporciona logging de intentos para auditoría.
-       
+
        CNST-003: Capa adicional de protección.
        """
-       
+
        def __init__(self, get_response):
            self.get_response = get_response
-       
+
        def __call__(self, request):
            response = self.get_response(request)
            return response
-       
+
        def process_exception(self, request, exception):
            """Capturar excepciones de escritura en IVR."""
            if isinstance(exception, PermissionError):
                error_msg = str(exception)
-               
+
                if 'CNST-003' in error_msg or 'IVR' in error_msg:
                    # Log del intento de violación
                    logger.warning(
@@ -467,7 +467,7 @@ Middleware de Protección
                        f'Path={request.path}, '
                        f'Method={request.method}'
                    )
-                   
+
                    return JsonResponse(
                        {
                            'error': 'Operación no permitida',
@@ -476,7 +476,7 @@ Middleware de Protección
                        },
                        status=403
                    )
-           
+
            return None
 
 ETL: Extracción de Datos IVR
@@ -488,41 +488,41 @@ Servicio de Extracción
 .. code-block:: python
 
    # api/apps/etl/extractors.py
-   
+
    from django.db import connections
    from datetime import datetime, timedelta
    import logging
-   
+
    logger = logging.getLogger('etl')
-   
+
    class IVRDataExtractor:
        """
        Extractor de datos de base IVR.
-       
+
        CNST-003: Solo operaciones SELECT permitidas.
        CNST-004: ETL cada 6-12 horas.
-       
+
        Uso:
            extractor = IVRDataExtractor()
            calls = extractor.extract_calls(start_date, end_date)
        """
-       
+
        def __init__(self):
            self.connection = connections['ivr_readonly']
-       
+
        def extract_calls(self, start_date, end_date):
            """
            Extraer llamadas del período especificado.
-           
+
            Args:
                start_date: Fecha inicio (datetime)
                end_date: Fecha fin (datetime)
-           
+
            Returns:
                Lista de diccionarios con datos de llamadas
            """
            query = """
-               SELECT 
+               SELECT
                    call_id,
                    queue_id,
                    call_date,
@@ -534,22 +534,22 @@ Servicio de Extracción
                WHERE call_date BETWEEN %s AND %s
                ORDER BY call_date
            """
-           
+
            with self.connection.cursor() as cursor:
                cursor.execute(query, [start_date, end_date])
                columns = [col[0] for col in cursor.description]
-               
+
                results = []
                for row in cursor.fetchall():
                    results.append(dict(zip(columns, row)))
-               
+
                logger.info(
                    f'Extraídas {len(results)} llamadas '
                    f'de {start_date} a {end_date}'
                )
-               
+
                return results
-       
+
        def extract_queues(self):
            """Extraer todas las colas activas."""
            query = """
@@ -557,20 +557,20 @@ Servicio de Extracción
                FROM queues
                WHERE is_active = TRUE
            """
-           
+
            with self.connection.cursor() as cursor:
                cursor.execute(query)
                columns = [col[0] for col in cursor.description]
-               
+
                return [
                    dict(zip(columns, row))
                    for row in cursor.fetchall()
                ]
-       
+
        def get_last_call_date(self):
            """Obtener fecha de última llamada en IVR."""
            query = "SELECT MAX(call_date) FROM calls"
-           
+
            with self.connection.cursor() as cursor:
                cursor.execute(query)
                result = cursor.fetchone()
@@ -582,34 +582,34 @@ Transformador de Datos
 .. code-block:: python
 
    # api/apps/etl/transformers.py
-   
+
    from collections import defaultdict
    from decimal import Decimal
    import logging
-   
+
    logger = logging.getLogger('etl')
-   
+
    class CallMetricsTransformer:
        """
        Transformador de llamadas IVR a métricas agregadas.
-       
+
        Transforma datos individuales de llamadas en métricas
        agregadas por día y cola para almacenar en Analytics.
        """
-       
+
        def transform(self, calls):
            """
            Transformar lista de llamadas en métricas agregadas.
-           
+
            Args:
                calls: Lista de diccionarios de llamadas
-           
+
            Returns:
                Lista de métricas agregadas por día/cola
            """
            if not calls:
                return []
-           
+
            # Agrupar por fecha y cola
            grouped = defaultdict(lambda: {
                'total': 0,
@@ -618,22 +618,22 @@ Transformador de Datos
                'durations': [],
                'wait_times': []
            })
-           
+
            for call in calls:
                date = call['call_date'].date()
                queue_id = call['queue_id']
                key = (date, queue_id)
-               
+
                grouped[key]['total'] += 1
-               
+
                if call['outcome'] == 'COMPLETED':
                    grouped[key]['completed'] += 1
                elif call['outcome'] == 'ABANDONED':
                    grouped[key]['abandoned'] += 1
-               
+
                grouped[key]['durations'].append(call['call_duration'])
                grouped[key]['wait_times'].append(call['wait_time'])
-           
+
            # Calcular métricas
            metrics = []
            for (date, queue_id), data in grouped.items():
@@ -645,7 +645,7 @@ Transformador de Datos
                    sum(data['wait_times']) / len(data['wait_times'])
                    if data['wait_times'] else 0
                )
-               
+
                metrics.append({
                    'metric_date': date,
                    'queue_id': queue_id,
@@ -655,7 +655,7 @@ Transformador de Datos
                    'avg_duration': Decimal(str(round(avg_duration, 2))),
                    'avg_wait_time': Decimal(str(round(avg_wait, 2)))
                })
-           
+
            logger.info(f'Transformadas {len(calls)} llamadas en {len(metrics)} métricas')
            return metrics
 
@@ -665,35 +665,35 @@ Cargador a Analytics
 .. code-block:: python
 
    # api/apps/etl/loaders.py
-   
+
    from apps.analytics.models import CallMetric
    from django.db import transaction
    import logging
-   
+
    logger = logging.getLogger('etl')
-   
+
    class AnalyticsLoader:
        """
        Cargador de métricas a base Analytics.
-       
+
        CNST-003: Solo escribe en base Analytics (default).
        """
-       
+
        def load(self, metrics):
            """
            Cargar métricas en base Analytics.
-           
+
            Usa upsert: actualiza si existe, inserta si no.
-           
+
            Args:
                metrics: Lista de diccionarios de métricas
-           
+
            Returns:
                Tupla (insertados, actualizados)
            """
            inserted = 0
            updated = 0
-           
+
            with transaction.atomic():
                for metric in metrics:
                    obj, created = CallMetric.objects.update_or_create(
@@ -707,12 +707,12 @@ Cargador a Analytics
                            'avg_wait_time': metric['avg_wait_time'],
                        }
                    )
-                   
+
                    if created:
                        inserted += 1
                    else:
                        updated += 1
-           
+
            logger.info(f'Cargadas métricas: {inserted} nuevas, {updated} actualizadas')
            return inserted, updated
 
@@ -764,35 +764,35 @@ Script de Validación
 
    #!/bin/bash
    # scripts/validate_ivr_readonly.sh
-   
+
    echo "Validando inmutabilidad de base IVR..."
-   
+
    ERRORS=0
-   
+
    # Buscar intentos de escritura a modelos IVR
    if grep -r "IVRCall.objects.create\|IVRQueue.objects.create" api/apps/; then
        echo "ERROR: Encontrado create() en modelos IVR"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    # Buscar .save() en modelos IVR (fuera de la definición del modelo)
    if grep -r "ivr_call.save()\|ivr_queue.save()" api/apps/; then
        echo "ERROR: Encontrado save() en instancias IVR"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    # Buscar raw queries peligrosas
    if grep -ri "INSERT INTO calls\|UPDATE calls\|DELETE FROM calls" api/apps/; then
        echo "ERROR: Encontrada query de escritura a tabla calls"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    # Verificar que modelos IVR tienen managed=False
    if ! grep -q "managed = False" api/apps/ivr/models.py; then
        echo "ERROR: Modelos IVR no tienen managed=False"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    if [ $ERRORS -eq 0 ]; then
        echo "OK: Base IVR está protegida correctamente"
        exit 0
@@ -871,6 +871,10 @@ Historial de Cambios
      - Fecha
      - Cambios
      - Autor
+   * - 1.1.0
+     - 2026-01-03
+     - Actualización RBAC v5.1.1. Clean Code: IVRWriteProtectionMiddleware → IVRWriteProtection
+     - Equipo IACT
    * - 1.0.0
      - 2025-12-17
      - Versión inicial con Clean Code

@@ -2,9 +2,9 @@ CNST-004: Actualización de Datos mediante ETL
 =============================================
 
 :ID: CNST-004
-:Versión: 1.0.0
-:Fecha: 2025-12-17
-:Estado: Vigente
+:Versión: 1.0.1
+:Fecha: 2026-01-03
+:Estado: VIGENTE
 :Clasificación: CRÍTICO - NO NEGOCIABLE
 :Origen: Restricción del cliente
 
@@ -890,10 +890,11 @@ Historial de Cambios
      - Fecha
      - Cambios
      - Autor
-   * - 1.0.0
-     - 2025-12-17
-     - Versión inicial con Clean Code
+   * - 1.0.1
+     - 2026-01-03
+     - Actualización de metadatos. Sin cambios funcionales
      - Equipo IACT
+   * - 1.0.0
 
 Aprobaciones
 ------------
