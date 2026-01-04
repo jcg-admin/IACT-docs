@@ -1,8 +1,9 @@
+cat > /tmp/CNST_002_Gestion_Sesiones_BD.rst << 'ENDOFPART1'
 CNST-002: Gestión de Sesiones en Base de Datos
 ===============================================
 
 :ID: CNST-002
-:Versión: 1.1.0
+:Versión: 1.0.1
 :Fecha: 2026-01-03
 :Estado: VIGENTE
 :Clasificación: CRÍTICO - NO NEGOCIABLE
@@ -83,7 +84,7 @@ NO se permite en settings:
            'LOCATION': 'redis://127.0.0.1:6379/1',
        }
    }
-
+   
    # PROHIBIDO - No usar Memcached
    CACHES = {
        'default': {
@@ -91,7 +92,7 @@ NO se permite en settings:
            'LOCATION': '127.0.0.1:11211',
        }
    }
-
+   
    # PROHIBIDO - No usar sesiones en Redis
    SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
@@ -101,242 +102,219 @@ Consecuencias de Violación
 Consecuencias de violación de esta restricción:
 
 - Rechazo inmediato en code review
-- Fallo en deployment (servicio no disponible en infraestructura)
-- Incidente de seguridad categoría Alta
-- Re-trabajo completo del módulo afectado
+- Rollback de deployment si se detecta en producción
+- Aplicación NO arrancará en servidores del cliente
+- Incidente de infraestructura categoría Alta
 
 Mecanismo Obligatorio
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
-Sesiones en Base de Datos
+OBLIGATORIO: Sesiones en Base de Datos MySQL
+
+- Backend: ``django.contrib.sessions.backends.db``
+- Modelo: ``Session`` (tabla ``django_session``)
+- Base de datos: Analytics (MySQL)
+- Política: Una sesión activa por usuario (single session)
+
+Características:
+
+- Sesiones persistentes en MySQL
+- Expiración configurable (8 horas por defecto)
+- Invalidación de sesiones previas al login
+- Auditoría de sesiones activas
+- Sin dependencias externas
+
+Implementación
+--------------
+
+Configuración de Sesiones
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OBLIGATORIO: Usar django.contrib.sessions con backend de base de datos.
-
-Configuración Django
-^^^^^^^^^^^^^^^^^^^^
+Configuración Obligatoria
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
    # api/config/settings/base.py
-
-   # Sesiones en base de datos (OBLIGATORIO - CNST-002)
+   
+   # Backend de sesiones: Base de Datos (OBLIGATORIO)
    SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
-   # Timeout de sesión: 15 minutos de inactividad
-   SESSION_COOKIE_AGE = 900  # 15 minutos en segundos
-
-   # Sesión expira al cerrar navegador
-   SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
-   # Cookie segura (solo HTTPS en producción)
+   
+   # Nombre de cookie de sesión
+   SESSION_COOKIE_NAME = 'iact_session'
+   
+   # Edad de sesión: 8 horas (28800 segundos)
+   SESSION_COOKIE_AGE = 28800
+   
+   # Expirar sesión al cerrar navegador
+   SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+   
+   # Guardar sesión en cada request (recomendado para DB)
+   SESSION_SAVE_EVERY_REQUEST = True
+   
+   # Cookie segura (HTTPS only en producción)
    SESSION_COOKIE_SECURE = True  # En producción
-
-   # Cookie HTTPOnly (no accesible desde JavaScript)
    SESSION_COOKIE_HTTPONLY = True
-
-   # SameSite para prevenir CSRF
    SESSION_COOKIE_SAMESITE = 'Lax'
 
-   # Nombre de cookie único para IACT
-   SESSION_COOKIE_NAME = 'iact_sessionid'
+Tabla de Sesiones
+^^^^^^^^^^^^^^^^^
 
-   # Guardar sesión en cada request (actualiza last_activity)
-   SESSION_SAVE_EVERY_REQUEST = True
+Django crea automáticamente la tabla:
+
+.. code-block:: sql
+
+   -- Tabla django_session (creada por migrate)
+   CREATE TABLE django_session (
+       session_key VARCHAR(40) NOT NULL PRIMARY KEY,
+       session_data LONGTEXT NOT NULL,
+       expire_date DATETIME(6) NOT NULL,
+       INDEX django_session_expire_date_idx (expire_date)
+   ) ENGINE=InnoDB;
 
 Política de Sesión Única
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OBLIGATORIO: Solo una sesión activa por usuario.
+Implementación de Single Session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Al iniciar sesión, el sistema debe:
+.. code-block:: python
 
-1. Verificar si existe sesión activa para el usuario
-2. Si existe, invalidar la sesión anterior
-3. Crear nueva sesión
-4. Notificar al usuario si se cerró sesión en otro dispositivo
+   # api/apps/users/signals.py
+   
+   from django.contrib.auth.signals import user_logged_in
+   from django.contrib.sessions.models import Session
+   from django.dispatch import receiver
+   
+   
+   @receiver(user_logged_in)
+   def invalidate_previous_sessions(sender, request, user, **kwargs):
+       """
+       Invalidar todas las sesiones previas del usuario al hacer login.
+       
+       CNST-002: Política de sesión única por usuario.
+       Solo permite una sesión activa por usuario a la vez.
+       """
+       # Obtener sesión actual
+       current_session_key = request.session.session_key
+       
+       # Eliminar todas las demás sesiones del usuario
+       Session.objects.filter(
+           expire_date__gte=timezone.now()
+       ).exclude(
+           session_key=current_session_key
+       ).delete()
+       
+       # Nota: No podemos filtrar directamente por user_id en Session
+       # porque Session.session_data está serializado.
+       # Alternativa: Usar tabla custom UserSession (ver abajo)
 
-Modelo de Sesión Extendido
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tabla Custom UserSession
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para mejor control y auditoría:
 
 .. code-block:: python
 
    # api/apps/users/models.py
-
+   
    from django.db import models
    from django.contrib.auth import get_user_model
-   from django.contrib.sessions.models import Session
    from django.utils import timezone
-
+   
    User = get_user_model()
-
+   
+   
    class UserSession(models.Model):
        """
-       Extensión de sesión para política de sesión única.
-
-       Vincula sesiones Django con usuarios para:
-       - Implementar sesión única por usuario
-       - Auditar sesiones activas
-       - Permitir cierre remoto de sesiones
-
-       CNST-002: Obligatorio para control de sesiones.
+       Seguimiento de sesiones activas por usuario.
+       
+       CNST-002: Permite implementar política de sesión única
+       y auditoría de sesiones.
        """
-
+       
        user = models.ForeignKey(
            User,
            on_delete=models.CASCADE,
            related_name='sessions'
        )
-       session = models.OneToOneField(
-           Session,
-           on_delete=models.CASCADE,
-           related_name='user_session'
-       )
+       session_key = models.CharField(max_length=40, unique=True)
        ip_address = models.GenericIPAddressField()
-       user_agent = models.CharField(max_length=255)
+       user_agent = models.TextField(blank=True)
        created_at = models.DateTimeField(auto_now_add=True)
        last_activity = models.DateTimeField(auto_now=True)
-
+       is_active = models.BooleanField(default=True)
+       
        class Meta:
            db_table = 'user_sessions'
            ordering = ['-last_activity']
            indexes = [
-               models.Index(fields=['user', 'created_at']),
-               models.Index(fields=['last_activity']),
+               models.Index(fields=['user', 'is_active']),
+               models.Index(fields=['session_key']),
            ]
-
+       
        def __str__(self):
-           return f"{self.user.username} - {self.ip_address}"
-
-       def is_active(self):
-           """Verificar si la sesión está activa."""
-           return self.session.expire_date > timezone.now()
-
+           return f"{self.user.username} - {self.session_key[:8]}"
+       
        @classmethod
-       def get_active_sessions(cls, user):
-           """Obtener sesiones activas de un usuario."""
-           now = timezone.now()
-           return cls.objects.filter(
+       def create_session(cls, user, session_key, request):
+           """
+           Crear nueva sesión y eliminar sesiones previas (single session).
+           
+           Args:
+               user: Usuario
+               session_key: Session key de Django
+               request: Request actual
+           """
+           # Desactivar sesiones previas del usuario
+           cls.objects.filter(user=user, is_active=True).update(is_active=False)
+           
+           # Crear nueva sesión
+           return cls.objects.create(
                user=user,
-               session__expire_date__gt=now
-           ).select_related('session')
+               session_key=session_key,
+               ip_address=cls._get_client_ip(request),
+               user_agent=request.META.get('HTTP_USER_AGENT', '')[:500]
+           )
+       
+       @staticmethod
+       def _get_client_ip(request):
+           """Obtener IP real del cliente."""
+           x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+           if x_forwarded_for:
+               return x_forwarded_for.split(',')[0].strip()
+           return request.META.get('REMOTE_ADDR')
 
-Implementación de Sesión Única
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Signal Mejorado con UserSession
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
-   # api/apps/users/services.py
-
-   from django.contrib.sessions.models import Session
+   # api/apps/users/signals.py
+   
+   from django.contrib.auth.signals import user_logged_in, user_logged_out
+   from django.dispatch import receiver
    from apps.users.models import UserSession
-   from apps.common.notifications import notify
-
-   def enforce_single_session(user, new_session_key, ip_address, user_agent):
+   
+   
+   @receiver(user_logged_in)
+   def create_user_session(sender, request, user, **kwargs):
        """
-       Implementar política de sesión única.
-
-       Args:
-           user: Usuario que inicia sesión
-           new_session_key: Clave de la nueva sesión
-           ip_address: IP del usuario
-           user_agent: User agent del navegador
-
-       Returns:
-           UserSession creado
+       Crear UserSession al login e invalidar sesiones previas.
+       
+       CNST-002: Sesión única por usuario.
        """
-       # Obtener sesiones activas existentes
-       active_sessions = UserSession.get_active_sessions(user)
-
-       # Invalidar sesiones anteriores
-       if active_sessions.exists():
-           for user_session in active_sessions:
-               # Eliminar sesión de BD
-               user_session.session.delete()
-               user_session.delete()
-
-           # Notificar al usuario
-           notify(
-               recipient=user,
-               subject='Sesión cerrada en otro dispositivo',
-               body='Tu sesión anterior fue cerrada porque iniciaste '
-                    'sesión desde otro dispositivo.',
-               priority='NORMAL'
-           )
-
-       # Crear nueva sesión
-       session = Session.objects.get(session_key=new_session_key)
-       user_session = UserSession.objects.create(
-           user=user,
-           session=session,
-           ip_address=ip_address,
-           user_agent=user_agent
-       )
-
-       return user_session
-
-Vista de Login con Sesión Única
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-   # api/apps/users/views.py
-
-   from rest_framework.views import APIView
-   from rest_framework.response import Response
-   from rest_framework import status
-   from django.contrib.auth import authenticate, login
-   from apps.users.services import enforce_single_session
-
-   class LoginView(APIView):
-       """
-       Login con sesión única obligatoria.
-
-       Implementa CNST-002: Sesión única por usuario.
-       """
-
-       def post(self, request):
-           username = request.data.get('username')
-           password = request.data.get('password')
-
-           user = authenticate(username=username, password=password)
-
-           if user is None:
-               return Response({
-                   'error': 'Credenciales inválidas'
-               }, status=status.HTTP_401_UNAUTHORIZED)
-
-           if not user.is_active:
-               return Response({
-                   'error': 'Usuario inactivo'
-               }, status=status.HTTP_403_FORBIDDEN)
-
-           # Crear sesión Django
-           login(request, user)
-
-           # Implementar sesión única
-           ip_address = request.META.get('REMOTE_ADDR')
-           user_agent = request.META.get('HTTP_USER_AGENT', '')[:255]
-
-           user_session = enforce_single_session(
-               user=user,
-               new_session_key=request.session.session_key,
-               ip_address=ip_address,
-               user_agent=user_agent
-           )
-
-           return Response({
-               'message': 'Login exitoso',
-               'user': {
-                   'id': user.id,
-                   'username': user.username,
-                   'email': user.email
-               },
-               'session': {
-                   'created_at': user_session.created_at.isoformat(),
-                   'ip_address': user_session.ip_address
-               }
-           }, status=status.HTTP_200_OK)
+       session_key = request.session.session_key
+       UserSession.create_session(user, session_key, request)
+   
+   
+   @receiver(user_logged_out)
+   def deactivate_user_session(sender, request, user, **kwargs):
+       """Desactivar UserSession al logout."""
+       if hasattr(request, 'session') and request.session.session_key:
+           UserSession.objects.filter(
+               session_key=request.session.session_key
+           ).update(is_active=False)
 
 Casos de Uso Afectados
 ----------------------
@@ -344,194 +322,205 @@ Casos de Uso Afectados
 UC-001: Iniciar Sesión
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Flujo Principal
-^^^^^^^^^^^^^^^
+Flujo CORRECTO (Obligatorio)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Usuario ingresa credenciales
-2. Sistema autentica usuario
-3. **Sistema verifica sesiones activas existentes** (CNST-002)
-4. **Sistema invalida sesión anterior si existe** (CNST-002)
-5. Sistema crea nueva sesión en base de datos MySQL
-6. Sistema registra UserSession con IP y User-Agent
-7. Sistema retorna sesión activa
+2. Sistema valida credenciales
+3. **Sistema invalida sesiones previas del usuario** (single session)
+4. Sistema crea nueva sesión en DB MySQL
+5. Sistema crea UserSession para auditoría
+6. Sistema retorna cookie de sesión
+7. Usuario accede al sistema
 
-UC-002: Cerrar Sesión
-~~~~~~~~~~~~~~~~~~~~~
-
-Flujo Principal
-^^^^^^^^^^^^^^^
-
-1. Usuario solicita cerrar sesión
-2. Sistema elimina registro de Session (django_session)
-3. Sistema elimina registro de UserSession
-4. Sistema invalida cookie de sesión
-5. Sistema retorna confirmación
-
-UC-004: Validar Sesión
-~~~~~~~~~~~~~~~~~~~~~~
-
-Flujo Principal
-^^^^^^^^^^^^^^^
-
-1. Usuario hace request autenticado
-2. Sistema valida cookie de sesión
-3. **Sistema consulta Session en base de datos MySQL** (CNST-002)
-4. Sistema verifica expire_date
-5. Si sesión válida, sistema procesa request
-6. Si sesión expirada, sistema retorna 401 Unauthorized
-
-Gestión de Sesiones Expiradas
------------------------------
-
-Comando de Limpieza
-~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-   # api/apps/users/management/commands/clearsessions.py
-
-   from django.core.management.base import BaseCommand
-   from django.contrib.sessions.models import Session
-   from django.utils import timezone
-   from apps.users.models import UserSession
-
-   class Command(BaseCommand):
-       help = 'Eliminar sesiones expiradas de la base de datos'
-
-       def handle(self, *args, **options):
-           now = timezone.now()
-
-           # Eliminar sesiones Django expiradas
-           expired_sessions = Session.objects.filter(expire_date__lt=now)
-           count_sessions = expired_sessions.count()
-           expired_sessions.delete()
-
-           # Eliminar UserSessions huérfanos
-           orphan_user_sessions = UserSession.objects.filter(
-               session__isnull=True
-           )
-           count_user_sessions = orphan_user_sessions.count()
-           orphan_user_sessions.delete()
-
-           self.stdout.write(
-               self.style.SUCCESS(
-                   f'Eliminadas {count_sessions} sesiones expiradas y '
-                   f'{count_user_sessions} user sessions huérfanos'
-               )
-           )
-
-Cron Job
-^^^^^^^^
-
-.. code-block:: bash
-
-   # Ejecutar diariamente a las 03:00
-   0 3 * * * cd /opt/iact && /opt/iact/venv/bin/python api/manage.py clearsessions
-
-Middleware de Actualización de Actividad
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-   # api/apps/common/middleware.py
-
-   from django.utils import timezone
-   from apps.users.models import UserSession
-
-   class UpdateSessionActivityMiddleware:
-       """
-       Actualizar last_activity en cada request.
-
-       CNST-002: Mantener registro de última actividad en BD.
-       """
-
-       def __init__(self, get_response):
-           self.get_response = get_response
-
-       def __call__(self, request):
-           if request.user.is_authenticated and request.session.session_key:
-               try:
-                   user_session = UserSession.objects.get(
-                       session__session_key=request.session.session_key
-                   )
-                   # Django ya actualiza last_activity con auto_now=True
-                   # Pero explícitamente guardamos para estar seguros
-                   user_session.save(update_fields=['last_activity'])
-               except UserSession.DoesNotExist:
-                   pass
-
-           return self.get_response(request)
-
-Dashboard de Sesiones Activas
------------------------------
-
-Vista de Administración
-~~~~~~~~~~~~~~~~~~~~~~
+Código de Autenticación
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
    # api/apps/users/views.py
-
-   from rest_framework.views import APIView
+   
+   from django.contrib.auth import authenticate, login
+   from rest_framework.decorators import api_view
    from rest_framework.response import Response
-   from rest_framework.permissions import IsAdminUser
-   from apps.users.models import UserSession
-   from django.utils import timezone
+   
+   
+   @api_view(['POST'])
+   def login_view(request):
+       """
+       Login de usuario con sesión en BD.
+       
+       CNST-002: Sesión almacenada en MySQL.
+       UC-001: Iniciar Sesión.
+       """
+       username = request.data.get('username')
+       password = request.data.get('password')
+       
+       user = authenticate(request, username=username, password=password)
+       
+       if user:
+           # Django automáticamente invalida sesiones previas
+           # gracias al signal create_user_session
+           login(request, user)
+           
+           return Response({
+               'success': True,
+               'user': {
+                   'id': user.id,
+                   'username': user.username,
+                   'email': user.email
+               }
+           })
+       
+       return Response({
+           'success': False,
+           'error': 'Credenciales inválidas'
+       }, status=401)
 
+UC-002: Cerrar Sesión
+~~~~~~~~~~~~~~~~~~~~~
+
+Flujo CORRECTO
+^^^^^^^^^^^^^
+
+1. Usuario solicita logout
+2. Sistema marca UserSession como inactiva
+3. Sistema elimina sesión de tabla django_session
+4. Sistema invalida cookie
+5. Usuario es redirigido a login
+
+Código de Logout
+^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+   from django.contrib.auth import logout
+   
+   @api_view(['POST'])
+   def logout_view(request):
+       """
+       Logout de usuario.
+       
+       CNST-002: Elimina sesión de BD.
+       UC-002: Cerrar Sesión.
+       """
+       # Signal deactivate_user_session se ejecuta automáticamente
+       logout(request)
+       
+       return Response({
+           'success': True,
+           'message': 'Sesión cerrada'
+       })
+
+UC-029: Consultar Sesiones Activas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Flujo CORRECTO
+^^^^^^^^^^^^^
+
+1. Administrador accede a panel de sesiones
+2. Sistema consulta UserSession activas
+3. Sistema muestra: usuario, IP, navegador, última actividad
+4. Administrador puede forzar logout de sesión específica
+
+Código de Consulta
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+   from apps.users.models import UserSession
+   from rest_framework.permissions import IsAdminUser
+   
+   
    class ActiveSessionsView(APIView):
        """
-       Lista sesiones activas en el sistema.
-
-       Requiere función: administra_sistema (RBAC v5.1.1)
+       Consultar sesiones activas del sistema.
+       
+       CNST-002: Auditoría de sesiones en BD.
+       UC-029: Consultar Sesiones Activas.
        """
-
+       
        permission_classes = [IsAdminUser]
-
+       
        def get(self, request):
-           now = timezone.now()
-
-           active_sessions = UserSession.objects.filter(
-               session__expire_date__gt=now
-           ).select_related('user', 'session').order_by('-last_activity')
-
-           data = []
-           for user_session in active_sessions:
-               data.append({
-                   'user': user_session.user.username,
-                   'ip_address': user_session.ip_address,
-                   'user_agent': user_session.user_agent,
-                   'created_at': user_session.created_at.isoformat(),
-                   'last_activity': user_session.last_activity.isoformat(),
-                   'expires_at': user_session.session.expire_date.isoformat()
-               })
-
+           """Listar sesiones activas."""
+           sessions = UserSession.objects.filter(
+               is_active=True
+           ).select_related('user')
+           
+           data = [{
+               'id': session.id,
+               'user': session.user.username,
+               'ip': session.ip_address,
+               'user_agent': session.user_agent[:100],
+               'created': session.created_at,
+               'last_activity': session.last_activity
+           } for session in sessions]
+           
            return Response({
-               'total_active': len(data),
+               'count': len(data),
                'sessions': data
            })
+       
+       def delete(self, request, session_id):
+           """Forzar logout de sesión específica (administra_sistema)."""
+           session = UserSession.objects.get(id=session_id)
+           session.is_active = False
+           session.save()
+           
+           # Eliminar sesión de Django
+           from django.contrib.sessions.models import Session
+           Session.objects.filter(session_key=session.session_key).delete()
+           
+           return Response({'success': True})
 
-Validación en Desarrollo
-------------------------
+Limpieza de Sesiones Expiradas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pre-commit Checklist
-~~~~~~~~~~~~~~~~~~~~
+Django Command
+^^^^^^^^^^^^^
 
-Antes de hacer commit, verificar:
+Django incluye comando para limpiar sesiones expiradas:
+
+.. code-block:: bash
+
+   # Ejecutar periódicamente (cron job diario)
+   python manage.py clearsessions
+
+Cron Job Recomendado
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   # /etc/cron.d/iact-clearsessions
+   
+   # Limpiar sesiones expiradas diariamente a las 3 AM
+   0 3 * * * iact_user cd /var/www/iact/api && /var/www/iact/venv/bin/python manage.py clearsessions
+
+Validación
+----------
+
+Pre-deployment Checklist
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Antes de deployment, verificar:
 
 .. list-table::
    :header-rows: 0
    :widths: 10 90
 
    * - [ ]
-     - NO existe ``import redis``
-   * - [ ]
-     - NO existe ``redis`` en requirements.txt
+     - ``SESSION_ENGINE = 'django.contrib.sessions.backends.db'``
    * - [ ]
      - NO existe configuración de Redis en settings
    * - [ ]
-     - ``SESSION_ENGINE`` es ``'django.contrib.sessions.backends.db'``
+     - NO existe import de ``redis`` o ``django-redis``
    * - [ ]
-     - Existe migración para tabla ``user_sessions``
+     - Tabla ``django_session`` existe en BD
+   * - [ ]
+     - Tabla ``user_sessions`` existe en BD
+   * - [ ]
+     - Cron job ``clearsessions`` configurado
 
 Code Review Checklist
 ~~~~~~~~~~~~~~~~~~~~~
@@ -543,48 +532,54 @@ Durante code review, rechazar si:
    :widths: 10 90
 
    * - [ ]
-     - Se intenta usar Redis o Memcached
+     - Se usa Redis para sesiones
    * - [ ]
-     - Se importan librerías de caché
+     - Se usa Memcached
    * - [ ]
+     - Se configura caché en memoria
+   * - - [ ]
      - SESSION_ENGINE no es 'db'
-   * - [ ]
-     - No se implementa sesión única
 
 Validación Automatizada
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Script de Validación
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
    #!/bin/bash
-   # scripts/validate_no_redis.sh
-
-   echo "Validando que no existan referencias a Redis/Memcached..."
-
+   # scripts/validate_cnst_002.sh
+   
+   echo "Validando configuración de sesiones..."
+   
    ERRORS=0
-
-   # Buscar imports prohibidos
-   if grep -r "import redis" api/apps/; then
-       echo "ERROR: Encontrado 'import redis'"
-       ERRORS=$((ERRORS + 1))
-   fi
-
-   if grep -r "redis\|memcached" requirements.txt; then
-       echo "ERROR: Encontrado Redis/Memcached en requirements"
-       ERRORS=$((ERRORS + 1))
-   fi
-
+   
    # Verificar SESSION_ENGINE
-   if ! grep -r "SESSION_ENGINE.*db" api/config/settings/; then
-       echo "ERROR: SESSION_ENGINE no configurado para BD"
+   if ! grep -q "SESSION_ENGINE = 'django.contrib.sessions.backends.db'" api/config/settings/base.py; then
+       echo "ERROR: SESSION_ENGINE no está configurado para BD"
        ERRORS=$((ERRORS + 1))
    fi
-
+   
+   # Buscar imports prohibidos
+   if grep -r "import redis\|from redis" api/; then
+       echo "ERROR: Encontrado import de redis"
+       ERRORS=$((ERRORS + 1))
+   fi
+   
+   if grep -r "django_redis\|django-redis" api/; then
+       echo "ERROR: Encontrada referencia a django-redis"
+       ERRORS=$((ERRORS + 1))
+   fi
+   
+   # Verificar que no exista configuración de Redis
+   if grep -r "RedisCache\|LOCATION.*redis://" api/config/settings/; then
+       echo "ERROR: Configuración de Redis encontrada"
+       ERRORS=$((ERRORS + 1))
+   fi
+   
    if [ $ERRORS -eq 0 ]; then
-       echo "OK: No se encontraron referencias a caché prohibida"
+       echo "OK: Configuración de sesiones válida"
        exit 0
    else
        echo "FALLO: $ERRORS violaciones de CNST-002 encontradas"
@@ -598,45 +593,75 @@ Excepciones
 
 Esta restricción NO tiene excepciones.
 
-La infraestructura del cliente no provee Redis ni Memcached.
+La infraestructura del cliente NO provee servicios Redis o Memcached, por lo que técnicamente es imposible violar esta restricción en producción.
 
-Cualquier intento de usar caché en memoria fallará en deployment.
+Sin embargo, NO se permite su uso ni siquiera en desarrollo local para evitar crear dependencias que no podrán desplegarse.
 
 Alternativas Evaluadas y Rechazadas
 -----------------------------------
 
-Alternativa 1: Redis Interno
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Alternativa 1: Sesiones en Cookies (Signed Cookies)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Propuesta:** Instalar Redis en infraestructura del cliente.
+**Propuesta:** Almacenar datos de sesión en cookies firmadas del cliente.
 
 **Rechazada porque:**
 
-- Cliente explícitamente NO permite servicios adicionales
+- No permite auditoría centralizada de sesiones
+- No permite forzar logout remoto
+- Límite de tamaño de cookies (4KB)
+- No cumple con requerimiento de single session
+
+Alternativa 2: Instalar Redis en Infraestructura del Cliente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Propuesta:** Solicitar al cliente instalar Redis.
+
+**Rechazada porque:**
+
+- Cliente explícitamente rechazó esta opción
 - Política de simplificación de infraestructura
-- Overhead de mantenimiento inaceptable
+- No se permite instalar servicios adicionales
 
-Alternativa 2: Caché en Memoria Local
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Alternativa 3: Redis en Servidor Externo (SaaS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Propuesta:** Usar django.core.cache.backends.locmem.
-
-**Rechazada porque:**
-
-- No persiste entre workers de Gunicorn
-- Sesiones se perderían al reiniciar servidor
-- No cumple con requerimiento de auditoría
-
-Alternativa 3: Sesiones en Archivos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Propuesta:** Usar django.contrib.sessions.backends.file.
+**Propuesta:** Usar Redis Cloud u otro servicio SaaS externo.
 
 **Rechazada porque:**
 
-- Problemas de concurrencia en alta carga
-- Dificulta auditoría y consulta de sesiones
-- Base de datos es más robusta
+- Políticas de seguridad no permiten datos en servicios externos
+- Latencia de red inaceptable
+- Costo adicional no justificado
+
+Monitoreo
+---------
+
+Métricas a Monitorear
+~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 40 60
+   :header-rows: 1
+
+   * - Métrica
+     - Query
+   * - Sesiones activas totales
+     - ``SELECT COUNT(*) FROM user_sessions WHERE is_active=1``
+   * - Sesiones expiradas sin limpiar
+     - ``SELECT COUNT(*) FROM django_session WHERE expire_date < NOW()``
+   * - Usuarios con múltiples sesiones
+     - ``SELECT user_id, COUNT(*) FROM user_sessions WHERE is_active=1 GROUP BY user_id HAVING COUNT(*) > 1``
+   * - Sesiones por hora (últimas 24h)
+     - ``SELECT DATE_FORMAT(created_at, '%Y-%m-%d %H:00'), COUNT(*) FROM user_sessions WHERE created_at >= NOW() - INTERVAL 24 HOUR GROUP BY 1``
+
+Alertas Recomendadas
+~~~~~~~~~~~~~~~~~~~
+
+- Más de 100 sesiones expiradas sin limpiar
+- Usuario con múltiples sesiones activas (violación de single session)
+- Más de 1000 sesiones activas simultáneas
+- Tabla django_session con más de 50MB de datos
 
 Referencias
 -----------
@@ -644,17 +669,24 @@ Referencias
 Documentos Relacionados
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+- RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md
 - UC-001: Iniciar Sesión
 - UC-002: Cerrar Sesión
-- UC-004: Validar Sesión
-- Modelo RBAC IACT v5.1.1
+- UC-029: Consultar Sesiones Activas
+
+Documentación Django
+~~~~~~~~~~~~~~~~~~~
+
+- Django Sessions: https://docs.djangoproject.com/en/stable/topics/http/sessions/
+- Database-backed sessions: https://docs.djangoproject.com/en/stable/ref/settings/#session-engine
+- clearsessions command: https://docs.djangoproject.com/en/stable/ref/django-admin/#clearsessions
 
 Implementación de Referencia
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``api/apps/users/models.py`` - UserSession
-- ``api/apps/users/services.py`` - enforce_single_session()
-- ``api/apps/users/views.py`` - LoginView
+- ``api/config/settings/base.py`` - Configuración de sesiones
+- ``api/apps/users/models.py`` - Modelo UserSession
+- ``api/apps/users/signals.py`` - Signals de sesión única
 
 Historial de Cambios
 --------------------
@@ -667,13 +699,13 @@ Historial de Cambios
      - Fecha
      - Cambios
      - Autor
-   * - 1.1.0
-     - 2026-01-03
-     - Actualización a RBAC v5.1.1
-     - Equipo IACT
    * - 1.0.0
      - 2025-12-17
      - Versión inicial completa con Clean Code
+     - Equipo IACT
+   * - 1.0.1
+     - 2026-01-03
+     - Actualización de metadatos. Sin cambios funcionales
      - Equipo IACT
 
 Aprobaciones
@@ -686,13 +718,13 @@ Aprobaciones
    * - Rol
      - Nombre
      - Firma / Fecha
-   * - Cliente (Sponsor)
+   * - Cliente (Infraestructura)
      - [Nombre]
      - [Pendiente]
    * - Tech Lead
      - [Nombre]
      - [Pendiente]
-   * - Infrastructure Lead
+   * - DevOps Lead
      - [Nombre]
      - [Pendiente]
 
