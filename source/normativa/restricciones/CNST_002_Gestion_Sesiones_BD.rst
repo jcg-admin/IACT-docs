@@ -698,4 +698,4 @@ Aprobaciones
 
 ----
 
-**Fin del Documento CNST-002*
+**Fin del Documento CNST-002**
