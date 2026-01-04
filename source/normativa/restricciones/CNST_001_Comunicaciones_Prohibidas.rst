@@ -2,9 +2,9 @@ CNST-001: Comunicaciones Prohibidas
 ====================================
 
 :ID: CNST-001
-:Versión: 1.0.0
-:Fecha: 2025-12-17
-:Estado: Vigente
+:Versión: 1.1.0
+:Fecha: 2026-01-03
+:Estado: VIGENTE
 :Clasificación: CRÍTICO - NO NEGOCIABLE
 :Origen: Restricción del cliente
 
@@ -151,7 +151,7 @@ Implementación Código PROHIBIDO
 
    # NO HACER ESTO - PROHIBIDO
    from django.core.mail import send_mail
-   
+
    def reset_password_email(user):
        send_mail(
            subject='Recuperar contraseña',
@@ -166,21 +166,21 @@ Implementación Código CORRECTO
 .. code-block:: python
 
    # api/apps/users/models.py
-   
+
    from django.db import models
    from django.contrib.auth import get_user_model
    from django.contrib.auth.hashers import check_password, make_password
-   
+
    User = get_user_model()
-   
+
    class SecurityQuestion(models.Model):
        """
        Preguntas de seguridad para recuperación de contraseña.
-       
+
        Reemplaza el flujo de email prohibido por CNST-001.
        Cada usuario debe tener exactamente 3 preguntas configuradas.
        """
-       
+
        user = models.ForeignKey(
            User,
            on_delete=models.CASCADE,
@@ -188,14 +188,14 @@ Implementación Código CORRECTO
        )
        question = models.CharField(max_length=200)
        answer_hash = models.CharField(max_length=128)
-       
+
        class Meta:
            db_table = 'security_questions'
-       
+
        def set_answer(self, answer):
            """Hashear y guardar respuesta."""
            self.answer_hash = make_password(answer.lower().strip())
-       
+
        def check_answer(self, answer):
            """Validar respuesta."""
            return check_password(answer.lower().strip(), self.answer_hash)
@@ -204,23 +204,23 @@ Implementación Código CORRECTO
    def validate_security_answers(user, answers):
        """
        Validar las 3 preguntas de seguridad.
-       
+
        Args:
            user: Usuario que solicita recuperación
            answers: Lista de 3 respuestas
-       
+
        Returns:
            True si todas las respuestas son correctas
        """
        questions = SecurityQuestion.objects.filter(user=user).order_by('id')[:3]
-       
+
        if questions.count() != 3 or len(answers) != 3:
            return False
-       
+
        for question, answer in zip(questions, answers):
            if not question.check_answer(answer):
                return False
-       
+
        return True
 
 UC-037: Recibir Notificación
@@ -247,31 +247,31 @@ Modelo InternalMessage
 .. code-block:: python
 
    # api/apps/common/models.py
-   
+
    from django.db import models
    from django.contrib.auth import get_user_model
    from django.utils import timezone
-   
+
    User = get_user_model()
-   
+
    class InternalMessage(models.Model):
        """
        Buzón interno para notificaciones del sistema.
-       
+
        Reemplaza el email prohibido por CNST-001.
        Todos los casos de uso que requieran notificar usuarios
        deben usar este modelo.
-       
+
        Uso:
            from apps.common.models import InternalMessage
-           
+
            InternalMessage.objects.create(
                recipient=user,
                subject='Título',
                body='Contenido del mensaje'
            )
        """
-       
+
        recipient = models.ForeignKey(
            User,
            on_delete=models.CASCADE,
@@ -298,7 +298,7 @@ Modelo InternalMessage
        created_at = models.DateTimeField(auto_now_add=True)
        read_at = models.DateTimeField(null=True, blank=True)
        archived = models.BooleanField(default=False)
-       
+
        class Meta:
            db_table = 'internal_messages'
            ordering = ['-created_at']
@@ -307,22 +307,22 @@ Modelo InternalMessage
                models.Index(fields=['recipient', 'archived']),
                models.Index(fields=['recipient', 'priority']),
            ]
-       
+
        def __str__(self):
            status = 'Leído' if self.read_at else 'No leído'
            return f"{self.subject} ({status})"
-       
+
        def mark_as_read(self):
            """Marcar mensaje como leído."""
            if not self.read_at:
                self.read_at = timezone.now()
                self.save(update_fields=['read_at'])
-       
+
        def archive(self):
            """Archivar mensaje."""
            self.archived = True
            self.save(update_fields=['archived'])
-       
+
        @classmethod
        def unread_count(cls, user):
            """Contar mensajes no leídos de un usuario."""
@@ -338,25 +338,25 @@ Función de Notificación
 .. code-block:: python
 
    # api/apps/common/notifications.py
-   
+
    from apps.common.models import InternalMessage
-   
+
    def notify(recipient, subject, body, sender=None, priority='NORMAL'):
        """
        Crear notificación en buzón interno.
-       
+
        Esta función es el reemplazo de send_mail() prohibido por CNST-001.
-       
+
        Args:
            recipient: Usuario destinatario
            subject: Asunto del mensaje
            body: Contenido del mensaje
            sender: Usuario remitente (None = Sistema)
            priority: LOW, NORMAL, HIGH
-       
+
        Returns:
            InternalMessage creado
-       
+
        Example:
            notify(
                recipient=admin_user,
@@ -372,22 +372,22 @@ Función de Notificación
            body=body,
            priority=priority
        )
-   
-   
+
+
    def notify_admins(subject, body, priority='HIGH'):
        """
        Notificar a todos los administradores del sistema.
-       
+
        Args:
            subject: Asunto
            body: Contenido
            priority: Prioridad (default HIGH para admins)
        """
        from django.contrib.auth import get_user_model
-       
+
        User = get_user_model()
        admins = User.objects.filter(is_staff=True, is_active=True)
-       
+
        for admin in admins:
            notify(
                recipient=admin,
@@ -395,29 +395,29 @@ Función de Notificación
                body=body,
                priority=priority
            )
-   
-   
-   def notify_by_role(role_id, subject, body, priority='NORMAL'):
+
+
+   def notify_by_function(function_code, subject, body, priority='NORMAL'):
        """
-       Notificar a usuarios con un rol específico (RBAC).
-       
+       Notificar a usuarios con una función específica (RBAC v5.1.1).
+
        Args:
-           role_id: ID del rol (ej: 'R004' para REPORTS_VIEWER)
+           function_code: Código de función atómica (ej: 'administra_sistema')
            subject: Asunto
            body: Contenido
            priority: Prioridad
        """
-       from apps.users.models import UserRole
-       
-       user_roles = UserRole.objects.filter(
-           role_id=role_id,
+       from apps.access.models import UserFunctionAssignment
+
+       assignments = UserFunctionAssignment.objects.filter(
+           function_code=function_code,
            is_active=True
        ).select_related('user')
-       
-       for user_role in user_roles:
-           if user_role.user.is_active:
+
+       for assignment in assignments:
+           if assignment.user.is_active:
                notify(
-                   recipient=user_role.user,
+                   recipient=assignment.user,
                    subject=subject,
                    body=body,
                    priority=priority
@@ -440,7 +440,7 @@ Ejemplos de Alertas
 .. code-block:: python
 
    from apps.common.notifications import notify, notify_admins
-   
+
    # Alerta: ETL completado
    notify(
        recipient=admin_user,
@@ -448,23 +448,23 @@ Ejemplos de Alertas
        body='ETL ejecutado a las 02:30. Registros procesados: 15,420',
        priority='NORMAL'
    )
-   
+
    # Alerta: Error crítico (notificar a todos los admins)
    notify_admins(
        subject='Error Crítico en ETL',
        body='ETL falló. Error: Connection timeout a base IVR.',
        priority='HIGH'
    )
-   
-   # Alerta: Nuevo rol asignado
+
+   # Alerta: Nueva función asignada (RBAC v5.1.1)
    notify(
        recipient=target_user,
-       subject='Nuevo Rol Asignado',
-       body='Se te ha asignado el rol DATA_ANALYST (R010).',
+       subject='Nueva Función Asignada',
+       body='Se te ha asignado la función "analiza_datos".',
        sender=admin_user,
        priority='NORMAL'
    )
-   
+
    # Alerta: Reporte generado
    notify(
        recipient=report_owner,
@@ -524,39 +524,39 @@ Script de Validación
 
    #!/bin/bash
    # scripts/validate_no_email.sh
-   
+
    echo "Validando que no existan referencias a email..."
-   
+
    ERRORS=0
-   
+
    # Buscar imports prohibidos
    if grep -r "import smtplib" api/apps/; then
        echo "ERROR: Encontrado 'import smtplib'"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    if grep -r "from django.core.mail" api/apps/; then
        echo "ERROR: Encontrado 'from django.core.mail'"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    if grep -r "send_mail" api/apps/; then
        echo "ERROR: Encontrado 'send_mail'"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    # Buscar configuraciones SMTP
    if grep -r "EMAIL_HOST\|SMTP" api/config/settings/; then
        echo "ERROR: Encontrada configuración de email en settings"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    # Buscar templates de email
    if [ -d "api/templates/email" ]; then
        echo "ERROR: Existe directorio templates/email"
        ERRORS=$((ERRORS + 1))
    fi
-   
+
    if [ $ERRORS -eq 0 ]; then
        echo "OK: No se encontraron referencias a email"
        exit 0
@@ -571,10 +571,10 @@ Configuración Ruff
 .. code-block:: toml
 
    # pyproject.toml
-   
+
    [tool.ruff.lint.per-file-ignores]
    # No se necesitan reglas especiales, pero documentar la prohibición
-   
+
    [tool.ruff.lint]
    # Nota: Ruff no tiene regla nativa para prohibir imports específicos
    # Usar el script validate_no_email.sh como complemento
@@ -632,10 +632,9 @@ Referencias
 Documentos Relacionados
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md
 - UC-003: Recuperar Contraseña
 - UC-036 a UC-040: Sistema de Alertas
-- Modelo RBAC IACT v4.0 (para notify_by_role)
+- Modelo RBAC IACT v5.1.1 (para notify_by_function)
 
 Implementación de Referencia
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -655,6 +654,10 @@ Historial de Cambios
      - Fecha
      - Cambios
      - Autor
+   * - 1.1.0
+     - 2026-01-03
+     - Actualización a RBAC v5.1.1. Función notify_by_function
+     - Equipo IACT
    * - 1.0.0
      - 2025-12-17
      - Versión inicial completa con Clean Code

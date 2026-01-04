@@ -62,8 +62,8 @@ Sistema web compuesto por:
 - **Backend:** Django REST Framework (Python 3.11+)
 - **Frontend:** React 18+ con TypeScript
 - **Base de Datos:** PostgreSQL 15+
-- **Cache:** Redis
-- **Mensajería:** Celery para tareas asíncronas
+- **Cache:** NO Redis
+- **Mensajería:** NO Celery para tareas asíncronas
 
 El sistema expone APIs RESTful para integración con plataformas IVR externas
 y provee dashboards analíticos en tiempo real.

@@ -1,411 +1,250 @@
 .. _restricciones-index:
 
-==============================================================================
-Restricciones del Sistema
-==============================================================================
+Restricciones Tecnicas
+======================
 
-:Dominio: arquitectura_tecnica
-:Subdominio: restricciones
-:Estado: CONGELADO
+:Estado: VIGENTE (Actualizado)
 :Documentos: 10
-:Lineas Totales: 9,621
-:Ultima Actualizacion: 2025-12-17
+:Lineas Totales: 10,071
+:Ultima Actualizacion: 2026-01-03
+:Version: 1.1.0
+:Integracion RBAC: v5.1.1 (44 funciones atomicas)
 
-Descripcion General
--------------------
+----
 
-Este subdominio contiene las **restricciones tecnicas impuestas** al sistema
-IACT Dashboard Analytics. Las restricciones son limitaciones externas que
-provienen del cliente, la infraestructura existente o politicas organizacionales.
+Proposito
+---------
 
-.. important::
+Este directorio contiene las restricciones tecnicas criticas del Sistema IACT - IVR Analytics & Customer Tracking. Estas restricciones son NO NEGOCIABLES y deben cumplirse en todas las fases del proyecto.
 
-   **CNST = Restriccion IMPUESTA (externa)**
-   
-   A diferencia de los estandares (STD) que son metodologias adoptadas
-   internamente, las restricciones son imposiciones que el equipo de
-   desarrollo DEBE cumplir sin negociacion.
+Las restricciones estan alineadas con el Modelo RBAC v5.1.1 que utiliza funciones atomicas en lugar de roles tradicionales.
 
-Diferencia CNST vs STD
-----------------------
+----
+
+Cambios en v1.1.0
+-----------------
+
+Fecha: 2026-01-03
+
+**Actualizaciones Globales (10 CNST):**
+
+- Todos los CNST actualizados a v1.1.0
+- Fecha actualizada: 2025-12-17 → 2026-01-03
+- Estado cambiado: CONGELADO → VIGENTE
+- Referencias actualizadas: RBAC v4.0 → RBAC v5.1.1
+- Integracion con modelo de funciones atomicas (44 funciones)
+
+**Ampliaciones de Contenido:**
+
+- CNST-005: Nueva seccion "Permisos Temporales" (+150 lineas)
+  * Modelo UserFunctionAssignment
+  * Middleware de validacion automatica
+  * API REST para gestion de permisos temporales
+  * Comando de limpieza automatica
+
+- CNST-006: Nueva seccion "Patrones de Diseno Recomendados" (+300 lineas)
+  * 6 patrones documentados con ejemplos
+  * Balance antipatrones + patrones recomendados
+  * Guias positivas de arquitectura
+
+**Incremento Total:**
+
+- Lineas: 9,621 → 10,071 (+450 lineas, +4.7%)
+- Cobertura: 98.5% → 100%
+
+----
+
+Historial de Versiones
+-----------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 10 15 55 20
+
+   * - Version
+     - Fecha
+     - Cambios
+     - Lineas
+   * - 1.1.0
+     - 2026-01-03
+     - Ampliaciones CNST-005 y CNST-006. Integracion RBAC v5.1.1
+     - 10,071
+   * - 1.0.0
+     - 2025-12-17
+     - Version inicial completa
+     - 9,621
+
+----
+
+Catalogo de Restricciones
+--------------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 35 15 15 20
+
+   * - ID
+     - Titulo
+     - Lineas
+     - Version
+     - Estado
+   * - CNST-001
+     - Comunicaciones Prohibidas
+     - 685
+     - 1.1.0
+     - VIGENTE
+   * - CNST-002
+     - Gestion de Sesiones en BD
+     - 840
+     - 1.1.0
+     - VIGENTE
+   * - CNST-003
+     - Base de Datos Dual Inmutable
+     - 901
+     - 1.1.0
+     - VIGENTE
+   * - CNST-004
+     - Actualizacion Datos ETL
+     - 920
+     - 1.1.0
+     - VIGENTE
+   * - CNST-005
+     - Seguridad DRF Checklist
+     - 1,144
+     - 1.1.0
+     - VIGENTE
+   * - CNST-006
+     - Antipatrones Arquitectura
+     - 1,426
+     - 1.1.0
+     - VIGENTE
+   * - CNST-007
+     - Limites Performance SLA
+     - 1,061
+     - 1.1.0
+     - VIGENTE
+   * - CNST-008
+     - Infraestructura Deployment
+     - 1,019
+     - 1.1.0
+     - VIGENTE
+   * - CNST-009
+     - Logging Auditoria Inmutable
+     - 1,077
+     - 1.1.0
+     - VIGENTE
+   * - CNST-010
+     - Clasificacion Proteccion Datos
+     - 998
+     - 1.1.0
+     - VIGENTE
+
+----
+
+Clasificacion por Categoria
+----------------------------
+
+**Restricciones Tecnicas Criticas (No Negociables)**
+
+- CNST-001: Comunicaciones Prohibidas (NO email/SMTP)
+- CNST-002: Gestion de Sesiones en BD (NO Redis)
+- CNST-003: Base de Datos Dual Inmutable (IVR readonly)
+- CNST-004: Actualizacion Datos ETL (NO real-time)
+
+**Restricciones de Seguridad**
+
+- CNST-005: Seguridad DRF Checklist
+- CNST-010: Clasificacion Proteccion Datos
+
+**Restricciones de Arquitectura**
+
+- CNST-006: Antipatrones Arquitectura
+
+**Restricciones de Performance**
+
+- CNST-007: Limites Performance SLA
+
+**Restricciones de Infraestructura**
+
+- CNST-008: Infraestructura Deployment
+
+**Restricciones de Auditoria**
+
+- CNST-009: Logging Auditoria Inmutable
+
+----
+
+Integracion con RBAC v5.1.1
+---------------------------
+
+Este conjunto de restricciones esta alineado con el Modelo RBAC v5.1.1 que utiliza funciones atomicas en lugar de roles tradicionales.
+
+**Modelo de Funciones Atomicas:**
+
+- 44 funciones distribuidas en 8 modulos funcionales
+- Sistema "sin pretensiones" (funciones describen QUE HACE, no QUIEN ES)
+- Integracion con SEC_RULES para enforcement automatico
+- Soporte para permisos temporales con expiracion automatica
+
+**Modulos IACT:**
+
+- MOD_Auth: Autenticacion y Sesiones (4 funciones)
+- MOD_Users: Gestion de Identidades (10 funciones)
+- MOD_Access: Roles, Permisos, Segmentos (6 funciones)
+- MOD_Pipeline: Supervision del ETL (4 funciones)
+- MOD_Reports: Dashboards y Reportes (8 funciones)
+- MOD_Alerts: Alertas y Notificaciones (6 funciones)
+- MOD_Audit: Auditoria Funcional (4 funciones)
+- MOD_Logs: Bitacoras Tecnicas (2 funciones)
+
+**Mapeo CNST a Modulos:**
 
 .. list-table::
    :header-rows: 1
    :widths: 20 40 40
 
-   * - Tipo
-     - Naturaleza
-     - Ejemplo
    * - CNST
-     - Imposicion externa del cliente
-     - "NO usar email para notificaciones"
-   * - STD
-     - Metodologia adoptada internamente
-     - "Usar Clean Code naming"
-
-Catalogo de Restricciones
--------------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 10 35 15 40
-
-   * - ID
-     - Titulo
-     - Lineas
-     - Descripcion
+     - Modulos Afectados
+     - Funciones Relacionadas
    * - CNST-001
-     - :ref:`cnst-001`
-     - 685
-     - Prohibicion de comunicaciones externas (email, SMS, WhatsApp)
+     - MOD_Alerts
+     - notifica_usuario, crea_mensaje_interno
    * - CNST-002
-     - :ref:`cnst-002`
-     - 840
-     - Gestion de sesiones unicas y tokens JWT
+     - MOD_Auth
+     - inicia_sesion, cierra_sesion
    * - CNST-003
-     - :ref:`cnst-003`
-     - 901
-     - Arquitectura dual de base de datos MySQL/PostgreSQL
+     - MOD_Pipeline
+     - extrae_datos_ivr
    * - CNST-004
-     - :ref:`cnst-004`
-     - 920
-     - Actualizacion de datos solo via ETL nocturno
+     - MOD_Pipeline
+     - supervisa_etl, ejecuta_etl
    * - CNST-005
-     - :ref:`cnst-005`
-     - 994
-     - Checklist de seguridad Django REST Framework
+     - Todos
+     - Middleware de autenticacion
    * - CNST-006
-     - :ref:`cnst-006`
-     - 1,126
-     - Antipatrones de arquitectura prohibidos
+     - Todos
+     - Calidad de codigo
    * - CNST-007
-     - :ref:`cnst-007`
-     - 1,061
-     - Limites de rendimiento y SLAs
+     - MOD_Reports
+     - exporta_csv, exporta_excel, genera_reporte
    * - CNST-008
-     - :ref:`cnst-008`
-     - 1,019
-     - Infraestructura y modelo de deployment
+     - N/A
+     - Infraestructura
    * - CNST-009
-     - :ref:`cnst-009`
-     - 1,077
-     - Logging y auditoria inmutable
+     - MOD_Audit, MOD_Logs
+     - registra_auditoria, consulta_logs
    * - CNST-010
-     - :ref:`cnst-010`
-     - 998
-     - Clasificacion y proteccion de datos
+     - Todos
+     - ve_reportes, analiza_datos, administra_sistema
 
-Organizacion por Categoria
---------------------------
-
-Comunicaciones y Sesiones
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Restricciones relacionadas con la interaccion usuario-sistema.
-
-- :ref:`cnst-001` - Comunicaciones Prohibidas
-- :ref:`cnst-002` - Gestion de Sesiones
-
-Base de Datos y ETL
-^^^^^^^^^^^^^^^^^^^
-
-Restricciones sobre el manejo de datos y sincronizacion.
-
-- :ref:`cnst-003` - Base de Datos Dual Inmutable
-- :ref:`cnst-004` - Actualizacion via ETL
-
-Seguridad y Acceso
-^^^^^^^^^^^^^^^^^^
-
-Restricciones de seguridad, autenticacion y autorizacion.
-
-- :ref:`cnst-005` - Seguridad DRF
-- :ref:`cnst-010` - Clasificacion de Datos
-
-Arquitectura y Rendimiento
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Restricciones sobre diseno y limites operacionales.
-
-- :ref:`cnst-006` - Antipatrones Prohibidos
-- :ref:`cnst-007` - Limites Performance/SLA
-
-Infraestructura y Operaciones
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Restricciones sobre deployment y operacion del sistema.
-
-- :ref:`cnst-008` - Infraestructura Deployment
-- :ref:`cnst-009` - Logging Auditoria
-
-Matriz de Impacto por Componente
---------------------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 10 10 10 10 10
-
-   * - CNST
-     - API
-     - UI
-     - ETL
-     - BD
-     - Infra
-   * - CNST-001
-     - X
-     - X
-     - 
-     - 
-     - 
-   * - CNST-002
-     - X
-     - X
-     - 
-     - X
-     - 
-   * - CNST-003
-     - X
-     - 
-     - X
-     - X
-     - 
-   * - CNST-004
-     - 
-     - 
-     - X
-     - X
-     - 
-   * - CNST-005
-     - X
-     - 
-     - 
-     - 
-     - 
-   * - CNST-006
-     - X
-     - X
-     - X
-     - X
-     - 
-   * - CNST-007
-     - X
-     - X
-     - X
-     - X
-     - 
-   * - CNST-008
-     - X
-     - X
-     - 
-     - 
-     - X
-   * - CNST-009
-     - X
-     - 
-     - X
-     - X
-     - 
-   * - CNST-010
-     - X
-     - X
-     - X
-     - X
-     - 
-
-Integracion con RBAC v4.0
--------------------------
-
-Todas las restricciones consideran los 18 roles funcionales del sistema:
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 35 50
-
-   * - Rol
-     - Codigo
-     - CNSTs Aplicables
-   * - R001
-     - SUPER_ADMIN
-     - Todos (acceso completo)
-   * - R003
-     - DASHBOARD_VIEWER
-     - CNST-001, 002, 007, 010(C1-C2)
-   * - R004
-     - REPORTS_VIEWER
-     - CNST-001, 002, 007, 010(C1-C2)
-   * - R005
-     - REPORTS_EXPORTER
-     - CNST-001, 002, 007, 010(C1-C2)
-   * - R010
-     - DATA_ANALYST
-     - CNST-001, 002, 003, 007, 010(C1-C3)
-   * - R011
-     - ETL_OPERATOR
-     - CNST-003, 004, 009
-   * - R015
-     - SYSTEM_ADMIN
-     - Todos excepto CNST-003 escritura MySQL
-   * - R016
-     - AUDIT_VIEWER
-     - CNST-009, 010
-
-Dependencias entre Restricciones
---------------------------------
-
-.. code-block:: text
-
-   CNST-003 (BD Dual)
-       |
-       +---> CNST-004 (ETL) - Requiere arquitectura dual
-       |
-       +---> CNST-009 (Audit) - Logs en PostgreSQL
-   
-   CNST-005 (Seguridad DRF)
-       |
-       +---> CNST-002 (Sesiones) - JWT authentication
-       |
-       +---> CNST-010 (Datos) - Permisos por clasificacion
-   
-   CNST-008 (Infra)
-       |
-       +---> CNST-007 (SLA) - Limites por capacidad servidor
-       |
-       +---> CNST-009 (Audit) - Rotacion logs por espacio
-
-Resumen de Implementacion
--------------------------
-
-Modelos Django Definidos
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
-
-   # CNST-001
-   class InternalMessage(models.Model)
-   class SecurityQuestion(models.Model)
-   
-   # CNST-002
-   class UserSession(models.Model)
-   
-   # CNST-003
-   class IVRCallDetail(models.Model)      # MySQL (lectura)
-   class DailyCallMetrics(models.Model)   # PostgreSQL
-   
-   # CNST-004
-   class ETLExecution(models.Model)
-   
-   # CNST-009
-   class UserActionLog(models.Model)
-   class APIAccessLog(models.Model)
-   
-   # CNST-010
-   class DataClassification(models.Model)
-
-Servicios y Middleware
-^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
-
-   # CNST-001
-   def notify_admins(subject, message)
-   def notify_user(user_id, message)
-   
-   # CNST-002
-   class SingleSessionMiddleware
-   def validate_jwt_token(token)
-   
-   # CNST-003
-   class IVRReadOnlyRouter
-   class IVRDataExtractor
-   
-   # CNST-004
-   class ETLPipeline
-   class ETLScheduler
-   
-   # CNST-009
-   class AuditLogMiddleware
-   def log_user_action(user, action, details)
-
-Permisos DRF
-^^^^^^^^^^^^
-
-.. code-block:: python
-
-   # CNST-005
-   class IsAuthenticated
-   class HasRole(role_id)
-   class RBACPermission
-   
-   # CNST-010
-   class CanAccessRestrictedData      # C3
-   class CanAccessConfidentialData    # C4
-   @requires_classification(level)
-
-Verificacion de Cumplimiento
-----------------------------
-
-Script de validacion disponible en cada documento CNST:
-
-.. code-block:: bash
-
-   # Verificar cumplimiento de todas las restricciones
-   python manage.py check_constraints --all
-   
-   # Verificar restriccion especifica
-   python manage.py check_constraints --cnst=001
-
-Referencias
------------
+----
 
 Documentos Relacionados
-^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
-- :ref:`std-003` - Clean Code Naming (nombres usados en CNST)
-- :ref:`std-004` - Nomenclatura Proyecto (paths api/ui)
-- :ref:`std-001` - Suite Calidad (Bandit en CNST-005)
-- :ref:`adr-001` - Stack Django + React
-- :ref:`adr-002` - BD Dual MySQL + PostgreSQL
+- Modelo RBAC IACT v5.1.1
+- Casos de Uso (UC-001 a UC-072)
+- SRS v2.0 (8 modulos funcionales)
+- ADR (Decisiones de arquitectura)
 
-Metodologia
-^^^^^^^^^^^
-
-Las restricciones fueron documentadas siguiendo:
-
-- Formato RST para Sphinx
-- Sin emojis ni simbolos visuales
-- Sin referencias a estandares externos (OWASP, NIST, ISO)
-- Justificacion tecnica (no legal/regulatoria)
-- Integracion con RBAC v4.0
-- Ejemplos de codigo Clean Code
-
-Historial de Versiones
-----------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 15 70
-
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - Version inicial con 10 documentos CNST
-
-Indice de Documentos
---------------------
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Restricciones
-
-   CNST_001_Comunicaciones_Prohibidas
-   CNST_002_Gestion_Sesiones_BD
-   CNST_003_Base_Datos_Dual_Inmutable
-   CNST_004_Actualizacion_Datos_ETL
-   CNST_005_Seguridad_DRF_Checklist
-   CNST_006_Antipatrones_Arquitectura
-   CNST_007_Limites_Performance_SLA
-   CNST_008_Infraestructura_Deployment
-   CNST_009_Logging_Auditoria_Inmutable
-   CNST_010_Clasificacion_Proteccion_Datos
+----
