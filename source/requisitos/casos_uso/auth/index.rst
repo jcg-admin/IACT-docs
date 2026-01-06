@@ -140,3 +140,95 @@ de otros usuarios. Requiere permiso AUT-004.
 - **Funcion RBAC:** AUT-004
 
 ----
+
+# Completar el index de auth
+cat >> /mnt/user-data/outputs/casos_uso_v2/auth/index.rst << 'EOF'
+-------------------
+
+Cada UC incluye 3 diagramas PlantUML:
+
+1. **Diagrama de Caso de Uso** - Actores y relaciones
+2. **Diagrama de Secuencia** - Flujo normal detallado
+3. **Diagrama de Actividad** - Decisiones y caminos alternos
+
+Total: **15 diagramas** en este modulo.
+
+----
+
+Metricas
+--------
+
+.. list-table::
+   :widths: 40 30 30
+   :header-rows: 1
+
+   * - Metrica
+     - Valor
+     - Notas
+   * - UC Documentados
+     - 5
+     - 100%
+   * - FR Derivados
+     - 50
+     - ~10 por UC
+   * - Diagramas PlantUML
+     - 15
+     - 3 por UC
+   * - Lineas de documentacion
+     - ~2,700
+     - Total modulo
+
+----
+
+Trazabilidad BR -> UC
+---------------------
+
+.. list-table::
+   :widths: 15 35 50
+   :header-rows: 1
+
+   * - BR
+     - Nombre
+     - UC que Implementan
+   * - BR_004
+     - Comunicaciones Internas
+     - UC-003 (password en pantalla)
+   * - BR_005
+     - Sesion Unica
+     - UC-001 (invalida previas), UC-005 (gestion)
+   * - BR_008
+     - Auditoria de Accesos
+     - UC-001, UC-002, UC-003, UC-004, UC-005
+   * - BR_015
+     - Bloqueo por Intentos
+     - UC-001 (verifica/incrementa)
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Casos de Uso
+
+   UC_001_Iniciar_Sesion
+   UC_002_Cerrar_Sesion
+   UC_003_Recuperar_Password
+   UC_004_Cambiar_Password
+   UC_005_Gestionar_Sesiones
+
+----
+
+Historial de Cambios
+--------------------
+
+.. list-table::
+   :widths: 12 12 20 56
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - Autor
+     - Cambios
+   * - 2.0.0
+     - 2026-01-06
+     - Equipo IACT
+     - Fase 1 completada: 5 UC con PlantUML embebido
