@@ -149,51 +149,51 @@ Administrador accede a "Gestion de Sesiones" en menu de administracion.
      - Sistema
    * - 1
      - Accede a "Gestion de Sesiones"
-     -
+     - 
    * - 2
-     -
+     - 
      - Verifica permiso AUT-004
    * - 3
-     -
+     - 
      - Obtiene lista de sesiones activas
    * - 4
-     -
+     - 
      - Muestra tabla paginada (20 por pagina)
    * - 5
      - Visualiza lista de sesiones
-     -
+     - 
    * - 6
      - (Opcional) Aplica filtros por usuario o IP
-     -
+     - 
    * - 7
-     -
+     - 
      - Actualiza lista segun filtros
    * - 8
      - Selecciona una sesion para ver detalle
-     -
+     - 
    * - 9
-     -
+     - 
      - Muestra detalle: usuario, IP, inicio, ultima actividad, user-agent
    * - 10
      - (Opcional) Decide cerrar la sesion
-     -
+     - 
    * - 11
-     -
+     - 
      - Muestra modal de confirmacion
    * - 12
      - Confirma cierre de sesion
-     -
+     - 
    * - 13
-     -
+     - 
      - Invalida token de la sesion
    * - 14
-     -
+     - 
      - Registra FORCE_LOGOUT en auditoria (BR_008)
    * - 15
-     -
+     - 
      - Actualiza lista eliminando sesion cerrada
    * - 16
-     -
+     - 
      - Muestra mensaje "Sesion cerrada exitosamente"
 
 ----
@@ -407,31 +407,31 @@ Administrador accede a "Gestion de Sesiones" en menu de administracion.
    :Verificar permiso AUT-004;
 
    if (Tiene permiso?) then (si)
-
+       
        :Obtener lista de\nsesiones activas;
-
+       
        :Mostrar tabla paginada;
-
+       
        while (Admin continua gestionando?) is (si)
-
+           
            if (Aplica filtro?) then (si)
                :Filtrar por usuario/IP;
                :Actualizar lista;
            else (no)
            endif
-
+           
            if (Selecciona sesion?) then (si)
                :Mostrar detalle de sesion;
-
+               
                if (Decide cerrar?) then (si)
-
+                   
                    if (Es su propia sesion?) then (si)
                        #FFE0B2:Error: "No puede cerrar\nsu propia sesion";
                    else (no)
                        :Mostrar confirmacion;
-
+                       
                        if (Confirma?) then (si)
-
+                           
                            if (Cerrar todas del usuario?) then (si)
                                :Invalidar TODOS los tokens\ndel usuario;
                                #C8E6C9:Registrar FORCE_LOGOUT_ALL\n(BR_008);
@@ -439,26 +439,26 @@ Administrador accede a "Gestion de Sesiones" en menu de administracion.
                                :Invalidar token individual;
                                #C8E6C9:Registrar FORCE_LOGOUT\n(BR_008);
                            endif
-
+                           
                            :Actualizar lista;
                            #C8E6C9:Mostrar confirmacion;
-
+                           
                        else (no)
                            :Cancelar operacion;
                        endif
-
+                       
                    endif
-
+                   
                else (no)
                endif
-
+               
            else (no)
            endif
-
+           
        endwhile (no)
-
+       
        stop
-
+       
    else (no)
        #FFCDD2:403 Forbidden;
        :Redirigir a dashboard;
