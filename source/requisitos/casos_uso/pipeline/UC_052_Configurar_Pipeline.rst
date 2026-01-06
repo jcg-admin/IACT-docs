@@ -50,9 +50,11 @@ UC-052: Configurar Pipeline de Datos
 2. Descripcion
 --------------
 
-Permite configurar los parametros del pipeline ETL: directorios de entrada/salida,
-reglas de transformacion, mapeos de campos, programacion de ejecucion automatica
-y notificaciones.
+Permite configurar todos los parametros del pipeline ETL: directorios de
+entrada/salida/errores, patrones de archivos, reglas de transformacion,
+mapeos de campos, validaciones, expresion cron para ejecucion automatica,
+configuracion de notificaciones y opciones de manejo de errores.
+Los cambios solo aplican a ejecuciones futuras.
 
 ----
 
@@ -79,16 +81,22 @@ y notificaciones.
    rectangle "MOD_Pipeline" {
        usecase "UC-052:\nConfigurar\nPipeline" as UC052
        usecase "Config\nDirectorios" as CD
-       usecase "Config\nReglas" as CR
+       usecase "Config Reglas\nTransformacion" as CRT
+       usecase "Config Mapeo\nCampos" as CMC
        usecase "Config\nScheduler" as CS
        usecase "Config\nNotificaciones" as CN
+       usecase "Config Manejo\nErrores" as CME
+       usecase "Validar\nConfiguracion" as VC
    }
 
    ADM --> UC052
    UC052 ..> CD : <<include>>
-   UC052 ..> CR : <<include>>
+   UC052 ..> CRT : <<include>>
+   UC052 ..> CMC : <<include>>
    UC052 ..> CS : <<include>>
    UC052 ..> CN : <<include>>
+   UC052 ..> CME : <<include>>
+   UC052 ..> VC : <<include>>
    UC052 --> SA
    @enduml
 
@@ -101,19 +109,21 @@ y notificaciones.
 ^^^^^^^^^^^^^^^^^^
 
 1. Usuario tiene funcion PIP-004 (Configurar Pipeline)
-2. Pipeline no esta en ejecucion
+2. Pipeline no esta en ejecucion (status != RUNNING)
+3. Acceso al sistema de archivos para validar directorios
 
 4.2 Trigger
 ^^^^^^^^^^^
 
-Usuario accede a "Configuracion de Pipeline".
+Usuario accede a "Configuracion de Pipeline" desde menu administracion.
 
 4.3 Postcondiciones de Exito
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Configuracion guardada en BD
-2. Evento PIPELINE_CONFIGURED registrado (BR_008)
-3. Scheduler actualizado si cambio programacion
+1. Configuracion guardada en tabla pipeline_config
+2. Scheduler actualizado si cambio expresion cron
+3. Evento PIPELINE_CONFIGURED registrado (BR_008)
+4. Configuracion activa para proximas ejecuciones
 
 ----
 
@@ -135,29 +145,50 @@ Usuario accede a "Configuracion de Pipeline".
      - Verifica permiso PIP-004
    * - 3
      -
-     - Carga configuracion actual
+     - Verifica pipeline no esta en ejecucion
    * - 4
      -
-     - Muestra formulario con tabs
+     - Carga configuracion actual
    * - 5
-     - Modifica parametros deseados
      -
+     - Muestra formulario con tabs/secciones
    * - 6
-     - Presiona "Guardar Configuracion"
+     - Modifica configuracion de directorios
      -
    * - 7
+     - Modifica reglas de transformacion
      -
-     - Valida parametros
    * - 8
+     - Modifica mapeo de campos
+     -
+   * - 9
+     - Modifica programacion (cron)
+     -
+   * - 10
+     - Modifica notificaciones
+     -
+   * - 11
+     - Presiona "Validar Configuracion"
+     -
+   * - 12
+     -
+     - Ejecuta validaciones completas
+   * - 13
+     -
+     - Muestra resultado de validacion
+   * - 14
+     - Presiona "Guardar Configuracion"
+     -
+   * - 15
      -
      - Guarda en pipeline_config
-   * - 9
+   * - 16
      -
      - Actualiza scheduler si aplica
-   * - 10
+   * - 17
      -
      - Registra PIPELINE_CONFIGURED (BR_008)
-   * - 11
+   * - 18
      -
      - Muestra confirmacion
 
@@ -178,45 +209,90 @@ Usuario accede a "Configuracion de Pipeline".
    participant "Frontend" as FE #E3F2FD
    participant "PipelineController" as PC #E8F5E9
    participant "ConfigService" as CS #E8F5E9
+   participant "ValidationService" as VS #E8F5E9
    participant "SchedulerService" as SS #E8F5E9
    participant "AuditService" as AUD #E8F5E9
    database "PostgreSQL" as DB #FFF3E0
+   collections "FileSystem" as FS #ECEFF1
 
    ADM -> FE: 1. Accede a Configuracion
    FE -> PC: 2. GET /api/pipeline/config
    activate PC
-   PC -> DB: SELECT * FROM pipeline_config
-   PC --> FE: 3. {config}
+
+   PC -> DB: 3. SELECT * FROM pipeline_runs\nWHERE status = 'RUNNING'
+   DB --> PC: [] (ninguno)
+
+   PC -> DB: 4. SELECT * FROM pipeline_config
+   DB --> PC: {currentConfig}
+
+   PC --> FE: 5. {config, isLocked: false}
    deactivate PC
 
-   FE --> ADM: 4. Formulario con tabs
+   FE --> ADM: 6. Formulario con tabs:\n- Directorios\n- Reglas\n- Mapeo\n- Scheduler\n- Notificaciones
 
-   ADM -> FE: 5. Modifica configuracion
-   ADM -> FE: 6. Guardar
+   ADM -> FE: 7. Modifica configuracion
+   note right
+       inputDir: /data/input
+       outputDir: /data/processed
+       errorDir: /data/errors
+       filePattern: *.csv
+       cron: 0 6 * * *
+   end note
 
-   FE -> PC: 7. PUT /api/pipeline/config\n{directories, rules, schedule}
+   ADM -> FE: 8. Clic "Validar"
+   FE -> PC: 9. POST /api/pipeline/config/validate\n{newConfig}
    activate PC
 
-   PC -> CS: 8. updateConfig(newConfig)
+   PC -> VS: 10. validateConfig(config)
+   activate VS
+
+   VS -> FS: 11. checkDirectory(inputDir)
+   FS --> VS: {exists: true, writable: true}
+
+   VS -> FS: 12. checkDirectory(outputDir)
+   VS -> FS: 13. checkDirectory(errorDir)
+
+   VS -> VS: 14. validateCronExpression(cron)
+   VS -> VS: 15. validateTransformRules(rules)
+   VS -> VS: 16. validateFieldMappings(mappings)
+
+   VS --> PC: 17. {valid: true, warnings: []}
+   deactivate VS
+
+   PC --> FE: 18. {valid: true}
+   deactivate PC
+   FE --> ADM: 19. "Configuracion valida"
+
+   ADM -> FE: 20. Clic "Guardar"
+   FE -> PC: 21. PUT /api/pipeline/config\n{config}
+   activate PC
+
+   PC -> CS: 22. saveConfig(config)
    activate CS
 
-   CS -> CS: 9. validateConfig()
-   CS -> DB: 10. UPDATE pipeline_config
+   CS -> DB: 23. UPDATE pipeline_config\nSET ... WHERE id = 1
+   DB --> CS: OK
 
-   alt Schedule cambio
-       CS -> SS: 11. updateSchedule(cron)
-       SS -> SS: Actualizar cron job
+   alt Cron cambio
+       CS -> SS: 24. updateSchedule(newCron)
+       activate SS
+       SS -> SS: 25. Actualizar cron job
+       SS --> CS: OK
+       deactivate SS
    end
 
-   CS -> AUD: 12. logEvent(PIPELINE_CONFIGURED)
-   AUD -> DB: INSERT audit_log
+   CS -> AUD: 26. logEvent('PIPELINE_CONFIGURED',\n{changes, oldConfig, newConfig})
+   activate AUD
+   AUD -> DB: INSERT INTO audit_log
+   AUD --> CS: OK
+   deactivate AUD
 
-   CS --> PC: 13. {saved: true}
+   CS --> PC: 27. {saved: true}
    deactivate CS
 
-   PC --> FE: 14. 200 OK
+   PC --> FE: 28. 200 OK
    deactivate PC
-   FE --> ADM: 15. "Configuracion guardada"
+   FE --> ADM: 29. "Configuracion guardada exitosamente"
    @enduml
 
 ----
@@ -227,7 +303,55 @@ Usuario accede a "Configuracion de Pipeline".
 7.1 FA-1: Validacion Fallida
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Si directorio no existe o cron invalido, muestra error especifico.
+**Punto de bifurcacion:** Paso 12 del flujo normal
+
+**Condicion:** Configuracion no pasa validaciones
+
+.. list-table::
+   :widths: 10 90
+   :header-rows: 1
+
+   * - Paso
+     - Descripcion
+   * - 12.1
+     - Sistema detecta errores de validacion
+   * - 12.2
+     - Muestra lista de errores por seccion
+   * - 12.3
+     - Resalta campos con error en formulario
+   * - 12.4
+     - Boton "Guardar" permanece deshabilitado
+
+**Retorno:** Usuario corrige y vuelve a validar
+
+7.2 FA-2: Probar Configuracion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Usuario quiere probar sin guardar
+
+.. list-table::
+   :widths: 10 90
+   :header-rows: 1
+
+   * - Paso
+     - Descripcion
+   * - 11.1
+     - Usuario hace clic en "Probar con Archivo"
+   * - 11.2
+     - Sistema permite seleccionar archivo de prueba
+   * - 11.3
+     - Ejecuta pipeline en modo dry-run (sin guardar datos)
+   * - 11.4
+     - Muestra resultado de transformacion sin persistir
+
+**Retorno:** Usuario decide si guardar configuracion
+
+7.3 FA-3: Importar/Exportar Configuracion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Usuario quiere respaldar o restaurar configuracion
+
+Sistema permite exportar a JSON e importar desde archivo.
 
 ----
 
@@ -237,7 +361,25 @@ Si directorio no existe o cron invalido, muestra error especifico.
 8.1 EX-1: Pipeline en Ejecucion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Mensaje:** "No se puede modificar configuracion mientras pipeline esta en ejecucion"
+**Condicion:** Existe ejecucion con status=RUNNING
+
+**Mensaje:** "No se puede modificar configuracion mientras el pipeline esta en ejecucion. Espere a que finalice."
+
+**Accion:** Formulario en modo solo lectura
+
+8.2 EX-2: Directorio No Existe
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Directorio configurado no existe o no es accesible
+
+**Mensaje:** "El directorio [X] no existe o no tiene permisos de escritura."
+
+8.3 EX-3: Expresion Cron Invalida
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Formato de cron no valido
+
+**Mensaje:** "Expresion cron invalida. Formato esperado: minuto hora dia mes diaSemana"
 
 ----
 
@@ -250,6 +392,12 @@ Si directorio no existe o cron invalido, muestra error especifico.
 
    @startuml
    skinparam backgroundColor #FAFAFA
+   skinparam activity {
+       BackgroundColor #E3F2FD
+       BorderColor #1976D2
+       DiamondBackgroundColor #FFF9C4
+       DiamondBorderColor #F57C00
+   }
 
    start
 
@@ -259,29 +407,62 @@ Si directorio no existe o cron invalido, muestra error especifico.
    if (Tiene permiso?) then (si)
 
        if (Pipeline RUNNING?) then (si)
-           #FFCDD2:Error: En ejecucion;
+           #FFE0B2:Modo solo lectura;
+           :Mostrar config actual;
            stop
        else (no)
        endif
 
-       :Cargar config actual;
+       :Cargar configuracion actual;
        :Mostrar formulario;
-       :Usuario modifica;
-       :Validar parametros;
 
-       if (Valido?) then (si)
-           :Guardar en BD;
+       repeat
+           :Usuario modifica parametros;
 
-           if (Schedule cambio?) then (si)
-               :Actualizar cron job;
+           partition "Secciones de Configuracion" {
+               split
+                   :Directorios;
+                   note right: input, output, errors
+               split again
+                   :Reglas Transformacion;
+               split again
+                   :Mapeo Campos;
+               split again
+                   :Scheduler (cron);
+               split again
+                   :Notificaciones;
+               split again
+                   :Manejo Errores;
+               end split
+           }
+
+           :Validar configuracion;
+
+           if (Errores?) then (si)
+               #FFCDD2:Mostrar errores;
+               :Resaltar campos;
            else (no)
+               #C8E6C9:Configuracion valida;
+
+               if (Probar?) then (si)
+                   :Ejecutar dry-run;
+                   :Mostrar resultado;
+               else (no)
+               endif
            endif
 
-           #C8E6C9:Registrar auditoria;
-           #C8E6C9:Mostrar confirmacion;
+       repeat while (Corregir?) is (si)
+       -> Guardar;
+
+       :Guardar en BD;
+
+       if (Cron cambio?) then (si)
+           :Actualizar scheduler;
        else (no)
-           #FFE0B2:Mostrar errores;
        endif
+
+       #C8E6C9:Registrar auditoria (BR_008);
+       :Mostrar confirmacion;
 
        stop
    else (no)
@@ -304,10 +485,13 @@ Si directorio no existe o cron invalido, muestra error especifico.
      - Aplicacion
    * - BR_001
      - Automatizacion
-     - Configuracion de scheduler para ejecucion automatica
+     - Configuracion de expresion cron para ejecucion automatica
    * - BR_008
      - Auditoria
-     - Cambios de configuracion registrados
+     - Cambios de configuracion registrados con diff
+   * - BR_023
+     - Config Inmutable en Ejecucion
+     - No permitir cambios mientras pipeline RUNNING
 
 ----
 
@@ -321,23 +505,33 @@ Si directorio no existe o cron invalido, muestra error especifico.
    * - FR
      - Descripcion
    * - FR-052.01
-     - Verificar permiso PIP-004
+     - Sistema DEBE verificar permiso PIP-004
    * - FR-052.02
-     - No permitir config si pipeline RUNNING
+     - Sistema DEBE bloquear edicion si pipeline RUNNING
    * - FR-052.03
-     - Configurar directorios entrada/salida/errores
+     - Sistema DEBE permitir configurar directorios (input/output/errors)
    * - FR-052.04
-     - Configurar reglas de transformacion
+     - Sistema DEBE permitir configurar patron de archivos
    * - FR-052.05
-     - Configurar mapeos de campos
+     - Sistema DEBE permitir configurar reglas de transformacion
    * - FR-052.06
-     - Configurar expresion cron para scheduler
+     - Sistema DEBE permitir configurar mapeo de campos origen-destino
    * - FR-052.07
-     - Configurar notificaciones (email, webhook)
+     - Sistema DEBE permitir configurar expresion cron
    * - FR-052.08
-     - Validar existencia de directorios
+     - Sistema DEBE permitir configurar notificaciones (email, webhook)
    * - FR-052.09
-     - Registrar cambios en auditoria
+     - Sistema DEBE permitir configurar manejo de errores (saltar/fallar)
+   * - FR-052.10
+     - Sistema DEBE validar existencia y permisos de directorios
+   * - FR-052.11
+     - Sistema DEBE validar expresion cron
+   * - FR-052.12
+     - Sistema DEBE permitir probar configuracion (dry-run)
+   * - FR-052.13
+     - Sistema DEBE actualizar scheduler automaticamente
+   * - FR-052.14
+     - Sistema DEBE registrar cambios en auditoria con diff
 
 ----
 
@@ -351,11 +545,11 @@ Si directorio no existe o cron invalido, muestra error especifico.
    * - **BReq Origen**
      - BReq-001
    * - **BR Aplicables**
-     - BR_001, BR_008
+     - BR_001, BR_008, BR_023
    * - **FR Derivados**
-     - FR-052.01 a FR-052.09
+     - FR-052.01 a FR-052.14 (14 requerimientos)
    * - **UC Relacionados**
-     - UC-050 (usa config)
+     - UC-050 (usa configuracion)
    * - **Funcion RBAC**
      - PIP-004: Configurar Pipeline
 
@@ -373,4 +567,4 @@ Si directorio no existe o cron invalido, muestra error especifico.
      - Cambios
    * - 2.0.0
      - 2026-01-06
-     - Version con PlantUML embebido (Sphinx)
+     - Version completa con PlantUML. Secciones detalladas. Dry-run incluido.

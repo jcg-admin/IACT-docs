@@ -1,3 +1,4 @@
+cat > /mnt/user-data/outputs/casos_uso_v2/pipeline/index.rst << 'EOF'
 .. meta::
    :artefacto: index_pipeline
    :tipo: Indice
@@ -14,7 +15,7 @@
 MOD_Pipeline: Casos de Uso de Pipeline ETL
 ==============================================================================
 
-Modulo de Pipeline de Datos - Version 2.0 con diagramas PlantUML.
+Modulo de Pipeline de Datos - Version 2.0 con diagramas PlantUML completos.
 
 .. contents:: Contenido
    :local:
@@ -40,7 +41,7 @@ Resumen
    * - **BReq Origen**
      - BReq-001: Automatizacion del Procesamiento
    * - **BR Aplicables**
-     - BR_001, BR_008
+     - BR_001, BR_008, BR_020-BR_023
 
 ----
 
@@ -48,33 +49,38 @@ Casos de Uso
 ------------
 
 .. list-table::
-   :widths: 12 35 15 15 23
+   :widths: 12 35 12 12 12 17
    :header-rows: 1
 
    * - ID
      - Nombre
      - Complej.
      - Diag.
+     - FR
      - Estado
    * - UC-050
      - Ejecutar Pipeline de Datos
      - Alta
      - 3
+     - 13
      - Completado
    * - UC-051
      - Monitorear Estado del Pipeline
      - Media
      - 3
+     - 11
      - Completado
    * - UC-052
      - Configurar Pipeline de Datos
      - Alta
      - 3
+     - 14
      - Completado
    * - UC-053
      - Consultar Historial Ejecuciones
-     - Baja
+     - Media
      - 3
+     - 13
      - Completado
 
 ----
@@ -85,47 +91,53 @@ Descripcion de Casos de Uso
 UC-050: Ejecutar Pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ejecuta el pipeline ETL que procesa archivos de entrada, transforma datos
-segun reglas de negocio y carga en BD. Soporta ejecucion manual y programada.
+Ejecuta el pipeline ETL completo: escanea directorio de entrada, valida
+archivos, transforma datos segun reglas, carga en BD transaccionalmente
+y mueve archivos a procesados/errores. Soporta ejecucion manual y programada.
 
 - **Actor:** Administrador de Datos / Scheduler
-- **FR Derivados:** 11
+- **FR Derivados:** 13
 - **Funcion RBAC:** PIP-001
+- **BR:** BR_001, BR_008, BR_020, BR_021
 
 UC-051: Monitorear Pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Visualiza en tiempo real el estado de ejecucion via WebSocket, con progreso,
-errores y metricas de rendimiento.
+Visualiza estado de ejecucion en tiempo real via WebSocket: progreso,
+archivos procesados, errores, metricas de rendimiento. Permite cancelar
+ejecucion en curso con rollback automatico.
 
 - **Actor:** Administrador de Datos / Operador
-- **FR Derivados:** 7
-- **Funcion RBAC:** PIP-002, PIP-003 (cancelar)
+- **FR Derivados:** 11
+- **Funciones RBAC:** PIP-002 (monitorear), PIP-003 (cancelar)
+- **BR:** BR_008, BR_022
 
 UC-052: Configurar Pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Configura parametros del pipeline: directorios, reglas de transformacion,
-scheduler y notificaciones.
+Configura todos los parametros del pipeline: directorios, patrones,
+reglas de transformacion, mapeos de campos, scheduler (cron),
+notificaciones y manejo de errores. Incluye validacion y dry-run.
 
 - **Actor:** Administrador de Datos
-- **FR Derivados:** 9
+- **FR Derivados:** 14
 - **Funcion RBAC:** PIP-004
+- **BR:** BR_001, BR_008, BR_023
 
 UC-053: Historial de Ejecuciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consulta historial con filtros, detalle de archivos procesados y errores.
-Permite exportar a CSV/Excel.
+Consulta historial completo con filtros avanzados, detalle de archivos
+y errores, exportacion a CSV/Excel, tendencias y re-ejecucion de fallidos.
 
 - **Actor:** Administrador de Datos / Auditor
-- **FR Derivados:** 8
+- **FR Derivados:** 13
 - **Funcion RBAC:** PIP-005
 
 ----
 
-Metricas
---------
+Metricas del Modulo
+-------------------
 
 .. list-table::
    :widths: 40 30 30
@@ -138,14 +150,17 @@ Metricas
      - 4
      - 100%
    * - FR Derivados
-     - 35
-     - ~9 por UC
+     - 51
+     - ~13 por UC
    * - Diagramas PlantUML
      - 12
      - 3 por UC
    * - Lineas documentacion
-     - ~1,615
+     - ~2,500
      - Total modulo
+   * - Promedio lineas/UC
+     - ~575
+     - Alta calidad
 
 ----
 
@@ -161,19 +176,50 @@ Funciones RBAC del Modulo
      - UC que Requiere
    * - PIP-001
      - Ejecutar Pipeline
-     - UC-050
+     - UC-050, UC-053 (re-ejecutar)
    * - PIP-002
      - Monitorear Pipeline
      - UC-051
    * - PIP-003
      - Cancelar Pipeline
-     - UC-051 (opcional)
+     - UC-051 (cancelar ejecucion)
    * - PIP-004
      - Configurar Pipeline
      - UC-052
    * - PIP-005
      - Consultar Historial
      - UC-053
+
+----
+
+Reglas de Negocio Aplicables
+----------------------------
+
+.. list-table::
+   :widths: 12 30 58
+   :header-rows: 1
+
+   * - BR
+     - Nombre
+     - UC que Implementan
+   * - BR_001
+     - Automatizacion
+     - UC-050 (scheduler), UC-052 (config cron)
+   * - BR_008
+     - Auditoria
+     - UC-050, UC-051, UC-052 (eventos registrados)
+   * - BR_020
+     - Integridad Contable
+     - UC-050 (validacion debito=credito)
+   * - BR_021
+     - Atomicidad ETL
+     - UC-050 (transaccion con rollback)
+   * - BR_022
+     - Cancelacion Segura
+     - UC-051 (rollback al cancelar)
+   * - BR_023
+     - Config Inmutable
+     - UC-052 (no editar si RUNNING)
 
 ----
 
@@ -200,4 +246,4 @@ Historial de Cambios
      - Cambios
    * - 2.0.0
      - 2026-01-06
-     - Fase 4 completada: 4 UC con PlantUML embebido
+     - Fase 4 regenerada: 4 UC con PlantUML completo, uno por uno

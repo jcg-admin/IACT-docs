@@ -39,7 +39,7 @@ UC-053: Consultar Historial de Ejecuciones
    * - **Modulo**
      - MOD_Pipeline
    * - **Complejidad**
-     - Baja
+     - Media
    * - **Prioridad**
      - Media
    * - **BReq Origen**
@@ -50,9 +50,11 @@ UC-053: Consultar Historial de Ejecuciones
 2. Descripcion
 --------------
 
-Permite consultar el historial de ejecuciones del pipeline con filtros por
-fecha, estado y tipo de ejecucion. Incluye metricas de cada ejecucion y
-permite acceder al detalle de errores.
+Permite consultar el historial completo de ejecuciones del pipeline con
+filtros avanzados por fecha, estado, tipo de ejecucion y resultado.
+Muestra metricas detalladas de cada ejecucion, permite acceder al
+detalle de archivos procesados y errores, y exportar el historial
+para auditorias externas.
 
 ----
 
@@ -80,16 +82,22 @@ permite acceder al detalle de errores.
        usecase "UC-053:\nHistorial\nEjecuciones" as UC053
        usecase "Filtrar por\nFecha" as FF
        usecase "Filtrar por\nEstado" as FE
-       usecase "Ver\nDetalle" as VD
-       usecase "Exportar" as EX
+       usecase "Ver Detalle\nEjecucion" as VDE
+       usecase "Ver Archivos\nProcesados" as VAP
+       usecase "Ver Errores" as VER
+       usecase "Exportar\nHistorial" as EH
+       usecase "Re-ejecutar\nFallido" as REF
    }
 
    ADM --> UC053
    AUD --> UC053
    UC053 ..> FF : <<include>>
    UC053 ..> FE : <<include>>
-   UC053 ..> VD : <<extends>>
-   UC053 ..> EX : <<extends>>
+   UC053 ..> VDE : <<extends>>
+   UC053 ..> VAP : <<extends>>
+   UC053 ..> VER : <<extends>>
+   UC053 ..> EH : <<extends>>
+   UC053 ..> REF : <<extends>>
    @enduml
 
 ----
@@ -101,17 +109,18 @@ permite acceder al detalle de errores.
 ^^^^^^^^^^^^^^^^^^
 
 1. Usuario tiene funcion PIP-005 (Consultar Historial)
-2. Existen registros de ejecucion
+2. Existen registros de ejecucion en pipeline_runs
 
 4.2 Trigger
 ^^^^^^^^^^^
 
-Usuario accede a "Historial de Pipeline".
+Usuario accede a "Historial de Pipeline" desde menu.
 
 4.3 Postcondiciones de Exito
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Lista de ejecuciones mostrada segun filtros
+1. Lista de ejecuciones mostrada segun filtros aplicados
+2. Metricas agregadas calculadas (totales, promedios)
 
 ----
 
@@ -126,29 +135,50 @@ Usuario accede a "Historial de Pipeline".
      - Actor
      - Sistema
    * - 1
-     - Accede a Historial
+     - Accede a Historial de Pipeline
      -
    * - 2
      -
      - Verifica permiso PIP-005
    * - 3
      -
-     - Carga ultimas 50 ejecuciones
+     - Carga ultimas 50 ejecuciones (default)
    * - 4
      -
-     - Muestra tabla con metricas
+     - Calcula metricas agregadas
    * - 5
-     - (Opcional) Aplica filtros
      -
+     - Muestra tabla con paginacion
    * - 6
+     - (Opcional) Aplica filtro por fecha
+     -
+   * - 7
      -
      - Actualiza resultados
-   * - 7
-     - (Opcional) Clic en ejecucion
-     -
    * - 8
+     - (Opcional) Aplica filtro por estado
      -
-     - Muestra detalle con archivos y errores
+   * - 9
+     -
+     - Actualiza resultados
+   * - 10
+     - (Opcional) Clic en fila de ejecucion
+     -
+   * - 11
+     -
+     - Muestra detalle en panel lateral
+   * - 12
+     - (Opcional) Expande archivos procesados
+     -
+   * - 13
+     -
+     - Lista archivos con metricas individuales
+   * - 14
+     - (Opcional) Expande errores
+     -
+   * - 15
+     -
+     - Muestra errores con detalle y linea
 
 ----
 
@@ -166,38 +196,67 @@ Usuario accede a "Historial de Pipeline".
    actor "Admin/Auditor" as U
    participant "Frontend" as FE #E3F2FD
    participant "PipelineController" as PC #E8F5E9
+   participant "HistoryService" as HS #E8F5E9
    database "PostgreSQL" as DB #FFF3E0
 
    U -> FE: 1. Accede a Historial
    FE -> PC: 2. GET /api/pipeline/runs?limit=50
    activate PC
 
-   PC -> DB: 3. SELECT * FROM pipeline_runs\nORDER BY started_at DESC\nLIMIT 50
-   DB --> PC: [runs]
+   PC -> HS: 3. getRuns(filters)
+   activate HS
 
-   PC --> FE: 4. {runs, total}
+   HS -> DB: 4. SELECT id, started_at, finished_at,\nstatus, files_processed, records_processed,\nerror_count\nFROM pipeline_runs\nORDER BY started_at DESC\nLIMIT 50
+   DB --> HS: [runs]
+
+   HS -> DB: 5. SELECT status, COUNT(*) as count,\nAVG(duration) as avgDuration\nFROM pipeline_runs\nGROUP BY status
+   DB --> HS: [aggregates]
+
+   HS --> PC: 6. {runs, aggregates, total}
+   deactivate HS
+
+   PC --> FE: 7. 200 OK {history}
    deactivate PC
 
-   FE --> U: 5. Tabla de ejecuciones
-   note right: Columnas: ID, Fecha,\nStatus, Duracion, Registros
+   FE --> U: 8. Tabla de ejecuciones\n+ Metricas agregadas
+   note right
+       Columnas:
+       ID | Fecha | Estado | Duracion
+       Archivos | Registros | Errores
+   end note
 
-   U -> FE: 6. Filtrar por FAILED
-   FE -> PC: 7. GET /api/pipeline/runs?status=FAILED
-   PC --> FE: 8. [failedRuns]
-   FE --> U: 9. Solo ejecuciones fallidas
+   U -> FE: 9. Aplica filtro: status=FAILED
+   FE -> PC: 10. GET /api/pipeline/runs?status=FAILED
+   PC --> FE: 11. [failedRuns]
+   FE --> U: 12. Solo ejecuciones fallidas
 
-   U -> FE: 10. Clic en ejecucion #123
-   FE -> PC: 11. GET /api/pipeline/runs/123
+   U -> FE: 13. Clic en ejecucion #123
+   FE -> PC: 14. GET /api/pipeline/runs/123
    activate PC
 
-   PC -> DB: SELECT * FROM pipeline_runs WHERE id=123
-   PC -> DB: SELECT * FROM pipeline_files WHERE run_id=123
-   PC -> DB: SELECT * FROM pipeline_errors WHERE run_id=123
+   PC -> DB: 15. SELECT * FROM pipeline_runs\nWHERE id = 123
+   PC -> DB: 16. SELECT * FROM pipeline_files\nWHERE run_id = 123
+   PC -> DB: 17. SELECT * FROM pipeline_errors\nWHERE run_id = 123
 
-   PC --> FE: 12. {run, files, errors}
+   PC --> FE: 18. {run, files, errors, log}
    deactivate PC
 
-   FE --> U: 13. Modal con detalle completo
+   FE --> U: 19. Panel lateral con detalle completo
+
+   opt Exportar
+       U -> FE: 20. Clic "Exportar CSV"
+       FE -> PC: 21. GET /api/pipeline/runs/export?format=csv&filters=...
+       PC --> FE: 22. CSV file
+       FE --> U: 23. Descarga historial.csv
+   end
+
+   opt Re-ejecutar fallido
+       U -> FE: 24. Clic "Re-ejecutar" (requiere PIP-001)
+       FE -> PC: 25. POST /api/pipeline/runs/123/retry
+       note right: Copia archivos de\n/errors a /input\ny ejecuta
+       PC --> FE: 26. {newRunId}
+       FE --> U: 27. Redirige a Monitor
+   end
    @enduml
 
 ----
@@ -205,15 +264,52 @@ Usuario accede a "Historial de Pipeline".
 7. Flujos Alternos
 ------------------
 
-7.1 FA-1: Exportar Historial
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7.1 FA-1: Exportar a Excel
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Usuario puede exportar historial filtrado a CSV/Excel.
+**Condicion:** Usuario selecciona formato Excel
 
-7.2 FA-2: Re-ejecutar desde Historial
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Genera archivo XLSX con formato y graficos incluidos.
 
-Usuario con PIP-001 puede re-ejecutar una ejecucion fallida.
+7.2 FA-2: Re-ejecutar Ejecucion Fallida
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Punto de bifurcacion:** Paso 10 del flujo normal
+
+**Condicion:** Usuario con PIP-001 selecciona ejecucion FAILED
+
+.. list-table::
+   :widths: 10 90
+   :header-rows: 1
+
+   * - Paso
+     - Descripcion
+   * - 10.1
+     - Usuario hace clic en "Re-ejecutar"
+   * - 10.2
+     - Sistema solicita confirmacion
+   * - 10.3
+     - Sistema copia archivos de /errors/{fecha} a /input
+   * - 10.4
+     - Sistema inicia nueva ejecucion (UC-050)
+   * - 10.5
+     - Redirige a Monitor (UC-051)
+
+**Retorno:** UC-051
+
+7.3 FA-3: Comparar Ejecuciones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Usuario selecciona dos ejecuciones
+
+Muestra comparativo lado a lado de metricas.
+
+7.4 FA-4: Ver Tendencias
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** Usuario activa vista de tendencias
+
+Muestra graficos de tendencia: ejecuciones por dia, tasa de exito, tiempo promedio.
 
 ----
 
@@ -223,7 +319,18 @@ Usuario con PIP-001 puede re-ejecutar una ejecucion fallida.
 8.1 EX-1: Sin Historial
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Mensaje:** "No hay ejecuciones registradas"
+**Condicion:** No existen registros en pipeline_runs
+
+**Mensaje:** "No hay ejecuciones de pipeline registradas. Ejecute el pipeline para comenzar."
+
+8.2 EX-2: Ejecucion No Encontrada
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Condicion:** ID de ejecucion no existe
+
+**Mensaje:** "La ejecucion #XXX no fue encontrada."
+
+**Codigo HTTP:** 404 Not Found
 
 ----
 
@@ -236,6 +343,12 @@ Usuario con PIP-001 puede re-ejecutar una ejecucion fallida.
 
    @startuml
    skinparam backgroundColor #FAFAFA
+   skinparam activity {
+       BackgroundColor #E3F2FD
+       BorderColor #1976D2
+       DiamondBackgroundColor #FFF9C4
+       DiamondBorderColor #F57C00
+   }
 
    start
 
@@ -244,22 +357,54 @@ Usuario con PIP-001 puede re-ejecutar una ejecucion fallida.
 
    if (Tiene permiso?) then (si)
        :Cargar ultimas 50 ejecuciones;
-       :Mostrar tabla;
+       :Calcular metricas agregadas;
+       :Mostrar tabla paginada;
 
        while (Usuario interactua?) is (si)
            split
                :Filtrar por fecha;
+               :Actualizar resultados;
            split again
                :Filtrar por estado;
+               :Actualizar resultados;
            split again
                :Ver detalle ejecucion;
-               :Mostrar archivos y errores;
+               :Mostrar panel lateral;
+
+               fork
+                   :Ver archivos procesados;
+               fork again
+                   :Ver errores;
+               fork again
+                   :Descargar log;
+               end fork
+
            split again
-               :Exportar a CSV/Excel;
+               :Exportar historial;
+               if (Formato?) then (CSV)
+                   :Generar CSV;
+               else (Excel)
+                   :Generar XLSX;
+               endif
+               :Descargar archivo;
+
+           split again
+               :Re-ejecutar fallido;
+               if (Tiene PIP-001?) then (si)
+                   :Copiar archivos a /input;
+                   :Iniciar nueva ejecucion;
+                   :Ir a Monitor (UC-051);
+                   stop
+               else (no)
+                   #FFCDD2:Sin permiso;
+               endif
+
+           split again
+               :Ver tendencias;
+               :Generar graficos;
            end split
 
-           :Actualizar vista;
-       endwhile (no)
+       endwhile (Salir)
 
        stop
    else (no)
@@ -273,7 +418,7 @@ Usuario con PIP-001 puede re-ejecutar una ejecucion fallida.
 10. Reglas de Negocio
 ---------------------
 
-No aplica BR especificas (solo consulta).
+No aplica BR especificas (caso de uso de consulta).
 
 ----
 
@@ -287,21 +432,31 @@ No aplica BR especificas (solo consulta).
    * - FR
      - Descripcion
    * - FR-053.01
-     - Verificar permiso PIP-005
+     - Sistema DEBE verificar permiso PIP-005
    * - FR-053.02
-     - Listar ejecuciones con paginacion
+     - Sistema DEBE listar ejecuciones con paginacion (50 por pagina)
    * - FR-053.03
-     - Mostrar: ID, fecha, status, duracion, registros
+     - Sistema DEBE mostrar: ID, fecha, estado, duracion, archivos, registros, errores
    * - FR-053.04
-     - Filtrar por rango de fechas
+     - Sistema DEBE calcular metricas agregadas (totales, promedios, tasas)
    * - FR-053.05
-     - Filtrar por estado (COMPLETED, FAILED, CANCELLED)
+     - Sistema DEBE filtrar por rango de fechas
    * - FR-053.06
-     - Ver detalle con archivos procesados
+     - Sistema DEBE filtrar por estado (COMPLETED, FAILED, CANCELLED, PARTIAL)
    * - FR-053.07
-     - Ver detalle de errores por archivo
+     - Sistema DEBE filtrar por tipo (manual, programado)
    * - FR-053.08
-     - Exportar historial a CSV/Excel
+     - Sistema DEBE mostrar detalle de ejecucion con archivos y errores
+   * - FR-053.09
+     - Sistema DEBE permitir descargar log de ejecucion
+   * - FR-053.10
+     - Sistema DEBE exportar historial a CSV
+   * - FR-053.11
+     - Sistema DEBE exportar historial a Excel con formato
+   * - FR-053.12
+     - Sistema DEBE permitir re-ejecutar ejecucion fallida (requiere PIP-001)
+   * - FR-053.13
+     - Sistema DEBE mostrar graficos de tendencia
 
 ----
 
@@ -315,9 +470,9 @@ No aplica BR especificas (solo consulta).
    * - **BReq Origen**
      - BReq-001
    * - **FR Derivados**
-     - FR-053.01 a FR-053.08
+     - FR-053.01 a FR-053.13 (13 requerimientos)
    * - **UC Relacionados**
-     - UC-050, UC-051
+     - UC-050 (re-ejecutar), UC-051 (monitor post re-ejecucion)
    * - **Funcion RBAC**
      - PIP-005: Consultar Historial
 
@@ -335,4 +490,4 @@ No aplica BR especificas (solo consulta).
      - Cambios
    * - 2.0.0
      - 2026-01-06
-     - Version con PlantUML embebido (Sphinx)
+     - Version completa con PlantUML. Re-ejecucion. Tendencias. Exportacion.
