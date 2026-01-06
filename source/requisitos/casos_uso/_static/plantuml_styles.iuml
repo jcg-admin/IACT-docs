@@ -1,0 +1,196 @@
+' ============================================
+' IACT - Estilos Comunes PlantUML
+' Version: 1.0.0
+' Fecha: 2026-01-06
+' ============================================
+
+' -- Colores Corporativos IACT --
+!define IACT_PRIMARY #1976D2
+!define IACT_SECONDARY #455A64
+!define IACT_SUCCESS #388E3C
+!define IACT_WARNING #F57C00
+!define IACT_ERROR #D32F2F
+!define IACT_BG #FAFAFA
+!define IACT_LIGHT #E3F2FD
+!define IACT_LIGHT_GREEN #E8F5E9
+!define IACT_LIGHT_ORANGE #FFF3E0
+!define IACT_LIGHT_YELLOW #FFFDE7
+
+' -- Configuracion General --
+skinparam backgroundColor IACT_BG
+skinparam defaultFontName "Segoe UI, Arial, sans-serif"
+skinparam defaultFontSize 11
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam wrapWidth 200
+
+' -- Actores --
+skinparam actor {
+    BackgroundColor IACT_PRIMARY
+    BorderColor IACT_SECONDARY
+    FontColor #333333
+    FontSize 12
+}
+
+' -- Casos de Uso --
+skinparam usecase {
+    BackgroundColor IACT_LIGHT
+    BorderColor IACT_PRIMARY
+    BorderThickness 2
+    FontColor #333333
+    FontSize 11
+}
+
+' -- Participantes (Diagramas de Secuencia) --
+skinparam participant {
+    BackgroundColor IACT_LIGHT_GREEN
+    BorderColor IACT_SUCCESS
+    FontColor #333333
+    FontSize 11
+}
+
+' -- Boundary --
+skinparam boundary {
+    BackgroundColor IACT_LIGHT
+    BorderColor IACT_PRIMARY
+}
+
+' -- Control --
+skinparam control {
+    BackgroundColor IACT_LIGHT_GREEN
+    BorderColor IACT_SUCCESS
+}
+
+' -- Entity --
+skinparam entity {
+    BackgroundColor IACT_LIGHT_ORANGE
+    BorderColor IACT_WARNING
+}
+
+' -- Base de Datos --
+skinparam database {
+    BackgroundColor IACT_LIGHT_ORANGE
+    BorderColor IACT_WARNING
+    FontColor #333333
+}
+
+' -- Collections --
+skinparam collections {
+    BackgroundColor IACT_LIGHT
+    BorderColor IACT_PRIMARY
+}
+
+' -- Secuencia --
+skinparam sequence {
+    ArrowColor IACT_SECONDARY
+    ArrowThickness 1.5
+    LifeLineBorderColor IACT_SECONDARY
+    LifeLineBackgroundColor #F5F5F5
+    BoxBorderColor IACT_PRIMARY
+    BoxBackgroundColor IACT_LIGHT
+    DividerBackgroundColor #ECEFF1
+    DividerBorderColor IACT_SECONDARY
+    GroupBorderColor IACT_PRIMARY
+    GroupBackgroundColor #E8EAF6
+    MessageAlign center
+}
+
+' -- Actividad --
+skinparam activity {
+    BackgroundColor IACT_LIGHT
+    BorderColor IACT_PRIMARY
+    DiamondBackgroundColor #FFF9C4
+    DiamondBorderColor IACT_WARNING
+    StartColor IACT_SUCCESS
+    EndColor IACT_ERROR
+    BarColor IACT_SECONDARY
+    FontSize 11
+}
+
+' -- Notas --
+skinparam note {
+    BackgroundColor IACT_LIGHT_YELLOW
+    BorderColor #FBC02D
+    FontColor #333333
+    FontSize 10
+}
+
+' -- Rectangulos (Modulos/Packages) --
+skinparam rectangle {
+    BackgroundColor #ECEFF1
+    BorderColor IACT_SECONDARY
+    BorderThickness 2
+    FontColor #333333
+    FontSize 12
+    FontStyle bold
+}
+
+' -- Package --
+skinparam package {
+    BackgroundColor #ECEFF1
+    BorderColor IACT_SECONDARY
+    FontColor #333333
+}
+
+' -- Componentes --
+skinparam component {
+    BackgroundColor IACT_LIGHT_GREEN
+    BorderColor IACT_SUCCESS
+}
+
+' -- Interface --
+skinparam interface {
+    BackgroundColor IACT_PRIMARY
+    BorderColor IACT_SECONDARY
+}
+
+' -- Estado --
+skinparam state {
+    BackgroundColor IACT_LIGHT
+    BorderColor IACT_PRIMARY
+    StartColor IACT_SUCCESS
+    EndColor IACT_ERROR
+}
+
+' -- Flechas y Lineas --
+skinparam arrow {
+    Color IACT_SECONDARY
+    Thickness 1.5
+}
+
+' -- Estereotipos Personalizados --
+skinparam stereotypeCBackgroundColor IACT_LIGHT
+skinparam stereotypeABackgroundColor IACT_LIGHT_GREEN
+skinparam stereotypeIBackgroundColor IACT_LIGHT_ORANGE
+skinparam stereotypeEBackgroundColor #FFCDD2
+
+' ============================================
+' Macros Reutilizables
+' ============================================
+
+' -- Actores Comunes IACT --
+!define ACTOR_USUARIO actor "Usuario" as USR
+!define ACTOR_ADMIN actor "Administrador" as ADM
+!define ACTOR_AUDITOR actor "Auditor" as AUD
+!define ACTOR_SISTEMA actor "Sistema" as SYS
+
+' -- Participantes Comunes --
+!define PART_FRONTEND participant "Frontend\n(React)" as FE #E3F2FD
+!define PART_CONTROLLER participant "Controller\n(DRF)" as CTRL #E8F5E9
+!define PART_SERVICE participant "Service" as SVC #E8F5E9
+!define PART_REPOSITORY participant "Repository" as REPO #E8F5E9
+!define PART_DATABASE database "PostgreSQL" as DB #FFF3E0
+
+' -- Modulos IACT --
+!define MOD_AUTH rectangle "MOD_Auth" as MAUTH
+!define MOD_USERS rectangle "MOD_Users" as MUSERS
+!define MOD_ACCESS rectangle "MOD_Access" as MACCESS
+!define MOD_PIPELINE rectangle "MOD_Pipeline" as MPIPE
+!define MOD_REPORTS rectangle "MOD_Reports" as MRPTS
+!define MOD_ALERTS rectangle "MOD_Alerts" as MALERTS
+!define MOD_AUDIT rectangle "MOD_Audit" as MAUDIT
+!define MOD_LOGS rectangle "MOD_Logs" as MLOGS
+
+' ============================================
+' Fin de Estilos IACT
+' ============================================
