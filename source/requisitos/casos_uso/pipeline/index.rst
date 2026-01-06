@@ -3,8 +3,10 @@
    :tipo: Indice
    :dominio: requisitos
    :subdominio: casos_uso/pipeline
-   :estado: En Desarrollo
+   :estado: Completado
    :version: 2.0.0
+   :fecha_creacion: 2026-01-06
+   :autor: Equipo IACT
 
 .. _casos-uso-pipeline-index:
 
@@ -12,7 +14,11 @@
 MOD_Pipeline: Casos de Uso de Pipeline ETL
 ==============================================================================
 
-Indice de Casos de Uso del modulo de Pipeline ETL.
+Modulo de Pipeline de Datos - Version 2.0 con diagramas PlantUML.
+
+.. contents:: Contenido
+   :local:
+   :depth: 2
 
 ----
 
@@ -25,12 +31,16 @@ Resumen
 
    * - **Modulo**
      - MOD_Pipeline
-   * - **UC Planificados**
+   * - **UC Documentados**
      - 4 (UC-050 a UC-053)
    * - **Version**
      - 2.0.0 (con PlantUML)
+   * - **Estado**
+     - Completado
    * - **BReq Origen**
-     - BReq-001, BReq-005
+     - BReq-001: Automatizacion del Procesamiento
+   * - **BR Aplicables**
+     - BR_001, BR_008
 
 ----
 
@@ -38,29 +48,132 @@ Casos de Uso
 ------------
 
 .. list-table::
-   :widths: 15 40 20 25
+   :widths: 12 35 15 15 23
    :header-rows: 1
 
    * - ID
      - Nombre
-     - Complejidad
+     - Complej.
+     - Diag.
      - Estado
    * - UC-050
-     - Supervisar Estado ETL
-     - Media
-     - Pendiente
+     - Ejecutar Pipeline de Datos
+     - Alta
+     - 3
+     - Completado
    * - UC-051
-     - Consultar Errores ETL
-     - Baja
-     - Pendiente
+     - Monitorear Estado del Pipeline
+     - Media
+     - 3
+     - Completado
    * - UC-052
-     - Consultar Disponibilidad Datos
-     - Baja
-     - Pendiente
+     - Configurar Pipeline de Datos
+     - Alta
+     - 3
+     - Completado
    * - UC-053
-     - Reiniciar Proceso ETL
-     - Media
-     - Pendiente
+     - Consultar Historial Ejecuciones
+     - Baja
+     - 3
+     - Completado
+
+----
+
+Descripcion de Casos de Uso
+---------------------------
+
+UC-050: Ejecutar Pipeline
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ejecuta el pipeline ETL que procesa archivos de entrada, transforma datos
+segun reglas de negocio y carga en BD. Soporta ejecucion manual y programada.
+
+- **Actor:** Administrador de Datos / Scheduler
+- **FR Derivados:** 11
+- **Funcion RBAC:** PIP-001
+
+UC-051: Monitorear Pipeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Visualiza en tiempo real el estado de ejecucion via WebSocket, con progreso,
+errores y metricas de rendimiento.
+
+- **Actor:** Administrador de Datos / Operador
+- **FR Derivados:** 7
+- **Funcion RBAC:** PIP-002, PIP-003 (cancelar)
+
+UC-052: Configurar Pipeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configura parametros del pipeline: directorios, reglas de transformacion,
+scheduler y notificaciones.
+
+- **Actor:** Administrador de Datos
+- **FR Derivados:** 9
+- **Funcion RBAC:** PIP-004
+
+UC-053: Historial de Ejecuciones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Consulta historial con filtros, detalle de archivos procesados y errores.
+Permite exportar a CSV/Excel.
+
+- **Actor:** Administrador de Datos / Auditor
+- **FR Derivados:** 8
+- **Funcion RBAC:** PIP-005
+
+----
+
+Metricas
+--------
+
+.. list-table::
+   :widths: 40 30 30
+   :header-rows: 1
+
+   * - Metrica
+     - Valor
+     - Notas
+   * - UC Documentados
+     - 4
+     - 100%
+   * - FR Derivados
+     - 35
+     - ~9 por UC
+   * - Diagramas PlantUML
+     - 12
+     - 3 por UC
+   * - Lineas documentacion
+     - ~1,615
+     - Total modulo
+
+----
+
+Funciones RBAC del Modulo
+-------------------------
+
+.. list-table::
+   :widths: 12 35 53
+   :header-rows: 1
+
+   * - Codigo
+     - Nombre
+     - UC que Requiere
+   * - PIP-001
+     - Ejecutar Pipeline
+     - UC-050
+   * - PIP-002
+     - Monitorear Pipeline
+     - UC-051
+   * - PIP-003
+     - Cancelar Pipeline
+     - UC-051 (opcional)
+   * - PIP-004
+     - Configurar Pipeline
+     - UC-052
+   * - PIP-005
+     - Consultar Historial
+     - UC-053
 
 ----
 
@@ -68,148 +181,23 @@ Casos de Uso
    :maxdepth: 1
    :caption: Casos de Uso
 
-   UC_050_Supervisar_ETL
-   UC_051_Consultar_Errores_ETL
-   UC_052_Consultar_Disponibilidad
-   UC_053_Reiniciar_ETL
-EOF
-
-cat > /mnt/user-data/outputs/casos_uso_v2/reports/index.rst << 'EOF'
-.. meta::
-   :artefacto: index_reports
-   :tipo: Indice
-   :dominio: requisitos
-   :subdominio: casos_uso/reports
-   :estado: En Desarrollo
-   :version: 2.0.0
-
-.. _casos-uso-reports-index:
-
-==============================================================================
-MOD_Reports: Casos de Uso de Reportes y Dashboard
-==============================================================================
-
-Indice de Casos de Uso del modulo de Reportes y Dashboard.
+   UC_050_Ejecutar_Pipeline
+   UC_051_Monitorear_Pipeline
+   UC_052_Configurar_Pipeline
+   UC_053_Historial_Pipeline
 
 ----
 
-Resumen
--------
+Historial de Cambios
+--------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
-
-   * - **Modulo**
-     - MOD_Reports
-   * - **UC Planificados**
-     - 14 (UC-017 a UC-030)
-   * - **Version**
-     - 2.0.0 (con PlantUML)
-   * - **BReq Origen**
-     - BReq-001, BReq-003
-
-----
-
-Casos de Uso - Reportes
------------------------
-
-.. list-table::
-   :widths: 15 40 20 25
+   :widths: 12 12 76
    :header-rows: 1
 
-   * - ID
-     - Nombre
-     - Complejidad
-     - Estado
-   * - UC-017
-     - Generar Reporte Predefinido
-     - Media
-     - Pendiente
-   * - UC-018
-     - Crear Reporte Personalizado
-     - Alta
-     - Pendiente
-   * - UC-019
-     - Programar Reporte Automatico
-     - Media
-     - Pendiente
-   * - UC-020
-     - Filtrar Reportes por Fecha
-     - Baja
-     - Pendiente
-   * - UC-021
-     - Filtrar Reportes por Centro
-     - Baja
-     - Pendiente
-   * - UC-022
-     - Exportar Reporte a CSV
-     - Baja
-     - Pendiente
-   * - UC-023
-     - Exportar Reporte a Excel
-     - Media
-     - Pendiente
-   * - UC-024
-     - Exportar Reporte a PDF
-     - Media
-     - Pendiente
-
-----
-
-Casos de Uso - Dashboard
-------------------------
-
-.. list-table::
-   :widths: 15 40 20 25
-   :header-rows: 1
-
-   * - ID
-     - Nombre
-     - Complejidad
-     - Estado
-   * - UC-025
-     - Visualizar Dashboard Operativo
-     - Alta
-     - Pendiente
-   * - UC-026
-     - Ver KPIs en Tiempo Real
-     - Media
-     - Pendiente
-   * - UC-027
-     - Analizar Tendencias
-     - Media
-     - Pendiente
-   * - UC-028
-     - Comparar Periodos
-     - Media
-     - Pendiente
-   * - UC-029
-     - Filtrar Dashboard por Centro
-     - Baja
-     - Pendiente
-   * - UC-030
-     - Exportar Vista Dashboard
-     - Baja
-     - Pendiente
-
-----
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Casos de Uso
-
-   UC_017_Generar_Reporte
-   UC_018_Crear_Reporte_Personalizado
-   UC_019_Programar_Reporte
-   UC_020_Filtrar_Por_Fecha
-   UC_021_Filtrar_Por_Centro
-   UC_022_Exportar_CSV
-   UC_023_Exportar_Excel
-   UC_024_Exportar_PDF
-   UC_025_Visualizar_Dashboard
-   UC_026_Ver_KPIs
-   UC_027_Analizar_Tendencias
-   UC_028_Comparar_Periodos
-   UC_029_Filtrar_Dashboard_Centro
-   UC_030_Exportar_Dashboard
+   * - Version
+     - Fecha
+     - Cambios
+   * - 2.0.0
+     - 2026-01-06
+     - Fase 4 completada: 4 UC con PlantUML embebido
