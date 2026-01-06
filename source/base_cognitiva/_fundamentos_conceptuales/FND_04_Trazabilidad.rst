@@ -1,19 +1,19 @@
 .. meta::
-   :artefacto: FND_03
+   :artefacto: FND_04
    :tipo: Fundamento Conceptual
    :dominio: base_cognitiva
    :subdominio: _fundamentos_conceptuales
    :estado: Aprobado
    :version: 1.0.0
-   :fecha_creacion: 2025-12-19
-   :ultimo_cambio: 2025-12-19
+   :fecha_creacion: 2026-01-04
+   :ultimo_cambio: 2026-01-04
    :autor: Equipo IACT
    :clasificacion: Interno
 
-.. _fnd-03:
+.. _fnd-04:
 
 ==============================================================================
-FND_03: Casos de Uso
+FND_04: Trazabilidad
 ==============================================================================
 
 .. contents:: Contenido
@@ -25,645 +25,544 @@ FND_03: Casos de Uso
 Proposito
 ---------
 
-Este documento define QUE ES un Caso de Uso (Use Case) en el contexto del
-proyecto IACT, su estructura, componentes y relacion con otros artefactos
-de requisitos.
+Este documento define QUE ES la Trazabilidad de Requisitos en el contexto del
+proyecto IACT, los tipos de enlaces, la matriz RTM, metricas de cobertura y
+las herramientas utilizadas para mantener la trazabilidad.
 
 ----
 
 1. Definicion Formal
 --------------------
 
-1.1 Que es un Caso de Uso
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Un **Caso de Uso (Use Case - UC)** es una descripcion de una secuencia de
-interacciones entre un actor y el sistema para lograr un objetivo especifico.
-Describe comportamientos del sistema desde la perspectiva del usuario.
-
-.. note::
-
-   **Definicion operativa para IACT:**
-
-   Un UC es una narrativa que describe COMO un usuario interactua con el
-   sistema para completar una tarea de negocio, incluyendo el flujo normal
-   y los flujos alternativos.
-
-1.2 Caracteristicas de un Caso de Uso
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 80
-
-   * - Caracteristica
-     - Descripcion
-   * - **Narrativo**
-     - Cuenta una historia: "El usuario hace X, sistema responde Y"
-   * - **Alto nivel**
-     - Describe interaccion completa, no detalles atomicos
-   * - **Orientado a actor**
-     - Perspectiva del usuario, no del sistema
-   * - **Secuencial**
-     - Pasos ordenados en flujo temporal
-   * - **Contextualizado**
-     - Incluye precondiciones y postcondiciones
-   * - **Multi-camino**
-     - Flujo normal mas flujos alternativos
-
-1.3 UC vs FR: Diferencia Fundamental
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
-
-   * - Aspecto
-     - Caso de Uso (UC)
-     - Requisito Funcional (FR)
-   * - Vista
-     - Narrativa (historia)
-     - Atomica (declaracion)
-   * - Nivel
-     - Alto (interaccion completa)
-     - Bajo (comportamiento especifico)
-   * - Orientacion
-     - Actor (usuario)
-     - Sistema (implementacion)
-   * - Dependencia
-     - Secuencia importa
-     - Independiente
-   * - Verificacion
-     - Escenario end-to-end
-     - Test unitario/aislado
-   * - Ejemplo
-     - "UC-40: Registrar Producto"
-     - "FR-40.6: Validar formato CAS"
-
-**Analogia:**
-
-.. code-block:: text
-
-   CASO DE USO = PLANO ARQUITECTONICO
-     - Muestra habitaciones, distribucion, flujo
-     - Alto nivel, comprensible por cliente
-     - No especifica tamaño de cada ladrillo
-
-   REQUISITO FUNCIONAL = ESPECIFICACION DE CONSTRUCCION
-     - Ladrillo debe ser de 10cm x 20cm
-     - Bajo nivel, comprensible por constructor
-     - Cada especificacion es verificable
-
-   AMBOS SE NECESITAN:
-     - Plano sin especificaciones: Constructor adivina
-     - Especificaciones sin plano: No sabe como ensamblar
-
-----
-
-2. Estructura de un Caso de Uso
--------------------------------
-
-2.1 Componentes Obligatorios
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   UC-NNN: [Nombre del Caso de Uso]
-
-   IDENTIFICACION:
-     ID:              UC-NNN
-     Nombre:          [Verbo + Objeto]
-     Actor Primario:  [Rol que inicia]
-     Actores Secundarios: [Otros roles involucrados]
-
-   CONTEXTO:
-     Objetivo:        [Meta del actor]
-     Precondiciones:  [Que debe ser verdad ANTES]
-     Postcondiciones: [Que sera verdad DESPUES - exito]
-     Trigger:         [Evento que inicia el UC]
-
-   FLUJOS:
-     Flujo Normal:    [Pasos 1, 2, 3... secuencia exitosa]
-     Flujos Alternos: [Variaciones del flujo normal]
-     Excepciones:     [Errores y como manejarlos]
-
-   TRAZABILIDAD:
-     Business Rules:  [BR que aplican]
-     FR Derivados:    [FR que se generan de este UC]
-
-2.2 Ejemplo Completo
-^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   UC-010: Asignar Rol a Usuario
-
-   IDENTIFICACION:
-     ID:              UC-010
-     Nombre:          Asignar Rol a Usuario
-     Actor Primario:  Administrador de Usuarios (R001)
-     Actores Secundarios: Ninguno
-
-   CONTEXTO:
-     Objetivo:        Otorgar permisos a un usuario mediante asignacion de rol
-     Precondiciones:
-       - Administrador autenticado con rol R001
-       - Usuario destino existe y esta activo
-       - Rol a asignar existe en el catalogo
-     Postcondiciones:
-       - Usuario tiene el nuevo rol asignado
-       - Permisos del rol estan activos para el usuario
-       - Registro de auditoria creado
-     Trigger:         Administrador selecciona "Asignar Rol" en gestion usuarios
-
-   FLUJO NORMAL:
-     1. Administrador busca usuario por nombre o email
-     2. Sistema muestra informacion del usuario y roles actuales
-     3. Administrador selecciona "Agregar Rol"
-     4. Sistema muestra lista de roles disponibles
-     5. Administrador selecciona rol a asignar
-     6. Sistema valida compatibilidad SoD (Separacion de Funciones)
-     7. Sistema solicita justificacion de la asignacion
-     8. Administrador ingresa justificacion
-     9. Sistema registra la asignacion con timestamp
-    10. Sistema notifica al usuario via buzon interno
-    11. Sistema muestra confirmacion de exito
-
-   FLUJO ALTERNO 6a: Conflicto SoD
-     6a.1. Sistema detecta conflicto con rol existente
-     6a.2. Sistema muestra mensaje: "Rol incompatible con [rol_existente]"
-     6a.3. Sistema bloquea asignacion
-     6a.4. Retorna a paso 4
-
-   EXCEPCION 1: Usuario no encontrado
-     1a.1. Sistema muestra "Usuario no encontrado"
-     1a.2. Caso de uso termina
-
-   TRAZABILIDAD:
-     Business Rules:  BR_015 (Separacion de Funciones SoD)
-     FR Derivados:    FR-010.1 a FR-010.15
-
-----
-
-3. Actores
-----------
-
-3.1 Definicion de Actor
+1.1 Que es Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Un **actor** es una entidad externa al sistema que interactua con el.
-Puede ser una persona (rol), otro sistema, o el tiempo.
+La **Trazabilidad de Requisitos** es la capacidad de seguir la vida de un
+requisito desde su origen hasta su implementacion y verificacion, tanto
+hacia adelante (forward) como hacia atras (backward).
 
-3.2 Tipos de Actores
-^^^^^^^^^^^^^^^^^^^^
+Definicion operativa para IACT:
+
+Trazabilidad es la red de enlaces documentados que conecta cada artefacto
+de requisitos (BR, BReq, UC, FR) con sus origenes, derivados y evidencias
+de verificacion.
+
+1.2 Tipos de Trazabilidad
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :header-rows: 1
    :widths: 20 40 40
 
    * - Tipo
-     - Descripcion
-     - Ejemplo IACT
-   * - Humano
-     - Persona con rol especifico
-     - DASHBOARD_VIEWER (R008)
-   * - Sistema
-     - Sistema externo que interactua
-     - Sistema IVR MySQL
-   * - Tiempo
-     - Eventos programados
-     - Scheduler ETL (medianoche)
-
-3.3 Actor Primario vs Secundario
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   ACTOR PRIMARIO:
-     - Inicia el caso de uso
-     - Tiene el objetivo principal
-     - Ejemplo: Administrador que asigna rol
-
-   ACTOR SECUNDARIO:
-     - Participa pero no inicia
-     - Proporciona informacion o recibe notificacion
-     - Ejemplo: Usuario que recibe notificacion de nuevo rol
-
-3.4 Actores en IACT
-^^^^^^^^^^^^^^^^^^^
-
-Los actores en IACT corresponden a los 18 roles del modelo RBAC:
-
-.. code-block:: text
-
-   CATEGORIA: Gestion de Usuarios
-     - R001: USERS_FULL_MANAGER
-     - R002: USERS_VIEWER
-     - R003: USERS_TEAM_MANAGER
-
-   CATEGORIA: Reportes
-     - R004: REPORTS_VIEWER
-     - R005: REPORTS_EXPORTER
-     - R006: REPORTS_ADVANCED_VIEWER
-     - R007: REPORTS_CREATOR
-
-   CATEGORIA: Visualizacion
-     - R008: DASHBOARD_VIEWER
-     - R009: DASHBOARD_CUSTOMIZER
-
-   CATEGORIA: Analisis
-     - R010: DATA_ANALYST
-
-   CATEGORIA: Alertas
-     - R011: ALERTS_VIEWER
-     - R012: ALERTS_CONFIGURATOR
-     - R013: ALERTS_TEAM_MANAGER
-     - R014: ALERTS_GLOBAL_ADMIN
-
-   CATEGORIA: Administracion
-     - R015: MODULES_ADMIN
-     - R016: SYSTEM_ADMIN
-     - R017: AUDIT_VIEWER
-     - R018: SECURITY_ADMIN
-
-   ACTOR ESPECIAL:
-     - TIEMPO: Para procesos batch (ETL nocturno)
-
-----
-
-4. Flujos
----------
-
-4.1 Flujo Normal (Happy Path)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-El flujo normal describe la secuencia de pasos cuando TODO sale bien.
-
-**Caracteristicas:**
-
-- Secuencia exitosa de principio a fin
-- Sin errores ni excepciones
-- Representa el 80% de las ejecuciones tipicas
-
-**Formato de pasos:**
-
-.. code-block:: text
-
-   N. [Actor|Sistema] [verbo] [objeto] [complemento opcional]
-
-   Ejemplos:
-   1. Usuario ingresa credenciales de acceso
-   2. Sistema valida formato de email
-   3. Sistema verifica credenciales contra base de datos
-   4. Sistema genera token JWT
-   5. Sistema redirige a dashboard principal
-
-4.2 Flujos Alternos
-^^^^^^^^^^^^^^^^^^^
-
-Los flujos alternos son variaciones VALIDAS del flujo normal.
-
-**Caracteristicas:**
-
-- Caminos alternativos pero exitosos
-- Decisiones del usuario o condiciones del sistema
-- Se reincorporan al flujo normal
-
-**Formato:**
-
-.. code-block:: text
-
-   FLUJO ALTERNO Na: [Nombre descriptivo]
-     Na.1. [Condicion que dispara el alterno]
-     Na.2. [Paso alternativo]
-     Na.3. Retorna a paso N+1 del flujo normal
-
-   Ejemplo:
-   FLUJO ALTERNO 3a: Usuario olvido password
-     3a.1. Usuario selecciona "Olvide mi password"
-     3a.2. Sistema muestra formulario de recuperacion
-     3a.3. Usuario ingresa email registrado
-     3a.4. Sistema envia pregunta de seguridad (NO email externo)
-     3a.5. Retorna a paso 1
-
-4.3 Excepciones
-^^^^^^^^^^^^^^^
-
-Las excepciones son situaciones de ERROR que impiden completar el UC.
-
-**Caracteristicas:**
-
-- El objetivo NO se cumple
-- Requiere manejo especial
-- Puede terminar el UC o permitir reintento
-
-**Formato:**
-
-.. code-block:: text
-
-   EXCEPCION N: [Nombre del error]
-     N.1. [Condicion de error]
-     N.2. Sistema muestra mensaje de error
-     N.3. [Accion: termina UC | permite reintento]
-
-   Ejemplo:
-   EXCEPCION 3: Credenciales invalidas
-     3.1. Sistema detecta password incorrecto
-     3.2. Sistema incrementa contador de intentos fallidos
-     3.3. Sistema muestra "Credenciales invalidas"
-     3.4. SI intentos >= 5 ENTONCES
-            Sistema bloquea cuenta
-            Caso de uso termina
-          SINO
-            Retorna a paso 1
-
-----
-
-5. Tecnicas de Identificacion de UC
------------------------------------
-
-Existen tres tecnicas complementarias para identificar Casos de Uso:
-
-5.1 Tecnica 1: Derivacion desde Business Rules
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Las Business Rules de tipo **Desencadenador (Trigger)** generan UC directamente.
-
-.. code-block:: text
-
-   BR (Trigger): "SI quimico vence en 30 dias,
-                  ENTONCES notificar al responsable"
-       |
-       v
-   UC-007: Notificar Vencimiento Proximo
-
-   Cobertura: ~38% de los UC
-
-5.2 Tecnica 2: Analisis CRUD
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Para cada entidad del dominio, considerar operaciones basicas.
-
-.. code-block:: text
-
-   ENTIDAD: Producto
-       |
-       +---> UC-040: Registrar Nuevo Producto (Create)
-       +---> UC-041: Consultar Producto (Read)
-       +---> UC-042: Modificar Producto (Update)
-       +---> UC-043: Eliminar Producto (Delete)
-
-   Cobertura: ~40% de los UC
-
-5.3 Tecnica 3: Eventos del Sistema (Larman)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Identificar eventos externos que requieren respuesta del sistema.
-
-**Definicion de Evento del Sistema (Larman):**
-
-Un evento del sistema es una ocurrencia externa, detectable por el sistema,
-que requiere una respuesta.
-
-**Caracteristicas de un evento valido:**
-
-.. code-block:: text
-
-   1. EXTERNO:     Originado fuera del sistema
-   2. DETECTABLE:  Sistema puede "sentir" que ocurrio
-   3. SIGNIFICATIVO: Tiene relevancia en el dominio
-   4. ATOMICO:     Ocurrencia puntual en el tiempo
-
-**Ejemplos:**
-
-.. code-block:: text
-
-   EVENTO VALIDO: "Usuario solicita reporte"
-     - Externo (usuario lo inicia)
-     - Detectable (request HTTP)
-     - Significativo (operacion de negocio)
-     - Atomico (momento especifico)
-     --> Genera UC-017: Consultar Reporte
-
-   NO ES EVENTO: "Usuario navega por el sistema"
-     - No es atomico (actividad continua)
-     - No requiere respuesta especifica
-     --> NO genera UC
-
-   Cobertura: ~22% de los UC
-
-5.4 Complementariedad de Tecnicas
+     - Direccion
+     - Proposito
+   * - Forward (Adelante)
+     - Origen a Derivado
+     - Verificar que todo requisito se implementa
+   * - Backward (Atras)
+     - Derivado a Origen
+     - Verificar que todo codigo tiene justificacion
+   * - Bidireccional
+     - Ambas direcciones
+     - Analisis de impacto completo
+
+1.3 Beneficios de la Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   COBERTURA TOTAL:
-
-   +------------------+------------+
-   | Tecnica          | Cobertura  |
-   +------------------+------------+
-   | Business Rules   |    38%     |
-   | CRUD             |    40%     |
-   | Eventos (Larman) |    22%     |
-   +------------------+------------+
-   | TOTAL            |   100%     |
-   +------------------+------------+
-
-   Las tres tecnicas son NECESARIAS para cobertura completa
+   BENEFICIO                    DESCRIPCION
+   ----------------------------------------------------------------------
+   Analisis de impacto          Identificar que afecta un cambio
+   Verificacion de cobertura    Asegurar que nada se omite
+   Justificacion de codigo      Todo codigo tiene razon de ser
+   Gestion de cambios           Propagacion controlada de cambios
+   Auditoria y compliance       Evidencia documentada
+   Reutilizacion                Identificar dependencias
 
 ----
 
-6. Contratos de Operacion
--------------------------
+2. Tipos de Enlaces
+-------------------
 
-6.1 Definicion
+2.1 Taxonomia de Enlaces
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 15 15 55
+
+   * - Enlace
+     - Origen
+     - Destino
+     - Semantica
+   * - influye
+     - BR
+     - BReq
+     - BR afecta objetivo sin generar directamente
+   * - genera
+     - BReq
+     - UC
+     - Objetivo de negocio genera casos de uso
+   * - genera
+     - BR (Trigger)
+     - UC
+     - BR tipo Desencadenador genera UC especifico
+   * - deriva
+     - UC
+     - FR
+     - Cada paso Sistema del UC deriva FR
+   * - implementa
+     - FR
+     - CODE
+     - FR se codifica en modulo/funcion
+   * - verifica
+     - TEST
+     - FR
+     - Test valida cumplimiento de FR
+   * - satisface
+     - UC
+     - BReq
+     - UC cumple parcialmente objetivo de negocio
+
+2.2 Cardinalidad de Enlaces
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   ENLACE                  CARDINALIDAD       EJEMPLO
+   ----------------------------------------------------------------------
+   BR --influye--> BReq    0..* : 0..*        Varias BR influyen en varios BReq
+   BReq --genera--> UC     1 : 1..*           1 BReq genera multiples UC
+   BR(Trigger) --genera--> UC  0..1 : 0..1   1 BR Trigger genera maximo 1 UC
+   UC --deriva--> FR       1 : 1..*           1 UC deriva multiples FR (ratio 1:8)
+   FR --implementa--> CODE 1 : 0..*           1 FR puede tener 0+ implementaciones
+   TEST --verifica--> FR   1..* : 1           Multiples tests verifican 1 FR
+
+2.3 Diagrama de Enlaces
+^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   JERARQUIA DE DERIVACION (Vertical):
+
+   +-------------+
+   |    BR       | Nivel 0 - Business Rules
+   +------+------+
+          | influye
+          v
+   +-------------+
+   |   BReq      | Nivel 1 - Business Requirements
+   +------+------+
+          | genera
+          v
+   +-------------+
+   |    UC       | Nivel 2 - Use Cases
+   +------+------+
+          | deriva
+          v
+   +-------------+
+   |    FR       | Nivel 3 - Functional Requirements
+   +------+------+
+          | implementa
+          v
+   +-------------+
+   |   CODE      | Nivel 4 - Codigo Fuente
+   +------+------+
+          |
+          v
+   +-------------+
+   |   TEST      | Nivel 5 - Pruebas (verifica FR)
+   +-------------+
+
+----
+
+3. Matriz RTM (Requirements Traceability Matrix)
+------------------------------------------------
+
+3.1 Definicion
 ^^^^^^^^^^^^^^
 
-Un **contrato de operacion** describe QUE debe lograr una operacion del
-sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.
+La Matriz de Trazabilidad de Requisitos (RTM) es el artefacto central
+que documenta todos los enlaces entre requisitos y sus derivados.
 
-6.2 Formato
-^^^^^^^^^^^
+3.2 Estructura de la RTM
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   Operacion: nombreOperacion(parametros)
+   RTM IACT - Estructura de Columnas:
 
-   Precondiciones:
-     - [Condicion que DEBE ser verdad ANTES]
-     - [Otra condicion requerida]
+   | ID_BR | ID_BReq | ID_UC | ID_FR | ID_CODE | ID_TEST | Estado |
+   |-------|---------|-------|-------|---------|---------|--------|
+   | BR_001| BReq-005| UC-050| FR-050.1| pipeline/etl.py | TST_PIP_001 | OK |
+   | BR_002| BReq-001| UC-050| FR-050.2| pipeline/jobs.py| TST_PIP_002 | OK |
+   | ...   | ...     | ...   | ...   | ...     | ...     | ...    |
 
-   Postcondiciones:
-     - [Estado que SERA verdad DESPUES]
-     - [Cambio realizado en el sistema]
-
-6.3 Ejemplo
-^^^^^^^^^^^
-
-.. code-block:: text
-
-   Operacion: asignarRol(userId, roleId, justificacion)
-
-   Precondiciones:
-     - Usuario con userId existe en sistema
-     - Usuario esta en estado ACTIVO
-     - Rol con roleId existe en catalogo
-     - Rol no tiene conflicto SoD con roles actuales del usuario
-     - Actor tiene permiso roles.assign
-
-   Postcondiciones:
-     - Registro user_roles creado (userId, roleId)
-     - Timestamp de asignacion registrado
-     - Justificacion almacenada
-     - Notificacion enviada a usuario via buzon interno
-     - Registro de auditoria creado
-
-6.4 Relacion UC - Contrato
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   Caso de Uso: Define COMO interactua usuario con sistema
-   Contrato:    Define QUE debe pasar tecnicamente
-
-   UC es mas NARRATIVO (flujo de trabajo)
-   Contrato es mas TECNICO (cambios de estado)
-
-   Ambos se complementan:
-     - Contrato asegura completitud tecnica
-     - UC asegura usabilidad y flujo de trabajo
-
-----
-
-7. Casos de Uso en el Contexto IACT
------------------------------------
-
-7.1 Nomenclatura
-^^^^^^^^^^^^^^^^
-
-Los Casos de Uso en IACT siguen la convencion:
-
-.. code-block:: text
-
-   FORMATO: UC_NNN_Nombre_Descriptivo.rst
-
-   Donde:
-   - UC: Prefijo fijo (Use Case)
-   - NNN: Numero secuencial de 3 digitos
-   - Nombre_Descriptivo: Verbo + Objeto con guiones bajos
-
-   Ejemplos:
-   - UC_006_Crear_Usuario.rst
-   - UC_010_Asignar_Roles.rst
-   - UC_017_Consultar_Reporte.rst
-
-7.2 Ubicacion en el Modelo IACT
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   requisitos/
-       |
-       +--- casos_uso/
-                |
-                +--- index.rst
-                +--- UC_001_xxx.rst
-                +--- UC_002_xxx.rst
-                +--- ...
-
-7.3 Relacion con Otros Artefactos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   BR (Regla de Negocio)
-       |
-       v
-   UC (Caso de Uso) <---- Desencadenadores generan UC
-       |                  Restricciones son precondiciones
-       v
-   FR (Requisito Funcional) <---- Cada paso UC deriva FR
-
-----
-
-8. Lista de UC Identificados en IACT
-------------------------------------
-
-Basado en el analisis del modelo RBAC, se han identificado 38 Casos de Uso:
-
-8.1 Gestion de Usuarios (7 UC)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   UC-005: Gestion de Sesiones Seguras
-   UC-006: Crear Usuario
-   UC-007: Modificar Usuario
-   UC-008: Eliminar Usuario (baja logica)
-   UC-009: Listar Usuarios
-   UC-010: Asignar Roles
-   UC-011: Gestionar Permisos por Rol
-
-8.2 Reportes (8 UC)
-^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   UC-017: Consultar Reporte Trimestral
-   UC-018: Consultar Problemas de Menu
-   UC-019: Consultar Transferencias por Centro
-   UC-020: Filtrar Reportes por Fecha
-   UC-021: Filtrar Reportes por Centro
-   UC-022: Exportar CSV
-   UC-023: Exportar Excel
-   UC-024: Exportar PDF
-
-8.3 Dashboards (6 UC)
+3.3 Ubicacion en IACT
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   UC-025: Ver Dashboard Principal
-   UC-026: Ver Graficos de Llamadas por Hora
-   UC-027: Ver Graficos de Llamadas por Dia
-   UC-028: Ver Distribucion de Llamadas por Centro
-   UC-029: Ver Tendencias Temporales
-   UC-030: Personalizar Dashboard
+   IACT/
+   +-- evidencia/
+       +-- trazabilidad/
+           +-- index.rst
+           +-- RTM_Master_v1_0_0.rst      <- Matriz principal
+           +-- COV_001_Reporte_Cobertura.rst  <- Metricas
 
-8.4 Analisis (5 UC)
-^^^^^^^^^^^^^^^^^^^
+3.4 Ejemplo de Cadena Completa
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   UC-031: Analisis Exploratorio de Datos
-   UC-032: Comparar Periodos
-   UC-033: Identificar Patrones de Llamadas
-   UC-034: Analisis de Inconsistencias de Navegacion
-   UC-035: Analisis de Tiempos de Espera
+   CADENA: BR_007 (SoD) -> UC-043 -> FR-043.x
 
-8.5 Alertas (5 UC)
-^^^^^^^^^^^^^^^^^^
+   BR_007: Separacion de Funciones SoD
+     |
+     | influye
+     v
+   BReq-004: Cumplimiento de Seguridad
+     |
+     | genera
+     v
+   UC-043: Configurar SoD
+     |
+     | deriva
+     +---> FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+     +---> FR-043.2: Sistema DEBE validar conflictos al crear SoD
+     +---> FR-043.3: Sistema DEBE impedir asignacion que viole SoD
+     +---> FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
+     +---> FR-043.5: Sistema DEBE notificar al admin de seguridad
+           |
+           | implementa
+           v
+         apps/access/sod.py
+           |
+           | verifica
+           v
+         TST_Access_SoD_001 a TST_Access_SoD_005
 
-.. code-block:: text
+----
 
-   UC-036: Configurar Alerta por Umbral
-   UC-037: Recibir Notificacion de Alerta
-   UC-038: Ver Historial de Alertas
-   UC-039: Desactivar Alerta
-   UC-040: Configurar Destinatarios
+4. Metricas de Cobertura
+------------------------
 
-8.6 Administracion (7 UC)
+4.1 Definicion de Metricas
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 15 60
+
+   * - Metrica
+     - Umbral
+     - Formula
+   * - Cobertura BReq a UC
+     - 100%
+     - (BReq con UC derivados / Total BReq) x 100
+   * - Cobertura BR a UC
+     - 100%
+     - (BR con impacto en UC / Total BR aplicables) x 100
+   * - Cobertura UC a FR
+     - 100%
+     - (UC con FR derivados / Total UC) x 100
+   * - Cobertura FR a CODE
+     - 90%
+     - (FR implementados / Total FR) x 100
+   * - Cobertura FR a TEST
+     - 80%
+     - (FR con tests / Total FR) x 100
+
+4.2 Estado Actual IACT
+^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   METRICA                 VALOR      ESTADO
+   ------------------------------------------------
+   BReq identificados        5        Completo
+   BR identificadas         20        Completo
+   UC identificados         49        Completo
+   FR derivados              0        Pendiente
+
+   Cobertura BReq a UC     100%       Verificado
+   Cobertura BR a UC         -        Pendiente RTM
+   Cobertura UC a FR        0%        Pendiente derivar
+   Cobertura FR a CODE      0%        Pendiente implementar
+   Cobertura FR a TEST      0%        Pendiente
+
+4.3 Interpretacion de Metricas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   COBERTURA 100%:
+     Todos los artefactos origen tienen al menos un derivado.
+     NO significa que esten completos, solo que tienen enlace.
+
+   COBERTURA < 100%:
+     Existen artefactos sin derivados documentados.
+     Requiere accion: derivar o justificar exclusion.
+
+   COBERTURA > 100%:
+     Error de calculo o artefactos duplicados.
+     Requiere revision de la RTM.
+
+----
+
+5. Herramientas de Trazabilidad en IACT
+---------------------------------------
+
+5.1 Sphinx Cross-References
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+IACT utiliza el sistema de referencias cruzadas de Sphinx para mantener
+trazabilidad dentro de la documentacion.
+
+::
+
+   En BR_007_Separacion_Funciones_SoD.rst:
+
+   .. _br-007:
+
+   Trazabilidad
+   ------------
+   - Influye en: :ref:`breq-004`
+   - UC Relacionados: :ref:`uc-043`
+   - FR Derivados: FR-043.1 a FR-043.5
+
+
+   En UC_043_Configurar_SoD.rst:
+
+   .. _uc-043:
+
+   Trazabilidad
+   ------------
+   - Origen BR: :ref:`br-007`
+   - BReq: :ref:`breq-004`
+   - FR Derivados: FR-043.1 a FR-043.5
+
+5.2 Etiquetas de Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+Cada artefacto incluye metadata que facilita trazabilidad:
 
-   UC-012: Asignar Modulos a Usuario
-   UC-013: Crear Perfil de Modulos
-   UC-014: Asignar Perfil a Usuario
-   UC-015: Ver Modulos Disponibles
-   UC-016: Configurar Permisos de Modulo
-   UC-041: Gestionar Segmentos de Datos
-   UC-042: Gestionar Permisos Directos
+::
+
+   .. meta::
+      :artefacto: UC_043
+      :origen_br: BR_007
+      :origen_breq: BReq-004
+      :fr_derivados: FR-043.1, FR-043.2, FR-043.3, FR-043.4, FR-043.5
+      :modulo: MOD_Access
+
+5.3 Seccion de Trazabilidad Estandar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
+
+::
+
+   ----
+
+   Trazabilidad
+   ------------
+
+   Origen
+   ^^^^^^
+   - Business Rule: BR_007 (Separacion de Funciones SoD)
+   - Business Requirement: BReq-004 (Cumplimiento Seguridad)
+
+   Derivados
+   ^^^^^^^^^
+   - FR-043.1: Mostrar lista restricciones SoD
+   - FR-043.2: Validar conflictos
+   - FR-043.3: Impedir asignacion violatoria
+   - FR-043.4: Registrar en auditoria
+   - FR-043.5: Notificar admin seguridad
+
+   Implementacion
+   ^^^^^^^^^^^^^^
+   - Modulo: MOD_Access
+   - Codigo: apps/access/sod.py
+   - Tests: TST_Access_SoD_*
+
+----
+
+6. Proceso de Mantenimiento de Trazabilidad
+-------------------------------------------
+
+6.1 Al Crear Nuevo Artefacto
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   1. Identificar ORIGEN (de donde viene)
+   2. Documentar enlace en seccion Trazabilidad
+   3. Actualizar artefacto origen con nuevo derivado
+   4. Actualizar RTM_Master
+   5. Verificar metricas de cobertura
+
+6.2 Al Modificar Artefacto Existente
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   1. Ejecutar analisis de impacto (que depende de este)
+   2. Revisar todos los derivados
+   3. Propagar cambios necesarios
+   4. Actualizar fechas y versiones
+   5. Documentar cambio en historial
+
+6.3 Al Eliminar Artefacto
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   1. Verificar que no tiene derivados activos
+   2. Si tiene derivados, reasignarlos o eliminarlos
+   3. Actualizar artefactos origen (remover referencia)
+   4. Marcar como obsoleto en RTM (no borrar)
+   5. Documentar razon de eliminacion
+
+----
+
+7. Trazabilidad por Nivel en IACT
+---------------------------------
+
+7.1 Nivel 0 a 1: BR a BReq (Influencia)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   BR                              BReq
+   ------------------------------------------------------------------
+   BR_001 (Fuente Inmutable)   --> BReq-005 (Integridad Datos)
+   BR_002 (ETL Nocturno)       --> BReq-001 (Visibilidad)
+   BR_006 (RBAC Flat)          --> BReq-004 (Cumplimiento)
+   BR_007 (SoD)                --> BReq-004 (Cumplimiento)
+   BR_010 (Auditoria Inmutable)--> BReq-004 (Cumplimiento)
+   BR_014 (Alerta Umbral)      --> BReq-002 (Reduccion Incidentes)
+
+7.2 Nivel 1 a 2: BReq a UC (Generacion)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   BReq                         UC Generados
+   ------------------------------------------------------------------
+   BReq-001 (Visibilidad)   --> UC-025 a UC-030 (Dashboard)
+   BReq-002 (Red. Incid.)   --> UC-036 a UC-040 (Alertas)
+   BReq-003 (Decisiones)    --> UC-017 a UC-024 (Reportes)
+   BReq-004 (Cumplimiento)  --> UC-010, UC-043-047, UC-060-063
+   BReq-005 (Integridad)    --> UC-050 a UC-053 (Pipeline)
+
+7.3 Nivel 2 a 3: UC a FR (Derivacion)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ejemplo detallado para UC-043:
+
+::
+
+   UC-043: Configurar SoD
+
+   Flujo Normal:
+   1. Admin Seguridad selecciona Gestionar SoD
+   2. Sistema muestra lista de restricciones actuales    --> FR-043.1
+   3. Admin selecciona Crear nueva restriccion
+   4. Sistema muestra formulario de configuracion
+   5. Admin define Grupo A y Grupo B de funciones
+   6. Sistema valida que no hay conflictos existentes    --> FR-043.2
+   7. Sistema guarda restriccion SoD
+   8. Sistema registra en auditoria                      --> FR-043.4
+   9. Sistema notifica a administradores                 --> FR-043.5
+
+   Excepcion 6a: Conflicto detectado
+   6a.1. Sistema muestra usuarios afectados
+   6a.2. Sistema impide guardar hasta resolver           --> FR-043.3
+   6a.3. Retorna a paso 5
+
+   FR Derivados:
+   - FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+   - FR-043.2: Sistema DEBE validar conflictos al crear SoD
+   - FR-043.3: Sistema DEBE impedir asignacion que viole SoD
+   - FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
+   - FR-043.5: Sistema DEBE notificar al admin de seguridad
+
+7.4 Nivel 3 a 4: FR a CODE (Implementacion)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   FR                    Implementacion
+   ------------------------------------------------------------------
+   FR-043.1          --> apps/access/views/sod_views.py::list_sod()
+   FR-043.2          --> apps/access/validators/sod_validator.py
+   FR-043.3          --> apps/access/middleware/sod_enforcement.py
+   FR-043.4          --> apps/audit/signals/sod_audit.py
+   FR-043.5          --> apps/alerts/notifications/sod_notify.py
+
+7.5 Nivel 3 a 5: FR a TEST (Verificacion)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   FR                    Tests
+   ------------------------------------------------------------------
+   FR-043.1          --> tests/access/test_sod_list.py
+   FR-043.2          --> tests/access/test_sod_validation.py
+   FR-043.3          --> tests/access/test_sod_enforcement.py
+   FR-043.4          --> tests/audit/test_sod_audit_log.py
+   FR-043.5          --> tests/alerts/test_sod_notifications.py
+
+----
+
+8. Analisis de Impacto
+----------------------
+
+8.1 Definicion
+^^^^^^^^^^^^^^
+
+El Analisis de Impacto utiliza la trazabilidad para determinar que
+artefactos se ven afectados por un cambio propuesto.
+
+8.2 Proceso
+^^^^^^^^^^^
+
+::
+
+   CAMBIO PROPUESTO: Modificar BR_007 (agregar nueva restriccion SoD)
+
+   PASO 1: Identificar derivados directos
+   +------------------------------------------+
+   | BR_007 --> BReq-004 --> UC-043           |
+   |                     --> UC-044           |
+   |                     --> UC-047           |
+   +------------------------------------------+
+
+   PASO 2: Propagar a siguientes niveles
+   +------------------------------------------+
+   | UC-043 --> FR-043.1 a FR-043.5           |
+   | UC-044 --> FR-044.1 a FR-044.3           |
+   | UC-047 --> FR-047.1 a FR-047.4           |
+   +------------------------------------------+
+
+   PASO 3: Identificar codigo afectado
+   +------------------------------------------+
+   | apps/access/sod.py                       |
+   | apps/access/validators/                  |
+   | apps/access/middleware/                  |
+   +------------------------------------------+
+
+   PASO 4: Identificar tests a actualizar
+   +------------------------------------------+
+   | tests/access/test_sod_*.py               |
+   | tests/integration/test_sod_flow.py       |
+   +------------------------------------------+
+
+   RESULTADO: 3 UC, 12 FR aprox, 3 modulos, 10 tests afectados
 
 ----
 
@@ -673,17 +572,25 @@ Basado en el analisis del modelo RBAC, se han identificado 38 Casos de Uso:
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`fnd-01` - Concepto de Requisito
-- :ref:`fnd-02` - Reglas de Negocio
-- :ref:`fnd-05` - Jerarquia de 4 Niveles
-- :ref:`fnd-07` - Requerimientos Funcionales
+- FND_01 - Concepto de Requisito
+- FND_02 - Reglas de Negocio
+- FND_03 - Casos de Uso
+- FND_05 - Jerarquia de 4 Niveles
+- FND_06 - Derivacion vs Transformacion
+- FND_07 - Requerimientos Funcionales
+
+Artefactos de Trazabilidad IACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- evidencia/trazabilidad/RTM_Master_v1_0_0.rst
+- evidencia/trazabilidad/COV_001_Reporte_Cobertura.rst
 
 Fuentes Externas
 ^^^^^^^^^^^^^^^^
 
-- Craig Larman: "Applying UML and Patterns" (3rd Edition)
-- Alistair Cockburn: "Writing Effective Use Cases"
-- Ivar Jacobson: "Object-Oriented Software Engineering"
+- IEEE 830-1998: Recommended Practice for Software Requirements Specifications
+- CMMI for Development: Requirements Management Process Area
+- Karl Wiegers: Software Requirements (3rd Edition)
 
 ----
 
@@ -699,12 +606,12 @@ Historial de Cambios
      - Autor
      - Cambios
    * - 1.0.0
-     - 2025-12-19
+     - 2026-01-04
      - Equipo IACT
-     - Version inicial aprobada
+     - Version inicial. Documento creado desde cero reemplazando archivo corrupto que contenia copia de FND_03.
 
 ----
 
-**Trazabilidad:** Este artefacto define el concepto de UC que es el nivel
-intermedio entre BR y FR en la jerarquia de requisitos. Referenciado por
-FND_05, FND_06, FND_07 y todos los artefactos en requisitos/casos_uso/.
+Trazabilidad: Este artefacto define el concepto de Trazabilidad que es
+fundamental para mantener la integridad del modelo de requisitos. Referenciado
+por FND_05, FND_06 y todos los artefactos en evidencia/trazabilidad/.

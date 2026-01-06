@@ -4,9 +4,9 @@
    :dominio: base_cognitiva
    :subdominio: _fundamentos_conceptuales
    :estado: Aprobado
-   :version: 1.1.0
+   :version: 1.2.0
    :fecha_creacion: 2025-12-19
-   :ultimo_cambio: 2025-12-21
+   :ultimo_cambio: 2026-01-04
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -97,8 +97,8 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
      - Escenario end-to-end
      - Test unitario/aislado
    * - Ejemplo
-     - "UC-40: Registrar Producto"
-     - "FR-40.6: Validar formato CAS"
+     - UC-043: Configurar SoD
+     - FR-043.1: Sistema DEBE mostrar lista SoD
 
 **Analogia:**
 
@@ -107,7 +107,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    CASO DE USO = PLANO ARQUITECTONICO
      - Muestra habitaciones, distribucion, flujo
      - Alto nivel, comprensible por cliente
-     - No especifica tamaño de cada ladrillo
+     - No especifica tamano de cada ladrillo
 
    REQUISITO FUNCIONAL = ESPECIFICACION DE CONSTRUCCION
      - Ladrillo debe ser de 10cm x 20cm
@@ -133,8 +133,8 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    IDENTIFICACION:
      ID:              UC-NNN
      Nombre:          [Verbo + Objeto]
-     Actor Primario:  [Rol que inicia]
-     Actores Secundarios: [Otros roles involucrados]
+     Actor Primario:  [Agrupador RBAC que inicia]
+     Actores Secundarios: [Otros agrupadores involucrados]
 
    CONTEXTO:
      Objetivo:        [Meta del actor]
@@ -149,6 +149,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 
    TRAZABILIDAD:
      Business Rules:  [BR que aplican]
+     BReq:            [Objetivo de negocio]
      FR Derivados:    [FR que se generan de este UC]
 
 2.2 Ejemplo Completo
@@ -156,52 +157,54 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 
 .. code-block:: text
 
-   UC-010: Asignar Rol a Usuario
+   UC-043: Configurar SoD
 
    IDENTIFICACION:
-     ID:              UC-010
-     Nombre:          Asignar Rol a Usuario
-     Actor Primario:  Administrador de Usuarios (R001)
-     Actores Secundarios: Ninguno
+     ID:              UC-043
+     Nombre:          Configurar Segregacion de Funciones
+     Actor Primario:  AGR-008 (admin_seguridad)
+     Actores Secundarios: AGR-007 (auditor)
 
    CONTEXTO:
-     Objetivo:        Otorgar permisos a un usuario mediante asignacion de rol
+     Objetivo:        Crear restricciones SoD para prevenir conflictos
      Precondiciones:
-       - Administrador autenticado con rol R001
-       - Usuario destino existe y esta activo
-       - Rol a asignar existe en el catalogo
+       - Usuario autenticado con agrupador AGR-008
+       - Existen funciones definidas en catalogo RBAC
      Postcondiciones:
-       - Usuario tiene el nuevo rol asignado
-       - Permisos del rol estan activos para el usuario
-       - Registro de auditoria creado
-     Trigger:         Administrador selecciona "Asignar Rol" en gestion usuarios
+       - Restriccion SoD creada en sistema
+       - Evento registrado en auditoria
+       - Administradores notificados
+     Trigger:         Admin selecciona Gestionar SoD
 
    FLUJO NORMAL:
-     1. Administrador busca usuario por nombre o email
-     2. Sistema muestra informacion del usuario y roles actuales
-     3. Administrador selecciona "Agregar Rol"
-     4. Sistema muestra lista de roles disponibles
-     5. Administrador selecciona rol a asignar
-     6. Sistema valida compatibilidad SoD (Separacion de Funciones)
-     7. Sistema solicita justificacion de la asignacion
-     8. Administrador ingresa justificacion
-     9. Sistema registra la asignacion con timestamp
-    10. Sistema notifica al usuario via buzon interno
-    11. Sistema muestra confirmacion de exito
+     1. Admin Seguridad selecciona Gestionar SoD
+     2. Sistema muestra lista de restricciones actuales
+     3. Admin selecciona Crear nueva restriccion
+     4. Sistema muestra formulario de configuracion
+     5. Admin define nombre de la restriccion
+     6. Admin selecciona funciones para Grupo A
+     7. Admin selecciona funciones para Grupo B
+     8. Sistema valida que no hay conflictos existentes
+     9. Admin confirma creacion
+    10. Sistema guarda restriccion SoD
+    11. Sistema registra en auditoria
+    12. Sistema notifica a administradores
 
-   FLUJO ALTERNO 6a: Conflicto SoD
-     6a.1. Sistema detecta conflicto con rol existente
-     6a.2. Sistema muestra mensaje: "Rol incompatible con [rol_existente]"
-     6a.3. Sistema bloquea asignacion
-     6a.4. Retorna a paso 4
+   FLUJO ALTERNO 8a: Conflicto con usuarios existentes
+     8a.1. Sistema detecta usuarios que violarian nueva SoD
+     8a.2. Sistema muestra lista de usuarios afectados
+     8a.3. Sistema impide guardar hasta resolver
+     8a.4. Retorna a paso 6
 
-   EXCEPCION 1: Usuario no encontrado
-     1a.1. Sistema muestra "Usuario no encontrado"
-     1a.2. Caso de uso termina
+   EXCEPCION 1: Sin permisos
+     1a.1. Sistema detecta falta de AGR-008
+     1a.2. Sistema muestra mensaje de acceso denegado
+     1a.3. Caso de uso termina
 
    TRAZABILIDAD:
-     Business Rules:  BR_015 (Separacion de Funciones SoD)
-     FR Derivados:    FR-010.1 a FR-010.15
+     Business Rules:  BR_007 (Separacion de Funciones SoD)
+     BReq:            BReq-004 (Cumplimiento Seguridad)
+     FR Derivados:    FR-043.1 a FR-043.5
 
 ----
 
@@ -225,8 +228,8 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
      - Descripcion
      - Ejemplo IACT
    * - Humano
-     - Persona con rol especifico
-     - DASHBOARD_VIEWER (R008)
+     - Persona con agrupador especifico
+     - AGR-004 (visor_dashboard)
    * - Sistema
      - Sistema externo que interactua
      - Sistema IVR MySQL
@@ -242,52 +245,85 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
    ACTOR PRIMARIO:
      - Inicia el caso de uso
      - Tiene el objetivo principal
-     - Ejemplo: Administrador que asigna rol
+     - Ejemplo: AGR-008 que configura SoD
 
    ACTOR SECUNDARIO:
      - Participa pero no inicia
      - Proporciona informacion o recibe notificacion
-     - Ejemplo: Usuario que recibe notificacion de nuevo rol
+     - Ejemplo: AGR-007 que recibe notificacion de cambio
 
-3.4 Actores en IACT
-^^^^^^^^^^^^^^^^^^^
+3.4 Actores en IACT (Agrupadores RBAC v5.1.1)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Los actores en IACT corresponden a los 18 roles del modelo RBAC:
+Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.1.1,
+siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
 
-   CATEGORIA: Gestion de Usuarios
-     - R001: USERS_FULL_MANAGER
-     - R002: USERS_VIEWER
-     - R003: USERS_TEAM_MANAGER
-
-   CATEGORIA: Reportes
-     - R004: REPORTS_VIEWER
-     - R005: REPORTS_EXPORTER
-     - R006: REPORTS_ADVANCED_VIEWER
-     - R007: REPORTS_CREATOR
-
-   CATEGORIA: Visualizacion
-     - R008: DASHBOARD_VIEWER
-     - R009: DASHBOARD_CUSTOMIZER
-
-   CATEGORIA: Analisis
-     - R010: DATA_ANALYST
-
-   CATEGORIA: Alertas
-     - R011: ALERTS_VIEWER
-     - R012: ALERTS_CONFIGURATOR
-     - R013: ALERTS_TEAM_MANAGER
-     - R014: ALERTS_GLOBAL_ADMIN
-
-   CATEGORIA: Administracion
-     - R015: MODULES_ADMIN
-     - R016: SYSTEM_ADMIN
-     - R017: AUDIT_VIEWER
-     - R018: SECURITY_ADMIN
+   AGRUPADOR                           FUNCIONES              UC TIPICOS
+   -------------------------------------------------------------------------
+   AGR-001: administrador_usuarios     USR-001 a USR-010      UC-006 a UC-009
+   AGR-002: visor_usuarios             USR-005, USR-006       UC-009
+   AGR-003: analista_reportes          RPT-001 a RPT-008      UC-017 a UC-024
+   AGR-004: visor_dashboard            RPT-001, RPT-007/08    UC-025 a UC-030
+   AGR-005: gestor_alertas             ALR-001 a ALR-006      UC-036 a UC-040
+   AGR-006: supervisor_equipo          USR-005/06, RPT-001    UC-009, UC-017
+   AGR-007: auditor                    AUD-001 a AUD-004      UC-060 a UC-063
+   AGR-008: admin_seguridad            ACC-001 a ACC-006      UC-010, UC-043-047
+   AGR-009: admin_sistema              PIP-*, LOG-*, config   UC-050-053, UC-070-072
+   AGR-010: operador_etl               PIP-001 a PIP-004      UC-050 a UC-053
 
    ACTOR ESPECIAL:
-     - TIEMPO: Para procesos batch (ETL nocturno)
+     - TIEMPO: Para procesos batch (ETL nocturno) - UC-050
+
+3.5 Mapeo de Actores Legacy a Agrupadores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para compatibilidad con documentacion anterior que usaba roles R001-R018:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 35 30
+
+   * - Rol Legacy (R00x)
+     - Agrupador (AGR-00x)
+     - Nota
+   * - R001: USERS_FULL_MANAGER
+     - AGR-001: administrador_usuarios
+     - Equivalente directo
+   * - R002: USERS_VIEWER
+     - AGR-002: visor_usuarios
+     - Equivalente directo
+   * - R003: USERS_TEAM_MANAGER
+     - AGR-006: supervisor_equipo
+     - Renombrado
+   * - R004-R007: REPORTS_*
+     - AGR-003: analista_reportes
+     - Consolidado
+   * - R008-R009: DASHBOARD_*
+     - AGR-004: visor_dashboard
+     - Consolidado
+   * - R010: DATA_ANALYST
+     - AGR-003: analista_reportes
+     - Absorbido
+   * - R011-R014: ALERTS_*
+     - AGR-005: gestor_alertas
+     - Consolidado
+   * - R015: MODULES_ADMIN
+     - AGR-009: admin_sistema
+     - Consolidado
+   * - R016: SYSTEM_ADMIN
+     - AGR-009: admin_sistema
+     - Renombrado
+   * - R017: AUDIT_VIEWER
+     - AGR-007: auditor
+     - Renombrado
+   * - R018: SECURITY_ADMIN
+     - AGR-008: admin_seguridad
+     - Renombrado
+   * - (nuevo)
+     - AGR-010: operador_etl
+     - Nuevo en RBAC v5.1.1
 
 ----
 
@@ -338,14 +374,6 @@ Los flujos alternos son variaciones VALIDAS del flujo normal.
      Na.2. [Paso alternativo]
      Na.3. Retorna a paso N+1 del flujo normal
 
-   Ejemplo:
-   FLUJO ALTERNO 3a: Usuario olvido password
-     3a.1. Usuario selecciona "Olvide mi password"
-     3a.2. Sistema muestra formulario de recuperacion
-     3a.3. Usuario ingresa email registrado
-     3a.4. Sistema envia pregunta de seguridad (NO email externo)
-     3a.5. Retorna a paso 1
-
 4.3 Excepciones
 ^^^^^^^^^^^^^^^
 
@@ -366,49 +394,34 @@ Las excepciones son situaciones de ERROR que impiden completar el UC.
      N.2. Sistema muestra mensaje de error
      N.3. [Accion: termina UC | permite reintento]
 
-   Ejemplo:
-   EXCEPCION 3: Credenciales invalidas
-     3.1. Sistema detecta password incorrecto
-     3.2. Sistema incrementa contador de intentos fallidos
-     3.3. Sistema muestra "Credenciales invalidas"
-     3.4. SI intentos >= 5 ENTONCES
-            Sistema bloquea cuenta
-            Caso de uso termina
-          SINO
-            Retorna a paso 1
-
 ----
 
 5. Tecnicas de Identificacion de UC
 -----------------------------------
 
-Existen **cuatro tecnicas complementarias** para identificar Casos de Uso.
+Existen cinco tecnicas complementarias para identificar Casos de Uso.
 
 .. important::
 
    **GAP Fundamental BR vs Sistema Completo:**
 
-   Las Business Rules solo generan aproximadamente el **22%** de los UC totales.
-   El **78% restante** debe identificarse mediante tecnicas complementarias.
-
-   Sin estas tecnicas adicionales, el sistema quedaria **78% incompleto**.
+   Las Business Rules solo generan aproximadamente el 22% de los UC totales.
+   El 78% restante debe identificarse mediante tecnicas complementarias.
 
 5.1 Tecnica 1: Derivacion desde Business Rules (22%)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Las Business Rules de tipo **Desencadenador (Trigger)** generan UC directamente.
+Las Business Rules de tipo Desencadenador (Trigger) generan UC directamente.
 
 .. code-block:: text
 
-   BR (Trigger): "SI quimico vence en 30 dias,
-                  ENTONCES notificar al responsable"
+   BR (Trigger): SI quimico vence en 30 dias,
+                 ENTONCES notificar al responsable
        |
        v
-   UC-007: Notificar Vencimiento Proximo
+   UC-xxx: Notificar Vencimiento Proximo
 
    PORCENTAJE: 22% de los UC totales
-   OUTPUT TIPICO: 10 UC en proyecto mediano
-
    NATURALEZA: Deductiva (BR explicita -> UC)
 
 5.2 Tecnica 2: Analisis CRUD (40%)
@@ -425,87 +438,29 @@ Para cada entidad del dominio, considerar operaciones basicas segun su clasifica
    * - Tipo Entidad
      - UC Generados
      - Ejemplo
-   * - **Maestro**
+   * - Maestro
      - CRUD completo (6 UC)
-     - Usuario, Producto, Centro
-   * - **Transaccional**
+     - Usuario, Rol, Centro
+   * - Transaccional
      - C + R solamente (3 UC)
      - Llamada, Auditoria, Sesion
-   * - **Tecnica**
+   * - Tecnica
      - Sin UC directos
      - ConfiguracionSistema, Log
-
-.. code-block:: text
-
-   ENTIDAD MAESTRA: Usuario
-       |
-       +---> UC-006: Crear Usuario (Create)
-       +---> UC-009: Listar Usuarios (Read - lista)
-       +---> UC-xxx: Ver Detalle Usuario (Read - detalle)
-       +---> UC-007: Modificar Usuario (Update)
-       +---> UC-008: Eliminar Usuario (Delete logico)
-       +---> UC-xxx: Buscar Usuario (Search)
-
-   ENTIDAD TRANSACCIONAL: Llamada
-       |
-       +---> (sin Create - viene de IVR)
-       +---> UC-017: Consultar Llamadas (Read)
-       +---> UC-xxx: Ver Detalle Llamada (Read)
-       +---> (sin Update/Delete - inmutable)
-
-   PORCENTAJE: 40% de los UC totales
-   OUTPUT TIPICO: 15-20 UC en proyecto mediano
 
 5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Identificar eventos externos que requieren respuesta del sistema.
 
-**Definicion de Evento del Sistema (Larman):**
-
-Un evento del sistema es una ocurrencia externa, detectable por el sistema,
-que requiere una respuesta.
-
 **4 Caracteristicas Obligatorias de un Evento Valido:**
 
 .. code-block:: text
 
    1. EXTERNO:      Originado fuera del sistema (no interno)
-   2. DETECTABLE:   Sistema puede "sentir" que ocurrio
+   2. DETECTABLE:   Sistema puede sentir que ocurrio
    3. SIGNIFICATIVO: Tiene relevancia en el dominio de negocio
    4. ATOMICO:      Ocurrencia puntual e indivisible en el tiempo
-
-**Ejemplos:**
-
-.. code-block:: text
-
-   EVENTO VALIDO: "Usuario solicita reporte"
-     ✓ Externo (usuario lo inicia)
-     ✓ Detectable (request HTTP)
-     ✓ Significativo (operacion de negocio)
-     ✓ Atomico (momento especifico)
-     --> Genera UC-017: Consultar Reporte
-
-   NO ES EVENTO: "Usuario navega por el sistema"
-     ✗ No es atomico (actividad continua)
-     ✗ No requiere respuesta especifica
-     --> NO genera UC
-
-   PORCENTAJE: 22% de los UC totales
-   OUTPUT TIPICO: 10-15 UC en proyecto mediano
-
-**Sub-tecnicas del Modelo de Larman:**
-
-.. code-block:: text
-
-   2.1 Eventos del Sistema
-       Identificar cada interaccion significativa actor-sistema
-
-   2.2 Operaciones del Sistema
-       Para cada evento, definir la operacion que el sistema ejecuta
-
-   2.3 Responsabilidades del Sistema
-       Determinar que debe hacer el sistema en respuesta
 
 5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -519,19 +474,6 @@ Identificar UC a partir de mockups, wireframes o necesidades de UI.
    - Busquedas avanzadas con multiples filtros
    - Acciones en lote (batch operations)
    - Wizards multi-paso
-   - Configuraciones de usuario
-
-   EJEMPLO:
-
-   Mockup: "Dashboard con 5 widgets configurables"
-       |
-       +---> UC-025: Ver Dashboard Principal
-       +---> UC-030: Personalizar Dashboard
-       +---> UC-xxx: Configurar Widget
-       +---> UC-xxx: Reordenar Widgets
-
-   PORCENTAJE: 11% de los UC totales
-   OUTPUT TIPICO: 5-10 UC en proyecto mediano
 
 5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -546,19 +488,6 @@ UC que provienen de necesidades explicitas no capturadas como BR.
    - Reporteria especifica de BI
    - Administracion tecnica del sistema
 
-   EJEMPLO:
-
-   Stakeholder Legal: "Necesitamos exportar auditoria para regulador"
-       |
-       +---> UC-xxx: Exportar Log Auditoria para Compliance
-
-   Stakeholder TI: "Necesitamos monitorear estado del ETL"
-       |
-       +---> UC-xxx: Monitorear Estado ETL
-
-   PORCENTAJE: 5% de los UC totales
-   OUTPUT TIPICO: 2-5 UC en proyecto mediano
-
 5.6 Matriz de Cobertura Completa
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -569,23 +498,14 @@ UC que provienen de necesidades explicitas no capturadas como BR.
    +----------------------------------+------------+--------------+
    | Tecnica                          | Porcentaje | UC Tipicos   |
    +----------------------------------+------------+--------------+
-   | 1. Business Rules (Deductiva)    |    22%     | 10 UC        |
-   +----------------------------------+------------+--------------+
-   | 2. CRUD (Inductiva)              |    40%     | 18 UC        |
-   | 3. Larman/Eventos (Inductiva)    |    22%     | 10 UC        |
+   | 1. Business Rules (Deductiva)    |    22%     | 11 UC        |
+   | 2. CRUD (Inductiva)              |    40%     | 20 UC        |
+   | 3. Larman/Eventos (Inductiva)    |    22%     | 11 UC        |
    | 4. UI-Driven (Inductiva)         |    11%     |  5 UC        |
    | 5. Stakeholders (Inductiva)      |     5%     |  2 UC        |
    +----------------------------------+------------+--------------+
-   | TOTAL                            |   100%     | 45 UC        |
+   | TOTAL                            |   100%     | 49 UC        |
    +----------------------------------+------------+--------------+
-
-   NATURALEZA:
-   - Tecnica 1: DEDUCTIVA (BR explicita -> UC)
-   - Tecnicas 2-5: INDUCTIVAS (necesidades implicitas -> UC)
-
-   IMPLICACION CRITICA:
-   Si solo se usa Tecnica 1, el sistema queda 78% incompleto.
-   Las 4 tecnicas complementarias son OBLIGATORIAS.
 
 ----
 
@@ -607,34 +527,11 @@ sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.
 
    Precondiciones:
      - [Condicion que DEBE ser verdad ANTES]
-     - [Otra condicion requerida]
 
    Postcondiciones:
      - [Estado que SERA verdad DESPUES]
-     - [Cambio realizado en el sistema]
 
-6.3 Ejemplo
-^^^^^^^^^^^
-
-.. code-block:: text
-
-   Operacion: asignarRol(userId, roleId, justificacion)
-
-   Precondiciones:
-     - Usuario con userId existe en sistema
-     - Usuario esta en estado ACTIVO
-     - Rol con roleId existe en catalogo
-     - Rol no tiene conflicto SoD con roles actuales del usuario
-     - Actor tiene permiso roles.assign
-
-   Postcondiciones:
-     - Registro user_roles creado (userId, roleId)
-     - Timestamp de asignacion registrado
-     - Justificacion almacenada
-     - Notificacion enviada a usuario via buzon interno
-     - Registro de auditoria creado
-
-6.4 Relacion UC - Contrato
+6.3 Relacion UC - Contrato
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -644,10 +541,6 @@ sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.
 
    UC es mas NARRATIVO (flujo de trabajo)
    Contrato es mas TECNICO (cambios de estado)
-
-   Ambos se complementan:
-     - Contrato asegura completitud tecnica
-     - UC asegura usabilidad y flujo de trabajo
 
 ----
 
@@ -670,8 +563,8 @@ Los Casos de Uso en IACT siguen la convencion:
 
    Ejemplos:
    - UC_006_Crear_Usuario.rst
-   - UC_010_Asignar_Roles.rst
-   - UC_017_Consultar_Reporte.rst
+   - UC_043_Configurar_SoD.rst
+   - UC_050_Supervisar_ETL.rst
 
 7.2 Ubicacion en el Modelo IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -679,107 +572,205 @@ Los Casos de Uso en IACT siguen la convencion:
 .. code-block:: text
 
    requisitos/
-       |
        +--- casos_uso/
-                |
                 +--- index.rst
-                +--- UC_001_xxx.rst
-                +--- UC_002_xxx.rst
-                +--- ...
+                +--- auth/
+                +--- users/
+                +--- access/
+                +--- pipeline/
+                +--- reports/
+                +--- alerts/
+                +--- audit/
+                +--- logs/
 
 7.3 Relacion con Otros Artefactos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   BR (Regla de Negocio)
+   BReq (Objetivo de Negocio)
        |
+       | genera
        v
-   UC (Caso de Uso) <---- Desencadenadores generan UC
-       |                  Restricciones son precondiciones
+   UC (Caso de Uso) <---- BR tipo Trigger tambien genera
+       |
+       | deriva
        v
-   FR (Requisito Funcional) <---- Cada paso UC deriva FR
+   FR (Requisito Funcional) <---- Cada paso Sistema deriva FR
 
 ----
 
-8. Lista de UC Identificados en IACT
-------------------------------------
+8. Lista de UC Identificados en IACT (49 UC)
+--------------------------------------------
 
-Basado en el analisis del modelo RBAC, se han identificado 38 Casos de Uso:
+Basado en el analisis del modelo RBAC v5.1.1, se han identificado 49 Casos de Uso
+distribuidos en 8 modulos funcionales.
 
-8.1 Gestion de Usuarios (7 UC)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8.1 Autenticacion - MOD_Auth (5 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   UC-005: Gestion de Sesiones Seguras
+   UC-001: Inicio de Sesion
+   UC-002: Cierre de Sesion
+   UC-003: Recuperar Password
+   UC-004: Cambiar Password
+   UC-005: Gestionar Sesiones
+
+   Actor Primario: Cualquier usuario autenticado
+   BR Relacionadas: BR_005 (Sesion Unica), BR_015 (Bloqueo Intentos)
+
+8.2 Gestion de Usuarios - MOD_Users (4 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
    UC-006: Crear Usuario
    UC-007: Modificar Usuario
-   UC-008: Eliminar Usuario (baja logica)
+   UC-008: Baja Usuario (logica)
    UC-009: Listar Usuarios
-   UC-010: Asignar Roles
-   UC-011: Gestionar Permisos por Rol
 
-8.2 Reportes (8 UC)
-^^^^^^^^^^^^^^^^^^^
+   Actor Primario: AGR-001 (administrador_usuarios)
+   BR Relacionadas: BR_009 (Bajas Logicas), BR_013 (Username Unico)
+
+8.3 Control de Acceso - MOD_Access (9 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
+   UC-010: Asignar Funciones a Usuario
+   UC-011: Gestionar Permisos por Agrupador
+   UC-041: Asignar Segmento de Datos
+   UC-042: Asignar Permiso Directo
+   UC-043: Configurar SoD
+   UC-044: Consultar Permisos Efectivos
+   UC-045: Gestionar Catalogo de Agrupadores
+   UC-046: Gestionar Catalogo de Funciones
+   UC-047: Auditar Cambios de Permisos
+
+   Actor Primario: AGR-008 (admin_seguridad)
+   BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
+
+8.4 Pipeline ETL - MOD_Pipeline (4 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   UC-050: Supervisar Estado ETL
+   UC-051: Consultar Errores ETL
+   UC-052: Consultar Disponibilidad de Datos
+   UC-053: Solicitar Reintento ETL
+
+   Actor Primario: AGR-010 (operador_etl), AGR-009 (admin_sistema)
+   BR Relacionadas: BR_001 (Fuente Inmutable), BR_002 (ETL Nocturno)
+
+8.5 Reportes y Dashboards - MOD_Reports (14 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   REPORTES BASE:
    UC-017: Consultar Reporte Trimestral
    UC-018: Consultar Problemas de Menu
    UC-019: Consultar Transferencias por Centro
+
+   FILTROS:
    UC-020: Filtrar Reportes por Fecha
    UC-021: Filtrar Reportes por Centro
+
+   EXPORTACION:
    UC-022: Exportar CSV
    UC-023: Exportar Excel
    UC-024: Exportar PDF
 
-8.3 Dashboards (6 UC)
-^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
+   DASHBOARDS:
    UC-025: Ver Dashboard Principal
-   UC-026: Ver Graficos de Llamadas por Hora
-   UC-027: Ver Graficos de Llamadas por Dia
-   UC-028: Ver Distribucion de Llamadas por Centro
-   UC-029: Ver Tendencias Temporales
+   UC-026: Ver Tendencias Temporales
+   UC-027: Ver Graficos por Hora
+   UC-028: Ver Graficos por Dia
+   UC-029: Ver Distribucion por Centro
    UC-030: Personalizar Dashboard
 
-8.4 Analisis (5 UC)
-^^^^^^^^^^^^^^^^^^^
+   Actor Primario: AGR-003 (analista_reportes), AGR-004 (visor_dashboard)
+   BR Relacionadas: BR_011 (Limites Exportacion), BR_020 (Rango Temporal)
+
+8.6 Alertas - MOD_Alerts (5 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   UC-031: Analisis Exploratorio de Datos
-   UC-032: Comparar Periodos
-   UC-033: Identificar Patrones de Llamadas
-   UC-034: Analisis de Inconsistencias de Navegacion
-   UC-035: Analisis de Tiempos de Espera
-
-8.5 Alertas (5 UC)
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   UC-036: Configurar Alerta por Umbral
+   UC-036: Crear Alerta por Umbral
    UC-037: Recibir Notificacion de Alerta
-   UC-038: Ver Historial de Alertas
-   UC-039: Desactivar Alerta
-   UC-040: Configurar Destinatarios
+   UC-038: Pausar/Reactivar Alerta
+   UC-039: Consultar Historial de Alertas
+   UC-040: Gestionar Destinatarios
 
-8.6 Administracion (7 UC)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+   Actor Primario: AGR-005 (gestor_alertas)
+   BR Relacionadas: BR_004 (Comunicaciones Internas), BR_014 (Alerta Umbral)
+
+8.7 Auditoria - MOD_Audit (4 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   UC-012: Asignar Modulos a Usuario
-   UC-013: Crear Perfil de Modulos
-   UC-014: Asignar Perfil a Usuario
-   UC-015: Ver Modulos Disponibles
-   UC-016: Configurar Permisos de Modulo
-   UC-041: Gestionar Segmentos de Datos
-   UC-042: Gestionar Permisos Directos
+   UC-060: Registrar Evento de Auditoria
+   UC-061: Consultar Log de Auditoria
+   UC-062: Generar Reporte de Auditoria
+   UC-063: Exportar Auditoria
+
+   Actor Primario: AGR-007 (auditor)
+   BR Relacionadas: BR_010 (Auditoria Inmutable)
+
+8.8 Bitacoras - MOD_Logs (4 UC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+   UC-070: Consultar Logs del Sistema
+   UC-071: Filtrar Logs por Criterios
+   UC-072: Exportar Logs
+   UC-073: Configurar Retencion de Logs
+
+   Actor Primario: AGR-009 (admin_sistema)
+   BR Relacionadas: (ninguna directa)
+
+8.9 Resumen de UC por Modulo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 15 55
+
+   * - Modulo
+     - Cantidad
+     - Rango UC
+   * - MOD_Auth
+     - 5
+     - UC-001 a UC-005
+   * - MOD_Users
+     - 4
+     - UC-006 a UC-009
+   * - MOD_Access
+     - 9
+     - UC-010, UC-011, UC-041 a UC-047
+   * - MOD_Pipeline
+     - 4
+     - UC-050 a UC-053
+   * - MOD_Reports
+     - 14
+     - UC-017 a UC-030
+   * - MOD_Alerts
+     - 5
+     - UC-036 a UC-040
+   * - MOD_Audit
+     - 4
+     - UC-060 a UC-063
+   * - MOD_Logs
+     - 4
+     - UC-070 a UC-073
+   * - **TOTAL**
+     - **49**
+     - --
 
 ----
 
@@ -789,17 +780,24 @@ Basado en el analisis del modelo RBAC, se han identificado 38 Casos de Uso:
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`fnd-01` - Concepto de Requisito
-- :ref:`fnd-02` - Reglas de Negocio
-- :ref:`fnd-05` - Jerarquia de 4 Niveles
-- :ref:`fnd-07` - Requerimientos Funcionales
+- FND_01 - Concepto de Requisito
+- FND_02 - Reglas de Negocio
+- FND_04 - Trazabilidad
+- FND_05 - Jerarquia de 4 Niveles
+- FND_07 - Requerimientos Funcionales
+
+Modelos IACT
+^^^^^^^^^^^^
+
+- MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso
+- MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental
 
 Fuentes Externas
 ^^^^^^^^^^^^^^^^
 
-- Craig Larman: "Applying UML and Patterns" (3rd Edition)
-- Alistair Cockburn: "Writing Effective Use Cases"
-- Ivar Jacobson: "Object-Oriented Software Engineering"
+- Craig Larman: Applying UML and Patterns (3rd Edition)
+- Alistair Cockburn: Writing Effective Use Cases
+- Ivar Jacobson: Object-Oriented Software Engineering
 
 ----
 
@@ -814,10 +812,14 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.2.0
+     - 2026-01-04
+     - Equipo IACT
+     - Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.1.1). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.
    * - 1.1.0
      - 2025-12-21
      - Equipo IACT
-     - Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades (Maestro/Transaccional/Tecnica). Agregadas 4 caracteristicas obligatorias de eventos.
+     - Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades.
    * - 1.0.0
      - 2025-12-19
      - Equipo IACT
@@ -825,6 +827,6 @@ Historial de Cambios
 
 ----
 
-**Trazabilidad:** Este artefacto define el concepto de UC que es el nivel
-intermedio entre BR y FR en la jerarquia de requisitos. Referenciado por
+Trazabilidad: Este artefacto define el concepto de UC que es el Nivel 2
+en la jerarquia de requisitos (BReq -> UC -> FR). Referenciado por FND_04,
 FND_05, FND_06, FND_07 y todos los artefactos en requisitos/casos_uso/.

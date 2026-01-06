@@ -4,9 +4,9 @@
    :dominio: base_cognitiva
    :subdominio: _fundamentos_conceptuales
    :estado: Aprobado
-   :version: 1.0.0
+   :version: 1.1.0
    :fecha_creacion: 2025-12-19
-   :ultimo_cambio: 2025-12-19
+   :ultimo_cambio: 2026-01-04
    :autor: Equipo IACT
    :clasificacion: Interno
 
@@ -68,17 +68,42 @@ Cada nivel responde una pregunta diferente:
      - Pregunta
      - Descripcion
    * - Nivel 0 (BR)
-     - POR QUE esta restriccion?
+     - Por que esta restriccion?
      - Origen de las politicas y regulaciones
    * - Nivel 1 (BReq)
-     - POR QUE este proyecto?
+     - Por que este proyecto?
      - Justificacion y objetivos del proyecto
    * - Nivel 2 (UC)
-     - QUE hace el usuario?
+     - Que hace el usuario?
      - Comportamientos observables del sistema
    * - Nivel 3 (FR)
-     - COMO lo hace el sistema?
+     - Como lo hace el sistema?
      - Especificaciones atomicas implementables
+
+1.3 Implementacion en IACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+IACT implementa los 4 niveles completos de la jerarquia:
+
+::
+
+   Nivel 0 (BR):   requisitos/reglas_negocio/   -> 20 BR
+   Nivel 1 (BReq): requisitos/objetivos/        -> 5 BReq
+   Nivel 2 (UC):   requisitos/casos_uso/        -> 49 UC
+   Nivel 3 (FR):   requisitos/funcionales/      -> ~400 FR (estimado)
+
+**Clarificacion sobre META_04:**
+
+El archivo META_04_Contexto_IACT.rst contiene informacion de contexto
+del proyecto (ambiente, stakeholders, sistemas existentes). Esto NO ES
+lo mismo que Business Requirements (BReq).
+
+::
+
+   META_04 = Contexto (descripcion del ambiente)
+   BReq    = Objetivos de negocio medibles
+
+Los BReq se documentan en requisitos/objetivos/BReq_001_Objetivos_IACT.rst
 
 ----
 
@@ -101,19 +126,19 @@ el software debe conformarse a ellas.
 
    * - Caracteristica
      - Descripcion
-   * - **Externas**
+   * - Externas
      - Provienen de fuera del sistema (politicas, regulaciones)
-   * - **Obligatorias**
+   * - Obligatorias
      - No son opcionales ni negociables
-   * - **Estables**
+   * - Estables
      - Cambian menos frecuentemente que otros requisitos
-   * - **Influyentes**
+   * - Influyentes
      - Afectan multiples partes del sistema
 
 2.3 Fuentes
 ^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    FUENTES EXTERNAS (Obligatorias):
    +------------------+
@@ -136,18 +161,33 @@ el software debe conformarse a ellas.
    +------------------+
    FUENTES INTERNAS (Organizacionales)
 
-2.4 Ejemplo
-^^^^^^^^^^^
+2.4 Tipos de BR (Taxonomia)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   BR-028:
-     Definicion: "Solicitudes de compra que excedan $500 requieren
-                  aprobacion del gerente de departamento"
-     Tipo:       Restriccion (Constraint)
-     Fuente:     Politica Financiera Corporativa v2.3, Seccion 4.2
-     Razon:      Control de gastos y cumplimiento de auditoria
-     Estatica:   No (puede cambiar por decision del CFO)
+   TIPO              PATRON                       GENERA UC?
+   ------------------------------------------------------------------
+   Hecho             [X] ES/TIENE [Y]             NO
+   Restriccion       [X] DEBE/NO DEBE [Y]         Parcial
+   Desencadenador    SI [cond] ENTONCES [vis]     SI
+   Inferencia        SI [cond] ENTONCES [int]     NO
+   Calculo           [Resultado] = [formula]      NO
+
+2.5 BR en IACT
+^^^^^^^^^^^^^^
+
+::
+
+   TIPO              CANTIDAD    EJEMPLO
+   ------------------------------------------------------------------
+   Hecho                 4       BR_006: RBAC Flat NIST
+   Restriccion           9       BR_007: Separacion de Funciones
+   Desencadenador        3       BR_002: ETL Batch Nocturno
+   Inferencia            1       BR_003: Usuario Inactivo 90d
+   Calculo               3       BR_016: Tasa Abandono
+   ------------------------------------------------------------------
+   TOTAL                20
 
 ----
 
@@ -158,8 +198,8 @@ el software debe conformarse a ellas.
 ^^^^^^^^^^^^^^
 
 Los **Business Requirements** expresan los objetivos de alto nivel que
-justifican la existencia del proyecto. Responden: "Por que estamos
-construyendo este sistema?"
+justifican la existencia del proyecto. Responden: Por que estamos
+construyendo este sistema?
 
 3.2 Caracteristicas
 ^^^^^^^^^^^^^^^^^^^
@@ -170,44 +210,75 @@ construyendo este sistema?"
 
    * - Caracteristica
      - Descripcion
-   * - **Estrategicos**
+   * - Estrategicos
      - Vision de negocio, no tecnica
-   * - **Justificativos**
+   * - Justificativos
      - Explican el ROI del proyecto
-   * - **Influenciados**
+   * - Influenciados
      - Por BR, pero no son reiteracion de ellas
-   * - **Alcance**
+   * - Alcance
      - Definen limites del proyecto
+   * - Medibles
+     - Tienen metricas de exito cuantificables
 
 3.3 Relacion con BR
 ^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    Business Rules INFLUYEN en Business Requirements:
 
-   BR-087 (OSHA 1910.1200)  ----+
-   BR-088 (EPA 40 CFR)      ----+---> BReq: "El sistema debe permitir
-   BR-089 (State Safety)    ----+      cumplimiento de regulaciones
-                                       de quimicos peligrosos"
+   BR_001 (Fuente Inmutable)  ----+
+   BR_002 (ETL Nocturno)      ----+---> BReq-001: Visibilidad de
+                                        metricas IVR en tiempo real
+
+   BR_006 (RBAC Flat)         ----+
+   BR_007 (SoD)               ----+---> BReq-004: Cumplimiento de
+   BR_010 (Auditoria)         ----+     seguridad y auditoria
 
 3.4 Ejemplo
 ^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    Business Requirement (IACT):
 
-   "El Sistema IACT Dashboard Analytics debe proporcionar
-    visibilidad en tiempo real de las metricas de llamadas
-    del IVR, permitiendo a los supervisores identificar
-    problemas operacionales y tomar decisiones informadas,
-    reduciendo el tiempo de resolucion de incidentes en 40%."
+   BReq-001: Visibilidad de Metricas IVR
+
+   El Sistema IACT Dashboard Analytics debe proporcionar
+   visibilidad en tiempo real de las metricas de llamadas
+   del IVR, permitiendo a los supervisores identificar
+   problemas operacionales y tomar decisiones informadas,
+   reduciendo el tiempo de resolucion de incidentes en 40%.
 
    Influenciado por:
      - BR_001: Fuente operacional inmutable
      - BR_002: Sincronizacion ETL nocturna
      - Objetivo de negocio: Mejora operacional
+
+3.5 BReq en IACT
+^^^^^^^^^^^^^^^^
+
+::
+
+   ID        NOMBRE                      METRICA DE EXITO
+   ------------------------------------------------------------------
+   BReq-001  Visibilidad Metricas IVR    Dashboard actualizado cada 5 min
+   BReq-002  Reduccion Tiempo Incidentes Reduccion >= 40% vs linea base
+   BReq-003  Decisiones Informadas       100% decisiones con datos
+   BReq-004  Cumplimiento Seguridad      0 accesos no autorizados
+   BReq-005  Integridad Datos            0 escrituras no autorizadas
+
+3.6 Ubicacion en IACT
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   IACT/
+   +-- requisitos/
+       +-- objetivos/                    <- Nivel 1 (BReq)
+           +-- index.rst
+           +-- BReq_001_Objetivos_IACT.rst
 
 ----
 
@@ -230,54 +301,71 @@ especifican interacciones completas entre actores y sistema.
 
    * - Caracteristica
      - Descripcion
-   * - **Narrativos**
+   * - Narrativos
      - Cuentan una historia de interaccion
-   * - **Observables**
+   * - Observables
      - Describen lo que el usuario VE
-   * - **Completos**
+   * - Completos
      - Flujo de principio a fin
-   * - **Sin implementacion**
+   * - Sin implementacion
      - NO especifican el COMO interno
 
-4.3 Relacion con BR
-^^^^^^^^^^^^^^^^^^^
+4.3 Relacion con BR y BReq
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   Business Rules determinan flujos en Casos de Uso:
+   FUENTES DE UC:
 
-   BR-028: "Compras >$500 requieren aprobacion"
-       |
-       v
-   UC-04: Solicitar Producto
-     ...
-     Paso 6: SI monto >$500 ENTONCES
-               Sistema solicita aprobacion de gerente
-     ...
+   1. BReq genera UC:
+      BReq-002 (Reduccion Incidentes) --genera--> UC-036 a UC-040 (Alertas)
+
+   2. BR tipo Trigger genera UC:
+      BR_002 (ETL Nocturno) --genera--> UC-050 (Supervisar ETL)
+
+   3. BR tipo Restriccion influye en UC:
+      BR_007 (SoD) --influye--> UC-043 (Configurar SoD)
 
 4.4 Ejemplo
 ^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   UC-010: Asignar Rol a Usuario
+   UC-043: Configurar SoD
 
-   Actor Primario: Administrador de Usuarios (R001)
-   Objetivo:       Otorgar permisos mediante asignacion de rol
+   Actor Primario: AGR-008 (admin_seguridad)
+   Objetivo:       Crear restricciones para prevenir conflictos de funciones
 
    Flujo Normal:
-     1. Administrador busca usuario
-     2. Sistema muestra usuario y roles actuales
-     3. Administrador selecciona "Agregar Rol"
-     4. Sistema muestra roles disponibles
-     5. Administrador selecciona rol
-     6. Sistema valida compatibilidad SoD
-     7. Sistema solicita justificacion
-     8. Administrador ingresa justificacion
-     9. Sistema registra asignacion
-    10. Sistema notifica al usuario
+     1. Admin Seguridad selecciona Gestionar SoD
+     2. Sistema muestra lista de restricciones actuales
+     3. Admin selecciona Crear nueva restriccion
+     4. Sistema muestra formulario de configuracion
+     5. Admin define Grupo A y Grupo B de funciones
+     6. Sistema valida que no hay conflictos existentes
+     7. Sistema guarda restriccion SoD
+     8. Sistema registra en auditoria
 
-   Business Rules aplicadas: BR_015 (SoD)
+   Business Rules aplicadas: BR_007 (SoD)
+   BReq relacionado: BReq-004 (Cumplimiento Seguridad)
+
+4.5 UC en IACT
+^^^^^^^^^^^^^^
+
+::
+
+   MODULO          CANTIDAD    RANGO UC
+   ------------------------------------------------------------------
+   MOD_Auth            5       UC-001 a UC-005
+   MOD_Users           4       UC-006 a UC-009
+   MOD_Access          9       UC-010, UC-011, UC-041 a UC-047
+   MOD_Pipeline        4       UC-050 a UC-053
+   MOD_Reports        14       UC-017 a UC-030
+   MOD_Alerts          5       UC-036 a UC-040
+   MOD_Audit           4       UC-060 a UC-063
+   MOD_Logs            4       UC-070 a UC-073
+   ------------------------------------------------------------------
+   TOTAL              49
 
 ----
 
@@ -300,105 +388,110 @@ los Casos de Uso.
 
    * - Caracteristica
      - Descripcion
-   * - **Atomicos**
+   * - Atomicos
      - Una sola funcionalidad por FR
-   * - **Verificables**
+   * - Verificables
      - Se puede probar si se cumple o no
-   * - **Independientes**
+   * - Independientes
      - No dependen de secuencia para verificarse
-   * - **Implementables**
+   * - Implementables
      - Suficientemente especificos para codificar
 
 5.3 Relacion con UC
 ^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    Cada paso de UC deriva multiples FR:
 
-   UC-04, Paso 5: "Sistema valida datos ingresados"
+   UC-043, Paso 2: Sistema muestra lista de restricciones actuales
        |
-       +---> FR-04.6: Validar formato CAS Number
-       +---> FR-04.7: Validar checksum CAS
-       +---> FR-04.8: Validar nombre no vacio
-       +---> FR-04.9: Validar nombre <= 200 caracteres
-       +---> FR-04.10: Validar categoria existe
-       +---> FR-04.11: Validar clase peligrosidad 1-5
+       +---> FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+       +---> FR-043.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
+       +---> FR-043.3: Lista DEBE estar ordenada por fecha de creacion
 
-   1 paso UC -> 6 FR atomicos
+   Regla: Cada paso que dice Sistema [verbo] genera FR
 
 5.4 Ejemplo
 ^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   Derivados de UC-010, Paso 6:
+   Derivados de UC-043:
 
-   FR-10.6: "Sistema DEBE validar que el rol seleccionado
-             no tenga conflicto SoD con roles actuales del usuario"
+   FR-043.1: Sistema DEBE mostrar lista de restricciones SoD existentes
+   FR-043.2: Sistema DEBE validar conflictos al crear nueva SoD
+   FR-043.3: Sistema DEBE impedir asignacion que viole SoD
+   FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
+   FR-043.5: Sistema DEBE notificar al admin de seguridad
 
-   FR-10.7: "SI existe conflicto SoD, sistema DEBE mostrar mensaje:
-             'Rol [X] incompatible con rol existente [Y]'"
+5.5 FR en IACT
+^^^^^^^^^^^^^^
 
-   FR-10.8: "SI existe conflicto SoD, sistema DEBE bloquear
-             la asignacion y retornar a seleccion de rol"
+::
+
+   Estimacion basada en ratio 1 UC : 8 FR
+
+   49 UC x 8 FR/UC = ~400 FR esperados
+
+   Distribucion por modulo:
+   - MOD_Auth:      5 UC x 8 = ~40 FR
+   - MOD_Users:     4 UC x 8 = ~32 FR
+   - MOD_Access:    9 UC x 8 = ~72 FR
+   - MOD_Pipeline:  4 UC x 8 = ~32 FR
+   - MOD_Reports:  14 UC x 8 = ~112 FR
+   - MOD_Alerts:    5 UC x 8 = ~40 FR
+   - MOD_Audit:     4 UC x 8 = ~32 FR
+   - MOD_Logs:      4 UC x 8 = ~32 FR
 
 ----
 
 6. Flujo de Influencia
 ----------------------
 
-6.1 Influencia Multinivel
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Las Business Rules no solo generan un nivel; influyen en multiples aspectos
-del sistema simultaneamente:
-
-.. code-block:: text
-
-   BR-028 (Restriccion de aprobacion)
-       |
-       +---> Business Requirements (justifica proyecto)
-       |
-       +---> User Requirements (determina flujos UC)
-       |
-       +---> Functional Requirements (define logica)
-       |
-       +---> Quality Attributes (tiempo de respuesta)
-       |
-       +---> External Interfaces (notificaciones)
-       |
-       +---> Constraints (sistemas involucrados)
-
-6.2 Diagrama de Relaciones
+6.1 Diagrama de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
-   +----------------+
-   | Business Rules | .........(influye en todo)..........
-   +----------------+                                     :
-          |                                               :
-          | influye                                       :
-          v                                               :
-   +--------------------+                                 :
-   | Business           |                                 :
-   | Requirements       |                                 :
-   +--------------------+                                 :
-          |                                               :
-          | genera                                        :
-          v                                               v
-   +--------------------+     +------------------+  +-----------+
-   | User Requirements  |     | Quality          |  | External  |
-   | (Casos de Uso)     |     | Attributes       |  | Interfaces|
-   +--------------------+     +------------------+  +-----------+
-          |                          |                    |
-          | deriva                   |                    |
-          v                          v                    v
-   +--------------------+     +------------------+  +-----------+
-   | Functional         |---->| Software Requirements           |
-   | Requirements       |     | Specification (SRS)             |
-   +--------------------+     +--------------------------------+
+   NIVEL 0              NIVEL 1              NIVEL 2           NIVEL 3
+   +----------+        +----------+         +----------+      +----------+
+   |    BR    |--inf-->|   BReq   |--gen--->|    UC    |--der-->|    FR    |
+   |   (20)   |        |   (5)    |         |   (49)   |      |  (~400)  |
+   +----+-----+        +----------+         +----------+      +----------+
+        |
+        | genera (si Trigger)
+        |
+        +--------------------------------------------->|    UC    |
+                                                       +----------+
+
+6.2 Tipos de Relaciones
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 20 40
+
+   * - Relacion
+     - Origen
+     - Destino
+     - Semantica
+   * - influye
+     - BR
+     - BReq
+     - BR afecta objetivo sin generar
+   * - genera
+     - BReq
+     - UC
+     - Objetivo genera casos de uso
+   * - genera
+     - BR (Trigger)
+     - UC
+     - BR Desencadenador genera UC
+   * - deriva
+     - UC
+     - FR
+     - Pasos del UC generan FR
 
 ----
 
@@ -446,7 +539,7 @@ del sistema simultaneamente:
 7.2 Gradiente de Abstraccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    NIVEL 0 (BR)    NIVEL 1 (BReq)   NIVEL 2 (UC)    NIVEL 3 (FR)
 
@@ -455,9 +548,17 @@ del sistema simultaneamente:
    Mayor alcance ---------------------------------> Menor alcance
    Menos cantidad -------------------------------> Mas cantidad
 
-   Ejemplo de cantidad tipica:
+   Cantidad tipica:
 
    5-20 BR  ->  3-10 BReq  ->  30-100 UC  ->  200-1000 FR
+
+   IACT:
+   20 BR  ->  5 BReq  ->  49 UC  ->  ~400 FR (estimado)
+
+   Ratios IACT:
+   BR:BReq = 4:1
+   BReq:UC = 1:10
+   UC:FR = 1:8
 
 7.3 Responsabilidad por Nivel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -490,44 +591,62 @@ del sistema simultaneamente:
 8.1 Ubicacion en Estructura
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    requisitos/
+       |
+       +--- objetivos/           <- Nivel 1 (BReq)
+       |       +--- index.rst
+       |       +--- BReq_001_Objetivos_IACT.rst
        |
        +--- reglas_negocio/      <- Nivel 0 (BR)
        |       +--- BR_001_xxx.rst
        |       +--- BR_002_xxx.rst
-       |
-       +--- objetivos/           <- Nivel 1 (BReq)
-       |       +--- BReq_001_xxx.rst
+       |       +--- ... (20 BR total)
        |
        +--- casos_uso/           <- Nivel 2 (UC)
-       |       +--- UC_001_xxx.rst
-       |       +--- UC_002_xxx.rst
+       |       +--- index.rst
+       |       +--- auth/
+       |       +--- users/
+       |       +--- access/
+       |       +--- pipeline/
+       |       +--- reports/
+       |       +--- alerts/
+       |       +--- audit/
+       |       +--- logs/
        |
        +--- funcionales/         <- Nivel 3 (FR)
-               +--- FR_001_xxx.rst
-               +--- FR_002_xxx.rst
+       |       +--- index.rst
+       |       +--- auth/
+       |       +--- users/
+       |       +--- ... (por modulo)
+       |
+       +--- no_funcionales/      <- NFR (paralelo a FR)
+               +--- index.rst
+               +--- NFR_001_xxx.rst
 
 8.2 Ejemplos IACT por Nivel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+::
 
    NIVEL 0 - BR:
-   BR_001: "La BD MySQL operacional es de SOLO LECTURA para IACT"
+   BR_001: La BD MySQL operacional es de SOLO LECTURA para IACT
+   BR_007: Las funciones criticas deben estar segregadas (SoD)
 
    NIVEL 1 - BReq:
-   BReq_001: "Proporcionar dashboard de metricas de llamadas IVR"
+   BReq-001: Proporcionar visibilidad de metricas de llamadas IVR
+   BReq-004: Garantizar cumplimiento de seguridad y auditoria
 
    NIVEL 2 - UC:
-   UC_025: "Ver Dashboard Principal"
-   UC_017: "Consultar Reporte Trimestral"
+   UC-025: Ver Dashboard Principal
+   UC-043: Configurar SoD
+   UC-050: Supervisar Estado ETL
 
    NIVEL 3 - FR:
-   FR-025.1: "Sistema DEBE mostrar grafico de llamadas por hora"
-   FR-025.2: "Sistema DEBE actualizar datos cada 5 minutos"
-   FR-017.1: "Sistema DEBE filtrar por rango de fechas"
+   FR-025.1: Sistema DEBE mostrar grafico de llamadas por hora
+   FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+   FR-050.1: Sistema DEBE mostrar estado del ultimo job ETL
 
 ----
 
@@ -537,17 +656,23 @@ del sistema simultaneamente:
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`fnd-01` - Concepto de Requisito
-- :ref:`fnd-02` - Reglas de Negocio
-- :ref:`fnd-03` - Casos de Uso
-- :ref:`fnd-04` - Trazabilidad
-- :ref:`fnd-06` - Derivacion vs Transformacion
-- :ref:`fnd-07` - Requerimientos Funcionales
+- FND_01 - Concepto de Requisito
+- FND_02 - Reglas de Negocio
+- FND_03 - Casos de Uso
+- FND_04 - Trazabilidad
+- FND_06 - Derivacion vs Transformacion
+- FND_07 - Requerimientos Funcionales
+
+Modelos IACT
+^^^^^^^^^^^^
+
+- MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental
+- MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso
 
 Fuentes Externas
 ^^^^^^^^^^^^^^^^
 
-- Karl Wiegers: "Software Requirements" (3rd Edition)
+- Karl Wiegers: Software Requirements (3rd Edition)
 - IEEE 830-1998: Software Requirements Specifications
 - IREB CPRE Foundation Level Syllabus
 
@@ -564,6 +689,10 @@ Historial de Cambios
      - Fecha
      - Autor
      - Cambios
+   * - 1.1.0
+     - 2026-01-04
+     - Equipo IACT
+     - Documentada implementacion completa de 4 niveles en IACT. Agregada seccion 1.3 con clarificacion META_04 vs BReq. Agregados 5 BReq identificados. Actualizada cantidad UC de 38 a 49. Agregados ratios IACT. Actualizado arbol de estructura.
    * - 1.0.0
      - 2025-12-19
      - Equipo IACT
@@ -571,6 +700,6 @@ Historial de Cambios
 
 ----
 
-**Trazabilidad:** Este artefacto define la estructura jerarquica que
+Trazabilidad: Este artefacto define la estructura jerarquica que
 organiza todo el dominio requisitos/. Es la base conceptual para entender
-las relaciones BR -> UC -> FR documentadas en FND_04 (Trazabilidad).
+las relaciones BR -> BReq -> UC -> FR documentadas en FND_04 (Trazabilidad).
