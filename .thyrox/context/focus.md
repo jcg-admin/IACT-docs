@@ -1,59 +1,126 @@
 ```yml
 type: Estado Operacional
-version: 1.0
-updated_at: 2026-04-20 13:22:56
+project: IACT-docs
+version: 1.0.0
+created_at: 2026-04-23 09:00:00
+updated_at: 2026-04-23 09:00:00
 ```
 
-# Focus
+# Focus — IACT-docs
 
-**ÉPICA 42 — methodology-calibration — Stage 8 PLAN EXECUTION**
-WP: `.thyrox/context/work/2026-04-18-07-12-50-methodology-calibration/`
+Navegación de la iniciativa actual del proyecto IACT-docs.
 
-## Completado (2026-04-17)
+---
 
-- FASE 29: technical-debt-resolution — thyrox rename, 7 SKILL.md validaciones pre-gate, REGLA-LONGEV-001, templates Phase 7, 6 TDs cerrados, L-118..L-122
-- FASE 31: thyrox-commands-namespace — plugin namespace `/thyrox:*`, deep-review agent, SDD commands, 8 platform references, TD-036 cerrado, L-123..L-127
-- FASE 32: technical-debt-audit — 24 TDs auditados (7 confirmados implementados, 3 implementados, 14 diferidos), REGLA-LONGEV-001 cumplida (70KB→23KB), gates workflow-* mejorados
-- FASE 33: skill-authoring-modernization — 14 nuevas referencias (authoring, plataforma, patrones, streaming), 5 actualizadas, TD-025 cerrado, CLAUDE_STREAM_IDLE_TIMEOUT_MS=120000 fix, diagrama-ishikawa agent, 8 lecciones
-- FASE 34: technical-debt-resolution — 7 TDs resueltos (TD-001/003/009/018/027/028/035), validate-session-close.sh creado, REGLA-LONGEV-001 en project-status.sh, 4 lecciones
-- FASE 39: plugin-distribution — COMPLETADA 2026-04-16
-- **ÉPICA 40: multi-methodology — COMPLETADA 2026-04-17** ✓
-  - 11 namespaces (lean/pps/sp/cp/bpa + pdca/dmaic/rup/rm/pm/ba)
-  - 32 skills nuevos con anatomía completa (assets + references + SKILL.md)
-  - 5 coordinator agents nuevos, routing-rules.yml, thyrox-coordinator reworked
-  - Artifact-ready signals en 11 coordinators, now.md::coordinators tracking
-  - plan-execution.md.template + categorización WP cajones en metadata-standards.md
-  - 5 patrones propagados: PAT-001..PAT-005. ADR: meta-framework-orchestration
+## Iniciativa Actual
 
-## Estado del sistema
+**Proyecto:** IACT-docs — Documentación del Sistema IACT  
+**WP:** `config-review-iact-docs`  
+**Path:** `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`  
+**Rama:** `feature/project-setup`  
+**Tipo:** Mediano (fases 1, 3, 5, 6, 8, 10, 11)
 
-- 23 agentes nativos en `.claude/agents/`
-- **Versión: v2.8.0** (MINOR — 5 nuevos namespaces metodológicos + meta-framework layer)
-- 11 metodologías soportadas: PDCA, DMAIC, RUP, RM, PMBOK, BABOK, Lean, PPS, SP, CP, BPA
-- TDs activos: TD-010, TD-037, TD-038, TD-039, TD-040, TD-041
+### Estado Actual
 
-## Completado (ÉPICA 41 — 2026-04-17)
+**Fase:** Phase 1 DISCOVER — ✓ COMPLETADA  
+**Fecha de completación:** 2026-04-23 07:04:55
 
-- B1 Scripts: close-wp.sh (A-4/A-5/A-6), session-start.sh (A-1/GAP-02), session-resume.sh (A-2/A-3)
-- B2 State docs: state-management.md v2.0.0 (flow/methodology_step/# Contexto body)
-- B3 README: 9 fixes (pm-thyrox→thyrox, 12 stages, coordinators, 47 refs/23 agents)
-- B4 ARCHITECTURE.md: coordinator 4-layer pattern + registry documentation
-- B5 DECISIONS.md + methodology-selection-guide + coordinator-integration
-- B6 Hooks: 3 hooks reales documentados + close-wp.sh como script manual
-- B7 Templates: 5 templates con phase: field malformado corregidos
-- Naming: taxonomía 3 niveles (stage directory → domain subdirectory → artifact)
-- 6 artefactos renombrados a patrón {content}-{subtype}.md
-- **workflow-audit skill**: creado completo (SKILL.md + references/ + assets/ + comando)
-- **Audit ÉPICA 41**: Grade A ~96%, 24 PASS + 1 SKIP (T-020 política ROADMAP)
-- **B8 Remediación**: sync checkboxes (PAT-004), README opción A eliminada, audit-report actualizado
-- **B9 Framework**: PAT-004 en workflow-implement, maxdepth 2 en session-start.sh, Herramientas de calidad en thyrox/SKILL.md, TD-042
+**Artefactos generados:**
+- `discover/input.md` — 228 líneas de análisis verbatim
+- `discover/config-review-iact-docs-deep-dive.md` — Adversarial analysis (471 líneas)
+- `discover/config-review-iact-docs-calibration.md` — Epistemología (461 líneas)
+- `config-review-iact-docs-risk-register.md` — 4 riesgos identificados
+- `config-review-iact-docs-exit-conditions.md` — Gates por fase
 
-## Próxima acción
+**Hallazgos principales:**
+- 4 contradicciones críticas (conteo extensiones, git branches, encoding)
+- 7 claims sin fuente (agentes, verificación de archivos, build status)
+- 4 asunciones ocultas y gaps epistemológicos
+- 5 lagunas críticas (backend Python, static files, importabilidad, infraestructura)
 
-- Continuar ejecución del task-plan T-001..T-078 (ÉPICA 42)
-- Task-plan: `.thyrox/context/work/2026-04-18-07-12-50-methodology-calibration/plan-execution/methodology-calibration-task-plan.md`
+**Calibración epistémica global:** 0.71 (PARCIALMENTE CALIBRADO)
 
-## Próximos candidatos (post ÉPICA 42)
+**Dominios críticos:**
+- RBAC: 0.37 ✗ Crítico
+- Security: 0.41 ✗ Crítico
+- Constraints: 0.56 ✗ Crítico
 
-1. **ÉPICA 37 (platform-references-expansion):** Stage 11 TRACK pendiente
-2. **ÉPICA 38 (commands-rellinks):** Stage 1 gate 1→3 pendiente
+---
+
+## Próxima Fase
+
+**Phase 3 DIAGNOSE**
+
+**Entrada:** Hallazgos de Phase 1 (contradicciones, claims especulativos)
+
+**Objetivo:** Root cause analysis por dominio crítico
+
+**Focus areas:**
+- RBAC (0.37) — ¿por qué falta información completa?
+- Security (0.41) — ¿qué prácticas están documentadas vs implementadas?
+- Constraints (0.56) — ¿cuáles restricciones están en el código vs en documentación?
+
+**Artefactos esperados:**
+- `analyze/security-analysis.md` — Seguridad en profundidad (TD-001 hallazgo)
+- `analyze/dependencies-analysis.md` — Validación de vulnerabilidades
+- `analyze/configuration-analysis.md` — Completud de conf.py
+
+**Gate Phase 3→5:** Requiere ≥0.75 calibración en dominios críticos
+
+---
+
+## Proyección
+
+**Con acciones recomendadas:** Score global → 0.85+
+
+**Ruta crítica:**
+1. Phase 3 DIAGNOSE (próxima) — root cause analysis
+2. Phase 5 STRATEGY — plan de remediación
+3. Phase 6 SCOPE — definir alcance de fixes
+4. Phase 8 PLAN EXECUTION — crear task-plan
+5. Phase 10 IMPLEMENT — ejecutar cambios
+6. Phase 11 TRACK — lecciones aprendidas
+
+**Tiempo estimado:** 2-3 semanas (depende de complejidad de hallazgos)
+
+---
+
+## Histórico del Proyecto
+
+**Creación:** 2026-04-23 (hoy)  
+**WPs completados:** 0  
+**Fases completadas:** Phase 1 DISCOVER
+
+### Decisiones tomadas hasta ahora
+
+1. Usar config-review-iact-docs como WP inicial (descubrimiento de configuración)
+2. Ejecutar agentic calibration workflow (deep-dive + epistemic scoring)
+3. Identificar hallazgos de seguridad (TD-001: Information Disclosure)
+
+---
+
+## Blockers Actuales
+
+| Blocker | Severidad | Acción |
+|---------|-----------|--------|
+| TD-001: Git history cleanup | ALTA | Requiere git-filter-branch antes de merge a develop |
+| TD-002: ADR sensitive-info | MEDIA | Crear durante Phase 3 o Phase 5 |
+| Sphinx extension validation | MEDIA | TD-005 — hacer parte de Phase 3 analysis |
+
+---
+
+## Próximas Decisiones
+
+**Antes de Phase 3:**
+1. ¿Ejecutar git-filter-branch para TD-001 ahora o después de Phase 5?
+2. ¿Incluir TD-006 (CI/CD) en scope de este WP o diferir?
+
+**Durante Phase 3:**
+1. Qué herramientas usar para análisis (agentic-reasoning, deep-review)
+2. Qué métricas usar para validar "≥0.75 calibración"
+
+---
+
+**Ubicación:** `.thyrox/context/focus.md`  
+**Scope:** Proyecto IACT-docs  
+**Última actualización:** 2026-04-23 09:00:00
