@@ -255,7 +255,7 @@ Ante divulgación no autorizada de información clasificada:
    * - Política Corporativa de Seguridad
      - (Documento externo al sistema IACT)
    * - Roles y Responsabilidades IACT
-     - :doc:`/normativa/restricciones/RACI_Matriz_Responsabilidades`
+     - (Documento externo al sistema IACT)
 
 ------------------------------------------------------------
 Historial de Cambios

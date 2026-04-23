@@ -252,9 +252,9 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
    * - Estructura Documental
      - :doc:`META_05_Estructura_Documental`
    * - Definiciones Oficiales
-     - :doc:`/normativa/restricciones/RESTRICCIONES_COMPLETAS`
+     - Ver sección de Restricciones (CNST_001-010)
    * - Glosario IACT
-     - :doc:`/base_cognitiva/glosario/IACT_Glossary_v1_0_0`
+     - Ver glosario del sistema
 
 ------------------------------------------------------------
 Historial de Cambios

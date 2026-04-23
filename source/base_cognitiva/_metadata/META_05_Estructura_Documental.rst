@@ -354,7 +354,7 @@ subcarpetas organizativas:
    * - Contexto IACT
      - :doc:`META_04_Contexto_IACT`
    * - Definiciones Oficiales
-     - :doc:`/normativa/restricciones/RESTRICCIONES_COMPLETAS`
+     - Ver sección de Restricciones (CNST_001-010)
    * - Árbol Completo con Justificaciones
      - ÁRBOL_COMPLETO_IACT_CON_JUSTIFICACIONES_v_2_0_0.md
 

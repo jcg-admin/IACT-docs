@@ -443,11 +443,11 @@ Para agregar un nuevo término al vocabulario controlado:
    * - Conceptos Nucleares
      - :doc:`SBVR_01_Conceptos_Nucleares`
    * - Tipos de Regla
-     - :doc:`SBVR_02_Tipos_Regla_Negocio`
+     - :doc:`SBVR_02_Fact_Types`
    * - Modelo RBAC
-     - Modelo_RBAC_Completo_Sistema_IACT_v_0_0_1
+     - Ver sección de Arquitectura (RBAC Flat NIST)
    * - Glosario IACT
-     - :doc:`/base_cognitiva/glosario/IACT_Glossary_v1_0_0`
+     - Ver glosario del sistema
 
 ------------------------------------------------------------
 Historial de Cambios

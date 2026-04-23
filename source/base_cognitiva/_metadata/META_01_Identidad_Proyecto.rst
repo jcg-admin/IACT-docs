@@ -228,4 +228,4 @@ Historial de Cambios
 ----
 
 **Trazabilidad:** Este artefacto es referenciado por reportes, actas y
-documentos externos del proyecto. Ver :doc:`/trazabilidad/matrices/RTM_Master`.
+documentos externos del proyecto.
