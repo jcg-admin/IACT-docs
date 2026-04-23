@@ -994,7 +994,7 @@ Código CORRECTO
 
 
 Patrones Recomendados
---------------------
+---------------------
 
 Esta sección complementa los antipatrones prohibidos con patrones arquitectónicos recomendados para el sistema IACT.
 
