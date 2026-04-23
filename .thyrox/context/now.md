@@ -1,20 +1,21 @@
 ```yml
 type: Estado de Sesión
-version: 1.4
-updated_at: 2026-04-23 09:15:00
+version: 1.5
+updated_at: 2026-04-23 09:45:00
 cold_boot: false
 last_session: null
 current_epic: 1
 epic_name: config-review-iact-docs
 current_work: .thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/
-stage: 1
-stage_name: DISCOVER (completada)
+stage: 3
+stage_name: DIAGNOSE (activa)
 flow: null
 methodology_step: null
 blockers: ["SECURITY: TD-001 — Sensitive info in git history (commits e5c0ff1, 2a21dd0 on feature/project-setup)"]
 coordinators: {}
 last_completed_work: 2026-04-23-07-04-55-config-review-iact-docs
-last_phase: DISCOVER (completada)
+last_phase: Phase 1 DISCOVER (completada)
+current_phase: Phase 3 DIAGNOSE (iniciada)
 security_findings: ["INFO-DISCLOSURE: Project configuration with RBAC/CNST/security details in git history — requires git-filter-branch + cleanup"]
 ```
 
