@@ -1,0 +1,1183 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCED-GOB-001: Crear Architecture Decision Record (ADR) - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proced-gob-001-crear-architecture-decision-record-adr">
+<h1>PROCED-GOB-001: Crear Architecture Decision Record (ADR)<a class="headerlink" href="#proced-gob-001-crear-architecture-decision-record-adr" title="Link to this heading">¶</a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">¶</a></h2>
+<p>Establecer proceso paso a paso para documentar decisiones
+arquitectónicas significativas mediante ADRs, asegurando trazabilidad y
+contexto histórico.</p>
+</section>
+<section id="alcance">
+<h2>Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<p>Este procedimiento cubre: - Identificación de cuándo crear un ADR -
+Estructura y formato de ADR - Proceso de creación y aprobación -
+Nomenclatura y organización</p>
+<p>NO cubre: - Toma de decisiones arquitectónicas (solo documentación) -
+Implementación técnica de las decisiones - Cambio de ADRs existentes
+(usar nuevo ADR que superseda)</p>
+</section>
+<section id="pre-requisitos">
+<h2>Pre-requisitos<a class="headerlink" href="#pre-requisitos" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Decisión arquitectónica tomada o en proceso</p></li>
+<li><p>Conocimiento del dominio técnico afectado</p></li>
+<li><p>Acceso al repositorio de documentación</p></li>
+</ul>
+</section>
+<section id="roles-y-responsabilidades">
+<h2>Roles y Responsabilidades<a class="headerlink" href="#roles-y-responsabilidades" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Arquitecto/Tech Lead</strong>: Crea y aprueba ADRs</p></li>
+<li><p><strong>Developer</strong>: Puede proponer ADRs para revisión</p></li>
+<li><p><strong>Equipo</strong>: Revisa y proporciona feedback</p></li>
+</ul>
+</section>
+<section id="procedimiento-detallado">
+<h2>Procedimiento Detallado<a class="headerlink" href="#procedimiento-detallado" title="Link to this heading">¶</a></h2>
+<section id="paso-1-determinar-si-se-necesita-un-adr">
+<h3>PASO 1: Determinar si se Necesita un ADR<a class="headerlink" href="#paso-1-determinar-si-se-necesita-un-adr" title="Link to this heading">¶</a></h3>
+<section id="preguntas-de-validacion">
+<h4>1.1 Preguntas de validación<a class="headerlink" href="#preguntas-de-validacion" title="Link to this heading">¶</a></h4>
+<p>¿La decisión cumple al menos UNO de estos criterios?</p>
+<ul class="simple">
+<li><p>✅ <strong>Impacto estructural</strong>: Afecta arquitectura general del sistema</p></li>
+<li><p>✅ <strong>Difícil de revertir</strong>: Cambiarla después sería costoso</p></li>
+<li><p>✅ <strong>Afecta múltiples equipos</strong>: Impacta varios dominios</p></li>
+<li><p>✅ <strong>Nueva tecnología</strong>: Introducción de nueva herramienta/framework</p></li>
+<li><p>✅ <strong>Cambio de patrón</strong>: Modificación de patrón arquitectónico</p></li>
+<li><p>✅ <strong>Trade-offs significativos</strong>: Pros/cons importantes a considerar</p></li>
+<li><p>✅ <strong>Precedente</strong>: Sentará base para decisiones futuras</p></li>
+</ul>
+<p><strong>Ejemplos que SÍ requieren ADR</strong>: - Elegir base de datos (PostgreSQL vs
+MongoDB) - Adoptar arquitectura de microservicios - Seleccionar
+framework frontend (React vs Vue) - Implementar sistema de permisos sin
+roles jerárquicos - Estrategia de deployment (blue-green vs rolling)</p>
+<p><strong>Ejemplos que NO requieren ADR</strong>: - Cambiar nombre de variable -
+Agregar campo a formulario - Corregir bug menor - Actualizar versión de
+librería patch (2.1.0 → 2.1.1)</p>
+</section>
+<section id="documentar-decision-inicial">
+<h4>1.2 Documentar decisión inicial<a class="headerlink" href="#documentar-decision-inicial" title="Link to this heading">¶</a></h4>
+<p>Si la respuesta es SÍ, proceder con creación de ADR.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-2-determinar-dominio-y-numero">
+<h3>PASO 2: Determinar Dominio y Número<a class="headerlink" href="#paso-2-determinar-dominio-y-numero" title="Link to this heading">¶</a></h3>
+<section id="identificar-dominio">
+<h4>2.1 Identificar dominio<a class="headerlink" href="#identificar-dominio" title="Link to this heading">¶</a></h4>
+<p>Según el área técnica afectada:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dominio</p></th>
+<th class="head"><p>Código</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Backend</p></td>
+<td><p>BACK</p></td>
+<td><p>Modelos de BD, APIs, Servicios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frontend</p></td>
+<td><p>FRONT</p></td>
+<td><p>UI, Componentes, Estado</p></td>
+</tr>
+<tr class="row-even"><td><p>DevOps</p></td>
+<td><p>DEVOPS</p></td>
+<td><p>CI/CD, Infraestructura</p></td>
+</tr>
+<tr class="row-odd"><td><p>QA</p></td>
+<td><p>QA</p></td>
+<td><p>Testing, Calidad</p></td>
+</tr>
+<tr class="row-even"><td><p>AI</p></td>
+<td><p>AI</p></td>
+<td><p>Agentes, ML, Automatización</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gobernanza</p></td>
+<td><p>GOB</p></td>
+<td><p>Procesos, Metodologías</p></td>
+</tr>
+<tr class="row-even"><td><p>Desarrollo</p></td>
+<td><p>DEV</p></td>
+<td><p>SDLC, Git workflows</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="obtener-siguiente-numero-secuencial">
+<h4>2.2 Obtener siguiente número secuencial<a class="headerlink" href="#obtener-siguiente-numero-secuencial" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navegar a directorio de ADRs</span>
+<span class="nb">cd</span><span class="w"> </span>docs/gobernanza/adr
+
+<span class="c1"># Listar ADRs del dominio específico</span>
+ls<span class="w"> </span>-1<span class="w"> </span>ADR-BACK-*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<span class="c1"># Output: ADR-BACK-005-servicios-resilientes.md</span>
+
+<span class="c1"># Siguiente número: ADR-BACK-006</span>
+</pre></div>
+</div>
+<p><strong>Patrón</strong>: <code class="docutils literal notranslate"><span class="pre">ADR-{DOMINIO}-{###}-{titulo-descriptivo}.md</span></code></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-3-crear-archivo-adr">
+<h3>PASO 3: Crear Archivo ADR<a class="headerlink" href="#paso-3-crear-archivo-adr" title="Link to this heading">¶</a></h3>
+<section id="crear-archivo-con-nombre-correcto">
+<h4>3.1 Crear archivo con nombre correcto<a class="headerlink" href="#crear-archivo-con-nombre-correcto" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo: ADR para elegir ORM en backend</span>
+touch<span class="w"> </span>docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+</pre></div>
+</div>
+</section>
+<section id="agregar-estructura-base">
+<h4>3.2 Agregar estructura base<a class="headerlink" href="#agregar-estructura-base" title="Link to this heading">¶</a></h4>
+<p>Copiar y completar template:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: ADR-BACK-006-django-orm-vs-sqlalchemy
+estado: propuesta  # propuesta | aceptada | rechazada | obsoleta | supersedida
+propietario: equipo-backend
+ultima_actualizacion: 2025-11-17
+relacionados: [&quot;ADR-BACK-003&quot;, &quot;PROC-DEV-001&quot;]
+<span class="gu">date: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># ADR-BACK-006: Selección de ORM para Backend</span>
+
+<span class="gs">**Estado:**</span> propuesta
+
+<span class="gs">**Fecha:**</span> 2025-11-17
+
+<span class="gs">**Decisores:**</span>
+<span class="k">-</span><span class="w"> </span>arquitecto-backend
+<span class="k">-</span><span class="w"> </span>tech-lead-backend
+<span class="k">-</span><span class="w"> </span>equipo-backend
+
+<span class="gs">**Contexto técnico:**</span> Backend / Data Layer
+
+---
+
+<span class="gu">## Contexto</span>
+
+[Describir el contexto que motiva la decisión]
+
+¿Qué problema estamos resolviendo?
+¿Por qué necesitamos tomar esta decisión ahora?
+¿Qué restricciones o requerimientos tenemos?
+
+<span class="gu">## Decisión</span>
+
+[La decisión que se tomó]
+
+Hemos decidido usar [OPCIÓN ELEGIDA] porque [RAZONES PRINCIPALES].
+
+<span class="gu">## Alternativas Consideradas</span>
+
+<span class="gu">### Opción 1: [Nombre]</span>
+
+<span class="gs">**Pros:**</span>
+<span class="k">-</span><span class="w"> </span>✅ Ventaja 1
+<span class="k">-</span><span class="w"> </span>✅ Ventaja 2
+
+<span class="gs">**Contras:**</span>
+<span class="k">-</span><span class="w"> </span>❌ Desventaja 1
+<span class="k">-</span><span class="w"> </span>❌ Desventaja 2
+
+<span class="gu">### Opción 2: [Nombre]</span>
+
+<span class="gs">**Pros:**</span>
+<span class="k">-</span><span class="w"> </span>✅ Ventaja 1
+
+<span class="gs">**Contras:**</span>
+<span class="k">-</span><span class="w"> </span>❌ Desventaja 1
+
+<span class="gu">### Opción Elegida: [Nombre]</span>
+
+<span class="gs">**Justificación:**</span>
+[Por qué esta opción es la mejor para nuestro contexto]
+
+<span class="gu">## Consecuencias</span>
+
+<span class="gu">### Positivas</span>
+<span class="k">-</span><span class="w"> </span>✅ Beneficio 1
+<span class="k">-</span><span class="w"> </span>✅ Beneficio 2
+
+<span class="gu">### Negativas</span>
+<span class="k">-</span><span class="w"> </span>⚠️ Trade-off 1
+<span class="k">-</span><span class="w"> </span>⚠️ Trade-off 2
+
+<span class="gu">### Neutrales</span>
+<span class="k">-</span><span class="w"> </span>🔄 Cambio 1 (ni bueno ni malo)
+
+<span class="gu">## Implementación</span>
+
+<span class="gu">### Pasos de migración</span>
+<span class="k">1.</span> Paso 1
+<span class="k">2.</span> Paso 2
+
+<span class="gu">### Timeline</span>
+<span class="k">-</span><span class="w"> </span>Semana 1: ...
+<span class="k">-</span><span class="w"> </span>Semana 2: ...
+
+<span class="gu">### Equipo responsable</span>
+<span class="k">-</span><span class="w"> </span>Backend Team
+
+<span class="gu">## Métricas de Éxito</span>
+
+¿Cómo mediremos si esta decisión fue correcta?
+
+<span class="k">-</span><span class="w"> </span>Métrica 1: [objetivo]
+<span class="k">-</span><span class="w"> </span>Métrica 2: [objetivo]
+
+<span class="gu">## Referencias</span>
+
+<span class="k">-</span><span class="w"> </span>[Link a documentación técnica]
+<span class="k">-</span><span class="w"> </span>[Link a proof of concept]
+<span class="k">-</span><span class="w"> </span>[Link a benchmark results]
+
+<span class="gu">## Notas</span>
+
+[Información adicional, consideraciones futuras, etc.]
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-4-completar-cada-seccion">
+<h3>PASO 4: Completar Cada Sección<a class="headerlink" href="#paso-4-completar-cada-seccion" title="Link to this heading">¶</a></h3>
+<section id="seccion-contexto">
+<h4>4.1 Sección: Contexto<a class="headerlink" href="#seccion-contexto" title="Link to this heading">¶</a></h4>
+<p><strong>Qué incluir</strong>: - Situación actual que motiva la decisión - Problema
+específico a resolver - Restricciones técnicas/negocio - Requerimientos
+funcionales y no funcionales - Por qué la decisión es urgente/importante</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Contexto</span>
+
+Actualmente el proyecto IACT utiliza SQL directo para queries de base de datos,
+lo cual genera los siguientes problemas:
+
+<span class="k">1.</span> <span class="gs">**Mantenibilidad**</span>: Queries SQL embebidas en código Python son difíciles de mantener
+<span class="k">2.</span> <span class="gs">**Seguridad**</span>: Riesgo de SQL injection si no se sanitizan inputs correctamente
+<span class="k">3.</span> <span class="gs">**Portabilidad**</span>: Difícil cambiar de PostgreSQL a otra BD en el futuro
+<span class="k">4.</span> <span class="gs">**Productividad**</span>: Developers escriben mucho código boilerplate
+
+Necesitamos seleccionar un ORM que:
+<span class="k">-</span><span class="w"> </span>Sea compatible con PostgreSQL 14+
+<span class="k">-</span><span class="w"> </span>Soporte migraciones de esquema
+<span class="k">-</span><span class="w"> </span>Tenga buen performance para queries complejas
+<span class="k">-</span><span class="w"> </span>Sea familiar para el equipo (mayoría conoce Django)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="seccion-decision">
+<h4>4.2 Sección: Decisión<a class="headerlink" href="#seccion-decision" title="Link to this heading">¶</a></h4>
+<p><strong>Qué incluir</strong>: - Declaración clara y concisa de la decisión - Resumen
+de 1-2 párrafos máximo - Evitar ambigüedad</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Decisión</span>
+
+Hemos decidido utilizar <span class="gs">**Django ORM**</span> como capa de abstracción de base de datos
+para el proyecto IACT.
+
+Esta decisión aplica a:
+<span class="k">-</span><span class="w"> </span>Todos los nuevos modelos de datos
+<span class="k">-</span><span class="w"> </span>Queries de lectura y escritura
+<span class="k">-</span><span class="w"> </span>Migraciones de esquema
+
+Se permite uso de SQL directo solo para:
+<span class="k">-</span><span class="w"> </span>Queries de optimización extrema (previa aprobación del tech lead)
+<span class="k">-</span><span class="w"> </span>Reportes complejos con agregaciones custom
+<span class="k">-</span><span class="w"> </span>Operaciones bulk que Django ORM no maneja eficientemente
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="seccion-alternativas-consideradas">
+<h4>4.3 Sección: Alternativas Consideradas<a class="headerlink" href="#seccion-alternativas-consideradas" title="Link to this heading">¶</a></h4>
+<p><strong>Qué incluir</strong>: - Mínimo 2-3 alternativas evaluadas - Pros y contras de
+cada una - Por qué fueron descartadas</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Alternativas Consideradas</span>
+
+<span class="gu">### Opción 1: SQL Directo (Status Quo)</span>
+
+<span class="gs">**Pros:**</span>
+<span class="k">-</span><span class="w"> </span>✅ Control total sobre queries
+<span class="k">-</span><span class="w"> </span>✅ Performance óptimo para casos específicos
+<span class="k">-</span><span class="w"> </span>✅ No hay curva de aprendizaje
+
+<span class="gs">**Contras:**</span>
+<span class="k">-</span><span class="w"> </span>❌ Alto riesgo de SQL injection
+<span class="k">-</span><span class="w"> </span>❌ Difícil de mantener
+<span class="k">-</span><span class="w"> </span>❌ No hay abstracción de BD
+<span class="k">-</span><span class="w"> </span>❌ Mucho código boilerplate
+
+<span class="gs">**Por qué fue descartada:**</span> Los riesgos de seguridad y mantenibilidad superan los beneficios.
+
+---
+
+<span class="gu">### Opción 2: SQLAlchemy</span>
+
+<span class="gs">**Pros:**</span>
+<span class="k">-</span><span class="w"> </span>✅ ORM muy potente y flexible
+<span class="k">-</span><span class="w"> </span>✅ Excelente performance
+<span class="k">-</span><span class="w"> </span>✅ Permite raw SQL cuando se necesita
+<span class="k">-</span><span class="w"> </span>✅ Independiente de framework
+
+<span class="gs">**Contras:**</span>
+<span class="k">-</span><span class="w"> </span>❌ Curva de aprendizaje pronunciada
+<span class="k">-</span><span class="w"> </span>❌ Más verbose que Django ORM
+<span class="k">-</span><span class="w"> </span>❌ Equipo no está familiarizado
+<span class="k">-</span><span class="w"> </span>❌ Requiere configuración adicional
+
+<span class="gs">**Por qué fue descartada:**</span> La curva de aprendizaje ralentizaría el desarrollo.
+
+---
+
+<span class="gu">### Opción Elegida: Django ORM</span>
+
+<span class="gs">**Pros:**</span>
+<span class="k">-</span><span class="w"> </span>✅ Equipo ya conoce Django
+<span class="k">-</span><span class="w"> </span>✅ Integración nativa con Django
+<span class="k">-</span><span class="w"> </span>✅ Sintaxis simple e intuitiva
+<span class="k">-</span><span class="w"> </span>✅ Migraciones automáticas
+<span class="k">-</span><span class="w"> </span>✅ Admin panel gratis
+<span class="k">-</span><span class="w"> </span>✅ Gran comunidad y documentación
+
+<span class="gs">**Contras:**</span>
+<span class="k">-</span><span class="w"> </span>⚠️ Menos flexible que SQLAlchemy
+<span class="k">-</span><span class="w"> </span>⚠️ Performance subóptimo en casos edge
+<span class="k">-</span><span class="w"> </span>⚠️ Acoplamiento a Django framework
+
+<span class="gs">**Justificación:**</span>
+
+Django ORM es la mejor opción para IACT porque:
+
+<span class="k">1.</span> <span class="gs">**Velocidad de desarrollo**</span>: Equipo ya conoce Django, no hay curva de aprendizaje
+<span class="k">2.</span> <span class="gs">**Ecosistema**</span>: Aprovecha todo el ecosistema de Django (admin, auth, etc.)
+<span class="k">3.</span> <span class="gs">**Suficientemente potente**</span>: Cubre 95% de nuestros casos de uso
+<span class="k">4.</span> <span class="gs">**Escape hatch**</span>: Permite raw SQL para el 5% restante
+
+Los trade-offs de performance son aceptables dado nuestro volumen de datos actual (&lt; 1M registros).
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="seccion-consecuencias">
+<h4>4.4 Sección: Consecuencias<a class="headerlink" href="#seccion-consecuencias" title="Link to this heading">¶</a></h4>
+<p><strong>Qué incluir</strong>: - Impactos positivos - Impactos negativos (trade-offs)
+- Impactos neutrales</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Consecuencias</span>
+
+<span class="gu">### Positivas</span>
+
+<span class="k">-</span><span class="w"> </span>✅ <span class="gs">**Seguridad mejorada**</span>: ORM previene SQL injection automáticamente
+<span class="k">-</span><span class="w"> </span>✅ <span class="gs">**Productividad aumentada**</span>: Menos código boilerplate, desarrollo más rápido
+<span class="k">-</span><span class="w"> </span>✅ <span class="gs">**Mantenibilidad**</span>: Código Python en lugar de strings SQL
+<span class="k">-</span><span class="w"> </span>✅ <span class="gs">**Testing**</span>: Fácil mockear modelos en tests
+<span class="k">-</span><span class="w"> </span>✅ <span class="gs">**Migraciones**</span>: Sistema automático de migrations evita errores manuales
+
+<span class="gu">### Negativas</span>
+
+<span class="k">-</span><span class="w"> </span>⚠️ <span class="gs">**Dependencia de Django**</span>: Difícil migrar a otro framework en futuro
+<span class="k">-</span><span class="w"> </span>⚠️ <span class="gs">**Performance**</span>: Queries complejas pueden ser menos eficientes que SQL puro
+<span class="k">-</span><span class="w"> </span>⚠️ <span class="gs">**Curva de aprendizaje**</span>: Nuevos devs deben aprender Django ORM quirks
+<span class="k">-</span><span class="w"> </span>⚠️ <span class="gs">**Debug**</span>: Más difícil debuggear queries generadas automáticamente
+
+<span class="gu">### Neutrales</span>
+
+<span class="k">-</span><span class="w"> </span>🔄 <span class="gs">**Tamaño del proyecto**</span>: Django agrega dependencias (~10MB)
+<span class="k">-</span><span class="w"> </span>🔄 <span class="gs">**Estilo de código**</span>: Cambio de paradigma de procedural SQL a OOP models
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="seccion-implementacion">
+<h4>4.5 Sección: Implementación<a class="headerlink" href="#seccion-implementacion" title="Link to this heading">¶</a></h4>
+<p><strong>Qué incluir</strong>: - Plan de migración - Timeline estimado - Responsables</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Implementación</span>
+
+<span class="gu">### Pasos de migración</span>
+
+<span class="k">1.</span> <span class="gs">**Semana 1: Setup**</span>
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Instalar Django y dependencias
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Configurar settings para múltiples entornos
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Crear estructura de apps Django
+
+<span class="k">2.</span> <span class="gs">**Semana 2-3: Migración de modelos**</span>
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Convertir tablas existentes a Django models
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Generar y revisar migrations iniciales
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Ejecutar migrations en staging
+
+<span class="k">3.</span> <span class="gs">**Semana 4: Migración de queries**</span>
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Reemplazar raw SQL con Django ORM queries
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Optimizar N+1 queries con select_related/prefetch_related
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Agregar tests para cada query migrada
+
+<span class="k">4.</span> <span class="gs">**Semana 5: Testing y validación**</span>
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Tests de integración end-to-end
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Performance testing vs baseline actual
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Code review exhaustivo
+
+<span class="k">5.</span> <span class="gs">**Semana 6: Deployment**</span>
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Deploy a staging
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Validación en staging (1 semana)
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Deploy a production
+
+<span class="gu">### Equipo responsable</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Lead**</span>: <span class="ni">@arquitecto</span>-backend
+<span class="k">-</span><span class="w"> </span><span class="gs">**Developers**</span>: <span class="ni">@dev1</span>, <span class="ni">@dev2</span>, <span class="ni">@dev3</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**QA**</span>: <span class="ni">@qa</span>-lead
+<span class="k">-</span><span class="w"> </span><span class="gs">**Reviewer**</span>: <span class="ni">@tech</span>-lead
+
+<span class="gu">### Criterios de aceptación</span>
+
+<span class="k">- [ ]</span> 100% de modelos migrados
+<span class="k">- [ ]</span> 100% de queries migradas
+<span class="k">- [ ]</span> Tests coverage &gt;= 80%
+<span class="k">- [ ]</span> Performance dentro de 10% del baseline
+<span class="k">- [ ]</span> Zero bugs críticos en staging
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-5-revision-y-aprobacion">
+<h3>PASO 5: Revisión y Aprobación<a class="headerlink" href="#paso-5-revision-y-aprobacion" title="Link to this heading">¶</a></h3>
+<section id="self-review">
+<h4>5.1 Self-review<a class="headerlink" href="#self-review" title="Link to this heading">¶</a></h4>
+<p>Revisar checklist:</p>
+<ul class="simple">
+<li><p>☐ Título descriptivo y conciso</p></li>
+<li><p>☐ Frontmatter completo (id, estado, propietario, fecha)</p></li>
+<li><p>☐ Contexto explica claramente el problema</p></li>
+<li><p>☐ Decisión es clara y sin ambigüedades</p></li>
+<li><p>☐ Al menos 2 alternativas documentadas</p></li>
+<li><p>☐ Pros/cons de cada alternativa</p></li>
+<li><p>☐ Justificación de la opción elegida</p></li>
+<li><p>☐ Consecuencias realistas (no solo positivas)</p></li>
+<li><p>☐ Plan de implementación con timeline</p></li>
+<li><p>☐ Referencias incluidas (si aplica)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="crear-pr-para-revision">
+<h4>5.2 Crear PR para revisión<a class="headerlink" href="#crear-pr-para-revision" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>docs/adr-back-006-django-orm
+
+<span class="c1"># Agregar ADR</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+
+<span class="c1"># Commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(adr): ADR-BACK-006 selección de Django ORM</span>
+
+<span class="s2">Documentar decisión de usar Django ORM como capa de abstracción</span>
+<span class="s2">de base de datos en lugar de SQL directo o SQLAlchemy.</span>
+
+<span class="s2">Relacionado: TASK-089&quot;</span>
+
+<span class="c1"># Push</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>docs/adr-back-006-django-orm
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="solicitar-revision">
+<h4>5.3 Solicitar revisión<a class="headerlink" href="#solicitar-revision" title="Link to this heading">¶</a></h4>
+<p>Asignar reviewers: - <strong>Obligatorio</strong>: Tech Lead del dominio -
+<strong>Opcional</strong>: Arquitecto senior, otros tech leads</p>
+<p>Esperar aprobación antes de merge.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-6-actualizar-estado-del-adr">
+<h3>PASO 6: Actualizar Estado del ADR<a class="headerlink" href="#paso-6-actualizar-estado-del-adr" title="Link to this heading">¶</a></h3>
+<section id="estados-posibles">
+<h4>6.1 Estados posibles<a class="headerlink" href="#estados-posibles" title="Link to this heading">¶</a></h4>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Estado</p></th>
+<th class="head"><p>Significado</p></th>
+<th class="head"><p>Cuándo usar</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">propuesta</span></code></p></td>
+<td><p>En revisión</p></td>
+<td><p>ADR creado, esperando
+aprobación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">aceptada</span></code></p></td>
+<td><p>Aprobado y activo</p></td>
+<td><p>Decisión aprobada, en
+implementación</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rechazada</span></code></p></td>
+<td><p>No aprobado</p></td>
+<td><p>Decisión rechazada tras
+revisión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obsoleta</span></code></p></td>
+<td><p>Ya no aplica</p></td>
+<td><p>Tecnología/contexto
+cambió</p></td>
+</tr>
+<tr class="row-even"><td><p>``
+supersedida``</p></td>
+<td><p>Reemplazada</p></td>
+<td><p>Otro ADR la reemplaza</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="actualizar-tras-aprobacion">
+<h4>6.2 Actualizar tras aprobación<a class="headerlink" href="#actualizar-tras-aprobacion" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: ADR-BACK-006-django-orm-vs-sqlalchemy
+estado: aceptada  # ← Cambiar de propuesta a aceptada
+propietario: equipo-backend
+ultima_actualizacion: 2025-11-18  # ← Actualizar fecha
+relacionados: [&quot;ADR-BACK-003&quot;, &quot;PROC-DEV-001&quot;]
+<span class="gu">date: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># ADR-BACK-006: Selección de ORM para Backend</span>
+
+<span class="gs">**Estado:**</span> aceptada  # ← Actualizar también aquí
+
+<span class="gs">**Fecha:**</span> 2025-11-17
+<span class="gs">**Fecha de aprobación:**</span> 2025-11-18  # ← Agregar fecha de aprobación
+
+[resto del documento...]
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-7-comunicar-la-decision">
+<h3>PASO 7: Comunicar la Decisión<a class="headerlink" href="#paso-7-comunicar-la-decision" title="Link to this heading">¶</a></h3>
+<section id="notificar-al-equipo">
+<h4>7.1 Notificar al equipo<a class="headerlink" href="#notificar-al-equipo" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Enviar mensaje en canal de Slack/Teams del equipo</p></li>
+<li><p>Mencionar en stand-up o reunión de equipo</p></li>
+<li><p>Incluir link al ADR</p></li>
+</ul>
+<p><strong>Ejemplo de mensaje</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📢 Nuevo ADR aprobado: ADR-BACK-006
+
+Hemos decidido usar Django ORM como capa de abstracción de BD.
+
+Link: https://github.com/org/repo/blob/main/docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+
+Implementación comienza próxima semana. Preguntas/comentarios bienvenidos.
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="actualizar-indice-de-adrs-si-existe">
+<h4>7.2 Actualizar índice de ADRs (si existe)<a class="headerlink" href="#actualizar-indice-de-adrs-si-existe" title="Link to this heading">¶</a></h4>
+<p>Si hay un README en <code class="docutils literal notranslate"><span class="pre">/docs/gobernanza/adr/README.md</span></code>, agregar entrada:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Backend (BACK)</span>
+
+<span class="k">-</span><span class="w"> </span>[<span class="nt">ADR-BACK-001: Grupos Funcionales Sin Jerarquía</span>](<span class="na">ADR-BACK-001-grupos-funcionales-sin-jerarquia.md</span>)
+<span class="k">-</span><span class="w"> </span>...
+<span class="k">-</span><span class="w"> </span>[<span class="nt">ADR-BACK-006: Django ORM vs SQLAlchemy</span>](<span class="na">ADR-BACK-006-django-orm-vs-sqlalchemy.md</span>) ⭐ NEW
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problemas-comunes-y-soluciones">
+<h2>Problemas Comunes y Soluciones<a class="headerlink" href="#problemas-comunes-y-soluciones" title="Link to this heading">¶</a></h2>
+<section id="problema-1-no-se-si-mi-decision-requiere-adr">
+<h3>Problema 1: No sé si mi decisión requiere ADR<a class="headerlink" href="#problema-1-no-se-si-mi-decision-requiere-adr" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: Aplica la regla de “si dudas, crea ADR”. Es mejor
+documentar de más que de menos. Un ADR corto es mejor que ninguno.</p>
+</section>
+<hr class="docutils" />
+<section id="problema-2-no-encuentro-alternativas-a-documentar">
+<h3>Problema 2: No encuentro alternativas a documentar<a class="headerlink" href="#problema-2-no-encuentro-alternativas-a-documentar" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: Siempre hay alternativas. Considera: - Status quo (no
+hacer nada) - Opciones obvias del mercado (líder vs alternativas) -
+Soluciones custom vs off-the-shelf</p>
+</section>
+<hr class="docutils" />
+<section id="problema-3-el-adr-esta-muy-largo">
+<h3>Problema 3: El ADR está muy largo<a class="headerlink" href="#problema-3-el-adr-esta-muy-largo" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: Si el ADR supera 500 líneas, considera: - Dividir en
+múltiples ADRs (uno por sub-decisión) - Mover detalles técnicos a
+documentación separada - Mantener ADR de alto nivel con links a detalles</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="checklist-final">
+<h2>Checklist Final<a class="headerlink" href="#checklist-final" title="Link to this heading">¶</a></h2>
+<p>Antes de marcar ADR como completo:</p>
+<ul class="simple">
+<li><p>☐ Archivo nombrado correctamente: <code class="docutils literal notranslate"><span class="pre">ADR-{DOMINIO}-{###}-{titulo}.md</span></code></p></li>
+<li><p>☐ Frontmatter completo y correcto</p></li>
+<li><p>☐ Contexto claro y conciso</p></li>
+<li><p>☐ Decisión inequívoca</p></li>
+<li><p>☐ &gt;= 2 alternativas documentadas</p></li>
+<li><p>☐ Pros/cons realistas para cada alternativa</p></li>
+<li><p>☐ Consecuencias honestas (positivas Y negativas)</p></li>
+<li><p>☐ Plan de implementación con timeline</p></li>
+<li><p>☐ PR creado y revisado</p></li>
+<li><p>☐ Aprobado por tech lead</p></li>
+<li><p>☐ Merged a main</p></li>
+<li><p>☐ Equipo notificado</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.md">ADR-GOB-002: Organización de Proyecto por
+Dominio</a></p></li>
+<li><p><a class="reference external" href="../guias/GUIA-GOB-002-convenciones_nomenclatura.md">GUIA-GOB-002: Convenciones de
+Nomenclatura</a></p></li>
+<li><p><a class="reference external" href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Architecture Decision Records - Michael
+Nygard</a></p></li>
+</ul>
+</section>
+<section id="historial-de-cambios">
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Claude Code</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="aprobacion">
+<h2>Aprobación<a class="headerlink" href="#aprobacion" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Autor</strong>: Claude Code (Sonnet 4.5)</p></li>
+<li><p><strong>Revisado por</strong>: Pendiente</p></li>
+<li><p><strong>Aprobado por</strong>: Pendiente</p></li>
+<li><p><strong>Fecha de próxima revisión</strong>: 2026-02-17</p></li>
+</ul>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCED-GOB-001: Crear Architecture Decision Record (ADR)</a><ul>
+<li><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li><a class="reference internal" href="#alcance">Alcance</a></li>
+<li><a class="reference internal" href="#pre-requisitos">Pre-requisitos</a></li>
+<li><a class="reference internal" href="#roles-y-responsabilidades">Roles y Responsabilidades</a></li>
+<li><a class="reference internal" href="#procedimiento-detallado">Procedimiento Detallado</a><ul>
+<li><a class="reference internal" href="#paso-1-determinar-si-se-necesita-un-adr">PASO 1: Determinar si se Necesita un ADR</a><ul>
+<li><a class="reference internal" href="#preguntas-de-validacion">1.1 Preguntas de validación</a></li>
+<li><a class="reference internal" href="#documentar-decision-inicial">1.2 Documentar decisión inicial</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-2-determinar-dominio-y-numero">PASO 2: Determinar Dominio y Número</a><ul>
+<li><a class="reference internal" href="#identificar-dominio">2.1 Identificar dominio</a></li>
+<li><a class="reference internal" href="#obtener-siguiente-numero-secuencial">2.2 Obtener siguiente número secuencial</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-3-crear-archivo-adr">PASO 3: Crear Archivo ADR</a><ul>
+<li><a class="reference internal" href="#crear-archivo-con-nombre-correcto">3.1 Crear archivo con nombre correcto</a></li>
+<li><a class="reference internal" href="#agregar-estructura-base">3.2 Agregar estructura base</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-4-completar-cada-seccion">PASO 4: Completar Cada Sección</a><ul>
+<li><a class="reference internal" href="#seccion-contexto">4.1 Sección: Contexto</a></li>
+<li><a class="reference internal" href="#seccion-decision">4.2 Sección: Decisión</a></li>
+<li><a class="reference internal" href="#seccion-alternativas-consideradas">4.3 Sección: Alternativas Consideradas</a></li>
+<li><a class="reference internal" href="#seccion-consecuencias">4.4 Sección: Consecuencias</a></li>
+<li><a class="reference internal" href="#seccion-implementacion">4.5 Sección: Implementación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-5-revision-y-aprobacion">PASO 5: Revisión y Aprobación</a><ul>
+<li><a class="reference internal" href="#self-review">5.1 Self-review</a></li>
+<li><a class="reference internal" href="#crear-pr-para-revision">5.2 Crear PR para revisión</a></li>
+<li><a class="reference internal" href="#solicitar-revision">5.3 Solicitar revisión</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-6-actualizar-estado-del-adr">PASO 6: Actualizar Estado del ADR</a><ul>
+<li><a class="reference internal" href="#estados-posibles">6.1 Estados posibles</a></li>
+<li><a class="reference internal" href="#actualizar-tras-aprobacion">6.2 Actualizar tras aprobación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-7-comunicar-la-decision">PASO 7: Comunicar la Decisión</a><ul>
+<li><a class="reference internal" href="#notificar-al-equipo">7.1 Notificar al equipo</a></li>
+<li><a class="reference internal" href="#actualizar-indice-de-adrs-si-existe">7.2 Actualizar índice de ADRs (si existe)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</a><ul>
+<li><a class="reference internal" href="#problema-1-no-se-si-mi-decision-requiere-adr">Problema 1: No sé si mi decisión requiere ADR</a></li>
+<li><a class="reference internal" href="#problema-2-no-encuentro-alternativas-a-documentar">Problema 2: No encuentro alternativas a documentar</a></li>
+<li><a class="reference internal" href="#problema-3-el-adr-esta-muy-largo">Problema 3: El ADR está muy largo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#checklist-final">Checklist Final</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+<li><a class="reference internal" href="#aprobacion">Aprobación</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

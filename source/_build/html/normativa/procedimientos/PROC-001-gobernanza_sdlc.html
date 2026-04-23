@@ -1,0 +1,1127 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Agentes SDLC - Documentacion Completa - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="agentes-sdlc-documentacion-completa">
+<h1>Agentes SDLC - Documentacion Completa<a class="headerlink" href="#agentes-sdlc-documentacion-completa" title="Link to this heading">¶</a></h1>
+<p>Sistema multi-agente para automatizar el proceso SDLC completo.</p>
+<section id="indice">
+<h2>Indice<a class="headerlink" href="#indice" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="#arquitectura-de-agentes">Arquitectura de Agentes</a></p></li>
+<li><p><a class="reference external" href="#agentes-implementados">Agentes Implementados</a></p></li>
+<li><p><a class="reference external" href="#uso-y-ejemplos">Uso y Ejemplos</a></p></li>
+<li><p><a class="reference external" href="#pipeline-completo">Pipeline Completo</a></p></li>
+<li><p><a class="reference external" href="#restricciones-iact">Restricciones IACT</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="arquitectura-de-agentes">
+<h2>Arquitectura de Agentes<a class="headerlink" href="#arquitectura-de-agentes" title="Link to this heading">¶</a></h2>
+<section id="ubicacion">
+<h3>Ubicacion<a class="headerlink" href="#ubicacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scripts</span><span class="o">/</span><span class="n">ai</span><span class="o">/</span><span class="n">agents</span><span class="o">/</span>
+  <span class="n">sdlc_base</span><span class="o">.</span><span class="n">py</span>           <span class="o">-</span> <span class="n">Clases</span> <span class="n">base</span> <span class="p">(</span><span class="n">SDLCAgent</span><span class="p">,</span> <span class="n">SDLCPhaseResult</span><span class="p">,</span> <span class="n">SDLCPipeline</span><span class="p">)</span>
+  <span class="n">sdlc_planner</span><span class="o">.</span><span class="n">py</span>        <span class="o">-</span> <span class="n">Phase</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Planning</span>
+  <span class="n">sdlc_feasibility</span><span class="o">.</span><span class="n">py</span>    <span class="o">-</span> <span class="n">Phase</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Feasibility</span> <span class="n">Analysis</span>
+  <span class="n">sdlc_design</span><span class="o">.</span><span class="n">py</span>         <span class="o">-</span> <span class="n">Phase</span> <span class="mi">3</span><span class="p">:</span> <span class="n">System</span> <span class="n">Design</span>
+  <span class="n">sdlc_testing</span><span class="o">.</span><span class="n">py</span>        <span class="o">-</span> <span class="n">Phase</span> <span class="mi">5</span><span class="p">:</span> <span class="n">Testing</span>
+  <span class="n">sdlc_deployment</span><span class="o">.</span><span class="n">py</span>     <span class="o">-</span> <span class="n">Phase</span> <span class="mi">6</span><span class="p">:</span> <span class="n">Deployment</span>
+  <span class="n">sdlc_orchestrator</span><span class="o">.</span><span class="n">py</span>   <span class="o">-</span> <span class="n">Pipeline</span> <span class="n">orchestrator</span>
+</pre></div>
+</div>
+</section>
+<section id="patron-de-diseno">
+<h3>Patron de Diseno<a class="headerlink" href="#patron-de-diseno" title="Link to this heading">¶</a></h3>
+<p><strong>Pipeline Pattern con Go/No-Go Decisions</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Planning → Feasibility → Design → Implementation → Testing → Deployment
+           ↓ NO-GO
+           STOP
+</pre></div>
+</div>
+<p>Cada fase puede retornar: - <strong>GO</strong>: Continuar a siguiente fase -
+<strong>NO-GO</strong>: Detener pipeline, resolver blockers - <strong>REVIEW</strong>: Requiere
+revision manual</p>
+</section>
+<section id="flujo-de-datos">
+<h3>Flujo de Datos<a class="headerlink" href="#flujo-de-datos" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Input: Feature Request (str)
+  ↓
+Planning Agent → Issue (dict)
+  ↓
+Feasibility Agent → Feasibility Report (dict)
+  ↓ (if GO)
+Design Agent → HLD, LLD, ADRs (dict)
+  ↓
+[Manual Implementation]
+  ↓
+Testing Agent → Test Plan, Test Cases (dict)
+  ↓
+Deployment Agent → Deployment Plan, Rollback Plan (dict)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="agentes-implementados">
+<h2>Agentes Implementados<a class="headerlink" href="#agentes-implementados" title="Link to this heading">¶</a></h2>
+<section id="sdlcplanneragent">
+<h3>1. SDLCPlannerAgent<a class="headerlink" href="#sdlcplanneragent" title="Link to this heading">¶</a></h3>
+<p><strong>Fase</strong>: Planning (Fase 1)</p>
+<p><strong>Responsabilidad</strong>: Convertir feature request en GitHub issue
+estructurado</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;feature_request&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># Descripcion del feature</span>
+    <span class="s2">&quot;project_context&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># Contexto del proyecto (opcional)</span>
+    <span class="s2">&quot;backlog&quot;</span><span class="p">:</span> <span class="nb">list</span>                  <span class="c1"># Backlog existente (opcional)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;issue_title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># Titulo del issue</span>
+        <span class="s2">&quot;issue_body&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>           <span class="c1"># Cuerpo completo (markdown)</span>
+        <span class="s2">&quot;user_story&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>           <span class="c1"># User story formato: As/Want/So</span>
+        <span class="s2">&quot;acceptance_criteria&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="c1"># Criteria verificables</span>
+        <span class="s2">&quot;technical_requirements&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+        <span class="s2">&quot;story_points&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>         <span class="c1"># Fibonacci: 1,2,3,5,8,13</span>
+        <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>             <span class="c1"># P0, P1, P2, P3</span>
+        <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>              <span class="c1"># [&#39;feature&#39;, &#39;backend&#39;, etc]</span>
+        <span class="s2">&quot;assignees&quot;</span><span class="p">:</span> <span class="nb">list</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;issue_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>               <span class="c1"># Path del archivo generado</span>
+    <span class="s2">&quot;phase_result&quot;</span><span class="p">:</span> <span class="n">SDLCPhaseResult</span>  <span class="c1"># decision=&quot;go&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: -
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/planning/ISSUE_YYYYMMDD_HHMMSS.md</span></code></p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>planning<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Implementar dark mode toggle en settings&quot;</span>
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Estimacion automatica (story points Fibonacci) -
+Priorizacion automatica (P0-P3) - Analisis de backlog para evitar
+duplicados - Formato GitHub issue completo</p>
+</section>
+<hr class="docutils" />
+<section id="sdlcfeasibilityagent">
+<h3>2. SDLCFeasibilityAgent<a class="headerlink" href="#sdlcfeasibilityagent" title="Link to this heading">¶</a></h3>
+<p><strong>Fase</strong>: Feasibility Analysis (Fase 2)</p>
+<p><strong>Responsabilidad</strong>: Analizar viabilidad tecnica y Go/No-Go decision</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>                      <span class="c1"># Output de SDLCPlannerAgent</span>
+    <span class="s2">&quot;project_context&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;technical_constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;no_redis&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>                <span class="c1"># RNF-002</span>
+        <span class="s2">&quot;no_email&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;budget&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="s2">&quot;deadline&quot;</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;feasibility_report&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># Reporte completo (markdown)</span>
+    <span class="s2">&quot;decision&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                    <span class="c1"># &quot;go&quot;, &quot;no-go&quot;, &quot;review&quot;</span>
+    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>                <span class="c1"># 0.0 - 1.0</span>
+    <span class="s2">&quot;risks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>             <span class="c1"># &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;critical&quot;</span>
+            <span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;</span>
+            <span class="s2">&quot;impact&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;mitigation&quot;</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;technical_feasibility&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="s2">&quot;effort_analysis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;story_points&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s2">&quot;estimated_hours&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s2">&quot;estimated_days&quot;</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;report_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;phase_result&quot;</span><span class="p">:</span> <span class="n">SDLCPhaseResult</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: -
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_YYYYMMDD_HHMMSS.md</span></code></p>
+<p><strong>Go/No-Go Criteria</strong>: - <strong>NO-GO</strong> si: - Viola RNF-002 (Redis, Email) -
+Blockers criticos sin mitigacion - Esfuerzo &gt; 3x estimado - <strong>REVIEW</strong>
+si: - Riesgos HIGH no mitigados - Dependencias externas complejas -
+<strong>GO</strong> si: - Tecnicamente viable - Riesgos mitigables - Dentro de
+budget/timeline</p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>feasibility<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Risk assessment matrix (Severity x Probability) -
+Validacion restricciones IACT automatica - Conversion story points →
+horas/dias - Analisis de dependencias</p>
+</section>
+<hr class="docutils" />
+<section id="sdlcdesignagent">
+<h3>3. SDLCDesignAgent<a class="headerlink" href="#sdlcdesignagent" title="Link to this heading">¶</a></h3>
+<p><strong>Fase</strong>: System Design (Fase 3)</p>
+<p><strong>Responsabilidad</strong>: Generar HLD, LLD, ADRs, diagramas</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>                   <span class="c1"># Output de SDLCPlannerAgent</span>
+    <span class="s2">&quot;feasibility_result&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>      <span class="c1"># Output de SDLCFeasibilityAgent</span>
+    <span class="s2">&quot;project_context&quot;</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;hld&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                      <span class="c1"># High-Level Design (markdown)</span>
+    <span class="s2">&quot;hld_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;lld&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                      <span class="c1"># Low-Level Design (markdown)</span>
+    <span class="s2">&quot;lld_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;adrs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>                   <span class="c1"># Architecture Decision Records</span>
+    <span class="s2">&quot;diagrams&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;architecture&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>         <span class="c1"># Mermaid diagram</span>
+        <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># ER diagram</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;diagrams_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;review_checklist&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;review_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;artifacts&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">&quot;phase_result&quot;</span><span class="p">:</span> <span class="n">SDLCPhaseResult</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: - <code class="docutils literal notranslate"><span class="pre">HLD_YYYYMMDD_HHMMSS.md</span></code> - High-Level
+Design - <code class="docutils literal notranslate"><span class="pre">LLD_YYYYMMDD_HHMMSS.md</span></code> - Low-Level Design -
+<code class="docutils literal notranslate"><span class="pre">ADR_YYYYMMDD_HHMMSS_001.md</span></code> - ADRs individuales -
+<code class="docutils literal notranslate"><span class="pre">DIAGRAMS_YYYYMMDD_HHMMSS.md</span></code> - Todos los diagramas Mermaid -
+<code class="docutils literal notranslate"><span class="pre">DESIGN_REVIEW_CHECKLIST_YYYYMMDD_HHMMSS.md</span></code></p>
+<p><strong>HLD Incluye</strong>: - Executive Summary - System Context - High-Level
+Architecture - Technology Stack - Critical Constraints (IACT) -
+Non-Functional Requirements - Risk Mitigation - Design Decisions -
+Success Metrics</p>
+<p><strong>LLD Incluye</strong>: - Module Breakdown - Database Schema (SQL) - API
+Endpoints (RESTful) - Data Models (Python code) - Business Logic (Python
+code) - Frontend Components - State Management - Validation Rules -
+Error Handling - Testing Strategy - Deployment Notes</p>
+<p><strong>ADRs</strong>: - Decisiones arquitectonicas significativas - Formato:
+Context, Decision, Rationale, Consequences - Ejemplo: “Usar MySQL para
+sesiones (RNF-002)”</p>
+<p><strong>Diagramas Mermaid</strong>: - Architecture (system overview) - Sequence (user
+flows) - Components (module relationships) - Database ER
+(entity-relationship)</p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>design<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Genera codigo de ejemplo (models, views,
+services) - Diagramas Mermaid auto-generados - ADRs para decisiones
+criticas - Design review checklist completo</p>
+</section>
+<hr class="docutils" />
+<section id="sdlctestingagent">
+<h3>4. SDLCTestingAgent<a class="headerlink" href="#sdlctestingagent" title="Link to this heading">¶</a></h3>
+<p><strong>Fase</strong>: Testing (Fase 5)</p>
+<p><strong>Responsabilidad</strong>: Generar test plan, test cases, test pyramid
+strategy</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="s2">&quot;design_result&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>           <span class="c1"># Output de SDLCDesignAgent</span>
+    <span class="s2">&quot;implementation_status&quot;</span><span class="p">:</span> <span class="nb">str</span>     <span class="c1"># &quot;pending&quot;, &quot;in_progress&quot;, &quot;completed&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;test_plan&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                <span class="c1"># Test plan completo (markdown)</span>
+    <span class="s2">&quot;test_plan_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;test_cases&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                <span class="c1"># &quot;UT-001&quot;, &quot;IT-001&quot;, &quot;E2E-001&quot;</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>              <span class="c1"># &quot;unit&quot;, &quot;integration&quot;, &quot;e2e&quot;</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;preconditions&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+            <span class="s2">&quot;expected_result&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># &quot;high&quot;, &quot;medium&quot;, &quot;low&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;test_cases_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;test_pyramid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;total_tests&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s2">&quot;unit_tests&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="s2">&quot;percentage&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="nb">str</span>             <span class="c1"># &quot;on_target&quot;, &quot;needs_more&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;integration_tests&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">},</span>
+        <span class="s2">&quot;e2e_tests&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;test_pyramid_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;coverage_requirements&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;overall_target&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>         <span class="c1"># Porcentaje</span>
+        <span class="s2">&quot;critical_paths&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;models&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+        <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span>
+        <span class="s2">&quot;views&quot;</span><span class="p">:</span> <span class="mi">80</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;testing_checklist&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;checklist_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;artifacts&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">&quot;phase_result&quot;</span><span class="p">:</span> <span class="n">SDLCPhaseResult</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: - <code class="docutils literal notranslate"><span class="pre">TEST_PLAN_YYYYMMDD_HHMMSS.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">TEST_CASES_YYYYMMDD_HHMMSS.md</span></code> - <code class="docutils literal notranslate"><span class="pre">TEST_PYRAMID_YYYYMMDD_HHMMSS.md</span></code>
+- <code class="docutils literal notranslate"><span class="pre">TEST_CHECKLIST_YYYYMMDD_HHMMSS.md</span></code></p>
+<p><strong>Test Plan Incluye</strong>: - Testing Goals &amp; Success Criteria - Scope
+(In/Out) - Test Strategy (Test Pyramid) - Test Environment - Entry/Exit
+Criteria - Test Data - Risks and Mitigation - Schedule - Deliverables</p>
+<p><strong>Test Cases</strong>: - Unit tests (60%): Models, services, utilities -
+Integration tests (30%): API endpoints, database - E2E tests (10%):
+Critical user flows</p>
+<p><strong>Test Pyramid Validation</strong>: - Unit &gt;= 50% (target 60%) - Integration
+20-40% (target 30%) - E2E &lt;= 20% (target 10%)</p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>testing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/design/HLD_20251106_151530.md
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Genera test cases concretos con steps -
+Validacion test pyramid automatica - Coverage requirements por
+componente - Testing checklist ejecutable</p>
+</section>
+<hr class="docutils" />
+<section id="sdlcdeploymentagent">
+<h3>5. SDLCDeploymentAgent<a class="headerlink" href="#sdlcdeploymentagent" title="Link to this heading">¶</a></h3>
+<p><strong>Fase</strong>: Deployment (Fase 6)</p>
+<p><strong>Responsabilidad</strong>: Generar deployment plan, rollback plan, monitoring</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="s2">&quot;design_result&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="s2">&quot;testing_result&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>          <span class="c1"># Output de SDLCTestingAgent</span>
+    <span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="nb">str</span>               <span class="c1"># &quot;staging&quot;, &quot;production&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;deployment_plan&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># Deployment plan completo</span>
+    <span class="s2">&quot;deployment_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;rollback_plan&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;rollback_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;pre_deployment_checklist&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;pre_checklist_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;post_deployment_checklist&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;post_checklist_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;monitoring_plan&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;monitoring_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;artifacts&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="s2">&quot;phase_result&quot;</span><span class="p">:</span> <span class="n">SDLCPhaseResult</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: - <code class="docutils literal notranslate"><span class="pre">DEPLOYMENT_PLAN_{env}_YYYYMMDD_HHMMSS.md</span></code>
+- <code class="docutils literal notranslate"><span class="pre">ROLLBACK_PLAN_{env}_YYYYMMDD_HHMMSS.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">PRE_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">POST_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">MONITORING_PLAN_YYYYMMDD_HHMMSS.md</span></code></p>
+<p><strong>Deployment Plan Incluye</strong>: - Executive Summary (objective, window,
+stakeholders) - Prerequisites (code ready, infrastructure ready, team
+ready) - Database Changes (migrations, data migration) - Deployment
+Steps (6 steps con comandos) - Verification Steps - Rollback Criteria -
+Communication Plan - Monitoring - Success Criteria - Post-deployment
+Tasks - Contacts &amp; Escalation Path</p>
+<p><strong>Deployment Steps</strong>: 1. Pre-deployment Validation 2. Create Backup
+(database + code tag) 3. Deploy Code 4. Run Migrations 5. Restart
+Services 6. Health Check 7. Smoke Tests</p>
+<p><strong>Rollback Plan Incluye</strong>: - Rollback Decision (when, who) - Rollback
+Steps (5 steps) - Database Rollback Considerations - Rollback
+Verification - Post-rollback Actions - Rollback Time Estimate -
+Communication - Prevention for Next Deployment</p>
+<p><strong>Monitoring Plan</strong>: - Key Metrics (response time, error rate,
+CPU/memory) - Monitoring Duration (2h intensive, 24h regular, 1 week
+follow-up) - Monitoring Commands - Alerting Thresholds - Incident
+Response</p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Staging</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>deployment<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--environment<span class="w"> </span>staging<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+
+<span class="c1"># Production</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>deployment<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--environment<span class="w"> </span>production<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Blue-green deployment strategy - Database backup
+automatico - Health checks en cada paso - Rollback plan ejecutable -
+Post-deployment monitoring (5 min, 24h, 1 week)</p>
+</section>
+<hr class="docutils" />
+<section id="sdlcorchestratoragent">
+<h3>6. SDLCOrchestratorAgent<a class="headerlink" href="#sdlcorchestratoragent" title="Link to this heading">¶</a></h3>
+<p><strong>Responsabilidad</strong>: Orquestar pipeline completo con Go/No-Go decisions</p>
+<p><strong>Input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;feature_request&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;project_context&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;technical_constraints&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="s2">&quot;start_phase&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>              <span class="c1"># &quot;planning&quot;, &quot;feasibility&quot;, etc.</span>
+    <span class="s2">&quot;end_phase&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                <span class="c1"># &quot;deployment&quot;</span>
+    <span class="s2">&quot;skip_phases&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>             <span class="c1"># [&quot;implementation&quot;]</span>
+    <span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="nb">str</span>               <span class="c1"># &quot;staging&quot;, &quot;production&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                   <span class="c1"># &quot;completed&quot;, &quot;early_stop&quot;</span>
+    <span class="s2">&quot;feature_request&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;phase_results&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;planning&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="s2">&quot;feasibility&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="s2">&quot;design&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="s2">&quot;testing&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="s2">&quot;deployment&quot;</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;execution_log&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>           <span class="c1"># &quot;completed&quot;, &quot;manual&quot;, &quot;failed&quot;</span>
+            <span class="s2">&quot;decision&quot;</span><span class="p">:</span> <span class="nb">str</span>          <span class="c1"># &quot;go&quot;, &quot;no-go&quot;, &quot;n/a&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;all_artifacts&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>           <span class="c1"># Paths de todos los artefactos</span>
+    <span class="s2">&quot;final_report&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;report_path&quot;</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Artefactos Generados</strong>: - <code class="docutils literal notranslate"><span class="pre">SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md</span></code>
+- Reporte consolidado - Todos los artefactos de cada fase</p>
+<p><strong>Ejemplo Uso</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pipeline completo</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>orchestration<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Implementar dark mode toggle en settings&quot;</span>
+
+<span class="c1"># Ejecutar solo design → testing</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>orchestration<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--start-phase<span class="w"> </span>design<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--end-phase<span class="w"> </span>testing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Feature request&quot;</span>
+
+<span class="c1"># Skip implementation (manual)</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>orchestration<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--skip-phases<span class="w"> </span>implementation<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Feature request&quot;</span>
+</pre></div>
+</div>
+<p><strong>Caracteristicas</strong>: - Go/No-Go decisions entre fases - Early stop si
+fase falla - Reporte consolidado final - Lessons learned automaticas -
+Ejecucion parcial (start/end phase)</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="uso-y-ejemplos">
+<h2>Uso y Ejemplos<a class="headerlink" href="#uso-y-ejemplos" title="Link to this heading">¶</a></h2>
+<section id="cli-scripts-sdlc-agent-py">
+<h3>CLI: scripts/sdlc_agent.py<a class="headerlink" href="#cli-scripts-sdlc-agent-py" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver ayuda</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span>--help
+
+<span class="c1"># Ejecutar fase individual</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>planning<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Feature request description&quot;</span>
+
+<span class="c1"># Ejecutar con archivo</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>feasibility<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+
+<span class="c1"># Output en JSON</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>design<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>...<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--format<span class="w"> </span>json
+
+<span class="c1"># Dry-run (no guarda archivos)</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>testing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>...<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dry-run
+
+<span class="c1"># Pipeline completo</span>
+python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>orchestration<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Implementar export a Excel en reportes&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--environment<span class="w"> </span>staging
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo-dark-mode-feature">
+<h3>Ejemplo Completo: Dark Mode Feature<a class="headerlink" href="#ejemplo-completo-dark-mode-feature" title="Link to this heading">¶</a></h3>
+<section id="step-1-planning">
+<h4>Step 1: Planning<a class="headerlink" href="#step-1-planning" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>planning<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Implementar dark mode toggle en settings para mejorar UX&quot;</span>
+</pre></div>
+</div>
+<p>Output: - Issue: <code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/planning/ISSUE_20251106_150610.md</span></code>
+- Story points: 5 - Priority: P2</p>
+</section>
+<section id="step-2-feasibility">
+<h4>Step 2: Feasibility<a class="headerlink" href="#step-2-feasibility" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>feasibility<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+</pre></div>
+</div>
+<p>Output: - Feasibility Report:
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md</span></code>
+- Decision: GO - Confidence: 0.85 - Risks: 2 (LOW severity)</p>
+</section>
+<section id="step-3-design">
+<h4>Step 3: Design<a class="headerlink" href="#step-3-design" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>design<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+</pre></div>
+</div>
+<p>Output: - HLD: <code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/design/HLD_20251106_151530.md</span></code> -
+LLD: <code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/design/LLD_20251106_151530.md</span></code> - Diagrams:
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/design/DIAGRAMS_20251106_151530.md</span></code> - ADRs: 1
+(Store theme preference in user settings)</p>
+</section>
+<section id="step-4-implementation">
+<h4>Step 4: Implementation<a class="headerlink" href="#step-4-implementation" title="Link to this heading">¶</a></h4>
+<p>Manual - Developer implements following LLD</p>
+</section>
+<section id="step-5-testing">
+<h4>Step 5: Testing<a class="headerlink" href="#step-5-testing" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>testing<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/design/HLD_20251106_151530.md
+</pre></div>
+</div>
+<p>Output: - Test Plan:
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md</span></code> - Test Cases:
+15 total (9 unit, 4 integration, 2 E2E) - Coverage requirement: 80%</p>
+</section>
+<section id="step-6-deployment">
+<h4>Step 6: Deployment<a class="headerlink" href="#step-6-deployment" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>deployment<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--environment<span class="w"> </span>staging<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input-file<span class="w"> </span>docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+</pre></div>
+</div>
+<p>Output: - Deployment Plan:
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/deployment/DEPLOYMENT_PLAN_staging_20251106_152530.md</span></code>
+- Rollback Plan:
+<code class="docutils literal notranslate"><span class="pre">docs/sdlc_outputs/deployment/ROLLBACK_PLAN_staging_20251106_152530.md</span></code></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pipeline-completo">
+<h2>Pipeline Completo<a class="headerlink" href="#pipeline-completo" title="Link to this heading">¶</a></h2>
+<section id="pipeline-automatico">
+<h3>Pipeline Automatico<a class="headerlink" href="#pipeline-automatico" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/sdlc_agent.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--phase<span class="w"> </span>orchestration<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;Feature request&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--environment<span class="w"> </span>staging
+</pre></div>
+</div>
+<p>Output: - SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md - Todos los artefactos
+de todas las fases</p>
+</section>
+<section id="early-stop-example">
+<h3>Early Stop Example<a class="headerlink" href="#early-stop-example" title="Link to this heading">¶</a></h3>
+<p>Si Feasibility retorna NO-GO:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Planning → Feasibility (NO-GO: Redis required) → STOP
+
+Pipeline stopped at feasibility phase.
+Reason: Feature requires Redis (prohibited by RNF-002)
+
+Recommendations:
+1. Review feasibility report for blockers
+2. Redesign to use MySQL only
+3. Re-run pipeline after fixes
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="restricciones-iact">
+<h2>Restricciones IACT<a class="headerlink" href="#restricciones-iact" title="Link to this heading">¶</a></h2>
+<p>Todos los agentes validan restricciones IACT automaticamente:</p>
+<section id="rnf-002-no-redis">
+<h3>RNF-002: NO Redis<a class="headerlink" href="#rnf-002-no-redis" title="Link to this heading">¶</a></h3>
+<p><strong>Validacion en SDLCFeasibilityAgent</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_analyze_technical_feasibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">issue</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
+    <span class="n">requirements</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">issue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;technical_requirements&quot;</span><span class="p">,</span> <span class="p">[]))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;no_redis&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;redis&quot;</span> <span class="ow">in</span> <span class="n">requirements</span><span class="p">:</span>
+        <span class="n">feasibility</span><span class="p">[</span><span class="s2">&quot;blockers&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;BLOCKER: Redis prohibited (RNF-002)&quot;</span><span class="p">)</span>
+        <span class="n">feasibility</span><span class="p">[</span><span class="s2">&quot;is_feasible&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">feasibility</span>
+</pre></div>
+</div>
+<p><strong>Result</strong>: Decision = NO-GO si detecta Redis</p>
+</section>
+<section id="sesiones-en-mysql">
+<h3>Sesiones en MySQL<a class="headerlink" href="#sesiones-en-mysql" title="Link to this heading">¶</a></h3>
+<p><strong>ADR Automatico en SDLCDesignAgent</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_session_requirement</span><span class="p">(</span><span class="n">technical_requirements</span><span class="p">):</span>
+    <span class="n">adr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_adr</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Almacenamiento de Sesiones en MySQL&quot;</span><span class="p">,</span>
+        <span class="n">decision</span><span class="o">=</span><span class="s2">&quot;Usar django.contrib.sessions.backends.db&quot;</span><span class="p">,</span>
+        <span class="n">rationale</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;RNF-002: Redis prohibido&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;MySQL ya disponible&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Cumple performance requirements&quot;</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">adrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adr</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="no-email">
+<h3>NO Email<a class="headerlink" href="#no-email" title="Link to this heading">¶</a></h3>
+<p><strong>Validacion en todos los agentes</strong>: - Detecta send_mail, EmailMessage
+en requirements - Recomienda InternalMessage alternativa - Genera codigo
+usando InternalMessage</p>
+</section>
+<section id="no-emojis">
+<h3>NO Emojis<a class="headerlink" href="#no-emojis" title="Link to this heading">¶</a></h3>
+<p><strong>Output format</strong>: - [OK] = Success - [FAIL] = Error - [WARNING] =
+Warning - [INFO] = Info</p>
+<p>Todos los artefactos generados son texto ASCII puro.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SDLC Process: docs/gobernanza/procesos/SDLC_PROCESS.md</p></li>
+<li><p>DevOps Automation: docs/gobernanza/procesos/DEVOPS_AUTOMATION.md</p></li>
+<li><p>Base Classes: scripts/ai/agents/sdlc_base.py</p></li>
+<li><p>CLI: scripts/sdlc_agent.py</p></li>
+<li><p>RNF-002: docs/backend/requisitos/restricciones_y_lineamientos.md</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Version</strong>: 1.0 <strong>Fecha</strong>: 2025-11-06 <strong>Autor</strong>: SDLCOrchestratorAgent</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Agentes SDLC - Documentacion Completa</a><ul>
+<li><a class="reference internal" href="#indice">Indice</a></li>
+<li><a class="reference internal" href="#arquitectura-de-agentes">Arquitectura de Agentes</a><ul>
+<li><a class="reference internal" href="#ubicacion">Ubicacion</a></li>
+<li><a class="reference internal" href="#patron-de-diseno">Patron de Diseno</a></li>
+<li><a class="reference internal" href="#flujo-de-datos">Flujo de Datos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#agentes-implementados">Agentes Implementados</a><ul>
+<li><a class="reference internal" href="#sdlcplanneragent">1. SDLCPlannerAgent</a></li>
+<li><a class="reference internal" href="#sdlcfeasibilityagent">2. SDLCFeasibilityAgent</a></li>
+<li><a class="reference internal" href="#sdlcdesignagent">3. SDLCDesignAgent</a></li>
+<li><a class="reference internal" href="#sdlctestingagent">4. SDLCTestingAgent</a></li>
+<li><a class="reference internal" href="#sdlcdeploymentagent">5. SDLCDeploymentAgent</a></li>
+<li><a class="reference internal" href="#sdlcorchestratoragent">6. SDLCOrchestratorAgent</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uso-y-ejemplos">Uso y Ejemplos</a><ul>
+<li><a class="reference internal" href="#cli-scripts-sdlc-agent-py">CLI: scripts/sdlc_agent.py</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-dark-mode-feature">Ejemplo Completo: Dark Mode Feature</a><ul>
+<li><a class="reference internal" href="#step-1-planning">Step 1: Planning</a></li>
+<li><a class="reference internal" href="#step-2-feasibility">Step 2: Feasibility</a></li>
+<li><a class="reference internal" href="#step-3-design">Step 3: Design</a></li>
+<li><a class="reference internal" href="#step-4-implementation">Step 4: Implementation</a></li>
+<li><a class="reference internal" href="#step-5-testing">Step 5: Testing</a></li>
+<li><a class="reference internal" href="#step-6-deployment">Step 6: Deployment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pipeline-completo">Pipeline Completo</a><ul>
+<li><a class="reference internal" href="#pipeline-automatico">Pipeline Automatico</a></li>
+<li><a class="reference internal" href="#early-stop-example">Early Stop Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#restricciones-iact">Restricciones IACT</a><ul>
+<li><a class="reference internal" href="#rnf-002-no-redis">RNF-002: NO Redis</a></li>
+<li><a class="reference internal" href="#sesiones-en-mysql">Sesiones en MySQL</a></li>
+<li><a class="reference internal" href="#no-email">NO Email</a></li>
+<li><a class="reference internal" href="#no-emojis">NO Emojis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

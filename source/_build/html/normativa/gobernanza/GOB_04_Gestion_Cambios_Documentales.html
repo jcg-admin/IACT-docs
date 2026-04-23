@@ -1,0 +1,1353 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="GOB_04" name="artefacto" />
+<meta content="Proceso" name="tipo" />
+<meta content="normativa" name="dominio" />
+<meta content="gobernanza" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.0.0" name="version" />
+<meta content="2025-12-22" name="fecha_creacion" />
+<meta content="2025-12-22" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="next" title="Gobernanza Documental" href="GOB_05_Control_Versiones.html"><link rel="prev" title="GOB_03: Control de Calidad Documental" href="GOB_03_Control_Calidad_Documental.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>GOB_04: Gestion de Cambios Documentales - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="gob-04-gestion-de-cambios-documentales">
+<span id="gob-04"></span><h1>GOB_04: Gestion de Cambios Documentales<a class="headerlink" href="#gob-04-gestion-de-cambios-documentales" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
+<li><p><a class="reference internal" href="#principios-de-gestion-de-cambios" id="id2">1. Principios de Gestion de Cambios</a></p>
+<ul>
+<li><p><a class="reference internal" href="#filosofia-del-cambio-controlado" id="id3">1.1 Filosofia del Cambio Controlado</a></p></li>
+<li><p><a class="reference internal" href="#objetivos-del-control-de-cambios" id="id4">1.2 Objetivos del Control de Cambios</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tipos-de-cambio" id="id5">2. Tipos de Cambio</a></p>
+<ul>
+<li><p><a class="reference internal" href="#clasificacion-por-impacto" id="id6">2.1 Clasificacion por Impacto</a></p></li>
+<li><p><a class="reference internal" href="#matriz-de-decision-de-tipo" id="id7">2.2 Matriz de Decision de Tipo</a></p></li>
+<li><p><a class="reference internal" href="#ejemplos-por-tipo" id="id8">2.3 Ejemplos por Tipo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#proceso-de-solicitud-de-cambio" id="id9">3. Proceso de Solicitud de Cambio</a></p>
+<ul>
+<li><p><a class="reference internal" href="#flujo-general" id="id10">3.1 Flujo General</a></p></li>
+<li><p><a class="reference internal" href="#paso-1-documentar-solicitud" id="id11">3.2 Paso 1: Documentar Solicitud</a></p></li>
+<li><p><a class="reference internal" href="#paso-2-analisis-de-impacto" id="id12">3.3 Paso 2: Analisis de Impacto</a></p></li>
+<li><p><a class="reference internal" href="#paso-3-aprobacion" id="id13">3.4 Paso 3: Aprobacion</a></p></li>
+<li><p><a class="reference internal" href="#paso-4-implementacion" id="id14">3.5 Paso 4: Implementacion</a></p></li>
+<li><p><a class="reference internal" href="#paso-5-verificacion-y-cierre" id="id15">3.6 Paso 5: Verificacion y Cierre</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cambios-de-emergencia" id="id16">4. Cambios de Emergencia</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definicion-de-emergencia" id="id17">4.1 Definicion de Emergencia</a></p></li>
+<li><p><a class="reference internal" href="#proceso-abreviado" id="id18">4.2 Proceso Abreviado</a></p></li>
+<li><p><a class="reference internal" href="#registro-de-emergencia" id="id19">4.3 Registro de Emergencia</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#rechazo-de-cambios" id="id20">5. Rechazo de Cambios</a></p>
+<ul>
+<li><p><a class="reference internal" href="#motivos-validos-de-rechazo" id="id21">5.1 Motivos Validos de Rechazo</a></p></li>
+<li><p><a class="reference internal" href="#comunicacion-del-rechazo" id="id22">5.2 Comunicacion del Rechazo</a></p></li>
+<li><p><a class="reference internal" href="#proceso-de-apelacion" id="id23">5.3 Proceso de Apelacion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#registro-y-auditoria" id="id24">6. Registro y Auditoria</a></p>
+<ul>
+<li><p><a class="reference internal" href="#registro-en-historial-del-artefacto" id="id25">6.1 Registro en Historial del Artefacto</a></p></li>
+<li><p><a class="reference internal" href="#registro-centralizado-de-rfcs" id="id26">6.2 Registro Centralizado de RFCs</a></p></li>
+<li><p><a class="reference internal" href="#metricas-de-gestion-de-cambios" id="id27">6.3 Metricas de Gestion de Cambios</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#casos-especiales" id="id28">7. Casos Especiales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cambio-que-afecta-trazabilidad" id="id29">7.1 Cambio que Afecta Trazabilidad</a></p></li>
+<li><p><a class="reference internal" href="#cambio-en-artefacto-referenciado-por-muchos" id="id30">7.2 Cambio en Artefacto Referenciado por Muchos</a></p></li>
+<li><p><a class="reference internal" href="#reversion-de-cambio-rollback" id="id31">7.3 Reversion de Cambio (Rollback)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#responsabilidades" id="id32">8. Responsabilidades</a></p>
+<ul>
+<li><p><a class="reference internal" href="#matriz-raci-para-gestion-de-cambios" id="id33">8.1 Matriz RACI para Gestion de Cambios</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencias" id="id34">9. Referencias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#documentos-relacionados" id="id35">Documentos Relacionados</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-externas" id="id36">Fuentes Externas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id37">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento define el <strong>proceso de gestion de cambios</strong> para artefactos
+documentales ya aprobados en el sistema IACT, estableciendo los pasos,
+aprobaciones y registros necesarios para modificar documentacion oficial.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>Pregunta Clave que Responde:</strong></p>
+<p>&quot;¿Como modifico un documento que ya esta aprobado?&quot;</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="principios-de-gestion-de-cambios">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Principios de Gestion de Cambios</a><a class="headerlink" href="#principios-de-gestion-de-cambios" title="Link to this heading">¶</a></h2>
+<section id="filosofia-del-cambio-controlado">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Filosofia del Cambio Controlado</a><a class="headerlink" href="#filosofia-del-cambio-controlado" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRINCIPIO: Todo cambio a documentacion aprobada debe ser:
+
+- JUSTIFICADO   : Tiene una razon valida
+- EVALUADO      : Se analiza su impacto
+- APROBADO      : Por la autoridad competente
+- REGISTRADO    : En el historial del artefacto
+- COMUNICADO    : A los interesados
+</pre></div>
+</div>
+</section>
+<section id="objetivos-del-control-de-cambios">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Objetivos del Control de Cambios</a><a class="headerlink" href="#objetivos-del-control-de-cambios" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Mantener integridad de la documentacion aprobada</p></li>
+<li><p>Prevenir cambios no autorizados</p></li>
+<li><p>Preservar trazabilidad historica</p></li>
+<li><p>Facilitar auditoria de modificaciones</p></li>
+<li><p>Cumplir con ISO 9001 (control de documentos)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tipos-de-cambio">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Tipos de Cambio</a><a class="headerlink" href="#tipos-de-cambio" title="Link to this heading">¶</a></h2>
+<section id="clasificacion-por-impacto">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Clasificacion por Impacto</a><a class="headerlink" href="#clasificacion-por-impacto" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>Ejemplos</p></th>
+<th class="head"><p>Aprobacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>MENOR</strong></p></td>
+<td><p>Correccion sin cambio de significado</p></td>
+<td><p>Typos, formato, enlaces rotos</p></td>
+<td><p>Autor directo</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODERADO</strong></p></td>
+<td><p>Nuevo contenido o modificacion parcial</p></td>
+<td><p>Nueva seccion, nuevos ejemplos, clarificaciones</p></td>
+<td><p>Owner subdominio</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>MAYOR</strong></p></td>
+<td><p>Cambio estructural o de proposito</p></td>
+<td><p>Reorganizacion, cambio de alcance, fusion/division</p></td>
+<td><p>Owner dominio + PMO</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CRITICO</strong></p></td>
+<td><p>Afecta multiples artefactos o dominios</p></td>
+<td><p>Cambio de nomenclatura, reestructuracion masiva</p></td>
+<td><p>PMO + Sponsor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="matriz-de-decision-de-tipo">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Matriz de Decision de Tipo</a><a class="headerlink" href="#matriz-de-decision-de-tipo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>¿El cambio modifica el SIGNIFICADO?
+    │
+    ├── NO ──► ¿Solo corrige errores obvios?
+    │              │
+    │              ├── SI ──► MENOR (PATCH)
+    │              │
+    │              └── NO ──► MODERADO (MINOR)
+    │
+    └── SI ──► ¿Cambia estructura o proposito?
+                   │
+                   ├── NO ──► MODERADO (MINOR)
+                   │
+                   └── SI ──► ¿Afecta otros artefactos?
+                                  │
+                                  ├── NO ──► MAYOR (MAJOR)
+                                  │
+                                  └── SI ──► CRITICO
+</pre></div>
+</div>
+</section>
+<section id="ejemplos-por-tipo">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Ejemplos por Tipo</a><a class="headerlink" href="#ejemplos-por-tipo" title="Link to this heading">¶</a></h3>
+<p><strong>Cambio MENOR:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Corregir &quot;usuairo&quot; por &quot;usuario&quot;
+- Arreglar enlace roto :ref:`gob-02`
+- Mejorar indentacion de codigo
+- Actualizar fecha en referencia externa
+</pre></div>
+</div>
+<p><strong>Cambio MODERADO:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Agregar seccion de &quot;Casos Especiales&quot;
+- Incluir 5 nuevos ejemplos
+- Expandir descripcion de un proceso
+- Agregar diagrama explicativo
+- Clarificar ambiguedad reportada
+</pre></div>
+</div>
+<p><strong>Cambio MAYOR:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Cambiar estructura de 5 a 8 secciones
+- Modificar proposito del artefacto
+- Eliminar seccion completa
+- Cambiar nomenclatura de IDs internos
+</pre></div>
+</div>
+<p><strong>Cambio CRITICO:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Renombrar prefijo BR_ a BRL_
+- Fusionar dos subdominios
+- Cambiar jerarquia de dominios
+- Modificar esquema de versionado
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="proceso-de-solicitud-de-cambio">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Proceso de Solicitud de Cambio</a><a class="headerlink" href="#proceso-de-solicitud-de-cambio" title="Link to this heading">¶</a></h2>
+<section id="flujo-general">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Flujo General</a><a class="headerlink" href="#flujo-general" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌──────────────┐
+│  SOLICITANTE │
+│   (Detecta   │
+│   necesidad) │
+└──────┬───────┘
+       │
+       │ 1. Documenta solicitud
+       ▼
+┌──────────────┐
+│  SOLICITUD   │
+│  DE CAMBIO   │
+│   (RFC)      │
+└──────┬───────┘
+       │
+       │ 2. Evalua impacto
+       ▼
+┌──────────────┐
+│   ANALISIS   │
+│  DE IMPACTO  │
+└──────┬───────┘
+       │
+       │ 3. Determina tipo y aprobador
+       ▼
+┌──────────────┐      ┌──────────────┐
+│  APROBACION  │◄─────│  RECHAZO     │
+│              │      │  (Justificado)│
+└──────┬───────┘      └──────────────┘
+       │
+       │ 4. Implementa cambio
+       ▼
+┌──────────────┐
+│IMPLEMENTACION│
+│  (Autor)     │
+└──────┬───────┘
+       │
+       │ 5. Verifica y cierra
+       ▼
+┌──────────────┐
+│ VERIFICACION │
+│  Y CIERRE    │
+└──────────────┘
+</pre></div>
+</div>
+</section>
+<section id="paso-1-documentar-solicitud">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Paso 1: Documentar Solicitud</a><a class="headerlink" href="#paso-1-documentar-solicitud" title="Link to this heading">¶</a></h3>
+<p>El solicitante debe completar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SOLICITUD DE CAMBIO DOCUMENTAL (RFC)
+====================================
+
+Fecha: YYYY-MM-DD
+Solicitante: [nombre]
+
+ARTEFACTO AFECTADO:
+- ID: [ej: GOB_02]
+- Version actual: [ej: 1.2.0]
+- Ubicacion: [ruta completa]
+
+DESCRIPCION DEL CAMBIO:
+[Descripcion clara y especifica de que se quiere cambiar]
+
+JUSTIFICACION:
+[Por que es necesario este cambio]
+
+TIPO PROPUESTO:
+[ ] MENOR    [ ] MODERADO    [ ] MAYOR    [ ] CRITICO
+
+URGENCIA:
+[ ] Alta (&lt; 24h)    [ ] Media (&lt; 72h)    [ ] Baja (&lt; 1 semana)
+
+ARTEFACTOS RELACIONADOS:
+[Lista de otros artefactos que podrian verse afectados]
+</pre></div>
+</div>
+</section>
+<section id="paso-2-analisis-de-impacto">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Paso 2: Analisis de Impacto</a><a class="headerlink" href="#paso-2-analisis-de-impacto" title="Link to this heading">¶</a></h3>
+<p>El Owner o Arquitecto evalua:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ANALISIS DE IMPACTO
+===================
+
+RFC: [referencia]
+Evaluador: [nombre]
+Fecha: YYYY-MM-DD
+
+1. IMPACTO EN TRAZABILIDAD:
+   [ ] No afecta trazabilidad
+   [ ] Requiere actualizar RTM
+   [ ] Rompe enlaces existentes (listar cuales)
+
+2. ARTEFACTOS AFECTADOS:
+   - [ID_1]: [tipo de impacto]
+   - [ID_2]: [tipo de impacto]
+
+3. ESFUERZO ESTIMADO:
+   [ ] Bajo (&lt; 1 hora)
+   [ ] Medio (1-4 horas)
+   [ ] Alto (&gt; 4 horas)
+
+4. RIESGOS IDENTIFICADOS:
+   - [riesgo 1]
+   - [riesgo 2]
+
+5. TIPO CONFIRMADO:
+   [ ] MENOR    [ ] MODERADO    [ ] MAYOR    [ ] CRITICO
+
+6. RECOMENDACION:
+   [ ] APROBAR    [ ] RECHAZAR    [ ] DIFERIR
+
+JUSTIFICACION:
+[Explicacion de la recomendacion]
+</pre></div>
+</div>
+</section>
+<section id="paso-3-aprobacion">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.4 Paso 3: Aprobacion</a><a class="headerlink" href="#paso-3-aprobacion" title="Link to this heading">¶</a></h3>
+<p>Segun tipo de cambio:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Aprobador</p></th>
+<th class="head"><p>Proceso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MENOR</p></td>
+<td><p>Autor</p></td>
+<td><p>Autoservicio, solo registrar en historial</p></td>
+</tr>
+<tr class="row-odd"><td><p>MODERADO</p></td>
+<td><p>Owner Subdominio</p></td>
+<td><p>Revisar RFC + Impacto, aprobar via buzon interno</p></td>
+</tr>
+<tr class="row-even"><td><p>MAYOR</p></td>
+<td><p>Owner Dominio + PMO</p></td>
+<td><p>Revisar RFC + Impacto, reunion si necesario</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRITICO</p></td>
+<td><p>PMO + Sponsor</p></td>
+<td><p>Presentacion formal, acta de decision</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Formato de Aprobacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APROBACION DE CAMBIO
+====================
+
+RFC: [referencia]
+Fecha: YYYY-MM-DD
+
+DECISION: [ ] APROBADO    [ ] RECHAZADO    [ ] DIFERIDO
+
+APROBADORES:
+- [Nombre 1]: [Rol] - [Firma/Confirmacion]
+- [Nombre 2]: [Rol] - [Firma/Confirmacion]
+
+CONDICIONES (si aplica):
+[Condiciones especiales para la implementacion]
+
+FECHA LIMITE IMPLEMENTACION: YYYY-MM-DD
+</pre></div>
+</div>
+</section>
+<section id="paso-4-implementacion">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.5 Paso 4: Implementacion</a><a class="headerlink" href="#paso-4-implementacion" title="Link to this heading">¶</a></h3>
+<p>El autor implementa el cambio:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CHECKLIST DE IMPLEMENTACION:
+
+[ ] Crear copia de respaldo del artefacto actual
+[ ] Aplicar cambios segun RFC aprobado
+[ ] Actualizar campo :version: segun GOB_05
+[ ] Actualizar campo :ultimo_cambio:
+[ ] Agregar entrada en Historial de Cambios
+[ ] Verificar compilacion Sphinx sin errores
+[ ] Verificar enlaces internos
+[ ] Actualizar artefactos relacionados (si aplica)
+</pre></div>
+</div>
+</section>
+<section id="paso-5-verificacion-y-cierre">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.6 Paso 5: Verificacion y Cierre</a><a class="headerlink" href="#paso-5-verificacion-y-cierre" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>VERIFICACION DE CAMBIO
+======================
+
+RFC: [referencia]
+Verificador: [nombre - diferente al autor]
+Fecha: YYYY-MM-DD
+
+VERIFICACIONES:
+[ ] Cambio implementado segun RFC
+[ ] Version incrementada correctamente
+[ ] Historial actualizado
+[ ] Sphinx compila sin errores
+[ ] Enlaces funcionan
+[ ] Artefactos relacionados actualizados
+
+RESULTADO: [ ] CONFORME    [ ] NO CONFORME
+
+OBSERVACIONES:
+[Si no conforme, detallar que falta]
+
+CIERRE:
+[ ] RFC cerrado exitosamente
+Fecha cierre: YYYY-MM-DD
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="cambios-de-emergencia">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">4. Cambios de Emergencia</a><a class="headerlink" href="#cambios-de-emergencia" title="Link to this heading">¶</a></h2>
+<section id="definicion-de-emergencia">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.1 Definicion de Emergencia</a><a class="headerlink" href="#definicion-de-emergencia" title="Link to this heading">¶</a></h3>
+<p>Un cambio de emergencia aplica cuando:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CRITERIOS DE EMERGENCIA:
+
+- Error critico que impide uso del sistema
+- Informacion incorrecta que causa confusion grave
+- Vulnerabilidad de seguridad documentada
+- Requisito legal/regulatorio inmediato
+- Bloqueo de proceso critico de negocio
+</pre></div>
+</div>
+</section>
+<section id="proceso-abreviado">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.2 Proceso Abreviado</a><a class="headerlink" href="#proceso-abreviado" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CAMBIO DE EMERGENCIA - Proceso Express
+======================================
+
+1. Notificar a PMO inmediatamente (buzon interno urgente)
+
+2. Documentar minimo:
+   - Artefacto afectado
+   - Descripcion del problema
+   - Cambio propuesto
+   - Justificacion de urgencia
+
+3. Aprobacion verbal de PMO o Owner disponible
+
+4. Implementar cambio
+
+5. Documentar RFC completo dentro de 24 horas
+
+6. Validacion post-implementacion obligatoria
+</pre></div>
+</div>
+</section>
+<section id="registro-de-emergencia">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.3 Registro de Emergencia</a><a class="headerlink" href="#registro-de-emergencia" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGISTRO DE CAMBIO DE EMERGENCIA
+================================
+
+Fecha/Hora: YYYY-MM-DD HH:MM
+Solicitante: [nombre]
+
+ARTEFACTO: [ID]
+
+PROBLEMA DETECTADO:
+[Descripcion breve del problema critico]
+
+CAMBIO APLICADO:
+[Que se cambio]
+
+APROBACION VERBAL:
+- Otorgada por: [nombre]
+- Fecha/Hora: [timestamp]
+
+DOCUMENTACION COMPLETA:
+[ ] Pendiente - Fecha limite: [fecha]
+[ ] Completada - RFC: [referencia]
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="rechazo-de-cambios">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">5. Rechazo de Cambios</a><a class="headerlink" href="#rechazo-de-cambios" title="Link to this heading">¶</a></h2>
+<section id="motivos-validos-de-rechazo">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.1 Motivos Validos de Rechazo</a><a class="headerlink" href="#motivos-validos-de-rechazo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MOTIVOS PARA RECHAZAR UN CAMBIO:
+
+- No tiene justificacion suficiente
+- Impacto negativo mayor que beneficio
+- Rompe trazabilidad sin solucion viable
+- Contradice politicas de gobernanza
+- Recursos insuficientes para implementar
+- Timing inadecuado (ej: cerca de release)
+- Ya existe otro RFC para el mismo cambio
+</pre></div>
+</div>
+</section>
+<section id="comunicacion-del-rechazo">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.2 Comunicacion del Rechazo</a><a class="headerlink" href="#comunicacion-del-rechazo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NOTIFICACION DE RECHAZO
+=======================
+
+RFC: [referencia]
+Fecha: YYYY-MM-DD
+
+Estimado [solicitante],
+
+Su solicitud de cambio ha sido RECHAZADA.
+
+MOTIVO:
+[Explicacion clara y respetuosa del rechazo]
+
+ALTERNATIVAS SUGERIDAS:
+[Si aplica, sugerir opciones alternativas]
+
+APELACION:
+Si considera que esta decision debe reconsiderarse,
+puede escalar a [siguiente nivel] dentro de [plazo].
+
+Atentamente,
+[Aprobador]
+</pre></div>
+</div>
+</section>
+<section id="proceso-de-apelacion">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.3 Proceso de Apelacion</a><a class="headerlink" href="#proceso-de-apelacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APELACION (si el solicitante no esta de acuerdo):
+
+1. Enviar apelacion escrita dentro de 5 dias habiles
+
+2. Incluir:
+   - RFC original
+   - Motivo del rechazo
+   - Argumentos para reconsiderar
+   - Nueva informacion (si existe)
+
+3. Escalamiento:
+   - Si rechazo fue de Owner Subdominio → Owner Dominio
+   - Si rechazo fue de Owner Dominio → PMO
+   - Si rechazo fue de PMO → Sponsor (ultima instancia)
+
+4. Decision de apelacion es FINAL
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="registro-y-auditoria">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">6. Registro y Auditoria</a><a class="headerlink" href="#registro-y-auditoria" title="Link to this heading">¶</a></h2>
+<section id="registro-en-historial-del-artefacto">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">6.1 Registro en Historial del Artefacto</a><a class="headerlink" href="#registro-en-historial-del-artefacto" title="Link to this heading">¶</a></h3>
+<p>Todo cambio aprobado debe registrarse:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Historial de Cambios</span>
+<span class="gh">--------------------</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:header-rows:</span> 1
+   <span class="nc">:widths:</span> 15 15 20 50
+
+   <span class="m">*</span> - Version
+     <span class="m">-</span> Fecha
+     <span class="m">-</span> Autor
+     <span class="m">-</span> Cambios
+   <span class="m">*</span> - 1.2.0
+     <span class="m">-</span> 2025-12-22
+     <span class="m">-</span> J. Perez
+     <span class="m">-</span> RFC-045: Agregada seccion 5 sobre casos especiales.
+       Aprobado por M. Garcia (Owner).
+   <span class="m">*</span> - 1.1.1
+     <span class="m">-</span> 2025-12-20
+     <span class="m">-</span> A. Lopez
+     <span class="m">-</span> Corregidos typos en seccion 3 (cambio menor).
+</pre></div>
+</div>
+</section>
+<section id="registro-centralizado-de-rfcs">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">6.2 Registro Centralizado de RFCs</a><a class="headerlink" href="#registro-centralizado-de-rfcs" title="Link to this heading">¶</a></h3>
+<p>Mantener registro de todas las solicitudes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGISTRO DE RFCs - {AÑO}
+========================
+
+| RFC   | Fecha    | Artefacto | Tipo     | Estado    | Aprobador |
+|-------|----------|-----------|----------|-----------|-----------|
+| RFC-001| 2025-01-15| GOB_02   | MODERADO | Cerrado   | M. Garcia |
+| RFC-002| 2025-01-20| BR_015   | MENOR    | Cerrado   | Auto      |
+| RFC-003| 2025-02-01| UC_010   | MAYOR    | En proceso| Pendiente |
+| RFC-004| 2025-02-05| FND_03   | MODERADO | Rechazado | A. Lopez  |
+</pre></div>
+</div>
+</section>
+<section id="metricas-de-gestion-de-cambios">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">6.3 Metricas de Gestion de Cambios</a><a class="headerlink" href="#metricas-de-gestion-de-cambios" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metrica</p></th>
+<th class="head"><p>Formula</p></th>
+<th class="head"><p>Meta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tiempo promedio de aprobacion</p></td>
+<td><p>Suma tiempos / Total RFCs</p></td>
+<td><p>&lt; 48 horas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tasa de aprobacion</p></td>
+<td><p>Aprobados / Total RFCs</p></td>
+<td><p>&gt; 80%</p></td>
+</tr>
+<tr class="row-even"><td><p>Cambios de emergencia</p></td>
+<td><p>Emergencias / Total cambios</p></td>
+<td><p>&lt; 5%</p></td>
+</tr>
+<tr class="row-odd"><td><p>RFCs con documentacion completa</p></td>
+<td><p>Completos / Total RFCs</p></td>
+<td><p>100%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="casos-especiales">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">7. Casos Especiales</a><a class="headerlink" href="#casos-especiales" title="Link to this heading">¶</a></h2>
+<section id="cambio-que-afecta-trazabilidad">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">7.1 Cambio que Afecta Trazabilidad</a><a class="headerlink" href="#cambio-que-afecta-trazabilidad" title="Link to this heading">¶</a></h3>
+<p>Si el cambio rompe enlaces de trazabilidad:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO ADICIONAL:
+
+1. Identificar todos los artefactos afectados
+
+2. Planificar actualizacion de RTM
+
+3. Incluir en RFC:
+   - Lista de enlaces a actualizar
+   - Responsable de cada actualizacion
+   - Cronograma de actualizacion
+
+4. No cerrar RFC hasta que TODOS los enlaces
+   esten actualizados y verificados
+</pre></div>
+</div>
+</section>
+<section id="cambio-en-artefacto-referenciado-por-muchos">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">7.2 Cambio en Artefacto Referenciado por Muchos</a><a class="headerlink" href="#cambio-en-artefacto-referenciado-por-muchos" title="Link to this heading">¶</a></h3>
+<p>Si el artefacto es referenciado por &gt; 10 artefactos:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO ADICIONAL:
+
+1. Generar lista de artefactos que referencian
+
+2. Evaluar impacto en cada uno
+
+3. Notificar a todos los Owners afectados
+
+4. Considerar periodo de transicion:
+   - Mantener version anterior disponible
+   - Deprecar gradualmente
+   - Comunicar cronograma
+</pre></div>
+</div>
+</section>
+<section id="reversion-de-cambio-rollback">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.3 Reversion de Cambio (Rollback)</a><a class="headerlink" href="#reversion-de-cambio-rollback" title="Link to this heading">¶</a></h3>
+<p>Si un cambio aprobado causa problemas:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO DE ROLLBACK:
+
+1. Documentar problema causado por el cambio
+
+2. Crear nuevo RFC para reversion
+   - Tipo: Segun impacto de la reversion
+   - Justificacion: Problema causado
+
+3. Implementar reversion:
+   - NO decrementar version
+   - Crear nueva version con contenido anterior
+   - Documentar: &quot;Revertido a contenido de vX.Y.Z&quot;
+
+4. Analizar causa raiz del problema
+
+5. Documentar lecciones aprendidas
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="responsabilidades">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">8. Responsabilidades</a><a class="headerlink" href="#responsabilidades" title="Link to this heading">¶</a></h2>
+<section id="matriz-raci-para-gestion-de-cambios">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">8.1 Matriz RACI para Gestion de Cambios</a><a class="headerlink" href="#matriz-raci-para-gestion-de-cambios" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Actividad</p></th>
+<th class="head"><p>Solicit.</p></th>
+<th class="head"><p>Owner Sub</p></th>
+<th class="head"><p>Owner Dom</p></th>
+<th class="head"><p>PMO</p></th>
+<th class="head"><p>Autor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crear RFC</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Analizar impacto</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p>Aprobar MENOR</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>R/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aprobar MODERADO</p></td>
+<td><p>I</p></td>
+<td><p>R/A</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Aprobar MAYOR</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>R/A</p></td>
+<td><p>A</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aprobar CRITICO</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>C</p></td>
+<td><p>R/A</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Implementar cambio</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>R</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verificar cambio</p></td>
+<td><p>I</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="documentos-relacionados">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html#gob-01"><span class="std std-ref">GOB_01: Modelo de Gobernanza IACT</span></a> - Modelo de Gobernanza IACT</p></li>
+<li><p><a class="reference internal" href="GOB_02_Roles_y_RACI.html#gob-02"><span class="std std-ref">GOB_02: Roles y Matriz RACI</span></a> - Roles y Matriz RACI</p></li>
+<li><p><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html#gob-03"><span class="std std-ref">GOB_03: Control de Calidad Documental</span></a> - Control de Calidad Documental</p></li>
+<li><p><span class="xref std std-ref">gob-05</span> - Control de Versiones</p></li>
+</ul>
+</section>
+<section id="fuentes-externas">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>ISO 9001:2015 - Control de Documentos</p></li>
+<li><p>ITIL - Change Management</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-12-22</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial. Tipos de cambio (MENOR/MODERADO/MAYOR/CRITICO). Proceso de 5 pasos. Cambios de emergencia. Rechazo y apelacion. Registro y auditoria.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Trazabilidad:</strong> Este artefacto define el proceso para modificar cualquier
+artefacto aprobado del sistema documental IACT. Es referenciado cuando se
+requiere cambiar documentacion oficial. Las versiones resultantes se gestionan
+segun <span class="xref std std-ref">gob-05</span>.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">GOB_04: Gestion de Cambios Documentales</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#principios-de-gestion-de-cambios">1. Principios de Gestion de Cambios</a><ul>
+<li><a class="reference internal" href="#filosofia-del-cambio-controlado">1.1 Filosofia del Cambio Controlado</a></li>
+<li><a class="reference internal" href="#objetivos-del-control-de-cambios">1.2 Objetivos del Control de Cambios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tipos-de-cambio">2. Tipos de Cambio</a><ul>
+<li><a class="reference internal" href="#clasificacion-por-impacto">2.1 Clasificacion por Impacto</a></li>
+<li><a class="reference internal" href="#matriz-de-decision-de-tipo">2.2 Matriz de Decision de Tipo</a></li>
+<li><a class="reference internal" href="#ejemplos-por-tipo">2.3 Ejemplos por Tipo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#proceso-de-solicitud-de-cambio">3. Proceso de Solicitud de Cambio</a><ul>
+<li><a class="reference internal" href="#flujo-general">3.1 Flujo General</a></li>
+<li><a class="reference internal" href="#paso-1-documentar-solicitud">3.2 Paso 1: Documentar Solicitud</a></li>
+<li><a class="reference internal" href="#paso-2-analisis-de-impacto">3.3 Paso 2: Analisis de Impacto</a></li>
+<li><a class="reference internal" href="#paso-3-aprobacion">3.4 Paso 3: Aprobacion</a></li>
+<li><a class="reference internal" href="#paso-4-implementacion">3.5 Paso 4: Implementacion</a></li>
+<li><a class="reference internal" href="#paso-5-verificacion-y-cierre">3.6 Paso 5: Verificacion y Cierre</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cambios-de-emergencia">4. Cambios de Emergencia</a><ul>
+<li><a class="reference internal" href="#definicion-de-emergencia">4.1 Definicion de Emergencia</a></li>
+<li><a class="reference internal" href="#proceso-abreviado">4.2 Proceso Abreviado</a></li>
+<li><a class="reference internal" href="#registro-de-emergencia">4.3 Registro de Emergencia</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rechazo-de-cambios">5. Rechazo de Cambios</a><ul>
+<li><a class="reference internal" href="#motivos-validos-de-rechazo">5.1 Motivos Validos de Rechazo</a></li>
+<li><a class="reference internal" href="#comunicacion-del-rechazo">5.2 Comunicacion del Rechazo</a></li>
+<li><a class="reference internal" href="#proceso-de-apelacion">5.3 Proceso de Apelacion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#registro-y-auditoria">6. Registro y Auditoria</a><ul>
+<li><a class="reference internal" href="#registro-en-historial-del-artefacto">6.1 Registro en Historial del Artefacto</a></li>
+<li><a class="reference internal" href="#registro-centralizado-de-rfcs">6.2 Registro Centralizado de RFCs</a></li>
+<li><a class="reference internal" href="#metricas-de-gestion-de-cambios">6.3 Metricas de Gestion de Cambios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#casos-especiales">7. Casos Especiales</a><ul>
+<li><a class="reference internal" href="#cambio-que-afecta-trazabilidad">7.1 Cambio que Afecta Trazabilidad</a></li>
+<li><a class="reference internal" href="#cambio-en-artefacto-referenciado-por-muchos">7.2 Cambio en Artefacto Referenciado por Muchos</a></li>
+<li><a class="reference internal" href="#reversion-de-cambio-rollback">7.3 Reversion de Cambio (Rollback)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#responsabilidades">8. Responsabilidades</a><ul>
+<li><a class="reference internal" href="#matriz-raci-para-gestion-de-cambios">8.1 Matriz RACI para Gestion de Cambios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">9. Referencias</a><ul>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#fuentes-externas">Fuentes Externas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

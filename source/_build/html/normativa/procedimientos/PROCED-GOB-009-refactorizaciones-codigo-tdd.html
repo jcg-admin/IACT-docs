@@ -1,0 +1,1507 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCED-GOB-009: Procedimiento para Refactorizaciones de Código con TDD - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proced-gob-009-procedimiento-para-refactorizaciones-de-codigo-con-tdd">
+<h1>PROCED-GOB-009: Procedimiento para Refactorizaciones de Código con TDD<a class="headerlink" href="#proced-gob-009-procedimiento-para-refactorizaciones-de-codigo-con-tdd" title="Link to this heading">¶</a></h1>
+<section id="proposito">
+<h2>1. Propósito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Establecer un proceso estandarizado para ejecutar refactorizaciones de
+código usando metodologia Test-Driven Development (TDD), garantizando
+zero regresiones funcionales y manteniendo calidad del código.</p>
+</section>
+<section id="alcance">
+<h2>2. Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<p><strong>Aplica a:</strong> - Refactorizaciones de calidad (mejoras sin cambio
+funcional) - Modernizacion de sintaxis (PEP 585, ES6+, etc.) -
+Extraccion de constantes y eliminacion de magic numbers - Reorganizacion
+de código sin cambio de comportamiento</p>
+<p><strong>NO aplica a:</strong> - Nuevas funcionalidades (usar proceso de desarrollo
+normal) - Cambios breaking que modifican APIs publicas - Hotfixes
+urgentes de produccion</p>
+</section>
+<section id="roles-y-responsabilidades">
+<h2>3. Roles y Responsabilidades<a class="headerlink" href="#roles-y-responsabilidades" title="Link to this heading">¶</a></h2>
+<p><strong>Desarrollador/Agente:</strong> - Ejecutar el procedimiento completo - Generar
+evidencias en cada fase - Ejecutar rollback si es necesario</p>
+<p><strong>Tech Lead:</strong> - Aprobar refactorizaciones propuestas - Revisar analisis
+de impacto</p>
+<p><strong>QA:</strong> - Validar que tests pasan - Verificar evidencias completas</p>
+</section>
+<section id="prerequisitos">
+<h2>4. Prerequisitos<a class="headerlink" href="#prerequisitos" title="Link to this heading">¶</a></h2>
+<p>Antes de iniciar refactorización: - [ ] Tests automatizados existen (o
+crear smoke tests basicos) - [ ] Rama de desarrollo limpia y actualizada
+- [ ] Version de runtime compatible (Python 3.9+, Node 16+, etc.) - [ ]
+Backup strategy definida (tag o branch) - [ ] Commits identificados con
+cambios a aplicar</p>
+</section>
+<section id="estrategia-para-versiones-multiples">
+<h2>4.1. Estrategia para Versiones Multiples<a class="headerlink" href="#estrategia-para-versiones-multiples" title="Link to this heading">¶</a></h2>
+<p>Cuando existan refactorizaciones del mismo tipo en multiples
+commits/versiones, seguir esta matriz de decision:</p>
+<section id="matriz-de-decision">
+<h3>Matriz de Decision<a class="headerlink" href="#matriz-de-decision" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Escenario</p></th>
+<th class="head"><p>Estrategia</p></th>
+<th class="head"><p>Justificacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Versiones
+identicas (mismo
+diff)</p></td>
+<td><p>Aplicar solo la
+mas reciente</p></td>
+<td><p>Evita duplicacion, usa
+version mas validada</p></td>
+</tr>
+<tr class="row-odd"><td><p>Versiones
+compatibles (no
+conflicto)</p></td>
+<td><p>Aplicar ambas
+secuencialmente</p></td>
+<td><p>Acumula mejoras, valida
+cada una con TDD</p></td>
+</tr>
+<tr class="row-even"><td><p>Versiones en
+conflicto (mismo
+codigo)</p></td>
+<td><p>Analisis manual +
+elegir mejor</p></td>
+<td><p>Requiere juicio tecnico,
+documentar decision</p></td>
+</tr>
+<tr class="row-odd"><td><p>Versiones
+incrementales (v1
+&lt; v2 &lt; v3)</p></td>
+<td><p>Aplicar solo
+version final</p></td>
+<td><p>Eficiencia, version final
+incluye mejoras previas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="proceso-de-resolucion">
+<h3>Proceso de Resolucion<a class="headerlink" href="#proceso-de-resolucion" title="Link to this heading">¶</a></h3>
+<p><strong>Paso 1: Identificacion</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparar diffs entre commits</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-1&gt;<span class="w"> </span>--<span class="w"> </span>archivo.py<span class="w"> </span>&gt;<span class="w"> </span>/tmp/diff1.txt
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-2&gt;<span class="w"> </span>--<span class="w"> </span>archivo.py<span class="w"> </span>&gt;<span class="w"> </span>/tmp/diff2.txt
+diff<span class="w"> </span>/tmp/diff1.txt<span class="w"> </span>/tmp/diff2.txt
+</pre></div>
+</div>
+<p><strong>Paso 2: Clasificacion</strong> - Identicos: diff vacio - Compatibles: diff
+muestra cambios en lineas diferentes - Conflicto: diff muestra cambios
+en mismas lineas - Incrementales: version posterior incluye cambios de
+anterior</p>
+<p><strong>Paso 3: Decision Documentada</strong></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Decision sobre Versiones Multiples</span>
+
+<span class="gs">**Commits analizados:**</span>
+<span class="k">-</span><span class="w"> </span>abc1234: [descripcion]
+<span class="k">-</span><span class="w"> </span>def5678: [descripcion]
+
+<span class="gs">**Clasificacion:**</span> [Identicos|Compatibles|Conflicto|Incrementales]
+
+<span class="gs">**Decision:**</span> Aplicar [commit elegido] porque [justificacion]
+
+<span class="gs">**Descartados:**</span> [commits no aplicados] porque [razon]
+</pre></div>
+</div>
+<p><strong>Paso 4: Validacion</strong> - Aplicar commit elegido - Ejecutar TDD completo
+(RED-REFACTOR-GREEN-VALIDATE) - Documentar en analisis por que se
+descartaron otros</p>
+</section>
+<section id="ejemplo-real-qa-refactor-mcp-002">
+<h3>Ejemplo Real (QA-REFACTOR-MCP-002)<a class="headerlink" href="#ejemplo-real-qa-refactor-mcp-002" title="Link to this heading">¶</a></h3>
+<p><strong>Situacion:</strong> 2 commits con extraccion constante PLAYWRIGHT_MCP_VERSION
+- Commit 0d1e1f2 (origin/copilot/sub-pr-216-another-one) - Commit [otro]
+(origin/copilot/sub-pr-216)</p>
+<p><strong>Decision:</strong> Aplicar 0d1e1f2 porque es version mas reciente y validada</p>
+<p><strong>Documentacion:</strong> En ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md seccion
+“Refactorizaciones Pendientes”</p>
+</section>
+</section>
+<section id="fases-del-procedimiento">
+<h2>5. Fases del Procedimiento<a class="headerlink" href="#fases-del-procedimiento" title="Link to this heading">¶</a></h2>
+<section id="fase-1-analisis-60-90-min">
+<h3>FASE 1: ANALISIS (60-90 min)<a class="headerlink" href="#fase-1-analisis-60-90-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Entender cambios y crear plan ejecutable</p>
+<p><strong>Pasos:</strong> 1. Identificar commits con refactorizaciones deseadas 2.
+Analizar impacto: - Archivos afectados - Líneas modificadas - Tipo de
+cambios (imports, tipos, valores) - Riesgos potenciales 3. Crear
+documento ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md con: - Estado actual
+del código - Refactorizaciones pendientes (detalle por commit) -
+Analisis de compatibilidad - Matriz de riesgos - Métricas (lineas,
+archivos, tiempo estimado) 4. Ubicar en:
+docs/ai/refactorizaciones/QA-REFACTOR-XXX-NNN/</p>
+<p><strong>Salidas:</strong> - Documento de analisis completo - Identificacion clara de
+cambios - Matriz de riesgos documentada</p>
+</section>
+<section id="fase-2-planificacion-60-90-min">
+<h3>FASE 2: PLANIFICACION (60-90 min)<a class="headerlink" href="#fase-2-planificacion-60-90-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Crear plan ejecutable con metodologia TDD</p>
+<p><strong>Pasos:</strong> 1. Definir fases del plan (tipicamente 5): - Preparacion -
+Refactorizacion(es) con TDD - Validacion final - Commit y push 2. Crear
+PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md con: - Metodologia TDD
+explicita - Fases y tareas detalladas - Matriz RACI - Dependencias entre
+tareas - Estrategia de rollback - Criterios de exito 3. Desglosar en
+tareas individuales (formato TASK-NNN) 4. Cada tarea debe incluir: -
+Tipo TDD: preparacion|red|refactor|green|validate|commit - Prerequisitos
+- Pasos de ejecucion con comandos bash exactos - Criterios de exito
+medibles - Validaciones especificas - Rollback documentado - Evidencias
+requeridas</p>
+<p><strong>Salidas:</strong> - Plan completo con 10-20 tareas - Todas las tareas en
+carpetas individuales con evidencias/ - Tiempo estimado total</p>
+</section>
+<section id="fase-2-5-creacion-de-tareas-60-120-min">
+<h3>FASE 2.5: CREACION DE TAREAS (60-120 min)<a class="headerlink" href="#fase-2-5-creacion-de-tareas-60-120-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Crear documentacion detallada de cada tarea con comandos
+ejecutables</p>
+<p><strong>Estrategia:</strong> Usar agentes especializados en paralelo (4 agentes
+simultaneos)</p>
+<p><strong>Pasos:</strong> 1. Dividir tareas en 4 grupos balanceados 2. Lanzar 4 agentes
+en paralelo usando Task tool 3. Cada agente crea 3-5 tareas con
+estructura completa 4. Validar que todas las tareas tengan estructura
+consistente 5. Crear INDICE.md con resumen de todas las tareas</p>
+<p><strong>Estructura por tarea (README.md de 200-400 lineas):</strong></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: TASK-NNN
+tipo: [preparacion|red|refactor|green|validate|commit]
+fase: [1-7]
+prerequisitos: [TASK-MMM, ...]
+estimacion: [5-30] minutos
+<span class="gu">prioridad: [alta|media|baja]</span>
+<span class="gu">---</span>
+
+<span class="gh"># TASK-NNN: [Titulo Descriptivo]</span>
+
+<span class="gu">## 1. Objetivo</span>
+
+[Descripcion clara de que se va a lograr]
+
+<span class="gu">## 2. Prerequisitos</span>
+
+<span class="k">- [ ]</span> TASK-MMM completada exitosamente
+<span class="k">- [ ]</span> [Otros prerequisitos tecnicos]
+
+<span class="gu">## 3. Comandos de Ejecucion</span>
+
+<span class="gu">### Paso 1: [Nombre del paso]</span>
+
+bash
+cd /ruta/absoluta/proyecto
+comando --flags argumentos
+
+
+<span class="gu">### Paso 2: [Siguiente paso]</span>
+
+bash
+otro-comando --opcion valor
+
+
+<span class="gu">## 4. Criterios de Exito</span>
+
+<span class="k">- [ ]</span> [Criterio medible 1]
+<span class="k">- [ ]</span> [Criterio medible 2]
+<span class="k">- [ ]</span> [Criterio medible 3]
+
+<span class="gu">## 5. Validaciones</span>
+
+bash
+<span class="gh"># Validacion 1</span>
+comando-validacion | grep &quot;expected output&quot;
+
+<span class="gh"># Validacion 2</span>
+test-command --verify
+
+
+<span class="gu">## 6. Evidencias Requeridas</span>
+
+<span class="k">-</span><span class="w"> </span>evidencias/nombre-archivo.log (captura de comando X)
+<span class="k">-</span><span class="w"> </span>evidencias/resultado-validacion.txt (salida de validacion Y)
+
+<span class="gu">## 7. Rollback en Caso de Fallo</span>
+
+bash
+<span class="gh"># Si falla este paso, ejecutar:</span>
+git reset --hard HEAD
+<span class="gh"># o</span>
+git revert &lt;commit-hash&gt;
+
+
+<span class="gu">## 8. Notas Adicionales</span>
+
+[Observaciones importantes, advertencias, contexto adicional]
+</pre></div>
+</div>
+<p><strong>Tiempo estimado:</strong> - Preparacion de agentes: 5-10 min - Ejecucion
+paralela (4 agentes): 40-80 min - Validacion y ajustes: 15-30 min -
+Total: 60-120 min</p>
+<p><strong>Salidas:</strong> - 10-20 carpetas TASK-NNN-nombre/ con README.md completo -
+Cada tarea lista para ejecutar sin ambiguedad - INDICE.md con navegacion
+rapida</p>
+</section>
+<section id="fase-3-preparacion-10-20-min">
+<h3>FASE 3: PREPARACION (10-20 min)<a class="headerlink" href="#fase-3-preparacion-10-20-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Crear backup y validar estado inicial</p>
+<p><strong>Tareas tipicas:</strong> 1. TASK-001: Crear backup de seguridad (tag o branch
+local) 2. TASK-002: Verificar tests existentes y documentar baseline 3.
+TASK-003: Validar entorno (version runtime, dependencias)</p>
+<p><strong>Criterios de exito:</strong> - Backup creado exitosamente - Tests baseline
+documentados (N tests passing) - Entorno compatible validado</p>
+</section>
+<section id="fase-4-refactorizacion-con-tdd-40-60-min">
+<h3>FASE 4: REFACTORIZACION CON TDD (40-60 min)<a class="headerlink" href="#fase-4-refactorizacion-con-tdd-40-60-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Aplicar refactorizaciones usando ciclo TDD estricto</p>
+<p>Para CADA refactorización:</p>
+<p><strong>TASK-NNN: [TDD-RED] Ejecutar Tests Pre-Refactorizacion</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>&lt;modulo&gt;<span class="w"> </span>-v<span class="w"> </span>&gt;<span class="w"> </span>evidencias/baseline-pre-refactor.log
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Establecer baseline de tests (cuantos pasan)</p></li>
+<li><p>Documentar estado actual del código</p></li>
+<li><p>Guardar snapshot del archivo si es necesario</p></li>
+</ul>
+<p><strong>TASK-NNN+1: [TDD-REFACTOR] Aplicar Refactorizacion</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit-hash&gt;
+<span class="c1"># o aplicacion manual si hay conflictos</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Aplicar cambios de refactorizacion</p></li>
+<li><p>Resolver conflictos si existen</p></li>
+<li><p>Validar sintaxis basica</p></li>
+</ul>
+<p><strong>TASK-NNN+2: [TDD-GREEN] Validar Tests Post-Refactorizacion</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>&lt;modulo&gt;<span class="w"> </span>-v<span class="w"> </span>&gt;<span class="w"> </span>evidencias/tests-post-refactor.log
+diff<span class="w"> </span>evidencias/baseline-pre-refactor.log<span class="w"> </span>evidencias/tests-post-refactor.log
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CRITERIO CRITICO: Mismo numero de tests pasando</p></li>
+<li><p>Si tests fallan: ROLLBACK INMEDIATO</p></li>
+<li><p>Comparar con baseline</p></li>
+</ul>
+<p><strong>TASK-NNN+3: [TDD-VALIDATE] Validaciones Adicionales</strong> - Type checking
+(mypy, pyright, tsc) - Smoke tests funcionales - Import checks -
+Validaciones especificas del cambio</p>
+<p><strong>Criterios para continuar:</strong> - Tests: 100% passing (mismo que baseline)
+- Validaciones: PASS - Sin regresiones detectadas</p>
+<p><strong>Criterios para ROLLBACK:</strong> - Cualquier test que fallo - Errores de
+sintaxis o imports - Regresion funcional detectada</p>
+</section>
+<section id="fase-5-validacion-final-15-25-min">
+<h3>FASE 5: VALIDACION FINAL (15-25 min)<a class="headerlink" href="#fase-5-validacion-final-15-25-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Validacion integral del sistema</p>
+<p><strong>Tareas tipicas:</strong> 1. TASK-NNN: Ejecutar suite COMPLETA de tests (no
+solo modulo) 2. TASK-NNN+1: Validar imports y sintaxis de todos archivos
+3. TASK-NNN+2: Documentar cambios en evidencias consolidadas</p>
+<p><strong>Criterios de exito:</strong> - Suite completa: 100% passing - 0 errores
+sintaxis - Evidencias consolidadas creadas</p>
+</section>
+<section id="fase-6-commit-y-push-5-10-min">
+<h3>FASE 6: COMMIT Y PUSH (5-10 min)<a class="headerlink" href="#fase-6-commit-y-push-5-10-min" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo:</strong> Persistir cambios en repositorio</p>
+<p><strong>Tareas:</strong> 1. TASK-NNN: Commit con mensaje descriptivo ```bash git
+commit -m “refactor:</p>
+<ul class="simple">
+<li><p>Cambio 1 (commit original: abc1234)</p></li>
+<li><p>Cambio 2 (commit original: def5678)</p></li>
+<li><p>Validado con TDD (N tests passing)</p></li>
+<li><p>Zero regresiones funcionales”</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2. TASK-NNN+1: Push a rama remota con retry logic
+
+**Criterios de exito:**
+- Commit creado con mensaje convencional
+- Push exitoso
+- Rama remota actualizada
+
+### FASE 7: SINCRONIZACION CON MAIN (5-15 min)
+
+**Objetivo:** Sincronizar rama de desarrollo con rama principal para evitar conflictos futuros
+
+**Cuándo ejecutar:** Despues de push exitoso, especialmente si el trabajo tomo varios dias
+
+**Tareas:**
+1. TASK-NNN: Fetch y merge de rama principal (develop o main)
+2. TASK-NNN+1: Resolver conflictos si existen
+3. TASK-NNN+2: Re-ejecutar suite de tests post-merge
+4. TASK-NNN+3: Push de rama sincronizada
+
+**Comandos:**
+```bash
+# Paso 1: Fetch rama principal
+git fetch origin develop
+
+# Paso 2: Merge con estrategia
+git merge origin/develop --no-ff -m &quot;sync: merge develop into feature branch&quot;
+
+# Paso 3: Si hay conflictos, resolverlos manualmente
+# git status
+# git add &lt;archivos-resueltos&gt;
+# git merge --continue
+
+# Paso 4: Validar tests post-merge
+pytest tests/ -v
+
+# Paso 5: Push sincronizado
+git push -u origin &lt;rama-feature&gt;
+</pre></div>
+</div>
+<p><strong>Criterios de exito:</strong> - Merge exitoso sin conflictos, o conflictos
+resueltos correctamente - Tests: 100% passing post-merge - Rama feature
+actualizada con ultimos cambios de main - Push exitoso de rama
+sincronizada</p>
+<p><strong>Criterios para SKIP:</strong> - Rama main no ha cambiado desde que inicio el
+trabajo - Trabajo completo en menos de 2 horas (bajo riesgo de
+desincronizacion) - No hay otros desarrolladores trabajando en paralelo</p>
+<p><strong>Rollback si falla:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si merge falla o tests fallan post-merge</span>
+git<span class="w"> </span>merge<span class="w"> </span>--abort<span class="w">  </span><span class="c1"># Si aun en proceso de merge</span>
+
+<span class="c1"># O si ya se commiteo el merge problematico</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">  </span><span class="c1"># Volver a estado pre-merge</span>
+git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>&lt;rama-feature&gt;<span class="w">  </span><span class="c1"># Force push solo si necesario</span>
+</pre></div>
+</div>
+<p><strong>Notas importantes:</strong> - Esta fase previene “integration hell” al
+sincronizar tempranamente - Si hay conflictos complejos, considerar
+re-aplicar refactorizaciones sobre develop actualizado - Documentar
+resolucion de conflictos en evidencias/sync-conflicts-resolution.md</p>
+</section>
+</section>
+<section id="metodologia-tdd">
+<h2>6. Metodologia TDD<a class="headerlink" href="#metodologia-tdd" title="Link to this heading">¶</a></h2>
+<section id="ciclo-tdd-para-refactorizaciones">
+<h3>Ciclo TDD para Refactorizaciones:<a class="headerlink" href="#ciclo-tdd-para-refactorizaciones" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. RED (Baseline)
+   ├── Ejecutar tests existentes
+   ├── Documentar cuantos pasan (N tests)
+   └── Guardar estado actual
+
+2. REFACTOR (Cambio)
+   ├── Aplicar refactorizacion
+   ├── Resolver conflictos
+   └── Validar sintaxis basica
+
+3. GREEN (Validacion)
+   ├── Ejecutar tests nuevamente
+   ├── Comparar con baseline
+   └── MISMO numero de tests pasando (CRITICO)
+
+4. VALIDATE (Adicional)
+   ├── Type checking
+   ├── Smoke tests
+   └── Validaciones especificas
+
+5. Decision
+   ├── Si TODO OK → Continuar
+   └── Si FALLO → ROLLBACK INMEDIATO
+</pre></div>
+</div>
+</section>
+<section id="principios-tdd-aplicados">
+<h3>Principios TDD Aplicados:<a class="headerlink" href="#principios-tdd-aplicados" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Tests primero:</strong> Siempre verificar baseline antes de cambiar</p></li>
+<li><p><strong>Cambios incrementales:</strong> Una refactorización a la vez</p></li>
+<li><p><strong>Validacion continua:</strong> Tests despues de cada cambio</p></li>
+<li><p><strong>Rollback rapido:</strong> No continuar si tests fallan</p></li>
+<li><p><strong>Evidencias obligatorias:</strong> Cada paso documentado</p></li>
+</ol>
+</section>
+</section>
+<section id="ejemplos-de-smoke-tests">
+<h2>6.1. Ejemplos de Smoke Tests<a class="headerlink" href="#ejemplos-de-smoke-tests" title="Link to this heading">¶</a></h2>
+<p>Los smoke tests son validaciones rapidas funcionales que complementan
+los tests automatizados.</p>
+<section id="smoke-tests-para-refactorizaciones-python">
+<h3>Smoke Tests para Refactorizaciones Python<a class="headerlink" href="#smoke-tests-para-refactorizaciones-python" title="Link to this heading">¶</a></h3>
+<p><strong>1. Validacion de Imports</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test: Todos los imports funcionan</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from scripts.coding.ai.mcp.registry import MCPRegistry; print(&#39;OK&#39;)&quot;</span>
+
+<span class="c1"># Test: Modulo se importa sin errores</span>
+python<span class="w"> </span>-m<span class="w"> </span>scripts.coding.ai.mcp.registry<span class="w"> </span>--help<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;usage&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PASS&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;FAIL&quot;</span>
+</pre></div>
+</div>
+<p><strong>2. Validacion de Sintaxis Basica</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compilar modulo para detectar errores sintaxis</span>
+python<span class="w"> </span>-m<span class="w"> </span>py_compile<span class="w"> </span>scripts/coding/ai/mcp/registry.py
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span><span class="w">  </span><span class="c1"># Debe ser 0</span>
+</pre></div>
+</div>
+<p><strong>3. Smoke Test Funcional Basico</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test: Funcion principal ejecuta sin crash</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">from scripts.coding.ai.mcp.registry import MCPRegistry</span>
+<span class="s2">registry = MCPRegistry()</span>
+<span class="s2">assert registry is not None</span>
+<span class="s2">print(&#39;Smoke test: PASS&#39;)</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p><strong>4. Type Checking Incremental</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solo archivo modificado, no todo el proyecto</span>
+mypy<span class="w"> </span>scripts/coding/ai/mcp/registry.py<span class="w"> </span>--strict
+<span class="c1"># o</span>
+pyright<span class="w"> </span>scripts/coding/ai/mcp/registry.py
+</pre></div>
+</div>
+</section>
+<section id="smoke-tests-para-refactorizaciones-javascript-typescript">
+<h3>Smoke Tests para Refactorizaciones JavaScript/TypeScript<a class="headerlink" href="#smoke-tests-para-refactorizaciones-javascript-typescript" title="Link to this heading">¶</a></h3>
+<p><strong>1. Validacion de Sintaxis</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># TypeScript: Compilar sin ejecutar</span>
+tsc<span class="w"> </span>--noEmit<span class="w"> </span>src/registry.ts
+
+<span class="c1"># JavaScript: Validar con ESLint</span>
+eslint<span class="w"> </span>src/registry.js<span class="w"> </span>--max-warnings<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p><strong>2. Smoke Test de Imports</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Node.js: Cargar modulo sin ejecutar</span>
+node<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;require(&#39;./src/registry&#39;); console.log(&#39;PASS&#39;)&quot;</span>
+
+<span class="c1"># ES Modules</span>
+node<span class="w"> </span>--input-type<span class="o">=</span>module<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;import &#39;./src/registry.js&#39;; console.log(&#39;PASS&#39;)&quot;</span>
+</pre></div>
+</div>
+<p><strong>3. Validacion de Build</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build del proyecto sin publicar</span>
+npm<span class="w"> </span>run<span class="w"> </span>build
+
+<span class="c1"># Verificar salida existe</span>
+<span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span>dist/registry.js<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PASS&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;FAIL&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="smoke-tests-generales">
+<h3>Smoke Tests Generales<a class="headerlink" href="#smoke-tests-generales" title="Link to this heading">¶</a></h3>
+<p><strong>1. Git Diff Validation</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que solo archivos esperados cambiaron</span>
+git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>HEAD~1<span class="w"> </span>HEAD<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<span class="c1"># Debe ser numero esperado de archivos (ej: 1)</span>
+
+<span class="c1"># Verificar que cambios son del tipo esperado</span>
+git<span class="w"> </span>diff<span class="w"> </span>HEAD~1<span class="w"> </span>HEAD<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^+&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;^+++&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</pre></div>
+</div>
+<p><strong>2. Line Count Validation</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que numero de lineas cambio segun esperado</span>
+<span class="c1"># Ejemplo: PEP 585 debe reducir imports</span>
+wc<span class="w"> </span>-l<span class="w"> </span>scripts/coding/ai/mcp/registry.py
+<span class="c1"># Comparar con valor esperado</span>
+</pre></div>
+</div>
+<p><strong>3. Dependency Validation</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python: Verificar que no se agregaron dependencias nuevas</span>
+pip<span class="w"> </span>freeze<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">  </span><span class="c1"># Debe ser igual que antes</span>
+
+<span class="c1"># JavaScript: Verificar package.json sin cambios</span>
+git<span class="w"> </span>diff<span class="w"> </span>package.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">  </span><span class="c1"># Debe ser 0</span>
+</pre></div>
+</div>
+</section>
+<section id="cuando-usar-smoke-tests">
+<h3>Cuándo Usar Smoke Tests<a class="headerlink" href="#cuando-usar-smoke-tests" title="Link to this heading">¶</a></h3>
+<p><strong>Usar smoke tests cuando:</strong> - Tests automatizados no existen - Tests
+automatizados tardan mucho (&gt;5 min) - Refactorizacion es muy simple
+(bajo riesgo) - Necesitas validacion rapida antes de tests completos</p>
+<p><strong>NO reemplazar tests automatizados:</strong> - Smoke tests son
+complementarios, no sustitutos - Siempre ejecutar suite completa en
+validacion final - Tests automatizados tienen mayor cobertura</p>
+</section>
+<section id="ejemplo-de-secuencia-completa">
+<h3>Ejemplo de Secuencia Completa<a class="headerlink" href="#ejemplo-de-secuencia-completa" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paso 1: Smoke test pre-refactorizacion</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from module import Foo; print(&#39;Baseline OK&#39;)&quot;</span>
+
+<span class="c1"># Paso 2: Aplicar refactorizacion</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc1234
+
+<span class="c1"># Paso 3: Smoke tests post-refactorizacion</span>
+python<span class="w"> </span>-m<span class="w"> </span>py_compile<span class="w"> </span>module.py<span class="w">                    </span><span class="c1"># Sintaxis OK</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from module import Foo; print(&#39;OK&#39;)&quot;</span><span class="w">   </span><span class="c1"># Imports OK</span>
+mypy<span class="w"> </span>module.py<span class="w"> </span>--strict<span class="w">                           </span><span class="c1"># Types OK</span>
+
+<span class="c1"># Paso 4: Tests automatizados completos</span>
+pytest<span class="w"> </span>tests/test_module.py<span class="w"> </span>-v
+
+<span class="c1"># Paso 5: Si todo OK, continuar. Si falla, rollback</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gestion-de-evidencias">
+<h2>7. Gestion de Evidencias<a class="headerlink" href="#gestion-de-evidencias" title="Link to this heading">¶</a></h2>
+<section id="estructura-de-evidencias">
+<h3>Estructura de Evidencias:<a class="headerlink" href="#estructura-de-evidencias" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>QA-REFACTOR-XXX-NNN/
+├── ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md
+├── PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md
+├── INDICE.md
+├── TASK-001-nombre/
+│   ├── TASK-001-nombre.md
+│   └── evidencias/
+│       ├── backup-tag-created.log
+│       └── commit-hash.txt
+├── TASK-002-nombre/
+│   └── evidencias/
+│       ├── baseline-tests.log
+│       └── test-count.txt
+└── ...
+</pre></div>
+</div>
+</section>
+<section id="evidencias-requeridas-por-fase">
+<h3>Evidencias Requeridas por Fase:<a class="headerlink" href="#evidencias-requeridas-por-fase" title="Link to this heading">¶</a></h3>
+<p><strong>Preparacion:</strong> - backup-tag-created.log - baseline-tests.log -
+python-version.txt</p>
+<p><strong>Refactorizacion (por cada una):</strong> - baseline-pre-refactor.log -
+refactor-applied.log - tests-post-refactor.log - validation-results.log</p>
+<p><strong>Validacion Final:</strong> - suite-completa-tests.log - import-validation.log
+- CONSOLIDADO-EVIDENCIAS.md</p>
+<p><strong>Commit/Push:</strong> - commit-message.txt - commit-hash.txt -
+push-result.log</p>
+</section>
+</section>
+<section id="estrategia-de-rollback">
+<h2>8. Estrategia de Rollback<a class="headerlink" href="#estrategia-de-rollback" title="Link to this heading">¶</a></h2>
+<section id="rollback-por-fase">
+<h3>Rollback por Fase:<a class="headerlink" href="#rollback-por-fase" title="Link to this heading">¶</a></h3>
+<p><strong>Si falla PREPARACION:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar tag/branch de backup si existe</span>
+git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>backup-refactor-YYYY-MM-DD
+<span class="c1"># o</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>backup-refactor-YYYY-MM-DD
+</pre></div>
+</div>
+<p><strong>Si falla REFACTORIZACION:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opcion 1: Revert del commit</span>
+git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-hash&gt;
+
+<span class="c1"># Opcion 2: Reset hard a backup</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>backup-refactor-YYYY-MM-DD
+
+<span class="c1"># Opcion 3: Cherry-pick inverso</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>--abort<span class="w">  </span><span class="c1"># si en progreso</span>
+</pre></div>
+</div>
+<p><strong>Si falla VALIDACION FINAL:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset a backup completo</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>backup-refactor-YYYY-MM-DD
+
+<span class="c1"># Limpiar working directory</span>
+git<span class="w"> </span>clean<span class="w"> </span>-fd
+</pre></div>
+</div>
+</section>
+<section id="criterios-para-ejecutar-rollback">
+<h3>Criterios para Ejecutar Rollback:<a class="headerlink" href="#criterios-para-ejecutar-rollback" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>INMEDIATO:</strong> Tests fallan despues de refactorizacion</p></li>
+<li><p><strong>INMEDIATO:</strong> Errores de sintaxis o imports</p></li>
+<li><p><strong>INMEDIATO:</strong> Regresion funcional detectada</p></li>
+<li><p><strong>EVALUACION:</strong> Type checker reporta nuevos errores (puede ser falso
+positivo)</p></li>
+</ul>
+</section>
+</section>
+<section id="riesgos-comunes-y-mitigaciones">
+<h2>9. Riesgos Comunes y Mitigaciones<a class="headerlink" href="#riesgos-comunes-y-mitigaciones" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>R
+iesgo</p></th>
+<th class="head"><p>Pr
+obabilidad</p></th>
+<th class="head"><p>I
+mpacto</p></th>
+<th class="head"><p>Mitigacion
+Primaria</p></th>
+<th class="head"><p>Mitigacion
+Secundaria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tests
+no
+ex
+isten</p></td>
+<td><p>MEDIA</p></td>
+<td><p>MEDIO</p></td>
+<td><p>Crear smoke
+tests basicos</p></td>
+<td><p>Validacion manual
+exhaustiva</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ru
+ntime
+in
+compa
+tible</p></td>
+<td><p>BAJA</p></td>
+<td><p>ALTO</p></td>
+<td><p>Validar version
+temprano</p></td>
+<td><p>ABORTAR si
+incompatible</p></td>
+</tr>
+<tr class="row-even"><td><p>Confl
+ictos
+c
+herry
+-pick</p></td>
+<td><p>MEDIA</p></td>
+<td><p>MEDIO</p></td>
+<td><p>Aplicacion
+manual con diff</p></td>
+<td><p>Documentar
+resolucion</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tests
+f
+allan
+pos
+t-ref
+actor</p></td>
+<td><p>BAJA</p></td>
+<td><p>ALTO</p></td>
+<td><p>Rollback
+inmediato</p></td>
+<td><p>Analizar causa y
+reintentar</p></td>
+</tr>
+<tr class="row-even"><td><p>Regr
+esion
+no
+dete
+ctada</p></td>
+<td><p>BAJA</p></td>
+<td><p>ALTO</p></td>
+<td><p>Suite completa +
+smoke tests</p></td>
+<td><p>Code review
+adicional</p></td>
+</tr>
+<tr class="row-odd"><td><p>Type
+ch
+ecker
+f
+alsos
+posi
+tivos</p></td>
+<td><p>MEDIA</p></td>
+<td><p>BAJO</p></td>
+<td><p>Validacion
+manual</p></td>
+<td><p>Actualizar
+configuracion</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="criterios-de-exito">
+<h2>10. Criterios de Exito<a class="headerlink" href="#criterios-de-exito" title="Link to this heading">¶</a></h2>
+<p>Una refactorización es exitosa cuando:</p>
+<p><strong>Tecnicos:</strong> - [ ] Todas las refactorizaciones aplicadas sin conflictos
+- [ ] 100% tests passing (mismo que baseline o mejor) - [ ] 0
+regresiones funcionales - [ ] Type checking: 0 errores nuevos - [ ]
+Sintaxis e imports: validados OK</p>
+<p><strong>Proceso:</strong> - [ ] Metodologia TDD seguida estrictamente - [ ]
+Evidencias completas en todas las tareas - [ ] Rollback strategy
+ejecutable probada - [ ] Cada fase cumple criterios de salida</p>
+<p><strong>Persistencia:</strong> - [ ] Cambios commiteados con mensaje descriptivo - [
+] Commit pusheado a rama remota - [ ] Documentacion actualizada si
+necesario</p>
+</section>
+<section id="metricas-y-reporting">
+<h2>11. Métricas y Reporting<a class="headerlink" href="#metricas-y-reporting" title="Link to this heading">¶</a></h2>
+<section id="metricas-a-capturar">
+<h3>Métricas a Capturar:<a class="headerlink" href="#metricas-a-capturar" title="Link to this heading">¶</a></h3>
+<p><strong>Código:</strong> - Archivos afectados - Líneas modificadas - Commits
+aplicados - Tipo de cambios</p>
+<p><strong>Tests:</strong> - Tests baseline - Tests post-refactor - Delta
+(mejora/regresion) - Tiempo de ejecucion</p>
+<p><strong>Tiempo:</strong> - Tiempo estimado vs real - Tiempo por fase - Tiempo total</p>
+<p><strong>Calidad:</strong> - Riesgos identificados - Riesgos materializados -
+Rollbacks ejecutados</p>
+</section>
+<section id="documento-de-cierre">
+<h3>Documento de Cierre:<a class="headerlink" href="#documento-de-cierre" title="Link to this heading">¶</a></h3>
+<p>Al finalizar, crear CONSOLIDADO-EVIDENCIAS.md con: - Resumen ejecutivo -
+Refactorizaciones aplicadas - Estado final de tests - Problemas
+encontrados y resoluciones - Métricas completas - Lecciones aprendidas</p>
+</section>
+</section>
+<section id="frecuencia-de-uso">
+<h2>12. Frecuencia de Uso<a class="headerlink" href="#frecuencia-de-uso" title="Link to this heading">¶</a></h2>
+<p><strong>Ad-hoc:</strong> Cuando se requiera refactorizar código</p>
+<p><strong>Triggers comunes:</strong> - Actualizacion de version de runtime (Python 3.9
+→ 3.11) - Adopcion de nuevos estandares (PEP 585, ES2022) - Code review
+detecta magic numbers o code smells - Consolidacion de trabajo de
+multiples ramas - Mejora de mantenibilidad identificada</p>
+</section>
+<section id="herramientas-recomendadas">
+<h2>13. Herramientas Recomendadas<a class="headerlink" href="#herramientas-recomendadas" title="Link to this heading">¶</a></h2>
+<p><strong>Testing:</strong> - pytest (Python) - jest/vitest (JavaScript) - unittest
+(Python stdlib)</p>
+<p><strong>Type Checking:</strong> - mypy (Python) - pyright (Python) - tsc (TypeScript)</p>
+<p><strong>Validacion:</strong> - python -m py_compile (syntax) - eslint (JavaScript) -
+ruff/flake8 (Python linting)</p>
+<p><strong>Git:</strong> - git cherry-pick (aplicar commits) - git revert (rollback) -
+git tag (backup)</p>
+</section>
+<section id="conventional-commits">
+<h2>13.1. Conventional Commits<a class="headerlink" href="#conventional-commits" title="Link to this heading">¶</a></h2>
+<p>Todos los commits de refactorizacion deben seguir el formato de
+Conventional Commits.</p>
+<section id="formato-basico">
+<h3>Formato Basico<a class="headerlink" href="#formato-basico" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tipo</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">descripcion</span> <span class="n">corta</span><span class="o">&gt;</span>
+
+<span class="p">[</span><span class="n">cuerpo</span> <span class="n">opcional</span> <span class="n">con</span> <span class="n">detalles</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">footer</span> <span class="n">opcional</span> <span class="n">con</span> <span class="n">metadata</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="tipos-de-commit-para-refactorizaciones">
+<h3>Tipos de Commit para Refactorizaciones<a class="headerlink" href="#tipos-de-commit-para-refactorizaciones" title="Link to this heading">¶</a></h3>
+<p><strong>refactor:</strong> Cambios de codigo que no modifican comportamiento</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;refactor(mcp): modernizar type annotations a PEP 585</span>
+
+<span class="s2">- Cambiar Dict[str, str] a dict[str, str]</span>
+<span class="s2">- Cambiar Mapping[str, Any] a dict[str, Any]</span>
+<span class="s2">- Eliminar imports innecesarios de typing</span>
+<span class="s2">- Validado con TDD (13/13 tests passing)</span>
+<span class="s2">- Zero regresiones funcionales</span>
+
+<span class="s2">Commit original: 2ca3d25</span>
+<span class="s2">Refs: QA-REFACTOR-MCP-002&quot;</span>
+</pre></div>
+</div>
+<p><strong>style:</strong> Cambios de formato (no afectan codigo ejecutable)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;style(registry): aplicar formateo black&quot;</span>
+</pre></div>
+</div>
+<p><strong>chore:</strong> Cambios de mantenimiento (dependencias, configuracion)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore(deps): actualizar playwright MCP version</span>
+
+<span class="s2">- Extraer version a constante PLAYWRIGHT_MCP_VERSION = 0.0.40</span>
+<span class="s2">- Mejor mantenibilidad y documentacion de pinning</span>
+
+<span class="s2">Commit original: 0d1e1f2&quot;</span>
+</pre></div>
+</div>
+<p><strong>docs:</strong> Solo cambios de documentacion</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(refactor): documentar procedimiento TDD en PROCED-GOB-009&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="estructura-de-mensaje-para-refactorizaciones">
+<h3>Estructura de Mensaje para Refactorizaciones<a class="headerlink" href="#estructura-de-mensaje-para-refactorizaciones" title="Link to this heading">¶</a></h3>
+<p><strong>Linea 1 (Subject):</strong> Max 72 caracteres</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">refactor</span><span class="p">(</span><span class="n">scope</span><span class="p">):</span> <span class="n">descripcion</span> <span class="n">imperativa</span> <span class="n">presente</span>
+</pre></div>
+</div>
+<p><strong>Cuerpo (Body):</strong> Detalles de cambios</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Lista</span> <span class="n">de</span> <span class="n">cambios</span> <span class="n">aplicados</span> <span class="p">(</span><span class="n">bullet</span> <span class="n">points</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">Resultado</span> <span class="n">de</span> <span class="n">validacion</span> <span class="n">TDD</span>
+<span class="o">-</span> <span class="n">Zero</span> <span class="n">regresiones</span> <span class="n">funcionales</span>
+<span class="o">-</span> <span class="n">Metricas</span> <span class="n">relevantes</span> <span class="p">(</span><span class="n">tests</span> <span class="n">passing</span><span class="p">,</span> <span class="n">lineas</span> <span class="n">modificadas</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Footer:</strong> Metadata adicional</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Commit</span> <span class="n">original</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">hash</span><span class="o">&gt;</span>
+<span class="n">Refs</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">ID</span><span class="o">-</span><span class="n">documento</span><span class="o">&gt;</span>
+<span class="n">Co</span><span class="o">-</span><span class="n">authored</span><span class="o">-</span><span class="n">by</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">nombre</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplos-completos">
+<h3>Ejemplos Completos<a class="headerlink" href="#ejemplos-completos" title="Link to this heading">¶</a></h3>
+<p><strong>Ejemplo 1: Refactorizacion Simple</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">refactor(mcp): extraer constante PLAYWRIGHT_MCP_VERSION</span>
+
+<span class="s">- Agregar constante PLAYWRIGHT_MCP_VERSION = &quot;0.0.40&quot;</span>
+<span class="s">- Reemplazar hardcoded version en install command</span>
+<span class="s">- Mejor mantenibilidad y documentacion de pinning</span>
+<span class="s">- Validado con TDD (13/13 tests passing)</span>
+<span class="s">- Zero regresiones funcionales</span>
+
+<span class="s">Commit original: 0d1e1f2</span>
+<span class="s">Refs: QA-REFACTOR-MCP-002</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 2: Refactorizacion Multiple</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">refactor(mcp): integrar 2 mejoras de calidad del MCP registry</span>
+
+<span class="s">- Extraer PLAYWRIGHT_MCP_VERSION constant (commit: 0d1e1f2)</span>
+<span class="s">- Modernizar type annotations a PEP 585 (commit: 2ca3d25)</span>
+<span class="s">- 11 lineas modernizadas, 1 import eliminado</span>
+<span class="s">- Validado con TDD metodologia estricta</span>
+<span class="s">- Suite completa: 13/13 tests passing (+3 vs baseline)</span>
+<span class="s">- Zero regresiones funcionales</span>
+
+<span class="s">Commits originales:</span>
+<span class="s">- 0d1e1f2: Playwright constant extraction</span>
+<span class="s">- 2ca3d25: PEP 585 type annotations</span>
+
+<span class="s">Refs: QA-REFACTOR-MCP-002</span>
+<span class="s">Tiempo total: 180 minutos (16 tareas TDD)</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 3: Refactorizacion con Sincronizacion</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">sync: merge develop into feature branch</span>
+
+<span class="s">Sincronizar refactorizaciones MCP con ultimos cambios de develop.</span>
+
+<span class="s">- 0 conflictos</span>
+<span class="s">- Tests: 13/13 passing post-merge</span>
+<span class="s">- Rama actualizada para PR</span>
+
+<span class="s">Refs: QA-REFACTOR-MCP-002/TASK-017</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="scopes-comunes">
+<h3>Scopes Comunes<a class="headerlink" href="#scopes-comunes" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mcp</span></code>: Model Context Protocol</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">registry</span></code>: Registros y catalogos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">api</span></code>: APIs y endpoints</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests</span></code>: Suite de tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deps</span></code>: Dependencias</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: Configuracion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts</span></code>: Scripts de automatizacion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: Documentacion</p></li>
+</ul>
+</section>
+<section id="validacion-de-mensaje">
+<h3>Validacion de Mensaje<a class="headerlink" href="#validacion-de-mensaje" title="Link to this heading">¶</a></h3>
+<p><strong>Herramienta:</strong> commitlint (opcional)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalar commitlint</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@commitlint/cli<span class="w"> </span>@commitlint/config-conventional
+
+<span class="c1"># Validar mensaje</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;refactor(mcp): test message&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>commitlint
+</pre></div>
+</div>
+<p><strong>Validacion manual:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checklist:</span>
+<span class="c1"># - [ ] Tipo valido (refactor, style, chore, docs)</span>
+<span class="c1"># - [ ] Scope presente y descriptivo</span>
+<span class="c1"># - [ ] Descripcion en imperativo presente (max 72 chars)</span>
+<span class="c1"># - [ ] Cuerpo con detalles de cambios</span>
+<span class="c1"># - [ ] Footer con commit original y refs</span>
+<span class="c1"># - [ ] Menciona validacion TDD</span>
+<span class="c1"># - [ ] Menciona zero regresiones</span>
+</pre></div>
+</div>
+</section>
+<section id="referencias">
+<h3>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Conventional Commits: <a class="reference external" href="https://www.conventionalcommits.org/">https://www.conventionalcommits.org/</a></p></li>
+<li><p>Angular Convention:
+<a class="reference external" href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md">https://github.com/angular/angular/blob/main/CONTRIBUTING.md</a></p></li>
+<li><p>Commitlint: <a class="reference external" href="https://commitlint.js.org/">https://commitlint.js.org/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="plantillas-de-referencia">
+<h2>14. Plantillas de Referencia<a class="headerlink" href="#plantillas-de-referencia" title="Link to this heading">¶</a></h2>
+<p><strong>Analisis:</strong>
+docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/ANALISIS-REFACTORIZACIONES-2025-11-17.md</p>
+<p><strong>Plan:</strong>
+docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES-2025-11-17.md</p>
+<p><strong>Tareas:</strong> docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/TASK-NNN-*/</p>
+</section>
+<section id="historial-de-cambios">
+<h2>15. Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.1.0</p></td>
+<td><p>2025-11-18</p></td>
+<td><p>Actualizacion basada
+en reporte de
+verificacion
+(REPORTE-VERIFICAC
+ION-PROCED-GOB-009.md)
+- Correccion de 4 gaps
+criticos: (1) Tiempos
+reales FASE 1:
+60-90min, FASE 2:
+60-90min, nueva FASE
+2.5: 60-120min (2)
+Template detallado de
+tareas con metadata
+YAML (3) Estrategia
+para versiones
+multiples con matriz
+de decision (4) Nueva
+FASE 7 para
+sincronizacion con
+main. Ademas: ejemplos
+de smoke tests y
+seccion de
+Conventional Commits</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Creacion inicial
+basada en
+QA-REFACTOR-MCP-002</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="referencias-1">
+<span id="id1"></span><h2>16. Referencias<a class="headerlink" href="#referencias-1" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Caso de estudio:</strong> QA-REFACTOR-MCP-002 (2 refactorizaciones, 16
+tareas, 100% exitoso)</p></li>
+<li><p><strong>PEP 585:</strong> Type Hinting Generics In Standard Collections</p></li>
+<li><p><strong>TDD:</strong> Test-Driven Development (Kent Beck)</p></li>
+<li><p><strong>Conventional Commits:</strong> <a class="reference external" href="https://www.conventionalcommits.org/">https://www.conventionalcommits.org/</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Procedimiento creado:</strong> 2025-11-17 <strong>Ultima revision:</strong> 2025-11-18
+<strong>Próxima revisión:</strong> 2026-11-17 (o después de 5 usos) <strong>Mantenedor:</strong>
+Tech Lead Team</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCED-GOB-009: Procedimiento para Refactorizaciones de Código con TDD</a><ul>
+<li><a class="reference internal" href="#proposito">1. Propósito</a></li>
+<li><a class="reference internal" href="#alcance">2. Alcance</a></li>
+<li><a class="reference internal" href="#roles-y-responsabilidades">3. Roles y Responsabilidades</a></li>
+<li><a class="reference internal" href="#prerequisitos">4. Prerequisitos</a></li>
+<li><a class="reference internal" href="#estrategia-para-versiones-multiples">4.1. Estrategia para Versiones Multiples</a><ul>
+<li><a class="reference internal" href="#matriz-de-decision">Matriz de Decision</a></li>
+<li><a class="reference internal" href="#proceso-de-resolucion">Proceso de Resolucion</a></li>
+<li><a class="reference internal" href="#ejemplo-real-qa-refactor-mcp-002">Ejemplo Real (QA-REFACTOR-MCP-002)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fases-del-procedimiento">5. Fases del Procedimiento</a><ul>
+<li><a class="reference internal" href="#fase-1-analisis-60-90-min">FASE 1: ANALISIS (60-90 min)</a></li>
+<li><a class="reference internal" href="#fase-2-planificacion-60-90-min">FASE 2: PLANIFICACION (60-90 min)</a></li>
+<li><a class="reference internal" href="#fase-2-5-creacion-de-tareas-60-120-min">FASE 2.5: CREACION DE TAREAS (60-120 min)</a></li>
+<li><a class="reference internal" href="#fase-3-preparacion-10-20-min">FASE 3: PREPARACION (10-20 min)</a></li>
+<li><a class="reference internal" href="#fase-4-refactorizacion-con-tdd-40-60-min">FASE 4: REFACTORIZACION CON TDD (40-60 min)</a></li>
+<li><a class="reference internal" href="#fase-5-validacion-final-15-25-min">FASE 5: VALIDACION FINAL (15-25 min)</a></li>
+<li><a class="reference internal" href="#fase-6-commit-y-push-5-10-min">FASE 6: COMMIT Y PUSH (5-10 min)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metodologia-tdd">6. Metodologia TDD</a><ul>
+<li><a class="reference internal" href="#ciclo-tdd-para-refactorizaciones">Ciclo TDD para Refactorizaciones:</a></li>
+<li><a class="reference internal" href="#principios-tdd-aplicados">Principios TDD Aplicados:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplos-de-smoke-tests">6.1. Ejemplos de Smoke Tests</a><ul>
+<li><a class="reference internal" href="#smoke-tests-para-refactorizaciones-python">Smoke Tests para Refactorizaciones Python</a></li>
+<li><a class="reference internal" href="#smoke-tests-para-refactorizaciones-javascript-typescript">Smoke Tests para Refactorizaciones JavaScript/TypeScript</a></li>
+<li><a class="reference internal" href="#smoke-tests-generales">Smoke Tests Generales</a></li>
+<li><a class="reference internal" href="#cuando-usar-smoke-tests">Cuándo Usar Smoke Tests</a></li>
+<li><a class="reference internal" href="#ejemplo-de-secuencia-completa">Ejemplo de Secuencia Completa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gestion-de-evidencias">7. Gestion de Evidencias</a><ul>
+<li><a class="reference internal" href="#estructura-de-evidencias">Estructura de Evidencias:</a></li>
+<li><a class="reference internal" href="#evidencias-requeridas-por-fase">Evidencias Requeridas por Fase:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estrategia-de-rollback">8. Estrategia de Rollback</a><ul>
+<li><a class="reference internal" href="#rollback-por-fase">Rollback por Fase:</a></li>
+<li><a class="reference internal" href="#criterios-para-ejecutar-rollback">Criterios para Ejecutar Rollback:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#riesgos-comunes-y-mitigaciones">9. Riesgos Comunes y Mitigaciones</a></li>
+<li><a class="reference internal" href="#criterios-de-exito">10. Criterios de Exito</a></li>
+<li><a class="reference internal" href="#metricas-y-reporting">11. Métricas y Reporting</a><ul>
+<li><a class="reference internal" href="#metricas-a-capturar">Métricas a Capturar:</a></li>
+<li><a class="reference internal" href="#documento-de-cierre">Documento de Cierre:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#frecuencia-de-uso">12. Frecuencia de Uso</a></li>
+<li><a class="reference internal" href="#herramientas-recomendadas">13. Herramientas Recomendadas</a></li>
+<li><a class="reference internal" href="#conventional-commits">13.1. Conventional Commits</a><ul>
+<li><a class="reference internal" href="#formato-basico">Formato Basico</a></li>
+<li><a class="reference internal" href="#tipos-de-commit-para-refactorizaciones">Tipos de Commit para Refactorizaciones</a></li>
+<li><a class="reference internal" href="#estructura-de-mensaje-para-refactorizaciones">Estructura de Mensaje para Refactorizaciones</a></li>
+<li><a class="reference internal" href="#ejemplos-completos">Ejemplos Completos</a></li>
+<li><a class="reference internal" href="#scopes-comunes">Scopes Comunes</a></li>
+<li><a class="reference internal" href="#validacion-de-mensaje">Validacion de Mensaje</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plantillas-de-referencia">14. Plantillas de Referencia</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">15. Historial de Cambios</a></li>
+<li><a class="reference internal" href="#referencias-1">16. Referencias</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

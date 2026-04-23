@@ -1,0 +1,1127 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Capas de Observabilidad - Proyecto IACT - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="capas-de-observabilidad-proyecto-iact">
+<h1>Capas de Observabilidad - Proyecto IACT<a class="headerlink" href="#capas-de-observabilidad-proyecto-iact" title="Link to this heading">¶</a></h1>
+<p>Separacion clara entre metricas DORA, logs de aplicacion y logs de
+infraestructura.</p>
+<p><strong>Version:</strong> 1.0.0 <strong>Fecha:</strong> 2025-11-06</p>
+<hr class="docutils" />
+<section id="vision-general">
+<h2>Vision General<a class="headerlink" href="#vision-general" title="Link to this heading">¶</a></h2>
+<p>El proyecto IACT implementa <strong>3 capas independientes</strong> de
+observabilidad, cada una con proposito, storage y audiencia diferentes.</p>
+<p><strong>Proposito de este documento:</strong> Evitar confusion entre metricas DORA
+(proceso de desarrollo) y logs de aplicacion/infraestructura (runtime
+del sistema).</p>
+</section>
+<hr class="docutils" />
+<section id="capa-1-dora-metrics-proceso-de-desarrollo">
+<h2>Capa 1: DORA Metrics (Proceso de Desarrollo)<a class="headerlink" href="#capa-1-dora-metrics-proceso-de-desarrollo" title="Link to this heading">¶</a></h2>
+<section id="proposito">
+<h3>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h3>
+<p>Medir performance del EQUIPO y PIPELINE de desarrollo, no del sistema en
+produccion.</p>
+<p><strong>Preguntas que responde:</strong> - Que tan rapido desplegamos features?
+(Deployment Frequency) - Cuanto tarda un feature desde commit hasta
+produccion? (Lead Time) - Cuantos deploys fallan o requieren rollback?
+(Change Failure Rate) - Cuanto tardamos en recuperar de incidentes?
+(MTTR)</p>
+</section>
+<section id="fuente-de-datos">
+<h3>Fuente de Datos<a class="headerlink" href="#fuente-de-datos" title="Link to this heading">¶</a></h3>
+<p><strong>NO son logs de runtime</strong> - son eventos del CICLO DE DESARROLLO:</p>
+<ol class="arabic simple">
+<li><p><strong>Git events:</strong></p>
+<ul class="simple">
+<li><p>Commits: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--since=&quot;30</span> <span class="pre">days&quot;</span></code></p></li>
+<li><p>PRs: GitHub API <code class="docutils literal notranslate"><span class="pre">/repos/owner/repo/pulls</span></code></p></li>
+<li><p>Merges: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--merges</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>CI/CD pipeline events:</strong></p>
+<ul class="simple">
+<li><p>GitHub Actions workflows: <code class="docutils literal notranslate"><span class="pre">/.github/workflows/*.yml</span></code></p></li>
+<li><p>Workflow runs: GitHub API <code class="docutils literal notranslate"><span class="pre">/repos/owner/repo/actions/runs</span></code></p></li>
+<li><p>Deploy success/failure</p></li>
+</ul>
+</li>
+<li><p><strong>SDLC Agents:</strong></p>
+<ul class="simple">
+<li><p>Planning: <code class="docutils literal notranslate"><span class="pre">DORAMetrics.start_cycle()</span></code></p></li>
+<li><p>Testing: <code class="docutils literal notranslate"><span class="pre">DORAMetrics.record_phase('testing',</span> <span class="pre">...)</span></code></p></li>
+<li><p>Deployment: <code class="docutils literal notranslate"><span class="pre">DORAMetrics.record_phase('deployment',</span> <span class="pre">...)</span></code></p></li>
+<li><p>Maintenance: <code class="docutils literal notranslate"><span class="pre">DORAMetrics.record_phase('maintenance',</span> <span class="pre">...)</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Issues con label “incident”:</strong></p>
+<ul class="simple">
+<li><p>Created: Incidente inicia</p></li>
+<li><p>Closed: Incidente resuelto</p></li>
+<li><p>Duration: <code class="docutils literal notranslate"><span class="pre">closed_at</span> <span class="pre">-</span> <span class="pre">created_at</span></code> = MTTR</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Capa 1: DORA Metrics Storage</span>
+<span class="o">.</span><span class="n">dora_sdlc_metrics</span><span class="o">.</span><span class="n">json</span>           <span class="c1"># Local (v1)</span>
+<span class="n">MySQL</span><span class="p">:</span> <span class="n">dora_metrics</span> <span class="n">table</span>         <span class="c1"># Futuro (P0 - 8 SP)</span>
+<span class="n">Django</span> <span class="n">Admin</span><span class="p">:</span> <span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">dora</span><span class="o">/</span>        <span class="c1"># Futuro (P2 - 5 SP)</span>
+</pre></div>
+</div>
+<p><strong>Schema MySQL (futuro):</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dora_metrics</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cycle_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">feature_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">phase_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">decision</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="n">duration_seconds</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">metadata</span><span class="w"> </span><span class="n">JSON</span><span class="p">,</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="formato-de-datos">
+<h3>Formato de Datos<a class="headerlink" href="#formato-de-datos" title="Link to this heading">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;cycle_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cycle-20251106-143000&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;feature_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FEAT-001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;start_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-06T14:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;phases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;planning&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;duration_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-06T14:35:00Z&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testing&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;duration_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7200.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;tests_passed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;tests_failed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;lead_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deployment_frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.50</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;change_failure_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mttr&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="acceso">
+<h3>Acceso<a class="headerlink" href="#acceso" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Tech Lead:</strong> Analizar performance equipo</p></li>
+<li><p><strong>Arquitecto:</strong> Validar mejoras IA (PDCA)</p></li>
+<li><p><strong>DevOps Lead:</strong> Optimizar CI/CD pipeline</p></li>
+<li><p><strong>Developers:</strong> Ver metricas propias (opcional)</p></li>
+</ul>
+</section>
+<section id="herramientas">
+<h3>Herramientas<a class="headerlink" href="#herramientas" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CLI</span>
+python<span class="w"> </span>scripts/ai/agents/dora_sdlc_integration.py
+python<span class="w"> </span>scripts/dora_metrics.py<span class="w"> </span>--days<span class="w"> </span><span class="m">30</span>
+
+<span class="c1"># PDCA automation</span>
+python<span class="w"> </span>scripts/ai/agents/pdca_automation_agent.py<span class="w"> </span>--auto-execute
+
+<span class="c1"># Futuro: Django Admin</span>
+https://iact.local/admin/dora/metrics/
+</pre></div>
+</div>
+</section>
+<section id="retention">
+<h3>Retention<a class="headerlink" href="#retention" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Default:</strong> 90 dias</p></li>
+<li><p><strong>Configurable:</strong> Per proyecto</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="capa-2-application-logs-business-logic">
+<h2>Capa 2: Application Logs (Business Logic)<a class="headerlink" href="#capa-2-application-logs-business-logic" title="Link to this heading">¶</a></h2>
+<section id="proposito-1">
+<span id="id1"></span><h3>Proposito<a class="headerlink" href="#proposito-1" title="Link to this heading">¶</a></h3>
+<p>Registrar comportamiento de la APLICACION Django en runtime (produccion,
+staging, dev).</p>
+<p><strong>Preguntas que responde:</strong> - Que requests HTTP recibe la aplicacion? -
+Que errores ocurren en business logic? - Que queries SQL son lentas? -
+Como se comportan los usuarios?</p>
+</section>
+<section id="fuente-de-datos-1">
+<span id="id2"></span><h3>Fuente de Datos<a class="headerlink" href="#fuente-de-datos-1" title="Link to this heading">¶</a></h3>
+<p><strong>Son logs de la aplicacion Django:</strong></p>
+<ol class="arabic">
+<li><p><strong>Django logging:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Usuario login exitoso&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">})</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Pago fallido&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="mi">456</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)})</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Middleware logs:</strong></p>
+<ul class="simple">
+<li><p>Request processing time</p></li>
+<li><p>Response status codes</p></li>
+<li><p>Authentication failures</p></li>
+</ul>
+</li>
+<li><p><strong>ORM query logs:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+<span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;django.db.backends&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>  <span class="c1"># Log SQL queries</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Celery task logs:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">send_email</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending email to user </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="storage-1">
+<span id="id3"></span><h3>Storage<a class="headerlink" href="#storage-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Capa 2: Application Logs Storage</span>
+<span class="n">logs</span><span class="o">/</span><span class="n">django</span><span class="o">.</span><span class="n">log</span>                   <span class="c1"># Django application</span>
+<span class="n">logs</span><span class="o">/</span><span class="n">celery</span><span class="o">.</span><span class="n">log</span>                   <span class="c1"># Celery tasks</span>
+<span class="n">logs</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">log</span>                      <span class="c1"># API requests/responses</span>
+
+<span class="c1"># Futuro (si necesario):</span>
+<span class="n">MySQL</span><span class="p">:</span> <span class="n">application_logs</span> <span class="n">table</span>     <span class="c1"># Structured logging</span>
+</pre></div>
+</div>
+<p><strong>Filesystem structure:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>logs/
+├── django.log          # Rotated daily
+├── django.log.1
+├── django.log.2.gz
+├── celery.log
+├── celery.log.1
+└── api.log
+</pre></div>
+</div>
+</section>
+<section id="formato-de-datos-1">
+<span id="id4"></span><h3>Formato de Datos<a class="headerlink" href="#formato-de-datos-1" title="Link to this heading">¶</a></h3>
+<p><strong>Opcion 1: Plain text (actual)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">views</span><span class="o">.</span><span class="n">user</span><span class="p">]</span> <span class="n">Usuario</span> <span class="n">login</span> <span class="n">exitoso</span> <span class="n">user_id</span><span class="o">=</span><span class="mi">123</span>
+<span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">24</span><span class="p">]</span> <span class="n">ERROR</span> <span class="p">[</span><span class="n">payments</span><span class="p">]</span> <span class="n">Pago</span> <span class="n">fallido</span> <span class="n">order_id</span><span class="o">=</span><span class="mi">456</span> <span class="n">error</span><span class="o">=</span><span class="s2">&quot;Tarjeta rechazada&quot;</span>
+</pre></div>
+</div>
+<p><strong>Opcion 2: JSON estructurado (recomendado futuro)</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-06T15:05:23Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;logger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;views.user&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Usuario login exitoso&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;req-abc123&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="acceso-1">
+<span id="id5"></span><h3>Acceso<a class="headerlink" href="#acceso-1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Developers:</strong> Debug aplicacion durante desarrollo</p></li>
+<li><p><strong>QA:</strong> Validar comportamiento esperado</p></li>
+<li><p><strong>SRE:</strong> Troubleshoot errores produccion</p></li>
+<li><p><strong>Support:</strong> Investigar reportes usuarios</p></li>
+</ul>
+</section>
+<section id="herramientas-1">
+<span id="id6"></span><h3>Herramientas<a class="headerlink" href="#herramientas-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver logs en tiempo real</span>
+tail<span class="w"> </span>-f<span class="w"> </span>logs/django.log
+
+<span class="c1"># Buscar errores</span>
+grep<span class="w"> </span>ERROR<span class="w"> </span>logs/django.log
+
+<span class="c1"># Buscar por user_id</span>
+grep<span class="w"> </span><span class="s2">&quot;user_id=123&quot;</span><span class="w"> </span>logs/django.log
+
+<span class="c1"># Analizar queries lentas</span>
+grep<span class="w"> </span><span class="s2">&quot;Slow query&quot;</span><span class="w"> </span>logs/django.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c
+</pre></div>
+</div>
+</section>
+<section id="retention-1">
+<span id="id7"></span><h3>Retention<a class="headerlink" href="#retention-1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Default:</strong> 30 dias (logrotate)</p></li>
+<li><p><strong>Compresion:</strong> Automatica (gzip)</p></li>
+<li><p><strong>Archivado:</strong> Opcional (S3, backup)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="capa-3-infrastructure-logs-sistema-operativo">
+<h2>Capa 3: Infrastructure Logs (Sistema Operativo)<a class="headerlink" href="#capa-3-infrastructure-logs-sistema-operativo" title="Link to this heading">¶</a></h2>
+<section id="proposito-2">
+<span id="id8"></span><h3>Proposito<a class="headerlink" href="#proposito-2" title="Link to this heading">¶</a></h3>
+<p>Registrar comportamiento del SISTEMA OPERATIVO y SERVICIOS (nginx,
+postgresql, mysql).</p>
+<p><strong>Preguntas que responde:</strong> - Hay errores a nivel de SO? - Nginx rechaza
+conexiones? - PostgreSQL tiene queries lentas? - Hay problemas de
+memoria/CPU?</p>
+</section>
+<section id="fuente-de-datos-2">
+<span id="id9"></span><h3>Fuente de Datos<a class="headerlink" href="#fuente-de-datos-2" title="Link to this heading">¶</a></h3>
+<p><strong>Son logs del sistema operativo:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Sistema operativo:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/syslog</span></code> - General system logs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/kern.log</span></code> - Kernel logs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/auth.log</span></code> - Authentication logs</p></li>
+</ul>
+</li>
+<li><p><strong>Nginx:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/nginx/access.log</span></code> - HTTP requests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/nginx/error.log</span></code> - Nginx errors</p></li>
+</ul>
+</li>
+<li><p><strong>PostgreSQL:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/postgresql/postgresql-14-main.log</span></code></p></li>
+<li><p>Slow queries, connection errors, crashes</p></li>
+</ul>
+</li>
+<li><p><strong>MySQL:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/mysql/error.log</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/mysql/slow-query.log</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Cron jobs:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log/cron.log</span></code></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="storage-2">
+<span id="id10"></span><h3>Storage<a class="headerlink" href="#storage-2" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Capa 3: Infrastructure Logs Storage</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">syslog</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">access</span><span class="o">.</span><span class="n">log</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/*.</span><span class="n">log</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">mysql</span><span class="o">/*.</span><span class="n">log</span>
+</pre></div>
+</div>
+<p><strong>NO usar MySQL para infraestructura logs</strong> - filesystem es mas
+apropiado.</p>
+</section>
+<section id="formato-de-datos-2">
+<span id="id11"></span><h3>Formato de Datos<a class="headerlink" href="#formato-de-datos-2" title="Link to this heading">¶</a></h3>
+<p><strong>Syslog format (RFC 3164):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nov</span>  <span class="mi">6</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span> <span class="n">iact</span><span class="o">-</span><span class="n">server</span> <span class="n">nginx</span><span class="p">[</span><span class="mi">1234</span><span class="p">]:</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">upstream</span> <span class="n">prematurely</span> <span class="n">closed</span>
+<span class="n">Nov</span>  <span class="mi">6</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span> <span class="n">iact</span><span class="o">-</span><span class="n">server</span> <span class="n">postgres</span><span class="p">[</span><span class="mi">5678</span><span class="p">]:</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">null</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">column</span> <span class="s2">&quot;user_id&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="acceso-2">
+<span id="id12"></span><h3>Acceso<a class="headerlink" href="#acceso-2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>DevOps:</strong> Troubleshoot infraestructura</p></li>
+<li><p><strong>SysAdmin:</strong> Maintenance sistema operativo</p></li>
+<li><p><strong>SRE:</strong> Investigar outages</p></li>
+<li><p><strong>Security:</strong> Audit accesos/intentos intrusión</p></li>
+</ul>
+</section>
+<section id="herramientas-2">
+<span id="id13"></span><h3>Herramientas<a class="headerlink" href="#herramientas-2" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver logs sistema</span>
+sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/syslog
+
+<span class="c1"># Nginx access log (ultimas 100 requests)</span>
+sudo<span class="w"> </span>tail<span class="w"> </span>-100<span class="w"> </span>/var/log/nginx/access.log
+
+<span class="c1"># PostgreSQL slow queries</span>
+sudo<span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;duration:&quot;</span><span class="w"> </span>/var/log/postgresql/postgresql-14-main.log<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{if ($10 &gt; 1000) print}&#39;</span>
+
+<span class="c1"># Errores MySQL</span>
+sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/mysql/error.log
+</pre></div>
+</div>
+</section>
+<section id="retention-2">
+<span id="id14"></span><h3>Retention<a class="headerlink" href="#retention-2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Default:</strong> 30 dias (logrotate)</p></li>
+<li><p><strong>Configuracion:</strong> <code class="docutils literal notranslate"><span class="pre">/etc/logrotate.d/*</span></code></p></li>
+<li><p><strong>Rotation:</strong> Daily, compress older than 1 day</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ejemplo-deploy-fallido-3-capas">
+<h2>Ejemplo: Deploy Fallido - 3 Capas<a class="headerlink" href="#ejemplo-deploy-fallido-3-capas" title="Link to this heading">¶</a></h2>
+<p>Cuando deployment falla, cada capa captura informacion diferente:</p>
+<section id="capa-1-dora-metrics-proceso">
+<h3>Capa 1: DORA Metrics (Proceso)<a class="headerlink" href="#capa-1-dora-metrics-proceso" title="Link to this heading">¶</a></h3>
+<p><strong>Que registra:</strong> Impacto en metricas de proceso</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;cycle_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cycle-20251106-150000&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;feature_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FEAT-001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;duration_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">45.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;change_failure_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">  </span><span class="c1">// Deploy aumento CFR</span>
+<span class="w">    </span><span class="nt">&quot;mttr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="w">  </span><span class="c1">// 15 minutos para rollback</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Para quien:</strong> Tech Lead - “Nuestro CFR subio, que paso?”</p>
+</section>
+<section id="capa-2-application-logs-django">
+<h3>Capa 2: Application Logs (Django)<a class="headerlink" href="#capa-2-application-logs-django" title="Link to this heading">¶</a></h3>
+<p><strong>Que registra:</strong> Error especifico en aplicacion</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># logs/django.log</span>
+<span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span> <span class="n">ERROR</span> <span class="p">[</span><span class="n">deployment</span><span class="p">]</span> <span class="n">Migration</span> <span class="mi">0042</span> <span class="n">failed</span>
+<span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span> <span class="n">ERROR</span> <span class="p">[</span><span class="n">django</span><span class="o">.</span><span class="n">db</span><span class="p">]</span> <span class="n">IntegrityError</span><span class="p">:</span> <span class="n">Column</span> <span class="s1">&#39;user_id&#39;</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">null</span>
+<span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">deployment</span><span class="p">]</span> <span class="n">Rollback</span> <span class="n">initiated</span>
+<span class="p">[</span><span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">06</span> <span class="mi">15</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">deployment</span><span class="p">]</span> <span class="n">Rollback</span> <span class="n">completed</span> <span class="n">successfully</span>
+</pre></div>
+</div>
+<p><strong>Para quien:</strong> Developer - “Cual migration fallo? Necesito fixear”</p>
+</section>
+<section id="capa-3-infrastructure-logs-postgresql">
+<h3>Capa 3: Infrastructure Logs (PostgreSQL)<a class="headerlink" href="#capa-3-infrastructure-logs-postgresql" title="Link to this heading">¶</a></h3>
+<p><strong>Que registra:</strong> Error a nivel de base de datos</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># /var/log/postgresql/postgresql-14-main.log</span>
+<span class="m">2025</span>-11-06<span class="w"> </span><span class="m">15</span>:05:23<span class="w"> </span>ERROR:<span class="w"> </span>null<span class="w"> </span>value<span class="w"> </span><span class="k">in</span><span class="w"> </span>column<span class="w"> </span><span class="s2">&quot;user_id&quot;</span><span class="w"> </span>violates<span class="w"> </span>not-null<span class="w"> </span>constraint
+<span class="m">2025</span>-11-06<span class="w"> </span><span class="m">15</span>:05:23<span class="w"> </span>DETAIL:<span class="w"> </span>Failing<span class="w"> </span>row<span class="w"> </span>contains<span class="w"> </span><span class="o">(</span><span class="m">123</span>,<span class="w"> </span>null,<span class="w"> </span><span class="s1">&#39;test@example.com&#39;</span><span class="o">)</span>
+<span class="m">2025</span>-11-06<span class="w"> </span><span class="m">15</span>:05:23<span class="w"> </span>STATEMENT:<span class="w"> </span>INSERT<span class="w"> </span>INTO<span class="w"> </span>users<span class="w"> </span><span class="o">(</span>id,<span class="w"> </span>user_id,<span class="w"> </span>email<span class="o">)</span><span class="w"> </span>VALUES<span class="w"> </span><span class="o">(</span><span class="m">123</span>,<span class="w"> </span>NULL,<span class="w"> </span><span class="s1">&#39;test@example.com&#39;</span><span class="o">)</span>
+
+<span class="c1"># /var/log/nginx/error.log</span>
+<span class="m">2025</span>/11/06<span class="w"> </span><span class="m">15</span>:05:23<span class="w"> </span><span class="o">[</span>error<span class="o">]</span><span class="w"> </span><span class="m">1234</span><span class="c1">#0: *5678 upstream prematurely closed connection</span>
+</pre></div>
+</div>
+<p><strong>Para quien:</strong> DevOps - “PostgreSQL constraint violation, necesito
+revisar schema”</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparacion-de-capas">
+<h2>Comparacion de Capas<a class="headerlink" href="#comparacion-de-capas" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>DORA Metrics</p></th>
+<th class="head"><p>Application Logs</p></th>
+<th class="head"><p>Infrastructure Logs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>**
+Scope**</p></td>
+<td><p>Proceso
+desarrollo</p></td>
+<td><p>Aplicacion Django</p></td>
+<td><p>Sistema operativo</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Obj
+etivo</strong></p></td>
+<td><p>Medir
+performance
+equipo</p></td>
+<td><p>Debug aplicacion</p></td>
+<td><p>Debug infraestructura</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Audi
+encia</strong></p></td>
+<td><p>Tech Lead,
+Arquitecto</p></td>
+<td><p>Developers, QA</p></td>
+<td><p>DevOps, SysAdmin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>St
+orage</strong></p></td>
+<td><p>MySQL
+<code class="docutils literal notranslate"><span class="pre">d</span>
+<span class="pre">ora_metrics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">logs/*.log</span></code> o
+MySQL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/var/log/*</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Fo
+rmato</strong></p></td>
+<td><p>JSON
+estructurado</p></td>
+<td><p>Plain text o JSON</p></td>
+<td><p>Syslog (RFC 3164)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Rete
+ntion</strong></p></td>
+<td><p>90 dias</p></td>
+<td><p>30 dias</p></td>
+<td><p>30 dias</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Rot
+ation</strong></p></td>
+<td><p>Man
+ual/automated
+cleanup</p></td>
+<td><p>logrotate daily</p></td>
+<td><p>logrotate daily</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>A
+cceso</strong></p></td>
+<td><p>Django Admin
+dashboard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span></code>,
+<code class="docutils literal notranslate"><span class="pre">grep</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tail</span> <span class="pre">-f</span></code>,
+<code class="docutils literal notranslate"><span class="pre">journalctl</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Uso
+prin
+cipal</strong></p></td>
+<td><p>PDCA, mejora
+continua</p></td>
+<td><p>Debugging
+features</p></td>
+<td><p>Troubleshooting infra</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+Ejemplo
+query**</p></td>
+<td><p>Lead Time
+promedio</p></td>
+<td><p>Errores en view X</p></td>
+<td><p>Conexiones rechazadas
+nginx</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="integracion-entre-capas">
+<h2>Integracion Entre Capas<a class="headerlink" href="#integracion-entre-capas" title="Link to this heading">¶</a></h2>
+<p>Aunque independientes, las 3 capas se complementan:</p>
+<section id="flujo-de-investigacion-deploy-fallido">
+<h3>Flujo de Investigacion: Deploy Fallido<a class="headerlink" href="#flujo-de-investigacion-deploy-fallido" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">DORA</span> <span class="n">Metrics</span> <span class="p">(</span><span class="n">Capa</span> <span class="mi">1</span><span class="p">):</span>
+   <span class="o">-</span> <span class="n">Alerta</span><span class="p">:</span> <span class="n">CFR</span> <span class="n">subio</span> <span class="n">de</span> <span class="mi">5</span><span class="o">%</span> <span class="n">a</span> <span class="mi">15</span><span class="o">%</span>
+   <span class="o">-</span> <span class="n">Ciclo</span><span class="p">:</span> <span class="n">cycle</span><span class="o">-</span><span class="mi">20251106</span><span class="o">-</span><span class="mi">150000</span>
+   <span class="o">-</span> <span class="n">Feature</span><span class="p">:</span> <span class="n">FEAT</span><span class="o">-</span><span class="mi">001</span>
+
+<span class="mf">2.</span> <span class="n">Application</span> <span class="n">Logs</span> <span class="p">(</span><span class="n">Capa</span> <span class="mi">2</span><span class="p">):</span>
+   <span class="o">-</span> <span class="n">Buscar</span><span class="p">:</span> <span class="n">grep</span> <span class="s2">&quot;cycle-20251106-150000&quot;</span> <span class="n">logs</span><span class="o">/</span><span class="n">django</span><span class="o">.</span><span class="n">log</span>
+   <span class="o">-</span> <span class="n">Encontrar</span><span class="p">:</span> <span class="n">Migration</span> <span class="mi">0042</span> <span class="n">failed</span> <span class="o">-</span> <span class="n">IntegrityError</span> <span class="n">user_id</span>
+
+<span class="mf">3.</span> <span class="n">Infrastructure</span> <span class="n">Logs</span> <span class="p">(</span><span class="n">Capa</span> <span class="mi">3</span><span class="p">):</span>
+   <span class="o">-</span> <span class="n">Buscar</span><span class="p">:</span> <span class="n">grep</span> <span class="s2">&quot;user_id&quot;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/*.</span><span class="n">log</span>
+   <span class="o">-</span> <span class="n">Encontrar</span><span class="p">:</span> <span class="n">null</span> <span class="n">value</span> <span class="n">violates</span> <span class="ow">not</span><span class="o">-</span><span class="n">null</span> <span class="n">constraint</span>
+
+<span class="mf">4.</span> <span class="n">Root</span> <span class="n">Cause</span><span class="p">:</span> <span class="n">Migration</span> <span class="mi">0042</span> <span class="n">intento</span> <span class="n">insertar</span> <span class="n">user_id</span><span class="o">=</span><span class="n">NULL</span>
+<span class="mf">5.</span> <span class="n">Fix</span><span class="p">:</span> <span class="n">Agregar</span> <span class="n">default</span> <span class="n">value</span> <span class="n">en</span> <span class="n">migration</span>
+<span class="mf">6.</span> <span class="n">Validation</span><span class="p">:</span> <span class="n">Re</span><span class="o">-</span><span class="n">deploy</span><span class="p">,</span> <span class="n">verificar</span> <span class="n">DORA</span> <span class="n">metrics</span> <span class="n">mejoran</span>
+</pre></div>
+</div>
+</section>
+<section id="request-id-tracing-futuro">
+<h3>Request ID Tracing (Futuro)<a class="headerlink" href="#request-id-tracing-futuro" title="Link to this heading">¶</a></h3>
+<p>Para correlacionar logs entre capas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Capa 2: Django genera request_id</span>
+<span class="n">request_id</span> <span class="o">=</span> <span class="s2">&quot;req-abc123&quot;</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processing request&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;request_id&#39;</span><span class="p">:</span> <span class="n">request_id</span><span class="p">})</span>
+
+<span class="c1"># Capa 1: DORA incluye request_id en metadata</span>
+<span class="n">dora_metrics</span><span class="o">.</span><span class="n">record_phase</span><span class="p">(</span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;request_id&#39;</span><span class="p">:</span> <span class="n">request_id</span>
+<span class="p">})</span>
+
+<span class="c1"># Capa 3: Nginx incluye request_id en access.log</span>
+<span class="c1"># (via header X-Request-ID)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="recomendaciones-de-implementacion">
+<h2>Recomendaciones de Implementacion<a class="headerlink" href="#recomendaciones-de-implementacion" title="Link to this heading">¶</a></h2>
+<section id="para-dora-metrics-capa-1">
+<h3>Para DORA Metrics (Capa 1)<a class="headerlink" href="#para-dora-metrics-capa-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BIEN - Solo eventos de proceso</span>
+<span class="n">dora_metrics</span><span class="o">.</span><span class="n">record_phase</span><span class="p">(</span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">)</span>
+
+<span class="c1"># MAL - No mezclar con logs de runtime</span>
+<span class="n">dora_metrics</span><span class="o">.</span><span class="n">record_phase</span><span class="p">(</span><span class="s1">&#39;http_request&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Esto es Capa 2</span>
+</pre></div>
+</div>
+</section>
+<section id="para-application-logs-capa-2">
+<h3>Para Application Logs (Capa 2)<a class="headerlink" href="#para-application-logs-capa-2" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BIEN - Logging estructurado</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Payment processed&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">99.99</span><span class="p">,</span>
+    <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="mi">456</span>
+<span class="p">})</span>
+
+<span class="c1"># MAL - Logging sin estructura</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Payment processed: </span><span class="si">{</span><span class="n">order_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="para-infrastructure-logs-capa-3">
+<h3>Para Infrastructure Logs (Capa 3)<a class="headerlink" href="#para-infrastructure-logs-capa-3" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># BIEN - Usar herramientas nativas</span>
+sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/access.log
+
+<span class="c1"># MAL - Duplicar logs en aplicacion</span>
+logger.info<span class="o">(</span><span class="s2">&quot;Nginx received request&quot;</span><span class="o">)</span><span class="w">  </span><span class="c1"># Ya esta en nginx access.log</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="roadmap-de-mejoras">
+<h2>Roadmap de Mejoras<a class="headerlink" href="#roadmap-de-mejoras" title="Link to this heading">¶</a></h2>
+<p><strong>Q4 2025:</strong> - [ ] Capa 1: MySQL storage para DORA metrics (P0 - 8 SP) -
+[ ] Capa 2: JSON structured logging (P1 - 3 SP) - [ ] Request ID tracing
+entre capas (P2 - 5 SP)</p>
+<p><strong>Q1 2026:</strong> - [ ] Capa 1: Django Admin dashboards (P2 - 5 SP) - [ ]
+Capa 2: MySQL application_logs table (P3 - 8 SP) - [ ] Centralized log
+aggregation (P3 - 13 SP)</p>
+<p><strong>Q2 2026:</strong> - [ ] Alerting basado en metricas DORA (P1 - 5 SP) - [ ]
+Anomaly detection en logs aplicacion (P2 - 8 SP) - [ ] Automated
+incident response (P2 - 8 SP)</p>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ADR-2025-003: Decision integracion DORA + SDLC</p></li>
+<li><p>DORA_SDLC_INTEGRATION_GUIDE.md: Implementacion Capa 1</p></li>
+<li><p>WORKFLOW_METRICAS_PROCESO.md: Uso operacional Capa 1</p></li>
+<li><p>Django Logging: <a class="reference external" href="https://docs.djangoproject.com/en/4.2/topics/logging/">https://docs.djangoproject.com/en/4.2/topics/logging/</a></p></li>
+<li><p>RFC 3164: Syslog Protocol</p></li>
+<li><p>DORA Report 2025: <a class="reference external" href="https://dora.dev/">https://dora.dev/</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>VERSION:</strong> 1.0.0 <strong>ULTIMA ACTUALIZACION:</strong> 2025-11-06 <strong>PROXIMA
+REVISION:</strong> 2025-11-20 <strong>ESTADO:</strong> DOCUMENTACION COMPLETA</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Capas de Observabilidad - Proyecto IACT</a><ul>
+<li><a class="reference internal" href="#vision-general">Vision General</a></li>
+<li><a class="reference internal" href="#capa-1-dora-metrics-proceso-de-desarrollo">Capa 1: DORA Metrics (Proceso de Desarrollo)</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#fuente-de-datos">Fuente de Datos</a></li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
+<li><a class="reference internal" href="#formato-de-datos">Formato de Datos</a></li>
+<li><a class="reference internal" href="#acceso">Acceso</a></li>
+<li><a class="reference internal" href="#herramientas">Herramientas</a></li>
+<li><a class="reference internal" href="#retention">Retention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capa-2-application-logs-business-logic">Capa 2: Application Logs (Business Logic)</a><ul>
+<li><a class="reference internal" href="#proposito-1">Proposito</a></li>
+<li><a class="reference internal" href="#fuente-de-datos-1">Fuente de Datos</a></li>
+<li><a class="reference internal" href="#storage-1">Storage</a></li>
+<li><a class="reference internal" href="#formato-de-datos-1">Formato de Datos</a></li>
+<li><a class="reference internal" href="#acceso-1">Acceso</a></li>
+<li><a class="reference internal" href="#herramientas-1">Herramientas</a></li>
+<li><a class="reference internal" href="#retention-1">Retention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capa-3-infrastructure-logs-sistema-operativo">Capa 3: Infrastructure Logs (Sistema Operativo)</a><ul>
+<li><a class="reference internal" href="#proposito-2">Proposito</a></li>
+<li><a class="reference internal" href="#fuente-de-datos-2">Fuente de Datos</a></li>
+<li><a class="reference internal" href="#storage-2">Storage</a></li>
+<li><a class="reference internal" href="#formato-de-datos-2">Formato de Datos</a></li>
+<li><a class="reference internal" href="#acceso-2">Acceso</a></li>
+<li><a class="reference internal" href="#herramientas-2">Herramientas</a></li>
+<li><a class="reference internal" href="#retention-2">Retention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-deploy-fallido-3-capas">Ejemplo: Deploy Fallido - 3 Capas</a><ul>
+<li><a class="reference internal" href="#capa-1-dora-metrics-proceso">Capa 1: DORA Metrics (Proceso)</a></li>
+<li><a class="reference internal" href="#capa-2-application-logs-django">Capa 2: Application Logs (Django)</a></li>
+<li><a class="reference internal" href="#capa-3-infrastructure-logs-postgresql">Capa 3: Infrastructure Logs (PostgreSQL)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comparacion-de-capas">Comparacion de Capas</a></li>
+<li><a class="reference internal" href="#integracion-entre-capas">Integracion Entre Capas</a><ul>
+<li><a class="reference internal" href="#flujo-de-investigacion-deploy-fallido">Flujo de Investigacion: Deploy Fallido</a></li>
+<li><a class="reference internal" href="#request-id-tracing-futuro">Request ID Tracing (Futuro)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recomendaciones-de-implementacion">Recomendaciones de Implementacion</a><ul>
+<li><a class="reference internal" href="#para-dora-metrics-capa-1">Para DORA Metrics (Capa 1)</a></li>
+<li><a class="reference internal" href="#para-application-logs-capa-2">Para Application Logs (Capa 2)</a></li>
+<li><a class="reference internal" href="#para-infrastructure-logs-capa-3">Para Infrastructure Logs (Capa 3)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#roadmap-de-mejoras">Roadmap de Mejoras</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

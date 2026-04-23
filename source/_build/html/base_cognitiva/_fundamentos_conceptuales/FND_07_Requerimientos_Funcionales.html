@@ -1,0 +1,1167 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="FND_07" name="artefacto" />
+<meta content="Fundamento Conceptual" name="tipo" />
+<meta content="base_cognitiva" name="dominio" />
+<meta content="_fundamentos_conceptuales" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.0.0" name="version" />
+<meta content="2025-12-19" name="fecha_creacion" />
+<meta content="2025-12-19" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>FND_07: Requerimientos Funcionales - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="fnd-07-requerimientos-funcionales">
+<span id="fnd-07"></span><h1>FND_07: Requerimientos Funcionales<a class="headerlink" href="#fnd-07-requerimientos-funcionales" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
+<li><p><a class="reference internal" href="#definicion-formal" id="id2">1. Definicion Formal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es-un-requerimiento-funcional" id="id3">1.1 Que es un Requerimiento Funcional</a></p></li>
+<li><p><a class="reference internal" href="#caracteristicas-clave" id="id4">1.2 Caracteristicas Clave</a></p></li>
+<li><p><a class="reference internal" href="#nivel-de-abstraccion" id="id5">1.3 Nivel de Abstraccion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#origen-de-los-fr" id="id6">2. Origen de los FR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fuentes-de-derivacion" id="id7">2.1 Fuentes de Derivacion</a></p></li>
+<li><p><a class="reference internal" href="#relacion-uc-fr" id="id8">2.2 Relacion UC -&gt; FR</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#caracteristicas-smart" id="id9">3. Caracteristicas SMART</a></p>
+<ul>
+<li><p><a class="reference internal" href="#s-specific-especifico" id="id10">3.1 S - Specific (Especifico)</a></p></li>
+<li><p><a class="reference internal" href="#m-measurable-medible" id="id11">3.2 M - Measurable (Medible)</a></p></li>
+<li><p><a class="reference internal" href="#a-achievable-alcanzable" id="id12">3.3 A - Achievable (Alcanzable)</a></p></li>
+<li><p><a class="reference internal" href="#r-relevant-relevante" id="id13">3.4 R - Relevant (Relevante)</a></p></li>
+<li><p><a class="reference internal" href="#t-time-bound-con-plazo" id="id14">3.5 T - Time-bound (Con Plazo)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reglas-de-escritura-incose" id="id15">4. Reglas de Escritura (INCOSE)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#lenguaje-imperativo" id="id16">4.1 Lenguaje Imperativo</a></p></li>
+<li><p><a class="reference internal" href="#evitar-palabras-ambiguas" id="id17">4.2 Evitar Palabras Ambiguas</a></p></li>
+<li><p><a class="reference internal" href="#un-requerimiento-una-oracion" id="id18">4.3 Un Requerimiento, Una Oracion</a></p></li>
+<li><p><a class="reference internal" href="#especificar-unidades-y-limites" id="id19">4.4 Especificar Unidades y Limites</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#template-de-fr" id="id20">5. Template de FR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#formato-estandar-iact" id="id21">5.1 Formato Estandar IACT</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-completo" id="id22">5.2 Ejemplo Completo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#beneficios-de-fr-bien-escritos" id="id23">6. Beneficios de FR Bien Escritos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#estadisticas-de-industria" id="id24">6.1 Estadisticas de Industria</a></p></li>
+<li><p><a class="reference internal" href="#impacto-por-rol" id="id25">6.2 Impacto por Rol</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fr-en-el-contexto-iact" id="id26">7. FR en el Contexto IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nomenclatura" id="id27">7.1 Nomenclatura</a></p></li>
+<li><p><a class="reference internal" href="#ubicacion-en-el-modelo-iact" id="id28">7.2 Ubicacion en el Modelo IACT</a></p></li>
+<li><p><a class="reference internal" href="#relacion-con-otros-artefactos" id="id29">7.3 Relacion con Otros Artefactos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ejemplos-iact" id="id30">8. Ejemplos IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fr-de-validacion" id="id31">8.1 FR de Validacion</a></p></li>
+<li><p><a class="reference internal" href="#fr-de-consulta" id="id32">8.2 FR de Consulta</a></p></li>
+<li><p><a class="reference internal" href="#fr-de-notificacion" id="id33">8.3 FR de Notificacion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencias" id="id34">9. Referencias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#documentos-relacionados" id="id35">Documentos Relacionados</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-externas" id="id36">Fuentes Externas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id37">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento define QUE ES un Requerimiento Funcional (FR) en el contexto
+del proyecto IACT, sus caracteristicas, como se escriben correctamente y
+como se derivan de los Casos de Uso.</p>
+</section>
+<hr class="docutils" />
+<section id="definicion-formal">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definicion Formal</a><a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
+<section id="que-es-un-requerimiento-funcional">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Que es un Requerimiento Funcional</a><a class="headerlink" href="#que-es-un-requerimiento-funcional" title="Link to this heading">¶</a></h3>
+<p>Un <strong>Requerimiento Funcional (Functional Requirement - FR)</strong> es una
+especificacion precisa, verificable y sin ambiguedades de una capacidad,
+comportamiento o funcion que el sistema debe proveer.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Definicion operativa para IACT:</strong></p>
+<p>Un FR es una declaracion atomica que describe UNA capacidad especifica
+que el sistema DEBE tener, derivada de un paso de Caso de Uso.</p>
+</div>
+</section>
+<section id="caracteristicas-clave">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Caracteristicas Clave</a><a class="headerlink" href="#caracteristicas-clave" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracteristica</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Precision</strong></p></td>
+<td><p>Sin ambiguedad, una sola interpretacion posible</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Verificabilidad</strong></p></td>
+<td><p>Se puede probar si se cumple o no (binario)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Atomicidad</strong></p></td>
+<td><p>Una sola capacidad por FR</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Independencia</strong></p></td>
+<td><p>Verificable sin depender de secuencia</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nivel-de-abstraccion">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 Nivel de Abstraccion</a><a class="headerlink" href="#nivel-de-abstraccion" title="Link to this heading">¶</a></h3>
+<p>Los FR estan en el <strong>nivel medio</strong> de abstraccion:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ABSTRACCION ALTA (Business Rules):
+&quot;Passwords deben ser seguros&quot;
+           |
+           v
+ABSTRACCION MEDIA (Functional Requirements) &lt;-- NIVEL CORRECTO
+&quot;Sistema DEBE hashear passwords con bcrypt cost=12&quot;
+           |
+           v
+ABSTRACCION BAJA (Implementacion):
+&quot;class UserService { hash(pwd) { return bcrypt(pwd, 12); }}&quot;
+
+FR es suficientemente especifico para implementar,
+pero sin atarse a tecnologia especifica.
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="origen-de-los-fr">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">2. Origen de los FR</a><a class="headerlink" href="#origen-de-los-fr" title="Link to this heading">¶</a></h2>
+<section id="fuentes-de-derivacion">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.1 Fuentes de Derivacion</a><a class="headerlink" href="#fuentes-de-derivacion" title="Link to this heading">¶</a></h3>
+<p>Los FR se derivan de multiples fuentes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTE 1: Business Rules
+
+BR-015: &quot;Productos clase 5 requieren aprobacion nivel 2&quot;
+    |
+    v
+FR-204.3: &quot;Si producto.clase_peligrosidad = 5,
+           sistema DEBE requerir aprobador con nivel &gt;= 2&quot;
+
+---------------------------------------------------------
+
+FUENTE 2: Casos de Uso (principal)
+
+UC-40 Paso 6: &quot;Sistema valida formato CAS Number&quot;
+    |
+    v
+FR-40.6: &quot;Sistema DEBE validar CAS con regex&quot;
+FR-40.7: &quot;Sistema DEBE validar checksum CAS&quot;
+
+---------------------------------------------------------
+
+FUENTE 3: Stakeholders
+
+Stakeholder Legal: &quot;Necesitamos auditoria completa&quot;
+    |
+    v
+FR-40.25: &quot;Sistema DEBE registrar en AuditoriaLog:
+           usuario, accion, timestamp, IP, datos&quot;
+</pre></div>
+</div>
+</section>
+<section id="relacion-uc-fr">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.2 Relacion UC -&gt; FR</a><a class="headerlink" href="#relacion-uc-fr" title="Link to this heading">¶</a></h3>
+<p>Cada paso del Caso de Uso donde el sistema actua genera uno o mas FR:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-40: Registrar Producto
+
+Paso 5: &quot;Sistema valida datos ingresados&quot;
+    |
+    +---&gt; FR-40.6: Validar formato CAS Number
+    +---&gt; FR-40.7: Validar checksum CAS
+    +---&gt; FR-40.8: Validar nombre no vacio
+    +---&gt; FR-40.9: Validar nombre &lt;= 200 caracteres
+    +---&gt; FR-40.10: Validar categoria existe
+    +---&gt; FR-40.11: Validar clase peligrosidad 1-5
+
+1 paso UC vago -&gt; 6 FR atomicos y verificables
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="caracteristicas-smart">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Caracteristicas SMART</a><a class="headerlink" href="#caracteristicas-smart" title="Link to this heading">¶</a></h2>
+<p>Un buen FR cumple con el criterio SMART:</p>
+<section id="s-specific-especifico">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 S - Specific (Especifico)</a><a class="headerlink" href="#s-specific-especifico" title="Link to this heading">¶</a></h3>
+<p>El FR debe ser claro, concreto y sin ambiguedad.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>INCORRECTO (no especifico):
+&quot;El sistema debe validar los datos&quot;
+
+Problemas:
+- Que datos? (nombre, email, fecha...)
+- Como validar? (formato, longitud, unicidad...)
+- Cuando validar? (al escribir, al enviar...)
+
+CORRECTO (especifico):
+FR-40.6: &quot;El sistema DEBE validar que el CAS Number
+          tenga el formato XXX-XX-X, donde:
+          - Primer bloque: 2 a 7 digitos
+          - Segundo bloque: exactamente 2 digitos
+          - Tercer bloque: exactamente 1 digito
+          - Separadores: guiones (-)&quot;
+</pre></div>
+</div>
+</section>
+<section id="m-measurable-medible">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 M - Measurable (Medible)</a><a class="headerlink" href="#m-measurable-medible" title="Link to this heading">¶</a></h3>
+<p>El FR debe poder verificarse objetivamente.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>INCORRECTO (no medible):
+&quot;El sistema debe responder rapidamente&quot;
+
+CORRECTO (medible):
+FR-17.3: &quot;La consulta de reportes DEBE responder
+          en menos de 2 segundos (95th percentile)&quot;
+
+Criterio de aceptacion claro:
+- Ejecutar 100 consultas
+- 95 deben completar en &lt; 2 segundos
+- Cumple: SI/NO
+</pre></div>
+</div>
+</section>
+<section id="a-achievable-alcanzable">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 A - Achievable (Alcanzable)</a><a class="headerlink" href="#a-achievable-alcanzable" title="Link to this heading">¶</a></h3>
+<p>El FR debe ser tecnicamente factible.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>INCORRECTO (no alcanzable):
+&quot;El sistema DEBE predecir con 100% precision
+ las llamadas del proximo mes&quot;
+
+CORRECTO (alcanzable):
+FR-35.1: &quot;El sistema DEBE calcular promedio movil
+          de llamadas de ultimos 30 dias&quot;
+</pre></div>
+</div>
+</section>
+<section id="r-relevant-relevante">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.4 R - Relevant (Relevante)</a><a class="headerlink" href="#r-relevant-relevante" title="Link to this heading">¶</a></h3>
+<p>El FR debe tener trazabilidad clara hacia una necesidad de negocio.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>INCORRECTO (no relevante):
+FR-999: &quot;Sistema DEBE integrarse con TikTok&quot;
+
+Sin trazabilidad:
+- No hay UC que lo requiera
+- No hay BR que lo justifique
+- No aporta valor al negocio IACT
+
+CORRECTO (relevante):
+FR-40.6: Validar CAS Number
+    ^
+    | Deriva de: UC-40 paso 6
+    ^
+    | Deriva de: BR-012 &quot;CAS debe ser unico&quot;
+    ^
+    | Deriva de: Necesidad &quot;Catalogo confiable&quot;
+
+Cadena completa -&gt; FR es relevante
+</pre></div>
+</div>
+</section>
+<section id="t-time-bound-con-plazo">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.5 T - Time-bound (Con Plazo)</a><a class="headerlink" href="#t-time-bound-con-plazo" title="Link to this heading">¶</a></h3>
+<p>El FR debe estar asignado a un release especifico.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ASIGNACION DE FR A RELEASES:
+
+Release 1 (MVP): 120 FR Must Have
+  FR-110.1 a FR-110.15: Login (basico)
+  FR-40.1 a FR-40.25: CRUD Producto (basico)
+  Deadline: 15 febrero 2025
+
+Release 2: 90 FR Should Have
+  FR-110.16 a FR-110.25: Login (MFA, LDAP)
+  FR-40.26 a FR-40.40: Validaciones avanzadas
+  Deadline: 15 abril 2025
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="reglas-de-escritura-incose">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">4. Reglas de Escritura (INCOSE)</a><a class="headerlink" href="#reglas-de-escritura-incose" title="Link to this heading">¶</a></h2>
+<section id="lenguaje-imperativo">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.1 Lenguaje Imperativo</a><a class="headerlink" href="#lenguaje-imperativo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CORRECTO:
+&quot;El sistema DEBE validar...&quot;
+&quot;El sistema NO DEBE permitir...&quot;
+
+INCORRECTO:
+&quot;El sistema validara...&quot; (futuro)
+&quot;El sistema podria validar...&quot; (condicional)
+</pre></div>
+</div>
+</section>
+<section id="evitar-palabras-ambiguas">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.2 Evitar Palabras Ambiguas</a><a class="headerlink" href="#evitar-palabras-ambiguas" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Palabra Prohibida</p></th>
+<th class="head"><p>Alternativa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&quot;Y/O&quot;</p></td>
+<td><p>Separar en FR distintos</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;Etc.&quot;</p></td>
+<td><p>Listar todos los casos</p></td>
+</tr>
+<tr class="row-even"><td><p>&quot;Adecuado&quot;, &quot;suficiente&quot;</p></td>
+<td><p>Especificar cantidad exacta</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;Rapido&quot;, &quot;lento&quot;</p></td>
+<td><p>Especificar tiempo en segundos</p></td>
+</tr>
+<tr class="row-even"><td><p>&quot;Normal&quot;, &quot;tipico&quot;</p></td>
+<td><p>Definir explicitamente</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="un-requerimiento-una-oracion">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.3 Un Requerimiento, Una Oracion</a><a class="headerlink" href="#un-requerimiento-una-oracion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>INCORRECTO (4 requerimientos en 1):
+&quot;El sistema DEBE validar formato CAS y verificar
+ unicidad y calcular checksum y normalizar entrada&quot;
+
+CORRECTO (separados):
+FR-40.6: Sistema DEBE validar formato CAS
+FR-40.7: Sistema DEBE verificar unicidad CAS
+FR-40.8: Sistema DEBE calcular checksum CAS
+FR-40.9: Sistema DEBE normalizar CAS (sin espacios)
+</pre></div>
+</div>
+</section>
+<section id="especificar-unidades-y-limites">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.4 Especificar Unidades y Limites</a><a class="headerlink" href="#especificar-unidades-y-limites" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CORRECTO:
+&quot;Longitud maxima: 200 caracteres&quot;
+&quot;Timeout: 3 segundos&quot;
+&quot;Rango: 1-5 (inclusivo)&quot;
+
+INCORRECTO:
+&quot;Campo largo&quot;
+&quot;Timeout corto&quot;
+&quot;Numero pequeño&quot;
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="template-de-fr">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">5. Template de FR</a><a class="headerlink" href="#template-de-fr" title="Link to this heading">¶</a></h2>
+<section id="formato-estandar-iact">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.1 Formato Estandar IACT</a><a class="headerlink" href="#formato-estandar-iact" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FR-[UC].[SEQ]: [Titulo Descriptivo]
+
+El sistema [DEBE|NO DEBE] [verbo] [objeto] [condiciones].
+
+Campos adicionales:
+  Origen:        UC-NNN, Paso N / BR-NNN
+  Prioridad:     Must Have | Should Have | Could Have
+  Release:       R1 | R2 | R3
+  Criterio:      [Como verificar que se cumple]
+  Notas:         [Observaciones adicionales]
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.2 Ejemplo Completo</a><a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FR-40.6: Validar Formato CAS Number
+
+El sistema DEBE validar que el CAS Number ingresado tenga
+el formato XXX-XX-X, donde:
+- Primer bloque: 2 a 7 digitos
+- Segundo bloque: exactamente 2 digitos
+- Tercer bloque: exactamente 1 digito
+- Separadores: guiones (-)
+
+Regex: ^[0-9]{2,7}-[0-9]{2}-[0-9]$
+
+Si formato invalido:
+- Mostrar mensaje: &quot;CAS Number invalido. Formato: XXX-XX-X&quot;
+- Resaltar campo en rojo
+- Prevenir submit del formulario
+
+Origen:      UC-40, Paso 5
+Prioridad:   Must Have
+Release:     R1
+Criterio:    Test con casos validos e invalidos
+Notas:       Validar client-side Y server-side
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="beneficios-de-fr-bien-escritos">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">6. Beneficios de FR Bien Escritos</a><a class="headerlink" href="#beneficios-de-fr-bien-escritos" title="Link to this heading">¶</a></h2>
+<section id="estadisticas-de-industria">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">6.1 Estadisticas de Industria</a><a class="headerlink" href="#estadisticas-de-industria" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CAPERS JONES (2017) - Defectos por origen:
+
++----------------------+-----------+
+| Fase                 | % Defectos|
++----------------------+-----------+
+| Requerimientos       | 40-50%    |
+| Diseno               | 25-30%    |
+| Codificacion         | 15-20%    |
+| Testing              | 5-10%     |
++----------------------+-----------+
+
+Costo de correccion por fase:
+
++----------------------+-------+----------+
+| Fase                 | Costo | Ejemplo  |
++----------------------+-------+----------+
+| Requerimientos       | 1x    | $100     |
+| Diseno               | 5x    | $500     |
+| Codificacion         | 10x   | $1,000   |
+| Testing              | 20x   | $2,000   |
+| Produccion           | 100x  | $10,000  |
++----------------------+-------+----------+
+
+CONCLUSION:
+Invertir 2x en requerimientos ahorra 50x en produccion
+</pre></div>
+</div>
+</section>
+<section id="impacto-por-rol">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">6.2 Impacto por Rol</a><a class="headerlink" href="#impacto-por-rol" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>DESARROLLADORES:
+Sin FR detallados:
+  - Hacen suposiciones incorrectas
+  - Implementan multiples veces (retrabajos)
+  - Generan bugs por malentendidos
+
+Con FR detallados:
+  - Implementan correctamente en primera iteracion
+  - Ahorran 30-40% de tiempo de desarrollo
+
+---------------------------------------------------------
+
+QA/TESTERS:
+Sin FR detallados:
+  - No saben que probar exactamente
+  - Ambiguedad: es bug o feature?
+
+Con FR detallados:
+  - Test cases derivan directamente de FR
+  - Criterios claros de aceptacion
+
+---------------------------------------------------------
+
+STAKEHOLDERS:
+Sin FR detallados:
+  - &quot;Eso no es lo que pedi&quot;
+  - Insatisfaccion y conflictos
+
+Con FR detallados:
+  - Expectativas alineadas desde inicio
+  - Sistema cumple lo especificado
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fr-en-el-contexto-iact">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">7. FR en el Contexto IACT</a><a class="headerlink" href="#fr-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
+<section id="nomenclatura">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">7.1 Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
+<p>Los FR en IACT siguen la convencion:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORMATO: FR-[UC].[SEQ]
+
+Donde:
+- FR: Prefijo fijo (Functional Requirement)
+- UC: Numero del Caso de Uso de origen
+- SEQ: Secuencial dentro del UC
+
+Ejemplos:
+- FR-10.1: Primer FR derivado de UC-010
+- FR-10.2: Segundo FR derivado de UC-010
+- FR-17.5: Quinto FR derivado de UC-017
+</pre></div>
+</div>
+</section>
+<section id="ubicacion-en-el-modelo-iact">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">7.2 Ubicacion en el Modelo IACT</a><a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requisitos/
+    |
+    +--- funcionales/
+             |
+             +--- index.rst
+             +--- FR_UC010_Asignar_Roles.rst
+             +--- FR_UC017_Consultar_Reporte.rst
+             +--- ...
+</pre></div>
+</div>
+</section>
+<section id="relacion-con-otros-artefactos">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">7.3 Relacion con Otros Artefactos</a><a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR (Regla de Negocio)
+    |
+    v
+UC (Caso de Uso)
+    |
+    v
+FR (Requisito Funcional) &lt;-- Este nivel
+    |
+    v
+TEST (Caso de Prueba)
+    |
+    v
+CODIGO (Implementacion)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ejemplos-iact">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">8. Ejemplos IACT</a><a class="headerlink" href="#ejemplos-iact" title="Link to this heading">¶</a></h2>
+<section id="fr-de-validacion">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">8.1 FR de Validacion</a><a class="headerlink" href="#fr-de-validacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FR-10.6: Validar Compatibilidad SoD
+
+El sistema DEBE verificar que el rol a asignar no tenga
+conflicto de Separacion de Funciones (SoD) con los roles
+actuales del usuario.
+
+Consulta: Tabla de incompatibilidades role_conflicts
+
+Si existe conflicto:
+- Bloquear asignacion
+- Mostrar: &quot;Rol [X] incompatible con rol existente [Y]&quot;
+
+Origen:      UC-010, Paso 6 / BR_015
+Prioridad:   Must Have (seguridad)
+Release:     R1
+</pre></div>
+</div>
+</section>
+<section id="fr-de-consulta">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">8.2 FR de Consulta</a><a class="headerlink" href="#fr-de-consulta" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FR-17.3: Filtrar Reporte por Rango de Fechas
+
+El sistema DEBE permitir filtrar el reporte trimestral
+por un rango de fechas especificado por el usuario.
+
+Parametros:
+- fecha_inicio: date (obligatorio)
+- fecha_fin: date (obligatorio)
+
+Validaciones:
+- fecha_inicio &lt;= fecha_fin
+- Rango maximo: 365 dias
+
+Origen:      UC-017, Paso 3
+Prioridad:   Must Have
+Release:     R1
+</pre></div>
+</div>
+</section>
+<section id="fr-de-notificacion">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">8.3 FR de Notificacion</a><a class="headerlink" href="#fr-de-notificacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FR-10.10: Notificar Asignacion de Rol
+
+El sistema DEBE notificar al usuario cuando se le asigne
+un nuevo rol, utilizando el buzon interno del sistema.
+
+Contenido notificacion:
+- Asunto: &quot;Nuevo rol asignado: [nombre_rol]&quot;
+- Cuerpo: Fecha, rol, permisos otorgados
+- NO enviar email externo (CNST_001)
+
+Origen:      UC-010, Paso 10 / CNST_001
+Prioridad:   Should Have
+Release:     R1
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="documentos-relacionados">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="FND_01_Concepto_Requisito.html#fnd-01"><span class="std std-ref">FND_01: Concepto de Requisito</span></a> - Concepto de Requisito</p></li>
+<li><p><a class="reference internal" href="FND_03_Casos_de_Uso.html#fnd-03"><span class="std std-ref">FND_03: Casos de Uso</span></a> - Casos de Uso</p></li>
+<li><p><a class="reference internal" href="FND_04_Trazabilidad.html#fnd-04"><span class="std std-ref">FND_04: Trazabilidad</span></a> - Trazabilidad</p></li>
+<li><p><a class="reference internal" href="FND_05_Jerarquia_4_Niveles.html#fnd-05"><span class="std std-ref">FND_05: Jerarquia de 4 Niveles</span></a> - Jerarquia de 4 Niveles</p></li>
+<li><p><a class="reference internal" href="FND_06_Derivacion_vs_Transformacion.html#fnd-06"><span class="std std-ref">FND_06: Derivacion vs Transformacion</span></a> - Derivacion vs Transformacion</p></li>
+</ul>
+</section>
+<section id="fuentes-externas">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>IEEE 830-1998: Software Requirements Specifications</p></li>
+<li><p>ISO/IEC 25010: Systems and Software Quality Requirements</p></li>
+<li><p>INCOSE: Guide to Writing Requirements</p></li>
+<li><p>Karl Wiegers: &quot;Software Requirements&quot; (3rd Edition)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-12-19</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial aprobada</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Trazabilidad:</strong> Este artefacto define el concepto de FR que es el nivel
+mas bajo de la jerarquia de requisitos (Nivel 3). Los FR son el puente
+entre requisitos de usuario (UC) e implementacion. Referenciado por
+todos los artefactos en requisitos/funcionales/.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">FND_07: Requerimientos Funcionales</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#definicion-formal">1. Definicion Formal</a><ul>
+<li><a class="reference internal" href="#que-es-un-requerimiento-funcional">1.1 Que es un Requerimiento Funcional</a></li>
+<li><a class="reference internal" href="#caracteristicas-clave">1.2 Caracteristicas Clave</a></li>
+<li><a class="reference internal" href="#nivel-de-abstraccion">1.3 Nivel de Abstraccion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#origen-de-los-fr">2. Origen de los FR</a><ul>
+<li><a class="reference internal" href="#fuentes-de-derivacion">2.1 Fuentes de Derivacion</a></li>
+<li><a class="reference internal" href="#relacion-uc-fr">2.2 Relacion UC -&gt; FR</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#caracteristicas-smart">3. Caracteristicas SMART</a><ul>
+<li><a class="reference internal" href="#s-specific-especifico">3.1 S - Specific (Especifico)</a></li>
+<li><a class="reference internal" href="#m-measurable-medible">3.2 M - Measurable (Medible)</a></li>
+<li><a class="reference internal" href="#a-achievable-alcanzable">3.3 A - Achievable (Alcanzable)</a></li>
+<li><a class="reference internal" href="#r-relevant-relevante">3.4 R - Relevant (Relevante)</a></li>
+<li><a class="reference internal" href="#t-time-bound-con-plazo">3.5 T - Time-bound (Con Plazo)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reglas-de-escritura-incose">4. Reglas de Escritura (INCOSE)</a><ul>
+<li><a class="reference internal" href="#lenguaje-imperativo">4.1 Lenguaje Imperativo</a></li>
+<li><a class="reference internal" href="#evitar-palabras-ambiguas">4.2 Evitar Palabras Ambiguas</a></li>
+<li><a class="reference internal" href="#un-requerimiento-una-oracion">4.3 Un Requerimiento, Una Oracion</a></li>
+<li><a class="reference internal" href="#especificar-unidades-y-limites">4.4 Especificar Unidades y Limites</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-de-fr">5. Template de FR</a><ul>
+<li><a class="reference internal" href="#formato-estandar-iact">5.1 Formato Estandar IACT</a></li>
+<li><a class="reference internal" href="#ejemplo-completo">5.2 Ejemplo Completo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#beneficios-de-fr-bien-escritos">6. Beneficios de FR Bien Escritos</a><ul>
+<li><a class="reference internal" href="#estadisticas-de-industria">6.1 Estadisticas de Industria</a></li>
+<li><a class="reference internal" href="#impacto-por-rol">6.2 Impacto por Rol</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fr-en-el-contexto-iact">7. FR en el Contexto IACT</a><ul>
+<li><a class="reference internal" href="#nomenclatura">7.1 Nomenclatura</a></li>
+<li><a class="reference internal" href="#ubicacion-en-el-modelo-iact">7.2 Ubicacion en el Modelo IACT</a></li>
+<li><a class="reference internal" href="#relacion-con-otros-artefactos">7.3 Relacion con Otros Artefactos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplos-iact">8. Ejemplos IACT</a><ul>
+<li><a class="reference internal" href="#fr-de-validacion">8.1 FR de Validacion</a></li>
+<li><a class="reference internal" href="#fr-de-consulta">8.2 FR de Consulta</a></li>
+<li><a class="reference internal" href="#fr-de-notificacion">8.3 FR de Notificacion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">9. Referencias</a><ul>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#fuentes-externas">Fuentes Externas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

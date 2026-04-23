@@ -1,0 +1,947 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="PROC_Generacion_BR" name="artefacto" />
+<meta content="Procedimiento" name="tipo" />
+<meta content="normativa" name="dominio" />
+<meta content="procedimientos" name="subdominio" />
+<meta content="Generacion" name="categoria" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.0.0" name="version" />
+<meta content="2026-01-07" name="fecha_creacion" />
+<meta content="2026-01-07" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROC_Generacion_BR: Generacion de Reglas de Negocio - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proc-generacion-br-generacion-de-reglas-de-negocio">
+<span id="proc-generacion-br"></span><h1>PROC_Generacion_BR: Generacion de Reglas de Negocio<a class="headerlink" href="#proc-generacion-br-generacion-de-reglas-de-negocio" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#resumen-ejecutivo" id="id1">Resumen Ejecutivo</a></p></li>
+<li><p><a class="reference internal" href="#proposito" id="id2">1. Proposito</a></p></li>
+<li><p><a class="reference internal" href="#alcance" id="id3">2. Alcance</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aplica-a" id="id4">2.1 Aplica A</a></p></li>
+<li><p><a class="reference internal" href="#no-aplica-a" id="id5">2.2 No Aplica A</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#roles-y-responsabilidades" id="id6">3. Roles y Responsabilidades</a></p></li>
+<li><p><a class="reference internal" href="#precondiciones" id="id7">4. Precondiciones</a></p></li>
+<li><p><a class="reference internal" href="#artefactos-de-entrada" id="id8">5. Artefactos de Entrada</a></p></li>
+<li><p><a class="reference internal" href="#procedimiento" id="id9">6. Procedimiento</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipos-de-br-txm-03" id="id10">6.1 Tipos de BR (TXM_03)</a></p></li>
+<li><p><a class="reference internal" href="#pasos-detallados" id="id11">6.2 Pasos Detallados</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#artefactos-de-salida" id="id12">7. Artefactos de Salida</a></p></li>
+<li><p><a class="reference internal" href="#postcondiciones" id="id13">8. Postcondiciones</a></p></li>
+<li><p><a class="reference internal" href="#verificacion-y-validacion" id="id14">9. Verificacion y Validacion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#criterios-de-aceptacion" id="id15">9.1 Criterios de Aceptacion</a></p></li>
+<li><p><a class="reference internal" href="#checklist-de-secciones" id="id16">9.2 Checklist de Secciones</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#manejo-de-excepciones" id="id17">10. Manejo de Excepciones</a></p></li>
+<li><p><a class="reference internal" href="#referencias" id="id18">11. Referencias</a></p></li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id19">12. Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="resumen-ejecutivo">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Resumen Ejecutivo</a><a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>ID</strong></p></td>
+<td><p>PROC_Generacion_BR</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nombre</strong></p></td>
+<td><p>Generacion de Reglas de Negocio</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Categoria</strong></p></td>
+<td><p>Generacion de Artefactos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Frecuencia</strong></p></td>
+<td><p>Por cada BR a documentar</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Duracion Estimada</strong></p></td>
+<td><p>15-30 minutos por BR</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Estado</strong></p></td>
+<td><p>Vigente</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este procedimiento establece los pasos para generar Reglas de Negocio (BR)
+siguiendo el template TPL_BR y la taxonomia TXM_03.</p>
+<p><strong>Objetivo:</strong> Crear BR completas con declaracion formal, condiciones,
+acciones y trazabilidad a BReq y UC.</p>
+</section>
+<hr class="docutils" />
+<section id="alcance">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Alcance</a><a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<section id="aplica-a">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">2.1 Aplica A</a><a class="headerlink" href="#aplica-a" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Creacion de nuevas BR derivadas de BReq</p></li>
+<li><p>BR de todos los tipos segun TXM_03</p></li>
+<li><p>BR de todos los modulos IACT</p></li>
+</ul>
+</section>
+<section id="no-aplica-a">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.2 No Aplica A</a><a class="headerlink" href="#no-aplica-a" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Modificacion de BR existentes (usar PROC_Cambio_Requisitos)</p></li>
+<li><p>Restricciones tecnicas (usar PROC_Generacion_CNST)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="roles-y-responsabilidades">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Roles y Responsabilidades</a><a class="headerlink" href="#roles-y-responsabilidades" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol</p></th>
+<th class="head"><p>Responsabilidad</p></th>
+<th class="head"><p>Permisos Requeridos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Analista</p></td>
+<td><p>Genera BR siguiendo TPL</p></td>
+<td><p>Escritura en reglas_negocio/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experto Dominio</p></td>
+<td><p>Valida logica de negocio</p></td>
+<td><p>Lectura</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="precondiciones">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Precondiciones</a><a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h2>
+<p>Antes de iniciar este procedimiento, verificar:</p>
+<ul class="simple">
+<li><p>[ ] BReq origen identificado</p></li>
+<li><p>[ ] TPL_BR revisado (PROC_Revision_TPL_Previo_Generacion)</p></li>
+<li><p>[ ] TXM_03 (Tipos de Reglas) consultada</p></li>
+<li><p>[ ] Estructura /tmp/reglas_negocio/ creada</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="artefactos-de-entrada">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Artefactos de Entrada</a><a class="headerlink" href="#artefactos-de-entrada" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Artefacto</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>Obligatorio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TPL_BR_Business_Rules_1_0_0.rst</p></td>
+<td><p>Template de BR</p></td>
+<td><p>Si</p></td>
+</tr>
+<tr class="row-odd"><td><p>BReq_[NNN].rst</p></td>
+<td><p>Objetivo de negocio origen</p></td>
+<td><p>Si</p></td>
+</tr>
+<tr class="row-even"><td><p>TXM_03</p></td>
+<td><p>Taxonomia de tipos de BR</p></td>
+<td><p>Si</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="procedimiento">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">6. Procedimiento</a><a class="headerlink" href="#procedimiento" title="Link to this heading">¶</a></h2>
+<section id="tipos-de-br-txm-03">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">6.1 Tipos de BR (TXM_03)</a><a class="headerlink" href="#tipos-de-br-txm-03" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Restriccion</p></td>
+<td><p>Limita valores o acciones</p></td>
+<td><p>Password minimo 8 caracteres</p></td>
+</tr>
+<tr class="row-odd"><td><p>Derivacion</p></td>
+<td><p>Calcula valor desde otros</p></td>
+<td><p>Estado = f(intentos, tiempo)</p></td>
+</tr>
+<tr class="row-even"><td><p>Validacion</p></td>
+<td><p>Verifica condicion</p></td>
+<td><p>Email formato valido</p></td>
+</tr>
+<tr class="row-odd"><td><p>Autorizacion</p></td>
+<td><p>Define permisos</p></td>
+<td><p>Solo admin puede crear usuarios</p></td>
+</tr>
+<tr class="row-even"><td><p>Proceso</p></td>
+<td><p>Define flujo obligatorio</p></td>
+<td><p>Login invalida sesiones previas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pasos-detallados">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">6.2 Pasos Detallados</a><a class="headerlink" href="#pasos-detallados" title="Link to this heading">¶</a></h3>
+<p><strong>Paso 1: Identificar Tipo de BR</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Clasificar BR segun TXM_03:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Preguntas de clasificacion:
+
+- Limita un valor? -&gt; Restriccion
+- Calcula un resultado? -&gt; Derivacion
+- Verifica una condicion? -&gt; Validacion
+- Define quien puede hacer algo? -&gt; Autorizacion
+- Define un flujo obligatorio? -&gt; Proceso
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: Tipo identificado</p></li>
+<li><p><strong>Verificacion</strong>: Tipo valido segun TXM_03</p></li>
+</ul>
+<p><strong>Paso 2: Determinar Nomenclatura</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Asignar ID secuencial:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Formato: BR_[NNN]
+
+Donde [NNN] es numero secuencial de 3 digitos.
+
+Archivo: BR_[NNN]_[Nombre_Descriptivo].rst
+
+Ejemplos:
+- BR_001_Sesion_Unica_Por_Usuario.rst
+- BR_015_Bloqueo_Por_Intentos_Fallidos.rst
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: ID asignado</p></li>
+<li><p><strong>Verificacion</strong>: ID unico en catalogo</p></li>
+</ul>
+<p><strong>Paso 3: Redactar Declaracion Formal</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Escribir declaracion en formato SBVR:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Formato:
+&quot;El sistema DEBE [accion] CUANDO [condicion] PARA [proposito]&quot;
+
+Ejemplo BR_005:
+&quot;El sistema DEBE invalidar todas las sesiones previas del usuario
+CUANDO este inicia una nueva sesion PARA garantizar que solo
+exista una sesion activa por usuario.&quot;
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: Declaracion formal</p></li>
+<li><p><strong>Verificacion</strong>: Formato DEBE/CUANDO/PARA</p></li>
+</ul>
+<p><strong>Paso 4: Especificar Condiciones y Acciones</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Detallar logica:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gs">**Condicion de Activacion:**</span>
+
+<span class="m">-</span> Usuario inicia sesion exitosamente
+<span class="m">-</span> Existen sesiones previas del usuario
+
+<span class="gs">**Accion a Ejecutar:**</span>
+
+<span class="m">1.</span> Buscar sesiones activas del user_id
+<span class="m">2.</span> Marcar como invalidas (is_active = False)
+<span class="m">3.</span> Registrar evento de invalidacion
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: Logica detallada</p></li>
+<li><p><strong>Verificacion</strong>: Condiciones y acciones claras</p></li>
+</ul>
+<p><strong>Paso 5: Definir Excepciones</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Documentar casos especiales:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gs">**Excepciones:**</span>
+
+<span class="m">-</span> No aplica a sesiones de API (tokens de servicio)
+<span class="m">-</span> Administradores pueden tener multiples sesiones
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: Excepciones documentadas</p></li>
+<li><p><strong>Verificacion</strong>: Excepciones justificadas</p></li>
+</ul>
+<p><strong>Paso 6: Completar Trazabilidad</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Enlazar con artefactos relacionados:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gs">**Trazabilidad:**</span>
+
+<span class="m">*</span> - <span class="gs">**BReq Origen**</span>
+  <span class="m">-</span> BReq_004: Cumplimiento de Seguridad
+<span class="m">*</span> - <span class="gs">**UC que Aplican**</span>
+  <span class="m">-</span> UC_001: Iniciar Sesion
+<span class="m">*</span> - <span class="gs">**FR Derivados**</span>
+  <span class="m">-</span> FR_UC001_04: Invalidar sesiones previas
+<span class="m">*</span> - <span class="gs">**CNST Relacionadas**</span>
+  <span class="m">-</span> CNST_002: Gestion de Sesiones en BD
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: Trazabilidad completa</p></li>
+<li><p><strong>Verificacion</strong>: Referencias validas</p></li>
+</ul>
+<p><strong>Paso 7: Guardar y Validar</strong></p>
+<ul>
+<li><p><strong>Responsable</strong>: Analista</p></li>
+<li><p><strong>Accion</strong>: Guardar en /tmp y validar:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardar</span>
+/tmp/reglas_negocio/BR_005_Sesion_Unica.rst
+
+<span class="c1"># Validar sintaxis</span>
+sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>-W<span class="w"> </span>/tmp/reglas_negocio/<span class="w"> </span>/tmp/build/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Resultado</strong>: BR guardada y validada</p></li>
+<li><p><strong>Verificacion</strong>: Sin errores Sphinx</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="artefactos-de-salida">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">7. Artefactos de Salida</a><a class="headerlink" href="#artefactos-de-salida" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Artefacto</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>Ubicacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BR_[NNN]_[Nombre].rst</p></td>
+<td><p>Regla de Negocio generada</p></td>
+<td><p>/tmp/reglas_negocio/</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="postcondiciones">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">8. Postcondiciones</a><a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h2>
+<p>Al finalizar este procedimiento:</p>
+<ul class="simple">
+<li><p>[ ] BR creada con todas las secciones</p></li>
+<li><p>[ ] Tipo segun TXM_03 especificado</p></li>
+<li><p>[ ] Declaracion formal en formato SBVR</p></li>
+<li><p>[ ] Trazabilidad a BReq y UC completada</p></li>
+<li><p>[ ] Sintaxis RST validada</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="verificacion-y-validacion">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">9. Verificacion y Validacion</a><a class="headerlink" href="#verificacion-y-validacion" title="Link to this heading">¶</a></h2>
+<section id="criterios-de-aceptacion">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">9.1 Criterios de Aceptacion</a><a class="headerlink" href="#criterios-de-aceptacion" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[ ] ID sigue formato BR_[NNN]</p></li>
+<li><p>[ ] Tipo valido segun TXM_03</p></li>
+<li><p>[ ] Declaracion usa DEBE/CUANDO/PARA</p></li>
+<li><p>[ ] Condiciones y acciones especificadas</p></li>
+<li><p>[ ] BReq origen identificado</p></li>
+</ul>
+</section>
+<section id="checklist-de-secciones">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">9.2 Checklist de Secciones</a><a class="headerlink" href="#checklist-de-secciones" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[ ] Meta tags completos</p></li>
+<li><p>[ ] Resumen (ID, nombre, tipo, modulo)</p></li>
+<li><p>[ ] Declaracion formal</p></li>
+<li><p>[ ] Condiciones de activacion</p></li>
+<li><p>[ ] Acciones a ejecutar</p></li>
+<li><p>[ ] Excepciones</p></li>
+<li><p>[ ] Trazabilidad</p></li>
+<li><p>[ ] Historial</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="manejo-de-excepciones">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">10. Manejo de Excepciones</a><a class="headerlink" href="#manejo-de-excepciones" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Excepcion</p></th>
+<th class="head"><p>Accion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tipo no claro</p></td>
+<td><p>Consultar con experto de dominio</p></td>
+</tr>
+<tr class="row-odd"><td><p>BR duplicada</p></td>
+<td><p>Verificar si es variante, consolidar</p></td>
+</tr>
+<tr class="row-even"><td><p>Sin BReq origen</p></td>
+<td><p>Documentar como BR autonoma</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">11. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>TPL_BR_Business_Rules_1_0_0.rst</p></li>
+<li><p>TXM_03: Taxonomia de Reglas de Negocio</p></li>
+<li><p>PROC_Derivacion_BReq_BR</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">12. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 20.0%" />
+<col style="width: 56.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2026-01-07</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><em>Documento version 1.0.0 - Proyecto IACT Dashboard Analytics</em></p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROC_Generacion_BR: Generacion de Reglas de Negocio</a><ul>
+<li><a class="reference internal" href="#resumen-ejecutivo">Resumen Ejecutivo</a></li>
+<li><a class="reference internal" href="#proposito">1. Proposito</a></li>
+<li><a class="reference internal" href="#alcance">2. Alcance</a><ul>
+<li><a class="reference internal" href="#aplica-a">2.1 Aplica A</a></li>
+<li><a class="reference internal" href="#no-aplica-a">2.2 No Aplica A</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#roles-y-responsabilidades">3. Roles y Responsabilidades</a></li>
+<li><a class="reference internal" href="#precondiciones">4. Precondiciones</a></li>
+<li><a class="reference internal" href="#artefactos-de-entrada">5. Artefactos de Entrada</a></li>
+<li><a class="reference internal" href="#procedimiento">6. Procedimiento</a><ul>
+<li><a class="reference internal" href="#tipos-de-br-txm-03">6.1 Tipos de BR (TXM_03)</a></li>
+<li><a class="reference internal" href="#pasos-detallados">6.2 Pasos Detallados</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#artefactos-de-salida">7. Artefactos de Salida</a></li>
+<li><a class="reference internal" href="#postcondiciones">8. Postcondiciones</a></li>
+<li><a class="reference internal" href="#verificacion-y-validacion">9. Verificacion y Validacion</a><ul>
+<li><a class="reference internal" href="#criterios-de-aceptacion">9.1 Criterios de Aceptacion</a></li>
+<li><a class="reference internal" href="#checklist-de-secciones">9.2 Checklist de Secciones</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manejo-de-excepciones">10. Manejo de Excepciones</a></li>
+<li><a class="reference internal" href="#referencias">11. Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">12. Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

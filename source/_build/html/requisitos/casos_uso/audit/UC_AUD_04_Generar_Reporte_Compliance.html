@@ -1,0 +1,1168 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="IACT - Call Center Analytics" name="project" />
+<meta content="4.0.0" name="version" />
+<meta content="2026-01-06" name="date" />
+<meta content="Aprobado" name="status" />
+<meta content="MOD_Audit" name="module" />
+<meta content="UC_AUD_04" name="uc_id" />
+<meta content="CNST-009, CNST-010" name="normativa" />
+<link rel="index" title="Índice" href="../../../genindex.html"><link rel="search" title="Búsqueda" href="../../../search.html"><link rel="next" title="MOD_Logs: Casos de Uso de Bitácoras del Sistema" href="../logs/index.html"><link rel="prev" title="UC_AUD_03: Exportar Auditoria" href="UC_AUD_03_Exportar_Auditoria.html">
+        <link rel="prefetch" href="../../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>UC_AUD_04: Generar Reporte Compliance - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="uc-aud-04-generar-reporte-compliance">
+<h1>UC_AUD_04: Generar Reporte Compliance<a class="headerlink" href="#uc-aud-04-generar-reporte-compliance" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#resumen" id="id4">1. Resumen</a></p></li>
+<li><p><a class="reference internal" href="#descripcion" id="id5">2. Descripcion</a></p></li>
+<li><p><a class="reference internal" href="#diagrama-de-caso-de-uso" id="id6">3. Diagrama de Caso de Uso</a></p></li>
+<li><p><a class="reference internal" href="#contexto-de-ejecucion" id="id7">4. Contexto de Ejecucion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#precondiciones" id="id8">4.1 Precondiciones</a></p></li>
+<li><p><a class="reference internal" href="#trigger" id="id9">4.2 Trigger</a></p></li>
+<li><p><a class="reference internal" href="#postcondiciones" id="id10">4.3 Postcondiciones</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#flujo-normal-camino-feliz" id="id11">5. Flujo Normal (Camino Feliz)</a></p></li>
+<li><p><a class="reference internal" href="#diagrama-de-secuencia" id="id12">6. Diagrama de Secuencia</a></p></li>
+<li><p><a class="reference internal" href="#flujos-alternos" id="id13">7. Flujos Alternos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fa-01-reporte-de-accesos" id="id14">7.1 FA-01: Reporte de Accesos</a></p></li>
+<li><p><a class="reference internal" href="#fa-02-reporte-de-cambios-de-permisos" id="id15">7.2 FA-02: Reporte de Cambios de Permisos</a></p></li>
+<li><p><a class="reference internal" href="#fa-03-reporte-en-pdf" id="id16">7.3 FA-03: Reporte en PDF</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#excepciones" id="id17">8. Excepciones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ex-01-sin-datos-en-periodo" id="id18">8.1 EX-01: Sin Datos en Periodo</a></p></li>
+<li><p><a class="reference internal" href="#ex-02-error-generacion" id="id19">8.2 EX-02: Error Generacion</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#diagrama-de-actividad" id="id20">9. Diagrama de Actividad</a></p></li>
+<li><p><a class="reference internal" href="#reglas-de-negocio" id="id21">10. Reglas de Negocio</a></p></li>
+<li><p><a class="reference internal" href="#restricciones-de-arquitectura" id="id22">11. Restricciones de Arquitectura</a></p></li>
+<li><p><a class="reference internal" href="#requisitos-funcionales-derivados" id="id23">12. Requisitos Funcionales Derivados</a></p></li>
+<li><p><a class="reference internal" href="#trazabilidad" id="id24">13. Trazabilidad</a></p></li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id25">14. Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<section id="resumen">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Resumen</a><a class="headerlink" href="#resumen" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>ID</strong></p></td>
+<td><p>UC_AUD_04</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nombre</strong></p></td>
+<td><p>Generar Reporte Compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Actor Principal</strong></p></td>
+<td><p>AGR-006: agr_auditor</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Modulo</strong></p></td>
+<td><p>MOD_Audit</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Funcion RBAC</strong></p></td>
+<td><p>AUD-004: genera_compliance</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Prioridad</strong></p></td>
+<td><p>Alta</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Complejidad</strong></p></td>
+<td><p>Alta</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>BReq Origen</strong></p></td>
+<td><p>BRQ-AUD-004</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="descripcion">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Descripcion</a><a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
+<p>Este caso de uso permite generar reportes predefinidos de compliance
+y cumplimiento normativo. Incluye reportes de accesos, cambios de
+permisos, acciones administrativas y otros requeridos por regulaciones.</p>
+<p><strong>Caracteristicas principales:</strong></p>
+<ul class="simple">
+<li><p>Reportes predefinidos de compliance</p></li>
+<li><p>Formatos PDF y Excel con formato corporativo</p></li>
+<li><p>Periodos configurables (mensual, trimestral, anual)</p></li>
+<li><p>Incluye estadisticas y graficos</p></li>
+<li><p>Datos de auditoria inmutables (CNST-009)</p></li>
+<li><p>Acceso restringido a auditor (CNST-010)</p></li>
+</ul>
+<p><strong>Reportes Disponibles:</strong></p>
+<ul class="simple">
+<li><p>Reporte de Accesos: Logins exitosos y fallidos</p></li>
+<li><p>Reporte de Cambios de Permisos: Modificaciones RBAC</p></li>
+<li><p>Reporte de Acciones Administrativas: CREATE, UPDATE, DELETE</p></li>
+<li><p>Reporte de Exportaciones: Todas las exportaciones de datos</p></li>
+<li><p>Reporte de Alertas: Alertas generadas y reconocidas</p></li>
+</ul>
+</section>
+<section id="diagrama-de-caso-de-uso">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Diagrama de Caso de Uso</a><a class="headerlink" href="#diagrama-de-caso-de-uso" title="Link to this heading">¶</a></h2>
+<figure class="align-default" id="id1">
+<p class="plantuml">
+<img src="../../../_images/plantuml-9475cec93b9b561e24953ed8263ba4dd235dffb1.png" alt="&#64;startuml
+left to right direction
+actor &quot;AGR-006\nagr_auditor&quot; as USER
+
+rectangle &quot;MOD_Audit&quot; {
+  usecase &quot;UC_AUD_04\nGenerar Reporte\nCompliance&quot; as UC04
+  usecase &quot;Seleccionar\nTipo Reporte&quot; as TIPO
+  usecase &quot;Configurar\nPeriodo&quot; as PER
+  usecase &quot;Generar\nPDF/Excel&quot; as GEN
+}
+
+USER --&gt; UC04
+UC04 --&gt; TIPO : include
+UC04 --&gt; PER : include
+UC04 --&gt; GEN : include
+&#64;enduml"/>
+</p>
+<figcaption>
+<p><span class="caption-text">Diagrama de Caso de Uso - UC_AUD_04</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="contexto-de-ejecucion">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Contexto de Ejecucion</a><a class="headerlink" href="#contexto-de-ejecucion" title="Link to this heading">¶</a></h2>
+<section id="precondiciones">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">4.1 Precondiciones</a><a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 90.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Precondicion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRE-01</p></td>
+<td><p>El usuario tiene sesion activa con funcion AUD-004</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRE-02</p></td>
+<td><p>El usuario cumple con SoD-003</p></td>
+</tr>
+<tr class="row-even"><td><p>PRE-03</p></td>
+<td><p>Existen datos de auditoria para el periodo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="trigger">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">4.2 Trigger</a><a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h3>
+<p>El auditor accede a generacion de reportes de compliance.</p>
+</section>
+<section id="postcondiciones">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">4.3 Postcondiciones</a><a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h3>
+<p><strong>Exito:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 90.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Postcondicion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>POST-01</p></td>
+<td><p>Se genera reporte en formato seleccionado</p></td>
+</tr>
+<tr class="row-odd"><td><p>POST-02</p></td>
+<td><p>Se registra COMPLIANCE_REPORT en auditoria</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="flujo-normal-camino-feliz">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">5. Flujo Normal (Camino Feliz)</a><a class="headerlink" href="#flujo-normal-camino-feliz" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Actor</p></th>
+<th class="head"><p>Accion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Auditor</p></td>
+<td><p>Accede a reportes de compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Sistema</p></td>
+<td><p>Valida funcion AUD-004</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Sistema</p></td>
+<td><p>Valida cumplimiento SoD-003</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Sistema</p></td>
+<td><p>Muestra tipos de reportes disponibles</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona tipo de reporte</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona periodo (mes, trimestre, anio)</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona formato de salida (PDF o Excel)</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Sistema</p></td>
+<td><p>Consulta datos del periodo</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Sistema</p></td>
+<td><p>Calcula estadisticas y genera graficos</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Sistema</p></td>
+<td><p>Genera documento con formato corporativo</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Sistema</p></td>
+<td><p>Registra COMPLIANCE_REPORT en auditoria</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Sistema</p></td>
+<td><p>Descarga documento</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="diagrama-de-secuencia">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">6. Diagrama de Secuencia</a><a class="headerlink" href="#diagrama-de-secuencia" title="Link to this heading">¶</a></h2>
+<figure class="align-default" id="id2">
+<p class="plantuml">
+<img src="../../../_images/plantuml-536acad6748906ebd0bbbff00a452e7b4d382e70.png" alt="&#64;startuml
+actor &quot;AGR-006 Auditor&quot; as A
+participant &quot;Frontend&quot; as FE
+participant &quot;AuditController&quot; as AC
+participant &quot;SoDValidator&quot; as SOD
+participant &quot;ComplianceService&quot; as CS
+participant &quot;ReportGenerator&quot; as RG
+participant &quot;UserActionLog&quot; as UAL
+database &quot;Analytics&quot; as DB
+
+A -&gt; FE: Accede a Reportes Compliance
+FE -&gt; AC: GET /api/audit/compliance/types
+AC -&gt; AC: verify_function(AUD-004)
+AC -&gt; SOD: validate_sod(user, 'SoD-003')
+SOD --&gt; AC: sod_valid
+AC --&gt; FE: report_types
+FE --&gt; A: Lista de reportes
+
+A -&gt; FE: tipo, periodo, formato
+FE -&gt; AC: POST /api/audit/compliance/generate
+
+AC -&gt; CS: generate_compliance_report(params)
+
+CS -&gt; DB: SELECT datos segun tipo de reporte\nFROM user_action_log\nWHERE created_at BETWEEN ? AND ?
+note right of DB: CNST-009 Solo SELECT
+DB --&gt; CS: audit_data
+
+CS -&gt; CS: calculate_statistics()
+CS -&gt; CS: detect_anomalies()
+
+CS -&gt; RG: generate_report(data, format)
+RG -&gt; RG: add_corporate_header()
+RG -&gt; RG: add_summary_section()
+RG -&gt; RG: add_charts()
+RG -&gt; RG: add_detail_tables()
+RG -&gt; RG: add_conclusions()
+RG --&gt; CS: document
+
+CS -&gt; UAL: record(COMPLIANCE_REPORT)
+UAL -&gt; DB: INSERT user_action_log
+
+CS --&gt; AC: report_file
+AC --&gt; FE: 200 OK + file
+FE --&gt; A: Descarga reporte
+&#64;enduml"/>
+</p>
+<figcaption>
+<p><span class="caption-text">Diagrama de Secuencia - UC_AUD_04</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="flujos-alternos">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">7. Flujos Alternos</a><a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h2>
+<section id="fa-01-reporte-de-accesos">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">7.1 FA-01: Reporte de Accesos</a><a class="headerlink" href="#fa-01-reporte-de-accesos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Actor</p></th>
+<th class="head"><p>Accion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5a</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona Reporte de Accesos</p></td>
+</tr>
+<tr class="row-odd"><td><p>8a</p></td>
+<td><p>Sistema</p></td>
+<td><p>Consulta LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT</p></td>
+</tr>
+<tr class="row-even"><td><p>9a</p></td>
+<td><p>Sistema</p></td>
+<td><p>Calcula: total logins, tasa de fallo, usuarios mas activos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fa-02-reporte-de-cambios-de-permisos">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">7.2 FA-02: Reporte de Cambios de Permisos</a><a class="headerlink" href="#fa-02-reporte-de-cambios-de-permisos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Actor</p></th>
+<th class="head"><p>Accion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5a</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona Reporte de Cambios de Permisos</p></td>
+</tr>
+<tr class="row-odd"><td><p>8a</p></td>
+<td><p>Sistema</p></td>
+<td><p>Consulta ROLE_ASSIGN, ROLE_REVOKE, PERMISSION_CHANGE</p></td>
+</tr>
+<tr class="row-even"><td><p>9a</p></td>
+<td><p>Sistema</p></td>
+<td><p>Lista usuarios afectados, cambios por administrador</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fa-03-reporte-en-pdf">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">7.3 FA-03: Reporte en PDF</a><a class="headerlink" href="#fa-03-reporte-en-pdf" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Actor</p></th>
+<th class="head"><p>Accion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>7a</p></td>
+<td><p>Auditor</p></td>
+<td><p>Selecciona formato PDF</p></td>
+</tr>
+<tr class="row-odd"><td><p>10a</p></td>
+<td><p>Sistema</p></td>
+<td><p>Genera PDF con graficos embebidos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="excepciones">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">8. Excepciones</a><a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h2>
+<section id="ex-01-sin-datos-en-periodo">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">8.1 EX-01: Sin Datos en Periodo</a><a class="headerlink" href="#ex-01-sin-datos-en-periodo" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Paso de Origen</strong></p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Condicion</strong></p></td>
+<td><p>No hay datos de auditoria para el periodo</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Accion Sistema</strong></p></td>
+<td><p>Genera reporte vacio con nota</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mensaje Usuario</strong></p></td>
+<td><p>Reporte generado sin datos para el periodo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ex-02-error-generacion">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">8.2 EX-02: Error Generacion</a><a class="headerlink" href="#ex-02-error-generacion" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Paso de Origen</strong></p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Condicion</strong></p></td>
+<td><p>Error al generar documento</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Accion Sistema</strong></p></td>
+<td><p>Informa error</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mensaje Usuario</strong></p></td>
+<td><p>Error al generar reporte. Intente nuevamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Codigo Error</strong></p></td>
+<td><p>AUD-030</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="diagrama-de-actividad">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">9. Diagrama de Actividad</a><a class="headerlink" href="#diagrama-de-actividad" title="Link to this heading">¶</a></h2>
+<figure class="align-default" id="id3">
+<p class="plantuml">
+<img src="../../../_images/plantuml-1d4f6fdf699d36b8c80cb3c10b8a647b9ba18b89.png" alt="&#64;startuml
+start
+:Auditor accede a Reportes Compliance;
+
+if (Tiene AUD-004?) then (no)
+  stop
+else (si)
+endif
+
+if (Cumple SoD-003?) then (no)
+  :Error SoD;
+  stop
+else (si)
+endif
+
+:Seleccionar tipo de reporte;
+:Seleccionar periodo;
+:Seleccionar formato;
+
+:Consultar datos de auditoria;
+note right: CNST-009 Solo lectura
+
+:Calcular estadisticas;
+:Detectar anomalias;
+:Generar graficos;
+:Compilar documento;
+
+:Registrar generacion en auditoria;
+:Descargar documento;
+
+stop
+&#64;enduml"/>
+</p>
+<figcaption>
+<p><span class="caption-text">Diagrama de Actividad - UC_AUD_04</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="reglas-de-negocio">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">10. Reglas de Negocio</a><a class="headerlink" href="#reglas-de-negocio" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 35.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Regla</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BR-AUD-30</p></td>
+<td><p>Reportes Predefinidos</p></td>
+<td><p>Solo tipos de reportes predefinidos disponibles</p></td>
+</tr>
+<tr class="row-odd"><td><p>BR-AUD-31</p></td>
+<td><p>Periodos Estandar</p></td>
+<td><p>Mensual, trimestral, semestral, anual</p></td>
+</tr>
+<tr class="row-even"><td><p>BR-AUD-32</p></td>
+<td><p>Formato Corporativo</p></td>
+<td><p>Reportes incluyen logo y formato estandar</p></td>
+</tr>
+<tr class="row-odd"><td><p>BR-AUD-33</p></td>
+<td><p>Auditoria de Generacion</p></td>
+<td><p>Cada generacion se registra en auditoria</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tipos de Reportes:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Contenido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ACCESOS</p></td>
+<td><p>Logins exitosos/fallidos, patrones de acceso, IPs</p></td>
+</tr>
+<tr class="row-odd"><td><p>PERMISOS</p></td>
+<td><p>Cambios de roles, asignaciones, revocaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>ADMINISTRATIVO</p></td>
+<td><p>Creaciones, modificaciones, eliminaciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>EXPORTACIONES</p></td>
+<td><p>Todas las exportaciones de datos del sistema</p></td>
+</tr>
+<tr class="row-even"><td><p>ALERTAS</p></td>
+<td><p>Alertas generadas, reconocidas, tiempos de respuesta</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Secciones del Reporte:</strong></p>
+<ol class="arabic simple">
+<li><p>Portada con periodo y tipo</p></li>
+<li><p>Resumen ejecutivo</p></li>
+<li><p>Estadisticas principales</p></li>
+<li><p>Graficos de tendencias</p></li>
+<li><p>Detalle de eventos</p></li>
+<li><p>Anomalias detectadas</p></li>
+<li><p>Conclusiones y recomendaciones</p></li>
+</ol>
+</section>
+<section id="restricciones-de-arquitectura">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">11. Restricciones de Arquitectura</a><a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 25.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CNST</p></th>
+<th class="head"><p>Nombre</p></th>
+<th class="head"><p>Aplicacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CNST-009</p></td>
+<td><p>Inmutable</p></td>
+<td><p>Datos de auditoria no se modifican al generar</p></td>
+</tr>
+<tr class="row-odd"><td><p>CNST-010</p></td>
+<td><p>SoD</p></td>
+<td><p>Solo auditor puede generar reportes compliance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="requisitos-funcionales-derivados">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">12. Requisitos Funcionales Derivados</a><a class="headerlink" href="#requisitos-funcionales-derivados" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 40.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Requisito</p></th>
+<th class="head"><p>Criterio de Aceptacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FR-AUD-030</p></td>
+<td><p>Generar reportes compliance</p></td>
+<td><p>Documento PDF/Excel generado</p></td>
+</tr>
+<tr class="row-odd"><td><p>FR-AUD-031</p></td>
+<td><p>Incluir estadisticas</p></td>
+<td><p>Metricas y graficos presentes</p></td>
+</tr>
+<tr class="row-even"><td><p>FR-AUD-032</p></td>
+<td><p>Formato corporativo</p></td>
+<td><p>Logo y estructura estandar</p></td>
+</tr>
+<tr class="row-odd"><td><p>FR-AUD-033</p></td>
+<td><p>Auditar generacion</p></td>
+<td><p>Registro en user_action_log</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="trazabilidad">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">13. Trazabilidad</a><a class="headerlink" href="#trazabilidad" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>BReq Origen</strong></p></td>
+<td><p>BRQ-AUD-004</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Restricciones</strong></p></td>
+<td><p>CNST-009, CNST-010</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>UC Relacionados</strong></p></td>
+<td><p>UC_AUD_01, UC_AUD_03</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Funcion RBAC</strong></p></td>
+<td><p>AUD-004: genera_compliance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">14. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4.0.0</p></td>
+<td><p>2026-01-06</p></td>
+<td><p>Version inicial v4.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">UC_AUD_04: Generar Reporte Compliance</a><ul>
+<li><a class="reference internal" href="#resumen">1. Resumen</a></li>
+<li><a class="reference internal" href="#descripcion">2. Descripcion</a></li>
+<li><a class="reference internal" href="#diagrama-de-caso-de-uso">3. Diagrama de Caso de Uso</a></li>
+<li><a class="reference internal" href="#contexto-de-ejecucion">4. Contexto de Ejecucion</a><ul>
+<li><a class="reference internal" href="#precondiciones">4.1 Precondiciones</a></li>
+<li><a class="reference internal" href="#trigger">4.2 Trigger</a></li>
+<li><a class="reference internal" href="#postcondiciones">4.3 Postcondiciones</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flujo-normal-camino-feliz">5. Flujo Normal (Camino Feliz)</a></li>
+<li><a class="reference internal" href="#diagrama-de-secuencia">6. Diagrama de Secuencia</a></li>
+<li><a class="reference internal" href="#flujos-alternos">7. Flujos Alternos</a><ul>
+<li><a class="reference internal" href="#fa-01-reporte-de-accesos">7.1 FA-01: Reporte de Accesos</a></li>
+<li><a class="reference internal" href="#fa-02-reporte-de-cambios-de-permisos">7.2 FA-02: Reporte de Cambios de Permisos</a></li>
+<li><a class="reference internal" href="#fa-03-reporte-en-pdf">7.3 FA-03: Reporte en PDF</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#excepciones">8. Excepciones</a><ul>
+<li><a class="reference internal" href="#ex-01-sin-datos-en-periodo">8.1 EX-01: Sin Datos en Periodo</a></li>
+<li><a class="reference internal" href="#ex-02-error-generacion">8.2 EX-02: Error Generacion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diagrama-de-actividad">9. Diagrama de Actividad</a></li>
+<li><a class="reference internal" href="#reglas-de-negocio">10. Reglas de Negocio</a></li>
+<li><a class="reference internal" href="#restricciones-de-arquitectura">11. Restricciones de Arquitectura</a></li>
+<li><a class="reference internal" href="#requisitos-funcionales-derivados">12. Requisitos Funcionales Derivados</a></li>
+<li><a class="reference internal" href="#trazabilidad">13. Trazabilidad</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">14. Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

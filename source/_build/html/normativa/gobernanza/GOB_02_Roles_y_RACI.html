@@ -1,0 +1,1623 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="GOB_02" name="artefacto" />
+<meta content="Matriz" name="tipo" />
+<meta content="normativa" name="dominio" />
+<meta content="gobernanza" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.0.0" name="version" />
+<meta content="2025-12-22" name="fecha_creacion" />
+<meta content="2025-12-22" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="next" title="GOB_03: Control de Calidad Documental" href="GOB_03_Control_Calidad_Documental.html"><link rel="prev" title="GOB_01: Modelo de Gobernanza IACT" href="GOB_01_Modelo_Gobernanza_IACT.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>GOB_02: Roles y Matriz RACI - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestion de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestion de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Pipeline ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Pipeline ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="gob-02-roles-y-matriz-raci">
+<span id="gob-02"></span><h1>GOB_02: Roles y Matriz RACI<a class="headerlink" href="#gob-02-roles-y-matriz-raci" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
+<li><p><a class="reference internal" href="#modelo-rbac-del-sistema-iact" id="id2">1. Modelo RBAC del Sistema IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipo-de-modelo" id="id3">1.1 Tipo de Modelo</a></p></li>
+<li><p><a class="reference internal" href="#arquitectura-de-seguridad" id="id4">1.2 Arquitectura de Seguridad</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#catalogo-de-roles-funcionales" id="id5">2. Catalogo de Roles Funcionales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#resumen-por-categoria" id="id6">2.1 Resumen por Categoria</a></p></li>
+<li><p><a class="reference internal" href="#categoria-1-gestion-de-usuarios" id="id7">2.2 Categoria 1: Gestion de Usuarios</a></p></li>
+<li><p><a class="reference internal" href="#categoria-2-reportes" id="id8">2.3 Categoria 2: Reportes</a></p></li>
+<li><p><a class="reference internal" href="#categoria-3-visualizacion" id="id9">2.4 Categoria 3: Visualizacion</a></p></li>
+<li><p><a class="reference internal" href="#categoria-4-alertas-y-notificaciones" id="id10">2.5 Categoria 4: Alertas y Notificaciones</a></p></li>
+<li><p><a class="reference internal" href="#categoria-5-administracion-y-seguridad" id="id11">2.6 Categoria 5: Administracion y Seguridad</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#separacion-de-funciones-sod" id="id12">3. Separacion de Funciones (SoD)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#roles-mutuamente-excluyentes" id="id13">3.1 Roles Mutuamente Excluyentes</a></p></li>
+<li><p><a class="reference internal" href="#justificacion" id="id14">3.2 Justificacion</a></p></li>
+<li><p><a class="reference internal" href="#validacion-del-sistema" id="id15">3.3 Validacion del Sistema</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#perfiles-de-modulos" id="id16">4. Perfiles de Modulos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#perfiles-predefinidos" id="id17">4.1 Perfiles Predefinidos</a></p></li>
+<li><p><a class="reference internal" href="#modulos-del-sistema" id="id18">4.2 Modulos del Sistema</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#matriz-raci-artefactos-documentales" id="id19">5. Matriz RACI - Artefactos Documentales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#leyenda-raci" id="id20">5.1 Leyenda RACI</a></p></li>
+<li><p><a class="reference internal" href="#matriz-por-tipo-de-artefacto" id="id21">5.2 Matriz por Tipo de Artefacto</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#matriz-raci-procesos-de-gobernanza" id="id22">6. Matriz RACI - Procesos de Gobernanza</a></p>
+<ul>
+<li><p><a class="reference internal" href="#procesos-estructurales" id="id23">6.1 Procesos Estructurales</a></p></li>
+<li><p><a class="reference internal" href="#procesos-de-artefactos" id="id24">6.2 Procesos de Artefactos</a></p></li>
+<li><p><a class="reference internal" href="#procesos-de-control" id="id25">6.3 Procesos de Control</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#asignacion-de-roles-a-funciones-documentales" id="id26">7. Asignacion de Roles a Funciones Documentales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#roles-vs-funciones-raci" id="id27">7.1 Roles vs Funciones RACI</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reglas-de-asignacion-de-roles" id="id28">8. Reglas de Asignacion de Roles</a></p>
+<ul>
+<li><p><a class="reference internal" href="#principio-de-minimo-privilegio" id="id29">8.1 Principio de Minimo Privilegio</a></p></li>
+<li><p><a class="reference internal" href="#acumulacion-de-permisos" id="id30">8.2 Acumulacion de Permisos</a></p></li>
+<li><p><a class="reference internal" href="#revision-periodica" id="id31">8.3 Revision Periodica</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencias" id="id32">9. Referencias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#documentos-relacionados" id="id33">Documentos Relacionados</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-externas" id="id34">Fuentes Externas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id35">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento define el <strong>catalogo completo de roles</strong> del sistema IACT
+y establece la <strong>matriz RACI</strong> que asigna responsabilidades claras para
+cada tipo de artefacto y proceso del sistema documental.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>Pregunta Clave que Responde:</strong></p>
+<p>&quot;¿Quien es responsable de que en este proyecto?&quot;</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="modelo-rbac-del-sistema-iact">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Modelo RBAC del Sistema IACT</a><a class="headerlink" href="#modelo-rbac-del-sistema-iact" title="Link to this heading">¶</a></h2>
+<section id="tipo-de-modelo">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Tipo de Modelo</a><a class="headerlink" href="#tipo-de-modelo" title="Link to this heading">¶</a></h3>
+<p>El sistema IACT implementa <strong>Flat RBAC</strong> (NIST):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CARACTERISTICAS:
+- Roles independientes sin jerarquia automatica
+- Sin herencia de permisos entre roles
+- Permisos explicitos por rol
+- Un usuario puede tener multiples roles
+- Permisos se acumulan (operacion UNION)
+</pre></div>
+</div>
+</section>
+<section id="arquitectura-de-seguridad">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Arquitectura de Seguridad</a><a class="headerlink" href="#arquitectura-de-seguridad" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────┐
+│                     USUARIOS                        │
+└─────────────────────────────────────────────────────┘
+                        │
+                        │ N:N
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                      ROLES                          │
+│  (17 roles funcionales - sin Analisis Avanzado)     │
+└─────────────────────────────────────────────────────┘
+                        │
+                        │ 1:N
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                    PERMISOS                         │
+└─────────────────────────────────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                  FUNCIONES                          │
+│  (Modulos del sistema)                              │
+└─────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="catalogo-de-roles-funcionales">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Catalogo de Roles Funcionales</a><a class="headerlink" href="#catalogo-de-roles-funcionales" title="Link to this heading">¶</a></h2>
+<section id="resumen-por-categoria">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Resumen por Categoria</a><a class="headerlink" href="#resumen-por-categoria" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Categoria</p></th>
+<th class="head"><p>Roles</p></th>
+<th class="head"><p>Usuarios Est.</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gestion de Usuarios</p></td>
+<td><p>3</p></td>
+<td><p>27-48</p></td>
+<td><p>Administracion de cuentas y permisos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reportes</p></td>
+<td><p>4</p></td>
+<td><p>95-180</p></td>
+<td><p>Visualizacion y exportacion de reportes</p></td>
+</tr>
+<tr class="row-even"><td><p>Visualizacion</p></td>
+<td><p>2</p></td>
+<td><p>70-140</p></td>
+<td><p>Dashboards y graficos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alertas</p></td>
+<td><p>4</p></td>
+<td><p>57-108</p></td>
+<td><p>Notificaciones y umbrales</p></td>
+</tr>
+<tr class="row-even"><td><p>Administracion</p></td>
+<td><p>4</p></td>
+<td><p>6-12</p></td>
+<td><p>Sistema, seguridad, auditoria</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TOTAL</strong></p></td>
+<td><p><strong>17</strong></p></td>
+<td><p><strong>255-488</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Exclusiones:</strong> El rol R010 (DATA_ANALYST) y la categoria de Analisis
+Avanzado (Exploratorio, Comparativo, Patrones) no aplican al alcance
+actual del proyecto IACT.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categoria-1-gestion-de-usuarios">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Categoria 1: Gestion de Usuarios</a><a class="headerlink" href="#categoria-1-gestion-de-usuarios" title="Link to this heading">¶</a></h3>
+<p><strong>R001 - USERS_FULL_MANAGER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra usuarios, roles, permisos y segmentos de datos</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Crea, modifica, desactiva usuarios. Asigna roles. Resetea contraseñas. Administra segmentos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>2-3</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoD</p></td>
+<td><p>Mutuamente excluyente con R017 (AUDIT_VIEWER)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R002 - USERS_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Ve informacion de usuarios sin modificacion</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Consulta, lista y busca usuarios. Ve roles asignados. Solo lectura.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>10-20</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>BASICO, ADMINISTRADOR_SEGMENTO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R003 - USERS_TEAM_MANAGER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra usuarios del mismo segmento de datos</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Modifica datos basicos de su equipo. Solicita creacion (requiere aprobacion R001).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>15-25</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR_SEGMENTO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categoria-2-reportes">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Categoria 2: Reportes</a><a class="headerlink" href="#categoria-2-reportes" title="Link to this heading">¶</a></h3>
+<p><strong>R004 - REPORTS_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Consulta reportes basicos con filtros estandar</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Ve reportes trimestrales, transferencias, problemas de menu. Aplica filtros por fecha/centro/DID.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>50-100</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>BASICO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restricciones</p></td>
+<td><p>Solo su segmento. No puede exportar.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R005 - REPORTS_EXPORTER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Exporta reportes en multiples formatos</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R004 + exporta a CSV, Excel, PDF. Limites diarios segun perfil.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>30-50</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>BASICO, ANALISTA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R006 - REPORTS_ADVANCED_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Accede a reportes avanzados y ejecutivos</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R004 + reportes ejecutivos, tendencias, comparativos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>10-20</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ANALISTA, ADMINISTRADOR_SEGMENTO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R007 - REPORTS_CREATOR</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Crea y modifica reportes personalizados</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Crea reportes con SQL validado. Comparte con otros. Programa generacion automatica.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>5-10</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ANALISTA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restricciones</p></td>
+<td><p>Solo SELECT. Timeout 5 min. Max 50,000 registros.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categoria-3-visualizacion">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.4 Categoria 3: Visualizacion</a><a class="headerlink" href="#categoria-3-visualizacion" title="Link to this heading">¶</a></h3>
+<p><strong>R008 - DASHBOARD_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Ve dashboards estandar sin personalizacion</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Dashboard principal, graficos por hora/dia, distribucion por centro, tendencias.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>50-100</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>BASICO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Widgets</p></td>
+<td><p>10 widgets predefinidos (llamadas, distribucion, top centros, alertas, etc.)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R009 - DASHBOARD_CUSTOMIZER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Personaliza dashboards y guarda vistas</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R008 + reordena widgets, guarda vistas (max 5), crea dashboards personales.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>20-40</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ANALISTA, ADMINISTRADOR_SEGMENTO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categoria-4-alertas-y-notificaciones">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.5 Categoria 4: Alertas y Notificaciones</a><a class="headerlink" href="#categoria-4-alertas-y-notificaciones" title="Link to this heading">¶</a></h3>
+<p><strong>R011 - ALERTS_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Recibe y visualiza alertas sin configurar</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Recibe alertas personales. Ve historial. Filtra. Marca leidas. Snooze temporal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>30-60</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>BASICO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restricciones</p></td>
+<td><p>Solo alertas propias. No configura.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R012 - ALERTS_CONFIGURATOR</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Configura alertas personales con umbrales</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R011 + crea alertas, define umbrales, configura frecuencia y severidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>15-30</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ANALISTA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restricciones</p></td>
+<td><p>Solo alertas personales. Max 20 activas.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R013 - ALERTS_TEAM_MANAGER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra alertas del equipo (mismo segmento)</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R012 + asigna alertas a equipo, gestiona destinatarios (max 50).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>10-15</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR_SEGMENTO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restricciones</p></td>
+<td><p>Solo usuarios de su segmento.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R014 - ALERTS_GLOBAL_ADMIN</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra alertas globales del sistema</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Todo de R013 + configura alertas globales, broadcast, umbrales por defecto, politicas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>2-3</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="categoria-5-administracion-y-seguridad">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.6 Categoria 5: Administracion y Seguridad</a><a class="headerlink" href="#categoria-5-administracion-y-seguridad" title="Link to this heading">¶</a></h3>
+<p><strong>R015 - MODULES_ADMIN</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra modulos dinamicos y perfiles</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Asigna modulos a usuarios. Crea perfiles personalizados. Habilita/deshabilita modulos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>2-3</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR</p></td>
+</tr>
+<tr class="row-odd"><td><p>Perfiles Predefinidos</p></td>
+<td><p>BASICO, ANALISTA, ADMINISTRADOR_SEGMENTO, ADMINISTRADOR</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R016 - SYSTEM_ADMIN</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra configuracion global del sistema</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Configura sistema, parametros globales, integraciones, mantenimiento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>1-2</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoD</p></td>
+<td><p>Mutuamente excluyente con R017 (AUDIT_VIEWER)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R017 - AUDIT_VIEWER</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Ve logs de auditoria del sistema</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Consulta audit_logs. Genera reportes de auditoria. Exporta logs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>2-4</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>AUDITOR (externo al equipo operativo)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoD</p></td>
+<td><p>Mutuamente excluyente con R001 y R016</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R018 - SECURITY_ADMIN</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Funcion</p></td>
+<td><p>Administra politicas de seguridad</p></td>
+</tr>
+<tr class="row-even"><td><p>Capacidades</p></td>
+<td><p>Configura politicas de contraseñas, bloqueos, sesiones. Gestiona incidentes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios Est.</p></td>
+<td><p>1-2</p></td>
+</tr>
+<tr class="row-even"><td><p>Perfil Tipico</p></td>
+<td><p>ADMINISTRADOR</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="separacion-de-funciones-sod">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">3. Separacion de Funciones (SoD)</a><a class="headerlink" href="#separacion-de-funciones-sod" title="Link to this heading">¶</a></h2>
+<section id="roles-mutuamente-excluyentes">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.1 Roles Mutuamente Excluyentes</a><a class="headerlink" href="#roles-mutuamente-excluyentes" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol A</p></th>
+<th class="head"><p>Rol B</p></th>
+<th class="head"><p>Razon</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R016 (SYSTEM_ADMIN)</p></td>
+<td><p>R017 (AUDIT_VIEWER)</p></td>
+<td><p>Quien opera NO debe auditar</p></td>
+</tr>
+<tr class="row-odd"><td><p>R001 (USERS_FULL_MANAGER)</p></td>
+<td><p>R017 (AUDIT_VIEWER)</p></td>
+<td><p>Quien gestiona usuarios NO debe auditar</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="justificacion">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.2 Justificacion</a><a class="headerlink" href="#justificacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRINCIPIO: Independencia de Auditoria
+
+- El auditor debe ser independiente de operaciones
+- Previene encubrimiento de acciones indebidas
+- Garantiza objetividad en revision de logs
+- Cumplimiento con estandares de seguridad
+</pre></div>
+</div>
+</section>
+<section id="validacion-del-sistema">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.3 Validacion del Sistema</a><a class="headerlink" href="#validacion-del-sistema" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Al asignar roles mutuamente excluyentes:
+
+1. Sistema detecta conflicto SoD
+2. Muestra advertencia explicita
+3. Requiere justificacion (min 20 caracteres)
+4. Requiere aprobacion de R001 o R018
+5. Registra excepcion en audit_logs
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="perfiles-de-modulos">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">4. Perfiles de Modulos</a><a class="headerlink" href="#perfiles-de-modulos" title="Link to this heading">¶</a></h2>
+<section id="perfiles-predefinidos">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.1 Perfiles Predefinidos</a><a class="headerlink" href="#perfiles-predefinidos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Perfil</p></th>
+<th class="head"><p>Roles Tipicos</p></th>
+<th class="head"><p>Modulos Incluidos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BASICO</p></td>
+<td><p>R004, R008, R011</p></td>
+<td><p>Dashboard Principal, Mi Perfil, Reportes Basicos</p></td>
+</tr>
+<tr class="row-odd"><td><p>ANALISTA</p></td>
+<td><p>R005-R007, R009, R012</p></td>
+<td><ul class="simple">
+<li><p>Reportes Avanzados, Dashboards Personalizados, Exportacion</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>ADMINISTRADOR_SEGMENTO</p></td>
+<td><p>R003, R006, R009, R013</p></td>
+<td><ul class="simple">
+<li><p>Gestion Equipo, Alertas Equipo</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ADMINISTRADOR</p></td>
+<td><p>R001, R014-R016, R018</p></td>
+<td><p>Todos los modulos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="modulos-del-sistema">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.2 Modulos del Sistema</a><a class="headerlink" href="#modulos-del-sistema" title="Link to this heading">¶</a></h3>
+<p><strong>Categoria: Basicos</strong></p>
+<ul class="simple">
+<li><p>Dashboard Principal (obligatorio)</p></li>
+<li><p>Mi Perfil (obligatorio)</p></li>
+<li><p>Reportes Basicos</p></li>
+</ul>
+<p><strong>Categoria: Reportes</strong></p>
+<ul class="simple">
+<li><p>Reportes Avanzados (requiere: Reportes Basicos)</p></li>
+<li><p>Reportes Personalizados (requiere: Reportes Basicos)</p></li>
+<li><p>Reportes Ejecutivos</p></li>
+<li><p>Reportes Operativos</p></li>
+</ul>
+<p><strong>Categoria: Visualizacion</strong></p>
+<ul class="simple">
+<li><p>Dashboards Estandar</p></li>
+<li><p>Dashboards Personalizados (requiere: Dashboards Estandar)</p></li>
+</ul>
+<p><strong>Categoria: Exportacion</strong></p>
+<ul class="simple">
+<li><p>Exportacion Basica (CSV, Excel)</p></li>
+<li><p>Exportacion Avanzada (PDF)</p></li>
+</ul>
+<p><strong>Categoria: Alertas</strong></p>
+<ul class="simple">
+<li><p>Alertas Basicas</p></li>
+<li><p>Configuracion de Alertas (requiere: Alertas Basicas)</p></li>
+<li><p>Alertas de Equipo (requiere: Configuracion de Alertas)</p></li>
+</ul>
+<p><strong>Categoria: Administracion</strong></p>
+<ul class="simple">
+<li><p>Gestion de Usuarios</p></li>
+<li><p>Gestion de Modulos</p></li>
+<li><p>Configuracion del Sistema</p></li>
+<li><p>Auditoria</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Modulos Excluidos:</strong> Analisis Exploratorio, Analisis Comparativo,
+Analisis de Patrones no estan disponibles en el alcance actual.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="matriz-raci-artefactos-documentales">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">5. Matriz RACI - Artefactos Documentales</a><a class="headerlink" href="#matriz-raci-artefactos-documentales" title="Link to this heading">¶</a></h2>
+<section id="leyenda-raci">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">5.1 Leyenda RACI</a><a class="headerlink" href="#leyenda-raci" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>R = Responsible (Ejecuta el trabajo)
+A = Accountable (Rinde cuentas, aprueba)
+C = Consulted   (Se consulta antes de decidir)
+I = Informed    (Se informa despues de decidir)
+</pre></div>
+</div>
+</section>
+<section id="matriz-por-tipo-de-artefacto">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.2 Matriz por Tipo de Artefacto</a><a class="headerlink" href="#matriz-por-tipo-de-artefacto" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<hr class="docutils" />
+<section id="matriz-raci-procesos-de-gobernanza">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">6. Matriz RACI - Procesos de Gobernanza</a><a class="headerlink" href="#matriz-raci-procesos-de-gobernanza" title="Link to this heading">¶</a></h2>
+<section id="procesos-estructurales">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">6.1 Procesos Estructurales</a><a class="headerlink" href="#procesos-estructurales" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Proceso</p></th>
+<th class="head"><p>PMO</p></th>
+<th class="head"><p>Arq Doc</p></th>
+<th class="head"><p>Owner Dom</p></th>
+<th class="head"><p>Tech Lead</p></th>
+<th class="head"><p>Sponsor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crear Dominio</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>C</p></td>
+<td><p>A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crear Subdominio</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Descongelar Subdominio</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recongelar Subdominio</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Crear Seccion</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="procesos-de-artefactos">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">6.2 Procesos de Artefactos</a><a class="headerlink" href="#procesos-de-artefactos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Proceso</p></th>
+<th class="head"><p>PMO</p></th>
+<th class="head"><p>Owner Dom</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Revisor</p></th>
+<th class="head"><p>QA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crear Artefacto</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Revisar Artefacto</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p>Aprobar Artefacto</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modificar Artefacto</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Obsoleter Artefacto</p></td>
+<td><p>A</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="procesos-de-control">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">6.3 Procesos de Control</a><a class="headerlink" href="#procesos-de-control" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Proceso</p></th>
+<th class="head"><p>PMO</p></th>
+<th class="head"><p>Arq Doc</p></th>
+<th class="head"><p>Owner Dom</p></th>
+<th class="head"><p>Auditor</p></th>
+<th class="head"><p>QA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cambio de Version</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambio de Clasificacion</p></td>
+<td><p>A</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+<td><p>I</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditoria de Cumplimiento</p></td>
+<td><p>A</p></td>
+<td><p>C</p></td>
+<td><p>I</p></td>
+<td><p>R</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verificacion de Trazabilidad</p></td>
+<td><p>I</p></td>
+<td><p>C</p></td>
+<td><p>C</p></td>
+<td><p>C</p></td>
+<td><p>R</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="asignacion-de-roles-a-funciones-documentales">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">7. Asignacion de Roles a Funciones Documentales</a><a class="headerlink" href="#asignacion-de-roles-a-funciones-documentales" title="Link to this heading">¶</a></h2>
+<section id="roles-vs-funciones-raci">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">7.1 Roles vs Funciones RACI</a><a class="headerlink" href="#roles-vs-funciones-raci" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol RACI</p></th>
+<th class="head"><p>Roles RBAC Correspondientes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PMO</p></td>
+<td><p>R001, R014, R016</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arquitecto Doc</p></td>
+<td><p>R015, R016</p></td>
+</tr>
+<tr class="row-even"><td><p>BA Lead</p></td>
+<td><p>R003 (segmento requisitos), R006, R007</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tech Lead</p></td>
+<td><p>R003 (segmento arquitectura), R016</p></td>
+</tr>
+<tr class="row-even"><td><p>Developer</p></td>
+<td><p>R004, R005, R008</p></td>
+</tr>
+<tr class="row-odd"><td><p>QA</p></td>
+<td><p>R002, R004, R017</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditor</p></td>
+<td><p>R017 (exclusivo)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Owner Dominio</p></td>
+<td><p>Variable segun dominio (ver seccion 3.3 de GOB_01)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="reglas-de-asignacion-de-roles">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">8. Reglas de Asignacion de Roles</a><a class="headerlink" href="#reglas-de-asignacion-de-roles" title="Link to this heading">¶</a></h2>
+<section id="principio-de-minimo-privilegio">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">8.1 Principio de Minimo Privilegio</a><a class="headerlink" href="#principio-de-minimo-privilegio" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGLA: Asignar solo los roles necesarios para la funcion
+
+EJEMPLO CORRECTO:
+Usuario necesita: Ver reportes basicos
+Rol asignado: R004 (REPORTS_VIEWER)
+
+EJEMPLO INCORRECTO:
+Usuario necesita: Ver reportes basicos
+Rol asignado: R006 (REPORTS_ADVANCED_VIEWER)
+--&gt; Viola minimo privilegio
+</pre></div>
+</div>
+</section>
+<section id="acumulacion-de-permisos">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">8.2 Acumulacion de Permisos</a><a class="headerlink" href="#acumulacion-de-permisos" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGLA: Los permisos se acumulan (UNION)
+
+Usuario: juan.perez123
+Roles:
+  - R004 (REPORTS_VIEWER)
+  - R005 (REPORTS_EXPORTER)
+  - R012 (ALERTS_CONFIGURATOR)
+
+Permisos resultantes: UNION de todos
+- Puede ver reportes (R004)
+- Puede exportar reportes (R005)
+- Puede configurar alertas personales (R012)
+</pre></div>
+</div>
+</section>
+<section id="revision-periodica">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">8.3 Revision Periodica</a><a class="headerlink" href="#revision-periodica" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FRECUENCIA: Trimestral
+
+CHECKLIST DE REVISION:
+[ ] Usuario sigue activo en la organizacion
+[ ] Funcion actual requiere los roles asignados
+[ ] No hay roles redundantes
+[ ] No hay violaciones de SoD
+[ ] Ultimo acceso &lt; 90 dias (si no, investigar)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="documentos-relacionados">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html#gob-01"><span class="std std-ref">GOB_01: Modelo de Gobernanza IACT</span></a> - Modelo de Gobernanza IACT</p></li>
+<li><p><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html#gob-03"><span class="std std-ref">GOB_03: Control de Calidad Documental</span></a> - Control de Calidad Documental</p></li>
+<li><p><span class="xref std std-ref">meta-02</span> - Clasificacion Documental</p></li>
+<li><p>Modelo RBAC Completo v0.0.1 - Documento fuente</p></li>
+</ul>
+</section>
+<section id="fuentes-externas">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>NIST RBAC Model - Flat RBAC</p></li>
+<li><p>ISO 27001 - Gestion de Seguridad de la Informacion</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-12-22</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial. Catalogo de 17 roles (excluye R010 DATA_ANALYST). Matriz RACI para artefactos y procesos. Reglas SoD y asignacion.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Trazabilidad:</strong> Este artefacto define la asignacion de responsabilidades
+para todos los artefactos y procesos del sistema documental IACT. Es
+referenciado por GOB_03 (Control de Calidad) y GOB_04 (Gestion de Cambios)
+para determinar aprobadores y revisores.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">GOB_02: Roles y Matriz RACI</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#modelo-rbac-del-sistema-iact">1. Modelo RBAC del Sistema IACT</a><ul>
+<li><a class="reference internal" href="#tipo-de-modelo">1.1 Tipo de Modelo</a></li>
+<li><a class="reference internal" href="#arquitectura-de-seguridad">1.2 Arquitectura de Seguridad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#catalogo-de-roles-funcionales">2. Catalogo de Roles Funcionales</a><ul>
+<li><a class="reference internal" href="#resumen-por-categoria">2.1 Resumen por Categoria</a></li>
+<li><a class="reference internal" href="#categoria-1-gestion-de-usuarios">2.2 Categoria 1: Gestion de Usuarios</a></li>
+<li><a class="reference internal" href="#categoria-2-reportes">2.3 Categoria 2: Reportes</a></li>
+<li><a class="reference internal" href="#categoria-3-visualizacion">2.4 Categoria 3: Visualizacion</a></li>
+<li><a class="reference internal" href="#categoria-4-alertas-y-notificaciones">2.5 Categoria 4: Alertas y Notificaciones</a></li>
+<li><a class="reference internal" href="#categoria-5-administracion-y-seguridad">2.6 Categoria 5: Administracion y Seguridad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#separacion-de-funciones-sod">3. Separacion de Funciones (SoD)</a><ul>
+<li><a class="reference internal" href="#roles-mutuamente-excluyentes">3.1 Roles Mutuamente Excluyentes</a></li>
+<li><a class="reference internal" href="#justificacion">3.2 Justificacion</a></li>
+<li><a class="reference internal" href="#validacion-del-sistema">3.3 Validacion del Sistema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#perfiles-de-modulos">4. Perfiles de Modulos</a><ul>
+<li><a class="reference internal" href="#perfiles-predefinidos">4.1 Perfiles Predefinidos</a></li>
+<li><a class="reference internal" href="#modulos-del-sistema">4.2 Modulos del Sistema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#matriz-raci-artefactos-documentales">5. Matriz RACI - Artefactos Documentales</a><ul>
+<li><a class="reference internal" href="#leyenda-raci">5.1 Leyenda RACI</a></li>
+<li><a class="reference internal" href="#matriz-por-tipo-de-artefacto">5.2 Matriz por Tipo de Artefacto</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#matriz-raci-procesos-de-gobernanza">6. Matriz RACI - Procesos de Gobernanza</a><ul>
+<li><a class="reference internal" href="#procesos-estructurales">6.1 Procesos Estructurales</a></li>
+<li><a class="reference internal" href="#procesos-de-artefactos">6.2 Procesos de Artefactos</a></li>
+<li><a class="reference internal" href="#procesos-de-control">6.3 Procesos de Control</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#asignacion-de-roles-a-funciones-documentales">7. Asignacion de Roles a Funciones Documentales</a><ul>
+<li><a class="reference internal" href="#roles-vs-funciones-raci">7.1 Roles vs Funciones RACI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reglas-de-asignacion-de-roles">8. Reglas de Asignacion de Roles</a><ul>
+<li><a class="reference internal" href="#principio-de-minimo-privilegio">8.1 Principio de Minimo Privilegio</a></li>
+<li><a class="reference internal" href="#acumulacion-de-permisos">8.2 Acumulacion de Permisos</a></li>
+<li><a class="reference internal" href="#revision-periodica">8.3 Revision Periodica</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">9. Referencias</a><ul>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#fuentes-externas">Fuentes Externas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>
