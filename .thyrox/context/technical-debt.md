@@ -508,3 +508,45 @@ Ver T-066 (verificación de dependencias MCP) como referencia de patrón de adve
 
 **Prioridad:** MEDIO
 **Estado:** Abierto
+
+---
+
+## TD-044: Information Disclosure via Git History — Configuración sensible en commits
+
+```
+Severidad: MEDIA
+Origen: IACT-docs security-review (2026-04-23)
+Fase afectada: feature/project-setup branch
+Estado: [ ] Pendiente
+```
+
+**Problema:**
+Durante revisión de seguridad de la rama `feature/project-setup` se identificó que:
+1. Commit `e5c0ff1` agregó `PROJECT_CONFIGURATION_REVIEW.md` con información sensible del sistema IACT:
+   - Código de proyecto: IACT-2025-001
+   - RBAC model v5.1.1 (8 módulos funcionales, 44 funciones atómicas, 3 restricciones SoD)
+   - 8 restricciones del sistema (CNST_001 a CNST_008) detallando arquitectura de seguridad
+   - Información de compliance: OWASP, NIST RBAC, ISO 27001
+   - Detalles de arquitectura operacional
+
+2. Commit `2a21dd0` removió el archivo, pero la información permanece **permanentemente en git history**.
+
+**Impacto:**
+- Si el repositorio se hace público, expone arquitectura de seguridad interna
+- Si credenciales de git se comprometen, cualquiera con acceso al repo ve detalles de restricciones
+- El histórico de git no puede "revertirse" — la información está para siempre
+
+**Riesgo:**
+La rama `feature/project-setup` está up-to-date con `origin/feature/project-setup`. La información sensible está en commits públicos del servidor.
+
+**Criterio de resolución:**
+Usar `git-filter-branch` o `BFG Repo-Cleaner` para:
+1. Remover ambos commits del histórico (e5c0ff1, 2a21dd0)
+2. Reescribir historial limpio sin los commits sensibles
+3. Force-push a origen con `git push --force-with-lease`
+4. Documentar en ADR-NNN que información sensible NUNCA debe entrar en git (usar .gitignore)
+
+**Acciones recomendadas:**
+- Implementar pre-commit hook para detectar patrones sensibles (RBAC, CNST, credenciales)
+- Documentar qué información es sensitive y dónde almacenarla (env vars, archivos no-versionados)
+- Crear ADR sobre política de información sensible en repositorio

@@ -61,6 +61,18 @@ para el sistema de conocimiento completo.
 | [adr-templates-workflow-assets](decisions/adr-templates-workflow-assets.md) | Templates distribuidos en workflow-*/assets/ — assets autocontenidos por fase | Aprobado | 2026-04-09 |
 | [adr-plugin-namespace-thyrox](decisions/adr-plugin-namespace-thyrox.md) | Namespace /thyrox:* mediante Claude Code Plugin (Opción D) | Aprobado | 2026-04-10 |
 
+### Seguridad y Manejo de Información Sensible
+
+| Archivo | Decisión | Status | Fecha |
+|---------|----------|--------|-------|
+| **ADR-PENDING: adr-sensitive-info-policy** | Política de información sensible en repositorio | Pendiente análisis | 2026-04-23 |
+
+**Hallazgo reciente:** TD-044 identifica exposición de información sensible (RBAC, restricciones de sistema) en commits `e5c0ff1` y `2a21dd0` de rama `feature/project-setup`. Requiere ADR que formalice:
+- Qué información es sensible (RBAC models, seguridad, credenciales)
+- Dónde almacenarla (env vars, no-git, encrypted storage)
+- Pre-commit hooks para prevenir acidental checkin
+- Procedimiento de limpieza si información sensible entra en git history
+
 ---
 
 ## Cómo Crear una Nueva ADR
@@ -73,5 +85,5 @@ para el sistema de conocimiento completo.
 
 ---
 
-**Total ADRs:** 20 · **Aprobadas:** 17 · **Pendientes:** 2 · **Deprecadas:** 0
+**Total ADRs:** 20 · **Aprobadas:** 17 · **Pendientes:** 3 (2 históricas + 1 nueva sensitive-info) · **Deprecadas:** 0
 **Ubicación:** `.thyrox/context/decisions/`
