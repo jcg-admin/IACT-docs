@@ -1,7 +1,0 @@
-pyproject.toml
-iact_docs.egg-info/PKG-INFO
-iact_docs.egg-info/SOURCES.txt
-iact_docs.egg-info/dependency_links.txt
-iact_docs.egg-info/requires.txt
-iact_docs.egg-info/top_level.txt
-source/conf.py

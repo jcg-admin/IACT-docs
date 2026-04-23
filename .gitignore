@@ -24,3 +24,10 @@ build/
 *.toc
 *.out
 *.tex
+
+# Python packaging
+*.egg-info/
+*.eggs/
+*.egg
+build/
+dist/
