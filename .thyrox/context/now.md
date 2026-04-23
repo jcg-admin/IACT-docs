@@ -1,21 +1,22 @@
 ```yml
 type: Estado de Sesión
-version: 1.5
-updated_at: 2026-04-23 09:45:00
+version: 1.6
+updated_at: 2026-04-23 10:20:00
 cold_boot: false
 last_session: null
 current_epic: 1
 epic_name: config-review-iact-docs
-current_work: .thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/
-stage: 3
-stage_name: DIAGNOSE (activa)
+current_work: .thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs
+stage: 2
+stage_name: MEASURE (activa)
 flow: null
 methodology_step: null
-blockers: ["SECURITY: TD-001 — Sensitive info in git history (commits e5c0ff1, 2a21dd0 on feature/project-setup)"]
+blockers: ["DEPENDENCIES: libenchant-2-dev not documented (TD-008)", "DOCUMENTATION: 1004 cross-ref warnings from 60+ missing files (TD-009)"]
 coordinators: {}
 last_completed_work: 2026-04-23-07-04-55-config-review-iact-docs
 last_phase: Phase 1 DISCOVER (completada)
-current_phase: Phase 3 DIAGNOSE (iniciada)
+current_phase: Phase 2 MEASURE (activa)
+build_findings: ["BUILD_OPERATIONAL: make html generates 3,847 HTML files successfully", "WARNINGS: 1004 non-fatal warnings", "SYSTEM_DEP: libenchant-2-dev required but not documented", "GATE: Pass with findings — proceed to Phase 3 DIAGNOSE"]
 security_findings: ["INFO-DISCLOSURE: Project configuration with RBAC/CNST/security details in git history — requires git-filter-branch + cleanup"]
 ```
 
@@ -88,3 +89,4 @@ Work Package: `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/
 - Gate Phase 3→5: Requiere ≥0.75 calibración en dominios críticos
 
 **Proyección:** Con acciones recomendadas, score global → 0.85+
+stage_sync_required: true
