@@ -3,16 +3,20 @@
    :tipo: Indice
    :dominio: requisitos
    :subdominio: casos_uso/audit
-   :estado: En Desarrollo
-   :version: 2.0.0
+   :estado: Completado
+   :version: 1.0.0
 
 .. _casos-uso-audit-index:
 
 ==============================================================================
-MOD_Audit: Casos de Uso de Auditoria
+MOD_Audit: Casos de Uso de Auditoría
 ==============================================================================
 
-Indice de Casos de Uso del modulo de Auditoria.
+Módulo de Auditoría y Compliance - Versión 1.0.
+
+.. contents:: Contenido
+   :local:
+   :depth: 2
 
 ----
 
@@ -23,52 +27,38 @@ Resumen
    :widths: 30 70
    :header-rows: 0
 
-   * - **Modulo**
+   * - **Módulo**
      - MOD_Audit
-   * - **UC Planificados**
-     - 4 (UC-060 a UC-063)
-   * - **Version**
-     - 2.0.0 (con PlantUML)
-   * - **BReq Origen**
-     - BReq-004: Cumplimiento de Seguridad
-
-----
-
-Casos de Uso
-------------
-
-.. list-table::
-   :widths: 15 40 20 25
-   :header-rows: 1
-
-   * - ID
-     - Nombre
-     - Complejidad
-     - Estado
-   * - UC-060
-     - Registrar Evento de Auditoria
-     - Baja
-     - Pendiente
-   * - UC-061
-     - Consultar Log de Auditoria
-     - Media
-     - Pendiente
-   * - UC-062
-     - Generar Reporte de Auditoria
-     - Media
-     - Pendiente
-   * - UC-063
-     - Exportar Auditoria
-     - Baja
-     - Pendiente
+   * - **UC Documentados**
+     - 4
+   * - **Versión**
+     - 1.0.0
+   * - **Estado**
+     - Completado
 
 ----
 
 .. toctree::
    :maxdepth: 1
-   :caption: Casos de Uso
+   :caption: Auditoría y Compliance
 
-   UC_060_Registrar_Evento
-   UC_061_Consultar_Log
-   UC_062_Generar_Reporte_Auditoria
-   UC_063_Exportar_Auditoria
+   UC_AUD_01_Consultar_Auditoria
+   UC_AUD_02_Buscar_Auditoria
+   UC_AUD_03_Exportar_Auditoria
+   UC_AUD_04_Generar_Reporte_Compliance
+
+----
+
+Historial de Cambios
+--------------------
+
+.. list-table::
+   :widths: 12 12 76
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+   * - 1.0.0
+     - 2026-01-06
+     - Versión inicial

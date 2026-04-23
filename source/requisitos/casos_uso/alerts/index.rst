@@ -3,16 +3,20 @@
    :tipo: Indice
    :dominio: requisitos
    :subdominio: casos_uso/alerts
-   :estado: En Desarrollo
-   :version: 2.0.0
+   :estado: Completado
+   :version: 1.0.0
 
 .. _casos-uso-alerts-index:
 
 ==============================================================================
-MOD_Alerts: Casos de Uso de Alertas
+MOD_Alerts: Casos de Uso de Alertas y Notificaciones
 ==============================================================================
 
-Indice de Casos de Uso del modulo de Alertas.
+Módulo de Alertas y Notificaciones - Versión 1.0.
+
+.. contents:: Contenido
+   :local:
+   :depth: 2
 
 ----
 
@@ -23,57 +27,39 @@ Resumen
    :widths: 30 70
    :header-rows: 0
 
-   * - **Modulo**
+   * - **Módulo**
      - MOD_Alerts
-   * - **UC Planificados**
-     - 5 (UC-036 a UC-040)
-   * - **Version**
-     - 2.0.0 (con PlantUML)
-   * - **BReq Origen**
-     - BReq-002: Reduccion Tiempo Incidentes
-
-----
-
-Casos de Uso
-------------
-
-.. list-table::
-   :widths: 15 40 20 25
-   :header-rows: 1
-
-   * - ID
-     - Nombre
-     - Complejidad
-     - Estado
-   * - UC-036
-     - Crear Alerta por Umbral
-     - Media
-     - Pendiente
-   * - UC-037
-     - Recibir Notificacion de Alerta
-     - Baja
-     - Pendiente
-   * - UC-038
-     - Consultar Historial de Alertas
-     - Baja
-     - Pendiente
-   * - UC-039
-     - Modificar Configuracion de Alerta
-     - Baja
-     - Pendiente
-   * - UC-040
-     - Gestionar Destinatarios de Alerta
-     - Baja
-     - Pendiente
+   * - **UC Documentados**
+     - 5
+   * - **Versión**
+     - 1.0.0
+   * - **Estado**
+     - Completado
 
 ----
 
 .. toctree::
    :maxdepth: 1
-   :caption: Casos de Uso
+   :caption: Alertas y Notificaciones
 
-   UC_036_Crear_Alerta
-   UC_037_Recibir_Notificacion
-   UC_038_Consultar_Historial
-   UC_039_Modificar_Alerta
-   UC_040_Gestionar_Destinatarios
+   UC_ALR_01_Configurar_Umbrales
+   UC_ALR_02_Ver_Alertas_Activas
+   UC_ALR_03_Reconocer_Alerta
+   UC_ALR_04_Ver_Historial_Alertas
+   UC_ALR_05_Gestionar_Suscripciones
+
+----
+
+Historial de Cambios
+--------------------
+
+.. list-table::
+   :widths: 12 12 76
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+   * - 1.0.0
+     - 2026-01-06
+     - Versión inicial
