@@ -1,19 +1,33 @@
-# Makefile para la documentación generada con Sphinx
+# Makefile para la documentación generada con Sphinx + uv
 #
-# Este proyecto requiere que Sphinx esté instalado previamente.
+# Este proyecto usa 'uv' para gestión de dependencias (rápido, moderno).
 # Flujo recomendado antes de ejecutar 'make':
 #
-#   python -m venv .venv
-#   pip install -r requirements.txt
+#   uv sync                        # Instala dependencias del pyproject.toml
+#   source .venv/bin/activate      # Activa el entorno virtual
+#   make html                      # Genera documentación
 #
-# --------------------------------------------------------------------------------------
+# ========================================================================================
+# INSTALACIÓN INICIAL:
+#
+#   Si no tienes 'uv' instalado:
+#     pip install uv  (o)  apt-get install uv  (o)  brew install uv
+#
+# ========================================================================================
 # NOTA IMPORTANTE PARA WINDOWS (Git Bash):
 #
 # Para activar el entorno virtual, usar:
 #   source .venv/Scripts/activate
 #
 # El comando de activación '.venv\Scripts\Activate.ps1' es solo para PowerShell.
-# --------------------------------------------------------------------------------------
+# ========================================================================================
+# CAMBIOS DESDE REQUIREMENTS.TXT:
+#
+# - requirements.txt eliminado (migration a pyproject.toml + uv.lock)
+# - uv reemplaza pip: 10x más rápido, resolución determinística
+# - pyproject.toml: fuente única de verdad (estándar PEP 517/518)
+# - uv.lock: lock file determinístico (reproducible en CI/CD)
+# ========================================================================================
 
 # Directorio del entorno virtual (si existe)
 VENV            = .venv
@@ -61,9 +75,37 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) sou
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
 # Declaración de targets lógicos para evitar conflictos con archivos existentes.
-.PHONY: requirements help clean html livehtml freeze dirhtml singlehtml pickle json htmlhelp \
+help: help-uv help-sphinx
+
+help-uv:
+	@echo "UV Targets (Dependency Management):"
+	@echo "  make sync              Instala dependencias con uv (ejecutar primero)"
+	@echo "  make update-deps       Actualiza uv.lock y resuelve dependencias"
+	@echo ""
+
+help-sphinx:
+	@echo "Sphinx Targets (Documentation Building):"
+	@echo "  make html              Genera documentación HTML (DEFAULT)"
+	@echo "  make livehtml           HTML con auto-rebuild en cambios"
+	@echo "  make clean             Limpia archivos generados"
+	@echo "  make latexpdf          Genera PDF (requiere LaTeX)"
+	@echo "  make linkcheck         Valida enlaces externos"
+	@echo ""
+
+.PHONY: sync update-deps help help-uv help-sphinx requirements help clean html livehtml freeze dirhtml singlehtml pickle json htmlhelp \
 qthelp devhelp epub latex latexpdf latexpdfja text man texinfo info \
 gettext changes linkcheck doctest xml pseudoxml
+
+sync:
+	@echo "Instalando dependencias con uv..."
+	@uv sync --no-dev
+	@echo "✅ Dependencias instaladas. Ejecuta: make html"
+
+update-deps:
+	@echo "Actualizando uv.lock..."
+	@uv lock
+	@uv sync
+	@echo "✅ Dependencias actualizadas"
 
 # Target documental para indicar el uso de requirements.txt
 requirements:
