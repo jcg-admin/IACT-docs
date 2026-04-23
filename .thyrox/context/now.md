@@ -4,7 +4,7 @@ version: 1.2
 updated_at: 2026-04-23 07:04:55
 cold_boot: false
 last_session: null
-current_work: 2026-04-23-07-04-55-config-review-iact-docs
+current_work: work/2026-04-23-07-04-55-config-review-iact-docs/
 stage: 1
 stage_name: DISCOVER (activa)
 flow: null
