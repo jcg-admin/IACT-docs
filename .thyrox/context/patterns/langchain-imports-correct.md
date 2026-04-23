@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: LangChain — Integración con LLMs
+type: pattern
 id: P-008
-nombre: LangChain Imports Correctos — Navegación de Reorganización de Módulos
-problema: Importaciones desde módulos incorrectos causan ImportError o deprecation warnings
-categoria: LangChain — Integración con LLMs
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: MEDIO
-fuente: Cap.13 del libro analizado
+severity: MEDIO
+origin: discover/patterns (legacy framework)
 ```
 
 # LangChain Imports Correctos

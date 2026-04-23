@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: ADK — Agent Development Kit
+type: pattern
 id: P-004
-nombre: ADK Model Callback Contract — Retorno de Callbacks de Modelo
-problema: Modificaciones mutables de callbacks retornan None en lugar del objeto modificado
-categoria: ADK — Agent Development Kit
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: CRÍTICO
-fuente: Cap.13 del libro analizado
+severity: CRÍTICO
+origin: discover/patterns (legacy framework)
 ```
 
 # ADK Model Callback Contract

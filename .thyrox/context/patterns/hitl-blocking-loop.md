@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: HITL — Human-In-The-Loop
+type: pattern
 id: P-006
-nombre: HITL Blocking Loop — Implementación Real de Human-In-The-Loop
-problema: HITL decorativo que notifica pero no bloquea la ejecución del agente
-categoria: HITL — Human-In-The-Loop
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: CRÍTICO
-fuente: Cap.13 del libro analizado
+severity: CRÍTICO
+origin: discover/patterns (legacy framework)
 ```
 
 # HITL Blocking Loop

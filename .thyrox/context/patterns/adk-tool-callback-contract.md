@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: ADK — Agent Development Kit
+type: pattern
 id: P-005
-nombre: ADK Tool Callback Context — Uso Correcto de ToolContext
-problema: Usar CallbackContext en tool callbacks causa TypeError
-categoria: ADK — Agent Development Kit
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: ALTO
-fuente: Cap.13 del libro analizado
+severity: ALTO
+origin: discover/patterns (legacy framework)
 ```
 
 # ADK Tool Callback Contract

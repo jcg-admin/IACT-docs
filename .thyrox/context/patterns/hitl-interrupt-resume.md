@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: HITL — Human-In-The-Loop
+type: pattern
 id: P-007
-nombre: HITL Interrupt/Resume — Interrupción y Reanudación Controlada de Agentes
-problema: Mecanismo de flag sin bloqueo — el agente continúa sin esperar revisión
-categoria: HITL — Human-In-The-Loop
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: CRÍTICO
-fuente: Cap.13 del libro analizado
+severity: CRÍTICO
+origin: discover/patterns (legacy framework)
 ```
 
 # HITL Interrupt/Resume

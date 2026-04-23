@@ -1,12 +1,11 @@
-```yaml
+```yml
+created_at: 2026-04-23 09:30:00
+project: THYROX
+category: Antipatrón de Arquitectura
+type: pattern
 id: P-009
-nombre: Named Mechanism vs Implementation — Alineación entre Nombres y Comportamiento
-problema: Nombres de clases/métodos prometen mecanismos que la implementación no entrega
-categoria: Antipatrón de Arquitectura
-origen: discover/patterns (legacy framework)
-fecha: 2026-04-23
-severidad: ALTO
-fuente: Cap.10-14 del libro analizado
+severity: ALTO
+origin: discover/patterns (legacy framework)
 ```
 
 # Named Mechanism vs Implementation
