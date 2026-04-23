@@ -10,6 +10,7 @@
    :autor: Business Analyst Lead
    :clasificacion: Interno
 
+.. _ontologia-sbvr-index:
 .. _sbvr_03_vocabulario_controlado:
 
 ==========================================================
