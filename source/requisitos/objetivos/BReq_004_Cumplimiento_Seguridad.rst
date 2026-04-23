@@ -14,7 +14,6 @@
 BReq_004: Cumplimiento de Seguridad y Control de Acceso
 ==============================================================================
 
-----
 
 Resumen
 -------

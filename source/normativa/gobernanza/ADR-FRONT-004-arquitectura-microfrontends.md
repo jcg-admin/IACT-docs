@@ -10,6 +10,8 @@ relacionados:
   - DOC-FRONTEND-MF-CANVAS
 ---
 
+# Arquitectura de microfrontends basada en App Shell unificado
+
 ESTO NO ES NECESARIO, AGREGA COMPLEJIDAD AL PROYECTO
 
 

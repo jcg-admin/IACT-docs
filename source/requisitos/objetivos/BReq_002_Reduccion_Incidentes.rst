@@ -14,7 +14,6 @@
 BReq_002: Reduccion de Tiempo de Respuesta a Incidentes
 ==============================================================================
 
-----
 
 Resumen
 -------

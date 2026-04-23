@@ -20,31 +20,21 @@ extensions = [
     # Extensiones de trazabilidad y requerimientos
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
     'sphinx.ext.autosectionlabel',
-    'sphinx.ext.ifconfig',
 
     # Extensiones para documentar código Python
     'sphinx.ext.autodoc',  # Documentación automática desde docstrings
     'sphinx.ext.autosummary',  # Resúmenes automáticos de módulos
     'sphinx.ext.viewcode',  # Enlaces al código fuente
     'sphinx.ext.napoleon',  # Soporte para docstrings Google/NumPy style
-    'sphinx_autodoc_typehints',  # Type hints en la documentación
 
     # Extensiones de interactividad y diseño
     'sphinx_design',
     'sphinx_copybutton',
-    'sphinx_tabs.tabs',
-    'sphinx_toolbox.collapse',
-    'notfound.extension',
     'myst_parser',
-    'sphinx-prompt',
-    'sphinx_jinja',
 
-    # Nuevas extensiones
-    'sphinxcontrib.spelling',  # Corrector ortográfico
-    # 'sphinxcontrib.openapi',  # Documentación de APIs REST (comentado hasta instalar)
+    # PlantUML para diagramas
+    'sphinxcontrib.plantuml',
 ]
 
 # -- Configuración de Autodoc --
@@ -105,6 +95,10 @@ pygments_style = 'sphinx'
 # Comillas tipográficas inteligentes
 smartquotes = True
 smartquotes_action = 'De'  # (D)ashes y (e)llipses
+
+# -- Configuración de Lexers --
+# Ignorar warnings de lexers desconocidos (plantuml, mermaid, cql)
+suppress_warnings = ['misc.highlighting_failure']
 
 # -- Configuración de Salida HTML (Tema FURO) --
 html_theme = 'furo'
@@ -184,3 +178,8 @@ epub_author = 'Equipo IACT'
 epub_publisher = 'Equipo IACT'
 epub_copyright = '2025, Equipo IACT'
 epub_exclude_files = ['search.html']
+
+# -- Configuración de PlantUML --
+plantuml = 'plantuml'
+plantuml_output_format = 'png'
+plantuml_latex_output_format = 'pdf'
