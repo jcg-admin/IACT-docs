@@ -194,24 +194,6 @@ Estadisticas del Subdominio
 
 ----
 
-Arbol de Contenido
-------------------
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Artefactos de Gobernanza
-
-   GOB_01_Modelo_Gobernanza_IACT
-   GOB_02_Roles_y_RACI
-   GOB_03_Control_Calidad_Documental
-   GOB_04_Gestion_Cambios_Documentales
-   GOB_05_Control_Versiones
-   GOB_06_Trazabilidad_SDLC
-   GOB_07_Gestion_Dominios
-   GOB_08_Estados_Documentales
-   GOB_09_Politica_Clasificacion
-   GOB_10_Auditoria_Documental
-
 ----
 
 **Owner:** PMO
