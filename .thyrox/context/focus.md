@@ -15,8 +15,8 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 ## Iniciativa Actual
 
 **Proyecto:** IACT-docs — Documentación del Sistema IACT  
-**WP:** `config-review-iact-docs`  
-**Path:** `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`  
+**ÉPICA:** 1 — config-review-iact-docs  
+**WP:** `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`  
 **Rama:** `feature/project-setup`  
 **Tipo:** Mediano (fases 1, 3, 5, 6, 8, 10, 11)
 

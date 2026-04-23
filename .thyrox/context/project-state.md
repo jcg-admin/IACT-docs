@@ -13,6 +13,7 @@ purpose: Dashboard del proyecto IACT-docs — estado actual y navegación
 ## Status General
 
 **Proyecto:** IACT-docs — Documentación del Sistema IACT  
+**ÉPICA:** 1 — config-review-iact-docs  
 **Versión:** 1.0.0  
 **Estado:** En desarrollo — Phase 1 DISCOVER completada  
 **WP actual:** `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`  
