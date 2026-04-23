@@ -1,102 +1,142 @@
 ```yml
 type: Dashboard de Proyecto
 category: Estado Actual
-version: 2.9.0
-purpose: Dashboard del proyecto THYROX — estado actual y navegación
-goal: Punto de entrada para entender estado actual y próximos pasos
-updated_at: 2026-04-20 13:22:56
+project: IACT-docs
+version: 1.0.0
+created_at: 2026-04-23 08:45:00
+updated_at: 2026-04-23 08:45:00
+purpose: Dashboard del proyecto IACT-docs — estado actual y navegación
 ```
 
-# Project State — THYROX
+# Project State — IACT-docs
 
 ## Status General
 
-**Versión:** 2.9.0
-**Estado:** Activo — ÉPICA 42 methodology-calibration en Stage 8 PLAN EXECUTION
-**Última actualización:** 2026-04-20 13:22:56
-**Branch activo:** `claude/check-merge-status-Dcyvj`
+**Proyecto:** IACT-docs — Documentación del Sistema IACT  
+**Versión:** 1.0.0  
+**Estado:** En desarrollo — Phase 1 DISCOVER completada  
+**WP actual:** `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`  
+**Rama activa:** `feature/project-setup`  
+**Última actualización:** 2026-04-23 08:45:00
+
+**Hito actual:**
+- Phase 1 DISCOVER completada (2026-04-23)
+- Hallazgos: 4 contradicciones críticas, 7 claims sin fuente, 5 lagunas críticas
+- Calibración epistémica global: 0.71 (PARCIALMENTE CALIBRADO)
+- Próximo: Phase 3 DIAGNOSE (root cause analysis)
 
 ---
 
-## Agentes nativos (`28` agentes en `.claude/agents/`)
+## Tech Stack — IACT-docs
 
-- `agentic-reasoning` — Razonamiento profundo multi-paso para problemas complejos con cadenas de inferencia
-- `agentic-validator` — Valida implementaciones contra guidelines y patrones del proyecto; detecta anti-patrones
-- `ba-coordinator` — |
-- `bpa-coordinator` — |
-- `cp-coordinator` — |
-- `deep-dive` — Análisis profundo de un tema o artefacto con cobertura exhaustiva de aristas
-- `deep-review` — Analiza cobertura entre artefactos de fases consecutivas del WP, o profundidad d
-- `diagrama-ishikawa` — Especialista en análisis de causa raíz con diagramas de Ishikawa (espina de pe
-- `dmaic-coordinator` — |
-- `lean-coordinator` — |
-- `mysql-expert` — Tech-expert para MySQL y bases de datos relacionales. Conoce SQL, diseño de sch
-- `nodejs-expert` — Experto en Node.js, Express y ecosistema npm. Usar cuando el usuario necesite im
-- `pattern-harvester` — Extrae y documenta patrones recurrentes desde artefactos WP hacia referencias permanentes
-- `pdca-coordinator` — |
-- `pm-coordinator` — |
-- `postgresql-expert` — Tech-expert para PostgreSQL. Conoce SQL, migrations, índices, transacciones y c
-- `pps-coordinator` — |
-- `react-expert` — Experto en React, hooks y ecosistema frontend. Usar cuando el usuario necesite i
-- `rm-coordinator` — |
-- `rup-coordinator` — |
-- `skill-generator` — Genera archivos de skill (.claude/skills/ o .claude/agents/) para una tecnologí
-- `sp-coordinator` — |
-- `task-executor` — Ejecuta tareas atómicas de un task-plan.md. Usar cuando hay un task-plan con ch
-- `task-planner` — Descompone trabajo en tareas atómicas con IDs trazables. Usar cuando el usuario
-- `task-synthesizer` — Sintetiza resultados de múltiples tareas paralelas en un artefacto coherente
-- `tech-detector` — Detecta el stack tecnológico de un proyecto analizando archivos de configuraci�
-- `thyrox-coordinator` — |
-- `webpack-expert` — Tech-expert para Webpack y bundling de assets. Conoce configuración de entry/ou
+### Documentación
+- **Sphinx:** v8.2.3 (core)
+- **Tema:** Furo 2025.9.25
+- **Parsers:** MyST (Markdown + reStructuredText)
+- **Language:** Spanish (es)
 
----
+### Python Stack
+- **Runtime:** Python 3.11+
+- **Dependencies:** 86 paquetes en requirements.txt
+- **Key packages:** Babel, Jinja2, Pygments, PyYAML, requests
 
-## FASEs completadas (14 total)
+### Sphinx Extensions (16 activas)
+1. sphinx.ext.intersphinx — Referências cruzadas
+2. sphinx.ext.todo — Tareas pendientes
+3. sphinx.ext.coverage — Cobertura de documentación
+4. sphinx.ext.mathjax — Matemáticas
+5. sphinx.ext.autodoc — Documentación desde docstrings
+6. sphinx.ext.autosummary — Resúmenes automáticos
+7. sphinx.ext.viewcode — Enlaces a código fuente
+8. sphinx.ext.napoleon — Soporte Google/NumPy docstrings
+9. sphinx_autodoc_typehints — Type hints en docs
+10. sphinx_design — Componentes de diseño
+11. sphinx_copybutton — Botones copiar código
+12. sphinx_tabs.tabs — Pestañas tabuladas
+13. sphinx_toolbox.collapse — Elementos colapsables
+14. notfound.extension — Página 404 personalizada
+15. myst_parser — Parser MyST
+16. sphinx-prompt — Prompts de consola
 
-| FASE 39: plugin-distribution — Migración THYROX a plugin puro de Claude Code (2026-04-15) |
-| FASE 38: commands-rellinks — Fix broken links y referencias relativas en commands (2026-04-15) |
-| FASE 37: platform-references-expansion — Expansión de reference files de plataforma Claude Code (2026-04-15) |
-| FASE 36: guidelines-registry-migration — Migrar .claude/guidelines/ y .claude/registry/ a .thyrox/ (2026-04-14) |
-| FASE 35: context-migration — Migración .claude/context/ → .thyrox/context/ ✓ COMPLETADO 2026-04-14 |
-| FASE 34: technical-debt-resolution — Resolución 7 TDs activos ✓ COMPLETADO 2026-04-14 |
-| FASE 27: agentic-loop — Mecanismo de ejecución continua con /loop (2026-04-09) |
-| FASE 28: auto-operations — Sincronización determinista de now.md via hooks reactivos (2026-04-09) |
-| FASE 29: technical-debt-resolution — Resolución de Deuda Técnica del Framework (2026-04-09) |
-| FASE 30: uv-adoption — Adopción de uv como gestor de entorno Python (2026-04-10) |
-| FASE 31: thyrox-commands-namespace — Namespace /thyrox:* mediante Plugin Claude Code (2026-04-11) |
-| FASE 34: technical-debt-resolution — Resolución 7 TDs activos ✓ COMPLETADO 2026-04-14 |
-| FASE 33: skill-authoring-modernization — Actualización skill-authoring.md + benchmark TD-010/TD-025 ✓ COMPLETADO 2026-04-13 |
-| FASE 32: technical-debt-audit — Auditoría y resolución de deuda técnica ✓ COMPLETADO 2026-04-12 |
-
-Ver ROADMAP.md para detalle de cada FASE.
+### UML & Diagramming
+- No actualmente integrado
+- Considerado: sphinx-uml, sphinxcontrib-plantuml
 
 ---
 
-## Componentes del framework
+## Framework Infrastructure — THYROX (heredado)
 
-### Skills activos (`.claude/skills/`)
-- `thyrox/` — Framework principal 7 fases (motor del proyecto)
-- Tech skills: backend-nodejs, db-mysql, db-postgresql, frontend-react, frontend-webpack, python-mcp, sphinx
+Este proyecto usa el framework THYROX para gestión de work packages y metodología.
 
-### MCP servers
-- `thyrox-memory` — Memoria semántica FAISS (store/retrieve)
-- `thyrox-executor` — Ejecución subprocess con blocklist
+### 28 Agentes Nativos (Framework agents)
 
-### Scripts de gestión (`.claude/skills/thyrox/scripts/`)
-- `update-state.sh` — Regenera este archivo desde el repo real
-- `validate-session-close.sh` — Valida cierre de sesión
-- `validate-phase-readiness.sh` — Valida readiness por fase
-- `session-start.sh` — Hook SessionStart (inyecta contexto)
-- `lint-agents.py` — Valida formato de agentes nativos
+Disponibles pero no todos usados en IACT-docs:
+- `agentic-reasoning` — Razonamiento profundo multi-paso
+- `agentic-validator` — Validación contra guidelines
+- `ba-coordinator`, `bpa-coordinator`, `cp-coordinator`, `dmaic-coordinator`, `lean-coordinator`, `pdca-coordinator`, `pm-coordinator`, `pps-coordinator`, `rm-coordinator`, `rup-coordinator`, `sp-coordinator`, `thyrox-coordinator` — Coordinadores de metodologías
+- `deep-dive` — Análisis profundo exhaustivo
+- `deep-review` — Análisis de cobertura entre fases
+- `diagrama-ishikawa` — Análisis de causa raíz
+- `mysql-expert`, `nodejs-expert`, `postgresql-expert`, `react-expert`, `webpack-expert` — Tech-experts (NO usados en IACT-docs)
+- `pattern-harvester` — Extrae patrones recurrentes
+- `skill-generator` — Genera skills para tecnologías
+- `task-executor` — Ejecuta tareas atómicas
+- `task-planner` — Descompone trabajo en tareas
+- `task-synthesizer` — Sintetiza resultados paralelos
+- `tech-detector` — Detecta stack tecnológico
+
+**Para IACT-docs:** Primariamente usados `task-planner`, `deep-dive`, `agentic-reasoning` en Phase 1 DISCOVER.
+
+### 11 Metodologías Soportadas (Available but not used)
+
+El framework THYROX soporta:
+- PDCA, DMAIC, RUP, RM, PMBOK, BABOK, Lean, PPS, SP, CP, BPA
+
+**Para IACT-docs:** Actualmente usando solo el ciclo THYROX base (12 stages). Las metodologías adicionales están disponibles pero no son necesarias para este proyecto.
+
+### Scripts de Gestión (Framework infrastructure)
+
+Ubicación: `.claude/scripts/thyrox/`
+
+- `session-start.sh` — Inicialización de sesión (hook)
+- `validate-session-close.sh` — Validación de cierre de WP
+- `validate-phase-readiness.sh` — Validación de readiness por fase
+- `update-state.sh` — Regeneración de estado
+- `lint-agents.py` — Validación de formato de agentes
+
+**Para IACT-docs:** Se heredan estos scripts del framework. Son necesarios para que Phase 1→3→5→6→8→10→11 funcione correctamente.
 
 ---
 
-## Deuda técnica registrada
+## Deuda Técnica y Próximos Pasos
 
-Ver `.thyrox/context/technical-debt.md` para TD-001 a TD-007.
+Ver `.thyrox/context/technical-debt.md` para lista detallada de TDs.
+
+**Alta prioridad:**
+- TD-001: Limpiar git history (información sensible)
+- TD-006: Implementar CI/CD pipeline
+- TD-007: Plan remediación Phase 3 DIAGNOSE
+
+**Documentación necesaria:**
+- TD-002: ADR sobre información sensible
+- TD-004: Estructura de directorios
+- TD-005: Validación de extensiones Sphinx
 
 ---
 
-## Próximos pasos
+## Métricas del Proyecto
 
-Ver ROADMAP.md sección "sin completar" y `context/focus.md` para WP activo.
+| Métrica | Valor | Nota |
+|---------|-------|------|
+| Versión | 1.0.0 | En desarrollo |
+| Extensiones Sphinx | 16 | 14 funcionales, 2 comentadas |
+| Dependencias Python | 86 | En requirements.txt |
+| TDs abiertos | 7 | IACT-docs specific |
+| Fases completadas | Phase 1 DISCOVER | Próxima: Phase 3 DIAGNOSE |
+| Calibración epistémica | 0.71 | PARCIALMENTE CALIBRADO |
+
+---
+
+**Ubicación:** `.thyrox/context/project-state.md`  
+**Alcance:** Proyecto IACT-docs (feature/project-setup branch)  
+**Última calibración:** 2026-04-23
