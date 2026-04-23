@@ -449,7 +449,6 @@ Además de los agrupadores humanos, existe un actor especial:
    :caption: Diagrama de Actores del Sistema IACT
 
    @startuml
-   !include _static/plantuml_styles.iuml
    
    left to right direction
    

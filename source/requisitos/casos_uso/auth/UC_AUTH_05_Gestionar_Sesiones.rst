@@ -66,7 +66,6 @@ cerrar todas las sesiones de un usuario especifico.
    :caption: Diagrama de Caso de Uso - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -218,7 +217,6 @@ administracion.
    :caption: Diagrama de Secuencia - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nSessions" as FE <<Frontend>>
@@ -448,7 +446,6 @@ administracion.
    :caption: Diagrama de Actividad - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

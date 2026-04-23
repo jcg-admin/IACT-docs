@@ -71,7 +71,6 @@ interno del sistema (CNST-001).
    :caption: Diagrama de Caso de Uso - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -220,7 +219,6 @@ para un usuario especifico.
    :caption: Diagrama de Secuencia - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -452,7 +450,6 @@ para un usuario especifico.
    :caption: Diagrama de Actividad - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

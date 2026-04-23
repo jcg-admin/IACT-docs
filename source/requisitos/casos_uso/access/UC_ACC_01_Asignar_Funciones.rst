@@ -71,7 +71,6 @@ confirmar la asignacion.
    :caption: Diagrama de Caso de Uso - UC_ACC_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -206,7 +205,6 @@ El administrador accede al modulo de control de acceso y selecciona
    :caption: Diagrama de Secuencia - UC_ACC_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-007\nAdmin" as A
    participant "Frontend\nAccess" as FE <<Frontend>>
@@ -414,7 +412,6 @@ El administrador accede al modulo de control de acceso y selecciona
    :caption: Diagrama de Actividad - UC_ACC_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

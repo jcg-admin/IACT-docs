@@ -72,7 +72,6 @@ y notificacion al usuario via buzon interno (CNST-001).
    :caption: Diagrama de Caso de Uso - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -234,7 +233,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    :caption: Diagrama de Secuencia - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -500,7 +498,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    :caption: Diagrama de Actividad - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

@@ -66,7 +66,6 @@ de estado criticos se notifican via buzon interno (CNST-001).
    :caption: Diagrama de Caso de Uso - UC_USR_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -200,7 +199,6 @@ especifica (bloquear, desbloquear, reactivar).
    :caption: Diagrama de Secuencia - UC_USR_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -450,7 +448,6 @@ especifica (bloquear, desbloquear, reactivar).
    :caption: Diagrama de Actividad - UC_USR_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

@@ -70,7 +70,6 @@ pueden consultarse y verificar su aplicacion.
    :caption: Diagrama de Caso de Uso - UC_ACC_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -183,7 +182,6 @@ El administrador accede al modulo de gestion de SoD.
    :caption: Diagrama de Secuencia - UC_ACC_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-007\nAdmin" as A
    participant "Frontend\nAccess" as FE <<Frontend>>
@@ -329,7 +327,6 @@ El administrador accede al modulo de gestion de SoD.
    :caption: Diagrama de Actividad - UC_ACC_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 
