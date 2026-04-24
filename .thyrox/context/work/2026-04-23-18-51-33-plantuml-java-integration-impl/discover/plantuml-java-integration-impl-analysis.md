@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-04-23 18:51:00
-updated_at: 2026-04-24 00:20:00
+updated_at: 2026-04-24 00:35:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Aprobado
-version: 1.1.0
+version: 1.2.0
 ```
 
 # Phase 1 DISCOVER: PlantUML Java Integration Implementation
@@ -86,7 +86,7 @@ version: 1.1.0
 
 ## 4. Technical Context from Previous WP
 
-### PlantUML Guide Analysis Completed ✅ (7 Specialized Analyses, pp. 1-55)
+### PlantUML Guide Analysis Completed ✅ (8 Specialized Analyses, pp. 1-77)
 
 **Phase 1 DISCOVER produced 7 focused analyses of PlantUML 1.2025.0 Language Reference:**
 
@@ -123,10 +123,18 @@ version: 1.1.0
    - Testing strategy and debugging commands documented
    - Unknown: working directory when Java JAR executes (affects path resolution in !include)
 
+8. **plantuml-class-diagrams-analysis.md** (467 lines) ← **OPTIONAL, ARCHITECTURAL**
+   - Sections 3.8-3.29 (pp. 62-77): Advanced class body, notes, stereotypes, hide/remove, abstractions, generics, packages, namespaces, arrows, associations
+   - Finding: Class diagrams are **optional** — only needed if IACT documents technical architecture (not just functional requirements)
+   - Naming convention analysis: Clean Code principles (self-explanatory names, balanced length, POSIX _prefix for privates)
+   - Decision point: Phase 5 STRATEGY → ADR on class diagram applicability
+
 **Consolidated Finding:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam
+- PlantUML 1.2025.0 fully supports centralization via !include + skinparam (all diagram types)
 - Sphinx plugin integration well-documented and tested
+- Three diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Class (OPTIONAL)
 - Key decision point: !include path resolution (must validate in Phase 1 Setup with working directory confirmation)
+- Naming conventions: Clean Code adherence required (auto-explicative + balanced)
 
 ### Color Palette Defined
 ```
@@ -337,27 +345,34 @@ $ make clean && make html
 ## 13. Evidence Summary
 
 **Observable Evidence (PROVEN):**
-- 7 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-55)
+- 8 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-77)
+- Three diagram types analyzed: UC (100+ in IACT), Sequence (for complex flows), Class (optional architecture)
 - Sphinx + sphinxcontrib.plantuml integration documented
 - Corporate color palette defined (#1976D2, #388E3C, #F57C00)
 - Two-tier strategy validated: centralized skinparam + documented guidelines
 - 100+ UC diagrams in IACT-docs confirmed as target
+- Clean Code naming principles identified as critical for class diagrams
+- All diagram types support !include + skinparam centralization
 
 **Inferred Evidence:**
 - !include directive supported in PlantUML 1.2025.0 (based on historical support, confidence 0.85)
 - Working directory for Java JAR execution affects path resolution (requires validation)
-- skinparam context-dependency (UC vs. Sequence) requires dual definition
+- skinparam context-dependency (UC vs. Sequence vs. Class) requires separate definition per type
+- Class diagrams are optional based on IACT scope (architecture vs. functional requirements)
 
 **Key Assumptions to Validate in Phase 1 Setup:**
 - Java 8+ is installed
 - sphinxcontrib.plantuml supports !include via working directory
 - Path resolution: relative paths work from Sphinx root directory
+- Decision on class diagram applicability (affects Phase 7 design)
 
 ---
 
 **Analysis Created:** 2026-04-23 18:51:00  
-**Updated:** 2026-04-24 00:20:00  
-**Version:** 1.1.0 (MINOR: incorporated 7 specialized analyses)
+**Updated:** 2026-04-24 00:35:00  
+**Version:** 1.2.0 (MINOR: incorporated 8 specialized analyses including Class Diagrams)
 **Status:** Phase 1 DISCOVER COMPLETE  
+**Total Content Analyzed:** pp. 1-77 (sections 1.1-3.29)
+**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Class (100% OPTIONAL)
 **Next Phase:** Ready for approval → Phase 5 STRATEGY or Phase 10 EXECUTE (Phase 1 Setup)  
 **Ready for approval:** YES ✅
