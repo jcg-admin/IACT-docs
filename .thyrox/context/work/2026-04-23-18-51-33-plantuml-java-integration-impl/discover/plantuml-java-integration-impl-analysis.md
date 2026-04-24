@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-04-23 18:51:00
-updated_at: 2026-04-24 01:10:00
+updated_at: 2026-04-24 01:35:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Aprobado
-version: 1.3.0
+version: 1.4.0
 ```
 
 # Phase 1 DISCOVER: PlantUML Java Integration Implementation
@@ -86,9 +86,9 @@ version: 1.3.0
 
 ## 4. Technical Context from Previous WP
 
-### PlantUML Guide Analysis Completed ✅ (9 Specialized Analyses, pp. 1-102+)
+### PlantUML Guide Analysis Completed ✅ (12 Specialized Analyses, pp. 1-113)
 
-**Phase 1 DISCOVER produced 9 focused analyses of PlantUML 1.2025.0 Language Reference (complete coverage):**
+**Phase 1 DISCOVER produced 12 focused analyses of PlantUML 1.2025.0 Language Reference (complete coverage):**
 
 1. **plantuml-reference-language-analysis.md** (306 lines)
    - Sections 1.1-1.18 (pp. 1-15): Sequence basics, participant declaration, text alignment, arrows, colors, numbering, titles, divisions, grouping, notes, formatting
@@ -137,19 +137,41 @@ version: 1.3.0
    - Use case: Only for test scenarios or specific edge case examples (rarely needed)
    - Conclusion: Focus on UC (structure) + Sequence (flows); omit object diagrams
 
+10. **plantuml-map-diagrams-analysis.md** (v1.0.0, 400+ lines)
+    - Sections 4.6-4.7 (pp. 101-104): Map/tabla (key=>value), PERT charts with maps, linking to objects, packages
+    - Finding: Map diagrams **NOT recommended** for IACT-docs (low value for requirements documentation)
+    - Applicability: Specialized for data structures and timelines (out of scope for functional requirements)
+    - PERT charts: Only applicable if IACT documents complex timelines (rare)
+
+11. **plantuml-json-display-analysis.md** (v1.0.0, 300+ lines)
+    - Section 4.8 (pp. 104-105): JSON display in class/object diagrams
+    - Finding: JSON display **NOT applicable** to IACT-docs (technical implementation, not requirements)
+    - Conclusion: Explicitly prohibited; if data documentation needed, use class diagrams instead
+
+12. **plantuml-activity-diagrams-analysis.md** (v1.0.0, 600+ lines) ← **RECOMMENDED**
+    - Sections 5.1-5.12 (pp. 106-113): Activities, branching, synchronization, partitions, notes, skinparam
+    - Finding: Activity diagrams **RECOMMENDED** for documenting flujos de casos de uso
+    - Applicability: CRÍTICA — complement UC (structure) + Sequence (interactions) with activity flows
+    - Key features: if/then/else bifurcations, partitions (actors/entities), notes, multi-line descriptions
+    - Restrictions: NO inline colors, legible anidamiento (<3 levels), use partitions for responsibility mapping
+
 **Consolidated Finding:**
 - PlantUML 1.2025.0 fully supports centralization via !include + skinparam (all diagram types)
 - Sphinx plugin integration well-documented and tested
-- **Four diagram types analyzed:**
-  - ✅ UC Diagrams (CRITICAL) — 100+ in IACT-docs
-  - ✅ Sequence Diagrams (IMPORTANT) — complex flows
-  - ⚠️ Class Diagrams (OPTIONAL) — if technical architecture needed
-  - ❌ Object Diagrams (NOT RECOMMENDED) — low value
+- **Seven diagram types analyzed with final applicability assessment:**
+  - ✅ UC Diagrams (CRITICAL) — 100+ in IACT-docs, foundational
+  - ✅ Sequence Diagrams (IMPORTANT) — complex interactions/flows
+  - ✅ Activity Diagrams (RECOMMENDED) — process flows, bifurcations, actor responsibilities
+  - ⚠️ Class Diagrams (OPTIONAL) — if technical architecture documented
+  - ❌ Object Diagrams (NOT RECOMMENDED) — low value for requirements
+  - ❌ Map Diagrams (NOT RECOMMENDED) — specialized, out of scope
+  - ❌ JSON Display (NOT APPLICABLE) — technical implementation, prohibited
 - **Key decision points:**
   - !include path resolution (must validate working directory in Phase 1 Setup)
-  - Class diagrams applicability (Phase 5 ADR)
-  - Object diagrams exclusion (document in guidelines)
-- **Styling rule:** Colores inline = PROHIBIDO en todos los diagrama types
+  - Activity diagrams integration (add skinparam activity section to plantuml-styles.puml)
+  - Class diagrams applicability (Phase 5 ADR decision)
+  - Exclusion of Map, JSON, Object diagrams (document in guidelines)
+- **Styling rule:** Colores inline = PROHIBIDO en todos los diagram types
 
 ### Color Palette Defined
 ```
@@ -360,34 +382,39 @@ $ make clean && make html
 ## 13. Evidence Summary
 
 **Observable Evidence (PROVEN):**
-- 8 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-77)
-- Three diagram types analyzed: UC (100+ in IACT), Sequence (for complex flows), Class (optional architecture)
+- 12 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-113)
+- Seven diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED), Class (OPTIONAL), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.)
 - Sphinx + sphinxcontrib.plantuml integration documented
 - Corporate color palette defined (#1976D2, #388E3C, #F57C00)
 - Two-tier strategy validated: centralized skinparam + documented guidelines
 - 100+ UC diagrams in IACT-docs confirmed as target
 - Clean Code naming principles identified as critical for class diagrams
-- All diagram types support !include + skinparam centralization
+- Activity diagrams recommended for documenting flujos y bifurcaciones
+- All core diagram types support !include + skinparam centralization
+- Map, JSON, Object diagrams evaluated and deemed not applicable/recommended
 
 **Inferred Evidence:**
 - !include directive supported in PlantUML 1.2025.0 (based on historical support, confidence 0.85)
 - Working directory for Java JAR execution affects path resolution (requires validation)
-- skinparam context-dependency (UC vs. Sequence vs. Class) requires separate definition per type
+- skinparam context-dependency (UC vs. Sequence vs. Activity vs. Class) requires separate definitions per type
 - Class diagrams are optional based on IACT scope (architecture vs. functional requirements)
+- Activity diagrams are recommended for complementary process/flow documentation
+- Map, JSON, Object diagrams are explicitly out of scope for IACT requirements documentation
 
 **Key Assumptions to Validate in Phase 1 Setup:**
 - Java 8+ is installed
 - sphinxcontrib.plantuml supports !include via working directory
 - Path resolution: relative paths work from Sphinx root directory
 - Decision on class diagram applicability (affects Phase 7 design)
+- Confirmation that activity diagrams will enhance UC documentation clarity
 
 ---
 
 **Analysis Created:** 2026-04-23 18:51:00  
-**Updated:** 2026-04-24 00:35:00  
-**Version:** 1.2.0 (MINOR: incorporated 8 specialized analyses including Class Diagrams)
+**Updated:** 2026-04-24 01:35:00  
+**Version:** 1.4.0 (MINOR: incorporated 12 specialized analyses including Activity, Map, JSON diagrams)
 **Status:** Phase 1 DISCOVER COMPLETE  
-**Total Content Analyzed:** pp. 1-77 (sections 1.1-3.29)
-**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Class (100% OPTIONAL)
+**Total Content Analyzed:** pp. 1-113 (sections 1.1-5.12)
+**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED), Class (100% OPTIONAL), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
 **Next Phase:** Ready for approval → Phase 5 STRATEGY or Phase 10 EXECUTE (Phase 1 Setup)  
 **Ready for approval:** YES ✅
