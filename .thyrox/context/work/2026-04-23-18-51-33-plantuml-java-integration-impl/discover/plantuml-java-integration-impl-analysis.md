@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-04-23 18:51:00
-updated_at: 2026-04-24 01:35:00
+updated_at: 2026-04-24 01:55:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Aprobado
-version: 1.4.0
+version: 1.5.0
 ```
 
 # Phase 1 DISCOVER: PlantUML Java Integration Implementation
@@ -86,9 +86,9 @@ version: 1.4.0
 
 ## 4. Technical Context from Previous WP
 
-### PlantUML Guide Analysis Completed ✅ (12 Specialized Analyses, pp. 1-113)
+### PlantUML Guide Analysis Completed ✅ (13 Specialized Analyses, pp. 1-150+)
 
-**Phase 1 DISCOVER produced 12 focused analyses of PlantUML 1.2025.0 Language Reference (complete coverage):**
+**Phase 1 DISCOVER produced 13 focused analyses of PlantUML 1.2025.0 Language Reference (complete coverage):**
 
 1. **plantuml-reference-language-analysis.md** (306 lines)
    - Sections 1.1-1.18 (pp. 1-15): Sequence basics, participant declaration, text alignment, arrows, colors, numbering, titles, divisions, grouping, notes, formatting
@@ -148,30 +148,38 @@ version: 1.4.0
     - Finding: JSON display **NOT applicable** to IACT-docs (technical implementation, not requirements)
     - Conclusion: Explicitly prohibited; if data documentation needed, use class diagrams instead
 
-12. **plantuml-activity-diagrams-analysis.md** (v1.0.0, 600+ lines) ← **RECOMMENDED**
-    - Sections 5.1-5.12 (pp. 106-113): Activities, branching, synchronization, partitions, notes, skinparam
-    - Finding: Activity diagrams **RECOMMENDED** for documenting flujos de casos de uso
-    - Applicability: CRÍTICA — complement UC (structure) + Sequence (interactions) with activity flows
-    - Key features: if/then/else bifurcations, partitions (actors/entities), notes, multi-line descriptions
-    - Restrictions: NO inline colors, legible anidamiento (<3 levels), use partitions for responsibility mapping
+12. **plantuml-activity-diagrams-analysis.md** (v1.0.0, 600+ lines)
+    - Sections 5.1-5.12 (pp. 106-113): Old syntax (Graphviz-dependent)
+    - Finding: Activity diagrams recommended BUT old syntax is deprecated
+    - Status: SUPERSEDED BY new syntax analysis (#13)
+
+13. **plantuml-activity-diagrams-new-syntax-analysis.md** (v1.0.0, 830+ lines) ← **RECOMMENDED**
+    - Sections 6.0.1-6.25 (pp. 116-150+): New syntax (NO Graphviz, more maintainable)
+    - Finding: **NEW SYNTAX IS RECOMMENDED** — official migration guidance from PlantUML
+    - Applicability: CRÍTICA — modern activity diagrams for documenting flujos de casos de uso
+    - Key features: swimlanes (actors), partitions (groups), if/then/switch/case, fork/split, modern `<style>` block
+    - Key advantage: No Graphviz dependency, more features (goto, break, condition styles), better maintainability
+    - Critical: Use `<style> activityDiagram { ... }` (NOT `skinparam`), NO inline colors, swimlanes for responsibility
 
 **Consolidated Finding:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam (all diagram types)
+- PlantUML 1.2025.0 fully supports centralization via !include + centralized styling (all diagram types)
 - Sphinx plugin integration well-documented and tested
 - **Seven diagram types analyzed with final applicability assessment:**
   - ✅ UC Diagrams (CRITICAL) — 100+ in IACT-docs, foundational
   - ✅ Sequence Diagrams (IMPORTANT) — complex interactions/flows
-  - ✅ Activity Diagrams (RECOMMENDED) — process flows, bifurcations, actor responsibilities
+  - ✅ Activity Diagrams (RECOMMENDED) — NEW SYNTAX (v6) only; process flows, swimlanes, bifurcations
   - ⚠️ Class Diagrams (OPTIONAL) — if technical architecture documented
   - ❌ Object Diagrams (NOT RECOMMENDED) — low value for requirements
   - ❌ Map Diagrams (NOT RECOMMENDED) — specialized, out of scope
   - ❌ JSON Display (NOT APPLICABLE) — technical implementation, prohibited
-- **Key decision points:**
-  - !include path resolution (must validate working directory in Phase 1 Setup)
-  - Activity diagrams integration (add skinparam activity section to plantuml-styles.puml)
+- **Critical architectural decisions:**
+  - Activity Diagrams: ADOPT NEW SYNTAX (section 6, NO section 5 which requires Graphviz)
+  - Styling approach: `<style>` blocks (modern, hierarchical) + `skinparam` (legacy, flat) for compatibility
+  - Centralization: !include for styles.puml, swimlanes for activity responsibility mapping
+  - Inline colors: EXPLICITLY PROHIBITED in all diagram types (use centralized styling only)
   - Class diagrams applicability (Phase 5 ADR decision)
   - Exclusion of Map, JSON, Object diagrams (document in guidelines)
-- **Styling rule:** Colores inline = PROHIBIDO en todos los diagram types
+- **Styling rule:** Colores inline = PROHIBIDO en TODOS los diagram types
 
 ### Color Palette Defined
 ```
@@ -382,39 +390,44 @@ $ make clean && make html
 ## 13. Evidence Summary
 
 **Observable Evidence (PROVEN):**
-- 12 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-113)
-- Seven diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED), Class (OPTIONAL), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.)
+- 13 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-150+)
+- Seven diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — new syntax), Class (OPTIONAL), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.)
 - Sphinx + sphinxcontrib.plantuml integration documented
 - Corporate color palette defined (#1976D2, #388E3C, #F57C00)
-- Two-tier strategy validated: centralized skinparam + documented guidelines
+- Two-tier strategy validated: centralized !include + `<style>` blocks + documented guidelines
 - 100+ UC diagrams in IACT-docs confirmed as target
 - Clean Code naming principles identified as critical for class diagrams
-- Activity diagrams recommended for documenting flujos y bifurcaciones
-- All core diagram types support !include + skinparam centralization
+- Activity diagrams RECOMMENDED using NEW SYNTAX (section 6, NOT old syntax section 5)
+- New activity syntax eliminates Graphviz dependency and improves maintainability
+- All core diagram types support !include + centralized styling (NOT inline colors)
+- Modern `<style>` block approach for hierarchical styling (recommended over skinparam for activities)
 - Map, JSON, Object diagrams evaluated and deemed not applicable/recommended
 
 **Inferred Evidence:**
 - !include directive supported in PlantUML 1.2025.0 (based on historical support, confidence 0.85)
 - Working directory for Java JAR execution affects path resolution (requires validation)
-- skinparam context-dependency (UC vs. Sequence vs. Activity vs. Class) requires separate definitions per type
+- Centralized styling via `<style>` blocks is modern approach (replaces skinparam for activities)
+- Activity diagrams with swimlanes provide excellent actor responsibility mapping
 - Class diagrams are optional based on IACT scope (architecture vs. functional requirements)
-- Activity diagrams are recommended for complementary process/flow documentation
+- New activity syntax aligns with Sphinx plugin requirements (no Graphviz dependency)
 - Map, JSON, Object diagrams are explicitly out of scope for IACT requirements documentation
 
 **Key Assumptions to Validate in Phase 1 Setup:**
 - Java 8+ is installed
 - sphinxcontrib.plantuml supports !include via working directory
 - Path resolution: relative paths work from Sphinx root directory
+- `<style>` block syntax is supported in activity diagrams with sphinxcontrib.plantuml
 - Decision on class diagram applicability (affects Phase 7 design)
-- Confirmation that activity diagrams will enhance UC documentation clarity
+- Confirmation that activity diagrams (new syntax) with swimlanes enhance UC documentation clarity
 
 ---
 
 **Analysis Created:** 2026-04-23 18:51:00  
-**Updated:** 2026-04-24 01:35:00  
-**Version:** 1.4.0 (MINOR: incorporated 12 specialized analyses including Activity, Map, JSON diagrams)
+**Updated:** 2026-04-24 01:55:00  
+**Version:** 1.5.0 (MINOR: incorporated 13 specialized analyses including Activity diagrams NEW SYNTAX)
 **Status:** Phase 1 DISCOVER COMPLETE  
-**Total Content Analyzed:** pp. 1-113 (sections 1.1-5.12)
-**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED), Class (100% OPTIONAL), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
+**Total Content Analyzed:** pp. 1-150+ (sections 1.1-6.25)
+**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED — new syntax v6), Class (100% OPTIONAL), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
+**Critical Decision:** Activity diagrams use NEW SYNTAX (section 6) — modern, Graphviz-free, swimlanes, `<style>` block styling
 **Next Phase:** Ready for approval → Phase 5 STRATEGY or Phase 10 EXECUTE (Phase 1 Setup)  
 **Ready for approval:** YES ✅
