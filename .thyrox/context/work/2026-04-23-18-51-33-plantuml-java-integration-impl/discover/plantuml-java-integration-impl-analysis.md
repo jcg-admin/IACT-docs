@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-04-23 18:51:00
-updated_at: 2026-04-24 00:35:00
+updated_at: 2026-04-24 01:10:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Aprobado
-version: 1.2.0
+version: 1.3.0
 ```
 
 # Phase 1 DISCOVER: PlantUML Java Integration Implementation
@@ -86,9 +86,9 @@ version: 1.2.0
 
 ## 4. Technical Context from Previous WP
 
-### PlantUML Guide Analysis Completed ✅ (8 Specialized Analyses, pp. 1-77)
+### PlantUML Guide Analysis Completed ✅ (9 Specialized Analyses, pp. 1-102+)
 
-**Phase 1 DISCOVER produced 7 focused analyses of PlantUML 1.2025.0 Language Reference:**
+**Phase 1 DISCOVER produced 9 focused analyses of PlantUML 1.2025.0 Language Reference (complete coverage):**
 
 1. **plantuml-reference-language-analysis.md** (306 lines)
    - Sections 1.1-1.18 (pp. 1-15): Sequence basics, participant declaration, text alignment, arrows, colors, numbering, titles, divisions, grouping, notes, formatting
@@ -123,18 +123,33 @@ version: 1.2.0
    - Testing strategy and debugging commands documented
    - Unknown: working directory when Java JAR executes (affects path resolution in !include)
 
-8. **plantuml-class-diagrams-analysis.md** (467 lines) ← **OPTIONAL, ARCHITECTURAL**
-   - Sections 3.8-3.29 (pp. 62-77): Advanced class body, notes, stereotypes, hide/remove, abstractions, generics, packages, namespaces, arrows, associations
-   - Finding: Class diagrams are **optional** — only needed if IACT documents technical architecture (not just functional requirements)
-   - Naming convention analysis: Clean Code principles (self-explanatory names, balanced length, POSIX _prefix for privates)
-   - Decision point: Phase 5 STRATEGY → ADR on class diagram applicability
+8. **plantuml-class-diagrams-analysis.md** (v1.1.0, 782 lines) ← **OPTIONAL, ARCHITECTURAL**
+   - Sections 3.8-3.43 (pp. 62-102): Complete class diagram syntax, advanced styling, personalization, layout helpers, inheritance grouping, color/style control
+   - Finding: Class diagrams are **optional** — only needed if IACT documents technical architecture
+   - **CRITICAL RESTRICTION:** Colores inline ABSOLUTELY PROHIBITED (use skinparam instead)
+   - Styling centralizable: skinparam class, skinparam abstract, skinparam interface, skinparam groupInheritance
+   - Layout helpers (together, hidden, page division) NOT recommended for public documentation
+   - Naming convention: POSIX _prefix for privates, auto-explicativity, balanced length
+
+9. **plantuml-object-diagrams-analysis.md** (274 lines) ← **LOW PRIORITY**
+   - Section 4.1-4.4 (pp. 99-102): Object definition, relationships, associations, field values
+   - Finding: Object diagrams **NOT recommended** for IACT-docs (low value for requirements documentation)
+   - Use case: Only for test scenarios or specific edge case examples (rarely needed)
+   - Conclusion: Focus on UC (structure) + Sequence (flows); omit object diagrams
 
 **Consolidated Finding:**
 - PlantUML 1.2025.0 fully supports centralization via !include + skinparam (all diagram types)
 - Sphinx plugin integration well-documented and tested
-- Three diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Class (OPTIONAL)
-- Key decision point: !include path resolution (must validate in Phase 1 Setup with working directory confirmation)
-- Naming conventions: Clean Code adherence required (auto-explicative + balanced)
+- **Four diagram types analyzed:**
+  - ✅ UC Diagrams (CRITICAL) — 100+ in IACT-docs
+  - ✅ Sequence Diagrams (IMPORTANT) — complex flows
+  - ⚠️ Class Diagrams (OPTIONAL) — if technical architecture needed
+  - ❌ Object Diagrams (NOT RECOMMENDED) — low value
+- **Key decision points:**
+  - !include path resolution (must validate working directory in Phase 1 Setup)
+  - Class diagrams applicability (Phase 5 ADR)
+  - Object diagrams exclusion (document in guidelines)
+- **Styling rule:** Colores inline = PROHIBIDO en todos los diagrama types
 
 ### Color Palette Defined
 ```
