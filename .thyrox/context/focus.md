@@ -24,10 +24,10 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 **Fase:** Phase 1 DISCOVER — ✓ COMPLETADA  
 **Fecha de inicio:** 2026-04-23 18:51:33  
-**Fecha de actualización:** 2026-04-24 02:25:00
+**Fecha de actualización:** 2026-04-24 02:42:00
 
 **Artefactos generados:**
-- `discover/plantuml-java-integration-impl-analysis.md` — Síntesis de Phase 1 (v1.6.0, 400+ líneas)
+- `discover/plantuml-java-integration-impl-analysis.md` — Síntesis de Phase 1 (v1.7.0, 400+ líneas)
 - `discover/plantuml-reference-language-analysis.md` — Basics (pp. 1-15, 306 líneas)
 - `discover/plantuml-sequence-formatting-activation-analysis.md` — Advanced (pp. 16-22, 391 líneas)
 - `discover/plantuml-advanced-sequence-features-analysis.md` — Features (pp. 25-41, 409 líneas)
@@ -42,21 +42,23 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 - `discover/plantuml-activity-diagrams-analysis.md` — Activity Diagrams OLD SYNTAX (pp. 106-113, 600+ líneas) — DEPRECATED
 - `discover/plantuml-activity-diagrams-new-syntax-analysis.md` — Activity Diagrams NEW SYNTAX (pp. 116-150+, 830+ líneas) ⭐ RECOMMENDED
 - `discover/plantuml-component-diagrams-analysis.md` — Component Diagrams (pp. 145-164+, 586 líneas) — NOT APPLICABLE
+- `discover/plantuml-state-diagrams-analysis.md` — State Diagrams (pp. 210-230+, 600+ líneas) — MODERADA-BAJA
 - `plantuml-java-integration-impl-risk-register.md` — Riesgos identificados
 - `plantuml-java-integration-impl-exit-conditions.md` — Gates por fase
 
 **Hallazgos principales:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam/`<style>` blocks (pp. 1-164+ analyzed)
-- skinparam context-dependent: UC ≠ Sequence ≠ Activity ≠ Class diagrams (all must be defined separately)
-- **Nine diagram types evaluated:** UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — NEW SYNTAX v6), Class (OPTIONAL), Component/Object/Map/JSON/Deployment (NOT APPLICABLE/NOT RECOMMENDED/PENDING)
+- PlantUML 1.2025.0 fully supports centralization via !include + skinparam/`<style>` blocks (pp. 1-230+ analyzed)
+- skinparam context-dependent: UC ≠ Sequence ≠ Activity ≠ State ≠ Class diagrams (all must be defined separately)
+- **Ten diagram types evaluated:** UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — NEW SYNTAX v6), Class (OPTIONAL), State (MODERADA-BAJA), Component/Object/Map/JSON/Deployment (NOT APPLICABLE/NOT RECOMMENDED/PENDING)
 - Activity diagrams RECOMMENDED: modern NEW SYNTAX v6 (no Graphviz), swimlanes, `<style>` block styling for actor responsibility mapping
-- Component diagrams: NOT APPLICABLE to IACT (technical architecture level, out-of-scope for functional requirements)
+- State diagrams: Useful for entity lifecycle (Users, Accesos, Reportes); limit to 3-5 máximo; postergar to Phase 7 DESIGN
+- Component/Deployment diagrams: NOT APPLICABLE (technical architecture level, out-of-scope for functional requirements)
 - ~20 arrow variants, advanced features (stereotypes, markers, boxes, synchronization) documented
 - Two-tier strategy: centralized styles via !include + documented guidelines for restrictions
 - !include as critical cornerstone (confidence 0.85; must validate working directory in Phase 1 Setup)
 - Clean Code naming principles applied (POSIX _prefix convention for private members)
 
-**Análisis completados:** 14 especializados + 1 síntesis = 6,500+ líneas de análisis PlantUML (pp. 1-164+)
+**Análisis completados:** 15 especializados + 1 síntesis = 6,800+ líneas de análisis PlantUML (pp. 1-230+)
 
 ---
 
