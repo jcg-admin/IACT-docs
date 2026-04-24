@@ -47,7 +47,7 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 - Two-tier strategy: centralized styles + documented guidelines for restrictions
 - !include as critical cornerstone (confidence 0.85; must validate working directory in Phase 1 Setup)
 
-**Análisis completados:** 12 especializados + 1 síntesis = 5,200+ líneas de análisis PlantUML
+**Análisis completados:** 13 especializados + 1 síntesis = 6,000+ líneas de análisis PlantUML
 
 ---
 
@@ -55,7 +55,7 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 **Phase 5 STRATEGY** (recomendado) o **Phase 10 EXECUTE** (Phase 1 Setup directo)
 
-**Entrada:** 12 análisis especializados de PlantUML 1.2025.0 (pp. 1-113)
+**Entrada:** 13 análisis especializados de PlantUML 1.2025.0 (pp. 1-150+)
 
 **Opciones recomendadas:**
 

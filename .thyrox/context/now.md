@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 2.0
-updated_at: 2026-04-24 01:40:00
+updated_at: 2026-04-24 02:00:00
 cold_boot: false
 last_session: 2026-04-23 22:00:00
 current_epic: 2
@@ -12,16 +12,16 @@ stage_name: DISCOVER (completada)
 current_phase: Phase 1 DISCOVER (✅ COMPLETADA)
 flow: null
 methodology_step: null
-phase_duration: 6+ horas (18:51 → 01:40)
-artifacts_created: 12
-analysis_lines: 5200+
-commits: 7
+phase_duration: 8 horas (18:51 → 02:00)
+artifacts_created: 13
+analysis_lines: 6000+
+commits: 9
 blockers: []
-critical_path: ["!include directive validation (Phase 1 Setup)", "Working directory for path resolution", "Activity diagram integration in skinparam"]
+critical_path: ["!include directive validation (Phase 1 Setup)", "Working directory for path resolution", "Activity diagram <style> block support validation"]
 next_decision_required: "Phase 5 STRATEGY vs. Phase 10 EXECUTE (direct Phase 1 Setup)"
 coordinators: {}
 last_completed_work: 2026-04-23-07-04-55-config-review-iact-docs
-phase_1_findings: ["PlantUML 1.2025.0 fully supports centralization via !include + skinparam", "skinparam context-dependent (UC != Sequence != Activity != Class)", "Activity diagrams RECOMMENDED for flujos/bifurcaciones", "Two-tier strategy: centralized styles + documented guidelines", "!include confidence 0.85 (must validate working directory)", "Map/JSON/Object diagrams explicitly excluded from scope"]
+phase_1_findings: ["PlantUML 1.2025.0 fully supports centralization via !include", "Activity diagrams: USE NEW SYNTAX (v6) — no Graphviz, swimlanes, <style> block", "skinparam context-dependent (UC != Sequence != Activity != Class)", "Two-tier strategy: !include + centralized styling + documented guidelines", "!include confidence 0.85 (must validate working directory)", "Map/JSON/Object diagrams explicitly excluded from scope"]
 ```
 
 # IACT-docs — Phase 1 DISCOVER Completada — PlantUML Java Integration
