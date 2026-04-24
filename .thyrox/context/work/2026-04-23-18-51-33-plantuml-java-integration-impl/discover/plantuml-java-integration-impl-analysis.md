@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-04-23 18:51:00
-updated_at: 2026-04-24 01:55:00
+updated_at: 2026-04-24 02:25:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Aprobado
-version: 1.5.0
+version: 1.6.0
 ```
 
 # Phase 1 DISCOVER: PlantUML Java Integration Implementation
@@ -316,14 +316,21 @@ TEXT: #000000        (Black)
 
 ### Phase 1 DISCOVER — COMPLETED ✅
 
-Seven specialized analyses completed:
-- plantuml-reference-language-analysis.md ✓
-- plantuml-sequence-formatting-activation-analysis.md ✓
-- plantuml-advanced-sequence-features-analysis.md ✓
-- plantuml-use-case-diagrams-analysis.md ✓ (CRITICAL)
-- plantuml-styling-strategy-integration-analysis.md ✓
-- plantuml-include-directive-implementation-analysis.md ✓ (CRITICAL)
-- sphinxcontrib-plantuml-integration-analysis.md ✓ (CRITICAL)
+Fourteen specialized analyses completed (6500+ lines):
+- plantuml-reference-language-analysis.md ✓ (pp. 1-15, sections 1.1-1.18)
+- plantuml-sequence-formatting-activation-analysis.md ✓ (pp. 16-22, sections 1.19-1.31)
+- plantuml-advanced-sequence-features-analysis.md ✓ (pp. 25-41, sections 1.32-1.45)
+- plantuml-use-case-diagrams-analysis.md ✓ (pp. 44-55, sections 2.1-2.18) — **CRITICAL**
+- plantuml-styling-strategy-integration-analysis.md ✓ (Two-tier centralization strategy)
+- plantuml-include-directive-implementation-analysis.md ✓ (sections 3.0-3.15) — **CRITICAL**
+- sphinxcontrib-plantuml-integration-analysis.md ✓ (Sphinx integration) — **CRITICAL**
+- plantuml-class-diagrams-analysis.md ✓ (pp. 62-102, sections 4.1-4.28) — OPTIONAL
+- plantuml-object-diagrams-analysis.md ✓ (pp. 99-102+, sections 5.1-5.8) — NOT RECOMMENDED
+- plantuml-map-diagrams-analysis.md ✓ (pp. 101-104, sections 5.9-5.15) — NOT RECOMMENDED
+- plantuml-json-display-analysis.md ✓ (pp. 104-105, sections 5.16-5.18) — NOT APPLICABLE
+- plantuml-activity-diagrams-analysis.md ✓ (pp. 106-113, sections 5.1-5.12) — DEPRECATED
+- plantuml-activity-diagrams-new-syntax-analysis.md ✓ (pp. 116-150+, sections 6.0.1-6.25) — **RECOMMENDED**
+- plantuml-component-diagrams-analysis.md ✓ (pp. 145-164+, sections 7.0-7.18) — NOT APPLICABLE
 
 ### Recommended Flow for Approval
 1. **Phase 1 DISCOVER:** ✅ Analysis complete (this document + 7 specialized analyses)
@@ -390,8 +397,8 @@ $ make clean && make html
 ## 13. Evidence Summary
 
 **Observable Evidence (PROVEN):**
-- 13 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-150+)
-- Seven diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — new syntax), Class (OPTIONAL), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.)
+- 14 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-164+, 6500+ lines)
+- Nine diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — new syntax), Class (OPTIONAL), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.), Component (NOT APPL.), Deployment (pending evaluation)
 - Sphinx + sphinxcontrib.plantuml integration documented
 - Corporate color palette defined (#1976D2, #388E3C, #F57C00)
 - Two-tier strategy validated: centralized !include + `<style>` blocks + documented guidelines
@@ -423,11 +430,11 @@ $ make clean && make html
 ---
 
 **Analysis Created:** 2026-04-23 18:51:00  
-**Updated:** 2026-04-24 01:55:00  
-**Version:** 1.5.0 (MINOR: incorporated 13 specialized analyses including Activity diagrams NEW SYNTAX)
+**Updated:** 2026-04-24 02:25:00  
+**Version:** 1.6.0 (MINOR: incorporated 14 specialized analyses including Component diagrams evaluation)
 **Status:** Phase 1 DISCOVER COMPLETE  
-**Total Content Analyzed:** pp. 1-150+ (sections 1.1-6.25)
-**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED — new syntax v6), Class (100% OPTIONAL), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
-**Critical Decision:** Activity diagrams use NEW SYNTAX (section 6) — modern, Graphviz-free, swimlanes, `<style>` block styling
+**Total Content Analyzed:** pp. 1-164+ (sections 1.1-7.18, 6500+ lines)
+**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED — new syntax v6), Class (100% OPTIONAL), Component (100% NOT APPLICABLE), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
+**Critical Finding:** Nine diagram types evaluated; four core to IACT (UC, Sequence, Activity, Class); five specialized/out-of-scope (Component, Object, Map, JSON, Deployment)
 **Next Phase:** Ready for approval → Phase 5 STRATEGY or Phase 10 EXECUTE (Phase 1 Setup)  
 **Ready for approval:** YES ✅
