@@ -24,10 +24,10 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 **Fase:** Phase 1 DISCOVER — ✓ COMPLETADA  
 **Fecha de inicio:** 2026-04-23 18:51:33  
-**Fecha de actualización:** 2026-04-24 00:20:00
+**Fecha de actualización:** 2026-04-24 02:25:00
 
 **Artefactos generados:**
-- `discover/plantuml-java-integration-impl-analysis.md` — Síntesis de Phase 1 (v1.1.0, 400+ líneas)
+- `discover/plantuml-java-integration-impl-analysis.md` — Síntesis de Phase 1 (v1.6.0, 400+ líneas)
 - `discover/plantuml-reference-language-analysis.md` — Basics (pp. 1-15, 306 líneas)
 - `discover/plantuml-sequence-formatting-activation-analysis.md` — Advanced (pp. 16-22, 391 líneas)
 - `discover/plantuml-advanced-sequence-features-analysis.md` — Features (pp. 25-41, 409 líneas)
@@ -35,44 +35,58 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 - `discover/plantuml-styling-strategy-integration-analysis.md` — Centralization (472 líneas)
 - `discover/plantuml-include-directive-implementation-analysis.md` — !include Viability (457 líneas) ⭐ CRITICAL
 - `discover/sphinxcontrib-plantuml-integration-analysis.md` — Sphinx Integration (530 líneas) ⭐ CRITICAL
+- `discover/plantuml-class-diagrams-analysis.md` — Class Diagrams (pp. 62-102, 782 líneas) — OPTIONAL
+- `discover/plantuml-object-diagrams-analysis.md` — Object Diagrams (pp. 99-102+, 274 líneas) — NOT RECOMMENDED
+- `discover/plantuml-map-diagrams-analysis.md` — Map/PERT Diagrams (pp. 101-104, 400+ líneas) — NOT RECOMMENDED
+- `discover/plantuml-json-display-analysis.md` — JSON Display (pp. 104-105, 300+ líneas) — NOT APPLICABLE
+- `discover/plantuml-activity-diagrams-analysis.md` — Activity Diagrams OLD SYNTAX (pp. 106-113, 600+ líneas) — DEPRECATED
+- `discover/plantuml-activity-diagrams-new-syntax-analysis.md` — Activity Diagrams NEW SYNTAX (pp. 116-150+, 830+ líneas) ⭐ RECOMMENDED
+- `discover/plantuml-component-diagrams-analysis.md` — Component Diagrams (pp. 145-164+, 586 líneas) — NOT APPLICABLE
 - `plantuml-java-integration-impl-risk-register.md` — Riesgos identificados
 - `plantuml-java-integration-impl-exit-conditions.md` — Gates por fase
 
 **Hallazgos principales:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam (pp. 1-113 analyzed)
+- PlantUML 1.2025.0 fully supports centralization via !include + skinparam/`<style>` blocks (pp. 1-164+ analyzed)
 - skinparam context-dependent: UC ≠ Sequence ≠ Activity ≠ Class diagrams (all must be defined separately)
-- Seven diagram types evaluated: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED), Class (OPTIONAL), Object/Map/JSON (NOT RECOMMENDED/APPLICABLE)
-- Activity diagrams RECOMMENDED: flujos, bifurcaciones, particiones para actores/responsabilidades
+- **Nine diagram types evaluated:** UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — NEW SYNTAX v6), Class (OPTIONAL), Component/Object/Map/JSON/Deployment (NOT APPLICABLE/NOT RECOMMENDED/PENDING)
+- Activity diagrams RECOMMENDED: modern NEW SYNTAX v6 (no Graphviz), swimlanes, `<style>` block styling for actor responsibility mapping
+- Component diagrams: NOT APPLICABLE to IACT (technical architecture level, out-of-scope for functional requirements)
 - ~20 arrow variants, advanced features (stereotypes, markers, boxes, synchronization) documented
-- Two-tier strategy: centralized styles + documented guidelines for restrictions
+- Two-tier strategy: centralized styles via !include + documented guidelines for restrictions
 - !include as critical cornerstone (confidence 0.85; must validate working directory in Phase 1 Setup)
+- Clean Code naming principles applied (POSIX _prefix convention for private members)
 
-**Análisis completados:** 13 especializados + 1 síntesis = 6,000+ líneas de análisis PlantUML
+**Análisis completados:** 14 especializados + 1 síntesis = 6,500+ líneas de análisis PlantUML (pp. 1-164+)
 
 ---
 
-## Próxima Fase
+## Próxima Fase — DECISIÓN REQUERIDA
 
-**Phase 5 STRATEGY** (recomendado) o **Phase 10 EXECUTE** (Phase 1 Setup directo)
+**Phase 1 DISCOVER COMPLETADA ✅** — 14 análisis (6,500+ líneas), pp. 1-164+
 
-**Entrada:** 13 análisis especializados de PlantUML 1.2025.0 (pp. 1-150+)
+**Entrada:** 14 análisis especializados de PlantUML 1.2025.0 + síntesis v1.6.0
 
-**Opciones recomendadas:**
+**Hallazgos validados:**
+- ✅ PlantUML 1.2025.0 soporta centralización via !include + skinparam + `<style>` blocks
+- ✅ Nueve tipos de diagramas evaluados; cuatro aplicables a IACT (UC, Sequence, Activity, Class)
+- ✅ Activity diagrams NEW SYNTAX v6 RECOMENDADO (moderno, sin Graphviz, swimlanes)
+- ✅ Component/Object/Map/JSON/Deployment NO APLICABLES a documentación de requisitos
+- ✅ Estrategia de dos niveles viable: estilos centralizados + directrices documentadas
 
-### Opción A: Phase 5 STRATEGY (validación de enfoque)
+**Decisión requerida — Próxima fase:**
+
+### Opción A: Phase 5 STRATEGY (validación formal de estrategia)
 - Confirmar 4-phase implementation strategy
 - Documentar arquitectura plantuml-styles.puml (13 secciones)
 - Validar decisiones sobre !include, centralization, guidelines
 - Crear ADR para decisiones arquitectónicas
+- **Duración:** 4-6 horas
+- **Artefactos:** strategy/plantuml-java-integration-strategy.md + ADRs
 
-**Artefactos esperados:**
-- `strategy/plantuml-java-integration-strategy.md`
-- ADR: adr-plantuml-centralization-strategy.md
+**Gate Phase 5→6:** Estrategia aprobada
 
-**Gate Phase 5→6:** Estrategia aprobada, presupuesto confirmado
-
-### Opción B: Phase 10 EXECUTE (fase 1 setup directo)
-- Saltar Phase 5/6/8 (scope es claro: centralize styles, test !include, expand to 100+ UC)
+### Opción B: Phase 10 EXECUTE (fase 1 setup directo — acelerado)
+- Saltar Phase 5/6/8 (scope claro, análisis completo)
 - Comenzar Phase 1 Setup inmediatamente:
   * Verify Java 8+
   * Install PlantUML v1.2025.0
@@ -80,10 +94,12 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
   * Create source/_static/plantuml-styles.puml
   * Test !include with 1 sample UC
   * Validate Sphinx build output
+- **Duración:** 2-3 horas (fase 1 setup only)
+- **Validación de riesgos críticos:** Working directory path resolution, !include support
 
-**Critical Path Item:** Working directory for !include path resolution (must test empirically)
+**Gate Phase 10→11:** Phase 1 Setup complete, !include validated, 5 UC críticos testeados
 
-**Gate Phase 10→11:** Phase 1 Setup complete, !include validated, 5 critical UC tested
+**Recomendación:** Opción B (Phase 10 directo) — análisis está completo, scope es claro, implementación es directa
 
 ---
 
