@@ -1,92 +1,96 @@
 ```yml
 type: Estado de Sesión
-version: 1.6
-updated_at: 2026-04-23 20:15:00
+version: 2.0
+updated_at: 2026-04-24 00:25:00
 cold_boot: false
-last_session: null
+last_session: 2026-04-23 22:00:00
 current_epic: 2
 epic_name: plantuml-java-integration-impl
 current_work: .thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integration-impl
-stage: 3
-stage_name: DIAGNOSE (activa)
+stage: 1
+stage_name: DISCOVER (completada)
+current_phase: Phase 1 DISCOVER (✅ COMPLETADA)
 flow: null
 methodology_step: null
-blockers: ["DEPENDENCIES: libenchant-2-dev not documented (TD-008)", "DOCUMENTATION: 1004 cross-ref warnings from 60+ missing files (TD-009)"]
+phase_duration: 5.5 horas (18:51 → 00:25)
+artifacts_created: 8
+analysis_lines: 3685
+commits: 3
+blockers: []
+critical_path: ["!include directive validation (Phase 1 Setup)", "Working directory for path resolution"]
+next_decision_required: "Phase 5 STRATEGY vs. Phase 10 EXECUTE (direct Phase 1 Setup)"
 coordinators: {}
 last_completed_work: 2026-04-23-07-04-55-config-review-iact-docs
-last_phase: Phase 2 MEASURE (completada)
-current_phase: Phase 3 DIAGNOSE (activa)
-build_findings: ["BUILD_OPERATIONAL: make html generates 3,847 HTML files successfully", "WARNINGS: 1004 non-fatal warnings", "SYSTEM_DEP: libenchant-2-dev required but not documented", "GATE: Pass with findings — proceed to Phase 3 DIAGNOSE"]
-security_findings: ["INFO-DISCLOSURE: Project configuration with RBAC/CNST/security details in git history — requires git-filter-branch + cleanup"]
+phase_1_findings: ["PlantUML 1.2025.0 fully supports centralization via !include + skinparam", "skinparam context-dependent (UC != Sequence)", "Two-tier strategy: centralized styles + documented guidelines", "!include confidence 0.85 (must validate working directory)"]
 ```
 
-# IACT-docs - Phase 1 DISCOVER Completada — Agentic Calibration Workflow
+# IACT-docs — Phase 1 DISCOVER Completada — PlantUML Java Integration
 
-**Proyecto:** IACT Documentation — Config Review & Calibration
+**Proyecto:** IACT Documentation — PlantUML Integration with Java Execution
 
-**Descripción:** Análisis de configuración del proyecto IACT-docs usando flujo adversarial multi-agente con calibración epistémica.
+**Descripción:** Análisis de PlantUML 1.2025.0 Language Reference para validar centralización de estilos vía !include + skinparam.
 
 **Status:** Phase 1 DISCOVER ✓ COMPLETADA
 
-**WP:** 2026-04-23-07-04-55-config-review-iact-docs
+**WP:** 2026-04-23-18-51-33-plantuml-java-integration-impl
 
-**Hito:** Análisis adversarial + calibración epistémica completados
+**Hito:** 7 specialized analyses of pp. 1-55 (sections 1.1-2.18) completadas
 
-## Resultados Phase 1 — Agentic Calibration Workflow
+## Resultados Phase 1 DISCOVER
 
-**Deep-dive adversarial analysis:**
-- 4 contradicciones críticas (conteo extensiones, git branches, encoding)
-- 7 claims sin fuente (agentes, verificación de archivos, build status)
-- 4 asunciones ocultas y gaps epistemológicos
-- 5 lagunas críticas (backend Python, static files, importabilidad, contexto infraestructura)
+**Análisis Completados:**
+- plantuml-reference-language-analysis.md (306 líneas, pp. 1-15, secciones 1.1-1.18)
+- plantuml-sequence-formatting-activation-analysis.md (391 líneas, pp. 16-22, secciones 1.19-1.31)
+- plantuml-advanced-sequence-features-analysis.md (409 líneas, pp. 25-41, secciones 1.32-1.45)
+- plantuml-use-case-diagrams-analysis.md (520 líneas, pp. 44-55, secciones 2.1-2.18) ⭐ CRÍTICO
+- plantuml-styling-strategy-integration-analysis.md (472 líneas)
+- plantuml-include-directive-implementation-analysis.md (457 líneas) ⭐ CRÍTICO
+- sphinxcontrib-plantuml-integration-analysis.md (530 líneas) ⭐ CRÍTICO
 
-**Calibración epistémica global:** 0.71 (PARCIALMENTE CALIBRADO)
+**Total:** 3,685 líneas de análisis técnico
 
-**Distribución de claims:** 82 total
-- PROVEN: 37 (45%) — confianza 0.98
-- INFERRED: 27 (33%) — confianza 0.65
-- SPECULATIVE: 18 (22%) — confianza 0.22
-
-**Calibración por dominio:**
-- sphinx-config: 0.92 ✓ Excelente
-- structure: 0.94 ✓ Excelente
-- git-integration: 0.90 ✓ Excelente
-- dependencies: 0.85 ⚠ Bueno
-- thyrox-integration: 0.77 ⚠ Aceptable
-- issues-gaps: 0.75 ⚠ Aceptable
-- constraints: 0.56 ✗ Crítico
-- rbac: 0.37 ✗ Crítico
-- security: 0.41 ✗ Crítico
-
-**Gate Phase 1→3:** CONDICIONADO — Hallazgos requieren remediation antes de DIAGNOSE
+**Hallazgos Clave:**
+- ✅ PlantUML 1.2025.0 soporta centralización vía !include + skinparam
+- ✅ skinparam context-dependent: UC diagrams ≠ Sequence diagrams (ambos deben definirse)
+- ⚠️ !include confianza 0.85 (basada en soporte histórico, debe validarse)
+- ⚠️ Working directory para path resolution (punto crítico en Phase 1 Setup)
+- ✅ Two-tier strategy viable: centralized styles + documented guidelines
 
 ## Artefactos Generados
 
-Work Package: `.thyrox/context/work/2026-04-23-07-04-55-config-review-iact-docs/`
+Work Package: `.thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integration-impl/`
 
 **discover/ — Phase 1 Analysis:**
-- `config-review-iact-docs-analysis.md` — Síntesis inicial
-- `input.md` — Análisis verbatim (228 líneas)
-- `config-review-iact-docs-deep-dive.md` — Adversarial findings (471 líneas)
-- `config-review-iact-docs-calibration.md` — Epistemological scores (461 líneas)
+- `plantuml-java-integration-impl-analysis.md` — Síntesis v1.1.0
+- 7 análisis especializados (ver lista arriba)
 
 **Transversales:**
-- `config-review-iact-docs-risk-register.md` — 4 riesgos identificados
-- `config-review-iact-docs-exit-conditions.md` — Gates por fase
+- `plantuml-java-integration-impl-risk-register.md` — Riesgos identificados
+- `plantuml-java-integration-impl-exit-conditions.md` — Gates por fase
 
 **Commits:**
-- `a83743d` feat(wp-create): Create WP with risk & exit conditions
-- `8587270` feat(phase1-discover): Add input.md for calibration
-- `83387ce` feat(phase1-discover): Add adversarial + calibration results
+- `5da0e60` docs: add advanced sequence features analysis
+- `5b8f140` docs: update Phase 1 DISCOVER synthesis
+- `15273dd` chore: update focus for WP#2
 
 ## Próximo Paso
 
-**Phase 3: DIAGNOSE**
-- Entrada: Hallazgos de Phase 1 (contradicciones, claims especulativos)
-- Objetivo: Root cause analysis por dominio crítico
-- Focus: RBAC (0.37), Security (0.41), Constraints (0.56)
-- Sub-análisis: rbac-analysis/, security-analysis/, constraints-analysis/
-- Gate Phase 3→5: Requiere ≥0.75 calibración en dominios críticos
+**Decisión requerida: Phase 5 STRATEGY o Phase 10 EXECUTE (Phase 1 Setup directo)**
 
-**Proyección:** Con acciones recomendadas, score global → 0.85+
-stage_sync_required: true
+**Opción A — Phase 5 STRATEGY:**
+- Validar 4-phase implementation strategy
+- Documentar arquitectura plantuml-styles.puml (13 secciones)
+- Crear ADR para decisiones
+
+**Opción B — Phase 10 EXECUTE (acelerado):**
+- Comenzar Phase 1 Setup: Java, PlantUML, sphinxcontrib.plantuml
+- Crear source/_static/plantuml-styles.puml
+- Validar !include con 1 sample UC
+- Test 5 UC críticos
+- Expandir a 100+
+
+**Ruta crítica:** !include directive validation → working directory resolution → Sphinx build output
+
+**Proyección:** 1-2 semanas (scope claro, ejecución directa)
+
+**Gate:** Phase 1 Setup success = make html generates 100+ diagrams con estilos corporativos
