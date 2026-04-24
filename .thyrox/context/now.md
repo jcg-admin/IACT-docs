@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 2.0
-updated_at: 2026-04-24 00:25:00
+updated_at: 2026-04-24 01:40:00
 cold_boot: false
 last_session: 2026-04-23 22:00:00
 current_epic: 2
@@ -12,16 +12,16 @@ stage_name: DISCOVER (completada)
 current_phase: Phase 1 DISCOVER (✅ COMPLETADA)
 flow: null
 methodology_step: null
-phase_duration: 5.5 horas (18:51 → 00:25)
-artifacts_created: 8
-analysis_lines: 3685
-commits: 3
+phase_duration: 6+ horas (18:51 → 01:40)
+artifacts_created: 12
+analysis_lines: 5200+
+commits: 7
 blockers: []
-critical_path: ["!include directive validation (Phase 1 Setup)", "Working directory for path resolution"]
+critical_path: ["!include directive validation (Phase 1 Setup)", "Working directory for path resolution", "Activity diagram integration in skinparam"]
 next_decision_required: "Phase 5 STRATEGY vs. Phase 10 EXECUTE (direct Phase 1 Setup)"
 coordinators: {}
 last_completed_work: 2026-04-23-07-04-55-config-review-iact-docs
-phase_1_findings: ["PlantUML 1.2025.0 fully supports centralization via !include + skinparam", "skinparam context-dependent (UC != Sequence)", "Two-tier strategy: centralized styles + documented guidelines", "!include confidence 0.85 (must validate working directory)"]
+phase_1_findings: ["PlantUML 1.2025.0 fully supports centralization via !include + skinparam", "skinparam context-dependent (UC != Sequence != Activity != Class)", "Activity diagrams RECOMMENDED for flujos/bifurcaciones", "Two-tier strategy: centralized styles + documented guidelines", "!include confidence 0.85 (must validate working directory)", "Map/JSON/Object diagrams explicitly excluded from scope"]
 ```
 
 # IACT-docs — Phase 1 DISCOVER Completada — PlantUML Java Integration

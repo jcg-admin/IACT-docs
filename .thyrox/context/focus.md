@@ -39,13 +39,15 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 - `plantuml-java-integration-impl-exit-conditions.md` — Gates por fase
 
 **Hallazgos principales:**
-- PlantUML 1.2025.0 fully supports centralization via !include + skinparam (pp. 1-55 analyzed)
-- skinparam context-dependent: UC diagrams ≠ Sequence diagrams (both must be defined)
-- ~20 arrow variants, advanced features (stereotypes, markers, boxes) documented
+- PlantUML 1.2025.0 fully supports centralization via !include + skinparam (pp. 1-113 analyzed)
+- skinparam context-dependent: UC ≠ Sequence ≠ Activity ≠ Class diagrams (all must be defined separately)
+- Seven diagram types evaluated: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED), Class (OPTIONAL), Object/Map/JSON (NOT RECOMMENDED/APPLICABLE)
+- Activity diagrams RECOMMENDED: flujos, bifurcaciones, particiones para actores/responsabilidades
+- ~20 arrow variants, advanced features (stereotypes, markers, boxes, synchronization) documented
 - Two-tier strategy: centralized styles + documented guidelines for restrictions
 - !include as critical cornerstone (confidence 0.85; must validate working directory in Phase 1 Setup)
 
-**Análisis completados:** 7 especializados + 1 síntesis = 3,685 líneas de análisis PlantUML
+**Análisis completados:** 12 especializados + 1 síntesis = 5,200+ líneas de análisis PlantUML
 
 ---
 
@@ -53,7 +55,7 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 
 **Phase 5 STRATEGY** (recomendado) o **Phase 10 EXECUTE** (Phase 1 Setup directo)
 
-**Entrada:** 7 análisis especializados de PlantUML 1.2025.0 (pp. 1-55)
+**Entrada:** 12 análisis especializados de PlantUML 1.2025.0 (pp. 1-113)
 
 **Opciones recomendadas:**
 
