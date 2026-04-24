@@ -1,16 +1,17 @@
 ```yml
 created_at: 2026-04-24 00:30:00
+updated_at: 2026-04-24 01:00:00
 project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 1 — DISCOVER
 author: Claude Code Agent
 status: Borrador
-version: 1.0.0
+version: 1.1.0
 ```
 
-# Análisis: PlantUML Class Diagrams — Syntax, Styling, Architecture Patterns
+# Análisis: PlantUML Class Diagrams — Complete Syntax, Advanced Styling, Layout
 
-**Input:** Guía de Referencia PlantUML 1.2025.0 — pp. 62-77 (Secciones 3.8-3.29)
+**Input:** Guía de Referencia PlantUML 1.2025.0 — pp. 62-102 (Secciones 3.8-3.43 completas)
 
 **Propósito:** Validar si class diagrams son aplicables a IACT-docs y cómo se integran con estrategia de centralización.
 
@@ -415,53 +416,329 @@ Restricciones:
 
 ---
 
-## 8. Validación: Cobertura de PlantUML 1.2025.0
+## 8. Advanced Styling & Personalization (Secciones 3.29-3.37)
 
-### 8.1 Class Diagrams Completamente Documentados ✅
+### 8.1 Skinparam Personalization (Section 3.29)
 
-| Sección | Contenido | Status |
-|---------|----------|--------|
-| 3.8 | Advanced class body (separators) | ✅ Documentado |
-| 3.9-3.10 | Notes & stereotypes | ✅ Documentado |
-| 3.11 | Note on field/method | ✅ Documentado |
-| 3.12 | Note on links | ✅ Documentado |
-| 3.13 | Abstract, interface, enum | ✅ Documentado |
-| 3.14-3.18 | Hide/Remove/Show commands | ✅ Documentado |
-| 3.19 | Generics | ✅ Documentado |
-| 3.20 | Custom circle marker | ✅ Documentado |
-| 3.21-3.24 | Packages & namespaces | ✅ Documentado |
-| 3.25 | Interface Lollipop | ✅ Documentado |
-| 3.26-3.28 | Arrows, associations, directions | ✅ Documentado |
-| 3.29+ | Skinparam personalization | ⏳ Incompleto (cortado en guía) |
+**Sintaxis:**
+```plantuml
+skinparam class {
+  BackgroundColor PaleGreen
+  ArrowColor SeaGreen
+  BorderColor SpringGreen
+}
+```
+
+**Aplicabilidad:** ✅ CENTRALIZABLE — Mismo patrón que UC/Sequence. Esto debe estar en plantuml-styles.puml.
+
+### 8.2 Estereotipos Personalizados (Section 3.30)
+
+**Sintaxis:**
+```plantuml
+skinparam stereotypeCBackgroundColor<<Foo>> Wheat
+skinparam stereotypeCBackgroundColor<<Bar>> DimGray
+```
+
+**RESTRICCIÓN CRÍTICA:** Espacios en blanco rompenparsers. NO usar espacios en parámetros.
+
+**Aplicabilidad:** ⚠️ PERMITIDO pero con restricción — documentar en guidelines.
+
+### 8.3 Degradado de Colores (Section 3.31)
+
+**Sintaxis:**
+```plantuml
+class Foo #red-green    ← gradiente rojo a verde
+class Bar #red|green    ← alternativas: /, \, o-
+```
+
+**RESTRICCIÓN:** Colores inline — PROHIBIDO en guidelines (afecta paleta corporativa).
+
+**Mitigación:** Si se necesita degradado, usar skinparam para clases específicas via estereotipo.
+
+### 8.4 Layout Design Helpers (Section 3.32)
+
+**Keywords:**
+- `together { }` — agrupa clases para que Graphviz las posicione juntas
+- `[hidden]` — enlaces ocultos para forzar layout específico
+
+**Aplicabilidad:**
+- ⚠️ NO recomendado para documentación pública
+- ✅ Útil para debugging de layout, pero debe removerse antes de publicar
+- ⚠️ Fragmenta mantenibilidad — usar con cuidado
+
+### 8.5 Page Division (Section 3.33)
+
+**Sintaxis:**
+```plantuml
+page 2x2    ← divide en 2 páginas horizontales x 2 verticales
+skinparam pageMargin 10
+skinparam pageExternalColor gray
+```
+
+**Aplicabilidad:**
+- ⚠️ Genera múltiples imágenes separadas
+- ⚠️ NO RECOMENDADO para Sphinx (complica embedding en HTML)
+- ❌ Evitar en IACT-docs — mantener diagramas simples/legibles
+
+### 8.6 Extends & Implements (Section 3.34)
+
+**Sintaxis:**
+```plantuml
+class ArrayList implements List
+class ArrayList extends AbstractList
+class A extends B, C { }
+```
+
+**Aplicabilidad:**
+- ✅ ESTÁNDAR UML — utilizar libremente
+- ✅ Auto-documentación clara de jerarquía
+
+### 8.7 Bracketed Relations Style (Sections 3.35-3.36)
+
+**Sintaxis (línea, color, grosor):**
+```plantuml
+foo -[bold]-> bar1       ← bold line
+foo -[#red]-> bar2       ← color inline ❌ PROHIBIDO
+foo -[thickness=4]-> bar3  ← grosor
+foo -[#red,dashed,thickness=2]-> bar4  ← combinación
+```
+
+**RESTRICCIÓN CRÍTICA:** Colores inline (`#red`, `#green`, `#blue`) — **PROHIBIDO** en guidelines.
+
+**Alternativa:** Usar skinparam centralizado, no inline styles.
+
+### 8.8 Class Color & Style (Sections 3.37)
+
+**Sintaxis (inline style):**
+```plantuml
+class Foo #palegreen ##[dashed]green
+class Bar #pink;line:red;line.bold;text:red
+```
+
+**RESTRICCIÓN:** Misma que arriba — inline styles permitidos SOLO en debugging, no en documentación final.
+
+**Best Practice:**
+```plantuml
+' ❌ NO HACER:
+class Foo #palegreen ##[dashed]green
+
+' ✅ HACER:
+skinparam class {
+  BackgroundColor PaleGreen
+  BorderStyle dashed
+  BorderColor Green
+}
+```
 
 ---
 
-## 9. Síntesis: Class Diagrams para IACT-docs
+## 9. Advanced Features (Secciones 3.38-3.43)
 
-### 9.1 Conclusión
+### 9.1 Arrows from/to Class Members (Section 3.38)
 
-**Class diagrams en PlantUML 1.2025.0:**
-- ✅ Soporte completo para arquitectura orientada a objetos
-- ✅ Separadores, notas, estereotipos, abstracciones bien documentados
-- ✅ Paquetes y namespaces útiles para organización modular
-- ⚠️ Hide/Remove commands no recomendable para documentación pública
-- ⚠️ Naming convention crítica (auto-explicidad, equilibrio)
+**Sintaxis:**
+```plantuml
+Foo::field1 --> Bar::field3   ← arrow between specific fields
+User::id *-- Email::user_id   ← composición entre campos
+```
+
+**Aplicabilidad:**
+- ✅ PERMITIDO — útil para relaciones de campos específicos
+- ⚠️ Requiere que los campos estén definidos en clase
+- ⚠️ NO documentado si se ocultan campos
+
+### 9.2 Grouping Inheritance Arrow Heads (Section 3.39)
+
+**Parámetro:**
+```plantuml
+skinparam groupInheritance 2   ← agrupa herencias de 2+ hacia arriba
+```
+
+**Aplicabilidad:**
+- ✅ Reduce cluttervisual en jerarquías complejas
+- ⚠️ CENTRALIZABLE en plantuml-styles.puml
+- Recomendación: `skinparam groupInheritance 2` o `3` para mantener legibilidad
+
+### 9.3 JSON Data Display (Section 3.40)
+
+**Sintaxis:**
+```plantuml
+json JSON {
+  "fruit":"Apple",
+  "size":"Large"
+}
+```
+
+**Aplicabilidad:**
+- ⚠️ RARAMENTE USADO — específico para serialización de datos
+- ❌ NO APLICABLE a IACT-docs (documentación de requisitos, no datos)
+
+### 9.4 Packages Enhancement & Namespaces (Section 3.41-3.42)
+
+**Sintaxis:**
+```plantuml
+class A.B.C.D.Z { }   ← namespace automático desde qualified names
+set separator none     ← disable auto namespace creation
+!pragma useIntermediatePackages false  ← controlar paquetes intermedios
+```
+
+**Aplicabilidad:**
+- ✅ ÚTIL para estructuras profundas de paquetes
+- ⚠️ Configuración global — afecta todo el diagrama
+- Recomendación: Usar cuando structure requiere deep nesting (com.iact.domain.entity.User)
+
+### 9.5 Qualified Associations (Section 3.42)
+
+**Sintaxis:**
+```plantuml
+class1 [Qualifier] - class2    ← qualifieretiqueta de asociación
+Shop [customerId: long] ---> Customer
+```
+
+**Aplicabilidad:**
+- ⚠️ AVANZADO — requiere familiaridad con UML
+- ✅ ÚTIL para modelar claves extranjeras en ER-like diagrams
+- ⚠️ NO recomendable para documentación de requisitos (uso avanzado)
+
+### 9.6 Diagram Orientation (Section 3.43)
+
+**Sintaxis:**
+```plantuml
+top to bottom direction   ← por defecto
+left to right direction   ← alternativa
+
+!pragma layout smetana    ← cambiar motor de layout (Graphviz vs Smetana)
+```
+
+**Aplicabilidad:**
+- ✅ CONTROLABLE globalmente
+- ⚠️ Graphviz (default) vs. Smetana (internal) tienen diferentes reglas de nesting
+- Recomendación: Dejar en default (top to bottom) a menos que espacio lo requiera
+
+---
+
+## 10. Validación: Cobertura de PlantUML 1.2025.0 (Class Diagrams Completo)
+
+### 10.1 Secciones 3.8-3.43 Documentadas ✅
+
+| Sección | Contenido | Status | Restricción |
+|---------|----------|--------|---|
+| 3.8 | Advanced class body (separators) | ✅ | NINGUNA |
+| 3.9-3.10 | Notes & stereotypes | ✅ | NO inline colors |
+| 3.11 | Note on field/method | ✅ | NINGUNA |
+| 3.12 | Note on links | ✅ | NINGUNA |
+| 3.13 | Abstract, interface, enum | ✅ | NINGUNA |
+| 3.14-3.18 | Hide/Remove commands | ⚠️ | NO en docs públicas |
+| 3.19 | Generics | ✅ | Avanzado, poco usado |
+| 3.20 | Custom circle marker | ✅ | NINGUNA |
+| 3.21-3.24 | Packages & namespaces | ✅ | NINGUNA |
+| 3.25 | Interface Lollipop | ✅ | NINGUNA |
+| 3.26-3.28 | Arrows, associations, directions | ✅ | NINGUNA |
+| **3.29** | **Skinparam personalización** | ✅ | **CENTRALIZABLE** |
+| **3.30** | **Custom stereotypes** | ✅ | **NO espacios en parámetros** |
+| **3.31** | **Color gradients** | ⚠️ | **PROHIBIDO inline** |
+| **3.32** | **Layout helpers (together, hidden)** | ⚠️ | **NO en docs públicas** |
+| **3.33** | **Page division** | ❌ | **EVITAR en Sphinx** |
+| **3.34** | **Extends/Implements** | ✅ | **NINGUNA** |
+| **3.35-3.37** | **Bracketed styles (color, línea, grosor)** | ⚠️ | **PROHIBIDO inline colors** |
+| **3.38** | **Arrows from/to members** | ✅ | **Requiere fields definidos** |
+| **3.39** | **Grouping inheritance** | ✅ | **CENTRALIZABLE** |
+| **3.40** | **JSON display** | ❌ | **NO aplicable a IACT** |
+| **3.41-3.42** | **Packages enhancement, qualified assoc.** | ✅ | **Avanzado, contextual** |
+| **3.43** | **Diagram orientation** | ✅ | **Deixar en default** |
+
+---
+
+## 11. Síntesis: Class Diagrams para IACT-docs (Cobertura Completa 3.8-3.43)
+
+### 11.1 Conclusión
+
+**Class diagrams en PlantUML 1.2025.0 (secciones 3.8-3.43):**
+- ✅ Soporte completo para OOP (inheritance, composition, aggregation)
+- ✅ Separadores, notas, estereotipos, abstracciones, interfaces bien documentados
+- ✅ Paquetes, namespaces, qualified associations útiles para modelos complejos
+- ✅ Personalización centralizable: skinparam class, groupInheritance
+- ⚠️ **Restricción crítica:** Colores inline y estilos inline — PROHIBIDOS (usar skinparam)
+- ⚠️ Hide/Remove/Together commands NO recomendable para documentación pública
+- ⚠️ Page division NO compatible con Sphinx — evitar
+- ⚠️ Naming convention crítica (auto-explicidad, equilibrio, POSIX _prefix)
+
+**Hallazgo clave:** Casi TODO es centralizable o documentable EXCEPTO inline colors (deben prohibirse absolutamente).
 
 **Aplicabilidad a IACT:**
 - **IF** documentar arquitectura técnica → Incluir con skinparam class
 - **IF** solo requisitos funcionales → Omitir (usar UC/Sequence)
+- **IF** incluir → PROHIBIR colores inline, together, page division
 
-### 9.2 Decisión Recomendada
+### 11.2 Plantilla Recomendada para plantuml-styles.puml (si se incluyen Class Diagrams)
+
+```plantuml
+' SECTION: CLASS DIAGRAM STYLING
+' ================================
+
+skinparam class {
+  BackgroundColor SECONDARY_COLOR
+  BorderColor PRIMARY_COLOR
+  BorderThickness 2
+  FontColor TEXT_COLOR
+}
+
+skinparam abstract {
+  BackgroundColor #E0E0E0
+  FontStyle italic
+}
+
+skinparam interface {
+  BackgroundColor #F0F8FF
+  BorderStyle dashed
+}
+
+skinparam enum {
+  BackgroundColor #FFF8DC
+}
+
+' Inheritance grouping (reduce clutter)
+skinparam groupInheritance 2
+
+' Prevent unlinked classes from appearing
+hide @unlinked
+```
+
+### 11.3 Guidelines para Class Diagrams (si se incluyen)
+
+**PERMITIDO:**
+- ✅ Inheritance (<|--), composition (*--), aggregation (o--)
+- ✅ Notas, estereotipos, abstract/interface/enum
+- ✅ Qualified associations, member-to-member arrows
+- ✅ Namespace y package grouping
+- ✅ Dirección de diagrama (top to bottom, left to right)
+
+**PROHIBIDO:**
+- ❌ Colores inline (`#red`, `#green`, `#blue` en clases o arrows)
+- ❌ Estilos inline de línea en arrows (dashed, dotted, bold inline)
+- ❌ Tamaños de fuente inline
+- ❌ Comando `page` para división
+- ❌ Comando `together` o `[hidden]` en documentación pública
+
+**RESTRINGIDO:**
+- ⚠️ Hide/Remove commands (solo para debugging, no en docs finales)
+- ⚠️ JSON data display (muy especializado, evitar)
+
+### 11.4 Decisión Recomendada
 
 **Propuesta:**
-1. Phase 1 Setup: Crear plantuml-styles.puml sin sección class (aún no decidido)
-2. Phase 5 STRATEGY: Crear ADR sobre applicability de class diagrams
-3. Phase 7 DESIGN: Decidir si incluir based en scope de IACT-docs
-4. Phase 10 EXECUTE: Implementar skinparam class solo si aprobado
+1. Phase 1 Setup: Crear plantuml-styles.puml **CON** sección class (pero OPCIONAL)
+   - Incluir skinparam class + abstract + interface + enum
+   - Documentar restricciones de colores inline
+2. Phase 5 STRATEGY: Crear ADR: `adr-class-diagrams-applicability.md`
+   - Decisión: ¿necesita IACT documentar arquitectura técnica?
+3. Phase 7 DESIGN: Si SÍ → crear plantilla de class diagram con ejemplos
+4. Phase 10 EXECUTE: Aplicar a 1-2 class diagrams críticos, validar
 
 ---
 
-**Análisis Completado:** 2026-04-24 00:30:00  
-**Hallazgo clave:** Class diagrams son opcionales; decision en Phase 5 STRATEGY  
-**Confianza:** 0.95 (well documented in guide, clear decision tree)  
-**Naming Principle:** Auto-explicidad + equilibrio = Clean Code adherence
+**Análisis Completado:** 2026-04-24 01:00:00  
+**Versión:** 1.1.0 (expandido con secciones 3.29-3.43)  
+**Hallazgo clave:** Class diagrams son opcionales; casi TODO centralizable EXCEPTO inline colors (PROHIBIDOS)  
+**Confianza:** 0.98 (all 36 sections of Class Diagrams analyzed, decision tree clear)  
+**Naming Principle:** Auto-explicidad + equilibrio + POSIX _prefix = Clean Code + consistency
