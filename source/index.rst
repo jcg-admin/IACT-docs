@@ -59,6 +59,12 @@ Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 
 
    gestion/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Discover — PlantUML Styling
+
+   discover/index
+
 Índices y Búsqueda
 ==================
 
