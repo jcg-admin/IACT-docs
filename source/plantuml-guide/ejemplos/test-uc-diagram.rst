@@ -23,6 +23,11 @@ Diagram
 
    !include ../_static/plantuml-styles.puml
 
+   ' @IACT-DIAGRAM
+   ' module: plantuml-guide
+   ' type: use-case
+   ' description: Test use case diagram with actors and system interactions
+
    actor "Student" as student
    actor "Instructor" as instructor
    actor "Administrator" as admin

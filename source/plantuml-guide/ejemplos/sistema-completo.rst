@@ -23,6 +23,11 @@ Arquitectura
    @startuml IACT-Architecture
    !include ../_static/plantuml-styles.puml
 
+   ' @IACT-DIAGRAM
+   ' module: plantuml-guide
+   ' type: component
+   ' description: Complete IACT system architecture with all layers
+
    skinparam BackgroundColor white
 
    package "Data Sources" {

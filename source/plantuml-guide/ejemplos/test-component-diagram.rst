@@ -23,6 +23,11 @@ Diagram
 
    !include ../_static/plantuml-styles.puml
 
+   ' @IACT-DIAGRAM
+   ' module: plantuml-guide
+   ' type: component
+   ' description: Test component diagram showing system architecture layers
+
    package "API Layer" {
      component [UserService]
      component [AuthService]

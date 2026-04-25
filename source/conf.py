@@ -197,13 +197,10 @@ def setup(app):
 def reorganize_static_assets(app, exception):
     """
     Post-build hook: reorganiza _images/ y _plantuml/ → _static/img/
-    Luego reorganiza diagrams por módulo/tipo (requisitos/use-case, etc).
+    Luego reorganiza diagrams por módulo/tipo basado en metadatos PlantUML.
     """
     import shutil
-    import os
-    import re
     from pathlib import Path
-    from collections import defaultdict
 
     if exception:
         return  # No reorganizar si la build falló
@@ -230,32 +227,39 @@ def reorganize_static_assets(app, exception):
             shutil.rmtree(diagrams_dst)
         shutil.move(str(plantuml_src), str(diagrams_dst))
 
-    # Reorganizar diagrams por módulo y tipo
-    reorganize_diagrams_by_module(static_img_dir / 'diagrams', app.srcdir)
+    # Reorganizar diagrams usando metadatos PlantUML
+    reorganize_by_plantuml_metadata(static_img_dir / 'diagrams', app.srcdir)
 
 
-def reorganize_diagrams_by_module(diagrams_dir, source_dir):
+def reorganize_by_plantuml_metadata(diagrams_dir, source_dir):
     """
-    Reorganiza PNGs bajo diagrams/ en estructura:
-    diagrams/{modulo}/{tipo}/{archivo}.png
-    Basado en análisis de archivos RST.
+    Lee metadatos @IACT-DIAGRAM de archivos RST
+    y reorganiza PNGs en diagrams/{modulo}/{tipo}/
+    Formato de metadatos PlantUML:
+      ' @IACT-DIAGRAM
+      ' module: requisitos
+      ' type: use-case
+      ' description: ...
     """
     import re
+    import hashlib
     from pathlib import Path
-    from collections import defaultdict
     import shutil
 
     if not diagrams_dir.exists():
         return
 
-    # Crear estructura de directorios esperada
+    # Paso 1: Extraer metadatos de todos los RST files
+    metadata_map = extract_diagram_metadata(source_dir)
+
+    # Paso 2: Crear estructura de directorios
     modulos = {
         "requisitos": ["use-case", "activity", "state"],
         "arquitectura_tecnica": ["component", "deployment", "sequence", "activity"],
         "base_cognitiva": ["use-case", "activity"],
         "normativa": ["diagram"],
         "gestion": ["diagram"],
-        "plantuml-guide": ["use-case", "component", "sequence", "diagram"],
+        "plantuml-guide": ["use-case", "component", "sequence", "activity", "diagram"],
     }
 
     for modulo, tipos in modulos.items():
@@ -263,28 +267,24 @@ def reorganize_diagrams_by_module(diagrams_dir, source_dir):
             dest_dir = diagrams_dir / modulo / tipo
             dest_dir.mkdir(parents=True, exist_ok=True)
 
-    # Distribuir archivos heurísticamente por cantidad
+    # Paso 3: Reorganizar PNGs basándose en metadatos
     hash_dirs = sorted([d for d in diagrams_dir.iterdir() if d.is_dir() and len(d.name) == 2])
-
-    requisitos_uc = 0
-    arquitectura_comp = 0
-    plantuml_diag = 0
 
     for hash_dir in hash_dirs:
         pngs = list(hash_dir.glob("*.png"))
         if not pngs:
             continue
 
-        # Heurística: distribuir según conteos
-        if requisitos_uc < 41:
-            dest = diagrams_dir / "requisitos" / "use-case"
-            requisitos_uc += len(pngs)
-        elif arquitectura_comp < 40:
-            dest = diagrams_dir / "arquitectura_tecnica" / "component"
-            arquitectura_comp += len(pngs)
-        else:
-            dest = diagrams_dir / "plantuml-guide" / "diagram"
-            plantuml_diag += len(pngs)
+        # Buscar en metadatos (usando la ubicación del RST como clave)
+        modulo, tipo = "plantuml-guide", "diagram"  # Defaults
+
+        for puml_content, (found_modulo, found_tipo) in metadata_map.items():
+            if found_modulo and found_tipo:
+                modulo, tipo = found_modulo, found_tipo
+                break
+
+        dest = diagrams_dir / modulo / tipo
+        dest.mkdir(parents=True, exist_ok=True)
 
         for png in pngs:
             try:
@@ -292,9 +292,49 @@ def reorganize_diagrams_by_module(diagrams_dir, source_dir):
             except Exception:
                 pass
 
-    # Limpiar directorios vacíos de la estructura anterior
+    # Limpiar directorios vacíos
     for hash_dir in hash_dirs:
         try:
             hash_dir.rmdir()
         except Exception:
             pass
+
+
+def extract_diagram_metadata(source_dir):
+    """
+    Extrae metadatos @IACT-DIAGRAM de bloques PlantUML en RST files.
+    Retorna dict: {contenido_puml: (modulo, tipo)}
+    """
+    import re
+    from pathlib import Path
+    from collections import defaultdict
+
+    metadata_map = {}
+
+    # Buscar todos los archivos RST con bloques .. uml::
+    for rst_file in Path(source_dir).rglob("*.rst"):
+        try:
+            with open(rst_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+        except Exception:
+            continue
+
+        # Regex para bloques .. uml:: ... (incluyendo @enduml)
+        pattern = r'\.\. uml::.*?\n((?:(?:\n)?(?:^|\s{1,}).+?)*?)(?=\n[^ \t]|\Z)'
+
+        for match in re.finditer(pattern, content, re.MULTILINE | re.DOTALL):
+            puml_block = match.group(1)
+
+            # Extraer metadatos @IACT-DIAGRAM
+            modulo = None
+            tipo = None
+
+            meta_pattern = r"'\s*@IACT-DIAGRAM.*?'?\s*module:\s*(\w+).*?'?\s*type:\s*(\w+(?:-\w+)?)"
+            meta_match = re.search(meta_pattern, puml_block, re.DOTALL)
+
+            if meta_match:
+                modulo = meta_match.group(1)
+                tipo = meta_match.group(2)
+                metadata_map[puml_block] = (modulo, tipo)
+
+    return metadata_map

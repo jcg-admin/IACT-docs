@@ -24,6 +24,11 @@ Proceso ETL
    @startuml IACT-ETL-Pipeline
    !include ../_static/plantuml-styles.puml
 
+   ' @IACT-DIAGRAM
+   ' module: plantuml-guide
+   ' type: activity
+   ' description: ETL Pipeline process with validation and error handling
+
    skinparam BackgroundColor white
 
    ' Extract Phase
