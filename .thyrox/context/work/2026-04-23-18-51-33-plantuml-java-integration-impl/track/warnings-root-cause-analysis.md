@@ -4,9 +4,9 @@ project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 phase: Phase 11 — TRACK/EVALUATE
 author: Claude
-status: En Progreso
-updated_at: 2026-04-25 19:00:00
-version: 1.0.0
+status: Completado
+updated_at: 2026-04-25 21:15:00
+version: 2.0.0
 ```
 
 # Sphinx Warnings — Root Cause Analysis & Learning Loop
@@ -16,8 +16,9 @@ version: 1.0.0
 This document analyzes the **root causes** of Sphinx warnings, not just symptoms. Each warning category represents a structural problem in how RST documentation is written or configured.
 
 **Original state:** 520 warnings  
-**Current state:** ~268 warnings (after 3 rounds of fixes)  
-**Target:** 0 warnings  
+**Iteration 5 state:** 886 warnings (fresh build after cache clear)  
+**Final state:** **0 warnings** ✓  
+**Target:** 0 warnings ✓ ACHIEVED  
 
 ---
 
@@ -336,6 +337,34 @@ Sphinx can't find documents in the table of contents (toctree). This indicates:
 
 ---
 
+### Iteration 5: Root Cause of ALL 886 Warnings — Duplicate Governance Index
+
+**Problem:** Fresh clean build revealed 886 warnings, all identical: "Failed to create a cross reference. A title or caption not found: 'gob-05'"
+
+**Diagnosis:**
+- File `source/normativa/gobernanza/GOB_05_Control_Versiones.rst` was a **duplicate copy of index.rst**
+- Both files defined labels `.. _gob-05:` and `.. _gobernanza-index:` 
+- The duplicate file was listed in the toctree, creating structural ambiguity
+- Sphinx's `autosectionlabel_prefix_document = True` tried to auto-generate labels for the section "Gobernanza Documental" 
+- This conflicted with the explicit label, breaking all 886 cross-references to `gob-05` scattered through the documentation
+
+**Root cause:** Structural duplication — someone copied index.rst into GOB_05_Control_Versiones.rst as a placeholder, but never replaced it with actual "Control de Versiones" standard content. This created:
+- A duplicate document with identical structure
+- Self-referencing labels (the file referenced itself via `:ref:`gob-05``)
+- Ambiguous toctree structure (two files with same content, one referenced)
+
+**The Fix:**
+1. Removed `source/normativa/gobernanza/GOB_05_Control_Versiones.rst` (the duplicate)
+2. Added `.. _gob-05:` label to proper `source/normativa/gobernanza/index.rst` 
+3. Removed GOB_05_Control_Versiones from toctree in index.rst
+4. Result: All 886 warnings eliminated in one fix
+
+**Build verification:** `build succeeded.` with 0 warnings (previously 886)
+
+**Key learning:** One structural problem (file duplication) caused systematic failure across the entire cross-reference system. The 886 was not 886 independent errors — it was one root cause affecting 886 references. This validates the root-cause-first approach: understanding structure matters more than counting warning types.
+
+---
+
 ## Recommendations for Future Fixes
 
 1. **Before each fix:** Understand WHY the warning exists, not just HOW to fix it
@@ -346,6 +375,7 @@ Sphinx can't find documents in the table of contents (toctree). This indicates:
 
 ---
 
-**Next action:** Complete Loop 4 (orphaned toctree documents)  
-**Success criteria:** 0 warnings with all documentation integrated and valid
+**Status:** COMPLETE ✓  
+**Achieved:** 0 warnings with all documentation integrated and valid  
+**Final commit:** fix(warnings): eliminate 886 broken cross-references by removing duplicate governance index
 
