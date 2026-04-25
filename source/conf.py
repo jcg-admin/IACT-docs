@@ -33,8 +33,12 @@ extensions = [
     'sphinx_copybutton',
     'myst_parser',
 
-    # PlantUML para diagramas (TEMPORARILY DISABLED — causes FileNotFoundError)
-    # 'sphinxcontrib.plantuml',
+    # PlantUML para diagramas
+    'sphinxcontrib.plantuml',
+
+    # Extensiones recomendadas (adicionales)
+    'sphinx_autodoc_typehints',  # Type hints support
+    'sphinxcontrib.spelling',     # Spell checking
 ]
 
 # -- Configuración de Autodoc --
