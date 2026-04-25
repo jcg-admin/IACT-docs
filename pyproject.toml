@@ -21,26 +21,38 @@ classifiers = [
     "Topic :: Software Development :: Documentation",
 ]
 
-# Verified dependencies from current working environment (pip freeze)
+# Verified dependencies from current working environment
+# Core Sphinx documentation engine (v9.0.4 with Phase A: Configuration Standardization fixes)
 dependencies = [
-    "Sphinx==8.2.3",
-    "Furo==2025.9.25",
-    "myst-parser==4.0.1",
-    "PyYAML==6.0.3",
-    "sphinx-copybutton==0.5.2",
-    "sphinx-design==0.6.1",
-    "sphinx-tabs==3.4.5",
-    "sphinx-toolbox==4.1.0",
-    "sphinx-prompt==1.10.2",
-    "sphinx-jinja==2.0.2",
-    "sphinx-notfound-page==1.1.0",
-    "sphinx-last-updated-by-git==0.3.8",
-    "sphinx-autodoc-typehints==3.5.2",
-    "autodocsumm==0.2.14",
-    "sphinxcontrib-spelling==8.0.0",
-    "sphinx-basic-ng==1.0.0b2",
-    "sphinx-sitemap==2.9.0",
-    "sphinxcontrib-plantuml==0.26.0",
+    "Sphinx>=9.0.4",                              # Core documentation engine (fixed RST compliance Phase B)
+
+    # Theme & UI
+    "Furo==2025.9.25",                             # Professional documentation theme
+    "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
+    "sphinx-design==0.6.1",                        # Card/grid layouts (Phase 6 design)
+
+    # Markdown & Content Parsing
+    "myst-parser==4.0.1",                          # Markdown support in Sphinx
+    "PyYAML==6.0.3",                               # YAML parsing
+
+    # Documentation Features
+    "sphinx-tabs==3.4.5",                          # Tabbed content sections
+    "sphinx-toolbox==4.1.0",                       # Extra tools
+    "sphinx-prompt==1.10.2",                       # Formatted prompts
+    "sphinx-jinja==2.0.2",                         # Jinja2 support
+    "sphinx-notfound-page==1.1.0",                 # Custom 404 page
+    "sphinx-last-updated-by-git==0.3.8",           # Track update dates from git
+    "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
+
+    # Python API Documentation (Tier 2: Recommended - Phase A enabled)
+    "sphinx-autodoc-typehints==3.5.2",             # Type hints support (added Phase A)
+    "autodocsumm==0.2.14",                         # Auto-generate summaries
+
+    # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
+    "sphinxcontrib-spelling==8.0.0",               # Spell checker (added Phase A)
+
+    # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
+    "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
     "docutils==0.21.2",
     "markdown-it-py==3.0.0",
     "mdit-py-plugins==0.5.0",
