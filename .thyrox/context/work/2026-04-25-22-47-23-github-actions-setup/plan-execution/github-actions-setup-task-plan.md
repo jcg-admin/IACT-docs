@@ -5,17 +5,18 @@ work_package: 2026-04-25-22-47-23-github-actions-setup
 phase: Phase 8 — PLAN EXECUTION
 author: Claude
 status: Borrador
-version: 1.0.0
-total_tasks: 8
+version: 1.1.0
+total_tasks: 9
+updated_at: 2026-04-26 00:20:00
 ```
 
-# Task Plan — GitHub Actions Setup Phase 1 (ÉPICA: github-actions-setup)
+# Task Plan — GitHub Actions Setup Phase 1 + Dependabot (ÉPICA: github-actions-setup)
 
 > **Generado desde:** `design/github-actions-setup-requirements-spec.md`  
-> **Alcance:** Create 5 files in `.github/` directory (3 issue templates, 1 PR template, 1 CI/CD workflow)  
-> **Ruta crítica:** T-001 → T-002/T-003/T-004 (parallelizable) → T-005 → T-006 → T-007 → T-008  
-> **Esfuerzo total:** ~2.6 horas implementation + validation  
-> **Tamaño:** 5 core tasks + 3 validation/commit tasks = **8 tasks**
+> **Alcance:** Create 6 files in `.github/` directory (3 issue templates, 1 PR template, 1 CI/CD workflow, 1 dependabot config)  
+> **Ruta crítica:** T-001 → T-002/T-003/T-004 (parallelizable) → T-005 → T-006 → T-007 → T-008 → T-009  
+> **Esfuerzo total:** ~2.8 horas implementation + validation  
+> **Tamaño:** 6 core tasks + 3 validation/commit tasks = **9 tasks**
 
 ---
 
@@ -274,10 +275,29 @@ Formato: `T-NNN [P] Descripción (SPEC-N)`
   - **Update now.md:**
     - `stage: 10` (advance to Phase 10 EXECUTE)
     - `current_phase: Phase 10 EXECUTE (Phase C Configuration...)`
-    - `phase_8_decision_gate: "✅ READY FOR PHASE 10 — task plan complete, all 5 specs decomposed into 8 atomic tasks"`
+    - `phase_8_decision_gate: "✅ READY FOR PHASE 10 — task plan complete, all 6 specs decomposed into 9 atomic tasks"`
   - **Validación:** Push successful, now.md updated
   - **Tiempo estimado:** 5 min
   - **Notas:** Transition to Phase 10 when approved
+
+- [ ] **T-009** Create dependabot configuration (SPEC-006)
+  - **Archivo:** `.github/dependabot.yml`
+  - **Contenido:**
+    ```yaml
+    version: 2
+    updates:
+      - package-ecosystem: "pip"
+        directory: "/"
+        schedule:
+          interval: "weekly"
+        open-pull-requests-limit: 5
+        commit-message:
+          prefix: "chore(deps)"
+    ```
+  - **Validación:** File exists, YAML syntax valid, Dependabot dashboard shows repo enabled
+  - **Commit:** Separate commit with message `"feat(github-actions-setup): add dependabot configuration (Phase 2)"`
+  - **Tiempo estimado:** 10 min
+  - **Notas:** Phase 2 enhancement; independent of T-001..T-008; can be executed after Phase 1 complete
 
 ---
 
@@ -298,16 +318,22 @@ T-001 (config.yml) — BLOQUEANTE
     
 T-006 (Validate all files) — SECUENCIAL
     ↓
-T-007 (Commit) — SECUENCIAL
+T-007 (Commit Phase 1) — SECUENCIAL
     ↓
-T-008 (Push + update now.md) — SECUENCIAL
+T-008 (Push Phase 1 + update now.md) — SECUENCIAL
+    
+T-009 (dependabot.yml) — INDEPENDIENTE
+    ↓
+    (Phase 2 can execute in parallel or sequentially after Phase 1)
 ```
 
-**Ruta crítica (en serie):** T-001 (15 min) → T-002/T-003/T-004/T-005 (paralelo, máx 1.5h) → T-006 (15 min) → T-007 (5 min) → T-008 (5 min)
+**Ruta crítica Phase 1 (en serie):** T-001 (15 min) → T-002/T-003/T-004/T-005 (paralelo, máx 90 min) → T-006 (15 min) → T-007 (5 min) → T-008 (5 min)
 
-**Tiempo total:**
-- Secuencial: 15 + 90 + 15 + 5 + 5 = **130 minutos (~2.17 horas)**
-- Paralelo óptimo: max(T-001) + max(T-002..T-005) + T-006 + T-007 + T-008 = 15 + 90 + 15 + 5 + 5 = **2.17 horas**
+**Tiempo total (Phase 1 + Phase 2):**
+- Phase 1 secuencial: 15 + 90 + 15 + 5 + 5 = **130 minutos (~2.17 horas)**
+- Phase 2: T-009 = **10 minutos**
+- Total (si secuencial): 15 + 90 + 15 + 5 + 5 + 10 = **140 minutos (~2.33 horas)**
+- Paralelo óptimo: max(T-001..T-005) + T-006 + T-007 + T-008 + T-009 = 15 + 90 + 15 + 5 + 5 + 10 = **140 minutos**
 
 ---
 
@@ -315,6 +341,7 @@ T-008 (Push + update now.md) — SECUENCIAL
 
 **Orden recomendado:**
 
+**Phase 1 (Essential):**
 1. **T-001 SOLO (15 min)** — Create config.yml first (bloqueante)
 2. **T-002, T-003, T-004, T-005 EN PARALELO (90 min)** — 
    - T-002: 20 min
@@ -322,14 +349,18 @@ T-008 (Push + update now.md) — SECUENCIAL
    - T-004: 15 min
    - T-005: 90 min (longest; can run while others finish)
 3. **T-006 (15 min)** — Validate all files exist and are syntactically correct
-4. **T-007 (5 min)** — Commit all changes
+4. **T-007 (5 min)** — Commit all Phase 1 changes
 5. **T-008 (5 min)** — Push and update now.md
+
+**Phase 2 (Enhancement):**
+6. **T-009 (10 min)** — Create dependabot.yml (can execute in parallel or after Phase 1)
 
 **Decisiones de paralelización:**
 - T-001 DEBE completarse antes de T-002/T-003 (configuración).
 - T-004/T-005 pueden iniciarse inmediatamente (no dependen de T-001).
 - T-002, T-003, T-004 pueden hacerse en paralelo (15-20 min máx).
 - T-005 (workflow) toma más tiempo; ideal parallelizar con T-002/T-003/T-004.
+- T-009 es independiente; puede ejecutarse en paralelo con T-001..T-008 o después de T-008.
 
 ---
 
@@ -375,10 +406,12 @@ T-008 (Push + update now.md) — SECUENCIAL
 
 Los siguientes ítems quedan fuera de este task-plan (Phase 8):
 
-- **Phase 2 enhancements:** rst-lint.yml, dependabot.yml, ReadTheDocs deployment (deferred to Phase 2)
+- **Phase 2 enhancements (remaining):** rst-lint.yml, ReadTheDocs deployment (deferred to Phase 2)
 - **Branch protection rules:** Configuration requires admin role; can be tested in Phase 10 but not configured
 - **Notifications:** Slack/email alerts (Phase 2)
 - **Advanced CI/CD:** Matrix builds, coverage tracking, release automation (Phase 2+)
+
+**Note:** dependabot.yml was moved IN-SCOPE as T-009 (Phase 2, added on request after Phase 10)
 
 ---
 
@@ -399,14 +432,15 @@ Los siguientes ítems quedan fuera de este task-plan (Phase 8):
 | **Grupo 1 (Templates)** | 3 | 0 | 3 |
 | **Grupo 2 (PR + Workflow)** | 2 | 0 | 2 |
 | **Grupo 3 (Validación)** | 3 | 0 | 3 |
-| **Total** | **8** | **0** | **8** |
+| **Grupo 4 (Dependabot)** | 1 | 0 | 1 |
+| **Total** | **9** | **0** | **9** |
 
 ---
 
 **Documento creado:** 2026-04-26 00:00:00  
 **Status:** Borrador — Ready for Phase 10 EXECUTE when approved  
 **Next:** User confirms task-plan is clear, then transition to Phase 10 EXECUTE  
-**Critical Path:** T-001 → T-002/T-003/T-004/T-005 (parallelizable) → T-006 → T-007 → T-008
+**Critical Path:** T-001 → T-002/T-003/T-004/T-005 (parallelizable) → T-006 → T-007 → T-008 [→ T-009 if dependabot requested]
 
 ---
 
@@ -420,6 +454,7 @@ Cuando user apruebe y avancemos a Phase 10:
 4. **Reportar bloqueadores:** Si algo falla, documentar en error-log (`.thyrox/context/errors/`)
 5. **Iterar si es necesario:** max 3 rework iterations (gate 8→9); si supera, escalar
 
-Commit final: `git commit -m "feat(github-actions-setup): Phase 10 EXECUTE complete — 5 files created"`
+Commit Phase 1: `git commit -m "feat(github-actions-setup): Phase 10 EXECUTE Phase 1 complete — 5 files created"`
+Commit Phase 2: `git commit -m "feat(github-actions-setup): Phase 10 EXECUTE Phase 2 complete — add dependabot.yml"`
 
 Push: `git push -u origin feature/project-setup`

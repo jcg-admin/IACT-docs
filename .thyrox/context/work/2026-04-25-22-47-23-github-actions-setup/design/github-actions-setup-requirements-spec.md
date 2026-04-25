@@ -5,20 +5,22 @@ work_package: 2026-04-25-22-47-23-github-actions-setup
 phase: Phase 7 — DESIGN/SPECIFY
 author: Claude
 status: Borrador
-version: 1.0.0
-spec_count: 5
+version: 1.1.0
+spec_count: 6
+updated_at: 2026-04-26 00:20:00
 ```
 
-# Especificación de Requisitos Técnicos — GitHub Actions Setup Phase 1
+# Especificación de Requisitos Técnicos — GitHub Actions Setup Phase 1 + Dependabot
 
 ## Resumen Ejecutivo
 
-Este documento especifica exactamente los 5 archivos que se crearán en `.github/` para implementar CI/CD automation Phase 1 (Essential) del IACT-docs project.
+Este documento especifica exactamente los 6 archivos que se crearán en `.github/` para implementar CI/CD automation Phase 1 (Essential) + dependency management Phase 2 (Enhanced) del IACT-docs project.
 
 Los archivos establecen:
 1. **Issue templates (3):** Structured bug reports, feature requests, questions
 2. **PR template (1):** Contribution checklist
 3. **Sphinx build workflow (1):** Automated CI/CD validation
+4. **Dependabot config (1):** Automated dependency updates
 
 **Objetivo:** Proporcionar especificaciones técnicas detalladas que respeten:
 - Phase 6 PLAN: 5 files, clear scope
@@ -29,13 +31,14 @@ Los archivos establecen:
 
 ## Mapeo Phase 6 PLAN → Especificación
 
-| Archivo (Phase 6) | SPEC ID | Descripción Técnica |
-|---|---|---|
-| `.github/ISSUE_TEMPLATE/config.yml` | SPEC-001 | Configures template menu (bug, feature, question) |
-| `.github/ISSUE_TEMPLATE/bug-report.yml` | SPEC-002 | Structured bug report form (YAML) |
-| `.github/ISSUE_TEMPLATE/feature-request.md` | SPEC-003 | Feature request template (Markdown) |
-| `.github/PULL_REQUEST_TEMPLATE.md` | SPEC-004 | PR checklist + contribution guidelines |
-| `.github/workflows/sphinx-build.yml` | SPEC-005 | Sphinx CI/CD workflow (GitHub Actions) |
+| Archivo (Phase 6/2) | SPEC ID | Descripción Técnica | Fase |
+|---|---|---|---|
+| `.github/ISSUE_TEMPLATE/config.yml` | SPEC-001 | Configures template menu (bug, feature, question) | Phase 1 |
+| `.github/ISSUE_TEMPLATE/bug-report.yml` | SPEC-002 | Structured bug report form (YAML) | Phase 1 |
+| `.github/ISSUE_TEMPLATE/feature-request.md` | SPEC-003 | Feature request template (Markdown) | Phase 1 |
+| `.github/PULL_REQUEST_TEMPLATE.md` | SPEC-004 | PR checklist + contribution guidelines | Phase 1 |
+| `.github/workflows/sphinx-build.yml` | SPEC-005 | Sphinx CI/CD workflow (GitHub Actions) | Phase 1 |
+| `.github/dependabot.yml` | SPEC-006 | Automated dependency updates (GitHub Dependabot) | Phase 2 |
 
 ---
 
@@ -465,6 +468,100 @@ jobs:
 
 ---
 
+## SPEC-006: Dependabot Configuration
+
+**ID:** SPEC-006  
+**Archivo:** `.github/dependabot.yml`  
+**Prioridad:** Medium (dependency management automation)  
+**Estado:** Phase 2 Enhancement (posterior)  
+**Complejidad:** Baja  
+**Esfuerzo Estimado:** 10 minutos
+
+### Descripción
+
+Configure GitHub Dependabot to automatically detect and update project dependencies (pip packages). Dependabot creates pull requests with updates, allowing the team to review and test before merging. This automation reduces manual dependency management overhead and keeps the project secure with latest versions.
+
+**Key Facts:**
+- No cost (GitHub Dependabot is free for public repos)
+- No GitHub Actions minutes consumed
+- Automated security scanning included
+- Triggers automatic PR creation on dependency updates
+
+### Criterios de Aceptación
+
+```
+Given dependabot.yml is configured in .github/
+When GitHub scans the repository
+Then:
+  1. Dependabot automatically detects outdated packages in pyproject.toml
+  2. Dependabot creates pull requests for updates
+  3. PR includes dependency diff and changelog
+  4. Updates are grouped by package type (pip)
+  5. Pull request checks (Sphinx build) run automatically on each PR
+
+Given a package version can be updated
+When Dependabot detects a new version
+Then Dependabot creates a PR with:
+  - Dependency diff (old version → new version)
+  - Changelog link
+  - Compatibility assessment
+  - Automatic PR title: "chore(deps): bump {package} from X to Y"
+```
+
+### Consideraciones Técnicas
+
+- Format: YAML (GitHub's native Dependabot format)
+- Location: `.github/` directory (exact filename `dependabot.yml` required)
+- Package manager: `pip` (Python via pyproject.toml)
+- Frequency: Weekly check (default; can be customized)
+- Version strategy: `auto` (Dependabot determines best update strategy)
+- Pull request behavior: Auto-create, wait for team review
+
+### Implementación
+
+**Contenido esperado:**
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+```
+
+**Archivos a Crear:**
+- `.github/dependabot.yml`
+
+**Archivos implícitos (NO crear, ya existen):**
+- `pyproject.toml` (dependency manifest, already present)
+
+**Respeta Constraints:**
+- ✅ HC-001: No cost (free for public repos)
+- ✅ HC-005: No breaking changes (new file only)
+- ✅ SC-004: Backward compatible (optional feature)
+- ✅ SC-001: Cost optimization (zero cost, improves security)
+
+### Validación
+
+- [ ] File created at correct path: `.github/dependabot.yml`
+- [ ] YAML syntax valid (no parsing errors)
+- [ ] Dependabot dashboard shows repo as enabled
+- [ ] Dependabot scans `pyproject.toml` successfully
+- [ ] PR creation can be verified after 1 week (or manual trigger)
+- [ ] GitHub Actions (Sphinx build) runs on generated PRs
+- [ ] PR commit messages follow convention: `chore(deps): bump ...`
+
+**Notas:** 
+- Dependabot requires no runners or minutes from GitHub Actions free tier
+- Updates are created automatically; team reviews and merges manually
+- Weekly interval means max ~4 PRs per month (typical)
+- Can be disabled per-package if desired (e.g., pin major versions)
+
+---
+
 ## Dependencias Entre Specs
 
 ```
@@ -476,9 +573,18 @@ SPEC-003 (feature-request.md) — referenced by SPEC-001
 SPEC-004 (PULL_REQUEST_TEMPLATE.md) — independent, complements issue templates
     ↓
 SPEC-005 (sphinx-build.yml) — independent, validates that PRs can build
+
+SPEC-006 (dependabot.yml) — independent, works with existing pyproject.toml
 ```
 
-**Nota:** SPEC-001 must be created first (it configures templates). SPEC-002/003/004 can be created in parallel. SPEC-005 can be created anytime but must work with existing Sphinx configuration.
+**Nota:** 
+- Phase 1 (Essential): SPEC-001/002/003/004/005
+  - SPEC-001 must be created first (configures templates)
+  - SPEC-002/003/004 can be created in parallel
+  - SPEC-005 can be created anytime but must work with existing Sphinx config
+- Phase 2 (Enhancement): SPEC-006
+  - Independent of Phase 1; can be created after Phase 1 is complete
+  - No dependencies; works with existing pyproject.toml
 
 ---
 
