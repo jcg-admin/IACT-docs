@@ -17,7 +17,6 @@
 PROC_Generacion_TST: Generacion de Casos de Prueba
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

@@ -15,7 +15,6 @@
 PROC_Generacion_ADR: Generacion de Decisiones Arquitectonicas
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

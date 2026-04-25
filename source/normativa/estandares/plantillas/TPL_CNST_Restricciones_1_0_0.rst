@@ -14,7 +14,6 @@
 TPL_CNST: Plantilla de Restriccion Arquitectonica v1.0.0
 ==============================================================================
 
-----
 
 Proposito
 ---------

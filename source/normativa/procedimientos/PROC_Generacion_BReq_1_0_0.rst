@@ -15,7 +15,6 @@
 PROC_Generacion_BReq: Generacion de Objetivos de Negocio
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

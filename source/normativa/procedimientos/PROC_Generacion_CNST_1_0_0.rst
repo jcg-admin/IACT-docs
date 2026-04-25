@@ -15,7 +15,6 @@
 PROC_Generacion_CNST: Generacion de Restricciones Tecnicas
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

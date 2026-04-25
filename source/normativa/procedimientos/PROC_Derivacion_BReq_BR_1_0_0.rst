@@ -15,7 +15,6 @@
 PROC_Derivacion_BReq_BR: Derivacion de Objetivos a Reglas de Negocio
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

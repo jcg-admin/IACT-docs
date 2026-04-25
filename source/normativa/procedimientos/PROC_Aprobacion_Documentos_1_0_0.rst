@@ -18,7 +18,6 @@
 PROC_Aprobacion_Documentos: Aprobacion de Documentos
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

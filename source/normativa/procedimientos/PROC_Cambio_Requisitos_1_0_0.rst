@@ -18,7 +18,6 @@
 PROC_Cambio_Requisitos: Gestion de Cambios en Requisitos
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

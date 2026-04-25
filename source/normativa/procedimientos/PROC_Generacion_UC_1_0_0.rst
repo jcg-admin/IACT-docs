@@ -17,7 +17,6 @@
 PROC_Generacion_UC: Generacion de Casos de Uso
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

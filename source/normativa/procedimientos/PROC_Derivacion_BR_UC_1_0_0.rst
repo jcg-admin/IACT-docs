@@ -15,7 +15,6 @@
 PROC_Derivacion_BR_UC: Derivacion de Reglas de Negocio a Casos de Uso
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

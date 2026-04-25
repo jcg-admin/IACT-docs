@@ -17,7 +17,6 @@
 PROC_Derivacion_FR_TST: Derivacion de FR a Casos de Prueba
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

@@ -17,7 +17,6 @@
 PROC_Generacion_Index: Generacion de Archivos Index
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

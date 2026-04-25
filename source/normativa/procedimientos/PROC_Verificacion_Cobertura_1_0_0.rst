@@ -15,7 +15,6 @@
 PROC_Verificacion_Cobertura: Verificacion de Cobertura de Requisitos
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

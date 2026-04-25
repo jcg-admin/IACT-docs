@@ -17,7 +17,6 @@
 PROC_Generacion_FR: Generacion de Requisitos Funcionales
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

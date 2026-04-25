@@ -14,7 +14,6 @@
 TPL_ADR: Plantilla de Decision Arquitectonica v1.0.0
 ==============================================================================
 
-----
 
 Proposito
 ---------

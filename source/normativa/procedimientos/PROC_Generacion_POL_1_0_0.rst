@@ -15,7 +15,6 @@
 PROC_Generacion_POL: Generacion de Politicas
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

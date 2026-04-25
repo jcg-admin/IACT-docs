@@ -18,7 +18,6 @@
 PROC_Revision_Artefactos: Revision de Artefactos
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

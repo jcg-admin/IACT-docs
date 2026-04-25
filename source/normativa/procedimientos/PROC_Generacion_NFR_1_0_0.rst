@@ -17,7 +17,6 @@
 PROC_Generacion_NFR: Generacion de Requisitos No Funcionales
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

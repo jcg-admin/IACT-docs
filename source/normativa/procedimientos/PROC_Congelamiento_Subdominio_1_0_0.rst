@@ -17,7 +17,6 @@
 PROC_Congelamiento_Subdominio: Congelar Subdominio
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

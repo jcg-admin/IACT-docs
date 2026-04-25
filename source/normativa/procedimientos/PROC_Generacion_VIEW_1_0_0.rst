@@ -15,7 +15,6 @@
 PROC_Generacion_VIEW: Generacion de Vistas Arquitectonicas
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------

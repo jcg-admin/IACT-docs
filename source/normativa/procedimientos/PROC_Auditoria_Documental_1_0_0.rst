@@ -15,7 +15,6 @@
 PROC_Auditoria_Documental: Auditoria del Modelo Documental
 ==============================================================================
 
-----
 
 Resumen Ejecutivo
 -----------------
