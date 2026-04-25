@@ -66,16 +66,15 @@ This separation prevents scope creep and allows focused execution on one improve
 
 ## Implementation Continues In
 
-**New Work Package:** `[timestamp]-[name]` (to be created)
+**New Work Package:** `2026-04-25-22-13-43-iact-project-state-assessment`
 
-### Scope of Next WP
-Based on findings from this analysis, next WP will focus on **ONE** of:
-1. **Configuration Standardization** — Normalize Sphinx settings, centralize extension config
-2. **Documentation Completeness** — Address gaps identified in requirements/architecture docs
-3. **Security Hardening** — Implement OWASP/NIST/ISO 27001 recommendations from compliance review
-4. **RBAC Implementation** — Build out access control model (currently documented but not enforced)
+This new WP **continues and refines** the config-review analysis:
+- ✅ Phase 1 DISCOVER: Integrated findings from config-review into comprehensive state assessment
+- ✅ 4 implementation options formalized (Phase A/B/C/D)
+- ✅ Risk register created with priority mapping
+- ✅ Exit conditions defined with clear decision point
 
-**Decision point:** User to choose which area to implement first.
+**Relationship:** iact-project-state-assessment is the **execution WP** for one of the 4 implementation options.
 
 ---
 
