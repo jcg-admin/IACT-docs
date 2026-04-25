@@ -6,6 +6,7 @@
    :version: 1.0.0
 
 .. _gobernanza-index:
+.. _gob-05:
 
 ==============================================================================
 Gobernanza Documental
@@ -201,7 +202,6 @@ Arbol de Contenido
    GOB_02_Roles_y_RACI
    GOB_03_Control_Calidad_Documental
    GOB_04_Gestion_Cambios_Documentales
-   GOB_05_Control_Versiones
    GOB_06_Trazabilidad_SDLC
    GOB_07_Gestion_Dominios
    GOB_08_Estados_Documentales
