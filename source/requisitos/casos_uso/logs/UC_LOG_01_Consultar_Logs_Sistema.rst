@@ -11,10 +11,6 @@
 UC_LOG_01: Consultar Logs Sistema
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

@@ -14,10 +14,6 @@
 TPL_MOD: Plantilla de Modulo Arquitectonico v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

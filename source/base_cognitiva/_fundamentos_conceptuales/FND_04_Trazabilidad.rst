@@ -16,10 +16,6 @@
 FND_04: Trazabilidad
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

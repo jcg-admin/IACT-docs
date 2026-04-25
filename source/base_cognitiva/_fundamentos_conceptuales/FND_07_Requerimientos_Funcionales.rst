@@ -16,10 +16,6 @@
 FND_07: Requerimientos Funcionales
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

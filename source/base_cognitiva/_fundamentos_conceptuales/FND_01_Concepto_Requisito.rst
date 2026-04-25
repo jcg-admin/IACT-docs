@@ -16,10 +16,6 @@
 FND_01: Concepto de Requisito
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

@@ -16,10 +16,6 @@
 BR_011: Límites de Exportación
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

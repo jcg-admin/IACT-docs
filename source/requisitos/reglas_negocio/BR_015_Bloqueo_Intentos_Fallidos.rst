@@ -16,10 +16,6 @@
 BR_015: Bloqueo por Intentos Fallidos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

@@ -16,10 +16,6 @@ MOD_Reports: Casos de Uso de Reportes y Dashboard
 
 Modulo de Reportes y Dashboard - Version 2.0 con diagramas PlantUML.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

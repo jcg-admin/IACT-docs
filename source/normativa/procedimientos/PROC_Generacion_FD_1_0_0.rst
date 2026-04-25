@@ -15,10 +15,6 @@
 PROC_Generacion_FD: Generacion de Fichas de Dominio
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

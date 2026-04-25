@@ -11,10 +11,6 @@
 UC_RPT_05: Exportar Excel
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

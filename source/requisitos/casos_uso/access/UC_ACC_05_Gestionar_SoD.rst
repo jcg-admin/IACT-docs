@@ -11,10 +11,6 @@
 UC_ACC_05: Gestionar SoD
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

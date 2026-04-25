@@ -15,10 +15,6 @@
 Taxonomias y Metamodelos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito del Subdominio

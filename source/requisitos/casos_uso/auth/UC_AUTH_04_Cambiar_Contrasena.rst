@@ -11,10 +11,6 @@
 UC_AUTH_04: Cambiar Contrasena
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

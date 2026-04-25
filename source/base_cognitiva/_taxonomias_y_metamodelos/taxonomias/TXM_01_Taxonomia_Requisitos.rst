@@ -17,10 +17,6 @@
 TXM_01: Taxonomia de Requisitos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

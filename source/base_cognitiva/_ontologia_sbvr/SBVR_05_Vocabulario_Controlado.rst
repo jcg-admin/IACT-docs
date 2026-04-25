@@ -16,10 +16,6 @@
 SBVR_05: Vocabulario Controlado
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

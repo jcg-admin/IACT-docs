@@ -16,10 +16,6 @@
 FND_02: Reglas de Negocio
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

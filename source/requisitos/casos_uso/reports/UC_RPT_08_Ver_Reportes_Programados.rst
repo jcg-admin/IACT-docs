@@ -11,10 +11,6 @@
 UC_RPT_08: Ver Reportes Programados
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

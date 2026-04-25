@@ -14,10 +14,6 @@
 TPL_API: Plantilla de Documentacion API v1.1.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

@@ -11,10 +11,6 @@
 UC_ACC_03: Consultar Permisos
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

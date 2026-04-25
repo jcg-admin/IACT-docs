@@ -11,10 +11,6 @@
 UC_PIP_02: Consultar Errores ETL
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

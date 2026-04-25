@@ -11,10 +11,6 @@
 UC_USR_02: Consultar Usuarios
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

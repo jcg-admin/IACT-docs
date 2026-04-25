@@ -11,10 +11,6 @@
 UC_RPT_02: Ver Metricas Tiempo Real
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

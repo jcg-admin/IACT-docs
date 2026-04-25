@@ -11,10 +11,6 @@
 UC_LOG_02: Consultar Logs ETL
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

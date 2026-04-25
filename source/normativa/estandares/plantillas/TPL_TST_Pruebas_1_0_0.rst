@@ -14,10 +14,6 @@
 TPL_TST: Plantilla de Caso de Prueba v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Propósito

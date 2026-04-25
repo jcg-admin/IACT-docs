@@ -11,10 +11,6 @@
 UC_PIP_01: Supervisar ETL
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

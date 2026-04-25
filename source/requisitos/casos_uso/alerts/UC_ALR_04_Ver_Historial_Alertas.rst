@@ -11,10 +11,6 @@
 UC_ALR_04: Ver Historial Alertas
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

@@ -16,10 +16,6 @@
 BR_017: Tiempo Promedio de Espera
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

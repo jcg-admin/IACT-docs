@@ -11,10 +11,6 @@
 UC_PIP_04: Solicitar Reintento
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

@@ -11,10 +11,6 @@
 UC_RPT_03: Ver Reportes Historicos
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

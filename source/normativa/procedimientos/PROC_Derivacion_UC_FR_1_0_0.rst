@@ -17,10 +17,6 @@
 PROC_Derivacion_UC_FR: Derivacion de Casos de Uso a Requisitos Funcionales
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

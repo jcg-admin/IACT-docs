@@ -11,10 +11,6 @@
 UC_USR_01: Crear Usuario
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

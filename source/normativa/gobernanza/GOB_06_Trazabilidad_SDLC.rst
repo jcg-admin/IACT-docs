@@ -16,10 +16,6 @@
 GOB_06: Trazabilidad SDLC
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

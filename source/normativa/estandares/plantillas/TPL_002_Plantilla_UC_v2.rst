@@ -14,10 +14,6 @@
 TPL_002: Plantilla de Caso de Uso v2.0 (con PlantUML)
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

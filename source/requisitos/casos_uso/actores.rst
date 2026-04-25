@@ -9,10 +9,6 @@
 Catálogo de Actores - Agrupadores RBAC v5.1.1
 ==================================================
 
-.. contents:: Tabla de Contenidos
-   :depth: 2
-   :local:
-
 1. Introducción
 ===============
 

@@ -16,10 +16,6 @@
 SBVR_02: Fact Types (Tipos de Hechos)
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

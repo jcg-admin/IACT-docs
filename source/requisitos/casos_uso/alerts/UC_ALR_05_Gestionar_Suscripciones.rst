@@ -11,10 +11,6 @@
 UC_ALR_05: Gestionar Suscripciones
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

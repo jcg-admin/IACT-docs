@@ -17,10 +17,6 @@
 PROC_Generacion_RTM: Generacion de Matrices de Trazabilidad
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

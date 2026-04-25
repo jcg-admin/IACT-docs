@@ -11,10 +11,6 @@
 UC_ACC_07: Asignar Segmento
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

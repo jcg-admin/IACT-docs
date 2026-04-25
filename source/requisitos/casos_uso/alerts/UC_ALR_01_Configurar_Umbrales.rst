@@ -11,10 +11,6 @@
 UC_ALR_01: Configurar Umbrales
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

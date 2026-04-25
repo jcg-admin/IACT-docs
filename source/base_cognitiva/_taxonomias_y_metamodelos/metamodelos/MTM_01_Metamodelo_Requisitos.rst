@@ -17,10 +17,6 @@
 MTM_01: Metamodelo de Requisitos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

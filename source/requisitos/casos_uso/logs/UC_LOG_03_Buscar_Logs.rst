@@ -11,10 +11,6 @@
 UC_LOG_03: Buscar Logs
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

@@ -14,10 +14,6 @@ MOD_Audit: Casos de Uso de Auditoría
 
 Módulo de Auditoría y Compliance - Versión 1.0.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

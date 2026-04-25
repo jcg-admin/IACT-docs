@@ -17,10 +17,6 @@
 PROC_Generacion_BR: Generacion de Reglas de Negocio
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

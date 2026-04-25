@@ -18,10 +18,6 @@
 PROC_Cambio_Requisitos: Gestion de Cambios en Requisitos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

@@ -16,10 +16,6 @@
 GOB_08: Estados Documentales
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

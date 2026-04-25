@@ -17,10 +17,6 @@
 PROC_Revision_UC_Previo_Derivacion: Revision de UC Previo a Derivacion
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

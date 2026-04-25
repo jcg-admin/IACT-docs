@@ -11,10 +11,6 @@
 UC_AUTH_01: Iniciar Sesion
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

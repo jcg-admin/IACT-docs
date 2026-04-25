@@ -15,10 +15,6 @@
 PROC_Generacion_MOD: Generacion de Especificaciones de Modulo
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

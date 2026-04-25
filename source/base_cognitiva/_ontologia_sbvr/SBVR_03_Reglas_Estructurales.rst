@@ -16,10 +16,6 @@
 SBVR_03: Reglas Estructurales (Aleticas)
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

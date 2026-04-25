@@ -11,10 +11,6 @@
 UC_RPT_04: Exportar CSV
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

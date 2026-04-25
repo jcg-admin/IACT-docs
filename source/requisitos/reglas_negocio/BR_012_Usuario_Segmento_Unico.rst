@@ -16,10 +16,6 @@
 BR_012: Usuario-Segmento Único
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

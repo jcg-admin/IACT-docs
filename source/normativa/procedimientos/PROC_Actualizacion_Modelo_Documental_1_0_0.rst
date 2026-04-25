@@ -17,10 +17,6 @@
 PROC_Actualizacion_Modelo_Documental: Actualizar Modelo Documental
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

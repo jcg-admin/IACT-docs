@@ -16,10 +16,6 @@
 BR_014: Alerta por Umbral
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

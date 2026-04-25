@@ -11,10 +11,6 @@
 UC_RPT_06: Exportar PDF
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

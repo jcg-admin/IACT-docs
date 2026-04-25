@@ -15,10 +15,6 @@
 PROC_Validacion_Sphinx: Validacion de Documentacion con Sphinx
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

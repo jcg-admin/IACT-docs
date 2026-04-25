@@ -16,10 +16,6 @@ Este subdominio contiene las **politicas, procesos y estandares** que rigen
 el sistema documental IACT, estableciendo las reglas de gobernanza que
 garantizan calidad, consistencia y trazabilidad.
 
-.. contents:: En esta seccion
-   :local:
-   :depth: 1
-
 ----
 
 Proposito del Subdominio

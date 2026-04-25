@@ -16,10 +16,6 @@
 BR_020: Clasificación de Datos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

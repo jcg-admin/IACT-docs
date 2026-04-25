@@ -11,10 +11,6 @@
 UC_ALR_03: Reconocer Alerta
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

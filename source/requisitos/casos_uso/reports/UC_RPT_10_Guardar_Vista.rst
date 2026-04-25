@@ -11,10 +11,6 @@
 UC_RPT_10: Guardar Vista
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

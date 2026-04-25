@@ -14,10 +14,6 @@
 TPL_INDEX: Plantilla de Indice v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

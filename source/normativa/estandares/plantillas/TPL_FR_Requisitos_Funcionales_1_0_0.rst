@@ -14,10 +14,6 @@
 TPL_FR: Plantilla de Requisito Funcional v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Propósito

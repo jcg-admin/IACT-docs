@@ -16,10 +16,6 @@
 SBVR_01: Conceptos Nucleares
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

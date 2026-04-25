@@ -14,10 +14,6 @@ MOD_Pipeline: Casos de Uso de Supervisión ETL
 
 Módulo de Pipeline de Datos - Versión 1.0.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

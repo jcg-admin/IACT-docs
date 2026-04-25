@@ -16,10 +16,6 @@
 BR_018: Índice de Eficiencia
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

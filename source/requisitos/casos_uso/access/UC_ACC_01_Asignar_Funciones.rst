@@ -11,10 +11,6 @@
 UC_ACC_01: Asignar Funciones
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

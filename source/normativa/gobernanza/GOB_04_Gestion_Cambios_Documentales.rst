@@ -16,10 +16,6 @@
 GOB_04: Gestion de Cambios Documentales
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

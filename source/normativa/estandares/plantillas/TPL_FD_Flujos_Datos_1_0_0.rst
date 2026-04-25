@@ -14,10 +14,6 @@
 TPL_FD: Plantilla de Flujo de Datos v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

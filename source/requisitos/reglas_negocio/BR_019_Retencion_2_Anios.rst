@@ -16,10 +16,6 @@
 BR_019: Retención de Datos 2 Años
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

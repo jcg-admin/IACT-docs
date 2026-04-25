@@ -14,10 +14,6 @@
 TPL_PROC: Plantilla de Procedimiento v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Propósito

@@ -14,10 +14,6 @@ MOD_Users: Casos de Uso de Gestión de Usuarios
 
 Módulo de Gestión de Usuarios - Versión 1.0.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

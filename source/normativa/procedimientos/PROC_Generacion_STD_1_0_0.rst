@@ -17,10 +17,6 @@
 PROC_Generacion_STD: Generacion de Estandares
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

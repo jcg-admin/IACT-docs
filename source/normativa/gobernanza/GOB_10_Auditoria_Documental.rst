@@ -16,10 +16,6 @@
 GOB_10: Auditoria Documental
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

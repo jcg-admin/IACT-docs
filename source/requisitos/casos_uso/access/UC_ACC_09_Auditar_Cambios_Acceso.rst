@@ -11,10 +11,6 @@
 UC_ACC_09: Auditar Cambios Acceso
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

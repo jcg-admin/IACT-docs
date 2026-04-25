@@ -16,10 +16,6 @@
 BR_013: Username Único
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

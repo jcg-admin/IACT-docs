@@ -15,10 +15,6 @@
 Plantillas (TPL)
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 1
-
 ----
 
 Descripcion

@@ -17,10 +17,6 @@
 MTM_02: Metamodelo de Trazabilidad
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

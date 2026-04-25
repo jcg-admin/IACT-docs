@@ -9,10 +9,6 @@
 Restricciones de Arquitectura (CNST) - IACT v4.0
 ==================================================
 
-.. contents:: Tabla de Contenidos
-   :depth: 2
-   :local:
-
 1. Introducción
 ===============
 

@@ -11,10 +11,6 @@
 UC_AUTH_02: Cerrar Sesion
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

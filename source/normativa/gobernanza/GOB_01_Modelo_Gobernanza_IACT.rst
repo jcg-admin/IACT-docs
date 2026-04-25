@@ -16,10 +16,6 @@
 GOB_01: Modelo de Gobernanza IACT
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

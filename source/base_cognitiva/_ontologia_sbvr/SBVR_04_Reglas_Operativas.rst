@@ -16,10 +16,6 @@
 SBVR_04: Reglas Operativas (Deonticas)
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

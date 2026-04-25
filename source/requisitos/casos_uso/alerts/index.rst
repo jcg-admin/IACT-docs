@@ -14,10 +14,6 @@ MOD_Alerts: Casos de Uso de Alertas y Notificaciones
 
 Módulo de Alertas y Notificaciones - Versión 1.0.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

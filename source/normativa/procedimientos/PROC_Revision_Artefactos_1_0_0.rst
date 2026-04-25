@@ -18,10 +18,6 @@
 PROC_Revision_Artefactos: Revision de Artefactos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

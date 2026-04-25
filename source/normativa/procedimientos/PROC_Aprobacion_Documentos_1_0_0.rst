@@ -18,10 +18,6 @@
 PROC_Aprobacion_Documentos: Aprobacion de Documentos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

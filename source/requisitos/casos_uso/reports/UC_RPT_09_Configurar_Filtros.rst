@@ -11,10 +11,6 @@
 UC_RPT_09: Configurar Filtros
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

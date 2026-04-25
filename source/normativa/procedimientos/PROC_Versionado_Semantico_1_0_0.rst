@@ -17,10 +17,6 @@
 PROC_Versionado_Semantico: Aplicar Versionado Semantico
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

@@ -11,10 +11,6 @@
 UC_ALR_02: Ver Alertas Activas
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

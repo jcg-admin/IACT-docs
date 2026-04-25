@@ -16,10 +16,6 @@
 GOB_09: Politica de Clasificacion
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

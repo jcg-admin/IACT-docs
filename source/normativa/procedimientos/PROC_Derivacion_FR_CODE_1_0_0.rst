@@ -15,10 +15,6 @@
 PROC_Derivacion_FR_CODE: Derivacion de FR a Codigo
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

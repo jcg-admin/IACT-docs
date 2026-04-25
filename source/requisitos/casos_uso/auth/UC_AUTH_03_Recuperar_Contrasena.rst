@@ -11,10 +11,6 @@
 UC_AUTH_03: Recuperar Contrasena
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

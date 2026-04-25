@@ -14,10 +14,6 @@ MOD_Logs: Casos de Uso de Bitácoras del Sistema
 
 Módulo de Bitácoras Técnicas - Versión 1.0.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

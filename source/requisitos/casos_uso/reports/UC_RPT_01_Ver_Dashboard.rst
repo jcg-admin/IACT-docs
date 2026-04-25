@@ -11,10 +11,6 @@
 UC_RPT_01: Ver Dashboard
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

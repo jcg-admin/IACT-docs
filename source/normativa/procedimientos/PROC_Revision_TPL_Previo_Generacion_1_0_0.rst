@@ -17,10 +17,6 @@
 PROC_Revision_TPL_Previo_Generacion: Revision de Template Previo a Generacion
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

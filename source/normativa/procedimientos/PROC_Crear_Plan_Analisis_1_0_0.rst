@@ -16,10 +16,6 @@
 PROC_Crear_Plan_Analisis: Crear Documentos de Analisis
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

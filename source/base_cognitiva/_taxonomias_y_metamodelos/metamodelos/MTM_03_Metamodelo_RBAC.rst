@@ -17,10 +17,6 @@
 MTM_03: Metamodelo RBAC
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

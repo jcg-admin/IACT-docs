@@ -11,10 +11,6 @@
 UC_USR_03: Modificar Usuario
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

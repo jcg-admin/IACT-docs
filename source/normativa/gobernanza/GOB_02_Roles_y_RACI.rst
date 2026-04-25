@@ -16,10 +16,6 @@
 GOB_02: Roles y Matriz RACI
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

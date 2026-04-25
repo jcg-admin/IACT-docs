@@ -11,10 +11,6 @@
 UC_RPT_11: Compartir Reporte
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

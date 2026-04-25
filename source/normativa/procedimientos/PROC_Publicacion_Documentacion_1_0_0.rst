@@ -15,10 +15,6 @@
 PROC_Publicacion_Documentacion: Publicacion de Documentacion
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

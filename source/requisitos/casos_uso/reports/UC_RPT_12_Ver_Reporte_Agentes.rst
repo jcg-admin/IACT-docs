@@ -11,10 +11,6 @@
 UC_RPT_12: Ver Reporte Agentes
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

@@ -14,10 +14,6 @@
 TPL_NFR: Plantilla de Requisito No Funcional v1.0.0
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Propósito

@@ -16,10 +16,6 @@ MOD_Access: Casos de Uso de Control de Acceso (RBAC)
 
 Modulo de Control de Acceso - Version 2.0 con diagramas PlantUML.
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen

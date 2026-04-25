@@ -17,10 +17,6 @@
 PROC_Generacion_API: Generacion de Documentacion de API
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

@@ -11,10 +11,6 @@
 UC_ACC_06: Gestionar Segmentos
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

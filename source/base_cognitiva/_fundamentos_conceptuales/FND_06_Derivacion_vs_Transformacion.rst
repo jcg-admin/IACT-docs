@@ -16,10 +16,6 @@
 FND_06: Derivacion vs Transformacion
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

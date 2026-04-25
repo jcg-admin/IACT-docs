@@ -16,10 +16,6 @@
 GOB_07: Gestion de Dominios
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

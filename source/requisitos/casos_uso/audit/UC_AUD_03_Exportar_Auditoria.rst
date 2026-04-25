@@ -11,10 +11,6 @@
 UC_AUD_03: Exportar Auditoria
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

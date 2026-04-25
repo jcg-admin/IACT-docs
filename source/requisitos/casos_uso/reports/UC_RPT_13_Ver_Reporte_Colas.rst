@@ -11,10 +11,6 @@
 UC_RPT_13: Ver Reporte Colas
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

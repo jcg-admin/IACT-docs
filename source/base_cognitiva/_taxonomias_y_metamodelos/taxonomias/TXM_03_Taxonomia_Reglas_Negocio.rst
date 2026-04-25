@@ -17,10 +17,6 @@
 TXM_03: Taxonomia de Reglas de Negocio
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

@@ -11,10 +11,6 @@
 UC_RPT_14: Ver Reporte Campanas
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

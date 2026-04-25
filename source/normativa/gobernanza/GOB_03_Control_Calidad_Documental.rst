@@ -16,10 +16,6 @@
 GOB_03: Control de Calidad Documental
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

@@ -17,10 +17,6 @@
 PROC_Descongelamiento_Subdominio: Descongelar Subdominio
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Resumen Ejecutivo

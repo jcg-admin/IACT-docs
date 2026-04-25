@@ -17,10 +17,6 @@
 TXM_02: Taxonomia de Artefactos
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
 ----
 
 Proposito

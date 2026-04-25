@@ -10,10 +10,6 @@
 Casos de Uso - IACT Call Center Analytics v4.0
 ==================================================
 
-.. contents:: Tabla de Contenidos
-   :depth: 2
-   :local:
-
 1. Introducción
 ===============
 

@@ -11,10 +11,6 @@
 UC_RPT_07: Programar Reporte
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

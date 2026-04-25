@@ -11,10 +11,6 @@
 UC_ACC_04: Asignar Agrupador
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 

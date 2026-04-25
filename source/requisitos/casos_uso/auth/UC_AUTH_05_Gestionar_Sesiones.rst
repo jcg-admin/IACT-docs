@@ -11,10 +11,6 @@
 UC_AUTH_05: Gestionar Sesiones
 ==================================================
 
-.. contents:: Contenido
-   :depth: 3
-   :local:
-
 1. Resumen
 ----------
 
