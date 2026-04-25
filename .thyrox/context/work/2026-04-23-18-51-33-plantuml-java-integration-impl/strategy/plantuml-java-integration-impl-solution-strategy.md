@@ -4,7 +4,7 @@ project: IACT-docs
 work_package: 2026-04-23-18-51-33-plantuml-java-integration-impl
 architecture_version: 1.0.0
 architect: Claude Code Agent
-status: Propuesta
+status: Aprobado — 2026-04-25 10:00:00
 ```
 
 # Solution Strategy: PlantUML Java Integration Implementation
