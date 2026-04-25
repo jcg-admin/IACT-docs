@@ -1,0 +1,158 @@
+' PlantUML Corporate Style File
+' Phase 1 Setup - Centralized Styling
+' Created: 2026-04-25
+' Usage: !include ../../../_static/plantuml-styles.puml
+' SPEC: plantuml-java-integration-impl-requirements-spec.md SPEC-002
+
+' ============================================
+' GLOBAL SKINPARAM
+' ============================================
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment left
+skinparam padding 10
+skinparam fontSize 12
+skinparam linetype ortho
+
+' ============================================
+' COLOR DEFINITIONS (!define POSIX _prefix)
+' ============================================
+' Private color definitions (internal use, not for diagrammers)
+!define _coreCorporateBlue #0066CC
+!define _coreCorporateGreen #00CC66
+!define _coreCorporateOrange #FF9900
+!define _coreCorporateRed #CC0000
+!define _coreCorporatePurple #9933CC
+!define _coreCorporateGray #666666
+
+' Blue variants (lightest to darkest)
+!define _lightBlueT1 #E6F0FF
+!define _lightBlueT2 #99CCFF
+!define _lightBlueT3 #3399FF
+!define _darkBlueT4 #003399
+
+' Green variants
+!define _lightGreenT1 #E6F9F3
+!define _lightGreenT2 #99EED9
+!define _lightGreenT3 #33CC99
+!define _darkGreenT4 #006633
+
+' Orange variants
+!define _lightOrangeT1 #FFF5E6
+!define _lightOrangeT2 #FFCC99
+!define _mediumOrangeT3 #FFAA33
+!define _darkOrangeT4 #CC6600
+
+' Red variants
+!define _lightRedT1 #FFE6E6
+!define _lightRedT2 #FF9999
+!define _mediumRedT3 #FF3333
+!define _darkRedT4 #990000
+
+' Purple variants
+!define _lightPurpleT1 #F5E6FF
+!define _lightPurpleT2 #CC99FF
+!define _mediumPurpleT3 #9966FF
+!define _darkPurpleT4 #663399
+
+' Gray variants
+!define _lightGrayT1 #F5F5F5
+!define _lightGrayT2 #CCCCCC
+!define _mediumGrayT3 #999999
+!define _darkGrayT4 #333333
+
+' Public parameters (safe for diagrammers to reference)
+!define coreBlue _coreCorporateBlue
+!define coreGreen _coreCorporateGreen
+!define coreOrange _coreCorporateOrange
+!define coreRed _coreCorporateRed
+!define corePurple _coreCorporatePurple
+!define coreGray _coreCorporateGray
+
+' ============================================
+' DIAGRAM TYPE: USE CASE (Actor/Interaction)
+' ============================================
+skinparam actor {
+  backgroundColor _lightBlueT2
+  fontColor _darkBlueT4
+  borderColor _darkBlueT4
+  borderThickness 2
+}
+skinparam usecase {
+  backgroundColor _lightGreenT2
+  fontColor _darkGreenT4
+  borderColor _darkGreenT4
+  borderThickness 2
+}
+
+' ============================================
+' DIAGRAM TYPE: CLASS (Structure)
+' ============================================
+skinparam class {
+  backgroundColor _lightPurpleT2
+  borderColor _darkPurpleT4
+  attributeFontColor _darkGrayT4
+  borderThickness 2
+  fontSize 11
+}
+
+' ============================================
+' DIAGRAM TYPE: SEQUENCE (Interaction)
+' ============================================
+skinparam sequenceActor {
+  backgroundColor _lightBlueT2
+  borderColor _coreCorporateBlue
+  borderThickness 2
+}
+skinparam participant {
+  backgroundColor _lightBlueT2
+  borderColor _coreCorporateBlue
+  borderThickness 2
+  fontColor _darkBlueT4
+}
+skinparam sequence {
+  arrowColor _coreCorporateGreen
+  actorBackgroundColor _lightBlueT2
+  actorBorderColor _darkBlueT4
+  dividerBackgroundColor _lightGrayT1
+  dividerBorderColor _mediumGrayT3
+}
+
+' ============================================
+' DIAGRAM TYPE: ACTIVITY (Flow)
+' ============================================
+skinparam activity {
+  backgroundColor _lightGreenT2
+  borderColor _darkGreenT4
+  fontColor _darkGreenT4
+  borderThickness 2
+}
+skinparam swimlane {
+  borderColor _lightGrayT2
+  backgroundColor _lightGrayT1
+}
+
+' ============================================
+' DIAGRAM TYPE: COMPONENT (Architecture)
+' ============================================
+skinparam component {
+  backgroundColor _lightGreenT2
+  borderColor _darkGreenT4
+  fontColor _darkGreenT4
+  borderThickness 2
+}
+skinparam interface {
+  backgroundColor _lightBlueT1
+  borderColor _coreCorporateBlue
+  fontColor _coreCorporateBlue
+  borderThickness 2
+}
+
+' ============================================
+' HIDE DIRECTIVES (Clean output)
+' ============================================
+hide footbox
+hide members
+hide circle
+hide empty fields
+hide empty methods
