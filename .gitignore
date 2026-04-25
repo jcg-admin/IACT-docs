@@ -1,5 +1,6 @@
-# Sphinx build directory
+# Sphinx build directories (both root and source/)
 build/
+source/_build/
 
 # Sphinx doctrees
 **/doctrees/
