@@ -2,7 +2,7 @@
 
 ====================================================
 IACT - Sistema de Dashboard Analytics
-====================================================
+=====================================
 
 .. image:: _static/img/logo.svg
    :alt: IACT Logo
@@ -12,7 +12,7 @@ IACT - Sistema de Dashboard Analytics
 ----
 
 Bienvenido a la Documentación del Proyecto IACT
-================================================
+===============================================
 
 El proyecto IACT es una solución de **Dashboard Analytics** que conecta datos operativos con necesidades de análisis de negocio mediante un proceso ETL robusto y trazable.
 

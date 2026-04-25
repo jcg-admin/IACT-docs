@@ -16,10 +16,10 @@
 
 ==========================================================
 META_05 · Estructura Documental
-==========================================================
+===============================
 
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento presenta el mapa completo de la estructura documental IACT,
 proporcionando navegación rápida y visión global del sistema de 5 dominios,
@@ -27,7 +27,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 ------------------------------------------------------------
 2. Resumen Ejecutivo
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 40 60
@@ -47,7 +47,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 ------------------------------------------------------------
 3. Mapa de Dominios
-------------------------------------------------------------
+-------------------
 
 3.1. Dominio: base_cognitiva/
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 ------------------------------------------------------------
 4. Árbol Completo
-------------------------------------------------------------
+-----------------
 
 ::
 
@@ -290,7 +290,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 ------------------------------------------------------------
 5. Subdominios Descongelados
-------------------------------------------------------------
+----------------------------
 
 Los siguientes subdominios han sido descongelados y pueden contener
 subcarpetas organizativas:
@@ -317,7 +317,7 @@ subcarpetas organizativas:
 
 ------------------------------------------------------------
 6. Navegación Rápida por Rol
-------------------------------------------------------------
+----------------------------
 
 .. list-table::
    :widths: 20 80
@@ -338,7 +338,7 @@ subcarpetas organizativas:
 
 ------------------------------------------------------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -355,7 +355,7 @@ subcarpetas organizativas:
 
 ------------------------------------------------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

@@ -14,7 +14,7 @@
 
 ==============================================================================
 FND_03: Casos de Uso
-==============================================================================
+====================
 
 
 Proposito
@@ -404,7 +404,7 @@ Existen cinco tecnicas complementarias para identificar Casos de Uso.
    El 78% restante debe identificarse mediante tecnicas complementarias.
 
 5.1 Tecnica 1: Derivacion desde Business Rules (22%)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Las Business Rules de tipo Desencadenador (Trigger) generan UC directamente.
 
@@ -444,7 +444,7 @@ Para cada entidad del dominio, considerar operaciones basicas segun su clasifica
      - ConfiguracionSistema, Log
 
 5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Identificar eventos externos que requieren respuesta del sistema.
 
@@ -458,7 +458,7 @@ Identificar eventos externos que requieren respuesta del sistema.
    4. ATOMICO:      Ocurrencia puntual e indivisible en el tiempo
 
 5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Identificar UC a partir de mockups, wireframes o necesidades de UI.
 
@@ -471,7 +471,7 @@ Identificar UC a partir de mockups, wireframes o necesidades de UI.
    - Wizards multi-paso
 
 5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 UC que provienen de necesidades explicitas no capturadas como BR.
 

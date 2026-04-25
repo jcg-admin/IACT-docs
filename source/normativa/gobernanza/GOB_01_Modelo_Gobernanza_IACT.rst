@@ -14,7 +14,7 @@
 
 ==============================================================================
 GOB_01: Modelo de Gobernanza IACT
-==============================================================================
+=================================
 
 
 Proposito
@@ -92,7 +92,7 @@ cognitiva y mantiene trazabilidad simple.
 **Justificacion:** Reduce curva de aprendizaje y errores.
 
 1.5 Principio de Separacion de Responsabilidades
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

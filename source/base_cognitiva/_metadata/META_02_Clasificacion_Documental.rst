@@ -15,10 +15,10 @@
 
 ==========================================================
 META_02 · Clasificación Documental
-==========================================================
+==================================
 
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento establece los niveles de clasificación de seguridad aplicables
 a toda la documentación del proyecto IACT, definiendo restricciones de acceso,
@@ -26,7 +26,7 @@ manejo y distribución para cada nivel.
 
 ------------------------------------------------------------
 2. Niveles de Clasificación
-------------------------------------------------------------
+---------------------------
 
 2.1. Definición de Niveles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,7 +107,7 @@ alineados con la política corporativa de seguridad de la información:
 
 ------------------------------------------------------------
 3. Clasificación por Dominio IACT
-------------------------------------------------------------
+---------------------------------
 
 La siguiente tabla establece la clasificación por defecto de cada
 dominio primario del modelo documental IACT:
@@ -137,7 +137,7 @@ dominio primario del modelo documental IACT:
 
 ------------------------------------------------------------
 4. Etiquetado de Documentos
-------------------------------------------------------------
+---------------------------
 
 4.1. Metadato Obligatorio
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -169,7 +169,7 @@ bloque ``.. meta::``:
 
 ------------------------------------------------------------
 5. Roles y Acceso
-------------------------------------------------------------
+-----------------
 
 .. list-table::
    :widths: 25 15 15 15 15
@@ -213,7 +213,7 @@ bloque ``.. meta::``:
 
 ------------------------------------------------------------
 6. Procedimientos de Manejo
-------------------------------------------------------------
+---------------------------
 
 6.1. Cambio de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,7 +237,7 @@ Ante divulgación no autorizada de información clasificada:
 
 ------------------------------------------------------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -254,7 +254,7 @@ Ante divulgación no autorizada de información clasificada:
 
 ------------------------------------------------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

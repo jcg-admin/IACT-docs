@@ -1,6 +1,6 @@
 ====================================================
 PlantUML Centralized Styling — GUIDELINES
-====================================================
+=========================================
 
 :created: 2026-04-25 11:30:00
 :project: IACT-docs
@@ -249,7 +249,7 @@ Run ``make plantuml-styles`` to verify all required files and artifacts.
 ----
 
 Code Review Checklist
-======================
+=====================
 
 - ✓ Paleta de colores clara (no ambigüedad sobre qué usar cuándo)
 

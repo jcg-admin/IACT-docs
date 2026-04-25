@@ -15,10 +15,10 @@
 
 ==========================================================
 SBVR_03 · Vocabulario Controlado
-==========================================================
+================================
 
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento establece el vocabulario controlado para la especificación
 de reglas de negocio en el proyecto IACT. Define los términos permitidos,
@@ -27,7 +27,7 @@ y eliminando ambigüedad en la documentación de requisitos.
 
 ------------------------------------------------------------
 2. Uso del Vocabulario
-------------------------------------------------------------
+----------------------
 
 2.1. Cuándo Consultar
 ^^^^^^^^^^^^^^^^^^^^^
@@ -49,7 +49,7 @@ Este documento debe consultarse:
 
 ------------------------------------------------------------
 3. Vocabulario de Actores
-------------------------------------------------------------
+-------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -73,7 +73,7 @@ Este documento debe consultarse:
 
 ------------------------------------------------------------
 4. Vocabulario RBAC
-------------------------------------------------------------
+-------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -182,7 +182,7 @@ Los 6 segmentos definidos:
 
 ------------------------------------------------------------
 5. Vocabulario de Negocio
-------------------------------------------------------------
+-------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -212,7 +212,7 @@ Los 6 segmentos definidos:
 
 ------------------------------------------------------------
 6. Vocabulario de Acciones
-------------------------------------------------------------
+--------------------------
 
 6.1. Verbos para Reglas Aléticas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ Los 6 segmentos definidos:
 
 ------------------------------------------------------------
 7. Vocabulario de Cuantificadores
-------------------------------------------------------------
+---------------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -330,7 +330,7 @@ Los 6 segmentos definidos:
 
 ------------------------------------------------------------
 8. Vocabulario de Condiciones
-------------------------------------------------------------
+-----------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -360,7 +360,7 @@ Los 6 segmentos definidos:
 
 ------------------------------------------------------------
 9. Términos Técnicos Permitidos
-------------------------------------------------------------
+-------------------------------
 
 Los siguientes términos técnicos están permitidos en reglas de negocio
 cuando se refieren a conceptos específicos del sistema:
@@ -388,7 +388,7 @@ cuando se refieren a conceptos específicos del sistema:
 
 ------------------------------------------------------------
 10. Checklist de Validación
-------------------------------------------------------------
+---------------------------
 
 Al escribir o revisar una regla de negocio, verificar:
 
@@ -413,7 +413,7 @@ Al escribir o revisar una regla de negocio, verificar:
 
 ------------------------------------------------------------
 11. Proceso de Ampliación
-------------------------------------------------------------
+-------------------------
 
 Para agregar un nuevo término al vocabulario controlado:
 
@@ -427,7 +427,7 @@ Para agregar un nuevo término al vocabulario controlado:
 
 ------------------------------------------------------------
 12. Referencias
-------------------------------------------------------------
+---------------
 
 .. list-table::
    :widths: 30 70
@@ -446,7 +446,7 @@ Para agregar un nuevo término al vocabulario controlado:
 
 ------------------------------------------------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

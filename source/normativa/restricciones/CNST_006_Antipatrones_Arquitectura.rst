@@ -1014,7 +1014,7 @@ Cuándo Usar
 - Lógica de negocio mezclada con queries
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1106,7 +1106,7 @@ Cuándo Usar
 - Necesidad de transacciones
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1248,7 +1248,7 @@ Cuándo Usar
 - Necesidad de extensibilidad
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1364,7 +1364,7 @@ Cuándo Usar
 - Evitar condicionales complejos
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1498,7 +1498,7 @@ Cuándo Usar
 - Combinar comportamientos
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1626,7 +1626,7 @@ Cuándo Usar
 - Auditoría y logging automático
 
 Implementación
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -1834,7 +1834,7 @@ Herramientas Recomendadas
      - ``cc -s -a``
 
 Métricas de Calidad
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Umbrales recomendados:
 

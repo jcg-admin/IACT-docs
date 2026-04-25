@@ -1,6 +1,6 @@
 ====================================================
 Color Palette — PlantUML Corporate System
-====================================================
+=========================================
 
 :created: 2026-04-25 11:20:00
 :project: IACT-docs
@@ -14,7 +14,7 @@ Color Palette — PlantUML Corporate System
 ----
 
 Base Colors (6 selections)
-====================================================
+==========================
 
 .. list-table::
    :header-rows: 1
@@ -75,7 +75,7 @@ Base Colors (6 selections)
 ----
 
 Color Variants (T1-T4 per base color)
-====================================================
+=====================================
 
 Each base color generates 4 tints (lightest to darkest) using linear RGB interpolation for consistent aesthetic.
 
@@ -280,7 +280,7 @@ _____________
 ----
 
 Semantic Mappings (Diagram Type → Color)
-====================================================
+========================================
 
 Use Case Diagrams
 _________________
@@ -320,7 +320,7 @@ ______________
 ----
 
 Accessibility Compliance
-====================================================
+========================
 
 ✓ **WCAG 2.1 Level AA:** All text colors meet 4.5:1 contrast ratio
 ✓ **3:1 Graphics:** All graphic elements meet minimum 3:1 contrast
@@ -330,7 +330,7 @@ Accessibility Compliance
 ----
 
 Implementation Notes
-====================================================
+====================
 
 1. **PlantUML skinparam:** Defined as ``!define`` macros with POSIX _prefix convention
 

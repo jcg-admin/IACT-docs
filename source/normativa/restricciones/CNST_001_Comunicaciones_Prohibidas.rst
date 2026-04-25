@@ -1,5 +1,5 @@
 CNST-001: Comunicaciones Prohibidas
-====================================
+===================================
 
 :ID: CNST-001
 :Versión: 1.0.1
@@ -333,7 +333,7 @@ Modelo InternalMessage
            ).count()
 
 Funciones de Notificación
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -370,7 +370,7 @@ Funciones de Notificación
        return message
 
 Notificar a Administradores
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 

@@ -514,7 +514,7 @@ Signal de Expiración Automática
                )
 
 Comando de Expiración
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 

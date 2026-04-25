@@ -1,6 +1,6 @@
 ====================================================
 PlantUML Diagram Metadata Standard — @IACT-DIAGRAM
-====================================================
+==================================================
 
 :project: IACT-docs
 :created: 2026-04-25
@@ -66,7 +66,7 @@ Módulos Válidos
 | ``plantuml-guide`` | Ejemplos y guías de PlantUML |
 
 Tipos Válidos
-==============
+=============
 
 | Tipo | UML Equivalent | Ejemplo |
 |------|----------------|---------|
@@ -79,7 +79,7 @@ Tipos Válidos
 | ``diagram`` | Genérico | Cualquier diagrama sin tipo específico |
 
 Ejemplo por Tipo
-=================
+================
 
 **Use Case:**
 
@@ -129,7 +129,7 @@ Ejemplo por Tipo
    end
 
 Cómo Funciona (Internamente)
-=============================
+============================
 
 1. **Pre-Build:** Sphinx analiza todos los archivos RST
 2. **Extracción:** Lee metadatos ``@IACT-DIAGRAM`` de cada bloque ``.. uml::``
@@ -148,7 +148,7 @@ Proceso Automático:
    Post-build hook ──[reorganize]───> build/html/_static/img/diagrams/{modulo}/{tipo}/{file}.png
 
 Nuevo Diagrama: Checklist
-==========================
+=========================
 
 Para agregar un nuevo diagrama PlantUML:
 

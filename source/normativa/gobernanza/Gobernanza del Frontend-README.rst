@@ -116,7 +116,7 @@ Lineamientos corporativos aplicables
 
 Se heredan los siguientes lineamientos del nivel corporativo: -
 ```../../gobernanza/estandares_codigo.md`` <../../gobernanza/estandares_codigo.md>`__
--
+-------------------------------------------------------------------------------------
 ```../../gobernanza/lineamientos_gobernanza.md`` <../../gobernanza/lineamientos_gobernanza.md>`__
 
 Estado de cumplimiento

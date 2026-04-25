@@ -10,7 +10,7 @@ La **PlantUML Guide** establece los estándares visuales y convenciones de diagr
 Este dominio responde a la pregunta fundamental: **"¿Cómo se diagraman correctamente los componentes del IACT?"**
 
 PlantUML Centralized Styling (Phase 1 Setup)
-=============================================
+============================================
 
 .. toctree::
    :maxdepth: 2

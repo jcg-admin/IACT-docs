@@ -535,7 +535,7 @@ Mejores Prácticas
 -----------------
 
 DO ✅
-~~~~~
+~~~~
 
 1. **Actualizar docs en mismo PR que código**
 
@@ -564,7 +564,7 @@ DO ✅
    -  Funciona en cualquier entorno
 
 DON’T ❌
-~~~~~~~~
+~~~~~~~
 
 1. **Dejar docs desactualizados**
 

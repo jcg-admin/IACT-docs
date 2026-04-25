@@ -243,7 +243,7 @@ PASO 6: Decisión de Aprobación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 6.1 Aprobar con 👍 (Approve)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Criterios**: - ✅ Todos los checks de CI/CD pasan - ✅ Código cumple
 todos los estándares de calidad - ✅ Tests adecuados y pasando - ✅ Sin
@@ -282,7 +282,7 @@ Por favor actualizar y re-solicitar review. \``\`
 --------------
 
 6.3 Comment (sin aprobar/rechazar) 💬
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Cuándo usar**: - Tienes preguntas que necesitan clarificación -
 Quieres dar feedback pero no eres el único reviewer - Cambios son muy
@@ -332,7 +332,7 @@ Mejores Prácticas para Reviewers
 --------------------------------
 
 DO ✅
-~~~~~
+~~~~
 
 1. **Ser constructivo**: Sugerir soluciones, no solo señalar problemas
 2. **Ser específico**: Indicar líneas exactas y explicar el por qué
@@ -342,7 +342,7 @@ DO ✅
 6. **Ser oportuno**: Responder rápido para no bloquear al equipo
 
 DON’T ❌
-~~~~~~~~
+~~~~~~~
 
 1. **Ser vago**: “Este código no me gusta” sin explicación
 2. **Ser condescendiente**: “Obviamente esto está mal”

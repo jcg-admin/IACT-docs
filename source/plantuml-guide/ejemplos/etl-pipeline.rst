@@ -8,7 +8,7 @@
 
 ====================================================
 Ejemplo: Diagrama de Proceso ETL Pipeline
-====================================================
+=========================================
 
 Propósito
 =========
@@ -172,7 +172,7 @@ Flujo de Ejecución
 - **UC_PIP_04:** Solicitar Reintento (reintentar fallidos)
 
 Restricciones de Arquitectura
-==============================
+=============================
 
 1. **CNST-003:** Base de datos dual inmutable
    - MySQL IVR: Solo lectura (read-only cursor)

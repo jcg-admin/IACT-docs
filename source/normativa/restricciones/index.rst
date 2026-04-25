@@ -74,7 +74,7 @@ Fecha: 2026-01-03
 ----
 
 Historial de Versiones
------------------------
+----------------------
 
 .. list-table::
    :header-rows: 1
@@ -96,7 +96,7 @@ Historial de Versiones
 ----
 
 Catalogo de Restricciones
---------------------------
+-------------------------
 
 .. list-table::
    :header-rows: 1
@@ -161,7 +161,7 @@ Catalogo de Restricciones
 ----
 
 Clasificacion por Categoria
-----------------------------
+---------------------------
 
 **Restricciones Tecnicas Criticas (No Negociables)**
 
@@ -259,7 +259,7 @@ Este conjunto de restricciones esta alineado con el Modelo RBAC v5.1.1 que utili
 ----
 
 Documentos Relacionados
-------------------------
+-----------------------
 
 - Modelo RBAC IACT v5.1.1
 - Casos de Uso (UC-001 a UC-072)

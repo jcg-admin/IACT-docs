@@ -7,7 +7,7 @@
 
 ====================================================
 Ejemplo: Diagrama de Arquitectura de Sistema Completo
-====================================================
+=====================================================
 
 Propósito
 =========
@@ -83,7 +83,7 @@ Arquitectura
    @enduml
 
 Componentes Principales
-========================
+=======================
 
 1. **Data Sources (MySQL IVR)**
    - Base de datos operacional

@@ -1,5 +1,5 @@
 CNST-002: Gestión de Sesiones en Base de Datos
-===============================================
+==============================================
 
 :ID: CNST-002
 :Versión: 1.0.1
@@ -172,10 +172,10 @@ Django crea automáticamente la tabla:
    ) ENGINE=InnoDB;
 
 Política de Sesión Única
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Implementación de Single Session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -209,7 +209,7 @@ Implementación de Single Session
        # Alternativa: Usar tabla custom UserSession (ver abajo)
 
 Tabla Custom UserSession
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para mejor control y auditoría:
 
@@ -380,7 +380,7 @@ UC-002: Cerrar Sesión
 ~~~~~~~~~~~~~~~~~~~~~
 
 Flujo CORRECTO
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 1. Usuario solicita logout
 2. Sistema marca UserSession como inactiva
@@ -389,7 +389,7 @@ Flujo CORRECTO
 5. Usuario es redirigido a login
 
 Código de Logout
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -415,7 +415,7 @@ UC-029: Consultar Sesiones Activas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Flujo CORRECTO
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 1. Administrador accede a panel de sesiones
 2. Sistema consulta UserSession activas
@@ -477,7 +477,7 @@ Limpieza de Sesiones Expiradas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Django Command
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Django incluye comando para limpiar sesiones expiradas:
 
@@ -487,7 +487,7 @@ Django incluye comando para limpiar sesiones expiradas:
    python manage.py clearsessions
 
 Cron Job Recomendado
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -543,7 +543,7 @@ Validación Automatizada
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Script de Validación
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -637,7 +637,7 @@ Monitoreo
 ---------
 
 Métricas a Monitorear
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 40 60
@@ -655,7 +655,7 @@ Métricas a Monitorear
      - ``SELECT DATE_FORMAT(created_at, '%Y-%m-%d %H:00'), COUNT(*) FROM user_sessions WHERE created_at >= NOW() - INTERVAL 24 HOUR GROUP BY 1``
 
 Alertas Recomendadas
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 - Más de 100 sesiones expiradas sin limpiar
 - Usuario con múltiples sesiones activas (violación de single session)
@@ -674,7 +674,7 @@ Documentos Relacionados
 - UC-029: Consultar Sesiones Activas
 
 Documentación Django
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 - Django Sessions: https://docs.djangoproject.com/en/stable/topics/http/sessions/
 - Database-backed sessions: https://docs.djangoproject.com/en/stable/ref/settings/#session-engine

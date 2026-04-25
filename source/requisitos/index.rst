@@ -2,7 +2,7 @@
 
 ===========
 Requisitos
-===========
+==========
 
 Propósito del Dominio
 =====================
@@ -24,7 +24,7 @@ Los requisitos establecen:
 * **Matriz de Trazabilidad:** Relaciones entre requisitos para garantizar coherencia
 
 Jerarquía de Requisitos
-========================
+=======================
 
 La trazabilidad sigue el modelo:
 

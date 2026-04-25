@@ -10,7 +10,7 @@
 
 ==============================================================================
 Gobernanza Documental
-==============================================================================
+=====================
 
 Este subdominio contiene las **politicas, procesos y estandares** que rigen
 el sistema documental IACT, estableciendo las reglas de gobernanza que
