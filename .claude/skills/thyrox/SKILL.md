@@ -292,6 +292,67 @@ Monitor(command="slow_operation.sh", timeout_ms=30000)
 
 **Solución:** No asumas correspondencia 1-a-1 línea/evento. Filtra/agrega en la fuente si necesitas tasa de eventos predecible.
 
+##### Gotcha 5: Monitor Loop — Observar UI desde Filesystem
+
+**Problema:** Monitorear cambios en archivo mientras el usuario modifica la aplicación en memoria → el evento nunca llega.
+
+```bash
+# ❌ INCORRECTO: User cancela tareas en UI, tú esperas cambio en .md
+Monitor(
+  description="esperar hasta que se cancelen todas las tareas",
+  command="watch -n 2 'grep -c \"[ ]\" tasks-pending.md'",
+  timeout_ms=60000
+)
+# El usuario cancela en la UI → cambios en memoria, NO en disk
+# Archivo no cambia → Monitor emite el mismo valor cada 2s indefinidamente
+# Sistema suprime notificaciones → Monitor timeout después de 30s
+# Claude (yo) queda en "loop" esperando pasivamente, respondiendo "[...]"
+```
+
+**Raíz del problema:** UI state (botones, checkboxes) ≠ Filesystem persistence  
+- User action → cambio en memoria  
+- Pero el archivo .md no se actualiza hasta que se guarde/persista  
+- Monitor ve filesystem → no ve cambios de UI
+
+**Señales de que estás en un loop:**
+- ✅ Recibiendo los mismos datos repetidamente
+- ✅ Esperando >5 segundos sin cambios
+- ✅ Sistema empieza a suprimir notificaciones
+- ✅ Tú respondiendo `[...]` pasivamente
+
+**Soluciones:**
+
+**Opción A: Snapshot (1 antes → 1 después)**
+```bash
+# ✅ MEJOR: No uses Monitor. Verifica estado antes y después.
+BEFORE=$(grep -c "[ ]" tasks.md)
+# [user does work]
+AFTER=$(grep -c "[ ]" tasks.md)
+echo "Cambio: $(($BEFORE - $AFTER)) tareas completadas"
+```
+
+**Opción B: Event-Based (inotifywait)**
+```bash
+# ✅ MEJOR: Solo emite cuando el archivo realmente cambia
+Monitor(
+  description="esperar cambios en tasks.md",
+  command="inotifywait -m -e modify tasks.md | while read; do echo 'Cambio detectado'; done",
+  timeout_ms=60000
+)
+```
+
+**Opción C: Timeout + Exit Condition**
+```bash
+# ✅ MEJOR: Límite de tiempo, salida cuando se cumple condición
+Monitor(
+  description="esperar completación (máximo 60s)",
+  command="for i in {1..30}; do grep -c '[ ]' tasks.md; sleep 2; [ $(grep -c '[ ]' tasks.md) -eq 0 ] && break; done",
+  timeout_ms=60000
+)
+```
+
+**La lección:** Si la fuente de verdad es la UI (memoria), monitorear el filesystem es observar el lugar equivocado. Adapta la estrategia al donde realmente ocurren los cambios.
+
 #### Solución de Problemas: Cuando las Cosas No Salen Bien
 
 ##### "¿Por qué mi Monitor no emite nada?"
