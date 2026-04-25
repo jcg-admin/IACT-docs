@@ -87,23 +87,31 @@ version: 1.0.0
 
 ---
 
-## PHASE 4: CONSTRAINTS (OPCIONAL para MEDIANO)
+## PHASE 4: CONSTRAINTS ✅ REQUIRED para MEDIANO
 
-**Objetivo:** Documentar restricciones técnicas y de plataforma.
+**Objetivo:** Documentar restricciones técnicas y de plataforma ANTES de diseñar workflow.
 
-**Gate Stage 4→5 (si se incluye):**
-- `entry_condition`: "Phase 3 completado"
-- `exit_threshold`: "constraints/{nombre-wp}-constraints.md; restricciones HARD vs SOFT separadas; USER APPROVAL"
+**Gate Stage 4→7 (CRÍTICA — fase obligatoria):**
+- `entry_condition`: "Phase 6 PLAN aprobado; scope claro"
+- `exit_threshold`: "constraints/{nombre-wp}-constraints.md completo; 5 HC + 4 SC documentadas; solución space validada; USER APPROVAL"
+- `max_rework_iterations: 2`
 
 **Exit Conditions:**
-- [ ] `constraints/github-actions-constraints.md` existe
-- [ ] GitHub Actions restrictions documented (2000 min/month free tier, runner OS, concurrency)
-- [ ] Sphinx build constraints documented (Python version, extension deps, PlantUML)
-- [ ] USER APPROVAL obtenido
+- [x] `constraints/github-actions-setup-constraints.md` existe
+- [x] HC-001 a HC-005 documentadas (GitHub Actions, Linux, Python, PlantUML, build validation)
+- [x] SC-001 a SC-004 documentadas (cost, speed, compilation, backward compatibility)
+- [x] Solution space descrito (opciones viables vs descartadas)
+- [x] Verificación checklist creada para Phase 7 validation
+- [x] USER APPROVAL obtenido
 
-**Status:** ⏳ OPCIONAL — pero RECOMENDADO para evitar surpresas en Phase 10
+**Status:** ✅ COMPLETADO — Constraints documentadas y verificadas
 
-**Transition:** → Phase 5 STRATEGY
+**Justificación:** Phase 4 CONSTRAINTS debe PRECEDER a Phase 7 DESIGN/SPECIFY porque:
+1. HC/SC delimitan espacio de soluciones válidas
+2. Specs en Phase 7 DEBEN respetar estas restricciones
+3. Evita "sorpresas" en Phase 10 EXECUTE (descubrir limitaciones tardíamente)
+
+**Transition:** → Phase 7 DESIGN/SPECIFY (con constraints como entrada)
 
 ---
 
@@ -298,14 +306,16 @@ version: 1.0.0
 
 ## Recomendación: Path recomendado para este WP
 
-**Mínimo (bajo riesgo, 6 horas):**  
-Phase 1 ✅ → Phase 6 → Phase 7 → Phase 8 → Phase 10 → Phase 11 → Cierre
+**Mínimo (bajo riesgo, 6-7 horas):**  
+Phase 1 ✅ → Phase 6 → Phase 4 (CONSTRAINTS REQUIRED) → Phase 7 → Phase 8 → Phase 10 → Phase 11 → Cierre
 
 **Recomendado (con validación, 7-8 horas):**  
-Phase 1 ✅ → Phase 4 (constraints) → Phase 6 → Phase 7 → Phase 8 → Phase 9 (PILOT) → Phase 10 → Phase 11
+Phase 1 ✅ → Phase 6 → Phase 4 (CONSTRAINTS REQUIRED) → Phase 7 → Phase 8 → Phase 9 (PILOT) → Phase 10 → Phase 11
 
 **Completo (con aprendizajes, 8-9 horas):**  
-Phase 1 ✅ → Phase 2 (BASELINE) → Phase 4 (CONSTRAINTS) → Phase 6 → Phase 7 → Phase 8 → Phase 9 (PILOT) → Phase 10 → Phase 11 → Phase 12 (STANDARDIZE)
+Phase 1 ✅ → Phase 2 (BASELINE) → Phase 6 → Phase 4 (CONSTRAINTS REQUIRED) → Phase 7 → Phase 8 → Phase 9 (PILOT) → Phase 10 → Phase 11 → Phase 12 (STANDARDIZE)
+
+**NOTA:** Phase 4 CONSTRAINTS es CRÍTICA — documenta HC/SC técnicas que impactan Phase 7 DESIGN/SPECIFY. No puede omitirse.
 
 ---
 
