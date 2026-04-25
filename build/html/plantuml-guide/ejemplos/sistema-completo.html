@@ -7,11 +7,16 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="next" title="Ejemplo: Diagrama ETL Pipeline" href="etl-pipeline.html"><link rel="prev" title="Test: Component Diagram with Centralized Styling" href="test-component-diagram.html">
+<meta content="IACT - Sistema de Dashboard Analytics" name="project" />
+<meta content="1.0.0" name="version" />
+<meta content="2026-04-25" name="date" />
+<meta content="Validado" name="status" />
+<meta content="plantuml-java-integration-impl" name="feature" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="next" title="Ejemplo: Diagrama de Proceso ETL Pipeline" href="etl-pipeline.html"><link rel="prev" title="Test: Component Diagram with Centralized Styling" href="test-component-diagram.html">
         <link rel="prefetch" href="../../_static/logo.svg" as="image">
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
-        <title>Ejemplo: Diagrama de Sistema Completo - IACT Docs</title>
+        <title>Ejemplo: Diagrama de Arquitectura de Sistema Completo - IACT Docs</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -363,8 +368,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Ejemplo: Diagrama de Sistema Completo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="etl-pipeline.html">Ejemplo: Diagrama ETL Pipeline</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Ejemplo: Diagrama de Arquitectura de Sistema Completo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etl-pipeline.html">Ejemplo: Diagrama de Proceso ETL Pipeline</a></li>
 </ul>
 </li>
 </ul>
@@ -402,44 +407,84 @@
         </div>
         <article role="main" id="furo-main-content">
           
-  <section id="ejemplo-diagrama-de-sistema-completo">
-<h1>Ejemplo: Diagrama de Sistema Completo<a class="headerlink" href="#ejemplo-diagrama-de-sistema-completo" title="Link to this heading">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">created<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2026-04-25 12:10:00</p>
-</dd>
-<dt class="field-even">project<span class="colon">:</span></dt>
-<dd class="field-even"><p>IACT-docs</p>
-</dd>
-<dt class="field-odd">phase<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Phase 10 — EXECUTE</p>
-</dd>
-<dt class="field-even">feature<span class="colon">:</span></dt>
-<dd class="field-even"><p>plantuml-java-integration-impl</p>
-</dd>
-<dt class="field-odd">status<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Placeholder (Próximo)</p>
-</dd>
-</dl>
-<section id="descripcion">
-<h2>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
-<p>Este ejemplo muestra un diagrama de sistema completo que integra múltiples componentes, actores y flujos del IACT.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p><strong>Estado:</strong> Placeholder para Phase 10 continuation</p>
-<p>Contenido pendiente: Diagrama que muestre arquitectura de IACT completa con:
-- MySQL (source)
-- ETL Pipeline
-- PostgreSQL (destination)
-- Django REST API
-- React Dashboard
-- Todas las conexiones con estilos centralizados</p>
-</div>
-<p><strong>Mapeo a spec:</strong> SPEC-004 (Sphinx build validation con 100+ diagrams)</p>
+  <section id="ejemplo-diagrama-de-arquitectura-de-sistema-completo">
+<h1>Ejemplo: Diagrama de Arquitectura de Sistema Completo<a class="headerlink" href="#ejemplo-diagrama-de-arquitectura-de-sistema-completo" title="Link to this heading">¶</a></h1>
+<section id="proposito">
+<h2>Propósito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este ejemplo muestra la arquitectura completa del IACT con todos los componentes principales, sus interconexiones y flujos de datos, utilizando el sistema de estilos centralizados de PlantUML.</p>
 </section>
-<section id="proximos-pasos">
-<h2>Próximos pasos<a class="headerlink" href="#proximos-pasos" title="Link to this heading">¶</a></h2>
-<p>Este diagrama será desarrollado en la siguiente iteración de Phase 10 cuando se expanda a &quot;5 casos de uso críticos&quot;.</p>
+<section id="arquitectura">
+<h2>Arquitectura<a class="headerlink" href="#arquitectura" title="Link to this heading">¶</a></h2>
+<figure class="align-default" id="id1">
+<figcaption>
+<p><span class="caption-text">IACT - Arquitectura de Sistema Completo</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="componentes-principales">
+<h2>Componentes Principales<a class="headerlink" href="#componentes-principales" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Data Sources (MySQL IVR)</strong>
+- Base de datos operacional
+- Acceso read-only por CNST-003
+- Datos en tiempo real de actividades</p></li>
+<li><p><strong>ETL Pipeline</strong>
+- Extract: Lee desde MySQL IVR
+- Transform: Aplica reglas de negocio
+- Validate: Verifica integridad de datos
+- Load: Escribe en PostgreSQL Analytics</p></li>
+<li><p><strong>Analytical Database (PostgreSQL)</strong>
+- Optimizado para consultas analíticas
+- Índices y particiones para performance
+- Respaldo inmutable por CNST-003</p></li>
+<li><p><strong>Application Layer (Django REST)</strong>
+- API REST completa
+- Gestión de autenticación
+- Control de acceso (RBAC)
+- Logging inmutable (CNST-009)</p></li>
+<li><p><strong>Client Layer (React Dashboard)</strong>
+- Dashboard interactivo
+- Gráficos en tiempo real
+- Exportación de reportes</p></li>
+<li><p><strong>Infrastructure</strong>
+- Logging centralizado y auditado
+- Servicio de autenticación
+- Monitoreo del sistema</p></li>
+</ol>
+</section>
+<section id="flujos-de-datos">
+<h2>Flujos de Datos<a class="headerlink" href="#flujos-de-datos" title="Link to this heading">¶</a></h2>
+<p><strong>Flujo Primario (Escribir):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MySQL IVR → Extract → Transform → Validate → Load → PostgreSQL
+</pre></div>
+</div>
+<p><strong>Flujo Secundario (Leer):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PostgreSQL → Django API → React Dashboard → User
+</pre></div>
+</div>
+<p><strong>Flujo de Seguridad:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>User → Auth Service → Token → Django API → RBAC Check → Data Access
+</pre></div>
+</div>
+</section>
+<section id="validacion">
+<h2>Validación<a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h2>
+<p>Este ejemplo demuestra:</p>
+<ul class="simple">
+<li><p>✓ Componentes con colores semánticos (verde=datos, azul=interfaces, etc.)</p></li>
+<li><p>✓ Flujos de datos directos e indirectos</p></li>
+<li><p>✓ Arquitectura de 3 capas (datos, aplicación, cliente)</p></li>
+<li><p>✓ Decisiones arquitectónicas (read-only MySQL, PostgreSQL analítico)</p></li>
+<li><p>✓ Conformidad con restricciones del proyecto (CNST-003, CNST-009)</p></li>
+</ul>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<p>Ver documentación relacionada:
+- <a class="reference internal" href="../GUIDELINES.html"><span class="doc">PlantUML Centralized Styling — GUIDELINES</span></a> — Guía de uso de estilos
+- <a class="reference internal" href="../color-palette.html"><span class="doc">Color Palette — PlantUML Corporate System</span></a> — Convenciones de colores
+- <a class="reference internal" href="../../arquitectura_tecnica/index.html#arquitectura-tecnica"><span class="std std-ref">Arquitectura Técnica</span></a> — Detalles de arquitectura
+- <a class="reference internal" href="../../requisitos/index.html#requisitos"><span class="std std-ref">Requisitos</span></a> — Casos de uso funcionales</p>
 </section>
 </section>
 
@@ -476,9 +521,13 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Ejemplo: Diagrama de Sistema Completo</a><ul>
-<li><a class="reference internal" href="#descripcion">Descripción</a></li>
-<li><a class="reference internal" href="#proximos-pasos">Próximos pasos</a></li>
+<li><a class="reference internal" href="#">Ejemplo: Diagrama de Arquitectura de Sistema Completo</a><ul>
+<li><a class="reference internal" href="#proposito">Propósito</a></li>
+<li><a class="reference internal" href="#arquitectura">Arquitectura</a></li>
+<li><a class="reference internal" href="#componentes-principales">Componentes Principales</a></li>
+<li><a class="reference internal" href="#flujos-de-datos">Flujos de Datos</a></li>
+<li><a class="reference internal" href="#validacion">Validación</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
 </ul>
 </li>
 </ul>

@@ -7,11 +7,17 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="prev" title="Ejemplo: Diagrama de Sistema Completo" href="sistema-completo.html">
+<meta content="IACT - Sistema de Dashboard Analytics" name="project" />
+<meta content="1.0.0" name="version" />
+<meta content="2026-04-25" name="date" />
+<meta content="Validado" name="status" />
+<meta content="plantuml-java-integration-impl" name="feature" />
+<meta content="UC_PIP_01, UC_PIP_02, UC_PIP_03, UC_PIP_04" name="uc_ref" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html"><link rel="prev" title="Ejemplo: Diagrama de Arquitectura de Sistema Completo" href="sistema-completo.html">
         <link rel="prefetch" href="../../_static/logo.svg" as="image">
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
-        <title>Ejemplo: Diagrama ETL Pipeline - IACT Docs</title>
+        <title>Ejemplo: Diagrama de Proceso ETL Pipeline - IACT Docs</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -363,8 +369,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sistema-completo.html">Ejemplo: Diagrama de Sistema Completo</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Ejemplo: Diagrama ETL Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sistema-completo.html">Ejemplo: Diagrama de Arquitectura de Sistema Completo</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Ejemplo: Diagrama de Proceso ETL Pipeline</a></li>
 </ul>
 </li>
 </ul>
@@ -402,43 +408,126 @@
         </div>
         <article role="main" id="furo-main-content">
           
-  <section id="ejemplo-diagrama-etl-pipeline">
-<h1>Ejemplo: Diagrama ETL Pipeline<a class="headerlink" href="#ejemplo-diagrama-etl-pipeline" title="Link to this heading">¶</a></h1>
-<dl class="field-list simple">
-<dt class="field-odd">created<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2026-04-25 12:10:00</p>
-</dd>
-<dt class="field-even">project<span class="colon">:</span></dt>
-<dd class="field-even"><p>IACT-docs</p>
-</dd>
-<dt class="field-odd">phase<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Phase 10 — EXECUTE</p>
-</dd>
-<dt class="field-even">feature<span class="colon">:</span></dt>
-<dd class="field-even"><p>plantuml-java-integration-impl</p>
-</dd>
-<dt class="field-odd">status<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Placeholder (Próximo)</p>
-</dd>
-</dl>
-<section id="descripcion">
-<h2>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
-<p>Este ejemplo muestra la arquitectura del proceso ETL del IACT usando un diagrama de actividades o componentes.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p><strong>Estado:</strong> Placeholder para Phase 10 continuation</p>
-<p>Contenido pendiente: Diagrama que muestre flujo ETL:
-- Extract: MySQL (lectura)
-- Transform: Pipeline de transformación
-- Load: PostgreSQL (escritura)
-- Componentes intermedios (validación, enriquecimiento)
-- Todos los elementos con estilos centralizados</p>
-</div>
-<p><strong>Mapeo a spec:</strong> SPEC-002 (Component diagram type support)</p>
+  <section id="ejemplo-diagrama-de-proceso-etl-pipeline">
+<h1>Ejemplo: Diagrama de Proceso ETL Pipeline<a class="headerlink" href="#ejemplo-diagrama-de-proceso-etl-pipeline" title="Link to this heading">¶</a></h1>
+<section id="proposito">
+<h2>Propósito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este ejemplo illustra el proceso completo de ETL (Extract, Transform, Load) que sincroniza datos desde la base de datos operacional IVR hacia la base de datos analítica, con manejo de errores y validación.</p>
 </section>
-<section id="proximos-pasos">
-<h2>Próximos pasos<a class="headerlink" href="#proximos-pasos" title="Link to this heading">¶</a></h2>
-<p>Este diagrama será desarrollado cuando se expanda la cobertura de tipos de diagrama a Activity y State diagrams.</p>
+<section id="proceso-etl">
+<h2>Proceso ETL<a class="headerlink" href="#proceso-etl" title="Link to this heading">¶</a></h2>
+<figure class="align-default" id="id1">
+<figcaption>
+<p><span class="caption-text">IACT - Proceso ETL Pipeline Detallado</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="fases-del-pipeline">
+<h2>Fases del Pipeline<a class="headerlink" href="#fases-del-pipeline" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>EXTRACT PHASE</strong></p>
+<ul class="simple">
+<li><p>Conectar a MySQL IVR (read-only per CNST-003)</p></li>
+<li><p>Ejecutar queries para traer datos operacionales</p></li>
+<li><p>Crear cursor para procesar por lotes</p></li>
+<li><p>Pre-validación: verificar formato y completitud</p></li>
+</ul>
+<p><strong>Records procesados:</strong> 1000-50000 por ejecución</p>
+</li>
+<li><p><strong>TRANSFORM PHASE</strong></p>
+<ul class="simple">
+<li><p><strong>Row Parser:</strong> Parsear registros crudos</p></li>
+<li><p><strong>Rules Engine:</strong> Aplicar reglas de negocio
+- Cálculos de agregación
+- Conversiones de formato
+- Enriquecimiento de datos</p></li>
+<li><p><strong>Data Mapper:</strong> Mapear a schema analítico</p></li>
+<li><p><strong>Schema Validator:</strong> Verificar tipos y restricciones</p></li>
+</ul>
+</li>
+<li><p><strong>ERROR HANDLING</strong></p>
+<ul class="simple">
+<li><p>Registrar errores en <strong>Audit Log</strong> (CNST-009 - inmutable)</p></li>
+<li><p>Guardar registros fallidos en <strong>Dead Letter Queue</strong></p></li>
+<li><p>Permitir reintentos con <span class="xref std std-doc">../test-component-diagram</span></p></li>
+</ul>
+</li>
+<li><p><strong>LOAD PHASE</strong></p>
+<ul class="simple">
+<li><p>Agrupar registros validados en batches</p></li>
+<li><p>Insertar en PostgreSQL Analytics</p></li>
+<li><p>Commit transaccional (all-or-nothing)</p></li>
+<li><p>Log de suceso en Audit Log</p></li>
+</ul>
+</li>
+<li><p><strong>MONITORING</strong></p>
+<ul class="simple">
+<li><p>Recolectar métricas de cada fase</p></li>
+<li><p>Tiempo de ejecución</p></li>
+<li><p>Cantidad de errores</p></li>
+<li><p>Recordar: <span class="xref std std-ref">Monitor para observabilidad</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="flujo-de-ejecucion">
+<h2>Flujo de Ejecución<a class="headerlink" href="#flujo-de-ejecucion" title="Link to this heading">¶</a></h2>
+<p><strong>Escenario Normal (Happy Path):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MySQL → Extract → Pre-Check ✓ → Parse → Rules → Map → Schema ✓
+→ Batch → PostgreSQL → Commit ✓ → Audit Log
+</pre></div>
+</div>
+<p><strong>Escenario con Errores:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MySQL → Extract → Pre-Check ✗ → Error Logger → Dead Letter Queue
+                                               ↓
+                                         Audit Log (CNST-009)
+</pre></div>
+</div>
+<p><strong>Casos de Uso Relacionados:</strong></p>
+<ul class="simple">
+<li><p><strong>UC_PIP_01:</strong> Supervisar ETL (ver estado del pipeline)</p></li>
+<li><p><strong>UC_PIP_02:</strong> Consultar Errores ETL (revisar DLQ)</p></li>
+<li><p><strong>UC_PIP_03:</strong> Consultar Disponibilidad (health check)</p></li>
+<li><p><strong>UC_PIP_04:</strong> Solicitar Reintento (reintentar fallidos)</p></li>
+</ul>
+</section>
+<section id="restricciones-de-arquitectura">
+<h2>Restricciones de Arquitectura<a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>CNST-003:</strong> Base de datos dual inmutable
+- MySQL IVR: Solo lectura (read-only cursor)
+- PostgreSQL: Escritura transaccional + audit trail</p></li>
+<li><p><strong>CNST-009:</strong> Logging y auditoría inmutable
+- Todos los eventos registrados en Audit Log
+- Timestamps precisos para cada fase
+- No se pueden eliminar registros de error</p></li>
+<li><p><strong>Performance (CNST-007)</strong>
+- Procesamiento en batches (1000-50000 registros)
+- Tiempo máximo por ejecución: 15 minutos
+- Alertas si &lt;90% de éxito</p></li>
+</ol>
+</section>
+<section id="validacion-del-diagrama">
+<h2>Validación del Diagrama<a class="headerlink" href="#validacion-del-diagrama" title="Link to this heading">¶</a></h2>
+<p>Este ejemplo demuestra:</p>
+<ul class="simple">
+<li><p>✓ Flujo completo de ETL con todas las fases</p></li>
+<li><p>✓ Manejo explícito de errores</p></li>
+<li><p>✓ Auditoría e inmutabilidad (CNST-009)</p></li>
+<li><p>✓ Monitoreo de métricas</p></li>
+<li><p>✓ Colores semánticos (verde=almacenamiento, rojo=errores, azul=procesamiento)</p></li>
+<li><p>✓ Integración con casos de uso del proyecto</p></li>
+</ul>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../GUIDELINES.html"><span class="doc">PlantUML Centralized Styling — GUIDELINES</span></a> — Cómo usar estilos centralizados</p></li>
+<li><p><a class="reference internal" href="../color-palette.html"><span class="doc">Color Palette — PlantUML Corporate System</span></a> — Convenciones de color</p></li>
+<li><p><a class="reference internal" href="../../requisitos/index.html#requisitos"><span class="std std-ref">Requisitos</span></a> — Casos de uso UC_PIP_01 a UC_PIP_04</p></li>
+<li><p><a class="reference internal" href="../../arquitectura_tecnica/index.html#arquitectura-tecnica"><span class="std std-ref">Arquitectura Técnica</span></a> — Detalles técnicos del pipeline</p></li>
+<li><p><a class="reference internal" href="../../normativa/index.html#normativa"><span class="std std-ref">Normativa</span></a> — Restricciones CNST-003, CNST-007, CNST-009</p></li>
+</ul>
 </section>
 </section>
 
@@ -475,9 +564,14 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Ejemplo: Diagrama ETL Pipeline</a><ul>
-<li><a class="reference internal" href="#descripcion">Descripción</a></li>
-<li><a class="reference internal" href="#proximos-pasos">Próximos pasos</a></li>
+<li><a class="reference internal" href="#">Ejemplo: Diagrama de Proceso ETL Pipeline</a><ul>
+<li><a class="reference internal" href="#proposito">Propósito</a></li>
+<li><a class="reference internal" href="#proceso-etl">Proceso ETL</a></li>
+<li><a class="reference internal" href="#fases-del-pipeline">Fases del Pipeline</a></li>
+<li><a class="reference internal" href="#flujo-de-ejecucion">Flujo de Ejecución</a></li>
+<li><a class="reference internal" href="#restricciones-de-arquitectura">Restricciones de Arquitectura</a></li>
+<li><a class="reference internal" href="#validacion-del-diagrama">Validación del Diagrama</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
 </ul>
 </li>
 </ul>
