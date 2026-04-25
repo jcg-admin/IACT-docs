@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 3.0
-updated_at: 2026-04-25 11:45:00
+updated_at: 2026-04-25 12:05:00
 cold_boot: false
 last_session: 2026-04-23 22:00:00
 current_epic: 2
@@ -105,3 +105,32 @@ Work Package: `.thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integratio
 **Proyección:** 1-2 semanas (scope claro, ejecución directa)
 
 **Gate:** Phase 1 Setup success = make html generates 100+ diagrams con estilos corporativos
+
+---
+
+## Build Artifact Management & Path Fixes (2026-04-25 12:00-12:05)
+
+**Requirement:** User mandates build artifacts be tracked in repo for visibility (REJECT cleanup commits)
+
+**Actions taken:**
+1. Reverted commits (f3afd5e, 34a4292, d45dcde) that removed source/_build/html/ and source/Makefile
+   - Commit: c7b9e45 "Revert: restore build artifacts and Makefile for visibility"
+2. Fixed PlantUML !include path resolution error:
+   - Changed: `../../../_static/plantuml-styles.puml` → `../_static/plantuml-styles.puml`
+   - Files corrected: test-uc-diagram.rst, test-component-diagram.rst, GUIDELINES.rst (all 3 examples)
+   - Root cause: Path calculation was 3 levels up (out of project) instead of 1 level
+   - Correct path: `source/discover/` → (up 1) `source/` → (down) `_static/plantuml-styles.puml`
+   - Commit: b116e8b "fix: correct !include paths for PlantUML diagrams"
+3. Regenerated clean build:
+   - `make clean && make html` executed successfully
+   - Discover section: 5 HTML files generated with embedded SVG diagrams
+   - Zero PlantUML compilation errors
+   - Commit: 48e8f89 "feat: add build output with corrected PlantUML paths" (632 files, 281MB)
+
+**Status:** ✅ Build visibility restored, path resolution fixed, all diagrams compile
+
+**Tracking:** 
+- Branch: feature/project-setup (correct)
+- Commits: 20 total (phase 10 execute)
+- Build output: tracked in repo (user requirement)
+- source/Makefile: retained (fallback alternative to root Makefile)
