@@ -316,7 +316,7 @@ TEXT: #000000        (Black)
 
 ### Phase 1 DISCOVER — COMPLETED ✅
 
-Sixteen specialized analyses completed (7100+ lines):
+Seventeen specialized analyses completed (7400+ lines):
 - plantuml-reference-language-analysis.md ✓ (pp. 1-15, sections 1.1-1.18)
 - plantuml-sequence-formatting-activation-analysis.md ✓ (pp. 16-22, sections 1.19-1.31)
 - plantuml-advanced-sequence-features-analysis.md ✓ (pp. 25-41, sections 1.32-1.45)
@@ -333,6 +333,7 @@ Sixteen specialized analyses completed (7100+ lines):
 - plantuml-component-diagrams-analysis.md ✓ (pp. 145-164+, sections 7.0-7.18) — NOT APPLICABLE
 - plantuml-state-diagrams-analysis.md ✓ (pp. 210-230+, sections 9.0-9.25) — MODERADA-BAJA
 - plantuml-timing-diagrams-analysis.md ✓ (pp. 232-272+, sections 10.0-10.29) — NOT APPLICABLE
+- plantuml-json-yaml-display-analysis.md ✓ (pp. 258-280+, sections 11.0-12.3+) — NOT APPLICABLE
 
 ### Recommended Flow for Approval
 1. **Phase 1 DISCOVER:** ✅ Analysis complete (this document + 7 specialized analyses)
@@ -399,8 +400,8 @@ $ make clean && make html
 ## 13. Evidence Summary
 
 **Observable Evidence (PROVEN):**
-- 16 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-272+, 7100+ lines)
-- Eleven diagram types analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — new syntax), Class (OPTIONAL), State (MODERADA-BAJA), Object (NOT REC.), Map (NOT REC.), JSON (NOT APPL.), Component (NOT APPL.), Timing (NOT APPL.), Deployment (pending evaluation)
+- 17 specialized analyses of PlantUML 1.2025.0 Language Reference (pp. 1-280+, 7400+ lines)
+- Eleven diagram types + two data display formats analyzed: UC (CRITICAL), Sequence (IMPORTANT), Activity (RECOMMENDED — new syntax), Class (OPTIONAL), State (MODERADA-BAJA), Object (NOT REC.), Map (NOT REC.), Component (NOT APPL.), Timing (NOT APPL.), Deployment (pending evaluation); JSON Display (NOT APPL.), YAML Display (NOT APPL.)
 - Sphinx + sphinxcontrib.plantuml integration documented
 - Corporate color palette defined (#1976D2, #388E3C, #F57C00)
 - Two-tier strategy validated: centralized !include + `<style>` blocks + documented guidelines
@@ -432,11 +433,11 @@ $ make clean && make html
 ---
 
 **Analysis Created:** 2026-04-23 18:51:00  
-**Updated:** 2026-04-24 02:55:00  
-**Version:** 1.8.0 (MINOR: incorporated 16 specialized analyses including Timing diagrams evaluation)
+**Updated:** 2026-04-24 03:10:00  
+**Version:** 1.9.0 (MINOR: incorporated 17 specialized analyses including JSON/YAML display evaluation)
 **Status:** Phase 1 DISCOVER COMPLETE  
-**Total Content Analyzed:** pp. 1-272+ (sections 1.1-10.29, 7100+ lines)
-**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED — new syntax v6), Class (100% OPTIONAL), State (100% MODERADA-BAJA), Timing (100% NOT APPLICABLE), Component (100% NOT APPLICABLE), Object/Map/JSON (100% evaluated, NOT RECOMMENDED/APPLICABLE)
-**Critical Finding:** Eleven diagram types evaluated; four core to IACT (UC, Sequence, Activity, Class); one moderate (State); six out-of-scope (Timing, Component, Object, Map, JSON, Deployment)
+**Total Content Analyzed:** pp. 1-280+ (sections 1.1-12.3+, 7400+ lines)
+**Coverage:** UC (100% CRITICAL), Sequence (100% IMPORTANT), Activity (100% RECOMMENDED — new syntax v6), Class (100% OPTIONAL), State (100% MODERADA-BAJA), Timing (100% NOT APPLICABLE), Component (100% NOT APPLICABLE), Object/Map/JSON/YAML-Display (100% evaluated, NOT APPLICABLE/NOT RECOMMENDED)
+**Critical Finding:** Eleven diagram types + two data display formats evaluated; four core diagram types to IACT (UC, Sequence, Activity, Class); one moderate (State); eight out-of-scope (Timing, Component, Object, Map, JSON-Display, YAML-Display, Deployment, JSON-old-analysis)
 **Next Phase:** Ready for approval → Phase 5 STRATEGY or Phase 10 EXECUTE (Phase 1 Setup)  
 **Ready for approval:** YES ✅
