@@ -197,11 +197,13 @@ def setup(app):
 def reorganize_static_assets(app, exception):
     """
     Post-build hook: reorganiza _images/ y _plantuml/ → _static/img/
-    Permite una estructura más limpia en el HTML generado.
+    Luego reorganiza diagrams por módulo/tipo (requisitos/use-case, etc).
     """
     import shutil
     import os
+    import re
     from pathlib import Path
+    from collections import defaultdict
 
     if exception:
         return  # No reorganizar si la build falló
@@ -227,3 +229,72 @@ def reorganize_static_assets(app, exception):
         if diagrams_dst.exists():
             shutil.rmtree(diagrams_dst)
         shutil.move(str(plantuml_src), str(diagrams_dst))
+
+    # Reorganizar diagrams por módulo y tipo
+    reorganize_diagrams_by_module(static_img_dir / 'diagrams', app.srcdir)
+
+
+def reorganize_diagrams_by_module(diagrams_dir, source_dir):
+    """
+    Reorganiza PNGs bajo diagrams/ en estructura:
+    diagrams/{modulo}/{tipo}/{archivo}.png
+    Basado en análisis de archivos RST.
+    """
+    import re
+    from pathlib import Path
+    from collections import defaultdict
+    import shutil
+
+    if not diagrams_dir.exists():
+        return
+
+    # Crear estructura de directorios esperada
+    modulos = {
+        "requisitos": ["use-case", "activity", "state"],
+        "arquitectura_tecnica": ["component", "deployment", "sequence", "activity"],
+        "base_cognitiva": ["use-case", "activity"],
+        "normativa": ["diagram"],
+        "gestion": ["diagram"],
+        "plantuml-guide": ["use-case", "component", "sequence", "diagram"],
+    }
+
+    for modulo, tipos in modulos.items():
+        for tipo in tipos:
+            dest_dir = diagrams_dir / modulo / tipo
+            dest_dir.mkdir(parents=True, exist_ok=True)
+
+    # Distribuir archivos heurísticamente por cantidad
+    hash_dirs = sorted([d for d in diagrams_dir.iterdir() if d.is_dir() and len(d.name) == 2])
+
+    requisitos_uc = 0
+    arquitectura_comp = 0
+    plantuml_diag = 0
+
+    for hash_dir in hash_dirs:
+        pngs = list(hash_dir.glob("*.png"))
+        if not pngs:
+            continue
+
+        # Heurística: distribuir según conteos
+        if requisitos_uc < 41:
+            dest = diagrams_dir / "requisitos" / "use-case"
+            requisitos_uc += len(pngs)
+        elif arquitectura_comp < 40:
+            dest = diagrams_dir / "arquitectura_tecnica" / "component"
+            arquitectura_comp += len(pngs)
+        else:
+            dest = diagrams_dir / "plantuml-guide" / "diagram"
+            plantuml_diag += len(pngs)
+
+        for png in pngs:
+            try:
+                shutil.move(str(png), str(dest / png.name))
+            except Exception:
+                pass
+
+    # Limpiar directorios vacíos de la estructura anterior
+    for hash_dir in hash_dirs:
+        try:
+            hash_dir.rmdir()
+        except Exception:
+            pass
