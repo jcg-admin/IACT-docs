@@ -80,6 +80,321 @@ Herramientas transversales que no pertenecen al ciclo de 12 fases. Se invocan cu
 
 ---
 
+## Herramientas de Ejecución Asincrónica
+
+Guía para ejecutar procesos de larga duración con visibilidad de progreso.
+
+### Monitor Tool: Streaming Observation
+
+Use Monitor cuando necesitas **visibilidad en tiempo real** en un proceso de larga duración.
+A diferencia de `bash run_in_background` (fire-and-forget), Monitor emite eventos mientras el proceso produce salida.
+
+#### Árbol de Decisión: Cuándo Usar Monitor
+
+¿El comando produce salida significativa?
+├─ NO → Usa Bash `run_in_background`  
+│       Por qué: No hay nada que observar. Fire-and-forget es correcto.
+│
+└─ SÍ → ¿Necesitas **visibilidad en tiempo real** del progreso?
+         ├─ NO → Usa Bash `run_in_background`
+         │       Por qué: Solo te importa el resultado final. No necesitas observar.
+         │
+         └─ SÍ → ¿El comando tiene un **punto de salida natural**?
+                  │       (i.e., se completará y terminará por sí solo)
+                  │
+                  ├─ NO → Usa `persistent: true`
+                  │       Por qué: El comando corre indefinidamente (e.g., `while true`, `tail -f`)
+                  │       Monitor streamea eventos hasta timeout o que el usuario lo detenga.
+                  │
+                  └─ SÍ → Usa Monitor estándar con timeout
+                          Por qué: El comando termina cuando se completa.
+                          Monitor emite evento de finalización naturalmente.
+
+#### Patrón A: Polling con Salida Condicional ✅
+
+**Caso de uso:** Esperar a que se complete una compilación, aparezca un archivo, inicie un servidor, etc.
+
+```bash
+# ✅ CORRECTO: Salida natural cuando se cumple la condición
+Monitor(
+  description="esperar completación de compilación",
+  command="until [ -f build/output.html ]; do sleep 2; done && echo 'Compilación completada'",
+  timeout_ms=60000
+)
+```
+
+Por qué funciona:
+- Salida natural: El bucle `until` termina → comando termina → Monitor emite finalización
+- Timeout: 60s es conservador (2.5x del tiempo esperado de compilación)
+- Evento claro: Un evento de finalización cuando se cumple la condición
+- Caso de uso: Bueno para Phase 9 PILOT/VALIDATE (esperar artefacto antes de continuar)
+
+#### Patrón B: Log Tail con Filtrado ✅
+
+**Caso de uso:** Monitorear logs de CI/CD, progreso de despliegue, detección de errores.
+
+```bash
+# ✅ CORRECTO: Bandera --line-buffered previene bloqueo de eventos
+Monitor(
+  description="monitoreo de pipeline CI",
+  command="tail -f pipeline.log | grep --line-buffered 'ERROR|FAIL|SUCCESS'",
+  timeout_ms=600000,
+  persistent=false
+)
+```
+
+Detalles clave:
+- Bandera `--line-buffered`: OBLIGATORIA para grep en Monitor (previene buffering de salida)
+- Estados terminales: Patrón cubre SUCCESS, FAIL, ERROR (todos los resultados posibles)
+- Timeout: 600s = 10 minutos (razonable para trabajo CI)
+- persistent: false → timeout matará el proceso después de 600s
+
+**Lo que NO debes hacer:**
+```bash
+# ❌ INCORRECTO: Sin --line-buffered (eventos atrasados 60+ segundos)
+Monitor(
+  command="tail -f pipeline.log | grep 'SUCCESS'"
+)
+# Problema: grep hace buffering → Monitor no recibe nada por 60 segundos
+
+# ❌ INCORRECTO: Sin cobertura de estado de error (falla silenciosa)
+Monitor(
+  command="tail -f pipeline.log | grep --line-buffered 'SUCCESS'"
+)
+# Problema: Si el pipeline falla, sin evento ERROR → Monitor queda en silencio
+```
+
+#### Patrón C: Monitoreo de Sistema de Archivos ✅
+
+**Caso de uso:** Detectar cuando aparecen archivos (resultados de tests, artefactos de compilación, cambios de configuración).
+
+```bash
+# ✅ CORRECTO: Salida natural cuando se recopilan N archivos
+Monitor(
+  description="esperando resultados de tests",
+  command="inotifywait -m --format '%f' /results | head -5",
+  timeout_ms=300000
+)
+```
+
+Por qué funciona:
+- Salida natural: `head -5` se detiene después de 5 archivos → comando termina → Monitor se completa
+- Eventos claros: 1 evento por archivo (5 eventos totales, luego salida)
+- Timeout: 300s = 5 minutos (razonable para ejecución de tests)
+
+#### Patrón D: Log Tail Sin Límite ❌
+
+**Anti-patrón:** No uses Monitor para streaming de logs sin límites sin `persistent: true`.
+
+```bash
+# ❌ INCORRECTO: Comando sin límites → timeout kill después de 300s
+Monitor(
+  description="observando logs de aplicación",
+  command="tail -f app.log",
+  timeout_ms=300000
+)
+```
+
+Qué sucede:
+1. Monitor inicia, `tail -f` corre
+2. Los logs streamean, Monitor emite eventos
+3. Después de 300s (5 minutos), se activa timeout
+4. `tail -f` es SIGKILL-ed (matado abruptamente, sin limpieza)
+5. El usuario ve notificación de timeout pero **NO PUEDE DISTINGUIR** si sigue ejecutándose o fue matado
+6. Estado ambiguo: ¿Sigue trabajando la aplicación? ¿Sigue escribiéndose el log?
+
+**Solución:** Haz que los logs emitan un evento de finalización
+```bash
+# ✅ MEJOR: Tail logs hasta evento específico
+Monitor(
+  description="logs hasta shutdown de aplicación",
+  command="tail -f app.log | grep --line-buffered 'Shutting down|Server stopped'",
+  timeout_ms=600000
+)
+```
+
+#### Patrón E: Sin Cobertura de Estado Terminal ❌
+
+**Anti-patrón:** No filtres solo por un resultado positivo (éxito) sin cubrir fallos.
+
+```bash
+# ❌ INCORRECTO: Silencioso si la compilación falla
+Monitor(
+  description="esperando éxito de compilación",
+  command="tail -f build.log | grep --line-buffered 'BUILD SUCCESS'",
+  timeout_ms=300000
+)
+```
+
+Qué sucede:
+- Si compilación tiene éxito: Evento emitido ✅
+- Si compilación falla: Sin evento ERROR → Monitor queda en silencio ❌
+- El usuario espera 300s → timeout → ambiguo: "¿Falló?" o "¿Sigue ejecutándose?"
+
+**La solución (cubre TODOS los estados terminales):**
+```bash
+# ✅ CORRECTO: Cubre éxito Y fallo
+Monitor(
+  description="monitoreo de compilación",
+  command="tail -f build.log | grep -E --line-buffered 'BUILD SUCCESS|BUILD FAILURE|BUILD ERROR'",
+  timeout_ms=300000
+)
+```
+
+**Regla:** La salida de Monitor debe reflejar todos los **estados terminales** (éxito, fallo, error, timeout).
+Si filtras salida, asegúrate de que el filtro cubre **TODAS** las formas en que la operación puede terminar.
+
+#### Gotchas Críticos
+
+##### Gotcha 1: Buffering de Pipe Bloquea Eventos
+
+**Problema:**
+```bash
+tail -f log | grep "ERROR"
+# → grep hace buffering de salida
+# → Monitor no recibe nada por 60+ segundos (o hasta que el buffer se llene)
+# → Los eventos se retrasan/pierden
+```
+
+**Solución:** Siempre usa la bandera `--line-buffered`:
+```bash
+tail -f log | grep --line-buffered "ERROR"  # ✅ Los eventos fluyen inmediatamente
+```
+
+**Por qué:** `--line-buffered` fuerza la salida después de cada línea, no cuando el buffer se llena.
+
+---
+
+##### Gotcha 2: Comandos Sin Límite = Estado Ambiguo
+
+**Problema:** Comandos sin salida natural (e.g., `tail -f`, `while true`) → timeout mata → usuario no puede decir si tuvo éxito o fue matado.
+
+**Solución:** Diseña para ejecución acotada o usa `persistent: true`.
+
+---
+
+##### Gotcha 3: Timeout es Destructivo (SIGKILL)
+
+**Problema:** En el límite de timeout, el proceso se mata abruptamente con SIGKILL. Sin limpieza, sin shutdown gradual.
+
+```bash
+Monitor(command="slow_operation.sh", timeout_ms=30000)
+# Si la operación se cuelga a los 25s, se mata a los 30s — sin limpieza
+```
+
+**Solución:** Usa timeout conservador (1.5x de la duración esperada).
+
+##### Gotcha 4: Event Batching es Transparente
+
+**Problema:** Salida dentro de 200ms → agrupada en 1 evento (no 1 por línea).
+
+**Impacto:** Salidas rápidas (e.g., `find` resultados) → 1 evento grande. Salidas lentas → eventos separados.
+
+**Solución:** No asumas correspondencia 1-a-1 línea/evento. Filtra/agrega en la fuente si necesitas tasa de eventos predecible.
+
+#### Solución de Problemas: Cuando las Cosas No Salen Bien
+
+##### "¿Por qué mi Monitor no emite nada?"
+
+```
+1. ¿El comando funciona de forma independiente?
+   → Ejecuta en terminal: `bash -c "tu comando"`
+   
+   ├─ NO (falla) → Corrige sintaxis del comando, intenta de nuevo
+   │
+   └─ SÍ (funciona) → Continúa
+
+2. ¿Hay problema de buffering?
+   → Verifica si estás usando pipe. Si sí, agrega bandera `--line-buffered`
+   
+   ├─ No puedo agregar bandera → Posiblemente el comando sea la herramienta incorrecta para Monitor
+   │
+   └─ Agregué bandera → Continúa
+
+3. ¿El comando realmente produce salida?
+   → Verifica: `tu_comando | head -1` (debe emitir 1 línea)
+   
+   ├─ Sin salida → El comando es silencioso. Monitor funciona (no hay nada que observar).
+   │
+   └─ Salida aparece → Continúa
+
+4. ¿El timeout es razonable?
+   → Default 300s (5 min). Para operaciones largas, aumenta timeout_ms.
+   
+   ├─ Timeout muy corto → Aumenta timeout, intenta de nuevo
+   │
+   └─ Timeout OK → El comando genuinamente está tomando un tiempo (está bien esperar)
+```
+
+##### "¿Por qué demasiados eventos?"
+
+**Solución:** Pre-filtra en la fuente antes de Monitor
+
+```bash
+# ❌ Muy ruidoso (1000+ eventos)
+tail -f log
+
+# ✅ Filtrado (solo líneas importantes)
+tail -f log | grep --line-buffered '^ERROR|^WARN|^INFO'
+
+# ✅ Agregado (cuenta por intervalo de tiempo)
+tail -f log | awk 'BEGIN{time=systime()} {if (systime()-time > 60) print "Batch at " systime() ": count=" count; count=0; time=systime()} /ERROR/ {count++}'
+```
+
+#### Integración con Herramientas THYROX
+
+**Monitor + Toma de Decisiones (Phase 10 EXECUTE):**
+
+```
+[Monitor: tail pipeline.log] → detecta evento "FAILED"
+                           ↓
+                    Usuario toma decisión
+                    ├─ ¿Rollback?
+                    ├─ ¿Reintentar?
+                    └─ ¿Continuar de todas formas?
+                           ↓
+                    [Agent responde a decisión]
+```
+
+**Monitor + Bash en Foreground (Feedback en Tiempo Real):**
+
+```
+[Monitor: tail app.log]     ← Background, streaming eventos
+         ↓
+[Bash: npm run build]       ← Foreground, ejecutando tarea
+         ↓
+El usuario ve ambos: progreso + salida de compilación simultáneamente
+```
+
+**Monitor + Agent en Paralelo:**
+
+```
+Agent 1: ejecutando deep-dive
+Agent 2: validando código
+Monitor: streaming metrics.log
+         ↓
+Las 3 salidas aparecen en conversación simultáneamente
+```
+
+### Bash Tool: `run_in_background`
+
+Usa `run_in_background` para comandos que deben ejecutarse asincronamente pero no necesitas observarlos.
+
+```bash
+# Fire-and-forget: inicia la tarea, continúa inmediatamente
+Bash(
+  command="npm run build",
+  description="building assets",
+  run_in_background=true
+)
+# Bash retorna inmediatamente. El comando sigue ejecutándose en segundo plano.
+```
+
+**Caso de uso:** Tests de larga duración, indexación, operaciones de limpieza, etc.
+Cuando tienes otras tareas que no dependen del resultado.
+
+---
+
 ## Methodology skills
 
 Cuando un WP requiere un marco metodológico específico, activar el skill de metodología
