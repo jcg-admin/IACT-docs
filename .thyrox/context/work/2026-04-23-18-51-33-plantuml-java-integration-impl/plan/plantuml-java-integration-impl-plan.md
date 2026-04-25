@@ -2,7 +2,7 @@
 created_at: 2026-04-25 10:10:00
 wp: plantuml-java-integration-impl
 phase: Phase 6 — SCOPE
-status: Pendiente aprobación
+status: Aprobado — 2026-04-25 10:15:00
 ```
 
 # Plan — PlantUML Integration Phase 1 Setup (Centralized Styling & Test Suite)
@@ -151,5 +151,5 @@ Success = `make html` generates PNG/SVG with corporate colors. No blockers.
 
 ## Estado de Aprobación
 
-- [ ] Scope aprobado por usuario — PENDIENTE
+- [x] Scope aprobado por usuario — 2026-04-25
 
