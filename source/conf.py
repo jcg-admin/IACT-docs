@@ -235,14 +235,7 @@ def reorganize_by_plantuml_metadata(diagrams_dir, source_dir):
     """
     Lee metadatos @IACT-DIAGRAM de archivos RST
     y reorganiza PNGs en diagrams/{modulo}/{tipo}/
-    Formato de metadatos PlantUML:
-      ' @IACT-DIAGRAM
-      ' module: requisitos
-      ' type: use-case
-      ' description: ...
     """
-    import re
-    import hashlib
     from pathlib import Path
     import shutil
 
@@ -270,18 +263,26 @@ def reorganize_by_plantuml_metadata(diagrams_dir, source_dir):
     # Paso 3: Reorganizar PNGs basándose en metadatos
     hash_dirs = sorted([d for d in diagrams_dir.iterdir() if d.is_dir() and len(d.name) == 2])
 
+    # Distribuir diagrams con metadatos primero, luego defaults
+    diagrams_with_metadata = []
+    for rst_file, diagram_list in metadata_map.items():
+        for modulo, tipo in diagram_list:
+            diagrams_with_metadata.append((modulo, tipo))
+
+    # Usar metadatos en round-robin
+    metadata_index = 0
+
     for hash_dir in hash_dirs:
         pngs = list(hash_dir.glob("*.png"))
         if not pngs:
             continue
 
-        # Buscar en metadatos (usando la ubicación del RST como clave)
-        modulo, tipo = "plantuml-guide", "diagram"  # Defaults
-
-        for puml_content, (found_modulo, found_tipo) in metadata_map.items():
-            if found_modulo and found_tipo:
-                modulo, tipo = found_modulo, found_tipo
-                break
+        # Usar metadatos en orden, si disponibles
+        if diagrams_with_metadata and metadata_index < len(diagrams_with_metadata):
+            modulo, tipo = diagrams_with_metadata[metadata_index]
+            metadata_index += 1
+        else:
+            modulo, tipo = "plantuml-guide", "diagram"  # Default
 
         dest = diagrams_dir / modulo / tipo
         dest.mkdir(parents=True, exist_ok=True)
@@ -303,38 +304,97 @@ def reorganize_by_plantuml_metadata(diagrams_dir, source_dir):
 def extract_diagram_metadata(source_dir):
     """
     Extrae metadatos @IACT-DIAGRAM de bloques PlantUML en RST files.
-    Retorna dict: {contenido_puml: (modulo, tipo)}
+    Retorna dict: {rst_file: [(modulo, tipo), ...]}
     """
     import re
     from pathlib import Path
-    from collections import defaultdict
 
     metadata_map = {}
 
-    # Buscar todos los archivos RST con bloques .. uml::
+    # Buscar todos los archivos RST (excluir archivos de documentación de estándares)
+    exclude_files = {'METADATA-STANDARD.rst', 'GUIDELINES.rst', 'color-palette.rst'}
+
     for rst_file in Path(source_dir).rglob("*.rst"):
+        if rst_file.name in exclude_files:
+            continue
         try:
             with open(rst_file, 'r', encoding='utf-8') as f:
-                content = f.read()
+                lines = f.readlines()
         except Exception:
             continue
 
-        # Regex para bloques .. uml:: ... (incluyendo @enduml)
-        pattern = r'\.\. uml::.*?\n((?:(?:\n)?(?:^|\s{1,}).+?)*?)(?=\n[^ \t]|\Z)'
+        # Buscar bloques .. uml::
+        in_uml_block = False
+        uml_content_lines = []
+        diagrams = []
 
-        for match in re.finditer(pattern, content, re.MULTILINE | re.DOTALL):
-            puml_block = match.group(1)
+        for i, line in enumerate(lines):
+            if '.. uml::' in line:
+                in_uml_block = True
+                uml_content_lines = []
+                continue
 
-            # Extraer metadatos @IACT-DIAGRAM
-            modulo = None
-            tipo = None
+            if in_uml_block:
+                # Detectar fin del bloque (línea no indentada o siguiente directiva)
+                if line.strip() and not line[0].isspace() and not line.startswith('#'):
+                    in_uml_block = False
+                    # Procesar bloque completado
+                    block_text = ''.join(uml_content_lines)
+                    modulo, tipo = extract_metadata_from_block(block_text)
+                    if modulo and tipo:
+                        diagrams.append((modulo, tipo))
+                    uml_content_lines = []
+                else:
+                    uml_content_lines.append(line)
 
-            meta_pattern = r"'\s*@IACT-DIAGRAM.*?'?\s*module:\s*(\w+).*?'?\s*type:\s*(\w+(?:-\w+)?)"
-            meta_match = re.search(meta_pattern, puml_block, re.DOTALL)
+        # Procesar último bloque si existe
+        if uml_content_lines:
+            block_text = ''.join(uml_content_lines)
+            modulo, tipo = extract_metadata_from_block(block_text)
+            if modulo and tipo:
+                diagrams.append((modulo, tipo))
 
-            if meta_match:
-                modulo = meta_match.group(1)
-                tipo = meta_match.group(2)
-                metadata_map[puml_block] = (modulo, tipo)
+        if diagrams:
+            metadata_map[str(rst_file)] = diagrams
 
     return metadata_map
+
+
+def extract_metadata_from_block(block_text):
+    """
+    Extrae module y type de un bloque PlantUML.
+    Busca líneas con ' module: y ' type: después de @IACT-DIAGRAM
+    """
+    import re
+
+    modulo = None
+    tipo = None
+    found_marker = False
+
+    lines = block_text.split('\n')
+    for i, line in enumerate(lines):
+        # Buscar marcador @IACT-DIAGRAM
+        if '@IACT-DIAGRAM' in line:
+            found_marker = True
+            continue
+
+        if found_marker:
+            # Buscar module en líneas siguientes (dentro de comentarios)
+            if 'module:' in line and "'" in line:
+                modulo_match = re.search(r'module:\s*([\w-]+)', line)
+                if modulo_match:
+                    modulo = modulo_match.group(1)
+
+            # Buscar type en líneas siguientes
+            if 'type:' in line and "'" in line:
+                tipo_match = re.search(r'type:\s*([\w-]+)', line)
+                if tipo_match:
+                    tipo = tipo_match.group(1)
+
+            # Parar si encontramos ambos o si salimos de comentarios
+            if modulo and tipo:
+                break
+            if not line.strip().startswith("'") and line.strip():
+                break
+
+    return modulo, tipo
