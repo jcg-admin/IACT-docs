@@ -414,78 +414,9 @@
           
   <section id="gob-04-gestion-de-cambios-documentales">
 <span id="gob-04"></span><h1>GOB_04: Gestion de Cambios Documentales<a class="headerlink" href="#gob-04-gestion-de-cambios-documentales" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#principios-de-gestion-de-cambios" id="id2">1. Principios de Gestion de Cambios</a></p>
-<ul>
-<li><p><a class="reference internal" href="#filosofia-del-cambio-controlado" id="id3">1.1 Filosofia del Cambio Controlado</a></p></li>
-<li><p><a class="reference internal" href="#objetivos-del-control-de-cambios" id="id4">1.2 Objetivos del Control de Cambios</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#tipos-de-cambio" id="id5">2. Tipos de Cambio</a></p>
-<ul>
-<li><p><a class="reference internal" href="#clasificacion-por-impacto" id="id6">2.1 Clasificacion por Impacto</a></p></li>
-<li><p><a class="reference internal" href="#matriz-de-decision-de-tipo" id="id7">2.2 Matriz de Decision de Tipo</a></p></li>
-<li><p><a class="reference internal" href="#ejemplos-por-tipo" id="id8">2.3 Ejemplos por Tipo</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#proceso-de-solicitud-de-cambio" id="id9">3. Proceso de Solicitud de Cambio</a></p>
-<ul>
-<li><p><a class="reference internal" href="#flujo-general" id="id10">3.1 Flujo General</a></p></li>
-<li><p><a class="reference internal" href="#paso-1-documentar-solicitud" id="id11">3.2 Paso 1: Documentar Solicitud</a></p></li>
-<li><p><a class="reference internal" href="#paso-2-analisis-de-impacto" id="id12">3.3 Paso 2: Analisis de Impacto</a></p></li>
-<li><p><a class="reference internal" href="#paso-3-aprobacion" id="id13">3.4 Paso 3: Aprobacion</a></p></li>
-<li><p><a class="reference internal" href="#paso-4-implementacion" id="id14">3.5 Paso 4: Implementacion</a></p></li>
-<li><p><a class="reference internal" href="#paso-5-verificacion-y-cierre" id="id15">3.6 Paso 5: Verificacion y Cierre</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#cambios-de-emergencia" id="id16">4. Cambios de Emergencia</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion-de-emergencia" id="id17">4.1 Definicion de Emergencia</a></p></li>
-<li><p><a class="reference internal" href="#proceso-abreviado" id="id18">4.2 Proceso Abreviado</a></p></li>
-<li><p><a class="reference internal" href="#registro-de-emergencia" id="id19">4.3 Registro de Emergencia</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#rechazo-de-cambios" id="id20">5. Rechazo de Cambios</a></p>
-<ul>
-<li><p><a class="reference internal" href="#motivos-validos-de-rechazo" id="id21">5.1 Motivos Validos de Rechazo</a></p></li>
-<li><p><a class="reference internal" href="#comunicacion-del-rechazo" id="id22">5.2 Comunicacion del Rechazo</a></p></li>
-<li><p><a class="reference internal" href="#proceso-de-apelacion" id="id23">5.3 Proceso de Apelacion</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#registro-y-auditoria" id="id24">6. Registro y Auditoria</a></p>
-<ul>
-<li><p><a class="reference internal" href="#registro-en-historial-del-artefacto" id="id25">6.1 Registro en Historial del Artefacto</a></p></li>
-<li><p><a class="reference internal" href="#registro-centralizado-de-rfcs" id="id26">6.2 Registro Centralizado de RFCs</a></p></li>
-<li><p><a class="reference internal" href="#metricas-de-gestion-de-cambios" id="id27">6.3 Metricas de Gestion de Cambios</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#casos-especiales" id="id28">7. Casos Especiales</a></p>
-<ul>
-<li><p><a class="reference internal" href="#cambio-que-afecta-trazabilidad" id="id29">7.1 Cambio que Afecta Trazabilidad</a></p></li>
-<li><p><a class="reference internal" href="#cambio-en-artefacto-referenciado-por-muchos" id="id30">7.2 Cambio en Artefacto Referenciado por Muchos</a></p></li>
-<li><p><a class="reference internal" href="#reversion-de-cambio-rollback" id="id31">7.3 Reversion de Cambio (Rollback)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#responsabilidades" id="id32">8. Responsabilidades</a></p>
-<ul>
-<li><p><a class="reference internal" href="#matriz-raci-para-gestion-de-cambios" id="id33">8.1 Matriz RACI para Gestion de Cambios</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id34">9. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id35">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-externas" id="id36">Fuentes Externas</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id37">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define el <strong>proceso de gestion de cambios</strong> para artefactos
 documentales ya aprobados en el sistema IACT, estableciendo los pasos,
 aprobaciones y registros necesarios para modificar documentacion oficial.</p>
@@ -497,9 +428,9 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </section>
 <hr class="docutils" />
 <section id="principios-de-gestion-de-cambios">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Principios de Gestion de Cambios</a><a class="headerlink" href="#principios-de-gestion-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>1. Principios de Gestion de Cambios<a class="headerlink" href="#principios-de-gestion-de-cambios" title="Link to this heading">¶</a></h2>
 <section id="filosofia-del-cambio-controlado">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Filosofia del Cambio Controlado</a><a class="headerlink" href="#filosofia-del-cambio-controlado" title="Link to this heading">¶</a></h3>
+<h3>1.1 Filosofia del Cambio Controlado<a class="headerlink" href="#filosofia-del-cambio-controlado" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRINCIPIO: Todo cambio a documentacion aprobada debe ser:
 
 - JUSTIFICADO   : Tiene una razon valida
@@ -511,7 +442,7 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </div>
 </section>
 <section id="objetivos-del-control-de-cambios">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Objetivos del Control de Cambios</a><a class="headerlink" href="#objetivos-del-control-de-cambios" title="Link to this heading">¶</a></h3>
+<h3>1.2 Objetivos del Control de Cambios<a class="headerlink" href="#objetivos-del-control-de-cambios" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Mantener integridad de la documentacion aprobada</p></li>
 <li><p>Prevenir cambios no autorizados</p></li>
@@ -523,9 +454,9 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </section>
 <hr class="docutils" />
 <section id="tipos-de-cambio">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Tipos de Cambio</a><a class="headerlink" href="#tipos-de-cambio" title="Link to this heading">¶</a></h2>
+<h2>2. Tipos de Cambio<a class="headerlink" href="#tipos-de-cambio" title="Link to this heading">¶</a></h2>
 <section id="clasificacion-por-impacto">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Clasificacion por Impacto</a><a class="headerlink" href="#clasificacion-por-impacto" title="Link to this heading">¶</a></h3>
+<h3>2.1 Clasificacion por Impacto<a class="headerlink" href="#clasificacion-por-impacto" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -567,7 +498,7 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </div>
 </section>
 <section id="matriz-de-decision-de-tipo">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Matriz de Decision de Tipo</a><a class="headerlink" href="#matriz-de-decision-de-tipo" title="Link to this heading">¶</a></h3>
+<h3>2.2 Matriz de Decision de Tipo<a class="headerlink" href="#matriz-de-decision-de-tipo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>¿El cambio modifica el SIGNIFICADO?
     │
     ├── NO ──► ¿Solo corrige errores obvios?
@@ -589,7 +520,7 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </div>
 </section>
 <section id="ejemplos-por-tipo">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Ejemplos por Tipo</a><a class="headerlink" href="#ejemplos-por-tipo" title="Link to this heading">¶</a></h3>
+<h3>2.3 Ejemplos por Tipo<a class="headerlink" href="#ejemplos-por-tipo" title="Link to this heading">¶</a></h3>
 <p><strong>Cambio MENOR:</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Corregir &quot;usuairo&quot; por &quot;usuario&quot;
 - Arreglar enlace roto :ref:`gob-02`
@@ -623,9 +554,9 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </section>
 <hr class="docutils" />
 <section id="proceso-de-solicitud-de-cambio">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Proceso de Solicitud de Cambio</a><a class="headerlink" href="#proceso-de-solicitud-de-cambio" title="Link to this heading">¶</a></h2>
+<h2>3. Proceso de Solicitud de Cambio<a class="headerlink" href="#proceso-de-solicitud-de-cambio" title="Link to this heading">¶</a></h2>
 <section id="flujo-general">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Flujo General</a><a class="headerlink" href="#flujo-general" title="Link to this heading">¶</a></h3>
+<h3>3.1 Flujo General<a class="headerlink" href="#flujo-general" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌──────────────┐
 │  SOLICITANTE │
 │   (Detecta   │
@@ -671,7 +602,7 @@ aprobaciones y registros necesarios para modificar documentacion oficial.</p>
 </div>
 </section>
 <section id="paso-1-documentar-solicitud">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Paso 1: Documentar Solicitud</a><a class="headerlink" href="#paso-1-documentar-solicitud" title="Link to this heading">¶</a></h3>
+<h3>3.2 Paso 1: Documentar Solicitud<a class="headerlink" href="#paso-1-documentar-solicitud" title="Link to this heading">¶</a></h3>
 <p>El solicitante debe completar:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SOLICITUD DE CAMBIO DOCUMENTAL (RFC)
 ====================================
@@ -702,7 +633,7 @@ ARTEFACTOS RELACIONADOS:
 </div>
 </section>
 <section id="paso-2-analisis-de-impacto">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Paso 2: Analisis de Impacto</a><a class="headerlink" href="#paso-2-analisis-de-impacto" title="Link to this heading">¶</a></h3>
+<h3>3.3 Paso 2: Analisis de Impacto<a class="headerlink" href="#paso-2-analisis-de-impacto" title="Link to this heading">¶</a></h3>
 <p>El Owner o Arquitecto evalua:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ANALISIS DE IMPACTO
 ===================
@@ -741,7 +672,7 @@ JUSTIFICACION:
 </div>
 </section>
 <section id="paso-3-aprobacion">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.4 Paso 3: Aprobacion</a><a class="headerlink" href="#paso-3-aprobacion" title="Link to this heading">¶</a></h3>
+<h3>3.4 Paso 3: Aprobacion<a class="headerlink" href="#paso-3-aprobacion" title="Link to this heading">¶</a></h3>
 <p>Segun tipo de cambio:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -797,7 +728,7 @@ FECHA LIMITE IMPLEMENTACION: YYYY-MM-DD
 </div>
 </section>
 <section id="paso-4-implementacion">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.5 Paso 4: Implementacion</a><a class="headerlink" href="#paso-4-implementacion" title="Link to this heading">¶</a></h3>
+<h3>3.5 Paso 4: Implementacion<a class="headerlink" href="#paso-4-implementacion" title="Link to this heading">¶</a></h3>
 <p>El autor implementa el cambio:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CHECKLIST DE IMPLEMENTACION:
 
@@ -813,7 +744,7 @@ FECHA LIMITE IMPLEMENTACION: YYYY-MM-DD
 </div>
 </section>
 <section id="paso-5-verificacion-y-cierre">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.6 Paso 5: Verificacion y Cierre</a><a class="headerlink" href="#paso-5-verificacion-y-cierre" title="Link to this heading">¶</a></h3>
+<h3>3.6 Paso 5: Verificacion y Cierre<a class="headerlink" href="#paso-5-verificacion-y-cierre" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>VERIFICACION DE CAMBIO
 ======================
 
@@ -843,9 +774,9 @@ Fecha cierre: YYYY-MM-DD
 </section>
 <hr class="docutils" />
 <section id="cambios-de-emergencia">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">4. Cambios de Emergencia</a><a class="headerlink" href="#cambios-de-emergencia" title="Link to this heading">¶</a></h2>
+<h2>4. Cambios de Emergencia<a class="headerlink" href="#cambios-de-emergencia" title="Link to this heading">¶</a></h2>
 <section id="definicion-de-emergencia">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.1 Definicion de Emergencia</a><a class="headerlink" href="#definicion-de-emergencia" title="Link to this heading">¶</a></h3>
+<h3>4.1 Definicion de Emergencia<a class="headerlink" href="#definicion-de-emergencia" title="Link to this heading">¶</a></h3>
 <p>Un cambio de emergencia aplica cuando:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CRITERIOS DE EMERGENCIA:
 
@@ -858,7 +789,7 @@ Fecha cierre: YYYY-MM-DD
 </div>
 </section>
 <section id="proceso-abreviado">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.2 Proceso Abreviado</a><a class="headerlink" href="#proceso-abreviado" title="Link to this heading">¶</a></h3>
+<h3>4.2 Proceso Abreviado<a class="headerlink" href="#proceso-abreviado" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CAMBIO DE EMERGENCIA - Proceso Express
 ======================================
 
@@ -881,7 +812,7 @@ Fecha cierre: YYYY-MM-DD
 </div>
 </section>
 <section id="registro-de-emergencia">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.3 Registro de Emergencia</a><a class="headerlink" href="#registro-de-emergencia" title="Link to this heading">¶</a></h3>
+<h3>4.3 Registro de Emergencia<a class="headerlink" href="#registro-de-emergencia" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGISTRO DE CAMBIO DE EMERGENCIA
 ================================
 
@@ -909,9 +840,9 @@ DOCUMENTACION COMPLETA:
 </section>
 <hr class="docutils" />
 <section id="rechazo-de-cambios">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">5. Rechazo de Cambios</a><a class="headerlink" href="#rechazo-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>5. Rechazo de Cambios<a class="headerlink" href="#rechazo-de-cambios" title="Link to this heading">¶</a></h2>
 <section id="motivos-validos-de-rechazo">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.1 Motivos Validos de Rechazo</a><a class="headerlink" href="#motivos-validos-de-rechazo" title="Link to this heading">¶</a></h3>
+<h3>5.1 Motivos Validos de Rechazo<a class="headerlink" href="#motivos-validos-de-rechazo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MOTIVOS PARA RECHAZAR UN CAMBIO:
 
 - No tiene justificacion suficiente
@@ -925,7 +856,7 @@ DOCUMENTACION COMPLETA:
 </div>
 </section>
 <section id="comunicacion-del-rechazo">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.2 Comunicacion del Rechazo</a><a class="headerlink" href="#comunicacion-del-rechazo" title="Link to this heading">¶</a></h3>
+<h3>5.2 Comunicacion del Rechazo<a class="headerlink" href="#comunicacion-del-rechazo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NOTIFICACION DE RECHAZO
 =======================
 
@@ -952,7 +883,7 @@ Atentamente,
 </div>
 </section>
 <section id="proceso-de-apelacion">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.3 Proceso de Apelacion</a><a class="headerlink" href="#proceso-de-apelacion" title="Link to this heading">¶</a></h3>
+<h3>5.3 Proceso de Apelacion<a class="headerlink" href="#proceso-de-apelacion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APELACION (si el solicitante no esta de acuerdo):
 
 1. Enviar apelacion escrita dentro de 5 dias habiles
@@ -975,9 +906,9 @@ Atentamente,
 </section>
 <hr class="docutils" />
 <section id="registro-y-auditoria">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">6. Registro y Auditoria</a><a class="headerlink" href="#registro-y-auditoria" title="Link to this heading">¶</a></h2>
+<h2>6. Registro y Auditoria<a class="headerlink" href="#registro-y-auditoria" title="Link to this heading">¶</a></h2>
 <section id="registro-en-historial-del-artefacto">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">6.1 Registro en Historial del Artefacto</a><a class="headerlink" href="#registro-en-historial-del-artefacto" title="Link to this heading">¶</a></h3>
+<h3>6.1 Registro en Historial del Artefacto<a class="headerlink" href="#registro-en-historial-del-artefacto" title="Link to this heading">¶</a></h3>
 <p>Todo cambio aprobado debe registrarse:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Historial de Cambios</span>
 <span class="gh">--------------------</span>
@@ -1003,7 +934,7 @@ Atentamente,
 </div>
 </section>
 <section id="registro-centralizado-de-rfcs">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">6.2 Registro Centralizado de RFCs</a><a class="headerlink" href="#registro-centralizado-de-rfcs" title="Link to this heading">¶</a></h3>
+<h3>6.2 Registro Centralizado de RFCs<a class="headerlink" href="#registro-centralizado-de-rfcs" title="Link to this heading">¶</a></h3>
 <p>Mantener registro de todas las solicitudes:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGISTRO DE RFCs - {AÑO}
 ========================
@@ -1018,7 +949,7 @@ Atentamente,
 </div>
 </section>
 <section id="metricas-de-gestion-de-cambios">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">6.3 Metricas de Gestion de Cambios</a><a class="headerlink" href="#metricas-de-gestion-de-cambios" title="Link to this heading">¶</a></h3>
+<h3>6.3 Metricas de Gestion de Cambios<a class="headerlink" href="#metricas-de-gestion-de-cambios" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1056,9 +987,9 @@ Atentamente,
 </section>
 <hr class="docutils" />
 <section id="casos-especiales">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">7. Casos Especiales</a><a class="headerlink" href="#casos-especiales" title="Link to this heading">¶</a></h2>
+<h2>7. Casos Especiales<a class="headerlink" href="#casos-especiales" title="Link to this heading">¶</a></h2>
 <section id="cambio-que-afecta-trazabilidad">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">7.1 Cambio que Afecta Trazabilidad</a><a class="headerlink" href="#cambio-que-afecta-trazabilidad" title="Link to this heading">¶</a></h3>
+<h3>7.1 Cambio que Afecta Trazabilidad<a class="headerlink" href="#cambio-que-afecta-trazabilidad" title="Link to this heading">¶</a></h3>
 <p>Si el cambio rompe enlaces de trazabilidad:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO ADICIONAL:
 
@@ -1077,7 +1008,7 @@ Atentamente,
 </div>
 </section>
 <section id="cambio-en-artefacto-referenciado-por-muchos">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">7.2 Cambio en Artefacto Referenciado por Muchos</a><a class="headerlink" href="#cambio-en-artefacto-referenciado-por-muchos" title="Link to this heading">¶</a></h3>
+<h3>7.2 Cambio en Artefacto Referenciado por Muchos<a class="headerlink" href="#cambio-en-artefacto-referenciado-por-muchos" title="Link to this heading">¶</a></h3>
 <p>Si el artefacto es referenciado por &gt; 10 artefactos:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO ADICIONAL:
 
@@ -1095,7 +1026,7 @@ Atentamente,
 </div>
 </section>
 <section id="reversion-de-cambio-rollback">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.3 Reversion de Cambio (Rollback)</a><a class="headerlink" href="#reversion-de-cambio-rollback" title="Link to this heading">¶</a></h3>
+<h3>7.3 Reversion de Cambio (Rollback)<a class="headerlink" href="#reversion-de-cambio-rollback" title="Link to this heading">¶</a></h3>
 <p>Si un cambio aprobado causa problemas:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO DE ROLLBACK:
 
@@ -1119,9 +1050,9 @@ Atentamente,
 </section>
 <hr class="docutils" />
 <section id="responsabilidades">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink">8. Responsabilidades</a><a class="headerlink" href="#responsabilidades" title="Link to this heading">¶</a></h2>
+<h2>8. Responsabilidades<a class="headerlink" href="#responsabilidades" title="Link to this heading">¶</a></h2>
 <section id="matriz-raci-para-gestion-de-cambios">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink">8.1 Matriz RACI para Gestion de Cambios</a><a class="headerlink" href="#matriz-raci-para-gestion-de-cambios" title="Link to this heading">¶</a></h3>
+<h3>8.1 Matriz RACI para Gestion de Cambios<a class="headerlink" href="#matriz-raci-para-gestion-de-cambios" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1205,9 +1136,9 @@ Atentamente,
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>9. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html#gob-01"><span class="std std-ref">GOB_01: Modelo de Gobernanza IACT</span></a> - Modelo de Gobernanza IACT</p></li>
 <li><p><a class="reference internal" href="GOB_02_Roles_y_RACI.html#gob-02"><span class="std std-ref">GOB_02: Roles y Matriz RACI</span></a> - Roles y Matriz RACI</p></li>
@@ -1216,7 +1147,7 @@ Atentamente,
 </ul>
 </section>
 <section id="fuentes-externas">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<h3>Fuentes Externas<a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ISO 9001:2015 - Control de Documentos</p></li>
 <li><p>ITIL - Change Management</p></li>
@@ -1225,7 +1156,7 @@ Atentamente,
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

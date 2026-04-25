@@ -415,84 +415,18 @@
           
   <section id="mtm-02-metamodelo-de-trazabilidad">
 <span id="mtm-02"></span><h1>MTM_02: Metamodelo de Trazabilidad<a class="headerlink" href="#mtm-02-metamodelo-de-trazabilidad" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#concepto-de-trazabilidad" id="id2">1. Concepto de Trazabilidad</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion" id="id3">1.1 Definicion</a></p></li>
-<li><p><a class="reference internal" href="#niveles-de-trazabilidad" id="id4">1.2 Niveles de Trazabilidad</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#diagrama-del-metamodelo" id="id5">2. Diagrama del Metamodelo</a></p>
-<ul>
-<li><p><a class="reference internal" href="#clases-principales" id="id6">2.1 Clases Principales</a></p></li>
-<li><p><a class="reference internal" href="#clase-tracelink" id="id7">2.2 Clase TraceLink</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-relaciones" id="id8">2.3 Diagrama de Relaciones</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#tipos-de-enlaces" id="id9">3. Tipos de Enlaces</a></p>
-<ul>
-<li><p><a class="reference internal" href="#enumeracion-tipolink" id="id10">3.1 Enumeracion TipoLink</a></p></li>
-<li><p><a class="reference internal" href="#matriz-de-enlaces-validos" id="id11">3.2 Matriz de Enlaces Validos</a></p></li>
-<li><p><a class="reference internal" href="#descripcion-de-enlaces" id="id12">3.3 Descripcion de Enlaces</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#direcciones-de-trazado" id="id13">4. Direcciones de Trazado</a></p>
-<ul>
-<li><p><a class="reference internal" href="#forward-tracing" id="id14">4.1 Forward Tracing</a></p></li>
-<li><p><a class="reference internal" href="#backward-tracing" id="id15">4.2 Backward Tracing</a></p></li>
-<li><p><a class="reference internal" href="#grafo-de-trazabilidad" id="id16">4.3 Grafo de Trazabilidad</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#estructura-de-la-rtm" id="id17">5. Estructura de la RTM</a></p>
-<ul>
-<li><p><a class="reference internal" href="#columnas-de-la-matriz" id="id18">5.1 Columnas de la Matriz</a></p></li>
-<li><p><a class="reference internal" href="#estados-de-trazabilidad" id="id19">5.2 Estados de Trazabilidad</a></p></li>
-<li><p><a class="reference internal" href="#metricas-de-cobertura" id="id20">5.3 Metricas de Cobertura</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#reglas-de-validacion" id="id21">6. Reglas de Validacion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#restricciones-ocl" id="id22">6.1 Restricciones OCL</a></p></li>
-<li><p><a class="reference internal" href="#reglas-de-integridad" id="id23">6.2 Reglas de Integridad</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#operaciones-del-metamodelo" id="id24">7. Operaciones del Metamodelo</a></p>
-<ul>
-<li><p><a class="reference internal" href="#analisis-de-impacto" id="id25">7.1 Analisis de Impacto</a></p></li>
-<li><p><a class="reference internal" href="#verificar-cobertura" id="id26">7.2 Verificar Cobertura</a></p></li>
-<li><p><a class="reference internal" href="#detectar-huerfanos" id="id27">7.3 Detectar Huerfanos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#representacion-rtm-iact" id="id28">8. Representacion RTM IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#fragmento-de-matriz" id="id29">8.1 Fragmento de Matriz</a></p></li>
-<li><p><a class="reference internal" href="#estadisticas-actuales" id="id30">8.2 Estadisticas Actuales</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id31">9. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id32">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes" id="id33">Fuentes</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id34">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define el <strong>metamodelo formal</strong> de trazabilidad del proyecto
 IACT. Especifica los tipos de enlaces, direcciones de trazado y reglas de
 validacion para la Matriz de Trazabilidad de Requisitos (RTM).</p>
 </section>
 <hr class="docutils" />
 <section id="concepto-de-trazabilidad">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Concepto de Trazabilidad</a><a class="headerlink" href="#concepto-de-trazabilidad" title="Link to this heading">¶</a></h2>
+<h2>1. Concepto de Trazabilidad<a class="headerlink" href="#concepto-de-trazabilidad" title="Link to this heading">¶</a></h2>
 <section id="definicion">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Definicion</a><a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
+<h3>1.1 Definicion<a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TRAZABILIDAD:
 Capacidad de seguir la vida de un requisito en ambas direcciones:
 - FORWARD:  Desde origen hacia implementacion
@@ -506,7 +440,7 @@ PROPOSITO:
 </div>
 </section>
 <section id="niveles-de-trazabilidad">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Niveles de Trazabilidad</a><a class="headerlink" href="#niveles-de-trazabilidad" title="Link to this heading">¶</a></h3>
+<h3>1.2 Niveles de Trazabilidad<a class="headerlink" href="#niveles-de-trazabilidad" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NIVEL 0: BR (Reglas de Negocio)
     |
     | deriva/influye
@@ -534,9 +468,9 @@ NIVEL 5: TEST (Casos de Prueba)
 </section>
 <hr class="docutils" />
 <section id="diagrama-del-metamodelo">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Diagrama del Metamodelo</a><a class="headerlink" href="#diagrama-del-metamodelo" title="Link to this heading">¶</a></h2>
+<h2>2. Diagrama del Metamodelo<a class="headerlink" href="#diagrama-del-metamodelo" title="Link to this heading">¶</a></h2>
 <section id="clases-principales">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Clases Principales</a><a class="headerlink" href="#clases-principales" title="Link to this heading">¶</a></h3>
+<h3>2.1 Clases Principales<a class="headerlink" href="#clases-principales" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                        &lt;&lt;abstract&gt;&gt;                               |
 |                       TraceableItem                               |
@@ -561,7 +495,7 @@ NIVEL 5: TEST (Casos de Prueba)
 </div>
 </section>
 <section id="clase-tracelink">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Clase TraceLink</a><a class="headerlink" href="#clase-tracelink" title="Link to this heading">¶</a></h3>
+<h3>2.2 Clase TraceLink<a class="headerlink" href="#clase-tracelink" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                         TraceLink                                 |
 +------------------------------------------------------------------+
@@ -581,7 +515,7 @@ NIVEL 5: TEST (Casos de Prueba)
 </div>
 </section>
 <section id="diagrama-de-relaciones">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Diagrama de Relaciones</a><a class="headerlink" href="#diagrama-de-relaciones" title="Link to this heading">¶</a></h3>
+<h3>2.3 Diagrama de Relaciones<a class="headerlink" href="#diagrama-de-relaciones" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------------+                      +-------------+
 |TraceableItem|                      | TraceLink   |
 +------+------+                      +------+------+
@@ -600,9 +534,9 @@ NIVEL 5: TEST (Casos de Prueba)
 </section>
 <hr class="docutils" />
 <section id="tipos-de-enlaces">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Tipos de Enlaces</a><a class="headerlink" href="#tipos-de-enlaces" title="Link to this heading">¶</a></h2>
+<h2>3. Tipos de Enlaces<a class="headerlink" href="#tipos-de-enlaces" title="Link to this heading">¶</a></h2>
 <section id="enumeracion-tipolink">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Enumeracion TipoLink</a><a class="headerlink" href="#enumeracion-tipolink" title="Link to this heading">¶</a></h3>
+<h3>3.1 Enumeracion TipoLink<a class="headerlink" href="#enumeracion-tipolink" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt;enumeration&gt;&gt;
 TipoLink
 ─────────────────────────────────────────
@@ -618,7 +552,7 @@ DEPENDE      // Requiere otro artefacto
 </div>
 </section>
 <section id="matriz-de-enlaces-validos">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Matriz de Enlaces Validos</a><a class="headerlink" href="#matriz-de-enlaces-validos" title="Link to this heading">¶</a></h3>
+<h3>3.2 Matriz de Enlaces Validos<a class="headerlink" href="#matriz-de-enlaces-validos" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -694,7 +628,7 @@ DEPENDE      // Requiere otro artefacto
 </div>
 </section>
 <section id="descripcion-de-enlaces">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Descripcion de Enlaces</a><a class="headerlink" href="#descripcion-de-enlaces" title="Link to this heading">¶</a></h3>
+<h3>3.3 Descripcion de Enlaces<a class="headerlink" href="#descripcion-de-enlaces" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -748,9 +682,9 @@ DEPENDE      // Requiere otro artefacto
 </section>
 <hr class="docutils" />
 <section id="direcciones-de-trazado">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">4. Direcciones de Trazado</a><a class="headerlink" href="#direcciones-de-trazado" title="Link to this heading">¶</a></h2>
+<h2>4. Direcciones de Trazado<a class="headerlink" href="#direcciones-de-trazado" title="Link to this heading">¶</a></h2>
 <section id="forward-tracing">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">4.1 Forward Tracing</a><a class="headerlink" href="#forward-tracing" title="Link to this heading">¶</a></h3>
+<h3>4.1 Forward Tracing<a class="headerlink" href="#forward-tracing" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORWARD TRACING (Hacia adelante)
 ═════════════════════════════════════════════════════════
 
@@ -777,7 +711,7 @@ PREGUNTA QUE RESPONDE:
 </div>
 </section>
 <section id="backward-tracing">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">4.2 Backward Tracing</a><a class="headerlink" href="#backward-tracing" title="Link to this heading">¶</a></h3>
+<h3>4.2 Backward Tracing<a class="headerlink" href="#backward-tracing" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BACKWARD TRACING (Hacia atras)
 ═════════════════════════════════════════════════════════
 
@@ -804,7 +738,7 @@ PREGUNTA QUE RESPONDE:
 </div>
 </section>
 <section id="grafo-de-trazabilidad">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.3 Grafo de Trazabilidad</a><a class="headerlink" href="#grafo-de-trazabilidad" title="Link to this heading">¶</a></h3>
+<h3>4.3 Grafo de Trazabilidad<a class="headerlink" href="#grafo-de-trazabilidad" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+     +-------+     +-------+
 | BR_015|----&gt;|UC_010 |----&gt;|FR-10.6|
 +-------+     +---+---+     +---+---+
@@ -824,9 +758,9 @@ PREGUNTA QUE RESPONDE:
 </section>
 <hr class="docutils" />
 <section id="estructura-de-la-rtm">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">5. Estructura de la RTM</a><a class="headerlink" href="#estructura-de-la-rtm" title="Link to this heading">¶</a></h2>
+<h2>5. Estructura de la RTM<a class="headerlink" href="#estructura-de-la-rtm" title="Link to this heading">¶</a></h2>
 <section id="columnas-de-la-matriz">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">5.1 Columnas de la Matriz</a><a class="headerlink" href="#columnas-de-la-matriz" title="Link to this heading">¶</a></h3>
+<h3>5.1 Columnas de la Matriz<a class="headerlink" href="#columnas-de-la-matriz" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RTM (Requirements Traceability Matrix)
 
 +--------+--------+--------+--------+--------+--------+--------+
@@ -842,7 +776,7 @@ PREGUNTA QUE RESPONDE:
 </div>
 </section>
 <section id="estados-de-trazabilidad">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">5.2 Estados de Trazabilidad</a><a class="headerlink" href="#estados-de-trazabilidad" title="Link to this heading">¶</a></h3>
+<h3>5.2 Estados de Trazabilidad<a class="headerlink" href="#estados-de-trazabilidad" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt;enumeration&gt;&gt;
 EstadoTrazabilidad
 ─────────────────────────────────────────
@@ -855,7 +789,7 @@ OBSOLETO      // Ya no aplica
 </div>
 </section>
 <section id="metricas-de-cobertura">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">5.3 Metricas de Cobertura</a><a class="headerlink" href="#metricas-de-cobertura" title="Link to this heading">¶</a></h3>
+<h3>5.3 Metricas de Cobertura<a class="headerlink" href="#metricas-de-cobertura" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>COBERTURA DE TRAZABILIDAD
 
 Cobertura BR-&gt;UC:
@@ -881,9 +815,9 @@ UMBRAL MINIMO IACT:
 </section>
 <hr class="docutils" />
 <section id="reglas-de-validacion">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">6. Reglas de Validacion</a><a class="headerlink" href="#reglas-de-validacion" title="Link to this heading">¶</a></h2>
+<h2>6. Reglas de Validacion<a class="headerlink" href="#reglas-de-validacion" title="Link to this heading">¶</a></h2>
 <section id="restricciones-ocl">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">6.1 Restricciones OCL</a><a class="headerlink" href="#restricciones-ocl" title="Link to this heading">¶</a></h3>
+<h3>6.1 Restricciones OCL<a class="headerlink" href="#restricciones-ocl" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-- Todo FR debe tener al menos un UC de origen
 context FunctionalRequirement
 inv: self.linksEntrantes-&gt;exists(l |
@@ -910,7 +844,7 @@ inv: self.tipo = TipoBR::DESENCADENADOR implies
 </div>
 </section>
 <section id="reglas-de-integridad">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">6.2 Reglas de Integridad</a><a class="headerlink" href="#reglas-de-integridad" title="Link to this heading">¶</a></h3>
+<h3>6.2 Reglas de Integridad<a class="headerlink" href="#reglas-de-integridad" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -952,9 +886,9 @@ inv: self.tipo = TipoBR::DESENCADENADOR implies
 </section>
 <hr class="docutils" />
 <section id="operaciones-del-metamodelo">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">7. Operaciones del Metamodelo</a><a class="headerlink" href="#operaciones-del-metamodelo" title="Link to this heading">¶</a></h2>
+<h2>7. Operaciones del Metamodelo<a class="headerlink" href="#operaciones-del-metamodelo" title="Link to this heading">¶</a></h2>
 <section id="analisis-de-impacto">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">7.1 Analisis de Impacto</a><a class="headerlink" href="#analisis-de-impacto" title="Link to this heading">¶</a></h3>
+<h3>7.1 Analisis de Impacto<a class="headerlink" href="#analisis-de-impacto" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OPERACION: analizarImpacto(artefacto: TraceableItem): Set&lt;TraceableItem&gt;
 
 ALGORITMO:
@@ -973,7 +907,7 @@ USO:
 </div>
 </section>
 <section id="verificar-cobertura">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">7.2 Verificar Cobertura</a><a class="headerlink" href="#verificar-cobertura" title="Link to this heading">¶</a></h3>
+<h3>7.2 Verificar Cobertura<a class="headerlink" href="#verificar-cobertura" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OPERACION: verificarCobertura(nivel: Nivel): Float
 
 ALGORITMO:
@@ -987,7 +921,7 @@ verificarCobertura(NIVEL_UC) = 95%  // 36 de 38 UC tienen FR
 </div>
 </section>
 <section id="detectar-huerfanos">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">7.3 Detectar Huerfanos</a><a class="headerlink" href="#detectar-huerfanos" title="Link to this heading">¶</a></h3>
+<h3>7.3 Detectar Huerfanos<a class="headerlink" href="#detectar-huerfanos" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OPERACION: detectarHuerfanos(): Set&lt;TraceableItem&gt;
 
 ALGORITMO:
@@ -1006,9 +940,9 @@ ACCION:
 </section>
 <hr class="docutils" />
 <section id="representacion-rtm-iact">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">8. Representacion RTM IACT</a><a class="headerlink" href="#representacion-rtm-iact" title="Link to this heading">¶</a></h2>
+<h2>8. Representacion RTM IACT<a class="headerlink" href="#representacion-rtm-iact" title="Link to this heading">¶</a></h2>
 <section id="fragmento-de-matriz">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">8.1 Fragmento de Matriz</a><a class="headerlink" href="#fragmento-de-matriz" title="Link to this heading">¶</a></h3>
+<h3>8.1 Fragmento de Matriz<a class="headerlink" href="#fragmento-de-matriz" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+--------+--------+----------+------------------+------------+--------+
 | BR     | UC     | FR       | CODE             | TEST       | STATUS |
 +--------+--------+----------+------------------+------------+--------+
@@ -1028,7 +962,7 @@ ACCION:
 </div>
 </section>
 <section id="estadisticas-actuales">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">8.2 Estadisticas Actuales</a><a class="headerlink" href="#estadisticas-actuales" title="Link to this heading">¶</a></h3>
+<h3>8.2 Estadisticas Actuales<a class="headerlink" href="#estadisticas-actuales" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1082,9 +1016,9 @@ ACCION:
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>9. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../_fundamentos_conceptuales/FND_04_Trazabilidad.html#fnd-04"><span class="std std-ref">FND_04: Trazabilidad</span></a> - Trazabilidad (fundamentos)</p></li>
 <li><p><a class="reference internal" href="MTM_01_Metamodelo_Requisitos.html#mtm-01"><span class="std std-ref">MTM_01: Metamodelo de Requisitos</span></a> - Metamodelo de Requisitos</p></li>
@@ -1092,7 +1026,7 @@ ACCION:
 </ul>
 </section>
 <section id="fuentes">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink">Fuentes</a><a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
+<h3>Fuentes<a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>IEEE 830-1998: Requirements Traceability</p></li>
 <li><p>Gotel &amp; Finkelstein: &quot;An Analysis of Requirements Traceability&quot;</p></li>
@@ -1102,7 +1036,7 @@ ACCION:
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

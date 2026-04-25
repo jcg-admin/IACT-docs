@@ -414,61 +414,9 @@
           
   <section id="fnd-06-derivacion-vs-transformacion">
 <span id="fnd-06"></span><h1>FND_06: Derivacion vs Transformacion<a class="headerlink" href="#fnd-06-derivacion-vs-transformacion" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#el-problema-de-la-ambiguedad" id="id2">1. El Problema de la Ambiguedad</a></p>
-<ul>
-<li><p><a class="reference internal" href="#la-pregunta-central" id="id3">1.1 La Pregunta Central</a></p></li>
-<li><p><a class="reference internal" href="#el-error-conceptual" id="id4">1.2 El Error Conceptual</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#derivacion-el-termino-correcto" id="id5">2. Derivacion: El Termino Correcto</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion-de-derivacion" id="id6">2.1 Definicion de Derivacion</a></p></li>
-<li><p><a class="reference internal" href="#ilustracion-del-proceso" id="id7">2.2 Ilustracion del Proceso</a></p></li>
-<li><p><a class="reference internal" href="#comparacion-derivacion-vs-transformacion" id="id8">2.3 Comparacion: Derivacion vs Transformacion</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#principio-de-responsabilidad-unica" id="id9">3. Principio de Responsabilidad Unica</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion" id="id10">3.1 Definicion</a></p></li>
-<li><p><a class="reference internal" href="#violacion-del-principio" id="id11">3.2 Violacion del Principio</a></p></li>
-<li><p><a class="reference internal" href="#preservacion-del-principio" id="id12">3.3 Preservacion del Principio</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#direccion-de-derivacion" id="id13">4. Direccion de Derivacion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#proyectos-greenfield" id="id14">4.1 Proyectos Greenfield</a></p></li>
-<li><p><a class="reference internal" href="#proyectos-brownfield-legacy" id="id15">4.2 Proyectos Brownfield (Legacy)</a></p></li>
-<li><p><a class="reference internal" href="#comparacion-de-contextos" id="id16">4.3 Comparacion de Contextos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#implicaciones-practicas" id="id17">5. Implicaciones Practicas</a></p>
-<ul>
-<li><p><a class="reference internal" href="#proceso-de-derivacion-correcto" id="id18">5.1 Proceso de Derivacion Correcto</a></p></li>
-<li><p><a class="reference internal" href="#errores-a-evitar" id="id19">5.2 Errores a Evitar</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#aplicacion-en-iact" id="id20">6. Aplicacion en IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#ejemplo-de-derivacion" id="id21">6.1 Ejemplo de Derivacion</a></p></li>
-<li><p><a class="reference internal" href="#verificacion-de-trazabilidad" id="id22">6.2 Verificacion de Trazabilidad</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id23">7. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id24">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-externas" id="id25">Fuentes Externas</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id26">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento aclara la diferencia conceptual entre <strong>derivacion</strong> y
 <strong>transformacion</strong> en el contexto de requisitos, explicando por que el
 termino correcto es &quot;derivar&quot; y como esto preserva el principio de
@@ -476,9 +424,9 @@ responsabilidad unica.</p>
 </section>
 <hr class="docutils" />
 <section id="el-problema-de-la-ambiguedad">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. El Problema de la Ambiguedad</a><a class="headerlink" href="#el-problema-de-la-ambiguedad" title="Link to this heading">¶</a></h2>
+<h2>1. El Problema de la Ambiguedad<a class="headerlink" href="#el-problema-de-la-ambiguedad" title="Link to this heading">¶</a></h2>
 <section id="la-pregunta-central">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 La Pregunta Central</a><a class="headerlink" href="#la-pregunta-central" title="Link to this heading">¶</a></h3>
+<h3>1.1 La Pregunta Central<a class="headerlink" href="#la-pregunta-central" title="Link to this heading">¶</a></h3>
 <p>Frecuentemente surge la siguiente pregunta:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PREGUNTA:
 &quot;Un flujo del sistema, que define los pasos que realizara el caso
@@ -496,7 +444,7 @@ BUSQUEDA:
 palabra &quot;transformar&quot;.</p>
 </section>
 <section id="el-error-conceptual">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 El Error Conceptual</a><a class="headerlink" href="#el-error-conceptual" title="Link to this heading">¶</a></h3>
+<h3>1.2 El Error Conceptual<a class="headerlink" href="#el-error-conceptual" title="Link to this heading">¶</a></h3>
 <p>El problema es que &quot;transformar&quot; sugiere convertir algo en otra cosa
 de naturaleza diferente:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TRANSFORMACION EN OTROS CONTEXTOS:
@@ -514,9 +462,9 @@ Algo se convierte en OTRA COSA diferente.
 </section>
 <hr class="docutils" />
 <section id="derivacion-el-termino-correcto">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Derivacion: El Termino Correcto</a><a class="headerlink" href="#derivacion-el-termino-correcto" title="Link to this heading">¶</a></h2>
+<h2>2. Derivacion: El Termino Correcto<a class="headerlink" href="#derivacion-el-termino-correcto" title="Link to this heading">¶</a></h2>
 <section id="definicion-de-derivacion">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Definicion de Derivacion</a><a class="headerlink" href="#definicion-de-derivacion" title="Link to this heading">¶</a></h3>
+<h3>2.1 Definicion de Derivacion<a class="headerlink" href="#definicion-de-derivacion" title="Link to this heading">¶</a></h3>
 <p><strong>Derivar</strong> significa hacer explicito lo que ya esta implicito. Los
 Requisitos Funcionales (FR) no son &quot;otra cosa&quot; diferente al Caso de Uso;
 son la <strong>explicitacion</strong> de capacidades que el UC ya contiene implicitamente.</p>
@@ -534,7 +482,7 @@ detallados. Derivar es extraerlos y documentarlos atomicamente.
 </div>
 </section>
 <section id="ilustracion-del-proceso">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Ilustracion del Proceso</a><a class="headerlink" href="#ilustracion-del-proceso" title="Link to this heading">¶</a></h3>
+<h3>2.2 Ilustracion del Proceso<a class="headerlink" href="#ilustracion-del-proceso" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CASO DE USO DICE:
 &quot;Sistema valida disponibilidad del producto&quot;
 
@@ -563,7 +511,7 @@ presentes pero no suficientemente detallados en el UC.
 </div>
 </section>
 <section id="comparacion-derivacion-vs-transformacion">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Comparacion: Derivacion vs Transformacion</a><a class="headerlink" href="#comparacion-derivacion-vs-transformacion" title="Link to this heading">¶</a></h3>
+<h3>2.3 Comparacion: Derivacion vs Transformacion<a class="headerlink" href="#comparacion-derivacion-vs-transformacion" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -605,9 +553,9 @@ presentes pero no suficientemente detallados en el UC.
 </section>
 <hr class="docutils" />
 <section id="principio-de-responsabilidad-unica">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Principio de Responsabilidad Unica</a><a class="headerlink" href="#principio-de-responsabilidad-unica" title="Link to this heading">¶</a></h2>
+<h2>3. Principio de Responsabilidad Unica<a class="headerlink" href="#principio-de-responsabilidad-unica" title="Link to this heading">¶</a></h2>
 <section id="definicion">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Definicion</a><a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
+<h3>3.1 Definicion<a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
 <p>El <strong>Principio de Responsabilidad Unica</strong> (Single Responsibility Principle)
 aplicado a artefactos de requisitos establece que cada nivel de abstraccion
 debe tener una responsabilidad clara y unica.</p>
@@ -627,7 +575,7 @@ SI SE MEZCLAN NIVELES:
 </div>
 </section>
 <section id="violacion-del-principio">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Violacion del Principio</a><a class="headerlink" href="#violacion-del-principio" title="Link to this heading">¶</a></h3>
+<h3>3.2 Violacion del Principio<a class="headerlink" href="#violacion-del-principio" title="Link to this heading">¶</a></h3>
 <p>Cuando se &quot;transforma&quot; en lugar de &quot;derivar&quot;, se tiende a mezclar niveles:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>DOCUMENTACION PROBLEMATICA (mezcla de niveles):
 
@@ -652,7 +600,7 @@ ESTO ROMPE EL PRINCIPIO DE RESPONSABILIDAD UNICA
 </div>
 </section>
 <section id="preservacion-del-principio">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Preservacion del Principio</a><a class="headerlink" href="#preservacion-del-principio" title="Link to this heading">¶</a></h3>
+<h3>3.3 Preservacion del Principio<a class="headerlink" href="#preservacion-del-principio" title="Link to this heading">¶</a></h3>
 <p>La derivacion correcta preserva la responsabilidad unica:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NIVEL 2 - CASO DE USO (comportamiento observable):
 
@@ -697,9 +645,9 @@ CADA NIVEL TIENE SU RESPONSABILIDAD UNICA
 </section>
 <hr class="docutils" />
 <section id="direccion-de-derivacion">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">4. Direccion de Derivacion</a><a class="headerlink" href="#direccion-de-derivacion" title="Link to this heading">¶</a></h2>
+<h2>4. Direccion de Derivacion<a class="headerlink" href="#direccion-de-derivacion" title="Link to this heading">¶</a></h2>
 <section id="proyectos-greenfield">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">4.1 Proyectos Greenfield</a><a class="headerlink" href="#proyectos-greenfield" title="Link to this heading">¶</a></h3>
+<h3>4.1 Proyectos Greenfield<a class="headerlink" href="#proyectos-greenfield" title="Link to this heading">¶</a></h3>
 <p>En proyectos que comienzan desde cero, la direccion de derivacion es
 <strong>de abstracto a concreto</strong>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SECUENCIA CORRECTA EN GREENFIELD:
@@ -733,7 +681,7 @@ NUNCA AL REVES en proyecto greenfield
 </div>
 </section>
 <section id="proyectos-brownfield-legacy">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">4.2 Proyectos Brownfield (Legacy)</a><a class="headerlink" href="#proyectos-brownfield-legacy" title="Link to this heading">¶</a></h3>
+<h3>4.2 Proyectos Brownfield (Legacy)<a class="headerlink" href="#proyectos-brownfield-legacy" title="Link to this heading">¶</a></h3>
 <p>En proyectos con codigo existente, la direccion puede ser inversa
 (reverse engineering):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SECUENCIA EN BROWNFIELD:
@@ -763,7 +711,7 @@ VALIDO SOLO para sistemas legacy
 </div>
 </section>
 <section id="comparacion-de-contextos">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.3 Comparacion de Contextos</a><a class="headerlink" href="#comparacion-de-contextos" title="Link to this heading">¶</a></h3>
+<h3>4.3 Comparacion de Contextos<a class="headerlink" href="#comparacion-de-contextos" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -807,9 +755,9 @@ BR -&gt; UC -&gt; FR -&gt; Diseno -&gt; Codigo</p>
 </section>
 <hr class="docutils" />
 <section id="implicaciones-practicas">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">5. Implicaciones Practicas</a><a class="headerlink" href="#implicaciones-practicas" title="Link to this heading">¶</a></h2>
+<h2>5. Implicaciones Practicas<a class="headerlink" href="#implicaciones-practicas" title="Link to this heading">¶</a></h2>
 <section id="proceso-de-derivacion-correcto">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">5.1 Proceso de Derivacion Correcto</a><a class="headerlink" href="#proceso-de-derivacion-correcto" title="Link to this heading">¶</a></h3>
+<h3>5.1 Proceso de Derivacion Correcto<a class="headerlink" href="#proceso-de-derivacion-correcto" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PARA CADA PASO DEL CASO DE USO:
 
 1. Leer el paso del UC
@@ -834,7 +782,7 @@ BR -&gt; UC -&gt; FR -&gt; Diseno -&gt; Codigo</p>
 </div>
 </section>
 <section id="errores-a-evitar">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">5.2 Errores a Evitar</a><a class="headerlink" href="#errores-a-evitar" title="Link to this heading">¶</a></h3>
+<h3>5.2 Errores a Evitar<a class="headerlink" href="#errores-a-evitar" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ERROR 1: Mezclar niveles en un solo documento
 
 INCORRECTO:
@@ -874,9 +822,9 @@ FR-40.3: Sistema DEBE notificar via buzon interno
 </section>
 <hr class="docutils" />
 <section id="aplicacion-en-iact">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">6. Aplicacion en IACT</a><a class="headerlink" href="#aplicacion-en-iact" title="Link to this heading">¶</a></h2>
+<h2>6. Aplicacion en IACT<a class="headerlink" href="#aplicacion-en-iact" title="Link to this heading">¶</a></h2>
 <section id="ejemplo-de-derivacion">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">6.1 Ejemplo de Derivacion</a><a class="headerlink" href="#ejemplo-de-derivacion" title="Link to this heading">¶</a></h3>
+<h3>6.1 Ejemplo de Derivacion<a class="headerlink" href="#ejemplo-de-derivacion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_015: Separacion de Funciones (SoD)
 &quot;Roles R016 y R017 son mutuamente excluyentes&quot;
     |
@@ -895,7 +843,7 @@ FR-10.9: Sistema DEBE mostrar mensaje con roles en conflicto
 </div>
 </section>
 <section id="verificacion-de-trazabilidad">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">6.2 Verificacion de Trazabilidad</a><a class="headerlink" href="#verificacion-de-trazabilidad" title="Link to this heading">¶</a></h3>
+<h3>6.2 Verificacion de Trazabilidad<a class="headerlink" href="#verificacion-de-trazabilidad" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CADENA COMPLETA DE DERIVACION:
 
 BR_015 (SoD)
@@ -916,9 +864,9 @@ NO HAY &quot;TRANSFORMACION&quot;, HAY &quot;EXPLICITACION&quot;
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">7. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>7. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="FND_01_Concepto_Requisito.html#fnd-01"><span class="std std-ref">FND_01: Concepto de Requisito</span></a> - Concepto de Requisito</p></li>
 <li><p><a class="reference internal" href="FND_02_Reglas_de_Negocio.html#fnd-02"><span class="std std-ref">FND_02: Reglas de Negocio</span></a> - Reglas de Negocio</p></li>
@@ -929,7 +877,7 @@ NO HAY &quot;TRANSFORMACION&quot;, HAY &quot;EXPLICITACION&quot;
 </ul>
 </section>
 <section id="fuentes-externas">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<h3>Fuentes Externas<a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Robert C. Martin: &quot;Clean Architecture&quot; (Single Responsibility Principle)</p></li>
 <li><p>Karl Wiegers: &quot;Software Requirements&quot;</p></li>
@@ -939,7 +887,7 @@ NO HAY &quot;TRANSFORMACION&quot;, HAY &quot;EXPLICITACION&quot;
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

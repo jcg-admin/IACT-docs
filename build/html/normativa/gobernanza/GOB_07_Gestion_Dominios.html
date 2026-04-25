@@ -414,82 +414,9 @@
           
   <section id="gob-07-gestion-de-dominios">
 <span id="gob-07"></span><h1>GOB_07: Gestion de Dominios<a class="headerlink" href="#gob-07-gestion-de-dominios" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#jerarquia-documental" id="id2">1. Jerarquia Documental</a></p>
-<ul>
-<li><p><a class="reference internal" href="#niveles-de-la-estructura" id="id3">1.1 Niveles de la Estructura</a></p></li>
-<li><p><a class="reference internal" href="#profundidad-tipica" id="id4">1.2 Profundidad Tipica</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#definicion-de-componentes" id="id5">2. Definicion de Componentes</a></p>
-<ul>
-<li><p><a class="reference internal" href="#dominio-primario" id="id6">2.1 Dominio Primario</a></p></li>
-<li><p><a class="reference internal" href="#subdominio" id="id7">2.2 Subdominio</a></p></li>
-<li><p><a class="reference internal" href="#subcarpeta-organizativa" id="id8">2.3 Subcarpeta Organizativa</a></p></li>
-<li><p><a class="reference internal" href="#seccion" id="id9">2.4 Seccion</a></p></li>
-<li><p><a class="reference internal" href="#artefacto" id="id10">2.5 Artefacto</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#modelo-iact-actual" id="id11">3. Modelo IACT Actual</a></p>
-<ul>
-<li><p><a class="reference internal" href="#arquitectura-general" id="id12">3.1 Arquitectura General</a></p></li>
-<li><p><a class="reference internal" href="#detalle-por-dominio" id="id13">3.2 Detalle por Dominio</a></p></li>
-<li><p><a class="reference internal" href="#estadisticas-actuales" id="id14">3.3 Estadisticas Actuales</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#estados-de-subdominios" id="id15">4. Estados de Subdominios</a></p>
-<ul>
-<li><p><a class="reference internal" href="#estado-congelado-por-defecto" id="id16">4.1 Estado CONGELADO (Por Defecto)</a></p></li>
-<li><p><a class="reference internal" href="#estado-descongelado-por-excepcion" id="id17">4.2 Estado DESCONGELADO (Por Excepcion)</a></p></li>
-<li><p><a class="reference internal" href="#principio-de-diseno" id="id18">4.3 Principio de Diseño</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#proceso-de-descongelamiento" id="id19">5. Proceso de Descongelamiento</a></p>
-<ul>
-<li><p><a class="reference internal" href="#criterios-de-elegibilidad" id="id20">5.1 Criterios de Elegibilidad</a></p></li>
-<li><p><a class="reference internal" href="#aprobaciones-requeridas" id="id21">5.2 Aprobaciones Requeridas</a></p></li>
-<li><p><a class="reference internal" href="#proceso-formal" id="id22">5.3 Proceso Formal</a></p></li>
-<li><p><a class="reference internal" href="#documentacion-obligatoria" id="id23">5.4 Documentacion Obligatoria</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#registro-de-subdominios-descongelados" id="id24">6. Registro de Subdominios Descongelados</a></p>
-<ul>
-<li><p><a class="reference internal" href="#taxonomias-y-metamodelos-descongelado" id="id25">6.1 taxonomias_y_metamodelos/ (DESCONGELADO)</a></p></li>
-<li><p><a class="reference internal" href="#estandares-descongelado" id="id26">6.2 estandares/ (DESCONGELADO)</a></p></li>
-<li><p><a class="reference internal" href="#arquitectura-descongelado" id="id27">6.3 arquitectura/ (DESCONGELADO)</a></p></li>
-<li><p><a class="reference internal" href="#diseno-detallado-descongelado" id="id28">6.4 diseño_detallado/ (DESCONGELADO)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#proceso-de-recongelamiento" id="id29">7. Proceso de Recongelamiento</a></p>
-<ul>
-<li><p><a class="reference internal" href="#cuando-recongelar" id="id30">7.1 Cuando Recongelar</a></p></li>
-<li><p><a class="reference internal" href="#proceso" id="id31">7.2 Proceso</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#creacion-de-estructuras" id="id32">8. Creacion de Estructuras</a></p>
-<ul>
-<li><p><a class="reference internal" href="#crear-nuevo-dominio" id="id33">8.1 Crear Nuevo Dominio</a></p></li>
-<li><p><a class="reference internal" href="#crear-nuevo-subdominio" id="id34">8.2 Crear Nuevo Subdominio</a></p></li>
-<li><p><a class="reference internal" href="#crear-subcarpeta-organizativa" id="id35">8.3 Crear Subcarpeta Organizativa</a></p></li>
-<li><p><a class="reference internal" href="#crear-seccion" id="id36">8.4 Crear Seccion</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#regla-de-oro" id="id37">9. Regla de Oro</a></p></li>
-<li><p><a class="reference internal" href="#referencias" id="id38">10. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id39">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-externas" id="id40">Fuentes Externas</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id41">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define las <strong>politicas de gestion estructural</strong> del sistema
 documental IACT, estableciendo las reglas para crear, modificar y gestionar
 dominios, subdominios y subcarpetas, incluyendo el proceso de congelamiento
@@ -507,9 +434,9 @@ estableciendo los procesos de gobernanza para la gestion estructural.</p>
 </section>
 <hr class="docutils" />
 <section id="jerarquia-documental">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Jerarquia Documental</a><a class="headerlink" href="#jerarquia-documental" title="Link to this heading">¶</a></h2>
+<h2>1. Jerarquia Documental<a class="headerlink" href="#jerarquia-documental" title="Link to this heading">¶</a></h2>
 <section id="niveles-de-la-estructura">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Niveles de la Estructura</a><a class="headerlink" href="#niveles-de-la-estructura" title="Link to this heading">¶</a></h3>
+<h3>1.1 Niveles de la Estructura<a class="headerlink" href="#niveles-de-la-estructura" title="Link to this heading">¶</a></h3>
 <p>El sistema documental IACT tiene una jerarquia de <strong>5 niveles maximo</strong>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>JERARQUIA DOCUMENTAL IACT
 =========================
@@ -541,7 +468,7 @@ RAIZ (documentacion/)
 </div>
 </section>
 <section id="profundidad-tipica">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Profundidad Tipica</a><a class="headerlink" href="#profundidad-tipica" title="Link to this heading">¶</a></h3>
+<h3>1.2 Profundidad Tipica<a class="headerlink" href="#profundidad-tipica" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -576,9 +503,9 @@ RAIZ (documentacion/)
 </section>
 <hr class="docutils" />
 <section id="definicion-de-componentes">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Definicion de Componentes</a><a class="headerlink" href="#definicion-de-componentes" title="Link to this heading">¶</a></h2>
+<h2>2. Definicion de Componentes<a class="headerlink" href="#definicion-de-componentes" title="Link to this heading">¶</a></h2>
 <section id="dominio-primario">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Dominio Primario</a><a class="headerlink" href="#dominio-primario" title="Link to this heading">¶</a></h3>
+<h3>2.1 Dominio Primario<a class="headerlink" href="#dominio-primario" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Unidad arquitectonica mayor que agrupa artefactos por un
 proposito macro unico, gobernable y auditable independientemente.</p>
 <p><strong>Caracteristicas Obligatorias:</strong></p>
@@ -602,7 +529,7 @@ proposito macro unico, gobernable y auditable independientemente.</p>
 <p><strong>Regla:</strong> Dominios NO pueden contener Dominios.</p>
 </section>
 <section id="subdominio">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Subdominio</a><a class="headerlink" href="#subdominio" title="Link to this heading">¶</a></h3>
+<h3>2.2 Subdominio<a class="headerlink" href="#subdominio" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Unidad interna de un Dominio con proposito semantico propio,
 que organiza artefactos de un tipo especifico, sin gobernanza independiente.</p>
 <p><strong>Caracteristicas Obligatorias:</strong></p>
@@ -623,7 +550,7 @@ que organiza artefactos de un tipo especifico, sin gobernanza independiente.</p>
 <p><strong>Regla:</strong> Subdominios NO pueden contener Subdominios.</p>
 </section>
 <section id="subcarpeta-organizativa">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Subcarpeta Organizativa</a><a class="headerlink" href="#subcarpeta-organizativa" title="Link to this heading">¶</a></h3>
+<h3>2.3 Subcarpeta Organizativa<a class="headerlink" href="#subcarpeta-organizativa" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Subdivision interna de un Subdominio DESCONGELADO que agrupa
 artefactos de un subtipo especifico con prefijo propio.</p>
 <p><strong>Caracteristicas Obligatorias:</strong></p>
@@ -638,7 +565,7 @@ artefactos de un subtipo especifico con prefijo propio.</p>
 <p><strong>Regla:</strong> Subcarpetas NO pueden contener Subcarpetas.</p>
 </section>
 <section id="seccion">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.4 Seccion</a><a class="headerlink" href="#seccion" title="Link to this heading">¶</a></h3>
+<h3>2.4 Seccion<a class="headerlink" href="#seccion" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Agrupacion tematica opcional dentro de un Subdominio o
 Subcarpeta, sin impacto en gobernanza o trazabilidad.</p>
 <p><strong>Caracteristicas:</strong></p>
@@ -653,7 +580,7 @@ Subcarpeta, sin impacto en gobernanza o trazabilidad.</p>
 <p><strong>Cuando usar:</strong> &gt;30 artefactos que pueden agruparse por tema claro.</p>
 </section>
 <section id="artefacto">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.5 Artefacto</a><a class="headerlink" href="#artefacto" title="Link to this heading">¶</a></h3>
+<h3>2.5 Artefacto<a class="headerlink" href="#artefacto" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Unidad minima de informacion documental, representada por
 un archivo individual con ID unico.</p>
 <p><strong>Caracteristicas Obligatorias:</strong></p>
@@ -670,9 +597,9 @@ un archivo individual con ID unico.</p>
 </section>
 <hr class="docutils" />
 <section id="modelo-iact-actual">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">3. Modelo IACT Actual</a><a class="headerlink" href="#modelo-iact-actual" title="Link to this heading">¶</a></h2>
+<h2>3. Modelo IACT Actual<a class="headerlink" href="#modelo-iact-actual" title="Link to this heading">¶</a></h2>
 <section id="arquitectura-general">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.1 Arquitectura General</a><a class="headerlink" href="#arquitectura-general" title="Link to this heading">¶</a></h3>
+<h3>3.1 Arquitectura General<a class="headerlink" href="#arquitectura-general" title="Link to this heading">¶</a></h3>
 <p><strong>Formula:</strong> 5 Dominios + 21 Subdominios + 6 Subcarpetas</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>DOMINIOS PRIMARIOS (5):
 
@@ -685,7 +612,7 @@ un archivo individual con ID unico.</p>
 </div>
 </section>
 <section id="detalle-por-dominio">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.2 Detalle por Dominio</a><a class="headerlink" href="#detalle-por-dominio" title="Link to this heading">¶</a></h3>
+<h3>3.2 Detalle por Dominio<a class="headerlink" href="#detalle-por-dominio" title="Link to this heading">¶</a></h3>
 <p><strong>DOMINIO #1: base_cognitiva/ (6 subdominios)</strong></p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -704,32 +631,32 @@ un archivo individual con ID unico.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>_metadata/</p></td>
-<td><p><a href="#id42"><span class="problematic" id="id43">META_</span></a></p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">META_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>PMO</p></td>
 </tr>
 <tr class="row-odd"><td><p>glosario/</p></td>
-<td><p><a href="#id44"><span class="problematic" id="id45">GLOS_</span></a></p></td>
+<td><p><a href="#id3"><span class="problematic" id="id4">GLOS_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
 <tr class="row-even"><td><p>fundamentos_conceptuales/</p></td>
-<td><p><a href="#id46"><span class="problematic" id="id47">FND_</span></a></p></td>
+<td><p><a href="#id5"><span class="problematic" id="id6">FND_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
 <tr class="row-odd"><td><p>ontologia_sbvr/</p></td>
-<td><p><a href="#id48"><span class="problematic" id="id49">SBVR_</span></a></p></td>
+<td><p><a href="#id7"><span class="problematic" id="id8">SBVR_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
 <tr class="row-even"><td><p>taxonomias_y_metamodelos/</p></td>
-<td><p><a href="#id50"><span class="problematic" id="id51">TXM_</span></a>, <a href="#id52"><span class="problematic" id="id53">MTM_</span></a></p></td>
+<td><p><a href="#id9"><span class="problematic" id="id10">TXM_</span></a>, <a href="#id11"><span class="problematic" id="id12">MTM_</span></a></p></td>
 <td><p>Descongelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
 <tr class="row-odd"><td><p>metodologias_analiticas/</p></td>
-<td><p><a href="#id54"><span class="problematic" id="id55">MET_</span></a></p></td>
+<td><p><a href="#id13"><span class="problematic" id="id14">MET_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
@@ -754,22 +681,22 @@ un archivo individual con ID unico.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>procedimientos/</p></td>
-<td><p><a href="#id56"><span class="problematic" id="id57">PROC_</span></a></p></td>
+<td><p><a href="#id15"><span class="problematic" id="id16">PROC_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>PMO</p></td>
 </tr>
 <tr class="row-odd"><td><p>estandares/</p></td>
-<td><p><a href="#id58"><span class="problematic" id="id59">STD_</span></a>, <a href="#id60"><span class="problematic" id="id61">TPL_</span></a></p></td>
+<td><p><a href="#id17"><span class="problematic" id="id18">STD_</span></a>, <a href="#id19"><span class="problematic" id="id20">TPL_</span></a></p></td>
 <td><p>Descongelado</p></td>
 <td><p>Arq Doc</p></td>
 </tr>
 <tr class="row-even"><td><p>gobernanza/</p></td>
-<td><p><a href="#id62"><span class="problematic" id="id63">GOB_</span></a></p></td>
+<td><p><a href="#id21"><span class="problematic" id="id22">GOB_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>PMO</p></td>
 </tr>
 <tr class="row-odd"><td><p>restricciones/</p></td>
-<td><p><a href="#id64"><span class="problematic" id="id65">CNST_</span></a></p></td>
+<td><p><a href="#id23"><span class="problematic" id="id24">CNST_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Tech Lead</p></td>
 </tr>
@@ -794,27 +721,27 @@ un archivo individual con ID unico.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>reglas_negocio/</p></td>
-<td><p><a href="#id66"><span class="problematic" id="id67">BR_</span></a></p></td>
+<td><p><a href="#id25"><span class="problematic" id="id26">BR_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>BA Lead</p></td>
 </tr>
 <tr class="row-odd"><td><p>casos_uso/</p></td>
-<td><p><a href="#id68"><span class="problematic" id="id69">UC_</span></a></p></td>
+<td><p><a href="#id27"><span class="problematic" id="id28">UC_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>BA Lead</p></td>
 </tr>
 <tr class="row-even"><td><p>requisitos_funcionales/</p></td>
-<td><p><a href="#id70"><span class="problematic" id="id71">FR_</span></a></p></td>
+<td><p><a href="#id29"><span class="problematic" id="id30">FR_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>BA Lead</p></td>
 </tr>
 <tr class="row-odd"><td><p>requisitos_no_funcionales/</p></td>
-<td><p><a href="#id72"><span class="problematic" id="id73">NFR_</span></a></p></td>
+<td><p><a href="#id31"><span class="problematic" id="id32">NFR_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Tech Lead</p></td>
 </tr>
 <tr class="row-even"><td><p>rtm/</p></td>
-<td><p><a href="#id74"><span class="problematic" id="id75">RTM_</span></a>, <a href="#id76"><span class="problematic" id="id77">COV_</span></a></p></td>
+<td><p><a href="#id33"><span class="problematic" id="id34">RTM_</span></a>, <a href="#id35"><span class="problematic" id="id36">COV_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>BA Lead</p></td>
 </tr>
@@ -839,17 +766,17 @@ un archivo individual con ID unico.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>arquitectura/</p></td>
-<td><p><a href="#id78"><span class="problematic" id="id79">ARQ_</span></a>, <a href="#id80"><span class="problematic" id="id81">ADR_</span></a></p></td>
+<td><p><a href="#id37"><span class="problematic" id="id38">ARQ_</span></a>, <a href="#id39"><span class="problematic" id="id40">ADR_</span></a></p></td>
 <td><p>Descongelado</p></td>
 <td><p>Arquitecto</p></td>
 </tr>
 <tr class="row-odd"><td><p>diseño_detallado/</p></td>
-<td><p><a href="#id82"><span class="problematic" id="id83">DES_</span></a>, <a href="#id84"><span class="problematic" id="id85">API_</span></a></p></td>
+<td><p><a href="#id41"><span class="problematic" id="id42">DES_</span></a>, <a href="#id43"><span class="problematic" id="id44">API_</span></a></p></td>
 <td><p>Descongelado</p></td>
 <td><p>Tech Lead</p></td>
 </tr>
 <tr class="row-even"><td><p>despliegue/</p></td>
-<td><p><a href="#id86"><span class="problematic" id="id87">DEP_</span></a></p></td>
+<td><p><a href="#id45"><span class="problematic" id="id46">DEP_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>DevOps</p></td>
 </tr>
@@ -874,17 +801,17 @@ un archivo individual con ID unico.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>manuales_usuarios/</p></td>
-<td><p><a href="#id88"><span class="problematic" id="id89">MAN_</span></a></p></td>
+<td><p><a href="#id47"><span class="problematic" id="id48">MAN_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>Tech Writer</p></td>
 </tr>
 <tr class="row-odd"><td><p>pm/</p></td>
-<td><p><a href="#id90"><span class="problematic" id="id91">PM_</span></a></p></td>
+<td><p><a href="#id49"><span class="problematic" id="id50">PM_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>PMO</p></td>
 </tr>
 <tr class="row-even"><td><p>evidencia/</p></td>
-<td><p><a href="#id92"><span class="problematic" id="id93">EVD_</span></a></p></td>
+<td><p><a href="#id51"><span class="problematic" id="id52">EVD_</span></a></p></td>
 <td><p>Congelado</p></td>
 <td><p>QA</p></td>
 </tr>
@@ -893,7 +820,7 @@ un archivo individual con ID unico.</p>
 </div>
 </section>
 <section id="estadisticas-actuales">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.3 Estadisticas Actuales</a><a class="headerlink" href="#estadisticas-actuales" title="Link to this heading">¶</a></h3>
+<h3>3.3 Estadisticas Actuales<a class="headerlink" href="#estadisticas-actuales" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -937,9 +864,9 @@ un archivo individual con ID unico.</p>
 </section>
 <hr class="docutils" />
 <section id="estados-de-subdominios">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">4. Estados de Subdominios</a><a class="headerlink" href="#estados-de-subdominios" title="Link to this heading">¶</a></h2>
+<h2>4. Estados de Subdominios<a class="headerlink" href="#estados-de-subdominios" title="Link to this heading">¶</a></h2>
 <section id="estado-congelado-por-defecto">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.1 Estado CONGELADO (Por Defecto)</a><a class="headerlink" href="#estado-congelado-por-defecto" title="Link to this heading">¶</a></h3>
+<h3>4.1 Estado CONGELADO (Por Defecto)<a class="headerlink" href="#estado-congelado-por-defecto" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Subdominio con estructura plana sin subdivisiones internas.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CARACTERISTICAS:
 
@@ -961,7 +888,7 @@ un archivo individual con ID unico.</p>
 <p><strong>Regla:</strong> Todos los Subdominios estan CONGELADOS por defecto.</p>
 </section>
 <section id="estado-descongelado-por-excepcion">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.2 Estado DESCONGELADO (Por Excepcion)</a><a class="headerlink" href="#estado-descongelado-por-excepcion" title="Link to this heading">¶</a></h3>
+<h3>4.2 Estado DESCONGELADO (Por Excepcion)<a class="headerlink" href="#estado-descongelado-por-excepcion" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Subdominio autorizado para contener Subcarpetas Organizativas.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CARACTERISTICAS:
 
@@ -983,7 +910,7 @@ un archivo individual con ID unico.</p>
 <p><strong>Regla:</strong> Solo descongelar mediante proceso formal (ver seccion 5).</p>
 </section>
 <section id="principio-de-diseno">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.3 Principio de Diseño</a><a class="headerlink" href="#principio-de-diseno" title="Link to this heading">¶</a></h3>
+<h3>4.3 Principio de Diseño<a class="headerlink" href="#principio-de-diseno" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRINCIPIO OPEN/CLOSED APLICADO A GOBERNANZA:
 
 &quot;El sistema es CERRADO por defecto (congelado),
@@ -1005,9 +932,9 @@ REGLA: Solo descongelar cuando el DOLOR de no hacerlo
 </section>
 <hr class="docutils" />
 <section id="proceso-de-descongelamiento">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">5. Proceso de Descongelamiento</a><a class="headerlink" href="#proceso-de-descongelamiento" title="Link to this heading">¶</a></h2>
+<h2>5. Proceso de Descongelamiento<a class="headerlink" href="#proceso-de-descongelamiento" title="Link to this heading">¶</a></h2>
 <section id="criterios-de-elegibilidad">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">5.1 Criterios de Elegibilidad</a><a class="headerlink" href="#criterios-de-elegibilidad" title="Link to this heading">¶</a></h3>
+<h3>5.1 Criterios de Elegibilidad<a class="headerlink" href="#criterios-de-elegibilidad" title="Link to this heading">¶</a></h3>
 <p>Un Subdominio puede descongelarse si cumple <strong>AL MENOS UNA</strong> condicion:</p>
 <p><strong>a) Cambio de Autoridad Normativa</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Diferentes subtipos requieren owners diferentes.
@@ -1052,7 +979,7 @@ Justificacion: Templates incompatibles requieren separacion
 </div>
 </section>
 <section id="aprobaciones-requeridas">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.2 Aprobaciones Requeridas</a><a class="headerlink" href="#aprobaciones-requeridas" title="Link to this heading">¶</a></h3>
+<h3>5.2 Aprobaciones Requeridas<a class="headerlink" href="#aprobaciones-requeridas" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1094,7 +1021,7 @@ Justificacion: Templates incompatibles requieren separacion
 </div>
 </section>
 <section id="proceso-formal">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.3 Proceso Formal</a><a class="headerlink" href="#proceso-formal" title="Link to this heading">¶</a></h3>
+<h3>5.3 Proceso Formal<a class="headerlink" href="#proceso-formal" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO DE DESCONGELAMIENTO
 ===========================
 
@@ -1126,7 +1053,7 @@ PASO 5: Documentacion
 </div>
 </section>
 <section id="documentacion-obligatoria">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.4 Documentacion Obligatoria</a><a class="headerlink" href="#documentacion-obligatoria" title="Link to this heading">¶</a></h3>
+<h3>5.4 Documentacion Obligatoria<a class="headerlink" href="#documentacion-obligatoria" title="Link to this heading">¶</a></h3>
 <p>Al descongelar, registrar en seccion 6:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REGISTRO DE DESCONGELAMIENTO:
 
@@ -1143,9 +1070,9 @@ PASO 5: Documentacion
 </section>
 <hr class="docutils" />
 <section id="registro-de-subdominios-descongelados">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">6. Registro de Subdominios Descongelados</a><a class="headerlink" href="#registro-de-subdominios-descongelados" title="Link to this heading">¶</a></h2>
+<h2>6. Registro de Subdominios Descongelados<a class="headerlink" href="#registro-de-subdominios-descongelados" title="Link to this heading">¶</a></h2>
 <section id="taxonomias-y-metamodelos-descongelado">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">6.1 taxonomias_y_metamodelos/ (DESCONGELADO)</a><a class="headerlink" href="#taxonomias-y-metamodelos-descongelado" title="Link to this heading">¶</a></h3>
+<h3>6.1 taxonomias_y_metamodelos/ (DESCONGELADO)<a class="headerlink" href="#taxonomias-y-metamodelos-descongelado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1166,10 +1093,10 @@ PASO 5: Documentacion
 </td>
 </tr>
 <tr class="row-even"><td><p>Justificacion</p></td>
-<td><p><a href="#id94"><span class="problematic" id="id95">TXM_</span></a> (clasificacion jerarquica) y <a href="#id96"><span class="problematic" id="id97">MTM_</span></a> (estructura UML/ER) son conceptos distintos con templates incompatibles.</p></td>
+<td><p><a href="#id53"><span class="problematic" id="id54">TXM_</span></a> (clasificacion jerarquica) y <a href="#id55"><span class="problematic" id="id56">MTM_</span></a> (estructura UML/ER) son conceptos distintos con templates incompatibles.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subcarpetas</p></td>
-<td><p>taxonomias/ (<a href="#id98"><span class="problematic" id="id99">TXM_</span></a>), metamodelos/ (<a href="#id100"><span class="problematic" id="id101">MTM_</span></a>)</p></td>
+<td><p>taxonomias/ (<a href="#id57"><span class="problematic" id="id58">TXM_</span></a>), metamodelos/ (<a href="#id59"><span class="problematic" id="id60">MTM_</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>Aprobaciones</p></td>
 <td><p>Arq Doc, PMO, BA Lead</p></td>
@@ -1179,7 +1106,7 @@ PASO 5: Documentacion
 </div>
 </section>
 <section id="estandares-descongelado">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">6.2 estandares/ (DESCONGELADO)</a><a class="headerlink" href="#estandares-descongelado" title="Link to this heading">¶</a></h3>
+<h3>6.2 estandares/ (DESCONGELADO)<a class="headerlink" href="#estandares-descongelado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1200,10 +1127,10 @@ PASO 5: Documentacion
 </td>
 </tr>
 <tr class="row-even"><td><p>Justificacion</p></td>
-<td><p><a href="#id102"><span class="problematic" id="id103">STD_</span></a> (Arquitecto) y <a href="#id104"><span class="problematic" id="id105">TPL_</span></a> (Tech Writer) tienen owners diferentes. Se previeron &gt;25 artefactos.</p></td>
+<td><p><a href="#id61"><span class="problematic" id="id62">STD_</span></a> (Arquitecto) y <a href="#id63"><span class="problematic" id="id64">TPL_</span></a> (Tech Writer) tienen owners diferentes. Se previeron &gt;25 artefactos.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subcarpetas</p></td>
-<td><p>plantillas/ (<a href="#id106"><span class="problematic" id="id107">TPL_</span></a>)</p></td>
+<td><p>plantillas/ (<a href="#id65"><span class="problematic" id="id66">TPL_</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>Aprobaciones</p></td>
 <td><p>Arq Doc, PMO</p></td>
@@ -1213,7 +1140,7 @@ PASO 5: Documentacion
 </div>
 </section>
 <section id="arquitectura-descongelado">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">6.3 arquitectura/ (DESCONGELADO)</a><a class="headerlink" href="#arquitectura-descongelado" title="Link to this heading">¶</a></h3>
+<h3>6.3 arquitectura/ (DESCONGELADO)<a class="headerlink" href="#arquitectura-descongelado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1234,10 +1161,10 @@ PASO 5: Documentacion
 </td>
 </tr>
 <tr class="row-even"><td><p>Justificacion</p></td>
-<td><p><a href="#id108"><span class="problematic" id="id109">ARQ_</span></a> (vistas, rara actualizacion) y <a href="#id110"><span class="problematic" id="id111">ADR_</span></a> (continuo) tienen ciclos diferentes.</p></td>
+<td><p><a href="#id67"><span class="problematic" id="id68">ARQ_</span></a> (vistas, rara actualizacion) y <a href="#id69"><span class="problematic" id="id70">ADR_</span></a> (continuo) tienen ciclos diferentes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subcarpetas</p></td>
-<td><p>decisiones/ (<a href="#id112"><span class="problematic" id="id113">ADR_</span></a>)</p></td>
+<td><p>decisiones/ (<a href="#id71"><span class="problematic" id="id72">ADR_</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>Aprobaciones</p></td>
 <td><p>Arq Doc, PMO, Tech Lead</p></td>
@@ -1247,7 +1174,7 @@ PASO 5: Documentacion
 </div>
 </section>
 <section id="diseno-detallado-descongelado">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">6.4 diseño_detallado/ (DESCONGELADO)</a><a class="headerlink" href="#diseno-detallado-descongelado" title="Link to this heading">¶</a></h3>
+<h3>6.4 diseño_detallado/ (DESCONGELADO)<a class="headerlink" href="#diseno-detallado-descongelado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1268,10 +1195,10 @@ PASO 5: Documentacion
 </td>
 </tr>
 <tr class="row-even"><td><p>Justificacion</p></td>
-<td><p><a href="#id114"><span class="problematic" id="id115">API_</span></a> (especificaciones REST), <a href="#id116"><span class="problematic" id="id117">DSC_MOD_</span></a> (esquemas), <a href="#id118"><span class="problematic" id="id119">DSC_INT_</span></a> (flujos) tienen templates incompatibles.</p></td>
+<td><p><a href="#id73"><span class="problematic" id="id74">API_</span></a> (especificaciones REST), <a href="#id75"><span class="problematic" id="id76">DSC_MOD_</span></a> (esquemas), <a href="#id77"><span class="problematic" id="id78">DSC_INT_</span></a> (flujos) tienen templates incompatibles.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subcarpetas</p></td>
-<td><p>apis/ (<a href="#id120"><span class="problematic" id="id121">API_</span></a>), modelos/ (<a href="#id122"><span class="problematic" id="id123">DSC_MOD_</span></a>)</p></td>
+<td><p>apis/ (<a href="#id79"><span class="problematic" id="id80">API_</span></a>), modelos/ (<a href="#id81"><span class="problematic" id="id82">DSC_MOD_</span></a>)</p></td>
 </tr>
 <tr class="row-even"><td><p>Aprobaciones</p></td>
 <td><p>Arq Doc, PMO, Tech Lead</p></td>
@@ -1283,9 +1210,9 @@ PASO 5: Documentacion
 </section>
 <hr class="docutils" />
 <section id="proceso-de-recongelamiento">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink">7. Proceso de Recongelamiento</a><a class="headerlink" href="#proceso-de-recongelamiento" title="Link to this heading">¶</a></h2>
+<h2>7. Proceso de Recongelamiento<a class="headerlink" href="#proceso-de-recongelamiento" title="Link to this heading">¶</a></h2>
 <section id="cuando-recongelar">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">7.1 Cuando Recongelar</a><a class="headerlink" href="#cuando-recongelar" title="Link to this heading">¶</a></h3>
+<h3>7.1 Cuando Recongelar<a class="headerlink" href="#cuando-recongelar" title="Link to this heading">¶</a></h3>
 <p>Un Subdominio descongelado PUEDE recongelarse si:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Las Subcarpetas Organizativas se eliminan
 - Artefactos se mueven al nivel del Subdominio
@@ -1295,7 +1222,7 @@ PASO 5: Documentacion
 </div>
 </section>
 <section id="proceso">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.2 Proceso</a><a class="headerlink" href="#proceso" title="Link to this heading">¶</a></h3>
+<h3>7.2 Proceso<a class="headerlink" href="#proceso" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO DE RECONGELAMIENTO:
 
 1. Migrar artefactos de subcarpetas al subdominio
@@ -1310,9 +1237,9 @@ PASO 5: Documentacion
 </section>
 <hr class="docutils" />
 <section id="creacion-de-estructuras">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink">8. Creacion de Estructuras</a><a class="headerlink" href="#creacion-de-estructuras" title="Link to this heading">¶</a></h2>
+<h2>8. Creacion de Estructuras<a class="headerlink" href="#creacion-de-estructuras" title="Link to this heading">¶</a></h2>
 <section id="crear-nuevo-dominio">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink">8.1 Crear Nuevo Dominio</a><a class="headerlink" href="#crear-nuevo-dominio" title="Link to this heading">¶</a></h3>
+<h3>8.1 Crear Nuevo Dominio<a class="headerlink" href="#crear-nuevo-dominio" title="Link to this heading">¶</a></h3>
 <p><strong>Restriccion:</strong> Operacion excepcional. Los 5 dominios actuales cubren
 todas las necesidades previstas.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO (si fuera necesario):
@@ -1327,7 +1254,7 @@ todas las necesidades previstas.</p>
 </div>
 </section>
 <section id="crear-nuevo-subdominio">
-<h3><a class="toc-backref" href="#id34" role="doc-backlink">8.2 Crear Nuevo Subdominio</a><a class="headerlink" href="#crear-nuevo-subdominio" title="Link to this heading">¶</a></h3>
+<h3>8.2 Crear Nuevo Subdominio<a class="headerlink" href="#crear-nuevo-subdominio" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO:
 
 1. Identificar Dominio padre
@@ -1341,7 +1268,7 @@ todas las necesidades previstas.</p>
 </div>
 </section>
 <section id="crear-subcarpeta-organizativa">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">8.3 Crear Subcarpeta Organizativa</a><a class="headerlink" href="#crear-subcarpeta-organizativa" title="Link to this heading">¶</a></h3>
+<h3>8.3 Crear Subcarpeta Organizativa<a class="headerlink" href="#crear-subcarpeta-organizativa" title="Link to this heading">¶</a></h3>
 <p><strong>Prerequisito:</strong> Subdominio padre debe estar DESCONGELADO.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO:
 
@@ -1354,7 +1281,7 @@ todas las necesidades previstas.</p>
 </div>
 </section>
 <section id="crear-seccion">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink">8.4 Crear Seccion</a><a class="headerlink" href="#crear-seccion" title="Link to this heading">¶</a></h3>
+<h3>8.4 Crear Seccion<a class="headerlink" href="#crear-seccion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCESO (simple, sin aprobacion formal):
 
 1. Crear carpeta con nombre descriptivo
@@ -1367,7 +1294,7 @@ todas las necesidades previstas.</p>
 </section>
 <hr class="docutils" />
 <section id="regla-de-oro">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink">9. Regla de Oro</a><a class="headerlink" href="#regla-de-oro" title="Link to this heading">¶</a></h2>
+<h2>9. Regla de Oro<a class="headerlink" href="#regla-de-oro" title="Link to this heading">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;Dominio gobierna.
  Subdominio organiza y significa.
  Subcarpeta especializa (solo si descongelado).
@@ -1385,9 +1312,9 @@ todas las necesidades previstas.</p>
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink">10. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>10. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html#gob-01"><span class="std std-ref">GOB_01: Modelo de Gobernanza IACT</span></a> - Modelo de Gobernanza IACT</p></li>
 <li><p><a class="reference internal" href="GOB_02_Roles_y_RACI.html#gob-02"><span class="std std-ref">GOB_02: Roles y Matriz RACI</span></a> - Roles y Matriz RACI</p></li>
@@ -1395,7 +1322,7 @@ todas las necesidades previstas.</p>
 </ul>
 </section>
 <section id="fuentes-externas">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<h3>Fuentes Externas<a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>DEFINICIONES_OFICIALES_MODELO_DOCUMENTAL_IACT_v_2_0_0.md</p></li>
 </ul>
@@ -1403,7 +1330,7 @@ todas las necesidades previstas.</p>
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

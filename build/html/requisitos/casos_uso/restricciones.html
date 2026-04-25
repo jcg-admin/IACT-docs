@@ -407,31 +407,8 @@
           
   <section id="restricciones-de-arquitectura-cnst-iact-v4-0">
 <span id="restricciones"></span><h1>Restricciones de Arquitectura (CNST) - IACT v4.0<a class="headerlink" href="#restricciones-de-arquitectura-cnst-iact-v4-0" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="tabla-de-contenidos">
-<p class="topic-title">Tabla de Contenidos</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#introduccion" id="id1">1. Introducción</a></p></li>
-<li><p><a class="reference internal" href="#catalogo-de-restricciones" id="id2">2. Catálogo de Restricciones</a></p>
-<ul>
-<li><p><a class="reference internal" href="#cnst-001-comunicaciones-prohibidas" id="id3">2.1 CNST-001: Comunicaciones Prohibidas</a></p></li>
-<li><p><a class="reference internal" href="#cnst-002-sesion-unica-y-timeout" id="id4">2.2 CNST-002: Sesión Única y Timeout</a></p></li>
-<li><p><a class="reference internal" href="#cnst-003-base-de-datos-dual-inmutable" id="id5">2.3 CNST-003: Base de Datos Dual Inmutable</a></p></li>
-<li><p><a class="reference internal" href="#cnst-004-alertas-solo-buzon-interno" id="id6">2.4 CNST-004: Alertas Solo Buzón Interno</a></p></li>
-<li><p><a class="reference internal" href="#cnst-005-modelo-rbac-flat" id="id7">2.5 CNST-005: Modelo RBAC Flat</a></p></li>
-<li><p><a class="reference internal" href="#cnst-006-rango-maximo-de-reportes" id="id8">2.6 CNST-006: Rango Máximo de Reportes</a></p></li>
-<li><p><a class="reference internal" href="#cnst-007-limites-de-exportacion" id="id9">2.7 CNST-007: Límites de Exportación</a></p></li>
-<li><p><a class="reference internal" href="#cnst-008-logs-sin-pii" id="id10">2.8 CNST-008: Logs Sin PII</a></p></li>
-<li><p><a class="reference internal" href="#cnst-009-auditoria-inmutable" id="id11">2.9 CNST-009: Auditoría Inmutable</a></p></li>
-<li><p><a class="reference internal" href="#cnst-010-clasificacion-de-datos" id="id12">2.10 CNST-010: Clasificación de Datos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#matriz-cnst-modulos" id="id13">3. Matriz CNST → Módulos</a></p></li>
-<li><p><a class="reference internal" href="#validacion-en-casos-de-uso" id="id14">4. Validación en Casos de Uso</a></p></li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id15">5. Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <section id="introduccion">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">1. Introducción</a><a class="headerlink" href="#introduccion" title="Link to this heading">¶</a></h2>
+<h2>1. Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">¶</a></h2>
 <p>Este documento resume las <strong>restricciones de arquitectura (CNST)</strong> que deben
 aplicarse en todos los casos de uso del sistema IACT.</p>
 <div class="admonition danger">
@@ -441,9 +418,9 @@ Su violación implica rechazo en code review y rollback de deployment.</p>
 </div>
 </section>
 <section id="catalogo-de-restricciones">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">2. Catálogo de Restricciones</a><a class="headerlink" href="#catalogo-de-restricciones" title="Link to this heading">¶</a></h2>
+<h2>2. Catálogo de Restricciones<a class="headerlink" href="#catalogo-de-restricciones" title="Link to this heading">¶</a></h2>
 <section id="cnst-001-comunicaciones-prohibidas">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">2.1 CNST-001: Comunicaciones Prohibidas</a><a class="headerlink" href="#cnst-001-comunicaciones-prohibidas" title="Link to this heading">¶</a></h3>
+<h3>2.1 CNST-001: Comunicaciones Prohibidas<a class="headerlink" href="#cnst-001-comunicaciones-prohibidas" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -492,7 +469,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-002-sesion-unica-y-timeout">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">2.2 CNST-002: Sesión Única y Timeout</a><a class="headerlink" href="#cnst-002-sesion-unica-y-timeout" title="Link to this heading">¶</a></h3>
+<h3>2.2 CNST-002: Sesión Única y Timeout<a class="headerlink" href="#cnst-002-sesion-unica-y-timeout" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -529,7 +506,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-003-base-de-datos-dual-inmutable">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.3 CNST-003: Base de Datos Dual Inmutable</a><a class="headerlink" href="#cnst-003-base-de-datos-dual-inmutable" title="Link to this heading">¶</a></h3>
+<h3>2.3 CNST-003: Base de Datos Dual Inmutable<a class="headerlink" href="#cnst-003-base-de-datos-dual-inmutable" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -579,7 +556,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-004-alertas-solo-buzon-interno">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.4 CNST-004: Alertas Solo Buzón Interno</a><a class="headerlink" href="#cnst-004-alertas-solo-buzon-interno" title="Link to this heading">¶</a></h3>
+<h3>2.4 CNST-004: Alertas Solo Buzón Interno<a class="headerlink" href="#cnst-004-alertas-solo-buzon-interno" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -616,7 +593,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-005-modelo-rbac-flat">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.5 CNST-005: Modelo RBAC Flat</a><a class="headerlink" href="#cnst-005-modelo-rbac-flat" title="Link to this heading">¶</a></h3>
+<h3>2.5 CNST-005: Modelo RBAC Flat<a class="headerlink" href="#cnst-005-modelo-rbac-flat" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -688,7 +665,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-006-rango-maximo-de-reportes">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.6 CNST-006: Rango Máximo de Reportes</a><a class="headerlink" href="#cnst-006-rango-maximo-de-reportes" title="Link to this heading">¶</a></h3>
+<h3>2.6 CNST-006: Rango Máximo de Reportes<a class="headerlink" href="#cnst-006-rango-maximo-de-reportes" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -723,7 +700,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-007-limites-de-exportacion">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.7 CNST-007: Límites de Exportación</a><a class="headerlink" href="#cnst-007-limites-de-exportacion" title="Link to this heading">¶</a></h3>
+<h3>2.7 CNST-007: Límites de Exportación<a class="headerlink" href="#cnst-007-limites-de-exportacion" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -789,7 +766,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-008-logs-sin-pii">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.8 CNST-008: Logs Sin PII</a><a class="headerlink" href="#cnst-008-logs-sin-pii" title="Link to this heading">¶</a></h3>
+<h3>2.8 CNST-008: Logs Sin PII<a class="headerlink" href="#cnst-008-logs-sin-pii" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -836,7 +813,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-009-auditoria-inmutable">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.9 CNST-009: Auditoría Inmutable</a><a class="headerlink" href="#cnst-009-auditoria-inmutable" title="Link to this heading">¶</a></h3>
+<h3>2.9 CNST-009: Auditoría Inmutable<a class="headerlink" href="#cnst-009-auditoria-inmutable" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -899,7 +876,7 @@ circunstancia.</p>
 </ul>
 </section>
 <section id="cnst-010-clasificacion-de-datos">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">2.10 CNST-010: Clasificación de Datos</a><a class="headerlink" href="#cnst-010-clasificacion-de-datos" title="Link to this heading">¶</a></h3>
+<h3>2.10 CNST-010: Clasificación de Datos<a class="headerlink" href="#cnst-010-clasificacion-de-datos" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -959,7 +936,7 @@ circunstancia.</p>
 </section>
 </section>
 <section id="matriz-cnst-modulos">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Matriz CNST → Módulos</a><a class="headerlink" href="#matriz-cnst-modulos" title="Link to this heading">¶</a></h2>
+<h2>3. Matriz CNST → Módulos<a class="headerlink" href="#matriz-cnst-modulos" title="Link to this heading">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                 AUTH  USR  ACC  PIP  RPT  ALR  AUD  LOG
 ─────────────────────────────────────────────────────────
 CNST-001 (no email)  ●    ●    -    -    ●    ●    ●    -
@@ -976,7 +953,7 @@ CNST-010 (clasif)    ●    ●    ●    ●    ●    ●    ●    ●
 </div>
 </section>
 <section id="validacion-en-casos-de-uso">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">4. Validación en Casos de Uso</a><a class="headerlink" href="#validacion-en-casos-de-uso" title="Link to this heading">¶</a></h2>
+<h2>4. Validación en Casos de Uso<a class="headerlink" href="#validacion-en-casos-de-uso" title="Link to this heading">¶</a></h2>
 <p>Cada caso de uso debe incluir una sección <strong>&quot;11. Restricciones de Arquitectura&quot;</strong>
 con la siguiente estructura:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">11. Restricciones de Arquitectura</span>
@@ -999,7 +976,7 @@ con la siguiente estructura:</p>
 </div>
 </section>
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">5. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>5. Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

@@ -414,63 +414,9 @@
           
   <section id="sbvr-02-fact-types-tipos-de-hechos">
 <span id="sbvr-02"></span><h1>SBVR_02: Fact Types (Tipos de Hechos)<a class="headerlink" href="#sbvr-02-fact-types-tipos-de-hechos" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#estructura-de-un-fact-type" id="id2">1. Estructura de un Fact Type</a></p>
-<ul>
-<li><p><a class="reference internal" href="#componentes" id="id3">1.1 Componentes</a></p></li>
-<li><p><a class="reference internal" href="#tipos-de-cardinalidad" id="id4">1.2 Tipos de Cardinalidad</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fact-types-de-seguridad" id="id5">2. Fact Types de Seguridad</a></p>
-<ul>
-<li><p><a class="reference internal" href="#usuario-tiene-rol" id="id6">2.1 Usuario tiene Rol</a></p></li>
-<li><p><a class="reference internal" href="#rol-contiene-permiso" id="id7">2.2 Rol contiene Permiso</a></p></li>
-<li><p><a class="reference internal" href="#usuario-pertenece-a-segmento" id="id8">2.3 Usuario pertenece_a Segmento</a></p></li>
-<li><p><a class="reference internal" href="#usuario-inicia-sesion" id="id9">2.4 Usuario inicia Sesion</a></p></li>
-<li><p><a class="reference internal" href="#usuario-genera-registro-auditoria" id="id10">2.5 Usuario genera Registro_Auditoria</a></p></li>
-<li><p><a class="reference internal" href="#rol-excluye-rol" id="id11">2.6 Rol excluye Rol</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fact-types-de-dominio-ivr" id="id12">3. Fact Types de Dominio IVR</a></p>
-<ul>
-<li><p><a class="reference internal" href="#llamada-origina-en-centro" id="id13">3.1 Llamada origina_en Centro</a></p></li>
-<li><p><a class="reference internal" href="#llamada-navega-menu-ivr" id="id14">3.2 Llamada navega Menu_IVR</a></p></li>
-<li><p><a class="reference internal" href="#llamada-genera-transferencia" id="id15">3.3 Llamada genera Transferencia</a></p></li>
-<li><p><a class="reference internal" href="#transferencia-destina-a-centro" id="id16">3.4 Transferencia destina_a Centro</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fact-types-de-analitica" id="id17">4. Fact Types de Analitica</a></p>
-<ul>
-<li><p><a class="reference internal" href="#reporte-contiene-metrica" id="id18">4.1 Reporte contiene Metrica</a></p></li>
-<li><p><a class="reference internal" href="#dashboard-visualiza-metrica" id="id19">4.2 Dashboard visualiza Metrica</a></p></li>
-<li><p><a class="reference internal" href="#alerta-monitorea-metrica" id="id20">4.3 Alerta monitorea Metrica</a></p></li>
-<li><p><a class="reference internal" href="#alerta-notifica-a-usuario" id="id21">4.4 Alerta notifica_a Usuario</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fact-types-de-sistema" id="id22">5. Fact Types de Sistema</a></p>
-<ul>
-<li><p><a class="reference internal" href="#usuario-recibe-mensaje-interno" id="id23">5.1 Usuario recibe Mensaje_Interno</a></p></li>
-<li><p><a class="reference internal" href="#job-etl-sincroniza-llamada" id="id24">5.2 Job_ETL sincroniza Llamada</a></p></li>
-<li><p><a class="reference internal" href="#permiso-aplica-a-modulo" id="id25">5.3 Permiso aplica_a Modulo</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#matriz-de-fact-types" id="id26">6. Matriz de Fact Types</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-relaciones" id="id27">7. Diagrama de Relaciones</a></p></li>
-<li><p><a class="reference internal" href="#referencias" id="id28">8. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id29">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes" id="id30">Fuentes</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id31">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define los <strong>Fact Types</strong> (tipos de hechos) del dominio IACT
 siguiendo el estandar SBVR. Los Fact Types son las relaciones (verbos) que
 conectan los conceptos nucleares definidos en <a class="reference internal" href="SBVR_01_Conceptos_Nucleares.html#sbvr-01"><span class="std std-ref">SBVR_01: Conceptos Nucleares</span></a>.</p>
@@ -487,9 +433,9 @@ conectan los conceptos nucleares definidos en <a class="reference internal" href
 </section>
 <hr class="docutils" />
 <section id="estructura-de-un-fact-type">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Estructura de un Fact Type</a><a class="headerlink" href="#estructura-de-un-fact-type" title="Link to this heading">¶</a></h2>
+<h2>1. Estructura de un Fact Type<a class="headerlink" href="#estructura-de-un-fact-type" title="Link to this heading">¶</a></h2>
 <section id="componentes">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Componentes</a><a class="headerlink" href="#componentes" title="Link to this heading">¶</a></h3>
+<h3>1.1 Componentes<a class="headerlink" href="#componentes" title="Link to this heading">¶</a></h3>
 <p>Cada Fact Type se documenta con:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: [Concepto1] verbo [Concepto2]
 
@@ -509,7 +455,7 @@ OBLIGATORIEDAD:
 </div>
 </section>
 <section id="tipos-de-cardinalidad">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Tipos de Cardinalidad</a><a class="headerlink" href="#tipos-de-cardinalidad" title="Link to this heading">¶</a></h3>
+<h3>1.2 Tipos de Cardinalidad<a class="headerlink" href="#tipos-de-cardinalidad" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -547,9 +493,9 @@ OBLIGATORIEDAD:
 </section>
 <hr class="docutils" />
 <section id="fact-types-de-seguridad">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Fact Types de Seguridad</a><a class="headerlink" href="#fact-types-de-seguridad" title="Link to this heading">¶</a></h2>
+<h2>2. Fact Types de Seguridad<a class="headerlink" href="#fact-types-de-seguridad" title="Link to this heading">¶</a></h2>
 <section id="usuario-tiene-rol">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Usuario tiene Rol</a><a class="headerlink" href="#usuario-tiene-rol" title="Link to this heading">¶</a></h3>
+<h3>2.1 Usuario tiene Rol<a class="headerlink" href="#usuario-tiene-rol" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Usuario tiene Rol
 
 LECTURA DIRECTA:
@@ -578,7 +524,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="rol-contiene-permiso">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Rol contiene Permiso</a><a class="headerlink" href="#rol-contiene-permiso" title="Link to this heading">¶</a></h3>
+<h3>2.2 Rol contiene Permiso<a class="headerlink" href="#rol-contiene-permiso" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Rol contiene Permiso
 
 LECTURA DIRECTA:
@@ -607,7 +553,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="usuario-pertenece-a-segmento">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.3 Usuario pertenece_a Segmento</a><a class="headerlink" href="#usuario-pertenece-a-segmento" title="Link to this heading">¶</a></h3>
+<h3>2.3 Usuario pertenece_a Segmento<a class="headerlink" href="#usuario-pertenece-a-segmento" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Usuario pertenece_a Segmento
 
 LECTURA DIRECTA:
@@ -635,7 +581,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="usuario-inicia-sesion">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.4 Usuario inicia Sesion</a><a class="headerlink" href="#usuario-inicia-sesion" title="Link to this heading">¶</a></h3>
+<h3>2.4 Usuario inicia Sesion<a class="headerlink" href="#usuario-inicia-sesion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Usuario inicia Sesion
 
 LECTURA DIRECTA:
@@ -667,7 +613,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="usuario-genera-registro-auditoria">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.5 Usuario genera Registro_Auditoria</a><a class="headerlink" href="#usuario-genera-registro-auditoria" title="Link to this heading">¶</a></h3>
+<h3>2.5 Usuario genera Registro_Auditoria<a class="headerlink" href="#usuario-genera-registro-auditoria" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Usuario genera Registro_Auditoria
 
 LECTURA DIRECTA:
@@ -694,7 +640,7 @@ Los registros son INMUTABLES. No se pueden modificar ni eliminar.
 </div>
 </section>
 <section id="rol-excluye-rol">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.6 Rol excluye Rol</a><a class="headerlink" href="#rol-excluye-rol" title="Link to this heading">¶</a></h3>
+<h3>2.6 Rol excluye Rol<a class="headerlink" href="#rol-excluye-rol" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Rol excluye Rol
 
 LECTURA DIRECTA:
@@ -730,9 +676,9 @@ Tabla: role_conflicts (role_id_a, role_id_b, reason)
 </section>
 <hr class="docutils" />
 <section id="fact-types-de-dominio-ivr">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">3. Fact Types de Dominio IVR</a><a class="headerlink" href="#fact-types-de-dominio-ivr" title="Link to this heading">¶</a></h2>
+<h2>3. Fact Types de Dominio IVR<a class="headerlink" href="#fact-types-de-dominio-ivr" title="Link to this heading">¶</a></h2>
 <section id="llamada-origina-en-centro">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.1 Llamada origina_en Centro</a><a class="headerlink" href="#llamada-origina-en-centro" title="Link to this heading">¶</a></h3>
+<h3>3.1 Llamada origina_en Centro<a class="headerlink" href="#llamada-origina-en-centro" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Llamada origina_en Centro
 
 LECTURA DIRECTA:
@@ -756,7 +702,7 @@ Columna: tbl_llamadas.centro_id (FK a centros)
 </div>
 </section>
 <section id="llamada-navega-menu-ivr">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.2 Llamada navega Menu_IVR</a><a class="headerlink" href="#llamada-navega-menu-ivr" title="Link to this heading">¶</a></h3>
+<h3>3.2 Llamada navega Menu_IVR<a class="headerlink" href="#llamada-navega-menu-ivr" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Llamada navega Menu_IVR
 
 LECTURA DIRECTA:
@@ -783,7 +729,7 @@ Tabla: llamada_navegacion (llamada_id, menu_id, orden, opcion_seleccionada)
 </div>
 </section>
 <section id="llamada-genera-transferencia">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.3 Llamada genera Transferencia</a><a class="headerlink" href="#llamada-genera-transferencia" title="Link to this heading">¶</a></h3>
+<h3>3.3 Llamada genera Transferencia<a class="headerlink" href="#llamada-genera-transferencia" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Llamada genera Transferencia
 
 LECTURA DIRECTA:
@@ -807,7 +753,7 @@ Columna: transferencias.llamada_id (FK a tbl_llamadas)
 </div>
 </section>
 <section id="transferencia-destina-a-centro">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.4 Transferencia destina_a Centro</a><a class="headerlink" href="#transferencia-destina-a-centro" title="Link to this heading">¶</a></h3>
+<h3>3.4 Transferencia destina_a Centro<a class="headerlink" href="#transferencia-destina-a-centro" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Transferencia destina_a Centro
 
 LECTURA DIRECTA:
@@ -833,9 +779,9 @@ Columna: transferencias.centro_destino_id (FK a centros)
 </section>
 <hr class="docutils" />
 <section id="fact-types-de-analitica">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Fact Types de Analitica</a><a class="headerlink" href="#fact-types-de-analitica" title="Link to this heading">¶</a></h2>
+<h2>4. Fact Types de Analitica<a class="headerlink" href="#fact-types-de-analitica" title="Link to this heading">¶</a></h2>
 <section id="reporte-contiene-metrica">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.1 Reporte contiene Metrica</a><a class="headerlink" href="#reporte-contiene-metrica" title="Link to this heading">¶</a></h3>
+<h3>4.1 Reporte contiene Metrica<a class="headerlink" href="#reporte-contiene-metrica" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Reporte contiene Metrica
 
 LECTURA DIRECTA:
@@ -861,7 +807,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="dashboard-visualiza-metrica">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.2 Dashboard visualiza Metrica</a><a class="headerlink" href="#dashboard-visualiza-metrica" title="Link to this heading">¶</a></h3>
+<h3>4.2 Dashboard visualiza Metrica<a class="headerlink" href="#dashboard-visualiza-metrica" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Dashboard visualiza Metrica
 
 LECTURA DIRECTA:
@@ -888,7 +834,7 @@ COMPONENTES DE VISUALIZACION:
 </div>
 </section>
 <section id="alerta-monitorea-metrica">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">4.3 Alerta monitorea Metrica</a><a class="headerlink" href="#alerta-monitorea-metrica" title="Link to this heading">¶</a></h3>
+<h3>4.3 Alerta monitorea Metrica<a class="headerlink" href="#alerta-monitorea-metrica" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Alerta monitorea Metrica
 
 LECTURA DIRECTA:
@@ -918,7 +864,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="alerta-notifica-a-usuario">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">4.4 Alerta notifica_a Usuario</a><a class="headerlink" href="#alerta-notifica-a-usuario" title="Link to this heading">¶</a></h3>
+<h3>4.4 Alerta notifica_a Usuario<a class="headerlink" href="#alerta-notifica-a-usuario" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Alerta notifica_a Usuario
 
 LECTURA DIRECTA:
@@ -947,9 +893,9 @@ Las notificaciones se envian via Mensaje Interno (no email externo).
 </section>
 <hr class="docutils" />
 <section id="fact-types-de-sistema">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">5. Fact Types de Sistema</a><a class="headerlink" href="#fact-types-de-sistema" title="Link to this heading">¶</a></h2>
+<h2>5. Fact Types de Sistema<a class="headerlink" href="#fact-types-de-sistema" title="Link to this heading">¶</a></h2>
 <section id="usuario-recibe-mensaje-interno">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.1 Usuario recibe Mensaje_Interno</a><a class="headerlink" href="#usuario-recibe-mensaje-interno" title="Link to this heading">¶</a></h3>
+<h3>5.1 Usuario recibe Mensaje_Interno<a class="headerlink" href="#usuario-recibe-mensaje-interno" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Usuario recibe Mensaje_Interno
 
 LECTURA DIRECTA:
@@ -973,7 +919,7 @@ Tabla: internal_messages (message_id, recipient_user_id, ...)
 </div>
 </section>
 <section id="job-etl-sincroniza-llamada">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">5.2 Job_ETL sincroniza Llamada</a><a class="headerlink" href="#job-etl-sincroniza-llamada" title="Link to this heading">¶</a></h3>
+<h3>5.2 Job_ETL sincroniza Llamada<a class="headerlink" href="#job-etl-sincroniza-llamada" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Job_ETL sincroniza Llamada
 
 LECTURA DIRECTA:
@@ -1000,7 +946,7 @@ Diariamente a las 00:00 (medianoche)
 </div>
 </section>
 <section id="permiso-aplica-a-modulo">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">5.3 Permiso aplica_a Modulo</a><a class="headerlink" href="#permiso-aplica-a-modulo" title="Link to this heading">¶</a></h3>
+<h3>5.3 Permiso aplica_a Modulo<a class="headerlink" href="#permiso-aplica-a-modulo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FACT TYPE: Permiso aplica_a Modulo
 
 LECTURA DIRECTA:
@@ -1028,7 +974,7 @@ EJEMPLOS:
 </section>
 <hr class="docutils" />
 <section id="matriz-de-fact-types">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">6. Matriz de Fact Types</a><a class="headerlink" href="#matriz-de-fact-types" title="Link to this heading">¶</a></h2>
+<h2>6. Matriz de Fact Types<a class="headerlink" href="#matriz-de-fact-types" title="Link to this heading">¶</a></h2>
 <p>Resumen de todas las relaciones:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -1157,7 +1103,7 @@ EJEMPLOS:
 </section>
 <hr class="docutils" />
 <section id="diagrama-de-relaciones">
-<h2><a class="toc-backref" href="#id27" role="doc-backlink">7. Diagrama de Relaciones</a><a class="headerlink" href="#diagrama-de-relaciones" title="Link to this heading">¶</a></h2>
+<h2>7. Diagrama de Relaciones<a class="headerlink" href="#diagrama-de-relaciones" title="Link to this heading">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                               +-------------+
                                |   Modulo    |
                                +------+------+
@@ -1216,9 +1162,9 @@ EJEMPLOS:
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">8. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>8. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="SBVR_01_Conceptos_Nucleares.html#sbvr-01"><span class="std std-ref">SBVR_01: Conceptos Nucleares</span></a> - Conceptos Nucleares (sustantivos)</p></li>
 <li><p><a class="reference internal" href="SBVR_03_Reglas_Estructurales.html#sbvr-03"><span class="std std-ref">SBVR_03: Reglas Estructurales (Aleticas)</span></a> - Reglas Estructurales (aleticas)</p></li>
@@ -1227,16 +1173,16 @@ EJEMPLOS:
 </ul>
 </section>
 <section id="fuentes">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">Fuentes</a><a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
+<h3>Fuentes<a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>OMG SBVR 1.5 Specification (Fact Types)</p></li>
-<li><p><a href="#id32"><span class="problematic" id="id33">Modelo_RBAC_Completo_</span></a>-_Sistema_IACT_-_v_0_0_1.md</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">Modelo_RBAC_Completo_</span></a>-_Sistema_IACT_-_v_0_0_1.md</p></li>
 </ul>
 </section>
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

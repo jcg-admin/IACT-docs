@@ -411,42 +411,8 @@
           
   <section id="uc-pip-02-consultar-errores-etl">
 <h1>UC_PIP_02: Consultar Errores ETL<a class="headerlink" href="#uc-pip-02-consultar-errores-etl" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#resumen" id="id4">1. Resumen</a></p></li>
-<li><p><a class="reference internal" href="#descripcion" id="id5">2. Descripcion</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-caso-de-uso" id="id6">3. Diagrama de Caso de Uso</a></p></li>
-<li><p><a class="reference internal" href="#contexto-de-ejecucion" id="id7">4. Contexto de Ejecucion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#precondiciones" id="id8">4.1 Precondiciones</a></p></li>
-<li><p><a class="reference internal" href="#trigger" id="id9">4.2 Trigger</a></p></li>
-<li><p><a class="reference internal" href="#postcondiciones" id="id10">4.3 Postcondiciones</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#flujo-normal-camino-feliz" id="id11">5. Flujo Normal (Camino Feliz)</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-secuencia" id="id12">6. Diagrama de Secuencia</a></p></li>
-<li><p><a class="reference internal" href="#flujos-alternos" id="id13">7. Flujos Alternos</a></p>
-<ul>
-<li><p><a class="reference internal" href="#fa-01-sin-errores" id="id14">7.1 FA-01: Sin Errores</a></p></li>
-<li><p><a class="reference internal" href="#fa-02-exportar-log" id="id15">7.2 FA-02: Exportar Log</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#excepciones" id="id16">8. Excepciones</a></p>
-<ul>
-<li><p><a class="reference internal" href="#ex-01-sin-permiso-pip-002" id="id17">8.1 EX-01: Sin Permiso PIP-002</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#diagrama-de-actividad" id="id18">9. Diagrama de Actividad</a></p></li>
-<li><p><a class="reference internal" href="#reglas-de-negocio" id="id19">10. Reglas de Negocio</a></p></li>
-<li><p><a class="reference internal" href="#restricciones-de-arquitectura" id="id20">11. Restricciones de Arquitectura</a></p></li>
-<li><p><a class="reference internal" href="#requisitos-funcionales-derivados" id="id21">12. Requisitos Funcionales Derivados</a></p></li>
-<li><p><a class="reference internal" href="#trazabilidad" id="id22">13. Trazabilidad</a></p></li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id23">14. Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <section id="resumen">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Resumen</a><a class="headerlink" href="#resumen" title="Link to this heading">¶</a></h2>
+<h2>1. Resumen<a class="headerlink" href="#resumen" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -483,7 +449,7 @@
 </div>
 </section>
 <section id="descripcion">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Descripcion</a><a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
+<h2>2. Descripcion<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
 <p>Este caso de uso permite consultar el historial de errores del proceso ETL,
 incluyendo detalles de cada fallo, registros afectados y trazas de error
 para diagnostico.</p>
@@ -497,7 +463,7 @@ para diagnostico.</p>
 </ul>
 </section>
 <section id="diagrama-de-caso-de-uso">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Diagrama de Caso de Uso</a><a class="headerlink" href="#diagrama-de-caso-de-uso" title="Link to this heading">¶</a></h2>
+<h2>3. Diagrama de Caso de Uso<a class="headerlink" href="#diagrama-de-caso-de-uso" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id1">
 <p class="plantuml">
 <img src="../../../_images/plantuml-d2b81580d7bddfe90b5ad6ecaaf8704f8673ae41.png" alt="&#64;startuml
@@ -525,9 +491,9 @@ UC02 --&gt; EXP : extend
 </figure>
 </section>
 <section id="contexto-de-ejecucion">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Contexto de Ejecucion</a><a class="headerlink" href="#contexto-de-ejecucion" title="Link to this heading">¶</a></h2>
+<h2>4. Contexto de Ejecucion<a class="headerlink" href="#contexto-de-ejecucion" title="Link to this heading">¶</a></h2>
 <section id="precondiciones">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">4.1 Precondiciones</a><a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h3>
+<h3>4.1 Precondiciones<a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -551,11 +517,11 @@ UC02 --&gt; EXP : extend
 </div>
 </section>
 <section id="trigger">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">4.2 Trigger</a><a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h3>
+<h3>4.2 Trigger<a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h3>
 <p>El administrador accede al modulo de errores ETL o hace clic en una alerta.</p>
 </section>
 <section id="postcondiciones">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">4.3 Postcondiciones</a><a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h3>
+<h3>4.3 Postcondiciones<a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -580,7 +546,7 @@ UC02 --&gt; EXP : extend
 </section>
 </section>
 <section id="flujo-normal-camino-feliz">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">5. Flujo Normal (Camino Feliz)</a><a class="headerlink" href="#flujo-normal-camino-feliz" title="Link to this heading">¶</a></h2>
+<h2>5. Flujo Normal (Camino Feliz)<a class="headerlink" href="#flujo-normal-camino-feliz" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -628,7 +594,7 @@ UC02 --&gt; EXP : extend
 </div>
 </section>
 <section id="diagrama-de-secuencia">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">6. Diagrama de Secuencia</a><a class="headerlink" href="#diagrama-de-secuencia" title="Link to this heading">¶</a></h2>
+<h2>6. Diagrama de Secuencia<a class="headerlink" href="#diagrama-de-secuencia" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id2">
 <p class="plantuml">
 <img src="../../../_images/plantuml-b10055061644fb58a2f7ff50682f2d42e5f7e411.png" alt="&#64;startuml
@@ -669,9 +635,9 @@ FE --&gt; A: Panel de detalle
 </figure>
 </section>
 <section id="flujos-alternos">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">7. Flujos Alternos</a><a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h2>
+<h2>7. Flujos Alternos<a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h2>
 <section id="fa-01-sin-errores">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">7.1 FA-01: Sin Errores</a><a class="headerlink" href="#fa-01-sin-errores" title="Link to this heading">¶</a></h3>
+<h3>7.1 FA-01: Sin Errores<a class="headerlink" href="#fa-01-sin-errores" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -699,7 +665,7 @@ FE --&gt; A: Panel de detalle
 </div>
 </section>
 <section id="fa-02-exportar-log">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">7.2 FA-02: Exportar Log</a><a class="headerlink" href="#fa-02-exportar-log" title="Link to this heading">¶</a></h3>
+<h3>7.2 FA-02: Exportar Log<a class="headerlink" href="#fa-02-exportar-log" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -732,9 +698,9 @@ FE --&gt; A: Panel de detalle
 </section>
 </section>
 <section id="excepciones">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">8. Excepciones</a><a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h2>
+<h2>8. Excepciones<a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h2>
 <section id="ex-01-sin-permiso-pip-002">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">8.1 EX-01: Sin Permiso PIP-002</a><a class="headerlink" href="#ex-01-sin-permiso-pip-002" title="Link to this heading">¶</a></h3>
+<h3>8.1 EX-01: Sin Permiso PIP-002<a class="headerlink" href="#ex-01-sin-permiso-pip-002" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -763,7 +729,7 @@ FE --&gt; A: Panel de detalle
 </section>
 </section>
 <section id="diagrama-de-actividad">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">9. Diagrama de Actividad</a><a class="headerlink" href="#diagrama-de-actividad" title="Link to this heading">¶</a></h2>
+<h2>9. Diagrama de Actividad<a class="headerlink" href="#diagrama-de-actividad" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id3">
 <p class="plantuml">
 <img src="../../../_images/plantuml-6256c9689647d0926db2d73aeab888615ccbd554.png" alt="&#64;startuml
@@ -798,7 +764,7 @@ stop
 </figure>
 </section>
 <section id="reglas-de-negocio">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">10. Reglas de Negocio</a><a class="headerlink" href="#reglas-de-negocio" title="Link to this heading">¶</a></h2>
+<h2>10. Reglas de Negocio<a class="headerlink" href="#reglas-de-negocio" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -861,7 +827,7 @@ stop
 </div>
 </section>
 <section id="restricciones-de-arquitectura">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">11. Restricciones de Arquitectura</a><a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
+<h2>11. Restricciones de Arquitectura<a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -889,7 +855,7 @@ stop
 </div>
 </section>
 <section id="requisitos-funcionales-derivados">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">12. Requisitos Funcionales Derivados</a><a class="headerlink" href="#requisitos-funcionales-derivados" title="Link to this heading">¶</a></h2>
+<h2>12. Requisitos Funcionales Derivados<a class="headerlink" href="#requisitos-funcionales-derivados" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -921,7 +887,7 @@ stop
 </div>
 </section>
 <section id="trazabilidad">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">13. Trazabilidad</a><a class="headerlink" href="#trazabilidad" title="Link to this heading">¶</a></h2>
+<h2>13. Trazabilidad<a class="headerlink" href="#trazabilidad" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -952,7 +918,7 @@ stop
 </div>
 </section>
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">14. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>14. Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

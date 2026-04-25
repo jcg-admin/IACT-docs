@@ -414,98 +414,18 @@
           
   <section id="fnd-03-casos-de-uso">
 <span id="fnd-03"></span><h1>FND_03: Casos de Uso<a class="headerlink" href="#fnd-03-casos-de-uso" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#definicion-formal" id="id2">1. Definicion Formal</a></p>
-<ul>
-<li><p><a class="reference internal" href="#que-es-un-caso-de-uso" id="id3">1.1 Que es un Caso de Uso</a></p></li>
-<li><p><a class="reference internal" href="#caracteristicas-de-un-caso-de-uso" id="id4">1.2 Caracteristicas de un Caso de Uso</a></p></li>
-<li><p><a class="reference internal" href="#uc-vs-fr-diferencia-fundamental" id="id5">1.3 UC vs FR: Diferencia Fundamental</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#estructura-de-un-caso-de-uso" id="id6">2. Estructura de un Caso de Uso</a></p>
-<ul>
-<li><p><a class="reference internal" href="#componentes-obligatorios" id="id7">2.1 Componentes Obligatorios</a></p></li>
-<li><p><a class="reference internal" href="#ejemplo-completo" id="id8">2.2 Ejemplo Completo</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#actores" id="id9">3. Actores</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion-de-actor" id="id10">3.1 Definicion de Actor</a></p></li>
-<li><p><a class="reference internal" href="#tipos-de-actores" id="id11">3.2 Tipos de Actores</a></p></li>
-<li><p><a class="reference internal" href="#actor-primario-vs-secundario" id="id12">3.3 Actor Primario vs Secundario</a></p></li>
-<li><p><a class="reference internal" href="#actores-en-iact-agrupadores-rbac-v5-1-1" id="id13">3.4 Actores en IACT (Agrupadores RBAC v5.1.1)</a></p></li>
-<li><p><a class="reference internal" href="#mapeo-de-actores-legacy-a-agrupadores" id="id14">3.5 Mapeo de Actores Legacy a Agrupadores</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#flujos" id="id15">4. Flujos</a></p>
-<ul>
-<li><p><a class="reference internal" href="#flujo-normal-happy-path" id="id16">4.1 Flujo Normal (Happy Path)</a></p></li>
-<li><p><a class="reference internal" href="#flujos-alternos" id="id17">4.2 Flujos Alternos</a></p></li>
-<li><p><a class="reference internal" href="#excepciones" id="id18">4.3 Excepciones</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#tecnicas-de-identificacion-de-uc" id="id19">5. Tecnicas de Identificacion de UC</a></p>
-<ul>
-<li><p><a class="reference internal" href="#tecnica-1-derivacion-desde-business-rules-22" id="id20">5.1 Tecnica 1: Derivacion desde Business Rules (22%)</a></p></li>
-<li><p><a class="reference internal" href="#tecnica-2-analisis-crud-40" id="id21">5.2 Tecnica 2: Analisis CRUD (40%)</a></p></li>
-<li><p><a class="reference internal" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22" id="id22">5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)</a></p></li>
-<li><p><a class="reference internal" href="#tecnica-4-analisis-de-interfaz-ui-driven-11" id="id23">5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)</a></p></li>
-<li><p><a class="reference internal" href="#tecnica-5-requerimientos-directos-de-stakeholders-5" id="id24">5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)</a></p></li>
-<li><p><a class="reference internal" href="#matriz-de-cobertura-completa" id="id25">5.6 Matriz de Cobertura Completa</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#contratos-de-operacion" id="id26">6. Contratos de Operacion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#definicion" id="id27">6.1 Definicion</a></p></li>
-<li><p><a class="reference internal" href="#formato" id="id28">6.2 Formato</a></p></li>
-<li><p><a class="reference internal" href="#relacion-uc-contrato" id="id29">6.3 Relacion UC - Contrato</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#casos-de-uso-en-el-contexto-iact" id="id30">7. Casos de Uso en el Contexto IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#nomenclatura" id="id31">7.1 Nomenclatura</a></p></li>
-<li><p><a class="reference internal" href="#ubicacion-en-el-modelo-iact" id="id32">7.2 Ubicacion en el Modelo IACT</a></p></li>
-<li><p><a class="reference internal" href="#relacion-con-otros-artefactos" id="id33">7.3 Relacion con Otros Artefactos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#lista-de-uc-identificados-en-iact-49-uc" id="id34">8. Lista de UC Identificados en IACT (49 UC)</a></p>
-<ul>
-<li><p><a class="reference internal" href="#autenticacion-mod-auth-5-uc" id="id35">8.1 Autenticacion - MOD_Auth (5 UC)</a></p></li>
-<li><p><a class="reference internal" href="#gestion-de-usuarios-mod-users-4-uc" id="id36">8.2 Gestion de Usuarios - MOD_Users (4 UC)</a></p></li>
-<li><p><a class="reference internal" href="#control-de-acceso-mod-access-9-uc" id="id37">8.3 Control de Acceso - MOD_Access (9 UC)</a></p></li>
-<li><p><a class="reference internal" href="#pipeline-etl-mod-pipeline-4-uc" id="id38">8.4 Pipeline ETL - MOD_Pipeline (4 UC)</a></p></li>
-<li><p><a class="reference internal" href="#reportes-y-dashboards-mod-reports-14-uc" id="id39">8.5 Reportes y Dashboards - MOD_Reports (14 UC)</a></p></li>
-<li><p><a class="reference internal" href="#alertas-mod-alerts-5-uc" id="id40">8.6 Alertas - MOD_Alerts (5 UC)</a></p></li>
-<li><p><a class="reference internal" href="#auditoria-mod-audit-4-uc" id="id41">8.7 Auditoria - MOD_Audit (4 UC)</a></p></li>
-<li><p><a class="reference internal" href="#bitacoras-mod-logs-4-uc" id="id42">8.8 Bitacoras - MOD_Logs (4 UC)</a></p></li>
-<li><p><a class="reference internal" href="#resumen-de-uc-por-modulo" id="id43">8.9 Resumen de UC por Modulo</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id44">9. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id45">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#modelos-iact" id="id46">Modelos IACT</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-externas" id="id47">Fuentes Externas</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id48">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define QUE ES un Caso de Uso (Use Case) en el contexto del
 proyecto IACT, su estructura, componentes y relacion con otros artefactos
 de requisitos.</p>
 </section>
 <hr class="docutils" />
 <section id="definicion-formal">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definicion Formal</a><a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
+<h2>1. Definicion Formal<a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
 <section id="que-es-un-caso-de-uso">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Que es un Caso de Uso</a><a class="headerlink" href="#que-es-un-caso-de-uso" title="Link to this heading">¶</a></h3>
+<h3>1.1 Que es un Caso de Uso<a class="headerlink" href="#que-es-un-caso-de-uso" title="Link to this heading">¶</a></h3>
 <p>Un <strong>Caso de Uso (Use Case - UC)</strong> es una descripcion de una secuencia de
 interacciones entre un actor y el sistema para lograr un objetivo especifico.
 Describe comportamientos del sistema desde la perspectiva del usuario.</p>
@@ -518,7 +438,7 @@ y los flujos alternativos.</p>
 </div>
 </section>
 <section id="caracteristicas-de-un-caso-de-uso">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Caracteristicas de un Caso de Uso</a><a class="headerlink" href="#caracteristicas-de-un-caso-de-uso" title="Link to this heading">¶</a></h3>
+<h3>1.2 Caracteristicas de un Caso de Uso<a class="headerlink" href="#caracteristicas-de-un-caso-de-uso" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -554,7 +474,7 @@ y los flujos alternativos.</p>
 </div>
 </section>
 <section id="uc-vs-fr-diferencia-fundamental">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 UC vs FR: Diferencia Fundamental</a><a class="headerlink" href="#uc-vs-fr-diferencia-fundamental" title="Link to this heading">¶</a></h3>
+<h3>1.3 UC vs FR: Diferencia Fundamental<a class="headerlink" href="#uc-vs-fr-diferencia-fundamental" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -616,9 +536,9 @@ AMBOS SE NECESITAN:
 </section>
 <hr class="docutils" />
 <section id="estructura-de-un-caso-de-uso">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">2. Estructura de un Caso de Uso</a><a class="headerlink" href="#estructura-de-un-caso-de-uso" title="Link to this heading">¶</a></h2>
+<h2>2. Estructura de un Caso de Uso<a class="headerlink" href="#estructura-de-un-caso-de-uso" title="Link to this heading">¶</a></h2>
 <section id="componentes-obligatorios">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.1 Componentes Obligatorios</a><a class="headerlink" href="#componentes-obligatorios" title="Link to this heading">¶</a></h3>
+<h3>2.1 Componentes Obligatorios<a class="headerlink" href="#componentes-obligatorios" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-NNN: [Nombre del Caso de Uso]
 
 IDENTIFICACION:
@@ -646,7 +566,7 @@ TRAZABILIDAD:
 </div>
 </section>
 <section id="ejemplo-completo">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.2 Ejemplo Completo</a><a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<h3>2.2 Ejemplo Completo<a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-043: Configurar SoD
 
 IDENTIFICACION:
@@ -701,14 +621,14 @@ TRAZABILIDAD:
 </section>
 <hr class="docutils" />
 <section id="actores">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Actores</a><a class="headerlink" href="#actores" title="Link to this heading">¶</a></h2>
+<h2>3. Actores<a class="headerlink" href="#actores" title="Link to this heading">¶</a></h2>
 <section id="definicion-de-actor">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Definicion de Actor</a><a class="headerlink" href="#definicion-de-actor" title="Link to this heading">¶</a></h3>
+<h3>3.1 Definicion de Actor<a class="headerlink" href="#definicion-de-actor" title="Link to this heading">¶</a></h3>
 <p>Un <strong>actor</strong> es una entidad externa al sistema que interactua con el.
 Puede ser una persona (rol), otro sistema, o el tiempo.</p>
 </section>
 <section id="tipos-de-actores">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Tipos de Actores</a><a class="headerlink" href="#tipos-de-actores" title="Link to this heading">¶</a></h3>
+<h3>3.2 Tipos de Actores<a class="headerlink" href="#tipos-de-actores" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -740,7 +660,7 @@ Puede ser una persona (rol), otro sistema, o el tiempo.</p>
 </div>
 </section>
 <section id="actor-primario-vs-secundario">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Actor Primario vs Secundario</a><a class="headerlink" href="#actor-primario-vs-secundario" title="Link to this heading">¶</a></h3>
+<h3>3.3 Actor Primario vs Secundario<a class="headerlink" href="#actor-primario-vs-secundario" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ACTOR PRIMARIO:
   - Inicia el caso de uso
   - Tiene el objetivo principal
@@ -754,7 +674,7 @@ ACTOR SECUNDARIO:
 </div>
 </section>
 <section id="actores-en-iact-agrupadores-rbac-v5-1-1">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.4 Actores en IACT (Agrupadores RBAC v5.1.1)</a><a class="headerlink" href="#actores-en-iact-agrupadores-rbac-v5-1-1" title="Link to this heading">¶</a></h3>
+<h3>3.4 Actores en IACT (Agrupadores RBAC v5.1.1)<a class="headerlink" href="#actores-en-iact-agrupadores-rbac-v5-1-1" title="Link to this heading">¶</a></h3>
 <p>Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.1.1,
 siguiendo la filosofia Sin Pretensiones:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AGRUPADOR                           FUNCIONES              UC TIPICOS
@@ -776,7 +696,7 @@ ACTOR ESPECIAL:
 </div>
 </section>
 <section id="mapeo-de-actores-legacy-a-agrupadores">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.5 Mapeo de Actores Legacy a Agrupadores</a><a class="headerlink" href="#mapeo-de-actores-legacy-a-agrupadores" title="Link to this heading">¶</a></h3>
+<h3>3.5 Mapeo de Actores Legacy a Agrupadores<a class="headerlink" href="#mapeo-de-actores-legacy-a-agrupadores" title="Link to this heading">¶</a></h3>
 <p>Para compatibilidad con documentacion anterior que usaba roles R001-R018:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -847,9 +767,9 @@ ACTOR ESPECIAL:
 </section>
 <hr class="docutils" />
 <section id="flujos">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">4. Flujos</a><a class="headerlink" href="#flujos" title="Link to this heading">¶</a></h2>
+<h2>4. Flujos<a class="headerlink" href="#flujos" title="Link to this heading">¶</a></h2>
 <section id="flujo-normal-happy-path">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.1 Flujo Normal (Happy Path)</a><a class="headerlink" href="#flujo-normal-happy-path" title="Link to this heading">¶</a></h3>
+<h3>4.1 Flujo Normal (Happy Path)<a class="headerlink" href="#flujo-normal-happy-path" title="Link to this heading">¶</a></h3>
 <p>El flujo normal describe la secuencia de pasos cuando TODO sale bien.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -870,7 +790,7 @@ Ejemplos:
 </div>
 </section>
 <section id="flujos-alternos">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.2 Flujos Alternos</a><a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h3>
+<h3>4.2 Flujos Alternos<a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h3>
 <p>Los flujos alternos son variaciones VALIDAS del flujo normal.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -887,7 +807,7 @@ Ejemplos:
 </div>
 </section>
 <section id="excepciones">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.3 Excepciones</a><a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h3>
+<h3>4.3 Excepciones<a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h3>
 <p>Las excepciones son situaciones de ERROR que impiden completar el UC.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -906,7 +826,7 @@ Ejemplos:
 </section>
 <hr class="docutils" />
 <section id="tecnicas-de-identificacion-de-uc">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">5. Tecnicas de Identificacion de UC</a><a class="headerlink" href="#tecnicas-de-identificacion-de-uc" title="Link to this heading">¶</a></h2>
+<h2>5. Tecnicas de Identificacion de UC<a class="headerlink" href="#tecnicas-de-identificacion-de-uc" title="Link to this heading">¶</a></h2>
 <p>Existen cinco tecnicas complementarias para identificar Casos de Uso.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
@@ -915,7 +835,7 @@ Ejemplos:
 El 78% restante debe identificarse mediante tecnicas complementarias.</p>
 </div>
 <section id="tecnica-1-derivacion-desde-business-rules-22">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">5.1 Tecnica 1: Derivacion desde Business Rules (22%)</a><a class="headerlink" href="#tecnica-1-derivacion-desde-business-rules-22" title="Link to this heading">¶</a></h3>
+<h3>5.1 Tecnica 1: Derivacion desde Business Rules (22%)<a class="headerlink" href="#tecnica-1-derivacion-desde-business-rules-22" title="Link to this heading">¶</a></h3>
 <p>Las Business Rules de tipo Desencadenador (Trigger) generan UC directamente.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR (Trigger): SI quimico vence en 30 dias,
               ENTONCES notificar al responsable
@@ -929,7 +849,7 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </div>
 </section>
 <section id="tecnica-2-analisis-crud-40">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.2 Tecnica 2: Analisis CRUD (40%)</a><a class="headerlink" href="#tecnica-2-analisis-crud-40" title="Link to this heading">¶</a></h3>
+<h3>5.2 Tecnica 2: Analisis CRUD (40%)<a class="headerlink" href="#tecnica-2-analisis-crud-40" title="Link to this heading">¶</a></h3>
 <p>Para cada entidad del dominio, considerar operaciones basicas segun su clasificacion.</p>
 <p><strong>Clasificacion de Entidades:</strong></p>
 <div class="table-wrapper colwidths-given docutils container">
@@ -963,7 +883,7 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </div>
 </section>
 <section id="tecnica-3-modelo-de-larman-eventos-del-sistema-22">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)</a><a class="headerlink" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22" title="Link to this heading">¶</a></h3>
+<h3>5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)<a class="headerlink" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22" title="Link to this heading">¶</a></h3>
 <p>Identificar eventos externos que requieren respuesta del sistema.</p>
 <p><strong>4 Caracteristicas Obligatorias de un Evento Valido:</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1. EXTERNO:      Originado fuera del sistema (no interno)
@@ -974,7 +894,7 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </div>
 </section>
 <section id="tecnica-4-analisis-de-interfaz-ui-driven-11">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)</a><a class="headerlink" href="#tecnica-4-analisis-de-interfaz-ui-driven-11" title="Link to this heading">¶</a></h3>
+<h3>5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)<a class="headerlink" href="#tecnica-4-analisis-de-interfaz-ui-driven-11" title="Link to this heading">¶</a></h3>
 <p>Identificar UC a partir de mockups, wireframes o necesidades de UI.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APLICA A:
 - Dashboards y visualizaciones complejas
@@ -985,7 +905,7 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </div>
 </section>
 <section id="tecnica-5-requerimientos-directos-de-stakeholders-5">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)</a><a class="headerlink" href="#tecnica-5-requerimientos-directos-de-stakeholders-5" title="Link to this heading">¶</a></h3>
+<h3>5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)<a class="headerlink" href="#tecnica-5-requerimientos-directos-de-stakeholders-5" title="Link to this heading">¶</a></h3>
 <p>UC que provienen de necesidades explicitas no capturadas como BR.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APLICA A:
 - Requisitos de compliance y auditoria
@@ -996,7 +916,7 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </div>
 </section>
 <section id="matriz-de-cobertura-completa">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">5.6 Matriz de Cobertura Completa</a><a class="headerlink" href="#matriz-de-cobertura-completa" title="Link to this heading">¶</a></h3>
+<h3>5.6 Matriz de Cobertura Completa<a class="headerlink" href="#matriz-de-cobertura-completa" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>COBERTURA TOTAL:
 
 +----------------------------------+------------+--------------+
@@ -1016,14 +936,14 @@ NATURALEZA: Deductiva (BR explicita -&gt; UC)
 </section>
 <hr class="docutils" />
 <section id="contratos-de-operacion">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">6. Contratos de Operacion</a><a class="headerlink" href="#contratos-de-operacion" title="Link to this heading">¶</a></h2>
+<h2>6. Contratos de Operacion<a class="headerlink" href="#contratos-de-operacion" title="Link to this heading">¶</a></h2>
 <section id="definicion">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">6.1 Definicion</a><a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
+<h3>6.1 Definicion<a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
 <p>Un <strong>contrato de operacion</strong> describe QUE debe lograr una operacion del
 sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.</p>
 </section>
 <section id="formato">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">6.2 Formato</a><a class="headerlink" href="#formato" title="Link to this heading">¶</a></h3>
+<h3>6.2 Formato<a class="headerlink" href="#formato" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Operacion: nombreOperacion(parametros)
 
 Precondiciones:
@@ -1035,7 +955,7 @@ Postcondiciones:
 </div>
 </section>
 <section id="relacion-uc-contrato">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">6.3 Relacion UC - Contrato</a><a class="headerlink" href="#relacion-uc-contrato" title="Link to this heading">¶</a></h3>
+<h3>6.3 Relacion UC - Contrato<a class="headerlink" href="#relacion-uc-contrato" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Caso de Uso: Define COMO interactua usuario con sistema
 Contrato:    Define QUE debe pasar tecnicamente
 
@@ -1047,9 +967,9 @@ Contrato es mas TECNICO (cambios de estado)
 </section>
 <hr class="docutils" />
 <section id="casos-de-uso-en-el-contexto-iact">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink">7. Casos de Uso en el Contexto IACT</a><a class="headerlink" href="#casos-de-uso-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
+<h2>7. Casos de Uso en el Contexto IACT<a class="headerlink" href="#casos-de-uso-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
 <section id="nomenclatura">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.1 Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
+<h3>7.1 Nomenclatura<a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
 <p>Los Casos de Uso en IACT siguen la convencion:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORMATO: UC_NNN_Nombre_Descriptivo.rst
 
@@ -1066,7 +986,7 @@ Ejemplos:
 </div>
 </section>
 <section id="ubicacion-en-el-modelo-iact">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink">7.2 Ubicacion en el Modelo IACT</a><a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
+<h3>7.2 Ubicacion en el Modelo IACT<a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requisitos/
     +--- casos_uso/
              +--- index.rst
@@ -1082,7 +1002,7 @@ Ejemplos:
 </div>
 </section>
 <section id="relacion-con-otros-artefactos">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink">7.3 Relacion con Otros Artefactos</a><a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
+<h3>7.3 Relacion con Otros Artefactos<a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BReq (Objetivo de Negocio)
     |
     | genera
@@ -1098,11 +1018,11 @@ FR (Requisito Funcional) &lt;---- Cada paso Sistema deriva FR
 </section>
 <hr class="docutils" />
 <section id="lista-de-uc-identificados-en-iact-49-uc">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">8. Lista de UC Identificados en IACT (49 UC)</a><a class="headerlink" href="#lista-de-uc-identificados-en-iact-49-uc" title="Link to this heading">¶</a></h2>
+<h2>8. Lista de UC Identificados en IACT (49 UC)<a class="headerlink" href="#lista-de-uc-identificados-en-iact-49-uc" title="Link to this heading">¶</a></h2>
 <p>Basado en el analisis del modelo RBAC v5.1.1, se han identificado 49 Casos de Uso
 distribuidos en 8 modulos funcionales.</p>
 <section id="autenticacion-mod-auth-5-uc">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">8.1 Autenticacion - MOD_Auth (5 UC)</a><a class="headerlink" href="#autenticacion-mod-auth-5-uc" title="Link to this heading">¶</a></h3>
+<h3>8.1 Autenticacion - MOD_Auth (5 UC)<a class="headerlink" href="#autenticacion-mod-auth-5-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-001: Inicio de Sesion
 UC-002: Cierre de Sesion
 UC-003: Recuperar Password
@@ -1115,7 +1035,7 @@ BR Relacionadas: BR_005 (Sesion Unica), BR_015 (Bloqueo Intentos)
 </div>
 </section>
 <section id="gestion-de-usuarios-mod-users-4-uc">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink">8.2 Gestion de Usuarios - MOD_Users (4 UC)</a><a class="headerlink" href="#gestion-de-usuarios-mod-users-4-uc" title="Link to this heading">¶</a></h3>
+<h3>8.2 Gestion de Usuarios - MOD_Users (4 UC)<a class="headerlink" href="#gestion-de-usuarios-mod-users-4-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-006: Crear Usuario
 UC-007: Modificar Usuario
 UC-008: Baja Usuario (logica)
@@ -1127,7 +1047,7 @@ BR Relacionadas: BR_009 (Bajas Logicas), BR_013 (Username Unico)
 </div>
 </section>
 <section id="control-de-acceso-mod-access-9-uc">
-<h3><a class="toc-backref" href="#id37" role="doc-backlink">8.3 Control de Acceso - MOD_Access (9 UC)</a><a class="headerlink" href="#control-de-acceso-mod-access-9-uc" title="Link to this heading">¶</a></h3>
+<h3>8.3 Control de Acceso - MOD_Access (9 UC)<a class="headerlink" href="#control-de-acceso-mod-access-9-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-010: Asignar Funciones a Usuario
 UC-011: Gestionar Permisos por Agrupador
 UC-041: Asignar Segmento de Datos
@@ -1144,7 +1064,7 @@ BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
 </div>
 </section>
 <section id="pipeline-etl-mod-pipeline-4-uc">
-<h3><a class="toc-backref" href="#id38" role="doc-backlink">8.4 Pipeline ETL - MOD_Pipeline (4 UC)</a><a class="headerlink" href="#pipeline-etl-mod-pipeline-4-uc" title="Link to this heading">¶</a></h3>
+<h3>8.4 Pipeline ETL - MOD_Pipeline (4 UC)<a class="headerlink" href="#pipeline-etl-mod-pipeline-4-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-050: Supervisar Estado ETL
 UC-051: Consultar Errores ETL
 UC-052: Consultar Disponibilidad de Datos
@@ -1156,7 +1076,7 @@ BR Relacionadas: BR_001 (Fuente Inmutable), BR_002 (ETL Nocturno)
 </div>
 </section>
 <section id="reportes-y-dashboards-mod-reports-14-uc">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">8.5 Reportes y Dashboards - MOD_Reports (14 UC)</a><a class="headerlink" href="#reportes-y-dashboards-mod-reports-14-uc" title="Link to this heading">¶</a></h3>
+<h3>8.5 Reportes y Dashboards - MOD_Reports (14 UC)<a class="headerlink" href="#reportes-y-dashboards-mod-reports-14-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REPORTES BASE:
 UC-017: Consultar Reporte Trimestral
 UC-018: Consultar Problemas de Menu
@@ -1185,7 +1105,7 @@ BR Relacionadas: BR_011 (Limites Exportacion), BR_020 (Rango Temporal)
 </div>
 </section>
 <section id="alertas-mod-alerts-5-uc">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">8.6 Alertas - MOD_Alerts (5 UC)</a><a class="headerlink" href="#alertas-mod-alerts-5-uc" title="Link to this heading">¶</a></h3>
+<h3>8.6 Alertas - MOD_Alerts (5 UC)<a class="headerlink" href="#alertas-mod-alerts-5-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-036: Crear Alerta por Umbral
 UC-037: Recibir Notificacion de Alerta
 UC-038: Pausar/Reactivar Alerta
@@ -1198,7 +1118,7 @@ BR Relacionadas: BR_004 (Comunicaciones Internas), BR_014 (Alerta Umbral)
 </div>
 </section>
 <section id="auditoria-mod-audit-4-uc">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">8.7 Auditoria - MOD_Audit (4 UC)</a><a class="headerlink" href="#auditoria-mod-audit-4-uc" title="Link to this heading">¶</a></h3>
+<h3>8.7 Auditoria - MOD_Audit (4 UC)<a class="headerlink" href="#auditoria-mod-audit-4-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-060: Registrar Evento de Auditoria
 UC-061: Consultar Log de Auditoria
 UC-062: Generar Reporte de Auditoria
@@ -1210,7 +1130,7 @@ BR Relacionadas: BR_010 (Auditoria Inmutable)
 </div>
 </section>
 <section id="bitacoras-mod-logs-4-uc">
-<h3><a class="toc-backref" href="#id42" role="doc-backlink">8.8 Bitacoras - MOD_Logs (4 UC)</a><a class="headerlink" href="#bitacoras-mod-logs-4-uc" title="Link to this heading">¶</a></h3>
+<h3>8.8 Bitacoras - MOD_Logs (4 UC)<a class="headerlink" href="#bitacoras-mod-logs-4-uc" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-070: Consultar Logs del Sistema
 UC-071: Filtrar Logs por Criterios
 UC-072: Exportar Logs
@@ -1222,7 +1142,7 @@ BR Relacionadas: (ninguna directa)
 </div>
 </section>
 <section id="resumen-de-uc-por-modulo">
-<h3><a class="toc-backref" href="#id43" role="doc-backlink">8.9 Resumen de UC por Modulo</a><a class="headerlink" href="#resumen-de-uc-por-modulo" title="Link to this heading">¶</a></h3>
+<h3>8.9 Resumen de UC por Modulo<a class="headerlink" href="#resumen-de-uc-por-modulo" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1280,9 +1200,9 @@ BR Relacionadas: (ninguna directa)
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id44" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>9. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id45" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>FND_01 - Concepto de Requisito</p></li>
 <li><p>FND_02 - Reglas de Negocio</p></li>
@@ -1292,14 +1212,14 @@ BR Relacionadas: (ninguna directa)
 </ul>
 </section>
 <section id="modelos-iact">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">Modelos IACT</a><a class="headerlink" href="#modelos-iact" title="Link to this heading">¶</a></h3>
+<h3>Modelos IACT<a class="headerlink" href="#modelos-iact" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso</p></li>
 <li><p>MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental</p></li>
 </ul>
 </section>
 <section id="fuentes-externas">
-<h3><a class="toc-backref" href="#id47" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<h3>Fuentes Externas<a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Craig Larman: Applying UML and Patterns (3rd Edition)</p></li>
 <li><p>Alistair Cockburn: Writing Effective Use Cases</p></li>
@@ -1309,7 +1229,7 @@ BR Relacionadas: (ninguna directa)
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id48" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

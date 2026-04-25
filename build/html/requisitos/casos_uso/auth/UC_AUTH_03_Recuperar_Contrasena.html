@@ -411,45 +411,8 @@
           
   <section id="uc-auth-03-recuperar-contrasena">
 <h1>UC_AUTH_03: Recuperar Contrasena<a class="headerlink" href="#uc-auth-03-recuperar-contrasena" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#resumen" id="id4">1. Resumen</a></p></li>
-<li><p><a class="reference internal" href="#descripcion" id="id5">2. Descripcion</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-caso-de-uso" id="id6">3. Diagrama de Caso de Uso</a></p></li>
-<li><p><a class="reference internal" href="#contexto-de-ejecucion" id="id7">4. Contexto de Ejecucion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#precondiciones" id="id8">4.1 Precondiciones</a></p></li>
-<li><p><a class="reference internal" href="#trigger" id="id9">4.2 Trigger</a></p></li>
-<li><p><a class="reference internal" href="#postcondiciones" id="id10">4.3 Postcondiciones</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#flujo-normal-camino-feliz" id="id11">5. Flujo Normal (Camino Feliz)</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-de-secuencia" id="id12">6. Diagrama de Secuencia</a></p></li>
-<li><p><a class="reference internal" href="#flujos-alternos" id="id13">7. Flujos Alternos</a></p>
-<ul>
-<li><p><a class="reference internal" href="#fa-01-usuario-bloqueado" id="id14">7.1 FA-01: Usuario Bloqueado</a></p></li>
-<li><p><a class="reference internal" href="#fa-02-administrador-cancela" id="id15">7.2 FA-02: Administrador Cancela</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#excepciones" id="id16">8. Excepciones</a></p>
-<ul>
-<li><p><a class="reference internal" href="#ex-01-sin-permiso-aut-003" id="id17">8.1 EX-01: Sin Permiso AUT-003</a></p></li>
-<li><p><a class="reference internal" href="#ex-02-usuario-no-encontrado" id="id18">8.2 EX-02: Usuario No Encontrado</a></p></li>
-<li><p><a class="reference internal" href="#ex-03-auto-reset-no-permitido" id="id19">8.3 EX-03: Auto-Reset No Permitido</a></p></li>
-<li><p><a class="reference internal" href="#ex-04-usuario-eliminado" id="id20">8.4 EX-04: Usuario Eliminado</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#diagrama-de-actividad" id="id21">9. Diagrama de Actividad</a></p></li>
-<li><p><a class="reference internal" href="#reglas-de-negocio" id="id22">10. Reglas de Negocio</a></p></li>
-<li><p><a class="reference internal" href="#restricciones-de-arquitectura" id="id23">11. Restricciones de Arquitectura</a></p></li>
-<li><p><a class="reference internal" href="#requisitos-funcionales-derivados" id="id24">12. Requisitos Funcionales Derivados</a></p></li>
-<li><p><a class="reference internal" href="#trazabilidad" id="id25">13. Trazabilidad</a></p></li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id26">14. Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <section id="resumen">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Resumen</a><a class="headerlink" href="#resumen" title="Link to this heading">¶</a></h2>
+<h2>1. Resumen<a class="headerlink" href="#resumen" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -489,7 +452,7 @@
 </div>
 </section>
 <section id="descripcion">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Descripcion</a><a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
+<h2>2. Descripcion<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
 <p>Este caso de uso permite a un administrador de usuarios (AGR-006) generar
 una contrasena temporal para un usuario que ha olvidado sus credenciales.
 La nueva contrasena se comunica al usuario unicamente a traves del buzon
@@ -511,7 +474,7 @@ otro canal externo. Solo se utiliza InternalMessage (buzon interno).</p>
 </div>
 </section>
 <section id="diagrama-de-caso-de-uso">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Diagrama de Caso de Uso</a><a class="headerlink" href="#diagrama-de-caso-de-uso" title="Link to this heading">¶</a></h2>
+<h2>3. Diagrama de Caso de Uso<a class="headerlink" href="#diagrama-de-caso-de-uso" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id1">
 <p class="plantuml">
 <img src="../../../_images/plantuml-5619179d50754f16f413367bb50500f1304416ca.png" alt="&#64;startuml
@@ -549,9 +512,9 @@ end note
 </figure>
 </section>
 <section id="contexto-de-ejecucion">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Contexto de Ejecucion</a><a class="headerlink" href="#contexto-de-ejecucion" title="Link to this heading">¶</a></h2>
+<h2>4. Contexto de Ejecucion<a class="headerlink" href="#contexto-de-ejecucion" title="Link to this heading">¶</a></h2>
 <section id="precondiciones">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">4.1 Precondiciones</a><a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h3>
+<h3>4.1 Precondiciones<a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -581,12 +544,12 @@ end note
 </div>
 </section>
 <section id="trigger">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">4.2 Trigger</a><a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h3>
+<h3>4.2 Trigger<a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h3>
 <p>El administrador accede a la gestion de usuarios y selecciona &quot;Resetear Contrasena&quot;
 para un usuario especifico.</p>
 </section>
 <section id="postcondiciones">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">4.3 Postcondiciones</a><a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h3>
+<h3>4.3 Postcondiciones<a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h3>
 <p><strong>Exito:</strong></p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -624,7 +587,7 @@ para un usuario especifico.</p>
 </section>
 </section>
 <section id="flujo-normal-camino-feliz">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">5. Flujo Normal (Camino Feliz)</a><a class="headerlink" href="#flujo-normal-camino-feliz" title="Link to this heading">¶</a></h2>
+<h2>5. Flujo Normal (Camino Feliz)<a class="headerlink" href="#flujo-normal-camino-feliz" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -712,7 +675,7 @@ para un usuario especifico.</p>
 </div>
 </section>
 <section id="diagrama-de-secuencia">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">6. Diagrama de Secuencia</a><a class="headerlink" href="#diagrama-de-secuencia" title="Link to this heading">¶</a></h2>
+<h2>6. Diagrama de Secuencia<a class="headerlink" href="#diagrama-de-secuencia" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id2">
 <p class="plantuml">
 <img src="../../../_images/plantuml-ae248593692d72cd35021d58370ced31839f17c2.png" alt="&#64;startuml
@@ -828,9 +791,9 @@ deactivate FE
 </figure>
 </section>
 <section id="flujos-alternos">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">7. Flujos Alternos</a><a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h2>
+<h2>7. Flujos Alternos<a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h2>
 <section id="fa-01-usuario-bloqueado">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">7.1 FA-01: Usuario Bloqueado</a><a class="headerlink" href="#fa-01-usuario-bloqueado" title="Link to this heading">¶</a></h3>
+<h3>7.1 FA-01: Usuario Bloqueado<a class="headerlink" href="#fa-01-usuario-bloqueado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -862,7 +825,7 @@ deactivate FE
 </div>
 </section>
 <section id="fa-02-administrador-cancela">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">7.2 FA-02: Administrador Cancela</a><a class="headerlink" href="#fa-02-administrador-cancela" title="Link to this heading">¶</a></h3>
+<h3>7.2 FA-02: Administrador Cancela<a class="headerlink" href="#fa-02-administrador-cancela" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -895,9 +858,9 @@ deactivate FE
 </section>
 </section>
 <section id="excepciones">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">8. Excepciones</a><a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h2>
+<h2>8. Excepciones<a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h2>
 <section id="ex-01-sin-permiso-aut-003">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">8.1 EX-01: Sin Permiso AUT-003</a><a class="headerlink" href="#ex-01-sin-permiso-aut-003" title="Link to this heading">¶</a></h3>
+<h3>8.1 EX-01: Sin Permiso AUT-003<a class="headerlink" href="#ex-01-sin-permiso-aut-003" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -925,7 +888,7 @@ deactivate FE
 </div>
 </section>
 <section id="ex-02-usuario-no-encontrado">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">8.2 EX-02: Usuario No Encontrado</a><a class="headerlink" href="#ex-02-usuario-no-encontrado" title="Link to this heading">¶</a></h3>
+<h3>8.2 EX-02: Usuario No Encontrado<a class="headerlink" href="#ex-02-usuario-no-encontrado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -953,7 +916,7 @@ deactivate FE
 </div>
 </section>
 <section id="ex-03-auto-reset-no-permitido">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">8.3 EX-03: Auto-Reset No Permitido</a><a class="headerlink" href="#ex-03-auto-reset-no-permitido" title="Link to this heading">¶</a></h3>
+<h3>8.3 EX-03: Auto-Reset No Permitido<a class="headerlink" href="#ex-03-auto-reset-no-permitido" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -981,7 +944,7 @@ deactivate FE
 </div>
 </section>
 <section id="ex-04-usuario-eliminado">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">8.4 EX-04: Usuario Eliminado</a><a class="headerlink" href="#ex-04-usuario-eliminado" title="Link to this heading">¶</a></h3>
+<h3>8.4 EX-04: Usuario Eliminado<a class="headerlink" href="#ex-04-usuario-eliminado" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1010,7 +973,7 @@ deactivate FE
 </section>
 </section>
 <section id="diagrama-de-actividad">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">9. Diagrama de Actividad</a><a class="headerlink" href="#diagrama-de-actividad" title="Link to this heading">¶</a></h2>
+<h2>9. Diagrama de Actividad<a class="headerlink" href="#diagrama-de-actividad" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id3">
 <p class="plantuml">
 <img src="../../../_images/plantuml-66c635a948b3490e21135416e73fee2ba223a413.png" alt="&#64;startuml
@@ -1087,7 +1050,7 @@ stop
 </figure>
 </section>
 <section id="reglas-de-negocio">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">10. Reglas de Negocio</a><a class="headerlink" href="#reglas-de-negocio" title="Link to this heading">¶</a></h2>
+<h2>10. Reglas de Negocio<a class="headerlink" href="#reglas-de-negocio" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1131,7 +1094,7 @@ stop
 </div>
 </section>
 <section id="restricciones-de-arquitectura">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">11. Restricciones de Arquitectura</a><a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
+<h2>11. Restricciones de Arquitectura<a class="headerlink" href="#restricciones-de-arquitectura" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1199,7 +1162,7 @@ stop
 </div>
 </section>
 <section id="requisitos-funcionales-derivados">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">12. Requisitos Funcionales Derivados</a><a class="headerlink" href="#requisitos-funcionales-derivados" title="Link to this heading">¶</a></h2>
+<h2>12. Requisitos Funcionales Derivados<a class="headerlink" href="#requisitos-funcionales-derivados" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1239,7 +1202,7 @@ stop
 </div>
 </section>
 <section id="trazabilidad">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">13. Trazabilidad</a><a class="headerlink" href="#trazabilidad" title="Link to this heading">¶</a></h2>
+<h2>13. Trazabilidad<a class="headerlink" href="#trazabilidad" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1273,7 +1236,7 @@ stop
 </div>
 </section>
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">14. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>14. Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

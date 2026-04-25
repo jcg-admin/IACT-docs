@@ -415,42 +415,9 @@
           
   <section id="proc-generacion-br-generacion-de-reglas-de-negocio">
 <span id="proc-generacion-br"></span><h1>PROC_Generacion_BR: Generacion de Reglas de Negocio<a class="headerlink" href="#proc-generacion-br-generacion-de-reglas-de-negocio" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#resumen-ejecutivo" id="id1">Resumen Ejecutivo</a></p></li>
-<li><p><a class="reference internal" href="#proposito" id="id2">1. Proposito</a></p></li>
-<li><p><a class="reference internal" href="#alcance" id="id3">2. Alcance</a></p>
-<ul>
-<li><p><a class="reference internal" href="#aplica-a" id="id4">2.1 Aplica A</a></p></li>
-<li><p><a class="reference internal" href="#no-aplica-a" id="id5">2.2 No Aplica A</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#roles-y-responsabilidades" id="id6">3. Roles y Responsabilidades</a></p></li>
-<li><p><a class="reference internal" href="#precondiciones" id="id7">4. Precondiciones</a></p></li>
-<li><p><a class="reference internal" href="#artefactos-de-entrada" id="id8">5. Artefactos de Entrada</a></p></li>
-<li><p><a class="reference internal" href="#procedimiento" id="id9">6. Procedimiento</a></p>
-<ul>
-<li><p><a class="reference internal" href="#tipos-de-br-txm-03" id="id10">6.1 Tipos de BR (TXM_03)</a></p></li>
-<li><p><a class="reference internal" href="#pasos-detallados" id="id11">6.2 Pasos Detallados</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#artefactos-de-salida" id="id12">7. Artefactos de Salida</a></p></li>
-<li><p><a class="reference internal" href="#postcondiciones" id="id13">8. Postcondiciones</a></p></li>
-<li><p><a class="reference internal" href="#verificacion-y-validacion" id="id14">9. Verificacion y Validacion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#criterios-de-aceptacion" id="id15">9.1 Criterios de Aceptacion</a></p></li>
-<li><p><a class="reference internal" href="#checklist-de-secciones" id="id16">9.2 Checklist de Secciones</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#manejo-de-excepciones" id="id17">10. Manejo de Excepciones</a></p></li>
-<li><p><a class="reference internal" href="#referencias" id="id18">11. Referencias</a></p></li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id19">12. Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="resumen-ejecutivo">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Resumen Ejecutivo</a><a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">¶</a></h2>
+<h2>Resumen Ejecutivo<a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -482,7 +449,7 @@
 </section>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>1. Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este procedimiento establece los pasos para generar Reglas de Negocio (BR)
 siguiendo el template TPL_BR y la taxonomia TXM_03.</p>
 <p><strong>Objetivo:</strong> Crear BR completas con declaracion formal, condiciones,
@@ -490,9 +457,9 @@ acciones y trazabilidad a BReq y UC.</p>
 </section>
 <hr class="docutils" />
 <section id="alcance">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Alcance</a><a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<h2>2. Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
 <section id="aplica-a">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">2.1 Aplica A</a><a class="headerlink" href="#aplica-a" title="Link to this heading">¶</a></h3>
+<h3>2.1 Aplica A<a class="headerlink" href="#aplica-a" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Creacion de nuevas BR derivadas de BReq</p></li>
 <li><p>BR de todos los tipos segun TXM_03</p></li>
@@ -500,7 +467,7 @@ acciones y trazabilidad a BReq y UC.</p>
 </ul>
 </section>
 <section id="no-aplica-a">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.2 No Aplica A</a><a class="headerlink" href="#no-aplica-a" title="Link to this heading">¶</a></h3>
+<h3>2.2 No Aplica A<a class="headerlink" href="#no-aplica-a" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Modificacion de BR existentes (usar PROC_Cambio_Requisitos)</p></li>
 <li><p>Restricciones tecnicas (usar PROC_Generacion_CNST)</p></li>
@@ -509,7 +476,7 @@ acciones y trazabilidad a BReq y UC.</p>
 </section>
 <hr class="docutils" />
 <section id="roles-y-responsabilidades">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Roles y Responsabilidades</a><a class="headerlink" href="#roles-y-responsabilidades" title="Link to this heading">¶</a></h2>
+<h2>3. Roles y Responsabilidades<a class="headerlink" href="#roles-y-responsabilidades" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -538,7 +505,7 @@ acciones y trazabilidad a BReq y UC.</p>
 </section>
 <hr class="docutils" />
 <section id="precondiciones">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Precondiciones</a><a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h2>
+<h2>4. Precondiciones<a class="headerlink" href="#precondiciones" title="Link to this heading">¶</a></h2>
 <p>Antes de iniciar este procedimiento, verificar:</p>
 <ul class="simple">
 <li><p>[ ] BReq origen identificado</p></li>
@@ -549,7 +516,7 @@ acciones y trazabilidad a BReq y UC.</p>
 </section>
 <hr class="docutils" />
 <section id="artefactos-de-entrada">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Artefactos de Entrada</a><a class="headerlink" href="#artefactos-de-entrada" title="Link to this heading">¶</a></h2>
+<h2>5. Artefactos de Entrada<a class="headerlink" href="#artefactos-de-entrada" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -582,9 +549,9 @@ acciones y trazabilidad a BReq y UC.</p>
 </section>
 <hr class="docutils" />
 <section id="procedimiento">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">6. Procedimiento</a><a class="headerlink" href="#procedimiento" title="Link to this heading">¶</a></h2>
+<h2>6. Procedimiento<a class="headerlink" href="#procedimiento" title="Link to this heading">¶</a></h2>
 <section id="tipos-de-br-txm-03">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">6.1 Tipos de BR (TXM_03)</a><a class="headerlink" href="#tipos-de-br-txm-03" title="Link to this heading">¶</a></h3>
+<h3>6.1 Tipos de BR (TXM_03)<a class="headerlink" href="#tipos-de-br-txm-03" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -624,7 +591,7 @@ acciones y trazabilidad a BReq y UC.</p>
 </div>
 </section>
 <section id="pasos-detallados">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">6.2 Pasos Detallados</a><a class="headerlink" href="#pasos-detallados" title="Link to this heading">¶</a></h3>
+<h3>6.2 Pasos Detallados<a class="headerlink" href="#pasos-detallados" title="Link to this heading">¶</a></h3>
 <p><strong>Paso 1: Identificar Tipo de BR</strong></p>
 <ul>
 <li><p><strong>Responsable</strong>: Analista</p></li>
@@ -751,7 +718,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="artefactos-de-salida">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">7. Artefactos de Salida</a><a class="headerlink" href="#artefactos-de-salida" title="Link to this heading">¶</a></h2>
+<h2>7. Artefactos de Salida<a class="headerlink" href="#artefactos-de-salida" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -776,7 +743,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="postcondiciones">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">8. Postcondiciones</a><a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h2>
+<h2>8. Postcondiciones<a class="headerlink" href="#postcondiciones" title="Link to this heading">¶</a></h2>
 <p>Al finalizar este procedimiento:</p>
 <ul class="simple">
 <li><p>[ ] BR creada con todas las secciones</p></li>
@@ -788,9 +755,9 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="verificacion-y-validacion">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">9. Verificacion y Validacion</a><a class="headerlink" href="#verificacion-y-validacion" title="Link to this heading">¶</a></h2>
+<h2>9. Verificacion y Validacion<a class="headerlink" href="#verificacion-y-validacion" title="Link to this heading">¶</a></h2>
 <section id="criterios-de-aceptacion">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">9.1 Criterios de Aceptacion</a><a class="headerlink" href="#criterios-de-aceptacion" title="Link to this heading">¶</a></h3>
+<h3>9.1 Criterios de Aceptacion<a class="headerlink" href="#criterios-de-aceptacion" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>[ ] ID sigue formato BR_[NNN]</p></li>
 <li><p>[ ] Tipo valido segun TXM_03</p></li>
@@ -800,7 +767,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </ul>
 </section>
 <section id="checklist-de-secciones">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">9.2 Checklist de Secciones</a><a class="headerlink" href="#checklist-de-secciones" title="Link to this heading">¶</a></h3>
+<h3>9.2 Checklist de Secciones<a class="headerlink" href="#checklist-de-secciones" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>[ ] Meta tags completos</p></li>
 <li><p>[ ] Resumen (ID, nombre, tipo, modulo)</p></li>
@@ -815,7 +782,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="manejo-de-excepciones">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">10. Manejo de Excepciones</a><a class="headerlink" href="#manejo-de-excepciones" title="Link to this heading">¶</a></h2>
+<h2>10. Manejo de Excepciones<a class="headerlink" href="#manejo-de-excepciones" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -843,7 +810,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">11. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>11. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>TPL_BR_Business_Rules_1_0_0.rst</p></li>
 <li><p>TXM_03: Taxonomia de Reglas de Negocio</p></li>
@@ -852,7 +819,7 @@ sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">12. Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>12. Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

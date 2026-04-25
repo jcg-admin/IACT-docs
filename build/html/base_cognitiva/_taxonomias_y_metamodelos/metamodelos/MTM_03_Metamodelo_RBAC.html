@@ -415,79 +415,18 @@
           
   <section id="mtm-03-metamodelo-rbac">
 <span id="mtm-03"></span><h1>MTM_03: Metamodelo RBAC<a class="headerlink" href="#mtm-03-metamodelo-rbac" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#modelo-nist-rbac" id="id2">1. Modelo NIST RBAC</a></p>
-<ul>
-<li><p><a class="reference internal" href="#niveles-rbac" id="id3">1.1 Niveles RBAC</a></p></li>
-<li><p><a class="reference internal" href="#iact-flat-rbac-sod" id="id4">1.2 IACT: Flat RBAC + SoD</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#diagrama-de-clases-principal" id="id5">2. Diagrama de Clases Principal</a></p>
-<ul>
-<li><p><a class="reference internal" href="#vista-general" id="id6">2.1 Vista General</a></p></li>
-<li><p><a class="reference internal" href="#diagrama-con-sesion" id="id7">2.2 Diagrama con Sesion</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#detalle-de-entidades" id="id8">3. Detalle de Entidades</a></p>
-<ul>
-<li><p><a class="reference internal" href="#usuario" id="id9">3.1 Usuario</a></p></li>
-<li><p><a class="reference internal" href="#rol" id="id10">3.2 Rol</a></p></li>
-<li><p><a class="reference internal" href="#permiso" id="id11">3.3 Permiso</a></p></li>
-<li><p><a class="reference internal" href="#segmento" id="id12">3.4 Segmento</a></p></li>
-<li><p><a class="reference internal" href="#sesion" id="id13">3.5 Sesion</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#tablas-de-relacion" id="id14">4. Tablas de Relacion</a></p>
-<ul>
-<li><p><a class="reference internal" href="#usuario-rol-n-n" id="id15">4.1 Usuario_Rol (N:N)</a></p></li>
-<li><p><a class="reference internal" href="#rol-permiso-1-n" id="id16">4.2 Rol_Permiso (1:N)</a></p></li>
-<li><p><a class="reference internal" href="#rol-conflicto-sod" id="id17">4.3 Rol_Conflicto (SoD)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#diagrama-er-completo" id="id18">5. Diagrama ER Completo</a></p></li>
-<li><p><a class="reference internal" href="#algoritmos-clave" id="id19">6. Algoritmos Clave</a></p>
-<ul>
-<li><p><a class="reference internal" href="#verificar-permiso" id="id20">6.1 Verificar Permiso</a></p></li>
-<li><p><a class="reference internal" href="#validar-sod" id="id21">6.2 Validar SoD</a></p></li>
-<li><p><a class="reference internal" href="#obtener-permisos-efectivos" id="id22">6.3 Obtener Permisos Efectivos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#restricciones-del-modelo" id="id23">7. Restricciones del Modelo</a></p>
-<ul>
-<li><p><a class="reference internal" href="#restricciones-de-integridad" id="id24">7.1 Restricciones de Integridad</a></p></li>
-<li><p><a class="reference internal" href="#ocl-constraints" id="id25">7.2 OCL Constraints</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#estadisticas-iact" id="id26">8. Estadisticas IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#volumetria-esperada" id="id27">8.1 Volumetria Esperada</a></p></li>
-<li><p><a class="reference internal" href="#permisos-por-rol" id="id28">8.2 Permisos por Rol</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id29">9. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id30">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes" id="id31">Fuentes</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id32">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define el <strong>metamodelo formal</strong> del sistema de control de
 acceso basado en roles (RBAC) del proyecto IACT. Especifica las entidades,
 relaciones, cardinalidades y restricciones del modelo de seguridad.</p>
 </section>
 <hr class="docutils" />
 <section id="modelo-nist-rbac">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Modelo NIST RBAC</a><a class="headerlink" href="#modelo-nist-rbac" title="Link to this heading">¶</a></h2>
+<h2>1. Modelo NIST RBAC<a class="headerlink" href="#modelo-nist-rbac" title="Link to this heading">¶</a></h2>
 <section id="niveles-rbac">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Niveles RBAC</a><a class="headerlink" href="#niveles-rbac" title="Link to this heading">¶</a></h3>
+<h3>1.1 Niveles RBAC<a class="headerlink" href="#niveles-rbac" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NIST RBAC LEVELS
 
 Level 0: Flat RBAC (IACT usa este nivel)
@@ -510,7 +449,7 @@ Level 3: Symmetric RBAC
 </div>
 </section>
 <section id="iact-flat-rbac-sod">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 IACT: Flat RBAC + SoD</a><a class="headerlink" href="#iact-flat-rbac-sod" title="Link to this heading">¶</a></h3>
+<h3>1.2 IACT: Flat RBAC + SoD<a class="headerlink" href="#iact-flat-rbac-sod" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>IACT implementa:
 - Flat RBAC (Level 0): Sin herencia de roles
 - SoD de Level 2: Separacion de Funciones estatica
@@ -525,9 +464,9 @@ JUSTIFICACION:
 </section>
 <hr class="docutils" />
 <section id="diagrama-de-clases-principal">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Diagrama de Clases Principal</a><a class="headerlink" href="#diagrama-de-clases-principal" title="Link to this heading">¶</a></h2>
+<h2>2. Diagrama de Clases Principal<a class="headerlink" href="#diagrama-de-clases-principal" title="Link to this heading">¶</a></h2>
 <section id="vista-general">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.1 Vista General</a><a class="headerlink" href="#vista-general" title="Link to this heading">¶</a></h3>
+<h3>2.1 Vista General<a class="headerlink" href="#vista-general" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+          +------------------+
 |     Usuario      |          |    Segmento      |
 +------------------+          +------------------+
@@ -562,7 +501,7 @@ JUSTIFICACION:
 </div>
 </section>
 <section id="diagrama-con-sesion">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.2 Diagrama con Sesion</a><a class="headerlink" href="#diagrama-con-sesion" title="Link to this heading">¶</a></h3>
+<h3>2.2 Diagrama con Sesion<a class="headerlink" href="#diagrama-con-sesion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+       1:1 (activa)      +------------------+
 |     Usuario      |&lt;-----------------------&gt;|     Sesion       |
 +------------------+                         +------------------+
@@ -589,9 +528,9 @@ JUSTIFICACION:
 </section>
 <hr class="docutils" />
 <section id="detalle-de-entidades">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">3. Detalle de Entidades</a><a class="headerlink" href="#detalle-de-entidades" title="Link to this heading">¶</a></h2>
+<h2>3. Detalle de Entidades<a class="headerlink" href="#detalle-de-entidades" title="Link to this heading">¶</a></h2>
 <section id="usuario">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">3.1 Usuario</a><a class="headerlink" href="#usuario" title="Link to this heading">¶</a></h3>
+<h3>3.1 Usuario<a class="headerlink" href="#usuario" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                          Usuario                                  |
 +------------------------------------------------------------------+
@@ -628,7 +567,7 @@ INVARIANTES:
 </div>
 </section>
 <section id="rol">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.2 Rol</a><a class="headerlink" href="#rol" title="Link to this heading">¶</a></h3>
+<h3>3.2 Rol<a class="headerlink" href="#rol" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                            Rol                                    |
 +------------------------------------------------------------------+
@@ -677,7 +616,7 @@ CATALOGO CERRADO (18 roles):
 </div>
 </section>
 <section id="permiso">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.3 Permiso</a><a class="headerlink" href="#permiso" title="Link to this heading">¶</a></h3>
+<h3>3.3 Permiso<a class="headerlink" href="#permiso" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                          Permiso                                  |
 +------------------------------------------------------------------+
@@ -708,7 +647,7 @@ EJEMPLOS:
 </div>
 </section>
 <section id="segmento">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.4 Segmento</a><a class="headerlink" href="#segmento" title="Link to this heading">¶</a></h3>
+<h3>3.4 Segmento<a class="headerlink" href="#segmento" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                         Segmento                                  |
 +------------------------------------------------------------------+
@@ -738,7 +677,7 @@ INSTANCIAS CONOCIDAS:
 </div>
 </section>
 <section id="sesion">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.5 Sesion</a><a class="headerlink" href="#sesion" title="Link to this heading">¶</a></h3>
+<h3>3.5 Sesion<a class="headerlink" href="#sesion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                          Sesion                                   |
 +------------------------------------------------------------------+
@@ -770,9 +709,9 @@ ON sessions (user_id) WHERE is_active = TRUE;
 </section>
 <hr class="docutils" />
 <section id="tablas-de-relacion">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">4. Tablas de Relacion</a><a class="headerlink" href="#tablas-de-relacion" title="Link to this heading">¶</a></h2>
+<h2>4. Tablas de Relacion<a class="headerlink" href="#tablas-de-relacion" title="Link to this heading">¶</a></h2>
 <section id="usuario-rol-n-n">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">4.1 Usuario_Rol (N:N)</a><a class="headerlink" href="#usuario-rol-n-n" title="Link to this heading">¶</a></h3>
+<h3>4.1 Usuario_Rol (N:N)<a class="headerlink" href="#usuario-rol-n-n" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                        user_roles                                 |
 +------------------------------------------------------------------+
@@ -792,7 +731,7 @@ Usuario debe tener al menos 1 rol.
 </div>
 </section>
 <section id="rol-permiso-1-n">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.2 Rol_Permiso (1:N)</a><a class="headerlink" href="#rol-permiso-1-n" title="Link to this heading">¶</a></h3>
+<h3>4.2 Rol_Permiso (1:N)<a class="headerlink" href="#rol-permiso-1-n" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                       role_permissions                            |
 +------------------------------------------------------------------+
@@ -807,7 +746,7 @@ Rol debe tener al menos 1 permiso.
 </div>
 </section>
 <section id="rol-conflicto-sod">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.3 Rol_Conflicto (SoD)</a><a class="headerlink" href="#rol-conflicto-sod" title="Link to this heading">¶</a></h3>
+<h3>4.3 Rol_Conflicto (SoD)<a class="headerlink" href="#rol-conflicto-sod" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------+
 |                       role_conflicts                              |
 +------------------------------------------------------------------+
@@ -835,7 +774,7 @@ La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.
 </section>
 <hr class="docutils" />
 <section id="diagrama-er-completo">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">5. Diagrama ER Completo</a><a class="headerlink" href="#diagrama-er-completo" title="Link to this heading">¶</a></h2>
+<h2>5. Diagrama ER Completo<a class="headerlink" href="#diagrama-er-completo" title="Link to this heading">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─────────────┐       ┌─────────────┐       ┌─────────────┐
 │  Segmento   │       │   Usuario   │       │   Sesion    │
 ├─────────────┤       ├─────────────┤       ├─────────────┤
@@ -888,9 +827,9 @@ La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.
 </section>
 <hr class="docutils" />
 <section id="algoritmos-clave">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">6. Algoritmos Clave</a><a class="headerlink" href="#algoritmos-clave" title="Link to this heading">¶</a></h2>
+<h2>6. Algoritmos Clave<a class="headerlink" href="#algoritmos-clave" title="Link to this heading">¶</a></h2>
 <section id="verificar-permiso">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">6.1 Verificar Permiso</a><a class="headerlink" href="#verificar-permiso" title="Link to this heading">¶</a></h3>
+<h3>6.1 Verificar Permiso<a class="headerlink" href="#verificar-permiso" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUNCION tienePermiso(usuario_id, permiso_nombre): Boolean
 
 ALGORITMO:
@@ -915,7 +854,7 @@ SELECT EXISTS (
 </div>
 </section>
 <section id="validar-sod">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">6.2 Validar SoD</a><a class="headerlink" href="#validar-sod" title="Link to this heading">¶</a></h3>
+<h3>6.2 Validar SoD<a class="headerlink" href="#validar-sod" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUNCION validarSoD(usuario_id, nuevo_rol_id): Boolean
 
 ALGORITMO:
@@ -936,7 +875,7 @@ SELECT NOT EXISTS (
 </div>
 </section>
 <section id="obtener-permisos-efectivos">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">6.3 Obtener Permisos Efectivos</a><a class="headerlink" href="#obtener-permisos-efectivos" title="Link to this heading">¶</a></h3>
+<h3>6.3 Obtener Permisos Efectivos<a class="headerlink" href="#obtener-permisos-efectivos" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUNCION obtenerPermisosEfectivos(usuario_id): Set&lt;Permiso&gt;
 
 ALGORITMO:
@@ -961,9 +900,9 @@ Flat RBAC = UNION simple, sin herencia.
 </section>
 <hr class="docutils" />
 <section id="restricciones-del-modelo">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">7. Restricciones del Modelo</a><a class="headerlink" href="#restricciones-del-modelo" title="Link to this heading">¶</a></h2>
+<h2>7. Restricciones del Modelo<a class="headerlink" href="#restricciones-del-modelo" title="Link to this heading">¶</a></h2>
 <section id="restricciones-de-integridad">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">7.1 Restricciones de Integridad</a><a class="headerlink" href="#restricciones-de-integridad" title="Link to this heading">¶</a></h3>
+<h3>7.1 Restricciones de Integridad<a class="headerlink" href="#restricciones-de-integridad" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1007,7 +946,7 @@ Flat RBAC = UNION simple, sin herencia.
 </div>
 </section>
 <section id="ocl-constraints">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">7.2 OCL Constraints</a><a class="headerlink" href="#ocl-constraints" title="Link to this heading">¶</a></h3>
+<h3>7.2 OCL Constraints<a class="headerlink" href="#ocl-constraints" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-- Usuario debe tener al menos un rol
 context Usuario
 inv: self.roles-&gt;size() &gt;= 1
@@ -1034,9 +973,9 @@ inv: Set{&#39;ACTIVO&#39;,&#39;INACTIVO&#39;,&#39;BLOQUEADO&#39;}-&gt;includes(s
 </section>
 <hr class="docutils" />
 <section id="estadisticas-iact">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">8. Estadisticas IACT</a><a class="headerlink" href="#estadisticas-iact" title="Link to this heading">¶</a></h2>
+<h2>8. Estadisticas IACT<a class="headerlink" href="#estadisticas-iact" title="Link to this heading">¶</a></h2>
 <section id="volumetria-esperada">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">8.1 Volumetria Esperada</a><a class="headerlink" href="#volumetria-esperada" title="Link to this heading">¶</a></h3>
+<h3>8.1 Volumetria Esperada<a class="headerlink" href="#volumetria-esperada" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1080,7 +1019,7 @@ inv: Set{&#39;ACTIVO&#39;,&#39;INACTIVO&#39;,&#39;BLOQUEADO&#39;}-&gt;includes(s
 </div>
 </section>
 <section id="permisos-por-rol">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">8.2 Permisos por Rol</a><a class="headerlink" href="#permisos-por-rol" title="Link to this heading">¶</a></h3>
+<h3>8.2 Permisos por Rol<a class="headerlink" href="#permisos-por-rol" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -1124,9 +1063,9 @@ inv: Set{&#39;ACTIVO&#39;,&#39;INACTIVO&#39;,&#39;BLOQUEADO&#39;}-&gt;includes(s
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>9. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../_ontologia_sbvr/SBVR_01_Conceptos_Nucleares.html#sbvr-01"><span class="std std-ref">SBVR_01: Conceptos Nucleares</span></a> - Conceptos Nucleares (Usuario, Rol, Permiso)</p></li>
 <li><p><a class="reference internal" href="../../_ontologia_sbvr/SBVR_02_Fact_Types.html#sbvr-02"><span class="std std-ref">SBVR_02: Fact Types (Tipos de Hechos)</span></a> - Fact Types (relaciones)</p></li>
@@ -1135,7 +1074,7 @@ inv: Set{&#39;ACTIVO&#39;,&#39;INACTIVO&#39;,&#39;BLOQUEADO&#39;}-&gt;includes(s
 </ul>
 </section>
 <section id="fuentes">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">Fuentes</a><a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
+<h3>Fuentes<a class="headerlink" href="#fuentes" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>NIST RBAC Model (Ferraiolo, Sandhu, Kuhn)</p></li>
 <li><p>ANSI INCITS 359-2004: RBAC Standard</p></li>
@@ -1145,7 +1084,7 @@ inv: Set{&#39;ACTIVO&#39;,&#39;INACTIVO&#39;,&#39;BLOQUEADO&#39;}-&gt;includes(s
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>

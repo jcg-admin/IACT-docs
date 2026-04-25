@@ -413,23 +413,9 @@
           
   <section id="proc-validacion-sphinx-validacion-de-documentacion-con-sphinx">
 <span id="proc-validacion-sphinx"></span><h1>PROC_Validacion_Sphinx: Validacion de Documentacion con Sphinx<a class="headerlink" href="#proc-validacion-sphinx-validacion-de-documentacion-con-sphinx" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#resumen-ejecutivo" id="id1">Resumen Ejecutivo</a></p></li>
-<li><p><a class="reference internal" href="#proposito" id="id2">1. Proposito</a></p></li>
-<li><p><a class="reference internal" href="#alcance" id="id3">2. Alcance</a></p></li>
-<li><p><a class="reference internal" href="#procedimiento" id="id4">3. Procedimiento</a></p></li>
-<li><p><a class="reference internal" href="#comandos-utiles" id="id5">4. Comandos Utiles</a></p></li>
-<li><p><a class="reference internal" href="#artefactos-de-salida" id="id6">5. Artefactos de Salida</a></p></li>
-<li><p><a class="reference internal" href="#verificacion" id="id7">6. Verificacion</a></p></li>
-<li><p><a class="reference internal" href="#referencias" id="id8">7. Referencias</a></p></li>
-<li><p><a class="reference internal" href="#historial" id="id9">8. Historial</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="resumen-ejecutivo">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Resumen Ejecutivo</a><a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">¶</a></h2>
+<h2>Resumen Ejecutivo<a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -458,19 +444,19 @@
 </section>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>1. Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Validar que los artefactos RST generados cumplen con la sintaxis
 requerida por Sphinx y pueden compilarse sin errores.</p>
 </section>
 <hr class="docutils" />
 <section id="alcance">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Alcance</a><a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<h2>2. Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
 <p><strong>Aplica A:</strong> Todos los archivos .rst del proyecto.</p>
 <p><strong>No Aplica A:</strong> Archivos .md, configuracion.</p>
 </section>
 <hr class="docutils" />
 <section id="procedimiento">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">3. Procedimiento</a><a class="headerlink" href="#procedimiento" title="Link to this heading">¶</a></h2>
+<h2>3. Procedimiento<a class="headerlink" href="#procedimiento" title="Link to this heading">¶</a></h2>
 <p><strong>Paso 1: Ubicar Archivos a Validar</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Archivo individual</span>
 /tmp/artefacto.rst
@@ -527,7 +513,7 @@ open<span class="w"> </span>/tmp/build/index.html
 </section>
 <hr class="docutils" />
 <section id="comandos-utiles">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">4. Comandos Utiles</a><a class="headerlink" href="#comandos-utiles" title="Link to this heading">¶</a></h2>
+<h2>4. Comandos Utiles<a class="headerlink" href="#comandos-utiles" title="Link to this heading">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validacion rapida sin generar HTML</span>
 sphinx-build<span class="w"> </span>-b<span class="w"> </span>dummy<span class="w"> </span>-W<span class="w"> </span>docs/<span class="w"> </span>/tmp/dummy/
 
@@ -541,7 +527,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/build/
 </section>
 <hr class="docutils" />
 <section id="artefactos-de-salida">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">5. Artefactos de Salida</a><a class="headerlink" href="#artefactos-de-salida" title="Link to this heading">¶</a></h2>
+<h2>5. Artefactos de Salida<a class="headerlink" href="#artefactos-de-salida" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Build exitoso (sin errores)</p></li>
 <li><p>HTML generado (opcional)</p></li>
@@ -549,7 +535,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/build/
 </section>
 <hr class="docutils" />
 <section id="verificacion">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">6. Verificacion</a><a class="headerlink" href="#verificacion" title="Link to this heading">¶</a></h2>
+<h2>6. Verificacion<a class="headerlink" href="#verificacion" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>[ ] sphinx-build retorna codigo 0</p></li>
 <li><p>[ ] Sin warnings (con flag -W)</p></li>
@@ -558,7 +544,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/build/
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">7. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>7. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Sphinx Documentation</p></li>
 <li><p>STD_005: Estilo Sphinx</p></li>
@@ -566,7 +552,7 @@ rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/build/
 </section>
 <hr class="docutils" />
 <section id="historial">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">8. Historial</a><a class="headerlink" href="#historial" title="Link to this heading">¶</a></h2>
+<h2>8. Historial<a class="headerlink" href="#historial" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>

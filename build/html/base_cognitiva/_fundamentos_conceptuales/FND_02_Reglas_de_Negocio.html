@@ -414,91 +414,18 @@
           
   <section id="fnd-02-reglas-de-negocio">
 <span id="fnd-02"></span><h1>FND_02: Reglas de Negocio<a class="headerlink" href="#fnd-02-reglas-de-negocio" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contenido">
-<p class="topic-title">Contenido</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
-<li><p><a class="reference internal" href="#definicion-formal" id="id2">1. Definicion Formal</a></p>
-<ul>
-<li><p><a class="reference internal" href="#que-es-una-regla-de-negocio" id="id3">1.1 Que es una Regla de Negocio</a></p></li>
-<li><p><a class="reference internal" href="#caracteristicas-distintivas" id="id4">1.2 Caracteristicas Distintivas</a></p></li>
-<li><p><a class="reference internal" href="#diferencia-br-vs-requisito-funcional" id="id5">1.3 Diferencia BR vs Requisito Funcional</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#fuentes-de-business-rules" id="id6">2. Fuentes de Business Rules</a></p>
-<ul>
-<li><p><a class="reference internal" href="#fuentes-externas-obligatorias" id="id7">2.1 Fuentes Externas (Obligatorias)</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-internas-organizacionales" id="id8">2.2 Fuentes Internas (Organizacionales)</a></p></li>
-<li><p><a class="reference internal" href="#relacion-con-el-sistema" id="id9">2.3 Relacion con el Sistema</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#taxonomia-de-business-rules" id="id10">3. Taxonomia de Business Rules</a></p>
-<ul>
-<li><p><a class="reference internal" href="#tipo-1-hechos-facts" id="id11">3.1 Tipo 1: Hechos (Facts)</a></p></li>
-<li><p><a class="reference internal" href="#tipo-2-restricciones-constraints" id="id12">3.2 Tipo 2: Restricciones (Constraints)</a></p></li>
-<li><p><a class="reference internal" href="#tipo-3-desencadenadores-triggers" id="id13">3.3 Tipo 3: Desencadenadores (Triggers)</a></p></li>
-<li><p><a class="reference internal" href="#tipo-4-inferencias-inferences" id="id14">3.4 Tipo 4: Inferencias (Inferences)</a></p></li>
-<li><p><a class="reference internal" href="#tipo-5-calculos-calculations" id="id15">3.5 Tipo 5: Calculos (Calculations)</a></p></li>
-<li><p><a class="reference internal" href="#resumen-de-tipos" id="id16">3.6 Resumen de Tipos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#modalidades-sbvr" id="id17">4. Modalidades SBVR</a></p>
-<ul>
-<li><p><a class="reference internal" href="#que-es-sbvr" id="id18">4.1 Que es SBVR</a></p></li>
-<li><p><a class="reference internal" href="#modalidad-aletica-estructural" id="id19">4.2 Modalidad Aletica (Estructural)</a></p></li>
-<li><p><a class="reference internal" href="#modalidad-deontica-comportamental" id="id20">4.3 Modalidad Deontica (Comportamental)</a></p></li>
-<li><p><a class="reference internal" href="#comparacion-de-modalidades" id="id21">4.4 Comparacion de Modalidades</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#template-de-business-rule" id="id22">5. Template de Business Rule</a></p>
-<ul>
-<li><p><a class="reference internal" href="#formato-estandar-iact" id="id23">5.1 Formato Estandar IACT</a></p></li>
-<li><p><a class="reference internal" href="#descripcion-de-campos" id="id24">5.2 Descripcion de Campos</a></p></li>
-<li><p><a class="reference internal" href="#concepto-estatica-vs-dinamica" id="id25">5.3 Concepto: Estatica vs Dinamica</a></p></li>
-<li><p><a class="reference internal" href="#ejemplo-completo" id="id26">5.4 Ejemplo Completo</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#tecnicas-de-elicitacion-de-br" id="id27">6. Tecnicas de Elicitacion de BR</a></p>
-<ul>
-<li><p><a class="reference internal" href="#las-6-preguntas-estrategicas" id="id28">6.1 Las 6 Preguntas Estrategicas</a></p></li>
-<li><p><a class="reference internal" href="#distinguir-desencadenador-de-inferencia" id="id29">6.2 Distinguir Desencadenador de Inferencia</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#business-rules-en-el-contexto-iact" id="id30">7. Business Rules en el Contexto IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#nomenclatura" id="id31">7.1 Nomenclatura</a></p></li>
-<li><p><a class="reference internal" href="#ubicacion-en-el-modelo-iact" id="id32">7.2 Ubicacion en el Modelo IACT</a></p></li>
-<li><p><a class="reference internal" href="#relacion-con-otros-artefactos" id="id33">7.3 Relacion con Otros Artefactos</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#ejemplos-en-iact" id="id34">8. Ejemplos en IACT</a></p>
-<ul>
-<li><p><a class="reference internal" href="#br-de-tipo-restriccion" id="id35">8.1 BR de Tipo Restriccion</a></p></li>
-<li><p><a class="reference internal" href="#br-de-tipo-desencadenador" id="id36">8.2 BR de Tipo Desencadenador</a></p></li>
-<li><p><a class="reference internal" href="#br-de-tipo-inferencia" id="id37">8.3 BR de Tipo Inferencia</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id38">9. Referencias</a></p>
-<ul>
-<li><p><a class="reference internal" href="#documentos-relacionados" id="id39">Documentos Relacionados</a></p></li>
-<li><p><a class="reference internal" href="#fuentes-externas" id="id40">Fuentes Externas</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#historial-de-cambios" id="id41">Historial de Cambios</a></p></li>
-</ul>
-</nav>
 <hr class="docutils" />
 <section id="proposito">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
 <p>Este documento define QUE ES una Regla de Negocio (Business Rule) en el
 contexto del proyecto IACT, su relacion con el estandar SBVR, y como
 se clasifican segun sus tipos y modalidades.</p>
 </section>
 <hr class="docutils" />
 <section id="definicion-formal">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definicion Formal</a><a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
+<h2>1. Definicion Formal<a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
 <section id="que-es-una-regla-de-negocio">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Que es una Regla de Negocio</a><a class="headerlink" href="#que-es-una-regla-de-negocio" title="Link to this heading">¶</a></h3>
+<h3>1.1 Que es una Regla de Negocio<a class="headerlink" href="#que-es-una-regla-de-negocio" title="Link to this heading">¶</a></h3>
 <p>Una <strong>Regla de Negocio (Business Rule - BR)</strong> es una declaracion sobre
 como opera la organizacion. Las reglas de negocio NO son creadas por el
 proyecto de software; existen independientemente y el software debe
@@ -511,7 +438,7 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </div>
 </section>
 <section id="caracteristicas-distintivas">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Caracteristicas Distintivas</a><a class="headerlink" href="#caracteristicas-distintivas" title="Link to this heading">¶</a></h3>
+<h3>1.2 Caracteristicas Distintivas<a class="headerlink" href="#caracteristicas-distintivas" title="Link to this heading">¶</a></h3>
 <p>Las Business Rules tienen cuatro caracteristicas fundamentales:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -542,7 +469,7 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </div>
 </section>
 <section id="diferencia-br-vs-requisito-funcional">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 Diferencia BR vs Requisito Funcional</a><a class="headerlink" href="#diferencia-br-vs-requisito-funcional" title="Link to this heading">¶</a></h3>
+<h3>1.3 Diferencia BR vs Requisito Funcional<a class="headerlink" href="#diferencia-br-vs-requisito-funcional" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -584,9 +511,9 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </section>
 <hr class="docutils" />
 <section id="fuentes-de-business-rules">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">2. Fuentes de Business Rules</a><a class="headerlink" href="#fuentes-de-business-rules" title="Link to this heading">¶</a></h2>
+<h2>2. Fuentes de Business Rules<a class="headerlink" href="#fuentes-de-business-rules" title="Link to this heading">¶</a></h2>
 <section id="fuentes-externas-obligatorias">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.1 Fuentes Externas (Obligatorias)</a><a class="headerlink" href="#fuentes-externas-obligatorias" title="Link to this heading">¶</a></h3>
+<h3>2.1 Fuentes Externas (Obligatorias)<a class="headerlink" href="#fuentes-externas-obligatorias" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES EXTERNAS:
 
 +------------------+----------------------------------------+
@@ -602,7 +529,7 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </div>
 </section>
 <section id="fuentes-internas-organizacionales">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.2 Fuentes Internas (Organizacionales)</a><a class="headerlink" href="#fuentes-internas-organizacionales" title="Link to this heading">¶</a></h3>
+<h3>2.2 Fuentes Internas (Organizacionales)<a class="headerlink" href="#fuentes-internas-organizacionales" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES INTERNAS:
 
 +------------------+----------------------------------------+
@@ -616,7 +543,7 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </div>
 </section>
 <section id="relacion-con-el-sistema">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.3 Relacion con el Sistema</a><a class="headerlink" href="#relacion-con-el-sistema" title="Link to this heading">¶</a></h3>
+<h3>2.3 Relacion con el Sistema<a class="headerlink" href="#relacion-con-el-sistema" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES EXTERNAS              FUENTES INTERNAS
      |                              |
      v                              v
@@ -634,10 +561,10 @@ independientemente del sistema y que el sistema DEBE cumplir.</p>
 </section>
 <hr class="docutils" />
 <section id="taxonomia-de-business-rules">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">3. Taxonomia de Business Rules</a><a class="headerlink" href="#taxonomia-de-business-rules" title="Link to this heading">¶</a></h2>
+<h2>3. Taxonomia de Business Rules<a class="headerlink" href="#taxonomia-de-business-rules" title="Link to this heading">¶</a></h2>
 <p>Las Business Rules se clasifican en <strong>5 tipos</strong> segun su naturaleza:</p>
 <section id="tipo-1-hechos-facts">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.1 Tipo 1: Hechos (Facts)</a><a class="headerlink" href="#tipo-1-hechos-facts" title="Link to this heading">¶</a></h3>
+<h3>3.1 Tipo 1: Hechos (Facts)<a class="headerlink" href="#tipo-1-hechos-facts" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Verdades sobre el dominio que estructuran el modelo de datos.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -661,7 +588,7 @@ Impacto en sistema:
 </div>
 </section>
 <section id="tipo-2-restricciones-constraints">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.2 Tipo 2: Restricciones (Constraints)</a><a class="headerlink" href="#tipo-2-restricciones-constraints" title="Link to this heading">¶</a></h3>
+<h3>3.2 Tipo 2: Restricciones (Constraints)<a class="headerlink" href="#tipo-2-restricciones-constraints" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Limitaciones obligatorias sobre lo que DEBE o NO DEBE ocurrir.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -685,7 +612,7 @@ Impacto en sistema:
 </div>
 </section>
 <section id="tipo-3-desencadenadores-triggers">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.3 Tipo 3: Desencadenadores (Triggers)</a><a class="headerlink" href="#tipo-3-desencadenadores-triggers" title="Link to this heading">¶</a></h3>
+<h3>3.3 Tipo 3: Desencadenadores (Triggers)<a class="headerlink" href="#tipo-3-desencadenadores-triggers" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Reglas que cuando se cumple una condicion, generan un
 comportamiento OBSERVABLE.</p>
 <p><strong>Caracteristicas:</strong></p>
@@ -720,7 +647,7 @@ Impacto en sistema:
 </div>
 </section>
 <section id="tipo-4-inferencias-inferences">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.4 Tipo 4: Inferencias (Inferences)</a><a class="headerlink" href="#tipo-4-inferencias-inferences" title="Link to this heading">¶</a></h3>
+<h3>3.4 Tipo 4: Inferencias (Inferences)<a class="headerlink" href="#tipo-4-inferencias-inferences" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Reglas que cuando se cumple una condicion, establecen un
 nuevo hecho INTERNO (no observable externamente).</p>
 <p><strong>Caracteristicas:</strong></p>
@@ -747,7 +674,7 @@ Impacto en sistema:
 </div>
 </section>
 <section id="tipo-5-calculos-calculations">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.5 Tipo 5: Calculos (Calculations)</a><a class="headerlink" href="#tipo-5-calculos-calculations" title="Link to this heading">¶</a></h3>
+<h3>3.5 Tipo 5: Calculos (Calculations)<a class="headerlink" href="#tipo-5-calculos-calculations" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Formulas y algoritmos que transforman datos.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -771,7 +698,7 @@ Impacto en sistema:
 </div>
 </section>
 <section id="resumen-de-tipos">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.6 Resumen de Tipos</a><a class="headerlink" href="#resumen-de-tipos" title="Link to this heading">¶</a></h3>
+<h3>3.6 Resumen de Tipos<a class="headerlink" href="#resumen-de-tipos" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -820,11 +747,11 @@ Impacto en sistema:
 </section>
 <hr class="docutils" />
 <section id="modalidades-sbvr">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Modalidades SBVR</a><a class="headerlink" href="#modalidades-sbvr" title="Link to this heading">¶</a></h2>
+<h2>4. Modalidades SBVR<a class="headerlink" href="#modalidades-sbvr" title="Link to this heading">¶</a></h2>
 <p>El estandar SBVR (Semantics of Business Vocabulary and Rules) define
 dos modalidades logicas para clasificar las reglas de negocio.</p>
 <section id="que-es-sbvr">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.1 Que es SBVR</a><a class="headerlink" href="#que-es-sbvr" title="Link to this heading">¶</a></h3>
+<h3>4.1 Que es SBVR<a class="headerlink" href="#que-es-sbvr" title="Link to this heading">¶</a></h3>
 <p><strong>SBVR</strong> (Semantics of Business Vocabulary and Rules) es un estandar
 del OMG que combina aspectos de ontologias y sistemas de reglas.</p>
 <div class="admonition note">
@@ -838,7 +765,7 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.</p>
 </div>
 </section>
 <section id="modalidad-aletica-estructural">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.2 Modalidad Aletica (Estructural)</a><a class="headerlink" href="#modalidad-aletica-estructural" title="Link to this heading">¶</a></h3>
+<h3>4.2 Modalidad Aletica (Estructural)<a class="headerlink" href="#modalidad-aletica-estructural" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Describe lo que ES, verdades sobre la estructura del dominio.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -863,7 +790,7 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.</p>
 </div>
 </section>
 <section id="modalidad-deontica-comportamental">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">4.3 Modalidad Deontica (Comportamental)</a><a class="headerlink" href="#modalidad-deontica-comportamental" title="Link to this heading">¶</a></h3>
+<h3>4.3 Modalidad Deontica (Comportamental)<a class="headerlink" href="#modalidad-deontica-comportamental" title="Link to this heading">¶</a></h3>
 <p><strong>Definicion:</strong> Describe lo que DEBE SER, obligaciones y prohibiciones.</p>
 <p><strong>Caracteristicas:</strong></p>
 <ul class="simple">
@@ -907,7 +834,7 @@ Permiso:
 </div>
 </section>
 <section id="comparacion-de-modalidades">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">4.4 Comparacion de Modalidades</a><a class="headerlink" href="#comparacion-de-modalidades" title="Link to this heading">¶</a></h3>
+<h3>4.4 Comparacion de Modalidades<a class="headerlink" href="#comparacion-de-modalidades" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -945,9 +872,9 @@ Permiso:
 </section>
 <hr class="docutils" />
 <section id="template-de-business-rule">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">5. Template de Business Rule</a><a class="headerlink" href="#template-de-business-rule" title="Link to this heading">¶</a></h2>
+<h2>5. Template de Business Rule<a class="headerlink" href="#template-de-business-rule" title="Link to this heading">¶</a></h2>
 <section id="formato-estandar-iact">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.1 Formato Estandar IACT</a><a class="headerlink" href="#formato-estandar-iact" title="Link to this heading">¶</a></h3>
+<h3>5.1 Formato Estandar IACT<a class="headerlink" href="#formato-estandar-iact" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_NNN:
   Definicion:      [Texto de la regla en lenguaje de negocio]
   Tipo:            Fact | Constraint | Trigger | Inference | Calculation
@@ -962,7 +889,7 @@ Permiso:
 </div>
 </section>
 <section id="descripcion-de-campos">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">5.2 Descripcion de Campos</a><a class="headerlink" href="#descripcion-de-campos" title="Link to this heading">¶</a></h3>
+<h3>5.2 Descripcion de Campos<a class="headerlink" href="#descripcion-de-campos" title="Link to this heading">¶</a></h3>
 <p><strong>Campos Obligatorios:</strong></p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -1024,7 +951,7 @@ Permiso:
 </div>
 </section>
 <section id="concepto-estatica-vs-dinamica">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">5.3 Concepto: Estatica vs Dinamica</a><a class="headerlink" href="#concepto-estatica-vs-dinamica" title="Link to this heading">¶</a></h3>
+<h3>5.3 Concepto: Estatica vs Dinamica<a class="headerlink" href="#concepto-estatica-vs-dinamica" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ESTATICA:
 - Proviene de ley o regulacion permanente
 - Muy dificil o imposible de cambiar
@@ -1045,7 +972,7 @@ DINAMICA:
 </ul>
 </section>
 <section id="ejemplo-completo">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">5.4 Ejemplo Completo</a><a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<h3>5.4 Ejemplo Completo<a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_028:
   Definicion:      &quot;Solicitudes de compra que excedan $500 requieren
                     aprobacion del gerente de departamento&quot;
@@ -1064,9 +991,9 @@ DINAMICA:
 </section>
 <hr class="docutils" />
 <section id="tecnicas-de-elicitacion-de-br">
-<h2><a class="toc-backref" href="#id27" role="doc-backlink">6. Tecnicas de Elicitacion de BR</a><a class="headerlink" href="#tecnicas-de-elicitacion-de-br" title="Link to this heading">¶</a></h2>
+<h2>6. Tecnicas de Elicitacion de BR<a class="headerlink" href="#tecnicas-de-elicitacion-de-br" title="Link to this heading">¶</a></h2>
 <section id="las-6-preguntas-estrategicas">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">6.1 Las 6 Preguntas Estrategicas</a><a class="headerlink" href="#las-6-preguntas-estrategicas" title="Link to this heading">¶</a></h3>
+<h3>6.1 Las 6 Preguntas Estrategicas<a class="headerlink" href="#las-6-preguntas-estrategicas" title="Link to this heading">¶</a></h3>
 <p>Para descubrir Business Rules de manera sistematica, usar estas preguntas:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -1111,7 +1038,7 @@ DINAMICA:
 </div>
 </section>
 <section id="distinguir-desencadenador-de-inferencia">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">6.2 Distinguir Desencadenador de Inferencia</a><a class="headerlink" href="#distinguir-desencadenador-de-inferencia" title="Link to this heading">¶</a></h3>
+<h3>6.2 Distinguir Desencadenador de Inferencia<a class="headerlink" href="#distinguir-desencadenador-de-inferencia" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PREGUNTA CLAVE:
 &quot;Si esta regla se ejecuta, ¿el usuario puede OBSERVAR que algo ocurrio,
  sin consultar la base de datos interna?&quot;
@@ -1136,9 +1063,9 @@ Respuesta B: &quot;Se marca como &#39;Caduco&#39; en el sistema&quot;
 </section>
 <hr class="docutils" />
 <section id="business-rules-en-el-contexto-iact">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink">7. Business Rules en el Contexto IACT</a><a class="headerlink" href="#business-rules-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
+<h2>7. Business Rules en el Contexto IACT<a class="headerlink" href="#business-rules-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
 <section id="nomenclatura">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.1 Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
+<h3>7.1 Nomenclatura<a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
 <p>Las Business Rules en IACT siguen la convencion:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORMATO: BR_NNN_Nombre_Descriptivo.rst
 
@@ -1155,7 +1082,7 @@ Ejemplos:
 </div>
 </section>
 <section id="ubicacion-en-el-modelo-iact">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink">7.2 Ubicacion en el Modelo IACT</a><a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
+<h3>7.2 Ubicacion en el Modelo IACT<a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requisitos/
     |
     +--- reglas_negocio/
@@ -1168,7 +1095,7 @@ Ejemplos:
 </div>
 </section>
 <section id="relacion-con-otros-artefactos">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink">7.3 Relacion con Otros Artefactos</a><a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
+<h3>7.3 Relacion con Otros Artefactos<a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR (Regla de Negocio)
     |
     +---&gt; UC (Caso de Uso)
@@ -1186,9 +1113,9 @@ Ejemplos:
 </section>
 <hr class="docutils" />
 <section id="ejemplos-en-iact">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">8. Ejemplos en IACT</a><a class="headerlink" href="#ejemplos-en-iact" title="Link to this heading">¶</a></h2>
+<h2>8. Ejemplos en IACT<a class="headerlink" href="#ejemplos-en-iact" title="Link to this heading">¶</a></h2>
 <section id="br-de-tipo-restriccion">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">8.1 BR de Tipo Restriccion</a><a class="headerlink" href="#br-de-tipo-restriccion" title="Link to this heading">¶</a></h3>
+<h3>8.1 BR de Tipo Restriccion<a class="headerlink" href="#br-de-tipo-restriccion" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_001: Fuente Operacional Inmutable
 
 Definicion:    &quot;La base de datos MySQL operacional es de SOLO LECTURA
@@ -1204,7 +1131,7 @@ Fecha Efectiva: 2025-01-01
 </div>
 </section>
 <section id="br-de-tipo-desencadenador">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink">8.2 BR de Tipo Desencadenador</a><a class="headerlink" href="#br-de-tipo-desencadenador" title="Link to this heading">¶</a></h3>
+<h3>8.2 BR de Tipo Desencadenador<a class="headerlink" href="#br-de-tipo-desencadenador" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_002: Sincronizacion ETL Nocturna
 
 Definicion:    &quot;SI es medianoche (00:00 hora local),
@@ -1220,7 +1147,7 @@ Fecha Efectiva: 2025-01-15
 </div>
 </section>
 <section id="br-de-tipo-inferencia">
-<h3><a class="toc-backref" href="#id37" role="doc-backlink">8.3 BR de Tipo Inferencia</a><a class="headerlink" href="#br-de-tipo-inferencia" title="Link to this heading">¶</a></h3>
+<h3>8.3 BR de Tipo Inferencia<a class="headerlink" href="#br-de-tipo-inferencia" title="Link to this heading">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_003: Clasificacion de Usuario Inactivo
 
 Definicion:    &quot;SI un usuario no ha iniciado sesion en 90 dias,
@@ -1237,9 +1164,9 @@ Fecha Efectiva: 2025-01-01
 </section>
 <hr class="docutils" />
 <section id="referencias">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<h2>9. Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
 <section id="documentos-relacionados">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<h3>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="FND_01_Concepto_Requisito.html#fnd-01"><span class="std std-ref">FND_01: Concepto de Requisito</span></a> - Concepto de Requisito</p></li>
 <li><p><a class="reference internal" href="FND_03_Casos_de_Uso.html#fnd-03"><span class="std std-ref">FND_03: Casos de Uso</span></a> - Casos de Uso</p></li>
@@ -1249,7 +1176,7 @@ Fecha Efectiva: 2025-01-01
 </ul>
 </section>
 <section id="fuentes-externas">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<h3>Fuentes Externas<a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>OMG SBVR 1.5 Specification</p></li>
 <li><p>Paper IBM: &quot;SBVR Use Cases&quot; (Mark H. Linehan, 2008)</p></li>
@@ -1259,7 +1186,7 @@ Fecha Efectiva: 2025-01-01
 </section>
 <hr class="docutils" />
 <section id="historial-de-cambios">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
