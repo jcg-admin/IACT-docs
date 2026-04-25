@@ -89,7 +89,7 @@ Every PlantUML diagram must include the centralized style file at the top:
 .. code-block:: puml
 
    @startuml diagram-name
-   !include ../../../_static/plantuml-styles.puml
+   !include ../_static/plantuml-styles.puml
 
    ' Your diagram code below
    actor "User" as user
@@ -97,11 +97,11 @@ Every PlantUML diagram must include the centralized style file at the top:
    user --> login
    @enduml
 
-**Important:** The path ``../../../_static/plantuml-styles.puml`` is relative to where your diagram source file is located. If your file is in a different directory, adjust accordingly:
+**Important:** The path ``../_static/plantuml-styles.puml`` assumes your diagram source file is in ``source/discover/``. If your file is in a different directory, adjust accordingly:
 
-- From ``discover/``: ``../../../_static/plantuml-styles.puml``
-- From ``requisitos/``: ``../../_static/plantuml-styles.puml``
-- From ``root/``: ``./_static/plantuml-styles.puml``
+- From ``source/discover/``: ``../_static/plantuml-styles.puml``
+- From ``source/requisitos/``: ``../_static/plantuml-styles.puml``
+- From ``source/``: ``./_static/plantuml-styles.puml``
 
 ----
 
@@ -114,7 +114,7 @@ __________________________________
 .. code-block:: puml
 
    @startuml simple-uc
-   !include ../../../_static/plantuml-styles.puml
+   !include ../_static/plantuml-styles.puml
 
    actor "Student" as student
    usecase "Submit Work" as submit
@@ -130,7 +130,7 @@ _________________________________________
 .. code-block:: puml
 
    @startuml authentication-sequence
-   !include ../../../_static/plantuml-styles.puml
+   !include ../_static/plantuml-styles.puml
 
    participant "User" as user
    participant "AuthService" as auth
@@ -148,7 +148,7 @@ __________________________________
 .. code-block:: puml
 
    @startuml system-architecture
-   !include ../../../_static/plantuml-styles.puml
+   !include ../_static/plantuml-styles.puml
 
    package "API" {
      component [UserAPI]

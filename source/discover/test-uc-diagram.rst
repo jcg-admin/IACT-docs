@@ -21,7 +21,7 @@ Diagram
 
 .. uml::
 
-   !include ../../../_static/plantuml-styles.puml
+   !include ../_static/plantuml-styles.puml
 
    actor "Student" as student
    actor "Instructor" as instructor
