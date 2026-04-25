@@ -184,10 +184,9 @@ plantuml = 'plantuml'
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
 
-# Centralizar imágenes y diagramas en _static/img/
-# sphinxcontrib.plantuml genera en _plantuml/ por defecto
-# Post-build hook reorganiza en _static/img/diagrams/
-plantuml_output_dir = '_static/img/diagrams'
+# Usar ubicación estándar de sphinxcontrib.plantuml (_images/)
+# El hook post-build reorganiza metadatos pero mantiene referencias HTML válidas
+# NO personalizar plantuml_output_dir para evitar mismatch con referencias HTML
 
 # Hook post-build para reorganizar archivos de imagen
 def setup(app):
@@ -196,8 +195,9 @@ def setup(app):
 
 def reorganize_static_assets(app, exception):
     """
-    Post-build hook: reorganiza _images/ y _plantuml/ → _static/img/
-    Luego reorganiza diagrams por módulo/tipo basado en metadatos PlantUML.
+    Post-build hook: reorganiza PlantUML diagrams por módulo/tipo basado en metadatos.
+    Los archivos quedan en _images/ (ubicación estándar de sphinxcontrib.plantuml)
+    y se organizan en subdirectorios según @IACT-DIAGRAM metadata.
     """
     import shutil
     from pathlib import Path
@@ -206,29 +206,13 @@ def reorganize_static_assets(app, exception):
         return  # No reorganizar si la build falló
 
     build_dir = Path(app.outdir)
-    static_img_dir = build_dir / '_static' / 'img'
+    images_dir = build_dir / '_images'
 
-    # Crear directorio de destino si no existe
-    static_img_dir.mkdir(parents=True, exist_ok=True)
+    if not images_dir.exists():
+        return  # No hay imágenes para reorganizar
 
-    # Mover _images/ → _static/img/raster/
-    images_src = build_dir / '_images'
-    if images_src.exists():
-        images_dst = static_img_dir / 'raster'
-        if images_dst.exists():
-            shutil.rmtree(images_dst)
-        shutil.move(str(images_src), str(images_dst))
-
-    # Mover _plantuml/ → _static/img/diagrams/
-    plantuml_src = build_dir / '_plantuml'
-    if plantuml_src.exists():
-        diagrams_dst = static_img_dir / 'diagrams'
-        if diagrams_dst.exists():
-            shutil.rmtree(diagrams_dst)
-        shutil.move(str(plantuml_src), str(diagrams_dst))
-
-    # Reorganizar diagrams usando metadatos PlantUML
-    reorganize_by_plantuml_metadata(static_img_dir / 'diagrams', app.srcdir)
+    # Reorganizar PlantUML diagrams en _images/ por módulo/tipo basado en metadatos
+    reorganize_by_plantuml_metadata(images_dir, app.srcdir)
 
 
 def reorganize_by_plantuml_metadata(diagrams_dir, source_dir):
