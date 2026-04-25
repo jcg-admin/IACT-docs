@@ -1,0 +1,1474 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="FND_03" name="artefacto" />
+<meta content="Fundamento Conceptual" name="tipo" />
+<meta content="base_cognitiva" name="dominio" />
+<meta content="_fundamentos_conceptuales" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.2.0" name="version" />
+<meta content="2025-12-19" name="fecha_creacion" />
+<meta content="2026-01-04" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>FND_03: Casos de Uso - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="fnd-03-casos-de-uso">
+<span id="fnd-03"></span><h1>FND_03: Casos de Uso<a class="headerlink" href="#fnd-03-casos-de-uso" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
+<li><p><a class="reference internal" href="#definicion-formal" id="id2">1. Definicion Formal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es-un-caso-de-uso" id="id3">1.1 Que es un Caso de Uso</a></p></li>
+<li><p><a class="reference internal" href="#caracteristicas-de-un-caso-de-uso" id="id4">1.2 Caracteristicas de un Caso de Uso</a></p></li>
+<li><p><a class="reference internal" href="#uc-vs-fr-diferencia-fundamental" id="id5">1.3 UC vs FR: Diferencia Fundamental</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#estructura-de-un-caso-de-uso" id="id6">2. Estructura de un Caso de Uso</a></p>
+<ul>
+<li><p><a class="reference internal" href="#componentes-obligatorios" id="id7">2.1 Componentes Obligatorios</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-completo" id="id8">2.2 Ejemplo Completo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#actores" id="id9">3. Actores</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definicion-de-actor" id="id10">3.1 Definicion de Actor</a></p></li>
+<li><p><a class="reference internal" href="#tipos-de-actores" id="id11">3.2 Tipos de Actores</a></p></li>
+<li><p><a class="reference internal" href="#actor-primario-vs-secundario" id="id12">3.3 Actor Primario vs Secundario</a></p></li>
+<li><p><a class="reference internal" href="#actores-en-iact-agrupadores-rbac-v5-1-1" id="id13">3.4 Actores en IACT (Agrupadores RBAC v5.1.1)</a></p></li>
+<li><p><a class="reference internal" href="#mapeo-de-actores-legacy-a-agrupadores" id="id14">3.5 Mapeo de Actores Legacy a Agrupadores</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#flujos" id="id15">4. Flujos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#flujo-normal-happy-path" id="id16">4.1 Flujo Normal (Happy Path)</a></p></li>
+<li><p><a class="reference internal" href="#flujos-alternos" id="id17">4.2 Flujos Alternos</a></p></li>
+<li><p><a class="reference internal" href="#excepciones" id="id18">4.3 Excepciones</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tecnicas-de-identificacion-de-uc" id="id19">5. Tecnicas de Identificacion de UC</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tecnica-1-derivacion-desde-business-rules-22" id="id20">5.1 Tecnica 1: Derivacion desde Business Rules (22%)</a></p></li>
+<li><p><a class="reference internal" href="#tecnica-2-analisis-crud-40" id="id21">5.2 Tecnica 2: Analisis CRUD (40%)</a></p></li>
+<li><p><a class="reference internal" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22" id="id22">5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)</a></p></li>
+<li><p><a class="reference internal" href="#tecnica-4-analisis-de-interfaz-ui-driven-11" id="id23">5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)</a></p></li>
+<li><p><a class="reference internal" href="#tecnica-5-requerimientos-directos-de-stakeholders-5" id="id24">5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)</a></p></li>
+<li><p><a class="reference internal" href="#matriz-de-cobertura-completa" id="id25">5.6 Matriz de Cobertura Completa</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#contratos-de-operacion" id="id26">6. Contratos de Operacion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definicion" id="id27">6.1 Definicion</a></p></li>
+<li><p><a class="reference internal" href="#formato" id="id28">6.2 Formato</a></p></li>
+<li><p><a class="reference internal" href="#relacion-uc-contrato" id="id29">6.3 Relacion UC - Contrato</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#casos-de-uso-en-el-contexto-iact" id="id30">7. Casos de Uso en el Contexto IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nomenclatura" id="id31">7.1 Nomenclatura</a></p></li>
+<li><p><a class="reference internal" href="#ubicacion-en-el-modelo-iact" id="id32">7.2 Ubicacion en el Modelo IACT</a></p></li>
+<li><p><a class="reference internal" href="#relacion-con-otros-artefactos" id="id33">7.3 Relacion con Otros Artefactos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#lista-de-uc-identificados-en-iact-49-uc" id="id34">8. Lista de UC Identificados en IACT (49 UC)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#autenticacion-mod-auth-5-uc" id="id35">8.1 Autenticacion - MOD_Auth (5 UC)</a></p></li>
+<li><p><a class="reference internal" href="#gestion-de-usuarios-mod-users-4-uc" id="id36">8.2 Gestion de Usuarios - MOD_Users (4 UC)</a></p></li>
+<li><p><a class="reference internal" href="#control-de-acceso-mod-access-9-uc" id="id37">8.3 Control de Acceso - MOD_Access (9 UC)</a></p></li>
+<li><p><a class="reference internal" href="#pipeline-etl-mod-pipeline-4-uc" id="id38">8.4 Pipeline ETL - MOD_Pipeline (4 UC)</a></p></li>
+<li><p><a class="reference internal" href="#reportes-y-dashboards-mod-reports-14-uc" id="id39">8.5 Reportes y Dashboards - MOD_Reports (14 UC)</a></p></li>
+<li><p><a class="reference internal" href="#alertas-mod-alerts-5-uc" id="id40">8.6 Alertas - MOD_Alerts (5 UC)</a></p></li>
+<li><p><a class="reference internal" href="#auditoria-mod-audit-4-uc" id="id41">8.7 Auditoria - MOD_Audit (4 UC)</a></p></li>
+<li><p><a class="reference internal" href="#bitacoras-mod-logs-4-uc" id="id42">8.8 Bitacoras - MOD_Logs (4 UC)</a></p></li>
+<li><p><a class="reference internal" href="#resumen-de-uc-por-modulo" id="id43">8.9 Resumen de UC por Modulo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencias" id="id44">9. Referencias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#documentos-relacionados" id="id45">Documentos Relacionados</a></p></li>
+<li><p><a class="reference internal" href="#modelos-iact" id="id46">Modelos IACT</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-externas" id="id47">Fuentes Externas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id48">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento define QUE ES un Caso de Uso (Use Case) en el contexto del
+proyecto IACT, su estructura, componentes y relacion con otros artefactos
+de requisitos.</p>
+</section>
+<hr class="docutils" />
+<section id="definicion-formal">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definicion Formal</a><a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
+<section id="que-es-un-caso-de-uso">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Que es un Caso de Uso</a><a class="headerlink" href="#que-es-un-caso-de-uso" title="Link to this heading">¶</a></h3>
+<p>Un <strong>Caso de Uso (Use Case - UC)</strong> es una descripcion de una secuencia de
+interacciones entre un actor y el sistema para lograr un objetivo especifico.
+Describe comportamientos del sistema desde la perspectiva del usuario.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Definicion operativa para IACT:</strong></p>
+<p>Un UC es una narrativa que describe COMO un usuario interactua con el
+sistema para completar una tarea de negocio, incluyendo el flujo normal
+y los flujos alternativos.</p>
+</div>
+</section>
+<section id="caracteristicas-de-un-caso-de-uso">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Caracteristicas de un Caso de Uso</a><a class="headerlink" href="#caracteristicas-de-un-caso-de-uso" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracteristica</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Narrativo</strong></p></td>
+<td><p>Cuenta una historia: &quot;El usuario hace X, sistema responde Y&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Alto nivel</strong></p></td>
+<td><p>Describe interaccion completa, no detalles atomicos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Orientado a actor</strong></p></td>
+<td><p>Perspectiva del usuario, no del sistema</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Secuencial</strong></p></td>
+<td><p>Pasos ordenados en flujo temporal</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Contextualizado</strong></p></td>
+<td><p>Incluye precondiciones y postcondiciones</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Multi-camino</strong></p></td>
+<td><p>Flujo normal mas flujos alternativos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="uc-vs-fr-diferencia-fundamental">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 UC vs FR: Diferencia Fundamental</a><a class="headerlink" href="#uc-vs-fr-diferencia-fundamental" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Caso de Uso (UC)</p></th>
+<th class="head"><p>Requisito Funcional (FR)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Vista</p></td>
+<td><p>Narrativa (historia)</p></td>
+<td><p>Atomica (declaracion)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nivel</p></td>
+<td><p>Alto (interaccion completa)</p></td>
+<td><p>Bajo (comportamiento especifico)</p></td>
+</tr>
+<tr class="row-even"><td><p>Orientacion</p></td>
+<td><p>Actor (usuario)</p></td>
+<td><p>Sistema (implementacion)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dependencia</p></td>
+<td><p>Secuencia importa</p></td>
+<td><p>Independiente</p></td>
+</tr>
+<tr class="row-even"><td><p>Verificacion</p></td>
+<td><p>Escenario end-to-end</p></td>
+<td><p>Test unitario/aislado</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ejemplo</p></td>
+<td><p>UC-043: Configurar SoD</p></td>
+<td><p>FR-043.1: Sistema DEBE mostrar lista SoD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Analogia:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CASO DE USO = PLANO ARQUITECTONICO
+  - Muestra habitaciones, distribucion, flujo
+  - Alto nivel, comprensible por cliente
+  - No especifica tamano de cada ladrillo
+
+REQUISITO FUNCIONAL = ESPECIFICACION DE CONSTRUCCION
+  - Ladrillo debe ser de 10cm x 20cm
+  - Bajo nivel, comprensible por constructor
+  - Cada especificacion es verificable
+
+AMBOS SE NECESITAN:
+  - Plano sin especificaciones: Constructor adivina
+  - Especificaciones sin plano: No sabe como ensamblar
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="estructura-de-un-caso-de-uso">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">2. Estructura de un Caso de Uso</a><a class="headerlink" href="#estructura-de-un-caso-de-uso" title="Link to this heading">¶</a></h2>
+<section id="componentes-obligatorios">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.1 Componentes Obligatorios</a><a class="headerlink" href="#componentes-obligatorios" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-NNN: [Nombre del Caso de Uso]
+
+IDENTIFICACION:
+  ID:              UC-NNN
+  Nombre:          [Verbo + Objeto]
+  Actor Primario:  [Agrupador RBAC que inicia]
+  Actores Secundarios: [Otros agrupadores involucrados]
+
+CONTEXTO:
+  Objetivo:        [Meta del actor]
+  Precondiciones:  [Que debe ser verdad ANTES]
+  Postcondiciones: [Que sera verdad DESPUES - exito]
+  Trigger:         [Evento que inicia el UC]
+
+FLUJOS:
+  Flujo Normal:    [Pasos 1, 2, 3... secuencia exitosa]
+  Flujos Alternos: [Variaciones del flujo normal]
+  Excepciones:     [Errores y como manejarlos]
+
+TRAZABILIDAD:
+  Business Rules:  [BR que aplican]
+  BReq:            [Objetivo de negocio]
+  FR Derivados:    [FR que se generan de este UC]
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.2 Ejemplo Completo</a><a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-043: Configurar SoD
+
+IDENTIFICACION:
+  ID:              UC-043
+  Nombre:          Configurar Segregacion de Funciones
+  Actor Primario:  AGR-008 (admin_seguridad)
+  Actores Secundarios: AGR-007 (auditor)
+
+CONTEXTO:
+  Objetivo:        Crear restricciones SoD para prevenir conflictos
+  Precondiciones:
+    - Usuario autenticado con agrupador AGR-008
+    - Existen funciones definidas en catalogo RBAC
+  Postcondiciones:
+    - Restriccion SoD creada en sistema
+    - Evento registrado en auditoria
+    - Administradores notificados
+  Trigger:         Admin selecciona Gestionar SoD
+
+FLUJO NORMAL:
+  1. Admin Seguridad selecciona Gestionar SoD
+  2. Sistema muestra lista de restricciones actuales
+  3. Admin selecciona Crear nueva restriccion
+  4. Sistema muestra formulario de configuracion
+  5. Admin define nombre de la restriccion
+  6. Admin selecciona funciones para Grupo A
+  7. Admin selecciona funciones para Grupo B
+  8. Sistema valida que no hay conflictos existentes
+  9. Admin confirma creacion
+ 10. Sistema guarda restriccion SoD
+ 11. Sistema registra en auditoria
+ 12. Sistema notifica a administradores
+
+FLUJO ALTERNO 8a: Conflicto con usuarios existentes
+  8a.1. Sistema detecta usuarios que violarian nueva SoD
+  8a.2. Sistema muestra lista de usuarios afectados
+  8a.3. Sistema impide guardar hasta resolver
+  8a.4. Retorna a paso 6
+
+EXCEPCION 1: Sin permisos
+  1a.1. Sistema detecta falta de AGR-008
+  1a.2. Sistema muestra mensaje de acceso denegado
+  1a.3. Caso de uso termina
+
+TRAZABILIDAD:
+  Business Rules:  BR_007 (Separacion de Funciones SoD)
+  BReq:            BReq-004 (Cumplimiento Seguridad)
+  FR Derivados:    FR-043.1 a FR-043.5
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="actores">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">3. Actores</a><a class="headerlink" href="#actores" title="Link to this heading">¶</a></h2>
+<section id="definicion-de-actor">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">3.1 Definicion de Actor</a><a class="headerlink" href="#definicion-de-actor" title="Link to this heading">¶</a></h3>
+<p>Un <strong>actor</strong> es una entidad externa al sistema que interactua con el.
+Puede ser una persona (rol), otro sistema, o el tiempo.</p>
+</section>
+<section id="tipos-de-actores">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.2 Tipos de Actores</a><a class="headerlink" href="#tipos-de-actores" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>Ejemplo IACT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Humano</p></td>
+<td><p>Persona con agrupador especifico</p></td>
+<td><p>AGR-004 (visor_dashboard)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sistema</p></td>
+<td><p>Sistema externo que interactua</p></td>
+<td><p>Sistema IVR MySQL</p></td>
+</tr>
+<tr class="row-even"><td><p>Tiempo</p></td>
+<td><p>Eventos programados</p></td>
+<td><p>Scheduler ETL (medianoche)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="actor-primario-vs-secundario">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.3 Actor Primario vs Secundario</a><a class="headerlink" href="#actor-primario-vs-secundario" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ACTOR PRIMARIO:
+  - Inicia el caso de uso
+  - Tiene el objetivo principal
+  - Ejemplo: AGR-008 que configura SoD
+
+ACTOR SECUNDARIO:
+  - Participa pero no inicia
+  - Proporciona informacion o recibe notificacion
+  - Ejemplo: AGR-007 que recibe notificacion de cambio
+</pre></div>
+</div>
+</section>
+<section id="actores-en-iact-agrupadores-rbac-v5-1-1">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.4 Actores en IACT (Agrupadores RBAC v5.1.1)</a><a class="headerlink" href="#actores-en-iact-agrupadores-rbac-v5-1-1" title="Link to this heading">¶</a></h3>
+<p>Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.1.1,
+siguiendo la filosofia Sin Pretensiones:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AGRUPADOR                           FUNCIONES              UC TIPICOS
+-------------------------------------------------------------------------
+AGR-001: administrador_usuarios     USR-001 a USR-010      UC-006 a UC-009
+AGR-002: visor_usuarios             USR-005, USR-006       UC-009
+AGR-003: analista_reportes          RPT-001 a RPT-008      UC-017 a UC-024
+AGR-004: visor_dashboard            RPT-001, RPT-007/08    UC-025 a UC-030
+AGR-005: gestor_alertas             ALR-001 a ALR-006      UC-036 a UC-040
+AGR-006: supervisor_equipo          USR-005/06, RPT-001    UC-009, UC-017
+AGR-007: auditor                    AUD-001 a AUD-004      UC-060 a UC-063
+AGR-008: admin_seguridad            ACC-001 a ACC-006      UC-010, UC-043-047
+AGR-009: admin_sistema              PIP-*, LOG-*, config   UC-050-053, UC-070-072
+AGR-010: operador_etl               PIP-001 a PIP-004      UC-050 a UC-053
+
+ACTOR ESPECIAL:
+  - TIEMPO: Para procesos batch (ETL nocturno) - UC-050
+</pre></div>
+</div>
+</section>
+<section id="mapeo-de-actores-legacy-a-agrupadores">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.5 Mapeo de Actores Legacy a Agrupadores</a><a class="headerlink" href="#mapeo-de-actores-legacy-a-agrupadores" title="Link to this heading">¶</a></h3>
+<p>Para compatibilidad con documentacion anterior que usaba roles R001-R018:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol Legacy (R00x)</p></th>
+<th class="head"><p>Agrupador (AGR-00x)</p></th>
+<th class="head"><p>Nota</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R001: USERS_FULL_MANAGER</p></td>
+<td><p>AGR-001: administrador_usuarios</p></td>
+<td><p>Equivalente directo</p></td>
+</tr>
+<tr class="row-odd"><td><p>R002: USERS_VIEWER</p></td>
+<td><p>AGR-002: visor_usuarios</p></td>
+<td><p>Equivalente directo</p></td>
+</tr>
+<tr class="row-even"><td><p>R003: USERS_TEAM_MANAGER</p></td>
+<td><p>AGR-006: supervisor_equipo</p></td>
+<td><p>Renombrado</p></td>
+</tr>
+<tr class="row-odd"><td><p>R004-R007: REPORTS_*</p></td>
+<td><p>AGR-003: analista_reportes</p></td>
+<td><p>Consolidado</p></td>
+</tr>
+<tr class="row-even"><td><p>R008-R009: DASHBOARD_*</p></td>
+<td><p>AGR-004: visor_dashboard</p></td>
+<td><p>Consolidado</p></td>
+</tr>
+<tr class="row-odd"><td><p>R010: DATA_ANALYST</p></td>
+<td><p>AGR-003: analista_reportes</p></td>
+<td><p>Absorbido</p></td>
+</tr>
+<tr class="row-even"><td><p>R011-R014: ALERTS_*</p></td>
+<td><p>AGR-005: gestor_alertas</p></td>
+<td><p>Consolidado</p></td>
+</tr>
+<tr class="row-odd"><td><p>R015: MODULES_ADMIN</p></td>
+<td><p>AGR-009: admin_sistema</p></td>
+<td><p>Consolidado</p></td>
+</tr>
+<tr class="row-even"><td><p>R016: SYSTEM_ADMIN</p></td>
+<td><p>AGR-009: admin_sistema</p></td>
+<td><p>Renombrado</p></td>
+</tr>
+<tr class="row-odd"><td><p>R017: AUDIT_VIEWER</p></td>
+<td><p>AGR-007: auditor</p></td>
+<td><p>Renombrado</p></td>
+</tr>
+<tr class="row-even"><td><p>R018: SECURITY_ADMIN</p></td>
+<td><p>AGR-008: admin_seguridad</p></td>
+<td><p>Renombrado</p></td>
+</tr>
+<tr class="row-odd"><td><p>(nuevo)</p></td>
+<td><p>AGR-010: operador_etl</p></td>
+<td><p>Nuevo en RBAC v5.1.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="flujos">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">4. Flujos</a><a class="headerlink" href="#flujos" title="Link to this heading">¶</a></h2>
+<section id="flujo-normal-happy-path">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">4.1 Flujo Normal (Happy Path)</a><a class="headerlink" href="#flujo-normal-happy-path" title="Link to this heading">¶</a></h3>
+<p>El flujo normal describe la secuencia de pasos cuando TODO sale bien.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Secuencia exitosa de principio a fin</p></li>
+<li><p>Sin errores ni excepciones</p></li>
+<li><p>Representa el 80% de las ejecuciones tipicas</p></li>
+</ul>
+<p><strong>Formato de pasos:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>N. [Actor|Sistema] [verbo] [objeto] [complemento opcional]
+
+Ejemplos:
+1. Usuario ingresa credenciales de acceso
+2. Sistema valida formato de email
+3. Sistema verifica credenciales contra base de datos
+4. Sistema genera token JWT
+5. Sistema redirige a dashboard principal
+</pre></div>
+</div>
+</section>
+<section id="flujos-alternos">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">4.2 Flujos Alternos</a><a class="headerlink" href="#flujos-alternos" title="Link to this heading">¶</a></h3>
+<p>Los flujos alternos son variaciones VALIDAS del flujo normal.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Caminos alternativos pero exitosos</p></li>
+<li><p>Decisiones del usuario o condiciones del sistema</p></li>
+<li><p>Se reincorporan al flujo normal</p></li>
+</ul>
+<p><strong>Formato:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FLUJO ALTERNO Na: [Nombre descriptivo]
+  Na.1. [Condicion que dispara el alterno]
+  Na.2. [Paso alternativo]
+  Na.3. Retorna a paso N+1 del flujo normal
+</pre></div>
+</div>
+</section>
+<section id="excepciones">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.3 Excepciones</a><a class="headerlink" href="#excepciones" title="Link to this heading">¶</a></h3>
+<p>Las excepciones son situaciones de ERROR que impiden completar el UC.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>El objetivo NO se cumple</p></li>
+<li><p>Requiere manejo especial</p></li>
+<li><p>Puede terminar el UC o permitir reintento</p></li>
+</ul>
+<p><strong>Formato:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>EXCEPCION N: [Nombre del error]
+  N.1. [Condicion de error]
+  N.2. Sistema muestra mensaje de error
+  N.3. [Accion: termina UC | permite reintento]
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tecnicas-de-identificacion-de-uc">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">5. Tecnicas de Identificacion de UC</a><a class="headerlink" href="#tecnicas-de-identificacion-de-uc" title="Link to this heading">¶</a></h2>
+<p>Existen cinco tecnicas complementarias para identificar Casos de Uso.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>GAP Fundamental BR vs Sistema Completo:</strong></p>
+<p>Las Business Rules solo generan aproximadamente el 22% de los UC totales.
+El 78% restante debe identificarse mediante tecnicas complementarias.</p>
+</div>
+<section id="tecnica-1-derivacion-desde-business-rules-22">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">5.1 Tecnica 1: Derivacion desde Business Rules (22%)</a><a class="headerlink" href="#tecnica-1-derivacion-desde-business-rules-22" title="Link to this heading">¶</a></h3>
+<p>Las Business Rules de tipo Desencadenador (Trigger) generan UC directamente.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR (Trigger): SI quimico vence en 30 dias,
+              ENTONCES notificar al responsable
+    |
+    v
+UC-xxx: Notificar Vencimiento Proximo
+
+PORCENTAJE: 22% de los UC totales
+NATURALEZA: Deductiva (BR explicita -&gt; UC)
+</pre></div>
+</div>
+</section>
+<section id="tecnica-2-analisis-crud-40">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">5.2 Tecnica 2: Analisis CRUD (40%)</a><a class="headerlink" href="#tecnica-2-analisis-crud-40" title="Link to this heading">¶</a></h3>
+<p>Para cada entidad del dominio, considerar operaciones basicas segun su clasificacion.</p>
+<p><strong>Clasificacion de Entidades:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo Entidad</p></th>
+<th class="head"><p>UC Generados</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Maestro</p></td>
+<td><p>CRUD completo (6 UC)</p></td>
+<td><p>Usuario, Rol, Centro</p></td>
+</tr>
+<tr class="row-odd"><td><p>Transaccional</p></td>
+<td><p>C + R solamente (3 UC)</p></td>
+<td><p>Llamada, Auditoria, Sesion</p></td>
+</tr>
+<tr class="row-even"><td><p>Tecnica</p></td>
+<td><p>Sin UC directos</p></td>
+<td><p>ConfiguracionSistema, Log</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="tecnica-3-modelo-de-larman-eventos-del-sistema-22">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)</a><a class="headerlink" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22" title="Link to this heading">¶</a></h3>
+<p>Identificar eventos externos que requieren respuesta del sistema.</p>
+<p><strong>4 Caracteristicas Obligatorias de un Evento Valido:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1. EXTERNO:      Originado fuera del sistema (no interno)
+2. DETECTABLE:   Sistema puede sentir que ocurrio
+3. SIGNIFICATIVO: Tiene relevancia en el dominio de negocio
+4. ATOMICO:      Ocurrencia puntual e indivisible en el tiempo
+</pre></div>
+</div>
+</section>
+<section id="tecnica-4-analisis-de-interfaz-ui-driven-11">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)</a><a class="headerlink" href="#tecnica-4-analisis-de-interfaz-ui-driven-11" title="Link to this heading">¶</a></h3>
+<p>Identificar UC a partir de mockups, wireframes o necesidades de UI.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APLICA A:
+- Dashboards y visualizaciones complejas
+- Busquedas avanzadas con multiples filtros
+- Acciones en lote (batch operations)
+- Wizards multi-paso
+</pre></div>
+</div>
+</section>
+<section id="tecnica-5-requerimientos-directos-de-stakeholders-5">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)</a><a class="headerlink" href="#tecnica-5-requerimientos-directos-de-stakeholders-5" title="Link to this heading">¶</a></h3>
+<p>UC que provienen de necesidades explicitas no capturadas como BR.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>APLICA A:
+- Requisitos de compliance y auditoria
+- Integraciones con sistemas externos
+- Reporteria especifica de BI
+- Administracion tecnica del sistema
+</pre></div>
+</div>
+</section>
+<section id="matriz-de-cobertura-completa">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">5.6 Matriz de Cobertura Completa</a><a class="headerlink" href="#matriz-de-cobertura-completa" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>COBERTURA TOTAL:
+
++----------------------------------+------------+--------------+
+| Tecnica                          | Porcentaje | UC Tipicos   |
++----------------------------------+------------+--------------+
+| 1. Business Rules (Deductiva)    |    22%     | 11 UC        |
+| 2. CRUD (Inductiva)              |    40%     | 20 UC        |
+| 3. Larman/Eventos (Inductiva)    |    22%     | 11 UC        |
+| 4. UI-Driven (Inductiva)         |    11%     |  5 UC        |
+| 5. Stakeholders (Inductiva)      |     5%     |  2 UC        |
++----------------------------------+------------+--------------+
+| TOTAL                            |   100%     | 49 UC        |
++----------------------------------+------------+--------------+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contratos-de-operacion">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">6. Contratos de Operacion</a><a class="headerlink" href="#contratos-de-operacion" title="Link to this heading">¶</a></h2>
+<section id="definicion">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">6.1 Definicion</a><a class="headerlink" href="#definicion" title="Link to this heading">¶</a></h3>
+<p>Un <strong>contrato de operacion</strong> describe QUE debe lograr una operacion del
+sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.</p>
+</section>
+<section id="formato">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">6.2 Formato</a><a class="headerlink" href="#formato" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Operacion: nombreOperacion(parametros)
+
+Precondiciones:
+  - [Condicion que DEBE ser verdad ANTES]
+
+Postcondiciones:
+  - [Estado que SERA verdad DESPUES]
+</pre></div>
+</div>
+</section>
+<section id="relacion-uc-contrato">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">6.3 Relacion UC - Contrato</a><a class="headerlink" href="#relacion-uc-contrato" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Caso de Uso: Define COMO interactua usuario con sistema
+Contrato:    Define QUE debe pasar tecnicamente
+
+UC es mas NARRATIVO (flujo de trabajo)
+Contrato es mas TECNICO (cambios de estado)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="casos-de-uso-en-el-contexto-iact">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">7. Casos de Uso en el Contexto IACT</a><a class="headerlink" href="#casos-de-uso-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
+<section id="nomenclatura">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.1 Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
+<p>Los Casos de Uso en IACT siguen la convencion:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORMATO: UC_NNN_Nombre_Descriptivo.rst
+
+Donde:
+- UC: Prefijo fijo (Use Case)
+- NNN: Numero secuencial de 3 digitos
+- Nombre_Descriptivo: Verbo + Objeto con guiones bajos
+
+Ejemplos:
+- UC_006_Crear_Usuario.rst
+- UC_043_Configurar_SoD.rst
+- UC_050_Supervisar_ETL.rst
+</pre></div>
+</div>
+</section>
+<section id="ubicacion-en-el-modelo-iact">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">7.2 Ubicacion en el Modelo IACT</a><a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requisitos/
+    +--- casos_uso/
+             +--- index.rst
+             +--- auth/
+             +--- users/
+             +--- access/
+             +--- pipeline/
+             +--- reports/
+             +--- alerts/
+             +--- audit/
+             +--- logs/
+</pre></div>
+</div>
+</section>
+<section id="relacion-con-otros-artefactos">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">7.3 Relacion con Otros Artefactos</a><a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BReq (Objetivo de Negocio)
+    |
+    | genera
+    v
+UC (Caso de Uso) &lt;---- BR tipo Trigger tambien genera
+    |
+    | deriva
+    v
+FR (Requisito Funcional) &lt;---- Cada paso Sistema deriva FR
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="lista-de-uc-identificados-en-iact-49-uc">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">8. Lista de UC Identificados en IACT (49 UC)</a><a class="headerlink" href="#lista-de-uc-identificados-en-iact-49-uc" title="Link to this heading">¶</a></h2>
+<p>Basado en el analisis del modelo RBAC v5.1.1, se han identificado 49 Casos de Uso
+distribuidos en 8 modulos funcionales.</p>
+<section id="autenticacion-mod-auth-5-uc">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">8.1 Autenticacion - MOD_Auth (5 UC)</a><a class="headerlink" href="#autenticacion-mod-auth-5-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-001: Inicio de Sesion
+UC-002: Cierre de Sesion
+UC-003: Recuperar Password
+UC-004: Cambiar Password
+UC-005: Gestionar Sesiones
+
+Actor Primario: Cualquier usuario autenticado
+BR Relacionadas: BR_005 (Sesion Unica), BR_015 (Bloqueo Intentos)
+</pre></div>
+</div>
+</section>
+<section id="gestion-de-usuarios-mod-users-4-uc">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">8.2 Gestion de Usuarios - MOD_Users (4 UC)</a><a class="headerlink" href="#gestion-de-usuarios-mod-users-4-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-006: Crear Usuario
+UC-007: Modificar Usuario
+UC-008: Baja Usuario (logica)
+UC-009: Listar Usuarios
+
+Actor Primario: AGR-001 (administrador_usuarios)
+BR Relacionadas: BR_009 (Bajas Logicas), BR_013 (Username Unico)
+</pre></div>
+</div>
+</section>
+<section id="control-de-acceso-mod-access-9-uc">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">8.3 Control de Acceso - MOD_Access (9 UC)</a><a class="headerlink" href="#control-de-acceso-mod-access-9-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-010: Asignar Funciones a Usuario
+UC-011: Gestionar Permisos por Agrupador
+UC-041: Asignar Segmento de Datos
+UC-042: Asignar Permiso Directo
+UC-043: Configurar SoD
+UC-044: Consultar Permisos Efectivos
+UC-045: Gestionar Catalogo de Agrupadores
+UC-046: Gestionar Catalogo de Funciones
+UC-047: Auditar Cambios de Permisos
+
+Actor Primario: AGR-008 (admin_seguridad)
+BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
+</pre></div>
+</div>
+</section>
+<section id="pipeline-etl-mod-pipeline-4-uc">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">8.4 Pipeline ETL - MOD_Pipeline (4 UC)</a><a class="headerlink" href="#pipeline-etl-mod-pipeline-4-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-050: Supervisar Estado ETL
+UC-051: Consultar Errores ETL
+UC-052: Consultar Disponibilidad de Datos
+UC-053: Solicitar Reintento ETL
+
+Actor Primario: AGR-010 (operador_etl), AGR-009 (admin_sistema)
+BR Relacionadas: BR_001 (Fuente Inmutable), BR_002 (ETL Nocturno)
+</pre></div>
+</div>
+</section>
+<section id="reportes-y-dashboards-mod-reports-14-uc">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">8.5 Reportes y Dashboards - MOD_Reports (14 UC)</a><a class="headerlink" href="#reportes-y-dashboards-mod-reports-14-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>REPORTES BASE:
+UC-017: Consultar Reporte Trimestral
+UC-018: Consultar Problemas de Menu
+UC-019: Consultar Transferencias por Centro
+
+FILTROS:
+UC-020: Filtrar Reportes por Fecha
+UC-021: Filtrar Reportes por Centro
+
+EXPORTACION:
+UC-022: Exportar CSV
+UC-023: Exportar Excel
+UC-024: Exportar PDF
+
+DASHBOARDS:
+UC-025: Ver Dashboard Principal
+UC-026: Ver Tendencias Temporales
+UC-027: Ver Graficos por Hora
+UC-028: Ver Graficos por Dia
+UC-029: Ver Distribucion por Centro
+UC-030: Personalizar Dashboard
+
+Actor Primario: AGR-003 (analista_reportes), AGR-004 (visor_dashboard)
+BR Relacionadas: BR_011 (Limites Exportacion), BR_020 (Rango Temporal)
+</pre></div>
+</div>
+</section>
+<section id="alertas-mod-alerts-5-uc">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">8.6 Alertas - MOD_Alerts (5 UC)</a><a class="headerlink" href="#alertas-mod-alerts-5-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-036: Crear Alerta por Umbral
+UC-037: Recibir Notificacion de Alerta
+UC-038: Pausar/Reactivar Alerta
+UC-039: Consultar Historial de Alertas
+UC-040: Gestionar Destinatarios
+
+Actor Primario: AGR-005 (gestor_alertas)
+BR Relacionadas: BR_004 (Comunicaciones Internas), BR_014 (Alerta Umbral)
+</pre></div>
+</div>
+</section>
+<section id="auditoria-mod-audit-4-uc">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">8.7 Auditoria - MOD_Audit (4 UC)</a><a class="headerlink" href="#auditoria-mod-audit-4-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-060: Registrar Evento de Auditoria
+UC-061: Consultar Log de Auditoria
+UC-062: Generar Reporte de Auditoria
+UC-063: Exportar Auditoria
+
+Actor Primario: AGR-007 (auditor)
+BR Relacionadas: BR_010 (Auditoria Inmutable)
+</pre></div>
+</div>
+</section>
+<section id="bitacoras-mod-logs-4-uc">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">8.8 Bitacoras - MOD_Logs (4 UC)</a><a class="headerlink" href="#bitacoras-mod-logs-4-uc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UC-070: Consultar Logs del Sistema
+UC-071: Filtrar Logs por Criterios
+UC-072: Exportar Logs
+UC-073: Configurar Retencion de Logs
+
+Actor Primario: AGR-009 (admin_sistema)
+BR Relacionadas: (ninguna directa)
+</pre></div>
+</div>
+</section>
+<section id="resumen-de-uc-por-modulo">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">8.9 Resumen de UC por Modulo</a><a class="headerlink" href="#resumen-de-uc-por-modulo" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 15.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Modulo</p></th>
+<th class="head"><p>Cantidad</p></th>
+<th class="head"><p>Rango UC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MOD_Auth</p></td>
+<td><p>5</p></td>
+<td><p>UC-001 a UC-005</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOD_Users</p></td>
+<td><p>4</p></td>
+<td><p>UC-006 a UC-009</p></td>
+</tr>
+<tr class="row-even"><td><p>MOD_Access</p></td>
+<td><p>9</p></td>
+<td><p>UC-010, UC-011, UC-041 a UC-047</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOD_Pipeline</p></td>
+<td><p>4</p></td>
+<td><p>UC-050 a UC-053</p></td>
+</tr>
+<tr class="row-even"><td><p>MOD_Reports</p></td>
+<td><p>14</p></td>
+<td><p>UC-017 a UC-030</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOD_Alerts</p></td>
+<td><p>5</p></td>
+<td><p>UC-036 a UC-040</p></td>
+</tr>
+<tr class="row-even"><td><p>MOD_Audit</p></td>
+<td><p>4</p></td>
+<td><p>UC-060 a UC-063</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOD_Logs</p></td>
+<td><p>4</p></td>
+<td><p>UC-070 a UC-073</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TOTAL</strong></p></td>
+<td><p><strong>49</strong></p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="documentos-relacionados">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>FND_01 - Concepto de Requisito</p></li>
+<li><p>FND_02 - Reglas de Negocio</p></li>
+<li><p>FND_04 - Trazabilidad</p></li>
+<li><p>FND_05 - Jerarquia de 4 Niveles</p></li>
+<li><p>FND_07 - Requerimientos Funcionales</p></li>
+</ul>
+</section>
+<section id="modelos-iact">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Modelos IACT</a><a class="headerlink" href="#modelos-iact" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso</p></li>
+<li><p>MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental</p></li>
+</ul>
+</section>
+<section id="fuentes-externas">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Craig Larman: Applying UML and Patterns (3rd Edition)</p></li>
+<li><p>Alistair Cockburn: Writing Effective Use Cases</p></li>
+<li><p>Ivar Jacobson: Object-Oriented Software Engineering</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.2.0</p></td>
+<td><p>2026-01-04</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.1.1). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.1.0</p></td>
+<td><p>2025-12-21</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades.</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-12-19</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial aprobada</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Trazabilidad: Este artefacto define el concepto de UC que es el Nivel 2
+en la jerarquia de requisitos (BReq -&gt; UC -&gt; FR). Referenciado por FND_04,
+FND_05, FND_06, FND_07 y todos los artefactos en requisitos/casos_uso/.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">FND_03: Casos de Uso</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#definicion-formal">1. Definicion Formal</a><ul>
+<li><a class="reference internal" href="#que-es-un-caso-de-uso">1.1 Que es un Caso de Uso</a></li>
+<li><a class="reference internal" href="#caracteristicas-de-un-caso-de-uso">1.2 Caracteristicas de un Caso de Uso</a></li>
+<li><a class="reference internal" href="#uc-vs-fr-diferencia-fundamental">1.3 UC vs FR: Diferencia Fundamental</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estructura-de-un-caso-de-uso">2. Estructura de un Caso de Uso</a><ul>
+<li><a class="reference internal" href="#componentes-obligatorios">2.1 Componentes Obligatorios</a></li>
+<li><a class="reference internal" href="#ejemplo-completo">2.2 Ejemplo Completo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#actores">3. Actores</a><ul>
+<li><a class="reference internal" href="#definicion-de-actor">3.1 Definicion de Actor</a></li>
+<li><a class="reference internal" href="#tipos-de-actores">3.2 Tipos de Actores</a></li>
+<li><a class="reference internal" href="#actor-primario-vs-secundario">3.3 Actor Primario vs Secundario</a></li>
+<li><a class="reference internal" href="#actores-en-iact-agrupadores-rbac-v5-1-1">3.4 Actores en IACT (Agrupadores RBAC v5.1.1)</a></li>
+<li><a class="reference internal" href="#mapeo-de-actores-legacy-a-agrupadores">3.5 Mapeo de Actores Legacy a Agrupadores</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flujos">4. Flujos</a><ul>
+<li><a class="reference internal" href="#flujo-normal-happy-path">4.1 Flujo Normal (Happy Path)</a></li>
+<li><a class="reference internal" href="#flujos-alternos">4.2 Flujos Alternos</a></li>
+<li><a class="reference internal" href="#excepciones">4.3 Excepciones</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tecnicas-de-identificacion-de-uc">5. Tecnicas de Identificacion de UC</a><ul>
+<li><a class="reference internal" href="#tecnica-1-derivacion-desde-business-rules-22">5.1 Tecnica 1: Derivacion desde Business Rules (22%)</a></li>
+<li><a class="reference internal" href="#tecnica-2-analisis-crud-40">5.2 Tecnica 2: Analisis CRUD (40%)</a></li>
+<li><a class="reference internal" href="#tecnica-3-modelo-de-larman-eventos-del-sistema-22">5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)</a></li>
+<li><a class="reference internal" href="#tecnica-4-analisis-de-interfaz-ui-driven-11">5.4 Tecnica 4: Analisis de Interfaz UI-Driven (11%)</a></li>
+<li><a class="reference internal" href="#tecnica-5-requerimientos-directos-de-stakeholders-5">5.5 Tecnica 5: Requerimientos Directos de Stakeholders (5%)</a></li>
+<li><a class="reference internal" href="#matriz-de-cobertura-completa">5.6 Matriz de Cobertura Completa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contratos-de-operacion">6. Contratos de Operacion</a><ul>
+<li><a class="reference internal" href="#definicion">6.1 Definicion</a></li>
+<li><a class="reference internal" href="#formato">6.2 Formato</a></li>
+<li><a class="reference internal" href="#relacion-uc-contrato">6.3 Relacion UC - Contrato</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#casos-de-uso-en-el-contexto-iact">7. Casos de Uso en el Contexto IACT</a><ul>
+<li><a class="reference internal" href="#nomenclatura">7.1 Nomenclatura</a></li>
+<li><a class="reference internal" href="#ubicacion-en-el-modelo-iact">7.2 Ubicacion en el Modelo IACT</a></li>
+<li><a class="reference internal" href="#relacion-con-otros-artefactos">7.3 Relacion con Otros Artefactos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lista-de-uc-identificados-en-iact-49-uc">8. Lista de UC Identificados en IACT (49 UC)</a><ul>
+<li><a class="reference internal" href="#autenticacion-mod-auth-5-uc">8.1 Autenticacion - MOD_Auth (5 UC)</a></li>
+<li><a class="reference internal" href="#gestion-de-usuarios-mod-users-4-uc">8.2 Gestion de Usuarios - MOD_Users (4 UC)</a></li>
+<li><a class="reference internal" href="#control-de-acceso-mod-access-9-uc">8.3 Control de Acceso - MOD_Access (9 UC)</a></li>
+<li><a class="reference internal" href="#pipeline-etl-mod-pipeline-4-uc">8.4 Pipeline ETL - MOD_Pipeline (4 UC)</a></li>
+<li><a class="reference internal" href="#reportes-y-dashboards-mod-reports-14-uc">8.5 Reportes y Dashboards - MOD_Reports (14 UC)</a></li>
+<li><a class="reference internal" href="#alertas-mod-alerts-5-uc">8.6 Alertas - MOD_Alerts (5 UC)</a></li>
+<li><a class="reference internal" href="#auditoria-mod-audit-4-uc">8.7 Auditoria - MOD_Audit (4 UC)</a></li>
+<li><a class="reference internal" href="#bitacoras-mod-logs-4-uc">8.8 Bitacoras - MOD_Logs (4 UC)</a></li>
+<li><a class="reference internal" href="#resumen-de-uc-por-modulo">8.9 Resumen de UC por Modulo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">9. Referencias</a><ul>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#modelos-iact">Modelos IACT</a></li>
+<li><a class="reference internal" href="#fuentes-externas">Fuentes Externas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

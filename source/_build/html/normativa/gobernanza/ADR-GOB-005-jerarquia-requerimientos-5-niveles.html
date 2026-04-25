@@ -1,0 +1,1195 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>ADR-GOB-005: Jerarquía de Requerimientos en 5 Niveles - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="adr-gob-005-jerarquia-de-requerimientos-en-5-niveles">
+<h1>ADR-GOB-005: Jerarquía de Requerimientos en 5 Niveles<a class="headerlink" href="#adr-gob-005-jerarquia-de-requerimientos-en-5-niveles" title="Link to this heading">¶</a></h1>
+<p>ESTA SE TIENE ACTUALIZAR, YA QUE LA METODOLOGIA QUE SE ESTA USANDO
+ACTUALMENTE NO LO CONSIDERA COMO NIVELES, COSULTAR INGENIERIA DE
+REQUERMIENTOS</p>
+<section id="estado">
+<h2>Estado<a class="headerlink" href="#estado" title="Link to this heading">¶</a></h2>
+<p><strong>APROBADO</strong> - 2025-11-17</p>
+</section>
+<section id="contexto">
+<h2>Contexto<a class="headerlink" href="#contexto" title="Link to this heading">¶</a></h2>
+<p>La ingeniería de requerimientos en proyectos de software requiere un
+marco estructurado para organizar, clasificar y relacionar diferentes
+tipos de requisitos. Sin una jerarquía clara, se presentan problemas
+comunes:</p>
+<section id="problemas-sin-estructura-jerarquica">
+<h3>Problemas sin Estructura Jerárquica<a class="headerlink" href="#problemas-sin-estructura-jerarquica" title="Link to this heading">¶</a></h3>
+<p><strong>Confusión de niveles</strong>: - Mezclar objetivos de negocio con detalles de
+implementación - Tratar reglas de negocio como requisitos funcionales -
+No distinguir entre necesidades de usuario y características del sistema</p>
+<p><strong>Falta de trazabilidad</strong>: - Dificultad para rastrear por qué existe
+cierta funcionalidad - Imposibilidad de validar que requisitos de alto
+nivel se cumplen - Cambios en políticas no se reflejan en funcionalidad</p>
+<p><strong>Comunicación deficiente</strong>: - Stakeholders de negocio no entienden
+documentación técnica - Desarrolladores no comprenden objetivos de
+negocio - QA no sabe qué validar realmente</p>
+<p><strong>Alcance mal definido</strong>: - Requisitos funcionales se expanden sin
+justificación - Features sin conexión con objetivos organizacionales -
+Atributos de calidad tratados como “extras opcionales”</p>
+</section>
+<section id="necesidades-del-proyecto-iact">
+<h3>Necesidades del Proyecto IACT<a class="headerlink" href="#necesidades-del-proyecto-iact" title="Link to this heading">¶</a></h3>
+<p>El proyecto IACT requiere:</p>
+<ol class="arabic simple">
+<li><p><strong>Múltiples dominios</strong>: Backend, Frontend, DevOps, QA, AI requieren
+organización consistente</p></li>
+<li><p><strong>Cumplimiento regulatorio</strong>: Reglas de negocio externas (LFPDPPP,
+normas de salud, etc.)</p></li>
+<li><p><strong>Múltiples stakeholders</strong>: Desde ejecutivos hasta desarrolladores</p></li>
+<li><p><strong>Trazabilidad completa</strong>: Desde políticas hasta código</p></li>
+<li><p><strong>Evolución controlada</strong>: Cambios en un nivel deben propagarse
+correctamente</p></li>
+</ol>
+</section>
+<section id="marco-de-referencia">
+<h3>Marco de Referencia<a class="headerlink" href="#marco-de-referencia" title="Link to this heading">¶</a></h3>
+<p>La industria de ingeniería de software ha establecido que los
+requerimientos no son planos, sino que forman una jerarquía donde cada
+nivel: - Tiene un propósito específico - Se deriva del nivel superior -
+Informa y restringe el nivel inferior - Requiere diferentes técnicas de
+elicitación y validación</p>
+</section>
+</section>
+<section id="decision">
+<h2>Decisión<a class="headerlink" href="#decision" title="Link to this heading">¶</a></h2>
+<p><strong>Adoptar jerarquía de requerimientos en 5 niveles como estructura
+fundamental para documentación de requisitos en el proyecto IACT.</strong></p>
+<section id="jerarquia-de-5-niveles">
+<h3>Jerarquía de 5 Niveles<a class="headerlink" href="#jerarquia-de-5-niveles" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Nivel 1: REGLAS DE NEGOCIO
+    ↓ (influencian)
+Nivel 2: REQUERIMIENTOS DE NEGOCIO
+    ↓ (se convierten en)
+Nivel 3: REQUERIMIENTOS DE USUARIO
+    ↓ (se implementan mediante)
+Nivel 4: REQUERIMIENTOS FUNCIONALES
+    ↓ (deben cumplir)
+Nivel 5: ATRIBUTOS DE CALIDAD
+</pre></div>
+</div>
+</section>
+<section id="nivel-1-reglas-de-negocio">
+<h3>Nivel 1: Reglas de Negocio<a class="headerlink" href="#nivel-1-reglas-de-negocio" title="Link to this heading">¶</a></h3>
+<p><strong>Definición</strong>: Políticas, leyes y estándares de la industria bajo los
+cuales se rige la organización para operar de manera efectiva y conforme
+a las regulaciones.</p>
+<p><strong>Características</strong>: - También llamadas “lógica de negocio” - Son
+externas o internas a la organización - NO negociables cuando provienen
+de leyes/regulaciones - Restricción y control de funcionalidad</p>
+<p><strong>Funciones principales</strong>: 1. Restringen quién puede realizar ciertos
+casos de uso 2. Dictan qué funcionalidad debe continuar el sistema</p>
+<p><strong>Ubicación en proyecto</strong>:
+<code class="docutils literal notranslate"><span class="pre">docs/gobernanza/requisitos/reglas_negocio/</span></code></p>
+<p><strong>Nomenclatura</strong>: <code class="docutils literal notranslate"><span class="pre">RN-DOMINIO-###-descripcion.md</span></code> o
+<code class="docutils literal notranslate"><span class="pre">BR-DOMINIO-###-descripcion.md</span></code></p>
+<p><strong>Ejemplos</strong>: - RN-BACK-001: Todos los usuarios deben estar autenticados
+para acceder al sistema - RN-BACK-002: Los datos personales deben
+cumplir con LFPDPPP - RN-QA-001: Todos los componentes médicos requieren
+certificación sanitaria</p>
+</section>
+<section id="nivel-2-requerimientos-de-negocio">
+<h3>Nivel 2: Requerimientos de Negocio<a class="headerlink" href="#nivel-2-requerimientos-de-negocio" title="Link to this heading">¶</a></h3>
+<p><strong>Definición</strong>: Objetivos organizacionales de alto nivel que el sistema
+debe permitir alcanzar.</p>
+<p><strong>Características</strong>: - Orientados a resultados de negocio - Medibles
+(con KPIs) - Derivan de estrategia organizacional - Justifican la
+existencia del proyecto</p>
+<p><strong>Relación con Nivel 1</strong>: Las regulaciones gubernamentales pueden
+conducir a objetivos de negocio necesarios para un proyecto.</p>
+<p><strong>Ubicación en proyecto</strong>:
+<code class="docutils literal notranslate"><span class="pre">docs/gobernanza/requisitos/requerimientos_negocio/</span></code></p>
+<p><strong>Nomenclatura</strong>: <code class="docutils literal notranslate"><span class="pre">RNEG-DOMINIO-###-descripcion.md</span></code></p>
+<p><strong>Ejemplos</strong>: - RNEG-BACK-001: El sistema de seguimiento de químicos
+debe permitir el cumplimiento de todas las regulaciones federales y
+estatales sobre el uso de químicos y su eliminación en un período de 5
+meses - RNEG-DEVOPS-001: Reducir tiempo de deployment a menos de 10
+minutos para cumplir con SLA de disponibilidad 99.9%</p>
+</section>
+<section id="nivel-3-requerimientos-de-usuario">
+<h3>Nivel 3: Requerimientos de Usuario<a class="headerlink" href="#nivel-3-requerimientos-de-usuario" title="Link to this heading">¶</a></h3>
+<p><strong>Definición</strong>: Necesidades específicas de los usuarios del sistema,
+descripción de lo que los usuarios deben poder hacer.</p>
+<p><strong>Características</strong>: - Perspectiva del usuario (no del sistema) - Se
+expresan como casos de uso, historias de usuario, user journeys -
+Describen interacciones usuario-sistema - Orientados a objetivos de
+usuario</p>
+<p><strong>Relación con Nivel 1</strong>: Las políticas de privacidad dictan qué
+usuarios pueden y no pueden realizar ciertas tareas con el sistema.</p>
+<p><strong>Ubicación en proyecto</strong>:
+<code class="docutils literal notranslate"><span class="pre">docs/gobernanza/requisitos/requerimientos_usuario/</span></code></p>
+<p><strong>Nomenclatura casos de uso</strong>: <code class="docutils literal notranslate"><span class="pre">UC-DOMINIO-###-verbo-objeto.md</span></code></p>
+<p><strong>Ejemplos</strong>: - UC-BACK-001: Iniciar Sesión - UC-BACK-010: Gestionar
+Permisos - Los gerentes de laboratorio están autorizados a generar
+informes de exposición química para cualquier persona</p>
+</section>
+<section id="nivel-4-requerimientos-funcionales">
+<h3>Nivel 4: Requerimientos Funcionales<a class="headerlink" href="#nivel-4-requerimientos-funcionales" title="Link to this heading">¶</a></h3>
+<p><strong>Definición</strong>: Funciones o comportamientos específicos que el sistema
+debe realizar. Pequeños bits específicos de funciones que permiten a los
+usuarios ejecutar casos de uso.</p>
+<p><strong>Características</strong>: - Describen QUÉ debe hacer el sistema (NO CÓMO) -
+Detallados y específicos - Verificables y testeables - Implementables
+directamente por desarrolladores</p>
+<p><strong>Relación con Nivel 1</strong>: Las políticas empresariales establecen
+procesos específicos que el sistema debe implementar.</p>
+<p><strong>Ubicación en proyecto</strong>:
+<code class="docutils literal notranslate"><span class="pre">docs/gobernanza/requisitos/requerimientos_funcionales/</span></code></p>
+<p><strong>Nomenclatura</strong>: <code class="docutils literal notranslate"><span class="pre">RF-DOMINIO-###-descripcion.md</span></code></p>
+<p><strong>Ejemplos</strong>: - RF-BACK-005: Cuando una factura es recibida por un
+proveedor no registrado, el sistema enviará un email al proveedor con un
+PDF editable para darse de alta - RF-BACK-006: El sistema debe validar
+formato de email según RFC 5322 - RF-BACK-010: El sistema debe generar
+token JWT con expiración de 15 minutos</p>
+</section>
+<section id="nivel-5-atributos-de-calidad-requerimientos-no-funcionales">
+<h3>Nivel 5: Atributos de Calidad (Requerimientos No Funcionales)<a class="headerlink" href="#nivel-5-atributos-de-calidad-requerimientos-no-funcionales" title="Link to this heading">¶</a></h3>
+<p><strong>Definición</strong>: Características del sistema que describen CÓMO debe
+comportarse (rendimiento, seguridad, usabilidad, confiabilidad, etc.).</p>
+<p><strong>Características</strong>: - También llamados RNF (Requerimientos No
+Funcionales) - Afectan la arquitectura del sistema - Frecuentemente
+medibles (tiempo de respuesta &lt; 2s, disponibilidad &gt; 99.9%) - Aplican
+transversalmente al sistema</p>
+<p><strong>Relación con Nivel 1</strong>: Las regulaciones de agencias gubernamentales
+pueden dictar ciertos requisitos de seguridad que deben aplicarse a
+través de la funcionalidad del sistema.</p>
+<p><strong>Ubicación en proyecto</strong>:
+<code class="docutils literal notranslate"><span class="pre">docs/gobernanza/requisitos/atributos_calidad/</span></code></p>
+<p><strong>Nomenclatura</strong>: <code class="docutils literal notranslate"><span class="pre">RNF-DOMINIO-###-descripcion.md</span></code> o
+<code class="docutils literal notranslate"><span class="pre">AC-DOMINIO-###-descripcion.md</span></code></p>
+<p><strong>Ejemplos</strong>: - RNF-BACK-005: El sistema debe mantener registros de
+entrenamiento de seguridad que se deben verificar para garantizar que
+los usuarios están debidamente capacitados antes de poder solicitar un
+producto químico peligroso - RNF-DEVOPS-001: El sistema debe responder a
+solicitudes HTTP en menos de 2 segundos bajo carga de 1000 usuarios
+concurrentes - RNF-QA-001: El código debe tener cobertura de tests
+superior a 80%</p>
+</section>
+</section>
+<section id="tabla-de-influencia-entre-niveles">
+<h2>Tabla de Influencia entre Niveles<a class="headerlink" href="#tabla-de-influencia-entre-niveles" title="Link to this heading">¶</a></h2>
+<p>Esta tabla muestra cómo las Reglas de Negocio influyen en cada nivel:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de Requerimiento</p></th>
+<th class="head"><p>Cómo Influyen las
+Reglas de Negocio</p></th>
+<th class="head"><p>Ejemplo Práctico</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Requerimientos de
+Negocio</strong></p></td>
+<td><p>Las regulaciones
+gubernamentales
+pueden conducir a
+objetivos de negocio
+necesarios para un
+proyecto</p></td>
+<td><p>El sistema de
+seguimiento de
+químicos debe
+permitir el
+cumplimiento de todas
+las regulaciones
+federales y estatales
+sobre el uso de
+químicos y su
+eliminación en un
+período de 5 meses</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Requerimientos de
+Usuario</strong></p></td>
+<td><p>Las políticas de
+privacidad dictan qué
+usuarios pueden y no
+pueden realizar
+ciertas tareas con el
+sistema</p></td>
+<td><p>Los gerentes de
+laboratorio están
+autorizados a generar
+informes de
+exposición química
+para cualquier
+persona</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Requerimientos
+Funcionales</strong></p></td>
+<td><p>Las políticas
+empresariales
+establecen procesos
+específicos que el
+sistema debe
+implementar</p></td>
+<td><p>Política: todos los
+proveedores deben
+estar registrados y
+aprobados antes de
+que se pague una
+factura.
+Funcionalidad: cuando
+una factura es
+recibida por un
+proveedor no
+registrado, el
+sistema enviará un
+email al proveedor
+con un PDF editable
+para darse de alta</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Atributos de
+Calidad</strong></p></td>
+<td><p>Las regulaciones de
+agencias
+gubernamentales
+pueden dictar ciertos
+requisitos de
+seguridad que deben
+aplicarse a través de
+la funcionalidad del
+sistema</p></td>
+<td><p>El sistema debe
+mantener registros de
+entrenamiento de
+seguridad que se
+deben verificar para
+garantizar que los
+usuarios están
+debidamente
+capacitados antes de
+poder solicitar un
+producto químico
+peligroso</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="estructura-de-directorios">
+<h2>Estructura de Directorios<a class="headerlink" href="#estructura-de-directorios" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs/gobernanza/requisitos/
+├── reglas_negocio/
+│   ├── RN-BACK-001-autenticacion-obligatoria.md
+│   ├── RN-BACK-002-cumplimiento-lfpdppp.md
+│   └── ...
+├── requerimientos_negocio/
+│   ├── RNEG-BACK-001-cumplimiento-regulatorio-quimicos.md
+│   └── ...
+├── requerimientos_usuario/
+│   ├── casos_uso/
+│   │   ├── UC-BACK-001-iniciar-sesion.md
+│   │   ├── UC-BACK-010-gestionar-permisos.md
+│   │   └── ...
+│   ├── historias_usuario/
+│   └── user_journeys/
+├── requerimientos_funcionales/
+│   ├── RF-BACK-005-registro-proveedor-automatico.md
+│   ├── RF-BACK-006-validacion-email.md
+│   └── ...
+├── atributos_calidad/
+│   ├── RNF-BACK-005-registro-capacitacion-seguridad.md
+│   ├── RNF-DEVOPS-001-tiempo-respuesta.md
+│   └── ...
+└── stakeholders/
+    └── STAKE-001-identificacion-stakeholders.md
+</pre></div>
+</div>
+</section>
+<section id="principios-de-uso">
+<h2>Principios de Uso<a class="headerlink" href="#principios-de-uso" title="Link to this heading">¶</a></h2>
+<section id="principio-1-derivacion-descendente">
+<h3>Principio 1: Derivación Descendente<a class="headerlink" href="#principio-1-derivacion-descendente" title="Link to this heading">¶</a></h3>
+<p>Los requerimientos de cada nivel deben derivarse del nivel superior:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RN-BACK-001: Usuario debe estar autenticado
+        ↓
+RNEG-BACK-001: Sistema seguro que previene accesos no autorizados
+        ↓
+UC-BACK-001: Iniciar Sesión
+        ↓
+RF-BACK-010: Sistema valida credenciales contra base de datos
+        ↓
+RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+</pre></div>
+</div>
+</section>
+<section id="principio-2-trazabilidad-bidireccional">
+<h3>Principio 2: Trazabilidad Bidireccional<a class="headerlink" href="#principio-2-trazabilidad-bidireccional" title="Link to this heading">¶</a></h3>
+<p>Cada requisito debe poder rastrearse: - <strong>Hacia arriba</strong>: ¿Por qué
+existe este requisito? - <strong>Hacia abajo</strong>: ¿Cómo se implementa/valida
+este requisito?</p>
+</section>
+<section id="principio-3-stakeholders-apropiados">
+<h3>Principio 3: Stakeholders Apropiados<a class="headerlink" href="#principio-3-stakeholders-apropiados" title="Link to this heading">¶</a></h3>
+<p>Cada nivel tiene stakeholders primarios diferentes:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel</p></th>
+<th class="head"><p>Stakeholders
+Primarios</p></th>
+<th class="head"><p>Stakeholders
+Secundarios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reglas de Negocio</p></td>
+<td><p>Legal, Compliance,
+C-Suite</p></td>
+<td><p>Product Owner,
+Arquitectos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Requerimientos de
+Negocio</p></td>
+<td><p>C-Suite, Product
+Owner</p></td>
+<td><p>Arquitectos, Tech
+Leads</p></td>
+</tr>
+<tr class="row-even"><td><p>Requerimientos de
+Usuario</p></td>
+<td><p>Product Owner, UX,
+Usuarios Finales</p></td>
+<td><p>Desarrolladores</p></td>
+</tr>
+<tr class="row-odd"><td><p>Requerimientos
+Funcionales</p></td>
+<td><p>Desarrolladores, Tech
+Leads</p></td>
+<td><p>QA, DevOps</p></td>
+</tr>
+<tr class="row-even"><td><p>Atributos de Calidad</p></td>
+<td><p>Arquitectos, DevOps,
+QA</p></td>
+<td><p>Desarrolladores</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="principio-4-diferentes-tecnicas-de-validacion">
+<h3>Principio 4: Diferentes Técnicas de Validación<a class="headerlink" href="#principio-4-diferentes-tecnicas-de-validacion" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel</p></th>
+<th class="head"><p>Técnicas de Validación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reglas de Negocio</p></td>
+<td><p>Auditoría legal, revisión de
+compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>Requerimientos de Negocio</p></td>
+<td><p>Validación con ejecutivos,
+análisis de ROI</p></td>
+</tr>
+<tr class="row-even"><td><p>Requerimientos de Usuario</p></td>
+<td><p>Prototipos, entrevistas,
+observación de usuarios</p></td>
+</tr>
+<tr class="row-odd"><td><p>Requerimientos Funcionales</p></td>
+<td><p>Code reviews, tests unitarios e
+integración</p></td>
+</tr>
+<tr class="row-even"><td><p>Atributos de Calidad</p></td>
+<td><p>Tests de rendimiento, auditorías
+de seguridad, análisis de código</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="alternativas-consideradas">
+<h2>Alternativas Consideradas<a class="headerlink" href="#alternativas-consideradas" title="Link to this heading">¶</a></h2>
+<section id="alternativa-1-jerarquia-plana-sin-niveles">
+<h3>Alternativa 1: Jerarquía Plana (Sin Niveles)<a class="headerlink" href="#alternativa-1-jerarquia-plana-sin-niveles" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción</strong>: Todos los requisitos en un mismo nivel, sin
+categorización.</p>
+<p><strong>Pros</strong>: - Más simple inicialmente - No requiere entrenamiento en la
+jerarquía</p>
+<p><strong>Contras</strong>: - Mezcla niveles de abstracción - Imposibilita trazabilidad
+- Confusión entre stakeholders - Dificulta priorización y gestión de
+cambios</p>
+<p><strong>Razón de rechazo</strong>: Inadecuado para proyectos complejos con múltiples
+stakeholders.</p>
+</section>
+<section id="alternativa-2-ieee-830-3-niveles">
+<h3>Alternativa 2: IEEE 830 (3 Niveles)<a class="headerlink" href="#alternativa-2-ieee-830-3-niveles" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción</strong>: Estructura tradicional con solo: 1. Requisitos
+Funcionales 2. Requisitos No Funcionales 3. Restricciones</p>
+<p><strong>Pros</strong>: - Estándar conocido - Documentación abundante</p>
+<p><strong>Contras</strong>: - No captura reglas de negocio explícitamente - No
+distingue entre requisitos de negocio y de usuario - Insuficiente para
+trazabilidad completa - Orientado solo a desarrollo, no a estrategia</p>
+<p><strong>Razón de rechazo</strong>: Insuficiente para capturar relación entre
+estrategia organizacional y funcionalidad técnica.</p>
+</section>
+<section id="alternativa-3-user-stories-unicamente-agile-puro">
+<h3>Alternativa 3: User Stories únicamente (Agile puro)<a class="headerlink" href="#alternativa-3-user-stories-unicamente-agile-puro" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción</strong>: Solo historias de usuario sin estructura jerárquica
+formal.</p>
+<p><strong>Pros</strong>: - Muy ágil y flexible - Fácil de entender - Cercanía con
+usuario final</p>
+<p><strong>Contras</strong>: - No captura reglas de negocio externas - Dificulta
+cumplimiento regulatorio - No adecuado para requisitos de arquitectura -
+Falta de contexto estratégico</p>
+<p><strong>Razón de rechazo</strong>: Insuficiente para proyectos con obligaciones
+regulatorias y múltiples dominios técnicos.</p>
+</section>
+<section id="alternativa-4-modelo-de-7-niveles-extension-del-estandar">
+<h3>Alternativa 4: Modelo de 7 Niveles (Extensión del estándar)<a class="headerlink" href="#alternativa-4-modelo-de-7-niveles-extension-del-estandar" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción</strong>: Agregar niveles adicionales: 1. Visión estratégica 2.
+Reglas de negocio 3. Objetivos de negocio 4. Requisitos de usuario 5.
+Requisitos funcionales 6. Requisitos no funcionales 7. Restricciones
+técnicas</p>
+<p><strong>Pros</strong>: - Máxima granularidad - Separación muy clara</p>
+<p><strong>Contras</strong>: - Demasiado complejo para tamaño actual del proyecto -
+Overhead de documentación excesivo - Confusión entre niveles similares</p>
+<p><strong>Razón de rechazo</strong>: Overkill para proyectos de tamaño mediano. Modelo
+de 5 niveles proporciona balance adecuado.</p>
+</section>
+</section>
+<section id="consecuencias">
+<h2>Consecuencias<a class="headerlink" href="#consecuencias" title="Link to this heading">¶</a></h2>
+<section id="positivas">
+<h3>Positivas<a class="headerlink" href="#positivas" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Trazabilidad completa</strong></p>
+<ul class="simple">
+<li><p>Cada feature se justifica desde reglas de negocio hasta atributos
+de calidad</p></li>
+<li><p>Fácil responder “¿por qué existe esta funcionalidad?”</p></li>
+<li><p>Validación de que objetivos de negocio se cumplen</p></li>
+</ul>
+</li>
+<li><p><strong>Comunicación mejorada</strong></p>
+<ul class="simple">
+<li><p>Cada stakeholder trabaja en su nivel apropiado</p></li>
+<li><p>Ejecutivos ven requisitos de negocio</p></li>
+<li><p>Desarrolladores ven requisitos funcionales</p></li>
+<li><p>Traducción clara entre niveles</p></li>
+</ul>
+</li>
+<li><p><strong>Gestión de cambios efectiva</strong></p>
+<ul class="simple">
+<li><p>Cambio en regla de negocio se propaga correctamente</p></li>
+<li><p>Impacto visible en todos los niveles</p></li>
+<li><p>Decisiones informadas sobre aceptar/rechazar cambios</p></li>
+</ul>
+</li>
+<li><p><strong>Cumplimiento regulatorio</strong></p>
+<ul class="simple">
+<li><p>Reglas de negocio externas explícitas</p></li>
+<li><p>Auditorías pueden verificar cumplimiento</p></li>
+<li><p>Evidencia de conformidad con regulaciones</p></li>
+</ul>
+</li>
+<li><p><strong>Priorización basada en valor</strong></p>
+<ul class="simple">
+<li><p>Requisitos vinculados a objetivos de negocio</p></li>
+<li><p>Fácil identificar “nice to have” vs “must have”</p></li>
+<li><p>ROI más claro</p></li>
+</ul>
+</li>
+<li><p><strong>Arquitectura coherente</strong></p>
+<ul class="simple">
+<li><p>Atributos de calidad informan decisiones de arquitectura</p></li>
+<li><p>No son “extras opcionales”</p></li>
+<li><p>Evita deuda técnica por omisión de RNF</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="negativas">
+<h3>Negativas<a class="headerlink" href="#negativas" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p><strong>Curva de aprendizaje</strong></p>
+<ul class="simple">
+<li><p>Equipo debe entender la jerarquía</p></li>
+<li><p>Requiere disciplina para mantenerla</p></li>
+<li><p>Tentación de atajos (saltar niveles)</p></li>
+</ul>
+<p><strong>Mitigación</strong>:</p>
+<ul class="simple">
+<li><p>Capacitación inicial en jerarquía</p></li>
+<li><p>Templates y ejemplos claros</p></li>
+<li><p>Revisiones de calidad de documentación</p></li>
+<li><p>ADRs complementarios (006-009)</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead de documentación</strong></p>
+<ul class="simple">
+<li><p>Más documentos que enfoque plano</p></li>
+<li><p>Mantenimiento de relaciones entre niveles</p></li>
+<li><p>Tiempo inicial mayor</p></li>
+</ul>
+<p><strong>Mitigación</strong>:</p>
+<ul class="simple">
+<li><p>Herramientas de trazabilidad</p></li>
+<li><p>Templates reutilizables</p></li>
+<li><p>Generación automática de matrices de trazabilidad</p></li>
+<li><p>Revisar solo lo necesario (no documentar por documentar)</p></li>
+</ul>
+</li>
+<li><p><strong>Riesgo de inconsistencias</strong></p>
+<ul class="simple">
+<li><p>Cambio en un nivel puede no reflejarse en otros</p></li>
+<li><p>Documentos pueden desincronizarse</p></li>
+</ul>
+<p><strong>Mitigación</strong>:</p>
+<ul class="simple">
+<li><p>Referencias explícitas entre documentos (IDs)</p></li>
+<li><p>Code reviews de documentación</p></li>
+<li><p>Scripts de validación de trazabilidad</p></li>
+<li><p>Principio: cambio en nivel superior requiere review de niveles
+inferiores</p></li>
+</ul>
+</li>
+<li><p><strong>Complejidad en proyectos pequeños</strong></p>
+<ul class="simple">
+<li><p>Para features muy simples puede ser excesivo</p></li>
+<li><p>No todo requisito necesita 5 niveles</p></li>
+</ul>
+<p><strong>Mitigación</strong>:</p>
+<ul class="simple">
+<li><p>Permitir niveles implícitos cuando sean obvios</p></li>
+<li><p>No forzar documentación de niveles triviales</p></li>
+<li><p>Usar juicio: “¿agrega valor documentar esto en 5 niveles?”</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="implementacion">
+<h2>Implementación<a class="headerlink" href="#implementacion" title="Link to this heading">¶</a></h2>
+<section id="fase-1-reorganizacion-de-estructura-actual-semana-1">
+<h3>Fase 1: Reorganización de Estructura Actual (Semana 1)<a class="headerlink" href="#fase-1-reorganizacion-de-estructura-actual-semana-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mover casos_de_uso a ubicación correcta en jerarquía</span>
+git<span class="w"> </span>mv<span class="w"> </span>docs/gobernanza/casos_de_uso<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso
+
+<span class="c1"># Verificar estructura completa</span>
+tree<span class="w"> </span>docs/gobernanza/requisitos/
+</pre></div>
+</div>
+</section>
+<section id="fase-2-creacion-de-templates-semana-1">
+<h3>Fase 2: Creación de Templates (Semana 1)<a class="headerlink" href="#fase-2-creacion-de-templates-semana-1" title="Link to this heading">¶</a></h3>
+<p>Crear templates para cada nivel: - <code class="docutils literal notranslate"><span class="pre">templates/RN-template.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">templates/RNEG-template.md</span></code> - <code class="docutils literal notranslate"><span class="pre">templates/UC-template.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">templates/RF-template.md</span></code> - <code class="docutils literal notranslate"><span class="pre">templates/RNF-template.md</span></code></p>
+</section>
+<section id="fase-3-capacitacion-del-equipo-semana-2">
+<h3>Fase 3: Capacitación del Equipo (Semana 2)<a class="headerlink" href="#fase-3-capacitacion-del-equipo-semana-2" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Sesión de 2 horas sobre jerarquía</p></li>
+<li><p>Ejercicio práctico: derivar requisitos de un caso real</p></li>
+<li><p>Q&amp;A y resolución de dudas</p></li>
+</ol>
+</section>
+<section id="fase-4-documentacion-de-requisitos-existentes-semanas-3-4">
+<h3>Fase 4: Documentación de Requisitos Existentes (Semanas 3-4)<a class="headerlink" href="#fase-4-documentacion-de-requisitos-existentes-semanas-3-4" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Identificar reglas de negocio actuales</p></li>
+<li><p>Documentar requisitos de negocio</p></li>
+<li><p>Clasificar casos de uso existentes</p></li>
+<li><p>Derivar requisitos funcionales de casos de uso</p></li>
+<li><p>Documentar atributos de calidad</p></li>
+</ol>
+</section>
+<section id="fase-5-matriz-de-trazabilidad-semana-5">
+<h3>Fase 5: Matriz de Trazabilidad (Semana 5)<a class="headerlink" href="#fase-5-matriz-de-trazabilidad-semana-5" title="Link to this heading">¶</a></h3>
+<p>Crear matriz que muestre relaciones:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RN-BACK-001 → RNEG-BACK-001 → UC-BACK-001 → RF-BACK-010, RF-BACK-011 → RNF-BACK-005
+</pre></div>
+</div>
+</section>
+</section>
+<section id="validacion">
+<h2>Validación<a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h2>
+<section id="criterios-de-exito">
+<h3>Criterios de Éxito<a class="headerlink" href="#criterios-de-exito" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>100% de nuevos requisitos documentados siguiendo jerarquía</p></li>
+<li><p>Matriz de trazabilidad completa para features principales</p></li>
+<li><p>Equipo capacitado y usando estructura correctamente</p></li>
+<li><p>Stakeholders reportan mejor comunicación</p></li>
+<li><p>Auditorías de compliance son más eficientes</p></li>
+</ul>
+</section>
+<section id="metricas">
+<h3>Métricas<a class="headerlink" href="#metricas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Número de requisitos por nivel</p></li>
+<li><p>Cobertura de trazabilidad (% de requisitos con links a nivel
+superior/inferior)</p></li>
+<li><p>Tiempo promedio para derivar requisito de nivel inferior desde
+superior</p></li>
+<li><p>Satisfacción del equipo con la estructura (survey trimestral)</p></li>
+<li><p>Reducción de defectos por “requisito no entendido”</p></li>
+</ul>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://standards.ieee.org/standard/29148-2018.html">IEEE 29148-2018: Systems and software engineering — Life cycle
+processes — Requirements
+engineering</a></p></li>
+<li><p><a class="reference external" href="https://www.iiba.org/business-analysis-certifications/babok/">IIBA BABOK v3: Business Analysis Body of
+Knowledge</a></p></li>
+<li><p><a class="reference external" href="ADR-GOB-006-clasificacion-reglas-negocio.md">ADR-GOB-006: Clasificación y Documentación de Reglas de
+Negocio</a></p></li>
+<li><p><a class="reference external" href="ADR-GOB-007-especificacion-casos-uso.md">ADR-GOB-007: Especificación de Casos de
+Uso</a></p></li>
+<li><p><a class="reference external" href="ADR-GOB-009-trazabilidad-artefactos-requisitos.md">ADR-GOB-009: Trazabilidad entre Artefactos de
+Requisitos</a></p></li>
+</ul>
+</section>
+<section id="historial-de-cambios">
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Claude Code</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="aprobacion">
+<h2>Aprobación<a class="headerlink" href="#aprobacion" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Autor</strong>: Claude Code (Sonnet 4.5)</p></li>
+<li><p><strong>Revisado por</strong>: Pendiente</p></li>
+<li><p><strong>Aprobado por</strong>: Pendiente</p></li>
+<li><p><strong>Fecha de próxima revisión</strong>: 2026-05-17</p></li>
+</ul>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">ADR-GOB-005: Jerarquía de Requerimientos en 5 Niveles</a><ul>
+<li><a class="reference internal" href="#estado">Estado</a></li>
+<li><a class="reference internal" href="#contexto">Contexto</a><ul>
+<li><a class="reference internal" href="#problemas-sin-estructura-jerarquica">Problemas sin Estructura Jerárquica</a></li>
+<li><a class="reference internal" href="#necesidades-del-proyecto-iact">Necesidades del Proyecto IACT</a></li>
+<li><a class="reference internal" href="#marco-de-referencia">Marco de Referencia</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decision">Decisión</a><ul>
+<li><a class="reference internal" href="#jerarquia-de-5-niveles">Jerarquía de 5 Niveles</a></li>
+<li><a class="reference internal" href="#nivel-1-reglas-de-negocio">Nivel 1: Reglas de Negocio</a></li>
+<li><a class="reference internal" href="#nivel-2-requerimientos-de-negocio">Nivel 2: Requerimientos de Negocio</a></li>
+<li><a class="reference internal" href="#nivel-3-requerimientos-de-usuario">Nivel 3: Requerimientos de Usuario</a></li>
+<li><a class="reference internal" href="#nivel-4-requerimientos-funcionales">Nivel 4: Requerimientos Funcionales</a></li>
+<li><a class="reference internal" href="#nivel-5-atributos-de-calidad-requerimientos-no-funcionales">Nivel 5: Atributos de Calidad (Requerimientos No Funcionales)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tabla-de-influencia-entre-niveles">Tabla de Influencia entre Niveles</a></li>
+<li><a class="reference internal" href="#estructura-de-directorios">Estructura de Directorios</a></li>
+<li><a class="reference internal" href="#principios-de-uso">Principios de Uso</a><ul>
+<li><a class="reference internal" href="#principio-1-derivacion-descendente">Principio 1: Derivación Descendente</a></li>
+<li><a class="reference internal" href="#principio-2-trazabilidad-bidireccional">Principio 2: Trazabilidad Bidireccional</a></li>
+<li><a class="reference internal" href="#principio-3-stakeholders-apropiados">Principio 3: Stakeholders Apropiados</a></li>
+<li><a class="reference internal" href="#principio-4-diferentes-tecnicas-de-validacion">Principio 4: Diferentes Técnicas de Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alternativas-consideradas">Alternativas Consideradas</a><ul>
+<li><a class="reference internal" href="#alternativa-1-jerarquia-plana-sin-niveles">Alternativa 1: Jerarquía Plana (Sin Niveles)</a></li>
+<li><a class="reference internal" href="#alternativa-2-ieee-830-3-niveles">Alternativa 2: IEEE 830 (3 Niveles)</a></li>
+<li><a class="reference internal" href="#alternativa-3-user-stories-unicamente-agile-puro">Alternativa 3: User Stories únicamente (Agile puro)</a></li>
+<li><a class="reference internal" href="#alternativa-4-modelo-de-7-niveles-extension-del-estandar">Alternativa 4: Modelo de 7 Niveles (Extensión del estándar)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#consecuencias">Consecuencias</a><ul>
+<li><a class="reference internal" href="#positivas">Positivas</a></li>
+<li><a class="reference internal" href="#negativas">Negativas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementacion">Implementación</a><ul>
+<li><a class="reference internal" href="#fase-1-reorganizacion-de-estructura-actual-semana-1">Fase 1: Reorganización de Estructura Actual (Semana 1)</a></li>
+<li><a class="reference internal" href="#fase-2-creacion-de-templates-semana-1">Fase 2: Creación de Templates (Semana 1)</a></li>
+<li><a class="reference internal" href="#fase-3-capacitacion-del-equipo-semana-2">Fase 3: Capacitación del Equipo (Semana 2)</a></li>
+<li><a class="reference internal" href="#fase-4-documentacion-de-requisitos-existentes-semanas-3-4">Fase 4: Documentación de Requisitos Existentes (Semanas 3-4)</a></li>
+<li><a class="reference internal" href="#fase-5-matriz-de-trazabilidad-semana-5">Fase 5: Matriz de Trazabilidad (Semana 5)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#validacion">Validación</a><ul>
+<li><a class="reference internal" href="#criterios-de-exito">Criterios de Éxito</a></li>
+<li><a class="reference internal" href="#metricas">Métricas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+<li><a class="reference internal" href="#aprobacion">Aprobación</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

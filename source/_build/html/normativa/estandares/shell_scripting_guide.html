@@ -1,0 +1,1695 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Shell Scripting Guide - Proyecto IACT - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="shell-scripting-guide-proyecto-iact">
+<h1>Shell Scripting Guide - Proyecto IACT<a class="headerlink" href="#shell-scripting-guide-proyecto-iact" title="Link to this heading">¶</a></h1>
+<p>Guía completa de referencia para scripts de producción en sistemas
+Unix/Linux.</p>
+<section id="pagina-padre">
+<h2>Página padre<a class="headerlink" href="#pagina-padre" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="estandares_codigo.md">Estándares de Código</a></p></li>
+<li><p><a class="reference external" href="readme.md">Gobernanza</a></p></li>
+</ul>
+</section>
+<section id="alcance">
+<h2>Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<p>Esta guía establece requisitos técnicos y mejores prácticas para scripts
+de shell usados en:</p>
+<ul class="simple">
+<li><p>Aprovisionamiento y configuración de sistemas</p></li>
+<li><p>Automatización de despliegues</p></li>
+<li><p>Tareas de mantenimiento y operación</p></li>
+<li><p>Flujos de testing y validación</p></li>
+<li><p>Herramientas de infraestructura</p></li>
+</ul>
+</section>
+<section id="audiencia-objetivo">
+<h2>Audiencia Objetivo<a class="headerlink" href="#audiencia-objetivo" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Desarrolladores backend</p></li>
+<li><p>Ingenieros DevOps</p></li>
+<li><p>Ingenieros de confiabilidad del sitio (SRE)</p></li>
+<li><p>Administradores de sistemas</p></li>
+<li><p>Desarrolladores de infraestructura</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tabla-de-contenidos">
+<h2>Tabla de Contenidos<a class="headerlink" href="#tabla-de-contenidos" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="#criterios-de-decisión">Criterios de Decisión</a></p></li>
+<li><p><a class="reference external" href="#selección-de-shell">Selección de Shell</a></p></li>
+<li><p><a class="reference external" href="#requerimientos-core">Requerimientos Core</a></p></li>
+<li><p><a class="reference external" href="#estándares-de-salida">Estándares de Salida</a></p></li>
+<li><p><a class="reference external" href="#manejo-de-errores">Manejo de Errores</a></p></li>
+<li><p><a class="reference external" href="#guías-de-seguridad">Guías de Seguridad</a></p></li>
+<li><p><a class="reference external" href="#organización-de-código">Organización de Código</a></p></li>
+<li><p><a class="reference external" href="#requerimientos-de-testing">Requerimientos de Testing</a></p></li>
+<li><p><a class="reference external" href="#plantillas">Plantillas</a></p></li>
+<li><p><a class="reference external" href="#herramientas-de-validación">Herramientas de Validación</a></p></li>
+<li><p><a class="reference external" href="#referencias">Referencias</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="criterios-de-decision">
+<h2>Criterios de Decisión<a class="headerlink" href="#criterios-de-decision" title="Link to this heading">¶</a></h2>
+<section id="flowchart-completo-de-decision">
+<h3>Flowchart Completo de Decisión<a class="headerlink" href="#flowchart-completo-de-decision" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>¿Este es un script ejecutable?
+├── NO → Colocar en documentation/ o manual/
+└── SI → ¿Cuál es el propósito principal?
+    ├── Testing/Validación → ¿Qué tipo de test?
+    │   ├── Componente individual → test/unit/
+    │   ├── Interacción de componentes → test/integration/
+    │   └── Workflow end-to-end → test/system/
+    │
+    ├── Hooks operacionales/validación → infrastructure/hooks/
+    │   Ejemplos: pre-commit, pre-push, post-deploy
+    │
+    ├── Setup inicial único → scripts/setup/
+    │   Ejemplos: bootstrap, first-run, initialize
+    │
+    ├── Mantenimiento específico de componente → scripts/maintenance/{component}/
+    │   Ejemplos: cleanup, backup, rotate-logs
+    │
+    ├── Carga de configuración de entorno → infrastructure/configs/
+    │   Ejemplos: load-env, set-vars, apply-config
+    │
+    ├── Orquestador estándar GitHub → script/
+    │   Ejemplos: bootstrap, setup, test, build, deploy
+    │
+    └── Utilidad genuinamente reusable → infrastructure/utils/
+        Ejemplos: logging, error-handling, funciones comunes
+</pre></div>
+</div>
+</section>
+<section id="matriz-de-decision-detallada">
+<h3>Matriz de Decisión Detallada<a class="headerlink" href="#matriz-de-decision-detallada" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Propósito del
+Script</p></th>
+<th class="head"><p>Ubicación
+Primaria</p></th>
+<th class="head"><p>Consideraciones
+Secundarias</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test unitario para
+módulo X</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test/unit/</span></code></p></td>
+<td><p>Nombrar como
+<code class="docutils literal notranslate"><span class="pre">test-{module}.sh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Test de integración</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">te</span>
+<span class="pre">st/integration/</span></code></p></td>
+<td><p>Incluir prefijo
+<code class="docutils literal notranslate"><span class="pre">integration-</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Test de sistema/E2E</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test/system/</span></code></p></td>
+<td><p>Incluir prefijo
+<code class="docutils literal notranslate"><span class="pre">system-</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Git hook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">infras</span>
+<span class="pre">tructure/hooks/</span></code></p></td>
+<td><p>Coincidir nombre exacto
+del hook</p></td>
+</tr>
+<tr class="row-even"><td><p>Bootstrap nuevo
+ambiente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/set</span>
+<span class="pre">up/bootstrap.sh</span></code></p></td>
+<td><p>Se espera ejecución única</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backup de base de
+datos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/mainte</span>
+<span class="pre">nance/database/</span></code></p></td>
+<td><p>Ubicación específica del
+componente</p></td>
+</tr>
+<tr class="row-even"><td><p>Rotación de logs</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scripts/maint</span>
+<span class="pre">enance/logging/</span></code></p></td>
+<td><p>Ubicación específica del
+componente</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cargar ambiente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">infrastr</span>
+<span class="pre">ucture/configs/</span></code></p></td>
+<td><p>Gestión de configuración</p></td>
+</tr>
+<tr class="row-even"><td><p>Logging común</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">infrastructure/</span>
+<span class="pre">utils/logger.sh</span></code></p></td>
+<td><p>Sourced por otros scripts</p></td>
+</tr>
+<tr class="row-odd"><td><p>Workflow GitHub</p></td>
+<td><p>``
+script/{action}``</p></td>
+<td><p>Seguir convención GitHub</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="convenciones-de-nomenclatura-de-archivos">
+<h3>Convenciones de Nomenclatura de Archivos<a class="headerlink" href="#convenciones-de-nomenclatura-de-archivos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Patrón</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Script ejecutable</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{verbo}-{sustantivo}.sh</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">deploy-app.sh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Script de test</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test-{component}.sh</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test-database.sh</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Biblioteca/Utils</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{sustantivo}-utils.sh</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string-utils.sh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Script de setup</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">setup-{component}.sh</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">setup-docker.sh</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Script hook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{hook-name}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> (sin .sh)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cuando-no-usar-scripts-de-shell">
+<h3>Cuándo NO Usar Scripts de Shell<a class="headerlink" href="#cuando-no-usar-scripts-de-shell" title="Link to this heading">¶</a></h3>
+<p>Usar lenguajes alternativos cuando: - Se necesitan estructuras de datos
+complejas → Python, Go - Parsing pesado de JSON/XML → Python, pipeline
+jq - Operaciones matemáticas avanzadas → Python, R - GUI multiplataforma
+→ Python, Go - Crítico para rendimiento → Go, Rust, C - Codebase grande
+(&gt;500 líneas) → Considerar refactorización</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="seleccion-de-shell">
+<h2>Selección de Shell<a class="headerlink" href="#seleccion-de-shell" title="Link to this heading">¶</a></h2>
+<section id="flowchart-de-decision">
+<h3>Flowchart de Decisión<a class="headerlink" href="#flowchart-de-decision" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>¿El script necesita características específicas de bash?
+(arrays, [[]], asociative arrays, ${var//}, etc.)
+├── SI → Usar #!/usr/bin/env bash
+│   └── Documentar requisito: &quot;Requiere bash 4.0+&quot;
+│
+└── NO → ¿Puedes usar solo características POSIX?
+    ├── SI → Usar #!/usr/bin/env sh
+    │   └── Máxima portabilidad
+    │   └── Nota: NO pipefail en POSIX puro
+    │
+    └── NO → Usar #!/usr/bin/env bash
+        └── Más seguro que arriesgarse
+</pre></div>
+</div>
+</section>
+<section id="matriz-de-compatibilidad-de-shell-corregida">
+<h3>Matriz de Compatibilidad de Shell (CORREGIDA)<a class="headerlink" href="#matriz-de-compatibilidad-de-shell-corregida" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Característica</p></th>
+<th class="head"><p>POSIX sh</p></th>
+<th class="head"><p>bash</p></th>
+<th class="head"><p>dash</p></th>
+<th class="head"><p>ksh93</p></th>
+<th class="head"><p>zsh</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code></p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-u</span></code></p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code></p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p>SI</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$(</span> <span class="pre">)</span></code> command sub</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[[</span> <span class="pre">]]</span></code> test</p></td>
+<td><p>NO</p></td>
+<td><p>SI</p></td>
+<td><p>NO</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arrays</p></td>
+<td><p>NO</p></td>
+<td><p>SI</p></td>
+<td><p>NO</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">local</span></code> keyword</p></td>
+<td><p>NO*</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+<td><p>SI</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>NOTAS CRÍTICAS:</strong> - <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code> NO es parte de POSIX (a partir
+de 2024) - <code class="docutils literal notranslate"><span class="pre">dash</span></code> NO soporta pipefail en ninguna versión - <code class="docutils literal notranslate"><span class="pre">local</span></code>
+está ampliamente soportado pero NO está en el estándar POSIX - Para
+verdadera portabilidad POSIX, evitar <code class="docutils literal notranslate"><span class="pre">local</span></code>, <code class="docutils literal notranslate"><span class="pre">[[]]</span></code>, arrays, y
+<code class="docutils literal notranslate"><span class="pre">pipefail</span></code></p>
+</section>
+<section id="guia-de-seleccion-de-shebang">
+<h3>Guía de Selección de Shebang<a class="headerlink" href="#guia-de-seleccion-de-shebang" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="c1"># Usar para: Máxima portabilidad, scripts simples</span>
+<span class="c1"># Disponible: Solo características POSIX</span>
+<span class="c1"># NO disponible: pipefail, arrays, [[]], local (en POSIX estricto)</span>
+
+<span class="c1">#!/usr/bin/env bash</span>
+<span class="c1"># Usar para: Lógica compleja, arrays, pipefail, características modernas</span>
+<span class="c1"># Disponible: Todas las características de bash</span>
+<span class="c1"># Portabilidad: Linux, macOS, BSD (con bash instalado)</span>
+
+<span class="c1">#!/bin/sh</span>
+<span class="c1"># Usar para: Scripts de sistema que deben usar el shell del sistema</span>
+<span class="c1"># Advertencia: Puede ser dash, ash, o bash dependiendo del sistema</span>
+
+<span class="c1">#!/bin/bash</span>
+<span class="c1"># Usar para: Scripts que requieren ruta específica de bash</span>
+<span class="c1"># Advertencia: Menos portable (bash puede estar en /usr/local/bin)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="requerimientos-core">
+<h2>Requerimientos Core<a class="headerlink" href="#requerimientos-core" title="Link to this heading">¶</a></h2>
+<section id="elementos-obligatorios">
+<h3>Elementos Obligatorios<a class="headerlink" href="#elementos-obligatorios" title="Link to this heading">¶</a></h3>
+<p>Todo script de producción DEBE incluir:</p>
+<ol class="arabic simple">
+<li><p>Línea shebang</p></li>
+<li><p>Comentario de descripción breve</p></li>
+<li><p>Manejo de errores (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code> mínimo)</p></li>
+<li><p>Código de salida al completar</p></li>
+<li><p>Información de uso (si es interactivo)</p></li>
+</ol>
+</section>
+<section id="script-minimo-viable-posix">
+<h3>Script Mínimo Viable (POSIX)<a class="headerlink" href="#script-minimo-viable-posix" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="c1"># Descripción: Descripción breve de una línea</span>
+<span class="c1"># Uso: script-name.sh [opciones]</span>
+
+<span class="nb">set</span><span class="w"> </span>-eu
+
+main<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># Lógica del script aquí</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[INFO] Tarea completada\n&#39;</span>
+<span class="o">}</span>
+
+main<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="template-de-script-estandar-bash">
+<h3>Template de Script Estándar (Bash)<a class="headerlink" href="#template-de-script-estandar-bash" title="Link to this heading">¶</a></h3>
+<p>Ver sección <a class="reference external" href="#plantillas">Plantillas</a> para templates completos.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="estandares-de-salida">
+<h2>Estándares de Salida<a class="headerlink" href="#estandares-de-salida" title="Link to this heading">¶</a></h2>
+<p><strong>IMPORTANTE</strong>: Esta sección implementa la “Regla Fundamental” definida
+en <a class="reference external" href="estandares_codigo.md#regla-fundamental-output-profesional">Estándares de
+Código</a>.</p>
+<section id="regla-fundamental">
+<h3>Regla Fundamental<a class="headerlink" href="#regla-fundamental" title="Link to this heading">¶</a></h3>
+<p><strong>NUNCA usar emojis, iconos Unicode decorativos, ni símbolos especiales
+en el output de scripts de producción.</strong></p>
+</section>
+<section id="sistema-de-prefijos-estandar">
+<h3>Sistema de Prefijos Estándar<a class="headerlink" href="#sistema-de-prefijos-estandar" title="Link to this heading">¶</a></h3>
+<section id="prefijos-de-nivel-de-log">
+<h4>Prefijos de Nivel de Log<a class="headerlink" href="#prefijos-de-nivel-de-log" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORRECTO - Usar prefijos estándar</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO]    Información general&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DEBUG]   Detalles de depuración&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[WARN]    Mensaje de advertencia&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR]   Error encontrado&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[FATAL]   Error crítico&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[SUCCESS] Operación exitosa&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[OK]      Todo bien&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[FAIL]    Operación falló&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="prefijos-de-estado-de-proceso">
+<h4>Prefijos de Estado de Proceso<a class="headerlink" href="#prefijos-de-estado-de-proceso" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORRECTO - Estados de proceso</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[PENDING]  Operación pendiente&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[RUNNING]  Ejecución en progreso&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DONE]     Completado&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[SKIPPED]  Omitido&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[RETRY]    Reintentando operación&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tabla-de-referencia-completa">
+<h3>Tabla de Referencia Completa<a class="headerlink" href="#tabla-de-referencia-completa" title="Link to this heading">¶</a></h3>
+<p>Ver <a class="reference external" href="estandares_codigo.md#tabla-de-referencia-rápida">Estándares de Código - Tabla de Referencia
+Rápida</a> para mapeo
+completo de símbolos prohibidos a alternativas permitidas.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="manejo-de-errores">
+<h2>Manejo de Errores<a class="headerlink" href="#manejo-de-errores" title="Link to this heading">¶</a></h2>
+<section id="estrategia-de-manejo-de-errores">
+<h3>Estrategia de Manejo de Errores<a class="headerlink" href="#estrategia-de-manejo-de-errores" title="Link to this heading">¶</a></h3>
+<section id="a-salida-inmediata-en-error">
+<h4>A. Salida Inmediata en Error<a class="headerlink" href="#a-salida-inmediata-en-error" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="nb">set</span><span class="w"> </span>-e<span class="w">  </span><span class="c1"># Salir inmediatamente si cualquier comando falla</span>
+
+<span class="c1"># Todos los comandos deben tener éxito o el script termina</span>
+apt-get<span class="w"> </span>update
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+systemctl<span class="w"> </span>start<span class="w"> </span>nginx
+</pre></div>
+</div>
+</section>
+<section id="b-manejo-de-errores-controlado-bash">
+<h4>B. Manejo de Errores Controlado (Bash)<a class="headerlink" href="#b-manejo-de-errores-controlado-bash" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+
+<span class="c1"># Manejar errores específicos</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>systemctl<span class="w"> </span>is-active<span class="w"> </span>--quiet<span class="w"> </span>nginx<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[WARN] Nginx no está corriendo, intentando iniciar&quot;</span>
+<span class="w">    </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] Fallo al iniciar nginx&quot;</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="codigos-de-salida">
+<h3>Códigos de Salida<a class="headerlink" href="#codigos-de-salida" title="Link to this heading">¶</a></h3>
+<p>Convenciones estándar de códigos de salida:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Significado</p></th>
+<th class="head"><p>Uso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Éxito</p></td>
+<td><p>Operación completada
+exitosamente</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Error general</p></td>
+<td><p>Fallo genérico</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Mal uso</p></td>
+<td><p>Argumentos inválidos o uso
+incorrecto</p></td>
+</tr>
+<tr class="row-odd"><td><p>126</p></td>
+<td><p>Comando no puede ejecutarse</p></td>
+<td><p>Problema de permisos</p></td>
+</tr>
+<tr class="row-even"><td><p>127</p></td>
+<td><p>Comando no encontrado</p></td>
+<td><p>Dependencia faltante</p></td>
+</tr>
+<tr class="row-odd"><td><p>130</p></td>
+<td><p>Terminado por Ctrl+C</p></td>
+<td><p>Interrupción de usuario</p></td>
+</tr>
+<tr class="row-even"><td><p>255</p></td>
+<td><p>Código de salida fuera de
+rango</p></td>
+<td><p>Estado de salida inválido</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Códigos de salida personalizados (128+):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">readonly</span><span class="w"> </span><span class="nv">ERR_DEPENDENCY</span><span class="o">=</span><span class="m">10</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">ERR_CONFIG</span><span class="o">=</span><span class="m">11</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">ERR_NETWORK</span><span class="o">=</span><span class="m">12</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">ERR_PERMISSION</span><span class="o">=</span><span class="m">13</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">ERR_NOTFOUND</span><span class="o">=</span><span class="m">14</span>
+
+<span class="c1"># Uso</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>docker<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] Docker no encontrado&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="nv">$ERR_DEPENDENCY</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+<section id="limpieza-y-senales">
+<h3>Limpieza y Señales<a class="headerlink" href="#limpieza-y-senales" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+
+<span class="c1"># Gestión de archivos temporales</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">TEMP_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">TEMP_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TEMP_DIR</span><span class="si">}</span><span class="s2">/data.tmp&quot;</span>
+
+<span class="c1"># Prevenir doble limpieza</span>
+<span class="nv">CLEANUP_DONE</span><span class="o">=</span><span class="nb">false</span>
+
+cleanup<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CLEANUP_DONE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO] Limpiando archivos temporales&quot;</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TEMP_DIR</span><span class="s2">&quot;</span>
+
+<span class="w">    </span><span class="nv">CLEANUP_DONE</span><span class="o">=</span><span class="nb">true</span>
+<span class="o">}</span>
+
+<span class="c1"># Trap múltiples señales</span>
+<span class="nb">trap</span><span class="w"> </span>cleanup<span class="w"> </span>EXIT
+<span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;[WARN] Interrumpido por usuario&quot;; exit 130&#39;</span><span class="w"> </span>INT
+<span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;[WARN] Terminado&quot;; exit 143&#39;</span><span class="w"> </span>TERM
+
+main<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO] Creando archivos temporales en </span><span class="nv">$TEMP_DIR</span><span class="s2">&quot;</span>
+
+<span class="w">    </span><span class="c1"># Trabajar con archivos temporales</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TEMP_FILE</span><span class="s2">&quot;</span>
+
+<span class="w">    </span><span class="c1"># Limpieza ocurre automáticamente al salir</span>
+<span class="o">}</span>
+
+main<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="guias-de-seguridad">
+<h2>Guías de Seguridad<a class="headerlink" href="#guias-de-seguridad" title="Link to this heading">¶</a></h2>
+<section id="reglas-de-seguridad-criticas">
+<h3>Reglas de Seguridad Críticas<a class="headerlink" href="#reglas-de-seguridad-criticas" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Regla</p></th>
+<th class="head"><p>Nivel</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>No secretos
+hardcodeados</p></td>
+<td><p>CRÍTICO</p></td>
+<td><p>Nunca incluir contraseñas,
+tokens, API keys</p></td>
+</tr>
+<tr class="row-odd"><td><p>S2</p></td>
+<td><p>Validar todo
+input</p></td>
+<td><p>CRÍTICO</p></td>
+<td><p>Siempre sanitizar datos
+provistos por usuario</p></td>
+</tr>
+<tr class="row-even"><td><p>S3</p></td>
+<td><p>Privilegio
+mínimo</p></td>
+<td><p>ALTO</p></td>
+<td><p>Solicitar acceso elevado
+solo cuando sea requerido</p></td>
+</tr>
+<tr class="row-odd"><td><p>S4</p></td>
+<td><p>Archivos
+temporales
+seguros</p></td>
+<td><p>ALTO</p></td>
+<td><p>Usar mktemp con permisos
+restrictivos</p></td>
+</tr>
+<tr class="row-even"><td><p>S5</p></td>
+<td><p>No eval con
+input de
+usuario</p></td>
+<td><p>CRÍTICO</p></td>
+<td><p>Nunca usar eval con datos
+no sanitizados</p></td>
+</tr>
+<tr class="row-odd"><td><p>S6</p></td>
+<td><p>Citar todas
+las variables</p></td>
+<td><p>ALTO</p></td>
+<td><p>Prevenir inyección y word
+splitting</p></td>
+</tr>
+<tr class="row-even"><td><p>S7</p></td>
+<td><p>Evitar
+command
+substitution
+con datos de
+usuario</p></td>
+<td><p>ALTO</p></td>
+<td><p>Riesgo de inyección de
+comandos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="gestion-de-secretos">
+<h3>Gestión de Secretos<a class="headerlink" href="#gestion-de-secretos" title="Link to this heading">¶</a></h3>
+<section id="incorrecto-secretos-hardcodeados">
+<h4>INCORRECTO - Secretos Hardcodeados<a class="headerlink" href="#incorrecto-secretos-hardcodeados" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># NUNCA HACER ESTO</span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;super_secret_123&quot;</span>
+<span class="nv">API_KEY</span><span class="o">=</span><span class="s2">&quot;sk-1234567890abcdef&quot;</span>
+mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="s2">&quot;</span><span class="nv">$DB_PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span>&lt;<span class="w"> </span>dump.sql
+</pre></div>
+</div>
+</section>
+<section id="correcto-variables-de-entorno">
+<h4>CORRECTO - Variables de Entorno<a class="headerlink" href="#correcto-variables-de-entorno" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Método 1: Variable de entorno con validación</span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DB_PASSWORD</span><span class="p">:?ERROR: Variable DB_PASSWORD no configurada</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Método 2: Archivo de configuración con permisos restringidos</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.db_credentials&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># Verificar permisos antes de hacer source</span>
+<span class="w">    </span><span class="nv">perms</span><span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;%a&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.db_credentials&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>stat<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;%Lp&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.db_credentials&quot;</span><span class="k">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$perms</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;600&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$perms</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;400&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>.<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.db_credentials&quot;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] Permisos inseguros en archivo de credenciales&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># Método 3: Vault o secret manager (preferido)</span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="k">$(</span>vault<span class="w"> </span>kv<span class="w"> </span>get<span class="w"> </span>-field<span class="o">=</span>password<span class="w"> </span>database/prod<span class="k">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="validacion-de-input">
+<h3>Validación de Input<a class="headerlink" href="#validacion-de-input" title="Link to this heading">¶</a></h3>
+<section id="validacion-numerica-posix">
+<h4>Validación Numérica (POSIX)<a class="headerlink" href="#validacion-numerica-posix" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>validate_number<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">_input</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_input</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">        </span><span class="s1">&#39;&#39;</span><span class="p">|</span>*<span class="o">[</span>!0-9<span class="o">]</span>*<span class="o">)</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[ERROR] No es un número válido: %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_input</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">            </span><span class="p">;;</span>
+<span class="w">        </span>*<span class="o">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">            </span><span class="p">;;</span>
+<span class="w">    </span><span class="k">esac</span>
+<span class="o">}</span>
+
+<span class="c1"># Uso</span>
+<span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?ERROR: Número de puerto requerido</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>validate_number<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PORT</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PORT</span><span class="s2">&quot;</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PORT</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">65535</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] Puerto fuera del rango válido: </span><span class="nv">$PORT</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion-de-string-posix">
+<h4>Validación de String (POSIX)<a class="headerlink" href="#validacion-de-string-posix" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>validate_alphanumeric<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">_input</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="c1"># Verificación de clase de caracteres compatible con POSIX</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_input</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">        </span>*<span class="o">[</span>!A-Za-z0-9_-<span class="o">]</span>*<span class="o">)</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[ERROR] Caracteres inválidos en input: %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_input</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">            </span><span class="p">;;</span>
+<span class="w">        </span><span class="s1">&#39;&#39;</span><span class="o">)</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[ERROR] Input no puede estar vacío\n&#39;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">            </span><span class="p">;;</span>
+<span class="w">        </span>*<span class="o">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">            </span><span class="p">;;</span>
+<span class="w">    </span><span class="k">esac</span>
+<span class="o">}</span>
+
+<span class="c1"># Uso</span>
+<span class="nv">USERNAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?ERROR: Username requerido</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>validate_alphanumeric<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USERNAME</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] Username debe contener solo caracteres alfanuméricos&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="organizacion-de-codigo">
+<h2>Organización de Código<a class="headerlink" href="#organizacion-de-codigo" title="Link to this heading">¶</a></h2>
+<section id="estructura-de-archivo">
+<h3>Estructura de Archivo<a class="headerlink" href="#estructura-de-archivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1">#</span>
+<span class="c1"># Bloque de metadatos del script</span>
+<span class="c1">#</span>
+
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># CONSTANTES</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">SCRIPT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">SCRIPT_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">readonly</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># CONFIGURACIÓN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="nv">CONFIG_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CONFIG_FILE</span><span class="k">:-</span><span class="p">/etc/app/config.yml</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">LOG_LEVEL</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOG_LEVEL</span><span class="k">:-</span><span class="nv">INFO</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># VARIABLES GLOBALES</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="nv">TEMP_DIR</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">CLEANUP_NEEDED</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># FUNCIONES UTILITARIAS</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+log_info<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+log_error<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># FUNCIONES DE VALIDACIÓN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+validate_config<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+validate_dependencies<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># FUNCIONES DE LÓGICA CORE</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+initialize<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+process_data<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+finalize<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>:<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># MANEJO DE ERRORES</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;error_handler ${LINENO}&#39;</span><span class="w"> </span>ERR
+<span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;cleanup&#39;</span><span class="w"> </span>EXIT<span class="w"> </span>INT<span class="w"> </span>TERM
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># FUNCIÓN MAIN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+main<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>initialize
+<span class="w">    </span>process_data
+<span class="w">    </span>finalize
+<span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># PUNTO DE ENTRADA</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+main<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="scripts-modulares">
+<h3>Scripts Modulares<a class="headerlink" href="#scripts-modulares" title="Link to this heading">¶</a></h3>
+<section id="script-de-biblioteca-utils-sh-compatible-posix">
+<h4>Script de Biblioteca (utils.sh) - Compatible POSIX<a class="headerlink" href="#script-de-biblioteca-utils-sh-compatible-posix" title="Link to this heading">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="c1"># utils.sh - Funciones utilitarias comunes</span>
+<span class="c1"># Source este archivo: . ./utils.sh</span>
+
+<span class="c1"># Funciones de logging (sin local - compatible POSIX)</span>
+log_info<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[INFO] %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+log_error<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;[ERROR] %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="o">}</span>
+
+<span class="c1"># Funciones de validación</span>
+require_command<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">_cmd</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?ERROR: Nombre de comando requerido</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_cmd</span><span class="s2">&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>log_error<span class="w"> </span><span class="s2">&quot;Comando requerido no encontrado: </span><span class="nv">$_cmd</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">    </span><span class="nb">unset</span><span class="w"> </span>_cmd
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="requerimientos-de-testing">
+<h2>Requerimientos de Testing<a class="headerlink" href="#requerimientos-de-testing" title="Link to this heading">¶</a></h2>
+<section id="tipos-de-test">
+<h3>Tipos de Test<a class="headerlink" href="#tipos-de-test" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de Test</p></th>
+<th class="head"><p>Ubicación</p></th>
+<th class="head"><p>Propósito</p></th>
+<th class="head"><p>Ejecución</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Unitario</p></td>
+<td><p>`
+<cite>test/unit/`</cite></p></td>
+<td><p>Testing de
+función
+individual</p></td>
+<td><p>Rápido,
+aislado</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integración</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">test/i</span>
+<span class="pre">ntegration/</span></code></p></td>
+<td><p>Interacción
+de
+componentes</p></td>
+<td><p>Velocidad
+media</p></td>
+</tr>
+<tr class="row-even"><td><p>Sistema</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">t</span>
+<span class="pre">est/system/</span></code></p></td>
+<td><p>Workflows
+end-to-end</p></td>
+<td><p>Más lento,
+ambiente
+completo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="integracion-shellcheck">
+<h3>Integración ShellCheck<a class="headerlink" href="#integracion-shellcheck" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar shellcheck en script</span>
+shellcheck<span class="w"> </span>script.sh
+
+<span class="c1"># Con severidad específica</span>
+shellcheck<span class="w"> </span>--severity<span class="o">=</span>warning<span class="w"> </span>script.sh
+
+<span class="c1"># Excluir verificaciones específicas (documentar por qué)</span>
+shellcheck<span class="w"> </span>--exclude<span class="o">=</span>SC2086,SC2181<span class="w"> </span>script.sh
+
+<span class="c1"># Verificar todos los scripts en directorio</span>
+find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.sh&quot;</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>shellcheck<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plantillas">
+<h2>Plantillas<a class="headerlink" href="#plantillas" title="Link to this heading">¶</a></h2>
+<section id="template-minimo-posix">
+<h3>Template Mínimo (POSIX)<a class="headerlink" href="#template-minimo-posix" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env sh</span>
+<span class="c1"># Nombre: script-name.sh</span>
+<span class="c1"># Descripción: Script compatible con POSIX</span>
+<span class="c1"># Requiere: Solo POSIX sh (sin extensiones bash)</span>
+
+<span class="nb">set</span><span class="w"> </span>-eu
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># CONFIGURACIÓN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="nv">SCRIPT_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">0</span><span class="p">##*/</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">LOG_PREFIX</span><span class="o">=</span><span class="s2">&quot;[</span><span class="nv">$SCRIPT_NAME</span><span class="s2">]&quot;</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># LOGGING (SIN palabra clave local - NO POSIX)</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+log_info<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s [INFO] %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_PREFIX</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+log_error<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s [ERROR] %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_PREFIX</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># VALIDACIÓN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+require_command<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">_cmd</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:?ERROR: Nombre de comando requerido</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$_cmd</span><span class="s2">&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>log_error<span class="w"> </span><span class="s2">&quot;Comando requerido no encontrado: </span><span class="nv">$_cmd</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">    </span><span class="nb">unset</span><span class="w"> </span>_cmd
+<span class="o">}</span>
+
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># MAIN</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+main<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>log_info<span class="w"> </span><span class="s2">&quot;Iniciando&quot;</span>
+
+<span class="w">    </span><span class="c1"># Lógica del script</span>
+
+<span class="w">    </span>log_info<span class="w"> </span><span class="s2">&quot;Completado&quot;</span>
+<span class="o">}</span>
+
+main<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="template-completo-bash">
+<h3>Template Completo (Bash)<a class="headerlink" href="#template-completo-bash" title="Link to this heading">¶</a></h3>
+<p>Ver archivo en: <code class="docutils literal notranslate"><span class="pre">scripts/templates/bash-script-template.sh</span></code></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="herramientas-de-validacion">
+<h2>Herramientas de Validación<a class="headerlink" href="#herramientas-de-validacion" title="Link to this heading">¶</a></h2>
+<section id="shellcheck">
+<h3>ShellCheck<a class="headerlink" href="#shellcheck" title="Link to this heading">¶</a></h3>
+<p>ShellCheck es la herramienta estándar de la industria para análisis
+estático de scripts de shell.</p>
+<p><strong>Instalación:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu/Debian</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>shellcheck
+
+<span class="c1"># macOS</span>
+brew<span class="w"> </span>install<span class="w"> </span>shellcheck
+
+<span class="c1"># Desde fuente</span>
+https://github.com/koalaman/shellcheck
+</pre></div>
+</div>
+<p><strong>Uso:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificación básica</span>
+shellcheck<span class="w"> </span>script.sh
+
+<span class="c1"># Múltiples archivos</span>
+shellcheck<span class="w"> </span>*.sh
+
+<span class="c1"># Severidad específica</span>
+shellcheck<span class="w"> </span>--severity<span class="o">=</span>warning<span class="w"> </span>script.sh
+
+<span class="c1"># Excluir reglas específicas (documentar por qué en código)</span>
+shellcheck<span class="w"> </span>--exclude<span class="o">=</span>SC2086<span class="w"> </span>script.sh
+
+<span class="c1"># Diferentes dialectos de shell</span>
+shellcheck<span class="w"> </span>--shell<span class="o">=</span>sh<span class="w"> </span>script.sh
+shellcheck<span class="w"> </span>--shell<span class="o">=</span>bash<span class="w"> </span>script.sh
+</pre></div>
+</div>
+<p><strong>Códigos Comunes de ShellCheck:</strong> - SC2086: Citar variables para
+prevenir word splitting - SC2046: Citar command substitution - SC2181:
+Verificar código de salida directamente en vez de $? - SC2155: Declarar
+y asignar por separado para evitar enmascarar valores de retorno -
+SC2164: Usar <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">...</span> <span class="pre">||</span> <span class="pre">exit</span></code> para manejar fallos de cd</p>
+</section>
+<section id="script-de-validacion">
+<h3>Script de Validación<a class="headerlink" href="#script-de-validacion" title="Link to this heading">¶</a></h3>
+<p>Ubicación: <code class="docutils literal notranslate"><span class="pre">infrastructure/devcontainer/scripts/check_no_emojis.sh</span></code></p>
+<p>Este script valida que no haya emojis en scripts de producción,
+implementando la Regla Fundamental de Output Profesional.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="estandares-corregidos">
+<h3>Estándares (CORREGIDOS)<a class="headerlink" href="#estandares-corregidos" title="Link to this heading">¶</a></h3>
+<p><strong>POSIX.1-2024 (IEEE Std 1003.1-2024)</strong> - Título completo: IEEE/Open
+Group Standard for Information Technology - Portable Operating System
+Interface (POSIX) Base Specifications, Issue 8 - Fecha de publicación:
+14 de junio de 2024 - URL:
+<a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/">https://pubs.opengroup.org/onlinepubs/9699919799/</a> - <strong>CORRECCIÓN:</strong> NO
+incluye <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code> - esto permanece como extensión bash/ksh/zsh
+- Características POSIX clave: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-u</span></code>, <code class="docutils literal notranslate"><span class="pre">$()</span></code>, <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>,
+expansión básica de parámetros</p>
+<p><strong>Debian Policy Manual</strong> - Versión actual: 4.6.2 (a partir de 2024) -
+Sección 10.4: Scripts - URL:
+<a class="reference external" href="https://www.debian.org/doc/debian-policy/ch-files.html#scripts">https://www.debian.org/doc/debian-policy/ch-files.html#scripts</a> -
+Requisitos clave: Shebang, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code>, preferencia por compatibilidad
+POSIX</p>
+</section>
+<section id="herramientas">
+<h3>Herramientas<a class="headerlink" href="#herramientas" title="Link to this heading">¶</a></h3>
+<p><strong>ShellCheck</strong> - URL: <a class="reference external" href="https://www.shellcheck.net/">https://www.shellcheck.net/</a> - Repositorio:
+<a class="reference external" href="https://github.com/koalaman/shellcheck">https://github.com/koalaman/shellcheck</a> - Versión: ≥0.9.0 recomendado -
+Licencia: GPLv3</p>
+<p><strong>shfmt</strong> - URL: <a class="reference external" href="https://github.com/mvdan/sh">https://github.com/mvdan/sh</a> - Propósito: Formateador de
+scripts de shell - Soporta: bash, POSIX sh, mksh - Versión: ≥3.6.0
+recomendado</p>
+</section>
+<section id="guias-de-estilo">
+<h3>Guías de Estilo<a class="headerlink" href="#guias-de-estilo" title="Link to this heading">¶</a></h3>
+<p><strong>Google Shell Style Guide</strong> - URL:
+<a class="reference external" href="https://google.github.io/styleguide/shellguide.html">https://google.github.io/styleguide/shellguide.html</a> - Enfoque:
+Legibilidad, mantenibilidad, seguridad - Recomendaciones clave: Usar
+bash para scripts complejos, POSIX para simples</p>
+<p><strong>Bash Hackers Wiki</strong> - URL: <a class="reference external" href="https://mywiki.wooledge.org/">https://mywiki.wooledge.org/</a> - Contenido:
+Referencia completa de bash - Secciones: Mejores prácticas, errores
+comunes, técnicas avanzadas</p>
+</section>
+<section id="recursos-adicionales">
+<h3>Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Link to this heading">¶</a></h3>
+<p><strong>Safe Shell Scripting</strong> - URL: <a class="reference external" href="https://sipb.mit.edu/doc/safe-shell/">https://sipb.mit.edu/doc/safe-shell/</a> -
+Enfoque: Prácticas de seguridad y protección - Tópicos: Citado, manejo
+de errores, gestión de privilegios</p>
+<p><strong>Bash Reference Manual</strong> - URL:
+<a class="reference external" href="https://www.gnu.org/software/bash/manual/">https://www.gnu.org/software/bash/manual/</a> - Contenido: Documentación
+completa de bash - Versión: bash 5.2+ recomendado</p>
+</section>
+<section id="recursos-de-seguridad">
+<h3>Recursos de Seguridad<a class="headerlink" href="#recursos-de-seguridad" title="Link to this heading">¶</a></h3>
+<p><strong>OWASP Command Injection</strong> - URL:
+<a class="reference external" href="https://owasp.org/www-community/attacks/Command_Injection">https://owasp.org/www-community/attacks/Command_Injection</a> - Enfoque:
+Técnicas de prevención - Relevancia: Validación de input, construcción
+de comandos</p>
+<p><strong>CWE-78: OS Command Injection</strong> - URL:
+<a class="reference external" href="https://cwe.mitre.org/data/definitions/78.html">https://cwe.mitre.org/data/definitions/78.html</a> - Descripción:
+Vulnerabilidades de inyección de comandos - Mitigación: Validación de
+input, evitar eval</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="documentos-relacionados">
+<h2>Documentos Relacionados<a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="estandares_codigo.md#regla-fundamental-output-profesional">Estándares de Código - Regla
+Fundamental</a></p></li>
+<li><p><a class="reference external" href="../../scripts/requisitos/README.md">Scripts de Requisitos -
+README</a></p></li>
+<li><p><a class="reference external" href="../../scripts/README.md">Scripts del Proyecto - Índice</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2.1</p></td>
+<td><p>2025-11-03</p></td>
+<td><p>Adaptación para
+proyecto IACT,
+integración con
+estándares existentes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.0</p></td>
+<td><p>2025-11-03</p></td>
+<td><p>Reescritura completa
+con flowcharts de
+decisión, estándares
+de output</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>2025-10-15</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="correcciones-criticas-incluidas">
+<h2>Correcciones Críticas Incluidas<a class="headerlink" href="#correcciones-criticas-incluidas" title="Link to this heading">¶</a></h2>
+<p><strong>Cambios Mayores en v2.1:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Matriz de Compatibilidad de Shell Corregida (Sección Selección de
+Shell)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code>: Cambiado de SI a NO para POSIX sh y dash</p></li>
+<li><p>Notas críticas agregadas explicando que pipefail NO está en
+estándar POSIX</p></li>
+</ul>
+</li>
+<li><p><strong>Eliminado ``local`` de Ejemplos POSIX</strong></p>
+<ul class="simple">
+<li><p>Todos los ejemplos compatibles con POSIX ahora evitan palabra
+clave <code class="docutils literal notranslate"><span class="pre">local</span></code></p></li>
+<li><p>Agregada convención de prefijo con guión bajo para variables
+temporales</p></li>
+<li><p>Agregado patrón de limpieza con <code class="docutils literal notranslate"><span class="pre">unset</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Prevención de Doble Limpieza</strong></p>
+<ul class="simple">
+<li><p>Agregada bandera <code class="docutils literal notranslate"><span class="pre">CLEANUP_DONE</span></code> para prevenir condiciones de
+carrera</p></li>
+</ul>
+</li>
+<li><p><strong>Referencias Corregidas</strong></p>
+<ul class="simple">
+<li><p>Removida afirmación falsa sobre POSIX.1-2024 agregando pipefail</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<p><strong>Estado del Documento:</strong> Activo (Corregido) <strong>Próxima Revisión:</strong>
+2026-02-01 <strong>Mantenedor:</strong> Equipo de Infraestructura</p>
+<hr class="docutils" />
+<p><em>Esta es la versión CORREGIDA (v2.1) adaptada para el Proyecto IACT.
+Todos los ejemplos han sido probados para cumplimiento POSIX y
+portabilidad.</em></p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Shell Scripting Guide - Proyecto IACT</a><ul>
+<li><a class="reference internal" href="#pagina-padre">Página padre</a></li>
+<li><a class="reference internal" href="#alcance">Alcance</a></li>
+<li><a class="reference internal" href="#audiencia-objetivo">Audiencia Objetivo</a></li>
+<li><a class="reference internal" href="#tabla-de-contenidos">Tabla de Contenidos</a></li>
+<li><a class="reference internal" href="#criterios-de-decision">Criterios de Decisión</a><ul>
+<li><a class="reference internal" href="#flowchart-completo-de-decision">Flowchart Completo de Decisión</a></li>
+<li><a class="reference internal" href="#matriz-de-decision-detallada">Matriz de Decisión Detallada</a></li>
+<li><a class="reference internal" href="#convenciones-de-nomenclatura-de-archivos">Convenciones de Nomenclatura de Archivos</a></li>
+<li><a class="reference internal" href="#cuando-no-usar-scripts-de-shell">Cuándo NO Usar Scripts de Shell</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#seleccion-de-shell">Selección de Shell</a><ul>
+<li><a class="reference internal" href="#flowchart-de-decision">Flowchart de Decisión</a></li>
+<li><a class="reference internal" href="#matriz-de-compatibilidad-de-shell-corregida">Matriz de Compatibilidad de Shell (CORREGIDA)</a></li>
+<li><a class="reference internal" href="#guia-de-seleccion-de-shebang">Guía de Selección de Shebang</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#requerimientos-core">Requerimientos Core</a><ul>
+<li><a class="reference internal" href="#elementos-obligatorios">Elementos Obligatorios</a></li>
+<li><a class="reference internal" href="#script-minimo-viable-posix">Script Mínimo Viable (POSIX)</a></li>
+<li><a class="reference internal" href="#template-de-script-estandar-bash">Template de Script Estándar (Bash)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estandares-de-salida">Estándares de Salida</a><ul>
+<li><a class="reference internal" href="#regla-fundamental">Regla Fundamental</a></li>
+<li><a class="reference internal" href="#sistema-de-prefijos-estandar">Sistema de Prefijos Estándar</a><ul>
+<li><a class="reference internal" href="#prefijos-de-nivel-de-log">Prefijos de Nivel de Log</a></li>
+<li><a class="reference internal" href="#prefijos-de-estado-de-proceso">Prefijos de Estado de Proceso</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tabla-de-referencia-completa">Tabla de Referencia Completa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manejo-de-errores">Manejo de Errores</a><ul>
+<li><a class="reference internal" href="#estrategia-de-manejo-de-errores">Estrategia de Manejo de Errores</a><ul>
+<li><a class="reference internal" href="#a-salida-inmediata-en-error">A. Salida Inmediata en Error</a></li>
+<li><a class="reference internal" href="#b-manejo-de-errores-controlado-bash">B. Manejo de Errores Controlado (Bash)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#codigos-de-salida">Códigos de Salida</a></li>
+<li><a class="reference internal" href="#limpieza-y-senales">Limpieza y Señales</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#guias-de-seguridad">Guías de Seguridad</a><ul>
+<li><a class="reference internal" href="#reglas-de-seguridad-criticas">Reglas de Seguridad Críticas</a></li>
+<li><a class="reference internal" href="#gestion-de-secretos">Gestión de Secretos</a><ul>
+<li><a class="reference internal" href="#incorrecto-secretos-hardcodeados">INCORRECTO - Secretos Hardcodeados</a></li>
+<li><a class="reference internal" href="#correcto-variables-de-entorno">CORRECTO - Variables de Entorno</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#validacion-de-input">Validación de Input</a><ul>
+<li><a class="reference internal" href="#validacion-numerica-posix">Validación Numérica (POSIX)</a></li>
+<li><a class="reference internal" href="#validacion-de-string-posix">Validación de String (POSIX)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#organizacion-de-codigo">Organización de Código</a><ul>
+<li><a class="reference internal" href="#estructura-de-archivo">Estructura de Archivo</a></li>
+<li><a class="reference internal" href="#scripts-modulares">Scripts Modulares</a><ul>
+<li><a class="reference internal" href="#script-de-biblioteca-utils-sh-compatible-posix">Script de Biblioteca (utils.sh) - Compatible POSIX</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#requerimientos-de-testing">Requerimientos de Testing</a><ul>
+<li><a class="reference internal" href="#tipos-de-test">Tipos de Test</a></li>
+<li><a class="reference internal" href="#integracion-shellcheck">Integración ShellCheck</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plantillas">Plantillas</a><ul>
+<li><a class="reference internal" href="#template-minimo-posix">Template Mínimo (POSIX)</a></li>
+<li><a class="reference internal" href="#template-completo-bash">Template Completo (Bash)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#herramientas-de-validacion">Herramientas de Validación</a><ul>
+<li><a class="reference internal" href="#shellcheck">ShellCheck</a></li>
+<li><a class="reference internal" href="#script-de-validacion">Script de Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a><ul>
+<li><a class="reference internal" href="#estandares-corregidos">Estándares (CORREGIDOS)</a></li>
+<li><a class="reference internal" href="#herramientas">Herramientas</a></li>
+<li><a class="reference internal" href="#guias-de-estilo">Guías de Estilo</a></li>
+<li><a class="reference internal" href="#recursos-adicionales">Recursos Adicionales</a></li>
+<li><a class="reference internal" href="#recursos-de-seguridad">Recursos de Seguridad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#changelog">Changelog</a></li>
+<li><a class="reference internal" href="#correcciones-criticas-incluidas">Correcciones Críticas Incluidas</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

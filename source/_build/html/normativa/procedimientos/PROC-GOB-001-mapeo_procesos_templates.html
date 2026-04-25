@@ -1,0 +1,2421 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>MAPEO: Procedimientos &lt;-&gt; Workflows &lt;-&gt; Templates - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="mapeo-procedimientos-workflows-templates">
+<h1>MAPEO: Procedimientos &lt;-&gt; Workflows &lt;-&gt; Templates<a class="headerlink" href="#mapeo-procedimientos-workflows-templates" title="Link to this heading">¶</a></h1>
+<p><strong>VERSION:</strong> 1.0.0 <strong>FECHA:</strong> 2025-11-06 <strong>PROPOSITO:</strong> Documentar la
+relacion entre procedimientos, workflows CI/CD, templates y agentes SDLC</p>
+<hr class="docutils" />
+<section id="proposito">
+<h2>Proposito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento mapea explicitamente como se relacionan: -
+<strong>Procedimientos operativos</strong> (11) - <strong>Workflows CI/CD</strong> (8) -
+<strong>Templates/Plantillas</strong> (34) - <strong>Agentes SDLC</strong> (6) - <strong>Scripts
+locales</strong> (4) - <strong>Checklists</strong> (4) - <strong>Runbooks</strong> (6)</p>
+<p><strong>Uso:</strong> Permite a cualquier miembro del equipo saber exactamente que
+proceso seguir, que template usar, y que workflow se ejecutara
+automaticamente en cada fase del ciclo de vida.</p>
+</section>
+<hr class="docutils" />
+<section id="tabla-de-contenidos">
+<h2>Tabla de Contenidos<a class="headerlink" href="#tabla-de-contenidos" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="#1-vision-general-del-ecosistema">Vision General del Ecosistema</a></p></li>
+<li><p><a class="reference external" href="#2-matriz-de-trazabilidad-completa">Matriz de Trazabilidad
+Completa</a></p></li>
+<li><p><a class="reference external" href="#3-mapeo-por-fase-sdlc">Mapeo por Fase SDLC</a></p></li>
+<li><p><a class="reference external" href="#4-decision-tree-que-template-usar">Decision Tree: Que Template
+Usar</a></p></li>
+<li><p><a class="reference external" href="#5-flujos-end-to-end">Flujos End-to-End</a></p></li>
+<li><p><a class="reference external" href="#6-referencias-cruzadas">Referencias Cruzadas</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="vision-general-del-ecosistema">
+<h2>1. Vision General del Ecosistema<a class="headerlink" href="#vision-general-del-ecosistema" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────────────────┐
+│                         ECOSISTEMA IACT                              │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  PROCEDIMIENTOS (Manual)    AGENTES (AI)       WORKFLOWS (Auto)     │
+│       │                          │                    │             │
+│       │                          │                    │             │
+│       v                          v                    v             │
+│  CHECKLISTS ────────────&gt; TEMPLATES &lt;────────── SCRIPTS             │
+│       │                          │                    │             │
+│       │                          │                    │             │
+│       v                          v                    v             │
+│  RUNBOOKS (Ops)          DOCUMENTACION          ARTEFACTOS          │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+FLUJO TIPICO:
+1. Developer sigue PROCEDIMIENTO
+2. Usa TEMPLATE para crear artefacto
+3. Valida con CHECKLIST
+4. Push → WORKFLOW se ejecuta automaticamente
+5. WORKFLOW ejecuta SCRIPT local
+6. AGENTE genera documentacion adicional (opcional)
+7. Si deploy → usa RUNBOOK
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="matriz-de-trazabilidad-completa">
+<h2>2. Matriz de Trazabilidad Completa<a class="headerlink" href="#matriz-de-trazabilidad-completa" title="Link to this heading">¶</a></h2>
+<section id="matriz-principal-proceso-workflow-template">
+<h3>2.1 Matriz Principal: Proceso → Workflow → Template<a class="headerlink" href="#matriz-principal-proceso-workflow-template" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>I
+D</p></th>
+<th class="head"><p>Proce
+dimiento</p></th>
+<th class="head"><p>Workflow
+CI/CD</p></th>
+<th class="head"><p>Template
+Principal</p></th>
+<th class="head"><p>Script
+Local</p></th>
+<th class="head"><p>Agente
+SDLC</p></th>
+<th class="head"><p>Chec
+klist</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+1
+*
+*</p>
+</td>
+<td><p>proce
+dimiento
+_trazabi
+lidad_re
+quisitos</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>template
+_necesidad,
+template_re
+quisito_*</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Planner</p></td>
+<td><p>che
+cklis
+t_tra
+zabil
+<a href="#id1"><span class="problematic" id="id2">idad_</span></a>
+requi
+sitos</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+2
+*
+*</p>
+</td>
+<td><p>proc
+edimient
+o_diseno
+_tecnico</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pla
+ntilla_sad,
+plan
+tilla_spec,
+pl
+antilla_srs</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Design</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+3
+*
+*</p>
+</td>
+<td><p>p
+rocedimi
+ento_ins
+talacion
+_entorno</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>p
+lantilla_se
+tup_entorno</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+4
+*
+*</p>
+</td>
+<td><p>proced
+<a href="#id3"><span class="problematic" id="id4">imiento_</span></a>
+desarrol
+lo_local</p></td>
+<td><p>ba
+ckend-ci,
+fr
+ontend-ci</p></td>
+<td><p><a href="#id5"><span class="problematic" id="id6">plantilla_</span></a>
+django_app,
+planti
+lla_etl_job</p></td>
+<td><p>ba
+ckend_t
+est.sh,
+fr
+<a href="#id7"><span class="problematic" id="id8">ontend_</span></a>
+test.sh</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>check
+<a href="#id9"><span class="problematic" id="id10">list_</span></a>
+desar
+rollo</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+5
+*
+*</p>
+</td>
+<td><p>g
+uia_comp
+leta_des
+<a href="#id11"><span class="problematic" id="id12">arrollo_</span></a>
+features</p></td>
+<td><p>ba
+ckend-ci,
+tes
+t-pyramid</p></td>
+<td><p>pl
+antilla_tdd</p></td>
+<td><p>ba
+ckend_t
+est.sh,
+test_py
+ramid_c
+heck.sh</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>check
+<a href="#id13"><span class="problematic" id="id14">list_</span></a>
+desar
+rollo</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+6
+*
+*</p>
+</td>
+<td><p>procedim
+iento_qa</p></td>
+<td><p>tes
+t-pyramid</p></td>
+<td><p>p
+lantilla_pl
+an_pruebas,
+<a href="#id15"><span class="problematic" id="id16">plantilla_</span></a>
+caso_prueba</p></td>
+<td><p>test_py
+ramid_c
+heck.sh</p></td>
+<td><p>Testing</p></td>
+<td><p>ch
+eckli
+st_te
+sting</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+7
+*
+*</p>
+</td>
+<td><p>proce
+dimiento
+_release</p></td>
+<td><p>deploy,
+m
+igrations</p></td>
+<td><p>p
+lantilla_re
+lease_plan,
+plan
+tilla_deplo
+yment_guide</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Dep
+loyment</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+8
+*
+*</p>
+</td>
+<td><p>proce
+dimiento
+_gestion
+_cambios</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>plantilla_r
+elease_plan</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>check
+<a href="#id17"><span class="problematic" id="id18">list_</span></a>
+cambi
+os_do
+cumen
+tales</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+0
+9
+*
+*</p>
+</td>
+<td><p>procedim
+iento_an
+alisis_s
+eguridad</p></td>
+<td><p>secu
+rity-scan</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>se
+<a href="#id19"><span class="problematic" id="id20">curity_</span></a>
+scan.sh</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>S
+D
+L
+C
+-
+1
+0
+*
+*</p>
+</td>
+<td><p>p
+rocedimi
+ento_rev
+ision_do
+cumental</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pl
+antilla_api
+_reference,
+pl
+antilla_man
+ual_usuario</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>check
+<a href="#id21"><span class="problematic" id="id22">list_</span></a>
+cambi
+os_do
+cumen
+tales</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>O
+P
+S
+-
+0
+1
+*
+*</p>
+</td>
+<td><p>runb
+ooks/ver
+ificar_s
+ervicios</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>O
+P
+S
+-
+0
+2
+*
+*</p>
+</td>
+<td><p>runbook
+s/reproc
+esar_etl
+_fallido</p></td>
+<td><p>incident
+-response</p></td>
+<td><p>pla
+ntilla_trou
+bleshooting</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="matriz-de-templates-por-categoria">
+<h3>2.2 Matriz de Templates por Categoria<a class="headerlink" href="#matriz-de-templates-por-categoria" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Categoria</p></th>
+<th class="head"><p>Templates (34
+total)</p></th>
+<th class="head"><p>Usado en Fase</p></th>
+<th class="head"><p>Workflow Asociado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>R
+equisitos
+(5)</strong></p></td>
+<td><p>template_necesidad,
+template
+_requisito_negocio,
+template_r
+equisito_funcional,
+template_requ
+isito_no_funcional,
+template_re
+quisito_stakeholder</p></td>
+<td><p>Planning</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>D
+esarrollo
+(10)</strong></p></td>
+<td><p>pl
+antilla_django_app,
+plantilla_etl_job,
+plant
+illa_regla_negocio,
+plantilla_spec,
+plantilla_srs,
+plantilla_tdd,
+plantil
+la_troubleshooting,
+plantilla_plan,
+plantilla_sad,
+plantilla_ui_ux</p></td>
+<td><p>Development</p></td>
+<td><p>backend-ci,
+frontend-ci</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Testing
+(2)</strong></p></td>
+<td><p>plan
+tilla_plan_pruebas,
+pl
+antilla_caso_prueba</p></td>
+<td><p>Testing</p></td>
+<td><p>test-pyramid</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Diseno
+(2)</strong></p></td>
+<td><p>plantil
+la_database_design,
+pl
+antilla_caso_de_uso</p></td>
+<td><p>Design</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Docu
+mentacion
+(4)</strong></p></td>
+<td><p>plant
+illa_api_reference,
+<a href="#id23"><span class="problematic" id="id24">plantilla_</span></a>
+espacio_documental,
+planti
+lla_manual_usuario,
+plantilla_s
+eccion_limitaciones</p></td>
+<td><p>Operations</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Infra
+structure
+(4)</strong></p></td>
+<td><p>plantilla_runbook,
+plantill
+a_deployment_guide,
+plant
+illa_setup_entorno,
+plantilla_setup_qa</p></td>
+<td><p>Deployment</p></td>
+<td><p>deploy,
+migrations</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Gestion
+(6)</strong></p></td>
+<td><p>plan
+tilla_release_plan,
+plant
+illa_business_case,
+plantil
+la_project_charter,
+plantilla_proje
+ct_management_plan,
+plantilla_st
+akeholder_analysis,
+plantilla
+_registro_actividad</p></td>
+<td><p>Pla
+nning/Release</p></td>
+<td><p>deploy</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="matriz-de-workflows-ci-cd">
+<h3>2.3 Matriz de Workflows CI/CD<a class="headerlink" href="#matriz-de-workflows-ci-cd" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Workflow</p></th>
+<th class="head"><p>Script Local</p></th>
+<th class="head"><p>Templates Relacionados</p></th>
+<th class="head"><p>Validaciones</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>**
+backend-
+ci.yml**</p></td>
+<td><p>ba
+ckend_test.sh</p></td>
+<td><p>plantilla_django_app</p></td>
+<td><p>RNF-002,
+tests,
+coverage
+≥80%, lint</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>f
+rontend-
+ci.yml</strong></p></td>
+<td><p>fro
+ntend_test.sh</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>tests, lint,
+build</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>te
+st-pyram
+id.yml</strong></p></td>
+<td><p>test_pyr
+amid_check.sh</p></td>
+<td><p>plantilla_plan_pruebas</p></td>
+<td><p>60% Unit /
+30%
+Integration /
+10% E2E</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>depl
+oy.yml</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>pl
+antilla_deployment_guide</p></td>
+<td><p>blue-green,
+health
+checks,
+rollback</p></td>
+</tr>
+<tr class="row-even"><td><p>**
+migratio
+ns.yml**</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>p
+lantilla_database_design</p></td>
+<td><p>dry-run,
+conflicts,
+backwards
+compatibility</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>infrast
+ructure-
+ci.yml*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>plantilla_setup_entorno</p></td>
+<td><p>terraform
+validate,
+ansible lint</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>sec
+urity-sc
+an.yml</strong></p></td>
+<td><p>sec
+urity_scan.sh</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Bandit,
+secrets, SQL
+injection,
+RNF-002</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>inciden
+t-respon
+se.yml*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>p
+lantilla_troubleshooting</p></td>
+<td><p>a
+uto-rollback,
+alertas,
+post-mortem</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mapeo-por-fase-sdlc">
+<h2>3. Mapeo por Fase SDLC<a class="headerlink" href="#mapeo-por-fase-sdlc" title="Link to this heading">¶</a></h2>
+<section id="fase-1-planning-requirements">
+<h3>FASE 1: Planning &amp; Requirements<a class="headerlink" href="#fase-1-planning-requirements" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> Business Analyst, Product Owner</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Identificar Business Need
+   ├─&gt; Usar: template_necesidad.md
+   └─&gt; Checklist: checklist_trazabilidad_requisitos.md
+
+2. Analisis de Stakeholders
+   ├─&gt; Usar: plantilla_stakeholder_analysis.md
+   └─&gt; Procedimiento: (ninguno especifico)
+
+3. Derivar Requisitos de Negocio
+   ├─&gt; Usar: template_requisito_negocio.md
+   └─&gt; Procedimiento: procedimiento_trazabilidad_requisitos.md
+
+4. Derivar Requisitos Funcionales/No Funcionales
+   ├─&gt; Usar: template_requisito_funcional.md, template_requisito_no_funcional.md
+   └─&gt; Checklist: checklist_trazabilidad_requisitos.md
+
+5. Justificar con Business Case (opcional)
+   └─&gt; Usar: plantilla_business_case.md
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> Ninguno (fase pre-desarrollo)</p>
+<p><strong>Agentes SDLC:</strong> - SDLCPlannerAgent: Genera planning artifacts</p>
+<p><strong>Artefactos generados:</strong> - <code class="docutils literal notranslate"><span class="pre">BN-001-nombre-business-need.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">RN-001-nombre-requisito-negocio.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">RF-001-nombre-requisito-funcional.md</span></code> -
+<code class="docutils literal notranslate"><span class="pre">RNF-001-nombre-requisito-no-funcional.md</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="fase-2-feasibility-design">
+<h3>FASE 2: Feasibility &amp; Design<a class="headerlink" href="#fase-2-feasibility-design" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> Architect, Tech Lead, BA</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Analisis de Factibilidad
+   ├─&gt; Agente: SDLCFeasibilityAgent
+   └─&gt; Output: feasibility_report.md (generado por agente)
+
+2. Diseno de Alto Nivel (HLD)
+   ├─&gt; Procedimiento: procedimiento_diseno_tecnico.md
+   ├─&gt; Usar: plantilla_sad.md (Software Architecture Document)
+   └─&gt; Agente: SDLCDesignAgent (genera HLD automaticamente)
+
+3. Casos de Uso
+   ├─&gt; Usar: plantilla_caso_de_uso.md
+   └─&gt; Procedimiento: procedimiento_diseno_tecnico.md
+
+4. Diseno de Base de Datos
+   ├─&gt; Usar: plantilla_database_design.md
+   └─&gt; Workflow posterior: migrations.yml (validara migraciones)
+
+5. Diseno de Bajo Nivel (LLD)
+   ├─&gt; Usar: plantilla_spec.md, plantilla_srs.md
+   └─&gt; Agente: SDLCDesignAgent (genera LLD automaticamente)
+
+6. Reglas de Negocio
+   └─&gt; Usar: plantilla_regla_negocio.md
+
+7. Diseno UI/UX (si aplica)
+   └─&gt; Usar: plantilla_ui_ux.md
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> Ninguno (fase de diseno)</p>
+<p><strong>Agentes SDLC:</strong> - SDLCFeasibilityAgent: Go/No-Go decision, risk
+assessment - SDLCDesignAgent: HLD, LLD, ADRs, Mermaid diagrams</p>
+<p><strong>Artefactos generados:</strong> - <code class="docutils literal notranslate"><span class="pre">feasibility_report.md</span></code> (agente) -
+<code class="docutils literal notranslate"><span class="pre">HLD-nombre-feature.md</span></code> (agente + template SAD) -
+<code class="docutils literal notranslate"><span class="pre">LLD-nombre-feature.md</span></code> (agente + template SRS) -
+<code class="docutils literal notranslate"><span class="pre">ADR-001-decision.md</span></code> (agente) - <code class="docutils literal notranslate"><span class="pre">UC-001-caso-de-uso.md</span></code> (template)
+- <code class="docutils literal notranslate"><span class="pre">DB-design-nombre.md</span></code> (template)</p>
+</section>
+<hr class="docutils" />
+<section id="fase-3-development-implementation">
+<h3>FASE 3: Development &amp; Implementation<a class="headerlink" href="#fase-3-development-implementation" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> Developer</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Setup Inicial (primera vez)
+   ├─&gt; Procedimiento: procedimiento_instalacion_entorno.md
+   └─&gt; Template: plantilla_setup_entorno.md
+
+2. Desarrollo Local (diario)
+   ├─&gt; Procedimiento: procedimiento_desarrollo_local.md
+   ├─&gt; Guia: guia_completa_desarrollo_features.md
+   └─&gt; Checklist: checklist_desarrollo.md
+
+3. Crear Django App
+   ├─&gt; Template: plantilla_django_app.md
+   └─&gt; Workflow: backend-ci.yml (se ejecuta al push)
+
+4. Crear ETL Job
+   ├─&gt; Template: plantilla_etl_job.md
+   └─&gt; Workflow: backend-ci.yml
+
+5. Test Driven Development
+   ├─&gt; Template: plantilla_tdd.md
+   ├─&gt; Workflow: backend-ci.yml, test-pyramid.yml
+   └─&gt; Script: backend_test.sh
+
+6. Pre-Commit
+   ├─&gt; Checklist: checklist_desarrollo.md
+   └─&gt; Validaciones: black, isort, flake8, tests
+
+7. Push a GitHub
+   ├─&gt; Workflow: backend-ci.yml (automatico)
+   │   └─&gt; Ejecuta: backend_test.sh
+   │       └─&gt; Valida: RNF-002, tests, coverage ≥80%, lint
+   └─&gt; Workflow: frontend-ci.yml (si frontend)
+       └─&gt; Ejecuta: frontend_test.sh
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> - backend-ci.yml - frontend-ci.yml</p>
+<p><strong>Scripts locales:</strong> - backend_test.sh - frontend_test.sh</p>
+<p><strong>Agentes SDLC:</strong> Ninguno (desarrollo manual)</p>
+<p><strong>Artefactos generados:</strong> - Apps Django en <code class="docutils literal notranslate"><span class="pre">api/callcentersite/apps/</span></code>
+- ETL jobs en <code class="docutils literal notranslate"><span class="pre">scripts/etl/</span></code> - Tests en <code class="docutils literal notranslate"><span class="pre">tests/</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="fase-4-testing-qa">
+<h3>FASE 4: Testing &amp; QA<a class="headerlink" href="#fase-4-testing-qa" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> QA Engineer, Developer</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Crear Plan de Pruebas
+   ├─&gt; Template: plantilla_plan_pruebas.md
+   ├─&gt; Procedimiento: procedimiento_qa.md
+   └─&gt; Agente: SDLCTestingAgent (genera test plan)
+
+2. Crear Casos de Prueba
+   ├─&gt; Template: plantilla_caso_prueba.md
+   └─&gt; Agente: SDLCTestingAgent (genera test cases)
+
+3. Setup QA Environment
+   └─&gt; Template: plantilla_setup_qa.md
+
+4. Ejecutar Tests
+   ├─&gt; Procedimiento: procedimiento_qa.md
+   └─&gt; Checklist: checklist_testing.md
+
+5. Validar Test Pyramid
+   ├─&gt; Workflow: test-pyramid.yml (automatico)
+   ├─&gt; Script: test_pyramid_check.sh
+   └─&gt; Validacion: 60% Unit / 30% Integration / 10% E2E
+
+6. Validar Coverage
+   ├─&gt; Target: ≥80%
+   └─&gt; Workflow: backend-ci.yml (incluye coverage check)
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> - test-pyramid.yml - backend-ci.yml (incluye
+coverage)</p>
+<p><strong>Scripts locales:</strong> - test_pyramid_check.sh</p>
+<p><strong>Agentes SDLC:</strong> - SDLCTestingAgent: Genera test plan, test cases, test
+pyramid strategy</p>
+<p><strong>Artefactos generados:</strong> - <code class="docutils literal notranslate"><span class="pre">test_plan_nombre_feature.md</span></code> (agente +
+template) - <code class="docutils literal notranslate"><span class="pre">TC-001-caso-prueba.md</span></code> (template) - Coverage reports
+(HTML)</p>
+</section>
+<hr class="docutils" />
+<section id="fase-5-deployment-release">
+<h3>FASE 5: Deployment &amp; Release<a class="headerlink" href="#fase-5-deployment-release" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> DevOps, Tech Lead</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Crear Release Plan
+   ├─&gt; Template: plantilla_release_plan.md
+   ├─&gt; Procedimiento: procedimiento_release.md
+   └─&gt; Agente: SDLCDeploymentAgent (genera deployment plan)
+
+2. Crear Deployment Guide
+   ├─&gt; Template: plantilla_deployment_guide.md
+   └─&gt; Agente: SDLCDeploymentAgent
+
+3. Crear Runbooks (si necesario)
+   └─&gt; Template: plantilla_runbook.md
+
+4. Gestion de Cambios
+   ├─&gt; Procedimiento: procedimiento_gestion_cambios.md
+   └─&gt; Template: plantilla_release_plan.md
+
+5. Pre-Deployment
+   ├─&gt; Runbook: verificar_servicios.md
+   └─&gt; Checklist: (incluido en plantilla_deployment_guide)
+
+6. Deploy a Staging
+   ├─&gt; Workflow: deploy.yml (automatico)
+   └─&gt; Strategy: blue-green deployment
+
+7. Validar Migraciones
+   ├─&gt; Workflow: migrations.yml
+   └─&gt; Validaciones: dry-run, conflicts, backwards compatibility
+
+8. Deploy a Production
+   ├─&gt; Workflow: deploy.yml
+   ├─&gt; Health checks
+   └─&gt; Auto rollback si falla
+
+9. Post-Deployment
+   ├─&gt; Runbook: verificar_servicios.md
+   └─&gt; Monitoring
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> - deploy.yml - migrations.yml</p>
+<p><strong>Scripts locales:</strong> Ninguno</p>
+<p><strong>Agentes SDLC:</strong> - SDLCDeploymentAgent: Genera deployment plan,
+rollback plan, checklists</p>
+<p><strong>Runbooks:</strong> - verificar_servicios.md - merge_y_limpieza_ramas.md</p>
+<p><strong>Artefactos generados:</strong> - <code class="docutils literal notranslate"><span class="pre">release_plan_v1.5.0.md</span></code> (template) -
+<code class="docutils literal notranslate"><span class="pre">deployment_guide_staging.md</span></code> (agente + template) -
+<code class="docutils literal notranslate"><span class="pre">rollback_plan.md</span></code> (agente)</p>
+</section>
+<hr class="docutils" />
+<section id="fase-6-operations-maintenance">
+<h3>FASE 6: Operations &amp; Maintenance<a class="headerlink" href="#fase-6-operations-maintenance" title="Link to this heading">¶</a></h3>
+<p><strong>Responsable:</strong> DevOps, Support</p>
+<p><strong>Flujo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Monitoreo Continuo
+   └─&gt; Workflow: incident-response.yml (si hay incidente)
+
+2. Security Scanning
+   ├─&gt; Workflow: security-scan.yml (automatico, periodico)
+   └─&gt; Script: security_scan.sh
+       └─&gt; Validaciones: Bandit, secrets, SQL injection, RNF-002
+
+3. Troubleshooting
+   ├─&gt; Template: plantilla_troubleshooting.md
+   └─&gt; Runbooks:
+       ├─&gt; reprocesar_etl_fallido.md
+       └─&gt; claude_code.md
+
+4. Documentacion de API
+   ├─&gt; Template: plantilla_api_reference.md
+   └─&gt; Procedimiento: procedimiento_revision_documental.md
+
+5. Manual de Usuario
+   └─&gt; Template: plantilla_manual_usuario.md
+
+6. Revision Documental
+   ├─&gt; Procedimiento: procedimiento_revision_documental.md
+   └─&gt; Checklist: checklist_cambios_documentales.md
+
+7. Incident Response
+   └─&gt; Workflow: incident-response.yml (automatico)
+       └─&gt; Auto-rollback, alertas, post-mortem
+</pre></div>
+</div>
+<p><strong>Workflows CI/CD:</strong> - security-scan.yml - incident-response.yml</p>
+<p><strong>Scripts locales:</strong> - security_scan.sh</p>
+<p><strong>Agentes SDLC:</strong> - SDLCOrchestratorAgent: Coordina respuesta a
+incidentes</p>
+<p><strong>Runbooks:</strong> - reprocesar_etl_fallido.md - claude_code.md -
+github_copilot_codespaces.md</p>
+<p><strong>Artefactos generados:</strong> - <code class="docutils literal notranslate"><span class="pre">api_reference.md</span></code> (template) -
+<code class="docutils literal notranslate"><span class="pre">troubleshooting_guide.md</span></code> (template) - Security scan reports</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="decision-tree-que-template-usar">
+<h2>4. Decision Tree: Que Template Usar<a class="headerlink" href="#decision-tree-que-template-usar" title="Link to this heading">¶</a></h2>
+<section id="decision-tree-principal">
+<h3>4.1 Decision Tree Principal<a class="headerlink" href="#decision-tree-principal" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PREGUNTA: Que quiero hacer?
+│
+├─&gt; &quot;Definir una necesidad de negocio&quot;
+│   └─&gt; Usar: template_necesidad.md
+│
+├─&gt; &quot;Derivar requisitos&quot;
+│   ├─&gt; Requisito de Negocio → template_requisito_negocio.md
+│   ├─&gt; Requisito Funcional → template_requisito_funcional.md
+│   ├─&gt; Requisito No Funcional → template_requisito_no_funcional.md
+│   └─&gt; Requisito Stakeholder → template_requisito_stakeholder.md
+│
+├─&gt; &quot;Disenar arquitectura&quot;
+│   ├─&gt; Alto nivel → plantilla_sad.md
+│   ├─&gt; Bajo nivel → plantilla_srs.md, plantilla_spec.md
+│   ├─&gt; Base de datos → plantilla_database_design.md
+│   └─&gt; Casos de uso → plantilla_caso_de_uso.md
+│
+├─&gt; &quot;Implementar codigo&quot;
+│   ├─&gt; Django App → plantilla_django_app.md
+│   ├─&gt; ETL Job → plantilla_etl_job.md
+│   ├─&gt; TDD → plantilla_tdd.md
+│   └─&gt; Reglas de negocio → plantilla_regla_negocio.md
+│
+├─&gt; &quot;Crear tests&quot;
+│   ├─&gt; Plan de pruebas → plantilla_plan_pruebas.md
+│   └─&gt; Casos de prueba → plantilla_caso_prueba.md
+│
+├─&gt; &quot;Hacer deployment&quot;
+│   ├─&gt; Release plan → plantilla_release_plan.md
+│   ├─&gt; Deployment guide → plantilla_deployment_guide.md
+│   └─&gt; Runbook → plantilla_runbook.md
+│
+├─&gt; &quot;Documentar&quot;
+│   ├─&gt; API → plantilla_api_reference.md
+│   ├─&gt; Manual usuario → plantilla_manual_usuario.md
+│   └─&gt; Troubleshooting → plantilla_troubleshooting.md
+│
+└─&gt; &quot;Gestionar proyecto&quot;
+    ├─&gt; Business case → plantilla_business_case.md
+    ├─&gt; Project charter → plantilla_project_charter.md
+    ├─&gt; Stakeholders → plantilla_stakeholder_analysis.md
+    └─&gt; Project plan → plantilla_project_management_plan.md
+</pre></div>
+</div>
+</section>
+<section id="decision-tree-que-procedimiento-seguir">
+<h3>4.2 Decision Tree: Que Procedimiento Seguir<a class="headerlink" href="#decision-tree-que-procedimiento-seguir" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PREGUNTA: Que fase estoy ejecutando?
+│
+├─&gt; &quot;Setup inicial del proyecto&quot;
+│   └─&gt; Seguir: procedimiento_instalacion_entorno.md
+│
+├─&gt; &quot;Desarrollo diario&quot;
+│   ├─&gt; Seguir: procedimiento_desarrollo_local.md
+│   └─&gt; Guia completa: guia_completa_desarrollo_features.md
+│
+├─&gt; &quot;Disenar solucion tecnica&quot;
+│   └─&gt; Seguir: procedimiento_diseno_tecnico.md
+│
+├─&gt; &quot;Validar trazabilidad de requisitos&quot;
+│   └─&gt; Seguir: procedimiento_trazabilidad_requisitos.md
+│
+├─&gt; &quot;Ejecutar QA&quot;
+│   └─&gt; Seguir: procedimiento_qa.md
+│
+├─&gt; &quot;Hacer release&quot;
+│   └─&gt; Seguir: procedimiento_release.md
+│
+├─&gt; &quot;Gestionar cambios&quot;
+│   └─&gt; Seguir: procedimiento_gestion_cambios.md
+│
+├─&gt; &quot;Analizar seguridad&quot;
+│   └─&gt; Seguir: procedimiento_analisis_seguridad.md
+│
+└─&gt; &quot;Revisar documentacion&quot;
+    └─&gt; Seguir: procedimiento_revision_documental.md
+</pre></div>
+</div>
+</section>
+<section id="decision-tree-que-workflow-se-ejecuta">
+<h3>4.3 Decision Tree: Que Workflow se Ejecuta<a class="headerlink" href="#decision-tree-que-workflow-se-ejecuta" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>EVENTO: Que accion realice?
+│
+├─&gt; &quot;Push a branch con codigo backend&quot;
+│   └─&gt; Se ejecuta: backend-ci.yml
+│       └─&gt; Ejecuta: backend_test.sh
+│           └─&gt; Valida: RNF-002, tests, coverage, lint
+│
+├─&gt; &quot;Push a branch con codigo frontend&quot;
+│   └─&gt; Se ejecuta: frontend-ci.yml
+│       └─&gt; Ejecuta: frontend_test.sh
+│           └─&gt; Valida: tests, lint, build
+│
+├─&gt; &quot;PR abierto/actualizado&quot;
+│   └─&gt; Se ejecutan: backend-ci.yml, frontend-ci.yml, test-pyramid.yml
+│       └─&gt; Valida: todo + test pyramid
+│
+├─&gt; &quot;Tag vX.Y.Z creado&quot;
+│   └─&gt; Se ejecuta: deploy.yml
+│       └─&gt; Deploy a staging automatico
+│
+├─&gt; &quot;Merge a main&quot;
+│   └─&gt; Se ejecutan: migrations.yml, security-scan.yml
+│       └─&gt; Valida: migraciones, seguridad
+│
+├─&gt; &quot;Scheduled (diario)&quot;
+│   └─&gt; Se ejecuta: security-scan.yml
+│       └─&gt; Ejecuta: security_scan.sh
+│
+└─&gt; &quot;Error rate &gt; threshold&quot;
+    └─&gt; Se ejecuta: incident-response.yml
+        └─&gt; Auto-rollback, alertas
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="flujos-end-to-end">
+<h2>5. Flujos End-to-End<a class="headerlink" href="#flujos-end-to-end" title="Link to this heading">¶</a></h2>
+<section id="flujo-completo-nueva-feature-dark-mode">
+<h3>5.1 Flujo Completo: Nueva Feature (Dark Mode)<a class="headerlink" href="#flujo-completo-nueva-feature-dark-mode" title="Link to this heading">¶</a></h3>
+<p><strong>Fase 1: Planning (BA)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Identificar necesidad
+   └─&gt; Crear: BN-001-dark-mode.md (template_necesidad.md)
+
+2. Derivar requisito de negocio
+   └─&gt; Crear: RN-001-dark-mode.md (template_requisito_negocio.md)
+
+3. Derivar requisitos funcionales
+   └─&gt; Crear: RF-001-dark-mode-toggle.md (template_requisito_funcional.md)
+   └─&gt; Crear: RF-002-dark-mode-persistence.md
+
+4. Validar trazabilidad
+   └─&gt; Seguir: procedimiento_trazabilidad_requisitos.md
+   └─&gt; Checklist: checklist_trazabilidad_requisitos.md
+</pre></div>
+</div>
+<p><strong>Fase 2: Feasibility (Architect)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>5. Analisis de factibilidad
+   └─&gt; Ejecutar: SDLCFeasibilityAgent
+   └─&gt; Output: feasibility_report_dark_mode.md
+   └─&gt; Decision: GO
+
+6. Casos de uso
+   └─&gt; Crear: UC-001-activar-dark-mode.md (plantilla_caso_de_uso.md)
+</pre></div>
+</div>
+<p><strong>Fase 3: Design (Tech Lead)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>7. Diseno de alto nivel
+   └─&gt; Seguir: procedimiento_diseno_tecnico.md
+   └─&gt; Ejecutar: SDLCDesignAgent
+   └─&gt; Crear: HLD-dark-mode.md (plantilla_sad.md)
+
+8. Diseno de bajo nivel
+   └─&gt; Ejecutar: SDLCDesignAgent
+   └─&gt; Crear: LLD-dark-mode.md (plantilla_srs.md)
+   └─&gt; Output: Mermaid diagrams (agente)
+
+9. Diseno de base de datos (si necesario)
+   └─&gt; Crear: DB-user-preferences.md (plantilla_database_design.md)
+</pre></div>
+</div>
+<p><strong>Fase 4: Development (Developer)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>10. Setup (si primera vez)
+    └─&gt; Seguir: procedimiento_instalacion_entorno.md
+
+11. Crear Django app
+    └─&gt; Usar: plantilla_django_app.md
+    └─&gt; Crear: api/callcentersite/apps/preferences/
+
+12. Desarrollo TDD
+    └─&gt; Seguir: guia_completa_desarrollo_features.md
+    └─&gt; Usar: plantilla_tdd.md
+    └─&gt; Checklist: checklist_desarrollo.md
+
+13. Pre-commit
+    └─&gt; Checklist: checklist_desarrollo.md
+    └─&gt; Ejecutar: black, isort, flake8, tests
+
+14. Push a GitHub
+    └─&gt; Workflow: backend-ci.yml (automatico)
+        └─&gt; Ejecuta: backend_test.sh
+        └─&gt; Valida: PASS
+</pre></div>
+</div>
+<p><strong>Fase 5: Testing (QA)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>15. Plan de pruebas
+    └─&gt; Ejecutar: SDLCTestingAgent
+    └─&gt; Crear: test_plan_dark_mode.md (plantilla_plan_pruebas.md)
+
+16. Casos de prueba
+    └─&gt; Ejecutar: SDLCTestingAgent
+    └─&gt; Crear: TC-001-toggle-dark-mode.md (plantilla_caso_prueba.md)
+
+17. Ejecutar tests
+    └─&gt; Seguir: procedimiento_qa.md
+    └─&gt; Checklist: checklist_testing.md
+
+18. Validar test pyramid
+    └─&gt; Workflow: test-pyramid.yml (automatico)
+    └─&gt; Validacion: PASS (60/30/10)
+</pre></div>
+</div>
+<p><strong>Fase 6: Deployment (DevOps)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>19. Release plan
+    └─&gt; Ejecutar: SDLCDeploymentAgent
+    └─&gt; Crear: release_plan_v1.5.0.md (plantilla_release_plan.md)
+
+20. Deployment guide
+    └─&gt; Ejecutar: SDLCDeploymentAgent
+    └─&gt; Crear: deployment_guide_staging.md (plantilla_deployment_guide.md)
+
+21. Pre-deployment
+    └─&gt; Seguir: procedimiento_release.md
+    └─&gt; Runbook: verificar_servicios.md
+
+22. Deploy staging
+    └─&gt; Workflow: deploy.yml (automatico al crear tag v1.5.0-rc1)
+    └─&gt; Strategy: blue-green
+    └─&gt; Health checks: PASS
+
+23. Validar migraciones
+    └─&gt; Workflow: migrations.yml
+    └─&gt; Validacion: PASS
+
+24. Deploy production
+    └─&gt; Workflow: deploy.yml (automatico al crear tag v1.5.0)
+    └─&gt; Health checks: PASS
+
+25. Post-deployment
+    └─&gt; Runbook: verificar_servicios.md
+    └─&gt; Runbook: merge_y_limpieza_ramas.md
+</pre></div>
+</div>
+<p><strong>Fase 7: Operations (DevOps/Support)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>26. Documentacion API (si aplica)
+    └─&gt; Crear: api_reference_preferences.md (plantilla_api_reference.md)
+
+27. Security scan
+    └─&gt; Workflow: security-scan.yml (automatico diario)
+    └─&gt; Validacion: PASS
+
+28. Monitoreo continuo
+    └─&gt; Si incident → Workflow: incident-response.yml
+</pre></div>
+</div>
+<p><strong>Total time:</strong> ~3-5 dias (dependiendo de complejidad)</p>
+</section>
+<hr class="docutils" />
+<section id="flujo-completo-bugfix-critico-production-down">
+<h3>5.2 Flujo Completo: Bugfix Critico (Production Down)<a class="headerlink" href="#flujo-completo-bugfix-critico-production-down" title="Link to this heading">¶</a></h3>
+<p><strong>Fase 1: Detection (Automatico)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Error rate &gt; threshold
+   └─&gt; Workflow: incident-response.yml (automatico)
+   └─&gt; Alertas enviadas
+
+2. Diagnostico inicial
+   └─&gt; Runbook: verificar_servicios.md
+   └─&gt; Identificado: MySQL crashed
+</pre></div>
+</div>
+<p><strong>Fase 2: Resolution (DevOps)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3. Solucion inmediata
+   └─&gt; Runbook: verificar_servicios.md
+   └─&gt; Accion: Restart MySQL
+   └─&gt; Health checks: PASS
+
+4. Validar servicios
+   └─&gt; Runbook: verificar_servicios.md
+   └─&gt; Status: Operacional
+</pre></div>
+</div>
+<p><strong>Fase 3: Post-Incident (Tech Lead)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>5. Post-mortem
+   └─&gt; Crear: troubleshooting_mysql_crash.md (plantilla_troubleshooting.md)
+   └─&gt; Root cause: Disk full
+
+6. Acciones preventivas
+   └─&gt; Crear: RNF-005-disk-monitoring.md (template_requisito_no_funcional.md)
+</pre></div>
+</div>
+<p><strong>Total MTTR:</strong> ~15 minutos</p>
+</section>
+<hr class="docutils" />
+<section id="flujo-completo-etl-job-fallido-reprocesar">
+<h3>5.3 Flujo Completo: ETL Job Fallido (Reprocesar)<a class="headerlink" href="#flujo-completo-etl-job-fallido-reprocesar" title="Link to this heading">¶</a></h3>
+<p><strong>Fase 1: Detection (Manual o Automatico)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. ETL job fallo
+   └─&gt; Log: ERROR in process_customer_data()
+</pre></div>
+</div>
+<p><strong>Fase 2: Resolution (Developer/DevOps)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2. Troubleshooting
+   └─&gt; Runbook: reprocesar_etl_fallido.md
+   └─&gt; Diagnostico: Datos corruptos en fuente
+
+3. Corregir datos fuente
+   └─&gt; Procedimiento: (especifico del ETL)
+
+4. Reprocesar ETL
+   └─&gt; Runbook: reprocesar_etl_fallido.md
+   └─&gt; Script: ./scripts/etl/reprocess.py --job-id 12345
+   └─&gt; Status: SUCCESS
+</pre></div>
+</div>
+<p><strong>Fase 3: Documentation (Developer)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>5. Documentar solucion
+   └─&gt; Actualizar: troubleshooting_etl.md (plantilla_troubleshooting.md)
+</pre></div>
+</div>
+<p><strong>Total time:</strong> ~30 minutos</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias-cruzadas">
+<h2>6. Referencias Cruzadas<a class="headerlink" href="#referencias-cruzadas" title="Link to this heading">¶</a></h2>
+<section id="de-procedimiento-a-templates">
+<h3>6.1 De Procedimiento a Templates<a class="headerlink" href="#de-procedimiento-a-templates" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Procedimiento</p></th>
+<th class="head"><p>Templates Relacionados</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>procedimi
+ento_instalacion_entorno</p></td>
+<td><p>plantilla_setup_entorno</p></td>
+</tr>
+<tr class="row-odd"><td><p>proced
+imiento_desarrollo_local</p></td>
+<td><p>plantilla_django_app, plantilla_etl_job,
+plantilla_tdd</p></td>
+</tr>
+<tr class="row-even"><td><p>proc
+edimiento_diseno_tecnico</p></td>
+<td><p>plantilla_sad, plantilla_spec,
+plantilla_srs, plantilla_caso_de_uso,
+plantilla_database_design</p></td>
+</tr>
+<tr class="row-odd"><td><p>procedimiento
+_trazabilidad_requisitos</p></td>
+<td><p>template_necesidad,
+template_requisito_*</p></td>
+</tr>
+<tr class="row-even"><td><p>procedimiento_qa</p></td>
+<td><p>plantilla_plan_pruebas,
+plantilla_caso_prueba, plantilla_setup_qa</p></td>
+</tr>
+<tr class="row-odd"><td><p>procedimiento_release</p></td>
+<td><p>plantilla_release_plan,
+plantilla_deployment_guide</p></td>
+</tr>
+<tr class="row-even"><td><p>proce
+dimiento_gestion_cambios</p></td>
+<td><p>plantilla_release_plan</p></td>
+</tr>
+<tr class="row-odd"><td><p>procedim
+iento_analisis_seguridad</p></td>
+<td><p>(ninguno - usa security_scan.sh)</p></td>
+</tr>
+<tr class="row-even"><td><p>procedimi
+ento_revision_documental</p></td>
+<td><p>plantilla_api_reference,
+plantilla_manual_usuario</p></td>
+</tr>
+<tr class="row-odd"><td><p>guia_comp
+leta_desarrollo_features</p></td>
+<td><p>plantilla_django_app, plantilla_tdd</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="de-workflow-a-procedimientos">
+<h3>6.2 De Workflow a Procedimientos<a class="headerlink" href="#de-workflow-a-procedimientos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Workflow</p></th>
+<th class="head"><p>Procedimientos Relacionados</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>backend-ci.yml</p></td>
+<td><p>procedimiento_desarrollo_local,
+guia_completa_desarrollo_features</p></td>
+</tr>
+<tr class="row-odd"><td><p>frontend-ci.yml</p></td>
+<td><p>procedimiento_desarrollo_local</p></td>
+</tr>
+<tr class="row-even"><td><p>t
+est-pyramid.yml</p></td>
+<td><p>procedimiento_qa</p></td>
+</tr>
+<tr class="row-odd"><td><p>deploy.yml</p></td>
+<td><p>procedimiento_release</p></td>
+</tr>
+<tr class="row-even"><td><p>migrations.yml</p></td>
+<td><p>procedimiento_diseno_tecnico (database design)</p></td>
+</tr>
+<tr class="row-odd"><td><p>infras
+tructure-ci.yml</p></td>
+<td><p>procedimiento_instalacion_entorno</p></td>
+</tr>
+<tr class="row-even"><td><p>se
+curity-scan.yml</p></td>
+<td><p>procedimiento_analisis_seguridad</p></td>
+</tr>
+<tr class="row-odd"><td><p>incide
+nt-response.yml</p></td>
+<td><p>(runbooks)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="de-agente-sdlc-a-templates">
+<h3>6.3 De Agente SDLC a Templates<a class="headerlink" href="#de-agente-sdlc-a-templates" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Agente</p></th>
+<th class="head"><p>Templates que Usa/Genera</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SDL
+CPlannerAgent</p></td>
+<td><p>template_necesidad, template_requisito_*</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDLCFea
+sibilityAgent</p></td>
+<td><p>(genera feasibility_report.md - no template)</p></td>
+</tr>
+<tr class="row-even"><td><p>SD
+LCDesignAgent</p></td>
+<td><p>plantilla_sad, plantilla_srs (como base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDL
+CTestingAgent</p></td>
+<td><p>plantilla_plan_pruebas, plantilla_caso_prueba</p></td>
+</tr>
+<tr class="row-even"><td><p>SDLCDe
+ploymentAgent</p></td>
+<td><p>plantilla_deployment_guide, plantilla_release_plan</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDLCOrch
+estratorAgent</p></td>
+<td><p>(orquesta todos los anteriores)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="de-checklist-a-procedimientos">
+<h3>6.4 De Checklist a Procedimientos<a class="headerlink" href="#de-checklist-a-procedimientos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Checklist</p></th>
+<th class="head"><p>Procedimientos Relacionados</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>che
+cklist_desarrollo</p></td>
+<td><p>procedimiento_desarrollo_local,
+guia_completa_desarrollo_features</p></td>
+</tr>
+<tr class="row-odd"><td><p>checklist_testing</p></td>
+<td><p>procedimiento_qa</p></td>
+</tr>
+<tr class="row-even"><td><p>checklist_trazab
+ilidad_requisitos</p></td>
+<td><p>procedimiento_trazabilidad_requisitos</p></td>
+</tr>
+<tr class="row-odd"><td><p>checklist_cam
+bios_documentales</p></td>
+<td><p>procedimiento_revision_documental,
+procedimiento_gestion_cambios</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="indice-rapido-estoy-en-x-que-debo-usar">
+<h3>6.5 Indice Rapido: “Estoy en X, que debo usar”<a class="headerlink" href="#indice-rapido-estoy-en-x-que-debo-usar" title="Link to this heading">¶</a></h3>
+<p><strong>Situacion 1: “Voy a implementar una nueva feature”</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─&gt; Procedimiento: guia_completa_desarrollo_features.md
+├─&gt; Templates:
+│   ├─&gt; template_necesidad.md (BA define primero)
+│   ├─&gt; plantilla_django_app.md (desarrollo)
+│   └─&gt; plantilla_tdd.md (tests)
+├─&gt; Checklists:
+│   ├─&gt; checklist_trazabilidad_requisitos.md (BA)
+│   └─&gt; checklist_desarrollo.md (Developer)
+├─&gt; Workflows: backend-ci.yml, test-pyramid.yml (automatico)
+└─&gt; Agentes: Todos (orchestrator coordina)
+</pre></div>
+</div>
+<p><strong>Situacion 2: “Voy a hacer un deployment a production”</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─&gt; Procedimiento: procedimiento_release.md
+├─&gt; Templates:
+│   ├─&gt; plantilla_release_plan.md
+│   └─&gt; plantilla_deployment_guide.md
+├─&gt; Runbooks:
+│   ├─&gt; verificar_servicios.md (pre/post)
+│   └─&gt; merge_y_limpieza_ramas.md (post)
+├─&gt; Workflows: deploy.yml, migrations.yml (automatico)
+└─&gt; Agentes: SDLCDeploymentAgent
+</pre></div>
+</div>
+<p><strong>Situacion 3: “Hubo un incidente en production”</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─&gt; Workflow: incident-response.yml (automatico)
+├─&gt; Runbooks:
+│   ├─&gt; verificar_servicios.md (diagnostico)
+│   ├─&gt; reprocesar_etl_fallido.md (si ETL)
+│   └─&gt; (runbook especifico del servicio)
+├─&gt; Template: plantilla_troubleshooting.md (post-mortem)
+└─&gt; Agentes: SDLCOrchestratorAgent (coordina respuesta)
+</pre></div>
+</div>
+<p><strong>Situacion 4: “Necesito escribir tests”</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─&gt; Procedimiento: procedimiento_qa.md
+├─&gt; Templates:
+│   ├─&gt; plantilla_plan_pruebas.md
+│   ├─&gt; plantilla_caso_prueba.md
+│   └─&gt; plantilla_tdd.md
+├─&gt; Checklist: checklist_testing.md
+├─&gt; Workflow: test-pyramid.yml (automatico)
+└─&gt; Agentes: SDLCTestingAgent
+</pre></div>
+</div>
+<p><strong>Situacion 5: “Voy a disenar una nueva arquitectura”</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─&gt; Procedimiento: procedimiento_diseno_tecnico.md
+├─&gt; Templates:
+│   ├─&gt; plantilla_sad.md (HLD)
+│   ├─&gt; plantilla_srs.md (LLD)
+│   ├─&gt; plantilla_database_design.md (DB)
+│   └─&gt; plantilla_caso_de_uso.md
+├─&gt; Agentes: SDLCDesignAgent
+└─&gt; Workflows: (ninguno - fase de diseno)
+</pre></div>
+</div>
+</section>
+<section id="automatizacion-sistema-de-consulta-programatica">
+<h3>6.6 Automatizacion: Sistema de Consulta Programatica<a class="headerlink" href="#automatizacion-sistema-de-consulta-programatica" title="Link to this heading">¶</a></h3>
+<p>Para facilitar la consulta automatica de asociaciones entre workflows,
+templates, procedimientos y agentes, se ha implementado un sistema de
+consulta programatica.</p>
+<section id="archivos-del-sistema">
+<h4>Archivos del Sistema<a class="headerlink" href="#archivos-del-sistema" title="Link to this heading">¶</a></h4>
+<p><strong>1. Configuracion JSON: ``.claude/workflow_template_mapping.json``</strong></p>
+<p>Archivo de configuracion centralizado que contiene:</p>
+<ul class="simple">
+<li><p><strong>mappings</strong>: Mapeo forward de workflows a templates, procedimientos,
+scripts, agentes</p></li>
+<li><p><strong>reverse_mappings</strong>: Mapeo inverso para consultas rapidas</p>
+<ul>
+<li><p>by_template: template -&gt; workflows</p></li>
+<li><p>by_procedimiento: procedimiento -&gt; workflows</p></li>
+<li><p>by_agente: agente -&gt; workflows</p></li>
+<li><p>by_fase_sdlc: fase -&gt; workflows</p></li>
+</ul>
+</li>
+<li><p><strong>template_metadata</strong>: Metadata de cada template (categoria,
+prioridad, fase_sdlc, workflows_requeridos)</p></li>
+<li><p><strong>workflow_generation_rules</strong>: Reglas de cuando usar cada
+template/workflow</p></li>
+</ul>
+<p><strong>2. Script de Consulta:
+``scripts/generate_workflow_from_template.py``</strong></p>
+<p>Script Python para consultar y validar asociaciones.</p>
+<p><strong>Funcionalidades:</strong> - Listar todos los mapeos disponibles - Consultar
+workflows asociados a un template - Consultar templates asociados a un
+workflow - Sugerir workflow basado en path de archivo - Validar
+integridad de todos los mapeos - Modo interactivo para exploracion</p>
+</section>
+<section id="como-usar">
+<h4>Como Usar<a class="headerlink" href="#como-usar" title="Link to this heading">¶</a></h4>
+<p><strong>Ejemplo 1: Listar todos los mapeos</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--list-mappings
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAPEOS</span> <span class="n">DISPONIBLES</span><span class="p">:</span> <span class="n">TEMPLATE</span> <span class="o">-&gt;</span> <span class="n">WORKFLOW</span>
+<span class="o">================================================================================</span>
+
+<span class="n">Template</span><span class="p">:</span> <span class="n">plantilla_django_app</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Workflows</span><span class="p">:</span> <span class="n">backend</span><span class="o">-</span><span class="n">ci</span>
+  <span class="n">Fase</span> <span class="n">SDLC</span><span class="p">:</span> <span class="n">development</span>
+  <span class="n">Categoria</span><span class="p">:</span> <span class="n">desarrollo</span>
+  <span class="n">Genera</span><span class="p">:</span> <span class="n">Django</span> <span class="n">app</span> <span class="n">en</span> <span class="n">api</span><span class="o">/</span><span class="n">callcentersite</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 2: Consultar workflows para un template</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--template<span class="w"> </span>plantilla_django_app.md
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Workflows</span> <span class="n">para</span> <span class="n">template</span> <span class="s1">&#39;plantilla_django_app.md&#39;</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">backend</span><span class="o">-</span><span class="n">ci</span><span class="o">.</span><span class="n">yml</span>
+    <span class="n">Validaciones</span><span class="p">:</span> <span class="n">RNF</span><span class="o">-</span><span class="mi">002</span><span class="p">,</span> <span class="n">tests</span><span class="p">,</span> <span class="n">coverage</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">,</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 3: Consultar templates para un workflow</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--workflow<span class="w"> </span>backend-ci
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Templates</span> <span class="n">para</span> <span class="n">workflow</span> <span class="s1">&#39;backend-ci&#39;</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">plantilla_django_app</span><span class="o">.</span><span class="n">md</span>
+  <span class="o">-</span> <span class="n">plantilla_etl_job</span><span class="o">.</span><span class="n">md</span>
+  <span class="o">-</span> <span class="n">plantilla_tdd</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 4: Sugerir workflow basado en archivo</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--file<span class="w"> </span>api/callcentersite/apps/myapp/models.py
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Archivo</span><span class="p">:</span> <span class="n">api</span><span class="o">/</span><span class="n">callcentersite</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">myapp</span><span class="o">/</span><span class="n">models</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Workflows</span> <span class="n">sugeridos</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">backend</span><span class="o">-</span><span class="n">ci</span><span class="o">.</span><span class="n">yml</span>
+    <span class="n">Validaciones</span><span class="p">:</span> <span class="n">RNF</span><span class="o">-</span><span class="mi">002</span><span class="p">,</span> <span class="n">tests</span><span class="p">,</span> <span class="n">coverage</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">,</span> <span class="n">lint</span>
+    <span class="n">Templates</span> <span class="n">relacionados</span><span class="p">:</span> <span class="n">plantilla_django_app</span><span class="o">.</span><span class="n">md</span><span class="p">,</span> <span class="n">plantilla_etl_job</span><span class="o">.</span><span class="n">md</span><span class="p">,</span> <span class="n">plantilla_tdd</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 5: Validar todos los mapeos</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--validate
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALIDANDO</span> <span class="n">MAPEOS</span>
+<span class="o">================================================================================</span>
+<span class="p">[</span><span class="n">OK</span><span class="p">]</span> <span class="n">Todos</span> <span class="n">los</span> <span class="n">mapeos</span> <span class="n">son</span> <span class="n">validos</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo 6: Modo interactivo</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--interactive
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODO</span> <span class="n">INTERACTIVO</span> <span class="o">-</span> <span class="n">Consulta</span> <span class="n">de</span> <span class="n">Mapeos</span>
+<span class="o">================================================================================</span>
+
+<span class="n">Comandos</span><span class="p">:</span>
+  <span class="n">template</span> <span class="o">&lt;</span><span class="n">nombre</span><span class="o">&gt;</span>    <span class="o">-</span> <span class="n">Buscar</span> <span class="n">workflows</span> <span class="n">para</span> <span class="n">un</span> <span class="n">template</span>
+  <span class="n">workflow</span> <span class="o">&lt;</span><span class="n">nombre</span><span class="o">&gt;</span>    <span class="o">-</span> <span class="n">Buscar</span> <span class="n">templates</span> <span class="n">para</span> <span class="n">un</span> <span class="n">workflow</span>
+  <span class="n">procedimiento</span> <span class="o">&lt;</span><span class="n">nombre</span><span class="o">&gt;</span> <span class="o">-</span> <span class="n">Buscar</span> <span class="n">info</span> <span class="n">de</span> <span class="n">procedimiento</span>
+  <span class="n">file</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span>          <span class="o">-</span> <span class="n">Sugerir</span> <span class="n">workflow</span> <span class="n">para</span> <span class="n">archivo</span>
+  <span class="nb">list</span>                 <span class="o">-</span> <span class="n">Listar</span> <span class="n">todos</span> <span class="n">los</span> <span class="n">mapeos</span>
+  <span class="n">quit</span>                 <span class="o">-</span> <span class="n">Salir</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">template</span> <span class="n">plantilla_tdd</span>
+<span class="n">Workflows</span> <span class="n">para</span> <span class="s1">&#39;plantilla_tdd&#39;</span><span class="p">:</span> <span class="n">backend</span><span class="o">-</span><span class="n">ci</span><span class="p">,</span> <span class="n">test</span><span class="o">-</span><span class="n">pyramid</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">quit</span>
+</pre></div>
+</div>
+</section>
+<section id="integracion-en-flujo-de-trabajo">
+<h4>Integracion en Flujo de Trabajo<a class="headerlink" href="#integracion-en-flujo-de-trabajo" title="Link to this heading">¶</a></h4>
+<p><strong>Caso de Uso 1: Developer crea nueva Django app</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Consultar template a usar</span>
+python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--template<span class="w"> </span>plantilla_django_app
+
+<span class="c1"># Output: backend-ci.yml se ejecutara al push</span>
+
+<span class="c1"># 2. Crear app usando template</span>
+cp<span class="w"> </span>docs/plantillas/plantilla_django_app.md<span class="w"> </span>api/callcentersite/apps/myapp/design.md
+
+<span class="c1"># 3. Desarrollar app siguiendo plantilla</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># 4. Push a repo</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: nueva app myapp&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push
+
+<span class="c1"># 5. Workflow backend-ci.yml se ejecuta automaticamente</span>
+<span class="c1"># Valida: RNF-002, tests, coverage&gt;=80, lint</span>
+</pre></div>
+</div>
+<p><strong>Caso de Uso 2: BA identifica archivo sin workflow asociado</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Consultar si archivo tiene workflow</span>
+python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--file<span class="w"> </span>docs/nuevo_documento.md
+
+<span class="c1"># Si no hay sugerencia -&gt; consultar Tech Lead</span>
+<span class="c1"># Si hay sugerencia -&gt; verificar que workflow existe</span>
+</pre></div>
+</div>
+<p><strong>Caso de Uso 3: Validar integridad antes de deployment</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># En CI/CD pipeline</span>
+python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--validate
+
+<span class="c1"># Si falla -&gt; bloquear deployment</span>
+<span class="c1"># Si OK -&gt; continuar con deployment</span>
+</pre></div>
+</div>
+</section>
+<section id="mantenimiento-del-sistema">
+<h4>Mantenimiento del Sistema<a class="headerlink" href="#mantenimiento-del-sistema" title="Link to this heading">¶</a></h4>
+<p><strong>Cuando actualizar ``.claude/workflow_template_mapping.json``:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Nuevo workflow creado</strong>: Agregar entrada en <code class="docutils literal notranslate"><span class="pre">mappings</span></code> con
+templates, procedimientos, scripts</p></li>
+<li><p><strong>Nuevo template creado</strong>: Agregar a workflow existente + actualizar
+<code class="docutils literal notranslate"><span class="pre">reverse_mappings.by_template</span></code></p></li>
+<li><p><strong>Nuevo procedimiento</strong>: Agregar a workflow + actualizar
+<code class="docutils literal notranslate"><span class="pre">reverse_mappings.by_procedimiento</span></code></p></li>
+<li><p><strong>Cambio en asociacion</strong>: Actualizar ambos forward y reverse mappings</p></li>
+</ol>
+<p><strong>Validar cambios:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Despues de modificar JSON</span>
+python<span class="w"> </span>scripts/generate_workflow_from_template.py<span class="w"> </span>--validate
+
+<span class="c1"># Si hay errores, corregir antes de commit</span>
+</pre></div>
+</div>
+<p><strong>Commit de cambios:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.claude/workflow_template_mapping.json
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(mapeo): actualizar asociaciones workflow-template&quot;</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="referencias">
+<h4>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Configuracion</strong>: <code class="docutils literal notranslate"><span class="pre">.claude/workflow_template_mapping.json</span></code></p></li>
+<li><p><strong>Script</strong>: <code class="docutils literal notranslate"><span class="pre">scripts/generate_workflow_from_template.py</span></code></p></li>
+<li><p><strong>Documentacion</strong>: Este documento (seccion 6.6)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metricas-y-validacion">
+<h2>7. Metricas y Validacion<a class="headerlink" href="#metricas-y-validacion" title="Link to this heading">¶</a></h2>
+<section id="como-validar-que-estoy-usando-correctamente">
+<h3>7.1 Como Validar que Estoy Usando Correctamente<a class="headerlink" href="#como-validar-que-estoy-usando-correctamente" title="Link to this heading">¶</a></h3>
+<p><strong>Checklist de Auto-Validacion:</strong></p>
+<ul class="simple">
+<li><p>☐ He consultado este documento MAPEO antes de empezar</p></li>
+<li><p>☐ Identifique la fase SDLC en la que estoy</p></li>
+<li><p>☐ Seleccione el procedimiento correcto para mi fase</p></li>
+<li><p>☐ Use el template correcto para el artefacto que necesito</p></li>
+<li><p>☐ Valide con el checklist correspondiente</p></li>
+<li><p>☐ Confirme que el workflow automatico se ejecuto (si aplica)</p></li>
+<li><p>☐ Revise que el agente SDLC genero la documentacion esperada (si
+aplica)</p></li>
+</ul>
+<p><strong>Señales de que algo esta mal:</strong></p>
+<ul class="simple">
+<li><p>☐ No se cual template usar</p></li>
+<li><p>☐ El workflow CI/CD fallo y no se por que</p></li>
+<li><p>☐ No hay procedimiento que describa lo que estoy haciendo</p></li>
+<li><p>☐ El agente SDLC no genero lo que esperaba</p></li>
+<li><p>☐ No se como validar que lo hice correctamente</p></li>
+</ul>
+<p><strong>Accion:</strong> Si alguna señal esta presente, consultar este documento o
+preguntar al Tech Lead.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="actualizaciones-y-mantenimiento">
+<h2>8. Actualizaciones y Mantenimiento<a class="headerlink" href="#actualizaciones-y-mantenimiento" title="Link to this heading">¶</a></h2>
+<p><strong>Responsable:</strong> Equipo Gobernanza</p>
+<p><strong>Cuando actualizar este documento:</strong> - Al agregar nuevos procedimientos
+- Al crear nuevos templates - Al implementar nuevos workflows CI/CD - Al
+modificar agentes SDLC - Al identificar nuevos flujos end-to-end -
+Cambios en la estructura SDLC</p>
+<p><strong>Proceso de actualizacion:</strong> 1. Actualizar secciones relevantes 2.
+Validar mapeos y referencias cruzadas 3. Actualizar version en metadata
+4. Commit:
+<code class="docutils literal notranslate"><span class="pre">docs(mapeo):</span> <span class="pre">actualizar</span> <span class="pre">MAPEO_PROCESOS_TEMPLATES.md</span> <span class="pre">-</span> <span class="pre">&lt;descripcion&gt;</span></code>
+5. Notificar al equipo</p>
+</section>
+<hr class="docutils" />
+<section id="recursos-adicionales">
+<h2>9. Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Link to this heading">¶</a></h2>
+<p><strong>Documentos Relacionados:</strong> - <a class="reference external" href="../../INDICE.md">INDICE.md</a> - Indice
+general de documentacion - <a class="reference external" href="AGENTES_SDLC.md">AGENTES_SDLC.md</a> -
+Documentacion completa de agentes -
+<a class="reference external" href="procedimientos/README.md">procedimientos/README.md</a> - Indice de
+procedimientos - <a class="reference external" href="../ci_cd/INDICE.md">../ci_cd/INDICE.md</a> - Indice de
+workflows CI/CD -
+<a class="reference external" href="../../plantillas/README.md">../../plantillas/README.md</a> - Indice de
+plantillas</p>
+<p><strong>Workflows CI/CD:</strong> - <code class="docutils literal notranslate"><span class="pre">.github/workflows/backend-ci.yml</span></code> -
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/frontend-ci.yml</span></code> -
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/test-pyramid.yml</span></code> -
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/deploy.yml</span></code> - <code class="docutils literal notranslate"><span class="pre">.github/workflows/migrations.yml</span></code>
+- <code class="docutils literal notranslate"><span class="pre">.github/workflows/security-scan.yml</span></code> -
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/incident-response.yml</span></code> -
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/infrastructure-ci.yml</span></code></p>
+<p><strong>Scripts Locales:</strong> - <code class="docutils literal notranslate"><span class="pre">scripts/ci/backend_test.sh</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ci/frontend_test.sh</span></code> - <code class="docutils literal notranslate"><span class="pre">scripts/ci/test_pyramid_check.sh</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ci/security_scan.sh</span></code></p>
+<p><strong>Agentes SDLC:</strong> - <code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_planner.py</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_feasibility.py</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_design.py</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_testing.py</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_deployment.py</span></code> -
+<code class="docutils literal notranslate"><span class="pre">scripts/ai/agents/sdlc_orchestrator.py</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Cambios</p></th>
+<th class="head"><p>Autor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.1.0</p></td>
+<td><p>2025-11-06</p></td>
+<td><p>Agregada seccion
+6.6: Sistema de
+consulta
+programatica
+workflow-template</p></td>
+<td><p>Equipo
+Gobernanza</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.0</p></td>
+<td><p>2025-11-06</p></td>
+<td><p>Creacion inicial
+del documento de
+mapeo completo</p></td>
+<td><p>Equipo
+Gobernanza</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>FIN DEL DOCUMENTO</strong></p>
+<p><strong>Para navegar:</strong> Usa Ctrl+F para buscar procedimientos, templates, o
+workflows especificos. <strong>Para preguntas:</strong> Consultar al Tech Lead o
+Equipo Gobernanza.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">MAPEO: Procedimientos &lt;-&gt; Workflows &lt;-&gt; Templates</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#tabla-de-contenidos">Tabla de Contenidos</a></li>
+<li><a class="reference internal" href="#vision-general-del-ecosistema">1. Vision General del Ecosistema</a></li>
+<li><a class="reference internal" href="#matriz-de-trazabilidad-completa">2. Matriz de Trazabilidad Completa</a><ul>
+<li><a class="reference internal" href="#matriz-principal-proceso-workflow-template">2.1 Matriz Principal: Proceso → Workflow → Template</a></li>
+<li><a class="reference internal" href="#matriz-de-templates-por-categoria">2.2 Matriz de Templates por Categoria</a></li>
+<li><a class="reference internal" href="#matriz-de-workflows-ci-cd">2.3 Matriz de Workflows CI/CD</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mapeo-por-fase-sdlc">3. Mapeo por Fase SDLC</a><ul>
+<li><a class="reference internal" href="#fase-1-planning-requirements">FASE 1: Planning &amp; Requirements</a></li>
+<li><a class="reference internal" href="#fase-2-feasibility-design">FASE 2: Feasibility &amp; Design</a></li>
+<li><a class="reference internal" href="#fase-3-development-implementation">FASE 3: Development &amp; Implementation</a></li>
+<li><a class="reference internal" href="#fase-4-testing-qa">FASE 4: Testing &amp; QA</a></li>
+<li><a class="reference internal" href="#fase-5-deployment-release">FASE 5: Deployment &amp; Release</a></li>
+<li><a class="reference internal" href="#fase-6-operations-maintenance">FASE 6: Operations &amp; Maintenance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decision-tree-que-template-usar">4. Decision Tree: Que Template Usar</a><ul>
+<li><a class="reference internal" href="#decision-tree-principal">4.1 Decision Tree Principal</a></li>
+<li><a class="reference internal" href="#decision-tree-que-procedimiento-seguir">4.2 Decision Tree: Que Procedimiento Seguir</a></li>
+<li><a class="reference internal" href="#decision-tree-que-workflow-se-ejecuta">4.3 Decision Tree: Que Workflow se Ejecuta</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flujos-end-to-end">5. Flujos End-to-End</a><ul>
+<li><a class="reference internal" href="#flujo-completo-nueva-feature-dark-mode">5.1 Flujo Completo: Nueva Feature (Dark Mode)</a></li>
+<li><a class="reference internal" href="#flujo-completo-bugfix-critico-production-down">5.2 Flujo Completo: Bugfix Critico (Production Down)</a></li>
+<li><a class="reference internal" href="#flujo-completo-etl-job-fallido-reprocesar">5.3 Flujo Completo: ETL Job Fallido (Reprocesar)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias-cruzadas">6. Referencias Cruzadas</a><ul>
+<li><a class="reference internal" href="#de-procedimiento-a-templates">6.1 De Procedimiento a Templates</a></li>
+<li><a class="reference internal" href="#de-workflow-a-procedimientos">6.2 De Workflow a Procedimientos</a></li>
+<li><a class="reference internal" href="#de-agente-sdlc-a-templates">6.3 De Agente SDLC a Templates</a></li>
+<li><a class="reference internal" href="#de-checklist-a-procedimientos">6.4 De Checklist a Procedimientos</a></li>
+<li><a class="reference internal" href="#indice-rapido-estoy-en-x-que-debo-usar">6.5 Indice Rapido: “Estoy en X, que debo usar”</a></li>
+<li><a class="reference internal" href="#automatizacion-sistema-de-consulta-programatica">6.6 Automatizacion: Sistema de Consulta Programatica</a><ul>
+<li><a class="reference internal" href="#archivos-del-sistema">Archivos del Sistema</a></li>
+<li><a class="reference internal" href="#como-usar">Como Usar</a></li>
+<li><a class="reference internal" href="#integracion-en-flujo-de-trabajo">Integracion en Flujo de Trabajo</a></li>
+<li><a class="reference internal" href="#mantenimiento-del-sistema">Mantenimiento del Sistema</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metricas-y-validacion">7. Metricas y Validacion</a><ul>
+<li><a class="reference internal" href="#como-validar-que-estoy-usando-correctamente">7.1 Como Validar que Estoy Usando Correctamente</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#actualizaciones-y-mantenimiento">8. Actualizaciones y Mantenimiento</a></li>
+<li><a class="reference internal" href="#recursos-adicionales">9. Recursos Adicionales</a></li>
+<li><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

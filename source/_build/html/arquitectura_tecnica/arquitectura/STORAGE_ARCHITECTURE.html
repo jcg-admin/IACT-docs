@@ -1,0 +1,1272 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Arquitectura de Storage - Separacion de Concerns - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="arquitectura-de-storage-separacion-de-concerns">
+<h1>Arquitectura de Storage - Separacion de Concerns<a class="headerlink" href="#arquitectura-de-storage-separacion-de-concerns" title="Link to this heading">¶</a></h1>
+<p>Documento tecnico que explica la estrategia de persistencia multi-base
+de datos del proyecto IACT, justificando el uso de MySQL para DORA
+metrics y Cassandra para logs de aplicacion e infraestructura.</p>
+<p><strong>Version:</strong> 1.0.0 <strong>Fecha:</strong> 2025-11-07</p>
+<hr class="docutils" />
+<section id="vision-general">
+<h2>Vision General<a class="headerlink" href="#vision-general" title="Link to this heading">¶</a></h2>
+<p>El proyecto IACT utiliza <strong>2 bases de datos diferentes</strong> para propositos
+especificos:</p>
+<ol class="arabic simple">
+<li><p><strong>MySQL</strong> - Para metricas DORA (Capa 1: Proceso de Desarrollo)</p></li>
+<li><p><strong>Apache Cassandra</strong> - Para logs de aplicacion e infraestructura
+(Capas 2 y 3)</p></li>
+</ol>
+<p><strong>Principio arquitectonico:</strong> Separation of Concerns (SoC) - cada base
+de datos optimizada para su workload especifico.</p>
+</section>
+<hr class="docutils" />
+<section id="arquitectura-de-3-capas">
+<h2>Arquitectura de 3 Capas<a class="headerlink" href="#arquitectura-de-3-capas" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CAPA</span> <span class="mi">1</span><span class="p">:</span> <span class="n">DORA</span> <span class="n">Metrics</span> <span class="p">(</span><span class="n">Proceso</span><span class="p">)</span>        <span class="n">CAPA</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Application</span> <span class="n">Logs</span> <span class="p">(</span><span class="n">Runtime</span><span class="p">)</span>      <span class="n">CAPA</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Infrastructure</span> <span class="n">Logs</span> <span class="p">(</span><span class="n">Sistema</span><span class="p">)</span>
+     <span class="o">|</span>                                      <span class="o">|</span>                                         <span class="o">|</span>
+     <span class="n">v</span>                                      <span class="n">v</span>                                         <span class="n">v</span>
+<span class="n">MySQL</span><span class="p">:</span> <span class="n">dora_metrics</span>                    <span class="n">Cassandra</span><span class="p">:</span> <span class="n">application_logs</span>             <span class="n">Cassandra</span><span class="p">:</span> <span class="n">infrastructure_logs</span>
+     <span class="o">|</span>                                      <span class="o">|</span>                                         <span class="o">|</span>
+     <span class="n">v</span>                                      <span class="n">v</span>                                         <span class="n">v</span>
+<span class="n">Queries</span> <span class="n">complejas</span>                      <span class="n">Queries</span> <span class="n">simples</span>                         <span class="n">Queries</span> <span class="n">simples</span>
+<span class="n">Miles</span> <span class="n">registros</span>                        <span class="n">Millones</span> <span class="n">registros</span>                      <span class="n">Millones</span> <span class="n">registros</span>
+<span class="n">Permanente</span>                             <span class="mi">90</span> <span class="n">dias</span> <span class="n">TTL</span>                             <span class="mi">90</span> <span class="n">dias</span> <span class="n">TTL</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="por-que-no-usar-una-sola-base-de-datos">
+<h2>Por Que NO Usar Una Sola Base de Datos<a class="headerlink" href="#por-que-no-usar-una-sola-base-de-datos" title="Link to this heading">¶</a></h2>
+<section id="problema-requisitos-contradictorios">
+<h3>Problema: Requisitos Contradictorios<a class="headerlink" href="#problema-requisitos-contradictorios" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>DORA Metrics</p></th>
+<th class="head"><p>Application/Infrastructure Logs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Volumen
+de datos</p></td>
+<td><p>Bajo
+(miles/mes)</p></td>
+<td><p>Alto (millones/dia)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipo de
+queries</p></td>
+<td><p>Complejas
+(JOINs, GROUP
+BY,
+agregaciones)</p></td>
+<td><p>Simples (filtros por fecha/level)</p></td>
+</tr>
+<tr class="row-even"><td><p>Write
+th
+roughput</p></td>
+<td><p>Bajo (~10
+writes/min)</p></td>
+<td><p>Alto (1M writes/s)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Updates</p></td>
+<td><p>Frecuentes
+(PDCA updates
+ciclos)</p></td>
+<td><p>Nunca (immutable, append-only)</p></td>
+</tr>
+<tr class="row-even"><td><p>R
+etencion</p></td>
+<td><p>Permanente
+(historia del
+equipo)</p></td>
+<td><p>90 dias (TTL automatico)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ACID
+tran
+sactions</p></td>
+<td><p>Requerido
+(integridad
+PDCA)</p></td>
+<td><p>No necesario (eventual consistency OK)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Conclusion:</strong> Imposible optimizar 1 BD para ambos workloads.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="capa-1-dora-metrics-mysql">
+<h2>CAPA 1: DORA Metrics - MySQL<a class="headerlink" href="#capa-1-dora-metrics-mysql" title="Link to this heading">¶</a></h2>
+<section id="justificacion-tecnica">
+<h3>Justificacion Tecnica<a class="headerlink" href="#justificacion-tecnica" title="Link to this heading">¶</a></h3>
+<p><strong>Tipo de datos:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;cycle_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cycle-20251107-153000&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;feature_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FEAT-123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;phases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;planning&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">900</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testing&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;lead_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deployment_frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;change_failure_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Volumen esperado:</strong> - 1 ciclo por feature - Aproximadamente 50
+features/mes - Aproximadamente 600 ciclos/ano - Total: Miles de
+registros (NO millones)</p>
+<p><strong>Queries tipicas:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Calcular Lead Time promedio ultimos 30 dias</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">phase_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">DAY</span><span class="p">;</span>
+
+<span class="c1">-- Comparar performance por team</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">team</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">lead_time</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">team</span><span class="p">;</span>
+
+<span class="c1">-- Correlacionar story points con duracion</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">story_points</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">phase_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;testing&#39;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">story_points</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="por-que-mysql">
+<h3>Por Que MySQL<a class="headerlink" href="#por-que-mysql" title="Link to this heading">¶</a></h3>
+<p><strong>Ventajas para DORA:</strong> - [OK] Queries complejas nativas (JOINs, GROUP
+BY, window functions) - [OK] ACID transactions (integridad de datos
+PDCA) - [OK] Django ORM nativo (desarrollo rapido) - [OK] Retencion
+permanente (sin TTL, historia del equipo) - [OK] Volumen bajo (miles
+registros manejables) - [OK] Django Admin dashboards nativos - [OK]
+Updates frecuentes (ciclos PDCA modifican registros)</p>
+<p><strong>Por que NO Cassandra para DORA:</strong> - [PROBLEMA] Cassandra optimizado
+para append-only (DORA necesita updates) - [PROBLEMA] JOINs complejos
+dificiles en CQL - [PROBLEMA] GROUP BY limitado en Cassandra -
+[PROBLEMA] Volumen bajo no justifica complejidad cluster - [PROBLEMA]
+Eventual consistency inadecuada para PDCA</p>
+</section>
+<section id="schema-mysql">
+<h3>Schema MySQL<a class="headerlink" href="#schema-mysql" title="Link to this heading">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dora_metrics</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cycle_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">feature_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">phase_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">  </span><span class="c1">-- &#39;planning&#39;, &#39;testing&#39;, &#39;deployment&#39;, &#39;maintenance&#39;</span>
+<span class="w">    </span><span class="n">decision</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">              </span><span class="c1">-- &#39;go&#39;, &#39;no-go&#39;, &#39;review&#39;, &#39;blocked&#39;</span>
+<span class="w">    </span><span class="n">duration_seconds</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">metadata</span><span class="w"> </span><span class="n">JSON</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- Flexible metadata (story_points, tests_passed, etc)</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_phase</span><span class="w"> </span><span class="p">(</span><span class="n">phase_name</span><span class="p">),</span>
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_feature</span><span class="w"> </span><span class="p">(</span><span class="n">feature_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_created</span><span class="w"> </span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="storage-actual-vs-futuro">
+<h3>Storage Actual vs Futuro<a class="headerlink" href="#storage-actual-vs-futuro" title="Link to this heading">¶</a></h3>
+<p><strong>Actual (v1):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">dora_sdlc_metrics</span><span class="o">.</span><span class="n">json</span> <span class="p">(</span><span class="n">raiz</span> <span class="k">del</span> <span class="n">proyecto</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Futuro (P0 - 8 SP):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL</span><span class="p">:</span> <span class="n">dora_metrics</span> <span class="n">table</span>
+<span class="n">Django</span> <span class="n">Admin</span><span class="p">:</span> <span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">dora</span><span class="o">/</span><span class="n">metrics</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="capas-2-y-3-application-infrastructure-logs-cassandra">
+<h2>CAPAS 2 y 3: Application + Infrastructure Logs - Cassandra<a class="headerlink" href="#capas-2-y-3-application-infrastructure-logs-cassandra" title="Link to this heading">¶</a></h2>
+<section id="justificacion-tecnica-1">
+<span id="id1"></span><h3>Justificacion Tecnica<a class="headerlink" href="#justificacion-tecnica-1" title="Link to this heading">¶</a></h3>
+<p><strong>Tipo de datos:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Application log (Capa 2)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+    <span class="s2">&quot;Payment failed&quot;</span><span class="p">,</span>
+    <span class="n">extra</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;request_id&#39;</span><span class="p">:</span> <span class="s1">&#39;a1b2c3d4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+        <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">99.99</span><span class="p">,</span>
+        <span class="s1">&#39;error_code&#39;</span><span class="p">:</span> <span class="s1">&#39;CARD_DECLINED&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Infrastructure log (Capa 3)</span>
+<span class="c1"># nginx access.log</span>
+<span class="mf">127.0.0.1</span> <span class="o">-</span> <span class="n">user</span> <span class="p">[</span><span class="mi">07</span><span class="o">/</span><span class="n">Nov</span><span class="o">/</span><span class="mi">2025</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">45</span> <span class="o">+</span><span class="mi">0000</span><span class="p">]</span> <span class="s2">&quot;GET /api/users HTTP/1.1&quot;</span> <span class="mi">200</span> <span class="mi">1234</span>
+</pre></div>
+</div>
+<p><strong>Volumen esperado:</strong> - 1,000 requests/min = 1.4M requests/dia - 3 logs
+promedio por request - Total: 4.2M logs/dia = 126M logs/mes</p>
+<p><strong>Queries tipicas:</strong></p>
+<div class="highlight-cql notranslate"><div class="highlight"><pre><span></span>-- Buscar errores hoy
+SELECT * FROM application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND level = &#39;ERROR&#39;
+LIMIT 100;
+
+-- Logs de un request especifico (tracing)
+SELECT * FROM application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND request_id = &#39;a1b2c3d4&#39;;
+
+-- Count errores ultima hora
+SELECT COUNT(*) FROM application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND timestamp &gt;= NOW() - 1 HOUR
+  AND level = &#39;ERROR&#39;;
+</pre></div>
+</div>
+</section>
+<section id="por-que-cassandra">
+<h3>Por Que Cassandra<a class="headerlink" href="#por-que-cassandra" title="Link to this heading">¶</a></h3>
+<p><strong>Ventajas para logs:</strong> - [OK] Write throughput mayor a 1M logs/segundo
+(vs MySQL aproximadamente 10K/s) - [OK] Append-only optimizado (logs
+nunca se actualizan) - [OK] TTL nativo (retention automatico 90 dias sin
+scripts) - [OK] Particionado por fecha (queries rapidas por dia) - [OK]
+Linear scaling (agregar nodos = mas throughput) - [OK] No single point
+of failure (peer-to-peer vs MySQL master) - [OK] Sequential writes
+optimizados (Commit Log)</p>
+<p><strong>Por que NO MySQL para logs:</strong> - [PROBLEMA] MySQL aproximadamente 10K
+writes/s (insuficiente para 4M logs/dia) - [PROBLEMA] Locks en tabla con
+millones de filas - [PROBLEMA] Partitioning manual complejo - [PROBLEMA]
+Single point of failure (master) - [PROBLEMA] No escala horizontalmente</p>
+</section>
+<section id="schemas-cassandra">
+<h3>Schemas Cassandra<a class="headerlink" href="#schemas-cassandra" title="Link to this heading">¶</a></h3>
+<p><strong>Capa 2: Application Logs</strong></p>
+<div class="highlight-cql notranslate"><div class="highlight"><pre><span></span>CREATE TABLE logging.application_logs (
+    log_date DATE,              -- Partition key (dia)
+    timestamp TIMESTAMP,        -- Clustering key (orden cronologico)
+    level TEXT,                 -- INFO, ERROR, CRITICAL
+    logger TEXT,                -- &#39;analytics&#39;, &#39;etl&#39;, &#39;reports&#39;
+    message TEXT,
+    request_id TEXT,            -- UUID para tracing
+    user_id INT,
+    session_id TEXT,
+    metadata MAP&lt;TEXT, TEXT&gt;,
+    traceback TEXT,
+    duration_ms DECIMAL,
+
+    PRIMARY KEY ((log_date), timestamp)
+) WITH CLUSTERING ORDER BY (timestamp DESC)
+  AND compaction = {
+      &#39;class&#39;: &#39;TimeWindowCompactionStrategy&#39;,
+      &#39;compaction_window_size&#39;: 1,
+      &#39;compaction_window_unit&#39;: &#39;DAYS&#39;
+  }
+  AND default_time_to_live = 7776000;  -- 90 dias
+</pre></div>
+</div>
+<p><strong>Capa 3: Infrastructure Logs</strong></p>
+<div class="highlight-cql notranslate"><div class="highlight"><pre><span></span>CREATE TABLE logging.infrastructure_logs (
+    log_date DATE,              -- Partition key (dia)
+    timestamp TIMESTAMP,        -- Clustering key (orden cronologico)
+    source TEXT,                -- &#39;nginx/access&#39;, &#39;postgresql&#39;, &#39;syslog&#39;
+    level TEXT,                 -- ERROR, WARNING, INFO
+    message TEXT,
+    metadata MAP&lt;TEXT, TEXT&gt;,
+
+    PRIMARY KEY ((log_date), timestamp)
+) WITH CLUSTERING ORDER BY (timestamp DESC)
+  AND compaction = {
+      &#39;class&#39;: &#39;TimeWindowCompactionStrategy&#39;
+  }
+  AND default_time_to_live = 7776000;  -- 90 dias
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparacion-tecnica-detallada">
+<h2>Comparacion Tecnica Detallada<a class="headerlink" href="#comparacion-tecnica-detallada" title="Link to this heading">¶</a></h2>
+<section id="performance-benchmark">
+<h3>Performance Benchmark<a class="headerlink" href="#performance-benchmark" title="Link to this heading">¶</a></h3>
+<p><strong>Scenario:</strong> Deploy con 1000 requests/min spike</p>
+<p><strong>MySQL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 1000 logs/min × 1ms write = 1000ms overhead total
+- Master bottleneck (todos los writes a 1 nodo)
+- Lock contention en tabla con millones de filas
+- Write throughput: aproximadamente 10,000 writes/s MAX
+- Resultado: Degradacion de performance bajo carga
+</pre></div>
+</div>
+<p><strong>Cassandra:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 1000 logs/min × 0.1ms write = 100ms overhead total
+- Distributed writes (sin bottleneck)
+- No locks (append-only)
+- Write throughput: mayor a 1,000,000 writes/s
+- Resultado: Performance estable bajo carga
+</pre></div>
+</div>
+<p><strong>Ventaja:</strong> Cassandra 100x mejor throughput</p>
+</section>
+<section id="storage-y-retention">
+<h3>Storage y Retention<a class="headerlink" href="#storage-y-retention" title="Link to this heading">¶</a></h3>
+<p><strong>MySQL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Volumen: 1M logs × 1KB = 1GB
+Retention: Manual partitioning
+  CREATE TABLE logs_2025_11 ...
+  CREATE TABLE logs_2025_12 ...
+  DROP TABLE logs_2025_08;  -- Manual cleanup
+
+Complejidad: Alta (requires cron scripts)
+</pre></div>
+</div>
+<p><strong>Cassandra:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Volumen: 1M logs × 1KB × 0.2 (compressed) = 200MB
+Retention: TTL automatico
+  default_time_to_live = 7776000  -- 90 dias
+  Compaction automatica limpia logs expirados
+
+Complejidad: Baja (zero maintenance)
+</pre></div>
+</div>
+</section>
+<section id="escalabilidad">
+<h3>Escalabilidad<a class="headerlink" href="#escalabilidad" title="Link to this heading">¶</a></h3>
+<p><strong>MySQL:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vertical</span> <span class="n">scaling</span><span class="p">:</span> <span class="n">Upgrade</span> <span class="n">server</span> <span class="n">hardware</span>
+<span class="n">Horizontal</span> <span class="n">scaling</span><span class="p">:</span> <span class="n">Master</span><span class="o">-</span><span class="n">slave</span> <span class="n">replication</span> <span class="p">(</span><span class="n">read</span> <span class="n">replicas</span><span class="p">)</span>
+  <span class="o">-</span> <span class="n">Writes</span> <span class="n">siempre</span> <span class="n">a</span> <span class="n">master</span> <span class="p">(</span><span class="n">bottleneck</span><span class="p">)</span>
+  <span class="o">-</span> <span class="n">Complejidad</span> <span class="n">failover</span>
+
+<span class="n">Limite</span><span class="p">:</span> <span class="n">Single</span> <span class="n">master</span> <span class="n">bottleneck</span>
+</pre></div>
+</div>
+<p><strong>Cassandra:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Horizontal</span> <span class="n">scaling</span><span class="p">:</span> <span class="n">Agregar</span> <span class="n">nodos</span> <span class="n">al</span> <span class="n">cluster</span>
+  <span class="o">-</span> <span class="n">Writes</span> <span class="n">distribuidos</span> <span class="n">automaticamente</span>
+  <span class="o">-</span> <span class="n">Linear</span> <span class="n">scaling</span> <span class="p">(</span><span class="mi">2</span><span class="n">x</span> <span class="n">nodos</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span> <span class="n">throughput</span><span class="p">)</span>
+  <span class="o">-</span> <span class="n">Automatic</span> <span class="n">rebalancing</span>
+
+<span class="n">Limite</span><span class="p">:</span> <span class="n">Practicamente</span> <span class="n">ilimitado</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="anti-pattern-duplicacion-de-logs">
+<h2>Anti-Pattern: Duplicacion de Logs<a class="headerlink" href="#anti-pattern-duplicacion-de-logs" title="Link to this heading">¶</a></h2>
+<section id="no-hacer-esto">
+<h3>NO Hacer Esto<a class="headerlink" href="#no-hacer-esto" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANTI-PATTERN - Duplicacion innecesaria</span>
+<span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;cassandra&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;CassandraLogHandler&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;mysql&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;MySQLLogHandler&#39;</span><span class="p">,</span>  <span class="c1"># Duplicacion</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;analytics&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cassandra&#39;</span><span class="p">,</span> <span class="s1">&#39;mysql&#39;</span><span class="p">],</span>  <span class="c1"># Doble escritura</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problemas">
+<h3>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[PROBLEMA] Doble overhead de escritura (1ms + 0.1ms = 1.1ms por log)</p></li>
+<li><p>[PROBLEMA] Duplicacion de storage (2x costo)</p></li>
+<li><p>[PROBLEMA] Sincronizacion compleja (que pasa si uno falla y otro no)</p></li>
+<li><p>[PROBLEMA] Mantenimiento de 2 sistemas</p></li>
+<li><p>[PROBLEMA] Queries distribuidas entre 2 BDs (complejidad)</p></li>
+<li><p>[PROBLEMA] No hay beneficio real</p></li>
+</ul>
+</section>
+<section id="arquitectura-correcta">
+<h3>Arquitectura Correcta<a class="headerlink" href="#arquitectura-correcta" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORRECTO - Single source of truth</span>
+<span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;cassandra&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;CassandraLogHandler&#39;</span><span class="p">,</span>  <span class="c1"># Solo Cassandra</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;analytics&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cassandra&#39;</span><span class="p">]},</span>
+        <span class="s1">&#39;etl&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cassandra&#39;</span><span class="p">]},</span>
+        <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cassandra&#39;</span><span class="p">]},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Beneficios:</strong> - [OK] Single source of truth (Cassandra) - [OK]
+Performance optimo (mayor a 1M writes/s) - [OK] TTL automatico (90 dias)
+- [OK] Escalamiento horizontal - [OK] No duplicacion de datos</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mecanismo-de-escritura">
+<h2>Mecanismo de Escritura<a class="headerlink" href="#mecanismo-de-escritura" title="Link to this heading">¶</a></h2>
+<section id="capa-2-application-logs-django">
+<h3>Capa 2: Application Logs (Django)<a class="headerlink" href="#capa-2-application-logs-django" title="Link to this heading">¶</a></h3>
+<p><strong>Handler asincrono:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CassandraLogHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Non-blocking: menor a 0.1ms&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put_nowait</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>  <span class="c1"># Agregar a queue</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_process_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Worker thread: batch inserts&quot;&quot;&quot;</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">record</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># Batch completo</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_flush_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>  <span class="c1"># 1 write a Cassandra</span>
+                <span class="n">batch</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_flush_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;100 logs = 1 batch write menor a 10ms&quot;&quot;&quot;</span>
+        <span class="n">batch_stmt</span> <span class="o">=</span> <span class="n">BatchStatement</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+            <span class="n">batch_stmt</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">insert_stmt</span><span class="p">,</span> <span class="p">(</span><span class="o">...</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">batch_stmt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Caracteristicas:</strong> - Overhead menor a 0.1ms por log (non-blocking) -
+Batch writes (100 logs por batch) - Worker thread dedicado -
+Auto-recovery en caso de falla</p>
+</section>
+<section id="capa-3-infrastructure-logs-daemon">
+<h3>Capa 3: Infrastructure Logs (Daemon)<a class="headerlink" href="#capa-3-infrastructure-logs-daemon" title="Link to this heading">¶</a></h3>
+<p><strong>Daemon Python:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InfrastructureLogsDaemon</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tail_logs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tail /var/log/nginx/access.log&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tail_output</span><span class="p">:</span>
+            <span class="n">log_entry</span> <span class="o">=</span> <span class="n">LogParser</span><span class="o">.</span><span class="n">parse_nginx_access</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span>  <span class="c1"># Batch completo</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_flush_batch</span><span class="p">()</span>  <span class="c1"># 1 write a Cassandra</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_flush_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;1000 logs = 1 batch write menor a 10ms&quot;&quot;&quot;</span>
+        <span class="n">batch_stmt</span> <span class="o">=</span> <span class="n">BatchStatement</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">:</span>
+            <span class="n">batch_stmt</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">insert_stmt</span><span class="p">,</span> <span class="p">(</span><span class="o">...</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">batch_stmt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Caracteristicas:</strong> - Tail -F con inotify (log rotation handling) -
+Multi-format parser (nginx, syslog, postgresql) - Batch writes (1000
+logs por batch) - Systemd service (auto-restart)</p>
+<p><strong>Mecanismo IDENTICO para Capas 2 y 3:</strong> - Queue/Buffer - Worker thread
+- Batch inserts - 1 write a Cassandra por batch</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="migracion-y-roadmap">
+<h2>Migracion y Roadmap<a class="headerlink" href="#migracion-y-roadmap" title="Link to this heading">¶</a></h2>
+<section id="estado-actual-v1-8-0">
+<h3>Estado Actual (v1.8.0)<a class="headerlink" href="#estado-actual-v1-8-0" title="Link to this heading">¶</a></h3>
+<p><strong>Cassandra (Capas 2 y 3):</strong> - [OK] Cluster 3 nodos instalado - [OK]
+Schema application_logs creado - [OK] Schema infrastructure_logs creado
+- [OK] CassandraLogHandler implementado - [OK]
+infrastructure_logs_daemon.py implementado - [OK] Scripts instalacion
+(install-cassandra.sh, configure-django.sh)</p>
+<p><strong>MySQL (Capa 1):</strong> - [PENDIENTE] Tabla dora_metrics (P0 - 8 SP) - [OK]
+.dora_sdlc_metrics.json (temporal) - [OK] DORAMetrics class
+(dora_sdlc_integration.py)</p>
+</section>
+<section id="roadmap-futuro">
+<h3>Roadmap Futuro<a class="headerlink" href="#roadmap-futuro" title="Link to this heading">¶</a></h3>
+<p><strong>Q4 2025:</strong> 1. Implementar MySQL dora_metrics table (P0 - 8 SP) 2.
+Migrar .dora_sdlc_metrics.json a MySQL 3. Django Admin dashboards DORA
+(P2 - 5 SP)</p>
+<p><strong>Q1 2026:</strong> 1. Custom dashboards Django Admin para logs Cassandra (P2 -
+5 SP) 2. DORA metrics baseline establecida (P0 - 2 SP) 3. AI-enabled
+telemetry pipeline</p>
+<p><strong>Q2 2026:</strong> 1. Predictive analytics dashboard 2. Formalizar Data
+Engineer role 3. Establecer ROI metrics</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="instalacion-y-configuracion">
+<h2>Instalacion y Configuracion<a class="headerlink" href="#instalacion-y-configuracion" title="Link to this heading">¶</a></h2>
+<section id="cassandra-capas-2-y-3">
+<h3>Cassandra (Capas 2 y 3)<a class="headerlink" href="#cassandra-capas-2-y-3" title="Link to this heading">¶</a></h3>
+<p><strong>Quick start:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalar cluster Docker (3 nodos)</span>
+./scripts/cassandra/install-cassandra.sh<span class="w"> </span>docker
+
+<span class="c1"># Configurar Django settings.py</span>
+./scripts/cassandra/configure-django.sh
+
+<span class="c1"># Setup cron jobs (maintenance + alerting)</span>
+./scripts/cassandra/setup-cron-jobs.sh
+
+<span class="c1"># Test logging</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>shell<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">import logging</span>
+<span class="s2">logger = logging.getLogger(&#39;analytics&#39;)</span>
+<span class="s2">logger.info(&#39;Test log&#39;, extra={&#39;request_id&#39;: &#39;test-123&#39;})</span>
+<span class="s2">&quot;</span>
+
+<span class="c1"># Verificar Cassandra</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cassandra-1<span class="w"> </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">SELECT * FROM logging.application_logs</span>
+<span class="s2">WHERE log_date = &#39;2025-11-07&#39;</span>
+<span class="s2">LIMIT 10;</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="mysql-capa-1">
+<h3>MySQL (Capa 1)<a class="headerlink" href="#mysql-capa-1" title="Link to this heading">¶</a></h3>
+<p><strong>Pendiente implementacion (P0 - 8 SP):</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Crear tabla</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dora_metrics</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cycle_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">feature_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">phase_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">decision</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="n">duration_seconds</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">metadata</span><span class="w"> </span><span class="n">JSON</span><span class="p">,</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_phase</span><span class="w"> </span><span class="p">(</span><span class="n">phase_name</span><span class="p">),</span>
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_feature</span><span class="w"> </span><span class="p">(</span><span class="n">feature_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_created</span><span class="w"> </span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="queries-de-ejemplo">
+<h2>Queries de Ejemplo<a class="headerlink" href="#queries-de-ejemplo" title="Link to this heading">¶</a></h2>
+<section id="dora-metrics-mysql">
+<h3>DORA Metrics (MySQL)<a class="headerlink" href="#dora-metrics-mysql" title="Link to this heading">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Lead Time promedio ultimos 30 dias</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3600</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avg_lead_time_hours</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">phase_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">DAY</span><span class="p">;</span>
+
+<span class="c1">-- Deployment Frequency por team</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">team</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">deploys</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">phase_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">DAY</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">team</span><span class="p">;</span>
+
+<span class="c1">-- Change Failure Rate</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;no-go&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cfr</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dora_metrics</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">phase_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;testing&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">DAY</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="application-logs-cassandra">
+<h3>Application Logs (Cassandra)<a class="headerlink" href="#application-logs-cassandra" title="Link to this heading">¶</a></h3>
+<div class="highlight-cql notranslate"><div class="highlight"><pre><span></span>-- Errores hoy
+SELECT timestamp, logger, message, traceback
+FROM logging.application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND level = &#39;ERROR&#39;
+ORDER BY timestamp DESC
+LIMIT 100;
+
+-- Tracing por request_id
+SELECT timestamp, level, logger, message
+FROM logging.application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND request_id = &#39;a1b2c3d4-...&#39;
+ALLOW FILTERING;
+
+-- Slow queries (mayor a 1s)
+SELECT timestamp, logger, message, duration_ms
+FROM logging.application_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND duration_ms &gt; 1000
+ALLOW FILTERING;
+</pre></div>
+</div>
+</section>
+<section id="infrastructure-logs-cassandra">
+<h3>Infrastructure Logs (Cassandra)<a class="headerlink" href="#infrastructure-logs-cassandra" title="Link to this heading">¶</a></h3>
+<div class="highlight-cql notranslate"><div class="highlight"><pre><span></span>-- Errores nginx ultimas 24h
+SELECT timestamp, source, message
+FROM logging.infrastructure_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND source = &#39;nginx/error&#39;
+ORDER BY timestamp DESC
+LIMIT 100;
+
+-- PostgreSQL crashes
+SELECT timestamp, message
+FROM logging.infrastructure_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND source = &#39;postgresql&#39;
+  AND level = &#39;CRITICAL&#39;;
+
+-- Count errores por source
+SELECT source, COUNT(*) as errors
+FROM logging.infrastructure_logs
+WHERE log_date = &#39;2025-11-07&#39;
+  AND level = &#39;ERROR&#39;
+GROUP BY source;
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="monitoreo-y-mantenimiento">
+<h2>Monitoreo y Mantenimiento<a class="headerlink" href="#monitoreo-y-mantenimiento" title="Link to this heading">¶</a></h2>
+<section id="cassandra">
+<h3>Cassandra<a class="headerlink" href="#cassandra" title="Link to this heading">¶</a></h3>
+<p><strong>Health checks:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cluster status</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cassandra-1<span class="w"> </span>nodetool<span class="w"> </span>status
+
+<span class="c1"># Compaction stats</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cassandra-1<span class="w"> </span>nodetool<span class="w"> </span>compactionstats
+
+<span class="c1"># Table stats</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cassandra-1<span class="w"> </span>nodetool<span class="w"> </span>tablestats<span class="w"> </span>logging.application_logs
+</pre></div>
+</div>
+<p><strong>Cron jobs automaticos (setup-cron-jobs.sh):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error alerting (every 5 minutes)</span>
+*/5<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>python<span class="w"> </span>/app/scripts/logging/alert_on_errors.py
+
+<span class="c1"># Compaction stats (daily 2 AM)</span>
+<span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>nodetool<span class="w"> </span>compactionstats<span class="w"> </span>&gt;&gt;<span class="w"> </span>/var/log/iact/compaction.log
+
+<span class="c1"># Repair (weekly Sunday 3 AM)</span>
+<span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="m">0</span><span class="w"> </span>nodetool<span class="w"> </span>repair<span class="w"> </span>-pr<span class="w"> </span>logging<span class="w"> </span>&gt;&gt;<span class="w"> </span>/var/log/iact/repair.log
+
+<span class="c1"># Cleanup (monthly 1st 4 AM)</span>
+<span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>nodetool<span class="w"> </span>clearsnapshot<span class="w"> </span>logging<span class="w"> </span>&gt;&gt;<span class="w"> </span>/var/log/iact/cleanup.log
+</pre></div>
+</div>
+</section>
+<section id="mysql">
+<h3>MySQL<a class="headerlink" href="#mysql" title="Link to this heading">¶</a></h3>
+<p><strong>Health checks (futuro):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Database size</span>
+SELECT
+<span class="w">    </span>table_schema,
+<span class="w">    </span>SUM<span class="o">(</span>data_length<span class="w"> </span>+<span class="w"> </span>index_length<span class="o">)</span><span class="w"> </span>/<span class="w"> </span><span class="m">1024</span><span class="w"> </span>/<span class="w"> </span><span class="m">1024</span><span class="w"> </span>as<span class="w"> </span>size_mb
+FROM<span class="w"> </span>information_schema.tables
+WHERE<span class="w"> </span><span class="nv">table_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;iact&#39;</span>
+GROUP<span class="w"> </span>BY<span class="w"> </span>table_schema<span class="p">;</span>
+
+<span class="c1"># Row counts</span>
+SELECT<span class="w"> </span>COUNT<span class="o">(</span>*<span class="o">)</span><span class="w"> </span>FROM<span class="w"> </span>dora_metrics<span class="p">;</span>
+
+<span class="c1"># Index usage</span>
+SHOW<span class="w"> </span>INDEX<span class="w"> </span>FROM<span class="w"> </span>dora_metrics<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metricas-de-exito">
+<h2>Metricas de Exito<a class="headerlink" href="#metricas-de-exito" title="Link to this heading">¶</a></h2>
+<section id="cassandra-capas-2-y-3-1">
+<span id="id2"></span><h3>Cassandra (Capas 2 y 3)<a class="headerlink" href="#cassandra-capas-2-y-3-1" title="Link to this heading">¶</a></h3>
+<p><strong>Performance:</strong> - Write latency menor a 0.5ms p95 - Query latency menor
+a 1s p95 - Cluster health 3/3 nodes UP Normal</p>
+<p><strong>Storage:</strong> - Disk usage menor a 80 por ciento per node - TTL
+funcionando (0 logs mayor a 90 dias) - Compression ratio mayor o igual a
+80 por ciento</p>
+<p><strong>Reliability:</strong> - Uptime mayor a 99.5 por ciento - 0 data loss -
+Automatic recovery de node failures</p>
+</section>
+<section id="mysql-capa-1-1">
+<span id="id3"></span><h3>MySQL (Capa 1)<a class="headerlink" href="#mysql-capa-1-1" title="Link to this heading">¶</a></h3>
+<p><strong>Performance (futuro):</strong> - Query latency menor a 100ms p95 - Insert
+latency menor a 10ms p95 - Index utilization mayor a 90 por ciento</p>
+<p><strong>Storage:</strong> - Database size menor a 1GB (primeros 12 meses) - Growth
+rate menor a 100MB/mes</p>
+<p><strong>Data Integrity:</strong> - 0 orphaned records - 100 por ciento PDCA cycle
+consistency</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ADR-2025-004: Centralized Log Storage en Cassandra</p></li>
+<li><p>ADR-2025-003: DORA SDLC Agents Integration</p></li>
+<li><p>OBSERVABILITY_LAYERS.md: 3 capas de observabilidad</p></li>
+<li><p>DORA_CASSANDRA_INTEGRATION.md: Integracion DORA + Cassandra</p></li>
+</ul>
+<p><strong>Documentos tecnicos:</strong> - scripts/cassandra/README.md: Guia instalacion
+Cassandra - scripts/logging/README.md: Logging handlers documentation -
+docs/implementacion/OBSERVABILITY_LAYERS.md: Arquitectura 3 capas</p>
+</section>
+<hr class="docutils" />
+<section id="preguntas-frecuentes">
+<h2>Preguntas Frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Link to this heading">¶</a></h2>
+<p><strong>P: Por que no usar una sola base de datos?</strong> R: Requisitos
+contradictorios. DORA necesita queries complejas (MySQL), logs necesitan
+alto throughput (Cassandra).</p>
+<p><strong>P: Se pueden guardar logs en MySQL tambien?</strong> R: Tecnicamente si, pero
+es anti-pattern. Cassandra 100x mejor throughput, TTL automatico,
+escalamiento horizontal.</p>
+<p><strong>P: Los logs de Capa 2 y 3 se guardan igual?</strong> R: Si, ambos en
+Cassandra con mecanismo identico (batch writes, TTL 90 dias). Solo
+difieren en tabla y fuente de datos.</p>
+<p><strong>P: Como se relacionan MySQL y Cassandra?</strong> R: No se relacionan. Son
+sistemas independientes para capas diferentes. MySQL para DORA metrics,
+Cassandra para logs.</p>
+<p><strong>P: Cuando se implementara MySQL para DORA?</strong> R: P0 - 8 SP
+(aproximadamente 2 dias). Actualmente usando .dora_sdlc_metrics.json
+temporal.</p>
+<hr class="docutils" />
+<p><strong>VERSION:</strong> 1.0.0 <strong>ESTADO:</strong> Documentado <strong>PROXIMA REVISION:</strong>
+2025-12-07 (1 mes)</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Arquitectura de Storage - Separacion de Concerns</a><ul>
+<li><a class="reference internal" href="#vision-general">Vision General</a></li>
+<li><a class="reference internal" href="#arquitectura-de-3-capas">Arquitectura de 3 Capas</a></li>
+<li><a class="reference internal" href="#por-que-no-usar-una-sola-base-de-datos">Por Que NO Usar Una Sola Base de Datos</a><ul>
+<li><a class="reference internal" href="#problema-requisitos-contradictorios">Problema: Requisitos Contradictorios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capa-1-dora-metrics-mysql">CAPA 1: DORA Metrics - MySQL</a><ul>
+<li><a class="reference internal" href="#justificacion-tecnica">Justificacion Tecnica</a></li>
+<li><a class="reference internal" href="#por-que-mysql">Por Que MySQL</a></li>
+<li><a class="reference internal" href="#schema-mysql">Schema MySQL</a></li>
+<li><a class="reference internal" href="#storage-actual-vs-futuro">Storage Actual vs Futuro</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#capas-2-y-3-application-infrastructure-logs-cassandra">CAPAS 2 y 3: Application + Infrastructure Logs - Cassandra</a><ul>
+<li><a class="reference internal" href="#justificacion-tecnica-1">Justificacion Tecnica</a></li>
+<li><a class="reference internal" href="#por-que-cassandra">Por Que Cassandra</a></li>
+<li><a class="reference internal" href="#schemas-cassandra">Schemas Cassandra</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comparacion-tecnica-detallada">Comparacion Tecnica Detallada</a><ul>
+<li><a class="reference internal" href="#performance-benchmark">Performance Benchmark</a></li>
+<li><a class="reference internal" href="#storage-y-retention">Storage y Retention</a></li>
+<li><a class="reference internal" href="#escalabilidad">Escalabilidad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anti-pattern-duplicacion-de-logs">Anti-Pattern: Duplicacion de Logs</a><ul>
+<li><a class="reference internal" href="#no-hacer-esto">NO Hacer Esto</a></li>
+<li><a class="reference internal" href="#problemas">Problemas</a></li>
+<li><a class="reference internal" href="#arquitectura-correcta">Arquitectura Correcta</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mecanismo-de-escritura">Mecanismo de Escritura</a><ul>
+<li><a class="reference internal" href="#capa-2-application-logs-django">Capa 2: Application Logs (Django)</a></li>
+<li><a class="reference internal" href="#capa-3-infrastructure-logs-daemon">Capa 3: Infrastructure Logs (Daemon)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migracion-y-roadmap">Migracion y Roadmap</a><ul>
+<li><a class="reference internal" href="#estado-actual-v1-8-0">Estado Actual (v1.8.0)</a></li>
+<li><a class="reference internal" href="#roadmap-futuro">Roadmap Futuro</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#instalacion-y-configuracion">Instalacion y Configuracion</a><ul>
+<li><a class="reference internal" href="#cassandra-capas-2-y-3">Cassandra (Capas 2 y 3)</a></li>
+<li><a class="reference internal" href="#mysql-capa-1">MySQL (Capa 1)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#queries-de-ejemplo">Queries de Ejemplo</a><ul>
+<li><a class="reference internal" href="#dora-metrics-mysql">DORA Metrics (MySQL)</a></li>
+<li><a class="reference internal" href="#application-logs-cassandra">Application Logs (Cassandra)</a></li>
+<li><a class="reference internal" href="#infrastructure-logs-cassandra">Infrastructure Logs (Cassandra)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monitoreo-y-mantenimiento">Monitoreo y Mantenimiento</a><ul>
+<li><a class="reference internal" href="#cassandra">Cassandra</a></li>
+<li><a class="reference internal" href="#mysql">MySQL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metricas-de-exito">Metricas de Exito</a><ul>
+<li><a class="reference internal" href="#cassandra-capas-2-y-3-1">Cassandra (Capas 2 y 3)</a></li>
+<li><a class="reference internal" href="#mysql-capa-1-1">MySQL (Capa 1)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

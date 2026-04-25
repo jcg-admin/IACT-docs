@@ -1,0 +1,1412 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="FND_02" name="artefacto" />
+<meta content="Fundamento Conceptual" name="tipo" />
+<meta content="base_cognitiva" name="dominio" />
+<meta content="_fundamentos_conceptuales" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.1.0" name="version" />
+<meta content="2025-12-19" name="fecha_creacion" />
+<meta content="2025-12-21" name="ultimo_cambio" />
+<meta content="Equipo IACT" name="autor" />
+<meta content="Interno" name="clasificacion" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>FND_02: Reglas de Negocio - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../normativa/index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../normativa/gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../normativa/gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../normativa/gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../normativa/restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="fnd-02-reglas-de-negocio">
+<span id="fnd-02"></span><h1>FND_02: Reglas de Negocio<a class="headerlink" href="#fnd-02-reglas-de-negocio" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Proposito</a></p></li>
+<li><p><a class="reference internal" href="#definicion-formal" id="id2">1. Definicion Formal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es-una-regla-de-negocio" id="id3">1.1 Que es una Regla de Negocio</a></p></li>
+<li><p><a class="reference internal" href="#caracteristicas-distintivas" id="id4">1.2 Caracteristicas Distintivas</a></p></li>
+<li><p><a class="reference internal" href="#diferencia-br-vs-requisito-funcional" id="id5">1.3 Diferencia BR vs Requisito Funcional</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fuentes-de-business-rules" id="id6">2. Fuentes de Business Rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fuentes-externas-obligatorias" id="id7">2.1 Fuentes Externas (Obligatorias)</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-internas-organizacionales" id="id8">2.2 Fuentes Internas (Organizacionales)</a></p></li>
+<li><p><a class="reference internal" href="#relacion-con-el-sistema" id="id9">2.3 Relacion con el Sistema</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#taxonomia-de-business-rules" id="id10">3. Taxonomia de Business Rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipo-1-hechos-facts" id="id11">3.1 Tipo 1: Hechos (Facts)</a></p></li>
+<li><p><a class="reference internal" href="#tipo-2-restricciones-constraints" id="id12">3.2 Tipo 2: Restricciones (Constraints)</a></p></li>
+<li><p><a class="reference internal" href="#tipo-3-desencadenadores-triggers" id="id13">3.3 Tipo 3: Desencadenadores (Triggers)</a></p></li>
+<li><p><a class="reference internal" href="#tipo-4-inferencias-inferences" id="id14">3.4 Tipo 4: Inferencias (Inferences)</a></p></li>
+<li><p><a class="reference internal" href="#tipo-5-calculos-calculations" id="id15">3.5 Tipo 5: Calculos (Calculations)</a></p></li>
+<li><p><a class="reference internal" href="#resumen-de-tipos" id="id16">3.6 Resumen de Tipos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modalidades-sbvr" id="id17">4. Modalidades SBVR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es-sbvr" id="id18">4.1 Que es SBVR</a></p></li>
+<li><p><a class="reference internal" href="#modalidad-aletica-estructural" id="id19">4.2 Modalidad Aletica (Estructural)</a></p></li>
+<li><p><a class="reference internal" href="#modalidad-deontica-comportamental" id="id20">4.3 Modalidad Deontica (Comportamental)</a></p></li>
+<li><p><a class="reference internal" href="#comparacion-de-modalidades" id="id21">4.4 Comparacion de Modalidades</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#template-de-business-rule" id="id22">5. Template de Business Rule</a></p>
+<ul>
+<li><p><a class="reference internal" href="#formato-estandar-iact" id="id23">5.1 Formato Estandar IACT</a></p></li>
+<li><p><a class="reference internal" href="#descripcion-de-campos" id="id24">5.2 Descripcion de Campos</a></p></li>
+<li><p><a class="reference internal" href="#concepto-estatica-vs-dinamica" id="id25">5.3 Concepto: Estatica vs Dinamica</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-completo" id="id26">5.4 Ejemplo Completo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tecnicas-de-elicitacion-de-br" id="id27">6. Tecnicas de Elicitacion de BR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#las-6-preguntas-estrategicas" id="id28">6.1 Las 6 Preguntas Estrategicas</a></p></li>
+<li><p><a class="reference internal" href="#distinguir-desencadenador-de-inferencia" id="id29">6.2 Distinguir Desencadenador de Inferencia</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#business-rules-en-el-contexto-iact" id="id30">7. Business Rules en el Contexto IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nomenclatura" id="id31">7.1 Nomenclatura</a></p></li>
+<li><p><a class="reference internal" href="#ubicacion-en-el-modelo-iact" id="id32">7.2 Ubicacion en el Modelo IACT</a></p></li>
+<li><p><a class="reference internal" href="#relacion-con-otros-artefactos" id="id33">7.3 Relacion con Otros Artefactos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ejemplos-en-iact" id="id34">8. Ejemplos en IACT</a></p>
+<ul>
+<li><p><a class="reference internal" href="#br-de-tipo-restriccion" id="id35">8.1 BR de Tipo Restriccion</a></p></li>
+<li><p><a class="reference internal" href="#br-de-tipo-desencadenador" id="id36">8.2 BR de Tipo Desencadenador</a></p></li>
+<li><p><a class="reference internal" href="#br-de-tipo-inferencia" id="id37">8.3 BR de Tipo Inferencia</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencias" id="id38">9. Referencias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#documentos-relacionados" id="id39">Documentos Relacionados</a></p></li>
+<li><p><a class="reference internal" href="#fuentes-externas" id="id40">Fuentes Externas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id41">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Proposito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Este documento define QUE ES una Regla de Negocio (Business Rule) en el
+contexto del proyecto IACT, su relacion con el estandar SBVR, y como
+se clasifican segun sus tipos y modalidades.</p>
+</section>
+<hr class="docutils" />
+<section id="definicion-formal">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Definicion Formal</a><a class="headerlink" href="#definicion-formal" title="Link to this heading">¶</a></h2>
+<section id="que-es-una-regla-de-negocio">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Que es una Regla de Negocio</a><a class="headerlink" href="#que-es-una-regla-de-negocio" title="Link to this heading">¶</a></h3>
+<p>Una <strong>Regla de Negocio (Business Rule - BR)</strong> es una declaracion sobre
+como opera la organizacion. Las reglas de negocio NO son creadas por el
+proyecto de software; existen independientemente y el software debe
+conformarse a ellas.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Definicion operativa para IACT:</strong></p>
+<p>Una BR es una politica, restriccion o hecho del dominio que existe
+independientemente del sistema y que el sistema DEBE cumplir.</p>
+</div>
+</section>
+<section id="caracteristicas-distintivas">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Caracteristicas Distintivas</a><a class="headerlink" href="#caracteristicas-distintivas" title="Link to this heading">¶</a></h3>
+<p>Las Business Rules tienen cuatro caracteristicas fundamentales:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracteristica</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Externa</strong></p></td>
+<td><p>Proviene de fuera del sistema (politicas, regulaciones, estandares)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Obligatoria</strong></p></td>
+<td><p>No es opcional ni negociable para el sistema</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Estable</strong></p></td>
+<td><p>Cambia menos frecuentemente que los requerimientos funcionales</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Influyente</strong></p></td>
+<td><p>Afecta multiples partes del sistema</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="diferencia-br-vs-requisito-funcional">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 Diferencia BR vs Requisito Funcional</a><a class="headerlink" href="#diferencia-br-vs-requisito-funcional" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Business Rule (BR)</p></th>
+<th class="head"><p>Requisito Funcional (FR)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Origen</p></td>
+<td><p>Externo al proyecto</p></td>
+<td><p>Derivado del proyecto</p></td>
+</tr>
+<tr class="row-odd"><td><p>Existencia</p></td>
+<td><p>Independiente del sistema</p></td>
+<td><p>Especifico del sistema</p></td>
+</tr>
+<tr class="row-even"><td><p>Pregunta</p></td>
+<td><p>Por que esta restriccion?</p></td>
+<td><p>Como lo hace el sistema?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ejemplo BR</p></td>
+<td><p>&quot;Compras &gt;$500 requieren aprobacion&quot;</p></td>
+<td><p>(no aplica)</p></td>
+</tr>
+<tr class="row-even"><td><p>Ejemplo FR</p></td>
+<td><p>(no aplica)</p></td>
+<td><p>&quot;Sistema DEBE validar monto contra umbral $500&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fuentes-de-business-rules">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">2. Fuentes de Business Rules</a><a class="headerlink" href="#fuentes-de-business-rules" title="Link to this heading">¶</a></h2>
+<section id="fuentes-externas-obligatorias">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.1 Fuentes Externas (Obligatorias)</a><a class="headerlink" href="#fuentes-externas-obligatorias" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES EXTERNAS:
+
++------------------+----------------------------------------+
+| Leyes            | Regulaciones federales, estatales      |
++------------------+----------------------------------------+
+| Regulaciones     | Normas de industria, compliance        |
++------------------+----------------------------------------+
+| Estandares       | ISO, IEEE, normas internacionales      |
++------------------+----------------------------------------+
+| Contratos        | Acuerdos con clientes, proveedores     |
++------------------+----------------------------------------+
+</pre></div>
+</div>
+</section>
+<section id="fuentes-internas-organizacionales">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.2 Fuentes Internas (Organizacionales)</a><a class="headerlink" href="#fuentes-internas-organizacionales" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES INTERNAS:
+
++------------------+----------------------------------------+
+| Politicas        | Politicas corporativas vigentes        |
++------------------+----------------------------------------+
+| Procedimientos   | Procedimientos operativos estandar     |
++------------------+----------------------------------------+
+| Mejores Practicas| Practicas establecidas en la org       |
++------------------+----------------------------------------+
+</pre></div>
+</div>
+</section>
+<section id="relacion-con-el-sistema">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.3 Relacion con el Sistema</a><a class="headerlink" href="#relacion-con-el-sistema" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FUENTES EXTERNAS              FUENTES INTERNAS
+     |                              |
+     v                              v
++--------------------------------------------------+
+|                                                  |
+|              SISTEMA DE SOFTWARE                 |
+|                                                  |
+|   El sistema NO crea las reglas                  |
+|   El sistema CUMPLE las reglas                   |
+|                                                  |
++--------------------------------------------------+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="taxonomia-de-business-rules">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">3. Taxonomia de Business Rules</a><a class="headerlink" href="#taxonomia-de-business-rules" title="Link to this heading">¶</a></h2>
+<p>Las Business Rules se clasifican en <strong>5 tipos</strong> segun su naturaleza:</p>
+<section id="tipo-1-hechos-facts">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.1 Tipo 1: Hechos (Facts)</a><a class="headerlink" href="#tipo-1-hechos-facts" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Verdades sobre el dominio que estructuran el modelo de datos.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Definen entidades y sus relaciones</p></li>
+<li><p>Estructuran el modelo de datos</p></li>
+<li><p>Son declaraciones de existencia</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR-FACT-001: &quot;Cada contenedor tiene un codigo unico&quot;
+
+Impacto en sistema:
+- Entidad: Contenedor
+- Atributo: codigo (UNIQUE, NOT NULL)
+- Validacion: Unicidad en BD
+</pre></div>
+</div>
+<p><strong>Transformacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hecho --&gt; Define estructura de entidades
+      --&gt; Genera validaciones de integridad de datos
+</pre></div>
+</div>
+</section>
+<section id="tipo-2-restricciones-constraints">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.2 Tipo 2: Restricciones (Constraints)</a><a class="headerlink" href="#tipo-2-restricciones-constraints" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Limitaciones obligatorias sobre lo que DEBE o NO DEBE ocurrir.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Establecen limites y condiciones</p></li>
+<li><p>Son obligatorias (no opcionales)</p></li>
+<li><p>Generan validaciones y controles</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR-CONST-001: &quot;Solo gerentes pueden aprobar compras mayores a $500&quot;
+
+Impacto en sistema:
+- Precondicion en UC de aprobacion
+- Validacion de rol de usuario
+- Control de acceso en API
+</pre></div>
+</div>
+<p><strong>Transformacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Restriccion --&gt; Precondicion/Postcondicion en Caso de Uso
+           --&gt; Genera validaciones y controles de acceso
+</pre></div>
+</div>
+</section>
+<section id="tipo-3-desencadenadores-triggers">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.3 Tipo 3: Desencadenadores (Triggers)</a><a class="headerlink" href="#tipo-3-desencadenadores-triggers" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Reglas que cuando se cumple una condicion, generan un
+comportamiento OBSERVABLE.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Formato: SI [condicion] ENTONCES [accion observable]</p></li>
+<li><p>El resultado es VISIBLE para el usuario o sistema externo</p></li>
+<li><p>Generan Casos de Uso completos</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR-TRIG-001: &quot;SI un quimico vence en 30 dias,
+              ENTONCES notificar al responsable de laboratorio&quot;
+
+Impacto en sistema:
+- Genera UC: &quot;Notificar Vencimiento Proximo&quot;
+- Proceso batch diario de verificacion
+- Notificacion via buzon interno
+</pre></div>
+</div>
+<p><strong>Transformacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Desencadenador --&gt; Genera Caso de Uso completo
+               --&gt; Multiples FR para cada accion observable
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><strong>Desencadenador vs Inferencia:</strong></p>
+<p>La diferencia clave es la OBSERVABILIDAD del resultado.</p>
+<ul class="simple">
+<li><p>Desencadenador: El sistema HACE algo visible</p></li>
+<li><p>Inferencia: El sistema SABE algo nuevo (interno)</p></li>
+</ul>
+</div>
+</section>
+<section id="tipo-4-inferencias-inferences">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.4 Tipo 4: Inferencias (Inferences)</a><a class="headerlink" href="#tipo-4-inferencias-inferences" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Reglas que cuando se cumple una condicion, establecen un
+nuevo hecho INTERNO (no observable externamente).</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Formato: SI [condicion] ENTONCES [nuevo hecho interno]</p></li>
+<li><p>El resultado es SOLO conocido por el sistema</p></li>
+<li><p>NO generan Casos de Uso</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR-INF-001: &quot;SI una cuenta tiene mas de 30 dias de impago,
+            ENTONCES la cuenta se considera &#39;Deudora&#39;&quot;
+
+Impacto en sistema:
+- Cambio de estado interno (flag)
+- NO notifica, NO genera accion visible
+- Afecta logica posterior (ej: bloquear credito)
+</pre></div>
+</div>
+<p><strong>Transformacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Inferencia --&gt; NO genera Caso de Uso
+          --&gt; Genera logica interna de negocio
+          --&gt; Cambio de estado o clasificacion
+</pre></div>
+</div>
+</section>
+<section id="tipo-5-calculos-calculations">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.5 Tipo 5: Calculos (Calculations)</a><a class="headerlink" href="#tipo-5-calculos-calculations" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Formulas y algoritmos que transforman datos.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Definen como se calculan valores</p></li>
+<li><p>Pueden ser formulas matematicas o algoritmos</p></li>
+<li><p>Generan FR especificos de calculo</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR-CALC-001: &quot;Precio Total = (Suma Items) - Descuento + IVA + Envio&quot;
+
+Impacto en sistema:
+- Algoritmo especifico de calculo
+- FR que implementa la formula
+- Validacion de componentes
+</pre></div>
+</div>
+<p><strong>Transformacion:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Calculo --&gt; Paso en flujo de Caso de Uso
+       --&gt; FR con algoritmo especifico
+</pre></div>
+</div>
+</section>
+<section id="resumen-de-tipos">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.6 Resumen de Tipos</a><a class="headerlink" href="#resumen-de-tipos" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Pregunta</p></th>
+<th class="head"><p>Genera UC?</p></th>
+<th class="head"><p>Transformacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hecho</p></td>
+<td><p>Que existe?</p></td>
+<td><p>No</p></td>
+<td><p>Estructura de datos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Restriccion</p></td>
+<td><p>Que limita?</p></td>
+<td><p>No (condicion)</p></td>
+<td><p>Validaciones</p></td>
+</tr>
+<tr class="row-even"><td><p>Desencadenador</p></td>
+<td><p>Que dispara accion?</p></td>
+<td><p>SI</p></td>
+<td><p>UC completo</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inferencia</p></td>
+<td><p>Que concluye?</p></td>
+<td><p>No</p></td>
+<td><p>Logica interna</p></td>
+</tr>
+<tr class="row-even"><td><p>Calculo</p></td>
+<td><p>Como se calcula?</p></td>
+<td><p>No (paso)</p></td>
+<td><p>Algoritmo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modalidades-sbvr">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Modalidades SBVR</a><a class="headerlink" href="#modalidades-sbvr" title="Link to this heading">¶</a></h2>
+<p>El estandar SBVR (Semantics of Business Vocabulary and Rules) define
+dos modalidades logicas para clasificar las reglas de negocio.</p>
+<section id="que-es-sbvr">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">4.1 Que es SBVR</a><a class="headerlink" href="#que-es-sbvr" title="Link to this heading">¶</a></h3>
+<p><strong>SBVR</strong> (Semantics of Business Vocabulary and Rules) es un estandar
+del OMG que combina aspectos de ontologias y sistemas de reglas.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Proposito de SBVR:</strong></p>
+<ul class="simple">
+<li><p>Capturar el QUE de las reglas de negocio, no el COMO</p></li>
+<li><p>MODELAR reglas de negocio, no ejecutarlas</p></li>
+<li><p>Comunicacion clara entre negocio e IT</p></li>
+</ul>
+</div>
+</section>
+<section id="modalidad-aletica-estructural">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">4.2 Modalidad Aletica (Estructural)</a><a class="headerlink" href="#modalidad-aletica-estructural" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Describe lo que ES, verdades sobre la estructura del dominio.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Hechos y definiciones</p></li>
+<li><p>Restricciones estructurales</p></li>
+<li><p>No pueden ser violadas (son verdades)</p></li>
+</ul>
+<p><strong>Palabras clave:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- ES (is)
+- TIENE (has)
+- PERTENECE A (belongs to)
+- EXISTE (exists)
+</pre></div>
+</div>
+<p><strong>Ejemplos:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ALETICA (Estructural):
+
+&quot;Un pedido TIENE un cliente&quot;
+&quot;Cada producto PERTENECE A una categoria&quot;
+&quot;Un usuario ES identificado por un email unico&quot;
+</pre></div>
+</div>
+</section>
+<section id="modalidad-deontica-comportamental">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">4.3 Modalidad Deontica (Comportamental)</a><a class="headerlink" href="#modalidad-deontica-comportamental" title="Link to this heading">¶</a></h3>
+<p><strong>Definicion:</strong> Describe lo que DEBE SER, obligaciones y prohibiciones.</p>
+<p><strong>Caracteristicas:</strong></p>
+<ul class="simple">
+<li><p>Obligaciones (must)</p></li>
+<li><p>Prohibiciones (must not)</p></li>
+<li><p>Permisos (may)</p></li>
+<li><p>Pueden ser violadas (generan errores/sanciones)</p></li>
+</ul>
+<p><strong>Palabras clave:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Obligacion:
+- DEBE (must)
+- ES REQUERIDO (is required to)
+- TIENE QUE (shall)
+
+Prohibicion:
+- NO DEBE (must not)
+- ESTA PROHIBIDO (is forbidden to)
+- NO PUEDE (cannot)
+
+Permiso:
+- PUEDE (may)
+- ESTA PERMITIDO (is permitted to)
+- TIENE PERMITIDO (is allowed to)
+</pre></div>
+</div>
+<p><strong>Ejemplos:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>DEONTICA (Comportamental):
+
+Obligacion:
+&quot;Un pedido DEBE ser aprobado antes de envio&quot;
+&quot;El usuario DEBE cambiar su password cada 90 dias&quot;
+
+Prohibicion:
+&quot;Un usuario NO DEBE acceder a datos de otro segmento&quot;
+&quot;El sistema NO DEBE enviar emails externos&quot;
+
+Permiso:
+&quot;Un gerente PUEDE aprobar compras hasta $5,000&quot;
+&quot;El analista PUEDE exportar reportes en CSV&quot;
+</pre></div>
+</div>
+</section>
+<section id="comparacion-de-modalidades">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">4.4 Comparacion de Modalidades</a><a class="headerlink" href="#comparacion-de-modalidades" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Aletica</p></th>
+<th class="head"><p>Deontica</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Describe</p></td>
+<td><p>Lo que ES</p></td>
+<td><p>Lo que DEBE SER</p></td>
+</tr>
+<tr class="row-odd"><td><p>Naturaleza</p></td>
+<td><p>Verdades estructurales</p></td>
+<td><p>Obligaciones/Prohibiciones</p></td>
+</tr>
+<tr class="row-even"><td><p>Violacion</p></td>
+<td><p>Imposible (es verdad)</p></td>
+<td><p>Posible (genera error)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ejemplo</p></td>
+<td><p>&quot;Pedido TIENE cliente&quot;</p></td>
+<td><p>&quot;Pedido DEBE ser aprobado&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="template-de-business-rule">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">5. Template de Business Rule</a><a class="headerlink" href="#template-de-business-rule" title="Link to this heading">¶</a></h2>
+<section id="formato-estandar-iact">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">5.1 Formato Estandar IACT</a><a class="headerlink" href="#formato-estandar-iact" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_NNN:
+  Definicion:      [Texto de la regla en lenguaje de negocio]
+  Tipo:            Fact | Constraint | Trigger | Inference | Calculation
+  Modalidad:       Aletica | Deontica (Obligation | Prohibition | Permission)
+  Fuente:          [Documento, regulacion, politica de origen]
+  Justificacion:   [Por que existe esta regla]
+  Fecha Vigencia:  YYYY-MM-DD [desde cuando aplica]
+  Prioridad:       Alta | Media | Baja
+  Estatica/Dinamica: Estatica | Dinamica
+  Ejemplo:         [Aplicacion concreta en el dominio]
+</pre></div>
+</div>
+</section>
+<section id="descripcion-de-campos">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">5.2 Descripcion de Campos</a><a class="headerlink" href="#descripcion-de-campos" title="Link to this heading">¶</a></h3>
+<p><strong>Campos Obligatorios:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Campo</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Definicion</strong></p></td>
+<td><p>Texto completo de la regla en lenguaje natural, comprensible por stakeholders</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tipo</strong></p></td>
+<td><p>Uno de los 5 tipos: Fact, Constraint, Trigger, Inference, Calculation</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Modalidad</strong></p></td>
+<td><p>Aletica (verdad estructural) o Deontica (obligacion/prohibicion/permiso)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fuente</strong></p></td>
+<td><p>Documento, version y seccion especifica de donde proviene la regla</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Fecha Vigencia</strong></p></td>
+<td><p>Fecha a partir de la cual aplica la regla (formato YYYY-MM-DD)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Campos Adicionales:</strong></p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Campo</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Prioridad</strong></p></td>
+<td><p>Alta (critica, debe implementarse primero), Media (importante), Baja (deseable)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Estatica/Dinamica</strong></p></td>
+<td><p>Estatica: proviene de ley/regulacion, dificil de cambiar. Dinamica: politica organizacional, puede cambiar por decision interna</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Justificacion</strong></p></td>
+<td><p>Razon de negocio por la cual existe la regla</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ejemplo</strong></p></td>
+<td><p>Caso concreto de aplicacion en el dominio del proyecto</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="concepto-estatica-vs-dinamica">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">5.3 Concepto: Estatica vs Dinamica</a><a class="headerlink" href="#concepto-estatica-vs-dinamica" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ESTATICA:
+- Proviene de ley o regulacion permanente
+- Muy dificil o imposible de cambiar
+- Cambio requiere proceso legislativo o regulatorio
+- Ejemplos: Leyes federales, estandares ISO, regulaciones OSHA
+
+DINAMICA:
+- Proviene de politica organizacional
+- Puede cambiar por decision interna
+- Cambio requiere aprobacion de ejecutivo o comite
+- Ejemplos: Politicas corporativas, procedimientos internos, SLAs
+</pre></div>
+</div>
+<p><strong>Importancia de la clasificacion:</strong></p>
+<ul class="simple">
+<li><p>Reglas ESTATICAS: Sistema debe cumplirlas sin excepciones</p></li>
+<li><p>Reglas DINAMICAS: Considerar parametrizacion para facilitar cambios</p></li>
+</ul>
+</section>
+<section id="ejemplo-completo">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">5.4 Ejemplo Completo</a><a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_028:
+  Definicion:      &quot;Solicitudes de compra que excedan $500 requieren
+                    aprobacion del gerente de departamento&quot;
+  Tipo:            Constraint
+  Modalidad:       Deontica (Obligation)
+  Fuente:          Politica Financiera Corporativa v2.3, Seccion 4.2
+  Justificacion:   Control de gastos y cumplimiento de auditoria interna
+  Fecha Vigencia:  2023-01-01
+  Prioridad:       Alta
+  Estatica/Dinamica: Dinamica (puede cambiar por decision del CFO)
+  Ejemplo:         Compra de reactivo por $750 requiere aprobacion
+                   del gerente de laboratorio antes de procesarse.
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tecnicas-de-elicitacion-de-br">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">6. Tecnicas de Elicitacion de BR</a><a class="headerlink" href="#tecnicas-de-elicitacion-de-br" title="Link to this heading">¶</a></h2>
+<section id="las-6-preguntas-estrategicas">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">6.1 Las 6 Preguntas Estrategicas</a><a class="headerlink" href="#las-6-preguntas-estrategicas" title="Link to this heading">¶</a></h3>
+<p>Para descubrir Business Rules de manera sistematica, usar estas preguntas:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pregunta</p></th>
+<th class="head"><p>Tipo de BR que Descubre</p></th>
+<th class="head"><p>Ejemplo de Respuesta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&quot;Quien puede hacer que?&quot;</p></td>
+<td><p>Restriccion (acceso)</p></td>
+<td><p>&quot;Solo gerentes pueden aprobar &gt;$500&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;Que debe pasar cuando…?&quot;</p></td>
+<td><p>Desencadenador</p></td>
+<td><p>&quot;Cuando vence, notificar por email&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>&quot;Como se calcula X?&quot;</p></td>
+<td><p>Calculo</p></td>
+<td><p>&quot;Precio = Base + IVA - Descuento&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;Quien puede Y?&quot;</p></td>
+<td><p>Restriccion (permiso)</p></td>
+<td><p>&quot;Solo admin puede eliminar usuarios&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>&quot;Que pasa cuando Z?&quot;</p></td>
+<td><p>Desencadenador o Inferencia</p></td>
+<td><p>&quot;Cuenta queda bloqueada&quot; (ver 6.2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;En que casos se considera…?&quot;</p></td>
+<td><p>Inferencia</p></td>
+<td><p>&quot;Si &gt;30 dias impago = Deudor&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="distinguir-desencadenador-de-inferencia">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">6.2 Distinguir Desencadenador de Inferencia</a><a class="headerlink" href="#distinguir-desencadenador-de-inferencia" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PREGUNTA CLAVE:
+&quot;Si esta regla se ejecuta, ¿el usuario puede OBSERVAR que algo ocurrio,
+ sin consultar la base de datos interna?&quot;
+
+- SI observa algo --&gt; DESENCADENADOR (genera UC)
+- NO observa nada --&gt; INFERENCIA (solo FR interno)
+
+EJEMPLO:
+
+Pregunta: &quot;Que pasa cuando un producto vence?&quot;
+
+Respuesta A: &quot;Se envia email al responsable&quot;
+  --&gt; DESENCADENADOR (el email es observable)
+  --&gt; Genera UC: &quot;Notificar Vencimiento&quot;
+
+Respuesta B: &quot;Se marca como &#39;Caduco&#39; en el sistema&quot;
+  --&gt; INFERENCIA (solo cambia un flag interno)
+  --&gt; NO genera UC, solo FR de logica interna
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="business-rules-en-el-contexto-iact">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">7. Business Rules en el Contexto IACT</a><a class="headerlink" href="#business-rules-en-el-contexto-iact" title="Link to this heading">¶</a></h2>
+<section id="nomenclatura">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.1 Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h3>
+<p>Las Business Rules en IACT siguen la convencion:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FORMATO: BR_NNN_Nombre_Descriptivo.rst
+
+Donde:
+- BR: Prefijo fijo (Business Rule)
+- NNN: Numero secuencial de 3 digitos
+- Nombre_Descriptivo: Descripcion corta con guiones bajos
+
+Ejemplos:
+- BR_001_Fuente_Operacional_Inmutable.rst
+- BR_002_ETL_Nocturno_Unidireccional.rst
+- BR_003_RBAC_Flat_Sin_Herencia.rst
+</pre></div>
+</div>
+</section>
+<section id="ubicacion-en-el-modelo-iact">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">7.2 Ubicacion en el Modelo IACT</a><a class="headerlink" href="#ubicacion-en-el-modelo-iact" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requisitos/
+    |
+    +--- reglas_negocio/
+             |
+             +--- index.rst
+             +--- BR_001_xxx.rst
+             +--- BR_002_xxx.rst
+             +--- ...
+</pre></div>
+</div>
+</section>
+<section id="relacion-con-otros-artefactos">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">7.3 Relacion con Otros Artefactos</a><a class="headerlink" href="#relacion-con-otros-artefactos" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR (Regla de Negocio)
+    |
+    +---&gt; UC (Caso de Uso)
+    |         Desencadenadores generan UC completos
+    |         Restricciones son precondiciones
+    |
+    +---&gt; FR (Requisito Funcional)
+    |         Cada tipo genera FR especificos
+    |
+    +---&gt; CNST (Restriccion Tecnica)
+              Algunas BR se convierten en restricciones de sistema
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ejemplos-en-iact">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">8. Ejemplos en IACT</a><a class="headerlink" href="#ejemplos-en-iact" title="Link to this heading">¶</a></h2>
+<section id="br-de-tipo-restriccion">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">8.1 BR de Tipo Restriccion</a><a class="headerlink" href="#br-de-tipo-restriccion" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_001: Fuente Operacional Inmutable
+
+Definicion:    &quot;La base de datos MySQL operacional es de SOLO LECTURA
+                para el sistema IACT. No se permite ninguna operacion
+                de escritura (INSERT, UPDATE, DELETE).&quot;
+Tipo:          Constraint
+Modalidad:     Deontica (Prohibition)
+Fuente:        Politica de TI - Separacion de Ambientes
+Justificacion: Proteger integridad de datos operacionales
+Estatica:      Si
+Fecha Efectiva: 2025-01-01
+</pre></div>
+</div>
+</section>
+<section id="br-de-tipo-desencadenador">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">8.2 BR de Tipo Desencadenador</a><a class="headerlink" href="#br-de-tipo-desencadenador" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_002: Sincronizacion ETL Nocturna
+
+Definicion:    &quot;SI es medianoche (00:00 hora local),
+                ENTONCES ejecutar proceso ETL de sincronizacion
+                desde MySQL hacia PostgreSQL.&quot;
+Tipo:          Trigger
+Modalidad:     Deontica (Obligation)
+Fuente:        Arquitectura de Sistema - Decision ADR_002
+Justificacion: Mantener datos analytics actualizados sin impactar operacion
+Estatica:      No (horario puede ajustarse)
+Fecha Efectiva: 2025-01-15
+</pre></div>
+</div>
+</section>
+<section id="br-de-tipo-inferencia">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">8.3 BR de Tipo Inferencia</a><a class="headerlink" href="#br-de-tipo-inferencia" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BR_003: Clasificacion de Usuario Inactivo
+
+Definicion:    &quot;SI un usuario no ha iniciado sesion en 90 dias,
+                ENTONCES el usuario se considera &#39;Inactivo&#39;.&quot;
+Tipo:          Inference
+Modalidad:     Aletica
+Fuente:        Politica de Seguridad - Gestion de Accesos
+Justificacion: Identificar cuentas para revision de seguridad
+Estatica:      No (dias pueden cambiar)
+Fecha Efectiva: 2025-01-01
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">9. Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<section id="documentos-relacionados">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Documentos Relacionados</a><a class="headerlink" href="#documentos-relacionados" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="FND_01_Concepto_Requisito.html#fnd-01"><span class="std std-ref">FND_01: Concepto de Requisito</span></a> - Concepto de Requisito</p></li>
+<li><p><a class="reference internal" href="FND_03_Casos_de_Uso.html#fnd-03"><span class="std std-ref">FND_03: Casos de Uso</span></a> - Casos de Uso</p></li>
+<li><p><a class="reference internal" href="FND_05_Jerarquia_4_Niveles.html#fnd-05"><span class="std std-ref">FND_05: Jerarquia de 4 Niveles</span></a> - Jerarquia de 4 Niveles</p></li>
+<li><p><a class="reference internal" href="FND_06_Derivacion_vs_Transformacion.html#fnd-06"><span class="std std-ref">FND_06: Derivacion vs Transformacion</span></a> - Derivacion vs Transformacion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_ontologia_sbvr/</span></code> - Ontologia SBVR completa</p></li>
+</ul>
+</section>
+<section id="fuentes-externas">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Fuentes Externas</a><a class="headerlink" href="#fuentes-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>OMG SBVR 1.5 Specification</p></li>
+<li><p>Paper IBM: &quot;SBVR Use Cases&quot; (Mark H. Linehan, 2008)</p></li>
+<li><p>Business Rules Group: Business Rules Manifesto</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.1.0</p></td>
+<td><p>2025-12-21</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Template BR ampliado: campos Fecha Vigencia, Prioridad, Estatica/Dinamica. Nueva seccion 6: Tecnicas de Elicitacion con 6 preguntas estrategicas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.0</p></td>
+<td><p>2025-12-19</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Version inicial aprobada</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Trazabilidad:</strong> Este artefacto define el concepto de BR que es el nivel
+mas alto de la jerarquia de requisitos. Referenciado por FND_03, FND_05,
+FND_06 y todos los artefactos en requisitos/reglas_negocio/.</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">FND_02: Reglas de Negocio</a><ul>
+<li><a class="reference internal" href="#proposito">Proposito</a></li>
+<li><a class="reference internal" href="#definicion-formal">1. Definicion Formal</a><ul>
+<li><a class="reference internal" href="#que-es-una-regla-de-negocio">1.1 Que es una Regla de Negocio</a></li>
+<li><a class="reference internal" href="#caracteristicas-distintivas">1.2 Caracteristicas Distintivas</a></li>
+<li><a class="reference internal" href="#diferencia-br-vs-requisito-funcional">1.3 Diferencia BR vs Requisito Funcional</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fuentes-de-business-rules">2. Fuentes de Business Rules</a><ul>
+<li><a class="reference internal" href="#fuentes-externas-obligatorias">2.1 Fuentes Externas (Obligatorias)</a></li>
+<li><a class="reference internal" href="#fuentes-internas-organizacionales">2.2 Fuentes Internas (Organizacionales)</a></li>
+<li><a class="reference internal" href="#relacion-con-el-sistema">2.3 Relacion con el Sistema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#taxonomia-de-business-rules">3. Taxonomia de Business Rules</a><ul>
+<li><a class="reference internal" href="#tipo-1-hechos-facts">3.1 Tipo 1: Hechos (Facts)</a></li>
+<li><a class="reference internal" href="#tipo-2-restricciones-constraints">3.2 Tipo 2: Restricciones (Constraints)</a></li>
+<li><a class="reference internal" href="#tipo-3-desencadenadores-triggers">3.3 Tipo 3: Desencadenadores (Triggers)</a></li>
+<li><a class="reference internal" href="#tipo-4-inferencias-inferences">3.4 Tipo 4: Inferencias (Inferences)</a></li>
+<li><a class="reference internal" href="#tipo-5-calculos-calculations">3.5 Tipo 5: Calculos (Calculations)</a></li>
+<li><a class="reference internal" href="#resumen-de-tipos">3.6 Resumen de Tipos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modalidades-sbvr">4. Modalidades SBVR</a><ul>
+<li><a class="reference internal" href="#que-es-sbvr">4.1 Que es SBVR</a></li>
+<li><a class="reference internal" href="#modalidad-aletica-estructural">4.2 Modalidad Aletica (Estructural)</a></li>
+<li><a class="reference internal" href="#modalidad-deontica-comportamental">4.3 Modalidad Deontica (Comportamental)</a></li>
+<li><a class="reference internal" href="#comparacion-de-modalidades">4.4 Comparacion de Modalidades</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-de-business-rule">5. Template de Business Rule</a><ul>
+<li><a class="reference internal" href="#formato-estandar-iact">5.1 Formato Estandar IACT</a></li>
+<li><a class="reference internal" href="#descripcion-de-campos">5.2 Descripcion de Campos</a></li>
+<li><a class="reference internal" href="#concepto-estatica-vs-dinamica">5.3 Concepto: Estatica vs Dinamica</a></li>
+<li><a class="reference internal" href="#ejemplo-completo">5.4 Ejemplo Completo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tecnicas-de-elicitacion-de-br">6. Tecnicas de Elicitacion de BR</a><ul>
+<li><a class="reference internal" href="#las-6-preguntas-estrategicas">6.1 Las 6 Preguntas Estrategicas</a></li>
+<li><a class="reference internal" href="#distinguir-desencadenador-de-inferencia">6.2 Distinguir Desencadenador de Inferencia</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#business-rules-en-el-contexto-iact">7. Business Rules en el Contexto IACT</a><ul>
+<li><a class="reference internal" href="#nomenclatura">7.1 Nomenclatura</a></li>
+<li><a class="reference internal" href="#ubicacion-en-el-modelo-iact">7.2 Ubicacion en el Modelo IACT</a></li>
+<li><a class="reference internal" href="#relacion-con-otros-artefactos">7.3 Relacion con Otros Artefactos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplos-en-iact">8. Ejemplos en IACT</a><ul>
+<li><a class="reference internal" href="#br-de-tipo-restriccion">8.1 BR de Tipo Restriccion</a></li>
+<li><a class="reference internal" href="#br-de-tipo-desencadenador">8.2 BR de Tipo Desencadenador</a></li>
+<li><a class="reference internal" href="#br-de-tipo-inferencia">8.3 BR de Tipo Inferencia</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">9. Referencias</a><ul>
+<li><a class="reference internal" href="#documentos-relacionados">Documentos Relacionados</a></li>
+<li><a class="reference internal" href="#fuentes-externas">Fuentes Externas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

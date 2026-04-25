@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 3.0
-updated_at: 2026-04-25 11:52:00
+updated_at: 2026-04-25 11:45:00
 cold_boot: false
 last_session: 2026-04-23 22:00:00
 current_epic: 2
@@ -105,19 +105,3 @@ Work Package: `.thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integratio
 **Proyección:** 1-2 semanas (scope claro, ejecución directa)
 
 **Gate:** Phase 1 Setup success = make html generates 100+ diagrams con estilos corporativos
-
----
-
-## Post-Implementation Cleanup (2026-04-25 11:50:00)
-
-**Build Visibility & Artifact Management:**
-- ❌ Removed: `source/_build/html/` (36M, 685 files) — redundant build artifact
-- ❌ Removed: `source/Makefile` — Sphinx wrapper, unnecessary (Makefile in root is source of truth)
-- ✅ Updated `.gitignore`: added `source/_build/` to prevent future tracking
-- ✅ Commits: 2 cleanup commits (f3afd5e, 34a4292)
-
-**Build Strategy (now clean):**
-- Execute: `make html` from project root
-- Output: `build/html/` (single source of truth)
-- NOT: `source/_build/html/` (eliminated)
-- Branch validation: `feature/project-setup` (verified correct, not claude/review-project-config-V8Fg5)

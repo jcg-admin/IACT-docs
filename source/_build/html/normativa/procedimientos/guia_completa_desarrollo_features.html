@@ -1,0 +1,2548 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Guía Completa: Desarrollo de Features en IACT - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="guia-completa-desarrollo-de-features-en-iact">
+<h1>Guía Completa: Desarrollo de Features en IACT<a class="headerlink" href="#guia-completa-desarrollo-de-features-en-iact" title="Link to this heading">¶</a></h1>
+<section id="proposito">
+<h2>Propósito<a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Guía práctica paso a paso para crear nuevas funcionalidades en el
+proyecto IACT, desde la planificación hasta el merge, incluyendo
+ejemplos concretos y mejores prácticas.</p>
+</section>
+<section id="alcance">
+<h2>Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<p>Esta guía aplica a todos los desarrolladores que necesiten implementar
+nuevas features, refactorizar código existente, o realizar cambios
+significativos en el proyecto.</p>
+</section>
+<section id="vista-rapida-del-flujo">
+<h2>Vista Rápida del Flujo<a class="headerlink" href="#vista-rapida-del-flujo" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Setup Entorno     → Clonar + Vagrant + venv
+2. Planificación     → Spec + Plan + Issue en GitHub
+3. Feature Branch    → git checkout -b feature/nombre-fecha
+4. Desarrollo TDD    → Tests → Código → Validación
+5. Commits           → Conventional Commits + pre-commit hooks
+6. Pre-PR Checks     → Formateo + Linting + Coverage ≥80%
+7. Pull Request      → Template completo + CI/CD automático
+8. Code Review       → Mínimo 1 aprobación + CI pasa
+9. Merge             → Squash and merge + delete branch
+10. Post-Merge       → Issue cierra + docs regeneran
+</pre></div>
+</div>
+<p><strong>Nota</strong>: Para features complejas, el paso 2 incluye crear
+especificación formal (spec) usando
+<code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_spec.md</span></code> y plan de
+implementación usando <code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_plan.md</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="paso-0-pre-requisitos">
+<h2>Paso 0: Pre-requisitos<a class="headerlink" href="#paso-0-pre-requisitos" title="Link to this heading">¶</a></h2>
+<section id="software-requerido">
+<h3>Software Requerido<a class="headerlink" href="#software-requerido" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Python 3.11+</p></li>
+<li><p>☐ Vagrant + VirtualBox 7+</p></li>
+<li><p>☐ Git configurado</p></li>
+<li><p>☐ gh CLI (GitHub CLI) - opcional pero recomendado</p></li>
+<li><p>☐ VS Code o IDE similar</p></li>
+<li><p>☐ Acceso al repositorio GitHub</p></li>
+</ul>
+</section>
+<section id="verificar-instalacion">
+<h3>Verificar Instalación<a class="headerlink" href="#verificar-instalacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar versiones</span>
+python<span class="w"> </span>--version<span class="w">      </span><span class="c1"># &gt;= 3.11</span>
+vagrant<span class="w"> </span>--version<span class="w">     </span><span class="c1"># &gt;= 2.x</span>
+git<span class="w"> </span>--version<span class="w">         </span><span class="c1"># &gt;= 2.x</span>
+gh<span class="w"> </span>--version<span class="w">          </span><span class="c1"># &gt;= 2.x (opcional)</span>
+
+<span class="c1"># Verificar acceso al repo</span>
+gh<span class="w"> </span>repo<span class="w"> </span>view<span class="w"> </span><span class="m">2</span>-Coatl/IACT---project
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-1-setup-inicial-del-entorno">
+<h2>Paso 1: Setup Inicial del Entorno<a class="headerlink" href="#paso-1-setup-inicial-del-entorno" title="Link to this heading">¶</a></h2>
+<section id="clonar-repositorio-primera-vez">
+<h3>1.1 Clonar Repositorio (Primera Vez)<a class="headerlink" href="#clonar-repositorio-primera-vez" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clonar el repositorio</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/2-Coatl/IACT---project.git
+<span class="nb">cd</span><span class="w"> </span>IACT---project
+
+<span class="c1"># Verificar estructura</span>
+ls<span class="w"> </span>-la
+</pre></div>
+</div>
+</section>
+<section id="levantar-infraestructura-de-bases-de-datos">
+<h3>1.2 Levantar Infraestructura de Bases de Datos<a class="headerlink" href="#levantar-infraestructura-de-bases-de-datos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción A: Usando Makefile (recomendado)</span>
+make<span class="w"> </span>vagrant-up
+
+<span class="c1"># Opción B: Directamente con Vagrant</span>
+vagrant<span class="w"> </span>up
+
+<span class="c1"># Esperar a que termine el provisioning (3-5 minutos)</span>
+<span class="c1"># El Vagrantfile provisiona:</span>
+<span class="c1"># - PostgreSQL 16 en puerto 127.0.0.1:15432</span>
+<span class="c1"># - MariaDB en puerto 127.0.0.1:13306</span>
+<span class="c1"># - Usuario: django_user</span>
+<span class="c1"># - Password: django_pass</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar-servicios">
+<h3>1.3 Verificar Servicios<a class="headerlink" href="#verificar-servicios" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que las BD estén corriendo</span>
+make<span class="w"> </span>check-services
+
+<span class="c1"># O manualmente</span>
+./scripts/verificar_servicios.sh
+
+<span class="c1"># Output esperado:</span>
+<span class="c1"># PostgreSQL: Conectado correctamente</span>
+<span class="c1"># MariaDB: Conectado correctamente</span>
+</pre></div>
+</div>
+</section>
+<section id="configurar-entorno-virtual-python">
+<h3>1.4 Configurar Entorno Virtual Python<a class="headerlink" href="#configurar-entorno-virtual-python" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear entorno virtual</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+
+<span class="c1"># Activar entorno virtual</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># Linux/Mac</span>
+<span class="c1"># o</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">     </span><span class="c1"># Windows</span>
+
+<span class="c1"># Actualizar pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+
+<span class="c1"># Instalar dependencias de desarrollo</span>
+<span class="nb">cd</span><span class="w"> </span>api
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/base.txt
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/dev.txt
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/test.txt
+
+<span class="c1"># Volver a raíz</span>
+<span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
+</div>
+</section>
+<section id="configurar-variables-de-entorno">
+<h3>1.5 Configurar Variables de Entorno<a class="headerlink" href="#configurar-variables-de-entorno" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear archivo .env en la raíz del proyecto</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>.env<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s"># Django</span>
+<span class="s">SECRET_KEY=tu-secret-key-desarrollo</span>
+<span class="s">DEBUG=True</span>
+<span class="s">ALLOWED_HOSTS=localhost,127.0.0.1</span>
+
+<span class="s"># PostgreSQL (Analítica)</span>
+<span class="s">DB_HOST=127.0.0.1</span>
+<span class="s">DB_PORT=15432</span>
+<span class="s">DB_NAME=iact_analytics</span>
+<span class="s">DB_USER=django_user</span>
+<span class="s">DB_PASSWORD=django_pass</span>
+
+<span class="s"># MariaDB (IVR Legacy)</span>
+<span class="s">IVR_DB_HOST=127.0.0.1</span>
+<span class="s">IVR_DB_PORT=13306</span>
+<span class="s">IVR_DB_NAME=ivr_legacy</span>
+<span class="s">IVR_DB_USER=django_user</span>
+<span class="s">IVR_DB_PASSWORD=django_pass</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+<section id="aplicar-migraciones">
+<h3>1.6 Aplicar Migraciones<a class="headerlink" href="#aplicar-migraciones" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>api/callcentersite
+
+<span class="c1"># Ejecutar migraciones</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+
+<span class="c1"># Opcional: Cargar datos de prueba</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>loaddata<span class="w"> </span>fixtures/initial_data.json
+
+<span class="c1"># Opcional: Crear superusuario</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</pre></div>
+</div>
+</section>
+<section id="verificar-instalacion-1">
+<span id="id1"></span><h3>1.7 Verificar Instalación<a class="headerlink" href="#verificar-instalacion-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar servidor de desarrollo</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+
+<span class="c1"># Abrir en navegador: http://localhost:8000</span>
+<span class="c1"># Deberías ver la página de bienvenida</span>
+
+<span class="c1"># Ctrl+C para detener</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-2-planificacion-de-la-feature">
+<h2>Paso 2: Planificación de la Feature<a class="headerlink" href="#paso-2-planificacion-de-la-feature" title="Link to this heading">¶</a></h2>
+<section id="identificar-necesidad">
+<h3>2.1 Identificar Necesidad<a class="headerlink" href="#identificar-necesidad" title="Link to this heading">¶</a></h3>
+<p>Antes de crear una feature, define claramente:</p>
+<ul class="simple">
+<li><p>☐ ¿Qué problema resuelve?</p></li>
+<li><p>☐ ¿Cuáles son los criterios de aceptación?</p></li>
+<li><p>☐ ¿Requiere cambios en BD, API, o ambos?</p></li>
+<li><p>☐ ¿Hay dependencias con otros issues?</p></li>
+<li><p>☐ ¿Es una feature completa o un spike de investigación?</p></li>
+</ul>
+</section>
+<section id="crear-especificacion-de-feature-spec">
+<h3>2.1.1 Crear Especificación de Feature (Spec)<a class="headerlink" href="#crear-especificacion-de-feature-spec" title="Link to this heading">¶</a></h3>
+<p>Para features complejas o significativas, crear una especificación
+formal usando la plantilla:</p>
+<p><strong>Plantilla</strong>: <code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_spec.md</span></code></p>
+<p><strong>Cuándo crear una spec</strong>: - Features que afectan múltiples componentes
+- Cambios en modelos de datos o arquitectura - Features con requisitos
+de negocio complejos - Cuando se necesite aprobación de stakeholders
+antes de implementar</p>
+<p><strong>Pasos</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Copiar plantilla</span>
+cp<span class="w"> </span>docs/plantillas/desarrollo/plantilla_spec.md<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>docs/specs/nombre-feature.md
+
+<span class="c1"># 2. Completar todas las secciones requeridas</span>
+<span class="c1"># Editar docs/specs/nombre-feature.md con tu editor</span>
+
+<span class="c1"># 3. Commit de spec</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/specs/nombre-feature.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: agregar especificación de nombre-feature&quot;</span>
+</pre></div>
+</div>
+<p><strong>Secciones clave a completar</strong>: - Metadata y trazabilidad (requisitos,
+issues, ADRs) - Requisitos funcionales y criterios de aceptación -
+Requisitos no funcionales (performance, seguridad) - Diseño de solución
+(arquitectura, modelos, APIs) - Plan de testing y despliegue - Riesgos e
+impacto</p>
+<p><strong>Referencia</strong>: Ver <code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_spec.md</span></code>
+para estructura completa.</p>
+</section>
+<section id="crear-plan-de-implementacion-plan">
+<h3>2.1.2 Crear Plan de Implementación (Plan)<a class="headerlink" href="#crear-plan-de-implementacion-plan" title="Link to this heading">¶</a></h3>
+<p>Una vez aprobada la spec, crear un plan detallado de implementación:</p>
+<p><strong>Plantilla</strong>: <code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_plan.md</span></code></p>
+<p><strong>Cuándo crear un plan</strong>: - Siempre que exista una spec - Features que
+tomen más de 2 días de desarrollo - Cuando múltiples desarrolladores
+trabajen en paralelo - Features que requieran coordinación con otros
+equipos</p>
+<p><strong>Pasos</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Copiar plantilla</span>
+cp<span class="w"> </span>docs/plantillas/desarrollo/plantilla_plan.md<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>docs/plans/nombre-feature.md
+
+<span class="c1"># 2. Completar plan de tareas</span>
+<span class="c1"># Editar docs/plans/nombre-feature.md con tu editor</span>
+
+<span class="c1"># 3. Commit de plan</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/plans/nombre-feature.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: agregar plan de implementación de nombre-feature&quot;</span>
+</pre></div>
+</div>
+<p><strong>Secciones clave a completar</strong>: - Pre-requisitos (conocimientos, setup,
+documentación) - Arquitectura de la solución - Plan de tareas detallado
+por fases - Estimaciones de tiempo por tarea - Plan de testing y deploy
+- Riesgos y mitigaciones - Checklist final de completitud</p>
+<p><strong>Referencia</strong>: Ver <code class="docutils literal notranslate"><span class="pre">docs/plantillas/desarrollo/plantilla_plan.md</span></code>
+para estructura completa.</p>
+<p><strong>Nota</strong>: El plan es un documento vivo. Actualízalo a medida que avanzas
+en la implementación, documentando cambios y lecciones aprendidas.</p>
+</section>
+<section id="crear-issue-en-github">
+<h3>2.2 Crear Issue en GitHub<a class="headerlink" href="#crear-issue-en-github" title="Link to this heading">¶</a></h3>
+<section id="opcion-a-usando-gh-cli-recomendado">
+<h4>Opción A: Usando gh CLI (Recomendado)<a class="headerlink" href="#opcion-a-usando-gh-cli-recomendado" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gh<span class="w"> </span>issue<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;feat: Agregar autenticación JWT&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--body<span class="w"> </span><span class="s2">&quot;## Descripción</span>
+<span class="s2">Implementar autenticación con JSON Web Tokens para asegurar los endpoints de la API.</span>
+
+<span class="s2">## Motivación</span>
+<span class="s2">Actualmente la API no tiene autenticación, lo cual es un riesgo de seguridad.</span>
+
+<span class="s2">## Criterios de Aceptación</span>
+<span class="s2">- [ ] Endpoint POST /api/auth/login que retorna access_token y refresh_token</span>
+<span class="s2">- [ ] Endpoint POST /api/auth/refresh para renovar tokens</span>
+<span class="s2">- [ ] Middleware de autenticación que valida JWT en requests</span>
+<span class="s2">- [ ] Tests unitarios para serializers y views</span>
+<span class="s2">- [ ] Tests de integración end-to-end</span>
+<span class="s2">- [ ] Documentación de uso en README</span>
+<span class="s2">- [ ] Manejo de errores (401, 403, etc.)</span>
+
+<span class="s2">## Requisitos Técnicos</span>
+<span class="s2">- Usar PyJWT library</span>
+<span class="s2">- Tokens expiran en 24 horas (configurable)</span>
+<span class="s2">- Refresh tokens expiran en 7 días</span>
+<span class="s2">- Incluir user_id y permissions en payload</span>
+
+<span class="s2">## Tareas</span>
+<span class="s2">- [ ] Implementar serializer de credenciales</span>
+<span class="s2">- [ ] Crear vista de login</span>
+<span class="s2">- [ ] Crear vista de refresh</span>
+<span class="s2">- [ ] Agregar middleware JWT</span>
+<span class="s2">- [ ] Escribir tests unitarios</span>
+<span class="s2">- [ ] Escribir tests de integración</span>
+<span class="s2">- [ ] Actualizar documentación</span>
+
+<span class="s2">## Prioridad</span>
+<span class="s2">Alta - Bloqueante para MVP</span>
+
+<span class="s2">## Estimación</span>
+<span class="s2">3-5 días</span>
+
+<span class="s2">## Referencias</span>
+<span class="s2">- Django REST Framework JWT docs</span>
+<span class="s2">- RFC 7519 (JWT)&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--label<span class="w"> </span><span class="s2">&quot;enhancement,backend,priority-high&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee<span class="w"> </span>@me
+</pre></div>
+</div>
+</section>
+<section id="opcion-b-crear-en-github-ui">
+<h4>Opción B: Crear en GitHub UI<a class="headerlink" href="#opcion-b-crear-en-github-ui" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Ir a: <a class="reference external" href="https://github.com/2-Coatl/IACT">https://github.com/2-Coatl/IACT</a>—project/issues/new</p></li>
+<li><p>Completar:</p>
+<ul class="simple">
+<li><p><strong>Título</strong>: <code class="docutils literal notranslate"><span class="pre">feat:</span> <span class="pre">Agregar</span> <span class="pre">autenticación</span> <span class="pre">JWT</span></code></p></li>
+<li><p><strong>Descripción</strong>: Usar template anterior</p></li>
+<li><p><strong>Labels</strong>: <code class="docutils literal notranslate"><span class="pre">enhancement</span></code>, <code class="docutils literal notranslate"><span class="pre">backend</span></code>, <code class="docutils literal notranslate"><span class="pre">priority-high</span></code></p></li>
+<li><p><strong>Assignees</strong>: Tu usuario</p></li>
+<li><p><strong>Projects</strong>: Agregar al proyecto actual si existe</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="verificar-no-hay-duplicados">
+<h3>2.3 Verificar No Hay Duplicados<a class="headerlink" href="#verificar-no-hay-duplicados" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buscar issues similares</span>
+gh<span class="w"> </span>issue<span class="w"> </span>list<span class="w"> </span>--search<span class="w"> </span><span class="s2">&quot;autenticación OR JWT OR auth&quot;</span>
+
+<span class="c1"># Revisar issues abiertos</span>
+gh<span class="w"> </span>issue<span class="w"> </span>list<span class="w"> </span>--state<span class="w"> </span>open<span class="w"> </span>--label<span class="w"> </span>backend
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-3-crear-feature-branch">
+<h2>Paso 3: Crear Feature Branch<a class="headerlink" href="#paso-3-crear-feature-branch" title="Link to this heading">¶</a></h2>
+<section id="actualizar-main">
+<h3>3.1 Actualizar Main<a class="headerlink" href="#actualizar-main" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambiar a main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># Traer últimos cambios</span>
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Verificar que estás actualizado</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-5
+</pre></div>
+</div>
+</section>
+<section id="crear-branch-con-nomenclatura-estandar">
+<h3>3.2 Crear Branch con Nomenclatura Estándar<a class="headerlink" href="#crear-branch-con-nomenclatura-estandar" title="Link to this heading">¶</a></h3>
+<p><strong>Formato</strong>: <code class="docutils literal notranslate"><span class="pre">{tipo}/{descripcion-corta}-{fecha}</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Para nueva funcionalidad</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/autenticacion-jwt-20251106
+
+<span class="c1"># Para corrección de bug</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/validacion-login-20251106
+
+<span class="c1"># Para refactorización</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>refactor/simplificar-auth-20251106
+
+<span class="c1"># Para documentación</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>docs/actualizar-readme-auth-20251106
+
+<span class="c1"># Para hotfix crítico</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/corregir-login-roto-20251106
+</pre></div>
+</div>
+</section>
+<section id="nomenclatura-para-branches-de-agentes-ai">
+<h3>3.3 Nomenclatura para Branches de Agentes AI<a class="headerlink" href="#nomenclatura-para-branches-de-agentes-ai" title="Link to this heading">¶</a></h3>
+<p>Si estás trabajando con agentes AI de Claude Code, usa prefijo
+<code class="docutils literal notranslate"><span class="pre">claude/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo con session ID</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>claude/implement-jwt-auth-011CUr35zai2SsJs6DyPKRR8
+
+<span class="c1"># IMPORTANTE: Branches claude/* deben terminar con session ID para push</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar-branch-actual">
+<h3>3.4 Verificar Branch Actual<a class="headerlink" href="#verificar-branch-actual" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver branch actual</span>
+git<span class="w"> </span>branch
+
+<span class="c1"># Ver todas las branches (local y remote)</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a
+
+<span class="c1"># Ver último commit</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-1
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-4-desarrollo-de-la-feature-tdd">
+<h2>Paso 4: Desarrollo de la Feature (TDD)<a class="headerlink" href="#paso-4-desarrollo-de-la-feature-tdd" title="Link to this heading">¶</a></h2>
+<section id="filosofia-test-driven-development">
+<h3>4.1 Filosofía: Test-Driven Development<a class="headerlink" href="#filosofia-test-driven-development" title="Link to this heading">¶</a></h3>
+<p><strong>Ciclo TDD:</strong> 1. <strong>Red</strong>: Escribir test que falla 2. <strong>Green</strong>:
+Escribir código mínimo para que pase 3. <strong>Refactor</strong>: Mejorar código
+manteniendo tests verdes</p>
+</section>
+<section id="crear-archivo-de-tests-primero">
+<h3>4.2 Crear Archivo de Tests Primero<a class="headerlink" href="#crear-archivo-de-tests-primero" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>api/callcentersite
+mkdir<span class="w"> </span>-p<span class="w"> </span>tests/authentication
+touch<span class="w"> </span>tests/authentication/test_jwt_authentication.py
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests/authentication/test_jwt_authentication.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Tests para autenticación JWT.</span>
+
+<span class="sd">RF-AUTH-001: El sistema debe permitir login con username/password</span>
+<span class="sd">RF-AUTH-002: El sistema debe retornar access_token y refresh_token</span>
+<span class="sd">RF-AUTH-003: El sistema debe validar tokens en requests protegidos</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework.test</span><span class="w"> </span><span class="kn">import</span> <span class="n">APIClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestJWTLogin</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests para endpoint de login.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup ejecutado antes de cada test.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="s1">&#39;/api/auth/login&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+            <span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="n">email</span><span class="o">=</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_login_success_returns_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que login exitoso retorna access_token y refresh_token.</span>
+
+<span class="sd">        Given: Usuario válido en BD</span>
+<span class="sd">        When: POST a /api/auth/login con credenciales correctas</span>
+<span class="sd">        Then: Retorna 200 con access_token y refresh_token</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+        <span class="k">assert</span> <span class="s1">&#39;access_token&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">assert</span> <span class="s1">&#39;refresh_token&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_login_invalid_credentials_returns_401</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que login con credenciales inválidas retorna 401.</span>
+
+<span class="sd">        Given: Usuario con password incorrecta</span>
+<span class="sd">        When: POST a /api/auth/login con credenciales incorrectas</span>
+<span class="sd">        Then: Retorna 401 Unauthorized</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;wrongpassword&#39;</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+        <span class="k">assert</span> <span class="s1">&#39;access_token&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_login_missing_fields_returns_400</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que login sin campos requeridos retorna 400.</span>
+
+<span class="sd">        Given: Request sin username o password</span>
+<span class="sd">        When: POST a /api/auth/login sin campos requeridos</span>
+<span class="sd">        Then: Retorna 400 Bad Request</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span>
+            <span class="c1"># password falta</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_login_inactive_user_returns_401</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que usuario inactivo no puede hacer login.</span>
+
+<span class="sd">        Given: Usuario marcado como inactivo</span>
+<span class="sd">        When: POST a /api/auth/login con credenciales correctas</span>
+<span class="sd">        Then: Retorna 401 Unauthorized</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestJWTRefresh</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests para endpoint de refresh token.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup ejecutado antes de cada test.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh_url</span> <span class="o">=</span> <span class="s1">&#39;/api/auth/refresh&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="s1">&#39;/api/auth/login&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+            <span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_refresh_token_success</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que refresh token válido retorna nuevo access_token.</span>
+
+<span class="sd">        Given: Refresh token válido obtenido de login</span>
+<span class="sd">        When: POST a /api/auth/refresh con refresh_token</span>
+<span class="sd">        Then: Retorna 200 con nuevo access_token</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Primero hacer login para obtener tokens</span>
+        <span class="n">login_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">})</span>
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">login_response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Intentar refresh</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;refresh_token&#39;</span><span class="p">:</span> <span class="n">refresh_token</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+        <span class="k">assert</span> <span class="s1">&#39;access_token&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_refresh_invalid_token_returns_401</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que refresh token inválido retorna 401.</span>
+
+<span class="sd">        Given: Token inválido o malformado</span>
+<span class="sd">        When: POST a /api/auth/refresh con token inválido</span>
+<span class="sd">        Then: Retorna 401 Unauthorized</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;refresh_token&#39;</span><span class="p">:</span> <span class="s1">&#39;invalid-token-123&#39;</span>
+        <span class="p">})</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestJWTMiddleware</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tests para middleware de autenticación JWT.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup ejecutado antes de cada test.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protected_url</span> <span class="o">=</span> <span class="s1">&#39;/api/protected-endpoint&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="s1">&#39;/api/auth/login&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span>
+            <span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_protected_endpoint_without_token_returns_401</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que endpoint protegido sin token retorna 401.</span>
+
+<span class="sd">        Given: Request sin header Authorization</span>
+<span class="sd">        When: GET a endpoint protegido</span>
+<span class="sd">        Then: Retorna 401 Unauthorized</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protected_url</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_protected_endpoint_with_valid_token_returns_200</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que endpoint protegido con token válido permite acceso.</span>
+
+<span class="sd">        Given: Request con access_token válido en header</span>
+<span class="sd">        When: GET a endpoint protegido</span>
+<span class="sd">        Then: Retorna 200 OK</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Login para obtener token</span>
+        <span class="n">login_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;testpass123&#39;</span>
+        <span class="p">})</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">login_response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Request con token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">credentials</span><span class="p">(</span><span class="n">HTTP_AUTHORIZATION</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protected_url</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_protected_endpoint_with_expired_token_returns_401</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test que endpoint protegido con token expirado retorna 401.</span>
+
+<span class="sd">        Given: Token JWT expirado</span>
+<span class="sd">        When: GET a endpoint protegido con token expirado</span>
+<span class="sd">        Then: Retorna 401 Unauthorized con mensaje de expiración</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Este test requiere crear un token expirado manualmente</span>
+        <span class="c1"># o mockear la fecha actual</span>
+        <span class="k">pass</span>  <span class="c1"># Implementar según necesidad</span>
+</pre></div>
+</div>
+</section>
+<section id="ejecutar-tests-deberian-fallar-red">
+<h3>4.3 Ejecutar Tests (Deberían Fallar - RED)<a class="headerlink" href="#ejecutar-tests-deberian-fallar-red" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar tests del archivo</span>
+pytest<span class="w"> </span>tests/authentication/test_jwt_authentication.py<span class="w"> </span>-v
+
+<span class="c1"># Output esperado: FAILED (no existe implementación aún)</span>
+</pre></div>
+</div>
+</section>
+<section id="implementar-codigo-minimo-green">
+<h3>4.4 Implementar Código Mínimo (GREEN)<a class="headerlink" href="#implementar-codigo-minimo-green" title="Link to this heading">¶</a></h3>
+<section id="crear-serializers">
+<h4>4.4.1 Crear Serializers<a class="headerlink" href="#crear-serializers" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear app de autenticación si no existe</span>
+<span class="nb">cd</span><span class="w"> </span>api/callcentersite
+python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>authentication
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># authentication/serializers.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Serializers para autenticación JWT.</span>
+
+<span class="sd">RF-AUTH-001: Validación de credenciales</span>
+<span class="sd">RF-AUTH-002: Generación de tokens</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">authenticate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LoginSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serializer para login con username/password.&quot;&quot;&quot;</span>
+
+    <span class="n">username</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">write_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validar credenciales y retornar usuario.&quot;&quot;&quot;</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                <span class="s1">&#39;Debe proporcionar username y password&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                <span class="s1">&#39;Credenciales inválidas&#39;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                <span class="s1">&#39;Usuario inactivo&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="k">return</span> <span class="n">attrs</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TokenSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serializer para generar tokens JWT.&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_tokens</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generar access_token y refresh_token para usuario.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            user: Usuario Django</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: {&#39;access_token&#39;: str, &#39;refresh_token&#39;: str}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">access_payload</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">),</span>
+            <span class="s1">&#39;iat&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;access&#39;</span>
+        <span class="p">}</span>
+
+        <span class="n">refresh_payload</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
+            <span class="s1">&#39;iat&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;refresh&#39;</span>
+        <span class="p">}</span>
+
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">access_payload</span><span class="p">,</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">,</span>
+            <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span>
+        <span class="p">)</span>
+
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">refresh_payload</span><span class="p">,</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">,</span>
+            <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span>
+            <span class="s1">&#39;refresh_token&#39;</span><span class="p">:</span> <span class="n">refresh_token</span>
+        <span class="p">}</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RefreshTokenSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serializer para refresh token.&quot;&quot;&quot;</span>
+
+    <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validar que refresh token sea válido.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                <span class="n">value</span><span class="p">,</span>
+                <span class="n">settings</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">,</span>
+                <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;refresh&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Token inválido&#39;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">ExpiredSignatureError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Token expirado&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">InvalidTokenError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Token inválido&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="crear-views">
+<h4>4.4.2 Crear Views<a class="headerlink" href="#crear-views" title="Link to this heading">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># authentication/views.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Views para autenticación JWT.</span>
+
+<span class="sd">RF-AUTH-001: Endpoint de login</span>
+<span class="sd">RF-AUTH-002: Endpoint de refresh</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">APIView</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rest_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.serializers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LoginSerializer</span><span class="p">,</span>
+    <span class="n">TokenSerializer</span><span class="p">,</span>
+    <span class="n">RefreshTokenSerializer</span>
+<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LoginView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para login con username/password.</span>
+
+<span class="sd">    POST /api/auth/login</span>
+<span class="sd">    Body: {&quot;username&quot;: &quot;user&quot;, &quot;password&quot;: &quot;pass&quot;}</span>
+<span class="sd">    Returns: {&quot;access_token&quot;: &quot;...&quot;, &quot;refresh_token&quot;: &quot;...&quot;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Procesar login y retornar tokens.&quot;&quot;&quot;</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">LoginSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span>
+            <span class="p">)</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">TokenSerializer</span><span class="o">.</span><span class="n">generate_tokens</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RefreshTokenView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para renovar access token usando refresh token.</span>
+
+<span class="sd">    POST /api/auth/refresh</span>
+<span class="sd">    Body: {&quot;refresh_token&quot;: &quot;...&quot;}</span>
+<span class="sd">    Returns: {&quot;access_token&quot;: &quot;...&quot;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Procesar refresh token y retornar nuevo access token.&quot;&quot;&quot;</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">RefreshTokenSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span>
+            <span class="p">)</span>
+
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span><span class="p">[</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                <span class="n">refresh_token</span><span class="p">,</span>
+                <span class="n">settings</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">,</span>
+                <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">payload</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">])</span>
+
+            <span class="c1"># Generar solo nuevo access token</span>
+            <span class="n">access_payload</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+                <span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">),</span>
+                <span class="s1">&#39;iat&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;access&#39;</span>
+            <span class="p">}</span>
+
+            <span class="n">access_token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">access_payload</span><span class="p">,</span>
+                <span class="n">settings</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">,</span>
+                <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">},</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+            <span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Usuario no encontrado&#39;</span><span class="p">},</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)},</span>
+                <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="configurar-urls">
+<h4>4.4.3 Configurar URLs<a class="headerlink" href="#configurar-urls" title="Link to this heading">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># authentication/urls.py</span>
+<span class="sd">&quot;&quot;&quot;URLs para autenticación JWT.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoginView</span><span class="p">,</span> <span class="n">RefreshTokenView</span>
+
+<span class="n">app_name</span> <span class="o">=</span> <span class="s1">&#39;authentication&#39;</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">LoginView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;login&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;refresh&#39;</span><span class="p">,</span> <span class="n">RefreshTokenView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;refresh&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># callcentersite/urls.py (agregar al principal)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ... otras URLs</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/auth/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;authentication.urls&#39;</span><span class="p">)),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejecutar-tests-nuevamente-deberian-pasar-green">
+<h3>4.5 Ejecutar Tests Nuevamente (Deberían Pasar - GREEN)<a class="headerlink" href="#ejecutar-tests-nuevamente-deberian-pasar-green" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar tests con cobertura</span>
+pytest<span class="w"> </span>tests/authentication/test_jwt_authentication.py<span class="w"> </span>-v<span class="w"> </span>--cov<span class="o">=</span>authentication
+
+<span class="c1"># Output esperado: PASSED</span>
+</pre></div>
+</div>
+</section>
+<section id="refactorizar-refactor">
+<h3>4.6 Refactorizar (REFACTOR)<a class="headerlink" href="#refactorizar-refactor" title="Link to this heading">¶</a></h3>
+<p>Revisar el código para: - [ ] Eliminar código duplicado - [ ] Mejorar
+nombres de variables/funciones - [ ] Agregar docstrings completos - [ ]
+Simplificar lógica compleja - [ ] Extraer constantes mágicas a settings</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># authentication/settings.py (nueva configuración)</span>
+<span class="sd">&quot;&quot;&quot;Configuración para módulo de autenticación.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+
+<span class="c1"># JWT Settings</span>
+<span class="n">JWT_ACCESS_TOKEN_LIFETIME</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+    <span class="n">settings</span><span class="p">,</span>
+    <span class="s1">&#39;JWT_ACCESS_TOKEN_LIFETIME&#39;</span><span class="p">,</span>
+    <span class="mi">24</span>  <span class="c1"># horas</span>
+<span class="p">)</span>
+
+<span class="n">JWT_REFRESH_TOKEN_LIFETIME</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+    <span class="n">settings</span><span class="p">,</span>
+    <span class="s1">&#39;JWT_REFRESH_TOKEN_LIFETIME&#39;</span><span class="p">,</span>
+    <span class="mi">7</span>  <span class="c1"># días</span>
+<span class="p">)</span>
+
+<span class="n">JWT_ALGORITHM</span> <span class="o">=</span> <span class="s1">&#39;HS256&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="ejecutar-suite-completa-de-tests">
+<h3>4.7 Ejecutar Suite Completa de Tests<a class="headerlink" href="#ejecutar-suite-completa-de-tests" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar TODOS los tests del proyecto</span>
+pytest
+
+<span class="c1"># Ejecutar con cobertura</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>.<span class="w"> </span>--cov-report<span class="o">=</span>html
+
+<span class="c1"># Verificar que cobertura sea &gt;= 80%</span>
+open<span class="w"> </span>htmlcov/index.html
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-5-validaciones-locales-pre-commit">
+<h2>Paso 5: Validaciones Locales (Pre-Commit)<a class="headerlink" href="#paso-5-validaciones-locales-pre-commit" title="Link to this heading">¶</a></h2>
+<section id="formateo-de-codigo">
+<h3>5.1 Formateo de Código<a class="headerlink" href="#formateo-de-codigo" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formatear con Black</span>
+black<span class="w"> </span>.
+
+<span class="c1"># Organizar imports con isort</span>
+isort<span class="w"> </span>.
+
+<span class="c1"># Verificar que no haya cambios adicionales</span>
+git<span class="w"> </span>status
+</pre></div>
+</div>
+</section>
+<section id="linting">
+<h3>5.2 Linting<a class="headerlink" href="#linting" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linting con Ruff</span>
+ruff<span class="w"> </span>check<span class="w"> </span>.
+
+<span class="c1"># Auto-fix issues que se puedan arreglar</span>
+ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>.
+
+<span class="c1"># Verificar que no queden issues</span>
+ruff<span class="w"> </span>check<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="type-checking">
+<h3>5.3 Type Checking<a class="headerlink" href="#type-checking" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type checking con MyPy</span>
+mypy<span class="w"> </span>api/
+
+<span class="c1"># Si hay errores, agregar type hints</span>
+<span class="c1"># Ejemplo:</span>
+<span class="c1"># def login(username: str, password: str) -&gt; Dict[str, str]:</span>
+<span class="c1">#     ...</span>
+</pre></div>
+</div>
+</section>
+<section id="security-scan">
+<h3>5.4 Security Scan<a class="headerlink" href="#security-scan" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escaneo de seguridad con Bandit</span>
+bandit<span class="w"> </span>-r<span class="w"> </span>api/<span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span>-o<span class="w"> </span>bandit-report.json
+
+<span class="c1"># Revisar reporte</span>
+cat<span class="w"> </span>bandit-report.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+
+<span class="c1"># Si hay issues de severidad HIGH o CRITICAL, corregir antes de continuar</span>
+</pre></div>
+</div>
+</section>
+<section id="secret-detection">
+<h3>5.5 Secret Detection<a class="headerlink" href="#secret-detection" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Detectar secretos</span>
+detect-secrets<span class="w"> </span>scan
+
+<span class="c1"># Si detecta falsos positivos, agregar a baseline</span>
+detect-secrets<span class="w"> </span>scan<span class="w"> </span>--baseline<span class="w"> </span>.secrets.baseline
+
+<span class="c1"># Verificar que no haya secretos reales</span>
+</pre></div>
+</div>
+</section>
+<section id="ejecutar-tests-con-coverage">
+<h3>5.6 Ejecutar Tests con Coverage<a class="headerlink" href="#ejecutar-tests-con-coverage" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tests completos con cobertura</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>.<span class="w"> </span>--cov-report<span class="o">=</span>html<span class="w"> </span>--cov-report<span class="o">=</span>term
+
+<span class="c1"># Verificar métricas:</span>
+<span class="c1"># - Cobertura total &gt;= 80%</span>
+<span class="c1"># - Todos los tests pasan</span>
+<span class="c1"># - Sin warnings críticos</span>
+
+<span class="c1"># Ver reporte HTML detallado</span>
+open<span class="w"> </span>htmlcov/index.html
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-6-commits">
+<h2>Paso 6: Commits<a class="headerlink" href="#paso-6-commits" title="Link to this heading">¶</a></h2>
+<section id="conventional-commits">
+<h3>6.1 Conventional Commits<a class="headerlink" href="#conventional-commits" title="Link to this heading">¶</a></h3>
+<p><strong>Formato:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tipo</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">descripción</span> <span class="n">corta</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">descripción</span> <span class="n">larga</span> <span class="n">opcional</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">referencias</span> <span class="n">a</span> <span class="n">issues</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Tipos válidos:</strong> - <code class="docutils literal notranslate"><span class="pre">feat</span></code>: Nueva funcionalidad - <code class="docutils literal notranslate"><span class="pre">fix</span></code>: Corrección
+de bug - <code class="docutils literal notranslate"><span class="pre">refactor</span></code>: Refactorización sin cambio funcional - <code class="docutils literal notranslate"><span class="pre">perf</span></code>:
+Mejora de performance - <code class="docutils literal notranslate"><span class="pre">test</span></code>: Agregar o modificar tests - <code class="docutils literal notranslate"><span class="pre">docs</span></code>:
+Solo cambios en documentación - <code class="docutils literal notranslate"><span class="pre">chore</span></code>: Cambios de build, deps,
+configuración</p>
+</section>
+<section id="crear-commits-atomicos">
+<h3>6.2 Crear Commits Atómicos<a class="headerlink" href="#crear-commits-atomicos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver cambios</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>diff
+
+<span class="c1"># Agregar archivos relacionados (commit atómico)</span>
+git<span class="w"> </span>add<span class="w"> </span>authentication/
+
+<span class="c1"># Commit con mensaje descriptivo</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: implementar autenticación JWT</span>
+
+<span class="s2">- Crear serializers para login y refresh token</span>
+<span class="s2">- Implementar views para endpoints de autenticación</span>
+<span class="s2">- Agregar validación de credenciales</span>
+<span class="s2">- Generar JWT tokens con PyJWT</span>
+<span class="s2">- Configurar URLs /api/auth/login y /api/auth/refresh</span>
+
+<span class="s2">Los tokens incluyen:</span>
+<span class="s2">- access_token: expira en 24 horas</span>
+<span class="s2">- refresh_token: expira en 7 días</span>
+
+<span class="s2">Payload contiene user_id, username, y tipo de token.</span>
+
+<span class="s2">Relacionado con #123&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="pre-commit-hooks-automaticos">
+<h3>6.3 Pre-commit Hooks Automáticos<a class="headerlink" href="#pre-commit-hooks-automaticos" title="Link to this heading">¶</a></h3>
+<p>Al hacer commit, se ejecutan automáticamente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pre-commit hooks configurados:</span>
+-<span class="w"> </span>Ruff<span class="w"> </span><span class="o">(</span>linting<span class="o">)</span>
+-<span class="w"> </span>MyPy<span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>checking<span class="o">)</span>
+-<span class="w"> </span>Bandit<span class="w"> </span><span class="o">(</span>security<span class="o">)</span>
+-<span class="w"> </span>detect-secrets<span class="w"> </span><span class="o">(</span>secrets<span class="o">)</span>
+-<span class="w"> </span>trailing-whitespace
+-<span class="w"> </span>end-of-file-fixer
+-<span class="w"> </span>check-yaml
+-<span class="w"> </span>check-json
+
+<span class="c1"># Si algún hook falla:</span>
+<span class="c1"># 1. Revisar el error</span>
+<span class="c1"># 2. Corregir el problema</span>
+<span class="c1"># 3. git add los cambios</span>
+<span class="c1"># 4. git commit nuevamente</span>
+</pre></div>
+</div>
+</section>
+<section id="commits-de-tests">
+<h3>6.4 Commits de Tests<a class="headerlink" href="#commits-de-tests" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Commit separado para tests</span>
+git<span class="w"> </span>add<span class="w"> </span>tests/authentication/
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test: agregar tests para autenticación JWT</span>
+
+<span class="s2">- Tests unitarios para LoginSerializer</span>
+<span class="s2">- Tests unitarios para TokenSerializer</span>
+<span class="s2">- Tests de integración para LoginView</span>
+<span class="s2">- Tests de integración para RefreshTokenView</span>
+<span class="s2">- Tests de middleware JWT</span>
+
+<span class="s2">Cobertura: 95% del módulo authentication</span>
+
+<span class="s2">Relacionado con #123&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="commits-de-documentacion">
+<h3>6.5 Commits de Documentación<a class="headerlink" href="#commits-de-documentacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Commit para documentación</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/implementacion/backend/
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: documentar implementación de autenticación JWT</span>
+
+<span class="s2">- Agregar guía de uso de endpoints auth</span>
+<span class="s2">- Documentar estructura de tokens</span>
+<span class="s2">- Incluir ejemplos de requests/responses</span>
+<span class="s2">- Actualizar README con instrucciones de configuración</span>
+
+<span class="s2">Relacionado con #123&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-7-pre-pull-request">
+<h2>Paso 7: Pre-Pull Request<a class="headerlink" href="#paso-7-pre-pull-request" title="Link to this heading">¶</a></h2>
+<section id="actualizar-con-main">
+<h3>7.1 Actualizar con Main<a class="headerlink" href="#actualizar-con-main" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Traer últimos cambios de main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Volver a tu branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feature/autenticacion-jwt-20251106
+
+<span class="c1"># Rebase con main</span>
+git<span class="w"> </span>rebase<span class="w"> </span>main
+
+<span class="c1"># Si hay conflictos:</span>
+<span class="c1"># 1. Resolver conflictos manualmente</span>
+<span class="c1"># 2. git add archivos-resueltos</span>
+<span class="c1"># 3. git rebase --continue</span>
+
+<span class="c1"># Ejecutar tests nuevamente después de rebase</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>.<span class="w"> </span>--cov-report<span class="o">=</span>html
+</pre></div>
+</div>
+</section>
+<section id="squash-commits-opcional">
+<h3>7.2 Squash Commits (Opcional)<a class="headerlink" href="#squash-commits-opcional" title="Link to this heading">¶</a></h3>
+<p>Si tienes muchos commits pequeños, considera hacer squash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver historial de commits</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline
+
+<span class="c1"># Squash últimos N commits</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~5
+
+<span class="c1"># En el editor, cambiar &#39;pick&#39; a &#39;squash&#39; para commits a combinar</span>
+<span class="c1"># Guardar y cerrar editor</span>
+
+<span class="c1"># Editar mensaje de commit consolidado</span>
+<span class="c1"># Guardar y cerrar editor</span>
+</pre></div>
+</div>
+</section>
+<section id="push-a-remote">
+<h3>7.3 Push a Remote<a class="headerlink" href="#push-a-remote" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Push con tracking</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/autenticacion-jwt-20251106
+
+<span class="c1"># Si hiciste rebase o squash (forzar push)</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/autenticacion-jwt-20251106<span class="w"> </span>--force-with-lease
+
+<span class="c1"># Para branches claude/* (con session ID)</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>claude/implement-jwt-auth-011CUr35zai2SsJs6DyPKRR8
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-8-crear-pull-request">
+<h2>Paso 8: Crear Pull Request<a class="headerlink" href="#paso-8-crear-pull-request" title="Link to this heading">¶</a></h2>
+<section id="usando-gh-cli-recomendado">
+<h3>8.1 Usando gh CLI (Recomendado)<a class="headerlink" href="#usando-gh-cli-recomendado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;feat: Agregar autenticación JWT&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--body<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">## Summary</span>
+<span class="s">- Implementa autenticación con JSON Web Tokens (JWT)</span>
+<span class="s">- Agrega endpoints POST /api/auth/login y POST /api/auth/refresh</span>
+<span class="s">- Configura validación de credenciales con Django authenticate</span>
+<span class="s">- Genera tokens con expiración configurable (24h access, 7d refresh)</span>
+<span class="s">- Cobertura de tests: 95% del módulo authentication</span>
+
+<span class="s">## Technical Details</span>
+<span class="s">**E</span>ndpoints<span class="w"> </span>implementados:**
+-<span class="w"> </span><span class="sb">`</span>POST<span class="w"> </span>/api/auth/login<span class="sb">`</span>:<span class="w"> </span>Recibe<span class="w"> </span>username/password,<span class="w"> </span>retorna<span class="w"> </span>tokens
+-<span class="w"> </span><span class="sb">`</span>POST<span class="w"> </span>/api/auth/refresh<span class="sb">`</span>:<span class="w"> </span>Recibe<span class="w"> </span>refresh_token,<span class="w"> </span>retorna<span class="w"> </span>nuevo<span class="w"> </span>access_token
+
+**Estructura<span class="w"> </span>de<span class="w"> </span>tokens:**
+<span class="sb">```</span>json
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;user_id&quot;</span>:<span class="w"> </span><span class="m">123</span>,
+<span class="w">  </span><span class="s2">&quot;username&quot;</span>:<span class="w"> </span><span class="s2">&quot;john_doe&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;exp&quot;</span>:<span class="w"> </span><span class="m">1699123456</span>,
+<span class="w">  </span><span class="s2">&quot;iat&quot;</span>:<span class="w"> </span><span class="m">1699037056</span>,
+<span class="w">  </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="s2">&quot;access&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><strong>Dependencias agregadas:</strong> - PyJWT==2.8.0</p>
+</section>
+</section>
+<section id="test-plan">
+<h2>Test Plan<a class="headerlink" href="#test-plan" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>☒ Tests unitarios de LoginSerializer (4 casos)</p></li>
+<li><p>☒ Tests unitarios de TokenSerializer (generación tokens)</p></li>
+<li><p>☒ Tests unitarios de RefreshTokenSerializer (validación)</p></li>
+<li><p>☒ Tests de integración LoginView (success, invalid creds, missing
+fields, inactive user)</p></li>
+<li><p>☒ Tests de integración RefreshTokenView (success, invalid token)</p></li>
+<li><p>☒ Tests de middleware JWT (sin token, token válido, token expirado)</p></li>
+<li><p>☒ Cobertura total: 95%</p></li>
+<li><p>☒ Security scan con Bandit: 0 issues</p></li>
+<li><p>☒ Secret detection: 0 secrets detectados</p></li>
+<li><p>☒ Validación manual en desarrollo</p></li>
+</ul>
+</section>
+<section id="related-issues">
+<h2>Related Issues<a class="headerlink" href="#related-issues" title="Link to this heading">¶</a></h2>
+<p>Closes #123</p>
+</section>
+<section id="breaking-changes">
+<h2>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Link to this heading">¶</a></h2>
+<p>Ninguno - Esta es una nueva feature que no afecta funcionalidad
+existente.</p>
+</section>
+<section id="deployment-notes">
+<h2>Deployment Notes<a class="headerlink" href="#deployment-notes" title="Link to this heading">¶</a></h2>
+<p><strong>Variables de entorno requeridas:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opcional: JWT_ACCESS_TOKEN_LIFETIME (default: 24 horas)</span>
+<span class="nv">JWT_ACCESS_TOKEN_LIFETIME</span><span class="o">=</span><span class="m">24</span>
+
+<span class="c1"># Opcional: JWT_REFRESH_TOKEN_LIFETIME (default: 7 días)</span>
+<span class="nv">JWT_REFRESH_TOKEN_LIFETIME</span><span class="o">=</span><span class="m">7</span>
+</pre></div>
+</div>
+<p><strong>Migraciones:</strong> No requiere migraciones de BD.</p>
+<p><strong>Instalación de dependencias:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/base.txt
+</pre></div>
+</div>
+</section>
+<section id="screenshots">
+<h2>Screenshots<a class="headerlink" href="#screenshots" title="Link to this heading">¶</a></h2>
+<p>N/A - Backend API</p>
+</section>
+<section id="checklist">
+<h2>Checklist<a class="headerlink" href="#checklist" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>☒ Código sigue lineamientos del proyecto</p></li>
+<li><p>☒ Tests agregados con cobertura &gt;= 80%</p></li>
+<li><p>☒ Documentación actualizada</p></li>
+<li><p>☒ Sin secretos en código</p></li>
+<li><p>☒ Security scan pasó</p></li>
+<li><p>☒ Pre-commit hooks pasaron</p></li>
+<li><p>☒ Branch actualizado con main EOF )”
+–assignee &#64;me
+–reviewer &#64;equipo-backend
+–label “enhancement,backend”</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### 8.2 Usando GitHub UI
+
+1. Ir a: https://github.com/2-Coatl/IACT---project/pulls
+2. Click &quot;New pull request&quot;
+3. Seleccionar:
+   - Base: `main`
+   - Compare: `feature/autenticacion-jwt-20251106`
+4. Click &quot;Create pull request&quot;
+5. Completar template que se carga automáticamente
+
+### 8.3 Verificar PR Creado
+
+```bash
+# Ver PR creado
+gh pr view
+
+# Ver status de checks
+gh pr checks
+
+# Ver conversación
+gh pr view --web
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="paso-9-code-review">
+<h2>Paso 9: Code Review<a class="headerlink" href="#paso-9-code-review" title="Link to this heading">¶</a></h2>
+<section id="ci-cd-automatico">
+<h3>9.1 CI/CD Automático<a class="headerlink" href="#ci-cd-automatico" title="Link to this heading">¶</a></h3>
+<p>Al crear el PR, se ejecutan automáticamente:</p>
+<p><strong>Workflow: python-ci.yml</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ruff linting</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ruff formatting check</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyPy type checking</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bandit security scan</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest (todos los tests)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coverage report</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifacts</span>
+</pre></div>
+</div>
+<p><strong>Workflow: lint.yml</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Markdown linting</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YAML linting</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pre-commit hooks</span>
+</pre></div>
+</div>
+</section>
+<section id="requisitos-para-aprobar">
+<h3>9.2 Requisitos para Aprobar<a class="headerlink" href="#requisitos-para-aprobar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Mínimo 1 review aprobado</p></li>
+<li><p>☐ Todos los CI checks pasan (verde)</p></li>
+<li><p>☐ Sin conflictos con main</p></li>
+<li><p>☐ Cobertura &gt;= 80%</p></li>
+<li><p>☐ Sin secretos detectados</p></li>
+<li><p>☐ Bandit security scan sin issues HIGH/CRITICAL</p></li>
+</ul>
+</section>
+<section id="como-autor-del-pr">
+<h3>9.3 Como Autor del PR<a class="headerlink" href="#como-autor-del-pr" title="Link to this heading">¶</a></h3>
+<section id="responder-a-comentarios">
+<h4>Responder a Comentarios<a class="headerlink" href="#responder-a-comentarios" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver comentarios del PR</span>
+gh<span class="w"> </span>pr<span class="w"> </span>view
+
+<span class="c1"># Hacer cambios solicitados</span>
+<span class="c1"># ... editar archivos ...</span>
+
+<span class="c1"># Commit cambios</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: aplicar feedback de code review</span>
+
+<span class="s2">- Renombrar variable confusa &#39;x&#39; a &#39;user_id&#39;</span>
+<span class="s2">- Agregar docstring faltante en generate_tokens</span>
+<span class="s2">- Mejorar manejo de excepciones en RefreshTokenView&quot;</span>
+
+<span class="c1"># Push</span>
+git<span class="w"> </span>push
+
+<span class="c1"># El PR se actualiza automáticamente</span>
+</pre></div>
+</div>
+</section>
+<section id="re-solicitar-review">
+<h4>Re-solicitar Review<a class="headerlink" href="#re-solicitar-review" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Después de hacer cambios, re-solicitar review</span>
+gh<span class="w"> </span>pr<span class="w"> </span>review<span class="w"> </span>--request<span class="w"> </span>@reviewer-username
+
+<span class="c1"># O comentar en el PR</span>
+gh<span class="w"> </span>pr<span class="w"> </span>comment<span class="w"> </span>--body<span class="w"> </span><span class="s2">&quot;Cambios aplicados. Listo para re-review.&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="como-reviewer">
+<h3>9.4 Como Reviewer<a class="headerlink" href="#como-reviewer" title="Link to this heading">¶</a></h3>
+<section id="ver-diff-del-pr">
+<h4>Ver Diff del PR<a class="headerlink" href="#ver-diff-del-pr" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver diff en terminal</span>
+gh<span class="w"> </span>pr<span class="w"> </span>diff<span class="w"> </span>&lt;PR_NUMBER&gt;
+
+<span class="c1"># Ver PR en browser</span>
+gh<span class="w"> </span>pr<span class="w"> </span>view<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--web
+
+<span class="c1"># Checkout del PR localmente para probar</span>
+gh<span class="w"> </span>pr<span class="w"> </span>checkout<span class="w"> </span>&lt;PR_NUMBER&gt;
+</pre></div>
+</div>
+</section>
+<section id="checklist-de-review">
+<h4>Checklist de Review<a class="headerlink" href="#checklist-de-review" title="Link to this heading">¶</a></h4>
+<p><strong>Funcionalidad:</strong> - [ ] El código hace lo que dice - [ ] Edge cases
+considerados - [ ] Manejo de errores apropiado - [ ] Validación de
+inputs</p>
+<p><strong>Calidad:</strong> - [ ] Código legible y mantenible - [ ] Sigue lineamientos
+del proyecto - [ ] No hay código duplicado - [ ] Nombres descriptivos de
+variables/funciones - [ ] Funciones pequeñas y enfocadas</p>
+<p><strong>Tests:</strong> - [ ] Cobertura adecuada (&gt;= 80%) - [ ] Tests son
+determinísticos (no flaky) - [ ] Nombres descriptivos de tests - [ ]
+Tests cubren edge cases - [ ] Arrange-Act-Assert pattern</p>
+<p><strong>Seguridad:</strong> - [ ] No hay vulnerabilidades obvias - [ ] Inputs
+validados - [ ] Secrets no expuestos - [ ] SQL injection prevención - [
+] XSS prevención</p>
+<p><strong>Performance:</strong> - [ ] No hay N+1 queries - [ ] Índices apropiados en DB
+- [ ] Queries optimizadas - [ ] No hay operaciones bloqueantes
+innecesarias</p>
+<p><strong>Documentación:</strong> - [ ] Docstrings completos - [ ] README actualizado
+si aplica - [ ] Comentarios en código complejo - [ ] ADR creado si es
+decisión arquitectónica</p>
+</section>
+<section id="aprobar-pr">
+<h4>Aprobar PR<a class="headerlink" href="#aprobar-pr" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aprobar</span>
+gh<span class="w"> </span>pr<span class="w"> </span>review<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--approve<span class="w"> </span>--body<span class="w"> </span><span class="s2">&quot;LGTM!</span>
+
+<span class="s2">- Código limpio y bien estructurado</span>
+<span class="s2">- Tests completos con 95% coverage</span>
+<span class="s2">- Security scan pasó</span>
+<span class="s2">- Documentación actualizada</span>
+
+<span class="s2">Excelente trabajo!&quot;</span>
+
+<span class="c1"># Solicitar cambios</span>
+gh<span class="w"> </span>pr<span class="w"> </span>review<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--request-changes<span class="w"> </span>--body<span class="w"> </span><span class="s2">&quot;Cambios solicitados:</span>
+
+<span class="s2">1. Agregar docstring a la función generate_tokens()</span>
+<span class="s2">2. Renombrar variable &#39;x&#39; a &#39;user_id&#39; para claridad</span>
+<span class="s2">3. Manejar excepción jwt.DecodeError específicamente</span>
+
+<span class="s2">Por favor hacer estos cambios y re-solicitar review.&quot;</span>
+
+<span class="c1"># Comentar sin aprobar/rechazar</span>
+gh<span class="w"> </span>pr<span class="w"> </span>review<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--comment<span class="w"> </span>--body<span class="w"> </span><span class="s2">&quot;Pregunta: ¿Por qué elegiste 24h para expiración de access token? ¿No es muy largo?&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-10-merge">
+<h2>Paso 10: Merge<a class="headerlink" href="#paso-10-merge" title="Link to this heading">¶</a></h2>
+<section id="pre-merge-checklist">
+<h3>10.1 Pre-Merge Checklist<a class="headerlink" href="#pre-merge-checklist" title="Link to this heading">¶</a></h3>
+<p>Verificar: - [x] Todos los reviews aprobados (mínimo 1) - [x] Todos los
+CI checks pasan - [x] Sin conflictos con main - [x] Branch actualizado
+con main - [x] Conversación de review resuelta</p>
+</section>
+<section id="merge-con-gh-cli">
+<h3>10.2 Merge con gh CLI<a class="headerlink" href="#merge-con-gh-cli" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción A: Squash and Merge (PREFERIDO para features)</span>
+gh<span class="w"> </span>pr<span class="w"> </span>merge<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--squash<span class="w"> </span>--delete-branch<span class="w"> </span>--body<span class="w"> </span><span class="s2">&quot;Merging feature: Autenticación JWT</span>
+
+<span class="s2">Implementación completa de autenticación con JWT para API.</span>
+
+<span class="s2">Closes #123&quot;</span>
+
+<span class="c1"># Opción B: Merge Commit (para releases)</span>
+gh<span class="w"> </span>pr<span class="w"> </span>merge<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--merge<span class="w"> </span>--delete-branch
+
+<span class="c1"># Opción C: Rebase (para cambios lineales simples)</span>
+gh<span class="w"> </span>pr<span class="w"> </span>merge<span class="w"> </span>&lt;PR_NUMBER&gt;<span class="w"> </span>--rebase<span class="w"> </span>--delete-branch
+</pre></div>
+</div>
+</section>
+<section id="merge-desde-github-ui">
+<h3>10.3 Merge desde GitHub UI<a class="headerlink" href="#merge-desde-github-ui" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Ir al PR en GitHub</p></li>
+<li><p>Click “Merge pull request”</p></li>
+<li><p>Seleccionar “Squash and merge”</p></li>
+<li><p>Editar mensaje de commit si es necesario</p></li>
+<li><p>Click “Confirm squash and merge”</p></li>
+<li><p>Click “Delete branch”</p></li>
+</ol>
+</section>
+<section id="post-merge-automatico">
+<h3>10.4 Post-Merge Automático<a class="headerlink" href="#post-merge-automatico" title="Link to this heading">¶</a></h3>
+<p>Después del merge, automáticamente:</p>
+<ul class="simple">
+<li><p><strong>Issue cierra</strong> (si usaste <code class="docutils literal notranslate"><span class="pre">Closes</span> <span class="pre">#123</span></code>)</p></li>
+<li><p><strong>Branch se elimina</strong> (si seleccionaste delete branch)</p></li>
+<li><p><strong>Docs se regeneran</strong> (workflow <code class="docutils literal notranslate"><span class="pre">docs.yml</span></code> se ejecuta)</p></li>
+<li><p><strong>Índices ISO 29148 se actualizan</strong> (workflow
+<code class="docutils literal notranslate"><span class="pre">requirements-index.yml</span></code>)</p></li>
+<li><p><strong>Main se actualiza</strong> con tu código</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="paso-11-post-merge">
+<h2>Paso 11: Post-Merge<a class="headerlink" href="#paso-11-post-merge" title="Link to this heading">¶</a></h2>
+<section id="verificar-merge-exitoso">
+<h3>11.1 Verificar Merge Exitoso<a class="headerlink" href="#verificar-merge-exitoso" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualizar tu main local</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Verificar que tu commit está en main</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
+
+<span class="c1"># Ver tu feature en el historial</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+
+<span class="c1"># Tu feature branch ya no existe</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;feature/autenticacion-jwt&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar-issue-cerrado">
+<h3>11.2 Verificar Issue Cerrado<a class="headerlink" href="#verificar-issue-cerrado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver issue cerrado</span>
+gh<span class="w"> </span>issue<span class="w"> </span>view<span class="w"> </span><span class="m">123</span>
+
+<span class="c1"># Estado esperado: &quot;State: CLOSED&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar-documentacion-actualizada">
+<h3>11.3 Verificar Documentación Actualizada<a class="headerlink" href="#verificar-documentacion-actualizada" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver docs actualizadas</span>
+<span class="c1"># https://2-coatl.github.io/IACT---project/</span>
+
+<span class="c1"># O localmente</span>
+make<span class="w"> </span>docs-serve
+<span class="c1"># Abrir http://127.0.0.1:8000</span>
+</pre></div>
+</div>
+</section>
+<section id="limpiar-branches-locales">
+<h3>11.4 Limpiar Branches Locales<a class="headerlink" href="#limpiar-branches-locales" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar branch local (ya mergeado)</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/autenticacion-jwt-20251106
+
+<span class="c1"># Limpiar branches remotos eliminados</span>
+git<span class="w"> </span>fetch<span class="w"> </span>--prune
+
+<span class="c1"># Ver branches que puedes limpiar</span>
+git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span>main
+
+<span class="c1"># Eliminar todas las branches mergeadas</span>
+git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span>main<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="caso-especial-hotfix-bug-critico">
+<h2>Caso Especial: Hotfix (Bug Crítico)<a class="headerlink" href="#caso-especial-hotfix-bug-critico" title="Link to this heading">¶</a></h2>
+<section id="cuando-usar-hotfix">
+<h3>Cuándo Usar Hotfix<a class="headerlink" href="#cuando-usar-hotfix" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bug crítico en producción</p></li>
+<li><p>Vulnerabilidad de seguridad</p></li>
+<li><p>Pérdida de servicio o funcionalidad crítica</p></li>
+<li><p>Datos corruptos o pérdida de datos</p></li>
+</ul>
+</section>
+<section id="procedimiento-acelerado">
+<h3>Procedimiento Acelerado<a class="headerlink" href="#procedimiento-acelerado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Desde main actualizado</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 2. Crear hotfix branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/corregir-login-roto-20251106
+
+<span class="c1"># 3. Implementar FIX MÍNIMO (NO agregar features)</span>
+<span class="c1"># ... editar solo lo necesario ...</span>
+
+<span class="c1"># 4. Tests específicos del fix</span>
+pytest<span class="w"> </span>tests/authentication/test_login.py<span class="w"> </span>-v
+
+<span class="c1"># 5. Commit urgente</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: corregir validación de login</span>
+
+<span class="s2">CRÍTICO: Corrige error que permitía login con credenciales vacías.</span>
+
+<span class="s2">El bug permitía bypass de autenticación si se enviaba request</span>
+<span class="s2">con username vacío. Esto es una vulnerabilidad de seguridad crítica.</span>
+
+<span class="s2">Fix:</span>
+<span class="s2">- Agregar validación explícita de campos no vacíos</span>
+<span class="s2">- Agregar test para prevenir regresión</span>
+
+<span class="s2">Impacto: Seguridad - ALTO</span>
+<span class="s2">Severidad: CRÍTICA</span>
+
+<span class="s2">Fixes #789&quot;</span>
+
+<span class="c1"># 6. Push hotfix</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>hotfix/corregir-login-roto-20251106
+
+<span class="c1"># 7. PR urgente con labels críticos</span>
+gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;HOTFIX: Corregir validación de login&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--label<span class="w"> </span><span class="s2">&quot;hotfix,urgent,priority-critical,security&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--reviewer<span class="w"> </span>@equipo-backend<span class="w"> </span>@tech-lead<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--body<span class="w"> </span><span class="s2">&quot;## HOTFIX CRÍTICO</span>
+
+<span class="s2">**Vulnerabilidad**: Login permite credenciales vacías</span>
+
+<span class="s2">**Severidad**: CRÍTICA</span>
+<span class="s2">**Impacto**: Seguridad - Bypass de autenticación</span>
+
+<span class="s2">## Fix Implementado</span>
+<span class="s2">- Validación explícita de username/password no vacíos</span>
+<span class="s2">- Test de regresión agregado</span>
+
+<span class="s2">## Test Plan</span>
+<span class="s2">- [x] Test específico para credenciales vacías</span>
+<span class="s2">- [x] Tests existentes siguen pasando</span>
+<span class="s2">- [x] Verificación manual</span>
+
+<span class="s2">## Deployment</span>
+<span class="s2">REQUIERE DEPLOY INMEDIATO A PRODUCCIÓN</span>
+
+<span class="s2">Closes #789&quot;</span>
+
+<span class="c1"># 8. Una vez aprobado (FAST-TRACK)</span>
+gh<span class="w"> </span>pr<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>--delete-branch
+
+<span class="c1"># 9. Tag de versión hotfix INMEDIATO</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.2.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Hotfix: Critical login validation fix&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v1.2.1
+
+<span class="c1"># 10. Notificar a stakeholders</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HOTFIX v1.2.1 deployed - Critical security fix&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gh<span class="w"> </span>issue<span class="w"> </span>comment<span class="w"> </span><span class="m">789</span><span class="w"> </span>--body-file<span class="w"> </span>-
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metricas-de-calidad">
+<h2>Métricas de Calidad<a class="headerlink" href="#metricas-de-calidad" title="Link to this heading">¶</a></h2>
+<section id="metricas-del-proyecto">
+<h3>Métricas del Proyecto<a class="headerlink" href="#metricas-del-proyecto" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Target</p></th>
+<th class="head"><p>Cómo Medir</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Cobertura de código</strong></p></td>
+<td><p>≥ 80%</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">--cov</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tamaño de PR</strong></p></td>
+<td><p>&lt; 400 líneas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">pr</span> <span class="pre">diff</span> <span class="pre">\|</span> <span class="pre">wc</span> <span class="pre">-l</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tiempo de review</strong></p></td>
+<td><p>&lt; 48 horas</p></td>
+<td><p>GitHub PR metrics</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tasa aprobación 1er intento</strong></p></td>
+<td><p>&gt; 70%</p></td>
+<td><p>Manual</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PRs simultáneos por dev</strong></p></td>
+<td><p>&lt; 3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">pr</span> <span class="pre">list</span> <span class="pre">--author</span> <span class="pre">&#64;me</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tests pasan</strong></p></td>
+<td><p>100%</p></td>
+<td><p>CI status</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Security issues</strong></p></td>
+<td><p>0</p></td>
+<td><p>Bandit report</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Secrets detectados</strong></p></td>
+<td><p>0</p></td>
+<td><p>detect-secrets</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="verificar-metricas">
+<h3>Verificar Métricas<a class="headerlink" href="#verificar-metricas" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cobertura</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>.<span class="w"> </span>--cov-report<span class="o">=</span>term<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>TOTAL
+
+<span class="c1"># Tamaño de tu PR</span>
+gh<span class="w"> </span>pr<span class="w"> </span>diff<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+
+<span class="c1"># Tus PRs abiertos</span>
+gh<span class="w"> </span>pr<span class="w"> </span>list<span class="w"> </span>--author<span class="w"> </span>@me
+
+<span class="c1"># Security scan</span>
+bandit<span class="w"> </span>-r<span class="w"> </span>api/<span class="w"> </span>-f<span class="w"> </span>screen
+
+<span class="c1"># Secrets</span>
+detect-secrets<span class="w"> </span>scan
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="herramientas-y-comandos-utiles">
+<h2>Herramientas y Comandos Útiles<a class="headerlink" href="#herramientas-y-comandos-utiles" title="Link to this heading">¶</a></h2>
+<section id="makefile-commands">
+<h3>Makefile Commands<a class="headerlink" href="#makefile-commands" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">help</span><span class="w">              </span><span class="c1"># Ver todos los comandos</span>
+make<span class="w"> </span>setup<span class="w">            </span><span class="c1"># Setup completo del entorno</span>
+make<span class="w"> </span>vagrant-up<span class="w">       </span><span class="c1"># Levantar bases de datos</span>
+make<span class="w"> </span>vagrant-down<span class="w">     </span><span class="c1"># Apagar VM</span>
+make<span class="w"> </span>docs-serve<span class="w">       </span><span class="c1"># Servir docs localmente</span>
+make<span class="w"> </span>docs-deploy<span class="w">      </span><span class="c1"># Deploy docs a GitHub Pages</span>
+make<span class="w"> </span>check-services<span class="w">   </span><span class="c1"># Verificar conexión BD</span>
+make<span class="w"> </span>clean<span class="w">            </span><span class="c1"># Limpiar archivos generados</span>
+</pre></div>
+</div>
+</section>
+<section id="git-aliases-utiles">
+<h3>Git Aliases Útiles<a class="headerlink" href="#git-aliases-utiles" title="Link to this heading">¶</a></h3>
+<p>Agregar a <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[alias]</span>
+<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span>
+<span class="w">    </span><span class="na">co</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkout</span>
+<span class="w">    </span><span class="na">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">branch</span>
+<span class="w">    </span><span class="na">ci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit</span>
+<span class="w">    </span><span class="na">lg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log --oneline --graph --all --decorate</span>
+<span class="w">    </span><span class="na">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log -1 HEAD</span>
+<span class="w">    </span><span class="na">unstage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">reset HEAD --</span>
+<span class="w">    </span><span class="na">amend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">commit --amend --no-edit</span>
+</pre></div>
+</div>
+</section>
+<section id="github-cli-aliases">
+<h3>GitHub CLI Aliases<a class="headerlink" href="#github-cli-aliases" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar a ~/.config/gh/config.yml</span>
+alias:
+<span class="w">  </span>prs:<span class="w"> </span>pr<span class="w"> </span>list<span class="w"> </span>--author<span class="w"> </span>@me
+<span class="w">  </span>issues:<span class="w"> </span>issue<span class="w"> </span>list<span class="w"> </span>--assignee<span class="w"> </span>@me
+<span class="w">  </span>co:<span class="w"> </span>pr<span class="w"> </span>checkout
+<span class="w">  </span>mywork:<span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>!gh<span class="w"> </span>pr<span class="w"> </span>list<span class="w"> </span>--author<span class="w"> </span>@me<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>gh<span class="w"> </span>issue<span class="w"> </span>list<span class="w"> </span>--assignee<span class="w"> </span>@me
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<section id="problema-tests-fallan-localmente">
+<h3>Problema: Tests Fallan Localmente<a class="headerlink" href="#problema-tests-fallan-localmente" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Limpiar cache de pytest</span>
+pytest<span class="w"> </span>--cache-clear
+
+<span class="c1"># Recrear base de datos de test</span>
+python<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--keepdb<span class="o">=</span><span class="nb">false</span>
+
+<span class="c1"># Instalar dependencias faltantes</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/test.txt
+
+<span class="c1"># Verificar variables de entorno</span>
+cat<span class="w"> </span>.env
+</pre></div>
+</div>
+</section>
+<section id="problema-pre-commit-hooks-fallan">
+<h3>Problema: Pre-commit Hooks Fallan<a class="headerlink" href="#problema-pre-commit-hooks-fallan" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver qué hook falló</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files<span class="w"> </span>--verbose
+
+<span class="c1"># Ejecutar hook específico</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>--all-files
+
+<span class="c1"># Auto-fix issues</span>
+ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>.
+black<span class="w"> </span>.
+isort<span class="w"> </span>.
+
+<span class="c1"># Re-intentar commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>--no-verify<span class="w">  </span><span class="c1"># SOLO si estás seguro</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-conflictos-en-rebase">
+<h3>Problema: Conflictos en Rebase<a class="headerlink" href="#problema-conflictos-en-rebase" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver archivos con conflictos</span>
+git<span class="w"> </span>status
+
+<span class="c1"># Abrir archivos y resolver conflictos manualmente</span>
+<span class="c1"># Buscar marcadores: &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="c1"># Después de resolver</span>
+git<span class="w"> </span>add<span class="w"> </span>archivos-resueltos
+git<span class="w"> </span>rebase<span class="w"> </span>--continue
+
+<span class="c1"># Si quieres abortar el rebase</span>
+git<span class="w"> </span>rebase<span class="w"> </span>--abort
+</pre></div>
+</div>
+</section>
+<section id="problema-push-rechazado">
+<h3>Problema: Push Rechazado<a class="headerlink" href="#problema-push-rechazado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error: Updates were rejected</span>
+<span class="c1"># Razón: Main avanzó después de tu último pull</span>
+
+<span class="c1"># Solución:</span>
+git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>push
+
+<span class="c1"># O si hiciste squash local:</span>
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease
+</pre></div>
+</div>
+</section>
+<section id="problema-ci-falla-pero-local-pasa">
+<h3>Problema: CI Falla pero Local Pasa<a class="headerlink" href="#problema-ci-falla-pero-local-pasa" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar versiones de dependencias</span>
+pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements-actual.txt
+diff<span class="w"> </span>requirements/base.txt<span class="w"> </span>requirements-actual.txt
+
+<span class="c1"># Ejecutar en entorno limpio</span>
+deactivate
+rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/dev.txt
+pytest
+
+<span class="c1"># Verificar workflow de CI localmente con act</span>
+act<span class="w"> </span>pull_request
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="recursos-relacionados">
+<h2>Recursos Relacionados<a class="headerlink" href="#recursos-relacionados" title="Link to this heading">¶</a></h2>
+<section id="documentacion-interna">
+<h3>Documentación Interna<a class="headerlink" href="#documentacion-interna" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="procedimiento_gestion_cambios.md">Procedimiento de Gestión de
+Cambios</a> - Proceso formal</p></li>
+<li><p><a class="reference external" href="procedimiento_desarrollo_local.md">Procedimiento de Desarrollo
+Local</a> - Setup entorno</p></li>
+<li><p><a class="reference external" href="procedimiento_qa.md">Procedimiento de QA</a> - Testing y calidad</p></li>
+<li><p><a class="reference external" href="procedimiento_release.md">Procedimiento de Release</a> - Releases y
+deployment</p></li>
+<li><p><a class="reference external" href="../arquitectura/lineamientos_codigo.md">Lineamientos de Código</a> -
+Estándares de código</p></li>
+<li><p><a class="reference external" href="../checklists/checklist_desarrollo.md">Checklist de Desarrollo</a> -
+Checklist completo</p></li>
+</ul>
+</section>
+<section id="referencias-externas">
+<h3>Referencias Externas<a class="headerlink" href="#referencias-externas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.conventionalcommits.org/">Conventional Commits</a> -
+Formato de commits</p></li>
+<li><p><a class="reference external" href="https://guides.github.com/introduction/flow/">GitHub Flow</a> -
+Workflow Git</p></li>
+<li><p><a class="reference external" href="https://semver.org/">Semantic Versioning</a> - Versionado semántico</p></li>
+<li><p><a class="reference external" href="https://testdriven.io/test-driven-development/">Test-Driven
+Development</a> - TDD
+best practices</p></li>
+<li><p><a class="reference external" href="https://django-best-practices.readthedocs.io/">Django Best
+Practices</a> - Django
+patterns</p></li>
+</ul>
+</section>
+<section id="herramientas">
+<h3>Herramientas<a class="headerlink" href="#herramientas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cli.github.com/">GitHub CLI</a> - <code class="docutils literal notranslate"><span class="pre">gh</span></code> command line tool</p></li>
+<li><p><a class="reference external" href="https://pre-commit.com/">Pre-commit</a> - Git hooks framework</p></li>
+<li><p><a class="reference external" href="https://github.com/astral-sh/ruff">Ruff</a> - Python linter</p></li>
+<li><p><a class="reference external" href="https://github.com/psf/black">Black</a> - Code formatter</p></li>
+<li><p><a class="reference external" href="https://docs.pytest.org/">pytest</a> - Testing framework</p></li>
+<li><p><a class="reference external" href="https://github.com/PyCQA/bandit">Bandit</a> - Security linter</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>2025-11-06</strong>: Creación inicial de la guía completa</p>
+<ul>
+<li><p>Flujo completo paso a paso con ejemplos</p></li>
+<li><p>Sección de TDD con código de ejemplo</p></li>
+<li><p>Troubleshooting común</p></li>
+<li><p>Caso especial de hotfix</p></li>
+<li><p>Métricas de calidad</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="notas-finales">
+<h2>Notas Finales<a class="headerlink" href="#notas-finales" title="Link to this heading">¶</a></h2>
+<section id="principios-clave">
+<h3>Principios Clave<a class="headerlink" href="#principios-clave" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>TDD Siempre</strong>: Tests primero, código después</p></li>
+<li><p><strong>Commits Atómicos</strong>: Un cambio lógico por commit</p></li>
+<li><p><strong>PRs Pequeños</strong>: &lt; 400 líneas idealmente</p></li>
+<li><p><strong>Review Rápido</strong>: &lt; 48 horas objetivo</p></li>
+<li><p><strong>Documentar Todo</strong>: Código, decisiones, procesos</p></li>
+<li><p><strong>Calidad &gt; Velocidad</strong>: Mejor código limpio que rápido</p></li>
+<li><p><strong>Preguntar Temprano</strong>: Si tienes dudas, pregunta</p></li>
+</ol>
+</section>
+<section id="cuando-pedir-ayuda">
+<h3>Cuando Pedir Ayuda<a class="headerlink" href="#cuando-pedir-ayuda" title="Link to this heading">¶</a></h3>
+<p>Pide ayuda si: - No entiendes un requisito - El fix parece muy complejo
+- Tests fallan sin razón aparente - Conflictos de merge muy grandes -
+Decisión arquitectónica significativa - Bloqueado por &gt; 2 horas</p>
+</section>
+<section id="canales-de-comunicacion">
+<h3>Canales de Comunicación<a class="headerlink" href="#canales-de-comunicacion" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Slack #desarrollo</strong>: Preguntas generales</p></li>
+<li><p><strong>Slack #backend</strong>: Preguntas técnicas backend</p></li>
+<li><p><strong>GitHub Issues</strong>: Bugs y features</p></li>
+<li><p><strong>GitHub Discussions</strong>: Propuestas y discusiones</p></li>
+<li><p><strong>Pull Requests</strong>: Code review y feedback</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Bienvenido al equipo de desarrollo IACT</strong></p>
+</section>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Guía Completa: Desarrollo de Features en IACT</a><ul>
+<li><a class="reference internal" href="#proposito">Propósito</a></li>
+<li><a class="reference internal" href="#alcance">Alcance</a></li>
+<li><a class="reference internal" href="#vista-rapida-del-flujo">Vista Rápida del Flujo</a></li>
+<li><a class="reference internal" href="#paso-0-pre-requisitos">Paso 0: Pre-requisitos</a><ul>
+<li><a class="reference internal" href="#software-requerido">Software Requerido</a></li>
+<li><a class="reference internal" href="#verificar-instalacion">Verificar Instalación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-1-setup-inicial-del-entorno">Paso 1: Setup Inicial del Entorno</a><ul>
+<li><a class="reference internal" href="#clonar-repositorio-primera-vez">1.1 Clonar Repositorio (Primera Vez)</a></li>
+<li><a class="reference internal" href="#levantar-infraestructura-de-bases-de-datos">1.2 Levantar Infraestructura de Bases de Datos</a></li>
+<li><a class="reference internal" href="#verificar-servicios">1.3 Verificar Servicios</a></li>
+<li><a class="reference internal" href="#configurar-entorno-virtual-python">1.4 Configurar Entorno Virtual Python</a></li>
+<li><a class="reference internal" href="#configurar-variables-de-entorno">1.5 Configurar Variables de Entorno</a></li>
+<li><a class="reference internal" href="#aplicar-migraciones">1.6 Aplicar Migraciones</a></li>
+<li><a class="reference internal" href="#verificar-instalacion-1">1.7 Verificar Instalación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-2-planificacion-de-la-feature">Paso 2: Planificación de la Feature</a><ul>
+<li><a class="reference internal" href="#identificar-necesidad">2.1 Identificar Necesidad</a></li>
+<li><a class="reference internal" href="#crear-especificacion-de-feature-spec">2.1.1 Crear Especificación de Feature (Spec)</a></li>
+<li><a class="reference internal" href="#crear-plan-de-implementacion-plan">2.1.2 Crear Plan de Implementación (Plan)</a></li>
+<li><a class="reference internal" href="#crear-issue-en-github">2.2 Crear Issue en GitHub</a><ul>
+<li><a class="reference internal" href="#opcion-a-usando-gh-cli-recomendado">Opción A: Usando gh CLI (Recomendado)</a></li>
+<li><a class="reference internal" href="#opcion-b-crear-en-github-ui">Opción B: Crear en GitHub UI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verificar-no-hay-duplicados">2.3 Verificar No Hay Duplicados</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-3-crear-feature-branch">Paso 3: Crear Feature Branch</a><ul>
+<li><a class="reference internal" href="#actualizar-main">3.1 Actualizar Main</a></li>
+<li><a class="reference internal" href="#crear-branch-con-nomenclatura-estandar">3.2 Crear Branch con Nomenclatura Estándar</a></li>
+<li><a class="reference internal" href="#nomenclatura-para-branches-de-agentes-ai">3.3 Nomenclatura para Branches de Agentes AI</a></li>
+<li><a class="reference internal" href="#verificar-branch-actual">3.4 Verificar Branch Actual</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-4-desarrollo-de-la-feature-tdd">Paso 4: Desarrollo de la Feature (TDD)</a><ul>
+<li><a class="reference internal" href="#filosofia-test-driven-development">4.1 Filosofía: Test-Driven Development</a></li>
+<li><a class="reference internal" href="#crear-archivo-de-tests-primero">4.2 Crear Archivo de Tests Primero</a></li>
+<li><a class="reference internal" href="#ejecutar-tests-deberian-fallar-red">4.3 Ejecutar Tests (Deberían Fallar - RED)</a></li>
+<li><a class="reference internal" href="#implementar-codigo-minimo-green">4.4 Implementar Código Mínimo (GREEN)</a><ul>
+<li><a class="reference internal" href="#crear-serializers">4.4.1 Crear Serializers</a></li>
+<li><a class="reference internal" href="#crear-views">4.4.2 Crear Views</a></li>
+<li><a class="reference internal" href="#configurar-urls">4.4.3 Configurar URLs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejecutar-tests-nuevamente-deberian-pasar-green">4.5 Ejecutar Tests Nuevamente (Deberían Pasar - GREEN)</a></li>
+<li><a class="reference internal" href="#refactorizar-refactor">4.6 Refactorizar (REFACTOR)</a></li>
+<li><a class="reference internal" href="#ejecutar-suite-completa-de-tests">4.7 Ejecutar Suite Completa de Tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-5-validaciones-locales-pre-commit">Paso 5: Validaciones Locales (Pre-Commit)</a><ul>
+<li><a class="reference internal" href="#formateo-de-codigo">5.1 Formateo de Código</a></li>
+<li><a class="reference internal" href="#linting">5.2 Linting</a></li>
+<li><a class="reference internal" href="#type-checking">5.3 Type Checking</a></li>
+<li><a class="reference internal" href="#security-scan">5.4 Security Scan</a></li>
+<li><a class="reference internal" href="#secret-detection">5.5 Secret Detection</a></li>
+<li><a class="reference internal" href="#ejecutar-tests-con-coverage">5.6 Ejecutar Tests con Coverage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-6-commits">Paso 6: Commits</a><ul>
+<li><a class="reference internal" href="#conventional-commits">6.1 Conventional Commits</a></li>
+<li><a class="reference internal" href="#crear-commits-atomicos">6.2 Crear Commits Atómicos</a></li>
+<li><a class="reference internal" href="#pre-commit-hooks-automaticos">6.3 Pre-commit Hooks Automáticos</a></li>
+<li><a class="reference internal" href="#commits-de-tests">6.4 Commits de Tests</a></li>
+<li><a class="reference internal" href="#commits-de-documentacion">6.5 Commits de Documentación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-7-pre-pull-request">Paso 7: Pre-Pull Request</a><ul>
+<li><a class="reference internal" href="#actualizar-con-main">7.1 Actualizar con Main</a></li>
+<li><a class="reference internal" href="#squash-commits-opcional">7.2 Squash Commits (Opcional)</a></li>
+<li><a class="reference internal" href="#push-a-remote">7.3 Push a Remote</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-8-crear-pull-request">Paso 8: Crear Pull Request</a><ul>
+<li><a class="reference internal" href="#usando-gh-cli-recomendado">8.1 Usando gh CLI (Recomendado)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-plan">Test Plan</a></li>
+<li><a class="reference internal" href="#related-issues">Related Issues</a></li>
+<li><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
+<li><a class="reference internal" href="#deployment-notes">Deployment Notes</a></li>
+<li><a class="reference internal" href="#screenshots">Screenshots</a></li>
+<li><a class="reference internal" href="#checklist">Checklist</a></li>
+<li><a class="reference internal" href="#paso-9-code-review">Paso 9: Code Review</a><ul>
+<li><a class="reference internal" href="#ci-cd-automatico">9.1 CI/CD Automático</a></li>
+<li><a class="reference internal" href="#requisitos-para-aprobar">9.2 Requisitos para Aprobar</a></li>
+<li><a class="reference internal" href="#como-autor-del-pr">9.3 Como Autor del PR</a><ul>
+<li><a class="reference internal" href="#responder-a-comentarios">Responder a Comentarios</a></li>
+<li><a class="reference internal" href="#re-solicitar-review">Re-solicitar Review</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#como-reviewer">9.4 Como Reviewer</a><ul>
+<li><a class="reference internal" href="#ver-diff-del-pr">Ver Diff del PR</a></li>
+<li><a class="reference internal" href="#checklist-de-review">Checklist de Review</a></li>
+<li><a class="reference internal" href="#aprobar-pr">Aprobar PR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-10-merge">Paso 10: Merge</a><ul>
+<li><a class="reference internal" href="#pre-merge-checklist">10.1 Pre-Merge Checklist</a></li>
+<li><a class="reference internal" href="#merge-con-gh-cli">10.2 Merge con gh CLI</a></li>
+<li><a class="reference internal" href="#merge-desde-github-ui">10.3 Merge desde GitHub UI</a></li>
+<li><a class="reference internal" href="#post-merge-automatico">10.4 Post-Merge Automático</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-11-post-merge">Paso 11: Post-Merge</a><ul>
+<li><a class="reference internal" href="#verificar-merge-exitoso">11.1 Verificar Merge Exitoso</a></li>
+<li><a class="reference internal" href="#verificar-issue-cerrado">11.2 Verificar Issue Cerrado</a></li>
+<li><a class="reference internal" href="#verificar-documentacion-actualizada">11.3 Verificar Documentación Actualizada</a></li>
+<li><a class="reference internal" href="#limpiar-branches-locales">11.4 Limpiar Branches Locales</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#caso-especial-hotfix-bug-critico">Caso Especial: Hotfix (Bug Crítico)</a><ul>
+<li><a class="reference internal" href="#cuando-usar-hotfix">Cuándo Usar Hotfix</a></li>
+<li><a class="reference internal" href="#procedimiento-acelerado">Procedimiento Acelerado</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metricas-de-calidad">Métricas de Calidad</a><ul>
+<li><a class="reference internal" href="#metricas-del-proyecto">Métricas del Proyecto</a></li>
+<li><a class="reference internal" href="#verificar-metricas">Verificar Métricas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#herramientas-y-comandos-utiles">Herramientas y Comandos Útiles</a><ul>
+<li><a class="reference internal" href="#makefile-commands">Makefile Commands</a></li>
+<li><a class="reference internal" href="#git-aliases-utiles">Git Aliases Útiles</a></li>
+<li><a class="reference internal" href="#github-cli-aliases">GitHub CLI Aliases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#problema-tests-fallan-localmente">Problema: Tests Fallan Localmente</a></li>
+<li><a class="reference internal" href="#problema-pre-commit-hooks-fallan">Problema: Pre-commit Hooks Fallan</a></li>
+<li><a class="reference internal" href="#problema-conflictos-en-rebase">Problema: Conflictos en Rebase</a></li>
+<li><a class="reference internal" href="#problema-push-rechazado">Problema: Push Rechazado</a></li>
+<li><a class="reference internal" href="#problema-ci-falla-pero-local-pasa">Problema: CI Falla pero Local Pasa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recursos-relacionados">Recursos Relacionados</a><ul>
+<li><a class="reference internal" href="#documentacion-interna">Documentación Interna</a></li>
+<li><a class="reference internal" href="#referencias-externas">Referencias Externas</a></li>
+<li><a class="reference internal" href="#herramientas">Herramientas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changelog">Changelog</a></li>
+<li><a class="reference internal" href="#notas-finales">Notas Finales</a><ul>
+<li><a class="reference internal" href="#principios-clave">Principios Clave</a></li>
+<li><a class="reference internal" href="#cuando-pedir-ayuda">Cuando Pedir Ayuda</a></li>
+<li><a class="reference internal" href="#canales-de-comunicacion">Canales de Comunicación</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

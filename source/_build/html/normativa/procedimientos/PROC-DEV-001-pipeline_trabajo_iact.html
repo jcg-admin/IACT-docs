@@ -1,0 +1,1300 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCESO: Pipeline de Trabajo IACT - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proceso-pipeline-de-trabajo-iact">
+<h1>PROCESO: Pipeline de Trabajo IACT<a class="headerlink" href="#proceso-pipeline-de-trabajo-iact" title="Link to this heading">¶</a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">¶</a></h2>
+<p>Definir el flujo completo de trabajo desde que se identifica un
+requerimiento hasta que se deploya a producción, asegurando calidad,
+trazabilidad y cumplimiento de estándares del proyecto IACT.</p>
+</section>
+<hr class="docutils" />
+<section id="alcance">
+<h2>Alcance<a class="headerlink" href="#alcance" title="Link to this heading">¶</a></h2>
+<section id="incluye">
+<h3>Incluye<a class="headerlink" href="#incluye" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Flujo completo de desarrollo (feature request → producción)</p></li>
+<li><p>Análisis y diseño de soluciones</p></li>
+<li><p>Implementación de código</p></li>
+<li><p>Testing (unit, integration, E2E)</p></li>
+<li><p>Code review</p></li>
+<li><p>Deployment (staging → producción)</p></li>
+<li><p>Monitoreo post-deployment</p></li>
+</ul>
+</section>
+<section id="no-incluye">
+<h3>NO Incluye<a class="headerlink" href="#no-incluye" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Gestión de incidentes en producción (ver PROC-INCIDENT-RESPONSE-001)</p></li>
+<li><p>Onboarding de nuevos desarrolladores (ver PROC-ONBOARDING-001)</p></li>
+<li><p>Gestión de releases (ver PROC-RELEASE-MANAGEMENT-001)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="roles-involucrados">
+<h2>Roles Involucrados<a class="headerlink" href="#roles-involucrados" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol</p></th>
+<th class="head"><p>Responsabilidades</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Product
+Owner</strong></p></td>
+<td><p>Define requisitos, prioriza backlog, aprueba features</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tech
+Lead</strong></p></td>
+<td><p>Revisa diseño, aprueba PRs críticos, define
+arquitectura</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>Developer*</em></p>
+</td>
+<td><p>Implementa código, escribe tests, hace code reviews</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>QA
+Engineer</strong></p></td>
+<td><p>Define tests E2E, valida en staging, smoke tests</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DevOps</strong></p></td>
+<td><p>Configura pipelines CI/CD, ejecuta deployments,
+monitorea</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="entradas-inputs">
+<h2>Entradas (Inputs)<a class="headerlink" href="#entradas-inputs" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Issue en GitHub</strong> con:</p>
+<ul class="simple">
+<li><p>Descripción del requerimiento</p></li>
+<li><p>Criterios de aceptación</p></li>
+<li><p>Prioridad asignada</p></li>
+<li><p>Labels apropiados</p></li>
+</ul>
+</li>
+<li><p><strong>Contexto del Proyecto</strong>:</p>
+<ul class="simple">
+<li><p>Documentación de arquitectura</p></li>
+<li><p>ADRs relevantes</p></li>
+<li><p>Restricciones (RNF-002: NO Redis, etc.)</p></li>
+</ul>
+</li>
+<li><p><strong>Recursos</strong>:</p>
+<ul class="simple">
+<li><p>Tiempo estimado</p></li>
+<li><p>Developer asignado</p></li>
+<li><p>Ambiente de desarrollo configurado</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="salidas-outputs">
+<h2>Salidas (Outputs)<a class="headerlink" href="#salidas-outputs" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Feature funcionando en producción</strong></p></li>
+<li><p><strong>Tests pasando</strong> (coverage &gt;= 80%)</p></li>
+<li><p><strong>Documentación actualizada</strong></p></li>
+<li><p><strong>ADR</strong> (si hay decisión arquitectónica)</p></li>
+<li><p><strong>Changelog actualizado</strong></p></li>
+<li><p><strong>Métricas DORA registradas</strong></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="flujo-del-pipeline">
+<h2>FLUJO DEL PIPELINE<a class="headerlink" href="#flujo-del-pipeline" title="Link to this heading">¶</a></h2>
+<section id="etapa-1-analisis-y-planificacion">
+<h3>ETAPA 1: ANÁLISIS Y PLANIFICACIÓN<a class="headerlink" href="#etapa-1-analisis-y-planificacion" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Entender el requerimiento y diseñar la solución</p>
+<p><strong>Duración estimada</strong>: 2-4 horas</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Analizar Issue</strong></p>
+<ul class="simple">
+<li><p>Leer descripción completa</p></li>
+<li><p>Identificar dependencias</p></li>
+<li><p>Estimar complejidad (story points)</p></li>
+<li><p>Identificar riesgos</p></li>
+</ul>
+</li>
+<li><p><strong>Diseñar Solución</strong></p>
+<ul class="simple">
+<li><p>Revisar ADRs relacionados</p></li>
+<li><p>Identificar componentes afectados</p></li>
+<li><p>Diseñar modelos/servicios/views necesarios</p></li>
+<li><p>Definir estructura de tests</p></li>
+</ul>
+</li>
+<li><p><strong>Crear Branch</strong></p>
+<ul class="simple">
+<li><p>Nomenclatura: <code class="docutils literal notranslate"><span class="pre">feature/ISSUE-123-descripcion-breve</span></code></p></li>
+<li><p>Desde: <code class="docutils literal notranslate"><span class="pre">main</span></code> o <code class="docutils literal notranslate"><span class="pre">develop</span></code> (según estrategia de branching)</p></li>
+<li><p>Comando: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/ISSUE-123-descripcion</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] Diseño técnico claro - [ ] Branch creado
+- [ ] Componentes identificados - [ ] Estimación de tiempo realista</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-ANALIZAR-REQUISITOS-001 -
+PROCED-CREAR-BRANCH-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-2-implementacion">
+<h3>ETAPA 2: IMPLEMENTACIÓN<a class="headerlink" href="#etapa-2-implementacion" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Escribir código que cumpla los requisitos</p>
+<p><strong>Duración estimada</strong>: 4-16 horas (según complejidad)</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic">
+<li><p><strong>Escribir Tests (TDD - Red Phase)</strong></p>
+<ul class="simple">
+<li><p>Tests unitarios primero</p></li>
+<li><p>Tests de integración</p></li>
+<li><p>Verificar que tests fallan (RED)</p></li>
+</ul>
+</li>
+<li><p><strong>Implementar Código (TDD - Green Phase)</strong></p>
+<ul class="simple">
+<li><p>Modelos Django</p></li>
+<li><p>Services (lógica de negocio)</p></li>
+<li><p>Serializers (DRF)</p></li>
+<li><p>Views/ViewSets (endpoints)</p></li>
+<li><p>Verificar que tests pasan (GREEN)</p></li>
+</ul>
+</li>
+<li><p><strong>Refactorizar (TDD - Refactor Phase)</strong></p>
+<ul class="simple">
+<li><p>Mejorar legibilidad</p></li>
+<li><p>Eliminar duplicación</p></li>
+<li><p>Aplicar SOLID principles</p></li>
+<li><p>Tests siguen pasando</p></li>
+</ul>
+</li>
+<li><p><strong>Ejecutar Linters</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>callcentersite/
+isort<span class="w"> </span>callcentersite/
+flake8<span class="w"> </span>callcentersite/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Verificar Coverage</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--cov<span class="o">=</span>callcentersite<span class="w"> </span>--cov-report<span class="o">=</span>term<span class="w"> </span>--cov-fail-under<span class="o">=</span><span class="m">80</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] Tests unitarios pasan - [ ] Tests de
+integración pasan - [ ] Coverage &gt;= 80% - [ ] Linters pasan (black,
+isort, flake8) - [ ] No hay TODOs pendientes críticos</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-TDD-RED-GREEN-REFACTOR-001 -
+PROCED-EJECUTAR-TESTS-001 - PROCED-EJECUTAR-LINTERS-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-3-code-review-preparation">
+<h3>ETAPA 3: CODE REVIEW PREPARATION<a class="headerlink" href="#etapa-3-code-review-preparation" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Preparar código para revisión por pares</p>
+<p><strong>Duración estimada</strong>: 30 minutos - 1 hora</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic">
+<li><p><strong>Commit Changes</strong></p>
+<ul>
+<li><p>Conventional Commits:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feat</span><span class="p">(</span><span class="n">users</span><span class="p">):</span> <span class="n">agregar</span> <span class="n">validacion</span> <span class="n">de</span> <span class="n">permisos</span> <span class="n">granulares</span>
+
+<span class="o">-</span> <span class="n">Implementar</span> <span class="n">servicio</span> <span class="n">de</span> <span class="n">verificacion</span> <span class="n">de</span> <span class="n">capacidades</span>
+<span class="o">-</span> <span class="n">Agregar</span> <span class="n">tests</span> <span class="n">unitarios</span> <span class="n">para</span> <span class="n">edge</span> <span class="n">cases</span>
+<span class="o">-</span> <span class="n">Actualizar</span> <span class="n">documentacion</span> <span class="n">de</span> <span class="n">API</span>
+
+<span class="n">Closes</span> <span class="c1">#123</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Push to Remote</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/ISSUE-123-descripcion
+</pre></div>
+</div>
+</li>
+<li><p><strong>Crear Pull Request</strong></p>
+<ul>
+<li><p>Título: <code class="docutils literal notranslate"><span class="pre">feat(users):</span> <span class="pre">agregar</span> <span class="pre">validacion</span> <span class="pre">de</span> <span class="pre">permisos</span> <span class="pre">granulares</span></code></p></li>
+<li><p>Descripción con template:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Descripción</span>
+Breve descripción del cambio.
+
+<span class="gu">## Tipo de cambio</span>
+<span class="k">- [x]</span> Feature nueva
+<span class="k">- [ ]</span> Bug fix
+<span class="k">- [ ]</span> Refactoring
+
+<span class="gu">## Checklist</span>
+<span class="k">- [x]</span> Tests pasan
+<span class="k">- [x]</span> Coverage &gt;= 80%
+<span class="k">- [x]</span> Linters pasan
+<span class="k">- [x]</span> Documentación actualizada
+
+<span class="gu">## Capturas (si aplica)</span>
+Screenshots/videos si hay UI.
+
+Closes <span class="ni">#123</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Asignar Reviewers</strong></p>
+<ul class="simple">
+<li><p>Mínimo: 2 reviewers</p></li>
+<li><p>Al menos 1 reviewer senior/tech lead</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] PR creado con descripción completa - [ ]
+Reviewers asignados - [ ] Labels asignados (feature, priority, etc.) - [
+] CI/CD pipeline triggered</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-CREAR-PULL-REQUEST-001 -
+PROCED-CONVENTIONAL-COMMITS-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-4-code-review">
+<h3>ETAPA 4: CODE REVIEW<a class="headerlink" href="#etapa-4-code-review" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Validar calidad del código por pares</p>
+<p><strong>Duración estimada</strong>: 2-8 horas (incluye iteraciones)</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Revisión Automatizada (CI/CD)</strong></p>
+<ul class="simple">
+<li><p>Backend CI (pytest, coverage, linters)</p></li>
+<li><p>Frontend CI (Jest, ESLint)</p></li>
+<li><p>Security scan (Bandit, npm audit)</p></li>
+<li><p>Todos los checks deben pasar</p></li>
+</ul>
+</li>
+<li><p><strong>Revisión Manual por Reviewers</strong></p>
+<ul class="simple">
+<li><p>Verificar:</p>
+<ul>
+<li><p>Cumple requisitos del issue</p></li>
+<li><p>Código legible y mantenible</p></li>
+<li><p>Tests adecuados</p></li>
+<li><p>No hay code smells</p></li>
+<li><p>Cumple estándares del proyecto</p></li>
+<li><p>No viola ADRs</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Feedback y Correcciones</strong></p>
+<ul class="simple">
+<li><p>Reviewers dejan comentarios</p></li>
+<li><p>Developer corrige</p></li>
+<li><p>Push de correcciones</p></li>
+<li><p>Re-review si necesario</p></li>
+</ul>
+</li>
+<li><p><strong>Aprobación</strong></p>
+<ul class="simple">
+<li><p>Mínimo 2 aprobaciones</p></li>
+<li><p>Todos los comentarios resueltos</p></li>
+<li><p>CI/CD verde</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] 2+ aprobaciones recibidas - [ ] Todos los
+checks CI/CD verdes - [ ] Todos los comentarios resueltos - [ ]
+Conflicts resueltos (si existen)</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-CODE-REVIEW-001 -
+PROCED-RESOLVER-COMENTARIOS-PR-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-5-merge-y-deployment-a-staging">
+<h3>ETAPA 5: MERGE Y DEPLOYMENT A STAGING<a class="headerlink" href="#etapa-5-merge-y-deployment-a-staging" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Integrar cambios y desplegar a ambiente de staging</p>
+<p><strong>Duración estimada</strong>: 15-30 minutos</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic">
+<li><p><strong>Merge to Main/Develop</strong></p>
+<ul class="simple">
+<li><p>Método: Squash and Merge (preferido) o Merge Commit</p></li>
+<li><p>Eliminar branch feature después de merge</p></li>
+<li><p>Generar tag si es release</p></li>
+</ul>
+</li>
+<li><p><strong>Deployment Automático a Staging</strong></p>
+<ul>
+<li><p>Trigger: Merge a <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch</p></li>
+<li><p>CI/CD ejecuta:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ejecutar migraciones (staging DB)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy de aplicación (staging server)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Smoke tests automáticos</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Notificar en Slack/Discord</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Verificación Manual en Staging</strong></p>
+<ul class="simple">
+<li><p>QA Engineer valida funcionalidad</p></li>
+<li><p>Product Owner valida requisitos</p></li>
+<li><p>Smoke tests manuales</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] Código mergeado a main/develop - [ ]
+Deploy a staging exitoso - [ ] Smoke tests pasan - [ ] Feature validada
+por QA</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-MERGE-PR-001 -
+PROCED-DEPLOY-STAGING-001 - PROCED-SMOKE-TESTS-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-6-deployment-a-produccion">
+<h3>ETAPA 6: DEPLOYMENT A PRODUCCIÓN<a class="headerlink" href="#etapa-6-deployment-a-produccion" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Desplegar feature a producción de forma segura</p>
+<p><strong>Duración estimada</strong>: 30 minutos - 1 hora</p>
+<p><strong>Pre-requisitos</strong>: - Feature validada en staging - Aprobación de
+Product Owner - Ventana de deployment disponible - Backup de BD
+completado</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic">
+<li><p><strong>Pre-Deployment Checklist</strong></p>
+<ul class="simple">
+<li><p>☐ Backup de base de datos completado</p></li>
+<li><p>☐ Changelog actualizado</p></li>
+<li><p>☐ Release notes preparadas</p></li>
+<li><p>☐ Rollback plan definido</p></li>
+<li><p>☐ Equipo notificado</p></li>
+</ul>
+</li>
+<li><p><strong>Ejecutar Deployment</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual trigger o automático desde main</span>
+-<span class="w"> </span>Activar<span class="w"> </span>maintenance<span class="w"> </span>mode<span class="w"> </span><span class="o">(</span>si<span class="w"> </span>necesario<span class="o">)</span>
+-<span class="w"> </span>Ejecutar<span class="w"> </span>migraciones<span class="w"> </span>en<span class="w"> </span>producción
+-<span class="w"> </span>Deploy<span class="w"> </span>de<span class="w"> </span>aplicación
+-<span class="w"> </span>Smoke<span class="w"> </span>tests<span class="w"> </span>automáticos
+-<span class="w"> </span>Desactivar<span class="w"> </span>maintenance<span class="w"> </span>mode
+</pre></div>
+</div>
+</li>
+<li><p><strong>Validación Post-Deployment</strong></p>
+<ul class="simple">
+<li><p>Smoke tests manuales</p></li>
+<li><p>Verificar logs (sin errores)</p></li>
+<li><p>Verificar métricas (response time, error rate)</p></li>
+<li><p>Validar feature funciona en producción</p></li>
+</ul>
+</li>
+<li><p><strong>Monitoreo (primeras 2 horas)</strong></p>
+<ul class="simple">
+<li><p>Observar error rate</p></li>
+<li><p>Observar response times</p></li>
+<li><p>Revisar logs de aplicación</p></li>
+<li><p>Estar listo para rollback si necesario</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] Deploy a producción exitoso - [ ] Smoke
+tests pasan - [ ] Métricas normales (error rate, response time) - [ ]
+Feature funcionando en producción - [ ] Equipo notificado del deployment
+exitoso</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-DEPLOY-PRODUCCION-001 -
+PROCED-ROLLBACK-001 (si falla) - PROCED-POST-DEPLOYMENT-MONITORING-001</p>
+</section>
+<hr class="docutils" />
+<section id="etapa-7-post-deployment">
+<h3>ETAPA 7: POST-DEPLOYMENT<a class="headerlink" href="#etapa-7-post-deployment" title="Link to this heading">¶</a></h3>
+<p><strong>Objetivo</strong>: Validar éxito y cerrar ciclo</p>
+<p><strong>Duración estimada</strong>: 30 minutos</p>
+<p><strong>Actividades</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Actualizar Issue</strong></p>
+<ul class="simple">
+<li><p>Marcar como completado</p></li>
+<li><p>Agregar link a PR</p></li>
+<li><p>Agregar link a deployment</p></li>
+<li><p>Cerrar issue</p></li>
+</ul>
+</li>
+<li><p><strong>Actualizar Documentación</strong></p>
+<ul class="simple">
+<li><p>Actualizar README si aplica</p></li>
+<li><p>Actualizar API docs si aplica</p></li>
+<li><p>Crear/actualizar ADR si hay decisión arquitectónica</p></li>
+</ul>
+</li>
+<li><p><strong>Registrar Métricas DORA</strong></p>
+<ul class="simple">
+<li><p>Lead Time for Changes</p></li>
+<li><p>Deployment Frequency</p></li>
+<li><p>Mean Time to Recovery (si hubo incidente)</p></li>
+<li><p>Change Failure Rate</p></li>
+</ul>
+</li>
+<li><p><strong>Retrospectiva (opcional)</strong></p>
+<ul class="simple">
+<li><p>Qué salió bien</p></li>
+<li><p>Qué mejorar</p></li>
+<li><p>Lecciones aprendidas</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Criterios de Salida</strong>: - [ ] Issue cerrado - [ ] Documentación
+actualizada - [ ] Métricas DORA registradas - [ ] Retrospectiva
+documentada (si aplica)</p>
+<p><strong>Procedimientos Relacionados</strong>: - PROCED-CERRAR-ISSUE-001 -
+PROCED-ACTUALIZAR-DOCS-001 - PROCED-REGISTRAR-METRICAS-DORA-001</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="diagrama-de-flujo">
+<h2>DIAGRAMA DE FLUJO<a class="headerlink" href="#diagrama-de-flujo" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Issue en GitHub]
+        ↓
+[ETAPA 1: Análisis]
+  - Analizar requisitos
+  - Diseñar solución
+  - Crear branch
+        ↓
+[ETAPA 2: Implementación]
+  - TDD: Red → Green → Refactor
+  - Ejecutar linters
+  - Verificar coverage
+        ↓
+[ETAPA 3: PR Preparation]
+  - Commit con Conventional Commits
+  - Push a remote
+  - Crear Pull Request
+        ↓
+[ETAPA 4: Code Review]
+  - CI/CD automático
+  - Revisión manual por pares
+  - Correcciones si necesario
+  - Aprobación (2+ reviewers)
+        ↓
+[ETAPA 5: Merge &amp; Deploy Staging]
+  - Merge a main/develop
+  - Deploy automático a staging
+  - Validación por QA
+        ↓
+    ¿Aprobado?
+    ├─ NO → Corregir en nueva iteración
+    └─ SI ↓
+[ETAPA 6: Deploy Producción]
+  - Pre-deployment checklist
+  - Ejecutar deployment
+  - Smoke tests
+  - Monitoreo (2 horas)
+        ↓
+    ¿Exitoso?
+    ├─ NO → Rollback (PROCED-ROLLBACK-001)
+    └─ SI ↓
+[ETAPA 7: Post-Deployment]
+  - Cerrar issue
+  - Actualizar docs
+  - Registrar métricas DORA
+        ↓
+[Feature en Producción]
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="metricas-del-proceso">
+<h2>MÉTRICAS DEL PROCESO<a class="headerlink" href="#metricas-del-proceso" title="Link to this heading">¶</a></h2>
+<section id="kpis-principales">
+<h3>KPIs Principales<a class="headerlink" href="#kpis-principales" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Target</p></th>
+<th class="head"><p>Medición</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Lead Time for
+Changes</strong></p></td>
+<td><p>&lt; 3 días</p></td>
+<td><p>Desde commit hasta
+producción</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Deployment
+Frequency</strong></p></td>
+<td><p>2-3 por semana</p></td>
+<td><p>Deployments a
+producción</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Change Failure
+Rate</strong></p></td>
+<td><p>&lt; 15%</p></td>
+<td><p>% deployments que
+requieren rollback</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Time to Restore</strong></p></td>
+<td><p>&lt; 2 horas</p></td>
+<td><p>Tiempo para recuperar
+de fallo</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Code Review Time</strong></p></td>
+<td><p>&lt; 24 horas</p></td>
+<td><p>Desde PR hasta merge</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Test Coverage</strong></p></td>
+<td><p>&gt;= 80%</p></td>
+<td><p>Coverage de tests
+unitarios</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="metricas-secundarias">
+<h3>Métricas Secundarias<a class="headerlink" href="#metricas-secundarias" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Tiempo promedio por etapa</p></li>
+<li><p>Número de iteraciones en code review</p></li>
+<li><p>Número de bugs post-deployment</p></li>
+<li><p>Satisfacción del equipo con el proceso</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="variaciones-del-proceso">
+<h2>VARIACIONES DEL PROCESO<a class="headerlink" href="#variaciones-del-proceso" title="Link to this heading">¶</a></h2>
+<section id="hotfix-bug-critico-en-produccion">
+<h3>Hotfix (Bug Crítico en Producción)<a class="headerlink" href="#hotfix-bug-critico-en-produccion" title="Link to this heading">¶</a></h3>
+<p><strong>Diferencias</strong>: - Branch desde: <code class="docutils literal notranslate"><span class="pre">main</span></code> (no desde develop) -
+Nomenclatura: <code class="docutils literal notranslate"><span class="pre">hotfix/ISSUE-123-descripcion</span></code> - Code review: 1 reviewer
+(acelerado) - Deploy directo a producción (skip staging) - Merge back a
+main Y develop</p>
+<p><strong>Duración</strong>: 2-4 horas end-to-end</p>
+</section>
+<hr class="docutils" />
+<section id="refactoring-sin-nueva-funcionalidad">
+<h3>Refactoring (Sin Nueva Funcionalidad)<a class="headerlink" href="#refactoring-sin-nueva-funcionalidad" title="Link to this heading">¶</a></h3>
+<p><strong>Diferencias</strong>: - Branch: <code class="docutils literal notranslate"><span class="pre">refactor/descripcion</span></code> - Tests deben seguir
+pasando (no agregar nuevos) - Code review enfocado en mejora de calidad
+- Puede no requerir QA validation</p>
+</section>
+<hr class="docutils" />
+<section id="spike-investigacion-tecnica">
+<h3>Spike (Investigación Técnica)<a class="headerlink" href="#spike-investigacion-tecnica" title="Link to this heading">¶</a></h3>
+<p><strong>Diferencias</strong>: - Branch: <code class="docutils literal notranslate"><span class="pre">spike/descripcion</span></code> - Output: Documento de
+hallazgos (no código en producción) - No requiere tests exhaustivos - No
+requiere deployment</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="herramientas-y-tecnologias">
+<h2>HERRAMIENTAS Y TECNOLOGÍAS<a class="headerlink" href="#herramientas-y-tecnologias" title="Link to this heading">¶</a></h2>
+<section id="control-de-versiones">
+<h3>Control de Versiones<a class="headerlink" href="#control-de-versiones" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Git</strong>: Control de versiones</p></li>
+<li><p><strong>GitHub</strong>: Hosting, PRs, Issues, Actions</p></li>
+</ul>
+</section>
+<section id="ci-cd">
+<h3>CI/CD<a class="headerlink" href="#ci-cd" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>GitHub Actions</strong>: 25 workflows configurados</p></li>
+<li><p><strong>pytest</strong>: Testing backend</p></li>
+<li><p><strong>Jest</strong>: Testing frontend</p></li>
+<li><p><strong>Black/isort/flake8</strong>: Linters Python</p></li>
+</ul>
+</section>
+<section id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Vagrant</strong>: Ambiente local</p></li>
+<li><p><strong>DevContainer</strong>: Desarrollo en contenedor</p></li>
+<li><p>(Producción: TBD - definir stack de deployment)</p></li>
+</ul>
+</section>
+<section id="monitoreo">
+<h3>Monitoreo<a class="headerlink" href="#monitoreo" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Logs</strong>: python-json-logger</p></li>
+<li><p><strong>Métricas DORA</strong>: Scripts en <code class="docutils literal notranslate"><span class="pre">dora_metrics/</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="excepciones-y-casos-especiales">
+<h2>EXCEPCIONES Y CASOS ESPECIALES<a class="headerlink" href="#excepciones-y-casos-especiales" title="Link to this heading">¶</a></h2>
+<section id="caso-1-feature-requiere-adr">
+<h3>Caso 1: Feature Requiere ADR<a class="headerlink" href="#caso-1-feature-requiere-adr" title="Link to this heading">¶</a></h3>
+<p><strong>Trigger</strong>: Decisión arquitectónica significativa</p>
+<p><strong>Acción</strong>: 1. Crear ADR en <code class="docutils literal notranslate"><span class="pre">docs/gobernanza/adr/ADR-XXX-titulo.md</span></code> 2.
+Agregar ADR al PR description 3. Requiere aprobación de Tech Lead o
+Arquitecto 4. Documentar decisión ANTES de implementar</p>
+</section>
+<hr class="docutils" />
+<section id="caso-2-feature-requiere-migracion-de-bd">
+<h3>Caso 2: Feature Requiere Migración de BD<a class="headerlink" href="#caso-2-feature-requiere-migracion-de-bd" title="Link to this heading">¶</a></h3>
+<p><strong>Trigger</strong>: Cambios en modelos Django</p>
+<p><strong>Acción</strong>: 1. Generar migración: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span></code> 2.
+Revisar migración generada 3. Probar rollback:
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">app_name</span> <span class="pre">&lt;numero_anterior&gt;</span></code> 4. Incluir
+migración en PR 5. Documentar rollback strategy en PR</p>
+</section>
+<hr class="docutils" />
+<section id="caso-3-feature-bloquea-a-otros-developers">
+<h3>Caso 3: Feature Bloquea a Otros Developers<a class="headerlink" href="#caso-3-feature-bloquea-a-otros-developers" title="Link to this heading">¶</a></h3>
+<p><strong>Trigger</strong>: Branch de larga duración (&gt;3 días)</p>
+<p><strong>Acción</strong>: 1. Comunicar en daily standup 2. Dividir feature en
+sub-features más pequeñas 3. Merge incremental con feature flags 4.
+Mantener sincronizado con main (merge main → feature diario)</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="roles-y-responsabilidades-detalladas">
+<h2>ROLES Y RESPONSABILIDADES DETALLADAS<a class="headerlink" href="#roles-y-responsabilidades-detalladas" title="Link to this heading">¶</a></h2>
+<section id="developer">
+<h3>Developer<a class="headerlink" href="#developer" title="Link to this heading">¶</a></h3>
+<p><strong>En cada etapa</strong>: - ETAPA 1: Analizar y diseñar - ETAPA 2: Implementar
+código y tests - ETAPA 3: Crear PR - ETAPA 4: Responder a comentarios de
+reviewers - ETAPA 5-7: Monitorear deployment (si on-call)</p>
+</section>
+<hr class="docutils" />
+<section id="code-reviewer">
+<h3>Code Reviewer<a class="headerlink" href="#code-reviewer" title="Link to this heading">¶</a></h3>
+<p><strong>Responsabilidades</strong>: - Revisar en &lt; 24 horas - Verificar: - Código
+legible - Tests adecuados - Cumple estándares - No viola ADRs - Dejar
+comentarios constructivos - Aprobar o solicitar cambios</p>
+</section>
+<hr class="docutils" />
+<section id="qa-engineer">
+<h3>QA Engineer<a class="headerlink" href="#qa-engineer" title="Link to this heading">¶</a></h3>
+<p><strong>Responsabilidades</strong>: - Validar en staging - Ejecutar smoke tests -
+Reportar bugs encontrados - Aprobar para producción</p>
+</section>
+<hr class="docutils" />
+<section id="devops">
+<h3>DevOps<a class="headerlink" href="#devops" title="Link to this heading">¶</a></h3>
+<p><strong>Responsabilidades</strong>: - Configurar pipelines CI/CD - Ejecutar
+deployments (si manual) - Monitorear métricas post-deployment - Ejecutar
+rollback si necesario</p>
+</section>
+<hr class="docutils" />
+<section id="tech-lead">
+<h3>Tech Lead<a class="headerlink" href="#tech-lead" title="Link to this heading">¶</a></h3>
+<p><strong>Responsabilidades</strong>: - Revisar diseño arquitectónico - Aprobar PRs
+complejos/críticos - Aprobar ADRs - Resolver disputes en code reviews</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>TROUBLESHOOTING<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<section id="problema-ci-cd-falla-en-pr">
+<h3>Problema: CI/CD Falla en PR<a class="headerlink" href="#problema-ci-cd-falla-en-pr" title="Link to this heading">¶</a></h3>
+<p><strong>Causa común</strong>: Tests fallan, linters no pasan</p>
+<p><strong>Solución</strong>: 1. Revisar logs de GitHub Actions 2. Ejecutar localmente:
+<code class="docutils literal notranslate"><span class="pre">bash</span>&#160;&#160;&#160; <span class="pre">pytest</span>&#160;&#160;&#160; <span class="pre">black</span> <span class="pre">--check</span> <span class="pre">callcentersite/</span>&#160;&#160;&#160; <span class="pre">flake8</span> <span class="pre">callcentersite/</span></code>
+3. Corregir errores 4. Push de correcciones 5. CI/CD se re-ejecuta
+automáticamente</p>
+</section>
+<hr class="docutils" />
+<section id="problema-merge-conflicts">
+<h3>Problema: Merge Conflicts<a class="headerlink" href="#problema-merge-conflicts" title="Link to this heading">¶</a></h3>
+<p><strong>Causa común</strong>: Branch desactualizado con main</p>
+<p><strong>Solución</strong>: 1. Actualizar branch local:
+<code class="docutils literal notranslate"><span class="pre">bash</span>&#160;&#160;&#160; <span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">feature/ISSUE-123</span>&#160;&#160;&#160; <span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">origin</span>&#160;&#160;&#160; <span class="pre">git</span> <span class="pre">merge</span> <span class="pre">origin/main</span></code>
+2. Resolver conflicts manualmente 3. Ejecutar tests (asegurar que siguen
+pasando) 4. Push de resolución:
+<code class="docutils literal notranslate"><span class="pre">bash</span>&#160;&#160;&#160; <span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">feature/ISSUE-123</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="problema-deployment-falla-en-staging">
+<h3>Problema: Deployment Falla en Staging<a class="headerlink" href="#problema-deployment-falla-en-staging" title="Link to this heading">¶</a></h3>
+<p><strong>Causa común</strong>: Migración de BD falla</p>
+<p><strong>Solución</strong>: 1. Revisar logs de deployment 2. Verificar migración
+localmente 3. Si migración es problema: - Corregir migración - Crear
+nueva PR con fix - Re-deploy 4. Si problema es otro: - Rollback a
+versión anterior - Investigar causa raíz - Crear hotfix si necesario</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mejora-continua">
+<h2>MEJORA CONTINUA<a class="headerlink" href="#mejora-continua" title="Link to this heading">¶</a></h2>
+<section id="retrospectivas-mensuales">
+<h3>Retrospectivas Mensuales<a class="headerlink" href="#retrospectivas-mensuales" title="Link to this heading">¶</a></h3>
+<p><strong>Agenda</strong>: 1. Revisar métricas del mes 2. Qué funcionó bien 3. Qué no
+funcionó 4. Acciones de mejora 5. Actualizar este proceso si necesario</p>
+</section>
+<hr class="docutils" />
+<section id="revision-de-proceso-trimestral">
+<h3>Revisión de Proceso (Trimestral)<a class="headerlink" href="#revision-de-proceso-trimestral" title="Link to this heading">¶</a></h3>
+<p><strong>Verificar</strong>: - Métricas DORA - Satisfacción del equipo - Bottlenecks
+identificados - Nuevas herramientas/técnicas disponibles - Actualizar
+proceso según aprendizajes</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>REFERENCIAS<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md">Guía: Procesos vs
+Procedimientos</a></p></li>
+<li><p><a class="reference external" href="../adr/ADR-002-branching-strategy.md">ADR-002: Estrategia de
+Branching</a></p></li>
+<li><p><a class="reference external" href="../adr/ADR-056-agentic-design-principles.md">ADR-056: Agentic Design
+Principles</a></p></li>
+<li><p><a class="reference external" href="../GUIA_ESTILO.md">Guía de Estilo</a></p></li>
+<li><p><a class="reference external" href="https://www.conventionalcommits.org/">Conventional Commits</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="changelog">
+<h2>CHANGELOG<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h2>
+<section id="v1-0-0-2025-11-17">
+<h3>v1.0.0 (2025-11-17)<a class="headerlink" href="#v1-0-0-2025-11-17" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Versión inicial del proceso</p></li>
+<li><p>Definición de 7 etapas</p></li>
+<li><p>Métricas DORA incluidas</p></li>
+<li><p>Casos especiales documentados</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Próxima revisión</strong>: 2025-12-17 (1 mes) <strong>Responsable</strong>: Tech Lead +
+Equipo de Desarrollo <strong>Aprobación pendiente</strong>: Product Owner, Tech Lead,
+DevOps Lead</p>
+</section>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCESO: Pipeline de Trabajo IACT</a><ul>
+<li><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li><a class="reference internal" href="#alcance">Alcance</a><ul>
+<li><a class="reference internal" href="#incluye">Incluye</a></li>
+<li><a class="reference internal" href="#no-incluye">NO Incluye</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#roles-involucrados">Roles Involucrados</a></li>
+<li><a class="reference internal" href="#entradas-inputs">Entradas (Inputs)</a></li>
+<li><a class="reference internal" href="#salidas-outputs">Salidas (Outputs)</a></li>
+<li><a class="reference internal" href="#flujo-del-pipeline">FLUJO DEL PIPELINE</a><ul>
+<li><a class="reference internal" href="#etapa-1-analisis-y-planificacion">ETAPA 1: ANÁLISIS Y PLANIFICACIÓN</a></li>
+<li><a class="reference internal" href="#etapa-2-implementacion">ETAPA 2: IMPLEMENTACIÓN</a></li>
+<li><a class="reference internal" href="#etapa-3-code-review-preparation">ETAPA 3: CODE REVIEW PREPARATION</a></li>
+<li><a class="reference internal" href="#etapa-4-code-review">ETAPA 4: CODE REVIEW</a></li>
+<li><a class="reference internal" href="#etapa-5-merge-y-deployment-a-staging">ETAPA 5: MERGE Y DEPLOYMENT A STAGING</a></li>
+<li><a class="reference internal" href="#etapa-6-deployment-a-produccion">ETAPA 6: DEPLOYMENT A PRODUCCIÓN</a></li>
+<li><a class="reference internal" href="#etapa-7-post-deployment">ETAPA 7: POST-DEPLOYMENT</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diagrama-de-flujo">DIAGRAMA DE FLUJO</a></li>
+<li><a class="reference internal" href="#metricas-del-proceso">MÉTRICAS DEL PROCESO</a><ul>
+<li><a class="reference internal" href="#kpis-principales">KPIs Principales</a></li>
+<li><a class="reference internal" href="#metricas-secundarias">Métricas Secundarias</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variaciones-del-proceso">VARIACIONES DEL PROCESO</a><ul>
+<li><a class="reference internal" href="#hotfix-bug-critico-en-produccion">Hotfix (Bug Crítico en Producción)</a></li>
+<li><a class="reference internal" href="#refactoring-sin-nueva-funcionalidad">Refactoring (Sin Nueva Funcionalidad)</a></li>
+<li><a class="reference internal" href="#spike-investigacion-tecnica">Spike (Investigación Técnica)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#herramientas-y-tecnologias">HERRAMIENTAS Y TECNOLOGÍAS</a><ul>
+<li><a class="reference internal" href="#control-de-versiones">Control de Versiones</a></li>
+<li><a class="reference internal" href="#ci-cd">CI/CD</a></li>
+<li><a class="reference internal" href="#deployment">Deployment</a></li>
+<li><a class="reference internal" href="#monitoreo">Monitoreo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#excepciones-y-casos-especiales">EXCEPCIONES Y CASOS ESPECIALES</a><ul>
+<li><a class="reference internal" href="#caso-1-feature-requiere-adr">Caso 1: Feature Requiere ADR</a></li>
+<li><a class="reference internal" href="#caso-2-feature-requiere-migracion-de-bd">Caso 2: Feature Requiere Migración de BD</a></li>
+<li><a class="reference internal" href="#caso-3-feature-bloquea-a-otros-developers">Caso 3: Feature Bloquea a Otros Developers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#roles-y-responsabilidades-detalladas">ROLES Y RESPONSABILIDADES DETALLADAS</a><ul>
+<li><a class="reference internal" href="#developer">Developer</a></li>
+<li><a class="reference internal" href="#code-reviewer">Code Reviewer</a></li>
+<li><a class="reference internal" href="#qa-engineer">QA Engineer</a></li>
+<li><a class="reference internal" href="#devops">DevOps</a></li>
+<li><a class="reference internal" href="#tech-lead">Tech Lead</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">TROUBLESHOOTING</a><ul>
+<li><a class="reference internal" href="#problema-ci-cd-falla-en-pr">Problema: CI/CD Falla en PR</a></li>
+<li><a class="reference internal" href="#problema-merge-conflicts">Problema: Merge Conflicts</a></li>
+<li><a class="reference internal" href="#problema-deployment-falla-en-staging">Problema: Deployment Falla en Staging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mejora-continua">MEJORA CONTINUA</a><ul>
+<li><a class="reference internal" href="#retrospectivas-mensuales">Retrospectivas Mensuales</a></li>
+<li><a class="reference internal" href="#revision-de-proceso-trimestral">Revisión de Proceso (Trimestral)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">REFERENCIAS</a></li>
+<li><a class="reference internal" href="#changelog">CHANGELOG</a><ul>
+<li><a class="reference internal" href="#v1-0-0-2025-11-17">v1.0.0 (2025-11-17)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>
