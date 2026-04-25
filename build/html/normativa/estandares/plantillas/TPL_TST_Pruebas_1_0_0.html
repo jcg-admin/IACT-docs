@@ -1,0 +1,1084 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TPL_TST" name="artefacto" />
+<meta content="Plantilla" name="tipo" />
+<meta content="normativa" name="dominio" />
+<meta content="estandares/plantillas" name="subdominio" />
+<meta content="Aprobado" name="estado" />
+<meta content="1.0.0" name="version" />
+<meta content="2026-01-07" name="fecha_creacion" />
+<meta content="Equipo IACT" name="autor" />
+<link rel="index" title="Índice" href="../../../genindex.html"><link rel="search" title="Búsqueda" href="../../../search.html">
+        <link rel="prefetch" href="../../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>TPL_TST: Plantilla de Caso de Prueba v1.0.0 - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Discover — PlantUML Styling</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../discover/index.html">Discover — Phase 1 Setup &amp; Documentation</a><input aria-label="Toggle navigation of Discover — Phase 1 Setup &amp; Documentation" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../discover/color-palette.html">Color Palette — PlantUML Corporate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../discover/test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../discover/test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../discover/GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="tpl-tst-plantilla-de-caso-de-prueba-v1-0-0">
+<span id="tpl-tst"></span><h1>TPL_TST: Plantilla de Caso de Prueba v1.0.0<a class="headerlink" href="#tpl-tst-plantilla-de-caso-de-prueba-v1-0-0" title="Link to this heading">¶</a></h1>
+<nav class="contents local" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#proposito" id="id1">Propósito</a></p></li>
+<li><p><a class="reference internal" href="#requisitos-tecnicos" id="id2">Requisitos Técnicos</a></p></li>
+<li><p><a class="reference internal" href="#instrucciones-de-uso" id="id3">Instrucciones de Uso</a></p></li>
+<li><p><a class="reference internal" href="#nomenclatura" id="id4">Nomenclatura</a></p></li>
+<li><p><a class="reference internal" href="#tipos-de-prueba" id="id5">Tipos de Prueba</a></p></li>
+<li><p><a class="reference internal" href="#plantilla" id="id6">Plantilla</a></p></li>
+<li><p><a class="reference internal" href="#secciones-obligatorias" id="id7">Secciones Obligatorias</a></p></li>
+<li><p><a class="reference internal" href="#convenciones-pytest" id="id8">Convenciones pytest</a></p></li>
+<li><p><a class="reference internal" href="#validacion" id="id9">Validación</a></p></li>
+<li><p><a class="reference internal" href="#referencias" id="id10">Referencias</a></p></li>
+<li><p><a class="reference internal" href="#historial-de-cambios" id="id11">Historial de Cambios</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="proposito">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Propósito</a><a class="headerlink" href="#proposito" title="Link to this heading">¶</a></h2>
+<p>Esta plantilla define la estructura estándar para documentar <strong>Casos de Prueba (TST)</strong>
+en el proyecto IACT. Los casos de prueba verifican que los Requisitos Funcionales (FR)
+se implementen correctamente.</p>
+<p><strong>Características:</strong></p>
+<ul class="simple">
+<li><p>Derivados de Requisitos Funcionales (FR)</p></li>
+<li><p>Formato de datos de prueba estructurado</p></li>
+<li><p>Resultados esperados verificables</p></li>
+<li><p>Trazabilidad completa hacia FR y UC</p></li>
+<li><p>Ratio aproximado: 1 FR → 1-2 TST</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="requisitos-tecnicos">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Requisitos Técnicos</a><a class="headerlink" href="#requisitos-tecnicos" title="Link to this heading">¶</a></h2>
+<p><strong>Dependencias:</strong></p>
+<ul class="simple">
+<li><p>Sphinx &gt;= 7.0.0</p></li>
+<li><p>Formato ReStructuredText (.rst)</p></li>
+<li><p>Framework de testing: pytest (recomendado)</p></li>
+</ul>
+<p><strong>Ubicación:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evidencia</span><span class="o">/</span><span class="n">pruebas</span><span class="o">/</span><span class="p">[</span><span class="n">modulo</span><span class="p">]</span><span class="o">/</span><span class="n">TST_</span><span class="p">[</span><span class="n">MOD</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">NNN</span><span class="p">]</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="instrucciones-de-uso">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Instrucciones de Uso</a><a class="headerlink" href="#instrucciones-de-uso" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Copiar contenido de sección &quot;Plantilla&quot; a nuevo archivo</p></li>
+<li><p>Nombrar archivo según nomenclatura: <code class="docutils literal notranslate"><span class="pre">TST_[MOD]_[NNN].rst</span></code></p></li>
+<li><p>Reemplazar todos los <code class="docutils literal notranslate"><span class="pre">[PLACEHOLDER]</span></code> con valores reales</p></li>
+<li><p>Completar datos de prueba y resultados esperados</p></li>
+<li><p>Verificar trazabilidad hacia FR padre</p></li>
+<li><p>Implementar código de prueba correspondiente</p></li>
+<li><p>Validar con <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-W</span></code></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="nomenclatura">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Nomenclatura</a><a class="headerlink" href="#nomenclatura" title="Link to this heading">¶</a></h2>
+<p><strong>Formato de ID:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TST_</span><span class="p">[</span><span class="n">MOD</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">NNN</span><span class="p">]</span>
+
+<span class="n">Donde</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">TST</span><span class="p">:</span> <span class="n">Prefijo</span> <span class="n">fijo</span> <span class="p">(</span><span class="n">Test</span><span class="p">)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">MOD</span><span class="p">]:</span> <span class="n">Código</span> <span class="n">de</span> <span class="n">módulo</span> <span class="p">(</span><span class="n">AUTH</span><span class="p">,</span> <span class="n">USR</span><span class="p">,</span> <span class="n">ACC</span><span class="p">,</span> <span class="n">PIP</span><span class="p">,</span> <span class="n">RPT</span><span class="p">,</span> <span class="n">ALR</span><span class="p">,</span> <span class="n">AUD</span><span class="p">,</span> <span class="n">LOG</span><span class="p">)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">NNN</span><span class="p">]:</span> <span class="n">Número</span> <span class="n">secuencial</span> <span class="n">de</span> <span class="mi">3</span> <span class="n">dígitos</span> <span class="p">(</span><span class="mi">001</span><span class="o">-</span><span class="mi">999</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Ejemplos:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TST_AUTH_001  → Primer test del módulo Auth
+TST_AUTH_002  → Segundo test del módulo Auth
+TST_USR_015   → Test 15 del módulo Users
+TST_ACC_042   → Test 42 del módulo Access
+</pre></div>
+</div>
+<p><strong>Nombre de Archivo:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TST_</span><span class="p">[</span><span class="n">MOD</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">NNN</span><span class="p">]</span><span class="o">.</span><span class="n">rst</span>
+
+<span class="n">Ejemplos</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">TST_AUTH_001</span><span class="o">.</span><span class="n">rst</span>
+<span class="o">-</span> <span class="n">TST_USR_015</span><span class="o">.</span><span class="n">rst</span>
+<span class="o">-</span> <span class="n">TST_ACC_042</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tipos-de-prueba">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Tipos de Prueba</a><a class="headerlink" href="#tipos-de-prueba" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Unitaria</strong></p></td>
+<td><p>Verifica función/método aislado</p></td>
+<td><p>Validar formato de username</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Integración</strong></p></td>
+<td><p>Verifica interacción entre componentes</p></td>
+<td><p>Login completo con BD</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Funcional</strong></p></td>
+<td><p>Verifica comportamiento end-to-end</p></td>
+<td><p>Flujo completo de UC</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Regresión</strong></p></td>
+<td><p>Verifica que cambios no rompan existente</p></td>
+<td><p>Re-ejecutar suite tras cambio</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Seguridad</strong></p></td>
+<td><p>Verifica controles de seguridad</p></td>
+<td><p>Intentos de acceso no autorizado</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Rendimiento</strong></p></td>
+<td><p>Verifica tiempos de respuesta</p></td>
+<td><p>Tiempo de generación de reporte</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="plantilla">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Plantilla</a><a class="headerlink" href="#plantilla" title="Link to this heading">¶</a></h2>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">meta</span><span class="p">::</span>
+   <span class="nc">:artefacto:</span> TST_<span class="s">[MOD]_</span>[NNN]
+   <span class="nc">:tipo:</span> Caso de Prueba
+   <span class="nc">:dominio:</span> evidencia
+   <span class="nc">:subdominio:</span> pruebas/[modulo]
+   <span class="nc">:modulo:</span> MOD_[Modulo]
+   <span class="nc">:fr_padre:</span> FR_UC<span class="s">[MOD]_[NN]_</span>[NN]
+   <span class="nc">:estado:</span> [Diseñado|Implementado|Ejecutado|Aprobado]
+   <span class="nc">:version:</span> 1.0.0
+   <span class="nc">:fecha_creacion:</span> [YYYY-MM-DD]
+   <span class="nc">:autor:</span> Equipo IACT
+
+<span class="p">..</span> <span class="nt">_tst-[mod]-[nnn]:</span>
+
+<span class="gh">==============================================================================</span>
+<span class="gh">TST_[MOD]_[NNN]: [Nombre del Caso de Prueba]</span>
+<span class="gh">==============================================================================</span>
+
+<span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> Contenido
+   <span class="nc">:local:</span>
+   <span class="nc">:depth:</span> 2
+
+----
+
+<span class="gh">Resumen Ejecutivo</span>
+<span class="gh">-----------------</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 75
+   <span class="nc">:header-rows:</span> 0
+
+   <span class="m">*</span> - <span class="gs">**ID**</span>
+     <span class="m">-</span> TST_<span class="s">[MOD]_</span>[NNN]
+   <span class="m">*</span> - <span class="gs">**Nombre**</span>
+     <span class="m">-</span> [Nombre descriptivo del caso de prueba]
+   <span class="m">*</span> - <span class="gs">**Tipo**</span>
+     <span class="m">-</span> [Unitaria|Integración|Funcional|Regresión|Seguridad|Rendimiento]
+   <span class="m">*</span> - <span class="gs">**FR Verificado**</span>
+     <span class="m">-</span> FR_UC<span class="s">[MOD]_[NN]_</span>[NN]: [Nombre del FR]
+   <span class="m">*</span> - <span class="gs">**Prioridad**</span>
+     <span class="m">-</span> [Alta|Media|Baja]
+   <span class="m">*</span> - <span class="gs">**Automatizado**</span>
+     <span class="m">-</span> [Sí|No|Parcial]
+   <span class="m">*</span> - <span class="gs">**Estado**</span>
+     <span class="m">-</span> [Diseñado|Implementado|Ejecutado|Aprobado]
+
+----
+
+<span class="m">1.</span> Objetivo
+-----------
+
+[Descripción del objetivo del caso de prueba en 1-2 oraciones.
+Responde: ¿Qué se está verificando con esta prueba?]
+
+----
+
+<span class="m">2.</span> Precondiciones
+-----------------
+
+Antes de ejecutar esta prueba, verificar:
+
+<span class="m">-</span> [ ] [Precondición 1: Estado del sistema requerido]
+<span class="m">-</span> [ ] [Precondición 2: Datos de prueba disponibles]
+<span class="m">-</span> [ ] [Precondición 3: Usuario/permisos configurados]
+<span class="m">-</span> [ ] [Precondición 4: Dependencias activas]
+
+----
+
+<span class="m">3.</span> Datos de Prueba
+------------------
+
+<span class="gh">3.1 Datos de Entrada</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 35 40
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Campo
+     <span class="m">-</span> Valor
+     <span class="m">-</span> Descripción
+   <span class="m">*</span> - [campo_1]
+     <span class="m">-</span> [valor_1]
+     <span class="m">-</span> [Descripción del dato]
+   <span class="m">*</span> - [campo_2]
+     <span class="m">-</span> [valor_2]
+     <span class="m">-</span> [Descripción del dato]
+   <span class="m">*</span> - [campo_n]
+     <span class="m">-</span> [valor_n]
+     <span class="m">-</span> [Descripción del dato]
+
+<span class="gh">3.2 Datos de Contexto</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 75
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Elemento
+     <span class="m">-</span> Valor/Estado
+   <span class="m">*</span> - Usuario de prueba
+     <span class="m">-</span> [username_test]
+   <span class="m">*</span> - Rol asignado
+     <span class="m">-</span> [agr_xxx]
+   <span class="m">*</span> - Centro/Segmento
+     <span class="m">-</span> [Centro de prueba]
+   <span class="m">*</span> - Fecha/Hora sistema
+     <span class="m">-</span> [Si es relevante]
+
+----
+
+<span class="m">4.</span> Pasos de Ejecución
+---------------------
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 8 50 42
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Paso
+     <span class="m">-</span> Acción
+     <span class="m">-</span> Resultado Esperado
+   <span class="m">*</span> - 1
+     <span class="m">-</span> [Acción a realizar]
+     <span class="m">-</span> [Qué debe ocurrir]
+   <span class="m">*</span> - 2
+     <span class="m">-</span> [Siguiente acción]
+     <span class="m">-</span> [Qué debe ocurrir]
+   <span class="m">*</span> - 3
+     <span class="m">-</span> [Siguiente acción]
+     <span class="m">-</span> [Qué debe ocurrir]
+   <span class="m">*</span> - N
+     <span class="m">-</span> [Acción final]
+     <span class="m">-</span> [Resultado final esperado]
+
+----
+
+<span class="m">5.</span> Resultado Esperado
+---------------------
+
+<span class="gh">5.1 Criterio de Éxito</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^</span>
+
+La prueba es <span class="gs">**EXITOSA**</span> si:
+
+<span class="m">-</span> [ ] [Criterio 1: Condición verificable]
+<span class="m">-</span> [ ] [Criterio 2: Condición verificable]
+<span class="m">-</span> [ ] [Criterio 3: Condición verificable]
+
+<span class="gh">5.2 Criterio de Fallo</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^</span>
+
+La prueba es <span class="gs">**FALLIDA**</span> si:
+
+<span class="m">-</span> [ ] [Condición de fallo 1]
+<span class="m">-</span> [ ] [Condición de fallo 2]
+
+<span class="gh">5.3 Datos de Salida Esperados</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 35 40
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Campo
+     <span class="m">-</span> Valor Esperado
+     <span class="m">-</span> Validación
+   <span class="m">*</span> - [campo_salida_1]
+     <span class="m">-</span> [valor_esperado_1]
+     <span class="m">-</span> [Cómo validar]
+   <span class="m">*</span> - [campo_salida_2]
+     <span class="m">-</span> [valor_esperado_2]
+     <span class="m">-</span> [Cómo validar]
+
+----
+
+<span class="m">6.</span> Código de Prueba
+-------------------
+
+<span class="gh">6.1 Implementación pytest</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+
+   <span class="c1"># tests/test_[modulo]/test_[nombre].py</span>
+
+   <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+   <span class="kn">from</span><span class="w"> </span><span class="nn">apps.</span><span class="p">[</span><span class="n">modulo</span><span class="p">]</span><span class="o">.</span><span class="n">services</span> <span class="kn">import</span><span class="w"> </span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+
+
+   <span class="k">class</span><span class="w"> </span><span class="nc">TestTST</span><span class="p">[</span><span class="n">MOD</span><span class="p">][</span><span class="n">NNN</span><span class="p">]:</span>
+   <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+   <span class="sd">    TST_[MOD]_[NNN]: [Nombre del caso de prueba]</span>
+
+   <span class="sd">    Verifica: FR_UC[MOD]_[NN]_[NN]</span>
+   <span class="sd">    &quot;&quot;&quot;</span>
+
+       <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+       <span class="k">def</span><span class="w"> </span><span class="nf">setup_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="w">        </span><span class="sd">&quot;&quot;&quot;Datos de prueba según sección 3.&quot;&quot;&quot;</span>
+           <span class="k">return</span> <span class="p">{</span>
+               <span class="s1">&#39;[campo_1]&#39;</span><span class="p">:</span> <span class="s1">&#39;[valor_1]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;[campo_2]&#39;</span><span class="p">:</span> <span class="s1">&#39;[valor_2]&#39;</span><span class="p">,</span>
+           <span class="p">}</span>
+
+       <span class="k">def</span><span class="w"> </span><span class="nf">test_</span><span class="p">[</span><span class="n">nombre_descriptivo</span><span class="p">](</span><span class="bp">self</span><span class="p">,</span> <span class="n">setup_data</span><span class="p">):</span>
+   <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+   <span class="sd">        Pasos:</span>
+   <span class="sd">        1. [Paso 1]</span>
+   <span class="sd">        2. [Paso 2]</span>
+
+   <span class="sd">        Resultado esperado: [Descripción]</span>
+   <span class="sd">        &quot;&quot;&quot;</span>
+           <span class="c1"># Arrange</span>
+           <span class="p">[</span><span class="n">preparación</span><span class="p">]</span>
+
+           <span class="c1"># Act</span>
+           <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">acción</span><span class="p">]</span>
+
+           <span class="c1"># Assert</span>
+           <span class="k">assert</span> <span class="p">[</span><span class="n">condición_1</span><span class="p">],</span> <span class="s2">&quot;Mensaje si falla&quot;</span>
+           <span class="k">assert</span> <span class="p">[</span><span class="n">condición_2</span><span class="p">],</span> <span class="s2">&quot;Mensaje si falla&quot;</span>
+
+<span class="gh">6.2 Comando de Ejecución</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">bash</span>
+
+   <span class="c1"># Ejecutar este test específico</span>
+   pytest<span class="w"> </span>tests/test_<span class="o">[</span>modulo<span class="o">]</span>/test_<span class="o">[</span>nombre<span class="o">]</span>.py::TestTST<span class="o">[</span>MOD<span class="o">][</span>NNN<span class="o">]</span><span class="w"> </span>-v
+
+   <span class="c1"># Ejecutar con coverage</span>
+   pytest<span class="w"> </span>tests/test_<span class="o">[</span>modulo<span class="o">]</span>/test_<span class="o">[</span>nombre<span class="o">]</span>.py<span class="w"> </span>--cov<span class="o">=</span>apps.<span class="o">[</span>modulo<span class="o">]</span>
+
+----
+
+<span class="m">7.</span> Trazabilidad
+---------------
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 75
+   <span class="nc">:header-rows:</span> 0
+
+   <span class="m">*</span> - <span class="gs">**FR Verificado**</span>
+     <span class="m">-</span> FR_UC<span class="s">[MOD]_[NN]_</span>[NN]: [Nombre]
+   <span class="m">*</span> - <span class="gs">**UC Relacionado**</span>
+     <span class="m">-</span> UC_<span class="s">[MOD]_</span>[NN]: [Nombre]
+   <span class="m">*</span> - <span class="gs">**BR Aplicables**</span>
+     <span class="m">-</span> BR_[NNN], BR_[NNN]
+   <span class="m">*</span> - <span class="gs">**CNST Verificadas**</span>
+     <span class="m">-</span> CNST_[NNN], CNST_[NNN]
+
+----
+
+<span class="m">8.</span> Registro de Ejecución
+------------------------
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 12 12 15 15 46
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Fecha
+     <span class="m">-</span> Ejecutor
+     <span class="m">-</span> Resultado
+     <span class="m">-</span> Build
+     <span class="m">-</span> Observaciones
+   <span class="m">*</span> - [YYYY-MM-DD]
+     <span class="m">-</span> [Nombre]
+     <span class="m">-</span> [PASS|FAIL]
+     <span class="m">-</span> [#build]
+     <span class="m">-</span> [Notas de la ejecución]
+
+----
+
+<span class="m">9.</span> Defectos Relacionados
+------------------------
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 15 50 20 15
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - ID Defecto
+     <span class="m">-</span> Descripción
+     <span class="m">-</span> Estado
+     <span class="m">-</span> Severidad
+   <span class="m">*</span> - [DEF-NNN]
+     <span class="m">-</span> [Descripción del defecto encontrado]
+     <span class="m">-</span> [Abierto|Cerrado]
+     <span class="m">-</span> [Alta|Media|Baja]
+
+----
+
+<span class="m">10.</span> Historial de Cambios
+------------------------
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 12 12 20 56
+   <span class="nc">:header-rows:</span> 1
+
+   <span class="m">*</span> - Versión
+     <span class="m">-</span> Fecha
+     <span class="m">-</span> Autor
+     <span class="m">-</span> Cambios
+   <span class="m">*</span> - 1.0.0
+     <span class="m">-</span> [YYYY-MM-DD]
+     <span class="m">-</span> Equipo IACT
+     <span class="m">-</span> Versión inicial
+
+----
+
+<span class="ge">*Documento versión 1.0.0 - Proyecto IACT Dashboard Analytics*</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="secciones-obligatorias">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Secciones Obligatorias</a><a class="headerlink" href="#secciones-obligatorias" title="Link to this heading">¶</a></h2>
+<p>Cada TST DEBE incluir mínimo estas 10 secciones:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5.0%" />
+<col style="width: 25.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Sección</p></th>
+<th class="head"><p>Contenido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Resumen Ejecutivo</p></td>
+<td><p>ID, nombre, tipo, FR verificado, estado</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Objetivo</p></td>
+<td><p>Qué se verifica</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Precondiciones</p></td>
+<td><p>Checklist antes de ejecutar</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Datos de Prueba</p></td>
+<td><p>Entrada y contexto</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Pasos de Ejecución</p></td>
+<td><p>Acciones y resultados esperados</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Resultado Esperado</p></td>
+<td><p>Criterios éxito/fallo, datos salida</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Código de Prueba</p></td>
+<td><p>Implementación pytest</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Trazabilidad</p></td>
+<td><p>FR, UC, BR, CNST relacionados</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Registro de Ejecución</p></td>
+<td><p>Historial de ejecuciones</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Defectos Relacionados</p></td>
+<td><p>Bugs encontrados</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Historial</p></td>
+<td><p>Control de versiones</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="convenciones-pytest">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Convenciones pytest</a><a class="headerlink" href="#convenciones-pytest" title="Link to this heading">¶</a></h2>
+<p><strong>Estructura de archivos:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tests/
+├── conftest.py                    # Fixtures compartidas
+├── test_auth/
+│   ├── test_login.py              # TST_AUTH_001 a TST_AUTH_010
+│   ├── test_logout.py             # TST_AUTH_011 a TST_AUTH_020
+│   └── test_password.py           # TST_AUTH_021 a TST_AUTH_030
+├── test_users/
+│   └── ...
+└── test_access/
+    └── ...
+</pre></div>
+</div>
+<p><strong>Nomenclatura de funciones:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_</span><span class="p">[</span><span class="n">accion</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">condicion</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">resultado_esperado</span><span class="p">]():</span>
+
+<span class="n">Ejemplos</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">test_login_valid_credentials_returns_token</span><span class="p">()</span>
+<span class="o">-</span> <span class="n">test_login_invalid_password_returns_401</span><span class="p">()</span>
+<span class="o">-</span> <span class="n">test_create_user_duplicate_username_raises_error</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="validacion">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Validación</a><a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h2>
+<p>Antes de aprobar un TST, verificar:</p>
+<p><strong>Checklist:</strong></p>
+<ul class="simple">
+<li><p>[ ] ID sigue nomenclatura TST_[MOD]_[NNN]</p></li>
+<li><p>[ ] FR padre existe y está referenciado</p></li>
+<li><p>[ ] Tipo de prueba clasificado</p></li>
+<li><p>[ ] Precondiciones son verificables</p></li>
+<li><p>[ ] Datos de prueba completos</p></li>
+<li><p>[ ] Pasos de ejecución claros</p></li>
+<li><p>[ ] Criterios de éxito/fallo definidos</p></li>
+<li><p>[ ] Código pytest implementado</p></li>
+<li><p>[ ] Trazabilidad completa</p></li>
+</ul>
+<p><strong>Comando de validación:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validar sintaxis RST</span>
+sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>-W<span class="w"> </span>docs/<span class="w"> </span>docs/_build/
+
+<span class="c1"># Ejecutar tests</span>
+pytest<span class="w"> </span>tests/<span class="w"> </span>-v<span class="w"> </span>--tb<span class="o">=</span>short
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Referencias</a><a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>FND_07: Requerimientos Funcionales (FR que se verifican)</p></li>
+<li><p>TPL_FR: Plantilla de FR (para entender criterios)</p></li>
+<li><p>STD_006: Versionado Semántico</p></li>
+<li><p>pytest: <a class="reference external" href="https://docs.pytest.org/">https://docs.pytest.org/</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="historial-de-cambios">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Historial de Cambios</a><a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 20.0%" />
+<col style="width: 56.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2026-01-07</p></td>
+<td><p>Equipo IACT</p></td>
+<td><p>Versión inicial de plantilla TST con pytest</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">TPL_TST: Plantilla de Caso de Prueba v1.0.0</a><ul>
+<li><a class="reference internal" href="#proposito">Propósito</a></li>
+<li><a class="reference internal" href="#requisitos-tecnicos">Requisitos Técnicos</a></li>
+<li><a class="reference internal" href="#instrucciones-de-uso">Instrucciones de Uso</a></li>
+<li><a class="reference internal" href="#nomenclatura">Nomenclatura</a></li>
+<li><a class="reference internal" href="#tipos-de-prueba">Tipos de Prueba</a></li>
+<li><a class="reference internal" href="#plantilla">Plantilla</a></li>
+<li><a class="reference internal" href="#secciones-obligatorias">Secciones Obligatorias</a></li>
+<li><a class="reference internal" href="#convenciones-pytest">Convenciones pytest</a></li>
+<li><a class="reference internal" href="#validacion">Validación</a></li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

@@ -1,0 +1,1487 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCED-GOB-003: Documentar Regla de Negocio - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_05_Control_Versiones.html">Gobernanza Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Discover — PlantUML Styling</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discover/index.html">Discover — Phase 1 Setup &amp; Documentation</a><input aria-label="Toggle navigation of Discover — Phase 1 Setup &amp; Documentation" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/color-palette.html">Color Palette — PlantUML Corporate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proced-gob-003-documentar-regla-de-negocio">
+<h1>PROCED-GOB-003: Documentar Regla de Negocio<a class="headerlink" href="#proced-gob-003-documentar-regla-de-negocio" title="Link to this heading">¶</a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">¶</a></h2>
+<p>Documentar una regla de negocio siguiendo la clasificación de 5 tipos
+(Hechos, Restricciones, Desencadenadores, Inferencias, Cálculos)
+establecida en ADR-GOB-006, asegurando trazabilidad completa con otros
+niveles de requisitos.</p>
+</section>
+<section id="pre-requisitos">
+<h2>Pre-requisitos<a class="headerlink" href="#pre-requisitos" title="Link to this heading">¶</a></h2>
+<p>Antes de comenzar este procedimiento, debe:</p>
+<ul class="simple">
+<li><p>Haber leído ADR-GOB-005 (Jerarquía de Requerimientos)</p></li>
+<li><p>Haber leído ADR-GOB-006 (Clasificación de Reglas de Negocio)</p></li>
+<li><p>Tener acceso al repositorio del proyecto</p></li>
+<li><p>Conocer el dominio al que pertenece la regla (BACK, FRONT, DEVOPS,
+QA, AI, GOB)</p></li>
+</ul>
+</section>
+<section id="resultado-esperado">
+<h2>Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Link to this heading">¶</a></h2>
+<p>Al completar este procedimiento tendrá:</p>
+<ul class="simple">
+<li><p>Un archivo markdown con la regla de negocio documentada</p></li>
+<li><p>Clasificación correcta en uno de los 5 tipos</p></li>
+<li><p>ID único asignado (RN-DOMINIO-###)</p></li>
+<li><p>Trazabilidad establecida con RNEG, UC, RF, RNF relacionados</p></li>
+<li><p>Archivo en ubicación correcta del repositorio</p></li>
+<li><p>Commit en git</p></li>
+</ul>
+</section>
+<section id="paso-1-identificar-y-capturar-la-regla">
+<h2>PASO 1: Identificar y Capturar la Regla<a class="headerlink" href="#paso-1-identificar-y-capturar-la-regla" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso">
+<h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso" title="Link to this heading">¶</a></h3>
+<p>Identificar la regla de negocio desde su fuente original y capturarla en
+texto plano.</p>
+</section>
+<section id="acciones">
+<h3>Acciones<a class="headerlink" href="#acciones" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Identificar fuente de la regla:</p>
+<ul class="simple">
+<li><p>Regulación externa (ley, norma)</p></li>
+<li><p>Política interna organizacional</p></li>
+<li><p>Requerimiento de stakeholder</p></li>
+<li><p>Análisis del marco integrado</p></li>
+</ul>
+</li>
+<li><p>Capturar información clave:</p>
+<ul class="simple">
+<li><p>Descripción completa de la regla</p></li>
+<li><p>Fuente (documento, persona, regulación)</p></li>
+<li><p>Contexto de aplicación</p></li>
+<li><p>Dominio afectado</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fuente</span><span class="p">:</span> <span class="n">LFPDPPP</span> <span class="n">Artículo</span> <span class="mi">8</span>
+<span class="n">Descripción</span><span class="p">:</span> <span class="s2">&quot;Todos los usuarios deben estar autenticados para acceder al sistema&quot;</span>
+<span class="n">Contexto</span><span class="p">:</span> <span class="n">Acceso</span> <span class="n">a</span> <span class="n">datos</span> <span class="n">personales</span>
+<span class="n">Dominio</span><span class="p">:</span> <span class="n">BACK</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion">
+<h3>Validación<a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ La regla está claramente expresada</p></li>
+<li><p>☐ Se conoce la fuente original</p></li>
+<li><p>☐ Se identifica el dominio (BACK, FRONT, etc.)</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-2-clasificar-en-uno-de-5-tipos">
+<h2>PASO 2: Clasificar en uno de 5 Tipos<a class="headerlink" href="#paso-2-clasificar-en-uno-de-5-tipos" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-1">
+<span id="id1"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-1" title="Link to this heading">¶</a></h3>
+<p>Determinar si la regla es un Hecho, Restricción, Desencadenador,
+Inferencia o Cálculo.</p>
+</section>
+<section id="arbol-de-decision">
+<h3>Árbol de Decisión<a class="headerlink" href="#arbol-de-decision" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────┐
+│ ¿La regla describe una verdad sobre el negocio? │
+│ (cada X tiene Y, todos X deben tener Y)         │
+└─────────┬───────────────────────────────────────┘
+          │ SÍ → HECHO
+          │
+          │ NO
+          ↓
+┌─────────────────────────────────────────────────┐
+│ ¿La regla limita o restringe una acción?        │
+│ (debe, no debe, no puede, solo puede)           │
+└─────────┬───────────────────────────────────────┘
+          │ SÍ → RESTRICCIÓN
+          │
+          │ NO
+          ↓
+┌─────────────────────────────────────────────────┐
+│ ¿La regla sigue formato SI...ENTONCES?          │
+└─────────┬───────────────────────────────────────┘
+          │ SÍ
+          ↓
+┌─────────────────────────────────────────────────┐
+│ ¿El ENTONCES ejecuta una ACCIÓN?                │
+│ (enviar email, bloquear, notificar)             │
+└─────────┬───────────────────────────────────────┘
+          │ SÍ → DESENCADENADOR DE ACCIÓN
+          │
+          │ NO (establece nuevo conocimiento)
+          ↓
+          INFERENCIA
+
+          │ La regla NO es SI...ENTONCES
+          ↓
+┌─────────────────────────────────────────────────┐
+│ ¿La regla contiene una fórmula matemática       │
+│ o algoritmo de cálculo?                         │
+└─────────┬───────────────────────────────────────┘
+          │ SÍ → CÁLCULO COMPUTACIONAL
+</pre></div>
+</div>
+</section>
+<section id="palabras-clave-por-tipo">
+<h3>Palabras Clave por Tipo<a class="headerlink" href="#palabras-clave-por-tipo" title="Link to this heading">¶</a></h3>
+<p><strong>HECHO</strong>: - “cada… tiene…” - “todos… deben tener…” - “debe existir…” -
+“se requiere…”</p>
+<p><strong>RESTRICCIÓN</strong>: - “debe” - “no debe” - “no puede” - “solo puede”</p>
+<p><strong>DESENCADENADOR</strong>: - “SI… ENTONCES…” - ENTONCES = acción (enviar,
+notificar, ejecutar, bloquear)</p>
+<p><strong>INFERENCIA</strong>: - “SI… ENTONCES…” - ENTONCES = conocimiento nuevo
+(marcar como, establecer, clasificar como)</p>
+<p><strong>CÁLCULO</strong>: - Fórmulas: +, -, *, /, = - “se calcula como” - “se
+obtiene mediante” - Tablas de valores</p>
+</section>
+<section id="ejemplo-de-clasificacion">
+<h3>Ejemplo de Clasificación<a class="headerlink" href="#ejemplo-de-clasificacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Regla: &quot;Todos los usuarios deben estar autenticados para acceder al sistema&quot;
+
+Análisis:
+- ¿Verdad sobre el negocio? NO
+- ¿Limita acción? SÍ (palabra clave: &quot;deben&quot;)
+- Tipo: RESTRICCIÓN
+</pre></div>
+</div>
+</section>
+<section id="validacion-1">
+<span id="id2"></span><h3>Validación<a class="headerlink" href="#validacion-1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Tipo seleccionado (Hecho, Restricción, Desencadenador, Inferencia,
+Cálculo)</p></li>
+<li><p>☐ Palabras clave identificadas</p></li>
+<li><p>☐ Si hay duda entre 2 tipos, documentar razón de elección</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-3-asignar-id-unico">
+<h2>PASO 3: Asignar ID Único<a class="headerlink" href="#paso-3-asignar-id-unico" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-2">
+<span id="id3"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-2" title="Link to this heading">¶</a></h3>
+<p>Generar un identificador único que no se reutilizará nunca.</p>
+</section>
+<section id="patron-de-nomenclatura">
+<h3>Patrón de Nomenclatura<a class="headerlink" href="#patron-de-nomenclatura" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RN</span><span class="o">-</span><span class="n">DOMINIO</span><span class="o">-</span><span class="c1">###-descripcion.md</span>
+</pre></div>
+</div>
+<p>Donde: - <strong>RN</strong>: Regla de Negocio (o BR: Business Rule) - <strong>DOMINIO</strong>:
+BACK | FRONT | DEVOPS | QA | AI | GOB - <strong>###</strong>: Número secuencial
+001-999 - <strong>descripcion</strong>: En snake_case (minúsculas con guiones)</p>
+</section>
+<section id="acciones-1">
+<span id="id4"></span><h3>Acciones<a class="headerlink" href="#acciones-1" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Identificar último número usado en el dominio:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<span class="c1"># Ejemplo salida: RN-BACK-028-restriccion-acceso.md</span>
+<span class="c1"># Siguiente número: 029</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Generar descripción breve en snake_case:</p>
+<ul class="simple">
+<li><p>Máximo 4-5 palabras</p></li>
+<li><p>Sin artículos (el, la, los, las)</p></li>
+<li><p>Descriptiva del contenido</p></li>
+</ul>
+</li>
+<li><p>Formar ID completo</p></li>
+</ol>
+</section>
+<section id="ejemplos-de-ids-correctos">
+<h3>Ejemplos de IDs Correctos<a class="headerlink" href="#ejemplos-de-ids-correctos" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">autenticacion</span><span class="o">-</span><span class="n">obligatoria</span><span class="o">.</span><span class="n">md</span>
+<span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">028</span><span class="o">-</span><span class="n">restriccion</span><span class="o">-</span><span class="n">acceso</span><span class="o">-</span><span class="n">gerentes</span><span class="o">.</span><span class="n">md</span>
+<span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">031</span><span class="o">-</span><span class="n">notificacion</span><span class="o">-</span><span class="n">caducidad</span><span class="o">-</span><span class="n">producto</span><span class="o">.</span><span class="n">md</span>
+<span class="n">RN</span><span class="o">-</span><span class="n">GOB</span><span class="o">-</span><span class="mi">042</span><span class="o">-</span><span class="n">elegibilidad</span><span class="o">-</span><span class="n">graduacion</span><span class="o">.</span><span class="n">md</span>
+<span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">050</span><span class="o">-</span><span class="n">calculo</span><span class="o">-</span><span class="n">envio</span><span class="o">-</span><span class="n">terrestre</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion-2">
+<span id="id5"></span><h3>Validación<a class="headerlink" href="#validacion-2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ ID no existe previamente</p></li>
+<li><p>☐ Número es consecutivo al último del dominio</p></li>
+<li><p>☐ Descripción en snake_case</p></li>
+<li><p>☐ Formato correcto: RN-DOMINIO-###-descripcion.md</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-4-completar-template-apropiado-segun-tipo">
+<h2>PASO 4: Completar Template Apropiado según Tipo<a class="headerlink" href="#paso-4-completar-template-apropiado-segun-tipo" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-3">
+<span id="id6"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-3" title="Link to this heading">¶</a></h3>
+<p>Documentar la regla usando el formato específico de su tipo.</p>
+</section>
+<section id="ubicacion-de-templates">
+<h3>Ubicación de Templates<a class="headerlink" href="#ubicacion-de-templates" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs/gobernanza/requisitos/reglas_negocio/
+├── hechos/
+├── restricciones/
+├── desencadenadores/
+├── inferencias/
+└── calculos/
+</pre></div>
+</div>
+</section>
+<section id="template-segun-tipo">
+<h3>Template según Tipo<a class="headerlink" href="#template-segun-tipo" title="Link to this heading">¶</a></h3>
+<section id="tipo-1-hecho">
+<h4>TIPO 1: Hecho<a class="headerlink" href="#tipo-1-hecho" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-DOMINIO-###
+tipo: regla_negocio
+subtipo: hecho
+categoria: [dominio]
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-DOMINIO-###: [Título del Hecho]</span>
+
+<span class="gu">## Tipo</span>
+Hecho
+
+<span class="gu">## Declaración</span>
+[Declaración clara del hecho]
+
+<span class="gu">## Elementos Relacionados</span>
+<span class="k">-</span><span class="w"> </span>Término 1: [Definición]
+<span class="k">-</span><span class="w"> </span>Término 2: [Definición]
+
+<span class="gu">## Justificación</span>
+[Por qué este hecho es verdadero y relevante]
+
+<span class="gu">## Fuente</span>
+[De dónde proviene: regulación, política interna, estándar]
+
+<span class="gu">## Impacto en Requisitos</span>
+<span class="k">-</span><span class="w"> </span>Requisitos de Usuario: [UC-###]
+<span class="k">-</span><span class="w"> </span>Requisitos Funcionales: [RF-###]
+</pre></div>
+</div>
+</section>
+<section id="tipo-2-restriccion">
+<h4>TIPO 2: Restricción<a class="headerlink" href="#tipo-2-restriccion" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-DOMINIO-###
+tipo: regla_negocio
+subtipo: restriccion
+categoria: [dominio]
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-DOMINIO-###: [Título de la Restricción]</span>
+
+<span class="gu">## Tipo</span>
+Restricción
+
+<span class="gu">## Declaración</span>
+[Declaración clara usando: debe, no debe, no puede, solo puede]
+
+<span class="gu">## Alcance</span>
+<span class="k">-</span><span class="w"> </span>Aplica a: [Usuarios, Sistema, Módulo específico]
+<span class="k">-</span><span class="w"> </span>Roles afectados: [Lista de roles]
+
+<span class="gu">## Matriz de Permisos (si aplica)</span>
+
+| Operación | Administrador | Staff | Usuario | Invitado |
+|---|:---:|:---:|:---:|:---:|
+| Ver registro | ✓ | ✓ | ✓ | ✓ |
+| Editar registro | ✓ | ✓ | ✗ | ✗ |
+| Eliminar registro | ✓ | ✗ | ✗ | ✗ |
+
+Leyenda: ✓ = Permitido    ✗ = No permitido
+
+<span class="gu">## Justificación</span>
+[Por qué existe esta restricción: seguridad, regulación, política]
+
+<span class="gu">## Excepciones</span>
+[Si existen excepciones a la restricción]
+
+<span class="gu">## Validación</span>
+[Cómo se valida el cumplimiento]
+
+<span class="gu">## Impacto en Requisitos</span>
+<span class="k">-</span><span class="w"> </span>Requisitos de Usuario: [UC-###]
+<span class="k">-</span><span class="w"> </span>Requisitos Funcionales: [RF-###]
+<span class="k">-</span><span class="w"> </span>Atributos de Calidad: [RNF-###]
+</pre></div>
+</div>
+</section>
+<section id="tipo-3-desencadenador-de-accion">
+<h4>TIPO 3: Desencadenador de Acción<a class="headerlink" href="#tipo-3-desencadenador-de-accion" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-DOMINIO-###
+tipo: regla_negocio
+subtipo: desencadenador
+categoria: [dominio]
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-DOMINIO-###: [Título del Desencadenador]</span>
+
+<span class="gu">## Tipo</span>
+Desencadenador de Acción
+
+<span class="gu">## Declaración</span>
+
+<span class="gs">**SI**</span>: [Condición o evento que dispara la regla]
+
+<span class="gs">**ENTONCES**</span>: [Acción(es) que se ejecutan]
+
+<span class="gu">## Condición de Activación</span>
+[Descripción detallada de cuándo se activa]
+
+<span class="gu">## Acción(es) Desencadenada(s)</span>
+<span class="k">1.</span> [Primera acción]
+<span class="k">2.</span> [Segunda acción]
+<span class="k">3.</span> [...]
+
+<span class="gu">## Frecuencia Esperada</span>
+[Qué tan frecuente se espera que se active esta regla]
+
+<span class="gu">## Prioridad</span>
+[Alta/Media/Baja - importancia de la acción]
+
+<span class="gu">## Actores Involucrados</span>
+<span class="k">-</span><span class="w"> </span>[Quién recibe notificación, quién ejecuta acción, etc.]
+
+<span class="gu">## Impacto en Requisitos</span>
+<span class="k">-</span><span class="w"> </span>Requisitos de Usuario: [UC-###]
+<span class="k">-</span><span class="w"> </span>Requisitos Funcionales: [RF-###]
+</pre></div>
+</div>
+</section>
+<section id="tipo-4-inferencia">
+<h4>TIPO 4: Inferencia<a class="headerlink" href="#tipo-4-inferencia" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-DOMINIO-###
+tipo: regla_negocio
+subtipo: inferencia
+categoria: [dominio]
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-DOMINIO-###: [Título de la Inferencia]</span>
+
+<span class="gu">## Tipo</span>
+Inferencia (Conocimiento Derivado)
+
+<span class="gu">## Declaración</span>
+
+<span class="gs">**SI**</span>: [Condiciones sobre hechos existentes]
+
+<span class="gs">**ENTONCES**</span>: [Nuevo hecho que se establece]
+
+<span class="gu">## Hechos de Entrada</span>
+<span class="k">-</span><span class="w"> </span>[Hecho 1]
+<span class="k">-</span><span class="w"> </span>[Hecho 2]
+<span class="k">-</span><span class="w"> </span>[...]
+
+<span class="gu">## Conocimiento Derivado</span>
+[Descripción del nuevo hecho que se crea]
+
+<span class="gu">## Regla de Derivación</span>
+[Lógica que conecta hechos de entrada con conocimiento derivado]
+
+<span class="gu">## Persistencia</span>
+[Si el conocimiento derivado se guarda, dónde, por cuánto tiempo]
+
+<span class="gu">## Impacto en Requisitos</span>
+<span class="k">-</span><span class="w"> </span>Requisitos de Usuario: [UC-###]
+<span class="k">-</span><span class="w"> </span>Requisitos Funcionales: [RF-###]
+</pre></div>
+</div>
+</section>
+<section id="tipo-5-calculo-computacional">
+<h4>TIPO 5: Cálculo Computacional<a class="headerlink" href="#tipo-5-calculo-computacional" title="Link to this heading">¶</a></h4>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-DOMINIO-###
+tipo: regla_negocio
+subtipo: calculo
+categoria: [dominio]
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-DOMINIO-###: [Título del Cálculo]</span>
+
+<span class="gu">## Tipo</span>
+Cálculo Computacional
+
+<span class="gu">## Declaración</span>
+[Descripción en lenguaje natural del cálculo]
+
+<span class="gu">## Fórmula</span>
+</pre></div>
+</div>
+<p>[Fórmula matemática en notación clara] Variable1 = (Variable2 ×
+Constante) + Variable3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Variables de Entrada</span>
+<span class="o">-</span> <span class="n">Variable1</span><span class="p">:</span> <span class="p">[</span><span class="n">Descripción</span><span class="p">,</span> <span class="n">unidades</span><span class="p">,</span> <span class="n">rango</span> <span class="n">válido</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">Variable2</span><span class="p">:</span> <span class="p">[</span><span class="n">Descripción</span><span class="p">,</span> <span class="n">unidades</span><span class="p">,</span> <span class="n">rango</span> <span class="n">válido</span><span class="p">]</span>
+<span class="o">-</span> <span class="o">...</span>
+
+<span class="c1">## Variables de Salida</span>
+<span class="o">-</span> <span class="n">Resultado</span><span class="p">:</span> <span class="p">[</span><span class="n">Descripción</span><span class="p">,</span> <span class="n">unidades</span><span class="p">,</span> <span class="n">rango</span> <span class="n">esperado</span><span class="p">]</span>
+
+<span class="c1">## Constantes</span>
+<span class="o">-</span> <span class="n">Constante1</span><span class="p">:</span> <span class="p">[</span><span class="n">Valor</span><span class="p">,</span> <span class="n">unidades</span><span class="p">,</span> <span class="n">origen</span><span class="p">]</span>
+
+<span class="c1">## Tabla de Valores (si aplica)</span>
+
+<span class="o">|</span> <span class="n">ID</span> <span class="o">|</span> <span class="n">Rango</span> <span class="n">Entrada</span> <span class="o">|</span> <span class="n">Valor</span> <span class="n">Calculado</span> <span class="o">|</span>
+<span class="o">|---|---|---|</span>
+<span class="o">|</span> <span class="n">CAL</span><span class="o">-</span><span class="mi">1</span> <span class="o">|</span> <span class="mi">0</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">|</span> <span class="mi">0</span><span class="o">%</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">CAL</span><span class="o">-</span><span class="mi">2</span> <span class="o">|</span> <span class="mi">11</span> <span class="o">-</span> <span class="mi">20</span> <span class="o">|</span> <span class="mi">10</span><span class="o">%</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">CAL</span><span class="o">-</span><span class="mi">3</span> <span class="o">|</span> <span class="mi">21</span><span class="o">+</span> <span class="o">|</span> <span class="mi">20</span><span class="o">%</span> <span class="o">|</span>
+
+<span class="c1">## Ejemplo de Cálculo</span>
+<span class="p">[</span><span class="n">Ejemplo</span> <span class="n">numérico</span> <span class="n">concreto</span> <span class="n">paso</span> <span class="n">a</span> <span class="n">paso</span><span class="p">]</span>
+
+<span class="c1">## Reglas de Redondeo</span>
+<span class="p">[</span><span class="n">Cómo</span> <span class="n">se</span> <span class="n">redondean</span> <span class="n">los</span> <span class="n">resultados</span><span class="p">]</span>
+
+<span class="c1">## Fuente de la Fórmula</span>
+<span class="p">[</span><span class="n">Ley</span><span class="p">,</span> <span class="n">regulación</span><span class="p">,</span> <span class="n">política</span> <span class="n">interna</span><span class="p">,</span> <span class="n">estándar</span><span class="p">]</span>
+
+<span class="c1">## Frecuencia de Actualización</span>
+<span class="p">[</span><span class="n">Qué</span> <span class="n">tan</span> <span class="n">frecuentemente</span> <span class="n">cambia</span> <span class="n">esta</span> <span class="n">fórmula</span><span class="p">]</span>
+
+<span class="c1">## Impacto en Requisitos</span>
+<span class="o">-</span> <span class="n">Requisitos</span> <span class="n">Funcionales</span><span class="p">:</span> <span class="p">[</span><span class="n">RF</span><span class="o">-</span><span class="c1">###]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="acciones-2">
+<span id="id7"></span><h3>Acciones<a class="headerlink" href="#acciones-2" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Copiar template del tipo correspondiente</p></li>
+<li><p>Completar frontmatter con ID y fecha</p></li>
+<li><p>Llenar todas las secciones obligatorias</p></li>
+<li><p>Agregar ejemplos cuando sea posible</p></li>
+<li><p>Dejar placeholders en “Impacto en Requisitos” (completar en PASO 5)</p></li>
+</ol>
+</section>
+<section id="validacion-3">
+<span id="id8"></span><h3>Validación<a class="headerlink" href="#validacion-3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Frontmatter completo (id, tipo, subtipo, categoria, version, fecha)</p></li>
+<li><p>☐ Título con formato: RN-DOMINIO-###: [Título Descriptivo]</p></li>
+<li><p>☐ Todas las secciones obligatorias completadas</p></li>
+<li><p>☐ Lenguaje claro y sin ambigüedades</p></li>
+<li><p>☐ Ejemplos incluidos cuando aplica</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-5-identificar-impacto-en-otros-niveles">
+<h2>PASO 5: Identificar Impacto en Otros Niveles<a class="headerlink" href="#paso-5-identificar-impacto-en-otros-niveles" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-4">
+<span id="id9"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-4" title="Link to this heading">¶</a></h3>
+<p>Establecer trazabilidad con otros artefactos de requisitos según
+ADR-GOB-009.</p>
+</section>
+<section id="acciones-3">
+<span id="id10"></span><h3>Acciones<a class="headerlink" href="#acciones-3" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Identificar Requerimientos de Negocio (RNEG) relacionados</strong>:</p>
+<ul class="simple">
+<li><p>¿Esta regla contribuye a algún objetivo organizacional?</p></li>
+<li><p>¿Qué RNEG se apoya en esta regla?</p></li>
+</ul>
+</li>
+<li><p><strong>Identificar Casos de Uso (UC) afectados</strong>:</p>
+<ul class="simple">
+<li><p>¿Qué casos de uso deben cumplir esta regla?</p></li>
+<li><p>¿Qué interacciones de usuario están restringidas/habilitadas por
+esta regla?</p></li>
+</ul>
+</li>
+<li><p><strong>Identificar Requisitos Funcionales (RF) necesarios</strong>:</p>
+<ul class="simple">
+<li><p>¿Qué funcionalidades del sistema implementan esta regla?</p></li>
+<li><p>¿Qué validaciones debe hacer el sistema?</p></li>
+</ul>
+</li>
+<li><p><strong>Identificar Atributos de Calidad (RNF) relacionados</strong>:</p>
+<ul class="simple">
+<li><p>¿Esta regla impone requisitos de seguridad, rendimiento,
+usabilidad?</p></li>
+<li><p>¿Hay restricciones de calidad derivadas de esta regla?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ejemplo-de-trazabilidad">
+<h3>Ejemplo de Trazabilidad<a class="headerlink" href="#ejemplo-de-trazabilidad" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Impacto en Requisitos</span>
+
+<span class="gs">**Requerimientos de Negocio**</span>:
+<span class="k">-</span><span class="w"> </span>RNEG-BACK-001: Sistema de autenticación seguro
+
+<span class="gs">**Requerimientos de Usuario**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-001: Iniciar Sesión
+<span class="k">-</span><span class="w"> </span>UC-BACK-003: Cambiar Contraseña
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-010: Validar credenciales contra base de datos
+<span class="k">-</span><span class="w"> </span>RF-BACK-011: Generar token JWT con expiración
+
+<span class="gs">**Atributos de Calidad**</span>:
+<span class="k">-</span><span class="w"> </span>RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+<span class="k">-</span><span class="w"> </span>RNF-BACK-007: Sesión expira después de 30 minutos
+</pre></div>
+</div>
+</section>
+<section id="nota-importante">
+<h3>Nota Importante<a class="headerlink" href="#nota-importante" title="Link to this heading">¶</a></h3>
+<p>Si los artefactos relacionados (UC, RF, RNF) aún no existen, documentar
+como “Pendiente de crear”:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-010: [Pendiente] Validar credenciales contra base de datos
+</pre></div>
+</div>
+</section>
+<section id="validacion-4">
+<span id="id11"></span><h3>Validación<a class="headerlink" href="#validacion-4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Al menos 1 artefacto relacionado identificado</p></li>
+<li><p>☐ Referencias bidireccionales (cuando el artefacto relacionado
+existe, actualizarlo también)</p></li>
+<li><p>☐ IDs correctos y verificables</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-6-validar-y-revisar">
+<h2>PASO 6: Validar y Revisar<a class="headerlink" href="#paso-6-validar-y-revisar" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-5">
+<span id="id12"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-5" title="Link to this heading">¶</a></h3>
+<p>Asegurar calidad y completitud antes de commit.</p>
+</section>
+<section id="checklist-de-validacion">
+<h3>Checklist de Validación<a class="headerlink" href="#checklist-de-validacion" title="Link to this heading">¶</a></h3>
+<section id="validacion-de-formato">
+<h4>Validación de Formato<a class="headerlink" href="#validacion-de-formato" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Frontmatter completo y correcto</p></li>
+<li><p>☐ ID único asignado (RN-DOMINIO-###)</p></li>
+<li><p>☐ Tipo correcto (hecho, restriccion, desencadenador, inferencia,
+calculo)</p></li>
+<li><p>☐ Título descriptivo</p></li>
+</ul>
+</section>
+<section id="validacion-de-contenido">
+<h4>Validación de Contenido<a class="headerlink" href="#validacion-de-contenido" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Declaración clara y sin ambigüedades</p></li>
+<li><p>☐ Fuente documentada</p></li>
+<li><p>☐ Ejemplos incluidos (cuando aplica)</p></li>
+<li><p>☐ Lenguaje apropiado para el tipo</p></li>
+</ul>
+</section>
+<section id="validacion-de-clasificacion">
+<h4>Validación de Clasificación<a class="headerlink" href="#validacion-de-clasificacion" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Tipo es consistente con contenido</p></li>
+<li><p>☐ Si es RESTRICCIÓN: usa palabras clave (debe, no debe, no puede,
+solo puede)</p></li>
+<li><p>☐ Si es DESENCADENADOR: ENTONCES describe ACCIÓN</p></li>
+<li><p>☐ Si es INFERENCIA: ENTONCES describe CONOCIMIENTO</p></li>
+<li><p>☐ Si es CÁLCULO: incluye fórmula clara</p></li>
+</ul>
+</section>
+<section id="validacion-de-trazabilidad">
+<h4>Validación de Trazabilidad<a class="headerlink" href="#validacion-de-trazabilidad" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Al menos 1 impacto identificado</p></li>
+<li><p>☐ IDs referenciados son correctos</p></li>
+<li><p>☐ Referencias bidireccionales establecidas</p></li>
+</ul>
+</section>
+<section id="validacion-de-ubicacion">
+<h4>Validación de Ubicación<a class="headerlink" href="#validacion-de-ubicacion" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Archivo en carpeta correcta según tipo:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">reglas_negocio/hechos/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reglas_negocio/restricciones/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reglas_negocio/desencadenadores/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reglas_negocio/inferencias/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reglas_negocio/calculos/</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="acciones-de-revision">
+<h3>Acciones de Revisión<a class="headerlink" href="#acciones-de-revision" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Leer el documento completo</p></li>
+<li><p>Verificar que un stakeholder podría entenderlo</p></li>
+<li><p>Validar que desarrolladores sabrían cómo implementarlo</p></li>
+<li><p>Verificar que QA podría crear tests basados en esto</p></li>
+</ol>
+</section>
+<section id="validacion-5">
+<span id="id13"></span><h3>Validación<a class="headerlink" href="#validacion-5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Checklist completado</p></li>
+<li><p>☐ Archivo en ubicación correcta</p></li>
+<li><p>☐ Sin errores de sintaxis markdown</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-7-commit-y-push">
+<h2>PASO 7: Commit y Push<a class="headerlink" href="#paso-7-commit-y-push" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-6">
+<span id="id14"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-6" title="Link to this heading">¶</a></h3>
+<p>Versionar la regla de negocio en git.</p>
+</section>
+<section id="acciones-4">
+<span id="id15"></span><h3>Acciones<a class="headerlink" href="#acciones-4" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Verificar ubicación del archivo</strong>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo para restricción</span>
+ls<span class="w"> </span>-la<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.md
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Agregar al staging</strong>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.md
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Verificar status</strong>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Crear commit descriptivo</strong>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">docs(requisitos): agregar RN-BACK-029 restricción de acceso</span>
+
+<span class="s">- Tipo: Restricción</span>
+<span class="s">- Clasificación: Limita acceso a módulo de administración</span>
+<span class="s">- Trazabilidad: UC-BACK-010, RF-BACK-045, RNF-BACK-020</span>
+<span class="s">- Fuente: Política interna de seguridad</span>
+
+<span class="s">Relacionado: ADR-GOB-006</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Push al repositorio</strong>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="o">[</span>nombre-branch<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="formato-de-mensaje-de-commit">
+<h3>Formato de Mensaje de Commit<a class="headerlink" href="#formato-de-mensaje-de-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="p">(</span><span class="n">requisitos</span><span class="p">):</span> <span class="n">agregar</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="p">[</span><span class="n">breve</span> <span class="n">descripción</span><span class="p">]</span>
+
+<span class="o">-</span> <span class="n">Tipo</span><span class="p">:</span> <span class="p">[</span><span class="n">Hecho</span><span class="o">|</span><span class="n">Restricción</span><span class="o">|</span><span class="n">Desencadenador</span><span class="o">|</span><span class="n">Inferencia</span><span class="o">|</span><span class="n">Cálculo</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">Clasificación</span><span class="p">:</span> <span class="p">[</span><span class="n">Justificación</span> <span class="n">breve</span> <span class="n">de</span> <span class="n">la</span> <span class="n">clasificación</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">Trazabilidad</span><span class="p">:</span> <span class="p">[</span><span class="n">UC</span><span class="o">-</span><span class="n">XXX</span><span class="p">,</span> <span class="n">RF</span><span class="o">-</span><span class="n">XXX</span><span class="p">,</span> <span class="n">RNF</span><span class="o">-</span><span class="n">XXX</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">Fuente</span><span class="p">:</span> <span class="p">[</span><span class="n">Origen</span> <span class="n">de</span> <span class="n">la</span> <span class="n">regla</span><span class="p">]</span>
+
+<span class="n">Relacionado</span><span class="p">:</span> <span class="n">ADR</span><span class="o">-</span><span class="n">GOB</span><span class="o">-</span><span class="mi">006</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion-6">
+<span id="id16"></span><h3>Validación<a class="headerlink" href="#validacion-6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Archivo agregado a git</p></li>
+<li><p>☐ Commit creado con mensaje descriptivo</p></li>
+<li><p>☐ Push exitoso</p></li>
+</ul>
+</section>
+</section>
+<section id="ejemplo-completo-rn-back-029">
+<h2>Ejemplo Completo: RN-BACK-029<a class="headerlink" href="#ejemplo-completo-rn-back-029" title="Link to this heading">¶</a></h2>
+<section id="paso-1-identificacion">
+<h3>PASO 1: Identificación<a class="headerlink" href="#paso-1-identificacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fuente</span><span class="p">:</span> <span class="n">Política</span> <span class="n">interna</span> <span class="n">de</span> <span class="n">seguridad</span> <span class="o">-</span> <span class="n">Documento</span> <span class="n">SEC</span><span class="o">-</span><span class="mi">2025</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">Descripción</span><span class="p">:</span> <span class="s2">&quot;Solo los usuarios con rol de Administrador pueden acceder al módulo de configuración del sistema&quot;</span>
+<span class="n">Contexto</span><span class="p">:</span> <span class="n">Seguridad</span> <span class="n">y</span> <span class="n">control</span> <span class="n">de</span> <span class="n">acceso</span>
+<span class="n">Dominio</span><span class="p">:</span> <span class="n">BACK</span>
+</pre></div>
+</div>
+</section>
+<section id="paso-2-clasificacion">
+<h3>PASO 2: Clasificación<a class="headerlink" href="#paso-2-clasificacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Análisis:
+- ¿Verdad sobre el negocio? NO
+- ¿Limita acción? SÍ (palabra clave: &quot;solo pueden&quot;)
+- Tipo: RESTRICCIÓN
+</pre></div>
+</div>
+</section>
+<section id="paso-3-id-asignado">
+<h3>PASO 3: ID Asignado<a class="headerlink" href="#paso-3-id-asignado" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">029</span><span class="o">-</span><span class="n">restriccion</span><span class="o">-</span><span class="n">acceso</span><span class="o">-</span><span class="n">configuracion</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+</section>
+<section id="paso-4-template-completado">
+<h3>PASO 4: Template Completado<a class="headerlink" href="#paso-4-template-completado" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: RN-BACK-029
+tipo: regla_negocio
+subtipo: restriccion
+categoria: backend
+version: 1.0.0
+<span class="gu">fecha: 2025-11-17</span>
+<span class="gu">---</span>
+
+<span class="gh"># RN-BACK-029: Restricción de Acceso a Configuración del Sistema</span>
+
+<span class="gu">## Tipo</span>
+Restricción
+
+<span class="gu">## Declaración</span>
+Solo los usuarios con rol de Administrador pueden acceder al módulo de configuración del sistema.
+
+<span class="gu">## Alcance</span>
+<span class="k">-</span><span class="w"> </span>Aplica a: Todos los usuarios del sistema
+<span class="k">-</span><span class="w"> </span>Roles afectados: Administrador, Staff, Usuario, Invitado
+
+<span class="gu">## Matriz de Permisos</span>
+
+| Operación | Administrador | Staff | Usuario | Invitado |
+|---|:---:|:---:|:---:|:---:|
+| Ver configuración | ✓ | ✗ | ✗ | ✗ |
+| Editar configuración | ✓ | ✗ | ✗ | ✗ |
+| Restaurar configuración | ✓ | ✗ | ✗ | ✗ |
+
+Leyenda: ✓ = Permitido    ✗ = No permitido
+
+<span class="gu">## Justificación</span>
+La configuración del sistema afecta aspectos críticos de operación, seguridad y rendimiento. El acceso debe limitarse exclusivamente a personal con capacitación y autorización adecuadas para prevenir errores de configuración que puedan comprometer el sistema.
+
+<span class="gu">## Excepciones</span>
+Ninguna. Esta restricción no admite excepciones por razones de seguridad.
+
+<span class="gu">## Validación</span>
+<span class="k">1.</span> El sistema debe validar el rol del usuario antes de mostrar el módulo de configuración
+<span class="k">2.</span> Intentos de acceso no autorizados deben registrarse en log de auditoría
+<span class="k">3.</span> Se debe mostrar mensaje de error apropiado: &quot;Acceso denegado. Esta función requiere privilegios de Administrador.&quot;
+
+<span class="gu">## Impacto en Requisitos</span>
+
+<span class="gs">**Requerimientos de Usuario**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-010: Gestionar Permisos
+<span class="k">-</span><span class="w"> </span>UC-BACK-015: Configurar Sistema
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-045: Validar rol antes de permitir acceso a módulo
+<span class="k">-</span><span class="w"> </span>RF-BACK-046: Registrar intentos de acceso no autorizado
+
+<span class="gs">**Atributos de Calidad**</span>:
+<span class="k">-</span><span class="w"> </span>RNF-BACK-020: Sistema debe validar permisos en &lt; 100ms
+</pre></div>
+</div>
+</section>
+<section id="paso-5-trazabilidad-identificada">
+<h3>PASO 5: Trazabilidad Identificada<a class="headerlink" href="#paso-5-trazabilidad-identificada" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gs">**Requerimientos de Usuario**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-010: Gestionar Permisos
+<span class="k">-</span><span class="w"> </span>UC-BACK-015: Configurar Sistema
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-045: Validar rol antes de permitir acceso a módulo
+<span class="k">-</span><span class="w"> </span>RF-BACK-046: Registrar intentos de acceso no autorizado
+
+<span class="gs">**Atributos de Calidad**</span>:
+<span class="k">-</span><span class="w"> </span>RNF-BACK-020: Sistema debe validar permisos en &lt; 100ms
+</pre></div>
+</div>
+</section>
+<section id="paso-6-validacion-completada">
+<h3>PASO 6: Validación Completada<a class="headerlink" href="#paso-6-validacion-completada" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>✓ Frontmatter completo
+✓ Tipo: restriccion
+✓ Declaración usa &quot;solo pueden&quot;
+✓ Matriz de permisos incluida
+✓ Justificación clara
+✓ Trazabilidad con 2 UC, 2 RF, 1 RNF
+✓ Ubicación: reglas_negocio/restricciones/
+</pre></div>
+</div>
+</section>
+<section id="paso-7-commit">
+<h3>PASO 7: Commit<a class="headerlink" href="#paso-7-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-acceso-configuracion.md
+
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">docs(requisitos): agregar RN-BACK-029 restricción de acceso a configuración</span>
+
+<span class="s">- Tipo: Restricción</span>
+<span class="s">- Clasificación: Limita acceso a módulo de configuración</span>
+<span class="s">- Trazabilidad: UC-BACK-010, UC-BACK-015, RF-BACK-045, RF-BACK-046, RNF-BACK-020</span>
+<span class="s">- Fuente: Política interna de seguridad SEC-2025-01</span>
+
+<span class="s">Relacionado: ADR-GOB-006</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="problemas-comunes-y-soluciones">
+<h2>Problemas Comunes y Soluciones<a class="headerlink" href="#problemas-comunes-y-soluciones" title="Link to this heading">¶</a></h2>
+<section id="problema-1-confusion-entre-desencadenador-e-inferencia">
+<h3>Problema 1: Confusión entre Desencadenador e Inferencia<a class="headerlink" href="#problema-1-confusion-entre-desencadenador-e-inferencia" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: La regla tiene formato SI…ENTONCES pero no sé si es
+desencadenador o inferencia.</p>
+<p><strong>Solución</strong>: Analizar el ENTONCES: - Si ejecuta una ACCIÓN (enviar,
+notificar, bloquear) → Desencadenador - Si establece CONOCIMIENTO
+(marcar como, clasificar, establecer estado) → Inferencia</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SI usuario intenta login 3 veces incorrecto
+ENTONCES enviar email de alerta        ← ACCIÓN = Desencadenador
+
+SI usuario intenta login 3 veces incorrecto
+ENTONCES usuario tiene estado &quot;sospechoso&quot;  ← CONOCIMIENTO = Inferencia
+</pre></div>
+</div>
+</section>
+<section id="problema-2-no-encuentro-el-ultimo-numero-de-secuencia">
+<h3>Problema 2: No encuentro el último número de secuencia<a class="headerlink" href="#problema-2-no-encuentro-el-ultimo-numero-de-secuencia" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver todos los archivos del dominio ordenados</span>
+ls<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+
+<span class="c1"># Obtener el último</span>
+ls<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+</pre></div>
+</div>
+</section>
+<section id="problema-3-no-se-que-poner-en-impacto-en-requisitos">
+<h3>Problema 3: No sé qué poner en “Impacto en Requisitos”<a class="headerlink" href="#problema-3-no-se-que-poner-en-impacto-en-requisitos" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: No es obligatorio tener todos los niveles. Documentar solo
+los que aplican:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Impacto en Requisitos</span>
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-050: [Pendiente] Implementar validación de regla
+
+<span class="gs">**Nota**</span>: Los casos de uso relacionados serán identificados durante el análisis de requisitos de usuario.
+</pre></div>
+</div>
+</section>
+<section id="problema-4-la-regla-parece-ser-de-2-tipos-a-la-vez">
+<h3>Problema 4: La regla parece ser de 2 tipos a la vez<a class="headerlink" href="#problema-4-la-regla-parece-ser-de-2-tipos-a-la-vez" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: Probablemente deba dividirse en 2 reglas separadas.</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Regla</span> <span class="n">original</span><span class="p">:</span> <span class="s2">&quot;Cada orden debe tener un costo de envío calculado como peso × $0.50&quot;</span>
+
+<span class="n">Dividir</span> <span class="n">en</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">030</span> <span class="p">(</span><span class="n">HECHO</span><span class="p">):</span> <span class="s2">&quot;Cada orden debe tener un costo de envío&quot;</span>
+<span class="o">-</span> <span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">031</span> <span class="p">(</span><span class="n">CÁLCULO</span><span class="p">):</span> <span class="s2">&quot;El costo de envío se calcula como peso × $0.50&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md">ADR-GOB-005: Jerarquía de Requerimientos en 5
+Niveles</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.md">ADR-GOB-006: Clasificación y Documentación de Reglas de
+Negocio</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md">ADR-GOB-009: Trazabilidad entre Artefactos de
+Requisitos</a></p></li>
+</ul>
+</section>
+<section id="historial-de-cambios">
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Claude Code</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCED-GOB-003: Documentar Regla de Negocio</a><ul>
+<li><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li><a class="reference internal" href="#pre-requisitos">Pre-requisitos</a></li>
+<li><a class="reference internal" href="#resultado-esperado">Resultado Esperado</a></li>
+<li><a class="reference internal" href="#paso-1-identificar-y-capturar-la-regla">PASO 1: Identificar y Capturar la Regla</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#acciones">Acciones</a></li>
+<li><a class="reference internal" href="#ejemplo">Ejemplo</a></li>
+<li><a class="reference internal" href="#validacion">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-2-clasificar-en-uno-de-5-tipos">PASO 2: Clasificar en uno de 5 Tipos</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-1">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#arbol-de-decision">Árbol de Decisión</a></li>
+<li><a class="reference internal" href="#palabras-clave-por-tipo">Palabras Clave por Tipo</a></li>
+<li><a class="reference internal" href="#ejemplo-de-clasificacion">Ejemplo de Clasificación</a></li>
+<li><a class="reference internal" href="#validacion-1">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-3-asignar-id-unico">PASO 3: Asignar ID Único</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-2">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#patron-de-nomenclatura">Patrón de Nomenclatura</a></li>
+<li><a class="reference internal" href="#acciones-1">Acciones</a></li>
+<li><a class="reference internal" href="#ejemplos-de-ids-correctos">Ejemplos de IDs Correctos</a></li>
+<li><a class="reference internal" href="#validacion-2">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-4-completar-template-apropiado-segun-tipo">PASO 4: Completar Template Apropiado según Tipo</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-3">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#ubicacion-de-templates">Ubicación de Templates</a></li>
+<li><a class="reference internal" href="#template-segun-tipo">Template según Tipo</a><ul>
+<li><a class="reference internal" href="#tipo-1-hecho">TIPO 1: Hecho</a></li>
+<li><a class="reference internal" href="#tipo-2-restriccion">TIPO 2: Restricción</a></li>
+<li><a class="reference internal" href="#tipo-3-desencadenador-de-accion">TIPO 3: Desencadenador de Acción</a></li>
+<li><a class="reference internal" href="#tipo-4-inferencia">TIPO 4: Inferencia</a></li>
+<li><a class="reference internal" href="#tipo-5-calculo-computacional">TIPO 5: Cálculo Computacional</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acciones-2">Acciones</a></li>
+<li><a class="reference internal" href="#validacion-3">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-5-identificar-impacto-en-otros-niveles">PASO 5: Identificar Impacto en Otros Niveles</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-4">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#acciones-3">Acciones</a></li>
+<li><a class="reference internal" href="#ejemplo-de-trazabilidad">Ejemplo de Trazabilidad</a></li>
+<li><a class="reference internal" href="#nota-importante">Nota Importante</a></li>
+<li><a class="reference internal" href="#validacion-4">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-6-validar-y-revisar">PASO 6: Validar y Revisar</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-5">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#checklist-de-validacion">Checklist de Validación</a><ul>
+<li><a class="reference internal" href="#validacion-de-formato">Validación de Formato</a></li>
+<li><a class="reference internal" href="#validacion-de-contenido">Validación de Contenido</a></li>
+<li><a class="reference internal" href="#validacion-de-clasificacion">Validación de Clasificación</a></li>
+<li><a class="reference internal" href="#validacion-de-trazabilidad">Validación de Trazabilidad</a></li>
+<li><a class="reference internal" href="#validacion-de-ubicacion">Validación de Ubicación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acciones-de-revision">Acciones de Revisión</a></li>
+<li><a class="reference internal" href="#validacion-5">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-7-commit-y-push">PASO 7: Commit y Push</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-6">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#acciones-4">Acciones</a></li>
+<li><a class="reference internal" href="#formato-de-mensaje-de-commit">Formato de Mensaje de Commit</a></li>
+<li><a class="reference internal" href="#validacion-6">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-completo-rn-back-029">Ejemplo Completo: RN-BACK-029</a><ul>
+<li><a class="reference internal" href="#paso-1-identificacion">PASO 1: Identificación</a></li>
+<li><a class="reference internal" href="#paso-2-clasificacion">PASO 2: Clasificación</a></li>
+<li><a class="reference internal" href="#paso-3-id-asignado">PASO 3: ID Asignado</a></li>
+<li><a class="reference internal" href="#paso-4-template-completado">PASO 4: Template Completado</a></li>
+<li><a class="reference internal" href="#paso-5-trazabilidad-identificada">PASO 5: Trazabilidad Identificada</a></li>
+<li><a class="reference internal" href="#paso-6-validacion-completada">PASO 6: Validación Completada</a></li>
+<li><a class="reference internal" href="#paso-7-commit">PASO 7: Commit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</a><ul>
+<li><a class="reference internal" href="#problema-1-confusion-entre-desencadenador-e-inferencia">Problema 1: Confusión entre Desencadenador e Inferencia</a></li>
+<li><a class="reference internal" href="#problema-2-no-encuentro-el-ultimo-numero-de-secuencia">Problema 2: No encuentro el último número de secuencia</a></li>
+<li><a class="reference internal" href="#problema-3-no-se-que-poner-en-impacto-en-requisitos">Problema 3: No sé qué poner en “Impacto en Requisitos”</a></li>
+<li><a class="reference internal" href="#problema-4-la-regla-parece-ser-de-2-tipos-a-la-vez">Problema 4: La regla parece ser de 2 tipos a la vez</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

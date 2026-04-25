@@ -1,0 +1,842 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>ADR-005: Sistema de Permisos con Grupos Funcionales Sin Jerarquía - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../procedimientos/index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_05_Control_Versiones.html">Gobernanza Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Discover — PlantUML Styling</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discover/index.html">Discover — Phase 1 Setup &amp; Documentation</a><input aria-label="Toggle navigation of Discover — Phase 1 Setup &amp; Documentation" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/color-palette.html">Color Palette — PlantUML Corporate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../discover/GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="adr-005-sistema-de-permisos-con-grupos-funcionales-sin-jerarquia">
+<h1>ADR-005: Sistema de Permisos con Grupos Funcionales Sin Jerarquía<a class="headerlink" href="#adr-005-sistema-de-permisos-con-grupos-funcionales-sin-jerarquia" title="Link to this heading">¶</a></h1>
+<p><strong>Estado:</strong> aceptada</p>
+<p><strong>Fecha:</strong> 2025-11-07</p>
+<p><strong>Decisores:</strong> equipo-backend, equipo-ba, arquitecto-principal</p>
+<p><strong>Contexto técnico:</strong> Backend</p>
+<hr class="docutils" />
+<section id="contexto-y-problema">
+<h2>Contexto y Problema<a class="headerlink" href="#contexto-y-problema" title="Link to this heading">¶</a></h2>
+<p>El sistema actual utiliza un modelo de permisos granulares (RF-001 a
+RF-004) con 3 niveles de evaluación. Sin embargo, necesitamos escalar
+este modelo para soportar:</p>
+<ol class="arabic simple">
+<li><p><strong>Múltiples módulos:</strong> 19 funciones diferentes (usuarios, dashboards,
+llamadas IVR, tickets, reportes, etc.)</p></li>
+<li><p><strong>130+ capacidades:</strong> Acciones específicas sobre recursos</p></li>
+<li><p><strong>Flexibilidad organizacional:</strong> Diferentes usuarios con
+combinaciones únicas de permisos</p></li>
+<li><p><strong>Sin jerarquías rígidas:</strong> Evitar etiquetas como “Admin”,
+“Supervisor”, “Agente” que crean barreras</p></li>
+</ol>
+<p><strong>Preguntas clave:</strong> - ¿Cómo organizamos 130+ capacidades de forma
+manejable? - ¿Cómo evitamos la explosión combinatoria de “roles”? -
+¿Cómo permitimos flexibilidad sin complejidad excesiva? - ¿Cómo
+mantenemos la claridad sobre “quién puede hacer qué”?</p>
+<p><strong>Restricciones actuales:</strong> - Sistema de permisos granulares ya
+implementado (3 niveles) - Base de datos PostgreSQL - Django backend con
+modelos in-memory para performance - Necesidad de auditoría completa
+(ISO 27001)</p>
+<p><strong>Impacto del problema:</strong> - Sin organización clara, 130+ capacidades son
+inmanejables - Roles tradicionales son rígidos y no se adaptan a la
+realidad operativa - Jerarquías crean barreras artificiales entre
+equipos - Dificulta onboarding de nuevos usuarios</p>
+</section>
+<hr class="docutils" />
+<section id="factores-de-decision">
+<h2>Factores de Decisión<a class="headerlink" href="#factores-de-decision" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Flexibilidad:</strong> Usuarios deben poder tener combinaciones únicas de
+permisos</p></li>
+<li><p><strong>Claridad:</strong> Debe ser obvio QUÉ puede hacer cada usuario</p></li>
+<li><p><strong>Escalabilidad:</strong> Diseño debe soportar crecimiento a 200+
+capacidades</p></li>
+<li><p><strong>Mantenibilidad:</strong> Fácil agregar nuevos permisos sin reestructurar
+todo</p></li>
+<li><p><strong>Experiencia de Usuario:</strong> Nomenclatura humana, no técnica</p></li>
+<li><p><strong>Seguridad:</strong> Auditoría completa, sin gaps de permisos</p></li>
+<li><p><strong>Performance:</strong> Evaluación de permisos &lt; 50ms</p></li>
+<li><p><strong>Sin Jerarquías:</strong> No crear barreras artificiales entre usuarios</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="opciones-consideradas">
+<h2>Opciones Consideradas<a class="headerlink" href="#opciones-consideradas" title="Link to this heading">¶</a></h2>
+<section id="opcion-1-rbac-tradicional-role-based-access-control">
+<h3>Opción 1: RBAC Tradicional (Role-Based Access Control)<a class="headerlink" href="#opcion-1-rbac-tradicional-role-based-access-control" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción:</strong> Sistema clásico de roles jerárquicos: Admin &gt; Manager &gt;
+Supervisor &gt; Agent. Cada rol tiene permisos fijos.</p>
+<p><strong>Pros:</strong> - Estándar de industria, bien entendido - Frameworks
+existentes (Django Groups, etc.) - Fácil de implementar inicialmente -
+Menos tablas en base de datos</p>
+<p><strong>Contras:</strong> - Jerarquías rígidas no se adaptan a la realidad -
+Explosión de roles cuando crecen los permisos - Un usuario = un rol
+(inflexible) - Nomenclatura pretenciosa (“Admin”, “Supervisor”) -
+Dificulta cambios organizacionales</p>
+<p><strong>Ejemplo/Implementación:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuario tiene UN rol</span>
+<span class="n">usuario</span><span class="o">.</span><span class="n">rol</span> <span class="o">=</span> <span class="s2">&quot;SUPERVISOR&quot;</span>
+
+<span class="c1"># Permisos fijos del rol</span>
+<span class="k">if</span> <span class="n">usuario</span><span class="o">.</span><span class="n">rol</span> <span class="o">==</span> <span class="s2">&quot;SUPERVISOR&quot;</span><span class="p">:</span>
+    <span class="n">permisos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ver_todo&quot;</span><span class="p">,</span> <span class="s2">&quot;editar_equipo&quot;</span><span class="p">,</span> <span class="s2">&quot;aprobar_tickets&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Razón del rechazo:</strong> No permite la flexibilidad necesaria. En la
+práctica, necesitamos usuarios con permisos mixtos (ej: “Coordinador que
+también hace atención al cliente”).</p>
+</section>
+<hr class="docutils" />
+<section id="opcion-2-abac-attribute-based-access-control">
+<h3>Opción 2: ABAC (Attribute-Based Access Control)<a class="headerlink" href="#opcion-2-abac-attribute-based-access-control" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción:</strong> Sistema basado en atributos y reglas dinámicas.
+Permisos se evalúan en runtime basándose en contexto (hora, ubicación,
+atributos del usuario, etc.).</p>
+<p><strong>Pros:</strong> - Máxima flexibilidad - Permisos contextuales (ej: “solo entre
+9am-5pm”) - Se adapta a cualquier escenario - Muy granular</p>
+<p><strong>Contras:</strong> - Complejidad extrema de implementación - Performance
+impact (evaluación en runtime) - Difícil de debuggear - Curva de
+aprendizaje alta - Overkill para nuestras necesidades - Difícil auditar
+“quién tiene qué permiso”</p>
+<p><strong>Ejemplo/Implementación:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Regla dinámica</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">puede_aprobar_pago</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">pago</span><span class="p">,</span> <span class="n">contexto</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">usuario</span><span class="o">.</span><span class="n">departamento</span> <span class="o">==</span> <span class="s2">&quot;finanzas&quot;</span> <span class="ow">and</span>
+        <span class="n">pago</span><span class="o">.</span><span class="n">monto</span> <span class="o">&lt;</span> <span class="n">usuario</span><span class="o">.</span><span class="n">limite_aprobacion</span> <span class="ow">and</span>
+        <span class="n">contexto</span><span class="o">.</span><span class="n">hora_actual</span><span class="o">.</span><span class="n">hour</span> <span class="o">&gt;=</span> <span class="mi">9</span> <span class="ow">and</span>
+        <span class="n">contexto</span><span class="o">.</span><span class="n">hora_actual</span><span class="o">.</span><span class="n">hour</span> <span class="o">&lt;=</span> <span class="mi">17</span> <span class="ow">and</span>
+        <span class="ow">not</span> <span class="n">contexto</span><span class="o">.</span><span class="n">es_feriado</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Razón del rechazo:</strong> Demasiado complejo para nuestras necesidades
+actuales. La mayoría de nuestros permisos son estáticos, no
+contextuales.</p>
+</section>
+<hr class="docutils" />
+<section id="opcion-3-grupos-funcionales-sin-jerarquia-elegida">
+<h3>Opción 3: Grupos Funcionales Sin Jerarquía (ELEGIDA)<a class="headerlink" href="#opcion-3-grupos-funcionales-sin-jerarquia-elegida" title="Link to this heading">¶</a></h3>
+<p><strong>Descripción:</strong> Sistema de “grupos de permisos” descriptivos que se
+pueden combinar libremente. No hay jerarquía entre grupos. Un usuario
+puede tener múltiples grupos simultáneamente.</p>
+<p><strong>Conceptos clave:</strong> - <strong>Funciones:</strong> Recursos del sistema (dashboards,
+usuarios, tickets, etc.) - <strong>Capacidades:</strong> Acciones sobre recursos
+(ver, crear, editar, eliminar) - <strong>Grupos:</strong> Colecciones de capacidades
+con nombres descriptivos - <strong>Usuarios:</strong> Pueden tener N grupos
+simultáneos</p>
+<p><strong>Pros:</strong> - Flexibilidad total: N grupos por usuario - Nomenclatura
+descriptiva: “Atención al Cliente”, “Gestión de Equipos” - Sin
+jerarquías: todos los grupos son iguales - Escalable: fácil agregar
+nuevos grupos - Claro: se ve inmediatamente qué puede hacer cada usuario
+- Mantenible: grupos modulares, no monolíticos - Performance: evaluación
+simple con vistas SQL</p>
+<p><strong>Contras:</strong> - Más tablas en base de datos (8 tablas) - Requiere UI para
+gestión de grupos - Posible confusión inicial (no es RBAC tradicional) -
+Requiere definir bien los grupos iniciales</p>
+<p><strong>Ejemplo/Implementación:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuario tiene MÚLTIPLES grupos</span>
+<span class="n">usuario</span><span class="o">.</span><span class="n">grupos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;atencion_cliente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gestion_equipos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;analisis_operativo&quot;</span>
+<span class="p">]</span>
+
+<span class="c1"># Permisos = UNION de todos los grupos</span>
+<span class="n">permisos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">grupo</span> <span class="ow">in</span> <span class="n">usuario</span><span class="o">.</span><span class="n">grupos</span><span class="p">:</span>
+    <span class="n">permisos</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">grupo</span><span class="o">.</span><span class="n">capacidades</span><span class="p">)</span>
+
+<span class="c1"># Verificación simple</span>
+<span class="k">if</span> <span class="s2">&quot;sistema.operaciones.tickets.crear&quot;</span> <span class="ow">in</span> <span class="n">permisos</span><span class="p">:</span>
+    <span class="n">crear_ticket</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Estructura de Base de Datos:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>funciones (19 recursos)
+    ↓
+capacidades (~130 acciones)
+    ↓
+grupos_permisos (17+ grupos descriptivos)
+    ↓
+usuarios_grupos (N:M - múltiples grupos por usuario)
+</pre></div>
+</div>
+<p><strong>Ejemplos de Grupos:</strong> - <code class="docutils literal notranslate"><span class="pre">atencion_cliente</span></code> - Operaciones básicas de
+call center - <code class="docutils literal notranslate"><span class="pre">gestion_equipos</span></code> - Administración de equipos -
+<code class="docutils literal notranslate"><span class="pre">analisis_operativo</span></code> - Métricas y reportes - <code class="docutils literal notranslate"><span class="pre">auditoria_llamadas</span></code> -
+Evaluación de calidad - <code class="docutils literal notranslate"><span class="pre">gestion_pagos</span></code> - Procesamiento financiero</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="decision">
+<h2>Decisión<a class="headerlink" href="#decision" title="Link to this heading">¶</a></h2>
+<p><strong>Opción elegida:</strong> “Grupos Funcionales Sin Jerarquía”</p>
+<p><strong>Justificación:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Flexibilidad real:</strong> Usuarios pueden tener combinaciones únicas de
+permisos según sus necesidades reales, no forzadas por roles rígidos.</p></li>
+<li><p><strong>Claridad y experiencia humana:</strong> Nombres descriptivos (“Gestión de
+Equipos”) en lugar de etiquetas jerárquicas (“Supervisor Nivel 2”).</p></li>
+<li><p><strong>Escalabilidad probada:</strong> Fácil agregar nuevos grupos sin afectar
+existentes. Sistema crece de forma modular.</p></li>
+<li><p><strong>Sin barreras artificiales:</strong> No hay jerarquía entre grupos. Todos
+son iguales, solo agrupan capacidades diferentes.</p></li>
+<li><p><strong>Balance complejidad/beneficio:</strong> Más simple que ABAC, más flexible
+que RBAC tradicional.</p></li>
+<li><p><strong>Compatible con sistema actual:</strong> Extiende el sistema de permisos
+granulares (RF-001 a RF-004) sin romper lo existente.</p></li>
+</ol>
+<p><strong>Trade-offs aceptados:</strong> - Más tablas en BD (8 en lugar de 3-4 de RBAC
+tradicional) - Requiere UI de gestión de grupos (pero necesitaríamos UI
+de todas formas) - No hay jerarquía (pero esto es el objetivo, no un
+contra)</p>
+</section>
+<hr class="docutils" />
+<section id="consecuencias">
+<h2>Consecuencias<a class="headerlink" href="#consecuencias" title="Link to this heading">¶</a></h2>
+<section id="positivas">
+<h3>Positivas<a class="headerlink" href="#positivas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Flexibilidad total:</strong> Usuarios con permisos exactos que necesitan</p></li>
+<li><p><strong>Sin etiquetas jerárquicas:</strong> Elimina barreras organizacionales
+artificiales</p></li>
+<li><p><strong>Escalable:</strong> Fácil agregar módulos nuevos (pagos, facturación,
+etc.)</p></li>
+<li><p><strong>Mantenible:</strong> Grupos modulares, cambios localizados</p></li>
+<li><p><strong>Auditable:</strong> Vista SQL consolidada de permisos efectivos</p></li>
+<li><p><strong>Performance:</strong> Evaluación &lt; 50ms con índices apropiados</p></li>
+<li><p><strong>Experiencia mejorada:</strong> Nomenclatura clara y descriptiva</p></li>
+</ul>
+</section>
+<section id="negativas">
+<h3>Negativas<a class="headerlink" href="#negativas" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Complejidad inicial:</strong> Requiere definir bien los 17+ grupos
+iniciales</p></li>
+<li><p><strong>UI necesaria:</strong> No se puede gestionar manualmente con SQL
+fácilmente</p></li>
+<li><p><strong>Curva de aprendizaje:</strong> Equipo debe entender el modelo nuevo</p></li>
+<li><p><strong>Migración:</strong> Si hay sistema previo, requiere migración de datos</p></li>
+<li><p><strong>Más tablas:</strong> 8 tablas principales vs 3-4 de RBAC tradicional</p></li>
+</ul>
+</section>
+<section id="neutrales">
+<h3>Neutrales<a class="headerlink" href="#neutrales" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>No es estándar:</strong> No es RBAC puro ni ABAC, es híbrido</p></li>
+<li><p><strong>Documentación custom:</strong> Necesitamos documentar bien el modelo</p></li>
+<li><p><strong>Tests necesarios:</strong> Requiere test suite completo de permisos</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plan-de-implementacion">
+<h2>Plan de Implementación<a class="headerlink" href="#plan-de-implementacion" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Fase 1: Estructura Base (Semana 1)</strong></p>
+<ul class="simple">
+<li><p>Crear 8 tablas principales en PostgreSQL</p></li>
+<li><p>Crear vistas auxiliares (vista_capacidades_usuario,
+vista_grupos_usuario)</p></li>
+<li><p>Crear función usuario_tiene_permiso()</p></li>
+<li><p>Insertar datos de prueba</p></li>
+<li><p>Validar estructura con queries de verificación</p></li>
+<li><p>Timeframe: 1 semana</p></li>
+</ul>
+</li>
+<li><p><strong>Fase 2: Funciones Core (Semana 2)</strong></p>
+<ul class="simple">
+<li><p>Insertar 3 funciones core (usuarios, dashboards, configuración)</p></li>
+<li><p>Definir 16 capacidades core</p></li>
+<li><p>Crear 3 grupos iniciales (administracion_usuarios,
+visualizacion_basica, configuracion_sistema)</p></li>
+<li><p>Implementar PermissionService en Django</p></li>
+<li><p>Crear endpoints API básicos</p></li>
+<li><p>Timeframe: 1 semana</p></li>
+</ul>
+</li>
+<li><p><strong>Fase 3: Módulos Operativos (Semanas 3-4)</strong></p>
+<ul class="simple">
+<li><p>Insertar 6 módulos operativos (llamadas IVR, tickets, clientes,
+métricas, reportes, alertas)</p></li>
+<li><p>Definir ~50 capacidades operativas</p></li>
+<li><p>Crear 3 grupos operativos</p></li>
+<li><p>Integrar con módulos Django existentes (ivr_legacy, reports,
+analytics)</p></li>
+<li><p>Timeframe: 2 semanas</p></li>
+</ul>
+</li>
+<li><p><strong>Fase 4: Módulos de Gestión y Finanzas (Semanas 5-6)</strong></p>
+<ul class="simple">
+<li><p>Crear módulos nuevos (equipos, horarios, evaluaciones, auditoría)</p></li>
+<li><p>Crear módulos financieros (pagos, facturas, cobranza)</p></li>
+<li><p>Definir ~50 capacidades adicionales</p></li>
+<li><p>Crear 8 grupos adicionales</p></li>
+<li><p>Timeframe: 2 semanas</p></li>
+</ul>
+</li>
+<li><p><strong>Fase 5: Módulos Estratégicos y Finalización (Semanas 7-11)</strong></p>
+<ul class="simple">
+<li><p>Crear módulos estratégicos (presupuestos, políticas, excepciones)</p></li>
+<li><p>UI de gestión de grupos</p></li>
+<li><p>Testing completo (unitarios, integración, E2E)</p></li>
+<li><p>Documentación de usuario</p></li>
+<li><p>Capacitación</p></li>
+<li><p>Go-live</p></li>
+<li><p>Timeframe: 5 semanas</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Total:</strong> 11 semanas (~2.5 meses)</p>
+</section>
+<hr class="docutils" />
+<section id="validacion-y-metricas">
+<h2>Validación y Métricas<a class="headerlink" href="#validacion-y-metricas" title="Link to this heading">¶</a></h2>
+<p><strong>Criterios de Éxito:</strong> - Performance: Evaluación de permisos &lt; 50ms
+(p95) - Cobertura: 100% de funcionalidades cubiertas con permisos -
+Flexibilidad: 80%+ de usuarios tienen combinaciones únicas de grupos -
+Claridad: Encuesta post-implementación &gt; 4/5 en “entiendo mis permisos”
+- Escalabilidad: Agregar nuevo módulo &lt; 2 días de trabajo</p>
+<p><strong>Cómo medir:</strong> -
+<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">AVG(query_time)</span> <span class="pre">FROM</span> <span class="pre">pg_stat_statements</span> <span class="pre">WHERE</span> <span class="pre">query</span> <span class="pre">LIKE</span> <span class="pre">'%usuario_tiene_permiso%'</span></code>
+- Análisis de combinaciones de grupos en producción - Encuesta de
+usuario post-capacitación - Tiempo de implementación de nuevos módulos</p>
+<p><strong>Revisión:</strong> - Fecha de revisión programada: 2026-02-07 (3 meses
+post-implementación) - Responsable de seguimiento: equipo-backend</p>
+</section>
+<hr class="docutils" />
+<section id="alternativas-descartadas">
+<h2>Alternativas Descartadas<a class="headerlink" href="#alternativas-descartadas" title="Link to this heading">¶</a></h2>
+<section id="acl-access-control-lists">
+<h3>ACL (Access Control Lists)<a class="headerlink" href="#acl-access-control-lists" title="Link to this heading">¶</a></h3>
+<p><strong>Por qué se descartó:</strong> - Demasiado granular a nivel individual - No
+escala bien con 100+ usuarios - Difícil mantener consistencia - No
+proporciona agrupaciones lógicas</p>
+</section>
+<section id="hybrid-rbac-acl">
+<h3>Hybrid RBAC + ACL<a class="headerlink" href="#hybrid-rbac-acl" title="Link to this heading">¶</a></h3>
+<p><strong>Por qué se descartó:</strong> - Complejidad de tener dos sistemas simultáneos
+- Confusión sobre cuál usar cuando - Mantenimiento de dos modelos</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.iso.org/standard/72089.html">ISO/IEC/IEEE 29148:2018 - Requirements
+Engineering</a></p></li>
+<li><p><a class="reference external" href="https://owasp.org/www-project-application-security-verification-standard/">OWASP ASVS - Authentication and Access
+Control</a></p></li>
+<li><p><a class="reference external" href="https://csrc.nist.gov/projects/role-based-access-control">NIST RBAC
+Model</a></p></li>
+<li><p><a class="reference external" href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html">PostgreSQL Row Security
+Policies</a></p></li>
+<li><p><a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/auth/default/">Django Permission
+System</a></p></li>
+<li><p>Documento:
+<code class="docutils literal notranslate"><span class="pre">docs/backend/requisitos/INDICE_MAESTRO_PERMISOS_GRANULAR.md</span></code></p></li>
+<li><p>Documento:
+<code class="docutils literal notranslate"><span class="pre">docs/backend/requisitos/prioridad_01_estructura_base_datos.md</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="notas-adicionales">
+<h2>Notas Adicionales<a class="headerlink" href="#notas-adicionales" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Fecha de discusión inicial:</strong> 2025-11-04</p></li>
+<li><p><strong>Participantes:</strong> equipo-backend (3 personas), equipo-ba (1
+persona), arquitecto-principal</p></li>
+<li><p><strong>Experimentos realizados:</strong></p>
+<ul>
+<li><p>POC con Django Groups tradicionales (rechazado por inflexibilidad)</p></li>
+<li><p>POC con django-guardian (rechazado por complejidad object-level)</p></li>
+<li><p>Benchmark de performance: 3 niveles de evaluación &lt; 10ms</p></li>
+</ul>
+</li>
+<li><p><strong>Decisiones relacionadas:</strong></p>
+<ul>
+<li><p>ADR-002: Suite de Calidad de Código</p></li>
+<li><p>ADR-003: DORA Metrics Integration</p></li>
+<li><p>ADR-004: Centralized Log Storage (para auditoría)</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Documento:</strong> ADR-005 <strong>Fecha:</strong> 07 de Noviembre, 2025 <strong>Estado:</strong>
+Aceptada <strong>Próxima revisión:</strong> 2026-02-07</p>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">ADR-005: Sistema de Permisos con Grupos Funcionales Sin Jerarquía</a><ul>
+<li><a class="reference internal" href="#contexto-y-problema">Contexto y Problema</a></li>
+<li><a class="reference internal" href="#factores-de-decision">Factores de Decisión</a></li>
+<li><a class="reference internal" href="#opciones-consideradas">Opciones Consideradas</a><ul>
+<li><a class="reference internal" href="#opcion-1-rbac-tradicional-role-based-access-control">Opción 1: RBAC Tradicional (Role-Based Access Control)</a></li>
+<li><a class="reference internal" href="#opcion-2-abac-attribute-based-access-control">Opción 2: ABAC (Attribute-Based Access Control)</a></li>
+<li><a class="reference internal" href="#opcion-3-grupos-funcionales-sin-jerarquia-elegida">Opción 3: Grupos Funcionales Sin Jerarquía (ELEGIDA)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decision">Decisión</a></li>
+<li><a class="reference internal" href="#consecuencias">Consecuencias</a><ul>
+<li><a class="reference internal" href="#positivas">Positivas</a></li>
+<li><a class="reference internal" href="#negativas">Negativas</a></li>
+<li><a class="reference internal" href="#neutrales">Neutrales</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plan-de-implementacion">Plan de Implementación</a></li>
+<li><a class="reference internal" href="#validacion-y-metricas">Validación y Métricas</a></li>
+<li><a class="reference internal" href="#alternativas-descartadas">Alternativas Descartadas</a><ul>
+<li><a class="reference internal" href="#acl-access-control-lists">ACL (Access Control Lists)</a></li>
+<li><a class="reference internal" href="#hybrid-rbac-acl">Hybrid RBAC + ACL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#notas-adicionales">Notas Adicionales</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>
