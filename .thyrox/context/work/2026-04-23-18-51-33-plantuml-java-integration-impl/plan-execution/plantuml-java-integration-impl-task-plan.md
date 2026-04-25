@@ -188,9 +188,9 @@ skinparam padding 10
 
 ### TASK-004: Completar plantuml-styles.puml — Context-specific skinparam + hide directives
 
-**Descripción:** Agregar context-specific skinparam para Class, Actor, Sequence, Activity y hide directives.
+**Descripción:** Agregar context-specific skinparam para Use Case, Sequence, Activity, Component y hide directives.
 
-**Satisface:** SPEC-002 (parte B: context-specific)
+**Satisface:** SPEC-002 (parte B: context-specific + Component)
 
 **Archivos a modificar:**
 - `source/_static/plantuml-styles.puml` (APPEND sections)
@@ -237,6 +237,20 @@ skinparam participant {
 skinparam activity {
   backgroundColor _coreCorporateGreen
   borderColor #006633
+}
+
+' ============================================
+' DIAGRAM TYPE: COMPONENT (Architecture)
+' ============================================
+skinparam component {
+  backgroundColor _lightGreenT2
+  borderColor _coreCorporateGreen
+  fontColor #003333
+}
+skinparam interface {
+  backgroundColor _lightGreenT1
+  borderColor _coreCorporateGreen
+  fontColor #003333
 }
 
 ' ============================================
@@ -532,11 +546,11 @@ grep -q "<svg" _build/html/discover/test-uc-diagram.svg && echo "✓ Valid SVG s
 - [ ] Archivo creado en `discover/GUIDELINES.md`
 - [ ] Sección Paleta: todos 5-6 colores + variantes documentados
 - [ ] Sección POSIX: claro público vs privado, con ejemplos código
-- [ ] Sección Ejemplos: mínimo 3 ejemplos de uso
+- [ ] Sección Ejemplos: mínimo 3 ejemplos COMPILABLES en PlantUML (copy-paste ready, sin placeholder)
 - [ ] Sección Best Practices: mínimo 3 prácticas
 - [ ] Sección Anti-patrones: mínimo 3 qué-no-hacer
 - [ ] Total líneas: 40-50 (conciso)
-- [ ] Markdown bien formado, copy-paste ready
+- [ ] Markdown bien formado, todos ejemplos son PlantUML sintaxis correcta
 
 **Dependencias:** T-002 (color palette doc), T-004 (styles.puml complete), T-009 (validation complete)
 
@@ -556,7 +570,8 @@ grep -q "<svg" _build/html/discover/test-uc-diagram.svg && echo "✓ Valid SVG s
 - [ ] Paleta de colores clara (no ambigüedad sobre qué usar cuándo)
 - [ ] POSIX _prefix convention está bien explicado para documentadores no-técnicos
 - [ ] Ejemplos compilan y funcionan (PlantUML syntax correcto)
-- [ ] Referencias a ADR incluidas donde aplica
+- [ ] Referencias a ADR-plantuml-naming-conventions.md incluidas y validadas en POSIX section
+- [ ] ADR-plantuml-naming-conventions.md enlazado y contexto claro (privado vs público)
 - [ ] Terminología consistente con rest del proyecto
 - [ ] Sin [NEEDS CLARIFICATION] markers pendientes
 - [ ] Lenguaje es accesible (documentadores van a leerlo)
@@ -605,6 +620,9 @@ make clean && make html
 - [ ] PNG/SVG output contiene colores corporativos
 - [ ] Git working tree ready para commit
 - [ ] now.md actualizado con Phase 8 completion
+- [ ] **CHECKPOINT: Phase 1 Setup readiness verified** (color system + styles + tests + Sphinx validation completados, listo para Phase 10 escalado a 5 UC críticos)
+- [ ] risk-register.md actualizado: Phase 1 Setup risks documentados y mitigaciones asignadas
+- [ ] exit-conditions.md actualizado: Gate criteria para Phase 10 EXECUTE definidos explícitamente
 
 **Dependencias:** T-011 (todo Phase 5 complete)
 

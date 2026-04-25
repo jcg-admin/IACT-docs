@@ -1,8 +1,9 @@
 ```yml
 created_at: 2026-04-25 10:35:00
+updated_at: 2026-04-25 11:15:00
 feature: plantuml-java-integration-impl
 epic: 2026-04-23-18-51-33-plantuml-java-integration-impl
-iteration: 1
+iteration: 2
 status: Pasó
 ```
 
@@ -82,6 +83,18 @@ El spec PASÓ todas las secciones en primer intento. No hay items fallidos. Just
 4. **Medibilidad:** Todos los criterios son observables y verificables objetivamente
 5. **Cobertura:** Flujos principales + alternativas + errores + stakeholders completos
 
+**Revisión 2 (2026-04-25 11:15:00) — Gap Resolution:**
+
+Critical deep-review identificó Gap A2: SPEC-002 faltaba Component diagram type definition.
+
+Cambios aplicados:
+- **SPEC-002 Acceptance Criteria (línea 134):** Agregado "Component { BackgroundColor, BorderColor, InterfaceBackgroundColor }"
+- **SPEC-002 Structure (línea 168):** Agregado "├── Component diagram skinparam (12-18 líneas)"
+- **SPEC-002 Validation checklist (línea 181):** Agregado "Component" a "(UC, Sequence, Activity, Component)"
+- **Task-plan T-004 (línea 191-248):** Agregado content example con Component skinparam section
+
+**Re-validación contra checklist:** Todas las secciones siguen pasando (22/22 items). El spec ahora incluye cobertura completa para todos 4 diagram types críticos (UC, Sequence, Activity, Component).
+
 ---
 
 ## Resultado Final
@@ -90,7 +103,7 @@ El spec PASÓ todas las secciones en primer intento. No hay items fallidos. Just
 **Items pasados:** 22  
 **Items fallidos:** 0
 
-**Status:** ✅ PASÓ ITERACIÓN 1 — Spec está LISTO para decomposición en Phase 8 PLAN EXECUTION
+**Status:** ✅ PASÓ ITERACIÓN 2 — Spec está LISTO para Phase 10 EXECUTE (Component support validated, 6 gap resolutions integrated)
 
 ---
 

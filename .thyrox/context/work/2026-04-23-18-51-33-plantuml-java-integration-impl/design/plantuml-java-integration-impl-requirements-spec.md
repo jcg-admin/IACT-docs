@@ -127,11 +127,12 @@ Then: Parámetros privados ej: _coreCorporateBlue = #0066CC
   AND documentación marca cuáles son private (prefijo _) vs public
 
 Given: Context-specific skinparam están definidos
-When: Configurar actor, class, sequence, activity sections
+When: Configurar actor, class, sequence, activity, component sections
 Then: Class { BackgroundColor, FontColor, BorderColor }
   AND Actor { BackgroundColor, FontColor }
   AND Sequence { ActorBackgroundColor, ParticipantBackgroundColor }
   AND Activity { BackgroundColor, BorderColor }
+  AND Component { BackgroundColor, BorderColor, InterfaceBackgroundColor }
 
 Given: Hide directives están definidos
 When: Aplicar hide directives
@@ -163,10 +164,10 @@ source/_static/plantuml-styles.puml
   ├── Comentario de cabecera (descripción, fecha)
   ├── Global skinparam section (10-15 líneas)
   ├── Color definitions (!define) section (20-30 líneas)
-  ├── Class diagram skinparam (15-20 líneas)
+  ├── Use Case diagram skinparam (Class & Actor, 15-20 líneas)
   ├── Sequence diagram skinparam (15-20 líneas)
   ├── Activity diagram skinparam (15-20 líneas)
-  ├── Actor/Participant skinparam (10-15 líneas)
+  ├── Component diagram skinparam (12-18 líneas)
   └── Hide directives (5-10 líneas)
 ```
 
@@ -178,7 +179,7 @@ source/_static/plantuml-styles.puml
 - [ ] Archivo compila en PlantUML CLI sin errores
 - [ ] Cada sección comentada claramente
 - [ ] POSIX _prefix convention aplicada (review ADR)
-- [ ] Skinparam por tipo de diagrama completado (UC, Sequence, Activity, Class)
+- [ ] Skinparam por tipo de diagrama completado (UC, Sequence, Activity, Component)
 - [ ] Hide directives documentados
 - [ ] Línea total ≤ 200
 - [ ] Code review por arquitecto (checklist en ADR-plantuml-naming-conventions.md)
