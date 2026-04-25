@@ -77,7 +77,7 @@ This system follows POSIX naming conventions to distinguish private vs. public p
   - OK to reference in PlantUML diagrams
   - Guaranteed stable across versions
 
-**Reference:** See :doc:`../.thyrox/context/decisions/adr-plantuml-naming-conventions` for detailed rationale.
+**Reference:** See `ADR: PlantUML Naming Conventions <https://github.com/jcg-admin/iact-docs>`_ for detailed rationale.
 
 ----
 

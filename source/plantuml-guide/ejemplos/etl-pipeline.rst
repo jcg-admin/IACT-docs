@@ -130,7 +130,7 @@ Fases del Pipeline
 
    - Registrar errores en **Audit Log** (CNST-009 - inmutable)
    - Guardar registros fallidos en **Dead Letter Queue**
-   - Permitir reintentos con :doc:`../test-component-diagram`
+   - Permitir reintentos con :doc:`test-component-diagram`
 
 4. **LOAD PHASE**
 
@@ -144,7 +144,7 @@ Fases del Pipeline
    - Recolectar métricas de cada fase
    - Tiempo de ejecución
    - Cantidad de errores
-   - Recordar: :ref:`Monitor para observabilidad <plantuml-guide>`
+   - Recordar: :doc:`../index` para más ejemplos
 
 Flujo de Ejecución
 ==================
