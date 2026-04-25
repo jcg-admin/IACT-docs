@@ -13,7 +13,7 @@
 .. _ontologia-sbvr-index:
 .. _sbvr_03_vocabulario_controlado:
 
-==========================================================
+================================
 SBVR_03 · Vocabulario Controlado
 ================================
 
@@ -25,7 +25,7 @@ de reglas de negocio en el proyecto IACT. Define los términos permitidos,
 sus sinónimos aceptados y términos prohibidos, garantizando consistencia
 y eliminando ambigüedad en la documentación de requisitos.
 
-------------------------------------------------------------
+----------------------
 2. Uso del Vocabulario
 ----------------------
 
@@ -47,7 +47,7 @@ Este documento debe consultarse:
 - Los términos prohibidos no deben usarse nunca
 - Si se necesita un término nuevo, solicitar aprobación al BA Lead
 
-------------------------------------------------------------
+-------------------------
 3. Vocabulario de Actores
 -------------------------
 
@@ -71,7 +71,7 @@ Este documento debe consultarse:
      - IVR, Plataforma IVR
      - Centralita, PBX, Call Center
 
-------------------------------------------------------------
+-------------------
 4. Vocabulario RBAC
 -------------------
 
@@ -180,7 +180,7 @@ Los 6 segmentos definidos:
      - DATOS_CONSOLIDADOS
      - Datos agregados para toma de decisiones
 
-------------------------------------------------------------
+-------------------------
 5. Vocabulario de Negocio
 -------------------------
 
@@ -210,7 +210,7 @@ Los 6 segmentos definidos:
      - Informe
      - Documento, Listado, Export
 
-------------------------------------------------------------
+--------------------------
 6. Vocabulario de Acciones
 --------------------------
 
@@ -301,7 +301,7 @@ Los 6 segmentos definidos:
      - otorgar
      - dar, poner, setear
 
-------------------------------------------------------------
+---------------------------------
 7. Vocabulario de Cuantificadores
 ---------------------------------
 
@@ -328,7 +328,7 @@ Los 6 segmentos definidos:
      - ninguno, cero
      - ni uno, nada de
 
-------------------------------------------------------------
+-----------------------------
 8. Vocabulario de Condiciones
 -----------------------------
 
@@ -358,7 +358,7 @@ Los 6 segmentos definidos:
      - posteriormente a, luego de
      - posterior a
 
-------------------------------------------------------------
+-------------------------------
 9. Términos Técnicos Permitidos
 -------------------------------
 
@@ -386,7 +386,7 @@ cuando se refieren a conceptos específicos del sistema:
    * - timeout
      - Tiempo límite de sesión o operación
 
-------------------------------------------------------------
+---------------------------
 10. Checklist de Validación
 ---------------------------
 
@@ -411,7 +411,7 @@ Al escribir o revisar una regla de negocio, verificar:
    * - 7
      - Los términos técnicos están en la lista permitida
 
-------------------------------------------------------------
+-------------------------
 11. Proceso de Ampliación
 -------------------------
 
@@ -425,7 +425,7 @@ Para agregar un nuevo término al vocabulario controlado:
 6. Si se aprueba, se actualiza SBVR_01 y SBVR_03
 7. Se notifica al equipo el nuevo término
 
-------------------------------------------------------------
+---------------
 12. Referencias
 ---------------
 
@@ -444,7 +444,7 @@ Para agregar un nuevo término al vocabulario controlado:
    * - Glosario IACT
      - Ver glosario del sistema
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

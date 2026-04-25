@@ -39,7 +39,7 @@ Cada ADR debe incluir metadatos YAML:
    consecuencias: Impacto esperado
    alternativas: Alternativas consideradas
    supersedes: ADR-BACK-### (si aplica)
-   ---
+                                       
 
 Plantilla
 ---------

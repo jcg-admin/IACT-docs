@@ -7,7 +7,7 @@
    :uc_id: UC_USR_03
    :normativa: CNST-001, CNST-005, CNST-009
 
-==================================================
+============================
 UC_USR_03: Modificar Usuario
 ============================
 
@@ -583,7 +583,7 @@ especifica (bloquear, desbloquear, reactivar).
            Motivo: {reason}
 
            Contacte al administrador para mas informacion.
-           '''
+                                                          
        )
        # PROHIBIDO: EmailService.send()
 

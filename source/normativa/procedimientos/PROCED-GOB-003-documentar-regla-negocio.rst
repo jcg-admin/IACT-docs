@@ -269,7 +269,7 @@ TIPO 1: Hecho
    categoria: [dominio]
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Hecho]
 
@@ -305,7 +305,7 @@ TIPO 2: Restricción
    categoria: [dominio]
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-DOMINIO-###: [Título de la Restricción]
 
@@ -355,7 +355,7 @@ TIPO 3: Desencadenador de Acción
    categoria: [dominio]
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Desencadenador]
 
@@ -401,7 +401,7 @@ TIPO 4: Inferencia
    categoria: [dominio]
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-DOMINIO-###: [Título de la Inferencia]
 
@@ -444,7 +444,7 @@ TIPO 5: Cálculo Computacional
    categoria: [dominio]
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Cálculo]
 
@@ -795,7 +795,7 @@ PASO 4: Template Completado
    categoria: backend
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RN-BACK-029: Restricción de Acceso a Configuración del Sistema
 

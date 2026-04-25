@@ -74,7 +74,7 @@ Plantilla de Procedimiento
    autor: Nombre
    estado: [borrador|activo|obsoleto]
    relacionados: ["PROC-001", "GUIA-002"]
-   ---
+                                         
 
    # PROCED-###: Nombre del Procedimiento
 

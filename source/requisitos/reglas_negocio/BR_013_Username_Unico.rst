@@ -12,7 +12,7 @@
 
 .. _br-013:
 
-==============================================================================
+======================
 BR_013: Username Único
 ======================
 
@@ -258,9 +258,9 @@ La regla se considera cumplida cuando:
    # apps/users/models.py
    
    class User(AbstractBaseUser, PermissionsMixin):
-       """
+                                               
        Modelo de usuario que implementa BR_013.
-       """
+                                               
        username = models.CharField(
            max_length=150,
            unique=True,  # BR_013: Username único
@@ -292,15 +292,15 @@ La regla se considera cumplida cuando:
    # apps/users/serializers.py
    
    class UserCreateSerializer(serializers.ModelSerializer):
-       """
+                                                           
        Serializer para creación de usuario.
        Implementa validación BR_013.
-       """
+                                    
        
        def validate_username(self, value):
-           """
+                                                
            Valida unicidad de username (BR_013).
-           """
+                                                
            if User.objects.filter(username__iexact=value).exists():
                raise serializers.ValidationError(
                    "BR_013: Ya existe un usuario con este username. "

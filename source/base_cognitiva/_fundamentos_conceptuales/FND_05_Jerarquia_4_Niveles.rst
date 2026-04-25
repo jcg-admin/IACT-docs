@@ -12,7 +12,7 @@
 
 .. _fnd-05:
 
-==============================================================================
+==============================
 FND_05: Jerarquia de 4 Niveles
 ==============================
 
@@ -147,7 +147,7 @@ el software debe conformarse a ellas.
    +------------------+
    |     SISTEMA      |  <-- El sistema CUMPLE las reglas
    +------------------+      El sistema NO CREA las reglas
-           ^
+                                                          
            |
    +------------------+
    | Politicas        |
@@ -162,7 +162,7 @@ el software debe conformarse a ellas.
 ::
 
    TIPO              PATRON                       GENERA UC?
-   ------------------------------------------------------------------
+                                                            
    Hecho             [X] ES/TIENE [Y]             NO
    Restriccion       [X] DEBE/NO DEBE [Y]         Parcial
    Desencadenador    SI [cond] ENTONCES [vis]     SI
@@ -175,13 +175,13 @@ el software debe conformarse a ellas.
 ::
 
    TIPO              CANTIDAD    EJEMPLO
-   ------------------------------------------------------------------
+                                        
    Hecho                 4       BR_006: RBAC Flat NIST
    Restriccion           9       BR_007: Separacion de Funciones
    Desencadenador        3       BR_002: ETL Batch Nocturno
    Inferencia            1       BR_003: Usuario Inactivo 90d
    Calculo               3       BR_016: Tasa Abandono
-   ------------------------------------------------------------------
+                                                      
    TOTAL                20
 
 ----
@@ -257,7 +257,7 @@ construyendo este sistema?
 ::
 
    ID        NOMBRE                      METRICA DE EXITO
-   ------------------------------------------------------------------
+                                                         
    BReq-001  Visibilidad Metricas IVR    Dashboard actualizado cada 5 min
    BReq-002  Reduccion Tiempo Incidentes Reduccion >= 40% vs linea base
    BReq-003  Decisiones Informadas       100% decisiones con datos
@@ -350,7 +350,7 @@ especifican interacciones completas entre actores y sistema.
 ::
 
    MODULO          CANTIDAD    RANGO UC
-   ------------------------------------------------------------------
+                                       
    MOD_Auth            5       UC-001 a UC-005
    MOD_Users           4       UC-006 a UC-009
    MOD_Access          9       UC-010, UC-011, UC-041 a UC-047
@@ -359,7 +359,7 @@ especifican interacciones completas entre actores y sistema.
    MOD_Alerts          5       UC-036 a UC-040
    MOD_Audit           4       UC-060 a UC-063
    MOD_Logs            4       UC-070 a UC-073
-   ------------------------------------------------------------------
+                                              
    TOTAL              49
 
 ----

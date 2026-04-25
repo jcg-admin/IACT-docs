@@ -188,12 +188,12 @@ Implementación de Single Session
 
    @receiver(user_logged_in)
    def invalidate_previous_sessions(sender, request, user, **kwargs):
-       """
+                                                                     
        Invalidar todas las sesiones previas del usuario al hacer login.
 
        CNST-002: Política de sesión única por usuario.
        Solo permite una sesión activa por usuario a la vez.
-       """
+                                                           
        # Obtener sesión actual
        current_session_key = request.session.session_key
 
@@ -225,12 +225,12 @@ Para mejor control y auditoría:
 
 
    class UserSession(models.Model):
-       """
+                                   
        Seguimiento de sesiones activas por usuario.
 
        CNST-002: Permite implementar política de sesión única
        y auditoría de sesiones.
-       """
+                               
 
        user = models.ForeignKey(
            User,
@@ -257,14 +257,14 @@ Para mejor control y auditoría:
 
        @classmethod
        def create_session(cls, user, session_key, request):
-           """
+                                                           
            Crear nueva sesión y eliminar sesiones previas (single session).
 
            Args:
                user: Usuario
                session_key: Session key de Django
                request: Request actual
-           """
+                                      
            # Desactivar sesiones previas del usuario
            cls.objects.filter(user=user, is_active=True).update(is_active=False)
 
@@ -298,11 +298,11 @@ Signal Mejorado con UserSession
 
    @receiver(user_logged_in)
    def create_user_session(sender, request, user, **kwargs):
-       """
+                                                            
        Crear UserSession al login e invalidar sesiones previas.
 
        CNST-002: Sesión única por usuario.
-       """
+                                          
        session_key = request.session.session_key
        UserSession.create_session(user, session_key, request)
 
@@ -346,12 +346,12 @@ Código de Autenticación
 
    @api_view(['POST'])
    def login_view(request):
-       """
+                           
        Login de usuario con sesión en BD.
 
        CNST-002: Sesión almacenada en MySQL.
        UC-001: Iniciar Sesión.
-       """
+                              
        username = request.data.get('username')
        password = request.data.get('password')
 
@@ -397,12 +397,12 @@ Código de Logout
 
    @api_view(['POST'])
    def logout_view(request):
-       """
+                            
        Logout de usuario.
 
        CNST-002: Elimina sesión de BD.
        UC-002: Cerrar Sesión.
-       """
+                             
        # Signal deactivate_user_session se ejecuta automáticamente
        logout(request)
 
@@ -432,12 +432,12 @@ Código de Consulta
 
 
    class ActiveSessionsView(APIView):
-       """
+                                     
        Consultar sesiones activas del sistema.
 
        CNST-002: Auditoría de sesiones en BD.
        UC-029: Consultar Sesiones Activas.
-       """
+                                          
 
        permission_classes = [IsAdminUser]
 

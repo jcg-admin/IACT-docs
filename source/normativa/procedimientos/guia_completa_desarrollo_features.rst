@@ -456,13 +456,13 @@ manteniendo tests verdes
 .. code:: python
 
    # tests/authentication/test_jwt_authentication.py
-   """
+                                                    
    Tests para autenticación JWT.
 
    RF-AUTH-001: El sistema debe permitir login con username/password
    RF-AUTH-002: El sistema debe retornar access_token y refresh_token
    RF-AUTH-003: El sistema debe validar tokens en requests protegidos
-   """
+                                                                     
 
    import pytest
    from django.contrib.auth.models import User
@@ -485,13 +485,13 @@ manteniendo tests verdes
            )
 
        def test_login_success_returns_tokens(self):
-           """
+                                                   
            Test que login exitoso retorna access_token y refresh_token.
 
            Given: Usuario válido en BD
            When: POST a /api/auth/login con credenciales correctas
            Then: Retorna 200 con access_token y refresh_token
-           """
+                                                             
            response = self.client.post(self.login_url, {
                'username': 'testuser',
                'password': 'testpass123'
@@ -504,13 +504,13 @@ manteniendo tests verdes
            assert len(response.data['refresh_token']) > 0
 
        def test_login_invalid_credentials_returns_401(self):
-           """
+                                                            
            Test que login con credenciales inválidas retorna 401.
 
            Given: Usuario con password incorrecta
            When: POST a /api/auth/login con credenciales incorrectas
            Then: Retorna 401 Unauthorized
-           """
+                                         
            response = self.client.post(self.login_url, {
                'username': 'testuser',
                'password': 'wrongpassword'
@@ -520,13 +520,13 @@ manteniendo tests verdes
            assert 'access_token' not in response.data
 
        def test_login_missing_fields_returns_400(self):
-           """
+                                                       
            Test que login sin campos requeridos retorna 400.
 
            Given: Request sin username o password
            When: POST a /api/auth/login sin campos requeridos
            Then: Retorna 400 Bad Request
-           """
+                                        
            response = self.client.post(self.login_url, {
                'username': 'testuser'
                # password falta
@@ -535,13 +535,13 @@ manteniendo tests verdes
            assert response.status_code == status.HTTP_400_BAD_REQUEST
 
        def test_login_inactive_user_returns_401(self):
-           """
+                                                      
            Test que usuario inactivo no puede hacer login.
 
            Given: Usuario marcado como inactivo
            When: POST a /api/auth/login con credenciales correctas
            Then: Retorna 401 Unauthorized
-           """
+                                         
            self.user.is_active = False
            self.user.save()
 
@@ -568,13 +568,13 @@ manteniendo tests verdes
            )
 
        def test_refresh_token_success(self):
-           """
+                                            
            Test que refresh token válido retorna nuevo access_token.
 
            Given: Refresh token válido obtenido de login
            When: POST a /api/auth/refresh con refresh_token
            Then: Retorna 200 con nuevo access_token
-           """
+                                                   
            # Primero hacer login para obtener tokens
            login_response = self.client.post(self.login_url, {
                'username': 'testuser',
@@ -591,13 +591,13 @@ manteniendo tests verdes
            assert 'access_token' in response.data
 
        def test_refresh_invalid_token_returns_401(self):
-           """
+                                                        
            Test que refresh token inválido retorna 401.
 
            Given: Token inválido o malformado
            When: POST a /api/auth/refresh con token inválido
            Then: Retorna 401 Unauthorized
-           """
+                                         
            response = self.client.post(self.refresh_url, {
                'refresh_token': 'invalid-token-123'
            })
@@ -620,25 +620,25 @@ manteniendo tests verdes
            )
 
        def test_protected_endpoint_without_token_returns_401(self):
-           """
+                                                                   
            Test que endpoint protegido sin token retorna 401.
 
            Given: Request sin header Authorization
            When: GET a endpoint protegido
            Then: Retorna 401 Unauthorized
-           """
+                                         
            response = self.client.get(self.protected_url)
 
            assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
        def test_protected_endpoint_with_valid_token_returns_200(self):
-           """
+                                                                      
            Test que endpoint protegido con token válido permite acceso.
 
            Given: Request con access_token válido en header
            When: GET a endpoint protegido
            Then: Retorna 200 OK
-           """
+                               
            # Login para obtener token
            login_response = self.client.post(self.login_url, {
                'username': 'testuser',
@@ -653,13 +653,13 @@ manteniendo tests verdes
            assert response.status_code == status.HTTP_200_OK
 
        def test_protected_endpoint_with_expired_token_returns_401(self):
-           """
+                                                                        
            Test que endpoint protegido con token expirado retorna 401.
 
            Given: Token JWT expirado
            When: GET a endpoint protegido con token expirado
            Then: Retorna 401 Unauthorized con mensaje de expiración
-           """
+                                                                   
            # Este test requiere crear un token expirado manualmente
            # o mockear la fecha actual
            pass  # Implementar según necesidad
@@ -689,12 +689,12 @@ manteniendo tests verdes
 .. code:: python
 
    # authentication/serializers.py
-   """
+                                  
    Serializers para autenticación JWT.
 
    RF-AUTH-001: Validación de credenciales
    RF-AUTH-002: Generación de tokens
-   """
+                                    
 
    from rest_framework import serializers
    from django.contrib.auth import authenticate
@@ -741,7 +741,7 @@ manteniendo tests verdes
 
        @staticmethod
        def generate_tokens(user):
-           """
+                                 
            Generar access_token y refresh_token para usuario.
 
            Args:
@@ -749,7 +749,7 @@ manteniendo tests verdes
 
            Returns:
                dict: {'access_token': str, 'refresh_token': str}
-           """
+                                                                
            access_payload = {
                'user_id': user.id,
                'username': user.username,
@@ -813,12 +813,12 @@ manteniendo tests verdes
 .. code:: python
 
    # authentication/views.py
-   """
+                            
    Views para autenticación JWT.
 
    RF-AUTH-001: Endpoint de login
    RF-AUTH-002: Endpoint de refresh
-   """
+                                   
 
    from rest_framework.views import APIView
    from rest_framework.response import Response
@@ -834,13 +834,13 @@ manteniendo tests verdes
 
 
    class LoginView(APIView):
-       """
+                            
        Vista para login con username/password.
 
        POST /api/auth/login
        Body: {"username": "user", "password": "pass"}
        Returns: {"access_token": "...", "refresh_token": "..."}
-       """
+                                                               
 
        def post(self, request):
            """Procesar login y retornar tokens."""
@@ -859,13 +859,13 @@ manteniendo tests verdes
 
 
    class RefreshTokenView(APIView):
-       """
+                                   
        Vista para renovar access token usando refresh token.
 
        POST /api/auth/refresh
        Body: {"refresh_token": "..."}
        Returns: {"access_token": "..."}
-       """
+                                       
 
        def post(self, request):
            """Procesar refresh token y retornar nuevo access token."""

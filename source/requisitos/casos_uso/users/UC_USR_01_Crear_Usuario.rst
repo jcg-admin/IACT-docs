@@ -7,7 +7,7 @@
    :uc_id: UC_USR_01
    :normativa: CNST-001, CNST-005, CNST-009
 
-==================================================
+========================
 UC_USR_01: Crear Usuario
 ========================
 
@@ -634,7 +634,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
            Contrasena temporal: {temp_password}
 
            Debe cambiar esta contrasena en su primer inicio de sesion.
-           '''
+                                                                      
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 

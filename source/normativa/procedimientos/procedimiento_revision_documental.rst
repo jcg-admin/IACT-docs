@@ -77,7 +77,7 @@ Procedimiento de Revisión
       propietario: equipo-qa
       ultima_actualizacion: 2025-11-04
       relacionados: ["DOC-PROC-DEV"]
-      ---
+                                    
 
 1.3 Verificar Localmente
 ^^^^^^^^^^^^^^^^^^^^^^^^

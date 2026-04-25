@@ -1118,7 +1118,7 @@ Ejemplo Completo en UC-BACK-001
    ultima_actualizacion: 2025-11-17
    autor: Claude Code
    estado: aprobado
-   ---
+                   
 
    # UC-BACK-001: Iniciar Sesión
 

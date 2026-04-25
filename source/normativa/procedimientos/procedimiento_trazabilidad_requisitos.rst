@@ -230,7 +230,7 @@ Ubicación de archivo validada según propuesta
    criticidad: alta | media | baja
    estabilidad: estable | volatil
    complejidad: baja | media | alta
-   ---
+                                   
 
 **Campos obligatorios:** - OK ``id``: Identificador único (N-XXX,
 RN-XXX, RS-XXX, RF-XXX, RNF-XXX) - OK ``tipo``: Clasificación BABOK - OK
@@ -356,7 +356,7 @@ FASE 3: Trazabilidad Downward (Verificación)
      - CODE-001          # api/callcentersite/callcentersite/apps/inventory/services.py#calculate_min_stock
      - TEST-001          # api/callcentersite/backend/tests/test_stock_calculation.py::test_calculate_min_stock_happy_path
      - TEST-002          # api/callcentersite/backend/tests/test_stock_api.py::test_api_response_time
-   ---
+                                                                                                     
 
 **Formato en Diseño Técnico:**
 
@@ -390,13 +390,13 @@ identificados - [ ] Índices de BD documentados para RNF-XXX
    # backend/tests/test_stock_calculation.py
 
    def test_calculate_min_stock_happy_path():
-       """
+                                             
        Test ID: TEST-001
        Requisito: RF-001 - API para cálculo de stock mínimo
        Trazabilidad: N-001 -> RN-001 -> RS-001 -> RF-001
        Criterio de Aceptación: "El cálculo considera demanda histórica de últimos 90 días"
        Método de Verificación: test (ISO 29148 - 6.5.2.2.d)
-       """
+                                                           
        # Given
        product = create_product(sku="ABC123")
        create_demand_history(product, days=90, avg_daily=100)
@@ -580,10 +580,10 @@ FASE 5: Validación y Auditoría
 .. code:: python
 
    #!/usr/bin/env python3
-   """
+                         
    Validador de Trazabilidad - ISO 29148
    Ejecutado en CI/CD para garantizar integridad de trazabilidad.
-   """
+                                                                 
 
    import sys
    import yaml

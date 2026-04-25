@@ -1,6 +1,6 @@
 .. _arquitectura-tecnica:
 
-=====================
+====================
 Arquitectura Técnica
 ====================
 

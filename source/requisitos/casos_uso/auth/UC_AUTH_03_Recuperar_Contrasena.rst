@@ -7,7 +7,7 @@
    :uc_id: UC_AUTH_03
    :normativa: CNST-001, CNST-009
 
-==================================================
+================================
 UC_AUTH_03: Recuperar Contrasena
 ================================
 
@@ -581,7 +581,7 @@ para un usuario especifico.
            Contrasena temporal: {temp_password}
 
            Debe cambiar esta contrasena en su proximo inicio de sesion.
-           '''
+                                                                       
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 

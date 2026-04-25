@@ -13,7 +13,7 @@
 
 .. _proc-descongelamiento-subdominio:
 
-==============================================================================
+========================================================
 PROC_Descongelamiento_Subdominio: Descongelar Subdominio
 ========================================================
 
@@ -202,9 +202,9 @@ Antes de iniciar este procedimiento, verificar:
 
   .. code-block:: rst
 
-     ==============================================================================
+                                            
      Reglas de Negocio (BR) - [DESCONGELADO]
-     ==============================================================================
+                                            
      
      .. warning:: **Estado: DESCONGELADO**
      

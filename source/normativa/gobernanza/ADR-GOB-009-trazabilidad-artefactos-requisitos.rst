@@ -112,9 +112,9 @@ En Reglas de Negocio (RN)
 
 .. code:: markdown
 
-   ---
+                  
    id: RN-BACK-001
-   ---
+                  
 
    # RN-BACK-001: Usuario Debe Estar Autenticado
 
@@ -142,9 +142,9 @@ En Requerimientos de Negocio (RNEG)
 
 .. code:: markdown
 
-   ---
+                    
    id: RNEG-BACK-001
-   ---
+                    
 
    # RNEG-BACK-001: Sistema de Autenticación Seguro
 
@@ -171,9 +171,9 @@ En Casos de Uso (UC)
 
 .. code:: markdown
 
-   ---
+                  
    id: UC-BACK-001
-   ---
+                  
 
    # UC-BACK-001: Iniciar Sesión
 
@@ -205,9 +205,9 @@ En Requisitos Funcionales (RF)
 
 .. code:: markdown
 
-   ---
+                  
    id: RF-BACK-010
-   ---
+                  
 
    # RF-BACK-010: Validar Credenciales contra Base de Datos
 
@@ -234,9 +234,9 @@ En Atributos de Calidad (RNF)
 
 .. code:: markdown
 
-   ---
+                   
    id: RNF-BACK-005
-   ---
+                   
 
    # RNF-BACK-005: Contraseña Mínimo 8 Caracteres
 

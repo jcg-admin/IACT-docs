@@ -1232,7 +1232,7 @@ Output:
 ::
 
    MAPEOS DISPONIBLES: TEMPLATE -> WORKFLOW
-   ================================================================================
+                                           
 
    Template: plantilla_django_app.md
      Workflows: backend-ci
@@ -1296,7 +1296,7 @@ Output:
 ::
 
    VALIDANDO MAPEOS
-   ================================================================================
+                   
    [OK] Todos los mapeos son validos
 
 **Ejemplo 6: Modo interactivo**
@@ -1310,7 +1310,7 @@ Output:
 ::
 
    MODO INTERACTIVO - Consulta de Mapeos
-   ================================================================================
+                                        
 
    Comandos:
      template <nombre>    - Buscar workflows para un template

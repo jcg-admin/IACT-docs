@@ -169,7 +169,7 @@ Bloques de Código
    git add .
    git commit -m "feat: nueva funcionalidad"
    git push
-   ```
+           
 
 **Reglas:** - Siempre especificar el lenguaje después de las comillas -
 Usar sangría consistente dentro del bloque - No mezclar tabs y espacios
@@ -265,7 +265,7 @@ Docstrings
 .. code:: python
 
    def generate_token(user_id: int, expiration: int = 3600) -> str:
-       """
+                                                                   
        Generar token JWT para usuario.
 
        Args:
@@ -283,7 +283,7 @@ Docstrings
            >>> token = generate_token(123, expiration=7200)
            >>> print(token)
            'eyJ0eXAiOiJKV1QiLCJhbGc...'
-       """
+                                       
        pass
 
 Type Hints
@@ -644,7 +644,7 @@ Formato OpenAPI/Swagger
 .. code:: python
 
    class LoginView(APIView):
-       """
+                            
        Vista para autenticación de usuarios.
 
        Endpoints:
@@ -666,7 +666,7 @@ Formato OpenAPI/Swagger
            {
                "error": "Credenciales inválidas"
            }
-       """
+            
        pass
 
 --------------

@@ -89,14 +89,14 @@ negocio (RN-XXX) - Necesidades (N-XXX) si aplica
 .. code:: markdown
 
    # Ejemplo de trazabilidad upward en frontmatter
-   ---
+                                                  
    trazabilidad_upward:
      - N-001  # Necesidad: Autenticación segura
      - RN-001 # Requisito de negocio: Sistema de login
      - RF-005 # Requisito funcional: Login con credenciales locales
      - RF-006 # Requisito funcional: Logout y cierre de sesión
      - RF-007 # Requisito funcional: Refresh token
-   ---
+                                                  
 
 **Salida:** - Mapa de requisitos validado - Confirmación de alcance con
 Product Owner

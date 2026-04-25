@@ -571,14 +571,14 @@ Cassandra (Capas 2 y 3)
    import logging
    logger = logging.getLogger('analytics')
    logger.info('Test log', extra={'request_id': 'test-123'})
-   "
+                                                            
 
    # Verificar Cassandra
    docker exec cassandra-1 cqlsh -e "
    SELECT * FROM logging.application_logs
    WHERE log_date = '2025-11-07'
    LIMIT 10;
-   "
+            
 
 MySQL (Capa 1)
 ~~~~~~~~~~~~~~

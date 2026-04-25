@@ -1026,12 +1026,12 @@ Implementación
    from apps.analytics.models import CallMetric
 
    class MetricsRepository:
-       """
+                           
        Repositorio de métricas de llamadas.
 
        Centraliza todas las queries de CallMetric
        para facilitar testing y mantenimiento.
-       """
+                                              
 
        def get_daily_summary(self, date):
            """Obtener resumen de métricas de un día."""
@@ -1122,19 +1122,19 @@ Implementación
    logger = logging.getLogger('reports')
 
    class ReportService:
-       """
+                       
        Servicio de generación de reportes.
 
        Coordina repositorios, valida reglas de negocio
        y gestiona auditoría.
-       """
+                            
 
        def __init__(self):
            self.metrics_repo = MetricsRepository()
 
        @transaction.atomic
        def generate_daily_report(self, user, date, queue_ids):
-           """
+                                                              
            Generar reporte diario con auditoría.
 
            Args:
@@ -1147,7 +1147,7 @@ Implementación
 
            Raises:
                ValueError: Si parámetros son inválidos
-           """
+                                                      
            # Validar
            self._validate_report_request(date, queue_ids)
 
@@ -1258,11 +1258,11 @@ Implementación
    from apps.reports.exporters import CSVExporter, ExcelExporter, PDFExporter
 
    class ReportExporterFactory:
-       """
+                               
        Factory para crear exportadores de reportes.
 
        Centraliza la creación de exportadores según formato.
-       """
+                                                            
 
        _exporters = {
            'csv': CSVExporter,
@@ -1272,7 +1272,7 @@ Implementación
 
        @classmethod
        def create_exporter(cls, format_type):
-           """
+                                             
            Crear exportador según formato.
 
            Args:
@@ -1283,7 +1283,7 @@ Implementación
 
            Raises:
                ValueError: Si formato no soportado
-           """
+                                                  
            exporter_class = cls._exporters.get(format_type.lower())
 
            if not exporter_class:
@@ -1434,11 +1434,11 @@ Implementación
 
 
    class MetricsAggregator:
-       """
+                           
        Contexto que usa estrategias de agregación.
 
        Permite cambiar estrategia dinámicamente.
-       """
+                                                
 
        def __init__(self, strategy: AggregationStrategy):
            self.strategy = strategy
@@ -1513,12 +1513,12 @@ Implementación
    logger = logging.getLogger('api')
 
    def cached_response(timeout=300):
-       """
+                                    
        Decorador para cachear respuestas de vistas.
 
        Args:
            timeout: Tiempo en segundos (default: 5 min)
-       """
+                                                       
        def decorator(view_func):
            @wraps(view_func)
            def wrapper(self, request, *args, **kwargs):
@@ -1544,12 +1544,12 @@ Implementación
 
 
    def audit_action(action_type):
-       """
+                                 
        Decorador para auditar acciones.
 
        Args:
            action_type: Tipo de acción (ej: 'REPORT_GENERATE')
-       """
+                                                              
        def decorator(view_func):
            @wraps(view_func)
            def wrapper(self, request, *args, **kwargs):
@@ -1644,11 +1644,11 @@ Implementación
 
    @receiver(post_save, sender=CallMetric)
    def audit_metric_creation(sender, instance, created, **kwargs):
-       """
+                                                                  
        Auditar creación de métricas.
 
        Signal ejecutado automáticamente al guardar CallMetric.
-       """
+                                                              
        if created:
            logger.info(
                f'Nueva métrica creada: Queue={instance.queue_id}, '
@@ -1682,11 +1682,11 @@ Implementación
 
    @receiver(pre_delete, sender=CallMetric)
    def prevent_metric_deletion(sender, instance, **kwargs):
-       """
+                                                           
        Prevenir eliminación de métricas.
 
        Las métricas son inmutables (CNST-009).
-       """
+                                              
        raise PermissionError(
            'CNST-009: Las métricas no pueden eliminarse. '
            'Son parte del registro inmutable.'

@@ -718,13 +718,13 @@ Ejemplo: Crear RF-BACK-065
    # O crear manualmente siguiendo template
 
    cat > docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md <<'EOF'
-   ---
+                                                                                                         
    id: RF-BACK-065
    tipo: requisito_funcional
    categoria: backend
    version: 1.0.0
    fecha: 2025-11-17
-   ---
+                    
 
    # RF-BACK-065: Generar Código TOTP
 

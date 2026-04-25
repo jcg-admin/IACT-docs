@@ -86,7 +86,7 @@ UserActionLog
    User = get_user_model()
 
    class UserActionLog(models.Model):
-       """
+                                     
        Log inmutable de acciones de usuario.
 
        CNST-009: Este modelo es APPEND-ONLY.
@@ -98,7 +98,7 @@ UserActionLog
        - Generación de reportes
        - Exportaciones
        - Cambios de configuración
-       """
+                                 
 
        ACTION_CHOICES = [
            # Autenticación
@@ -171,11 +171,11 @@ UserActionLog
            return f"{username} - {self.action} - {self.resource}"
 
        def save(self, *args, **kwargs):
-           """
+                                       
            Solo permite INSERT, no UPDATE.
 
            CNST-009: Logs de auditoría son inmutables.
-           """
+                                                      
            if self.pk:
                raise PermissionError(
                    'CNST-009: Los logs de auditoría son inmutables. '
@@ -184,11 +184,11 @@ UserActionLog
            super().save(*args, **kwargs)
 
        def delete(self, *args, **kwargs):
-           """
+                                         
            PROHIBIDO eliminar logs de auditoría.
 
            CNST-009: Logs de auditoría son inmutables.
-           """
+                                                      
            raise PermissionError(
                'CNST-009: Los logs de auditoría son inmutables. '
                'No se permite eliminar registros.'
@@ -197,7 +197,7 @@ UserActionLog
        @classmethod
        def record(cls, user, action, resource, result='SUCCESS',
                   ip_address=None, user_agent=None, details=None):
-           """
+                                                                  
            Registrar acción de usuario.
 
            Args:
@@ -211,7 +211,7 @@ UserActionLog
 
            Returns:
                UserActionLog creado
-           """
+                                   
            return cls.objects.create(
                user=user if user and user.is_authenticated else None,
                action=action,
@@ -255,7 +255,7 @@ APIAccessLog
    # api/apps/common/models.py
 
    class APIAccessLog(models.Model):
-       """
+                                    
        Log de accesos a API.
 
        Registra todos los requests a la API para:
@@ -263,7 +263,7 @@ APIAccessLog
        - Detección de anomalías
        - Debugging
        - Métricas de performance
-       """
+                                
 
        # Request
        method = models.CharField(max_length=10)
@@ -321,12 +321,12 @@ ErrorThreshold
    # api/apps/common/models.py
 
    class ErrorThreshold(models.Model):
-       """
+                                      
        Registro de errores para monitoreo y alertas.
 
        Cuando se supera un umbral de errores, se dispara
        una alerta a administradores.
-       """
+                                    
 
        SEVERITY_CHOICES = [
            ('LOW', 'Bajo'),
@@ -439,11 +439,11 @@ API Access Logger
    logger = logging.getLogger('api')
 
    class APIAccessLogMiddleware:
-       """
+                                
        Middleware que registra todos los accesos a la API.
 
        CNST-009: Logging obligatorio de todos los requests.
-       """
+                                                           
 
        # Paths excluidos del logging detallado
        EXCLUDED_PATHS = [
@@ -505,7 +505,7 @@ Audit Logger Decorator
    logger = logging.getLogger('audit')
 
    def audit_action(action, resource_getter=None):
-       """
+                                                  
        Decorador para registrar acciones en log de auditoría.
 
        CNST-009: Usar en todas las acciones significativas.
@@ -518,7 +518,7 @@ Audit Logger Decorator
            @audit_action('REPORT_GENERATE', lambda r, *a, **k: f"report:{k.get('report_type')}")
            def generate_report(request, report_type):
                ...
-       """
+                  
        def decorator(func):
            @functools.wraps(func)
            def wrapper(request, *args, **kwargs):
@@ -857,12 +857,12 @@ Vista de Auditoría (Admin)
    from apps.common.pagination import StandardPagination
 
    class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
-       """
+                                                        
        ViewSet de solo lectura para logs de auditoría.
 
        Solo administradores pueden consultar.
        NO permite crear, modificar ni eliminar.
-       """
+                                               
 
        queryset = UserActionLog.objects.all()
        permission_classes = [IsAuthenticated, IsAdminUser]
@@ -878,12 +878,12 @@ Vista de Auditoría (Admin)
 
 
    class UserActivityView(viewsets.ViewSet):
-       """
+                                            
        Vista de actividad de usuario específico.
 
        Permite a usuarios ver su propia actividad.
        Admins pueden ver actividad de cualquier usuario.
-       """
+                                                        
 
        permission_classes = [IsAuthenticated]
 
@@ -920,9 +920,9 @@ Serializer de Auditoría
    from apps.common.models import UserActionLog
 
    class UserActionLogSerializer(serializers.ModelSerializer):
-       """
+                                                         
        Serializer de solo lectura para logs de auditoría.
-       """
+                                                         
 
        username = serializers.CharField(source='user.username', read_only=True)
 

@@ -12,7 +12,7 @@
 
 .. _meta_04_contexto_iact:
 
-==========================================================
+==================================
 META_04 · Contexto del Modelo IACT
 ==================================
 
@@ -23,7 +23,7 @@ Este documento introduce el modelo documental IACT (Integrated Analysis and
 Contextual Traceability) a nuevos miembros del equipo, explicando su filosofía,
 estructura y aplicación práctica en el proyecto.
 
-------------------------------------------------------------
+--------------
 2. Qué es IACT
 --------------
 
@@ -55,7 +55,7 @@ En proyectos de software medianos y grandes, la documentación típicamente sufr
 IACT aborda estos problemas mediante una estructura jerárquica gobernada,
 con reglas claras de nomenclatura y trazabilidad explícita.
 
-------------------------------------------------------------
+---------------------------
 3. Principios Fundamentales
 ---------------------------
 
@@ -102,7 +102,7 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 - Los subdominios están congelados por defecto.
 - El descongelamiento requiere justificación formal.
 
-------------------------------------------------------------
+------------------------
 4. Estructura del Modelo
 ------------------------
 
@@ -141,7 +141,7 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 
 Solo ``_metadata/`` es privado en el modelo actual.
 
-------------------------------------------------------------
+------------------------------
 5. Flujo de Trabajo Documental
 ------------------------------
 
@@ -176,7 +176,7 @@ El modelo incluye validaciones automatizadas:
 - Referencias cruzadas resuelven.
 - Subdominios congelados sin subcarpetas.
 
-------------------------------------------------------------
+---------------------
 6. Guía de Onboarding
 ---------------------
 
@@ -232,7 +232,7 @@ R: Consultar la matriz RTM en ``trazabilidad/matrices/``.
 
 R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
 
-------------------------------------------------------------
+--------------
 7. Referencias
 --------------
 
@@ -251,7 +251,7 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
    * - Glosario IACT
      - Ver glosario del sistema
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

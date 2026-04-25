@@ -14,7 +14,7 @@
 .. _meta-05:
 .. _meta_05_estructura_documental:
 
-==========================================================
+===============================
 META_05 · Estructura Documental
 ===============================
 
@@ -25,7 +25,7 @@ Este documento presenta el mapa completo de la estructura documental IACT,
 proporcionando navegación rápida y visión global del sistema de 5 dominios,
 21 subdominios y 6 subcarpetas organizativas.
 
-------------------------------------------------------------
+--------------------
 2. Resumen Ejecutivo
 --------------------
 
@@ -45,7 +45,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
    * - Subdominios Descongelados
      - 4
 
-------------------------------------------------------------
+-------------------
 3. Mapa de Dominios
 -------------------
 
@@ -209,7 +209,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 **Prefijos:** RTM_, RPT_, VAL_
 
-------------------------------------------------------------
+-----------------
 4. Árbol Completo
 -----------------
 
@@ -288,7 +288,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
        ├── reportes/
        └── validaciones/
 
-------------------------------------------------------------
+----------------------------
 5. Subdominios Descongelados
 ----------------------------
 
@@ -315,7 +315,7 @@ subcarpetas organizativas:
      - 2024-10-01
      - (c) Reglas incompatibles, (d) Complejidad prevista.
 
-------------------------------------------------------------
+----------------------------
 6. Navegación Rápida por Rol
 ----------------------------
 
@@ -336,7 +336,7 @@ subcarpetas organizativas:
    * - QA
      - requisitos/casos_uso/, trazabilidad/matrices/, trazabilidad/reportes/
 
-------------------------------------------------------------
+--------------
 7. Referencias
 --------------
 
@@ -353,7 +353,7 @@ subcarpetas organizativas:
    * - Árbol Completo con Justificaciones
      - ÁRBOL_COMPLETO_IACT_CON_JUSTIFICACIONES_v_2_0_0.md
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

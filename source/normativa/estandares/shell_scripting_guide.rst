@@ -573,9 +573,9 @@ Estructura de Archivo
 .. code:: sh
 
    #!/usr/bin/env bash
-   #
+                                   
    # Bloque de metadatos del script
-   #
+                                   
 
    set -euo pipefail
 

@@ -12,7 +12,7 @@
 
 .. _br-020:
 
-==============================================================================
+==============================
 BR_020: Clasificación de Datos
 ==============================
 
@@ -248,9 +248,9 @@ La clasificación de datos garantiza:
        RESTRICTED = 'RESTRICTED'
    
    def classified(level: DataClassification):
-       """
+                                                               
        Decorador que marca campos/métodos con su clasificación.
-       """
+                                                               
        def decorator(func_or_field):
            func_or_field._classification = level
            return func_or_field
@@ -291,9 +291,9 @@ La clasificación de datos garantiza:
    ]
    
    def sanitize_log_data(data: dict) -> dict:
-       """
+                                                         
        BR_020: Sanitiza datos sensibles antes de loguear.
-       """
+                                                         
        sanitized = data.copy()
        for key in sanitized:
            if any(field in key.lower() for field in SENSITIVE_FIELDS):

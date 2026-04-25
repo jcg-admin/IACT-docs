@@ -160,9 +160,9 @@ Modelo de Clasificación
    from typing import List, Set
 
    class DataClassification(Enum):
-       """
+                                                  
        Niveles de clasificación de datos CNST-010.
-       """
+                                                  
        PUBLIC = 'C1'        # Público - todos los usuarios
        INTERNAL = 'C2'      # Interno - usuarios con función de reportes
        RESTRICTED = 'C3'    # Restringido - analistas y admins
@@ -170,11 +170,11 @@ Modelo de Clasificación
 
 
    class DataAccessControl:
-       """
+                           
        Control de acceso a datos según clasificación.
 
        CNST-010: Define qué funciones pueden acceder a cada nivel (RBAC v5.1.1).
-       """
+                                                                                
 
        # Mapeo de clasificación a funciones permitidas (RBAC v5.1.1)
        ACCESS_MATRIX = {
@@ -207,7 +207,7 @@ Modelo de Clasificación
 
        @classmethod
        def can_access(cls, user, classification: DataClassification) -> bool:
-           """
+                                                                             
            Verificar si usuario puede acceder a datos de esta clasificación.
 
            Args:
@@ -216,7 +216,7 @@ Modelo de Clasificación
 
            Returns:
                True si tiene acceso, False si no
-           """
+                                                
            if not user or not user.is_authenticated:
                return False
 
@@ -236,7 +236,7 @@ Modelo de Clasificación
 
        @classmethod
        def get_max_classification(cls, user) -> DataClassification:
-           """
+                                                                   
            Obtener máximo nivel de clasificación accesible por usuario.
 
            Args:
@@ -244,7 +244,7 @@ Modelo de Clasificación
 
            Returns:
                Nivel máximo de clasificación
-           """
+                                            
            if not user or not user.is_authenticated:
                return None
 
@@ -270,7 +270,7 @@ Modelo de Clasificación
 
        @classmethod
        def filter_fields(cls, user, data: dict, field_classifications: dict) -> dict:
-           """
+                                                                                     
            Filtrar campos de un diccionario según clasificación.
 
            Args:
@@ -280,7 +280,7 @@ Modelo de Clasificación
 
            Returns:
                Diccionario con solo campos permitidos
-           """
+                                                     
            filtered = {}
 
            for field, value in data.items():
@@ -310,7 +310,7 @@ Decorador de Clasificación
    logger = logging.getLogger('security')
 
    def requires_classification(classification: DataClassification):
-       """
+                                                                   
        Decorador que restringe acceso según clasificación de datos.
 
        CNST-010: Usar en vistas que exponen datos clasificados.
@@ -322,7 +322,7 @@ Decorador de Clasificación
            @requires_classification(DataClassification.RESTRICTED)
            def get_call_details(request, call_id):
                ...
-       """
+                  
        def decorator(func):
            @functools.wraps(func)
            def wrapper(request, *args, **kwargs):
@@ -381,14 +381,14 @@ Permiso DRF de Clasificación
    from apps.common.classification import DataClassification, DataAccessControl
 
    class RequiresDataClassification(permissions.BasePermission):
-       """
+                                                                
        Permiso DRF basado en clasificación de datos.
 
        Uso en ViewSet:
            class CallDetailViewSet(viewsets.ReadOnlyModelViewSet):
                permission_classes = [IsAuthenticated, RequiresDataClassification]
                required_classification = DataClassification.RESTRICTED
-       """
+                                                                      
 
        def has_permission(self, request, view):
            classification = getattr(
@@ -417,11 +417,11 @@ Permiso DRF de Clasificación
 
 
    class CanAccessRestrictedData(permissions.BasePermission):
-       """
+                                                             
        Permiso para datos restringidos (C3).
 
        Funciones: analiza_datos, gestiona_usuarios_*, administra_sistema
-       """
+                                                                        
 
        message = 'Se requiere acceso a datos restringidos'
 
@@ -433,11 +433,11 @@ Permiso DRF de Clasificación
 
 
    class CanAccessConfidentialData(permissions.BasePermission):
-       """
+                                                               
        Permiso para datos confidenciales (C4).
 
        Función: administra_sistema
-       """
+                                  
 
        message = 'Se requiere acceso a datos confidenciales'
 
@@ -458,11 +458,11 @@ Serializers con Clasificación
    from apps.common.classification import DataClassification, DataAccessControl
 
    class MetricSerializer(serializers.Serializer):
-       """
+                                                  
        Serializer de métricas con campos clasificados.
 
        CNST-010: Campos se filtran según función del usuario (RBAC v5.1.1).
-       """
+                                                                           
 
        # Clasificación de campos
        FIELD_CLASSIFICATIONS = {
@@ -522,9 +522,9 @@ Serializers con Clasificación
 
 
    class UserSerializer(serializers.Serializer):
-       """
+                                                     
        Serializer de usuario con campos clasificados.
-       """
+                                                     
 
        FIELD_CLASSIFICATIONS = {
            'id': DataClassification.INTERNAL,
@@ -579,12 +579,12 @@ Ejemplo de Vista Protegida
    from apps.analytics.serializers import MetricSerializer
 
    class MetricsViewSet(viewsets.ReadOnlyModelViewSet):
-       """
+                                                       
        ViewSet de métricas con control de clasificación.
 
        - list/retrieve: C2 (INTERNAL)
        - detailed: C3 (RESTRICTED)
-       """
+                                  
 
        permission_classes = [IsAuthenticated, RequiresDataClassification]
        required_classification = DataClassification.INTERNAL
@@ -624,11 +624,11 @@ Ejemplo de Vista Protegida
        @action(detail=False, methods=['get'],
                permission_classes=[IsAuthenticated, CanAccessRestrictedData])
        def detailed(self, request):
-           """
+                                   
            Métricas detalladas (nivel RESTRICTED).
 
            Solo accesible por analiza_datos y administra_sistema.
-           """
+                                                                 
            queryset = self.get_queryset()
 
            # Incluir datos detallados
@@ -658,11 +658,11 @@ Ejemplo de Vista Protegida
 
 
    class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
-       """
+                                                        
        ViewSet de logs de auditoría (nivel CONFIDENTIAL).
 
        Solo administra_sistema puede acceder.
-       """
+                                             
 
        permission_classes = [IsAuthenticated, RequiresDataClassification]
        required_classification = DataClassification.CONFIDENTIAL
@@ -707,12 +707,12 @@ Exportación con Clasificación
    logger = logging.getLogger('exports')
 
    class ClassifiedExporter:
-       """
+                            
        Exportador que respeta clasificación de datos.
 
        CNST-010: Las exportaciones solo incluyen datos
        que el usuario está autorizado a ver (RBAC v5.1.1).
-       """
+                                                          
 
        # Clasificación de campos exportables
        EXPORT_FIELDS = {
@@ -743,7 +743,7 @@ Exportación con Clasificación
            return exportable
 
        def export(self, queryset, format='csv'):
-           """
+                                                
            Exportar datos filtrando por clasificación.
 
            Args:
@@ -752,7 +752,7 @@ Exportación con Clasificación
 
            Returns:
                Path al archivo generado
-           """
+                                       
            allowed_fields = self.get_exportable_fields()
 
            if not allowed_fields:
@@ -902,14 +902,14 @@ Monitoreo de Accesos
    logger = logging.getLogger('security')
 
    def check_suspicious_access():
-       """
+                                 
        Detectar patrones de acceso sospechosos.
 
        Alertar cuando:
        - Usuario accede a muchos recursos C3/C4 en poco tiempo
        - Múltiples intentos denegados
        - Acceso fuera de horario laboral
-       """
+                                        
        now = timezone.now()
        one_hour_ago = now - timedelta(hours=1)
 

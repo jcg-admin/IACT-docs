@@ -283,7 +283,7 @@ Para cada tarea, crear archivo:
    prioridad: CRITICA|ALTA|MEDIA|BAJA
    duracion_estimada: Xmin
    dependencias: [TASK-NNN, ...]
-   ---
+                                
 
    # Objetivo
    # Prerequisitos

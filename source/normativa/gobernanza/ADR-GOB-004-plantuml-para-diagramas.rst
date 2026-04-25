@@ -504,7 +504,7 @@ Diagrama de Clases
      +email: String
      +password_hash: String
      +created_at: DateTime
-     --
+                          
      +check_password(password: String): Boolean
      +has_permission(permission: String): Boolean
    }
@@ -513,7 +513,7 @@ Diagrama de Clases
      +id: UUID
      +name: String
      +description: String
-     --
+                         
      +add_permission(permission: Permission): void
    }
 

@@ -1,6 +1,6 @@
 .. _procedimientos:
 
-===============
+==============
 Procedimientos
 ==============
 

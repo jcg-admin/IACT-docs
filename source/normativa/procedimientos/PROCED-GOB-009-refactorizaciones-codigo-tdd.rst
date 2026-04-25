@@ -182,7 +182,7 @@ consistente 5. Crear INDICE.md con resumen de todas las tareas
    prerequisitos: [TASK-MMM, ...]
    estimacion: [5-30] minutos
    prioridad: [alta|media|baja]
-   ---
+                               
 
    # TASK-NNN: [Titulo Descriptivo]
 
@@ -481,7 +481,7 @@ Smoke Tests para Refactorizaciones Python
    registry = MCPRegistry()
    assert registry is not None
    print('Smoke test: PASS')
-   "
+                            
 
 **4. Type Checking Incremental**
 

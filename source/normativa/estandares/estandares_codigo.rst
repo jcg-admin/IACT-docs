@@ -278,7 +278,7 @@ Ejemplo
 
 
    def calcular_aht(llamadas: List[dict]) -> float:
-       """
+                                                   
        Calcula el Average Handling Time de una lista de llamadas.
 
        Args:
@@ -297,7 +297,7 @@ Ejemplo
            >>> calls = [{'duration': 100}, {'duration': 200}]
            >>> calcular_aht(calls)
            150.0
-       """
+                
        if not llamadas:
            return 0.0
 
@@ -353,18 +353,18 @@ Ejemplo Mínimo (Bash)
 .. code:: bash
 
    #!/usr/bin/env bash
-   #
+                                       
    # script_name.sh - Descripción breve
-   #
+                                                   
    # Descripción detallada de lo que hace el script
-   #
+                                                   
    # Usage:
    #   ./script_name.sh [options]
-   #
+                                 
    # Options:
    #   -h, --help     Show this help message
    #   -v, --verbose  Enable verbose output
-   #
+                                           
 
    set -euo pipefail
 

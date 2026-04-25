@@ -12,7 +12,7 @@
 
 .. _fnd-03:
 
-==============================================================================
+====================
 FND_03: Casos de Uso
 ====================
 
@@ -256,7 +256,7 @@ siguiendo la filosofia Sin Pretensiones:
 .. code-block:: text
 
    AGRUPADOR                           FUNCIONES              UC TIPICOS
-   -------------------------------------------------------------------------
+                                                                        
    AGR-001: administrador_usuarios     USR-001 a USR-010      UC-006 a UC-009
    AGR-002: visor_usuarios             USR-005, USR-006       UC-009
    AGR-003: analista_reportes          RPT-001 a RPT-008      UC-017 a UC-024

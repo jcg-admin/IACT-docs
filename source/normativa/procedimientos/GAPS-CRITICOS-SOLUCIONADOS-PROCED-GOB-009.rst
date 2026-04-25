@@ -132,7 +132,7 @@ agregadas:** 128-199 (nueva FASE 2.5)
    prerequisitos: [TASK-MMM, ...]
    estimacion: [5-30] minutos
    prioridad: [alta|media|baja]
-   ---
+                               
 
    # TASK-NNN: [Titulo Descriptivo]
 

@@ -6,7 +6,7 @@
    :feature: plantuml-java-integration-impl
    :uc_ref: UC_PIP_01, UC_PIP_02, UC_PIP_03, UC_PIP_04
 
-====================================================
+=========================================
 Ejemplo: Diagrama de Proceso ETL Pipeline
 =========================================
 

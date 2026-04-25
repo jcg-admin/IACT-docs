@@ -12,7 +12,7 @@
 
 .. _meta_01_identidad_proyecto:
 
-==========================================================
+================================
 META_01 · Identidad del Proyecto
 ================================
 
@@ -37,7 +37,7 @@ META_01 · Identidad del Proyecto
    * - **Estado Actual**
      - En Desarrollo (Fase Elaboration)
 
-------------------------------------------------------------
+---------------------------
 2. Descripción del Proyecto
 ---------------------------
 
@@ -63,7 +63,7 @@ Sistema web compuesto por:
 El sistema expone APIs RESTful para integración con plataformas IVR externas
 y provee dashboards analíticos en tiempo real.
 
-------------------------------------------------------------
+-----------------------
 3. Alcance del Proyecto
 -----------------------
 
@@ -89,7 +89,7 @@ y provee dashboards analíticos en tiempo real.
 - CRM o gestión de clientes
 - Facturación o billing
 
-------------------------------------------------------------
+-------------------------
 4. Objetivos del Proyecto
 -------------------------
 
@@ -118,7 +118,7 @@ con sistemas IVR.
    * - O5
      - Cumplir con requisitos de auditoría y trazabilidad de datos
 
-------------------------------------------------------------
+---------------------------
 5. Stakeholders Principales
 ---------------------------
 
@@ -148,7 +148,7 @@ con sistemas IVR.
      - Contact Center
      - Usabilidad, acceso a información
 
-------------------------------------------------------------
+----------------------------
 6. Restricciones y Supuestos
 ----------------------------
 
@@ -184,7 +184,7 @@ con sistemas IVR.
    * - S4
      - Disponibilidad de SMEs de Contact Center para validación de requisitos
 
-------------------------------------------------------------
+--------------
 7. Referencias
 --------------
 
@@ -203,7 +203,7 @@ con sistemas IVR.
    * - Estructura Documental
      - :doc:`META_05_Estructura_Documental`
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

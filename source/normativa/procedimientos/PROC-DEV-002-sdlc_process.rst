@@ -125,7 +125,7 @@ del equipo (velocity) considerada
    estado: aprobado
    owner: product-owner
    relacionados: [N-XXX, RN-XXX]
-   ---
+                                
 
    # RF-XXX: Nombre del Requisito
 
@@ -302,7 +302,7 @@ Para decisiones significativas, crear ADR:
    id: ADR-XXX
    status: accepted
    date: 2025-11-XX
-   ---
+                   
 
    # ADR-XXX: [Decision Title]
 
@@ -396,7 +396,7 @@ JavaScript/React - Black + isort para Python - Type hints en Python
 .. code:: python
 
    def function_name(param1: str, param2: int) -> bool:
-       """
+                                                       
        Brief description.
 
        Args:
@@ -408,7 +408,7 @@ JavaScript/React - Black + isort para Python - Type hints en Python
 
        Raises:
            ValueError: When validation fails
-       """
+                                            
        pass
 
 4.3 Atomic Commits

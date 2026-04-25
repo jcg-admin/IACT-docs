@@ -90,7 +90,7 @@ PASO 1: Identificar Conflictos
    # On branch feature/user-authentication
    # You have unmerged paths.
    #   (fix conflicts and run "git commit")
-   #
+                                           
    # Unmerged paths:
    #   (use "git add <file>..." to mark resolution)
    #        both modified:   src/auth/service.py
@@ -120,7 +120,7 @@ PASO 2: Entender el Conflicto
        if user.check_password_jwt(password):
            return generate_jwt_token(user)
        return None
-   =======
+                  
        # Versión de main
        user = User.objects.get(username=username)
        if user.check_password(password):
@@ -211,7 +211,7 @@ lógica de ambos - Es el caso más común
    if user.check_password_jwt(password):
        return generate_jwt_token(user)
    return None
-   =======
+              
    # Versión MAIN: Simple authentication
    user = User.objects.get(username=username)
    if user.check_password(password):
@@ -259,7 +259,7 @@ Estrategia 4: Merge híbrido (combinar ambos)
        if user.check_password(password):
            return user
        return None
-   =======
+                  
    # Versión main: Agregar try/catch
    def authenticate(username, password):
        try:

@@ -135,7 +135,7 @@ Formato de Documentación
    categoria: [dominio]
    version: 1.0.0
    fecha: YYYY-MM-DD
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Hecho]
 
@@ -261,7 +261,7 @@ Formato de Documentación
    categoria: [dominio]
    version: 1.0.0
    fecha: YYYY-MM-DD
-   ---
+                    
 
    # RN-DOMINIO-###: [Título de la Restricción]
 
@@ -370,7 +370,7 @@ Formato de Documentación
    categoria: [dominio]
    version: 1.0.0
    fecha: YYYY-MM-DD
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Desencadenador]
 
@@ -489,7 +489,7 @@ Formato de Documentación
    categoria: [dominio]
    version: 1.0.0
    fecha: YYYY-MM-DD
-   ---
+                    
 
    # RN-DOMINIO-###: [Título de la Inferencia]
 
@@ -614,7 +614,7 @@ Formato de Documentación
    categoria: [dominio]
    version: 1.0.0
    fecha: YYYY-MM-DD
-   ---
+                    
 
    # RN-DOMINIO-###: [Título del Cálculo]
 

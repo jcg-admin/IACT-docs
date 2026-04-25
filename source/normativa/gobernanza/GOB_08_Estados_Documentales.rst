@@ -12,7 +12,7 @@
 
 .. _gob-08:
 
-==============================================================================
+============================
 GOB_08: Estados Documentales
 ============================
 
@@ -585,7 +585,7 @@ Cada transicion de estado debe registrarse:
 .. code-block:: text
 
    REGISTRO DE TRANSICION DE ESTADO
-   =================================
+                                   
 
    Artefacto: [ID]
    Fecha/Hora: YYYY-MM-DD HH:MM:SS

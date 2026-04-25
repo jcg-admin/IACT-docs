@@ -11,7 +11,7 @@
 
 .. _proc-generacion-fd:
 
-==============================================================================
+===================================================
 PROC_Generacion_FD: Generacion de Fichas de Dominio
 ===================================================
 
@@ -105,7 +105,7 @@ Seleccionar entidad del modelo de dominio.
       @startuml
       entity User {
         * id: UUID
-        --
+                  
         * username: String
         * email: String
         is_active: Boolean

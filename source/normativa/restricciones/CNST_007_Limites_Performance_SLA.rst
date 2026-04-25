@@ -150,14 +150,14 @@ Rangos de Fechas
    from rest_framework import serializers
 
    class DateRangeValidator:
-       """
+                            
        Validador de rangos de fechas.
 
        Límites CNST-007:
        - Consultas normales: máximo 90 días
        - Exportaciones: máximo 365 días
        - Reportes complejos: máximo 30 días
-       """
+                                           
 
        LIMITS = {
            'default': 90,
@@ -195,13 +195,13 @@ Paginación Obligatoria
    from rest_framework.response import Response
 
    class StandardPagination(PageNumberPagination):
-       """
+                                                  
        Paginación estándar CNST-007.
 
        Límites:
        - page_size default: 50
        - page_size máximo: 200
-       """
+                              
 
        page_size = 50
        page_size_query_param = 'page_size'
@@ -222,13 +222,13 @@ Paginación Obligatoria
 
 
    class ExportPagination(PageNumberPagination):
-       """
+                                                
        Paginación para exportaciones CNST-007.
 
        Límites más amplios para exportaciones:
        - page_size default: 1000
        - page_size máximo: 5000
-       """
+                               
 
        page_size = 1000
        page_size_query_param = 'page_size'
@@ -242,11 +242,11 @@ Límites de Records
    # api/apps/common/constants.py
 
    class QueryLimits:
-       """
+                     
        Límites de consultas CNST-007.
 
        Estos límites previenen queries que degraden el sistema.
-       """
+                                                               
 
        # Máximo de registros por consulta
        MAX_RECORDS_DEFAULT = 10000
@@ -282,11 +282,11 @@ Middleware de Timeout
    logger = logging.getLogger('performance')
 
    class RequestTimeoutMiddleware:
-       """
+                                  
        Middleware que monitorea tiempo de respuesta.
 
        CNST-007: Log de requests lentos y timeout.
-       """
+                                                  
 
        # Umbrales en segundos
        SLOW_REQUEST_THRESHOLD = 2.0
@@ -322,11 +322,11 @@ Middleware de Timeout
 
 
    class QueryCountMiddleware:
-       """
+                              
        Middleware que cuenta queries por request.
 
        CNST-007: Detectar N+1 queries.
-       """
+                                      
 
        QUERY_WARNING_THRESHOLD = 10
        QUERY_ERROR_THRESHOLD = 50
@@ -377,7 +377,7 @@ Decorador de Timeout
 
 
    def timeout(seconds):
-       """
+                        
        Decorador para limitar tiempo de ejecución.
 
        CNST-007: Timeout obligatorio en operaciones costosas.
@@ -387,7 +387,7 @@ Decorador de Timeout
            def generate_report(request):
                # Operación costosa
                pass
-       """
+                   
        def decorator(func):
            @functools.wraps(func)
            def wrapper(*args, **kwargs):
@@ -434,20 +434,20 @@ Select Related y Prefetch
    from django.db.models import Sum, Avg, Count, F
 
    class MetricsRepository:
-       """
+                           
        Repositorio de métricas optimizado.
 
        CNST-007: Queries optimizados para cumplir SLA.
-       """
+                                                      
 
        @staticmethod
        def get_summary(start_date, end_date, queue_ids=None):
-           """
+                                                             
            Obtener resumen de métricas.
 
            Query optimizado con agregación en BD.
            Target: < 500ms
-           """
+                          
            queryset = CallMetric.objects.filter(
                metric_date__range=[start_date, end_date]
            )
@@ -465,12 +465,12 @@ Select Related y Prefetch
 
        @staticmethod
        def get_daily_breakdown(start_date, end_date, queue_ids=None):
-           """
+                                                                     
            Obtener desglose diario.
 
            Usa values() para evitar instanciar objetos.
            Target: < 1s
-           """
+                       
            queryset = CallMetric.objects.filter(
                metric_date__range=[start_date, end_date]
            )
@@ -487,12 +487,12 @@ Select Related y Prefetch
 
        @staticmethod
        def get_queue_ranking(start_date, end_date, limit=20):
-           """
+                                                             
            Ranking de colas por volumen.
 
            Limita resultados para performance.
            Target: < 500ms
-           """
+                          
            return CallMetric.objects.filter(
                metric_date__range=[start_date, end_date]
            ).values('queue_id').annotate(
@@ -510,11 +510,11 @@ Select Related y Prefetch
    from django.db import models
 
    class CallMetric(models.Model):
-       """
+                                  
        Métricas de llamadas.
 
        Índices optimizados para consultas CNST-007.
-       """
+                                                   
 
        metric_date = models.DateField()
        queue_id = models.IntegerField()
@@ -571,11 +571,11 @@ Sistema de Exportación
    User = get_user_model()
 
    class ExportJob(models.Model):
-       """
+                                 
        Job de exportación asíncrona.
 
        CNST-007: Exportaciones grandes deben ser asíncronas.
-       """
+                                                            
 
        STATUS_CHOICES = [
            ('PENDING', 'Pendiente'),
@@ -645,11 +645,11 @@ Servicio de Exportación
    logger = logging.getLogger('exports')
 
    class ReportExporter:
-       """
+                        
        Servicio de exportación de reportes.
 
        CNST-007: Exportaciones asíncronas con límites.
-       """
+                                                      
 
        EXPORT_DIR = os.path.join(settings.MEDIA_ROOT, 'exports')
        MAX_RECORDS = 100000
@@ -794,9 +794,9 @@ Métricas de Sistema
    logger = logging.getLogger('monitoring')
 
    class SystemMetrics:
-       """
+                                                   
        Métricas de sistema para monitoreo CNST-007.
-       """
+                                                   
 
        @staticmethod
        def get_database_stats():
@@ -841,9 +841,9 @@ Métricas de Sistema
 
 
    class PerformanceAlert:
-       """
+                                       
        Alertas de performance CNST-007.
-       """
+                                       
 
        THRESHOLDS = {
            'cpu_percent': 80,
@@ -892,11 +892,11 @@ Vista de Health Check
    from apps.monitoring.metrics import SystemMetrics, PerformanceAlert
 
    class HealthCheckView(APIView):
-       """
+                                  
        Health check del sistema.
 
        GET /api/v1/health/
-       """
+                          
 
        permission_classes = []  # Público para load balancers
 
@@ -908,11 +908,11 @@ Vista de Health Check
 
 
    class PerformanceView(APIView):
-       """
+                                  
        Métricas de performance (solo admin).
 
        GET /api/v1/performance/
-       """
+                               
 
        permission_classes = [IsAuthenticated, IsAdminUser]
 

@@ -10,7 +10,7 @@
 
 .. _tpl-tst:
 
-==============================================================================
+===========================================
 TPL_TST: Plantilla de Caso de Prueba v1.0.0
 ===========================================
 
@@ -148,9 +148,9 @@ Plantilla
 
    .. _tst-[mod]-[nnn]:
 
-   ==============================================================================
+                                               
    TST_[MOD]_[NNN]: [Nombre del Caso de Prueba]
-   ==============================================================================
+                                               
 
    .. contents:: Contenido
       :local:
@@ -324,11 +324,11 @@ Plantilla
       
       
       class TestTST[MOD][NNN]:
-          """
+                              
           TST_[MOD]_[NNN]: [Nombre del caso de prueba]
           
           Verifica: FR_UC[MOD]_[NN]_[NN]
-          """
+                                        
           
           @pytest.fixture
           def setup_data(self):
@@ -339,13 +339,13 @@ Plantilla
               }
           
           def test_[nombre_descriptivo](self, setup_data):
-              """
+                                                          
               Pasos:
               1. [Paso 1]
               2. [Paso 2]
               
               Resultado esperado: [Descripción]
-              """
+                                               
               # Arrange
               [preparación]
               

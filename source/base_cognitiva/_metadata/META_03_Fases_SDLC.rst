@@ -13,7 +13,7 @@
 .. _meta-03:
 .. _meta_03_fases_sdlc:
 
-==========================================================
+========================================
 META_03 · Fases del Ciclo de Vida (SDLC)
 ========================================
 
@@ -24,7 +24,7 @@ Este documento define las fases del ciclo de vida de desarrollo de software
 (SDLC) adoptadas por el proyecto IACT, estableciendo el marco temporal y
 metodológico que contextualiza toda la documentación del sistema.
 
-------------------------------------------------------------
+--------------------------
 2. Modelo de Ciclo de Vida
 --------------------------
 
@@ -40,7 +40,7 @@ y la organización.
 - Facilita retroalimentación temprana de stakeholders.
 - Compatible con prácticas ágiles dentro de cada iteración.
 
-------------------------------------------------------------
+---------------------
 3. Fases del Proyecto
 ---------------------
 
@@ -237,7 +237,7 @@ y la organización.
 - Transferencia a operaciones completada.
 - Proyecto cerrado formalmente.
 
-------------------------------------------------------------
+-----------------------------
 4. Estado Actual del Proyecto
 -----------------------------
 
@@ -257,7 +257,7 @@ y la organización.
    * - **Próximo Milestone**
      - LCA (Lifecycle Architecture)
 
-------------------------------------------------------------
+---------------------------------
 5. Relación Fases-Artefactos IACT
 ---------------------------------
 
@@ -309,7 +309,7 @@ principales tipos de artefactos del modelo IACT:
      - Mantener
      - Cerrar
 
-------------------------------------------------------------
+--------------
 6. Referencias
 --------------
 
@@ -326,7 +326,7 @@ principales tipos de artefactos del modelo IACT:
    * - Estructura Documental
      - :doc:`META_05_Estructura_Documental`
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

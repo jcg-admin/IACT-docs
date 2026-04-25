@@ -131,7 +131,7 @@ Copiar y completar template:
    ultima_actualizacion: 2025-11-17
    relacionados: ["ADR-BACK-003", "PROC-DEV-001"]
    date: 2025-11-17
-   ---
+                   
 
    # ADR-BACK-006: Selección de ORM para Backend
 
@@ -547,7 +547,7 @@ PASO 6: Actualizar Estado del ADR
    ultima_actualizacion: 2025-11-18  # ← Actualizar fecha
    relacionados: ["ADR-BACK-003", "PROC-DEV-001"]
    date: 2025-11-17
-   ---
+                   
 
    # ADR-BACK-006: Selección de ORM para Backend
 

@@ -5,7 +5,7 @@
    :status: Validado
    :feature: plantuml-java-integration-impl
 
-====================================================
+=====================================================
 Ejemplo: Diagrama de Arquitectura de Sistema Completo
 =====================================================
 

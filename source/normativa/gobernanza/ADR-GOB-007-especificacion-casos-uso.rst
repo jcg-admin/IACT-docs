@@ -276,7 +276,7 @@ Elementos Obligatorios de la Especificación
    ultima_actualizacion: YYYY-MM-DD
    autor: [Nombre]
    estado: [borrador|en_revision|aprobado|obsoleto]
-   ---
+                                                   
 
    # UC-DOMINIO-###: [VERBO OBJETO]
 

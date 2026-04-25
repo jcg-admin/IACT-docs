@@ -1,6 +1,6 @@
 .. _manuales-usuarios:
 
-==================
+===================
 Manuales de Usuario
 ===================
 

@@ -343,14 +343,14 @@ archive - Apply retention policy (30 days) - Cleanup temporary files
    [INFO] Applying retention policy (30 days)...
    [INFO] No old backups to delete
 
-   ==========================================
+                 
    Backup Summary
-   ==========================================
+                 
    Date: 2025-11-07 06:48:18
    Backup file: /var/backups/iact/iact_data_backup_20251107_064818.tar.gz
    Backup size: 782 bytes
    Retention: 30 days
-   ==========================================
+                     
 
    [SUCCESS] Backup completed successfully
 

@@ -1,8 +1,8 @@
 .. IACT - Sistema de Dashboard Analytics documentation master file
 
-====================================
+=====================================
 IACT - Sistema de Dashboard Analytics
-====================================
+=====================================
 
 .. image:: _static/img/logo.svg
    :alt: IACT Logo
@@ -25,7 +25,7 @@ Arquitectura del Sistema
 * **Frontend:** React (Dashboard)
 
 Estructura de la Documentación
-=============================
+==============================
 
 Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 Dominios Primarios que gobiernan 21 Subdominios especializados.
 

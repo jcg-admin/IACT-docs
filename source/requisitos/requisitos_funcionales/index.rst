@@ -1,6 +1,6 @@
 .. _requisitos-funcionales:
 
-========================
+======================
 Requisitos Funcionales
 ======================
 

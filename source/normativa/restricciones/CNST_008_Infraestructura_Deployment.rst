@@ -310,7 +310,7 @@ WSGI Configuration
    WSGI config para IACT.
 
    Configurado para Apache mod_wsgi según CNST-008.
-   """
+                                                   
 
    import os
    import sys
@@ -689,7 +689,7 @@ Excel de Control de Deployment
 
    CNST-008: Todo deployment debe incluir Excel de control
    firmado por el cliente.
-   """
+                          
 
    import argparse
    from datetime import datetime

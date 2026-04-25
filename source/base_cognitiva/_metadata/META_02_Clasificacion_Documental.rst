@@ -13,7 +13,7 @@
 .. _meta-02:
 .. _meta_02_clasificacion_documental:
 
-==========================================================
+==================================
 META_02 · Clasificación Documental
 ==================================
 
@@ -24,7 +24,7 @@ Este documento establece los niveles de clasificación de seguridad aplicables
 a toda la documentación del proyecto IACT, definiendo restricciones de acceso,
 manejo y distribución para cada nivel.
 
-------------------------------------------------------------
+---------------------------
 2. Niveles de Clasificación
 ---------------------------
 
@@ -105,7 +105,7 @@ alineados con la política corporativa de seguridad de la información:
      - Prohibido
      - Prohibido
 
-------------------------------------------------------------
+---------------------------------
 3. Clasificación por Dominio IACT
 ---------------------------------
 
@@ -135,7 +135,7 @@ dominio primario del modelo documental IACT:
      - Interno
      - Matrices de relación sin datos operativos.
 
-------------------------------------------------------------
+---------------------------
 4. Etiquetado de Documentos
 ---------------------------
 
@@ -167,7 +167,7 @@ bloque ``.. meta::``:
 - La clasificación más alta de un artefacto contenido eleva la clasificación
   efectiva del dominio para efectos de acceso.
 
-------------------------------------------------------------
+-----------------
 5. Roles y Acceso
 -----------------
 
@@ -211,7 +211,7 @@ bloque ``.. meta::``:
      - Sin acceso
      - Sin acceso
 
-------------------------------------------------------------
+---------------------------
 6. Procedimientos de Manejo
 ---------------------------
 
@@ -235,7 +235,7 @@ Ante divulgación no autorizada de información clasificada:
 3. Ejecutar plan de contención según nivel afectado.
 4. Registrar incidente y acciones correctivas.
 
-------------------------------------------------------------
+--------------
 7. Referencias
 --------------
 
@@ -252,7 +252,7 @@ Ante divulgación no autorizada de información clasificada:
    * - Roles y Responsabilidades IACT
      - (Documento externo al sistema IACT)
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
 --------------------
 

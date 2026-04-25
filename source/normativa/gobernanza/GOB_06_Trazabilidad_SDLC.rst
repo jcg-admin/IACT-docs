@@ -12,7 +12,7 @@
 
 .. _gob-06:
 
-==============================================================================
+=========================
 GOB_06: Trazabilidad SDLC
 =========================
 
@@ -519,7 +519,7 @@ Todo artefacto de requisitos debe incluir seccion de trazabilidad:
 .. code-block:: text
 
    REPORTE DE TRAZABILIDAD - [Fecha]
-   ==================================
+                                    
 
    ESTADISTICAS:
    - Total BR: N

@@ -228,7 +228,7 @@ Response:
    **Actualizar frontmatter**:
 
    ```markdown
-   ---
+              
    id: GUIA-BACK-003
    tipo: guia
    categoria: backend
@@ -241,7 +241,7 @@ Response:
      - Tu Nombre (2025-11-17)  # ← Agregar tu nombre
    estado: activo
    relacionados: ["ADR-BACK-006", "PROC-DEV-001"]  # ← Actualizar relaciones
-   ---
+                                                                            
 
 **Reglas de versionado (Semantic Versioning)**:
 
@@ -599,7 +599,7 @@ Plantilla de Actualización
    ultima_actualizacion: [FECHA-HOY]
    contribuidores:
      - [TU-NOMBRE] ([FECHA])
-   ---
+                            
 
    # [Título Existente]
 
