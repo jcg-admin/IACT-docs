@@ -183,3 +183,47 @@ epub_exclude_files = ['search.html']
 plantuml = 'plantuml'
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
+
+# Centralizar imágenes y diagramas en _static/img/
+# sphinxcontrib.plantuml genera en _plantuml/ por defecto
+# Post-build hook reorganiza en _static/img/diagrams/
+plantuml_output_dir = '_static/img/diagrams'
+
+# Hook post-build para reorganizar archivos de imagen
+def setup(app):
+    """Configurar hooks post-build para organizar imagen de forma centralizada."""
+    app.connect('build-finished', reorganize_static_assets)
+
+def reorganize_static_assets(app, exception):
+    """
+    Post-build hook: reorganiza _images/ y _plantuml/ → _static/img/
+    Permite una estructura más limpia en el HTML generado.
+    """
+    import shutil
+    import os
+    from pathlib import Path
+
+    if exception:
+        return  # No reorganizar si la build falló
+
+    build_dir = Path(app.outdir)
+    static_img_dir = build_dir / '_static' / 'img'
+
+    # Crear directorio de destino si no existe
+    static_img_dir.mkdir(parents=True, exist_ok=True)
+
+    # Mover _images/ → _static/img/raster/
+    images_src = build_dir / '_images'
+    if images_src.exists():
+        images_dst = static_img_dir / 'raster'
+        if images_dst.exists():
+            shutil.rmtree(images_dst)
+        shutil.move(str(images_src), str(images_dst))
+
+    # Mover _plantuml/ → _static/img/diagrams/
+    plantuml_src = build_dir / '_plantuml'
+    if plantuml_src.exists():
+        diagrams_dst = static_img_dir / 'diagrams'
+        if diagrams_dst.exists():
+            shutil.rmtree(diagrams_dst)
+        shutil.move(str(plantuml_src), str(diagrams_dst))
