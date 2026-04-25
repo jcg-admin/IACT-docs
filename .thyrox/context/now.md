@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 3.0
-updated_at: 2026-04-25 12:05:00
+updated_at: 2026-04-25 12:20:00
 cold_boot: false
 last_session: 2026-04-23 22:00:00
 current_epic: 2
@@ -134,3 +134,55 @@ Work Package: `.thyrox/context/work/2026-04-23-18-51-33-plantuml-java-integratio
 - Commits: 20 total (phase 10 execute)
 - Build output: tracked in repo (user requirement)
 - source/Makefile: retained (fallback alternative to root Makefile)
+
+---
+
+## Domain Restructuring: discover → plantuml-guide (2026-04-25 12:15-12:20)
+
+**Decision:** Create explicit `source/plantuml-guide/` domain (not ambiguous "discover")
+
+**Execution:**
+1. ✅ Renamed: `source/discover/` → `source/plantuml-guide/`
+2. ✅ Created: `source/plantuml-guide/ejemplos/` subdirectory
+3. ✅ Moved: test-*.rst → ejemplos/ (example diagrams)
+4. ✅ Created: sistema-completo.rst, etl-pipeline.rst (future placeholders)
+5. ✅ Updated: source/plantuml-guide/index.rst (semantic clarity)
+6. ✅ Updated: source/index.rst toctree (discover → plantuml-guide)
+7. ✅ Documented: execute/plantuml-guide-restructuring-decision.md
+
+**Build Results:**
+- Fresh build: `make clean && make html` (exit 0)
+- Zero PlantUML errors
+- Structure validated in build/html/plantuml-guide/ejemplos/
+  - test-uc-diagram.html (38KB)
+  - test-component-diagram.html (38KB)
+  - sistema-completo.html (38KB - placeholder)
+  - etl-pipeline.html (38KB - placeholder)
+
+**Commits:**
+- 69f8f4e: feat(restructure discover → plantuml-guide domain) [348 files, -18442 +++2214]
+- 32bf831: feat(add build output for restructured plantuml-guide) [7 files, +4284]
+
+**Final Structure:**
+```
+source/
+├── base_cognitiva/          (¿qué significa?)
+├── arquitectura_tecnica/    (¿cómo se construye?)
+├── normativa/               (¿qué reglas?)
+├── gestion/
+├── requisitos/
+└── plantuml-guide/          ← NEW: CLEAR, EXPLICIT
+    ├── index.rst
+    ├── color-palette.rst
+    ├── GUIDELINES.rst
+    └── ejemplos/
+        ├── test-uc-diagram.rst
+        ├── test-component-diagram.rst
+        ├── sistema-completo.rst
+        └── etl-pipeline.rst
+```
+
+**Scalability:** Ready for Phase 10 continuation:
+- Add more diagram examples without namespace conflicts
+- Future: Sequence, Activity, State diagram support
+- Could expand to: `plantuml-guide/{uml,sequences,activities,states,examples}/`
