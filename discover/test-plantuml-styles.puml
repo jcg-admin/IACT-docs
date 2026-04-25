@@ -1,4 +1,5 @@
-' Test PlantUML Styles — Simplified Version
+@startuml test-plantuml-styles
+' Test PlantUML Styles - Simplified Version
 ' Validates: color definitions, skinparam syntax, include directives
 ' Created: 2026-04-25
 
@@ -19,3 +20,9 @@ skinparam usecase {
   backgroundColor _testGreen
   fontColor #003333
 }
+
+actor TestActor
+usecase TestUC
+
+TestActor --> TestUC
+@enduml
