@@ -21,59 +21,85 @@ However, skipping analysis without proper artifact capture creates loss of trace
 
 ## Decision
 
-**Claude MUST recommend creating a Work Package for ANY implementation request, regardless of phase depth.**
+**Claude MUST recommend creating a NEW Work Package when implementation crosses a context/domain boundary.**
 
-If a user says "just implement X directly", the response is:
-1. Create a WP (even if Phase 1 DISCOVER is minimal)
-2. Document the rationale (why analysis is being abbreviated)
+**Within same domain:** Work on existing WP (same context, same artifacts, same WP history).
+**Across domains:** Create new WP (different context, different stakeholders, different risk register).
+
+**Decision logic:**
+- User requests work in existing WP domain → Continue in current WP
+- User requests work in DIFFERENT domain → Create new WP with Phase 1 DISCOVER
+
+If a user says "implement X in a different context/domain", the response is:
+1. Create a new WP (with Phase 1 DISCOVER, even if minimal)
+2. Document the rationale (why this is a separate effort)
 3. Proceed to execution phases
 4. Track artifacts properly
 
-The work is NOT done without a WP — WPs are the unit of traceability and institutional memory in THYROX.
+The work is NOT done without proper WP alignment — WPs are the unit of traceability and institutional memory in THYROX.
 
 ## Rationale
 
-**Traceability requirement:** Every piece of work needs:
-- Created timestamp and WP ID (for git history correlation)
-- Risk register (even if minimal)
-- Exit conditions (phase gates)
-- Execution log (what actually happened)
-- Lessons learned (what we'd do differently)
+**Domain-aware WP management:** WPs represent distinct contexts. Work within the same context shares:
+- Same risk register
+- Same stakeholders
+- Same architectural constraints
+- Same success criteria
 
-**Alternative of "just doing the work" without WP leads to:**
-- ❌ Lost context (why this decision was made)
-- ❌ No gate validation (work gets merged unreviewed)
-- ❌ No lessons (future similar tasks must re-solve the same problem)
-- ❌ Untrackable effort (git commits have no WP correlation)
-- ❌ No risk mitigation (risks not identified → not managed)
+**When domains collide:**
+Example from IACT-docs: Working on Sphinx/RST (Phase B: Documentation Completeness) then shifting to GitHub Actions (CI/CD infrastructure). These are orthogonal domains with:
+- Different risks (Sphinx compilation vs. GitHub runners)
+- Different constraints (RST syntax vs. YAML workflow syntax)
+- Different owners (documentation team vs. DevOps infrastructure)
+
+**Cost of ignoring domain boundaries:**
+- ❌ Risk register gets polluted (RST risks + CI/CD risks mixed)
+- ❌ Exit conditions become incoherent (success criteria for RST ≠ success for CI/CD)
+- ❌ Execution logs become unclear (which task belongs to which domain?)
+- ❌ Lessons learned apply to wrong domain (RST lesson irrelevant to GitHub Actions)
+
+**Benefit of respecting domain boundaries:**
+- ✅ Clean separation of concerns
+- ✅ Clear risk management per domain
+- ✅ Transferable lessons (other GitHub Actions projects benefit from this WP)
+- ✅ Traceable effort (each domain has its own WP history)
 
 ## Examples
 
-### Example 1: Quick bug fix request
+### Example 1: Same domain, same WP
+
+**Context:** Currently in WP `iact-project-state-assessment` (Sphinx configuration, RST formatting)
 
 **User:** "Just fix the PlantUML path error in test-uc-diagram.rst"
 
 **Claude response:**
-> I'll create a minimal WP for this fix to maintain traceability:
-> - WP: 2026-04-25-23-30-00-plantuml-path-fix/
-> - Phase 1: Risk register (1 risk: path regression)
-> - Phase 10: Execute (change file, validate, commit)
-> - Phase 11: Track (1 lesson learned)
+> This is within the current WP domain (Sphinx/RST). I'll fix it in the active WP:
+> - Phase 10 EXECUTE: Fix file, validate build, commit to current WP
+> - Update current WP execution log
 >
 > Then proceed with the fix.
 
-### Example 2: Feature without analysis
+**No new WP created** — same domain, same execution context.
 
-**User:** "Add a new domain /gestion/ to the documentation structure"
+---
+
+### Example 2: Different domain, different WP
+
+**Context:** Currently in WP `iact-project-state-assessment` (Sphinx configuration)
+
+**User:** "Let's implement GitHub Actions for CI/CD automation"
 
 **Claude response:**
-> Before implementing, I'll create a WP to scope this properly:
-> - Phase 1 DISCOVER: What goes in /gestion/? Who needs it? What's the structure?
-> - Phase 6 PLAN: Scope definition (is it out-of-band from current work?)
-> - Phase 8 PLAN EXECUTION: Decompose into file creation steps
-> - Phase 10 EXECUTE: Create files, validate build, commit
+> This crosses into a different domain (.github, CI/CD infrastructure, not Sphinx). 
+> I'll create a new WP to maintain proper context:
+> - WP: 2026-04-25-22-47-23-github-actions-setup/
+> - Phase 1 DISCOVER: Analyze current state, identify problems in CI/CD
+> - Phase 6 PLAN: Scope GitHub Actions Phase 1
+> - Phase 10 EXECUTE: Create .github/ files
 >
-> We can move through these quickly, but we must create the WP.
+> Then proceed with full THYROX flow for the new domain.
+
+**New WP created** — different domain, different stakeholders, different risks.
 
 ## Impact
 
@@ -95,4 +121,20 @@ This rule replaces ad-hoc "let me just do this" implementations with structured,
 
 ## Implementation Note
 
-Claude should **proactively recommend** WP creation, not wait for user objection. Treat WP-less implementation requests as incomplete specifications.
+**Decision tree for Claude:**
+
+1. Is this work within the current WP domain?
+   - YES → Continue in current WP (same Phase/context)
+   - NO → Ask: "This looks like a different domain. Should I create a new WP?"
+
+2. User confirms domain switch?
+   - YES → Create new WP with Phase 1 DISCOVER
+   - NO → Stay in current WP
+
+**Proactive recommendation:** When user starts talking about a clearly different domain (different tech stack, different stakeholders, different risk profile), recommend new WP explicitly. Don't wait for objection.
+
+**Example trigger phrases for "recommend new WP":**
+- "Let's implement CI/CD automation" (while working on docs structure)
+- "We need security hardening" (while fixing bugs)
+- "Add a database layer" (while working on frontend)
+- "Deploy to production" (while still developing locally)
