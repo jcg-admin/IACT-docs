@@ -199,34 +199,21 @@ Diagramas de Casos de Uso
 Diagramas de Secuencia
 ^^^^^^^^^^^^^^^^^^^^^^
 
-+------+--------------+----------------+-------------------------------+
-| ID   | Nombre       | Archivo        | Casos cubiertos               |
-+======+==============+================+===============================+
-| UC   | Generar      | `UC-001_gener  | Flujo principal + PDF + Email |
-| -001 | Reporte -    | ar_reporte_met |                               |
-| -SEQ | Secuencia    | ricas_seq.puml |                               |
-|      |              |  <secuencia/UC |                               |
-|      |              | -001_generar_r |                               |
-|      |              | eporte_metrica |                               |
-|      |              | s_seq.puml>`__ |                               |
-+------+--------------+----------------+-------------------------------+
-| UC   | Registrar    | `UC            | Flujo principal + CRM sync    |
-| -002 | Llamada -    | -002_registrar |                               |
-| -SEQ | Secuencia    | _llamada_entra |                               |
-|      |              | nte_seq.puml < |                               |
-|      |              | secuencia/UC-0 |                               |
-|      |              | 02_registrar_l |                               |
-|      |              | lamada_entrant |                               |
-|      |              | e_seq.puml>`__ |                               |
-+------+--------------+----------------+-------------------------------+
-| UC   | Consultar    | `UC-003_con    | Flujo principal + Historial + |
-| -003 | Pedido -     | sultar_estado_ | SMS                           |
-| -SEQ | Secuencia    | pedido_seq.pum |                               |
-|      |              | l <secuencia/U |                               |
-|      |              | C-003_consulta |                               |
-|      |              | r_estado_pedid |                               |
-|      |              | o_seq.puml>`__ |                               |
-+------+--------------+----------------+-------------------------------+
++------+--------------+------------------------------+-------------------------------+
+| ID   | Nombre       | Archivo                      | Casos cubiertos               |
++======+==============+==============================+===============================+
+| UC   | Generar      | UC-001_generar_reporte_      | Flujo principal + PDF + Email |
+| -001 | Reporte -    | metricas_seq.puml            |                               |
+| -SEQ | Secuencia    | (secuencia/)                 |                               |
++------+--------------+------------------------------+-------------------------------+
+| UC   | Registrar    | UC-002_registrar_llamada_    | Flujo principal + CRM sync    |
+| -002 | Llamada -    | entrante_seq.puml            |                               |
+| -SEQ | Secuencia    | (secuencia/)                 |                               |
++------+--------------+------------------------------+-------------------------------+
+| UC   | Consultar    | UC-003_consultar_estado_     | Flujo principal + Historial + |
+| -003 | Pedido -     | pedido_seq.puml              | SMS                           |
+| -SEQ | Secuencia    | (secuencia/)                 |                               |
++------+--------------+------------------------------+-------------------------------+
 
 Diagramas de Actividad
 ^^^^^^^^^^^^^^^^^^^^^^
