@@ -191,7 +191,9 @@ plantuml_latex_output_format = 'pdf'
 # Hook post-build para reorganizar archivos de imagen
 def setup(app):
     """Configurar hooks post-build para organizar imagen de forma centralizada."""
-    app.connect('build-finished', reorganize_static_assets)
+    # Temporalmente deshabilitado para investigar PlantUML error
+    # app.connect('build-finished', reorganize_static_assets)
+    pass
 
 def reorganize_static_assets(app, exception):
     """
