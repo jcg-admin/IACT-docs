@@ -21,7 +21,7 @@ Diagram
 
 .. uml::
 
-   !include ../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: plantuml-guide

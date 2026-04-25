@@ -432,6 +432,39 @@
 </section>
 <section id="diagram">
 <h2>Diagram<a class="headerlink" href="#diagram" title="Link to this heading">¶</a></h2>
+<p class="plantuml">
+<img src="../../_images/plantuml-4543fb0ff9e47c31013799e7bf3138d646b9d047.png" alt="!include ../../_static/plantuml-styles.puml
+
+' &#64;IACT-DIAGRAM
+' module: plantuml-guide
+' type: component
+' description: Test component diagram showing system architecture layers
+
+package &quot;API Layer&quot; {
+  component [UserService]
+  component [AuthService]
+  component [NotificationService]
+  interface &quot;REST API&quot; as rest
+}
+
+package &quot;Database Layer&quot; {
+  component [MongoDB]
+  component [Redis]
+}
+
+package &quot;External Services&quot; {
+  component [EmailProvider]
+  component [PaymentGateway]
+}
+
+UserService --&gt; rest
+AuthService --&gt; rest
+NotificationService --&gt; rest
+UserService --&gt; MongoDB
+AuthService --&gt; Redis
+NotificationService --&gt; EmailProvider
+PaymentGateway ..&gt; MongoDB"/>
+</p>
 </section>
 <section id="success-criteria">
 <h2>Success Criteria<a class="headerlink" href="#success-criteria" title="Link to this heading">¶</a></h2>

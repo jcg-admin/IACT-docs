@@ -417,6 +417,90 @@
 <section id="proceso-etl">
 <h2>Proceso ETL<a class="headerlink" href="#proceso-etl" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id1">
+<p class="plantuml">
+<img src="../../_images/plantuml-17e14c9b283647638efe31b64d2d36ba5da0df08.png" alt="&#64;startuml IACT-ETL-Pipeline
+!include ../../_static/plantuml-styles.puml
+
+' &#64;IACT-DIAGRAM
+' module: plantuml-guide
+' type: activity
+' description: ETL Pipeline process with validation and error handling
+
+skinparam BackgroundColor white
+
+' Extract Phase
+package &quot;EXTRACT PHASE&quot; {
+  component [MySQL IVR\nConnection] as mysql_conn
+  component [Query Builder] as query_builder
+  component [Data Cursor] as cursor
+}
+
+' Validation
+component [Pre-Check\nValidation] as precheck
+
+' Transform Phase
+package &quot;TRANSFORM PHASE&quot; {
+  component [Row Parser] as parser
+  component [Business Rules\nEngine] as rules_engine
+  component [Data Mapper] as mapper
+  component [Schema\nValidator] as schema_val
+}
+
+' Error Handling
+package &quot;ERROR HANDLING&quot; {
+  component [Error\nLogger] as error_log
+  component [Dead Letter\nQueue] as dlq
+}
+
+' Load Phase
+package &quot;LOAD PHASE&quot; {
+  component [PostgreSQL\nConnection] as pg_conn
+  component [Batch Insert] as batch_insert
+  component [Commit\nManager] as commit_mgr
+}
+
+' Monitoring
+component [Audit Log\n(Immutable)] as audit_log
+component [Metrics\nCollector] as metrics
+
+' Connections - Extract
+mysql_conn --&gt; query_builder : SQL
+query_builder --&gt; cursor : Iterator
+cursor --&gt; precheck : Raw Records
+
+' Validation
+precheck --&gt; parser : Valid Data
+precheck --&gt; error_log : Invalid Data
+
+' Transform
+parser --&gt; rules_engine : Parsed Rows
+rules_engine --&gt; mapper : Transformed Data
+mapper --&gt; schema_val : Mapped Records
+
+' Schema Validation
+schema_val --&gt; batch_insert : Validated Data
+schema_val --&gt; error_log : Schema Errors
+
+' Error Handling
+error_log --&gt; dlq : Failed Records
+error_log --&gt; audit_log : Error Events
+
+' Load
+batch_insert --&gt; commit_mgr : Insert Batch
+commit_mgr --&gt; pg_conn : Commit Transaction
+
+' Success Path
+commit_mgr --&gt; audit_log : Success Event
+
+' Monitoring
+mysql_conn -.-&gt; metrics : Extract Time
+rules_engine -.-&gt; metrics : Transform Time
+pg_conn -.-&gt; metrics : Load Time
+dlq -.-&gt; metrics : Error Count
+metrics -.-&gt; audit_log : Pipeline Metrics
+
+&#64;enduml"/>
+</p>
 <figcaption>
 <p><span class="caption-text">IACT - Proceso ETL Pipeline Detallado</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>

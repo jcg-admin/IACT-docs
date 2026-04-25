@@ -432,6 +432,29 @@
 </section>
 <section id="diagram">
 <h2>Diagram<a class="headerlink" href="#diagram" title="Link to this heading">¶</a></h2>
+<p class="plantuml">
+<img src="../../_images/plantuml-736a2155944f2e6071a4962810a589d8c0520719.png" alt="!include ../../_static/plantuml-styles.puml
+
+' &#64;IACT-DIAGRAM
+' module: plantuml-guide
+' type: use-case
+' description: Test use case diagram with actors and system interactions
+
+actor &quot;Student&quot; as student
+actor &quot;Instructor&quot; as instructor
+actor &quot;Administrator&quot; as admin
+
+usecase &quot;Submit Assignment&quot; as submit
+usecase &quot;Grade Assignment&quot; as grade
+usecase &quot;View Results&quot; as results
+usecase &quot;Manage Courses&quot; as manage
+
+student --&gt; submit
+student --&gt; results
+instructor --&gt; grade
+instructor --&gt; manage
+admin --&gt; manage"/>
+</p>
 </section>
 <section id="success-criteria">
 <h2>Success Criteria<a class="headerlink" href="#success-criteria" title="Link to this heading">¶</a></h2>

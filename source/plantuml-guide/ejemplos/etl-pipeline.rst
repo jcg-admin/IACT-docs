@@ -22,7 +22,7 @@ Proceso ETL
    :caption: IACT - Proceso ETL Pipeline Detallado
 
    @startuml IACT-ETL-Pipeline
-   !include ../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: plantuml-guide

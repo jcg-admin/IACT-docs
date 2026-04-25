@@ -416,6 +416,69 @@
 <section id="arquitectura">
 <h2>Arquitectura<a class="headerlink" href="#arquitectura" title="Link to this heading">¶</a></h2>
 <figure class="align-default" id="id1">
+<p class="plantuml">
+<img src="../../_images/plantuml-024612cb679d50e394932fc502b94921887b47ce.png" alt="&#64;startuml IACT-Architecture
+!include ../../_static/plantuml-styles.puml
+
+' &#64;IACT-DIAGRAM
+' module: plantuml-guide
+' type: component
+' description: Complete IACT system architecture with all layers
+
+skinparam BackgroundColor white
+
+package &quot;Data Sources&quot; {
+  component [MySQL IVR\n(Read-Only)] as mysql
+  note right of mysql : Operational Data\nReal-time activity
+}
+
+package &quot;ETL Pipeline&quot; {
+  component [Extract] as extract
+  component [Transform] as transform
+  component [Validate] as validate
+  component [Load] as load
+}
+
+package &quot;Analytical Database&quot; {
+  component [PostgreSQL\nAnalytics] as postgres
+  note right of postgres : Optimized for\nAnalytical Queries
+}
+
+package &quot;Application Layer&quot; {
+  component [Django REST\nBackend] as django
+  component [API Gateway] as gateway
+}
+
+package &quot;Client Layer&quot; {
+  component [React\nDashboard] as react
+  note right of react : Interactive UI\nReal-time Charts
+}
+
+package &quot;Infrastructure&quot; {
+  component [Logging &amp;\nMonitoring] as logging
+  component [Authentication\nService] as auth
+}
+
+' Connections
+mysql --&gt; extract : Read Data
+extract --&gt; transform : Raw Events
+transform --&gt; validate : Transformed Data
+validate --&gt; load : Validated Events
+load --&gt; postgres : Store Analytics
+
+postgres --&gt; django : Query Analytics
+django --&gt; gateway : REST Endpoints
+gateway --&gt; react : JSON Response
+
+react --&gt; auth : Authenticate
+auth --&gt; gateway : Verify Token
+
+django -.-&gt; logging : Log Events
+extract -.-&gt; logging : ETL Status
+postgres -.-&gt; logging : Query Performance
+
+&#64;enduml"/>
+</p>
 <figcaption>
 <p><span class="caption-text">IACT - Arquitectura de Sistema Completo</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
