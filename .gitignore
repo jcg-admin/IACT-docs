@@ -1,5 +1,5 @@
 # Sphinx build directory
-build/
+# build/  (REMOVED: user wants build artifacts tracked for visibility)
 
 # Sphinx doctrees
 **/doctrees/
@@ -29,6 +29,6 @@ build/
 *.egg-info/
 *.eggs/
 *.egg
-build/
+# build/  (REMOVED: user wants build artifacts tracked for visibility)
 dist/
 __pycache__/
