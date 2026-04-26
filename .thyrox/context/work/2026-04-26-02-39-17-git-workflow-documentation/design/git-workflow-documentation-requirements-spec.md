@@ -12,7 +12,7 @@ version: 1.0.0
 
 ## Resumen Ejecutivo
 
-Esta especificación define exactamente QUÉ procedimientos, ejemplos y configuración se documentarán en Phase 10 IMPLEMENT para estandarizar el flujo de trabajo Git en IACT-docs. Traduce los objetivos del Phase 6 SCOPE (documentar feature/* → develop → main con máxima trazabilidad) en 7 especificaciones técnicas con criterios de aceptación detallados.
+Esta especificación define exactamente QUÉ procedimientos, ejemplos y configuración se documentarán en Phase 10 IMPLEMENT para estandarizar el flujo de trabajo Git en IACT-docs. Traduce los objetivos del Phase 6 SCOPE (documentar feature/* → develop → main con máxima trazabilidad) en 8 especificaciones técnicas con criterios de aceptación detallados: 7 core workflows + 1 optional tooling (git hooks).
 
 **Audiencia:** Desarrolladores (uso diario), tech leads (revisión y enforcement), release managers (deployment), nuevos miembros (onboarding).
 
@@ -31,6 +31,7 @@ Esta especificación define exactamente QUÉ procedimientos, ejemplos y configur
 | Core Feature 1.5: Conventional Commits | SPEC-005 | Formato obligatorio (feat/fix/docs), scope, body multi-línea, referencias a issues |
 | Supporting 2.1: Troubleshooting Guide | SPEC-006 | 10+ escenarios de error, recovery procedures, debugging |
 | Supporting 2.2 & 2.3: Audit & CI/CD | SPEC-007 | Traceabilidad (commit→release), CI/CD gates, compliance documentation |
+| **NEW:** Optional Tooling | SPEC-008 | Git hooks para enforcement automático (pre-commit, pre-push) |
 
 ---
 
@@ -1246,6 +1247,142 @@ Then:   Puede proceder con merge develop→main y tagging
 
 ---
 
+## SPEC-008: Git Hooks — Enforcement Automático Local (pre-commit, pre-push)
+
+**ID:** SPEC-008  
+**Requisitos Origen:** Optional Tooling (sugerido por user)  
+**Prioridad:** Medium (complementario a branch protection)  
+**Estado:** Pending Approval  
+
+### Descripción
+
+Especificar cómo setup y usar git hooks para automatizar enforcement local: validar commit message format antes de commitear (pre-commit hook), prevenir pushes accidentales a main/develop (pre-push hook). Hooks son **complementarios** a GitHub branch protection, no reemplazo.
+
+### Criterios de Aceptación
+
+**AC-001: Install pre-commit hook para validar conventional commit format**
+```
+Given:  Developer clonou el repo
+        Quiere validar automáticamente qué escriba en commit messages
+
+When:   Ejecuta script de setup:
+        bash .git/hooks/setup-hooks.sh
+        (o: git config core.hooksPath .githooks)
+
+Then:   Hook `.git/hooks/commit-msg` está instalado
+        Hook valida: type(scope): description format
+        Próximo `git commit -m "feat(auth): add MFA"` pasa
+        Próximo `git commit -m "adds MFA"` (sin type) es RECHAZADO
+        Error message: "Commit message must follow: type(scope): description"
+```
+
+**AC-002: Pre-commit hook previene commit de archivos inválidos**
+```
+Given:  Developer fue a commitear cambios
+        Cambios incluyen archivo no-permitido (.env, credentials.json)
+
+When:   Ejecuta: git commit -m "feat(...): ..."
+
+Then:   Hook `.git/hooks/pre-commit` executa
+        Detecta .env / credentials / secrets
+        RECHAZA el commit
+        Error: "Prevented commit containing secrets. Add to .gitignore"
+```
+
+**AC-003: Pre-push hook previene push a main/develop directo**
+```
+Given:  Developer está en feature/test
+        Ha commitado localmente
+        Accidentalmente intenta: git push origin main
+
+When:   Ejecuta: git push origin main
+
+Then:   Hook `.git/hooks/pre-push` intercepta
+        Verifica: rama destino es main o develop?
+        SI: RECHAZA con message:
+            "Cannot push directly to main/develop branches.
+             Create a pull request instead."
+        Developer MUST usar PR flow
+
+**AC-004: Hook output es claro y actionable**
+```
+Given:  Commit message viola formato
+
+When:   Developer intenta git commit
+
+Then:   Hook output:
+        ✗ FAILED: Commit message format invalid
+        
+        Expected: type(scope): description
+        Examples:
+          ✓ feat(auth): add two-factor authentication
+          ✓ fix(docs): correct typo in setup guide
+          ✓ docs(readme): clarify installation steps
+        
+        Your message: "adds MFA"
+        
+        Action: Edit and retry
+
+        [Developer entiende exactamente qué arreglar]
+```
+
+**AC-005: Hooks pueden ser bypasseados (si es necesario)**
+```
+Given:  Developer necesita commitear temporalmente (emergencia)
+        Sabe qué hace
+
+When:   Ejecuta: git commit --no-verify -m "..."
+        (--no-verify bypassa hooks)
+
+Then:   Commit se crea SIN validación
+        Log queda como evidencia:
+        - Commit bypassed normal validation
+        - Reviewed en siguiente PR
+```
+
+### Consideraciones Técnicas
+
+- **Hooks son LOCAL enforcement** — no pueden ser enforced remotely (solo branch protection)
+- **Hooks no reemplazan GitHub rules** — son complementarios (developer convenience + early feedback)
+- **Bypass con --no-verify** — debe ser documentado (cuándo PERMITIDO, cuándo NO)
+- **Setup DEBE ser opcional** — desarrollador puede optar no instalar
+- **Hooks deben ser portables** — work en Linux, macOS, Windows
+
+### Implementación
+
+**Documentación Requerida:**
+1. Setup instructions: cómo instalar hooks (script + manual)
+2. Pre-commit hook: validar conventional commit format
+3. Pre-push hook: prevenir push a main/develop
+4. Bypass procedure (--no-verify)
+5. Testing hooks localmente
+6. Troubleshooting (hook no ejecuta, cómo debuggear)
+
+**Archivos a Crear:**
+- `.githooks/commit-msg` — validar formato conventional
+- `.githooks/pre-push` — prevenir main/develop push
+- `.githooks/setup-hooks.sh` — script de instalación
+
+**Ejemplos Concretos:** 3 escenarios
+1. Developer hace commit bien formado → pasa
+2. Developer hace commit mal formado → rechazado
+3. Developer intenta push a main → rechazado
+
+**Artefactos:** 
+- `docs/git-workflow.md` sección opcional "2.4 Git Hooks (Optional)"
+- `.githooks/` directorio en repo con scripts
+
+### Validación
+
+- [ ] Pre-commit hook valida conventional format
+- [ ] Pre-push hook previene main/develop push
+- [ ] Error messages son claros y actionable
+- [ ] Setup es simple (1 comando)
+- [ ] Bypass procedure documentado (--no-verify)
+- [ ] Hooks trabajan en Linux/macOS/Windows
+
+---
+
 ## Dependencias Entre Especificaciones
 
 ```mermaid
@@ -1257,10 +1394,12 @@ graph TD
     SPEC005["SPEC-005: Conventional Commits"]
     SPEC006["SPEC-006: Troubleshooting"]
     SPEC007["SPEC-007: Audit Trail"]
+    SPEC008["SPEC-008: Git Hooks (Optional)"]
     
     SPEC001 --> SPEC002
     SPEC005 --> SPEC001
     SPEC005 --> SPEC002
+    SPEC005 --> SPEC008
     SPEC002 --> SPEC003
     SPEC004 --> SPEC001
     SPEC004 --> SPEC002
@@ -1271,6 +1410,8 @@ graph TD
     SPEC001 --> SPEC007
     SPEC002 --> SPEC007
     SPEC003 --> SPEC007
+    SPEC008 -.-> SPEC001
+    SPEC008 -.-> SPEC002
 ```
 
 **Orden de ejecución Phase 10:**
@@ -1281,12 +1422,15 @@ graph TD
 5. Implement SPEC-003 (Develop→main release) — depends on 002
 6. Implement SPEC-006 (Troubleshooting) — cross-cutting
 7. Implement SPEC-007 (Audit trail) — cross-cutting
+8. Implement SPEC-008 (Git Hooks) — optional, parallelizable (depends on SPEC-005, can be added anytime)
 
 ---
 
 ## Cronograma Phase 10 IMPLEMENT
 
-**Effort estimate:** 4 horas
+**Effort estimate:** 4.5 horas (core) + 1 hora (SPEC-008 optional)
+
+### Core Specifications (4 horas, todos requeridos)
 - SPEC-001: 30 min (5 steps, 3 examples)
 - SPEC-002: 45 min (7 ACs, 3 examples, conflictos)
 - SPEC-003: 45 min (8 ACs, rollback)
@@ -1296,7 +1440,13 @@ graph TD
 - SPEC-007: 30 min (traceability, CI/CD, audit)
 - Testing & final review: 60 min
 
-**Deliverable:** Single `docs/git-workflow.md` file with 7 sections, 15+ command examples, 10+ troubleshooting scenarios, GitHub screenshots.
+### Optional Specification (1 hora, parallelizable)
+- SPEC-008: 45 min (hook scripts, setup docs)
+- Integration & testing: 15 min
+
+**Deliverable (Core):** Single `docs/git-workflow.md` file with 7 sections, 15+ command examples, 10+ troubleshooting scenarios, GitHub screenshots.
+
+**Deliverable (Optional):** `.githooks/` directory with pre-commit + pre-push hook scripts, plus optional documentation section in `docs/git-workflow.md` (sección 2.4).
 
 ---
 
