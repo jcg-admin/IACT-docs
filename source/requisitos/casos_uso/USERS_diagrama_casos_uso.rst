@@ -27,7 +27,7 @@ Use Case Diagram
 .. uml::
 
    @startuml users_use_cases
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos

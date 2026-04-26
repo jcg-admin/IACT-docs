@@ -188,7 +188,7 @@ A partir de Phase D, los casos de uso se documentan también mediante diagramas 
 
 - Todos los diagramas utilizan el sistema de estilos consolidado PlantUML v2.0.0
 - Cada módulo tiene un color dedicado para identificación visual rápida
-- Ver :doc:`../plantuml-guide/GUIDELINES` para detalles completos de estilo
+- Ver :doc:`../../plantuml-guide/GUIDELINES` para detalles completos de estilo
 
 ---
 
