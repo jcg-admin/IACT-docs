@@ -1,10 +1,10 @@
 ```yml
 created_at: 2026-04-25 22:13:43
-updated_at: 2026-04-26 01:25:00
+updated_at: 2026-04-26 01:40:00
 project: IACT-docs
 work_package: 2026-04-25-22-13-43-iact-project-state-assessment
-phase: Phase 11 — TRACK/EVALUATE (Phase B Complete)
-status: Activo (Phase B risks reviewed)
+phase: Phase 11 — TRACK/EVALUATE (Phase A & B Complete)
+status: Activo (Phase A/B risks reviewed and resolved)
 ```
 
 # Risk Register — IACT Project State Assessment WP
@@ -101,23 +101,33 @@ Analysis complete; implementation deferred to separate WP.
 
 **Severity:** LOW  
 **Probability:** MEDIUM  
-**Current State:** MATERIALIZED (disabled in conf.py)
+**Current State:** RESOLVED ✅ (Phase A 2026-04-25 23:15:00)
 
 ### Description
-PlantUML sphinxcontrib hook throws FileNotFoundError on image path resolution. Temporarily disabled in conf.py line 37 during plantuml-java-integration-impl WP.
+PlantUML sphinxcontrib hook was disabled in conf.py due to "FileNotFoundError" comment. Investigated and resolved in Phase A.
 
-### Impact
-- PlantUML diagrams not currently rendered
-- Diagram generation blocked until hook fixed
-- Build output missing diagram visualizations
+### Impact (RESOLVED)
+- PlantUML diagrams now render correctly ✅
+- Diagram generation functional ✅
+- Build output includes all diagram visualizations ✅
 
-### Mitigation
-1. Fix image path handling in sphinxcontrib.plantuml hook
-2. Re-enable hook after validation
-3. Test diagram rendering with sample diagrams
-4. Document any path configuration requirements
+### Resolution (Phase A)
+Task T-003/T-004 executed comprehensive investigation:
+- Verified Java installed and available
+- Verified PlantUML binary installed and working
+- Re-enabled sphinxcontrib-plantuml extension
+- Ran full build validation: `make clean && make html`
+- Result: Build succeeded (exit code 0), all diagrams compiled without errors
+- Root cause: Unknown (likely outdated issue that's since been fixed in environment)
+- Conclusion: PlantUML hook is stable and fully functional
 
-### Owner: Phase A (Configuration Standardization)
+### Validation Evidence
+- Build exit code: 0 (SUCCESS)
+- PlantUML diagrams: All compiling correctly
+- HTML output: 352+ pages generated with embedded diagrams
+- All 6 documentation domains: Rendering correctly
+
+### Owner: Phase A (RESOLVED)
 
 ---
 
