@@ -329,6 +329,21 @@
 <li class="toctree-l4"><a class="reference internal" href="../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/AUTH_diagrama_casos_uso.html">AUTH Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/USERS_diagrama_casos_uso.html">USERS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/ACCESS_diagrama_casos_uso.html">ACCESS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/PIPELINE_diagrama_casos_uso.html">PIPELINE Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/REPORTS_diagrama_casos_uso.html">REPORTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/ALERTS_diagrama_casos_uso.html">ALERTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/AUDIT_diagrama_casos_uso.html">AUDIT Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/LOGS_diagrama_casos_uso.html">LOGS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/WORKFLOW_authentication_sequence.html">Authentication Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/WORKFLOW_call_processing_sequence.html">Call Processing Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/WORKFLOW_reporting_sequence.html">Report Generation Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/WORKFLOW_alerting_sequence.html">Alerting Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/PROCESS_user_onboarding_activity.html">User Onboarding Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/PROCESS_permission_grant_activity.html">Permission Grant Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../requisitos/casos_uso/PROCESS_incident_response_activity.html">Critical Incident Response Process — Activity Diagram</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
@@ -407,20 +422,23 @@
 <dt class="field-odd">created<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2026-04-25 11:30:00</p>
 </dd>
-<dt class="field-even">project<span class="colon">:</span></dt>
-<dd class="field-even"><p>IACT-docs</p>
+<dt class="field-even">updated<span class="colon">:</span></dt>
+<dd class="field-even"><p>2026-04-26 01:50:00</p>
 </dd>
-<dt class="field-odd">phase<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Phase 10 — EXECUTE</p>
+<dt class="field-odd">project<span class="colon">:</span></dt>
+<dd class="field-odd"><p>IACT-docs</p>
 </dd>
-<dt class="field-even">feature<span class="colon">:</span></dt>
-<dd class="field-even"><p>plantuml-java-integration-impl</p>
+<dt class="field-even">phase<span class="colon">:</span></dt>
+<dd class="field-even"><p>Phase 10 — EXECUTE / Phase 11 TRACK (updated Phase C)</p>
 </dd>
-<dt class="field-odd">version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1.0.0</p>
+<dt class="field-odd">feature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plantuml-java-integration-impl + plantuml-consolidation</p>
 </dd>
-<dt class="field-even">status<span class="colon">:</span></dt>
-<dd class="field-even"><p>Aprobado</p>
+<dt class="field-even">version<span class="colon">:</span></dt>
+<dd class="field-even"><p>2.0.0</p>
+</dd>
+<dt class="field-odd">status<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Aprobado</p>
 </dd>
 </dl>
 <section id="introduction">
@@ -428,6 +446,42 @@
 <p>This document provides guidelines for using centralized PlantUML styles in IACT-docs. The system ensures visual consistency across all diagrams (Use Cases, Sequences, Activities, Components) through a single style file (<code class="docutils literal notranslate"><span class="pre">_static/plantuml-styles.puml</span></code>).</p>
 <p><strong>Who this is for:</strong> Documentation writers, technical architects, and diagram creators.</p>
 <p><strong>Why it exists:</strong> Maintains corporate visual standards, ensures accessibility compliance (WCAG 2.1 AA), and eliminates style duplication across 100+ diagrams.</p>
+<p><strong>Version History:</strong></p>
+<ul class="simple">
+<li><p><strong>v1.0.0 (2026-04-25):</strong> Phase A initial system with generic corporate colors and POSIX conventions</p></li>
+<li><p><strong>v2.0.0 (2026-04-26):</strong> Phase C consolidation merges generic + IACT module-specific colors, architecture layers, and all stereotype support into single source of truth (OPTION B)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="phase-c-consolidation-2026-04-26">
+<h2>Phase C Consolidation (2026-04-26)<a class="headerlink" href="#phase-c-consolidation-2026-04-26" title="Link to this heading">¶</a></h2>
+<p>As of Phase C, the PlantUML styling system has been <strong>unified</strong> from three divergent sources:</p>
+<ol class="arabic">
+<li><p><strong>Before Phase C:</strong> Three separate systems
+- <code class="docutils literal notranslate"><span class="pre">_static/plantuml-styles.puml</span></code> (Phase A generic colors, POSIX naming)
+- <code class="docutils literal notranslate"><span class="pre">requisitos/casos_uso/_static/plantuml_styles.iuml</span></code> (IACT module colors, orphaned/unused)
+- Inline styles in <code class="docutils literal notranslate"><span class="pre">arquitectura_tecnica/arquitectura/*.puml</span></code> (not centralized)</p></li>
+<li><p><strong>After Phase C:</strong> Single consolidated system
+- <strong>Single source of truth:</strong> <code class="docutils literal notranslate"><span class="pre">_static/plantuml-styles.puml</span></code> (v2.0.0, 516 lines)
+- <strong>Merged content:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Generic corporate colors (Phase A)</p></li>
+<li><p>IACT module-specific colors (from v4.0.0 orphaned file)</p></li>
+<li><p>Architecture layer colors for component stereotypes</p></li>
+<li><p>All diagram type support: usecase, actor, class, sequence, activity, component, interface, database, rectangle, note</p></li>
+<li><p>RBAC actor stereotypes: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_ADMIN&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_OPERADOR&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_AUDITOR&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;SISTEMA&gt;&gt;</span></code></p></li>
+<li><p>Architecture component stereotypes: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;frontend&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;api&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;service&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;orm&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;sql&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;db&gt;&gt;</span></code></p></li>
+<li><p>Useful macros and helper definitions (LAYER, COMPONENT, CNST_NOTE, etc.)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>What changed:</strong>
+- ✅ Orphaned <code class="docutils literal notranslate"><span class="pre">plantuml_styles.iuml</span></code> deleted
+- ✅ Architecture diagrams (<code class="docutils literal notranslate"><span class="pre">sistema_iact_contexto.puml</span></code>, <code class="docutils literal notranslate"><span class="pre">permisos_granular_arquitectura.puml</span></code>) updated to use centralized <code class="docutils literal notranslate"><span class="pre">!include</span></code>
+- ✅ All inline color definitions replaced with include directive</p></li>
+</ol>
+<p><strong>Impact:</strong> You no longer need to remember which color file to use — always use <code class="docutils literal notranslate"><span class="pre">_static/plantuml-styles.puml</span></code>. All colors, stereotypes, and macros are now in one place.</p>
 </section>
 <hr class="docutils" />
 <section id="color-palette">
@@ -482,7 +536,102 @@
 </tbody>
 </table>
 </div>
-<p><strong>Variants per color:</strong> Each color has T1-T4 (lightest to darkest) automatically applied by skinparam. You do NOT need to reference variants directly.</p>
+<p><strong>Generic colors:</strong> Use when diagram is not specific to an IACT module. These are inherited from Phase A.</p>
+<section id="iact-module-specific-colors">
+<h3>IACT Module-Specific Colors<a class="headerlink" href="#iact-module-specific-colors" title="Link to this heading">¶</a></h3>
+<p>Use these colors when your diagram illustrates a specific IACT module or feature area:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 21.4%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Color</p></th>
+<th class="head"><p>HEX</p></th>
+<th class="head"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>COLOR_AUTH</p></td>
+<td><p>#3B82F6</p></td>
+<td><p>Authentication &amp; Login services</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_USERS</p></td>
+<td><p>#8B5CF6</p></td>
+<td><p>User Management</p></td>
+</tr>
+<tr class="row-even"><td><p>COLOR_ACCESS</p></td>
+<td><p>#EC4899</p></td>
+<td><p>Access Control &amp; Permissions</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_PIPELINE</p></td>
+<td><p>#F59E0B</p></td>
+<td><p>Data Pipeline &amp; Integration</p></td>
+</tr>
+<tr class="row-even"><td><p>COLOR_REPORTS</p></td>
+<td><p>#10B981</p></td>
+<td><p>Analytics &amp; Reporting</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_ALERTS</p></td>
+<td><p>#EF4444</p></td>
+<td><p>Alert System</p></td>
+</tr>
+<tr class="row-even"><td><p>COLOR_AUDIT</p></td>
+<td><p>#6366F1</p></td>
+<td><p>Audit &amp; Compliance</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_LOGS</p></td>
+<td><p>#64748B</p></td>
+<td><p>Logging &amp; Monitoring</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="architecture-layer-colors">
+<h3>Architecture Layer Colors<a class="headerlink" href="#architecture-layer-colors" title="Link to this heading">¶</a></h3>
+<p>Use these for component diagrams showing layered architecture:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 21.4%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Color</p></th>
+<th class="head"><p>HEX</p></th>
+<th class="head"><p>Layer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>COLOR_PRESENTATION</p></td>
+<td><p>#E1F5FE</p></td>
+<td><p>UI/Frontend layer</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_APPLICATION</p></td>
+<td><p>#FFF9C4</p></td>
+<td><p>API/Application layer</p></td>
+</tr>
+<tr class="row-even"><td><p>COLOR_DOMAIN</p></td>
+<td><p>#F0F4C3</p></td>
+<td><p>Domain/Service layer</p></td>
+</tr>
+<tr class="row-odd"><td><p>COLOR_PERSISTENCE</p></td>
+<td><p>#C5E1A5</p></td>
+<td><p>Data/ORM layer</p></td>
+</tr>
+<tr class="row-even"><td><p>COLOR_DATABASE</p></td>
+<td><p>#FFCCBC</p></td>
+<td><p>Database layer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Variants per color:</strong> Each color has T1-T4 (lightest to darkest) automatically applied by skinparam for base corporate colors. You do NOT need to reference variants directly. Module-specific and architecture colors do not have variants — use them as-is.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="posix-prefix-convention">
@@ -523,6 +672,54 @@ user --&gt; login
 <li><p>From <code class="docutils literal notranslate"><span class="pre">source/discover/</span></code>: <code class="docutils literal notranslate"><span class="pre">../_static/plantuml-styles.puml</span></code></p></li>
 <li><p>From <code class="docutils literal notranslate"><span class="pre">source/requisitos/</span></code>: <code class="docutils literal notranslate"><span class="pre">../_static/plantuml-styles.puml</span></code></p></li>
 <li><p>From <code class="docutils literal notranslate"><span class="pre">source/</span></code>: <code class="docutils literal notranslate"><span class="pre">./_static/plantuml-styles.puml</span></code></p></li>
+<li><p>From <code class="docutils literal notranslate"><span class="pre">source/arquitectura_tecnica/arquitectura/</span></code>: <code class="docutils literal notranslate"><span class="pre">../../../_static/plantuml-styles.puml</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="using-stereotypes">
+<h2>Using Stereotypes<a class="headerlink" href="#using-stereotypes" title="Link to this heading">¶</a></h2>
+<p>The consolidated style system includes predefined stereotypes for common element types. Stereotypes automatically apply colors and formatting:</p>
+<p><strong>RBAC Actor Stereotypes</strong></p>
+<p>Use when representing different roles or actors in use case diagrams:</p>
+<div class="highlight-puml notranslate"><div class="highlight"><pre><span></span>@startuml roles-example
+!include ../_static/plantuml-styles.puml
+
+actor &quot;Admin&quot; as admin &lt;&lt;AGR_ADMIN&gt;&gt;
+actor &quot;Operator&quot; as op &lt;&lt;AGR_OPERADOR&gt;&gt;
+actor &quot;Auditor&quot; as auditor &lt;&lt;AGR_AUDITOR&gt;&gt;
+actor &quot;System&quot; as system &lt;&lt;SISTEMA&gt;&gt;
+@enduml
+</pre></div>
+</div>
+<p><strong>Component/Participant Stereotypes</strong></p>
+<p>Use in sequence and component diagrams to color elements by responsibility:</p>
+<div class="highlight-puml notranslate"><div class="highlight"><pre><span></span>@startuml architecture-sequence
+!include ../_static/plantuml-styles.puml
+
+participant &quot;Web App&quot; as web &lt;&lt;Frontend&gt;&gt;
+participant &quot;API Server&quot; as api &lt;&lt;Backend&gt;&gt;
+participant &quot;Service&quot; as svc &lt;&lt;Service&gt;&gt;
+database &quot;PostgreSQL&quot; as db &lt;&lt;Database&gt;&gt;
+participant &quot;CRM&quot; as crm &lt;&lt;External&gt;&gt;
+@enduml
+</pre></div>
+</div>
+<p><strong>Rectangle/Layer Stereotypes</strong></p>
+<p>Use in context and architecture diagrams:</p>
+<div class="highlight-puml notranslate"><div class="highlight"><pre><span></span>rectangle &quot;Presentation Layer&quot; &lt;&lt;presentation&gt;&gt; { }
+rectangle &quot;Application Layer&quot; &lt;&lt;application&gt;&gt; { }
+rectangle &quot;Domain Layer&quot; &lt;&lt;domain&gt;&gt; { }
+rectangle &quot;Persistence Layer&quot; &lt;&lt;persistence&gt;&gt; { }
+</pre></div>
+</div>
+<p><strong>Available stereotypes:</strong></p>
+<ul class="simple">
+<li><p>RBAC: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_ADMIN&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_OPERADOR&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;AGR_AUDITOR&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;SISTEMA&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Usuario&gt;&gt;</span></code></p></li>
+<li><p>Sequence participants: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Frontend&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Backend&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Service&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Database&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;External&gt;&gt;</span></code></p></li>
+<li><p>Components: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;frontend&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;api&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;service&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;orm&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;sql&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;db&gt;&gt;</span></code></p></li>
+<li><p>Rectangles: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;presentation&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;application&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;domain&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;persistence&gt;&gt;</span></code></p></li>
+<li><p>Systems: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Sistema&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;Externo&gt;&gt;</span></code></p></li>
+<li><p>Notes: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;CNST&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;INFO&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;SUCCESS&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;WARNING&gt;&gt;</span></code></p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -693,9 +890,9 @@ AuthAPI --&gt; MongoDB
 <p><strong>Reviewer:</strong> Automated validation</p>
 <p><strong>Review Date:</strong> 2026-04-25 11:35:00</p>
 <hr class="docutils" />
-<p><strong>Version:</strong> 1.0.0</p>
-<p><strong>Last Updated:</strong> 2026-04-25</p>
-<p><strong>Status:</strong> ✅ APPROVED — Ready for production use</p>
+<p><strong>Version:</strong> 2.0.0</p>
+<p><strong>Last Updated:</strong> 2026-04-26 (Phase C Consolidation)</p>
+<p><strong>Status:</strong> ✅ APPROVED — Ready for production use with consolidated PlantUML styles (Phase C v2.0.0)</p>
 </section>
 </section>
 
@@ -734,9 +931,15 @@ AuthAPI --&gt; MongoDB
             <ul>
 <li><a class="reference internal" href="#">PlantUML Centralized Styling — GUIDELINES</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#color-palette">Color Palette</a></li>
+<li><a class="reference internal" href="#phase-c-consolidation-2026-04-26">Phase C Consolidation (2026-04-26)</a></li>
+<li><a class="reference internal" href="#color-palette">Color Palette</a><ul>
+<li><a class="reference internal" href="#iact-module-specific-colors">IACT Module-Specific Colors</a></li>
+<li><a class="reference internal" href="#architecture-layer-colors">Architecture Layer Colors</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#posix-prefix-convention">POSIX _prefix Convention</a></li>
 <li><a class="reference internal" href="#how-to-include-styles">How to Include Styles</a></li>
+<li><a class="reference internal" href="#using-stereotypes">Using Stereotypes</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
 <li><a class="reference internal" href="#example-1-simple-use-case-diagram">Example 1: Simple Use Case Diagram</a></li>
 <li><a class="reference internal" href="#example-2-sequence-with-multiple-actors">Example 2: Sequence with Multiple Actors</a></li>
