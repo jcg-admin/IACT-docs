@@ -132,6 +132,12 @@ Navegación de la iniciativa actual del proyecto IACT-docs.
 - Hallazgo: 711 → 0 warnings (fixed in follow-up)
 - Transitó a WP#2
 
+**WP#3 (github-actions-setup):** Completado 2026-04-26 00:45:00 ✓
+- Phase 1 DISCOVER → Phase 12 STANDARDIZE: Complete CI/CD automation setup
+- Artefactos: 6 files (.github/), 3 Phase 11 documents, 1 Phase 12 patterns document
+- Key learnings: Pre-specification eliminated 92% variance, constraints-first design works
+- Transitó a WP#2 (plantuml tracking)
+
 **WP#2 (plantuml-java-integration-impl):** En ejecución
 - Phase 1 DISCOVER: 7 análisis especializados (pp. 1-55)
 - Status: LISTO para aprobación y avance de fase
