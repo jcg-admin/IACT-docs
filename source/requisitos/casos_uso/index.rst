@@ -143,7 +143,56 @@ el detalle de sus casos de uso:
    │                              TOTAL:  49 UC                        │
    └──────────────────────────────────────────────────────────────────┘
 
-4. Historial de Cambios
+4. Diagramas UML — Phase D (2026-04-26)
+========================================
+
+A partir de Phase D, los casos de uso se documentan también mediante diagramas UML interactivos utilizando PlantUML. Consulta los diagramas por tipo:
+
+**Diagramas de Casos de Uso (8 módulos)**
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Diagramas de Caso de Uso por Módulo
+
+   AUTH_diagrama_casos_uso
+   USERS_diagrama_casos_uso
+   ACCESS_diagrama_casos_uso
+   PIPELINE_diagrama_casos_uso
+   REPORTS_diagrama_casos_uso
+   ALERTS_diagrama_casos_uso
+   AUDIT_diagrama_casos_uso
+   LOGS_diagrama_casos_uso
+
+**Diagramas de Flujos de Trabajo (Secuencias)**
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Diagramas de Secuencia
+
+   WORKFLOW_authentication_sequence
+   WORKFLOW_call_processing_sequence
+   WORKFLOW_reporting_sequence
+   WORKFLOW_alerting_sequence
+
+**Diagramas de Procesos (Actividades)**
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Diagramas de Actividad
+
+   PROCESS_user_onboarding_activity
+   PROCESS_permission_grant_activity
+   PROCESS_incident_response_activity
+
+**Convenciones de Diagramas:**
+
+- Todos los diagramas utilizan el sistema de estilos consolidado PlantUML v2.0.0
+- Cada módulo tiene un color dedicado para identificación visual rápida
+- Ver :doc:`../plantuml-guide/GUIDELINES` para detalles completos de estilo
+
+---
+
+5. Historial de Cambios
 =======================
 
 .. list-table::
@@ -158,3 +207,7 @@ el detalle de sus casos de uso:
      - 2026-01-06
      - Equipo IACT
      - Versión inicial v4.0 con nueva numeración UC_MOD_NN
+   * - 4.1.0 (Phase D)
+     - 2026-04-26
+     - Claude
+     - Agregados 15 diagramas UML: 8 casos de uso, 4 secuencias, 3 actividades
