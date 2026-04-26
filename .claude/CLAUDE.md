@@ -1,7 +1,7 @@
 ```yml
 type: Contexto Persistente
-version: 3.5
-updated_at: 2026-04-20 13:53:00
+version: 3.6
+updated_at: 2026-04-26 02:45:00
 ```
 
 # CLAUDE.md — THYROX
@@ -114,6 +114,27 @@ SIEMPRE seguir este flujo. NO omitir pasos.
    - No hay work package → empezar Phase 1: DISCOVER.
 4. **Trabajar** — Seguir cada fase hasta su exit criteria. NO saltarse fases. Commits convencionales. Actualizar ROADMAP.md.
 5. **Cierre** — Actualizar `.thyrox/context/focus.md` + `.thyrox/context/now.md`.
+
+### Protocolo de Completación de Fase (I-015: Invariante Crítica)
+
+**REGLA INVIOLABLE:** Antes de reportar cualquier phase/WP como "complete", "done", o "finished":
+
+```bash
+bash .claude/scripts/validate-phase-completion.sh
+```
+
+El script valida 5 condiciones:
+1. Working tree clean (sin cambios unstaged)
+2. No staged changes (nada pendiente de commit)
+3. Remote sync (todos los commits pusheados)
+4. Build success (make html exit 0)
+5. Recent commits (hay historial)
+
+**Resultado:**
+- Exit code 0 = SEGURO reportar completación
+- Exit code 1 = NO reportar hasta fijar los problemas
+
+**Nunca** reportar completación sin este check. Ver ADR-phase-completion-validation-protocol.md para detalles y motivación.
 
 ## Multi-skill orchestration
 
