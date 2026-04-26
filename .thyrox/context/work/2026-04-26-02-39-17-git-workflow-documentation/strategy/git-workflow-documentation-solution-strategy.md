@@ -24,13 +24,13 @@ Phase 5 analyzed five critical decisions for Git workflow standardization:
 
 | Decision | Recommendation | Rationale |
 |----------|---|---|
-| **Feature → Develop Merge** | Squash merges | Clean history, easy feature rollback, preserves conventional commits |
-| **Develop → Main Merge** | Merge commits | Release traceability, preserves integration history, enables easy rollback |
-| **Fast-Forward Policy** | Forbid FF on all branches | Explicit merge commits, clear intent capture, better audit trail |
-| **Tagging Strategy** | Annotated tags for releases, lightweight tags for integration checkpoints | Semantic versioning, release documentation, easy release reconstruction |
-| **Release Trigger** | Manual gate (PR review → approval required) | Safety critical, prevents accidental releases, enables pre-release QA |
+| **Feature → Develop Merge** | **Merge commits (--no-ff)** | **Complete audit trail, every commit visible, THYROX WP traceability** |
+| **Develop → Main Merge** | **Merge commits (--no-ff)** | **Release traceability, complete history preservation, compliance auditability** |
+| **Fast-Forward Policy** | **Forbid FF on all branches** | **Explicit merge commits, clear intent capture, audit trail required** |
+| **Tagging Strategy** | **Annotated tags for releases** | **Release metadata, GPG signing, regulatory compliance documentation** |
+| **Release Trigger** | **Manual gate (PR review → approval required)** | **Quality approval, coordination point, audit decision log** |
 
-**Key Principle:** Asymmetric merge strategy balances integration velocity (develop) with production stability (main).
+**Key Principle:** Maximum traceability strategy — every commit preserved, every merge explicit, full audit trail for compliance and WP history tracking.
 
 ---
 
@@ -41,17 +41,20 @@ Phase 5 analyzed five critical decisions for Git workflow standardization:
 **Current State:**
 - Repository has develop and main branches
 - No formal merge strategy defined
+- IACT is compliance/documentation system (regulatory requirements)
 - Team members may use conflicting approaches
-- Commit history inconsistent across branches
+- Commit history must be auditable (requirement, not nice-to-have)
 
 **Problem:**
-- Develop branch accumulates technical integrations (many commits, some incomplete)
-- Main branch (production) needs to be stable and auditable
-- Same merge strategy (squash) for both would either:
-  - **Squash everywhere:** Lose integration history on develop, make develop less useful for debugging
-  - **Merge everywhere:** Pollute main's history with every intermediate integration step
+- Develop and main branches need clear merge strategy
+- IACT's role: document RBAC, normativa, compliance — everything must be traceable
+- THYROX principle (I-003): git is only persistence; history is data
+- WPs tracked in git — cannot lose commits
 
-**Solution:** Asymmetric strategy — squash on develop (integration), merge on main (release).
+**Critical Constraint:**
+IACT is **not a typical software project**. It documents compliance rules, RBAC models, normative processes. Audit trail is regulatory requirement, not optional.
+
+**Solution:** Maximum traceability strategy — preserve ALL commits, explicit merge boundaries everywhere, full compliance auditability.
 
 ---
 
@@ -72,38 +75,40 @@ git commit -m "feat(scope): description [from feature/my-feature]"
 **Pros:**
 - ✅ Linear history on develop (easier to understand progression)
 - ✅ Feature rollback is atomic (single commit, single revert)
-- ✅ No "merge commit clutter" from partial/abandoned features
-- ✅ Preserves conventional commit format (feat/fix/docs)
-- ✅ Develops faster (no bisect needed across 50 feature commits)
+- ✅ No "merge commit clutter" from intermediate commits
 
 **Cons:**
-- ❌ Loses intermediate commits from feature (if detailed history needed, lost)
-- ❌ Cannot inspect individual feature branch commits after merge (they're squashed)
-- ⚠️ Requires feature branch delete after merge (housekeeping)
+- ❌ **CRITICAL:** Loses all intermediate feature commits
+- ❌ Cannot audit individual feature commits (they're discarded)
+- ❌ Breaks WP history traceability (Phase commits lost)
+- ❌ Violates THYROX principle: git is persistence
 
-**THYROX Fit:** ✅ Excellent — conventional commits at point of merge, no loss of traceability (original commits preserved in feature branch until deleted)
+**THYROX Fit:** ❌ No — contradicts I-003 (git as only persistence) and WP history tracking
 
 #### Option B: Merge Commits (feature/* → develop)
 ```bash
-# Creates explicit merge commit
+# Creates explicit merge commit, preserves all feature commits
+git switch develop
 git merge --no-ff feature/my-feature
 ```
 
 **Pros:**
-- ✅ Preserves all intermediate commits
-- ✅ Can inspect individual feature branch commits after merge
-- ✅ Explicit merge intent recorded
+- ✅ **CRITICAL:** Preserves ALL feature commits completely
+- ✅ Full audit trail: can inspect every commit on feature
+- ✅ WP history preserved (every commit visible in main line)
+- ✅ Explicit merge intent recorded (who merged, when)
+- ✅ Bisect works perfectly (every commit is candidate)
+- ✅ Compliance auditable (what went into each integration point)
 
 **Cons:**
-- ❌ History cluttered with merge commits (1 per feature × 20 features = hard to read)
-- ❌ Bisect harder (have to skip merge commits)
-- ❌ Develop branch becomes "develop + feature debris"
+- ⚠️ History has merge commits (but this is feature, not a bug)
+- ⚠️ More commits in log (necessary for traceability)
 
-**THYROX Fit:** ⚠️ Acceptable but not ideal — contradicts principle of clean integration
+**THYROX Fit:** ✅ **Excellent** — preserves full WP history, audit trail complete, I-003 compliance
 
 #### Option C: Rebase (feature/* → develop)
 ```bash
-# Replays feature commits on develop
+# Replays feature commits on develop (rewrites history)
 git rebase develop feature/my-feature
 git switch develop
 git merge --ff-only feature/my-feature
@@ -111,24 +116,25 @@ git merge --ff-only feature/my-feature
 
 **Pros:**
 - ✅ Linear history
-- ✅ Preserves all commits
-- ✅ Can inspect features
+- ✅ Preserves commits
 
 **Cons:**
-- ❌ Rewrites history (forces push needed, breaks shared branches)
-- ❌ Confusing for new team members
-- ❌ Risk of lost commits if rebase goes wrong
+- ❌ Rewrites history (forces push needed)
+- ❌ Breaks shared branch coordination (async team can't manage)
+- ❌ Risk of commit loss on rebase failure
 
-**THYROX Fit:** ❌ No — async distributed team, can't force-push safely to shared branches
+**THYROX Fit:** ❌ No — async distributed team, force-push unsafe
 
-**RECOMMENDATION: Squash Merge (Option A)**
+**RECOMMENDATION: Merge Commits with --no-ff (Option B)**
 
 **Rationale:**
-- Develop is **integration branch** (temporary, for collecting features)
-- Primary goal: get features into develop quickly and safely
-- Intermediate feature commits aren't needed once feature works
-- Team is async/distributed — can't manage rebase coordination
-- Conventional commits preserved at merge point
+- **IACT is a compliance system** (documentación de normativa, RBAC)
+- Audit trail is non-negotiable (regulatory requirements)
+- Work packages tracked in git (THYROX I-003: git as persistence)
+- Every commit must be visible and auditable
+- Merge commits cost: minor (one extra commit per feature)
+- Merge commits benefit: complete traceability for compliance
+- Team is async/distributed → explicit merge commits are feature, not bug (clear integration points)
 
 ---
 
@@ -363,31 +369,35 @@ Examples:
 ```
 ┌─ feature/* branches (many, temporary)
 │  ├─ Create: git checkout -b feature/my-feature
-│  ├─ Commits: Multiple commits per feature (private history)
+│  ├─ Commits: Multiple commits per feature (PRESERVED)
 │  ├─ Push: Force-push allowed (branch is personal)
-│  └─ Merge to develop: SQUASH MERGE
-│     Result: 1 commit on develop
+│  └─ Merge to develop: --no-ff MERGE COMMIT
+│     Result: All feature commits + merge commit visible on develop
 │
 ├─ develop branch (integration)
-│  ├─ Contains: Squashed feature commits (1 per feature)
+│  ├─ Contains: ALL commits from all features (full history preserved)
 │  ├─ CI/CD: Automated tests run on every push
 │  ├─ Merge to main: --no-ff merge commit
 │  └─ Cadence: Daily, weekly, or when release ready
+│     Every commit on develop is auditable (no squashing away)
 │
 └─ main branch (production)
-   ├─ Contains: Release merge commits + tags
+   ├─ Contains: ALL commits from develop + release merge commits
    ├─ Access: Release manager only (branch protected)
    ├─ Tagging: Annotated tags (v1.2.3)
    ├─ CI/CD: Deploy on tag creation
-   └─ Guarantee: Every commit is released (auditable)
+   ├─ Guarantee: Every commit is released AND auditable
+   └─ Audit trail: Complete (every commit traceable to feature→release)
 ```
 
 **Key Properties:**
-- ✅ Develop: fast iteration, clean squashed history
-- ✅ Main: production-ready, fully auditable, rollback-capable
-- ✅ Branches: clear purpose, clear merge strategy
-- ✅ Tags: version boundaries explicit
+- ✅ Develop: **complete feature history**, audit-trail preserved
+- ✅ Main: **production-ready, fully auditable**, every commit visible
+- ✅ Branches: clear purpose, explicit merge boundaries
+- ✅ Tags: version boundaries explicit, release metadata
 - ✅ Automation: quality gates, deployment pipeline
+- ✅ Compliance: **full traceability for regulatory requirements**
+- ✅ WP History: **THYROX-compliant** (git is persistence)
 
 ---
 
@@ -415,27 +425,32 @@ Rules for main:
   ✅ Dismissable stale reviews (optional)
 ```
 
-### Conventional Commits: Merge Commit Format
+### Conventional Commits: Merge Message Format
 
-**Problem:** Squash merges lose commit message format compliance.
+**Principle:** All commits (including merge commits) must follow conventional format.
 
-**Solution:** After squash merge, edit merge commit message:
+**For merge commits:**
 ```bash
-# Feature branch has 3 commits:
-#   feat(auth): add login validation
-#   fix(auth): handle edge case
-#   docs(auth): update README
+# Automatic merge message (usually):
+git merge --no-ff feature/auth-login
+# Creates message like: "Merge branch 'feature/auth-login'"
 
-# After squash merge, force message to be:
-git commit --amend -m "feat(auth): add login validation
+# Improved message (recommended):
+git merge --no-ff -m "feat(auth): add login validation with MFA support
 
-Added support for multi-factor authentication.
-Fixes #123.
+Merged feature/auth-login containing:
+  - feat(auth): setup authentication framework
+  - feat(auth): add validators and edge cases
+  - docs(auth): authentication guide
 
-https://claude.ai/code/session_01Bu9sxWSmLvGqUNNYZ2DG31"
+Closes #123" feature/auth-login
 ```
 
-**Result:** Merge commit on develop follows conventional commits format.
+**Result:** 
+- ✅ All feature commits preserved (none squashed away)
+- ✅ Merge commit has conventional format + context
+- ✅ Full audit trail with semantic meaning
+- ✅ Release notes generation possible
 
 ---
 
@@ -466,13 +481,14 @@ https://claude.ai/code/session_01Bu9sxWSmLvGqUNNYZ2DG31"
 ## Recommendations for Phase 6 SCOPE
 
 ### In-Scope for Initial Documentation
-1. ✅ feature/* → develop (squash merge)
-2. ✅ develop → main (merge commit + --no-ff)
-3. ✅ Tagging strategy (annotated tags)
+1. ✅ feature/* → develop (**merge commit --no-ff**, preserve all commits)
+2. ✅ develop → main (**merge commit --no-ff**, preserve all history)
+3. ✅ Tagging strategy (annotated tags for releases)
 4. ✅ Release gate (manual approval required)
-5. ✅ Fast-forward policy (forbid --no-ff on main)
-6. ✅ Conventional commits (merge message format)
-7. ✅ Branch protection rules (GitHub settings)
+5. ✅ Fast-forward policy (forbid everywhere)
+6. ✅ Conventional commits (merge message format with context)
+7. ✅ Branch protection rules (GitHub settings for enforcement)
+8. ✅ Audit trail documentation (how to trace commits → features → releases)
 
 ### Out-of-Scope for v1.0
 1. ❌ Hotfix/* branches (can add in future)
