@@ -3,10 +3,11 @@ PlantUML Centralized Styling — GUIDELINES
 =========================================
 
 :created: 2026-04-25 11:30:00
+:updated: 2026-04-26 01:50:00
 :project: IACT-docs
-:phase: Phase 10 — EXECUTE
-:feature: plantuml-java-integration-impl
-:version: 1.0.0
+:phase: Phase 10 — EXECUTE / Phase 11 TRACK (updated Phase C)
+:feature: plantuml-java-integration-impl + plantuml-consolidation
+:version: 2.0.0
 :status: Aprobado
 
 Introduction
@@ -17,6 +18,41 @@ This document provides guidelines for using centralized PlantUML styles in IACT-
 **Who this is for:** Documentation writers, technical architects, and diagram creators.
 
 **Why it exists:** Maintains corporate visual standards, ensures accessibility compliance (WCAG 2.1 AA), and eliminates style duplication across 100+ diagrams.
+
+**Version History:**
+
+- **v1.0.0 (2026-04-25):** Phase A initial system with generic corporate colors and POSIX conventions
+- **v2.0.0 (2026-04-26):** Phase C consolidation merges generic + IACT module-specific colors, architecture layers, and all stereotype support into single source of truth (OPTION B)
+
+----
+
+Phase C Consolidation (2026-04-26)
+==================================
+
+As of Phase C, the PlantUML styling system has been **unified** from three divergent sources:
+
+1. **Before Phase C:** Three separate systems
+   - ``_static/plantuml-styles.puml`` (Phase A generic colors, POSIX naming)
+   - ``requisitos/casos_uso/_static/plantuml_styles.iuml`` (IACT module colors, orphaned/unused)
+   - Inline styles in ``arquitectura_tecnica/arquitectura/*.puml`` (not centralized)
+
+2. **After Phase C:** Single consolidated system
+   - **Single source of truth:** ``_static/plantuml-styles.puml`` (v2.0.0, 516 lines)
+   - **Merged content:**
+     - Generic corporate colors (Phase A)
+     - IACT module-specific colors (from v4.0.0 orphaned file)
+     - Architecture layer colors for component stereotypes
+     - All diagram type support: usecase, actor, class, sequence, activity, component, interface, database, rectangle, note
+     - RBAC actor stereotypes: ``<<AGR_ADMIN>>``, ``<<AGR_OPERADOR>>``, ``<<AGR_AUDITOR>>``, ``<<SISTEMA>>``
+     - Architecture component stereotypes: ``<<frontend>>``, ``<<api>>``, ``<<service>>``, ``<<orm>>``, ``<<sql>>``, ``<<db>>``
+     - Useful macros and helper definitions (LAYER, COMPONENT, CNST_NOTE, etc.)
+
+3. **What changed:**
+   - ✅ Orphaned ``plantuml_styles.iuml`` deleted
+   - ✅ Architecture diagrams (``sistema_iact_contexto.puml``, ``permisos_granular_arquitectura.puml``) updated to use centralized ``!include``
+   - ✅ All inline color definitions replaced with include directive
+
+**Impact:** You no longer need to remember which color file to use — always use ``_static/plantuml-styles.puml``. All colors, stereotypes, and macros are now in one place.
 
 ----
 
@@ -58,7 +94,74 @@ All colors are predefined in ``_static/plantuml-styles.puml``. Use the **public*
      - Neutral, disabled
      - Fallback, disabled states
 
-**Variants per color:** Each color has T1-T4 (lightest to darkest) automatically applied by skinparam. You do NOT need to reference variants directly.
+**Generic colors:** Use when diagram is not specific to an IACT module. These are inherited from Phase A.
+
+IACT Module-Specific Colors
+____________________________
+
+Use these colors when your diagram illustrates a specific IACT module or feature area:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 35
+
+   * - Color
+     - HEX
+     - Module
+   * - COLOR_AUTH
+     - #3B82F6
+     - Authentication & Login services
+   * - COLOR_USERS
+     - #8B5CF6
+     - User Management
+   * - COLOR_ACCESS
+     - #EC4899
+     - Access Control & Permissions
+   * - COLOR_PIPELINE
+     - #F59E0B
+     - Data Pipeline & Integration
+   * - COLOR_REPORTS
+     - #10B981
+     - Analytics & Reporting
+   * - COLOR_ALERTS
+     - #EF4444
+     - Alert System
+   * - COLOR_AUDIT
+     - #6366F1
+     - Audit & Compliance
+   * - COLOR_LOGS
+     - #64748B
+     - Logging & Monitoring
+
+Architecture Layer Colors
+_________________________
+
+Use these for component diagrams showing layered architecture:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 15 35
+
+   * - Color
+     - HEX
+     - Layer
+   * - COLOR_PRESENTATION
+     - #E1F5FE
+     - UI/Frontend layer
+   * - COLOR_APPLICATION
+     - #FFF9C4
+     - API/Application layer
+   * - COLOR_DOMAIN
+     - #F0F4C3
+     - Domain/Service layer
+   * - COLOR_PERSISTENCE
+     - #C5E1A5
+     - Data/ORM layer
+   * - COLOR_DATABASE
+     - #FFCCBC
+     - Database layer
+
+**Variants per color:** Each color has T1-T4 (lightest to darkest) automatically applied by skinparam for base corporate colors. You do NOT need to reference variants directly. Module-specific and architecture colors do not have variants — use them as-is.
 
 ----
 
@@ -102,6 +205,65 @@ Every PlantUML diagram must include the centralized style file at the top:
 - From ``source/discover/``: ``../_static/plantuml-styles.puml``
 - From ``source/requisitos/``: ``../_static/plantuml-styles.puml``
 - From ``source/``: ``./_static/plantuml-styles.puml``
+- From ``source/arquitectura_tecnica/arquitectura/``: ``../../../_static/plantuml-styles.puml``
+
+----
+
+Using Stereotypes
+=================
+
+The consolidated style system includes predefined stereotypes for common element types. Stereotypes automatically apply colors and formatting:
+
+**RBAC Actor Stereotypes**
+
+Use when representing different roles or actors in use case diagrams:
+
+.. code-block:: puml
+
+   @startuml roles-example
+   !include ../_static/plantuml-styles.puml
+
+   actor "Admin" as admin <<AGR_ADMIN>>
+   actor "Operator" as op <<AGR_OPERADOR>>
+   actor "Auditor" as auditor <<AGR_AUDITOR>>
+   actor "System" as system <<SISTEMA>>
+   @enduml
+
+**Component/Participant Stereotypes**
+
+Use in sequence and component diagrams to color elements by responsibility:
+
+.. code-block:: puml
+
+   @startuml architecture-sequence
+   !include ../_static/plantuml-styles.puml
+
+   participant "Web App" as web <<Frontend>>
+   participant "API Server" as api <<Backend>>
+   participant "Service" as svc <<Service>>
+   database "PostgreSQL" as db <<Database>>
+   participant "CRM" as crm <<External>>
+   @enduml
+
+**Rectangle/Layer Stereotypes**
+
+Use in context and architecture diagrams:
+
+.. code-block:: puml
+
+   rectangle "Presentation Layer" <<presentation>> { }
+   rectangle "Application Layer" <<application>> { }
+   rectangle "Domain Layer" <<domain>> { }
+   rectangle "Persistence Layer" <<persistence>> { }
+
+**Available stereotypes:**
+
+- RBAC: ``<<AGR_ADMIN>>``, ``<<AGR_OPERADOR>>``, ``<<AGR_AUDITOR>>``, ``<<SISTEMA>>``, ``<<Usuario>>``
+- Sequence participants: ``<<Frontend>>``, ``<<Backend>>``, ``<<Service>>``, ``<<Database>>``, ``<<External>>``
+- Components: ``<<frontend>>``, ``<<api>>``, ``<<service>>``, ``<<orm>>``, ``<<sql>>``, ``<<db>>``
+- Rectangles: ``<<presentation>>``, ``<<application>>``, ``<<domain>>``, ``<<persistence>>``
+- Systems: ``<<Sistema>>``, ``<<Externo>>``
+- Notes: ``<<CNST>>``, ``<<INFO>>``, ``<<SUCCESS>>``, ``<<WARNING>>``
 
 ----
 
@@ -293,8 +455,8 @@ Code Review Checklist
 
 ----
 
-**Version:** 1.0.0
+**Version:** 2.0.0
 
-**Last Updated:** 2026-04-25
+**Last Updated:** 2026-04-26 (Phase C Consolidation)
 
-**Status:** ✅ APPROVED — Ready for production use
+**Status:** ✅ APPROVED — Ready for production use with consolidated PlantUML styles (Phase C v2.0.0)

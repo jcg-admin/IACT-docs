@@ -4,10 +4,13 @@ PlantUML Diagram Metadata Standard — @IACT-DIAGRAM
 
 :project: IACT-docs
 :created: 2026-04-25
-:status: Active
+:updated: 2026-04-26
+:status: Active (updated Phase C: Consolidated PlantUML v2.0.0)
 
 Propósito
 =========
+
+**Phase C Update (2026-04-26):** As of Phase C Consolidation, all PlantUML diagrams should use the single consolidated style file at ``_static/plantuml-styles.puml`` (v2.0.0). See `GUIDELINES.rst <GUIDELINES.rst>`_ for consolidation details.
 
 El estándar **@IACT-DIAGRAM** automatiza la organización de diagramas PlantUML en la estructura:
 
