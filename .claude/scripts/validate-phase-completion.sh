@@ -10,8 +10,6 @@
 #
 # Usage: bash .claude/scripts/validate-phase-completion.sh
 
-set -e
-
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
