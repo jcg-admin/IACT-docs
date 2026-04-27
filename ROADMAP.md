@@ -6,7 +6,9 @@
 
 | ÉPICA | WP | Branch | Estado |
 |-------|----|--------|--------|
-| 4 | 2026-04-27-04-20-01-repository-diagnostics | feature/repository-diagnostics | Phase 10 EXECUTE |
+| 4 | 2026-04-27-04-20-01-repository-diagnostics | feature/repository-diagnostics | Phase 11 TRACK (docs cerradas, pendiente CLOSURE-NOTICE) |
+| 5 | 2026-04-27-05-26-20-zero-warnings-build | feature/repository-diagnostics | Phase 11 TRACK (docs cerradas, pendiente CLOSURE-NOTICE) |
+| 6 | 2026-04-27-23-28-26-deployment-pipeline | feature/repository-diagnostics | Phase 1 DISCOVER (datos pendientes del ejecutor) |
 
 ## Completadas
 
