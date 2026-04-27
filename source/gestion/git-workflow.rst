@@ -789,7 +789,7 @@ GitHub will automatically update the PR with your new commit. The reviewer can s
 
 Once all reviewers approve and CI checks pass:
 1. You see a green **"Merge pull request"** button
-2. Proceed to Section 4.4 for merging
+2. Proceed to Section 3.4 for merging
 
 3.3 Handling Merge Conflicts
 --------------------------------------------------------------------------------
@@ -1022,12 +1022,452 @@ This shows a visual tree of the merge, making it clear which commits belonged to
 
 ---
 
-4. GitHub Branch Protection
+---
+
+4. Develop → Main Release Workflow
+================================================================================
+
+This section describes how to prepare a release, create a release PR to main, tag the release, generate release notes, and handle rollbacks if needed.
+
+4.1 Release Procedure — Pre-Release QA Checklist
+--------------------------------------------------------------------------------
+
+Before creating a release PR, complete this checklist to ensure quality:
+
+**Step 1: Update documentation**
+
+- [ ] Update CHANGELOG.md with release notes (features, fixes, breaking changes)
+- [ ] Update version number in pyproject.toml or setup.py
+- [ ] Update README.rst with any new features or changes
+- [ ] Update CONTRIBUTING.md if process changed
+- [ ] Verify all documentation links are correct
+
+**Step 2: Run local build**
+
+.. code-block:: bash
+
+   # Clean previous builds
+   make clean
+
+   # Build documentation
+   make html
+
+   # Expected output: build/html/index.html exists, no errors
+
+   # If using Python package, build package
+   python -m build
+
+**Step 3: Run tests**
+
+.. code-block:: bash
+
+   # Run all tests
+   pytest
+
+   # Run specific test suite if applicable
+   pytest tests/test_sphinx_config.py
+
+   # Expected: All tests pass
+
+**Step 4: Verify code quality**
+
+.. code-block:: bash
+
+   # Check for lint issues
+   flake8 source/
+
+   # Type checking (if applicable)
+   mypy source/
+
+   # Expected: No errors or warnings
+
+**Step 5: Create a test build artifact**
+
+.. code-block:: bash
+
+   # Build for distribution (if applicable)
+   pip install build
+   python -m build
+
+   # Verify artifact exists and is valid
+   ls -lh dist/
+
+**Step 6: Tag verification (for pre-release check)**
+
+.. code-block:: bash
+
+   # Check existing tags
+   git tag -l
+
+   # Verify new tag version follows semver (v1.2.3)
+   # and is higher than the latest tag
+
+**Release Checklist Summary:**
+
+Only proceed to release PR if:
+- ✓ Documentation updated and reviewed
+- ✓ Build succeeds (make html, make clean, no warnings)
+- ✓ All tests pass
+- ✓ Code quality checks pass (flake8, mypy, etc.)
+- ✓ Test build artifacts are valid
+- ✓ Version numbering follows Semantic Versioning 2.0.0
+
+If any check fails, **DO NOT proceed** — fix issues before release.
+
+4.2 Create Release PR — Develop to Main
+--------------------------------------------------------------------------------
+
+Once pre-release QA passes, create a PR to merge develop→main:
+
+**Step 1: Ensure develop branch is up to date**
+
+.. code-block:: bash
+
+   git fetch origin
+   git checkout develop
+   git pull origin develop
+
+**Step 2: Create a release branch**
+
+Use a temporary branch for the release PR (optional but recommended):
+
+.. code-block:: bash
+
+   git checkout -b release/v1.2.3
+
+**Step 3: Open the Release PR on GitHub**
+
+1. Go to https://github.com/jcg-admin/IACT-docs
+2. Click **Pull requests**
+3. Click **New pull request**
+4. Set base to ``main`` and compare to ``develop`` (or ``release/vX.Y.Z`` if using release branch)
+5. Use this PR title:
+
+   .. code-block:: text
+
+      Release v1.2.3 — Merge develop to main
+
+6. Use this PR description:
+
+   .. code-block:: text
+
+      ## Release: v1.2.3
+
+      This PR merges develop to main for production release.
+
+      ### Release Summary
+
+      - [List key features added in this release]
+      - [List critical fixes]
+      - [Any breaking changes]
+
+      ### Release Artifacts
+
+      - Build: ✓ make html successful
+      - Tests: ✓ all tests pass
+      - Quality: ✓ no lint/type errors
+      - Documentation: ✓ CHANGELOG.md updated
+
+      ### Deployment
+
+      After merge, proceed to section 5.3 for tagging and release.
+
+7. Click **Create pull request**
+
+**Step 4: Release PR Review**
+
+The release PR requires **2 approvals** (enforced by branch protection) before merge:
+
+- Release manager (you or designated owner)
+- Code owner or project maintainer
+
+Provide context in PR comments:
+- Link to build artifacts
+- Link to release notes (CHANGELOG.md)
+- Any special deployment instructions
+
+**Step 5: Merge the Release PR**
+
+Once 2 approvals received and CI checks pass:
+
+1. Click **Merge pull request**
+2. Select **Create a merge commit** (--no-ff)
+3. Update merge message:
+
+   .. code-block:: text
+
+      Merge pull request #156 from develop
+
+      Release v1.2.3
+
+      Key features:
+      - [Feature 1]
+      - [Feature 2]
+
+      Fixes:
+      - [Fix 1]
+      - [Fix 2]
+
+4. Click **Confirm merge**
+
+4.3 Tagging Strategy — Annotated Tags
+--------------------------------------------------------------------------------
+
+After merge to main, create an annotated tag to mark the release:
+
+**Why Annotated Tags?**
+
+Annotated tags are recommended because they:
+- Store metadata (tagger name, date, message)
+- Can be signed with GPG for security
+- Show up in release history
+- Are distinct from lightweight tags
+
+Lightweight tags are just pointers to commits and don't have metadata.
+
+**Step 1: Fetch the latest main**
+
+.. code-block:: bash
+
+   git fetch origin
+   git checkout main
+   git pull origin main
+
+The merge commit from section 5.2 is now on main.
+
+**Step 2: Create an annotated tag**
+
+.. code-block:: bash
+
+   git tag -a v1.2.3 -m "Release v1.2.3
+
+   Features:
+   - Feature 1
+   - Feature 2
+
+   Fixes:
+   - Fix 1
+   - Fix 2
+
+   Documentation: https://docs.example.com"
+
+Replace v1.2.3 with the actual version number.
+
+**Tagging Rules:**
+
+- **Version format**: ``vMAJOR.MINOR.PATCH`` (e.g., v1.2.3, v2.0.0)
+- **Follow Semantic Versioning 2.0.0**:
+  - MAJOR: Breaking changes
+  - MINOR: New features, backward compatible
+  - PATCH: Bug fixes, backward compatible
+- **Never use leading zeros**: v1.2.3 not v1.02.003
+- **Annotated tags only**: Use ``git tag -a``, not ``git tag``
+
+**Step 3: Verify the tag**
+
+.. code-block:: bash
+
+   git tag -l v1.2.3
+   git show v1.2.3
+
+Output should show:
+- Tag name
+- Tagger name and email
+- Tag date
+- Tag message (the release notes)
+- Commit hash it points to
+
+**Step 4: Push the tag to remote**
+
+.. code-block:: bash
+
+   git push origin v1.2.3
+
+This makes the tag available on GitHub for release artifacts.
+
+**Verify the tag on GitHub:**
+
+1. Go to https://github.com/jcg-admin/IACT-docs/releases
+2. You should see the new tag listed
+3. You can create a GitHub Release from the tag if desired
+
+4.4 Release Notes Generation
+--------------------------------------------------------------------------------
+
+Generate release notes automatically from commit history:
+
+**Method 1: Using git log (recommended)**
+
+.. code-block:: bash
+
+   # Get all commits between last release and current
+   git log v1.1.0..v1.2.3 --oneline --format="%h %s"
+
+   # Output:
+   # a1b2c3d feat(docs): add release workflow documentation
+   # b2c3d4e fix(sphinx): correct configuration error
+   # c3d4e5f docs(guides): update contribution guidelines
+
+**Method 2: Git log with grouping**
+
+.. code-block:: bash
+
+   # Group by type (feat, fix, docs, etc.)
+   git log v1.1.0..v1.2.3 --pretty=format:"%h %s" | \
+     awk '{
+       type = substr($0, index($0, "(") + 1);
+       type = substr(type, 1, index(type, ")") - 1);
+       if (type ~ /feat/) group="Features";
+       else if (type ~ /fix/) group="Bug Fixes";
+       else if (type ~ /docs/) group="Documentation";
+       else group="Other";
+       print group ": " $0
+     }' | sort | uniq
+
+**Method 3: Manual release notes**
+
+For each commit type, list the relevant commits:
+
+.. code-block:: markdown
+
+   # Release Notes v1.2.3
+
+   ## Features
+
+   - docs(git-workflow): add release workflow documentation (#123)
+   - feat(github-actions): implement build validation (#156)
+
+   ## Bug Fixes
+
+   - fix(sphinx): correct configuration error (#145)
+   - fix(docs): update broken internal links (#167)
+
+   ## Documentation
+
+   - docs(guides): update contribution guidelines (#178)
+
+   ## Other
+
+   - chore(deps): upgrade sphinx to 5.0 (#189)
+
+**Add release notes to the CHANGELOG.md:**
+
+.. code-block:: markdown
+
+   # Changelog
+
+   ## [1.2.3] - 2026-04-27
+
+   ### Added
+
+   - Release workflow documentation with tagging strategy
+   - GitHub Actions build validation workflow
+   - Branch protection enforcement
+
+   ### Fixed
+
+   - Sphinx configuration error preventing builds
+   - Broken internal documentation links
+
+   ### Documentation
+
+   - Updated contribution guidelines
+   - Added release procedure checklist
+
+4.5 Rollback Procedure
+--------------------------------------------------------------------------------
+
+If a release has a critical issue and must be reverted:
+
+**Step 1: Identify the merge commit to revert**
+
+.. code-block:: bash
+
+   git log main --oneline | head -5
+
+   # Output:
+   # a1b2c3d (HEAD -> main) Merge pull request #156 from develop
+   # b2c3d4e Some previous commit
+   # c3d4e5f Another previous commit
+
+The merge commit is a1b2c3d.
+
+**Step 2: Revert the merge commit**
+
+Use ``git revert -m 1`` to revert a merge without losing history:
+
+.. code-block:: bash
+
+   git revert -m 1 a1b2c3d
+
+The ``-m 1`` flag tells git to keep the first parent (the main branch) and revert the changes from the second parent (the develop branch).
+
+Git will create a new commit with the revert:
+
+.. code-block:: bash
+
+   git commit -m "revert(release): rollback v1.2.3 due to critical bug"
+
+**Step 3: Push the revert commit**
+
+.. code-block:: bash
+
+   git push origin main
+
+**Step 4: Create a rollback tag**
+
+Create a new tag to mark the rollback point:
+
+.. code-block:: bash
+
+   git tag -a v1.2.3-rollback -m "Rollback from v1.2.3
+
+   Reason: Critical bug in feature X
+   Reverted to: [previous stable version]
+   See: [link to issue]"
+
+   git push origin v1.2.3-rollback
+
+**Step 5: Notify stakeholders**
+
+- Create a GitHub Release for the rollback tag
+- Post to project channels (Slack, email, etc.)
+- Document reason and next steps
+
+**Rollback Example in Practice:**
+
+.. code-block:: bash
+
+   # Release goes out as v1.2.3
+   git tag v1.2.3
+
+   # Critical bug found, rollback needed
+   git revert -m 1 a1b2c3d
+   git push origin main
+
+   # Tag the rollback point
+   git tag -a v1.2.3-rollback -m "Rollback from v1.2.3 due to critical bug in X"
+   git push origin v1.2.3-rollback
+
+   # History preserved:
+   # a1b2c3d (tag: v1.2.3) Merge pull request #156 from develop
+   # e1f2g3h (tag: v1.2.3-rollback) revert(release): rollback v1.2.3
+   # Previous stable version
+
+**Why This Approach?**
+
+- History is preserved (no force-push or hard reset)
+- You can track why a release was rolled back
+- The original merge commit remains in history for audit
+- Future releases can reference the rollback decision
+- No loss of data or commit history
+
+5. GitHub Branch Protection
 ================================================================================
 
 Branch protection rules enforce quality gates on the ``develop`` and ``main`` branches, preventing accidental or unauthorized changes. This section documents how to configure these rules.
 
-4.1 Branch Protection Overview
+5.1 Branch Protection Overview
 --------------------------------------------------------------------------------
 
 **Why Branch Protection?**
@@ -1045,7 +1485,7 @@ Branch protection rules prevent:
 - **develop** — Moderate protection: PR review required, CI must pass
 - **main** — Strict protection: 2 PR approvals required, admin-only push, CI must pass
 
-4.2 GitHub UI Setup — Step-by-Step
+5.2 GitHub UI Setup — Step-by-Step
 --------------------------------------------------------------------------------
 
 **Access Branch Protection Settings:**
@@ -1155,7 +1595,7 @@ Configure with **stricter** settings:
 | Allow deletion                            | ✗         | ✗       |
 +-------------------------------------------+-----------+---------+
 
-4.3 API Configuration — GitHub REST API
+5.3 API Configuration — GitHub REST API
 --------------------------------------------------------------------------------
 
 If you prefer to configure branch protection programmatically (e.g., in infrastructure-as-code), use the GitHub API:
@@ -1233,7 +1673,7 @@ If you prefer to configure branch protection programmatically (e.g., in infrastr
 5. Click "Generate token" and **save it securely**
 6. Use the token in the curl command: ``Authorization: token YOUR_TOKEN``
 
-4.4 Verification — Confirm Protection is Active
+5.4 Verification — Confirm Protection is Active
 --------------------------------------------------------------------------------
 
 **Via GitHub UI:**
