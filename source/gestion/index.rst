@@ -7,10 +7,12 @@ Gestión
 Propósito del Dominio
 =====================
 
-El dominio **Gestión** contiene la documentación de usuarios, la gestión del proyecto 
+El dominio **Gestión** contiene la documentación de usuarios, la gestión del proyecto
 y las evidencias de pruebas y validaciones del sistema IACT.
 
 Este dominio responde a las preguntas: **"¿Cómo usar el sistema y cómo se gestiona el proyecto?"**
+
+[CONFLICT TEST: Change made on develop branch for merge conflict validation test]
 
 Contenido
 =========
