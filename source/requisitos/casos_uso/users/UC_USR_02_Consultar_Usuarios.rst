@@ -7,13 +7,9 @@
    :uc_id: UC_USR_02
    :normativa: CNST-009
 
-==================================================
+=============================
 UC_USR_02: Consultar Usuarios
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+=============================
 
 1. Resumen
 ----------
@@ -65,7 +61,6 @@ estado, segmento, agrupador y busqueda por texto.
    :caption: Diagrama de Caso de Uso - UC_USR_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -171,7 +166,6 @@ El administrador accede al modulo de gestion de usuarios.
    :caption: Diagrama de Secuencia - UC_USR_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -399,7 +393,6 @@ El administrador accede al modulo de gestion de usuarios.
    :caption: Diagrama de Actividad - UC_USR_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

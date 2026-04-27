@@ -10,27 +10,23 @@
    :autor: PMO IACT
    :clasificacion: Interno
 
+.. _meta-02:
 .. _meta_02_clasificacion_documental:
 
-==========================================================
+==================================
 META_02 · Clasificación Documental
-==========================================================
+==================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-------------------------------------------------------------
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento establece los niveles de clasificación de seguridad aplicables
 a toda la documentación del proyecto IACT, definiendo restricciones de acceso,
 manejo y distribución para cada nivel.
 
-------------------------------------------------------------
+---------------------------
 2. Niveles de Clasificación
-------------------------------------------------------------
+---------------------------
 
 2.1. Definición de Niveles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,9 +105,9 @@ alineados con la política corporativa de seguridad de la información:
      - Prohibido
      - Prohibido
 
-------------------------------------------------------------
+---------------------------------
 3. Clasificación por Dominio IACT
-------------------------------------------------------------
+---------------------------------
 
 La siguiente tabla establece la clasificación por defecto de cada
 dominio primario del modelo documental IACT:
@@ -139,9 +135,9 @@ dominio primario del modelo documental IACT:
      - Interno
      - Matrices de relación sin datos operativos.
 
-------------------------------------------------------------
+---------------------------
 4. Etiquetado de Documentos
-------------------------------------------------------------
+---------------------------
 
 4.1. Metadato Obligatorio
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,9 +167,9 @@ bloque ``.. meta::``:
 - La clasificación más alta de un artefacto contenido eleva la clasificación
   efectiva del dominio para efectos de acceso.
 
-------------------------------------------------------------
+-----------------
 5. Roles y Acceso
-------------------------------------------------------------
+-----------------
 
 .. list-table::
    :widths: 25 15 15 15 15
@@ -215,9 +211,9 @@ bloque ``.. meta::``:
      - Sin acceso
      - Sin acceso
 
-------------------------------------------------------------
+---------------------------
 6. Procedimientos de Manejo
-------------------------------------------------------------
+---------------------------
 
 6.1. Cambio de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -239,9 +235,9 @@ Ante divulgación no autorizada de información clasificada:
 3. Ejecutar plan de contención según nivel afectado.
 4. Registrar incidente y acciones correctivas.
 
-------------------------------------------------------------
+--------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -254,11 +250,11 @@ Ante divulgación no autorizada de información clasificada:
    * - Política Corporativa de Seguridad
      - (Documento externo al sistema IACT)
    * - Roles y Responsabilidades IACT
-     - :doc:`/normativa/restricciones/RACI_Matriz_Responsabilidades`
+     - (Documento externo al sistema IACT)
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

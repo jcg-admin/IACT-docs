@@ -1,8 +1,8 @@
 .. _fundamentos-conceptuales-index:
 
-==============================================================================
+========================
 Fundamentos Conceptuales
-==============================================================================
+========================
 
 :Dominio: base_cognitiva
 :Subdominio: _fundamentos_conceptuales

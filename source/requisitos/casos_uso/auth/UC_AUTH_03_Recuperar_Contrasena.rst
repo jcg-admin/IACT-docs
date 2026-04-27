@@ -7,13 +7,9 @@
    :uc_id: UC_AUTH_03
    :normativa: CNST-001, CNST-009
 
-==================================================
+================================
 UC_AUTH_03: Recuperar Contrasena
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+================================
 
 1. Resumen
 ----------
@@ -71,7 +67,6 @@ interno del sistema (CNST-001).
    :caption: Diagrama de Caso de Uso - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -220,7 +215,6 @@ para un usuario especifico.
    :caption: Diagrama de Secuencia - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -452,7 +446,6 @@ para un usuario especifico.
    :caption: Diagrama de Actividad - UC_AUTH_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 
@@ -588,7 +581,7 @@ para un usuario especifico.
            Contrasena temporal: {temp_password}
 
            Debe cambiar esta contrasena en su proximo inicio de sesion.
-           '''
+                                                                       
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 

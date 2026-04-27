@@ -10,15 +10,11 @@
 
 .. _casos-uso-access-index:
 
-==============================================================================
+====================================================
 MOD_Access: Casos de Uso de Control de Acceso (RBAC)
-==============================================================================
+====================================================
 
 Modulo de Control de Acceso - Version 2.0 con diagramas PlantUML.
-
-.. contents:: Contenido
-   :local:
-   :depth: 2
 
 ----
 
@@ -257,17 +253,17 @@ Trazabilidad BR -> UC
 
 .. toctree::
    :maxdepth: 1
-   :caption: Casos de Uso
+   :caption: Control de Acceso RBAC
 
-   UC_010_Asignar_Funciones
-   UC_011_Revocar_Funciones
-   UC_041_Asignar_Segmento
-   UC_042_Revocar_Segmento
-   UC_043_Configurar_SoD
-   UC_044_Consultar_Permisos
-   UC_045_Gestionar_Agrupadores
-   UC_046_Gestionar_Funciones
-   UC_047_Auditar_Permisos
+   UC_ACC_01_Asignar_Funciones
+   UC_ACC_02_Revocar_Funciones
+   UC_ACC_03_Consultar_Permisos
+   UC_ACC_04_Asignar_Agrupador
+   UC_ACC_05_Gestionar_SoD
+   UC_ACC_06_Gestionar_Segmentos
+   UC_ACC_07_Asignar_Segmento
+   UC_ACC_08_Permiso_Temporal
+   UC_ACC_09_Auditar_Cambios_Acceso
 
 ----
 

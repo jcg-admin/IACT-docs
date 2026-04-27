@@ -17,11 +17,6 @@
 PROC_Crear_Estructura_Directorios_Tmp: Crear Estructura de Directorios en /tmp
 ==============================================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------

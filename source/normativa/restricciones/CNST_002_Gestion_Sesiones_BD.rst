@@ -1,5 +1,5 @@
 CNST-002: Gestión de Sesiones en Base de Datos
-===============================================
+==============================================
 
 :ID: CNST-002
 :Versión: 1.0.1
@@ -172,10 +172,10 @@ Django crea automáticamente la tabla:
    ) ENGINE=InnoDB;
 
 Política de Sesión Única
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Implementación de Single Session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -188,12 +188,12 @@ Implementación de Single Session
 
    @receiver(user_logged_in)
    def invalidate_previous_sessions(sender, request, user, **kwargs):
-       """
+                                                                     
        Invalidar todas las sesiones previas del usuario al hacer login.
 
        CNST-002: Política de sesión única por usuario.
        Solo permite una sesión activa por usuario a la vez.
-       """
+                                                           
        # Obtener sesión actual
        current_session_key = request.session.session_key
 
@@ -209,7 +209,7 @@ Implementación de Single Session
        # Alternativa: Usar tabla custom UserSession (ver abajo)
 
 Tabla Custom UserSession
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para mejor control y auditoría:
 
@@ -225,12 +225,12 @@ Para mejor control y auditoría:
 
 
    class UserSession(models.Model):
-       """
+                                   
        Seguimiento de sesiones activas por usuario.
 
        CNST-002: Permite implementar política de sesión única
        y auditoría de sesiones.
-       """
+                               
 
        user = models.ForeignKey(
            User,
@@ -257,14 +257,14 @@ Para mejor control y auditoría:
 
        @classmethod
        def create_session(cls, user, session_key, request):
-           """
+                                                           
            Crear nueva sesión y eliminar sesiones previas (single session).
 
            Args:
                user: Usuario
                session_key: Session key de Django
                request: Request actual
-           """
+                                      
            # Desactivar sesiones previas del usuario
            cls.objects.filter(user=user, is_active=True).update(is_active=False)
 
@@ -298,11 +298,11 @@ Signal Mejorado con UserSession
 
    @receiver(user_logged_in)
    def create_user_session(sender, request, user, **kwargs):
-       """
+                                                            
        Crear UserSession al login e invalidar sesiones previas.
 
        CNST-002: Sesión única por usuario.
-       """
+                                          
        session_key = request.session.session_key
        UserSession.create_session(user, session_key, request)
 
@@ -346,12 +346,12 @@ Código de Autenticación
 
    @api_view(['POST'])
    def login_view(request):
-       """
+                           
        Login de usuario con sesión en BD.
 
        CNST-002: Sesión almacenada en MySQL.
        UC-001: Iniciar Sesión.
-       """
+                              
        username = request.data.get('username')
        password = request.data.get('password')
 
@@ -380,7 +380,7 @@ UC-002: Cerrar Sesión
 ~~~~~~~~~~~~~~~~~~~~~
 
 Flujo CORRECTO
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 1. Usuario solicita logout
 2. Sistema marca UserSession como inactiva
@@ -389,7 +389,7 @@ Flujo CORRECTO
 5. Usuario es redirigido a login
 
 Código de Logout
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -397,12 +397,12 @@ Código de Logout
 
    @api_view(['POST'])
    def logout_view(request):
-       """
+                            
        Logout de usuario.
 
        CNST-002: Elimina sesión de BD.
        UC-002: Cerrar Sesión.
-       """
+                             
        # Signal deactivate_user_session se ejecuta automáticamente
        logout(request)
 
@@ -415,7 +415,7 @@ UC-029: Consultar Sesiones Activas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Flujo CORRECTO
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 1. Administrador accede a panel de sesiones
 2. Sistema consulta UserSession activas
@@ -432,12 +432,12 @@ Código de Consulta
 
 
    class ActiveSessionsView(APIView):
-       """
+                                     
        Consultar sesiones activas del sistema.
 
        CNST-002: Auditoría de sesiones en BD.
        UC-029: Consultar Sesiones Activas.
-       """
+                                          
 
        permission_classes = [IsAdminUser]
 
@@ -477,7 +477,7 @@ Limpieza de Sesiones Expiradas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Django Command
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Django incluye comando para limpiar sesiones expiradas:
 
@@ -487,7 +487,7 @@ Django incluye comando para limpiar sesiones expiradas:
    python manage.py clearsessions
 
 Cron Job Recomendado
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -543,7 +543,7 @@ Validación Automatizada
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Script de Validación
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -637,7 +637,7 @@ Monitoreo
 ---------
 
 Métricas a Monitorear
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 40 60
@@ -655,7 +655,7 @@ Métricas a Monitorear
      - ``SELECT DATE_FORMAT(created_at, '%Y-%m-%d %H:00'), COUNT(*) FROM user_sessions WHERE created_at >= NOW() - INTERVAL 24 HOUR GROUP BY 1``
 
 Alertas Recomendadas
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 - Más de 100 sesiones expiradas sin limpiar
 - Usuario con múltiples sesiones activas (violación de single session)
@@ -674,7 +674,7 @@ Documentos Relacionados
 - UC-029: Consultar Sesiones Activas
 
 Documentación Django
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 - Django Sessions: https://docs.djangoproject.com/en/stable/topics/http/sessions/
 - Database-backed sessions: https://docs.djangoproject.com/en/stable/ref/settings/#session-engine

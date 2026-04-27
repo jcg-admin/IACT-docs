@@ -13,15 +13,10 @@
 
 .. _proc-generacion-tst:
 
-==============================================================================
+==================================================
 PROC_Generacion_TST: Generacion de Casos de Prueba
-==============================================================================
+==================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -319,10 +314,10 @@ Antes de iniciar este procedimiento, verificar:
              )
          
          def test_genera_token_valido(self, verified_user):
-             """
+                                                           
              CUANDO el sistema genera el token JWT
              ENTONCES se crea un token valido.
-             """
+                                              
              # Arrange
              service = JWTService()
              

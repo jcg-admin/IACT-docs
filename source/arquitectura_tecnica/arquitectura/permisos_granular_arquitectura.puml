@@ -3,29 +3,14 @@
 ' Fecha: 2025-11-09
 ' Referencia: docs/adr/adr_2025_010_orm_sql_hybrid_permissions.md
 
-!define LAYER(name,color) rectangle name color
-!define COMPONENT(name) component name
+' Centralized PlantUML style system (Phase C: Consolidated)
+!include ../../../_static/plantuml-styles.puml
 
-skinparam component {
-  BackgroundColor<<frontend>> #E1F5FE
-  BackgroundColor<<api>> #FFF9C4
-  BackgroundColor<<service>> #F0F4C3
-  BackgroundColor<<orm>> #C5E1A5
-  BackgroundColor<<sql>> #81C784
-  BackgroundColor<<db>> #FFCCBC
-  BorderColor #455A64
-  FontSize 12
-}
-
-skinparam rectangle {
-  BackgroundColor<<presentation>> #E1F5FE
-  BackgroundColor<<application>> #FFF9C4
-  BackgroundColor<<domain>> #F0F4C3
-  BackgroundColor<<persistence>> #C5E1A5
-  BorderColor #455A64
-  FontSize 14
-  FontStyle bold
-}
+' Architecture layer colors and component stereotypes now from consolidated styles:
+' - See plantuml-styles.puml Section 3 for COLOR_* definitions
+' - See plantuml-styles.puml Section 8 for component stereotype colors
+' - See plantuml-styles.puml Section 10 for rectangle stereotype colors
+' - LAYER and COMPONENT macros defined in Section 14
 
 title Sistema de Permisos Granular - Arquitectura en Capas
 caption Estrategia Híbrida: ORM (desarrollo/testing) + SQL (producción optimizada)

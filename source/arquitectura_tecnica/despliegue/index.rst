@@ -1,8 +1,8 @@
 .. _despliegue:
 
-===========
+==========
 Despliegue
-===========
+==========
 
 Propósito
 =========
@@ -25,7 +25,7 @@ El despliegue incluye:
 * **Backup y Recuperación:** Estrategias de respaldo
 
 Arquitectura de Ambientes
-==========================
+=========================
 
 El sistema IACT se despliega en:
 

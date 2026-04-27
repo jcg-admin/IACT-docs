@@ -12,15 +12,10 @@
 
 .. _br-019:
 
-==============================================================================
+=================================
 BR_019: Retención de Datos 2 Años
-==============================================================================
+=================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -198,9 +193,9 @@ La política de retención de 2 años:
    # apps/core/management/commands/cleanup_old_data.py
    
    class Command(BaseCommand):
-       """
+                                                       
        Comando que implementa BR_019: Retención 2 años.
-       """
+                                                       
        help = 'Limpia datos con más de 2 años de antigüedad'
        
        RETENTION_DAYS = 730  # BR_019: 2 años
@@ -239,10 +234,10 @@ La política de retención de 2 años:
    
    @shared_task
    def cleanup_old_data_task():
-       """
+                               
        BR_019: Tarea semanal de limpieza de datos antiguos.
        Ejecuta domingos a las 3:00 AM.
-       """
+                                      
        call_command('cleanup_old_data')
 
 5.3 Configuración Celery Beat

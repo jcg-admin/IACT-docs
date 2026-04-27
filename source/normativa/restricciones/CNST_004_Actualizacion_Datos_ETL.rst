@@ -178,11 +178,11 @@ APScheduler Configuration
 
 
    def start_scheduler():
-       """
+                         
        Iniciar scheduler con jobs ETL.
        
        CNST-004: ETL cada 6 horas (4 veces al día).
-       """
+                                                   
        from apps.etl.tasks import run_etl_pipeline
        
        # Job principal: ETL cada 6 horas
@@ -257,7 +257,7 @@ Orquestador del Pipeline
    logger = logging.getLogger('etl')
    
    class ETLPipeline:
-       """
+                     
        Pipeline ETL completo para sincronización IVR -> Analytics.
        
        CNST-003: Solo lectura de IVR.
@@ -268,7 +268,7 @@ Orquestador del Pipeline
        2. TRANSFORM: Agregar en métricas
        3. LOAD: Guardar en Analytics
        4. LOG: Registrar ejecución
-       """
+                                  
        
        MAX_RETRIES = 3
        RETRY_DELAY_BASE = 60  # segundos
@@ -280,7 +280,7 @@ Orquestador del Pipeline
            self.execution = None
        
        def run(self, start_date=None, end_date=None):
-           """
+                                                     
            Ejecutar pipeline ETL completo.
            
            Args:
@@ -289,7 +289,7 @@ Orquestador del Pipeline
            
            Returns:
                ETLExecution con resultado
-           """
+                                         
            # Crear registro de ejecución
            self.execution = ETLExecution.objects.create(
                status='RUNNING',
@@ -394,11 +394,11 @@ Orquestador del Pipeline
 
 
    def run_etl_pipeline():
-       """
+                          
        Función wrapper para el scheduler.
        
        Esta función es llamada por APScheduler cada 6 horas.
-       """
+                                                            
        pipeline = ETLPipeline()
        return pipeline.run()
 
@@ -412,12 +412,12 @@ Modelo de Ejecución ETL
    from django.db import models
    
    class ETLExecution(models.Model):
-       """
+                                    
        Registro de ejecuciones ETL.
        
        Almacena historial de todas las ejecuciones del pipeline
        para auditoría y monitoreo.
-       """
+                                  
        
        STATUS_CHOICES = [
            ('PENDING', 'Pendiente'),
@@ -546,14 +546,14 @@ Vista de Estado
    from django.utils import timezone
    
    class ETLStatusView(APIView):
-       """
+                                
        Vista de estado del ETL.
        
        Retorna información sobre la última ejecución
        y próxima ejecución programada.
        
        Permissions: Solo usuarios autenticados.
-       """
+                                               
        
        permission_classes = [IsAuthenticated]
        
@@ -613,11 +613,11 @@ Vista de Estado
 
 
    class ETLHistoryView(APIView):
-       """
+                                 
        Historial de ejecuciones ETL.
        
        Retorna las últimas N ejecuciones para monitoreo.
-       """
+                                                        
        
        permission_classes = [IsAuthenticated]
        
@@ -769,11 +769,11 @@ El pipeline notifica automáticamente a administradores cuando:
    logger = logging.getLogger('etl')
    
    def check_etl_health():
-       """
+                          
        Verificar salud del proceso ETL.
        
        Llamar periódicamente (cada hora) para detectar problemas.
-       """
+                                                                 
        now = timezone.now()
        
        # Verificar última ejecución exitosa

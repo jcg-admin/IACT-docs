@@ -12,15 +12,10 @@
 
 .. _fnd-07:
 
-==============================================================================
+==================================
 FND_07: Requerimientos Funcionales
-==============================================================================
+==================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Proposito
 ---------
@@ -228,11 +223,11 @@ El FR debe tener trazabilidad clara hacia una necesidad de negocio.
 
    CORRECTO (relevante):
    FR-40.6: Validar CAS Number
-       ^
+                                
        | Deriva de: UC-40 paso 6
-       ^
+                                               
        | Deriva de: BR-012 "CAS debe ser unico"
-       ^
+                                               
        | Deriva de: Necesidad "Catalogo confiable"
 
    Cadena completa -> FR es relevante

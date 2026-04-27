@@ -1,8 +1,8 @@
 .. IACT - Sistema de Dashboard Analytics documentation master file
 
-====================================================
+=====================================
 IACT - Sistema de Dashboard Analytics
-====================================================
+=====================================
 
 .. image:: _static/img/logo.svg
    :alt: IACT Logo
@@ -12,7 +12,7 @@ IACT - Sistema de Dashboard Analytics
 ----
 
 Bienvenido a la Documentación del Proyecto IACT
-================================================
+===============================================
 
 El proyecto IACT es una solución de **Dashboard Analytics** que conecta datos operativos con necesidades de análisis de negocio mediante un proceso ETL robusto y trazable.
 
@@ -58,6 +58,12 @@ Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 
    :caption: Gestión
 
    gestion/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: PlantUML Guide
+
+   plantuml-guide/index
 
 Índices y Búsqueda
 ==================

@@ -11,15 +11,10 @@
 
 .. _proc-derivacion-fr-code:
 
-==============================================================================
+==================================================
 PROC_Derivacion_FR_CODE: Derivacion de FR a Codigo
-==============================================================================
+==================================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -104,12 +99,12 @@ En docstring del codigo, referenciar FR:
 .. code-block:: python
 
    def generate_token(self, user):
-       """
+                                  
        Genera token JWT para usuario autenticado.
        
        Implements: FR_UC001_03
        BR: BR_005 (Sesion Unica)
-       """
+                                
        ...
 
 **Paso 5: Actualizar RTM_FR_CODE**

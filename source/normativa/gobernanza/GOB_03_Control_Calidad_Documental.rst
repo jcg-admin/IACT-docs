@@ -12,15 +12,10 @@
 
 .. _gob-03:
 
-==============================================================================
+=====================================
 GOB_03: Control de Calidad Documental
-==============================================================================
+=====================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Proposito
 ---------
@@ -602,7 +597,7 @@ Generado mensualmente por QA:
 .. code-block:: text
 
    REPORTE DE CALIDAD DOCUMENTAL - {MES} {AÑO}
-   ============================================
+                                              
 
    1. VOLUMETRIA
       - Artefactos totales: {n}

@@ -1,77 +1,110 @@
 ```yml
 type: Contexto de Proyecto
 category: Decisiones Arquitectónicas
-version: 2.0
-purpose: Índice de decisiones arquitectónicas del proyecto THYROX
-updated_at: 2026-04-14 22:23:22
+project: IACT-docs
+version: 1.0.0
+purpose: Índice de decisiones del proyecto IACT-docs
+created_at: 2026-04-23 09:05:00
+updated_at: 2026-04-23 09:05:00
 ```
 
-# Decisiones de Arquitectura
+# Decisiones de Arquitectura — IACT-docs
 
-Registro de todas las ADRs del proyecto. Cada archivo documenta el razonamiento
-detrás de una decisión permanente. Ver [knowledge-base.md](knowledge-base.md)
-para el sistema de conocimiento completo.
+Registro de decisiones arquitectónicas específicas del proyecto IACT-docs. Cada ADR documenta el razonamiento detrás de una decisión permanente.
 
 ---
 
-## Índice de ADRs
+## IACT-docs Specific ADRs
 
-### Fundamentos del Proyecto
+Decisiones propias del proyecto (a crear durante ejecución).
 
-| Archivo | Decisión | Status | Fecha |
-|---------|----------|--------|-------|
-| [adr-markdown-documentacion](decisions/adr-markdown-documentacion.md) | Markdown como formato estándar de documentación | Aprobado | 2025-03-24 |
-| [adr-roadmap-source-of-truth](decisions/adr-roadmap-source-of-truth.md) | ROADMAP.md como single source of truth para tracking | Aprobado | 2025-03-24 |
-| [adr-conventional-commits](decisions/adr-conventional-commits.md) | Conventional Commits como estándar de mensajes | Aprobado | 2025-03-24 |
-| [adr-yaml-configuracion](decisions/adr-yaml-configuracion.md) | YAML para archivos de configuración | Pendiente Fase 2 | 2025-03-24 |
-
-### Arquitectura del Sistema
+### Seguridad y Cumplimiento
 
 | Archivo | Decisión | Status | Fecha |
 |---------|----------|--------|-------|
-| [adr-separacion-subproyectos](decisions/adr-separacion-subproyectos.md) | API y Build como sub-proyectos independientes | Aprobado | 2025-03-24 |
-| [adr-postgresql](decisions/adr-postgresql.md) | PostgreSQL como motor de base de datos principal | Aprobado | 2025-03-24 |
-| [adr-docker-containerizacion](decisions/adr-docker-containerizacion.md) | Docker para containerización y deployment | Aprobado Fase 2 | 2025-03-24 |
-| [adr-github-actions-cicd](decisions/adr-github-actions-cicd.md) | GitHub Actions para CI/CD | Aprobado Fase 2 | 2025-03-24 |
-| [adr-docs-documentacion-canonica](decisions/adr-docs-documentacion-canonica.md) | docs/ como directorio de documentación canónica | Aprobado | 2026-03-28 |
+| **adr-sensitive-info-policy** (pendiente) | Política para información sensible (RBAC, restricciones) en repositorio | Pendiente | 2026-04-23 |
 
-### Framework THYROX — Metodología
+**Descripción:** Define qué información es sensible (RBAC models, CNST constraints, security details), dónde almacenarla (env vars, no-git, encrypted), y cómo prevenir futuros commits (pre-commit hooks).
 
-| Archivo | Decisión | Status | Fecha |
-|---------|----------|--------|-------|
-| [adr-claude-code-development-agent](decisions/adr-claude-code-development-agent.md) | Claude Code como agente principal de desarrollo | Aprobado | 2025-03-24 |
-| [adr-analyze-first](decisions/adr-analyze-first.md) | Phase 1 es siempre ANALYZE — orden canónico fijo | Aprobado | 2026-03-27 |
-| [adr-anatomia-oficial-skill](decisions/adr-anatomia-oficial-skill.md) | Anatomía oficial del skill: SKILL.md + scripts/ + references/ + assets/ | Aprobado | 2026-03-27 |
-| [adr-management-skill-n-tech-skills](decisions/adr-management-skill-n-tech-skills.md) | Refinamiento ADR-004 — Management Skill + N Tech Skills | Aprobado | 2026-03-28 |
-| [adr-separacion-scope-wp](decisions/adr-separacion-scope-wp.md) | Separación de scope y dependencia entre WPs agent-format-spec y parallel-agent-conventions | Aprobado | 2026-03-30 |
+**Trigger:** TD-002 — Crear durante Phase 3 DIAGNOSE o Phase 5 STRATEGY
 
-### Framework THYROX — Hooks y Automatización
+### Configuración Sphinx
 
 | Archivo | Decisión | Status | Fecha |
 |---------|----------|--------|-------|
-| [adr-bound-detector-preToolUse](decisions/adr-bound-detector-preToolUse.md) | PreToolUse hook sobre Agent para detectar instrucciones sin bound | Aprobado | 2026-04-14 |
+| **adr-sphinx-configuration** (a crear) | Decisiones sobre extensiones, tema, estructura de build | Abierto | — |
 
-### Framework THYROX — Arquitectura de Skills
+**Descripción:** Documentar por qué elegimos las 16 extensiones, qué hace cada una, cómo validarlas (TD-005).
+
+### Estructura de Documentación
 
 | Archivo | Decisión | Status | Fecha |
 |---------|----------|--------|-------|
-| [adr-arquitectura-orquestacion-thyrox](decisions/adr-arquitectura-orquestacion-thyrox.md) | Arquitectura de 5 capas — mecanismo de orquestación SKILL vs CLAUDE.md | Aprobado | 2026-04-07 |
-| [adr-workflow-commands-a-skills](decisions/adr-workflow-commands-a-skills.md) | Migración /workflow_* commands → workflow-* skills hidden | Aprobado | 2026-04-08 |
-| [adr-referencias-scripts-tres-niveles](decisions/adr-referencias-scripts-tres-niveles.md) | Referencias y scripts en 3 niveles arquitectónicos | Aprobado | 2026-04-09 |
-| [adr-templates-workflow-assets](decisions/adr-templates-workflow-assets.md) | Templates distribuidos en workflow-*/assets/ — assets autocontenidos por fase | Aprobado | 2026-04-09 |
-| [adr-plugin-namespace-thyrox](decisions/adr-plugin-namespace-thyrox.md) | Namespace /thyrox:* mediante Claude Code Plugin (Opción D) | Aprobado | 2026-04-10 |
+| **adr-documentation-structure** (a crear) | Organización de directorios en source/ y convenciones | Abierto | — |
+
+**Descripción:** Estructura actual (arquitectura_tecnica/, base_cognitiva/, gestion/, normativa/, requisitos/) — por qué esta organización, dónde agregar nuevo contenido.
 
 ---
 
-## Cómo Crear una Nueva ADR
+## Framework Base ADRs (heredadas)
 
-1. Usar template: [adr.md.template](../skills/workflow-analyze/assets/adr.md.template)
-2. Nombre del archivo: `adr-{tema-descriptivo}.md` — sin números, kebab-case
-3. Guardar en `decisions/`
-4. Agregar fila en la tabla del índice correspondiente de este archivo
-5. Commit: `docs(adr): add adr-{tema} — [título breve]`
+Decisiones del framework THYROX que aplican universalmente y son heredadas por IACT-docs.
+
+### Fundamentos del Framework
+
+| Archivo | Decisión | Status | Fecha |
+|---------|----------|--------|-------|
+| [adr-markdown-documentacion](../skills/thyrox/references/adr-markdown-documentacion.md) | Markdown como formato estándar | Aprobado | 2025-03-24 |
+| [adr-conventional-commits](../skills/thyrox/references/adr-conventional-commits.md) | Conventional Commits para mensajes | Aprobado | 2025-03-24 |
+| [adr-yaml-configuracion](../skills/thyrox/references/adr-yaml-configuracion.md) | YAML para archivos de configuración | Pendiente | 2025-03-24 |
+
+**Aplicación a IACT-docs:** Todos los commits en feature/project-setup siguen conventional commits. Metadata usa YAML.
+
+### Metodología THYROX
+
+| Archivo | Decisión | Status | Fecha |
+|---------|----------|--------|-------|
+| [adr-analyze-first](../skills/thyrox/references/adr-analyze-first.md) | Phase 1 es siempre DISCOVER | Aprobado | 2026-03-27 |
+| [adr-claude-code-development-agent](../skills/thyrox/references/adr-claude-code-development-agent.md) | Claude Code como agente principal | Aprobado | 2025-03-24 |
+| [adr-anatomia-oficial-skill](../skills/thyrox/references/adr-anatomia-oficial-skill.md) | Anatomía oficial del skill | Aprobado | 2026-03-27 |
+| [adr-bound-detector-preToolUse](../skills/thyrox/references/adr-bound-detector-preToolUse.md) | PreToolUse hook para detectar bounds | Aprobado | 2026-04-14 |
+
+**Aplicación a IACT-docs:** El WP config-review-iact-docs sigue la estructura THYROX con 7 fases (1, 3, 5, 6, 8, 10, 11). Phase 1 DISCOVER completada.
+
+### Arquitectura de Skills y Framework
+
+| Archivo | Decisión | Status | Fecha |
+|---------|----------|--------|-------|
+| [adr-arquitectura-orquestacion-thyrox](../skills/thyrox/references/adr-arquitectura-orquestacion-thyrox.md) | Arquitectura de 5 capas | Aprobado | 2026-04-07 |
+| [adr-plugin-namespace-thyrox](../skills/thyrox/references/adr-plugin-namespace-thyrox.md) | Namespace /thyrox:* | Aprobado | 2026-04-10 |
+| [adr-workflow-commands-a-skills](../skills/thyrox/references/adr-workflow-commands-a-skills.md) | Migración /workflow_* a skills | Aprobado | 2026-04-08 |
+
+**Aplicación a IACT-docs:** Se heredan los scripts del framework (session-start.sh, validate-session-close.sh, etc.).
 
 ---
 
-**Total ADRs:** 20 · **Aprobadas:** 17 · **Pendientes:** 2 · **Deprecadas:** 0
-**Ubicación:** `.thyrox/context/decisions/`
+## Cómo Crear una Nueva ADR para IACT-docs
+
+1. Identificar una decisión arquitectónica permanente del proyecto (no framework)
+2. Crear archivo: `decisions/adr-{tema-descriptivo}.md`
+3. Usar template si existe (ver referencias/ del framework)
+4. Agregar fila en la tabla "IACT-docs Specific ADRs" arriba
+5. Commit: `docs(adr): add adr-{tema} — [descripción breve]`
+
+**Timing:** Crear ADRs en Phase 1-2 cuando la decisión se toma permanente.
+
+---
+
+## Resumen
+
+| Categoría | Cantidad | Status |
+|-----------|----------|--------|
+| **IACT-docs Specific ADRs** | 1 | Pendiente (sensitive-info-policy) |
+| **Framework Base ADRs (heredadas)** | 10 | Aprobadas |
+| **Total** | 11 | 10 aprobadas, 1 pendiente |
+
+---
+
+**Ubicación:** `.thyrox/context/decisions.md`  
+**Scope:** Decisiones de IACT-docs + framework heredado  
+**Última actualización:** 2026-04-23 09:05:00

@@ -7,13 +7,9 @@
    :uc_id: UC_USR_01
    :normativa: CNST-001, CNST-005, CNST-009
 
-==================================================
+========================
 UC_USR_01: Crear Usuario
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+========================
 
 1. Resumen
 ----------
@@ -72,7 +68,6 @@ y notificacion al usuario via buzon interno (CNST-001).
    :caption: Diagrama de Caso de Uso - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -234,7 +229,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    :caption: Diagrama de Secuencia - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nUsers" as FE <<Frontend>>
@@ -500,7 +494,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    :caption: Diagrama de Actividad - UC_USR_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 
@@ -641,7 +634,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
            Contrasena temporal: {temp_password}
 
            Debe cambiar esta contrasena en su primer inicio de sesion.
-           '''
+                                                                      
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 

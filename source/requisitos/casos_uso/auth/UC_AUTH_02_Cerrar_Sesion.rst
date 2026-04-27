@@ -7,13 +7,9 @@
    :uc_id: UC_AUTH_02
    :normativa: CNST-009
 
-==================================================
+=========================
 UC_AUTH_02: Cerrar Sesion
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+=========================
 
 1. Resumen
 ----------
@@ -63,7 +59,6 @@ como cerrada y registra el evento en auditoria.
    :caption: Diagrama de Caso de Uso - UC_AUTH_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -187,7 +182,6 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    :caption: Diagrama de Secuencia - UC_AUTH_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "Usuario" as U
    participant "Frontend" as FE <<Frontend>>
@@ -367,7 +361,6 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    :caption: Diagrama de Actividad - UC_AUTH_02
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

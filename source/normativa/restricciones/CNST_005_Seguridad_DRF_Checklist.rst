@@ -150,12 +150,12 @@ Permisos Base
    from rest_framework import permissions
 
    class IsActiveUser(permissions.BasePermission):
-       """
+                                                  
        Verificar que el usuario esté activo.
 
        Uso:
            permission_classes = [IsAuthenticated, IsActiveUser]
-       """
+                                                               
 
        message = 'Usuario inactivo'
 
@@ -164,11 +164,11 @@ Permisos Base
 
 
    class IsAdminUser(permissions.BasePermission):
-       """
+                                                 
        Verificar que el usuario sea administrador (staff).
 
        Uso en vistas administrativas.
-       """
+                                     
 
        message = 'Se requieren permisos de administrador'
 
@@ -181,11 +181,11 @@ Permisos Base
 
 
    class IsOwnerOrAdmin(permissions.BasePermission):
-       """
+                                                    
        Permitir acceso al dueño del recurso o a administradores.
 
        El modelo debe tener campo 'user' o 'owner' o 'created_by'.
-       """
+                                                                  
 
        message = 'No tiene permiso para este recurso'
 
@@ -213,7 +213,7 @@ Permisos Basados en Funciones (RBAC v5.1.1)
    # api/apps/common/permissions.py
 
    class HasFunction(permissions.BasePermission):
-       """
+                                                 
        Verificar que usuario tenga función específica (RBAC v5.1.1).
 
        Compatible con 44 funciones atómicas en 8 módulos.
@@ -222,7 +222,7 @@ Permisos Basados en Funciones (RBAC v5.1.1)
            class MyView(APIView):
                permission_classes = [IsAuthenticated, HasFunction]
                required_functions = ['ve_reportes', 'exporta_reportes']
-       """
+                                                                       
 
        message = 'No tiene la función requerida'
 
@@ -245,12 +245,12 @@ Permisos Basados en Funciones (RBAC v5.1.1)
 
 
    class CanViewReports(permissions.BasePermission):
-       """
+                                                    
        Permiso para ver reportes.
 
        Funciones permitidas: ve_reportes, exporta_reportes,
        crea_reportes_avanzados, administra_sistema (MOD_Reports)
-       """
+                                                                
 
        message = 'No tiene permiso para ver reportes'
        ALLOWED_FUNCTIONS = [
@@ -275,11 +275,11 @@ Permisos Basados en Funciones (RBAC v5.1.1)
 
 
    class CanAnalyzeData(permissions.BasePermission):
-       """
+                                                    
        Permiso para análisis avanzado de datos.
 
        Funciones permitidas: analiza_datos, administra_sistema (MOD_Analytics)
-       """
+                                                                              
 
        message = 'No tiene permiso de analista de datos'
        ALLOWED_FUNCTIONS = ['analiza_datos', 'administra_sistema']
@@ -299,12 +299,12 @@ Permisos Basados en Funciones (RBAC v5.1.1)
 
 
    class CanManageAlerts(permissions.BasePermission):
-       """
+                                                     
        Permiso para gestionar alertas.
 
        Funciones permitidas: configura_alertas, gestiona_eventos_alertas,
        gestiona_templates_alertas, administra_sistema (MOD_Alerts)
-       """
+                                                                  
 
        message = 'No tiene permiso para gestionar alertas'
        ALLOWED_FUNCTIONS = [
@@ -329,12 +329,12 @@ Permisos Basados en Funciones (RBAC v5.1.1)
 
 
    class CanManageUsers(permissions.BasePermission):
-       """
+                                                    
        Permiso para gestionar usuarios.
 
        Funciones permitidas: gestiona_usuarios_completo,
        gestiona_usuarios_parcial, administra_sistema (MOD_Users)
-       """
+                                                                
 
        message = 'No tiene permiso para gestionar usuarios'
        ALLOWED_FUNCTIONS = [
@@ -372,7 +372,7 @@ Modelo de Permisos Temporales
    User = get_user_model()
 
    class TemporaryPermission(models.Model):
-       """
+                                           
        Permisos temporales con vencimiento automático.
 
        Compatible con RBAC v5.1.1 (Flat RBAC + SoD + Permisos Temporales).
@@ -387,7 +387,7 @@ Modelo de Permisos Temporales
        - Justificación obligatoria (min 20 caracteres)
        - Solo administradores pueden otorgar
        - Expiran automáticamente
-       """
+                                
 
        user = models.ForeignKey(
            User,
@@ -496,12 +496,12 @@ Signal de Expiración Automática
 
    @receiver(pre_save, sender=TemporaryPermission)
    def auto_expire_permission(sender, instance, **kwargs):
-       """
+                                                          
        Expirar automáticamente permisos vencidos.
 
        Signal ejecutado antes de guardar para verificar
        si el permiso ha expirado.
-       """
+                                 
        if instance.is_active and instance.expires_at:
            if timezone.now() >= instance.expires_at:
                instance.is_active = False
@@ -514,7 +514,7 @@ Signal de Expiración Automática
                )
 
 Comando de Expiración
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -587,11 +587,11 @@ Permisos Personalizados para Temporales
    # api/apps/common/permissions.py
 
    class CanGrantTemporaryPermissions(permissions.BasePermission):
-       """
+                                                                  
        Permiso para otorgar permisos temporales.
 
        Solo administradores pueden otorgar permisos temporales.
-       """
+                                                               
 
        message = 'Solo administradores pueden otorgar permisos temporales'
 
@@ -604,14 +604,14 @@ Permisos Personalizados para Temporales
 
 
    class HasFunctionOrTemporary(permissions.BasePermission):
-       """
+                                                            
        Verificar función permanente O temporal.
 
        Uso:
            class MyView(APIView):
                permission_classes = [IsAuthenticated, HasFunctionOrTemporary]
                required_functions = ['ve_reportes']
-       """
+                                                   
 
        message = 'No tiene la función requerida (permanente o temporal)'
 
@@ -657,12 +657,12 @@ API de Permisos Temporales
    from django.utils import timezone
 
    class TemporaryPermissionViewSet(viewsets.ModelViewSet):
-       """
+                                                           
        ViewSet para gestión de permisos temporales.
 
        Solo administradores pueden crear/modificar.
        Usuarios pueden ver sus propios permisos temporales.
-       """
+                                                           
 
        serializer_class = TemporaryPermissionSerializer
 
@@ -683,11 +683,11 @@ API de Permisos Temporales
 
        @action(detail=True, methods=['post'])
        def expire(self, request, pk=None):
-           """
+                                          
            Expirar permiso manualmente.
 
            POST /api/v1/temporary-permissions/{id}/expire/
-           """
+                                                          
            permission = self.get_object()
 
            if not permission.is_active:
@@ -705,11 +705,11 @@ API de Permisos Temporales
 
        @action(detail=False, methods=['get'])
        def active(self, request):
-           """
+                                 
            Listar permisos activos no expirados.
 
            GET /api/v1/temporary-permissions/active/
-           """
+                                                    
            now = timezone.now()
            active = self.get_queryset().filter(
                is_active=True,
@@ -721,11 +721,11 @@ API de Permisos Temporales
 
        @action(detail=False, methods=['get'])
        def expiring_soon(self, request):
-           """
+                                        
            Permisos que expiran en los próximos 7 días.
 
            GET /api/v1/temporary-permissions/expiring-soon/
-           """
+                                                           
            now = timezone.now()
            week_later = now + timezone.timedelta(days=7)
 
@@ -751,14 +751,14 @@ Serializer de Permisos Temporales
    from datetime import timedelta
 
    class TemporaryPermissionSerializer(serializers.ModelSerializer):
-       """
+                                                                    
        Serializer para permisos temporales.
 
        Validaciones:
        - Justificación mínimo 20 caracteres
        - Expiración futura obligatoria
        - Duración máxima 6 meses
-       """
+                                
 
        granted_by_username = serializers.CharField(
            source='granted_by.username',
@@ -837,48 +837,48 @@ Throttles Personalizados
    from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 
    class LoginRateThrottle(AnonRateThrottle):
-       """
+                                             
        Throttle para endpoint de login.
 
        Previene ataques de fuerza bruta.
        Límite: 5 intentos por minuto por IP.
-       """
+                                            
 
        rate = '5/minute'
        scope = 'login'
 
 
    class ReportThrottle(UserRateThrottle):
-       """
+                                          
        Throttle para generación de reportes.
 
        Reportes son costosos, limitar frecuencia.
        Límite: 10 reportes por hora.
-       """
+                                    
 
        rate = '10/hour'
        scope = 'reports'
 
 
    class ExportThrottle(UserRateThrottle):
-       """
+                                          
        Throttle para exportación de datos.
 
        Exportaciones son costosas, limitar frecuencia.
        Límite: 5 exportaciones por hora.
-       """
+                                        
 
        rate = '5/hour'
        scope = 'exports'
 
 
    class ETLThrottle(UserRateThrottle):
-       """
+                                       
        Throttle para trigger manual de ETL.
 
        Prevenir abuso del ETL manual.
        Límite: 1 por hora.
-       """
+                          
 
        rate = '1/hour'
        scope = 'etl_trigger'
@@ -918,7 +918,7 @@ Serializers con Validación
    from datetime import timedelta
 
    class DateRangeValidator(serializers.Serializer):
-       """
+                                                    
        Serializer para validar rangos de fechas.
 
        Validaciones:
@@ -927,7 +927,7 @@ Serializers con Validación
        - end_date >= start_date
        - Rango máximo: 90 días
        - No fechas futuras
-       """
+                          
 
        start_date = serializers.DateField(required=True)
        end_date = serializers.DateField(required=True)
@@ -970,11 +970,11 @@ Serializers con Validación
 
 
    class ReportRequestData(serializers.Serializer):
-       """
+                                                   
        Serializer para solicitud de reporte.
 
        Validaciones completas para generación de reportes.
-       """
+                                                          
 
        report_type = serializers.ChoiceField(
            choices=[
@@ -1049,11 +1049,11 @@ Handler Personalizado
    logger = logging.getLogger('api')
 
    def custom_exception_handler(exc, context):
-       """
+                                              
        Handler personalizado de excepciones DRF.
 
        Estandariza formato de errores y registra en log.
-       """
+                                                        
        # Llamar al handler por defecto primero
        response = exception_handler(exc, context)
 
@@ -1132,13 +1132,13 @@ Paginador Estándar
    from rest_framework.response import Response
 
    class StandardPagination(PageNumberPagination):
-       """
+                                                  
        Paginación estándar para APIs IACT.
 
        - page_size: 50 por defecto
        - max_page_size: 200 máximo
        - Incluye metadata útil en respuesta
-       """
+                                           
 
        page_size = 50
        page_size_query_param = 'page_size'
@@ -1164,11 +1164,11 @@ Paginador Estándar
 
 
    class LargePagination(PageNumberPagination):
-       """
+                                               
        Paginación para resultados grandes (exportaciones).
 
        Permite hasta 1000 registros por página para exportaciones.
-       """
+                                                                  
 
        page_size = 100
        page_size_query_param = 'page_size'
@@ -1196,7 +1196,7 @@ Vista con Todas las Protecciones
    from apps.analytics.models import CallMetric
 
    class ReportViewSet(viewsets.ViewSet):
-       """
+                                         
        ViewSet para generación de reportes.
 
        Seguridad implementada:
@@ -1205,7 +1205,7 @@ Vista con Todas las Protecciones
        - Throttling por endpoint
        - Validación de datos
        - Auditoría de acciones
-       """
+                              
 
        permission_classes = [IsAuthenticated, CanViewReports]
        pagination_class = StandardPagination
@@ -1219,11 +1219,11 @@ Vista con Todas las Protecciones
            return super().get_throttles()
 
        def list(self, request):
-           """
+                               
            Listar reportes disponibles.
 
            GET /api/v1/reports/
-           """
+                               
            reports = [
                {
                    'id': 'calls_summary',
@@ -1246,7 +1246,7 @@ Vista con Todas las Protecciones
 
        @action(detail=False, methods=['post'])
        def generate(self, request):
-           """
+                                   
            Generar reporte.
 
            POST /api/v1/reports/generate/
@@ -1259,7 +1259,7 @@ Vista con Todas las Protecciones
                    "queue_ids": [1, 2, 3],
                    "format": "json"
                }
-           """
+                
            # Validar datos
            serializer = ReportRequestData(data=request.data)
            serializer.is_valid(raise_exception=True)
@@ -1289,11 +1289,11 @@ Vista con Todas las Protecciones
 
        @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated, CanAnalyzeData])
        def export(self, request):
-           """
+                                 
            Exportar datos (requiere función analiza_datos).
 
            POST /api/v1/reports/export/
-           """
+                                       
            serializer = ReportRequestData(data=request.data)
            serializer.is_valid(raise_exception=True)
            data = serializer.validated_data

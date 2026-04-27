@@ -1,8 +1,8 @@
 .. _arquitectura-tecnica:
 
-=====================
+====================
 Arquitectura Técnica
-=====================
+====================
 
 Propósito del Dominio
 =====================

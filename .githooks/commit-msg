@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# Git Hook: commit-msg
+# Purpose: Validate commit message format following Conventional Commits
+#
+# This hook ensures all commits follow the format:
+#   type(scope): description
+#
+# Valid types: feat, fix, docs, refactor, test, perf, chore
+# Scope: optional, must be kebab-case
+# Description: imperative, present tense, no period
+#
+# To bypass this hook: git commit --no-verify
+#
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Skip check for merge commits (they have their own format)
+if echo "$COMMIT_MSG" | grep -q "^Merge pull request"; then
+  exit 0
+fi
+
+# Skip check for revert commits
+if echo "$COMMIT_MSG" | grep -q "^Revert "; then
+  exit 0
+fi
+
+# Extract the first line (subject line)
+SUBJECT=$(echo "$COMMIT_MSG" | head -1)
+
+# Regex for valid commit format: type(scope): description or type: description
+# type must be one of: feat, fix, docs, refactor, test, perf, chore
+# scope is optional: if present, must be kebab-case
+# description is required: must not be empty
+VALID_FORMAT="^(feat|fix|docs|refactor|test|perf|chore)(\([a-z0-9-]+\))?: .+$"
+
+if ! echo "$SUBJECT" | grep -E "$VALID_FORMAT" > /dev/null; then
+  echo "ERROR: Invalid commit message format!" >&2
+  echo "" >&2
+  echo "Expected format: type(scope): description" >&2
+  echo "Example: feat(git-workflow): add merge commit documentation" >&2
+  echo "" >&2
+  echo "Valid types: feat, fix, docs, refactor, test, perf, chore" >&2
+  echo "Valid scope: kebab-case (no spaces, no capitals)" >&2
+  echo "Description: imperative mood, present tense, no period" >&2
+  echo "" >&2
+  echo "Your commit message was:" >&2
+  echo "$SUBJECT" >&2
+  echo "" >&2
+  echo "To bypass this check: git commit --no-verify" >&2
+  exit 1
+fi
+
+exit 0

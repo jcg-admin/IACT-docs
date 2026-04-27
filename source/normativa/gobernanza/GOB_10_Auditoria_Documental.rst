@@ -12,15 +12,10 @@
 
 .. _gob-10:
 
-==============================================================================
+============================
 GOB_10: Auditoria Documental
-==============================================================================
+============================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Proposito
 ---------
@@ -477,18 +472,18 @@ Se disparan auditorias adicionales ante:
 
 .. code-block:: text
 
-   ================================================================
+                                  
    REPORTE DE AUDITORIA DOCUMENTAL
-   ================================================================
+                                  
 
    ID: AUD-YYYY-NNN
    Tipo: [Completitud/Calidad/Trazabilidad/Clasificacion]
    Fecha: YYYY-MM-DD
    Auditor: [nombre]
 
-   ----------------------------------------------------------------
+                       
    1. RESUMEN EJECUTIVO
-   ----------------------------------------------------------------
+                       
 
    Alcance: [descripcion breve]
 
@@ -505,9 +500,9 @@ Se disparan auditorias adicionales ante:
    2. [observacion 2]
    3. [observacion 3]
 
-   ----------------------------------------------------------------
+                           
    2. ALCANCE Y METODOLOGIA
-   ----------------------------------------------------------------
+                           
 
    Dominios auditados: [lista]
    Periodo cubierto: [fechas]
@@ -523,9 +518,9 @@ Se disparan auditorias adicionales ante:
    - Sphinx build
    - [otras]
 
-   ----------------------------------------------------------------
+                          
    3. HALLAZGOS DETALLADOS
-   ----------------------------------------------------------------
+                          
 
    HALLAZGO #1
    -----------
@@ -547,9 +542,9 @@ Se disparan auditorias adicionales ante:
 
    [Repetir para cada hallazgo]
 
-   ----------------------------------------------------------------
+              
    4. METRICAS
-   ----------------------------------------------------------------
+              
 
    Tasa de conformidad general: ___%
 
@@ -564,26 +559,26 @@ Se disparan auditorias adicionales ante:
    - Actual: ___%
    - Tendencia: [Mejora/Estable/Deterioro]
 
-   ----------------------------------------------------------------
+                    
    5. PLAN DE ACCION
-   ----------------------------------------------------------------
+                    
 
    | # | Hallazgo | Responsable | Fecha Limite | Estado |
    |---|----------|-------------|--------------|--------|
    | 1 | H-001    | [nombre]    | YYYY-MM-DD   | Abierto|
    | 2 | H-002    | [nombre]    | YYYY-MM-DD   | Abierto|
 
-   ----------------------------------------------------------------
+                
    6. CONCLUSION
-   ----------------------------------------------------------------
+                
 
    [Parrafo de conclusion general]
 
    Proxima auditoria programada: YYYY-MM-DD
 
-   ----------------------------------------------------------------
+         
    FIRMAS
-   ----------------------------------------------------------------
+         
 
    Auditor: ________________  Fecha: ________
 
@@ -823,7 +818,7 @@ Se disparan auditorias adicionales ante:
 .. code-block:: text
 
    DASHBOARD DE AUDITORIA - [Periodo]
-   ===================================
+                                     
 
    ESTADO GENERAL: [Verde/Amarillo/Rojo]
 

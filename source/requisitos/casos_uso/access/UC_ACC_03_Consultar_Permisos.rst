@@ -7,13 +7,9 @@
    :uc_id: UC_ACC_03
    :normativa: CNST-005
 
-==================================================
+=============================
 UC_ACC_03: Consultar Permisos
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+=============================
 
 1. Resumen
 ----------
@@ -64,7 +60,6 @@ directamente, funciones de agrupadores y permisos temporales.
    :caption: Diagrama de Caso de Uso - UC_ACC_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -170,7 +165,6 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    :caption: Diagrama de Secuencia - UC_ACC_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-007\nAdmin" as A
    participant "Frontend\nAccess" as FE <<Frontend>>
@@ -317,7 +311,6 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    :caption: Diagrama de Actividad - UC_ACC_03
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

@@ -12,15 +12,10 @@
 
 .. _br-017:
 
-==============================================================================
+=================================
 BR_017: Tiempo Promedio de Espera
-==============================================================================
+=================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -200,18 +195,18 @@ El TPE es un KPI crítico porque:
    # apps/reports/services/kpi_calculator.py
    
    class KPICalculator:
-       """
+                                                
        Calculador de KPIs que implementa BR_017.
-       """
+                                                
        
        @staticmethod
        def calcular_tiempo_promedio_espera(fecha_inicio, fecha_fin, centro_id=None):
-           """
+                                                                                    
            BR_017: Calcula tiempo promedio de espera.
            
            Returns:
                Decimal: Segundos con 2 decimales
-           """
+                                                
            queryset = Llamada.objects.filter(
                fecha__range=(fecha_inicio, fecha_fin),
                estado='ATENDIDA'  # BR_017: Solo atendidas

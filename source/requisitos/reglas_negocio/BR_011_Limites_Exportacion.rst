@@ -12,15 +12,10 @@
 
 .. _br-011:
 
-==============================================================================
+==============================
 BR_011: Límites de Exportación
-==============================================================================
+==============================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -257,19 +252,19 @@ La regla se considera cumplida cuando:
    # apps/reports/services/export_service.py
    
    class ExportService:
-       """
+                                                     
        Servicio de exportación que implementa BR_011.
-       """
+                                                     
        
        MAX_EXPORT_RECORDS = 100_000  # BR_011: Límite de exportación
        
        def validate_export_size(self, queryset) -> tuple[bool, str]:
-           """
+                                                                    
            Valida que el queryset no exceda el límite de exportación.
            
            Returns:
                tuple: (es_valido, mensaje)
-           """
+                                          
            count = queryset.count()
            
            if count > self.MAX_EXPORT_RECORDS:

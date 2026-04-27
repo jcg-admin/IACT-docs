@@ -1,0 +1,1880 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCED-GOB-005: Análisis de Impacto de Cambios en Requisitos - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/AUTH_diagrama_casos_uso.html">AUTH Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/USERS_diagrama_casos_uso.html">USERS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/ACCESS_diagrama_casos_uso.html">ACCESS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PIPELINE_diagrama_casos_uso.html">PIPELINE Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/REPORTS_diagrama_casos_uso.html">REPORTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/ALERTS_diagrama_casos_uso.html">ALERTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/AUDIT_diagrama_casos_uso.html">AUDIT Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/LOGS_diagrama_casos_uso.html">LOGS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_authentication_sequence.html">Authentication Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_call_processing_sequence.html">Call Processing Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_reporting_sequence.html">Report Generation Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_alerting_sequence.html">Alerting Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_user_onboarding_activity.html">User Onboarding Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_permission_grant_activity.html">Permission Grant Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_incident_response_activity.html">Critical Incident Response Process — Activity Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PlantUML Guide</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../plantuml-guide/index.html">PlantUML Guide — Centralized Styling &amp; Documentation</a><input aria-label="Toggle navigation of PlantUML Guide — Centralized Styling &amp; Documentation" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/color-palette.html">Color Palette — PlantUML Corporate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/sistema-completo.html">Ejemplo: Diagrama de Arquitectura de Sistema Completo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/etl-pipeline.html">Ejemplo: Diagrama de Proceso ETL Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proced-gob-005-analisis-de-impacto-de-cambios-en-requisitos">
+<h1>PROCED-GOB-005: Análisis de Impacto de Cambios en Requisitos<a class="headerlink" href="#proced-gob-005-analisis-de-impacto-de-cambios-en-requisitos" title="Link to this heading">¶</a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">¶</a></h2>
+<p>Analizar el impacto de cambios en cualquier artefacto de requisitos (RN,
+RNEG, UC, RF, RNF) utilizando trazabilidad bidireccional, identificar
+todos los artefactos afectados, y actualizarlos de manera consistente y
+atómica.</p>
+</section>
+<section id="pre-requisitos">
+<h2>Pre-requisitos<a class="headerlink" href="#pre-requisitos" title="Link to this heading">¶</a></h2>
+<p>Antes de comenzar este procedimiento, debe:</p>
+<ul class="simple">
+<li><p>Haber leído ADR-GOB-009 (Trazabilidad entre Artefactos)</p></li>
+<li><p>Tener trazabilidad establecida en los artefactos del proyecto</p></li>
+<li><p>Conocer el artefacto que cambió o va a cambiar</p></li>
+<li><p>Tener acceso al repositorio del proyecto</p></li>
+</ul>
+</section>
+<section id="resultado-esperado">
+<h2>Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Link to this heading">¶</a></h2>
+<p>Al completar este procedimiento tendrá:</p>
+<ul class="simple">
+<li><p>Lista completa de artefactos afectados por el cambio</p></li>
+<li><p>Checklist de cambios necesarios</p></li>
+<li><p>Todos los artefactos afectados actualizados consistentemente</p></li>
+<li><p>Matrices de trazabilidad actualizadas</p></li>
+<li><p>Commit atómico en git con todos los cambios relacionados</p></li>
+<li><p>Documentación del análisis de impacto</p></li>
+</ul>
+</section>
+<section id="tipos-de-cambios">
+<h2>Tipos de Cambios<a class="headerlink" href="#tipos-de-cambios" title="Link to this heading">¶</a></h2>
+<section id="clasificacion-por-magnitud">
+<h3>Clasificación por Magnitud<a class="headerlink" href="#clasificacion-por-magnitud" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Menor</strong></p></td>
+<td><p>Corrección de typos,
+clarificación de
+texto</p></td>
+<td><p>Corregir ortografía
+en UC-BACK-001</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Mayor</strong></p></td>
+<td><p>Cambio en lógica,
+flujos, condiciones</p></td>
+<td><p>Agregar validación
+adicional en
+RN-BACK-001</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Breaking</strong></p></td>
+<td><p>Cambio que invalida
+artefactos
+dependientes</p></td>
+<td><p>Cambiar objetivo
+completo de UC,
+eliminar RN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="clasificacion-por-operacion">
+<h3>Clasificación por Operación<a class="headerlink" href="#clasificacion-por-operacion" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operación</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Impacto Típico</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Modificar</strong></p></td>
+<td><p>Cambiar contenido de
+artefacto existente</p></td>
+<td><p>Actualizar artefactos
+relacionados</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Agregar</strong></p></td>
+<td><p>Crear nuevo artefacto</p></td>
+<td><p>Agregar referencias
+en artefactos
+relacionados</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Eliminar</strong></p></td>
+<td><p>Remover artefacto</p></td>
+<td><p>Eliminar referencias,
+posiblemente eliminar
+dependientes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Deprecar</strong></p></td>
+<td><p>Marcar artefacto como
+obsoleto</p></td>
+<td><p>Marcar dependientes,
+planear migración</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="paso-1-identificar-artefacto-que-cambio">
+<h2>PASO 1: Identificar Artefacto que Cambió<a class="headerlink" href="#paso-1-identificar-artefacto-que-cambio" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso">
+<h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso" title="Link to this heading">¶</a></h3>
+<p>Documentar claramente qué artefacto cambió, cómo cambió y por qué.</p>
+</section>
+<section id="informacion-a-capturar">
+<h3>Información a Capturar<a class="headerlink" href="#informacion-a-capturar" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>ID del artefacto</strong>: RN-BACK-001, UC-BACK-010, etc.</p></li>
+<li><p><strong>Tipo de artefacto</strong>: Regla de Negocio, Caso de Uso, Requisito
+Funcional, etc.</p></li>
+<li><p><strong>Tipo de cambio</strong>: Menor, Mayor, Breaking</p></li>
+<li><p><strong>Operación</strong>: Modificar, Agregar, Eliminar, Deprecar</p></li>
+<li><p><strong>Razón del cambio</strong>: Regulación nueva, error identificado, mejora
+solicitada</p></li>
+<li><p><strong>Contenido antes del cambio</strong>: Capturar estado actual</p></li>
+<li><p><strong>Contenido después del cambio</strong>: Describir estado deseado</p></li>
+</ol>
+</section>
+<section id="plantilla-de-documentacion">
+<h3>Plantilla de Documentación<a class="headerlink" href="#plantilla-de-documentacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Análisis de Impacto: [ID del Artefacto]</span>
+
+<span class="gu">## Artefacto Modificado</span>
+
+<span class="gs">**ID**</span>: [RN-BACK-001]
+<span class="gs">**Tipo**</span>: [Regla de Negocio - Restricción]
+<span class="gs">**Archivo**</span>: [/ruta/completa/al/archivo.md]
+
+<span class="gu">## Tipo de Cambio</span>
+
+<span class="gs">**Magnitud**</span>: [Menor | Mayor | Breaking]
+<span class="gs">**Operación**</span>: [Modificar | Agregar | Eliminar | Deprecar]
+
+<span class="gu">## Razón del Cambio</span>
+
+[Descripción de por qué se necesita este cambio. Ejemplo: Nueva regulación LFPDPPP requiere autenticación de dos factores]
+
+<span class="gu">## Contenido Antes del Cambio</span>
+</pre></div>
+</div>
+<p>Usuario debe estar autenticado para acceder al sistema</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Contenido Después del Cambio</span>
+</pre></div>
+</div>
+<p>Usuario debe estar autenticado con autenticación de dos factores (2FA)
+para acceder al sistema</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Fecha de Análisis</span>
+
+<span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">17</span>
+
+<span class="c1">## Analista</span>
+
+<span class="p">[</span><span class="n">Nombre</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo">
+<h3>Ejemplo Completo<a class="headerlink" href="#ejemplo-completo" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Análisis de Impacto: RN-BACK-001</span>
+
+<span class="gu">## Artefacto Modificado</span>
+
+<span class="gs">**ID**</span>: RN-BACK-001
+<span class="gs">**Tipo**</span>: Regla de Negocio - Restricción
+<span class="gs">**Archivo**</span>: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
+
+<span class="gu">## Tipo de Cambio</span>
+
+<span class="gs">**Magnitud**</span>: Mayor (Breaking)
+<span class="gs">**Operación**</span>: Modificar
+
+<span class="gu">## Razón del Cambio</span>
+
+Nueva regulación de seguridad LFPDPPP Artículo 12 bis (vigente desde 2025-12-01) requiere autenticación de dos factores para acceso a datos personales. El sistema actual solo implementa autenticación básica con usuario y contraseña.
+
+<span class="gu">## Contenido Antes del Cambio</span>
+</pre></div>
+</div>
+<p>Usuario debe estar autenticado para acceder al sistema</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Contenido Después del Cambio</span>
+</pre></div>
+</div>
+<p>Usuario debe estar autenticado con autenticación de dos factores (2FA)
+para acceder al sistema. La autenticación 2FA debe usar TOTP (Time-based
+One-Time Password) según RFC 6238.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Fecha de Análisis</span>
+
+<span class="mi">2025</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">17</span>
+
+<span class="c1">## Analista</span>
+
+<span class="n">Claude</span> <span class="n">Code</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion">
+<h3>Validación<a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ ID del artefacto identificado</p></li>
+<li><p>☐ Tipo de cambio clasificado (Menor/Mayor/Breaking)</p></li>
+<li><p>☐ Razón del cambio documentada</p></li>
+<li><p>☐ Contenido antes y después capturado</p></li>
+<li><p>☐ Fecha y analista registrados</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-2-consultar-trazabilidad-bidireccional">
+<h2>PASO 2: Consultar Trazabilidad Bidireccional<a class="headerlink" href="#paso-2-consultar-trazabilidad-bidireccional" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-1">
+<span id="id1"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-1" title="Link to this heading">¶</a></h3>
+<p>Identificar todos los artefactos que tienen relación con el artefacto
+modificado, tanto hacia arriba (upstream) como hacia abajo (downstream).</p>
+</section>
+<section id="trazabilidad-upstream-hacia-arriba">
+<h3>Trazabilidad Upstream (Hacia Arriba)<a class="headerlink" href="#trazabilidad-upstream-hacia-arriba" title="Link to this heading">¶</a></h3>
+<p>¿De dónde viene este artefacto? ¿Qué lo justifica?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RF → UC → RNEG → RN
+</pre></div>
+</div>
+<p><strong>Preguntas</strong>: - ¿Qué caso de uso implementa este RF? - ¿Qué regla de
+negocio justifica este UC? - ¿Qué requerimiento de negocio motiva esta
+RN?</p>
+</section>
+<section id="trazabilidad-downstream-hacia-abajo">
+<h3>Trazabilidad Downstream (Hacia Abajo)<a class="headerlink" href="#trazabilidad-downstream-hacia-abajo" title="Link to this heading">¶</a></h3>
+<p>¿Qué depende de este artefacto? ¿Qué implementa esto?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RN → RNEG → UC → RF → RNF
+</pre></div>
+</div>
+<p><strong>Preguntas</strong>: - ¿Qué casos de uso están influenciados por esta RN? -
+¿Qué requisitos funcionales implementan este UC? - ¿Qué atributos de
+calidad aplican a estos RF?</p>
+</section>
+<section id="metodos-de-consulta">
+<h3>Métodos de Consulta<a class="headerlink" href="#metodos-de-consulta" title="Link to this heading">¶</a></h3>
+<section id="metodo-1-revisar-seccion-de-trazabilidad-en-el-artefacto">
+<h4>Método 1: Revisar Sección de Trazabilidad en el Artefacto<a class="headerlink" href="#metodo-1-revisar-seccion-de-trazabilidad-en-el-artefacto" title="Link to this heading">¶</a></h4>
+<p>Abrir el archivo markdown del artefacto y buscar secciones:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Reglas de Negocio Relacionadas</span>
+<span class="gu">## Requisitos Funcionales Derivados</span>
+<span class="gu">## Impacto en Requisitos</span>
+<span class="gu">## Trazabilidad</span>
+</pre></div>
+</div>
+</section>
+<section id="metodo-2-busqueda-con-grep">
+<h4>Método 2: Búsqueda con Grep<a class="headerlink" href="#metodo-2-busqueda-con-grep" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buscar todas las referencias al artefacto en el proyecto</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/
+
+<span class="c1"># Buscar en casos de uso</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
+
+<span class="c1"># Buscar en requisitos funcionales</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/requerimientos_funcionales/
+</pre></div>
+</div>
+</section>
+<section id="metodo-3-consultar-matriz-de-trazabilidad">
+<h4>Método 3: Consultar Matriz de Trazabilidad<a class="headerlink" href="#metodo-3-consultar-matriz-de-trazabilidad" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si existe matriz de trazabilidad</span>
+cat<span class="w"> </span>docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejemplo-rn-back-001">
+<h3>Ejemplo: RN-BACK-001<a class="headerlink" href="#ejemplo-rn-back-001" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buscar todas las referencias</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/
+
+<span class="c1"># Resultados:</span>
+<span class="c1"># docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md</span>
+<span class="c1"># docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md</span>
+<span class="c1"># docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md</span>
+<span class="c1"># docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-010-validar-credenciales.md</span>
+<span class="c1"># docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md</span>
+<span class="c1"># docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-005-contrasena-minimo-8-caracteres.md</span>
+</pre></div>
+</div>
+</section>
+<section id="documentar-resultados">
+<h3>Documentar Resultados<a class="headerlink" href="#documentar-resultados" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Trazabilidad Identificada</span>
+
+<span class="gu">### Upstream (Justificación)</span>
+
+<span class="k">-</span><span class="w"> </span>RNEG-BACK-001: Sistema de autenticación seguro
+
+<span class="gu">### Downstream (Dependientes)</span>
+
+<span class="gs">**Requerimientos de Usuario**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-001: Iniciar Sesión
+<span class="k">-</span><span class="w"> </span>UC-BACK-003: Cambiar Contraseña
+<span class="k">-</span><span class="w"> </span>UC-BACK-004: Recuperar Contraseña
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-010: Validar credenciales contra base de datos
+<span class="k">-</span><span class="w"> </span>RF-BACK-011: Generar token JWT con expiración
+
+<span class="gs">**Atributos de Calidad**</span>:
+<span class="k">-</span><span class="w"> </span>RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+<span class="k">-</span><span class="w"> </span>RNF-BACK-007: Sesión expira después de 30 minutos de inactividad
+</pre></div>
+</div>
+</section>
+<section id="validacion-1">
+<span id="id2"></span><h3>Validación<a class="headerlink" href="#validacion-1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Trazabilidad upstream identificada (0 o más artefactos)</p></li>
+<li><p>☐ Trazabilidad downstream identificada (0 o más artefactos)</p></li>
+<li><p>☐ Todos los IDs de artefactos relacionados capturados</p></li>
+<li><p>☐ Resultados documentados</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-3-listar-artefactos-potencialmente-afectados">
+<h2>PASO 3: Listar Artefactos Potencialmente Afectados<a class="headerlink" href="#paso-3-listar-artefactos-potencialmente-afectados" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-2">
+<span id="id3"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-2" title="Link to this heading">¶</a></h3>
+<p>Crear una lista completa de todos los artefactos que PUEDEN necesitar
+actualización.</p>
+</section>
+<section id="criterios-de-inclusion">
+<h3>Criterios de Inclusión<a class="headerlink" href="#criterios-de-inclusion" title="Link to this heading">¶</a></h3>
+<p>Un artefacto está potencialmente afectado si:</p>
+<ol class="arabic simple">
+<li><p><strong>Referencia directa</strong>: El artefacto menciona el ID del artefacto
+modificado</p></li>
+<li><p><strong>Dependencia lógica</strong>: El artefacto implementa o depende del
+artefacto modificado</p></li>
+<li><p><strong>Cascada</strong>: Un artefacto afectado tiene dependientes que también
+pueden afectarse</p></li>
+</ol>
+</section>
+<section id="proceso">
+<h3>Proceso<a class="headerlink" href="#proceso" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Tomar lista de trazabilidad del PASO 2</p></li>
+<li><p>Para cada artefacto en la lista, consultar SU trazabilidad</p></li>
+<li><p>Agregar artefactos de segundo nivel si aplica</p></li>
+<li><p>Consolidar lista eliminando duplicados</p></li>
+</ol>
+</section>
+<section id="ejemplo-rn-back-001-2fa">
+<h3>Ejemplo: RN-BACK-001 (2FA)<a class="headerlink" href="#ejemplo-rn-back-001-2fa" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Artefactos Potencialmente Afectados</span>
+
+<span class="gu">### Nivel 1: Referencias Directas</span>
+
+<span class="gs">**Requerimientos de Negocio**</span>:
+<span class="k">-</span><span class="w"> </span>RNEG-BACK-001: Sistema de autenticación seguro
+
+<span class="gs">**Casos de Uso**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-001: Iniciar Sesión
+<span class="k">-</span><span class="w"> </span>UC-BACK-003: Cambiar Contraseña
+<span class="k">-</span><span class="w"> </span>UC-BACK-004: Recuperar Contraseña
+
+<span class="gs">**Requisitos Funcionales**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-010: Validar credenciales contra base de datos
+<span class="k">-</span><span class="w"> </span>RF-BACK-011: Generar token JWT con expiración
+
+<span class="gs">**Atributos de Calidad**</span>:
+<span class="k">-</span><span class="w"> </span>RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+<span class="k">-</span><span class="w"> </span>RNF-BACK-007: Sesión expira después de 30 minutos
+
+<span class="gu">### Nivel 2: Dependencias Indirectas</span>
+
+<span class="gs">**Nuevos artefactos necesarios**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-[NUEVO]: Generar código TOTP
+<span class="k">-</span><span class="w"> </span>RF-BACK-[NUEVO]: Validar código TOTP
+<span class="k">-</span><span class="w"> </span>RF-BACK-[NUEVO]: Registrar dispositivo 2FA
+<span class="k">-</span><span class="w"> </span>RNF-BACK-[NUEVO]: Código TOTP debe expirar en 30 segundos
+
+<span class="gs">**Diagramas UML**</span>:
+<span class="k">-</span><span class="w"> </span>UCD-BACK-001-autenticacion.puml: Agregar paso de 2FA
+
+<span class="gs">**Tests (fuera de alcance de requisitos, pero considerar)**</span>:
+<span class="k">-</span><span class="w"> </span>TS-BACK-010-*: Tests de autenticación
+<span class="k">-</span><span class="w"> </span>TS-BACK-011-*: Tests de generación de tokens
+
+<span class="gu">### Nivel 3: Documentación Relacionada</span>
+
+<span class="k">-</span><span class="w"> </span>README de módulo de autenticación
+<span class="k">-</span><span class="w"> </span>Guía de usuario para configurar 2FA
+</pre></div>
+</div>
+</section>
+<section id="validacion-2">
+<span id="id4"></span><h3>Validación<a class="headerlink" href="#validacion-2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Todos los artefactos de nivel 1 listados</p></li>
+<li><p>☐ Artefactos de nivel 2 considerados</p></li>
+<li><p>☐ Nuevos artefactos necesarios identificados</p></li>
+<li><p>☐ Diagramas y documentación complementaria incluidos</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-4-revisar-cada-artefacto-y-determinar-accion">
+<h2>PASO 4: Revisar Cada Artefacto y Determinar Acción<a class="headerlink" href="#paso-4-revisar-cada-artefacto-y-determinar-accion" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-3">
+<span id="id5"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-3" title="Link to this heading">¶</a></h3>
+<p>Para cada artefacto potencialmente afectado, determinar si realmente
+necesita actualización y qué tipo de cambio requiere.</p>
+</section>
+<section id="tipos-de-accion">
+<h3>Tipos de Acción<a class="headerlink" href="#tipos-de-accion" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Actualizar</strong></p></td>
+<td><p>Modificar contenido
+existente</p></td>
+<td><p>Agregar paso de 2FA
+en flujo de
+UC-BACK-001</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sin cambios</strong></p></td>
+<td><p>No requiere
+modificación</p></td>
+<td><p>RNF-BACK-005 sigue
+siendo válido sin
+cambios</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Crear nuevo</strong></p></td>
+<td><p>Artefacto nuevo
+necesario</p></td>
+<td><p>RF-BACK-065: Generar
+código TOTP</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Deprecar</strong></p></td>
+<td><p>Marcar como obsoleto</p></td>
+<td><p>RF-BACK-010 se
+reemplaza por
+RF-BACK-010-v2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Eliminar</strong></p></td>
+<td><p>Remover completamente</p></td>
+<td><p>(Raro, solo si
+artefacto ya no
+aplica)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="proceso-de-revision">
+<h3>Proceso de Revisión<a class="headerlink" href="#proceso-de-revision" title="Link to this heading">¶</a></h3>
+<p>Para cada artefacto:</p>
+<ol class="arabic simple">
+<li><p>Abrir el archivo markdown</p></li>
+<li><p>Leer contenido completo</p></li>
+<li><p>Preguntar: “¿Este contenido sigue siendo válido con el cambio?”</p></li>
+<li><p>Si NO es válido, preguntar: “¿Qué necesita cambiar exactamente?”</p></li>
+<li><p>Documentar acción y cambio específico</p></li>
+</ol>
+</section>
+<section id="plantilla-de-analisis-por-artefacto">
+<h3>Plantilla de Análisis por Artefacto<a class="headerlink" href="#plantilla-de-analisis-por-artefacto" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### [ID]: [Nombre]</span>
+
+<span class="gs">**Acción**</span>: [Actualizar | Sin cambios | Crear nuevo | Deprecar | Eliminar]
+
+<span class="gs">**Razón**</span>: [Por qué esta acción]
+
+<span class="gs">**Cambio Específico**</span>:
+</pre></div>
+</div>
+<p>[Descripción del cambio necesario]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Prioridad</span><span class="o">**</span><span class="p">:</span> <span class="p">[</span><span class="n">Alta</span> <span class="o">|</span> <span class="n">Media</span> <span class="o">|</span> <span class="n">Baja</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-revision-de-uc-back-001">
+<h3>Ejemplo: Revisión de UC-BACK-001<a class="headerlink" href="#ejemplo-revision-de-uc-back-001" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### UC-BACK-001: Iniciar Sesión</span>
+
+<span class="gs">**Acción**</span>: Actualizar
+
+<span class="gs">**Razón**</span>: El flujo normal debe incluir paso de validación de código 2FA después de validar contraseña
+
+<span class="gs">**Cambio Específico**</span>:
+</pre></div>
+</div>
+<p>Agregar después del paso 6 (validar credenciales):</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ACCIONES DEL ACTOR</p></th>
+<th class="head"><p>RESPONSABILIDADES DEL SISTEMA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>7. El Usuario ingresa código 2FA
+de su aplicación autenticadora</p></td>
+<td><p>8. El sistema valida el código
+TOTP9. El sistema verifica que el
+código no haya expirado</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Agregar excepción: ### Excepción 8.1: Código 2FA Incorrecto - El sistema
+muestra error “Código 2FA incorrecto” - El Usuario puede reintentar
+hasta 3 veces - Después de 3 intentos fallidos, bloquear acceso por 15
+minutos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Prioridad</span><span class="o">**</span><span class="p">:</span> <span class="n">Alta</span> <span class="p">(</span><span class="n">cambio</span> <span class="n">breaking</span><span class="p">,</span> <span class="n">funcionalidad</span> <span class="n">core</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-revision-de-rnf-back-005">
+<h3>Ejemplo: Revisión de RNF-BACK-005<a class="headerlink" href="#ejemplo-revision-de-rnf-back-005" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### RNF-BACK-005: Contraseña Mínimo 8 Caracteres</span>
+
+<span class="gs">**Acción**</span>: Sin cambios
+
+<span class="gs">**Razón**</span>: Esta regla de calidad para contraseñas sigue siendo válida independientemente de agregar 2FA. Ambas medidas de seguridad son complementarias.
+
+<span class="gs">**Cambio Específico**</span>:
+Ninguno.
+
+<span class="gs">**Prioridad**</span>: N/A
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-nuevo-artefacto-necesario">
+<h3>Ejemplo: Nuevo Artefacto Necesario<a class="headerlink" href="#ejemplo-nuevo-artefacto-necesario" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### RF-BACK-065: [NUEVO] Generar Código TOTP</span>
+
+<span class="gs">**Acción**</span>: Crear nuevo
+
+<span class="gs">**Razón**</span>: Se requiere nueva funcionalidad para generar códigos TOTP según RFC 6238 para 2FA
+
+<span class="gs">**Cambio Específico**</span>:
+</pre></div>
+</div>
+<p>Crear nuevo archivo: RF-BACK-065-generar-codigo-totp.md</p>
+<p>Contenido: - El sistema debe generar código TOTP de 6 dígitos -
+Algoritmo: HMAC-SHA1 - Período de validez: 30 segundos - Basado en RFC
+6238 - Sincronización de tiempo: NTP</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Prioridad</span><span class="o">**</span><span class="p">:</span> <span class="n">Alta</span> <span class="p">(</span><span class="n">requisito</span> <span class="n">para</span> <span class="n">implementar</span> <span class="mi">2</span><span class="n">FA</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tabla-resumen-de-acciones">
+<h3>Tabla Resumen de Acciones<a class="headerlink" href="#tabla-resumen-de-acciones" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Resumen de Acciones</span>
+
+| ID | Nombre | Acción | Prioridad |
+|---|---|---|---|
+| RNEG-BACK-001 | Sistema de autenticación seguro | Actualizar | Alta |
+| UC-BACK-001 | Iniciar Sesión | Actualizar | Alta |
+| UC-BACK-003 | Cambiar Contraseña | Actualizar | Media |
+| UC-BACK-004 | Recuperar Contraseña | Actualizar | Media |
+| RF-BACK-010 | Validar credenciales | Sin cambios | N/A |
+| RF-BACK-011 | Generar token JWT | Actualizar | Alta |
+| RF-BACK-065 | Generar código TOTP | Crear nuevo | Alta |
+| RF-BACK-066 | Validar código TOTP | Crear nuevo | Alta |
+| RF-BACK-067 | Registrar dispositivo 2FA | Crear nuevo | Alta |
+| RNF-BACK-005 | Contraseña mínimo 8 caracteres | Sin cambios | N/A |
+| RNF-BACK-007 | Sesión expira en 30 min | Sin cambios | N/A |
+| RNF-BACK-020 | Código TOTP expira en 30s | Crear nuevo | Alta |
+| UCD-BACK-001 | Diagrama autenticación | Actualizar | Media |
+</pre></div>
+</div>
+</section>
+<section id="validacion-3">
+<span id="id6"></span><h3>Validación<a class="headerlink" href="#validacion-3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Cada artefacto revisado individualmente</p></li>
+<li><p>☐ Acción específica asignada</p></li>
+<li><p>☐ Cambio detallado documentado</p></li>
+<li><p>☐ Prioridad asignada</p></li>
+<li><p>☐ Tabla resumen creada</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-5-crear-checklist-de-cambios">
+<h2>PASO 5: Crear Checklist de Cambios<a class="headerlink" href="#paso-5-crear-checklist-de-cambios" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-4">
+<span id="id7"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-4" title="Link to this heading">¶</a></h3>
+<p>Convertir el análisis en una lista de tareas ejecutables con checkboxes.</p>
+</section>
+<section id="formato-de-checklist">
+<h3>Formato de Checklist<a class="headerlink" href="#formato-de-checklist" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Checklist de Implementación de Cambios</span>
+
+<span class="gu">### Cambio Origen</span>
+<span class="k">- [ ]</span> RN-BACK-001: Actualizar con requisito de 2FA
+
+<span class="gu">### Artefactos a Actualizar</span>
+
+<span class="gs">**Alta Prioridad**</span>:
+<span class="k">- [ ]</span> RNEG-BACK-001: Actualizar descripción de sistema de autenticación
+<span class="k">- [ ]</span> UC-BACK-001: Agregar pasos de 2FA en flujo normal
+<span class="k">- [ ]</span> RF-BACK-011: Incluir validación de 2FA antes de generar token
+<span class="k">- [ ]</span> UCD-BACK-001: Actualizar diagrama con paso de 2FA
+
+<span class="gs">**Media Prioridad**</span>:
+<span class="k">- [ ]</span> UC-BACK-003: Agregar nota sobre 2FA en cambio de contraseña
+<span class="k">- [ ]</span> UC-BACK-004: Documentar proceso de recuperación con 2FA
+
+<span class="gs">**Baja Prioridad**</span>:
+<span class="k">- [ ]</span> Ninguno
+
+<span class="gu">### Nuevos Artefactos a Crear</span>
+
+<span class="gs">**Alta Prioridad**</span>:
+<span class="k">- [ ]</span> RF-BACK-065: Generar código TOTP
+<span class="k">- [ ]</span> RF-BACK-066: Validar código TOTP
+<span class="k">- [ ]</span> RF-BACK-067: Registrar dispositivo 2FA
+<span class="k">- [ ]</span> RNF-BACK-020: Código TOTP expira en 30 segundos
+
+<span class="gu">### Artefactos Sin Cambios (Validados)</span>
+<span class="k">- [x]</span> RF-BACK-010: Validar credenciales (sin cambios)
+<span class="k">- [x]</span> RNF-BACK-005: Contraseña mínimo 8 caracteres (sin cambios)
+<span class="k">- [x]</span> RNF-BACK-007: Sesión expira en 30 minutos (sin cambios)
+
+<span class="gu">### Documentación Complementaria</span>
+<span class="k">- [ ]</span> README: Actualizar guía de autenticación
+<span class="k">- [ ]</span> CHANGELOG: Documentar cambio breaking
+
+<span class="gu">### Matrices de Trazabilidad</span>
+<span class="k">- [ ]</span> MATRIZ-BACK-autenticacion.md: Agregar nuevos RF y RNF
+</pre></div>
+</div>
+</section>
+<section id="validacion-4">
+<span id="id8"></span><h3>Validación<a class="headerlink" href="#validacion-4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Checklist completo con todos los artefactos</p></li>
+<li><p>☐ Organizado por prioridad</p></li>
+<li><p>☐ Incluye cambio origen</p></li>
+<li><p>☐ Incluye nuevos artefactos</p></li>
+<li><p>☐ Incluye matrices y documentación</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-6-actualizar-artefactos-afectados">
+<h2>PASO 6: Actualizar Artefactos Afectados<a class="headerlink" href="#paso-6-actualizar-artefactos-afectados" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-5">
+<span id="id9"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-5" title="Link to this heading">¶</a></h3>
+<p>Ejecutar los cambios documentados en el checklist, actualizando cada
+artefacto de manera consistente.</p>
+</section>
+<section id="orden-de-actualizacion">
+<h3>Orden de Actualización<a class="headerlink" href="#orden-de-actualizacion" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Cambio origen</strong>: Actualizar el artefacto que cambió primero</p></li>
+<li><p><strong>Upstream</strong>: Actualizar artefactos hacia arriba (RNEG)</p></li>
+<li><p><strong>Mismo nivel</strong>: Actualizar artefactos del mismo nivel (UC)</p></li>
+<li><p><strong>Downstream</strong>: Actualizar artefactos hacia abajo (RF, RNF)</p></li>
+<li><p><strong>Nuevos artefactos</strong>: Crear artefactos nuevos necesarios</p></li>
+<li><p><strong>Diagramas</strong>: Actualizar diagramas UML</p></li>
+<li><p><strong>Documentación</strong>: Actualizar README, guías</p></li>
+</ol>
+</section>
+<section id="proceso-por-artefacto">
+<h3>Proceso por Artefacto<a class="headerlink" href="#proceso-por-artefacto" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Abrir archivo markdown del artefacto</p></li>
+<li><p>Hacer los cambios específicos documentados en PASO 4</p></li>
+<li><p>Actualizar sección de trazabilidad si cambió</p></li>
+<li><p>Incrementar versión si aplica (1.0.0 → 1.1.0 para cambio mayor)</p></li>
+<li><p>Actualizar fecha de última modificación</p></li>
+<li><p>Marcar checkbox en checklist como completado</p></li>
+<li><p>NO hacer commit todavía (se hará commit atómico al final)</p></li>
+</ol>
+</section>
+<section id="ejemplo-actualizar-uc-back-001">
+<h3>Ejemplo: Actualizar UC-BACK-001<a class="headerlink" href="#ejemplo-actualizar-uc-back-001" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Abrir archivo</span>
+vim<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+
+<span class="c1"># 2. Actualizar frontmatter</span>
+version:<span class="w"> </span><span class="m">1</span>.0.0<span class="w"> </span>→<span class="w"> </span><span class="m">1</span>.1.0
+ultima_actualizacion:<span class="w"> </span><span class="m">2025</span>-11-17
+
+<span class="c1"># 3. Actualizar flujo normal</span>
+<span class="c1"># Agregar pasos de 2FA después de validar credenciales</span>
+
+<span class="c1"># 4. Actualizar reglas de negocio relacionadas</span>
+Agregar:<span class="w"> </span>-<span class="w"> </span>RN-BACK-001:<span class="w"> </span>Usuario<span class="w"> </span>debe<span class="w"> </span>estar<span class="w"> </span>autenticado<span class="w"> </span>con<span class="w"> </span>2FA
+
+<span class="c1"># 5. Actualizar RF derivados</span>
+Agregar:<span class="w"> </span>-<span class="w"> </span>RF-BACK-065:<span class="w"> </span>Generar<span class="w"> </span>código<span class="w"> </span>TOTP
+Agregar:<span class="w"> </span>-<span class="w"> </span>RF-BACK-066:<span class="w"> </span>Validar<span class="w"> </span>código<span class="w"> </span>TOTP
+
+<span class="c1"># 6. Guardar</span>
+:wq
+
+<span class="c1"># 7. Marcar en checklist</span>
+-<span class="w"> </span><span class="o">[</span>x<span class="o">]</span><span class="w"> </span>UC-BACK-001:<span class="w"> </span>Agregar<span class="w"> </span>pasos<span class="w"> </span>de<span class="w"> </span>2FA<span class="w"> </span>en<span class="w"> </span>flujo<span class="w"> </span>normal
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-crear-rf-back-065">
+<h3>Ejemplo: Crear RF-BACK-065<a class="headerlink" href="#ejemplo-crear-rf-back-065" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar procedimiento PROCED-GOB-003 para crear nuevo RF</span>
+<span class="c1"># O crear manualmente siguiendo template</span>
+
+cat<span class="w"> </span>&gt;<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+
+<span class="s">id: RF-BACK-065</span>
+<span class="s">tipo: requisito_funcional</span>
+<span class="s">categoria: backend</span>
+<span class="s">version: 1.0.0</span>
+<span class="s">fecha: 2025-11-17</span>
+
+
+<span class="s"># RF-BACK-065: Generar Código TOTP</span>
+
+<span class="s">## Descripción</span>
+
+<span class="s">El sistema debe generar códigos TOTP (Time-based One-Time Password) de 6 dígitos para autenticación de dos factores según RFC 6238.</span>
+
+<span class="s">## Especificación</span>
+
+<span class="s">**Algoritmo**: HMAC-SHA1</span>
+<span class="s">**Longitud de código**: 6 dígitos</span>
+<span class="s">**Período de validez**: 30 segundos</span>
+<span class="s">**Sincronización de tiempo**: NTP</span>
+
+<span class="s">## Trazabilidad</span>
+
+<span class="s">**Implementa Casos de Uso**:</span>
+<span class="s">- UC-BACK-001: Iniciar Sesión</span>
+
+<span class="s">**Derivado de Reglas de Negocio**:</span>
+<span class="s">- RN-BACK-001: Usuario debe estar autenticado con 2FA</span>
+
+<span class="s">**Cumple Atributos de Calidad**:</span>
+<span class="s">- RNF-BACK-020: Código TOTP expira en 30 segundos</span>
+
+<span class="s">## Referencias</span>
+
+<span class="s">- [RFC 6238: TOTP](https://tools.ietf.org/html/rfc6238)</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion-5">
+<span id="id10"></span><h3>Validación<a class="headerlink" href="#validacion-5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Todos los checkboxes del checklist marcados</p></li>
+<li><p>☐ Cada archivo actualizado tiene fecha actualizada</p></li>
+<li><p>☐ Versiones incrementadas donde aplica</p></li>
+<li><p>☐ Trazabilidad actualizada en cada archivo</p></li>
+<li><p>☐ Archivos guardados pero NO commiteados aún</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-7-validar-consistencia">
+<h2>PASO 7: Validar Consistencia<a class="headerlink" href="#paso-7-validar-consistencia" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-6">
+<span id="id11"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-6" title="Link to this heading">¶</a></h3>
+<p>Verificar que todos los cambios son consistentes entre sí antes de
+commitear.</p>
+</section>
+<section id="checklist-de-consistencia">
+<h3>Checklist de Consistencia<a class="headerlink" href="#checklist-de-consistencia" title="Link to this heading">¶</a></h3>
+<section id="validacion-de-trazabilidad-bidireccional">
+<h4>Validación de Trazabilidad Bidireccional<a class="headerlink" href="#validacion-de-trazabilidad-bidireccional" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
+UC-BACK-001</p></li>
+<li><p>☐ Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
+RN-BACK-001</p></li>
+<li><p>☐ Todas las referencias bidireccionales son correctas</p></li>
+</ul>
+</section>
+<section id="validacion-de-ids">
+<h4>Validación de IDs<a class="headerlink" href="#validacion-de-ids" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ No hay referencias a IDs que no existen</p></li>
+<li><p>☐ Todos los IDs nuevos siguen nomenclatura correcta</p></li>
+<li><p>☐ No hay IDs duplicados</p></li>
+</ul>
+</section>
+<section id="validacion-de-formato">
+<h4>Validación de Formato<a class="headerlink" href="#validacion-de-formato" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Todos los archivos markdown tienen frontmatter completo</p></li>
+<li><p>☐ Fechas en formato YYYY-MM-DD</p></li>
+<li><p>☐ Versiones en formato semántico (X.Y.Z)</p></li>
+</ul>
+</section>
+<section id="validacion-de-contenido">
+<h4>Validación de Contenido<a class="headerlink" href="#validacion-de-contenido" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>☐ Cambios alineados con el cambio origen</p></li>
+<li><p>☐ No hay contradicciones entre artefactos</p></li>
+<li><p>☐ Terminología consistente</p></li>
+</ul>
+</section>
+</section>
+<section id="scripts-de-validacion">
+<h3>Scripts de Validación<a class="headerlink" href="#scripts-de-validacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># scripts/validar-consistencia.sh</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Validando trazabilidad bidireccional...&quot;</span>
+
+<span class="c1"># Buscar todas las referencias a RF-BACK-065</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RF-BACK-065&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/<span class="w"> </span>&gt;<span class="w"> </span>/tmp/rf065-refs.txt
+
+<span class="c1"># El archivo RF-BACK-065 debe existir</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR: RF-BACK-065 es referenciado pero no existe&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># Validar que UC-BACK-001 menciona RF-BACK-065</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;RF-BACK-065&quot;</span><span class="w"> </span><span class="s2">&quot;docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR: UC-BACK-001 no menciona RF-BACK-065 pero debería&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># Validar que RF-BACK-065 menciona UC-BACK-001</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;UC-BACK-001&quot;</span><span class="w"> </span><span class="s2">&quot;docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR: RF-BACK-065 no menciona UC-BACK-001 pero debería&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Validación exitosa&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="revision-manual">
+<h3>Revisión Manual<a class="headerlink" href="#revision-manual" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Leer el cambio origen (RN-BACK-001) nuevamente</p></li>
+<li><p>Leer cada artefacto actualizado</p></li>
+<li><p>Preguntar: “¿Este artefacto es consistente con el cambio origen?”</p></li>
+<li><p>Preguntar: “¿Este artefacto es consistente con los demás artefactos
+actualizados?”</p></li>
+</ol>
+</section>
+<section id="validacion-6">
+<span id="id12"></span><h3>Validación<a class="headerlink" href="#validacion-6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Script de validación ejecutado sin errores</p></li>
+<li><p>☐ Revisión manual completada</p></li>
+<li><p>☐ Trazabilidad bidireccional verificada</p></li>
+<li><p>☐ Contenido consistente entre artefactos</p></li>
+<li><p>☐ Listo para commit</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-8-actualizar-matrices-de-trazabilidad">
+<h2>PASO 8: Actualizar Matrices de Trazabilidad<a class="headerlink" href="#paso-8-actualizar-matrices-de-trazabilidad" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-7">
+<span id="id13"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-7" title="Link to this heading">¶</a></h3>
+<p>Actualizar las matrices de trazabilidad para reflejar los cambios y
+nuevas relaciones.</p>
+</section>
+<section id="matrices-a-actualizar">
+<h3>Matrices a Actualizar<a class="headerlink" href="#matrices-a-actualizar" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Matriz vertical (por columna de jerarquía)</p></li>
+<li><p>Matriz horizontal (por caso de uso)</p></li>
+<li><p>Matriz de módulo específico</p></li>
+</ol>
+</section>
+<section id="ejemplo-actualizar-matriz-back-autenticacion-md">
+<h3>Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md<a class="headerlink" href="#ejemplo-actualizar-matriz-back-autenticacion-md" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Matriz de Trazabilidad: Módulo de Autenticación</span>
+
+Última actualización: 2025-11-17
+
+<span class="gu">## Matriz Vertical</span>
+
+| RN | RNEG | UC | RF | RNF |
+|---|---|---|---|---|
+| RN-BACK-001 | RNEG-BACK-001 | UC-BACK-001 | RF-BACK-010 | RNF-BACK-005 |
+|  |  |  | RF-BACK-011 | RNF-BACK-007 |
+|  |  |  | RF-BACK-065 ← NUEVO | RNF-BACK-020 ← NUEVO |
+|  |  |  | RF-BACK-066 ← NUEVO |  |
+|  |  |  | RF-BACK-067 ← NUEVO |  |
+|  |  | UC-BACK-003 | RF-BACK-014 | RNF-BACK-005 |
+|  |  | UC-BACK-004 | RF-BACK-018 |  |
+
+<span class="gu">## Matriz por Caso de Uso: UC-BACK-001</span>
+
+| Tipo | ID | Nombre | Versión |
+|---|---|---|---|
+| RN | RN-BACK-001 | Usuario debe estar autenticado con 2FA | 2.0.0 ← ACTUALIZADO |
+| RNEG | RNEG-BACK-001 | Sistema de autenticación seguro | 1.1.0 ← ACTUALIZADO |
+| UC | UC-BACK-001 | Iniciar Sesión | 1.1.0 ← ACTUALIZADO |
+| RF | RF-BACK-010 | Validar credenciales | 1.0.0 |
+| RF | RF-BACK-011 | Generar token JWT | 1.1.0 ← ACTUALIZADO |
+| RF | RF-BACK-065 | Generar código TOTP | 1.0.0 ← NUEVO |
+| RF | RF-BACK-066 | Validar código TOTP | 1.0.0 ← NUEVO |
+| RF | RF-BACK-067 | Registrar dispositivo 2FA | 1.0.0 ← NUEVO |
+| RNF | RNF-BACK-005 | Contraseña mínimo 8 caracteres | 1.0.0 |
+| RNF | RNF-BACK-007 | Sesión expira en 30 minutos | 1.0.0 |
+| RNF | RNF-BACK-020 | Código TOTP expira en 30 segundos | 1.0.0 ← NUEVO |
+
+<span class="gu">## Cambios en esta Actualización</span>
+
+<span class="gs">**Fecha**</span>: 2025-11-17
+<span class="gs">**Cambio Origen**</span>: RN-BACK-001 actualizado para requerir 2FA
+
+<span class="gs">**Artefactos Actualizados**</span>:
+<span class="k">-</span><span class="w"> </span>RN-BACK-001: v1.0.0 → v2.0.0 (Breaking change: agregar 2FA)
+<span class="k">-</span><span class="w"> </span>RNEG-BACK-001: v1.0.0 → v1.1.0 (Actualizar descripción)
+<span class="k">-</span><span class="w"> </span>UC-BACK-001: v1.0.0 → v1.1.0 (Agregar pasos de 2FA)
+<span class="k">-</span><span class="w"> </span>RF-BACK-011: v1.0.0 → v1.1.0 (Validar 2FA antes de token)
+
+<span class="gs">**Artefactos Nuevos**</span>:
+<span class="k">-</span><span class="w"> </span>RF-BACK-065: Generar código TOTP
+<span class="k">-</span><span class="w"> </span>RF-BACK-066: Validar código TOTP
+<span class="k">-</span><span class="w"> </span>RF-BACK-067: Registrar dispositivo 2FA
+<span class="k">-</span><span class="w"> </span>RNF-BACK-020: Código TOTP expira en 30 segundos
+</pre></div>
+</div>
+</section>
+<section id="validacion-7">
+<span id="id14"></span><h3>Validación<a class="headerlink" href="#validacion-7" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Matriz vertical actualizada</p></li>
+<li><p>☐ Matrices horizontales actualizadas</p></li>
+<li><p>☐ Nuevos artefactos agregados</p></li>
+<li><p>☐ Versiones reflejadas correctamente</p></li>
+<li><p>☐ Cambios documentados en la matriz</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-9-commit-atomico-de-todos-los-cambios">
+<h2>PASO 9: Commit Atómico de Todos los Cambios<a class="headerlink" href="#paso-9-commit-atomico-de-todos-los-cambios" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-8">
+<span id="id15"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-8" title="Link to this heading">¶</a></h3>
+<p>Crear un commit único que incluya todos los cambios relacionados con el
+análisis de impacto.</p>
+</section>
+<section id="principio-de-commit-atomico">
+<h3>Principio de Commit Atómico<a class="headerlink" href="#principio-de-commit-atomico" title="Link to this heading">¶</a></h3>
+<p>Un commit atómico debe: - Incluir TODOS los cambios relacionados - Ser
+una unidad lógica completa - Dejar el repositorio en estado consistente
+- No romper la funcionalidad si se hace checkout de ese commit</p>
+</section>
+<section id="verificar-archivos-modificados">
+<h3>Verificar Archivos Modificados<a class="headerlink" href="#verificar-archivos-modificados" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-066-validar-codigo-totp.md</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-067-registrar-dispositivo-2fa.md</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-020-codigo-totp-expira-30s.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml</span>
+<span class="c1"># modified:   docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md</span>
+</pre></div>
+</div>
+</section>
+<section id="agregar-todos-los-archivos">
+<h3>Agregar Todos los Archivos<a class="headerlink" href="#agregar-todos-los-archivos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar todos los archivos modificados y nuevos</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/trazabilidad/
+</pre></div>
+</div>
+</section>
+<section id="crear-mensaje-de-commit-descriptivo">
+<h3>Crear Mensaje de Commit Descriptivo<a class="headerlink" href="#crear-mensaje-de-commit-descriptivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">docs(requisitos): implementar autenticación 2FA (BREAKING CHANGE)</span>
+
+<span class="s">Cambio origen: RN-BACK-001 actualizado para requerir autenticación de dos</span>
+<span class="s">factores (2FA) según nueva regulación LFPDPPP Art. 12 bis.</span>
+
+<span class="s">BREAKING CHANGE: La autenticación ahora requiere 2FA con TOTP. Esto afecta</span>
+<span class="s">todos los flujos de inicio de sesión.</span>
+
+<span class="s">Artefactos actualizados (6):</span>
+<span class="s">- RN-BACK-001: v1.0.0 → v2.0.0 - Agregar requisito de 2FA</span>
+<span class="s">- RNEG-BACK-001: v1.0.0 → v1.1.0 - Actualizar descripción</span>
+<span class="s">- UC-BACK-001: v1.0.0 → v1.1.0 - Agregar pasos de 2FA en flujo</span>
+<span class="s">- UC-BACK-003: v1.0.0 → v1.1.0 - Nota sobre 2FA</span>
+<span class="s">- UC-BACK-004: v1.0.0 → v1.1.0 - Proceso de recuperación con 2FA</span>
+<span class="s">- RF-BACK-011: v1.0.0 → v1.1.0 - Validar 2FA antes de generar token</span>
+
+<span class="s">Artefactos nuevos (4):</span>
+<span class="s">- RF-BACK-065: Generar código TOTP según RFC 6238</span>
+<span class="s">- RF-BACK-066: Validar código TOTP</span>
+<span class="s">- RF-BACK-067: Registrar dispositivo 2FA del usuario</span>
+<span class="s">- RNF-BACK-020: Código TOTP debe expirar en 30 segundos</span>
+
+<span class="s">Diagramas actualizados:</span>
+<span class="s">- UCD-BACK-001: Agregar paso de validación 2FA</span>
+
+<span class="s">Matrices actualizadas:</span>
+<span class="s">- MATRIZ-BACK-autenticacion.md</span>
+
+<span class="s">Fecha de análisis: 2025-11-17</span>
+<span class="s">Analista: Claude Code</span>
+
+<span class="s">Relacionado: ADR-GOB-005, ADR-GOB-009</span>
+<span class="s">Regulación: LFPDPPP Art. 12 bis</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="formato-de-mensaje-de-commit">
+<h3>Formato de Mensaje de Commit<a class="headerlink" href="#formato-de-mensaje-de-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs(requisitos): [descripción breve del cambio] (BREAKING CHANGE si aplica)
+
+Cambio origen: [ID] [descripción del cambio origen]
+
+BREAKING CHANGE: [descripción del impacto si es breaking]
+
+Artefactos actualizados (N):
+- [ID]: [versión anterior] → [versión nueva] - [cambio]
+- ...
+
+Artefactos nuevos (N):
+- [ID]: [descripción]
+- ...
+
+Diagramas actualizados:
+- [ID]: [cambio]
+
+Matrices actualizadas:
+- [archivo]
+
+Fecha de análisis: [YYYY-MM-DD]
+Analista: [Nombre]
+
+Relacionado: [ADRs relacionados]
+[Información adicional relevante]
+</pre></div>
+</div>
+</section>
+<section id="push-al-repositorio">
+<h3>Push al Repositorio<a class="headerlink" href="#push-al-repositorio" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que todo está commiteado</span>
+git<span class="w"> </span>status
+
+<span class="c1"># Debería mostrar:</span>
+<span class="c1"># On branch main</span>
+<span class="c1"># nothing to commit, working tree clean</span>
+
+<span class="c1"># Push</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="validacion-8">
+<span id="id16"></span><h3>Validación<a class="headerlink" href="#validacion-8" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Todos los archivos agregados a git</p></li>
+<li><p>☐ Commit creado con mensaje descriptivo completo</p></li>
+<li><p>☐ Mensaje incluye BREAKING CHANGE si aplica</p></li>
+<li><p>☐ Mensaje lista todos los artefactos actualizados y nuevos</p></li>
+<li><p>☐ Push exitoso</p></li>
+<li><p>☐ Working tree clean</p></li>
+</ul>
+</section>
+</section>
+<section id="documentar-el-analisis">
+<h2>Documentar el Análisis<a class="headerlink" href="#documentar-el-analisis" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-9">
+<span id="id17"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-9" title="Link to this heading">¶</a></h3>
+<p>Guardar el análisis de impacto como referencia futura.</p>
+</section>
+<section id="crear-documento-de-analisis">
+<h3>Crear Documento de Análisis<a class="headerlink" href="#crear-documento-de-analisis" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>docs/gobernanza/analisis_impacto/
+
+cat<span class="w"> </span>&gt;<span class="w"> </span>docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">[Contenido completo del análisis de los PASOS 1-9]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+<section id="commitar-documento-de-analisis">
+<h3>Commitar Documento de Análisis<a class="headerlink" href="#commitar-documento-de-analisis" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md
+
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(analisis): documentar análisis de impacto RN-BACK-001 (2FA)</span>
+
+<span class="s2">Análisis completo del cambio de autenticación básica a 2FA.</span>
+<span class="s2">Fecha: 2025-11-17&quot;</span>
+
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejemplo-completo-rn-back-015-cambio-menor">
+<h2>Ejemplo Completo: RN-BACK-015 Cambio Menor<a class="headerlink" href="#ejemplo-completo-rn-back-015-cambio-menor" title="Link to this heading">¶</a></h2>
+<section id="escenario">
+<h3>Escenario<a class="headerlink" href="#escenario" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cambio</span><span class="p">:</span> <span class="n">Corregir</span> <span class="n">typo</span> <span class="n">en</span> <span class="n">RN</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">015</span>
+<span class="n">Antes</span><span class="p">:</span> <span class="s2">&quot;Solo usuarios con rol Auditor puede generar reportes&quot;</span>
+<span class="n">Después</span><span class="p">:</span> <span class="s2">&quot;Solo usuarios con rol Auditor pueden generar reportes&quot;</span>
+<span class="n">Tipo</span><span class="p">:</span> <span class="n">Menor</span> <span class="p">(</span><span class="n">corrección</span> <span class="n">ortográfica</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="paso-1-identificar-artefacto">
+<h3>PASO 1: Identificar Artefacto<a class="headerlink" href="#paso-1-identificar-artefacto" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Artefacto Modificado</span>
+<span class="gs">**ID**</span>: RN-BACK-015
+<span class="gs">**Tipo**</span>: Regla de Negocio - Restricción
+<span class="gs">**Magnitud**</span>: Menor
+<span class="gs">**Operación**</span>: Modificar
+<span class="gs">**Razón**</span>: Corrección ortográfica (puede → pueden)
+</pre></div>
+</div>
+</section>
+<section id="paso-2-consultar-trazabilidad">
+<h3>PASO 2: Consultar Trazabilidad<a class="headerlink" href="#paso-2-consultar-trazabilidad" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-015&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/
+
+<span class="c1"># Resultados:</span>
+<span class="c1"># UC-BACK-020-generar-reporte-auditoria.md</span>
+</pre></div>
+</div>
+</section>
+<section id="paso-3-artefactos-afectados">
+<h3>PASO 3: Artefactos Afectados<a class="headerlink" href="#paso-3-artefactos-afectados" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Artefactos Potencialmente Afectados</span>
+
+<span class="k">-</span><span class="w"> </span>UC-BACK-020: Generar Reporte de Auditoría (solo referencia, contenido no afectado)
+</pre></div>
+</div>
+</section>
+<section id="paso-4-determinar-accion">
+<h3>PASO 4: Determinar Acción<a class="headerlink" href="#paso-4-determinar-accion" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### UC-BACK-020</span>
+<span class="gs">**Acción**</span>: Sin cambios
+<span class="gs">**Razón**</span>: El typo está en RN-BACK-015, no en UC-BACK-020. La referencia por ID sigue siendo válida.
+</pre></div>
+</div>
+</section>
+<section id="paso-5-checklist">
+<h3>PASO 5: Checklist<a class="headerlink" href="#paso-5-checklist" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Checklist</span>
+
+<span class="k">- [ ]</span> RN-BACK-015: Corregir typo &quot;puede&quot; → &quot;pueden&quot;
+<span class="k">- [x]</span> UC-BACK-020: Sin cambios (validado)
+</pre></div>
+</div>
+</section>
+<section id="paso-6-7-actualizar-y-validar">
+<h3>PASO 6-7: Actualizar y Validar<a class="headerlink" href="#paso-6-7-actualizar-y-validar" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solo actualizar RN-BACK-015</span>
+vim<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+
+<span class="c1"># Cambiar &quot;puede&quot; por &quot;pueden&quot;</span>
+<span class="c1"># Actualizar fecha (no versión, es cambio menor)</span>
+</pre></div>
+</div>
+</section>
+<section id="paso-8-matrices">
+<h3>PASO 8: Matrices<a class="headerlink" href="#paso-8-matrices" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>No requiere actualización de matrices (contenido no cambió, solo ortografía)
+</pre></div>
+</div>
+</section>
+<section id="paso-9-commit">
+<h3>PASO 9: Commit<a class="headerlink" href="#paso-9-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix(requisitos): corregir typo en RN-BACK-015</span>
+
+<span class="s2">Corrección ortográfica: &#39;puede&#39; → &#39;pueden&#39;</span>
+
+<span class="s2">Artefactos afectados: Ninguno (solo corrección ortográfica)</span>
+
+<span class="s2">Fecha: 2025-11-17&quot;</span>
+
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="problemas-comunes-y-soluciones">
+<h2>Problemas Comunes y Soluciones<a class="headerlink" href="#problemas-comunes-y-soluciones" title="Link to this heading">¶</a></h2>
+<section id="problema-1-demasiados-artefactos-afectados">
+<h3>Problema 1: Demasiados artefactos afectados<a class="headerlink" href="#problema-1-demasiados-artefactos-afectados" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: El cambio afecta 30+ artefactos.</p>
+<p><strong>Solución</strong>: 1. Priorizar por criticidad 2. Hacer cambios en fases: -
+Fase 1: Artefactos críticos (Alta prioridad) - Fase 2: Artefactos
+importantes (Media prioridad) - Fase 3: Artefactos complementarios (Baja
+prioridad) 3. Crear issues/tickets para trackear cada fase</p>
+</section>
+<section id="problema-2-cambio-en-cascada-infinito">
+<h3>Problema 2: Cambio en cascada infinito<a class="headerlink" href="#problema-2-cambio-en-cascada-infinito" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: Cada artefacto actualizado requiere actualizar 10 más.</p>
+<p><strong>Solución</strong>: - Definir alcance máximo (ej: 3 niveles de profundidad) -
+Documentar artefactos fuera de alcance para actualización futura -
+Priorizar por impacto en funcionalidad</p>
+</section>
+<section id="problema-3-no-encuentro-todas-las-referencias">
+<h3>Problema 3: No encuentro todas las referencias<a class="headerlink" href="#problema-3-no-encuentro-todas-las-referencias" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Búsqueda exhaustiva con grep</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>docs/
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;RN-BACK-001&quot;</span><span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span>.
+
+<span class="c1"># Búsqueda por palabra clave</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;autenticación&quot;</span><span class="w"> </span>docs/gobernanza/requisitos/
+
+<span class="c1"># Consultar git history</span>
+git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--grep<span class="o">=</span><span class="s2">&quot;RN-BACK-001&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-4-conflicto-entre-cambios">
+<h3>Problema 4: Conflicto entre cambios<a class="headerlink" href="#problema-4-conflicto-entre-cambios" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: Dos personas modificando el mismo artefacto
+simultáneamente.</p>
+<p><strong>Solución</strong>: 1. Coordinar análisis de impacto en equipo 2. Usar
+branches para análisis grandes 3. Comunicar en PR qué artefactos se
+están modificando 4. Resolver conflictos manualmente revisando ambos
+cambios</p>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md">ADR-GOB-005: Jerarquía de Requerimientos en 5
+Niveles</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md">ADR-GOB-009: Trazabilidad entre Artefactos de
+Requisitos</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md">PROCED-GOB-003: Documentar Regla de
+Negocio</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md">PROCED-GOB-004: Crear Caso de
+Uso</a></p></li>
+</ul>
+</section>
+<section id="historial-de-cambios">
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Claude Code</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCED-GOB-005: Análisis de Impacto de Cambios en Requisitos</a><ul>
+<li><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li><a class="reference internal" href="#pre-requisitos">Pre-requisitos</a></li>
+<li><a class="reference internal" href="#resultado-esperado">Resultado Esperado</a></li>
+<li><a class="reference internal" href="#tipos-de-cambios">Tipos de Cambios</a><ul>
+<li><a class="reference internal" href="#clasificacion-por-magnitud">Clasificación por Magnitud</a></li>
+<li><a class="reference internal" href="#clasificacion-por-operacion">Clasificación por Operación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-1-identificar-artefacto-que-cambio">PASO 1: Identificar Artefacto que Cambió</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#informacion-a-capturar">Información a Capturar</a></li>
+<li><a class="reference internal" href="#plantilla-de-documentacion">Plantilla de Documentación</a></li>
+<li><a class="reference internal" href="#ejemplo-completo">Ejemplo Completo</a></li>
+<li><a class="reference internal" href="#validacion">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-2-consultar-trazabilidad-bidireccional">PASO 2: Consultar Trazabilidad Bidireccional</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-1">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#trazabilidad-upstream-hacia-arriba">Trazabilidad Upstream (Hacia Arriba)</a></li>
+<li><a class="reference internal" href="#trazabilidad-downstream-hacia-abajo">Trazabilidad Downstream (Hacia Abajo)</a></li>
+<li><a class="reference internal" href="#metodos-de-consulta">Métodos de Consulta</a><ul>
+<li><a class="reference internal" href="#metodo-1-revisar-seccion-de-trazabilidad-en-el-artefacto">Método 1: Revisar Sección de Trazabilidad en el Artefacto</a></li>
+<li><a class="reference internal" href="#metodo-2-busqueda-con-grep">Método 2: Búsqueda con Grep</a></li>
+<li><a class="reference internal" href="#metodo-3-consultar-matriz-de-trazabilidad">Método 3: Consultar Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-rn-back-001">Ejemplo: RN-BACK-001</a></li>
+<li><a class="reference internal" href="#documentar-resultados">Documentar Resultados</a></li>
+<li><a class="reference internal" href="#validacion-1">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-3-listar-artefactos-potencialmente-afectados">PASO 3: Listar Artefactos Potencialmente Afectados</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-2">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#criterios-de-inclusion">Criterios de Inclusión</a></li>
+<li><a class="reference internal" href="#proceso">Proceso</a></li>
+<li><a class="reference internal" href="#ejemplo-rn-back-001-2fa">Ejemplo: RN-BACK-001 (2FA)</a></li>
+<li><a class="reference internal" href="#validacion-2">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-4-revisar-cada-artefacto-y-determinar-accion">PASO 4: Revisar Cada Artefacto y Determinar Acción</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-3">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#tipos-de-accion">Tipos de Acción</a></li>
+<li><a class="reference internal" href="#proceso-de-revision">Proceso de Revisión</a></li>
+<li><a class="reference internal" href="#plantilla-de-analisis-por-artefacto">Plantilla de Análisis por Artefacto</a></li>
+<li><a class="reference internal" href="#ejemplo-revision-de-uc-back-001">Ejemplo: Revisión de UC-BACK-001</a></li>
+<li><a class="reference internal" href="#ejemplo-revision-de-rnf-back-005">Ejemplo: Revisión de RNF-BACK-005</a></li>
+<li><a class="reference internal" href="#ejemplo-nuevo-artefacto-necesario">Ejemplo: Nuevo Artefacto Necesario</a></li>
+<li><a class="reference internal" href="#tabla-resumen-de-acciones">Tabla Resumen de Acciones</a></li>
+<li><a class="reference internal" href="#validacion-3">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-5-crear-checklist-de-cambios">PASO 5: Crear Checklist de Cambios</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-4">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#formato-de-checklist">Formato de Checklist</a></li>
+<li><a class="reference internal" href="#validacion-4">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-6-actualizar-artefactos-afectados">PASO 6: Actualizar Artefactos Afectados</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-5">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#orden-de-actualizacion">Orden de Actualización</a></li>
+<li><a class="reference internal" href="#proceso-por-artefacto">Proceso por Artefacto</a></li>
+<li><a class="reference internal" href="#ejemplo-actualizar-uc-back-001">Ejemplo: Actualizar UC-BACK-001</a></li>
+<li><a class="reference internal" href="#ejemplo-crear-rf-back-065">Ejemplo: Crear RF-BACK-065</a></li>
+<li><a class="reference internal" href="#validacion-5">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-7-validar-consistencia">PASO 7: Validar Consistencia</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-6">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#checklist-de-consistencia">Checklist de Consistencia</a><ul>
+<li><a class="reference internal" href="#validacion-de-trazabilidad-bidireccional">Validación de Trazabilidad Bidireccional</a></li>
+<li><a class="reference internal" href="#validacion-de-ids">Validación de IDs</a></li>
+<li><a class="reference internal" href="#validacion-de-formato">Validación de Formato</a></li>
+<li><a class="reference internal" href="#validacion-de-contenido">Validación de Contenido</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scripts-de-validacion">Scripts de Validación</a></li>
+<li><a class="reference internal" href="#revision-manual">Revisión Manual</a></li>
+<li><a class="reference internal" href="#validacion-6">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-8-actualizar-matrices-de-trazabilidad">PASO 8: Actualizar Matrices de Trazabilidad</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-7">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#matrices-a-actualizar">Matrices a Actualizar</a></li>
+<li><a class="reference internal" href="#ejemplo-actualizar-matriz-back-autenticacion-md">Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md</a></li>
+<li><a class="reference internal" href="#validacion-7">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-9-commit-atomico-de-todos-los-cambios">PASO 9: Commit Atómico de Todos los Cambios</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-8">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#principio-de-commit-atomico">Principio de Commit Atómico</a></li>
+<li><a class="reference internal" href="#verificar-archivos-modificados">Verificar Archivos Modificados</a></li>
+<li><a class="reference internal" href="#agregar-todos-los-archivos">Agregar Todos los Archivos</a></li>
+<li><a class="reference internal" href="#crear-mensaje-de-commit-descriptivo">Crear Mensaje de Commit Descriptivo</a></li>
+<li><a class="reference internal" href="#formato-de-mensaje-de-commit">Formato de Mensaje de Commit</a></li>
+<li><a class="reference internal" href="#push-al-repositorio">Push al Repositorio</a></li>
+<li><a class="reference internal" href="#validacion-8">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentar-el-analisis">Documentar el Análisis</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-9">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#crear-documento-de-analisis">Crear Documento de Análisis</a></li>
+<li><a class="reference internal" href="#commitar-documento-de-analisis">Commitar Documento de Análisis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-completo-rn-back-015-cambio-menor">Ejemplo Completo: RN-BACK-015 Cambio Menor</a><ul>
+<li><a class="reference internal" href="#escenario">Escenario</a></li>
+<li><a class="reference internal" href="#paso-1-identificar-artefacto">PASO 1: Identificar Artefacto</a></li>
+<li><a class="reference internal" href="#paso-2-consultar-trazabilidad">PASO 2: Consultar Trazabilidad</a></li>
+<li><a class="reference internal" href="#paso-3-artefactos-afectados">PASO 3: Artefactos Afectados</a></li>
+<li><a class="reference internal" href="#paso-4-determinar-accion">PASO 4: Determinar Acción</a></li>
+<li><a class="reference internal" href="#paso-5-checklist">PASO 5: Checklist</a></li>
+<li><a class="reference internal" href="#paso-6-7-actualizar-y-validar">PASO 6-7: Actualizar y Validar</a></li>
+<li><a class="reference internal" href="#paso-8-matrices">PASO 8: Matrices</a></li>
+<li><a class="reference internal" href="#paso-9-commit">PASO 9: Commit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</a><ul>
+<li><a class="reference internal" href="#problema-1-demasiados-artefactos-afectados">Problema 1: Demasiados artefactos afectados</a></li>
+<li><a class="reference internal" href="#problema-2-cambio-en-cascada-infinito">Problema 2: Cambio en cascada infinito</a></li>
+<li><a class="reference internal" href="#problema-3-no-encuentro-todas-las-referencias">Problema 3: No encuentro todas las referencias</a></li>
+<li><a class="reference internal" href="#problema-4-conflicto-entre-cambios">Problema 4: Conflicto entre cambios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

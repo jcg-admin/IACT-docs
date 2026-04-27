@@ -7,13 +7,9 @@
    :uc_id: UC_AUTH_04
    :normativa: CNST-002, CNST-009
 
-==================================================
+==============================
 UC_AUTH_04: Cambiar Contrasena
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+==============================
 
 1. Resumen
 ----------
@@ -67,7 +63,6 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    :caption: Diagrama de Caso de Uso - UC_AUTH_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -218,7 +213,6 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    :caption: Diagrama de Secuencia - UC_AUTH_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "Usuario" as U
    participant "Frontend\nProfile" as FE <<Frontend>>
@@ -469,7 +463,6 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    :caption: Diagrama de Actividad - UC_AUTH_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

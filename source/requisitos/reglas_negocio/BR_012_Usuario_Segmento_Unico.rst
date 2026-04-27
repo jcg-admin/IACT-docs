@@ -12,15 +12,10 @@
 
 .. _br-012:
 
-==============================================================================
+==============================
 BR_012: Usuario-Segmento Único
-==============================================================================
+==============================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -269,9 +264,9 @@ La regla se considera cumplida cuando:
    # apps/access/models.py
    
    class UserSegment(models.Model):
-       """
+                                                     
        Relación usuario-centro que implementa BR_012.
-       """
+                                                     
        user = models.ForeignKey(
            'users.User',
            on_delete=models.CASCADE,
@@ -305,10 +300,10 @@ La regla se considera cumplida cuando:
    # apps/core/middleware/segment_filter.py
    
    class SegmentFilterMiddleware:
-       """
+                                 
        Middleware que aplica filtro automático por segmento.
        Implementa BR_012.
-       """
+                         
        
        def __init__(self, get_response):
            self.get_response = get_response
@@ -334,15 +329,15 @@ La regla se considera cumplida cuando:
    # apps/reports/managers.py
    
    class SegmentedManager(models.Manager):
-       """
+                                                                    
        Manager que filtra automáticamente por segmentos del usuario.
-       """
+                                                                    
        
        def for_user(self, user):
-           """
+                                
            Retorna queryset filtrado por centros del usuario.
            Implementa BR_012.
-           """
+                             
            center_ids = user.segments.values_list('center_id', flat=True)
            return self.filter(center_id__in=center_ids)
 

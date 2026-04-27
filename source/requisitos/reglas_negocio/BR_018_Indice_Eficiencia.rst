@@ -12,15 +12,10 @@
 
 .. _br-018:
 
-==============================================================================
+============================
 BR_018: Índice de Eficiencia
-==============================================================================
+============================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Resumen Ejecutivo
 -----------------
@@ -197,18 +192,18 @@ El Índice de Eficiencia es importante porque:
    # apps/reports/services/kpi_calculator.py
    
    class KPICalculator:
-       """
+                                                
        Calculador de KPIs que implementa BR_018.
-       """
+                                                
        
        @staticmethod
        def calcular_indice_eficiencia(fecha_inicio, fecha_fin, centro_id=None):
-           """
+                                                                               
            BR_018: Calcula índice de eficiencia.
            
            Returns:
                Decimal: Porcentaje con 2 decimales
-           """
+                                                  
            queryset = Llamada.objects.filter(
                fecha__range=(fecha_inicio, fecha_fin)
            )

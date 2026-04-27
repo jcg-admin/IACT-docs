@@ -7,13 +7,9 @@
    :uc_id: UC_AUTH_01
    :normativa: CNST-002, CNST-009
 
-==================================================
+==========================
 UC_AUTH_01: Iniciar Sesion
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+==========================
 
 1. Resumen
 ----------
@@ -66,7 +62,6 @@ sesion unica (CNST-002) y genera los tokens JWT correspondientes.
    :caption: Diagrama de Caso de Uso - UC_AUTH_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -232,7 +227,6 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    :caption: Diagrama de Secuencia - UC_AUTH_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "Usuario" as U
    participant "Frontend\nLogin" as FE <<Frontend>>
@@ -476,7 +470,6 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    :caption: Diagrama de Actividad - UC_AUTH_01
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

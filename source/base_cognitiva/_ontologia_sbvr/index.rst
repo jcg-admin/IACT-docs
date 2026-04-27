@@ -10,28 +10,24 @@
    :autor: Business Analyst Lead
    :clasificacion: Interno
 
+.. _ontologia-sbvr-index:
 .. _sbvr_03_vocabulario_controlado:
 
-==========================================================
+================================
 SBVR_03 · Vocabulario Controlado
-==========================================================
+================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-------------------------------------------------------------
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento establece el vocabulario controlado para la especificación
 de reglas de negocio en el proyecto IACT. Define los términos permitidos,
 sus sinónimos aceptados y términos prohibidos, garantizando consistencia
 y eliminando ambigüedad en la documentación de requisitos.
 
-------------------------------------------------------------
+----------------------
 2. Uso del Vocabulario
-------------------------------------------------------------
+----------------------
 
 2.1. Cuándo Consultar
 ^^^^^^^^^^^^^^^^^^^^^
@@ -51,9 +47,9 @@ Este documento debe consultarse:
 - Los términos prohibidos no deben usarse nunca
 - Si se necesita un término nuevo, solicitar aprobación al BA Lead
 
-------------------------------------------------------------
+-------------------------
 3. Vocabulario de Actores
-------------------------------------------------------------
+-------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -75,9 +71,9 @@ Este documento debe consultarse:
      - IVR, Plataforma IVR
      - Centralita, PBX, Call Center
 
-------------------------------------------------------------
+-------------------
 4. Vocabulario RBAC
-------------------------------------------------------------
+-------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -184,9 +180,9 @@ Los 6 segmentos definidos:
      - DATOS_CONSOLIDADOS
      - Datos agregados para toma de decisiones
 
-------------------------------------------------------------
+-------------------------
 5. Vocabulario de Negocio
-------------------------------------------------------------
+-------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -214,9 +210,9 @@ Los 6 segmentos definidos:
      - Informe
      - Documento, Listado, Export
 
-------------------------------------------------------------
+--------------------------
 6. Vocabulario de Acciones
-------------------------------------------------------------
+--------------------------
 
 6.1. Verbos para Reglas Aléticas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -305,9 +301,9 @@ Los 6 segmentos definidos:
      - otorgar
      - dar, poner, setear
 
-------------------------------------------------------------
+---------------------------------
 7. Vocabulario de Cuantificadores
-------------------------------------------------------------
+---------------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -332,9 +328,9 @@ Los 6 segmentos definidos:
      - ninguno, cero
      - ni uno, nada de
 
-------------------------------------------------------------
+-----------------------------
 8. Vocabulario de Condiciones
-------------------------------------------------------------
+-----------------------------
 
 .. list-table::
    :widths: 25 35 40
@@ -362,9 +358,9 @@ Los 6 segmentos definidos:
      - posteriormente a, luego de
      - posterior a
 
-------------------------------------------------------------
+-------------------------------
 9. Términos Técnicos Permitidos
-------------------------------------------------------------
+-------------------------------
 
 Los siguientes términos técnicos están permitidos en reglas de negocio
 cuando se refieren a conceptos específicos del sistema:
@@ -390,9 +386,9 @@ cuando se refieren a conceptos específicos del sistema:
    * - timeout
      - Tiempo límite de sesión o operación
 
-------------------------------------------------------------
+---------------------------
 10. Checklist de Validación
-------------------------------------------------------------
+---------------------------
 
 Al escribir o revisar una regla de negocio, verificar:
 
@@ -415,9 +411,9 @@ Al escribir o revisar una regla de negocio, verificar:
    * - 7
      - Los términos técnicos están en la lista permitida
 
-------------------------------------------------------------
+-------------------------
 11. Proceso de Ampliación
-------------------------------------------------------------
+-------------------------
 
 Para agregar un nuevo término al vocabulario controlado:
 
@@ -429,9 +425,9 @@ Para agregar un nuevo término al vocabulario controlado:
 6. Si se aprueba, se actualiza SBVR_01 y SBVR_03
 7. Se notifica al equipo el nuevo término
 
-------------------------------------------------------------
+---------------
 12. Referencias
-------------------------------------------------------------
+---------------
 
 .. list-table::
    :widths: 30 70
@@ -442,15 +438,15 @@ Para agregar un nuevo término al vocabulario controlado:
    * - Conceptos Nucleares
      - :doc:`SBVR_01_Conceptos_Nucleares`
    * - Tipos de Regla
-     - :doc:`SBVR_02_Tipos_Regla_Negocio`
+     - :doc:`SBVR_02_Fact_Types`
    * - Modelo RBAC
-     - Modelo_RBAC_Completo_Sistema_IACT_v_0_0_1
+     - Ver sección de Arquitectura (RBAC Flat NIST)
    * - Glosario IACT
-     - :doc:`/base_cognitiva/glosario/IACT_Glossary_v1_0_0`
+     - Ver glosario del sistema
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

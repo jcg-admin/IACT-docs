@@ -11,27 +11,23 @@
    :autor: PMO IACT
    :clasificacion: Interno
 
+.. _meta-05:
 .. _meta_05_estructura_documental:
 
-==========================================================
+===============================
 META_05 · Estructura Documental
-==========================================================
+===============================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-------------------------------------------------------------
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento presenta el mapa completo de la estructura documental IACT,
 proporcionando navegación rápida y visión global del sistema de 5 dominios,
 21 subdominios y 6 subcarpetas organizativas.
 
-------------------------------------------------------------
+--------------------
 2. Resumen Ejecutivo
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 40 60
@@ -49,9 +45,9 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
    * - Subdominios Descongelados
      - 4
 
-------------------------------------------------------------
+-------------------
 3. Mapa de Dominios
-------------------------------------------------------------
+-------------------
 
 3.1. Dominio: base_cognitiva/
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,9 +209,9 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
 
 **Prefijos:** RTM_, RPT_, VAL_
 
-------------------------------------------------------------
+-----------------
 4. Árbol Completo
-------------------------------------------------------------
+-----------------
 
 ::
 
@@ -292,9 +288,9 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
        ├── reportes/
        └── validaciones/
 
-------------------------------------------------------------
+----------------------------
 5. Subdominios Descongelados
-------------------------------------------------------------
+----------------------------
 
 Los siguientes subdominios han sido descongelados y pueden contener
 subcarpetas organizativas:
@@ -319,9 +315,9 @@ subcarpetas organizativas:
      - 2024-10-01
      - (c) Reglas incompatibles, (d) Complejidad prevista.
 
-------------------------------------------------------------
+----------------------------
 6. Navegación Rápida por Rol
-------------------------------------------------------------
+----------------------------
 
 .. list-table::
    :widths: 20 80
@@ -340,9 +336,9 @@ subcarpetas organizativas:
    * - QA
      - requisitos/casos_uso/, trazabilidad/matrices/, trazabilidad/reportes/
 
-------------------------------------------------------------
+--------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -353,13 +349,13 @@ subcarpetas organizativas:
    * - Contexto IACT
      - :doc:`META_04_Contexto_IACT`
    * - Definiciones Oficiales
-     - :doc:`/normativa/restricciones/RESTRICCIONES_COMPLETAS`
+     - Ver sección de Restricciones (CNST_001-010)
    * - Árbol Completo con Justificaciones
      - ÁRBOL_COMPLETO_IACT_CON_JUSTIFICACIONES_v_2_0_0.md
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

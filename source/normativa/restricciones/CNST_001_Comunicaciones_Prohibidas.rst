@@ -1,5 +1,5 @@
 CNST-001: Comunicaciones Prohibidas
-====================================
+===================================
 
 :ID: CNST-001
 :Versión: 1.0.1
@@ -174,12 +174,12 @@ Implementación Código CORRECTO
    User = get_user_model()
 
    class SecurityQuestion(models.Model):
-       """
+                                        
        Preguntas de seguridad para recuperación de contraseña.
 
        Reemplaza el flujo de email prohibido por CNST-001.
        Cada usuario debe tener exactamente 3 preguntas configuradas.
-       """
+                                                                    
 
        user = models.ForeignKey(
            User,
@@ -202,7 +202,7 @@ Implementación Código CORRECTO
 
 
    def validate_security_answers(user, answers):
-       """
+                                                
        Validar las 3 preguntas de seguridad.
 
        Args:
@@ -211,7 +211,7 @@ Implementación Código CORRECTO
 
        Returns:
            True si todas las respuestas son correctas
-       """
+                                                     
        questions = SecurityQuestion.objects.filter(user=user).order_by('id')[:3]
 
        if questions.count() != 3 or len(answers) != 3:
@@ -255,7 +255,7 @@ Modelo InternalMessage
    User = get_user_model()
 
    class InternalMessage(models.Model):
-       """
+                                       
        Buzón interno para notificaciones del sistema.
 
        Reemplaza el email prohibido por CNST-001.
@@ -270,7 +270,7 @@ Modelo InternalMessage
                subject='Título',
                body='Contenido del mensaje'
            )
-       """
+            
 
        recipient = models.ForeignKey(
            User,
@@ -333,7 +333,7 @@ Modelo InternalMessage
            ).count()
 
 Funciones de Notificación
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -343,7 +343,7 @@ Funciones de Notificación
 
 
    def notify(recipient, subject, body, sender=None, priority='NORMAL'):
-       """
+                                                                        
        Enviar notificación mediante buzón interno.
 
        Función principal para notificar usuarios.
@@ -358,7 +358,7 @@ Funciones de Notificación
 
        Returns:
            InternalMessage creado
-       """
+                                 
        message = InternalMessage.objects.create(
            recipient=recipient,
            subject=subject,
@@ -370,19 +370,19 @@ Funciones de Notificación
        return message
 
 Notificar a Administradores
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
    def notify_admins(subject, body, priority='HIGH'):
-       """
+                                                     
        Notificar a todos los administradores del sistema.
 
        Args:
            subject: Asunto
            body: Contenido
            priority: Prioridad (default HIGH para admins)
-       """
+                                                         
        from django.contrib.auth import get_user_model
 
        User = get_user_model()
@@ -398,7 +398,7 @@ Notificar a Administradores
 
 
    def notify_by_function(function_code, subject, body, priority='NORMAL'):
-       """
+                                                                           
        Notificar a usuarios con una función específica (RBAC v5.1.1).
 
        Compatible con Modelo RBAC IACT v5.1.1 (44 funciones atómicas).
@@ -415,7 +415,7 @@ Notificar a Administradores
                subject='Nuevo reporte disponible',
                body='El reporte mensual está listo.'
            )
-       """
+            
        from apps.access.models import UserFunctionAssignment
 
        # Obtener usuarios con la función específica

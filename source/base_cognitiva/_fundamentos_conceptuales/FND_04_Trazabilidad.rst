@@ -12,15 +12,10 @@
 
 .. _fnd-04:
 
-==============================================================================
+====================
 FND_04: Trazabilidad
-==============================================================================
+====================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-----
 
 Proposito
 ---------
@@ -73,7 +68,7 @@ de verificacion.
 ::
 
    BENEFICIO                    DESCRIPCION
-   ----------------------------------------------------------------------
+                                           
    Analisis de impacto          Identificar que afecta un cambio
    Verificacion de cobertura    Asegurar que nada se omite
    Justificacion de codigo      Todo codigo tiene razon de ser
@@ -132,7 +127,7 @@ de verificacion.
 ::
 
    ENLACE                  CARDINALIDAD       EJEMPLO
-   ----------------------------------------------------------------------
+                                                     
    BR --influye--> BReq    0..* : 0..*        Varias BR influyen en varios BReq
    BReq --genera--> UC     1 : 1..*           1 BReq genera multiples UC
    BR(Trigger) --genera--> UC  0..1 : 0..1   1 BR Trigger genera maximo 1 UC
@@ -281,7 +276,7 @@ que documenta todos los enlaces entre requisitos y sus derivados.
 ::
 
    METRICA                 VALOR      ESTADO
-   ------------------------------------------------
+                                            
    BReq identificados        5        Completo
    BR identificadas         20        Completo
    UC identificados         49        Completo
@@ -438,7 +433,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
 ::
 
    BR                              BReq
-   ------------------------------------------------------------------
+                                       
    BR_001 (Fuente Inmutable)   --> BReq-005 (Integridad Datos)
    BR_002 (ETL Nocturno)       --> BReq-001 (Visibilidad)
    BR_006 (RBAC Flat)          --> BReq-004 (Cumplimiento)
@@ -452,7 +447,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
 ::
 
    BReq                         UC Generados
-   ------------------------------------------------------------------
+                                            
    BReq-001 (Visibilidad)   --> UC-025 a UC-030 (Dashboard)
    BReq-002 (Red. Incid.)   --> UC-036 a UC-040 (Alertas)
    BReq-003 (Decisiones)    --> UC-017 a UC-024 (Reportes)
@@ -497,7 +492,7 @@ Ejemplo detallado para UC-043:
 ::
 
    FR                    Implementacion
-   ------------------------------------------------------------------
+                                       
    FR-043.1          --> apps/access/views/sod_views.py::list_sod()
    FR-043.2          --> apps/access/validators/sod_validator.py
    FR-043.3          --> apps/access/middleware/sod_enforcement.py
@@ -510,7 +505,7 @@ Ejemplo detallado para UC-043:
 ::
 
    FR                    Tests
-   ------------------------------------------------------------------
+                              
    FR-043.1          --> tests/access/test_sod_list.py
    FR-043.2          --> tests/access/test_sod_validation.py
    FR-043.3          --> tests/access/test_sod_enforcement.py

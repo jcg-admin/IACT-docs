@@ -7,13 +7,9 @@
    :uc_id: UC_ACC_04
    :normativa: CNST-005, CNST-009
 
-==================================================
+============================
 UC_ACC_04: Asignar Agrupador
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+============================
 
 1. Resumen
 ----------
@@ -70,7 +66,6 @@ asignacion masiva que contiene un conjunto predefinido de funciones.
    :caption: Diagrama de Caso de Uso - UC_ACC_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -201,7 +196,6 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    :caption: Diagrama de Secuencia - UC_ACC_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-007\nAdmin" as A
    participant "Frontend\nAccess" as FE <<Frontend>>
@@ -385,7 +379,6 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    :caption: Diagrama de Actividad - UC_ACC_04
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

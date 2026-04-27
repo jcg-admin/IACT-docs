@@ -1,18 +1,13 @@
 @startuml sistema_iact_contexto
-!define SYSTEM_COLOR #3498DB
-!define EXTERNAL_COLOR #95A5A6
-!define USER_COLOR #E74C3C
+' Centralized PlantUML style system (Phase C: Consolidated)
+!include ../../../_static/plantuml-styles.puml
 
-skinparam rectangle {
-  BackgroundColor<<Sistema>> SYSTEM_COLOR
-  BackgroundColor<<Externo>> EXTERNAL_COLOR
-  BorderColor #2C3E50
-}
-
-skinparam actor {
-  BackgroundColor USER_COLOR
-  BorderColor #C0392B
-}
+' Reference context/system colors from consolidated styles:
+' - SYSTEM_COLOR #3498DB
+' - EXTERNAL_COLOR #95A5A6
+' - USER_COLOR #E74C3C
+' - Stereotypes: <<Sistema>>, <<Externo>>, <<Usuario>>
+' See plantuml-styles.puml Section 3 & 12 for color definitions
 
 title Diagrama de Contexto - Sistema IACT
 

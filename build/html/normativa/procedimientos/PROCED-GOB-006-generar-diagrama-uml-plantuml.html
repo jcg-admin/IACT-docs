@@ -1,0 +1,2181 @@
+
+
+
+
+<!doctype html>
+<html class="no-js" lang="es" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Índice" href="../../genindex.html"><link rel="search" title="Búsqueda" href="../../search.html">
+        <link rel="prefetch" href="../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>PROCED-GOB-006: Generar Diagrama UML con PlantUML - IACT Docs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0f0f03c7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #199cd7;
+  --color-brand-content: #199cd7;
+  --color-sidebar-link-text--top-level: #4ab8ea;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">IACT Docs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  
+</a>
+
+<form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Buscar en IACT Docs" name="q" aria-label="Buscar">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Base Cognitiva</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../base_cognitiva/index.html">Base Cognitiva</a><input aria-label="Toggle navigation of Base Cognitiva" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../base_cognitiva/IACT_Glossary_v1_0_0.html">Glosario IACT - Versión 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Normativa</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Normativa</a><input aria-label="Toggle navigation of Normativa" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Procedimientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estandares/index.html">Estándares</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../gobernanza/index.html">Gobernanza Documental</a><input aria-label="Toggle navigation of Gobernanza Documental" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_01_Modelo_Gobernanza_IACT.html">GOB_01: Modelo de Gobernanza IACT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_02_Roles_y_RACI.html">GOB_02: Roles y Matriz RACI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_03_Control_Calidad_Documental.html">GOB_03: Control de Calidad Documental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_04_Gestion_Cambios_Documentales.html">GOB_04: Gestion de Cambios Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_06_Trazabilidad_SDLC.html">GOB_06: Trazabilidad SDLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_07_Gestion_Dominios.html">GOB_07: Gestion de Dominios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_08_Estados_Documentales.html">GOB_08: Estados Documentales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_09_Politica_Clasificacion.html">GOB_09: Politica de Clasificacion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gobernanza/GOB_10_Auditoria_Documental.html">GOB_10: Auditoria Documental</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../restricciones/index.html">Restricciones Tecnicas</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Requisitos</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../requisitos/index.html">Requisitos</a><input aria-label="Toggle navigation of Requisitos" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/reglas_negocio/index.html">Reglas de Negocio</a><input aria-label="Toggle navigation of Reglas de Negocio" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_001_Fuente_Operacional_Inmutable.html">BR_001: Fuente Operacional Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno.html">BR_002: ETL Batch Nocturno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias.html">BR_003: Usuario Inactivo 90 Dias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_004_Comunicaciones_Internas_Only.html">BR_004: Comunicaciones Internas Only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_005_Sesion_Unica_Por_Usuario.html">BR_005: Sesion Unica por Usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_006_RBAC_Flat_NIST.html">BR_006: RBAC Flat NIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_007_Separacion_Funciones_SoD.html">BR_007: Separacion de Funciones SoD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_008_Auditoria_Accesos.html">BR_008: Auditoria de Accesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_009_Bajas_Logicas.html">BR_009: Bajas Logicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_010_Auditoria_Inmutable.html">BR_010: Auditoria Inmutable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_011_Limites_Exportacion.html">BR_011: Límites de Exportación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_012_Usuario_Segmento_Unico.html">BR_012: Usuario-Segmento Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_013_Username_Unico.html">BR_013: Username Único</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_014_Alerta_Por_Umbral.html">BR_014: Alerta por Umbral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_015_Bloqueo_Intentos_Fallidos.html">BR_015: Bloqueo por Intentos Fallidos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_017_Tiempo_Promedio_Espera.html">BR_017: Tiempo Promedio de Espera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_018_Indice_Eficiencia.html">BR_018: Índice de Eficiencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_019_Retencion_2_Anios.html">BR_019: Retención de Datos 2 Años</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/reglas_negocio/BR_020_Clasificacion_Datos.html">BR_020: Clasificación de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../requisitos/casos_uso/index.html">Casos de Uso - IACT Call Center Analytics v4.0</a><input aria-label="Toggle navigation of Casos de Uso - IACT Call Center Analytics v4.0" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/auth/index.html">UC_AUTH_01: Iniciar Sesion</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/users/index.html">MOD_Users: Casos de Uso de Gestión de Usuarios</a><input aria-label="Toggle navigation of MOD_Users: Casos de Uso de Gestión de Usuarios" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_01_Crear_Usuario.html">UC_USR_01: Crear Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_02_Consultar_Usuarios.html">UC_USR_02: Consultar Usuarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_03_Modificar_Usuario.html">UC_USR_03: Modificar Usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/users/UC_USR_04_Eliminar_Usuario.html">UC_USR_04: Eliminar Usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/access/index.html">MOD_Access: Casos de Uso de Control de Acceso (RBAC)</a><input aria-label="Toggle navigation of MOD_Access: Casos de Uso de Control de Acceso (RBAC)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones.html">UC_ACC_01: Asignar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones.html">UC_ACC_02: Revocar Funciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos.html">UC_ACC_03: Consultar Permisos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador.html">UC_ACC_04: Asignar Agrupador</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_05_Gestionar_SoD.html">UC_ACC_05: Gestionar SoD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_06_Gestionar_Segmentos.html">UC_ACC_06: Gestionar Segmentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_07_Asignar_Segmento.html">UC_ACC_07: Asignar Segmento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_08_Permiso_Temporal.html">UC_ACC_08: Permiso Temporal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso.html">UC_ACC_09: Auditar Cambios Acceso</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/index.html">MOD_Pipeline: Casos de Uso de Supervisión ETL</a><input aria-label="Toggle navigation of MOD_Pipeline: Casos de Uso de Supervisión ETL" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL.html">UC_PIP_01: Supervisar ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL.html">UC_PIP_02: Consultar Errores ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad.html">UC_PIP_03: Consultar Disponibilidad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento.html">UC_PIP_04: Solicitar Reintento</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/reports/index.html">MOD_Reports: Casos de Uso de Reportes y Dashboard</a><input aria-label="Toggle navigation of MOD_Reports: Casos de Uso de Reportes y Dashboard" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_01_Ver_Dashboard.html">UC_RPT_01: Ver Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real.html">UC_RPT_02: Ver Metricas Tiempo Real</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_03_Ver_Reportes_Historicos.html">UC_RPT_03: Ver Reportes Historicos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_04_Exportar_CSV.html">UC_RPT_04: Exportar CSV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_05_Exportar_Excel.html">UC_RPT_05: Exportar Excel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_06_Exportar_PDF.html">UC_RPT_06: Exportar PDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_07_Programar_Reporte.html">UC_RPT_07: Programar Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_08_Ver_Reportes_Programados.html">UC_RPT_08: Ver Reportes Programados</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_09_Configurar_Filtros.html">UC_RPT_09: Configurar Filtros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_10_Guardar_Vista.html">UC_RPT_10: Guardar Vista</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_11_Compartir_Reporte.html">UC_RPT_11: Compartir Reporte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_12_Ver_Reporte_Agentes.html">UC_RPT_12: Ver Reporte Agentes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas.html">UC_RPT_13: Ver Reporte Colas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/reports/UC_RPT_14_Ver_Reporte_Campanas.html">UC_RPT_14: Ver Reporte Campanas</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/alerts/index.html">MOD_Alerts: Casos de Uso de Alertas y Notificaciones</a><input aria-label="Toggle navigation of MOD_Alerts: Casos de Uso de Alertas y Notificaciones" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales.html">UC_ALR_01: Configurar Umbrales</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_02_Ver_Alertas_Activas.html">UC_ALR_02: Ver Alertas Activas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_03_Reconocer_Alerta.html">UC_ALR_03: Reconocer Alerta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_04_Ver_Historial_Alertas.html">UC_ALR_04: Ver Historial Alertas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/alerts/UC_ALR_05_Gestionar_Suscripciones.html">UC_ALR_05: Gestionar Suscripciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/audit/index.html">MOD_Audit: Casos de Uso de Auditoría</a><input aria-label="Toggle navigation of MOD_Audit: Casos de Uso de Auditoría" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_01_Consultar_Auditoria.html">UC_AUD_01: Consultar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_02_Buscar_Auditoria.html">UC_AUD_02: Buscar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_03_Exportar_Auditoria.html">UC_AUD_03: Exportar Auditoria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/audit/UC_AUD_04_Generar_Reporte_Compliance.html">UC_AUD_04: Generar Reporte Compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../requisitos/casos_uso/logs/index.html">MOD_Logs: Casos de Uso de Bitácoras del Sistema</a><input aria-label="Toggle navigation of MOD_Logs: Casos de Uso de Bitácoras del Sistema" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_01_Consultar_Logs_Sistema.html">UC_LOG_01: Consultar Logs Sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_02_Consultar_Logs_ETL.html">UC_LOG_02: Consultar Logs ETL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_03_Buscar_Logs.html">UC_LOG_03: Buscar Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../requisitos/casos_uso/logs/UC_LOG_04_Exportar_Logs.html">UC_LOG_04: Exportar Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/AUTH_diagrama_casos_uso.html">AUTH Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/USERS_diagrama_casos_uso.html">USERS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/ACCESS_diagrama_casos_uso.html">ACCESS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PIPELINE_diagrama_casos_uso.html">PIPELINE Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/REPORTS_diagrama_casos_uso.html">REPORTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/ALERTS_diagrama_casos_uso.html">ALERTS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/AUDIT_diagrama_casos_uso.html">AUDIT Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/LOGS_diagrama_casos_uso.html">LOGS Module — Use Case Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_authentication_sequence.html">Authentication Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_call_processing_sequence.html">Call Processing Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_reporting_sequence.html">Report Generation Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/WORKFLOW_alerting_sequence.html">Alerting Workflow — Sequence Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_user_onboarding_activity.html">User Onboarding Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_permission_grant_activity.html">Permission Grant Process — Activity Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../requisitos/casos_uso/PROCESS_incident_response_activity.html">Critical Incident Response Process — Activity Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_funcionales/index.html">Requisitos Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/requisitos_no_funcionales/index.html">Requisitos No Funcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../requisitos/rtm/index.html">Matriz de Trazabilidad</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Técnica</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../arquitectura_tecnica/index.html">Arquitectura Técnica</a><input aria-label="Toggle navigation of Arquitectura Técnica" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/arquitectura/index.html">Arquitectura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/dise%C3%B1o_detallado/index.html">Diseño Detallado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../arquitectura_tecnica/despliegue/index.html">Despliegue</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gestión</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gestion/index.html">Gestión</a><input aria-label="Toggle navigation of Gestión" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/manuales_usuarios/index.html">Manuales de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/pm/index.html">Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gestion/evidencia/index.html">Evidencia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PlantUML Guide</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../plantuml-guide/index.html">PlantUML Guide — Centralized Styling &amp; Documentation</a><input aria-label="Toggle navigation of PlantUML Guide — Centralized Styling &amp; Documentation" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/color-palette.html">Color Palette — PlantUML Corporate System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/GUIDELINES.html">PlantUML Centralized Styling — GUIDELINES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/test-uc-diagram.html">Test: Use Case Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/test-component-diagram.html">Test: Component Diagram with Centralized Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/sistema-completo.html">Ejemplo: Diagrama de Arquitectura de Sistema Completo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plantuml-guide/ejemplos/etl-pipeline.html">Ejemplo: Diagrama de Proceso ETL Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+  <section id="proced-gob-006-generar-diagrama-uml-con-plantuml">
+<h1>PROCED-GOB-006: Generar Diagrama UML con PlantUML<a class="headerlink" href="#proced-gob-006-generar-diagrama-uml-con-plantuml" title="Link to this heading">¶</a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">¶</a></h2>
+<p>Crear diagramas UML de casos de uso usando PlantUML como código
+versionable, siguiendo las convenciones de dirección de flechas y
+elementos estándar establecidos en ADR-GOB-008, para proporcionar vista
+panorámica complementaria a las especificaciones textuales.</p>
+</section>
+<section id="pre-requisitos">
+<h2>Pre-requisitos<a class="headerlink" href="#pre-requisitos" title="Link to this heading">¶</a></h2>
+<p>Antes de comenzar este procedimiento, debe:</p>
+<ul class="simple">
+<li><p>Haber leído ADR-GOB-004 (PlantUML para Diagramas)</p></li>
+<li><p>Haber leído ADR-GOB-007 (Especificación de Casos de Uso)</p></li>
+<li><p>Haber leído ADR-GOB-008 (Diagramas UML de Casos de Uso)</p></li>
+<li><p>Tener PlantUML instalado localmente</p></li>
+<li><p>Tener Java instalado (requerido por PlantUML)</p></li>
+<li><p>Tener especificaciones de casos de uso ya creadas</p></li>
+<li><p>Conocer actores primarios y secundarios de los casos de uso</p></li>
+</ul>
+</section>
+<section id="resultado-esperado">
+<h2>Resultado Esperado<a class="headerlink" href="#resultado-esperado" title="Link to this heading">¶</a></h2>
+<p>Al completar este procedimiento tendrá:</p>
+<ul class="simple">
+<li><p>Archivo .puml con diagrama de casos de uso</p></li>
+<li><p>Archivo .svg generado del diagrama</p></li>
+<li><p>Diagrama con dirección correcta de flechas (Actor → UC = primario, UC
+→ Actor = secundario)</p></li>
+<li><p>Límite del sistema claramente definido</p></li>
+<li><p>Relaciones include/extend si aplican</p></li>
+<li><p>Diagrama referenciado en especificación textual del caso de uso</p></li>
+<li><p>Commit en git de ambos archivos (.puml y .svg)</p></li>
+</ul>
+</section>
+<section id="instalacion-de-plantuml">
+<h2>Instalación de PlantUML<a class="headerlink" href="#instalacion-de-plantuml" title="Link to this heading">¶</a></h2>
+<section id="verificar-si-plantuml-esta-instalado">
+<h3>Verificar si PlantUML está instalado<a class="headerlink" href="#verificar-si-plantuml-esta-instalado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar instalación</span>
+plantuml<span class="w"> </span>-version
+
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># PlantUML version 1.2023.X (...)</span>
+</pre></div>
+</div>
+</section>
+<section id="instalar-plantuml-si-no-esta-instalado">
+<h3>Instalar PlantUML (si no está instalado)<a class="headerlink" href="#instalar-plantuml-si-no-esta-instalado" title="Link to this heading">¶</a></h3>
+<section id="macos-con-homebrew">
+<h4>macOS con Homebrew<a class="headerlink" href="#macos-con-homebrew" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>plantuml
+</pre></div>
+</div>
+</section>
+<section id="linux-debian-ubuntu">
+<h4>Linux (Debian/Ubuntu)<a class="headerlink" href="#linux-debian-ubuntu" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>plantuml
+</pre></div>
+</div>
+</section>
+<section id="linux-fedora-rhel">
+<h4>Linux (Fedora/RHEL)<a class="headerlink" href="#linux-fedora-rhel" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>plantuml
+</pre></div>
+</div>
+</section>
+<section id="instalacion-manual-todas-las-plataformas">
+<h4>Instalación Manual (Todas las plataformas)<a class="headerlink" href="#instalacion-manual-todas-las-plataformas" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descargar JAR</span>
+wget<span class="w"> </span>https://github.com/plantuml/plantuml/releases/download/v1.2023.13/plantuml-1.2023.13.jar
+
+<span class="c1"># Mover a ubicación estándar</span>
+sudo<span class="w"> </span>mv<span class="w"> </span>plantuml-1.2023.13.jar<span class="w"> </span>/opt/plantuml.jar
+
+<span class="c1"># Crear alias (agregar a ~/.bashrc o ~/.zshrc)</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">plantuml</span><span class="o">=</span><span class="s1">&#39;java -jar /opt/plantuml.jar&#39;</span>
+
+<span class="c1"># Recargar shell</span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verificar-java">
+<h3>Verificar Java<a class="headerlink" href="#verificar-java" title="Link to this heading">¶</a></h3>
+<p>PlantUML requiere Java:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-version
+
+<span class="c1"># Si no está instalado:</span>
+<span class="c1"># macOS: brew install openjdk</span>
+<span class="c1"># Ubuntu: sudo apt-get install default-jre</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="paso-1-identificar-casos-de-uso-a-diagramar">
+<h2>PASO 1: Identificar Casos de Uso a Diagramar<a class="headerlink" href="#paso-1-identificar-casos-de-uso-a-diagramar" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso">
+<h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso" title="Link to this heading">¶</a></h3>
+<p>Determinar qué casos de uso se incluirán en el diagrama y qué módulo o
+dominio representan.</p>
+</section>
+<section id="criterios-para-agrupar-casos-de-uso">
+<h3>Criterios para Agrupar Casos de Uso<a class="headerlink" href="#criterios-para-agrupar-casos-de-uso" title="Link to this heading">¶</a></h3>
+<p>Un diagrama UML debe mostrar casos de uso que:</p>
+<ol class="arabic simple">
+<li><p><strong>Pertenecen al mismo módulo funcional</strong></p>
+<ul class="simple">
+<li><p>Ejemplo: Todos los casos de uso de “Autenticación”</p></li>
+<li><p>Ejemplo: Todos los casos de uso de “Gestión de Usuarios”</p></li>
+<li><p>Ejemplo: Todos los casos de uso de “Reportes de Auditoría”</p></li>
+</ul>
+</li>
+<li><p><strong>Comparten actores comunes</strong></p>
+<ul class="simple">
+<li><p>Ejemplo: Todos los casos de uso que ejecuta el “Administrador”</p></li>
+</ul>
+</li>
+<li><p><strong>Tienen relaciones entre sí</strong> (include, extend, generalización)</p></li>
+</ol>
+</section>
+<section id="regla-general">
+<h3>Regla General<a class="headerlink" href="#regla-general" title="Link to this heading">¶</a></h3>
+<p><strong>1 diagrama = 1 módulo funcional</strong></p>
+<p>No mezclar casos de uso de módulos diferentes en un mismo diagrama.</p>
+</section>
+<section id="preguntas-guia">
+<h3>Preguntas Guía<a class="headerlink" href="#preguntas-guia" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>¿Qué módulo funcional estoy documentando?</p></li>
+<li><p>¿Qué casos de uso pertenecen a este módulo?</p></li>
+<li><p>¿Cuántos casos de uso hay? (Recomendado: 3-10 por diagrama)</p></li>
+<li><p>¿Hay demasiados casos de uso para un solo diagrama? (Considerar
+dividir)</p></li>
+</ol>
+</section>
+<section id="ejemplo-modulo-de-autenticacion">
+<h3>Ejemplo: Módulo de Autenticación<a class="headerlink" href="#ejemplo-modulo-de-autenticacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Casos de Uso a Incluir</span>
+
+<span class="gs">**Módulo**</span>: Autenticación
+<span class="gs">**Diagrama ID**</span>: UCD-BACK-001-autenticacion
+
+<span class="gs">**Casos de Uso**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-001: Iniciar Sesión
+<span class="k">-</span><span class="w"> </span>UC-BACK-002: Cerrar Sesión
+<span class="k">-</span><span class="w"> </span>UC-BACK-003: Cambiar Contraseña
+<span class="k">-</span><span class="w"> </span>UC-BACK-004: Recuperar Contraseña
+<span class="k">-</span><span class="w"> </span>UC-BACK-005: Configurar 2FA
+
+<span class="gs">**Actores Primarios**</span>:
+<span class="k">-</span><span class="w"> </span>Usuario
+
+<span class="gs">**Actores Secundarios**</span>:
+<span class="k">-</span><span class="w"> </span>Sistema de Autenticación LDAP
+<span class="k">-</span><span class="w"> </span>Base de Datos de Usuarios
+<span class="k">-</span><span class="w"> </span>Sistema de Email
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-modulo-de-gestion-de-usuarios">
+<h3>Ejemplo: Módulo de Gestión de Usuarios<a class="headerlink" href="#ejemplo-modulo-de-gestion-de-usuarios" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Casos de Uso a Incluir</span>
+
+<span class="gs">**Módulo**</span>: Gestión de Usuarios
+<span class="gs">**Diagrama ID**</span>: UCD-BACK-002-gestion-usuarios
+
+<span class="gs">**Casos de Uso**</span>:
+<span class="k">-</span><span class="w"> </span>UC-BACK-010: Registrar Usuario en Sistema
+<span class="k">-</span><span class="w"> </span>UC-BACK-011: Editar Usuario
+<span class="k">-</span><span class="w"> </span>UC-BACK-012: Desactivar Usuario
+<span class="k">-</span><span class="w"> </span>UC-BACK-013: Consultar Usuarios
+<span class="k">-</span><span class="w"> </span>UC-BACK-014: Asignar Roles
+
+<span class="gs">**Actores Primarios**</span>:
+<span class="k">-</span><span class="w"> </span>Administrador de Usuarios
+
+<span class="gs">**Actores Secundarios**</span>:
+<span class="k">-</span><span class="w"> </span>Sistema de Autenticación
+<span class="k">-</span><span class="w"> </span>Base de Datos de Usuarios
+<span class="k">-</span><span class="w"> </span>Sistema de Email
+</pre></div>
+</div>
+</section>
+<section id="validacion">
+<h3>Validación<a class="headerlink" href="#validacion" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Módulo funcional identificado</p></li>
+<li><p>☐ Lista de casos de uso a incluir (3-10 recomendado)</p></li>
+<li><p>☐ Actores primarios identificados</p></li>
+<li><p>☐ Actores secundarios identificados</p></li>
+<li><p>☐ ID del diagrama asignado (UCD-DOMINIO-###-descripcion)</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-2-crear-archivo-puml-con-nomenclatura">
+<h2>PASO 2: Crear Archivo .puml con Nomenclatura<a class="headerlink" href="#paso-2-crear-archivo-puml-con-nomenclatura" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-1">
+<span id="id1"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-1" title="Link to this heading">¶</a></h3>
+<p>Crear el archivo PlantUML con nombre correcto y estructura básica.</p>
+</section>
+<section id="nomenclatura-del-archivo">
+<h3>Nomenclatura del Archivo<a class="headerlink" href="#nomenclatura-del-archivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UCD</span><span class="o">-</span><span class="n">DOMINIO</span><span class="o">-</span><span class="c1">###-descripcion.puml</span>
+</pre></div>
+</div>
+<p>Donde: - <strong>UCD</strong>: Use Case Diagram - <strong>DOMINIO</strong>: BACK, FRONT, DEVOPS,
+QA, AI, GOB - <strong>###</strong>: Número secuencial 001-999 - <strong>descripcion</strong>:
+Descripción del módulo en snake_case</p>
+</section>
+<section id="ejemplos-de-nombres-correctos">
+<h3>Ejemplos de Nombres Correctos<a class="headerlink" href="#ejemplos-de-nombres-correctos" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">autenticacion</span><span class="o">.</span><span class="n">puml</span>
+<span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">002</span><span class="o">-</span><span class="n">gestion</span><span class="o">-</span><span class="n">usuarios</span><span class="o">.</span><span class="n">puml</span>
+<span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">003</span><span class="o">-</span><span class="n">modulo</span><span class="o">-</span><span class="n">auditoria</span><span class="o">.</span><span class="n">puml</span>
+<span class="n">UCD</span><span class="o">-</span><span class="n">FRONT</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">registro</span><span class="o">-</span><span class="n">aeropuerto</span><span class="o">.</span><span class="n">puml</span>
+</pre></div>
+</div>
+</section>
+<section id="ubicacion-del-archivo">
+<h3>Ubicación del Archivo<a class="headerlink" href="#ubicacion-del-archivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="o">/</span><span class="n">gobernanza</span><span class="o">/</span><span class="n">requisitos</span><span class="o">/</span><span class="n">requerimientos_usuario</span><span class="o">/</span><span class="n">diagramas</span><span class="o">/</span><span class="n">casos_uso</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="crear-archivo">
+<h3>Crear Archivo<a class="headerlink" href="#crear-archivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear directorio si no existe</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso
+
+<span class="c1"># Crear archivo</span>
+touch<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+</pre></div>
+</div>
+</section>
+<section id="estructura-basica-del-archivo">
+<h3>Estructura Básica del Archivo<a class="headerlink" href="#estructura-basica-del-archivo" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+&#39; Definir actores aquí
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Nombre del Sistema - Módulo&quot; {
+  &#39; Casos de uso aquí
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; Relaciones actores-casos de uso aquí
+
+&#39; ===================================
+&#39; NOTAS (OPCIONAL)
+&#39; ===================================
+
+&#39; Notas explicativas aquí
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo-inicial">
+<h3>Ejemplo Completo Inicial<a class="headerlink" href="#ejemplo-completo-inicial" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+actor &quot;Usuario&quot; as usuario
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo de Autenticación&quot; {
+  usecase &quot;Iniciar Sesión&quot; as UC001
+  usecase &quot;Cerrar Sesión&quot; as UC002
+  usecase &quot;Cambiar Contraseña&quot; as UC003
+  usecase &quot;Recuperar Contraseña&quot; as UC004
+  usecase &quot;Configurar 2FA&quot; as UC005
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; (Se agregarán en PASO 5)
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="validacion-1">
+<span id="id2"></span><h3>Validación<a class="headerlink" href="#validacion-1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Archivo creado con nombre correcto
+(UCD-DOMINIO-###-descripcion.puml)</p></li>
+<li><p>☐ Ubicación correcta (diagramas/casos_uso/)</p></li>
+<li><p>☐ Estructura básica PlantUML presente</p></li>
+<li><p>☐ &#64;startuml y &#64;enduml presentes</p></li>
+<li><p>☐ Tema y configuración básica incluidos</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-3-definir-actores-primarios-y-secundarios">
+<h2>PASO 3: Definir Actores (Primarios y Secundarios)<a class="headerlink" href="#paso-3-definir-actores-primarios-y-secundarios" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-2">
+<span id="id3"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-2" title="Link to this heading">¶</a></h3>
+<p>Declarar todos los actores que interactúan con los casos de uso del
+diagrama.</p>
+</section>
+<section id="sintaxis-plantuml-para-actores">
+<h3>Sintaxis PlantUML para Actores<a class="headerlink" href="#sintaxis-plantuml-para-actores" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>actor &quot;Nombre del Actor&quot; as actorID
+</pre></div>
+</div>
+</section>
+<section id="convenciones">
+<h3>Convenciones<a class="headerlink" href="#convenciones" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Nombre descriptivo</strong> en español para roles de negocio</p></li>
+<li><p><strong>ID corto</strong> en minúsculas para referenciar en el código</p></li>
+<li><p><strong>Capitalizar</strong> nombres de actores en el diagrama</p></li>
+<li><p><strong>Actores como roles</strong>, no personas específicas</p></li>
+</ol>
+</section>
+<section id="ejemplos">
+<h3>Ejemplos<a class="headerlink" href="#ejemplos" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Actores de negocio
+actor &quot;Usuario&quot; as usuario
+actor &quot;Administrador de Usuarios&quot; as admin
+actor &quot;Auditor&quot; as auditor
+actor &quot;Gerente de Laboratorio&quot; as gerente
+
+&#39; Sistemas externos
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+actor &quot;Sistema de Inventario&quot; as inventario
+</pre></div>
+</div>
+</section>
+<section id="distinguir-primarios-de-secundarios">
+<h3>Distinguir Primarios de Secundarios<a class="headerlink" href="#distinguir-primarios-de-secundarios" title="Link to this heading">¶</a></h3>
+<p><strong>En el código PlantUML NO se distinguen visualmente</strong>, pero se
+distinguirán por la <strong>dirección de las flechas</strong> en PASO 5.</p>
+<p>Por ahora, solo declarar todos los actores:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+&#39; Actor primario (ejecuta casos de uso)
+actor &quot;Usuario&quot; as usuario
+
+&#39; Actores secundarios (proporcionan soporte)
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo-modulo-de-autenticacion">
+<h3>Ejemplo Completo: Módulo de Autenticación<a class="headerlink" href="#ejemplo-completo-modulo-de-autenticacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+&#39; Actor primario
+actor &quot;Usuario&quot; as usuario
+
+&#39; Actores secundarios
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo de Autenticación&quot; {
+  usecase &quot;Iniciar Sesión&quot; as UC001
+  usecase &quot;Cerrar Sesión&quot; as UC002
+  usecase &quot;Cambiar Contraseña&quot; as UC003
+  usecase &quot;Recuperar Contraseña&quot; as UC004
+  usecase &quot;Configurar 2FA&quot; as UC005
+}
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="validacion-2">
+<span id="id4"></span><h3>Validación<a class="headerlink" href="#validacion-2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Todos los actores declarados</p></li>
+<li><p>☐ Nombres descriptivos en español</p></li>
+<li><p>☐ IDs cortos asignados</p></li>
+<li><p>☐ Comentarios identifican primarios vs secundarios</p></li>
+<li><p>☐ Sintaxis PlantUML correcta</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-4-definir-casos-de-uso-dentro-del-limite-del-sistema">
+<h2>PASO 4: Definir Casos de Uso Dentro del Límite del Sistema<a class="headerlink" href="#paso-4-definir-casos-de-uso-dentro-del-limite-del-sistema" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-3">
+<span id="id5"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-3" title="Link to this heading">¶</a></h3>
+<p>Declarar todos los casos de uso dentro del rectángulo que representa el
+límite del sistema.</p>
+</section>
+<section id="sintaxis-plantuml-para-casos-de-uso">
+<h3>Sintaxis PlantUML para Casos de Uso<a class="headerlink" href="#sintaxis-plantuml-para-casos-de-uso" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>usecase &quot;VERBO Objeto&quot; as UC###
+</pre></div>
+</div>
+</section>
+<section id="convenciones-1">
+<span id="id6"></span><h3>Convenciones<a class="headerlink" href="#convenciones-1" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Formato VERBO+OBJETO</strong> (ver ADR-GOB-007)</p></li>
+<li><p><strong>Capitalización</strong> de palabras principales</p></li>
+<li><p><strong>ID correlacionado</strong> con especificación textual (UC-BACK-001 →
+UC001)</p></li>
+<li><p><strong>Dentro del rectángulo</strong> del sistema</p></li>
+</ol>
+</section>
+<section id="limite-del-sistema">
+<h3>Límite del Sistema<a class="headerlink" href="#limite-del-sistema" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>rectangle &quot;Nombre del Sistema - Módulo Específico&quot; {
+  &#39; Casos de uso van DENTRO del rectángulo
+  usecase &quot;Caso de Uso 1&quot; as UC001
+  usecase &quot;Caso de Uso 2&quot; as UC002
+}
+</pre></div>
+</div>
+<p><strong>Importante</strong>: Los actores van FUERA del rectángulo, los casos de uso
+DENTRO.</p>
+</section>
+<section id="ejemplo-completo-modulo-de-autenticacion-1">
+<span id="id7"></span><h3>Ejemplo Completo: Módulo de Autenticación<a class="headerlink" href="#ejemplo-completo-modulo-de-autenticacion-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+actor &quot;Usuario&quot; as usuario
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo de Autenticación&quot; {
+  usecase &quot;Iniciar Sesión&quot; as UC001
+  usecase &quot;Cerrar Sesión&quot; as UC002
+  usecase &quot;Cambiar Contraseña&quot; as UC003
+  usecase &quot;Recuperar Contraseña&quot; as UC004
+  usecase &quot;Configurar 2FA&quot; as UC005
+}
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-modulo-de-gestion-de-usuarios-1">
+<span id="id8"></span><h3>Ejemplo: Módulo de Gestión de Usuarios<a class="headerlink" href="#ejemplo-modulo-de-gestion-de-usuarios-1" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>rectangle &quot;Sistema IACT - Módulo de Gestión de Usuarios&quot; {
+  usecase &quot;Registrar Usuario en Sistema&quot; as UC010
+  usecase &quot;Editar Usuario&quot; as UC011
+  usecase &quot;Desactivar Usuario&quot; as UC012
+  usecase &quot;Consultar Usuarios&quot; as UC013
+  usecase &quot;Asignar Roles&quot; as UC014
+}
+</pre></div>
+</div>
+</section>
+<section id="validacion-3">
+<span id="id9"></span><h3>Validación<a class="headerlink" href="#validacion-3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Todos los casos de uso declarados</p></li>
+<li><p>☐ Formato VERBO+OBJETO correcto</p></li>
+<li><p>☐ Casos de uso DENTRO del rectángulo del sistema</p></li>
+<li><p>☐ IDs correlacionados con especificaciones textuales</p></li>
+<li><p>☐ Nombre descriptivo del sistema/módulo</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-5-establecer-relaciones-con-direccion-correcta-de-flechas">
+<h2>PASO 5: Establecer Relaciones con Dirección Correcta de Flechas<a class="headerlink" href="#paso-5-establecer-relaciones-con-direccion-correcta-de-flechas" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-4">
+<span id="id10"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-4" title="Link to this heading">¶</a></h3>
+<p>Conectar actores con casos de uso usando la dirección correcta de
+flechas según actor primario o secundario.</p>
+</section>
+<section id="regla-de-oro-direccion-de-flechas">
+<h3>Regla de Oro: Dirección de Flechas<a class="headerlink" href="#regla-de-oro-direccion-de-flechas" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Actor → Caso de Uso
+    = Actor PRIMARIO (ejecuta, dispara el caso de uso)
+
+Caso de Uso → Actor
+    = Actor SECUNDARIO (soporte, proporciona información)
+</pre></div>
+</div>
+<p>Esta es la regla MÁS IMPORTANTE del diagrama.</p>
+</section>
+<section id="sintaxis-plantuml">
+<h3>Sintaxis PlantUML<a class="headerlink" href="#sintaxis-plantuml" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Actor primario (flecha de actor a caso de uso)
+actor1 --&gt; UC001
+
+&#39; Actor secundario (flecha de caso de uso a actor)
+UC001 --&gt; actor2
+</pre></div>
+</div>
+</section>
+<section id="ejemplos-visuales">
+<h3>Ejemplos Visuales<a class="headerlink" href="#ejemplos-visuales" title="Link to this heading">¶</a></h3>
+<section id="ejemplo-1-uc-back-001-iniciar-sesion">
+<h4>Ejemplo 1: UC-BACK-001 Iniciar Sesión<a class="headerlink" href="#ejemplo-1-uc-back-001-iniciar-sesion" title="Link to this heading">¶</a></h4>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Actor primario: Usuario ejecuta &quot;Iniciar Sesión&quot;
+usuario --&gt; UC001
+
+&#39; Actores secundarios: UC usa LDAP y DB
+UC001 --&gt; ldap
+UC001 --&gt; db
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: - <strong>Usuario</strong> es el actor primario (ejecuta el caso
+de uso) - <strong>LDAP</strong> y <strong>DB</strong> son actores secundarios (proporcionan
+autenticación y datos)</p>
+</section>
+<section id="ejemplo-2-uc-back-004-recuperar-contrasena">
+<h4>Ejemplo 2: UC-BACK-004 Recuperar Contraseña<a class="headerlink" href="#ejemplo-2-uc-back-004-recuperar-contrasena" title="Link to this heading">¶</a></h4>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Actor primario: Usuario ejecuta &quot;Recuperar Contraseña&quot;
+usuario --&gt; UC004
+
+&#39; Actores secundarios: UC usa DB y Email
+UC004 --&gt; db
+UC004 --&gt; email
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: - <strong>Usuario</strong> ejecuta la recuperación de contraseña
+- <strong>DB</strong> proporciona verificación de usuario - <strong>Email</strong> envía el enlace
+de recuperación</p>
+</section>
+</section>
+<section id="error-comun">
+<h3>ERROR Común<a class="headerlink" href="#error-comun" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; INCORRECTO: Todas las flechas en la misma dirección
+usuario --&gt; UC001
+ldap --&gt; UC001    ← ERROR: Implica que LDAP también ejecuta el caso de uso
+db --&gt; UC001      ← ERROR: Implica que DB también ejecuta el caso de uso
+</pre></div>
+</div>
+<p>Esto implicaría que Usuario, LDAP y DB son todos actores primarios, lo
+cual es incorrecto.</p>
+</section>
+<section id="ejemplo-completo-modulo-de-autenticacion-2">
+<span id="id11"></span><h3>Ejemplo Completo: Módulo de Autenticación<a class="headerlink" href="#ejemplo-completo-modulo-de-autenticacion-2" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+actor &quot;Usuario&quot; as usuario
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+actor &quot;Sistema de Email&quot; as email
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo de Autenticación&quot; {
+  usecase &quot;Iniciar Sesión&quot; as UC001
+  usecase &quot;Cerrar Sesión&quot; as UC002
+  usecase &quot;Cambiar Contraseña&quot; as UC003
+  usecase &quot;Recuperar Contraseña&quot; as UC004
+  usecase &quot;Configurar 2FA&quot; as UC005
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; Actor primario: Usuario ejecuta todos los casos de uso
+usuario --&gt; UC001
+usuario --&gt; UC002
+usuario --&gt; UC003
+usuario --&gt; UC004
+usuario --&gt; UC005
+
+&#39; Actores secundarios para UC001: Iniciar Sesión
+UC001 --&gt; ldap
+UC001 --&gt; db
+
+&#39; Actores secundarios para UC003: Cambiar Contraseña
+UC003 --&gt; db
+
+&#39; Actores secundarios para UC004: Recuperar Contraseña
+UC004 --&gt; db
+UC004 --&gt; email
+
+&#39; Actores secundarios para UC005: Configurar 2FA
+UC005 --&gt; db
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="validacion-4">
+<span id="id12"></span><h3>Validación<a class="headerlink" href="#validacion-4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Cada caso de uso tiene AL MENOS 1 actor primario (flecha Actor →
+UC)</p></li>
+<li><p>☐ Actores secundarios correctamente conectados (flecha UC → Actor)</p></li>
+<li><p>☐ Dirección de flechas es consistente con especificación textual</p></li>
+<li><p>☐ No hay flechas en dirección incorrecta</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-6-agregar-relaciones-include-extend-si-aplica">
+<h2>PASO 6: Agregar Relaciones Include/Extend si Aplica<a class="headerlink" href="#paso-6-agregar-relaciones-include-extend-si-aplica" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-5">
+<span id="id13"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-5" title="Link to this heading">¶</a></h3>
+<p>Documentar relaciones entre casos de uso cuando existen dependencias o
+extensiones.</p>
+</section>
+<section id="tipos-de-relaciones-entre-casos-de-uso">
+<h3>Tipos de Relaciones entre Casos de Uso<a class="headerlink" href="#tipos-de-relaciones-entre-casos-de-uso" title="Link to this heading">¶</a></h3>
+<section id="include-inclusion">
+<h4>1. Include (Inclusión)<a class="headerlink" href="#include-inclusion" title="Link to this heading">¶</a></h4>
+<p><strong>Definición</strong>: Un caso de uso SIEMPRE incluye el comportamiento de
+otro.</p>
+<p><strong>Sintaxis PlantUML</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>UC001 .&gt; UC002 : &lt;&lt;include&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Cuándo usar</strong>: - Comportamiento común reutilizado por múltiples casos
+de uso - Siempre se ejecuta, no es opcional</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>usecase &quot;Procesar Venta&quot; as UC001
+usecase &quot;Calcular Impuestos&quot; as UC002
+
+UC001 .&gt; UC002 : &lt;&lt;include&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: “Procesar Venta” SIEMPRE incluye “Calcular
+Impuestos”.</p>
+</section>
+<section id="extend-extension">
+<h4>2. Extend (Extensión)<a class="headerlink" href="#extend-extension" title="Link to this heading">¶</a></h4>
+<p><strong>Definición</strong>: Un caso de uso OPCIONALMENTE puede extender el
+comportamiento de otro bajo ciertas condiciones.</p>
+<p><strong>Sintaxis PlantUML</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>UC003 .&gt; UC001 : &lt;&lt;extend&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Cuándo usar</strong>: - Comportamiento opcional - Extensión bajo condición
+específica</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>usecase &quot;Procesar Venta&quot; as UC001
+usecase &quot;Aplicar Descuento por Volumen&quot; as UC003
+
+UC003 .&gt; UC001 : &lt;&lt;extend&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: “Aplicar Descuento por Volumen” PUEDE extender
+“Procesar Venta” si se cumplen condiciones (ej: cantidad &gt;= 10).</p>
+</section>
+<section id="generalizacion-herencia">
+<h4>3. Generalización (Herencia)<a class="headerlink" href="#generalizacion-herencia" title="Link to this heading">¶</a></h4>
+<p><strong>Sintaxis PlantUML</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>UC005 --|&gt; UC001
+</pre></div>
+</div>
+<p><strong>Cuándo usar</strong>: - Variaciones de un caso de uso general - Herencia de
+comportamiento</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>usecase &quot;Autenticar Usuario&quot; as UC001
+usecase &quot;Autenticar con JWT&quot; as UC005
+usecase &quot;Autenticar con LDAP&quot; as UC006
+
+UC005 --|&gt; UC001
+UC006 --|&gt; UC001
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejemplo-modulo-de-autenticacion-con-include">
+<h3>Ejemplo: Módulo de Autenticación con Include<a class="headerlink" href="#ejemplo-modulo-de-autenticacion-con-include" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-001-autenticacion-con-include
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+actor &quot;Usuario&quot; as usuario
+actor &quot;Sistema de Autenticación LDAP&quot; as ldap
+actor &quot;Base de Datos de Usuarios&quot; as db
+
+rectangle &quot;Sistema IACT - Módulo de Autenticación&quot; {
+  usecase &quot;Iniciar Sesión&quot; as UC001
+  usecase &quot;Validar Credenciales&quot; as UC006
+  usecase &quot;Cambiar Contraseña&quot; as UC003
+  usecase &quot;Recuperar Contraseña&quot; as UC004
+}
+
+&#39; Actor primario
+usuario --&gt; UC001
+usuario --&gt; UC003
+usuario --&gt; UC004
+
+&#39; Relaciones include
+UC001 .&gt; UC006 : &lt;&lt;include&gt;&gt;
+UC003 .&gt; UC006 : &lt;&lt;include&gt;&gt;
+
+&#39; Actores secundarios
+UC006 --&gt; ldap
+UC006 --&gt; db
+
+@enduml
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: Tanto “Iniciar Sesión” como “Cambiar Contraseña”
+SIEMPRE incluyen “Validar Credenciales”.</p>
+</section>
+<section id="ejemplo-modulo-de-gestion-con-extend">
+<h3>Ejemplo: Módulo de Gestión con Extend<a class="headerlink" href="#ejemplo-modulo-de-gestion-con-extend" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-002-gestion-usuarios-con-extend
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+actor &quot;Administrador de Usuarios&quot; as admin
+actor &quot;Base de Datos de Usuarios&quot; as db
+
+rectangle &quot;Sistema IACT - Módulo de Gestión de Usuarios&quot; {
+  usecase &quot;Registrar Usuario en Sistema&quot; as UC010
+  usecase &quot;Asignar Contraseña Personalizada&quot; as UC015
+  usecase &quot;Editar Usuario&quot; as UC011
+}
+
+&#39; Actor primario
+admin --&gt; UC010
+admin --&gt; UC011
+
+&#39; Relaciones extend
+UC015 .&gt; UC010 : &lt;&lt;extend&gt;&gt;
+
+&#39; Actores secundarios
+UC010 --&gt; db
+UC011 --&gt; db
+
+note right of UC015
+  Solo si el administrador
+  elige no usar contraseña
+  generada automáticamente
+end note
+
+@enduml
+</pre></div>
+</div>
+<p><strong>Interpretación</strong>: “Asignar Contraseña Personalizada” PUEDE extender
+“Registrar Usuario” opcionalmente.</p>
+</section>
+<section id="cuando-no-usar-include-extend">
+<h3>Cuándo NO Usar Include/Extend<a class="headerlink" href="#cuando-no-usar-include-extend" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Si los casos de uso son independientes</p></li>
+<li><p>Si la relación no aporta claridad al diagrama</p></li>
+<li><p>Si complica excesivamente la visualización</p></li>
+</ul>
+<p><strong>Principio</strong>: Solo agregar si mejora la comprensión.</p>
+</section>
+<section id="validacion-5">
+<span id="id14"></span><h3>Validación<a class="headerlink" href="#validacion-5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Relaciones include/extend solo si existen realmente</p></li>
+<li><p>☐ Sintaxis correcta (.&gt; para include/extend, –|&gt; para
+generalización)</p></li>
+<li><p>☐ Dirección de flechas correcta</p></li>
+<li><p>☐ Relaciones documentadas en especificaciones textuales también</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-7-generar-svg-localmente-para-validar">
+<h2>PASO 7: Generar SVG Localmente para Validar<a class="headerlink" href="#paso-7-generar-svg-localmente-para-validar" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-6">
+<span id="id15"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-6" title="Link to this heading">¶</a></h3>
+<p>Convertir el archivo .puml a formato SVG para visualizar el diagrama y
+validar que se ve correctamente.</p>
+</section>
+<section id="comando-de-generacion">
+<h3>Comando de Generación<a class="headerlink" href="#comando-de-generacion" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>plantuml<span class="w"> </span>-tsvg<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+</pre></div>
+</div>
+<p><strong>Salida esperada</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="o">/</span><span class="n">gobernanza</span><span class="o">/</span><span class="n">requisitos</span><span class="o">/</span><span class="n">requerimientos_usuario</span><span class="o">/</span><span class="n">diagramas</span><span class="o">/</span><span class="n">casos_uso</span><span class="o">/</span><span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">autenticacion</span><span class="o">.</span><span class="n">svg</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar-svg-generado">
+<h3>Verificar SVG Generado<a class="headerlink" href="#verificar-svg-generado" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listar archivos</span>
+ls<span class="w"> </span>-la<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/
+
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># UCD-BACK-001-autenticacion.puml</span>
+<span class="c1"># UCD-BACK-001-autenticacion.svg  ← Generado</span>
+</pre></div>
+</div>
+</section>
+<section id="visualizar-svg">
+<h3>Visualizar SVG<a class="headerlink" href="#visualizar-svg" title="Link to this heading">¶</a></h3>
+<section id="opcion-1-navegador">
+<h4>Opción 1: Navegador<a class="headerlink" href="#opcion-1-navegador" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># macOS</span>
+open<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
+
+<span class="c1"># Linux</span>
+xdg-open<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
+
+<span class="c1"># Windows</span>
+start<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
+</pre></div>
+</div>
+</section>
+<section id="opcion-2-vscode-con-extension">
+<h4>Opción 2: VSCode con Extensión<a class="headerlink" href="#opcion-2-vscode-con-extension" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalar extensión PlantUML</span>
+<span class="c1"># En VSCode: Ctrl+P → ext install plantuml</span>
+
+<span class="c1"># Abrir archivo .puml</span>
+code<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+
+<span class="c1"># Preview: Alt+D o Ctrl+Shift+P → PlantUML: Preview Current Diagram</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="checklist-de-validacion-visual">
+<h3>Checklist de Validación Visual<a class="headerlink" href="#checklist-de-validacion-visual" title="Link to this heading">¶</a></h3>
+<p>Al visualizar el SVG, verificar:</p>
+<ul class="simple">
+<li><p>☐ Actores aparecen como figuras de palo</p></li>
+<li><p>☐ Casos de uso aparecen como óvalos</p></li>
+<li><p>☐ Límite del sistema (rectángulo) visible</p></li>
+<li><p>☐ Flechas en dirección correcta</p></li>
+<li><p>☐ Nombres legibles</p></li>
+<li><p>☐ Layout es comprensible (no hay solapamientos)</p></li>
+<li><p>☐ Relaciones include/extend visibles (si aplican)</p></li>
+</ul>
+</section>
+<section id="ajustar-layout-si-es-necesario">
+<h3>Ajustar Layout si es Necesario<a class="headerlink" href="#ajustar-layout-si-es-necesario" title="Link to this heading">¶</a></h3>
+<p>Si el diagrama no se ve bien, ajustar con hints:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Cambiar dirección (izquierda a derecha es recomendado)
+left to right direction
+
+&#39; O de arriba a abajo
+top to bottom direction
+
+&#39; Ajustar distancia entre elementos
+skinparam nodesep 100
+skinparam ranksep 100
+</pre></div>
+</div>
+</section>
+<section id="errores-comunes">
+<h3>Errores Comunes<a class="headerlink" href="#errores-comunes" title="Link to this heading">¶</a></h3>
+<section id="error-1-cannot-read-or-find-image">
+<h4>Error 1: “Cannot read or find image”<a class="headerlink" href="#error-1-cannot-read-or-find-image" title="Link to this heading">¶</a></h4>
+<p><strong>Causa</strong>: PlantUML no instalado o ruta incorrecta.</p>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar instalación</span>
+plantuml<span class="w"> </span>-version
+
+<span class="c1"># Si no funciona, revisar PASO de instalación</span>
+</pre></div>
+</div>
+</section>
+<section id="error-2-sintaxis-incorrecta-en-puml">
+<h4>Error 2: Sintaxis incorrecta en .puml<a class="headerlink" href="#error-2-sintaxis-incorrecta-en-puml" title="Link to this heading">¶</a></h4>
+<p><strong>Causa</strong>: Error de sintaxis en PlantUML.</p>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># PlantUML mostrará error</span>
+<span class="c1"># Revisar línea indicada</span>
+<span class="c1"># Errores comunes:</span>
+<span class="c1"># - Falta @enduml</span>
+<span class="c1"># - Comillas mal cerradas</span>
+<span class="c1"># - ID duplicado</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="regenerar-despues-de-cambios">
+<h3>Regenerar después de Cambios<a class="headerlink" href="#regenerar-despues-de-cambios" title="Link to this heading">¶</a></h3>
+<p>Cada vez que modifique el .puml, regenerar SVG:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>plantuml<span class="w"> </span>-tsvg<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+</pre></div>
+</div>
+</section>
+<section id="validacion-6">
+<span id="id16"></span><h3>Validación<a class="headerlink" href="#validacion-6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ SVG generado exitosamente</p></li>
+<li><p>☐ SVG visualizado correctamente</p></li>
+<li><p>☐ Layout es comprensible</p></li>
+<li><p>☐ Todos los elementos visibles</p></li>
+<li><p>☐ Listo para referenciar en especificación textual</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-8-referenciar-diagrama-en-especificacion-textual">
+<h2>PASO 8: Referenciar Diagrama en Especificación Textual<a class="headerlink" href="#paso-8-referenciar-diagrama-en-especificacion-textual" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-7">
+<span id="id17"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-7" title="Link to this heading">¶</a></h3>
+<p>Agregar el diagrama a las especificaciones de casos de uso para
+proporcionar vista complementaria.</p>
+</section>
+<section id="ubicacion-en-especificacion">
+<h3>Ubicación en Especificación<a class="headerlink" href="#ubicacion-en-especificacion" title="Link to this heading">¶</a></h3>
+<p>Agregar al <strong>inicio</strong> del archivo de caso de uso, después del título y
+antes de “Información General”.</p>
+</section>
+<section id="formato-markdown">
+<h3>Formato Markdown<a class="headerlink" href="#formato-markdown" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># UC-BACK-001: Iniciar Sesión</span>
+
+<span class="gu">## Diagrama de Casos de Uso</span>
+
+![<span class="nt">Diagrama de Casos de Uso</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-001-autenticacion.svg</span>)
+
+Fuente: [<span class="nt">UCD-BACK-001-autenticacion.puml</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-001-autenticacion.puml</span>)
+
+<span class="gu">## Información General</span>
+...
+</pre></div>
+</div>
+</section>
+<section id="rutas-relativas">
+<h3>Rutas Relativas<a class="headerlink" href="#rutas-relativas" title="Link to this heading">¶</a></h3>
+<p><strong>Importante</strong>: Usar rutas relativas desde la ubicación del archivo de
+caso de uso.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ubicación</span> <span class="k">del</span> <span class="n">UC</span><span class="p">:</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">gobernanza</span><span class="o">/</span><span class="n">requisitos</span><span class="o">/</span><span class="n">requerimientos_usuario</span><span class="o">/</span><span class="n">casos_uso</span><span class="o">/</span><span class="n">UC</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">iniciar</span><span class="o">-</span><span class="n">sesion</span><span class="o">.</span><span class="n">md</span>
+
+<span class="n">Ubicación</span> <span class="k">del</span> <span class="n">diagrama</span><span class="p">:</span>
+<span class="n">docs</span><span class="o">/</span><span class="n">gobernanza</span><span class="o">/</span><span class="n">requisitos</span><span class="o">/</span><span class="n">requerimientos_usuario</span><span class="o">/</span><span class="n">diagramas</span><span class="o">/</span><span class="n">casos_uso</span><span class="o">/</span><span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">autenticacion</span><span class="o">.</span><span class="n">svg</span>
+
+<span class="n">Ruta</span> <span class="n">relativa</span><span class="p">:</span>
+<span class="o">../</span><span class="n">diagramas</span><span class="o">/</span><span class="n">casos_uso</span><span class="o">/</span><span class="n">UCD</span><span class="o">-</span><span class="n">BACK</span><span class="o">-</span><span class="mi">001</span><span class="o">-</span><span class="n">autenticacion</span><span class="o">.</span><span class="n">svg</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-completo-en-uc-back-001">
+<h3>Ejemplo Completo en UC-BACK-001<a class="headerlink" href="#ejemplo-completo-en-uc-back-001" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: UC-BACK-001
+tipo: caso_uso
+categoria: backend
+version: 1.1.0
+fecha_creacion: 2025-11-01
+ultima_actualizacion: 2025-11-17
+autor: Claude Code
+estado: aprobado
+
+
+<span class="gh"># UC-BACK-001: Iniciar Sesión</span>
+
+<span class="gu">## Diagrama de Casos de Uso</span>
+
+![<span class="nt">Diagrama de Casos de Uso</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-001-autenticacion.svg</span>)
+
+Fuente: [<span class="nt">UCD-BACK-001-autenticacion.puml</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-001-autenticacion.puml</span>)
+
+<span class="gu">## Información General</span>
+
+<span class="gs">**ID**</span>: UC-BACK-001
+<span class="gs">**Nombre**</span>: Iniciar Sesión
+<span class="gs">**Creado por**</span>: Claude Code
+<span class="gs">**Fecha de creación**</span>: 2025-11-01
+<span class="gs">**Última actualización**</span>: 2025-11-17
+<span class="gs">**Estado**</span>: aprobado
+
+<span class="gu">## Actores</span>
+
+<span class="gs">**Actores Primarios**</span>: Usuario
+
+<span class="gs">**Actores Secundarios**</span>: Sistema de Autenticación LDAP, Base de Datos de Usuarios
+
+<span class="gu">## Descripción</span>
+
+Permite al usuario autenticarse en el sistema proporcionando credenciales válidas y código 2FA.
+
+...
+</pre></div>
+</div>
+</section>
+<section id="si-multiples-casos-de-uso-comparten-diagrama">
+<h3>Si Múltiples Casos de Uso Comparten Diagrama<a class="headerlink" href="#si-multiples-casos-de-uso-comparten-diagrama" title="Link to this heading">¶</a></h3>
+<p>Todos los casos de uso del módulo pueden referenciar el mismo diagrama:</p>
+<ul class="simple">
+<li><p>UC-BACK-001: Iniciar Sesión → referencia
+UCD-BACK-001-autenticacion.svg</p></li>
+<li><p>UC-BACK-002: Cerrar Sesión → referencia
+UCD-BACK-001-autenticacion.svg</p></li>
+<li><p>UC-BACK-003: Cambiar Contraseña → referencia
+UCD-BACK-001-autenticacion.svg</p></li>
+</ul>
+</section>
+<section id="actualizar-varios-archivos">
+<h3>Actualizar Varios Archivos<a class="headerlink" href="#actualizar-varios-archivos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar diagrama a UC-BACK-001</span>
+vim<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+
+<span class="c1"># Agregar diagrama a UC-BACK-002</span>
+vim<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md
+
+<span class="c1"># Agregar diagrama a UC-BACK-003</span>
+vim<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
+</pre></div>
+</div>
+</section>
+<section id="validacion-7">
+<span id="id18"></span><h3>Validación<a class="headerlink" href="#validacion-7" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Diagrama agregado a especificación(es) de caso(s) de uso</p></li>
+<li><p>☐ Ruta relativa correcta (verifica que imagen se muestre en preview
+de markdown)</p></li>
+<li><p>☐ Link a archivo .puml incluido</p></li>
+<li><p>☐ Ubicado al inicio del documento, después del título</p></li>
+</ul>
+</section>
+</section>
+<section id="paso-9-commit-de-puml-y-svg">
+<h2>PASO 9: Commit de .puml y .svg<a class="headerlink" href="#paso-9-commit-de-puml-y-svg" title="Link to this heading">¶</a></h2>
+<section id="objetivo-del-paso-8">
+<span id="id19"></span><h3>Objetivo del Paso<a class="headerlink" href="#objetivo-del-paso-8" title="Link to this heading">¶</a></h3>
+<p>Versionar tanto el código fuente PlantUML (.puml) como el SVG generado
+en git.</p>
+</section>
+<section id="archivos-a-commitear">
+<h3>Archivos a Commitear<a class="headerlink" href="#archivos-a-commitear" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Archivo .puml</strong> (código fuente, principal)</p></li>
+<li><p><strong>Archivo .svg</strong> (imagen generada, derivada)</p></li>
+<li><p><strong>Especificaciones de casos de uso actualizadas</strong> (que referencian el
+diagrama)</p></li>
+</ol>
+</section>
+<section id="verificar-archivos">
+<h3>Verificar Archivos<a class="headerlink" href="#verificar-archivos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml</span>
+<span class="c1"># new file:   docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md</span>
+<span class="c1"># modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.md</span>
+</pre></div>
+</div>
+</section>
+<section id="agregar-archivos">
+<h3>Agregar Archivos<a class="headerlink" href="#agregar-archivos" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar diagrama (.puml y .svg)</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
+
+<span class="c1"># Agregar casos de uso actualizados</span>
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
+git<span class="w"> </span>add<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.md
+</pre></div>
+</div>
+</section>
+<section id="crear-commit">
+<h3>Crear Commit<a class="headerlink" href="#crear-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">docs(requisitos): agregar diagrama UML UCD-BACK-001 Módulo de Autenticación</span>
+
+<span class="s">Diagrama de casos de uso para módulo de autenticación que incluye:</span>
+<span class="s">- UC-BACK-001: Iniciar Sesión</span>
+<span class="s">- UC-BACK-002: Cerrar Sesión</span>
+<span class="s">- UC-BACK-003: Cambiar Contraseña</span>
+<span class="s">- UC-BACK-004: Recuperar Contraseña</span>
+<span class="s">- UC-BACK-005: Configurar 2FA</span>
+
+<span class="s">Actores:</span>
+<span class="s">- Primario: Usuario</span>
+<span class="s">- Secundarios: Sistema de Autenticación LDAP, Base de Datos de Usuarios, Sistema de Email</span>
+
+<span class="s">Archivos creados:</span>
+<span class="s">- UCD-BACK-001-autenticacion.puml (código fuente PlantUML)</span>
+<span class="s">- UCD-BACK-001-autenticacion.svg (imagen generada)</span>
+
+<span class="s">Archivos actualizados:</span>
+<span class="s">- UC-BACK-001, UC-BACK-002, UC-BACK-003, UC-BACK-004, UC-BACK-005:</span>
+<span class="s">  Agregar referencia a diagrama UML</span>
+
+<span class="s">Relacionado: ADR-GOB-008</span>
+<span class="s">EOF</span>
+<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="formato-de-mensaje-de-commit">
+<h3>Formato de Mensaje de Commit<a class="headerlink" href="#formato-de-mensaje-de-commit" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="p">(</span><span class="n">requisitos</span><span class="p">):</span> <span class="n">agregar</span> <span class="n">diagrama</span> <span class="n">UML</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="p">[</span><span class="n">Nombre</span> <span class="k">del</span> <span class="n">Módulo</span><span class="p">]</span>
+
+<span class="n">Diagrama</span> <span class="n">de</span> <span class="n">casos</span> <span class="n">de</span> <span class="n">uso</span> <span class="n">para</span> <span class="p">[</span><span class="n">módulo</span><span class="p">]</span> <span class="n">que</span> <span class="n">incluye</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">UC</span><span class="o">-</span><span class="n">XXX</span><span class="o">-</span><span class="c1">###: [Nombre]</span>
+<span class="o">-</span> <span class="o">...</span>
+
+<span class="n">Actores</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Primario</span><span class="p">:</span> <span class="p">[</span><span class="n">Actor</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">Secundarios</span><span class="p">:</span> <span class="p">[</span><span class="n">Actores</span><span class="p">]</span>
+
+<span class="n">Archivos</span> <span class="n">creados</span><span class="p">:</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span><span class="o">.</span><span class="n">puml</span> <span class="p">(</span><span class="n">código</span> <span class="n">fuente</span> <span class="n">PlantUML</span><span class="p">)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">ID</span><span class="p">]</span><span class="o">.</span><span class="n">svg</span> <span class="p">(</span><span class="n">imagen</span> <span class="n">generada</span><span class="p">)</span>
+
+<span class="n">Archivos</span> <span class="n">actualizados</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">UC</span><span class="o">-</span><span class="n">XXX</span><span class="o">-</span><span class="c1">###: Agregar referencia a diagrama UML</span>
+
+<span class="n">Relacionado</span><span class="p">:</span> <span class="n">ADR</span><span class="o">-</span><span class="n">GOB</span><span class="o">-</span><span class="mi">008</span>
+</pre></div>
+</div>
+</section>
+<section id="push">
+<h3>Push<a class="headerlink" href="#push" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="por-que-commitear-tanto-puml-como-svg">
+<h3>Por Qué Commitear Tanto .puml como .svg<a class="headerlink" href="#por-que-commitear-tanto-puml-como-svg" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Archivo</p></th>
+<th class="head"><p>Razón para Commitear</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>.puml</strong></p></td>
+<td><p>Código fuente versionable,
+legible en git diff, editable</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>.svg</strong></p></td>
+<td><p>Visualización directa en
+GitHub/GitLab sin necesitar
+PlantUML</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="validacion-8">
+<span id="id20"></span><h3>Validación<a class="headerlink" href="#validacion-8" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>☐ Archivo .puml commiteado</p></li>
+<li><p>☐ Archivo .svg commiteado</p></li>
+<li><p>☐ Especificaciones de casos de uso actualizadas commiteadas</p></li>
+<li><p>☐ Commit creado con mensaje descriptivo</p></li>
+<li><p>☐ Push exitoso</p></li>
+</ul>
+</section>
+</section>
+<section id="template-completo-de-diagrama-uml">
+<h2>Template Completo de Diagrama UML<a class="headerlink" href="#template-completo-de-diagrama-uml" title="Link to this heading">¶</a></h2>
+<section id="template-basico">
+<h3>Template Básico<a class="headerlink" href="#template-basico" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-DOMINIO-###-descripcion
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+&#39; Actor primario (ejecuta casos de uso)
+actor &quot;Nombre Actor Primario&quot; as actor1
+
+&#39; Actores secundarios (proporcionan soporte)
+actor &quot;Nombre Actor Secundario 1&quot; as actor2
+actor &quot;Nombre Actor Secundario 2&quot; as actor3
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Nombre del Sistema - Módulo Específico&quot; {
+  &#39; Casos de uso dentro del sistema
+  usecase &quot;VERBO Objeto 1&quot; as UC001
+  usecase &quot;VERBO Objeto 2&quot; as UC002
+  usecase &quot;VERBO Objeto 3&quot; as UC003
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; Relaciones actor primario → casos de uso
+actor1 --&gt; UC001
+actor1 --&gt; UC002
+actor1 --&gt; UC003
+
+&#39; Relaciones casos de uso → actores secundarios
+UC001 --&gt; actor2
+UC001 --&gt; actor3
+
+UC002 --&gt; actor2
+
+&#39; Relaciones entre casos de uso (si aplica)
+&#39; UC001 .&gt; UC002 : &lt;&lt;include&gt;&gt;
+&#39; UC003 .&gt; UC001 : &lt;&lt;extend&gt;&gt;
+
+&#39; ===================================
+&#39; NOTAS (OPCIONAL)
+&#39; ===================================
+
+&#39; Notas explicativas
+note right of UC001
+  Descripción breve o aclaración
+  si es necesaria
+end note
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="template-avanzado-con-include-extend">
+<h3>Template Avanzado con Include/Extend<a class="headerlink" href="#template-avanzado-con-include-extend" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-DOMINIO-###-descripcion-avanzado
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; CONFIGURACIÓN ADICIONAL
+&#39; ===================================
+
+skinparam nodesep 80
+skinparam ranksep 100
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+actor &quot;Actor Primario&quot; as actorP
+actor &quot;Sistema Externo 1&quot; as sys1
+actor &quot;Sistema Externo 2&quot; as sys2
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo X&quot; {
+  &#39; Casos de uso principales
+  usecase &quot;Caso de Uso Principal 1&quot; as UC001
+  usecase &quot;Caso de Uso Principal 2&quot; as UC002
+
+  &#39; Casos de uso compartidos (incluidos)
+  usecase &quot;Validar Permisos&quot; as UC_VALID
+
+  &#39; Casos de uso opcionales (extensiones)
+  usecase &quot;Generar Reporte Detallado&quot; as UC_EXT
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; Actor primario ejecuta casos de uso principales
+actorP --&gt; UC001
+actorP --&gt; UC002
+
+&#39; Relaciones include (siempre se ejecutan)
+UC001 .&gt; UC_VALID : &lt;&lt;include&gt;&gt;
+UC002 .&gt; UC_VALID : &lt;&lt;include&gt;&gt;
+
+&#39; Relaciones extend (opcionales)
+UC_EXT .&gt; UC001 : &lt;&lt;extend&gt;&gt;
+
+&#39; Actores secundarios
+UC001 --&gt; sys1
+UC002 --&gt; sys2
+UC_VALID --&gt; sys1
+
+&#39; ===================================
+&#39; NOTAS
+&#39; ===================================
+
+note right of UC_VALID
+  Este caso de uso es compartido
+  por múltiples casos de uso
+end note
+
+note bottom of UC_EXT
+  Solo se ejecuta si el usuario
+  solicita versión detallada
+end note
+
+@enduml
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejemplo-completo-modulo-de-auditoria">
+<h2>Ejemplo Completo: Módulo de Auditoría<a class="headerlink" href="#ejemplo-completo-modulo-de-auditoria" title="Link to this heading">¶</a></h2>
+<section id="archivo-ucd-back-003-modulo-auditoria-puml">
+<h3>Archivo: UCD-BACK-003-modulo-auditoria.puml<a class="headerlink" href="#archivo-ucd-back-003-modulo-auditoria-puml" title="Link to this heading">¶</a></h3>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>@startuml UCD-BACK-003-modulo-auditoria
+!theme plain
+left to right direction
+skinparam packageStyle rectangle
+
+&#39; ===================================
+&#39; ACTORES
+&#39; ===================================
+
+actor &quot;Auditor&quot; as auditor
+actor &quot;Gerente de Auditoría&quot; as gerente
+actor &quot;Base de Datos de Transacciones&quot; as db
+actor &quot;Sistema de Reportes&quot; as reportes
+
+&#39; ===================================
+&#39; SISTEMA Y CASOS DE USO
+&#39; ===================================
+
+rectangle &quot;Sistema IACT - Módulo de Auditoría&quot; {
+  usecase &quot;Generar Reporte de Auditoría&quot; as UC020
+  usecase &quot;Consultar Log de Auditoría&quot; as UC021
+  usecase &quot;Exportar Datos de Auditoría&quot; as UC022
+  usecase &quot;Aprobar Reporte de Auditoría&quot; as UC023
+  usecase &quot;Generar Reporte en PDF&quot; as UC_PDF
+  usecase &quot;Generar Reporte en CSV&quot; as UC_CSV
+}
+
+&#39; ===================================
+&#39; RELACIONES
+&#39; ===================================
+
+&#39; Actores primarios
+auditor --&gt; UC020
+auditor --&gt; UC021
+auditor --&gt; UC022
+
+gerente --&gt; UC023
+
+&#39; Relaciones include
+UC020 .&gt; UC_PDF : &lt;&lt;include&gt;&gt;
+
+&#39; Relaciones extend
+UC_CSV .&gt; UC020 : &lt;&lt;extend&gt;&gt;
+
+&#39; Actores secundarios
+UC020 --&gt; db
+UC020 --&gt; reportes
+UC021 --&gt; db
+UC022 --&gt; db
+UC023 --&gt; db
+
+&#39; ===================================
+&#39; NOTAS
+&#39; ===================================
+
+note right of UC020
+  Rango máximo: 90 días
+  Por defecto genera PDF
+end note
+
+note bottom of UC_CSV
+  Solo si el auditor
+  selecciona exportar a CSV
+end note
+
+@enduml
+</pre></div>
+</div>
+</section>
+<section id="generar-svg">
+<h3>Generar SVG<a class="headerlink" href="#generar-svg" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>plantuml<span class="w"> </span>-tsvg<span class="w"> </span>docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.puml
+</pre></div>
+</div>
+</section>
+<section id="referenciar-en-uc-back-020">
+<h3>Referenciar en UC-BACK-020<a class="headerlink" href="#referenciar-en-uc-back-020" title="Link to this heading">¶</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># UC-BACK-020: Generar Reporte de Auditoría</span>
+
+<span class="gu">## Diagrama de Casos de Uso</span>
+
+![<span class="nt">Diagrama de Casos de Uso</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.svg</span>)
+
+Fuente: [<span class="nt">UCD-BACK-003-modulo-auditoria.puml</span>](<span class="na">../diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.puml</span>)
+
+...
+</pre></div>
+</div>
+</section>
+</section>
+<section id="problemas-comunes-y-soluciones">
+<h2>Problemas Comunes y Soluciones<a class="headerlink" href="#problemas-comunes-y-soluciones" title="Link to this heading">¶</a></h2>
+<section id="problema-1-diagrama-muy-grande-con-muchos-casos-de-uso">
+<h3>Problema 1: Diagrama muy grande con muchos casos de uso<a class="headerlink" href="#problema-1-diagrama-muy-grande-con-muchos-casos-de-uso" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: Diagrama con 15+ casos de uso es ilegible.</p>
+<p><strong>Solución</strong>: - Dividir en múltiples diagramas por submódulo - Ejemplo:
+En lugar de “UCD-BACK-001-gestion-completa”, crear: -
+UCD-BACK-001-autenticacion (5 UC) - UCD-BACK-002-gestion-usuarios (5 UC)
+- UCD-BACK-003-auditoria (4 UC)</p>
+</section>
+<section id="problema-2-flechas-se-cruzan-y-es-confuso">
+<h3>Problema 2: Flechas se cruzan y es confuso<a class="headerlink" href="#problema-2-flechas-se-cruzan-y-es-confuso" title="Link to this heading">¶</a></h3>
+<p><strong>Síntoma</strong>: Layout automático crea cruce de flechas.</p>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-plantuml notranslate"><div class="highlight"><pre><span></span>&#39; Cambiar orientación
+top to bottom direction  &#39; En lugar de left to right
+
+&#39; Ajustar separación
+skinparam nodesep 120
+skinparam ranksep 150
+
+&#39; Forzar orden manualmente (avanzado)
+actor1 -[hidden]- actor2
+</pre></div>
+</div>
+</section>
+<section id="problema-3-no-se-si-usar-include-o-extend">
+<h3>Problema 3: No sé si usar include o extend<a class="headerlink" href="#problema-3-no-se-si-usar-include-o-extend" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pregunta</p></th>
+<th class="head"><p>Include</p></th>
+<th class="head"><p>Extend</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>¿Siempre se ejecuta?</p></td>
+<td><p>SÍ</p></td>
+<td><p>NO (opcional)</p></td>
+</tr>
+<tr class="row-odd"><td><p>¿Es obligatorio?</p></td>
+<td><p>SÍ</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>¿Depende de condición?</p></td>
+<td><p>NO</p></td>
+<td><p>SÍ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Ejemplos</strong>: - “Procesar Venta” siempre calcula impuestos → <strong>include</strong>
+- “Procesar Venta” puede aplicar descuento si cantidad &gt; 10 → <strong>extend</strong></p>
+</section>
+<section id="problema-4-svg-no-se-genera">
+<h3>Problema 4: SVG no se genera<a class="headerlink" href="#problema-4-svg-no-se-genera" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar instalación</span>
+plantuml<span class="w"> </span>-version
+
+<span class="c1"># Verificar sintaxis del .puml</span>
+plantuml<span class="w"> </span>-syntax<span class="w"> </span>docs/.../archivo.puml
+
+<span class="c1"># Si hay errores, mostrarán la línea problemática</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-5-imagen-no-se-muestra-en-github-gitlab">
+<h3>Problema 5: Imagen no se muestra en GitHub/GitLab<a class="headerlink" href="#problema-5-imagen-no-se-muestra-en-github-gitlab" title="Link to this heading">¶</a></h3>
+<p><strong>Solución</strong>: - Verificar que ruta relativa es correcta - Verificar que
+archivo .svg está commiteado - GitHub/GitLab pueden cachear, esperar
+unos minutos o hacer refresh</p>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.md">ADR-GOB-004: PlantUML para
+Diagramas</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md">ADR-GOB-007: Especificación de Casos de
+Uso</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md">ADR-GOB-008: Diagramas UML de Casos de
+Uso</a></p></li>
+<li><p><a class="reference external" href="/home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md">PROCED-GOB-004: Crear Caso de
+Uso</a></p></li>
+<li><p><a class="reference external" href="https://plantuml.com/use-case-diagram">PlantUML Use Case Diagram
+Documentation</a></p></li>
+</ul>
+</section>
+<section id="historial-de-cambios">
+<h2>Historial de Cambios<a class="headerlink" href="#historial-de-cambios" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Versión</p></th>
+<th class="head"><p>Fecha</p></th>
+<th class="head"><p>Autor</p></th>
+<th class="head"><p>Cambios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025-11-17</p></td>
+<td><p>Claude Code</p></td>
+<td><p>Versión inicial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+  <footer>
+    <div class="bottom-of-page">
+      <div class="left-details"></div>
+      <div class="right-details">
+        <div class="iact-custom-footer">
+          Copyright © <span id="copyright-year"></span>, Equipo IACT
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PROCED-GOB-006: Generar Diagrama UML con PlantUML</a><ul>
+<li><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li><a class="reference internal" href="#pre-requisitos">Pre-requisitos</a></li>
+<li><a class="reference internal" href="#resultado-esperado">Resultado Esperado</a></li>
+<li><a class="reference internal" href="#instalacion-de-plantuml">Instalación de PlantUML</a><ul>
+<li><a class="reference internal" href="#verificar-si-plantuml-esta-instalado">Verificar si PlantUML está instalado</a></li>
+<li><a class="reference internal" href="#instalar-plantuml-si-no-esta-instalado">Instalar PlantUML (si no está instalado)</a><ul>
+<li><a class="reference internal" href="#macos-con-homebrew">macOS con Homebrew</a></li>
+<li><a class="reference internal" href="#linux-debian-ubuntu">Linux (Debian/Ubuntu)</a></li>
+<li><a class="reference internal" href="#linux-fedora-rhel">Linux (Fedora/RHEL)</a></li>
+<li><a class="reference internal" href="#instalacion-manual-todas-las-plataformas">Instalación Manual (Todas las plataformas)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verificar-java">Verificar Java</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-1-identificar-casos-de-uso-a-diagramar">PASO 1: Identificar Casos de Uso a Diagramar</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#criterios-para-agrupar-casos-de-uso">Criterios para Agrupar Casos de Uso</a></li>
+<li><a class="reference internal" href="#regla-general">Regla General</a></li>
+<li><a class="reference internal" href="#preguntas-guia">Preguntas Guía</a></li>
+<li><a class="reference internal" href="#ejemplo-modulo-de-autenticacion">Ejemplo: Módulo de Autenticación</a></li>
+<li><a class="reference internal" href="#ejemplo-modulo-de-gestion-de-usuarios">Ejemplo: Módulo de Gestión de Usuarios</a></li>
+<li><a class="reference internal" href="#validacion">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-2-crear-archivo-puml-con-nomenclatura">PASO 2: Crear Archivo .puml con Nomenclatura</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-1">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#nomenclatura-del-archivo">Nomenclatura del Archivo</a></li>
+<li><a class="reference internal" href="#ejemplos-de-nombres-correctos">Ejemplos de Nombres Correctos</a></li>
+<li><a class="reference internal" href="#ubicacion-del-archivo">Ubicación del Archivo</a></li>
+<li><a class="reference internal" href="#crear-archivo">Crear Archivo</a></li>
+<li><a class="reference internal" href="#estructura-basica-del-archivo">Estructura Básica del Archivo</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-inicial">Ejemplo Completo Inicial</a></li>
+<li><a class="reference internal" href="#validacion-1">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-3-definir-actores-primarios-y-secundarios">PASO 3: Definir Actores (Primarios y Secundarios)</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-2">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#sintaxis-plantuml-para-actores">Sintaxis PlantUML para Actores</a></li>
+<li><a class="reference internal" href="#convenciones">Convenciones</a></li>
+<li><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
+<li><a class="reference internal" href="#distinguir-primarios-de-secundarios">Distinguir Primarios de Secundarios</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-modulo-de-autenticacion">Ejemplo Completo: Módulo de Autenticación</a></li>
+<li><a class="reference internal" href="#validacion-2">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-4-definir-casos-de-uso-dentro-del-limite-del-sistema">PASO 4: Definir Casos de Uso Dentro del Límite del Sistema</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-3">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#sintaxis-plantuml-para-casos-de-uso">Sintaxis PlantUML para Casos de Uso</a></li>
+<li><a class="reference internal" href="#convenciones-1">Convenciones</a></li>
+<li><a class="reference internal" href="#limite-del-sistema">Límite del Sistema</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-modulo-de-autenticacion-1">Ejemplo Completo: Módulo de Autenticación</a></li>
+<li><a class="reference internal" href="#ejemplo-modulo-de-gestion-de-usuarios-1">Ejemplo: Módulo de Gestión de Usuarios</a></li>
+<li><a class="reference internal" href="#validacion-3">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-5-establecer-relaciones-con-direccion-correcta-de-flechas">PASO 5: Establecer Relaciones con Dirección Correcta de Flechas</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-4">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#regla-de-oro-direccion-de-flechas">Regla de Oro: Dirección de Flechas</a></li>
+<li><a class="reference internal" href="#sintaxis-plantuml">Sintaxis PlantUML</a></li>
+<li><a class="reference internal" href="#ejemplos-visuales">Ejemplos Visuales</a><ul>
+<li><a class="reference internal" href="#ejemplo-1-uc-back-001-iniciar-sesion">Ejemplo 1: UC-BACK-001 Iniciar Sesión</a></li>
+<li><a class="reference internal" href="#ejemplo-2-uc-back-004-recuperar-contrasena">Ejemplo 2: UC-BACK-004 Recuperar Contraseña</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-comun">ERROR Común</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-modulo-de-autenticacion-2">Ejemplo Completo: Módulo de Autenticación</a></li>
+<li><a class="reference internal" href="#validacion-4">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-6-agregar-relaciones-include-extend-si-aplica">PASO 6: Agregar Relaciones Include/Extend si Aplica</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-5">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#tipos-de-relaciones-entre-casos-de-uso">Tipos de Relaciones entre Casos de Uso</a><ul>
+<li><a class="reference internal" href="#include-inclusion">1. Include (Inclusión)</a></li>
+<li><a class="reference internal" href="#extend-extension">2. Extend (Extensión)</a></li>
+<li><a class="reference internal" href="#generalizacion-herencia">3. Generalización (Herencia)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-modulo-de-autenticacion-con-include">Ejemplo: Módulo de Autenticación con Include</a></li>
+<li><a class="reference internal" href="#ejemplo-modulo-de-gestion-con-extend">Ejemplo: Módulo de Gestión con Extend</a></li>
+<li><a class="reference internal" href="#cuando-no-usar-include-extend">Cuándo NO Usar Include/Extend</a></li>
+<li><a class="reference internal" href="#validacion-5">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-7-generar-svg-localmente-para-validar">PASO 7: Generar SVG Localmente para Validar</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-6">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#comando-de-generacion">Comando de Generación</a></li>
+<li><a class="reference internal" href="#verificar-svg-generado">Verificar SVG Generado</a></li>
+<li><a class="reference internal" href="#visualizar-svg">Visualizar SVG</a><ul>
+<li><a class="reference internal" href="#opcion-1-navegador">Opción 1: Navegador</a></li>
+<li><a class="reference internal" href="#opcion-2-vscode-con-extension">Opción 2: VSCode con Extensión</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#checklist-de-validacion-visual">Checklist de Validación Visual</a></li>
+<li><a class="reference internal" href="#ajustar-layout-si-es-necesario">Ajustar Layout si es Necesario</a></li>
+<li><a class="reference internal" href="#errores-comunes">Errores Comunes</a><ul>
+<li><a class="reference internal" href="#error-1-cannot-read-or-find-image">Error 1: “Cannot read or find image”</a></li>
+<li><a class="reference internal" href="#error-2-sintaxis-incorrecta-en-puml">Error 2: Sintaxis incorrecta en .puml</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#regenerar-despues-de-cambios">Regenerar después de Cambios</a></li>
+<li><a class="reference internal" href="#validacion-6">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-8-referenciar-diagrama-en-especificacion-textual">PASO 8: Referenciar Diagrama en Especificación Textual</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-7">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#ubicacion-en-especificacion">Ubicación en Especificación</a></li>
+<li><a class="reference internal" href="#formato-markdown">Formato Markdown</a></li>
+<li><a class="reference internal" href="#rutas-relativas">Rutas Relativas</a></li>
+<li><a class="reference internal" href="#ejemplo-completo-en-uc-back-001">Ejemplo Completo en UC-BACK-001</a></li>
+<li><a class="reference internal" href="#si-multiples-casos-de-uso-comparten-diagrama">Si Múltiples Casos de Uso Comparten Diagrama</a></li>
+<li><a class="reference internal" href="#actualizar-varios-archivos">Actualizar Varios Archivos</a></li>
+<li><a class="reference internal" href="#validacion-7">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paso-9-commit-de-puml-y-svg">PASO 9: Commit de .puml y .svg</a><ul>
+<li><a class="reference internal" href="#objetivo-del-paso-8">Objetivo del Paso</a></li>
+<li><a class="reference internal" href="#archivos-a-commitear">Archivos a Commitear</a></li>
+<li><a class="reference internal" href="#verificar-archivos">Verificar Archivos</a></li>
+<li><a class="reference internal" href="#agregar-archivos">Agregar Archivos</a></li>
+<li><a class="reference internal" href="#crear-commit">Crear Commit</a></li>
+<li><a class="reference internal" href="#formato-de-mensaje-de-commit">Formato de Mensaje de Commit</a></li>
+<li><a class="reference internal" href="#push">Push</a></li>
+<li><a class="reference internal" href="#por-que-commitear-tanto-puml-como-svg">Por Qué Commitear Tanto .puml como .svg</a></li>
+<li><a class="reference internal" href="#validacion-8">Validación</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-completo-de-diagrama-uml">Template Completo de Diagrama UML</a><ul>
+<li><a class="reference internal" href="#template-basico">Template Básico</a></li>
+<li><a class="reference internal" href="#template-avanzado-con-include-extend">Template Avanzado con Include/Extend</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ejemplo-completo-modulo-de-auditoria">Ejemplo Completo: Módulo de Auditoría</a><ul>
+<li><a class="reference internal" href="#archivo-ucd-back-003-modulo-auditoria-puml">Archivo: UCD-BACK-003-modulo-auditoria.puml</a></li>
+<li><a class="reference internal" href="#generar-svg">Generar SVG</a></li>
+<li><a class="reference internal" href="#referenciar-en-uc-back-020">Referenciar en UC-BACK-020</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#problemas-comunes-y-soluciones">Problemas Comunes y Soluciones</a><ul>
+<li><a class="reference internal" href="#problema-1-diagrama-muy-grande-con-muchos-casos-de-uso">Problema 1: Diagrama muy grande con muchos casos de uso</a></li>
+<li><a class="reference internal" href="#problema-2-flechas-se-cruzan-y-es-confuso">Problema 2: Flechas se cruzan y es confuso</a></li>
+<li><a class="reference internal" href="#problema-3-no-se-si-usar-include-o-extend">Problema 3: No sé si usar include o extend</a></li>
+<li><a class="reference internal" href="#problema-4-svg-no-se-genera">Problema 4: SVG no se genera</a></li>
+<li><a class="reference internal" href="#problema-5-imagen-no-se-muestra-en-github-gitlab">Problema 5: Imagen no se muestra en GitHub/GitLab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#referencias">Referencias</a></li>
+<li><a class="reference internal" href="#historial-de-cambios">Historial de Cambios</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=54b199d4"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0e3ac2aa"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/custom.js?v=228e8b8f"></script>
+    </body>
+</html>

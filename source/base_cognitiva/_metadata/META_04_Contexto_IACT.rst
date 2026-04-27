@@ -12,25 +12,20 @@
 
 .. _meta_04_contexto_iact:
 
-==========================================================
+==================================
 META_04 · Contexto del Modelo IACT
-==========================================================
+==================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-------------------------------------------------------------
 1. Propósito
-------------------------------------------------------------
+------------
 
 Este documento introduce el modelo documental IACT (Integrated Analysis and
 Contextual Traceability) a nuevos miembros del equipo, explicando su filosofía,
 estructura y aplicación práctica en el proyecto.
 
-------------------------------------------------------------
+--------------
 2. Qué es IACT
-------------------------------------------------------------
+--------------
 
 2.1. Definición
 ^^^^^^^^^^^^^^^
@@ -60,9 +55,9 @@ En proyectos de software medianos y grandes, la documentación típicamente sufr
 IACT aborda estos problemas mediante una estructura jerárquica gobernada,
 con reglas claras de nomenclatura y trazabilidad explícita.
 
-------------------------------------------------------------
+---------------------------
 3. Principios Fundamentales
-------------------------------------------------------------
+---------------------------
 
 3.1. Jerarquía Estricta
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,9 +102,9 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 - Los subdominios están congelados por defecto.
 - El descongelamiento requiere justificación formal.
 
-------------------------------------------------------------
+------------------------
 4. Estructura del Modelo
-------------------------------------------------------------
+------------------------
 
 4.1. Los 5 Dominios Primarios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,9 +141,9 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 
 Solo ``_metadata/`` es privado en el modelo actual.
 
-------------------------------------------------------------
+------------------------------
 5. Flujo de Trabajo Documental
-------------------------------------------------------------
+------------------------------
 
 5.1. Creación de Artefactos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,9 +176,9 @@ El modelo incluye validaciones automatizadas:
 - Referencias cruzadas resuelven.
 - Subdominios congelados sin subcarpetas.
 
-------------------------------------------------------------
+---------------------
 6. Guía de Onboarding
-------------------------------------------------------------
+---------------------
 
 6.1. Primeros Pasos
 ^^^^^^^^^^^^^^^^^^^
@@ -237,9 +232,9 @@ R: Consultar la matriz RTM en ``trazabilidad/matrices/``.
 
 R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
 
-------------------------------------------------------------
+--------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -252,13 +247,13 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
    * - Estructura Documental
      - :doc:`META_05_Estructura_Documental`
    * - Definiciones Oficiales
-     - :doc:`/normativa/restricciones/RESTRICCIONES_COMPLETAS`
+     - Ver sección de Restricciones (CNST_001-010)
    * - Glosario IACT
-     - :doc:`/base_cognitiva/glosario/IACT_Glossary_v1_0_0`
+     - Ver glosario del sistema
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50

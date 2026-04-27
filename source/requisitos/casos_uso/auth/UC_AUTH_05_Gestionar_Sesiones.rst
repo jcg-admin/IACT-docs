@@ -7,13 +7,9 @@
    :uc_id: UC_AUTH_05
    :normativa: CNST-002, CNST-009
 
-==================================================
+==============================
 UC_AUTH_05: Gestionar Sesiones
-==================================================
-
-.. contents:: Contenido
-   :depth: 3
-   :local:
+==============================
 
 1. Resumen
 ----------
@@ -66,7 +62,6 @@ cerrar todas las sesiones de un usuario especifico.
    :caption: Diagrama de Caso de Uso - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    left to right direction
 
@@ -218,7 +213,6 @@ administracion.
    :caption: Diagrama de Secuencia - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    actor "AGR-006\nAdmin" as A
    participant "Frontend\nSessions" as FE <<Frontend>>
@@ -313,7 +307,7 @@ administracion.
 ------------------
 
 7.1 FA-01: Cerrar Todas las Sesiones de un Usuario
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :widths: 10 20 70
@@ -448,7 +442,6 @@ administracion.
    :caption: Diagrama de Actividad - UC_AUTH_05
 
    @startuml
-   !include ../_static/plantuml_styles.iuml
 
    start
 

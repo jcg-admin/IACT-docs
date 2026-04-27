@@ -5,13 +5,9 @@
 
 .. _actores:
 
-==================================================
+=============================================
 Catálogo de Actores - Agrupadores RBAC v5.1.1
-==================================================
-
-.. contents:: Tabla de Contenidos
-   :depth: 2
-   :local:
+=============================================
 
 1. Introducción
 ===============
@@ -449,7 +445,6 @@ Además de los agrupadores humanos, existe un actor especial:
    :caption: Diagrama de Actores del Sistema IACT
 
    @startuml
-   !include _static/plantuml_styles.iuml
    
    left to right direction
    

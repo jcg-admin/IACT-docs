@@ -12,17 +12,12 @@
 
 .. _meta_01_identidad_proyecto:
 
-==========================================================
+================================
 META_01 · Identidad del Proyecto
-==========================================================
+================================
 
-.. contents:: Contenido
-   :local:
-   :depth: 2
-
-------------------------------------------------------------
 1. Identificación Oficial
-------------------------------------------------------------
+-------------------------
 
 .. list-table:: Datos de Identificación
    :widths: 30 70
@@ -42,9 +37,9 @@ META_01 · Identidad del Proyecto
    * - **Estado Actual**
      - En Desarrollo (Fase Elaboration)
 
-------------------------------------------------------------
+---------------------------
 2. Descripción del Proyecto
-------------------------------------------------------------
+---------------------------
 
 2.1. Descripción Ejecutiva
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,9 +63,9 @@ Sistema web compuesto por:
 El sistema expone APIs RESTful para integración con plataformas IVR externas
 y provee dashboards analíticos en tiempo real.
 
-------------------------------------------------------------
+-----------------------
 3. Alcance del Proyecto
-------------------------------------------------------------
+-----------------------
 
 3.1. Dentro del Alcance (In-Scope)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,9 +89,9 @@ y provee dashboards analíticos en tiempo real.
 - CRM o gestión de clientes
 - Facturación o billing
 
-------------------------------------------------------------
+-------------------------
 4. Objetivos del Proyecto
-------------------------------------------------------------
+-------------------------
 
 4.1. Objetivo General
 ^^^^^^^^^^^^^^^^^^^^^
@@ -123,9 +118,9 @@ con sistemas IVR.
    * - O5
      - Cumplir con requisitos de auditoría y trazabilidad de datos
 
-------------------------------------------------------------
+---------------------------
 5. Stakeholders Principales
-------------------------------------------------------------
+---------------------------
 
 .. list-table::
    :widths: 25 25 50
@@ -153,9 +148,9 @@ con sistemas IVR.
      - Contact Center
      - Usabilidad, acceso a información
 
-------------------------------------------------------------
+----------------------------
 6. Restricciones y Supuestos
-------------------------------------------------------------
+----------------------------
 
 6.1. Restricciones
 ^^^^^^^^^^^^^^^^^^
@@ -189,9 +184,9 @@ con sistemas IVR.
    * - S4
      - Disponibilidad de SMEs de Contact Center para validación de requisitos
 
-------------------------------------------------------------
+--------------
 7. Referencias
-------------------------------------------------------------
+--------------
 
 .. list-table::
    :widths: 30 70
@@ -208,9 +203,9 @@ con sistemas IVR.
    * - Estructura Documental
      - :doc:`META_05_Estructura_Documental`
 
-------------------------------------------------------------
+--------------------
 Historial de Cambios
-------------------------------------------------------------
+--------------------
 
 .. list-table::
    :widths: 15 15 20 50
@@ -228,4 +223,4 @@ Historial de Cambios
 ----
 
 **Trazabilidad:** Este artefacto es referenciado por reportes, actas y
-documentos externos del proyecto. Ver :doc:`/trazabilidad/matrices/RTM_Master`.
+documentos externos del proyecto.

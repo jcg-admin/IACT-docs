@@ -242,7 +242,7 @@ Database Router
    # api/apps/common/routers.py
 
    class IVRReadOnlyRouter:
-       """
+                           
        Router para base de datos IVR (solo lectura).
 
        CNST-003: Esta base es INMUTABLE.
@@ -253,7 +253,7 @@ Database Router
        - IVRCall
        - IVRQueue
        - IVROption
-       """
+                  
 
        IVR_MODELS = {'ivrcall', 'ivrqueue', 'ivroption'}
 
@@ -264,21 +264,21 @@ Database Router
            return None
 
        def db_for_write(self, model, **hints):
-           """
+                                              
            PROHIBIR escritura en IVR.
 
            Retorna None para que Django lance error si se intenta escribir.
            El middleware IVRWriteProtection proporciona mensaje más claro.
-           """
+                                                                          
            if model._meta.model_name in self.IVR_MODELS:
                return None  # Forzar error
            return None
 
        def allow_relation(self, obj1, obj2, **hints):
-           """
+                                                     
            Permitir relaciones entre modelos IVR.
            No permitir relaciones cruzadas IVR-Analytics.
-           """
+                                                         
            obj1_ivr = obj1._meta.model_name in self.IVR_MODELS
            obj2_ivr = obj2._meta.model_name in self.IVR_MODELS
 
@@ -298,11 +298,11 @@ Database Router
 
 
    class AnalyticsRouter:
-       """
+                         
        Router para base de datos Analytics.
 
        Permite todas las operaciones en modelos propios de IACT.
-       """
+                                                                
 
        def db_for_read(self, model, **hints):
            """Leer de default (Analytics)."""
@@ -330,7 +330,7 @@ Modelos IVR (Solo Lectura)
    from django.db import models
 
    class IVRCall(models.Model):
-       """
+                               
        Modelo de llamadas IVR (SOLO LECTURA).
 
        CNST-003: Este modelo es de solo lectura.
@@ -343,7 +343,7 @@ Modelos IVR (Solo Lectura)
            IVRCall.objects.create(...)  # ERROR
            call.save()                   # ERROR
            call.delete()                 # ERROR
-       """
+                                                
 
        call_id = models.BigAutoField(primary_key=True)
        queue_id = models.IntegerField()
@@ -373,11 +373,11 @@ Modelos IVR (Solo Lectura)
 
 
    class IVRQueue(models.Model):
-       """
+                                
        Modelo de colas IVR (SOLO LECTURA).
 
        CNST-003: Este modelo es de solo lectura.
-       """
+                                                
 
        queue_id = models.AutoField(primary_key=True)
        queue_name = models.CharField(max_length=100)
@@ -400,11 +400,11 @@ Modelos IVR (Solo Lectura)
 
 
    class IVROption(models.Model):
-       """
+                                 
        Modelo de opciones del menú IVR (SOLO LECTURA).
 
        CNST-003: Este modelo es de solo lectura.
-       """
+                                                
 
        option_id = models.AutoField(primary_key=True)
        option_key = models.CharField(max_length=10)
@@ -438,14 +438,14 @@ Middleware de Protección
    logger = logging.getLogger('security')
 
    class IVRWriteProtection:
-       """
+                            
        Middleware de protección contra escritura en IVR.
 
        Detecta y bloquea intentos de escritura a base IVR.
        Proporciona logging de intentos para auditoría.
 
        CNST-003: Capa adicional de protección.
-       """
+                                              
 
        def __init__(self, get_response):
            self.get_response = get_response
@@ -496,7 +496,7 @@ Servicio de Extracción
    logger = logging.getLogger('etl')
 
    class IVRDataExtractor:
-       """
+                          
        Extractor de datos de base IVR.
 
        CNST-003: Solo operaciones SELECT permitidas.
@@ -505,13 +505,13 @@ Servicio de Extracción
        Uso:
            extractor = IVRDataExtractor()
            calls = extractor.extract_calls(start_date, end_date)
-       """
+                                                                
 
        def __init__(self):
            self.connection = connections['ivr_readonly']
 
        def extract_calls(self, start_date, end_date):
-           """
+                                                     
            Extraer llamadas del período especificado.
 
            Args:
@@ -520,7 +520,7 @@ Servicio de Extracción
 
            Returns:
                Lista de diccionarios con datos de llamadas
-           """
+                                                          
            query = """
                SELECT
                    call_id,
@@ -533,7 +533,7 @@ Servicio de Extracción
                FROM calls
                WHERE call_date BETWEEN %s AND %s
                ORDER BY call_date
-           """
+                                 
 
            with self.connection.cursor() as cursor:
                cursor.execute(query, [start_date, end_date])
@@ -556,7 +556,7 @@ Servicio de Extracción
                SELECT queue_id, queue_name, queue_type
                FROM queues
                WHERE is_active = TRUE
-           """
+                                     
 
            with self.connection.cursor() as cursor:
                cursor.execute(query)
@@ -590,15 +590,15 @@ Transformador de Datos
    logger = logging.getLogger('etl')
 
    class CallMetricsTransformer:
-       """
+                                
        Transformador de llamadas IVR a métricas agregadas.
 
        Transforma datos individuales de llamadas en métricas
        agregadas por día y cola para almacenar en Analytics.
-       """
+                                                            
 
        def transform(self, calls):
-           """
+                                  
            Transformar lista de llamadas en métricas agregadas.
 
            Args:
@@ -606,7 +606,7 @@ Transformador de Datos
 
            Returns:
                Lista de métricas agregadas por día/cola
-           """
+                                                       
            if not calls:
                return []
 
@@ -673,14 +673,14 @@ Cargador a Analytics
    logger = logging.getLogger('etl')
 
    class AnalyticsLoader:
-       """
+                         
        Cargador de métricas a base Analytics.
 
        CNST-003: Solo escribe en base Analytics (default).
-       """
+                                                          
 
        def load(self, metrics):
-           """
+                               
            Cargar métricas en base Analytics.
 
            Usa upsert: actualiza si existe, inserta si no.
@@ -690,7 +690,7 @@ Cargador a Analytics
 
            Returns:
                Tupla (insertados, actualizados)
-           """
+                                               
            inserted = 0
            updated = 0
 
