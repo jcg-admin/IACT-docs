@@ -261,9 +261,26 @@ Este conjunto de restricciones esta alineado con el Modelo RBAC v5.1.1 que utili
 Documentos Relacionados
 -----------------------
 
-- Modelo RBAC IACT v5.1.1
+- :ref:`cnst-012` — Modelo RBAC IACT v5.2.2 (consolidación canónica)
 - Casos de Uso (UC-001 a UC-072)
 - SRS v2.0 (8 modulos funcionales)
 - ADR (Decisiones de arquitectura)
 
 ----
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Catalogo de Restricciones
+
+   CNST_001_Comunicaciones_Prohibidas
+   CNST_002_Gestion_Sesiones_BD
+   CNST_003_Base_Datos_Dual_Inmutable
+   CNST_004_Actualizacion_Datos_ETL
+   CNST_005_Seguridad_DRF_Checklist
+   CNST_006_Antipatrones_Arquitectura
+   CNST_007_Limites_Performance_SLA
+   CNST_008_Infraestructura_Deployment
+   CNST_009_Logging_Auditoria_Inmutable
+   CNST_010_Clasificacion_Proteccion_Datos
+   CNST_012_RBAC_Flat_SoD_Permisos

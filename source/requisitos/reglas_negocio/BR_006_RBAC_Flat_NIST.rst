@@ -162,8 +162,11 @@ Sin excepciones. El modelo Flat es absoluto.
 
    * - CNST
      - Relacion
-   * - CNST_005
-     - Define modelo de seguridad y control de acceso
+   * - CNST-005
+     - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
+   * - :ref:`cnst-012`
+     - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
+       permisos temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
