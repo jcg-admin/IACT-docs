@@ -14,6 +14,8 @@ Este dominio responde a las preguntas: **"¿Cómo usar el sistema, cómo se gest
 
 [CONFLICT TEST: Alternative change on feature/project-setup for conflict validation]
 
+[CONFLICT TEST: Change made on develop branch for merge conflict validation test]
+
 Contenido
 =========
 
