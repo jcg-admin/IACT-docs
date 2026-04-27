@@ -4,6 +4,17 @@
     "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "420000",
     "CLAUDE_CODE_EFFORT_LEVEL": "medium"
   },
+  "extraKnownMarketplaces": {
+    "thyrox-local": {
+      "source": {
+        "source": "directory",
+        "path": "./"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "thyrox@thyrox-local": true
+  },
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [

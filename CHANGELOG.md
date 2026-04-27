@@ -9,6 +9,8 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/) y SemVer 2.0.0
 - `scripts/setup.sh` — bootstrap del entorno de desarrollo (uv sync + hooks).
 - `scripts/install-hooks.sh` — activación de `.githooks/` via `core.hooksPath` (F-03).
 - `.claude/.claude-plugin/plugin.json` — manifest del plugin THYROX (F-11) — registra el namespace `/thyrox:*` documentado en ADR-019 pero no implementado hasta ahora.
+- `.claude-plugin/marketplace.json` — marketplace local (no público, sin red) que apunta a `./.claude/` como fuente del plugin thyrox.
+- `.claude/settings.json` — `extraKnownMarketplaces.thyrox-local` (source `directory`) + `enabledPlugins["thyrox@thyrox-local"]: true` para auto-cargar el plugin sin `--plugin-dir` ni red.
 - WP `repository-diagnostics` — diagnóstico inicial del repositorio con 11 hallazgos.
 
 ### Changed
