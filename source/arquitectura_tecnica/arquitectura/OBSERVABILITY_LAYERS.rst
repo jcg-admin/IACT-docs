@@ -276,7 +276,7 @@ Acceso
 -  **SRE:** Troubleshoot errores produccion
 -  **Support:** Investigar reportes usuarios
 
-.. _herramientas-1:
+.. _observability-layers-herramientas-1:
 
 Herramientas
 ~~~~~~~~~~~~
@@ -391,7 +391,7 @@ Acceso
 -  **SRE:** Investigar outages
 -  **Security:** Audit accesos/intentos intrusión
 
-.. _herramientas-2:
+.. _observability-layers-herramientas-2:
 
 Herramientas
 ~~~~~~~~~~~~

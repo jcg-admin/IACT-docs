@@ -168,8 +168,8 @@ Criterios esperados para calidad normal:
 3. Criterios Especificos por Tipo de Artefacto
 ----------------------------------------------
 
-3.1 Reglas de Negocio (BR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.1 Reglas de Negocio (BR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -208,8 +208,8 @@ Criterios esperados para calidad normal:
    ------
    Politica de Seguridad Corporativa, Seccion 4.2
 
-3.2 Casos de Uso (UC_)
-^^^^^^^^^^^^^^^^^^^^^^
+3.2 Casos de Uso (UC\_)
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -241,8 +241,8 @@ Criterios esperados para calidad normal:
    5. Actor confirma [accion final]
    6. Sistema registra [auditoria]
 
-3.3 Requisitos Funcionales (FR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.3 Requisitos Funcionales (FR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -274,8 +274,8 @@ Criterios esperados para calidad normal:
    **Criterio de Aceptacion:** Dado un rol_id, el sistema retorna
    TRUE si existe en tabla roles, FALSE en caso contrario.
 
-3.4 Artefactos de Gobernanza (GOB_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.4 Artefactos de Gobernanza (GOB\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -291,8 +291,8 @@ Criterios esperados para calidad normal:
    [GOB-07] Metricas de cumplimiento
    [GOB-08] Referencias a otros GOB relacionados
 
-3.5 Restricciones (CNST_)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+3.5 Restricciones (CNST\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -474,23 +474,23 @@ El **Aprobador** (Owner/PMO) debe verificar:
      - Revision
      - Aprobacion
      - Total Max
-   * - BR_, UC_, FR_
+   * - BR\_, UC\_, FR\_
      - 48 horas
      - 24 horas
      - 72 horas
-   * - GOB_, STD_, PROC_
+   * - GOB\_, STD\_, PROC\_
      - 72 horas
      - 48 horas
      - 120 horas
-   * - FND_, SBVR_, TXM_, MTM_
+   * - FND\_, SBVR\_, TXM\_, MTM\_
      - 72 horas
      - 48 horas
      - 120 horas
-   * - CNST_
+   * - CNST\_
      - 48 horas
      - 24 horas
      - 72 horas
-   * - META_
+   * - META\_
      - 24 horas
      - 24 horas
      - 48 horas

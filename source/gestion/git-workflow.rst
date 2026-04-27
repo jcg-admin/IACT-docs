@@ -1514,8 +1514,10 @@ Then configure these settings:
 2. **Require status checks to pass before merging** — ✓ Check this box
    - ``Require branches to be up to date before merging`` — ✓ Check this box
    - ``Search for status checks that run in this repository...`` — Select:
+
      - ``build`` (Sphinx build validation)
      - ``tests`` (any test suites)
+
    - Add any other CI workflows relevant to your project
 
 3. **Require code review before merging** — Covered in step 1 above
@@ -2568,14 +2570,31 @@ See `man githooks` or https://git-scm.com/docs/githooks for full reference.
 
 Local hooks protect YOU from mistakes. Branch protection protects the TEAM.
 
-| Aspect | Git Hooks (Local) | Branch Protection (Server) |
-|--------|------------------|---------------------------|
-| Runs on | Your machine | GitHub server |
-| Bypass | ``--no-verify`` flag | Admin only |
-| Team enforcement | No (each dev must configure) | Yes (enforced for all) |
-| Can prevent bad commits | Yes | Yes (as merge blocks) |
-| Catches mistakes early | Yes | Yes (at PR merge) |
-| Compliance value | Medium | High |
+.. list-table::
+   :header-rows: 1
+
+   * - Aspect
+     - Git Hooks (Local)
+     - Branch Protection (Server)
+   * - Runs on
+     - Your machine
+     - GitHub server
+   * - Bypass
+     - ``--no-verify`` flag
+     - Admin only
+   * - Team enforcement
+     - No (each dev must configure)
+     - Yes (enforced for all)
+   * - Can prevent bad commits
+     - Yes
+     - Yes (as merge blocks)
+   * - Catches mistakes early
+     - Yes
+     - Yes (at PR merge)
+   * - Compliance value
+     - Medium
+     - High
+
 
 **Best practice:** Use BOTH.
 - Git hooks catch mistakes early (saves time)

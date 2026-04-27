@@ -19,7 +19,7 @@ Sequence Diagram
 .. uml::
 
    @startuml auth_workflow
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos
@@ -103,9 +103,11 @@ Sequence Steps
    - **YES:** Check MFA requirement
 6. **Decision Point:** Is MFA required?
    - **YES:** Send MFA challenge; user provides code
+
      - **Sub-decision:** Code valid and not expired?
        - **NO:** Request retry
        - **YES:** Proceed to token generation
+
    - **NO:** Proceed directly to token generation
 7. AuthService generates JWT token with 8-hour expiration
 8. AuthService stores refresh token in TokenStore (30-day expiration)

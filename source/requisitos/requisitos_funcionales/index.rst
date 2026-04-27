@@ -33,3 +33,11 @@ Ejemplo: ``FR_001_Dashboard_Metricas_Tiempo_Real.rst``
 .. note::
    Contenido en desarrollo. Los requisitos funcionales se documentarán conforme 
    se detallen las capacidades del sistema.
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   users/index
+   auth/index
+   access/index

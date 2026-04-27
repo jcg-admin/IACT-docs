@@ -279,12 +279,44 @@ trazabilidad:
 
    ESTRUCTURA RTM:
 
-   | ID_BR | ID_UC | ID_FR | ID_DES | ID_TEST | Estado | Fase |
-   |-------|-------|-------|--------|---------|--------|------|
-   | BR_001| UC_010| FR-10.1| DES_010| TC_010_1| Impl.  | CONS |
-   | BR_001| UC_010| FR-10.2| DES_010| TC_010_2| Impl.  | CONS |
-   | BR_001| UC_011| FR-11.1| -      | -       | Pend.  | ELAB |
-   | BR_002| UC_020| FR-20.1| DES_020| TC_020_1| Impl.  | CONS |
+.. list-table::
+   :header-rows: 1
+
+   * - ID_BR
+     - ID_UC
+     - ID_FR
+     - ID_DES
+     - ID_TEST
+     - Estado
+     - Fase
+   * - BR_001
+     - UC_010
+     - FR-10.1
+     - DES_010
+     - TC_010_1
+     - Impl.
+     - CONS
+   * - BR_001
+     - UC_010
+     - FR-10.2
+     - DES_010
+     - TC_010_2
+     - Impl.
+     - CONS
+   * - BR_001
+     - UC_011
+     - FR-11.1
+     - -
+     - -
+     - Pend.
+     - ELAB
+   * - BR_002
+     - UC_020
+     - FR-20.1
+     - DES_020
+     - TC_020_1
+     - Impl.
+     - CONS
 
 4.2 Estados de Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

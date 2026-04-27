@@ -209,7 +209,7 @@ Validación
 PASO 2: Crear Archivo .puml con Nomenclatura
 --------------------------------------------
 
-.. _objetivo-del-paso-1:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-1:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -332,7 +332,7 @@ Ejemplo Completo Inicial
 
    @enduml
 
-.. _validación-1:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-1:
 
 Validación
 ~~~~~~~~~~
@@ -347,7 +347,7 @@ Validación
 PASO 3: Definir Actores (Primarios y Secundarios)
 -------------------------------------------------
 
-.. _objetivo-del-paso-2:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-2:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -445,7 +445,7 @@ Ejemplo Completo: Módulo de Autenticación
 
    @enduml
 
-.. _validación-2:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-2:
 
 Validación
 ~~~~~~~~~~
@@ -459,7 +459,7 @@ Validación
 PASO 4: Definir Casos de Uso Dentro del Límite del Sistema
 ----------------------------------------------------------
 
-.. _objetivo-del-paso-3:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-3:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -549,7 +549,7 @@ Ejemplo: Módulo de Gestión de Usuarios
      usecase "Asignar Roles" as UC014
    }
 
-.. _validación-3:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-3:
 
 Validación
 ~~~~~~~~~~
@@ -563,7 +563,7 @@ Validación
 PASO 5: Establecer Relaciones con Dirección Correcta de Flechas
 ---------------------------------------------------------------
 
-.. _objetivo-del-paso-4:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-4:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -703,7 +703,7 @@ Ejemplo Completo: Módulo de Autenticación
 
    @enduml
 
-.. _validación-4:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-4:
 
 Validación
 ~~~~~~~~~~
@@ -717,7 +717,7 @@ Validación
 PASO 6: Agregar Relaciones Include/Extend si Aplica
 ---------------------------------------------------
 
-.. _objetivo-del-paso-5:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-5:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -894,7 +894,7 @@ Cuándo NO Usar Include/Extend
 
 **Principio**: Solo agregar si mejora la comprensión.
 
-.. _validación-5:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-5:
 
 Validación
 ~~~~~~~~~~
@@ -908,7 +908,7 @@ Validación
 PASO 7: Generar SVG Localmente para Validar
 -------------------------------------------
 
-.. _objetivo-del-paso-6:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-6:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -1043,7 +1043,7 @@ Cada vez que modifique el .puml, regenerar SVG:
 
    plantuml -tsvg docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
 
-.. _validación-6:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-6:
 
 Validación
 ~~~~~~~~~~
@@ -1057,7 +1057,7 @@ Validación
 PASO 8: Referenciar Diagrama en Especificación Textual
 ------------------------------------------------------
 
-.. _objetivo-del-paso-7:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-7:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -1175,7 +1175,7 @@ Actualizar Varios Archivos
    # Agregar diagrama a UC-BACK-003
    vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
 
-.. _validación-7:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-7:
 
 Validación
 ~~~~~~~~~~
@@ -1189,7 +1189,7 @@ Validación
 PASO 9: Commit de .puml y .svg
 ------------------------------
 
-.. _objetivo-del-paso-8:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-objetivo-del-paso-8:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -1313,7 +1313,7 @@ Por Qué Commitear Tanto .puml como .svg
 |                                   | PlantUML                          |
 +-----------------------------------+-----------------------------------+
 
-.. _validación-8:
+.. _proced-gob-006-generar-diagrama-uml-plantuml-validación-8:
 
 Validación
 ~~~~~~~~~~

@@ -59,27 +59,56 @@ Ejemplo Completo
 Módulos Válidos
 ===============
 
-| Módulo | Descripción |
-|--------|-------------|
-| ``requisitos`` | Especificaciones, casos de uso, requisitos |
-| ``arquitectura_tecnica`` | Arquitectura, componentes, despliegue |
-| ``base_cognitiva`` | Conceptos, taxonomías, metamodelos |
-| ``normativa`` | Gobernanza, procedimientos, políticas |
-| ``gestion`` | Gestión de proyecto, recursos |
-| ``plantuml-guide`` | Ejemplos y guías de PlantUML |
+.. list-table::
+   :header-rows: 1
+
+   * - Módulo
+     - Descripción
+   * - ``requisitos``
+     - Especificaciones, casos de uso, requisitos
+   * - ``arquitectura_tecnica``
+     - Arquitectura, componentes, despliegue
+   * - ``base_cognitiva``
+     - Conceptos, taxonomías, metamodelos
+   * - ``normativa``
+     - Gobernanza, procedimientos, políticas
+   * - ``gestion``
+     - Gestión de proyecto, recursos
+   * - ``plantuml-guide``
+     - Ejemplos y guías de PlantUML
+
 
 Tipos Válidos
 =============
 
-| Tipo | UML Equivalent | Ejemplo |
-|------|----------------|---------|
-| ``use-case`` | Use Case Diagram | Actor + Usecase (oval) |
-| ``component`` | Component Diagram | Componentes, interfaces, dependencias |
-| ``sequence`` | Sequence Diagram | Actores, mensajes, sincronización |
-| ``activity`` | Activity Diagram | Flujos, decisiones, paralelismo |
-| ``state`` | State Machine | Estados, transiciones |
-| ``deployment`` | Deployment Diagram | Nodos, artefactos, conexiones |
-| ``diagram`` | Genérico | Cualquier diagrama sin tipo específico |
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo
+     - UML Equivalent
+     - Ejemplo
+   * - ``use-case``
+     - Use Case Diagram
+     - Actor + Usecase (oval)
+   * - ``component``
+     - Component Diagram
+     - Componentes, interfaces, dependencias
+   * - ``sequence``
+     - Sequence Diagram
+     - Actores, mensajes, sincronización
+   * - ``activity``
+     - Activity Diagram
+     - Flujos, decisiones, paralelismo
+   * - ``state``
+     - State Machine
+     - Estados, transiciones
+   * - ``deployment``
+     - Deployment Diagram
+     - Nodos, artefactos, conexiones
+   * - ``diagram``
+     - Genérico
+     - Cualquier diagrama sin tipo específico
+
 
 Ejemplo por Tipo
 ================

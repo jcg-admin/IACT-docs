@@ -245,27 +245,27 @@ un archivo individual con ID unico.
      - Estado
      - Owner
    * - _metadata/
-     - META_
+     - META\_
      - Congelado
      - PMO
    * - glosario/
-     - GLOS_
+     - GLOS\_
      - Congelado
      - Arq Doc
    * - fundamentos_conceptuales/
-     - FND_
+     - FND\_
      - Congelado
      - Arq Doc
    * - ontologia_sbvr/
-     - SBVR_
+     - SBVR\_
      - Congelado
      - Arq Doc
    * - taxonomias_y_metamodelos/
-     - TXM_, MTM_
+     - TXM\_, MTM\_
      - Descongelado
      - Arq Doc
    * - metodologias_analiticas/
-     - MET_
+     - MET\_
      - Congelado
      - Arq Doc
 
@@ -280,19 +280,19 @@ un archivo individual con ID unico.
      - Estado
      - Owner
    * - procedimientos/
-     - PROC_
+     - PROC\_
      - Congelado
      - PMO
    * - estandares/
-     - STD_, TPL_
+     - STD\_, TPL\_
      - Descongelado
      - Arq Doc
    * - gobernanza/
-     - GOB_
+     - GOB\_
      - Congelado
      - PMO
    * - restricciones/
-     - CNST_
+     - CNST\_
      - Congelado
      - Tech Lead
 
@@ -307,23 +307,23 @@ un archivo individual con ID unico.
      - Estado
      - Owner
    * - reglas_negocio/
-     - BR_
+     - BR\_
      - Congelado
      - BA Lead
    * - casos_uso/
-     - UC_
+     - UC\_
      - Congelado
      - BA Lead
    * - requisitos_funcionales/
-     - FR_
+     - FR\_
      - Congelado
      - BA Lead
    * - requisitos_no_funcionales/
-     - NFR_
+     - NFR\_
      - Congelado
      - Tech Lead
    * - rtm/
-     - RTM_, COV_
+     - RTM\_, COV\_
      - Congelado
      - BA Lead
 
@@ -338,15 +338,15 @@ un archivo individual con ID unico.
      - Estado
      - Owner
    * - arquitectura/
-     - ARQ_, ADR_
+     - ARQ\_, ADR\_
      - Descongelado
      - Arquitecto
    * - diseño_detallado/
-     - DES_, API_
+     - DES\_, API\_
      - Descongelado
      - Tech Lead
    * - despliegue/
-     - DEP_
+     - DEP\_
      - Congelado
      - DevOps
 
@@ -361,15 +361,15 @@ un archivo individual con ID unico.
      - Estado
      - Owner
    * - manuales_usuarios/
-     - MAN_
+     - MAN\_
      - Congelado
      - Tech Writer
    * - pm/
-     - PM_
+     - PM\_
      - Congelado
      - PMO
    * - evidencia/
-     - EVD_
+     - EVD\_
      - Congelado
      - QA
 
@@ -497,8 +497,8 @@ Un Subdominio puede descongelarse si cumple **AL MENOS UNA** condicion:
 
    Ejemplo:
    estandares/ contiene:
-   - Estandares (STD_) → Owner: Arquitecto Doc
-   - Plantillas (TPL_) → Owner: Tech Writer
+   - Estandares (STD\_) → Owner: Arquitecto Doc
+   - Plantillas (TPL\_) → Owner: Tech Writer
 
    Justificacion: Diferentes responsables requieren separacion
 
@@ -510,8 +510,8 @@ Un Subdominio puede descongelarse si cumple **AL MENOS UNA** condicion:
 
    Ejemplo:
    arquitectura/ contiene:
-   - Vistas (ARQ_) → Ciclo: Diseño inicial, actualizacion rara
-   - ADRs (ADR_) → Ciclo: Continuo, cada decision nueva
+   - Vistas (ARQ\_) → Ciclo: Diseño inicial, actualizacion rara
+   - ADRs (ADR\_) → Ciclo: Continuo, cada decision nueva
 
    Justificacion: Ciclos diferentes justifican separacion
 
@@ -523,8 +523,8 @@ Un Subdominio puede descongelarse si cumple **AL MENOS UNA** condicion:
 
    Ejemplo:
    diseño_detallado/ contiene:
-   - APIs (API_) → Template: Especificacion REST
-   - Modelos (DSC_MOD_) → Template: Esquema de datos
+   - APIs (API\_) → Template: Especificacion REST
+   - Modelos (DSC_MOD\_) → Template: Esquema de datos
 
    Justificacion: Templates incompatibles requieren separacion
 
@@ -634,9 +634,9 @@ Al descongelar, registrar en seccion 6:
    * - Criterio
      - (c) Reglas incompatibles
    * - Justificacion
-     - TXM_ (clasificacion jerarquica) y MTM_ (estructura UML/ER) son conceptos distintos con templates incompatibles.
+     - TXM\_ (clasificacion jerarquica) y MTM\_ (estructura UML/ER) son conceptos distintos con templates incompatibles.
    * - Subcarpetas
-     - taxonomias/ (TXM_), metamodelos/ (MTM_)
+     - taxonomias/ (TXM\_), metamodelos/ (MTM\_)
    * - Aprobaciones
      - Arq Doc, PMO, BA Lead
 
@@ -653,9 +653,9 @@ Al descongelar, registrar en seccion 6:
    * - Criterio
      - (a) Cambio de autoridad + (d) Complejidad prevista
    * - Justificacion
-     - STD_ (Arquitecto) y TPL_ (Tech Writer) tienen owners diferentes. Se previeron >25 artefactos.
+     - STD\_ (Arquitecto) y TPL\_ (Tech Writer) tienen owners diferentes. Se previeron >25 artefactos.
    * - Subcarpetas
-     - plantillas/ (TPL_)
+     - plantillas/ (TPL\_)
    * - Aprobaciones
      - Arq Doc, PMO
 
@@ -672,9 +672,9 @@ Al descongelar, registrar en seccion 6:
    * - Criterio
      - (b) Cambio de ciclo de vida
    * - Justificacion
-     - ARQ_ (vistas, rara actualizacion) y ADR_ (continuo) tienen ciclos diferentes.
+     - ARQ\_ (vistas, rara actualizacion) y ADR\_ (continuo) tienen ciclos diferentes.
    * - Subcarpetas
-     - decisiones/ (ADR_)
+     - decisiones/ (ADR\_)
    * - Aprobaciones
      - Arq Doc, PMO, Tech Lead
 
@@ -691,9 +691,9 @@ Al descongelar, registrar en seccion 6:
    * - Criterio
      - (c) Reglas incompatibles
    * - Justificacion
-     - API_ (especificaciones REST), DSC_MOD_ (esquemas), DSC_INT_ (flujos) tienen templates incompatibles.
+     - API\_ (especificaciones REST), DSC_MOD\_ (esquemas), DSC_INT\_ (flujos) tienen templates incompatibles.
    * - Subcarpetas
-     - apis/ (API_), modelos/ (DSC_MOD_)
+     - apis/ (API\_), modelos/ (DSC_MOD\_)
    * - Aprobaciones
      - Arq Doc, PMO, Tech Lead
 

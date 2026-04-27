@@ -148,7 +148,7 @@ aprobaciones y registros necesarios para modificar documentacion oficial.
 
 .. code-block:: text
 
-   - Renombrar prefijo BR_ a BRL_
+   - Renombrar prefijo BR\_ a BRL_
    - Fusionar dos subdominios
    - Cambiar jerarquia de dominios
    - Modificar esquema de versionado
@@ -556,12 +556,39 @@ Mantener registro de todas las solicitudes:
    REGISTRO DE RFCs - {AÑO}
    ========================
 
-   | RFC   | Fecha    | Artefacto | Tipo     | Estado    | Aprobador |
-   |-------|----------|-----------|----------|-----------|-----------|
-   | RFC-001| 2025-01-15| GOB_02   | MODERADO | Cerrado   | M. Garcia |
-   | RFC-002| 2025-01-20| BR_015   | MENOR    | Cerrado   | Auto      |
-   | RFC-003| 2025-02-01| UC_010   | MAYOR    | En proceso| Pendiente |
-   | RFC-004| 2025-02-05| FND_03   | MODERADO | Rechazado | A. Lopez  |
+.. list-table::
+   :header-rows: 1
+
+   * - RFC
+     - Fecha
+     - Artefacto
+     - Tipo
+     - Estado
+     - Aprobador
+   * - RFC-001
+     - 2025-01-15
+     - GOB_02
+     - MODERADO
+     - Cerrado
+     - M. Garcia
+   * - RFC-002
+     - 2025-01-20
+     - BR_015
+     - MENOR
+     - Cerrado
+     - Auto
+   * - RFC-003
+     - 2025-02-01
+     - UC_010
+     - MAYOR
+     - En proceso
+     - Pendiente
+   * - RFC-004
+     - 2025-02-05
+     - FND_03
+     - MODERADO
+     - Rechazado
+     - A. Lopez
 
 6.3 Metricas de Gestion de Cambios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

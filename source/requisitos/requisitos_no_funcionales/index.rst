@@ -35,3 +35,11 @@ Ejemplo: ``RNF_001_Tiempo_Respuesta_Dashboard.rst``
 .. note::
    Contenido en desarrollo. Los requisitos no funcionales se documentarán conforme 
    se establezcan los estándares de calidad del sistema.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   RNF-PROC-001_PROCESO_SDLC
+   RNF-PROC-002_METRICAS_PROCESO

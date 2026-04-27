@@ -213,3 +213,32 @@ Arbol de Contenido
 **Owner:** PMO
 **Clasificacion:** Interno
 **Ultima actualizacion:** 2025-12-22
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   ADR-BACK-001-grupos-funcionales-sin-jerarquia
+   ADR-BACK-002-configuracion-dinamica-sistema
+   ADR-BACK-003-orm-sql-hybrid-permissions
+   ADR-BACK-004-sistema-permisos-sin-roles-jerarquicos
+   ADR-DEVOPS-001-vagrant-mod-wsgi-IMPORTANTE-PRODUC
+   ADR-DEVOPS-003-wasi-style-virtualization--IMPORTANTE-DB
+   ADR-FRONT-001-frontend-modular-monolith
+   ADR-FRONT-002-redux-toolkit-state-management
+   ADR-FRONT-003-webpack-bundler
+   ADR-FRONT-004-arquitectura-microfrontends
+   ADR-FRONT-010-typescript-adopcion-gradual
+   ADR-GOB-002-organizacion-proyecto-por-dominio
+   ADR-GOB-004-plantuml-para-diagramas
+   ADR-GOB-005-jerarquia-requerimientos-5-niveles
+   ADR-GOB-006-clasificacion-reglas-negocio
+   ADR-GOB-007-especificacion-casos-uso
+   ADR-GOB-008-diagramas-uml-casos-uso
+   ADR-GOB-009-trazabilidad-artefactos-requisitos
+   ADR-QA-002-testing-strategy-jest-testing-library
+   Architecture Decision Records (ADRs) - Indice Maestro
+   Ejemplos - GOBERNANZA
+   Gobernanza del Frontend-README
+   README-(ADR) - Backend

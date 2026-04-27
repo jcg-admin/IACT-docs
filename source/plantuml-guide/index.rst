@@ -50,3 +50,10 @@ All documentation and centralized styles ready for production use with 100+ diag
 
 - See `ADR: PlantUML Naming Conventions <https://github.com/jcg-admin/iact-docs>`_ for POSIX _prefix convention rationale
 - Reference: ``source/_static/plantuml-styles.puml`` (centralized style definitions)
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   METADATA-STANDARD

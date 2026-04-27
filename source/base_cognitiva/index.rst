@@ -29,8 +29,20 @@ Subdominios
    :caption: Contenido Público
 
    IACT_Glossary_v1_0_0
+   _fundamentos_conceptuales/index
+   _metadata/index
+   _ontologia_sbvr/index
+   _taxonomias_y_metamodelos/index
 
 .. note::
    Este dominio contiene subdominios adicionales de carácter interno que fundamentan
    teóricamente el modelo documental IACT. El glosario proporciona el vocabulario
    oficial del proyecto.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   glosario_babok_pmbok_iso
+   glossary

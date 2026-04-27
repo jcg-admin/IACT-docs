@@ -246,11 +246,21 @@ Antes de iniciar este procedimiento, verificar:
 
      ## CHANGELOG
      
-     | Version | Fecha | Cambios |
-     |---------|-------|---------|
-     | v2.1.2 | 2026-01-07 | +8 PROC FASE 1, +11 TPL |
-     | v2.1.1 | 2026-01-07 | +10 BR, STD_006 |
-     | v2.1.0 | 2026-01-06 | Modelo base |
+.. list-table::
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - Cambios
+   * - v2.1.2
+     - 2026-01-07
+     - +8 PROC FASE 1, +11 TPL
+   * - v2.1.1
+     - 2026-01-07
+     - +10 BR, STD_006
+   * - v2.1.0
+     - 2026-01-06
+     - Modelo base
 
 - **Resultado**: CHANGELOG actualizado
 - **Verificacion**: Entrada agregada

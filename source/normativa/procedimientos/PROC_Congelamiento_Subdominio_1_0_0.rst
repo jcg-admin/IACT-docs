@@ -239,10 +239,21 @@ Antes de iniciar este procedimiento, verificar:
 
      REGISTRO DE CONGELAMIENTOS
      
-     | Subdominio | Artefactos | Fecha | Responsable |
-     |------------|------------|-------|-------------|
-     | reglas_negocio | 20 BR | 2026-01-07 | Equipo IACT |
-     | restricciones | 10 CNST | 2026-01-06 | Equipo IACT |
+.. list-table::
+   :header-rows: 1
+
+   * - Subdominio
+     - Artefactos
+     - Fecha
+     - Responsable
+   * - reglas_negocio
+     - 20 BR
+     - 2026-01-07
+     - Equipo IACT
+   * - restricciones
+     - 10 CNST
+     - 2026-01-06
+     - Equipo IACT
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada

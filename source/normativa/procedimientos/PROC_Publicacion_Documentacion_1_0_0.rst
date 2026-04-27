@@ -122,9 +122,17 @@ Segun ambiente destino:
 
    REGISTRO DE PUBLICACIONES
    
-   | Version | Fecha | URL | Responsable |
-   |---------|-------|-----|-------------|
-   | v2.1.2 | 2026-01-07 | docs.iact/ | Equipo IACT |
+.. list-table::
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - URL
+     - Responsable
+   * - v2.1.2
+     - 2026-01-07
+     - docs.iact/
+     - Equipo IACT
 
 ----
 

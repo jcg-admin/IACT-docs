@@ -107,7 +107,7 @@ Validación
 PASO 2: Nombrar con Patrón VERBO+OBJETO
 ---------------------------------------
 
-.. _objetivo-del-paso-1:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-1:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -170,7 +170,7 @@ Autenticarse             Solo verbo, falta objeto Autenticar Usuario
 Guardar                  Solo verbo               Guardar Documento
 ======================== ======================== ==================
 
-.. _validación-1:
+.. _proced-gob-004-crear-caso-uso-validación-1:
 
 Validación
 ~~~~~~~~~~
@@ -184,7 +184,7 @@ Validación
 PASO 3: Asignar ID Único
 ------------------------
 
-.. _objetivo-del-paso-2:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-2:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -233,7 +233,7 @@ Ejemplos de IDs Correctos
    UC-FRONT-001-registrar-vuelo.md
    UC-BACK-020-generar-reporte-auditoria.md
 
-.. _validación-2:
+.. _proced-gob-004-crear-caso-uso-validación-2:
 
 Validación
 ~~~~~~~~~~
@@ -246,7 +246,7 @@ Validación
 PASO 4: Identificar Precondiciones
 ----------------------------------
 
-.. _objetivo-del-paso-3:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-3:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -311,7 +311,7 @@ Es válido no tener precondiciones:
 
    Ninguna. Este caso de uso puede ejecutarse en cualquier momento.
 
-.. _validación-3:
+.. _proced-gob-004-crear-caso-uso-validación-3:
 
 Validación
 ~~~~~~~~~~
@@ -323,7 +323,7 @@ Validación
 PASO 5: Escribir Flujo Normal en Formato Dos Columnas
 -----------------------------------------------------
 
-.. _objetivo-del-paso-4:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-4:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -338,9 +338,13 @@ Formato de Dos Columnas
 
    ## Flujo Normal (Happy Path)
 
-   | ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
-   |---|---|
-   | [Paso del actor] | [Pasos del sistema] |
+.. list-table::
+   :header-rows: 1
+
+   * - ACCIONES DEL ACTOR
+     - RESPONSABILIDADES DEL SISTEMA
+   * - [Paso del actor]
+     - [Pasos del sistema]
 
 Reglas de Escritura
 ~~~~~~~~~~~~~~~~~~~
@@ -359,11 +363,17 @@ Plantilla de Inicio
 
 .. code:: markdown
 
-   | ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
-   |---|---|
-   | 1. El [actor] [acción inicial] | |
-   | 2. El [actor] [proporciona información] | 3. El sistema [valida información]<br>4. El sistema [procesa información] |
-   | 5. El [actor] [confirma acción] | 6. El sistema [ejecuta acción]<br>7. El sistema [muestra resultado] |
+.. list-table::
+   :header-rows: 1
+
+   * - ACCIONES DEL ACTOR
+     - RESPONSABILIDADES DEL SISTEMA
+   * - 1. El [actor] [acción inicial]
+     - 
+   * - 2. El [actor] [proporciona información]
+     - 3. El sistema [valida información]<br>4. El sistema [procesa información]
+   * - 5. El [actor] [confirma acción]
+     - 6. El sistema [ejecuta acción]<br>7. El sistema [muestra resultado]
 
 Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -372,14 +382,23 @@ Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
 
    ## Flujo Normal (Happy Path)
 
-   | ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
-   |---|---|
-   | 1. El Auditor accede al módulo de reportes | 2. El sistema muestra opciones de reportes disponibles |
-   | 3. El Auditor selecciona "Reporte de Auditoría" | 4. El sistema muestra formulario con filtros (fecha inicio, fecha fin, tipo de transacción) |
-   | 5. El Auditor ingresa rango de fechas y selecciona tipo de transacción | 6. El sistema valida que fecha inicio < fecha fin<br>7. El sistema valida que rango no exceda 90 días |
-   | 8. El Auditor hace clic en "Generar Reporte" | 9. El sistema consulta transacciones en el rango especificado<br>10. El sistema genera reporte en formato PDF<br>11. El sistema muestra vista previa del reporte |
-   | 12. El Auditor revisa el reporte | |
-   | 13. El Auditor hace clic en "Descargar" | 14. El sistema descarga el archivo PDF<br>15. El sistema registra la generación del reporte en log de auditoría |
+.. list-table::
+   :header-rows: 1
+
+   * - ACCIONES DEL ACTOR
+     - RESPONSABILIDADES DEL SISTEMA
+   * - 1. El Auditor accede al módulo de reportes
+     - 2. El sistema muestra opciones de reportes disponibles
+   * - 3. El Auditor selecciona "Reporte de Auditoría"
+     - 4. El sistema muestra formulario con filtros (fecha inicio, fecha fin, tipo de transacción)
+   * - 5. El Auditor ingresa rango de fechas y selecciona tipo de transacción
+     - 6. El sistema valida que fecha inicio < fecha fin<br>7. El sistema valida que rango no exceda 90 días
+   * - 8. El Auditor hace clic en "Generar Reporte"
+     - 9. El sistema consulta transacciones en el rango especificado<br>10. El sistema genera reporte en formato PDF<br>11. El sistema muestra vista previa del reporte
+   * - 12. El Auditor revisa el reporte
+     - 
+   * - 13. El Auditor hace clic en "Descargar"
+     - 14. El sistema descarga el archivo PDF<br>15. El sistema registra la generación del reporte en log de auditoría
 
 Principio QUÉ vs CÓMO
 ~~~~~~~~~~~~~~~~~~~~~
@@ -400,7 +419,7 @@ Principio QUÉ vs CÓMO
    9. El sistema hace query a PostgreSQL con índice btree en fecha_transaccion
    14. El sistema usa biblioteca PDFKit para generar reporte con fuente Arial 12pt
 
-.. _validación-4:
+.. _proced-gob-004-crear-caso-uso-validación-4:
 
 Validación
 ~~~~~~~~~~
@@ -415,7 +434,7 @@ Validación
 PASO 6: Identificar Flujos Alternos y Excepciones
 -------------------------------------------------
 
-.. _objetivo-del-paso-5:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-5:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -557,7 +576,7 @@ Preguntas para Identificar Excepciones
 3. ¿Qué errores de sistema pueden ocurrir?
 4. ¿Qué pasa si un servicio externo no responde?
 
-.. _validación-5:
+.. _proced-gob-004-crear-caso-uso-validación-5:
 
 Validación
 ~~~~~~~~~~
@@ -571,7 +590,7 @@ Validación
 PASO 7: Listar Reglas de Negocio Relacionadas
 ---------------------------------------------
 
-.. _objetivo-del-paso-6:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-6:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -629,7 +648,7 @@ Si las reglas de negocio aún no están documentadas, crear placeholder:
 
 Y luego crear las RN usando PROCED-GOB-003.
 
-.. _validación-6:
+.. _proced-gob-004-crear-caso-uso-validación-6:
 
 Validación
 ~~~~~~~~~~
@@ -642,7 +661,7 @@ Validación
 PASO 8: Derivar Requisitos Funcionales Necesarios
 -------------------------------------------------
 
-.. _objetivo-del-paso-7:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-7:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -691,7 +710,7 @@ Ejemplo de Derivación
        ↓
    RF-BACK-064: Registrar evento de generación de reporte en log de auditoría
 
-.. _formato-1:
+.. _proced-gob-004-crear-caso-uso-formato-1:
 
 Formato
 ~~~~~~~
@@ -715,7 +734,7 @@ En este paso, solo LISTAR los RF. No es necesario escribir
 especificación completa de cada RF (eso se hace después en documentos
 separados).
 
-.. _validación-7:
+.. _proced-gob-004-crear-caso-uso-validación-7:
 
 Validación
 ~~~~~~~~~~
@@ -728,7 +747,7 @@ Validación
 PASO 9: Validar Principio QUÉ vs CÓMO
 -------------------------------------
 
-.. _objetivo-del-paso-8:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-8:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -799,7 +818,7 @@ Proceso de Corrección
 2. Reformular describiendo QUÉ se logra
 3. Mover detalles técnicos a RF o diseño de arquitectura
 
-.. _validación-8:
+.. _proced-gob-004-crear-caso-uso-validación-8:
 
 Validación
 ~~~~~~~~~~
@@ -812,7 +831,7 @@ Validación
 PASO 10: Crear Diagrama UML Complementario
 ------------------------------------------
 
-.. _objetivo-del-paso-9:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-9:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -961,7 +980,7 @@ Agregar al inicio del archivo del caso de uso:
    ## Información General
    ...
 
-.. _validación-9:
+.. _proced-gob-004-crear-caso-uso-validación-9:
 
 Validación
 ~~~~~~~~~~
@@ -975,14 +994,14 @@ Validación
 PASO 11: Commit y Push
 ----------------------
 
-.. _objetivo-del-paso-10:
+.. _proced-gob-004-crear-caso-uso-objetivo-del-paso-10:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
 
 Versionar el caso de uso y diagrama en git.
 
-.. _acciones-1:
+.. _proced-gob-004-crear-caso-uso-acciones-1:
 
 Acciones
 ~~~~~~~~
@@ -1052,7 +1071,7 @@ Formato de Mensaje de Commit
 
    Relacionado: ADR-GOB-007, ADR-GOB-008
 
-.. _validación-10:
+.. _proced-gob-004-crear-caso-uso-validación-10:
 
 Validación
 ~~~~~~~~~~
@@ -1108,13 +1127,21 @@ PASO 5: Flujo Normal
 
    ## Flujo Normal (Happy Path)
 
-   | ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
-   |---|---|
-   | 1. El Administrador accede al módulo de gestión de usuarios | 2. El sistema muestra el dashboard de usuarios |
-   | 3. El Administrador hace clic en "Registrar Nuevo Usuario" | 4. El sistema muestra formulario de registro (nombre, email, rol, departamento) |
-   | 5. El Administrador completa el formulario:<br>- Nombre: Juan Pérez<br>- Email: juan.perez@ejemplo.com<br>- Rol: Analista<br>- Departamento: Laboratorio A | 6. El sistema valida formato de email<br>7. El sistema verifica que email no esté registrado<br>8. El sistema valida que todos los campos requeridos estén completos |
-   | 9. El Administrador hace clic en "Guardar" | 10. El sistema crea el registro de usuario<br>11. El sistema genera contraseña temporal<br>12. El sistema envía email de bienvenida con contraseña temporal<br>13. El sistema muestra mensaje "Usuario registrado exitosamente" |
-   | 14. El Administrador confirma el mensaje | 15. El sistema actualiza la lista de usuarios mostrando el nuevo usuario |
+.. list-table::
+   :header-rows: 1
+
+   * - ACCIONES DEL ACTOR
+     - RESPONSABILIDADES DEL SISTEMA
+   * - 1. El Administrador accede al módulo de gestión de usuarios
+     - 2. El sistema muestra el dashboard de usuarios
+   * - 3. El Administrador hace clic en "Registrar Nuevo Usuario"
+     - 4. El sistema muestra formulario de registro (nombre, email, rol, departamento)
+   * - 5. El Administrador completa el formulario:<br>- Nombre: Juan Pérez<br>- Email: juan.perez@ejemplo.com<br>- Rol: Analista<br>- Departamento: Laboratorio A
+     - 6. El sistema valida formato de email<br>7. El sistema verifica que email no esté registrado<br>8. El sistema valida que todos los campos requeridos estén completos
+   * - 9. El Administrador hace clic en "Guardar"
+     - 10. El sistema crea el registro de usuario<br>11. El sistema genera contraseña temporal<br>12. El sistema envía email de bienvenida con contraseña temporal<br>13. El sistema muestra mensaje "Usuario registrado exitosamente"
+   * - 14. El Administrador confirma el mensaje
+     - 15. El sistema actualiza la lista de usuarios mostrando el nuevo usuario
 
 PASO 6: Flujos Alternos y Excepciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

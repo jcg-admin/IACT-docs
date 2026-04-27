@@ -297,3 +297,10 @@ Historial de Cambios
 ----
 
 *Indice version 1.0.0 - Proyecto IACT Dashboard Analytics*
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   TPL_002_Plantilla_UC_v2

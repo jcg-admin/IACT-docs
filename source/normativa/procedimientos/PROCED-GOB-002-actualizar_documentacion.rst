@@ -263,11 +263,25 @@ Al final del documento:
 
    ## Historial de Cambios
 
-   | Versión | Fecha | Autor | Cambios |
-   |---------|-------|-------|---------|
-   | 2.0.0 | 2025-11-17 | Tu Nombre | Actualizado a JWT authentication |
-   | 1.1.0 | 2025-11-01 | Otro Dev | Agregada sección de error handling |
-   | 1.0.0 | 2025-10-15 | Original | Versión inicial |
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 2.0.0
+     - 2025-11-17
+     - Tu Nombre
+     - Actualizado a JWT authentication
+   * - 1.1.0
+     - 2025-11-01
+     - Otro Dev
+     - Agregada sección de error handling
+   * - 1.0.0
+     - 2025-10-15
+     - Original
+     - Versión inicial
 
 --------------
 
@@ -535,7 +549,7 @@ Mejores Prácticas
 -----------------
 
 DO ✅
-~~~~
+~~~~~
 
 1. **Actualizar docs en mismo PR que código**
 
@@ -564,7 +578,7 @@ DO ✅
    -  Funciona en cualquier entorno
 
 DON’T ❌
-~~~~~~~
+~~~~~~~~
 
 1. **Dejar docs desactualizados**
 
@@ -611,10 +625,21 @@ Plantilla de Actualización
 
    ## Historial de Cambios
 
-   | Versión | Fecha | Autor | Cambios |
-   |---------|-------|-------|---------|
-   | [NUEVA] | [HOY] | [TU] | [CAMBIOS] |
-   | [PREV]  | [FECHA] | [AUTOR] | [CAMBIOS ANTERIORES] |
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - [NUEVA]
+     - [HOY]
+     - [TU]
+     - [CAMBIOS]
+   * - [PREV]
+     - [FECHA]
+     - [AUTOR]
+     - [CAMBIOS ANTERIORES]
 
 --------------
 

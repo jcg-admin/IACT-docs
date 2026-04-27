@@ -39,6 +39,7 @@ As of Phase C, the PlantUML styling system has been **unified** from three diver
 2. **After Phase C:** Single consolidated system
    - **Single source of truth:** ``_static/plantuml-styles.puml`` (v2.0.0, 516 lines)
    - **Merged content:**
+
      - Generic corporate colors (Phase A)
      - IACT module-specific colors (from v4.0.0 orphaned file)
      - Architecture layer colors for component stereotypes

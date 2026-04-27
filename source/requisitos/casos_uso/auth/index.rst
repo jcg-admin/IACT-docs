@@ -701,3 +701,14 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
      - 2026-01-06
      - Equipo IACT
      - Version inicial v4.0 con nueva nomenclatura UC_AUTH_01
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   UC_AUTH_01_Iniciar_Sesion
+   UC_AUTH_02_Cerrar_Sesion
+   UC_AUTH_03_Recuperar_Contrasena
+   UC_AUTH_04_Cambiar_Contrasena
+   UC_AUTH_05_Gestionar_Sesiones

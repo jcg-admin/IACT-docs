@@ -78,7 +78,7 @@ Validación
 PASO 2: Clasificar en uno de 5 Tipos
 ------------------------------------
 
-.. _objetivo-del-paso-1:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-1:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -159,7 +159,7 @@ Ejemplo de Clasificación
    - ¿Limita acción? SÍ (palabra clave: "deben")
    - Tipo: RESTRICCIÓN
 
-.. _validación-1:
+.. _proced-gob-003-documentar-regla-negocio-validación-1:
 
 Validación
 ~~~~~~~~~~
@@ -172,7 +172,7 @@ Validación
 PASO 3: Asignar ID Único
 ------------------------
 
-.. _objetivo-del-paso-2:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-2:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -222,7 +222,7 @@ Ejemplos de IDs Correctos
    RN-GOB-042-elegibilidad-graduacion.md
    RN-BACK-050-calculo-envio-terrestre.md
 
-.. _validación-2:
+.. _proced-gob-003-documentar-regla-negocio-validación-2:
 
 Validación
 ~~~~~~~~~~
@@ -235,7 +235,7 @@ Validación
 PASO 4: Completar Template Apropiado según Tipo
 -----------------------------------------------
 
-.. _objetivo-del-paso-3:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-3:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -507,7 +507,7 @@ Acciones
 4. Agregar ejemplos cuando sea posible
 5. Dejar placeholders en “Impacto en Requisitos” (completar en PASO 5)
 
-.. _validación-3:
+.. _proced-gob-003-documentar-regla-negocio-validación-3:
 
 Validación
 ~~~~~~~~~~
@@ -521,7 +521,7 @@ Validación
 PASO 5: Identificar Impacto en Otros Niveles
 --------------------------------------------
 
-.. _objetivo-del-paso-4:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-4:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -589,7 +589,7 @@ como “Pendiente de crear”:
    **Requisitos Funcionales**:
    - RF-BACK-010: [Pendiente] Validar credenciales contra base de datos
 
-.. _validación-4:
+.. _proced-gob-003-documentar-regla-negocio-validación-4:
 
 Validación
 ~~~~~~~~~~
@@ -602,7 +602,7 @@ Validación
 PASO 6: Validar y Revisar
 -------------------------
 
-.. _objetivo-del-paso-5:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-5:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -665,7 +665,7 @@ Acciones de Revisión
 3. Validar que desarrolladores sabrían cómo implementarlo
 4. Verificar que QA podría crear tests basados en esto
 
-.. _validación-5:
+.. _proced-gob-003-documentar-regla-negocio-validación-5:
 
 Validación
 ~~~~~~~~~~
@@ -677,7 +677,7 @@ Validación
 PASO 7: Commit y Push
 ---------------------
 
-.. _objetivo-del-paso-6:
+.. _proced-gob-003-documentar-regla-negocio-objetivo-del-paso-6:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -744,7 +744,7 @@ Formato de Mensaje de Commit
 
    Relacionado: ADR-GOB-006
 
-.. _validación-6:
+.. _proced-gob-003-documentar-regla-negocio-validación-6:
 
 Validación
 ~~~~~~~~~~

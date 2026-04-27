@@ -118,11 +118,13 @@ Use Cases
    - Description: User authenticates and receives session token
    - Precondition: Valid account exists
    - Main Flow:
+
      a. User enters credentials
      b. System validates credentials (include Validate Credentials)
      c. System initiates MFA if required (include Multi-Factor Auth)
      d. System generates token (include Generate Token)
      e. System returns token to User
+
    - Alternative Flows:
      - Invalid credentials → Increment failed attempts → Check lockout
      - MFA timeout → Request retry
@@ -132,9 +134,11 @@ Use Cases
    - Actor: User
    - Description: User terminates session and invalidates token
    - Main Flow:
+
      a. User requests logout
      b. System invalidates current token
      c. System clears session
+
    - Result: User returns to anonymous state
 
 3. **Multi-Factor Authentication (MFA)** (Support)
@@ -142,9 +146,11 @@ Use Cases
    - Description: Secondary verification using email, SMS, or authenticator app
    - Triggered By: Login use case
    - Main Flow:
+
      a. System sends MFA challenge (email/SMS code or prompt)
      b. User responds with code/approval
      c. System validates response
+
    - Alternative Flows:
      - Invalid code → Request retry (max 3 attempts)
      - Timeout → Return to login
@@ -153,11 +159,13 @@ Use Cases
    - Actor: User (self-service), Admin (for users)
    - Description: Change or recover forgotten password
    - Main Flow:
+
      a. User/Admin initiates reset
      b. System sends reset link/code via email
      c. User clicks link and enters new password
      d. System checks policy compliance (include Check Password Policy)
      e. System updates password in LDAP/Directory
+
    - Security: Reset link expires after 24 hours
 
 5. **Validate Credentials** (Support)
@@ -179,9 +187,11 @@ Use Cases
    - Description: Extend session without re-authenticating
    - Precondition: Valid refresh token exists
    - Main Flow:
+
      a. User sends refresh token
      b. System validates token
      c. System generates new access token
+
    - Expiration: Refresh token valid for 30 days
 
 8. **Account Lockout** (Primary - Admin Initiated)
@@ -195,10 +205,12 @@ Use Cases
    - Actor: AuthService
    - Description: Validate password against org policy
    - Rules:
+
      - Minimum 12 characters
      - Must include: uppercase, lowercase, number, special char
      - Cannot reuse last 5 passwords
      - Cannot contain username
+
    - Triggered By: Reset Password, Validate Credentials
 
 Constraints

@@ -23,3 +23,14 @@ Los estándares incluyen:
 .. note::
    Contenido en desarrollo. Los estándares se definirán conforme se establezcan 
    las convenciones del proyecto.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   plantillas/index
+
+   GUIA_ESTILO
+   STD_006_Versionado_Semantico
+   estandares_codigo
+   shell_scripting_guide

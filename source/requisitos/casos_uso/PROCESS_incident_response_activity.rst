@@ -1,6 +1,6 @@
-====================================================
+=====================================================
 Critical Incident Response Process — Activity Diagram
-====================================================
+=====================================================
 
 :module: requisitos
 :diagram_type: activity
@@ -19,7 +19,7 @@ Activity Diagram
 .. uml::
 
    @startuml incident_response
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos
@@ -92,11 +92,25 @@ Activity Diagram
 
 **SLA Targets:**
 
-| Severity | Response | Resolution | Post-Mortem |
-|----------|----------|------------|------------|
-| P1 | 5 min | 30 min | 48 hours |
-| P2 | 15 min | 2 hours | 1 week |
-| P3 | 1 hour | 8 hours | As needed |
+.. list-table::
+   :header-rows: 1
+
+   * - Severity
+     - Response
+     - Resolution
+     - Post-Mortem
+   * - P1
+     - 5 min
+     - 30 min
+     - 48 hours
+   * - P2
+     - 15 min
+     - 2 hours
+     - 1 week
+   * - P3
+     - 1 hour
+     - 8 hours
+     - As needed
 
 **Escalation Triggers:**
 - Operator doesn't acknowledge within 15 minutes

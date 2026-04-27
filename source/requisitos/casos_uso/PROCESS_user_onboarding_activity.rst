@@ -19,7 +19,7 @@ Activity Diagram
 .. uml::
 
    @startuml user_onboarding
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos
@@ -74,15 +74,26 @@ Activity Diagram
 
 **Swimlanes (Actor Responsibilities):**
 
-| Phase | Responsible Actor |
-|-------|------------------|
-| Initiation | Admin |
-| Validation | UserService |
-| Account Creation | UserService + LDAP |
-| Group Assignment | UserService |
-| Provisioning | PermissionService + UserService |
-| Notification | EmailService |
-| Completion | UserService |
+.. list-table::
+   :header-rows: 1
+
+   * - Phase
+     - Responsible Actor
+   * - Initiation
+     - Admin
+   * - Validation
+     - UserService
+   * - Account Creation
+     - UserService + LDAP
+   * - Group Assignment
+     - UserService
+   * - Provisioning
+     - PermissionService + UserService
+   * - Notification
+     - EmailService
+   * - Completion
+     - UserService
+
 
 **Decision Points:**
 

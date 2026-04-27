@@ -48,3 +48,11 @@ Subdominios
 .. note::
    Los manuales de usuario derivan de los casos de uso documentados en el dominio 
    de Requisitos, garantizando consistencia entre especificación e implementación.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   git-workflow
+   plantilla_adr

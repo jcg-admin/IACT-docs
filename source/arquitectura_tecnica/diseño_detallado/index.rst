@@ -59,3 +59,10 @@ Ejemplo: ``API_001_Dashboard_Metricas.rst``
 .. note::
    Contenido en desarrollo. Las especificaciones detalladas se documentarán 
    durante la fase de diseño e implementación.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   README_diseno_detallado

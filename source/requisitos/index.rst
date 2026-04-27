@@ -41,6 +41,7 @@ Subdominios
    requisitos_funcionales/index
    requisitos_no_funcionales/index
    rtm/index
+   objetivos/index
 
 .. note::
    Todos los requisitos deben estar vinculados en la Matriz de Trazabilidad (RTM) 

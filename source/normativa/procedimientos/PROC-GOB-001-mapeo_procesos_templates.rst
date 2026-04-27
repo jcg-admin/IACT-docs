@@ -112,8 +112,8 @@ Tabla de Contenidos
 | * |          |           |             |         |         |       |
 | * |          |           |             |         |         |       |
 +---+----------+-----------+-------------+---------+---------+-------+
-| * | proced   | ba        | plantilla_  | ba      | -       | check |
-| * | imiento_ | ckend-ci, | django_app, | ckend_t |         | list_ |
+| * | proced   | ba        | plantilla\_  | ba      | -       | check |
+| * | imiento_ | ckend-ci, | django_app, | ckend_t |         | list\_ |
 | S | desarrol | fr        | planti      | est.sh, |         | desar |
 | D | lo_local | ontend-ci | lla_etl_job | fr      |         | rollo |
 | L |          |           |             | ontend_ |         |       |
@@ -125,7 +125,7 @@ Tabla de Contenidos
 | * |          |           |             |         |         |       |
 +---+----------+-----------+-------------+---------+---------+-------+
 | * | g        | ba        | pl          | ba      | -       | check |
-| * | uia_comp | ckend-ci, | antilla_tdd | ckend_t |         | list_ |
+| * | uia_comp | ckend-ci, | antilla_tdd | ckend_t |         | list\_ |
 | S | leta_des | tes       |             | est.sh, |         | desar |
 | D | arrollo_ | t-pyramid |             | test_py |         | rollo |
 | L | features |           |             | ramid_c |         |       |
@@ -139,7 +139,7 @@ Tabla de Contenidos
 | * | procedim | tes       | p           | test_py | Testing | ch    |
 | * | iento_qa | t-pyramid | lantilla_pl | ramid_c |         | eckli |
 | S |          |           | an_pruebas, | heck.sh |         | st_te |
-| D |          |           | plantilla_  |         |         | sting |
+| D |          |           | plantilla\_  |         |         | sting |
 | L |          |           | caso_prueba |         |         |       |
 | C |          |           |             |         |         |       |
 | - |          |           |             |         |         |       |
@@ -161,7 +161,7 @@ Tabla de Contenidos
 | * |          |           |             |         |         |       |
 +---+----------+-----------+-------------+---------+---------+-------+
 | * | proce    | -         | plantilla_r | -       | -       | check |
-| * | dimiento |           | elease_plan |         |         | list_ |
+| * | dimiento |           | elease_plan |         |         | list\_ |
 | S | _gestion |           |             |         |         | cambi |
 | D | _cambios |           |             |         |         | os_do |
 | L |          |           |             |         |         | cumen |
@@ -185,7 +185,7 @@ Tabla de Contenidos
 | * |          |           |             |         |         |       |
 +---+----------+-----------+-------------+---------+---------+-------+
 | * | p        | -         | pl          | -       | -       | check |
-| * | rocedimi |           | antilla_api |         |         | list_ |
+| * | rocedimi |           | antilla_api |         |         | list\_ |
 | S | ento_rev |           | _reference, |         |         | cambi |
 | D | ision_do |           | pl          |         |         | os_do |
 | L | cumental |           | antilla_man |         |         | cumen |
@@ -262,7 +262,7 @@ Tabla de Contenidos
 +-----------+---------------------+---------------+-------------------+
 | **Docu    | plant               | Operations    | -                 |
 | mentacion | illa_api_reference, |               |                   |
-| (4)**     | plantilla_          |               |                   |
+| (4)**     | plantilla\_          |               |                   |
 |           | espacio_documental, |               |                   |
 |           | planti              |               |                   |
 |           | lla_manual_usuario, |               |                   |

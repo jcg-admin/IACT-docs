@@ -14,7 +14,7 @@ Sequence Diagram
 .. uml::
 
    @startuml alerting_workflow
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos
@@ -69,8 +69,10 @@ Sequence Diagram
 2. Alert Service evaluates configured rules
 3. Rule Engine checks if condition matches threshold
 4. **Decision:** Condition matched?
+
    - NO: No action, continue monitoring
    - YES: Create alert, proceed
+
 5. **Deduplication:** Is this the same condition within 5 minutes?
    - YES: Update existing alert
    - NO: Create new alert

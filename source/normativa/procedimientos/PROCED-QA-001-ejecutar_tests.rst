@@ -260,7 +260,7 @@ PASO 5: Analizar Resultados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 5.1 Tests que pasan ✅
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Si todos los tests pasan:
 
@@ -273,7 +273,7 @@ Si todos los tests pasan:
 --------------
 
 5.2 Tests que fallan ❌
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 **Output de fallo**:
 

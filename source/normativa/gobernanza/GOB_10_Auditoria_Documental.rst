@@ -112,7 +112,7 @@ El sistema IACT reconoce **cuatro tipos** de auditoria documental:
    AUDITORIAS REGULARES:
 
    MENSUAL:
-   - Completitud de requisitos/ (BR_, UC_, FR_)
+   - Completitud de requisitos/ (BR\_, UC\_, FR\_)
    - Trazabilidad de requisitos/
 
    TRIMESTRAL:
@@ -245,10 +245,10 @@ Se disparan auditorias adicionales ante:
    [ ] Formato consistente
 
    CRITERIOS ESPECIFICOS (segun tipo):
-   [ ] BR_: Tiene definicion, fuente, keywords correctos
-   [ ] UC_: Tiene actor, flujo principal, postcondiciones
-   [ ] FR_: Formato FR-UC.SEQ, criterio de aceptacion
-   [ ] GOB_: Proceso claro, roles identificados
+   [ ] BR\_: Tiene definicion, fuente, keywords correctos
+   [ ] UC\_: Tiene actor, flujo principal, postcondiciones
+   [ ] FR\_: Formato FR-UC.SEQ, criterio de aceptacion
+   [ ] GOB\_: Proceso claro, roles identificados
 
    RESULTADO:
    Errores Sphinx: ____

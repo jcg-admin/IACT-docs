@@ -82,7 +82,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
      - Congelado
      - Derivación BR a UC, derivación UC a FR.
 
-**Prefijos:** META_, GLO_, FND_, SBVR_, TXM_, MTM_, METH_
+**Prefijos:** META\_, GLO\_, FND\_, SBVR\_, TXM\_, MTM\_, METH\_
 
 3.2. Dominio: requisitos/
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,7 +114,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
      - Congelado
      - Requisitos de calidad, rendimiento, seguridad (NFR_xxx).
 
-**Prefijos:** VIS_, BR_, UC_, FR_, NFR_
+**Prefijos:** VIS\_, BR\_, UC\_, FR\_, NFR\_
 
 3.3. Dominio: arquitectura_tecnica/
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +143,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
      - Congelado
      - Configuración de ambientes, despliegue (INFRA_xxx).
 
-**Prefijos:** SAD_, ADR_, DES_, SPEC_, INFRA_
+**Prefijos:** SAD\_, ADR\_, DES\_, SPEC\_, INFRA\_
 
 **Subcarpetas en arquitectura/:**
 
@@ -176,7 +176,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
      - Congelado
      - Restricciones del modelo, antipatrones, RACI.
 
-**Prefijos:** STD_, TPL_, RSTR_, RACI_
+**Prefijos:** STD\_, TPL\_, RSTR\_, RACI\_
 
 **Subcarpetas en estandares/:**
 
@@ -207,7 +207,7 @@ proporcionando navegación rápida y visión global del sistema de 5 dominios,
      - Congelado
      - Scripts y resultados de validación automática.
 
-**Prefijos:** RTM_, RPT_, VAL_
+**Prefijos:** RTM\_, RPT\_, VAL\_
 
 -----------------
 4. Árbol Completo
