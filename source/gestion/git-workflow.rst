@@ -387,3 +387,252 @@ The actual merge command (detailed in section 2) will look like:
 
 This preserves the entire feature branch history while creating a single merge commit on the develop/main branch.
 
+---
+
+2. Feature Branch Workflow
+================================================================================
+
+This section describes how to create a feature branch, make changes, and prepare for merge to develop.
+
+2.1 Create Feature Branch — Step-by-Step
+--------------------------------------------------------------------------------
+
+**Prerequisites:** You have git installed, your local repository is cloned, and you are on the develop branch.
+
+**Step 1: Ensure your local develop branch is up to date**
+
+Fetch the latest changes from the remote repository:
+
+.. code-block:: bash
+
+   git fetch origin
+   git checkout develop
+   git pull origin develop
+
+This ensures you're starting from the latest code. Your local develop should match origin/develop.
+
+**Step 2: Create a new feature branch from develop**
+
+Use the ``git checkout -b`` command to create and switch to a new branch:
+
+.. code-block:: bash
+
+   git checkout -b feature/your-feature-name
+
+**Important:** Create branches from ``develop``, NOT from ``main``. The ``main`` branch is for releases only.
+
+Branch naming must follow the pattern ``feature/kebab-case-description``. Examples:
+- ``feature/github-actions-setup``
+- ``feature/fix-broken-links``
+- ``feature/sphinx-config-refactor``
+
+**Step 3: Make your changes**
+
+Edit files in your working directory. Track changes:
+
+.. code-block:: bash
+
+   # See what changed
+   git status
+
+   # See the diff
+   git diff
+
+**Step 4: Commit your changes with Conventional Commits**
+
+Stage your changes and commit with the format ``type(scope): description``:
+
+.. code-block:: bash
+
+   git add source/gestion/git-workflow.rst
+   git commit -m "docs(git-workflow): add feature branch workflow section"
+
+If your changes span multiple logical units, create multiple commits:
+
+.. code-block:: bash
+
+   git add source/gestion/feature-branch-guide.rst
+   git commit -m "docs(guides): add feature branch creation guide"
+
+   git add source/gestion/git-workflow.rst
+   git commit -m "docs(git-workflow): document branch naming conventions"
+
+Each commit should be atomic — it should make sense on its own and pass all tests independently.
+
+**Step 5: Push your feature branch to remote with tracking**
+
+Push your branch to the remote repository using ``git push -u``:
+
+.. code-block:: bash
+
+   git push -u origin feature/your-feature-name
+
+The ``-u`` flag sets up tracking, so future ``git push`` commands (without branch name) will know where to push. The output confirms:
+
+.. code-block:: text
+
+   branch 'feature/your-feature-name' set up to track 'origin/feature/your-feature-name'.
+
+**Summary of Commands:**
+
+.. code-block:: bash
+
+   # All steps combined
+   git fetch origin && git checkout develop && git pull origin develop
+   git checkout -b feature/your-feature-name
+   # [make changes]
+   git add .
+   git commit -m "type(scope): description"
+   git push -u origin feature/your-feature-name
+
+2.2 Feature Branch Examples — Real Scenarios
+--------------------------------------------------------------------------------
+
+**Scenario 1: Simple Typo Fix**
+
+A contributor notices a typo in the documentation and wants to fix it quickly.
+
+.. code-block:: bash
+
+   # Start from develop
+   git fetch origin
+   git checkout develop && git pull origin develop
+
+   # Create feature branch for typo fix
+   git checkout -b feature/fix-spelling-error
+
+   # Edit the file and fix the typo
+   # (open source/requisitos/index.rst and fix "thier" → "their")
+
+   # Commit the fix
+   git add source/requisitos/index.rst
+   git commit -m "fix(docs): correct spelling error in requirements overview"
+
+   # Push to remote
+   git push -u origin feature/fix-spelling-error
+
+   # GitHub will automatically show "Create Pull Request" button
+   # Create PR, wait for review and merge
+
+**Scenario 2: Medium Feature — GitHub Actions Workflow**
+
+A developer wants to add automated build validation using GitHub Actions.
+
+.. code-block:: bash
+
+   # Create feature branch
+   git fetch origin && git checkout develop && git pull origin develop
+   git checkout -b feature/github-actions-build-validation
+
+   # Create workflow file and configuration
+   # (create .github/workflows/build-validation.yml)
+   git add .github/workflows/build-validation.yml
+   git commit -m "feat(github-actions): add Sphinx build validation workflow"
+
+   # Add documentation for the workflow
+   # (edit source/gestion/ci-cd-guide.rst)
+   git add source/gestion/ci-cd-guide.rst
+   git commit -m "docs(ci-cd): document build validation workflow setup"
+
+   # Add tests for the workflow
+   # (create tests/test_build_validation.py)
+   git add tests/test_build_validation.py
+   git commit -m "test(ci-cd): add integration tests for build workflow"
+
+   # Push all commits
+   git push -u origin feature/github-actions-build-validation
+
+   # Create PR, reviewers examine commits, discuss in PR thread
+   # Iterate if needed, then merge
+
+**Scenario 3: Large Feature — Architecture Refactor**
+
+A team wants to refactor Sphinx configuration for maintainability.
+
+.. code-block:: bash
+
+   # Create feature branch
+   git fetch origin && git checkout develop && git pull origin develop
+   git checkout -b feature/sphinx-config-modularization
+
+   # Refactor: split conf.py into modules
+   # (create source/_config/extensions.py)
+   git add source/_config/extensions.py
+   git commit -m "refactor(sphinx): extract extension configuration to module"
+
+   # Create another module
+   # (create source/_config/build-options.py)
+   git add source/_config/build-options.py
+   git commit -m "refactor(sphinx): extract build options to module"
+
+   # Update main conf.py to import modules
+   # (edit source/conf.py)
+   git add source/conf.py
+   git commit -m "refactor(sphinx): consolidate configuration imports"
+
+   # Add documentation
+   # (create source/gestion/sphinx-configuration-guide.rst)
+   git add source/gestion/sphinx-configuration-guide.rst
+   git commit -m "docs(sphinx): add configuration module guide"
+
+   # Add tests
+   # (create tests/test_sphinx_config.py)
+   git add tests/test_sphinx_config.py
+   git commit -m "test(sphinx): add configuration module tests"
+
+   # Push entire feature branch with all commits preserved
+   git push -u origin feature/sphinx-config-modularization
+
+   # Create PR, reviewers see all commits and understand refactoring progression
+   # Team discusses, makes suggestions, contributor iterates
+   # After approval, merge with --no-ff to preserve history
+
+2.3 Branch Naming Conventions
+--------------------------------------------------------------------------------
+
+All feature branches must follow these naming rules for consistency and automation:
+
+**Pattern:** ``feature/kebab-case-description``
+
+**Rules:**
+
+- **Prefix**: Always start with ``feature/`` (not ``feat/``, not ``feature-``)
+- **Case**: Use **kebab-case** (lowercase with hyphens)
+- **Descriptive**: Branch name should describe the feature, not be overly generic
+- **Source**: Create from ``develop`` branch, NEVER from ``main``
+
+**Valid Branch Names:**
+
+- ``feature/github-actions-setup`` ✓
+- ``feature/fix-broken-links`` ✓
+- ``feature/sphinx-config-modularization`` ✓
+- ``feature/api-authentication`` ✓
+- ``feature/user-guide-rewrite`` ✓
+
+**Invalid Branch Names:**
+
+- ``feature/GitHub-Actions-Setup`` ✗ (PascalCase, not kebab-case)
+- ``feature/github_actions_setup`` ✗ (snake_case, not kebab-case)
+- ``feature/feature-1`` ✗ (not descriptive)
+- ``new-feature`` ✗ (missing ``feature/`` prefix)
+- ``GitHub-Actions`` ✗ (missing ``feature/`` prefix, PascalCase)
+- ``main`` ✗ (don't create features from main)
+
+**Why These Rules?**
+
+- **Consistency**: Teams can scan branch lists and immediately understand what each branch contains
+- **Automation**: CI/CD tools can detect feature branches by prefix and apply automatic checks
+- **Prevent mistakes**: The ``feature/`` prefix prevents accidental pushes to main
+- **Searchability**: ``git branch -l feature/*`` finds all active features
+
+**Example — List all feature branches:**
+
+.. code-block:: bash
+
+   git branch -l feature/*
+
+   # Output:
+   # feature/github-actions-setup
+   # feature/sphinx-config-modularization
+   # feature/api-authentication
+
