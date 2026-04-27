@@ -33,11 +33,11 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Prerequisito para todas las otras tareas — define el formato que usarán SPECs 001-003)*
 
-- [ ] **T-001** Escribir sección "Conventional Commits Format" con 7 tipos válidos (feat/fix/docs/refactor/test/perf/chore) y ejemplos (SPEC-005)
-- [ ] **T-002** Agregar tabla: Scope rules (kebab-case, required, no capitals) con ejemplos válidos e inválidos (SPEC-005)
-- [ ] **T-003** Documentar body format: multi-párrafo, issue references (Closes #NNN), RFC citations (SPEC-005)
-- [ ] **T-004** Escribir sección "Merge Commit Format": cómo incluir PR references y descriptions (SPEC-005)
-- [ ] **T-005** Commit [B1]: `docs(git-workflow): add conventional commits specification and examples`
+- [x] **T-001** Escribir sección "Conventional Commits Format" con 7 tipos válidos (feat/fix/docs/refactor/test/perf/chore) y ejemplos (SPEC-005)
+- [x] **T-002** Agregar tabla: Scope rules (kebab-case, required, no capitals) con ejemplos válidos e inválidos (SPEC-005)
+- [x] **T-003** Documentar body format: multi-párrafo, issue references (Closes #NNN), RFC citations (SPEC-005)
+- [x] **T-004** Escribir sección "Merge Commit Format": cómo incluir PR references y descriptions (SPEC-005)
+- [x] **T-005** Commit [B1]: `docs(git-workflow): add conventional commits specification and examples`
 
 ---
 
@@ -45,10 +45,10 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Depends on T-004: necesita ejemplos de merge commit format)*
 
-- [ ] **T-006** Escribir "Create Feature Branch": 5 paso-a-paso (checkout -b, commits, push -u) con comando exacto (SPEC-001)
-- [ ] **T-007** Agregar "Feature Branch Examples": 3 escenarios reales (typo fix, medium feature, architecture refactor) (SPEC-001)
-- [ ] **T-008** Documentar naming: feature/* pattern, kebab-case, from develop not main (SPEC-001)
-- [ ] **T-009** Commit [B2]: `docs(git-workflow): add feature branch creation workflow and examples`
+- [x] **T-006** Escribir "Create Feature Branch": 5 paso-a-paso (checkout -b, commits, push -u) con comando exacto (SPEC-001)
+- [x] **T-007** Agregar "Feature Branch Examples": 3 escenarios reales (typo fix, medium feature, architecture refactor) (SPEC-001)
+- [x] **T-008** Documentar naming: feature/* pattern, kebab-case, from develop not main (SPEC-001)
+- [x] **T-009** Commit [B2]: `docs(git-workflow): add feature branch creation workflow and examples`
 
 ---
 
@@ -56,11 +56,11 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Prereq for SPEC-002/003 to work — la protección debe estar en lugar antes de mergear)*
 
-- [ ] **T-010** Escribir sección "GitHub Branch Protection Setup": pasos exactos UI (Settings > Branches > Add rule) para rama 'develop' (SPEC-004)
-- [ ] **T-011** Agregar configuration para rama 'main': más restrictivo (2 approvals, admin-only push) vs develop (SPEC-004)
-- [ ] **T-012** Documentar API alternative: curl payload con PUT /repos/.../branches/.../protection (SPEC-004)
-- [ ] **T-013** Incluir screenshots or step numbers para cada click en GitHub UI (SPEC-004)
-- [ ] **T-014** Commit [B3]: `docs(git-workflow): add GitHub branch protection configuration`
+- [x] **T-010** Escribir sección "GitHub Branch Protection Setup": pasos exactos UI (Settings > Branches > Add rule) para rama 'develop' (SPEC-004)
+- [x] **T-011** Agregar configuration para rama 'main': más restrictivo (2 approvals, admin-only push) vs develop (SPEC-004)
+- [x] **T-012** Documentar API alternative: curl payload con PUT /repos/.../branches/.../protection (SPEC-004)
+- [x] **T-013** Incluir screenshots or step numbers para cada click en GitHub UI (SPEC-004)
+- [x] **T-014** Commit [B3]: `docs(git-workflow): add GitHub branch protection configuration`
 
 ---
 
@@ -68,12 +68,12 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Depends on B1, B2, B3: necesita convenciones, feature branch workflow, y branch protection)*
 
-- [ ] **T-015** Escribir "Create Pull Request": UI steps (Compare & pull request button, descripción requerida, CI checks) (SPEC-002)
-- [ ] **T-016** Documentar "Responder a Code Review": cómo cambiar code, push nuevo commit, merge commit muestra todo (SPEC-002)
-- [ ] **T-017** Agregar escenario "Merge Conflicts": cómo resolverlos localmente antes de PR (git merge, editar, git add, git commit) (SPEC-002)
-- [ ] **T-018** Documentar merge comando GitHub: seleccionar "Create a merge commit" (--no-ff), escribir merge message con PR# y Closes (SPEC-002)
-- [ ] **T-019** [P] Escribir "Verificación final": git branch -vv, git log, qué significa branch tracking (SPEC-002)
-- [ ] **T-020** Commit [B4]: `docs(git-workflow): add feature to develop merge workflow with PR, conflicts, and examples`
+- [x] **T-015** Escribir "Create Pull Request": UI steps (Compare & pull request button, descripción requerida, CI checks) (SPEC-002)
+- [x] **T-016** Documentar "Responder a Code Review": cómo cambiar code, push nuevo commit, merge commit muestra todo (SPEC-002)
+- [x] **T-017** Agregar escenario "Merge Conflicts": cómo resolverlos localmente antes de PR (git merge, editar, git add, git commit) (SPEC-002)
+- [x] **T-018** Documentar merge comando GitHub: seleccionar "Create a merge commit" (--no-ff), escribir merge message con PR# y Closes (SPEC-002)
+- [x] **T-019** [P] Escribir "Verificación final": git branch -vv, git log, qué significa branch tracking (SPEC-002)
+- [x] **T-020** Commit [B4]: `docs(git-workflow): add feature to develop merge workflow with PR, conflicts, and examples`
 
 ---
 
@@ -81,12 +81,12 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Depends on B2, B4: necesita feature branch y merge workflow previos)*
 
-- [ ] **T-021** Escribir "Release Procedure": pre-release QA checklist (build, tests, docs, CHANGELOG) exacto (SPEC-003)
-- [ ] **T-022** Documentar "Create Release PR": develop→main, manual gate (requires 2 approvals), merge --no-ff (SPEC-003)
-- [ ] **T-023** Agregar "Tagging Strategy": cómo crear annotated tags (git tag -a v1.2.3), push tags, qué metadata incluir (SPEC-003)
-- [ ] **T-024** Escribir "Release Notes": cómo enumerar features + fixes desde last tag, usando git log (SPEC-003)
-- [ ] **T-025** [P] Documentar "Rollback Procedure": git revert -m 1 para revertir merge commit, crear rollback tag (SPEC-003)
-- [ ] **T-026** Commit [B5]: `docs(git-workflow): add develop to main release workflow with QA, tagging, and rollback`
+- [x] **T-021** Escribir "Release Procedure": pre-release QA checklist (build, tests, docs, CHANGELOG) exacto (SPEC-003)
+- [x] **T-022** Documentar "Create Release PR": develop→main, manual gate (requires 2 approvals), merge --no-ff (SPEC-003)
+- [x] **T-023** Agregar "Tagging Strategy": cómo crear annotated tags (git tag -a v1.2.3), push tags, qué metadata incluir (SPEC-003)
+- [x] **T-024** Escribir "Release Notes": cómo enumerar features + fixes desde last tag, usando git log (SPEC-003)
+- [x] **T-025** [P] Documentar "Rollback Procedure": git revert -m 1 para revertir merge commit, crear rollback tag (SPEC-003)
+- [x] **T-026** Commit [B5]: `docs(git-workflow): add develop to main release workflow with QA, tagging, and rollback`
 
 ---
 
@@ -94,7 +94,7 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Cross-cutting: usa knowledge de SPECs 001-005, pero puede escribirse en paralelo después que B4 termine)*
 
-- [ ] **T-027** Documentar 10+ error scenarios con recovery (1-2 tarea por scenarios cluster):
+- [x] **T-027** Documentar 10+ error scenarios con recovery (1-2 tarea por scenarios cluster):
   - Escenario 1-2: Branch errors (wrong base, branch deleted)
   - Escenario 3-4: Commit errors (merge conflicts, force push)
   - Escenario 5-6: Reset/rebase errors (lost commits, wrong interactive rebase)
@@ -102,8 +102,8 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
   - Escenario 9-10: Reset/recovery (lost changes, deleted branches)
   (SPEC-006)
   
-- [ ] **T-028** Crear tabla "Error Matrix": síntoma → cause → recovery command → lesson learned (SPEC-006)
-- [ ] **T-029** Commit [B6]: `docs(git-workflow): add troubleshooting guide with 10+ scenarios and recovery procedures`
+- [x] **T-028** Crear tabla "Error Matrix": síntoma → cause → recovery command → lesson learned (SPEC-006)
+- [x] **T-029** Commit [B6]: `docs(git-workflow): add troubleshooting guide with 10+ scenarios and recovery procedures`
 
 ---
 
@@ -111,10 +111,10 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 
 > *(Cross-cutting con B5: depende de release workflow para trazabilidad completa)*
 
-- [ ] **T-030** Escribir "Traceability": cómo verificar qué hay en un tag (git log v1.2.0), qué feature está en producción (SPEC-007)
-- [ ] **T-031** Documentar "Backward Tracing": issue #123 → qué version lo contiene (git tag --contains), audit report generation (SPEC-007)
-- [ ] **T-032** Agregar "CI/CD Integration": cómo leer GitHub Actions logs, debugging CI failures (SPEC-007)
-- [ ] **T-033** Commit [B7]: `docs(git-workflow): add audit trail and compliance traceability documentation`
+- [x] **T-030** Escribir "Traceability": cómo verificar qué hay en un tag (git log v1.2.0), qué feature está en producción (SPEC-007)
+- [x] **T-031** Documentar "Backward Tracing": issue #123 → qué version lo contiene (git tag --contains), audit report generation (SPEC-007)
+- [x] **T-032** Agregar "CI/CD Integration": cómo leer GitHub Actions logs, debugging CI failures (SPEC-007)
+- [x] **T-033** Commit [B7]: `docs(git-workflow): add audit trail and compliance traceability documentation`
 
 ---
 
@@ -123,18 +123,18 @@ Marca parallelizable: `[P]` — puede ejecutarse en paralelo con otras tareas de
 > *(Parallelizable: depende de SPEC-005 commits format, pero NO bloquea nada)*  
 > Nota: OPCIONAL — puede agregarse después de B1-B7 completos
 
-- [ ] **T-034** [P] Crear `.githooks/commit-msg` hook: valida type(scope): description format (SPEC-008)
-- [ ] **T-035** [P] Crear `.githooks/pre-push` hook: previene push directo a main/develop (SPEC-008)
-- [ ] **T-036** [P] Documentar setup: cómo instalar (git config core.hooksPath), bypass (--no-verify), testing locally (SPEC-008)
-- [ ] **T-037** Commit [B8-OPTIONAL]: `chore(git-workflow): add git hooks for conventional commit validation and branch protection`
+- [x] **T-034** [P] Crear `.githooks/commit-msg` hook: valida type(scope): description format (SPEC-008)
+- [x] **T-035** [P] Crear `.githooks/pre-push` hook: previene push directo a main/develop (SPEC-008)
+- [x] **T-036** [P] Documentar setup: cómo instalar (git config core.hooksPath), bypass (--no-verify), testing locally (SPEC-008)
+- [x] **T-037** Commit [B8-OPTIONAL]: `chore(git-workflow): add git hooks for conventional commit validation and branch protection`
 
 ---
 
 ## Cierre
 
-- [ ] **T-038** Deep-review de cobertura: verificar que `docs/git-workflow.md` tiene todas las secciones de SPECs 001-007, ejemplos 15+, troubleshooting 10+
-- [ ] **T-039** Validación final: ejecutar `make clean && make html` para verificar RST syntax correcto
-- [ ] **T-040** Push y actualizar `.thyrox/context/now.md`: `stage: Phase 9` (si hay riesgos validar) o `Phase 10` (ejecución directa)
+- [x] **T-038** Deep-review de cobertura: verificar que `docs/git-workflow.md` tiene todas las secciones de SPECs 001-007, ejemplos 15+, troubleshooting 10+
+- [x] **T-039** Validación final: ejecutar `make clean && make html` para verificar RST syntax correcto
+- [x] **T-040** Push y actualizar `.thyrox/context/now.md`: `stage: Phase 9` (si hay riesgos validar) o `Phase 10` (ejecución directa)
 
 ---
 
@@ -235,20 +235,22 @@ graph TD
 
 | Grupo | Tareas | Completadas | Pendientes |
 |-------|--------|-------------|------------|
-| **B1 — SPEC-005 Commits** | 5 | 0 | 5 |
-| **B2 — SPEC-001 Feature Branch** | 4 | 0 | 4 |
-| **B3 — SPEC-004 Protection** | 5 | 0 | 5 |
-| **B4 — SPEC-002 Merge Develop** | 6 | 0 | 6 |
-| **B5 — SPEC-003 Release Main** | 6 | 0 | 6 |
-| **B6 — SPEC-006 Troubleshooting** | 3 | 0 | 3 |
-| **B7 — SPEC-007 Audit Trail** | 4 | 0 | 4 |
-| **B8 — SPEC-008 Hooks (OPT)** | 4 | 0 | 4 |
-| **Cierre** | 3 | 0 | 3 |
-| **Total** | **40** | **0** | **40** |
+| **B1 — SPEC-005 Commits** | 5 | 5 | 0 |
+| **B2 — SPEC-001 Feature Branch** | 4 | 4 | 0 |
+| **B3 — SPEC-004 Protection** | 5 | 5 | 0 |
+| **B4 — SPEC-002 Merge Develop** | 6 | 6 | 0 |
+| **B5 — SPEC-003 Release Main** | 6 | 6 | 0 |
+| **B6 — SPEC-006 Troubleshooting** | 3 | 3 | 0 |
+| **B7 — SPEC-007 Audit Trail** | 4 | 4 | 0 |
+| **B8 — SPEC-008 Hooks (OPT)** | 4 | 4 | 0 |
+| **Cierre** | 3 | 3 | 0 |
+| **Total** | **40** | **40** | **0** |
 
-**Core tareas (B1-B7 + Cierre):** 36 tareas = ~4.5 horas  
-**Optional (B8):** 4 tareas = ~1 hora  
-**Total:** 40 tareas = ~5.5 horas
+✅ **Phase 10 EXECUTE COMPLETADA**
+
+**Core tareas (B1-B7 + Cierre):** 36 tareas = ~4.5 horas COMPLETADAS
+**Optional (B8):** 4 tareas = ~1 hora COMPLETADAS
+**Total:** 40 tareas = ~5.5 horas COMPLETADAS
 
 ---
 
