@@ -141,12 +141,13 @@ When choosing a scope:
 
 Recommended scopes for IACT-docs:
 
-- ``docs`` — Documentation changes (guides, READMEs)
+- ``docs`` — Documentation changes (guides, READMEs, markdown files)
 - ``git-workflow`` — Git workflow procedures and branching documentation
 - ``github-actions`` — CI/CD workflows and GitHub Actions configurations
 - ``sphinx-config`` — Sphinx configuration and build settings
 - ``requirements`` — Requirements specifications and analysis documents
 - ``api`` — API design or implementation
+- ``test-conflict`` — This is a test change for merge conflict validation
 - ``tests`` — Test suite and testing infrastructure
 - ``build`` — Build tooling and compilation
 - ``deps`` — Dependency updates and package management
