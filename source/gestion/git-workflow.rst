@@ -1732,3 +1732,293 @@ If you have the GitHub CLI installed (``gh``):
 
    Expected: **Merge succeeds** and branch protection rules are satisfied.
 
+
+---
+
+6. Troubleshooting Guide
+================================================================================
+
+This section provides solutions for common Git workflow problems and error scenarios.
+
+6.1 Error Matrix — Quick Reference
+--------------------------------------------------------------------------------
+
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Error Scenario                   | Common Cause        | Recovery Command                 | Lesson Learned          |
++==================================+=====================+==================================+=========================+
+| "fatal: Not a git repository"    | Wrong directory     | ``cd /path/to/repo``             | Always verify pwd       |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Feature branch based on old      | Didn't pull develop | ``git fetch origin && git        | Fetch before creating   |
+| develop, now has conflicts       |                     | rebase origin/develop``          | new branches            |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Committed to main instead of     | Checked out wrong   | ``git reset --soft HEAD~1 &&     | Use feature branches,   |
+| feature branch                   | branch              | git checkout -b feature/fix &&   | never commit to main    |
+|                                  |                     | git commit``                     |                         |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Merged wrong branch              | Clicked merge on    | ``git revert -m 1 MERGE_SHA &&   | Review base/compare     |
+| into develop                     | wrong PR            | git push origin develop``        | before merge            |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Lost commit after rebase         | Rebased without     | ``git reflog`` to find lost      | Never force-push,       |
+|                                  | force-push          | commit hash, then ``git reset   | use revert instead      |
+|                                  |                     | --hard COMMIT_SHA``             |                         |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| "error: Your local changes..."   | Uncommitted changes | ``git add . && git commit -m    | Commit before switching |
+| when switching branches          | block branch switch | "wip: temp changes"``           | branches or use stash   |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Force-push deleted others' work  | Used git push       | Contact teammates immediately,  | Never use -f flag,      |
+|                                  | --force             | restore from reflog on remote   | use --force-with-lease  |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Can't push to develop — "refused | Branch protection   | Use git push origin             | Branch protection is    |
+| by hooks"                        | prevents direct push| feature/your-branch and create  | working as designed;    |
+|                                  |                     | a PR instead                    | create PRs, not pushes  |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Merge commit has wrong message   | Edited message      | ``git commit --amend -m "new    | Edit merge message      |
+|                                  | incorrectly         | message"``                      | before pushing          |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Accidentally deleted feature     | Ran ``git branch    | ``git checkout -b feature/name  | Deleted branches can be |
+| branch locally                   | -D feature/name``   | SHA_FROM_REFLOG``               | recovered from reflog   |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+| Tag points to wrong commit       | Tagged wrong commit | ``git tag -d v1.2.3 && git     | Verify commit before    |
+|                                  |                     | tag -a v1.2.3 CORRECT_SHA``     | tagging                 |
++----------------------------------+---------------------+----------------------------------+-------------------------+
+
+6.2 Error Scenarios — Detailed Recovery
+--------------------------------------------------------------------------------
+
+**Scenario 1: Feature branch based on stale develop**
+
+Symptom: "Your feature branch is X commits behind develop"
+
+Cause: You created your feature branch before the latest changes were merged to develop. Now when you try to merge, you have conflicts.
+
+Recovery:
+
+.. code-block:: bash
+
+   # Fetch latest develop
+   git fetch origin
+   git checkout develop
+   git pull origin develop
+
+   # Rebase your feature onto latest develop (recommended)
+   git checkout feature/your-feature
+   git rebase develop
+
+   # Or merge develop into your feature (alternative)
+   git merge develop
+
+   # Resolve any conflicts, then push
+   git push origin feature/your-feature
+
+Lesson: Always fetch origin before creating a feature branch: ``git fetch origin && git checkout -b feature/name``
+
+**Scenario 2: Deleted remote feature branch**
+
+Symptom: "error: src refspec feature/your-branch does not match any"
+
+Cause: Your local branch exists, but someone deleted it on remote (or you deleted it accidentally).
+
+Recovery:
+
+.. code-block:: bash
+
+   # Option A: Delete your local copy and re-create from remote
+   git branch -d feature/your-branch
+   git fetch origin
+
+   # Option B: If you haven't pushed your commits, save them first
+   git log feature/your-branch  # Copy a recent commit SHA
+   git checkout -b feature/recovered-name
+   git push -u origin feature/recovered-name
+
+Lesson: Coordinate with teammates before deleting branches. Keep feature branches until PR is closed.
+
+**Scenario 3: Merge conflict in PR blocking merge**
+
+Symptom: "This branch has conflicts that must be resolved"
+
+Cause: develop has changed since you created your PR, your changes conflict with theirs.
+
+Recovery:
+
+.. code-block:: bash
+
+   git fetch origin && git checkout feature/your-branch
+   git merge develop
+
+   # Resolve conflicts in your editor
+   git add .
+   git commit -m "merge: resolve conflicts with develop"
+   git push origin feature/your-branch
+
+GitHub automatically updates the PR status.
+
+Lesson: Merge develop into your feature before creating PR if develop has recent changes.
+
+**Scenario 4: Force-pushed and broke everyone's history**
+
+Symptom: "fatal: refusing to merge unrelated histories" or teammates report missing commits
+
+Cause: You ran ``git push --force`` and rewrote remote history.
+
+Recovery (critical — coordinate with team):
+
+.. code-block:: bash
+
+   # Teammates must hard-reset their local copies:
+   git fetch origin
+   git reset --hard origin/develop
+
+   # Contact admin to restore branch from backup if available
+
+Lesson: **NEVER use git push --force**. If you must rewrite history, use ``git push --force-with-lease`` (safer) or use ``git revert`` instead (preferred).
+
+**Scenario 5: Rebased interactively and lost commits**
+
+Symptom: "fatal: bad revision..." or missing commits after interactive rebase
+
+Cause: During ``git rebase -i``, you accidentally marked commits as "drop" or saved the rebase incorrectly.
+
+Recovery:
+
+.. code-block:: bash
+
+   # Find the lost commit hash
+   git reflog
+
+   # Output shows:
+   # abc1234 HEAD@{0}: rebase finished: returning to feature/your-branch
+   # def5678 HEAD@{1}: rebase: your commit message
+   # The lost commit might be at def5678
+
+   # Reset to the point before the rebase
+   git reset --hard def5678
+
+   # Or create a new branch from the lost commit
+   git checkout -b feature/recovered def5678
+
+Lesson: Always run ``git rebase -i`` on a feature branch, never on develop or main. Use reflog to recover lost commits.
+
+**Scenario 6: Wrong interactive rebase (reordered commits incorrectly)**
+
+Symptom: Tests fail after rebase, code no longer compiles
+
+Cause: During interactive rebase, you reordered commits in a way that breaks build.
+
+Recovery:
+
+.. code-block:: bash
+
+   # Undo the rebase entirely
+   git rebase --abort
+
+   # If rebase already finished, reset to before it started
+   git reflog
+   git reset --hard <commit-before-rebase>
+
+   # Or manually fix commit order
+   git rebase -i HEAD~3  # Adjust 3 to number of commits
+   # Reorder lines to correct sequence
+   # Save and rebase will re-apply commits in correct order
+
+Lesson: Test locally after interactive rebase before pushing.
+
+**Scenario 7: Accidentally pushed to develop instead of creating PR**
+
+Symptom: "You've pushed directly to develop (skipped PR review)"
+
+Cause: Used ``git push origin`` without branch name, or merged locally without PR.
+
+Recovery (if push was rejected by branch protection — good!):
+
+.. code-block:: bash
+
+   git push origin feature/your-branch -u
+   # Then create PR on GitHub
+
+Recovery (if push was accepted and merged):
+
+.. code-block:: bash
+
+   # Revert the commits from develop
+   git log develop --oneline | head -5  # Find the commits
+   git revert -m 1 <merge-commit-sha>
+   git push origin develop
+
+Lesson: Always create feature branches and PRs, never push directly to develop/main.
+
+**Scenario 8: Accidentally pushed to main**
+
+Symptom: Commits appear on main that shouldn't be there
+
+Cause: Used ``git push origin feature-branch:main`` accidentally or checked out main and committed.
+
+Recovery (critical):
+
+.. code-block:: bash
+
+   # Immediately revert the commits
+   git log main --oneline | head -5
+   git revert -m 1 <commit-sha>  # For merge commits
+   git push origin main
+
+   # Alert the team immediately — main should be stable
+
+Lesson: Branch protection should prevent this. If it happened, your protection settings need review.
+
+**Scenario 9: Lost uncommitted work after git reset**
+
+Symptom: "I ran git reset --hard and lost my changes!"
+
+Cause: Uncommitted changes were in working directory when you reset.
+
+Recovery (if very recent):
+
+.. code-block:: bash
+
+   # Check if your editor has backup/recovery
+   # VS Code, Sublime Text, IntelliJ, PyCharm all keep local backups
+
+   # If you stashed before reset:
+   git stash list
+   git stash pop
+
+Prevention: Always commit before dangerous operations. Use ``git stash`` to save uncommitted work:
+
+.. code-block:: bash
+
+   git stash save "WIP: description"
+   # Do other work
+   git stash list  # See saved work
+   git stash pop   # Restore
+
+Lesson: Commit early and often. Use git stash for temporary work.
+
+**Scenario 10: Deleted local branch that hasn't been pushed**
+
+Symptom: "I deleted my branch and haven't pushed it yet"
+
+Cause: Ran ``git branch -D feature/name`` before pushing.
+
+Recovery (if branch was pushed before delete):
+
+.. code-block:: bash
+
+   # The commits still exist on remote
+   git fetch origin
+   git checkout -b feature/name origin/feature/name
+
+Recovery (if you remember recent commit message):
+
+.. code-block:: bash
+
+   # Find the commit SHA
+   git reflog
+   # Look for the commit in the output
+
+   # Create new branch from that commit
+   git checkout -b feature/name <commit-sha>
+   git push -u origin feature/name
+
+Lesson: Deleted local branches can be recovered from reflog or remote. Don't worry about deleting local branches.
+
