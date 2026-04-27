@@ -2321,3 +2321,263 @@ A complete audit trail from commit to production consists of:
 
 This provides complete traceability from commit through release for compliance purposes.
 
+
+---
+
+8. Git Hooks (OPTIONAL)
+================================================================================
+
+This section documents optional local Git hooks for enforcing conventions automatically.
+
+**Note:** Git hooks are optional and complementary to branch protection. They provide client-side validation before you push.
+
+8.1 Available Git Hooks
+--------------------------------------------------------------------------------
+
+Two hooks are provided in the `.githooks/` directory:
+
+**1. commit-msg hook**
+
+Validates that commit messages follow Conventional Commits format:
+
+.. code-block:: text
+
+   type(scope): description
+
+- Runs before each commit
+- Blocks commits with invalid format
+- Bypass with: ``git commit --no-verify``
+
+**2. pre-push hook**
+
+Prevents accidental direct pushes to main or develop:
+
+.. code-block:: text
+
+   ✗ Blocks: git push origin develop
+   ✗ Blocks: git push origin main
+   ✓ Allows: git push origin feature/your-branch
+
+- Runs before push
+- Enforces PR workflow (must push to feature branch, then create PR)
+- Bypass with: ``git push --no-verify``
+
+8.2 Hook Setup — Installation
+--------------------------------------------------------------------------------
+
+**Step 1: Configure Git to use the .githooks directory**
+
+By default, Git looks for hooks in `.git/hooks/`. We use `.githooks/` (tracked in version control) instead:
+
+.. code-block:: bash
+
+   git config core.hooksPath .githooks
+
+This configures Git to look in `.githooks/` for hooks.
+
+**Step 2: Verify hooks are installed**
+
+.. code-block:: bash
+
+   git config core.hooksPath
+   # Output: .githooks
+
+   ls -la .githooks/
+   # Output shows commit-msg and pre-push, both executable
+
+**Step 3: Test the hooks**
+
+Try to make an invalid commit:
+
+.. code-block:: bash
+
+   echo "test" >> test-file.txt
+   git add test-file.txt
+   git commit -m "invalid message"
+
+   # Expected: Commit is rejected with error message:
+   # ERROR: Invalid commit message format!
+   # Expected format: type(scope): description
+
+Try to push directly to develop:
+
+.. code-block:: bash
+
+   git checkout develop
+   git commit --allow-empty -m "test"
+   git push origin develop
+
+   # Expected: Push is rejected with error message:
+   # ERROR: Direct push to 'develop' is not allowed!
+   # You must use a Pull Request to merge to 'develop'.
+
+**Step 4: One-time setup for team (recommended)**
+
+Add setup instructions to your onboarding docs or project README:
+
+.. code-block:: bash
+
+   # New team member setup
+   git clone https://github.com/jcg-admin/IACT-docs.git
+   cd IACT-docs
+   git config core.hooksPath .githooks
+   # Done! Hooks are now active
+
+Or add to a setup script:
+
+.. code-block:: bash
+
+   #!/bin/bash
+   # setup-hooks.sh
+
+   if [ ! -d ".git" ]; then
+     echo "Not a git repository!"
+     exit 1
+   fi
+
+   git config core.hooksPath .githooks
+   echo "✓ Git hooks configured. Run 'git config core.hooksPath' to verify."
+
+8.3 Hook Behavior — Examples
+--------------------------------------------------------------------------------
+
+**Example 1: Valid commit (hook allows)**
+
+.. code-block:: bash
+
+   git add source/gestion/git-workflow.rst
+   git commit -m "docs(git-workflow): add hook documentation"
+
+   # Commit succeeds, hook allows it
+
+**Example 2: Invalid commit (hook blocks)**
+
+.. code-block:: bash
+
+   git add file.txt
+   git commit -m "fixed stuff"
+
+   # ERROR: Invalid commit message format!
+   # Expected format: type(scope): description
+   # Valid types: feat, fix, docs, refactor, test, perf, chore
+
+   # To fix: Run again with proper format
+   git commit -m "fix(docs): correct typo in file.txt"
+
+**Example 3: Bypass hook if needed**
+
+Sometimes you might need to bypass hooks (e.g., for a WIP commit):
+
+.. code-block:: bash
+
+   # Bypass commit-msg hook
+   git commit --no-verify -m "wip: temp changes"
+
+   # Bypass pre-push hook
+   git push --no-verify
+
+**Never use --no-verify for PRs to main or develop.** Bypass is for:
+- WIP (work in progress) commits in feature branches
+- Emergency pushes (with full documentation)
+- Hook maintenance or updates
+
+8.4 Troubleshooting Hooks
+--------------------------------------------------------------------------------
+
+**"Permission denied" when committing**
+
+The hooks must be executable:
+
+.. code-block:: bash
+
+   chmod +x .githooks/commit-msg .githooks/pre-push
+
+**"core.hooksPath not found" error**
+
+Git might not recognize the config option (very old Git versions):
+
+.. code-block:: bash
+
+   git --version  # Must be 2.9+
+
+   # If older, create symbolic links to .git/hooks/ instead:
+   ln -s ../../.githooks/commit-msg .git/hooks/commit-msg
+   ln -s ../../.githooks/pre-push .git/hooks/pre-push
+
+**Hook not running**
+
+Verify the configuration:
+
+.. code-block:: bash
+
+   git config core.hooksPath
+   # Should output: .githooks
+
+   ls -la .githooks/commit-msg .githooks/pre-push
+   # Both should have -rwx (executable) permission
+
+**Need to test a hook locally**
+
+Run the hook script directly:
+
+.. code-block:: bash
+
+   # Test commit-msg hook with a sample commit message
+   echo "feat(test): test message" | .githooks/commit-msg /dev/stdin
+
+   # Test pre-push hook
+   git checkout feature/test-branch
+   .githooks/pre-push  # Should return 0 (success)
+
+8.5 Hook Customization
+--------------------------------------------------------------------------------
+
+To add or modify hooks, edit the scripts in `.githooks/`:
+
+**Example: Add a hook to run linting before commits**
+
+.. code-block:: bash
+
+   # Create .githooks/pre-commit
+   #!/bin/bash
+   flake8 source/
+   mypy source/
+   # If these fail, commit is blocked
+
+   # Make it executable
+   chmod +x .githooks/pre-commit
+
+   # Commit the change
+   git add .githooks/pre-commit
+   git commit -m "chore(hooks): add pre-commit linting hook"
+
+**Common hooks to consider:**
+
+- **pre-commit** — Run tests, linting, type checks before commit
+- **post-merge** — Run after pull/merge (e.g., update dependencies)
+- **prepare-commit-msg** — Auto-populate commit message template
+- **pre-rebase** — Prevent rebasing main/develop
+
+See `man githooks` or https://git-scm.com/docs/githooks for full reference.
+
+8.6 Relationship to Branch Protection
+--------------------------------------------------------------------------------
+
+**Local Hooks vs Branch Protection:**
+
+Local hooks protect YOU from mistakes. Branch protection protects the TEAM.
+
+| Aspect | Git Hooks (Local) | Branch Protection (Server) |
+|--------|------------------|---------------------------|
+| Runs on | Your machine | GitHub server |
+| Bypass | ``--no-verify`` flag | Admin only |
+| Team enforcement | No (each dev must configure) | Yes (enforced for all) |
+| Can prevent bad commits | Yes | Yes (as merge blocks) |
+| Catches mistakes early | Yes | Yes (at PR merge) |
+| Compliance value | Medium | High |
+
+**Best practice:** Use BOTH.
+- Git hooks catch mistakes early (saves time)
+- Branch protection ensures compliance (prevents bypasses)
+- Together they enforce workflow consistently
+
