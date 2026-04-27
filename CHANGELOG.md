@@ -21,6 +21,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/) y SemVer 2.0.0
 
 ### Removed
 - Branches `claude/*` (workflow del harness) — el proyecto usa `feature/*` (F-08).
+- Estilo de commits Conventional (`type(scope): description`) — reemplazado por Tim Pope (subject imperativo + body explicando QUÉ y POR QUÉ). Historial previo conservado, regla aplica desde el commit de cambio en adelante.
 
 ## [1.0.0] — 2026-04-22
 
