@@ -17,7 +17,7 @@ status: Borrador
 
 ## Hallazgos atendidos
 
-11 hallazgos de Phase 1 DISCOVER — todos con código aplicado en este WP.
+14 hallazgos de Phase 1 DISCOVER — todos con código aplicado en este WP.
 
 ## Added
 
@@ -43,6 +43,13 @@ status: Borrador
 
 - `pyproject.toml` `readme` apunta a `readme.rst` — antes referenciaba
   `README.md` inexistente (F-02).
+- `pyproject.toml` Sphinx constraint `>=9.0.4` → `>=8.2.3,<9.0` para
+  resolver conflicto con `autodocsumm==0.2.14` (F-12). `uv sync` ahora
+  resuelve sin `--frozen`.
+- `pyproject.toml` `requires-python = ">=3.11"` → `">=3.11,<3.14"` para
+  evitar resolver failures con Python futuro (F-14).
+- `scripts/setup.sh` agrega paso de detección/instalación de libenchant
+  (apt/brew) requerido por sphinxcontrib-spelling (F-13).
 - `git rm -r --cached build/` — 1126 archivos / 64 MB removidos del
   index. Files preservados en filesystem (F-01).
 - `.gitignore` simplificado: regla `build/` única, eliminado comentario

@@ -111,6 +111,29 @@ I-011 dice: un WP solo se cierra cuando el ejecutor lo ordena explícitamente. F
 - No existen scripts de: bootstrap del entorno, regenerar build, validar el WP activo, ejecutar I-015 desde la raíz.
 - `.claude/scripts/validate-phase-completion.sh` existe pero no hay wrapper en `scripts/` que lo invoque.
 
+### F-12 — `pyproject.toml` declara constraint imposible para Sphinx (OBSERVABLE)
+
+- `pyproject.toml` declara `Sphinx>=9.0.4` Y `autodocsumm==0.2.14`.
+- `autodocsumm==0.2.14` requiere `sphinx>=4.0,<9.0` → conflicto irresoluble.
+- `uv sync` falla: `requirements are unsatisfiable`.
+- `uv.lock` resuelve a `sphinx==8.2.3` (ignora la spec del pyproject) — el lock está "mintiendo" sobre la declaración.
+- Solo `uv sync --frozen` funciona porque salta el solver.
+
+**Causa raíz:** alguien cambió el constraint de Sphinx en pyproject sin actualizar `autodocsumm` ni regenerar el lockfile.
+
+### F-13 — `enchant` (libsystem C) no está en bootstrap (OBSERVABLE)
+
+- `sphinxcontrib-spelling` (en pyproject) requiere libsystem C `enchant` (no es paquete Python).
+- Sin `libenchant-2-2` instalado, `make html` falla con `ExtensionError: enchant C library was not found`.
+- `scripts/setup.sh` no lo instala automáticamente.
+- En este worktree se instaló a mano con `apt-get install libenchant-2-2`.
+
+### F-14 — `requires-python = ">=3.11"` causa resolver failures futuros (INFERRED)
+
+- Sin upper bound, `uv` resuelve dependencias para Python 3.11, 3.12, 3.13, 3.14, 3.15+.
+- Para versiones futuras de Python, deps transitivas pueden no tener wheels o no soportar el rango. El resolver fallará intermitentemente con cada release nuevo de Python.
+- Anti-patrón documentado en la comunidad uv/PEP 621.
+
 ### F-11 — Namespace `/thyrox:*` declarado en CLAUDE.md pero no implementado (OBSERVABLE)
 
 - CLAUDE.md (Locked Decision #5, addendum FASE 31 + ADR-019) declara: "Interfaz pública del sistema → `/thyrox:*` (plugin namespace via `.claude-plugin/plugin.json`)".
@@ -150,6 +173,9 @@ Secuencia de WPs:
 | F-09 | scripts/ casi vacío | Baja | DX | Acumular scripts útiles del WP git-workflow |
 | F-10 | WPs auto-referenciales repetidos | Media | Proceso | Capear: este WP solo reporta, no inicia más auditorías |
 | F-11 | Namespace `/thyrox:*` declarado pero no implementado | Alta | Governance | Crear `.claude-plugin/plugin.json` (ADR-019 pendiente de ejecución) |
+| F-12 | pyproject Sphinx>=9 vs autodocsumm<9 — conflicto | Alta | Build broken | `Sphinx>=8.2.3,<9.0` o subir autodocsumm |
+| F-13 | enchant libsystem fuera del bootstrap | Alta | Build broken | apt/brew install en setup.sh |
+| F-14 | `requires-python = ">=3.11"` sin upper bound | Media | Resolver fragility | Acotar a `<3.14` |
 
 ---
 
