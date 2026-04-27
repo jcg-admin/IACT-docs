@@ -636,3 +636,275 @@ All feature branches must follow these naming rules for consistency and automati
    # feature/sphinx-config-modularization
    # feature/api-authentication
 
+---
+
+3. GitHub Branch Protection
+================================================================================
+
+Branch protection rules enforce quality gates on the ``develop`` and ``main`` branches, preventing accidental or unauthorized changes. This section documents how to configure these rules.
+
+3.1 Branch Protection Overview
+--------------------------------------------------------------------------------
+
+**Why Branch Protection?**
+
+Branch protection rules prevent:
+
+- Direct pushes to critical branches (all changes must go through pull requests)
+- Merging code that doesn't pass CI checks
+- Merging without required code review approvals
+- Deleting protected branches accidentally
+- Force-pushing to rewrite history
+
+**Protected Branches in IACT-docs:**
+
+- **develop** — Moderate protection: PR review required, CI must pass
+- **main** — Strict protection: 2 PR approvals required, admin-only push, CI must pass
+
+3.2 GitHub UI Setup — Step-by-Step
+--------------------------------------------------------------------------------
+
+**Access Branch Protection Settings:**
+
+1. Go to your repository on GitHub: https://github.com/jcg-admin/IACT-docs
+2. Click **Settings** (top right, gear icon)
+3. In the left sidebar, click **Branches**
+4. Under "Branch protection rules", click **Add rule**
+
+**Configuring Protection for 'develop' Branch:**
+
+Enter the branch name pattern:
+
+.. code-block:: text
+
+   develop
+
+Then configure these settings:
+
+1. **Require a pull request before merging** — ✓ Check this box
+   - ``Require approvals`` — Check this box
+   - ``Required number of approvals before merging`` — Set to **1** (minimum review)
+   - ``Require approval from code owners`` — Optional (check if you have CODEOWNERS file)
+
+2. **Require status checks to pass before merging** — ✓ Check this box
+   - ``Require branches to be up to date before merging`` — ✓ Check this box
+   - ``Search for status checks that run in this repository...`` — Select:
+     - ``build`` (Sphinx build validation)
+     - ``tests`` (any test suites)
+   - Add any other CI workflows relevant to your project
+
+3. **Require code review before merging** — Covered in step 1 above
+
+4. **Require conversation resolution before merging** — ✓ Check this box
+   (Ensures all review comments are addressed)
+
+5. **Require commits to be signed** — Optional
+   (Only if you enforce GPG signing for compliance)
+
+6. **Restrict who can push to matching branches** — ✓ Check this box
+   - ``Restrict who can push to matching branches`` — Add your team or leave for all maintainers
+
+7. **Allow force pushes** — ✓ **Do NOT check** (prevent rewriting history)
+
+8. **Allow deletions** — ✓ **Do NOT check** (prevent accidental branch deletion)
+
+9. **Require linear history** — Optional but recommended
+   (Ensures commits can't have multiple parents)
+
+**Click "Create" to save the rule for develop**
+
+**Configuring Protection for 'main' Branch (Stricter):**
+
+Repeat the process but enter:
+
+.. code-block:: text
+
+   main
+
+Configure with **stricter** settings:
+
+1. **Require a pull request before merging** — ✓ Check this box
+   - ``Require approvals`` — Check this box
+   - ``Required number of approvals before merging`` — Set to **2** (higher bar for main)
+   - ``Require approval from code owners`` — ✓ Check this box (if available)
+   - ``Dismiss stale pull request approvals when new commits are pushed`` — ✓ Check this box
+   - ``Require review from Code Owners`` — ✓ Check this box (if CODEOWNERS exists)
+
+2. **Require status checks to pass before merging** — ✓ Check this box
+   - ``Require branches to be up to date before merging`` — ✓ Check this box
+   - Select the same status checks as develop (build, tests, etc.)
+
+3. **Require conversation resolution before merging** — ✓ Check this box
+
+4. **Restrict who can push to matching branches** — ✓ Check this box
+   - Add **only administrators** (repository owners)
+
+5. **Allow force pushes** — ✓ **Do NOT check**
+
+6. **Allow deletions** — ✓ **Do NOT check**
+
+7. **Require linear history** — ✓ Check this box
+
+8. **Require branches to be up to date before merging** — ✓ Check this box
+
+**Click "Create" to save the rule for main**
+
+**Summary Table — develop vs main:**
+
++-------------------------------------------+-----------+---------+
+| Rule                                      | develop   | main    |
++===========================================+===========+=========+
+| Require PR before merge                   | ✓         | ✓       |
++-------------------------------------------+-----------+---------+
+| Required approvals                        | 1         | 2       |
++-------------------------------------------+-----------+---------+
+| Require code owner approval               | Optional  | ✓       |
++-------------------------------------------+-----------+---------+
+| Require status checks (CI)                | ✓         | ✓       |
++-------------------------------------------+-----------+---------+
+| Require linear history                    | Optional  | ✓       |
++-------------------------------------------+-----------+---------+
+| Restrict push to admins only              | No        | ✓       |
++-------------------------------------------+-----------+---------+
+| Allow force push                          | ✗         | ✗       |
++-------------------------------------------+-----------+---------+
+| Allow deletion                            | ✗         | ✗       |
++-------------------------------------------+-----------+---------+
+
+3.3 API Configuration — GitHub REST API
+--------------------------------------------------------------------------------
+
+If you prefer to configure branch protection programmatically (e.g., in infrastructure-as-code), use the GitHub API:
+
+**Endpoint:** ``PUT /repos/{owner}/{repo}/branches/{branch}/protection``
+
+**Example: Protect 'develop' branch with curl**
+
+.. code-block:: bash
+
+   curl -X PUT \
+     -H "Authorization: token YOUR_GITHUB_TOKEN" \
+     -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/repos/jcg-admin/IACT-docs/branches/develop/protection \
+     -d '{
+       "required_status_checks": {
+         "strict": true,
+         "contexts": ["build", "tests"]
+       },
+       "enforce_admins": false,
+       "required_pull_request_reviews": {
+         "dismiss_stale_reviews": false,
+         "require_code_owner_reviews": false,
+         "required_approving_review_count": 1
+       },
+       "restrictions": null,
+       "allow_force_pushes": false,
+       "allow_deletions": false,
+       "require_linear_history": false,
+       "required_conversation_resolution": true
+     }'
+
+**Example: Protect 'main' branch with curl (stricter)**
+
+.. code-block:: bash
+
+   curl -X PUT \
+     -H "Authorization: token YOUR_GITHUB_TOKEN" \
+     -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/repos/jcg-admin/IACT-docs/branches/main/protection \
+     -d '{
+       "required_status_checks": {
+         "strict": true,
+         "contexts": ["build", "tests"]
+       },
+       "enforce_admins": true,
+       "required_pull_request_reviews": {
+         "dismiss_stale_reviews": true,
+         "require_code_owner_reviews": true,
+         "required_approving_review_count": 2
+       },
+       "restrictions": null,
+       "allow_force_pushes": false,
+       "allow_deletions": false,
+       "require_linear_history": true,
+       "required_conversation_resolution": true
+     }'
+
+**Key API fields:**
+
+- ``strict`` — Require branch to be up-to-date before merge
+- ``enforce_admins`` — Restrict push to admins only
+- ``require_code_owner_reviews`` — Code owners must approve
+- ``required_approving_review_count`` — Number of approvals needed
+- ``allow_force_pushes`` — Allow rewriting history (should be false)
+- ``allow_deletions`` — Allow branch deletion (should be false)
+- ``require_linear_history`` — Prevent merge commits that create multiple parents
+
+**Getting a GitHub Token:**
+
+1. Go to https://github.com/settings/tokens
+2. Click "Generate new token"
+3. Give it a descriptive name: "Branch Protection API"
+4. Select scopes: ``repo`` (full control of private repositories)
+5. Click "Generate token" and **save it securely**
+6. Use the token in the curl command: ``Authorization: token YOUR_TOKEN``
+
+3.4 Verification — Confirm Protection is Active
+--------------------------------------------------------------------------------
+
+**Via GitHub UI:**
+
+1. Go to Settings > Branches
+2. Verify both ``develop`` and ``main`` appear in "Branch protection rules"
+3. Click each rule to review settings
+
+**Via GitHub CLI:**
+
+If you have the GitHub CLI installed (``gh``):
+
+.. code-block:: bash
+
+   # List all branch protection rules
+   gh api repos/jcg-admin/IACT-docs/branches/develop/protection
+
+   # Should return JSON with protection configuration
+   {
+     "url": "https://api.github.com/repos/jcg-admin/IACT-docs/branches/develop/protection",
+     "required_status_checks": {
+       "url": "...",
+       "strict": true,
+       "contexts": ["build", "tests"]
+     },
+     "required_pull_request_reviews": {
+       "url": "...",
+       "required_approving_review_count": 1
+     }
+   }
+
+**Testing Branch Protection:**
+
+1. Try to push directly to ``develop`` or ``main``:
+
+   .. code-block:: bash
+
+      git push origin feature/test-protection:develop
+
+   Expected result: **REJECTED** with message:
+
+   .. code-block:: text
+
+      remote: error: The develop branch is protected from force pushes
+      ! [remote rejected] feature/test-protection -> develop (protected branch hook declined)
+
+2. Try to create a PR without approval:
+
+   Create a PR and try to merge without waiting for approval. Expected: **Merge button is disabled** with message:
+
+   .. code-block:: text
+
+      "Merging blocked — 1 approval required"
+
+3. Create a valid PR, get approval, and merge:
+
+   Expected: **Merge succeeds** and branch protection rules are satisfied.
+
