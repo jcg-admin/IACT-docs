@@ -638,12 +638,396 @@ All feature branches must follow these naming rules for consistency and automati
 
 ---
 
-3. GitHub Branch Protection
+---
+
+3. Feature → Develop Merge Workflow
+================================================================================
+
+This section describes how to create a pull request from a feature branch to develop, handle code review feedback, resolve conflicts, and merge using GitHub.
+
+3.1 Create a Pull Request — Step-by-Step
+--------------------------------------------------------------------------------
+
+**Prerequisites:**
+- You have pushed your feature branch to remote (from Section 2)
+- Branch protection is configured on develop (from Section 3)
+- Your feature branch has commits following Conventional Commits format
+
+**Step 1: Go to the GitHub repository**
+
+Navigate to: https://github.com/jcg-admin/IACT-docs
+
+**Step 2: Click "Compare & pull request"**
+
+GitHub automatically detects your recently pushed feature branch and shows a banner:
+
+.. code-block:: text
+
+   feature/github-actions-validation had recent pushes
+   [Compare & pull request] [Dismiss]
+
+Click the green **"Compare & pull request"** button.
+
+If the banner is gone, use the alternative:
+1. Click **Pull requests** tab
+2. Click **New pull request**
+3. Select your feature branch in "compare" dropdown
+
+**Step 3: Verify the merge direction**
+
+Confirm the merge direction is correct:
+
+.. code-block:: text
+
+   base: develop  ← target branch (where you're merging INTO)
+   compare: feature/your-feature-name  ← source branch (what you're merging FROM)
+
+**DO NOT merge into main** — only merge feature branches to develop first.
+
+**Step 4: Fill in the PR description**
+
+Enter a clear title and description:
+
+**Title:** Use Conventional Commits format (already introduced in Section 1):
+
+.. code-block:: text
+
+   feat(github-actions): implement build validation workflow
+
+**Description:** Write a concise explanation of what the PR accomplishes:
+
+.. code-block:: text
+
+   ## What This PR Does
+
+   Adds GitHub Actions workflow to validate Sphinx documentation
+   build on every push to develop and main branches. Build failures
+   are reported as PR status checks.
+
+   ## Changes
+
+   - Adds .github/workflows/sphinx-build.yml
+   - Validates RST syntax before merge
+   - Stores build logs as CI artifacts
+   - Integrates with branch protection rules
+
+   ## Testing
+
+   Tested locally:
+   - make html (successful)
+   - Verified workflow syntax with `gh workflow validate`
+   - Triggered workflow on test push (passed)
+
+   Closes #42
+   Related to RFC-documentation-quality-gates
+
+The PR description should include:
+- What problem does this solve?
+- What changes were made?
+- How was it tested?
+- Any related issues (using keywords from Section 1.7)
+
+**Step 5: Review and Create the PR**
+
+1. Review the "Files changed" tab to verify you're committing what you intended
+2. Check that "All checks have passed" (if CI is configured) or wait for checks to complete
+3. Click **Create pull request**
+
+GitHub will now:
+- Trigger CI/CD checks (Sphinx build, tests, linting)
+- Notify reviewers (if configured)
+- Apply branch protection rules (PR approval required, status checks must pass)
+
+3.2 Respond to Code Review
+--------------------------------------------------------------------------------
+
+After creating the PR, reviewers will examine your commits and leave feedback. Here's how to respond:
+
+**Scenario: Reviewer requests changes**
+
+Reviewer leaves a comment:
+
+.. code-block:: text
+
+   "The commit message should be more specific about what changed.
+    Can you update it to mention the workflow file specifically?"
+
+**How to respond:**
+
+1. **Don't force-push or rebase** — Keep the original commits visible in PR history
+2. **Make changes locally** on your feature branch
+3. **Commit the changes** with a new Conventional Commits message:
+
+   .. code-block:: bash
+
+      # Edit the files based on reviewer feedback
+      nano source/gestion/git-workflow.rst
+
+      # Commit the changes
+      git add source/gestion/git-workflow.rst
+      git commit -m "fix(git-workflow): clarify branch protection configuration"
+
+4. **Push the new commit** to your feature branch:
+
+   .. code-block:: bash
+
+      git push origin feature/your-feature-name
+
+GitHub will automatically update the PR with your new commit. The reviewer can see:
+- The original commits
+- The new fix commit
+- How you addressed their feedback
+
+**Advantages of this approach:**
+
+- Full history is preserved — you can see the conversation and evolution of changes
+- Merge commit will show all commits, including the fix (Section 4.4 explains this)
+- No rewriting history, no force-pushes needed
+- Clear audit trail of review feedback and responses
+
+**When review is approved:**
+
+Once all reviewers approve and CI checks pass:
+1. You see a green **"Merge pull request"** button
+2. Proceed to Section 4.4 for merging
+
+3.3 Handling Merge Conflicts
+--------------------------------------------------------------------------------
+
+**What causes conflicts?**
+
+If someone merged changes to develop while you were working on your feature, your feature branch may be out of date. GitHub will show:
+
+.. code-block:: text
+
+   This branch has conflicts that must be resolved
+
+**Option 1: Resolve conflicts locally (recommended)**
+
+This keeps your history clean and avoids unnecessary merge commits.
+
+**Step 1: Update your local develop branch**
+
+.. code-block:: bash
+
+   git fetch origin
+   git checkout develop
+   git pull origin develop
+
+**Step 2: Merge develop into your feature branch**
+
+.. code-block:: bash
+
+   git checkout feature/your-feature-name
+   git merge develop
+
+Git will report conflicts:
+
+.. code-block:: text
+
+   CONFLICT (content): Merge conflict in source/gestion/git-workflow.rst
+   Automatic merge failed; fix conflicts and then commit the result.
+
+**Step 3: Resolve the conflicts**
+
+Open the conflicted file and look for conflict markers:
+
+.. code-block:: text
+
+   <<<<<<< HEAD
+   Your changes from your feature branch
+   =======
+   Changes from develop that conflict
+   >>>>>>> develop
+
+Edit the file to keep the correct version (or combine both if both are needed):
+
+.. code-block:: text
+
+   # Remove the markers and keep the correct content
+   Final version that incorporates both changes
+
+**Step 4: Commit the merge**
+
+.. code-block:: bash
+
+   git add source/gestion/git-workflow.rst
+   git commit -m "merge: resolve conflicts with develop"
+
+**Step 5: Push the updated feature branch**
+
+.. code-block:: bash
+
+   git push origin feature/your-feature-name
+
+GitHub will automatically detect that conflicts are resolved and enable the **Merge** button.
+
+**Option 2: Resolve conflicts on GitHub (simpler but less preferred)**
+
+If you don't want to resolve locally, GitHub offers a UI resolver:
+1. Go to the PR
+2. Click **Resolve conflicts**
+3. Edit the conflicted sections in the browser
+4. Click **Mark as resolved**
+5. Commit the merge
+
+3.4 Merge to Develop with --no-ff
+--------------------------------------------------------------------------------
+
+Once all CI checks pass and reviewers approve, you can merge the PR to develop.
+
+**Why --no-ff (no fast-forward)?**
+
+A merge commit preserves the entire feature branch history as a unit, making it easy to:
+- Revert the entire feature with one ``git revert`` command
+- See which commits belonged to which feature
+- Generate accurate release notes
+
+GitHub's merge process uses ``--no-ff`` by default when you select "Create a merge commit".
+
+**Step 1: Choose the merge strategy**
+
+On the PR page, click the **Merge pull request** dropdown:
+
+.. code-block:: text
+
+   [Merge pull request ▼]
+     • Create a merge commit (recommended)
+     • Squash and merge
+     • Rebase and merge
+
+**IMPORTANT: Select "Create a merge commit"**
+
+This uses the ``--no-ff`` flag, preserving all commits from the feature branch.
+
+**DO NOT use "Squash and merge"** — This collapses all commits into one and loses history.
+
+**Step 2: Confirm the merge commit message**
+
+GitHub will show a default merge message:
+
+.. code-block:: text
+
+   Merge pull request #156 from feature/github-actions-validation
+
+Edit to add more context if needed:
+
+.. code-block:: text
+
+   Merge pull request #156 from feature/github-actions-validation
+
+   Implement automated Sphinx build validation for all PRs.
+
+   This PR adds GitHub Actions workflows that run Sphinx build on
+   every push to develop and main branches. Build failures are
+   reported as PR status checks, preventing merge of documentation
+   that won't compile.
+
+   Closes #42
+   Related to RFC-documentation-quality-gates
+
+**Step 3: Click "Confirm merge"**
+
+GitHub will merge the PR using:
+
+.. code-block:: bash
+
+   git merge --no-ff feature/your-feature-name \
+     -m "Merge pull request #156..."
+
+The feature branch remains as a complete unit in the develop history.
+
+**Step 4: Optional — Delete the feature branch**
+
+After merging, GitHub offers to delete the remote feature branch:
+
+.. code-block:: text
+
+   [Delete branch]
+
+You can click this to clean up. Locally, delete it with:
+
+.. code-block:: bash
+
+   git branch -d feature/your-feature-name
+
+3.5 Final Verification — Tracking and History
+--------------------------------------------------------------------------------
+
+After merge, verify the merge was successful and understand the tracking:
+
+**Check branch tracking:**
+
+.. code-block:: bash
+
+   git branch -vv
+
+Output shows your local branches and their remote tracking status:
+
+.. code-block:: text
+
+   feature/your-feature-name  7f2e4d9 [origin/feature/your-feature-name] commit message
+   develop                    a1b2c3d [origin/develop: ahead 1] Merge pull request #156
+
+The ``[origin/develop: ahead 1]`` means your local develop is 1 commit ahead of remote (or behind if it shows "behind 1").
+
+**Update local develop to match remote:**
+
+After the merge happened on GitHub, your local develop is outdated:
+
+.. code-block:: bash
+
+   git fetch origin
+   git checkout develop
+   git pull origin develop
+
+Now your local develop has the merge commit.
+
+**View the merge commit in history:**
+
+.. code-block:: bash
+
+   git log --oneline develop
+
+Output:
+
+.. code-block:: text
+
+   a1b2c3d (HEAD -> develop, origin/develop) Merge pull request #156 from feature/github-actions-validation
+   7f2e4d9 feat(github-actions): implement build validation workflow
+   abc1234 docs(github-actions): add workflow configuration guide
+   def5678 previous commit on develop
+
+You can see:
+- The merge commit (a1b2c3d) at the top
+- All the feature branch commits preserved below it (7f2e4d9, abc1234)
+- Original develop history (def5678)
+
+**View just the feature branch commits:**
+
+.. code-block:: bash
+
+   git log --oneline --graph develop
+
+This shows a visual tree of the merge, making it clear which commits belonged to the feature:
+
+.. code-block:: text
+
+   * a1b2c3d (HEAD -> develop, origin/develop) Merge pull request #156
+   |\
+   | * 7f2e4d9 feat(github-actions): implement build validation workflow
+   | * abc1234 docs(github-actions): add workflow configuration guide
+   |/
+   * def5678 previous commit on develop
+
+---
+
+4. GitHub Branch Protection
 ================================================================================
 
 Branch protection rules enforce quality gates on the ``develop`` and ``main`` branches, preventing accidental or unauthorized changes. This section documents how to configure these rules.
 
-3.1 Branch Protection Overview
+4.1 Branch Protection Overview
 --------------------------------------------------------------------------------
 
 **Why Branch Protection?**
@@ -661,7 +1045,7 @@ Branch protection rules prevent:
 - **develop** — Moderate protection: PR review required, CI must pass
 - **main** — Strict protection: 2 PR approvals required, admin-only push, CI must pass
 
-3.2 GitHub UI Setup — Step-by-Step
+4.2 GitHub UI Setup — Step-by-Step
 --------------------------------------------------------------------------------
 
 **Access Branch Protection Settings:**
@@ -771,7 +1155,7 @@ Configure with **stricter** settings:
 | Allow deletion                            | ✗         | ✗       |
 +-------------------------------------------+-----------+---------+
 
-3.3 API Configuration — GitHub REST API
+4.3 API Configuration — GitHub REST API
 --------------------------------------------------------------------------------
 
 If you prefer to configure branch protection programmatically (e.g., in infrastructure-as-code), use the GitHub API:
@@ -849,7 +1233,7 @@ If you prefer to configure branch protection programmatically (e.g., in infrastr
 5. Click "Generate token" and **save it securely**
 6. Use the token in the curl command: ``Authorization: token YOUR_TOKEN``
 
-3.4 Verification — Confirm Protection is Active
+4.4 Verification — Confirm Protection is Active
 --------------------------------------------------------------------------------
 
 **Via GitHub UI:**
