@@ -2022,3 +2022,302 @@ Recovery (if you remember recent commit message):
 
 Lesson: Deleted local branches can be recovered from reflog or remote. Don't worry about deleting local branches.
 
+
+---
+
+7. Audit Trail & Compliance
+================================================================================
+
+This section documents how to trace commits, PRs, and releases for compliance and audit purposes.
+
+7.1 Traceability — What's in a Release?
+--------------------------------------------------------------------------------
+
+**Question:** "What code is in version v1.2.3 that's currently in production?"
+
+**Answer:** Use git log to list all commits in a release tag.
+
+**Step 1: Show commits in a specific tag**
+
+.. code-block:: bash
+
+   git log v1.2.3 --oneline
+
+   # Output:
+   # a1b2c3d (tag: v1.2.3, origin/main) Merge pull request #156 from develop
+   # 7f2e4d9 feat(github-actions): implement build validation workflow
+   # abc1234 docs(github-actions): add workflow configuration guide
+   # def5678 feat(sphinx-config): modularize extension configuration
+   # [... more commits ...]
+
+This shows every commit that's part of release v1.2.3.
+
+**Step 2: Compare two releases — what changed between versions?**
+
+.. code-block:: bash
+
+   git log v1.1.0..v1.2.3 --oneline
+
+   # Shows only commits between v1.1.0 and v1.2.3 (what's new in v1.2.3)
+
+**Step 3: Show detailed commit info for audit**
+
+.. code-block:: bash
+
+   # Full commit details with message, author, date
+   git log v1.2.3 --format="%H %an %ai %s"
+
+   # Output:
+   # a1b2c3d3d John Doe 2026-04-27 10:30:00 +0000 Merge pull request #156 from develop
+   # 7f2e4d9 Jane Smith 2026-04-26 15:45:00 +0000 feat(github-actions): implement build validation
+
+Use this for audit reports — shows who committed what and when.
+
+**Step 4: Find all PR references in a release**
+
+.. code-block:: bash
+
+   git log v1.1.0..v1.2.3 --oneline | grep "Merge pull request"
+
+   # Output:
+   # a1b2c3d Merge pull request #156 from develop
+   # e1f2g3h Merge pull request #145 from feature/sphinx-config
+
+This shows every PR that was merged into this release.
+
+**Traceability Example:**
+
+A QA engineer asks: "What fixes are in v1.2.3?"
+
+.. code-block:: bash
+
+   git log v1.1.0..v1.2.3 --oneline | grep "fix("
+
+   # Output:
+   # b2c3d4e fix(docs): update broken internal links
+   # c3d4e5f fix(sphinx): correct configuration error
+
+Answer: "Two fixes — broken links and sphinx config error, in PR #145 and #189."
+
+7.2 Backward Tracing — Which Version Contains This Fix?
+--------------------------------------------------------------------------------
+
+**Question:** "Issue #123 was fixed in commit abc1234, which version contains it?"
+
+**Answer:** Use ``git tag --contains`` to find all tags that include a specific commit.
+
+**Step 1: Find which versions contain a specific commit**
+
+.. code-block:: bash
+
+   git tag --contains abc1234
+
+   # Output:
+   # v1.2.3
+   # v1.3.0
+   # v2.0.0
+
+This means the fix is in v1.2.3 and all later releases.
+
+**Step 2: Find the first (earliest) version with a fix**
+
+.. code-block:: bash
+
+   git tag --contains abc1234 --sort=-version:refname | tail -1
+
+   # Output:
+   # v1.2.3
+
+This is the earliest version where the fix appears.
+
+**Step 3: Verify using git log (alternative method)**
+
+.. code-block:: bash
+
+   # List all tags and check if commit is in them
+   for tag in $(git tag -l --sort=-version:refname); do
+     if git log $tag --oneline | grep -q "^abc1234"; then
+       echo "Commit abc1234 is in $tag"
+     fi
+   done
+
+**Backward Traceability Example:**
+
+A customer reports: "We're on v1.1.5 and experiencing bug X from issue #42."
+
+.. code-block:: bash
+
+   # Find the commit that fixed issue #42
+   git log --grep="#42" --oneline | head -1
+   # Output: abc1234 fix(api): resolve authentication timeout issue #42
+
+   # Check which version contains this fix
+   git tag --contains abc1234 | head -1
+   # Output: v1.2.0
+
+Answer: "The fix for issue #42 is in v1.2.0 and later. Please upgrade to v1.2.0 or later."
+
+**Generating an Audit Report:**
+
+Create a compliance report showing which versions contain which fixes:
+
+.. code-block:: bash
+
+   #!/bin/bash
+   # audit-report.sh
+
+   echo "=== Audit Report ===" > audit-report.txt
+   echo "Generated: $(date)" >> audit-report.txt
+   echo "" >> audit-report.txt
+
+   # For each tag, list the commits
+   for tag in $(git tag -l --sort=-version:refname | head -5); do
+     echo "## Version $tag" >> audit-report.txt
+     echo "Release date: $(git log -1 --format=%ai $tag)" >> audit-report.txt
+     echo "" >> audit-report.txt
+     echo "Commits:" >> audit-report.txt
+     git log ${tag}~1..${tag} --format="- %h %s (by %an)" >> audit-report.txt
+     echo "" >> audit-report.txt
+   done
+
+   cat audit-report.txt
+
+This generates a report showing what's in each version.
+
+7.3 CI/CD Integration — Debugging Build Failures
+--------------------------------------------------------------------------------
+
+**Integration with GitHub Actions:**
+
+Every PR and merge to develop/main triggers GitHub Actions workflows. These must succeed before merge.
+
+**Step 1: View CI status for a PR**
+
+Go to the Pull Request page and scroll to "Checks" section:
+
+.. code-block:: text
+
+   ✓ build (GitHub Actions) — Passed
+   ✓ tests (GitHub Actions) — Passed
+   ✓ lint (GitHub Actions) — Passed
+   ✗ Documentation build — FAILED ← Click to see error details
+
+Click the failed check to see the full log.
+
+**Step 2: View logs for a commit**
+
+To see CI logs for a specific commit:
+
+1. Go to commit page: https://github.com/jcg-admin/IACT-docs/commit/abc1234
+2. Scroll to "Status checks" section
+3. Click the failed check to view detailed logs
+
+**Step 3: Debug CI failures locally**
+
+If CI fails but you can't see why:
+
+.. code-block:: bash
+
+   # Reproduce the CI command locally
+   make clean
+   make html
+
+   # or run tests
+   pytest
+
+   # Check what CI does by reading the workflow file
+   cat .github/workflows/build.yml
+
+   # Common issues:
+   # - make html fails → RST syntax error in your changes
+   # - tests fail → test suite catches a bug
+   # - lint fails → code style violation
+
+**Step 4: Fix and re-trigger CI**
+
+After fixing the issue:
+
+.. code-block:: bash
+
+   git add .
+   git commit -m "fix(docs): correct RST syntax error"
+   git push origin feature/your-branch
+
+   # CI automatically re-triggers on push
+   # Watch GitHub Actions tab to confirm it passes
+
+**Typical CI Workflow Checks:**
+
+- **build** — Sphinx documentation builds successfully (``make html``)
+- **tests** — All test suites pass (``pytest``)
+- **lint** — Code style passes checks (flake8, pylint)
+- **type** — Type checking passes (mypy)
+- **branch-protection** — Branch protection rules satisfied (approvals, status checks)
+
+All checks must pass before merge is allowed (enforced by branch protection).
+
+**Audit Trail via CI Logs:**
+
+CI logs provide an audit trail of:
+- Who triggered the build (commit author)
+- When it ran (timestamp)
+- What tests ran (test names and results)
+- Any security scanning results (if enabled)
+
+Store CI artifacts for compliance:
+
+.. code-block:: bash
+
+   # GitHub Actions automatically keeps artifacts for 30 days
+   # To download logs:
+   # 1. Go to Actions tab in GitHub
+   # 2. Click the workflow run
+   # 3. Click "Download logs" → captures all job outputs
+
+7.4 Compliance Summary — Complete Audit Trail
+--------------------------------------------------------------------------------
+
+A complete audit trail from commit to production consists of:
+
+1. **Commit** (author, timestamp, message, code changes)
+   - Command: ``git log abc1234 --format="%H %an %ai %s"``
+
+2. **Pull Request** (reviewer, approval date, description)
+   - Link: ``https://github.com/jcg-admin/IACT-docs/pull/156``
+
+3. **Code Review** (comments, suggestions, approvals)
+   - Visible in PR comments and review tab
+
+4. **CI/CD** (test results, security scan results, build artifacts)
+   - Link: ``https://github.com/jcg-admin/IACT-docs/actions/runs/12345``
+
+5. **Merge** (who merged, when, merge commit hash)
+   - Command: ``git log --oneline --grep="Merge pull request"``
+
+6. **Release Tag** (version, release date, tag message)
+   - Command: ``git tag -l v1.2.3 -n`` (shows tag message)
+   - Link: ``https://github.com/jcg-admin/IACT-docs/releases/tag/v1.2.3``
+
+7. **Release Notes** (features, fixes, breaking changes)
+   - File: ``CHANGELOG.md``
+
+**To generate a complete audit report:**
+
+.. code-block:: bash
+
+   # Audit report: What's in production (v1.2.3)?
+   echo "=== AUDIT REPORT FOR v1.2.3 ===" 
+   echo "Release Date: $(git log -1 --format=%ai v1.2.3)"
+   echo "Release Author: $(git log -1 --format=%an v1.2.3)"
+   echo ""
+   echo "## Commits in this release:"
+   git log v1.1.0..v1.2.3 --format="%h %s (by %an, %ai)" | head -20
+   echo ""
+   echo "## Pull Requests merged:"
+   git log v1.1.0..v1.2.3 --oneline | grep "Merge pull request"
+   echo ""
+   echo "## Release Notes:"
+   sed -n '/## \[1.2.3\]/,/## \[1.1.0\]/p' CHANGELOG.md
+
+This provides complete traceability from commit through release for compliance purposes.
+
