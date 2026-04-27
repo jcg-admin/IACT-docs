@@ -128,6 +128,16 @@ I-011 dice: un WP solo se cierra cuando el ejecutor lo ordena explícitamente. F
 - `scripts/setup.sh` no lo instala automáticamente.
 - En este worktree se instaló a mano con `apt-get install libenchant-2-2`.
 
+### F-15 — `plantuml` (binario Java) no está en bootstrap (OBSERVABLE)
+
+- `sphinxcontrib-plantuml` (en pyproject) es solo wrapper Python; requiere el binario `plantuml` (Java) en PATH.
+- `source/conf.py:187` declara `plantuml = 'plantuml'` (busca el binario por nombre).
+- Sin `plantuml` instalado, `make clean && make html` produce **270+ warnings idénticas** ("plantuml command 'plantuml' cannot be run") y los diagramas `.. uml::` quedan vacíos en el HTML aunque el build "succeed".
+- `scripts/setup.sh` original no lo instalaba.
+- El WP `2026-04-23-18-51-33-plantuml-java-integration-impl` integró PlantUML al proyecto pero asumió que el binario ya estaba en el sistema.
+
+**Impacto:** documentación arquitectónica (UC, diagramas de secuencia) se publica sin diagramas en clones nuevos.
+
 ### F-14 — `requires-python = ">=3.11"` causa resolver failures futuros (INFERRED)
 
 - Sin upper bound, `uv` resuelve dependencias para Python 3.11, 3.12, 3.13, 3.14, 3.15+.
@@ -176,6 +186,7 @@ Secuencia de WPs:
 | F-12 | pyproject Sphinx>=9 vs autodocsumm<9 — conflicto | Alta | Build broken | `Sphinx>=8.2.3,<9.0` o subir autodocsumm |
 | F-13 | enchant libsystem fuera del bootstrap | Alta | Build broken | apt/brew install en setup.sh |
 | F-14 | `requires-python = ">=3.11"` sin upper bound | Media | Resolver fragility | Acotar a `<3.14` |
+| F-15 | binario `plantuml` (Java) fuera del bootstrap | Alta | Build silent failure | apt/brew install plantuml en setup.sh |
 
 ---
 

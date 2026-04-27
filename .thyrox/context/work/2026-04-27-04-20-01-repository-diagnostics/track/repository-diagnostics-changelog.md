@@ -17,7 +17,7 @@ status: Borrador
 
 ## Hallazgos atendidos
 
-14 hallazgos de Phase 1 DISCOVER — todos con código aplicado en este WP.
+15 hallazgos de Phase 1 DISCOVER — todos con código aplicado en este WP.
 
 ## Added
 
@@ -50,6 +50,9 @@ status: Borrador
   evitar resolver failures con Python futuro (F-14).
 - `scripts/setup.sh` agrega paso de detección/instalación de libenchant
   (apt/brew) requerido por sphinxcontrib-spelling (F-13).
+- `scripts/setup.sh` agrega paso de detección/instalación del binario
+  `plantuml` (apt/brew) requerido por sphinxcontrib-plantuml (F-15).
+  Pasa de 4 a 5 pasos. Sin él, 270+ warnings y diagramas vacíos.
 - `git rm -r --cached build/` — 1126 archivos / 64 MB removidos del
   index. Files preservados en filesystem (F-01).
 - `.gitignore` simplificado: regla `build/` única, eliminado comentario
