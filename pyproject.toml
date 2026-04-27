@@ -45,7 +45,7 @@ dependencies = [
     "sphinx-sitemap==2.9.0",                       # SEO sitemap generation
 
     # Python API Documentation (Tier 2: Recommended - Phase A enabled)
-    "sphinx-autodoc-typehints==3.5.2",             # Type hints support (added Phase A)
+    "sphinx-autodoc-typehints==3.6.1",             # Type hints support (added Phase A)
     "autodocsumm==0.2.14",                         # Auto-generate summaries
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
