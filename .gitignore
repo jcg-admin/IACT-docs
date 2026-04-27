@@ -31,3 +31,9 @@ build/
 *.egg
 dist/
 __pycache__/
+
+# Bundled tools (descargados por scripts/setup.sh — no commitear binarios)
+# tools/bin/* SÍ se commitea (wrappers shell)
+tools/plantuml.jar
+tools/jre/
+tools/jre.tar.gz

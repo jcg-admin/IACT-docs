@@ -50,9 +50,23 @@ status: Borrador
   evitar resolver failures con Python futuro (F-14).
 - `scripts/setup.sh` agrega paso de detección/instalación de libenchant
   (apt/brew) requerido por sphinxcontrib-spelling (F-13).
-- `scripts/setup.sh` agrega paso de detección/instalación del binario
-  `plantuml` (apt/brew) requerido por sphinxcontrib-plantuml (F-15).
-  Pasa de 4 a 5 pasos. Sin él, 270+ warnings y diagramas vacíos.
+- `scripts/setup.sh` reescrito como instalador self-contained idempotente
+  (F-15). Ahora descarga binarios al directorio `tools/` del repo en lugar
+  de depender de paquetes del sistema:
+  - plantuml.jar v1.2024.7 → `tools/plantuml.jar` (~22 MB, gitignored)
+  - JRE portable Adoptium → `tools/jre/` solo si Java falta del sistema
+  - enchant: sigue siendo system dep (libsystem C, no se puede bundlear
+    portable). Apt/brew con WARN si falla.
+  - Idempotente verificado: 1ra ejecución ~30s; 2da+ ejecuciones 0.3s.
+  - 6 pasos: uv → enchant → java → plantuml.jar → uv sync → hooks.
+- `tools/bin/plantuml` (committeado) — wrapper shell que invoca
+  `java -jar tools/plantuml.jar`. Resuelve java en orden: JAVA_HOME →
+  `tools/jre/` portable → `java` en PATH.
+- `source/conf.py` — `plantuml = ...` ahora prefiere wrapper bundled
+  (`tools/bin/plantuml`) sobre `plantuml` en PATH. Var env
+  `PLANTUML_BIN` permite override.
+- `.gitignore` — agrega `tools/plantuml.jar`, `tools/jre/`,
+  `tools/jre.tar.gz` (binarios descargados, no commiteables).
 - `git rm -r --cached build/` — 1126 archivos / 64 MB removidos del
   index. Files preservados en filesystem (F-01).
 - `.gitignore` simplificado: regla `build/` única, eliminado comentario

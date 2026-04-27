@@ -138,6 +138,8 @@ I-011 dice: un WP solo se cierra cuando el ejecutor lo ordena explícitamente. F
 
 **Impacto:** documentación arquitectónica (UC, diagramas de secuencia) se publica sin diagramas en clones nuevos.
 
+**Fix aplicado (idempotente, sin sudo en el caso happy):** descarga `plantuml.jar` v1.2024.7 a `tools/plantuml.jar` (gitignored, 22 MB). Wrapper `tools/bin/plantuml` (committeado) invoca `java -jar`. Si Java falta del sistema, `setup.sh` baja JRE portable Adoptium a `tools/jre/`. `conf.py` apunta al wrapper preferentemente, con fallback a `plantuml` en PATH y override via `PLANTUML_BIN`. Verificado: build OK con system plantuml desinstalado, 0 warnings de plantuml.
+
 ### F-14 — `requires-python = ">=3.11"` causa resolver failures futuros (INFERRED)
 
 - Sin upper bound, `uv` resuelve dependencias para Python 3.11, 3.12, 3.13, 3.14, 3.15+.
