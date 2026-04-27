@@ -68,9 +68,9 @@ Los casos de uso cubren los **8 módulos funcionales** del sistema:
      - 4
      - Bitácoras técnicas del sistema
    * - **TOTAL**
-             
+     - \\-
      - **49**
-             
+     - \\-
 
 1.3 Convenciones de Nomenclatura
 --------------------------------

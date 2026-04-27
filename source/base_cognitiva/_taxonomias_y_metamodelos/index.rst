@@ -311,6 +311,6 @@ y gobernanza/trazabilidad/.
 .. toctree::
    :hidden:
    :maxdepth: 1
-   taxonomias/index
 
+   taxonomias/index
    metamodelos/index

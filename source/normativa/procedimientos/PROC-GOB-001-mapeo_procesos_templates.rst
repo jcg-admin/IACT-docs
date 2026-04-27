@@ -72,269 +72,147 @@ Tabla de Contenidos
 2.1 Matriz Principal: Proceso → Workflow → Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---+----------+-----------+-------------+---------+---------+-------+
-| I | Proce    | Workflow  | Template    | Script  | Agente  | Chec  |
-| D | dimiento | CI/CD     | Principal   | Local   | SDLC    | klist |
-+===+==========+===========+=============+=========+=========+=======+
-| * | proce    | -         | template    | -       | Planner | che   |
-| * | dimiento |           | _necesidad, |         |         | cklis |
-| S | _trazabi |           | template_re |         |         | t_tra |
-| D | lidad_re |           | quisito\_\* |         |         | zabil |
-| L | quisitos |           |             |         |         | idad_ |
-| C |          |           |             |         |         | requi |
-| - |          |           |             |         |         | sitos |
-| 0 |          |           |             |         |         |       |
-| 1 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | proc     | -         | pla         | -       | Design  | -     |
-| * | edimient |           | ntilla_sad, |         |         |       |
-| S | o_diseno |           | plan        |         |         |       |
-| D | _tecnico |           | tilla_spec, |         |         |       |
-| L |          |           | pl          |         |         |       |
-| C |          |           | antilla_srs |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 2 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | p        | -         | p           | -       | -       | -     |
-| * | rocedimi |           | lantilla_se |         |         |       |
-| S | ento_ins |           | tup_entorno |         |         |       |
-| D | talacion |           |             |         |         |       |
-| L | _entorno |           |             |         |         |       |
-| C |          |           |             |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 3 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | proced   | ba        | plantilla\_  | ba      | -       | check |
-| * | imiento_ | ckend-ci, | django_app, | ckend_t |         | list\_ |
-| S | desarrol | fr        | planti      | est.sh, |         | desar |
-| D | lo_local | ontend-ci | lla_etl_job | fr      |         | rollo |
-| L |          |           |             | ontend_ |         |       |
-| C |          |           |             | test.sh |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 4 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | g        | ba        | pl          | ba      | -       | check |
-| * | uia_comp | ckend-ci, | antilla_tdd | ckend_t |         | list\_ |
-| S | leta_des | tes       |             | est.sh, |         | desar |
-| D | arrollo_ | t-pyramid |             | test_py |         | rollo |
-| L | features |           |             | ramid_c |         |       |
-| C |          |           |             | heck.sh |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 5 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | procedim | tes       | p           | test_py | Testing | ch    |
-| * | iento_qa | t-pyramid | lantilla_pl | ramid_c |         | eckli |
-| S |          |           | an_pruebas, | heck.sh |         | st_te |
-| D |          |           | plantilla\_  |         |         | sting |
-| L |          |           | caso_prueba |         |         |       |
-| C |          |           |             |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 6 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | proce    | deploy,   | p           | -       | Dep     | -     |
-| * | dimiento | m         | lantilla_re |         | loyment |       |
-| S | _release | igrations | lease_plan, |         |         |       |
-| D |          |           | plan        |         |         |       |
-| L |          |           | tilla_deplo |         |         |       |
-| C |          |           | yment_guide |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 7 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | proce    | -         | plantilla_r | -       | -       | check |
-| * | dimiento |           | elease_plan |         |         | list\_ |
-| S | _gestion |           |             |         |         | cambi |
-| D | _cambios |           |             |         |         | os_do |
-| L |          |           |             |         |         | cumen |
-| C |          |           |             |         |         | tales |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 8 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | procedim | secu      | -           | se      | -       | -     |
-| * | iento_an | rity-scan |             | curity_ |         |       |
-| S | alisis_s |           |             | scan.sh |         |       |
-| D | eguridad |           |             |         |         |       |
-| L |          |           |             |         |         |       |
-| C |          |           |             |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 9 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | p        | -         | pl          | -       | -       | check |
-| * | rocedimi |           | antilla_api |         |         | list\_ |
-| S | ento_rev |           | _reference, |         |         | cambi |
-| D | ision_do |           | pl          |         |         | os_do |
-| L | cumental |           | antilla_man |         |         | cumen |
-| C |          |           | ual_usuario |         |         | tales |
-| - |          |           |             |         |         |       |
-| 1 |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | runb     | -         | -           | -       | -       | -     |
-| * | ooks/ver |           |             |         |         |       |
-| O | ificar_s |           |             |         |         |       |
-| P | ervicios |           |             |         |         |       |
-| S |          |           |             |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 1 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
-| * | runbook  | incident  | pla         | -       | -       | -     |
-| * | s/reproc | -response | ntilla_trou |         |         |       |
-| O | esar_etl |           | bleshooting |         |         |       |
-| P | _fallido |           |             |         |         |       |
-| S |          |           |             |         |         |       |
-| - |          |           |             |         |         |       |
-| 0 |          |           |             |         |         |       |
-| 2 |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-| * |          |           |             |         |         |       |
-+---+----------+-----------+-------------+---------+---------+-------+
+.. list-table::
+   :header-rows: 1
+   :widths: 12 22 12 22 12 10 10
+
+   * - ID
+     - Procedimiento
+     - Workflow CI/CD
+     - Template Principal
+     - Script Local
+     - Agente SDLC
+     - Checklist
+   * - **SDLC-01**
+     - procedimiento_trazabilidad_requisitos
+     - \-
+     - template_necesidad, template_requisito_*
+     - \-
+     - Planner
+     - checklist_trazabilidad_requisitos
+   * - **SDLC-02**
+     - procedimiento_diseno_tecnico
+     - \-
+     - plantilla_sad, plantilla_spec, plantilla_srs
+     - \-
+     - Design
+     - \-
+   * - **SDLC-03**
+     - procedimiento_instalacion_entorno
+     - \-
+     - plantilla_setup_entorno
+     - \-
+     - \-
+     - \-
+   * - **SDLC-04**
+     - procedimiento_desarrollo_local
+     - backend-ci, frontend-ci
+     - plantilla_django_app, plantilla_etl_job
+     - backend_test.sh, frontend_test.sh
+     - \-
+     - checklist_desarrollo
+   * - **SDLC-05**
+     - guia_completa_desarrollo_features
+     - backend-ci, test-pyramid
+     - plantilla_tdd
+     - backend_test.sh, test_pyramid_check.sh
+     - \-
+     - checklist_desarrollo
+   * - **SDLC-06**
+     - procedimiento_qa
+     - test-pyramid
+     - plantilla_plan_pruebas, plantilla_caso_prueba
+     - test_pyramid_check.sh
+     - Testing
+     - checklist_testing
+   * - **SDLC-07**
+     - procedimiento_release
+     - deploy, migrations
+     - plantilla_release_plan, plantilla_deployment_guide
+     - \-
+     - Deployment
+     - \-
 
 2.2 Matriz de Templates por Categoria
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+---------------------+---------------+-------------------+
-| Categoria | Templates (34       | Usado en Fase | Workflow Asociado |
-|           | total)              |               |                   |
-+===========+=====================+===============+===================+
-| **R       | template_necesidad, | Planning      | -                 |
-| equisitos | template            |               |                   |
-| (5)**     | _requisito_negocio, |               |                   |
-|           | template_r          |               |                   |
-|           | equisito_funcional, |               |                   |
-|           | template_requ       |               |                   |
-|           | isito_no_funcional, |               |                   |
-|           | template_re         |               |                   |
-|           | quisito_stakeholder |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **D       | pl                  | Development   | backend-ci,       |
-| esarrollo | antilla_django_app, |               | frontend-ci       |
-| (10)**    | plantilla_etl_job,  |               |                   |
-|           | plant               |               |                   |
-|           | illa_regla_negocio, |               |                   |
-|           | plantilla_spec,     |               |                   |
-|           | plantilla_srs,      |               |                   |
-|           | plantilla_tdd,      |               |                   |
-|           | plantil             |               |                   |
-|           | la_troubleshooting, |               |                   |
-|           | plantilla_plan,     |               |                   |
-|           | plantilla_sad,      |               |                   |
-|           | plantilla_ui_ux     |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **Testing | plan                | Testing       | test-pyramid      |
-| (2)**     | tilla_plan_pruebas, |               |                   |
-|           | pl                  |               |                   |
-|           | antilla_caso_prueba |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **Diseno  | plantil             | Design        | -                 |
-| (2)**     | la_database_design, |               |                   |
-|           | pl                  |               |                   |
-|           | antilla_caso_de_uso |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **Docu    | plant               | Operations    | -                 |
-| mentacion | illa_api_reference, |               |                   |
-| (4)**     | plantilla\_          |               |                   |
-|           | espacio_documental, |               |                   |
-|           | planti              |               |                   |
-|           | lla_manual_usuario, |               |                   |
-|           | plantilla_s         |               |                   |
-|           | eccion_limitaciones |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **Infra   | plantilla_runbook,  | Deployment    | deploy,           |
-| structure | plantill            |               | migrations        |
-| (4)**     | a_deployment_guide, |               |                   |
-|           | plant               |               |                   |
-|           | illa_setup_entorno, |               |                   |
-|           | plantilla_setup_qa  |               |                   |
-+-----------+---------------------+---------------+-------------------+
-| **Gestion | plan                | Pla           | deploy            |
-| (6)**     | tilla_release_plan, | nning/Release |                   |
-|           | plant               |               |                   |
-|           | illa_business_case, |               |                   |
-|           | plantil             |               |                   |
-|           | la_project_charter, |               |                   |
-|           | plantilla_proje     |               |                   |
-|           | ct_management_plan, |               |                   |
-|           | plantilla_st        |               |                   |
-|           | akeholder_analysis, |               |                   |
-|           | plantilla           |               |                   |
-|           | _registro_actividad |               |                   |
-+-----------+---------------------+---------------+-------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 22 38 18 22
+
+   * - Categoría
+     - Templates
+     - Usado en Fase
+     - Workflow Asociado
+   * - **Requisitos (5)**
+     - template_necesidad, template_requisito_negocio,
+       template_requisito_funcional, template_requisito_no_funcional,
+       template_caso_uso
+     - Planning
+     - \-
+   * - **Diseño (4)**
+     - plantilla_sad, plantilla_spec, plantilla_srs,
+       plantilla_database_design
+     - Design
+     - \-
+   * - **Desarrollo (5)**
+     - plantilla_django_app, plantilla_etl_job, plantilla_setup_entorno,
+       plantilla_tdd, plantilla_troubleshooting
+     - Implementation
+     - backend-ci, frontend-ci, infrastructure-ci
+   * - **QA (3)**
+     - plantilla_plan_pruebas, plantilla_caso_prueba, plantilla_qa_report
+     - Testing
+     - test-pyramid, security-scan
+   * - **Release (4)**
+     - plantilla_release_plan, plantilla_deployment_guide,
+       plantilla_rollback_plan, plantilla_changelog
+     - Deployment
+     - deploy, migrations, incident-response
 
 2.3 Matriz de Workflows CI/CD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------+---------------+--------------------------+---------------+
-| Workflow | Script Local  | Templates Relacionados   | Validaciones  |
-+==========+===============+==========================+===============+
-| **       | ba            | plantilla_django_app     | RNF-002,      |
-| backend- | ckend_test.sh |                          | tests,        |
-| ci.yml** |               |                          | coverage      |
-|          |               |                          | ≥80%, lint    |
-+----------+---------------+--------------------------+---------------+
-| **f      | fro           | -                        | tests, lint,  |
-| rontend- | ntend_test.sh |                          | build         |
-| ci.yml** |               |                          |               |
-+----------+---------------+--------------------------+---------------+
-| **te     | test_pyr      | plantilla_plan_pruebas   | 60% Unit /    |
-| st-pyram | amid_check.sh |                          | 30%           |
-| id.yml** |               |                          | Integration / |
-|          |               |                          | 10% E2E       |
-+----------+---------------+--------------------------+---------------+
-| **depl   | -             | pl                       | blue-green,   |
-| oy.yml** |               | antilla_deployment_guide | health        |
-|          |               |                          | checks,       |
-|          |               |                          | rollback      |
-+----------+---------------+--------------------------+---------------+
-| **       | -             | p                        | dry-run,      |
-| migratio |               | lantilla_database_design | conflicts,    |
-| ns.yml** |               |                          | backwards     |
-|          |               |                          | compatibility |
-+----------+---------------+--------------------------+---------------+
-| *        | -             | plantilla_setup_entorno  | terraform     |
-| *infrast |               |                          | validate,     |
-| ructure- |               |                          | ansible lint  |
-| ci.yml** |               |                          |               |
-+----------+---------------+--------------------------+---------------+
-| **sec    | sec           | -                        | Bandit,       |
-| urity-sc | urity_scan.sh |                          | secrets, SQL  |
-| an.yml** |               |                          | injection,    |
-|          |               |                          | RNF-002       |
-+----------+---------------+--------------------------+---------------+
-| *        | -             | p                        | a             |
-| *inciden |               | lantilla_troubleshooting | uto-rollback, |
-| t-respon |               |                          | alertas,      |
-| se.yml** |               |                          | post-mortem   |
-+----------+---------------+--------------------------+---------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 22 18 30 30
+
+   * - Workflow
+     - Script Local
+     - Templates Relacionados
+     - Validaciones
+   * - **backend-ci.yml**
+     - ``backend_test.sh``
+     - plantilla_django_app
+     - RNF-002, tests, coverage ≥80%, lint
+   * - **frontend-ci.yml**
+     - ``frontend_test.sh``
+     - \-
+     - tests, lint, build
+   * - **test-pyramid.yml**
+     - ``test_pyramid_check.sh``
+     - plantilla_plan_pruebas
+     - 60% Unit / 30% Integration / 10% E2E
+   * - **deploy.yml**
+     - \-
+     - plantilla_deployment_guide
+     - blue-green, health checks, rollback
+   * - **migrations.yml**
+     - \-
+     - plantilla_database_design
+     - dry-run, conflicts, backwards compatibility
+   * - **infrastructure-ci.yml**
+     - \-
+     - plantilla_setup_entorno
+     - terraform validate, ansible lint
+   * - **security-scan.yml**
+     - ``security_scan.sh``
+     - \-
+     - Bandit, secrets, SQL injection, RNF-002
+   * - **incident-response.yml**
+     - \-
+     - plantilla_troubleshooting
+     - auto-rollback, alertas, post-mortem
 
 --------------
 

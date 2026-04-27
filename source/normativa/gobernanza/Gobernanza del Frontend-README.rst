@@ -19,27 +19,25 @@ Enlaces Rápidos a Gobernanza Global
 
 **ANTES de crear un ADR aquí, consulta la gobernanza global:**
 
-+-------------------------------+--------------------------------------+
-| Recurso                       | Ubicación                            |
-+===============================+======================================+
-| **ADRs Globales**             | ```/docs/gober                       |
-|                               | nanza/adr/`` <../gobernanza/adr/>`__ |
-+-------------------------------+--------------------------------------+
-| **Guías Compartidas**         | ```/docs/gobernanz                   |
-|                               | a/guias/`` <../gobernanza/guias/>`__ |
-+-------------------------------+--------------------------------------+
-| **Procedimientos**            | ```/docs/gobernanza/procedimientos/` |
-|                               | ` <../gobernanza/procedimientos/>`__ |
-+-------------------------------+--------------------------------------+
-| **Templates**                 | ```/docs/gobernanza/templa           |
-|                               | tes/`` <../gobernanza/templates/>`__ |
-+-------------------------------+--------------------------------------+
-| **Diseño Global**             | ```/docs/gobernanza/                 |
-|                               | diseno/`` <../gobernanza/diseno/>`__ |
-+-------------------------------+--------------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 65
 
-**Documento clave**:
-```ADR-GOB-010: Gobernanza Multi-nivel`` <../gobernanza/adr/ADR-GOB-010-gobernanza-multinivel.md>`__
+   * - Recurso
+     - Ubicación
+   * - **ADRs Globales**
+     - ``../gobernanza/adr/``
+   * - **Guías Compartidas**
+     - ``../gobernanza/guias/``
+   * - **Procedimientos**
+     - ``../gobernanza/procedimientos/``
+   * - **Templates**
+     - ``../gobernanza/templates/``
+   * - **Diseño Global**
+     - ``../gobernanza/diseno/``
+
+**Documento clave:** ``ADR-GOB-010: Gobernanza Multi-nivel``
+(``../gobernanza/adr/ADR-GOB-010-gobernanza-multinivel.md``)
 
 ¿Cuándo crear ADR aquí vs. Global?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

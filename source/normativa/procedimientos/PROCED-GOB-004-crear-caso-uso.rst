@@ -361,8 +361,6 @@ Reglas de Escritura
 Plantilla de Inicio
 ~~~~~~~~~~~~~~~~~~~
 
-.. code:: markdown
-
 .. list-table::
    :header-rows: 1
 

@@ -928,113 +928,74 @@ Monitoring
 Roles y Responsabilidades
 -------------------------
 
-+---+-------+---------+-----+------------+------+---------+---------+
-| R | Pla   | Feas    | Des | Impl       | Tes  | Dep     | Main    |
-| o | nning | ibility | ign | ementation | ting | loyment | tenance |
-| l |       |         |     |            |      |         |         |
-+===+=======+=========+=====+============+======+=========+=========+
-| * | Lead  | Review  | Rev | -          | UAT  | A       | Pri     |
-| * |       |         | iew |            |      | pproval | oritize |
-| P |       |         |     |            |      |         | bugs    |
-| r |       |         |     |            |      |         |         |
-| o |       |         |     |            |      |         |         |
-| d |       |         |     |            |      |         |         |
-| u |       |         |     |            |      |         |         |
-| c |       |         |     |            |      |         |         |
-| t |       |         |     |            |      |         |         |
-| O |       |         |     |            |      |         |         |
-| w |       |         |     |            |      |         |         |
-| n |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| r |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Co    | Te      | L   | Review     | Re   | A       | Esc     |
-| * | nsult | chnical | ead |            | view | pproval | alation |
-| A |       | Lead    |     |            |      |         |         |
-| r |       |         |     |            |      |         |         |
-| q |       |         |     |            |      |         |         |
-| u |       |         |     |            |      |         |         |
-| i |       |         |     |            |      |         |         |
-| t |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| c |       |         |     |            |      |         |         |
-| t |       |         |     |            |      |         |         |
-| o |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Est   | Lead    | Rev | Review +   | Re   | Lead    | On-call |
-| * | imate |         | iew | Merge      | view |         | r       |
-| T |       |         |     |            |      |         | otation |
-| e |       |         |     |            |      |         |         |
-| c |       |         |     |            |      |         |         |
-| h |       |         |     |            |      |         |         |
-| L |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| a |       |         |     |            |      |         |         |
-| d |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Contr | -       | LLD | Lead       | Lead | Support | Bug     |
-| * | ibute |         |     |            |      |         | fixes   |
-| D |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| v |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| l |       |         |     |            |      |         |         |
-| o |       |         |     |            |      |         |         |
-| p |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| r |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Contr | -       | -   | -          | Lead | V       | Test    |
-| * | ibute |         |     |            |      | alidate | aut     |
-| Q |       |         |     |            |      |         | omation |
-| A |       |         |     |            |      |         |         |
-| E |       |         |     |            |      |         |         |
-| n |       |         |     |            |      |         |         |
-| g |       |         |     |            |      |         |         |
-| i |       |         |     |            |      |         |         |
-| n |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| e |       |         |     |            |      |         |         |
-| r |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Infra | Infra   | In  | -          | I    | Lead    | Lead    |
-| * | pla   | assess  | fra |            | nfra |         |         |
-| D | nning |         | des |            | t    |         |         |
-| e |       |         | ign |            | ests |         |         |
-| v |       |         |     |            |      |         |         |
-| O |       |         |     |            |      |         |         |
-| p |       |         |     |            |      |         |         |
-| s |       |         |     |            |      |         |         |
-| / |       |         |     |            |      |         |         |
-| S |       |         |     |            |      |         |         |
-| R |       |         |     |            |      |         |         |
-| E |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
-| * | Sec   | S       | Se  | Review     | Secu | Review  | Vulner  |
-| * | urity | ecurity | cur |            | rity |         | ability |
-| S | reqs  | risk    | ity |            | t    |         | mgmt    |
-| e |       |         | rev |            | ests |         |         |
-| c |       |         | iew |            |      |         |         |
-| u |       |         |     |            |      |         |         |
-| r |       |         |     |            |      |         |         |
-| i |       |         |     |            |      |         |         |
-| t |       |         |     |            |      |         |         |
-| y |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-| * |       |         |     |            |      |         |         |
-+---+-------+---------+-----+------------+------+---------+---------+
+.. list-table::
+   :header-rows: 1
+   :widths: 14 11 11 9 13 11 11 11
+
+   * - Rol
+     - Planning
+     - Feasibility
+     - Design
+     - Implementation
+     - Testing
+     - Deployment
+     - Maintenance
+   * - **Product Owner**
+     - Lead
+     - Review
+     - Review
+     - \-
+     - UAT
+     - Approval
+     - Prioritize bugs
+   * - **Arquitecto**
+     - Consult
+     - Technical Lead
+     - Lead
+     - Review
+     - Review
+     - Approval
+     - Escalation
+   * - **Tech Lead**
+     - Estimate
+     - Lead
+     - Review
+     - Review + Merge
+     - Review
+     - Lead
+     - On-call rotation
+   * - **Developer**
+     - Contribute
+     - \-
+     - LLD
+     - Lead
+     - Lead
+     - Support
+     - Bug fixes
+   * - **QA Engineer**
+     - Contribute
+     - \-
+     - \-
+     - \-
+     - Lead
+     - Validate
+     - Test automation
+   * - **DevOps/SRE**
+     - Infra planning
+     - Infra assess
+     - Infra design
+     - \-
+     - Infra tests
+     - Lead
+     - Lead
+   * - **Security**
+     - Security reqs
+     - Security risk
+     - Security review
+     - Review
+     - Security tests
+     - Review
+     - Vulnerability mgmt
 
 --------------
 

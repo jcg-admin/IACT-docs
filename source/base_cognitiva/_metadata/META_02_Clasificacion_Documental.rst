@@ -66,7 +66,7 @@ alineados con la política corporativa de seguridad de la información:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 15 15 15 15 15
+   :widths: 32 17 17 17 17
    :header-rows: 1
 
    * - Control

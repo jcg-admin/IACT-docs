@@ -225,8 +225,7 @@ Plan de Implementación
 
    -  Tests unitarios de service layer
    -  Tests de API
-   -  Documentación en docs/backend/arquitectura/configuration.md
-      docs:raw-latex:`\backend`:raw-latex:`\diseno`:raw-latex:`\arquitectura`:raw-latex:`\configuration`.md
+   -  Documentación en ``docs/backend/diseno/arquitectura/configuration.md``
    -  Timeframe: 1 día
 
 Validación y Métricas

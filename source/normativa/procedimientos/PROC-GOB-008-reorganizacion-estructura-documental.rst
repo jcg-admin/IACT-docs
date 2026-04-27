@@ -72,28 +72,25 @@ Basado en ``docs/gobernanza/``, cada dominio debe incluir:
 Roles y Responsabilidades
 -------------------------
 
-+--------------+--------------------------------------------------------+
-| Rol          | Responsabilidades                                      |
-+==============+========================================================+
-| **Tech Lead  | - Aprobar plan de reorganización- Validar estructura   |
-| del          | propuesta- Comunicar al equipo                         |
-| Dominio**    |                                                        |
-+--------------+--------------------------------------------------------+
-| **Arquitecto | - Revisar decisiones arquitectónicas (ADRs)- Validar   |
-| de           | trazabilidad técnica                                   |
-| Software**   |                                                        |
-+--------------+--------------------------------------------------------+
-| **Quality    | - Ejecutar validaciones FASE 4- Verificar cumplimiento |
-| Assurance**  | de estándares                                          |
-+--------------+--------------------------------------------------------+
-| **Agente de  | - Crear análisis QA inicial- Generar tareas            |
-| IA           | detalladas- Ejecutar fases con evidencias              |
-| Esp          |                                                        |
-| ecializado** |                                                        |
-+--------------+--------------------------------------------------------+
-| **Equipo de  | - Proporcionar plantillas y estándares- Revisar        |
-| Gobernanza** | conformidad                                            |
-+--------------+--------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Rol
+     - Responsabilidades
+   * - **Tech Lead del Dominio**
+     - Aprobar plan de reorganización; validar estructura propuesta;
+       comunicar al equipo
+   * - **Arquitecto de Software**
+     - Revisar decisiones arquitectónicas (ADRs); validar trazabilidad
+       técnica
+   * - **Quality Assurance**
+     - Ejecutar validaciones FASE 4; verificar cumplimiento de estándares
+   * - **Agente de IA Especializado**
+     - Crear análisis QA inicial; generar tareas detalladas; ejecutar
+       fases con evidencias
+   * - **Equipo de Gobernanza**
+     - Proporcionar plantillas y estándares; revisar conformidad
 
 Flujo del Proceso
 -----------------

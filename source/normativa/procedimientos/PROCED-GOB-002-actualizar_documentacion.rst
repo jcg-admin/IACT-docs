@@ -72,23 +72,25 @@ PASO 2: Categorizar el Cambio
 2.1 Clasificar severidad
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-+----------+------------------------+----------------------------------+
-| Tipo     | Descripción            | Acción Requerida                 |
-+==========+========================+==================================+
-| **C      | Información incorrecta | Actualizar inmediatamente        |
-| RÍTICO** | que puede causar       |                                  |
-|          | errores                |                                  |
-+----------+------------------------+----------------------------------+
-| *        | Funcionalidad          | Actualizar en < 1 semana         |
-| *MAYOR** | significativa no       |                                  |
-|          | documentada            |                                  |
-+----------+------------------------+----------------------------------+
-| *        | Mejoras de claridad,   | Actualizar en próximo sprint     |
-| *MENOR** | typos, formato         |                                  |
-+----------+------------------------+----------------------------------+
-| **COS    | Estilo, organización   | Actualizar cuando sea            |
-| MÉTICO** |                        | conveniente                      |
-+----------+------------------------+----------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 18 42 40
+
+   * - Tipo
+     - Descripción
+     - Acción Requerida
+   * - **CRÍTICO**
+     - Información incorrecta que puede causar errores
+     - Actualizar inmediatamente
+   * - **MAYOR**
+     - Funcionalidad significativa no documentada
+     - Actualizar en < 1 semana
+   * - **MENOR**
+     - Mejoras de claridad, typos, formato
+     - Actualizar en próximo sprint
+   * - **COSMÉTICO**
+     - Estilo, organización
+     - Actualizar cuando sea conveniente
 
 --------------
 

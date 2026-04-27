@@ -28,8 +28,8 @@ Los estándares incluyen:
 .. toctree::
    :hidden:
    :maxdepth: 1
-   plantillas/index
 
+   plantillas/index
    GUIA_ESTILO
    STD_006_Versionado_Semantico
    estandares_codigo
