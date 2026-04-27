@@ -32,3 +32,4 @@
 # build/  (REMOVED: user wants build artifacts tracked for visibility)
 dist/
 __pycache__/
+build/
