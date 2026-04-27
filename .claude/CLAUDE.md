@@ -26,6 +26,7 @@ Los ADRs del proyecto viven en el path declarado por `adr_path` en este archivo 
    *Addendum FASE 39:* 12 fases THYROX propias (DISCOVER → STANDARDIZE). `workflow-analyze` renombrado a `workflow-discover`. 12 skills workflow-* totales: workflow-discover, workflow-measure, workflow-analyze, workflow-constraints, workflow-strategy, workflow-plan, workflow-structure, workflow-decompose, workflow-pilot, workflow-execute, workflow-track, workflow-standardize. Sistema `.claude/rules/` creado para invariantes globales.
 6. **Work packages with timestamp** — `.thyrox/context/work/YYYY-MM-DD-HH-MM-SS-nombre/`
 7. **Tim Pope commit style** — Subject imperativo (≤72 ch, capitalizado, sin punto) + línea en blanco + body con QUÉ y POR QUÉ, wrapped a 72 ch. Reemplaza Conventional Commits desde ÉPICA 4 (repository-diagnostics). Ver `.claude/rules/commit-conventions.md`.
+8. **Changelog en dos niveles** — `track/{wp}-changelog.md` se actualiza siempre durante el WP. `CHANGELOG.md` raíz **solo** se modifica en merge a `main` con bump de versión. Ver `.claude/rules/changelog-policy.md`.
 
 ## SKILL vs ADR — Regla de uso
 
