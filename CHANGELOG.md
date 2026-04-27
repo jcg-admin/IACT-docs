@@ -8,7 +8,8 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/) y SemVer 2.0.0
 - ROADMAP.md y CHANGELOG.md en raíz (F-07).
 - `scripts/setup.sh` — bootstrap del entorno de desarrollo (uv sync + hooks).
 - `scripts/install-hooks.sh` — activación de `.githooks/` via `core.hooksPath` (F-03).
-- WP `repository-diagnostics` — diagnóstico inicial del repositorio con 10 hallazgos.
+- `.claude/.claude-plugin/plugin.json` — manifest del plugin THYROX (F-11) — registra el namespace `/thyrox:*` documentado en ADR-019 pero no implementado hasta ahora.
+- WP `repository-diagnostics` — diagnóstico inicial del repositorio con 11 hallazgos.
 
 ### Changed
 - `pyproject.toml` `readme` apunta a `readme.rst` (F-02 — antes referenciaba `README.md` inexistente).

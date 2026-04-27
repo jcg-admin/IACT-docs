@@ -111,6 +111,16 @@ I-011 dice: un WP solo se cierra cuando el ejecutor lo ordena explícitamente. F
 - No existen scripts de: bootstrap del entorno, regenerar build, validar el WP activo, ejecutar I-015 desde la raíz.
 - `.claude/scripts/validate-phase-completion.sh` existe pero no hay wrapper en `scripts/` que lo invoque.
 
+### F-11 — Namespace `/thyrox:*` declarado en CLAUDE.md pero no implementado (OBSERVABLE)
+
+- CLAUDE.md (Locked Decision #5, addendum FASE 31 + ADR-019) declara: "Interfaz pública del sistema → `/thyrox:*` (plugin namespace via `.claude-plugin/plugin.json`)".
+- `find . -name "plugin.json"` → **no existe** ningún manifest.
+- `.claude/commands/` contiene archivos planos (`discover.md`, `strategy.md`, …) → comandos accesibles como `/discover`, `/strategy` (sin namespace).
+- El hook `session-start.sh` recomienda al usuario `/thyrox:strategy` — comando que **falla** porque el namespace `/thyrox:` no está registrado.
+- Resultado: la "interfaz pública" definida en ADR-019 está documentada pero no funciona en este repo.
+
+**Causa raíz:** el ADR cerró la decisión pero la implementación (crear el manifest) nunca se ejecutó como tarea.
+
 ### F-10 — Profusión de WPs cíclicos sobre el mismo tema (INFERRED desde nombres)
 
 Secuencia de WPs:
@@ -139,6 +149,7 @@ Secuencia de WPs:
 | F-08 | Conflicto rama harness vs feature/* | Media | Governance | Decidir: ignorar harness branch o cambiar política |
 | F-09 | scripts/ casi vacío | Baja | DX | Acumular scripts útiles del WP git-workflow |
 | F-10 | WPs auto-referenciales repetidos | Media | Proceso | Capear: este WP solo reporta, no inicia más auditorías |
+| F-11 | Namespace `/thyrox:*` declarado pero no implementado | Alta | Governance | Crear `.claude-plugin/plugin.json` (ADR-019 pendiente de ejecución) |
 
 ---
 
