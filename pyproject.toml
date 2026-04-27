@@ -2,7 +2,7 @@
 name = "iact-docs"
 version = "1.0.0"
 description = "IACT - Sistema de Dashboard Analytics | Technical Documentation"
-readme = "README.md"
+readme = "readme.rst"
 requires-python = ">=3.11"
 authors = [
     {name = "Equipo de Desarrollo IACT", email = "dev@iact.local"}
