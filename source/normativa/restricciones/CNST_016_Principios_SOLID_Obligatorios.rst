@@ -23,6 +23,11 @@ El diseno de clases y modulos del sistema IACT DEBE cumplir los cinco
 principios SOLID. Las violaciones documentadas requieren ADR con
 justificacion.
 
+Justificacion
+-------------
+
+SOLID es la base reconocida para un diseno orientado a objetos mantenible y extensible. Su aplicacion sistematica reduce el acoplamiento, facilita el testing y permite que el codebase crezca sin acumular deuda tecnica.
+
 Principios
 ----------
 

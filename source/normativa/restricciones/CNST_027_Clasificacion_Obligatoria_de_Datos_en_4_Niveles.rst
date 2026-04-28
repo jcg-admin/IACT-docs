@@ -24,6 +24,11 @@ cuatro niveles: ``Public``, ``Internal``, ``Confidential``,
 ``Restricted``. Modelos sin clasificacion no se aceptan en code
 review.
 
+Justificacion
+-------------
+
+Sin clasificacion explicita, las decisiones de proteccion (cifrado, exportacion, RBAC) quedan a criterio caso a caso y son inconsistentes. La clasificacion explicita en el modelo permite enforce-ar las politicas en el codigo y en code review.
+
 Niveles
 -------
 

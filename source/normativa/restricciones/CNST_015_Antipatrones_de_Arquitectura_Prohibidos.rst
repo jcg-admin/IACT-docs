@@ -23,6 +23,11 @@ Los siguientes antipatrones estan PROHIBIDOS en el codebase del
 sistema IACT. Su deteccion en code review obliga a refactor antes de
 merge a ``main``.
 
+Justificacion
+-------------
+
+Los antipatrones erosionan la mantenibilidad del codebase, concentran riesgo en clases que ningun integrante quiere tocar, y son causa frecuente de bugs de seguridad y performance. La deteccion temprana es mas barata que la refactorizacion tardia.
+
 Lista
 -----
 

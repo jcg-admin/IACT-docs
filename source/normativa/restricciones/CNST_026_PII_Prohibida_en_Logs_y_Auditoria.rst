@@ -24,6 +24,11 @@ mensajes de log y registros de auditoria. La PII a referenciar se
 guarda como ID; el detalle se consulta de la BD por separado segun
 el RBAC vigente.
 
+Justificacion
+-------------
+
+Los logs son persistidos, replicados a sistemas de observabilidad y eventualmente exportados para soporte. Cualquier PII en los logs amplia la superficie de exposicion fuera del ambito controlado por el RBAC, viola regulaciones tipicas de proteccion de datos y crea pasivos legales.
+
 Categorias prohibidas
 ---------------------
 

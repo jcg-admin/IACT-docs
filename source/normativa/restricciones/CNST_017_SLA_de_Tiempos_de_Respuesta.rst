@@ -23,6 +23,11 @@ Los endpoints del sistema IACT DEBEN cumplir SLAs de tiempo de
 respuesta segun su tipo. Endpoints que no cumplen el SLA requieren
 optimizacion o reclasificacion (mover a procesamiento asincrono).
 
+Justificacion
+-------------
+
+Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza del usuario. Endpoints sin SLA definido tienden a degradarse silenciosamente con el crecimiento del dataset y se detectan solo cuando el incidente ya ocurrio.
+
 Parametros
 ----------
 
