@@ -1,40 +1,47 @@
 ```yml
 type: Estado de Sesión
 version: 3.2
-updated_at: 2026-04-28 04:10:09
+updated_at: 2026-04-28 04:48:02
 cold_boot: false
-current_epic: 4
-epic_name: repository-diagnostics
+current_epic: 5
+epic_name: source-rebuild-strategy
 current_work: .thyrox/context/work/2026-04-28-01-58-08-source-rebuild-strategy
-stage: Phase 10 — EXECUTE
-stage_number: 10
-current_phase: Phase 10 EXECUTE (in progress — fixing F-02..F-09)
-flow: null
-methodology_step: null
-blockers: ["F-01 awaiting user decision: untrack build/ vs keep tracked"]
-last_completed_phase: Phase 1 — DISCOVER (10 findings catalogued)
-next_decision_required: "F-01: untrack build/ (option B) or keep tracked (option A)"
+stage: Phase 6 — PLAN
+stage_number: 6
+current_phase: Phase 6 — PLAN (recién entrada, Phase 5 STRATEGY v2.0 aprobada)
+flow: thyrox
+methodology_step: workflow-plan
+blockers: []
+last_completed_phase: Phase 5 — STRATEGY v2.0 (10 ideas, 14 decisions, 3 análisis de soporte)
+next_decision_required: "Phase 6 PLAN: definir in/out scope detallado del WP-padre y listar los 16 WPs hijos"
+stage_sync_required: false
 ```
 
-# IACT-docs — Repository Diagnostics
+# IACT-docs — Source Rebuild Strategy
 
-**WP activo:** `2026-04-27-04-20-01-repository-diagnostics`
-**Branch:** `feature/repository-diagnostics`
-**Phase 1 DISCOVER:** ✓ COMPLETA — 10 hallazgos en `discover/repository-diagnostics-analysis.md`
-**Phase 10 EXECUTE:** en curso — aplicando fixes F-02 a F-09. F-01 bloqueado por decisión usuario.
+**WP activo:** `2026-04-28-01-58-08-source-rebuild-strategy`
+**Branch:** `feature/solve-problem-docs`
+**Phase 1 DISCOVER:** completa — D1-D5 + F-04/F-05 + F-NEW-1..7 resueltos.
+**Phase 5 STRATEGY:** aprobada (v2.0) — 10 Key Ideas, 14 Decisions, 3 análisis de soporte.
+**Phase 6 PLAN:** en curso.
 
-## Hallazgos en proceso
+## Strategy v2.0 — resumen
 
-| ID | Hallazgo | Estado |
-|----|----------|--------|
-| F-01 | build/ tracked + gitignore contradictorio | BLOCKED (user decision) |
-| F-02 | pyproject.toml readme apunta a archivo inexistente | EN CURSO |
-| F-03 | .githooks no auto-instalados | EN CURSO |
-| F-04 | sphinx-build no disponible / no hay bootstrap | EN CURSO |
-| F-05 | now.md inconsistente (3 WPs mezclados) | RESUELTO (este reset) |
-| F-06 | WPs sin marcador de cierre | EN CURSO |
-| F-07 | ROADMAP.md / CHANGELOG.md ausentes | EN CURSO |
-| F-08 | Conflicto rama harness vs feature/* | RESUELTO (claude/* eliminado) |
-| F-09 | scripts/ casi vacío | EN CURSO |
-| F-10 | WPs auto-referenciales | ACEPTADO (proceso, no fix de código) |
-stage_sync_required: true
+- 3 dimensiones: methodology + spec/tech + lifecycle.
+- 16 WPs granular en orden secuencial.
+- 8 cajones técnicos nuevos (backend, frontend, infrastructure, databases, operations, onboarding, quality, risks-technical-debt).
+- source/ y .thyrox/ son worlds separados.
+- Re-autoría con v1.0.0 fresh (no migración).
+- Skeleton-first para tech cajones.
+
+## WPs relacionados
+
+- `bootstrap-hardening` (2026-04-28-03-59-01) — paralelo, recibió F-NEW-8 (tech-skill fix backend-nodejs → backend-django) pendiente.
+
+## Próximo paso
+
+Phase 6 PLAN del WP source-rebuild-strategy:
+- Definir in/out scope detallado del WP-padre.
+- Listar los 16 WPs hijos como spinoff.
+- Actualizar ROADMAP.md si existe.
+- Producir `plan/source-rebuild-strategy-plan.md`.

@@ -2,11 +2,11 @@
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 created_at: 2026-04-28 01:58:08
-current_phase: Phase 5 — STRATEGY v2.0 (Borrador, D-TECH-1..7 confirmadas, esperando gate humano final)
+current_phase: Phase 6 — PLAN
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: workflow-plan
 author: NestorMonroy
-status: Aprobado — D4, D5, F-04, F-05, F-NEW-1/2/3 resueltos
+status: Aprobado — Phase 5 STRATEGY v2.0 cerrada 2026-04-28 04:48
 ```
 
 # WP — Source Rebuild Strategy

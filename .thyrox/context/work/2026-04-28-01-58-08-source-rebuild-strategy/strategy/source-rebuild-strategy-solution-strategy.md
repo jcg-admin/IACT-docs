@@ -6,7 +6,7 @@ phase: Phase 5 — STRATEGY
 architecture_version: 2.0
 architect: NestorMonroy
 stack_version: Sphinx 8.2.3 + Furo 2025.9.25 + Python 3.11 + RST puro · Producto IACT: React+Webpack / Django REST Framework / Ubuntu+Apache / MySQL+PostgreSQL
-status: Borrador
+status: Aprobado — 2026-04-28 04:48 (ejecutor: SI)
 ```
 
 > **v2.0 — MAJOR. Re-framing del ejecutor (2026-04-28):** IACT-docs
