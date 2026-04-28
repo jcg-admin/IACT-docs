@@ -38,11 +38,8 @@ Estado de la documentación
 
 .. note::
 
-   La documentación del producto IACT está en **proceso de
-   reconstrucción** según la estrategia v2.0 del WP
-   ``source-rebuild-strategy`` (ÉPICA 8).
-
-   La nueva estructura sigue tres capas ortogonales:
+   La documentación del producto IACT está organizada en tres
+   capas ortogonales (ver :doc:`base_cognitiva/_metadata/META_05_Estructura_Documental`):
 
    - **Capa 1 — Methodology / Governance:** standards, plantillas,
      procedimientos, restricciones, ADRs internos.
@@ -51,8 +48,18 @@ Estado de la documentación
    - **Capa 3 — Project lifecycle:** charter, roadmap, OKRs,
      épicas, releases, retrospectives, team.
 
-   Cada dominio se reconstruye en su propio sub-WP. El contenido se
-   incorpora a este árbol a medida que cada sub-WP se ejecuta.
+   La estructura se construye de forma **incremental dominio por
+   dominio**. Los cajones aparecen en la navegación cuando su
+   contenido inicial está disponible.
+
+Contenido publicado
+===================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Base Cognitiva
+
+   base_cognitiva/index
 
 ----
 
