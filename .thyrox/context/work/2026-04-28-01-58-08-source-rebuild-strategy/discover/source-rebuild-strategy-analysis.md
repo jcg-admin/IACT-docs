@@ -202,7 +202,8 @@ Durante el rebuild incremental:
 | **F-NEW-1** | Conflicto sin resolver en `.gitignore` | **RESUELTO** en commit anterior. Combinó tools/ excludes (HEAD) + temp-holding/**/transcripts y mnt (otra rama), descartó duplicado de `build/`. |
 | **F-NEW-2** | `temp-holding/` contiene 5+ backups anidados | Triage al inicio del primer WP de rebuild para identificar el más curado. Backups detectados: `IACT_Backup_Completo_2026-01-11/`, `IACT_Backup_Completo_2026-01-11-old/`, `TMP_COMPLETO_2026-01-13/`, `TMP_COMPLETO_2026-01-13_OK/`, `TMP_COMPLETO_IACT_2026-01-13_2/`. |
 | **F-NEW-3** | Premisa "source/ tiene 0 warnings/errores" | Pendiente de verificar. `sphinx-build 8.2.3` ya está disponible (instalado 2026-04-28 fuera del flujo oficial — ver F-NEW-4). No bloquea el rebuild — `temp-backup/` capturará el estado actual sea cual sea. Verificación opcional antes del primer WP de rebuild. |
-| **F-NEW-4** | `pyproject.toml` con pins internamente contradictorios | `sphinx-tabs==3.5.0` + `sphinx-toolbox==4.1.2`, pero toolbox 4.1.2 requiere `sphinx-tabs<3.4.7`. Tanto `uv sync` como `pip install -e .` fallan con `ResolutionImpossible`. `uv.lock` aún tiene la combinación anterior compatible (`sphinx-tabs==3.4.5` + `sphinx-toolbox==4.1.0`) — fue editado el `pyproject.toml` sin re-lockear. **Bloquea el setup oficial del entorno.** Decisión pendiente: opción A (restaurar a versiones de uv.lock), B (subir toolbox a versión compatible con tabs 3.5.0), o C (bajar tabs a 3.4.6). |
+| **F-NEW-4** | `pyproject.toml` con pins internamente contradictorios | **RESUELTO (2026-04-28 03:35).** `sphinx-tabs==3.5.0` + `sphinx-toolbox==4.1.2`, pero toolbox 4.1.2 requiere `sphinx-tabs<3.4.7`. Investigación: latest sphinx-toolbox en PyPI es 4.1.2 (opción B no viable). Verificado que `sphinx-toolbox` NO se usa en `source/` (0 ocurrencias) — **eliminado**. `sphinx-tabs` se mantiene (uso futuro intencional en nuevo source/). `uv sync` ahora completa sin conflictos. |
+| **F-NEW-5** | Eliminación de Markdown del proyecto | El nuevo `source/` será 100% RST por decisión del ejecutor. Eliminado `myst-parser==4.0.1` y dependencias transitivas huérfanas (`markdown-it-py`, `mdit-py-plugins`, `mdurl`) de `pyproject.toml`. Eliminada extension `'myst_parser'` de `source/conf.py`. Añadida extension `'sphinx_tabs.tabs'` (será usada en el rebuild). El skill `sphinx` queda disponible como referencia para uso correcto de directivas (`.. tabs::`, `.. tab::`, etc.). |
 | **F-OLD-3** | Inventariar contenido específico de `base_cognitiva/` | Diferido al primer WP de rebuild (`source-rebuild-base-cognitiva`). El inventario detallado va en su discover, no aquí. |
 
 ## 9. Estrategia de gestión de directorios temporales
@@ -232,7 +233,8 @@ ningún `:doc:` o `:ref:` apunta a `temp-*`).
 | **F-NEW-1** | Conflicto `.gitignore` resuelto. |
 | **F-NEW-2** | Triage de backups anidados de `temp-holding/` en primer WP de rebuild. |
 | **F-NEW-3** | sphinx-build 8.2.3 disponible (instalado fuera del flujo oficial); verificación de baseline opcional. |
-| **F-NEW-4** | `pyproject.toml` con pins contradictorios (sphinx-tabs vs sphinx-toolbox); bloquea `uv sync` y `pip install -e .`. **Pendiente decisión A/B/C.** |
+| **F-NEW-4** | `pyproject.toml` con pins contradictorios resuelto eliminando `sphinx-toolbox` (dependencia muerta). `uv sync` funcional. |
+| **F-NEW-5** | Markdown eliminado del proyecto: `myst-parser` + transitivas + extension `myst_parser` removidas. `sphinx-tabs` preservado para uso correcto en nuevo source/. Skill `sphinx` cargado como referencia. |
 | **CLEANUP** | `temp-backup/` y `temp-holding/` se eliminan al final. |
 
 ## 11. Criterio editorial — quién decide

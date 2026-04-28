@@ -31,7 +31,7 @@ extensions = [
     # Extensiones de interactividad y diseño
     'sphinx_design',
     'sphinx_copybutton',
-    'myst_parser',
+    'sphinx_tabs.tabs',
 
     # PlantUML para diagramas
     'sphinxcontrib.plantuml',

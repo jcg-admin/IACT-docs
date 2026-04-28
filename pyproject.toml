@@ -32,13 +32,12 @@ dependencies = [
     "sphinx-copybutton==0.5.2",                    # Copy button for code blocks
     "sphinx-design==0.6.1",                        # Card/grid layouts (Phase 6 design)
 
-    # Markdown & Content Parsing
-    "myst-parser==4.0.1",                          # Markdown support in Sphinx
+    # Content Parsing (RST only — Markdown removed por decisión de
+    # rebuild de source/, ver F-NEW-5 en source-rebuild-strategy WP)
     "PyYAML==6.0.3",                               # YAML parsing
 
     # Documentation Features
-    "sphinx-tabs==3.5.0",                          # Tabbed content sections
-    "sphinx-toolbox==4.1.2",                       # Extra tools
+    "sphinx-tabs==3.5.0",                          # Tabbed content sections (uso correcto en nuevo source/)
     "sphinx-prompt==1.10.2",                       # Formatted prompts
     "sphinx-jinja==2.0.2",                         # Jinja2 support
     "sphinx-notfound-page==1.1.0",                 # Custom 404 page
@@ -55,9 +54,6 @@ dependencies = [
     # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
     "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
     "docutils==0.21.2",
-    "markdown-it-py==3.0.0",
-    "mdit-py-plugins==0.5.0",
-    "mdurl==0.1.2",
     "sphinx-autobuild==2025.8.25",
     "h11==0.16.0",
     "html5lib==1.1",

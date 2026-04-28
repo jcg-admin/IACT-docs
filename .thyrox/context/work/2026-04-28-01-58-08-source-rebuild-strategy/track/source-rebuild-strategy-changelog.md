@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 03:35:00
+updated_at: 2026-04-28 03:35:50
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -42,6 +42,38 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
 - Sección 11 ("Criterio editorial — quién decide"): clasificación
   inicial la propone Claude, ejecutor confirma.
 - Sección 12 ("Estado del WP"): salida atómica explícita.
+
+### Removed
+
+- `pyproject.toml`: eliminado `myst-parser==4.0.1` (Markdown parser
+  para Sphinx). Decisión del ejecutor: el nuevo `source/` será
+  100% RST, sin Markdown. (F-NEW-5).
+- `pyproject.toml`: eliminado `sphinx-toolbox==4.1.2`. Verificado
+  que NO se usa en el proyecto: 0 ocurrencias en `source/conf.py`
+  extensions list, 0 directivas (`.. collapse::`, `.. confval::`,
+  `.. shields::`, etc.) en `source/`. Las únicas menciones están
+  en `temp-holding/` (material histórico). (F-NEW-4 resuelto).
+- `pyproject.toml`: eliminadas dependencias transitivas huérfanas
+  de myst-parser: `markdown-it-py==3.0.0`, `mdit-py-plugins==0.5.0`,
+  `mdurl==0.1.2`. Eran transitivas pero estaban listadas como
+  directas (probable export de `pip freeze` previo). (F-NEW-5).
+- `source/conf.py`: eliminada extension `'myst_parser'` de la lista
+  `extensions`. (F-NEW-5).
+
+### Changed
+
+- `source/conf.py`: añadida extension `'sphinx_tabs.tabs'` a la lista
+  `extensions`. Sphinx-tabs **se mantiene** en pyproject.toml — el
+  nuevo `source/` lo usará de manera correcta. La directiva ya
+  está disponible para el rebuild de dominios. Skill `sphinx`
+  cargado provee referencia para uso correcto de directivas
+  (`.. tabs::`, `.. tab::`, `.. group-tab::`, `.. code-tab::`).
+
+### Fixed
+
+- F-NEW-4 resuelto. `uv sync` ahora completa sin conflictos.
+  Verificado: `.venv/bin/sphinx-build --version` → `sphinx-build 8.2.3`.
+  La instalación oficial del proyecto vía `uv sync` queda funcional.
 
 ### Investigation (no code change yet)
 
