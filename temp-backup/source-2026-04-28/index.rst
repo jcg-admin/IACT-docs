@@ -55,54 +55,6 @@ Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Backend (Django REST Framework)
-
-   backend/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Frontend (React + Webpack)
-
-   frontend/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Infraestructura (Ubuntu + Apache)
-
-   infrastructure/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Bases de Datos (MySQL + PostgreSQL)
-
-   databases/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Operations
-
-   operations/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Onboarding
-
-   onboarding/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Calidad y Testing
-
-   quality/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Riesgos y Deuda Técnica
-
-   risks-technical-debt/index
-
-.. toctree::
-   :maxdepth: 2
    :caption: Gestión
 
    gestion/index
