@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 04:05:00
-updated_at: 2026-04-28 04:05:00
+updated_at: 2026-04-28 04:46:00
 project: IACT-docs
 work_package: 2026-04-28-03-59-01-bootstrap-hardening
 phase: Phase 1 — DISCOVER (con implementación adelantada por instrucción ejecutor)
@@ -69,6 +69,26 @@ si se decide continuarlo):
 - D1: ¿`CONTRIBUTING.md` separado o sección en `readme.rst`?
 - D4: Soft-disable de spellcheck si enchant no está
 - F-05: Pre-push hook con warning de bootstrap
+
+### Pendiente derivado de WP `source-rebuild-strategy` v2.0
+
+- **F-NEW-8 (tech-skill mismatch)**: la guideline activa
+  `.thyrox/guidelines/backend-nodejs.instructions.md` no coincide
+  con el stack real del proyecto (Django REST Framework). Acción
+  pendiente:
+  1. Generar `.thyrox/guidelines/backend-django.instructions.md`
+     con convenciones DRF (urls.py, viewsets, serializers,
+     manage.py, requirements/pyproject, settings, models).
+  2. Desactivar/eliminar `.thyrox/guidelines/backend-nodejs.
+     instructions.md`.
+  3. Actualizar @import en `.claude/CLAUDE.md`.
+  4. Verificar que registry/agents/* y registry/{layer}/* generen
+     el guideline correcto si bootstrap.py se re-ejecuta.
+
+  Origen: D-TECH-4 (Decision 11 de strategy v2.0). Razón: cualquier
+  sugerencia de Claude sobre backend hereda convenciones Node.js
+  (Express, package.json, npm) en vez de Django. Detectado durante
+  análisis de tech-stack alignment del WP source-rebuild-strategy.
 
 ## Status de promoción a CHANGELOG.md raíz
 

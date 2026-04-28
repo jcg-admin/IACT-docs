@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:55:00
+updated_at: 2026-04-28 04:46:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,59 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Phase 5 STRATEGY v2.0 (2026-04-28 04:46) — MAJOR bump
+
+Ejecutor confirma las 7 decisiones D-TECH-1..7:
+
+- **D-TECH-1 → Granular** (16 WPs).
+- **D-TECH-2 → Re-autoría** con versión 1.0.0 fresh (a menos
+  que existan superiores). NO migración mecánica. ADRs de
+  temp-holding son fuente principal. Sin código aún —
+  skeleton-first.
+- **D-TECH-3 → databases/ propio** (MySQL + PostgreSQL son 2
+  motores distintos).
+- **D-TECH-4 → Corregir tech-skill mismatch** (backend-nodejs
+  → backend-django) en WP `bootstrap-hardening`.
+- **D-TECH-5 → Mínima inicial** (overview.rst + conventions.rst
+  por cajón nuevo). Expansión en sub-WPs.
+- **D-TECH-6 → source/ ↔ .thyrox/ separados.** Source no sabe
+  que .thyrox existe. Re-autoría manual humana del contenido
+  valioso.
+- **D-TECH-7 → news/ no aplica; knowledge/ subsumido en
+  base_cognitiva** (ya cubre la dimensión conceptual).
+
+Strategy bumpeada a **v2.0 (MAJOR)** — cambia estructura macro
+de source/, no solo agrega ideas:
+
+- Idea 8: arquitectura de 3 dimensiones (methodology + spec/tech
+  + lifecycle).
+- Idea 9: skeleton-first para cajones técnicos.
+- Idea 10: separación de mundos source/ ↔ .thyrox/.
+- Decision 9: estructura híbrida con 8 cajones técnicos nuevos.
+- Decision 10: re-autoría con versión 1.0.0 (vs migración).
+- Decision 11: tech-skill fix en bootstrap-hardening WP.
+- Decision 12: skeleton-first.
+- Decision 13: independencia source ↔ .thyrox.
+- Decision 14: news/ no, knowledge/ subsumido.
+
+Nuevo orden de WPs (16 granular):
+1. base_cognitiva | 2. normativa/estandares |
+3. normativa/procedimientos | 4. normativa/restricciones |
+5. normativa/gobernanza | 6. requisitos | 7. arquitectura_tecnica |
+**8. backend** | **9. frontend** | **10. infrastructure** |
+**11. databases** | **12. operations** | **13. onboarding** |
+**14. quality** | **15. risks-technical-debt** |
+16. gestion (lifecycle expandido).
+
+Diagrama mermaid actualizado a 3 capas + nodo .thyrox/ explícito
+mostrando la separación.
+
+Tabla de evidencia ampliada con 6 nuevos claims (5 PROVEN + 2
+TESTIMONIAL del ejecutor 04:50 y 04:55).
+
+WP `bootstrap-hardening` recibe acción adicional pendiente:
+F-NEW-8 (tech-skill fix).
 
 ### Re-framing tech-stack del ejecutor (2026-04-28 04:50–04:55)
 

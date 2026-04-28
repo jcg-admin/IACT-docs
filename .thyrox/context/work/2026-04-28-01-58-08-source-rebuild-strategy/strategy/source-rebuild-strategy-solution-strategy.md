@@ -3,19 +3,30 @@ created_at: 2026-04-28 04:10:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 5 — STRATEGY
-architecture_version: 1.2
+architecture_version: 2.0
 architect: NestorMonroy
-stack_version: Sphinx 8.2.3 + Furo 2025.9.25 + Python 3.11 + RST puro
+stack_version: Sphinx 8.2.3 + Furo 2025.9.25 + Python 3.11 + RST puro · Producto IACT: React+Webpack / Django REST Framework / Ubuntu+Apache / MySQL+PostgreSQL
 status: Borrador
 ```
 
-> **v1.2 — Templates y restricciones reconocidos como first-class citizens.**
-> Agrega Idea 6 (templates como contrato estructural), Idea 7 (CNST como
-> input arquitectónico), Decision 6 (sub-orden de estandares), Decision 7
-> (triage de versiones de templates), Decision 8 (reconciliación de CNST
-> antes de rebuild). Ver análisis de soporte en
-> `strategy/templates-inventory-analysis.md` y
-> `strategy/restricciones-divergence-analysis.md`.
+> **v2.0 — MAJOR. Re-framing del ejecutor (2026-04-28):** IACT-docs
+> documenta un proyecto de software multi-tier (React+Webpack /
+> DRF / Ubuntu+Apache / MySQL+PostgreSQL) Y su ciclo de vida
+> (planes, épicas). 3 dimensiones, no 2.
+>
+> Cambios MAJOR vs v1.2:
+> - 8 cajones técnicos nuevos (backend, frontend, infrastructure,
+>   databases, operations, onboarding, quality, risks-technical-debt)
+> - `gestion/` se expande con cajón de proyecto (charter, roadmap,
+>   épicas, releases, retros, team)
+> - Total WPs: 16 (granular, D-TECH-1)
+> - source/ y .thyrox/ son worlds separados (D-TECH-6)
+> - Idea 8 (3-dimension architecture), Idea 9 (skeleton-first),
+>   Idea 10 (separación source ↔ .thyrox)
+> - Decisions 9-14 nuevas
+>
+> Análisis de soporte: `strategy/tech-stack-alignment-analysis.md`
+> + `strategy/iact-docs-v2-applicability-analysis.md`.
 
 # Solution Strategy: Source Rebuild
 
@@ -174,6 +185,71 @@ hereda esa inconsistencia.
 - La gravedad amerita separar CNST en su propio WP, distinto del
   WP de gobernanza (ver Decision 7).
 
+### Idea 8: Arquitectura de 3 dimensiones (methodology + tech + lifecycle)
+
+**Descripción:** IACT-docs no es solo "documentación del producto".
+Cubre tres dimensiones ortogonales:
+
+1. **Methodology / Governance** — STDs, plantillas, procedimientos,
+   restricciones, ADRs internos. Define el cómo se trabaja.
+2. **Product spec + Tech implementation** — UCs, FRs, NFRs, BRs +
+   architecture overview + cajones por tier técnico (backend,
+   frontend, infrastructure, databases, operations, etc.). Define
+   el qué y el cómo del producto.
+3. **Project lifecycle** — charter, roadmap, OKRs, épicas, sprints,
+   releases, retros, team. Define el cómo se gestiona el proyecto.
+
+**Impacto:**
+- Estructura de `source/` refleja las 3 capas explícitamente.
+- Cada capa tiene cajones top-level distintos.
+- Ningún cajón pertenece a más de una capa — clasificación clara
+  evita el "catch-all" (problema documentado en v2.0 cuello #10).
+
+### Idea 9: Skeleton-first para cajones técnicos (D-TECH-5)
+
+**Descripción:** los nuevos cajones técnicos (backend, frontend,
+infrastructure, databases, operations, onboarding, quality,
+risks-technical-debt) se crean con estructura **mínima** —
+`overview.rst` + `conventions.rst` por cajón. Documentación
+detallada (componentes, módulos, endpoints, schemas) se expande
+en sub-WPs cuando exista código a documentar.
+
+**Justificación del ejecutor:** "no tiene sentido mencionar el
+código ahorita; eso se va a ir creando ya con el código".
+
+**Impacto:**
+- Cada WP de cajón técnico es ligero — solo overview + convenciones.
+- Evita inventar contenido especulativo sobre código que no existe.
+- Los cajones quedan listos como "hooks" para que el desarrollo
+  los pueble incrementalmente.
+- Sub-WPs futuros (`source-rebuild-backend-api`, etc.) expanden
+  cuando sea pertinente.
+
+### Idea 10: Separación de mundos — source/ ↔ .thyrox/ (D-TECH-6)
+
+**Descripción:** `source/` y `.thyrox/context/work/` son **worlds
+independientes**:
+
+- `.thyrox/` es **process tooling interno** — cómo trabajan Claude
+  y el ejecutor. Markdown, no publicado, invisible al usuario final
+  del sitio.
+- `source/` es **producto + proyecto publicado** — RST estricto,
+  renderizado por Sphinx, visible para stakeholders.
+
+**Regla:** `source/` no sabe que `.thyrox/` existe. Si un WP
+genera contenido valioso para el sitio (ej. una decisión técnica
+relevante para devs externos), el ejecutor **re-autora ese contenido
+en source/ como RST**. No hay imports automáticos, no hay symlinks,
+no hay generación cross-world.
+
+**Impacto:**
+- Cero acoplamiento entre tooling interno y sitio público.
+- Re-autoría humana garantiza calidad editorial al pasar de markdown
+  interno a RST publicable.
+- `source/gestion/epicas/` (si se decide tenerlo) contiene RST
+  escritos a mano que resumen las épicas — NO son auto-generación
+  desde `.thyrox/context/work/`.
+
 ---
 
 ## Fundamental Decisions
@@ -200,14 +276,32 @@ hereda esa inconsistencia.
 - `plantuml-guide` se resuelve dentro de `arquitectura_tecnica`
   (decisión F-04).
 
-**Implications (actualizado v1.2):**
-- 8 WPs de rebuild de dominio. plantuml-guide se absorbe en
-  arquitectura_tecnica (F-04); restricciones se separa de gobernanza
-  por la divergencia detectada (Decision 7).
-- Orden final: (1) base_cognitiva, (2) normativa/estandares,
-  (3) normativa/procedimientos, (4) normativa/restricciones,
-  (5) normativa/gobernanza, (6) requisitos, (7) arquitectura_tecnica,
-  (8) gestion.
+**Implications (actualizado v2.0):**
+- **16 WPs de rebuild de dominio** — granular (D-TECH-1).
+  plantuml-guide se absorbe en arquitectura_tecnica (F-04);
+  restricciones se separa de gobernanza (Decision 7); 8 cajones
+  técnicos nuevos (Decision 9); gestion expandido (Decision 10).
+- Orden final v2.0:
+
+  | # | WP | Capa | Notas |
+  |---|----|------|-------|
+  | 1 | base_cognitiva | Methodology | vocabulario base — incluye "knowledge" subsumido (D-TECH-7) |
+  | 2 | normativa/estandares | Methodology | STDs → templates → resto (Decision 5) |
+  | 3 | normativa/procedimientos | Methodology | |
+  | 4 | normativa/restricciones | Methodology | reconciliación CNST (Decision 7) |
+  | 5 | normativa/gobernanza | Methodology | ADRs internos del proyecto |
+  | 6 | requisitos | Spec | UCs/FRs/NFRs/BRs (consume CNSTs + templates) |
+  | 7 | arquitectura_tecnica | Spec/Tech | architecture overview + decisions; absorbe plantuml-guide |
+  | 8 | **backend** | Tech | NEW — DRF (skeleton-first) |
+  | 9 | **frontend** | Tech | NEW — React + Webpack (skeleton-first) |
+  | 10 | **infrastructure** | Tech | NEW — Ubuntu + Apache (skeleton-first) |
+  | 11 | **databases** | Tech | NEW — MySQL + PostgreSQL en cajón propio (D-TECH-3) |
+  | 12 | **operations** | Tech | NEW — deployment, monitoring, runbooks |
+  | 13 | **onboarding** | Tech | NEW — dev quickstart |
+  | 14 | **quality** | Tech | NEW — testing strategy |
+  | 15 | **risks-technical-debt** | Tech | NEW — TD log |
+  | 16 | gestion (expandido) | Lifecycle | charter + roadmap + épicas + releases + retros + team |
+
 - El orden permite que cada WP nuevo pueda apoyarse en términos y
   patrones definidos por los anteriores.
 - Si un dominio de "abajo" descubre que necesita ajustar uno ya
@@ -380,6 +474,190 @@ hereda esa inconsistencia.
 - El WP `restricciones` debe completarse y aprobarse ANTES de
   abrir `requisitos`.
 
+### Decision 9: Estructura híbrida — agregar 8 cajones técnicos (D-TECH-1, D-TECH-3)
+
+**Alternatives Considered:**
+- Mantener solo dominios metodológicos (status quo). Rechazada:
+  el contenido técnico está disperso y un dev de backend tiene
+  que recorrer 3+ dominios para reconstruir el cuadro DRF.
+- Adoptar los "12 cajones" v2.0 al pie de la letra. Rechazada:
+  v2.0 es para multi-proyecto + corp; varios cajones no aplican.
+- Reorganizar todo source/ siguiendo v2.0. Rechazada: rompe
+  artefactos válidos (UCs, BRs, etc.) que tienen su lugar
+  metodológico claro.
+- **Híbrida — agregar cajones técnicos como top-level
+  (elegida).** Coexisten con los metodológicos.
+
+**Justification:**
+- Stack real (verificado): React+Webpack / DRF / Ubuntu+Apache
+  / MySQL+PostgreSQL — necesita cajones por tier.
+- `databases/` propio porque son 2 motores distintos (D-TECH-3),
+  no son extensión simple de backend.
+- Cajones nuevos: backend, frontend, infrastructure, databases,
+  operations, onboarding, quality, risks-technical-debt.
+- Granular WPs (D-TECH-1) — cada cajón = WP propio. Total sube
+  de 8 a 16.
+
+**Implications:**
+- 16 WPs en total (8 metodológicos + tech-related + 1 lifecycle).
+- Cada cajón nuevo es bajo costo gracias a Decision 12 (skeleton-
+  first).
+- Refs cross-dominio: backend ↔ databases, backend ↔ requisitos
+  (UCs implementados), arquitectura_tecnica ↔ todos los tech.
+
+### Decision 10: Migración como re-autoría, NO como copia (D-TECH-2)
+
+**Alternatives Considered:**
+- Migrar archivos físicamente: mover `normativa/gobernanza/
+  ADR-FRONT-*.rst` a `frontend/decisions/`. Rechazada: rompe
+  refs históricas y no aplica el criterio editorial (Idea 5).
+- Linkear sin migrar: stubs en cajones nuevos que apuntan a la
+  ubicación actual. Rechazada: deuda técnica permanente, no
+  resuelve la dispersión.
+- **Re-autoría (elegida).** El contenido se REESCRIBE en el
+  nuevo cajón aplicando criterio editorial. Las versiones nuevas
+  empiezan en **1.0.0 a menos que existan versiones superiores**
+  (en source/ actual o en temp-holding/).
+
+**Justification:**
+- Coherente con D5 (backup-as-reference): NO se copia mecánica-
+  mente; se decide qué incorporar / fusionar / reescribir /
+  descartar.
+- Coherente con Idea 9 (skeleton-first): no se documenta código
+  que aún no existe. Solo overview + conventions.
+- temp-holding/ tiene "muchos ADRs" según el ejecutor — son la
+  fuente principal de re-autoría para los cajones técnicos
+  (especialmente frontend, devops, infra).
+- Versionado v1.0.0 fresh permite que la metadata refleje el
+  estado actual, no el histórico.
+
+**Implications:**
+- Discover de cada WP de cajón técnico debe inventariar:
+  - Archivos relevantes en source/ actual (ej: ADR-FRONT-001,
+    ADR-FRONT-004 → relevantes para frontend).
+  - Archivos relevantes en temp-holding/ (probablemente más).
+  - Decisión por archivo: re-autorizar / fusionar / descartar.
+- ADRs antiguos de source/normativa/gobernanza/ pueden ser
+  descartados de su ubicación actual una vez re-autorizado el
+  contenido en el cajón técnico correspondiente.
+- Si hay versión superior a 1.0.0 documentada, esa versión se
+  preserva (con justificación de por qué se conserva el número).
+
+### Decision 11: Tech-skill mismatch fix (F-NEW-8) en bootstrap-hardening WP (D-TECH-4)
+
+**Alternatives Considered:**
+- Fix en este WP. Rechazada: agrega scope no relacionado al
+  rebuild de source/.
+- Fix en spinoff WP nuevo dedicado. Costo de overhead.
+- **Fix en WP existente `bootstrap-hardening` (elegida).** Ese
+  WP ya cubre el bootstrap del repo y los tech-skills caen
+  dentro de su scope.
+
+**Acción concreta:**
+- Generar `.thyrox/guidelines/backend-django.instructions.md`
+  con convenciones DRF (urls.py, viewsets, serializers,
+  manage.py, requirements/pyproject, settings, models).
+- Desactivar/eliminar `.thyrox/guidelines/backend-nodejs.
+  instructions.md`.
+- Actualizar @import en CLAUDE.md.
+- Verificar que registry/agents/* y registry/{layer}/* generen
+  el guideline correcto si bootstrap.py se re-ejecuta.
+
+**Implications:**
+- WP `bootstrap-hardening` agrega F-NEW-8 a sus hallazgos.
+- Cualquier sugerencia futura de Claude sobre backend hereda
+  convenciones DRF, no Express.
+
+### Decision 12: Skeleton-first para cajones técnicos (D-TECH-5)
+
+**Alternatives Considered:**
+- Estructura completa al inicio (todos los sub-cajones del
+  modelo v2.0). Rechazada: alto esfuerzo, contenido especulativo.
+- **Mínima inicial (elegida).** Cada cajón técnico nuevo
+  contiene en su WP de rebuild solo:
+  - `index.rst` (entry point del cajón)
+  - `overview.rst` (alcance, contexto, decisiones a alto nivel)
+  - `conventions.rst` (convenciones de código/diseño que aplican
+    a ese tier)
+
+**Justification:**
+- "No tiene sentido mencionar el código ahorita" — ejecutor.
+- Cajones quedan listos como hooks para población incremental.
+- Sub-WPs futuros expanden cuando exista código a documentar
+  (ej: `source-rebuild-backend-api`, `source-rebuild-frontend-
+  components`).
+
+**Implications:**
+- Cada WP de cajón técnico es WP **pequeño** (~3 archivos +
+  inventario de re-autoría).
+- El sitio publicado cubre la estructura completa pero algunos
+  cajones empiezan ligeros — eso es transparente al usuario
+  via index.rst que explica el estado.
+
+### Decision 13: source/ y .thyrox/ son worlds separados (D-TECH-6)
+
+**Alternatives Considered:**
+- Espejo manual de WPs en source/gestion/epicas/. Rechazada:
+  duplicación, viola I-002.
+- Generación automática de epicas/ desde .thyrox/. Rechazada:
+  acoplamiento cross-world, complejidad.
+- Solo referencias (links externos a .thyrox). Rechazada:
+  source/ no debe saber que .thyrox existe.
+- **Independencia total (elegida).** `source/gestion/` (incluyendo
+  cualquier sub-cajón de épicas/releases/retros) es escrito a
+  mano por el ejecutor cuando corresponde, con el contenido del
+  proyecto que el sitio público debe mostrar. `.thyrox/` queda
+  invisible.
+
+**Justification del ejecutor:**
+> ".thyrox/context/work/ no se relaciona, si se ha tenido contenido
+> valioso que es parte del proyecto, se documenta en .thyrox como
+> markdown, y se pone de manera correcta en source — source no sabe
+> que existe .thyrox."
+
+**Implications:**
+- Ningún script de Sphinx, Makefile target ni extension custom
+  refiere a `.thyrox/`.
+- Si el ejecutor decide que una decisión de WP es valiosa para
+  el sitio público, la re-autora como RST en `source/`.
+- `gestion/` puede tener `epicas/`, `releases/`, `retrospectives/`,
+  `team/` — pero el contenido se escribe a mano, no se genera.
+
+### Decision 14: news/ no aplica; knowledge/ subsumido en base_cognitiva (D-TECH-7)
+
+**Alternatives Considered:**
+- Crear `news/` y `knowledge/` como cajones top-level v2.0.
+  Rechazada: news no aplica al scope del producto IACT;
+  knowledge ya tiene cobertura.
+- **No crear (elegida).**
+
+**Justification:**
+- `news/` (anuncios, releases corporativas, updates de servicio):
+  IACT no tiene flujo de comunicación regular a stakeholders
+  externos en este scope. Si se necesita en el futuro, se
+  agrega como cajón top-level. Por ahora no.
+- `knowledge/` v2.0 contiene: how-to-guides, best-practices,
+  lessons-learned, architecture-patterns, faqs. Mapeo:
+  - how-to-guides → `onboarding/` y `operations/runbooks/`
+  - best-practices → `normativa/estandares/` + conventions.rst
+    de cada cajón técnico
+  - lessons-learned → `gestion/retrospectives/` (si se crea)
+  - architecture-patterns → `arquitectura_tecnica/`
+  - faqs → distribuidas por dominio
+- Y crucialmente: **`base_cognitiva/`** YA cubre la dimensión
+  conceptual/glosario/ontología/fundamentos/taxonomías que es
+  el equivalente real al "knowledge base" del proyecto. El
+  ejecutor lo confirmó: "considero que hacen relación a lo que
+  se tiene actualmente en source/base_cognitiva".
+
+**Implications:**
+- 0 cajones nuevos de tipo news/knowledge.
+- `base_cognitiva/` mantiene su scope con: `_fundamentos_
+  conceptuales/`, `_metadata/`, `_ontologia_sbvr/`, `_taxonomias_
+  y_metamodelos/`, glosarios.
+- Si emergen necesidades futuras de "FAQ pública", se decide en
+  ese momento dónde colocarlas.
+
 ### Decision 8: Cada WP de rebuild de dominio tiene su propio ciclo THYROX
 
 **Alternatives Considered:**
@@ -467,27 +745,25 @@ graph TB
         THLD["temp-holding/<br/>(material histórico)"]
     end
 
-    subgraph WP["WPs de rebuild (8 dominios, orden secuencial)"]
-        WP1["1. WP base_cognitiva"]
-        WP2["2. WP normativa/estandares<br/>(STDs → templates → resto)"]
-        WP3["3. WP normativa/procedimientos"]
-        WP4["4. WP normativa/restricciones<br/>(reconciliación CNST)"]
-        WP5["5. WP normativa/gobernanza"]
-        WP6["6. WP requisitos<br/>(consume CNSTs + templates)"]
-        WP7["7. WP arquitectura_tecnica<br/>(absorbe plantuml-guide)"]
-        WP8["8. WP gestion"]
+    subgraph WP["WPs de rebuild (16 granular, v2.0)"]
+        direction TB
+        WPM["1-5. Methodology<br/>base_cognitiva, normativa/*"]
+        WPS["6-7. Spec<br/>requisitos, arquitectura_tecnica"]
+        WPT["8-15. Tech (skeleton-first)<br/>backend, frontend, infrastructure,<br/>databases, operations, onboarding,<br/>quality, risks-technical-debt"]
+        WPL["16. Lifecycle<br/>gestion (charter+roadmap+épicas+...)"]
     end
 
-    subgraph SRC["source/ nuevo (escrito archivo por archivo)"]
-        BC["base_cognitiva/"]
-        NE["normativa/estandares/<br/>+ plantillas/"]
-        NP["normativa/procedimientos/"]
-        NR["normativa/restricciones/"]
-        NG["normativa/gobernanza/"]
-        RQ["requisitos/"]
-        AT["arquitectura_tecnica/<br/>+ plantuml-guide/"]
-        GE["gestion/"]
+    subgraph SRC["source/ nuevo (3 capas)"]
+        direction TB
+        L1["CAPA 1 — Methodology<br/>base_cognitiva/, normativa/"]
+        L2["CAPA 2 — Spec + Tech<br/>requisitos/, arquitectura_tecnica/,<br/>backend/, frontend/, infrastructure/,<br/>databases/, operations/, onboarding/,<br/>quality/, risks-technical-debt/"]
+        L3["CAPA 3 — Lifecycle<br/>gestion/{charter,roadmap,epicas,<br/>releases,retros,team}"]
         IDX["index.rst<br/>(toctree solo de dominios listos)"]
+    end
+
+    subgraph THYR[".thyrox/ (INVISIBLE para source/)"]
+        direction TB
+        TWR["context/work/* (markdown)<br/>process tooling interno"]
     end
 
     subgraph BUILD["Build pipeline"]
@@ -496,27 +772,17 @@ graph TB
     end
 
     REF -.consultiva.-> WP
-    WP1 --> BC
-    WP2 --> NE
-    WP3 --> NP
-    WP4 --> NR
-    WP5 --> NG
-    WP6 --> RQ
-    WP7 --> AT
-    WP8 --> GE
-    NE -.templates.-> RQ
-    NE -.templates.-> AT
-    NR -.constraints.-> RQ
-    BC --> IDX
-    NE --> IDX
-    NP --> IDX
-    NR --> IDX
-    NG --> IDX
-    RQ --> IDX
-    AT --> IDX
-    GE --> IDX
+    WPM --> L1
+    WPS --> L2
+    WPT --> L2
+    WPL --> L3
+    L1 --> IDX
+    L2 --> IDX
+    L3 --> IDX
     IDX --> SPHINX
     SPHINX --> HTML
+    THYR -. NO referencia .-x SRC
+    THYR -. re-autoría manual humana .-> SRC
 ```
 
 ---
@@ -630,6 +896,24 @@ con mensaje accionable si `setup.sh` no se ejecutó. CI corre
   Análisis detallado en
   `strategy/restricciones-divergence-analysis.md`.
 
+### Satisfying re-framing v2.0 (2026-04-28)
+
+- **Stack técnico real (React+Webpack / DRF / Ubuntu+Apache /
+  MySQL+PostgreSQL)** → Idea 8 (3 dimensiones) + Decision 9
+  (8 cajones técnicos) + Decision 12 (skeleton-first).
+- **F-NEW-8 (tech-skill mismatch backend-nodejs vs DRF)** →
+  Decision 11 (fix en bootstrap-hardening WP).
+- **Contenido técnico disperso** → Decision 10 (re-autoría con
+  versión 1.0.0 fresh, no migración mecánica).
+- **Documentamos también ciclo de vida (épicas, planes)** →
+  Idea 8 capa 3 + capa expandida en `gestion/`.
+- **Separación tooling interno vs sitio público** → Idea 10 +
+  Decision 13.
+- **news/ no aplica; knowledge subsumido** → Decision 14.
+- Análisis detallados en
+  `strategy/tech-stack-alignment-analysis.md` y
+  `strategy/iact-docs-v2-applicability-analysis.md`.
+
 ---
 
 ## Evidencia de respaldo
@@ -648,6 +932,11 @@ con mensaje accionable si `setup.sh` no se ejecutó. CI corre
 | source/ y temp-holding/ tienen CNST con misma numeración pero conceptos distintos | PROVEN | Comparación: source CNST_005=Seguridad_DRF_Checklist; temp-holding CNST_005=RBAC_Flat_SoD_Permisos. Verificado con `find -iname "CNST_*"` en ambos directorios. | alta | nuevo |
 | source/ tiene gap en CNST_011 | PROVEN | Listado de source/normativa/restricciones/: CNST_001..010 + CNST_012, sin CNST_011 | alta | nuevo |
 | Existe documento maestro `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` | PROVEN | `find temp-holding -iname "RESTRICCIONES_COMPLETAS*"` → 2 ubicaciones (originales/ + uploads/ del backup) | alta | nuevo |
+| source/ NO tiene cajones backend, frontend, infrastructure, databases, operations, onboarding, quality, risks-technical-debt | PROVEN | `find source -maxdepth 1 -type d` → solo arquitectura_tecnica, base_cognitiva, gestion, normativa, plantuml-guide, requisitos, _static, _templates | alta | nuevo |
+| Contenido técnico (frontend/backend/devops) disperso en source/normativa/* y source/gestion/ | PROVEN | 14+ archivos relevantes encontrados con grep en normativa/gobernanza/, normativa/procedimientos/, gestion/pm/ | alta | nuevo |
+| `.thyrox/guidelines/backend-nodejs.instructions.md` activo siendo que stack es DRF | PROVEN | `ls .thyrox/guidelines/` muestra backend-nodejs (no backend-django) | alta | nuevo |
+| Stack real declarado: React+Webpack / Django REST Framework / Ubuntu+Apache / MySQL+PostgreSQL | TESTIMONIAL | Declaración del ejecutor 2026-04-28 04:50 | alta (testimonial directo) | nuevo |
+| IACT-docs cubre 3 dimensiones (methodology + tech + lifecycle), incluye documentación de planes y épicas | TESTIMONIAL | Declaración del ejecutor 2026-04-28 04:55: "documentamos los planes de trabajo, las épicas, etc." | alta (testimonial directo) | nuevo |
 | Rebuild dominio-por-dominio no rompe build si toctree filtra pendientes | INFERRED | Comportamiento conocido de Sphinx: archivos fuera del toctree no se procesan; sin processing no hay warnings/refs. Confirmar empíricamente en primer WP de dominio. | media | inferencia-stage5 |
 | Esfuerzo 5–10x para rebuild editorial vs lift-and-shift | SPECULATIVE | Estimación cualitativa sin benchmarks empíricos. Útil como ranking, no como estimación de schedule. | baja | nuevo-flagged |
 
