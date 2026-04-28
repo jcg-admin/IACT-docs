@@ -37,3 +37,9 @@ Subdominios
    :caption: Restricciones
 
    restricciones/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Gobernanza
+
+   gobernanza/index

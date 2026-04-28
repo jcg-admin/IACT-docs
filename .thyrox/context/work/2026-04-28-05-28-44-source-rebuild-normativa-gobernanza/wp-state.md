@@ -4,11 +4,13 @@ work_package: 2026-04-28-05-28-44-source-rebuild-normativa-gobernanza
 parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
 parent_relationship: child #5 of 16
 created_at: 2026-04-28 05:28:44
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 11 — TRACK (CERRADO)
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: cerrado
 author: NestorMonroy
-status: Borrador (no iniciado)
+status: CERRADO — 2026-04-28 17:00 (7 ADR-GOB integrados, 12 ADRs no-GOB en handoff, build limpio)
+opened_at: 2026-04-28 16:30:00
+closed_at: 2026-04-28 17:00:00
 ```
 
 # WP-hijo #5 — Source Rebuild: normativa/gobernanza
