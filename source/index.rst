@@ -1,7 +1,7 @@
-.. IACT - Sistema de Dashboard Analytics documentation master file
+.. IACT - Sistema de Dashboard Analytics — documentación raíz
 
 =====================================
-IACT - Sistema de Dashboard Analytics
+IACT — Sistema de Dashboard Analytics
 =====================================
 
 .. image:: _static/img/logo.svg
@@ -14,114 +14,50 @@ IACT - Sistema de Dashboard Analytics
 Bienvenido a la Documentación del Proyecto IACT
 ===============================================
 
-El proyecto IACT es una solución de **Dashboard Analytics** que conecta datos operativos con necesidades de análisis de negocio mediante un proceso ETL robusto y trazable.
+El proyecto IACT es una solución de **Dashboard Analytics** que conecta
+datos operativos (origen MySQL, modo solo-lectura) con necesidades de
+análisis de negocio (destino PostgreSQL, optimizado) mediante un proceso
+ETL trazable. El frontend (React + Webpack) consume la API REST del
+backend (Django REST Framework) servido por Apache + mod_wsgi sobre
+Ubuntu.
 
-Arquitectura del Sistema
-------------------------
+Stack del producto
+==================
 
-* **Fuente de Datos:** MySQL (operativa, solo lectura)
-* **Destino Analítico:** PostgreSQL (optimizado para consultas)
-* **Backend:** Django REST Framework
-* **Frontend:** React (Dashboard)
+================ ========================================================
+Capa             Tecnología
+================ ========================================================
+Frontend         React + Webpack
+Backend          Django REST Framework (Python 3.11+)
+Infraestructura  Ubuntu + Apache (mod_wsgi)
+Bases de datos   MySQL (operativa, RO) + PostgreSQL (analítica)
+================ ========================================================
 
-Estructura de la Documentación
-==============================
+Estado de la documentación
+==========================
 
-Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 Dominios Primarios que gobiernan 21 Subdominios especializados.
+.. note::
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Base Cognitiva
+   La documentación del producto IACT está en **proceso de
+   reconstrucción** según la estrategia v2.0 del WP
+   ``source-rebuild-strategy`` (ÉPICA 8).
 
-   base_cognitiva/index
+   La nueva estructura sigue tres capas ortogonales:
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Normativa
+   - **Capa 1 — Methodology / Governance:** standards, plantillas,
+     procedimientos, restricciones, ADRs internos.
+   - **Capa 2 — Product spec + Tech implementation:** UCs, FRs,
+     NFRs, BRs + arquitectura + cajones por tier técnico.
+   - **Capa 3 — Project lifecycle:** charter, roadmap, OKRs,
+     épicas, releases, retrospectives, team.
 
-   normativa/index
+   Cada dominio se reconstruye en su propio sub-WP. El contenido se
+   incorpora a este árbol a medida que cada sub-WP se ejecuta.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Requisitos
-
-   requisitos/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Arquitectura Técnica
-
-   arquitectura_tecnica/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Backend (Django REST Framework)
-
-   backend/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Frontend (React + Webpack)
-
-   frontend/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Infraestructura (Ubuntu + Apache)
-
-   infrastructure/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Bases de Datos (MySQL + PostgreSQL)
-
-   databases/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Operations
-
-   operations/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Onboarding
-
-   onboarding/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Calidad y Testing
-
-   quality/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Riesgos y Deuda Técnica
-
-   risks-technical-debt/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Gestión
-
-   gestion/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: PlantUML Guide
-
-   plantuml-guide/index
+----
 
 Índices y Búsqueda
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
-
-----
-
-.. note::
-   **Versión:** 1.0.0  
-   **Fecha:** 2025  
-   **Equipo:** IACT Development Team
