@@ -198,6 +198,7 @@ Indice de Documentos
    :maxdepth: 1
    :caption: Fundamentos Conceptuales
 
+   FND_00_Contexto_y_Jerarquia
    FND_01_Concepto_Requisito
    FND_02_Reglas_de_Negocio
    FND_03_Casos_de_Uso

@@ -41,13 +41,13 @@ y las reglas de redaccion que garantizan precision y consistencia.
    - VERIFICABILIDAD: Reglas pueden validarse automaticamente
    - CLARIDAD: Sin ambiguedad ni interpretaciones multiples
 
-1.2 Regla de Oro
-^^^^^^^^^^^^^^^^
+1.2 Principio fundamental de univocidad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   "Si una palabra puede interpretarse de mas de una manera,
-    NO debe usarse en una Business Rule."
+   Si una palabra puede interpretarse de más de una manera,
+   no debe usarse en una Business Rule.
 
 ----
 
