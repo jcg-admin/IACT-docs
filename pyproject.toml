@@ -1,6 +1,6 @@
 [project]
 name = "iact-docs"
-version = "1.0.0"
+version = "1.1.0"
 description = "IACT - Sistema de Dashboard Analytics | Technical Documentation"
 readme = "readme.rst"
 requires-python = ">=3.11,<3.14"
