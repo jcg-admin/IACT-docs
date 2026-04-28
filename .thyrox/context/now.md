@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.2
-updated_at: 2026-04-28 04:48:02
+updated_at: 2026-04-28 05:01:32
 cold_boot: false
 current_epic: 5
 epic_name: source-rebuild-strategy
-current_work: .thyrox/context/work/2026-04-28-01-58-08-source-rebuild-strategy
+current_work: .thyrox/context/work/2026-04-26-00-59-49-github-actions-phase2-testing
 stage: Phase 6 — PLAN
 stage_number: 6
 current_phase: Phase 6 — PLAN (recién entrada, Phase 5 STRATEGY v2.0 aprobada)
@@ -14,7 +14,7 @@ methodology_step: workflow-plan
 blockers: []
 last_completed_phase: Phase 5 — STRATEGY v2.0 (10 ideas, 14 decisions, 3 análisis de soporte)
 next_decision_required: "Phase 6 PLAN: definir in/out scope detallado del WP-padre y listar los 16 WPs hijos"
-stage_sync_required: false
+stage_sync_required: true
 ```
 
 # IACT-docs — Source Rebuild Strategy

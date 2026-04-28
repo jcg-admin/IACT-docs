@@ -21,12 +21,16 @@
 | 2 | 2026-04-23-18-51-33-plantuml-java-integration-impl | 2026-04-25 | PlantUML + Java integration, color system, central styles, 13 tareas |
 | 1 | 2026-04-22-21-15-30-phase1-discover-iact-docs | 2026-04-22 | Phase 1 DISCOVER inicial del proyecto |
 
-## Pendientes / pausadas
+## Archivadas
 
-| ÉPICA | WP | Estado | Bloqueo |
-|-------|----|--------|---------|
-| — | 2026-04-26-00-59-49-github-actions-phase2-testing | PENDING | Esperando merge a main de Phase 1 |
-| — | 2026-04-25-04-44-30-monitor-behavior-analysis | Sin cierre formal | Pendiente decisión usuario |
+| ÉPICA | WP | Archivado | Razón |
+|-------|----|-----------|-------|
+| — | 2026-04-25-04-44-30-monitor-behavior-analysis | 2026-04-27 | Sin actividad desde 2026-04-25; superseded por trabajo posterior. Ver `ARCHIVED.md`. |
+| — | 2026-04-26-00-59-49-github-actions-phase2-testing | 2026-04-28 | Bloqueador conceptualmente roto (no existe rama `main`); CI actual (`validate.yml`) cubre el caso de uso original; supersedido por `bootstrap-hardening` WP. Ver `ARCHIVED.md`. |
+
+> Las entradas archivadas se conservan como referencia. Si se decide retomar
+> el trabajo en el futuro, abrir un WP nuevo con timestamp actual y referenciar
+> los artefactos archivados como insumo de Phase 1 DISCOVER.
 
 ## Convenciones
 
