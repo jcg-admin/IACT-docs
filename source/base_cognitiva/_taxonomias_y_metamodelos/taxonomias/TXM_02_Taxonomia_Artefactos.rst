@@ -266,9 +266,9 @@ ubicaciones y relaciones entre artefactos.
      - Sin Correo Electronico Externo
    * - CNST_002
      - BD IVR Solo Lectura
-   * - CNST_003
-     - Sesion Unica por Usuario
    * - CNST_004
+     - Sesion Unica por Usuario
+   * - CNST_025
      - Auditoria Inmutable
 
 ----

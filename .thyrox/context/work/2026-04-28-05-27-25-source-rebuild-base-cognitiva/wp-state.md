@@ -4,13 +4,15 @@ work_package: 2026-04-28-05-27-25-source-rebuild-base-cognitiva
 parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
 parent_relationship: child #1 of 16 (first in execution order)
 created_at: 2026-04-28 05:27:25
-current_phase: Phase 11 — TRACK (CERRADO)
+current_phase: Phase 11 — TRACK (CERRADO v2)
 flow: thyrox
 methodology_step: cerrado
 author: NestorMonroy
-status: CERRADO — 2026-04-28 06:05 (build 0 warnings, 30 archivos en source/base_cognitiva/)
+status: CERRADO v2 — 2026-04-28 16:30 (W-1 + W-7 remediation aplicada, 22 fixes, 0 warnings)
 opened_at: 2026-04-28 05:50:00
 closed_at: 2026-04-28 06:05:00
+reopened_at: 2026-04-28 16:00:00
+closed_v2_at: 2026-04-28 16:30:00
 ```
 
 # WP-hijo #1 — Source Rebuild: base_cognitiva

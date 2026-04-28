@@ -148,8 +148,8 @@ El sistema IACT se compone de:
 
 **Restricciones arquitectónicas clave:**
 
-- **CNST_003:** BD Dual - MySQL IVR readonly + PostgreSQL Analytics
-- **CNST_004:** ETL nocturno (datos no son tiempo real)
+- **CNST_006:** Arquitectura BD Dual - MySQL IVR + PostgreSQL Analytics
+- **CNST_008:** Sincronizacion ETL en ventana de 6 a 12 horas (no real-time)
 - **CNST_001:** Solo notificaciones internas (NO email, SMS, webhook)
 
 ---
@@ -228,7 +228,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 **Arquitectura:**
 
 - 8 Módulos funcionales (MOD)
-- 10 Restricciones arquitectónicas (CNST)
+- 31 Restricciones arquitectonicas (CNST) — set canonico SRP (WP #4)
 - Modelo RBAC v5.1.1 con 44 funciones atómicas y 10 agrupadores
 
 **Gobernanza:**
@@ -284,7 +284,7 @@ Este ejemplo es ideal porque:
 - Es una regla de negocio simple y fácil de entender
 - Afecta a múltiples Casos de Uso (5 UC)
 - Tiene umbrales numéricos claros
-- Se integra con una restricción arquitectónica (CNST_007)
+- Se integra con una restriccion arquitectonica (CNST_020 — Throttling de Exportaciones)
 - Tiene implementación técnica concreta
 
 ---
@@ -295,7 +295,7 @@ Este ejemplo es ideal porque:
 **BR_011: Límites de Exportación**
 
 :Tipo: Restricción (Tipo 2)
-:CNST Relacionado: CNST_007 (Performance)
+:CNST Relacionado: CNST_020 (Throttling de Exportaciones por Formato)
 :Módulo: MOD_Reports
 :Prioridad: Alta
 :Estado: Implementado
@@ -376,10 +376,10 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
         - Use formato CSV en múltiples exportaciones
         - Contacte al administrador para exportación masiva
         
-        (BR_011 - CNST_007)"
+        (BR_011 - CNST_020)"
    
    2.4 UC termina sin exportar
-   2.5 Sistema registra intento en UserActionLog (CNST_009)
+   2.5 Sistema registra intento en UserActionLog (CNST_025 - Auditoria Inmutable)
 
 ---
 
@@ -455,7 +455,7 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
        Implementa BR_011: Límites de Exportación.
        """
        
-       # Límites definidos por BR_011 y CNST_007
+       # Limites definidos por BR_011 y CNST_020 (Throttling de Exportaciones)
        EXPORT_LIMITS = {
            'csv': 100_000,
            'excel': 50_000,
@@ -485,7 +485,7 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
                    limit=limit,
                    requested=record_count,
                    br_code='BR_011',
-                   cnst_code='CNST_007'
+                   cnst_code='CNST_020'
                )
        
        def export_to_csv(self, queryset, filename):
@@ -511,7 +511,7 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
                row = [getattr(record, field) for field in headers]
                writer.writerow(row)
            
-           # Registrar auditoría (CNST_009)
+           # Registrar auditoria (CNST_025)
            UserActionLog.record(
                action='EXPORT_CSV',
                resource=filename,
@@ -559,10 +559,12 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
 
 ---
 
-2.4 Relación con CNST_007
---------------------------
+2.4 Relacion con CNST_020 (Throttling de Exportaciones)
+-------------------------------------------------------
 
-BR_011 está estrechamente relacionada con **CNST_007: Límites de Exportación**.
+BR_011 esta estrechamente relacionada con **CNST_020: Throttling de Exportaciones por Formato**.
+
+Nota: el concepto antiguo de "Limites de Exportacion" del set legacy quedo distribuido en 4 CNSTs atomicos del rebuild SRP: CNST_017 (SLA), CNST_018 (Rango maximo 2 anos), CNST_019 (Async sobre 10k registros) y CNST_020 (Throttling por formato). Se cita CNST_020 por ser la mas afin a la cita original (limites cuantitativos por formato).
 
 **Diferencia entre BR y CNST:**
 
@@ -572,7 +574,7 @@ BR_011 está estrechamente relacionada con **CNST_007: Límites de Exportación*
 
    * - Aspecto
      - BR_011 (Business Rule)
-     - CNST_007 (Constraint)
+     - CNST_020 (Constraint)
    * - **Naturaleza**
      - Regla de negocio
      - Restricción arquitectónica
@@ -590,13 +592,13 @@ BR_011 está estrechamente relacionada con **CNST_007: Límites de Exportación*
      - Difícil (requiere cambio infraestructura)
    * - **Documentado en**
      - BR_011 (reglas_negocio/)
-     - CNST_007 (restricciones_arquitectonicas/)
+     - CNST_020 (normativa/restricciones/)
 
 **Relación:**
 
 .. code-block:: text
 
-   CNST_007 (Restricción Arquitectónica)
+   CNST_020 (Restriccion Arquitectonica)
       "El servidor tiene capacidad limitada para 
        generar archivos grandes sin timeout"
          ↓ origina
@@ -797,7 +799,7 @@ Esta introducción ha establecido:
 
 - ``casos_uso_v4/reports/UC_RPT_04_Exportar_CSV.rst``
 - ``reglas_negocio/BR_011_Limites_Exportacion.rst``
-- ``restricciones_arquitectonicas/CNST_007_Limites_Exportacion.rst``
+- ``normativa/restricciones/CNST_020_Throttling_de_Exportaciones_por_Formato.rst``
 
 ---
 

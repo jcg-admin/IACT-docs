@@ -409,11 +409,11 @@ negocio, independientes del sistema de software.
    Tipo:     Tecnica
    Impacto:  IACT no puede modificar fuente operacional
 
-   CNST_003: Sesion Unica por Usuario
+   CNST_004: Sesion Unica por Usuario
    Tipo:     Seguridad
    Impacto:  Una sola sesion activa permitida
 
-   CNST_004: Auditoria Inmutable
+   CNST_025: Auditoria Inmutable
    Tipo:     Regulatoria
    Impacto:  Logs no modificables ni eliminables
 
@@ -539,8 +539,8 @@ negocio, independientes del sistema de software.
      - ~20 est.
      - Pendiente especificacion
    * - Constraints (CNST)
-     - 4
-     - Conocidas actualmente
+     - 31
+     - Set canonico tras rebuild SRP (WP #4)
 
 8.2 Proporcion Tipica
 ^^^^^^^^^^^^^^^^^^^^^
