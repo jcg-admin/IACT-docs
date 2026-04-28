@@ -166,10 +166,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    | - failed_attempts: INTEGER DEFAULT 0                             |
    +------------------------------------------------------------------+
    | <<operations>>                                                    |
-   | + autenticar(password): Boolean                                  |
-   | + tienePermiso(permiso): Boolean                                 |
-   | + tieneRol(rol): Boolean                                         |
-   | + obtenerPermisosEfectivos(): Set<Permiso>                       |
+   | + authenticate(password): Boolean                                |
+   | + hasPermission(permission): Boolean                             |
+   | + hasRole(role): Boolean                                         |
+   | + getEffectivePermissions(): Set<Permission>                     |
    +------------------------------------------------------------------+
 
    INVARIANTES:
@@ -199,9 +199,9 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    | - is_active: BOOLEAN DEFAULT TRUE                                |
    +------------------------------------------------------------------+
    | <<operations>>                                                    |
-   | + contienePermiso(permiso): Boolean                              |
-   | + esCompatibleCon(otroRol): Boolean                              |
-   | + obtenerPermisos(): Set<Permiso>                                |
+   | + containsPermission(permission): Boolean                        |
+   | + isCompatibleWith(otherRole): Boolean                           |
+   | + getPermissions(): Set<Permission>                              |
    +------------------------------------------------------------------+
 
    CATALOGO CERRADO (18 roles):
@@ -456,25 +456,25 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
-   FUNCION tienePermiso(usuario_id, permiso_nombre): Boolean
+   FUNCTION hasPermission(user_id, permission_name): Boolean
 
    ALGORITMO:
    1. Obtener roles del usuario
-      SELECT role_id FROM user_roles WHERE user_id = @usuario_id
+      SELECT role_id FROM user_roles WHERE user_id = @user_id
 
    2. Para cada rol, obtener permisos
       SELECT permission_id FROM role_permissions WHERE role_id IN (roles)
 
    3. Verificar si permiso existe en conjunto
-      RETURN permiso_nombre IN permisos_usuario
+      RETURN permission_name IN user_permissions
 
    SQL EQUIVALENTE:
    SELECT EXISTS (
      SELECT 1 FROM user_roles ur
      JOIN role_permissions rp ON ur.role_id = rp.role_id
      JOIN permissions p ON rp.permission_id = p.permission_id
-     WHERE ur.user_id = @usuario_id
-     AND p.nombre = @permiso_nombre
+     WHERE ur.user_id = @user_id
+     AND p.name = @permission_name
    );
 
 6.2 Validar SoD
@@ -482,7 +482,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
-   FUNCION validarSoD(usuario_id, nuevo_rol_id): Boolean
+   FUNCTION validateSoD(user_id, new_role_id): Boolean
 
    ALGORITMO:
    1. Obtener roles actuales del usuario
@@ -493,10 +493,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    SELECT NOT EXISTS (
      SELECT 1 FROM user_roles ur
      JOIN role_conflicts rc ON
-       (ur.role_id = rc.role_a AND @nuevo_rol_id = rc.role_b)
+       (ur.role_id = rc.role_a AND @new_role_id = rc.role_b)
        OR
-       (ur.role_id = rc.role_b AND @nuevo_rol_id = rc.role_a)
-     WHERE ur.user_id = @usuario_id
+       (ur.role_id = rc.role_b AND @new_role_id = rc.role_a)
+     WHERE ur.user_id = @user_id
    );
 
 6.3 Obtener Permisos Efectivos
@@ -504,7 +504,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
-   FUNCION obtenerPermisosEfectivos(usuario_id): Set<Permiso>
+   FUNCTION getEffectivePermissions(user_id): Set<Permission>
 
    ALGORITMO:
    1. Obtener todos los roles del usuario
@@ -518,7 +518,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    JOIN user_roles ur ON u.user_id = ur.user_id
    JOIN role_permissions rp ON ur.role_id = rp.role_id
    JOIN permissions p ON rp.permission_id = p.permission_id
-   WHERE u.user_id = @usuario_id;
+   WHERE u.user_id = @user_id;
 
    NOTA:
    Flat RBAC = UNION simple, sin herencia.
