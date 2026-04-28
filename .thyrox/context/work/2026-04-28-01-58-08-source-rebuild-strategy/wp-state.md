@@ -2,7 +2,7 @@
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 created_at: 2026-04-28 01:58:08
-current_phase: Phase 1 — DISCOVER (Aprobada — listo para Phase 5/6)
+current_phase: Phase 5 — STRATEGY (Borrador, esperando gate humano)
 flow: thyrox
 methodology_step: workflow-discover
 author: NestorMonroy

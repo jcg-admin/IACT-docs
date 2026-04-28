@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:05:00
+updated_at: 2026-04-28 04:10:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -74,6 +74,24 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
 - F-NEW-4 resuelto. `uv sync` ahora completa sin conflictos.
   Verificado: `.venv/bin/sphinx-build --version` → `sphinx-build 8.2.3`.
   La instalación oficial del proyecto vía `uv sync` queda funcional.
+
+### Phase 5 STRATEGY (2026-04-28 04:10)
+
+- Creado `strategy/source-rebuild-strategy-solution-strategy.md`
+  (v1.0). Contiene:
+  - 5 Key Ideas (backup-as-reference, dominio-por-dominio,
+    standards-first, RST puro, criterio editorial humano-en-loop)
+  - 5 Decisions con alternativas evaluadas
+  - Technology stack heredado documentado
+  - Architecture patterns (structural, behavioral, architectural)
+  - Diagrama mermaid de la arquitectura del rebuild
+  - 3 Quality Goals con mecanismos
+  - 5 Constraints respetados
+  - Trazabilidad a F-04, F-05, F-NEW-3..7 + D1..D5
+  - 9 claims en sección Evidencia (8 PROVEN/INFERRED + 1
+    SPECULATIVE flagged, no fundamenta gates)
+- `wp-state.md`: phase actualizada a Phase 5 STRATEGY (Borrador,
+  esperando gate humano).
 
 ### Verified (2026-04-28 03:55)
 
