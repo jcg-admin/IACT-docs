@@ -103,6 +103,25 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
 
+### CIERRE DEL WP-PADRE (2026-04-28 05:35:09)
+
+- T-028 validate-phase-completion.sh → 5/5 checks PASS, exit 0.
+- T-029 `CLOSURE-NOTICE.md` creado con verificación de las 5
+  pre-condiciones de cierre + listado de los 16 hijos + link a
+  spinoff WPs + highlights.
+- T-030 `wp-state.md` actualizado: Phase 11 TRACK + status
+  CERRADO.
+- T-031 `ROADMAP.md` actualizado: ÉPICA 8 movida de "En curso"
+  a "Completadas" con highlights; entrada para los 16 sub-WPs
+  agregada (sin número de ÉPICA, son sub de la 8).
+- T-032 commit final + T-033 push pendientes en este mismo
+  bloque de trabajo.
+- 33/33 tareas del task plan completadas.
+
+**ÉPICA 8 cerrada.** Próxima decisión del ejecutor: cuándo abrir
+los WPs-hijos. Recomendado empezar por #1 base_cognitiva (es el
+único sin pre-condiciones de hermanos).
+
 ### Phase 10 EXECUTE — Group B (T-008..T-023) completado (2026-04-28 05:30)
 
 - 16 WPs-hijos spawneados con parent-link válido y pre-tareas

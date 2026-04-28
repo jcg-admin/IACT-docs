@@ -10,14 +10,15 @@
 | 5 | 2026-04-27-05-26-20-zero-warnings-build | feature/repository-diagnostics | Phase 11 TRACK (docs cerradas, pendiente CLOSURE-NOTICE) |
 | 6 | 2026-04-27-23-28-26-deployment-pipeline | feature/repository-diagnostics | Phase 10 EXECUTE (parcial — bloqueado por refs muertas) |
 | 7 | 2026-04-28-00-19-57-source-references-audit | feature/repository-diagnostics | Phase 1 DISCOVER (audit-only, no fixes) |
-| 8 | 2026-04-28-01-58-08-source-rebuild-strategy | feature/solve-problem-docs | Phase 6 PLAN (strategy v2.0 aprobada; spawnea 16 sub-WPs — detalle en plan del WP) |
 | 9 | 2026-04-28-03-59-01-bootstrap-hardening | feature/solve-problem-docs | Phase 1 DISCOVER (Makefile guard + venv fix commiteados; F-NEW-8 + F-NEW-9 pendientes) |
 | 10 | 2026-04-28-05-07-32-multi-wp-state-strategy | feature/solve-problem-docs | Phase 1 DISCOVER (creado, pausado — análisis preliminar heredado de ÉPICA 8) |
+| — | 16 WPs-hijos `source-rebuild-*` (de ÉPICA 8) | feature/solve-problem-docs (próximamente cada uno en su feature/*) | Phase 1 DISCOVER (Borrador, no iniciados — spawneados por ÉPICA 8) |
 
 ## Completadas
 
 | ÉPICA | WP | Cierre | Highlights |
 |-------|----|--------|------------|
+| 8 | 2026-04-28-01-58-08-source-rebuild-strategy | 2026-04-28 | Strategy v2.0 con 3-dimension architecture; 14 Decisions; 16 WPs-hijos spawneados; 5 análisis de soporte. Ver `CLOSURE-NOTICE.md`. |
 | 3 | 2026-04-26-02-39-17-git-workflow-documentation | 2026-04-26 | Convención feature/* + merge develop→main + git hooks + audit trail |
 | 2 | 2026-04-23-18-51-33-plantuml-java-integration-impl | 2026-04-25 | PlantUML + Java integration, color system, central styles, 13 tareas |
 | 1 | 2026-04-22-21-15-30-phase1-discover-iact-docs | 2026-04-22 | Phase 1 DISCOVER inicial del proyecto |

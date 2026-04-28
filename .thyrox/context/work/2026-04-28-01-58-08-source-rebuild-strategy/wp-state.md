@@ -2,11 +2,11 @@
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 created_at: 2026-04-28 01:58:08
-current_phase: Phase 8 — PLAN EXECUTION (Phase 7 DESIGN omitida — coordinación, no spec)
+current_phase: Phase 11 — TRACK (CERRADO)
 flow: thyrox
-methodology_step: workflow-decompose
+methodology_step: workflow-track
 author: NestorMonroy
-status: Aprobado — Phase 6 PLAN cerrada 2026-04-28 05:15
+status: CERRADO — 2026-04-28 05:35:09 (16 hijos spawneados, ver CLOSURE-NOTICE.md)
 ```
 
 # WP — Source Rebuild Strategy

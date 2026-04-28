@@ -6,14 +6,14 @@ cold_boot: false
 current_epic: 5
 epic_name: source-rebuild-strategy
 current_work: .thyrox/context/work/2026-04-28-01-58-08-source-rebuild-strategy
-stage: Phase 8 — PLAN EXECUTION
-stage_number: 8
-current_phase: Phase 8 — PLAN EXECUTION (Phase 6 cerrada; Phase 7 DESIGN omitida porque WP-padre es coordinación, no spec)
+stage: ÉPICA 8 CERRADA
+stage_number: 11
+current_phase: Phase 11 — TRACK (CERRADO 2026-04-28 05:35)
 flow: thyrox
-methodology_step: workflow-decompose
+methodology_step: cerrado
 blockers: []
-last_completed_phase: Phase 6 — PLAN (plan aprobado 2026-04-28 05:15)
-next_decision_required: "Phase 8: decompose en T-NNN para spawn de los 16 WPs-hijos + cierre del WP-padre"
+last_completed_phase: Phase 10 — EXECUTE (33/33 tareas completas, 16 hijos spawneados)
+next_decision_required: "Decidir qué WP-hijo abrir primero (recomendado: source-rebuild-base-cognitiva)"
 stage_sync_required: true
 ```
 

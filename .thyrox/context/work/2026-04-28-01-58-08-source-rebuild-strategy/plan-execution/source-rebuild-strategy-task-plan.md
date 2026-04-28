@@ -105,17 +105,17 @@ Spawn tasks (T-008..T-023) son atómicas porque producen exactamente UN
 
 - [x] **T-027** Update `track/source-rebuild-strategy-changelog.md`: agregar entradas de Phase 8 PLAN EXECUTION + Phase 10 EXECUTE (spawn) + cierre del WP-padre
 
-- [ ] **T-028** Run `bash .claude/scripts/validate-phase-completion.sh` y verificar exit 0 (working tree clean + remote sync + build success + recent commits)
+- [x] **T-028** Run `bash .claude/scripts/validate-phase-completion.sh` y verificar exit 0 (working tree clean + remote sync + build success + recent commits)
 
-- [ ] **T-029** Crear `CLOSURE-NOTICE.md` del WP-padre con: fecha cierre, link al plan aprobado, link a los 16 hijos spawneados, link a deep-review, status=Cerrado
+- [x] **T-029** Crear `CLOSURE-NOTICE.md` del WP-padre con: fecha cierre, link al plan aprobado, link a los 16 hijos spawneados, link a deep-review, status=Cerrado
 
-- [ ] **T-030** Update `wp-state.md` del WP-padre: `current_phase: Phase 11 — TRACK (cerrado)` + `status: Cerrado — YYYY-MM-DD HH:MM:SS`
+- [x] **T-030** Update `wp-state.md` del WP-padre: `current_phase: Phase 11 — TRACK (cerrado)` + `status: Cerrado — YYYY-MM-DD HH:MM:SS`
 
-- [ ] **T-031** Update `ROADMAP.md`: mover ÉPICA 8 de "En curso" a "Completadas" con highlights (16 hijos spawneados)
+- [x] **T-031** Update `ROADMAP.md`: mover ÉPICA 8 de "En curso" a "Completadas" con highlights (16 hijos spawneados)
 
-- [ ] **T-032** Commit [Grupo C]: `Close source-rebuild-strategy WP — 16 children spawned`
+- [x] **T-032** Commit [Grupo C]: `Close source-rebuild-strategy WP — 16 children spawned`
 
-- [ ] **T-033** Push final a `origin/feature/solve-problem-docs`
+- [x] **T-033** Push final a `origin/feature/solve-problem-docs`
 
 ---
 
