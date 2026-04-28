@@ -6,7 +6,7 @@ current_phase: Phase 1 — DISCOVER
 flow: thyrox
 methodology_step: workflow-discover
 author: NestorMonroy
-status: Borrador
+status: Bloqueado — pendiente decisiones D4, D5, F-04, F-05
 ```
 
 # WP — Source Rebuild Strategy

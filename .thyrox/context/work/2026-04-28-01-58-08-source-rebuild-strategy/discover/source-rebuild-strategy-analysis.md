@@ -174,3 +174,27 @@ Durante el rebuild incremental:
   mover a `arquitectura_tecnica/`).
 - F-05: confirmar si `_static/` y `_templates/` quedan en `source/`
   o se mueven (son infra de Sphinx, no contenido).
+
+## 9. BLOQUEADOR — pre-condición de ejecución
+
+**Este WP no puede avanzar de Phase 1 DISCOVER hasta que las
+decisiones D4, D5, F-04 y F-05 estén resueltas por el ejecutor.**
+
+Razones:
+
+| Decisión | Por qué bloquea |
+|----------|-----------------|
+| **D4** (prefijos numéricos) | Define la regla de renombrado de los 379 archivos. Sin esto no se puede ejecutar ni un solo `git mv`. |
+| **D5** (lift-and-shift vs refactor) | Define el flujo de trabajo: copiar+normalizar (mecánico, scriptable) vs leer+decidir (manual, por archivo). El esfuerzo varía 5-10x entre opciones. |
+| **F-04** (`plantuml-guide/`) | Define si entra en el alcance del rebuild o se elimina por separado. Afecta el orden de los dominios y los refs entrantes. |
+| **F-05** (`_static/`, `_templates/`) | Define la estructura final de `source/`. Si se mueven, el `conf.py` cambia y ese cambio debe coordinarse con el primer WP de rebuild. |
+
+**Próxima acción esperada del ejecutor:** responder D4, D5, F-04
+y F-05 antes de abrir el primer WP de ejecución
+(`source-rebuild-base-cognitiva`).
+
+**Estado del WP hasta entonces:** Phase 1 DISCOVER, en espera.
+No se ejecutarán cambios sobre `source/` hasta el desbloqueo.
+
+**Salida atómica de este WP:** este documento + `wp-state.md`. No
+hay artefactos adicionales hasta que las decisiones existan.
