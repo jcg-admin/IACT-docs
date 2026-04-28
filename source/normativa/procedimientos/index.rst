@@ -38,6 +38,7 @@ Los procedimientos documentan:
    PROC-GOB-001-mapeo_procesos_templates
    PROC-GOB-008-reorganizacion-estructura-documental
    PROC-OPS-001-deployment
+   PROC-OPS-002-setup-entorno-desarrollo
    PROC-QA-001-actividades_garantia_documental
    PROC-QA-002-estrategia_qa
    PROCED-DEV-001-crear_pull_request
