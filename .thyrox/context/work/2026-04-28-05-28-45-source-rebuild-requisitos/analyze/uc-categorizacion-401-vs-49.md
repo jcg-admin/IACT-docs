@@ -16,22 +16,33 @@ El indexer detecto **401 IDs UC unicos** en los inputs cross-WP. El
 inventario final declara **49 UCs IACT canonicos**. ¿Que paso con los
 otros 352?
 
-## Categorizacion exhaustiva de los 401 IDs
+## Categorizacion exhaustiva de los 401 IDs (CONTEOS VERIFICADOS)
 
-Cada ID se inspecciono en su contexto (linea donde aparece). Resultado:
+Cada ID se clasifico deterministicamente por reglas en
+`/tmp/verify_uc_categories.py`. Cada ID asignado a UNA sola categoria.
 
 | Categoria | # IDs | Decision | Razon |
 |-----------|-------|----------|-------|
-| **A. IACT v4.0.0 modular canonico** | 49 + 8 dups | INCORPORAR | Existen como `.rst` en backup con `:version: 4.0.0` |
-| **B. IACT v2.0 legacy mapeable** | ~30 | DESCARTAR (mapeados a v4) | Tabla mapeo en PLAN_MAESTRO; los conceptos ya estan en categoria A renombrados |
-| **C. DevOps tools** | ~12 | DESCARTAR (no funcionales IACT) | UC-013/014 (validators Python/Node), UC-032..069 (CI/CD detection, deployment metrics) |
-| **D. Pedagogicos quimicos/OSHA** | ~20 | DESCARTAR (no del dominio) | UC-040 CAS Number, UC-041 Productos, UC-200/601 |
-| **E. Pedagogicos genericos A-/B-** | ~30 | DESCARTAR | UC-A-001 Registrar Empleado, UC-B-001 Modificar Empleado (ejemplos didacticos Larman/CRUD) |
-| **F. ADR management** | 5 | DESCARTAR (no UCs funcionales IACT) | UC-ADR-001..005 (Crear/Validar ADRs — son procesos de gobernanza) |
-| **G. Nomenclatura no oficial** | ~95 | DESCARTAR (typos/variantes legacy) | UC-AUT (no AUTH), UC-AI, UC-ALERT (sin S), UC-ANALYTICS, UC-EXC, UC-VEN, UC-INV, UC-DOC |
-| **H. Sub-numeraciones embebidas** | ~25 | DESCARTAR (refs internas) | UC-110.1..9, UC-61.1..5, UC-62.1..6 son sub-aspectos en NFRs |
-| **I. Ruido en analisis** | ~127 | DESCARTAR | Referencias en tablas comparativas, ejemplos en plantillas, citas en documentos metodologicos |
+| **A. IACT v4.0.0 modular canonico** | **49** | INCORPORAR | Existen como `.rst` en backup con `:version: 4.0.0` |
+| **A'. v4 padding variantes** | **3** | dedup en A | UC-ACC-001 vs UC-ACC-01 (mismo concepto) |
+| **B. IACT v2.0 legacy mapeable** | **28** | DESCARTAR (mapeados a v4) | Tabla mapeo en PLAN_MAESTRO; los conceptos ya estan en A renombrados |
+| **C. DevOps tools** | **18** | DESCARTAR (no funcionales IACT) | UC-013/014 (validators Python/Node), UC-032..069 (CI/CD detection, deployment metrics) |
+| **D. Pedagogicos quimicos/OSHA** | **31** | DESCARTAR (no del dominio) | UC-040 CAS Number, UC-041 Productos, UC-200/204/208/601 |
+| **E. Pedagogicos empleados/RRHH** | **5** | DESCARTAR | UC-A-001 Registrar Empleado, UC-B-001 Modificar Empleado (ejemplos didacticos Larman) |
+| **F. ADR management** | **5** | DESCARTAR (no UCs funcionales IACT) | UC-ADR-001..005 (Crear/Validar ADRs — son procesos de gobernanza) |
+| **G. Nomenclatura no oficial** | **145** | DESCARTAR (typos/variantes legacy) | UC-AUT (no AUTH), UC-AI, UC-ALERT (sin S), UC-ANALYTICS, UC-EXC, UC-VEN, UC-INV, UC-DOC, UC-NOM, UC-DIA |
+| **H. Sub-numeraciones NFR** | **0** | (no detectadas) | El regex captura solo enteros; las sub-numeraciones NFR-110.1 NO se contaron como UC |
+| **I. Ruido sin clasificar** | **117** | DESCARTAR | UC-074..UC-099 (Productos/Proveedores), UC-100..UC-199 (catalogo Larman), UC-070..073 (IACT v2 LOG no detectados por heuristica), referencias en tablas |
 | **Total** | **401** | **49 incorporados** | |
+
+**Suma verificada: 49 + 3 + 28 + 18 + 31 + 5 + 5 + 145 + 0 + 117 = 401 ✓**
+
+> **Nota sobre v1 vs v2 de este documento:** la version inicial (v1)
+> tenia conteos estimados que no sumaban exactamente. Tras
+> verificacion programatica con `/tmp/verify_uc_categories.py` los
+> conteos exactos por categoria estan en
+> `analyze/uc-401-clasificacion-verificada.md` (un archivo por
+> categoria con los IDs literales).
 
 ## Detalle por categoria
 
