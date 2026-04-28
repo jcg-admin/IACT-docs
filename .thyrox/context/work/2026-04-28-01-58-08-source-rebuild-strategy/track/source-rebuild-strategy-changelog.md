@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 03:59:01
+updated_at: 2026-04-28 04:05:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -97,6 +97,12 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   `.thyrox/context/work/2026-04-28-03-59-01-bootstrap-hardening/`.
   Phase 1 DISCOVER inicial creada con 5 hallazgos (F-01..F-05) y 4
   decisiones pendientes (D1..D4).
+- Implementación parcial adelantada por instrucción ejecutor
+  (2026-04-28 04:05): Makefile `check-bootstrap` guard + fix de bug
+  pre-existente en selección de SPHINXBUILD. Verificado que CI
+  (`.github/workflows/validate.yml`) ya cubría la sub-acción
+  bootstrap end-to-end. Detalle en
+  `bootstrap-hardening/track/bootstrap-hardening-changelog.md`.
 
 ### Settings change
 

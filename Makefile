@@ -36,20 +36,23 @@ VENV            = .venv
 SPHINXOPTS      =
 
 # Selección de sphinx-build:
-# 1) Si existe el ejecutable en .venv/Scripts, usarlo (entorno virtual).
-# 2) Si no existe, usar el sphinx-build global del sistema.
-ifeq ("$(wildcard $(VENV)/Scripts/sphinx-build.exe)","")
-SPHINXBUILD     = sphinx-build
-else
+# Preferir el ejecutable del venv (Linux/Mac primero, Windows después).
+# Solo cae al sphinx-build global si ningún venv está presente.
+ifneq ("$(wildcard $(VENV)/bin/sphinx-build)","")
+SPHINXBUILD     = $(VENV)/bin/sphinx-build
+else ifneq ("$(wildcard $(VENV)/Scripts/sphinx-build.exe)","")
 SPHINXBUILD     = $(VENV)/Scripts/sphinx-build.exe
+else
+SPHINXBUILD     = sphinx-build
 endif
 
-# Selección de sphinx-autobuild:
-# Debe estar instalado en el .venv
-ifeq ("$(wildcard $(VENV)/Scripts/sphinx-autobuild.exe)","")
-SPHINXAUTOBUILD = sphinx-autobuild
-else
+# Selección de sphinx-autobuild (mismo patrón).
+ifneq ("$(wildcard $(VENV)/bin/sphinx-autobuild)","")
+SPHINXAUTOBUILD = $(VENV)/bin/sphinx-autobuild
+else ifneq ("$(wildcard $(VENV)/Scripts/sphinx-autobuild.exe)","")
 SPHINXAUTOBUILD = $(VENV)/Scripts/sphinx-autobuild.exe
+else
+SPHINXAUTOBUILD = sphinx-autobuild
 endif
 
 PAPER           =
@@ -100,7 +103,8 @@ help-plantuml:
 
 .PHONY: sync update-deps help help-uv help-sphinx help-plantuml requirements help clean html livehtml freeze dirhtml singlehtml pickle json htmlhelp \
 qthelp devhelp epub latex latexpdf latexpdfja text man texinfo info \
-gettext changes linkcheck doctest xml pseudoxml validate-plantuml plantuml-styles
+gettext changes linkcheck doctest xml pseudoxml validate-plantuml plantuml-styles \
+check-bootstrap
 
 sync:
 	@echo "Instalando dependencias con uv..."
@@ -135,8 +139,24 @@ help: help-uv help-sphinx help-plantuml
 clean:
 	rm -rf $(BUILDDIR)/*
 
+# Guard de bootstrap — verifica que setup.sh fue ejecutado.
+# Falla con mensaje accionable si falta plantuml.jar o el venv.
+check-bootstrap:
+	@missing=""; \
+	if [ ! -f tools/plantuml.jar ]; then \
+		missing="$$missing\n  - tools/plantuml.jar (descargado por setup.sh)"; \
+	fi; \
+	if [ ! -x .venv/bin/sphinx-build ] && [ ! -f .venv/Scripts/sphinx-build.exe ]; then \
+		missing="$$missing\n  - .venv/ (creado por uv sync dentro de setup.sh)"; \
+	fi; \
+	if [ -n "$$missing" ]; then \
+		printf "\033[31mERROR:\033[0m bootstrap incompleto. Faltan:%b\n\n" "$$missing"; \
+		printf "Ejecutá primero:\n  \033[1mbash scripts/setup.sh\033[0m\n\n"; \
+		exit 1; \
+	fi
+
 # Builder para HTML estándar.
-html:
+html: check-bootstrap
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Construcción finalizada. Los archivos HTML están en $(BUILDDIR)/html."
