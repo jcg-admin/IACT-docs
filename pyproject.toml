@@ -38,7 +38,7 @@ dependencies = [
 
     # Documentation Features
     "sphinx-tabs==3.4.5",                          # Tabbed content sections
-    "sphinx-toolbox==4.1.0",                       # Extra tools
+    "sphinx-toolbox==4.1.2",                       # Extra tools
     "sphinx-prompt==1.10.2",                       # Formatted prompts
     "sphinx-jinja==2.0.2",                         # Jinja2 support
     "sphinx-notfound-page==1.1.0",                 # Custom 404 page
@@ -50,7 +50,7 @@ dependencies = [
     "autodocsumm==0.2.14",                         # Auto-generate summaries
 
     # Quality & Spell Checking (Tier 2: Recommended - Phase A enabled)
-    "sphinxcontrib-spelling==8.0.0",               # Spell checker (added Phase A)
+    "sphinxcontrib-spelling==8.0.2",               # Spell checker (added Phase A)
 
     # PlantUML Diagrams (R-004 fixed Phase A - now enabled)
     "sphinxcontrib-plantuml==0.26.0",              # PlantUML diagram support (re-enabled Phase A)
@@ -62,7 +62,7 @@ dependencies = [
     "h11==0.16.0",
     "html5lib==1.1",
     "beautifulsoup4==4.14.3",
-    "soupsieve==2.8",
+    "soupsieve==2.8.3",
     "cssutils==2.11.1",
     "dict2css==0.3.0.post1",
     "standard-imghdr==3.10.14",
@@ -78,11 +78,11 @@ dependencies = [
     "packaging==25.0",
     "platformdirs==4.5.1",
     "requests==2.32.5",
-    "urllib3==2.6.1",
+    "urllib3==2.6.3",
     "certifi==2025.11.12",
     "idna==3.11",
-    "charset-normalizer==3.4.4",
-    "click==8.3.1",
+    "charset-normalizer==3.4.7",
+    "click==8.3.3",
     "typing-extensions==4.15.0",
     "more-itertools==10.8.0",
     "natsort==8.4.0",
@@ -102,7 +102,7 @@ dependencies = [
     "referencing==0.37.0",
     "apeye==1.4.1",
     "apeye-core==1.1.5",
-    "msgpack==1.1.0",
+    "msgpack==1.1.2",
     "picobox==4.0.0",
     "colorama==0.4.6",
     "anyio==4.12.0",
