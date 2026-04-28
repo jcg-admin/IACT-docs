@@ -37,7 +37,7 @@ dependencies = [
     "PyYAML==6.0.3",                               # YAML parsing
 
     # Documentation Features
-    "sphinx-tabs==3.4.5",                          # Tabbed content sections
+    "sphinx-tabs==3.5.0",                          # Tabbed content sections
     "sphinx-toolbox==4.1.2",                       # Extra tools
     "sphinx-prompt==1.10.2",                       # Formatted prompts
     "sphinx-jinja==2.0.2",                         # Jinja2 support
