@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:46:00
+updated_at: 2026-04-28 04:55:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,34 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Phase 6 PLAN (2026-04-28 04:55)
+
+- Creado `plan/source-rebuild-strategy-plan.md` (status:
+  Pendiente aprobación). Incluye:
+  - Scope statement con 5 criterios de éxito medibles.
+  - In-scope / Out-of-scope detallados (10 ítems out con razón).
+  - Tabla de los 16 WPs-hijos con naming, capa, tamaño,
+    pre-condiciones, pre-tareas absorbidas.
+  - 6 cross-WP dependencies hard documentadas (H1-H6).
+  - 7 pre-tareas asignadas a WPs específicos (sin huérfanas).
+  - Decisiones diferidas listadas por WP destino: D-CNST-1..5
+    en WP #4, triage de templates en WP #2 con 5 inputs
+    obligatorios, conservación de 7 variantes UC.
+  - Acceptance criteria por tipo de WP (4 tipos: methodology,
+    spec, tech-skeleton, lifecycle).
+  - 3 riesgos críticos subidos desde análisis de soporte.
+  - Pre-condición de cierre del WP-padre explícita (5 condiciones).
+  - Estimación de esfuerzo: 25 tareas, mediano.
+- Creado `plan/deep-review-strategy-to-plan.md` (artefacto de
+  soporte). Output verbatim del agente `deep-review` invocado
+  para identificar gaps de cobertura entre Phase 5 y Phase 6.
+  Bound: 5 artefactos, 6 ejes, ≤8 gaps. Reportó 8 gaps (3 alta,
+  4 media, 1 baja) — todos absorbidos en el plan.
+- `ROADMAP.md` actualizado con ÉPICA 8 (este WP) y ÉPICA 9
+  (bootstrap-hardening). Convención emergente registrada: ROADMAP
+  mantiene 1 entrada por ÉPICA, sin sub-líneas; el detalle de
+  los 16 WPs-hijos vive en el plan del WP-padre.
 
 ### Phase 5 STRATEGY v2.0 (2026-04-28 04:46) — MAJOR bump
 
