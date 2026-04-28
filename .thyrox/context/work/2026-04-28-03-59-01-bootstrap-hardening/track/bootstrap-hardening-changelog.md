@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 04:05:00
-updated_at: 2026-04-28 04:46:00
+updated_at: 2026-04-28 05:05:00
 project: IACT-docs
 work_package: 2026-04-28-03-59-01-bootstrap-hardening
 phase: Phase 1 — DISCOVER (con implementación adelantada por instrucción ejecutor)
@@ -89,6 +89,28 @@ si se decide continuarlo):
   sugerencia de Claude sobre backend hereda convenciones Node.js
   (Express, package.json, npm) en vez de Django. Detectado durante
   análisis de tech-stack alignment del WP source-rebuild-strategy.
+
+- **F-NEW-9 (sync-wp-state.sh hook over-eager)**: el hook
+  `.claude/scripts/sync-wp-state.sh` (PostToolUse Write) actualiza
+  `now.md::current_work` cada vez que se escribe CUALQUIER archivo
+  dentro de `.thyrox/context/work/*/` — incluyendo `ARCHIVED.md`,
+  scaffolding de WPs hijos, cross-references, y escrituras de
+  agentes en paralelo. Esto rompe el modelo cuando se manejan:
+  S1 (archivado retroactivo), S2 (spawning de hijos), S3 (agentes
+  en paralelo), S4 (multi-branch). Acción pendiente:
+
+  1. Modificar el hook para actualizar SOLO si el archivo escrito
+     es `wp-state.md` Y NO es archivo de cierre (ARCHIVED.md,
+     CLOSURE-NOTICE.md, WP-STATE-FUTURE.md).
+  2. Detectar si el caller es un sub-agente (si hay forma) y
+     abortar.
+  3. Test de regresión: reproducir el caso original (escribir
+     ARCHIVED.md de WP-B desde WP-A) y verificar que
+     `current_work` no cambia.
+
+  Origen: detectado durante revisión de ROADMAP en ÉPICA 8
+  (2026-04-28 05:01). Análisis completo en
+  `source-rebuild-strategy/strategy/multi-wp-parallel-state-strategy.md`.
 
 ## Status de promoción a CHANGELOG.md raíz
 

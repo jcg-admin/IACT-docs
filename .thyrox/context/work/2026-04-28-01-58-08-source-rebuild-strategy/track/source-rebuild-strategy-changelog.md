@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:55:00
+updated_at: 2026-04-28 05:05:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,29 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### F-NEW-9 detectado y propuesta de convención multi-WP (2026-04-28 05:05)
+
+- Bug detectado: `now.md::current_work` se actualizó incorrectamente
+  al WP `github-actions-phase2-testing` después de escribir su
+  `ARCHIVED.md`, aunque el WP activo seguía siendo
+  `source-rebuild-strategy`.
+- Causa raíz identificada: hook `.claude/scripts/sync-wp-state.sh`
+  (PostToolUse Write) actualiza `current_work` para CUALQUIER
+  escritura dentro de `.thyrox/context/work/*/`, sin distinguir
+  archivado/scaffolding/cross-ref/agente paralelo.
+- Creado `strategy/multi-wp-parallel-state-strategy.md` (v1.0)
+  con análisis completo:
+  - 4 escenarios donde el modelo actual falla (S1-S4).
+  - Propuesta de convención v1: principio rector + 5 niveles de
+    fuente de verdad + reglas para el hook + estrategia
+    multi-branch + multi-WP + multi-agente.
+  - Tabla resumen respondiendo la pregunta del ejecutor sobre
+    estrategia con N branches + N agentes.
+- Acción registrada en WP `bootstrap-hardening` como F-NEW-9
+  con 3 sub-tareas.
+- Fix inmediato aplicado: `now.md::current_work` corregido
+  manualmente a `source-rebuild-strategy`.
 
 ### Phase 6 PLAN (2026-04-28 04:55)
 
