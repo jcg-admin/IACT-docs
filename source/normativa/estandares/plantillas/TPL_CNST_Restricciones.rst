@@ -50,7 +50,16 @@ Requisitos Tecnicos
 
 ::
 
-   arquitectura_tecnica/restricciones/CNST_[NNN]_[Nombre_Descriptivo].rst
+   source/normativa/restricciones/CNST_[NNN]_[Nombre_Descriptivo].rst
+
+**Principio de Single Responsibility:**
+
+Cada CNST DEBE declarar **una sola restriccion**: una condicion de
+borde identificable, verificable de forma independiente, con
+violacion unica. Si el archivo combina dos o mas concerns
+(prohibicion + mecanismo alternativo, autenticacion + autorizacion,
+modelo + reglas + permisos), se descompone en multiples CNSTs
+atomicas con referencias cruzadas via ``:doc:``.
 
 ----
 
@@ -80,16 +89,26 @@ Nomenclatura
    - CNST: Prefijo fijo (Constraint)
    - [NNN]: Numero secuencial de 3 digitos (001-999)
 
-**Rangos por Categoria:**
+**Numeracion:**
 
 ::
 
-   001-009: Comunicaciones y Conectividad
-   010-019: Gestion de Datos
-   020-029: Seguridad y Acceso
-   030-039: Infraestructura
-   040-049: Integracion
-   050-059: Rendimiento
+   Numeracion flat consecutiva (001, 002, 003, ...) sin gaps.
+   El dominio NO se codifica en el numero — vive en el ``index.rst``
+   por seccion y en el campo ``:dominio:`` del metadata.
+
+**Dominios usados en index.rst:**
+
+- Comunicaciones
+- Sesiones
+- Base de datos
+- Seguridad DRF
+- Arquitectura
+- Performance
+- Infraestructura
+- Logging y auditoria
+- Datos
+- RBAC
 
 **Ejemplos:**
 
@@ -120,16 +139,15 @@ Plantilla
 
    .. meta::
       :artefacto: CNST_[NNN]
-      :tipo: Restriccion Arquitectonica
-      :dominio: arquitectura_tecnica
+      :tipo: Restriccion
+      :dominio: normativa
       :subdominio: restricciones
-      :categoria: [Comunicaciones|Datos|Seguridad|Infraestructura|Integracion|Rendimiento]
-      :estado: [Borrador|Revision|Aprobado]
+      :estado: [Borrador|Revision|Vigente]
       :version: 1.0.0
       :fecha_creacion: [YYYY-MM-DD]
       :ultimo_cambio: [YYYY-MM-DD]
-      :autor: Equipo IACT
-      :clasificacion: Interno
+      :autor: [Autor]
+      :clasificacion: [Critico|Alto|Medio|Bajo]
 
    .. _cnst-[nnn]:
 
