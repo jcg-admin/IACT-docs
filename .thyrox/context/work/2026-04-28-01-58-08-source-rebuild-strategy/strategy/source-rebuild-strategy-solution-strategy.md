@@ -3,11 +3,19 @@ created_at: 2026-04-28 04:10:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 5 — STRATEGY
-architecture_version: 1.0
+architecture_version: 1.2
 architect: NestorMonroy
 stack_version: Sphinx 8.2.3 + Furo 2025.9.25 + Python 3.11 + RST puro
 status: Borrador
 ```
+
+> **v1.2 — Templates y restricciones reconocidos como first-class citizens.**
+> Agrega Idea 6 (templates como contrato estructural), Idea 7 (CNST como
+> input arquitectónico), Decision 6 (sub-orden de estandares), Decision 7
+> (triage de versiones de templates), Decision 8 (reconciliación de CNST
+> antes de rebuild). Ver análisis de soporte en
+> `strategy/templates-inventory-analysis.md` y
+> `strategy/restricciones-divergence-analysis.md`.
 
 # Solution Strategy: Source Rebuild
 
@@ -103,6 +111,69 @@ o corrige antes de iniciar la ejecución.
   validar dominio entero en una sesión en vez de archivo por
   archivo.
 
+### Idea 6: Templates como contrato estructural — first-class citizen
+
+**Descripción:** los templates `TPL_*` no son "más contenido" — son
+el **molde estructural** de cada tipo de artefacto. Definen qué
+secciones tiene un UC, qué metadata YAML lleva un BR, qué
+checklist debe satisfacer un FR. Sin templates canónicos, los
+artefactos derivados heredan inconsistencias.
+
+**Inventario verificado (ver `strategy/templates-inventory-analysis.md`):**
+
+- `source/normativa/estandares/plantillas/`: 22 templates "oficiales"
+  con versiones en filename (viola STD_006).
+- `temp-holding/.../iact_templates_v1_3_0/`: set CURADO de 13
+  templates v1_3_0 con README.txt — el más reciente y agrupado.
+- `temp-holding/FASE 02/tmp_work/`: 30+ variantes individuales con
+  multiples versiones (UC tiene 7 patrones distintos: CRUD,
+  Actor_Secundario, Stakeholder_Driven, UI_Driven, Temporal_
+  Schedulers, Larman_Contratos, Construccion_7_Pasos).
+- Documentos de análisis previo: `ANALISIS_TEMPLATES_VERSIONES.md`,
+  `PLAN_TEMPLATES_3_12_v1_2_0.md`, `ANALISIS_NOMENCLATURA_TPL_1_0_0.md`,
+  `PROPUESTA_TEMPLATE_01..10.txt`.
+
+**Impacto:**
+- Los templates deben reconstruirse ANTES que cualquier dominio
+  que los use (requisitos, arquitectura).
+- Las múltiples variantes de UC NO son redundancia — son patrones
+  distintos. Se conservan todos como templates separados.
+- Las versiones en filenames (`_1_3_0.rst`) deben moverse a
+  metadata YAML (`:version: 1.3.0`) según STD_006.
+
+### Idea 7: Restricciones (CNST) como input arquitectónico
+
+**Descripción:** las restricciones `CNST_*` definen el espacio de
+diseño de los artefactos derivados. Un UC no puede violar una CNST;
+un FR debe ser consistente con las restricciones aplicables. Si
+las CNST están inconsistentes (numeración divergente, contenido
+contradictorio entre versiones), todo lo que se construya encima
+hereda esa inconsistencia.
+
+**Hallazgo crítico (ver `strategy/restricciones-divergence-analysis.md`):**
+
+- `source/normativa/restricciones/` tiene 12 CNSTs (gap en
+  CNST_011) con contenido específico (Comunicaciones_Prohibidas,
+  Antipatrones_Arquitectura, etc.).
+- `temp-holding/.../base_cognitiva/normativa/restricciones/` tiene
+  8 CNSTs con **misma numeración pero conceptos distintos** (ej:
+  source CNST_005 = Seguridad_DRF_Checklist; temp-holding CNST_005
+  = RBAC_Flat_SoD_Permisos).
+- Existe `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` — documento
+  maestro consolidado en 2 ubicaciones del temp-holding/.
+- Existe `ACTUALIZACION_DEL_ARBOL_SECCION_RESTRICCIONES.md` —
+  propuesta previa de reorganización.
+
+**Impacto:**
+- Las CNSTs deben **reconciliarse antes** de reconstruir el
+  dominio `requisitos`. Si requisitos consume CNSTs inconsistentes,
+  el rebuild de UCs/FRs se hace sobre arena movediza.
+- El rebuild de CNSTs requiere un proceso especial: **partir del
+  documento maestro consolidado** + reconciliar las versiones de
+  source y temp-holding + numeración final consistente.
+- La gravedad amerita separar CNST en su propio WP, distinto del
+  WP de gobernanza (ver Decision 7).
+
 ---
 
 ## Fundamental Decisions
@@ -129,8 +200,14 @@ o corrige antes de iniciar la ejecución.
 - `plantuml-guide` se resuelve dentro de `arquitectura_tecnica`
   (decisión F-04).
 
-**Implications:**
-- 7 WPs de rebuild de dominio (no 8 — plantuml-guide se absorbe).
+**Implications (actualizado v1.2):**
+- 8 WPs de rebuild de dominio. plantuml-guide se absorbe en
+  arquitectura_tecnica (F-04); restricciones se separa de gobernanza
+  por la divergencia detectada (Decision 7).
+- Orden final: (1) base_cognitiva, (2) normativa/estandares,
+  (3) normativa/procedimientos, (4) normativa/restricciones,
+  (5) normativa/gobernanza, (6) requisitos, (7) arquitectura_tecnica,
+  (8) gestion.
 - El orden permite que cada WP nuevo pueda apoyarse en términos y
   patrones definidos por los anteriores.
 - Si un dominio de "abajo" descubre que necesita ajustar uno ya
@@ -203,7 +280,107 @@ o corrige antes de iniciar la ejecución.
 - Cualquier futura adición de extensions requiere actualizar
   conf.py + verificar conflicto en pyproject.toml + re-`uv sync`.
 
-### Decision 5: Cada WP de rebuild de dominio tiene su propio ciclo THYROX
+### Decision 5: Sub-orden interno de `normativa/estandares` — STDs → templates → resto
+
+**Alternatives Considered:**
+- Reconstruir todo `estandares/` en orden alfabético —
+  arbitrario, no respeta dependencias.
+- Templates primero, STDs después — invertido: los STDs definen
+  reglas que aplican a los templates (ej: STD_006 dice "versión va
+  en metadata", STD_007 dice cómo nombrar — ambos restringen
+  templates).
+- **STDs → Templates → Otros estándares (elegida).**
+
+**Justification:**
+- STDs son las reglas universales — deben estar firmes antes de
+  aplicar a templates.
+- Templates son moldes de artefactos — deben estar listos antes
+  de que `requisitos`, `arquitectura_tecnica` y otros dominios
+  empiecen a producir artefactos según template.
+- "Otros estándares" (guías de estilo, etc.) cierran el WP.
+
+**Implications:**
+- Dentro del WP `normativa/estandares`, el task plan tiene 3
+  bloques claros.
+- El WP `requisitos` (que produce UC, BR, FR, NFR — todos basados
+  en templates) NO puede empezar hasta que `normativa/estandares`
+  cierre.
+
+### Decision 6: Triage de versiones de templates antes de incorporar
+
+**Alternatives Considered:**
+- Tomar `source/normativa/estandares/plantillas/` tal cual —
+  problema: tiene versiones en filename (viola STD_006) y no
+  incluye las variantes de UC más recientes de temp-holding.
+- Tomar `iact_templates_v1_3_0` tal cual — problema: solo cubre
+  13 templates; faltan ~15 que están en source/.
+- **Triage explícito caso por caso (elegida).** Para cada tipo
+  de template (UC, BR, FR, NFR, ADR, etc.):
+  1. Listar versiones existentes en source/ y temp-holding/.
+  2. Consultar `ANALISIS_TEMPLATES_VERSIONES.md` y
+     `PLAN_TEMPLATES_3_12_v1_2_0.md` para conocer la decisión
+     editorial previa.
+  3. Elegir la versión canónica (preferir la más reciente,
+     verificar que no contradiga STDs vigentes).
+  4. Renombrar al patrón sin versión en filename
+     (`TPL_BR_Decision_Tipo.rst`, no `_1_3_0`).
+  5. Mover versión a metadata YAML (`:version: 1.3.0`).
+
+**Justification:**
+- Existen análisis previos del ejecutor sobre qué versión es
+  canónica — ignorarlos sería re-trabajo innecesario.
+- STD_006 obliga a versión en metadata, no filename — el rename
+  no es opcional.
+- Las variantes de UC (CRUD, Larman, Stakeholder_Driven, etc.)
+  NO son duplicadas — cada una es un patrón distinto y se
+  conserva como template separado.
+
+**Implications:**
+- El task plan del WP `normativa/estandares` debe incluir tarea
+  explícita de triage por cada tipo de template (~15 tareas).
+- Los análisis previos (`ANALISIS_TEMPLATES_VERSIONES.md`, etc.)
+  son inputs obligatorios — leerlos antes de proponer canónica.
+
+### Decision 7: CNST tiene WP propio y se reconcilia antes de `requisitos`
+
+**Alternatives Considered:**
+- CNST se reconstruye dentro del WP `normativa/gobernanza+
+  restricciones` — problema: la divergencia profunda source vs
+  temp-holding amerita tratamiento dedicado, no compartir scope
+  con gobernanza.
+- CNST se difiere hasta el WP `requisitos` — problema: los UCs
+  necesitan CNSTs claras como input. Diferir crea bloqueo.
+- **WP independiente `source-rebuild-restricciones`, ejecutado
+  antes que `source-rebuild-requisitos` (elegida).**
+
+**Justification:**
+- Source y temp-holding tienen **misma numeración con conceptos
+  distintos** (ver `restricciones-divergence-analysis.md`).
+  Reconciliar es trabajo no trivial.
+- Existe `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` como
+  documento maestro consolidado — debe ser punto de partida.
+- Existe `ACTUALIZACION_DEL_ARBOL_SECCION_RESTRICCIONES.md` con
+  propuesta previa — input obligatorio para evitar re-trabajo.
+- Numeración final debe quedar consistente y completa (sin gap
+  en CNST_011 o equivalente).
+
+**Implications:**
+- El total de WPs de rebuild de dominio sube a **8** (no 7):
+  el WP `normativa/gobernanza+restricciones` se divide en
+  `normativa/gobernanza` + `normativa/restricciones`.
+- El nuevo orden de WPs queda:
+  1. base_cognitiva
+  2. normativa/estandares (STDs → templates → resto)
+  3. normativa/procedimientos
+  4. **normativa/restricciones** (NEW — separado)
+  5. normativa/gobernanza
+  6. requisitos
+  7. arquitectura_tecnica (absorbe plantuml-guide)
+  8. gestion
+- El WP `restricciones` debe completarse y aprobarse ANTES de
+  abrir `requisitos`.
+
+### Decision 8: Cada WP de rebuild de dominio tiene su propio ciclo THYROX
 
 **Alternatives Considered:**
 - Un mega-WP que cubra los 7 dominios — inmanejable, mezcla
@@ -290,21 +467,23 @@ graph TB
         THLD["temp-holding/<br/>(material histórico)"]
     end
 
-    subgraph WP["WPs de rebuild (uno por dominio)"]
-        WP1["WP base_cognitiva"]
-        WP2["WP normativa/estandares"]
-        WP3["WP normativa/procedimientos"]
-        WP4["WP normativa/gobernanza+restricciones"]
-        WP5["WP requisitos"]
-        WP6["WP arquitectura_tecnica<br/>(absorbe plantuml-guide)"]
-        WP7["WP gestion"]
+    subgraph WP["WPs de rebuild (8 dominios, orden secuencial)"]
+        WP1["1. WP base_cognitiva"]
+        WP2["2. WP normativa/estandares<br/>(STDs → templates → resto)"]
+        WP3["3. WP normativa/procedimientos"]
+        WP4["4. WP normativa/restricciones<br/>(reconciliación CNST)"]
+        WP5["5. WP normativa/gobernanza"]
+        WP6["6. WP requisitos<br/>(consume CNSTs + templates)"]
+        WP7["7. WP arquitectura_tecnica<br/>(absorbe plantuml-guide)"]
+        WP8["8. WP gestion"]
     end
 
     subgraph SRC["source/ nuevo (escrito archivo por archivo)"]
         BC["base_cognitiva/"]
-        NE["normativa/estandares/"]
+        NE["normativa/estandares/<br/>+ plantillas/"]
         NP["normativa/procedimientos/"]
-        NG["normativa/gobernanza/<br/>+ restricciones/"]
+        NR["normativa/restricciones/"]
+        NG["normativa/gobernanza/"]
         RQ["requisitos/"]
         AT["arquitectura_tecnica/<br/>+ plantuml-guide/"]
         GE["gestion/"]
@@ -320,13 +499,18 @@ graph TB
     WP1 --> BC
     WP2 --> NE
     WP3 --> NP
-    WP4 --> NG
-    WP5 --> RQ
-    WP6 --> AT
-    WP7 --> GE
+    WP4 --> NR
+    WP5 --> NG
+    WP6 --> RQ
+    WP7 --> AT
+    WP8 --> GE
+    NE -.templates.-> RQ
+    NE -.templates.-> AT
+    NR -.constraints.-> RQ
     BC --> IDX
     NE --> IDX
     NP --> IDX
+    NR --> IDX
     NG --> IDX
     RQ --> IDX
     AT --> IDX
@@ -438,6 +622,14 @@ con mensaje accionable si `setup.sh` no se ejecutó. CI corre
 - **D4** (no tensión en STD_007) → Idea 3.
 - **D5** (backup as reference) → Idea 1.
 
+### Satisfying nuevos hallazgos v1.2
+
+- **Templates como contrato** → Idea 6 + Decisions 5, 6. Análisis
+  detallado en `strategy/templates-inventory-analysis.md`.
+- **Restricciones (CNST) divergentes** → Idea 7 + Decision 7.
+  Análisis detallado en
+  `strategy/restricciones-divergence-analysis.md`.
+
 ---
 
 ## Evidencia de respaldo
@@ -451,6 +643,11 @@ con mensaje accionable si `setup.sh` no se ejecutó. CI corre
 | temp-holding contiene 5 backups anidados | PROVEN | `ls temp-holding/GENERACION_DOCUMENTACION/` muestra IACT_Backup_Completo_2026-01-11/, IACT_Backup_Completo_2026-01-11-old/, TMP_COMPLETO_2026-01-13/, TMP_COMPLETO_2026-01-13_OK/, TMP_COMPLETO_IACT_2026-01-13_2/ | alta | nuevo |
 | pyproject.toml + uv.lock sincronizados post-fix | PROVEN | `uv sync` exit 0 + `.venv/bin/sphinx-build --version` → 8.2.3 | alta | nuevo |
 | CI (validate.yml) corre setup.sh + -W | PROVEN | Read de .github/workflows/validate.yml líneas 32-38 | alta | nuevo |
+| Existen 22 templates en source/ y 519 archivos relacionados a templates en temp-holding/ | PROVEN | `find source -iname "TPL_*"` → 22; `find temp-holding -iname "TPL_*" -o -iname "*template*" -o -iname "*plantilla*"` → 519 (excluyendo binarios) | alta | nuevo |
+| Set curado `iact_templates_v1_3_0` tiene 13 templates con README.txt | PROVEN | `find temp-holding/.../iact_templates_v1_3_0 -type f` → 13 archivos incluyendo README.txt | alta | nuevo |
+| source/ y temp-holding/ tienen CNST con misma numeración pero conceptos distintos | PROVEN | Comparación: source CNST_005=Seguridad_DRF_Checklist; temp-holding CNST_005=RBAC_Flat_SoD_Permisos. Verificado con `find -iname "CNST_*"` en ambos directorios. | alta | nuevo |
+| source/ tiene gap en CNST_011 | PROVEN | Listado de source/normativa/restricciones/: CNST_001..010 + CNST_012, sin CNST_011 | alta | nuevo |
+| Existe documento maestro `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` | PROVEN | `find temp-holding -iname "RESTRICCIONES_COMPLETAS*"` → 2 ubicaciones (originales/ + uploads/ del backup) | alta | nuevo |
 | Rebuild dominio-por-dominio no rompe build si toctree filtra pendientes | INFERRED | Comportamiento conocido de Sphinx: archivos fuera del toctree no se procesan; sin processing no hay warnings/refs. Confirmar empíricamente en primer WP de dominio. | media | inferencia-stage5 |
 | Esfuerzo 5–10x para rebuild editorial vs lift-and-shift | SPECULATIVE | Estimación cualitativa sin benchmarks empíricos. Útil como ranking, no como estimación de schedule. | baja | nuevo-flagged |
 

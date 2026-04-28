@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:10:00
+updated_at: 2026-04-28 04:25:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -74,6 +74,45 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
 - F-NEW-4 resuelto. `uv sync` ahora completa sin conflictos.
   Verificado: `.venv/bin/sphinx-build --version` → `sphinx-build 8.2.3`.
   La instalación oficial del proyecto vía `uv sync` queda funcional.
+
+### Phase 5 STRATEGY v1.2 (2026-04-28 04:25)
+
+- `solution-strategy.md` bumpeado a v1.2 (MINOR — agrega Ideas
+  6/7 y Decisions 5/6/7 sin contradecir lo previo; renombró
+  Decision 5 original a Decision 8).
+- **Idea 6:** Templates como contrato estructural — first-class
+  citizen del rebuild. Inventario verificado: 22 templates en
+  source/, 519 archivos relacionados en temp-holding/, set
+  curado `iact_templates_v1_3_0` con 13 templates + README.txt.
+- **Idea 7:** Restricciones (CNST) como input arquitectónico.
+  Hallazgo: source/ y temp-holding/ tienen MISMA NUMERACIÓN con
+  CONCEPTOS DISTINTOS (ej: source CNST_005=Seguridad_DRF; tmp
+  CNST_005=RBAC_SoD). Source/ tiene gap en CNST_011.
+- **Decision 5:** Sub-orden interno de `normativa/estandares` —
+  STDs → templates → resto.
+- **Decision 6:** Triage de versiones de templates antes de
+  incorporar. Inputs obligatorios: ANALISIS_TEMPLATES_VERSIONES.md
+  + PLAN_TEMPLATES_3_12_v1_2_0.md + análisis previos del ejecutor.
+- **Decision 7:** CNST tiene WP propio (separado de gobernanza)
+  y se reconcilia ANTES de `requisitos`. Total WPs sube de 7 a 8.
+- **Decision 8** (renombrada desde 5): Cada WP de rebuild de
+  dominio tiene su propio ciclo THYROX.
+- Diagrama mermaid actualizado: 8 dominios con dependencias
+  visibles (templates de estandares → requisitos+arquitectura;
+  CNST de restricciones → requisitos).
+- Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
+  y CNST, todos con tool output citado.
+
+### Análisis de soporte creados
+
+- `strategy/templates-inventory-analysis.md` (v1.0): inventario
+  detallado con tabla de versiones cruzadas, reglas de rebuild,
+  acciones para WP `normativa/estandares`, riesgos.
+- `strategy/restricciones-divergence-analysis.md` (v1.0): mapeo
+  exhaustivo source vs temp-holding por CNST, hallazgo del caos
+  de IDs (mismo número = concepto distinto), strategy para WP
+  `normativa/restricciones`, 5 decisiones D-CNST a tomar en ese
+  WP, riesgos.
 
 ### Phase 5 STRATEGY (2026-04-28 04:10)
 
