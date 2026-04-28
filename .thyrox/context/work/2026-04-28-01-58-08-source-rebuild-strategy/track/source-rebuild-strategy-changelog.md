@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:35:00
+updated_at: 2026-04-28 04:55:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,44 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Re-framing tech-stack del ejecutor (2026-04-28 04:50–04:55)
+
+Dos aclaraciones consecutivas del ejecutor que reorientan la
+strategy:
+
+1. **04:50:** "Documentación es para proyecto SW con frontend
+   (React+Webpack), backend (DRF), infra (Ubuntu+Apache),
+   databases (MySQL+PostgreSQL)."
+2. **04:55:** "Por eso v2.0 se ve como intranet, porque también
+   documentamos planes de trabajo, épicas, etc."
+
+Conclusión combinada: IACT-docs cubre **3 dimensiones**:
+methodology/governance + product spec/tech implementation +
+project lifecycle.
+
+Creado `strategy/tech-stack-alignment-analysis.md` (v1.0) con:
+
+- Verificación de cobertura actual: backend, frontend,
+  infrastructure, databases, operations NO tienen cajones
+  dedicados — están dispersos en normativa/, gestion/.
+- **F-NEW-8 detectado:** `.thyrox/guidelines/backend-nodejs.
+  instructions.md` activo siendo que stack es DRF (Python).
+  Tech-skill mismatch.
+- Re-evaluación del modelo "12 cajones" v2.0 — los cajones
+  técnicos (backend/frontend/infra/db/ops) ahora SÍ aplican
+  porque el producto IACT es software multi-tier.
+- Estructura propuesta v2.0 de 3 capas:
+  - Capa 1 — methodology (existing, mantener)
+  - Capa 2 — product spec + tech (existing parcial + 8
+    cajones nuevos)
+  - Capa 3 — project lifecycle (existing parcial + sub-cajones
+    para épicas, releases, retros, team)
+- 7 nuevas decisiones D-TECH-1..7 a tomar.
+- Si el ejecutor confirma, strategy bumpa a **v2.0 (MAJOR)**
+  porque cambia la estructura macro de source/, no solo agrega.
+
+Strategy v1.2 sigue NO modificada — esperando D-TECH-1..7.
 
 ### Análisis de propuesta externa (2026-04-28 04:35)
 
