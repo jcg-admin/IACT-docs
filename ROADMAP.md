@@ -11,7 +11,8 @@
 | 6 | 2026-04-27-23-28-26-deployment-pipeline | feature/repository-diagnostics | Phase 10 EXECUTE (parcial — bloqueado por refs muertas) |
 | 7 | 2026-04-28-00-19-57-source-references-audit | feature/repository-diagnostics | Phase 1 DISCOVER (audit-only, no fixes) |
 | 8 | 2026-04-28-01-58-08-source-rebuild-strategy | feature/solve-problem-docs | Phase 6 PLAN (strategy v2.0 aprobada; spawnea 16 sub-WPs — detalle en plan del WP) |
-| 9 | 2026-04-28-03-59-01-bootstrap-hardening | feature/solve-problem-docs | Phase 1 DISCOVER (Makefile guard + venv fix commiteados; F-NEW-8 pendiente) |
+| 9 | 2026-04-28-03-59-01-bootstrap-hardening | feature/solve-problem-docs | Phase 1 DISCOVER (Makefile guard + venv fix commiteados; F-NEW-8 + F-NEW-9 pendientes) |
+| 10 | 2026-04-28-05-07-32-multi-wp-state-strategy | feature/solve-problem-docs | Phase 1 DISCOVER (creado, pausado — análisis preliminar heredado de ÉPICA 8) |
 
 ## Completadas
 

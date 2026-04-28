@@ -1,7 +1,7 @@
 ```yml
 type: Estado de Sesión
 version: 3.2
-updated_at: 2026-04-28 05:01:32
+updated_at: 2026-04-28 05:08:01
 cold_boot: false
 current_epic: 5
 epic_name: source-rebuild-strategy
