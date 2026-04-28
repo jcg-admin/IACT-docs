@@ -31,3 +31,9 @@ Subdominios
    :caption: Procedimientos
 
    procedimientos/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Restricciones
+
+   restricciones/index
