@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 04:25:00
+updated_at: 2026-04-28 04:35:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,24 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Análisis de propuesta externa (2026-04-28 04:35)
+
+- Ejecutor compartió documento "IACT-DOCS HÍBRIDO v2.0:
+  Production-Ready" (15 secciones, ~1100 líneas) con instrucción
+  "puede que no aplique TODO para nosotros — analízalo".
+- Creado `strategy/iact-docs-v2-applicability-analysis.md` (v1.0)
+  con análisis comparativo:
+  - Contraste fundamental: v2.0 es intranet corp multi-proyecto;
+    nuestro WP es single-product (IACT).
+  - Mapeo de 37 cuellos de v2.0 → 24 aplican (sí o parcial), 9
+    no aplican (multi-proyecto), 4 ambiguos.
+  - 7 decisiones D-V2-1..7 a tomar antes de cerrar Phase 5.
+  - Recomendación: adopción parcial (~40%) — metadata, ownership,
+    CI ampliado, staleness, deprecation; descartar (~60%) —
+    scope multi-proyecto, 10 categorías corp, Algolia, comité.
+- **Strategy v1.2 NO modificada todavía.** Espera respuesta del
+  ejecutor a D-V2-1..7 antes de bumpear.
 
 ### Análisis de soporte creados
 
