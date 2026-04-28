@@ -31,9 +31,15 @@ build/
 *.egg
 dist/
 __pycache__/
+<<<<<<< HEAD
 
 # Bundled tools (descargados por scripts/setup.sh — no commitear binarios)
 # tools/bin/* SÍ se commitea (wrappers shell)
 tools/plantuml.jar
 tools/jre/
 tools/jre.tar.gz
+=======
+build/
+temp-holding/**/transcripts/
+temp-holding/**/mnt/
+>>>>>>> 88eea42 (chore(temp-holding): add FASE 01 raw working materials for reference)
