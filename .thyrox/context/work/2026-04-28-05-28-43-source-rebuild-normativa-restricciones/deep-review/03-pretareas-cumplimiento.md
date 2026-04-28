@@ -1,112 +1,112 @@
 ```yml
-created_at: 2026-04-28 13:35:00
+created_at: 2026-04-28 13:45:00
 project: IACT-docs
 work_package: 2026-04-28-05-28-43-source-rebuild-normativa-restricciones
 phase: Phase 1 — DISCOVER
-author: claude (deep-review agent)
+author: claude
 status: Aprobado
 version: 1.0.0
-type: Deep-Review Artifact
-source: wp-state.md + discover/*.md + source/normativa/restricciones/
-topic: Cumplimiento de pre-tareas, D-CNST y riesgos heredados
 ```
 
-# Deep-Review 03 — Cumplimiento de pre-tareas del WP
+# Deep-Review 03 — Cumplimiento de pre-tareas y D-CNST
 
-## Resumen ejecutivo
+**Alcance:** verificar que las 5 pre-tareas declaradas en `wp-state.md`, las 5
+sub-decisiones D-CNST y los 2 riesgos heredados están cubiertos por los
+artefactos del WP y reflejados en `source/normativa/restricciones/`.
 
-Cumplimiento global: **alto**. Las 5 pre-tareas, las 5 sub-decisiones D-CNST y los 2 riesgos heredados están documentados con evidencia trazable en los artefactos del WP. Se detectó **1 hallazgo bloqueante menor** (referencia stale `CNST_012` en MTM_03) y 7 hallazgos no bloqueantes — todos dentro del alcance permitido (≤8).
+**Fuentes consultadas (PROVEN):**
+- `wp-state.md` (líneas 39-66)
+- `discover/normativa-restricciones-analysis.md` (129 líneas)
+- `discover/mapeo-viejo-nuevo.md` (55 líneas)
+- `source/normativa/restricciones/` (11 .rst + index.rst — verificado con `ls | wc -l = 12`)
+- `source/normativa/index.rst` (línea 39 incluye `restricciones/index`)
+- grep `CNST_012|CNST-012` en `source/`
 
-## Tabla de cumplimiento — Pre-tareas (5)
+## Tabla de cumplimiento
 
-| # | Pre-tarea | Evidencia | Estado |
-|---|-----------|-----------|--------|
-| 1 | Lectura doc maestro `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` | `discover/normativa-restricciones-analysis.md:19` (1135 líneas registradas); columna "Categoría doc maestro" en tabla de mapeo conceptual (líneas 25–38) | ✅ Cumplida |
-| 2 | Lectura propuesta `ACTUALIZACION_DEL_ARBOL_SECCION_RESTRICCIONES.md` | `analysis.md:20` + `mapeo-viejo-nuevo.md:51-52` (versión 1.1.0 consolida la propuesta) | ✅ Cumplida |
-| 3 | Inspección v2.0.0 standalone `CNST_05_Restriccion_Creacion_Iterativa_2_0_0.rst` | `analysis.md:21,69-77` (D-CNST-3 — descartado del cajón con razón explícita) | ✅ Cumplida |
-| 4 | Mapeo source ↔ temp-holding ↔ doc maestro | `analysis.md:25-38` (tabla 3-columnas) | ✅ Cumplida |
-| 5 | Tabla de mapeo viejo→nuevo (input WP #6) | `discover/mapeo-viejo-nuevo.md:19-32` + sección "Cambios de referencia obligatorios" (líneas 36-38) | ✅ Cumplida |
+### Pre-tareas (5)
 
-## Tabla de cumplimiento — Sub-decisiones D-CNST (5)
+| # | Pre-tarea | Cubierta en | Estado |
+|---|-----------|-------------|--------|
+| 1 | Lectura doc maestro RESTRICCIONES_COMPLETAS | analysis.md líneas 19, 25-38, 40-43 | Cumplida |
+| 2 | Lectura propuesta ACTUALIZACION_DEL_ARBOL | analysis.md línea 20; deep-review 01 §"Ampliaciones v1.1.0" | Cumplida |
+| 3 | Inspección v2.0.0 standalone | analysis.md líneas 21, 69-77 (D-CNST-3) | Cumplida |
+| 4 | Mapeo source ↔ temp-holding ↔ doc maestro | analysis.md tabla "Mapeo conceptual" (líneas 25-38) | Cumplida |
+| 5 | Tabla mapeo viejo→nuevo (input WP #6) | `discover/mapeo-viejo-nuevo.md` completo | Cumplida |
 
-| ID | Decisión esperada | Resolución registrada | Evidencia |
-|----|-------------------|------------------------|-----------|
-| D-CNST-1 | Numeración nueva o respetar source | Respeta backup canónico, renumera sólo 012→011 para cerrar gap | `analysis.md:50-58` |
-| D-CNST-2 | Huérfanas (incorporar/descartar/fusionar) | "No hay huérfanas conceptuales" — TH CNST_004/006/007 subsumidas en CNST_001/007 | `analysis.md:60-67` |
-| D-CNST-3 | v2.0.0 standalone | Descartado del cajón (regla de proceso, no de sistema); diferido a procedimientos | `analysis.md:69-77` |
-| D-CNST-4 | Llenar gap CNST_011 | Cierre por renumeración 012→011 (sin contenido inventado, respeta out-of-scope wp-state:73) | `analysis.md:79-84` |
-| D-CNST-5 | Sub-categorías flat o agrupadas | Flat por número en filesystem; agrupación por dominio expuesta vía `index.rst` | `analysis.md:86-93` + `restricciones/index.rst:42-60` |
+### Sub-decisiones D-CNST (5)
 
-## Tabla de cumplimiento — Riesgos heredados (2)
+| ID | Decisión | Resolución registrada | Aplicada en source/ |
+|----|----------|----------------------|---------------------|
+| D-CNST-1 | Numeración nueva o backup | Backup canónico, gap cerrado por renumerado 012→011 (analysis.md:50-58) | Sí — 11 archivos consecutivos 001-011 |
+| D-CNST-2 | CNSTs huérfanas | Ninguna huérfana conceptual; temp-holding subsumida (analysis.md:60-67) | Sí — no hay archivos extra |
+| D-CNST-3 | v2.0.0 standalone | Descartado (regla de proceso, no del sistema) (analysis.md:69-77) | Sí — archivo no presente |
+| D-CNST-4 | Llenar gap CNST_011 | Gap cerrado por renumerado 012→011, sin contenido inventado (analysis.md:79-84) | Sí — `CNST_011_RBAC_Flat_SoD_Permisos.rst` ocupa el slot |
+| D-CNST-5 | Sub-categorías flat o agrupadas | Flat por número; agrupación por dominio en index.rst (analysis.md:86-93) | Sí — directorio plano + index con secciones por dominio (líneas 47-85) |
 
-| ID | Riesgo | Mitigación verificable | Estado |
-|----|--------|------------------------|--------|
-| R1 | WP #6 requisitos consume CNSTs (bloqueante) | `discover/mapeo-viejo-nuevo.md` entrega tabla canónica viejo→nuevo + cambios de referencia obligatorios | ✅ Mitigado |
-| R2 | Pérdida de CNST huérfana | D-CNST-2 valida que ninguna CNST temp-holding aporta concepto ausente (subsumidas documentadas) | ✅ Mitigado |
+### Riesgos heredados (2)
 
-## Verificación de artefactos
+| ID | Riesgo | Verificación |
+|----|--------|--------------|
+| R1 | WP #6 consume mapeo viejo→nuevo | `discover/mapeo-viejo-nuevo.md` entregado; sección "Cambios de referencia obligatorios para WP #6" explícita |
+| R2 | Pérdida de CNST huérfana | D-CNST-2 valida no hay huérfanas conceptuales; tabla mapeo conceptual cubre 100% categorías del doc maestro (H-1 analysis.md:40) |
 
-| Artefacto esperado | Existe | Notas |
-|--------------------|--------|-------|
-| `discover/normativa-restricciones-analysis.md` | ✅ | status: Aprobado, version 1.0.0 |
-| `discover/mapeo-viejo-nuevo.md` | ✅ | status: Aprobado, version 1.0.0 |
-| `source/normativa/restricciones/` | ✅ | 11 archivos CNST_001…CNST_011 + index.rst (verificado con `ls`) |
-| `source/normativa/index.rst` incluye `restricciones/index` | ✅ | toctree presente líneas 30+ del index padre |
-| Inputs declarados en `temp-holding/` | ✅ | Los 3 archivos de input verificados con `ls` |
+## Resoluciones aplicadas — verificación física
+
+- **11 archivos .rst** en `source/normativa/restricciones/` (verificado: `ls *.rst | wc -l = 11`)
+- **Numeración 001–011 sin gap** (verificado por listado de archivos)
+- **`source/normativa/index.rst:39`** incluye `restricciones/index` en toctree
+- **`source/normativa/restricciones/index.rst:32-42`** lista los 11 entries del toctree
 
 ## Hallazgos (≤8)
 
-### F-1 — BLOQUEANTE MENOR — Referencia stale `CNST_012` en MTM_03
-- **Origen:** `source/base_cognitiva/_taxonomias_y_metamodelos/metamodelos/MTM_03_Metamodelo_RBAC.rst:701`
-- **Texto literal:** `"materializacion concreta ... esta documentada como restricción **CNST_012** en normativa/restricciones/ (dominio aún no integrado al toctree público durante el rebuild)"`
-- **Contradicción:** D-CNST-1 renumeró 012→011 y el toctree YA está integrado (verificado en `restricciones/index.rst:32-42` y `normativa/index.rst`).
-- **Impacto:** R3 (línea 126-128 de analysis.md afirma "ningún archivo en source/ actual referencia CNST_012") es **falso parcial** — MTM_03 sí lo referencia.
-- **Acción recomendada:** Update MTM_03:701 → `CNST_011` y eliminar la cláusula "(dominio aún no integrado al toctree público)". Antes de cerrar el WP.
+### F-1 — Referencia residual a `CNST_012` fuera del cajón [Medio]
 
-### F-2 — Inconsistencia en tabla mapeo conceptual (analysis.md:38)
-- La fila final dice `CNST_012 RBAC_Flat_SoD_Permisos` pero el set canónico final tiene **CNST_011** (renumerado).
-- **Impacto:** Bajo — la tabla documenta el ANTES de la decisión D-CNST-1; coherente con la lectura cronológica. No requiere cambio si se interpreta como "Backup canónico (pre-renumeración)".
-- **Acción recomendada:** opcional — agregar nota al pie aclarando que la columna refleja el backup pre-renumeración.
+`source/base_cognitiva/_taxonomias_y_metamodelos/metamodelos/MTM_03_Metamodelo_RBAC.rst:701`
+contiene la cadena `CNST_012` — debería ser `CNST_011` tras la renumeración (D-CNST-1).
 
-### F-3 — Versión declarada 1.1.0 sin justificación SemVer en mapeo-viejo-nuevo.md
-- `mapeo-viejo-nuevo.md:52` declara "Versión metadata: 1.1.0" — corresponde a la propuesta `ACTUALIZACION_DEL_ARBOL`. CNST_011 efectivamente lleva `:version: 1.1.0`.
-- **Impacto:** Bajo. La propuesta original era "descongelar 10 CNST a v1.1.0" — solo 11 archivos llevan 1.1.0; consistente.
-- **Acción recomendada:** ninguna.
+- Origen: grep `CNST_012` en `source/` retorna 1 hit fuera del cajón restricciones.
+- Impacto: R1 — referencia rota cross-dominio que WP #6 (o el actual lector de RBAC)
+  encontrará si no se corrige.
+- Estado en analysis.md:126-128: declara "ningún archivo en `source/` actual referencia
+  CNST_012" — claim contradicho por la evidencia.
+- Acción recomendada: corregir `MTM_03_Metamodelo_RBAC.rst:701` a `CNST_011` en este
+  WP antes de cierre, o documentar como dependencia hard a WP #6 / WP de base_cognitiva.
 
-### F-4 — D-CNST-3 deferral sin tracking
-- `analysis.md:75` difiere v2.0.0 standalone "a una iteración futura del WP de procedimientos / metodología" pero no hay TD-NNN ni handoff registrado.
-- **Impacto:** Riesgo de pérdida del input. No bloquea cierre del WP actual (out-of-scope confirmado en wp-state:73).
-- **Acción recomendada:** crear entrada en `.thyrox/context/technical-debt.md` o handoff explícito al WP de procedimientos antes del cierre.
+### F-2 — Claim de R3 en analysis.md no verificado [Bajo]
 
-### F-5 — Pre-tarea 4 cumple pero el doc maestro no aparece en `mapeo-viejo-nuevo.md`
-- La tabla de mapeo solo tiene 3 columnas (backup / temp-holding / nuevo). No hay columna "doc maestro" en `mapeo-viejo-nuevo.md` (sí en `analysis.md:25-38`).
-- **Impacto:** Bajo — el mapeo viejo→nuevo no necesita doc maestro como columna (no es input directo de WP #6).
-- **Acción recomendada:** ninguna; cumplimiento aceptado vía `analysis.md`.
+analysis.md:126-128 afirma "ningún archivo en `source/` actual referencia CNST_012"
+sin grep registrado. Es claim INFERRED no PROVEN — y, como muestra F-1, es falso.
 
-### F-6 — `BR-006` mencionado en CNST_011 sin trazabilidad
-- `CNST_011_RBAC_Flat_SoD_Permisos.rst:25` referencia `BR-006 (regla de negocio pendiente de WP requisitos)`.
-- **Impacto:** Aceptable como handoff a WP #6. Confirma R1 — el mapeo viejo→nuevo debe transportar también este link.
-- **Acción recomendada:** ninguna en este WP; verificar en kickoff de WP #6.
+- Acción: re-clasificar claim a PROVEN con grep ejecutado, y actualizar conclusión.
 
-### F-7 — Plan de ejecución (analysis.md:106-118) lista 9 pasos, no hay evidencia de checklist completado
-- El analysis cierra con plan de ejecución pero no hay artefacto que confirme "build limpio (0 warnings)" ni que los 3 deep-reviews paralelos hayan corrido todos.
-- **Impacto:** Medio. Este deep-review es el `03-` (de 3+); falta confirmar que 01 y 02 existen y están aprobados.
-- **Acción recomendada:** verificar existencia de `deep-review/01-*.md` y `deep-review/02-*.md` antes de cerrar WP. Si faltan, no cerrar.
+### F-3 — Versión metadata declarada 1.1.0 sin confirmación física [Bajo]
 
-### F-8 — Anti-sesgo cumplido
-- Las decisiones D-CNST-1…5 derivan de evidencia documentada (mapeo conceptual + categorías doc maestro), no de hipótesis a priori.
-- D-CNST-2 ("no hay huérfanas") es un claim falsable y verificado por la tabla — no un descarte por sesgo.
-- **Impacto:** ninguno (confirmación positiva).
+`mapeo-viejo-nuevo.md:51` afirma "Versión metadata: 1.1.0". El bloque `.. meta::`
+del index.rst muestra `:version: 1.1.0` (línea 7) — confirmado para el index, pero
+no se incluyó muestreo de los 11 archivos individuales en este review.
 
-## Recomendación final
+- Acción: opcional — verificar consistencia 1.1.0 en los 11 .rst si no fue cubierto
+  por deep-review 01.
 
-**NO CERRAR el WP todavía.** Tres acciones bloqueantes mínimas antes del gate:
+## Recomendación final del agente
 
-1. **Fijar F-1** — actualizar `MTM_03_Metamodelo_RBAC.rst:701` (CNST_012 → CNST_011 y limpiar cláusula obsoleta sobre toctree). Sin esto, R3 documentado en `analysis.md:126-128` queda como claim falso.
-2. **Resolver F-7** — confirmar que los deep-reviews 01 y 02 paralelos existen y están aprobados; si no, completarlos.
-3. **Resolver F-4** — registrar el deferral de v2.0.0 standalone en `technical-debt.md` o como handoff explícito al WP de procedimientos.
+**NO CERRAR el WP** hasta resolver F-1.
 
-Con esas tres acciones fijadas, el cumplimiento de pre-tareas, D-CNST y riesgos heredados está completo y el WP es candidato válido para gate Phase 1 → Phase 2 (o cierre directo si la estrategia padre lo permite).
+Justificación:
+- 5/5 pre-tareas cumplidas, 5/5 D-CNST resueltas y aplicadas, R2 mitigado.
+- R1 (mapeo entregado a WP #6) está parcialmente mitigado: el documento de mapeo
+  existe y es correcto, pero queda una referencia rota `CNST_012` en
+  `MTM_03_Metamodelo_RBAC.rst:701` que invalida el supuesto de "todas las refs
+  resueltas en migración" (analysis.md:128).
+- Cerrar el WP con F-1 sin resolver propaga el riesgo R1 al WP #6 y al dominio
+  base_cognitiva, contradiciendo el propósito de entregar un mapeo limpio.
 
-**Items correctamente cubiertos:** 12 de 12 (5 pre-tareas + 5 D-CNST + 2 riesgos).
-**Hallazgos:** 8 (1 bloqueante menor, 1 medio, 6 bajos / informativos).
+**Acción mínima para cerrar:**
+1. Corregir `MTM_03_Metamodelo_RBAC.rst:701` (`CNST_012` → `CNST_011`) o registrar
+   explícitamente como out-of-scope con ticket cross-WP.
+2. Actualizar analysis.md §"Riesgos identificados" R3 con el grep PROVEN y la nota
+   sobre la referencia cross-dominio encontrada.
+
+Tras estas dos acciones, el WP cumple las pre-condiciones de cierre y puede
+avanzar al gate Stage 1 → Stage 2.

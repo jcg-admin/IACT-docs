@@ -1,5 +1,5 @@
 ```yml
-created_at: 2026-04-28 06:15:00
+created_at: 2026-04-28 06:10:00
 project: IACT-docs
 work_package: 2026-04-28-05-28-43-source-rebuild-normativa-restricciones
 phase: Phase 1 — DISCOVER
@@ -8,66 +8,74 @@ status: Aprobado
 version: 1.0.0
 ```
 
-# Deep-Review de cobertura de inputs — normativa/restricciones
+# Deep-review — Cobertura de inputs vs rebuild
 
-**Alcance:** comparar inputs (backup canónico, FASE 02 divergente, doc maestro,
-ACTUALIZACION_DEL_ARBOL, CNST_05 v2.0.0 standalone) contra `source/normativa/restricciones/`.
+Compara backup canonico, temp-holding FASE 02 (8 CNST), doc maestro
+`RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md`, propuesta FASE 01 de
+actualizacion del arbol y v2.0.0 standalone contra `source/normativa/
+restricciones/` (11 CNST + index).
 
 ## Cobertura buena
 
-1. **Backup canónico → rebuild (11 archivos):** los 10 CNST_001…CNST_010 están
-   presentes con contenido equivalente (diff solo en bloque `.. meta::` añadido y
-   cross-refs). CNST_012 backup → CNST_011 rebuild conforme D-CNST-1. Sin pérdida
-   sustantiva.
-2. **Renumeración 012→011 correcta:** título, label `_cnst-011` y tuplas
-   `'CNST-011'` actualizadas; gap cerrado (D-CNST-4).
-3. **Ampliaciones v1.1.0 preservadas:** "Permisos Temporales" en CNST_005
-   (UserFunctionAssignment, ExpiredPermissionsMiddleware, expire_permissions, API)
-   y "Patrones Recomendados" en CNST_006 (Service Layer, Strategy) verificados por
-   grep — alineados con ACTUALIZACION_DEL_ARBOL.
-4. **Descarte CNST_05 v2.0.0 justificado:** documenta restricción de proceso de
-   creación iterativa, no del sistema IACT (D-CNST-3).
-5. **Index con meta-bloque y agrupación por dominio:** los 11 toctree entries y la
-   sección "Estructura por dominio" cubren los 11 CNST.
+1. **Set canonico al 100%** — `diff -rq` confirma CNST_001..CNST_010 del
+   backup en rebuild; cambios acotados a metadata (bloque `.. meta::`
+   agregado, frontmatter legacy `:ID:/:Version:` removido).
+2. **Renumeracion 012 -> 011 ejecutada** — CNST_012 solo en backup;
+   CNST_011_RBAC en rebuild con etiqueta y referencias internas
+   re-cableadas (5 hits grep `CNST-011`).
+3. **D-CNST-3 honrada** — `CNST_05_Restriccion_Creacion_Iterativa_2_0_0`
+   ausente del rebuild (procedimiento, no restriccion del sistema).
+4. **Doc maestro cat 1-4, 6-7, 9-10 mapeadas** — discover lineas 27-38
+   verifica destino CNST para cada subcategoria tecnica.
+5. **Index por dominio (D-CNST-5)** — `index.rst:44-86` agrupa 11 CNST
+   en 6 dominios sin subdirectorios; numeracion flat sin gaps (linea 91).
 
 ## Gaps detectados
 
-### G-1 — FASE 02 base_cognitiva (8 archivos divergentes) no fusionada [BAJA]
-Los `.rst` en `FASE 02/base_cognitiva/...` reordenan el catálogo (RBAC=CNST_005,
-Reportes=CNST_006) y suman ~12k líneas. Rebuild conserva numeración backup.
-Justificado por D-CNST-1. Pérdida real: narrativa NIST-RBAC expandida (44 funciones,
-10 agrupadores, 5 segmentos) — parcialmente cubierta en rebuild CNST_011.
+### G-1 — Cat 5 "Funcionales SRS" sin destino [BAJA]
+5.1/5.3/5.4/5.5 (alertas: 50 destinatarios, consolidar repetitivas) sin
+CNST. Aceptable — son FRQ, no restricciones; redireccion a `requisitos/`
+no declarada en D-CNST.
 
-### G-2 — Sección "8. Desarrollo" del doc maestro sin CNST propio [MEDIA]
-Doc maestro lista "8.1 Coding Standards" y "8.2 Git/CI/CD"; no tienen CNST_NNN en
-rebuild ni backup. D-CNST-2 verificó huérfanas contra backup, no contra doc
-maestro. Contenido normativo legítimo ausente.
+### G-2 — Cat 8 "Coding Standards / Git CI" sin CNST ni decision [MEDIA]
+8.1 (PEP8, type hints) y 8.2 (gitflow, CI gates) sin destino. CNST_006
+cubre antipatrones de arquitectura, no estilo. **Contradice D-CNST-2**
+("ninguna huerfana"): dominio entero sin destino ni redireccion
+documentada a `procedimientos/STD_*`.
 
-### G-3 — Sección "11. Checklist Pre/Post-Deploy" sin artefacto [BAJA]
-Checklist consolidado del doc maestro no expuesto en rebuild. Contenido operativo;
-puede vivir en `procedimientos/`.
+### G-3 — Cat 11 "Checklist Cumplimiento" no migrado [BAJA]
+Checklist pre/post-deploy no incorporado. Operacional, descarte
+aceptable, sin anotacion explicita.
 
-### G-4 — Sección "12. Glosario de Restricciones" no migrada [BAJA]
-Doc maestro cierra con glosario; ausente en rebuild y backup. Puede consolidarse a
-nivel proyecto.
+### G-4 — Cat 12 "Glosario" no migrado [BAJA]
+Terminos (DRF Secure Code, SoD, RBAC) inline por CNST. Perdida menor.
 
-### G-5 — Index pierde trazabilidad histórica [BAJA]
-Backup index documentaba `Lineas Totales: 10,993`, `Integracion RBAC: v5.1.1` y
-sección "Cambios en v1.1.0". Rebuild los omite (reemplazados por meta + narrativa).
-No es contenido normativo, pero sí historial.
+### G-5 — Temp-holding CNST_004 (Alertas Buzon, 1210 lineas) subsumida parcialmente [MEDIA]
+D-CNST-2 la subsume en CNST_001. Conceptual SI (prohibicion email,
+InternalMessage, UC-036..040); detalle operacional (limite 50,
+consolidacion) no trazado linea-a-linea.
 
-### G-6 — Cross-ref `:ref:`br-006`` reemplazada por texto plano [BAJA]
-En CNST_011 L27, rebuild convirtió `:ref:`br-006`` a texto ("BR-006 (regla de
-negocio pendiente de WP requisitos)"). Rompe link futuro.
+### G-6 — Temp-holding CNST_006 (Reportes Rango) subsumida sin auditoria [BAJA]
+D-CNST-2 la subsume en CNST_007. Rangos simples/complejos cubiertos;
+detalles adicionales (1035 lineas) no validados.
 
-## Recomendación final
+### G-7 — Bump 1.0.x -> 1.1.0 sin justificacion vs propuesta FASE 01 [MEDIA]
+Discover linea 100 declara la propuesta "no aplicable", pero el rebuild
+bumpeo metadata a `version: 1.1.0` (CNST_001 lineas 1-12). Inconsistencia
+entre decision y accion — falta justificar o revertir.
 
-**Avanzar al gate** con dos hallazgos de seguimiento:
+### G-8 — SOLID (Cat 3.3) sin enunciado individual [BAJA]
+CNST_006 cubre antipatrones; los 5 principios SOLID como restricciones
+individuales no confirmados a grep.
 
-- **F-restricciones-1 (MEDIA):** evaluar si "Coding Standards" y "Git/CI/CD"
-  merecen CNST_012/013 o pertenecen a `estandares/`.
-- **F-restricciones-2 (BAJA):** restaurar `:ref:`br-006`` cuando WP requisitos cree
-  el target.
+## Recomendacion final
 
-Decisiones D-CNST-1..5 cubren todos los gaps ALTA. Cobertura efectiva del backup:
-100% (11/11 CNST + index). Sin pérdida normativa crítica.
+**Avanzar al gate** con dos cierres:
+
+1. **G-2** — anotar en discover que cat 8 queda fuera del cajon
+   (pertenece a `procedimientos/STD_*`); cierra contradiccion D-CNST-2.
+2. **G-7** — justificar bump 1.0.x -> 1.1.0 o revertir.
+
+G-1/G-3/G-4/G-6/G-8 aceptables (marginales o fuera de alcance). G-5
+amerita verificacion futura pero no bloquea. Ningun gap ALTA. **Veredicto:**
+rebuild fiel al backup y a D-CNST. Cierre WP recomendado tras G-2 y G-7.

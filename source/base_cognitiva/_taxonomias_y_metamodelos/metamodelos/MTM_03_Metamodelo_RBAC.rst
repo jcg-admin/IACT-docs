@@ -698,9 +698,8 @@ de usuarios (UC-005 a UC-011).
 
 **Catalogo poblado:** la materializacion concreta de este metamodelo
 (las 42 funciones, los 10 grupos, las 3 reglas SoD, la politica de
-permisos temporales) esta documentada como restricción **CNST_012**
-en ``normativa/restricciones/`` (dominio aún no integrado al
-toctree público durante el rebuild).
+permisos temporales) esta documentada como restricción
+:doc:`/normativa/restricciones/CNST_011_RBAC_Flat_SoD_Permisos`.
 
 **Regla de negocio asociada:** **BR_006** en
 ``normativa/restricciones/`` o ``requisitos/`` según convención
