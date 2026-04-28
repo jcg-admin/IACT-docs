@@ -723,9 +723,11 @@ Al generar outputs, logs, mensajes:
 11.2. Documentos IACT
 ---------------------
 
-- :doc:`STD_002_Formato_RST_1_0_0`
-- :doc:`STD_003_Metadata_Obligatoria_1_0_0`
-- :doc:`/reglas_operativas/CNST_05_Restriccion_Creacion_Iterativa_2_0_0`
+- :ref:`std-002` — Nomenclatura del Proyecto.
+- ``STD_003_Metadata_Obligatoria`` (pendiente de creación en
+  ``normativa/estandares/``).
+- ``CNST_05_Restriccion_Creacion_Iterativa`` (pendiente de
+  reconciliación en ``normativa/restricciones/``).
 
 11.3. Recursos Externos
 -----------------------

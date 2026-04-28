@@ -61,6 +61,12 @@ Contenido publicado
 
    base_cognitiva/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Normativa
+
+   normativa/index
+
 ----
 
 Índices y Búsqueda

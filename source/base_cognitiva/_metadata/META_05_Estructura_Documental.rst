@@ -229,4 +229,5 @@ estar presente en la navegación pública aunque exista físicamente.
        por tier (backend, frontend, infrastructure, databases,
        operations, onboarding, quality, risks-technical-debt);
        (d) ``gestion/`` expandido con sub-cajones de lifecycle;
-       (e) regla de worlds separados ``source/`` ↔ ``.thyrox/``.
+       (e) regla que separa documentación publicable del tooling
+       interno de gestión.

@@ -47,7 +47,8 @@ NO aplica a:
 
 - Archivos de configuración del proyecto (``conf.py``,
   ``pyproject.toml``, etc.).
-- Archivos en ``.claude/``, ``.thyrox/``, ``scripts/``.
+- Archivos fuera de ``source/`` (configuración del entorno,
+  tooling interno, scripts del repositorio).
 - ``LICENSE``, ``CHANGELOG.md``, ``ROADMAP.md``, ``readme.rst`` en raíz.
 
 ----

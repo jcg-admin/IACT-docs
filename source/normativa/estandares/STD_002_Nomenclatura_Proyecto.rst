@@ -1148,26 +1148,26 @@ Al crear o renombrar un artefacto, verificar:
    * - Antigua (v1.0)
      - Nueva (v2.0)
      - Tipo Cambio
-   * - NOM_01_...
-     - NOM_001_..._2_0_0.rst
+   * - ``NOM_01_...``
+     - ``NOM_001_..._2_0_0.rst``
      - Dígitos + versión
-   * - STD_01_...
-     - STD_001_..._1_0_0.rst
+   * - ``STD_01_...``
+     - ``STD_001_..._1_0_0.rst``
      - Dígitos + versión
-   * - BR_001_...
-     - BR_001_..._1_0_0.rst
+   * - ``BR_001_...``
+     - ``BR_001_..._1_0_0.rst``
      - + versión
-   * - CNST_001_...
-     - CNST_001_..._1_0_0.rst
+   * - ``CNST_001_...``
+     - ``CNST_001_..._1_0_0.rst``
      - + versión
-   * - UC_ACC_01
-     - UC_ACC_01_..._4_0_0.rst
+   * - ``UC_ACC_01``
+     - ``UC_ACC_01_..._4_0_0.rst``
      - + versión
    * - FR (sin formato)
-     - FR_001.01_..._1_0_0.rst
+     - ``FR_001.01_..._1_0_0.rst``
      - Nuevo formato
-   * - TPL_BR_1_0_0
-     - TPL_BR_Business_Rules_1_0_0.rst
+   * - ``TPL_BR_1_0_0``
+     - ``TPL_BR_Business_Rules_1_0_0.rst``
      - Nombre descriptivo
    * - PROC_Generacion_FR
      - PROC_Generacion_FR_1_0_0.rst

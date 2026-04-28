@@ -5,7 +5,7 @@ updated_at: 2026-04-28 05:54:05
 cold_boot: false
 current_epic: 5
 epic_name: source-rebuild-strategy
-current_work: .thyrox/context/work/2026-04-28-05-28-41-source-rebuild-normativa-estandares
+current_work: .thyrox/context/work/2026-04-28-05-28-42-source-rebuild-normativa-procedimientos
 stage: ÉPICA 8 CERRADA
 stage_number: 11
 current_phase: Phase 11 — TRACK (CERRADO 2026-04-28 05:35)
