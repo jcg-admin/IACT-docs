@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 03:55:22
+updated_at: 2026-04-28 03:59:01
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -89,6 +89,26 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   Resultado: la premisa del ejecutor era correcta. El primer build falló
   con 183 warnings — TODAS plantuml-related — porque salté setup.sh.
   Lección: setup.sh es pre-condición obligatoria.
+
+### Spinoff WP
+
+- **Creado WP `2026-04-28-03-59-01-bootstrap-hardening`** para abordar
+  F-NEW-7 fuera del scope de este WP. Ver
+  `.thyrox/context/work/2026-04-28-03-59-01-bootstrap-hardening/`.
+  Phase 1 DISCOVER inicial creada con 5 hallazgos (F-01..F-05) y 4
+  decisiones pendientes (D1..D4).
+
+### Settings change
+
+- `.claude/settings.json`: agregadas entradas a `permissions.allow`
+  para resolver F-NEW-6:
+  - `Bash(rm -rf build/*)` — permite limpieza de build sin prompt
+  - `Bash(rm -rf build/html*)` — específico para subdirs de build
+  - `Bash(make clean)` — wrapper documentado del Makefile
+  - `Bash(make html)` — comando estándar de build
+  Nota: la regla `Bash(rm -rf *)` sigue en `deny` (catch-all
+  destructivo); las allows específicas la sobrescriben para los
+  paths esperados de build.
 
 ### New findings detected during verification
 
