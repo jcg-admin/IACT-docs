@@ -1,0 +1,75 @@
+```yml
+project: IACT-docs
+work_package: 2026-04-28-05-28-41-source-rebuild-normativa-estandares
+parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
+parent_relationship: child #2 of 16
+created_at: 2026-04-28 05:28:41
+current_phase: Phase 1 — DISCOVER
+flow: thyrox
+methodology_step: workflow-discover
+author: NestorMonroy
+status: Borrador (no iniciado)
+```
+
+# WP-hijo #2 — Source Rebuild: normativa/estandares
+
+## Propósito
+
+Reconstruir `source/normativa/estandares/` (~10 STDs + carpeta
+`plantillas/` con 22+ templates). Este dominio define las **reglas
+universales** (STDs) y los **moldes** (templates) que el resto de
+los dominios va a usar.
+
+## Capa
+
+**Methodology / Governance** (capa 1).
+
+## Pre-condiciones
+
+- WP #1 `source-rebuild-base-cognitiva` cerrado.
+- Vocabulario de glosario disponible (H3 del padre).
+
+## Decisiones del padre que aplican
+
+- **Decision 5 (sub-orden interno):** STDs → templates → resto.
+- **Decision 6 (triage de templates):** caso por caso con inputs
+  obligatorios.
+- **Idea 6 (templates como contrato estructural).**
+
+## Pre-tareas absorbidas
+
+| Pre-tarea | Acción esperada en Phase 1 DISCOVER |
+|-----------|-------------------------------------|
+| **Sub-orden STDs → templates → resto** | Task plan del WP-hijo agrupa en 3 bloques. |
+| **Triage de templates** | Para cada tipo (UC, BR, FR, NFR, ADR, CNST, MOD, FD, PROC, STD, RTM, API, INDEX, VIEW, BReq, POL, TST, TRZ): listar versiones existentes, elegir canónica con justificación, renombrar a `TPL_KEY_Desc.rst` (sin versión en filename), mover versión a metadata YAML. |
+| **Conservar 7 variantes UC como templates separados** | NO fusionar: CRUD, Larman_Contratos, Stakeholder_Driven, UI_Driven, Temporal_Schedulers, Actor_Secundario, Construccion_7_Pasos. |
+
+## Inputs obligatorios (lectura previa al discover)
+
+5 análisis previos del ejecutor (de `temp-holding/`):
+
+1. `temp-holding/FASE 02/tmp_work/ANALISIS_TEMPLATES_VERSIONES.md`
+2. `temp-holding/FASE 02/tmp_work/PLAN_TEMPLATES_3_12_v1_2_0.md`
+3. `temp-holding/FASE 01/TLP_Templates/ANALISIS_NOMENCLATURA_TPL_1_0_0.md`
+4. `temp-holding/FASE 01/TLP_Templates/PLAN_GENERACION_TPL_1_0_0.md`
+5. `temp-holding/FASE 02/tmp_work/PROPUESTA_TEMPLATE_01..10.txt`
+   (10 archivos)
+
+Plus análisis del padre: `strategy/templates-inventory-analysis.md`.
+
+## Alcance
+
+**In-scope:** STDs reescritos, templates triageados/renombrados,
+`plantillas/index.rst`, build verde.
+
+**Out-of-scope:** generar/modificar UCs, BRs, FRs concretos (eso es
+WP #6); aplicar templates a artefactos del producto.
+
+## Pre-condición de cierre del padre que activa este WP-hijo
+
+- Salida de este WP-hijo es **input hard de WP #6 requisitos**
+  (H1 cross-WP dependency).
+
+## Estado
+
+**Borrador (no iniciado).** Spawneado por T-009.

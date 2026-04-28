@@ -4,7 +4,7 @@ project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Stage 8 — PLAN EXECUTION
 author: NestorMonroy
-status: Borrador
+status: Aprobado — 2026-04-28 05:18 (ejecutor: SI)
 ```
 
 # Task Plan — Source Rebuild Strategy WP-padre (ÉPICA 8)
@@ -53,57 +53,57 @@ Spawn tasks (T-008..T-023) son atómicas porque producen exactamente UN
 
 ### Methodology (5 hijos)
 
-- [ ] **T-008** Spawn WP-hijo `source-rebuild-base-cognitiva` con pre-tareas: crear `temp-backup/source-2026-04-28/` + triage F-NEW-2 de los 5 backups anidados de `temp-holding/` (sección "Pre-tareas asignadas" del plan)
+- [x] **T-008** Spawn WP-hijo `source-rebuild-base-cognitiva` con pre-tareas: crear `temp-backup/source-2026-04-28/` + triage F-NEW-2 de los 5 backups anidados de `temp-holding/` (sección "Pre-tareas asignadas" del plan)
 
-- [ ] **T-009** Spawn WP-hijo `source-rebuild-normativa-estandares` con pre-condición #1 cerrado + sub-orden interno STDs→templates→resto (Decision 5) + triage de templates (Decision 6) con 5 inputs obligatorios: `ANALISIS_TEMPLATES_VERSIONES.md`, `PLAN_TEMPLATES_3_12_v1_2_0.md`, `ANALISIS_NOMENCLATURA_TPL_1_0_0.md`, `PLAN_GENERACION_TPL_1_0_0.md`, `PROPUESTA_TEMPLATE_01..10.txt` + conservación de 7 variantes UC
+- [x] **T-009** Spawn WP-hijo `source-rebuild-normativa-estandares` con pre-condición #1 cerrado + sub-orden interno STDs→templates→resto (Decision 5) + triage de templates (Decision 6) con 5 inputs obligatorios: `ANALISIS_TEMPLATES_VERSIONES.md`, `PLAN_TEMPLATES_3_12_v1_2_0.md`, `ANALISIS_NOMENCLATURA_TPL_1_0_0.md`, `PLAN_GENERACION_TPL_1_0_0.md`, `PROPUESTA_TEMPLATE_01..10.txt` + conservación de 7 variantes UC
 
-- [ ] **T-010** Spawn WP-hijo `source-rebuild-normativa-procedimientos` con pre-condición #2 cerrado
+- [x] **T-010** Spawn WP-hijo `source-rebuild-normativa-procedimientos` con pre-condición #2 cerrado
 
-- [ ] **T-011** Spawn WP-hijo `source-rebuild-normativa-restricciones` con pre-condición #2 cerrado + reconciliación CNST + 5 sub-decisiones D-CNST-1..5 (numeración, huérfanas, v2.0.0 standalone, gap CNST_011, sub-categorías) + inputs obligatorios: `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` + `ACTUALIZACION_DEL_ARBOL_SECCION_RESTRICCIONES.md` + sección §4.2 de restricciones-divergence-analysis
+- [x] **T-011** Spawn WP-hijo `source-rebuild-normativa-restricciones` con pre-condición #2 cerrado + reconciliación CNST + 5 sub-decisiones D-CNST-1..5 (numeración, huérfanas, v2.0.0 standalone, gap CNST_011, sub-categorías) + inputs obligatorios: `RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md` + `ACTUALIZACION_DEL_ARBOL_SECCION_RESTRICCIONES.md` + sección §4.2 de restricciones-divergence-analysis
 
-- [ ] **T-012** Spawn WP-hijo `source-rebuild-normativa-gobernanza` con pre-condición #4 cerrado
+- [x] **T-012** Spawn WP-hijo `source-rebuild-normativa-gobernanza` con pre-condición #4 cerrado
 
 ### Spec (2 hijos)
 
-- [ ] **T-013** Spawn WP-hijo `source-rebuild-requisitos` con pre-condiciones hard #2 + #4 cerrados (templates listos + CNSTs reconciliadas con tabla de mapeo viejo→nuevo)
+- [x] **T-013** Spawn WP-hijo `source-rebuild-requisitos` con pre-condiciones hard #2 + #4 cerrados (templates listos + CNSTs reconciliadas con tabla de mapeo viejo→nuevo)
 
-- [ ] **T-014** Spawn WP-hijo `source-rebuild-arquitectura-tecnica` con pre-condición #6 cerrado + absorción de `plantuml-guide/` (F-04)
+- [x] **T-014** Spawn WP-hijo `source-rebuild-arquitectura-tecnica` con pre-condición #6 cerrado + absorción de `plantuml-guide/` (F-04)
 
 ### Tech-skeleton (8 hijos — overview.rst + conventions.rst + index.rst, sin código)
 
-- [ ] **T-015** Spawn WP-hijo `source-rebuild-backend` (DRF) con pre-condiciones #7 + bootstrap-hardening cerrado (H4 — backend-django.instructions activo)
+- [x] **T-015** Spawn WP-hijo `source-rebuild-backend` (DRF) con pre-condiciones #7 + bootstrap-hardening cerrado (H4 — backend-django.instructions activo)
 
-- [ ] **T-016** Spawn WP-hijo `source-rebuild-frontend` (React + Webpack) con pre-condición #7 cerrado
+- [x] **T-016** Spawn WP-hijo `source-rebuild-frontend` (React + Webpack) con pre-condición #7 cerrado
 
-- [ ] **T-017** Spawn WP-hijo `source-rebuild-infrastructure` (Ubuntu + Apache) con pre-condición #7 cerrado
+- [x] **T-017** Spawn WP-hijo `source-rebuild-infrastructure` (Ubuntu + Apache) con pre-condición #7 cerrado
 
-- [ ] **T-018** Spawn WP-hijo `source-rebuild-databases` (MySQL + PostgreSQL — cajón propio, D-TECH-3) con pre-condición #7 cerrado
+- [x] **T-018** Spawn WP-hijo `source-rebuild-databases` (MySQL + PostgreSQL — cajón propio, D-TECH-3) con pre-condición #7 cerrado
 
-- [ ] **T-019** Spawn WP-hijo `source-rebuild-operations` (deployment, monitoring, runbooks) con pre-condiciones #8-11 cerrados
+- [x] **T-019** Spawn WP-hijo `source-rebuild-operations` (deployment, monitoring, runbooks) con pre-condiciones #8-11 cerrados
 
-- [ ] **T-020** Spawn WP-hijo `source-rebuild-onboarding` (dev quickstart) con pre-condiciones #8-11 cerrados
+- [x] **T-020** Spawn WP-hijo `source-rebuild-onboarding` (dev quickstart) con pre-condiciones #8-11 cerrados
 
-- [ ] **T-021** Spawn WP-hijo `source-rebuild-quality` (testing strategy) con pre-condiciones #8-11 cerrados
+- [x] **T-021** Spawn WP-hijo `source-rebuild-quality` (testing strategy) con pre-condiciones #8-11 cerrados
 
-- [ ] **T-022** Spawn WP-hijo `source-rebuild-risks-technical-debt` con pre-condiciones #8-14 cerrados + pre-tareas: cleanup `temp-backup/` + cleanup `temp-holding/` + recuperar `sphinx-build -W` (Decision 3 final)
+- [x] **T-022** Spawn WP-hijo `source-rebuild-risks-technical-debt` con pre-condiciones #8-14 cerrados + pre-tareas: cleanup `temp-backup/` + cleanup `temp-holding/` + recuperar `sphinx-build -W` (Decision 3 final)
 
 ### Lifecycle (1 hijo)
 
-- [ ] **T-023** Spawn WP-hijo `source-rebuild-gestion` (lifecycle expandido — charter + roadmap + epicas + sprints + releases + retrospectives + team) con pre-condición #15 cerrado + recordatorio Decision 13 (independencia source/ ↔ .thyrox/)
+- [x] **T-023** Spawn WP-hijo `source-rebuild-gestion` (lifecycle expandido — charter + roadmap + epicas + sprints + releases + retrospectives + team) con pre-condición #15 cerrado + recordatorio Decision 13 (independencia source/ ↔ .thyrox/)
 
 ### Commit del grupo
 
-- [ ] **T-024** Commit [Grupo B]: `Spawn 16 child WPs for source-rebuild`
+- [x] **T-024** Commit [Grupo B]: `Spawn 16 child WPs for source-rebuild`
 
 ---
 
 ## Grupo C — Cierre del WP-padre
 
-- [ ] **T-025** Verificar que los 16 hijos están abiertos con parent-link válido. Comando: `find .thyrox/context/work/ -name wp-state.md -exec grep -l "parent: source-rebuild-strategy\|parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy" {} \; | wc -l` → debe retornar 16
+- [x] **T-025** Verificar que los 16 hijos están abiertos con parent-link válido. Comando: `find .thyrox/context/work/ -name wp-state.md -exec grep -l "parent: source-rebuild-strategy\|parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy" {} \; | wc -l` → debe retornar 16
 
-- [ ] **T-026** Verificar pre-condición de cierre #4 del plan: `bootstrap-hardening` recibió F-NEW-8 (grep en su changelog) — ya hecho retrospectivamente en T-007, re-verificar
+- [x] **T-026** Verificar pre-condición de cierre #4 del plan: `bootstrap-hardening` recibió F-NEW-8 (grep en su changelog) — ya hecho retrospectivamente en T-007, re-verificar
 
-- [ ] **T-027** Update `track/source-rebuild-strategy-changelog.md`: agregar entradas de Phase 8 PLAN EXECUTION + Phase 10 EXECUTE (spawn) + cierre del WP-padre
+- [x] **T-027** Update `track/source-rebuild-strategy-changelog.md`: agregar entradas de Phase 8 PLAN EXECUTION + Phase 10 EXECUTE (spawn) + cierre del WP-padre
 
 - [ ] **T-028** Run `bash .claude/scripts/validate-phase-completion.sh` y verificar exit 0 (working tree clean + remote sync + build success + recent commits)
 

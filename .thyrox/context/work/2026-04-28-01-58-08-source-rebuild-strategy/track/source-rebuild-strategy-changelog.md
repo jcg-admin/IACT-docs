@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 05:14:00
+updated_at: 2026-04-28 05:30:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,27 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Phase 10 EXECUTE — Group B (T-008..T-023) completado (2026-04-28 05:30)
+
+- 16 WPs-hijos spawneados con parent-link válido y pre-tareas
+  declaradas. Verificación T-025: `find ... | wc -l` → 16 ✓.
+- Verificación T-026: F-NEW-8 grep en bootstrap-hardening
+  changelog → 1 entry ✓.
+- Cada WP-hijo creado con su `wp-state.md` conteniendo:
+  - Referencia al WP-padre (`parent_wp`, `parent_relationship`).
+  - Pre-condiciones declaradas (HARD/SOFT con WP hermanos).
+  - Pre-tareas absorbidas con acción esperada en su Phase 1
+    DISCOVER.
+  - Inputs obligatorios (especialmente WP #2 con 5 análisis +
+    PROPUESTA_TEMPLATE_01..10; WP #4 con D-CNST-1..5 +
+    documentos maestros).
+  - Acceptance criteria (especialmente para 8 WPs tech-skeleton
+    y WP #15 con tareas de cierre del rebuild macro).
+- Estado de cada hijo: Borrador (no iniciado) — esperan
+  apertura explícita por instrucción ejecutor.
+- F-NEW-9 (sync-wp-state hook) reproducido en cada Write —
+  documentado, será arreglado en ÉPICA 10.
 
 ### Phase 8 PLAN EXECUTION — task plan creado (2026-04-28 05:14)
 
