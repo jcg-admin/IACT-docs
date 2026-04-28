@@ -32,5 +32,6 @@ Los estándares incluyen:
    plantillas/index
    GUIA_ESTILO
    STD_006_Versionado_Semantico
+   STD_007_Convencion_Naming
    estandares_codigo
    shell_scripting_guide
