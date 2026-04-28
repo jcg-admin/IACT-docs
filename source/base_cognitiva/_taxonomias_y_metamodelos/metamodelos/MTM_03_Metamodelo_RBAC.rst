@@ -482,12 +482,18 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
-   FUNCTION validateSoD(user_id, new_role_id): Boolean
+   FUNCTION validateRoleConflict(user_id, new_role_id): Boolean
 
    ALGORITMO:
    1. Obtener roles actuales del usuario
    2. Verificar si nuevo_rol tiene conflicto con alguno existente
    3. Retornar TRUE si no hay conflicto
+
+   La función implementa el principio de Separación de Funciones
+   (concepto SoD definido en :doc:`/base_cognitiva/glosario`),
+   pero su nombre describe la operación concreta (verificación
+   de conflicto entre roles) en lugar de la abreviatura del
+   principio.
 
    SQL:
    SELECT NOT EXISTS (

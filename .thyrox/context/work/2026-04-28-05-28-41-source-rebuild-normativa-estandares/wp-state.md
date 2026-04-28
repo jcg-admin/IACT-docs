@@ -43,6 +43,8 @@ los dominios va a usar.
 | **Sub-orden STDs → templates → resto** | Task plan del WP-hijo agrupa en 3 bloques. |
 | **Triage de templates** | Para cada tipo (UC, BR, FR, NFR, ADR, CNST, MOD, FD, PROC, STD, RTM, API, INDEX, VIEW, BReq, POL, TST, TRZ): listar versiones existentes, elegir canónica con justificación, renombrar a `TPL_KEY_Desc.rst` (sin versión en filename), mover versión a metadata YAML. |
 | **Conservar 7 variantes UC como templates separados** | NO fusionar: CRUD, Larman_Contratos, Stakeholder_Driven, UI_Driven, Temporal_Schedulers, Actor_Secundario, Construccion_7_Pasos. |
+| **Crear nuevo `STD_Naming_Identificadores`** (heredado de WP #1) | Detectado durante la ejecución de WP #1 base_cognitiva. Principios a formalizar: (a) clean code en todo el código y artefactos generados; (b) nombres de funciones, métodos, clases y variables deben ser **autoexplicativos** (sin necesidad de saber el dominio para entenderlos); (c) las **abreviaturas de dominio** (SoD, RBAC, ETL, etc.) NO deben aparecer en identificadores técnicos — sí en narrativa, definidas en glosario. Ejemplo aplicado en MTM_03: `validateSoD` renombrada a `validateRoleConflict`. |
+| **STD complementario sobre vocabulario profesional** (heredado de WP #1) | Prohibir términos no profesionales como "Regla de Oro" (reemplazado por "Principio fundamental de univocidad" en SBVR_05). El STD debe listar vocabulario prohibido y alternativas profesionales recomendadas. |
 
 ## Inputs obligatorios (lectura previa al discover)
 
