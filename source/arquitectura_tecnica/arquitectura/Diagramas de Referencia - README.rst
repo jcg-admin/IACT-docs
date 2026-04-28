@@ -199,21 +199,26 @@ Diagramas de Casos de Uso
 Diagramas de Secuencia
 ^^^^^^^^^^^^^^^^^^^^^^
 
-+------+--------------+------------------------------+-------------------------------+
-| ID   | Nombre       | Archivo                      | Casos cubiertos               |
-+======+==============+==============================+===============================+
-| UC   | Generar      | UC-001_generar_reporte_      | Flujo principal + PDF + Email |
-| -001 | Reporte -    | metricas_seq.puml            |                               |
-| -SEQ | Secuencia    | (secuencia/)                 |                               |
-+------+--------------+------------------------------+-------------------------------+
-| UC   | Registrar    | UC-002_registrar_llamada_    | Flujo principal + CRM sync    |
-| -002 | Llamada -    | entrante_seq.puml            |                               |
-| -SEQ | Secuencia    | (secuencia/)                 |                               |
-+------+--------------+------------------------------+-------------------------------+
-| UC   | Consultar    | UC-003_consultar_estado_     | Flujo principal + Historial + |
-| -003 | Pedido -     | pedido_seq.puml              | SMS                           |
-| -SEQ | Secuencia    | (secuencia/)                 |                               |
-+------+--------------+------------------------------+-------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 12 22 28 38
+
+   * - ID
+     - Nombre
+     - Archivo
+     - Casos cubiertos
+   * - UC-001-SEQ
+     - Generar Reporte - Secuencia
+     - ``UC-001_generar_reporte_metricas_seq.puml`` (secuencia/)
+     - Flujo principal + PDF + Email
+   * - UC-002-SEQ
+     - Registrar Llamada - Secuencia
+     - ``UC-002_registrar_llamada_entrante_seq.puml`` (secuencia/)
+     - Flujo principal + CRM sync
+   * - UC-003-SEQ
+     - Consultar Pedido - Secuencia
+     - ``UC-003_consultar_estado_pedido_seq.puml`` (secuencia/)
+     - Flujo principal + Historial + SMS
 
 Diagramas de Actividad
 ^^^^^^^^^^^^^^^^^^^^^^

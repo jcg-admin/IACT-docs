@@ -124,12 +124,29 @@ Listar artefactos destino sin origen:
 
    REPORTE DE COBERTURA - 2026-01-07
    
-   | RTM | Cobertura | Gaps | Estado |
-   |-----|-----------|------|--------|
-   | BReq_BR | 100% | 0 | OK |
-   | BR_UC | 100% | 0 | OK |
-   | UC_FR | 100% | 0 | OK |
-   | FR_TST | 98.7% | 2 | REVISAR |
+.. list-table::
+   :header-rows: 1
+
+   * - RTM
+     - Cobertura
+     - Gaps
+     - Estado
+   * - BReq_BR
+     - 100%
+     - 0
+     - OK
+   * - BR_UC
+     - 100%
+     - 0
+     - OK
+   * - UC_FR
+     - 100%
+     - 0
+     - OK
+   * - FR_TST
+     - 98.7%
+     - 2
+     - REVISAR
 
 **Paso 6: Plan de Accion**
 

@@ -184,7 +184,17 @@ epub_copyright = '2025, Equipo IACT'
 epub_exclude_files = ['search.html']
 
 # -- Configuración de PlantUML --
-plantuml = 'plantuml'
+# Resolución del binario:
+#   1. Si PLANTUML_BIN está en env (CI/override), usar eso.
+#   2. Si existe el wrapper bundled tools/bin/plantuml (descargado por
+#      scripts/setup.sh), usarlo — preferido porque garantiza versión.
+#   3. Fallback a 'plantuml' en PATH (paquete del sistema).
+import os as _os
+_repo_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_bundled_plantuml = _os.path.join(_repo_root, 'tools', 'bin', 'plantuml')
+plantuml = _os.environ.get('PLANTUML_BIN') or (
+    _bundled_plantuml if _os.path.isfile(_bundled_plantuml) else 'plantuml'
+)
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
 

@@ -46,3 +46,12 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
 .. note::
    Contenido en desarrollo. La documentación de gestión se actualizará 
    conforme avance el proyecto.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   checklists/index
+   Planificación y releases del frontend-README
+   deployment_plan

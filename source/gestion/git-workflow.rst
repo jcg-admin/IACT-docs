@@ -1514,8 +1514,10 @@ Then configure these settings:
 2. **Require status checks to pass before merging** — ✓ Check this box
    - ``Require branches to be up to date before merging`` — ✓ Check this box
    - ``Search for status checks that run in this repository...`` — Select:
+
      - ``build`` (Sphinx build validation)
      - ``tests`` (any test suites)
+
    - Add any other CI workflows relevant to your project
 
 3. **Require code review before merging** — Covered in step 1 above
@@ -1744,44 +1746,58 @@ This section provides solutions for common Git workflow problems and error scena
 6.1 Error Matrix — Quick Reference
 --------------------------------------------------------------------------------
 
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Error Scenario                   | Common Cause        | Recovery Command                 | Lesson Learned          |
-+==================================+=====================+==================================+=========================+
-| "fatal: Not a git repository"    | Wrong directory     | ``cd /path/to/repo``             | Always verify pwd       |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Feature branch based on old      | Didn't pull develop | ``git fetch origin && git        | Fetch before creating   |
-| develop, now has conflicts       |                     | rebase origin/develop``          | new branches            |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Committed to main instead of     | Checked out wrong   | ``git reset --soft HEAD~1 &&     | Use feature branches,   |
-| feature branch                   | branch              | git checkout -b feature/fix &&   | never commit to main    |
-|                                  |                     | git commit``                     |                         |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Merged wrong branch              | Clicked merge on    | ``git revert -m 1 MERGE_SHA &&   | Review base/compare     |
-| into develop                     | wrong PR            | git push origin develop``        | before merge            |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Lost commit after rebase         | Rebased without     | ``git reflog`` to find lost      | Never force-push,       |
-|                                  | force-push          | commit hash, then ``git reset   | use revert instead      |
-|                                  |                     | --hard COMMIT_SHA``             |                         |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| "error: Your local changes..."   | Uncommitted changes | ``git add . && git commit -m    | Commit before switching |
-| when switching branches          | block branch switch | "wip: temp changes"``           | branches or use stash   |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Force-push deleted others' work  | Used git push       | Contact teammates immediately,  | Never use -f flag,      |
-|                                  | --force             | restore from reflog on remote   | use --force-with-lease  |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Can't push to develop — "refused | Branch protection   | Use git push origin             | Branch protection is    |
-| by hooks"                        | prevents direct push| feature/your-branch and create  | working as designed;    |
-|                                  |                     | a PR instead                    | create PRs, not pushes  |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Merge commit has wrong message   | Edited message      | ``git commit --amend -m "new    | Edit merge message      |
-|                                  | incorrectly         | message"``                      | before pushing          |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Accidentally deleted feature     | Ran ``git branch    | ``git checkout -b feature/name  | Deleted branches can be |
-| branch locally                   | -D feature/name``   | SHA_FROM_REFLOG``               | recovered from reflog   |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
-| Tag points to wrong commit       | Tagged wrong commit | ``git tag -d v1.2.3 && git     | Verify commit before    |
-|                                  |                     | tag -a v1.2.3 CORRECT_SHA``     | tagging                 |
-+----------------------------------+---------------------+----------------------------------+-------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 18 32 25
+
+   * - Error Scenario
+     - Common Cause
+     - Recovery Command
+     - Lesson Learned
+   * - "fatal: Not a git repository"
+     - Wrong directory
+     - ``cd /path/to/repo``
+     - Always verify pwd
+   * - Feature branch based on old develop, now has conflicts
+     - Didn't pull develop
+     - ``git fetch origin && git rebase origin/develop``
+     - Fetch before creating new branches
+   * - Committed to main instead of feature branch
+     - Checked out wrong branch
+     - ``git reset --soft HEAD~1 && git checkout -b feature/fix && git commit``
+     - Use feature branches, never commit to main
+   * - Merged wrong branch into develop
+     - Clicked merge on wrong PR
+     - ``git revert -m 1 MERGE_SHA && git push origin develop``
+     - Review base/compare before merge
+   * - Lost commit after rebase
+     - Rebased without force-push
+     - ``git reflog`` para hallar el SHA, luego ``git reset --hard COMMIT_SHA``
+     - Nunca force-push; usar revert
+   * - "error: Your local changes..." al cambiar de rama
+     - Cambios sin commit bloquean switch
+     - ``git add . && git commit -m "wip: temp"``
+     - Commit o stash antes de cambiar de rama
+   * - Force-push borró trabajo de otros
+     - Usado ``git push --force``
+     - Contactar al equipo y restaurar desde reflog del remote
+     - Nunca usar -f; usar --force-with-lease
+   * - "refused by hooks" al pushear a develop
+     - Branch protection bloquea push directo
+     - ``git push origin feature/your-branch`` y crear un PR
+     - Branch protection funcionando; crear PRs
+   * - Mensaje de merge incorrecto
+     - Editado mal el mensaje
+     - ``git commit --amend -m "nuevo mensaje"``
+     - Editar mensaje de merge antes de pushear
+   * - Borraste feature branch local
+     - ``git branch -D feature/name``
+     - ``git checkout -b feature/name SHA_FROM_REFLOG``
+     - Branches borrados se recuperan del reflog
+   * - Tag apuntando al commit equivocado
+     - Tag en commit incorrecto
+     - ``git tag -d v1.2.3 && git tag -a v1.2.3 CORRECT_SHA``
+     - Verificar commit antes de etiquetar
 
 6.2 Error Scenarios — Detailed Recovery
 --------------------------------------------------------------------------------
@@ -2568,14 +2584,31 @@ See `man githooks` or https://git-scm.com/docs/githooks for full reference.
 
 Local hooks protect YOU from mistakes. Branch protection protects the TEAM.
 
-| Aspect | Git Hooks (Local) | Branch Protection (Server) |
-|--------|------------------|---------------------------|
-| Runs on | Your machine | GitHub server |
-| Bypass | ``--no-verify`` flag | Admin only |
-| Team enforcement | No (each dev must configure) | Yes (enforced for all) |
-| Can prevent bad commits | Yes | Yes (as merge blocks) |
-| Catches mistakes early | Yes | Yes (at PR merge) |
-| Compliance value | Medium | High |
+.. list-table::
+   :header-rows: 1
+
+   * - Aspect
+     - Git Hooks (Local)
+     - Branch Protection (Server)
+   * - Runs on
+     - Your machine
+     - GitHub server
+   * - Bypass
+     - ``--no-verify`` flag
+     - Admin only
+   * - Team enforcement
+     - No (each dev must configure)
+     - Yes (enforced for all)
+   * - Can prevent bad commits
+     - Yes
+     - Yes (as merge blocks)
+   * - Catches mistakes early
+     - Yes
+     - Yes (at PR merge)
+   * - Compliance value
+     - Medium
+     - High
+
 
 **Best practice:** Use BOTH.
 - Git hooks catch mistakes early (saves time)

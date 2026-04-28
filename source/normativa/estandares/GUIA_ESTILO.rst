@@ -674,7 +674,7 @@ Formato OpenAPI/Swagger
 11. Versionado Semántico
 ------------------------
 
-.. _formato-1:
+.. _guia-estilo-formato-1:
 
 Formato
 ~~~~~~~
@@ -694,7 +694,7 @@ Reglas
 -  **MINOR**: Nueva funcionalidad compatible
 -  **PATCH**: Correcciones de bugs compatibles
 
-.. _ejemplos-1:
+.. _guia-estilo-ejemplos-1:
 
 Ejemplos
 ~~~~~~~~
@@ -824,7 +824,7 @@ Referencias
 -  `Semantic Versioning <https://semver.org/>`__
 -  `Keep a Changelog <https://keepachangelog.com/>`__
 
-.. _herramientas-1:
+.. _guia-estilo-herramientas-1:
 
 Herramientas
 ~~~~~~~~~~~~

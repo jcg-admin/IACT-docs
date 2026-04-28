@@ -68,9 +68,9 @@ Los casos de uso cubren los **8 módulos funcionales** del sistema:
      - 4
      - Bitácoras técnicas del sistema
    * - **TOTAL**
-             
+     - \\-
      - **49**
-             
+     - \\-
 
 1.3 Convenciones de Nomenclatura
 --------------------------------
@@ -211,3 +211,12 @@ A partir de Phase D, los casos de uso se documentan también mediante diagramas 
      - 2026-04-26
      - Claude
      - Agregados 15 diagramas UML: 8 casos de uso, 4 secuencias, 3 actividades
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   actores
+   glosario
+   restricciones

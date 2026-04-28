@@ -511,25 +511,25 @@ los Casos de Uso.
      - Por que restriccion?
      - Politicas, regulaciones
      - BR_NNN.rst
-     - BR_
+     - BR\_
    * - 1
      - Business Req.
      - Por que proyecto?
      - Objetivos, alcance
      - BReq_NNN.rst
-     - BReq_
+     - BReq\_
    * - 2
      - User Req.
      - Que hace usuario?
      - Casos de Uso
      - UC_NNN.rst
-     - UC_
+     - UC\_
    * - 3
      - Functional Req.
      - Como sistema?
      - Especificaciones
      - FR_NNN.rst
-     - FR_
+     - FR\_
 
 7.2 Gradiente de Abstraccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

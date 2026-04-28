@@ -35,39 +35,39 @@ ubicaciones y relaciones entre artefactos.
    ARTEFACTO DOCUMENTAL
    │
    ├── ARTEFACTO COGNITIVO (base_cognitiva/)
-   │   ├── Metadata (META_)
-   │   ├── Glosario (GLOS_)
-   │   ├── Fundamento Conceptual (FND_)
-   │   ├── Ontologia SBVR (SBVR_)
-   │   ├── Taxonomia (TXM_)
-   │   ├── Metamodelo (MTM_)
-   │   └── Metodologia (METH_)
+   │   ├── Metadata (META\_)
+   │   ├── Glosario (GLOS\_)
+   │   ├── Fundamento Conceptual (FND\_)
+   │   ├── Ontologia SBVR (SBVR\_)
+   │   ├── Taxonomia (TXM\_)
+   │   ├── Metamodelo (MTM\_)
+   │   └── Metodologia (METH\_)
    │
    ├── ARTEFACTO NORMATIVO (normativa/)
-   │   ├── Procedimiento (PROC_)
-   │   ├── Estandar (STD_)
-   │   ├── Politica de Gobernanza (GOB_)
-   │   ├── Restriccion (CNST_)
-   │   └── Trazabilidad (RTM_, COV_)
+   │   ├── Procedimiento (PROC\_)
+   │   ├── Estandar (STD\_)
+   │   ├── Politica de Gobernanza (GOB\_)
+   │   ├── Restriccion (CNST\_)
+   │   └── Trazabilidad (RTM\_, COV\_)
    │
    ├── ARTEFACTO DE REQUISITOS (requisitos/)
-   │   ├── Regla de Negocio (BR_)
-   │   ├── Caso de Uso (UC_)
-   │   ├── Requisito Funcional (FR_)
-   │   └── Requisito No Funcional (NFR_)
+   │   ├── Regla de Negocio (BR\_)
+   │   ├── Caso de Uso (UC\_)
+   │   ├── Requisito Funcional (FR\_)
+   │   └── Requisito No Funcional (NFR\_)
    │
    └── ARTEFACTO ARQUITECTONICO (arquitectura/)
-       ├── Decision Arquitectonica (ADR_)
-       ├── Vista Arquitectonica (VIEW_)
-       └── Modelo de Datos (MDL_)
+       ├── Decision Arquitectonica (ADR\_)
+       ├── Vista Arquitectonica (VIEW\_)
+       └── Modelo de Datos (MDL\_)
 
 ----
 
 2. Artefactos Cognitivos
 ------------------------
 
-2.1 Metadata (META_)
-^^^^^^^^^^^^^^^^^^^^
+2.1 Metadata (META\_)
+^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_metadata/
 
@@ -90,8 +90,8 @@ ubicaciones y relaciones entre artefactos.
    * - META_05
      - Alcance del Proyecto
 
-2.2 Glosario (GLOS_)
-^^^^^^^^^^^^^^^^^^^^
+2.2 Glosario (GLOS\_)
+^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/glosario/
 
@@ -99,8 +99,8 @@ ubicaciones y relaciones entre artefactos.
 
 **Formato:** Termino + Definicion + Sinonimos + Contexto
 
-2.3 Fundamento Conceptual (FND_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2.3 Fundamento Conceptual (FND\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_fundamentos_conceptuales/
 
@@ -127,8 +127,8 @@ ubicaciones y relaciones entre artefactos.
    * - FND_07
      - Requerimientos Funcionales
 
-2.4 Ontologia SBVR (SBVR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+2.4 Ontologia SBVR (SBVR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_ontologia_sbvr/
 
@@ -151,8 +151,8 @@ ubicaciones y relaciones entre artefactos.
    * - SBVR_05
      - Vocabulario Controlado
 
-2.5 Taxonomia (TXM_)
-^^^^^^^^^^^^^^^^^^^^
+2.5 Taxonomia (TXM\_)
+^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_taxonomias_y_metamodelos/taxonomias/
 
@@ -171,8 +171,8 @@ ubicaciones y relaciones entre artefactos.
    * - TXM_03
      - Taxonomia de Reglas de Negocio
 
-2.6 Metamodelo (MTM_)
-^^^^^^^^^^^^^^^^^^^^^
+2.6 Metamodelo (MTM\_)
+^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_taxonomias_y_metamodelos/metamodelos/
 
@@ -191,8 +191,8 @@ ubicaciones y relaciones entre artefactos.
    * - MTM_03
      - Metamodelo RBAC
 
-2.7 Metodologia (METH_)
-^^^^^^^^^^^^^^^^^^^^^^^
+2.7 Metodologia (METH\_)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** base_cognitiva/_metodologias_analiticas/
 
@@ -216,8 +216,8 @@ ubicaciones y relaciones entre artefactos.
 3. Artefactos Normativos
 ------------------------
 
-3.1 Procedimiento (PROC_)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+3.1 Procedimiento (PROC\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/procedimientos/
 
@@ -229,8 +229,8 @@ ubicaciones y relaciones entre artefactos.
 - PROC_02: Procedimiento de Revision de Artefactos
 - PROC_03: Procedimiento de Aprobacion
 
-3.2 Estandar (STD_)
-^^^^^^^^^^^^^^^^^^^
+3.2 Estandar (STD\_)
+^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/estandares/
 
@@ -242,15 +242,15 @@ ubicaciones y relaciones entre artefactos.
 - STD_02: Estandar de Formato RST
 - STD_03: Estandar de Versionado
 
-3.3 Politica de Gobernanza (GOB_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.3 Politica de Gobernanza (GOB\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/gobernanza/
 
 **Proposito:** Lineamientos de alto nivel para gestion documental.
 
-3.4 Restriccion (CNST_)
-^^^^^^^^^^^^^^^^^^^^^^^
+3.4 Restriccion (CNST\_)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/restricciones/
 
@@ -276,8 +276,8 @@ ubicaciones y relaciones entre artefactos.
 4. Artefactos de Requisitos
 ---------------------------
 
-4.1 Regla de Negocio (BR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.1 Regla de Negocio (BR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** requisitos/reglas_negocio/
 
@@ -307,8 +307,8 @@ ubicaciones y relaciones entre artefactos.
      - Separacion de Funciones
      - Restriccion
 
-4.2 Caso de Uso (UC_)
-^^^^^^^^^^^^^^^^^^^^^
+4.2 Caso de Uso (UC\_)
+^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** requisitos/casos_uso/
 
@@ -318,8 +318,8 @@ ubicaciones y relaciones entre artefactos.
 
 **Cantidad IACT:** 38 casos de uso identificados
 
-4.3 Requisito Funcional (FR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3 Requisito Funcional (FR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** requisitos/funcionales/
 
@@ -329,8 +329,8 @@ ubicaciones y relaciones entre artefactos.
 
 **Cantidad IACT:** ~300 estimados
 
-4.4 Requisito No Funcional (NFR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.4 Requisito No Funcional (NFR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** requisitos/no_funcionales/
 
@@ -343,8 +343,8 @@ ubicaciones y relaciones entre artefactos.
 5. Artefactos Arquitectonicos
 -----------------------------
 
-5.1 Decision Arquitectonica (ADR_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.1 Decision Arquitectonica (ADR\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** arquitectura/decisiones/
 
@@ -356,8 +356,8 @@ ubicaciones y relaciones entre artefactos.
 
 - ADR_001: Seleccion de Flat RBAC sobre Hierarchical RBAC
 
-5.2 Vista Arquitectonica (VIEW_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.2 Vista Arquitectonica (VIEW\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** arquitectura/vistas/
 
@@ -370,8 +370,8 @@ ubicaciones y relaciones entre artefactos.
 - VIEW_FISICA: Despliegue e infraestructura
 - VIEW_DESARROLLO: Organizacion de codigo
 
-5.3 Modelo de Datos (MDL_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.3 Modelo de Datos (MDL\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** arquitectura/datos/
 
@@ -388,8 +388,8 @@ ubicaciones y relaciones entre artefactos.
 6. Artefactos de Trazabilidad
 -----------------------------
 
-6.1 Matriz RTM (RTM_)
-^^^^^^^^^^^^^^^^^^^^^
+6.1 Matriz RTM (RTM\_)
+^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/trazabilidad/
 
@@ -401,8 +401,8 @@ ubicaciones y relaciones entre artefactos.
 
 - RTM_IACT_v1_0_0.rst: Matriz de trazabilidad completa
 
-6.2 Reporte de Cobertura (COV_)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6.2 Reporte de Cobertura (COV\_)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Ubicacion:** normativa/trazabilidad/
 

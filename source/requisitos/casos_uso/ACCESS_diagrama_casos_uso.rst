@@ -127,6 +127,7 @@ Use Cases
    - Description: Assign permission/role to user or group
    - Precondition: User/group exists, permission exists
    - Main Flow:
+
      a. Admin selects user/group
      b. Admin selects permission/resource
      c. System validates request (include Validate Request)
@@ -134,6 +135,7 @@ Use Cases
      e. If approval required, route to approver
      f. System updates ACL (include Update ACL)
      g. System logs event (include Log Event)
+
    - Post-condition: User has permission; effective immediately
    - Constraint: CNST-ACCESS-002: Requires approval for sensitive permissions
 
@@ -142,22 +144,26 @@ Use Cases
    - Description: Remove user/group permissions
    - Reason: Role change, termination, security incident
    - Main Flow:
+
      a. Admin selects user/group
      b. Admin selects permissions to revoke
      c. System verifies identity (include Verify User Identity)
      d. System removes from ACL (include Update ACL)
      e. System logs event (include Log Event)
      f. Active sessions with revoked permission are terminated
+
    - Alternative: Revoke all permissions for user (complete access removal)
 
 3. **Audit Access** (Primary - Auditor Initiated)
    - Actor: Auditor
    - Description: Review and verify access logs for compliance
    - Main Flow:
+
      a. Auditor selects time period and filters (user/resource/action)
      b. System retrieves access logs
      c. Auditor reviews entries for anomalies
      d. System generates compliance report (include Log Event)
+
    - Output: Access log report with timestamp, user, action, resource, status
    - Use Case: Compliance verification, incident investigation
 
@@ -166,10 +172,12 @@ Use Cases
    - Description: Create permission group (logical grouping of users)
    - Example Groups: Department groups (Finance, HR, Engineering)
    - Main Flow:
+
      a. Admin creates group name and description
      b. Admin assigns initial members (users/groups)
      c. System creates group in RBAC engine
      d. System logs event (include Log Event)
+
    - Post-condition: Group can have permissions assigned
    - Alternative: Create group as delegation (manager can manage group membership)
 
@@ -179,11 +187,13 @@ Use Cases
    - Example Roles: Operator, Analyst, Manager, Auditor
    - Role Benefits: Simplified permission management (one-click vs. individual permissions)
    - Main Flow:
+
      a. Admin selects user/group
      b. Admin selects role
      c. System validates request (include Validate Request)
      d. System updates ACL with all role permissions (include Update ACL)
      e. System logs event (include Log Event)
+
    - Post-condition: User inherits all role permissions
    - Alternative: Role can be time-limited (temporary elevated access)
 
@@ -191,20 +201,24 @@ Use Cases
    - Actor: PermissionService
    - Description: Check grant/revoke request for completeness
    - Validation:
+
      - User/group exists
      - Permission/role exists
      - Requester (Admin) has authority to grant
      - No circular group memberships
+
    - Output: Valid/Invalid
 
 7. **Check Rules** (Support)
    - Actor: RBAC Engine
    - Description: Evaluate RBAC rules for permission grant
    - Rules:
+
      - User cannot grant permission higher than own level
      - Sensitive permissions require approval chain
      - Group inheritance rules (nested groups)
      - Conflicting permissions (mutually exclusive roles)
+
    - Output: Allowed/Denied with reason
 
 8. **Update ACL** (Support)

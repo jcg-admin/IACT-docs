@@ -198,7 +198,7 @@ Validación
 PASO 2: Consultar Trazabilidad Bidireccional
 --------------------------------------------
 
-.. _objetivo-del-paso-1:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-1:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -311,7 +311,7 @@ Documentar Resultados
    - RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
    - RNF-BACK-007: Sesión expira después de 30 minutos de inactividad
 
-.. _validación-1:
+.. _proced-gob-005-analisis-impacto-cambios-validación-1:
 
 Validación
 ~~~~~~~~~~
@@ -324,7 +324,7 @@ Validación
 PASO 3: Listar Artefactos Potencialmente Afectados
 --------------------------------------------------
 
-.. _objetivo-del-paso-2:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-2:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -397,7 +397,7 @@ Ejemplo: RN-BACK-001 (2FA)
    - README de módulo de autenticación
    - Guía de usuario para configurar 2FA
 
-.. _validación-2:
+.. _proced-gob-005-analisis-impacto-cambios-validación-2:
 
 Validación
 ~~~~~~~~~~
@@ -410,7 +410,7 @@ Validación
 PASO 4: Revisar Cada Artefacto y Determinar Acción
 --------------------------------------------------
 
-.. _objetivo-del-paso-3:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-3:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -571,7 +571,7 @@ Tabla Resumen de Acciones
    | RNF-BACK-020 | Código TOTP expira en 30s | Crear nuevo | Alta |
    | UCD-BACK-001 | Diagrama autenticación | Actualizar | Media |
 
-.. _validación-3:
+.. _proced-gob-005-analisis-impacto-cambios-validación-3:
 
 Validación
 ~~~~~~~~~~
@@ -585,7 +585,7 @@ Validación
 PASO 5: Crear Checklist de Cambios
 ----------------------------------
 
-.. _objetivo-del-paso-4:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-4:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -637,7 +637,7 @@ Formato de Checklist
    ### Matrices de Trazabilidad
    - [ ] MATRIZ-BACK-autenticacion.md: Agregar nuevos RF y RNF
 
-.. _validación-4:
+.. _proced-gob-005-analisis-impacto-cambios-validación-4:
 
 Validación
 ~~~~~~~~~~
@@ -651,7 +651,7 @@ Validación
 PASO 6: Actualizar Artefactos Afectados
 ---------------------------------------
 
-.. _objetivo-del-paso-5:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-5:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -755,7 +755,7 @@ Ejemplo: Crear RF-BACK-065
    - [RFC 6238: TOTP](https://tools.ietf.org/html/rfc6238)
    EOF
 
-.. _validación-5:
+.. _proced-gob-005-analisis-impacto-cambios-validación-5:
 
 Validación
 ~~~~~~~~~~
@@ -769,7 +769,7 @@ Validación
 PASO 7: Validar Consistencia
 ----------------------------
 
-.. _objetivo-del-paso-6:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-6:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -852,7 +852,7 @@ Revisión Manual
 4. Preguntar: “¿Este artefacto es consistente con los demás artefactos
    actualizados?”
 
-.. _validación-6:
+.. _proced-gob-005-analisis-impacto-cambios-validación-6:
 
 Validación
 ~~~~~~~~~~
@@ -866,7 +866,7 @@ Validación
 PASO 8: Actualizar Matrices de Trazabilidad
 -------------------------------------------
 
-.. _objetivo-del-paso-7:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-7:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -935,7 +935,7 @@ Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md
    - RF-BACK-067: Registrar dispositivo 2FA
    - RNF-BACK-020: Código TOTP expira en 30 segundos
 
-.. _validación-7:
+.. _proced-gob-005-analisis-impacto-cambios-validación-7:
 
 Validación
 ~~~~~~~~~~
@@ -949,7 +949,7 @@ Validación
 PASO 9: Commit Atómico de Todos los Cambios
 -------------------------------------------
 
-.. _objetivo-del-paso-8:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-8:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~
@@ -1082,7 +1082,7 @@ Push al Repositorio
    # Push
    git push origin main
 
-.. _validación-8:
+.. _proced-gob-005-analisis-impacto-cambios-validación-8:
 
 Validación
 ~~~~~~~~~~
@@ -1097,7 +1097,7 @@ Validación
 Documentar el Análisis
 ----------------------
 
-.. _objetivo-del-paso-9:
+.. _proced-gob-005-analisis-impacto-cambios-objetivo-del-paso-9:
 
 Objetivo del Paso
 ~~~~~~~~~~~~~~~~~

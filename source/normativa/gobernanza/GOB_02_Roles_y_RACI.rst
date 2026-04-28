@@ -116,7 +116,7 @@ El sistema IACT implementa **Flat RBAC** (NIST):
    * - **TOTAL**
      - **17**
      - **255-488**
-                  
+     - \\-
 
 .. note::
 
@@ -546,7 +546,7 @@ El sistema IACT implementa **Flat RBAC** (NIST):
 
 .. list-table::
    :header-rows: 1
-   :widths: 18 12 12 12 12 12 12 10
+   :widths: 22 13 13 13 13 13 13
 
    * - Artefacto
      - PMO

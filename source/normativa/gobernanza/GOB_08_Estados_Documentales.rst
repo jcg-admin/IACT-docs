@@ -279,9 +279,9 @@ El sistema IACT reconoce **cinco estados** oficiales para artefactos:
 
    RETENCION DE ARCHIVADOS:
 
-   - Artefactos de gobernanza (GOB_): 10 años
-   - Requisitos (BR_, UC_, FR_): 7 años post-cierre proyecto
-   - Arquitectura (ADR_): 7 años
+   - Artefactos de gobernanza (GOB\_): 10 años
+   - Requisitos (BR\_, UC\_, FR\_): 7 años post-cierre proyecto
+   - Arquitectura (ADR\_): 7 años
    - Documentacion general: 5 años
 
    Despues del periodo de retencion, el artefacto puede
@@ -610,14 +610,44 @@ Mantener historial completo de transiciones:
    HISTORIAL DE ESTADOS - [ID_Artefacto]
    =====================================
 
-   | Fecha      | De           | A           | Usuario    | Motivo       |
-   |------------|--------------|-------------|------------|--------------|
-   | 2025-12-01 | (nuevo)      | Borrador    | J. Perez   | Creacion     |
-   | 2025-12-10 | Borrador     | En_Revision | J. Perez   | Envio rev    |
-   | 2025-12-11 | En_Revision  | Borrador    | M. Garcia  | Observaciones|
-   | 2025-12-12 | Borrador     | En_Revision | J. Perez   | Reenvio      |
-   | 2025-12-13 | En_Revision  | Aprobado    | A. Lopez   | Aprobacion   |
-   | 2025-12-22 | Aprobado     | Obsoleto    | A. Lopez   | Reemplazo    |
+.. list-table::
+   :header-rows: 1
+
+   * - Fecha
+     - De
+     - A
+     - Usuario
+     - Motivo
+   * - 2025-12-01
+     - (nuevo)
+     - Borrador
+     - J. Perez
+     - Creacion
+   * - 2025-12-10
+     - Borrador
+     - En_Revision
+     - J. Perez
+     - Envio rev
+   * - 2025-12-11
+     - En_Revision
+     - Borrador
+     - M. Garcia
+     - Observaciones
+   * - 2025-12-12
+     - Borrador
+     - En_Revision
+     - J. Perez
+     - Reenvio
+   * - 2025-12-13
+     - En_Revision
+     - Aprobado
+     - A. Lopez
+     - Aprobacion
+   * - 2025-12-22
+     - Aprobado
+     - Obsoleto
+     - A. Lopez
+     - Reemplazo
 
 ----
 

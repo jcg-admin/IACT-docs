@@ -239,9 +239,17 @@ Antes de iniciar este procedimiento, verificar:
 
      REGISTRO DE DESCONGELAMIENTOS
      
-     | Subdominio | Fecha | Razon | Responsable |
-     |------------|-------|-------|-------------|
-     | reglas_negocio | 2026-01-07 | Agregar BR_021 | Arquitecto |
+.. list-table::
+   :header-rows: 1
+
+   * - Subdominio
+     - Fecha
+     - Razon
+     - Responsable
+   * - reglas_negocio
+     - 2026-01-07
+     - Agregar BR_021
+     - Arquitecto
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada

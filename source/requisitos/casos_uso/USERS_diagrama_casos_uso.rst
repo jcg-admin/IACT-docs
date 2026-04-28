@@ -132,12 +132,14 @@ Use Cases
    - Description: Create new user account with initial credentials
    - Precondition: User email not already registered
    - Main Flow:
+
      a. Admin enters user details (name, email, department, role)
      b. System validates account data (include Validate Account)
      c. System generates default password (include Generate Default Password)
      d. System syncs to LDAP/AD (include Sync to Directory)
      e. System sends welcome email with credentials (include Send Notification)
      f. Account created and ready for first login
+
    - Post-condition: User can login with default password (will be forced to change)
    - Alternative: Invite user to set own password via email link
 
@@ -147,10 +149,12 @@ Use Cases
    - Editable Fields: Phone, Department, Manager, Location, Contact Preferences
    - Non-Editable: Email, Username (immutable identifiers)
    - Main Flow:
+
      a. Operator/User enters profile changes
      b. System validates changes
      c. System syncs to Directory (include Sync to Directory)
      d. System sends confirmation notification (include Send Notification)
+
    - Alternative: Admin can force profile updates (compliance, reorganization)
 
 3. **Deactivate User** (Primary - Admin Initiated)
@@ -158,11 +162,13 @@ Use Cases
    - Description: Mark user as inactive (reversible)
    - Reason: Termination, leave of absence, security breach
    - Main Flow:
+
      a. Admin selects user to deactivate
      b. System marks account inactive
      c. System disables all active sessions/tokens
      d. System syncs to Directory (include Sync to Directory)
      e. System sends notification to user and manager (include Send Notification)
+
    - Post-condition: User cannot login; account can be reactivated
    - Constraint: Cannot deactivate currently logged-in user
 
@@ -172,11 +178,13 @@ Use Cases
    - File Format: CSV with columns (email, name, department, role, manager)
    - Max Size: 10,000 users per import
    - Main Flow:
+
      a. Admin uploads file
      b. System parses and validates file
      c. System creates user accounts for each row (include Create User)
      d. System generates import report (success/failure counts)
      e. System sends batch notification email
+
    - Alternative Flows:
      - File format error → Return error report → Provide sample template
      - Duplicate email → Skip row, continue with others
@@ -193,20 +201,24 @@ Use Cases
    - Actor: UserService
    - Description: Check account data for completeness and uniqueness
    - Validation Rules:
+
      - Email format valid and unique
      - Name not empty
      - Department exists
      - Manager (if specified) exists
      - Role valid
+
    - Output: Valid/Invalid with error list
 
 7. **Generate Default Password** (Support)
    - Actor: UserService
    - Description: Create temporary password for new account
    - Requirements:
+
      - 12+ characters
      - Complexity: uppercase, lowercase, number, special char
      - Not reusable (user must change on first login)
+
    - Includes: Check Password Policy
 
 8. **Sync to Directory** (Support)
@@ -221,10 +233,12 @@ Use Cases
    - Actor: UserService
    - Description: Notify user or manager of account changes
    - Templates:
+
      - Welcome (with credentials)
      - Profile update confirmation
      - Deactivation notice
      - Password reset
+
    - Channel: Email (SMS optional)
    - Constraint: Respect user notification preferences
 

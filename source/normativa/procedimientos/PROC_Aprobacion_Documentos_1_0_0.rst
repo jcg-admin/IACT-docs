@@ -239,9 +239,17 @@ Antes de iniciar este procedimiento, verificar:
 
      REGISTRO DE APROBACIONES
      
-     | Documento | Tipo | Fecha | Aprobador |
-     |-----------|------|-------|-----------|
-     | BR_020 | BR | 2026-01-07 | Arquitecto |
+.. list-table::
+   :header-rows: 1
+
+   * - Documento
+     - Tipo
+     - Fecha
+     - Aprobador
+   * - BR_020
+     - BR
+     - 2026-01-07
+     - Arquitecto
 
 - **Resultado**: Aprobacion registrada
 - **Verificacion**: Entrada agregada

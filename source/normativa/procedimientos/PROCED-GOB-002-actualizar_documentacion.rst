@@ -72,23 +72,25 @@ PASO 2: Categorizar el Cambio
 2.1 Clasificar severidad
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-+----------+------------------------+----------------------------------+
-| Tipo     | Descripción            | Acción Requerida                 |
-+==========+========================+==================================+
-| **C      | Información incorrecta | Actualizar inmediatamente        |
-| RÍTICO** | que puede causar       |                                  |
-|          | errores                |                                  |
-+----------+------------------------+----------------------------------+
-| *        | Funcionalidad          | Actualizar en < 1 semana         |
-| *MAYOR** | significativa no       |                                  |
-|          | documentada            |                                  |
-+----------+------------------------+----------------------------------+
-| *        | Mejoras de claridad,   | Actualizar en próximo sprint     |
-| *MENOR** | typos, formato         |                                  |
-+----------+------------------------+----------------------------------+
-| **COS    | Estilo, organización   | Actualizar cuando sea            |
-| MÉTICO** |                        | conveniente                      |
-+----------+------------------------+----------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 18 42 40
+
+   * - Tipo
+     - Descripción
+     - Acción Requerida
+   * - **CRÍTICO**
+     - Información incorrecta que puede causar errores
+     - Actualizar inmediatamente
+   * - **MAYOR**
+     - Funcionalidad significativa no documentada
+     - Actualizar en < 1 semana
+   * - **MENOR**
+     - Mejoras de claridad, typos, formato
+     - Actualizar en próximo sprint
+   * - **COSMÉTICO**
+     - Estilo, organización
+     - Actualizar cuando sea conveniente
 
 --------------
 
@@ -263,11 +265,25 @@ Al final del documento:
 
    ## Historial de Cambios
 
-   | Versión | Fecha | Autor | Cambios |
-   |---------|-------|-------|---------|
-   | 2.0.0 | 2025-11-17 | Tu Nombre | Actualizado a JWT authentication |
-   | 1.1.0 | 2025-11-01 | Otro Dev | Agregada sección de error handling |
-   | 1.0.0 | 2025-10-15 | Original | Versión inicial |
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 2.0.0
+     - 2025-11-17
+     - Tu Nombre
+     - Actualizado a JWT authentication
+   * - 1.1.0
+     - 2025-11-01
+     - Otro Dev
+     - Agregada sección de error handling
+   * - 1.0.0
+     - 2025-10-15
+     - Original
+     - Versión inicial
 
 --------------
 
@@ -535,7 +551,7 @@ Mejores Prácticas
 -----------------
 
 DO ✅
-~~~~
+~~~~~
 
 1. **Actualizar docs en mismo PR que código**
 
@@ -564,7 +580,7 @@ DO ✅
    -  Funciona en cualquier entorno
 
 DON’T ❌
-~~~~~~~
+~~~~~~~~
 
 1. **Dejar docs desactualizados**
 
@@ -611,10 +627,21 @@ Plantilla de Actualización
 
    ## Historial de Cambios
 
-   | Versión | Fecha | Autor | Cambios |
-   |---------|-------|-------|---------|
-   | [NUEVA] | [HOY] | [TU] | [CAMBIOS] |
-   | [PREV]  | [FECHA] | [AUTOR] | [CAMBIOS ANTERIORES] |
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - [NUEVA]
+     - [HOY]
+     - [TU]
+     - [CAMBIOS]
+   * - [PREV]
+     - [FECHA]
+     - [AUTOR]
+     - [CAMBIOS ANTERIORES]
 
 --------------
 

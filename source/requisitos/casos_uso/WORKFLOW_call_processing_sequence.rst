@@ -19,7 +19,7 @@ Sequence Diagram
 .. uml::
 
    @startuml call_processing
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos

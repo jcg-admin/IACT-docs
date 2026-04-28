@@ -80,7 +80,7 @@ Color Variants (T1-T4 per base color)
 Each base color generates 4 tints (lightest to darkest) using linear RGB interpolation for consistent aesthetic.
 
 Blue Variants
-____________
+_____________
 
 .. list-table::
    :header-rows: 1

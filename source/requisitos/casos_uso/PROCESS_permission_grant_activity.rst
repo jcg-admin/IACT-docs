@@ -19,7 +19,7 @@ Activity Diagram
 .. uml::
 
    @startuml permission_grant
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos

@@ -33,10 +33,10 @@ Métricas esperadas
 | corregir fallos       |                       | ``registros/``.       |
 | críticos              |                       |                       |
 +-----------------------+-----------------------+-----------------------+
-| Actividades de        | 100 % por release     | ```actividades_ga     |
-| control documental    |                       | rantia_documental.md` |
-| completadas           |                       | ` <actividades_garant |
-|                       |                       | ia_documental.md>`__. |
+| Actividades de        | 100 % por release     | ``actividades_garan   |
+| control documental    |                       | tia_documental.md``   |
+| completadas           |                       |                       |
+|                       |                       |                       |
 +-----------------------+-----------------------+-----------------------+
 
 Actividades coordinadas

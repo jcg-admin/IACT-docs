@@ -36,24 +36,22 @@ NO Incluye
 Roles Involucrados
 ------------------
 
-+--------------+--------------------------------------------------------+
-| Rol          | Responsabilidades                                      |
-+==============+========================================================+
-| **Product    | Define requisitos, prioriza backlog, aprueba features  |
-| Owner**      |                                                        |
-+--------------+--------------------------------------------------------+
-| **Tech       | Revisa diseño, aprueba PRs críticos, define            |
-| Lead**       | arquitectura                                           |
-+--------------+--------------------------------------------------------+
-| *            | Implementa código, escribe tests, hace code reviews    |
-| *Developer** |                                                        |
-+--------------+--------------------------------------------------------+
-| **QA         | Define tests E2E, valida en staging, smoke tests       |
-| Engineer**   |                                                        |
-+--------------+--------------------------------------------------------+
-| **DevOps**   | Configura pipelines CI/CD, ejecuta deployments,        |
-|              | monitorea                                              |
-+--------------+--------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Rol
+     - Responsabilidades
+   * - **Product Owner**
+     - Define requisitos, prioriza backlog, aprueba features
+   * - **Tech Lead**
+     - Revisa diseño, aprueba PRs críticos, define arquitectura
+   * - **Developer**
+     - Implementa código, escribe tests, hace code reviews
+   * - **QA Engineer**
+     - Define tests E2E, valida en staging, smoke tests
+   * - **DevOps**
+     - Configura pipelines CI/CD, ejecuta deployments, monitorea
 
 --------------
 

@@ -29,8 +29,8 @@ proyecto IACT.
 
    Criterio: Reglas incompatibles entre TXM y MTM.
 
-   - Taxonomias (TXM_): Clasifican conceptos en jerarquias
-   - Metamodelos (MTM_): Definen estructuras formales (UML)
+   - Taxonomias (TXM\_): Clasifican conceptos en jerarquias
+   - Metamodelos (MTM\_): Definen estructuras formales (UML)
 
    Tienen templates y notaciones diferentes, por lo que se organizan
    en subcarpetas separadas.
@@ -307,3 +307,10 @@ Historial de Cambios
 (clasificaciones y modelos) que fundamenta todo el sistema documental
 IACT. Es prerequisito para la creacion de artefactos en requisitos/
 y gobernanza/trazabilidad/.
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   taxonomias/index
+   metamodelos/index

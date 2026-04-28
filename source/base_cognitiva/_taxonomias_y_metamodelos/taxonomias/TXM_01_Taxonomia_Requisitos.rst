@@ -436,17 +436,17 @@ negocio, independientes del sistema de software.
      - Estabilidad
    * - 0
      - Business Rule
-     - BR_
+     - BR\_
      - Por que restriccion?
      - Muy alta
    * - 1
      - Business Req.
-     - BReq_
+     - BReq\_
      - Por que proyecto?
      - Alta
    * - 2
      - User Req.
-     - UC_
+     - UC\_
      - Que hace usuario?
      - Media
    * - 3
@@ -456,12 +456,12 @@ negocio, independientes del sistema de software.
      - Baja
    * - -
      - Non-Functional
-     - NFR_
+     - NFR\_
      - Que tan bien?
      - Variable
    * - -
      - Constraint
-     - CNST_
+     - CNST\_
      - Que limita?
      - Muy alta
 

@@ -216,7 +216,7 @@ Para nuevos miembros del equipo:
 
 **P: ¿Dónde documento una nueva regla de negocio?**
 
-R: En ``requisitos/reglas_negocio/`` con prefijo BR_ y siguiente número
+R: En ``requisitos/reglas_negocio/`` con prefijo BR\_ y siguiente número
 secuencial disponible.
 
 **P: ¿Qué hago si necesito crear una subcarpeta?**

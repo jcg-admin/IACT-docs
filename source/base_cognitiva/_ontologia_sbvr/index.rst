@@ -465,3 +465,14 @@ Historial de Cambios
 
 **Trazabilidad:** Checklist obligatorio al escribir nuevas reglas de negocio.
 Evita términos ambiguos o inconsistentes en requisitos/reglas_negocio/.
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   SBVR_01_Conceptos_Nucleares
+   SBVR_02_Fact_Types
+   SBVR_03_Reglas_Estructurales
+   SBVR_04_Reglas_Operativas
+   SBVR_05_Vocabulario_Controlado

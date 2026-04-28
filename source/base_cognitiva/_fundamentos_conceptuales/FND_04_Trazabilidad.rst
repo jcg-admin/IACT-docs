@@ -189,11 +189,37 @@ que documenta todos los enlaces entre requisitos y sus derivados.
 
    RTM IACT - Estructura de Columnas:
 
-   | ID_BR | ID_BReq | ID_UC | ID_FR | ID_CODE | ID_TEST | Estado |
-   |-------|---------|-------|-------|---------|---------|--------|
-   | BR_001| BReq-005| UC-050| FR-050.1| pipeline/etl.py | TST_PIP_001 | OK |
-   | BR_002| BReq-001| UC-050| FR-050.2| pipeline/jobs.py| TST_PIP_002 | OK |
-   | ...   | ...     | ...   | ...   | ...     | ...     | ...    |
+.. list-table::
+   :header-rows: 1
+
+   * - ID_BR
+     - ID_BReq
+     - ID_UC
+     - ID_FR
+     - ID_CODE
+     - ID_TEST
+     - Estado
+   * - BR_001
+     - BReq-005
+     - UC-050
+     - FR-050.1
+     - pipeline/etl.py
+     - TST_PIP_001
+     - OK
+   * - BR_002
+     - BReq-001
+     - UC-050
+     - FR-050.2
+     - pipeline/jobs.py
+     - TST_PIP_002
+     - OK
+   * - ...
+     - ...
+     - ...
+     - ...
+     - ...
+     - ...
+     - ...
 
 3.3 Ubicacion en IACT
 ^^^^^^^^^^^^^^^^^^^^^

@@ -183,3 +183,14 @@ Historial de Cambios
      - 2026-01-06
      - Equipo IACT
      - Version inicial con 5 BReq documentados individualmente
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   BReq_001_Visibilidad_Metricas
+   BReq_002_Reduccion_Incidentes
+   BReq_003_Decisiones_Informadas
+   BReq_004_Cumplimiento_Seguridad
+   BReq_005_Integridad_Datos

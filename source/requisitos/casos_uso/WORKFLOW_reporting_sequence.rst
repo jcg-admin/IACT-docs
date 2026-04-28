@@ -14,7 +14,7 @@ Sequence Diagram
 .. uml::
 
    @startuml reporting_workflow
-   !include ../../../_static/plantuml-styles.puml
+   !include ../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: requisitos

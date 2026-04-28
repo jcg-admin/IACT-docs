@@ -689,3 +689,9 @@ Historial de Cambios
 Define la estructura formal del control de acceso documentado en
 Modelo_RBAC_Completo_IACT y referenciado en los UC de gestion
 de usuarios (UC-005 a UC-011).
+
+**Catalogo poblado:** la materializacion concreta de este metamodelo
+(las 42 funciones, los 10 grupos, las 3 reglas SoD, la politica de
+permisos temporales) esta en :ref:`cnst-012`.
+
+**Regla de negocio asociada:** :ref:`br-006`.

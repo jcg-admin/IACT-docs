@@ -1,9 +1,9 @@
 [project]
 name = "iact-docs"
-version = "1.0.0"
+version = "1.1.0"
 description = "IACT - Sistema de Dashboard Analytics | Technical Documentation"
-readme = "README.md"
-requires-python = ">=3.11"
+readme = "readme.rst"
+requires-python = ">=3.11,<3.14"
 authors = [
     {name = "Equipo de Desarrollo IACT", email = "dev@iact.local"}
 ]
@@ -22,9 +22,10 @@ classifiers = [
 ]
 
 # Verified dependencies from current working environment
-# Core Sphinx documentation engine (v9.0.4 with Phase A: Configuration Standardization fixes)
+# Core Sphinx documentation engine (8.2.x — pinned por compatibilidad con autodocsumm==0.2.14
+# que aún no soporta Sphinx 9.x. Si se sube a 9.x, hay que subir también autodocsumm.)
 dependencies = [
-    "Sphinx>=9.0.4",                              # Core documentation engine (fixed RST compliance Phase B)
+    "Sphinx>=8.2.3,<9.0",                          # Core documentation engine
 
     # Theme & UI
     "Furo==2025.9.25",                             # Professional documentation theme

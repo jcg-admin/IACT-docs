@@ -1,5 +1,5 @@
 # Sphinx build directory
-# build/  (REMOVED: user wants build artifacts tracked for visibility)
+build/
 
 # Sphinx doctrees
 **/doctrees/
@@ -29,7 +29,11 @@
 *.egg-info/
 *.eggs/
 *.egg
-# build/  (REMOVED: user wants build artifacts tracked for visibility)
 dist/
 __pycache__/
-build/
+
+# Bundled tools (descargados por scripts/setup.sh — no commitear binarios)
+# tools/bin/* SÍ se commitea (wrappers shell)
+tools/plantuml.jar
+tools/jre/
+tools/jre.tar.gz
