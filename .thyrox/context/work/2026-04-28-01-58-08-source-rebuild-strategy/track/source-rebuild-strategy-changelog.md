@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 03:35:50
+updated_at: 2026-04-28 03:55:22
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -74,6 +74,45 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
 - F-NEW-4 resuelto. `uv sync` ahora completa sin conflictos.
   Verificado: `.venv/bin/sphinx-build --version` → `sphinx-build 8.2.3`.
   La instalación oficial del proyecto vía `uv sync` queda funcional.
+
+### Verified (2026-04-28 03:55)
+
+- **F-NEW-3 verificado: source/ tiene 0 warnings con setup completo.**
+  Pasos ejecutados:
+  1. Instalado `libenchant-2-2` system-wide (`apt install`) — requerido por
+     `sphinxcontrib-spelling`, no es paquete Python.
+  2. Ejecutado `bash scripts/setup.sh` — descargó `tools/plantuml.jar`
+     (22 MB, plantuml v1.2024.7), confirmó Java JRE 21 disponible,
+     re-ejecutó `uv sync`, activó git hooks (`commit-msg`, `pre-push`).
+  3. Build limpio: `uv run sphinx-build -E -b html source/ build/html-verify`
+     → `build succeeded.` (0 warnings, 0 errors).
+  Resultado: la premisa del ejecutor era correcta. El primer build falló
+  con 183 warnings — TODAS plantuml-related — porque salté setup.sh.
+  Lección: setup.sh es pre-condición obligatoria.
+
+### New findings detected during verification
+
+- **F-NEW-6: prompts de permiso con `rm -rf build/*`.**
+  Claude Code bloquea `rm -rf` por defecto (acción destructiva). Usar
+  `make clean` en su lugar — el Makefile ya lo provee y al ser una
+  invocación indirecta vía target, no genera prompt. Documentar este
+  patrón para futuras sesiones.
+
+- **F-NEW-7: `setup.sh` no está señalizado como pre-condición obligatoria.**
+  En esta sesión salté setup.sh y perdí ~30 minutos investigando warnings
+  fantasma (183 plantuml errors) que no existirían si hubiera seguido el
+  bootstrap documentado. Cualquier `git clone` nuevo va a tropezar igual.
+  Acciones propuestas (no ejecutadas en este WP — son cambios fuera de
+  alcance de DISCOVER):
+
+  1. Añadir sección "Quick Start / First time setup" a `readme.rst`
+     con `bash scripts/setup.sh` como PRIMER comando.
+  2. Modificar `Makefile` target `html`: agregar guard que verifique
+     `tools/plantuml.jar` y `enchant` antes de invocar sphinx-build,
+     con mensaje "ejecutá `bash scripts/setup.sh` primero".
+  3. Considerar archivo `CONTRIBUTING.md` con flujo de desarrollo.
+  4. CI: agregar job que parta de clone limpio + setup.sh + make html
+     para garantizar que el bootstrap funciona end-to-end.
 
 ### Investigation (no code change yet)
 
