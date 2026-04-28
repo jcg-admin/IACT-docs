@@ -4,7 +4,7 @@
    :dominio: normativa
    :subdominio: restricciones
    :estado: Vigente
-   :version: 1.0.0
+   :version: 2.0.0
    :fecha_creacion: 2025-12-17
    :ultimo_cambio: 2026-04-28
    :autor: NestorMonroy
@@ -16,31 +16,126 @@
 CNST-030: Reglas de Separacion de Funciones SoD
 ===============================================
 
-Enunciado
----------
+Resumen Ejecutivo
+-----------------
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 0
+
+   * - **ID**
+     - CNST_030
+   * - **Categoria**
+     - RBAC
+   * - **Tipo (TXM_01)**
+     - Tecnica
+   * - **Criticidad**
+     - Critico
+   * - **Negociable**
+     - No
+   * - **Estado**
+     - Vigente
+
+1. Definicion
+-------------
+
+1.1 Enunciado
+^^^^^^^^^^^^^
+
 
 Las reglas de SoD (Separation of Duties) DEBEN declararse atomicamente
 y enforzarse en tiempo de asignacion. La asignacion de un grupo que
 crea conflicto SoD con otro grupo del usuario DEBE rechazarse con
 error explicito.
 
-Justificacion
--------------
+1.2 Justificacion
+^^^^^^^^^^^^^^^^^
+
 
 SoD previene fraude y errores por concentracion de poder. Las reglas
 SoD textuales (no atomicas) son ineficaces porque dependen del
 revisor humano.
 
-Especificacion
---------------
+1.3 Origen
+^^^^^^^^^^
+
+- **Fuente:** Compliance + prevencion de fraude
+- **Documento:** MODELO_RBAC_IACT_v5_2_1.md:524-603
+- **Fecha:** 2025-01-01
+
+2. Especificacion Tecnica
+-------------------------
+
+2.1 Descripcion Detallada
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 - Modelo ``SoDRule`` con campos ``group_a``, ``group_b``, ``rationale``.
 - Validacion en signal ``pre_save`` de ``UserGroup``: rechaza si la
   asignacion crea un par prohibido.
 - Reporte periodico de violaciones existentes (sanity check).
 
-Verificacion
-------------
+2.2 Parametros
+^^^^^^^^^^^^^^
+
+Ver subseccion 2.1.
+
+2.3 Tecnologias Involucradas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Modelo SoDRule
+- Signal pre_save de UserGroup
+- Reporte periodico de violaciones
+
+3. Impacto en Sistema
+---------------------
+
+3.1 Modulos Afectados
+^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Modulo
+     - Impacto
+   * - MOD_Access
+     - Implementa SoDRule + signal de validacion
+
+3.2 Casos de Uso Afectados
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - UC
+     - Impacto
+   * - UC_004
+     - Asignar Rol — valida SoD
+   * - UC_005
+     - Auditoria de violaciones SoD
+
+3.3 Lo que NO se puede hacer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Asignar grupos en conflicto SoD a un mismo usuario
+- Hacer permisos temporales que violen SoD
+- Bypassear la validacion en codigo
+
+4. Business Rules Derivadas
+---------------------------
+
+Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
+El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
+el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+
+5. Implementacion
+-----------------
+
+5.1 Codigo de Referencia
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 .. code-block:: python
 
@@ -50,8 +145,79 @@ Verificacion
        if conflicting:
            raise ValidationError(f"SoD: conflict with {conflicting}")
 
-Referencias cruzadas
---------------------
+5.2 Validacion de Cumplimiento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :doc:`CNST_029_RBAC_Modelo_Plano`
-- :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+Ver seccion 5.1 (codigo de referencia es la validacion ejecutable).
+
+
+6. Excepciones
+--------------
+
+6.1 Excepciones Permitidas
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Excepciones SoD requieren ADR + aprobacion explicita del Compliance Officer
+
+6.2 Proceso de Excepcion
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Solicitud formal con justificacion de negocio + analisis de riesgo + aprobacion Compliance Officer + vigencia acotada.
+
+El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
+el WP de gobernanza (`PROC_Excepciones_CNST` — ver
+`analyze/cross-wp-debt-summary.md` § W-4).
+
+7. Verificacion
+---------------
+
+7.1 Criterios de Cumplimiento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El cumplimiento se verifica via los snippets de la seccion 5.
+
+7.2 Metodo de Verificacion
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **Tipo:** Automatico
+- **Frecuencia:** Continuo + reporte semanal
+- **Herramienta:** Test del signal + reporte SQL de violaciones existentes
+
+8. Trazabilidad
+---------------
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 0
+
+   * - **CNSTs relacionadas**
+     - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+   * - **BR derivadas**
+     - Pendiente WP requisitos
+   * - **UCs afectados**
+     - UC_004, UC_005
+   * - **MODs afectados**
+     - MOD_Access
+   * - **ADRs relacionados**
+     - Pendiente WP arquitectura tecnica
+
+9. Historial de Cambios
+-----------------------
+
+.. list-table::
+   :widths: 12 15 25 48
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-12-17
+     - NestorMonroy
+     - Version inicial (consolidada del backup canonico)
+   * - 2.0.0
+     - 2026-04-28
+     - NestorMonroy
+     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+
