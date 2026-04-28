@@ -19,6 +19,7 @@ STD_001: Estándar de Documentación Sin Emojis
 .. contents:: Contenido
    :depth: 3
    :local:
+
 ----
 
 1. Estándar

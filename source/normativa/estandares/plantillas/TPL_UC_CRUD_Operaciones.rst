@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_UC_CRUD_Operaciones
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.2.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: UC-IACT-XXX-YY
    :Titulo: CRUD de [Nombre Entidad]
@@ -9,9 +27,10 @@
    :Autor: [Nombre BA]
    :Estado: DRAFT
 
-======================================================================
+
+========================================
 UC-IACT-XXX-YY: CRUD de [Nombre Entidad]
-======================================================================
+========================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Tipo:** CRUD (Create, Read, Update, Delete)  
@@ -28,10 +47,10 @@ cualquier entidad del dominio.
 
 CRUD son las operaciones básicas de persistencia:
 
-- **C**reate: Crear nuevo registro
-- **R**ead: Consultar/Listar registros
-- **U**pdate: Modificar registro existente
-- **D**elete: Eliminar registro
+- **Create**: crear nuevo registro.
+- **Read**: consultar / listar registros.
+- **Update**: modificar registro existente.
+- **Delete**: eliminar registro.
 
 **¿Cuándo usar este template?**
 

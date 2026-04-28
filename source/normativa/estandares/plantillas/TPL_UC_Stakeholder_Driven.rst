@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_UC_Stakeholder_Driven
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.3.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: UC-IACT-MOD-NN
    :Titulo: Nombre del Use Case
@@ -10,9 +28,10 @@
    :Autor: Nombre del Business Analyst
    :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-======================================================================
+
+===================================
 UC-IACT-MOD-NN: Nombre del Use Case
-======================================================================
+===================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Actor Principal:** Rol del Actor Principal  

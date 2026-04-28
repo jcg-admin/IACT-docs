@@ -1,5 +1,5 @@
 .. meta::
-   :artefacto: STD_NAMING_IDENTIFICADORES
+   :artefacto: STD_Naming_Identificadores
    :tipo: Estándar
    :dominio: normativa
    :subdominio: estandares

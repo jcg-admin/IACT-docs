@@ -6,13 +6,15 @@
    :estado: Aprobado
    :version: 1.1.0
    :fecha_creacion: 2026-01-07
+   :ultimo_cambio: 2026-04-28
    :autor: Equipo IACT
+   :clasificacion: Interno
 
 .. _tpl-api:
 
-==============================================
-TPL_API: Plantilla de Documentacion API v1.1.0
-==============================================
+=======================================
+TPL_API: Plantilla de Documentacion API
+=======================================
 
 
 Proposito

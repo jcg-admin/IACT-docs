@@ -1,6 +1,6 @@
 .. meta::
-   :artefacto: INDEX_PLANTILLAS
-   :tipo: Índice
+   :artefacto: Index_Plantillas
+   :tipo: Indice
    :dominio: normativa
    :subdominio: estandares/plantillas
    :estado: Aprobado
@@ -8,6 +8,7 @@
    :fecha_creacion: 2026-01-07
    :ultimo_cambio: 2026-04-28
    :autor: Equipo IACT
+   :clasificacion: Interno
 
 .. _index-plantillas:
 

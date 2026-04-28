@@ -1,3 +1,17 @@
+.. meta::
+   :artefacto: Guia_Estilo
+   :tipo: Guia
+   :dominio: normativa
+   :subdominio: estandares
+   :estado: Aprobado
+   :version: 1.0.0
+   :fecha_creacion: 2026-01-07
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. _guia-estilo:
+
 Guía de Estilo - Proyecto IACT
 ==============================
 

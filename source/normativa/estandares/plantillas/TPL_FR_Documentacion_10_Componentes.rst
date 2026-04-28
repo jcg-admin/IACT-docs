@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_FR_Documentacion_10_Componentes
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.3.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: FR-MOD-NN-ZZ
    :Titulo: Titulo Descriptivo del Functional Requirement
@@ -9,9 +27,10 @@
    :Autor: Nombre del Developer/Analyst
    :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-======================================================================
+
+===========================================================
 FR-MOD-NN-ZZ: Titulo Descriptivo del Functional Requirement
-======================================================================
+===========================================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Derivado De:** UC-IACT-MOD-NN paso X  

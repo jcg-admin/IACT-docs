@@ -6,13 +6,15 @@
    :estado: Aprobado
    :version: 1.0.0
    :fecha_creacion: 2026-01-07
+   :ultimo_cambio: 2026-04-28
    :autor: Equipo IACT
+   :clasificacion: Interno
 
 .. _tpl-nfr:
 
-===================================================
-TPL_NFR: Plantilla de Requisito No Funcional v1.0.0
-===================================================
+============================================
+TPL_NFR: Plantilla de Requisito No Funcional
+============================================
 
 
 Propósito

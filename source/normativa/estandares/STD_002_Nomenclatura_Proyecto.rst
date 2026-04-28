@@ -160,8 +160,8 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 4. Nomenclatura por Tipo de Artefacto
 =====================================
 
-4.1 Templates (TPL) - 17 Templates en v2.2.0
----------------------------------------------
+4.1 Templates (TPL) - 17 Templates en
+-------------------------------------
 
 **Formato:**
 .. code-block:: text
@@ -594,8 +594,8 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 
 **Nota:** META mantiene 2 dígitos por ser privado y limitado a <10 documentos.
 
-4.13 Procedimientos (PROC) - 38 Procedimientos en v2.2.0
----------------------------------------------------------
+4.13 Procedimientos (PROC) - 38 Procedimientos en
+-------------------------------------------------
 
 **NUEVO en v2.0.0**
 

@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_BR_Decision_Tipo
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.3.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: BR-IACT-XXX
    :Titulo: Titulo Descriptivo de la Business Rule
@@ -9,9 +27,10 @@
    :Autor: Nombre del Business Analyst
    :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-======================================================================
+
+===================================================
 BR-IACT-XXX: Titulo Descriptivo de la Business Rule
-======================================================================
+===================================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Tipo:** Restriccion|Calculo|Desencadenador|Inferencia|Definicion  
@@ -474,14 +493,14 @@ CA-1: Sistema calcula count antes de ejecutar query principal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Dado:**
-- Usuario autenticado con permiso RPT-001
-- Usuario solicita reporte trimestral con parametros:
-  - Trimestre: Q3
-  - Ano: 2024
-  - Segmento: OP
+
+- Usuario autenticado con permiso RPT-001.
+- Usuario solicita reporte trimestral con parámetros: Trimestre Q3,
+  Año 2024, Segmento OP.
 
 **Cuando:**
-- Usuario hace click en boton "Generar Reporte"
+
+- Usuario hace click en boton "Generar Reporte".
 
 **Entonces:**
 - Sistema ejecuta COUNT(*) con mismos parametros ANTES de SELECT principal
@@ -544,13 +563,13 @@ CA-3: Supervisor recibe notificacion en buzon interno
 - Sistema crea registro de aprobacion
 
 **Entonces:**
-- Supervisor ve notificacion en su bandeja de entrada
-- Notificacion contiene:
-  - Titulo: "Aprobacion requerida: Consulta de nombre_usuario"
-  - Descripcion: "Consulta retornaria 10,500 registros"
-  - Link directo a pantalla de aprobacion
-  - Timestamp
-- Badge de notificaciones incrementa +1
+
+- Supervisor ve notificación en su bandeja de entrada.
+- La notificación contiene: título ("Aprobación requerida:
+  Consulta de nombre_usuario"), descripción ("La consulta
+  retornaría 10500 registros"), link directo a la pantalla de
+  aprobación y timestamp.
+- Badge de notificaciones incrementa +1.
 
 **Verificacion:**
 

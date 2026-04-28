@@ -6,13 +6,15 @@
    :estado: Aprobado
    :version: 1.0.0
    :fecha_creacion: 2026-01-07
+   :ultimo_cambio: 2026-04-28
    :autor: Equipo IACT
+   :clasificacion: Interno
 
 .. _tpl-breq:
 
-=================================================
-TPL_BReq: Plantilla de Objetivo de Negocio v1.0.0
-=================================================
+==========================================
+TPL_BReq: Plantilla de Objetivo de Negocio
+==========================================
 
 
 Propósito

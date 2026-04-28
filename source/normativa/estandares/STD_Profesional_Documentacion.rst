@@ -1,5 +1,5 @@
 .. meta::
-   :artefacto: STD_PROFESIONAL_DOCUMENTACION
+   :artefacto: STD_Profesional_Documentacion
    :tipo: Estándar
    :dominio: normativa
    :subdominio: estandares

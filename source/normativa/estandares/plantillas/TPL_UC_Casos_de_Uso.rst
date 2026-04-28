@@ -6,13 +6,15 @@
    :estado: Aprobado
    :version: 2.0.0
    :fecha_creacion: 2026-01-06
+   :ultimo_cambio: 2026-04-28
    :autor: Equipo IACT
+   :clasificacion: Interno
 
 .. _tpl-uc:
 
-======================================================
-TPL_UC: Plantilla de Caso de Uso v2.0.0 (con PlantUML)
-======================================================
+================================
+TPL_UC: Plantilla de Caso de Uso
+================================
 
 
 Proposito

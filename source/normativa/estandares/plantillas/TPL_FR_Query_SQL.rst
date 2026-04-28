@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_FR_Query_SQL
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.3.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: FR-MOD-NN-ZZ
    :Titulo: Titulo del Functional Requirement - Query SQL
@@ -9,9 +27,10 @@
    :Autor: Nombre del Developer
    :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-======================================================================
+
+===========================================================
 FR-MOD-NN-ZZ: Titulo del Functional Requirement - Query SQL
-======================================================================
+===========================================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Derivado De:** UC-IACT-MOD-NN paso X  

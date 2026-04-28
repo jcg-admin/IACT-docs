@@ -1,4 +1,22 @@
 .. meta::
+   :artefacto: TPL_TRZ_Matriz_RTM
+   :tipo: Plantilla
+   :dominio: normativa
+   :subdominio: estandares/plantillas
+   :estado: Aprobado
+   :version: 1.3.0
+   :fecha_creacion: 2026-01-13
+   :ultimo_cambio: 2026-04-28
+   :autor: Equipo IACT
+   :clasificacion: Interno
+
+.. rubric:: Metadata sugerida para la instancia
+
+Cuando se crea una instancia a partir de esta plantilla,
+se sugiere declarar el siguiente bloque de metadata:
+
+.. code-block:: text
+
    :Proyecto: IACT
    :Codigo: TRZ-IACT-MOD-NN
    :Titulo: Matriz de Trazabilidad - Modulo
@@ -8,9 +26,10 @@
    :Autor: Nombre del Business Analyst
    :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-======================================================================
+
+================================================
 TRZ-IACT-MOD-NN: Matriz de Trazabilidad - Modulo
-======================================================================
+================================================
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking  
 **Alcance:** Modulo o Feature especifico  
@@ -651,7 +670,7 @@ Quien es responsable de cada componente.
      - Functional Requirements
      - Juan Perez (Developer)
      - Tech Lead
-   * - reports/*.py
+   * - ``reports/*.py``
      - Codigo
      - Juan Perez (Developer)
      - Tech Lead
@@ -709,7 +728,7 @@ REFERENCIAS
 - BR_IACT_053_Calculo_Tasa_Abandono_1_0_0.rst
 - UC-IACT-RPT-01-Consultar-Reporte-Trimestral-4-0-0.rst
 - UC-IACT-RPT-02-Aprobar-Consulta-Grande-4-0-0.rst
-- FR-RPT-01-XX-*.rst (todos los FR del modulo)
+- ``FR-RPT-01-XX-*.rst`` (todos los FR del modulo).
 
 **RTM Standards:**
 
