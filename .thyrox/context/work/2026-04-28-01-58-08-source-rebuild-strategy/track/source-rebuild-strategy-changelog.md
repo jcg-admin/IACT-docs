@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 05:15:00
+updated_at: 2026-04-28 05:14:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,25 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Phase 8 PLAN EXECUTION — task plan creado (2026-04-28 05:14)
+
+- Creado `plan-execution/source-rebuild-strategy-task-plan.md`
+  (status: Borrador, esperando aprobación ejecutor).
+- 33 tareas atómicas distribuidas en 3 grupos:
+  - Grupo A: 7 tareas retrospectivas marcadas [x] (Phase 5 +
+    Phase 6 ya completadas — preservan audit trail).
+  - Grupo B: 16 tareas spawn — una por WP-hijo, cada una crea
+    `mkdir` + `wp-state.md` con parent-link, pre-condiciones,
+    pre-tareas absorbidas, e inputs obligatorios declarados.
+  - Grupo C: 10 tareas de cierre del WP-padre (verificación
+    16 hijos, validate-phase-completion script, CLOSURE-NOTICE,
+    update wp-state, update ROADMAP, commit + push final).
+- Convención de atomicidad declarada: cada T-NNN = 1 operación
+  verificable + 1 outcome único + independientemente completable.
+- DAG de dependencias documentado (entre WPs-hijos, no entre
+  tareas de spawn — el spawn es secuencial sin hard deps).
+- Trazabilidad sección del plan → tarea documentada.
 
 ### Phase 6 PLAN APROBADA (2026-04-28 05:15)
 
