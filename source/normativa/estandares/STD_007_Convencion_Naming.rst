@@ -409,7 +409,32 @@ Existen excepciones documentadas:
 
 - ``index.rst`` y archivos generados por Sphinx (no toca naming).
 - Directorios ``_static/``, ``_templates/`` (convención Sphinx).
-- ``readme.rst`` en raíz (es legacy del proyecto, no en ``source/``).
+- ``readme.rst`` en raíz (es legacy del proyecto, no en
+  ``source/``).
+- **Procedimientos transversales sin módulo asignable.** Variante
+  ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
+  procedimiento no pertenece a un módulo funcional específico
+  (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
+  documental. Ejemplos:
+
+  - ``PROC_Generacion_UC.rst`` (procedimiento de generación
+    aplicable a todas las áreas).
+  - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
+    inter-niveles, no específico de un módulo).
+  - ``PROC_Validacion_Sphinx.rst`` (validación documental
+    transversal).
+
+  La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
+  variante reconocida y no requiere migración a §4.2. Aplicada
+  al rebuild en ``source/normativa/procedimientos/`` (~37
+  archivos).
+
+- **Plantillas con descripción larga.** Variante
+  ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
+  ``TPL_API_Documentacion_API.rst``,
+  ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
+  de ``KEY`` permite distinguir variantes del mismo tipo de
+  artefacto sin requerir numeración secuencial.
 
 Cualquier nueva excepción requiere registro en este documento bajo
 sección 7.2.

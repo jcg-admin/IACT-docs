@@ -25,3 +25,9 @@ Subdominios
    :caption: Estándares y Plantillas
 
    estandares/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Procedimientos
+
+   procedimientos/index
