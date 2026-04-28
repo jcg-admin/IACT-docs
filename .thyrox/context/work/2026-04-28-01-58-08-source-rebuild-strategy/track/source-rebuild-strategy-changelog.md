@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-04-28 03:35:00
-updated_at: 2026-04-28 05:05:00
+updated_at: 2026-04-28 05:15:00
 project: IACT-docs
 work_package: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 1 — DISCOVER
@@ -102,6 +102,19 @@ Registro de todos los cambios y eventos del WP. Formato Keep a Changelog.
   CNST de restricciones → requisitos).
 - Tabla de evidencia ampliada: +6 claims PROVEN sobre templates
   y CNST, todos con tool output citado.
+
+### Phase 6 PLAN APROBADA (2026-04-28 05:15)
+
+- Ejecutor confirmó "si" tras revisión de matriz de cobertura
+  8 gaps deep-review → 8 secciones del plan.
+- `plan/source-rebuild-strategy-plan.md` status:
+  Pendiente → Aprobado — 2026-04-28 05:15.
+- Validation Checklist completa (12/12).
+- `wp-state.md` avanza a Phase 8 PLAN EXECUTION
+  (methodology_step: workflow-decompose). Phase 7 DESIGN/SPECIFY
+  se omite — este WP-padre es coordinación pura, sin componentes
+  que speccear; cada WP-hijo tendrá su propia Phase 7.
+- `now.md` actualizado a Phase 8.
 
 ### F-NEW-9 detectado y propuesta de convención multi-WP (2026-04-28 05:05)
 

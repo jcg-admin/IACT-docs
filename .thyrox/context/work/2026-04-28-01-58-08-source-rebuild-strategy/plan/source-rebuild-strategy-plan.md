@@ -2,7 +2,7 @@
 created_at: 2026-04-28 04:55:00
 wp: 2026-04-28-01-58-08-source-rebuild-strategy
 phase: Phase 6 — PLAN
-status: Pendiente aprobación
+status: Aprobado — 2026-04-28 05:15 (ejecutor: si)
 ```
 
 # Plan — Source Rebuild Strategy (WP-padre)
@@ -324,10 +324,10 @@ Ver tracking: [ROADMAP.md — sección "En curso"](../../../../ROADMAP.md)
 - [x] Estimación de esfuerzo del WP-padre
 - [x] Pre-condición de cierre explícita del WP-padre
 - [x] Trazabilidad clara a strategy v2.0
-- [ ] Scope aprobado por usuario — PENDIENTE
+- [x] Scope aprobado por usuario — 2026-04-28 05:15
 
 ---
 
 ## Estado de aprobación
 
-- [ ] Scope aprobado por usuario — PENDIENTE
+- [x] Scope aprobado por usuario — 2026-04-28 05:15

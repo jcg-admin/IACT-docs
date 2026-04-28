@@ -6,14 +6,14 @@ cold_boot: false
 current_epic: 5
 epic_name: source-rebuild-strategy
 current_work: .thyrox/context/work/2026-04-28-01-58-08-source-rebuild-strategy
-stage: Phase 6 — PLAN
-stage_number: 6
-current_phase: Phase 6 — PLAN (recién entrada, Phase 5 STRATEGY v2.0 aprobada)
+stage: Phase 8 — PLAN EXECUTION
+stage_number: 8
+current_phase: Phase 8 — PLAN EXECUTION (Phase 6 cerrada; Phase 7 DESIGN omitida porque WP-padre es coordinación, no spec)
 flow: thyrox
-methodology_step: workflow-plan
+methodology_step: workflow-decompose
 blockers: []
-last_completed_phase: Phase 5 — STRATEGY v2.0 (10 ideas, 14 decisions, 3 análisis de soporte)
-next_decision_required: "Phase 6 PLAN: definir in/out scope detallado del WP-padre y listar los 16 WPs hijos"
+last_completed_phase: Phase 6 — PLAN (plan aprobado 2026-04-28 05:15)
+next_decision_required: "Phase 8: decompose en T-NNN para spawn de los 16 WPs-hijos + cierre del WP-padre"
 stage_sync_required: true
 ```
 
