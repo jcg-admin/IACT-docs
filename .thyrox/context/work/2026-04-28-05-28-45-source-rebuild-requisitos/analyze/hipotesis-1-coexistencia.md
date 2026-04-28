@@ -4,11 +4,17 @@ project: IACT-docs
 work_package: 2026-04-28-05-28-45-source-rebuild-requisitos
 phase: Phase 1 — DISCOVER (escenario arquitectonico)
 author: NestorMonroy
-status: Borrador para decision
+status: Aprobado
 version: 1.0.0
 ```
 
-# Hipotesis 1 — COEXISTENCIA (63 UCs en 9 modulos)
+# Hipotesis 1 — COEXISTENCIA (APROBADA)
+
+> **NOTA: APROBADA por el ejecutor (2026-04-29).** El conteo de UCs es
+> **evolutivo** — puede crecer (nuevos UCs identificados durante discovery)
+> o decrecer (consolidacion de overlaps detectados). Los numeros documentados
+> son **estado actual**, NO decisivos. La decision arquitectonica que se fija
+> es la **coexistencia ACC ↔ PERM**, no el conteo.
 
 ## Premisa
 
@@ -63,7 +69,7 @@ Ambos preservan todos sus UCs documentados. No hay perdida.
 | MOD_Pipeline | UC_PIP_01..04 | 4 | `.rst` canonico |
 | MOD_Audit | UC_AUD_01..04 | 4 | `.rst` canonico |
 | MOD_Logs | UC_LOG_01..04 | 4 | `.rst` canonico |
-| **TOTAL** | | **63 UCs** | |
+| **TOTAL (estado actual)** | | **catalogo evolutivo** | |
 
 ### Detalle por modulo
 
