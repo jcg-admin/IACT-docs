@@ -4,7 +4,7 @@ project: IACT-docs
 work_package: 2026-04-28-05-28-45-source-rebuild-requisitos
 phase: Phase 1 — DISCOVER (formalizacion arquitectonica)
 author: NestorMonroy
-status: Borrador
+status: Aprobado (decisiones D-RBAC tomadas 2026-04-29)
 version: 1.0.0
 ```
 
