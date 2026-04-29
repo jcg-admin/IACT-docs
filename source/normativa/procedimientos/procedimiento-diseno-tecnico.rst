@@ -715,10 +715,22 @@ Control de Versiones
 Aprobaciones
 ------------
 
-========= =========== ===== =====
-Rol Nombre Fecha Firma
-========= =========== ===== =====
-Tech Lead [Pendiente] - -
-BA Lead [Pendiente] - -
-QA Lead [Pendiente] - -
-========= =========== ===== =====
+.. list-table::
+   :header-rows: 1
+
+   * - Rol Nombre
+     - Fecha Firma
+     - \ 
+     - \ 
+   * - Tech Lead
+     - [Pendiente]
+     - - -
+     - \ 
+   * - BA Lead [P
+     - endiente] -
+     - -
+     - \ 
+   * - QA Lead [P
+     - endiente] -
+     - -
+     - \ 

@@ -354,13 +354,21 @@ Ejemplos
 Diferencia con Inferencias
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-============= ========================== ======================
-Aspecto Desencadenadores de Acción Inferencias
-============= ========================== ======================
-**Propósito** Ejecutar **acciones** Crear **conocimiento**
-**Resultado** Algo **sucede** Algo **se establece**
-**Ejemplo** “Enviar notificación” “Marcar como deudor”
-============= ========================== ======================
+.. list-table::
+   :header-rows: 1
+
+   * - Aspecto Desenc
+     - adenadores de Acción Infere
+     - ncias
+   * - **Propósito**
+     - Ejecutar **acciones** Crear
+     - **conocimiento**
+   * - **Resultado**
+     - Algo **sucede** Algo **se e
+     - stablece**
+   * - **Ejemplo** “E
+     - nviar notificación” “Marcar
+     - como deudor”
 
 .. _formato-de-documentación-2:
 
@@ -928,11 +936,17 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial
 
 Aprobación
 ----------

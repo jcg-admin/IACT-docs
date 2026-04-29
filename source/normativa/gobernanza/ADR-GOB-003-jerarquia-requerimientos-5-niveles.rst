@@ -590,11 +590,17 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial
 
 Aprobación
 ----------

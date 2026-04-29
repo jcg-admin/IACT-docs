@@ -92,15 +92,27 @@ FRONT, DEVOPS, QA, AI, GOB - **###**: Número secuencial 001-999
 IDs por Tipo de Artefacto
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-======================== ================ =============
-Tipo de Artefacto Patrón ID Ejemplo
-======================== ================ =============
-Regla de Negocio RN-DOMINIO-### RN-BACK-001
-Requerimiento de Negocio RNEG-DOMINIO-### RNEG-BACK-001
-Caso de Uso UC-DOMINIO-### UC-BACK-001
-Requisito Funcional RF-DOMINIO-### RF-BACK-005
-Atributo de Calidad RNF-DOMINIO-### RNF-BACK-005
-======================== ================ =============
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo de Artefacto Patrón
+     - ID Ejemplo
+     - \ 
+   * - Regla de Negocio RN-DOMIN
+     - IO-### RN-BACK-00
+     - 1
+   * - Requerimiento de Negocio
+     - RNEG-DOMINIO-###
+     - RNEG-BACK-001
+   * - Caso de Uso UC-DOMINIO-##
+     - # UC-BACK-001
+     - \ 
+   * - Requisito Funcional RF-DO
+     - MINIO-### RF-BACK
+     - -005
+   * - Atributo de Calidad RNF-D
+     - OMINIO-### RNF-BA
+     - CK-005
 
 **Reglas**: - **Únicos globalmente**: No reutilizar IDs - **Secuenciales
 por dominio**: RN-BACK-001, RN-BACK-002, … - **No cambiar**: Una vez
@@ -711,11 +723,17 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial
 
 Aprobación
 ----------

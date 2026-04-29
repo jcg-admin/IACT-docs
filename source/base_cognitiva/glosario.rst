@@ -390,57 +390,105 @@ toda documentación nueva del proyecto (formalizado en
 I. Abreviaturas comunes
 =======================
 
-============ ============================================
-Abreviatura Significado
-============ ============================================
-**ADR** Architecture Decision Record
-**API** Application Programming Interface
-**BA** Business Analyst
-**BABOK** Business Analysis Body of Knowledge
-**BR** Business Requirement (también: Business Rule en contextos de reglas de negocio)
-**BReq** Business Requirement (objetivo de negocio)
-**BRS** Business Requirements Specification
-**CNST** Restricción Arquitectónica
-**DRF** Django REST Framework
-**ETL** Extract, Transform, Load
-**FR** Functional Requirement
-**IACT** IVR Analytics & Customer Tracking (nombre del producto)
-**ISO** International Organization for Standardization
-**IVR** Interactive Voice Response
-**KPI** Key Performance Indicator
-**MTM** Metamodelo
-**N** Necesidad de Negocio (prefijo de ID: ``N-XXX``)
-**NFR** Non-Functional Requirement
-**OE** Objetivo Estratégico
-**PII** Personally Identifiable Information
-**PMBOK** Project Management Body of Knowledge
-**PMI** Project Management Institute
-**PMO** Project Management Office
-**PROC** Procedimiento
-**RBAC** Role-Based Access Control
-**RF** Requisito Funcional (también ``RQ`` en convenciones legacy)
-**RN** Requisito de Negocio (alias: ``BR``)
-**RNF** Requisito No Funcional (alias: ``NFR``)
-**RPO** Recovery Point Objective
-**RS** Requisito de Stakeholder (alias: ``SR``)
-**RSi** Requisito de Sistema (alias del SyRS)
-**RTM** Requirements Traceability Matrix
-**RTO** Recovery Time Objective
-**SBVR** Semantics of Business Vocabulary and Business Rules
-**SLA** Service Level Agreement
-**SoD** Separation of Duties
-**SR** Stakeholder Requirement (alias: ``RS``)
-**SRS** Software Requirements Specification
-**StRS** Stakeholder Requirements Specification
-**SyRS** System Requirements Specification
-**TC** Caso de Prueba (Test Case)
-**TPL** Plantilla (Template)
-**TXM** Taxonomía
-**UAT** User Acceptance Testing
-**UC** Caso de Uso (Use Case)
-**WBS** Work Breakdown Structure
-**WSGI** Web Server Gateway Interface
-============ ============================================
+.. list-table::
+   :header-rows: 1
+
+   * - Abreviatura
+     - Significado
+   * - **ADR**
+     - Architecture Decision Record
+   * - **API**
+     - Application Programming Interface
+   * - **BA**
+     - Business Analyst
+   * - **BABOK**
+     - Business Analysis Body of Knowledge
+   * - **BR**
+     - Business Requirement (también: Business Rule en contextos de reglas de negocio)
+   * - **BReq**
+     - Business Requirement (objetivo de negocio)
+   * - **BRS**
+     - Business Requirements Specification
+   * - **CNST**
+     - Restricción Arquitectónica
+   * - **DRF**
+     - Django REST Framework
+   * - **ETL**
+     - Extract, Transform, Load
+   * - **FR**
+     - Functional Requirement
+   * - **IACT**
+     - IVR Analytics & Customer Tracking (nombre del producto)
+   * - **ISO**
+     - International Organization for Standardization
+   * - **IVR**
+     - Interactive Voice Response
+   * - **KPI**
+     - Key Performance Indicator
+   * - **MTM**
+     - Metamodelo
+   * - **N**
+     - Necesidad de Negocio (prefijo de ID: ``N-XXX``)
+   * - **NFR**
+     - Non-Functional Requirement
+   * - **OE**
+     - Objetivo Estratégico
+   * - **PII**
+     - Personally Identifiable Information
+   * - **PMBOK**
+     - Project Management Body of Knowledge
+   * - **PMI**
+     - Project Management Institute
+   * - **PMO**
+     - Project Management Office
+   * - **PROC**
+     - Procedimiento
+   * - **RBAC**
+     - Role-Based Access Control
+   * - **RF**
+     - Requisito Funcional (también ``RQ`` en convenciones legacy)
+   * - **RN**
+     - Requisito de Negocio (alias: ``BR``)
+   * - **RNF**
+     - Requisito No Funcional (alias: ``NFR``)
+   * - **RPO**
+     - Recovery Point Objective
+   * - **RS**
+     - Requisito de Stakeholder (alias: ``SR``)
+   * - **RSi**
+     - Requisito de Sistema (alias del SyRS)
+   * - **RTM**
+     - Requirements Traceability Matrix
+   * - **RTO**
+     - Recovery Time Objective
+   * - **SBVR**
+     - Semantics of Business Vocabulary and Business Rules
+   * - **SLA**
+     - Service Level Agreement
+   * - **SoD**
+     - Separation of Duties
+   * - **SR**
+     - Stakeholder Requirement (alias: ``RS``)
+   * - **SRS**
+     - Software Requirements Specification
+   * - **StRS**
+     - Stakeholder Requirements Specification
+   * - **SyRS**
+     - System Requirements Specification
+   * - **TC**
+     - Caso de Prueba (Test Case)
+   * - **TPL**
+     - Plantilla (Template)
+   * - **TXM**
+     - Taxonomía
+   * - **UAT**
+     - User Acceptance Testing
+   * - **UC**
+     - Caso de Uso (Use Case)
+   * - **WBS**
+     - Work Breakdown Structure
+   * - **WSGI**
+     - Web Server Gateway Interface
 
 ----
 

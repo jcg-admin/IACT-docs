@@ -102,19 +102,29 @@ Alternativas Recomendadas
 
 En lugar de emojis, usar:
 
-========= ====================================
-Emoji Alternativa
-========= ====================================
-[x] ``[x]`` o “Completado” o “Correcto”
-[ ] ``[ ]`` o “Pendiente” o “Incorrecto”
-\ “Lanzamiento” o simplemente omitir
-\ “Configurar” o “Herramientas”
-\ “Documentación” o simplemente omitir
-[WARNING] “ADVERTENCIA:” o “Nota:”
-\ “CRÍTICO:” o “URGENTE:”
-\ “Sugerencia:” o “Nota:”
-\ “Seguridad” o simplemente omitir
-========= ====================================
+.. list-table::
+   :header-rows: 1
+
+   * - Emoji
+     - Alternativa
+   * - [x]
+     - ``[x]`` o “Completado” o “Correcto”
+   * - [
+     - ] ``[ ]`` o “Pendiente” o “Incorrecto”
+   * - \
+     - “Lanzamiento” o simplemente omitir
+   * - \
+     - “Configurar” o “Herramientas”
+   * - \
+     - “Documentación” o simplemente omitir
+   * - [WARNING]
+     - “ADVERTENCIA:” o “Nota:”
+   * - \
+     - “CRÍTICO:” o “URGENTE:”
+   * - \
+     - “Sugerencia:” o “Nota:”
+   * - \
+     - “Seguridad” o simplemente omitir
 
 --------------
 
@@ -756,15 +766,21 @@ Ejecutar Manualmente
 Objetivos
 ~~~~~~~~~
 
-======================= =============
-Métrica Target
-======================= =============
-Cobertura de código >= 80%
-Complejidad ciclomática <= 10
-Longitud de funciones <= 50 líneas
-Longitud de archivos <= 500 líneas
-Tamaño de PR <= 400 líneas
-======================= =============
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Target
+   * - Cobertura
+     - de código >= 80%
+   * - Complejidad
+     - ciclomática <= 10
+   * - Longitud
+     - de funciones <= 50 líneas
+   * - Longitud
+     - de archivos <= 500 líneas
+   * - Tamaño
+     - de PR <= 400 líneas
 
 Herramientas
 ~~~~~~~~~~~~

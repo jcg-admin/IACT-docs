@@ -1612,13 +1612,21 @@ Problema 3: No sé si usar include o extend
 
 **Solución**:
 
-====================== ======= =============
-Pregunta Include Extend
-====================== ======= =============
-¿Siempre se ejecuta? SÍ NO (opcional)
-¿Es obligatorio? SÍ NO
-¿Depende de condición? NO SÍ
-====================== ======= =============
+.. list-table::
+   :header-rows: 1
+
+   * - Pregunta Include Extend
+     - \ 
+     - \ 
+   * - ¿Siempre se ejecuta? SÍ
+     - NO (opc
+     - ional)
+   * - ¿Es obligatorio? SÍ NO
+     - \ 
+     - \ 
+   * - ¿Depende de condición?
+     - NO SÍ
+     - \ 
 
 **Ejemplos**: - “Procesar Venta” siempre calcula impuestos → **include**
 - “Procesar Venta” puede aplicar descuento si cantidad > 10 → **extend**
@@ -1662,8 +1670,14 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial

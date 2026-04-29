@@ -747,10 +747,22 @@ Control de Versiones
 Aprobaciones
 ------------
 
-================== =========== ===== =====
-Rol Nombre Fecha Firma
-================== =========== ===== =====
-Security Lead [Pendiente] - -
-Tech Lead [Pendiente] - -
-Compliance Officer [Pendiente] - -
-================== =========== ===== =====
+.. list-table::
+   :header-rows: 1
+
+   * - Rol Nombre Fecha Fi
+     - rma
+     - \ 
+     - \ 
+   * - Security Lead [Pend
+     - iente] - -
+     - \ 
+     - \ 
+   * - Tech Lead [Pendient
+     - e] - -
+     - \ 
+     - \ 
+   * - Compliance Officer
+     - [Pendiente]
+     - - -
+     - \ 

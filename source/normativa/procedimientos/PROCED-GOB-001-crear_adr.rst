@@ -88,17 +88,33 @@ PASO 2: Determinar Dominio y Número
 
 Según el área técnica afectada:
 
-========== ====== ==============================
-Dominio Código Ejemplo
-========== ====== ==============================
-Backend BACK Modelos de BD, APIs, Servicios
-Frontend FRONT UI, Componentes, Estado
-DevOps DEVOPS CI/CD, Infraestructura
-QA QA Testing, Calidad
-AI AI Agentes, ML, Automatización
-Gobernanza GOB Procesos, Metodologías
-Desarrollo DEV SDLC, Git workflows
-========== ====== ==============================
+.. list-table::
+   :header-rows: 1
+
+   * - Dominio Cód
+     - igo Eje
+     - mplo
+   * - Backend BAC
+     - K Model
+     - os de BD, APIs, Servicios
+   * - Frontend FR
+     - ONT UI,
+     - Componentes, Estado
+   * - DevOps DEVO
+     - PS CI/C
+     - D, Infraestructura
+   * - QA QA Testi
+     - ng, Cal
+     - idad
+   * - AI AI Agent
+     - es, ML,
+     - Automatización
+   * - Gobernanza
+     - GOB Pro
+     - cesos, Metodologías
+   * - Desarrollo
+     - DEV SDL
+     - C, Git workflows
 
 2.2 Obtener siguiente número secuencial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -676,11 +692,17 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial
 
 Aprobación
 ----------

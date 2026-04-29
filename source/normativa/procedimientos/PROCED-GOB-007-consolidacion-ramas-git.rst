@@ -501,26 +501,48 @@ Donde NNN = numero secuencial (001, 002, …)
 6.2 Archivos Requeridos
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-====================================== ======== ======= ===========
-Archivo Tipo Cuando Responsable
-====================================== ======== ======= ===========
-INDICE.md Indice Inicio Analista
-ANALISIS-RAMAS-YYYY-MM-DD.md Analisis Etapa 1 Analista
-PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md Plan Etapa 2 Analista
-TASK-NNN-\*.md Tareas Etapa 3 Analista
-REPORTE-EJECUCION-YYYY-MM-DD.md Reporte Etapa 7 Ejecutor
-====================================== ======== ======= ===========
+.. list-table::
+   :header-rows: 1
+
+   * - Archivo Tipo Cuando Responsable
+     - \ 
+     - \ 
+     - \ 
+   * - INDICE.md Indice Inicio Analista
+     - \ 
+     - \ 
+     - \ 
+   * - ANALISIS-RAMAS-YYYY-MM-DD.md Analisis E
+     - tapa 1 An
+     - alista
+     - \ 
+   * - PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
+     - Plan Etap
+     - a 2 Anal
+     - ista
+   * - TASK-NNN-\*.md Tareas Etapa 3 Analista
+     - \ 
+     - \ 
+     - \ 
+   * - REPORTE-EJECUCION-YYYY-MM-DD.md Reporte
+     - Etapa 7
+     - Ejecutor
+     - \ 
 
 6.3 Artefactos Git
 ~~~~~~~~~~~~~~~~~~
 
-=================================== ========================
-Artefacto Proposito
-=================================== ========================
-Tag backup-consolidacion-YYYY-MM-DD Punto de restauracion
-Commits de merge Integraciones realizadas
-Ramas eliminadas Documentadas en reporte
-=================================== ========================
+.. list-table::
+   :header-rows: 1
+
+   * - Artefacto
+     - Proposito
+   * - Tag
+     - backup-consolidacion-YYYY-MM-DD Punto de restauracion
+   * - Commits
+     - de merge Integraciones realizadas
+   * - Ramas
+     - eliminadas Documentadas en reporte
 
 --------------
 
@@ -709,13 +731,25 @@ Proximas Versiones
 12. APROBACIONES
 ----------------
 
-=============== =========== ================ ==========
-Rol Nombre Firma Fecha
-=============== =========== ================ ==========
-Autor Claude Code \_\_\_\_\_\_\_\_ 2025-11-17
-Revisor Tecnico [Pendiente] \_\_\_\_\_\_\_\_ YYYY-MM-DD
-Aprobador Tech Lead \_\_\_\_\_\_\_\_ YYYY-MM-DD
-=============== =========== ================ ==========
+.. list-table::
+   :header-rows: 1
+
+   * - Rol Nombre Firma
+     - Fecha
+     - \ 
+     - \ 
+   * - Autor Claude Cod
+     - e \_\_\_\_\_
+     - \_\_\_ 2025-11-17
+     - \ 
+   * - Revisor Tecnico
+     - [Pendiente]
+     - \_\_\_\_\_\_\_\_
+     - YYYY-MM-DD
+   * - Aprobador Tech L
+     - ead \_\_\_\_
+     - \_\_\_\_ YYYY-MM-
+     - DD
 
 --------------
 

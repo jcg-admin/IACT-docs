@@ -327,14 +327,19 @@ PASO 7: Seguimiento Post-Review
 Tiempos Esperados de Respuesta
 ------------------------------
 
-============== ========================
-Tamaño del PR Tiempo Máximo de Review
-============== ========================
-< 100 líneas 2 horas
-100-300 líneas 4 horas
-300-500 líneas 8 horas (1 día)
-> 500 líneas Considerar dividir el PR
-============== ========================
+.. list-table::
+   :header-rows: 1
+
+   * - Tamaño
+     - del PR Tiempo Máximo de Review
+   * - <
+     - 100 líneas 2 horas
+   * - 100-300
+     - líneas 4 horas
+   * - 300-500
+     - líneas 8 horas (1 día)
+   * - >
+     - 500 líneas Considerar dividir el PR
 
 **Nota**: Reviews de PRs deben ser PRIORIDAD sobre nuevo desarrollo.
 
@@ -427,11 +432,17 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial
 
 Aprobación
 ----------

@@ -141,15 +141,27 @@ Matriz de Decisión Detallada
 Convenciones de Nomenclatura de Archivos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-================= =========================== ========================
-Tipo Patrón Ejemplo
-================= =========================== ========================
-Script ejecutable ``{verbo}-{sustantivo}.sh`` ``deploy-app.sh``
-Script de test ``test-{component}.sh`` ``test-database.sh``
-Biblioteca/Utils ``{sustantivo}-utils.sh`` ``string-utils.sh``
-Script de setup ``setup-{component}.sh`` ``setup-docker.sh``
-Script hook ``{hook-name}`` ``pre-commit`` (sin .sh)
-================= =========================== ========================
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo Patrón Ejempl
+     - o
+     - \ 
+   * - Script ejecutable
+     - ``{verbo}-{sustantivo}.sh``
+     - ``deploy-app.sh``
+   * - Script de test ``t
+     - est-{component}.sh`` ``test-
+     - database.sh``
+   * - Biblioteca/Utils `
+     - `{sustantivo}-utils.sh`` ``s
+     - tring-utils.sh``
+   * - Script de setup ``
+     - setup-{component}.sh`` ``set
+     - up-docker.sh``
+   * - Script hook ``{hoo
+     - k-name}`` ``pre-commit`` (si
+     - n .sh)
 
 Cuándo NO Usar Scripts de Shell
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,17 +198,57 @@ Flowchart de Decisión
 Matriz de Compatibilidad de Shell (CORREGIDA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-==================== ======== ==== ====== ===== ===
-Característica POSIX sh bash dash ksh93 zsh
-==================== ======== ==== ====== ===== ===
-``set -e`` SI SI SI SI SI
-``set -u`` SI SI SI SI SI
-``set -o pipefail`` **NO** SI **NO** SI SI
-``$`` command sub SI SI SI SI SI
-``[[ ]]`` test NO SI NO SI SI
-Arrays NO SI NO SI SI
-``local`` keyword NO\* SI SI SI SI
-==================== ======== ==== ====== ===== ===
+.. list-table::
+   :header-rows: 1
+
+   * - Característica POSIX
+     - sh bash d
+     - ash k
+     - sh93 zs
+     - h
+     - \ 
+   * - ``set -e`` SI SI SI S
+     - I SI
+     - \ 
+     - \ 
+     - \ 
+     - \ 
+   * - ``set -u`` SI SI SI S
+     - I SI
+     - \ 
+     - \ 
+     - \ 
+     - \ 
+   * - ``set -o pipefail`` *
+     - *NO** SI
+     - **NO*
+     - * SI SI
+     - \ 
+     - \ 
+   * - ``$`` command sub SI
+     - SI SI SI
+     - SI
+     - \ 
+     - \ 
+     - \ 
+   * - ``[[ ]]`` test NO SI
+     - NO SI SI
+     - \ 
+     - \ 
+     - \ 
+     - \ 
+   * - Arrays NO SI NO SI SI
+     - \ 
+     - \ 
+     - \ 
+     - \ 
+     - \ 
+   * - ``local`` keyword NO\
+     - * SI SI S
+     - I SI
+     - \ 
+     - \ 
+     - \ 
 
 **NOTAS CRÍTICAS:** - ``set -o pipefail`` NO es parte de POSIX (a partir
 de 2024) - ``dash`` NO soporta pipefail en ninguna versión - ``local``

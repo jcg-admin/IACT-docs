@@ -232,29 +232,69 @@ Separadores
 Tabla de Referencia Rápida
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-=============== =============== =======================
-Concepto NO No Usar OK Usar
-=============== =============== =======================
-**Completado** OK [OK] ☑ [OK] [SUCCESS] [DONE]
-**Error** NO [FAIL] ☒ [ERROR] [FAIL] [FAILED]
-**Advertencia** WARNING FAST ⛔ [WARN] [WARNING]
-**Información** INFO 📢 [INFO] [NOTE]
-**Depuración** [BUG] BUSCAR [DEBUG]
-**En proceso** ESPERANDO 🔄 ⌛ [RUNNING] [PROCESSING]
-**Esperando** ⏰ ⏱️ [PENDING] [WAITING]
-**Inicio** START >️ [START] Starting…
-**Fin** 🏁 ⏹️ [STOP] [END] Finished
-**Archivo** FILE FILE SAVE FILE: file.txt
-**Carpeta** 📂 🗂️ DIRECTORY: /path/
-**Red** 🌐 📡 [NETWORK]
-**Usuario** 👤 👥 USER: username
-**Tiempo** ⏰ 🕐 TIME: 10:30
-**Fecha** 📅 PLAN DATE: 2025-10-21
-**Viñetas** > - \* ♦ - \* 1. 2.
-**Flechas** -> ⇒ ➜ ➔ -> =>
-**Check** ☑ [OK] ✔ [OK] PASS
-**Cross** ☒ [FAIL] ✘ [FAIL] ERROR
-=============== =============== =======================
+.. list-table::
+   :header-rows: 1
+
+   * - Concepto NO No U
+     - sar OK Usar
+     - \ 
+   * - **Completado** O
+     - K [OK] ☑ [OK] [S
+     - UCCESS] [DONE]
+   * - **Error** NO [FA
+     - IL] ☒ [ERROR] [F
+     - AIL] [FAILED]
+   * - **Advertencia**
+     - WARNING FAST ⛔ [
+     - WARN] [WARNING]
+   * - **Información**
+     - INFO 📢 [INFO] [N
+     - OTE]
+   * - **Depuración** [
+     - BUG] BUSCAR [DEB
+     - UG]
+   * - **En proceso** E
+     - SPERANDO 🔄 ⌛ [RU
+     - NNING] [PROCESSING]
+   * - **Esperando** ⏰
+     - ⏱️ [PENDING] [WA
+     - ITING]
+   * - **Inicio** START
+     - >️ [START] Star
+     - ting…
+   * - **Fin** 🏁 ⏹️ [ST
+     - OP] [END] Finish
+     - ed
+   * - **Archivo** FILE
+     - FILE SAVE FILE:
+     - file.txt
+   * - **Carpeta** 📂 🗂️
+     - DIRECTORY: /pat
+     - h/
+   * - **Red** 🌐 📡 [NET
+     - WORK]
+     - \ 
+   * - **Usuario** 👤 👥
+     - USER: username
+     - \ 
+   * - **Tiempo** ⏰ 🕐 T
+     - IME: 10:30
+     - \ 
+   * - **Fecha** 📅 PLAN
+     - DATE: 2025-10-2
+     - 1
+   * - **Viñetas** > -
+     - \* ♦ - \* 1. 2.
+     - \ 
+   * - **Flechas** -> ⇒
+     - ➜ ➔ -> =>
+     - \ 
+   * - **Check** ☑ [OK]
+     - ✔ [OK] PASS
+     - \ 
+   * - **Cross** ☒ [FAI
+     - L] ✘ [FAIL] ERRO
+     - R
 
 Excepciones
 ~~~~~~~~~~~

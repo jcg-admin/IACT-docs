@@ -172,15 +172,27 @@ Contraseña - Solicitar Producto Químico - Generar Reporte de Auditoría
 Ejemplos INCORRECTOS y Corrección
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-======================== ======================== ==================
-Incorrecto Problema Correcto
-======================== ======================== ==================
-Login No es verbo+objeto Iniciar Sesión
-El usuario inicia sesión Incluye sujeto Iniciar Sesión
-Sistema de autenticación No es acción Autenticar Usuario
-Autenticarse Solo verbo, falta objeto Autenticar Usuario
-Guardar Solo verbo Guardar Documento
-======================== ======================== ==================
+.. list-table::
+   :header-rows: 1
+
+   * - Incorrecto Problema Corre
+     - cto
+     - \ 
+   * - Login No es verbo+objeto
+     - Iniciar Sesión
+     - \ 
+   * - El usuario inicia sesión
+     - Incluye sujeto Iniciar Se
+     - sión
+   * - Sistema de autenticación
+     - No es acción Autenticar U
+     - suario
+   * - Autenticarse Solo verbo,
+     - falta objeto Autenticar U
+     - suario
+   * - Guardar Solo verbo Guarda
+     - r Documento
+     - \ 
 
 .. _proced-gob-004-crear-caso-uso-validación-1:
 
@@ -1398,8 +1410,14 @@ Referencias
 Historial de Cambios
 --------------------
 
-======= ========== =========== ===============
-Versión Fecha Autor Cambios
-======= ========== =========== ===============
-1.0.0 2025-11-17 Claude Code Versión inicial
-======= ========== =========== ===============
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Autor
+     - Cambios
+     - \ 
+   * - 1.0.0 20
+     - 25-11-17 Cl
+     - aude Code Ve
+     - rsión inicial

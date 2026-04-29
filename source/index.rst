@@ -24,14 +24,20 @@ Ubuntu.
 Stack del producto
 ==================
 
-================ ========================================================
-Capa Tecnología
-================ ========================================================
-Frontend React + Webpack
-Backend Django REST Framework (Python 3.11+)
-Infraestructura Ubuntu + Apache (mod_wsgi)
-Bases de datos MySQL (operativa, RO) + PostgreSQL (analítica)
-================ ========================================================
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Capa
+     - Tecnología
+   * - Frontend
+     - React + Webpack
+   * - Backend
+     - Django REST Framework (Python 3.11+)
+   * - Infraestructura
+     - Ubuntu + Apache (mod_wsgi)
+   * - Bases de datos
+     - MySQL (operativa, RO) + PostgreSQL (analítica)
 
 Estado de la documentación
 ==========================

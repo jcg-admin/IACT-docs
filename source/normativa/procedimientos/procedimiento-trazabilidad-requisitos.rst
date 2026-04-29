@@ -662,15 +662,21 @@ Herramientas y Referencias
 Herramientas Obligatorias
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-================== ====================================
-Herramienta Uso
-================== ====================================
-**YAML** Frontmatter de requisitos
-**GitHub Actions** CI/CD para generación de índices
-**Node.js** Script de generación de índices
-**Python** Script de validación de trazabilidad
-**Markdown** Formato de requisitos e índices
-================== ====================================
+.. list-table::
+   :header-rows: 1
+
+   * - Herramienta
+     - Uso
+   * - **YAML**
+     - Frontmatter de requisitos
+   * - **GitHub
+     - Actions** CI/CD para generación de índices
+   * - **Node.js**
+     - Script de generación de índices
+   * - **Python**
+     - Script de validación de trazabilidad
+   * - **Markdown**
+     - Formato de requisitos e índices
 
 Plantillas Relacionadas
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -836,22 +842,43 @@ revalida automáticamente)
 Control de Versiones
 --------------------
 
-======= ========== ================================== =========
-Versión Fecha Cambios Autor
-======= ========== ================================== =========
-1.0.0 2025-11-04 Creación inicial del procedimiento Equipo BA
-======= ========== ================================== =========
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha Cambi
+     - os Autor
+     - \ 
+   * - 1.0.0 20
+     - 25-11-04 Cr
+     - eación inicial del procedimiento Eq
+     - uipo BA
 
 --------------
 
 Aprobaciones
 ------------
 
-============= =========== ===== =====
-Rol Nombre Fecha Firma
-============= =========== ===== =====
-BA Lead [Pendiente] - -
-Tech Lead [Pendiente] - -
-QA Lead [Pendiente] - -
-Product Owner [Pendiente] - -
-============= =========== ===== =====
+.. list-table::
+   :header-rows: 1
+
+   * - Rol Nombre Fec
+     - ha Firma
+     - \ 
+     - \ 
+   * - BA Lead [Pendi
+     - ente] - -
+     - \ 
+     - \ 
+   * - Tech Lead [Pen
+     - diente] - -
+     - \ 
+     - \ 
+   * - QA Lead [Pendi
+     - ente] - -
+     - \ 
+     - \ 
+   * - Product Owner
+     - [Pendiente]
+     - - -
+     - \ 
