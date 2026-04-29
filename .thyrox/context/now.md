@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
-version: 3.4
-updated_at: 2026-04-29 16:18:07
+version: 3.5
+updated_at: 2026-04-29 17:35:00
 cold_boot: false
-current_epic: 13
-epic_name: std007-rename-cleanup (cerrada)
-current_work: .thyrox/context/work/2026-04-29-16-17-35-std007-spec-gaps-cleanup
+current_epic: 14
+epic_name: std007-spec-gaps-cleanup (cerrada)
+current_work: null
 stage: idle
 stage_number: —
 current_phase: —
 flow: thyrox
 methodology_step: cerrado
 blockers: []
-last_completed_phase: ÉPICA 13 cerrada (std007-rename-cleanup v2.0.0) — 2026-04-29 16:30
-next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion. Commitment vigente: 30 dias sin modificar STD_007 (hasta 2026-05-29)"
+last_completed_phase: ÉPICA 14 cerrada (std007-spec-gaps-cleanup v2.0.2) — 2026-04-29 17:35
+next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion. Commitment STD_007 vigente hasta 2026-05-29."
 stage_sync_required: true
 ```
 

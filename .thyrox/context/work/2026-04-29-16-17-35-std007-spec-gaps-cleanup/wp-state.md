@@ -2,11 +2,12 @@
 project: IACT-docs
 work_package: 2026-04-29-16-17-35-std007-spec-gaps-cleanup
 created_at: 2026-04-29 16:17:35
-current_phase: Phase 1 — DISCOVER
+closed_at: 2026-04-29 17:35:00
+current_phase: Phase 11 — TRACK
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: cerrado
 author: NestorMonroy
-status: Activo
+status: Cerrado v1.0.0 — todos los F-01..F-13 resueltos, build 0/0/0
 ```
 
 # WP — STD_007 Spec Gaps Cleanup
