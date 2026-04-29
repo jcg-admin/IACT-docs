@@ -192,23 +192,23 @@ Decisiones Relacionadas
  :header-rows: 1
 
  * - Decision
- - Resolucion
+   - Resolucion
  * - D-RBAC-1
- - Vocabulario unico "Funcion" canonico (docs) / "Function" (codigo)
+   - Vocabulario unico "Funcion" canonico (docs) / "Function" (codigo)
  * - D-RBAC-2
- - UsuarioGrupo unificacion (rename ALTER TABLE)
+   - UsuarioGrupo unificacion (rename ALTER TABLE)
  * - D-RBAC-3
- - AuditoriaPermiso vs AuditLog — tablas separadas
+   - AuditoriaPermiso vs AuditLog — tablas separadas
  * - D-RBAC-4
- - Grupos: system inmutables (AGR-001..010) + custom creables
+   - Grupos: system inmutables (AGR-001..010) + custom creables
  * - D-RBAC-5
- - Crear CNST_032 Menu Dinamico Obligatorio
+   - Crear CNST_032 Menu Dinamico Obligatorio
  * - D-RBAC-6
- - Crear CNST_033 Vocabulario Unificado RBAC
+   - Crear CNST_033 Vocabulario Unificado RBAC
  * - D-RBAC-7
- - SoD aplica tambien a custom groups
+   - SoD aplica tambien a custom groups
  * - D-RBAC-8
- - Migracion Capacidad → Function: reemplazo total
+   - Migracion Capacidad → Function: reemplazo total
 
 Trazabilidad
 ------------
@@ -228,11 +228,11 @@ Historial
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-04-29
- - NestorMonroy
- - Version inicial. ADR creado en iteracion correspondiente tras decision
- arquitectonica del WP #6 (Hipotesis 1 — Coexistencia).
+   - 2026-04-29
+   - NestorMonroy
+   - Version inicial. ADR creado en iteracion correspondiente tras decision
+     arquitectonica del WP #6 (Hipotesis 1 — Coexistencia).

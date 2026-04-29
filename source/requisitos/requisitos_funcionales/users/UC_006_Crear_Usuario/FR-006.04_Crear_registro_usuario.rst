@@ -22,19 +22,19 @@ FR-006.04: Crear registro de usuario en BD
  :widths: 25 75
 
  * - **ID**
- - FR-006.04
+   - FR-006.04
  * - **Nombre**
- - Crear registro de usuario en base de datos
+   - Crear registro de usuario en base de datos
  * - **UC Origen**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Paso UC**
- - Paso 8 del flujo normal
+   - Paso 8 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -154,17 +154,17 @@ FR-006.04: Crear registro de usuario en BD
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Depende de**
- - FR-006.03
+   - FR-006.03
  * - **Requerido por**
- - FR-006.05
+   - FR-006.05
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-006.04 (pendiente)
+   - TST-FR-006.04 (pendiente)
 
 ----
 
@@ -176,8 +176,8 @@ FR-006.04: Crear registro de usuario en BD
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_006
+   - 2026-01-07
+   - Versión inicial derivada de UC_006

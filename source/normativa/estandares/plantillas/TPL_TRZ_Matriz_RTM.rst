@@ -111,15 +111,15 @@ Desde Codigo/Tests hacia el origen del requisito.
  :widths: 15 15 15 20 35
 
  * - Codigo/Test
- - FR
- - UC
- - BR
- - BReq
+   - FR
+   - UC
+   - BR
+   - BReq
  * - archivo.py::funcion
- - FR-XXX-YY-ZZ
- - UC-IACT-XXX-YY paso N
- - BR-IACT-XXX
- - BRQ-XXX
+   - FR-XXX-YY-ZZ
+   - UC-IACT-XXX-YY paso N
+   - BR-IACT-XXX
+   - BRQ-XXX
 
 **EJEMPLO COMPLETO (Modulo Reportes):**
 
@@ -130,55 +130,55 @@ Desde Codigo/Tests hacia el origen del requisito.
  :widths: 20 15 20 15 30
 
  * - Codigo/Test
- - FR
- - UC (Paso)
- - BR
- - BReq
+   - FR
+   - UC (Paso)
+   - BR
+   - BReq
  * - reports/views.py::QuarterlyReportView
- - FR-RPT-01-01
- - UC-RPT-01 (paso 1-2)
- - -
- - BRQ-015
+   - FR-RPT-01-01
+   - UC-RPT-01 (paso 1-2)
+   - -
+   - BRQ-015
  * - reports/validators.py::validate_parameters
- - FR-RPT-01-01
- - UC-RPT-01 (paso 2)
- - -
- - BRQ-015
+   - FR-RPT-01-01
+   - UC-RPT-01 (paso 2)
+   - -
+   - BRQ-015
  * - reports/queries.py::calculate_count
- - FR-RPT-01-04
- - UC-RPT-01 (paso 5)
- - BR-IACT-028
- - BRQ-015
+   - FR-RPT-01-04
+   - UC-RPT-01 (paso 5)
+   - BR-IACT-028
+   - BRQ-015
  * - reports/queries.py::execute_main_query
- - FR-RPT-01-06
- - UC-RPT-01 (paso 7)
- - BR-IACT-028
- - BRQ-015
+   - FR-RPT-01-06
+   - UC-RPT-01 (paso 7)
+   - BR-IACT-028
+   - BRQ-015
  * - reports/calculations.py::calculate_abandon_rate
- - FR-RPT-01-07
- - UC-RPT-01 (paso 8)
- - BR-IACT-053
- - BRQ-015
+   - FR-RPT-01-07
+   - UC-RPT-01 (paso 8)
+   - BR-IACT-053
+   - BRQ-015
  * - reports/approvals.py::create_approval
- - FR-RPT-01-10
- - UC-RPT-01 FA-2
- - BR-IACT-028
- - BRQ-015
+   - FR-RPT-01-10
+   - UC-RPT-01 FA-2
+   - BR-IACT-028
+   - BRQ-015
  * - reports/notifications.py::notify_supervisor
- - FR-RPT-01-11
- - UC-RPT-01 FA-2
- - BR-IACT-028
- - BRQ-015
+   - FR-RPT-01-11
+   - UC-RPT-01 FA-2
+   - BR-IACT-028
+   - BRQ-015
  * - tests/test_validators.py::test_validate_quarter
- - FR-RPT-01-01
- - UC-RPT-01 (paso 2)
- - -
- - BRQ-015
+   - FR-RPT-01-01
+   - UC-RPT-01 (paso 2)
+   - -
+   - BRQ-015
  * - tests/test_queries.py::test_execute_main_query
- - FR-RPT-01-06
- - UC-RPT-01 (paso 7)
- - BR-IACT-028
- - BRQ-015
+   - FR-RPT-01-06
+   - UC-RPT-01 (paso 7)
+   - BR-IACT-028
+   - BRQ-015
 
 **Analisis de Cobertura Backward:**
 
@@ -203,15 +203,15 @@ Desde BReq/BR hacia Codigo/Tests, verificar que todo esta implementado.
  :widths: 15 15 20 25 25
 
  * - BReq
- - BR
- - UC
- - FR
- - Codigo Implementado
+   - BR
+   - UC
+   - FR
+   - Codigo Implementado
  * - BRQ-XXX
- - BR-IACT-XXX
- - UC-IACT-XXX-YY
- - FR-XXX-YY-ZZ
- - modulo.py::funcion
+   - BR-IACT-XXX
+   - UC-IACT-XXX-YY
+   - FR-XXX-YY-ZZ
+   - modulo.py::funcion
 
 **EJEMPLO COMPLETO (BRQ-015):**
 
@@ -222,45 +222,45 @@ Desde BReq/BR hacia Codigo/Tests, verificar que todo esta implementado.
  :widths: 10 15 20 25 30
 
  * - BReq
- - BR
- - UC
- - FR
- - Implementacion
+   - BR
+   - UC
+   - FR
+   - Implementacion
  * - BRQ-015
- - BR-IACT-028
- - UC-RPT-01 (paso 5)
- - FR-RPT-01-04
- - queries.py::calculate_count
+   - BR-IACT-028
+   - UC-RPT-01 (paso 5)
+   - FR-RPT-01-04
+   - queries.py::calculate_count
  * - BRQ-015
- - BR-IACT-028
- - UC-RPT-01 (paso 6)
- - FR-RPT-01-05
- - queries.py::evaluate_threshold
+   - BR-IACT-028
+   - UC-RPT-01 (paso 6)
+   - FR-RPT-01-05
+   - queries.py::evaluate_threshold
  * - BRQ-015
- - BR-IACT-028
- - UC-RPT-01 FA-2
- - FR-RPT-01-10
- - approvals.py::create_approval
+   - BR-IACT-028
+   - UC-RPT-01 FA-2
+   - FR-RPT-01-10
+   - approvals.py::create_approval
  * - BRQ-015
- - BR-IACT-028
- - UC-RPT-01 FA-2
- - FR-RPT-01-11
- - notifications.py::notify_supervisor
+   - BR-IACT-028
+   - UC-RPT-01 FA-2
+   - FR-RPT-01-11
+   - notifications.py::notify_supervisor
  * - BRQ-015
- - BR-IACT-053
- - UC-RPT-01 (paso 8)
- - FR-RPT-01-07
- - calculations.py::calculate_abandon_rate
+   - BR-IACT-053
+   - UC-RPT-01 (paso 8)
+   - FR-RPT-01-07
+   - calculations.py::calculate_abandon_rate
  * - BRQ-015
- - -
- - UC-RPT-01 (paso 2)
- - FR-RPT-01-01
- - validators.py::validate_parameters
+   - -
+   - UC-RPT-01 (paso 2)
+   - FR-RPT-01-01
+   - validators.py::validate_parameters
  * - BRQ-015
- - -
- - UC-RPT-01 (paso 7)
- - FR-RPT-01-06
- - queries.py::execute_main_query
+   - -
+   - UC-RPT-01 (paso 7)
+   - FR-RPT-01-06
+   - queries.py::execute_main_query
 
 **Analisis de Cobertura Forward:**
 
@@ -296,17 +296,17 @@ Dependencias entre componentes del mismo nivel.
  :widths: 25 25 50
 
  * - UC Origen
- - UC Dependiente
- - Tipo de Dependencia
+   - UC Dependiente
+   - Tipo de Dependencia
  * - UC-RPT-01
- - UC-RPT-02
- - UC-RPT-01 FA-2 genera solicitud que UC-RPT-02 procesa
+   - UC-RPT-02
+   - UC-RPT-01 FA-2 genera solicitud que UC-RPT-02 procesa
  * - UC-RPT-02
- - UC-RPT-03
- - Si UC-RPT-02 aprueba, UC-RPT-03 ejecuta query
+   - UC-RPT-03
+   - Si UC-RPT-02 aprueba, UC-RPT-03 ejecuta query
  * - UC-AUTH-01
- - UC-RPT-01
- - UC-RPT-01 requiere usuario autenticado (PC-1)
+   - UC-RPT-01
+   - UC-RPT-01 requiere usuario autenticado (PC-1)
 
 **3.2 Dependencias entre FR:**
 
@@ -315,20 +315,20 @@ Dependencias entre componentes del mismo nivel.
  :widths: 25 25 50
 
  * - FR Origen
- - FR Dependiente
- - Tipo de Dependencia
+   - FR Dependiente
+   - Tipo de Dependencia
  * - FR-RPT-01-01
- - FR-RPT-01-04
- - FR-01-04 asume parametros ya validados por FR-01-01
+   - FR-RPT-01-04
+   - FR-01-04 asume parametros ya validados por FR-01-01
  * - FR-RPT-01-04
- - FR-RPT-01-05
- - FR-01-05 usa count calculado por FR-01-04
+   - FR-RPT-01-05
+   - FR-01-05 usa count calculado por FR-01-04
  * - FR-RPT-01-05
- - FR-RPT-01-06
- - FR-01-06 solo ejecuta si FR-01-05 aprueba
+   - FR-RPT-01-06
+   - FR-01-06 solo ejecuta si FR-01-05 aprueba
  * - FR-RPT-01-05
- - FR-RPT-01-10
- - FR-01-10 se ejecuta si FR-01-05 requiere aprobacion
+   - FR-RPT-01-10
+   - FR-01-10 se ejecuta si FR-01-05 requiere aprobacion
 
 **3.3 Dependencias de Datos:**
 
@@ -337,17 +337,17 @@ Dependencias entre componentes del mismo nivel.
  :widths: 30 30 40
 
  * - Entidad/Tabla
- - Componente que Escribe
- - Componentes que Leen
+   - Componente que Escribe
+   - Componentes que Leen
  * - ivr_calls
- - Sistema IVR (externo)
- - FR-RPT-01-04, FR-RPT-01-06
+   - Sistema IVR (externo)
+   - FR-RPT-01-04, FR-RPT-01-06
  * - approvals
- - FR-RPT-01-10
- - UC-RPT-02, FR-RPT-02-01
+   - FR-RPT-01-10
+   - UC-RPT-02, FR-RPT-02-01
  * - notifications
- - FR-RPT-01-11
- - UC-AUTH-05 (Listar Notificaciones)
+   - FR-RPT-01-11
+   - UC-AUTH-05 (Listar Notificaciones)
 
 ----------------------------------------------------------------------
 4. MATRIZ RTM COMPLETA
@@ -364,21 +364,21 @@ Tabla maestra con toda la trazabilidad en un solo lugar.
  :widths: 8 12 12 12 15 15 12 14
 
  * - BReq
- - BR
- - UC
- - FR
- - Codigo
- - Tests
- - Estado
- - Notas
+   - BR
+   - UC
+   - FR
+   - Codigo
+   - Tests
+   - Estado
+   - Notas
  * - ID
- - ID
- - ID
- - ID
- - archivo::funcion
- - test_archivo::test
- - %
- - Comentarios
+   - ID
+   - ID
+   - ID
+   - archivo::funcion
+   - test_archivo::test
+   - %
+   - Comentarios
 
 **EJEMPLO COMPLETO (Reportes Trimestrales):**
 
@@ -389,101 +389,101 @@ Tabla maestra con toda la trazabilidad en un solo lugar.
  :widths: 8 10 12 12 18 15 10 15
 
  * - BReq
- - BR
- - UC
- - FR
- - Codigo
- - Tests
- - Estado
- - Notas
+   - BR
+   - UC
+   - FR
+   - Codigo
+   - Tests
+   - Estado
+   - Notas
  * - BRQ-015
- - -
- - UC-RPT-01 (paso 1)
- - FR-RPT-01-01
- - validators.py::validate_parameters
- - test_validators.py::test_validate_quarter
- - 100%
- - Validacion completa
+   - -
+   - UC-RPT-01 (paso 1)
+   - FR-RPT-01-01
+   - validators.py::validate_parameters
+   - test_validators.py::test_validate_quarter
+   - 100%
+   - Validacion completa
  * - BRQ-015
- - BR-028
- - UC-RPT-01 (paso 5)
- - FR-RPT-01-04
- - queries.py::calculate_count
- - test_queries.py::test_calculate_count
- - 100%
- - Count implementado
+   - BR-028
+   - UC-RPT-01 (paso 5)
+   - FR-RPT-01-04
+   - queries.py::calculate_count
+   - test_queries.py::test_calculate_count
+   - 100%
+   - Count implementado
  * - BRQ-015
- - BR-028
- - UC-RPT-01 (paso 6)
- - FR-RPT-01-05
- - queries.py::evaluate_threshold
- - test_queries.py::test_evaluate_threshold
- - 100%
- - Umbral 10K
+   - BR-028
+   - UC-RPT-01 (paso 6)
+   - FR-RPT-01-05
+   - queries.py::evaluate_threshold
+   - test_queries.py::test_evaluate_threshold
+   - 100%
+   - Umbral 10K
  * - BRQ-015
- - BR-028
- - UC-RPT-01 (paso 7)
- - FR-RPT-01-06
- - queries.py::execute_main_query
- - test_queries.py::test_execute_query
- - 100%
- - Query optimizada
+   - BR-028
+   - UC-RPT-01 (paso 7)
+   - FR-RPT-01-06
+   - queries.py::execute_main_query
+   - test_queries.py::test_execute_query
+   - 100%
+   - Query optimizada
  * - BRQ-015
- - BR-053
- - UC-RPT-01 (paso 8)
- - FR-RPT-01-07
- - calculations.py::calculate_abandon_rate
- - test_calculations.py::test_abandon_rate
- - 100%
- - Formula correcta
+   - BR-053
+   - UC-RPT-01 (paso 8)
+   - FR-RPT-01-07
+   - calculations.py::calculate_abandon_rate
+   - test_calculations.py::test_abandon_rate
+   - 100%
+   - Formula correcta
  * - BRQ-015
- - -
- - UC-RPT-01 (paso 9)
- - FR-RPT-01-08
- - visualizations.py::generate_charts
- - test_visualizations.py::test_charts
- - 80%
- - Graficos basicos, falta KPI card
+   - -
+   - UC-RPT-01 (paso 9)
+   - FR-RPT-01-08
+   - visualizations.py::generate_charts
+   - test_visualizations.py::test_charts
+   - 80%
+   - Graficos basicos, falta KPI card
  * - BRQ-015
- - -
- - UC-RPT-01 (paso 10)
- - FR-RPT-01-09
- - views.py::render_results
- - test_views.py::test_render
- - 100%
- - Tabla completa
+   - -
+   - UC-RPT-01 (paso 10)
+   - FR-RPT-01-09
+   - views.py::render_results
+   - test_views.py::test_render
+   - 100%
+   - Tabla completa
  * - BRQ-015
- - BR-028
- - UC-RPT-01 FA-2
- - FR-RPT-01-10
- - approvals.py::create_approval
- - test_approvals.py::test_create
- - 100%
- - Aprobacion funcional
+   - BR-028
+   - UC-RPT-01 FA-2
+   - FR-RPT-01-10
+   - approvals.py::create_approval
+   - test_approvals.py::test_create
+   - 100%
+   - Aprobacion funcional
  * - BRQ-015
- - BR-028
- - UC-RPT-01 FA-2
- - FR-RPT-01-11
- - notifications.py::notify_supervisor
- - test_notifications.py::test_notify
- - 100%
- - Email y notif OK
+   - BR-028
+   - UC-RPT-01 FA-2
+   - FR-RPT-01-11
+   - notifications.py::notify_supervisor
+   - test_notifications.py::test_notify
+   - 100%
+   - Email y notif OK
  * - BRQ-015
- - BR-028
- - UC-RPT-02
- - FR-RPT-02-01
- - approvals.py::review_approval
- - test_approvals.py::test_review
- - 100%
- - Pantalla revision
+   - BR-028
+   - UC-RPT-02
+   - FR-RPT-02-01
+   - approvals.py::review_approval
+   - test_approvals.py::test_review
+   - 100%
+   - Pantalla revision
  * - BRQ-015
- - BR-028
- - UC-RPT-02
- - FR-RPT-02-02
- - approvals.py::approve_query
- - test_approvals.py::test_approve
- - 100%
- - Aprobacion completa
+   - BR-028
+   - UC-RPT-02
+   - FR-RPT-02-02
+   - approvals.py::approve_query
+   - test_approvals.py::test_approve
+   - 100%
+   - Aprobacion completa
 
 **Resumen de Cobertura:**
 
@@ -492,41 +492,41 @@ Tabla maestra con toda la trazabilidad en un solo lugar.
  :widths: 30 20 20 30
 
  * - Metrica
- - Valor
- - Objetivo
- - Status
+   - Valor
+   - Objetivo
+   - Status
  * - BReq implementados
- - 1/1 (100%)
- - 100%
- - OK
+   - 1/1 (100%)
+   - 100%
+   - OK
  * - BR implementadas
- - 2/2 (100%)
- - 100%
- - OK
+   - 2/2 (100%)
+   - 100%
+   - OK
  * - UC implementados
- - 2/2 (100%)
- - 100%
- - OK
+   - 2/2 (100%)
+   - 100%
+   - OK
  * - FR implementados
- - 11/11 (100%)
- - 100%
- - OK
+   - 11/11 (100%)
+   - 100%
+   - OK
  * - FR con codigo
- - 11/11 (100%)
- - 100%
- - OK
+   - 11/11 (100%)
+   - 100%
+   - OK
  * - FR con tests
- - 11/11 (100%)
- - >= 80%
- - OK
+   - 11/11 (100%)
+   - >= 80%
+   - OK
  * - Cobertura promedio codigo
- - 95%
- - >= 80%
- - OK
+   - 95%
+   - >= 80%
+   - OK
  * - Funciones sin FR (huerfanas)
- - 0
- - 0
- - OK
+   - 0
+   - 0
+   - OK
 
 ----------------------------------------------------------------------
 5. ANALISIS DE GAPS
@@ -543,11 +543,11 @@ Identificar requisitos sin implementar o codigo sin requisito.
  :widths: 20 60 20
 
  * - Requisito
- - Descripcion
- - Prioridad
+   - Descripcion
+   - Prioridad
  * - -
- - -
- - -
+   - -
+   - -
 
 Estado: No hay gaps, todos los requisitos estan implementados
 
@@ -558,11 +558,11 @@ Estado: No hay gaps, todos los requisitos estan implementados
  :widths: 30 50 20
 
  * - Codigo
- - Descripcion
- - Accion
+   - Descripcion
+   - Accion
  * - -
- - -
- - -
+   - -
+   - -
 
 Estado: No hay codigo huerfano
 
@@ -573,11 +573,11 @@ Estado: No hay codigo huerfano
  :widths: 20 60 20
 
  * - FR
- - Descripcion
- - Prioridad
+   - Descripcion
+   - Prioridad
  * - FR-RPT-01-08
- - Falta test para KPI card en graficos
- - Media
+   - Falta test para KPI card en graficos
+   - Media
 
 Accion: Crear test_visualizations.py::test_kpi_card
 
@@ -598,29 +598,29 @@ Analizar impacto si un componente cambia.
  :widths: 20 20 60
 
  * - Nivel
- - Componente
- - Cambio Requerido
+   - Componente
+   - Cambio Requerido
  * - BR
- - BR-IACT-028
- - Actualizar umbral en enunciado
+   - BR-IACT-028
+   - Actualizar umbral en enunciado
  * - UC
- - UC-RPT-01 paso 6
- - Actualizar documentacion paso 6
+   - UC-RPT-01 paso 6
+   - Actualizar documentacion paso 6
  * - UC
- - UC-RPT-01 FA-2
- - Actualizar documentacion FA-2
+   - UC-RPT-01 FA-2
+   - Actualizar documentacion FA-2
  * - FR
- - FR-RPT-01-05
- - Cambiar constante THRESHOLD = 5000
+   - FR-RPT-01-05
+   - Cambiar constante THRESHOLD = 5000
  * - Codigo
- - queries.py::evaluate_threshold
- - Modificar linea 45: THRESHOLD = 5000
+   - queries.py::evaluate_threshold
+   - Modificar linea 45: THRESHOLD = 5000
  * - Tests
- - test_queries.py::test_evaluate_threshold
- - Actualizar valores esperados en asserts
+   - test_queries.py::test_evaluate_threshold
+   - Actualizar valores esperados en asserts
  * - Tests
- - test_approvals.py::test_large_query
- - Ajustar data de test: count = 5001 en lugar de 10001
+   - test_approvals.py::test_large_query
+   - Ajustar data de test: count = 5001 en lugar de 10001
 
 **Estimacion:**
 
@@ -643,41 +643,41 @@ Quien es responsable de cada componente.
  :widths: 20 30 25 25
 
  * - Componente
- - Tipo
- - Responsable
- - Reviewer
+   - Tipo
+   - Responsable
+   - Reviewer
  * - BRQ-015
- - Business Requirement
- - Maria Rodriguez (Stakeholder)
- - Carlos Martinez (BA)
+   - Business Requirement
+   - Maria Rodriguez (Stakeholder)
+   - Carlos Martinez (BA)
  * - BR-IACT-028
- - Business Rule
- - Carlos Martinez (BA)
- - Ana Lopez (QA)
+   - Business Rule
+   - Carlos Martinez (BA)
+   - Ana Lopez (QA)
  * - BR-IACT-053
- - Business Rule
- - Carlos Martinez (BA)
- - Ana Lopez (QA)
+   - Business Rule
+   - Carlos Martinez (BA)
+   - Ana Lopez (QA)
  * - UC-RPT-01
- - Use Case
- - Carlos Martinez (BA)
- - Product Owner
+   - Use Case
+   - Carlos Martinez (BA)
+   - Product Owner
  * - UC-RPT-02
- - Use Case
- - Carlos Martinez (BA)
- - Product Owner
+   - Use Case
+   - Carlos Martinez (BA)
+   - Product Owner
  * - FR-RPT-01-XX
- - Functional Requirements
- - Juan Perez (Developer)
- - Tech Lead
+   - Functional Requirements
+   - Juan Perez (Developer)
+   - Tech Lead
  * - ``reports/*.py``
- - Codigo
- - Juan Perez (Developer)
- - Tech Lead
+   - Codigo
+   - Juan Perez (Developer)
+   - Tech Lead
  * - tests/test_*.py
- - Tests
- - Ana Lopez (QA)
- - Tech Lead
+   - Tests
+   - Ana Lopez (QA)
+   - Tech Lead
 
 ----------------------------------------------------------------------
 8. HISTORIAL DE CAMBIOS RTM
@@ -692,21 +692,21 @@ Rastrear cambios en la matriz de trazabilidad.
  :widths: 10 15 50 25
 
  * - Version
- - Fecha
- - Cambios
- - Autor
+   - Fecha
+   - Cambios
+   - Autor
  * - 1.0.0
- - 2024-11-15
- - RTM inicial - BRQ-015 completo
- - Carlos Martinez
+   - 2024-11-15
+   - RTM inicial - BRQ-015 completo
+   - Carlos Martinez
  * - 1.1.0
- - 2024-11-20
- - Agregado UC-RPT-02 y FR relacionados
- - Carlos Martinez
+   - 2024-11-20
+   - Agregado UC-RPT-02 y FR relacionados
+   - Carlos Martinez
  * - 1.2.0
- - 2024-11-25
- - Actualizado estado tests: 100% cobertura
- - Ana Lopez
+   - 2024-11-25
+   - Actualizado estado tests: 100% cobertura
+   - Ana Lopez
 
 ----------------------------------------------------------------------
 REFERENCIAS

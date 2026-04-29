@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_RTM
+   - PROC_Generacion_RTM
  * - **Nombre**
- - Generacion de Matrices de Trazabilidad
+   - Generacion de Matrices de Trazabilidad
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada par de artefactos a trazar
+   - Por cada par de artefactos a trazar
  * - **Duracion Estimada**
- - 30-60 minutos por RTM
+   - 30-60 minutos por RTM
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ y permitan identificar gaps y huerfanos.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - QA Lead
- - Genera RTM
- - Lectura de todos los artefactos
+   - Genera RTM
+   - Lectura de todos los artefactos
  * - Arquitecto
- - Valida completitud
- - Lectura
+   - Valida completitud
+   - Lectura
 
 ----
 
@@ -107,17 +107,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_RTM_Trazabilidad_1_0_0.rst
- - Template de RTM
- - Si
+   - Template de RTM
+   - Si
  * - Artefactos origen
- - Nivel superior (BReq, BR, UC, FR)
- - Si
+   - Nivel superior (BReq, BR, UC, FR)
+   - Si
  * - Artefactos destino
- - Nivel inferior (BR, UC, FR, TST)
- - Si
+   - Nivel inferior (BR, UC, FR, TST)
+   - Si
 
 ----
 
@@ -132,23 +132,23 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - RTM
- - Relacion
- - Ratio Esperado
+   - Relacion
+   - Ratio Esperado
  * - RTM_BReq_BR
- - BReq -> BR
- - 1:2-3
+   - BReq -> BR
+   - 1:2-3
  * - RTM_BR_UC
- - BR -> UC
- - 1:2-3
+   - BR -> UC
+   - 1:2-3
  * - RTM_UC_FR
- - UC -> FR
- - 1:3-8
+   - UC -> FR
+   - 1:3-8
  * - RTM_FR_TST
- - FR -> TST
- - 1:1-2
+   - FR -> TST
+   - 1:1-2
  * - RTM_FR_CODE
- - FR -> Codigo
- - 1:N
+   - FR -> Codigo
+   - 1:N
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -358,11 +358,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - RTM_[Origen]_[Destino].rst
- - Matriz de Trazabilidad
- - /tmp/trazabilidad/
+   - Matriz de Trazabilidad
+   - /tmp/trazabilidad/
 
 ----
 
@@ -401,13 +401,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Cobertura < 95%
- - Generar plan para cerrar gaps
+   - Generar plan para cerrar gaps
  * - Huerfanos encontrados
- - Investigar origen, corregir o eliminar
+   - Investigar origen, corregir o eliminar
  * - Artefactos sin ID
- - Asignar ID antes de incluir
+   - Asignar ID antes de incluir
 
 ----
 
@@ -428,13 +428,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

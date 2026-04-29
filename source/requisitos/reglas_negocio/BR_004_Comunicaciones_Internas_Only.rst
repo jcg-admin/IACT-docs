@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_004
+   - BR_004
  * - **Nombre**
- - Comunicaciones Internas Only
+   - Comunicaciones Internas Only
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -101,13 +101,13 @@ operacional y simplifica cumplimiento de politicas de datos.
  :header-rows: 0
 
  * - **Documento**
- - CNST_001_Comunicaciones_Prohibidas
+   - CNST_001_Comunicaciones_Prohibidas
  * - **Seccion**
- - Restricciones de Comunicacion
+   - Restricciones de Comunicacion
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST
+   - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,13 +129,13 @@ operacional y simplifica cumplimiento de politicas de datos.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Alerts
- - Notificaciones solo via buzon interno
+   - Notificaciones solo via buzon interno
  * - MOD_Users
- - Recuperacion password via pregunta seguridad
+   - Recuperacion password via pregunta seguridad
  * - MOD_Audit
- - Alertas de auditoria via buzon interno
+   - Alertas de auditoria via buzon interno
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -161,9 +161,9 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_001
- - Define prohibicion de comunicaciones externas
+   - Define prohibicion de comunicaciones externas
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -173,9 +173,9 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-004
- - Cumplimiento de Seguridad
+   - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,13 +185,13 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-003
- - Recuperar Password - sin email externo
+   - Recuperar Password - sin email externo
  * - UC-037
- - Recibir Notificacion Alerta - via buzon interno
+   - Recibir Notificacion Alerta - via buzon interno
  * - UC-040
- - Gestionar Destinatarios - solo usuarios internos
+   - Gestionar Destinatarios - solo usuarios internos
 
 ----
 
@@ -229,10 +229,10 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

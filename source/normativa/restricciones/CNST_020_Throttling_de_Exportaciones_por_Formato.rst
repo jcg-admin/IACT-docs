@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_020
+   - CNST_020
  * - **Categoria**
- - Performance
+   - Performance
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -78,25 +78,25 @@ Previene scraping, controla uso de recursos y mantiene UX usable
  :widths: 15 25 25 20 15
 
  * - Formato
- - Max registros
- - Max/dia/usuario
- - Timeout
- - Tamano aprox
+   - Max registros
+   - Max/dia/usuario
+   - Timeout
+   - Tamano aprox
  * - CSV
- - 100 000
- - 10
- - 60 s
- - 15-20 MB
+   - 100 000
+   - 10
+   - 60 s
+   - 15-20 MB
  * - Excel
- - 50 000
- - 5
- - 90 s
- - 10-15 MB
+   - 50 000
+   - 5
+   - 90 s
+   - 10-15 MB
  * - PDF
- - 10 000
- - 3
- - 120 s
- - 5-10 MB
+   - 10 000
+   - 3
+   - 120 s
+   - 5-10 MB
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,9 +115,9 @@ Previene scraping, controla uso de recursos y mantiene UX usable
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Reports
- - Aplica limites en export endpoints
+   - Aplica limites en export endpoints
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -127,13 +127,13 @@ Previene scraping, controla uso de recursos y mantiene UX usable
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_022
- - CSV: 100k/10per_dia/60s
+   - CSV: 100k/10per_dia/60s
  * - UC_023
- - Excel: 50k/5per_dia/90s
+   - Excel: 50k/5per_dia/90s
  * - UC_024
- - PDF: 10k/3per_dia/120s
+   - PDF: 10k/3per_dia/120s
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,11 +150,11 @@ Previene scraping, controla uso de recursos y mantiene UX usable
  :header-rows: 1
 
  * - BR
- - Nombre
- - Relacion
+   - Nombre
+   - Relacion
  * - BR_011 (legacy)
- - Limites de Exportacion
- - FND_00:298 — vinculo historico
+   - Limites de Exportacion
+   - FND_00:298 — vinculo historico
 
 5. Implementacion
 -----------------
@@ -214,15 +214,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`, :doc:`CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
+   - :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`, :doc:`CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
  * - **BR derivadas**
- - BR_011 (legacy)
+   - BR_011 (legacy)
  * - **UCs afectados**
- - UC_022, UC_023, UC_024
+   - UC_022, UC_023, UC_024
  * - **MODs afectados**
- - MOD_Reports
+   - MOD_Reports
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -232,15 +232,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

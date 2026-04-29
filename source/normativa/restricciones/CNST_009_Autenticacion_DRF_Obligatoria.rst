@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_009
+   - CNST_009
  * - **Categoria**
- - Seguridad DRF
+   - Seguridad DRF
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -96,9 +96,9 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - Todos los modulos DRF
- - Heredan autenticacion obligatoria
+   - Heredan autenticacion obligatoria
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,11 +108,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_001
- - Iniciar Sesion (excepcion permitida)
+   - Iniciar Sesion (excepcion permitida)
  * - Todos los demas UCs DRF
- - Requieren autenticacion
+   - Requieren autenticacion
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,15 +187,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_010_Permission_Class_Explicita_en_Vistas_DRF`
+   - :doc:`CNST_010_Permission_Class_Explicita_en_Vistas_DRF`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_001, Todos los demas UCs DRF
+   - UC_001, Todos los demas UCs DRF
  * - **MODs afectados**
- - Todos los modulos DRF
+   - Todos los modulos DRF
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -205,15 +205,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

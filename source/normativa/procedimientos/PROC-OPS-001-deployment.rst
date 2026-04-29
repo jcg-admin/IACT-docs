@@ -249,10 +249,10 @@ Historial de Cambios
  :widths: 12 14 74
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-04-27
- - Versión inicial. Procedimiento de descarga, verificación SHA-256,
- backup, despliegue y rollback para releases publicados por el
- pipeline ``release.yml``.
+   - 2026-04-27
+   - Versión inicial. Procedimiento de descarga, verificación SHA-256,
+     backup, despliegue y rollback para releases publicados por el
+     pipeline ``release.yml``.

@@ -19,21 +19,21 @@ UC_RPT_13: Ver Reporte Colas
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_13
+   - UC_RPT_13
  * - **Nombre**
- - Ver Reporte Colas
+   - Ver Reporte Colas
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-013: ve_colas
+   - RPT-013: ve_colas
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-013
+   - BRQ-RPT-013
 
 2. Descripcion
 --------------
@@ -79,11 +79,11 @@ metricas de cada cola y permite analizar tiempos de espera y abandono.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-013
+   - Usuario tiene funcion RPT-013
  * - PRE-02
- - Existen datos de colas en el segmento
+   - Existen datos de colas en el segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -98,9 +98,9 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra reporte de colas del segmento
+   - Se muestra reporte de colas del segmento
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -110,26 +110,26 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a reporte de colas
+   - Usuario
+   - Accede a reporte de colas
  * - 2
- - Sistema
- - Valida RPT-013
+   - Sistema
+   - Valida RPT-013
  * - 3
- - Sistema
- - Consulta metricas de colas del segmento
+   - Sistema
+   - Consulta metricas de colas del segmento
  * - 4
- - Sistema
- - Calcula nivel de servicio por cola
+   - Sistema
+   - Calcula nivel de servicio por cola
  * - 5
- - Sistema
- - Renderiza tabla y graficos
+   - Sistema
+   - Renderiza tabla y graficos
  * - 6
- - Usuario
- - Selecciona cola para detalle
+   - Usuario
+   - Selecciona cola para detalle
 
 6. Diagrama de Secuencia
 ------------------------
@@ -169,14 +169,14 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Usuario
- - Selecciona Ver Tendencia
+   - Usuario
+   - Selecciona Ver Tendencia
  * - 6b
- - Sistema
- - Muestra grafico de llamadas por hora
+   - Sistema
+   - Muestra grafico de llamadas por hora
 
 8. Excepciones
 --------------
@@ -189,9 +189,9 @@ Usuario accede a reporte de colas.
  :header-rows: 0
 
  * - **Condicion**
- - No hay colas en el segmento
+   - No hay colas en el segmento
  * - **Mensaje**
- - No hay colas registradas en su segmento
+   - No hay colas registradas en su segmento
 
 9. Diagrama de Actividad
 ------------------------
@@ -229,14 +229,14 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-120
- - Por Segmento
- - Solo colas del segmento
+   - Por Segmento
+   - Solo colas del segmento
  * - BR-RPT-121
- - SLA
- - Nivel de servicio = atendidas en umbral / total
+   - SLA
+   - Nivel de servicio = atendidas en umbral / total
 
 **Metricas de Colas:**
 
@@ -245,17 +245,17 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - Metrica
- - Descripcion
+   - Descripcion
  * - Recibidas
- - Total llamadas ingresadas a cola
+   - Total llamadas ingresadas a cola
  * - Atendidas
- - Llamadas contestadas
+   - Llamadas contestadas
  * - Abandonadas
- - Llamadas abandonadas por cliente
+   - Llamadas abandonadas por cliente
  * - Tiempo Espera
- - Promedio de espera en cola
+   - Promedio de espera en cola
  * - SLA
- - Porcentaje atendidas en umbral
+   - Porcentaje atendidas en umbral
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -265,14 +265,14 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_007
- - BD Dual
- - Datos de BD Analytics
+   - BD Dual
+   - Datos de BD Analytics
  * - CNST_008
- - Segmentos
- - Solo colas del segmento
+   - Segmentos
+   - Solo colas del segmento
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -282,14 +282,14 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-120
- - Mostrar metricas de colas
- - Tabla con metricas por cola
+   - Mostrar metricas de colas
+   - Tabla con metricas por cola
  * - FR-RPT-121
- - Ver tendencia horaria
- - Grafico de demanda por hora
+   - Ver tendencia horaria
+   - Grafico de demanda por hora
 
 13. Trazabilidad
 ----------------
@@ -299,15 +299,15 @@ Usuario accede a reporte de colas.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-013
+   - BRQ-RPT-013
  * - **Restricciones**
- - CNST_007, CNST_008
+   - CNST_007, CNST_008
  * - **UC Relacionados**
- - UC_RPT_12, UC_RPT_14
+   - UC_RPT_12, UC_RPT_14
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-013: ve_colas
+   - RPT-013: ve_colas
 
 14. Historial de Cambios
 ------------------------
@@ -317,8 +317,8 @@ Usuario accede a reporte de colas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

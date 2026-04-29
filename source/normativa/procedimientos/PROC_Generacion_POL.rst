@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_POL
+   - PROC_Generacion_POL
  * - **Nombre**
- - Generacion de Politicas
+   - Generacion de Politicas
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 30-60 minutos por POL
+   - 30-60 minutos por POL
 
 ----
 
@@ -59,17 +59,17 @@ para gobierno del proyecto.
  :header-rows: 1
 
  * - Tipo
- - Nivel
- - Responde a
+   - Nivel
+   - Responde a
  * - POL
- - Estrategico
- - Que debemos hacer?
+   - Estrategico
+   - Que debemos hacer?
  * - STD
- - Tactico
- - Como debe ser?
+   - Tactico
+   - Como debe ser?
  * - PROC
- - Operativo
- - Como se hace?
+   - Operativo
+   - Como se hace?
 
 ----
 
@@ -151,11 +151,11 @@ POL requiere aprobacion de nivel directivo.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

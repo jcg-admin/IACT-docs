@@ -60,20 +60,20 @@ Cada nivel responde una pregunta diferente:
  :widths: 15 25 60
 
  * - Nivel
- - Pregunta
- - Descripcion
+   - Pregunta
+   - Descripcion
  * - Nivel 0 (BR)
- - Por que esta restriccion?
- - Origen de las politicas y regulaciones
+   - Por que esta restriccion?
+   - Origen de las politicas y regulaciones
  * - Nivel 1 (BReq)
- - Por que este proyecto?
- - Justificacion y objetivos del proyecto
+   - Por que este proyecto?
+   - Justificacion y objetivos del proyecto
  * - Nivel 2 (UC)
- - Que hace el usuario?
- - Comportamientos observables del sistema
+   - Que hace el usuario?
+   - Comportamientos observables del sistema
  * - Nivel 3 (FR)
- - Como lo hace el sistema?
- - Especificaciones atomicas implementables
+   - Como lo hace el sistema?
+   - Especificaciones atomicas implementables
 
 1.3 Implementacion en IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,15 +120,15 @@ el software debe conformarse a ellas.
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - Externas
- - Provienen de fuera del sistema (politicas, regulaciones)
+   - Provienen de fuera del sistema (politicas, regulaciones)
  * - Obligatorias
- - No son opcionales ni negociables
+   - No son opcionales ni negociables
  * - Estables
- - Cambian menos frecuentemente que otros requisitos
+   - Cambian menos frecuentemente que otros requisitos
  * - Influyentes
- - Afectan multiples partes del sistema
+   - Afectan multiples partes del sistema
 
 2.3 Fuentes
 ^^^^^^^^^^^
@@ -204,17 +204,17 @@ construyendo este sistema?
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - Estrategicos
- - Vision de negocio, no tecnica
+   - Vision de negocio, no tecnica
  * - Justificativos
- - Explican el ROI del proyecto
+   - Explican el ROI del proyecto
  * - Influenciados
- - Por BR, pero no son reiteracion de ellas
+   - Por BR, pero no son reiteracion de ellas
  * - Alcance
- - Definen limites del proyecto
+   - Definen limites del proyecto
  * - Medibles
- - Tienen metricas de exito cuantificables
+   - Tienen metricas de exito cuantificables
 
 3.3 Relacion con BR
 ^^^^^^^^^^^^^^^^^^^
@@ -295,15 +295,15 @@ especifican interacciones completas entre actores y sistema.
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - Narrativos
- - Cuentan una historia de interaccion
+   - Cuentan una historia de interaccion
  * - Observables
- - Describen lo que el usuario VE
+   - Describen lo que el usuario VE
  * - Completos
- - Flujo de principio a fin
+   - Flujo de principio a fin
  * - Sin implementacion
- - NO especifican el COMO interno
+   - NO especifican el COMO interno
 
 4.3 Relacion con BR y BReq
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -382,15 +382,15 @@ los Casos de Uso.
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - Atomicos
- - Una sola funcionalidad por FR
+   - Una sola funcionalidad por FR
  * - Verificables
- - Se puede probar si se cumple o no
+   - Se puede probar si se cumple o no
  * - Independientes
- - No dependen de secuencia para verificarse
+   - No dependen de secuencia para verificarse
  * - Implementables
- - Suficientemente especificos para codificar
+   - Suficientemente especificos para codificar
 
 5.3 Relacion con UC
 ^^^^^^^^^^^^^^^^^^^
@@ -468,25 +468,25 @@ los Casos de Uso.
  :widths: 20 20 20 40
 
  * - Relacion
- - Origen
- - Destino
- - Semantica
+   - Origen
+   - Destino
+   - Semantica
  * - influye
- - BR
- - BReq
- - BR afecta objetivo sin generar
+   - BR
+   - BReq
+   - BR afecta objetivo sin generar
  * - genera
- - BReq
- - UC
- - Objetivo genera casos de uso
+   - BReq
+   - UC
+   - Objetivo genera casos de uso
  * - genera
- - BR (Trigger)
- - UC
- - BR Desencadenador genera UC
+   - BR (Trigger)
+   - UC
+   - BR Desencadenador genera UC
  * - deriva
- - UC
- - FR
- - Pasos del UC generan FR
+   - UC
+   - FR
+   - Pasos del UC generan FR
 
 ----
 
@@ -501,35 +501,35 @@ los Casos de Uso.
  :widths: 12 18 18 18 18 16
 
  * - Nivel
- - Nombre
- - Pregunta
- - Contenido
- - Artefacto
- - Prefijo
+   - Nombre
+   - Pregunta
+   - Contenido
+   - Artefacto
+   - Prefijo
  * - 0
- - Business Rules
- - Por que restriccion?
- - Politicas, regulaciones
- - BR_NNN.rst
- - BR\_
+   - Business Rules
+   - Por que restriccion?
+   - Politicas, regulaciones
+   - BR_NNN.rst
+   - BR\_
  * - 1
- - Business Req.
- - Por que proyecto?
- - Objetivos, alcance
- - BReq_NNN.rst
- - BReq\_
+   - Business Req.
+   - Por que proyecto?
+   - Objetivos, alcance
+   - BReq_NNN.rst
+   - BReq\_
  * - 2
- - User Req.
- - Que hace usuario?
- - Casos de Uso
- - UC_NNN.rst
- - UC\_
+   - User Req.
+   - Que hace usuario?
+   - Casos de Uso
+   - UC_NNN.rst
+   - UC\_
  * - 3
- - Functional Req.
- - Como sistema?
- - Especificaciones
- - FR_NNN.rst
- - FR\_
+   - Functional Req.
+   - Como sistema?
+   - Especificaciones
+   - FR_NNN.rst
+   - FR\_
 
 7.2 Gradiente de Abstraccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -563,20 +563,20 @@ los Casos de Uso.
  :widths: 20 40 40
 
  * - Nivel
- - Responsable de Crear
- - Responsable de Aprobar
+   - Responsable de Crear
+   - Responsable de Aprobar
  * - BR
- - Stakeholders, Legal, Compliance
- - Sponsor, Legal
+   - Stakeholders, Legal, Compliance
+   - Sponsor, Legal
  * - BReq
- - Product Owner, BA
- - Sponsor, Stakeholders
+   - Product Owner, BA
+   - Sponsor, Stakeholders
  * - UC
- - Business Analyst
- - Product Owner, Usuarios
+   - Business Analyst
+   - Product Owner, Usuarios
  * - FR
- - Business Analyst, Arquitecto
- - Tech Lead, QA
+   - Business Analyst, Arquitecto
+   - Tech Lead, QA
 
 ----
 
@@ -681,17 +681,17 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2026-01-04
- - Equipo IACT
- - Documentada implementacion completa de 4 niveles en IACT. Agregada seccion 1.3 con clarificacion META_04 vs BReq. Agregados 5 BReq identificados. Actualizada cantidad UC de 38 a 49. Agregados ratios IACT. Actualizado arbol de estructura.
+   - 2026-01-04
+   - Equipo IACT
+   - Documentada implementacion completa de 4 niveles en IACT. Agregada seccion 1.3 con clarificacion META_04 vs BReq. Agregados 5 BReq identificados. Actualizada cantidad UC de 38 a 49. Agregados ratios IACT. Actualizado arbol de estructura.
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

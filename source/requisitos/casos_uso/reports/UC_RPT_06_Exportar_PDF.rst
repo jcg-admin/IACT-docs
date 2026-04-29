@@ -19,21 +19,21 @@ UC_RPT_06: Exportar PDF
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_06
+   - UC_RPT_06
  * - **Nombre**
- - Exportar PDF
+   - Exportar PDF
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-006: exporta_pdf
+   - RPT-006: exporta_pdf
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-006
+   - BRQ-RPT-006
 
 2. Descripcion
 --------------
@@ -85,13 +85,13 @@ graficos y tablas estilizadas.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-006
+   - El usuario tiene sesion activa con funcion RPT-006
  * - PRE-02
- - Existen datos para el reporte
+   - Existen datos para el reporte
  * - PRE-03
- - El usuario tiene segmento asignado
+   - El usuario tiene segmento asignado
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -108,11 +108,11 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera archivo PDF con formato corporativo
+   - Se genera archivo PDF con formato corporativo
  * - POST-02
- - Se registra EXPORT_PDF en auditoria (CNST_025)
+   - Se registra EXPORT_PDF en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -122,35 +122,35 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Hace clic en Exportar PDF
+   - Usuario
+   - Hace clic en Exportar PDF
  * - 2
- - Sistema
- - Valida funcion RPT-006
+   - Sistema
+   - Valida funcion RPT-006
  * - 3
- - Sistema
- - Obtiene datos del reporte con filtro de segmento
+   - Sistema
+   - Obtiene datos del reporte con filtro de segmento
  * - 4
- - Sistema
- - Estima numero de paginas
+   - Sistema
+   - Estima numero de paginas
  * - 5
- - Sistema
- - Valida limite 50 paginas
+   - Sistema
+   - Valida limite 50 paginas
  * - 6
- - Sistema
- - Genera documento PDF con formato corporativo
+   - Sistema
+   - Genera documento PDF con formato corporativo
  * - 7
- - Sistema
- - Incluye graficos como imagenes
+   - Sistema
+   - Incluye graficos como imagenes
  * - 8
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
  * - 9
- - Sistema
- - Descarga archivo PDF
+   - Sistema
+   - Descarga archivo PDF
 
 6. Diagrama de Secuencia
 ------------------------
@@ -216,17 +216,17 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Selecciona opcion Solo Resumen
+   - Usuario
+   - Selecciona opcion Solo Resumen
  * - 6a
- - Sistema
- - Genera PDF con graficos y totales unicamente
+   - Sistema
+   - Genera PDF con graficos y totales unicamente
  * - 6b
- - Sistema
- - Omite tablas de detalle
+   - Sistema
+   - Omite tablas de detalle
 
 7.2 FA-02: Orientacion Horizontal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -236,14 +236,14 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Selecciona orientacion horizontal
+   - Usuario
+   - Selecciona orientacion horizontal
  * - 6a
- - Sistema
- - Genera PDF en formato landscape
+   - Sistema
+   - Genera PDF en formato landscape
 
 8. Excepciones
 --------------
@@ -256,15 +256,15 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Reporte excede 50 paginas
+   - Reporte excede 50 paginas
  * - **Accion Sistema**
- - Rechaza exportacion
+   - Rechaza exportacion
  * - **Mensaje Usuario**
- - Limite de exportacion PDF es 50 paginas. Aplique filtros adicionales.
+   - Limite de exportacion PDF es 50 paginas. Aplique filtros adicionales.
  * - **Codigo Error**
- - RPT-050
+   - RPT-050
 
 9. Diagrama de Actividad
 ------------------------
@@ -317,17 +317,17 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-50
- - Limite Paginas
- - Maximo 50 paginas por documento PDF
+   - Limite Paginas
+   - Maximo 50 paginas por documento PDF
  * - BR-RPT-51
- - Formato Corporativo
- - Logo, encabezado y pie de pagina estandar
+   - Formato Corporativo
+   - Logo, encabezado y pie de pagina estandar
  * - BR-RPT-52
- - Graficos
- - Se incluyen como imagenes PNG de alta resolucion
+   - Graficos
+   - Se incluyen como imagenes PNG de alta resolucion
 
 **Estructura del PDF:**
 
@@ -336,15 +336,15 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - Seccion
- - Contenido
+   - Contenido
  * - Portada
- - Titulo, fecha, usuario, segmento
+   - Titulo, fecha, usuario, segmento
  * - Encabezado
- - Logo corporativo, nombre del reporte
+   - Logo corporativo, nombre del reporte
  * - Cuerpo
- - Graficos y tablas de datos
+   - Graficos y tablas de datos
  * - Pie de pagina
- - Numero de pagina, fecha de generacion
+   - Numero de pagina, fecha de generacion
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -354,17 +354,17 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento
+   - Segmentos
+   - Filtro automatico por segmento
  * - CNST_017
- - Exportaciones
- - Limite 50 paginas por PDF
+   - Exportaciones
+   - Limite 50 paginas por PDF
  * - CNST_025
- - Auditoria Inmutable
- - Registro EXPORT_PDF con detalles
+   - Auditoria Inmutable
+   - Registro EXPORT_PDF con detalles
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -374,17 +374,17 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-050
- - El sistema debe exportar a PDF
- - Archivo PDF descargable
+   - El sistema debe exportar a PDF
+   - Archivo PDF descargable
  * - FR-RPT-051
- - El sistema debe incluir formato corporativo
- - Logo y encabezados presentes
+   - El sistema debe incluir formato corporativo
+   - Logo y encabezados presentes
  * - FR-RPT-052
- - El sistema debe incluir graficos
- - Graficos renderizados como imagenes
+   - El sistema debe incluir graficos
+   - Graficos renderizados como imagenes
 
 13. Trazabilidad
 ----------------
@@ -394,17 +394,17 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-006: Exportar a PDF
+   - BRQ-RPT-006: Exportar a PDF
  * - **Reglas de Negocio**
- - BR-RPT-50 a BR-RPT-52
+   - BR-RPT-50 a BR-RPT-52
  * - **Restricciones**
- - CNST_008, CNST_017, CNST_025
+   - CNST_008, CNST_017, CNST_025
  * - **UC Relacionados**
- - UC_RPT_04 (CSV), UC_RPT_05 (Excel)
+   - UC_RPT_04 (CSV), UC_RPT_05 (Excel)
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Funcion RBAC**
- - RPT-006: exporta_pdf
+   - RPT-006: exporta_pdf
 
 14. Historial de Cambios
 ------------------------
@@ -414,10 +414,10 @@ El usuario hace clic en Exportar PDF desde un reporte.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

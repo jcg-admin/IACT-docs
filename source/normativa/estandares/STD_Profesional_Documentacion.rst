@@ -98,34 +98,34 @@ alternativa profesional.
  :widths: 30 35 35
 
  * - Frase prohibida
- - Razón
- - Alternativa profesional
+   - Razón
+   - Alternativa profesional
  * - "Regla de Oro"
- - Coloquialismo en español.
- - "Core Principle", "Critical Standard", "Principio
- fundamental".
+   - Coloquialismo en español.
+   - "Core Principle", "Critical Standard", "Principio
+     fundamental".
  * - "Principio Unix"
- - Referencia decorativa a una filosofía externa.
- - "Core Principle", "Architectural Principle".
+   - Referencia decorativa a una filosofía externa.
+   - "Core Principle", "Architectural Principle".
  * - "Los 5 Pilares"
- - Decorativo, pluraliza arbitrariamente.
- - "Five Core Principles", "Five Standards".
+   - Decorativo, pluraliza arbitrariamente.
+   - "Five Core Principles", "Five Standards".
  * - "Si tienes que..."
- - Conversacional en español.
- - "If code requires explanation, it lacks clarity".
+   - Conversacional en español.
+   - "If code requires explanation, it lacks clarity".
  * - "Recuerda que..."
- - Informal.
- - "Note that...", "Important:".
+   - Informal.
+   - "Note that...", "Important:".
  * - "Para recordar:"
- - Informal.
- - Estructurar como lista o como sección con heading
- formal.
+   - Informal.
+   - Estructurar como lista o como sección con heading
+     formal.
  * - "Recuerda:" / "No olvides:"
- - Informal.
- - Sección o lista estructurada.
+   - Informal.
+   - Sección o lista estructurada.
  * - "La Magia de X" / "Los Secretos de X"
- - Headers decorativos.
- - "Overview of X", "How X Works", "X — Deep Dive".
+   - Headers decorativos.
+   - "Overview of X", "How X Works", "X — Deep Dive".
 
 ----
 
@@ -296,12 +296,12 @@ de univocidad".
  :widths: 12 15 73
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-04-28
- - Versión inicial. Formaliza la convención
- PROFESSIONAL DOCUMENTATION provista por el ejecutor
- (texto base 2026-04-21). Define lenguaje obligatorio,
- lista de frases prohibidas con alternativas, estructura
- de headings y reglas de cumplimiento.
+   - 2026-04-28
+   - Versión inicial. Formaliza la convención
+     PROFESSIONAL DOCUMENTATION provista por el ejecutor
+     (texto base 2026-04-21). Define lenguaje obligatorio,
+     lista de frases prohibidas con alternativas, estructura
+     de headings y reglas de cumplimiento.

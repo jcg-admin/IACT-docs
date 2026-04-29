@@ -52,17 +52,17 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - PRE-002.1
- - El administrador está autenticado en el sistema
+   - El administrador está autenticado en el sistema
  * - PRE-002.2
- - El administrador tiene la funcion `sistema.administracion.usuarios.editar`
+   - El administrador tiene la funcion `sistema.administracion.usuarios.editar`
  * - PRE-002.3
- - El usuario objetivo existe en el sistema
+   - El usuario objetivo existe en el sistema
  * - PRE-002.4
- - El usuario tiene al menos un grupo asignado activo
+   - El usuario tiene al menos un grupo asignado activo
  * - PRE-002.5
- - El grupo a revocar está actualmente asignado y activo
+   - El grupo a revocar está actualmente asignado y activo
 
 
 
@@ -76,17 +76,17 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - POST-002.1
- - La asignación del grupo se marca como `activo=False`
+   - La asignación del grupo se marca como `activo=False`
  * - POST-002.2
- - El usuario pierde acceso a todas las funciones del grupo revocado
+   - El usuario pierde acceso a todas las funciones del grupo revocado
  * - POST-002.3
- - Se registra un evento de auditoría con la revocación
+   - Se registra un evento de auditoría con la revocación
  * - POST-002.4
- - El timestamp `updated_at` se actualiza
+   - El timestamp `updated_at` se actualiza
  * - POST-002.5
- - El usuario recibe notificación de revocación de permisos
+   - El usuario recibe notificación de revocación de permisos
 
 
 
@@ -100,53 +100,53 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
  :header-rows: 1
 
  * - Paso
- - Actor
- - Acción
- - Sistema
+   - Actor
+   - Acción
+   - Sistema
  * - 1
- - Admin
- - Accede al módulo de gestión de usuarios
- - Muestra lista de usuarios
+   - Admin
+   - Accede al módulo de gestión de usuarios
+   - Muestra lista de usuarios
  * - 2
- - Admin
- - Selecciona usuario objetivo
- - Muestra perfil del usuario con grupos asignados
+   - Admin
+   - Selecciona usuario objetivo
+   - Muestra perfil del usuario con grupos asignados
  * - 3
- - Admin
- - Visualiza grupos activos del usuario
- - Muestra lista de grupos con estado activo
+   - Admin
+   - Visualiza grupos activos del usuario
+   - Muestra lista de grupos con estado activo
  * - 4
- - Admin
- - Selecciona grupo a revocar
- - Muestra confirmación con impacto de revocación
+   - Admin
+   - Selecciona grupo a revocar
+   - Muestra confirmación con impacto de revocación
  * - 5
- - Admin
- - Ingresa motivo de revocación
- - Valida que el motivo no esté vacío
+   - Admin
+   - Ingresa motivo de revocación
+   - Valida que el motivo no esté vacío
  * - 6
- - Admin
- - Confirma revocación
- - Verifica permiso `sistema.administracion.usuarios.editar`
+   - Admin
+   - Confirma revocación
+   - Verifica permiso `sistema.administracion.usuarios.editar`
  * - 7
- - Sistema
- - Marca asignación como `activo=False`
- - Actualiza registro en tabla `usuarios_grupos`
+   - Sistema
+   - Marca asignación como `activo=False`
+   - Actualiza registro en tabla `usuarios_grupos`
  * - 8
- - Sistema
- - Registra evento en auditoría
- - Inserta en tabla `auditoria_permisos`
+   - Sistema
+   - Registra evento en auditoría
+   - Inserta en tabla `auditoria_permisos`
  * - 9
- - Sistema
- - Invalida cache de permisos del usuario
- - Elimina entradas de cache relacionadas
+   - Sistema
+   - Invalida cache de permisos del usuario
+   - Elimina entradas de cache relacionadas
  * - 10
- - Sistema
- - Envía notificación al usuario
- - Envía email/notificación interna
+   - Sistema
+   - Envía notificación al usuario
+   - Envía email/notificación interna
  * - 11
- - Sistema
- - Muestra confirmación de éxito
- - Mensaje: "Grupo revocado exitosamente"
+   - Sistema
+   - Muestra confirmación de éxito
+   - Mensaje: "Grupo revocado exitosamente"
 
 
 
@@ -165,13 +165,13 @@ FA-002.1: Usuario no tiene el grupo asignado
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 4a
- - Sistema detecta que el usuario no tiene el grupo asignado
+   - Sistema detecta que el usuario no tiene el grupo asignado
  * - 4b
- - Sistema muestra error: "El usuario no tiene este grupo asignado"
+   - Sistema muestra error: "El usuario no tiene este grupo asignado"
  * - 4c
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -185,15 +185,15 @@ FA-002.2: Grupo ya está inactivo
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 6a
- - Sistema detecta que el grupo ya está marcado como `activo=False`
+   - Sistema detecta que el grupo ya está marcado como `activo=False`
  * - 6b
- - Sistema muestra advertencia: "Este grupo ya está revocado"
+   - Sistema muestra advertencia: "Este grupo ya está revocado"
  * - 6c
- - Admin puede confirmar para actualizar motivo o cancelar
+   - Admin puede confirmar para actualizar motivo o cancelar
  * - 6d
- - Si confirma, continúa en paso 7
+   - Si confirma, continúa en paso 7
 
 
 
@@ -207,13 +207,13 @@ FA-002.3: Usuario es el último administrador
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 6a
- - Sistema detecta que el usuario es el único con grupo de administradores
+   - Sistema detecta que el usuario es el único con grupo de administradores
  * - 6b
- - Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema"
+   - Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema"
  * - 6c
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -232,15 +232,15 @@ FE-002.1: Error de permisos
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 6a
- - Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar`
+   - Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar`
  * - 6b
- - Sistema retorna HTTP 403 Forbidden
+   - Sistema retorna HTTP 403 Forbidden
  * - 6c
- - Mensaje: "No tiene permisos para revocar grupos"
+   - Mensaje: "No tiene permisos para revocar grupos"
  * - 6d
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -254,19 +254,19 @@ FE-002.2: Error de base de datos
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 7a
- - Error al actualizar registro en base de datos
+   - Error al actualizar registro en base de datos
  * - 7b
- - Sistema ejecuta rollback de transacción
+   - Sistema ejecuta rollback de transacción
  * - 7c
- - Sistema retorna HTTP 500 Internal Server Error
+   - Sistema retorna HTTP 500 Internal Server Error
  * - 7d
- - Sistema registra error en logs
+   - Sistema registra error en logs
  * - 7e
- - Mensaje: "Error al revocar grupo. Intente nuevamente"
+   - Mensaje: "Error al revocar grupo. Intente nuevamente"
  * - 7f
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -280,23 +280,23 @@ FE-002.2: Error de base de datos
  :header-rows: 1
 
  * - ID
- - Regla
- - Tipo
+   - Regla
+   - Tipo
  * - RN-002.1
- - No se puede revocar el último grupo de administradores del sistema
- - Crítica
+   - No se puede revocar el último grupo de administradores del sistema
+   - Crítica
  * - RN-002.2
- - El motivo de revocación es obligatorio
- - Alta
+   - El motivo de revocación es obligatorio
+   - Alta
  * - RN-002.3
- - La revocación no elimina el registro, solo lo marca como inactivo
- - Alta
+   - La revocación no elimina el registro, solo lo marca como inactivo
+   - Alta
  * - RN-002.4
- - La revocación es inmediata (no hay período de gracia)
- - Media
+   - La revocación es inmediata (no hay período de gracia)
+   - Media
  * - RN-002.5
- - Se debe notificar al usuario afectado
- - Media
+   - Se debe notificar al usuario afectado
+   - Media
 
 
 
@@ -310,20 +310,20 @@ FE-002.2: Error de base de datos
  :header-rows: 1
 
  * - ID
- - Requisito
- - Valor Objetivo
+   - Requisito
+   - Valor Objetivo
  * - RNF-002.1
- - Tiempo de respuesta
- - < 500ms
+   - Tiempo de respuesta
+   - < 500ms
  * - RNF-002.2
- - Invalidación de cache
- - < 100ms
+   - Invalidación de cache
+   - < 100ms
  * - RNF-002.3
- - Disponibilidad
- - 99.9%
+   - Disponibilidad
+   - 99.9%
  * - RNF-002.4
- - Registro de auditoría
- - 100% de casos
+   - Registro de auditoría
+   - 100% de casos
 
 
 
@@ -600,11 +600,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

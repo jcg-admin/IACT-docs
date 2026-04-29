@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Derivacion_UC_FR
+   - PROC_Derivacion_UC_FR
  * - **Nombre**
- - Derivacion de UC a FR
+   - Derivacion de UC a FR
  * - **Categoria**
- - Derivacion
+   - Derivacion
  * - **Frecuencia**
- - Por cada modulo a derivar
+   - Por cada modulo a derivar
  * - **Duracion Estimada**
- - 1-2 horas por modulo
+   - 1-2 horas por modulo
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -81,14 +81,14 @@ los pasos del sistema definidos en los UC.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Analista
- - Ejecuta derivacion, genera FR
- - Escritura en funcionales/
+   - Ejecuta derivacion, genera FR
+   - Escritura en funcionales/
  * - Arquitecto
- - Valida completitud y consistencia
- - Lectura de UC, FR, BR
+   - Valida completitud y consistencia
+   - Lectura de UC, FR, BR
 
 ----
 
@@ -113,17 +113,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - UC_[NNN]_[Nombre].rst
- - Casos de Uso del modulo
- - Si
+   - Casos de Uso del modulo
+   - Si
  * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
- - Template de FR
- - Si
+   - Template de FR
+   - Si
  * - Documento de trabajo
- - Lista FR extraida de revision UC
- - Si
+   - Lista FR extraida de revision UC
+   - Si
 
 ----
 
@@ -362,17 +362,17 @@ genera al menos un FR.
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - FR_UC[NNN]_[NN]_[Nombre].rst
- - FR generados (multiples)
- - /tmp/funcionales/[mod]/UC_[NNN]/
+   - FR generados (multiples)
+   - /tmp/funcionales/[mod]/UC_[NNN]/
  * - index.rst
- - Indice del modulo
- - /tmp/funcionales/[mod]/
+   - Indice del modulo
+   - /tmp/funcionales/[mod]/
  * - Reporte de metricas
- - Estadisticas de derivacion
- - Documento de trabajo
+   - Estadisticas de derivacion
+   - Documento de trabajo
 
 ----
 
@@ -409,25 +409,25 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Modulo
- - UC
- - FR Esperados
- - FR Generados
- - Cobertura
+   - UC
+   - FR Esperados
+   - FR Generados
+   - Cobertura
  * - MOD_Auth
- - 5
- - ~21
- - [N]
- - [%]
+   - 5
+   - ~21
+   - [N]
+   - [%]
  * - MOD_Users
- - 4
- - ~17
- - [N]
- - [%]
+   - 4
+   - ~17
+   - [N]
+   - [%]
  * - ...
- - ...
- - ...
- - ...
- - ...
+   - ...
+   - ...
+   - ...
+   - ...
 
 ----
 
@@ -439,13 +439,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - UC sin pasos "Sistema"
- - Revisar UC, posible error de redaccion
+   - Revisar UC, posible error de redaccion
  * - Ratio < 3 FR/UC
- - Verificar que no faltan FR
+   - Verificar que no faltan FR
  * - Ratio > 8 FR/UC
- - Verificar granularidad, posible subdivision excesiva
+   - Verificar granularidad, posible subdivision excesiva
 
 ----
 
@@ -467,13 +467,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

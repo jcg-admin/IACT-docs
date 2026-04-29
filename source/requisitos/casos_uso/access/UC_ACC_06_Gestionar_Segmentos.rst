@@ -19,21 +19,21 @@ UC_ACC_06: Gestionar Segmentos
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_06
+   - UC_ACC_06
  * - **Nombre**
- - Gestionar Segmentos
+   - Gestionar Segmentos
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-006: gestiona_segmentos
+   - ACC-006: gestiona_segmentos
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-ACC-006
+   - BRQ-ACC-006
 
 2. Descripcion
 --------------
@@ -85,9 +85,9 @@ visibilidad de los usuarios.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-006
+   - El administrador tiene sesion activa con funcion ACC-006
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -102,11 +102,11 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El catalogo de segmentos se actualiza segun la operacion
+   - El catalogo de segmentos se actualiza segun la operacion
  * - POST-02
- - Se registra en auditoria (CNST_025)
+   - Se registra en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -116,41 +116,41 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede a gestion de segmentos
+   - Admin
+   - Accede a gestion de segmentos
  * - 2
- - Sistema
- - Valida funcion ACC-006
+   - Sistema
+   - Valida funcion ACC-006
  * - 3
- - Sistema
- - Muestra lista de segmentos existentes
+   - Sistema
+   - Muestra lista de segmentos existentes
  * - 4
- - Admin
- - Selecciona Crear Segmento
+   - Admin
+   - Selecciona Crear Segmento
  * - 5
- - Sistema
- - Muestra formulario
+   - Sistema
+   - Muestra formulario
  * - 6
- - Admin
- - Ingresa nombre y descripcion
+   - Admin
+   - Ingresa nombre y descripcion
  * - 7
- - Admin
- - Presiona Guardar
+   - Admin
+   - Presiona Guardar
  * - 8
- - Sistema
- - Valida unicidad de nombre
+   - Sistema
+   - Valida unicidad de nombre
  * - 9
- - Sistema
- - Crea registro de segmento
+   - Sistema
+   - Crea registro de segmento
  * - 10
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
  * - 11
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -198,20 +198,20 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Admin
- - Selecciona un segmento existente
+   - Admin
+   - Selecciona un segmento existente
  * - 5a
- - Sistema
- - Muestra formulario con datos actuales
+   - Sistema
+   - Muestra formulario con datos actuales
  * - 6a
- - Admin
- - Modifica campos
+   - Admin
+   - Modifica campos
  * - 7a
- - Sistema
- - Actualiza registro
+   - Sistema
+   - Actualiza registro
 
 7.2 FA-02: Desactivar Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -221,17 +221,17 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Admin
- - Selecciona Desactivar
+   - Admin
+   - Selecciona Desactivar
  * - 5a
- - Sistema
- - Verifica que no haya usuarios asignados
+   - Sistema
+   - Verifica que no haya usuarios asignados
  * - 6a
- - Sistema
- - Cambia estado a INACTIVO
+   - Sistema
+   - Cambia estado a INACTIVO
 
 8. Excepciones
 --------------
@@ -244,15 +244,15 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 0
 
  * - **Paso de Origen**
- - FA-02, paso 5a
+   - FA-02, paso 5a
  * - **Condicion**
- - Segmento tiene usuarios asignados
+   - Segmento tiene usuarios asignados
  * - **Accion Sistema**
- - Rechaza desactivacion
+   - Rechaza desactivacion
  * - **Mensaje Usuario**
- - No se puede desactivar segmento con usuarios asignados
+   - No se puede desactivar segmento con usuarios asignados
  * - **Codigo Error**
- - ACC-050
+   - ACC-050
 
 9. Diagrama de Actividad
 ------------------------
@@ -298,17 +298,17 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-50
- - Usuario Un Segmento
- - Cada usuario pertenece a exactamente un segmento
+   - Usuario Un Segmento
+   - Cada usuario pertenece a exactamente un segmento
  * - BR-ACC-51
- - Nombre Unico
- - El nombre de segmento debe ser unico
+   - Nombre Unico
+   - El nombre de segmento debe ser unico
  * - BR-ACC-52
- - Sin Eliminar
- - Los segmentos se desactivan, no se eliminan
+   - Sin Eliminar
+   - Los segmentos se desactivan, no se eliminan
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -318,14 +318,14 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat
- - Los segmentos son parte del modelo de permisos
+   - RBAC Flat
+   - Los segmentos son parte del modelo de permisos
  * - CNST_025
- - Auditoria Inmutable
- - Se registran operaciones sobre segmentos
+   - Auditoria Inmutable
+   - Se registran operaciones sobre segmentos
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -335,14 +335,14 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-050
- - El sistema debe permitir crear segmentos
- - Segmento creado con nombre unico
+   - El sistema debe permitir crear segmentos
+   - Segmento creado con nombre unico
  * - FR-ACC-051
- - El sistema debe impedir desactivar con usuarios
- - Error si segmento tiene usuarios
+   - El sistema debe impedir desactivar con usuarios
+   - Error si segmento tiene usuarios
 
 13. Trazabilidad
 ----------------
@@ -352,17 +352,17 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-006: Gestionar catalogo de segmentos
+   - BRQ-ACC-006: Gestionar catalogo de segmentos
  * - **Reglas de Negocio**
- - BR-ACC-50 a BR-ACC-52
+   - BR-ACC-50 a BR-ACC-52
  * - **Restricciones**
- - CNST_029, CNST_025
+   - CNST_029, CNST_025
  * - **UC Relacionados**
- - UC_ACC_07 (Asignar Segmento)
+   - UC_ACC_07 (Asignar Segmento)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-006: gestiona_segmentos
+   - ACC-006: gestiona_segmentos
 
 14. Historial de Cambios
 ------------------------
@@ -372,10 +372,10 @@ El administrador accede al modulo de gestion de segmentos.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

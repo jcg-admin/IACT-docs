@@ -43,15 +43,15 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - PRE-004.1
- - Admin autenticado con `sistema.administracion.permisos.excepcionales.revocar`
+   - Admin autenticado con `sistema.administracion.permisos.excepcionales.revocar`
  * - PRE-004.2
- - Usuario objetivo existe
+   - Usuario objetivo existe
  * - PRE-004.3
- - Usuario TIENE la funcion (por grupo) que se desea revocar
+   - Usuario TIENE la funcion (por grupo) que se desea revocar
  * - PRE-004.4
- - No existe ya una revocación excepcional activa para esta funcion
+   - No existe ya una revocación excepcional activa para esta funcion
 
 
 
@@ -65,17 +65,17 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - POST-004.1
- - Se crea registro en `permisos_excepcionales` con tipo='revocar'
+   - Se crea registro en `permisos_excepcionales` con tipo='revocar'
  * - POST-004.2
- - Usuario pierde acceso a la funcion INMEDIATAMENTE
+   - Usuario pierde acceso a la funcion INMEDIATAMENTE
  * - POST-004.3
- - Revocación tiene prioridad sobre cualquier concesión de grupo
+   - Revocación tiene prioridad sobre cualquier concesión de grupo
  * - POST-004.4
- - Se registra en auditoría
+   - Se registra en auditoría
  * - POST-004.5
- - Cache de permisos se invalida
+   - Cache de permisos se invalida
 
 
 
@@ -89,53 +89,53 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
  :header-rows: 1
 
  * - Paso
- - Actor
- - Acción
- - Sistema
+   - Actor
+   - Acción
+   - Sistema
  * - 1
- - Admin
- - Accede a gestión de excepcionales
- - Muestra interfaz
+   - Admin
+   - Accede a gestión de excepcionales
+   - Muestra interfaz
  * - 2
- - Admin
- - Selecciona usuario
- - Muestra funciones actuales del usuario
+   - Admin
+   - Selecciona usuario
+   - Muestra funciones actuales del usuario
  * - 3
- - Admin
- - Selecciona funcion a revocar
- - Valida que usuario la tenga por grupo
+   - Admin
+   - Selecciona funcion a revocar
+   - Valida que usuario la tenga por grupo
  * - 4
- - Admin
- - Ingresa motivo de revocación (obligatorio)
- - Valida longitud mínima
+   - Admin
+   - Ingresa motivo de revocación (obligatorio)
+   - Valida longitud mínima
  * - 5
- - Admin
- - Opcionalmente establece fecha_fin
- - Valida fecha futura
+   - Admin
+   - Opcionalmente establece fecha_fin
+   - Valida fecha futura
  * - 6
- - Admin
- - Confirma revocación
- - Verifica permisos de admin
+   - Admin
+   - Confirma revocación
+   - Verifica permisos de admin
  * - 7
- - Sistema
- - Crea registro tipo='revocar', activo=True
- - INSERT en permisos_excepcionales
+   - Sistema
+   - Crea registro tipo='revocar', activo=True
+   - INSERT en permisos_excepcionales
  * - 8
- - Sistema
- - Invalida cache del usuario
- - DELETE cache
+   - Sistema
+   - Invalida cache del usuario
+   - DELETE cache
  * - 9
- - Sistema
- - Registra en auditoría
- - INSERT con tipo='REVOCAR_EXCEPCIONAL'
+   - Sistema
+   - Registra en auditoría
+   - INSERT con tipo='REVOCAR_EXCEPCIONAL'
  * - 10
- - Sistema
- - Notifica usuario
- - Email con explicación
+   - Sistema
+   - Notifica usuario
+   - Email con explicación
  * - 11
- - Sistema
- - Confirma revocación
- - Mensaje de éxito
+   - Sistema
+   - Confirma revocación
+   - Mensaje de éxito
 
 
 
@@ -149,20 +149,20 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
  :header-rows: 1
 
  * - ID
- - Regla
- - Tipo
+   - Regla
+   - Tipo
  * - RN-004.1
- - Revocación excepcional SIEMPRE tiene prioridad sobre grupos
- - Crítica
+   - Revocación excepcional SIEMPRE tiene prioridad sobre grupos
+   - Crítica
  * - RN-004.2
- - Usuario debe tener la funcion por grupo para poder revocarla
- - Alta
+   - Usuario debe tener la funcion por grupo para poder revocarla
+   - Alta
  * - RN-004.3
- - Motivo obligatorio mínimo 20 caracteres
- - Alta
+   - Motivo obligatorio mínimo 20 caracteres
+   - Alta
  * - RN-004.4
- - Revocación es inmediata
- - Alta
+   - Revocación es inmediata
+   - Alta
 
 
 
@@ -261,11 +261,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

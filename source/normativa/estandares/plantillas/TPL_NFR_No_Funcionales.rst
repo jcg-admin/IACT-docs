@@ -126,26 +126,26 @@ Categorías ISO 25010
  :header-rows: 1
 
  * - Categoría
- - Descripción
- - Subcategorías
+   - Descripción
+   - Subcategorías
  * - **Rendimiento**
- - Eficiencia del sistema
- - Tiempo respuesta, throughput, uso recursos
+   - Eficiencia del sistema
+   - Tiempo respuesta, throughput, uso recursos
  * - **Seguridad**
- - Protección de información
- - Confidencialidad, integridad, autenticación
+   - Protección de información
+   - Confidencialidad, integridad, autenticación
  * - **Usabilidad**
- - Facilidad de uso
- - Aprendizaje, operabilidad, accesibilidad
+   - Facilidad de uso
+   - Aprendizaje, operabilidad, accesibilidad
  * - **Confiabilidad**
- - Funcionamiento correcto
- - Disponibilidad, tolerancia a fallos, recuperación
+   - Funcionamiento correcto
+   - Disponibilidad, tolerancia a fallos, recuperación
  * - **Mantenibilidad**
- - Facilidad de modificación
- - Modularidad, reusabilidad, analizabilidad
+   - Facilidad de modificación
+   - Modularidad, reusabilidad, analizabilidad
  * - **Portabilidad**
- - Capacidad de transferencia
- - Adaptabilidad, instalabilidad, coexistencia
+   - Capacidad de transferencia
+   - Adaptabilidad, instalabilidad, coexistencia
 
 ----
 
@@ -454,41 +454,41 @@ Cada NFR DEBE incluir mínimo estas 10 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, categoría, prioridad, alcance
+   - Resumen Ejecutivo
+   - ID, nombre, categoría, prioridad, alcance
  * - 1
- - Especificación
- - Enunciado SMART y justificación
+   - Especificación
+   - Enunciado SMART y justificación
  * - 2
- - Métricas y Umbrales
- - Métrica, fórmula, umbrales mín/obj/ópt
+   - Métricas y Umbrales
+   - Métrica, fórmula, umbrales mín/obj/ópt
  * - 3
- - Escenarios de Prueba
- - Normal, estrés, límite
+   - Escenarios de Prueba
+   - Normal, estrés, límite
  * - 4
- - Método de Verificación
- - Herramientas, procedimiento, criterios
+   - Método de Verificación
+   - Herramientas, procedimiento, criterios
  * - 5
- - Aplicabilidad
- - Componentes afectados, excepciones
+   - Aplicabilidad
+   - Componentes afectados, excepciones
  * - 6
- - Restricciones Relacionadas
- - CNST vinculadas
+   - Restricciones Relacionadas
+   - CNST vinculadas
  * - 7
- - Impacto en Arquitectura
- - ADR e implicaciones de diseño
+   - Impacto en Arquitectura
+   - ADR e implicaciones de diseño
  * - 8
- - Monitoreo
- - Indicadores, alertas, dashboard
+   - Monitoreo
+   - Indicadores, alertas, dashboard
  * - 9
- - Trazabilidad
- - Enlaces a ISO 25010, CNST, ADR, MOD
+   - Trazabilidad
+   - Enlaces a ISO 25010, CNST, ADR, MOD
  * - 10
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -565,10 +565,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla NFR con ISO 25010
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla NFR con ISO 25010

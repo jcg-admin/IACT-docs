@@ -28,23 +28,23 @@ UC_ACC_04: Asignar Agrupador
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_04
+   - UC_ACC_04
  * - **Nombre**
- - Asignar Agrupador
+   - Asignar Agrupador
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Actor Secundario**
- - Sistema (validacion SoD)
+   - Sistema (validacion SoD)
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-004: asigna_agrupadores
+   - ACC-004: asigna_agrupadores
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-ACC-004
+   - BRQ-ACC-004
 
 2. Descripcion
 --------------
@@ -115,15 +115,15 @@ asignacion masiva que contiene un conjunto predefinido de funciones.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-004
+   - El administrador tiene sesion activa con funcion ACC-004
  * - PRE-02
- - El usuario destino existe y tiene estado ACTIVO
+   - El usuario destino existe y tiene estado ACTIVO
  * - PRE-03
- - El agrupador a asignar existe en el catalogo
+   - El agrupador a asignar existe en el catalogo
  * - PRE-04
- - El usuario no tiene el agrupador ya asignado
+   - El usuario no tiene el agrupador ya asignado
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -140,13 +140,13 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El agrupador queda asignado al usuario
+   - El agrupador queda asignado al usuario
  * - POST-02
- - Las funciones del agrupador se agregan a los permisos efectivos
+   - Las funciones del agrupador se agregan a los permisos efectivos
  * - POST-03
- - Se registra AGRUPADOR_ASSIGN en auditoria (CNST_025)
+   - Se registra AGRUPADOR_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -156,47 +156,47 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de control de acceso
+   - Admin
+   - Accede al modulo de control de acceso
  * - 2
- - Sistema
- - Valida funcion ACC-004 (asigna_agrupadores)
+   - Sistema
+   - Valida funcion ACC-004 (asigna_agrupadores)
  * - 3
- - Admin
- - Busca y selecciona usuario destino
+   - Admin
+   - Busca y selecciona usuario destino
  * - 4
- - Sistema
- - Muestra agrupadores actuales del usuario
+   - Sistema
+   - Muestra agrupadores actuales del usuario
  * - 5
- - Sistema
- - Muestra catalogo de agrupadores disponibles (10)
+   - Sistema
+   - Muestra catalogo de agrupadores disponibles (10)
  * - 6
- - Admin
- - Selecciona agrupador a asignar
+   - Admin
+   - Selecciona agrupador a asignar
  * - 7
- - Sistema
- - Muestra preview de funciones que se asignaran
+   - Sistema
+   - Muestra preview de funciones que se asignaran
  * - 8
- - Admin
- - Presiona "Asignar Agrupador"
+   - Admin
+   - Presiona "Asignar Agrupador"
  * - 9
- - Sistema
- - Valida que usuario tenga estado ACTIVO
+   - Sistema
+   - Valida que usuario tenga estado ACTIVO
  * - 10
- - Sistema
- - Valida restricciones SoD (CNST_029)
+   - Sistema
+   - Valida restricciones SoD (CNST_029)
  * - 11
- - Sistema
- - Crea registro en user_agrupadores
+   - Sistema
+   - Crea registro en user_agrupadores
  * - 12
- - Sistema
- - Registra AGRUPADOR_ASSIGN en UserActionLog (CNST_025)
+   - Sistema
+   - Registra AGRUPADOR_ASSIGN en UserActionLog (CNST_025)
  * - 13
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -313,14 +313,14 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Sistema
- - Muestra agrupador como ya asignado (deshabilitado)
+   - Sistema
+   - Muestra agrupador como ya asignado (deshabilitado)
  * - 5b
- - Admin
- - No puede seleccionar agrupadores ya asignados
+   - Admin
+   - No puede seleccionar agrupadores ya asignados
 
 7.2 FA-02: Multiples Agrupadores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -330,17 +330,17 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Admin
- - Selecciona varios agrupadores
+   - Admin
+   - Selecciona varios agrupadores
  * - 10a
- - Sistema
- - Valida SoD considerando funciones de todos
+   - Sistema
+   - Valida SoD considerando funciones de todos
  * - 11a
- - Sistema
- - Asigna todos o ninguno (atomico)
+   - Sistema
+   - Asigna todos o ninguno (atomico)
 
 8. Excepciones
 --------------
@@ -353,15 +353,15 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Funciones del agrupador violan SoD con permisos actuales
+   - Funciones del agrupador violan SoD con permisos actuales
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - "El agrupador [nombre] contiene funciones incompatibles con los permisos actuales"
+   - "El agrupador [nombre] contiene funciones incompatibles con los permisos actuales"
  * - **Codigo Error**
- - ACC-030
+   - ACC-030
 
 8.2 EX-02: Agrupador No Existe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -371,15 +371,15 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - ID de agrupador no existe
+   - ID de agrupador no existe
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Agrupador no encontrado"
+   - "Agrupador no encontrado"
  * - **Codigo Error**
- - ACC-031
+   - ACC-031
 
 9. Diagrama de Actividad
 ------------------------
@@ -445,20 +445,20 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-30
- - Agrupador No Es Rol
- - Un agrupador es un mecanismo de asignacion masiva, no un rol jerarquico. Internamente expande a funciones individuales.
+   - Agrupador No Es Rol
+   - Un agrupador es un mecanismo de asignacion masiva, no un rol jerarquico. Internamente expande a funciones individuales.
  * - BR-ACC-31
- - Multiples Agrupadores
- - Un usuario puede tener multiples agrupadores asignados simultaneamente.
+   - Multiples Agrupadores
+   - Un usuario puede tener multiples agrupadores asignados simultaneamente.
  * - BR-ACC-32
- - SoD Agregado
- - La validacion SoD considera TODAS las funciones de TODOS los agrupadores mas las funciones directas.
+   - SoD Agregado
+   - La validacion SoD considera TODAS las funciones de TODOS los agrupadores mas las funciones directas.
  * - BR-ACC-33
- - Sin Duplicados
- - Un agrupador solo puede estar asignado una vez por usuario.
+   - Sin Duplicados
+   - Un agrupador solo puede estar asignado una vez por usuario.
 
 **Catalogo de Agrupadores:**
 
@@ -467,38 +467,38 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - ID
- - Nombre
- - Funciones Incluidas
+   - Nombre
+   - Funciones Incluidas
  * - AGR-001
- - agr_operador_basico
- - RPT-001, RPT-002, RPT-003, ALR-001, ALR-006
+   - agr_operador_basico
+   - RPT-001, RPT-002, RPT-003, ALR-001, ALR-006
  * - AGR-002
- - agr_operador_reportes
- - RPT-001 a RPT-003, RPT-007, RPT-008, ALR-001, ALR-002, ALR-006
+   - agr_operador_reportes
+   - RPT-001 a RPT-003, RPT-007, RPT-008, ALR-001, ALR-002, ALR-006
  * - AGR-003
- - agr_supervisor
- - RPT-001 a RPT-005, RPT-007, RPT-008, ALR-001 a ALR-004, ALR-006
+   - agr_supervisor
+   - RPT-001 a RPT-005, RPT-007, RPT-008, ALR-001 a ALR-004, ALR-006
  * - AGR-004
- - agr_exportador
- - RPT-004, RPT-005, RPT-006
+   - agr_exportador
+   - RPT-004, RPT-005, RPT-006
  * - AGR-005
- - agr_gestor_alertas
- - ALR-001 a ALR-006
+   - agr_gestor_alertas
+   - ALR-001 a ALR-006
  * - AGR-006
- - agr_admin_usuarios
- - USR-001 a USR-010, ACC-001, ACC-002
+   - agr_admin_usuarios
+   - USR-001 a USR-010, ACC-001, ACC-002
  * - AGR-007
- - agr_admin_acceso
- - ACC-001 a ACC-006
+   - agr_admin_acceso
+   - ACC-001 a ACC-006
  * - AGR-008
- - agr_auditor
- - AUD-001 a AUD-004
+   - agr_auditor
+   - AUD-001 a AUD-004
  * - AGR-009
- - agr_admin_pipeline
- - PIP-001 a PIP-004
+   - agr_admin_pipeline
+   - PIP-001 a PIP-004
  * - AGR-010
- - agr_admin_logs
- - LOG-001, LOG-002
+   - agr_admin_logs
+   - LOG-001, LOG-002
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -508,14 +508,14 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat / SoD
- - Antes de asignar agrupador, se valida SoD considerando todas las funciones que contiene mas las que ya tiene el usuario.
+   - RBAC Flat / SoD
+   - Antes de asignar agrupador, se valida SoD considerando todas las funciones que contiene mas las que ya tiene el usuario.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra AGRUPADOR_ASSIGN con: admin, usuario, agrupador asignado y lista de funciones incluidas.
+   - Auditoria Inmutable
+   - Se registra AGRUPADOR_ASSIGN con: admin, usuario, agrupador asignado y lista de funciones incluidas.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -525,20 +525,20 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-030
- - El sistema debe mostrar catalogo de 10 agrupadores
- - Lista con nombre, descripcion y funciones
+   - El sistema debe mostrar catalogo de 10 agrupadores
+   - Lista con nombre, descripcion y funciones
  * - FR-ACC-031
- - El sistema debe mostrar preview de funciones
- - Antes de asignar, ver que funciones incluye
+   - El sistema debe mostrar preview de funciones
+   - Antes de asignar, ver que funciones incluye
  * - FR-ACC-032
- - El sistema debe validar SoD agregado
- - Considerar todas las fuentes de funciones
+   - El sistema debe validar SoD agregado
+   - Considerar todas las fuentes de funciones
  * - FR-ACC-033
- - El sistema debe registrar asignacion en auditoria
- - Evento AGRUPADOR_ASSIGN con detalle
+   - El sistema debe registrar asignacion en auditoria
+   - Evento AGRUPADOR_ASSIGN con detalle
 
 13. Trazabilidad
 ----------------
@@ -548,19 +548,19 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-004: Permitir asignacion de agrupadores
+   - BRQ-ACC-004: Permitir asignacion de agrupadores
  * - **Reglas de Negocio**
- - BR-ACC-30 a BR-ACC-33
+   - BR-ACC-30 a BR-ACC-33
  * - **Restricciones**
- - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
+   - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
  * - **FR Derivados**
- - FR-ACC-030 a FR-ACC-033
+   - FR-ACC-030 a FR-ACC-033
  * - **UC Relacionados**
- - UC_ACC_01 (Asignar Funciones), UC_ACC_03 (Consultar)
+   - UC_ACC_01 (Asignar Funciones), UC_ACC_03 (Consultar)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-004: asigna_agrupadores
+   - ACC-004: asigna_agrupadores
 
 14. Historial de Cambios
 ------------------------
@@ -570,10 +570,10 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con catalogo 10 agrupadores
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con catalogo 10 agrupadores

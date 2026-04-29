@@ -460,47 +460,47 @@ Cada FD DEBE incluir minimo estas 12 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, tipo, frecuencia, modulos
+   - Resumen Ejecutivo
+   - ID, nombre, tipo, frecuencia, modulos
  * - 1
- - Descripcion General
- - Proposito del flujo
+   - Descripcion General
+   - Proposito del flujo
  * - 2
- - Diagrama de Flujo
- - PlantUML del flujo
+   - Diagrama de Flujo
+   - PlantUML del flujo
  * - 3
- - Fuentes de Datos
- - Origen de los datos
+   - Fuentes de Datos
+   - Origen de los datos
  * - 4
- - Destinos de Datos
- - Donde terminan los datos
+   - Destinos de Datos
+   - Donde terminan los datos
  * - 5
- - Transformaciones
- - Pasos, validaciones, BR aplicadas
+   - Transformaciones
+   - Pasos, validaciones, BR aplicadas
  * - 6
- - Estructura de Datos
- - Entrada y salida en JSON
+   - Estructura de Datos
+   - Entrada y salida en JSON
  * - 7
- - Componentes
- - Clases/servicios involucrados
+   - Componentes
+   - Clases/servicios involucrados
  * - 8
- - Manejo de Errores
- - Errores y retry
+   - Manejo de Errores
+   - Errores y retry
  * - 9
- - Rendimiento
- - Metricas y optimizaciones
+   - Rendimiento
+   - Metricas y optimizaciones
  * - 10
- - Seguridad
- - Datos sensibles, controles
+   - Seguridad
+   - Datos sensibles, controles
  * - 11
- - Trazabilidad
- - UC, MOD, BR, CNST relacionados
+   - Trazabilidad
+   - UC, MOD, BR, CNST relacionados
  * - 12
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -550,10 +550,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla FD con PlantUML
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla FD con PlantUML

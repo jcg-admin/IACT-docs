@@ -404,44 +404,44 @@ Cada STD DEBE incluir minimo estas 11 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, categoria, obligatoriedad
+   - Resumen Ejecutivo
+   - ID, nombre, categoria, obligatoriedad
  * - 1
- - Proposito
- - Por que existe el estandar
+   - Proposito
+   - Por que existe el estandar
  * - 2
- - Alcance
- - Donde aplica y donde no
+   - Alcance
+   - Donde aplica y donde no
  * - 3
- - Definiciones
- - Terminos clave
+   - Definiciones
+   - Terminos clave
  * - 4
- - Reglas del Estandar
- - Cada regla con ejemplos
+   - Reglas del Estandar
+   - Cada regla con ejemplos
  * - 5
- - Tabla de Reglas
- - Resumen de todas las reglas
+   - Tabla de Reglas
+   - Resumen de todas las reglas
  * - 6
- - Verificacion
- - Automatica, manual, herramientas
+   - Verificacion
+   - Automatica, manual, herramientas
  * - 7
- - Excepciones
- - Permitidas y proceso
+   - Excepciones
+   - Permitidas y proceso
  * - 8
- - Consecuencias
- - Impacto de incumplimiento
+   - Consecuencias
+   - Impacto de incumplimiento
  * - 9
- - Trazabilidad
- - PROC, TPL, artefactos relacionados
+   - Trazabilidad
+   - PROC, TPL, artefactos relacionados
  * - 10
- - Referencias
- - Documentacion externa
+   - Referencias
+   - Documentacion externa
  * - 11
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -487,10 +487,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla STD
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla STD

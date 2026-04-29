@@ -89,20 +89,20 @@ PASO 2: Categorizar el Cambio
  :widths: 18 42 40
 
  * - Tipo
- - Descripción
- - Acción Requerida
+   - Descripción
+   - Acción Requerida
  * - **CRÍTICO**
- - Información incorrecta que puede causar errores
- - Actualizar inmediatamente
+   - Información incorrecta que puede causar errores
+   - Actualizar inmediatamente
  * - **MAYOR**
- - Funcionalidad significativa no documentada
- - Actualizar en < 1 semana
+   - Funcionalidad significativa no documentada
+   - Actualizar en < 1 semana
  * - **MENOR**
- - Mejoras de claridad, typos, formato
- - Actualizar en próximo sprint
+   - Mejoras de claridad, typos, formato
+   - Actualizar en próximo sprint
  * - **COSMÉTICO**
- - Estilo, organización
- - Actualizar cuando sea conveniente
+   - Estilo, organización
+   - Actualizar cuando sea conveniente
 
 --------------
 
@@ -281,21 +281,21 @@ Al final del documento:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 2.0.0
- - 2025-11-17
- - Tu Nombre
- - Actualizado a JWT authentication
+   - 2025-11-17
+   - Tu Nombre
+   - Actualizado a JWT authentication
  * - 1.1.0
- - 2025-11-01
- - Otro Dev
- - Agregada sección de error handling
+   - 2025-11-01
+   - Otro Dev
+   - Agregada sección de error handling
  * - 1.0.0
- - 2025-10-15
- - Original
- - Versión inicial
+   - 2025-10-15
+   - Original
+   - Versión inicial
 
 --------------
 
@@ -643,17 +643,17 @@ Plantilla de Actualización
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - [NUEVA]
- - [HOY]
- - [TU]
- - [CAMBIOS]
+   - [HOY]
+   - [TU]
+   - [CAMBIOS]
  * - [PREV]
- - [FECHA]
- - [AUTOR]
- - [CAMBIOS ANTERIORES]
+   - [FECHA]
+   - [AUTOR]
+   - [CAMBIOS ANTERIORES]
 
 --------------
 

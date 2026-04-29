@@ -52,17 +52,17 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - PRE-003.1
- - El administrador está autenticado
+   - El administrador está autenticado
  * - PRE-003.2
- - El administrador tiene `sistema.administracion.permisos.excepcionales.conceder`
+   - El administrador tiene `sistema.administracion.permisos.excepcionales.conceder`
  * - PRE-003.3
- - El usuario objetivo existe
+   - El usuario objetivo existe
  * - PRE-003.4
- - La funcion a conceder existe y está activa
+   - La funcion a conceder existe y está activa
  * - PRE-003.5
- - El usuario NO tiene ya esta funcion (ni por grupo ni por excepción)
+   - El usuario NO tiene ya esta funcion (ni por grupo ni por excepción)
 
 
 
@@ -76,17 +76,17 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
  :header-rows: 1
 
  * - ID
- - Descripción
+   - Descripción
  * - POST-003.1
- - Se crea registro en `permisos_excepcionales` con tipo='conceder'
+   - Se crea registro en `permisos_excepcionales` con tipo='conceder'
  * - POST-003.2
- - El usuario gana acceso a la funcion especificada
+   - El usuario gana acceso a la funcion especificada
  * - POST-003.3
- - Se registra evento de auditoría
+   - Se registra evento de auditoría
  * - POST-003.4
- - Cache de permisos del usuario se invalida
+   - Cache de permisos del usuario se invalida
  * - POST-003.5
- - Usuario recibe notificación de nuevo permiso
+   - Usuario recibe notificación de nuevo permiso
 
 
 
@@ -100,57 +100,57 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
  :header-rows: 1
 
  * - Paso
- - Actor
- - Acción
- - Sistema
+   - Actor
+   - Acción
+   - Sistema
  * - 1
- - Admin
- - Accede a módulo de permisos excepcionales
- - Muestra interfaz de gestión
+   - Admin
+   - Accede a módulo de permisos excepcionales
+   - Muestra interfaz de gestión
  * - 2
- - Admin
- - Selecciona usuario objetivo
- - Muestra perfil con funciones actuales
+   - Admin
+   - Selecciona usuario objetivo
+   - Muestra perfil con funciones actuales
  * - 3
- - Admin
- - Busca funcion a conceder
- - Muestra funciones disponibles (filtradas)
+   - Admin
+   - Busca funcion a conceder
+   - Muestra funciones disponibles (filtradas)
  * - 4
- - Admin
- - Selecciona funcion específica
- - Valida que usuario no la tenga ya
+   - Admin
+   - Selecciona funcion específica
+   - Valida que usuario no la tenga ya
  * - 5
- - Admin
- - Ingresa motivo de concesión (obligatorio)
- - Valida longitud mínima (20 chars)
+   - Admin
+   - Ingresa motivo de concesión (obligatorio)
+   - Valida longitud mínima (20 chars)
  * - 6
- - Admin
- - Opcionalmente establece fecha de expiración
- - Valida que fecha sea futura
+   - Admin
+   - Opcionalmente establece fecha de expiración
+   - Valida que fecha sea futura
  * - 7
- - Admin
- - Confirma concesión
- - Verifica permiso de administrador
+   - Admin
+   - Confirma concesión
+   - Verifica permiso de administrador
  * - 8
- - Sistema
- - Crea registro en permisos_excepcionales
- - INSERT con tipo='conceder', activo=True
+   - Sistema
+   - Crea registro en permisos_excepcionales
+   - INSERT con tipo='conceder', activo=True
  * - 9
- - Sistema
- - Registra evento en auditoría
- - Detalla funcion concedida y motivo
+   - Sistema
+   - Registra evento en auditoría
+   - Detalla funcion concedida y motivo
  * - 10
- - Sistema
- - Invalida cache de permisos
- - DELETE de cache del usuario
+   - Sistema
+   - Invalida cache de permisos
+   - DELETE de cache del usuario
  * - 11
- - Sistema
- - Envía notificación al usuario
- - Email con detalle del nuevo permiso
+   - Sistema
+   - Envía notificación al usuario
+   - Email con detalle del nuevo permiso
  * - 12
- - Sistema
- - Muestra confirmación
- - Mensaje: "Permiso excepcional concedido"
+   - Sistema
+   - Muestra confirmación
+   - Mensaje: "Permiso excepcional concedido"
 
 
 
@@ -169,15 +169,15 @@ FA-003.1: Usuario ya tiene la funcion
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 4a
- - Sistema detecta que usuario ya tiene la funcion (por grupo o excepción)
+   - Sistema detecta que usuario ya tiene la funcion (por grupo o excepción)
  * - 4b
- - Sistema muestra advertencia con origen del permiso
+   - Sistema muestra advertencia con origen del permiso
  * - 4c
- - Admin puede cancelar o confirmar para reforzar
+   - Admin puede cancelar o confirmar para reforzar
  * - 4d
- - Si confirma, continúa en paso 5
+   - Si confirma, continúa en paso 5
 
 
 
@@ -191,15 +191,15 @@ FA-003.2: Permiso temporal con fecha de expiración
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 6a
- - Admin establece `fecha_fin` en el futuro
+   - Admin establece `fecha_fin` en el futuro
  * - 6b
- - Sistema valida que sea al menos 1 hora en el futuro
+   - Sistema valida que sea al menos 1 hora en el futuro
  * - 6c
- - Sistema programa job para revocar automáticamente al expirar
+   - Sistema programa job para revocar automáticamente al expirar
  * - 6d
- - Continúa en paso 7
+   - Continúa en paso 7
 
 
 
@@ -213,15 +213,15 @@ FA-003.3: Funcion ya existe pero está inactiva
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 8a
- - Sistema detecta registro previo con activo=False
+   - Sistema detecta registro previo con activo=False
  * - 8b
- - Sistema reactiva registro en vez de crear nuevo
+   - Sistema reactiva registro en vez de crear nuevo
  * - 8c
- - UPDATE activo=True, actualiza motivo y fecha_inicio
+   - UPDATE activo=True, actualiza motivo y fecha_inicio
  * - 8d
- - Continúa en paso 9
+   - Continúa en paso 9
 
 
 
@@ -240,15 +240,15 @@ FE-003.1: Sin permisos
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 7a
- - Sistema detecta falta de permiso para conceder
+   - Sistema detecta falta de permiso para conceder
  * - 7b
- - HTTP 403 Forbidden
+   - HTTP 403 Forbidden
  * - 7c
- - Mensaje: "No tiene permisos para conceder excepciones"
+   - Mensaje: "No tiene permisos para conceder excepciones"
  * - 7d
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -262,15 +262,15 @@ FE-003.2: Funcion no existe
  :header-rows: 1
 
  * - Paso
- - Descripción
+   - Descripción
  * - 8a
- - Sistema no encuentra funcion con código especificado
+   - Sistema no encuentra funcion con código especificado
  * - 8b
- - HTTP 404 Not Found
+   - HTTP 404 Not Found
  * - 8c
- - Mensaje: "Funcion no encontrada"
+   - Mensaje: "Funcion no encontrada"
  * - 8d
- - Flujo termina
+   - Flujo termina
 
 
 
@@ -284,23 +284,23 @@ FE-003.2: Funcion no existe
  :header-rows: 1
 
  * - ID
- - Regla
- - Tipo
+   - Regla
+   - Tipo
  * - RN-003.1
- - Motivo es obligatorio y mínimo 20 caracteres
- - Crítica
+   - Motivo es obligatorio y mínimo 20 caracteres
+   - Crítica
  * - RN-003.2
- - Fecha de expiración debe ser futura (si se especifica)
- - Alta
+   - Fecha de expiración debe ser futura (si se especifica)
+   - Alta
  * - RN-003.3
- - No se puede conceder funcion inactiva
- - Alta
+   - No se puede conceder funcion inactiva
+   - Alta
  * - RN-003.4
- - Concesión es inmediata (toma efecto al instante)
- - Media
+   - Concesión es inmediata (toma efecto al instante)
+   - Media
  * - RN-003.5
- - Sistema debe auditar TODAS las concesiones excepcionales
- - Crítica
+   - Sistema debe auditar TODAS las concesiones excepcionales
+   - Crítica
 
 
 
@@ -314,20 +314,20 @@ FE-003.2: Funcion no existe
  :header-rows: 1
 
  * - ID
- - Requisito
- - Valor Objetivo
+   - Requisito
+   - Valor Objetivo
  * - RNF-003.1
- - Tiempo de respuesta
- - < 300ms
+   - Tiempo de respuesta
+   - < 300ms
  * - RNF-003.2
- - Disponibilidad
- - 99.9%
+   - Disponibilidad
+   - 99.9%
  * - RNF-003.3
- - Auditoría
- - 100% de concesiones
+   - Auditoría
+   - 100% de concesiones
  * - RNF-003.4
- - Notificaciones
- - > 95% entregadas
+   - Notificaciones
+   - > 95% entregadas
 
 
 
@@ -561,11 +561,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

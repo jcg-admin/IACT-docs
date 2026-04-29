@@ -124,15 +124,15 @@ de datos y las relaciones entre entidades.
  :widths: 25 75
 
  * - Subtipo
- - Descripcion
+   - Descripcion
  * - **Hecho de Identidad**
- - Define unicidad (cada X tiene exactamente un Y)
+   - Define unicidad (cada X tiene exactamente un Y)
  * - **Hecho de Existencia**
- - Define obligatoriedad de relacion
+   - Define obligatoriedad de relacion
  * - **Hecho de Cardinalidad**
- - Define cantidad de relaciones (1:N, N:M)
+   - Define cantidad de relaciones (1:N, N:M)
  * - **Hecho de Estado**
- - Define valores posibles de un atributo
+   - Define valores posibles de un atributo
 
 2.3 Ejemplos IACT
 ^^^^^^^^^^^^^^^^^
@@ -204,15 +204,15 @@ o no puede ocurrir en el sistema.
  :widths: 25 75
 
  * - Subtipo
- - Descripcion
+   - Descripcion
  * - **Obligacion**
- - Algo que DEBE hacerse
+   - Algo que DEBE hacerse
  * - **Prohibicion**
- - Algo que NO DEBE hacerse
+   - Algo que NO DEBE hacerse
  * - **Restriccion de Acceso**
- - Quien PUEDE hacer algo
+   - Quien PUEDE hacer algo
  * - **Restriccion de Tiempo**
- - Cuando PUEDE hacerse algo
+   - Cuando PUEDE hacerse algo
 
 3.3 Ejemplos IACT
 ^^^^^^^^^^^^^^^^^
@@ -455,15 +455,15 @@ en un resultado.
  :widths: 25 75
 
  * - Subtipo
- - Descripcion
+   - Descripcion
  * - **Formula Simple**
- - Operaciones aritmeticas basicas
+   - Operaciones aritmeticas basicas
  * - **Agregacion**
- - SUM, AVG, COUNT, MAX, MIN
+   - SUM, AVG, COUNT, MAX, MIN
  * - **Derivacion**
- - Calculo basado en otros calculos
+   - Calculo basado en otros calculos
  * - **Algoritmo**
- - Logica mas compleja con condiciones
+   - Logica mas compleja con condiciones
 
 6.3 Ejemplos IACT
 ^^^^^^^^^^^^^^^^^
@@ -518,41 +518,41 @@ en un resultado.
  :widths: 15 17 17 17 17 17
 
  * - Aspecto
- - Hecho
- - Restriccion
- - Trigger
- - Inferencia
- - Calculo
+   - Hecho
+   - Restriccion
+   - Trigger
+   - Inferencia
+   - Calculo
  * - Modalidad
- - Aletica
- - Deontica
- - Deontica
- - Aletica
- - Aletica
+   - Aletica
+   - Deontica
+   - Deontica
+   - Aletica
+   - Aletica
  * - Describe
- - Lo que ES
- - Lo que DEBE
- - SI→Accion
- - SI→Estado
- - Formula
+   - Lo que ES
+   - Lo que DEBE
+   - SI→Accion
+   - SI→Estado
+   - Formula
  * - Violable
- - No
- - Si
- - Si
- - No
- - No
+   - No
+   - Si
+   - Si
+   - No
+   - No
  * - Genera UC
- - No
- - Parcial
- - **SI**
- - No
- - No
+   - No
+   - Parcial
+   - **SI**
+   - No
+   - No
  * - Genera FR
- - Validacion
- - Validacion
- - Multiples
- - Logica
- - Algoritmo
+   - Validacion
+   - Validacion
+   - Multiples
+   - Logica
+   - Algoritmo
 
 7.2 Arbol de Decision
 ^^^^^^^^^^^^^^^^^^^^^
@@ -591,29 +591,29 @@ en un resultado.
  :widths: 20 25 25 30
 
  * - Tipo BR
- - Genera UC?
- - Genera FR
- - Otros Artefactos
+   - Genera UC?
+   - Genera FR
+   - Otros Artefactos
  * - Hecho
- - No
- - Validacion integridad
- - Constraints BD, Modelo
+   - No
+   - Validacion integridad
+   - Constraints BD, Modelo
  * - Restriccion
- - Parcial (flujo alterno)
- - Validacion acceso
- - Precondiciones UC
+   - Parcial (flujo alterno)
+   - Validacion acceso
+   - Precondiciones UC
  * - Desencadenador
- - **SI (completo)**
- - Multiples por paso
- - Eventos, Notificaciones
+   - **SI (completo)**
+   - Multiples por paso
+   - Eventos, Notificaciones
  * - Inferencia
- - No
- - Logica interna
- - Jobs batch
+   - No
+   - Logica interna
+   - Jobs batch
  * - Calculo
- - No (paso en UC)
- - Algoritmo especifico
- - Stored procedures
+   - No (paso en UC)
+   - Algoritmo especifico
+   - Stored procedures
 
 ----
 
@@ -628,26 +628,26 @@ en un resultado.
  :widths: 30 20 50
 
  * - Tipo
- - Cantidad
- - Ejemplos
+   - Cantidad
+   - Ejemplos
  * - Hecho
- - 2
- - BR_011 (RBAC Flat), BR_HEC_001 (Unicidad)
+   - 2
+   - BR_011 (RBAC Flat), BR_HEC_001 (Unicidad)
  * - Restriccion
- - 3
- - BR_001 (Inmutable), BR_015 (SoD), BR_RES_001
+   - 3
+   - BR_001 (Inmutable), BR_015 (SoD), BR_RES_001
  * - Desencadenador
- - 2
- - BR_002 (ETL), BR_TRG_001 (Alertas)
+   - 2
+   - BR_002 (ETL), BR_TRG_001 (Alertas)
  * - Inferencia
- - 1
- - BR_003 (Inactivo 90 dias)
+   - 1
+   - BR_003 (Inactivo 90 dias)
  * - Calculo
- - ~5
- - Metricas de dashboard
+   - ~5
+   - Metricas de dashboard
  * - **Total**
- - **~13**
- - Base identificada
+   - **~13**
+   - Base identificada
 
 ----
 
@@ -679,13 +679,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 5 tipos de BR
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 5 tipos de BR
 
 ----
 

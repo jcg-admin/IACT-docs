@@ -22,19 +22,19 @@ FR-001.04: Invalidar sesiones previas
  :widths: 25 75
 
  * - **ID**
- - FR-001.04
+   - FR-001.04
  * - **Nombre**
- - Invalidar sesiones previas del usuario
+   - Invalidar sesiones previas del usuario
  * - **UC Origen**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Paso UC**
- - Paso 7 del flujo normal
+   - Paso 7 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -114,19 +114,19 @@ FR-001.04: Invalidar sesiones previas
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Depende de**
- - FR-001.02
+   - FR-001.02
  * - **Requerido por**
- - FR-001.03
+   - FR-001.03
  * - **BR**
- - BR_005
+   - BR_005
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-001.04 (pendiente)
+   - TST-FR-001.04 (pendiente)
 
 ----
 
@@ -138,8 +138,8 @@ FR-001.04: Invalidar sesiones previas
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_001
+   - 2026-01-07
+   - Versión inicial derivada de UC_001

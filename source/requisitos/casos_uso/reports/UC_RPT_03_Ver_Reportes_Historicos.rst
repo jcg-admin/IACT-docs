@@ -19,21 +19,21 @@ UC_RPT_03: Ver Reportes Historicos
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_03
+   - UC_RPT_03
  * - **Nombre**
- - Ver Reportes Historicos
+   - Ver Reportes Historicos
  * - **Actor Principal**
- - AGR-002: agr_operador_reportes
+   - AGR-002: agr_operador_reportes
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-003: ve_historicos
+   - RPT-003: ve_historicos
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-003
+   - BRQ-RPT-003
 
 2. Descripcion
 --------------
@@ -87,13 +87,13 @@ informes para toma de decisiones.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-003
+   - El usuario tiene sesion activa con funcion RPT-003
  * - PRE-02
- - Existen datos historicos en el rango solicitado
+   - Existen datos historicos en el rango solicitado
  * - PRE-03
- - El rango solicitado no excede 2 anios
+   - El rango solicitado no excede 2 anios
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -108,11 +108,11 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran datos historicos del periodo seleccionado
+   - Se muestran datos historicos del periodo seleccionado
  * - POST-02
- - Los datos estan filtrados por segmento del usuario
+   - Los datos estan filtrados por segmento del usuario
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -122,38 +122,38 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a reportes historicos
+   - Usuario
+   - Accede a reportes historicos
  * - 2
- - Sistema
- - Valida funcion RPT-003
+   - Sistema
+   - Valida funcion RPT-003
  * - 3
- - Sistema
- - Muestra formulario con ultimo mes por defecto
+   - Sistema
+   - Muestra formulario con ultimo mes por defecto
  * - 4
- - Usuario
- - Selecciona fecha inicio y fecha fin
+   - Usuario
+   - Selecciona fecha inicio y fecha fin
  * - 5
- - Sistema
- - Valida rango no excede 2 anios (CNST_015)
+   - Sistema
+   - Valida rango no excede 2 anios (CNST_015)
  * - 6
- - Usuario
- - Selecciona tipo de agregacion (dia/semana/mes)
+   - Usuario
+   - Selecciona tipo de agregacion (dia/semana/mes)
  * - 7
- - Sistema
- - Consulta datos con filtro de segmento
+   - Sistema
+   - Consulta datos con filtro de segmento
  * - 8
- - Sistema
- - Calcula agregaciones segun periodo
+   - Sistema
+   - Calcula agregaciones segun periodo
  * - 9
- - Sistema
- - Renderiza tabla y graficos
+   - Sistema
+   - Renderiza tabla y graficos
  * - 10
- - Usuario
- - Visualiza reporte historico
+   - Usuario
+   - Visualiza reporte historico
 
 6. Diagrama de Secuencia
 ------------------------
@@ -210,20 +210,20 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Usuario
- - Activa opcion Comparar Periodos
+   - Usuario
+   - Activa opcion Comparar Periodos
  * - 6b
- - Usuario
- - Selecciona segundo periodo a comparar
+   - Usuario
+   - Selecciona segundo periodo a comparar
  * - 9a
- - Sistema
- - Muestra ambos periodos lado a lado
+   - Sistema
+   - Muestra ambos periodos lado a lado
  * - 9b
- - Sistema
- - Calcula y muestra variaciones porcentuales
+   - Sistema
+   - Calcula y muestra variaciones porcentuales
 
 7.2 FA-02: Cambiar Agregacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,17 +233,17 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 10a
- - Usuario
- - Cambia tipo de agregacion
+   - Usuario
+   - Cambia tipo de agregacion
  * - 10b
- - Sistema
- - Recalcula datos con nueva agregacion
+   - Sistema
+   - Recalcula datos con nueva agregacion
  * - 10c
- - Sistema
- - Actualiza tabla y graficos
+   - Sistema
+   - Actualiza tabla y graficos
 
 8. Excepciones
 --------------
@@ -256,15 +256,15 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Diferencia entre fechas mayor a 730 dias
+   - Diferencia entre fechas mayor a 730 dias
  * - **Accion Sistema**
- - Rechaza consulta
+   - Rechaza consulta
  * - **Mensaje Usuario**
- - Rango maximo permitido es 2 anios. Ajuste las fechas.
+   - Rango maximo permitido es 2 anios. Ajuste las fechas.
  * - **Codigo Error**
- - RPT-020
+   - RPT-020
 
 8.2 EX-02: Sin Datos en Rango
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -274,15 +274,15 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - No existen datos para el rango y segmento
+   - No existen datos para el rango y segmento
  * - **Accion Sistema**
- - Muestra reporte vacio
+   - Muestra reporte vacio
  * - **Mensaje Usuario**
- - No hay datos disponibles para el periodo seleccionado
+   - No hay datos disponibles para el periodo seleccionado
  * - **Codigo Error**
- - RPT-021
+   - RPT-021
 
 9. Diagrama de Actividad
 ------------------------
@@ -340,20 +340,20 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-20
- - Rango Maximo
- - Solo se pueden consultar datos de los ultimos 2 anios (CNST_015)
+   - Rango Maximo
+   - Solo se pueden consultar datos de los ultimos 2 anios (CNST_015)
  * - BR-RPT-21
- - Agregaciones
- - Disponibles: diaria, semanal, mensual
+   - Agregaciones
+   - Disponibles: diaria, semanal, mensual
  * - BR-RPT-22
- - Segmento
- - Datos siempre filtrados por segmento del usuario
+   - Segmento
+   - Datos siempre filtrados por segmento del usuario
  * - BR-RPT-23
- - Comparacion
- - Permite comparar dos periodos de igual duracion
+   - Comparacion
+   - Permite comparar dos periodos de igual duracion
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -363,17 +363,17 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Datos historicos de BD Analytics exclusivamente
+   - BD Dual
+   - Datos historicos de BD Analytics exclusivamente
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento
+   - Segmentos
+   - Filtro automatico por segmento
  * - CNST_015
- - Retencion
- - Maximo 2 anios de datos historicos consultables
+   - Retencion
+   - Maximo 2 anios de datos historicos consultables
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -383,20 +383,20 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-020
- - El sistema debe permitir seleccionar rango de fechas
- - Selector de fechas funcional
+   - El sistema debe permitir seleccionar rango de fechas
+   - Selector de fechas funcional
  * - FR-RPT-021
- - El sistema debe validar rango maximo 2 anios
- - Rechazo si excede limite
+   - El sistema debe validar rango maximo 2 anios
+   - Rechazo si excede limite
  * - FR-RPT-022
- - El sistema debe permitir comparar periodos
- - Vista lado a lado con variaciones
+   - El sistema debe permitir comparar periodos
+   - Vista lado a lado con variaciones
  * - FR-RPT-023
- - El sistema debe mostrar graficos de tendencia
- - Graficos de linea renderizados
+   - El sistema debe mostrar graficos de tendencia
+   - Graficos de linea renderizados
 
 13. Trazabilidad
 ----------------
@@ -406,17 +406,17 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-003: Reportes historicos
+   - BRQ-RPT-003: Reportes historicos
  * - **Reglas de Negocio**
- - BR-RPT-20 a BR-RPT-23
+   - BR-RPT-20 a BR-RPT-23
  * - **Restricciones**
- - CNST_007, CNST_008, CNST_015
+   - CNST_007, CNST_008, CNST_015
  * - **UC Relacionados**
- - UC_RPT_01, UC_RPT_04 (Exportar)
+   - UC_RPT_01, UC_RPT_04 (Exportar)
  * - **Actor Principal**
- - AGR-002: agr_operador_reportes
+   - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**
- - RPT-003: ve_historicos
+   - RPT-003: ve_historicos
 
 14. Historial de Cambios
 ------------------------
@@ -426,10 +426,10 @@ El usuario accede a reportes historicos desde el menu.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

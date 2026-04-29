@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Revision_UC_Previo_Derivacion
+   - PROC_Revision_UC_Previo_Derivacion
  * - **Nombre**
- - Revision de Casos de Uso Previo a Derivacion de FR
+   - Revision de Casos de Uso Previo a Derivacion de FR
  * - **Categoria**
- - Preparacion
+   - Preparacion
  * - **Frecuencia**
- - Antes de cada sesion de derivacion FR
+   - Antes de cada sesion de derivacion FR
  * - **Duracion Estimada**
- - 15-30 minutos por modulo
+   - 15-30 minutos por modulo
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -79,14 +79,14 @@ informacion completa y verificada.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Analista
- - Ejecuta la revision y extrae informacion
- - Lectura de UC
+   - Ejecuta la revision y extrae informacion
+   - Lectura de UC
  * - Arquitecto
- - Valida consistencia con BR y CNST
- - Lectura de BR, CNST
+   - Valida consistencia con BR y CNST
+   - Lectura de BR, CNST
 
 ----
 
@@ -110,20 +110,20 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - UC_[NNN]_[Nombre].rst
- - Caso de Uso a revisar
- - Si
+   - Caso de Uso a revisar
+   - Si
  * - BR_[NNN].rst
- - Reglas de negocio referenciadas
- - Si
+   - Reglas de negocio referenciadas
+   - Si
  * - CNST_[NNN].rst
- - Restricciones referenciadas
- - No
+   - Restricciones referenciadas
+   - No
  * - TPL_FR
- - Template de FR (para conocer campos requeridos)
- - Si
+   - Template de FR (para conocer campos requeridos)
+   - Si
 
 ----
 
@@ -276,14 +276,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Documento de trabajo
- - Lista de FR a generar con informacion extraida
- - /tmp/ o notas
+   - Lista de FR a generar con informacion extraida
+   - /tmp/ o notas
  * - Lista de FR por UC
- - Inventario FR-NNN.NN por cada UC
- - Documento de trabajo
+   - Inventario FR-NNN.NN por cada UC
+   - Documento de trabajo
 
 ----
 
@@ -329,13 +329,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - UC sin seccion Trazabilidad
- - Derivar FR desde pasos del sistema en Flujo Normal
+   - Derivar FR desde pasos del sistema en Flujo Normal
  * - BR referenciada no existe
- - Reportar gap, continuar con otras BR
+   - Reportar gap, continuar con otras BR
  * - Nomenclatura FR inconsistente
- - Corregir antes de proceder con derivacion
+   - Corregir antes de proceder con derivacion
 
 ----
 
@@ -357,13 +357,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

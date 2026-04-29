@@ -19,23 +19,23 @@ UC_USR_04: Eliminar Usuario
  :header-rows: 0
 
  * - **ID**
- - UC_USR_04
+   - UC_USR_04
  * - **Nombre**
- - Eliminar Usuario (Baja Logica)
+   - Eliminar Usuario (Baja Logica)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - Sistema (validacion automatica)
+   - Sistema (validacion automatica)
  * - **Modulo**
- - MOD_Users
+   - MOD_Users
  * - **Funcion RBAC**
- - USR-004: elimina_usuarios
+   - USR-004: elimina_usuarios
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-USR-004
+   - BRQ-USR-004
 
 2. Descripcion
 --------------
@@ -108,15 +108,15 @@ auditoria.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion USR-004
+   - El administrador tiene sesion activa con funcion USR-004
  * - PRE-02
- - El usuario a eliminar existe en el sistema
+   - El usuario a eliminar existe en el sistema
  * - PRE-03
- - El usuario a eliminar no es el mismo administrador
+   - El usuario a eliminar no es el mismo administrador
  * - PRE-04
- - El usuario no tiene estado ELIMINADO actualmente
+   - El usuario no tiene estado ELIMINADO actualmente
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -133,19 +133,19 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El estado del usuario cambia a ELIMINADO
+   - El estado del usuario cambia a ELIMINADO
  * - POST-02
- - Todas las sesiones activas del usuario se cierran
+   - Todas las sesiones activas del usuario se cierran
  * - POST-03
- - Todas las funciones asignadas se revocan
+   - Todas las funciones asignadas se revocan
  * - POST-04
- - El registro permanece en base de datos (baja logica)
+   - El registro permanece en base de datos (baja logica)
  * - POST-05
- - Se registra USER_DELETE en auditoria (CNST_025)
+   - Se registra USER_DELETE en auditoria (CNST_025)
  * - POST-06
- - El usuario no puede iniciar sesion
+   - El usuario no puede iniciar sesion
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -155,53 +155,53 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Selecciona usuario de la lista (UC_USR_02)
+   - Admin
+   - Selecciona usuario de la lista (UC_USR_02)
  * - 2
- - Admin
- - Hace clic en "Eliminar Usuario"
+   - Admin
+   - Hace clic en "Eliminar Usuario"
  * - 3
- - Sistema
- - Valida funcion USR-004 (elimina_usuarios)
+   - Sistema
+   - Valida funcion USR-004 (elimina_usuarios)
  * - 4
- - Sistema
- - Verifica que no sea auto-eliminacion
+   - Sistema
+   - Verifica que no sea auto-eliminacion
  * - 5
- - Sistema
- - Verifica que estado actual no sea ELIMINADO
+   - Sistema
+   - Verifica que estado actual no sea ELIMINADO
  * - 6
- - Sistema
- - Muestra dialogo de confirmacion con advertencias
+   - Sistema
+   - Muestra dialogo de confirmacion con advertencias
  * - 7
- - Admin
- - Ingresa motivo de eliminacion (obligatorio)
+   - Admin
+   - Ingresa motivo de eliminacion (obligatorio)
  * - 8
- - Admin
- - Confirma eliminacion
+   - Admin
+   - Confirma eliminacion
  * - 9
- - Sistema
- - Cierra todas las sesiones activas del usuario
+   - Sistema
+   - Cierra todas las sesiones activas del usuario
  * - 10
- - Sistema
- - Revoca todas las funciones asignadas al usuario
+   - Sistema
+   - Revoca todas las funciones asignadas al usuario
  * - 11
- - Sistema
- - Cambia estado a ELIMINADO (no DELETE fisico)
+   - Sistema
+   - Cambia estado a ELIMINADO (no DELETE fisico)
  * - 12
- - Sistema
- - Registra deleted_at, deleted_by, deleted_reason
+   - Sistema
+   - Registra deleted_at, deleted_by, deleted_reason
  * - 13
- - Sistema
- - Registra USER_DELETE en UserActionLog (CNST_025)
+   - Sistema
+   - Registra USER_DELETE en UserActionLog (CNST_025)
  * - 14
- - Sistema
- - Muestra confirmacion de eliminacion
+   - Sistema
+   - Muestra confirmacion de eliminacion
  * - 15
- - Sistema
- - Actualiza lista de usuarios
+   - Sistema
+   - Actualiza lista de usuarios
 
 6. Diagrama de Secuencia
 ------------------------
@@ -326,17 +326,17 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Admin
- - Cancela el dialogo de confirmacion
+   - Admin
+   - Cancela el dialogo de confirmacion
  * - 8b
- - Sistema
- - No realiza ninguna accion
+   - Sistema
+   - No realiza ninguna accion
  * - 8c
- - Sistema
- - Permanece en detalle del usuario
+   - Sistema
+   - Permanece en detalle del usuario
 
 7.2 FA-02: Usuario con Dependencias Criticas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -346,17 +346,17 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Sistema
- - Detecta que usuario tiene alertas activas
+   - Sistema
+   - Detecta que usuario tiene alertas activas
  * - 6b
- - Sistema
- - Muestra advertencia adicional en dialogo
+   - Sistema
+   - Muestra advertencia adicional en dialogo
  * - 6c
- - Sistema
- - Las alertas del usuario se pausan automaticamente
+   - Sistema
+   - Las alertas del usuario se pausan automaticamente
 
 8. Excepciones
 --------------
@@ -369,15 +369,15 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Administrador no tiene funcion USR-004
+   - Administrador no tiene funcion USR-004
  * - **Accion Sistema**
- - Rechaza eliminacion
+   - Rechaza eliminacion
  * - **Mensaje Usuario**
- - "No tiene permisos para eliminar usuarios"
+   - "No tiene permisos para eliminar usuarios"
  * - **Codigo Error**
- - USR-030
+   - USR-030
 
 8.2 EX-02: Usuario No Encontrado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,15 +387,15 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - ID de usuario no existe
+   - ID de usuario no existe
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Usuario no encontrado"
+   - "Usuario no encontrado"
  * - **Codigo Error**
- - USR-031
+   - USR-031
 
 8.3 EX-03: Auto-Eliminacion No Permitida
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -405,15 +405,15 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - Admin intenta eliminarse a si mismo
+   - Admin intenta eliminarse a si mismo
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "No puede eliminar su propia cuenta"
+   - "No puede eliminar su propia cuenta"
  * - **Codigo Error**
- - USR-032
+   - USR-032
 
 8.4 EX-04: Usuario Ya Eliminado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -423,15 +423,15 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Usuario ya tiene estado ELIMINADO
+   - Usuario ya tiene estado ELIMINADO
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "El usuario ya fue eliminado anteriormente"
+   - "El usuario ya fue eliminado anteriormente"
  * - **Codigo Error**
- - USR-033
+   - USR-033
 
 9. Diagrama de Actividad
 ------------------------
@@ -509,26 +509,26 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-USR-30
- - Baja Logica Obligatoria
- - La eliminacion de usuarios SIEMPRE es logica. El registro permanece en base de datos con estado ELIMINADO.
+   - Baja Logica Obligatoria
+   - La eliminacion de usuarios SIEMPRE es logica. El registro permanece en base de datos con estado ELIMINADO.
  * - BR-USR-31
- - Motivo Obligatorio
- - La eliminacion requiere un motivo que se registra en auditoria y en el campo deleted_reason.
+   - Motivo Obligatorio
+   - La eliminacion requiere un motivo que se registra en auditoria y en el campo deleted_reason.
  * - BR-USR-32
- - Sin Auto-Eliminacion
- - Un administrador no puede eliminar su propia cuenta.
+   - Sin Auto-Eliminacion
+   - Un administrador no puede eliminar su propia cuenta.
  * - BR-USR-33
- - Cierre de Sesiones
- - Al eliminar, todas las sesiones activas del usuario se cierran automaticamente.
+   - Cierre de Sesiones
+   - Al eliminar, todas las sesiones activas del usuario se cierran automaticamente.
  * - BR-USR-34
- - Revocacion de Funciones
- - Al eliminar, todas las funciones asignadas se revocan automaticamente.
+   - Revocacion de Funciones
+   - Al eliminar, todas las funciones asignadas se revocan automaticamente.
  * - BR-USR-35
- - Sin Recuperacion
- - Un usuario ELIMINADO no puede ser reactivado. Se debe crear nuevo usuario si es necesario.
+   - Sin Recuperacion
+   - Un usuario ELIMINADO no puede ser reactivado. Se debe crear nuevo usuario si es necesario.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -538,14 +538,14 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat / Baja Logica
- - La eliminacion es SIEMPRE logica. Se ejecuta UPDATE SET status='ELIMINADO', NUNCA DELETE FROM users. El registro permanece para integridad referencial y auditoria.
+   - RBAC Flat / Baja Logica
+   - La eliminacion es SIEMPRE logica. Se ejecuta UPDATE SET status='ELIMINADO', NUNCA DELETE FROM users. El registro permanece para integridad referencial y auditoria.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra USER_DELETE en UserActionLog con: admin ejecutor, usuario eliminado, motivo, timestamp. El registro de auditoria permanece aunque el usuario este eliminado.
+   - Auditoria Inmutable
+   - Se registra USER_DELETE en UserActionLog con: admin ejecutor, usuario eliminado, motivo, timestamp. El registro de auditoria permanece aunque el usuario este eliminado.
 
 **Implementacion CNST_029:**
 
@@ -580,23 +580,23 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-USR-030
- - El sistema debe implementar baja logica
- - Estado cambia a ELIMINADO, registro permanece
+   - El sistema debe implementar baja logica
+   - Estado cambia a ELIMINADO, registro permanece
  * - FR-USR-031
- - El sistema debe requerir motivo de eliminacion
- - Campo reason obligatorio, registrado en BD
+   - El sistema debe requerir motivo de eliminacion
+   - Campo reason obligatorio, registrado en BD
  * - FR-USR-032
- - El sistema debe cerrar sesiones al eliminar
- - Todas las sesiones marcadas inactivas
+   - El sistema debe cerrar sesiones al eliminar
+   - Todas las sesiones marcadas inactivas
  * - FR-USR-033
- - El sistema debe revocar funciones al eliminar
- - user_functions vacio para ese usuario
+   - El sistema debe revocar funciones al eliminar
+   - user_functions vacio para ese usuario
  * - FR-USR-034
- - El sistema debe impedir auto-eliminacion
- - Error 400 si admin == user
+   - El sistema debe impedir auto-eliminacion
+   - Error 400 si admin == user
 
 13. Trazabilidad
 ----------------
@@ -606,19 +606,19 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-USR-004: Permitir eliminacion de usuarios del sistema
+   - BRQ-USR-004: Permitir eliminacion de usuarios del sistema
  * - **Reglas de Negocio**
- - BR-USR-30 a BR-USR-35
+   - BR-USR-30 a BR-USR-35
  * - **Restricciones**
- - CNST_029 (Baja Logica), CNST_025 (Auditoria Inmutable)
+   - CNST_029 (Baja Logica), CNST_025 (Auditoria Inmutable)
  * - **FR Derivados**
- - FR-USR-030 a FR-USR-034
+   - FR-USR-030 a FR-USR-034
  * - **UC Relacionados**
- - UC_USR_02 (Consultar Usuarios), UC_USR_03 (Modificar Usuario), UC_AUTH_05 (Gestionar Sesiones)
+   - UC_USR_02 (Consultar Usuarios), UC_USR_03 (Modificar Usuario), UC_AUTH_05 (Gestionar Sesiones)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - USR-004: elimina_usuarios
+   - USR-004: elimina_usuarios
 
 14. Historial de Cambios
 ------------------------
@@ -628,10 +628,10 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_029 baja logica
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_029 baja logica

@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_012
+   - BR_012
  * - **Nombre**
- - Usuario-Segmento Único
+   - Usuario-Segmento Único
  * - **Tipo**
- - Hecho
+   - Hecho
  * - **Categoría**
- - Seguridad / Control de Acceso
+   - Seguridad / Control de Acceso
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -101,9 +101,9 @@ La segmentación por centro garantiza:
  :header-rows: 0
 
  * - **Tipo**
- - **Hecho**
+   - **Hecho**
  * - 
- - [X] **Hecho**: Define estructura de datos usuario-segmento
+   - [X] **Hecho**: Define estructura de datos usuario-segmento
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -125,13 +125,13 @@ La segmentación por centro garantiza:
  :header-rows: 0
 
  * - **Documento**
- - MODELO_RBAC_IACT
+   - MODELO_RBAC_IACT
  * - **Sección**
- - Segmentación por Centro
+   - Segmentación por Centro
  * - **Versión**
- - 5.1.1
+   - 5.1.1
  * - **Tipo Fuente**
- - Diseño de Seguridad
+   - Diseño de Seguridad
 
 3.2 Autoridad de Modificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,17 +153,17 @@ La segmentación por centro garantiza:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - UC_ACC_06
- - Asignar Segmento - Crea relación usuario-centro
+   - Asignar Segmento - Crea relación usuario-centro
  * - UC_RPT_03
- - Filtrar por Centro - Solo muestra centros asignados
+   - Filtrar por Centro - Solo muestra centros asignados
  * - UC_RPT_01
- - Ver Dashboard - Filtra datos por segmentos del usuario
+   - Ver Dashboard - Filtra datos por segmentos del usuario
  * - Middleware
- - Aplica filtro automático en todas las consultas
+   - Aplica filtro automático en todas las consultas
  * - APIs
- - Valida acceso a datos según segmentos
+   - Valida acceso a datos según segmentos
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -208,17 +208,17 @@ La segmentación por centro garantiza:
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC_ACC_06
- - Asignar Segmento a usuario
+   - Asignar Segmento a usuario
  * - UC_ACC_07
- - Consultar Permisos Efectivos (incluye segmentos)
+   - Consultar Permisos Efectivos (incluye segmentos)
  * - UC_RPT_01-14
- - Todos los reportes filtran por segmento
+   - Todos los reportes filtran por segmento
  * - UC_ALR_01-05
- - Alertas filtradas por segmento
+   - Alertas filtradas por segmento
  * - UC_AUD_01-04
- - Auditoría filtrada por segmento
+   - Auditoría filtrada por segmento
 
 ----
 
@@ -351,13 +351,13 @@ La regla se considera cumplida cuando:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Descripción del Cambio
+   - Fecha
+   - Autor
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial basada en MODELO_RBAC_IACT_v5_2_1
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial basada en MODELO_RBAC_IACT_v5_2_1
 
 ----
 

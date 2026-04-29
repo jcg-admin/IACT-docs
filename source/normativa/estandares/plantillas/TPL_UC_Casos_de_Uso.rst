@@ -477,14 +477,14 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 2.0.0
- - 2026-01-06
- - Equipo IACT
- - Nueva version con PlantUML embebido para Sphinx
+   - 2026-01-06
+   - Equipo IACT
+   - Nueva version con PlantUML embebido para Sphinx
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial (sin diagramas)
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial (sin diagramas)

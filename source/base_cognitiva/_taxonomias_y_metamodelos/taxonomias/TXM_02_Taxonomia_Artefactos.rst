@@ -78,17 +78,17 @@ ubicaciones y relaciones entre artefactos.
  :widths: 25 75
 
  * - Artefacto
- - Contenido
+   - Contenido
  * - META_01
- - Identificacion del Proyecto (nombre, codigo, version)
+   - Identificacion del Proyecto (nombre, codigo, version)
  * - META_02
- - Clasificacion de Seguridad
+   - Clasificacion de Seguridad
  * - META_03
- - Contexto SDLC
+   - Contexto SDLC
  * - META_04
- - Stakeholders
+   - Stakeholders
  * - META_05
- - Alcance del Proyecto
+   - Alcance del Proyecto
 
 2.2 Glosario (GLOS\_)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -111,21 +111,21 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - FND_01
- - Concepto de Requisito
+   - Concepto de Requisito
  * - FND_02
- - Reglas de Negocio
+   - Reglas de Negocio
  * - FND_03
- - Casos de Uso
+   - Casos de Uso
  * - FND_04
- - Trazabilidad
+   - Trazabilidad
  * - FND_05
- - Jerarquia de 4 Niveles
+   - Jerarquia de 4 Niveles
  * - FND_06
- - Derivacion vs Transformacion
+   - Derivacion vs Transformacion
  * - FND_07
- - Requerimientos Funcionales
+   - Requerimientos Funcionales
 
 2.4 Ontologia SBVR (SBVR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,17 +139,17 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - SBVR_01
- - Conceptos Nucleares (sustantivos)
+   - Conceptos Nucleares (sustantivos)
  * - SBVR_02
- - Fact Types (verbos/relaciones)
+   - Fact Types (verbos/relaciones)
  * - SBVR_03
- - Reglas Estructurales (aleticas)
+   - Reglas Estructurales (aleticas)
  * - SBVR_04
- - Reglas Operativas (deonticas)
+   - Reglas Operativas (deonticas)
  * - SBVR_05
- - Vocabulario Controlado
+   - Vocabulario Controlado
 
 2.5 Taxonomia (TXM\_)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -163,13 +163,13 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - TXM_01
- - Taxonomia de Requisitos
+   - Taxonomia de Requisitos
  * - TXM_02
- - Taxonomia de Artefactos (este documento)
+   - Taxonomia de Artefactos (este documento)
  * - TXM_03
- - Taxonomia de Reglas de Negocio
+   - Taxonomia de Reglas de Negocio
 
 2.6 Metamodelo (MTM\_)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -183,13 +183,13 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - MTM_01
- - Metamodelo de Requisitos
+   - Metamodelo de Requisitos
  * - MTM_02
- - Metamodelo de Trazabilidad
+   - Metamodelo de Trazabilidad
  * - MTM_03
- - Metamodelo RBAC
+   - Metamodelo RBAC
 
 2.7 Metodologia (METH\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -203,13 +203,13 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - METH_01
- - Derivacion UC desde BR
+   - Derivacion UC desde BR
  * - METH_02
- - Derivacion FR desde UC
+   - Derivacion FR desde UC
  * - METH_03
- - Tecnicas de Larman
+   - Tecnicas de Larman
 
 ----
 
@@ -261,15 +261,15 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 85
 
  * - ID
- - Contenido
+   - Contenido
  * - CNST_001
- - Sin Correo Electronico Externo
+   - Sin Correo Electronico Externo
  * - CNST_002
- - BD IVR Solo Lectura
+   - BD IVR Solo Lectura
  * - CNST_004
- - Sesion Unica por Usuario
+   - Sesion Unica por Usuario
  * - CNST_025
- - Auditoria Inmutable
+   - Auditoria Inmutable
 
 ----
 
@@ -292,20 +292,20 @@ ubicaciones y relaciones entre artefactos.
  :widths: 15 40 45
 
  * - ID
- - Nombre
- - Tipo
+   - Nombre
+   - Tipo
  * - BR_001
- - Fuente Operacional Inmutable
- - Restriccion
+   - Fuente Operacional Inmutable
+   - Restriccion
  * - BR_002
- - Sincronizacion ETL Nocturna
- - Desencadenador
+   - Sincronizacion ETL Nocturna
+   - Desencadenador
  * - BR_011
- - Modelo RBAC Flat
- - Hecho
+   - Modelo RBAC Flat
+   - Hecho
  * - BR_015
- - Separacion de Funciones
- - Restriccion
+   - Separacion de Funciones
+   - Restriccion
 
 4.2 Caso de Uso (UC\_)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -424,25 +424,25 @@ ubicaciones y relaciones entre artefactos.
  :widths: 25 20 15 40
 
  * - Dominio
- - Prefijos
- - Cantidad
- - Proposito
+   - Prefijos
+   - Cantidad
+   - Proposito
  * - base_cognitiva
- - META, GLOS, FND, SBVR, TXM, MTM, METH
- - ~25
- - Base semantica y conceptual
+   - META, GLOS, FND, SBVR, TXM, MTM, METH
+   - ~25
+   - Base semantica y conceptual
  * - normativa
- - PROC, STD, GOB, CNST, RTM, COV
- - ~25
- - Normas, gobernanza y trazabilidad
+   - PROC, STD, GOB, CNST, RTM, COV
+   - ~25
+   - Normas, gobernanza y trazabilidad
  * - requisitos
- - BR, UC, FR, NFR
- - ~350
- - Especificacion del sistema
+   - BR, UC, FR, NFR
+   - ~350
+   - Especificacion del sistema
  * - arquitectura
- - ADR, VIEW, MDL
- - ~10
- - Diseno tecnico
+   - ADR, VIEW, MDL
+   - ~10
+   - Diseno tecnico
 
 ----
 
@@ -486,14 +486,14 @@ ubicaciones y relaciones entre artefactos.
  :widths: 30 30 40
 
  * - Prefijo Carpeta
- - Visibilidad
- - Ejemplo
+   - Visibilidad
+   - Ejemplo
  * - _ (guion bajo)
- - PRIVADO (excluido de build)
- - _fundamentos_conceptuales/
+   - PRIVADO (excluido de build)
+   - _fundamentos_conceptuales/
  * - (sin prefijo)
- - PUBLICO (incluido en build)
- - requisitos/, arquitectura/
+   - PUBLICO (incluido en build)
+   - requisitos/, arquitectura/
 
 ----
 
@@ -546,29 +546,29 @@ ubicaciones y relaciones entre artefactos.
  :widths: 30 20 25 25
 
  * - Dominio
- - Subdominios
- - Artefactos
- - Lineas (est.)
+   - Subdominios
+   - Artefactos
+   - Lineas (est.)
  * - base_cognitiva
- - 6
- - ~25
- - ~12,000
+   - 6
+   - ~25
+   - ~12,000
  * - normativa
- - 5
- - ~25
- - ~12,000
+   - 5
+   - ~25
+   - ~12,000
  * - requisitos
- - 4
- - ~350
- - ~15,000
+   - 4
+   - ~350
+   - ~15,000
  * - arquitectura
- - 3
- - ~10
- - ~2,000
+   - 3
+   - ~10
+   - ~2,000
  * - **TOTAL**
- - **18**
- - **~410**
- - **~41,000**
+   - **18**
+   - **~410**
+   - **~41,000**
 
 10.2 Por Estado
 ^^^^^^^^^^^^^^^
@@ -578,14 +578,14 @@ ubicaciones y relaciones entre artefactos.
  :widths: 30 35 35
 
  * - Estado
- - Subdominios
- - Descripcion
+   - Subdominios
+   - Descripcion
  * - CONGELADO
- - 12
- - Estructura estable, contenido puede evolucionar
+   - 12
+   - Estructura estable, contenido puede evolucionar
  * - DESCONGELADO
- - 5
- - Estructura activa, en desarrollo
+   - 5
+   - Estructura activa, en desarrollo
 
 ----
 
@@ -616,17 +616,17 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2025-12-22
- - Equipo IACT
- - Correccion nomenclatura: dominio "gobernanza" renombrado a "normativa". Actualizado estructura de subdominios (procedimientos, estandares, gobernanza, restricciones, trazabilidad). Actualizado estadisticas.
+   - 2025-12-22
+   - Equipo IACT
+   - Correccion nomenclatura: dominio "gobernanza" renombrado a "normativa". Actualizado estructura de subdominios (procedimientos, estandares, gobernanza, restricciones, trazabilidad). Actualizado estadisticas.
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con taxonomia completa
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con taxonomia completa
 
 ----
 

@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_017
+   - CNST_017
  * - **Categoria**
- - Performance
+   - Performance
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -77,23 +77,23 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
  :widths: 50 25 25
 
  * - Tipo de endpoint
- - SLA p95
- - SLA p99
+   - SLA p95
+   - SLA p99
  * - Lectura simple (detalle)
- - 200 ms
- - 500 ms
+   - 200 ms
+   - 500 ms
  * - Lectura paginada
- - 500 ms
- - 1 s
+   - 500 ms
+   - 1 s
  * - Escritura (CRUD)
- - 800 ms
- - 2 s
+   - 800 ms
+   - 2 s
  * - Reporte sincrono
- - 5 s
- - 10 s
+   - 5 s
+   - 10 s
  * - Login
- - 1 s
- - 2 s
+   - 1 s
+   - 2 s
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -112,9 +112,9 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - Todos los modulos DRF
- - Cumplen SLA por endpoint type
+   - Cumplen SLA por endpoint type
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,15 +124,15 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_017
- - Reporte simple (<5s)
+   - Reporte simple (<5s)
  * - UC_018
- - Reporte complejo (<10s)
+   - Reporte complejo (<10s)
  * - UC_019
- - Analisis exploratorio (<300s)
+   - Analisis exploratorio (<300s)
  * - UC_025
- - Dashboard (<3s carga inicial)
+   - Dashboard (<3s carga inicial)
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -148,11 +148,11 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
  :header-rows: 1
 
  * - BR
- - Nombre
- - Relacion
+   - Nombre
+   - Relacion
  * - BR_011 (legacy)
- - Limites de Exportacion (relacionado pero no equivalente)
- - FND_00:298 — pendiente WP requisitos
+   - Limites de Exportacion (relacionado pero no equivalente)
+   - FND_00:298 — pendiente WP requisitos
 
 5. Implementacion
 -----------------
@@ -210,15 +210,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_018_Rango_Maximo_de_Consulta_de_2_Anos`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
+   - :doc:`CNST_018_Rango_Maximo_de_Consulta_de_2_Anos`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
  * - **BR derivadas**
- - BR_011 (legacy)
+   - BR_011 (legacy)
  * - **UCs afectados**
- - UC_017, UC_018, UC_019, UC_025
+   - UC_017, UC_018, UC_019, UC_025
  * - **MODs afectados**
- - Todos los modulos DRF
+   - Todos los modulos DRF
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -228,15 +228,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -53,17 +53,17 @@ Roles Involucrados
  :widths: 25 75
 
  * - Rol
- - Responsabilidades
+   - Responsabilidades
  * - **Product Owner**
- - Define requisitos, prioriza backlog, aprueba features
+   - Define requisitos, prioriza backlog, aprueba features
  * - **Tech Lead**
- - Revisa diseño, aprueba PRs críticos, define arquitectura
+   - Revisa diseño, aprueba PRs críticos, define arquitectura
  * - **Developer**
- - Implementa código, escribe tests, hace code reviews
+   - Implementa código, escribe tests, hace code reviews
  * - **QA Engineer**
- - Define tests E2E, valida en staging, smoke tests
+   - Define tests E2E, valida en staging, smoke tests
  * - **DevOps**
- - Configura pipelines CI/CD, ejecuta deployments, monitorea
+   - Configura pipelines CI/CD, ejecuta deployments, monitorea
 
 --------------
 

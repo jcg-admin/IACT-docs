@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_011
+   - CNST_011
  * - **Categoria**
- - Seguridad DRF
+   - Seguridad DRF
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -78,20 +78,20 @@ Previene ataques de fuerza bruta, scraping y abuso de recursos.
  :widths: 50 25 25
 
  * - Endpoint
- - Limite
- - Scope
+   - Limite
+   - Scope
  * - Login
- - 5/min/IP
- - ``login``
+   - 5/min/IP
+   - ``login``
  * - Recuperacion de password
- - 3/hora/IP
- - ``recovery``
+   - 3/hora/IP
+   - ``recovery``
  * - Exportacion de reportes
- - segun :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
- - ``exports``
+   - segun :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
+   - ``exports``
  * - API general autenticada
- - 100/min/usuario
- - ``user``
+   - 100/min/usuario
+   - ``user``
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,11 +110,11 @@ Previene ataques de fuerza bruta, scraping y abuso de recursos.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Auth
- - Throttle en login y recovery
+   - Throttle en login y recovery
  * - MOD_Reports
- - Throttle en exportaciones
+   - Throttle en exportaciones
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,13 +124,13 @@ Previene ataques de fuerza bruta, scraping y abuso de recursos.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_001
- - Login throttled 5/5min/IP
+   - Login throttled 5/5min/IP
  * - UC_022..024
- - Exports throttled segun CNST_020
+   - Exports throttled segun CNST_020
  * - UC_003
- - Recovery throttled 3/h/IP
+   - Recovery throttled 3/h/IP
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -203,15 +203,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
+   - :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_001, UC_022..024, UC_003
+   - UC_001, UC_022..024, UC_003
  * - **MODs afectados**
- - MOD_Auth, MOD_Reports
+   - MOD_Auth, MOD_Reports
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -221,15 +221,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

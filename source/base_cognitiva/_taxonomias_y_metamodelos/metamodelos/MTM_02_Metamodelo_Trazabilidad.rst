@@ -172,54 +172,54 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  :widths: 15 14 14 14 14 14 15
 
  * - Desde\\Hacia
- - BR
- - BReq
- - UC
- - FR
- - CODE
- - TEST
+   - BR
+   - BReq
+   - UC
+   - FR
+   - CODE
+   - TEST
  * - **BR**
- - --
- - influye
- - deriva
- - influye
- - --
- - --
+   - --
+   - influye
+   - deriva
+   - influye
+   - --
+   - --
  * - **BReq**
- - --
- - --
- - genera
- - --
- - --
- - --
+   - --
+   - --
+   - genera
+   - --
+   - --
+   - --
  * - **UC**
- - --
- - satisface
- - refina
- - deriva
- - --
- - --
+   - --
+   - satisface
+   - refina
+   - deriva
+   - --
+   - --
  * - **FR**
- - --
- - --
- - --
- - depende
- - implementa
- - --
+   - --
+   - --
+   - --
+   - depende
+   - implementa
+   - --
  * - **CODE**
- - --
- - --
- - --
- - --
- - --
- - --
+   - --
+   - --
+   - --
+   - --
+   - --
+   - --
  * - **TEST**
- - --
- - --
- - --
- - verifica
- - --
- - --
+   - --
+   - --
+   - --
+   - verifica
+   - --
+   - --
 
 3.3 Descripcion de Enlaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -229,32 +229,32 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  :widths: 20 40 40
 
  * - Tipo
- - Semantica
- - Ejemplo
+   - Semantica
+   - Ejemplo
  * - **DERIVA**
- - Origen produce destino por derivacion
- - UC_010 --deriva--> FR-10.1
+   - Origen produce destino por derivacion
+   - UC_010 --deriva--> FR-10.1
  * - **INFLUYE**
- - Origen afecta destino sin generarlo
- - BR_015 --influye--> UC_010
+   - Origen afecta destino sin generarlo
+   - BR_015 --influye--> UC_010
  * - **IMPLEMENTA**
- - Codigo realiza el requisito
- - FR-10.1 --implementa--> RoleService.assign
+   - Codigo realiza el requisito
+   - FR-10.1 --implementa--> RoleService.assign
  * - **VERIFICA**
- - Test valida cumplimiento
- - TEST_010_01 --verifica--> FR-10.1
+   - Test valida cumplimiento
+   - TEST_010_01 --verifica--> FR-10.1
  * - **REFINA**
- - Agrega detalle al mismo nivel
- - UC_010a --refina--> UC_010
+   - Agrega detalle al mismo nivel
+   - UC_010a --refina--> UC_010
  * - **SATISFACE**
- - Cumple objetivo de negocio
- - UC_010 --satisface--> BReq_003
+   - Cumple objetivo de negocio
+   - UC_010 --satisface--> BReq_003
  * - **CONFLICTO**
- - Contradiccion entre artefactos
- - FR-10.5 --conflicto--> FR-11.3
+   - Contradiccion entre artefactos
+   - FR-10.5 --conflicto--> FR-11.3
  * - **DEPENDE**
- - Requiere completar primero
- - FR-10.5 --depende--> FR-05.1
+   - Requiere completar primero
+   - FR-10.5 --depende--> FR-05.1
 
 ----
 
@@ -438,23 +438,23 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  :widths: 10 50 40
 
  * - #
- - Regla
- - Validacion
+   - Regla
+   - Validacion
  * - T1
- - FR tiene origen UC
- - COUNT(links entrantes DERIVA) >= 1
+   - FR tiene origen UC
+   - COUNT(links entrantes DERIVA) >= 1
  * - T2
- - UC genera FR
- - COUNT(links salientes DERIVA) >= 1
+   - UC genera FR
+   - COUNT(links salientes DERIVA) >= 1
  * - T3
- - Sin ciclos
- - Grafo es DAG (aciclico)
+   - Sin ciclos
+   - Grafo es DAG (aciclico)
  * - T4
- - BR Trigger tiene UC
- - Si tipo=TRIGGER entonces tiene link DERIVA
+   - BR Trigger tiene UC
+   - Si tipo=TRIGGER entonces tiene link DERIVA
  * - T5
- - Link tiene justificacion
- - justificacion.length >= 10
+   - Link tiene justificacion
+   - justificacion.length >= 10
 
 ----
 
@@ -548,33 +548,33 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  :widths: 30 20 25 25
 
  * - Metrica
- - Valor
- - Umbral
- - Estado
+   - Valor
+   - Umbral
+   - Estado
  * - BR identificadas
- - 6
- - --
- - ✓
+   - 6
+   - --
+   - ✓
  * - UC derivados
- - 38
- - --
- - ✓
+   - 38
+   - --
+   - ✓
  * - FR estimados
- - ~300
- - --
- - Pendiente
+   - ~300
+   - --
+   - Pendiente
  * - Cobertura BR->UC
- - 100%
- - 100%
- - ✓
+   - 100%
+   - 100%
+   - ✓
  * - Cobertura UC->FR
- - 0%
- - 100%
- - Pendiente
+   - 0%
+   - 100%
+   - Pendiente
  * - Cobertura FR->TEST
- - 0%
- - 80%
- - Pendiente
+   - 0%
+   - 80%
+   - Pendiente
 
 ----
 
@@ -605,13 +605,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con metamodelo completo
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con metamodelo completo
 
 ----
 

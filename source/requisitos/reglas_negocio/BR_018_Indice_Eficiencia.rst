@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_018
+   - BR_018
  * - **Nombre**
- - Índice de Eficiencia
+   - Índice de Eficiencia
  * - **Tipo**
- - Cálculo
+   - Cálculo
  * - **Categoría**
- - KPI / Métricas Operacionales
+   - KPI / Métricas Operacionales
  * - **Criticidad**
- - Media
+   - Media
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -106,9 +106,9 @@ El Índice de Eficiencia es importante porque:
  :header-rows: 0
 
  * - **Tipo**
- - **Cálculo**
+   - **Cálculo**
  * - 
- - [X] **Cálculo**: Define fórmula matemática para derivar valor
+   - [X] **Cálculo**: Define fórmula matemática para derivar valor
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -130,13 +130,13 @@ El Índice de Eficiencia es importante porque:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - Dashboard Principal
- - KPI complementario a tasa de abandono
+   - KPI complementario a tasa de abandono
  * - Reportes Comparativos
- - Eficiencia por centro
+   - Eficiencia por centro
  * - Reportes Ejecutivos
- - Resumen de desempeño
+   - Resumen de desempeño
 
 3.2 Umbrales de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,20 +146,20 @@ El Índice de Eficiencia es importante porque:
  :header-rows: 1
 
  * - Rango
- - Clasificación
- - Observación
+   - Clasificación
+   - Observación
  * - 95% - 100%
- - Excelente
- - Objetivo ideal
+   - Excelente
+   - Objetivo ideal
  * - 90% - 95%
- - Bueno
- - Aceptable
+   - Bueno
+   - Aceptable
  * - 85% - 90%
- - Regular
- - Requiere atención
+   - Regular
+   - Requiere atención
  * - < 85%
- - Deficiente
- - Acción correctiva
+   - Deficiente
+   - Acción correctiva
 
 ----
 
@@ -239,11 +239,11 @@ El Índice de Eficiencia es importante porque:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial
+   - 2026-01-07
+   - Versión inicial
 
 ----
 

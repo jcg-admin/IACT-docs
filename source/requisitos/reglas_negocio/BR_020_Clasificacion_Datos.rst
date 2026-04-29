@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_020
+   - BR_020
  * - **Nombre**
- - Clasificación de Datos
+   - Clasificación de Datos
  * - **Tipo**
- - Restricción
+   - Restricción
  * - **Categoría**
- - Seguridad / Protección de Datos
+   - Seguridad / Protección de Datos
  * - **Criticidad**
- - Crítica
+   - Crítica
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -99,9 +99,9 @@ La clasificación de datos garantiza:
  :header-rows: 0
 
  * - **Tipo**
- - **Restricción**
+   - **Restricción**
  * - 
- - [X] **Restricción**: Define controles obligatorios por clasificación
+   - [X] **Restricción**: Define controles obligatorios por clasificación
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -123,25 +123,25 @@ La clasificación de datos garantiza:
  :header-rows: 1
 
  * - Nivel
- - Descripción
- - Ejemplos IACT
- - Controles
+   - Descripción
+   - Ejemplos IACT
+   - Controles
  * - **PÚBLICO**
- - Sin impacto si se divulga
- - Nombres de centros, menús IVR
- - Ninguno especial
+   - Sin impacto si se divulga
+   - Nombres de centros, menús IVR
+   - Ninguno especial
  * - **INTERNO**
- - Uso interno de la organización
- - Métricas agregadas, reportes
- - Autenticación requerida
+   - Uso interno de la organización
+   - Métricas agregadas, reportes
+   - Autenticación requerida
  * - **CONFIDENCIAL**
- - Impacto si se divulga
- - Datos de usuarios, logs detallados
- - RBAC + Auditoría
+   - Impacto si se divulga
+   - Datos de usuarios, logs detallados
+   - RBAC + Auditoría
  * - **RESTRINGIDO**
- - Alto impacto, regulado
- - Contraseñas (hash), tokens
- - Cifrado + RBAC + Auditoría
+   - Alto impacto, regulado
+   - Contraseñas (hash), tokens
+   - Cifrado + RBAC + Auditoría
 
 3.2 Clasificación por Entidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -151,29 +151,29 @@ La clasificación de datos garantiza:
  :header-rows: 1
 
  * - Entidad/Dato
- - Clasificación
- - Justificación
+   - Clasificación
+   - Justificación
  * - Nombres de centros
- - PÚBLICO
- - Información organizacional básica
+   - PÚBLICO
+   - Información organizacional básica
  * - Métricas agregadas
- - INTERNO
- - KPIs de negocio
+   - INTERNO
+   - KPIs de negocio
  * - Datos de llamadas
- - INTERNO
- - Operacionales sin PII
+   - INTERNO
+   - Operacionales sin PII
  * - Username/Email
- - CONFIDENCIAL
- - Datos de usuario
+   - CONFIDENCIAL
+   - Datos de usuario
  * - Logs de auditoría
- - CONFIDENCIAL
- - Acciones de usuarios
+   - CONFIDENCIAL
+   - Acciones de usuarios
  * - Hash de contraseña
- - RESTRINGIDO
- - Credencial de acceso
+   - RESTRINGIDO
+   - Credencial de acceso
  * - Tokens JWT
- - RESTRINGIDO
- - Credencial de sesión
+   - RESTRINGIDO
+   - Credencial de sesión
 
 ----
 
@@ -214,17 +214,17 @@ La clasificación de datos garantiza:
  :header-rows: 1
 
  * - Componente
- - Aplicación
+   - Aplicación
  * - Modelos Django
- - Anotación de clasificación en campos
+   - Anotación de clasificación en campos
  * - Serializers
- - Exclusión de campos según rol
+   - Exclusión de campos según rol
  * - Logs
- - Sanitización de datos sensibles
+   - Sanitización de datos sensibles
  * - APIs
- - Validación de permisos por clasificación
+   - Validación de permisos por clasificación
  * - Exportación
- - Restricción según clasificación
+   - Restricción según clasificación
 
 ----
 
@@ -334,11 +334,11 @@ La clasificación de datos garantiza:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de CNST_010
+   - 2026-01-07
+   - Versión inicial derivada de CNST_010
 
 ----
 

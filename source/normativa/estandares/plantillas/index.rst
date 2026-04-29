@@ -120,10 +120,10 @@ Trazabilidad
  :header-rows: 0
 
  * - **STD relacionado**
- - :ref:`std-002` (Nomenclatura del Proyecto),
- :ref:`std-007` (Convención de Naming).
+   - :ref:`std-002` (Nomenclatura del Proyecto),
+     :ref:`std-007` (Convención de Naming).
  * - **Ubicación canónica**
- - ``source/normativa/estandares/plantillas/``.
+   - ``source/normativa/estandares/plantillas/``.
 
 ----
 
@@ -135,22 +135,22 @@ Historial
  :widths: 12 15 73
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Versión inicial con 17 plantillas (priorización P0-P3,
- versiones en filenames).
+   - 2026-01-07
+   - Versión inicial con 17 plantillas (priorización P0-P3,
+     versiones en filenames).
  * - 2.0.0
- - 2026-04-28
- - **Bump MAJOR.** Reorganización por categoría (Spec /
- Casos de Uso / Trazabilidad / Arquitectura / Gobernanza).
- Renombrado de los 17 archivos legacy: removida la versión
- del filename, mantenida en metadata YAML
- (per :ref:`std-006`). Incorporadas 12 plantillas
- adicionales del set curado v1.3.0 / v1.2.0 (las 7
- variantes UC distintas + 3 variantes FR + TPL_TRZ +
- TPL_BR_Decision_Tipo). Eliminados 2 archivos obsoletos:
- ``TPL_002_Plantilla_UC_v2.rst`` (naming irregular) y
- ``TPL_RTM_Trazabilidad_1_0_0.rst`` (fusión con
- ``TPL_TRZ_Matriz_RTM``). **Total final: 28 plantillas.**
+   - 2026-04-28
+   - **Bump MAJOR.** Reorganización por categoría (Spec /
+     Casos de Uso / Trazabilidad / Arquitectura / Gobernanza).
+     Renombrado de los 17 archivos legacy: removida la versión
+     del filename, mantenida en metadata YAML
+     (per :ref:`std-006`). Incorporadas 12 plantillas
+     adicionales del set curado v1.3.0 / v1.2.0 (las 7
+     variantes UC distintas + 3 variantes FR + TPL_TRZ +
+     TPL_BR_Decision_Tipo). Eliminados 2 archivos obsoletos:
+     ``TPL_002_Plantilla_UC_v2.rst`` (naming irregular) y
+     ``TPL_RTM_Trazabilidad_1_0_0.rst`` (fusión con
+     ``TPL_TRZ_Matriz_RTM``). **Total final: 28 plantillas.**

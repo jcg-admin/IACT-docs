@@ -270,26 +270,26 @@ Cada FR DEBE incluir mínimo estas 6 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 1
- - Identificación
- - ID, nombre, UC padre, módulo, tipo, prioridad
+   - Identificación
+   - ID, nombre, UC padre, módulo, tipo, prioridad
  * - 2
- - Especificación
- - Descripción detallada y justificación
+   - Especificación
+   - Descripción detallada y justificación
  * - 3
- - Criterio de Aceptación
- - Formato DADO/CUANDO/ENTONCES obligatorio
+   - Criterio de Aceptación
+   - Formato DADO/CUANDO/ENTONCES obligatorio
  * - 4
- - Reglas y Restricciones
- - BR y CNST aplicables
+   - Reglas y Restricciones
+   - BR y CNST aplicables
  * - 5
- - Trazabilidad
- - Enlaces a UC, BReq, BR, CNST, RBAC
+   - Trazabilidad
+   - Enlaces a UC, BReq, BR, CNST, RBAC
  * - 6
- - Historial
- - Control de versiones del FR
+   - Historial
+   - Control de versiones del FR
 
 ----
 
@@ -303,19 +303,19 @@ Clasificación según TXM_01:
  :header-rows: 1
 
  * - Tipo
- - Descripción
+   - Descripción
  * - **Validación**
- - Verifica formato, rango, existencia de datos
+   - Verifica formato, rango, existencia de datos
  * - **Proceso**
- - Ejecuta lógica de negocio, transformaciones
+   - Ejecuta lógica de negocio, transformaciones
  * - **Interfaz**
- - Presenta información al usuario, actualiza UI
+   - Presenta información al usuario, actualiza UI
  * - **Datos**
- - CRUD en base de datos
+   - CRUD en base de datos
  * - **Auditoría**
- - Registra eventos en logs de auditoría
+   - Registra eventos en logs de auditoría
  * - **Seguridad**
- - Verifica permisos, autenticación, autorización
+   - Verifica permisos, autenticación, autorización
 
 ----
 
@@ -416,10 +416,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla FR
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla FR

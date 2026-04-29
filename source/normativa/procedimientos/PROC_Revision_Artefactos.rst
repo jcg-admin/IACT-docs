@@ -27,19 +27,19 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Revision_Artefactos
+   - PROC_Revision_Artefactos
  * - **Nombre**
- - Revision de Artefactos del Modelo Documental
+   - Revision de Artefactos del Modelo Documental
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada artefacto generado
+   - Por cada artefacto generado
  * - **Duracion Estimada**
- - 10-30 minutos por artefacto
+   - 10-30 minutos por artefacto
  * - **Estado**
- - Vigente
+   - Vigente
  * - **Nota**
- - Renombrado desde PROC_002_Revision_Artefactos
+   - Renombrado desde PROC_002_Revision_Artefactos
 
 ----
 
@@ -80,17 +80,17 @@ estandares y son tecnicamente correctos.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Autor
- - Genera artefacto, solicita revision
- - Escritura en artefacto
+   - Genera artefacto, solicita revision
+   - Escritura en artefacto
  * - Revisor
- - Ejecuta revision, reporta hallazgos
- - Lectura de artefactos
+   - Ejecuta revision, reporta hallazgos
+   - Lectura de artefactos
  * - Aprobador
- - Aprueba artefacto revisado
- - Aprobacion
+   - Aprueba artefacto revisado
+   - Aprobacion
 
 ----
 
@@ -113,17 +113,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Artefacto a revisar
- - Documento generado
- - Si
+   - Documento generado
+   - Si
  * - TPL correspondiente
- - Template de referencia
- - Si
+   - Template de referencia
+   - Si
  * - Checklist de revision
- - Criterios a verificar
- - Si
+   - Criterios a verificar
+   - Si
 
 ----
 
@@ -298,14 +298,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Reporte de revision
- - Resultado y hallazgos
- - Registro de revisiones
+   - Resultado y hallazgos
+   - Registro de revisiones
  * - Artefacto revisado
- - Corregido si hubo hallazgos
- - Ubicacion original
+   - Corregido si hubo hallazgos
+   - Ubicacion original
 
 ----
 
@@ -338,17 +338,17 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Tipo
- - Descripcion
- - Accion
+   - Descripcion
+   - Accion
  * - Critico
- - Bloquea aprobacion
- - Corregir y re-revisar
+   - Bloquea aprobacion
+   - Corregir y re-revisar
  * - Mayor
- - Importante pero no bloqueante
- - Corregir antes de congelar
+   - Importante pero no bloqueante
+   - Corregir antes de congelar
  * - Menor
- - Observacion
- - Corregir cuando sea posible
+   - Observacion
+   - Corregir cuando sea posible
 
 ----
 
@@ -360,11 +360,11 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Revisor no disponible
- - Asignar revisor alternativo
+   - Asignar revisor alternativo
  * - Desacuerdo autor-revisor
- - Escalar a Arquitecto Doc
+   - Escalar a Arquitecto Doc
 
 ----
 
@@ -385,13 +385,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Renombrado desde PROC_002, nueva nomenclatura
+   - 2026-01-07
+   - Equipo IACT
+   - Renombrado desde PROC_002, nueva nomenclatura
 
 ----
 

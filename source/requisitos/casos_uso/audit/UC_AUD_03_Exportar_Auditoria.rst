@@ -19,21 +19,21 @@ UC_AUD_03: Exportar Auditoria
  :header-rows: 0
 
  * - **ID**
- - UC_AUD_03
+   - UC_AUD_03
  * - **Nombre**
- - Exportar Auditoria
+   - Exportar Auditoria
  * - **Actor Principal**
- - AGR-006: agr_auditor
+   - AGR-006: agr_auditor
  * - **Modulo**
- - MOD_Audit
+   - MOD_Audit
  * - **Funcion RBAC**
- - AUD-003: exporta_auditoria
+   - AUD-003: exporta_auditoria
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUD-003
+   - BRQ-AUD-003
 
 2. Descripcion
 --------------
@@ -84,13 +84,13 @@ limitada a 100,000 registros (CNST_017) y se registra en auditoria.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion AUD-003
+   - El usuario tiene sesion activa con funcion AUD-003
  * - PRE-02
- - El usuario cumple con SoD-003
+   - El usuario cumple con SoD-003
  * - PRE-03
- - Existen registros para exportar
+   - Existen registros para exportar
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -107,11 +107,11 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera archivo con datos exportados
+   - Se genera archivo con datos exportados
  * - POST-02
- - Se registra AUDIT_EXPORT en auditoria
+   - Se registra AUDIT_EXPORT en auditoria
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -121,41 +121,41 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Auditor
- - Aplica filtros a registros de auditoria
+   - Auditor
+   - Aplica filtros a registros de auditoria
  * - 2
- - Auditor
- - Hace clic en Exportar
+   - Auditor
+   - Hace clic en Exportar
  * - 3
- - Sistema
- - Valida funcion AUD-003
+   - Sistema
+   - Valida funcion AUD-003
  * - 4
- - Sistema
- - Valida cumplimiento SoD-003
+   - Sistema
+   - Valida cumplimiento SoD-003
  * - 5
- - Sistema
- - Cuenta registros a exportar
+   - Sistema
+   - Cuenta registros a exportar
  * - 6
- - Sistema
- - Valida limite 100,000 (CNST_017)
+   - Sistema
+   - Valida limite 100,000 (CNST_017)
  * - 7
- - Sistema
- - Muestra opciones de formato
+   - Sistema
+   - Muestra opciones de formato
  * - 8
- - Auditor
- - Selecciona formato (CSV o Excel)
+   - Auditor
+   - Selecciona formato (CSV o Excel)
  * - 9
- - Sistema
- - Genera archivo con registros
+   - Sistema
+   - Genera archivo con registros
  * - 10
- - Sistema
- - Registra AUDIT_EXPORT en auditoria
+   - Sistema
+   - Registra AUDIT_EXPORT en auditoria
  * - 11
- - Sistema
- - Inicia descarga del archivo
+   - Sistema
+   - Inicia descarga del archivo
 
 6. Diagrama de Secuencia
 ------------------------
@@ -220,14 +220,14 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Auditor
- - Selecciona formato CSV
+   - Auditor
+   - Selecciona formato CSV
  * - 9a
- - Sistema
- - Genera archivo CSV con delimitador coma
+   - Sistema
+   - Genera archivo CSV con delimitador coma
 
 7.2 FA-02: Exportar a Excel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,14 +237,14 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Auditor
- - Selecciona formato Excel
+   - Auditor
+   - Selecciona formato Excel
  * - 9a
- - Sistema
- - Genera archivo XLSX con formato
+   - Sistema
+   - Genera archivo XLSX con formato
 
 7.3 FA-03: Exportar Busqueda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,14 +254,14 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Auditor
- - Realiza busqueda avanzada primero
+   - Auditor
+   - Realiza busqueda avanzada primero
  * - 2a
- - Auditor
- - Exporta resultados de la busqueda
+   - Auditor
+   - Exporta resultados de la busqueda
 
 8. Excepciones
 --------------
@@ -274,15 +274,15 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - Mas de 100,000 registros a exportar
+   - Mas de 100,000 registros a exportar
  * - **Accion Sistema**
- - Rechaza exportacion
+   - Rechaza exportacion
  * - **Mensaje Usuario**
- - Limite de exportacion es 100,000 registros. Aplique mas filtros.
+   - Limite de exportacion es 100,000 registros. Aplique mas filtros.
  * - **Codigo Error**
- - AUD-020
+   - AUD-020
 
 8.2 EX-02: Sin Registros
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -292,15 +292,15 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - No hay registros para los filtros
+   - No hay registros para los filtros
  * - **Accion Sistema**
- - Informa al usuario
+   - Informa al usuario
  * - **Mensaje Usuario**
- - No hay registros para exportar
+   - No hay registros para exportar
  * - **Codigo Error**
- - AUD-021
+   - AUD-021
 
 9. Diagrama de Actividad
 ------------------------
@@ -349,17 +349,17 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUD-20
- - Limite Exportacion
- - Maximo 100,000 registros por exportacion (CNST_017)
+   - Limite Exportacion
+   - Maximo 100,000 registros por exportacion (CNST_017)
  * - BR-AUD-21
- - Auditoria de Exportacion
- - Toda exportacion se registra en user_action_log
+   - Auditoria de Exportacion
+   - Toda exportacion se registra en user_action_log
  * - BR-AUD-22
- - Formatos
- - Soportados: CSV y Excel (XLSX)
+   - Formatos
+   - Soportados: CSV y Excel (XLSX)
 
 **Registro de Auditoria de Exportacion:**
 
@@ -386,17 +386,17 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_017
- - Exportaciones
- - Limite 100,000 registros
+   - Exportaciones
+   - Limite 100,000 registros
  * - CNST_025
- - Inmutable
- - Solo SELECT para obtener datos
+   - Inmutable
+   - Solo SELECT para obtener datos
  * - CNST_027
- - SoD
- - Validar SoD-003 antes de exportar
+   - SoD
+   - Validar SoD-003 antes de exportar
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -406,17 +406,17 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUD-020
- - Exportar a CSV/Excel
- - Archivo descargable generado
+   - Exportar a CSV/Excel
+   - Archivo descargable generado
  * - FR-AUD-021
- - Validar limite 100k
- - Rechazo si excede
+   - Validar limite 100k
+   - Rechazo si excede
  * - FR-AUD-022
- - Auditar exportacion
- - Registro en user_action_log
+   - Auditar exportacion
+   - Registro en user_action_log
 
 13. Trazabilidad
 ----------------
@@ -426,13 +426,13 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUD-003
+   - BRQ-AUD-003
  * - **Restricciones**
- - CNST_017, CNST_025, CNST_027
+   - CNST_017, CNST_025, CNST_027
  * - **UC Relacionados**
- - UC_AUD_01, UC_AUD_02
+   - UC_AUD_01, UC_AUD_02
  * - **Funcion RBAC**
- - AUD-003: exporta_auditoria
+   - AUD-003: exporta_auditoria
 
 14. Historial de Cambios
 ------------------------
@@ -442,8 +442,8 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

@@ -89,61 +89,61 @@ Tabla de Contenidos
  :widths: 12 22 12 22 12 10 10
 
  * - ID
- - Procedimiento
- - Workflow CI/CD
- - Template Principal
- - Script Local
- - Agente SDLC
- - Checklist
+   - Procedimiento
+   - Workflow CI/CD
+   - Template Principal
+   - Script Local
+   - Agente SDLC
+   - Checklist
  * - **SDLC-01**
- - procedimiento_trazabilidad_requisitos
- - \-
- - template_necesidad, template_requisito_*
- - \-
- - Planner
- - checklist_trazabilidad_requisitos
+   - procedimiento_trazabilidad_requisitos
+   - \-
+   - template_necesidad, template_requisito_*
+   - \-
+   - Planner
+   - checklist_trazabilidad_requisitos
  * - **SDLC-02**
- - procedimiento_diseno_tecnico
- - \-
- - plantilla_sad, plantilla_spec, plantilla_srs
- - \-
- - Design
- - \-
+   - procedimiento_diseno_tecnico
+   - \-
+   - plantilla_sad, plantilla_spec, plantilla_srs
+   - \-
+   - Design
+   - \-
  * - **SDLC-03**
- - procedimiento_instalacion_entorno
- - \-
- - plantilla_setup_entorno
- - \-
- - \-
- - \-
+   - procedimiento_instalacion_entorno
+   - \-
+   - plantilla_setup_entorno
+   - \-
+   - \-
+   - \-
  * - **SDLC-04**
- - procedimiento_desarrollo_local
- - backend-ci, frontend-ci
- - plantilla_django_app, plantilla_etl_job
- - backend_test.sh, frontend_test.sh
- - \-
- - checklist_desarrollo
+   - procedimiento_desarrollo_local
+   - backend-ci, frontend-ci
+   - plantilla_django_app, plantilla_etl_job
+   - backend_test.sh, frontend_test.sh
+   - \-
+   - checklist_desarrollo
  * - **SDLC-05**
- - guia_completa_desarrollo_features
- - backend-ci, test-pyramid
- - plantilla_tdd
- - backend_test.sh, test_pyramid_check.sh
- - \-
- - checklist_desarrollo
+   - guia_completa_desarrollo_features
+   - backend-ci, test-pyramid
+   - plantilla_tdd
+   - backend_test.sh, test_pyramid_check.sh
+   - \-
+   - checklist_desarrollo
  * - **SDLC-06**
- - procedimiento_qa
- - test-pyramid
- - plantilla_plan_pruebas, plantilla_caso_prueba
- - test_pyramid_check.sh
- - Testing
- - checklist_testing
+   - procedimiento_qa
+   - test-pyramid
+   - plantilla_plan_pruebas, plantilla_caso_prueba
+   - test_pyramid_check.sh
+   - Testing
+   - checklist_testing
  * - **SDLC-07**
- - procedimiento_release
- - deploy, migrations
- - plantilla_release_plan, plantilla_deployment_guide
- - \-
- - Deployment
- - \-
+   - procedimiento_release
+   - deploy, migrations
+   - plantilla_release_plan, plantilla_deployment_guide
+   - \-
+   - Deployment
+   - \-
 
 2.2 Matriz de Templates por Categoria
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,34 +153,34 @@ Tabla de Contenidos
  :widths: 22 38 18 22
 
  * - Categoría
- - Templates
- - Usado en Fase
- - Workflow Asociado
+   - Templates
+   - Usado en Fase
+   - Workflow Asociado
  * - **Requisitos (5)**
- - template_necesidad, template_requisito_negocio,
- template_requisito_funcional, template_requisito_no_funcional,
- template_caso_uso
- - Planning
- - \-
+   - template_necesidad, template_requisito_negocio,
+     template_requisito_funcional, template_requisito_no_funcional,
+     template_caso_uso
+   - Planning
+   - \-
  * - **Diseño (4)**
- - plantilla_sad, plantilla_spec, plantilla_srs,
- plantilla_database_design
- - Design
- - \-
+   - plantilla_sad, plantilla_spec, plantilla_srs,
+     plantilla_database_design
+   - Design
+   - \-
  * - **Desarrollo (5)**
- - plantilla_django_app, plantilla_etl_job, plantilla_setup_entorno,
- plantilla_tdd, plantilla_troubleshooting
- - Implementation
- - backend-ci, frontend-ci, infrastructure-ci
+   - plantilla_django_app, plantilla_etl_job, plantilla_setup_entorno,
+     plantilla_tdd, plantilla_troubleshooting
+   - Implementation
+   - backend-ci, frontend-ci, infrastructure-ci
  * - **QA (3)**
- - plantilla_plan_pruebas, plantilla_caso_prueba, plantilla_qa_report
- - Testing
- - test-pyramid, security-scan
+   - plantilla_plan_pruebas, plantilla_caso_prueba, plantilla_qa_report
+   - Testing
+   - test-pyramid, security-scan
  * - **Release (4)**
- - plantilla_release_plan, plantilla_deployment_guide,
- plantilla_rollback_plan, plantilla_changelog
- - Deployment
- - deploy, migrations, incident-response
+   - plantilla_release_plan, plantilla_deployment_guide,
+     plantilla_rollback_plan, plantilla_changelog
+   - Deployment
+   - deploy, migrations, incident-response
 
 2.3 Matriz de Workflows CI/CD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,41 +190,41 @@ Tabla de Contenidos
  :widths: 22 18 30 30
 
  * - Workflow
- - Script Local
- - Templates Relacionados
- - Validaciones
+   - Script Local
+   - Templates Relacionados
+   - Validaciones
  * - **backend-ci.yml**
- - ``backend_test.sh``
- - plantilla_django_app
- - RNF-002, tests, coverage ≥80%, lint
+   - ``backend_test.sh``
+   - plantilla_django_app
+   - RNF-002, tests, coverage ≥80%, lint
  * - **frontend-ci.yml**
- - ``frontend_test.sh``
- - \-
- - tests, lint, build
+   - ``frontend_test.sh``
+   - \-
+   - tests, lint, build
  * - **test-pyramid.yml**
- - ``test_pyramid_check.sh``
- - plantilla_plan_pruebas
- - 60% Unit / 30% Integration / 10% E2E
+   - ``test_pyramid_check.sh``
+   - plantilla_plan_pruebas
+   - 60% Unit / 30% Integration / 10% E2E
  * - **deploy.yml**
- - \-
- - plantilla_deployment_guide
- - blue-green, health checks, rollback
+   - \-
+   - plantilla_deployment_guide
+   - blue-green, health checks, rollback
  * - **migrations.yml**
- - \-
- - plantilla_database_design
- - dry-run, conflicts, backwards compatibility
+   - \-
+   - plantilla_database_design
+   - dry-run, conflicts, backwards compatibility
  * - **infrastructure-ci.yml**
- - \-
- - plantilla_setup_entorno
- - terraform validate, ansible lint
+   - \-
+   - plantilla_setup_entorno
+   - terraform validate, ansible lint
  * - **security-scan.yml**
- - ``security_scan.sh``
- - \-
- - Bandit, secrets, SQL injection, RNF-002
+   - ``security_scan.sh``
+   - \-
+   - Bandit, secrets, SQL injection, RNF-002
  * - **incident-response.yml**
- - \-
- - plantilla_troubleshooting
- - auto-rollback, alertas, post-mortem
+   - \-
+   - plantilla_troubleshooting
+   - auto-rollback, alertas, post-mortem
 
 --------------
 

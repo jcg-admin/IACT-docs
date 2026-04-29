@@ -19,21 +19,21 @@ UC_RPT_12: Ver Reporte Agentes
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_12
+   - UC_RPT_12
  * - **Nombre**
- - Ver Reporte Agentes
+   - Ver Reporte Agentes
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-012: ve_agentes
+   - RPT-012: ve_agentes
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-012
+   - BRQ-RPT-012
 
 2. Descripcion
 --------------
@@ -79,11 +79,11 @@ Muestra metricas individuales y comparativas por agente.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-012
+   - Usuario tiene funcion RPT-012
  * - PRE-02
- - Existen datos de agentes en el segmento
+   - Existen datos de agentes en el segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -98,9 +98,9 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra reporte de agentes del segmento
+   - Se muestra reporte de agentes del segmento
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -110,26 +110,26 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a reporte de agentes
+   - Usuario
+   - Accede a reporte de agentes
  * - 2
- - Sistema
- - Valida RPT-012
+   - Sistema
+   - Valida RPT-012
  * - 3
- - Sistema
- - Consulta metricas de agentes del segmento
+   - Sistema
+   - Consulta metricas de agentes del segmento
  * - 4
- - Sistema
- - Calcula ranking por metricas
+   - Sistema
+   - Calcula ranking por metricas
  * - 5
- - Sistema
- - Renderiza tabla comparativa
+   - Sistema
+   - Renderiza tabla comparativa
  * - 6
- - Usuario
- - Selecciona agente para detalle
+   - Usuario
+   - Selecciona agente para detalle
 
 6. Diagrama de Secuencia
 ------------------------
@@ -169,17 +169,17 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Usuario
- - Hace clic en agente
+   - Usuario
+   - Hace clic en agente
  * - 6b
- - Sistema
- - Muestra metricas detalladas del agente
+   - Sistema
+   - Muestra metricas detalladas del agente
  * - 6c
- - Sistema
- - Muestra tendencia historica
+   - Sistema
+   - Muestra tendencia historica
 
 8. Excepciones
 --------------
@@ -192,9 +192,9 @@ Usuario accede a reporte de agentes.
  :header-rows: 0
 
  * - **Condicion**
- - No hay agentes en el segmento
+   - No hay agentes en el segmento
  * - **Mensaje**
- - No hay agentes registrados en su segmento
+   - No hay agentes registrados en su segmento
 
 9. Diagrama de Actividad
 ------------------------
@@ -232,14 +232,14 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-110
- - Por Segmento
- - Solo agentes del segmento
+   - Por Segmento
+   - Solo agentes del segmento
  * - BR-RPT-111
- - Ranking
- - Ordenamiento por metrica seleccionada
+   - Ranking
+   - Ordenamiento por metrica seleccionada
 
 **Metricas de Agentes:**
 
@@ -248,15 +248,15 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - Metrica
- - Descripcion
+   - Descripcion
  * - Llamadas
- - Total llamadas atendidas
+   - Total llamadas atendidas
  * - TMO
- - Tiempo medio de operacion
+   - Tiempo medio de operacion
  * - Ocupacion
- - Porcentaje tiempo en llamada
+   - Porcentaje tiempo en llamada
  * - Disponibilidad
- - Porcentaje tiempo disponible
+   - Porcentaje tiempo disponible
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -266,14 +266,14 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_007
- - BD Dual
- - Datos de BD Analytics
+   - BD Dual
+   - Datos de BD Analytics
  * - CNST_008
- - Segmentos
- - Solo agentes del segmento
+   - Segmentos
+   - Solo agentes del segmento
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -283,14 +283,14 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-110
- - Mostrar metricas de agentes
- - Tabla con metricas por agente
+   - Mostrar metricas de agentes
+   - Tabla con metricas por agente
  * - FR-RPT-111
- - Ver detalle de agente
- - Metricas individuales y tendencia
+   - Ver detalle de agente
+   - Metricas individuales y tendencia
 
 13. Trazabilidad
 ----------------
@@ -300,15 +300,15 @@ Usuario accede a reporte de agentes.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-012
+   - BRQ-RPT-012
  * - **Restricciones**
- - CNST_007, CNST_008
+   - CNST_007, CNST_008
  * - **UC Relacionados**
- - UC_RPT_13, UC_RPT_14
+   - UC_RPT_13, UC_RPT_14
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-012: ve_agentes
+   - RPT-012: ve_agentes
 
 14. Historial de Cambios
 ------------------------
@@ -318,8 +318,8 @@ Usuario accede a reporte de agentes.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

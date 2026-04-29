@@ -22,19 +22,19 @@ FR-007.04: Registrar cambios en auditoría
  :widths: 25 75
 
  * - **ID**
- - FR-007.04
+   - FR-007.04
  * - **Nombre**
- - Registrar modificaciones de usuario en auditoría
+   - Registrar modificaciones de usuario en auditoría
  * - **UC Origen**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Paso UC**
- - Paso 7 del flujo normal
+   - Paso 7 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Auditoría
+   - Auditoría
 
 ----
 
@@ -138,19 +138,19 @@ FR-007.04: Registrar cambios en auditoría
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Depende de**
- - FR-007.03
+   - FR-007.03
  * - **Requerido por**
- - FR-061.01 (consulta auditoría)
+   - FR-061.01 (consulta auditoría)
  * - **BR**
- - BR_008
+   - BR_008
  * - **CNST**
- - CNST-009, CNST-010
+   - CNST-009, CNST-010
  * - **TEST**
- - TST-FR-007.04 (pendiente)
+   - TST-FR-007.04 (pendiente)
 
 ----
 
@@ -162,8 +162,8 @@ FR-007.04: Registrar cambios en auditoría
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_007
+   - 2026-01-07
+   - Versión inicial derivada de UC_007

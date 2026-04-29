@@ -85,26 +85,26 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - Registrar evento de auditoria
- - Transversal
- - CNST_009
+   - Transversal
+   - CNST_009
  * - Consultar bitacora de auditoria
- - UC_070
- - CNST_009
+   - UC_070
+   - CNST_009
  * - Filtrar por usuario, fecha, recurso
- - UC_071
- - -
+   - UC_071
+   - -
  * - Exportar eventos a CSV/Excel
- - UC_072
- - CNST_007
+   - UC_072
+   - CNST_007
  * - Generar reporte de cambios de permisos
- - UC_073
- - -
+   - UC_073
+   - -
  * - Almacenar quien, que, cuando, desde donde
- - Transversal
- - CNST_009
+   - Transversal
+   - CNST_009
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -182,44 +182,44 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Accion
- - Descripcion
- - Modulo Origen
+   - Descripcion
+   - Modulo Origen
  * - AUTH_LOGIN
- - Inicio de sesion exitoso
- - ARQ_MOD_001
+   - Inicio de sesion exitoso
+   - ARQ_MOD_001
  * - AUTH_LOGOUT
- - Cierre de sesion
- - ARQ_MOD_001
+   - Cierre de sesion
+   - ARQ_MOD_001
  * - AUTH_FAILED
- - Intento de login fallido
- - ARQ_MOD_001
+   - Intento de login fallido
+   - ARQ_MOD_001
  * - USER_CREATE
- - Creacion de usuario
- - ARQ_MOD_002
+   - Creacion de usuario
+   - ARQ_MOD_002
  * - USER_UPDATE
- - Modificacion de usuario
- - ARQ_MOD_002
+   - Modificacion de usuario
+   - ARQ_MOD_002
  * - USER_DELETE
- - Baja logica de usuario
- - ARQ_MOD_002
+   - Baja logica de usuario
+   - ARQ_MOD_002
  * - ROLE_ASSIGN
- - Asignacion de rol
- - ARQ_MOD_003
+   - Asignacion de rol
+   - ARQ_MOD_003
  * - ROLE_REVOKE
- - Retiro de rol
- - ARQ_MOD_003
+   - Retiro de rol
+   - ARQ_MOD_003
  * - PERMISSION_GRANT
- - Permiso directo asignado
- - ARQ_MOD_003
+   - Permiso directo asignado
+   - ARQ_MOD_003
  * - REPORT_EXPORT
- - Exportacion de reporte
- - ARQ_MOD_005
+   - Exportacion de reporte
+   - ARQ_MOD_005
  * - ALERT_CREATE
- - Configuracion de alerta
- - ARQ_MOD_006
+   - Configuracion de alerta
+   - ARQ_MOD_006
  * - PASSWORD_CHANGE
- - Cambio de contrasena
- - ARQ_MOD_001
+   - Cambio de contrasena
+   - ARQ_MOD_001
 
 ----
 
@@ -234,11 +234,11 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Requiere sesion para identificar usuario
+   - Requiere sesion para identificar usuario
  * - ARQ_MOD_003_RBAC_CORE
- - Verifica permisos de ver auditoria (R017)
+   - Verifica permisos de ver auditoria (R017)
 
 6.2 Es Requerido por
 --------------------
@@ -248,17 +248,17 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Registra login/logout
+   - Registra login/logout
  * - ARQ_MOD_002_USER_IDENTITY
- - Registra cambios de usuarios
+   - Registra cambios de usuarios
  * - ARQ_MOD_003_RBAC_CORE
- - Registra cambios de roles/permisos
+   - Registra cambios de roles/permisos
  * - ARQ_MOD_005_VIS_REPORTS
- - Registra exportaciones
+   - Registra exportaciones
  * - ARQ_MOD_006_ALERTS
- - Registra configuracion de alertas
+   - Registra configuracion de alertas
 
 ----
 
@@ -273,9 +273,9 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.common.audit
- - Modelo AuditLog, decoradores, servicios
+   - Modelo AuditLog, decoradores, servicios
 
 7.2 Modelos de Datos
 --------------------
@@ -292,20 +292,20 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/audit/logs
- - Listar eventos (paginado)
+   - /api/v1/audit/logs
+   - Listar eventos (paginado)
  * - GET
- - /api/v1/audit/logs/{id}
- - Detalle de evento
+   - /api/v1/audit/logs/{id}
+   - Detalle de evento
  * - POST
- - /api/v1/audit/export
- - Exportar a CSV/Excel
+   - /api/v1/audit/export
+   - Exportar a CSV/Excel
  * - GET
- - /api/v1/audit/reports/permissions
- - Reporte de cambios de permisos
+   - /api/v1/audit/reports/permissions
+   - Reporte de cambios de permisos
 
 7.4 Decorador de Auditoria
 --------------------------
@@ -330,12 +330,12 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_009
- - **Logging Auditoria Inmutable**: Registros no se modifican ni eliminan.
- Retencion minima 2 anos. Indices para consulta eficiente.
+   - **Logging Auditoria Inmutable**: Registros no se modifican ni eliminan.
+     Retencion minima 2 anos. Indices para consulta eficiente.
  * - CNST_007
- - **Limites Performance**: Exportacion de auditoria con limites.
+   - **Limites Performance**: Exportacion de auditoria con limites.
 
 ----
 
@@ -347,20 +347,20 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_070
- - Consultar_Bitacora_Auditoria
- - Ver eventos funcionales
+   - Consultar_Bitacora_Auditoria
+   - Ver eventos funcionales
  * - UC_071
- - Filtrar_Auditoria
- - Por usuario, fecha, recurso, tipo
+   - Filtrar_Auditoria
+   - Por usuario, fecha, recurso, tipo
  * - UC_072
- - Exportar_Eventos_Auditoria
- - CSV/Excel con limites
+   - Exportar_Eventos_Auditoria
+   - CSV/Excel con limites
  * - UC_073
- - Generar_Reporte_Cambios_Permisos
- - Cumplimiento periodico
+   - Generar_Reporte_Cambios_Permisos
+   - Cumplimiento periodico
 
 ----
 
@@ -372,21 +372,21 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_031
- - Listar_Eventos_Auditoria
- - UC_070
- - Paginacion, ordenamiento
+   - Listar_Eventos_Auditoria
+   - UC_070
+   - Paginacion, ordenamiento
  * - FR_032
- - Filtrar_Auditoria
- - UC_071
- - Multiples criterios
+   - Filtrar_Auditoria
+   - UC_071
+   - Multiples criterios
  * - FR_033
- - Exportar_Auditoria
- - UC_072
- - CSV/Excel
+   - Exportar_Auditoria
+   - UC_072
+   - CSV/Excel
 
 ----
 
@@ -398,17 +398,17 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Politica
- - Valor
+   - Valor
  * - Retencion minima
- - 2 anos
+   - 2 anos
  * - Retencion maxima
- - 5 anos (configurable)
+   - 5 anos (configurable)
  * - Inmutabilidad
- - No UPDATE, no DELETE
+   - No UPDATE, no DELETE
  * - Acceso
- - Solo rol R017 (AUDIT_VIEWER)
+   - Solo rol R017 (AUDIT_VIEWER)
  * - Exportacion
- - Max 100,000 registros por descarga
+   - Max 100,000 registros por descarga
 
 ----
 
@@ -420,11 +420,11 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial
+   - 2025-12-22
+   - Version inicial
 
 ----
 

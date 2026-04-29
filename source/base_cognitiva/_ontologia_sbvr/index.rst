@@ -74,20 +74,20 @@ Este documento debe consultarse:
  :header-rows: 1
 
  * - Término Preferido
- - Sinónimos Aceptados
- - Términos Prohibidos
+   - Sinónimos Aceptados
+   - Términos Prohibidos
  * - Usuario
- - Usuario del Sistema
- - Operador, Empleado, Persona, User
+   - Usuario del Sistema
+   - Operador, Empleado, Persona, User
  * - Cliente
- - Llamante, Cliente Final
- - Consumidor, Abonado, Subscriber
+   - Llamante, Cliente Final
+   - Consumidor, Abonado, Subscriber
  * - Sistema IACT
- - IACT, Sistema, Plataforma IACT
- - Aplicación, Software, App
+   - IACT, Sistema, Plataforma IACT
+   - Aplicación, Software, App
  * - Sistema IVR
- - IVR, Plataforma IVR
- - Centralita, PBX, Call Center
+   - IVR, Plataforma IVR
+   - Centralita, PBX, Call Center
 
 -------------------
 4. Vocabulario RBAC
@@ -98,23 +98,23 @@ Este documento debe consultarse:
  :header-rows: 1
 
  * - Término Preferido
- - Sinónimos Aceptados
- - Términos Prohibidos
+   - Sinónimos Aceptados
+   - Términos Prohibidos
  * - Rol Funcional
- - Rol, Rol RBAC
- - Perfil de acceso, Grupo, Privilegio
+   - Rol, Rol RBAC
+   - Perfil de acceso, Grupo, Privilegio
  * - Perfil
- - Perfil de Usuario, Perfil de Módulos
- - Tipo de usuario, Categoría
+   - Perfil de Usuario, Perfil de Módulos
+   - Tipo de usuario, Categoría
  * - Segmento de Datos
- - Segmento
- - Partición, División, Área de datos
+   - Segmento
+   - Partición, División, Área de datos
  * - Permiso
- - Autorización
- - Derecho, Acceso, Privilegio
+   - Autorización
+   - Derecho, Acceso, Privilegio
  * - Sesión
- - Sesión de Usuario
- - Conexión, Login activo
+   - Sesión de Usuario
+   - Conexión, Login activo
 
 4.1. Valores de Rol Funcional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,26 +177,26 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Código
- - Nombre
- - Descripción
+   - Nombre
+   - Descripción
  * - OP
- - DATOS_OPERATIVOS
- - Datos de operación del IVR (llamadas, menús, opciones)
+   - DATOS_OPERATIVOS
+   - Datos de operación del IVR (llamadas, menús, opciones)
  * - FI
- - DATOS_FINANCIEROS
- - Datos para análisis de costos y facturación
+   - DATOS_FINANCIEROS
+   - Datos para análisis de costos y facturación
  * - TE
- - DATOS_TECNICOS
- - Datos técnicos de infraestructura y rendimiento
+   - DATOS_TECNICOS
+   - Datos técnicos de infraestructura y rendimiento
  * - SU
- - DATOS_SUPERVISION
- - Datos para supervisión y control
+   - DATOS_SUPERVISION
+   - Datos para supervisión y control
  * - CA
- - DATOS_CALIDAD
- - Datos de métricas de calidad del servicio
+   - DATOS_CALIDAD
+   - Datos de métricas de calidad del servicio
  * - GE
- - DATOS_CONSOLIDADOS
- - Datos agregados para toma de decisiones
+   - DATOS_CONSOLIDADOS
+   - Datos agregados para toma de decisiones
 
 -------------------------
 5. Vocabulario de Negocio
@@ -207,26 +207,26 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Término Preferido
- - Sinónimos Aceptados
- - Términos Prohibidos
+   - Sinónimos Aceptados
+   - Términos Prohibidos
  * - Llamada
- - Llamada Telefónica
- - Comunicación, Contacto, Interacción telefónica
+   - Llamada Telefónica
+   - Comunicación, Contacto, Interacción telefónica
  * - Evento IVR
- - Evento
- - Acción, Registro, Log entry
+   - Evento
+   - Acción, Registro, Log entry
  * - Menú IVR
- - Menú, Nodo IVR
- - Opción, Pantalla, Step
+   - Menú, Nodo IVR
+   - Opción, Pantalla, Step
  * - Métrica
- - Indicador, KPI
- - Dato, Número, Estadística
+   - Indicador, KPI
+   - Dato, Número, Estadística
  * - Dashboard
- - Tablero, Panel de Control
- - Pantalla, Vista, Screen
+   - Tablero, Panel de Control
+   - Pantalla, Vista, Screen
  * - Reporte
- - Informe
- - Documento, Listado, Export
+   - Informe
+   - Documento, Listado, Export
 
 --------------------------
 6. Vocabulario de Acciones
@@ -240,26 +240,26 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Verbo Preferido
- - Sinónimos Aceptados
- - Verbos Prohibidos
+   - Sinónimos Aceptados
+   - Verbos Prohibidos
  * - es
- - son
- - representa, constituye
+   - son
+   - representa, constituye
  * - tiene
- - tienen, posee
- - cuenta con, dispone de
+   - tienen, posee
+   - cuenta con, dispone de
  * - pertenece a
- - forma parte de
- - está en, se encuentra en
+   - forma parte de
+   - está en, se encuentra en
  * - contiene
- - incluye
- - tiene dentro, guarda
+   - incluye
+   - tiene dentro, guarda
  * - se define como
- - significa
- - quiere decir, equivale a
+   - significa
+   - quiere decir, equivale a
  * - se deriva de
- - se calcula como
- - proviene de, sale de
+   - se calcula como
+   - proviene de, sale de
 
 6.2. Verbos para Reglas Deónticas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -269,23 +269,23 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Verbo Preferido
- - Sinónimos Aceptados
- - Verbos Prohibidos
+   - Sinónimos Aceptados
+   - Verbos Prohibidos
  * - debe
- - deben, tiene que
- - debería, tendría que, hay que
+   - deben, tiene que
+   - debería, tendría que, hay que
  * - no debe
- - no deben
- - no debería, no tendría que
+   - no deben
+   - no debería, no tendría que
  * - puede
- - pueden, está permitido
- - podría, le es posible
+   - pueden, está permitido
+   - podría, le es posible
  * - no puede
- - no pueden, está prohibido
- - no podría, le está vedado
+   - no pueden, está prohibido
+   - no podría, le está vedado
  * - requiere
- - necesita, exige
- - pide, demanda, solicita
+   - necesita, exige
+   - pide, demanda, solicita
 
 6.3. Verbos de Operación
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -295,29 +295,29 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Verbo Preferido
- - Sinónimos Aceptados
- - Verbos Prohibidos
+   - Sinónimos Aceptados
+   - Verbos Prohibidos
  * - crear
- - registrar
- - hacer, generar, añadir
+   - registrar
+   - hacer, generar, añadir
  * - modificar
- - actualizar, editar
- - cambiar, alterar, tocar
+   - actualizar, editar
+   - cambiar, alterar, tocar
  * - eliminar
- - borrar, dar de baja
- - quitar, remover, sacar
+   - borrar, dar de baja
+   - quitar, remover, sacar
  * - consultar
- - ver, visualizar
- - mirar, revisar, chequear
+   - ver, visualizar
+   - mirar, revisar, chequear
  * - exportar
- - descargar
- - sacar, bajar, extraer
+   - descargar
+   - sacar, bajar, extraer
  * - autenticar
- - iniciar sesión
- - loguearse, entrar, acceder
+   - iniciar sesión
+   - loguearse, entrar, acceder
  * - asignar
- - otorgar
- - dar, poner, setear
+   - otorgar
+   - dar, poner, setear
 
 ---------------------------------
 7. Vocabulario de Cuantificadores
@@ -328,23 +328,23 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Término Preferido
- - Sinónimos Aceptados
- - Términos Prohibidos
+   - Sinónimos Aceptados
+   - Términos Prohibidos
  * - cada
- - todo, todos los
- - cualquier
+   - todo, todos los
+   - cualquier
  * - exactamente un
- - uno y solo uno
- - un único, solamente uno
+   - uno y solo uno
+   - un único, solamente uno
  * - al menos un
- - uno o más, mínimo uno
- - algún, alguno
+   - uno o más, mínimo uno
+   - algún, alguno
  * - como máximo
- - hasta, no más de
- - máximo, a lo sumo
+   - hasta, no más de
+   - máximo, a lo sumo
  * - ningún
- - ninguno, cero
- - ni uno, nada de
+   - ninguno, cero
+   - ni uno, nada de
 
 -----------------------------
 8. Vocabulario de Condiciones
@@ -355,26 +355,26 @@ Los 6 segmentos definidos:
  :header-rows: 1
 
  * - Término Preferido
- - Sinónimos Aceptados
- - Términos Prohibidos
+   - Sinónimos Aceptados
+   - Términos Prohibidos
  * - si
- - cuando, en caso de que
- - siempre y cuando
+   - cuando, en caso de que
+   - siempre y cuando
  * - solo si
- - únicamente si, solamente si
- - nada más si
+   - únicamente si, solamente si
+   - nada más si
  * - excepto si
- - a menos que, salvo que
- - excepto cuando
+   - a menos que, salvo que
+   - excepto cuando
  * - siempre que
- - cada vez que
- - todas las veces que
+   - cada vez que
+   - todas las veces que
  * - antes de
- - previamente a
- - anterior a
+   - previamente a
+   - anterior a
  * - después de
- - posteriormente a, luego de
- - posterior a
+   - posteriormente a, luego de
+   - posterior a
 
 -------------------------------
 9. Términos Técnicos Permitidos
@@ -388,21 +388,21 @@ cuando se refieren a conceptos específicos del sistema:
  :header-rows: 1
 
  * - Término
- - Contexto de Uso
+   - Contexto de Uso
  * - timestamp
- - Marca temporal de un evento
+   - Marca temporal de un evento
  * - log de auditoría
- - Registro de acciones para trazabilidad
+   - Registro de acciones para trazabilidad
  * - hash
- - Solo en contexto de contraseñas (nunca el valor)
+   - Solo en contexto de contraseñas (nunca el valor)
  * - token
- - Identificador de sesión
+   - Identificador de sesión
  * - API
- - Interfaz de integración externa
+   - Interfaz de integración externa
  * - CSV, Excel, PDF
- - Formatos de exportación
+   - Formatos de exportación
  * - timeout
- - Tiempo límite de sesión o operación
+   - Tiempo límite de sesión o operación
 
 ---------------------------
 10. Checklist de Validación
@@ -415,19 +415,19 @@ Al escribir o revisar una regla de negocio, verificar:
  :header-rows: 0
 
  * - 1
- - Todos los sustantivos están en el vocabulario de actores, RBAC o negocio
+   - Todos los sustantivos están en el vocabulario de actores, RBAC o negocio
  * - 2
- - Los verbos corresponden al tipo de regla (alética o deóntica)
+   - Los verbos corresponden al tipo de regla (alética o deóntica)
  * - 3
- - No se usan términos prohibidos
+   - No se usan términos prohibidos
  * - 4
- - Los cuantificadores son precisos (no ambiguos)
+   - Los cuantificadores son precisos (no ambiguos)
  * - 5
- - Las condiciones usan conectores del vocabulario
+   - Las condiciones usan conectores del vocabulario
  * - 6
- - Los valores de Rol, Perfil y Segmento son exactos
+   - Los valores de Rol, Perfil y Segmento son exactos
  * - 7
- - Los términos técnicos están en la lista permitida
+   - Los términos técnicos están en la lista permitida
 
 -------------------------
 11. Proceso de Ampliación
@@ -452,15 +452,15 @@ Para agregar un nuevo término al vocabulario controlado:
  :header-rows: 1
 
  * - Documento
- - Referencia
+   - Referencia
  * - Conceptos Nucleares
- - :doc:`SBVR_01_Conceptos_Nucleares`
+   - :doc:`SBVR_01_Conceptos_Nucleares`
  * - Tipos de Regla
- - :doc:`SBVR_02_Fact_Types`
+   - :doc:`SBVR_02_Fact_Types`
  * - Modelo RBAC
- - Ver sección de Arquitectura (RBAC Flat NIST)
+   - Ver sección de Arquitectura (RBAC Flat NIST)
  * - Glosario IACT
- - Ver glosario del sistema
+   - Ver glosario del sistema
 
 --------------------
 Historial de Cambios
@@ -471,13 +471,13 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - BA Lead
- - Versión inicial con vocabulario alineado a modelo RBAC
+   - 2025-12-18
+   - BA Lead
+   - Versión inicial con vocabulario alineado a modelo RBAC
 
 ----
 

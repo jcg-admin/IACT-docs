@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_010
+   - BR_010
  * - **Nombre**
- - Auditoria Inmutable
+   - Auditoria Inmutable
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -99,11 +99,11 @@ cumplimiento regulatorio, y deteccion de manipulacion de logs.
  :header-rows: 0
 
  * - **Documento**
- - CNST_009_Logging_Auditoria_Inmutable
+   - CNST_009_Logging_Auditoria_Inmutable
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST
+   - CNST
 
 ----
 
@@ -162,10 +162,10 @@ politica de retencion (ver BR_018).
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

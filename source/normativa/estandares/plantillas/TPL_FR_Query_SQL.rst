@@ -296,21 +296,21 @@ prevenir SQL injection.
  :widths: 20 15 15 50
 
  * - Parametro
- - Tipo SQL
- - Tipo Python
- - Validacion
+   - Tipo SQL
+   - Tipo Python
+   - Validacion
  * - :quarter
- - VARCHAR(2)
- - str
- - IN ('Q1','Q2','Q3','Q4')
+   - VARCHAR(2)
+   - str
+   - IN ('Q1','Q2','Q3','Q4')
  * - :year
- - INTEGER
- - int
- - BETWEEN 2020 AND 2024
+   - INTEGER
+   - int
+   - BETWEEN 2020 AND 2024
  * - :segment
- - VARCHAR(2)
- - str
- - IN ('OP','MG')
+   - VARCHAR(2)
+   - str
+   - IN ('OP','MG')
 
 **Codigo de Validacion:**
 
@@ -604,25 +604,25 @@ Resultado tras optimizacion:
  :widths: 30 25 25 20
 
  * - Metrica
- - Sin Indices
- - Con Indices
- - Objetivo
+   - Sin Indices
+   - Con Indices
+   - Objetivo
  * - Execution Time
- - 8,500 ms
- - 12.8 ms
- - < 3,000 ms
+   - 8,500 ms
+   - 12.8 ms
+   - < 3,000 ms
  * - Planning Time
- - 1.2 ms
- - 0.5 ms
- - < 5 ms
+   - 1.2 ms
+   - 0.5 ms
+   - < 5 ms
  * - Rows Scanned
- - 1,250,000
- - 8,492
- - Minimo posible
+   - 1,250,000
+   - 8,492
+   - Minimo posible
  * - Index Usage
- - Seq Scan
- - Index Scan
- - Index Scan
+   - Seq Scan
+   - Index Scan
+   - Index Scan
 
 ----------------------------------------------------------------------
 5. OPTIMIZACIONES APLICADAS

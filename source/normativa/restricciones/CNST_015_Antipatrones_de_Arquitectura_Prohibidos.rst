@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_015
+   - CNST_015
  * - **Categoria**
- - Arquitectura
+   - Arquitectura
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -72,23 +72,23 @@ Los antipatrones erosionan la mantenibilidad del codebase, concentran riesgo en 
  :widths: 30 70
 
  * - Antipatron
- - Razon
+   - Razon
  * - Fat Models
- - Modelos con >300 lineas o >15 metodos. Mover logica a service layer.
+   - Modelos con >300 lineas o >15 metodos. Mover logica a service layer.
  * - Fat Views
- - Vistas con logica de negocio. Vistas son orquestadores delgados.
+   - Vistas con logica de negocio. Vistas son orquestadores delgados.
  * - God Object
- - Cualquier clase >500 lineas que abarca multiples dominios.
+   - Cualquier clase >500 lineas que abarca multiples dominios.
  * - Hardcoded Configuration
- - Valores de produccion en codigo. Usar ``settings`` o env vars.
+   - Valores de produccion en codigo. Usar ``settings`` o env vars.
  * - SQL Injection via Raw SQL
- - ``cursor.execute(f"...{user_input}...")``. Usar parametros.
+   - ``cursor.execute(f"...{user_input}...")``. Usar parametros.
  * - Sleep en Vistas
- - ``time.sleep`` en path de request.
+   - ``time.sleep`` en path de request.
  * - N+1 Queries
- - Sin ``select_related``/``prefetch_related`` cuando aplica.
+   - Sin ``select_related``/``prefetch_related`` cuando aplica.
  * - Catch Pokemon
- - ``except Exception: pass`` sin logging ni accion.
+   - ``except Exception: pass`` sin logging ni accion.
 
 2.2 Parametros
 ^^^^^^^^^^^^^^
@@ -113,9 +113,9 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - (todos)
- - Aplica al codebase completo
+   - Aplica al codebase completo
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,9 +125,9 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - (transversal)
- - Aplica a todo el codigo IACT
+   - Aplica a todo el codigo IACT
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -204,15 +204,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_016_Principios_SOLID_Obligatorios`
+   - :doc:`CNST_016_Principios_SOLID_Obligatorios`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - (transversal)
+   - (transversal)
  * - **MODs afectados**
- - (todos)
+   - (todos)
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -222,15 +222,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

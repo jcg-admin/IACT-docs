@@ -19,21 +19,21 @@ UC_LOG_02: Consultar Logs ETL
  :header-rows: 0
 
  * - **ID**
- - UC_LOG_02
+   - UC_LOG_02
  * - **Nombre**
- - Consultar Logs ETL
+   - Consultar Logs ETL
  * - **Actor Principal**
- - AGR-007: agr_operador_logs
+   - AGR-007: agr_operador_logs
  * - **Modulo**
- - MOD_Logs
+   - MOD_Logs
  * - **Funcion RBAC**
- - LOG-002: consulta_logs_etl
+   - LOG-002: consulta_logs_etl
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-LOG-002
+   - BRQ-LOG-002
 
 2. Descripcion
 --------------
@@ -90,11 +90,11 @@ Fundamental para diagnosticar problemas de carga de datos.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion LOG-002
+   - El usuario tiene sesion activa con funcion LOG-002
  * - PRE-02
- - El proceso ETL ha ejecutado al menos una vez
+   - El proceso ETL ha ejecutado al menos una vez
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -109,11 +109,11 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran logs de ejecuciones ETL
+   - Se muestran logs de ejecuciones ETL
  * - POST-02
- - La consulta es de solo lectura
+   - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -123,29 +123,29 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Operador
- - Accede a logs ETL
+   - Operador
+   - Accede a logs ETL
  * - 2
- - Sistema
- - Valida funcion LOG-002
+   - Sistema
+   - Valida funcion LOG-002
  * - 3
- - Sistema
- - Muestra ultimas 24 horas de ejecuciones
+   - Sistema
+   - Muestra ultimas 24 horas de ejecuciones
  * - 4
- - Sistema
- - Presenta lista de ejecuciones con estado
+   - Sistema
+   - Presenta lista de ejecuciones con estado
  * - 5
- - Operador
- - Selecciona ejecucion para ver detalle
+   - Operador
+   - Selecciona ejecucion para ver detalle
  * - 6
- - Sistema
- - Muestra logs detallados de la ejecucion
+   - Sistema
+   - Muestra logs detallados de la ejecucion
  * - 7
- - Sistema
- - Muestra metricas: registros leidos, insertados, errores
+   - Sistema
+   - Muestra metricas: registros leidos, insertados, errores
 
 6. Diagrama de Secuencia
 ------------------------
@@ -212,17 +212,17 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Operador
- - Selecciona ejecucion con estado FAILED o PARTIAL
+   - Operador
+   - Selecciona ejecucion con estado FAILED o PARTIAL
  * - 6a
- - Sistema
- - Resalta logs de nivel ERROR
+   - Sistema
+   - Resalta logs de nivel ERROR
  * - 6b
- - Sistema
- - Muestra detalle de registros fallidos
+   - Sistema
+   - Muestra detalle de registros fallidos
 
 7.2 FA-02: Filtrar por Estado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,14 +232,14 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Operador
- - Filtra por estado (SUCCESS, FAILED, etc.)
+   - Operador
+   - Filtra por estado (SUCCESS, FAILED, etc.)
  * - 4a
- - Sistema
- - Muestra solo ejecuciones del estado seleccionado
+   - Sistema
+   - Muestra solo ejecuciones del estado seleccionado
 
 7.3 FA-03: Ver Tendencia de Ejecuciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -249,14 +249,14 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Hace clic en Ver Tendencia
+   - Operador
+   - Hace clic en Ver Tendencia
  * - 4b
- - Sistema
- - Muestra grafico de exitos/fallos por dia
+   - Sistema
+   - Muestra grafico de exitos/fallos por dia
 
 8. Excepciones
 --------------
@@ -269,13 +269,13 @@ El operador accede al visor de logs ETL.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - No hay ejecuciones en el periodo
+   - No hay ejecuciones en el periodo
  * - **Accion Sistema**
- - Muestra mensaje informativo
+   - Muestra mensaje informativo
  * - **Mensaje Usuario**
- - No hay ejecuciones ETL en las ultimas 24 horas
+   - No hay ejecuciones ETL en las ultimas 24 horas
 
 8.2 EX-02: Ejecucion No Encontrada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -285,15 +285,15 @@ El operador accede al visor de logs ETL.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - ID de ejecucion no existe
+   - ID de ejecucion no existe
  * - **Accion Sistema**
- - Muestra error
+   - Muestra error
  * - **Mensaje Usuario**
- - Ejecucion no encontrada
+   - Ejecucion no encontrada
  * - **Codigo Error**
- - LOG-010
+   - LOG-010
 
 9. Diagrama de Actividad
 ------------------------
@@ -345,20 +345,20 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-LOG-10
- - Flujo ETL
- - ETL transfiere datos IVR -> Analytics (CNST_007)
+   - Flujo ETL
+   - ETL transfiere datos IVR -> Analytics (CNST_007)
  * - BR-LOG-11
- - Estados
- - SUCCESS, PARTIAL, FAILED, RUNNING
+   - Estados
+   - SUCCESS, PARTIAL, FAILED, RUNNING
  * - BR-LOG-12
- - Metricas
- - Cada ejecucion registra metricas de procesamiento
+   - Metricas
+   - Cada ejecucion registra metricas de procesamiento
  * - BR-LOG-13
- - Formato
- - Logs en formato JSON (CNST_024)
+   - Formato
+   - Logs en formato JSON (CNST_024)
 
 **Estructura de Log ETL (CNST_024):**
 
@@ -386,17 +386,17 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Metrica
- - Descripcion
+   - Descripcion
  * - registros_leidos
- - Total leidos de BD IVR
+   - Total leidos de BD IVR
  * - registros_insertados
- - Nuevos registros en Analytics
+   - Nuevos registros en Analytics
  * - registros_actualizados
- - Registros existentes actualizados
+   - Registros existentes actualizados
  * - registros_error
- - Registros que fallaron
+   - Registros que fallaron
  * - duracion_segundos
- - Tiempo total de ejecucion
+   - Tiempo total de ejecucion
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -406,14 +406,14 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_007
- - BD Dual
- - ETL es el unico mecanismo IVR -> Analytics
+   - BD Dual
+   - ETL es el unico mecanismo IVR -> Analytics
  * - CNST_024
- - Logs JSON
- - Formato JSON estructurado
+   - Logs JSON
+   - Formato JSON estructurado
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -423,17 +423,17 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-LOG-010
- - Listar ejecuciones ETL
- - Lista con estado visible
+   - Listar ejecuciones ETL
+   - Lista con estado visible
  * - FR-LOG-011
- - Ver detalle de ejecucion
- - Logs y metricas completas
+   - Ver detalle de ejecucion
+   - Logs y metricas completas
  * - FR-LOG-012
- - Diagnosticar errores
- - Detalle de registros fallidos
+   - Diagnosticar errores
+   - Detalle de registros fallidos
 
 13. Trazabilidad
 ----------------
@@ -443,13 +443,13 @@ El operador accede al visor de logs ETL.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-LOG-002
+   - BRQ-LOG-002
  * - **Restricciones**
- - CNST_007, CNST_024
+   - CNST_007, CNST_024
  * - **UC Relacionados**
- - UC_LOG_01, UC_PIP_01 (Monitorear ETL)
+   - UC_LOG_01, UC_PIP_01 (Monitorear ETL)
  * - **Funcion RBAC**
- - LOG-002: consulta_logs_etl
+   - LOG-002: consulta_logs_etl
 
 14. Historial de Cambios
 ------------------------
@@ -459,8 +459,8 @@ El operador accede al visor de logs ETL.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

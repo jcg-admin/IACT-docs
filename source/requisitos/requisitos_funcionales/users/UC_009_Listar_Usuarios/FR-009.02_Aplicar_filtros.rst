@@ -22,19 +22,19 @@ FR-009.02: Aplicar filtros a la lista
  :widths: 25 75
 
  * - **ID**
- - FR-009.02
+   - FR-009.02
  * - **Nombre**
- - Aplicar filtros a la lista de usuarios
+   - Aplicar filtros a la lista de usuarios
  * - **UC Origen**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Paso UC**
- - Paso 4-5, FA-1, FA-2
+   - Paso 4-5, FA-1, FA-2
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Interfaz
+   - Interfaz
 
 ----
 
@@ -133,15 +133,15 @@ FR-009.02: Aplicar filtros a la lista
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Depende de**
- - FR-009.01
+   - FR-009.01
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **TEST**
- - TST-FR-009.02 (pendiente)
+   - TST-FR-009.02 (pendiente)
 
 ----
 
@@ -153,8 +153,8 @@ FR-009.02: Aplicar filtros a la lista
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_009
+   - 2026-01-07
+   - Versión inicial derivada de UC_009

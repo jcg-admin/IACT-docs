@@ -415,47 +415,47 @@ Cada PROC DEBE incluir mínimo estas 12 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, categoría, frecuencia, duración
+   - Resumen Ejecutivo
+   - ID, nombre, categoría, frecuencia, duración
  * - 1
- - Propósito
- - Objetivo del procedimiento
+   - Propósito
+   - Objetivo del procedimiento
  * - 2
- - Alcance
- - Donde aplica y donde NO aplica
+   - Alcance
+   - Donde aplica y donde NO aplica
  * - 3
- - Roles y Responsabilidades
- - Quién ejecuta, revisa, aprueba
+   - Roles y Responsabilidades
+   - Quién ejecuta, revisa, aprueba
  * - 4
- - Precondiciones
- - Checklist antes de iniciar
+   - Precondiciones
+   - Checklist antes de iniciar
  * - 5
- - Artefactos de Entrada
- - Templates y documentos necesarios
+   - Artefactos de Entrada
+   - Templates y documentos necesarios
  * - 6
- - Procedimiento
- - Diagrama + pasos detallados
+   - Procedimiento
+   - Diagrama + pasos detallados
  * - 7
- - Artefactos de Salida
- - Qué se produce
+   - Artefactos de Salida
+   - Qué se produce
  * - 8
- - Postcondiciones
- - Estado final esperado
+   - Postcondiciones
+   - Estado final esperado
  * - 9
- - Verificación
- - Criterios y comandos de validación
+   - Verificación
+   - Criterios y comandos de validación
  * - 10
- - Manejo de Excepciones
- - Qué hacer si algo falla
+   - Manejo de Excepciones
+   - Qué hacer si algo falla
  * - 11
- - Referencias
- - Templates, estándares, otros PROC
+   - Referencias
+   - Templates, estándares, otros PROC
  * - 12
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -467,19 +467,19 @@ Categorías de Procedimientos
  :header-rows: 1
 
  * - Categoría
- - Descripción
+   - Descripción
  * - **Cambio**
- - Control de cambios en requisitos y documentos
+   - Control de cambios en requisitos y documentos
  * - **Generación**
- - Crear nuevos artefactos (BR, UC, FR, etc.)
+   - Crear nuevos artefactos (BR, UC, FR, etc.)
  * - **Derivación**
- - Derivar artefactos hijos de padres (UC→FR)
+   - Derivar artefactos hijos de padres (UC→FR)
  * - **Gobernanza**
- - Versionado, congelamiento, aprobaciones
+   - Versionado, congelamiento, aprobaciones
  * - **Trazabilidad**
- - Generar y mantener RTM
+   - Generar y mantener RTM
  * - **Verificación**
- - Validar cumplimiento y cobertura
+   - Validar cumplimiento y cobertura
 
 ----
 
@@ -565,10 +565,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla PROC
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla PROC

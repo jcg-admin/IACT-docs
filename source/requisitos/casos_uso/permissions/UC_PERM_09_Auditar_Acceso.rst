@@ -52,29 +52,29 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
  :header-rows: 1
 
  * - Campo
- - Descripción
- - Ejemplo
+   - Descripción
+   - Ejemplo
  * - usuario_id
- - ID del usuario verificado
- - 123
+   - ID del usuario verificado
+   - 123
  * - capacidad_codigo
- - Funcion verificada
- - "sistema.vistas.dashboards.ver"
+   - Funcion verificada
+   - "sistema.vistas.dashboards.ver"
  * - resultado
- - Concedido (true) o denegado (false)
- - true
+   - Concedido (true) o denegado (false)
+   - true
  * - ip_address
- - IP del cliente
- - "192.168.1.100"
+   - IP del cliente
+   - "192.168.1.100"
  * - user_agent
- - Navegador/cliente
- - "Mozilla/5.0..."
+   - Navegador/cliente
+   - "Mozilla/5.0..."
  * - timestamp
- - Momento exacto
- - "2025-01-09T12:30:45Z"
+   - Momento exacto
+   - "2025-01-09T12:30:45Z"
  * - metadatos
- - Info adicional (path, method, latency)
- - {"path": "/dashboard", "latency_ms": 15}
+   - Info adicional (path, method, latency)
+   - {"path": "/dashboard", "latency_ms": 15}
 
 
 
@@ -172,13 +172,13 @@ Opción 2: Auditoría Asíncrona (producción)
  :header-rows: 1
 
  * - Período
- - Acción
+   - Acción
  * - 0-90 días
- - Online (tabla principal)
+   - Online (tabla principal)
  * - 91-365 días
- - Archivo (tabla histórica)
+   - Archivo (tabla histórica)
  * - > 365 días
- - Cold storage (S3/Glacier)
+   - Cold storage (S3/Glacier)
 
 
 
@@ -250,11 +250,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

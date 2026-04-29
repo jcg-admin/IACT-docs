@@ -160,11 +160,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

@@ -83,41 +83,41 @@ inactividad.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST Aplicable
+   - UC Relacionado
+   - CNST Aplicable
  * - Validar credenciales (username + password)
- - UC_001
- - CNST_005
+   - UC_001
+   - CNST_005
  * - Generar token JWT con claims basicos
- - UC_001
- - CNST_005
+   - UC_001
+   - CNST_005
  * - Registrar sesion en base de datos
- - UC_001
- - CNST_002
+   - UC_001
+   - CNST_002
  * - Invalidar sesion previa (sesion unica)
- - UC_001
- - CNST_002
+   - UC_001
+   - CNST_002
  * - Cerrar sesion y blacklist de token
- - UC_002
- - CNST_002
+   - UC_002
+   - CNST_002
  * - Validar preguntas de seguridad
- - UC_003
- - CNST_001
+   - UC_003
+   - CNST_001
  * - Generar contrasena temporal
- - UC_003
- - CNST_001
+   - UC_003
+   - CNST_001
  * - Cambiar contrasena con validacion
- - UC_004
- - CNST_005
+   - UC_004
+   - CNST_005
  * - Listar sesiones activas del usuario
- - UC_005
- - CNST_002
+   - UC_005
+   - CNST_002
  * - Cerrar sesiones remotas
- - UC_005
- - CNST_002
+   - UC_005
+   - CNST_002
  * - Aplicar timeout de 15 minutos
- - UC_005
- - CNST_002
+   - UC_005
+   - CNST_002
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -170,11 +170,11 @@ inactividad.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_002_USER_IDENTITY
- - Necesita validar que el usuario existe y esta activo
+   - Necesita validar que el usuario existe y esta activo
  * - ARQ_MOD_003_RBAC_CORE
- - Consulta roles basicos para incluir en claims JWT
+   - Consulta roles basicos para incluir en claims JWT
 
 4.2 Es Requerido por
 --------------------
@@ -184,17 +184,17 @@ inactividad.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_003_RBAC_CORE
- - Necesita sesion valida para calcular permisos
+   - Necesita sesion valida para calcular permisos
  * - ARQ_MOD_005_VIS_REPORTS
- - Requiere autenticacion para acceder
+   - Requiere autenticacion para acceder
  * - ARQ_MOD_006_ALERTS
- - Requiere autenticacion para ver notificaciones
+   - Requiere autenticacion para ver notificaciones
  * - ARQ_MOD_007_AUDIT
- - Registra eventos de login/logout
+   - Registra eventos de login/logout
  * - TODOS
- - Todos los modulos requieren sesion autenticada
+   - Todos los modulos requieren sesion autenticada
 
 ----
 
@@ -209,9 +209,9 @@ inactividad.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.users
- - Contiene vistas de login, logout, modelos de sesion
+   - Contiene vistas de login, logout, modelos de sesion
 
 5.2 Modelos de Datos
 --------------------
@@ -241,29 +241,29 @@ inactividad.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - POST
- - /api/v1/auth/login
- - Iniciar sesion
+   - /api/v1/auth/login
+   - Iniciar sesion
  * - POST
- - /api/v1/auth/logout
- - Cerrar sesion
+   - /api/v1/auth/logout
+   - Cerrar sesion
  * - POST
- - /api/v1/auth/refresh
- - Renovar token
+   - /api/v1/auth/refresh
+   - Renovar token
  * - POST
- - /api/v1/auth/password/recovery
- - Recuperar contrasena
+   - /api/v1/auth/password/recovery
+   - Recuperar contrasena
  * - PUT
- - /api/v1/auth/password/change
- - Cambiar contrasena
+   - /api/v1/auth/password/change
+   - Cambiar contrasena
  * - GET
- - /api/v1/auth/sessions
- - Listar sesiones activas
+   - /api/v1/auth/sessions
+   - Listar sesiones activas
  * - DELETE
- - /api/v1/auth/sessions/{id}
- - Cerrar sesion especifica
+   - /api/v1/auth/sessions/{id}
+   - Cerrar sesion especifica
 
 5.4 Middleware
 --------------
@@ -288,16 +288,16 @@ inactividad.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_001
- - **Comunicaciones Prohibidas**: No enviar email para recuperacion. 
- Usar preguntas de seguridad + buzon interno.
+   - **Comunicaciones Prohibidas**: No enviar email para recuperacion. 
+     Usar preguntas de seguridad + buzon interno.
  * - CNST_002
- - **Gestion Sesiones BD**: Sesiones en PostgreSQL, no Redis. 
- Sesion unica por usuario. Timeout 15 min. Validar IP+UA.
+   - **Gestion Sesiones BD**: Sesiones en PostgreSQL, no Redis. 
+     Sesion unica por usuario. Timeout 15 min. Validar IP+UA.
  * - CNST_005
- - **Seguridad DRF**: JWT con SimpleJWT. Blacklist de tokens. 
- HTTPS obligatorio.
+   - **Seguridad DRF**: JWT con SimpleJWT. Blacklist de tokens. 
+     HTTPS obligatorio.
 
 ----
 
@@ -309,23 +309,23 @@ inactividad.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_001
- - Iniciar_Sesion
- - Usuario ingresa credenciales y obtiene sesion valida
+   - Iniciar_Sesion
+   - Usuario ingresa credenciales y obtiene sesion valida
  * - UC_002
- - Cerrar_Sesion
- - Usuario cierra sesion, token se invalida
+   - Cerrar_Sesion
+   - Usuario cierra sesion, token se invalida
  * - UC_003
- - Recuperar_Contrasena
- - Usuario recupera acceso via preguntas de seguridad
+   - Recuperar_Contrasena
+   - Usuario recupera acceso via preguntas de seguridad
  * - UC_004
- - Cambiar_Contrasena
- - Usuario cambia su contrasena actual
+   - Cambiar_Contrasena
+   - Usuario cambia su contrasena actual
  * - UC_005
- - Gestionar_Sesiones_Activas
- - Usuario ve y cierra sus sesiones remotas
+   - Gestionar_Sesiones_Activas
+   - Usuario ve y cierra sus sesiones remotas
 
 ----
 
@@ -337,29 +337,29 @@ inactividad.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_001
- - Validar_Credenciales
- - UC_001
- - Verificar username/password contra BD
+   - Validar_Credenciales
+   - UC_001
+   - Verificar username/password contra BD
  * - FR_002
- - Generar_Token_JWT
- - UC_001
- - Crear JWT con claims de usuario
+   - Generar_Token_JWT
+   - UC_001
+   - Crear JWT con claims de usuario
  * - FR_003
- - Registrar_Sesion_BD
- - UC_001
- - Insertar sesion en tabla UserSession
+   - Registrar_Sesion_BD
+   - UC_001
+   - Insertar sesion en tabla UserSession
  * - FR_004
- - Invalidar_Token
- - UC_002
- - Agregar token a blacklist
+   - Invalidar_Token
+   - UC_002
+   - Agregar token a blacklist
  * - FR_005
- - Verificar_Preguntas_Seguridad
- - UC_003
- - Validar respuestas de seguridad
+   - Verificar_Preguntas_Seguridad
+   - UC_003
+   - Validar respuestas de seguridad
 
 ----
 
@@ -421,15 +421,15 @@ inactividad.
  :header-rows: 1
 
  * - Ataque
- - Mitigacion
+   - Mitigacion
  * - Brute Force
- - Rate limiting en login (5 intentos/minuto)
+   - Rate limiting en login (5 intentos/minuto)
  * - Session Hijacking
- - Validacion IP + User-Agent
+   - Validacion IP + User-Agent
  * - Token Theft
- - Blacklist de tokens, sesion unica
+   - Blacklist de tokens, sesion unica
  * - CSRF
- - Tokens JWT (no cookies de sesion)
+   - Tokens JWT (no cookies de sesion)
 
 ----
 
@@ -465,20 +465,20 @@ inactividad.
  :header-rows: 1
 
  * - Metrica
- - Tipo
- - Umbral Alerta
+   - Tipo
+   - Umbral Alerta
  * - Logins exitosos/hora
- - Counter
- - N/A (informativo)
+   - Counter
+   - N/A (informativo)
  * - Logins fallidos/hora
- - Counter
- - > 100 (posible ataque)
+   - Counter
+   - > 100 (posible ataque)
  * - Sesiones activas
- - Gauge
- - > 500 (capacidad)
+   - Gauge
+   - > 500 (capacidad)
  * - Tiempo de respuesta login
- - Histogram
- - > 2s (degradacion)
+   - Histogram
+   - > 2s (degradacion)
 
 ----
 
@@ -490,13 +490,13 @@ inactividad.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial. Definicion de proposito, alcance, 
- responsabilidades PUEDE/NO PUEDE, dependencias, 
- componentes tecnicos, UC y FR asociados.
+   - 2025-12-22
+   - Version inicial. Definicion de proposito, alcance, 
+     responsabilidades PUEDE/NO PUEDE, dependencias, 
+     componentes tecnicos, UC y FR asociados.
 
 ----
 

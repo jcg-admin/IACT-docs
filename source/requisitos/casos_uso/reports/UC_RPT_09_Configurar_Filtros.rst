@@ -19,21 +19,21 @@ UC_RPT_09: Configurar Filtros
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_09
+   - UC_RPT_09
  * - **Nombre**
- - Configurar Filtros
+   - Configurar Filtros
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-009: configura_filtros
+   - RPT-009: configura_filtros
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-009
+   - BRQ-RPT-009
 
 2. Descripcion
 --------------
@@ -79,11 +79,11 @@ de reporte.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-009
+   - Usuario tiene funcion RPT-009
  * - PRE-02
- - Existen reportes configurables
+   - Existen reportes configurables
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -98,11 +98,11 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Filtros configurados y activos
+   - Filtros configurados y activos
  * - POST-02
- - Registro en auditoria
+   - Registro en auditoria
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -112,35 +112,35 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a configuracion de filtros
+   - Usuario
+   - Accede a configuracion de filtros
  * - 2
- - Sistema
- - Valida RPT-009
+   - Sistema
+   - Valida RPT-009
  * - 3
- - Usuario
- - Selecciona reporte a configurar
+   - Usuario
+   - Selecciona reporte a configurar
  * - 4
- - Sistema
- - Muestra filtros disponibles
+   - Sistema
+   - Muestra filtros disponibles
  * - 5
- - Usuario
- - Define valores por defecto
+   - Usuario
+   - Define valores por defecto
  * - 6
- - Usuario
- - Guarda configuracion
+   - Usuario
+   - Guarda configuracion
  * - 7
- - Sistema
- - Valida filtros dentro del segmento
+   - Sistema
+   - Valida filtros dentro del segmento
  * - 8
- - Sistema
- - Guarda configuracion
+   - Sistema
+   - Guarda configuracion
  * - 9
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
 
 6. Diagrama de Secuencia
 ------------------------
@@ -187,14 +187,14 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Usuario
- - Selecciona filtro existente
+   - Usuario
+   - Selecciona filtro existente
  * - 4a
- - Sistema
- - Carga valores actuales
+   - Sistema
+   - Carga valores actuales
 
 8. Excepciones
 --------------
@@ -207,11 +207,11 @@ Usuario accede a configuracion de filtros.
  :header-rows: 0
 
  * - **Condicion**
- - Filtro incluye datos fuera del segmento
+   - Filtro incluye datos fuera del segmento
  * - **Mensaje**
- - Filtros deben estar dentro del segmento
+   - Filtros deben estar dentro del segmento
  * - **Codigo Error**
- - RPT-080
+   - RPT-080
 
 9. Diagrama de Actividad
 ------------------------
@@ -245,14 +245,14 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-80
- - Segmento
- - Filtros limitados al segmento del usuario
+   - Segmento
+   - Filtros limitados al segmento del usuario
  * - BR-RPT-81
- - Persistencia
- - Filtros se aplican automaticamente al reporte
+   - Persistencia
+   - Filtros se aplican automaticamente al reporte
 
 **Tipos de Filtros:**
 
@@ -261,15 +261,15 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - Tipo
- - Descripcion
+   - Descripcion
  * - Fecha
- - Rango de fechas por defecto
+   - Rango de fechas por defecto
  * - Agente
- - Agentes especificos o grupos
+   - Agentes especificos o grupos
  * - Cola
- - Colas de llamadas
+   - Colas de llamadas
  * - Metrica
- - Metricas a incluir
+   - Metricas a incluir
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -279,14 +279,14 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_008
- - Segmentos
- - Filtros dentro del segmento
+   - Segmentos
+   - Filtros dentro del segmento
  * - CNST_025
- - Auditoria
- - Registro de cambios
+   - Auditoria
+   - Registro de cambios
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -296,14 +296,14 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-080
- - Configurar filtros
- - Filtros guardados y aplicados
+   - Configurar filtros
+   - Filtros guardados y aplicados
  * - FR-RPT-081
- - Validar segmento
- - Rechazo si fuera de segmento
+   - Validar segmento
+   - Rechazo si fuera de segmento
 
 13. Trazabilidad
 ----------------
@@ -313,13 +313,13 @@ Usuario accede a configuracion de filtros.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-009
+   - BRQ-RPT-009
  * - **Restricciones**
- - CNST_008, CNST_025
+   - CNST_008, CNST_025
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-009: configura_filtros
+   - RPT-009: configura_filtros
 
 14. Historial de Cambios
 ------------------------
@@ -329,8 +329,8 @@ Usuario accede a configuracion de filtros.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_Index
+   - PROC_Generacion_Index
  * - **Nombre**
- - Generacion de Archivos Index para Sphinx
+   - Generacion de Archivos Index para Sphinx
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada subdominio/modulo
+   - Por cada subdominio/modulo
  * - **Duracion Estimada**
- - 10-20 minutos por index
+   - 10-20 minutos por index
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,11 +77,11 @@ de la documentacion y build exitoso de Sphinx.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Generador
- - Crea/actualiza index.rst
- - Escritura en subdominio
+   - Crea/actualiza index.rst
+   - Escritura en subdominio
 
 ----
 
@@ -104,14 +104,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_INDEX_Indices_1_0_0.rst
- - Template de Index
- - Si
+   - Template de Index
+   - Si
  * - Artefactos del subdominio
- - Archivos a listar
- - Si
+   - Archivos a listar
+   - Si
 
 ----
 
@@ -126,17 +126,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Tipo
- - Ubicacion
- - Contenido
+   - Ubicacion
+   - Contenido
  * - Dominio
- - requisitos/index.rst
- - Lista subdominios
+   - requisitos/index.rst
+   - Lista subdominios
  * - Subdominio
- - reglas_negocio/index.rst
- - Lista artefactos BR
+   - reglas_negocio/index.rst
+   - Lista artefactos BR
  * - Modulo
- - casos_uso/auth/index.rst
- - Lista UC del modulo
+   - casos_uso/auth/index.rst
+   - Lista UC del modulo
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -303,11 +303,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - index.rst
- - Indice del subdominio
- - /tmp/[subdominio]/
+   - Indice del subdominio
+   - /tmp/[subdominio]/
 
 ----
 
@@ -353,13 +353,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Artefacto no encontrado
- - Verificar nombre exacto del archivo
+   - Verificar nombre exacto del archivo
  * - Duplicate label
- - Verificar que referencias son unicas
+   - Verificar que referencias son unicas
  * - Subdominio vacio
- - No crear index hasta tener artefactos
+   - No crear index hasta tener artefactos
 
 ----
 
@@ -380,13 +380,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

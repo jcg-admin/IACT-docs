@@ -23,23 +23,23 @@ Pipeline de validacion automatizada del sistema IACT.
  :header-rows: 1
 
  * - Tipo
- - Herramientas
+   - Herramientas
  * - Linters Python
- - ruff, mypy
+   - ruff, mypy
  * - Linters JS/TS
- - ESLint, Prettier
+   - ESLint, Prettier
  * - Tests Python
- - pytest + pytest-django + factory-boy
+   - pytest + pytest-django + factory-boy
  * - Tests JS
- - Jest + Testing Library
+   - Jest + Testing Library
  * - Coverage
- - coverage.py + Codecov
+   - coverage.py + Codecov
  * - Security
- - Bandit (Python), npm audit (JS)
+   - Bandit (Python), npm audit (JS)
  * - CI/CD
- - GitHub Actions / GitLab CI
+   - GitHub Actions / GitLab CI
  * - Sphinx build
- - sphinx-build con ``-W`` en CI (CNST: build limpio)
+   - sphinx-build con ``-W`` en CI (CNST: build limpio)
 
 2. Pipeline CI
 ==============

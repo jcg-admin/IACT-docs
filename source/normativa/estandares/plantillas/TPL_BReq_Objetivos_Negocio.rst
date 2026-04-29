@@ -113,32 +113,32 @@ Cada BReq está alineado con un módulo funcional:
  :header-rows: 1
 
  * - BReq
- - Módulo
- - Descripción
+   - Módulo
+   - Descripción
  * - BReq_AUTH
- - MOD_Auth
- - Autenticación y gestión de sesiones
+   - MOD_Auth
+   - Autenticación y gestión de sesiones
  * - BReq_USR
- - MOD_Users
- - Gestión del ciclo de vida de usuarios
+   - MOD_Users
+   - Gestión del ciclo de vida de usuarios
  * - BReq_ACC
- - MOD_Access
- - Control de acceso y permisos RBAC
+   - MOD_Access
+   - Control de acceso y permisos RBAC
  * - BReq_PIP
- - MOD_Pipeline
- - Pipeline de datos ETL
+   - MOD_Pipeline
+   - Pipeline de datos ETL
  * - BReq_RPT
- - MOD_Reports
- - Reportería y visualización analítica
+   - MOD_Reports
+   - Reportería y visualización analítica
  * - BReq_ALR
- - MOD_Alerts
- - Sistema de alertas y notificaciones
+   - MOD_Alerts
+   - Sistema de alertas y notificaciones
  * - BReq_AUD
- - MOD_Audit
- - Auditoría y compliance
+   - MOD_Audit
+   - Auditoría y compliance
  * - BReq_LOG
- - MOD_Logs
- - Bitácoras del sistema
+   - MOD_Logs
+   - Bitácoras del sistema
 
 ----
 
@@ -415,41 +415,41 @@ Cada BReq DEBE incluir mínimo estas 10 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, módulo, stakeholder, prioridad
+   - Resumen Ejecutivo
+   - ID, nombre, módulo, stakeholder, prioridad
  * - 1
- - Declaración del Objetivo
- - Enunciado, justificación, beneficios
+   - Declaración del Objetivo
+   - Enunciado, justificación, beneficios
  * - 2
- - Alcance
- - Incluido y excluido
+   - Alcance
+   - Incluido y excluido
  * - 3
- - Stakeholders
- - Interesados y sus expectativas
+   - Stakeholders
+   - Interesados y sus expectativas
  * - 4
- - Criterios de Éxito
- - Métricas verificables
+   - Criterios de Éxito
+   - Métricas verificables
  * - 5
- - Artefactos Derivados
- - BR y UC que implementan el objetivo
+   - Artefactos Derivados
+   - BR y UC que implementan el objetivo
  * - 6
- - Restricciones
- - De negocio y técnicas (CNST)
+   - Restricciones
+   - De negocio y técnicas (CNST)
  * - 7
- - Dependencias
- - De qué depende y qué depende de él
+   - Dependencias
+   - De qué depende y qué depende de él
  * - 8
- - Riesgos
- - Riesgos y mitigaciones
+   - Riesgos
+   - Riesgos y mitigaciones
  * - 9
- - Trazabilidad
- - Enlaces a MOD, BR, UC, CNST
+   - Trazabilidad
+   - Enlaces a MOD, BR, UC, CNST
  * - 10
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -527,10 +527,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla BReq
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla BReq

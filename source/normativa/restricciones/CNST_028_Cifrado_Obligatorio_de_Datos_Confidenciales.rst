@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_028
+   - CNST_028
  * - **Categoria**
- - Datos
+   - Datos
  * - **Tipo (TXM_01)**
- - Regulatoria
+   - Regulatoria
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -99,11 +99,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Common
- - Define utilidades de cifrado
+   - Define utilidades de cifrado
  * - MOD_Reports
- - Cifra exports
+   - Cifra exports
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,11 +113,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_022..024
- - Exports cifrados
+   - Exports cifrados
  * - (transversal)
- - Datos en reposo cifrados
+   - Datos en reposo cifrados
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -190,15 +190,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_027_Clasificacion_Obligatoria_de_Datos_en_4_Niveles`, :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
+   - :doc:`CNST_027_Clasificacion_Obligatoria_de_Datos_en_4_Niveles`, :doc:`CNST_020_Throttling_de_Exportaciones_por_Formato`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_022..024, (transversal)
+   - UC_022..024, (transversal)
  * - **MODs afectados**
- - MOD_Common, MOD_Reports
+   - MOD_Common, MOD_Reports
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -208,15 +208,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

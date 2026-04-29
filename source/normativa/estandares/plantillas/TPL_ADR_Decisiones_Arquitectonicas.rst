@@ -116,17 +116,17 @@ Estados de ADR
  :header-rows: 1
 
  * - Estado
- - Descripcion
+   - Descripcion
  * - **Propuesto**
- - Decision en evaluacion, pendiente de aprobacion
+   - Decision en evaluacion, pendiente de aprobacion
  * - **Aceptado**
- - Decision aprobada e implementada
+   - Decision aprobada e implementada
  * - **Deprecado**
- - Decision ya no aplica pero se mantiene por historial
+   - Decision ya no aplica pero se mantiene por historial
  * - **Supersedido**
- - Reemplazado por otro ADR (indicar cual)
+   - Reemplazado por otro ADR (indicar cual)
  * - **Rechazado**
- - Propuesta evaluada y rechazada
+   - Propuesta evaluada y rechazada
 
 ----
 
@@ -417,41 +417,41 @@ Cada ADR DEBE incluir minimo estas 10 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, titulo, estado, fecha, decisores
+   - Resumen Ejecutivo
+   - ID, titulo, estado, fecha, decisores
  * - 1
- - Contexto
- - Situacion, fuerzas, stakeholders
+   - Contexto
+   - Situacion, fuerzas, stakeholders
  * - 2
- - Problema
- - Enunciado claro del problema
+   - Problema
+   - Enunciado claro del problema
  * - 3
- - Alternativas
- - Opciones evaluadas con pros/contras
+   - Alternativas
+   - Opciones evaluadas con pros/contras
  * - 4
- - Decision
- - Alternativa seleccionada y justificacion
+   - Decision
+   - Alternativa seleccionada y justificacion
  * - 5
- - Consecuencias
- - Positivas, negativas, riesgos
+   - Consecuencias
+   - Positivas, negativas, riesgos
  * - 6
- - Implementacion
- - Acciones, componentes, timeline
+   - Implementacion
+   - Acciones, componentes, timeline
  * - 7
- - Validacion
- - Criterios de exito, metricas
+   - Validacion
+   - Criterios de exito, metricas
  * - 8
- - Relaciones
- - ADR, CNST, BR, MOD relacionados
+   - Relaciones
+   - ADR, CNST, BR, MOD relacionados
  * - 9
- - Referencias
- - Documentacion externa
+   - Referencias
+   - Documentacion externa
  * - 10
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -500,10 +500,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla ADR
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla ADR

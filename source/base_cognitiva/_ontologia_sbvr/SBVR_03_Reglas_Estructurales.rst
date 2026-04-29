@@ -61,23 +61,23 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
  :widths: 20 40 40
 
  * - Aspecto
- - Aletica (Estructural)
- - Deontica (Operativa)
+   - Aletica (Estructural)
+   - Deontica (Operativa)
  * - Pregunta
- - Que ES?
- - Que DEBE SER?
+   - Que ES?
+   - Que DEBE SER?
  * - Naturaleza
- - Verdad del dominio
- - Obligacion/Prohibicion
+   - Verdad del dominio
+   - Obligacion/Prohibicion
  * - Violacion
- - Imposible (error modelo)
- - Posible (error operativo)
+   - Imposible (error modelo)
+   - Posible (error operativo)
  * - Keywords
- - ES, TIENE, CADA
- - DEBE, NO DEBE, PUEDE
+   - ES, TIENE, CADA
+   - DEBE, NO DEBE, PUEDE
  * - Ejemplo
- - "Cada usuario TIENE username"
- - "Usuario DEBE tener rol"
+   - "Cada usuario TIENE username"
+   - "Usuario DEBE tener rol"
 
 ----
 
@@ -602,93 +602,93 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
  :widths: 12 35 25 28
 
  * - Codigo
- - Regla
- - Tipo
- - Conceptos
+   - Regla
+   - Tipo
+   - Conceptos
  * - ALE-001
- - Username es unico
- - Identidad
- - Usuario
+   - Username es unico
+   - Identidad
+   - Usuario
  * - ALE-002
- - Email es unico
- - Identidad
- - Usuario
+   - Email es unico
+   - Identidad
+   - Usuario
  * - ALE-003
- - Codigo de Rol es unico
- - Identidad
- - Rol
+   - Codigo de Rol es unico
+   - Identidad
+   - Rol
  * - ALE-004
- - Una sesion activa por usuario
- - Cardinalidad
- - Usuario, Sesion
+   - Una sesion activa por usuario
+   - Cardinalidad
+   - Usuario, Sesion
  * - ALE-005
- - Usuario tiene un segmento
- - Existencia
- - Usuario, Segmento
+   - Usuario tiene un segmento
+   - Existencia
+   - Usuario, Segmento
  * - ALE-006
- - Rol tiene permisos
- - Existencia
- - Rol, Permiso
+   - Rol tiene permisos
+   - Existencia
+   - Rol, Permiso
  * - ALE-007
- - Llamada tiene centro
- - Existencia
- - Llamada, Centro
+   - Llamada tiene centro
+   - Existencia
+   - Llamada, Centro
  * - ALE-008
- - Alerta tiene metrica
- - Existencia
- - Alerta, Metrica
+   - Alerta tiene metrica
+   - Existencia
+   - Alerta, Metrica
  * - ALE-009
- - Estados de usuario
- - Enumeracion
- - Usuario
+   - Estados de usuario
+   - Enumeracion
+   - Usuario
  * - ALE-010
- - Estados de sesion
- - Enumeracion
- - Sesion
+   - Estados de sesion
+   - Enumeracion
+   - Sesion
  * - ALE-011
- - Estados de alerta
- - Enumeracion
- - Alerta
+   - Estados de alerta
+   - Enumeracion
+   - Alerta
  * - ALE-012
- - Roles por usuario
- - Cardinalidad
- - Usuario, Rol
+   - Roles por usuario
+   - Cardinalidad
+   - Usuario, Rol
  * - ALE-013
- - Permisos por rol
- - Cardinalidad
- - Rol, Permiso
+   - Permisos por rol
+   - Cardinalidad
+   - Rol, Permiso
  * - ALE-014
- - Destinatarios por alerta
- - Cardinalidad
- - Alerta, Usuario
+   - Destinatarios por alerta
+   - Cardinalidad
+   - Alerta, Usuario
  * - ALE-015
- - Auditoria inmutable
- - Inmutabilidad
- - Registro_Auditoria
+   - Auditoria inmutable
+   - Inmutabilidad
+   - Registro_Auditoria
  * - ALE-016
- - BD IVR solo lectura
- - Inmutabilidad
- - Sistema_IVR
+   - BD IVR solo lectura
+   - Inmutabilidad
+   - Sistema_IVR
  * - ALE-017
- - 18 roles fijos
- - Catalogo cerrado
- - Rol
+   - 18 roles fijos
+   - Catalogo cerrado
+   - Rol
  * - ALE-018
- - Segmentos administrados
- - Catalogo admin
- - Segmento
+   - Segmentos administrados
+   - Catalogo admin
+   - Segmento
  * - ALE-019
- - 6 modulos fijos
- - Catalogo cerrado
- - Modulo
+   - 6 modulos fijos
+   - Catalogo cerrado
+   - Modulo
  * - ALE-020
- - Sin herencia de roles
- - Anti-herencia
- - Rol
+   - Sin herencia de roles
+   - Anti-herencia
+   - Rol
  * - ALE-021
- - Permisos acumulados
- - Composicion
- - Usuario, Rol, Permiso
+   - Permisos acumulados
+   - Composicion
+   - Usuario, Rol, Permiso
 
 ----
 
@@ -720,13 +720,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 21 reglas estructurales
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 21 reglas estructurales
 
 ----
 

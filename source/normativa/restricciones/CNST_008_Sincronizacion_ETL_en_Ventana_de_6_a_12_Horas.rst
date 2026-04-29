@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_008
+   - CNST_008
  * - **Categoria**
- - Base de datos
+   - Base de datos
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -99,11 +99,11 @@ analisis historico, no para operacion en tiempo real.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_ETL
- - Implementa la sincronizacion programada
+   - Implementa la sincronizacion programada
  * - MOD_Reports
- - Consume datos sincronizados
+   - Consume datos sincronizados
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,11 +113,11 @@ analisis historico, no para operacion en tiempo real.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_025
- - Dashboard — muestra timestamp ultima ETL
+   - Dashboard — muestra timestamp ultima ETL
  * - UC_017
- - Reportes — datos hasta ultima ventana ETL
+   - Reportes — datos hasta ultima ventana ETL
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,15 +193,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_006_Arquitectura_de_Base_de_Datos_Dual`, :doc:`CNST_007_Base_de_Datos_IVR_es_Solo_Lectura`
+   - :doc:`CNST_006_Arquitectura_de_Base_de_Datos_Dual`, :doc:`CNST_007_Base_de_Datos_IVR_es_Solo_Lectura`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_025, UC_017
+   - UC_025, UC_017
  * - **MODs afectados**
- - MOD_ETL, MOD_Reports
+   - MOD_ETL, MOD_Reports
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -211,15 +211,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_NFR
+   - PROC_Generacion_NFR
  * - **Nombre**
- - Generacion de Requisitos No Funcionales
+   - Generacion de Requisitos No Funcionales
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada NFR a documentar
+   - Por cada NFR a documentar
  * - **Duracion Estimada**
- - 20-40 minutos por NFR
+   - 20-40 minutos por NFR
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ y valores objetivo claros.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Arquitecto
- - Genera NFR siguiendo TPL
- - Escritura en no_funcionales/
+   - Genera NFR siguiendo TPL
+   - Escritura en no_funcionales/
  * - DevOps
- - Valida viabilidad tecnica
- - Lectura
+   - Valida viabilidad tecnica
+   - Lectura
 
 ----
 
@@ -107,14 +107,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_NFR_No_Funcionales_1_0_0.rst
- - Template de NFR
- - Si
+   - Template de NFR
+   - Si
  * - BReq relacionado
- - Objetivo de negocio origen
- - No
+   - Objetivo de negocio origen
+   - No
 
 ----
 
@@ -129,19 +129,19 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Categoria
- - Subcategorias
+   - Subcategorias
  * - Rendimiento
- - Tiempo respuesta, throughput, utilizacion recursos
+   - Tiempo respuesta, throughput, utilizacion recursos
  * - Seguridad
- - Autenticacion, autorizacion, integridad, auditoria
+   - Autenticacion, autorizacion, integridad, auditoria
  * - Usabilidad
- - Facilidad uso, accesibilidad, estetica
+   - Facilidad uso, accesibilidad, estetica
  * - Confiabilidad
- - Disponibilidad, tolerancia fallos, recuperabilidad
+   - Disponibilidad, tolerancia fallos, recuperabilidad
  * - Mantenibilidad
- - Modularidad, reusabilidad, analizabilidad
+   - Modularidad, reusabilidad, analizabilidad
  * - Portabilidad
- - Adaptabilidad, instalabilidad, reemplazabilidad
+   - Adaptabilidad, instalabilidad, reemplazabilidad
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -309,11 +309,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - NFR_[CAT]_[NNN].rst
- - Requisito No Funcional
- - /tmp/no_funcionales/
+   - Requisito No Funcional
+   - /tmp/no_funcionales/
 
 ----
 
@@ -359,11 +359,11 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Metrica no medible
- - Reformular o buscar proxy medible
+   - Reformular o buscar proxy medible
  * - Sin herramienta disponible
- - Documentar medicion manual
+   - Documentar medicion manual
 
 ----
 
@@ -384,13 +384,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

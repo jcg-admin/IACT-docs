@@ -19,23 +19,23 @@ UC_AUTH_04: Cambiar Contrasena
  :header-rows: 0
 
  * - **ID**
- - UC_AUTH_04
+   - UC_AUTH_04
  * - **Nombre**
- - Cambiar Contrasena
+   - Cambiar Contrasena
  * - **Actor Principal**
- - Usuario (cualquier usuario autenticado)
+   - Usuario (cualquier usuario autenticado)
  * - **Actor Secundario**
- - Sistema (validacion automatica)
+   - Sistema (validacion automatica)
  * - **Modulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Funcion RBAC**
- - (publico) - Cualquier usuario autenticado
+   - (publico) - Cualquier usuario autenticado
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUTH-004
+   - BRQ-AUTH-004
 
 2. Descripcion
 --------------
@@ -102,13 +102,13 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene una sesion activa valida
+   - El usuario tiene una sesion activa valida
  * - PRE-02
- - El usuario conoce su contrasena actual
+   - El usuario conoce su contrasena actual
  * - PRE-03
- - El sistema esta operativo
+   - El sistema esta operativo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -127,19 +127,19 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - La nueva contrasena se almacena hasheada (bcrypt)
+   - La nueva contrasena se almacena hasheada (bcrypt)
  * - POST-02
- - La contrasena anterior se guarda en historial
+   - La contrasena anterior se guarda en historial
  * - POST-03
- - password_changed_at se actualiza a timestamp actual
+   - password_changed_at se actualiza a timestamp actual
  * - POST-04
- - Si estado era PENDIENTE, cambia a ACTIVO
+   - Si estado era PENDIENTE, cambia a ACTIVO
  * - POST-05
- - Se registra PASSWORD_CHANGE en auditoria (CNST_025)
+   - Se registra PASSWORD_CHANGE en auditoria (CNST_025)
  * - POST-06
- - Opcionalmente se cierran otras sesiones
+   - Opcionalmente se cierran otras sesiones
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -149,62 +149,62 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a la pantalla de cambio de contrasena
+   - Usuario
+   - Accede a la pantalla de cambio de contrasena
  * - 2
- - Sistema
- - Presenta formulario (contrasena actual, nueva, confirmacion)
+   - Sistema
+   - Presenta formulario (contrasena actual, nueva, confirmacion)
  * - 3
- - Usuario
- - Ingresa contrasena actual
+   - Usuario
+   - Ingresa contrasena actual
  * - 4
- - Usuario
- - Ingresa nueva contrasena
+   - Usuario
+   - Ingresa nueva contrasena
  * - 5
- - Usuario
- - Confirma nueva contrasena
+   - Usuario
+   - Confirma nueva contrasena
  * - 6
- - Usuario
- - Presiona "Cambiar Contrasena"
+   - Usuario
+   - Presiona "Cambiar Contrasena"
  * - 7
- - Sistema
- - Valida que nueva y confirmacion coincidan
+   - Sistema
+   - Valida que nueva y confirmacion coincidan
  * - 8
- - Sistema
- - Verifica contrasena actual contra hash almacenado
+   - Sistema
+   - Verifica contrasena actual contra hash almacenado
  * - 9
- - Sistema
- - Valida complejidad de nueva contrasena (politica)
+   - Sistema
+   - Valida complejidad de nueva contrasena (politica)
  * - 10
- - Sistema
- - Verifica que nueva contrasena no este en historial
+   - Sistema
+   - Verifica que nueva contrasena no este en historial
  * - 11
- - Sistema
- - Guarda contrasena actual en historial (max 5)
+   - Sistema
+   - Guarda contrasena actual en historial (max 5)
  * - 12
- - Sistema
- - Hashea nueva contrasena con bcrypt
+   - Sistema
+   - Hashea nueva contrasena con bcrypt
  * - 13
- - Sistema
- - Actualiza password_hash en base de datos
+   - Sistema
+   - Actualiza password_hash en base de datos
  * - 14
- - Sistema
- - Actualiza password_changed_at a timestamp actual
+   - Sistema
+   - Actualiza password_changed_at a timestamp actual
  * - 15
- - Sistema
- - Si estado=PENDIENTE, actualiza a ACTIVO
+   - Sistema
+   - Si estado=PENDIENTE, actualiza a ACTIVO
  * - 16
- - Sistema
- - Registra PASSWORD_CHANGE en UserActionLog (CNST_025)
+   - Sistema
+   - Registra PASSWORD_CHANGE en UserActionLog (CNST_025)
  * - 17
- - Sistema
- - Muestra confirmacion exitosa
+   - Sistema
+   - Muestra confirmacion exitosa
  * - 18
- - Sistema
- - Redirige al dashboard (o login si era obligatorio)
+   - Sistema
+   - Redirige al dashboard (o login si era obligatorio)
 
 6. Diagrama de Secuencia
 ------------------------
@@ -329,17 +329,17 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Sistema
- - Detecta flag requires_password_change=true del login
+   - Sistema
+   - Detecta flag requires_password_change=true del login
  * - 1b
- - Sistema
- - Redirige automaticamente a pantalla de cambio
+   - Sistema
+   - Redirige automaticamente a pantalla de cambio
  * - 1c
- - Sistema
- - Bloquea navegacion hasta completar cambio
+   - Sistema
+   - Bloquea navegacion hasta completar cambio
 
 7.2 FA-02: Password Expirado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -349,17 +349,17 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Sistema
- - Detecta flag password_expired=true del login
+   - Sistema
+   - Detecta flag password_expired=true del login
  * - 1b
- - Sistema
- - Muestra mensaje: "Su contrasena ha expirado"
+   - Sistema
+   - Muestra mensaje: "Su contrasena ha expirado"
  * - 1c
- - Sistema
- - Requiere cambio antes de continuar
+   - Sistema
+   - Requiere cambio antes de continuar
 
 7.3 FA-03: Cerrar Otras Sesiones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -369,17 +369,17 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Usuario
- - Marca checkbox "Cerrar otras sesiones"
+   - Usuario
+   - Marca checkbox "Cerrar otras sesiones"
  * - 17a
- - Sistema
- - Cierra todas las sesiones excepto la actual
+   - Sistema
+   - Cierra todas las sesiones excepto la actual
  * - 17b
- - Sistema
- - Incluye en auditoria: close_other_sessions=true
+   - Sistema
+   - Incluye en auditoria: close_other_sessions=true
 
 8. Excepciones
 --------------
@@ -392,15 +392,15 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Contrasena actual no coincide con hash almacenado
+   - Contrasena actual no coincide con hash almacenado
  * - **Accion Sistema**
- - Rechaza cambio, registra intento fallido
+   - Rechaza cambio, registra intento fallido
  * - **Mensaje Usuario**
- - "Contrasena actual incorrecta"
+   - "Contrasena actual incorrecta"
  * - **Codigo Error**
- - AUTH-030
+   - AUTH-030
 
 8.2 EX-02: No Cumple Politica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -410,15 +410,15 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Nueva contrasena no cumple requisitos de complejidad
+   - Nueva contrasena no cumple requisitos de complejidad
  * - **Accion Sistema**
- - Muestra requisitos faltantes
+   - Muestra requisitos faltantes
  * - **Mensaje Usuario**
- - "La contrasena debe tener: [requisitos]"
+   - "La contrasena debe tener: [requisitos]"
  * - **Codigo Error**
- - AUTH-031
+   - AUTH-031
 
 8.3 EX-03: Contrasena Reutilizada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -428,15 +428,15 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Nueva contrasena coincide con alguna de las ultimas 5
+   - Nueva contrasena coincide con alguna de las ultimas 5
  * - **Accion Sistema**
- - Rechaza cambio
+   - Rechaza cambio
  * - **Mensaje Usuario**
- - "No puede reutilizar las ultimas 5 contrasenas"
+   - "No puede reutilizar las ultimas 5 contrasenas"
  * - **Codigo Error**
- - AUTH-032
+   - AUTH-032
 
 8.4 EX-04: Confirmacion No Coincide
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -446,15 +446,15 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Campo nueva != campo confirmacion
+   - Campo nueva != campo confirmacion
  * - **Accion Sistema**
- - Validacion en frontend, no llega al backend
+   - Validacion en frontend, no llega al backend
  * - **Mensaje Usuario**
- - "Las contrasenas no coinciden"
+   - "Las contrasenas no coinciden"
  * - **Codigo Error**
- - AUTH-033 (frontend)
+   - AUTH-033 (frontend)
 
 9. Diagrama de Actividad
 ------------------------
@@ -541,26 +541,26 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUTH-30
- - Verificar Actual
- - Se debe verificar la contrasena actual antes de permitir el cambio.
+   - Verificar Actual
+   - Se debe verificar la contrasena actual antes de permitir el cambio.
  * - BR-AUTH-31
- - Politica de Complejidad
- - Minimo 8 caracteres, al menos: 1 mayuscula, 1 minuscula, 1 numero, 1 caracter especial.
+   - Politica de Complejidad
+   - Minimo 8 caracteres, al menos: 1 mayuscula, 1 minuscula, 1 numero, 1 caracter especial.
  * - BR-AUTH-32
- - Sin Reutilizacion
- - No se pueden reutilizar las ultimas 5 contrasenas.
+   - Sin Reutilizacion
+   - No se pueden reutilizar las ultimas 5 contrasenas.
  * - BR-AUTH-33
- - Expiracion
- - Las contrasenas expiran a los 90 dias de creadas.
+   - Expiracion
+   - Las contrasenas expiran a los 90 dias de creadas.
  * - BR-AUTH-34
- - Activacion
- - Usuarios en PENDIENTE_CONFIGURACION pasan a ACTIVO al cambiar contrasena.
+   - Activacion
+   - Usuarios en PENDIENTE_CONFIGURACION pasan a ACTIVO al cambiar contrasena.
  * - BR-AUTH-35
- - Sin Log Password
- - NUNCA se registra el password en logs o auditoria.
+   - Sin Log Password
+   - NUNCA se registra el password en logs o auditoria.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -570,14 +570,14 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_003
- - Sesion Unica
- - Si el usuario elige "Cerrar otras sesiones", se aplica SessionService.close_other_sessions. La sesion actual permanece activa.
+   - Sesion Unica
+   - Si el usuario elige "Cerrar otras sesiones", se aplica SessionService.close_other_sessions. La sesion actual permanece activa.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra evento PASSWORD_CHANGE en UserActionLog. NUNCA se incluye el password ni nuevo ni anterior en el registro.
+   - Auditoria Inmutable
+   - Se registra evento PASSWORD_CHANGE en UserActionLog. NUNCA se incluye el password ni nuevo ni anterior en el registro.
 
 **Implementacion CNST_025:**
 
@@ -606,23 +606,23 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUTH-030
- - El sistema debe validar contrasena actual antes de cambio
- - Rechazo con 401 si actual es incorrecta
+   - El sistema debe validar contrasena actual antes de cambio
+   - Rechazo con 401 si actual es incorrecta
  * - FR-AUTH-031
- - El sistema debe aplicar politica de complejidad
- - Rechazo con lista de requisitos faltantes
+   - El sistema debe aplicar politica de complejidad
+   - Rechazo con lista de requisitos faltantes
  * - FR-AUTH-032
- - El sistema debe mantener historial de 5 contrasenas
- - Rechazo si nueva coincide con alguna
+   - El sistema debe mantener historial de 5 contrasenas
+   - Rechazo si nueva coincide con alguna
  * - FR-AUTH-033
- - El sistema debe actualizar estado PENDIENTE a ACTIVO
- - Usuario puede operar normalmente post-cambio
+   - El sistema debe actualizar estado PENDIENTE a ACTIVO
+   - Usuario puede operar normalmente post-cambio
  * - FR-AUTH-034
- - El sistema debe registrar cambio sin incluir passwords
- - Auditoria visible, sin datos sensibles
+   - El sistema debe registrar cambio sin incluir passwords
+   - Auditoria visible, sin datos sensibles
 
 13. Trazabilidad
 ----------------
@@ -632,19 +632,19 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUTH-004: Permitir cambio de contrasena por usuario
+   - BRQ-AUTH-004: Permitir cambio de contrasena por usuario
  * - **Reglas de Negocio**
- - BR-AUTH-30 a BR-AUTH-35
+   - BR-AUTH-30 a BR-AUTH-35
  * - **Restricciones**
- - CNST_003 (Sesion Unica), CNST_025 (Auditoria sin PII)
+   - CNST_003 (Sesion Unica), CNST_025 (Auditoria sin PII)
  * - **FR Derivados**
- - FR-AUTH-030 a FR-AUTH-034
+   - FR-AUTH-030 a FR-AUTH-034
  * - **UC Relacionados**
- - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_03 (Recuperar Contrasena)
+   - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_03 (Recuperar Contrasena)
  * - **Actor Principal**
- - Usuario (cualquier usuario autenticado)
+   - Usuario (cualquier usuario autenticado)
  * - **Funcion RBAC**
- - (publico) - Cualquier usuario autenticado
+   - (publico) - Cualquier usuario autenticado
 
 14. Historial de Cambios
 ------------------------
@@ -654,10 +654,10 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con politica de historial
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con politica de historial

@@ -51,17 +51,17 @@ documentación del proyecto.
  :header-rows: 1
 
  * - Separador
- - Uso
- - Ejemplo
+   - Uso
+   - Ejemplo
  * - **Guión bajo (_)**
- - Entre componentes principales
- - UC_ACC_001, TPL_BR_1_0_0
+   - Entre componentes principales
+   - UC_ACC_001, TPL_BR_1_0_0
  * - **Guión medio (-)**
- - En nombres descriptivos (multi-palabra)
- - Business-Rules, Call-Center
+   - En nombres descriptivos (multi-palabra)
+   - Business-Rules, Call-Center
  * - **NUNCA espacios**
- - N/A
- - [ERROR] "UC ACC 001.rst"
+   - N/A
+   - [ERROR] "UC ACC 001.rst"
 
 2.2 Capitalización
 ------------------
@@ -143,17 +143,17 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Incremento
- - Cuándo
- - Ejemplo
+   - Cuándo
+   - Ejemplo
  * - MAJOR
- - Cambio de estructura, nomenclatura, o incompatible
- - Cambio 2 dígitos → 3 dígitos
+   - Cambio de estructura, nomenclatura, o incompatible
+   - Cambio 2 dígitos → 3 dígitos
  * - MINOR
- - Nueva sección, campo, o funcionalidad
- - Agregar diagrama PlantUML
+   - Nueva sección, campo, o funcionalidad
+   - Agregar diagrama PlantUML
  * - PATCH
- - Corrección de errores, typos, formato
- - Corregir referencia CNST
+   - Corrección de errores, typos, formato
+   - Corregir referencia CNST
 
 ----
 
@@ -181,95 +181,95 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - #
- - TIPO
- - Nombre de Archivo
- - Líneas
- - Categoría
+   - TIPO
+   - Nombre de Archivo
+   - Líneas
+   - Categoría
  * - 1
- - BReq
- - TPL_BReq_Objetivos_Negocio_1_0_0.rst
- - 450
- - Requisitos
+   - BReq
+   - TPL_BReq_Objetivos_Negocio_1_0_0.rst
+   - 450
+   - Requisitos
  * - 2
- - BR
- - TPL_BR_Business_Rules_1_0_0.rst
- - 580
- - Requisitos
+   - BR
+   - TPL_BR_Business_Rules_1_0_0.rst
+   - 580
+   - Requisitos
  * - 3
- - UC
- - TPL_UC_Casos_de_Uso_2_0_0.rst
- - 620
- - Requisitos
+   - UC
+   - TPL_UC_Casos_de_Uso_2_0_0.rst
+   - 620
+   - Requisitos
  * - 4
- - FR
- - TPL_FR_Requisitos_Funcionales_1_0_0.rst
- - 533
- - Requisitos
+   - FR
+   - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+   - 533
+   - Requisitos
  * - 5
- - NFR
- - TPL_NFR_No_Funcionales_1_0_0.rst
- - 520
- - Requisitos
+   - NFR
+   - TPL_NFR_No_Funcionales_1_0_0.rst
+   - 520
+   - Requisitos
  * - 6
- - CNST
- - TPL_CNST_Restricciones_1_0_0.rst
- - 440
- - Arquitectura
+   - CNST
+   - TPL_CNST_Restricciones_1_0_0.rst
+   - 440
+   - Arquitectura
  * - 7
- - MOD
- - TPL_MOD_Modulos_1_0_0.rst
- - 480
- - Arquitectura
+   - MOD
+   - TPL_MOD_Modulos_1_0_0.rst
+   - 480
+   - Arquitectura
  * - 8
- - ADR
- - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
- - 470
- - Arquitectura
+   - ADR
+   - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
+   - 470
+   - Arquitectura
  * - 9
- - FD
- - TPL_FD_Fichas_Dominio_1_0_0.rst
- - 520
- - Arquitectura
+   - FD
+   - TPL_FD_Fichas_Dominio_1_0_0.rst
+   - 520
+   - Arquitectura
  * - 10
- - VIEW
- - TPL_VIEW_Vistas_Arquitectonicas_1_0_0.rst
- - 510
- - Arquitectura
+   - VIEW
+   - TPL_VIEW_Vistas_Arquitectonicas_1_0_0.rst
+   - 510
+   - Arquitectura
  * - 11
- - API
- - TPL_API_Documentacion_API_1_1_0.rst
- - 650
- - Arquitectura
+   - API
+   - TPL_API_Documentacion_API_1_1_0.rst
+   - 650
+   - Arquitectura
  * - 12
- - STD
- - TPL_STD_Estandares_1_0_0.rst
- - 617
- - Normativa
+   - STD
+   - TPL_STD_Estandares_1_0_0.rst
+   - 617
+   - Normativa
  * - 13
- - PROC
- - TPL_PROC_Procedimientos_1_0_0.rst
- - 578
- - Normativa
+   - PROC
+   - TPL_PROC_Procedimientos_1_0_0.rst
+   - 578
+   - Normativa
  * - 14
- - POL
- - TPL_POL_Politicas_1_0_0.rst
- - 490
- - Normativa
+   - POL
+   - TPL_POL_Politicas_1_0_0.rst
+   - 490
+   - Normativa
  * - 15
- - TST
- - TPL_TST_Pruebas_1_0_0.rst
- - 580
- - Evidencia
+   - TST
+   - TPL_TST_Pruebas_1_0_0.rst
+   - 580
+   - Evidencia
  * - 16
- - RTM
- - TPL_RTM_Trazabilidad_1_0_0.rst
- - 576
- - Evidencia
+   - RTM
+   - TPL_RTM_Trazabilidad_1_0_0.rst
+   - 576
+   - Evidencia
  * - 17
- - INDEX
- - TPL_INDEX_Indices_1_0_0.rst
- - 304
- - Utilitario
+   - INDEX
+   - TPL_INDEX_Indices_1_0_0.rst
+   - 304
+   - Utilitario
 
 **Total:** 17 templates, ~8,918 líneas
 
@@ -316,32 +316,32 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Código
- - Módulo
- - Descripción
+   - Módulo
+   - Descripción
  * - AUTH
- - MOD_Auth
- - Autenticación y gestión de sesiones
+   - MOD_Auth
+   - Autenticación y gestión de sesiones
  * - USR
- - MOD_Users
- - Gestión de usuarios e identidades
+   - MOD_Users
+   - Gestión de usuarios e identidades
  * - ACC
- - MOD_Access
- - Control de acceso RBAC
+   - MOD_Access
+   - Control de acceso RBAC
  * - PIP
- - MOD_Pipeline
- - Supervisión del proceso ETL
+   - MOD_Pipeline
+   - Supervisión del proceso ETL
  * - RPT
- - MOD_Reports
- - Reportes, dashboard y exportación
+   - MOD_Reports
+   - Reportes, dashboard y exportación
  * - ALR
- - MOD_Alerts
- - Alertas y notificaciones internas
+   - MOD_Alerts
+   - Alertas y notificaciones internas
  * - AUD
- - MOD_Audit
- - Auditoría y compliance
+   - MOD_Audit
+   - Auditoría y compliance
  * - LOG
- - MOD_Logs
- - Bitácoras técnicas del sistema
+   - MOD_Logs
+   - Bitácoras técnicas del sistema
 
 4.3 Reglas de Negocio (BR)
 ---------------------------
@@ -618,20 +618,20 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Revision_UC_Previo_Derivacion_1_0_0.rst
- - Revisar UC antes de derivar FR
- - 375
+   - Revisar UC antes de derivar FR
+   - 375
  * - PROC_Revision_TPL_Previo_Generacion_1_0_0.rst
- - Revisar TPL antes de generar
- - 355
+   - Revisar TPL antes de generar
+   - 355
  * - PROC_Crear_Estructura_Directorios_Tmp_1_0_0.rst
- - Crear carpetas en /tmp
- - 393
+   - Crear carpetas en /tmp
+   - 393
  * - PROC_Crear_Plan_Analisis_1_0_0.rst
- - Crear documentos de análisis
- - 150
+   - Crear documentos de análisis
+   - 150
 
 **Categoría 2: Generación de Artefactos (16 PROC)**
 
@@ -640,56 +640,56 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Generacion_BReq_1_0_0.rst
- - Generar objetivos de negocio
- - 162
+   - Generar objetivos de negocio
+   - 162
  * - PROC_Generacion_BR_1_0_0.rst
- - Generar reglas de negocio
- - 393
+   - Generar reglas de negocio
+   - 393
  * - PROC_Generacion_UC_1_0_0.rst
- - Generar casos de uso
- - 441
+   - Generar casos de uso
+   - 441
  * - PROC_Generacion_FR_1_0_0.rst
- - Generar requisitos funcionales
- - 459
+   - Generar requisitos funcionales
+   - 459
  * - PROC_Generacion_NFR_1_0_0.rst
- - Generar requisitos no funcionales
- - 402
+   - Generar requisitos no funcionales
+   - 402
  * - PROC_Generacion_TST_1_0_0.rst
- - Generar casos de prueba
- - 509
+   - Generar casos de prueba
+   - 509
  * - PROC_Generacion_CNST_1_0_0.rst
- - Generar restricciones
- - 175
+   - Generar restricciones
+   - 175
  * - PROC_Generacion_MOD_1_0_0.rst
- - Generar especificaciones de módulo
- - 190
+   - Generar especificaciones de módulo
+   - 190
  * - PROC_Generacion_ADR_1_0_0.rst
- - Generar decisiones arquitectónicas
- - 180
+   - Generar decisiones arquitectónicas
+   - 180
  * - PROC_Generacion_STD_1_0_0.rst
- - Generar estándares
- - 411
+   - Generar estándares
+   - 411
  * - PROC_Generacion_POL_1_0_0.rst
- - Generar políticas
- - 165
+   - Generar políticas
+   - 165
  * - PROC_Generacion_FD_1_0_0.rst
- - Generar fichas de dominio
- - 164
+   - Generar fichas de dominio
+   - 164
  * - PROC_Generacion_VIEW_1_0_0.rst
- - Generar vistas arquitectónicas
- - 178
+   - Generar vistas arquitectónicas
+   - 178
  * - PROC_Generacion_API_1_0_0.rst
- - Generar documentación de API
- - 463
+   - Generar documentación de API
+   - 463
  * - PROC_Generacion_RTM_1_0_0.rst
- - Generar matrices de trazabilidad
- - 446
+   - Generar matrices de trazabilidad
+   - 446
  * - PROC_Generacion_Index_1_0_0.rst
- - Generar archivos index
- - 398
+   - Generar archivos index
+   - 398
 
 **Categoría 3: Derivación (5 PROC)**
 
@@ -698,23 +698,23 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Derivacion_BReq_BR_1_0_0.rst
- - Derivar BReq → BR
- - 177
+   - Derivar BReq → BR
+   - 177
  * - PROC_Derivacion_BR_UC_1_0_0.rst
- - Derivar BR → UC
- - 187
+   - Derivar BR → UC
+   - 187
  * - PROC_Derivacion_UC_FR_1_0_0.rst
- - Derivar UC → FR
- - 485
+   - Derivar UC → FR
+   - 485
  * - PROC_Derivacion_FR_TST_1_1_0.rst
- - Derivar FR → TST
- - 440
+   - Derivar FR → TST
+   - 440
  * - PROC_Derivacion_FR_CODE_1_0_0.rst
- - Derivar FR → CODE
- - 184
+   - Derivar FR → CODE
+   - 184
 
 **Categoría 4: Gobernanza Documental (7 PROC)**
 
@@ -723,29 +723,29 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Versionado_Semantico_1_0_0.rst
- - Aplicar versionado semántico
- - 372
+   - Aplicar versionado semántico
+   - 372
  * - PROC_Congelamiento_Subdominio_1_0_0.rst
- - Congelar subdominios
- - 388
+   - Congelar subdominios
+   - 388
  * - PROC_Descongelamiento_Subdominio_1_0_0.rst
- - Descongelar subdominios
- - 386
+   - Descongelar subdominios
+   - 386
  * - PROC_Actualizacion_Modelo_Documental_1_0_0.rst
- - Actualizar modelo documental
- - 389
+   - Actualizar modelo documental
+   - 389
  * - PROC_Cambio_Requisitos_1_0_0.rst
- - Gestionar cambios en requisitos
- - 351
+   - Gestionar cambios en requisitos
+   - 351
  * - PROC_Revision_Artefactos_1_0_0.rst
- - Revisar artefactos
- - 403
+   - Revisar artefactos
+   - 403
  * - PROC_Aprobacion_Documentos_1_0_0.rst
- - Aprobar documentos
- - 402
+   - Aprobar documentos
+   - 402
 
 **Categoría 5: Transferencia y Publicación (3 PROC)**
 
@@ -754,17 +754,17 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Copiar_Tmp_Outputs_1_0_0.rst
- - Copiar de /tmp a /outputs
- - 389
+   - Copiar de /tmp a /outputs
+   - 389
  * - PROC_Validacion_Sphinx_1_0_0.rst
- - Validar con Sphinx
- - 175
+   - Validar con Sphinx
+   - 175
  * - PROC_Publicacion_Documentacion_1_0_0.rst
- - Publicar documentación
- - 179
+   - Publicar documentación
+   - 179
 
 **Categoría 6: Trazabilidad y Verificación (3 PROC)**
 
@@ -773,17 +773,17 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Archivo
- - Propósito
- - Líneas
+   - Propósito
+   - Líneas
  * - PROC_Verificacion_Cobertura_1_0_0.rst
- - Verificar cobertura de requisitos
- - 190
+   - Verificar cobertura de requisitos
+   - 190
  * - PROC_Auditoria_Documental_1_0_0.rst
- - Auditar modelo documental
- - 183
+   - Auditar modelo documental
+   - 183
  * - PROC_Identificar_Gaps_Huerfanos_1_0_0.rst
- - Identificar gaps y huérfanos
- - 184
+   - Identificar gaps y huérfanos
+   - 184
 
 **Total:** 38 procedimientos, ~11,873 líneas
 
@@ -866,117 +866,117 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
  :header-rows: 1
 
  * - Prefijo
- - Nombre Completo
- - Dominio
- - Uso
+   - Nombre Completo
+   - Dominio
+   - Uso
  * - UC
- - Use Case
- - requisitos
- - Casos de uso del sistema
+   - Use Case
+   - requisitos
+   - Casos de uso del sistema
  * - BR
- - Business Rule
- - requisitos
- - Reglas de negocio
+   - Business Rule
+   - requisitos
+   - Reglas de negocio
  * - FR
- - Functional Requirement
- - requisitos
- - Requisitos funcionales
+   - Functional Requirement
+   - requisitos
+   - Requisitos funcionales
  * - NFR
- - Non-Functional Requirement
- - requisitos
- - Requisitos no funcionales
+   - Non-Functional Requirement
+   - requisitos
+   - Requisitos no funcionales
  * - BReq
- - Business Requirement
- - requisitos
- - Objetivos de negocio
+   - Business Requirement
+   - requisitos
+   - Objetivos de negocio
  * - CNST
- - Constraint
- - requisitos
- - Restricciones de arquitectura
+   - Constraint
+   - requisitos
+   - Restricciones de arquitectura
  * - ADR
- - Architecture Decision Record
- - arquitectura
- - Decisiones arquitectónicas
+   - Architecture Decision Record
+   - arquitectura
+   - Decisiones arquitectónicas
  * - MOD
- - Module
- - arquitectura
- - Módulos del sistema
+   - Module
+   - arquitectura
+   - Módulos del sistema
  * - VIEW
- - View
- - arquitectura
- - Vistas arquitectónicas
+   - View
+   - arquitectura
+   - Vistas arquitectónicas
  * - FD
- - Ficha de Dominio
- - arquitectura
- - Fichas de dominio
+   - Ficha de Dominio
+   - arquitectura
+   - Fichas de dominio
  * - API
- - Application Programming Interface
- - arquitectura
- - Documentación de APIs
+   - Application Programming Interface
+   - arquitectura
+   - Documentación de APIs
  * - MDL
- - Model
- - arquitectura
- - Modelos de datos
+   - Model
+   - arquitectura
+   - Modelos de datos
  * - TPL
- - Template
- - normativa
- - Plantillas de documentos
+   - Template
+   - normativa
+   - Plantillas de documentos
  * - PROC
- - Procedure
- - normativa
- - Procedimientos
+   - Procedure
+   - normativa
+   - Procedimientos
  * - POL
- - Policy
- - normativa
- - Políticas
+   - Policy
+   - normativa
+   - Políticas
  * - STD
- - Standard
- - normativa
- - Estándares
+   - Standard
+   - normativa
+   - Estándares
  * - NOM
- - Normativa
- - normativa
- - Documentos normativos
+   - Normativa
+   - normativa
+   - Documentos normativos
  * - FND
- - Foundation
- - base_cognitiva
- - Fundamentos conceptuales
+   - Foundation
+   - base_cognitiva
+   - Fundamentos conceptuales
  * - SBVR
- - SBVR Ontology
- - base_cognitiva
- - Ontología SBVR
+   - SBVR Ontology
+   - base_cognitiva
+   - Ontología SBVR
  * - TXM
- - Taxonomy
- - base_cognitiva
- - Taxonomías
+   - Taxonomy
+   - base_cognitiva
+   - Taxonomías
  * - MTM
- - Metamodel
- - base_cognitiva
- - Metamodelos
+   - Metamodel
+   - base_cognitiva
+   - Metamodelos
  * - META
- - Metadata
- - base_cognitiva
- - Metadata del proyecto
+   - Metadata
+   - base_cognitiva
+   - Metadata del proyecto
  * - GLOS
- - Glossary
- - base_cognitiva
- - Glosario
+   - Glossary
+   - base_cognitiva
+   - Glosario
  * - METH
- - Methodology
- - base_cognitiva
- - Metodologías analíticas
+   - Methodology
+   - base_cognitiva
+   - Metodologías analíticas
  * - TST
- - Test
- - evidencia
- - Casos de prueba
+   - Test
+   - evidencia
+   - Casos de prueba
  * - RTM
- - Requirements Traceability Matrix
- - evidencia
- - Matrices de trazabilidad
+   - Requirements Traceability Matrix
+   - evidencia
+   - Matrices de trazabilidad
  * - COV
- - Coverage
- - evidencia
- - Reportes de cobertura
+   - Coverage
+   - evidencia
+   - Reportes de cobertura
 
 **Total:** 27 prefijos en v2.0.0 (antes 17 en v1.0.0)
 
@@ -992,23 +992,23 @@ Al crear o renombrar un artefacto, verificar:
  :header-rows: 0
 
  * - ☐
- - Prefijo correcto según tipo de artefacto
+   - Prefijo correcto según tipo de artefacto
  * - ☐
- - Separadores correctos (guión bajo entre componentes)
+   - Separadores correctos (guión bajo entre componentes)
  * - ☐
- - Capitalización correcta (prefijos MAYÚSCULAS)
+   - Capitalización correcta (prefijos MAYÚSCULAS)
  * - ☐
- - Nombre descriptivo en PascalCase
+   - Nombre descriptivo en PascalCase
  * - ☐
- - Sin espacios en el nombre del archivo
+   - Sin espacios en el nombre del archivo
  * - ☐
- - Extensión en minúsculas (.rst)
+   - Extensión en minúsculas (.rst)
  * - ☐
- - Versionado semántico si aplica (templates, procedimientos, normativas)
+   - Versionado semántico si aplica (templates, procedimientos, normativas)
  * - ☐
- - Números secuenciales con 3 dígitos para artefactos públicos (001, 002)
+   - Números secuenciales con 3 dígitos para artefactos públicos (001, 002)
  * - ☐
- - Números secuenciales con 2 dígitos para artefactos privados (01, 02)
+   - Números secuenciales con 2 dígitos para artefactos privados (01, 02)
 
 ----
 
@@ -1120,23 +1120,23 @@ Al crear o renombrar un artefacto, verificar:
  :header-rows: 1
 
  * - Aspecto
- - v1.0.0
- - v2.0.0
+   - v1.0.0
+   - v2.0.0
  * - Dígitos secuenciales
- - 2 dígitos (01, 02)
- - **3 dígitos (001, 002)**
+   - 2 dígitos (01, 02)
+   - **3 dígitos (001, 002)**
  * - Templates
- - 6 ejemplos
- - **17 TPL completos**
+   - 6 ejemplos
+   - **17 TPL completos**
  * - Procedimientos
- - No versionados
- - **38 PROC versionados**
+   - No versionados
+   - **38 PROC versionados**
  * - Prefijos totales
- - 17
- - **27 prefijos**
+   - 17
+   - **27 prefijos**
  * - Normativas
- - No existía NOM
- - **NOM con versionado**
+   - No existía NOM
+   - **NOM con versionado**
 
 8.2 Tabla de Migración
 -----------------------
@@ -1146,32 +1146,32 @@ Al crear o renombrar un artefacto, verificar:
  :header-rows: 1
 
  * - Antigua (v1.0)
- - Nueva (v2.0)
- - Tipo Cambio
+   - Nueva (v2.0)
+   - Tipo Cambio
  * - ``NOM_01_...``
- - ``NOM_001_..._2_0_0.rst``
- - Dígitos + versión
+   - ``NOM_001_..._2_0_0.rst``
+   - Dígitos + versión
  * - ``STD_01_...``
- - ``STD_001_..._1_0_0.rst``
- - Dígitos + versión
+   - ``STD_001_..._1_0_0.rst``
+   - Dígitos + versión
  * - ``BR_001_...``
- - ``BR_001_..._1_0_0.rst``
- - + versión
+   - ``BR_001_..._1_0_0.rst``
+   - + versión
  * - ``CNST_001_...``
- - ``CNST_001_..._1_0_0.rst``
- - + versión
+   - ``CNST_001_..._1_0_0.rst``
+   - + versión
  * - ``UC_ACC_01``
- - ``UC_ACC_01_..._4_0_0.rst``
- - + versión
+   - ``UC_ACC_01_..._4_0_0.rst``
+   - + versión
  * - FR (sin formato)
- - ``FR_001.01_..._1_0_0.rst``
- - Nuevo formato
+   - ``FR_001.01_..._1_0_0.rst``
+   - Nuevo formato
  * - ``TPL_BR_1_0_0``
- - ``TPL_BR_Business_Rules_1_0_0.rst``
- - Nombre descriptivo
+   - ``TPL_BR_Business_Rules_1_0_0.rst``
+   - Nombre descriptivo
  * - PROC_Generacion_FR
- - PROC_Generacion_FR_1_0_0.rst
- - + versionado
+   - PROC_Generacion_FR_1_0_0.rst
+   - + versionado
 
 8.3 Reglas de Migración
 ------------------------
@@ -1215,17 +1215,17 @@ Al crear o renombrar un artefacto, verificar:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial con nomenclatura v4.0.0 completa
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial con nomenclatura v4.0.0 completa
  * - 2.0.0
- - 2026-01-08
- - Equipo IACT
- - Migración 2→3 dígitos. 17 TPL + 38 PROC documentados. 10 nuevos prefijos (NOM, PROC, VIEW, FD, API, MDL, GLOS, METH, COV). Basado en MODELO_DOCUMENTAL_IACT_v2.2.0
+   - 2026-01-08
+   - Equipo IACT
+   - Migración 2→3 dígitos. 17 TPL + 38 PROC documentados. 10 nuevos prefijos (NOM, PROC, VIEW, FD, API, MDL, GLOS, METH, COV). Basado en MODELO_DOCUMENTAL_IACT_v2.2.0
 
 ----
 

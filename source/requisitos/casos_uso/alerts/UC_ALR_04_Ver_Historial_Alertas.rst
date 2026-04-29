@@ -19,21 +19,21 @@ UC_ALR_04: Ver Historial Alertas
  :header-rows: 0
 
  * - **ID**
- - UC_ALR_04
+   - UC_ALR_04
  * - **Nombre**
- - Ver Historial Alertas
+   - Ver Historial Alertas
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Alerts
+   - MOD_Alerts
  * - **Funcion RBAC**
- - ALR-004: ve_historial_alertas
+   - ALR-004: ve_historial_alertas
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-ALR-004
+   - BRQ-ALR-004
 
 2. Descripcion
 --------------
@@ -85,13 +85,13 @@ tendencias y patrones de problemas operativos.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion ALR-004
+   - El usuario tiene sesion activa con funcion ALR-004
  * - PRE-02
- - Existen alertas historicas en el sistema
+   - Existen alertas historicas en el sistema
  * - PRE-03
- - El rango de fechas no excede 2 anios
+   - El rango de fechas no excede 2 anios
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -106,11 +106,11 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra historial de alertas filtrado por segmento
+   - Se muestra historial de alertas filtrado por segmento
  * - POST-02
- - La consulta no modifica ningun dato (solo lectura)
+   - La consulta no modifica ningun dato (solo lectura)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -120,32 +120,32 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Supervisor
- - Accede a historial de alertas
+   - Supervisor
+   - Accede a historial de alertas
  * - 2
- - Sistema
- - Valida funcion ALR-004
+   - Sistema
+   - Valida funcion ALR-004
  * - 3
- - Sistema
- - Muestra alertas de ultimos 30 dias por defecto
+   - Sistema
+   - Muestra alertas de ultimos 30 dias por defecto
  * - 4
- - Supervisor
- - Opcionalmente aplica filtros adicionales
+   - Supervisor
+   - Opcionalmente aplica filtros adicionales
  * - 5
- - Sistema
- - Valida rango no excede 2 anios (CNST_015)
+   - Sistema
+   - Valida rango no excede 2 anios (CNST_015)
  * - 6
- - Sistema
- - Consulta alertas con filtro de segmento automatico
+   - Sistema
+   - Consulta alertas con filtro de segmento automatico
  * - 7
- - Sistema
- - Presenta lista paginada ordenada por fecha
+   - Sistema
+   - Presenta lista paginada ordenada por fecha
  * - 8
- - Supervisor
- - Opcionalmente selecciona alerta para ver detalle
+   - Supervisor
+   - Opcionalmente selecciona alerta para ver detalle
 
 6. Diagrama de Secuencia
 ------------------------
@@ -212,20 +212,20 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Supervisor
- - Hace clic en Exportar
+   - Supervisor
+   - Hace clic en Exportar
  * - 8b
- - Sistema
- - Genera CSV con alertas filtradas
+   - Sistema
+   - Genera CSV con alertas filtradas
  * - 8c
- - Sistema
- - Registra exportacion en auditoria
+   - Sistema
+   - Registra exportacion en auditoria
  * - 8d
- - Sistema
- - Descarga archivo
+   - Sistema
+   - Descarga archivo
 
 7.2 FA-02: Filtrar por Metrica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -235,14 +235,14 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Supervisor
- - Selecciona metrica especifica (TMO, abandono, etc.)
+   - Supervisor
+   - Selecciona metrica especifica (TMO, abandono, etc.)
  * - 6a
- - Sistema
- - Filtra solo alertas de esa metrica
+   - Sistema
+   - Filtra solo alertas de esa metrica
 
 7.3 FA-03: Ver Tendencia de Alertas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,14 +252,14 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Supervisor
- - Hace clic en Ver Tendencia
+   - Supervisor
+   - Hace clic en Ver Tendencia
  * - 8b
- - Sistema
- - Muestra grafico de alertas por periodo
+   - Sistema
+   - Muestra grafico de alertas por periodo
 
 8. Excepciones
 --------------
@@ -272,15 +272,15 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Rango de fechas seleccionado mayor a 730 dias
+   - Rango de fechas seleccionado mayor a 730 dias
  * - **Accion Sistema**
- - Rechaza consulta
+   - Rechaza consulta
  * - **Mensaje Usuario**
- - Rango maximo de consulta es 2 anios. Ajuste las fechas.
+   - Rango maximo de consulta es 2 anios. Ajuste las fechas.
  * - **Codigo Error**
- - ALR-030
+   - ALR-030
 
 8.2 EX-02: Sin Alertas en Periodo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -290,13 +290,13 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - No hay alertas para el rango y filtros
+   - No hay alertas para el rango y filtros
  * - **Accion Sistema**
- - Muestra lista vacia
+   - Muestra lista vacia
  * - **Mensaje Usuario**
- - No se encontraron alertas para el periodo seleccionado
+   - No se encontraron alertas para el periodo seleccionado
 
 9. Diagrama de Actividad
 ------------------------
@@ -351,20 +351,20 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ALR-30
- - Retencion 2 Anios
- - Solo se pueden consultar alertas de los ultimos 2 anios (CNST_015)
+   - Retencion 2 Anios
+   - Solo se pueden consultar alertas de los ultimos 2 anios (CNST_015)
  * - BR-ALR-31
- - Filtro Segmento
- - Solo alertas del segmento del usuario visibles (CNST_008)
+   - Filtro Segmento
+   - Solo alertas del segmento del usuario visibles (CNST_008)
  * - BR-ALR-32
- - Paginacion
- - Maximo 100 alertas por pagina
+   - Paginacion
+   - Maximo 100 alertas por pagina
  * - BR-ALR-33
- - Solo Lectura
- - El historial es de solo lectura, no se puede modificar
+   - Solo Lectura
+   - El historial es de solo lectura, no se puede modificar
 
 **Filtros Disponibles:**
 
@@ -373,17 +373,17 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Filtro
- - Descripcion
+   - Descripcion
  * - Fecha Inicio
- - Fecha minima de creacion de alerta
+   - Fecha minima de creacion de alerta
  * - Fecha Fin
- - Fecha maxima de creacion de alerta
+   - Fecha maxima de creacion de alerta
  * - Estado
- - ACTIVE, ACKNOWLEDGED, RESOLVED
+   - ACTIVE, ACKNOWLEDGED, RESOLVED
  * - Severidad
- - CRITICAL, WARNING, INFO
+   - CRITICAL, WARNING, INFO
  * - Metrica
- - TMO, ABANDONO, ESPERA, etc.
+   - TMO, ABANDONO, ESPERA, etc.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -393,17 +393,17 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Datos historicos de BD Analytics
+   - BD Dual
+   - Datos historicos de BD Analytics
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento del usuario
+   - Segmentos
+   - Filtro automatico por segmento del usuario
  * - CNST_015
- - Retencion
- - Maximo 2 anios de historial consultable
+   - Retencion
+   - Maximo 2 anios de historial consultable
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -413,20 +413,20 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ALR-030
- - El sistema debe mostrar historial de alertas
- - Lista paginada con filtros
+   - El sistema debe mostrar historial de alertas
+   - Lista paginada con filtros
  * - FR-ALR-031
- - El sistema debe validar rango maximo 2 anios
- - Rechazo si excede limite
+   - El sistema debe validar rango maximo 2 anios
+   - Rechazo si excede limite
  * - FR-ALR-032
- - El sistema debe permitir filtros multiples
- - Filtros por fecha, estado, severidad, metrica
+   - El sistema debe permitir filtros multiples
+   - Filtros por fecha, estado, severidad, metrica
  * - FR-ALR-033
- - El sistema debe permitir exportar
- - CSV descargable con alertas filtradas
+   - El sistema debe permitir exportar
+   - CSV descargable con alertas filtradas
 
 13. Trazabilidad
 ----------------
@@ -436,17 +436,17 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ALR-004: Consultar historial de alertas
+   - BRQ-ALR-004: Consultar historial de alertas
  * - **Reglas de Negocio**
- - BR-ALR-30 a BR-ALR-33
+   - BR-ALR-30 a BR-ALR-33
  * - **Restricciones**
- - CNST_007, CNST_008, CNST_015
+   - CNST_007, CNST_008, CNST_015
  * - **UC Relacionados**
- - UC_ALR_02 (Ver Activas), UC_ALR_03 (Reconocer)
+   - UC_ALR_02 (Ver Activas), UC_ALR_03 (Reconocer)
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - ALR-004: ve_historial_alertas
+   - ALR-004: ve_historial_alertas
 
 14. Historial de Cambios
 ------------------------
@@ -456,10 +456,10 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_015
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_015

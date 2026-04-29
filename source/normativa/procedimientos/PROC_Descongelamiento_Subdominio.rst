@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Descongelamiento_Subdominio
+   - PROC_Descongelamiento_Subdominio
  * - **Nombre**
- - Descongelar Subdominio del Modelo Documental
+   - Descongelar Subdominio del Modelo Documental
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Cuando se requieren cambios en subdominio congelado
+   - Cuando se requieren cambios en subdominio congelado
  * - **Duracion Estimada**
- - 10-15 minutos
+   - 10-15 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ manteniendo trazabilidad y control.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Arquitecto Doc
- - Aprueba y ejecuta descongelamiento
- - Escritura en modelo
+   - Aprueba y ejecuta descongelamiento
+   - Escritura en modelo
  * - Solicitante
- - Justifica necesidad de cambio
- - N/A
+   - Justifica necesidad de cambio
+   - N/A
 
 ----
 
@@ -107,14 +107,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Subdominio congelado
- - Carpeta con estado [CONGELADO]
- - Si
+   - Carpeta con estado [CONGELADO]
+   - Si
  * - Justificacion de cambio
- - Razon del descongelamiento
- - Si
+   - Razon del descongelamiento
+   - Si
 
 ----
 
@@ -243,13 +243,13 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Subdominio
- - Fecha
- - Razon
- - Responsable
+   - Fecha
+   - Razon
+   - Responsable
  * - reglas_negocio
- - 2026-01-07
- - Agregar BR_021
- - Arquitecto
+   - 2026-01-07
+   - Agregar BR_021
+   - Arquitecto
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada
@@ -297,14 +297,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - index.rst actualizado
- - Con marca [DESCONGELADO]
- - [subdominio]/
+   - Con marca [DESCONGELADO]
+   - [subdominio]/
  * - Registro de descongelamiento
- - Documentacion del cambio
- - Registro central
+   - Documentacion del cambio
+   - Registro central
 
 ----
 
@@ -349,13 +349,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Subdominio no estaba congelado
- - No requiere descongelamiento
+   - No requiere descongelamiento
  * - Justificacion insuficiente
- - Solicitar mas detalle o rechazar
+   - Solicitar mas detalle o rechazar
  * - Cambios exceden lo justificado
- - Documentar cambios adicionales
+   - Documentar cambios adicionales
 
 ----
 
@@ -376,13 +376,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

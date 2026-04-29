@@ -164,50 +164,50 @@ El sistema IACT se divide en 8 módulos funcionales:
  :header-rows: 1
 
  * - Código
- - Nombre
- - Prefijo UC
- - # UC
- - Responsabilidad
+   - Nombre
+   - Prefijo UC
+   - # UC
+   - Responsabilidad
  * - MOD_Auth
- - Autenticación
- - UC_AUTH
- - 5
- - Login, logout, recuperación contraseña, 2FA
+   - Autenticación
+   - UC_AUTH
+   - 5
+   - Login, logout, recuperación contraseña, 2FA
  * - MOD_Users
- - Gestión Usuarios
- - UC_USR
- - 4
- - CRUD de usuarios, suspensión, activación
+   - Gestión Usuarios
+   - UC_USR
+   - 4
+   - CRUD de usuarios, suspensión, activación
  * - MOD_Access
- - Control Acceso
- - UC_ACC
- - 9
- - RBAC, permisos, agrupadores, SoD, segmentos
+   - Control Acceso
+   - UC_ACC
+   - 9
+   - RBAC, permisos, agrupadores, SoD, segmentos
  * - MOD_Pipeline
- - Supervisión ETL
- - UC_PIP
- - 4
- - Monitoreo ETL, errores, disponibilidad
+   - Supervisión ETL
+   - UC_PIP
+   - 4
+   - Monitoreo ETL, errores, disponibilidad
  * - MOD_Reports
- - Reportería
- - UC_RPT
- - 14
- - Dashboards, reportes, exportaciones, métricas
+   - Reportería
+   - UC_RPT
+   - 14
+   - Dashboards, reportes, exportaciones, métricas
  * - MOD_Alerts
- - Sistema Alertas
- - UC_ALR
- - 5
- - Configuración alertas, umbrales, suscripciones
+   - Sistema Alertas
+   - UC_ALR
+   - 5
+   - Configuración alertas, umbrales, suscripciones
  * - MOD_Audit
- - Auditoría
- - UC_AUD
- - 4
- - Consulta auditoría, compliance, exportación
+   - Auditoría
+   - UC_AUD
+   - 4
+   - Consulta auditoría, compliance, exportación
  * - MOD_Logs
- - Bitácoras
- - UC_LOG
- - 4
- - Consulta logs técnicos, exportación
+   - Bitácoras
+   - UC_LOG
+   - 4
+   - Consulta logs técnicos, exportación
 
 **Total:** 49 Casos de Uso, 23,401 líneas de documentación RST, 147 diagramas PlantUML
 
@@ -573,26 +573,26 @@ Nota: el concepto antiguo de "Limites de Exportacion" del set legacy quedo distr
  :header-rows: 1
 
  * - Aspecto
- - BR_011 (Business Rule)
- - CNST_020 (Constraint)
+   - BR_011 (Business Rule)
+   - CNST_020 (Constraint)
  * - **Naturaleza**
- - Regla de negocio
- - Restricción arquitectónica
+   - Regla de negocio
+   - Restricción arquitectónica
  * - **Origen**
- - Requisitos de negocio
- - Requisitos no funcionales (performance)
+   - Requisitos de negocio
+   - Requisitos no funcionales (performance)
  * - **Definición**
- - "Las exportaciones tienen límites"
- - "Límites técnicos del sistema"
+   - "Las exportaciones tienen límites"
+   - "Límites técnicos del sistema"
  * - **Valores**
- - 100k CSV, 50k Excel, 10k PDF
- - Basado en capacidad del servidor
+   - 100k CSV, 50k Excel, 10k PDF
+   - Basado en capacidad del servidor
  * - **Puede cambiar**
- - Sí (decisión de negocio)
- - Difícil (requiere cambio infraestructura)
+   - Sí (decisión de negocio)
+   - Difícil (requiere cambio infraestructura)
  * - **Documentado en**
- - BR_011 (reglas_negocio/)
- - CNST_020 (normativa/restricciones/)
+   - BR_011 (reglas_negocio/)
+   - CNST_020 (normativa/restricciones/)
 
 **Relación:**
 
@@ -825,9 +825,9 @@ Esta introducción ha establecido:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-08
- - Versión inicial con dominio IACT. Reemplaza ejemplos de 
- productos químicos con Sistema IVR Analytics real.
+   - 2026-01-08
+   - Versión inicial con dominio IACT. Reemplaza ejemplos de 
+     productos químicos con Sistema IVR Analytics real.

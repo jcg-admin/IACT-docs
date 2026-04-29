@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_003
+   - BR_003
  * - **Nombre**
- - Usuario Inactivo 90 Dias
+   - Usuario Inactivo 90 Dias
  * - **Tipo**
- - Inferencia
+   - Inferencia
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Media
+   - Media
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -101,11 +101,11 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 0
 
  * - **Documento**
- - Politica de Seguridad Organizacional
+   - Politica de Seguridad Organizacional
  * - **Seccion**
- - Gestion de Cuentas de Usuario
+   - Gestion de Cuentas de Usuario
  * - **Tipo Fuente**
- - Politica Interna
+   - Politica Interna
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -127,13 +127,13 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Users
- - Almacena fecha de ultimo acceso
+   - Almacena fecha de ultimo acceso
  * - MOD_Access
- - Evalua estado de inactividad
+   - Evalua estado de inactividad
  * - Job Batch
- - Ejecuta revision periodica de cuentas
+   - Ejecuta revision periodica de cuentas
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -160,9 +160,9 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - (ninguna)
- - Derivada de politica organizacional
+   - Derivada de politica organizacional
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -172,9 +172,9 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-004
- - Cumplimiento de Seguridad
+   - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,11 +184,11 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-009
- - Listar Usuarios - muestra estado inactivo
+   - Listar Usuarios - muestra estado inactivo
  * - UC-061
- - Consultar Log Auditoria - registra cambios estado
+   - Consultar Log Auditoria - registra cambios estado
 
 ----
 
@@ -226,10 +226,10 @@ auditoria y posible desactivacion preventiva.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

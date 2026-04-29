@@ -22,19 +22,19 @@ FR-007.01: Cargar datos del usuario
  :widths: 25 75
 
  * - **ID**
- - FR-007.01
+   - FR-007.01
  * - **Nombre**
- - Cargar datos actuales del usuario a modificar
+   - Cargar datos actuales del usuario a modificar
  * - **UC Origen**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Paso UC**
- - Paso 1-2 del flujo normal
+   - Paso 1-2 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -130,15 +130,15 @@ segmento, a menos que tenga permisos de admin global.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-007.02
+   - FR-007.02
  * - **TEST**
- - TST-FR-007.01 (pendiente)
+   - TST-FR-007.01 (pendiente)
 
 ----
 
@@ -150,8 +150,8 @@ segmento, a menos que tenga permisos de admin global.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_007
+   - 2026-01-07
+   - Versión inicial derivada de UC_007

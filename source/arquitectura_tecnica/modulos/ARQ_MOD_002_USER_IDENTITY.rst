@@ -75,38 +75,38 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - Crear cuenta con username autogenerado
- - UC_006
- - CNST_005
+   - UC_006
+   - CNST_005
  * - Asignar estado inicial PENDIENTE_CONFIGURACION
- - UC_006
- - -
+   - UC_006
+   - -
  * - Generar contrasena temporal
- - UC_006
- - CNST_001
+   - UC_006
+   - CNST_001
  * - Actualizar nombre, apellidos, unidad organizacional
- - UC_007
- - -
+   - UC_007
+   - -
  * - Cambiar estado del usuario (ACTIVO, INACTIVO, BLOQUEADO)
- - UC_007
- - -
+   - UC_007
+   - -
  * - Ejecutar baja logica (soft delete)
- - UC_008
- - CNST_009
+   - UC_008
+   - CNST_009
  * - Almacenar deleted_at, deleted_by
- - UC_008
- - CNST_009
+   - UC_008
+   - CNST_009
  * - Gestionar preguntas de seguridad (min 3)
- - UC_009
- - CNST_001
+   - UC_009
+   - CNST_001
  * - Mostrar perfil con roles asignados
- - UC_010
- - -
+   - UC_010
+   - -
  * - Asociar usuario con roles (relacion M:N)
- - UC_007
- - -
+   - UC_007
+   - -
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -148,9 +148,9 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_003_RBAC_CORE
- - Para mostrar roles en perfil (solo lectura)
+   - Para mostrar roles en perfil (solo lectura)
 
 4.2 Es Requerido por
 --------------------
@@ -160,13 +160,13 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Valida que usuario existe y esta activo
+   - Valida que usuario existe y esta activo
  * - ARQ_MOD_003_RBAC_CORE
- - Calcula permisos sobre el usuario
+   - Calcula permisos sobre el usuario
  * - ARQ_MOD_007_AUDIT
- - Registra cambios en usuarios
+   - Registra cambios en usuarios
 
 ----
 
@@ -181,9 +181,9 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.users
- - Modelos User, SecurityQuestion, vistas de gestion
+   - Modelos User, SecurityQuestion, vistas de gestion
 
 5.2 Modelos de Datos
 --------------------
@@ -218,26 +218,26 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - POST
- - /api/v1/users
- - Crear usuario
+   - /api/v1/users
+   - Crear usuario
  * - GET
- - /api/v1/users/{id}
- - Obtener usuario
+   - /api/v1/users/{id}
+   - Obtener usuario
  * - PUT
- - /api/v1/users/{id}
- - Actualizar usuario
+   - /api/v1/users/{id}
+   - Actualizar usuario
  * - DELETE
- - /api/v1/users/{id}
- - Baja logica
+   - /api/v1/users/{id}
+   - Baja logica
  * - GET
- - /api/v1/users/{id}/profile
- - Perfil completo
+   - /api/v1/users/{id}/profile
+   - Perfil completo
  * - PUT
- - /api/v1/users/{id}/security-questions
- - Gestionar preguntas
+   - /api/v1/users/{id}/security-questions
+   - Gestionar preguntas
 
 ----
 
@@ -249,13 +249,13 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_001
- - **Comunicaciones Prohibidas**: Preguntas de seguridad obligatorias 
- (no hay email para recuperacion).
+   - **Comunicaciones Prohibidas**: Preguntas de seguridad obligatorias 
+     (no hay email para recuperacion).
  * - CNST_009
- - **Logging Auditoria**: Baja logica, nunca eliminacion fisica. 
- Conservar datos para auditoria.
+   - **Logging Auditoria**: Baja logica, nunca eliminacion fisica. 
+     Conservar datos para auditoria.
 
 ----
 
@@ -267,23 +267,23 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_006
- - Crear_Cuenta_Usuario
- - Alta con username autogenerado, estado inicial
+   - Crear_Cuenta_Usuario
+   - Alta con username autogenerado, estado inicial
  * - UC_007
- - Actualizar_Datos_Usuario
- - Modificar nombre, apellidos, unidad, estado
+   - Actualizar_Datos_Usuario
+   - Modificar nombre, apellidos, unidad, estado
  * - UC_008
- - Baja_Logica_Usuario
- - Soft delete con deleted_at/by
+   - Baja_Logica_Usuario
+   - Soft delete con deleted_at/by
  * - UC_009
- - Gestionar_Preguntas_Seguridad
- - Alta/cambio de min 3 preguntas
+   - Gestionar_Preguntas_Seguridad
+   - Alta/cambio de min 3 preguntas
  * - UC_010
- - Consultar_Perfil_Usuario
- - Ver datos basicos y roles asignados
+   - Consultar_Perfil_Usuario
+   - Ver datos basicos y roles asignados
 
 ----
 
@@ -295,29 +295,29 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_006
- - Generar_Username_Automatico
- - UC_006
- - Patron: inicial + apellido + numero
+   - Generar_Username_Automatico
+   - UC_006
+   - Patron: inicial + apellido + numero
  * - FR_007
- - Validar_Datos_Usuario
- - UC_007
- - Campos obligatorios, formatos
+   - Validar_Datos_Usuario
+   - UC_007
+   - Campos obligatorios, formatos
  * - FR_008
- - Ejecutar_Baja_Logica
- - UC_008
- - Soft delete, no hard delete
+   - Ejecutar_Baja_Logica
+   - UC_008
+   - Soft delete, no hard delete
  * - FR_009
- - Almacenar_Preguntas_Seguridad
- - UC_009
- - Hash de respuestas, min 3
+   - Almacenar_Preguntas_Seguridad
+   - UC_009
+   - Hash de respuestas, min 3
  * - FR_010
- - Cargar_Perfil_Usuario
- - UC_010
- - Incluir roles desde RBAC
+   - Cargar_Perfil_Usuario
+   - UC_010
+   - Incluir roles desde RBAC
 
 ----
 
@@ -360,11 +360,11 @@ alta, modificacion, baja logica, y datos de perfil.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial
+   - 2025-12-22
+   - Version inicial
 
 ----
 

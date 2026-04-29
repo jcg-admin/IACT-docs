@@ -22,19 +22,19 @@ FR-008.04: Preservar registro histórico
  :widths: 25 75
 
  * - **ID**
- - FR-008.04
+   - FR-008.04
  * - **Nombre**
- - Preservar registro completo para histórico y auditoría
+   - Preservar registro completo para histórico y auditoría
  * - **UC Origen**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Paso UC**
- - Paso 10 (implícito en BR_009)
+   - Paso 10 (implícito en BR_009)
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Auditoría
+   - Auditoría
 
 ----
 
@@ -134,19 +134,19 @@ FR-008.04: Preservar registro histórico
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Depende de**
- - FR-008.03
+   - FR-008.03
  * - **Requerido por**
- - FR-061.01 (consulta auditoría)
+   - FR-061.01 (consulta auditoría)
  * - **BR**
- - BR_009
+   - BR_009
  * - **CNST**
- - CNST-006, CNST-009
+   - CNST-006, CNST-009
  * - **TEST**
- - TST-FR-008.04 (pendiente)
+   - TST-FR-008.04 (pendiente)
 
 ----
 
@@ -158,8 +158,8 @@ FR-008.04: Preservar registro histórico
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_008
+   - 2026-01-07
+   - Versión inicial derivada de UC_008

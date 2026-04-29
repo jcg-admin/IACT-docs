@@ -19,21 +19,21 @@ UC_RPT_11: Compartir Reporte
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_11
+   - UC_RPT_11
  * - **Nombre**
- - Compartir Reporte
+   - Compartir Reporte
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-011: comparte_reportes
+   - RPT-011: comparte_reportes
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-011
+   - BRQ-RPT-011
 
 2. Descripcion
 --------------
@@ -71,13 +71,13 @@ segmento. La notificacion se envia via InternalMessage (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-011
+   - Usuario tiene funcion RPT-011
  * - PRE-02
- - Existe un reporte para compartir
+   - Existe un reporte para compartir
  * - PRE-03
- - Destinatarios del mismo segmento
+   - Destinatarios del mismo segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -92,11 +92,11 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Reporte compartido con destinatarios
+   - Reporte compartido con destinatarios
  * - POST-02
- - Notificacion enviada via InternalMessage
+   - Notificacion enviada via InternalMessage
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -106,32 +106,32 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Hace clic en Compartir
+   - Usuario
+   - Hace clic en Compartir
  * - 2
- - Sistema
- - Valida RPT-011
+   - Sistema
+   - Valida RPT-011
  * - 3
- - Sistema
- - Muestra usuarios del segmento
+   - Sistema
+   - Muestra usuarios del segmento
  * - 4
- - Usuario
- - Selecciona destinatarios
+   - Usuario
+   - Selecciona destinatarios
  * - 5
- - Usuario
- - Opcionalmente agrega mensaje
+   - Usuario
+   - Opcionalmente agrega mensaje
  * - 6
- - Sistema
- - Valida destinatarios del segmento
+   - Sistema
+   - Valida destinatarios del segmento
  * - 7
- - Sistema
- - Envia notificacion via InternalMessage
+   - Sistema
+   - Envia notificacion via InternalMessage
  * - 8
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
 
 6. Diagrama de Secuencia
 ------------------------
@@ -175,14 +175,14 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Usuario
- - Ingresa mensaje personalizado
+   - Usuario
+   - Ingresa mensaje personalizado
  * - 7a
- - Sistema
- - Incluye mensaje en notificacion
+   - Sistema
+   - Incluye mensaje en notificacion
 
 8. Excepciones
 --------------
@@ -195,11 +195,11 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 0
 
  * - **Condicion**
- - Destinatario de segmento diferente
+   - Destinatario de segmento diferente
  * - **Mensaje**
- - Solo puede compartir con usuarios del mismo segmento
+   - Solo puede compartir con usuarios del mismo segmento
  * - **Codigo Error**
- - RPT-100
+   - RPT-100
 
 9. Diagrama de Actividad
 ------------------------
@@ -233,14 +233,14 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-100
- - Mismo Segmento
- - Solo usuarios del mismo segmento
+   - Mismo Segmento
+   - Solo usuarios del mismo segmento
  * - BR-RPT-101
- - Notificacion
- - Via InternalMessage unicamente
+   - Notificacion
+   - Via InternalMessage unicamente
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -250,17 +250,17 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_001
- - Comunicacion Interna
- - Solo InternalMessage
+   - Comunicacion Interna
+   - Solo InternalMessage
  * - CNST_008
- - Segmentos
- - Mismo segmento
+   - Segmentos
+   - Mismo segmento
  * - CNST_025
- - Auditoria
- - Registro REPORT_SHARE
+   - Auditoria
+   - Registro REPORT_SHARE
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -270,14 +270,14 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-100
- - Compartir reportes
- - Notificacion enviada
+   - Compartir reportes
+   - Notificacion enviada
  * - FR-RPT-101
- - Validar segmento
- - Solo mismo segmento
+   - Validar segmento
+   - Solo mismo segmento
 
 13. Trazabilidad
 ----------------
@@ -287,13 +287,13 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-011
+   - BRQ-RPT-011
  * - **Restricciones**
- - CNST_001, CNST_008, CNST_025
+   - CNST_001, CNST_008, CNST_025
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-011: comparte_reportes
+   - RPT-011: comparte_reportes
 
 14. Historial de Cambios
 ------------------------
@@ -303,8 +303,8 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

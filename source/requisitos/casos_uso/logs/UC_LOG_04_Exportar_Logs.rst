@@ -19,21 +19,21 @@ UC_LOG_04: Exportar Logs
  :header-rows: 0
 
  * - **ID**
- - UC_LOG_04
+   - UC_LOG_04
  * - **Nombre**
- - Exportar Logs
+   - Exportar Logs
  * - **Actor Principal**
- - AGR-007: agr_operador_logs
+   - AGR-007: agr_operador_logs
  * - **Modulo**
- - MOD_Logs
+   - MOD_Logs
  * - **Funcion RBAC**
- - LOG-004: exporta_logs
+   - LOG-004: exporta_logs
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-LOG-004
+   - BRQ-LOG-004
 
 2. Descripcion
 --------------
@@ -84,11 +84,11 @@ auditoria (CNST_025). Limite de 500,000 registros por exportacion.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion LOG-004
+   - El usuario tiene sesion activa con funcion LOG-004
  * - PRE-02
- - Existen logs para exportar
+   - Existen logs para exportar
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -105,11 +105,11 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera archivo con logs exportados
+   - Se genera archivo con logs exportados
  * - POST-02
- - Se registra LOG_EXPORT en auditoria (CNST_025)
+   - Se registra LOG_EXPORT en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -119,38 +119,38 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Operador
- - Aplica filtros a los logs
+   - Operador
+   - Aplica filtros a los logs
  * - 2
- - Operador
- - Hace clic en Exportar
+   - Operador
+   - Hace clic en Exportar
  * - 3
- - Sistema
- - Valida funcion LOG-004
+   - Sistema
+   - Valida funcion LOG-004
  * - 4
- - Sistema
- - Cuenta registros a exportar
+   - Sistema
+   - Cuenta registros a exportar
  * - 5
- - Sistema
- - Valida limite 500,000 registros
+   - Sistema
+   - Valida limite 500,000 registros
  * - 6
- - Sistema
- - Muestra opciones de formato
+   - Sistema
+   - Muestra opciones de formato
  * - 7
- - Operador
- - Selecciona formato (JSON, CSV, TXT)
+   - Operador
+   - Selecciona formato (JSON, CSV, TXT)
  * - 8
- - Sistema
- - Genera archivo con logs
+   - Sistema
+   - Genera archivo con logs
  * - 9
- - Sistema
- - Registra LOG_EXPORT en auditoria
+   - Sistema
+   - Registra LOG_EXPORT en auditoria
  * - 10
- - Sistema
- - Inicia descarga del archivo
+   - Sistema
+   - Inicia descarga del archivo
 
 6. Diagrama de Secuencia
 ------------------------
@@ -219,14 +219,14 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Operador
- - Selecciona formato JSON
+   - Operador
+   - Selecciona formato JSON
  * - 8a
- - Sistema
- - Genera archivo JSON con estructura original
+   - Sistema
+   - Genera archivo JSON con estructura original
 
 7.2 FA-02: Exportar a CSV
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -236,14 +236,14 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Operador
- - Selecciona formato CSV
+   - Operador
+   - Selecciona formato CSV
  * - 8a
- - Sistema
- - Aplana estructura JSON a columnas CSV
+   - Sistema
+   - Aplana estructura JSON a columnas CSV
 
 7.3 FA-03: Exportar Busqueda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -253,14 +253,14 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Operador
- - Realiza busqueda primero
+   - Operador
+   - Realiza busqueda primero
  * - 2a
- - Operador
- - Exporta resultados de busqueda
+   - Operador
+   - Exporta resultados de busqueda
 
 8. Excepciones
 --------------
@@ -273,15 +273,15 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Mas de 500,000 registros a exportar
+   - Mas de 500,000 registros a exportar
  * - **Accion Sistema**
- - Rechaza exportacion
+   - Rechaza exportacion
  * - **Mensaje Usuario**
- - Limite de exportacion es 500,000 registros. Aplique mas filtros.
+   - Limite de exportacion es 500,000 registros. Aplique mas filtros.
  * - **Codigo Error**
- - LOG-030
+   - LOG-030
 
 8.2 EX-02: Sin Logs
 ^^^^^^^^^^^^^^^^^^^
@@ -291,13 +291,13 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - No hay logs para los filtros
+   - No hay logs para los filtros
  * - **Accion Sistema**
- - Informa al usuario
+   - Informa al usuario
  * - **Mensaje Usuario**
- - No hay logs para exportar
+   - No hay logs para exportar
 
 9. Diagrama de Actividad
 ------------------------
@@ -352,20 +352,20 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-LOG-30
- - Limite Exportacion
- - Maximo 500,000 registros por exportacion
+   - Limite Exportacion
+   - Maximo 500,000 registros por exportacion
  * - BR-LOG-31
- - Auditoria
- - Toda exportacion se registra en auditoria (CNST_025)
+   - Auditoria
+   - Toda exportacion se registra en auditoria (CNST_025)
  * - BR-LOG-32
- - Formatos
- - Soportados: JSON, CSV, TXT
+   - Formatos
+   - Soportados: JSON, CSV, TXT
  * - BR-LOG-33
- - Estructura JSON
- - Formato JSON mantiene estructura original (CNST_024)
+   - Estructura JSON
+   - Formato JSON mantiene estructura original (CNST_024)
 
 **Formatos de Exportacion:**
 
@@ -374,13 +374,13 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Formato
- - Descripcion
+   - Descripcion
  * - JSON
- - Array de objetos JSON con estructura original completa
+   - Array de objetos JSON con estructura original completa
  * - CSV
- - Columnas aplanadas: timestamp, level, component, message, context_json
+   - Columnas aplanadas: timestamp, level, component, message, context_json
  * - TXT
- - Formato legible: [timestamp] [LEVEL] component: message
+   - Formato legible: [timestamp] [LEVEL] component: message
 
 **Registro de Auditoria (CNST_025):**
 
@@ -411,14 +411,14 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_024
- - Logs JSON
- - Exportacion JSON mantiene estructura original
+   - Logs JSON
+   - Exportacion JSON mantiene estructura original
  * - CNST_025
- - Auditoria
- - Registro de exportacion en user_action_log
+   - Auditoria
+   - Registro de exportacion en user_action_log
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -428,17 +428,17 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-LOG-030
- - Exportar a multiples formatos
- - JSON, CSV, TXT funcionales
+   - Exportar a multiples formatos
+   - JSON, CSV, TXT funcionales
  * - FR-LOG-031
- - Validar limite 500k
- - Rechazo si excede
+   - Validar limite 500k
+   - Rechazo si excede
  * - FR-LOG-032
- - Auditar exportacion
- - Registro en user_action_log
+   - Auditar exportacion
+   - Registro en user_action_log
 
 13. Trazabilidad
 ----------------
@@ -448,13 +448,13 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-LOG-004
+   - BRQ-LOG-004
  * - **Restricciones**
- - CNST_024, CNST_025
+   - CNST_024, CNST_025
  * - **UC Relacionados**
- - UC_LOG_01, UC_LOG_03
+   - UC_LOG_01, UC_LOG_03
  * - **Funcion RBAC**
- - LOG-004: exporta_logs
+   - LOG-004: exporta_logs
 
 14. Historial de Cambios
 ------------------------
@@ -464,8 +464,8 @@ El operador hace clic en Exportar desde la vista de logs.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

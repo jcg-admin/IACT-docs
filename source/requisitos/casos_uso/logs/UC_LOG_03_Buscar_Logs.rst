@@ -19,21 +19,21 @@ UC_LOG_03: Buscar Logs
  :header-rows: 0
 
  * - **ID**
- - UC_LOG_03
+   - UC_LOG_03
  * - **Nombre**
- - Buscar Logs
+   - Buscar Logs
  * - **Actor Principal**
- - AGR-007: agr_operador_logs
+   - AGR-007: agr_operador_logs
  * - **Modulo**
- - MOD_Logs
+   - MOD_Logs
  * - **Funcion RBAC**
- - LOG-003: busca_logs
+   - LOG-003: busca_logs
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-LOG-003
+   - BRQ-LOG-003
 
 2. Descripcion
 --------------
@@ -84,11 +84,11 @@ Los logs estan en formato JSON (CNST_024).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion LOG-003
+   - El usuario tiene sesion activa con funcion LOG-003
  * - PRE-02
- - Existen logs en el sistema
+   - Existen logs en el sistema
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -103,11 +103,11 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran resultados de busqueda
+   - Se muestran resultados de busqueda
  * - POST-02
- - La consulta es de solo lectura
+   - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -117,35 +117,35 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Operador
- - Accede a busqueda de logs
+   - Operador
+   - Accede a busqueda de logs
  * - 2
- - Sistema
- - Valida funcion LOG-003
+   - Sistema
+   - Valida funcion LOG-003
  * - 3
- - Sistema
- - Muestra formulario de busqueda
+   - Sistema
+   - Muestra formulario de busqueda
  * - 4
- - Operador
- - Ingresa terminos de busqueda
+   - Operador
+   - Ingresa terminos de busqueda
  * - 5
- - Operador
- - Opcionalmente configura filtros adicionales
+   - Operador
+   - Opcionalmente configura filtros adicionales
  * - 6
- - Operador
- - Ejecuta busqueda
+   - Operador
+   - Ejecuta busqueda
  * - 7
- - Sistema
- - Procesa busqueda en logs JSON
+   - Sistema
+   - Procesa busqueda en logs JSON
  * - 8
- - Sistema
- - Presenta resultados paginados
+   - Sistema
+   - Presenta resultados paginados
  * - 9
- - Operador
- - Navega por resultados
+   - Operador
+   - Navega por resultados
 
 6. Diagrama de Secuencia
 ------------------------
@@ -203,14 +203,14 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Ingresa texto libre (ej: "login failed")
+   - Operador
+   - Ingresa texto libre (ej: "login failed")
  * - 7a
- - Sistema
- - Busca en message y context
+   - Sistema
+   - Busca en message y context
 
 7.2 FA-02: Busqueda por Regex
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,14 +220,14 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Ingresa patron regex (ej: ^ERROR.*timeout)
+   - Operador
+   - Ingresa patron regex (ej: ^ERROR.*timeout)
  * - 7a
- - Sistema
- - Ejecuta busqueda con expresion regular
+   - Sistema
+   - Ejecuta busqueda con expresion regular
 
 7.3 FA-03: Trazar por Correlation ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,14 +237,14 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Ingresa correlation_id especifico
+   - Operador
+   - Ingresa correlation_id especifico
  * - 7a
- - Sistema
- - Retorna todos los logs de ese flujo ordenados
+   - Sistema
+   - Retorna todos los logs de ese flujo ordenados
 
 8. Excepciones
 --------------
@@ -257,15 +257,15 @@ El operador accede a la busqueda de logs.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Expresion regular mal formada
+   - Expresion regular mal formada
  * - **Accion Sistema**
- - Rechaza busqueda
+   - Rechaza busqueda
  * - **Mensaje Usuario**
- - Expresion regular invalida
+   - Expresion regular invalida
  * - **Codigo Error**
- - LOG-020
+   - LOG-020
 
 8.2 EX-02: Sin Resultados
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -275,13 +275,13 @@ El operador accede a la busqueda de logs.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - No hay logs que coincidan
+   - No hay logs que coincidan
  * - **Accion Sistema**
- - Muestra mensaje informativo
+   - Muestra mensaje informativo
  * - **Mensaje Usuario**
- - No se encontraron logs para la busqueda
+   - No se encontraron logs para la busqueda
 
 9. Diagrama de Actividad
 ------------------------
@@ -331,20 +331,20 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-LOG-20
- - Busqueda Case-Insensitive
- - Texto libre busca sin distincion mayusculas/minusculas
+   - Busqueda Case-Insensitive
+   - Texto libre busca sin distincion mayusculas/minusculas
  * - BR-LOG-21
- - Limite Resultados
- - Maximo 10,000 resultados por busqueda
+   - Limite Resultados
+   - Maximo 10,000 resultados por busqueda
  * - BR-LOG-22
- - Resaltado
- - Terminos encontrados se resaltan en resultados
+   - Resaltado
+   - Terminos encontrados se resaltan en resultados
  * - BR-LOG-23
- - Correlation ID
- - Permite trazar un request completo a traves del sistema
+   - Correlation ID
+   - Permite trazar un request completo a traves del sistema
 
 **Campos Buscables (CNST_024):**
 
@@ -353,17 +353,17 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Campo
- - Descripcion
+   - Descripcion
  * - message
- - Mensaje principal del log
+   - Mensaje principal del log
  * - context
- - Objeto JSON con datos adicionales
+   - Objeto JSON con datos adicionales
  * - correlation_id
- - ID unico para trazar flujos
+   - ID unico para trazar flujos
  * - component
- - Componente que genero el log
+   - Componente que genero el log
  * - level
- - Nivel de severidad
+   - Nivel de severidad
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -373,11 +373,11 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_024
- - Logs JSON
- - Busqueda optimizada para estructura JSON
+   - Logs JSON
+   - Busqueda optimizada para estructura JSON
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -387,17 +387,17 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-LOG-020
- - Busqueda por texto
- - Resultados relevantes mostrados
+   - Busqueda por texto
+   - Resultados relevantes mostrados
  * - FR-LOG-021
- - Busqueda regex
- - Patrones regex funcionales
+   - Busqueda regex
+   - Patrones regex funcionales
  * - FR-LOG-022
- - Traza por correlation_id
- - Flujo completo visible
+   - Traza por correlation_id
+   - Flujo completo visible
 
 13. Trazabilidad
 ----------------
@@ -407,13 +407,13 @@ El operador accede a la busqueda de logs.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-LOG-003
+   - BRQ-LOG-003
  * - **Restricciones**
- - CNST_024
+   - CNST_024
  * - **UC Relacionados**
- - UC_LOG_01, UC_LOG_04
+   - UC_LOG_01, UC_LOG_04
  * - **Funcion RBAC**
- - LOG-003: busca_logs
+   - LOG-003: busca_logs
 
 14. Historial de Cambios
 ------------------------
@@ -423,8 +423,8 @@ El operador accede a la busqueda de logs.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

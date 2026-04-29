@@ -22,19 +22,19 @@ FR-009.03: Ordenar resultados
  :widths: 25 75
 
  * - **ID**
- - FR-009.03
+   - FR-009.03
  * - **Nombre**
- - Ordenar resultados de la lista de usuarios
+   - Ordenar resultados de la lista de usuarios
  * - **UC Origen**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Paso UC**
- - Implícito en paso 2-3
+   - Implícito en paso 2-3
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Interfaz
+   - Interfaz
 
 ----
 
@@ -123,15 +123,15 @@ grandes. Índices en columnas frecuentemente ordenadas.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Depende de**
- - FR-009.01
+   - FR-009.01
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **TEST**
- - TST-FR-009.03 (pendiente)
+   - TST-FR-009.03 (pendiente)
 
 ----
 
@@ -143,8 +143,8 @@ grandes. Índices en columnas frecuentemente ordenadas.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_009
+   - 2026-01-07
+   - Versión inicial derivada de UC_009

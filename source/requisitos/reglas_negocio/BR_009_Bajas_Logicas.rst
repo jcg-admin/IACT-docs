@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_009
+   - BR_009
  * - **Nombre**
- - Bajas Logicas
+   - Bajas Logicas
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Operacional
+   - Operacional
  * - **Criticidad**
- - Media
+   - Media
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -100,9 +100,9 @@ permite reactivacion si es necesario.
  :header-rows: 0
 
  * - **Documento**
- - Politica de Retencion de Datos
+   - Politica de Retencion de Datos
  * - **Tipo Fuente**
- - Politica Interna
+   - Politica Interna
 
 ----
 
@@ -157,10 +157,10 @@ Solo datos de prueba en ambiente de desarrollo pueden ser borrados fisicamente.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

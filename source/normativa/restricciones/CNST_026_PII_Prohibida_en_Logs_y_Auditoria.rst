@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_026
+   - CNST_026
  * - **Categoria**
- - Logging
+   - Logging
  * - **Tipo (TXM_01)**
- - Regulatoria
+   - Regulatoria
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -97,11 +97,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Common
- - Define filtro de PII
+   - Define filtro de PII
  * - (todos)
- - Usan structured logging con filtro
+   - Usan structured logging con filtro
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,9 +111,9 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - (transversal)
- - Todos los UCs que tocan PII
+   - Todos los UCs que tocan PII
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,15 +187,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_024_Logs_Estructurados_en_Formato_JSON`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
+   - :doc:`CNST_024_Logs_Estructurados_en_Formato_JSON`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - (transversal)
+   - (transversal)
  * - **MODs afectados**
- - MOD_Common, (todos)
+   - MOD_Common, (todos)
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -205,15 +205,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

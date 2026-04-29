@@ -19,23 +19,23 @@ UC_PIP_01: Supervisar ETL
  :header-rows: 0
 
  * - **ID**
- - UC_PIP_01
+   - UC_PIP_01
  * - **Nombre**
- - Supervisar ETL
+   - Supervisar ETL
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Actor Secundario**
- - Sistema (monitoreo automatico)
+   - Sistema (monitoreo automatico)
  * - **Modulo**
- - MOD_Pipeline
+   - MOD_Pipeline
  * - **Funcion RBAC**
- - PIP-001: ve_estado_etl
+   - PIP-001: ve_estado_etl
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-PIP-001
+   - BRQ-PIP-001
 
 2. Descripcion
 --------------
@@ -95,11 +95,11 @@ base Analytics. Muestra metricas de ejecucion, estado actual y alertas.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion PIP-001
+   - El administrador tiene sesion activa con funcion PIP-001
  * - PRE-02
- - El servicio de monitoreo de ETL esta operativo
+   - El servicio de monitoreo de ETL esta operativo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -114,11 +114,11 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra el estado actual del pipeline
+   - Se muestra el estado actual del pipeline
  * - POST-02
- - La consulta no modifica ningun dato
+   - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -128,32 +128,32 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al dashboard de pipeline
+   - Admin
+   - Accede al dashboard de pipeline
  * - 2
- - Sistema
- - Valida funcion PIP-001
+   - Sistema
+   - Valida funcion PIP-001
  * - 3
- - Sistema
- - Consulta estado actual del ETL
+   - Sistema
+   - Consulta estado actual del ETL
  * - 4
- - Sistema
- - Consulta ultima ejecucion exitosa
+   - Sistema
+   - Consulta ultima ejecucion exitosa
  * - 5
- - Sistema
- - Consulta metricas de ejecucion
+   - Sistema
+   - Consulta metricas de ejecucion
  * - 6
- - Sistema
- - Calcula proxima ejecucion programada
+   - Sistema
+   - Calcula proxima ejecucion programada
  * - 7
- - Sistema
- - Presenta dashboard con toda la informacion
+   - Sistema
+   - Presenta dashboard con toda la informacion
  * - 8
- - Sistema
- - Actualiza automaticamente cada 60 segundos
+   - Sistema
+   - Actualiza automaticamente cada 60 segundos
 
 6. Diagrama de Secuencia
 ------------------------
@@ -214,17 +214,17 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Sistema
- - Detecta estado ERROR en ultima ejecucion
+   - Sistema
+   - Detecta estado ERROR en ultima ejecucion
  * - 7b
- - Sistema
- - Muestra alerta visual prominente
+   - Sistema
+   - Muestra alerta visual prominente
  * - 7c
- - Sistema
- - Ofrece enlace a UC_PIP_02 (ver errores)
+   - Sistema
+   - Ofrece enlace a UC_PIP_02 (ver errores)
 
 7.2 FA-02: Pipeline Pausado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -234,17 +234,17 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Sistema
- - Detecta estado PAUSED
+   - Sistema
+   - Detecta estado PAUSED
  * - 7b
- - Sistema
- - Muestra indicador amarillo
+   - Sistema
+   - Muestra indicador amarillo
  * - 7c
- - Sistema
- - Muestra razon de pausa si existe
+   - Sistema
+   - Muestra razon de pausa si existe
 
 8. Excepciones
 --------------
@@ -257,15 +257,15 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion PIP-001
+   - Usuario no tiene funcion PIP-001
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para supervisar el pipeline
+   - No tiene permisos para supervisar el pipeline
  * - **Codigo Error**
- - PIP-001
+   - PIP-001
 
 8.2 EX-02: Servicio No Disponible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -275,15 +275,15 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Servicio de monitoreo no responde
+   - Servicio de monitoreo no responde
  * - **Accion Sistema**
- - Muestra ultimo estado conocido
+   - Muestra ultimo estado conocido
  * - **Mensaje Usuario**
- - Informacion puede estar desactualizada
+   - Informacion puede estar desactualizada
  * - **Codigo Error**
- - PIP-002
+   - PIP-002
 
 9. Diagrama de Actividad
 ------------------------
@@ -336,17 +336,17 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-PIP-01
- - Solo Lectura
- - Este UC es solo de visualizacion, no permite modificar el pipeline
+   - Solo Lectura
+   - Este UC es solo de visualizacion, no permite modificar el pipeline
  * - BR-PIP-02
- - Auto Refresh
- - El dashboard se actualiza automaticamente cada 60 segundos
+   - Auto Refresh
+   - El dashboard se actualiza automaticamente cada 60 segundos
  * - BR-PIP-03
- - Alertas Visuales
- - Estados ERROR y PAUSED generan alertas visuales prominentes
+   - Alertas Visuales
+   - Estados ERROR y PAUSED generan alertas visuales prominentes
 
 **Estados del Pipeline:**
 
@@ -355,23 +355,23 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - Estado
- - Indicador
- - Descripcion
+   - Indicador
+   - Descripcion
  * - RUNNING
- - Verde animado
- - ETL en ejecucion actualmente
+   - Verde animado
+   - ETL en ejecucion actualmente
  * - SUCCESS
- - Verde
- - Ultima ejecucion exitosa
+   - Verde
+   - Ultima ejecucion exitosa
  * - ERROR
- - Rojo
- - Ultima ejecucion fallo
+   - Rojo
+   - Ultima ejecucion fallo
  * - PAUSED
- - Amarillo
- - Pipeline pausado manualmente
+   - Amarillo
+   - Pipeline pausado manualmente
  * - PENDING
- - Gris
- - Esperando proxima ejecucion
+   - Gris
+   - Esperando proxima ejecucion
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -381,14 +381,14 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Las metricas se leen de BD Analytics (etl_executions). No se accede directamente a BD IVR desde este UC.
+   - BD Dual
+   - Las metricas se leen de BD Analytics (etl_executions). No se accede directamente a BD IVR desde este UC.
  * - CNST_025
- - Auditoria Inmutable
- - El acceso al dashboard no se audita individualmente para evitar sobrecarga.
+   - Auditoria Inmutable
+   - El acceso al dashboard no se audita individualmente para evitar sobrecarga.
 
 **Metricas Mostradas:**
 
@@ -421,17 +421,17 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-PIP-001
- - El sistema debe mostrar estado actual del ETL
- - Indicador visual segun estado
+   - El sistema debe mostrar estado actual del ETL
+   - Indicador visual segun estado
  * - FR-PIP-002
- - El sistema debe mostrar metricas de ejecucion
- - Registros procesados, duracion, tasa de exito
+   - El sistema debe mostrar metricas de ejecucion
+   - Registros procesados, duracion, tasa de exito
  * - FR-PIP-003
- - El sistema debe auto-refrescar cada 60s
- - Dashboard actualizado sin recargar pagina
+   - El sistema debe auto-refrescar cada 60s
+   - Dashboard actualizado sin recargar pagina
 
 13. Trazabilidad
 ----------------
@@ -441,17 +441,17 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-PIP-001: Permitir supervision del pipeline ETL
+   - BRQ-PIP-001: Permitir supervision del pipeline ETL
  * - **Reglas de Negocio**
- - BR-PIP-01 a BR-PIP-03
+   - BR-PIP-01 a BR-PIP-03
  * - **Restricciones**
- - CNST_007 (BD Dual), CNST_025
+   - CNST_007 (BD Dual), CNST_025
  * - **UC Relacionados**
- - UC_PIP_02, UC_PIP_03, UC_PIP_04
+   - UC_PIP_02, UC_PIP_03, UC_PIP_04
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
- - PIP-001: ve_estado_etl
+   - PIP-001: ve_estado_etl
 
 14. Historial de Cambios
 ------------------------
@@ -461,10 +461,10 @@ El administrador accede al dashboard de supervision del pipeline.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

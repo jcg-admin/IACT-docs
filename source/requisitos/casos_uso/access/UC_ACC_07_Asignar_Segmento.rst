@@ -19,21 +19,21 @@ UC_ACC_07: Asignar Segmento
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_07
+   - UC_ACC_07
  * - **Nombre**
- - Asignar Segmento
+   - Asignar Segmento
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - USR-010: asigna_segmento
+   - USR-010: asigna_segmento
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-ACC-007
+   - BRQ-ACC-007
 
 2. Descripcion
 --------------
@@ -81,13 +81,13 @@ ubicacion o area de responsabilidad.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion USR-010
+   - El administrador tiene sesion activa con funcion USR-010
  * - PRE-02
- - El usuario destino existe
+   - El usuario destino existe
  * - PRE-03
- - El segmento destino existe y esta activo
+   - El segmento destino existe y esta activo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -102,11 +102,11 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El usuario queda asignado al nuevo segmento
+   - El usuario queda asignado al nuevo segmento
  * - POST-02
- - Se registra SEGMENT_ASSIGN en auditoria (CNST_025)
+   - Se registra SEGMENT_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -116,35 +116,35 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Selecciona usuario
+   - Admin
+   - Selecciona usuario
  * - 2
- - Sistema
- - Valida funcion USR-010
+   - Sistema
+   - Valida funcion USR-010
  * - 3
- - Sistema
- - Muestra segmento actual del usuario
+   - Sistema
+   - Muestra segmento actual del usuario
  * - 4
- - Sistema
- - Muestra lista de segmentos disponibles
+   - Sistema
+   - Muestra lista de segmentos disponibles
  * - 5
- - Admin
- - Selecciona nuevo segmento
+   - Admin
+   - Selecciona nuevo segmento
  * - 6
- - Admin
- - Confirma cambio
+   - Admin
+   - Confirma cambio
  * - 7
- - Sistema
- - Actualiza segmento_id del usuario
+   - Sistema
+   - Actualiza segmento_id del usuario
  * - 8
- - Sistema
- - Registra SEGMENT_ASSIGN en auditoria
+   - Sistema
+   - Registra SEGMENT_ASSIGN en auditoria
  * - 9
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -192,14 +192,14 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Admin
- - Selecciona el segmento actual
+   - Admin
+   - Selecciona el segmento actual
  * - 6a
- - Sistema
- - Muestra mensaje: Sin cambios
+   - Sistema
+   - Muestra mensaje: Sin cambios
 
 8. Excepciones
 --------------
@@ -212,15 +212,15 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Segmento seleccionado esta inactivo
+   - Segmento seleccionado esta inactivo
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - No se puede asignar segmento inactivo
+   - No se puede asignar segmento inactivo
  * - **Codigo Error**
- - ACC-060
+   - ACC-060
 
 9. Diagrama de Actividad
 ------------------------
@@ -263,17 +263,17 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-60
- - Un Segmento
- - Un usuario pertenece a exactamente un segmento
+   - Un Segmento
+   - Un usuario pertenece a exactamente un segmento
  * - BR-ACC-61
- - Segmento Activo
- - Solo se puede asignar segmentos activos
+   - Segmento Activo
+   - Solo se puede asignar segmentos activos
  * - BR-ACC-62
- - Efecto Inmediato
- - El cambio afecta inmediatamente la visibilidad de datos
+   - Efecto Inmediato
+   - El cambio afecta inmediatamente la visibilidad de datos
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -283,14 +283,14 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat
- - El segmento es parte del modelo de permisos
+   - RBAC Flat
+   - El segmento es parte del modelo de permisos
  * - CNST_025
- - Auditoria Inmutable
- - Se registra SEGMENT_ASSIGN con segmento anterior y nuevo
+   - Auditoria Inmutable
+   - Se registra SEGMENT_ASSIGN con segmento anterior y nuevo
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -300,14 +300,14 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-060
- - El sistema debe permitir asignar segmento
- - Campo segmento_id actualizado
+   - El sistema debe permitir asignar segmento
+   - Campo segmento_id actualizado
  * - FR-ACC-061
- - El sistema debe registrar cambio de segmento
- - Auditoria con old y new segmento
+   - El sistema debe registrar cambio de segmento
+   - Auditoria con old y new segmento
 
 13. Trazabilidad
 ----------------
@@ -317,17 +317,17 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-007: Permitir asignacion de segmentos
+   - BRQ-ACC-007: Permitir asignacion de segmentos
  * - **Reglas de Negocio**
- - BR-ACC-60 a BR-ACC-62
+   - BR-ACC-60 a BR-ACC-62
  * - **Restricciones**
- - CNST_029, CNST_025
+   - CNST_029, CNST_025
  * - **UC Relacionados**
- - UC_ACC_06 (Gestionar Segmentos), UC_USR_01 (Crear Usuario)
+   - UC_ACC_06 (Gestionar Segmentos), UC_USR_01 (Crear Usuario)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - USR-010: asigna_segmento
+   - USR-010: asigna_segmento
 
 14. Historial de Cambios
 ------------------------
@@ -337,10 +337,10 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

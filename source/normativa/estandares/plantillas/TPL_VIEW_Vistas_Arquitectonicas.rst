@@ -116,23 +116,23 @@ Modelo 4+1
  :header-rows: 1
 
  * - Vista
- - Descripcion
- - Stakeholders
+   - Descripcion
+   - Stakeholders
  * - **Logica**
- - Funcionalidad del sistema (clases, paquetes)
- - Desarrolladores, Arquitectos
+   - Funcionalidad del sistema (clases, paquetes)
+   - Desarrolladores, Arquitectos
  * - **Proceso**
- - Comportamiento en runtime (secuencias, actividades)
- - Integradores, Arquitectos
+   - Comportamiento en runtime (secuencias, actividades)
+   - Integradores, Arquitectos
  * - **Desarrollo**
- - Organizacion del codigo (modulos, dependencias)
- - Desarrolladores, Gestores
+   - Organizacion del codigo (modulos, dependencias)
+   - Desarrolladores, Gestores
  * - **Fisica**
- - Infraestructura y deployment
- - DevOps, Administradores
+   - Infraestructura y deployment
+   - DevOps, Administradores
  * - **Casos de Uso**
- - Escenarios que validan la arquitectura
- - Todos los stakeholders
+   - Escenarios que validan la arquitectura
+   - Todos los stakeholders
 
 ----
 
@@ -430,44 +430,44 @@ Cada VIEW DEBE incluir minimo estas 11 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, tipo 4+1, stakeholders
+   - Resumen Ejecutivo
+   - ID, tipo 4+1, stakeholders
  * - 1
- - Proposito
- - Para que sirve esta vista
+   - Proposito
+   - Para que sirve esta vista
  * - 2
- - Audiencia
- - A quien esta dirigida
+   - Audiencia
+   - A quien esta dirigida
  * - 3
- - Diagrama Principal
- - PlantUML principal de la vista
+   - Diagrama Principal
+   - PlantUML principal de la vista
  * - 4
- - Elementos
- - Componentes y relaciones
+   - Elementos
+   - Componentes y relaciones
  * - 5
- - Diagramas Complementarios
- - Detalles adicionales si aplica
+   - Diagramas Complementarios
+   - Detalles adicionales si aplica
  * - 6
- - Decisiones (ADR)
- - ADR reflejadas
+   - Decisiones (ADR)
+   - ADR reflejadas
  * - 7
- - Restricciones (CNST)
- - CNST manifestadas
+   - Restricciones (CNST)
+   - CNST manifestadas
  * - 8
- - Escenarios
- - UC que validan la vista
+   - Escenarios
+   - UC que validan la vista
  * - 9
- - Consideraciones
- - Limitaciones, relacion con otras vistas
+   - Consideraciones
+   - Limitaciones, relacion con otras vistas
  * - 10
- - Trazabilidad
- - Enlaces a ADR, CNST, MOD, UC
+   - Trazabilidad
+   - Enlaces a ADR, CNST, MOD, UC
  * - 11
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -516,10 +516,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla VIEW con modelo 4+1
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla VIEW con modelo 4+1

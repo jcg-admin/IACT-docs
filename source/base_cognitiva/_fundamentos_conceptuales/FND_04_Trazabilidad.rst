@@ -50,17 +50,17 @@ de verificacion.
  :widths: 20 40 40
 
  * - Tipo
- - Direccion
- - Proposito
+   - Direccion
+   - Proposito
  * - Forward (Adelante)
- - Origen a Derivado
- - Verificar que todo requisito se implementa
+   - Origen a Derivado
+   - Verificar que todo requisito se implementa
  * - Backward (Atras)
- - Derivado a Origen
- - Verificar que todo codigo tiene justificacion
+   - Derivado a Origen
+   - Verificar que todo codigo tiene justificacion
  * - Bidireccional
- - Ambas direcciones
- - Analisis de impacto completo
+   - Ambas direcciones
+   - Analisis de impacto completo
 
 1.3 Beneficios de la Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,37 +89,37 @@ de verificacion.
  :widths: 15 15 15 55
 
  * - Enlace
- - Origen
- - Destino
- - Semantica
+   - Origen
+   - Destino
+   - Semantica
  * - influye
- - BR
- - BReq
- - BR afecta objetivo sin generar directamente
+   - BR
+   - BReq
+   - BR afecta objetivo sin generar directamente
  * - genera
- - BReq
- - UC
- - Objetivo de negocio genera casos de uso
+   - BReq
+   - UC
+   - Objetivo de negocio genera casos de uso
  * - genera
- - BR (Trigger)
- - UC
- - BR tipo Desencadenador genera UC especifico
+   - BR (Trigger)
+   - UC
+   - BR tipo Desencadenador genera UC especifico
  * - deriva
- - UC
- - FR
- - Cada paso Sistema del UC deriva FR
+   - UC
+   - FR
+   - Cada paso Sistema del UC deriva FR
  * - implementa
- - FR
- - CODE
- - FR se codifica en modulo/funcion
+   - FR
+   - CODE
+   - FR se codifica en modulo/funcion
  * - verifica
- - TEST
- - FR
- - Test valida cumplimiento de FR
+   - TEST
+   - FR
+   - Test valida cumplimiento de FR
  * - satisface
- - UC
- - BReq
- - UC cumple parcialmente objetivo de negocio
+   - UC
+   - BReq
+   - UC cumple parcialmente objetivo de negocio
 
 2.2 Cardinalidad de Enlaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,33 +193,33 @@ que documenta todos los enlaces entre requisitos y sus derivados.
  :header-rows: 1
 
  * - ID_BR
- - ID_BReq
- - ID_UC
- - ID_FR
- - ID_CODE
- - ID_TEST
- - Estado
+   - ID_BReq
+   - ID_UC
+   - ID_FR
+   - ID_CODE
+   - ID_TEST
+   - Estado
  * - BR_001
- - BReq-005
- - UC-050
- - FR-050.1
- - pipeline/etl.py
- - TST_PIP_001
- - OK
+   - BReq-005
+   - UC-050
+   - FR-050.1
+   - pipeline/etl.py
+   - TST_PIP_001
+   - OK
  * - BR_002
- - BReq-001
- - UC-050
- - FR-050.2
- - pipeline/jobs.py
- - TST_PIP_002
- - OK
+   - BReq-001
+   - UC-050
+   - FR-050.2
+   - pipeline/jobs.py
+   - TST_PIP_002
+   - OK
  * - ...
- - ...
- - ...
- - ...
- - ...
- - ...
- - ...
+   - ...
+   - ...
+   - ...
+   - ...
+   - ...
+   - ...
 
 3.3 Ubicacion en IACT
 ^^^^^^^^^^^^^^^^^^^^^
@@ -278,23 +278,23 @@ que documenta todos los enlaces entre requisitos y sus derivados.
  :widths: 25 15 60
 
  * - Metrica
- - Umbral
- - Formula
+   - Umbral
+   - Formula
  * - Cobertura BReq a UC
- - 100%
- - (BReq con UC derivados / Total BReq) x 100
+   - 100%
+   - (BReq con UC derivados / Total BReq) x 100
  * - Cobertura BR a UC
- - 100%
- - (BR con impacto en UC / Total BR aplicables) x 100
+   - 100%
+   - (BR con impacto en UC / Total BR aplicables) x 100
  * - Cobertura UC a FR
- - 100%
- - (UC con FR derivados / Total UC) x 100
+   - 100%
+   - (UC con FR derivados / Total UC) x 100
  * - Cobertura FR a CODE
- - 90%
- - (FR implementados / Total FR) x 100
+   - 90%
+   - (FR implementados / Total FR) x 100
  * - Cobertura FR a TEST
- - 80%
- - (FR con tests / Total FR) x 100
+   - 80%
+   - (FR con tests / Total FR) x 100
 
 4.2 Estado Actual IACT
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -623,13 +623,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial. Documento creado desde cero reemplazando archivo corrupto que contenia copia de FND_03.
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial. Documento creado desde cero reemplazando archivo corrupto que contenia copia de FND_03.
 
 ----
 

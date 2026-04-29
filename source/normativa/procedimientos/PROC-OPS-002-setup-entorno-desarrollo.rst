@@ -379,11 +379,11 @@ Historial de Cambios
  :widths: 12 12 76
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-04-28
- - Versión inicial. Cubre setup en Linux, macOS y Windows
- (Git Bash y PowerShell nativo). Incluye prerrequisitos,
- procedimiento idempotente, troubleshooting de problemas
- comunes y verificación post-setup.
+   - 2026-04-28
+   - Versión inicial. Cubre setup en Linux, macOS y Windows
+     (Git Bash y PowerShell nativo). Incluye prerrequisitos,
+     procedimiento idempotente, troubleshooting de problemas
+     comunes y verificación post-setup.

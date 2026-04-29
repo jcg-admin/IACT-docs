@@ -22,19 +22,19 @@ FR-010.03: Crear asignación usuario-función
  :widths: 25 75
 
  * - **ID**
- - FR-010.03
+   - FR-010.03
  * - **Nombre**
- - Crear registro de asignación usuario-función
+   - Crear registro de asignación usuario-función
  * - **UC Origen**
- - UC_010: Asignar Funciones a Usuario
+   - UC_010: Asignar Funciones a Usuario
  * - **Paso UC**
- - Paso 8-9 del flujo normal
+   - Paso 8-9 del flujo normal
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -151,19 +151,19 @@ asignaciones duplicadas de la misma función.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_010: Asignar Funciones
+   - UC_010: Asignar Funciones
  * - **Depende de**
- - FR-010.02
+   - FR-010.02
  * - **Requerido por**
- - FR-010.04
+   - FR-010.04
  * - **BR**
- - BR_006
+   - BR_006
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-010.03 (pendiente)
+   - TST-FR-010.03 (pendiente)
 
 ----
 
@@ -175,8 +175,8 @@ asignaciones duplicadas de la misma función.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_010
+   - 2026-01-07
+   - Versión inicial derivada de UC_010

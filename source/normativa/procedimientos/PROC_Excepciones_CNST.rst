@@ -44,20 +44,20 @@ canónico (CNST_001..CNST_033 al cierre v3 de WP #4). NO aplica a:
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
+   - Responsabilidad
  * - **Solicitante**
- - Documenta la justificación de negocio o técnica, propone
- vigencia y mitigaciones.
+   - Documenta la justificación de negocio o técnica, propone
+     vigencia y mitigaciones.
  * - **Tech Lead**
- - Evalúa impacto técnico. Aprueba/rechaza excepciones de
- criticidad Alta y Media.
+   - Evalúa impacto técnico. Aprueba/rechaza excepciones de
+     criticidad Alta y Media.
  * - **Compliance Officer**
- - Co-aprueba excepciones de criticidad Crítica. Verifica que
- no haya impacto regulatorio.
+   - Co-aprueba excepciones de criticidad Crítica. Verifica que
+     no haya impacto regulatorio.
  * - **Manager / Product Owner**
- - Aprueba excepciones de criticidad Baja.
+   - Aprueba excepciones de criticidad Baja.
  * - **Auditor**
- - Verifica trimestralmente las excepciones vigentes.
+   - Verifica trimestralmente las excepciones vigentes.
 
 4. Flujo del Proceso
 --------------------
@@ -106,20 +106,20 @@ Genera un dictamen escrito que se anexa a la solicitud.
  :header-rows: 1
 
  * - Criticidad CNST
- - Aprobador requerido
- - Vigencia máxima
+   - Aprobador requerido
+   - Vigencia máxima
  * - Crítico
- - Tech Lead + Compliance Officer (ambos)
- - 30 días
+   - Tech Lead + Compliance Officer (ambos)
+   - 30 días
  * - Alto
- - Tech Lead
- - 60 días
+   - Tech Lead
+   - 60 días
  * - Medio
- - Tech Lead o Manager
- - 90 días
+   - Tech Lead o Manager
+   - 90 días
  * - Bajo
- - Manager / Product Owner
- - 90 días
+   - Manager / Product Owner
+   - 90 días
 
 4.4 Vigencia y monitoreo
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,11 +187,11 @@ Los tres son inmutables (CNST_025 Auditoría Inmutable).
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-04-29
- - NestorMonroy
- - Versión inicial. Procedimiento creado en iteracion correspondiente tras
- hallazgo P-1 del audit cross-WP del 2026-04-29.
+   - 2026-04-29
+   - NestorMonroy
+   - Versión inicial. Procedimiento creado en iteracion correspondiente tras
+     hallazgo P-1 del audit cross-WP del 2026-04-29.

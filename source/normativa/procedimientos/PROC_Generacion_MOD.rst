@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_MOD
+   - PROC_Generacion_MOD
  * - **Nombre**
- - Generacion de Especificaciones de Modulo
+   - Generacion de Especificaciones de Modulo
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 45-90 minutos por MOD
+   - 45-90 minutos por MOD
 
 ----
 
@@ -59,32 +59,32 @@ responsabilidades y componentes de cada modulo del sistema IACT.
  :header-rows: 1
 
  * - MOD
- - Nombre
- - Responsabilidad
+   - Nombre
+   - Responsabilidad
  * - MOD_Auth
- - Autenticacion
- - Login, sesiones, tokens
+   - Autenticacion
+   - Login, sesiones, tokens
  * - MOD_Users
- - Usuarios
- - CRUD usuarios, perfiles
+   - Usuarios
+   - CRUD usuarios, perfiles
  * - MOD_Access
- - Control Acceso
- - RBAC, permisos
+   - Control Acceso
+   - RBAC, permisos
  * - MOD_Pipeline
- - Pipeline Datos
- - ETL, transformaciones
+   - Pipeline Datos
+   - ETL, transformaciones
  * - MOD_Reports
- - Reportes
- - Dashboards, graficos
+   - Reportes
+   - Dashboards, graficos
  * - MOD_Alerts
- - Alertas
- - Notificaciones, umbrales
+   - Alertas
+   - Notificaciones, umbrales
  * - MOD_Audit
- - Auditoria
- - Logs, trazabilidad
+   - Auditoria
+   - Logs, trazabilidad
  * - MOD_Logs
- - Logs Sistema
- - Registro eventos
+   - Logs Sistema
+   - Registro eventos
 
 ----
 
@@ -176,11 +176,11 @@ Casos de uso que implementa.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

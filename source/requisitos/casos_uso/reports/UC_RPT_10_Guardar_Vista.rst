@@ -19,21 +19,21 @@ UC_RPT_10: Guardar Vista
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_10
+   - UC_RPT_10
  * - **Nombre**
- - Guardar Vista
+   - Guardar Vista
  * - **Actor Principal**
- - AGR-002: agr_operador_reportes
+   - AGR-002: agr_operador_reportes
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-010: guarda_vistas
+   - RPT-010: guarda_vistas
  * - **Prioridad**
- - Baja
+   - Baja
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-RPT-010
+   - BRQ-RPT-010
 
 2. Descripcion
 --------------
@@ -76,11 +76,11 @@ para acceso rapido posterior. Las vistas son privadas del usuario.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-010
+   - Usuario tiene funcion RPT-010
  * - PRE-02
- - Usuario esta visualizando un reporte
+   - Usuario esta visualizando un reporte
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -95,9 +95,9 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Vista guardada y disponible en menu
+   - Vista guardada y disponible en menu
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -107,29 +107,29 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Configura reporte con filtros deseados
+   - Usuario
+   - Configura reporte con filtros deseados
  * - 2
- - Usuario
- - Hace clic en Guardar Vista
+   - Usuario
+   - Hace clic en Guardar Vista
  * - 3
- - Sistema
- - Valida RPT-010
+   - Sistema
+   - Valida RPT-010
  * - 4
- - Sistema
- - Solicita nombre para la vista
+   - Sistema
+   - Solicita nombre para la vista
  * - 5
- - Usuario
- - Ingresa nombre
+   - Usuario
+   - Ingresa nombre
  * - 6
- - Sistema
- - Guarda configuracion actual
+   - Sistema
+   - Guarda configuracion actual
  * - 7
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -168,17 +168,17 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Selecciona vista guardada del menu
+   - Usuario
+   - Selecciona vista guardada del menu
  * - 1b
- - Sistema
- - Carga configuracion de la vista
+   - Sistema
+   - Carga configuracion de la vista
  * - 1c
- - Sistema
- - Aplica filtros y muestra reporte
+   - Sistema
+   - Aplica filtros y muestra reporte
 
 7.2 FA-02: Eliminar Vista
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,14 +188,14 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Selecciona Eliminar en una vista
+   - Usuario
+   - Selecciona Eliminar en una vista
  * - 1b
- - Sistema
- - Elimina vista guardada
+   - Sistema
+   - Elimina vista guardada
 
 8. Excepciones
 --------------
@@ -208,11 +208,11 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 0
 
  * - **Condicion**
- - Ya existe una vista con ese nombre
+   - Ya existe una vista con ese nombre
  * - **Mensaje**
- - Ya tiene una vista con ese nombre
+   - Ya tiene una vista con ese nombre
  * - **Codigo Error**
- - RPT-090
+   - RPT-090
 
 9. Diagrama de Actividad
 ------------------------
@@ -245,17 +245,17 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-90
- - Privadas
- - Vistas son privadas del usuario
+   - Privadas
+   - Vistas son privadas del usuario
  * - BR-RPT-91
- - Limite
- - Maximo 20 vistas por usuario
+   - Limite
+   - Maximo 20 vistas por usuario
  * - BR-RPT-92
- - Nombre Unico
- - Nombre unico por usuario
+   - Nombre Unico
+   - Nombre unico por usuario
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -265,11 +265,11 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_008
- - Segmentos
- - Vista respeta segmento del usuario
+   - Segmentos
+   - Vista respeta segmento del usuario
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -279,14 +279,14 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-090
- - Guardar vistas
- - Vista accesible desde menu
+   - Guardar vistas
+   - Vista accesible desde menu
  * - FR-RPT-091
- - Cargar vistas
- - Configuracion restaurada
+   - Cargar vistas
+   - Configuracion restaurada
 
 13. Trazabilidad
 ----------------
@@ -296,13 +296,13 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-010
+   - BRQ-RPT-010
  * - **Restricciones**
- - CNST_008
+   - CNST_008
  * - **Actor Principal**
- - AGR-002: agr_operador_reportes
+   - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**
- - RPT-010: guarda_vistas
+   - RPT-010: guarda_vistas
 
 14. Historial de Cambios
 ------------------------
@@ -312,8 +312,8 @@ Usuario hace clic en Guardar Vista.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_019
+   - BR_019
  * - **Nombre**
- - Retención de Datos 2 Años
+   - Retención de Datos 2 Años
  * - **Tipo**
- - Restricción
+   - Restricción
  * - **Categoría**
- - Cumplimiento / Gestión de Datos
+   - Cumplimiento / Gestión de Datos
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -95,9 +95,9 @@ La política de retención de 2 años:
  :header-rows: 0
 
  * - **Tipo**
- - **Restricción**
+   - **Restricción**
  * - 
- - [X] **Restricción**: Limita período de retención de datos
+   - [X] **Restricción**: Limita período de retención de datos
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -119,13 +119,13 @@ La política de retención de 2 años:
  :header-rows: 0
 
  * - **Documento**
- - CNST_006_Retencion_Datos.rst
+   - CNST_006_Retencion_Datos.rst
  * - **Sección**
- - Política de Retención
+   - Política de Retención
  * - **Versión**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST (Restricción Técnica)
+   - CNST (Restricción Técnica)
 
 3.2 Autoridad de Modificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,26 +147,26 @@ La política de retención de 2 años:
  :header-rows: 1
 
  * - Tabla
- - Retención
- - Acción al Vencer
+   - Retención
+   - Acción al Vencer
  * - llamadas
- - 2 años
- - Archivar + Eliminar
+   - 2 años
+   - Archivar + Eliminar
  * - metricas_diarias
- - 2 años
- - Archivar + Eliminar
+   - 2 años
+   - Archivar + Eliminar
  * - user_action_log
- - 2 años
- - Archivar (obligatorio)
+   - 2 años
+   - Archivar (obligatorio)
  * - reportes_generados
- - 2 años
- - Eliminar
+   - 2 años
+   - Eliminar
  * - alertas_historial
- - 2 años
- - Eliminar
+   - 2 años
+   - Eliminar
  * - sesiones
- - 90 días
- - Eliminar
+   - 90 días
+   - Eliminar
 
 4.2 Proceso de Archivado
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -273,11 +273,11 @@ La política de retención de 2 años:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de CNST_006
+   - 2026-01-07
+   - Versión inicial derivada de CNST_006
 
 ----
 

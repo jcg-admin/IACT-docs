@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Validacion_Sphinx
+   - PROC_Validacion_Sphinx
  * - **Nombre**
- - Validacion de Documentacion con Sphinx
+   - Validacion de Documentacion con Sphinx
  * - **Categoria**
- - Verificacion
+   - Verificacion
  * - **Frecuencia**
- - Despues de cada generacion
+   - Despues de cada generacion
  * - **Duracion**
- - 2-5 minutos
+   - 2-5 minutos
 
 ----
 
@@ -85,20 +85,20 @@ Errores comunes:
  :header-rows: 1
 
  * - Error
- - Causa
- - Solucion
+   - Causa
+   - Solucion
  * - toctree contains reference to nonexisting document
- - Archivo no existe o nombre incorrecto
- - Verificar nombre sin .rst
+   - Archivo no existe o nombre incorrecto
+   - Verificar nombre sin .rst
  * - duplicate label
- - Referencia duplicada
- - Usar labels unicos
+   - Referencia duplicada
+   - Usar labels unicos
  * - Unexpected indentation
- - Indentacion incorrecta
- - Corregir espacios
+   - Indentacion incorrecta
+   - Corregir espacios
  * - Unknown directive
- - Directiva no reconocida
- - Verificar sintaxis
+   - Directiva no reconocida
+   - Verificar sintaxis
 
 **Paso 4: Corregir y Re-validar**
 
@@ -161,11 +161,11 @@ Iterar hasta build exitoso.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

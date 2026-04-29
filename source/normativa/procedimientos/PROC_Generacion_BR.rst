@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_BR
+   - PROC_Generacion_BR
  * - **Nombre**
- - Generacion de Reglas de Negocio
+   - Generacion de Reglas de Negocio
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada BR a documentar
+   - Por cada BR a documentar
  * - **Duracion Estimada**
- - 15-30 minutos por BR
+   - 15-30 minutos por BR
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ acciones y trazabilidad a BReq y UC.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Analista
- - Genera BR siguiendo TPL
- - Escritura en reglas_negocio/
+   - Genera BR siguiendo TPL
+   - Escritura en reglas_negocio/
  * - Experto Dominio
- - Valida logica de negocio
- - Lectura
+   - Valida logica de negocio
+   - Lectura
 
 ----
 
@@ -108,17 +108,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_BR_Business_Rules_1_0_0.rst
- - Template de BR
- - Si
+   - Template de BR
+   - Si
  * - BReq_[NNN].rst
- - Objetivo de negocio origen
- - Si
+   - Objetivo de negocio origen
+   - Si
  * - TXM_03
- - Taxonomia de tipos de BR
- - Si
+   - Taxonomia de tipos de BR
+   - Si
 
 ----
 
@@ -133,23 +133,23 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Tipo
- - Descripcion
- - Ejemplo
+   - Descripcion
+   - Ejemplo
  * - Restriccion
- - Limita valores o acciones
- - Password minimo 8 caracteres
+   - Limita valores o acciones
+   - Password minimo 8 caracteres
  * - Derivacion
- - Calcula valor desde otros
- - Estado = f(intentos, tiempo)
+   - Calcula valor desde otros
+   - Estado = f(intentos, tiempo)
  * - Validacion
- - Verifica condicion
- - Email formato valido
+   - Verifica condicion
+   - Email formato valido
  * - Autorizacion
- - Define permisos
- - Solo admin puede crear usuarios
+   - Define permisos
+   - Solo admin puede crear usuarios
  * - Proceso
- - Define flujo obligatorio
- - Login invalida sesiones previas
+   - Define flujo obligatorio
+   - Login invalida sesiones previas
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -293,11 +293,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - BR_[NNN]_[Nombre].rst
- - Regla de Negocio generada
- - /tmp/reglas_negocio/
+   - Regla de Negocio generada
+   - /tmp/reglas_negocio/
 
 ----
 
@@ -348,13 +348,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Tipo no claro
- - Consultar con experto de dominio
+   - Consultar con experto de dominio
  * - BR duplicada
- - Verificar si es variante, consolidar
+   - Verificar si es variante, consolidar
  * - Sin BReq origen
- - Documentar como BR autonoma
+   - Documentar como BR autonoma
 
 ----
 
@@ -375,13 +375,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

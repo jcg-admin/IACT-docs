@@ -19,23 +19,23 @@ UC_USR_03: Modificar Usuario
  :header-rows: 0
 
  * - **ID**
- - UC_USR_03
+   - UC_USR_03
  * - **Nombre**
- - Modificar Usuario
+   - Modificar Usuario
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - Usuario afectado (recibe notificacion si aplica)
+   - Usuario afectado (recibe notificacion si aplica)
  * - **Modulo**
- - MOD_Users
+   - MOD_Users
  * - **Funcion RBAC**
- - USR-003: modifica_usuarios, USR-007: bloquea_usuarios, USR-008: desbloquea_usuarios, USR-009: reactiva_usuarios
+   - USR-003: modifica_usuarios, USR-007: bloquea_usuarios, USR-008: desbloquea_usuarios, USR-009: reactiva_usuarios
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-USR-003
+   - BRQ-USR-003
 
 2. Descripcion
 --------------
@@ -107,13 +107,13 @@ de estado criticos se notifican via buzon interno (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion USR-003
+   - El administrador tiene sesion activa con funcion USR-003
  * - PRE-02
- - El usuario a modificar existe en el sistema
+   - El usuario a modificar existe en el sistema
  * - PRE-03
- - El usuario a modificar no es el mismo administrador (para bloqueo)
+   - El usuario a modificar no es el mismo administrador (para bloqueo)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -131,15 +131,15 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Los datos del usuario se actualizan en base de datos
+   - Los datos del usuario se actualizan en base de datos
  * - POST-02
- - Si cambio estado, se notifica via InternalMessage (CNST_001)
+   - Si cambio estado, se notifica via InternalMessage (CNST_001)
  * - POST-03
- - Se registra USER_UPDATE en auditoria (CNST_025)
+   - Se registra USER_UPDATE en auditoria (CNST_025)
  * - POST-04
- - Si se bloqueo, se cierran todas las sesiones activas
+   - Si se bloqueo, se cierran todas las sesiones activas
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -149,44 +149,44 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Selecciona usuario de la lista (UC_USR_02)
+   - Admin
+   - Selecciona usuario de la lista (UC_USR_02)
  * - 2
- - Admin
- - Hace clic en "Editar Usuario"
+   - Admin
+   - Hace clic en "Editar Usuario"
  * - 3
- - Sistema
- - Valida funcion USR-003 (modifica_usuarios)
+   - Sistema
+   - Valida funcion USR-003 (modifica_usuarios)
  * - 4
- - Sistema
- - Presenta formulario con datos actuales
+   - Sistema
+   - Presenta formulario con datos actuales
  * - 5
- - Admin
- - Modifica campos deseados (nombre, apellido, email)
+   - Admin
+   - Modifica campos deseados (nombre, apellido, email)
  * - 6
- - Admin
- - Opcionalmente cambia segmento
+   - Admin
+   - Opcionalmente cambia segmento
  * - 7
- - Admin
- - Presiona "Guardar Cambios"
+   - Admin
+   - Presiona "Guardar Cambios"
  * - 8
- - Sistema
- - Valida formato de campos
+   - Sistema
+   - Valida formato de campos
  * - 9
- - Sistema
- - Verifica unicidad de email si cambio
+   - Sistema
+   - Verifica unicidad de email si cambio
  * - 10
- - Sistema
- - Actualiza registro en base de datos
+   - Sistema
+   - Actualiza registro en base de datos
  * - 11
- - Sistema
- - Registra USER_UPDATE en UserActionLog (CNST_025)
+   - Sistema
+   - Registra USER_UPDATE en UserActionLog (CNST_025)
  * - 12
- - Sistema
- - Muestra confirmacion de cambios guardados
+   - Sistema
+   - Muestra confirmacion de cambios guardados
 
 6. Diagrama de Secuencia
 ------------------------
@@ -277,32 +277,32 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 2a
- - Admin
- - Hace clic en "Bloquear Usuario"
+   - Admin
+   - Hace clic en "Bloquear Usuario"
  * - 3a
- - Sistema
- - Valida funcion USR-007 (bloquea_usuarios)
+   - Sistema
+   - Valida funcion USR-007 (bloquea_usuarios)
  * - 4a
- - Sistema
- - Muestra dialogo: motivo del bloqueo (obligatorio)
+   - Sistema
+   - Muestra dialogo: motivo del bloqueo (obligatorio)
  * - 5a
- - Admin
- - Ingresa motivo y confirma
+   - Admin
+   - Ingresa motivo y confirma
  * - 6a
- - Sistema
- - Cambia estado a BLOQUEADO
+   - Sistema
+   - Cambia estado a BLOQUEADO
  * - 7a
- - Sistema
- - Cierra todas las sesiones activas del usuario
+   - Sistema
+   - Cierra todas las sesiones activas del usuario
  * - 8a
- - Sistema
- - Envia InternalMessage notificando bloqueo (CNST_001)
+   - Sistema
+   - Envia InternalMessage notificando bloqueo (CNST_001)
  * - 9a
- - Sistema
- - Registra USER_BLOCKED en auditoria
+   - Sistema
+   - Registra USER_BLOCKED en auditoria
 
 7.2 FA-02: Desbloquear Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -312,26 +312,26 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 2a
- - Admin
- - Hace clic en "Desbloquear Usuario"
+   - Admin
+   - Hace clic en "Desbloquear Usuario"
  * - 3a
- - Sistema
- - Valida funcion USR-008 (desbloquea_usuarios)
+   - Sistema
+   - Valida funcion USR-008 (desbloquea_usuarios)
  * - 4a
- - Sistema
- - Valida que estado actual sea BLOQUEADO
+   - Sistema
+   - Valida que estado actual sea BLOQUEADO
  * - 5a
- - Sistema
- - Cambia estado a ACTIVO
+   - Sistema
+   - Cambia estado a ACTIVO
  * - 6a
- - Sistema
- - Envia InternalMessage notificando desbloqueo (CNST_001)
+   - Sistema
+   - Envia InternalMessage notificando desbloqueo (CNST_001)
  * - 7a
- - Sistema
- - Registra USER_UNBLOCKED en auditoria
+   - Sistema
+   - Registra USER_UNBLOCKED en auditoria
 
 7.3 FA-03: Reactivar Usuario Inactivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,26 +341,26 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 2a
- - Admin
- - Hace clic en "Reactivar Usuario"
+   - Admin
+   - Hace clic en "Reactivar Usuario"
  * - 3a
- - Sistema
- - Valida funcion USR-009 (reactiva_usuarios)
+   - Sistema
+   - Valida funcion USR-009 (reactiva_usuarios)
  * - 4a
- - Sistema
- - Valida que estado actual sea INACTIVO
+   - Sistema
+   - Valida que estado actual sea INACTIVO
  * - 5a
- - Sistema
- - Cambia estado a ACTIVO
+   - Sistema
+   - Cambia estado a ACTIVO
  * - 6a
- - Sistema
- - Envia InternalMessage notificando reactivacion (CNST_001)
+   - Sistema
+   - Envia InternalMessage notificando reactivacion (CNST_001)
  * - 7a
- - Sistema
- - Registra USER_REACTIVATED en auditoria
+   - Sistema
+   - Registra USER_REACTIVATED en auditoria
 
 8. Excepciones
 --------------
@@ -373,15 +373,15 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Administrador no tiene funcion USR-003
+   - Administrador no tiene funcion USR-003
  * - **Accion Sistema**
- - Rechaza modificacion
+   - Rechaza modificacion
  * - **Mensaje Usuario**
- - "No tiene permisos para modificar usuarios"
+   - "No tiene permisos para modificar usuarios"
  * - **Codigo Error**
- - USR-020
+   - USR-020
 
 8.2 EX-02: Usuario No Encontrado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -391,15 +391,15 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - ID de usuario no existe
+   - ID de usuario no existe
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Usuario no encontrado"
+   - "Usuario no encontrado"
  * - **Codigo Error**
- - USR-021
+   - USR-021
 
 8.3 EX-03: Auto-Bloqueo No Permitido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -409,15 +409,15 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **Paso de Origen**
- - FA-01, paso 3a
+   - FA-01, paso 3a
  * - **Condicion**
- - Admin intenta bloquearse a si mismo
+   - Admin intenta bloquearse a si mismo
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "No puede bloquear su propia cuenta"
+   - "No puede bloquear su propia cuenta"
  * - **Codigo Error**
- - USR-022
+   - USR-022
 
 8.4 EX-04: Estado Invalido para Operacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -427,15 +427,15 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **Paso de Origen**
- - FA-02, FA-03
+   - FA-02, FA-03
  * - **Condicion**
- - Estado actual no permite la operacion solicitada
+   - Estado actual no permite la operacion solicitada
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "El estado actual del usuario no permite esta operacion"
+   - "El estado actual del usuario no permite esta operacion"
  * - **Codigo Error**
- - USR-023
+   - USR-023
 
 9. Diagrama de Actividad
 ------------------------
@@ -515,26 +515,26 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-USR-20
- - Username Inmutable
- - El username nunca puede modificarse despues de creado (CNST_029).
+   - Username Inmutable
+   - El username nunca puede modificarse despues de creado (CNST_029).
  * - BR-USR-21
- - Motivo Obligatorio
- - El bloqueo de usuario requiere motivo obligatorio que se registra en auditoria.
+   - Motivo Obligatorio
+   - El bloqueo de usuario requiere motivo obligatorio que se registra en auditoria.
  * - BR-USR-22
- - Sin Auto-Bloqueo
- - Un administrador no puede bloquear su propia cuenta.
+   - Sin Auto-Bloqueo
+   - Un administrador no puede bloquear su propia cuenta.
  * - BR-USR-23
- - Cierre de Sesiones
- - Al bloquear un usuario, todas sus sesiones activas se cierran automaticamente.
+   - Cierre de Sesiones
+   - Al bloquear un usuario, todas sus sesiones activas se cierran automaticamente.
  * - BR-USR-24
- - Notificacion de Estado
- - Cambios de estado (bloqueo, desbloqueo, reactivacion) se notifican al usuario afectado.
+   - Notificacion de Estado
+   - Cambios de estado (bloqueo, desbloqueo, reactivacion) se notifican al usuario afectado.
  * - BR-USR-25
- - Transiciones Validas
- - ACTIVO puede ir a BLOQUEADO o INACTIVO. BLOQUEADO solo puede ir a ACTIVO. INACTIVO solo puede ir a ACTIVO.
+   - Transiciones Validas
+   - ACTIVO puede ir a BLOQUEADO o INACTIVO. BLOQUEADO solo puede ir a ACTIVO. INACTIVO solo puede ir a ACTIVO.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -544,17 +544,17 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_001
- - Comunicaciones Prohibidas
- - Las notificaciones de cambio de estado (bloqueo, desbloqueo, reactivacion) se envian UNICAMENTE via InternalMessage. NO email, SMS ni webhooks.
+   - Comunicaciones Prohibidas
+   - Las notificaciones de cambio de estado (bloqueo, desbloqueo, reactivacion) se envian UNICAMENTE via InternalMessage. NO email, SMS ni webhooks.
  * - CNST_029
- - RBAC Flat
- - El username es inmutable despues de la creacion. Los estados de usuario siguen transiciones definidas.
+   - RBAC Flat
+   - El username es inmutable despues de la creacion. Los estados de usuario siguen transiciones definidas.
  * - CNST_025
- - Auditoria Inmutable
- - Todo cambio se registra en UserActionLog con: admin ejecutor, usuario afectado, campos modificados (valor anterior y nuevo), motivo si aplica.
+   - Auditoria Inmutable
+   - Todo cambio se registra en UserActionLog con: admin ejecutor, usuario afectado, campos modificados (valor anterior y nuevo), motivo si aplica.
 
 **Implementacion CNST_001 (Notificacion de Bloqueo):**
 
@@ -595,23 +595,23 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-USR-020
- - El sistema debe permitir modificar datos basicos
- - Nombre, apellido, email, segmento modificables
+   - El sistema debe permitir modificar datos basicos
+   - Nombre, apellido, email, segmento modificables
  * - FR-USR-021
- - El sistema debe impedir modificar username
- - Campo username readonly en formulario
+   - El sistema debe impedir modificar username
+   - Campo username readonly en formulario
  * - FR-USR-022
- - El sistema debe permitir bloquear usuarios
- - Estado cambia a BLOQUEADO, sesiones cerradas
+   - El sistema debe permitir bloquear usuarios
+   - Estado cambia a BLOQUEADO, sesiones cerradas
  * - FR-USR-023
- - El sistema debe notificar cambios de estado
- - InternalMessage enviado al usuario afectado
+   - El sistema debe notificar cambios de estado
+   - InternalMessage enviado al usuario afectado
  * - FR-USR-024
- - El sistema debe registrar cambios detallados
- - Auditoria con campos old_value -> new_value
+   - El sistema debe registrar cambios detallados
+   - Auditoria con campos old_value -> new_value
 
 13. Trazabilidad
 ----------------
@@ -621,19 +621,19 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-USR-003: Permitir modificacion de usuarios existentes
+   - BRQ-USR-003: Permitir modificacion de usuarios existentes
  * - **Reglas de Negocio**
- - BR-USR-20 a BR-USR-25
+   - BR-USR-20 a BR-USR-25
  * - **Restricciones**
- - CNST_001 (No Email), CNST_029 (Username inmutable), CNST_025 (Auditoria)
+   - CNST_001 (No Email), CNST_029 (Username inmutable), CNST_025 (Auditoria)
  * - **FR Derivados**
- - FR-USR-020 a FR-USR-024
+   - FR-USR-020 a FR-USR-024
  * - **UC Relacionados**
- - UC_USR_02 (Consultar Usuarios), UC_USR_04 (Eliminar Usuario), UC_AUTH_05 (Gestionar Sesiones)
+   - UC_USR_02 (Consultar Usuarios), UC_USR_04 (Eliminar Usuario), UC_AUTH_05 (Gestionar Sesiones)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - USR-003, USR-007, USR-008, USR-009
+   - USR-003, USR-007, USR-008, USR-009
 
 14. Historial de Cambios
 ------------------------
@@ -643,10 +643,10 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con funciones RBAC separadas
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con funciones RBAC separadas

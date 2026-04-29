@@ -22,19 +22,19 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
  :widths: 25 75
 
  * - **ID**
- - FR-008.03
+   - FR-008.03
  * - **Nombre**
- - Invalidar todas las sesiones activas del usuario
+   - Invalidar todas las sesiones activas del usuario
  * - **UC Origen**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Paso UC**
- - Paso 9 del flujo normal
+   - Paso 9 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Seguridad
+   - Seguridad
 
 ----
 
@@ -120,19 +120,19 @@ que el cambio de estado. Si falla una, falla todo.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Depende de**
- - FR-008.02
+   - FR-008.02
  * - **Requerido por**
- - FR-008.04
+   - FR-008.04
  * - **Relacionado**
- - FR-005.04 (invalidación por admin)
+   - FR-005.04 (invalidación por admin)
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-008.03 (pendiente)
+   - TST-FR-008.03 (pendiente)
 
 ----
 
@@ -144,8 +144,8 @@ que el cambio de estado. Si falla una, falla todo.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_008
+   - 2026-01-07
+   - Versión inicial derivada de UC_008

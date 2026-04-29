@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Congelamiento_Subdominio
+   - PROC_Congelamiento_Subdominio
  * - **Nombre**
- - Congelar Subdominio del Modelo Documental
+   - Congelar Subdominio del Modelo Documental
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada subdominio completado
+   - Por cada subdominio completado
  * - **Duracion Estimada**
- - 15-30 minutos
+   - 15-30 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ comunicar que el subdominio esta listo para uso.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Arquitecto Doc
- - Aprueba y ejecuta congelamiento
- - Escritura en modelo
+   - Aprueba y ejecuta congelamiento
+   - Escritura en modelo
  * - QA Lead
- - Valida completitud antes de congelar
- - Lectura de artefactos
+   - Valida completitud antes de congelar
+   - Lectura de artefactos
 
 ----
 
@@ -108,17 +108,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Subdominio a congelar
- - Carpeta con artefactos
- - Si
+   - Carpeta con artefactos
+   - Si
  * - index.rst
- - Indice del subdominio
- - Si
+   - Indice del subdominio
+   - Si
  * - MODELO_DOCUMENTAL_IACT
- - Para actualizar estado
- - Si
+   - Para actualizar estado
+   - Si
 
 ----
 
@@ -243,17 +243,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Subdominio
- - Artefactos
- - Fecha
- - Responsable
+   - Artefactos
+   - Fecha
+   - Responsable
  * - reglas_negocio
- - 20 BR
- - 2026-01-07
- - Equipo IACT
+   - 20 BR
+   - 2026-01-07
+   - Equipo IACT
  * - restricciones
- - 10 CNST
- - 2026-01-06
- - Equipo IACT
+   - 10 CNST
+   - 2026-01-06
+   - Equipo IACT
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada
@@ -289,14 +289,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - index.rst actualizado
- - Con marca de congelamiento
- - [subdominio]/
+   - Con marca de congelamiento
+   - [subdominio]/
  * - MODELO_DOCUMENTAL actualizado
- - Con estado [CONGELADO]
- - raiz/
+   - Con estado [CONGELADO]
+   - raiz/
 
 ----
 
@@ -332,17 +332,17 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Subdominio
- - Artefactos
- - Cuando Congelar
+   - Artefactos
+   - Cuando Congelar
  * - reglas_negocio/
- - BR
- - Cuando BR completas
+   - BR
+   - Cuando BR completas
  * - restricciones/
- - CNST
- - Cuando CNST definidas
+   - CNST
+   - Cuando CNST definidas
  * - procedimientos/
- - PROC
- - Cuando PROC estables
+   - PROC
+   - Cuando PROC estables
 
 ----
 
@@ -354,13 +354,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Artefacto faltante descubierto
- - Completar antes de congelar
+   - Completar antes de congelar
  * - Error de Sphinx
- - Corregir, re-validar
+   - Corregir, re-validar
  * - Cambio urgente post-congelamiento
- - Ejecutar PROC_Descongelamiento primero
+   - Ejecutar PROC_Descongelamiento primero
 
 ----
 
@@ -381,13 +381,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

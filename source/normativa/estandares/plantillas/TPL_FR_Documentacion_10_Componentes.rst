@@ -348,15 +348,15 @@ validaciones y valores por defecto.
  :widths: 20 15 10 20 35
 
  * - Parametro
- - Tipo
- - Obligatorio
- - Valores/Rango
- - Descripcion
+   - Tipo
+   - Obligatorio
+   - Valores/Rango
+   - Descripcion
  * - nombre_param
- - STRING
- - SI
- - valores permitidos
- - Descripcion del parametro
+   - STRING
+   - SI
+   - valores permitidos
+   - Descripcion del parametro
 
 **EJEMPLO COMPLETO (FR-RPT-01-07):**
 
@@ -365,30 +365,30 @@ validaciones y valores por defecto.
  :widths: 20 15 10 20 35
 
  * - Parametro
- - Tipo
- - Obligatorio
- - Valores/Rango
- - Descripcion
+   - Tipo
+   - Obligatorio
+   - Valores/Rango
+   - Descripcion
  * - quarter
- - STRING
- - SI
- - Q1, Q2, Q3, Q4
- - Trimestre a consultar
+   - STRING
+   - SI
+   - Q1, Q2, Q3, Q4
+   - Trimestre a consultar
  * - year
- - INTEGER
- - SI
- - 2020-2024
- - Ano del reporte
+   - INTEGER
+   - SI
+   - 2020-2024
+   - Ano del reporte
  * - segment
- - STRING
- - SI
- - OP, MG
- - Segmento de clientes
+   - STRING
+   - SI
+   - OP, MG
+   - Segmento de clientes
  * - include_deleted
- - BOOLEAN
- - NO
- - TRUE, FALSE
- - Incluir registros eliminados (default: FALSE)
+   - BOOLEAN
+   - NO
+   - TRUE, FALSE
+   - Incluir registros eliminados (default: FALSE)
 
 **Valores por Defecto:**
 
@@ -1286,21 +1286,21 @@ SECCION 11: HISTORIAL DE VERSIONES
  :widths: 10 15 50 25
 
  * - Version
- - Fecha
- - Cambios
- - Autor
+   - Fecha
+   - Cambios
+   - Autor
  * - 1.0.0
- - YYYY-MM-DD
- - Version inicial - Implementacion de FR
- - Nombre del Developer
+   - YYYY-MM-DD
+   - Version inicial - Implementacion de FR
+   - Nombre del Developer
  * - 1.1.0
- - YYYY-MM-DD
- - Agrega validacion V-5 (trimestre futuro)
- - Nombre del Developer
+   - YYYY-MM-DD
+   - Agrega validacion V-5 (trimestre futuro)
+   - Nombre del Developer
  * - 1.0.1
- - YYYY-MM-DD
- - Corrige typo en mensaje de error
- - Nombre del Developer
+   - YYYY-MM-DD
+   - Corrige typo en mensaje de error
+   - Nombre del Developer
 
 ----------------------------------------------------------------------
 REFERENCIAS

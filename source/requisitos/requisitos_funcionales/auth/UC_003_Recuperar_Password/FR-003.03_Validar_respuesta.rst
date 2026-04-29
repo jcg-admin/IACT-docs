@@ -22,19 +22,19 @@ FR-003.03: Validar respuesta de seguridad
  :widths: 25 75
 
  * - **ID**
- - FR-003.03
+   - FR-003.03
  * - **Nombre**
- - Validar respuesta a pregunta de seguridad
+   - Validar respuesta a pregunta de seguridad
  * - **UC Origen**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Paso UC**
- - Paso 5-6 del flujo normal
+   - Paso 5-6 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -124,17 +124,17 @@ FR-003.03: Validar respuesta de seguridad
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Depende de**
- - FR-003.02
+   - FR-003.02
  * - **Requerido por**
- - FR-003.04
+   - FR-003.04
  * - **CNST**
- - CNST-005, CNST-009
+   - CNST-005, CNST-009
  * - **TEST**
- - TST-FR-003.03 (pendiente)
+   - TST-FR-003.03 (pendiente)
 
 ----
 
@@ -146,8 +146,8 @@ FR-003.03: Validar respuesta de seguridad
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_003
+   - 2026-01-07
+   - Versión inicial derivada de UC_003

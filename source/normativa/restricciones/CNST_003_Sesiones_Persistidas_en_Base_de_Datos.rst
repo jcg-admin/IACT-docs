@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_003
+   - CNST_003
  * - **Categoria**
- - Sesiones
+   - Sesiones
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -98,11 +98,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Auth
- - Implementa session backend DB
+   - Implementa session backend DB
  * - MOD_Audit
- - Consume UserSession para auditoria
+   - Consume UserSession para auditoria
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -112,13 +112,13 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_001
- - Iniciar Sesion
+   - Iniciar Sesion
  * - UC_002
- - Cerrar Sesion
+   - Cerrar Sesion
  * - UC_005
- - Gestion de Sesiones
+   - Gestion de Sesiones
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -192,15 +192,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_004_Sesion_Unica_por_Usuario`, :doc:`CNST_005_Timeout_de_Sesion_de_15_Minutos`
+   - :doc:`CNST_004_Sesion_Unica_por_Usuario`, :doc:`CNST_005_Timeout_de_Sesion_de_15_Minutos`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_001, UC_002, UC_005
+   - UC_001, UC_002, UC_005
  * - **MODs afectados**
- - MOD_Auth, MOD_Audit
+   - MOD_Auth, MOD_Audit
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -210,15 +210,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -22,19 +22,19 @@ FR-001.02: Validar credenciales
  :widths: 25 75
 
  * - **ID**
- - FR-001.02
+   - FR-001.02
  * - **Nombre**
- - Validar credenciales contra base de datos
+   - Validar credenciales contra base de datos
  * - **UC Origen**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Paso UC**
- - Paso 6 del flujo normal
+   - Paso 6 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -126,19 +126,19 @@ FR-001.02: Validar credenciales
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Depende de**
- - FR-001.01
+   - FR-001.01
  * - **Requerido por**
- - FR-001.03, FR-001.04
+   - FR-001.03, FR-001.04
  * - **BR**
- - BR_015
+   - BR_015
  * - **CNST**
- - CNST-002, CNST-005
+   - CNST-002, CNST-005
  * - **TEST**
- - TST-FR-001.02 (pendiente)
+   - TST-FR-001.02 (pendiente)
 
 ----
 
@@ -150,8 +150,8 @@ FR-001.02: Validar credenciales
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_001
+   - 2026-01-07
+   - Versión inicial derivada de UC_001

@@ -459,23 +459,23 @@ Cada index.rst DEBE incluir minimo:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Meta tags
- - artefacto, tipo, dominio, subdominio, version
+   - Meta tags
+   - artefacto, tipo, dominio, subdominio, version
  * - 1
- - Titulo
- - Nombre del subdominio
+   - Titulo
+   - Nombre del subdominio
  * - 2
- - Descripcion
- - Breve descripcion del contenido
+   - Descripcion
+   - Breve descripcion del contenido
  * - 3
- - Metricas
- - Total artefactos, estado, fecha
+   - Metricas
+   - Total artefactos, estado, fecha
  * - 4
- - Contenido/toctree
- - Lista de artefactos con toctree
+   - Contenido/toctree
+   - Lista de artefactos con toctree
 
 **Opcionales:**
 
@@ -542,10 +542,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla INDEX
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla INDEX

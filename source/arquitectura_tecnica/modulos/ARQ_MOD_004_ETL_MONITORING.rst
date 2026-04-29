@@ -75,26 +75,26 @@ de transformacion.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - Listar ejecuciones ETL historicas
- - UC_051
- - -
+   - UC_051
+   - -
  * - Mostrar duracion, resultado, volumen
- - UC_051
- - -
+   - UC_051
+   - -
  * - Ver detalle de ejecucion (errores, metricas)
- - UC_052
- - CNST_004
+   - UC_052
+   - CNST_004
  * - Consultar que fechas/trimestres estan disponibles
- - UC_053
- - CNST_003
+   - UC_053
+   - CNST_003
  * - Listar incidencias de calidad de datos
- - UC_054
- - -
+   - UC_054
+   - -
  * - Reintentar transformacion sobre datos ya extraidos
- - UC_055
- - CNST_004
+   - UC_055
+   - CNST_004
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -136,11 +136,11 @@ de transformacion.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Requiere sesion autenticada
+   - Requiere sesion autenticada
  * - ARQ_MOD_003_RBAC_CORE
- - Verifica permisos de supervision ETL
+   - Verifica permisos de supervision ETL
 
 4.2 Es Requerido por
 --------------------
@@ -150,11 +150,11 @@ de transformacion.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_005_VIS_REPORTS
- - Consulta disponibilidad de datos antes de mostrar
+   - Consulta disponibilidad de datos antes de mostrar
  * - ARQ_MOD_006_ALERTS
- - Puede generar alertas por fallos ETL
+   - Puede generar alertas por fallos ETL
 
 ----
 
@@ -169,11 +169,11 @@ de transformacion.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.etl
- - Modelos ETLExecution, vistas de supervision
+   - Modelos ETLExecution, vistas de supervision
  * - apps.monitoring
- - Metricas de calidad de datos
+   - Metricas de calidad de datos
 
 5.2 Modelos de Datos
 --------------------
@@ -211,23 +211,23 @@ de transformacion.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/etl/executions
- - Listar ejecuciones
+   - /api/v1/etl/executions
+   - Listar ejecuciones
  * - GET
- - /api/v1/etl/executions/{id}
- - Detalle de ejecucion
+   - /api/v1/etl/executions/{id}
+   - Detalle de ejecucion
  * - GET
- - /api/v1/etl/availability
- - Disponibilidad por periodo
+   - /api/v1/etl/availability
+   - Disponibilidad por periodo
  * - GET
- - /api/v1/etl/quality-issues
- - Incidencias de calidad
+   - /api/v1/etl/quality-issues
+   - Incidencias de calidad
  * - POST
- - /api/v1/etl/retry/{id}
- - Reintentar procesamiento
+   - /api/v1/etl/retry/{id}
+   - Reintentar procesamiento
 
 ----
 
@@ -239,13 +239,13 @@ de transformacion.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_003
- - **BD Dual Inmutable**: Solo lectura de IVR via vw_llamadas.
- Analytics es la unica BD escribible.
+   - **BD Dual Inmutable**: Solo lectura de IVR via vw_llamadas.
+     Analytics es la unica BD escribible.
  * - CNST_004
- - **Actualizacion Datos ETL**: ETL nocturno, no manual.
- Sin TRUNCATE, solo INSERT/UPDATE controlado.
+   - **Actualizacion Datos ETL**: ETL nocturno, no manual.
+     Sin TRUNCATE, solo INSERT/UPDATE controlado.
 
 ----
 
@@ -257,23 +257,23 @@ de transformacion.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_051
- - Consultar_Ejecuciones_ETL
- - Historico de jobs con duracion y resultado
+   - Consultar_Ejecuciones_ETL
+   - Historico de jobs con duracion y resultado
  * - UC_052
- - Ver_Detalle_Ejecucion_ETL
- - Metricas, errores, rangos de fecha
+   - Ver_Detalle_Ejecucion_ETL
+   - Metricas, errores, rangos de fecha
  * - UC_053
- - Consultar_Disponibilidad_Datos
- - Trimestres completos/parciales/faltantes
+   - Consultar_Disponibilidad_Datos
+   - Trimestres completos/parciales/faltantes
  * - UC_054
- - Consultar_Incidencias_Calidad
- - Nulos, duplicados, inconsistencias
+   - Consultar_Incidencias_Calidad
+   - Nulos, duplicados, inconsistencias
  * - UC_055
- - Reintentar_Procesamiento
- - Reprocesar metricas sin tocar origen
+   - Reintentar_Procesamiento
+   - Reprocesar metricas sin tocar origen
 
 ----
 
@@ -285,25 +285,25 @@ de transformacion.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_016
- - Listar_Ejecuciones_ETL
- - UC_051
- - Paginacion, filtros por fecha
+   - Listar_Ejecuciones_ETL
+   - UC_051
+   - Paginacion, filtros por fecha
  * - FR_017
- - Cargar_Detalle_ETL
- - UC_052
- - Incluir metricas y errores
+   - Cargar_Detalle_ETL
+   - UC_052
+   - Incluir metricas y errores
  * - FR_018
- - Consultar_Disponibilidad
- - UC_053
- - Por trimestre, mes, dia
+   - Consultar_Disponibilidad
+   - UC_053
+   - Por trimestre, mes, dia
  * - FR_019
- - Listar_Incidencias_Calidad
- - UC_054
- - Filtrar por tipo y severidad
+   - Listar_Incidencias_Calidad
+   - UC_054
+   - Filtrar por tipo y severidad
 
 ----
 
@@ -347,11 +347,11 @@ de transformacion.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial
+   - 2025-12-22
+   - Version inicial
 
 ----
 

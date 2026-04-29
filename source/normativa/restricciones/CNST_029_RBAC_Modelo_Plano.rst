@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_029
+   - CNST_029
  * - **Categoria**
- - RBAC
+   - RBAC
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -88,60 +88,60 @@ en permisos efectivos opacos al revisor.
  :header-rows: 1
 
  * - ID
- - Nombre (ingles)
- - # Funciones
- - Actor tipico
- - Tipo
+   - Nombre (ingles)
+   - # Funciones
+   - Actor tipico
+   - Tipo
  * - AGR-001
- - basic_operator_group
- - 6
- - Operador
- - system
+   - basic_operator_group
+   - 6
+   - Operador
+   - system
  * - AGR-002
- - report_viewer_group
- - 8
- - Analista
- - system
+   - report_viewer_group
+   - 8
+   - Analista
+   - system
  * - AGR-003
- - quality_supervisor_group
- - 11
- - Supervisor
- - system
+   - quality_supervisor_group
+   - 11
+   - Supervisor
+   - system
  * - AGR-004
- - data_exporter_group
- - 14
- - Data Analyst
- - system
+   - data_exporter_group
+   - 14
+   - Data Analyst
+   - system
  * - AGR-005
- - alert_manager_group
- - 6
- - Gestor Alertas
- - system
+   - alert_manager_group
+   - 6
+   - Gestor Alertas
+   - system
  * - AGR-006
- - user_admin_group
- - 9
- - Admin Usuarios
- - system
+   - user_admin_group
+   - 9
+   - Admin Usuarios
+   - system
  * - AGR-007
- - permission_admin_group
- - 5
- - Admin Permisos
- - system
+   - permission_admin_group
+   - 5
+   - Admin Permisos
+   - system
  * - AGR-008
- - auditor_group
- - 4
- - Auditor
- - system
+   - auditor_group
+   - 4
+   - Auditor
+   - system
  * - AGR-009
- - pipeline_admin_group
- - 4
- - Admin Pipeline
- - system
+   - pipeline_admin_group
+   - 4
+   - Admin Pipeline
+   - system
  * - AGR-010
- - system_admin_group
- - 6
- - Sysadmin
- - system
+   - system_admin_group
+   - 6
+   - Sysadmin
+   - system
 
 **System groups vs custom groups (decision D-RBAC-4):**
 
@@ -179,11 +179,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Access
- - Implementa modelo plano + 42 funciones atomicas
+   - Implementa modelo plano + 42 funciones atomicas
  * - (todos)
- - Consultan permisos sin jerarquia
+   - Consultan permisos sin jerarquia
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,11 +193,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_042
- - Precedencia de permisos
+   - Precedencia de permisos
  * - Todos los UCs con autorizacion
- - Usan modelo plano
+   - Usan modelo plano
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -270,15 +270,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+   - :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_042, Todos los UCs con autorizacion
+   - UC_042, Todos los UCs con autorizacion
  * - **MODs afectados**
- - MOD_Access, (todos)
+   - MOD_Access, (todos)
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -288,15 +288,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -22,19 +22,19 @@ FR-001.01: Validar formato username
  :widths: 25 75
 
  * - **ID**
- - FR-001.01
+   - FR-001.01
  * - **Nombre**
- - Validar formato username
+   - Validar formato username
  * - **UC Origen**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Paso UC**
- - Paso 5 del flujo normal
+   - Paso 5 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -106,17 +106,17 @@ FR-001.01: Validar formato username
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_001: Iniciar Sesion
+   - UC_001: Iniciar Sesion
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-001.02
+   - FR-001.02
  * - **CNST**
- - CNST-005
+   - CNST-005
  * - **TEST**
- - TST-FR-001.01 (pendiente)
+   - TST-FR-001.01 (pendiente)
 
 ----
 
@@ -128,8 +128,8 @@ FR-001.01: Validar formato username
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_001
+   - 2026-01-07
+   - Versión inicial derivada de UC_001

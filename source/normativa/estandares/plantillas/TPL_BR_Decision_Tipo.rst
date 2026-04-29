@@ -369,14 +369,14 @@ Beneficios medibles que esta BR traera al negocio
  :widths: 40 30 30
 
  * - Metrica
- - Valor Actual
- - Valor Objetivo
+   - Valor Actual
+   - Valor Objetivo
  * - Nombre de metrica 1
- - Valor hoy
- - Valor esperado
+   - Valor hoy
+   - Valor esperado
  * - Nombre de metrica 2
- - Valor hoy
- - Valor esperado
+   - Valor hoy
+   - Valor esperado
 
 **Ejemplo Completo (BR-IACT-028):**
 
@@ -413,20 +413,20 @@ Metricas:
  :widths: 40 30 30
 
  * - Metrica
- - Valor Actual
- - Valor Objetivo
+   - Valor Actual
+   - Valor Objetivo
  * - Tiempo respuesta p95 consultas normales
- - 8.5 segundos
- - menor 3 segundos
+   - 8.5 segundos
+   - menor 3 segundos
  * - Consultas con timeout
- - 15% mensual
- - menor 2% mensual
+   - 15% mensual
+   - menor 2% mensual
  * - CPU promedio en horario pico
- - 85%
- - menor 60%
+   - 85%
+   - menor 60%
  * - Quejas de usuarios por lentitud
- - 23/mes
- - menor 5/mes
+   - 23/mes
+   - menor 5/mes
 
 ----------------------------------------------------------------------
 SECCION 3: CRITERIOS DE ACEPTACION
@@ -782,17 +782,17 @@ Representa la formula en notacion matematica y en codigo:
  :widths: 25 20 20 35
 
  * - Variable
- - Tipo Dato
- - Rango Valido
- - Fuente
+   - Tipo Dato
+   - Rango Valido
+   - Fuente
  * - nombre_var_1
- - INTEGER|FLOAT
- - min, max
- - tabla.campo
+   - INTEGER|FLOAT
+   - min, max
+   - tabla.campo
  * - nombre_var_2
- - DECIMAL(p,s)
- - min, max
- - tabla.campo
+   - DECIMAL(p,s)
+   - min, max
+   - tabla.campo
 
 **Salida (Output):**
 
@@ -801,15 +801,15 @@ Representa la formula en notacion matematica y en codigo:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tipo
- - INTEGER|FLOAT|DECIMAL(p,s)|PERCENTAGE
+   - INTEGER|FLOAT|DECIMAL(p,s)|PERCENTAGE
  * - Rango esperado
- - min, max
+   - min, max
  * - Precision decimal
- - numero de decimales
+   - numero de decimales
  * - Unidad
- - %, USD, registros, segundos, etc.
+   - %, USD, registros, segundos, etc.
 
 **Casos Especiales:**
 
@@ -818,15 +818,15 @@ Representa la formula en notacion matematica y en codigo:
  :widths: 40 60
 
  * - Situacion
- - Manejo
+   - Manejo
  * - Division por cero
- - Retornar NULL | Retornar 0 | Throw exception
+   - Retornar NULL | Retornar 0 | Throw exception
  * - Valores NULL
- - Tratar como 0 | Saltar | Retornar NULL
+   - Tratar como 0 | Saltar | Retornar NULL
  * - Valores fuera de rango
- - Validar y rechazar | Clamp a rango | Warning
+   - Validar y rechazar | Clamp a rango | Warning
  * - Overflow numerico
- - Usar DECIMAL | Limitar a MAX_VALUE
+   - Usar DECIMAL | Limitar a MAX_VALUE
 
 **Codigo de Implementacion:**
 
@@ -879,17 +879,17 @@ Entradas:
  :widths: 25 20 20 35
 
  * - Variable
- - Tipo
- - Rango
- - Fuente
+   - Tipo
+   - Rango
+   - Fuente
  * - llamadas_abandonadas
- - INTEGER
- - >= 0
- - COUNT(*) WHERE status='ABANDONED'
+   - INTEGER
+   - >= 0
+   - COUNT(*) WHERE status='ABANDONED'
  * - total_llamadas
- - INTEGER
- - > 0
- - COUNT(*) FROM ivr_calls
+   - INTEGER
+   - > 0
+   - COUNT(*) FROM ivr_calls
 
 Salida:
 
@@ -898,15 +898,15 @@ Salida:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tipo
- - DECIMAL(5,2)
+   - DECIMAL(5,2)
  * - Rango esperado
- - 0.00 a 100.00
+   - 0.00 a 100.00
  * - Precision decimal
- - 2 decimales
+   - 2 decimales
  * - Unidad
- - % (porcentaje)
+   - % (porcentaje)
 
 Casos Especiales:
 
@@ -915,15 +915,15 @@ Casos Especiales:
  :widths: 40 60
 
  * - Situacion
- - Manejo
+   - Manejo
  * - total_llamadas = 0
- - Retornar NULL y registrar WARNING en log
+   - Retornar NULL y registrar WARNING en log
  * - llamadas_abandonadas NULL
- - Tratar como 0
+   - Tratar como 0
  * - Resultado mayor 100
- - ERROR, datos corruptos, investigar
+   - ERROR, datos corruptos, investigar
  * - Resultado menor 0
- - ERROR, datos corruptos, investigar
+   - ERROR, datos corruptos, investigar
 
 Codigo Python:
 
@@ -1006,15 +1006,15 @@ Descripcion detallada de la accion OBSERVABLE por el usuario:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tipo de Actor
- - Usuario interno | Usuario externo | Sistema externo
+   - Usuario interno | Usuario externo | Sistema externo
  * - Rol Especifico
- - Analista | Supervisor | Admin | Cliente | etc.
+   - Analista | Supervisor | Admin | Cliente | etc.
  * - Canal
- - Pantalla/UI | Email | SMS | Push | Slack | etc.
+   - Pantalla/UI | Email | SMS | Push | Slack | etc.
  * - Dispositivo
- - Web | Mobile | Desktop | Todos
+   - Web | Mobile | Desktop | Todos
 
 **Contenido de la Accion:**
 
@@ -1074,15 +1074,15 @@ Actor:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tipo
- - Usuario interno autenticado
+   - Usuario interno autenticado
  * - Rol
- - Cualquier rol, Analista, Supervisor, Admin
+   - Cualquier rol, Analista, Supervisor, Admin
  * - Canal
- - Pantalla/UI, modal JavaScript
+   - Pantalla/UI, modal JavaScript
  * - Dispositivo
- - Web y Desktop app
+   - Web y Desktop app
 
 Contenido:
 
@@ -1147,17 +1147,17 @@ Descripcion del cambio SILENCIOSO en el sistema:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tabla
- - nombre_tabla
+   - nombre_tabla
  * - Campo(s)
- - campo_1, campo_2, ...
+   - campo_1, campo_2, ...
  * - Valor Anterior
- - estado/valor previo
+   - estado/valor previo
  * - Valor Nuevo
- - estado/valor resultante
+   - estado/valor resultante
  * - Tipo Cambio
- - UPDATE | INSERT | DELETE
+   - UPDATE | INSERT | DELETE
 
 **Actor que Recibe:**
 
@@ -1224,17 +1224,17 @@ Tabla/Campo:
  :widths: 30 70
 
  * - Propiedad
- - Valor
+   - Valor
  * - Tabla
- - ivr_sessions
+   - ivr_sessions
  * - Campos
- - status, expired_at
+   - status, expired_at
  * - Valor Anterior
- - status='ACTIVE', expired_at=NULL
+   - status='ACTIVE', expired_at=NULL
  * - Valor Nuevo
- - status='EXPIRED', expired_at=NOW
+   - status='EXPIRED', expired_at=NOW
  * - Tipo Cambio
- - UPDATE
+   - UPDATE
 
 Actor:
 
@@ -1302,17 +1302,17 @@ inequivocamente si algo pertenece o no a esta categoria
  :widths: 10 50 40
 
  * - #
- - Criterio
- - Verificacion
+   - Criterio
+   - Verificacion
  * - 1
- - Condicion que debe cumplirse
- - Como se verifica
+   - Condicion que debe cumplirse
+   - Como se verifica
  * - 2
- - Otra condicion
- - Como se verifica
+   - Otra condicion
+   - Como se verifica
  * - 3
- - Otra condicion
- - Como se verifica
+   - Otra condicion
+   - Como se verifica
 
 **Logica de Criterios:**
 
@@ -1395,17 +1395,17 @@ Criterios:
  :widths: 10 50 40
 
  * - #
- - Criterio
- - Verificacion SQL
+   - Criterio
+   - Verificacion SQL
  * - 1
- - Llamada en ultimos 90 dias
- - EXISTS (SELECT 1 FROM ivr_calls WHERE customer_id=X AND call_date >= NOW-INTERVAL '90 days')
+   - Llamada en ultimos 90 dias
+   - EXISTS (SELECT 1 FROM ivr_calls WHERE customer_id=X AND call_date >= NOW-INTERVAL '90 days')
  * - 2
- - Sesion en ultimos 90 dias
- - EXISTS (SELECT 1 FROM ivr_sessions WHERE customer_id=X AND created_at >= NOW-INTERVAL '90 days')
+   - Sesion en ultimos 90 dias
+   - EXISTS (SELECT 1 FROM ivr_sessions WHERE customer_id=X AND created_at >= NOW-INTERVAL '90 days')
  * - 3
- - Contacto en ultimos 90 dias
- - EXISTS (SELECT 1 FROM customer_contacts WHERE customer_id=X AND contact_date >= NOW-INTERVAL '90 days')
+   - Contacto en ultimos 90 dias
+   - EXISTS (SELECT 1 FROM customer_contacts WHERE customer_id=X AND contact_date >= NOW-INTERVAL '90 days')
 
 Logica:
 
@@ -1548,23 +1548,23 @@ SECCION 5: GENERA UC (Forward Traceability)
  :widths: 20 40 40
 
  * - Tipo BR
- - Genera UC?
- - Patron de Implementacion
+   - Genera UC?
+   - Patron de Implementacion
  * - Restriccion
- - NO
- - Precondicion + Flujo Alterno en UC existente
+   - NO
+   - Precondicion + Flujo Alterno en UC existente
  * - Calculo
- - NO
- - Paso en flujo normal, no UC propio
+   - NO
+   - Paso en flujo normal, no UC propio
  * - Desencadenador
- - SI
- - UC completo NUEVO
+   - SI
+   - UC completo NUEVO
  * - Inferencia
- - NO
- - FR directo + UC temporal opcional para cron
+   - NO
+   - FR directo + UC temporal opcional para cron
  * - Definicion
- - NO
- - Glosario/Diccionario, no genera UC ni FR
+   - NO
+   - Glosario/Diccionario, no genera UC ni FR
 
 5.1 UC Generados o Afectados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1737,25 +1737,25 @@ Desde esta BR hasta codigo y tests:
  :widths: 15 20 25 25 15
 
  * - BR
- - UC
- - FR
- - Codigo
- - Tests
+   - UC
+   - FR
+   - Codigo
+   - Tests
  * - BR-IACT-028
- - UC-RPT-01 Paso 6
- - FR-RPT-01-07
- - services.py:234
- - test_calculate_count
+   - UC-RPT-01 Paso 6
+   - FR-RPT-01-07
+   - services.py:234
+   - test_calculate_count
  * - BR-IACT-028
- - UC-RPT-01 Paso 7
- - FR-RPT-01-08
- - services.py:250
- - test_evaluate_threshold
+   - UC-RPT-01 Paso 7
+   - FR-RPT-01-08
+   - services.py:250
+   - test_evaluate_threshold
  * - BR-IACT-028
- - UC-RPT-01 FA-2
- - FR-RPT-01-10
- - approvals.py:89
- - test_create_approval
+   - UC-RPT-01 FA-2
+   - FR-RPT-01-10
+   - approvals.py:89
+   - test_create_approval
 
 ----------------------------------------------------------------------
 SECCION 7: IMPACTO DE CAMBIOS
@@ -1778,11 +1778,11 @@ de impacto futuro.
  :widths: 30 70
 
  * - UC ID
- - Tipo de Cambio Necesario
+   - Tipo de Cambio Necesario
  * - UC_IACT_XXX_YY
- - Modificar paso N | Reescribir FA | Actualizar precondicion
+   - Modificar paso N | Reescribir FA | Actualizar precondicion
  * - UC_IACT_AAA_BB
- - ...
+   - ...
 
 **FR Afectados:**
 
@@ -1791,11 +1791,11 @@ de impacto futuro.
  :widths: 30 70
 
  * - FR ID
- - Modificacion Necesaria
+   - Modificacion Necesaria
  * - FR_XXX_YY_01
- - Cambiar validacion | Actualizar query | Modificar calculo
+   - Cambiar validacion | Actualizar query | Modificar calculo
  * - FR_XXX_YY_02
- - ...
+   - ...
 
 **Archivos de Codigo:**
 
@@ -1804,11 +1804,11 @@ de impacto futuro.
  :widths: 40 60
 
  * - Archivo
- - Funcion(es) a Modificar
+   - Funcion(es) a Modificar
  * - modulo_1_0_0/archivo.py
- - funcion_1 linea 234, funcion_2 linea 456
+   - funcion_1 linea 234, funcion_2 linea 456
  * - modulo_1_0_0/otro.py
- - clase.metodo linea 89
+   - clase.metodo linea 89
 
 **Tests Afectados:**
 
@@ -1817,11 +1817,11 @@ de impacto futuro.
  :widths: 40 60
 
  * - Archivo Test
- - Test(s) a Actualizar
+   - Test(s) a Actualizar
  * - tests/test_modulo.py
- - test_funcion_1, test_funcion_2
+   - test_funcion_1, test_funcion_2
  * - tests/test_integracion.py
- - test_flujo_completo
+   - test_flujo_completo
 
 **Stakeholders a Notificar:**
 
@@ -1830,11 +1830,11 @@ de impacto futuro.
  :widths: 30 30 40
 
  * - Nombre
- - Rol
- - Razon de Notificacion
+   - Rol
+   - Razon de Notificacion
  * - Nombre Stakeholder
- - Rol
- - Por que debe saber del cambio
+   - Rol
+   - Por que debe saber del cambio
 
 7.2 Escenarios de Cambio
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1850,17 +1850,17 @@ Ejemplo: Cambiar umbral de 10,000 a 5,000 registros
  :widths: 30 70
 
  * - Componente
- - Accion
+   - Accion
  * - UC-RPT-01
- - Actualizar documentacion en FA-2, nuevo umbral: 5,000
+   - Actualizar documentacion en FA-2, nuevo umbral: 5,000
  * - FR-RPT-01-07
- - Modificar constante THRESHOLD = 5000
+   - Modificar constante THRESHOLD = 5000
  * - reports_1_0_0/services.py
- - Cambiar linea 240: THRESHOLD = 5000
+   - Cambiar linea 240: THRESHOLD = 5000
  * - tests/test_reports.py
- - Actualizar valores en test_calculate_count_large, usar 5,001
+   - Actualizar valores en test_calculate_count_large, usar 5,001
  * - BR-IACT-028
- - Actualizar enunciado y seccion 4
+   - Actualizar enunciado y seccion 4
 
 **Estimacion:**
 
@@ -1879,23 +1879,23 @@ Ejemplo: Eliminar aprobacion, implementar paginacion automatica
  :widths: 30 70
 
  * - Componente
- - Accion
+   - Accion
  * - UC-RPT-01
- - Eliminar FA-2 completo, agregar paso paginacion
+   - Eliminar FA-2 completo, agregar paso paginacion
  * - FR-RPT-01-10
- - Eliminar, ya no hay approvals
+   - Eliminar, ya no hay approvals
  * - FR-RPT-01-11 NUEVO
- - Crear: Implementar paginacion automatica
+   - Crear: Implementar paginacion automatica
  * - reports_1_0_0/approvals.py
- - Deprecar archivo completo
+   - Deprecar archivo completo
  * - reports_1_0_0/pagination.py
- - Crear nuevo modulo
+   - Crear nuevo modulo
  * - tests/test_approvals.py
- - Deprecar suite completa
+   - Deprecar suite completa
  * - tests/test_pagination.py NUEVO
- - Crear suite nueva
+   - Crear suite nueva
  * - DB Migration
- - Opcional: Archivar tabla approvals
+   - Opcional: Archivar tabla approvals
 
 **Estimacion:**
 
@@ -2057,29 +2057,29 @@ A completar durante ejecucion del test
  :widths: 50 10 40
 
  * - Criterio
- - Status
- - Evidencia
+   - Status
+   - Evidencia
  * - Tests unitarios pasan 100%
- - [ ]
- - Link a reporte
+   - [ ]
+   - Link a reporte
  * - Tests de integracion pasan 100%
- - [ ]
- - Link a reporte
+   - [ ]
+   - Link a reporte
  * - Test manual ejecutado y documentado
- - [ ]
- - Link a documento
+   - [ ]
+   - Link a documento
  * - Cobertura de codigo >= 80% en funciones relacionadas
- - [ ]
- - Link a coverage report
+   - [ ]
+   - Link a coverage report
  * - Validado por QA Engineer
- - [ ]
- - Firma: _______ Fecha: _____
+   - [ ]
+   - Firma: _______ Fecha: _____
  * - Aprobado por Business Analyst
- - [ ]
- - Firma: _______ Fecha: _____
+   - [ ]
+   - Firma: _______ Fecha: _____
  * - Firmado por Stakeholder
- - [ ]
- - Firma: _______ Fecha: _____
+   - [ ]
+   - Firma: _______ Fecha: _____
 
 ----------------------------------------------------------------------
 SECCION 9: NOTAS Y EXCEPCIONES
@@ -2154,21 +2154,21 @@ SECCION 10: HISTORIAL DE VERSIONES
  :widths: 10 15 50 25
 
  * - Version
- - Fecha
- - Cambios
- - Autor
+   - Fecha
+   - Cambios
+   - Autor
  * - 1.0.0
- - YYYY-MM-DD
- - Version inicial - Creacion de BR
- - Nombre del BA
+   - YYYY-MM-DD
+   - Version inicial - Creacion de BR
+   - Nombre del BA
  * - 1.1.0
- - YYYY-MM-DD
- - Descripcion del cambio MINOR - nueva funcionalidad compatible
- - Nombre del BA
+   - YYYY-MM-DD
+   - Descripcion del cambio MINOR - nueva funcionalidad compatible
+   - Nombre del BA
  * - 2.0.0
- - YYYY-MM-DD
- - Cambio MAJOR - breaking change, incompatible con v1.x
- - Nombre del BA
+   - YYYY-MM-DD
+   - Cambio MAJOR - breaking change, incompatible con v1.x
+   - Nombre del BA
 
 **Notas sobre Versionado Semantico:**
 

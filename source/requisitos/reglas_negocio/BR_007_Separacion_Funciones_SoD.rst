@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_007
+   - BR_007
  * - **Nombre**
- - Separacion de Funciones SoD
+   - Separacion de Funciones SoD
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -100,13 +100,13 @@ Cumple con principios de auditoria y control interno.
  :header-rows: 0
 
  * - **Documento**
- - CNST_005_Seguridad_DRF_Checklist
+   - CNST_005_Seguridad_DRF_Checklist
  * - **Seccion**
- - Segregacion de Funciones
+   - Segregacion de Funciones
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST + Estandar NIST
+   - CNST + Estandar NIST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,13 +128,13 @@ Cumple con principios de auditoria y control interno.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Access
- - Valida SoD en asignacion de funciones
+   - Valida SoD en asignacion de funciones
  * - Tabla sod_restrictions
- - Almacena pares de funciones incompatibles
+   - Almacena pares de funciones incompatibles
  * - API asignacion
- - Rechaza asignacion si viola SoD
+   - Rechaza asignacion si viola SoD
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -160,9 +160,9 @@ documentada del sponsor y registro en auditoria.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_005
- - Define requisitos de SoD
+   - Define requisitos de SoD
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -172,9 +172,9 @@ documentada del sponsor y registro en auditoria.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-004
- - Cumplimiento de Seguridad
+   - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,13 +184,13 @@ documentada del sponsor y registro en auditoria.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-010
- - Asignar Funciones - validacion SoD
+   - Asignar Funciones - validacion SoD
  * - UC-043
- - Configurar SoD - definir restricciones
+   - Configurar SoD - definir restricciones
  * - UC-044
- - Consultar Permisos Efectivos - muestra conflictos
+   - Consultar Permisos Efectivos - muestra conflictos
 
 ----
 
@@ -239,10 +239,10 @@ documentada del sponsor y registro en auditoria.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

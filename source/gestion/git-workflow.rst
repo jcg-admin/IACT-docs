@@ -1751,53 +1751,53 @@ This section provides solutions for common Git workflow problems and error scena
  :widths: 25 18 32 25
 
  * - Error Scenario
- - Common Cause
- - Recovery Command
- - Lesson Learned
+   - Common Cause
+   - Recovery Command
+   - Lesson Learned
  * - "fatal: Not a git repository"
- - Wrong directory
- - ``cd /path/to/repo``
- - Always verify pwd
+   - Wrong directory
+   - ``cd /path/to/repo``
+   - Always verify pwd
  * - Feature branch based on old develop, now has conflicts
- - Didn't pull develop
- - ``git fetch origin && git rebase origin/develop``
- - Fetch before creating new branches
+   - Didn't pull develop
+   - ``git fetch origin && git rebase origin/develop``
+   - Fetch before creating new branches
  * - Committed to main instead of feature branch
- - Checked out wrong branch
- - ``git reset --soft HEAD~1 && git checkout -b feature/fix && git commit``
- - Use feature branches, never commit to main
+   - Checked out wrong branch
+   - ``git reset --soft HEAD~1 && git checkout -b feature/fix && git commit``
+   - Use feature branches, never commit to main
  * - Merged wrong branch into develop
- - Clicked merge on wrong PR
- - ``git revert -m 1 MERGE_SHA && git push origin develop``
- - Review base/compare before merge
+   - Clicked merge on wrong PR
+   - ``git revert -m 1 MERGE_SHA && git push origin develop``
+   - Review base/compare before merge
  * - Lost commit after rebase
- - Rebased without force-push
- - ``git reflog`` para hallar el SHA, luego ``git reset --hard COMMIT_SHA``
- - Nunca force-push; usar revert
+   - Rebased without force-push
+   - ``git reflog`` para hallar el SHA, luego ``git reset --hard COMMIT_SHA``
+   - Nunca force-push; usar revert
  * - "error: Your local changes..." al cambiar de rama
- - Cambios sin commit bloquean switch
- - ``git add . && git commit -m "wip: temp"``
- - Commit o stash antes de cambiar de rama
+   - Cambios sin commit bloquean switch
+   - ``git add . && git commit -m "wip: temp"``
+   - Commit o stash antes de cambiar de rama
  * - Force-push borró trabajo de otros
- - Usado ``git push --force``
- - Contactar al equipo y restaurar desde reflog del remote
- - Nunca usar -f; usar --force-with-lease
+   - Usado ``git push --force``
+   - Contactar al equipo y restaurar desde reflog del remote
+   - Nunca usar -f; usar --force-with-lease
  * - "refused by hooks" al pushear a develop
- - Branch protection bloquea push directo
- - ``git push origin feature/your-branch`` y crear un PR
- - Branch protection funcionando; crear PRs
+   - Branch protection bloquea push directo
+   - ``git push origin feature/your-branch`` y crear un PR
+   - Branch protection funcionando; crear PRs
  * - Mensaje de merge incorrecto
- - Editado mal el mensaje
- - ``git commit --amend -m "nuevo mensaje"``
- - Editar mensaje de merge antes de pushear
+   - Editado mal el mensaje
+   - ``git commit --amend -m "nuevo mensaje"``
+   - Editar mensaje de merge antes de pushear
  * - Borraste feature branch local
- - ``git branch -D feature/name``
- - ``git checkout -b feature/name SHA_FROM_REFLOG``
- - Branches borrados se recuperan del reflog
+   - ``git branch -D feature/name``
+   - ``git checkout -b feature/name SHA_FROM_REFLOG``
+   - Branches borrados se recuperan del reflog
  * - Tag apuntando al commit equivocado
- - Tag en commit incorrecto
- - ``git tag -d v1.2.3 && git tag -a v1.2.3 CORRECT_SHA``
- - Verificar commit antes de etiquetar
+   - Tag en commit incorrecto
+   - ``git tag -d v1.2.3 && git tag -a v1.2.3 CORRECT_SHA``
+   - Verificar commit antes de etiquetar
 
 6.2 Error Scenarios — Detailed Recovery
 --------------------------------------------------------------------------------
@@ -2588,26 +2588,26 @@ Local hooks protect YOU from mistakes. Branch protection protects the TEAM.
  :header-rows: 1
 
  * - Aspect
- - Git Hooks (Local)
- - Branch Protection (Server)
+   - Git Hooks (Local)
+   - Branch Protection (Server)
  * - Runs on
- - Your machine
- - GitHub server
+   - Your machine
+   - GitHub server
  * - Bypass
- - ``--no-verify`` flag
- - Admin only
+   - ``--no-verify`` flag
+   - Admin only
  * - Team enforcement
- - No (each dev must configure)
- - Yes (enforced for all)
+   - No (each dev must configure)
+   - Yes (enforced for all)
  * - Can prevent bad commits
- - Yes
- - Yes (as merge blocks)
+   - Yes
+   - Yes (as merge blocks)
  * - Catches mistakes early
- - Yes
- - Yes (at PR merge)
+   - Yes
+   - Yes (at PR merge)
  * - Compliance value
- - Medium
- - High
+   - Medium
+   - High
 
 
 **Best practice:** Use BOTH.

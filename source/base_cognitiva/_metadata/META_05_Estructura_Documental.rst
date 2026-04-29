@@ -35,17 +35,17 @@ Proporciona navegación rápida y visión global del sistema.
  :stub-columns: 1
 
  * - Capas ortogonales
- - 3
+   - 3
  * - Cajones top-level (suma de las 3 capas)
- - 16
+   - 16
  * - Capa 1 (Methodology / Governance)
- - 2 cajones
+   - 2 cajones
  * - Capa 2 (Spec + Tech implementation)
- - 10 cajones
+   - 10 cajones
  * - Capa 3 (Project lifecycle)
- - 1 cajón con sub-cajones
+   - 1 cajón con sub-cajones
  * - Versión de la arquitectura
- - v2.0 (ÉPICA 8, 2026-04-28)
+   - v2.0 (ÉPICA 8, 2026-04-28)
 
 ------------------------------
 3. Las tres capas ortogonales
@@ -64,14 +64,14 @@ estándares, plantillas, procedimientos, restricciones, ADRs internos.
  :widths: 25 75
 
  * - Cajón
- - Contenido
+   - Contenido
  * - ``base_cognitiva/``
- - **Este cajón.** Glosarios + fundamentos conceptuales + ontología
- SBVR + metadata + taxonomías y metamodelos. Provee el vocabulario
- que todos los demás cajones consumen.
+   - **Este cajón.** Glosarios + fundamentos conceptuales + ontología
+     SBVR + metadata + taxonomías y metamodelos. Provee el vocabulario
+     que todos los demás cajones consumen.
  * - ``normativa/``
- - Estándares (STDs), plantillas (TPLs), procedimientos (PROCs),
- restricciones (CNSTs), gobernanza (ADRs internos del proyecto).
+   - Estándares (STDs), plantillas (TPLs), procedimientos (PROCs),
+     restricciones (CNSTs), gobernanza (ADRs internos del proyecto).
 
 3.2. Capa 2 — Product spec + Tech implementation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,14 +86,14 @@ implementación por tier técnico.
  :widths: 25 75
 
  * - Cajón
- - Contenido
+   - Contenido
  * - ``requisitos/``
- - Casos de uso (UCs), requisitos funcionales (FRs), no-funcionales
- (NFRs), reglas de negocio (BRs).
+   - Casos de uso (UCs), requisitos funcionales (FRs), no-funcionales
+     (NFRs), reglas de negocio (BRs).
  * - ``arquitectura_tecnica/``
- - Visión arquitectónica de alto nivel, decisiones técnicas
- transversales, vistas, diagramas (incluye plantuml-guide
- absorbido).
+   - Visión arquitectónica de alto nivel, decisiones técnicas
+     transversales, vistas, diagramas (incluye plantuml-guide
+     absorbido).
 
 **Cajones de implementation por tier:**
 
@@ -102,23 +102,23 @@ implementación por tier técnico.
  :widths: 25 75
 
  * - Cajón
- - Tier
+   - Tier
  * - ``backend/``
- - Django REST Framework (Python 3.11+).
+   - Django REST Framework (Python 3.11+).
  * - ``frontend/``
- - React + Webpack.
+   - React + Webpack.
  * - ``infrastructure/``
- - Ubuntu + Apache (mod_wsgi).
+   - Ubuntu + Apache (mod_wsgi).
  * - ``databases/``
- - MySQL (operativa, RO) + PostgreSQL (analítica).
+   - MySQL (operativa, RO) + PostgreSQL (analítica).
  * - ``operations/``
- - Deployment, monitoring, runbooks, incident response.
+   - Deployment, monitoring, runbooks, incident response.
  * - ``onboarding/``
- - Quickstart de developers, local dev setup, first contribution.
+   - Quickstart de developers, local dev setup, first contribution.
  * - ``quality/``
- - Estrategia de testing (unit, integration, e2e), coverage.
+   - Estrategia de testing (unit, integration, e2e), coverage.
  * - ``risks-technical-debt/``
- - Tech debt log público + risks register técnico.
+   - Tech debt log público + risks register técnico.
 
 3.3. Capa 3 — Project lifecycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -131,11 +131,11 @@ del tiempo.
  :widths: 25 75
 
  * - Cajón
- - Contenido
+   - Contenido
  * - ``gestion/``
- - Sub-cajones de lifecycle: ``charter/``, ``roadmap/``,
- ``okrs/``, ``epicas/``, ``sprints/``, ``releases/``,
- ``retrospectives/``, ``team/``.
+   - Sub-cajones de lifecycle: ``charter/``, ``roadmap/``,
+     ``okrs/``, ``epicas/``, ``sprints/``, ``releases/``,
+     ``retrospectives/``, ``team/``.
 
 --------------------------
 4. Reglas de organización
@@ -214,20 +214,20 @@ estar presente en la navegación pública aunque exista físicamente.
  :widths: 12 12 76
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - Versión inicial: estructura de 5 dominios primarios + 21
- subdominios + 6 subcarpetas organizativas.
+   - 2025-12-18
+   - Versión inicial: estructura de 5 dominios primarios + 21
+     subdominios + 6 subcarpetas organizativas.
  * - 2.0.0
- - 2026-04-28
- - **Bump MAJOR.** Re-escritura completa para reflejar la
- arquitectura v2.0 del rebuild (ÉPICA 8). Cambios:
- (a) introducción de las 3 capas ortogonales; (b) 16 cajones
- top-level (de 6 anteriores); (c) cajones técnicos nuevos
- por tier (backend, frontend, infrastructure, databases,
- operations, onboarding, quality, risks-technical-debt);
- (d) ``gestion/`` expandido con sub-cajones de lifecycle;
- (e) regla que separa documentación publicable del tooling
- interno de gestión.
+   - 2026-04-28
+   - **Bump MAJOR.** Re-escritura completa para reflejar la
+     arquitectura v2.0 del rebuild (ÉPICA 8). Cambios:
+     (a) introducción de las 3 capas ortogonales; (b) 16 cajones
+     top-level (de 6 anteriores); (c) cajones técnicos nuevos
+     por tier (backend, frontend, infrastructure, databases,
+     operations, onboarding, quality, risks-technical-debt);
+     (d) ``gestion/`` expandido con sub-cajones de lifecycle;
+     (e) regla que separa documentación publicable del tooling
+     interno de gestión.

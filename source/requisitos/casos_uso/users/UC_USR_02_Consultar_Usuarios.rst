@@ -19,23 +19,23 @@ UC_USR_02: Consultar Usuarios
  :header-rows: 0
 
  * - **ID**
- - UC_USR_02
+   - UC_USR_02
  * - **Nombre**
- - Consultar Usuarios
+   - Consultar Usuarios
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - N/A
+   - N/A
  * - **Modulo**
- - MOD_Users
+   - MOD_Users
  * - **Funcion RBAC**
- - USR-002: ve_usuarios, USR-005: lista_usuarios, USR-006: busca_usuarios
+   - USR-002: ve_usuarios, USR-005: lista_usuarios, USR-006: busca_usuarios
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-USR-002
+   - BRQ-USR-002
 
 2. Descripcion
 --------------
@@ -93,11 +93,11 @@ estado, segmento, agrupador y busqueda por texto.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa valida
+   - El administrador tiene sesion activa valida
  * - PRE-02
- - El administrador tiene al menos una de las funciones: USR-002, USR-005, USR-006
+   - El administrador tiene al menos una de las funciones: USR-002, USR-005, USR-006
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -112,11 +112,11 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra lista de usuarios segun filtros aplicados
+   - Se muestra lista de usuarios segun filtros aplicados
  * - POST-02
- - La consulta no modifica ningun dato
+   - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -126,38 +126,38 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de gestion de usuarios
+   - Admin
+   - Accede al modulo de gestion de usuarios
  * - 2
- - Sistema
- - Valida funcion USR-005 (lista_usuarios)
+   - Sistema
+   - Valida funcion USR-005 (lista_usuarios)
  * - 3
- - Sistema
- - Consulta usuarios con paginacion (pagina 1, 20 por pagina)
+   - Sistema
+   - Consulta usuarios con paginacion (pagina 1, 20 por pagina)
  * - 4
- - Sistema
- - Presenta tabla con: username, nombre, email, estado, segmento, ultimo acceso
+   - Sistema
+   - Presenta tabla con: username, nombre, email, estado, segmento, ultimo acceso
  * - 5
- - Admin
- - Navega entre paginas si es necesario
+   - Admin
+   - Navega entre paginas si es necesario
  * - 6
- - Admin
- - Aplica filtros opcionales
+   - Admin
+   - Aplica filtros opcionales
  * - 7
- - Sistema
- - Actualiza lista segun filtros
+   - Sistema
+   - Actualiza lista segun filtros
  * - 8
- - Admin
- - Hace clic en un usuario para ver detalle
+   - Admin
+   - Hace clic en un usuario para ver detalle
  * - 9
- - Sistema
- - Valida funcion USR-002 (ve_usuarios)
+   - Sistema
+   - Valida funcion USR-002 (ve_usuarios)
  * - 10
- - Sistema
- - Muestra panel de detalle con toda la informacion del usuario
+   - Sistema
+   - Muestra panel de detalle con toda la informacion del usuario
 
 6. Diagrama de Secuencia
 ------------------------
@@ -257,17 +257,17 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Admin
- - Selecciona estado en filtro (ej: ACTIVO)
+   - Admin
+   - Selecciona estado en filtro (ej: ACTIVO)
  * - 7a
- - Sistema
- - Agrega WHERE status = 'ACTIVO' a consulta
+   - Sistema
+   - Agrega WHERE status = 'ACTIVO' a consulta
  * - 7b
- - Sistema
- - Muestra solo usuarios con ese estado
+   - Sistema
+   - Muestra solo usuarios con ese estado
 
 7.2 FA-02: Filtrar por Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -277,17 +277,17 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Admin
- - Selecciona segmento en filtro
+   - Admin
+   - Selecciona segmento en filtro
  * - 7a
- - Sistema
- - Agrega WHERE segmento_id = X a consulta
+   - Sistema
+   - Agrega WHERE segmento_id = X a consulta
  * - 7b
- - Sistema
- - Muestra solo usuarios de ese segmento
+   - Sistema
+   - Muestra solo usuarios de ese segmento
 
 7.3 FA-03: Ordenar por Columna
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -297,17 +297,17 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Admin
- - Hace clic en encabezado de columna
+   - Admin
+   - Hace clic en encabezado de columna
  * - 4b
- - Sistema
- - Ordena por esa columna (ASC/DESC)
+   - Sistema
+   - Ordena por esa columna (ASC/DESC)
  * - 4c
- - Sistema
- - Actualiza tabla con nuevo orden
+   - Sistema
+   - Actualiza tabla con nuevo orden
 
 7.4 FA-04: Exportar Lista
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,17 +317,17 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Admin
- - Hace clic en "Exportar"
+   - Admin
+   - Hace clic en "Exportar"
  * - 5b
- - Sistema
- - Genera archivo CSV con usuarios filtrados
+   - Sistema
+   - Genera archivo CSV con usuarios filtrados
  * - 5c
- - Sistema
- - Descarga archivo (sin passwords ni datos sensibles)
+   - Sistema
+   - Descarga archivo (sin passwords ni datos sensibles)
 
 8. Excepciones
 --------------
@@ -340,15 +340,15 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion USR-005
+   - Administrador no tiene funcion USR-005
  * - **Accion Sistema**
- - Rechaza acceso al modulo
+   - Rechaza acceso al modulo
  * - **Mensaje Usuario**
- - "No tiene permisos para listar usuarios"
+   - "No tiene permisos para listar usuarios"
  * - **Codigo Error**
- - USR-010
+   - USR-010
 
 8.2 EX-02: Sin Permiso para Ver Detalle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -358,15 +358,15 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Administrador no tiene funcion USR-002
+   - Administrador no tiene funcion USR-002
  * - **Accion Sistema**
- - Permite listar pero no ver detalle
+   - Permite listar pero no ver detalle
  * - **Mensaje Usuario**
- - "No tiene permisos para ver detalle de usuario"
+   - "No tiene permisos para ver detalle de usuario"
  * - **Codigo Error**
- - USR-011
+   - USR-011
 
 8.3 EX-03: Usuario No Encontrado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -376,15 +376,15 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - ID de usuario no existe
+   - ID de usuario no existe
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Usuario no encontrado"
+   - "Usuario no encontrado"
  * - **Codigo Error**
- - USR-012
+   - USR-012
 
 9. Diagrama de Actividad
 ------------------------
@@ -451,20 +451,20 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-USR-10
- - Paginacion Obligatoria
- - Las consultas de usuarios siempre usan paginacion (max 100 por pagina) para evitar sobrecarga.
+   - Paginacion Obligatoria
+   - Las consultas de usuarios siempre usan paginacion (max 100 por pagina) para evitar sobrecarga.
  * - BR-USR-11
- - Funciones Separadas
- - Listar (USR-005), buscar (USR-006) y ver detalle (USR-002) son funciones independientes.
+   - Funciones Separadas
+   - Listar (USR-005), buscar (USR-006) y ver detalle (USR-002) son funciones independientes.
  * - BR-USR-12
- - Sin Datos Sensibles
- - La lista nunca muestra passwords, tokens ni datos sensibles.
+   - Sin Datos Sensibles
+   - La lista nunca muestra passwords, tokens ni datos sensibles.
  * - BR-USR-13
- - Incluir Eliminados
- - Por defecto se excluyen usuarios ELIMINADO, pero puede filtrarse para verlos.
+   - Incluir Eliminados
+   - Por defecto se excluyen usuarios ELIMINADO, pero puede filtrarse para verlos.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -474,11 +474,11 @@ El administrador accede al modulo de gestion de usuarios.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_025
- - Auditoria Inmutable
- - Las consultas de lectura no generan registros de auditoria individuales. Solo se auditan accesos a datos sensibles o exportaciones.
+   - Auditoria Inmutable
+   - Las consultas de lectura no generan registros de auditoria individuales. Solo se auditan accesos a datos sensibles o exportaciones.
 
 **Nota sobre CNST_025:**
 
@@ -494,20 +494,20 @@ de acceso si se requiere por compliance.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-USR-010
- - El sistema debe listar usuarios con paginacion
- - Maximo 100 usuarios por pagina, navegacion funcional
+   - El sistema debe listar usuarios con paginacion
+   - Maximo 100 usuarios por pagina, navegacion funcional
  * - FR-USR-011
- - El sistema debe permitir filtros multiples
- - Filtros por estado, segmento, agrupador combinables
+   - El sistema debe permitir filtros multiples
+   - Filtros por estado, segmento, agrupador combinables
  * - FR-USR-012
- - El sistema debe permitir busqueda por texto
- - Busqueda en username, nombre, apellido, email
+   - El sistema debe permitir busqueda por texto
+   - Busqueda en username, nombre, apellido, email
  * - FR-USR-013
- - El sistema debe mostrar detalle completo
- - Incluye funciones asignadas, segmento, historial
+   - El sistema debe mostrar detalle completo
+   - Incluye funciones asignadas, segmento, historial
 
 13. Trazabilidad
 ----------------
@@ -517,19 +517,19 @@ de acceso si se requiere por compliance.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-USR-002: Permitir consulta de usuarios existentes
+   - BRQ-USR-002: Permitir consulta de usuarios existentes
  * - **Reglas de Negocio**
- - BR-USR-10 a BR-USR-13
+   - BR-USR-10 a BR-USR-13
  * - **Restricciones**
- - CNST_025 (Auditoria - no aplica a lecturas)
+   - CNST_025 (Auditoria - no aplica a lecturas)
  * - **FR Derivados**
- - FR-USR-010 a FR-USR-013
+   - FR-USR-010 a FR-USR-013
  * - **UC Relacionados**
- - UC_USR_01 (Crear Usuario), UC_USR_03 (Modificar Usuario)
+   - UC_USR_01 (Crear Usuario), UC_USR_03 (Modificar Usuario)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - USR-002, USR-005, USR-006
+   - USR-002, USR-005, USR-006
 
 14. Historial de Cambios
 ------------------------
@@ -539,10 +539,10 @@ de acceso si se requiere por compliance.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con funciones RBAC separadas
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con funciones RBAC separadas

@@ -368,17 +368,17 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 25 50 25
 
  * - Actor
- - Evidencia en Narrativa
- - Rol en UC
+   - Evidencia en Narrativa
+   - Rol en UC
  * - Analista de Operaciones
- - "Yo entro al sistema", "lleno el formulario"
- - Actor Principal
+   - "Yo entro al sistema", "lleno el formulario"
+   - Actor Principal
  * - Supervisor de Area
- - "mi supervisor recibe notificacion", "puede aprobar"
- - Actor Secundario
+   - "mi supervisor recibe notificacion", "puede aprobar"
+   - Actor Secundario
  * - Sistema Analytics
- - "el sistema calcula", "ejecuta la consulta"
- - Actor Secundario
+   - "el sistema calcula", "ejecuta la consulta"
+   - Actor Secundario
 
 **Pasos/Acciones Identificadas:**
 
@@ -387,35 +387,35 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 10 40 50
 
  * - Paso
- - Texto de Narrativa
- - Accion Extraida
+   - Texto de Narrativa
+   - Accion Extraida
  * - 1
- - "lleno un formulario con trimestre"
- - Usuario ingresa parametros (trimestre, ano, segmento)
+   - "lleno un formulario con trimestre"
+   - Usuario ingresa parametros (trimestre, ano, segmento)
  * - 2
- - "Le doy en Generar Reporte"
- - Usuario hace click en boton Generar
+   - "Le doy en Generar Reporte"
+   - Usuario hace click en boton Generar
  * - 3
- - "sistema primero calcula cuantos registros"
- - Sistema ejecuta COUNT para estimar volumen
+   - "sistema primero calcula cuantos registros"
+   - Sistema ejecuta COUNT para estimar volumen
  * - 4
- - "Si son menos de 10,000, ejecuta la consulta"
- - Sistema evalua umbral y decide flujo
+   - "Si son menos de 10,000, ejecuta la consulta"
+   - Sistema evalua umbral y decide flujo
  * - 5
- - "me muestra los resultados en tabla y graficos"
- - Sistema muestra reporte con visualizaciones
+   - "me muestra los resultados en tabla y graficos"
+   - Sistema muestra reporte con visualizaciones
  * - 6
- - "muestra un mensaje que dice 'requiere aprobacion'"
- - Sistema notifica necesidad de aprobacion
+   - "muestra un mensaje que dice 'requiere aprobacion'"
+   - Sistema notifica necesidad de aprobacion
  * - 7
- - "supervisor recibe notificacion"
- - Sistema envia notificacion a supervisor
+   - "supervisor recibe notificacion"
+   - Sistema envia notificacion a supervisor
  * - 8
- - "puede aprobarla o rechazarla"
- - Supervisor toma decision
+   - "puede aprobarla o rechazarla"
+   - Supervisor toma decision
  * - 9
- - "el sistema ejecuta el reporte y me notifica"
- - Sistema ejecuta tras aprobacion y notifica
+   - "el sistema ejecuta el reporte y me notifica"
+   - Sistema ejecuta tras aprobacion y notifica
 
 **Reglas de Negocio Identificadas:**
 
@@ -424,15 +424,15 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 30 70
 
  * - Regla
- - Evidencia en Narrativa
+   - Evidencia en Narrativa
  * - BR-IACT-028: Aprobacion Consultas Grandes
- - "si va a retornar mas de 10,000 registros, ya es grande", "requiere aprobacion de supervisor"
+   - "si va a retornar mas de 10,000 registros, ya es grande", "requiere aprobacion de supervisor"
  * - BR-IACT-053: Calculo Tasa Abandono
- - "cuantas se abandonaron", "tasa de abandono es un KPI", "menor al 15%"
+   - "cuantas se abandonaron", "tasa de abandono es un KPI", "menor al 15%"
  * - Umbral = 10,000 registros
- - "si va a retornar mas de 10,000 registros"
+   - "si va a retornar mas de 10,000 registros"
  * - Supervisor aprueba
- - "deberia ser el supervisor del analista"
+   - "deberia ser el supervisor del analista"
 
 **Datos/Entidades Identificadas:**
 
@@ -441,23 +441,23 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 30 70
 
  * - Entidad/Campo
- - Evidencia en Narrativa
+   - Evidencia en Narrativa
  * - Trimestre
- - "trimestre que quiero", "Q3 completo"
+   - "trimestre que quiero", "Q3 completo"
  * - Ano
- - "el ano", "ano 2024"
+   - "el ano", "ano 2024"
  * - Segmento
- - "OP operaciones normales, MG management"
+   - "OP operaciones normales, MG management"
  * - Total Llamadas
- - "cuantas llamadas tuvimos"
+   - "cuantas llamadas tuvimos"
  * - Llamadas Completadas
- - "cuantas se completaron"
+   - "cuantas se completaron"
  * - Llamadas Abandonadas
- - "cuantas se abandonaron"
+   - "cuantas se abandonaron"
  * - Tasa Abandono
- - "tasa de abandono es un KPI"
+   - "tasa de abandono es un KPI"
  * - Duracion Promedio
- - "duracion promedio de las llamadas"
+   - "duracion promedio de las llamadas"
 
 **Requisitos No Funcionales:**
 
@@ -466,15 +466,15 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 30 70
 
  * - RNF
- - Evidencia en Narrativa
+   - Evidencia en Narrativa
  * - Performance: Tiempo Respuesta
- - "a veces son 3-4 segundos y esta bien", "20, 30 segundos es malo"
+   - "a veces son 3-4 segundos y esta bien", "20, 30 segundos es malo"
  * - Usabilidad: Prevenir Timeouts
- - "se cuelga el sistema y me dice timeout. Eso es muy frustrante"
+   - "se cuelga el sistema y me dice timeout. Eso es muy frustrante"
  * - Usabilidad: Mensajes Claros
- - "que me avise antes", "me muestra un mensaje que dice"
+   - "que me avise antes", "me muestra un mensaje que dice"
  * - Performance: Evitar Sobrecarga
- - "cuando varios estamos sacando reportes, el sistema se pone lentisimo"
+   - "cuando varios estamos sacando reportes, el sistema se pone lentisimo"
 
 **Requisitos Funcionales Derivados:**
 
@@ -483,23 +483,23 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  :widths: 20 80
 
  * - FR ID
- - Descripcion
+   - Descripcion
  * - FR-RPT-01-01
- - Validar formato de parametros (trimestre, ano, segmento)
+   - Validar formato de parametros (trimestre, ano, segmento)
  * - FR-RPT-01-04
- - Calcular COUNT de registros antes de ejecutar query principal
+   - Calcular COUNT de registros antes de ejecutar query principal
  * - FR-RPT-01-05
- - Evaluar si count excede umbral de 10,000
+   - Evaluar si count excede umbral de 10,000
  * - FR-RPT-01-06
- - Ejecutar query principal si count menor o igual 10,000
+   - Ejecutar query principal si count menor o igual 10,000
  * - FR-RPT-01-08
- - Generar graficos visuales (tabla, graficos)
+   - Generar graficos visuales (tabla, graficos)
  * - FR-RPT-01-10
- - Crear solicitud de aprobacion si count mayor 10,000
+   - Crear solicitud de aprobacion si count mayor 10,000
  * - FR-RPT-01-11
- - Notificar a supervisor sobre solicitud aprobacion
+   - Notificar a supervisor sobre solicitud aprobacion
  * - FR-RPT-01-12
- - Exportar reporte a Excel
+   - Exportar reporte a Excel
 
 ----------------------------------------------------------------------
 4. MAPEO A COMPONENTES DE UC
@@ -516,35 +516,35 @@ Transformar la narrativa informal en componentes formales de UC.
  :widths: 40 60
 
  * - Elemento de Narrativa
- - Componente de UC
+   - Componente de UC
  * - "Yo entro al sistema, lleno formulario"
- - Actor Principal + Trigger
+   - Actor Principal + Trigger
  * - "trimestre, ano, segmento"
- - Parametros/Inputs
+   - Parametros/Inputs
  * - "Le doy en Generar Reporte"
- - Trigger especifico
+   - Trigger especifico
  * - "sistema calcula... si son menos de 10,000"
- - Flujo Normal pasos 3-4
+   - Flujo Normal pasos 3-4
  * - "ejecuta la consulta"
- - Flujo Normal paso 5
+   - Flujo Normal paso 5
  * - "me muestra resultados"
- - Flujo Normal paso 6
+   - Flujo Normal paso 6
  * - "si son mas de 10,000"
- - Condicion para Flujo Alterno
+   - Condicion para Flujo Alterno
  * - "muestra mensaje requiere aprobacion"
- - Flujo Alterno FA-2
+   - Flujo Alterno FA-2
  * - "supervisor recibe notificacion"
- - Flujo Alterno FA-2 continuacion
+   - Flujo Alterno FA-2 continuacion
  * - "se cuelga el sistema, timeout"
- - Flujo de Excepcion FE-1
+   - Flujo de Excepcion FE-1
  * - "mas de 10,000 registros"
- - Business Rule BR-IACT-028
+   - Business Rule BR-IACT-028
  * - "tasa de abandono menor 15%"
- - Business Rule BR-IACT-053
+   - Business Rule BR-IACT-053
  * - "3-4 segundos esta bien"
- - RNF Performance p95 menor 5 seg
+   - RNF Performance p95 menor 5 seg
  * - "exportar a Excel"
- - Extension del UC o UC relacionado
+   - Extension del UC o UC relacionado
 
 **Transformacion Narrativa → Pasos Formales:**
 
@@ -553,19 +553,19 @@ Transformar la narrativa informal en componentes formales de UC.
  :widths: 50 50
 
  * - Narrativa Informal
- - Paso Formal de UC
+   - Paso Formal de UC
  * - "lleno un formulario con trimestre Q3"
- - 1. Usuario selecciona parametros de consulta en formulario
+   - 1. Usuario selecciona parametros de consulta en formulario
  * - "Le doy en Generar Reporte"
- - 2. Usuario hace click en boton "Generar Reporte"
+   - 2. Usuario hace click en boton "Generar Reporte"
  * - "sistema calcula cuantos registros"
- - 3. Sistema ejecuta COUNT para estimar volumen (FR-RPT-01-04)
+   - 3. Sistema ejecuta COUNT para estimar volumen (FR-RPT-01-04)
  * - "Si son menos de 10,000, ejecuta"
- - 4. Sistema evalua resultado del count (FR-RPT-01-05)
+   - 4. Sistema evalua resultado del count (FR-RPT-01-05)
  * - "ejecuta la consulta"
- - 5. Sistema ejecuta query principal (FR-RPT-01-06)
+   - 5. Sistema ejecuta query principal (FR-RPT-01-06)
  * - "me muestra resultados en tabla"
- - 6. Sistema muestra resultados en tabla y graficos (FR-RPT-01-08)
+   - 6. Sistema muestra resultados en tabla y graficos (FR-RPT-01-08)
 
 **Identificacion de Flujos Alternos:**
 
@@ -574,13 +574,13 @@ Transformar la narrativa informal en componentes formales de UC.
  :widths: 50 50
 
  * - Condicion en Narrativa
- - Flujo Alterno
+   - Flujo Alterno
  * - "si son mas de 10,000"
- - FA-2: Consulta Requiere Aprobacion
+   - FA-2: Consulta Requiere Aprobacion
  * - "supervisor puede rechazarla"
- - FA-3: Supervisor Rechaza Consulta
+   - FA-3: Supervisor Rechaza Consulta
  * - "se cuelga, timeout"
- - FE-1: Timeout de Base de Datos
+   - FE-1: Timeout de Base de Datos
 
 ----------------------------------------------------------------------
 5. UC FORMAL RESULTANTE

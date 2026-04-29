@@ -81,26 +81,26 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - Mostrar logs de aplicacion (INFO/WARN/ERROR)
- - UC_080
- - CNST_009
+   - UC_080
+   - CNST_009
  * - Filtrar logs por nivel, fecha, componente
- - UC_080
- - -
+   - UC_080
+   - -
  * - Mostrar estado de salud del sistema
- - UC_081
- - -
+   - UC_081
+   - -
  * - Mostrar estado de servicios externos
- - UC_081
- - -
+   - UC_081
+   - -
  * - Generar paquete comprimido de logs
- - UC_082
- - CNST_009
+   - UC_082
+   - CNST_009
  * - Mostrar metricas tecnicas agregadas
- - UC_083
- - -
+   - UC_083
+   - -
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -134,23 +134,23 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Nivel
- - Codigo
- - Uso
+   - Codigo
+   - Uso
  * - DEBUG
- - 10
- - Solo en desarrollo, nunca en produccion
+   - 10
+   - Solo en desarrollo, nunca en produccion
  * - INFO
- - 20
- - Operaciones normales (inicio servicios, conexiones)
+   - 20
+   - Operaciones normales (inicio servicios, conexiones)
  * - WARNING
- - 30
- - Situaciones anomalas no criticas
+   - 30
+   - Situaciones anomalas no criticas
  * - ERROR
- - 40
- - Errores que requieren atencion
+   - 40
+   - Errores que requieren atencion
  * - CRITICAL
- - 50
- - Fallas graves, sistema comprometido
+   - 50
+   - Fallas graves, sistema comprometido
 
 ----
 
@@ -242,11 +242,11 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Requiere sesion (solo para UI de logs)
+   - Requiere sesion (solo para UI de logs)
  * - ARQ_MOD_003_RBAC_CORE
- - Verifica permisos de ver logs tecnicos
+   - Verifica permisos de ver logs tecnicos
 
 7.2 Es Requerido por
 --------------------
@@ -256,11 +256,11 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - TODOS
- - Todos los modulos generan logs tecnicos
+   - Todos los modulos generan logs tecnicos
  * - ARQ_MOD_006_ALERTS
- - Puede generar alertas por health degradado
+   - Puede generar alertas por health degradado
 
 ----
 
@@ -275,9 +275,9 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.monitoring
- - Health checks, metricas, vistas de logs
+   - Health checks, metricas, vistas de logs
 
 8.2 APIs Expuestas
 ------------------
@@ -289,23 +289,23 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/health
- - Estado de salud (publico)
+   - /api/v1/health
+   - Estado de salud (publico)
  * - GET
- - /api/v1/health/detailed
- - Detalle de servicios (auth)
+   - /api/v1/health/detailed
+   - Detalle de servicios (auth)
  * - GET
- - /api/v1/logs
- - Listar logs (paginado)
+   - /api/v1/logs
+   - Listar logs (paginado)
  * - GET
- - /api/v1/logs/download
- - Paquete comprimido
+   - /api/v1/logs/download
+   - Paquete comprimido
  * - GET
- - /api/v1/metrics/technical
- - Metricas agregadas
+   - /api/v1/metrics/technical
+   - Metricas agregadas
 
 ----
 
@@ -317,13 +317,13 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_009
- - **Logging Auditoria Inmutable**: PII enmascarado en logs.
- No incluir passwords, tokens, datos sensibles.
+   - **Logging Auditoria Inmutable**: PII enmascarado en logs.
+     No incluir passwords, tokens, datos sensibles.
  * - CNST_008
- - **Infraestructura Deployment**: Logs en /var/log/iact/.
- Rotacion automatica. Permisos restrictivos.
+   - **Infraestructura Deployment**: Logs en /var/log/iact/.
+     Rotacion automatica. Permisos restrictivos.
 
 ----
 
@@ -335,20 +335,20 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_080
- - Consultar_Bitacoras_Tecnicas
- - Logs de aplicacion con filtros
+   - Consultar_Bitacoras_Tecnicas
+   - Logs de aplicacion con filtros
  * - UC_081
- - Consultar_Estado_Salud
- - Health endpoints, servicios
+   - Consultar_Estado_Salud
+   - Health endpoints, servicios
  * - UC_082
- - Descargar_Paquetes_Logs
- - Comprimido para analisis
+   - Descargar_Paquetes_Logs
+   - Comprimido para analisis
  * - UC_083
- - Consultar_Metricas_Tecnicas
- - CPU, memoria, tiempos respuesta
+   - Consultar_Metricas_Tecnicas
+   - CPU, memoria, tiempos respuesta
 
 ----
 
@@ -360,21 +360,21 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_034
- - Listar_Logs_Sistema
- - UC_080
- - Con filtros y paginacion
+   - Listar_Logs_Sistema
+   - UC_080
+   - Con filtros y paginacion
  * - FR_035
- - Consultar_Health_Check
- - UC_081
- - Estado de servicios
+   - Consultar_Health_Check
+   - UC_081
+   - Estado de servicios
  * - FR_036
- - Empaquetar_Logs
- - UC_082
- - Compresion y descarga
+   - Empaquetar_Logs
+   - UC_082
+   - Compresion y descarga
 
 ----
 
@@ -386,23 +386,23 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Metrica
- - Tipo
- - Descripcion
+   - Tipo
+   - Descripcion
  * - request_duration_seconds
- - Histogram
- - Tiempo de respuesta por endpoint
+   - Histogram
+   - Tiempo de respuesta por endpoint
  * - active_connections
- - Gauge
- - Conexiones DB activas
+   - Gauge
+   - Conexiones DB activas
  * - error_count
- - Counter
- - Errores por tipo
+   - Counter
+   - Errores por tipo
  * - memory_usage_bytes
- - Gauge
- - Uso de memoria
+   - Gauge
+   - Uso de memoria
  * - disk_usage_percent
- - Gauge
- - Uso de disco
+   - Gauge
+   - Uso de disco
 
 ----
 
@@ -414,11 +414,11 @@ del sistema. Orientado a soporte, NOC y devops.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial
+   - 2025-12-22
+   - Version inicial
 
 ----
 

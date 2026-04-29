@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_FD
+   - PROC_Generacion_FD
  * - **Nombre**
- - Generacion de Fichas de Dominio
+   - Generacion de Fichas de Dominio
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 20-40 minutos por FD
+   - 20-40 minutos por FD
 
 ----
 
@@ -150,11 +150,11 @@ Seleccionar entidad del modelo de dominio.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

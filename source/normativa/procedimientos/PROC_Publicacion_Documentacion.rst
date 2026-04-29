@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Publicacion_Documentacion
+   - PROC_Publicacion_Documentacion
  * - **Nombre**
- - Publicacion de Documentacion Final
+   - Publicacion de Documentacion Final
  * - **Categoria**
- - Publicacion
+   - Publicacion
  * - **Frecuencia**
- - Por release o milestone
+   - Por release o milestone
  * - **Duracion**
- - 30-60 minutos
+   - 30-60 minutos
 
 ----
 
@@ -128,13 +128,13 @@ Segun ambiente destino:
  :header-rows: 1
 
  * - Version
- - Fecha
- - URL
- - Responsable
+   - Fecha
+   - URL
+   - Responsable
  * - v2.1.2
- - 2026-01-07
- - docs.iact/
- - Equipo IACT
+   - 2026-01-07
+   - docs.iact/
+   - Equipo IACT
 
 ----
 
@@ -173,11 +173,11 @@ Segun ambiente destino:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

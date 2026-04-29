@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_API
+   - PROC_Generacion_API
  * - **Nombre**
- - Generacion de Documentacion de API
+   - Generacion de Documentacion de API
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada API/endpoint a documentar
+   - Por cada API/endpoint a documentar
  * - **Duracion Estimada**
- - 30-60 minutos por API
+   - 30-60 minutos por API
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ codigos de error y ejemplos curl.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Desarrollador
- - Genera documentacion de API
- - Escritura en api/
+   - Genera documentacion de API
+   - Escritura en api/
  * - Arquitecto
- - Valida consistencia
- - Lectura
+   - Valida consistencia
+   - Lectura
 
 ----
 
@@ -108,17 +108,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_API_Documentacion_API_1_1_0.rst
- - Template de API
- - Si
+   - Template de API
+   - Si
  * - MOD_[Nombre].rst
- - Modulo relacionado
- - Si
+   - Modulo relacionado
+   - Si
  * - FR relacionados
- - Requisitos que implementa
- - No
+   - Requisitos que implementa
+   - No
 
 ----
 
@@ -376,11 +376,11 @@ Segun TPL_API v1.1.0:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - API_[Recurso]_X_Y_Z.rst
- - Documentacion de API
- - /tmp/api/
+   - Documentacion de API
+   - /tmp/api/
 
 ----
 
@@ -420,11 +420,11 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - API no implementada
- - Documentar como "propuesta"
+   - Documentar como "propuesta"
  * - Endpoint sin RBAC
- - Marcar como publico o pendiente
+   - Marcar como publico o pendiente
 
 ----
 
@@ -445,13 +445,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

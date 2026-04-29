@@ -19,21 +19,21 @@ UC_RPT_14: Ver Reporte Campanas
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_14
+   - UC_RPT_14
  * - **Nombre**
- - Ver Reporte Campanas
+   - Ver Reporte Campanas
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-014: ve_campanas
+   - RPT-014: ve_campanas
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-014
+   - BRQ-RPT-014
 
 2. Descripcion
 --------------
@@ -79,11 +79,11 @@ o entrantes especiales. Muestra metricas de efectividad y conversion.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-014
+   - Usuario tiene funcion RPT-014
  * - PRE-02
- - Existen campanas en el segmento
+   - Existen campanas en el segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -98,9 +98,9 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra reporte de campanas del segmento
+   - Se muestra reporte de campanas del segmento
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -110,26 +110,26 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a reporte de campanas
+   - Usuario
+   - Accede a reporte de campanas
  * - 2
- - Sistema
- - Valida RPT-014
+   - Sistema
+   - Valida RPT-014
  * - 3
- - Sistema
- - Consulta campanas del segmento
+   - Sistema
+   - Consulta campanas del segmento
  * - 4
- - Sistema
- - Calcula metricas de efectividad
+   - Sistema
+   - Calcula metricas de efectividad
  * - 5
- - Sistema
- - Renderiza tabla y graficos
+   - Sistema
+   - Renderiza tabla y graficos
  * - 6
- - Usuario
- - Selecciona campana para detalle
+   - Usuario
+   - Selecciona campana para detalle
 
 6. Diagrama de Secuencia
 ------------------------
@@ -169,14 +169,14 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Usuario
- - Selecciona dos campanas a comparar
+   - Usuario
+   - Selecciona dos campanas a comparar
  * - 6b
- - Sistema
- - Muestra comparativa lado a lado
+   - Sistema
+   - Muestra comparativa lado a lado
 
 8. Excepciones
 --------------
@@ -189,9 +189,9 @@ Usuario accede a reporte de campanas.
  :header-rows: 0
 
  * - **Condicion**
- - No hay campanas en el segmento
+   - No hay campanas en el segmento
  * - **Mensaje**
- - No hay campanas registradas en su segmento
+   - No hay campanas registradas en su segmento
 
 9. Diagrama de Actividad
 ------------------------
@@ -229,14 +229,14 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-130
- - Por Segmento
- - Solo campanas del segmento
+   - Por Segmento
+   - Solo campanas del segmento
  * - BR-RPT-131
- - Conversion
- - Tasa = contactos exitosos / total intentos
+   - Conversion
+   - Tasa = contactos exitosos / total intentos
 
 **Metricas de Campanas:**
 
@@ -245,17 +245,17 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - Metrica
- - Descripcion
+   - Descripcion
  * - Intentos
- - Total llamadas realizadas
+   - Total llamadas realizadas
  * - Contactos
- - Llamadas contestadas
+   - Llamadas contestadas
  * - Exitosos
- - Contactos con resultado positivo
+   - Contactos con resultado positivo
  * - Conversion
- - Porcentaje de exito
+   - Porcentaje de exito
  * - Duracion
- - Tiempo promedio de llamada
+   - Tiempo promedio de llamada
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -265,14 +265,14 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_007
- - BD Dual
- - Datos de BD Analytics
+   - BD Dual
+   - Datos de BD Analytics
  * - CNST_008
- - Segmentos
- - Solo campanas del segmento
+   - Segmentos
+   - Solo campanas del segmento
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -282,14 +282,14 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-130
- - Mostrar metricas de campanas
- - Tabla con metricas por campana
+   - Mostrar metricas de campanas
+   - Tabla con metricas por campana
  * - FR-RPT-131
- - Comparar campanas
- - Vista lado a lado con variaciones
+   - Comparar campanas
+   - Vista lado a lado con variaciones
 
 13. Trazabilidad
 ----------------
@@ -299,15 +299,15 @@ Usuario accede a reporte de campanas.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-014
+   - BRQ-RPT-014
  * - **Restricciones**
- - CNST_007, CNST_008
+   - CNST_007, CNST_008
  * - **UC Relacionados**
- - UC_RPT_12, UC_RPT_13
+   - UC_RPT_12, UC_RPT_13
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-014: ve_campanas
+   - RPT-014: ve_campanas
 
 14. Historial de Cambios
 ------------------------
@@ -317,8 +317,8 @@ Usuario accede a reporte de campanas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

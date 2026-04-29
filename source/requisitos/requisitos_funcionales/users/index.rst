@@ -66,26 +66,26 @@ Resumen Estadístico
  :header-rows: 1
 
  * - Caso de Uso
- - FR
- - Prioridad
- - Complejidad
+   - FR
+   - Prioridad
+   - Complejidad
  * - UC_006: Crear Usuario
- - 5
- - Alta
- - Media
+   - 5
+   - Alta
+   - Media
  * - UC_007: Modificar Usuario
- - 4
- - Alta
- - Baja
+   - 4
+   - Alta
+   - Baja
  * - UC_008: Dar de Baja Usuario
- - 4
- - Alta
- - Baja
+   - 4
+   - Alta
+   - Baja
  * - UC_009: Listar Usuarios
- - 4
- - Media
- - Baja
+   - 4
+   - Media
+   - Baja
  * - **TOTAL**
- - **17**
- - —
- - —
+   - **17**
+   - —
+   - —

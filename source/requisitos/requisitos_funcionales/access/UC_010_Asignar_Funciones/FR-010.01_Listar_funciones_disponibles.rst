@@ -22,19 +22,19 @@ FR-010.01: Listar funciones disponibles
  :widths: 25 75
 
  * - **ID**
- - FR-010.01
+   - FR-010.01
  * - **Nombre**
- - Listar funciones disponibles para asignar
+   - Listar funciones disponibles para asignar
  * - **UC Origen**
- - UC_010: Asignar Funciones a Usuario
+   - UC_010: Asignar Funciones a Usuario
  * - **Paso UC**
- - Paso 2-3 del flujo normal
+   - Paso 2-3 del flujo normal
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -128,17 +128,17 @@ RBAC documentado (AUT-xxx para cada módulo).
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_010: Asignar Funciones
+   - UC_010: Asignar Funciones
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-010.02
+   - FR-010.02
  * - **BR**
- - BR_006
+   - BR_006
  * - **TEST**
- - TST-FR-010.01 (pendiente)
+   - TST-FR-010.01 (pendiente)
 
 ----
 
@@ -150,8 +150,8 @@ RBAC documentado (AUT-xxx para cada módulo).
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_010
+   - 2026-01-07
+   - Versión inicial derivada de UC_010

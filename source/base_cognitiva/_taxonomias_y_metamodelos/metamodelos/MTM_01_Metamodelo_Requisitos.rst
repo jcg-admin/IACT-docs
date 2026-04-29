@@ -187,30 +187,30 @@ UML y especifica cardinalidades, herencia y restricciones.
  :widths: 20 20 20 20 20
 
  * - Desde / Hacia
- - BR
- - BReq
- - UC
- - FR
+   - BR
+   - BReq
+   - UC
+   - FR
  * - **BR**
- - --
- - influye
- - genera/influye
- - influye
+   - --
+   - influye
+   - genera/influye
+   - influye
  * - **BReq**
- - --
- - --
- - genera
- - --
+   - --
+   - --
+   - genera
+   - --
  * - **UC**
- - --
- - --
- - --
- - deriva
+   - --
+   - --
+   - --
+   - deriva
  * - **FR**
- - --
- - --
- - --
- - --
+   - --
+   - --
+   - --
+   - --
 
 ----
 
@@ -545,23 +545,23 @@ UML y especifica cardinalidades, herencia y restricciones.
  :widths: 10 45 45
 
  * - #
- - Regla
- - Validacion
+   - Regla
+   - Validacion
  * - R1
- - Todo FR tiene origen en UC
- - FR.ucOrigen != null
+   - Todo FR tiene origen en UC
+   - FR.ucOrigen != null
  * - R2
- - BR Trigger genera exactamente 1 UC
- - COUNT(UC donde BR.genera) = 1
+   - BR Trigger genera exactamente 1 UC
+   - COUNT(UC donde BR.genera) = 1
  * - R3
- - FR es atomico
- - FR.descripcion no contiene " y "
+   - FR es atomico
+   - FR.descripcion no contiene " y "
  * - R4
- - UC tiene actor primario
- - UC.actorPrimario != null
+   - UC tiene actor primario
+   - UC.actorPrimario != null
  * - R5
- - NFR es medible
- - NFR.metrica != null
+   - NFR es medible
+   - NFR.metrica != null
 
 ----
 
@@ -576,23 +576,23 @@ UML y especifica cardinalidades, herencia y restricciones.
  :widths: 30 20 50
 
  * - Clase
- - Instancias
- - Notas
+   - Instancias
+   - Notas
  * - BusinessRule
- - 6
- - Identificadas en analisis RBAC
+   - 6
+   - Identificadas en analisis RBAC
  * - BusinessRequirement
- - ~5
- - Objetivos del proyecto
+   - ~5
+   - Objetivos del proyecto
  * - UseCase
- - 38
- - Derivados de BR + CRUD + Larman
+   - 38
+   - Derivados de BR + CRUD + Larman
  * - FunctionalRequirement
- - ~300
- - Estimado (38 UC x 8 promedio)
+   - ~300
+   - Estimado (38 UC x 8 promedio)
  * - NonFunctionalRequirement
- - ~20
- - Pendiente especificacion
+   - ~20
+   - Pendiente especificacion
 
 8.2 Ejemplo de Instanciacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -651,13 +651,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con diagrama de clases completo
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con diagrama de clases completo
 
 ----
 

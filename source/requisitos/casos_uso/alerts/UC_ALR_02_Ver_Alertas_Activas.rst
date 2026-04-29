@@ -19,21 +19,21 @@ UC_ALR_02: Ver Alertas Activas
  :header-rows: 0
 
  * - **ID**
- - UC_ALR_02
+   - UC_ALR_02
  * - **Nombre**
- - Ver Alertas Activas
+   - Ver Alertas Activas
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Modulo**
- - MOD_Alerts
+   - MOD_Alerts
  * - **Funcion RBAC**
- - ALR-002: ve_alertas
+   - ALR-002: ve_alertas
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-ALR-002
+   - BRQ-ALR-002
 
 2. Descripcion
 --------------
@@ -92,13 +92,13 @@ se envian via InternalMessage (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion ALR-002
+   - El usuario tiene sesion activa con funcion ALR-002
  * - PRE-02
- - El usuario tiene un segmento asignado
+   - El usuario tiene un segmento asignado
  * - PRE-03
- - El motor de alertas esta activo
+   - El motor de alertas esta activo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -113,11 +113,11 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran alertas activas del segmento del usuario
+   - Se muestran alertas activas del segmento del usuario
  * - POST-02
- - El panel se actualiza automaticamente cada 30 segundos
+   - El panel se actualiza automaticamente cada 30 segundos
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -127,32 +127,32 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede al panel de alertas
+   - Usuario
+   - Accede al panel de alertas
  * - 2
- - Sistema
- - Valida funcion ALR-002
+   - Sistema
+   - Valida funcion ALR-002
  * - 3
- - Sistema
- - Obtiene segmento del usuario
+   - Sistema
+   - Obtiene segmento del usuario
  * - 4
- - Sistema
- - Consulta alertas activas del segmento en Analytics
+   - Sistema
+   - Consulta alertas activas del segmento en Analytics
  * - 5
- - Sistema
- - Ordena por severidad (CRITICAL > WARNING > INFO)
+   - Sistema
+   - Ordena por severidad (CRITICAL > WARNING > INFO)
  * - 6
- - Sistema
- - Renderiza panel con indicadores visuales
+   - Sistema
+   - Renderiza panel con indicadores visuales
  * - 7
- - Sistema
- - Inicia temporizador de auto-refresh (30s)
+   - Sistema
+   - Inicia temporizador de auto-refresh (30s)
  * - 8
- - Usuario
- - Visualiza alertas activas
+   - Usuario
+   - Visualiza alertas activas
 
 6. Diagrama de Secuencia
 ------------------------
@@ -212,17 +212,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Sistema
- - No hay alertas activas para el segmento
+   - Sistema
+   - No hay alertas activas para el segmento
  * - 6a
- - Sistema
- - Muestra panel vacio con mensaje informativo
+   - Sistema
+   - Muestra panel vacio con mensaje informativo
  * - 6b
- - Sistema
- - Muestra indicador verde de estado normal
+   - Sistema
+   - Muestra indicador verde de estado normal
 
 7.2 FA-02: Nueva Alerta Durante Visualizacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,17 +232,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Sistema
- - Detecta nueva alerta en ciclo de refresh
+   - Sistema
+   - Detecta nueva alerta en ciclo de refresh
  * - 7b
- - Sistema
- - Muestra notificacion visual destacada
+   - Sistema
+   - Muestra notificacion visual destacada
  * - 7c
- - Sistema
- - Si es CRITICAL, reproduce alerta sonora
+   - Sistema
+   - Si es CRITICAL, reproduce alerta sonora
 
 7.3 FA-03: Ver Detalle de Alerta
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,14 +252,14 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Usuario
- - Hace clic en una alerta
+   - Usuario
+   - Hace clic en una alerta
  * - 8b
- - Sistema
- - Muestra panel de detalle con metrica, valor, umbral, timestamp
+   - Sistema
+   - Muestra panel de detalle con metrica, valor, umbral, timestamp
 
 8. Excepciones
 --------------
@@ -272,15 +272,15 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion ALR-002 asignada
+   - Usuario no tiene funcion ALR-002 asignada
  * - **Accion Sistema**
- - Rechaza acceso al panel de alertas
+   - Rechaza acceso al panel de alertas
  * - **Mensaje Usuario**
- - No tiene permisos para ver alertas
+   - No tiene permisos para ver alertas
  * - **Codigo Error**
- - ALR-010
+   - ALR-010
 
 8.2 EX-02: Usuario Sin Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -290,15 +290,15 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Usuario no tiene segmento asignado
+   - Usuario no tiene segmento asignado
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - Usuario sin segmento asignado. Contacte al administrador.
+   - Usuario sin segmento asignado. Contacte al administrador.
  * - **Codigo Error**
- - ALR-011
+   - ALR-011
 
 9. Diagrama de Actividad
 ------------------------
@@ -358,20 +358,20 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ALR-10
- - Filtro por Segmento
- - Usuario solo ve alertas de su segmento asignado
+   - Filtro por Segmento
+   - Usuario solo ve alertas de su segmento asignado
  * - BR-ALR-11
- - Orden por Severidad
- - Alertas criticas primero, luego advertencias, luego info
+   - Orden por Severidad
+   - Alertas criticas primero, luego advertencias, luego info
  * - BR-ALR-12
- - Refresh Automatico
- - Panel se actualiza cada 30 segundos
+   - Refresh Automatico
+   - Panel se actualiza cada 30 segundos
  * - BR-ALR-13
- - Solo InternalMessage
- - Notificaciones SOLO via InternalMessage (CNST_001)
+   - Solo InternalMessage
+   - Notificaciones SOLO via InternalMessage (CNST_001)
 
 **Niveles de Severidad:**
 
@@ -380,17 +380,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Nivel
- - Indicador
- - Descripcion
+   - Indicador
+   - Descripcion
  * - CRITICAL
- - Rojo
- - Metrica en nivel critico, requiere accion inmediata
+   - Rojo
+   - Metrica en nivel critico, requiere accion inmediata
  * - WARNING
- - Amarillo
- - Metrica en nivel de advertencia, monitorear
+   - Amarillo
+   - Metrica en nivel de advertencia, monitorear
  * - INFO
- - Azul
- - Alerta informativa, sin accion requerida
+   - Azul
+   - Alerta informativa, sin accion requerida
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -400,17 +400,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_001
- - Comunicacion Interna
- - Las notificaciones de alerta se envian EXCLUSIVAMENTE via InternalMessage.notify. PROHIBIDO email, SMS o canales externos.
+   - Comunicacion Interna
+   - Las notificaciones de alerta se envian EXCLUSIVAMENTE via InternalMessage.notify. PROHIBIDO email, SMS o canales externos.
  * - CNST_007
- - BD Dual
- - Datos de alertas se leen de BD Analytics
+   - BD Dual
+   - Datos de alertas se leen de BD Analytics
  * - CNST_008
- - Segmentos de Datos
- - Filtro automatico por segmento del usuario
+   - Segmentos de Datos
+   - Filtro automatico por segmento del usuario
 
 **Implementacion CNST_001:**
 
@@ -440,20 +440,20 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ALR-010
- - El sistema debe mostrar alertas activas
- - Lista ordenada por severidad visible
+   - El sistema debe mostrar alertas activas
+   - Lista ordenada por severidad visible
  * - FR-ALR-011
- - El sistema debe filtrar por segmento
- - Solo alertas del segmento del usuario mostradas
+   - El sistema debe filtrar por segmento
+   - Solo alertas del segmento del usuario mostradas
  * - FR-ALR-012
- - El sistema debe auto-refrescar
- - Actualizacion cada 30 segundos sin recargar
+   - El sistema debe auto-refrescar
+   - Actualizacion cada 30 segundos sin recargar
  * - FR-ALR-013
- - El sistema debe notificar via InternalMessage
- - Notificaciones en buzon interno unicamente
+   - El sistema debe notificar via InternalMessage
+   - Notificaciones en buzon interno unicamente
 
 13. Trazabilidad
 ----------------
@@ -463,17 +463,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ALR-002: Visualizar alertas activas del sistema
+   - BRQ-ALR-002: Visualizar alertas activas del sistema
  * - **Reglas de Negocio**
- - BR-ALR-10 a BR-ALR-13
+   - BR-ALR-10 a BR-ALR-13
  * - **Restricciones**
- - CNST_001 (InternalMessage), CNST_007 (BD Dual), CNST_008 (Segmentos)
+   - CNST_001 (InternalMessage), CNST_007 (BD Dual), CNST_008 (Segmentos)
  * - **UC Relacionados**
- - UC_ALR_01 (Umbrales), UC_ALR_03 (Reconocer), UC_ALR_04 (Historial)
+   - UC_ALR_01 (Umbrales), UC_ALR_03 (Reconocer), UC_ALR_04 (Historial)
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
- - ALR-002: ve_alertas
+   - ALR-002: ve_alertas
 
 14. Historial de Cambios
 ------------------------
@@ -483,10 +483,10 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_001
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_001

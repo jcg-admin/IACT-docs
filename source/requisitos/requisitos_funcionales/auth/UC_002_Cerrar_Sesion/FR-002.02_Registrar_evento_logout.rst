@@ -22,19 +22,19 @@ FR-002.02: Registrar evento logout
  :widths: 25 75
 
  * - **ID**
- - FR-002.02
+   - FR-002.02
  * - **Nombre**
- - Registrar evento de logout en auditoría
+   - Registrar evento de logout en auditoría
  * - **UC Origen**
- - UC_002: Cerrar Sesion
+   - UC_002: Cerrar Sesion
  * - **Paso UC**
- - Paso 5 del flujo normal
+   - Paso 5 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Auditoría
+   - Auditoría
 
 ----
 
@@ -108,15 +108,15 @@ FR-002.02: Registrar evento logout
  :header-rows: 1
 
  * - Tipo
- - Descripción
+   - Descripción
  * - VOLUNTARY
- - Usuario cerró sesión manualmente
+   - Usuario cerró sesión manualmente
  * - FORCED
- - Admin forzó cierre de sesión
+   - Admin forzó cierre de sesión
  * - EXPIRED
- - Token expiró por tiempo
+   - Token expiró por tiempo
  * - NEW_LOGIN
- - Sesión cerrada por nuevo login (BR_005)
+   - Sesión cerrada por nuevo login (BR_005)
 
 ----
 
@@ -127,19 +127,19 @@ FR-002.02: Registrar evento logout
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_002: Cerrar Sesion
+   - UC_002: Cerrar Sesion
  * - **Depende de**
- - FR-002.01
+   - FR-002.01
  * - **Requerido por**
- - FR-061.01 (consulta de auditoría)
+   - FR-061.01 (consulta de auditoría)
  * - **BR**
- - BR_008
+   - BR_008
  * - **CNST**
- - CNST-009
+   - CNST-009
  * - **TEST**
- - TST-FR-002.02 (pendiente)
+   - TST-FR-002.02 (pendiente)
 
 ----
 
@@ -151,8 +151,8 @@ FR-002.02: Registrar evento logout
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_002
+   - 2026-01-07
+   - Versión inicial derivada de UC_002

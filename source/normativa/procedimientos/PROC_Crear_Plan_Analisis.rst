@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Crear_Plan_Analisis
+   - PROC_Crear_Plan_Analisis
  * - **Nombre**
- - Crear Documentos de Analisis y Planificacion
+   - Crear Documentos de Analisis y Planificacion
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 15-45 minutos
+   - 15-45 minutos
 
 ----
 
@@ -58,17 +58,17 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
  :header-rows: 1
 
  * - Tipo
- - Nomenclatura
- - Uso
+   - Nomenclatura
+   - Uso
  * - Plan
- - PLAN_[Tema]_vX_Y_Z.md
- - Planificar actividades
+   - PLAN_[Tema]_vX_Y_Z.md
+   - Planificar actividades
  * - Analisis
- - ANALISIS_[Tema]_vX_Y_Z.md
- - Documentar hallazgos
+   - ANALISIS_[Tema]_vX_Y_Z.md
+   - Documentar hallazgos
  * - Reporte
- - REPORTE_[Tema].md
- - Resumir resultados
+   - REPORTE_[Tema].md
+   - Resumir resultados
 
 ----
 
@@ -106,9 +106,9 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
  :header-rows: 1
 
  * - Artefacto
- - Ubicacion
+   - Ubicacion
  * - [TIPO]_[Tema]_vX_Y_Z.md
- - /tmp/ -> /outputs/
+   - /tmp/ -> /outputs/
 
 ----
 
@@ -135,11 +135,11 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

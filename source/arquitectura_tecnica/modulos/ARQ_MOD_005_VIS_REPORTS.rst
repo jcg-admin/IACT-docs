@@ -93,65 +93,65 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - Responsabilidad
- - UC
- - CNST
- - Subcategoria
+   - UC
+   - CNST
+   - Subcategoria
  * - Mostrar reporte trimestral consolidado
- - UC_017
- - -
- - Reportes
+   - UC_017
+   - -
+   - Reportes
  * - Mostrar reporte de errores/menu
- - UC_018
- - -
- - Reportes
+   - UC_018
+   - -
+   - Reportes
  * - Mostrar reporte de transferencias
- - UC_019
- - -
- - Reportes
+   - UC_019
+   - -
+   - Reportes
  * - Aplicar filtros de fecha (max 2 anos)
- - UC_020
- - CNST_007
- - Filtros
+   - UC_020
+   - CNST_007
+   - Filtros
  * - Aplicar filtros de negocio
- - UC_021
- - -
- - Filtros
+   - UC_021
+   - -
+   - Filtros
  * - Exportar a CSV
- - UC_022
- - CNST_007
- - Export
+   - UC_022
+   - CNST_007
+   - Export
  * - Exportar a Excel
- - UC_023
- - CNST_007
- - Export
+   - UC_023
+   - CNST_007
+   - Export
  * - Exportar a PDF
- - UC_024
- - CNST_007
- - Export
+   - UC_024
+   - CNST_007
+   - Export
  * - Mostrar dashboard principal
- - UC_025
- - -
- - Dashboard
+   - UC_025
+   - -
+   - Dashboard
  * - Mostrar widgets de resumen
- - UC_026
- - -
- - Dashboard
+   - UC_026
+   - -
+   - Dashboard
  * - Mostrar graficos por hora
- - UC_027
- - -
- - Dashboard
+   - UC_027
+   - -
+   - Dashboard
  * - Mostrar graficos por dia
- - UC_028
- - -
- - Dashboard
+   - UC_028
+   - -
+   - Dashboard
  * - Mostrar distribucion por centro
- - UC_029
- - -
- - Dashboard
+   - UC_029
+   - -
+   - Dashboard
  * - Personalizar layout (max 10 widgets)
- - UC_030
- - -
- - Dashboard
+   - UC_030
+   - -
+   - Dashboard
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -220,13 +220,13 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Requiere sesion autenticada
+   - Requiere sesion autenticada
  * - ARQ_MOD_003_RBAC_CORE
- - Obtiene permisos efectivos y segmentos
+   - Obtiene permisos efectivos y segmentos
  * - ARQ_MOD_004_ETL_MONITORING
- - Consulta disponibilidad de datos
+   - Consulta disponibilidad de datos
 
 5.2 Es Requerido por
 --------------------
@@ -236,11 +236,11 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_006_ALERTS
- - Puede usar metricas para configurar alertas
+   - Puede usar metricas para configurar alertas
  * - ARQ_MOD_007_AUDIT
- - Registra exportaciones realizadas
+   - Registra exportaciones realizadas
 
 ----
 
@@ -255,13 +255,13 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.analytics
- - Modelos de metricas, repositorios de consulta
+   - Modelos de metricas, repositorios de consulta
  * - apps.reports
- - Vistas y serializadores de reportes
+   - Vistas y serializadores de reportes
  * - apps.exports
- - Servicios de generacion CSV/Excel/PDF
+   - Servicios de generacion CSV/Excel/PDF
 
 6.2 Modelos de Datos
 --------------------
@@ -294,32 +294,32 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/dashboard
- - Dashboard principal
+   - /api/v1/dashboard
+   - Dashboard principal
  * - GET
- - /api/v1/dashboard/widgets
- - Widgets disponibles
+   - /api/v1/dashboard/widgets
+   - Widgets disponibles
  * - GET
- - /api/v1/reports/quarterly
- - Reporte trimestral
+   - /api/v1/reports/quarterly
+   - Reporte trimestral
  * - GET
- - /api/v1/reports/errors
- - Reporte de errores
+   - /api/v1/reports/errors
+   - Reporte de errores
  * - GET
- - /api/v1/reports/transfers
- - Reporte transferencias
+   - /api/v1/reports/transfers
+   - Reporte transferencias
  * - POST
- - /api/v1/exports/csv
- - Exportar CSV
+   - /api/v1/exports/csv
+   - Exportar CSV
  * - POST
- - /api/v1/exports/excel
- - Exportar Excel
+   - /api/v1/exports/excel
+   - Exportar Excel
  * - POST
- - /api/v1/exports/pdf
- - Exportar PDF
+   - /api/v1/exports/pdf
+   - Exportar PDF
 
 ----
 
@@ -331,13 +331,13 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_003
- - **BD Dual Inmutable**: Solo consume datos de Analytics. 
- NO consulta IVR directamente. NO real-time.
+   - **BD Dual Inmutable**: Solo consume datos de Analytics. 
+     NO consulta IVR directamente. NO real-time.
  * - CNST_007
- - **Limites Performance SLA**: Max 10,000 registros por consulta.
- Max 5 exportaciones/dia por usuario. Timeout 30s.
+   - **Limites Performance SLA**: Max 10,000 registros por consulta.
+     Max 5 exportaciones/dia por usuario. Timeout 30s.
 
 ----
 
@@ -349,50 +349,50 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_017
- - Consultar_Reporte_Trimestral
- - Consolidado por trimestre
+   - Consultar_Reporte_Trimestral
+   - Consolidado por trimestre
  * - UC_018
- - Consultar_Reporte_Errores
- - Problemas de menu IVR
+   - Consultar_Reporte_Errores
+   - Problemas de menu IVR
  * - UC_019
- - Consultar_Reporte_Transferencias
- - Rutas de llamada
+   - Consultar_Reporte_Transferencias
+   - Rutas de llamada
  * - UC_020
- - Aplicar_Filtros_Fecha
- - Presets y rangos (max 2 anos)
+   - Aplicar_Filtros_Fecha
+   - Presets y rangos (max 2 anos)
  * - UC_021
- - Aplicar_Filtros_Negocio
- - Centro, servicio, cola
+   - Aplicar_Filtros_Negocio
+   - Centro, servicio, cola
  * - UC_022
- - Exportar_Reporte_CSV
- - Formato CSV
+   - Exportar_Reporte_CSV
+   - Formato CSV
  * - UC_023
- - Exportar_Reporte_Excel
- - Formato XLSX
+   - Exportar_Reporte_Excel
+   - Formato XLSX
  * - UC_024
- - Exportar_Reporte_PDF
- - Formato PDF
+   - Exportar_Reporte_PDF
+   - Formato PDF
  * - UC_025
- - Consultar_Dashboard_Principal
- - Vista principal IVR
+   - Consultar_Dashboard_Principal
+   - Vista principal IVR
  * - UC_026
- - Consultar_Widgets_Resumen
- - KPIs operativos
+   - Consultar_Widgets_Resumen
+   - KPIs operativos
  * - UC_027
- - Ver_Graficos_Hora
- - Temporal por hora
+   - Ver_Graficos_Hora
+   - Temporal por hora
  * - UC_028
- - Ver_Graficos_Dia
- - Temporal por dia
+   - Ver_Graficos_Dia
+   - Temporal por dia
  * - UC_029
- - Ver_Distribucion_Centro
- - Por centro/servicio
+   - Ver_Distribucion_Centro
+   - Por centro/servicio
  * - UC_030
- - Personalizar_Layout_Dashboard
- - Max 10 widgets
+   - Personalizar_Layout_Dashboard
+   - Max 10 widgets
 
 ----
 
@@ -404,37 +404,37 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_020
- - Cargar_Dashboard
- - UC_025
- - Widgets priorizados
+   - Cargar_Dashboard
+   - UC_025
+   - Widgets priorizados
  * - FR_021
- - Aplicar_Filtros
- - UC_020, UC_021
- - Fecha y negocio
+   - Aplicar_Filtros
+   - UC_020, UC_021
+   - Fecha y negocio
  * - FR_022
- - Generar_CSV
- - UC_022
- - Con limites
+   - Generar_CSV
+   - UC_022
+   - Con limites
  * - FR_023
- - Generar_Excel
- - UC_023
- - Con limites
+   - Generar_Excel
+   - UC_023
+   - Con limites
  * - FR_024
- - Generar_PDF
- - UC_024
- - Con limites
+   - Generar_PDF
+   - UC_024
+   - Con limites
  * - FR_025
- - Renderizar_Widgets
- - UC_026-029
- - Graficos y tablas
+   - Renderizar_Widgets
+   - UC_026-029
+   - Graficos y tablas
  * - FR_026
- - Guardar_Layout_Personalizado
- - UC_030
- - Max 10 widgets
+   - Guardar_Layout_Personalizado
+   - UC_030
+   - Max 10 widgets
 
 ----
 
@@ -446,11 +446,11 @@ aplica permisos de RBAC_CORE.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial. 14 UC, punto unico de visualizacion.
+   - 2025-12-22
+   - Version inicial. 14 UC, punto unico de visualizacion.
 
 ----
 

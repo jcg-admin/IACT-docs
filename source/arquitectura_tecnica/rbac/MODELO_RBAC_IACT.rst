@@ -55,33 +55,33 @@ CONTROL DE CAMBIOS
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambios
- - Autor
+   - Fecha
+   - Cambios
+   - Autor
  * - 1.0-3.0
- - 17-18 Oct 2025
- - Versiones preliminares
- - Equipo
+   - 17-18 Oct 2025
+   - Versiones preliminares
+   - Equipo
  * - 4.0
- - 19 Oct 2025
- - Modelo híbrido con 18 roles
- - Equipo
+   - 19 Oct 2025
+   - Modelo híbrido con 18 roles
+   - Equipo
  * - 5.0
- - 03 Ene 2026
- - Enfoque Sin Pretensiones
- - Equipo
+   - 03 Ene 2026
+   - Enfoque Sin Pretensiones
+   - Equipo
  * - 5.1
- - 03 Ene 2026
- - Adaptación a 8 módulos IACT
- - Equipo
+   - 03 Ene 2026
+   - Adaptación a 8 módulos IACT
+   - Equipo
  * - 5.2.0
- - 13 Ene 2026
- - Clean Code + 42 funciones + Sin segmentos
- - Equipo
+   - 13 Ene 2026
+   - Clean Code + 42 funciones + Sin segmentos
+   - Equipo
  * - **5.2.1**
- - **13 Ene 2026**
- - **Corrección: nombres funciones/grupos en INGLÉS**
- - **Equipo**
+   - **13 Ene 2026**
+   - **Corrección: nombres funciones/grupos en INGLÉS**
+   - **Equipo**
 
 
 
@@ -95,20 +95,20 @@ Cambios v5.2.0 → v5.2.1
  :header-rows: 1
 
  * - Aspecto
- - v5.2.0
- - v5.2.1
+   - v5.2.0
+   - v5.2.1
  * - Nombres funciones
- - Español
- - **Inglés** (manage_sessions, view_reports)
+   - Español
+   - **Inglés** (manage_sessions, view_reports)
  * - Nombres grupos
- - Español con `agr_`
- - **Inglés** sin prefijo (basic_operator_group)
+   - Español con `agr_`
+   - **Inglés** sin prefijo (basic_operator_group)
  * - Nombres reglas SoD
- - Español con `sod_`
- - **Inglés** sin prefijo (pipeline_audit_separation)
+   - Español con `sod_`
+   - **Inglés** sin prefijo (pipeline_audit_separation)
  * - Consistencia
- - Parcial
- - **Completa**
+   - Parcial
+   - **Completa**
 
 
 ---
@@ -222,55 +222,55 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - Módulo
- - Código
- - Funciones
- - %
- - Propósito
+   - Código
+   - Funciones
+   - %
+   - Propósito
  * - MOD_Auth
- - AUTH
- - 4
- - 9.5%
- - Sesiones y autenticación
+   - AUTH
+   - 4
+   - 9.5%
+   - Sesiones y autenticación
  * - MOD_Users
- - USR
- - 9
- - 21.4%
- - Gestión de identidades
+   - USR
+   - 9
+   - 21.4%
+   - Gestión de identidades
  * - MOD_Access
- - ACC
- - 5
- - 11.9%
- - RBAC core + SEC_RULES
+   - ACC
+   - 5
+   - 11.9%
+   - RBAC core + SEC_RULES
  * - MOD_Pipeline
- - PIP
- - 4
- - 9.5%
- - Supervisión ETL
+   - PIP
+   - 4
+   - 9.5%
+   - Supervisión ETL
  * - **MOD_Reports**
- - **RPT**
- - **8**
- - **19.0%**
- - **Reportes/Dashboards**
+   - **RPT**
+   - **8**
+   - **19.0%**
+   - **Reportes/Dashboards**
  * - MOD_Alerts
- - ALR
- - 6
- - 14.3%
- - Alertas internas
+   - ALR
+   - 6
+   - 14.3%
+   - Alertas internas
  * - MOD_Audit
- - AUD
- - 4
- - 9.5%
- - Auditoría funcional
+   - AUD
+   - 4
+   - 9.5%
+   - Auditoría funcional
  * - MOD_Logs
- - LOG
- - 2
- - 4.8%
- - Logs técnicos
+   - LOG
+   - 2
+   - 4.8%
+   - Logs técnicos
  * - **TOTAL**
- - -
- - **42**
- - **100%**
- - -
+   - -
+   - **42**
+   - **100%**
+   - -
 
 
 ---
@@ -293,30 +293,30 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - AUTH-001
- - `manage_sessions`
- - auth:sessions
- - UC-005
- - Gestiona sesiones activas del sistema
+   - `manage_sessions`
+   - auth:sessions
+   - UC-005
+   - Gestiona sesiones activas del sistema
  * - AUTH-002
- - `close_user_session`
- - auth:close_session
- - UC-005
- - Cierra sesión de otro usuario
+   - `close_user_session`
+   - auth:close_session
+   - UC-005
+   - Cierra sesión de otro usuario
  * - AUTH-003
- - `reset_password`
- - auth:reset_password
- - UC-003
- - Genera contraseña temporal
+   - `reset_password`
+   - auth:reset_password
+   - UC-003
+   - Genera contraseña temporal
  * - AUTH-004
- - `view_active_sessions`
- - auth:view_sessions
- - UC-005
- - Ve sesiones activas del sistema
+   - `view_active_sessions`
+   - auth:view_sessions
+   - UC-005
+   - Ve sesiones activas del sistema
 
 
 **CNST aplicables:**
@@ -348,55 +348,55 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - USR-001
- - `create_users`
- - users:create
- - UC-006
- - Crea nuevos usuarios
+   - `create_users`
+   - users:create
+   - UC-006
+   - Crea nuevos usuarios
  * - USR-002
- - `update_users`
- - users:update
- - UC-007
- - Modifica datos de usuarios
+   - `update_users`
+   - users:update
+   - UC-007
+   - Modifica datos de usuarios
  * - USR-003
- - `delete_users`
- - users:delete
- - UC-008
- - Baja lógica de usuarios
+   - `delete_users`
+   - users:delete
+   - UC-008
+   - Baja lógica de usuarios
  * - USR-004
- - `list_users`
- - users:list
- - UC-009
- - Lista usuarios con filtros
+   - `list_users`
+   - users:list
+   - UC-009
+   - Lista usuarios con filtros
  * - USR-005
- - `search_users`
- - users:search
- - UC-009
- - Busca usuarios por criterios
+   - `search_users`
+   - users:search
+   - UC-009
+   - Busca usuarios por criterios
  * - USR-006
- - `block_users`
- - users:block
- - UC-007
- - Bloquea acceso de usuario
+   - `block_users`
+   - users:block
+   - UC-007
+   - Bloquea acceso de usuario
  * - USR-007
- - `unblock_users`
- - users:unblock
- - UC-007
- - Desbloquea usuario
+   - `unblock_users`
+   - users:unblock
+   - UC-007
+   - Desbloquea usuario
  * - USR-008
- - `reactivate_users`
- - users:reactivate
- - UC-007
- - Reactiva usuario inactivo
+   - `reactivate_users`
+   - users:reactivate
+   - UC-007
+   - Reactiva usuario inactivo
  * - USR-009
- - `view_users`
- - users:view
- - UC-009
- - Consulta información de usuarios
+   - `view_users`
+   - users:view
+   - UC-009
+   - Consulta información de usuarios
 
 
 **CAMBIO v5.2.1:**
@@ -432,35 +432,35 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - ACC-001
- - `assign_functions`
- - access:assign
- - UC-010, UC-042
- - Asigna funciones a usuarios
+   - `assign_functions`
+   - access:assign
+   - UC-010, UC-042
+   - Asigna funciones a usuarios
  * - ACC-002
- - `revoke_functions`
- - access:revoke
- - UC-010
- - Revoca funciones de usuarios
+   - `revoke_functions`
+   - access:revoke
+   - UC-010
+   - Revoca funciones de usuarios
  * - ACC-003
- - `view_assignments`
- - access:view
- - UC-011, UC-044
- - Ve asignaciones de funciones
+   - `view_assignments`
+   - access:view
+   - UC-011, UC-044
+   - Ve asignaciones de funciones
  * - ACC-004
- - `assign_function_groups`
- - access:assign_group
- - UC-010
- - Asigna grupos de funciones
+   - `assign_function_groups`
+   - access:assign_group
+   - UC-010
+   - Asigna grupos de funciones
  * - ACC-005
- - `manage_separation_rules`
- - access:sod
- - UC-043
- - Configura reglas SoD
+   - `manage_separation_rules`
+   - access:sod
+   - UC-043
+   - Configura reglas SoD
 
 
 **CAMBIO v5.2.1:**
@@ -491,30 +491,30 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - PIP-001
- - `view_pipeline_status`
- - pipeline:view_status
- - UC-050
- - Ve estado actual del ETL
+   - `view_pipeline_status`
+   - pipeline:view_status
+   - UC-050
+   - Ve estado actual del ETL
  * - PIP-002
- - `view_pipeline_errors`
- - pipeline:view_errors
- - UC-051
- - Consulta errores del ETL
+   - `view_pipeline_errors`
+   - pipeline:view_errors
+   - UC-051
+   - Consulta errores del ETL
  * - PIP-003
- - `view_data_availability`
- - pipeline:availability
- - UC-052
- - Ve disponibilidad de datos
+   - `view_data_availability`
+   - pipeline:availability
+   - UC-052
+   - Ve disponibilidad de datos
  * - PIP-004
- - `request_pipeline_retry`
- - pipeline:retry
- - UC-053
- - Solicita reintento de ETL
+   - `request_pipeline_retry`
+   - pipeline:retry
+   - UC-053
+   - Solicita reintento de ETL
 
 
 **CAMBIO v5.2.1:**
@@ -540,50 +540,50 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - RPT-001
- - `view_reports`
- - reports:view
- - UC-017, UC-018, UC-019
- - Ve reportes tabulares
+   - `view_reports`
+   - reports:view
+   - UC-017, UC-018, UC-019
+   - Ve reportes tabulares
  * - RPT-002
- - `view_dashboard`
- - reports:dashboard
- - UC-025
- - Ve dashboard principal
+   - `view_dashboard`
+   - reports:dashboard
+   - UC-025
+   - Ve dashboard principal
  * - RPT-003
- - `filter_reports`
- - reports:filter
- - UC-020, UC-021
- - Aplica filtros a reportes
+   - `filter_reports`
+   - reports:filter
+   - UC-020, UC-021
+   - Aplica filtros a reportes
  * - RPT-004
- - `export_csv`
- - reports:export_csv
- - UC-022
- - Exporta a CSV (límite: 100K registros)
+   - `export_csv`
+   - reports:export_csv
+   - UC-022
+   - Exporta a CSV (límite: 100K registros)
  * - RPT-005
- - `export_excel`
- - reports:export_excel
- - UC-023
- - Exporta a Excel (límite: 50K registros)
+   - `export_excel`
+   - reports:export_excel
+   - UC-023
+   - Exporta a Excel (límite: 50K registros)
  * - RPT-006
- - `export_pdf`
- - reports:export_pdf
- - UC-024
- - Exporta a PDF (límite: 10K registros)
+   - `export_pdf`
+   - reports:export_pdf
+   - UC-024
+   - Exporta a PDF (límite: 10K registros)
  * - RPT-007
- - `view_kpis`
- - reports:kpis
- - UC-025
- - Ve KPIs estáticos
+   - `view_kpis`
+   - reports:kpis
+   - UC-025
+   - Ve KPIs estáticos
  * - RPT-008
- - `view_charts`
- - reports:charts
- - UC-027, UC-028, UC-029
- - Ve gráficos predefinidos
+   - `view_charts`
+   - reports:charts
+   - UC-027, UC-028, UC-029
+   - Ve gráficos predefinidos
 
 
 **CAMBIO v5.2.1:**
@@ -604,21 +604,21 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - Formato
- - Max Registros
- - Límite Diario
- - Timeout
+   - Max Registros
+   - Límite Diario
+   - Timeout
  * - CSV
- - 100,000
- - 10 exportaciones
- - 60s
+   - 100,000
+   - 10 exportaciones
+   - 60s
  * - Excel
- - 50,000
- - 5 exportaciones
- - 90s
+   - 50,000
+   - 5 exportaciones
+   - 90s
  * - PDF
- - 10,000
- - 3 exportaciones
- - 120s
+   - 10,000
+   - 3 exportaciones
+   - 120s
 
 
 ---
@@ -634,40 +634,40 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - ALR-001
- - `view_alerts`
- - alerts:view
- - UC-039
- - Ve alertas propias
+   - `view_alerts`
+   - alerts:view
+   - UC-039
+   - Ve alertas propias
  * - ALR-002
- - `configure_alerts`
- - alerts:configure
- - UC-036
- - Configura alertas personales
+   - `configure_alerts`
+   - alerts:configure
+   - UC-036
+   - Configura alertas personales
  * - ALR-003
- - `configure_team_alerts`
- - alerts:config_team
- - UC-040
- - Configura alertas de equipo
+   - `configure_team_alerts`
+   - alerts:config_team
+   - UC-040
+   - Configura alertas de equipo
  * - ALR-004
- - `pause_alerts`
- - alerts:pause
- - UC-038
- - Pausa alertas temporalmente
+   - `pause_alerts`
+   - alerts:pause
+   - UC-038
+   - Pausa alertas temporalmente
  * - ALR-005
- - `delete_alerts`
- - alerts:delete
- - UC-038
- - Elimina alertas
+   - `delete_alerts`
+   - alerts:delete
+   - UC-038
+   - Elimina alertas
  * - ALR-006
- - `view_alert_history`
- - alerts:history
- - UC-039
- - Ve historial de alertas
+   - `view_alert_history`
+   - alerts:history
+   - UC-039
+   - Ve historial de alertas
 
 
 **CAMBIO v5.2.1:**
@@ -692,30 +692,30 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - AUD-001
- - `view_audit_log`
- - audit:view
- - UC-061
- - Ve registros de auditoría
+   - `view_audit_log`
+   - audit:view
+   - UC-061
+   - Ve registros de auditoría
  * - AUD-002
- - `search_audit_log`
- - audit:search
- - UC-061
- - Busca en auditoría
+   - `search_audit_log`
+   - audit:search
+   - UC-061
+   - Busca en auditoría
  * - AUD-003
- - `export_audit_log`
- - audit:export
- - UC-063
- - Exporta registros de auditoría
+   - `export_audit_log`
+   - audit:export
+   - UC-063
+   - Exporta registros de auditoría
  * - AUD-004
- - `generate_compliance_report`
- - audit:compliance
- - UC-062
- - Genera reporte de cumplimiento
+   - `generate_compliance_report`
+   - audit:compliance
+   - UC-062
+   - Genera reporte de cumplimiento
 
 
 **CAMBIO v5.2.1:**
@@ -741,20 +741,20 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Función
- - Capacidad
- - UC
- - Descripción
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
  * - LOG-001
- - `view_technical_logs`
- - logs:view
- - UC-070, UC-071
- - Ve logs técnicos del sistema
+   - `view_technical_logs`
+   - logs:view
+   - UC-070, UC-071
+   - Ve logs técnicos del sistema
  * - LOG-002
- - `export_logs`
- - logs:export
- - UC-072
- - Exporta logs técnicos
+   - `export_logs`
+   - logs:export
+   - UC-072
+   - Exporta logs técnicos
 
 
 **CAMBIO v5.2.1:**
@@ -789,60 +789,60 @@ TABLA DE CONTENIDO
  :header-rows: 1
 
  * - ID
- - Nombre
- - Funciones
- - Actor Típico
- - Descripción
+   - Nombre
+   - Funciones
+   - Actor Típico
+   - Descripción
  * - **AGR-001**
- - `basic_operator_group`
- - 6
- - Operador
- - Visualización básica
+   - `basic_operator_group`
+   - 6
+   - Operador
+   - Visualización básica
  * - **AGR-002**
- - `report_viewer_group`
- - 8
- - Analista
- - Análisis sin exportación
+   - `report_viewer_group`
+   - 8
+   - Analista
+   - Análisis sin exportación
  * - **AGR-003**
- - `quality_supervisor_group`
- - 11
- - Supervisor
- - Análisis + filtros avanzados
+   - `quality_supervisor_group`
+   - 11
+   - Supervisor
+   - Análisis + filtros avanzados
  * - **AGR-004**
- - `data_exporter_group`
- - 14
- - Data Analyst
- - Exportación autorizada
+   - `data_exporter_group`
+   - 14
+   - Data Analyst
+   - Exportación autorizada
  * - **AGR-005**
- - `alert_manager_group`
- - 6
- - Gestor Alertas
- - Gestión completa alertas
+   - `alert_manager_group`
+   - 6
+   - Gestor Alertas
+   - Gestión completa alertas
  * - **AGR-006**
- - `user_admin_group`
- - 9
- - Admin Usuarios
- - Gestión de identidades
+   - `user_admin_group`
+   - 9
+   - Admin Usuarios
+   - Gestión de identidades
  * - **AGR-007**
- - `permission_admin_group`
- - 5
- - Admin Permisos
- - Gestión RBAC
+   - `permission_admin_group`
+   - 5
+   - Admin Permisos
+   - Gestión RBAC
  * - **AGR-008**
- - `auditor_group`
- - 4
- - Auditor
- - Solo auditoría (SoD)
+   - `auditor_group`
+   - 4
+   - Auditor
+   - Solo auditoría (SoD)
  * - **AGR-009**
- - `pipeline_admin_group`
- - 4
- - Admin Pipeline
- - Supervisión ETL
+   - `pipeline_admin_group`
+   - 4
+   - Admin Pipeline
+   - Supervisión ETL
  * - **AGR-010**
- - `system_admin_group`
- - 6
- - Sysadmin
- - Administración completa
+   - `system_admin_group`
+   - 6
+   - Sysadmin
+   - Administración completa
 
 
 **CAMBIO v5.2.1:**
@@ -2273,134 +2273,134 @@ Una función puede asignarse **temporalmente** con:
  :header-rows: 1
 
  * - Función
- - Casos de Uso
- - Módulo
+   - Casos de Uso
+   - Módulo
  * - manage_sessions
- - UC-005
- - Auth
+   - UC-005
+   - Auth
  * - close_user_session
- - UC-005
- - Auth
+   - UC-005
+   - Auth
  * - reset_password
- - UC-003
- - Auth
+   - UC-003
+   - Auth
  * - view_active_sessions
- - UC-005
- - Auth
+   - UC-005
+   - Auth
  * - create_users
- - UC-006
- - Users
+   - UC-006
+   - Users
  * - update_users
- - UC-007
- - Users
+   - UC-007
+   - Users
  * - delete_users
- - UC-008
- - Users
+   - UC-008
+   - Users
  * - list_users
- - UC-009
- - Users
+   - UC-009
+   - Users
  * - search_users
- - UC-009
- - Users
+   - UC-009
+   - Users
  * - block_users
- - UC-007
- - Users
+   - UC-007
+   - Users
  * - unblock_users
- - UC-007
- - Users
+   - UC-007
+   - Users
  * - reactivate_users
- - UC-007
- - Users
+   - UC-007
+   - Users
  * - view_users
- - UC-009
- - Users
+   - UC-009
+   - Users
  * - assign_functions
- - UC-010, UC-042
- - Access
+   - UC-010, UC-042
+   - Access
  * - revoke_functions
- - UC-010
- - Access
+   - UC-010
+   - Access
  * - view_assignments
- - UC-011, UC-044
- - Access
+   - UC-011, UC-044
+   - Access
  * - assign_function_groups
- - UC-010
- - Access
+   - UC-010
+   - Access
  * - manage_separation_rules
- - UC-043
- - Access
+   - UC-043
+   - Access
  * - view_pipeline_status
- - UC-050
- - Pipeline
+   - UC-050
+   - Pipeline
  * - view_pipeline_errors
- - UC-051
- - Pipeline
+   - UC-051
+   - Pipeline
  * - view_data_availability
- - UC-052
- - Pipeline
+   - UC-052
+   - Pipeline
  * - request_pipeline_retry
- - UC-053
- - Pipeline
+   - UC-053
+   - Pipeline
  * - view_reports
- - UC-017, UC-018, UC-019
- - Reports
+   - UC-017, UC-018, UC-019
+   - Reports
  * - view_dashboard
- - UC-025
- - Reports
+   - UC-025
+   - Reports
  * - filter_reports
- - UC-020, UC-021
- - Reports
+   - UC-020, UC-021
+   - Reports
  * - export_csv
- - UC-022
- - Reports
+   - UC-022
+   - Reports
  * - export_excel
- - UC-023
- - Reports
+   - UC-023
+   - Reports
  * - export_pdf
- - UC-024
- - Reports
+   - UC-024
+   - Reports
  * - view_kpis
- - UC-025
- - Reports
+   - UC-025
+   - Reports
  * - view_charts
- - UC-027, UC-028, UC-029
- - Reports
+   - UC-027, UC-028, UC-029
+   - Reports
  * - view_alerts
- - UC-039
- - Alerts
+   - UC-039
+   - Alerts
  * - configure_alerts
- - UC-036
- - Alerts
+   - UC-036
+   - Alerts
  * - configure_team_alerts
- - UC-040
- - Alerts
+   - UC-040
+   - Alerts
  * - pause_alerts
- - UC-038
- - Alerts
+   - UC-038
+   - Alerts
  * - delete_alerts
- - UC-038
- - Alerts
+   - UC-038
+   - Alerts
  * - view_alert_history
- - UC-039
- - Alerts
+   - UC-039
+   - Alerts
  * - view_audit_log
- - UC-061
- - Audit
+   - UC-061
+   - Audit
  * - search_audit_log
- - UC-061
- - Audit
+   - UC-061
+   - Audit
  * - export_audit_log
- - UC-063
- - Audit
+   - UC-063
+   - Audit
  * - generate_compliance_report
- - UC-062
- - Audit
+   - UC-062
+   - Audit
  * - view_technical_logs
- - UC-070, UC-071
- - Logs
+   - UC-070, UC-071
+   - Logs
  * - export_logs
- - UC-072
- - Logs
+   - UC-072
+   - Logs
 
 
 ---
@@ -2423,20 +2423,20 @@ Una función puede asignarse **temporalmente** con:
  :header-rows: 1
 
  * - Aspecto
- - v5.2.0
- - v5.2.1
+   - v5.2.0
+   - v5.2.1
  * - **Nombres funciones**
- - Español
- - Inglés
+   - Español
+   - Inglés
  * - **Nombres grupos**
- - Español con `agr_`
- - Inglés sin prefijo
+   - Español con `agr_`
+   - Inglés sin prefijo
  * - **Nombres reglas SoD**
- - Español con `sod_`
- - Inglés sin prefijo
+   - Español con `sod_`
+   - Inglés sin prefijo
  * - **Campos**
- - `assigned_date`
- - `assigned_at`
+   - `assigned_date`
+   - `assigned_at`
 
 
 
@@ -2555,25 +2555,25 @@ Una función puede asignarse **temporalmente** con:
  :header-rows: 1
 
  * - Aspecto
- - Valor
+   - Valor
  * - **Filosofía**
- - Sin Pretensiones
+   - Sin Pretensiones
  * - **Módulos IACT**
- - 8
+   - 8
  * - **Funciones atómicas**
- - 42
+   - 42
  * - **Grupos**
- - 10
+   - 10
  * - **Restricciones SoD**
- - 3
+   - 3
  * - **Segmentos de datos**
- - 0
+   - 0
  * - **Restricciones CNST**
- - 8
+   - 8
  * - **Nomenclatura**
- - Inglés (Clean Code v2.0.0)
+   - Inglés (Clean Code v2.0.0)
  * - **Consistencia**
- - 100%
+   - 100%
 
 
 

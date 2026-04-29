@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_015
+   - BR_015
  * - **Nombre**
- - Bloqueo por Intentos Fallidos
+   - Bloqueo por Intentos Fallidos
  * - **Tipo**
- - Desencadenador
+   - Desencadenador
  * - **Categoría**
- - Seguridad / Autenticación
+   - Seguridad / Autenticación
  * - **Criticidad**
- - Crítica
+   - Crítica
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -93,9 +93,9 @@ El bloqueo por intentos fallidos protege contra:
  :header-rows: 0
 
  * - **Tipo**
- - **Desencadenador**
+   - **Desencadenador**
  * - 
- - [X] **Desencadenador**: SI intentos >= 5 ENTONCES bloquear
+   - [X] **Desencadenador**: SI intentos >= 5 ENTONCES bloquear
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -117,13 +117,13 @@ El bloqueo por intentos fallidos protege contra:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - UC_AUTH_01
- - Iniciar Sesión - Evalúa intentos fallidos
+   - Iniciar Sesión - Evalúa intentos fallidos
  * - API /auth/login
- - Incrementa contador en cada fallo
+   - Incrementa contador en cada fallo
  * - Modelo User
- - Campos: failed_attempts, locked_until
+   - Campos: failed_attempts, locked_until
 
 3.2 Parámetros Configurables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,17 +133,17 @@ El bloqueo por intentos fallidos protege contra:
  :header-rows: 1
 
  * - Parámetro
- - Valor
- - Descripción
+   - Valor
+   - Descripción
  * - MAX_FAILED_ATTEMPTS
- - 5
- - Intentos antes de bloqueo
+   - 5
+   - Intentos antes de bloqueo
  * - LOCKOUT_DURATION
- - 30 min
- - Duración del bloqueo
+   - 30 min
+   - Duración del bloqueo
  * - RESET_AFTER_SUCCESS
- - True
- - Reinicia contador tras login exitoso
+   - True
+   - Reinicia contador tras login exitoso
 
 ----
 
@@ -199,11 +199,11 @@ El bloqueo por intentos fallidos protege contra:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial
+   - 2026-01-07
+   - Versión inicial
 
 ----
 

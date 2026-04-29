@@ -35,15 +35,15 @@ detalle completo.
  :header-rows: 1
 
  * - Capa
- - Tecnologia
+   - Tecnologia
  * - Frontend
- - React + Webpack
+   - React + Webpack
  * - Backend
- - Django REST Framework + Python 3.10+
+   - Django REST Framework + Python 3.10+
  * - Infraestructura
- - Ubuntu Server + Apache + mod_wsgi
+   - Ubuntu Server + Apache + mod_wsgi
  * - Bases de datos
- - MySQL (operativa, RO) + PostgreSQL (analitica)
+   - MySQL (operativa, RO) + PostgreSQL (analitica)
 
 3. Recursos clave
 =================

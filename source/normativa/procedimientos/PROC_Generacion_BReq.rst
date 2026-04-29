@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_BReq
+   - PROC_Generacion_BReq
  * - **Nombre**
- - Generacion de Objetivos de Negocio
+   - Generacion de Objetivos de Negocio
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 30-60 minutos por BReq
+   - 30-60 minutos por BReq
 
 ----
 
@@ -59,23 +59,23 @@ nivel del sistema IACT siguiendo TPL_BReq.
  :header-rows: 1
 
  * - ID
- - Categoria
- - Descripcion
+   - Categoria
+   - Descripcion
  * - BReq_001-002
- - Funcionalidad Core
- - Dashboard, reportes
+   - Funcionalidad Core
+   - Dashboard, reportes
  * - BReq_003
- - Rendimiento
- - Tiempos de respuesta
+   - Rendimiento
+   - Tiempos de respuesta
  * - BReq_004
- - Seguridad
- - Cumplimiento normativo
+   - Seguridad
+   - Cumplimiento normativo
  * - BReq_005-006
- - Usabilidad
- - UX, accesibilidad
+   - Usabilidad
+   - UX, accesibilidad
  * - BReq_007-008
- - Integracion
- - APIs, datos externos
+   - Integracion
+   - APIs, datos externos
 
 ----
 
@@ -148,11 +148,11 @@ Listar BR que implementaran el BReq.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_031
+   - CNST_031
  * - **Categoria**
- - RBAC
+   - RBAC
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -102,11 +102,11 @@ elimina la responsabilidad del olvido humano.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Access
- - Implementa TemporaryPermission + revocacion programada
+   - Implementa TemporaryPermission + revocacion programada
  * - MOD_Audit
- - Registra cada uso del permiso temporal
+   - Registra cada uso del permiso temporal
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -116,11 +116,11 @@ elimina la responsabilidad del olvido humano.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_004
- - Asignar permisos temporales
+   - Asignar permisos temporales
  * - UC_005
- - Renovacion + auditoria
+   - Renovacion + auditoria
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,15 +195,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
+   - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_004, UC_005
+   - UC_004, UC_005
  * - **MODs afectados**
- - MOD_Access, MOD_Audit
+   - MOD_Access, MOD_Audit
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -213,15 +213,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

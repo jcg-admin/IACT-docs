@@ -282,45 +282,45 @@ Matriz Vertical (Por Artefacto)
  :header-rows: 1
 
  * - RN
- - RNEG
- - UC
- - RF
- - RNF
+   - RNEG
+   - UC
+   - RF
+   - RNF
  * - RN-BACK-001
- - RNEG-BACK-001
- - UC-BACK-001
- - RF-BACK-010
- - RNF-BACK-005
+   - RNEG-BACK-001
+   - UC-BACK-001
+   - RF-BACK-010
+   - RNF-BACK-005
  * - 
- - 
- - 
- - RF-BACK-011
- - RNF-BACK-006
+   - 
+   - 
+   - RF-BACK-011
+   - RNF-BACK-006
  * - 
- - 
- - 
- - RF-BACK-012
- - RNF-BACK-007
+   - 
+   - 
+   - RF-BACK-012
+   - RNF-BACK-007
  * - 
- - 
- - UC-BACK-002
- - RF-BACK-013
- - 
+   - 
+   - UC-BACK-002
+   - RF-BACK-013
+   - 
  * - 
- - 
- - UC-BACK-003
- - RF-BACK-014
- - RNF-BACK-005
+   - 
+   - UC-BACK-003
+   - RF-BACK-014
+   - RNF-BACK-005
  * - 
- - 
- - 
- - RF-BACK-015
- - 
+   - 
+   - 
+   - RF-BACK-015
+   - 
  * - RN-BACK-028
- - RNEG-BACK-001
- - UC-BACK-001
- - RF-BACK-016
- - 
+   - RNEG-BACK-001
+   - UC-BACK-001
+   - RF-BACK-016
+   - 
 
 Matriz Horizontal (Por Caso de Uso)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -333,35 +333,35 @@ Matriz Horizontal (Por Caso de Uso)
  :header-rows: 1
 
  * - Elemento
- - ID
- - Relación
+   - ID
+   - Relación
  * - Regla de Negocio
- - RN-BACK-001
- - Usuario debe estar autenticado
+   - RN-BACK-001
+   - Usuario debe estar autenticado
  * - Regla de Negocio
- - RN-BACK-028
- - Solo usuarios activos pueden iniciar sesión
+   - RN-BACK-028
+   - Solo usuarios activos pueden iniciar sesión
  * - Requerimiento de Negocio
- - RNEG-BACK-001
- - Sistema de autenticación seguro
+   - RNEG-BACK-001
+   - Sistema de autenticación seguro
  * - Requisito Funcional
- - RF-BACK-010
- - Validar credenciales
+   - RF-BACK-010
+   - Validar credenciales
  * - Requisito Funcional
- - RF-BACK-011
- - Generar token JWT
+   - RF-BACK-011
+   - Generar token JWT
  * - Requisito Funcional
- - RF-BACK-012
- - Registrar en log
+   - RF-BACK-012
+   - Registrar en log
  * - Atributo de Calidad
- - RNF-BACK-005
- - Contraseña >= 8 caracteres
+   - RNF-BACK-005
+   - Contraseña >= 8 caracteres
  * - Atributo de Calidad
- - RNF-BACK-006
- - Respuesta < 2 segundos
+   - RNF-BACK-006
+   - Respuesta < 2 segundos
  * - Atributo de Calidad
- - RNF-BACK-007
- - Sesión expira en 30 min
+   - RNF-BACK-007
+   - Sesión expira en 30 min
 
 Herramientas de Trazabilidad
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

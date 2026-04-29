@@ -19,21 +19,21 @@ UC_RPT_07: Programar Reporte
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_07
+   - UC_RPT_07
  * - **Nombre**
- - Programar Reporte
+   - Programar Reporte
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-007: programa_reportes
+   - RPT-007: programa_reportes
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-RPT-007
+   - BRQ-RPT-007
 
 2. Descripcion
 --------------
@@ -93,13 +93,13 @@ InternalMessage (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-007
+   - El usuario tiene sesion activa con funcion RPT-007
  * - PRE-02
- - El reporte base existe
+   - El reporte base existe
  * - PRE-03
- - Los destinatarios pertenecen al mismo segmento
+   - Los destinatarios pertenecen al mismo segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -116,11 +116,11 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - La programacion queda registrada y activa
+   - La programacion queda registrada y activa
  * - POST-02
- - Se registra SCHEDULE_CREATE en auditoria
+   - Se registra SCHEDULE_CREATE en auditoria
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -130,41 +130,41 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a programacion de reportes
+   - Usuario
+   - Accede a programacion de reportes
  * - 2
- - Sistema
- - Valida funcion RPT-007
+   - Sistema
+   - Valida funcion RPT-007
  * - 3
- - Usuario
- - Selecciona reporte a programar
+   - Usuario
+   - Selecciona reporte a programar
  * - 4
- - Usuario
- - Define frecuencia (diario/semanal/mensual)
+   - Usuario
+   - Define frecuencia (diario/semanal/mensual)
  * - 5
- - Usuario
- - Define hora de ejecucion
+   - Usuario
+   - Define hora de ejecucion
  * - 6
- - Usuario
- - Selecciona destinatarios del segmento
+   - Usuario
+   - Selecciona destinatarios del segmento
  * - 7
- - Usuario
- - Guarda programacion
+   - Usuario
+   - Guarda programacion
  * - 8
- - Sistema
- - Valida configuracion
+   - Sistema
+   - Valida configuracion
  * - 9
- - Sistema
- - Crea registro de programacion
+   - Sistema
+   - Crea registro de programacion
  * - 10
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
  * - 11
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -228,14 +228,14 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Usuario
- - Selecciona programacion existente
+   - Usuario
+   - Selecciona programacion existente
  * - 7a
- - Sistema
- - Actualiza programacion
+   - Sistema
+   - Actualiza programacion
 
 8. Excepciones
 --------------
@@ -248,11 +248,11 @@ El usuario accede a programacion de reportes.
  :header-rows: 0
 
  * - **Condicion**
- - Destinatario de segmento diferente
+   - Destinatario de segmento diferente
  * - **Mensaje**
- - Destinatarios deben ser del mismo segmento
+   - Destinatarios deben ser del mismo segmento
  * - **Codigo Error**
- - RPT-060
+   - RPT-060
 
 9. Diagrama de Actividad
 ------------------------
@@ -287,17 +287,17 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-60
- - Frecuencias
- - Diario, semanal, mensual
+   - Frecuencias
+   - Diario, semanal, mensual
  * - BR-RPT-61
- - Notificacion
- - Solo via InternalMessage (CNST_001)
+   - Notificacion
+   - Solo via InternalMessage (CNST_001)
  * - BR-RPT-62
- - Segmento
- - Destinatarios del mismo segmento
+   - Segmento
+   - Destinatarios del mismo segmento
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -307,17 +307,17 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_001
- - Comunicacion Interna
- - Notificacion SOLO via InternalMessage
+   - Comunicacion Interna
+   - Notificacion SOLO via InternalMessage
  * - CNST_008
- - Segmentos
- - Destinatarios del segmento
+   - Segmentos
+   - Destinatarios del segmento
  * - CNST_025
- - Auditoria
- - Registro de programaciones
+   - Auditoria
+   - Registro de programaciones
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -327,14 +327,14 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-060
- - Programar reportes
- - Frecuencias configurables
+   - Programar reportes
+   - Frecuencias configurables
  * - FR-RPT-061
- - Notificar destinatarios
- - Via InternalMessage
+   - Notificar destinatarios
+   - Via InternalMessage
 
 13. Trazabilidad
 ----------------
@@ -344,13 +344,13 @@ El usuario accede a programacion de reportes.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-007
+   - BRQ-RPT-007
  * - **Restricciones**
- - CNST_001, CNST_008, CNST_025
+   - CNST_001, CNST_008, CNST_025
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-007: programa_reportes
+   - RPT-007: programa_reportes
 
 14. Historial de Cambios
 ------------------------
@@ -360,8 +360,8 @@ El usuario accede a programacion de reportes.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

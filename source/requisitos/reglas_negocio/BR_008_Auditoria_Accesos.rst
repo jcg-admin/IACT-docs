@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_008
+   - BR_008
  * - **Nombre**
- - Auditoria de Accesos
+   - Auditoria de Accesos
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -100,11 +100,11 @@ trazabilidad de acciones en el sistema.
  :header-rows: 0
 
  * - **Documento**
- - CNST_009_Logging_Auditoria_Inmutable
+   - CNST_009_Logging_Auditoria_Inmutable
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST
+   - CNST
 
 ----
 
@@ -119,13 +119,13 @@ trazabilidad de acciones en el sistema.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Auth
- - Registra login/logout
+   - Registra login/logout
  * - MOD_Audit
- - Almacena y consulta logs
+   - Almacena y consulta logs
  * - Middleware DRF
- - Captura todas las operaciones
+   - Captura todas las operaciones
 
 ----
 
@@ -140,9 +140,9 @@ trazabilidad de acciones en el sistema.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_009
- - Define requisitos de logging y auditoria
+   - Define requisitos de logging y auditoria
 
 5.2 UC Afectados
 ^^^^^^^^^^^^^^^^
@@ -173,10 +173,10 @@ trazabilidad de acciones en el sistema.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

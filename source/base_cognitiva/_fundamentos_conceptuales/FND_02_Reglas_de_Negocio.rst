@@ -54,15 +54,15 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - **Externa**
- - Proviene de fuera del sistema (politicas, regulaciones, estandares)
+   - Proviene de fuera del sistema (politicas, regulaciones, estandares)
  * - **Obligatoria**
- - No es opcional ni negociable para el sistema
+   - No es opcional ni negociable para el sistema
  * - **Estable**
- - Cambia menos frecuentemente que los requerimientos funcionales
+   - Cambia menos frecuentemente que los requerimientos funcionales
  * - **Influyente**
- - Afecta multiples partes del sistema
+   - Afecta multiples partes del sistema
 
 1.3 Diferencia BR vs Requisito Funcional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,23 +72,23 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
  :widths: 20 40 40
 
  * - Aspecto
- - Business Rule (BR)
- - Requisito Funcional (FR)
+   - Business Rule (BR)
+   - Requisito Funcional (FR)
  * - Origen
- - Externo al proyecto
- - Derivado del proyecto
+   - Externo al proyecto
+   - Derivado del proyecto
  * - Existencia
- - Independiente del sistema
- - Especifico del sistema
+   - Independiente del sistema
+   - Especifico del sistema
  * - Pregunta
- - Por que esta restriccion?
- - Como lo hace el sistema?
+   - Por que esta restriccion?
+   - Como lo hace el sistema?
  * - Ejemplo BR
- - "Compras >$500 requieren aprobacion"
- - (no aplica)
+   - "Compras >$500 requieren aprobacion"
+   - (no aplica)
  * - Ejemplo FR
- - (no aplica)
- - "Sistema DEBE validar monto contra umbral $500"
+   - (no aplica)
+   - "Sistema DEBE validar monto contra umbral $500"
 
 ----
 
@@ -318,29 +318,29 @@ nuevo hecho INTERNO (no observable externamente).
  :widths: 15 25 30 30
 
  * - Tipo
- - Pregunta
- - Genera UC?
- - Transformacion
+   - Pregunta
+   - Genera UC?
+   - Transformacion
  * - Hecho
- - Que existe?
- - No
- - Estructura de datos
+   - Que existe?
+   - No
+   - Estructura de datos
  * - Restriccion
- - Que limita?
- - No (condicion)
- - Validaciones
+   - Que limita?
+   - No (condicion)
+   - Validaciones
  * - Desencadenador
- - Que dispara accion?
- - SI
- - UC completo
+   - Que dispara accion?
+   - SI
+   - UC completo
  * - Inferencia
- - Que concluye?
- - No
- - Logica interna
+   - Que concluye?
+   - No
+   - Logica interna
  * - Calculo
- - Como se calcula?
- - No (paso)
- - Algoritmo
+   - Como se calcula?
+   - No (paso)
+   - Algoritmo
 
 ----
 
@@ -451,20 +451,20 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
  :widths: 20 40 40
 
  * - Aspecto
- - Aletica
- - Deontica
+   - Aletica
+   - Deontica
  * - Describe
- - Lo que ES
- - Lo que DEBE SER
+   - Lo que ES
+   - Lo que DEBE SER
  * - Naturaleza
- - Verdades estructurales
- - Obligaciones/Prohibiciones
+   - Verdades estructurales
+   - Obligaciones/Prohibiciones
  * - Violacion
- - Imposible (es verdad)
- - Posible (genera error)
+   - Imposible (es verdad)
+   - Posible (genera error)
  * - Ejemplo
- - "Pedido TIENE cliente"
- - "Pedido DEBE ser aprobado"
+   - "Pedido TIENE cliente"
+   - "Pedido DEBE ser aprobado"
 
 ----
 
@@ -497,17 +497,17 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
  :widths: 25 75
 
  * - Campo
- - Descripcion
+   - Descripcion
  * - **Definicion**
- - Texto completo de la regla en lenguaje natural, comprensible por stakeholders
+   - Texto completo de la regla en lenguaje natural, comprensible por stakeholders
  * - **Tipo**
- - Uno de los 5 tipos: Fact, Constraint, Trigger, Inference, Calculation
+   - Uno de los 5 tipos: Fact, Constraint, Trigger, Inference, Calculation
  * - **Modalidad**
- - Aletica (verdad estructural) o Deontica (obligacion/prohibicion/permiso)
+   - Aletica (verdad estructural) o Deontica (obligacion/prohibicion/permiso)
  * - **Fuente**
- - Documento, version y seccion especifica de donde proviene la regla
+   - Documento, version y seccion especifica de donde proviene la regla
  * - **Fecha Vigencia**
- - Fecha a partir de la cual aplica la regla (formato YYYY-MM-DD)
+   - Fecha a partir de la cual aplica la regla (formato YYYY-MM-DD)
 
 **Campos Adicionales:**
 
@@ -516,15 +516,15 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
  :widths: 25 75
 
  * - Campo
- - Descripcion
+   - Descripcion
  * - **Prioridad**
- - Alta (critica, debe implementarse primero), Media (importante), Baja (deseable)
+   - Alta (critica, debe implementarse primero), Media (importante), Baja (deseable)
  * - **Estatica/Dinamica**
- - Estatica: proviene de ley/regulacion, dificil de cambiar. Dinamica: politica organizacional, puede cambiar por decision interna
+   - Estatica: proviene de ley/regulacion, dificil de cambiar. Dinamica: politica organizacional, puede cambiar por decision interna
  * - **Justificacion**
- - Razon de negocio por la cual existe la regla
+   - Razon de negocio por la cual existe la regla
  * - **Ejemplo**
- - Caso concreto de aplicacion en el dominio del proyecto
+   - Caso concreto de aplicacion en el dominio del proyecto
 
 5.3 Concepto: Estatica vs Dinamica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -581,26 +581,26 @@ Para descubrir Business Rules de manera sistematica, usar estas preguntas:
  :widths: 40 30 30
 
  * - Pregunta
- - Tipo de BR que Descubre
- - Ejemplo de Respuesta
+   - Tipo de BR que Descubre
+   - Ejemplo de Respuesta
  * - "Quien puede hacer que?"
- - Restriccion (acceso)
- - "Solo gerentes pueden aprobar >$500"
+   - Restriccion (acceso)
+   - "Solo gerentes pueden aprobar >$500"
  * - "Que debe pasar cuando...?"
- - Desencadenador
- - "Cuando vence, notificar por email"
+   - Desencadenador
+   - "Cuando vence, notificar por email"
  * - "Como se calcula X?"
- - Calculo
- - "Precio = Base + IVA - Descuento"
+   - Calculo
+   - "Precio = Base + IVA - Descuento"
  * - "Quien puede Y?"
- - Restriccion (permiso)
- - "Solo admin puede eliminar usuarios"
+   - Restriccion (permiso)
+   - "Solo admin puede eliminar usuarios"
  * - "Que pasa cuando Z?"
- - Desencadenador o Inferencia
- - "Cuenta queda bloqueada" (ver 6.2)
+   - Desencadenador o Inferencia
+   - "Cuenta queda bloqueada" (ver 6.2)
  * - "En que casos se considera...?"
- - Inferencia
- - "Si >30 dias impago = Deudor"
+   - Inferencia
+   - "Si >30 dias impago = Deudor"
 
 6.2 Distinguir Desencadenador de Inferencia
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -767,17 +767,17 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2025-12-21
- - Equipo IACT
- - Template BR ampliado: campos Fecha Vigencia, Prioridad, Estatica/Dinamica. Nueva seccion 6: Tecnicas de Elicitacion con 6 preguntas estrategicas.
+   - 2025-12-21
+   - Equipo IACT
+   - Template BR ampliado: campos Fecha Vigencia, Prioridad, Estatica/Dinamica. Nueva seccion 6: Tecnicas de Elicitacion con 6 preguntas estrategicas.
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

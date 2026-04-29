@@ -39,28 +39,28 @@ alineados con la política corporativa de seguridad de la información:
  :header-rows: 1
 
  * - Nivel
- - Definición
- - Ejemplos
+   - Definición
+   - Ejemplos
  * - Público
- - Información que puede ser divulgada sin restricciones fuera
- de la organización.
- - Documentación de API pública, guías de usuario final,
- material de marketing técnico.
+   - Información que puede ser divulgada sin restricciones fuera
+     de la organización.
+   - Documentación de API pública, guías de usuario final,
+     material de marketing técnico.
  * - Interno
- - Información de uso general dentro de la organización. No debe
- divulgarse externamente sin autorización.
- - Documentación técnica, requisitos funcionales, casos de uso,
- arquitectura del sistema.
+   - Información de uso general dentro de la organización. No debe
+     divulgarse externamente sin autorización.
+   - Documentación técnica, requisitos funcionales, casos de uso,
+     arquitectura del sistema.
  * - Confidencial
- - Información sensible cuya divulgación no autorizada podría
- causar daño a la organización o sus clientes.
- - Credenciales de prueba, configuraciones de seguridad,
- datos de clientes anonimizados, contratos.
+   - Información sensible cuya divulgación no autorizada podría
+     causar daño a la organización o sus clientes.
+   - Credenciales de prueba, configuraciones de seguridad,
+     datos de clientes anonimizados, contratos.
  * - Restringido
- - Información altamente sensible con acceso limitado a
- personal específicamente autorizado.
- - Claves de producción, datos personales sin anonimizar,
- información financiera detallada, auditorías de seguridad.
+   - Información altamente sensible con acceso limitado a
+     personal específicamente autorizado.
+   - Claves de producción, datos personales sin anonimizar,
+     información financiera detallada, auditorías de seguridad.
 
 2.2. Matriz de Controles por Nivel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,40 +70,40 @@ alineados con la política corporativa de seguridad de la información:
  :header-rows: 1
 
  * - Control
- - Público
- - Interno
- - Confidencial
- - Restringido
+   - Público
+   - Interno
+   - Confidencial
+   - Restringido
  * - Almacenamiento en repo Git
- - Sí
- - Sí
- - Con cifrado
- - No permitido
+   - Sí
+   - Sí
+   - Con cifrado
+   - No permitido
  * - Envío por email corporativo
- - Sí
- - Sí
- - Cifrado
- - Prohibido
+   - Sí
+   - Sí
+   - Cifrado
+   - Prohibido
  * - Compartir con externos
- - Sí
- - Con NDA
- - Prohibido
- - Prohibido
+   - Sí
+   - Con NDA
+   - Prohibido
+   - Prohibido
  * - Impresión física
- - Libre
- - Controlada
- - Registro
- - Prohibida
+   - Libre
+   - Controlada
+   - Registro
+   - Prohibida
  * - Copia a dispositivos USB
- - Sí
- - Autorización
- - Prohibido
- - Prohibido
+   - Sí
+   - Autorización
+   - Prohibido
+   - Prohibido
  * - Discusión en áreas comunes
- - Sí
- - Precaución
- - Prohibido
- - Prohibido
+   - Sí
+   - Precaución
+   - Prohibido
+   - Prohibido
 
 ---------------------------------
 3. Clasificación por Dominio IACT
@@ -117,23 +117,23 @@ dominio primario del modelo documental IACT:
  :header-rows: 1
 
  * - Dominio
- - Clasificación
- - Justificación
+   - Clasificación
+   - Justificación
  * - base_cognitiva/
- - Interno
- - Fundamentos metodológicos del proyecto, sin datos sensibles.
+   - Interno
+   - Fundamentos metodológicos del proyecto, sin datos sensibles.
  * - requisitos/
- - Interno
- - Reglas de negocio y casos de uso contienen lógica propietaria.
+   - Interno
+   - Reglas de negocio y casos de uso contienen lógica propietaria.
  * - arquitectura_tecnica/
- - Confidencial
- - Decisiones de arquitectura y diseño son propiedad intelectual.
+   - Confidencial
+   - Decisiones de arquitectura y diseño son propiedad intelectual.
  * - normativa/
- - Interno
- - Estándares y restricciones de aplicación interna.
+   - Interno
+   - Estándares y restricciones de aplicación interna.
  * - trazabilidad/
- - Interno
- - Matrices de relación sin datos operativos.
+   - Interno
+   - Matrices de relación sin datos operativos.
 
 ---------------------------
 4. Etiquetado de Documentos
@@ -176,40 +176,40 @@ bloque ``.. meta::``:
  :header-rows: 1
 
  * - Rol
- - Público
- - Interno
- - Confidencial
- - Restringido
+   - Público
+   - Interno
+   - Confidencial
+   - Restringido
  * - PMO / Gobernanza
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura/Escritura
  * - Arquitecto
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura
  * - Business Analyst
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura
- - Sin acceso
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura
+   - Sin acceso
  * - Desarrollador
- - Lectura/Escritura
- - Lectura/Escritura
- - Lectura
- - Sin acceso
+   - Lectura/Escritura
+   - Lectura/Escritura
+   - Lectura
+   - Sin acceso
  * - QA
- - Lectura
- - Lectura
- - Lectura
- - Sin acceso
+   - Lectura
+   - Lectura
+   - Lectura
+   - Sin acceso
  * - Stakeholder Externo
- - Lectura
- - Sin acceso
- - Sin acceso
- - Sin acceso
+   - Lectura
+   - Sin acceso
+   - Sin acceso
+   - Sin acceso
 
 ---------------------------
 6. Procedimientos de Manejo
@@ -244,13 +244,13 @@ Ante divulgación no autorizada de información clasificada:
  :header-rows: 1
 
  * - Documento
- - Referencia
+   - Referencia
  * - Identidad del Proyecto
- - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`META_01_Identidad_Proyecto`
  * - Política Corporativa de Seguridad
- - (Documento externo al sistema IACT)
+   - (Documento externo al sistema IACT)
  * - Roles y Responsabilidades IACT
- - (Documento externo al sistema IACT)
+   - (Documento externo al sistema IACT)
 
 --------------------
 Historial de Cambios
@@ -261,13 +261,13 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - PMO IACT
- - Versión inicial aprobada
+   - 2025-12-18
+   - PMO IACT
+   - Versión inicial aprobada
 
 ----
 

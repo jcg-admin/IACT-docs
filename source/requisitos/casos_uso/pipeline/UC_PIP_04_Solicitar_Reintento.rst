@@ -19,23 +19,23 @@ UC_PIP_04: Solicitar Reintento
  :header-rows: 0
 
  * - **ID**
- - UC_PIP_04
+   - UC_PIP_04
  * - **Nombre**
- - Solicitar Reintento
+   - Solicitar Reintento
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Actor Secundario**
- - Sistema (ejecuta reintento)
+   - Sistema (ejecuta reintento)
  * - **Modulo**
- - MOD_Pipeline
+   - MOD_Pipeline
  * - **Funcion RBAC**
- - PIP-004: solicita_reintento_etl
+   - PIP-004: solicita_reintento_etl
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-PIP-004
+   - BRQ-PIP-004
 
 2. Descripcion
 --------------
@@ -96,13 +96,13 @@ un fallo o para llenar gaps detectados.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion PIP-004
+   - El administrador tiene sesion activa con funcion PIP-004
  * - PRE-02
- - No hay un reintento en curso para las mismas fechas
+   - No hay un reintento en curso para las mismas fechas
  * - PRE-03
- - Las fechas solicitadas estan dentro del rango permitido (max 2 anios)
+   - Las fechas solicitadas estan dentro del rango permitido (max 2 anios)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -119,13 +119,13 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se crea registro de solicitud de reintento
+   - Se crea registro de solicitud de reintento
  * - POST-02
- - El reintento se encola para ejecucion
+   - El reintento se encola para ejecucion
  * - POST-03
- - Se registra RETRY_REQUEST en auditoria (CNST_025)
+   - Se registra RETRY_REQUEST en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -135,44 +135,44 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede a solicitar reintento
+   - Admin
+   - Accede a solicitar reintento
  * - 2
- - Sistema
- - Valida funcion PIP-004
+   - Sistema
+   - Valida funcion PIP-004
  * - 3
- - Admin
- - Selecciona fecha o rango de fechas
+   - Admin
+   - Selecciona fecha o rango de fechas
  * - 4
- - Sistema
- - Valida que fechas esten en rango permitido
+   - Sistema
+   - Valida que fechas esten en rango permitido
  * - 5
- - Sistema
- - Verifica que no haya reintento en curso
+   - Sistema
+   - Verifica que no haya reintento en curso
  * - 6
- - Admin
- - Ingresa justificacion (obligatoria)
+   - Admin
+   - Ingresa justificacion (obligatoria)
  * - 7
- - Admin
- - Confirma solicitud
+   - Admin
+   - Confirma solicitud
  * - 8
- - Sistema
- - Crea registro de solicitud de reintento
+   - Sistema
+   - Crea registro de solicitud de reintento
  * - 9
- - Sistema
- - Encola reintento para ejecucion asincrona
+   - Sistema
+   - Encola reintento para ejecucion asincrona
  * - 10
- - Sistema
- - Registra RETRY_REQUEST en auditoria
+   - Sistema
+   - Registra RETRY_REQUEST en auditoria
  * - 11
- - Sistema
- - Muestra confirmacion con ID de solicitud
+   - Sistema
+   - Muestra confirmacion con ID de solicitud
  * - 12
- - Sistema
- - El ETL se ejecuta asincronamente
+   - Sistema
+   - El ETL se ejecuta asincronamente
 
 6. Diagrama de Secuencia
 ------------------------
@@ -245,17 +245,17 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Admin
- - Selecciona una sola fecha
+   - Admin
+   - Selecciona una sola fecha
  * - 4a
- - Sistema
- - Valida fecha
+   - Sistema
+   - Valida fecha
  * - 5a
- - Sistema
- - Procede con flujo normal
+   - Sistema
+   - Procede con flujo normal
 
 7.2 FA-02: Desde Consulta de Errores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -265,17 +265,17 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Admin
- - Hace clic en Reintentar desde lista de errores
+   - Admin
+   - Hace clic en Reintentar desde lista de errores
  * - 3a
- - Sistema
- - Pre-selecciona fecha del error
+   - Sistema
+   - Pre-selecciona fecha del error
  * - 6a
- - Sistema
- - Pre-llena justificacion: Reintento por error ID X
+   - Sistema
+   - Pre-llena justificacion: Reintento por error ID X
 
 8. Excepciones
 --------------
@@ -288,15 +288,15 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion PIP-004
+   - Usuario no tiene funcion PIP-004
  * - **Accion Sistema**
- - Rechaza solicitud
+   - Rechaza solicitud
  * - **Mensaje Usuario**
- - No tiene permisos para solicitar reintentos
+   - No tiene permisos para solicitar reintentos
  * - **Codigo Error**
- - PIP-030
+   - PIP-030
 
 8.2 EX-02: Reintento en Curso
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -306,15 +306,15 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Ya existe reintento pendiente para las fechas
+   - Ya existe reintento pendiente para las fechas
  * - **Accion Sistema**
- - Rechaza solicitud
+   - Rechaza solicitud
  * - **Mensaje Usuario**
- - Ya existe un reintento en curso para estas fechas
+   - Ya existe un reintento en curso para estas fechas
  * - **Codigo Error**
- - PIP-031
+   - PIP-031
 
 8.3 EX-03: Fechas Fuera de Rango
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -324,15 +324,15 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - Fechas mayores a 2 anios
+   - Fechas mayores a 2 anios
  * - **Accion Sistema**
- - Rechaza solicitud
+   - Rechaza solicitud
  * - **Mensaje Usuario**
- - Solo se pueden reintentar datos de los ultimos 2 anios
+   - Solo se pueden reintentar datos de los ultimos 2 anios
  * - **Codigo Error**
- - PIP-032
+   - PIP-032
 
 8.4 EX-04: Sin Justificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -342,15 +342,15 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - Campo justificacion vacio
+   - Campo justificacion vacio
  * - **Accion Sistema**
- - Rechaza solicitud
+   - Rechaza solicitud
  * - **Mensaje Usuario**
- - Justificacion es obligatoria
+   - Justificacion es obligatoria
  * - **Codigo Error**
- - PIP-033
+   - PIP-033
 
 9. Diagrama de Actividad
 ------------------------
@@ -400,20 +400,20 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-PIP-30
- - Rango Maximo
- - Solo se pueden reintentar datos de los ultimos 2 anios
+   - Rango Maximo
+   - Solo se pueden reintentar datos de los ultimos 2 anios
  * - BR-PIP-31
- - Sin Duplicados
- - No puede haber dos reintentos en curso para las mismas fechas
+   - Sin Duplicados
+   - No puede haber dos reintentos en curso para las mismas fechas
  * - BR-PIP-32
- - Justificacion Obligatoria
- - Todo reintento requiere justificacion para auditoria
+   - Justificacion Obligatoria
+   - Todo reintento requiere justificacion para auditoria
  * - BR-PIP-33
- - Ejecucion Asincrona
- - El reintento se encola y ejecuta asincronamente
+   - Ejecucion Asincrona
+   - El reintento se encola y ejecuta asincronamente
 
 **Estados de Solicitud de Reintento:**
 
@@ -422,17 +422,17 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - Estado
- - Descripcion
+   - Descripcion
  * - PENDING
- - Solicitud creada, esperando en cola
+   - Solicitud creada, esperando en cola
  * - RUNNING
- - Reintento en ejecucion
+   - Reintento en ejecucion
  * - COMPLETED
- - Reintento completado exitosamente
+   - Reintento completado exitosamente
  * - FAILED
- - Reintento fallo
+   - Reintento fallo
  * - CANCELLED
- - Reintento cancelado por admin
+   - Reintento cancelado por admin
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -442,14 +442,14 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - El reintento lee de IVR (readonly) y escribe en Analytics. La solicitud se almacena en Analytics.
+   - BD Dual
+   - El reintento lee de IVR (readonly) y escribe en Analytics. La solicitud se almacena en Analytics.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra RETRY_REQUEST con fechas, justificacion, admin solicitante y resultado.
+   - Auditoria Inmutable
+   - Se registra RETRY_REQUEST con fechas, justificacion, admin solicitante y resultado.
 
 **Implementacion CNST_025:**
 
@@ -478,20 +478,20 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-PIP-030
- - El sistema debe permitir solicitar reintento por fecha
- - Solicitud creada con fecha especifica
+   - El sistema debe permitir solicitar reintento por fecha
+   - Solicitud creada con fecha especifica
  * - FR-PIP-031
- - El sistema debe validar rango de 2 anios
- - Rechazo si fechas fuera de rango
+   - El sistema debe validar rango de 2 anios
+   - Rechazo si fechas fuera de rango
  * - FR-PIP-032
- - El sistema debe requerir justificacion
- - Campo obligatorio no vacio
+   - El sistema debe requerir justificacion
+   - Campo obligatorio no vacio
  * - FR-PIP-033
- - El sistema debe ejecutar reintento asincronamente
- - Respuesta 202 Accepted inmediata
+   - El sistema debe ejecutar reintento asincronamente
+   - Respuesta 202 Accepted inmediata
 
 13. Trazabilidad
 ----------------
@@ -501,17 +501,17 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-PIP-004: Permitir solicitud de reintentos ETL
+   - BRQ-PIP-004: Permitir solicitud de reintentos ETL
  * - **Reglas de Negocio**
- - BR-PIP-30 a BR-PIP-33
+   - BR-PIP-30 a BR-PIP-33
  * - **Restricciones**
- - CNST_007, CNST_025
+   - CNST_007, CNST_025
  * - **UC Relacionados**
- - UC_PIP_01, UC_PIP_02, UC_PIP_03
+   - UC_PIP_01, UC_PIP_02, UC_PIP_03
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
- - PIP-004: solicita_reintento_etl
+   - PIP-004: solicita_reintento_etl
 
 14. Historial de Cambios
 ------------------------
@@ -521,10 +521,10 @@ El administrador solicita reintento desde errores o disponibilidad.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

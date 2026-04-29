@@ -179,20 +179,20 @@ Visualizar graficamente los actores y sus relaciones en el UC.
  :widths: 25 25 50
 
  * - Actor 1
- - Actor 2
- - Relacion
+   - Actor 2
+   - Relacion
  * - Supervisor
- - Analista
- - Supervisor es jefe jerarquico de Analista
+   - Analista
+   - Supervisor es jefe jerarquico de Analista
  * - Supervisor
- - Sistema IACT
- - Supervisor usa sistema para aprobar
+   - Sistema IACT
+   - Supervisor usa sistema para aprobar
  * - Sistema IACT
- - Sistema Analytics
- - Sistema IACT consulta datos de Analytics
+   - Sistema Analytics
+   - Sistema IACT consulta datos de Analytics
  * - Analista
- - Sistema IACT
- - Analista solicito consulta original
+   - Sistema IACT
+   - Analista solicito consulta original
 
 ----------------------------------------------------------------------
 2. TABLA DE RESPONSABILIDADES
@@ -209,13 +209,13 @@ Documentar detalladamente que hace cada actor en el UC.
  :widths: 20 15 40 25
 
  * - Actor
- - Tipo
- - Responsabilidades
- - Pasos donde Participa
+   - Tipo
+   - Responsabilidades
+   - Pasos donde Participa
  * - Nombre Actor
- - Principal|Secundario
- - Lista de responsabilidades
- - Paso N, Paso M
+   - Principal|Secundario
+   - Lista de responsabilidades
+   - Paso N, Paso M
 
 **EJEMPLO COMPLETO (UC-RPT-02):**
 
@@ -224,33 +224,33 @@ Documentar detalladamente que hace cada actor en el UC.
  :widths: 20 15 40 25
 
  * - Actor
- - Tipo
- - Responsabilidades
- - Pasos
+   - Tipo
+   - Responsabilidades
+   - Pasos
  * - Supervisor de Area
- - Principal
- - - Revisar solicitud de consulta grande
- - Evaluar si la consulta es necesaria
- - Aprobar o rechazar solicitud
- - Proporcionar justificacion si rechaza
- - Paso 3-7
+   - Principal
+   - - Revisar solicitud de consulta grande
+   - Evaluar si la consulta es necesaria
+   - Aprobar o rechazar solicitud
+   - Proporcionar justificacion si rechaza
+   - Paso 3-7
  * - Analista de Operaciones
- - Secundario
- - - Origino la solicitud en UC-RPT-01
- - Recibe notificacion de resultado
- - Puede ver reporte si fue aprobado
- - Paso 1 (contexto), Paso 10
+   - Secundario
+   - - Origino la solicitud en UC-RPT-01
+   - Recibe notificacion de resultado
+   - Puede ver reporte si fue aprobado
+   - Paso 1 (contexto), Paso 10
  * - Sistema Analytics
- - Secundario
- - - Proveer datos de llamadas IVR
- - Ejecutar query principal si aprobada
- - Retornar dataset con metricas
- - Paso 8-9
+   - Secundario
+   - - Proveer datos de llamadas IVR
+   - Ejecutar query principal si aprobada
+   - Retornar dataset con metricas
+   - Paso 8-9
  * - Servicio de Email
- - Secundario
- - - Enviar email a Supervisor cuando hay solicitud
- - Enviar email a Analista con resultado
- - Paso 2, Paso 10
+   - Secundario
+   - - Enviar email a Supervisor cuando hay solicitud
+   - Enviar email a Analista con resultado
+   - Paso 2, Paso 10
 
 **Detalle de Responsabilidades por Actor:**
 

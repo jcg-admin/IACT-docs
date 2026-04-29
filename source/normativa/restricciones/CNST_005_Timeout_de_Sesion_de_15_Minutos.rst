@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_005
+   - CNST_005
  * - **Categoria**
- - Sesiones
+   - Sesiones
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -95,9 +95,9 @@ compartidas. Alineado con politicas tipicas de sistemas con datos PII.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Auth
- - Configuracion de timeouts en settings
+   - Configuracion de timeouts en settings
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,11 +107,11 @@ compartidas. Alineado con politicas tipicas de sistemas con datos PII.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_001
- - Iniciar Sesion
+   - Iniciar Sesion
  * - UC_005
- - Gestion de Sesiones
+   - Gestion de Sesiones
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,15 +185,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_003_Sesiones_Persistidas_en_Base_de_Datos`, :doc:`CNST_004_Sesion_Unica_por_Usuario`
+   - :doc:`CNST_003_Sesiones_Persistidas_en_Base_de_Datos`, :doc:`CNST_004_Sesion_Unica_por_Usuario`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_001, UC_005
+   - UC_001, UC_005
  * - **MODs afectados**
- - MOD_Auth
+   - MOD_Auth
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -203,15 +203,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

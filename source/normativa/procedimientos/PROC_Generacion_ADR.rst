@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_ADR
+   - PROC_Generacion_ADR
  * - **Nombre**
- - Generacion de Decisiones Arquitectonicas
+   - Generacion de Decisiones Arquitectonicas
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 30-60 minutos por ADR
+   - 30-60 minutos por ADR
 
 ----
 
@@ -166,11 +166,11 @@ Impacto positivo y negativo:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

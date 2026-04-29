@@ -22,19 +22,19 @@ FR-009.04: Mostrar indicador de inactividad
  :widths: 25 75
 
  * - **ID**
- - FR-009.04
+   - FR-009.04
  * - **Nombre**
- - Mostrar indicador visual de usuarios inactivos
+   - Mostrar indicador visual de usuarios inactivos
  * - **UC Origen**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Paso UC**
- - Paso 3 del flujo normal
+   - Paso 3 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Interfaz
+   - Interfaz
 
 ----
 
@@ -129,17 +129,17 @@ también por forma/texto para usuarios con daltonismo.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Depende de**
- - FR-009.01
+   - FR-009.01
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **BR**
- - BR_003
+   - BR_003
  * - **TEST**
- - TST-FR-009.04 (pendiente)
+   - TST-FR-009.04 (pendiente)
 
 ----
 
@@ -151,8 +151,8 @@ también por forma/texto para usuarios con daltonismo.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_009
+   - 2026-01-07
+   - Versión inicial derivada de UC_009

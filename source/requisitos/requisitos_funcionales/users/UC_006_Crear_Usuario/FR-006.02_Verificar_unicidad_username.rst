@@ -22,19 +22,19 @@ FR-006.02: Verificar unicidad de username
  :widths: 25 75
 
  * - **ID**
- - FR-006.02
+   - FR-006.02
  * - **Nombre**
- - Verificar que el username no exista en el sistema
+   - Verificar que el username no exista en el sistema
  * - **UC Origen**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Paso UC**
- - Paso 6 del flujo normal
+   - Paso 6 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -119,17 +119,17 @@ normalizado (lowercase) para garantizar unicidad a nivel de BD.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Depende de**
- - FR-006.01
+   - FR-006.01
  * - **Requerido por**
- - FR-006.03
+   - FR-006.03
  * - **BR**
- - BR_013
+   - BR_013
  * - **TEST**
- - TST-FR-006.02 (pendiente)
+   - TST-FR-006.02 (pendiente)
 
 ----
 
@@ -141,8 +141,8 @@ normalizado (lowercase) para garantizar unicidad a nivel de BD.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_006
+   - 2026-01-07
+   - Versión inicial derivada de UC_006

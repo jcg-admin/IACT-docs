@@ -89,20 +89,20 @@ Roles y Responsabilidades
  :widths: 25 75
 
  * - Rol
- - Responsabilidades
+   - Responsabilidades
  * - **Tech Lead del Dominio**
- - Aprobar plan de reorganización; validar estructura propuesta;
- comunicar al equipo
+   - Aprobar plan de reorganización; validar estructura propuesta;
+     comunicar al equipo
  * - **Arquitecto de Software**
- - Revisar decisiones arquitectónicas (ADRs); validar trazabilidad
- técnica
+   - Revisar decisiones arquitectónicas (ADRs); validar trazabilidad
+     técnica
  * - **Quality Assurance**
- - Ejecutar validaciones FASE 4; verificar cumplimiento de estándares
+   - Ejecutar validaciones FASE 4; verificar cumplimiento de estándares
  * - **Agente de IA Especializado**
- - Crear análisis QA inicial; generar tareas detalladas; ejecutar
- fases con evidencias
+   - Crear análisis QA inicial; generar tareas detalladas; ejecutar
+     fases con evidencias
  * - **Equipo de Gobernanza**
- - Proporcionar plantillas y estándares; revisar conformidad
+   - Proporcionar plantillas y estándares; revisar conformidad
 
 Flujo del Proceso
 -----------------

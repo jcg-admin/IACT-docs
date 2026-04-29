@@ -449,50 +449,50 @@ Cada POL DEBE incluir minimo estas 13 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, aprobador, fecha
+   - Resumen Ejecutivo
+   - ID, nombre, aprobador, fecha
  * - 1
- - Declaracion
- - Enunciado formal de la politica
+   - Declaracion
+   - Enunciado formal de la politica
  * - 2
- - Proposito
- - Por que existe
+   - Proposito
+   - Por que existe
  * - 3
- - Alcance
- - Donde aplica y donde no
+   - Alcance
+   - Donde aplica y donde no
  * - 4
- - Principios
- - Principios rectores
+   - Principios
+   - Principios rectores
  * - 5
- - Directrices
- - Guias por area
+   - Directrices
+   - Guias por area
  * - 6
- - Roles y Responsabilidades
- - Quien es responsable de que
+   - Roles y Responsabilidades
+   - Quien es responsable de que
  * - 7
- - Implementacion
- - STD y PROC asociados
+   - Implementacion
+   - STD y PROC asociados
  * - 8
- - Cumplimiento
- - Monitoreo, metricas, incumplimiento
+   - Cumplimiento
+   - Monitoreo, metricas, incumplimiento
  * - 9
- - Excepciones
- - Proceso y excepciones vigentes
+   - Excepciones
+   - Proceso y excepciones vigentes
  * - 10
- - Revision
- - Frecuencia y disparadores
+   - Revision
+   - Frecuencia y disparadores
  * - 11
- - Trazabilidad
- - STD, PROC, BR, CNST relacionados
+   - Trazabilidad
+   - STD, PROC, BR, CNST relacionados
  * - 12
- - Referencias
- - Documentacion externa
+   - Referencias
+   - Documentacion externa
  * - 13
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -541,10 +541,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla POL
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla POL

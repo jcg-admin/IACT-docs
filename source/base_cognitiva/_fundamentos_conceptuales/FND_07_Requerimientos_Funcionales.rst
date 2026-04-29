@@ -51,15 +51,15 @@ comportamiento o funcion que el sistema debe proveer.
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - **Precision**
- - Sin ambiguedad, una sola interpretacion posible
+   - Sin ambiguedad, una sola interpretacion posible
  * - **Verificabilidad**
- - Se puede probar si se cumple o no (binario)
+   - Se puede probar si se cumple o no (binario)
  * - **Atomicidad**
- - Una sola capacidad por FR
+   - Una sola capacidad por FR
  * - **Independencia**
- - Verificable sin depender de secuencia
+   - Verificable sin depender de secuencia
 
 1.3 Nivel de Abstraccion
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -277,17 +277,17 @@ El FR debe estar asignado a un release especifico.
  :widths: 30 70
 
  * - Palabra Prohibida
- - Alternativa
+   - Alternativa
  * - "Y/O"
- - Separar en FR distintos
+   - Separar en FR distintos
  * - "Etc."
- - Listar todos los casos
+   - Listar todos los casos
  * - "Adecuado", "suficiente"
- - Especificar cantidad exacta
+   - Especificar cantidad exacta
  * - "Rapido", "lento"
- - Especificar tiempo en segundos
+   - Especificar tiempo en segundos
  * - "Normal", "tipico"
- - Definir explicitamente
+   - Definir explicitamente
 
 4.3 Un Requerimiento, Una Oracion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -596,13 +596,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

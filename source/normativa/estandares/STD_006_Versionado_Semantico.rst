@@ -78,17 +78,17 @@ Este estándar aplica a:
  :header-rows: 1
 
  * - Componente
- - Cuándo Incrementar
- - Efecto en Otros
+   - Cuándo Incrementar
+   - Efecto en Otros
  * - **MAJOR**
- - Cambios incompatibles o ruptura de estructura
- - MINOR y PATCH se reinician a 0
+   - Cambios incompatibles o ruptura de estructura
+   - MINOR y PATCH se reinician a 0
  * - **MINOR**
- - Nueva funcionalidad compatible hacia atrás
- - PATCH se reinicia a 0
+   - Nueva funcionalidad compatible hacia atrás
+   - PATCH se reinicia a 0
  * - **PATCH**
- - Correcciones de errores, ajustes menores, typos
- - No afecta a otros componentes
+   - Correcciones de errores, ajustes menores, typos
+   - No afecta a otros componentes
 
 4.1 Incremento de MAJOR
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -232,32 +232,32 @@ Todo artefacto debe incluir una sección de historial con:
  :header-rows: 1
 
  * - Versión
- - Tipo Cambio
- - Descripción
+   - Tipo Cambio
+   - Descripción
  * - v2.0.0
- - MAJOR
- - Reestructuración completa del modelo
+   - MAJOR
+   - Reestructuración completa del modelo
  * - v2.0.3
- - PATCH
- - Añadido subdominio modulos/, nomenclatura Clean Code
+   - PATCH
+   - Añadido subdominio modulos/, nomenclatura Clean Code
  * - v2.0.4
- - PATCH
- - Añadido nivel BReq
+   - PATCH
+   - Añadido nivel BReq
  * - v2.0.5
- - PATCH
- - Nueva nomenclatura UC: UC_MOD_NN
+   - PATCH
+   - Nueva nomenclatura UC: UC_MOD_NN
  * - v2.0.6
- - PATCH
- - Integración MODELO RBAC v5.2.x
+   - PATCH
+   - Integración MODELO RBAC v5.2.x
  * - v2.0.7
- - PATCH
- - Generación 49 UC completos
+   - PATCH
+   - Generación 49 UC completos
  * - v2.0.8
- - PATCH
- - Consolidación final UC v4.0
+   - PATCH
+   - Consolidación final UC v4.0
  * - v2.1.0
- - MINOR
- - Inicio generación FR (55 FR nuevos)
+   - MINOR
+   - Inicio generación FR (55 FR nuevos)
 
 7.2 Decisión de Versionado: Caso Real
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -334,8 +334,8 @@ Checklist para revisores:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial del estándar de versionado semántico
+   - 2026-01-07
+   - Versión inicial del estándar de versionado semántico

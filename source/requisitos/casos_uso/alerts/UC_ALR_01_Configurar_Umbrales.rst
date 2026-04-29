@@ -19,21 +19,21 @@ UC_ALR_01: Configurar Umbrales
  :header-rows: 0
 
  * - **ID**
- - UC_ALR_01
+   - UC_ALR_01
  * - **Nombre**
- - Configurar Umbrales
+   - Configurar Umbrales
  * - **Actor Principal**
- - AGR-005: agr_gestor_alertas
+   - AGR-005: agr_gestor_alertas
  * - **Modulo**
- - MOD_Alerts
+   - MOD_Alerts
  * - **Funcion RBAC**
- - ALR-001: configura_umbrales
+   - ALR-001: configura_umbrales
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-ALR-001
+   - BRQ-ALR-001
 
 2. Descripcion
 --------------
@@ -95,13 +95,13 @@ se registran en auditoria (CNST_025).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion ALR-001
+   - El usuario tiene sesion activa con funcion ALR-001
  * - PRE-02
- - Existen metricas definidas en el sistema
+   - Existen metricas definidas en el sistema
  * - PRE-03
- - El usuario tiene acceso al segmento destino
+   - El usuario tiene acceso al segmento destino
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -118,13 +118,13 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El umbral queda configurado y activo
+   - El umbral queda configurado y activo
  * - POST-02
- - Se registra THRESHOLD_CONFIG en auditoria (CNST_025)
+   - Se registra THRESHOLD_CONFIG en auditoria (CNST_025)
  * - POST-03
- - El motor de alertas usa los nuevos valores
+   - El motor de alertas usa los nuevos valores
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -134,47 +134,47 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Gestor
- - Accede a configuracion de umbrales
+   - Gestor
+   - Accede a configuracion de umbrales
  * - 2
- - Sistema
- - Valida funcion ALR-001
+   - Sistema
+   - Valida funcion ALR-001
  * - 3
- - Sistema
- - Muestra umbrales existentes del segmento
+   - Sistema
+   - Muestra umbrales existentes del segmento
  * - 4
- - Gestor
- - Selecciona metrica a configurar
+   - Gestor
+   - Selecciona metrica a configurar
  * - 5
- - Sistema
- - Muestra formulario de configuracion
+   - Sistema
+   - Muestra formulario de configuracion
  * - 6
- - Gestor
- - Define valor de advertencia (warning)
+   - Gestor
+   - Define valor de advertencia (warning)
  * - 7
- - Gestor
- - Define valor critico (critical)
+   - Gestor
+   - Define valor critico (critical)
  * - 8
- - Gestor
- - Selecciona segmento destino
+   - Gestor
+   - Selecciona segmento destino
  * - 9
- - Gestor
- - Guarda configuracion
+   - Gestor
+   - Guarda configuracion
  * - 10
- - Sistema
- - Valida que critico > advertencia
+   - Sistema
+   - Valida que critico > advertencia
  * - 11
- - Sistema
- - Guarda umbral en base de datos
+   - Sistema
+   - Guarda umbral en base de datos
  * - 12
- - Sistema
- - Registra THRESHOLD_CONFIG en auditoria
+   - Sistema
+   - Registra THRESHOLD_CONFIG en auditoria
  * - 13
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -239,17 +239,17 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Gestor
- - Selecciona umbral existente de la lista
+   - Gestor
+   - Selecciona umbral existente de la lista
  * - 5a
- - Sistema
- - Carga valores actuales en formulario
+   - Sistema
+   - Carga valores actuales en formulario
  * - 11a
- - Sistema
- - Actualiza registro existente (UPDATE)
+   - Sistema
+   - Actualiza registro existente (UPDATE)
 
 7.2 FA-02: Desactivar Umbral
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,17 +259,17 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Gestor
- - Selecciona umbral y marca como inactivo
+   - Gestor
+   - Selecciona umbral y marca como inactivo
  * - 11a
- - Sistema
- - Actualiza estado a INACTIVE
+   - Sistema
+   - Actualiza estado a INACTIVE
  * - 12a
- - Sistema
- - Registra THRESHOLD_DISABLED en auditoria
+   - Sistema
+   - Registra THRESHOLD_DISABLED en auditoria
 
 7.3 FA-03: Copiar Umbral a Otro Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,17 +279,17 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Gestor
- - Selecciona umbral y opcion Copiar
+   - Gestor
+   - Selecciona umbral y opcion Copiar
  * - 8a
- - Gestor
- - Selecciona segmento destino diferente
+   - Gestor
+   - Selecciona segmento destino diferente
  * - 11a
- - Sistema
- - Crea nuevo umbral en segmento destino
+   - Sistema
+   - Crea nuevo umbral en segmento destino
 
 8. Excepciones
 --------------
@@ -302,15 +302,15 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Valor critico menor o igual a valor de advertencia
+   - Valor critico menor o igual a valor de advertencia
  * - **Accion Sistema**
- - Rechaza configuracion con mensaje de error
+   - Rechaza configuracion con mensaje de error
  * - **Mensaje Usuario**
- - El valor critico debe ser mayor que el valor de advertencia
+   - El valor critico debe ser mayor que el valor de advertencia
  * - **Codigo Error**
- - ALR-001
+   - ALR-001
 
 8.2 EX-02: Sin Permiso ALR-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -320,15 +320,15 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion ALR-001 asignada
+   - Usuario no tiene funcion ALR-001 asignada
  * - **Accion Sistema**
- - Rechaza acceso al modulo
+   - Rechaza acceso al modulo
  * - **Mensaje Usuario**
- - No tiene permisos para configurar umbrales de alertas
+   - No tiene permisos para configurar umbrales de alertas
  * - **Codigo Error**
- - ALR-002
+   - ALR-002
 
 8.3 EX-03: Umbral Duplicado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -338,15 +338,15 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 11
+   - 11
  * - **Condicion**
- - Ya existe umbral activo para metrica y segmento
+   - Ya existe umbral activo para metrica y segmento
  * - **Accion Sistema**
- - Rechaza creacion
+   - Rechaza creacion
  * - **Mensaje Usuario**
- - Ya existe un umbral para esta metrica en el segmento
+   - Ya existe un umbral para esta metrica en el segmento
  * - **Codigo Error**
- - ALR-003
+   - ALR-003
 
 9. Diagrama de Actividad
 ------------------------
@@ -403,20 +403,20 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ALR-01
- - Jerarquia de Valores
- - El valor critico siempre debe ser mayor que el valor de advertencia
+   - Jerarquia de Valores
+   - El valor critico siempre debe ser mayor que el valor de advertencia
  * - BR-ALR-02
- - Umbral por Segmento
- - Cada segmento puede tener umbrales diferentes para la misma metrica
+   - Umbral por Segmento
+   - Cada segmento puede tener umbrales diferentes para la misma metrica
  * - BR-ALR-03
- - Unicidad
- - Solo puede existir un umbral activo por metrica por segmento
+   - Unicidad
+   - Solo puede existir un umbral activo por metrica por segmento
  * - BR-ALR-04
- - Valores Positivos
- - Los valores de umbral deben ser numeros positivos
+   - Valores Positivos
+   - Los valores de umbral deben ser numeros positivos
 
 **Metricas y Unidades:**
 
@@ -425,23 +425,23 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Metrica
- - Unidad
- - Descripcion
+   - Unidad
+   - Descripcion
  * - TMO
- - Segundos
- - Tiempo Medio de Operacion por llamada
+   - Segundos
+   - Tiempo Medio de Operacion por llamada
  * - ABANDONO
- - Porcentaje
- - Tasa de llamadas abandonadas (0-100)
+   - Porcentaje
+   - Tasa de llamadas abandonadas (0-100)
  * - ESPERA
- - Segundos
- - Tiempo promedio de espera en cola
+   - Segundos
+   - Tiempo promedio de espera en cola
  * - NIVEL_SERVICIO
- - Porcentaje
- - Llamadas atendidas en tiempo objetivo
+   - Porcentaje
+   - Llamadas atendidas en tiempo objetivo
  * - OCUPACION
- - Porcentaje
- - Tiempo de agentes en llamada vs disponible
+   - Porcentaje
+   - Tiempo de agentes en llamada vs disponible
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -451,14 +451,14 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_008
- - Segmentos de Datos
- - Umbrales se configuran por segmento. El gestor solo puede configurar umbrales para segmentos a los que tiene acceso.
+   - Segmentos de Datos
+   - Umbrales se configuran por segmento. El gestor solo puede configurar umbrales para segmentos a los que tiene acceso.
  * - CNST_025
- - Auditoria Inmutable
- - Todo cambio de umbral se registra en UserActionLog con valores anteriores y nuevos.
+   - Auditoria Inmutable
+   - Todo cambio de umbral se registra en UserActionLog con valores anteriores y nuevos.
 
 **Estructura de Auditoria (CNST_025):**
 
@@ -488,20 +488,20 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ALR-001
- - El sistema debe permitir configurar umbrales por metrica
- - Formulario funcional con validacion de valores
+   - El sistema debe permitir configurar umbrales por metrica
+   - Formulario funcional con validacion de valores
  * - FR-ALR-002
- - El sistema debe validar jerarquia de valores
- - Rechazo automatico si critico <= advertencia
+   - El sistema debe validar jerarquia de valores
+   - Rechazo automatico si critico <= advertencia
  * - FR-ALR-003
- - El sistema debe auditar todos los cambios
- - Registro con valores anteriores y nuevos en auditoria
+   - El sistema debe auditar todos los cambios
+   - Registro con valores anteriores y nuevos en auditoria
  * - FR-ALR-004
- - El sistema debe aplicar umbrales por segmento
- - Motor de alertas usa umbrales del segmento correspondiente
+   - El sistema debe aplicar umbrales por segmento
+   - Motor de alertas usa umbrales del segmento correspondiente
 
 13. Trazabilidad
 ----------------
@@ -511,17 +511,17 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ALR-001: Configurar umbrales de alertas por metrica
+   - BRQ-ALR-001: Configurar umbrales de alertas por metrica
  * - **Reglas de Negocio**
- - BR-ALR-01 a BR-ALR-04
+   - BR-ALR-01 a BR-ALR-04
  * - **Restricciones**
- - CNST_008 (Segmentos), CNST_025 (Auditoria)
+   - CNST_008 (Segmentos), CNST_025 (Auditoria)
  * - **UC Relacionados**
- - UC_ALR_02 (Ver Alertas), UC_ALR_03 (Reconocer)
+   - UC_ALR_02 (Ver Alertas), UC_ALR_03 (Reconocer)
  * - **Actor Principal**
- - AGR-005: agr_gestor_alertas
+   - AGR-005: agr_gestor_alertas
  * - **Funcion RBAC**
- - ALR-001: configura_umbrales
+   - ALR-001: configura_umbrales
 
 14. Historial de Cambios
 ------------------------
@@ -531,10 +531,10 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_008 y CNST_025
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_008 y CNST_025

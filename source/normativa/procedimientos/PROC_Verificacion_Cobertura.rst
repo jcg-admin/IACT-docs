@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Verificacion_Cobertura
+   - PROC_Verificacion_Cobertura
  * - **Nombre**
- - Verificacion de Cobertura de Requisitos
+   - Verificacion de Cobertura de Requisitos
  * - **Categoria**
- - Trazabilidad
+   - Trazabilidad
  * - **Frecuencia**
- - Semanal o por milestone
+   - Semanal o por milestone
  * - **Duracion**
- - 30-60 minutos
+   - 30-60 minutos
 
 ----
 
@@ -61,23 +61,23 @@ inferiores de la jerarquia (derivacion) y superiores (trazabilidad).
  :header-rows: 1
 
  * - RTM
- - Objetivo
- - Minimo Aceptable
+   - Objetivo
+   - Minimo Aceptable
  * - BReq -> BR
- - 100%
- - 95%
+   - 100%
+   - 95%
  * - BR -> UC
- - 100%
- - 95%
+   - 100%
+   - 95%
  * - UC -> FR
- - 100%
- - 100%
+   - 100%
+   - 100%
  * - FR -> TST
- - 100%
- - 90%
+   - 100%
+   - 90%
  * - FR -> CODE
- - 100%
- - 80%
+   - 100%
+   - 80%
 
 ----
 
@@ -130,25 +130,25 @@ Listar artefactos destino sin origen:
  :header-rows: 1
 
  * - RTM
- - Cobertura
- - Gaps
- - Estado
+   - Cobertura
+   - Gaps
+   - Estado
  * - BReq_BR
- - 100%
- - 0
- - OK
+   - 100%
+   - 0
+   - OK
  * - BR_UC
- - 100%
- - 0
- - OK
+   - 100%
+   - 0
+   - OK
  * - UC_FR
- - 100%
- - 0
- - OK
+   - 100%
+   - 0
+   - OK
  * - FR_TST
- - 98.7%
- - 2
- - REVISAR
+   - 98.7%
+   - 2
+   - REVISAR
 
 **Paso 6: Plan de Accion**
 
@@ -193,11 +193,11 @@ Para cada gap, definir accion:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

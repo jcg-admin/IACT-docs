@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_STD
+   - PROC_Generacion_STD
  * - **Nombre**
- - Generacion de Estandares
+   - Generacion de Estandares
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada STD a documentar
+   - Por cada STD a documentar
  * - **Duracion Estimada**
- - 45-90 minutos por STD
+   - 45-90 minutos por STD
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -76,14 +76,14 @@ correctos/incorrectos y metodos de verificacion.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Arquitecto
- - Genera STD siguiendo TPL
- - Escritura en estandares/
+   - Genera STD siguiendo TPL
+   - Escritura en estandares/
  * - Equipo Tecnico
- - Valida viabilidad
- - Lectura
+   - Valida viabilidad
+   - Lectura
 
 ----
 
@@ -107,11 +107,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_STD_Estandares_1_0_0.rst
- - Template de STD
- - Si
+   - Template de STD
+   - Si
 
 ----
 
@@ -126,23 +126,23 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Rango
- - Categoria
- - Ejemplos
+   - Categoria
+   - Ejemplos
  * - 001-019
- - Documentacion
- - Estructura docs, nomenclatura, diagramas
+   - Documentacion
+   - Estructura docs, nomenclatura, diagramas
  * - 020-039
- - Codigo
- - Convenciones Python, commits, versionado
+   - Codigo
+   - Convenciones Python, commits, versionado
  * - 040-059
- - Arquitectura
- - Patrones, capas, integracion
+   - Arquitectura
+   - Patrones, capas, integracion
  * - 060-079
- - Pruebas
- - Cobertura, naming, fixtures
+   - Pruebas
+   - Cobertura, naming, fixtures
  * - 080-099
- - Operaciones
- - Deployment, monitoreo, logs
+   - Operaciones
+   - Deployment, monitoreo, logs
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -327,11 +327,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - STD_[NNN]_[Nombre].rst
- - Estandar generado
- - /tmp/estandares/
+   - Estandar generado
+   - /tmp/estandares/
 
 ----
 
@@ -369,11 +369,11 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Regla no verificable
- - Reformular o marcar como recomendacion
+   - Reformular o marcar como recomendacion
  * - Conflicto con otro STD
- - Resolver antes de publicar
+   - Resolver antes de publicar
 
 ----
 
@@ -393,13 +393,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

@@ -49,38 +49,38 @@ Este procedimiento se basa en las siguientes fuentes normativas:
  :widths: 20 50 30
 
  * - Documento
- - Proposito
- - Version
+   - Proposito
+   - Version
  * - DEFINICIONES_OFICIALES
- - Estructura documental, estados, jerarquia
- - v2.0.0
+   - Estructura documental, estados, jerarquia
+   - v2.0.0
  * - ARBOL_COMPLETO
- - Estructura de carpetas y subdominios
- - v2.0.0
+   - Estructura de carpetas y subdominios
+   - v2.0.0
  * - FND_03
- - Estructura de Casos de Uso
- - v1.1.0
+   - Estructura de Casos de Uso
+   - v1.1.0
  * - FND_05
- - Jerarquia 4 Niveles (BR→BReq→UC→FR)
- - v1.0.0
+   - Jerarquia 4 Niveles (BR→BReq→UC→FR)
+   - v1.0.0
  * - FND_06
- - Derivacion vs Transformacion
- - v1.0.0
+   - Derivacion vs Transformacion
+   - v1.0.0
  * - FND_07
- - Requisitos Funcionales SMART
- - v1.0.0
+   - Requisitos Funcionales SMART
+   - v1.0.0
  * - PARTE_1
- - Identificar Reglas de Negocio
- - v2.0
+   - Identificar Reglas de Negocio
+   - v2.0
  * - PARTE_2
- - Transformar BR en UC
- - v2.0
+   - Transformar BR en UC
+   - v2.0
  * - PARTE_3
- - Identificar UC Adicionales
- - v1.0
+   - Identificar UC Adicionales
+   - v1.0
  * - PARTE_4
- - Especificar FR
- - v1.0
+   - Especificar FR
+   - v1.0
 
 ----
 
@@ -92,20 +92,20 @@ Este procedimiento se basa en las siguientes fuentes normativas:
  :widths: 20 30 50
 
  * - Rol
- - Codigo RACI
- - Responsabilidad
+   - Codigo RACI
+   - Responsabilidad
  * - Business Analyst Lead
- - R (Responsible)
- - Ejecuta el procedimiento, crea artefactos
+   - R (Responsible)
+   - Ejecuta el procedimiento, crea artefactos
  * - Product Owner
- - A (Accountable)
- - Aprueba requisitos, valida alineacion negocio
+   - A (Accountable)
+   - Aprueba requisitos, valida alineacion negocio
  * - Arquitecto Documentacion
- - C (Consulted)
- - Valida estructura y formato
+   - C (Consulted)
+   - Valida estructura y formato
  * - PMO
- - I (Informed)
- - Recibe notificacion de cambios
+   - I (Informed)
+   - Recibe notificacion de cambios
 
 ----
 
@@ -210,25 +210,25 @@ antes de derivar reglas de negocio.
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 0.1
- - Ubicar carpeta ``arquitectura_tecnica/restricciones/``
- - BA Lead
- - Ruta confirmada
+   - Ubicar carpeta ``arquitectura_tecnica/restricciones/``
+   - BA Lead
+   - Ruta confirmada
  * - 0.2
- - Verificar existencia de CNST_* aprobados
- - BA Lead
- - Lista de CNST
+   - Verificar existencia de CNST_* aprobados
+   - BA Lead
+   - Lista de CNST
  * - 0.3
- - Revisar que cada CNST tenga: ID, Definicion, Fuente, Justificacion
- - BA Lead
- - Checklist OK
+   - Revisar que cada CNST tenga: ID, Definicion, Fuente, Justificacion
+   - BA Lead
+   - Checklist OK
  * - 0.4
- - Identificar CNST que generaran BR
- - BA Lead
- - Mapeo CNST→BR
+   - Identificar CNST que generaran BR
+   - BA Lead
+   - Mapeo CNST→BR
 
 7.3 Criterio de Salida
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -276,45 +276,45 @@ de restricciones del cliente y politicas organizacionales.
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 1.1
- - Crear carpeta ``requisitos/reglas_negocio/`` si no existe
- - BA Lead
- - Carpeta creada
+   - Crear carpeta ``requisitos/reglas_negocio/`` si no existe
+   - BA Lead
+   - Carpeta creada
  * - 1.2
- - Copiar plantilla ``TPL_Regla_Negocio.rst``
- - BA Lead
- - Archivo base
+   - Copiar plantilla ``TPL_Regla_Negocio.rst``
+   - BA Lead
+   - Archivo base
  * - 1.3
- - Asignar ID secuencial: BR_001, BR_002, ...
- - BA Lead
- - ID unico
+   - Asignar ID secuencial: BR_001, BR_002, ...
+   - BA Lead
+   - ID unico
  * - 1.4
- - Redactar definicion formal (SBVR si aplica)
- - BA Lead
- - Definicion clara
+   - Redactar definicion formal (SBVR si aplica)
+   - BA Lead
+   - Definicion clara
  * - 1.5
- - Clasificar tipo: Restriccion, Desencadenador, Hecho, Calculo
- - BA Lead
- - Tipo asignado
+   - Clasificar tipo: Restriccion, Desencadenador, Hecho, Calculo
+   - BA Lead
+   - Tipo asignado
  * - 1.6
- - Documentar fuente (CNST, politica, regulacion)
- - BA Lead
- - Trazabilidad origen
+   - Documentar fuente (CNST, politica, regulacion)
+   - BA Lead
+   - Trazabilidad origen
  * - 1.7
- - Agregar al index.rst del subdominio
- - BA Lead
- - Index actualizado
+   - Agregar al index.rst del subdominio
+   - BA Lead
+   - Index actualizado
  * - 1.8
- - Solicitar revision de Arquitecto
- - BA Lead
- - Revision solicitada
+   - Solicitar revision de Arquitecto
+   - BA Lead
+   - Revision solicitada
  * - 1.9
- - Incorporar feedback y aprobar
- - PO
- - BR aprobado
+   - Incorporar feedback y aprobar
+   - PO
+   - BR aprobado
 
 8.4 Estructura del Artefacto BR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -394,49 +394,49 @@ el proyecto, derivadas de las reglas de negocio.
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 2.1
- - Crear carpeta ``requisitos/requisitos_negocio/`` si no existe
- - BA Lead
- - Carpeta creada
+   - Crear carpeta ``requisitos/requisitos_negocio/`` si no existe
+   - BA Lead
+   - Carpeta creada
  * - 2.2
- - Identificar necesidades de stakeholders derivadas de BR
- - BA Lead
- - Lista necesidades
+   - Identificar necesidades de stakeholders derivadas de BR
+   - BA Lead
+   - Lista necesidades
  * - 2.3
- - Asignar ID secuencial: BReq_001, BReq_002, ...
- - BA Lead
- - ID unico
+   - Asignar ID secuencial: BReq_001, BReq_002, ...
+   - BA Lead
+   - ID unico
  * - 2.4
- - Redactar enunciado: "El negocio NECESITA que..."
- - BA Lead
- - Enunciado formal
+   - Redactar enunciado: "El negocio NECESITA que..."
+   - BA Lead
+   - Enunciado formal
  * - 2.5
- - Documentar contexto y problema que resuelve
- - BA Lead
- - Justificacion
+   - Documentar contexto y problema que resuelve
+   - BA Lead
+   - Justificacion
  * - 2.6
- - Identificar restricciones aplicables (BR que limitan)
- - BA Lead
- - Lista BR aplicables
+   - Identificar restricciones aplicables (BR que limitan)
+   - BA Lead
+   - Lista BR aplicables
  * - 2.7
- - Definir criterios de exito medibles
- - BA Lead
- - KPIs definidos
+   - Definir criterios de exito medibles
+   - BA Lead
+   - KPIs definidos
  * - 2.8
- - Establecer trazabilidad hacia arriba (BR) y abajo (UC)
- - BA Lead
- - Matriz trazabilidad
+   - Establecer trazabilidad hacia arriba (BR) y abajo (UC)
+   - BA Lead
+   - Matriz trazabilidad
  * - 2.9
- - Agregar al index.rst del subdominio
- - BA Lead
- - Index actualizado
+   - Agregar al index.rst del subdominio
+   - BA Lead
+   - Index actualizado
  * - 2.10
- - Aprobar con PO
- - PO
- - BReq aprobado
+   - Aprobar con PO
+   - PO
+   - BReq aprobado
 
 9.4 Estructura del Artefacto BReq
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -566,73 +566,73 @@ Los UC provienen de multiples fuentes:
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 3.1
- - Crear carpeta ``requisitos/casos_uso/`` si no existe
- - BA Lead
- - Carpeta creada
+   - Crear carpeta ``requisitos/casos_uso/`` si no existe
+   - BA Lead
+   - Carpeta creada
  * - 3.2
- - Inventariar UC de todas las fuentes (BR, CRUD, Larman, UI, Stakeholders)
- - BA Lead
- - Lista completa UC
+   - Inventariar UC de todas las fuentes (BR, CRUD, Larman, UI, Stakeholders)
+   - BA Lead
+   - Lista completa UC
  * - 3.3
- - Eliminar duplicados y fusionar similares
- - BA Lead
- - Lista consolidada
+   - Eliminar duplicados y fusionar similares
+   - BA Lead
+   - Lista consolidada
  * - 3.4
- - Asignar ID secuencial: UC_001, UC_002, ...
- - BA Lead
- - IDs asignados
+   - Asignar ID secuencial: UC_001, UC_002, ...
+   - BA Lead
+   - IDs asignados
  * - 3.5
- - **[DECISION]** Elegir estructura: plana o con secciones
- - BA Lead + Arq
- - Estructura definida
+   - **[DECISION]** Elegir estructura: plana o con secciones
+   - BA Lead + Arq
+   - Estructura definida
  * - 3.6
- - Por cada UC: copiar TPL_Caso_Uso.rst
- - BA Lead
- - Archivos creados
+   - Por cada UC: copiar TPL_Caso_Uso.rst
+   - BA Lead
+   - Archivos creados
  * - 3.7
- - Completar identificacion (ID, nombre, actor primario)
- - BA Lead
- - Identificacion OK
+   - Completar identificacion (ID, nombre, actor primario)
+   - BA Lead
+   - Identificacion OK
  * - 3.8
- - Redactar precondiciones y trigger
- - BA Lead
- - Contexto definido
+   - Redactar precondiciones y trigger
+   - BA Lead
+   - Contexto definido
  * - 3.9
- - Documentar flujo normal (3-10 pasos)
- - BA Lead
- - Happy path
+   - Documentar flujo normal (3-10 pasos)
+   - BA Lead
+   - Happy path
  * - 3.10
- - Identificar y documentar flujos alternos
- - BA Lead
- - Alternos documentados
+   - Identificar y documentar flujos alternos
+   - BA Lead
+   - Alternos documentados
  * - 3.11
- - Documentar excepciones
- - BA Lead
- - Excepciones cubiertas
+   - Documentar excepciones
+   - BA Lead
+   - Excepciones cubiertas
  * - 3.12
- - Redactar postcondiciones
- - BA Lead
- - Estado final definido
+   - Redactar postcondiciones
+   - BA Lead
+   - Estado final definido
  * - 3.13
- - Agregar trazabilidad (BR origen, FR destino)
- - BA Lead
- - Links establecidos
+   - Agregar trazabilidad (BR origen, FR destino)
+   - BA Lead
+   - Links establecidos
  * - 3.14
- - Actualizar index.rst del subdominio
- - BA Lead
- - Index completo
+   - Actualizar index.rst del subdominio
+   - BA Lead
+   - Index completo
  * - 3.15
- - Solicitar revision de Arquitecto
- - BA Lead
- - Revision solicitada
+   - Solicitar revision de Arquitecto
+   - BA Lead
+   - Revision solicitada
  * - 3.16
- - Aprobar con PO
- - PO
- - UC aprobado
+   - Aprobar con PO
+   - PO
+   - UC aprobado
 
 10.5 Estructura del Artefacto UC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -826,57 +826,57 @@ Segun FND_06:
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 4.1
- - Crear carpeta ``requisitos/requisitos_funcionales/`` si no existe
- - BA Lead
- - Carpeta creada
+   - Crear carpeta ``requisitos/requisitos_funcionales/`` si no existe
+   - BA Lead
+   - Carpeta creada
  * - 4.2
- - Seleccionar UC aprobado para derivar FR
- - BA Lead
- - UC seleccionado
+   - Seleccionar UC aprobado para derivar FR
+   - BA Lead
+   - UC seleccionado
  * - 4.3
- - Por cada paso del Flujo Normal donde SISTEMA actua:
- - BA Lead
- - Lista pasos
+   - Por cada paso del Flujo Normal donde SISTEMA actua:
+   - BA Lead
+   - Lista pasos
  * - 4.4
- - Identificar capacidades IMPLICITAS en el paso
- - BA Lead
- - Capacidades listadas
+   - Identificar capacidades IMPLICITAS en el paso
+   - BA Lead
+   - Capacidades listadas
  * - 4.5
- - Por cada capacidad, crear FR atomico
- - BA Lead
- - FR creados
+   - Por cada capacidad, crear FR atomico
+   - BA Lead
+   - FR creados
  * - 4.6
- - Asignar ID: FR_[UC]_NN (ej: FR_001_01, FR_001_02)
- - BA Lead
- - IDs asignados
+   - Asignar ID: FR_[UC]_NN (ej: FR_001_01, FR_001_02)
+   - BA Lead
+   - IDs asignados
  * - 4.7
- - Redactar enunciado SMART
- - BA Lead
- - Enunciado formal
+   - Redactar enunciado SMART
+   - BA Lead
+   - Enunciado formal
  * - 4.8
- - Definir criterio de aceptacion verificable
- - BA Lead
- - Criterio definido
+   - Definir criterio de aceptacion verificable
+   - BA Lead
+   - Criterio definido
  * - 4.9
- - Repetir para Flujos Alternos y Excepciones
- - BA Lead
- - FR alternos
+   - Repetir para Flujos Alternos y Excepciones
+   - BA Lead
+   - FR alternos
  * - 4.10
- - Establecer trazabilidad UC.paso → FR
- - BA Lead
- - Links establecidos
+   - Establecer trazabilidad UC.paso → FR
+   - BA Lead
+   - Links establecidos
  * - 4.11
- - Actualizar index.rst del subdominio
- - BA Lead
- - Index actualizado
+   - Actualizar index.rst del subdominio
+   - BA Lead
+   - Index actualizado
  * - 4.12
- - Aprobar con PO
- - PO
- - FR aprobados
+   - Aprobar con PO
+   - PO
+   - FR aprobados
 
 11.5 Proceso de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -993,41 +993,41 @@ Mantener la matriz de trazabilidad actualizada con todas las relaciones.
  :widths: 5 50 25 20
 
  * - #
- - Accion
- - Responsable
- - Salida
+   - Accion
+   - Responsable
+   - Salida
  * - 5.1
- - Abrir ``requisitos/rtm/RTM_01_Matriz_Trazabilidad_Global.rst``
- - BA Lead
- - Archivo abierto
+   - Abrir ``requisitos/rtm/RTM_01_Matriz_Trazabilidad_Global.rst``
+   - BA Lead
+   - Archivo abierto
  * - 5.2
- - Agregar filas para nuevos BR
- - BA Lead
- - BR en RTM
+   - Agregar filas para nuevos BR
+   - BA Lead
+   - BR en RTM
  * - 5.3
- - Agregar filas para nuevos BReq
- - BA Lead
- - BReq en RTM
+   - Agregar filas para nuevos BReq
+   - BA Lead
+   - BReq en RTM
  * - 5.4
- - Agregar filas para nuevos UC
- - BA Lead
- - UC en RTM
+   - Agregar filas para nuevos UC
+   - BA Lead
+   - UC en RTM
  * - 5.5
- - Agregar columnas FR para cada UC
- - BA Lead
- - FR en RTM
+   - Agregar columnas FR para cada UC
+   - BA Lead
+   - FR en RTM
  * - 5.6
- - Verificar que no hay artefactos huerfanos
- - BA Lead
- - Validacion OK
+   - Verificar que no hay artefactos huerfanos
+   - BA Lead
+   - Validacion OK
  * - 5.7
- - Calcular metricas de cobertura
- - BA Lead
- - Metricas calculadas
+   - Calcular metricas de cobertura
+   - BA Lead
+   - Metricas calculadas
  * - 5.8
- - Aprobar RTM actualizada
- - PO
- - RTM aprobada
+   - Aprobar RTM actualizada
+   - PO
+   - RTM aprobada
 
 12.3 Estructura RTM
 ^^^^^^^^^^^^^^^^^^^
@@ -1149,13 +1149,13 @@ Mantener la matriz de trazabilidad actualizada con todas las relaciones.
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Equipo IACT
- - Creacion inicial del procedimiento completo
+   - 2025-12-22
+   - Equipo IACT
+   - Creacion inicial del procedimiento completo
 
 ----
 

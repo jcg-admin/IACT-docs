@@ -19,21 +19,21 @@ UC_RPT_02: Ver Metricas Tiempo Real
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_02
+   - UC_RPT_02
  * - **Nombre**
- - Ver Metricas Tiempo Real
+   - Ver Metricas Tiempo Real
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-002: ve_dashboard
+   - RPT-002: ve_dashboard
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-002
+   - BRQ-RPT-002
 
 2. Descripcion
 --------------
@@ -89,13 +89,13 @@ y llamadas en curso filtrados por segmento (CNST_008).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-002
+   - El usuario tiene sesion activa con funcion RPT-002
  * - PRE-02
- - El usuario tiene un segmento asignado
+   - El usuario tiene un segmento asignado
  * - PRE-03
- - Existen vistas materializadas de tiempo real en Analytics
+   - Existen vistas materializadas de tiempo real en Analytics
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -110,11 +110,11 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran metricas RT del segmento del usuario
+   - Se muestran metricas RT del segmento del usuario
  * - POST-02
- - Las metricas se actualizan cada 10 segundos
+   - Las metricas se actualizan cada 10 segundos
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -124,35 +124,35 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a metricas tiempo real
+   - Usuario
+   - Accede a metricas tiempo real
  * - 2
- - Sistema
- - Valida funcion RPT-002
+   - Sistema
+   - Valida funcion RPT-002
  * - 3
- - Sistema
- - Obtiene segmento del usuario
+   - Sistema
+   - Obtiene segmento del usuario
  * - 4
- - Sistema
- - Consulta estado actual de colas
+   - Sistema
+   - Consulta estado actual de colas
  * - 5
- - Sistema
- - Consulta estado de agentes
+   - Sistema
+   - Consulta estado de agentes
  * - 6
- - Sistema
- - Consulta llamadas en curso
+   - Sistema
+   - Consulta llamadas en curso
  * - 7
- - Sistema
- - Evalua umbrales configurados
+   - Sistema
+   - Evalua umbrales configurados
  * - 8
- - Sistema
- - Renderiza panel con indicadores
+   - Sistema
+   - Renderiza panel con indicadores
  * - 9
- - Sistema
- - Inicia auto-refresh cada 10 segundos
+   - Sistema
+   - Inicia auto-refresh cada 10 segundos
 
 6. Diagrama de Secuencia
 ------------------------
@@ -212,17 +212,17 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Sistema
- - Detecta metrica sobre umbral de advertencia
+   - Sistema
+   - Detecta metrica sobre umbral de advertencia
  * - 7b
- - Sistema
- - Marca indicador en amarillo
+   - Sistema
+   - Marca indicador en amarillo
  * - 7c
- - Sistema
- - Continua con paso 8
+   - Sistema
+   - Continua con paso 8
 
 7.2 FA-02: Umbral Critico Superado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,20 +232,20 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Sistema
- - Detecta metrica sobre umbral critico
+   - Sistema
+   - Detecta metrica sobre umbral critico
  * - 7b
- - Sistema
- - Marca indicador en rojo
+   - Sistema
+   - Marca indicador en rojo
  * - 7c
- - Sistema
- - Genera alerta visual prominente
+   - Sistema
+   - Genera alerta visual prominente
  * - 7d
- - Sistema
- - Continua con paso 8
+   - Sistema
+   - Continua con paso 8
 
 8. Excepciones
 --------------
@@ -258,15 +258,15 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion RPT-002
+   - Usuario no tiene funcion RPT-002
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para ver metricas en tiempo real
+   - No tiene permisos para ver metricas en tiempo real
  * - **Codigo Error**
- - RPT-010
+   - RPT-010
 
 8.2 EX-02: Vistas RT No Disponibles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -276,15 +276,15 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - Vistas materializadas no responden
+   - Vistas materializadas no responden
  * - **Accion Sistema**
- - Muestra ultimo estado conocido
+   - Muestra ultimo estado conocido
  * - **Mensaje Usuario**
- - Datos pueden estar desactualizados
+   - Datos pueden estar desactualizados
  * - **Codigo Error**
- - RPT-011
+   - RPT-011
 
 9. Diagrama de Actividad
 ------------------------
@@ -339,20 +339,20 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-10
- - Refresh 10s
- - Las metricas RT se actualizan cada 10 segundos
+   - Refresh 10s
+   - Las metricas RT se actualizan cada 10 segundos
  * - BR-RPT-11
- - Umbrales por Segmento
- - Cada segmento puede tener umbrales diferentes
+   - Umbrales por Segmento
+   - Cada segmento puede tener umbrales diferentes
  * - BR-RPT-12
- - Indicadores Visuales
- - Verde (normal), Amarillo (advertencia), Rojo (critico)
+   - Indicadores Visuales
+   - Verde (normal), Amarillo (advertencia), Rojo (critico)
  * - BR-RPT-13
- - Solo Segmento
- - Usuario solo ve datos de su segmento
+   - Solo Segmento
+   - Usuario solo ve datos de su segmento
 
 **Metricas en Tiempo Real:**
 
@@ -361,19 +361,19 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - Metrica
- - Descripcion
+   - Descripcion
  * - Llamadas en Cola
- - Numero de llamadas esperando ser atendidas
+   - Numero de llamadas esperando ser atendidas
  * - Tiempo Espera Actual
- - Tiempo de la llamada mas antigua en cola
+   - Tiempo de la llamada mas antigua en cola
  * - Agentes Disponibles
- - Agentes listos para recibir llamadas
+   - Agentes listos para recibir llamadas
  * - Agentes en Llamada
- - Agentes actualmente atendiendo
+   - Agentes actualmente atendiendo
  * - Agentes en Pausa
- - Agentes en break o pausa
+   - Agentes en break o pausa
  * - Llamadas Activas
- - Total de llamadas en curso
+   - Total de llamadas en curso
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -383,14 +383,14 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Datos de vistas materializadas en BD Analytics que se refrescan frecuentemente desde IVR
+   - BD Dual
+   - Datos de vistas materializadas en BD Analytics que se refrescan frecuentemente desde IVR
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento del usuario
+   - Segmentos
+   - Filtro automatico por segmento del usuario
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -400,20 +400,20 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-010
- - El sistema debe mostrar estado de colas
- - Llamadas en espera, tiempo espera visible
+   - El sistema debe mostrar estado de colas
+   - Llamadas en espera, tiempo espera visible
  * - FR-RPT-011
- - El sistema debe mostrar estado de agentes
- - Disponibles, en llamada, en pausa visible
+   - El sistema debe mostrar estado de agentes
+   - Disponibles, en llamada, en pausa visible
  * - FR-RPT-012
- - El sistema debe alertar por umbrales
- - Indicador visual cuando se supera umbral
+   - El sistema debe alertar por umbrales
+   - Indicador visual cuando se supera umbral
  * - FR-RPT-013
- - El sistema debe refrescar cada 10s
- - Datos actualizados automaticamente
+   - El sistema debe refrescar cada 10s
+   - Datos actualizados automaticamente
 
 13. Trazabilidad
 ----------------
@@ -423,17 +423,17 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-002: Metricas en tiempo real
+   - BRQ-RPT-002: Metricas en tiempo real
  * - **Reglas de Negocio**
- - BR-RPT-10 a BR-RPT-13
+   - BR-RPT-10 a BR-RPT-13
  * - **Restricciones**
- - CNST_007, CNST_008
+   - CNST_007, CNST_008
  * - **UC Relacionados**
- - UC_RPT_01 (Dashboard), UC_ALR_01 (Umbrales), UC_ALR_02 (Alertas)
+   - UC_RPT_01 (Dashboard), UC_ALR_01 (Umbrales), UC_ALR_02 (Alertas)
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
- - RPT-002: ve_dashboard
+   - RPT-002: ve_dashboard
 
 14. Historial de Cambios
 ------------------------
@@ -443,10 +443,10 @@ El usuario accede a la vista de metricas en tiempo real.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Auditoria_Documental
+   - PROC_Auditoria_Documental
  * - **Nombre**
- - Auditoria del Modelo Documental
+   - Auditoria del Modelo Documental
  * - **Categoria**
- - Trazabilidad
+   - Trazabilidad
  * - **Frecuencia**
- - Mensual o por release
+   - Mensual o por release
  * - **Duracion**
- - 2-4 horas
+   - 2-4 horas
 
 ----
 
@@ -169,11 +169,11 @@ Para cada hallazgo, asignar responsable y fecha.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

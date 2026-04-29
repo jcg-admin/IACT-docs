@@ -22,19 +22,19 @@ FR-003.05: Forzar cambio en siguiente login
  :widths: 25 75
 
  * - **ID**
- - FR-003.05
+   - FR-003.05
  * - **Nombre**
- - Forzar cambio de password en siguiente login
+   - Forzar cambio de password en siguiente login
  * - **UC Origen**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Paso UC**
- - Paso 9 del flujo normal
+   - Paso 9 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -113,17 +113,17 @@ FR-003.05: Forzar cambio en siguiente login
  :header-rows: 1
 
  * - Campo
- - Tipo
- - Descripción
+   - Tipo
+   - Descripción
  * - must_change_password
- - boolean
- - Flag de cambio obligatorio
+   - boolean
+   - Flag de cambio obligatorio
  * - password_changed_at
- - timestamp
- - Última vez que cambió password
+   - timestamp
+   - Última vez que cambió password
  * - password_recovery_at
- - timestamp
- - Última recuperación de password
+   - timestamp
+   - Última recuperación de password
 
 ----
 
@@ -134,17 +134,17 @@ FR-003.05: Forzar cambio en siguiente login
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Depende de**
- - FR-003.04
+   - FR-003.04
  * - **Requerido por**
- - UC_004 (Cambiar Password)
+   - UC_004 (Cambiar Password)
  * - **CNST**
- - CNST-005
+   - CNST-005
  * - **TEST**
- - TST-FR-003.05 (pendiente)
+   - TST-FR-003.05 (pendiente)
 
 ----
 
@@ -156,8 +156,8 @@ FR-003.05: Forzar cambio en siguiente login
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_003
+   - 2026-01-07
+   - Versión inicial derivada de UC_003

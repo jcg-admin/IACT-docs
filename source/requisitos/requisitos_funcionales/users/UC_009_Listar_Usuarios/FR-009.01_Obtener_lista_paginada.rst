@@ -22,19 +22,19 @@ FR-009.01: Obtener lista paginada de usuarios
  :widths: 25 75
 
  * - **ID**
- - FR-009.01
+   - FR-009.01
  * - **Nombre**
- - Obtener lista paginada de usuarios
+   - Obtener lista paginada de usuarios
  * - **UC Origen**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Paso UC**
- - Paso 2-3 del flujo normal
+   - Paso 2-3 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -131,17 +131,17 @@ FR-009.01: Obtener lista paginada de usuarios
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_009: Listar Usuarios
+   - UC_009: Listar Usuarios
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-009.02, FR-009.03
+   - FR-009.02, FR-009.03
  * - **CNST**
- - CNST-007
+   - CNST-007
  * - **TEST**
- - TST-FR-009.01 (pendiente)
+   - TST-FR-009.01 (pendiente)
 
 ----
 
@@ -153,8 +153,8 @@ FR-009.01: Obtener lista paginada de usuarios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_009
+   - 2026-01-07
+   - Versión inicial derivada de UC_009

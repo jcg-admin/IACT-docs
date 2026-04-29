@@ -19,23 +19,23 @@ UC_AUTH_01: Iniciar Sesion
  :header-rows: 0
 
  * - **ID**
- - UC_AUTH_01
+   - UC_AUTH_01
  * - **Nombre**
- - Iniciar Sesion
+   - Iniciar Sesion
  * - **Actor Principal**
- - Usuario (cualquier usuario registrado)
+   - Usuario (cualquier usuario registrado)
  * - **Actor Secundario**
- - Sistema (validacion automatica)
+   - Sistema (validacion automatica)
  * - **Modulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Funcion RBAC**
- - (publico) - No requiere funcion previa
+   - (publico) - No requiere funcion previa
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUTH-001
+   - BRQ-AUTH-001
 
 2. Descripcion
 --------------
@@ -101,15 +101,15 @@ sesion unica (CNST_003) y genera los tokens JWT correspondientes.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario existe en el sistema con estado ACTIVO o PENDIENTE_CONFIGURACION
+   - El usuario existe en el sistema con estado ACTIVO o PENDIENTE_CONFIGURACION
  * - PRE-02
- - El usuario no esta bloqueado temporalmente por exceso de intentos
+   - El usuario no esta bloqueado temporalmente por exceso de intentos
  * - PRE-03
- - El usuario conoce sus credenciales (username y password)
+   - El usuario conoce sus credenciales (username y password)
  * - PRE-04
- - El sistema esta operativo y accesible
+   - El sistema esta operativo y accesible
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -126,19 +126,19 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera un token de acceso JWT valido
+   - Se genera un token de acceso JWT valido
  * - POST-02
- - Se genera un token de refresco JWT valido
+   - Se genera un token de refresco JWT valido
  * - POST-03
- - Se crea un registro de sesion activa
+   - Se crea un registro de sesion activa
  * - POST-04
- - Se cierran todas las sesiones anteriores del usuario (CNST_003)
+   - Se cierran todas las sesiones anteriores del usuario (CNST_003)
  * - POST-05
- - Se registra el evento LOGIN_SUCCESS en auditoria (CNST_025)
+   - Se registra el evento LOGIN_SUCCESS en auditoria (CNST_025)
  * - POST-06
- - Se reinicia el contador de intentos fallidos
+   - Se reinicia el contador de intentos fallidos
 
 **Fallo:**
 
@@ -147,13 +147,13 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-F1
- - Se incrementa el contador de intentos fallidos
+   - Se incrementa el contador de intentos fallidos
  * - POST-F2
- - Se registra el evento LOGIN_FAILURE en auditoria (CNST_025)
+   - Se registra el evento LOGIN_FAILURE en auditoria (CNST_025)
  * - POST-F3
- - Si se exceden 5 intentos, se bloquea temporalmente (15 min)
+   - Si se exceden 5 intentos, se bloquea temporalmente (15 min)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -163,62 +163,62 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a la pantalla de login del sistema
+   - Usuario
+   - Accede a la pantalla de login del sistema
  * - 2
- - Sistema
- - Presenta formulario de login (username, password)
+   - Sistema
+   - Presenta formulario de login (username, password)
  * - 3
- - Usuario
- - Ingresa username y password
+   - Usuario
+   - Ingresa username y password
  * - 4
- - Usuario
- - Presiona boton "Iniciar Sesion"
+   - Usuario
+   - Presiona boton "Iniciar Sesion"
  * - 5
- - Sistema
- - Valida formato de campos (no vacios, longitud minima)
+   - Sistema
+   - Valida formato de campos (no vacios, longitud minima)
  * - 6
- - Sistema
- - Verifica throttling: consulta intentos fallidos en ultimos 5 min
+   - Sistema
+   - Verifica throttling: consulta intentos fallidos en ultimos 5 min
  * - 7
- - Sistema
- - Busca usuario por username en base de datos Analytics
+   - Sistema
+   - Busca usuario por username en base de datos Analytics
  * - 8
- - Sistema
- - Verifica que el estado del usuario sea ACTIVO o PENDIENTE_CONFIGURACION
+   - Sistema
+   - Verifica que el estado del usuario sea ACTIVO o PENDIENTE_CONFIGURACION
  * - 9
- - Sistema
- - Valida password contra hash almacenado (bcrypt)
+   - Sistema
+   - Valida password contra hash almacenado (bcrypt)
  * - 10
- - Sistema
- - Cierra todas las sesiones activas anteriores del usuario (CNST_003)
+   - Sistema
+   - Cierra todas las sesiones activas anteriores del usuario (CNST_003)
  * - 11
- - Sistema
- - Genera token de acceso JWT (expiracion: 15 minutos)
+   - Sistema
+   - Genera token de acceso JWT (expiracion: 15 minutos)
  * - 12
- - Sistema
- - Genera token de refresco JWT (expiracion: 8 horas)
+   - Sistema
+   - Genera token de refresco JWT (expiracion: 8 horas)
  * - 13
- - Sistema
- - Crea registro en tabla UserSession con datos de sesion
+   - Sistema
+   - Crea registro en tabla UserSession con datos de sesion
  * - 14
- - Sistema
- - Registra evento LOGIN_SUCCESS en UserActionLog (CNST_025)
+   - Sistema
+   - Registra evento LOGIN_SUCCESS en UserActionLog (CNST_025)
  * - 15
- - Sistema
- - Reinicia contador de intentos fallidos
+   - Sistema
+   - Reinicia contador de intentos fallidos
  * - 16
- - Sistema
- - Retorna tokens y datos basicos del usuario
+   - Sistema
+   - Retorna tokens y datos basicos del usuario
  * - 17
- - Sistema
- - Si estado es PENDIENTE_CONFIGURACION, indica cambio de password requerido
+   - Sistema
+   - Si estado es PENDIENTE_CONFIGURACION, indica cambio de password requerido
  * - 18
- - Usuario
- - Recibe confirmacion y es redirigido al dashboard o cambio de password
+   - Usuario
+   - Recibe confirmacion y es redirigido al dashboard o cambio de password
 
 6. Diagrama de Secuencia
 ------------------------
@@ -338,17 +338,17 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 17a
- - Sistema
- - Detecta estado PENDIENTE_CONFIGURACION
+   - Sistema
+   - Detecta estado PENDIENTE_CONFIGURACION
  * - 17b
- - Sistema
- - Incluye flag requires_password_change=true en respuesta
+   - Sistema
+   - Incluye flag requires_password_change=true en respuesta
  * - 17c
- - Sistema
- - Frontend redirige a UC_AUTH_04 (Cambiar Contrasena)
+   - Sistema
+   - Frontend redirige a UC_AUTH_04 (Cambiar Contrasena)
 
 7.2 FA-02: Password Expirado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -358,17 +358,17 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 9a
- - Sistema
- - Detecta que password_changed_at > 90 dias
+   - Sistema
+   - Detecta que password_changed_at > 90 dias
  * - 9b
- - Sistema
- - Login exitoso pero con flag password_expired=true
+   - Sistema
+   - Login exitoso pero con flag password_expired=true
  * - 9c
- - Sistema
- - Frontend redirige a UC_AUTH_04
+   - Sistema
+   - Frontend redirige a UC_AUTH_04
 
 8. Excepciones
 --------------
@@ -381,15 +381,15 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Username no encontrado en base de datos
+   - Username no encontrado en base de datos
  * - **Accion Sistema**
- - Registra intento fallido, retorna error generico
+   - Registra intento fallido, retorna error generico
  * - **Mensaje Usuario**
- - "Credenciales invalidas"
+   - "Credenciales invalidas"
  * - **Codigo Error**
- - AUTH-001
+   - AUTH-001
 
 8.2 EX-02: Password Incorrecto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -399,15 +399,15 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Password no coincide con hash almacenado
+   - Password no coincide con hash almacenado
  * - **Accion Sistema**
- - Incrementa contador, registra en auditoria
+   - Incrementa contador, registra en auditoria
  * - **Mensaje Usuario**
- - "Credenciales invalidas"
+   - "Credenciales invalidas"
  * - **Codigo Error**
- - AUTH-001
+   - AUTH-001
 
 8.3 EX-03: Usuario Bloqueado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -417,15 +417,15 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Estado del usuario es BLOQUEADO
+   - Estado del usuario es BLOQUEADO
  * - **Accion Sistema**
- - Registra intento, retorna error especifico
+   - Registra intento, retorna error especifico
  * - **Mensaje Usuario**
- - "Cuenta bloqueada. Contacte al administrador."
+   - "Cuenta bloqueada. Contacte al administrador."
  * - **Codigo Error**
- - AUTH-002
+   - AUTH-002
 
 8.4 EX-04: Usuario Inactivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -435,15 +435,15 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Estado del usuario es INACTIVO o ELIMINADO
+   - Estado del usuario es INACTIVO o ELIMINADO
  * - **Accion Sistema**
- - Registra intento, retorna error generico
+   - Registra intento, retorna error generico
  * - **Mensaje Usuario**
- - "Credenciales invalidas"
+   - "Credenciales invalidas"
  * - **Codigo Error**
- - AUTH-001
+   - AUTH-001
 
 8.5 EX-05: Throttling Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -453,15 +453,15 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - 5 o mas intentos fallidos en ultimos 5 minutos
+   - 5 o mas intentos fallidos en ultimos 5 minutos
  * - **Accion Sistema**
- - Bloquea temporalmente, registra en auditoria
+   - Bloquea temporalmente, registra en auditoria
  * - **Mensaje Usuario**
- - "Demasiados intentos fallidos. Intente en 15 minutos."
+   - "Demasiados intentos fallidos. Intente en 15 minutos."
  * - **Codigo Error**
- - AUTH-003
+   - AUTH-003
 
 9. Diagrama de Actividad
 ------------------------
@@ -559,29 +559,29 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUTH-01
- - Sesion Unica
- - Un usuario solo puede tener una sesion activa a la vez. Al iniciar nueva sesion, las anteriores se invalidan automaticamente.
+   - Sesion Unica
+   - Un usuario solo puede tener una sesion activa a la vez. Al iniciar nueva sesion, las anteriores se invalidan automaticamente.
  * - BR-AUTH-02
- - Throttling de Login
- - Maximo 5 intentos fallidos en ventana de 5 minutos. Exceder genera bloqueo temporal de 15 minutos.
+   - Throttling de Login
+   - Maximo 5 intentos fallidos en ventana de 5 minutos. Exceder genera bloqueo temporal de 15 minutos.
  * - BR-AUTH-03
- - Token de Acceso
- - Expiracion de 15 minutos. Debe renovarse via refresh token.
+   - Token de Acceso
+   - Expiracion de 15 minutos. Debe renovarse via refresh token.
  * - BR-AUTH-04
- - Token de Refresco
- - Expiracion de 8 horas. Permite obtener nuevos access tokens sin re-login.
+   - Token de Refresco
+   - Expiracion de 8 horas. Permite obtener nuevos access tokens sin re-login.
  * - BR-AUTH-05
- - Primer Login
- - Usuarios con estado PENDIENTE_CONFIGURACION deben cambiar password obligatoriamente.
+   - Primer Login
+   - Usuarios con estado PENDIENTE_CONFIGURACION deben cambiar password obligatoriamente.
  * - BR-AUTH-06
- - Password Expirado
- - Passwords mayores a 90 dias requieren cambio obligatorio.
+   - Password Expirado
+   - Passwords mayores a 90 dias requieren cambio obligatorio.
  * - BR-AUTH-07
- - Mensaje Generico
- - Por seguridad, errores de usuario inexistente y password incorrecto muestran el mismo mensaje.
+   - Mensaje Generico
+   - Por seguridad, errores de usuario inexistente y password incorrecto muestran el mismo mensaje.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -591,14 +591,14 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_003
- - Sesion Unica
- - Al autenticar exitosamente, se cierran todas las sesiones activas anteriores del usuario mediante SessionService.close_all_sessions. Timeout de inactividad: 15 minutos.
+   - Sesion Unica
+   - Al autenticar exitosamente, se cierran todas las sesiones activas anteriores del usuario mediante SessionService.close_all_sessions. Timeout de inactividad: 15 minutos.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra en UserActionLog tanto intentos exitosos (LOGIN_SUCCESS) como fallidos (LOGIN_FAILURE, LOGIN_BLOCKED). Los registros son append-only y no pueden modificarse ni eliminarse.
+   - Auditoria Inmutable
+   - Se registra en UserActionLog tanto intentos exitosos (LOGIN_SUCCESS) como fallidos (LOGIN_FAILURE, LOGIN_BLOCKED). Los registros son append-only y no pueden modificarse ni eliminarse.
 
 **Implementacion CNST_003:**
 
@@ -640,29 +640,29 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUTH-001
- - El sistema debe validar credenciales contra base de datos Analytics
- - Login exitoso con credenciales validas en menos de 2 segundos
+   - El sistema debe validar credenciales contra base de datos Analytics
+   - Login exitoso con credenciales validas en menos de 2 segundos
  * - FR-AUTH-002
- - El sistema debe generar tokens JWT firmados
- - Tokens validos verificables con clave publica
+   - El sistema debe generar tokens JWT firmados
+   - Tokens validos verificables con clave publica
  * - FR-AUTH-003
- - El sistema debe implementar throttling de intentos
- - Bloqueo efectivo tras 5 intentos fallidos
+   - El sistema debe implementar throttling de intentos
+   - Bloqueo efectivo tras 5 intentos fallidos
  * - FR-AUTH-004
- - El sistema debe cerrar sesiones anteriores
- - Solo una sesion activa por usuario en cualquier momento
+   - El sistema debe cerrar sesiones anteriores
+   - Solo una sesion activa por usuario en cualquier momento
  * - FR-AUTH-005
- - El sistema debe registrar todos los intentos de login
- - Eventos LOGIN_SUCCESS y LOGIN_FAILURE en auditoria
+   - El sistema debe registrar todos los intentos de login
+   - Eventos LOGIN_SUCCESS y LOGIN_FAILURE en auditoria
  * - FR-AUTH-006
- - El sistema debe detectar primer login
- - Flag requires_password_change cuando estado=PENDIENTE_CONFIGURACION
+   - El sistema debe detectar primer login
+   - Flag requires_password_change cuando estado=PENDIENTE_CONFIGURACION
  * - FR-AUTH-007
- - El sistema debe detectar password expirado
- - Flag password_expired cuando password_changed_at > 90 dias
+   - El sistema debe detectar password expirado
+   - Flag password_expired cuando password_changed_at > 90 dias
 
 13. Trazabilidad
 ----------------
@@ -672,19 +672,19 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUTH-001: El sistema debe permitir autenticacion de usuarios
+   - BRQ-AUTH-001: El sistema debe permitir autenticacion de usuarios
  * - **Reglas de Negocio**
- - BR-AUTH-01, BR-AUTH-02, BR-AUTH-03, BR-AUTH-04, BR-AUTH-05, BR-AUTH-06, BR-AUTH-07
+   - BR-AUTH-01, BR-AUTH-02, BR-AUTH-03, BR-AUTH-04, BR-AUTH-05, BR-AUTH-06, BR-AUTH-07
  * - **Restricciones**
- - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
+   - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
  * - **FR Derivados**
- - FR-AUTH-001 a FR-AUTH-007
+   - FR-AUTH-001 a FR-AUTH-007
  * - **UC Relacionados**
- - UC_AUTH_02 (Cerrar Sesion), UC_AUTH_03 (Recuperar Contrasena), UC_AUTH_04 (Cambiar Contrasena)
+   - UC_AUTH_02 (Cerrar Sesion), UC_AUTH_03 (Recuperar Contrasena), UC_AUTH_04 (Cambiar Contrasena)
  * - **Actor Principal**
- - Usuario (cualquier usuario registrado)
+   - Usuario (cualquier usuario registrado)
  * - **Funcion RBAC**
- - (publico) - No requiere funcion previa
+   - (publico) - No requiere funcion previa
 
 14. Historial de Cambios
 ------------------------
@@ -694,10 +694,10 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con nueva nomenclatura UC_AUTH_01
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con nueva nomenclatura UC_AUTH_01

@@ -22,19 +22,19 @@ FR-004.03: Actualizar hash en BD
  :widths: 25 75
 
  * - **ID**
- - FR-004.03
+   - FR-004.03
  * - **Nombre**
- - Actualizar hash de password en base de datos
+   - Actualizar hash de password en base de datos
  * - **UC Origen**
- - UC_004: Cambiar Password
+   - UC_004: Cambiar Password
  * - **Paso UC**
- - Paso 8 del flujo normal
+   - Paso 8 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -117,17 +117,17 @@ FR-004.03: Actualizar hash en BD
  :header-rows: 1
 
  * - Parámetro
- - Valor
- - Notas
+   - Valor
+   - Notas
  * - Algoritmo
- - bcrypt
- - Estándar industria
+   - bcrypt
+   - Estándar industria
  * - Cost Factor
- - 12
- - Balance seguridad/performance
+   - 12
+   - Balance seguridad/performance
  * - Salt
- - Auto-generado
- - Único por password
+   - Auto-generado
+   - Único por password
 
 ----
 
@@ -138,17 +138,17 @@ FR-004.03: Actualizar hash en BD
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_004: Cambiar Password
+   - UC_004: Cambiar Password
  * - **Depende de**
- - FR-004.02
+   - FR-004.02
  * - **Requerido por**
- - FR-004.04
+   - FR-004.04
  * - **CNST**
- - CNST-002, CNST-005
+   - CNST-002, CNST-005
  * - **TEST**
- - TST-FR-004.03 (pendiente)
+   - TST-FR-004.03 (pendiente)
 
 ----
 
@@ -160,8 +160,8 @@ FR-004.03: Actualizar hash en BD
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_004
+   - 2026-01-07
+   - Versión inicial derivada de UC_004

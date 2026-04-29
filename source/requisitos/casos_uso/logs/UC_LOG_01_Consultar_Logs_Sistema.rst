@@ -19,21 +19,21 @@ UC_LOG_01: Consultar Logs Sistema
  :header-rows: 0
 
  * - **ID**
- - UC_LOG_01
+   - UC_LOG_01
  * - **Nombre**
- - Consultar Logs Sistema
+   - Consultar Logs Sistema
  * - **Actor Principal**
- - AGR-007: agr_operador_logs
+   - AGR-007: agr_operador_logs
  * - **Modulo**
- - MOD_Logs
+   - MOD_Logs
  * - **Funcion RBAC**
- - LOG-001: consulta_logs_sistema
+   - LOG-001: consulta_logs_sistema
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-LOG-001
+   - BRQ-LOG-001
 
 2. Descripcion
 --------------
@@ -90,13 +90,13 @@ facilitar su procesamiento y analisis.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion LOG-001
+   - El usuario tiene sesion activa con funcion LOG-001
  * - PRE-02
- - El sistema de logging esta operativo
+   - El sistema de logging esta operativo
  * - PRE-03
- - Existen logs en el periodo consultado
+   - Existen logs en el periodo consultado
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -111,11 +111,11 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran logs filtrados segun criterios
+   - Se muestran logs filtrados segun criterios
  * - POST-02
- - La consulta es de solo lectura
+   - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -125,29 +125,29 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Operador
- - Accede al visor de logs del sistema
+   - Operador
+   - Accede al visor de logs del sistema
  * - 2
- - Sistema
- - Valida funcion LOG-001
+   - Sistema
+   - Valida funcion LOG-001
  * - 3
- - Sistema
- - Muestra logs de ultima hora por defecto
+   - Sistema
+   - Muestra logs de ultima hora por defecto
  * - 4
- - Operador
- - Opcionalmente aplica filtros (nivel, componente)
+   - Operador
+   - Opcionalmente aplica filtros (nivel, componente)
  * - 5
- - Sistema
- - Ejecuta consulta con filtros
+   - Sistema
+   - Ejecuta consulta con filtros
  * - 6
- - Sistema
- - Presenta logs en formato JSON resaltado
+   - Sistema
+   - Presenta logs en formato JSON resaltado
  * - 7
- - Operador
- - Navega por los logs o activa modo tiempo real
+   - Operador
+   - Navega por los logs o activa modo tiempo real
 
 6. Diagrama de Secuencia
 ------------------------
@@ -216,14 +216,14 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Selecciona nivel (ERROR, WARNING, etc.)
+   - Operador
+   - Selecciona nivel (ERROR, WARNING, etc.)
  * - 5a
- - Sistema
- - Filtra logs por nivel seleccionado
+   - Sistema
+   - Filtra logs por nivel seleccionado
 
 7.2 FA-02: Filtrar por Componente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,14 +233,14 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Operador
- - Selecciona componente (AuthService, ReportService, etc.)
+   - Operador
+   - Selecciona componente (AuthService, ReportService, etc.)
  * - 5a
- - Sistema
- - Filtra logs por componente
+   - Sistema
+   - Filtra logs por componente
 
 7.3 FA-03: Modo Tiempo Real
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -250,17 +250,17 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Operador
- - Activa modo tiempo real
+   - Operador
+   - Activa modo tiempo real
  * - 7b
- - Sistema
- - Establece conexion WebSocket
+   - Sistema
+   - Establece conexion WebSocket
  * - 7c
- - Sistema
- - Muestra nuevos logs conforme llegan
+   - Sistema
+   - Muestra nuevos logs conforme llegan
 
 8. Excepciones
 --------------
@@ -273,15 +273,15 @@ El operador accede al visor de logs del sistema.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion LOG-001
+   - Usuario no tiene funcion LOG-001
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para consultar logs del sistema
+   - No tiene permisos para consultar logs del sistema
  * - **Codigo Error**
- - LOG-001
+   - LOG-001
 
 8.2 EX-02: Servicio de Logs No Disponible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -291,15 +291,15 @@ El operador accede al visor de logs del sistema.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - El sistema de logs no responde
+   - El sistema de logs no responde
  * - **Accion Sistema**
- - Muestra error de disponibilidad
+   - Muestra error de disponibilidad
  * - **Mensaje Usuario**
- - Servicio de logs temporalmente no disponible
+   - Servicio de logs temporalmente no disponible
  * - **Codigo Error**
- - LOG-002
+   - LOG-002
 
 9. Diagrama de Actividad
 ------------------------
@@ -346,20 +346,20 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-LOG-01
- - Formato JSON
- - Todos los logs usan formato JSON estructurado (CNST_024)
+   - Formato JSON
+   - Todos los logs usan formato JSON estructurado (CNST_024)
  * - BR-LOG-02
- - Niveles Estandar
- - DEBUG, INFO, WARNING, ERROR, CRITICAL
+   - Niveles Estandar
+   - DEBUG, INFO, WARNING, ERROR, CRITICAL
  * - BR-LOG-03
- - Retencion
- - Logs disponibles por 30 dias por defecto
+   - Retencion
+   - Logs disponibles por 30 dias por defecto
  * - BR-LOG-04
- - Limite Consulta
- - Maximo 10,000 logs por consulta
+   - Limite Consulta
+   - Maximo 10,000 logs por consulta
 
 **Estructura JSON de Log (CNST_024):**
 
@@ -386,17 +386,17 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Componente
- - Descripcion
+   - Descripcion
  * - AuthService
- - Autenticacion y sesiones
+   - Autenticacion y sesiones
  * - UserService
- - Gestion de usuarios
+   - Gestion de usuarios
  * - ReportService
- - Generacion de reportes
+   - Generacion de reportes
  * - AlertService
- - Motor de alertas
+   - Motor de alertas
  * - ETLService
- - Proceso de carga de datos
+   - Proceso de carga de datos
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -406,11 +406,11 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_024
- - Logs JSON
- - Todos los logs del sistema utilizan formato JSON estructurado con campos estandar para facilitar parsing y analisis.
+   - Logs JSON
+   - Todos los logs del sistema utilizan formato JSON estructurado con campos estandar para facilitar parsing y analisis.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -420,20 +420,20 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-LOG-001
- - Consultar logs del sistema
- - Lista de logs visible con formato JSON
+   - Consultar logs del sistema
+   - Lista de logs visible con formato JSON
  * - FR-LOG-002
- - Filtrar por nivel
- - Filtro funcional por nivel de severidad
+   - Filtrar por nivel
+   - Filtro funcional por nivel de severidad
  * - FR-LOG-003
- - Filtrar por componente
- - Filtro funcional por componente
+   - Filtrar por componente
+   - Filtro funcional por componente
  * - FR-LOG-004
- - Modo tiempo real
- - Logs mostrados en streaming via WebSocket
+   - Modo tiempo real
+   - Logs mostrados en streaming via WebSocket
 
 13. Trazabilidad
 ----------------
@@ -443,17 +443,17 @@ El operador accede al visor de logs del sistema.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-LOG-001: Consultar logs de aplicacion
+   - BRQ-LOG-001: Consultar logs de aplicacion
  * - **Reglas de Negocio**
- - BR-LOG-01 a BR-LOG-04
+   - BR-LOG-01 a BR-LOG-04
  * - **Restricciones**
- - CNST_024 (Logs JSON)
+   - CNST_024 (Logs JSON)
  * - **UC Relacionados**
- - UC_LOG_02 (ETL), UC_LOG_03 (Buscar), UC_LOG_04 (Exportar)
+   - UC_LOG_02 (ETL), UC_LOG_03 (Buscar), UC_LOG_04 (Exportar)
  * - **Actor Principal**
- - AGR-007: agr_operador_logs
+   - AGR-007: agr_operador_logs
  * - **Funcion RBAC**
- - LOG-001: consulta_logs_sistema
+   - LOG-001: consulta_logs_sistema
 
 14. Historial de Cambios
 ------------------------
@@ -463,10 +463,10 @@ El operador accede al visor de logs del sistema.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_024
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_024

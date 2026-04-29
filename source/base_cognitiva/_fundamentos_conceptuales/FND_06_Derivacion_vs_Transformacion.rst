@@ -151,23 +151,23 @@ son la **explicitacion** de capacidades que el UC ya contiene implicitamente.
  :widths: 20 40 40
 
  * - Aspecto
- - Transformacion (INCORRECTO)
- - Derivacion (CORRECTO)
+   - Transformacion (INCORRECTO)
+   - Derivacion (CORRECTO)
  * - Concepto
- - Convertir en algo diferente
- - Explicitar lo implicito
+   - Convertir en algo diferente
+   - Explicitar lo implicito
  * - Relacion
- - A se convierte en B
- - B ya estaba en A
+   - A se convierte en B
+   - B ya estaba en A
  * - Proceso
- - Conversion
- - Descubrimiento
+   - Conversion
+   - Descubrimiento
  * - Resultado
- - Cosa nueva
- - Detalle de lo existente
+   - Cosa nueva
+   - Detalle de lo existente
  * - Ejemplo
- - Word -> PDF
- - UC paso -> FR atomicos
+   - Word -> PDF
+   - UC paso -> FR atomicos
 
 ----
 
@@ -349,20 +349,20 @@ En proyectos con codigo existente, la direccion puede ser inversa
  :widths: 25 35 40
 
  * - Aspecto
- - Greenfield
- - Brownfield
+   - Greenfield
+   - Brownfield
  * - Direccion
- - Abstracto -> Concreto
- - Concreto -> Abstracto
+   - Abstracto -> Concreto
+   - Concreto -> Abstracto
  * - Secuencia
- - BR -> UC -> FR -> Codigo
- - Codigo -> FR -> UC -> BR
+   - BR -> UC -> FR -> Codigo
+   - Codigo -> FR -> UC -> BR
  * - Proceso
- - Disenar antes de implementar
- - Documentar lo que ya existe
+   - Disenar antes de implementar
+   - Documentar lo que ya existe
  * - Razon
- - No hay codigo previo
- - Sistema ya funciona
+   - No hay codigo previo
+   - Sistema ya funciona
 
 .. important::
 
@@ -519,13 +519,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

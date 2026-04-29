@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_FR
+   - PROC_Generacion_FR
  * - **Nombre**
- - Generacion de Requisitos Funcionales
+   - Generacion de Requisitos Funcionales
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada UC a derivar
+   - Por cada UC a derivar
  * - **Duracion Estimada**
- - 10-20 minutos por FR
+   - 10-20 minutos por FR
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -79,14 +79,14 @@ base para la implementacion y pruebas del sistema.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Analista
- - Genera FR siguiendo TPL
- - Escritura en funcionales/
+   - Genera FR siguiendo TPL
+   - Escritura en funcionales/
  * - Revisor
- - Valida FR contra UC origen
- - Lectura de UC y FR
+   - Valida FR contra UC origen
+   - Lectura de UC y FR
 
 ----
 
@@ -111,20 +111,20 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
- - Template de FR
- - Si
+   - Template de FR
+   - Si
  * - UC_[NNN]_[Nombre].rst
- - Caso de Uso origen
- - Si
+   - Caso de Uso origen
+   - Si
  * - BR_[NNN].rst
- - Reglas de negocio aplicables
- - Si
+   - Reglas de negocio aplicables
+   - Si
  * - CNST_[NNN].rst
- - Restricciones aplicables
- - No
+   - Restricciones aplicables
+   - No
 
 ----
 
@@ -336,14 +336,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - FR_UC[NNN]_[NN]_[Nombre].rst
- - Requisito Funcional generado
- - /tmp/funcionales/[mod]/UC_[NNN]/
+   - Requisito Funcional generado
+   - /tmp/funcionales/[mod]/UC_[NNN]/
  * - index.rst (actualizado)
- - Indice del modulo con nuevo FR
- - /tmp/funcionales/[mod]/
+   - Indice del modulo con nuevo FR
+   - /tmp/funcionales/[mod]/
 
 ----
 
@@ -382,26 +382,26 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - #
- - Seccion
- - Verificar
+   - Seccion
+   - Verificar
  * - 1
- - Identificacion
- - ID, nombre, UC padre, modulo, tipo, prioridad
+   - Identificacion
+   - ID, nombre, UC padre, modulo, tipo, prioridad
  * - 2
- - Especificacion
- - Descripcion clara, justificacion
+   - Especificacion
+   - Descripcion clara, justificacion
  * - 3
- - Criterio de Aceptacion
- - Formato DADO/CUANDO/ENTONCES
+   - Criterio de Aceptacion
+   - Formato DADO/CUANDO/ENTONCES
  * - 4
- - Reglas y Restricciones
- - BR y CNST listadas
+   - Reglas y Restricciones
+   - BR y CNST listadas
  * - 5
- - Trazabilidad
- - UC, BReq, BR, CNST, RBAC
+   - Trazabilidad
+   - UC, BReq, BR, CNST, RBAC
  * - 6
- - Historial
- - Version, fecha, autor
+   - Historial
+   - Version, fecha, autor
 
 ----
 
@@ -413,13 +413,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - UC sin FR en Trazabilidad
- - Derivar FR desde pasos "Sistema..." del flujo normal
+   - Derivar FR desde pasos "Sistema..." del flujo normal
  * - BR referenciada no existe
- - Crear BR primero o documentar gap
+   - Crear BR primero o documentar gap
  * - Criterio de Aceptacion ambiguo
- - Consultar con stakeholder, refinar
+   - Consultar con stakeholder, refinar
 
 ----
 
@@ -441,13 +441,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

@@ -70,19 +70,19 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  :widths: 20 80
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - **Narrativo**
- - Cuenta una historia: "El usuario hace X, sistema responde Y"
+   - Cuenta una historia: "El usuario hace X, sistema responde Y"
  * - **Alto nivel**
- - Describe interaccion completa, no detalles atomicos
+   - Describe interaccion completa, no detalles atomicos
  * - **Orientado a actor**
- - Perspectiva del usuario, no del sistema
+   - Perspectiva del usuario, no del sistema
  * - **Secuencial**
- - Pasos ordenados en flujo temporal
+   - Pasos ordenados en flujo temporal
  * - **Contextualizado**
- - Incluye precondiciones y postcondiciones
+   - Incluye precondiciones y postcondiciones
  * - **Multi-camino**
- - Flujo normal mas flujos alternativos
+   - Flujo normal mas flujos alternativos
 
 1.3 UC vs FR: Diferencia Fundamental
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,26 +92,26 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  :widths: 20 40 40
 
  * - Aspecto
- - Caso de Uso (UC)
- - Requisito Funcional (FR)
+   - Caso de Uso (UC)
+   - Requisito Funcional (FR)
  * - Vista
- - Narrativa (historia)
- - Atomica (declaracion)
+   - Narrativa (historia)
+   - Atomica (declaracion)
  * - Nivel
- - Alto (interaccion completa)
- - Bajo (comportamiento especifico)
+   - Alto (interaccion completa)
+   - Bajo (comportamiento especifico)
  * - Orientacion
- - Actor (usuario)
- - Sistema (implementacion)
+   - Actor (usuario)
+   - Sistema (implementacion)
  * - Dependencia
- - Secuencia importa
- - Independiente
+   - Secuencia importa
+   - Independiente
  * - Verificacion
- - Escenario end-to-end
- - Test unitario/aislado
+   - Escenario end-to-end
+   - Test unitario/aislado
  * - Ejemplo
- - UC-043: Configurar SoD
- - FR-043.1: Sistema DEBE mostrar lista SoD
+   - UC-043: Configurar SoD
+   - FR-043.1: Sistema DEBE mostrar lista SoD
 
 **Analogia:**
 
@@ -238,17 +238,17 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  :widths: 20 40 40
 
  * - Tipo
- - Descripcion
- - Ejemplo IACT
+   - Descripcion
+   - Ejemplo IACT
  * - Humano
- - Persona con agrupador especifico
- - AGR-004 (visor_dashboard)
+   - Persona con agrupador especifico
+   - AGR-004 (visor_dashboard)
  * - Sistema
- - Sistema externo que interactua
- - Sistema IVR MySQL
+   - Sistema externo que interactua
+   - Sistema IVR MySQL
  * - Tiempo
- - Eventos programados
- - Scheduler ETL (medianoche)
+   - Eventos programados
+   - Scheduler ETL (medianoche)
 
 3.3 Actor Primario vs Secundario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -299,44 +299,44 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018:
  :widths: 35 35 30
 
  * - Rol Legacy (R00x)
- - Agrupador (AGR-00x)
- - Nota
+   - Agrupador (AGR-00x)
+   - Nota
  * - R001: USERS_FULL_MANAGER
- - AGR-001: administrador_usuarios
- - Equivalente directo
+   - AGR-001: administrador_usuarios
+   - Equivalente directo
  * - R002: USERS_VIEWER
- - AGR-002: visor_usuarios
- - Equivalente directo
+   - AGR-002: visor_usuarios
+   - Equivalente directo
  * - R003: USERS_TEAM_MANAGER
- - AGR-006: supervisor_equipo
- - Renombrado
+   - AGR-006: supervisor_equipo
+   - Renombrado
  * - R004-R007: REPORTS_*
- - AGR-003: analista_reportes
- - Consolidado
+   - AGR-003: analista_reportes
+   - Consolidado
  * - R008-R009: DASHBOARD_*
- - AGR-004: visor_dashboard
- - Consolidado
+   - AGR-004: visor_dashboard
+   - Consolidado
  * - R010: DATA_ANALYST
- - AGR-003: analista_reportes
- - Absorbido
+   - AGR-003: analista_reportes
+   - Absorbido
  * - R011-R014: ALERTS_*
- - AGR-005: gestor_alertas
- - Consolidado
+   - AGR-005: gestor_alertas
+   - Consolidado
  * - R015: MODULES_ADMIN
- - AGR-009: admin_sistema
- - Consolidado
+   - AGR-009: admin_sistema
+   - Consolidado
  * - R016: SYSTEM_ADMIN
- - AGR-009: admin_sistema
- - Renombrado
+   - AGR-009: admin_sistema
+   - Renombrado
  * - R017: AUDIT_VIEWER
- - AGR-007: auditor
- - Renombrado
+   - AGR-007: auditor
+   - Renombrado
  * - R018: SECURITY_ADMIN
- - AGR-008: admin_seguridad
- - Renombrado
+   - AGR-008: admin_seguridad
+   - Renombrado
  * - (nuevo)
- - AGR-010: operador_etl
- - Nuevo en RBAC v5.2.x
+   - AGR-010: operador_etl
+   - Nuevo en RBAC v5.2.x
 
 ----
 
@@ -449,17 +449,17 @@ Para cada entidad del dominio, considerar operaciones basicas segun su clasifica
  :widths: 25 35 40
 
  * - Tipo Entidad
- - UC Generados
- - Ejemplo
+   - UC Generados
+   - Ejemplo
  * - Maestro
- - CRUD completo (6 UC)
- - Usuario, Rol, Centro
+   - CRUD completo (6 UC)
+   - Usuario, Rol, Centro
  * - Transaccional
- - C + R solamente (3 UC)
- - Llamada, Auditoria, Sesion
+   - C + R solamente (3 UC)
+   - Llamada, Auditoria, Sesion
  * - Tecnica
- - Sin UC directos
- - ConfiguracionSistema, Log
+   - Sin UC directos
+   - ConfiguracionSistema, Log
 
 5.3 Tecnica 3: Modelo de Larman - Eventos del Sistema (22%)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -755,35 +755,35 @@ distribuidos en 8 modulos funcionales.
  :widths: 30 15 55
 
  * - Modulo
- - Cantidad
- - Rango UC
+   - Cantidad
+   - Rango UC
  * - MOD_Auth
- - 5
- - UC-001 a UC-005
+   - 5
+   - UC-001 a UC-005
  * - MOD_Users
- - 4
- - UC-006 a UC-009
+   - 4
+   - UC-006 a UC-009
  * - MOD_Access
- - 9
- - UC-010, UC-011, UC-041 a UC-047
+   - 9
+   - UC-010, UC-011, UC-041 a UC-047
  * - MOD_Pipeline
- - 4
- - UC-050 a UC-053
+   - 4
+   - UC-050 a UC-053
  * - MOD_Reports
- - 14
- - UC-017 a UC-030
+   - 14
+   - UC-017 a UC-030
  * - MOD_Alerts
- - 5
- - UC-036 a UC-040
+   - 5
+   - UC-036 a UC-040
  * - MOD_Audit
- - 4
- - UC-060 a UC-063
+   - 4
+   - UC-060 a UC-063
  * - MOD_Logs
- - 4
- - UC-070 a UC-073
+   - 4
+   - UC-070 a UC-073
  * - **TOTAL**
- - **49**
- - --
+   - **49**
+   - --
 
 ----
 
@@ -822,21 +822,21 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.2.0
- - 2026-01-04
- - Equipo IACT
- - Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.2.x). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.
+   - 2026-01-04
+   - Equipo IACT
+   - Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.2.x). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.
  * - 1.1.0
- - 2025-12-21
- - Equipo IACT
- - Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades.
+   - 2025-12-21
+   - Equipo IACT
+   - Corregidos porcentajes de tecnicas UC (22/40/22/11/5). Agregadas tecnicas 4 (UI-Driven) y 5 (Stakeholders). Documentado GAP 22%/78%. Agregada clasificacion de entidades.
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

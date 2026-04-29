@@ -28,21 +28,21 @@ UC_ACC_08: Permiso Temporal
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_08
+   - UC_ACC_08
  * - **Nombre**
- - Permiso Temporal
+   - Permiso Temporal
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-001: asigna_funciones
+   - ACC-001: asigna_funciones
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-ACC-008
+   - BRQ-ACC-008
 
 2. Descripcion
 --------------
@@ -94,13 +94,13 @@ proyectos especiales o accesos limitados en tiempo.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-001
+   - El administrador tiene sesion activa con funcion ACC-001
  * - PRE-02
- - El usuario destino existe y esta ACTIVO
+   - El usuario destino existe y esta ACTIVO
  * - PRE-03
- - La funcion a asignar existe en el catalogo
+   - La funcion a asignar existe en el catalogo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -115,13 +115,13 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se crea registro en permisos_temporales
+   - Se crea registro en permisos_temporales
  * - POST-02
- - El permiso queda activo durante el periodo definido
+   - El permiso queda activo durante el periodo definido
  * - POST-03
- - Se registra TEMP_PERMISSION_GRANT en auditoria
+   - Se registra TEMP_PERMISSION_GRANT en auditoria
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -131,47 +131,47 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede a asignar permiso temporal
+   - Admin
+   - Accede a asignar permiso temporal
  * - 2
- - Sistema
- - Valida funcion ACC-001
+   - Sistema
+   - Valida funcion ACC-001
  * - 3
- - Admin
- - Selecciona usuario destino
+   - Admin
+   - Selecciona usuario destino
  * - 4
- - Admin
- - Selecciona funcion a asignar
+   - Admin
+   - Selecciona funcion a asignar
  * - 5
- - Admin
- - Define fecha de inicio
+   - Admin
+   - Define fecha de inicio
  * - 6
- - Admin
- - Define fecha de fin (max 6 meses)
+   - Admin
+   - Define fecha de fin (max 6 meses)
  * - 7
- - Admin
- - Ingresa justificacion obligatoria
+   - Admin
+   - Ingresa justificacion obligatoria
  * - 8
- - Admin
- - Confirma asignacion
+   - Admin
+   - Confirma asignacion
  * - 9
- - Sistema
- - Valida duracion maxima 6 meses
+   - Sistema
+   - Valida duracion maxima 6 meses
  * - 10
- - Sistema
- - Valida SoD incluyendo permiso temporal
+   - Sistema
+   - Valida SoD incluyendo permiso temporal
  * - 11
- - Sistema
- - Crea registro de permiso temporal
+   - Sistema
+   - Crea registro de permiso temporal
  * - 12
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
  * - 13
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -223,20 +223,20 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Sistema
- - Detecta permiso temporal existente
+   - Sistema
+   - Detecta permiso temporal existente
  * - 4b
- - Sistema
- - Ofrece extender en lugar de crear nuevo
+   - Sistema
+   - Ofrece extender en lugar de crear nuevo
  * - 6a
- - Admin
- - Define nueva fecha de fin
+   - Admin
+   - Define nueva fecha de fin
  * - 9a
- - Sistema
- - Valida que total no exceda 6 meses desde inicio original
+   - Sistema
+   - Valida que total no exceda 6 meses desde inicio original
 
 7.2 FA-02: Revocar Permiso Temporal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,17 +246,17 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Admin
- - Selecciona revocar permiso temporal activo
+   - Admin
+   - Selecciona revocar permiso temporal activo
  * - 2a
- - Sistema
- - Cambia fecha_fin a ahora
+   - Sistema
+   - Cambia fecha_fin a ahora
  * - 3a
- - Sistema
- - Registra TEMP_PERMISSION_REVOKE
+   - Sistema
+   - Registra TEMP_PERMISSION_REVOKE
 
 8. Excepciones
 --------------
@@ -269,15 +269,15 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Diferencia entre inicio y fin mayor a 6 meses
+   - Diferencia entre inicio y fin mayor a 6 meses
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - Duracion maxima de permiso temporal es 6 meses
+   - Duracion maxima de permiso temporal es 6 meses
  * - **Codigo Error**
- - ACC-070
+   - ACC-070
 
 8.2 EX-02: Viola SoD
 ^^^^^^^^^^^^^^^^^^^^
@@ -287,15 +287,15 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Permiso temporal viola restriccion SoD
+   - Permiso temporal viola restriccion SoD
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - Conflicto SoD: funcion incompatible
+   - Conflicto SoD: funcion incompatible
  * - **Codigo Error**
- - ACC-071
+   - ACC-071
 
 8.3 EX-03: Sin Justificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -305,15 +305,15 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Campo justificacion vacio
+   - Campo justificacion vacio
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - Justificacion es obligatoria para permisos temporales
+   - Justificacion es obligatoria para permisos temporales
  * - **Codigo Error**
- - ACC-072
+   - ACC-072
 
 9. Diagrama de Actividad
 ------------------------
@@ -362,23 +362,23 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-70
- - Duracion Maxima
- - Un permiso temporal no puede exceder 6 meses
+   - Duracion Maxima
+   - Un permiso temporal no puede exceder 6 meses
  * - BR-ACC-71
- - Justificacion Obligatoria
- - Todo permiso temporal requiere justificacion escrita
+   - Justificacion Obligatoria
+   - Todo permiso temporal requiere justificacion escrita
  * - BR-ACC-72
- - SoD Aplica
- - Los permisos temporales se validan contra SoD
+   - SoD Aplica
+   - Los permisos temporales se validan contra SoD
  * - BR-ACC-73
- - Expiracion Automatica
- - El sistema invalida automaticamente al llegar fecha_fin
+   - Expiracion Automatica
+   - El sistema invalida automaticamente al llegar fecha_fin
  * - BR-ACC-74
- - Precedencia Alta
- - Permisos temporales tienen precedencia sobre agrupadores
+   - Precedencia Alta
+   - Permisos temporales tienen precedencia sobre agrupadores
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -388,14 +388,14 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat
- - Permisos temporales max 6 meses, con justificacion obligatoria
+   - RBAC Flat
+   - Permisos temporales max 6 meses, con justificacion obligatoria
  * - CNST_025
- - Auditoria Inmutable
- - Se registra TEMP_PERMISSION_GRANT con justificacion y fechas
+   - Auditoria Inmutable
+   - Se registra TEMP_PERMISSION_GRANT con justificacion y fechas
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -405,17 +405,17 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-070
- - El sistema debe validar duracion maxima 6 meses
- - Rechazo si excede limite
+   - El sistema debe validar duracion maxima 6 meses
+   - Rechazo si excede limite
  * - FR-ACC-071
- - El sistema debe requerir justificacion
- - Campo obligatorio no vacio
+   - El sistema debe requerir justificacion
+   - Campo obligatorio no vacio
  * - FR-ACC-072
- - El sistema debe expirar automaticamente
- - Permiso inactivo al pasar fecha_fin
+   - El sistema debe expirar automaticamente
+   - Permiso inactivo al pasar fecha_fin
 
 13. Trazabilidad
 ----------------
@@ -425,17 +425,17 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-008: Permitir asignacion de permisos temporales
+   - BRQ-ACC-008: Permitir asignacion de permisos temporales
  * - **Reglas de Negocio**
- - BR-ACC-70 a BR-ACC-74
+   - BR-ACC-70 a BR-ACC-74
  * - **Restricciones**
- - CNST_029, CNST_025
+   - CNST_029, CNST_025
  * - **UC Relacionados**
- - UC_ACC_01, UC_ACC_03
+   - UC_ACC_01, UC_ACC_03
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-001: asigna_funciones
+   - ACC-001: asigna_funciones
 
 14. Historial de Cambios
 ------------------------
@@ -445,10 +445,10 @@ El administrador selecciona asignar permiso temporal a un usuario.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

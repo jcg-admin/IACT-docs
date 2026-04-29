@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Crear_Estructura_Directorios_Tmp
+   - PROC_Crear_Estructura_Directorios_Tmp
  * - **Nombre**
- - Crear Estructura de Directorios en /tmp
+   - Crear Estructura de Directorios en /tmp
  * - **Categoria**
- - Preparacion
+   - Preparacion
  * - **Frecuencia**
- - Antes de cada sesion de generacion masiva
+   - Antes de cada sesion de generacion masiva
  * - **Duracion Estimada**
- - 2-5 minutos
+   - 2-5 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -79,11 +79,11 @@ correcta de carpetas para generar artefactos de forma organizada.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Generador
- - Crea estructura de directorios
- - Escritura en /tmp
+   - Crea estructura de directorios
+   - Escritura en /tmp
 
 ----
 
@@ -106,11 +106,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - MODELO_DOCUMENTAL_IACT
- - Estructura de carpetas oficial
- - Si
+   - Estructura de carpetas oficial
+   - Si
 
 ----
 
@@ -298,11 +298,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Estructura de directorios
- - Carpetas creadas en /tmp
- - /tmp/[dominio]/
+   - Carpetas creadas en /tmp
+   - /tmp/[dominio]/
 
 ----
 
@@ -349,13 +349,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Carpeta ya existe
- - Verificar contenido, limpiar si es necesario
+   - Verificar contenido, limpiar si es necesario
  * - Sin permisos en /tmp
- - Usar directorio alternativo con permisos
+   - Usar directorio alternativo con permisos
  * - Espacio insuficiente
- - Limpiar /tmp de archivos anteriores
+   - Limpiar /tmp de archivos anteriores
 
 ----
 
@@ -375,13 +375,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

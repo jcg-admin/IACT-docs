@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_013
+   - BR_013
  * - **Nombre**
- - Username Único
+   - Username Único
  * - **Tipo**
- - Hecho
+   - Hecho
  * - **Categoría**
- - Identidad / Integridad de Datos
+   - Identidad / Integridad de Datos
  * - **Criticidad**
- - Crítica
+   - Crítica
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -99,9 +99,9 @@ La unicidad del username garantiza:
  :header-rows: 0
 
  * - **Tipo**
- - **Hecho**
+   - **Hecho**
  * - 
- - [X] **Hecho**: Define cardinalidad 1:1 entre usuario y username
+   - [X] **Hecho**: Define cardinalidad 1:1 entre usuario y username
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -123,13 +123,13 @@ La unicidad del username garantiza:
  :header-rows: 0
 
  * - **Documento**
- - Modelo de Identidades IACT
+   - Modelo de Identidades IACT
  * - **Sección**
- - Gestión de Usuarios
+   - Gestión de Usuarios
  * - **Versión**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - Requisito de Seguridad
+   - Requisito de Seguridad
 
 3.2 Autoridad de Modificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -151,17 +151,17 @@ La unicidad del username garantiza:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - UC_USR_01
- - Crear Usuario - Valida unicidad antes de INSERT
+   - Crear Usuario - Valida unicidad antes de INSERT
  * - UC_AUTH_01
- - Iniciar Sesión - Busca por username único
+   - Iniciar Sesión - Busca por username único
  * - UC_AUTH_03
- - Recuperar Contraseña - Identifica por username
+   - Recuperar Contraseña - Identifica por username
  * - Modelo User
- - Constraint UNIQUE en columna username
+   - Constraint UNIQUE en columna username
  * - API
- - Validación en serializer antes de crear
+   - Validación en serializer antes de crear
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -205,15 +205,15 @@ Sin excepciones. La unicidad es absoluta e incondicional.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC_USR_01
- - Crear Usuario - Valida unicidad
+   - Crear Usuario - Valida unicidad
  * - UC_USR_02
- - Modificar Usuario - Username NO editable
+   - Modificar Usuario - Username NO editable
  * - UC_AUTH_01
- - Login - Búsqueda por username único
+   - Login - Búsqueda por username único
  * - UC_AUTH_03
- - Recuperar Password - Identificación por username
+   - Recuperar Password - Identificación por username
 
 ----
 
@@ -318,13 +318,13 @@ La regla se considera cumplida cuando:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Descripción del Cambio
+   - Fecha
+   - Autor
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial - Regla fundamental de identidad
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial - Regla fundamental de identidad
 
 ----
 

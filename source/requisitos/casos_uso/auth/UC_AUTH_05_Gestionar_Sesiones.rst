@@ -19,23 +19,23 @@ UC_AUTH_05: Gestionar Sesiones
  :header-rows: 0
 
  * - **ID**
- - UC_AUTH_05
+   - UC_AUTH_05
  * - **Nombre**
- - Gestionar Sesiones
+   - Gestionar Sesiones
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - Sistema (limpieza automatica)
+   - Sistema (limpieza automatica)
  * - **Modulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Funcion RBAC**
- - AUT-001: gestiona_sesiones, AUT-002: cierra_sesion_usuario, AUT-004: ve_sesiones_activas
+   - AUT-001: gestiona_sesiones, AUT-002: cierra_sesion_usuario, AUT-004: ve_sesiones_activas
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUTH-005
+   - BRQ-AUTH-005
 
 2. Descripcion
 --------------
@@ -101,13 +101,13 @@ cerrar todas las sesiones de un usuario especifico.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa valida
+   - El administrador tiene sesion activa valida
  * - PRE-02
- - El administrador tiene funcion AUT-004 (ve_sesiones_activas)
+   - El administrador tiene funcion AUT-004 (ve_sesiones_activas)
  * - PRE-03
- - Para cerrar sesiones, requiere AUT-001 o AUT-002
+   - Para cerrar sesiones, requiere AUT-001 o AUT-002
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -125,9 +125,9 @@ administracion.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra lista de sesiones activas con detalles
+   - Se muestra lista de sesiones activas con detalles
 
 **Cierre de Sesion:**
 
@@ -136,13 +136,13 @@ administracion.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-02
- - La sesion seleccionada queda marcada como inactiva
+   - La sesion seleccionada queda marcada como inactiva
  * - POST-03
- - Los tokens asociados quedan invalidados
+   - Los tokens asociados quedan invalidados
  * - POST-04
- - Se registra SESSION_CLOSED en auditoria (CNST_025)
+   - Se registra SESSION_CLOSED en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -152,59 +152,59 @@ administracion.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo "Gestion de Sesiones"
+   - Admin
+   - Accede al modulo "Gestion de Sesiones"
  * - 2
- - Sistema
- - Valida funcion AUT-004 (ve_sesiones_activas)
+   - Sistema
+   - Valida funcion AUT-004 (ve_sesiones_activas)
  * - 3
- - Sistema
- - Consulta sesiones activas en base de datos
+   - Sistema
+   - Consulta sesiones activas en base de datos
  * - 4
- - Sistema
- - Presenta tabla con sesiones: usuario, IP, user-agent, inicio, ultima actividad
+   - Sistema
+   - Presenta tabla con sesiones: usuario, IP, user-agent, inicio, ultima actividad
  * - 5
- - Admin
- - Aplica filtros opcionales (usuario, fecha, estado)
+   - Admin
+   - Aplica filtros opcionales (usuario, fecha, estado)
  * - 6
- - Sistema
- - Actualiza lista segun filtros
+   - Sistema
+   - Actualiza lista segun filtros
  * - 7
- - Admin
- - Selecciona una sesion especifica
+   - Admin
+   - Selecciona una sesion especifica
  * - 8
- - Sistema
- - Muestra detalle completo de la sesion
+   - Sistema
+   - Muestra detalle completo de la sesion
  * - 9
- - Admin
- - Hace clic en "Cerrar Sesion"
+   - Admin
+   - Hace clic en "Cerrar Sesion"
  * - 10
- - Sistema
- - Valida funcion AUT-002 (cierra_sesion_usuario)
+   - Sistema
+   - Valida funcion AUT-002 (cierra_sesion_usuario)
  * - 11
- - Sistema
- - Muestra dialogo de confirmacion
+   - Sistema
+   - Muestra dialogo de confirmacion
  * - 12
- - Admin
- - Confirma cierre
+   - Admin
+   - Confirma cierre
  * - 13
- - Sistema
- - Marca sesion como inactiva (is_active=false)
+   - Sistema
+   - Marca sesion como inactiva (is_active=false)
  * - 14
- - Sistema
- - Agrega token a blacklist
+   - Sistema
+   - Agrega token a blacklist
  * - 15
- - Sistema
- - Registra SESSION_CLOSED en UserActionLog (CNST_025)
+   - Sistema
+   - Registra SESSION_CLOSED en UserActionLog (CNST_025)
  * - 16
- - Sistema
- - Actualiza lista de sesiones
+   - Sistema
+   - Actualiza lista de sesiones
  * - 17
- - Sistema
- - Muestra confirmacion de cierre
+   - Sistema
+   - Muestra confirmacion de cierre
 
 6. Diagrama de Secuencia
 ------------------------
@@ -314,26 +314,26 @@ administracion.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 9a
- - Admin
- - Selecciona "Cerrar todas las sesiones" de un usuario
+   - Admin
+   - Selecciona "Cerrar todas las sesiones" de un usuario
  * - 10a
- - Sistema
- - Valida funcion AUT-001 (gestiona_sesiones)
+   - Sistema
+   - Valida funcion AUT-001 (gestiona_sesiones)
  * - 11a
- - Sistema
- - Muestra advertencia: "Cerrara N sesiones activas"
+   - Sistema
+   - Muestra advertencia: "Cerrara N sesiones activas"
  * - 12a
- - Admin
- - Confirma accion
+   - Admin
+   - Confirma accion
  * - 13a
- - Sistema
- - Cierra todas las sesiones del usuario
+   - Sistema
+   - Cierra todas las sesiones del usuario
  * - 14a
- - Sistema
- - Registra SESSION_CLOSED_ALL en auditoria
+   - Sistema
+   - Registra SESSION_CLOSED_ALL en auditoria
 
 7.2 FA-02: Filtrar por Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -343,17 +343,17 @@ administracion.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Admin
- - Ingresa username en filtro
+   - Admin
+   - Ingresa username en filtro
  * - 6a
- - Sistema
- - Muestra solo sesiones de ese usuario
+   - Sistema
+   - Muestra solo sesiones de ese usuario
  * - 6b
- - Sistema
- - Muestra opcion "Cerrar todas" habilitada
+   - Sistema
+   - Muestra opcion "Cerrar todas" habilitada
 
 7.3 FA-03: Sesion Propia del Admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,20 +363,20 @@ administracion.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 9a
- - Admin
- - Intenta cerrar su propia sesion actual
+   - Admin
+   - Intenta cerrar su propia sesion actual
  * - 10a
- - Sistema
- - Muestra advertencia: "Cerrara su sesion actual"
+   - Sistema
+   - Muestra advertencia: "Cerrara su sesion actual"
  * - 12a
- - Admin
- - Confirma (sera desconectado)
+   - Admin
+   - Confirma (sera desconectado)
  * - 17a
- - Sistema
- - Redirige a pantalla de login
+   - Sistema
+   - Redirige a pantalla de login
 
 8. Excepciones
 --------------
@@ -389,15 +389,15 @@ administracion.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion AUT-004
+   - Administrador no tiene funcion AUT-004
  * - **Accion Sistema**
- - Rechaza acceso al modulo
+   - Rechaza acceso al modulo
  * - **Mensaje Usuario**
- - "No tiene permisos para ver sesiones activas"
+   - "No tiene permisos para ver sesiones activas"
  * - **Codigo Error**
- - AUTH-040
+   - AUTH-040
 
 8.2 EX-02: Sin Permiso para Cerrar Sesiones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -407,15 +407,15 @@ administracion.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Administrador no tiene funcion AUT-002
+   - Administrador no tiene funcion AUT-002
  * - **Accion Sistema**
- - Permite ver pero no cerrar
+   - Permite ver pero no cerrar
  * - **Mensaje Usuario**
- - "No tiene permisos para cerrar sesiones"
+   - "No tiene permisos para cerrar sesiones"
  * - **Codigo Error**
- - AUTH-041
+   - AUTH-041
 
 8.3 EX-03: Sesion Ya Cerrada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -425,15 +425,15 @@ administracion.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 13
+   - 13
  * - **Condicion**
- - Sesion ya fue cerrada por otro proceso
+   - Sesion ya fue cerrada por otro proceso
  * - **Accion Sistema**
- - Actualiza lista, muestra mensaje
+   - Actualiza lista, muestra mensaje
  * - **Mensaje Usuario**
- - "La sesion ya no esta activa"
+   - "La sesion ya no esta activa"
  * - **Codigo Error**
- - AUTH-042
+   - AUTH-042
 
 9. Diagrama de Actividad
 ------------------------
@@ -510,23 +510,23 @@ administracion.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUTH-40
- - Separacion de Funciones
- - Ver sesiones (AUT-004) y cerrar sesiones (AUT-002) son funciones separadas que pueden asignarse independientemente.
+   - Separacion de Funciones
+   - Ver sesiones (AUT-004) y cerrar sesiones (AUT-002) son funciones separadas que pueden asignarse independientemente.
  * - BR-AUTH-41
- - Cierre Propio
- - Un admin puede cerrar su propia sesion, resultando en desconexion inmediata.
+   - Cierre Propio
+   - Un admin puede cerrar su propia sesion, resultando en desconexion inmediata.
  * - BR-AUTH-42
- - Registro Completo
- - Todo cierre de sesion por admin debe registrar: admin ejecutor, usuario afectado, razon y timestamp.
+   - Registro Completo
+   - Todo cierre de sesion por admin debe registrar: admin ejecutor, usuario afectado, razon y timestamp.
  * - BR-AUTH-43
- - Invalidacion Inmediata
- - Al cerrar una sesion, el token debe quedar invalido inmediatamente (blacklist).
+   - Invalidacion Inmediata
+   - Al cerrar una sesion, el token debe quedar invalido inmediatamente (blacklist).
  * - BR-AUTH-44
- - Sesion Unica
- - Coherente con CNST_003, cada usuario solo puede tener una sesion activa.
+   - Sesion Unica
+   - Coherente con CNST_003, cada usuario solo puede tener una sesion activa.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -536,14 +536,14 @@ administracion.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_003
- - Sesion Unica
- - El listado de sesiones deberia mostrar maximo 1 sesion activa por usuario. Si hay multiples (estado inconsistente), se debe alertar y permitir limpiar.
+   - Sesion Unica
+   - El listado de sesiones deberia mostrar maximo 1 sesion activa por usuario. Si hay multiples (estado inconsistente), se debe alertar y permitir limpiar.
  * - CNST_025
- - Auditoria Inmutable
- - Todo cierre de sesion administrativa se registra en UserActionLog con: admin ejecutor, usuario afectado, session_id, IP de ambos y razon.
+   - Auditoria Inmutable
+   - Todo cierre de sesion administrativa se registra en UserActionLog con: admin ejecutor, usuario afectado, session_id, IP de ambos y razon.
 
 **Implementacion CNST_025:**
 
@@ -587,23 +587,23 @@ administracion.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUTH-040
- - El sistema debe listar sesiones activas con filtros
- - Lista con usuario, IP, user-agent, timestamps
+   - El sistema debe listar sesiones activas con filtros
+   - Lista con usuario, IP, user-agent, timestamps
  * - FR-AUTH-041
- - El sistema debe permitir cerrar sesiones individuales
- - Sesion marcada inactiva, token en blacklist
+   - El sistema debe permitir cerrar sesiones individuales
+   - Sesion marcada inactiva, token en blacklist
  * - FR-AUTH-042
- - El sistema debe permitir cerrar todas las sesiones de un usuario
- - Todas las sesiones del usuario cerradas en una accion
+   - El sistema debe permitir cerrar todas las sesiones de un usuario
+   - Todas las sesiones del usuario cerradas en una accion
  * - FR-AUTH-043
- - El sistema debe validar funciones antes de cada accion
- - AUT-004 para ver, AUT-002 para cerrar
+   - El sistema debe validar funciones antes de cada accion
+   - AUT-004 para ver, AUT-002 para cerrar
  * - FR-AUTH-044
- - El sistema debe registrar cierres en auditoria
- - Evento SESSION_CLOSED con admin y usuario afectado
+   - El sistema debe registrar cierres en auditoria
+   - Evento SESSION_CLOSED con admin y usuario afectado
 
 13. Trazabilidad
 ----------------
@@ -613,19 +613,19 @@ administracion.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUTH-005: Permitir administracion de sesiones activas
+   - BRQ-AUTH-005: Permitir administracion de sesiones activas
  * - **Reglas de Negocio**
- - BR-AUTH-40 a BR-AUTH-44
+   - BR-AUTH-40 a BR-AUTH-44
  * - **Restricciones**
- - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
+   - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
  * - **FR Derivados**
- - FR-AUTH-040 a FR-AUTH-044
+   - FR-AUTH-040 a FR-AUTH-044
  * - **UC Relacionados**
- - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_02 (Cerrar Sesion)
+   - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_02 (Cerrar Sesion)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - AUT-001, AUT-002, AUT-004
+   - AUT-001, AUT-002, AUT-004
 
 14. Historial de Cambios
 ------------------------
@@ -635,10 +635,10 @@ administracion.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con funciones RBAC separadas
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con funciones RBAC separadas

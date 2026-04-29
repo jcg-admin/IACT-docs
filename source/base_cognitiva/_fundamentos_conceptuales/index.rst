@@ -53,29 +53,29 @@ Catalogo de Fundamentos
  :widths: 10 35 55
 
  * - ID
- - Titulo
- - Contenido Principal
+   - Titulo
+   - Contenido Principal
  * - FND_01
- - :ref:`fnd-01`
- - Definicion de requisito, tipos, caracteristicas
+   - :ref:`fnd-01`
+   - Definicion de requisito, tipos, caracteristicas
  * - FND_02
- - :ref:`fnd-02`
- - Reglas de Negocio, tipos SBVR, modalidades
+   - :ref:`fnd-02`
+   - Reglas de Negocio, tipos SBVR, modalidades
  * - FND_03
- - :ref:`fnd-03`
- - Casos de Uso, estructura, actores, flujos
+   - :ref:`fnd-03`
+   - Casos de Uso, estructura, actores, flujos
  * - FND_04
- - :ref:`fnd-04`
- - Trazabilidad, tipos, RTM, beneficios
+   - :ref:`fnd-04`
+   - Trazabilidad, tipos, RTM, beneficios
  * - FND_05
- - :ref:`fnd-05`
- - Jerarquia 4 niveles BR-BReq-UC-FR
+   - :ref:`fnd-05`
+   - Jerarquia 4 niveles BR-BReq-UC-FR
  * - FND_06
- - :ref:`fnd-06`
- - Derivacion vs Transformacion, responsabilidad unica
+   - :ref:`fnd-06`
+   - Derivacion vs Transformacion, responsabilidad unica
  * - FND_07
- - :ref:`fnd-07`
- - Requerimientos Funcionales, SMART, criterios aceptacion
+   - :ref:`fnd-07`
+   - Requerimientos Funcionales, SMART, criterios aceptacion
 
 Organizacion Conceptual
 -----------------------
@@ -137,17 +137,17 @@ Relacion con Otros Subdominios
  :widths: 30 70
 
  * - Subdominio
- - Relacion
+   - Relacion
  * - _ontologia_sbvr/
- - FND_02 referencia conceptos SBVR definidos en ontologia
+   - FND_02 referencia conceptos SBVR definidos en ontologia
  * - _metodologias_analiticas/
- - METH_01 y METH_02 aplican conceptos de FND_02, FND_03, FND_07
+   - METH_01 y METH_02 aplican conceptos de FND_02, FND_03, FND_07
  * - _taxonomias_y_metamodelos/
- - Taxonomias clasifican los conceptos definidos aqui
+   - Taxonomias clasifican los conceptos definidos aqui
  * - glosario/
- - Terminos tecnicos se definen en el glosario, aqui se explican
+   - Terminos tecnicos se definen en el glosario, aqui se explican
  * - requisitos/
- - Los artefactos BR, UC, FR implementan estos conceptos
+   - Los artefactos BR, UC, FR implementan estos conceptos
 
 Fuentes Documentales
 --------------------
@@ -159,21 +159,21 @@ Los fundamentos conceptuales se basan en:
  :widths: 40 60
 
  * - Fuente conceptual
- - Contenido extraído
+   - Contenido extraído
  * - Documentos internos del proyecto sobre contexto y
- fundamentos del modelo documental
- - Jerarquía de 4 niveles, problema de trazabilidad
+     fundamentos del modelo documental
+   - Jerarquía de 4 niveles, problema de trazabilidad
  * - Documentos internos sobre especificación de requisitos
- funcionales
- - Definición de FR, características SMART
+     funcionales
+   - Definición de FR, características SMART
  * - Documentos internos sobre estrategia de derivación de FR
- en proyectos greenfield
- - Derivación vs Transformación, responsabilidad única
+     en proyectos greenfield
+   - Derivación vs Transformación, responsabilidad única
  * - Larman, C. (técnicas para análisis y diseño orientado a
- objetos)
- - Eventos del sistema, contratos de operación
+     objetos)
+   - Eventos del sistema, contratos de operación
  * - Paper IBM SBVR (Linehan, 2008)
- - Fundamentos SBVR, modalidades alética / deóntica
+   - Fundamentos SBVR, modalidades alética / deóntica
 
 Historial de Versiones
 ----------------------
@@ -183,11 +183,11 @@ Historial de Versiones
  :widths: 15 15 70
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-19
- - Version inicial con 7 documentos FND
+   - 2025-12-19
+   - Version inicial con 7 documentos FND
 
 ----
 

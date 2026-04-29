@@ -22,19 +22,19 @@ FR-002.01: Invalidar token JWT
  :widths: 25 75
 
  * - **ID**
- - FR-002.01
+   - FR-002.01
  * - **Nombre**
- - Invalidar token JWT al cerrar sesión
+   - Invalidar token JWT al cerrar sesión
  * - **UC Origen**
- - UC_002: Cerrar Sesion
+   - UC_002: Cerrar Sesion
  * - **Paso UC**
- - Paso 4 del flujo normal
+   - Paso 4 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -117,17 +117,17 @@ FR-002.01: Invalidar token JWT
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_002: Cerrar Sesion
+   - UC_002: Cerrar Sesion
  * - **Depende de**
- - FR-001.03 (token existente)
+   - FR-001.03 (token existente)
  * - **Requerido por**
- - FR-002.02
+   - FR-002.02
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-002.01 (pendiente)
+   - TST-FR-002.01 (pendiente)
 
 ----
 
@@ -139,8 +139,8 @@ FR-002.01: Invalidar token JWT
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_002
+   - 2026-01-07
+   - Versión inicial derivada de UC_002

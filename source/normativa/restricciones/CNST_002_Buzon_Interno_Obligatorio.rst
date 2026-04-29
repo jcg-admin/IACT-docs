@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_002
+   - CNST_002
  * - **Categoria**
- - Comunicaciones
+   - Comunicaciones
  * - **Tipo (TXM_01)**
- - Negocio
+   - Negocio
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -85,15 +85,15 @@ saturacion del buzon, fatiga de alertas y abuso del canal.
  :widths: 50 50
 
  * - Parametro
- - Valor
+   - Valor
  * - Maximo destinatarios por alerta
- - 50 usuarios
+   - 50 usuarios
  * - Ventana de consolidacion de alertas iguales
- - 1 hora
+   - 1 hora
  * - Frecuencia de evaluacion de condiciones
- - cada 5-15 minutos (no real-time)
+   - cada 5-15 minutos (no real-time)
  * - Otros canales permitidos
- - ninguno (sin SMS, push ni webhooks)
+   - ninguno (sin SMS, push ni webhooks)
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,9 +113,9 @@ saturacion del buzon, fatiga de alertas y abuso del canal.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Notifications
- - Implementa InternalMessage, batching y limites operativos
+   - Implementa InternalMessage, batching y limites operativos
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,17 +125,17 @@ saturacion del buzon, fatiga de alertas y abuso del canal.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_036
- - Configurar Alertas
+   - Configurar Alertas
  * - UC_037
- - Recibir Notificacion
+   - Recibir Notificacion
  * - UC_038
- - Marcar Alerta como Leida
+   - Marcar Alerta como Leida
  * - UC_039
- - Archivar Alerta
+   - Archivar Alerta
  * - UC_040
- - Consultar Historial de Alertas
+   - Consultar Historial de Alertas
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,11 +152,11 @@ saturacion del buzon, fatiga de alertas y abuso del canal.
  :header-rows: 1
 
  * - BR
- - Nombre
- - Relacion
+   - Nombre
+   - Relacion
  * - BR (pendiente)
- - Limites operativos de alertas
- - Pendiente WP requisitos
+   - Limites operativos de alertas
+   - Pendiente WP requisitos
 
 5. Implementacion
 -----------------
@@ -217,15 +217,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_001_Prohibicion_de_Email_y_SMTP`, :doc:`CNST_008_Sincronizacion_ETL_en_Ventana_de_6_a_12_Horas`
+   - :doc:`CNST_001_Prohibicion_de_Email_y_SMTP`, :doc:`CNST_008_Sincronizacion_ETL_en_Ventana_de_6_a_12_Horas`
  * - **BR derivadas**
- - BR (pendiente)
+   - BR (pendiente)
  * - **UCs afectados**
- - UC_036, UC_037, UC_038, UC_039, UC_040
+   - UC_036, UC_037, UC_038, UC_039, UC_040
  * - **MODs afectados**
- - MOD_Notifications
+   - MOD_Notifications
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -235,15 +235,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

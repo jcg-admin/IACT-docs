@@ -80,26 +80,26 @@ y las reglas de redaccion que garantizan precision y consistencia.
  :widths: 20 40 40
 
  * - Keyword
- - Significado
- - Ejemplo
+   - Significado
+   - Ejemplo
  * - **DEBE**
- - Obligacion incondicional
- - "Usuario DEBE tener al menos un rol"
+   - Obligacion incondicional
+   - "Usuario DEBE tener al menos un rol"
  * - **NO DEBE**
- - Prohibicion incondicional
- - "Sistema NO DEBE enviar email externo"
+   - Prohibicion incondicional
+   - "Sistema NO DEBE enviar email externo"
  * - **PUEDE**
- - Permiso (opcional)
- - "Administrador PUEDE cerrar sesion de otro usuario"
+   - Permiso (opcional)
+   - "Administrador PUEDE cerrar sesion de otro usuario"
  * - **SOLO**
- - Restriccion exclusiva
- - "SOLO R001 puede crear usuarios"
+   - Restriccion exclusiva
+   - "SOLO R001 puede crear usuarios"
  * - **UNICAMENTE**
- - Sinonimo de SOLO
- - "Notificaciones UNICAMENTE via buzon interno"
+   - Sinonimo de SOLO
+   - "Notificaciones UNICAMENTE via buzon interno"
  * - **DEBERIA**
- - Recomendado pero no obligatorio
- - "Sistema DEBERIA enviar confirmacion por email"
+   - Recomendado pero no obligatorio
+   - "Sistema DEBERIA enviar confirmacion por email"
 
 2.2 Keywords Aleticos
 ^^^^^^^^^^^^^^^^^^^^^
@@ -109,23 +109,23 @@ y las reglas de redaccion que garantizan precision y consistencia.
  :widths: 20 40 40
 
  * - Keyword
- - Significado
- - Ejemplo
+   - Significado
+   - Ejemplo
  * - **ES**
- - Verdad estructural
- - "Username ES unico"
+   - Verdad estructural
+   - "Username ES unico"
  * - **TIENE**
- - Posesion/relacion
- - "Usuario TIENE exactamente un segmento"
+   - Posesion/relacion
+   - "Usuario TIENE exactamente un segmento"
  * - **CADA**
- - Cuantificador universal
- - "CADA rol contiene al menos un permiso"
+   - Cuantificador universal
+   - "CADA rol contiene al menos un permiso"
  * - **EXISTE**
- - Cuantificador existencial
- - "EXISTE al menos un administrador activo"
+   - Cuantificador existencial
+   - "EXISTE al menos un administrador activo"
  * - **EXACTAMENTE**
- - Cardinalidad precisa
- - "Usuario tiene EXACTAMENTE una sesion activa"
+   - Cardinalidad precisa
+   - "Usuario tiene EXACTAMENTE una sesion activa"
 
 2.3 Keywords Condicionales
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,20 +135,20 @@ y las reglas de redaccion que garantizan precision y consistencia.
  :widths: 20 40 40
 
  * - Keyword
- - Significado
- - Ejemplo
+   - Significado
+   - Ejemplo
  * - **SI**
- - Condicion antecedente
- - "SI usuario falla 3 intentos..."
+   - Condicion antecedente
+   - "SI usuario falla 3 intentos..."
  * - **ENTONCES**
- - Consecuencia
- - "...ENTONCES sistema bloquea cuenta"
+   - Consecuencia
+   - "...ENTONCES sistema bloquea cuenta"
  * - **CUANDO**
- - Sinonimo de SI (temporal)
- - "CUANDO hora = 00:00, ejecutar ETL"
+   - Sinonimo de SI (temporal)
+   - "CUANDO hora = 00:00, ejecutar ETL"
  * - **MIENTRAS**
- - Condicion continua
- - "MIENTRAS sesion activa, registrar actividad"
+   - Condicion continua
+   - "MIENTRAS sesion activa, registrar actividad"
 
 ----
 
@@ -163,29 +163,29 @@ y las reglas de redaccion que garantizan precision y consistencia.
  :widths: 20 40 40
 
  * - Prohibido
- - Problema
- - Alternativa
+   - Problema
+   - Alternativa
  * - podria
- - Ambiguo (¿permiso o posibilidad?)
- - PUEDE
+   - Ambiguo (¿permiso o posibilidad?)
+   - PUEDE
  * - normalmente
- - Impreciso (¿cuando no?)
- - Especificar condicion exacta
+   - Impreciso (¿cuando no?)
+   - Especificar condicion exacta
  * - generalmente
- - Impreciso
- - Especificar condicion exacta
+   - Impreciso
+   - Especificar condicion exacta
  * - a veces
- - Impreciso (¿cuando?)
- - SI [condicion] ENTONCES
+   - Impreciso (¿cuando?)
+   - SI [condicion] ENTONCES
  * - quizas
- - Incertidumbre
- - Eliminar o especificar
+   - Incertidumbre
+   - Eliminar o especificar
  * - posiblemente
- - Incertidumbre
- - Eliminar o especificar
+   - Incertidumbre
+   - Eliminar o especificar
  * - aproximadamente
- - Impreciso
- - Valor exacto o rango
+   - Impreciso
+   - Valor exacto o rango
 
 3.2 Palabras Vagas
 ^^^^^^^^^^^^^^^^^^
@@ -195,32 +195,32 @@ y las reglas de redaccion que garantizan precision y consistencia.
  :widths: 20 40 40
 
  * - Prohibido
- - Problema
- - Alternativa
+   - Problema
+   - Alternativa
  * - rapido
- - ¿Cuanto es rapido?
- - "< 2 segundos"
+   - ¿Cuanto es rapido?
+   - "< 2 segundos"
  * - suficiente
- - ¿Cuanto es suficiente?
- - Valor numerico especifico
+   - ¿Cuanto es suficiente?
+   - Valor numerico especifico
  * - adecuado
- - Subjetivo
- - Criterio medible
+   - Subjetivo
+   - Criterio medible
  * - razonable
- - Subjetivo
- - Criterio especifico
+   - Subjetivo
+   - Criterio especifico
  * - varios
- - ¿Cuantos?
- - Numero exacto o rango
+   - ¿Cuantos?
+   - Numero exacto o rango
  * - algunos
- - ¿Cuantos?
- - "al menos N" o "entre N y M"
+   - ¿Cuantos?
+   - "al menos N" o "entre N y M"
  * - muchos
- - ¿Cuantos?
- - Numero o porcentaje
+   - ¿Cuantos?
+   - Numero o porcentaje
  * - frecuentemente
- - ¿Cada cuanto?
- - "cada N horas/dias"
+   - ¿Cada cuanto?
+   - "cada N horas/dias"
 
 3.3 Construcciones Prohibidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,38 +252,38 @@ Usar siempre el termino preferido (de SBVR_01):
  :widths: 30 35 35
 
  * - Preferido
- - Sinonimos Aceptados
- - NO Usar
+   - Sinonimos Aceptados
+   - NO Usar
  * - Usuario
- - Operador, Cuenta
- - user, persona, individuo
+   - Operador, Cuenta
+   - user, persona, individuo
  * - Rol
- - Rol funcional
- - perfil, grupo, tipo
+   - Rol funcional
+   - perfil, grupo, tipo
  * - Permiso
- - Privilegio, Capacidad
- - derecho, acceso
+   - Privilegio, Capacidad
+   - derecho, acceso
  * - Sesion
- - Session, Conexion activa
- - login, conexion
+   - Session, Conexion activa
+   - login, conexion
  * - Segmento
- - Segmento de Datos
- - particion, scope, ambito
+   - Segmento de Datos
+   - particion, scope, ambito
  * - Llamada
- - Call, Contacto telefonico
- - llamado, comunicacion
+   - Call, Contacto telefonico
+   - llamado, comunicacion
  * - Centro
- - Centro de atencion
- - sede, oficina, sucursal
+   - Centro de atencion
+   - sede, oficina, sucursal
  * - Reporte
- - Informe
- - documento, archivo
+   - Informe
+   - documento, archivo
  * - Dashboard
- - Tablero, Panel
- - pantalla, vista
+   - Tablero, Panel
+   - pantalla, vista
  * - Alerta
- - Notificacion de umbral
- - aviso, mensaje, warning
+   - Notificacion de umbral
+   - aviso, mensaje, warning
 
 4.2 Roles del Sistema
 ^^^^^^^^^^^^^^^^^^^^^
@@ -452,23 +452,23 @@ Reglas que pueden validarse por patron:
  :widths: 50 50
 
  * - Incorrecto
- - Correcto
+   - Correcto
  * - "El sistema podria validar la sesion"
- - "Sistema DEBE validar sesion activa"
+   - "Sistema DEBE validar sesion activa"
  * - "Normalmente el usuario tiene un rol"
- - "Usuario DEBE tener al menos un rol"
+   - "Usuario DEBE tener al menos un rol"
  * - "La respuesta debe ser rapida"
- - "Sistema DEBE responder en < 2 segundos"
+   - "Sistema DEBE responder en < 2 segundos"
  * - "Algunos usuarios pueden exportar"
- - "Usuario con R005 PUEDE exportar"
+   - "Usuario con R005 PUEDE exportar"
  * - "El administrador gestiona usuarios"
- - "Usuario con R001 PUEDE gestionar usuarios"
+   - "Usuario con R001 PUEDE gestionar usuarios"
  * - "A veces se bloquea la cuenta"
- - "SI 3 intentos fallidos ENTONCES bloquear"
+   - "SI 3 intentos fallidos ENTONCES bloquear"
  * - "El reporte debe tener suficientes datos"
- - "Reporte DEBE contener al menos 1 registro"
+   - "Reporte DEBE contener al menos 1 registro"
  * - "Es recomendable confirmar por email"
- - "Sistema DEBERIA enviar confirmacion por email"
+   - "Sistema DEBERIA enviar confirmacion por email"
 
 ----
 
@@ -482,47 +482,47 @@ Referencia rapida alfabetica:
  :widths: 20 20 60
 
  * - Keyword
- - Tipo
- - Uso
+   - Tipo
+   - Uso
  * - CADA
- - Aletico
- - Cuantificador universal
+   - Aletico
+   - Cuantificador universal
  * - DEBE
- - Deontico
- - Obligacion incondicional
+   - Deontico
+   - Obligacion incondicional
  * - DEBERIA
- - Deontico
- - Recomendado pero no obligatorio
+   - Deontico
+   - Recomendado pero no obligatorio
  * - ENTONCES
- - Condicional
- - Consecuencia de SI
+   - Condicional
+   - Consecuencia de SI
  * - ES
- - Aletico
- - Verdad estructural
+   - Aletico
+   - Verdad estructural
  * - EXACTAMENTE
- - Aletico
- - Cardinalidad precisa
+   - Aletico
+   - Cardinalidad precisa
  * - EXISTE
- - Aletico
- - Cuantificador existencial
+   - Aletico
+   - Cuantificador existencial
  * - NO DEBE
- - Deontico
- - Prohibicion
+   - Deontico
+   - Prohibicion
  * - PUEDE
- - Deontico
- - Permiso
+   - Deontico
+   - Permiso
  * - SI
- - Condicional
- - Condicion antecedente
+   - Condicional
+   - Condicion antecedente
  * - SOLO
- - Deontico
- - Restriccion exclusiva
+   - Deontico
+   - Restriccion exclusiva
  * - TIENE
- - Aletico
- - Posesion/relacion
+   - Aletico
+   - Posesion/relacion
  * - UNICAMENTE
- - Deontico
- - Sinonimo de SOLO
+   - Deontico
+   - Sinonimo de SOLO
 
 ----
 
@@ -554,17 +554,17 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2025-12-21
- - Equipo IACT
- - Correccion: DEBERIA ahora es keyword VALIDO (recomendado pero no obligatorio). Agregado patron 5.7 para Recomendacion. Actualizado glosario y checklist.
+   - 2025-12-21
+   - Equipo IACT
+   - Correccion: DEBERIA ahora es keyword VALIDO (recomendado pero no obligatorio). Agregado patron 5.7 para Recomendacion. Actualizado glosario y checklist.
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con vocabulario controlado
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con vocabulario controlado
 
 ----
 

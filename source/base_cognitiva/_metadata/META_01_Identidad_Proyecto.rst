@@ -25,17 +25,17 @@ META_01 · Identidad del Proyecto
  :stub-columns: 1
 
  * - **Nombre Oficial**
- - IVR Analytics & Customer Tracking (IACT)
+   - IVR Analytics & Customer Tracking (IACT)
  * - **Código Proyecto**
- - IACT-2025
+   - IACT-2025
  * - **Acrónimo**
- - IACT
+   - IACT
  * - **Versión Sistema**
- - 1.0.0-dev
+   - 1.0.0-dev
  * - **Fecha Inicio**
- - 2025-01-15
+   - 2025-01-15
  * - **Estado Actual**
- - En Desarrollo (Fase Elaboration)
+   - En Desarrollo (Fase Elaboration)
 
 ---------------------------
 2. Descripción del Proyecto
@@ -121,15 +121,15 @@ con sistemas IVR.
  :header-rows: 0
 
  * - O1
- - Reducir tiempo medio de análisis de métricas IVR de horas a minutos
+   - Reducir tiempo medio de análisis de métricas IVR de horas a minutos
  * - O2
- - Centralizar datos de múltiples fuentes IVR en una única plataforma
+   - Centralizar datos de múltiples fuentes IVR en una única plataforma
  * - O3
- - Habilitar detección temprana de cuellos de botella en flujos IVR
+   - Habilitar detección temprana de cuellos de botella en flujos IVR
  * - O4
- - Proveer visibilidad ejecutiva mediante dashboards de alto nivel
+   - Proveer visibilidad ejecutiva mediante dashboards de alto nivel
  * - O5
- - Cumplir con requisitos de auditoría y trazabilidad de datos
+   - Cumplir con requisitos de auditoría y trazabilidad de datos
 
 ---------------------------
 5. Stakeholders Principales
@@ -140,26 +140,26 @@ con sistemas IVR.
  :header-rows: 1
 
  * - Rol
- - Área
- - Interés Principal
+   - Área
+   - Interés Principal
  * - Sponsor Ejecutivo
- - Dirección de Operaciones
- - ROI, alineación estratégica
+   - Dirección de Operaciones
+   - ROI, alineación estratégica
  * - Product Owner
- - PMO
- - Alcance, priorización, entrega de valor
+   - PMO
+   - Alcance, priorización, entrega de valor
  * - Gerente de Contact Center
- - Operaciones
- - Métricas operativas, eficiencia
+   - Operaciones
+   - Métricas operativas, eficiencia
  * - Analista de Datos
- - Business Intelligence
- - Calidad de datos, reportes
+   - Business Intelligence
+   - Calidad de datos, reportes
  * - Administrador de Sistemas
- - TI/Infraestructura
- - Despliegue, disponibilidad, seguridad
+   - TI/Infraestructura
+   - Despliegue, disponibilidad, seguridad
  * - Usuario Final (Supervisor)
- - Contact Center
- - Usabilidad, acceso a información
+   - Contact Center
+   - Usabilidad, acceso a información
 
 ----------------------------
 6. Restricciones y Supuestos
@@ -173,13 +173,13 @@ con sistemas IVR.
  :header-rows: 0
 
  * - R1
- - Presupuesto limitado a equipo de desarrollo interno (sin contratación externa)
+   - Presupuesto limitado a equipo de desarrollo interno (sin contratación externa)
  * - R2
- - Infraestructura debe ser on-premise (no cloud público)
+   - Infraestructura debe ser on-premise (no cloud público)
  * - R3
- - Compatibilidad con navegadores: Chrome 90+, Firefox 88+, Edge 90+
+   - Compatibilidad con navegadores: Chrome 90+, Firefox 88+, Edge 90+
  * - R4
- - Cumplimiento con políticas de seguridad corporativas vigentes
+   - Cumplimiento con políticas de seguridad corporativas vigentes
 
 6.2. Supuestos
 ^^^^^^^^^^^^^^
@@ -189,13 +189,13 @@ con sistemas IVR.
  :header-rows: 0
 
  * - S1
- - Las plataformas IVR existentes proveen APIs de exportación de eventos
+   - Las plataformas IVR existentes proveen APIs de exportación de eventos
  * - S2
- - El equipo de infraestructura provee ambiente de desarrollo y staging
+   - El equipo de infraestructura provee ambiente de desarrollo y staging
  * - S3
- - Los usuarios finales tienen experiencia básica con herramientas web
+   - Los usuarios finales tienen experiencia básica con herramientas web
  * - S4
- - Disponibilidad de SMEs de Contact Center para validación de requisitos
+   - Disponibilidad de SMEs de Contact Center para validación de requisitos
 
 --------------
 7. Referencias
@@ -206,15 +206,15 @@ con sistemas IVR.
  :header-rows: 1
 
  * - Documento
- - Referencia
+   - Referencia
  * - Clasificación Documental
- - :doc:`META_02_Clasificacion_Documental`
+   - :doc:`META_02_Clasificacion_Documental`
  * - Fases SDLC
- - :doc:`META_03_Fases_SDLC`
+   - :doc:`META_03_Fases_SDLC`
  * - Contexto IACT
- - :doc:`META_04_Contexto_IACT`
+   - :doc:`META_04_Contexto_IACT`
  * - Estructura Documental
- - :doc:`META_05_Estructura_Documental`
+   - :doc:`META_05_Estructura_Documental`
 
 --------------------
 Historial de Cambios
@@ -225,13 +225,13 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - PMO IACT
- - Versión inicial aprobada
+   - 2025-12-18
+   - PMO IACT
+   - Versión inicial aprobada
 
 ----
 

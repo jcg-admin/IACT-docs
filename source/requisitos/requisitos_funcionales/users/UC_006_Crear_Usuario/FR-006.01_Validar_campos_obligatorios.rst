@@ -22,19 +22,19 @@ FR-006.01: Validar campos obligatorios
  :widths: 25 75
 
  * - **ID**
- - FR-006.01
+   - FR-006.01
  * - **Nombre**
- - Validar campos obligatorios del formulario de usuario
+   - Validar campos obligatorios del formulario de usuario
  * - **UC Origen**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Paso UC**
- - Paso 3-5 del flujo normal
+   - Paso 3-5 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -136,17 +136,17 @@ para mejorar UX y garantizar seguridad.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-006.02
+   - FR-006.02
  * - **CNST**
- - CNST-005
+   - CNST-005
  * - **TEST**
- - TST-FR-006.01 (pendiente)
+   - TST-FR-006.01 (pendiente)
 
 ----
 
@@ -158,8 +158,8 @@ para mejorar UX y garantizar seguridad.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_006
+   - 2026-01-07
+   - Versión inicial derivada de UC_006

@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_005
+   - BR_005
  * - **Nombre**
- - Sesion Unica por Usuario
+   - Sesion Unica por Usuario
  * - **Tipo**
- - Restriccion
+   - Restriccion
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -100,13 +100,13 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
  :header-rows: 0
 
  * - **Documento**
- - CNST_002_Gestion_Sesiones_BD
+   - CNST_002_Gestion_Sesiones_BD
  * - **Seccion**
- - Politica de Sesiones
+   - Politica de Sesiones
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST
+   - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,13 +128,13 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Auth
- - Invalida token anterior al crear nuevo
+   - Invalida token anterior al crear nuevo
  * - Middleware JWT
- - Verifica validez de token en cada request
+   - Verifica validez de token en cada request
  * - Base Analytics
- - Tabla de sesiones activas
+   - Tabla de sesiones activas
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -159,9 +159,9 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_002
- - Define politica de gestion de sesiones
+   - Define politica de gestion de sesiones
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -171,9 +171,9 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-004
- - Cumplimiento de Seguridad
+   - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,13 +183,13 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-001
- - Inicio de Sesion - invalida sesion previa
+   - Inicio de Sesion - invalida sesion previa
  * - UC-002
- - Cierre de Sesion - elimina sesion activa
+   - Cierre de Sesion - elimina sesion activa
  * - UC-005
- - Gestionar Sesiones - muestra sesion unica
+   - Gestionar Sesiones - muestra sesion unica
 
 ----
 
@@ -227,10 +227,10 @@ Sin excepciones definidas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

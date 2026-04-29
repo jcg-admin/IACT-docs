@@ -22,19 +22,19 @@ FR-003.01: Validar username existe
  :widths: 25 75
 
  * - **ID**
- - FR-003.01
+   - FR-003.01
  * - **Nombre**
- - Validar que username existe en el sistema
+   - Validar que username existe en el sistema
  * - **UC Origen**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Paso UC**
- - Paso 3-4 del flujo normal
+   - Paso 3-4 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -120,17 +120,17 @@ FR-003.01: Validar username existe
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_003: Recuperar Password
+   - UC_003: Recuperar Password
  * - **Depende de**
- - Ninguno
+   - Ninguno
  * - **Requerido por**
- - FR-003.02
+   - FR-003.02
  * - **CNST**
- - CNST-005
+   - CNST-005
  * - **TEST**
- - TST-FR-003.01 (pendiente)
+   - TST-FR-003.01 (pendiente)
 
 ----
 
@@ -142,8 +142,8 @@ FR-003.01: Validar username existe
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_003
+   - 2026-01-07
+   - Versión inicial derivada de UC_003

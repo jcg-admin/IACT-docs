@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_018
+   - CNST_018
  * - **Categoria**
- - Performance
+   - Performance
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -96,11 +96,11 @@ vez son utiles desde el punto de vista de negocio.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Reports
- - Validacion en serializer
+   - Validacion en serializer
  * - MOD_Common
- - Define constante
+   - Define constante
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,11 +110,11 @@ vez son utiles desde el punto de vista de negocio.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_020
- - Filtros Fecha — valida rango
+   - Filtros Fecha — valida rango
  * - UC_017..019
- - Reportes — validan rango antes de consultar
+   - Reportes — validan rango antes de consultar
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,15 +187,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_017_SLA_de_Tiempos_de_Respuesta`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
+   - :doc:`CNST_017_SLA_de_Tiempos_de_Respuesta`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_020, UC_017..019
+   - UC_020, UC_017..019
  * - **MODs afectados**
- - MOD_Reports, MOD_Common
+   - MOD_Reports, MOD_Common
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -205,15 +205,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

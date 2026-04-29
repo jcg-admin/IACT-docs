@@ -19,21 +19,21 @@ UC_RPT_04: Exportar CSV
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_04
+   - UC_RPT_04
  * - **Nombre**
- - Exportar CSV
+   - Exportar CSV
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-004: exporta_csv
+   - RPT-004: exporta_csv
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-004
+   - BRQ-RPT-004
 
 2. Descripcion
 --------------
@@ -87,13 +87,13 @@ limitadas a 100,000 registros por exportacion (CNST_017).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-004
+   - El usuario tiene sesion activa con funcion RPT-004
  * - PRE-02
- - Existen datos para exportar segun los filtros aplicados
+   - Existen datos para exportar segun los filtros aplicados
  * - PRE-03
- - El usuario tiene un segmento asignado
+   - El usuario tiene un segmento asignado
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -110,13 +110,13 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera archivo CSV con datos filtrados
+   - Se genera archivo CSV con datos filtrados
  * - POST-02
- - Se registra EXPORT_CSV en auditoria (CNST_025)
+   - Se registra EXPORT_CSV en auditoria (CNST_025)
  * - POST-03
- - El archivo se descarga al navegador del usuario
+   - El archivo se descarga al navegador del usuario
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -126,38 +126,38 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Hace clic en Exportar CSV desde un reporte
+   - Usuario
+   - Hace clic en Exportar CSV desde un reporte
  * - 2
- - Sistema
- - Valida funcion RPT-004
+   - Sistema
+   - Valida funcion RPT-004
  * - 3
- - Sistema
- - Obtiene filtros actuales del reporte
+   - Sistema
+   - Obtiene filtros actuales del reporte
  * - 4
- - Sistema
- - Cuenta registros a exportar
+   - Sistema
+   - Cuenta registros a exportar
  * - 5
- - Sistema
- - Valida limite 100,000 registros (CNST_017)
+   - Sistema
+   - Valida limite 100,000 registros (CNST_017)
  * - 6
- - Sistema
- - Aplica filtro de segmento (CNST_008)
+   - Sistema
+   - Aplica filtro de segmento (CNST_008)
  * - 7
- - Sistema
- - Genera archivo CSV con cabeceras
+   - Sistema
+   - Genera archivo CSV con cabeceras
  * - 8
- - Sistema
- - Registra EXPORT_CSV en auditoria
+   - Sistema
+   - Registra EXPORT_CSV en auditoria
  * - 9
- - Sistema
- - Inicia descarga del archivo
+   - Sistema
+   - Inicia descarga del archivo
  * - 10
- - Usuario
- - Recibe archivo CSV
+   - Usuario
+   - Recibe archivo CSV
 
 6. Diagrama de Secuencia
 ------------------------
@@ -224,20 +224,20 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Sistema
- - Detecta volumen grande (> 50,000 registros)
+   - Sistema
+   - Detecta volumen grande (> 50,000 registros)
  * - 4b
- - Sistema
- - Muestra mensaje: Exportacion se procesara en segundo plano
+   - Sistema
+   - Muestra mensaje: Exportacion se procesara en segundo plano
  * - 4c
- - Sistema
- - Encola tarea de exportacion
+   - Sistema
+   - Encola tarea de exportacion
  * - 4d
- - Sistema
- - Notifica via InternalMessage cuando este listo (CNST_001)
+   - Sistema
+   - Notifica via InternalMessage cuando este listo (CNST_001)
 
 7.2 FA-02: Seleccionar Columnas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,20 +247,20 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Hace clic en Exportar CSV con opciones
+   - Usuario
+   - Hace clic en Exportar CSV con opciones
  * - 1b
- - Sistema
- - Muestra selector de columnas
+   - Sistema
+   - Muestra selector de columnas
  * - 1c
- - Usuario
- - Selecciona columnas a incluir
+   - Usuario
+   - Selecciona columnas a incluir
  * - 7a
- - Sistema
- - Genera CSV solo con columnas seleccionadas
+   - Sistema
+   - Genera CSV solo con columnas seleccionadas
 
 8. Excepciones
 --------------
@@ -273,15 +273,15 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 5
+   - 5
  * - **Condicion**
- - Mas de 100,000 registros a exportar
+   - Mas de 100,000 registros a exportar
  * - **Accion Sistema**
- - Rechaza exportacion
+   - Rechaza exportacion
  * - **Mensaje Usuario**
- - Limite de exportacion es 100,000 registros. Aplique filtros adicionales para reducir el volumen.
+   - Limite de exportacion es 100,000 registros. Aplique filtros adicionales para reducir el volumen.
  * - **Codigo Error**
- - RPT-030
+   - RPT-030
 
 8.2 EX-02: Sin Datos
 ^^^^^^^^^^^^^^^^^^^^
@@ -291,15 +291,15 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - No hay datos para los filtros aplicados
+   - No hay datos para los filtros aplicados
  * - **Accion Sistema**
- - Informa al usuario
+   - Informa al usuario
  * - **Mensaje Usuario**
- - No hay datos para exportar con los filtros actuales
+   - No hay datos para exportar con los filtros actuales
  * - **Codigo Error**
- - RPT-031
+   - RPT-031
 
 9. Diagrama de Actividad
 ------------------------
@@ -361,20 +361,20 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-30
- - Limite Registros
- - Maximo 100,000 registros por exportacion (CNST_017)
+   - Limite Registros
+   - Maximo 100,000 registros por exportacion (CNST_017)
  * - BR-RPT-31
- - Auditoria Obligatoria
- - Toda exportacion se registra en auditoria (CNST_025)
+   - Auditoria Obligatoria
+   - Toda exportacion se registra en auditoria (CNST_025)
  * - BR-RPT-32
- - Segmento
- - Solo datos del segmento del usuario (CNST_008)
+   - Segmento
+   - Solo datos del segmento del usuario (CNST_008)
  * - BR-RPT-33
- - Formato CSV
- - UTF-8 con BOM, delimitador coma, comillas en texto
+   - Formato CSV
+   - UTF-8 con BOM, delimitador coma, comillas en texto
 
 **Formato del Archivo CSV:**
 
@@ -394,17 +394,17 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento del usuario
+   - Segmentos
+   - Filtro automatico por segmento del usuario
  * - CNST_017
- - Exportaciones
- - Limite 100,000 registros por exportacion
+   - Exportaciones
+   - Limite 100,000 registros por exportacion
  * - CNST_025
- - Auditoria Inmutable
- - Registro EXPORT_CSV con usuario, filtros, cantidad, timestamp
+   - Auditoria Inmutable
+   - Registro EXPORT_CSV con usuario, filtros, cantidad, timestamp
 
 **Registro de Auditoria (CNST_025):**
 
@@ -433,20 +433,20 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-030
- - El sistema debe exportar a CSV
- - Archivo CSV descargable
+   - El sistema debe exportar a CSV
+   - Archivo CSV descargable
  * - FR-RPT-031
- - El sistema debe validar limite 100k
- - Rechazo si excede limite
+   - El sistema debe validar limite 100k
+   - Rechazo si excede limite
  * - FR-RPT-032
- - El sistema debe auditar exportacion
- - Registro en user_action_log
+   - El sistema debe auditar exportacion
+   - Registro en user_action_log
  * - FR-RPT-033
- - El sistema debe filtrar por segmento
- - Solo datos del segmento en export
+   - El sistema debe filtrar por segmento
+   - Solo datos del segmento en export
 
 13. Trazabilidad
 ----------------
@@ -456,17 +456,17 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-004: Exportar reportes a CSV
+   - BRQ-RPT-004: Exportar reportes a CSV
  * - **Reglas de Negocio**
- - BR-RPT-30 a BR-RPT-33
+   - BR-RPT-30 a BR-RPT-33
  * - **Restricciones**
- - CNST_008, CNST_017, CNST_025
+   - CNST_008, CNST_017, CNST_025
  * - **UC Relacionados**
- - UC_RPT_05 (Excel), UC_RPT_06 (PDF), UC_RPT_03 (Historicos)
+   - UC_RPT_05 (Excel), UC_RPT_06 (PDF), UC_RPT_03 (Historicos)
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Funcion RBAC**
- - RPT-004: exporta_csv
+   - RPT-004: exporta_csv
 
 14. Historial de Cambios
 ------------------------
@@ -476,10 +476,10 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_017
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_017

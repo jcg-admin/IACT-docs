@@ -62,17 +62,17 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
  :widths: 25 75
 
  * - Categoria
- - Descripcion
+   - Descripcion
  * - Actores
- - Entidades que interactuan con el sistema
+   - Entidades que interactuan con el sistema
  * - Seguridad
- - Elementos del modelo de control de acceso
+   - Elementos del modelo de control de acceso
  * - Dominio IVR
- - Objetos del negocio de analitica de llamadas
+   - Objetos del negocio de analitica de llamadas
  * - Analitica
- - Elementos de reporteria y visualizacion
+   - Elementos de reporteria y visualizacion
  * - Sistema
- - Componentes tecnicos del sistema
+   - Componentes tecnicos del sistema
 
 ----
 
@@ -701,31 +701,31 @@ Vista general de como se relacionan los conceptos nucleares:
  :widths: 25 75
 
  * - Concepto
- - Definicion Corta
+   - Definicion Corta
  * - Usuario
- - Persona con cuenta en IACT
+   - Persona con cuenta en IACT
  * - Rol
- - Conjunto de permisos (18 definidos)
+   - Conjunto de permisos (18 definidos)
  * - Permiso
- - Autorizacion atomica para una accion
+   - Autorizacion atomica para una accion
  * - Sesion
- - Periodo de acceso activo
+   - Periodo de acceso activo
  * - Segmento
- - Particion de datos visible
+   - Particion de datos visible
  * - Llamada
- - Interaccion telefonica IVR
+   - Interaccion telefonica IVR
  * - Centro
- - Ubicacion de atencion
+   - Ubicacion de atencion
  * - Reporte
- - Documento con datos agregados
+   - Documento con datos agregados
  * - Dashboard
- - Panel visual de metricas
+   - Panel visual de metricas
  * - Metrica
- - Valor numerico de desempeno
+   - Valor numerico de desempeno
  * - Alerta
- - Notificacion por umbral
+   - Notificacion por umbral
  * - Mensaje Interno
- - Comunicacion dentro del sistema
+   - Comunicacion dentro del sistema
 
 ----
 
@@ -757,13 +757,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 5 categorias y 17 conceptos
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 5 categorias y 17 conceptos
 
 ----
 

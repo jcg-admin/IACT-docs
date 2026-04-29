@@ -22,19 +22,19 @@ FR-010.02: Validar SoD antes de asignar
  :widths: 25 75
 
  * - **ID**
- - FR-010.02
+   - FR-010.02
  * - **Nombre**
- - Validar restricciones SoD antes de asignar funciones
+   - Validar restricciones SoD antes de asignar funciones
  * - **UC Origen**
- - UC_010: Asignar Funciones a Usuario
+   - UC_010: Asignar Funciones a Usuario
  * - **Paso UC**
- - Paso 5 del flujo normal, FA-1
+   - Paso 5 del flujo normal, FA-1
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -131,19 +131,19 @@ por el administrador de seguridad.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_010: Asignar Funciones
+   - UC_010: Asignar Funciones
  * - **Depende de**
- - FR-010.01, UC_043 (configuración SoD)
+   - FR-010.01, UC_043 (configuración SoD)
  * - **Requerido por**
- - FR-010.03
+   - FR-010.03
  * - **BR**
- - BR_007
+   - BR_007
  * - **CNST**
- - CNST-010
+   - CNST-010
  * - **TEST**
- - TST-FR-010.02 (pendiente)
+   - TST-FR-010.02 (pendiente)
 
 ----
 
@@ -155,8 +155,8 @@ por el administrador de seguridad.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_010
+   - 2026-01-07
+   - Versión inicial derivada de UC_010

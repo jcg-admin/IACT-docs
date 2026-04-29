@@ -850,11 +850,11 @@ Mapear cada interaccion UI a los FR que debe implementar.
  :widths: 15 35 50
 
  * - Interaccion UI
- - Elemento
- - FR Derivado
+   - Elemento
+   - FR Derivado
  * - onChange
- - dropdown-quarter
- - FR-XXX-NN-ZZ
+   - dropdown-quarter
+   - FR-XXX-NN-ZZ
 
 **EJEMPLO COMPLETO (UC-RPT-01):**
 
@@ -863,44 +863,44 @@ Mapear cada interaccion UI a los FR que debe implementar.
  :widths: 15 35 50
 
  * - Interaccion
- - Elemento
- - FR Derivado
+   - Elemento
+   - FR Derivado
  * - onChange
- - dropdown-quarter
- - FR-RPT-01-01: Validar Parametros (validacion inline)
+   - dropdown-quarter
+   - FR-RPT-01-01: Validar Parametros (validacion inline)
  * - onChange
- - dropdown-year
- - FR-RPT-01-01: Validar Parametros
+   - dropdown-year
+   - FR-RPT-01-01: Validar Parametros
  * - onChange
- - dropdown-segment
- - FR-RPT-01-01: Validar Parametros
+   - dropdown-segment
+   - FR-RPT-01-01: Validar Parametros
  * - onClick
- - btn-generate-report
- - FR-RPT-01-02: Validar Form Completo
+   - btn-generate-report
+   - FR-RPT-01-02: Validar Form Completo
  * - onClick
- - btn-generate-report
- - FR-RPT-01-03: Mostrar Loading State
+   - btn-generate-report
+   - FR-RPT-01-03: Mostrar Loading State
  * - onClick
- - btn-generate-report
- - FR-RPT-01-04: Calcular Count Registros
+   - btn-generate-report
+   - FR-RPT-01-04: Calcular Count Registros
  * - onClick
- - btn-generate-report
- - FR-RPT-01-05: Evaluar Umbral Aprobacion
+   - btn-generate-report
+   - FR-RPT-01-05: Evaluar Umbral Aprobacion
  * - onClick
- - btn-generate-report
- - FR-RPT-01-06: Ejecutar Query Principal
+   - btn-generate-report
+   - FR-RPT-01-06: Ejecutar Query Principal
  * - onLoad
- - chart-calls-daily
- - FR-RPT-01-08: Generar Graficos Visuales
+   - chart-calls-daily
+   - FR-RPT-01-08: Generar Graficos Visuales
  * - onLoad
- - table-results
- - FR-RPT-01-09: Renderizar Tabla Datos
+   - table-results
+   - FR-RPT-01-09: Renderizar Tabla Datos
  * - onClick
- - btn-export-excel
- - FR-RPT-01-12: Exportar a Excel
+   - btn-export-excel
+   - FR-RPT-01-12: Exportar a Excel
  * - onClick
- - btn-export-pdf
- - FR-RPT-01-13: Exportar a PDF
+   - btn-export-pdf
+   - FR-RPT-01-13: Exportar a PDF
 
 ----------------------------------------------------------------------
 REFERENCIAS

@@ -121,39 +121,39 @@ Guide v3* (IIBA, 2015).
  :widths: 25 45 30
 
  * - Término
- - Definición
- - Ejemplo en IACT
+   - Definición
+   - Ejemplo en IACT
  * - **Business Need**
- - Problema u oportunidad que debe abordarse para lograr
- objetivos organizacionales.
- - N-001: Reducir roturas de stock.
+   - Problema u oportunidad que debe abordarse para lograr
+     objetivos organizacionales.
+   - N-001: Reducir roturas de stock.
  * - **Business Requirement (BR)**
- - Objetivo, meta o resultado de alto nivel que el negocio
- debe lograr.
- - RN-001: Sistema de alertas automáticas.
+   - Objetivo, meta o resultado de alto nivel que el negocio
+     debe lograr.
+   - RN-001: Sistema de alertas automáticas.
  * - **Stakeholder Requirement (SR)**
- - Necesidad específica de usuarios, clientes y partes
- interesadas.
- - RS-001: Gerente necesita alertas en dashboard.
+   - Necesidad específica de usuarios, clientes y partes
+     interesadas.
+   - RS-001: Gerente necesita alertas en dashboard.
  * - **Solution Requirement**
- - Capacidades que debe tener la solución (Funcionales +
- No Funcionales).
- - RF-001: API calcular stock mínimo.
+   - Capacidades que debe tener la solución (Funcionales +
+     No Funcionales).
+   - RF-001: API calcular stock mínimo.
  * - **Functional Requirement (FR)**
- - Comportamiento, acción o capacidad que el sistema debe
- realizar.
- - RF-001: Sistema DEBERÁ calcular stock.
+   - Comportamiento, acción o capacidad que el sistema debe
+     realizar.
+   - RF-001: Sistema DEBERÁ calcular stock.
  * - **Non-Functional Requirement (NFR)**
- - Característica de calidad que el sistema debe poseer.
- - RNF-001: Tiempo respuesta < 200ms.
+   - Característica de calidad que el sistema debe poseer.
+   - RNF-001: Tiempo respuesta < 200ms.
  * - **Business Analyst (BA)**
- - Rol responsable de elicitar, analizar y documentar
- requisitos.
- - Equipo BA del proyecto IACT.
+   - Rol responsable de elicitar, analizar y documentar
+     requisitos.
+   - Equipo BA del proyecto IACT.
  * - **Requirements Traceability**
- - Relación bidireccional entre requisitos de diferentes
- niveles.
- - N-001 → RN-001 → RF-001.
+   - Relación bidireccional entre requisitos de diferentes
+     niveles.
+   - N-001 → RN-001 → RF-001.
 
 ----
 
@@ -168,32 +168,32 @@ Knowledge (PMBOK® Guide)* — 7th Edition (PMI, 2021).
  :widths: 28 42 30
 
  * - Término
- - Definición
- - Uso en IACT
+   - Definición
+   - Uso en IACT
  * - **Project Charter**
- - Documento que autoriza formalmente el proyecto.
- - Charter para implementación de requisitos.
+   - Documento que autoriza formalmente el proyecto.
+   - Charter para implementación de requisitos.
  * - **Stakeholder**
- - Individuo, grupo u organización afectado por el proyecto.
- - Gerentes de operaciones, analistas, usuarios finales.
+   - Individuo, grupo u organización afectado por el proyecto.
+   - Gerentes de operaciones, analistas, usuarios finales.
  * - **Scope**
- - Trabajo requerido para entregar producto/servicio.
- - Alcance definido en necesidades (N-XXX).
+   - Trabajo requerido para entregar producto/servicio.
+   - Alcance definido en necesidades (N-XXX).
  * - **Work Breakdown Structure (WBS)**
- - Descomposición jerárquica del trabajo.
- - Fases del proyecto IACT.
+   - Descomposición jerárquica del trabajo.
+   - Fases del proyecto IACT.
  * - **Risk**
- - Evento incierto que puede impactar objetivos.
- - Riesgos documentados en cada requisito.
+   - Evento incierto que puede impactar objetivos.
+   - Riesgos documentados en cada requisito.
  * - **Deliverable**
- - Producto, resultado o capacidad entregable.
- - BRS, StRS, SyRS, SRS, RTM.
+   - Producto, resultado o capacidad entregable.
+   - BRS, StRS, SyRS, SRS, RTM.
  * - **Milestone**
- - Punto significativo en el cronograma.
- - Hitos en cada fase.
+   - Punto significativo en el cronograma.
+   - Hitos en cada fase.
  * - **Baseline**
- - Versión aprobada de un artefacto.
- - Baselines en gobernanza.
+   - Versión aprobada de un artefacto.
+   - Baselines en gobernanza.
 
 ----
 
@@ -208,36 +208,36 @@ cycle processes — Requirements engineering*.
  :widths: 30 35 35
 
  * - Término
- - Definición
- - Implementación en IACT
+   - Definición
+   - Implementación en IACT
  * - **BRS** (Business Requirements Specification)
- - Documento con requisitos de negocio (Clause 9.3).
- - Cajón ``requisitos/`` (RN-XXX).
+   - Documento con requisitos de negocio (Clause 9.3).
+   - Cajón ``requisitos/`` (RN-XXX).
  * - **StRS** (Stakeholder Requirements Specification)
- - Documento con requisitos de stakeholders (Clause 9.4).
- - Cajón ``requisitos/`` (RS-XXX).
+   - Documento con requisitos de stakeholders (Clause 9.4).
+   - Cajón ``requisitos/`` (RS-XXX).
  * - **SyRS** (System Requirements Specification)
- - Documento con requisitos de sistema (Clause 9.5).
- - Cajón ``requisitos/`` (RSi-XXX).
+   - Documento con requisitos de sistema (Clause 9.5).
+   - Cajón ``requisitos/`` (RSi-XXX).
  * - **SRS** (Software Requirements Specification)
- - Documento con requisitos de software (Clause 9.6).
- - Cajón ``requisitos/`` (RF-XXX).
+   - Documento con requisitos de software (Clause 9.6).
+   - Cajón ``requisitos/`` (RF-XXX).
  * - **RTM** (Requirements Traceability Matrix)
- - Matriz de trazabilidad bidireccional.
- - ``requisitos/rtm/index.rst``.
+   - Matriz de trazabilidad bidireccional.
+   - ``requisitos/rtm/index.rst``.
  * - **Requirement Construct**
- - Estructura: Subject + Modal Verb + Action + Object +
- Condition.
- - "El sistema DEBERÁ calcular...".
+   - Estructura: Subject + Modal Verb + Action + Object +
+     Condition.
+   - "El sistema DEBERÁ calcular...".
  * - **Verification**
- - Confirmar que requisito está correctamente especificado.
- - Tests, inspecciones, análisis.
+   - Confirmar que requisito está correctamente especificado.
+   - Tests, inspecciones, análisis.
  * - **Validation**
- - Confirmar que requisito satisface necesidad real.
- - UAT con stakeholders.
+   - Confirmar que requisito satisface necesidad real.
+   - UAT con stakeholders.
  * - **Full Conformance**
- - Cumplir todos los requisitos de Clause 4.2.
- - Objetivo de la documentación de IACT.
+   - Cumplir todos los requisitos de Clause 4.2.
+   - Objetivo de la documentación de IACT.
 
 ----
 
@@ -280,20 +280,20 @@ Verbos obligatorios para enunciar requisitos.
  :widths: 25 35 40
 
  * - Verbo modal
- - Significado
- - Ejemplo en IACT
+   - Significado
+   - Ejemplo en IACT
  * - **SHALL / DEBERÁ**
- - Requisito obligatorio.
- - "El sistema DEBERÁ validar..."
+   - Requisito obligatorio.
+   - "El sistema DEBERÁ validar..."
  * - **SHOULD / DEBERÍA**
- - Requisito recomendado pero no obligatorio.
- - "El sistema DEBERÍA notificar..."
+   - Requisito recomendado pero no obligatorio.
+   - "El sistema DEBERÍA notificar..."
  * - **MAY / PUEDE**
- - Requisito opcional.
- - "El sistema PUEDE incluir..."
+   - Requisito opcional.
+   - "El sistema PUEDE incluir..."
  * - **MUST NOT / NO DEBERÁ**
- - Prohibición.
- - "El sistema NO DEBERÁ exponer..."
+   - Prohibición.
+   - "El sistema NO DEBERÁ exponer..."
 
 ----
 
@@ -305,23 +305,23 @@ G. Métodos de verificación (ISO 29148, Clause 6.5.2.2)
  :widths: 22 38 40
 
  * - Método
- - Descripción
- - Ejemplo en IACT
+   - Descripción
+   - Ejemplo en IACT
  * - **Test**
- - Ejecutar el sistema con inputs específicos.
- - Tests automatizados ``pytest`` (backend),
- ``jest`` (frontend).
+   - Ejecutar el sistema con inputs específicos.
+   - Tests automatizados ``pytest`` (backend),
+     ``jest`` (frontend).
  * - **Inspection**
- - Examen visual del producto.
- - Code review en PR; revisión de documentación
- en gates de fase.
+   - Examen visual del producto.
+   - Code review en PR; revisión de documentación
+     en gates de fase.
  * - **Analysis**
- - Uso de modelos analíticos sin ejecutar.
- - Análisis estático (linters, type checkers,
- static analysis), revisión de diseño.
+   - Uso de modelos analíticos sin ejecutar.
+   - Análisis estático (linters, type checkers,
+     static analysis), revisión de diseño.
  * - **Demonstration**
- - Observación del comportamiento operacional.
- - Demo a stakeholders, UAT.
+   - Observación del comportamiento operacional.
+   - Demo a stakeholders, UAT.
 
 ----
 
@@ -339,51 +339,51 @@ toda documentación nueva del proyecto (formalizado en
  :widths: 25 75
 
  * - Término canónico (docs)
- - Definición
+   - Definición
  * - **Función**
- - Capacidad atómica del sistema RBAC: una acción concreta
- verificable expresada como verbo+recurso (``view_audit_log``,
- ``manage_sessions``, ``export_csv``). En código: ``Function``
- (modelo Django, en inglés). Sustituye al término "Capacidad"
- del sistema PERM granular (D-RBAC-1).
+   - Capacidad atómica del sistema RBAC: una acción concreta
+     verificable expresada como verbo+recurso (``view_audit_log``,
+     ``manage_sessions``, ``export_csv``). En código: ``Function``
+     (modelo Django, en inglés). Sustituye al término "Capacidad"
+     del sistema PERM granular (D-RBAC-1).
  * - **Grupo de Permisos**
- - Set de funciones asignables como bloque. Puede ser
- **predefinido** (system group AGR-001..010, inmutable) o
- **creable** dinámicamente por admin via
- :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`.
+   - Set de funciones asignables como bloque. Puede ser
+     **predefinido** (system group AGR-001..010, inmutable) o
+     **creable** dinámicamente por admin via
+     :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`.
  * - **Agrupador**
- - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
- del modelo legacy v5.2.1). Equivalente a system group.
+   - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
+     del modelo legacy v5.2.1). Equivalente a system group.
  * - **Permiso Excepcional**
- - Asignación directa de funciones a un usuario fuera de grupos,
- con justificación obligatoria mínimo 20 caracteres y
- vencimiento máximo 6 meses (ver
- :doc:`/normativa/restricciones/CNST_031_Permisos_Temporales_Maximo_6_Meses`).
+   - Asignación directa de funciones a un usuario fuera de grupos,
+     con justificación obligatoria mínimo 20 caracteres y
+     vencimiento máximo 6 meses (ver
+     :doc:`/normativa/restricciones/CNST_031_Permisos_Temporales_Maximo_6_Meses`).
  * - **Regla SoD**
- - Restricción de mutual exclusion entre dos grupos
- (Separation of Duties). El sistema declara 3 reglas:
- SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
- SOD-003 (access ⊕ audit). Aplican tanto a system como a
- custom groups (ver
- :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`).
+   - Restricción de mutual exclusion entre dos grupos
+     (Separation of Duties). El sistema declara 3 reglas:
+     SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
+     SOD-003 (access ⊕ audit). Aplican tanto a system como a
+     custom groups (ver
+     :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`).
  * - **Verificación de Permiso**
- - Función SQL nativa que evalúa en tiempo real si un usuario
- tiene una función específica. Implementación PostgreSQL:
- ``usuario_tiene_permiso(user_id, function_code)`` y la
- variante ``verificar_permiso_y_auditar`` que registra cada
- verificación.
+   - Función SQL nativa que evalúa en tiempo real si un usuario
+     tiene una función específica. Implementación PostgreSQL:
+     ``usuario_tiene_permiso(user_id, function_code)`` y la
+     variante ``verificar_permiso_y_auditar`` que registra cada
+     verificación.
  * - **Menú Dinámico**
- - Estructura de navegación jerárquica calculada en runtime
- según las funciones del usuario. Implementación PostgreSQL:
- ``obtener_menu_usuario(user_id)``. Es la materialización UX
- del modelo RBAC plano (CNST_029): sin él, los permisos no
- tienen efecto visible en UI.
+   - Estructura de navegación jerárquica calculada en runtime
+     según las funciones del usuario. Implementación PostgreSQL:
+     ``obtener_menu_usuario(user_id)``. Es la materialización UX
+     del modelo RBAC plano (CNST_029): sin él, los permisos no
+     tienen efecto visible en UI.
  * - **AuditoriaPermiso**
- - Tabla append-only que registra cada verificación de permiso
- en runtime (cumple ``CNST_025`` Auditoría Inmutable). Distinta
- de ``AuditLog`` (auditoría general del sistema) — coexisten
- como tablas separadas con misma política inmutable
- (decisión D-RBAC-3).
+   - Tabla append-only que registra cada verificación de permiso
+     en runtime (cumple ``CNST_025`` Auditoría Inmutable). Distinta
+     de ``AuditLog`` (auditoría general del sistema) — coexisten
+     como tablas separadas con misma política inmutable
+     (decisión D-RBAC-3).
 
 ----
 
@@ -481,18 +481,18 @@ Historial
  :widths: 12 15 73
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - Versión inicial: glosario IACT con ~10 términos del
- producto.
+   - 2025-12-18
+   - Versión inicial: glosario IACT con ~10 términos del
+     producto.
  * - 2.0.0
- - 2026-04-28
- - **Bump MAJOR.** Consolidación a un único archivo
- glosario completo. Fusión de ``IACT_Glossary.rst``
- (producto), ``glosario_babok_pmbok_iso.rst`` (metodología
- cross-framework) y ``glossary.rst`` (abreviaturas
- básicas). Añadidos términos del stack técnico real
- (Apache, Ubuntu, mod_wsgi, Webpack, MySQL, PostgreSQL,
- DRF). Reorganización en 9 secciones (A-J).
+   - 2026-04-28
+   - **Bump MAJOR.** Consolidación a un único archivo
+     glosario completo. Fusión de ``IACT_Glossary.rst``
+     (producto), ``glosario_babok_pmbok_iso.rst`` (metodología
+     cross-framework) y ``glossary.rst`` (abreviaturas
+     básicas). Añadidos términos del stack técnico real
+     (Apache, Ubuntu, mod_wsgi, Webpack, MySQL, PostgreSQL,
+     DRF). Reorganización en 9 secciones (A-J).

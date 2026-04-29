@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_030
+   - CNST_030
  * - **Categoria**
- - RBAC
+   - RBAC
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -82,31 +82,31 @@ revisor humano.
  :header-rows: 1
 
  * - ID
- - Nombre (ingles)
- - Grupo A
- - Grupo B
- - CNST
+   - Nombre (ingles)
+   - Grupo A
+   - Grupo B
+   - CNST
  * - SOD-001
- - pipeline_audit_separation
- - Pipeline (PIP-001..004): view_pipeline_status,
- view_pipeline_errors, view_data_availability,
- request_pipeline_retry
- - Audit (AUD-001..004): view_audit_log, search_audit_log,
- export_audit_log, generate_compliance_report
- - CNST_030
+   - pipeline_audit_separation
+   - Pipeline (PIP-001..004): view_pipeline_status,
+     view_pipeline_errors, view_data_availability,
+     request_pipeline_retry
+   - Audit (AUD-001..004): view_audit_log, search_audit_log,
+     export_audit_log, generate_compliance_report
+   - CNST_030
  * - SOD-002
- - user_audit_separation
- - Gestion Users criticas (4 funciones): create_users,
- delete_users, list_users, unblock_users
- - Audit parcial (3 funciones): view_audit_log,
- search_audit_log, export_audit_log
- - CNST_030
+   - user_audit_separation
+   - Gestion Users criticas (4 funciones): create_users,
+     delete_users, list_users, unblock_users
+   - Audit parcial (3 funciones): view_audit_log,
+     search_audit_log, export_audit_log
+   - CNST_030
  * - SOD-003
- - access_audit_separation
- - Gestion Acceso (3 funciones): assign_functions,
- revoke_functions, manage_sod
- - Audit (2 funciones): view_audit_log, search_audit_log
- - CNST_030
+   - access_audit_separation
+   - Gestion Acceso (3 funciones): assign_functions,
+     revoke_functions, manage_sod
+   - Audit (2 funciones): view_audit_log, search_audit_log
+   - CNST_030
 
 **Razon de cada regla:**
 
@@ -148,9 +148,9 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Access
- - Implementa SoDRule + signal de validacion
+   - Implementa SoDRule + signal de validacion
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -160,11 +160,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_004
- - Asignar Rol — valida SoD
+   - Asignar Rol — valida SoD
  * - UC_005
- - Auditoria de violaciones SoD
+   - Auditoria de violaciones SoD
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,15 +241,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+   - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_004, UC_005
+   - UC_004, UC_005
  * - **MODs afectados**
- - MOD_Access
+   - MOD_Access
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -259,15 +259,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

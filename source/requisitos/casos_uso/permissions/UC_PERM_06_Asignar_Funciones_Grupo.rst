@@ -44,32 +44,32 @@ El Administrador modifica las funciones asociadas a un grupo existente, agregand
  :header-rows: 1
 
  * - Paso
- - Actor
- - Sistema
+   - Actor
+   - Sistema
  * - 1
- - Selecciona grupo existente
- - Muestra funciones actuales
+   - Selecciona grupo existente
+   - Muestra funciones actuales
  * - 2
- - Agrega nuevas funciones
- - Valida que no estén ya asociadas
+   - Agrega nuevas funciones
+   - Valida que no estén ya asociadas
  * - 3
- - Opcionalmente remueve funciones
- - Muestra impacto en usuarios
+   - Opcionalmente remueve funciones
+   - Muestra impacto en usuarios
  * - 4
- - Confirma cambios
- - Valida grupo tenga al menos 1 funcion
+   - Confirma cambios
+   - Valida grupo tenga al menos 1 funcion
  * - 5
- - -
- - Actualiza asociaciones (INSERT/DELETE)
+   - -
+   - Actualiza asociaciones (INSERT/DELETE)
  * - 6
- - -
- - Invalida cache de todos los usuarios del grupo
+   - -
+   - Invalida cache de todos los usuarios del grupo
  * - 7
- - -
- - Registra auditoría
+   - -
+   - Registra auditoría
  * - 8
- - -
- - Notifica usuarios afectados
+   - -
+   - Notifica usuarios afectados
 
 
 
@@ -131,11 +131,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

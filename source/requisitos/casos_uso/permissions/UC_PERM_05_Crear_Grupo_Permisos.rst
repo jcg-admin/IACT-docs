@@ -43,38 +43,38 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
  :header-rows: 1
 
  * - Paso
- - Actor
- - Sistema
+   - Actor
+   - Sistema
  * - 1
- - Accede a gestión de grupos
- - Muestra formulario
+   - Accede a gestión de grupos
+   - Muestra formulario
  * - 2
- - Ingresa código único (ej: "agentes_nivel_2")
- - Valida formato y unicidad
+   - Ingresa código único (ej: "agentes_nivel_2")
+   - Valida formato y unicidad
  * - 3
- - Ingresa nombre descriptivo
- - Valida no vacío
+   - Ingresa nombre descriptivo
+   - Valida no vacío
  * - 4
- - Opcionalmente ingresa descripción
- - Valida longitud
+   - Opcionalmente ingresa descripción
+   - Valida longitud
  * - 5
- - Selecciona funciones a incluir (búsqueda)
- - Muestra funciones disponibles
+   - Selecciona funciones a incluir (búsqueda)
+   - Muestra funciones disponibles
  * - 6
- - Confirma creación
- - Valida al menos 1 funcion
+   - Confirma creación
+   - Valida al menos 1 funcion
  * - 7
- - -
- - Crea grupo (INSERT)
+   - -
+   - Crea grupo (INSERT)
  * - 8
- - -
- - Asocia funciones (INSERT en grupo_capacidades)
+   - -
+   - Asocia funciones (INSERT en grupo_capacidades)
  * - 9
- - -
- - Registra en auditoría
+   - -
+   - Registra en auditoría
  * - 10
- - -
- - Muestra confirmación
+   - -
+   - Muestra confirmación
 
 
 
@@ -88,13 +88,13 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
  :header-rows: 1
 
  * - ID
- - Regla
+   - Regla
  * - RN-005.1
- - Código del grupo debe ser único y alfanumérico con guiones bajos
+   - Código del grupo debe ser único y alfanumérico con guiones bajos
  * - RN-005.2
- - Debe tener al menos 1 funcion asociada
+   - Debe tener al menos 1 funcion asociada
  * - RN-005.3
- - Nombre y descripción son obligatorios
+   - Nombre y descripción son obligatorios
 
 
 
@@ -213,11 +213,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

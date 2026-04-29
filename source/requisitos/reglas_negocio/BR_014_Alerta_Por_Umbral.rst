@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_014
+   - BR_014
  * - **Nombre**
- - Alerta por Umbral
+   - Alerta por Umbral
  * - **Tipo**
- - Desencadenador
+   - Desencadenador
  * - **Categoría**
- - Operacional / Monitoreo
+   - Operacional / Monitoreo
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -94,9 +94,9 @@ Las alertas por umbral permiten:
  :header-rows: 0
 
  * - **Tipo**
- - **Desencadenador**
+   - **Desencadenador**
  * - 
- - [X] **Desencadenador**: SI condición ENTONCES acción visible
+   - [X] **Desencadenador**: SI condición ENTONCES acción visible
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -118,13 +118,13 @@ Las alertas por umbral permiten:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - UC_ALR_01
- - Crear Alerta - Define umbral y destinatarios
+   - Crear Alerta - Define umbral y destinatarios
  * - UC_ALR_02
- - Modificar Alerta - Ajusta umbrales
+   - Modificar Alerta - Ajusta umbrales
  * - Proceso ETL
- - Evalúa métricas post-carga contra umbrales
+   - Evalúa métricas post-carga contra umbrales
 
 3.2 Métricas Monitoreables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -154,11 +154,11 @@ Las alertas por umbral permiten:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial
+   - 2026-01-07
+   - Versión inicial
 
 ----
 

@@ -19,21 +19,21 @@ UC_AUD_02: Buscar Auditoria
  :header-rows: 0
 
  * - **ID**
- - UC_AUD_02
+   - UC_AUD_02
  * - **Nombre**
- - Buscar Auditoria
+   - Buscar Auditoria
  * - **Actor Principal**
- - AGR-006: agr_auditor
+   - AGR-006: agr_auditor
  * - **Modulo**
- - MOD_Audit
+   - MOD_Audit
  * - **Funcion RBAC**
- - AUD-002: busca_auditoria
+   - AUD-002: busca_auditoria
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUD-002
+   - BRQ-AUD-002
 
 2. Descripcion
 --------------
@@ -84,11 +84,11 @@ UC_AUD_01 con capacidades de busqueda mas sofisticadas.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion AUD-002
+   - El usuario tiene sesion activa con funcion AUD-002
  * - PRE-02
- - El usuario cumple con SoD-003 (no es administrador)
+   - El usuario cumple con SoD-003 (no es administrador)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -103,11 +103,11 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran resultados de busqueda (max 10,000)
+   - Se muestran resultados de busqueda (max 10,000)
  * - POST-02
- - No se modifica ningun registro
+   - No se modifica ningun registro
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -117,38 +117,38 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Auditor
- - Accede a busqueda avanzada de auditoria
+   - Auditor
+   - Accede a busqueda avanzada de auditoria
  * - 2
- - Sistema
- - Valida funcion AUD-002
+   - Sistema
+   - Valida funcion AUD-002
  * - 3
- - Sistema
- - Valida cumplimiento SoD-003
+   - Sistema
+   - Valida cumplimiento SoD-003
  * - 4
- - Sistema
- - Muestra formulario de busqueda avanzada
+   - Sistema
+   - Muestra formulario de busqueda avanzada
  * - 5
- - Auditor
- - Ingresa criterios de busqueda
+   - Auditor
+   - Ingresa criterios de busqueda
  * - 6
- - Auditor
- - Ejecuta busqueda
+   - Auditor
+   - Ejecuta busqueda
  * - 7
- - Sistema
- - Valida criterios y construye query
+   - Sistema
+   - Valida criterios y construye query
  * - 8
- - Sistema
- - Ejecuta busqueda con limite 10,000
+   - Sistema
+   - Ejecuta busqueda con limite 10,000
  * - 9
- - Sistema
- - Presenta resultados paginados
+   - Sistema
+   - Presenta resultados paginados
  * - 10
- - Auditor
- - Navega por resultados
+   - Auditor
+   - Navega por resultados
 
 6. Diagrama de Secuencia
 ------------------------
@@ -203,14 +203,14 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Ingresa texto libre en campo de busqueda
+   - Auditor
+   - Ingresa texto libre en campo de busqueda
  * - 7a
- - Sistema
- - Busca en campos: action, resource, details
+   - Sistema
+   - Busca en campos: action, resource, details
 
 7.2 FA-02: Busqueda con Operadores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,14 +220,14 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Construye query con AND/OR
+   - Auditor
+   - Construye query con AND/OR
  * - 7a
- - Sistema
- - Parsea y construye query compuesto
+   - Sistema
+   - Parsea y construye query compuesto
 
 7.3 FA-03: Busqueda por Patron Regex
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,14 +237,14 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Ingresa patron regex (ej: ^LOGIN.*)
+   - Auditor
+   - Ingresa patron regex (ej: ^LOGIN.*)
  * - 7a
- - Sistema
- - Ejecuta busqueda con SIMILAR TO o regex
+   - Sistema
+   - Ejecuta busqueda con SIMILAR TO o regex
 
 8. Excepciones
 --------------
@@ -257,15 +257,15 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Busqueda retornaria mas de 10,000 registros
+   - Busqueda retornaria mas de 10,000 registros
  * - **Accion Sistema**
- - Retorna primeros 10,000 con advertencia
+   - Retorna primeros 10,000 con advertencia
  * - **Mensaje Usuario**
- - Resultados limitados a 10,000. Refine su busqueda.
+   - Resultados limitados a 10,000. Refine su busqueda.
  * - **Codigo Error**
- - AUD-010
+   - AUD-010
 
 8.2 EX-02: Regex Invalido
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -275,15 +275,15 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Patron regex mal formado
+   - Patron regex mal formado
  * - **Accion Sistema**
- - Rechaza busqueda
+   - Rechaza busqueda
  * - **Mensaje Usuario**
- - Patron de busqueda invalido
+   - Patron de busqueda invalido
  * - **Codigo Error**
- - AUD-011
+   - AUD-011
 
 9. Diagrama de Actividad
 ------------------------
@@ -335,17 +335,17 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUD-10
- - Limite Resultados
- - Maximo 10,000 resultados por busqueda
+   - Limite Resultados
+   - Maximo 10,000 resultados por busqueda
  * - BR-AUD-11
- - Solo Lectura
- - Busqueda no modifica datos (CNST_025)
+   - Solo Lectura
+   - Busqueda no modifica datos (CNST_025)
  * - BR-AUD-12
- - SoD
- - Solo auditores pueden buscar (CNST_027)
+   - SoD
+   - Solo auditores pueden buscar (CNST_027)
 
 **Operadores de Busqueda:**
 
@@ -354,15 +354,15 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Operador
- - Ejemplo
+   - Ejemplo
  * - AND
- - action:LOGIN AND result:FAILURE
+   - action:LOGIN AND result:FAILURE
  * - OR
- - user:admin OR user:root
+   - user:admin OR user:root
  * - NOT
- - NOT action:SELECT
+   - NOT action:SELECT
  * - LIKE
- - resource LIKE 'user%'
+   - resource LIKE 'user%'
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -372,14 +372,14 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_025
- - Inmutable
- - Solo SELECT permitido
+   - Inmutable
+   - Solo SELECT permitido
  * - CNST_027
- - SoD
- - Validar SoD-003 antes de busqueda
+   - SoD
+   - Validar SoD-003 antes de busqueda
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -389,17 +389,17 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUD-010
- - Busqueda avanzada
- - Operadores AND/OR/NOT funcionales
+   - Busqueda avanzada
+   - Operadores AND/OR/NOT funcionales
  * - FR-AUD-011
- - Limite 10k
- - No mas de 10,000 resultados
+   - Limite 10k
+   - No mas de 10,000 resultados
  * - FR-AUD-012
- - Busqueda regex
- - Patrones regex funcionales
+   - Busqueda regex
+   - Patrones regex funcionales
 
 13. Trazabilidad
 ----------------
@@ -409,13 +409,13 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUD-002
+   - BRQ-AUD-002
  * - **Restricciones**
- - CNST_025, CNST_027
+   - CNST_025, CNST_027
  * - **UC Relacionados**
- - UC_AUD_01, UC_AUD_03
+   - UC_AUD_01, UC_AUD_03
  * - **Funcion RBAC**
- - AUD-002: busca_auditoria
+   - AUD-002: busca_auditoria
 
 14. Historial de Cambios
 ------------------------
@@ -425,8 +425,8 @@ El auditor accede a la busqueda avanzada de auditoria.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

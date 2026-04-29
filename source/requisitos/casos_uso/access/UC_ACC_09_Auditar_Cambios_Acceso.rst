@@ -28,21 +28,21 @@ UC_ACC_09: Auditar Cambios Acceso
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_09
+   - UC_ACC_09
  * - **Nombre**
- - Auditar Cambios Acceso
+   - Auditar Cambios Acceso
  * - **Actor Principal**
- - AGR-008: agr_auditor
+   - AGR-008: agr_auditor
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - AUD-001: ve_auditoria, AUD-002: busca_auditoria
+   - AUD-001: ve_auditoria, AUD-002: busca_auditoria
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-ACC-009
+   - BRQ-ACC-009
 
 2. Descripcion
 --------------
@@ -99,11 +99,11 @@ de segmento y permisos temporales.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El auditor tiene sesion activa con funcion AUD-001 o AUD-002
+   - El auditor tiene sesion activa con funcion AUD-001 o AUD-002
  * - PRE-02
- - Existen registros de auditoria de acceso
+   - Existen registros de auditoria de acceso
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -118,11 +118,11 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra historial de cambios de acceso
+   - Se muestra historial de cambios de acceso
  * - POST-02
- - La consulta no modifica ningun dato (solo lectura)
+   - La consulta no modifica ningun dato (solo lectura)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -132,32 +132,32 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Auditor
- - Accede a auditoria de acceso
+   - Auditor
+   - Accede a auditoria de acceso
  * - 2
- - Sistema
- - Valida funcion AUD-001
+   - Sistema
+   - Valida funcion AUD-001
  * - 3
- - Sistema
- - Consulta registros de auditoria de acceso
+   - Sistema
+   - Consulta registros de auditoria de acceso
  * - 4
- - Sistema
- - Muestra lista con filtros por defecto (ultimos 30 dias)
+   - Sistema
+   - Muestra lista con filtros por defecto (ultimos 30 dias)
  * - 5
- - Auditor
- - Aplica filtros opcionales
+   - Auditor
+   - Aplica filtros opcionales
  * - 6
- - Sistema
- - Actualiza lista segun filtros
+   - Sistema
+   - Actualiza lista segun filtros
  * - 7
- - Auditor
- - Selecciona un registro para ver detalle
+   - Auditor
+   - Selecciona un registro para ver detalle
  * - 8
- - Sistema
- - Muestra detalle completo del cambio
+   - Sistema
+   - Muestra detalle completo del cambio
 
 6. Diagrama de Secuencia
 ------------------------
@@ -208,20 +208,20 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Hace clic en Exportar
+   - Auditor
+   - Hace clic en Exportar
  * - 6a
- - Sistema
- - Valida funcion AUD-003
+   - Sistema
+   - Valida funcion AUD-003
  * - 7a
- - Sistema
- - Genera archivo CSV con registros filtrados
+   - Sistema
+   - Genera archivo CSV con registros filtrados
  * - 8a
- - Sistema
- - Descarga archivo
+   - Sistema
+   - Descarga archivo
 
 7.2 FA-02: Busqueda Avanzada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -231,20 +231,20 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Accede a busqueda avanzada
+   - Auditor
+   - Accede a busqueda avanzada
  * - 5b
- - Sistema
- - Valida funcion AUD-002
+   - Sistema
+   - Valida funcion AUD-002
  * - 5c
- - Auditor
- - Define criterios complejos
+   - Auditor
+   - Define criterios complejos
  * - 6a
- - Sistema
- - Ejecuta busqueda
+   - Sistema
+   - Ejecuta busqueda
 
 8. Excepciones
 --------------
@@ -257,15 +257,15 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion AUD-001 ni AUD-002
+   - Usuario no tiene funcion AUD-001 ni AUD-002
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para ver auditoria
+   - No tiene permisos para ver auditoria
  * - **Codigo Error**
- - ACC-080
+   - ACC-080
 
 9. Diagrama de Actividad
 ------------------------
@@ -309,17 +309,17 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-80
- - Solo Lectura
- - El auditor solo puede consultar, nunca modificar registros
+   - Solo Lectura
+   - El auditor solo puede consultar, nunca modificar registros
  * - BR-ACC-81
- - SoD Auditor
- - El auditor no puede tener funciones de gestion de permisos
+   - SoD Auditor
+   - El auditor no puede tener funciones de gestion de permisos
  * - BR-ACC-82
- - Registros Inmutables
- - Los registros de auditoria no pueden modificarse ni eliminarse
+   - Registros Inmutables
+   - Los registros de auditoria no pueden modificarse ni eliminarse
 
 **Tipos de Acciones Auditadas:**
 
@@ -328,21 +328,21 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - Accion
- - Descripcion
+   - Descripcion
  * - FUNCTION_ASSIGN
- - Asignacion de funcion a usuario
+   - Asignacion de funcion a usuario
  * - FUNCTION_REVOKE
- - Revocacion de funcion
+   - Revocacion de funcion
  * - AGRUPADOR_ASSIGN
- - Asignacion de agrupador
+   - Asignacion de agrupador
  * - AGRUPADOR_REVOKE
- - Revocacion de agrupador
+   - Revocacion de agrupador
  * - SEGMENT_ASSIGN
- - Cambio de segmento
+   - Cambio de segmento
  * - TEMP_PERMISSION_GRANT
- - Otorgar permiso temporal
+   - Otorgar permiso temporal
  * - TEMP_PERMISSION_REVOKE
- - Revocar permiso temporal
+   - Revocar permiso temporal
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -352,11 +352,11 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_025
- - Auditoria Inmutable
- - Los registros son solo lectura. No existen operaciones de UPDATE ni DELETE sobre user_action_log.
+   - Auditoria Inmutable
+   - Los registros son solo lectura. No existen operaciones de UPDATE ni DELETE sobre user_action_log.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -366,17 +366,17 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-080
- - El sistema debe mostrar historial de cambios de acceso
- - Lista paginada con filtros
+   - El sistema debe mostrar historial de cambios de acceso
+   - Lista paginada con filtros
  * - FR-ACC-081
- - El sistema debe permitir filtrar por tipo de accion
- - Filtro funcional por FUNCTION_ASSIGN, etc
+   - El sistema debe permitir filtrar por tipo de accion
+   - Filtro funcional por FUNCTION_ASSIGN, etc
  * - FR-ACC-082
- - El sistema debe mostrar detalle completo
- - Quien, cuando, que, valores anteriores y nuevos
+   - El sistema debe mostrar detalle completo
+   - Quien, cuando, que, valores anteriores y nuevos
 
 13. Trazabilidad
 ----------------
@@ -386,17 +386,17 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-009: Permitir auditoria de cambios de acceso
+   - BRQ-ACC-009: Permitir auditoria de cambios de acceso
  * - **Reglas de Negocio**
- - BR-ACC-80 a BR-ACC-82
+   - BR-ACC-80 a BR-ACC-82
  * - **Restricciones**
- - CNST_025 (Auditoria Inmutable)
+   - CNST_025 (Auditoria Inmutable)
  * - **UC Relacionados**
- - UC_AUD_01, UC_AUD_02, UC_AUD_03
+   - UC_AUD_01, UC_AUD_02, UC_AUD_03
  * - **Actor Principal**
- - AGR-008: agr_auditor
+   - AGR-008: agr_auditor
  * - **Funcion RBAC**
- - AUD-001, AUD-002
+   - AUD-001, AUD-002
 
 14. Historial de Cambios
 ------------------------
@@ -406,10 +406,10 @@ El auditor accede al modulo de auditoria de acceso.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

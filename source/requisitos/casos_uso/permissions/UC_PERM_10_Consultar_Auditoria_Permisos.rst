@@ -51,29 +51,29 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
  :header-rows: 1
 
  * - Paso
- - Actor
- - Sistema
+   - Actor
+   - Sistema
  * - 1
- - Accede a módulo de auditoría
- - Muestra interfaz de consulta
+   - Accede a módulo de auditoría
+   - Muestra interfaz de consulta
  * - 2
- - Selecciona filtros de búsqueda
- - Valida parámetros
+   - Selecciona filtros de búsqueda
+   - Valida parámetros
  * - 3
- - Opcionalmente define rango de fechas
- - Valida rango no > 90 días
+   - Opcionalmente define rango de fechas
+   - Valida rango no > 90 días
  * - 4
- - Ejecuta consulta
- - Aplica filtros y paginación
+   - Ejecuta consulta
+   - Aplica filtros y paginación
  * - 5
- - -
- - Retorna resultados (max 1000 registros)
+   - -
+   - Retorna resultados (max 1000 registros)
  * - 6
- - Visualiza resultados
- - Muestra tabla con datos
+   - Visualiza resultados
+   - Muestra tabla con datos
  * - 7
- - Opcionalmente exporta a CSV/Excel
- - Genera archivo
+   - Opcionalmente exporta a CSV/Excel
+   - Genera archivo
 
 
 
@@ -87,29 +87,29 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
  :header-rows: 1
 
  * - Filtro
- - Tipo
- - Ejemplo
+   - Tipo
+   - Ejemplo
  * - usuario_id
- - Integer
- - 123
+   - Integer
+   - 123
  * - capacidad_codigo
- - String
- - "sistema.vistas.dashboards.ver"
+   - String
+   - "sistema.vistas.dashboards.ver"
  * - resultado
- - Boolean
- - true/false
+   - Boolean
+   - true/false
  * - fecha_desde
- - DateTime
- - "2025-01-01T00:00:00Z"
+   - DateTime
+   - "2025-01-01T00:00:00Z"
  * - fecha_hasta
- - DateTime
- - "2025-01-09T23:59:59Z"
+   - DateTime
+   - "2025-01-09T23:59:59Z"
  * - ip_address
- - String
- - "192.168.1.100"
+   - String
+   - "192.168.1.100"
  * - user_agent__contains
- - String
- - "Chrome"
+   - String
+   - "Chrome"
 
 
 
@@ -228,13 +228,13 @@ Caso 3: Compliance Report
  :header-rows: 1
 
  * - Escenario
- - Performance
+   - Performance
  * - Consulta simple (< 1000 registros)
- - 100-200ms
+   - 100-200ms
  * - Consulta compleja con múltiples filtros
- - 300-500ms
+   - 300-500ms
  * - Exportación a Excel (< 10,000 registros)
- - 2-5s
+   - 2-5s
 
 
 
@@ -274,17 +274,17 @@ Caso 3: Compliance Report
  :header-rows: 1
 
  * - ID
- - Regla
+   - Regla
  * - RN-010.1
- - Solo usuarios con permiso `sistema.administracion.auditoria.ver` pueden consultar
+   - Solo usuarios con permiso `sistema.administracion.auditoria.ver` pueden consultar
  * - RN-010.2
- - Consultas limitadas a 90 días por performance
+   - Consultas limitadas a 90 días por performance
  * - RN-010.3
- - Máximo 1000 registros por página
+   - Máximo 1000 registros por página
  * - RN-010.4
- - Exportaciones limitadas a 10,000 registros
+   - Exportaciones limitadas a 10,000 registros
  * - RN-010.5
- - Auditoría de TODAS las consultas a auditoría (meta-auditoría)
+   - Auditoría de TODAS las consultas a auditoría (meta-auditoría)
 
 
 
@@ -396,11 +396,11 @@ Changelog
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-01-09
- - Sistema
- - Creación inicial
+   - 2025-01-09
+   - Sistema
+   - Creación inicial
 

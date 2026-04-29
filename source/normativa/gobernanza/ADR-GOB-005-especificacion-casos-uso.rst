@@ -260,19 +260,19 @@ Ejemplo Completo: UC-001 Procesar Venta
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - 1. El cajero comienza una nueva venta
- - 
+   - 
  * - 2. El cajero introduce el identificador del artículo
- - 3. El sistema guarda el artículo<br>4. El sistema muestra descripción y subtotal
+   - 3. El sistema guarda el artículo<br>4. El sistema muestra descripción y subtotal
  * - El cajero repite pasos 2-4 hasta terminar
- - 
+   - 
  * - 5. El cajero indica fin de captura
- - 6. El sistema muestra total con impuestos calculados
+   - 6. El sistema muestra total con impuestos calculados
  * - 7. El cajero solicita método de pago al cliente
- - 
+   - 
  * - 8. El cliente proporciona pago
- - 9. El sistema procesa el pago<br>10. El sistema registra la venta<br>11. El sistema actualiza inventario<br>12. El sistema imprime recibo
+   - 9. El sistema procesa el pago<br>10. El sistema registra la venta<br>11. El sistema actualiza inventario<br>12. El sistema imprime recibo
 
 Elementos Obligatorios de la Especificación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -389,11 +389,11 @@ inventario ha sido actualizado - El recibo ha sido impreso
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - [Paso del actor]
- - [Pasos del sistema]
+   - [Pasos del sistema]
  * - ...
- - ...
+   - ...
 
 **Reglas**: - Numerar pasos secuencialmente - Separar claramente
 acciones de actor vs. sistema - Un paso = una acción concreta - Evitar

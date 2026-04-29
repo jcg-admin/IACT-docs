@@ -425,38 +425,38 @@ Cada CNST DEBE incluir minimo estas 9 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, categoria, criticidad
+   - Resumen Ejecutivo
+   - ID, nombre, categoria, criticidad
  * - 1
- - Definicion
- - Enunciado, justificacion, origen
+   - Definicion
+   - Enunciado, justificacion, origen
  * - 2
- - Especificacion Tecnica
- - Descripcion, parametros, tecnologias
+   - Especificacion Tecnica
+   - Descripcion, parametros, tecnologias
  * - 3
- - Impacto en Sistema
- - MOD, UC afectados, prohibiciones
+   - Impacto en Sistema
+   - MOD, UC afectados, prohibiciones
  * - 4
- - BR Derivadas
- - Business Rules que implementan la CNST
+   - BR Derivadas
+   - Business Rules que implementan la CNST
  * - 5
- - Implementacion
- - Codigo, configuracion, validacion
+   - Implementacion
+   - Codigo, configuracion, validacion
  * - 6
- - Excepciones
- - Excepciones permitidas y proceso
+   - Excepciones
+   - Excepciones permitidas y proceso
  * - 7
- - Verificacion
- - Criterios y metodo
+   - Verificacion
+   - Criterios y metodo
  * - 8
- - Trazabilidad
- - ADR, BR, UC, MOD, NFR relacionados
+   - Trazabilidad
+   - ADR, BR, UC, MOD, NFR relacionados
  * - 9
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -468,19 +468,19 @@ Categorias de CNST
  :header-rows: 1
 
  * - Categoria
- - Descripcion
+   - Descripcion
  * - **Comunicaciones**
- - Restricciones sobre canales de comunicacion (email, SMS, etc.)
+   - Restricciones sobre canales de comunicacion (email, SMS, etc.)
  * - **Datos**
- - Restricciones sobre almacenamiento, acceso, retencion de datos
+   - Restricciones sobre almacenamiento, acceso, retencion de datos
  * - **Seguridad**
- - Restricciones de autenticacion, autorizacion, cifrado
+   - Restricciones de autenticacion, autorizacion, cifrado
  * - **Infraestructura**
- - Restricciones de deployment, servidores, contenedores
+   - Restricciones de deployment, servidores, contenedores
  * - **Integracion**
- - Restricciones de APIs externas, protocolos, formatos
+   - Restricciones de APIs externas, protocolos, formatos
  * - **Rendimiento**
- - Restricciones de tiempos, throughput, recursos
+   - Restricciones de tiempos, throughput, recursos
 
 ----
 
@@ -528,10 +528,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla CNST
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla CNST

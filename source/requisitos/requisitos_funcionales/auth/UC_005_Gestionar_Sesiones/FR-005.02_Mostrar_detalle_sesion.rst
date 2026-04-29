@@ -22,19 +22,19 @@ FR-005.02: Mostrar detalle de sesión
  :widths: 25 75
 
  * - **ID**
- - FR-005.02
+   - FR-005.02
  * - **Nombre**
- - Mostrar detalle completo de una sesión
+   - Mostrar detalle completo de una sesión
  * - **UC Origen**
- - UC_005: Gestionar Sesiones Activas
+   - UC_005: Gestionar Sesiones Activas
  * - **Paso UC**
- - Paso 3 del flujo normal
+   - Paso 3 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Interfaz
+   - Interfaz
 
 ----
 
@@ -129,17 +129,17 @@ FR-005.02: Mostrar detalle de sesión
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_005: Gestionar Sesiones
+   - UC_005: Gestionar Sesiones
  * - **Depende de**
- - FR-005.01
+   - FR-005.01
  * - **Requerido por**
- - FR-005.03, FR-005.04
+   - FR-005.03, FR-005.04
  * - **CNST**
- - CNST-009
+   - CNST-009
  * - **TEST**
- - TST-FR-005.02 (pendiente)
+   - TST-FR-005.02 (pendiente)
 
 ----
 
@@ -151,8 +151,8 @@ FR-005.02: Mostrar detalle de sesión
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_005
+   - 2026-01-07
+   - Versión inicial derivada de UC_005

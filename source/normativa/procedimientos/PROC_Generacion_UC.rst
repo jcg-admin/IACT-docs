@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_UC
+   - PROC_Generacion_UC
  * - **Nombre**
- - Generacion de Casos de Uso
+   - Generacion de Casos de Uso
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada UC a documentar
+   - Por cada UC a documentar
  * - **Duracion Estimada**
- - 30-60 minutos por UC
+   - 30-60 minutos por UC
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,14 +77,14 @@ y FR derivados identificados.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Analista
- - Genera UC siguiendo TPL
- - Escritura en casos_uso/
+   - Genera UC siguiendo TPL
+   - Escritura en casos_uso/
  * - Usuario Final
- - Valida flujos de interaccion
- - Lectura
+   - Valida flujos de interaccion
+   - Lectura
 
 ----
 
@@ -108,17 +108,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_UC_Casos_de_Uso_2_0_0.rst
- - Template de UC
- - Si
+   - Template de UC
+   - Si
  * - BR_[NNN].rst
- - Reglas de negocio relacionadas
- - Si
+   - Reglas de negocio relacionadas
+   - Si
  * - MOD_[Nombre].rst
- - Especificacion del modulo
- - No
+   - Especificacion del modulo
+   - No
 
 ----
 
@@ -353,11 +353,11 @@ Segun TPL_UC v2.0.0, un UC tiene:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - UC_[NNN]_[Nombre].rst
- - Caso de Uso generado
- - /tmp/casos_uso/[modulo]/
+   - Caso de Uso generado
+   - /tmp/casos_uso/[modulo]/
 
 ----
 
@@ -396,13 +396,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - UC muy complejo
- - Dividir en UC mas pequeños
+   - Dividir en UC mas pequeños
  * - Sin BR relacionadas
- - Documentar como UC independiente
+   - Documentar como UC independiente
  * - Flujo no claro
- - Consultar con usuario final
+   - Consultar con usuario final
 
 ----
 
@@ -423,13 +423,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

@@ -53,17 +53,17 @@ BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
  :widths: 30 70
 
  * - Parametro
- - Valor
+   - Valor
  * - Ventana de medicion default
- - 24 horas (rolling)
+   - 24 horas (rolling)
  * - Ventana minima permitida
- - 1 hora
+   - 1 hora
  * - Ventana maxima permitida
- - 2 anos (CNST_018 Rango Maximo de Consulta)
+   - 2 anos (CNST_018 Rango Maximo de Consulta)
  * - Granularidad temporal
- - Hora, dia, semana, mes, trimestre
+   - Hora, dia, semana, mes, trimestre
  * - Granularidad por dimension
- - Total, por cola, por agente, por campana
+   - Total, por cola, por agente, por campana
 
 4. Umbrales operativos
 ----------------------
@@ -73,17 +73,17 @@ BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
  :widths: 25 25 50
 
  * - Estado
- - Rango
- - Significado
+   - Rango
+   - Significado
  * - Optimo
- - < 5 %
- - Performance dentro del SLA
+   - < 5 %
+   - Performance dentro del SLA
  * - Aceptable
- - 5 % - 10 %
- - Monitoreo recomendado
+   - 5 % - 10 %
+   - Monitoreo recomendado
  * - Critico
- - > 10 %
- - Requiere intervencion inmediata (alerta automatica)
+   - > 10 %
+   - Requiere intervencion inmediata (alerta automatica)
 
 Los umbrales son configurables por ``UC_ALR_01 Configurar
 Umbrales``.

@@ -337,85 +337,85 @@ STD_001: Estándar de Documentación Sin Emojis
  :header-rows: 1
 
  * - Concepto
- - ❌ No Usar
- - ✅ Usar
- - Comentarios
+   - ❌ No Usar
+   - ✅ Usar
+   - Comentarios
  * - **Completado**
- - ✅ ✓ ☑
- - [OK] [SUCCESS] [DONE]
- - ASCII estándar
+   - ✅ ✓ ☑
+   - [OK] [SUCCESS] [DONE]
+   - ASCII estándar
  * - **Error**
- - ❌ ✗ ☒
- - [ERROR] [FAIL] [FAILED]
- - Parseable
+   - ❌ ✗ ☒
+   - [ERROR] [FAIL] [FAILED]
+   - Parseable
  * - **Advertencia**
- - ⚠️ ⚡ ⛔
- - [WARN] [WARNING]
- - Compatible terminales
+   - ⚠️ ⚡ ⛔
+   - [WARN] [WARNING]
+   - Compatible terminales
  * - **Información**
- - ℹ️ 💡 📢
- - [INFO] [NOTE]
- - Búsqueda fácil
+   - ℹ️ 💡 📢
+   - [INFO] [NOTE]
+   - Búsqueda fácil
  * - **Depuración**
- - 🐛 🔍
- - [DEBUG]
- - Logs analizables
+   - 🐛 🔍
+   - [DEBUG]
+   - Logs analizables
  * - **En proceso**
- - ⏳ 🔄 ⌛
- - [RUNNING] [PROCESSING]
- - Estados claros
+   - ⏳ 🔄 ⌛
+   - [RUNNING] [PROCESSING]
+   - Estados claros
  * - **Esperando**
- - ⏰ ⏱️
- - [PENDING] [WAITING]
- - Sin ambigüedad
+   - ⏰ ⏱️
+   - [PENDING] [WAITING]
+   - Sin ambigüedad
  * - **Inicio**
- - 🚀 ▶️
- - [START] Starting...
- - Texto explícito
+   - 🚀 ▶️
+   - [START] Starting...
+   - Texto explícito
  * - **Fin**
- - 🏁 ⏹️
- - [STOP] [END] Finished
- - Claro y directo
+   - 🏁 ⏹️
+   - [STOP] [END] Finished
+   - Claro y directo
  * - **Archivo**
- - 📁 📄 💾
- - FILE: archivo.txt
- - Identificable
+   - 📁 📄 💾
+   - FILE: archivo.txt
+   - Identificable
  * - **Carpeta**
- - 📂 🗂️
- - DIRECTORY: /ruta/
- - Estándar Unix
+   - 📂 🗂️
+   - DIRECTORY: /ruta/
+   - Estándar Unix
  * - **Red**
- - 🌐 📡
- - [NETWORK]
- - Compatible
+   - 🌐 📡
+   - [NETWORK]
+   - Compatible
  * - **Usuario**
- - 👤 👥
- - USER: username
- - Parseable
+   - 👤 👥
+   - USER: username
+   - Parseable
  * - **Tiempo**
- - ⏰ 🕐
- - TIME: 10:30
- - ISO 8601
+   - ⏰ 🕐
+   - TIME: 10:30
+   - ISO 8601
  * - **Fecha**
- - 📅 🗓️
- - DATE: 2026-01-11
- - ISO 8601 YYYY-MM-DD
+   - 📅 🗓️
+   - DATE: 2026-01-11
+   - ISO 8601 YYYY-MM-DD
  * - **Viñetas**
- - ▶ ● ★ ♦
- - ``-`` ``*`` ``1.`` ``2.``
- - Según formato archivo
+   - ▶ ● ★ ♦
+   - ``-`` ``*`` ``1.`` ``2.``
+   - Según formato archivo
  * - **Flechas**
- - → ⇒ ➜ ➔
- - ``->`` ``=>``
- - ASCII estándar
+   - → ⇒ ➜ ➔
+   - ``->`` ``=>``
+   - ASCII estándar
  * - **Check**
- - ☑ ✓ ✔
- - [OK] PASS
- - Texto claro
+   - ☑ ✓ ✔
+   - [OK] PASS
+   - Texto claro
  * - **Cross**
- - ☒ ✗ ✘
- - [FAIL] ERROR
- - Sin ambigüedad
+   - ☒ ✗ ✘
+   - [FAIL] ERROR
+   - Sin ambigüedad
 
 ----
 

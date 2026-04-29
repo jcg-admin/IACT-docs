@@ -75,30 +75,30 @@ Resumen Estadístico
  :header-rows: 1
 
  * - Caso de Uso
- - FR
- - Prioridad
- - Complejidad
+   - FR
+   - Prioridad
+   - Complejidad
  * - UC_001: Iniciar Sesion
- - 5
- - Alta
- - Media
+   - 5
+   - Alta
+   - Media
  * - UC_002: Cerrar Sesion
- - 3
- - Alta
- - Baja
+   - 3
+   - Alta
+   - Baja
  * - UC_003: Recuperar Password
- - 5
- - Alta
- - Media
+   - 5
+   - Alta
+   - Media
  * - UC_004: Cambiar Password
- - 4
- - Alta
- - Baja
+   - 4
+   - Alta
+   - Baja
  * - UC_005: Gestionar Sesiones
- - 4
- - Media
- - Media
+   - 4
+   - Media
+   - Media
  * - **TOTAL**
- - **21**
- - —
- - —
+   - **21**
+   - —
+   - —

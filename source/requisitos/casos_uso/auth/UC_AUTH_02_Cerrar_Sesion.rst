@@ -19,23 +19,23 @@ UC_AUTH_02: Cerrar Sesion
  :header-rows: 0
 
  * - **ID**
- - UC_AUTH_02
+   - UC_AUTH_02
  * - **Nombre**
- - Cerrar Sesion
+   - Cerrar Sesion
  * - **Actor Principal**
- - Usuario (cualquier usuario autenticado)
+   - Usuario (cualquier usuario autenticado)
  * - **Actor Secundario**
- - Sistema (invalidacion automatica)
+   - Sistema (invalidacion automatica)
  * - **Modulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Funcion RBAC**
- - (publico) - Cualquier usuario autenticado
+   - (publico) - Cualquier usuario autenticado
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-AUTH-002
+   - BRQ-AUTH-002
 
 2. Descripcion
 --------------
@@ -96,13 +96,13 @@ como cerrada y registra el evento en auditoria.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene una sesion activa valida
+   - El usuario tiene una sesion activa valida
  * - PRE-02
- - El token de acceso es valido (no expirado)
+   - El token de acceso es valido (no expirado)
  * - PRE-03
- - El usuario esta autenticado en el sistema
+   - El usuario esta autenticado en el sistema
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -119,17 +119,17 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - El token de acceso queda invalidado
+   - El token de acceso queda invalidado
  * - POST-02
- - El token de refresco queda invalidado
+   - El token de refresco queda invalidado
  * - POST-03
- - La sesion se marca como cerrada en base de datos
+   - La sesion se marca como cerrada en base de datos
  * - POST-04
- - Se registra evento LOGOUT en auditoria (CNST_025)
+   - Se registra evento LOGOUT en auditoria (CNST_025)
  * - POST-05
- - El usuario es redirigido a la pantalla de login
+   - El usuario es redirigido a la pantalla de login
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -139,41 +139,41 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Hace clic en boton "Cerrar Sesion"
+   - Usuario
+   - Hace clic en boton "Cerrar Sesion"
  * - 2
- - Sistema
- - Extrae token de acceso del header Authorization
+   - Sistema
+   - Extrae token de acceso del header Authorization
  * - 3
- - Sistema
- - Valida que el token sea valido y no este expirado
+   - Sistema
+   - Valida que el token sea valido y no este expirado
  * - 4
- - Sistema
- - Identifica la sesion activa asociada al token
+   - Sistema
+   - Identifica la sesion activa asociada al token
  * - 5
- - Sistema
- - Agrega token de acceso a lista negra (blacklist)
+   - Sistema
+   - Agrega token de acceso a lista negra (blacklist)
  * - 6
- - Sistema
- - Agrega token de refresco a lista negra
+   - Sistema
+   - Agrega token de refresco a lista negra
  * - 7
- - Sistema
- - Actualiza registro de sesion: is_active=false, closed_at=now
+   - Sistema
+   - Actualiza registro de sesion: is_active=false, closed_at=now
  * - 8
- - Sistema
- - Registra evento LOGOUT en UserActionLog (CNST_025)
+   - Sistema
+   - Registra evento LOGOUT en UserActionLog (CNST_025)
  * - 9
- - Sistema
- - Retorna respuesta exitosa (204 No Content)
+   - Sistema
+   - Retorna respuesta exitosa (204 No Content)
  * - 10
- - Frontend
- - Limpia tokens almacenados localmente
+   - Frontend
+   - Limpia tokens almacenados localmente
  * - 11
- - Frontend
- - Redirige usuario a pantalla de login
+   - Frontend
+   - Redirige usuario a pantalla de login
 
 6. Diagrama de Secuencia
 ------------------------
@@ -265,17 +265,17 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Sistema
- - Detecta que el token ya fue invalidado (otra sesion lo cerro)
+   - Sistema
+   - Detecta que el token ya fue invalidado (otra sesion lo cerro)
  * - 1b
- - Sistema
- - Retorna 401 con mensaje "Sesion ya cerrada"
+   - Sistema
+   - Retorna 401 con mensaje "Sesion ya cerrada"
  * - 1c
- - Frontend
- - Limpia datos locales y redirige a login
+   - Frontend
+   - Limpia datos locales y redirige a login
 
 7.2 FA-02: Token Expirado Durante Logout
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -285,17 +285,17 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Sistema
- - Detecta token expirado
+   - Sistema
+   - Detecta token expirado
  * - 3b
- - Sistema
- - Cierra sesion igualmente (cleanup)
+   - Sistema
+   - Cierra sesion igualmente (cleanup)
  * - 3c
- - Sistema
- - Retorna 204 (logout exitoso de todas formas)
+   - Sistema
+   - Retorna 204 (logout exitoso de todas formas)
 
 8. Excepciones
 --------------
@@ -308,15 +308,15 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Token no puede ser decodificado o esta corrupto
+   - Token no puede ser decodificado o esta corrupto
  * - **Accion Sistema**
- - Rechaza peticion, no registra logout
+   - Rechaza peticion, no registra logout
  * - **Mensaje Usuario**
- - "Token invalido"
+   - "Token invalido"
  * - **Codigo Error**
- - AUTH-010
+   - AUTH-010
 
 8.2 EX-02: Sesion No Encontrada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -326,15 +326,15 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - No existe sesion asociada al token en base de datos
+   - No existe sesion asociada al token en base de datos
  * - **Accion Sistema**
- - Retorna error, posible token de sesion ya cerrada
+   - Retorna error, posible token de sesion ya cerrada
  * - **Mensaje Usuario**
- - "Sesion no encontrada o ya cerrada"
+   - "Sesion no encontrada o ya cerrada"
  * - **Codigo Error**
- - AUTH-011
+   - AUTH-011
 
 8.3 EX-03: Error de Base de Datos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -344,15 +344,15 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Error al actualizar sesion en base de datos
+   - Error al actualizar sesion en base de datos
  * - **Accion Sistema**
- - Rollback, reintento automatico, log de error
+   - Rollback, reintento automatico, log de error
  * - **Mensaje Usuario**
- - "Error al cerrar sesion. Intente nuevamente."
+   - "Error al cerrar sesion. Intente nuevamente."
  * - **Codigo Error**
- - AUTH-012
+   - AUTH-012
 
 9. Diagrama de Actividad
 ------------------------
@@ -425,20 +425,20 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUTH-10
- - Invalidacion Inmediata
- - Los tokens deben quedar invalidos inmediatamente despues del logout. No deben poder usarse para ninguna operacion posterior.
+   - Invalidacion Inmediata
+   - Los tokens deben quedar invalidos inmediatamente despues del logout. No deben poder usarse para ninguna operacion posterior.
  * - BR-AUTH-11
- - Blacklist de Tokens
- - Los tokens invalidados se almacenan en blacklist hasta su fecha de expiracion original para evitar reutilizacion.
+   - Blacklist de Tokens
+   - Los tokens invalidados se almacenan en blacklist hasta su fecha de expiracion original para evitar reutilizacion.
  * - BR-AUTH-12
- - Cierre Graceful
- - Si el token ya expiro, el logout debe completarse igualmente para limpiar la sesion en base de datos.
+   - Cierre Graceful
+   - Si el token ya expiro, el logout debe completarse igualmente para limpiar la sesion en base de datos.
  * - BR-AUTH-13
- - Registro Obligatorio
- - Todo cierre de sesion debe registrarse en auditoria, incluyendo IP y timestamp.
+   - Registro Obligatorio
+   - Todo cierre de sesion debe registrarse en auditoria, incluyendo IP y timestamp.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -448,11 +448,11 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_025
- - Auditoria Inmutable
- - Se registra evento LOGOUT en UserActionLog con user_id, IP, user_agent y timestamp. El registro es append-only y no puede modificarse.
+   - Auditoria Inmutable
+   - Se registra evento LOGOUT en UserActionLog con user_id, IP, user_agent y timestamp. El registro es append-only y no puede modificarse.
 
 **Implementacion CNST_025:**
 
@@ -484,20 +484,20 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUTH-010
- - El sistema debe invalidar tokens al cerrar sesion
- - Token en blacklist no permite acceso a endpoints protegidos
+   - El sistema debe invalidar tokens al cerrar sesion
+   - Token en blacklist no permite acceso a endpoints protegidos
  * - FR-AUTH-011
- - El sistema debe marcar sesion como cerrada
- - Campo is_active=false y closed_at con timestamp
+   - El sistema debe marcar sesion como cerrada
+   - Campo is_active=false y closed_at con timestamp
  * - FR-AUTH-012
- - El sistema debe registrar logout en auditoria
- - Evento LOGOUT visible en consulta de auditoria
+   - El sistema debe registrar logout en auditoria
+   - Evento LOGOUT visible en consulta de auditoria
  * - FR-AUTH-013
- - El sistema debe retornar 204 en logout exitoso
- - Respuesta sin contenido, status 204
+   - El sistema debe retornar 204 en logout exitoso
+   - Respuesta sin contenido, status 204
 
 13. Trazabilidad
 ----------------
@@ -507,19 +507,19 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUTH-002: El sistema debe permitir cierre de sesion voluntario
+   - BRQ-AUTH-002: El sistema debe permitir cierre de sesion voluntario
  * - **Reglas de Negocio**
- - BR-AUTH-10, BR-AUTH-11, BR-AUTH-12, BR-AUTH-13
+   - BR-AUTH-10, BR-AUTH-11, BR-AUTH-12, BR-AUTH-13
  * - **Restricciones**
- - CNST_025 (Auditoria Inmutable)
+   - CNST_025 (Auditoria Inmutable)
  * - **FR Derivados**
- - FR-AUTH-010 a FR-AUTH-013
+   - FR-AUTH-010 a FR-AUTH-013
  * - **UC Relacionados**
- - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_05 (Gestionar Sesiones)
+   - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_05 (Gestionar Sesiones)
  * - **Actor Principal**
- - Usuario (cualquier usuario autenticado)
+   - Usuario (cualquier usuario autenticado)
  * - **Funcion RBAC**
- - (publico) - Cualquier usuario autenticado
+   - (publico) - Cualquier usuario autenticado
 
 14. Historial de Cambios
 ------------------------
@@ -529,10 +529,10 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con nueva nomenclatura UC_AUTH_02
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con nueva nomenclatura UC_AUTH_02

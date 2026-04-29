@@ -567,26 +567,26 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  :widths: 10 45 45
 
  * - #
- - Restriccion
- - Implementacion
+   - Restriccion
+   - Implementacion
  * - R1
- - Usuario tiene exactamente 1 segmento
- - FK NOT NULL
+   - Usuario tiene exactamente 1 segmento
+   - FK NOT NULL
  * - R2
- - Usuario tiene al menos 1 rol
- - Trigger/Aplicacion
+   - Usuario tiene al menos 1 rol
+   - Trigger/Aplicacion
  * - R3
- - Rol tiene al menos 1 permiso
- - CHECK en insert
+   - Rol tiene al menos 1 permiso
+   - CHECK en insert
  * - R4
- - Sesion activa unica por usuario
- - UNIQUE INDEX parcial
+   - Sesion activa unica por usuario
+   - UNIQUE INDEX parcial
  * - R5
- - Username y email unicos
- - UNIQUE constraints
+   - Username y email unicos
+   - UNIQUE constraints
  * - R6
- - SoD: roles conflictivos no coexisten
- - Trigger en user_roles
+   - SoD: roles conflictivos no coexisten
+   - Trigger en user_roles
 
 7.2 OCL Constraints
 ^^^^^^^^^^^^^^^^^^^
@@ -627,26 +627,26 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  :widths: 30 20 50
 
  * - Entidad
- - Cantidad
- - Notas
+   - Cantidad
+   - Notas
  * - Usuarios
- - 50-100
- - Organizacion mediana
+   - 50-100
+   - Organizacion mediana
  * - Roles
- - 18
- - Catalogo cerrado
+   - 18
+   - Catalogo cerrado
  * - Permisos
- - ~150
- - Por modulo funcional
+   - ~150
+   - Por modulo funcional
  * - Segmentos
- - 5-10
- - Por centro + consolidado
+   - 5-10
+   - Por centro + consolidado
  * - Sesiones activas
- - 20-40
- - Concurrencia tipica
+   - 20-40
+   - Concurrencia tipica
  * - Conflictos SoD
- - 2
- - Pares definidos
+   - 2
+   - Pares definidos
 
 8.2 Funciones por Grupo Predefinido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -656,49 +656,49 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  :widths: 15 35 25 25
 
  * - Codigo
- - Nombre (ingles)
- - # Funciones
- - Actor tipico
+   - Nombre (ingles)
+   - # Funciones
+   - Actor tipico
  * - AGR-001
- - basic_operator_group
- - 6
- - Operador
+   - basic_operator_group
+   - 6
+   - Operador
  * - AGR-002
- - report_viewer_group
- - 8
- - Analista
+   - report_viewer_group
+   - 8
+   - Analista
  * - AGR-003
- - quality_supervisor_group
- - 11
- - Supervisor
+   - quality_supervisor_group
+   - 11
+   - Supervisor
  * - AGR-004
- - data_exporter_group
- - 14
- - Data Analyst
+   - data_exporter_group
+   - 14
+   - Data Analyst
  * - AGR-005
- - alert_manager_group
- - 6
- - Gestor Alertas
+   - alert_manager_group
+   - 6
+   - Gestor Alertas
  * - AGR-006
- - user_admin_group
- - 9
- - Admin Usuarios
+   - user_admin_group
+   - 9
+   - Admin Usuarios
  * - AGR-007
- - permission_admin_group
- - 5
- - Admin Permisos
+   - permission_admin_group
+   - 5
+   - Admin Permisos
  * - AGR-008
- - auditor_group
- - 4
- - Auditor
+   - auditor_group
+   - 4
+   - Auditor
  * - AGR-009
- - pipeline_admin_group
- - 4
- - Admin Pipeline
+   - pipeline_admin_group
+   - 4
+   - Admin Pipeline
  * - AGR-010
- - system_admin_group
- - 6
- - Sysadmin
+   - system_admin_group
+   - 6
+   - Sysadmin
 
 Detalle completo de los 10 grupos: ver
 :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` § 2.1.
@@ -733,13 +733,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con modelo RBAC completo
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con modelo RBAC completo
 
 ----
 

@@ -28,23 +28,23 @@ UC_ACC_02: Revocar Funciones
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_02
+   - UC_ACC_02
  * - **Nombre**
- - Revocar Funciones
+   - Revocar Funciones
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Actor Secundario**
- - Sistema (validacion automatica)
+   - Sistema (validacion automatica)
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-002: revoca_funciones
+   - ACC-002: revoca_funciones
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-ACC-002
+   - BRQ-ACC-002
 
 2. Descripcion
 --------------
@@ -102,13 +102,13 @@ inmediato y se registra en auditoria.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-002
+   - El administrador tiene sesion activa con funcion ACC-002
  * - PRE-02
- - El usuario destino existe en el sistema
+   - El usuario destino existe en el sistema
  * - PRE-03
- - El usuario tiene al menos una funcion asignada
+   - El usuario tiene al menos una funcion asignada
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -125,13 +125,13 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Las funciones seleccionadas se eliminan de user_functions
+   - Las funciones seleccionadas se eliminan de user_functions
  * - POST-02
- - Los permisos efectivos del usuario se actualizan inmediatamente
+   - Los permisos efectivos del usuario se actualizan inmediatamente
  * - POST-03
- - Se registra FUNCTION_REVOKE en auditoria (CNST_025)
+   - Se registra FUNCTION_REVOKE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -141,44 +141,44 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de control de acceso
+   - Admin
+   - Accede al modulo de control de acceso
  * - 2
- - Sistema
- - Valida funcion ACC-002 (revoca_funciones)
+   - Sistema
+   - Valida funcion ACC-002 (revoca_funciones)
  * - 3
- - Admin
- - Busca y selecciona usuario destino
+   - Admin
+   - Busca y selecciona usuario destino
  * - 4
- - Sistema
- - Muestra funciones actuales del usuario
+   - Sistema
+   - Muestra funciones actuales del usuario
  * - 5
- - Admin
- - Selecciona funciones a revocar
+   - Admin
+   - Selecciona funciones a revocar
  * - 6
- - Admin
- - Presiona "Revocar Funciones"
+   - Admin
+   - Presiona "Revocar Funciones"
  * - 7
- - Sistema
- - Muestra dialogo de confirmacion
+   - Sistema
+   - Muestra dialogo de confirmacion
  * - 8
- - Admin
- - Confirma revocacion
+   - Admin
+   - Confirma revocacion
  * - 9
- - Sistema
- - Elimina registros de user_functions
+   - Sistema
+   - Elimina registros de user_functions
  * - 10
- - Sistema
- - Registra FUNCTION_REVOKE en UserActionLog (CNST_025)
+   - Sistema
+   - Registra FUNCTION_REVOKE en UserActionLog (CNST_025)
  * - 11
- - Sistema
- - Actualiza vista de permisos del usuario
+   - Sistema
+   - Actualiza vista de permisos del usuario
  * - 12
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -273,20 +273,20 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Admin
- - Hace clic en "Revocar Todas"
+   - Admin
+   - Hace clic en "Revocar Todas"
  * - 6a
- - Sistema
- - Selecciona automaticamente todas las funciones
+   - Sistema
+   - Selecciona automaticamente todas las funciones
  * - 7a
- - Sistema
- - Muestra advertencia: "El usuario quedara sin permisos"
+   - Sistema
+   - Muestra advertencia: "El usuario quedara sin permisos"
  * - 8a
- - Admin
- - Confirma accion
+   - Admin
+   - Confirma accion
 
 7.2 FA-02: Cancelar Revocacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -296,17 +296,17 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Admin
- - Cancela el dialogo de confirmacion
+   - Admin
+   - Cancela el dialogo de confirmacion
  * - 8b
- - Sistema
- - No realiza ninguna accion
+   - Sistema
+   - No realiza ninguna accion
  * - 8c
- - Sistema
- - Permanece en vista de permisos
+   - Sistema
+   - Permanece en vista de permisos
 
 8. Excepciones
 --------------
@@ -319,15 +319,15 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion ACC-002
+   - Administrador no tiene funcion ACC-002
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "No tiene permisos para revocar funciones"
+   - "No tiene permisos para revocar funciones"
  * - **Codigo Error**
- - ACC-010
+   - ACC-010
 
 8.2 EX-02: Funcion No Asignada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,15 +337,15 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Alguna funcion seleccionada no esta asignada al usuario
+   - Alguna funcion seleccionada no esta asignada al usuario
  * - **Accion Sistema**
- - Rechaza operacion parcial
+   - Rechaza operacion parcial
  * - **Mensaje Usuario**
- - "La funcion [nombre] no esta asignada a este usuario"
+   - "La funcion [nombre] no esta asignada a este usuario"
  * - **Codigo Error**
- - ACC-011
+   - ACC-011
 
 9. Diagrama de Actividad
 ------------------------
@@ -409,20 +409,20 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-10
- - Efecto Inmediato
- - La revocacion tiene efecto inmediato. El usuario pierde el permiso al instante.
+   - Efecto Inmediato
+   - La revocacion tiene efecto inmediato. El usuario pierde el permiso al instante.
  * - BR-ACC-11
- - Confirmacion Obligatoria
- - Toda revocacion requiere confirmacion explicita del administrador.
+   - Confirmacion Obligatoria
+   - Toda revocacion requiere confirmacion explicita del administrador.
  * - BR-ACC-12
- - Sin Funciones Valido
- - Es valido que un usuario quede sin funciones asignadas.
+   - Sin Funciones Valido
+   - Es valido que un usuario quede sin funciones asignadas.
  * - BR-ACC-13
- - Revocacion Atomica
- - La revocacion es atomica: se revocan todas las seleccionadas o ninguna.
+   - Revocacion Atomica
+   - La revocacion es atomica: se revocan todas las seleccionadas o ninguna.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -432,14 +432,14 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat
- - La revocacion elimina registros directos de user_functions. No hay efectos en cascada porque no hay jerarquia de roles.
+   - RBAC Flat
+   - La revocacion elimina registros directos de user_functions. No hay efectos en cascada porque no hay jerarquia de roles.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra FUNCTION_REVOKE en UserActionLog con: admin ejecutor, usuario afectado, lista de funciones revocadas.
+   - Auditoria Inmutable
+   - Se registra FUNCTION_REVOKE en UserActionLog con: admin ejecutor, usuario afectado, lista de funciones revocadas.
 
 **Implementacion CNST_025:**
 
@@ -466,20 +466,20 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-010
- - El sistema debe permitir revocar funciones individuales
- - Registros eliminados de user_functions
+   - El sistema debe permitir revocar funciones individuales
+   - Registros eliminados de user_functions
  * - FR-ACC-011
- - El sistema debe permitir revocar todas las funciones
- - Opcion "Revocar Todas" funcional
+   - El sistema debe permitir revocar todas las funciones
+   - Opcion "Revocar Todas" funcional
  * - FR-ACC-012
- - El sistema debe requerir confirmacion
- - Dialogo de confirmacion antes de ejecutar
+   - El sistema debe requerir confirmacion
+   - Dialogo de confirmacion antes de ejecutar
  * - FR-ACC-013
- - El sistema debe registrar revocacion en auditoria
- - Evento FUNCTION_REVOKE con detalle
+   - El sistema debe registrar revocacion en auditoria
+   - Evento FUNCTION_REVOKE con detalle
 
 13. Trazabilidad
 ----------------
@@ -489,19 +489,19 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-002: Permitir revocacion de funciones
+   - BRQ-ACC-002: Permitir revocacion de funciones
  * - **Reglas de Negocio**
- - BR-ACC-10 a BR-ACC-13
+   - BR-ACC-10 a BR-ACC-13
  * - **Restricciones**
- - CNST_029 (RBAC Flat), CNST_025 (Auditoria)
+   - CNST_029 (RBAC Flat), CNST_025 (Auditoria)
  * - **FR Derivados**
- - FR-ACC-010 a FR-ACC-013
+   - FR-ACC-010 a FR-ACC-013
  * - **UC Relacionados**
- - UC_ACC_01 (Asignar), UC_ACC_03 (Consultar)
+   - UC_ACC_01 (Asignar), UC_ACC_03 (Consultar)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-002: revoca_funciones
+   - ACC-002: revoca_funciones
 
 14. Historial de Cambios
 ------------------------
@@ -511,10 +511,10 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

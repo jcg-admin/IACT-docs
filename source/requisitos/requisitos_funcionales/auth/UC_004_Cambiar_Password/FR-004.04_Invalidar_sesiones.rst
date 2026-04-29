@@ -22,19 +22,19 @@ FR-004.04: Invalidar sesiones tras cambio de password
  :widths: 25 75
 
  * - **ID**
- - FR-004.04
+   - FR-004.04
  * - **Nombre**
- - Invalidar todas las sesiones tras cambio de password
+   - Invalidar todas las sesiones tras cambio de password
  * - **UC Origen**
- - UC_004: Cambiar Password
+   - UC_004: Cambiar Password
  * - **Paso UC**
- - Paso 9 del flujo normal
+   - Paso 9 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Seguridad
+   - Seguridad
 
 ----
 
@@ -124,17 +124,17 @@ no se debe completar el cambio de password.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_004: Cambiar Password
+   - UC_004: Cambiar Password
  * - **Depende de**
- - FR-004.03
+   - FR-004.03
  * - **Requerido por**
- - Ninguno (paso final)
+   - Ninguno (paso final)
  * - **CNST**
- - CNST-002, CNST-009
+   - CNST-002, CNST-009
  * - **TEST**
- - TST-FR-004.04 (pendiente)
+   - TST-FR-004.04 (pendiente)
 
 ----
 
@@ -146,8 +146,8 @@ no se debe completar el cambio de password.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_004
+   - 2026-01-07
+   - Versión inicial derivada de UC_004

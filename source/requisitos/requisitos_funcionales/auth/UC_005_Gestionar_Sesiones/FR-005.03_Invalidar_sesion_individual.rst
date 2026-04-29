@@ -22,19 +22,19 @@ FR-005.03: Invalidar sesión individual
  :widths: 25 75
 
  * - **ID**
- - FR-005.03
+   - FR-005.03
  * - **Nombre**
- - Invalidar una sesión específica
+   - Invalidar una sesión específica
  * - **UC Origen**
- - UC_005: Gestionar Sesiones Activas
+   - UC_005: Gestionar Sesiones Activas
  * - **Paso UC**
- - Paso 4-7 del flujo normal
+   - Paso 4-7 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -130,17 +130,17 @@ FR-005.03: Invalidar sesión individual
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_005: Gestionar Sesiones
+   - UC_005: Gestionar Sesiones
  * - **Depende de**
- - FR-005.01, FR-005.02
+   - FR-005.01, FR-005.02
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **CNST**
- - CNST-002, CNST-009
+   - CNST-002, CNST-009
  * - **TEST**
- - TST-FR-005.03 (pendiente)
+   - TST-FR-005.03 (pendiente)
 
 ----
 
@@ -152,8 +152,8 @@ FR-005.03: Invalidar sesión individual
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_005
+   - 2026-01-07
+   - Versión inicial derivada de UC_005

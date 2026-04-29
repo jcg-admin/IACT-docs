@@ -130,23 +130,23 @@ negocio, independientes del sistema de software.
  :widths: 20 35 45
 
  * - Subtipo
- - Definicion
- - Ejemplo IACT
+   - Definicion
+   - Ejemplo IACT
  * - **Hecho**
- - Verdad sobre el dominio que estructura el modelo
- - "Cada usuario pertenece a exactamente un segmento"
+   - Verdad sobre el dominio que estructura el modelo
+   - "Cada usuario pertenece a exactamente un segmento"
  * - **Restriccion**
- - Limitacion obligatoria sobre comportamiento
- - "Solo R001 puede crear usuarios"
+   - Limitacion obligatoria sobre comportamiento
+   - "Solo R001 puede crear usuarios"
  * - **Desencadenador**
- - Condicion que genera accion observable
- - "Si metrica > umbral, notificar destinatarios"
+   - Condicion que genera accion observable
+   - "Si metrica > umbral, notificar destinatarios"
  * - **Inferencia**
- - Condicion que genera nuevo hecho interno
- - "Si 90 dias sin login, marcar inactivo"
+   - Condicion que genera nuevo hecho interno
+   - "Si 90 dias sin login, marcar inactivo"
  * - **Calculo**
- - Formula o algoritmo de negocio
- - "Tasa abandono = abandonadas / total * 100"
+   - Formula o algoritmo de negocio
+   - "Tasa abandono = abandonadas / total * 100"
 
 **Criterio de Clasificacion:**
 
@@ -184,11 +184,11 @@ negocio, independientes del sistema de software.
  :widths: 25 75
 
  * - Subtipo
- - Descripcion
+   - Descripcion
  * - **Estrategico**
- - Alineado con vision organizacional, largo plazo
+   - Alineado con vision organizacional, largo plazo
  * - **Operacional**
- - Mejora de procesos, corto/mediano plazo
+   - Mejora de procesos, corto/mediano plazo
 
 **Ejemplo IACT:**
 
@@ -220,20 +220,20 @@ negocio, independientes del sistema de software.
  :widths: 20 40 40
 
  * - Subtipo
- - Descripcion
- - Ejemplos IACT
+   - Descripcion
+   - Ejemplos IACT
  * - **UC de Gestion**
- - CRUD de entidades del sistema
- - UC-006 Crear Usuario, UC-010 Asignar Rol
+   - CRUD de entidades del sistema
+   - UC-006 Crear Usuario, UC-010 Asignar Rol
  * - **UC de Consulta**
- - Visualizacion y busqueda de informacion
- - UC-017 Consultar Reporte, UC-025 Ver Dashboard
+   - Visualizacion y busqueda de informacion
+   - UC-017 Consultar Reporte, UC-025 Ver Dashboard
  * - **UC de Proceso**
- - Ejecucion de procesos de negocio
- - UC-022 Exportar CSV, UC-037 Configurar Alerta
+   - Ejecucion de procesos de negocio
+   - UC-022 Exportar CSV, UC-037 Configurar Alerta
  * - **UC de Sistema**
- - Procesos automaticos sin actor humano
- - UC-ETL Sincronizar Datos, UC-ALERT Evaluar Umbrales
+   - Procesos automaticos sin actor humano
+   - UC-ETL Sincronizar Datos, UC-ALERT Evaluar Umbrales
 
 **Subtipos por Dominio Funcional:**
 
@@ -242,26 +242,26 @@ negocio, independientes del sistema de software.
  :widths: 25 15 60
 
  * - Dominio
- - Cantidad
- - Rango UC
+   - Cantidad
+   - Rango UC
  * - Gestion de Usuarios
- - 8
- - UC-005 a UC-011, UC-041, UC-042
+   - 8
+   - UC-005 a UC-011, UC-041, UC-042
  * - Reportes
- - 8
- - UC-017 a UC-024
+   - 8
+   - UC-017 a UC-024
  * - Dashboards
- - 6
- - UC-025 a UC-030
+   - 6
+   - UC-025 a UC-030
  * - Analisis
- - 5
- - UC-031 a UC-035
+   - 5
+   - UC-031 a UC-035
  * - Alertas
- - 5
- - UC-036 a UC-040
+   - 5
+   - UC-036 a UC-040
  * - Administracion
- - 6
- - UC-012 a UC-016, UC-043
+   - 6
+   - UC-012 a UC-016, UC-043
 
 ----
 
@@ -282,23 +282,23 @@ negocio, independientes del sistema de software.
  :widths: 20 40 40
 
  * - Categoria
- - Descripcion
- - Ejemplos
+   - Descripcion
+   - Ejemplos
  * - **Validacion**
- - Verificar datos de entrada
- - FR-10.6 Validar SoD, FR-40.6 Validar CAS
+   - Verificar datos de entrada
+   - FR-10.6 Validar SoD, FR-40.6 Validar CAS
  * - **Procesamiento**
- - Logica de negocio y calculos
- - FR-17.5 Calcular totales, FR-35.3 Agregar metricas
+   - Logica de negocio y calculos
+   - FR-17.5 Calcular totales, FR-35.3 Agregar metricas
  * - **Presentacion**
- - Mostrar informacion al usuario
- - FR-25.1 Mostrar grafico, FR-17.8 Formatear reporte
+   - Mostrar informacion al usuario
+   - FR-25.1 Mostrar grafico, FR-17.8 Formatear reporte
  * - **Integracion**
- - Comunicacion con otros sistemas
- - FR-ETL.1 Leer BD IVR, FR-ETL.5 Insertar datos
+   - Comunicacion con otros sistemas
+   - FR-ETL.1 Leer BD IVR, FR-ETL.5 Insertar datos
  * - **Seguridad**
- - Control de acceso y auditoria
- - FR-05.3 Validar sesion, FR-05.8 Registrar accion
+   - Control de acceso y auditoria
+   - FR-05.3 Validar sesion, FR-05.8 Registrar accion
 
 **Nomenclatura:**
 
@@ -355,15 +355,15 @@ negocio, independientes del sistema de software.
  :widths: 20 80
 
  * - Categoria
- - Ejemplo
+   - Ejemplo
  * - Rendimiento
- - "Consulta de reporte debe responder en < 2 segundos (P95)"
+   - "Consulta de reporte debe responder en < 2 segundos (P95)"
  * - Seguridad
- - "Sesiones expiran tras 30 minutos de inactividad"
+   - "Sesiones expiran tras 30 minutos de inactividad"
  * - Usabilidad
- - "Dashboard debe cargar en < 3 segundos"
+   - "Dashboard debe cargar en < 3 segundos"
  * - Confiabilidad
- - "Sistema disponible 99.5% en horario laboral"
+   - "Sistema disponible 99.5% en horario laboral"
 
 5.2 Calidad de Proceso
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -402,17 +402,17 @@ negocio, independientes del sistema de software.
  :widths: 20 40 40
 
  * - Tipo
- - Descripcion
- - Ejemplo IACT
+   - Descripcion
+   - Ejemplo IACT
  * - **Tecnica**
- - Limitaciones de tecnologia o arquitectura
- - "BD origen MySQL solo lectura"
+   - Limitaciones de tecnologia o arquitectura
+   - "BD origen MySQL solo lectura"
  * - **Negocio**
- - Politicas organizacionales
- - "Sin envio de correo electronico externo"
+   - Politicas organizacionales
+   - "Sin envio de correo electronico externo"
  * - **Regulatoria**
- - Leyes, normas, estandares
- - "Logs de auditoria inmutables (compliance)"
+   - Leyes, normas, estandares
+   - "Logs de auditoria inmutables (compliance)"
 
 6.2 Restricciones IACT Conocidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -448,40 +448,40 @@ negocio, independientes del sistema de software.
  :widths: 15 20 25 20 20
 
  * - Nivel
- - Tipo
- - Prefijo
- - Pregunta
- - Estabilidad
+   - Tipo
+   - Prefijo
+   - Pregunta
+   - Estabilidad
  * - 0
- - Business Rule
- - BR\_
- - Por que restriccion?
- - Muy alta
+   - Business Rule
+   - BR\_
+   - Por que restriccion?
+   - Muy alta
  * - 1
- - Business Req.
- - BReq\_
- - Por que proyecto?
- - Alta
+   - Business Req.
+   - BReq\_
+   - Por que proyecto?
+   - Alta
  * - 2
- - User Req.
- - UC\_
- - Que hace usuario?
- - Media
+   - User Req.
+   - UC\_
+   - Que hace usuario?
+   - Media
  * - 3
- - Functional Req.
- - FR-
- - Como sistema?
- - Baja
+   - Functional Req.
+   - FR-
+   - Como sistema?
+   - Baja
  * - -
- - Non-Functional
- - NFR\_
- - Que tan bien?
- - Variable
+   - Non-Functional
+   - NFR\_
+   - Que tan bien?
+   - Variable
  * - -
- - Constraint
- - CNST\_
- - Que limita?
- - Muy alta
+   - Constraint
+   - CNST\_
+   - Que limita?
+   - Muy alta
 
 7.2 Por Origen
 ^^^^^^^^^^^^^^
@@ -491,20 +491,20 @@ negocio, independientes del sistema de software.
  :widths: 25 35 40
 
  * - Origen
- - Tipos de Requisitos
- - Ejemplo
+   - Tipos de Requisitos
+   - Ejemplo
  * - **Externo**
- - BR (regulaciones), CNST (regulatorio)
- - Leyes, contratos, estandares
+   - BR (regulaciones), CNST (regulatorio)
+   - Leyes, contratos, estandares
  * - **Organizacional**
- - BR (politicas), BReq, CNST (negocio)
- - Politicas internas, objetivos
+   - BR (politicas), BReq, CNST (negocio)
+   - Politicas internas, objetivos
  * - **Usuario**
- - UC, NFR (usabilidad)
- - Necesidades de stakeholders
+   - UC, NFR (usabilidad)
+   - Necesidades de stakeholders
  * - **Sistema**
- - FR, NFR (tecnico), CNST (tecnico)
- - Derivados de UC y arquitectura
+   - FR, NFR (tecnico), CNST (tecnico)
+   - Derivados de UC y arquitectura
 
 7.3 Por Verificabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -514,20 +514,20 @@ negocio, independientes del sistema de software.
  :widths: 25 35 40
 
  * - Metodo
- - Tipos de Requisitos
- - Descripcion
+   - Tipos de Requisitos
+   - Descripcion
  * - **Inspeccion**
- - BR, CNST
- - Revision documental
+   - BR, CNST
+   - Revision documental
  * - **Demostracion**
- - UC
- - Ejecutar caso de uso
+   - UC
+   - Ejecutar caso de uso
  * - **Test**
- - FR, NFR
- - Pruebas automatizadas/manuales
+   - FR, NFR
+   - Pruebas automatizadas/manuales
  * - **Analisis**
- - BReq, NFR (rendimiento)
- - Metricas y mediciones
+   - BReq, NFR (rendimiento)
+   - Metricas y mediciones
 
 ----
 
@@ -542,23 +542,23 @@ negocio, independientes del sistema de software.
  :widths: 30 20 50
 
  * - Tipo
- - Cantidad
- - Notas
+   - Cantidad
+   - Notas
  * - Business Rules (BR)
- - 6
- - Identificadas en analisis RBAC
+   - 6
+   - Identificadas en analisis RBAC
  * - Casos de Uso (UC)
- - 38
- - Derivados de BR + CRUD + Larman
+   - 38
+   - Derivados de BR + CRUD + Larman
  * - Functional Req. (FR)
- - ~300 est.
- - Pendiente derivacion completa
+   - ~300 est.
+   - Pendiente derivacion completa
  * - Non-Functional (NFR)
- - ~20 est.
- - Pendiente especificacion
+   - ~20 est.
+   - Pendiente especificacion
  * - Constraints (CNST)
- - 31
- - Set canonico tras rebuild SRP (WP #4)
+   - 31
+   - Set canonico tras rebuild SRP (WP #4)
 
 8.2 Proporcion Tipica
 ^^^^^^^^^^^^^^^^^^^^^
@@ -648,13 +648,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con taxonomia completa
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con taxonomia completa
 
 ----
 

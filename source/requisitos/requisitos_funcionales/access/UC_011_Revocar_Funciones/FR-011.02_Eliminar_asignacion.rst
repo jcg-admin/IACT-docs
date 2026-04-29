@@ -22,19 +22,19 @@ FR-011.02: Eliminar asignación de función
  :widths: 25 75
 
  * - **ID**
- - FR-011.02
+   - FR-011.02
  * - **Nombre**
- - Eliminar registro de asignación usuario-función
+   - Eliminar registro de asignación usuario-función
  * - **UC Origen**
- - UC_011: Revocar Funciones a Usuario
+   - UC_011: Revocar Funciones a Usuario
  * - **Paso UC**
- - Paso 6-7 del flujo normal
+   - Paso 6-7 del flujo normal
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -129,19 +129,19 @@ Si falla una, no se revoca ninguna.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_011: Revocar Funciones
+   - UC_011: Revocar Funciones
  * - **Depende de**
- - FR-011.01
+   - FR-011.01
  * - **Requerido por**
- - FR-011.03
+   - FR-011.03
  * - **BR**
- - BR_009
+   - BR_009
  * - **CNST**
- - CNST-002, CNST-009
+   - CNST-002, CNST-009
  * - **TEST**
- - TST-FR-011.02 (pendiente)
+   - TST-FR-011.02 (pendiente)
 
 ----
 
@@ -153,8 +153,8 @@ Si falla una, no se revoca ninguna.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_011
+   - 2026-01-07
+   - Versión inicial derivada de UC_011

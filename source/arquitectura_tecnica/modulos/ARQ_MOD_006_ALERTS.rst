@@ -74,32 +74,32 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - Crear configuracion de alerta operativa
- - UC_036
- - -
+   - UC_036
+   - -
  * - Definir tipo (THRESHOLD/ANOMALY/TREND)
- - UC_036
- - -
+   - UC_036
+   - -
  * - Definir severidad y destinatarios
- - UC_036
- - -
+   - UC_036
+   - -
  * - Enviar notificacion a buzon interno
- - UC_037
- - CNST_001
+   - UC_037
+   - CNST_001
  * - Listar bandeja de notificaciones
- - UC_038
- - -
+   - UC_038
+   - -
  * - Filtrar por severidad, tipo, estado
- - UC_038
- - -
+   - UC_038
+   - -
  * - Aplicar snooze (1h, 8h, 24h, personalizado)
- - UC_039
- - -
+   - UC_039
+   - -
  * - Confirmar/cerrar alerta atendida
- - UC_040
- - -
+   - UC_040
+   - -
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -137,17 +137,17 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Tipo
- - Descripcion
- - Ejemplo
+   - Descripcion
+   - Ejemplo
  * - THRESHOLD
- - Se dispara cuando una metrica supera/baja de un umbral
- - "Llamadas fallidas > 100/hora"
+   - Se dispara cuando una metrica supera/baja de un umbral
+   - "Llamadas fallidas > 100/hora"
  * - ANOMALY
- - Se dispara por desviacion estadistica
- - "Duracion promedio 3 std por encima"
+   - Se dispara por desviacion estadistica
+   - "Duracion promedio 3 std por encima"
  * - TREND
- - Se dispara por tendencia sostenida
- - "Incremento 20% en 3 dias consecutivos"
+   - Se dispara por tendencia sostenida
+   - "Incremento 20% en 3 dias consecutivos"
 
 ----
 
@@ -195,15 +195,15 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Requiere sesion autenticada
+   - Requiere sesion autenticada
  * - ARQ_MOD_003_RBAC_CORE
- - Verifica permisos de configurar alertas
+   - Verifica permisos de configurar alertas
  * - ARQ_MOD_004_ETL_MONITORING
- - Obtiene metricas para evaluar condiciones
+   - Obtiene metricas para evaluar condiciones
  * - ARQ_MOD_005_VIS_REPORTS
- - Puede usar metricas agregadas
+   - Puede usar metricas agregadas
 
 6.2 Es Requerido por
 --------------------
@@ -213,13 +213,13 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_001_AUTH
- - Envia codigo temporal via InternalMessage
+   - Envia codigo temporal via InternalMessage
  * - ARQ_MOD_004_ETL_MONITORING
- - Notifica fallos de ETL
+   - Notifica fallos de ETL
  * - ARQ_MOD_007_AUDIT
- - Registra alertas generadas
+   - Registra alertas generadas
 
 ----
 
@@ -234,9 +234,9 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.common.notifications
- - InternalMessage, AlertConfig, servicios
+   - InternalMessage, AlertConfig, servicios
 
 7.2 Modelos de Datos
 --------------------
@@ -276,26 +276,26 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/alerts/configs
- - Listar configuraciones
+   - /api/v1/alerts/configs
+   - Listar configuraciones
  * - POST
- - /api/v1/alerts/configs
- - Crear configuracion
+   - /api/v1/alerts/configs
+   - Crear configuracion
  * - GET
- - /api/v1/notifications
- - Bandeja de notificaciones
+   - /api/v1/notifications
+   - Bandeja de notificaciones
  * - PUT
- - /api/v1/notifications/{id}/read
- - Marcar como leida
+   - /api/v1/notifications/{id}/read
+   - Marcar como leida
  * - PUT
- - /api/v1/alerts/{id}/snooze
- - Silenciar alerta
+   - /api/v1/alerts/{id}/snooze
+   - Silenciar alerta
  * - PUT
- - /api/v1/alerts/{id}/acknowledge
- - Confirmar alerta
+   - /api/v1/alerts/{id}/acknowledge
+   - Confirmar alerta
 
 ----
 
@@ -307,10 +307,10 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_001
- - **Comunicaciones Prohibidas**: NO EMAIL. Todo via InternalMessage.
- Esto aplica a alertas, recuperacion de contrasena, avisos del sistema.
+   - **Comunicaciones Prohibidas**: NO EMAIL. Todo via InternalMessage.
+     Esto aplica a alertas, recuperacion de contrasena, avisos del sistema.
 
 ----
 
@@ -322,23 +322,23 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_036
- - Configurar_Alerta_Operativa
- - Tipo, severidad, destinatarios, frecuencia
+   - Configurar_Alerta_Operativa
+   - Tipo, severidad, destinatarios, frecuencia
  * - UC_037
- - Recibir_Notificacion_Buzon
- - InternalMessage generico reutilizable
+   - Recibir_Notificacion_Buzon
+   - InternalMessage generico reutilizable
  * - UC_038
- - Consultar_Bandeja_Notificaciones
- - Filtrar por severidad, tipo, estado
+   - Consultar_Bandeja_Notificaciones
+   - Filtrar por severidad, tipo, estado
  * - UC_039
- - Silenciar_Posponer_Alerta
- - Snooze 1h, 8h, 24h, personalizado
+   - Silenciar_Posponer_Alerta
+   - Snooze 1h, 8h, 24h, personalizado
  * - UC_040
- - Confirmar_Cerrar_Alerta
- - Marcar como atendida
+   - Confirmar_Cerrar_Alerta
+   - Marcar como atendida
 
 ----
 
@@ -350,25 +350,25 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - FR ID
- - Nombre
- - Deriva de
- - Descripcion
+   - Nombre
+   - Deriva de
+   - Descripcion
  * - FR_027
- - Crear_Configuracion_Alerta
- - UC_036
- - CRUD alertas
+   - Crear_Configuracion_Alerta
+   - UC_036
+   - CRUD alertas
  * - FR_028
- - Enviar_Notificacion_Interna
- - UC_037
- - Via InternalMessage
+   - Enviar_Notificacion_Interna
+   - UC_037
+   - Via InternalMessage
  * - FR_029
- - Listar_Notificaciones
- - UC_038
- - Con filtros
+   - Listar_Notificaciones
+   - UC_038
+   - Con filtros
  * - FR_030
- - Aplicar_Snooze_Alerta
- - UC_039
- - Tiempos predefinidos
+   - Aplicar_Snooze_Alerta
+   - UC_039
+   - Tiempos predefinidos
 
 ----
 
@@ -380,11 +380,11 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial. Incluye InternalMessage como reemplazo de email.
+   - 2025-12-22
+   - Version inicial. Incluye InternalMessage como reemplazo de email.
 
 ----
 

@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_032
+   - CNST_032
  * - **Categoria**
- - RBAC
+   - RBAC
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -92,15 +92,15 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
  :header-rows: 1
 
  * - Parametro
- - Valor
+   - Valor
  * - Endpoint
- - ``GET /api/permisos/verificar/<user_id>/menu/``
+   - ``GET /api/permisos/verificar/<user_id>/menu/``
  * - Funcion SQL
- - ``obtener_menu_usuario(user_id INTEGER) RETURNS JSONB``
+   - ``obtener_menu_usuario(user_id INTEGER) RETURNS JSONB``
  * - Cache TTL
- - 0 (sin cache — siempre runtime)
+   - 0 (sin cache — siempre runtime)
  * - Refresh trigger
- - Inicio de sesion + cualquier cambio de permisos del usuario
+   - Inicio de sesion + cualquier cambio de permisos del usuario
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,11 +120,11 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Permissions
- - Implementa la funcion SQL y el endpoint REST
+   - Implementa la funcion SQL y el endpoint REST
  * - Frontend (transversal)
- - Invoca el endpoint en bootstrap de sesion + on-change
+   - Invoca el endpoint en bootstrap de sesion + on-change
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,11 +134,11 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - :doc:`/requisitos/casos_uso/permissions/UC_PERM_08_Generar_Menu_Dinamico`
- - Implementa la generacion de menu (CORE)
+   - Implementa la generacion de menu (CORE)
  * - :doc:`/requisitos/casos_uso/auth/UC_AUTH_01_Iniciar_Sesion`
- - Tras login exitoso, frontend invoca el endpoint
+   - Tras login exitoso, frontend invoca el endpoint
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,16 +233,16 @@ de creacion en iteracion correspondiente).
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_029_RBAC_Modelo_Plano` (modelo base que este CNST hace visible),
- :doc:`CNST_033_Vocabulario_Unificado_RBAC`
+   - :doc:`CNST_029_RBAC_Modelo_Plano` (modelo base que este CNST hace visible),
+     :doc:`CNST_033_Vocabulario_Unificado_RBAC`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - UC_PERM_08, UC_AUTH_01
+   - UC_PERM_08, UC_AUTH_01
  * - **MODs afectados**
- - MOD_Permissions, Frontend transversal
+   - MOD_Permissions, Frontend transversal
  * - **ADRs relacionados**
- - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
+   - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
 
 9. Historial de Cambios
 -----------------------
@@ -252,11 +252,11 @@ de creacion en iteracion correspondiente).
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-04-29
- - NestorMonroy
- - Version inicial. Restriccion creada en iteracion correspondiente tras decision
- D-RBAC-5 del WP #6 (Hipotesis 1 RBAC Coexistencia).
+   - 2026-04-29
+   - NestorMonroy
+   - Version inicial. Restriccion creada en iteracion correspondiente tras decision
+     D-RBAC-5 del WP #6 (Hipotesis 1 RBAC Coexistencia).

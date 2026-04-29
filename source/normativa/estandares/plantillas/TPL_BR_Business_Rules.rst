@@ -106,23 +106,23 @@ Toda BR debe clasificarse en uno de estos 5 tipos:
  :header-rows: 1
 
  * - Tipo
- - Descripción
- - Ejemplo IACT
+   - Descripción
+   - Ejemplo IACT
  * - **Restricción**
- - Limita valores, acciones o estados permitidos
- - BR_001: No modificar datos en fuente IVR
+   - Limita valores, acciones o estados permitidos
+   - BR_001: No modificar datos en fuente IVR
  * - **Desencadenador**
- - SI condición ENTONCES acción automática
- - BR_002: SI 2:00AM ENTONCES ejecutar ETL
+   - SI condición ENTONCES acción automática
+   - BR_002: SI 2:00AM ENTONCES ejecutar ETL
  * - **Hecho**
- - Define verdad estructural del dominio
- - BR_006: El sistema usa RBAC flat
+   - Define verdad estructural del dominio
+   - BR_006: El sistema usa RBAC flat
  * - **Inferencia**
- - Deriva nuevos hechos de existentes
- - BR_003: SI sin login 90d ENTONCES inactivo
+   - Deriva nuevos hechos de existentes
+   - BR_003: SI sin login 90d ENTONCES inactivo
  * - **Cálculo**
- - Define fórmula matemática
- - BR_016: Tasa = (Abandonadas/Total) × 100
+   - Define fórmula matemática
+   - BR_016: Tasa = (Abandonadas/Total) × 100
 
 ----
 
@@ -392,35 +392,35 @@ Cada BR DEBE incluir mínimo estas 8 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, tipo, categoría, criticidad
+   - Resumen Ejecutivo
+   - ID, nombre, tipo, categoría, criticidad
  * - 1
- - Definición Formal
- - Enunciado, formulación SBVR, justificación
+   - Definición Formal
+   - Enunciado, formulación SBVR, justificación
  * - 2
- - Clasificación
- - Tipo TXM_03, naturaleza, alcance
+   - Clasificación
+   - Tipo TXM_03, naturaleza, alcance
  * - 3
- - Origen y Autoridad
- - Fuente primaria, autoridad de cambio
+   - Origen y Autoridad
+   - Fuente primaria, autoridad de cambio
  * - 4
- - Aplicación en Sistema
- - Donde aplica y donde NO aplica
+   - Aplicación en Sistema
+   - Donde aplica y donde NO aplica
  * - 5
- - Trazabilidad
- - CNST, BReq, UC relacionados
+   - Trazabilidad
+   - CNST, BReq, UC relacionados
  * - 6
- - Verificación
- - Criterios y método de cumplimiento
+   - Verificación
+   - Criterios y método de cumplimiento
  * - 7
- - Implementación Técnica
- - Componentes y código de referencia
+   - Implementación Técnica
+   - Componentes y código de referencia
  * - 8
- - Historial
- - Control de versiones de la BR
+   - Historial
+   - Control de versiones de la BR
 
 ----
 
@@ -519,10 +519,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla BR con metodología SBVR
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla BR con metodología SBVR

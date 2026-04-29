@@ -466,47 +466,47 @@ Cada MOD DEBE incluir minimo estas 12 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, Django App, prefijo UC, BReq
+   - Resumen Ejecutivo
+   - ID, Django App, prefijo UC, BReq
  * - 1
- - Proposito
- - Razon de existencia del modulo
+   - Proposito
+   - Razon de existencia del modulo
  * - 2
- - Responsabilidades
- - Lo que PUEDE hacer
+   - Responsabilidades
+   - Lo que PUEDE hacer
  * - 3
- - Limites
- - Lo que NO PUEDE hacer
+   - Limites
+   - Lo que NO PUEDE hacer
  * - 4
- - Casos de Uso
- - UC asociados al modulo
+   - Casos de Uso
+   - UC asociados al modulo
  * - 5
- - Restricciones (CNST)
- - CNST que aplican
+   - Restricciones (CNST)
+   - CNST que aplican
  * - 6
- - Business Rules (BR)
- - BR que aplican
+   - Business Rules (BR)
+   - BR que aplican
  * - 7
- - Dependencias
- - Relacion con otros modulos
+   - Dependencias
+   - Relacion con otros modulos
  * - 8
- - Componentes Internos
- - Estructura Django, modelos, servicios
+   - Componentes Internos
+   - Estructura Django, modelos, servicios
  * - 9
- - Diagrama
- - PlantUML de componentes
+   - Diagrama
+   - PlantUML de componentes
  * - 10
- - Interfaces
- - API endpoints, eventos
+   - Interfaces
+   - API endpoints, eventos
  * - 11
- - Trazabilidad
- - Enlaces a BReq, UC, CNST, BR, API
+   - Trazabilidad
+   - Enlaces a BReq, UC, CNST, BR, API
  * - 12
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -558,10 +558,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial de plantilla MOD con PlantUML
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial de plantilla MOD con PlantUML

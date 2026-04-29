@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_002
+   - BR_002
  * - **Nombre**
- - ETL Batch Nocturno
+   - ETL Batch Nocturno
  * - **Tipo**
- - Desencadenador
+   - Desencadenador
  * - **Categoria**
- - Operacional
+   - Operacional
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -102,13 +102,13 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 0
 
  * - **Documento**
- - CNST_004_Actualizacion_Datos_ETL
+   - CNST_004_Actualizacion_Datos_ETL
  * - **Seccion**
- - Proceso ETL
+   - Proceso ETL
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST
+   - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -130,13 +130,13 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Pipeline
- - Ejecuta jobs ETL programados
+   - Ejecuta jobs ETL programados
  * - Celery Beat
- - Scheduler que dispara proceso a medianoche
+   - Scheduler que dispara proceso a medianoche
  * - Base Analytics
- - Recibe datos sincronizados
+   - Recibe datos sincronizados
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -163,9 +163,9 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_004
- - Define proceso ETL y restricciones de actualizacion
+   - Define proceso ETL y restricciones de actualizacion
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -175,9 +175,9 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-001
- - Visibilidad de Metricas IVR (datos actualizados diariamente)
+   - Visibilidad de Metricas IVR (datos actualizados diariamente)
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,13 +187,13 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-050
- - Supervisar Estado ETL - trigger nocturno
+   - Supervisar Estado ETL - trigger nocturno
  * - UC-051
- - Consultar Errores ETL - post ejecucion
+   - Consultar Errores ETL - post ejecucion
  * - UC-052
- - Consultar Disponibilidad Datos - actualizada tras ETL
+   - Consultar Disponibilidad Datos - actualizada tras ETL
 
 ----
 
@@ -231,10 +231,10 @@ por recursos con operaciones diurnas del call center.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

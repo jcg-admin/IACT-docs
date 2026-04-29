@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Identificar_Gaps_Huerfanos
+   - PROC_Identificar_Gaps_Huerfanos
  * - **Nombre**
- - Identificar Gaps y Huerfanos en Trazabilidad
+   - Identificar Gaps y Huerfanos en Trazabilidad
  * - **Categoria**
- - Trazabilidad
+   - Trazabilidad
  * - **Frecuencia**
- - Con cada RTM
+   - Con cada RTM
  * - **Duracion**
- - 15-30 minutos
+   - 15-30 minutos
 
 ----
 
@@ -170,11 +170,11 @@ Para cada gap/huerfano:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

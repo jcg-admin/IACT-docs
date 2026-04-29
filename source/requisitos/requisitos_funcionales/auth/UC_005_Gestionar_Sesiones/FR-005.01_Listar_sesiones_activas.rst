@@ -22,19 +22,19 @@ FR-005.01: Listar sesiones activas
  :widths: 25 75
 
  * - **ID**
- - FR-005.01
+   - FR-005.01
  * - **Nombre**
- - Listar todas las sesiones activas del sistema
+   - Listar todas las sesiones activas del sistema
  * - **UC Origen**
- - UC_005: Gestionar Sesiones Activas
+   - UC_005: Gestionar Sesiones Activas
  * - **Paso UC**
- - Paso 2 del flujo normal
+   - Paso 2 del flujo normal
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -127,17 +127,17 @@ FR-005.01: Listar sesiones activas
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_005: Gestionar Sesiones
+   - UC_005: Gestionar Sesiones
  * - **Depende de**
- - CNST-002 (tabla user_sessions)
+   - CNST-002 (tabla user_sessions)
  * - **Requerido por**
- - FR-005.02, FR-005.03
+   - FR-005.02, FR-005.03
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-005.01 (pendiente)
+   - TST-FR-005.01 (pendiente)
 
 ----
 
@@ -149,8 +149,8 @@ FR-005.01: Listar sesiones activas
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_005
+   - 2026-01-07
+   - Versión inicial derivada de UC_005

@@ -22,19 +22,19 @@ FR-008.02: Cambiar estado a INACTIVO
  :widths: 25 75
 
  * - **ID**
- - FR-008.02
+   - FR-008.02
  * - **Nombre**
- - Cambiar estado del usuario a INACTIVE
+   - Cambiar estado del usuario a INACTIVE
  * - **UC Origen**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Paso UC**
- - Paso 8 del flujo normal
+   - Paso 8 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -121,19 +121,19 @@ referencias al usuario dado de baja para histórico completo.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_008: Dar de Baja Usuario
+   - UC_008: Dar de Baja Usuario
  * - **Depende de**
- - FR-008.01
+   - FR-008.01
  * - **Requerido por**
- - FR-008.03
+   - FR-008.03
  * - **BR**
- - BR_009
+   - BR_009
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-008.02 (pendiente)
+   - TST-FR-008.02 (pendiente)
 
 ----
 
@@ -145,8 +145,8 @@ referencias al usuario dado de baja para histórico completo.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_008
+   - 2026-01-07
+   - Versión inicial derivada de UC_008

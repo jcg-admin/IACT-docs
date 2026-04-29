@@ -86,20 +86,20 @@ Cada Fact Type se documenta con:
  :widths: 20 40 40
 
  * - Cardinalidad
- - Significado
- - Ejemplo
+   - Significado
+   - Ejemplo
  * - 1:1
- - Uno a uno
- - Usuario *inicia* Sesion (activa)
+   - Uno a uno
+   - Usuario *inicia* Sesion (activa)
  * - 1:N
- - Uno a muchos
- - Rol *contiene* Permiso
+   - Uno a muchos
+   - Rol *contiene* Permiso
  * - N:1
- - Muchos a uno
- - Usuario *pertenece_a* Segmento
+   - Muchos a uno
+   - Usuario *pertenece_a* Segmento
  * - N:N
- - Muchos a muchos
- - Usuario *tiene* Rol
+   - Muchos a muchos
+   - Usuario *tiene* Rol
 
 ----
 
@@ -615,95 +615,95 @@ Resumen de todas las relaciones:
  :widths: 30 20 20 15 15
 
  * - Fact Type
- - Concepto 1
- - Concepto 2
- - Card.
- - Oblig.
+   - Concepto 1
+   - Concepto 2
+   - Card.
+   - Oblig.
  * - tiene
- - Usuario
- - Rol
- - N:N
- - Si
+   - Usuario
+   - Rol
+   - N:N
+   - Si
  * - contiene
- - Rol
- - Permiso
- - 1:N
- - Si
+   - Rol
+   - Permiso
+   - 1:N
+   - Si
  * - pertenece_a
- - Usuario
- - Segmento
- - N:1
- - Si
+   - Usuario
+   - Segmento
+   - N:1
+   - Si
  * - inicia
- - Usuario
- - Sesion
- - 1:1*
- - No
+   - Usuario
+   - Sesion
+   - 1:1*
+   - No
  * - genera
- - Usuario
- - Reg.Auditoria
- - 1:N
- - No
+   - Usuario
+   - Reg.Auditoria
+   - 1:N
+   - No
  * - excluye
- - Rol
- - Rol
- - N:N
- - No
+   - Rol
+   - Rol
+   - N:N
+   - No
  * - origina_en
- - Llamada
- - Centro
- - N:1
- - Si
+   - Llamada
+   - Centro
+   - N:1
+   - Si
  * - navega
- - Llamada
- - Menu_IVR
- - N:N
- - No
+   - Llamada
+   - Menu_IVR
+   - N:N
+   - No
  * - genera
- - Llamada
- - Transferencia
- - 1:N
- - No
+   - Llamada
+   - Transferencia
+   - 1:N
+   - No
  * - destina_a
- - Transferencia
- - Centro
- - N:1
- - Si
+   - Transferencia
+   - Centro
+   - N:1
+   - Si
  * - contiene
- - Reporte
- - Metrica
- - 1:N
- - Si
+   - Reporte
+   - Metrica
+   - 1:N
+   - Si
  * - visualiza
- - Dashboard
- - Metrica
- - 1:N
- - Si
+   - Dashboard
+   - Metrica
+   - 1:N
+   - Si
  * - monitorea
- - Alerta
- - Metrica
- - N:1
- - Si
+   - Alerta
+   - Metrica
+   - N:1
+   - Si
  * - notifica_a
- - Alerta
- - Usuario
- - N:N
- - Si
+   - Alerta
+   - Usuario
+   - N:N
+   - Si
  * - recibe
- - Usuario
- - Mensaje
- - 1:N
- - No
+   - Usuario
+   - Mensaje
+   - 1:N
+   - No
  * - sincroniza
- - Job_ETL
- - Llamada
- - 1:N
- - Si
+   - Job_ETL
+   - Llamada
+   - 1:N
+   - Si
  * - aplica_a
- - Permiso
- - Modulo
- - N:1
- - Si
+   - Permiso
+   - Modulo
+   - N:1
+   - Si
 
 (*) 1:1 para sesion activa, 1:N historico
 
@@ -798,13 +798,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 17 Fact Types documentados
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 17 Fact Types documentados
 
 ----
 

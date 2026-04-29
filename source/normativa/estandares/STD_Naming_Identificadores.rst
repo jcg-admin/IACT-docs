@@ -95,18 +95,18 @@ Ejemplos:
  :widths: 35 35 30
 
  * - Correcto
- - Por qué
- - Incorrecto (anti-patrón)
+   - Por qué
+   - Incorrecto (anti-patrón)
  * - ``getUserPermissions(userId)``
- - El verbo y el sustantivo describen la operación.
- - ``proc(uid)`` (abreviaturas crípticas, no se entiende qué
- hace)
+   - El verbo y el sustantivo describen la operación.
+   - ``proc(uid)`` (abreviaturas crípticas, no se entiende qué
+     hace)
  * - ``isReportExpired(report)``
- - Predicado claro: "el reporte está expirado".
- - ``check(r)`` (no dice qué se chequea)
+   - Predicado claro: "el reporte está expirado".
+   - ``check(r)`` (no dice qué se chequea)
  * - ``calculateTotalPrice(items, taxRate)``
- - Operación + objeto + cómo.
- - ``calc(x, y)`` (parámetros sin contexto)
+   - Operación + objeto + cómo.
+   - ``calc(x, y)`` (parámetros sin contexto)
 
 3.3 Sin Abreviaturas de Dominio en Identificadores
 ---------------------------------------------------
@@ -130,21 +130,21 @@ Ejemplos:
  :widths: 30 35 35
 
  * - Operación
- - Identificador correcto
- - Identificador incorrecto
+   - Identificador correcto
+   - Identificador incorrecto
  * - Validar conflicto entre roles RBAC
- - ``validateRoleConflict(...)``
- - ``validateSoD(...)`` (SoD es abreviatura de dominio)
+   - ``validateRoleConflict(...)``
+   - ``validateSoD(...)`` (SoD es abreviatura de dominio)
  * - Procesar datos del pipeline ETL
- - ``processIncomingData(...)``
- - ``runETL(...)`` (ETL es jerga sin contexto en el
- identificador)
+   - ``processIncomingData(...)``
+   - ``runETL(...)`` (ETL es jerga sin contexto en el
+     identificador)
  * - Emitir métrica de KPI
- - ``recordPerformanceMetric(...)``
- - ``emitKPI(...)``
+   - ``recordPerformanceMetric(...)``
+   - ``emitKPI(...)``
  * - Construir matriz de trazabilidad
- - ``buildTraceabilityMatrix(...)``
- - ``buildRTM(...)``
+   - ``buildTraceabilityMatrix(...)``
+   - ``buildRTM(...)``
 
 **Excepción:** los identificadores que **son** el nombre canónico
 de un concepto del lenguaje o framework (no del dominio del
@@ -279,12 +279,12 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
  :widths: 12 15 73
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-04-28
- - Versión inicial. Establece principios obligatorios:
- clean code, autoexplicativo, sin abreviaturas de dominio
- en identificadores técnicos. Convenciones por lenguaje
- del stack del producto IACT (Python/DRF, JavaScript/
- TypeScript/React, SQL PostgreSQL+MySQL, Bash).
+   - 2026-04-28
+   - Versión inicial. Establece principios obligatorios:
+     clean code, autoexplicativo, sin abreviaturas de dominio
+     en identificadores técnicos. Convenciones por lenguaje
+     del stack del producto IACT (Python/DRF, JavaScript/
+     TypeScript/React, SQL PostgreSQL+MySQL, Bash).

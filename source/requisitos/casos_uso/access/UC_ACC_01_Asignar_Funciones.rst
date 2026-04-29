@@ -28,23 +28,23 @@ UC_ACC_01: Asignar Funciones
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_01
+   - UC_ACC_01
  * - **Nombre**
- - Asignar Funciones
+   - Asignar Funciones
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Actor Secundario**
- - Sistema (validacion SoD)
+   - Sistema (validacion SoD)
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-001: asigna_funciones
+   - ACC-001: asigna_funciones
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-ACC-001
+   - BRQ-ACC-001
 
 2. Descripcion
 --------------
@@ -117,15 +117,15 @@ confirmar la asignacion.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-001
+   - El administrador tiene sesion activa con funcion ACC-001
  * - PRE-02
- - El usuario destino existe y tiene estado ACTIVO
+   - El usuario destino existe y tiene estado ACTIVO
  * - PRE-03
- - Las funciones a asignar existen en el catalogo
+   - Las funciones a asignar existen en el catalogo
  * - PRE-04
- - El usuario destino no tiene las funciones ya asignadas
+   - El usuario destino no tiene las funciones ya asignadas
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -143,15 +143,15 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Las funciones seleccionadas quedan asignadas al usuario
+   - Las funciones seleccionadas quedan asignadas al usuario
  * - POST-02
- - Se crean registros en tabla user_functions
+   - Se crean registros en tabla user_functions
  * - POST-03
- - Se registra FUNCTION_ASSIGN en auditoria (CNST_025)
+   - Se registra FUNCTION_ASSIGN en auditoria (CNST_025)
  * - POST-04
- - Los permisos efectivos del usuario se actualizan
+   - Los permisos efectivos del usuario se actualizan
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -161,47 +161,47 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de control de acceso
+   - Admin
+   - Accede al modulo de control de acceso
  * - 2
- - Sistema
- - Valida funcion ACC-001 (asigna_funciones)
+   - Sistema
+   - Valida funcion ACC-001 (asigna_funciones)
  * - 3
- - Admin
- - Busca y selecciona usuario destino
+   - Admin
+   - Busca y selecciona usuario destino
  * - 4
- - Sistema
- - Muestra funciones actuales del usuario
+   - Sistema
+   - Muestra funciones actuales del usuario
  * - 5
- - Sistema
- - Muestra catalogo de funciones disponibles (42)
+   - Sistema
+   - Muestra catalogo de funciones disponibles (42)
  * - 6
- - Admin
- - Selecciona funciones a asignar
+   - Admin
+   - Selecciona funciones a asignar
  * - 7
- - Admin
- - Presiona "Asignar Funciones"
+   - Admin
+   - Presiona "Asignar Funciones"
  * - 8
- - Sistema
- - Valida que usuario tenga estado ACTIVO
+   - Sistema
+   - Valida que usuario tenga estado ACTIVO
  * - 9
- - Sistema
- - Valida restricciones SoD (CNST_029)
+   - Sistema
+   - Valida restricciones SoD (CNST_029)
  * - 10
- - Sistema
- - Crea registros en user_functions
+   - Sistema
+   - Crea registros en user_functions
  * - 11
- - Sistema
- - Registra FUNCTION_ASSIGN en UserActionLog (CNST_025)
+   - Sistema
+   - Registra FUNCTION_ASSIGN en UserActionLog (CNST_025)
  * - 12
- - Sistema
- - Muestra confirmacion con funciones asignadas
+   - Sistema
+   - Muestra confirmacion con funciones asignadas
  * - 13
- - Sistema
- - Actualiza vista de permisos del usuario
+   - Sistema
+   - Actualiza vista de permisos del usuario
 
 6. Diagrama de Secuencia
 ------------------------
@@ -321,17 +321,17 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Sistema
- - Detecta que algunas funciones ya estan asignadas
+   - Sistema
+   - Detecta que algunas funciones ya estan asignadas
  * - 6b
- - Sistema
- - Las muestra deshabilitadas o marcadas
+   - Sistema
+   - Las muestra deshabilitadas o marcadas
  * - 6c
- - Admin
- - Solo puede seleccionar funciones no asignadas
+   - Admin
+   - Solo puede seleccionar funciones no asignadas
 
 7.2 FA-02: Asignacion Masiva via Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,17 +341,17 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Admin
- - En lugar de funciones individuales, selecciona un agrupador
+   - Admin
+   - En lugar de funciones individuales, selecciona un agrupador
  * - 6b
- - Sistema
- - Obtiene funciones del agrupador
+   - Sistema
+   - Obtiene funciones del agrupador
  * - 6c
- - Sistema
- - Redirige a UC_ACC_04 (Asignar Agrupador)
+   - Sistema
+   - Redirige a UC_ACC_04 (Asignar Agrupador)
 
 8. Excepciones
 --------------
@@ -364,15 +364,15 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Funciones seleccionadas violan restriccion SoD
+   - Funciones seleccionadas violan restriccion SoD
  * - **Accion Sistema**
- - Rechaza asignacion, muestra conflicto
+   - Rechaza asignacion, muestra conflicto
  * - **Mensaje Usuario**
- - "Conflicto SoD: [funcion1] es incompatible con [funcion2] (Regla: SOD-00X)"
+   - "Conflicto SoD: [funcion1] es incompatible con [funcion2] (Regla: SOD-00X)"
  * - **Codigo Error**
- - ACC-001
+   - ACC-001
 
 8.2 EX-02: Usuario Inactivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -382,15 +382,15 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Usuario destino no tiene estado ACTIVO
+   - Usuario destino no tiene estado ACTIVO
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - "Solo se pueden asignar funciones a usuarios activos"
+   - "Solo se pueden asignar funciones a usuarios activos"
  * - **Codigo Error**
- - ACC-002
+   - ACC-002
 
 8.3 EX-03: Funcion No Existe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -400,15 +400,15 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - ID de funcion no existe en catalogo
+   - ID de funcion no existe en catalogo
  * - **Accion Sistema**
- - Rechaza asignacion
+   - Rechaza asignacion
  * - **Mensaje Usuario**
- - "Funcion no encontrada: [id]"
+   - "Funcion no encontrada: [id]"
  * - **Codigo Error**
- - ACC-003
+   - ACC-003
 
 9. Diagrama de Actividad
 ------------------------
@@ -479,23 +479,23 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-01
- - RBAC Flat
- - Las funciones se asignan directamente a usuarios, sin roles intermedios ni jerarquia.
+   - RBAC Flat
+   - Las funciones se asignan directamente a usuarios, sin roles intermedios ni jerarquia.
  * - BR-ACC-02
- - SoD Obligatorio
- - Toda asignacion debe validar las 3 restricciones SoD definidas antes de confirmar.
+   - SoD Obligatorio
+   - Toda asignacion debe validar las 3 restricciones SoD definidas antes de confirmar.
  * - BR-ACC-03
- - Usuario Activo
- - Solo se pueden asignar funciones a usuarios con estado ACTIVO.
+   - Usuario Activo
+   - Solo se pueden asignar funciones a usuarios con estado ACTIVO.
  * - BR-ACC-04
- - Sin Duplicados
- - Una funcion solo puede estar asignada una vez por usuario.
+   - Sin Duplicados
+   - Una funcion solo puede estar asignada una vez por usuario.
  * - BR-ACC-05
- - Efecto Inmediato
- - La asignacion tiene efecto inmediato en los permisos del usuario.
+   - Efecto Inmediato
+   - La asignacion tiene efecto inmediato en los permisos del usuario.
 
 **Restricciones SoD Definidas:**
 
@@ -504,21 +504,21 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - ID
- - Grupo A
- - Grupo B
- - Descripcion
+   - Grupo A
+   - Grupo B
+   - Descripcion
  * - SOD-001
- - PIP-* (Pipeline)
- - AUD-* (Auditoria)
- - Quien opera no audita
+   - PIP-* (Pipeline)
+   - AUD-* (Auditoria)
+   - Quien opera no audita
  * - SOD-002
- - USR-* (Usuarios)
- - AUD-* (Auditoria)
- - Quien gestiona no audita
+   - USR-* (Usuarios)
+   - AUD-* (Auditoria)
+   - Quien gestiona no audita
  * - SOD-003
- - ACC-* (Acceso)
- - AUD-* (Auditoria)
- - Quien asigna no audita
+   - ACC-* (Acceso)
+   - AUD-* (Auditoria)
+   - Quien asigna no audita
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -528,14 +528,14 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat / SoD
- - Antes de asignar, se validan las 3 restricciones SoD. Si la combinacion de funciones actuales + nuevas viola alguna regla, se rechaza la operacion.
+   - RBAC Flat / SoD
+   - Antes de asignar, se validan las 3 restricciones SoD. Si la combinacion de funciones actuales + nuevas viola alguna regla, se rechaza la operacion.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra FUNCTION_ASSIGN en UserActionLog con: admin ejecutor, usuario destino, lista de funciones asignadas, timestamp.
+   - Auditoria Inmutable
+   - Se registra FUNCTION_ASSIGN en UserActionLog con: admin ejecutor, usuario destino, lista de funciones asignadas, timestamp.
 
 **Implementacion CNST_029 (Validacion SoD):**
 
@@ -573,23 +573,23 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-001
- - El sistema debe permitir asignar funciones individuales
- - Funciones aparecen en user_functions
+   - El sistema debe permitir asignar funciones individuales
+   - Funciones aparecen en user_functions
  * - FR-ACC-002
- - El sistema debe validar SoD antes de asignar
- - Rechazo con mensaje si viola SoD
+   - El sistema debe validar SoD antes de asignar
+   - Rechazo con mensaje si viola SoD
  * - FR-ACC-003
- - El sistema debe mostrar catalogo de 42 funciones
- - Lista completa con descripcion y modulo
+   - El sistema debe mostrar catalogo de 42 funciones
+   - Lista completa con descripcion y modulo
  * - FR-ACC-004
- - El sistema debe mostrar funciones actuales del usuario
- - Vista clara de permisos existentes
+   - El sistema debe mostrar funciones actuales del usuario
+   - Vista clara de permisos existentes
  * - FR-ACC-005
- - El sistema debe registrar asignacion en auditoria
- - Evento FUNCTION_ASSIGN con detalle
+   - El sistema debe registrar asignacion en auditoria
+   - Evento FUNCTION_ASSIGN con detalle
 
 13. Trazabilidad
 ----------------
@@ -599,19 +599,19 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-001: Permitir asignacion de funciones a usuarios
+   - BRQ-ACC-001: Permitir asignacion de funciones a usuarios
  * - **Reglas de Negocio**
- - BR-ACC-01 a BR-ACC-05
+   - BR-ACC-01 a BR-ACC-05
  * - **Restricciones**
- - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
+   - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
  * - **FR Derivados**
- - FR-ACC-001 a FR-ACC-005
+   - FR-ACC-001 a FR-ACC-005
  * - **UC Relacionados**
- - UC_ACC_02 (Revocar), UC_ACC_03 (Consultar), UC_ACC_04 (Agrupador)
+   - UC_ACC_02 (Revocar), UC_ACC_03 (Consultar), UC_ACC_04 (Agrupador)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-001: asigna_funciones
+   - ACC-001: asigna_funciones
 
 14. Historial de Cambios
 ------------------------
@@ -621,10 +621,10 @@ El administrador accede al modulo de control de acceso y selecciona
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con validacion SoD
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con validacion SoD

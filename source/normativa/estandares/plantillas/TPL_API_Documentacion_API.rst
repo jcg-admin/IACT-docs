@@ -786,44 +786,44 @@ Cada API DEBE incluir minimo estas 11 secciones:
  :header-rows: 1
 
  * - #
- - Seccion
- - Contenido
+   - Seccion
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - API, modulo, base URL, version, autenticacion
+   - Resumen Ejecutivo
+   - API, modulo, base URL, version, autenticacion
  * - 1
- - Descripcion General
- - Proposito de la API
+   - Descripcion General
+   - Proposito de la API
  * - 2
- - Autenticacion
- - Metodo JWT, obtencion de token
+   - Autenticacion
+   - Metodo JWT, obtencion de token
  * - 3
- - Endpoints
- - Cada endpoint con request/response/curl
+   - Endpoints
+   - Cada endpoint con request/response/curl
  * - 4
- - Codigos de Respuesta
- - Todos los HTTP status codes
+   - Codigos de Respuesta
+   - Todos los HTTP status codes
  * - 5
- - Permisos RBAC
- - Funciones requeridas por endpoint
+   - Permisos RBAC
+   - Funciones requeridas por endpoint
  * - 6
- - Paginacion
- - Formato y parametros
+   - Paginacion
+   - Formato y parametros
  * - 7
- - Filtros y Ordenamiento
- - Query parameters disponibles
+   - Filtros y Ordenamiento
+   - Query parameters disponibles
  * - 8
- - Rate Limiting
- - Limites y headers
+   - Rate Limiting
+   - Limites y headers
  * - 9
- - Manejo de Errores
- - Formatos de error por tipo
+   - Manejo de Errores
+   - Formatos de error por tipo
  * - 10
- - Trazabilidad
- - MOD, UC, BR, CNST, FD relacionados
+   - Trazabilidad
+   - MOD, UC, BR, CNST, FD relacionados
  * - 11
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -877,14 +877,14 @@ Historial de Cambios
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2026-01-07
- - Equipo IACT
- - Version corregida: plantilla completa con todos los endpoints
+   - 2026-01-07
+   - Equipo IACT
+   - Version corregida: plantilla completa con todos los endpoints
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial (incompleta - deprecada)
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial (incompleta - deprecada)

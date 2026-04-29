@@ -19,21 +19,21 @@ UC_AUD_04: Generar Reporte Compliance
  :header-rows: 0
 
  * - **ID**
- - UC_AUD_04
+   - UC_AUD_04
  * - **Nombre**
- - Generar Reporte Compliance
+   - Generar Reporte Compliance
  * - **Actor Principal**
- - AGR-006: agr_auditor
+   - AGR-006: agr_auditor
  * - **Modulo**
- - MOD_Audit
+   - MOD_Audit
  * - **Funcion RBAC**
- - AUD-004: genera_compliance
+   - AUD-004: genera_compliance
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Alta
+   - Alta
  * - **BReq Origen**
- - BRQ-AUD-004
+   - BRQ-AUD-004
 
 2. Descripcion
 --------------
@@ -93,13 +93,13 @@ permisos, acciones administrativas y otros requeridos por regulaciones.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion AUD-004
+   - El usuario tiene sesion activa con funcion AUD-004
  * - PRE-02
- - El usuario cumple con SoD-003
+   - El usuario cumple con SoD-003
  * - PRE-03
- - Existen datos de auditoria para el periodo
+   - Existen datos de auditoria para el periodo
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -116,11 +116,11 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera reporte en formato seleccionado
+   - Se genera reporte en formato seleccionado
  * - POST-02
- - Se registra COMPLIANCE_REPORT en auditoria
+   - Se registra COMPLIANCE_REPORT en auditoria
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -130,44 +130,44 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Auditor
- - Accede a reportes de compliance
+   - Auditor
+   - Accede a reportes de compliance
  * - 2
- - Sistema
- - Valida funcion AUD-004
+   - Sistema
+   - Valida funcion AUD-004
  * - 3
- - Sistema
- - Valida cumplimiento SoD-003
+   - Sistema
+   - Valida cumplimiento SoD-003
  * - 4
- - Sistema
- - Muestra tipos de reportes disponibles
+   - Sistema
+   - Muestra tipos de reportes disponibles
  * - 5
- - Auditor
- - Selecciona tipo de reporte
+   - Auditor
+   - Selecciona tipo de reporte
  * - 6
- - Auditor
- - Selecciona periodo (mes, trimestre, anio)
+   - Auditor
+   - Selecciona periodo (mes, trimestre, anio)
  * - 7
- - Auditor
- - Selecciona formato de salida (PDF o Excel)
+   - Auditor
+   - Selecciona formato de salida (PDF o Excel)
  * - 8
- - Sistema
- - Consulta datos del periodo
+   - Sistema
+   - Consulta datos del periodo
  * - 9
- - Sistema
- - Calcula estadisticas y genera graficos
+   - Sistema
+   - Calcula estadisticas y genera graficos
  * - 10
- - Sistema
- - Genera documento con formato corporativo
+   - Sistema
+   - Genera documento con formato corporativo
  * - 11
- - Sistema
- - Registra COMPLIANCE_REPORT en auditoria
+   - Sistema
+   - Registra COMPLIANCE_REPORT en auditoria
  * - 12
- - Sistema
- - Descarga documento
+   - Sistema
+   - Descarga documento
 
 6. Diagrama de Secuencia
 ------------------------
@@ -232,17 +232,17 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Selecciona Reporte de Accesos
+   - Auditor
+   - Selecciona Reporte de Accesos
  * - 8a
- - Sistema
- - Consulta LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT
+   - Sistema
+   - Consulta LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT
  * - 9a
- - Sistema
- - Calcula: total logins, tasa de fallo, usuarios mas activos
+   - Sistema
+   - Calcula: total logins, tasa de fallo, usuarios mas activos
 
 7.2 FA-02: Reporte de Cambios de Permisos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,17 +252,17 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Selecciona Reporte de Cambios de Permisos
+   - Auditor
+   - Selecciona Reporte de Cambios de Permisos
  * - 8a
- - Sistema
- - Consulta ROLE_ASSIGN, ROLE_REVOKE, PERMISSION_CHANGE
+   - Sistema
+   - Consulta ROLE_ASSIGN, ROLE_REVOKE, PERMISSION_CHANGE
  * - 9a
- - Sistema
- - Lista usuarios afectados, cambios por administrador
+   - Sistema
+   - Lista usuarios afectados, cambios por administrador
 
 7.3 FA-03: Reporte en PDF
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -272,14 +272,14 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Auditor
- - Selecciona formato PDF
+   - Auditor
+   - Selecciona formato PDF
  * - 10a
- - Sistema
- - Genera PDF con graficos embebidos
+   - Sistema
+   - Genera PDF con graficos embebidos
 
 8. Excepciones
 --------------
@@ -292,13 +292,13 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - No hay datos de auditoria para el periodo
+   - No hay datos de auditoria para el periodo
  * - **Accion Sistema**
- - Genera reporte vacio con nota
+   - Genera reporte vacio con nota
  * - **Mensaje Usuario**
- - Reporte generado sin datos para el periodo
+   - Reporte generado sin datos para el periodo
 
 8.2 EX-02: Error Generacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -308,15 +308,15 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Error al generar documento
+   - Error al generar documento
  * - **Accion Sistema**
- - Informa error
+   - Informa error
  * - **Mensaje Usuario**
- - Error al generar reporte. Intente nuevamente.
+   - Error al generar reporte. Intente nuevamente.
  * - **Codigo Error**
- - AUD-030
+   - AUD-030
 
 9. Diagrama de Actividad
 ------------------------
@@ -365,20 +365,20 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUD-30
- - Reportes Predefinidos
- - Solo tipos de reportes predefinidos disponibles
+   - Reportes Predefinidos
+   - Solo tipos de reportes predefinidos disponibles
  * - BR-AUD-31
- - Periodos Estandar
- - Mensual, trimestral, semestral, anual
+   - Periodos Estandar
+   - Mensual, trimestral, semestral, anual
  * - BR-AUD-32
- - Formato Corporativo
- - Reportes incluyen logo y formato estandar
+   - Formato Corporativo
+   - Reportes incluyen logo y formato estandar
  * - BR-AUD-33
- - Auditoria de Generacion
- - Cada generacion se registra en auditoria
+   - Auditoria de Generacion
+   - Cada generacion se registra en auditoria
 
 **Tipos de Reportes:**
 
@@ -387,17 +387,17 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Tipo
- - Contenido
+   - Contenido
  * - ACCESOS
- - Logins exitosos/fallidos, patrones de acceso, IPs
+   - Logins exitosos/fallidos, patrones de acceso, IPs
  * - PERMISOS
- - Cambios de roles, asignaciones, revocaciones
+   - Cambios de roles, asignaciones, revocaciones
  * - ADMINISTRATIVO
- - Creaciones, modificaciones, eliminaciones
+   - Creaciones, modificaciones, eliminaciones
  * - EXPORTACIONES
- - Todas las exportaciones de datos del sistema
+   - Todas las exportaciones de datos del sistema
  * - ALERTAS
- - Alertas generadas, reconocidas, tiempos de respuesta
+   - Alertas generadas, reconocidas, tiempos de respuesta
 
 **Secciones del Reporte:**
 
@@ -417,14 +417,14 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_025
- - Inmutable
- - Datos de auditoria no se modifican al generar
+   - Inmutable
+   - Datos de auditoria no se modifican al generar
  * - CNST_027
- - SoD
- - Solo auditor puede generar reportes compliance
+   - SoD
+   - Solo auditor puede generar reportes compliance
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -434,20 +434,20 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUD-030
- - Generar reportes compliance
- - Documento PDF/Excel generado
+   - Generar reportes compliance
+   - Documento PDF/Excel generado
  * - FR-AUD-031
- - Incluir estadisticas
- - Metricas y graficos presentes
+   - Incluir estadisticas
+   - Metricas y graficos presentes
  * - FR-AUD-032
- - Formato corporativo
- - Logo y estructura estandar
+   - Formato corporativo
+   - Logo y estructura estandar
  * - FR-AUD-033
- - Auditar generacion
- - Registro en user_action_log
+   - Auditar generacion
+   - Registro en user_action_log
 
 13. Trazabilidad
 ----------------
@@ -457,13 +457,13 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUD-004
+   - BRQ-AUD-004
  * - **Restricciones**
- - CNST_025, CNST_027
+   - CNST_025, CNST_027
  * - **UC Relacionados**
- - UC_AUD_01, UC_AUD_03
+   - UC_AUD_01, UC_AUD_03
  * - **Funcion RBAC**
- - AUD-004: genera_compliance
+   - AUD-004: genera_compliance
 
 14. Historial de Cambios
 ------------------------
@@ -473,8 +473,8 @@ El auditor accede a generacion de reportes de compliance.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

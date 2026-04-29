@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Versionado_Semantico
+   - PROC_Versionado_Semantico
  * - **Nombre**
- - Aplicar Versionado Semantico a Artefactos
+   - Aplicar Versionado Semantico a Artefactos
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada cambio en artefacto
+   - Por cada cambio en artefacto
  * - **Duracion Estimada**
- - 2-5 minutos
+   - 2-5 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -77,11 +77,11 @@ el tipo de cambio realizado.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Autor
- - Aplica versionado al modificar
- - Escritura en artefacto
+   - Aplica versionado al modificar
+   - Escritura en artefacto
 
 ----
 
@@ -104,14 +104,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Artefacto a versionar
- - Documento con cambios
- - Si
+   - Documento con cambios
+   - Si
  * - STD_006
- - Estandar de versionado
- - Si
+   - Estandar de versionado
+   - Si
 
 ----
 
@@ -138,17 +138,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Incremento
- - Cuando Aplicar
- - Ejemplo
+   - Cuando Aplicar
+   - Ejemplo
  * - MAJOR
- - Reestructuracion completa, cambio de formato
- - 1.0.0 -> 2.0.0
+   - Reestructuracion completa, cambio de formato
+   - 1.0.0 -> 2.0.0
  * - MINOR
- - Nueva seccion, contenido adicional significativo
- - 1.0.0 -> 1.1.0
+   - Nueva seccion, contenido adicional significativo
+   - 1.0.0 -> 1.1.0
  * - PATCH
- - Correccion de errores, mejoras menores
- - 1.0.0 -> 1.0.1
+   - Correccion de errores, mejoras menores
+   - 1.0.0 -> 1.0.1
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -271,11 +271,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Artefacto versionado
- - Documento con nueva version
- - Ubicacion original
+   - Documento con nueva version
+   - Ubicacion original
 
 ----
 
@@ -310,13 +310,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Error
- - Correccion
+   - Correccion
  * - Saltar version (1.0.0 -> 1.0.2)
- - Siempre incrementar secuencialmente
+   - Siempre incrementar secuencialmente
  * - No resetear al incrementar MAJOR
- - 1.5.3 -> 2.0.0 (no 2.5.3)
+   - 1.5.3 -> 2.0.0 (no 2.5.3)
  * - Version en archivo != meta tag
- - Sincronizar ambos valores
+   - Sincronizar ambos valores
 
 ----
 
@@ -328,13 +328,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Version ya existe
- - Incrementar PATCH adicional
+   - Incrementar PATCH adicional
  * - Duda sobre tipo de cambio
- - Usar incremento menor (PATCH)
+   - Usar incremento menor (PATCH)
  * - Multiples cambios
- - Usar el incremento mayor aplicable
+   - Usar el incremento mayor aplicable
 
 ----
 
@@ -354,13 +354,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

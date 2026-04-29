@@ -19,21 +19,21 @@ UC_AUD_01: Consultar Auditoria
  :header-rows: 0
 
  * - **ID**
- - UC_AUD_01
+   - UC_AUD_01
  * - **Nombre**
- - Consultar Auditoria
+   - Consultar Auditoria
  * - **Actor Principal**
- - AGR-006: agr_auditor
+   - AGR-006: agr_auditor
  * - **Modulo**
- - MOD_Audit
+   - MOD_Audit
  * - **Funcion RBAC**
- - AUD-001: consulta_auditoria
+   - AUD-001: consulta_auditoria
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUD-001
+   - BRQ-AUD-001
 
 2. Descripcion
 --------------
@@ -96,13 +96,13 @@ y el acceso esta restringido por Segregacion de Funciones (CNST_027).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion AUD-001
+   - El usuario tiene sesion activa con funcion AUD-001
  * - PRE-02
- - El usuario cumple con SoD-003 (no es administrador)
+   - El usuario cumple con SoD-003 (no es administrador)
  * - PRE-03
- - Existen registros de auditoria en el sistema
+   - Existen registros de auditoria en el sistema
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -117,11 +117,11 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestran registros de auditoria (solo lectura)
+   - Se muestran registros de auditoria (solo lectura)
  * - POST-02
- - No se modifica ningun registro (CNST_025)
+   - No se modifica ningun registro (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -131,35 +131,35 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Auditor
- - Accede al modulo de auditoria
+   - Auditor
+   - Accede al modulo de auditoria
  * - 2
- - Sistema
- - Valida funcion AUD-001
+   - Sistema
+   - Valida funcion AUD-001
  * - 3
- - Sistema
- - Valida cumplimiento SoD-003
+   - Sistema
+   - Valida cumplimiento SoD-003
  * - 4
- - Sistema
- - Muestra registros de ultimas 24 horas por defecto
+   - Sistema
+   - Muestra registros de ultimas 24 horas por defecto
  * - 5
- - Auditor
- - Opcionalmente aplica filtros
+   - Auditor
+   - Opcionalmente aplica filtros
  * - 6
- - Sistema
- - Ejecuta consulta con filtros aplicados
+   - Sistema
+   - Ejecuta consulta con filtros aplicados
  * - 7
- - Sistema
- - Presenta lista paginada de registros
+   - Sistema
+   - Presenta lista paginada de registros
  * - 8
- - Auditor
- - Selecciona registro para ver detalle
+   - Auditor
+   - Selecciona registro para ver detalle
  * - 9
- - Sistema
- - Muestra detalle completo del registro
+   - Sistema
+   - Muestra detalle completo del registro
 
 6. Diagrama de Secuencia
 ------------------------
@@ -224,14 +224,14 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Ingresa username o user_id en filtro
+   - Auditor
+   - Ingresa username o user_id en filtro
  * - 6a
- - Sistema
- - Filtra registros por usuario especificado
+   - Sistema
+   - Filtra registros por usuario especificado
 
 7.2 FA-02: Filtrar por Accion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,14 +241,14 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Selecciona tipo de accion (LOGIN, CREATE, UPDATE, etc.)
+   - Auditor
+   - Selecciona tipo de accion (LOGIN, CREATE, UPDATE, etc.)
  * - 6a
- - Sistema
- - Filtra registros por accion especificada
+   - Sistema
+   - Filtra registros por accion especificada
 
 7.3 FA-03: Filtrar por Rango de Fechas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,17 +258,17 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Auditor
- - Selecciona fecha inicio y fecha fin
+   - Auditor
+   - Selecciona fecha inicio y fecha fin
  * - 6a
- - Sistema
- - Valida rango no exceda 2 anios (CNST_015)
+   - Sistema
+   - Valida rango no exceda 2 anios (CNST_015)
  * - 6b
- - Sistema
- - Filtra registros en el rango especificado
+   - Sistema
+   - Filtra registros en el rango especificado
 
 8. Excepciones
 --------------
@@ -281,15 +281,15 @@ El auditor accede al modulo de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Usuario tiene rol auditor y rol administrativo simultaneamente
+   - Usuario tiene rol auditor y rol administrativo simultaneamente
  * - **Accion Sistema**
- - Rechaza acceso al modulo de auditoria
+   - Rechaza acceso al modulo de auditoria
  * - **Mensaje Usuario**
- - Conflicto de segregacion de funciones. Rol auditor incompatible con roles administrativos.
+   - Conflicto de segregacion de funciones. Rol auditor incompatible con roles administrativos.
  * - **Codigo Error**
- - AUD-001
+   - AUD-001
 
 8.2 EX-02: Sin Permiso AUD-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -299,15 +299,15 @@ El auditor accede al modulo de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion AUD-001 asignada
+   - Usuario no tiene funcion AUD-001 asignada
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para consultar auditoria
+   - No tiene permisos para consultar auditoria
  * - **Codigo Error**
- - AUD-002
+   - AUD-002
 
 8.3 EX-03: Rango Excede 2 Anios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,15 +317,15 @@ El auditor accede al modulo de auditoria.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6a
+   - 6a
  * - **Condicion**
- - Rango de fechas mayor a 730 dias
+   - Rango de fechas mayor a 730 dias
  * - **Accion Sistema**
- - Rechaza consulta
+   - Rechaza consulta
  * - **Mensaje Usuario**
- - Rango maximo de consulta es 2 anios
+   - Rango maximo de consulta es 2 anios
  * - **Codigo Error**
- - AUD-003
+   - AUD-003
 
 9. Diagrama de Actividad
 ------------------------
@@ -381,20 +381,20 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUD-01
- - Inmutabilidad
- - Los registros de auditoria NO pueden modificarse ni eliminarse (CNST_025)
+   - Inmutabilidad
+   - Los registros de auditoria NO pueden modificarse ni eliminarse (CNST_025)
  * - BR-AUD-02
- - SoD Auditor
- - El auditor no puede tener roles administrativos (CNST_027)
+   - SoD Auditor
+   - El auditor no puede tener roles administrativos (CNST_027)
  * - BR-AUD-03
- - Solo Lectura
- - La consulta de auditoria es exclusivamente de lectura
+   - Solo Lectura
+   - La consulta de auditoria es exclusivamente de lectura
  * - BR-AUD-04
- - Retencion
- - Datos disponibles por 2 anios (CNST_015)
+   - Retencion
+   - Datos disponibles por 2 anios (CNST_015)
 
 **Estructura de Registro de Auditoria:**
 
@@ -403,32 +403,32 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Campo
- - Tipo
- - Descripcion
+   - Tipo
+   - Descripcion
  * - id
- - UUID
- - Identificador unico del registro
+   - UUID
+   - Identificador unico del registro
  * - user_id
- - UUID
- - Usuario que realizo la accion
+   - UUID
+   - Usuario que realizo la accion
  * - action
- - VARCHAR
- - Tipo de accion (LOGIN, CREATE, UPDATE, DELETE, etc.)
+   - VARCHAR
+   - Tipo de accion (LOGIN, CREATE, UPDATE, DELETE, etc.)
  * - resource
- - VARCHAR
- - Recurso afectado
+   - VARCHAR
+   - Recurso afectado
  * - result
- - VARCHAR
- - SUCCESS o FAILURE
+   - VARCHAR
+   - SUCCESS o FAILURE
  * - ip_address
- - VARCHAR
- - IP desde donde se realizo
+   - VARCHAR
+   - IP desde donde se realizo
  * - details
- - JSONB
- - Detalles adicionales de la accion
+   - JSONB
+   - Detalles adicionales de la accion
  * - created_at
- - TIMESTAMP
- - Fecha y hora de la accion
+   - TIMESTAMP
+   - Fecha y hora de la accion
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -438,14 +438,14 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_025
- - Auditoria Inmutable
- - Solo operaciones SELECT permitidas. PROHIBIDO UPDATE y DELETE sobre user_action_log.
+   - Auditoria Inmutable
+   - Solo operaciones SELECT permitidas. PROHIBIDO UPDATE y DELETE sobre user_action_log.
  * - CNST_027
- - Segregacion de Funciones
- - SoD-003: El rol auditor no puede coexistir con roles administrativos en el mismo usuario.
+   - Segregacion de Funciones
+   - SoD-003: El rol auditor no puede coexistir con roles administrativos en el mismo usuario.
 
 **Implementacion CNST_025:**
 
@@ -471,20 +471,20 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUD-001
- - El sistema debe permitir consultar auditoria
- - Lista paginada de registros visible
+   - El sistema debe permitir consultar auditoria
+   - Lista paginada de registros visible
  * - FR-AUD-002
- - El sistema debe validar SoD
- - Rechazo si auditor tiene roles admin
+   - El sistema debe validar SoD
+   - Rechazo si auditor tiene roles admin
  * - FR-AUD-003
- - El sistema debe ser solo lectura
- - No existe opcion de modificar/eliminar
+   - El sistema debe ser solo lectura
+   - No existe opcion de modificar/eliminar
  * - FR-AUD-004
- - El sistema debe permitir filtros
- - Filtros por usuario, accion, fecha funcionales
+   - El sistema debe permitir filtros
+   - Filtros por usuario, accion, fecha funcionales
 
 13. Trazabilidad
 ----------------
@@ -494,17 +494,17 @@ El auditor accede al modulo de auditoria.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUD-001: Consultar registros de auditoria
+   - BRQ-AUD-001: Consultar registros de auditoria
  * - **Reglas de Negocio**
- - BR-AUD-01 a BR-AUD-04
+   - BR-AUD-01 a BR-AUD-04
  * - **Restricciones**
- - CNST_025 (Inmutable), CNST_027 (SoD)
+   - CNST_025 (Inmutable), CNST_027 (SoD)
  * - **UC Relacionados**
- - UC_AUD_02 (Buscar), UC_AUD_03 (Exportar)
+   - UC_AUD_02 (Buscar), UC_AUD_03 (Exportar)
  * - **Actor Principal**
- - AGR-006: agr_auditor
+   - AGR-006: agr_auditor
  * - **Funcion RBAC**
- - AUD-001: consulta_auditoria
+   - AUD-001: consulta_auditoria
 
 14. Historial de Cambios
 ------------------------
@@ -514,10 +514,10 @@ El auditor accede al modulo de auditoria.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_025 y CNST_027
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_025 y CNST_027

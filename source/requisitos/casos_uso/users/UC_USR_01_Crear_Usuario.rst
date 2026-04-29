@@ -19,23 +19,23 @@ UC_USR_01: Crear Usuario
  :header-rows: 0
 
  * - **ID**
- - UC_USR_01
+   - UC_USR_01
  * - **Nombre**
- - Crear Usuario
+   - Crear Usuario
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - Usuario creado (recibe notificacion)
+   - Usuario creado (recibe notificacion)
  * - **Modulo**
- - MOD_Users
+   - MOD_Users
  * - **Funcion RBAC**
- - USR-001: crea_usuarios
+   - USR-001: crea_usuarios
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-USR-001
+   - BRQ-USR-001
 
 2. Descripcion
 --------------
@@ -114,13 +114,13 @@ y notificacion al usuario via buzon interno (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion USR-001
+   - El administrador tiene sesion activa con funcion USR-001
  * - PRE-02
- - El correo electronico proporcionado no existe en el sistema
+   - El correo electronico proporcionado no existe en el sistema
  * - PRE-03
- - Existe al menos un segmento activo para asignar
+   - Existe al menos un segmento activo para asignar
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -137,19 +137,19 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se crea registro de usuario en base de datos Analytics
+   - Se crea registro de usuario en base de datos Analytics
  * - POST-02
- - Username generado automaticamente (formato: nombre.apellido.NNNN)
+   - Username generado automaticamente (formato: nombre.apellido.NNNN)
  * - POST-03
- - Estado inicial = PENDIENTE_CONFIGURACION
+   - Estado inicial = PENDIENTE_CONFIGURACION
  * - POST-04
- - Contrasena temporal hasheada almacenada
+   - Contrasena temporal hasheada almacenada
  * - POST-05
- - Se envia InternalMessage con credenciales (CNST_001)
+   - Se envia InternalMessage con credenciales (CNST_001)
  * - POST-06
- - Se registra USER_CREATE en auditoria (CNST_025)
+   - Se registra USER_CREATE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -159,68 +159,68 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de gestion de usuarios
+   - Admin
+   - Accede al modulo de gestion de usuarios
  * - 2
- - Sistema
- - Valida que el admin tenga funcion USR-001 (crea_usuarios)
+   - Sistema
+   - Valida que el admin tenga funcion USR-001 (crea_usuarios)
  * - 3
- - Admin
- - Hace clic en "Crear Usuario"
+   - Admin
+   - Hace clic en "Crear Usuario"
  * - 4
- - Sistema
- - Presenta formulario de creacion
+   - Sistema
+   - Presenta formulario de creacion
  * - 5
- - Admin
- - Ingresa datos: nombre, apellido, email corporativo
+   - Admin
+   - Ingresa datos: nombre, apellido, email corporativo
  * - 6
- - Admin
- - Selecciona segmento de datos (obligatorio)
+   - Admin
+   - Selecciona segmento de datos (obligatorio)
  * - 7
- - Admin
- - Opcionalmente selecciona agrupador inicial
+   - Admin
+   - Opcionalmente selecciona agrupador inicial
  * - 8
- - Admin
- - Presiona "Crear Usuario"
+   - Admin
+   - Presiona "Crear Usuario"
  * - 9
- - Sistema
- - Valida formato de campos (email valido, nombre no vacio)
+   - Sistema
+   - Valida formato de campos (email valido, nombre no vacio)
  * - 10
- - Sistema
- - Verifica que email no exista en el sistema
+   - Sistema
+   - Verifica que email no exista en el sistema
  * - 11
- - Sistema
- - Genera username automatico (nombre.apellido.NNNN)
+   - Sistema
+   - Genera username automatico (nombre.apellido.NNNN)
  * - 12
- - Sistema
- - Genera contrasena temporal segura (12 caracteres)
+   - Sistema
+   - Genera contrasena temporal segura (12 caracteres)
  * - 13
- - Sistema
- - Hashea contrasena con bcrypt
+   - Sistema
+   - Hashea contrasena con bcrypt
  * - 14
- - Sistema
- - Crea registro en tabla users con estado PENDIENTE_CONFIGURACION
+   - Sistema
+   - Crea registro en tabla users con estado PENDIENTE_CONFIGURACION
  * - 15
- - Sistema
- - Asigna segmento seleccionado al usuario
+   - Sistema
+   - Asigna segmento seleccionado al usuario
  * - 16
- - Sistema
- - Si se selecciono agrupador, asigna funciones del agrupador
+   - Sistema
+   - Si se selecciono agrupador, asigna funciones del agrupador
  * - 17
- - Sistema
- - Crea InternalMessage con username y contrasena temporal (CNST_001)
+   - Sistema
+   - Crea InternalMessage con username y contrasena temporal (CNST_001)
  * - 18
- - Sistema
- - Registra USER_CREATE en UserActionLog (CNST_025)
+   - Sistema
+   - Registra USER_CREATE en UserActionLog (CNST_025)
  * - 19
- - Sistema
- - Muestra confirmacion con username generado
+   - Sistema
+   - Muestra confirmacion con username generado
  * - 20
- - Usuario
- - Recibe mensaje en buzon interno con credenciales
+   - Usuario
+   - Recibe mensaje en buzon interno con credenciales
 
 6. Diagrama de Secuencia
 ------------------------
@@ -354,17 +354,17 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Admin
- - No selecciona ningun agrupador
+   - Admin
+   - No selecciona ningun agrupador
  * - 16a
- - Sistema
- - Usuario creado sin funciones asignadas
+   - Sistema
+   - Usuario creado sin funciones asignadas
  * - 16b
- - Sistema
- - Admin debera asignar funciones posteriormente (UC_ACC_01)
+   - Sistema
+   - Admin debera asignar funciones posteriormente (UC_ACC_01)
 
 7.2 FA-02: Username Duplicado (Colision)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -374,17 +374,17 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 11a
- - Sistema
- - Detecta que username generado ya existe
+   - Sistema
+   - Detecta que username generado ya existe
  * - 11b
- - Sistema
- - Incrementa contador y regenera (nombre.apellido.NNNN+1)
+   - Sistema
+   - Incrementa contador y regenera (nombre.apellido.NNNN+1)
  * - 11c
- - Sistema
- - Continua con flujo normal
+   - Sistema
+   - Continua con flujo normal
 
 7.3 FA-03: Creacion Masiva (Batch)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -394,23 +394,23 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 3a
- - Admin
- - Selecciona "Importar usuarios" (CSV)
+   - Admin
+   - Selecciona "Importar usuarios" (CSV)
  * - 4a
- - Sistema
- - Presenta formulario de carga de archivo
+   - Sistema
+   - Presenta formulario de carga de archivo
  * - 5a
- - Admin
- - Sube archivo CSV con datos de usuarios
+   - Admin
+   - Sube archivo CSV con datos de usuarios
  * - 9a
- - Sistema
- - Valida formato y datos de cada fila
+   - Sistema
+   - Valida formato y datos de cada fila
  * - 14a
- - Sistema
- - Crea usuarios en transaccion (todo o nada)
+   - Sistema
+   - Crea usuarios en transaccion (todo o nada)
 
 8. Excepciones
 --------------
@@ -423,15 +423,15 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion USR-001 asignada
+   - Administrador no tiene funcion USR-001 asignada
  * - **Accion Sistema**
- - Rechaza peticion, registra intento no autorizado
+   - Rechaza peticion, registra intento no autorizado
  * - **Mensaje Usuario**
- - "No tiene permisos para crear usuarios"
+   - "No tiene permisos para crear usuarios"
  * - **Codigo Error**
- - USR-001
+   - USR-001
 
 8.2 EX-02: Email Ya Existe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -441,15 +441,15 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 10
+   - 10
  * - **Condicion**
- - Email ya registrado en el sistema
+   - Email ya registrado en el sistema
  * - **Accion Sistema**
- - Rechaza creacion
+   - Rechaza creacion
  * - **Mensaje Usuario**
- - "El email ya esta registrado en el sistema"
+   - "El email ya esta registrado en el sistema"
  * - **Codigo Error**
- - USR-002
+   - USR-002
 
 8.3 EX-03: Segmento No Valido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -459,15 +459,15 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - Segmento seleccionado no existe o esta inactivo
+   - Segmento seleccionado no existe o esta inactivo
  * - **Accion Sistema**
- - Rechaza creacion
+   - Rechaza creacion
  * - **Mensaje Usuario**
- - "Segmento no valido o inactivo"
+   - "Segmento no valido o inactivo"
  * - **Codigo Error**
- - USR-003
+   - USR-003
 
 8.4 EX-04: Datos Invalidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -477,15 +477,15 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 9
+   - 9
  * - **Condicion**
- - Campos obligatorios vacios o formato invalido
+   - Campos obligatorios vacios o formato invalido
  * - **Accion Sistema**
- - Muestra errores de validacion
+   - Muestra errores de validacion
  * - **Mensaje Usuario**
- - "Corrija los errores: [lista de errores]"
+   - "Corrija los errores: [lista de errores]"
  * - **Codigo Error**
- - USR-004
+   - USR-004
 
 9. Diagrama de Actividad
 ------------------------
@@ -573,26 +573,26 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-USR-01
- - Username Autogenerado
- - El username se genera automaticamente con formato nombre.apellido.NNNN donde NNNN es un contador incremental.
+   - Username Autogenerado
+   - El username se genera automaticamente con formato nombre.apellido.NNNN donde NNNN es un contador incremental.
  * - BR-USR-02
- - Estado Inicial
- - Todo usuario nuevo inicia con estado PENDIENTE_CONFIGURACION y debe cambiar su contrasena en el primer login.
+   - Estado Inicial
+   - Todo usuario nuevo inicia con estado PENDIENTE_CONFIGURACION y debe cambiar su contrasena en el primer login.
  * - BR-USR-03
- - Email Unico
- - El email corporativo debe ser unico en todo el sistema.
+   - Email Unico
+   - El email corporativo debe ser unico en todo el sistema.
  * - BR-USR-04
- - Segmento Obligatorio
- - Todo usuario debe pertenecer a exactamente un segmento de datos.
+   - Segmento Obligatorio
+   - Todo usuario debe pertenecer a exactamente un segmento de datos.
  * - BR-USR-05
- - Password Temporal
- - La contrasena temporal debe tener minimo 12 caracteres con complejidad alta.
+   - Password Temporal
+   - La contrasena temporal debe tener minimo 12 caracteres con complejidad alta.
  * - BR-USR-06
- - Solo Buzon Interno
- - Las credenciales SOLO se comunican via InternalMessage, nunca por canales externos.
+   - Solo Buzon Interno
+   - Las credenciales SOLO se comunican via InternalMessage, nunca por canales externos.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -602,17 +602,17 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_001
- - Comunicaciones Prohibidas
- - Las credenciales (username y password temporal) se envian UNICAMENTE via InternalMessage.notify. Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
+   - Comunicaciones Prohibidas
+   - Las credenciales (username y password temporal) se envian UNICAMENTE via InternalMessage.notify. Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
  * - CNST_029
- - RBAC Flat
- - Username autogenerado, no editable por usuario. Estado inicial PENDIENTE_CONFIGURACION. Segmento obligatorio.
+   - RBAC Flat
+   - Username autogenerado, no editable por usuario. Estado inicial PENDIENTE_CONFIGURACION. Segmento obligatorio.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra evento USER_CREATE en UserActionLog incluyendo: admin creador, datos del nuevo usuario (SIN password). El registro es inmutable.
+   - Auditoria Inmutable
+   - Se registra evento USER_CREATE en UserActionLog incluyendo: admin creador, datos del nuevo usuario (SIN password). El registro es inmutable.
 
 **Implementacion CNST_001:**
 
@@ -662,23 +662,23 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-USR-001
- - El sistema debe generar username automaticamente
- - Formato nombre.apellido.NNNN, unico en sistema
+   - El sistema debe generar username automaticamente
+   - Formato nombre.apellido.NNNN, unico en sistema
  * - FR-USR-002
- - El sistema debe validar unicidad de email
- - Error 409 si email ya existe
+   - El sistema debe validar unicidad de email
+   - Error 409 si email ya existe
  * - FR-USR-003
- - El sistema debe crear usuario con estado PENDIENTE
- - Campo status = PENDIENTE_CONFIGURACION
+   - El sistema debe crear usuario con estado PENDIENTE
+   - Campo status = PENDIENTE_CONFIGURACION
  * - FR-USR-004
- - El sistema debe notificar SOLO via buzon interno
- - InternalMessage creado, sin emails enviados
+   - El sistema debe notificar SOLO via buzon interno
+   - InternalMessage creado, sin emails enviados
  * - FR-USR-005
- - El sistema debe registrar creacion en auditoria
- - Evento USER_CREATE sin datos de password
+   - El sistema debe registrar creacion en auditoria
+   - Evento USER_CREATE sin datos de password
 
 13. Trazabilidad
 ----------------
@@ -688,19 +688,19 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-USR-001: Permitir creacion de usuarios por administrador
+   - BRQ-USR-001: Permitir creacion de usuarios por administrador
  * - **Reglas de Negocio**
- - BR-USR-01 a BR-USR-06
+   - BR-USR-01 a BR-USR-06
  * - **Restricciones**
- - CNST_001 (No Email), CNST_029 (RBAC Flat), CNST_025 (Auditoria)
+   - CNST_001 (No Email), CNST_029 (RBAC Flat), CNST_025 (Auditoria)
  * - **FR Derivados**
- - FR-USR-001 a FR-USR-005
+   - FR-USR-001 a FR-USR-005
  * - **UC Relacionados**
- - UC_AUTH_01 (Iniciar Sesion), UC_ACC_01 (Asignar Funciones), UC_ACC_07 (Asignar Segmento)
+   - UC_AUTH_01 (Iniciar Sesion), UC_ACC_01 (Asignar Funciones), UC_ACC_07 (Asignar Segmento)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - USR-001: crea_usuarios
+   - USR-001: crea_usuarios
 
 14. Historial de Cambios
 ------------------------
@@ -710,10 +710,10 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_001 y CNST_029 aplicadas
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_001 y CNST_029 aplicadas

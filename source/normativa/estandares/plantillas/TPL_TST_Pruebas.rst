@@ -108,26 +108,26 @@ Tipos de Prueba
  :header-rows: 1
 
  * - Tipo
- - Descripción
- - Ejemplo
+   - Descripción
+   - Ejemplo
  * - **Unitaria**
- - Verifica función/método aislado
- - Validar formato de username
+   - Verifica función/método aislado
+   - Validar formato de username
  * - **Integración**
- - Verifica interacción entre componentes
- - Login completo con BD
+   - Verifica interacción entre componentes
+   - Login completo con BD
  * - **Funcional**
- - Verifica comportamiento end-to-end
- - Flujo completo de UC
+   - Verifica comportamiento end-to-end
+   - Flujo completo de UC
  * - **Regresión**
- - Verifica que cambios no rompan existente
- - Re-ejecutar suite tras cambio
+   - Verifica que cambios no rompan existente
+   - Re-ejecutar suite tras cambio
  * - **Seguridad**
- - Verifica controles de seguridad
- - Intentos de acceso no autorizado
+   - Verifica controles de seguridad
+   - Intentos de acceso no autorizado
  * - **Rendimiento**
- - Verifica tiempos de respuesta
- - Tiempo de generación de reporte
+   - Verifica tiempos de respuesta
+   - Tiempo de generación de reporte
 
 ----
 
@@ -459,41 +459,41 @@ Cada TST DEBE incluir mínimo estas 10 secciones:
  :header-rows: 1
 
  * - #
- - Sección
- - Contenido
+   - Sección
+   - Contenido
  * - 0
- - Resumen Ejecutivo
- - ID, nombre, tipo, FR verificado, estado
+   - Resumen Ejecutivo
+   - ID, nombre, tipo, FR verificado, estado
  * - 1
- - Objetivo
- - Qué se verifica
+   - Objetivo
+   - Qué se verifica
  * - 2
- - Precondiciones
- - Checklist antes de ejecutar
+   - Precondiciones
+   - Checklist antes de ejecutar
  * - 3
- - Datos de Prueba
- - Entrada y contexto
+   - Datos de Prueba
+   - Entrada y contexto
  * - 4
- - Pasos de Ejecución
- - Acciones y resultados esperados
+   - Pasos de Ejecución
+   - Acciones y resultados esperados
  * - 5
- - Resultado Esperado
- - Criterios éxito/fallo, datos salida
+   - Resultado Esperado
+   - Criterios éxito/fallo, datos salida
  * - 6
- - Código de Prueba
- - Implementación pytest
+   - Código de Prueba
+   - Implementación pytest
  * - 7
- - Trazabilidad
- - FR, UC, BR, CNST relacionados
+   - Trazabilidad
+   - FR, UC, BR, CNST relacionados
  * - 8
- - Registro de Ejecución
- - Historial de ejecuciones
+   - Registro de Ejecución
+   - Historial de ejecuciones
  * - 9
- - Defectos Relacionados
- - Bugs encontrados
+   - Defectos Relacionados
+   - Bugs encontrados
  * - 10
- - Historial
- - Control de versiones
+   - Historial
+   - Control de versiones
 
 ----
 
@@ -575,10 +575,10 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial de plantilla TST con pytest
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial de plantilla TST con pytest

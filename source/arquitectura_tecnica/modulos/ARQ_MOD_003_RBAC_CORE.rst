@@ -79,38 +79,38 @@ validaciones internas del RBAC.
  :header-rows: 1
 
  * - Responsabilidad
- - UC Relacionado
- - CNST
+   - UC Relacionado
+   - CNST
  * - CRUD de roles funcionales
- - UC_041
- - CNST_005
+   - UC_041
+   - CNST_005
  * - Calcular permisos efectivos
- - UC_042
- - CNST_005
+   - UC_042
+   - CNST_005
  * - Aplicar precedencia (Directo > Rol > Segmento)
- - UC_042
- - -
+   - UC_042
+   - -
  * - Validar reglas SoD
- - UC_042
- - -
+   - UC_042
+   - -
  * - Asignar/retirar roles a usuarios
- - UC_043
- - -
+   - UC_043
+   - -
  * - Configurar segmentos de datos
- - UC_044
- - -
+   - UC_044
+   - -
  * - Asignar permisos directos con vigencia
- - UC_045
- - -
+   - UC_045
+   - -
  * - Simular acceso de un usuario
- - UC_046
- - -
+   - UC_046
+   - -
  * - Generar matriz de roles/permisos
- - UC_047
- - -
+   - UC_047
+   - -
  * - Aplicar restricciones criticas (enforcers)
- - Transversal
- - CNST_001-010
+   - Transversal
+   - CNST_001-010
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
@@ -150,26 +150,26 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - Enforcer
- - Tipo
- - Restriccion que Aplica
+   - Tipo
+   - Restriccion que Aplica
  * - NoEmailEnforcer
- - Middleware
- - CNST_001: Bloquea cualquier intento de enviar email
+   - Middleware
+   - CNST_001: Bloquea cualquier intento de enviar email
  * - ReadOnlyIVREnforcer
- - DB Router
- - CNST_003: BD IVR solo lectura
+   - DB Router
+   - CNST_003: BD IVR solo lectura
  * - NoRealTimeEnforcer
- - Middleware
- - CNST_003: Bloquea WebSockets, SSE
+   - Middleware
+   - CNST_003: Bloquea WebSockets, SSE
  * - SessionDBEnforcer
- - Middleware
- - CNST_002: Sesiones en PostgreSQL
+   - Middleware
+   - CNST_002: Sesiones en PostgreSQL
  * - ExportLimitEnforcer
- - Decorator
- - CNST_007: Limites de exportacion
+   - Decorator
+   - CNST_007: Limites de exportacion
  * - ThrottlingEnforcer
- - Middleware
- - CNST_007: Rate limiting
+   - Middleware
+   - CNST_007: Rate limiting
 
 ----
 
@@ -184,11 +184,11 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_002_USER_IDENTITY
- - Necesita datos del usuario para calcular permisos
+   - Necesita datos del usuario para calcular permisos
  * - ARQ_MOD_001_AUTH
- - Necesita sesion valida
+   - Necesita sesion valida
 
 5.2 Es Requerido por
 --------------------
@@ -198,15 +198,15 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - Modulo
- - Razon
+   - Razon
  * - ARQ_MOD_005_VIS_REPORTS
- - Consulta permisos para mostrar/ocultar dashboards
+   - Consulta permisos para mostrar/ocultar dashboards
  * - ARQ_MOD_006_ALERTS
- - Consulta permisos para configurar alertas
+   - Consulta permisos para configurar alertas
  * - ARQ_MOD_007_AUDIT
- - Registra cambios de roles/permisos
+   - Registra cambios de roles/permisos
  * - TODOS
- - Todos los modulos consultan permisos
+   - Todos los modulos consultan permisos
 
 ----
 
@@ -221,9 +221,9 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - App
- - Descripcion
+   - Descripcion
  * - apps.common.permissions
- - Logica RBAC, enforcers, calculadores
+   - Logica RBAC, enforcers, calculadores
 
 6.2 Modelos de Datos
 --------------------
@@ -266,29 +266,29 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - Metodo
- - Endpoint
- - Descripcion
+   - Endpoint
+   - Descripcion
  * - GET
- - /api/v1/roles
- - Listar roles
+   - /api/v1/roles
+   - Listar roles
  * - POST
- - /api/v1/roles
- - Crear rol
+   - /api/v1/roles
+   - Crear rol
  * - GET
- - /api/v1/users/{id}/permissions
- - Permisos efectivos
+   - /api/v1/users/{id}/permissions
+   - Permisos efectivos
  * - POST
- - /api/v1/users/{id}/roles
- - Asignar rol
+   - /api/v1/users/{id}/roles
+   - Asignar rol
  * - DELETE
- - /api/v1/users/{id}/roles/{roleId}
- - Retirar rol
+   - /api/v1/users/{id}/roles/{roleId}
+   - Retirar rol
  * - GET
- - /api/v1/users/{id}/simulate
- - Simular acceso
+   - /api/v1/users/{id}/simulate
+   - Simular acceso
  * - GET
- - /api/v1/rbac/matrix
- - Matriz consolidada
+   - /api/v1/rbac/matrix
+   - Matriz consolidada
 
 ----
 
@@ -300,12 +300,12 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - CNST
- - Descripcion y Aplicacion
+   - Descripcion y Aplicacion
  * - CNST_005
- - **Seguridad DRF Checklist**: Implementa permisos DRF, 
- IsAuthenticated, roles via JWT claims.
+   - **Seguridad DRF Checklist**: Implementa permisos DRF, 
+     IsAuthenticated, roles via JWT claims.
  * - CNST_001-010
- - **Todas**: Los enforcers aplican TODAS las restricciones criticas.
+   - **Todas**: Los enforcers aplican TODAS las restricciones criticas.
 
 ----
 
@@ -317,29 +317,29 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - UC ID
- - Nombre
- - Descripcion
+   - Nombre
+   - Descripcion
  * - UC_041
- - Administrar_Catalogo_Roles
- - CRUD de roles funcionales (R001-R017)
+   - Administrar_Catalogo_Roles
+   - CRUD de roles funcionales (R001-R017)
  * - UC_042
- - Calcular_Permisos_Efectivos
- - Aplicar precedencia y SoD
+   - Calcular_Permisos_Efectivos
+   - Aplicar precedencia y SoD
  * - UC_043
- - Asignar_Retirar_Roles
- - Gestionar roles de un usuario
+   - Asignar_Retirar_Roles
+   - Gestionar roles de un usuario
  * - UC_044
- - Configurar_Segmentos_Datos
- - Data segments por centro, servicio
+   - Configurar_Segmentos_Datos
+   - Data segments por centro, servicio
  * - UC_045
- - Asignar_Permisos_Directos
- - Con justificacion y vigencia max 6 meses
+   - Asignar_Permisos_Directos
+   - Con justificacion y vigencia max 6 meses
  * - UC_046
- - Simular_Acceso_Usuario
- - Preview "que veria este usuario?"
+   - Simular_Acceso_Usuario
+   - Preview "que veria este usuario?"
  * - UC_047
- - Consultar_Matriz_Roles
- - Vista consolidada para PMO
+   - Consultar_Matriz_Roles
+   - Vista consolidada para PMO
 
 ----
 
@@ -389,11 +389,11 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2025-12-22
- - Version inicial. Incluye enforcers (ex-SEC_RULES).
+   - 2025-12-22
+   - Version inicial. Incluye enforcers (ex-SEC_RULES).
 
 ----
 

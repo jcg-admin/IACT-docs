@@ -114,17 +114,17 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
  :header-rows: 1
 
  * - Dominio
- - Propósito
+   - Propósito
  * - base_cognitiva/
- - Fundamentos conceptuales, metodologías, glosario y metadata del proyecto.
+   - Fundamentos conceptuales, metodologías, glosario y metadata del proyecto.
  * - requisitos/
- - Reglas de negocio, casos de uso, requisitos funcionales y no funcionales.
+   - Reglas de negocio, casos de uso, requisitos funcionales y no funcionales.
  * - arquitectura_tecnica/
- - Decisiones arquitectónicas, diseño detallado, especificaciones técnicas.
+   - Decisiones arquitectónicas, diseño detallado, especificaciones técnicas.
  * - normativa/
- - Estándares de codificación, restricciones, plantillas oficiales.
+   - Estándares de codificación, restricciones, plantillas oficiales.
  * - trazabilidad/
- - Matrices RTM, reportes de cobertura, validaciones cruzadas.
+   - Matrices RTM, reportes de cobertura, validaciones cruzadas.
 
 4.2. Conteo Oficial
 ^^^^^^^^^^^^^^^^^^^
@@ -199,17 +199,17 @@ Para nuevos miembros del equipo:
  :header-rows: 1
 
  * - Rol
- - Artefactos Principales
+   - Artefactos Principales
  * - Business Analyst
- - BR_xxx (Reglas de Negocio), UC_xxx (Casos de Uso)
+   - BR_xxx (Reglas de Negocio), UC_xxx (Casos de Uso)
  * - Arquitecto
- - ADR_xxx (Decisiones), SAD (Arquitectura), DES_xxx (Diseño)
+   - ADR_xxx (Decisiones), SAD (Arquitectura), DES_xxx (Diseño)
  * - Desarrollador
- - FR_xxx (Funcionales), DES_xxx (Diseño), Especificaciones API
+   - FR_xxx (Funcionales), DES_xxx (Diseño), Especificaciones API
  * - QA
- - UC_xxx (Casos de Uso), FR_xxx (Funcionales), RTM
+   - UC_xxx (Casos de Uso), FR_xxx (Funcionales), RTM
  * - PMO
- - META_xx (Metadata), RTM, Reportes de Trazabilidad
+   - META_xx (Metadata), RTM, Reportes de Trazabilidad
 
 6.3. Preguntas Frecuentes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,15 +241,15 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
  :header-rows: 1
 
  * - Documento
- - Referencia
+   - Referencia
  * - Identidad del Proyecto
- - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`META_01_Identidad_Proyecto`
  * - Estructura Documental
- - :doc:`META_05_Estructura_Documental`
+   - :doc:`META_05_Estructura_Documental`
  * - Definiciones Oficiales
- - Ver seccion de Restricciones (CNST_001-031)
+   - Ver seccion de Restricciones (CNST_001-031)
  * - Glosario IACT
- - Ver glosario del sistema
+   - Ver glosario del sistema
 
 --------------------
 Historial de Cambios
@@ -260,13 +260,13 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - PMO IACT
- - Versión inicial aprobada
+   - 2025-12-18
+   - PMO IACT
+   - Versión inicial aprobada
 
 ----
 

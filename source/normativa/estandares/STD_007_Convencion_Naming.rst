@@ -163,44 +163,44 @@ Donde:
  :widths: 15 30 55
 
  * - Prefijo
- - Dominio
- - Ejemplo
+   - Dominio
+   - Ejemplo
  * - ``UC``
- - Casos de uso (con sub-módulo)
- - ``UC_ACC_01_Asignar_Funciones.rst``
+   - Casos de uso (con sub-módulo)
+   - ``UC_ACC_01_Asignar_Funciones.rst``
  * - ``BR``
- - Reglas de negocio
- - ``BR_001_Fuente_Operacional_Inmutable.rst``
+   - Reglas de negocio
+   - ``BR_001_Fuente_Operacional_Inmutable.rst``
  * - ``BReq``
- - Business requirements
- - ``BReq_001_Visibilidad_Metricas.rst``
+   - Business requirements
+   - ``BReq_001_Visibilidad_Metricas.rst``
  * - ``CNST``
- - Restricciones arquitectónicas
- - ``CNST_001_Comunicaciones_Prohibidas.rst``
+   - Restricciones arquitectónicas
+   - ``CNST_001_Comunicaciones_Prohibidas.rst``
  * - ``META``
- - Metadata del proyecto
- - ``META_01_Identidad_Proyecto.rst``
+   - Metadata del proyecto
+   - ``META_01_Identidad_Proyecto.rst``
  * - ``FND``
- - Fundamentos conceptuales
- - ``FND_01_Concepto_Requisito.rst``
+   - Fundamentos conceptuales
+   - ``FND_01_Concepto_Requisito.rst``
  * - ``SBVR``
- - Ontología SBVR
- - ``SBVR_01_Conceptos_Nucleares.rst``
+   - Ontología SBVR
+   - ``SBVR_01_Conceptos_Nucleares.rst``
  * - ``MTM``
- - Metamodelos
- - ``MTM_03_Metamodelo_RBAC.rst``
+   - Metamodelos
+   - ``MTM_03_Metamodelo_RBAC.rst``
  * - ``TXM``
- - Taxonomías
- - ``TXM_01_Taxonomia_Requisitos.rst``
+   - Taxonomías
+   - ``TXM_01_Taxonomia_Requisitos.rst``
  * - ``GOB``
- - Gobernanza
- - ``GOB_01_Modelo_Gobernanza_IACT.rst``
+   - Gobernanza
+   - ``GOB_01_Modelo_Gobernanza_IACT.rst``
  * - ``STD``
- - Estándares
- - ``STD_006_Versionado_Semantico.rst``
+   - Estándares
+   - ``STD_006_Versionado_Semantico.rst``
  * - ``TPL``
- - Plantillas (templates)
- - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
+   - Plantillas (templates)
+   - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
 
 4.2 Artefactos con Módulo y Numeración
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,20 +220,20 @@ Donde:
  :widths: 20 30 50
 
  * - Prefijo
- - Dominio
- - Ejemplo
+   - Dominio
+   - Ejemplo
  * - ``ADR``
- - Architecture Decision Records
- - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
+   - Architecture Decision Records
+   - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
  * - ``PROCED``
- - Procedimientos de gobernanza
- - ``PROCED-GOB-003-documentar-regla-negocio.rst``
+   - Procedimientos de gobernanza
+   - ``PROCED-GOB-003-documentar-regla-negocio.rst``
  * - ``PROC``
- - Procedimientos generales
- - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
+   - Procedimientos generales
+   - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
  * - ``RNF``
- - Requisitos no funcionales
- - ``RNF-PROC-001-proceso-sdlc.rst``
+   - Requisitos no funcionales
+   - ``RNF-PROC-001-proceso-sdlc.rst``
 
 **Migración recomendada:** los archivos actuales con mixed-separators
 (``PROC-DEV-001-pipeline_trabajo_iact.rst``) → kebab puro
@@ -348,44 +348,44 @@ es intencional.
  :widths: 30 25 45
 
  * - Tipo de Artefacto
- - Convención
- - Ejemplo
+   - Convención
+   - Ejemplo
  * - Caso de Uso
- - ``UC_<MOD>_<NN>_<Desc>.rst``
- - ``UC_ACC_01_Asignar_Funciones.rst``
+   - ``UC_<MOD>_<NN>_<Desc>.rst``
+   - ``UC_ACC_01_Asignar_Funciones.rst``
  * - Regla de Negocio
- - ``BR_<NNN>_<Desc>.rst``
- - ``BR_001_Fuente_Operacional_Inmutable.rst``
+   - ``BR_<NNN>_<Desc>.rst``
+   - ``BR_001_Fuente_Operacional_Inmutable.rst``
  * - Restricción
- - ``CNST_<NNN>_<Desc>.rst``
- - ``CNST_001_Comunicaciones_Prohibidas.rst``
+   - ``CNST_<NNN>_<Desc>.rst``
+   - ``CNST_001_Comunicaciones_Prohibidas.rst``
  * - ADR
- - ``ADR-<MOD>-<NNN>-<desc-kebab>.rst``
- - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
+   - ``ADR-<MOD>-<NNN>-<desc-kebab>.rst``
+   - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
  * - Procedimiento (gobernanza)
- - ``PROCED-<MOD>-<NNN>-<desc-kebab>.rst``
- - ``PROCED-GOB-003-documentar-regla-negocio.rst``
+   - ``PROCED-<MOD>-<NNN>-<desc-kebab>.rst``
+   - ``PROCED-GOB-003-documentar-regla-negocio.rst``
  * - Procedimiento general
- - ``PROC-<MOD>-<NNN>-<desc-kebab>.rst``
- - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
+   - ``PROC-<MOD>-<NNN>-<desc-kebab>.rst``
+   - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
  * - Estándar
- - ``STD_<NNN>_<Desc>.rst``
- - ``STD_006_Versionado_Semantico.rst``
+   - ``STD_<NNN>_<Desc>.rst``
+   - ``STD_006_Versionado_Semantico.rst``
  * - Plantilla
- - ``TPL_<KEY>_<Desc>.rst``
- - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
+   - ``TPL_<KEY>_<Desc>.rst``
+   - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
  * - Guía general
- - ``<desc-kebab>.rst``
- - ``git-workflow.rst``
+   - ``<desc-kebab>.rst``
+   - ``git-workflow.rst``
  * - Punto de entrada de dir
- - ``index.rst``
- - ``arquitectura_tecnica/index.rst``
+   - ``index.rst``
+   - ``arquitectura_tecnica/index.rst``
  * - Directorio
- - ``snake_case/``
- - ``casos_uso/``
+   - ``snake_case/``
+   - ``casos_uso/``
  * - Directorio interno
- - ``_snake_case/``
- - ``_metadata/``
+   - ``_snake_case/``
+   - ``_metadata/``
 
 ----
 
@@ -404,47 +404,47 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
  :header-rows: 1
 
  * - Tipo de elemento
- - Idioma
- - Ejemplo
+   - Idioma
+   - Ejemplo
  * - Modelos Django (clases, métodos)
- - Inglés
- - ``class FunctionGroup(models.Model):``
+   - Inglés
+   - ``class FunctionGroup(models.Model):``
  * - Funciones SQL nativas (PostgreSQL)
- - Inglés
- - ``CREATE FUNCTION user_has_permission(...)``
+   - Inglés
+   - ``CREATE FUNCTION user_has_permission(...)``
  * - Variables, atributos en código
- - Inglés
- - ``user_id``, ``expires_at``
+   - Inglés
+   - ``user_id``, ``expires_at``
  * - Códigos de funciones (capabilities)
- - Inglés
- - ``manage_sessions``, ``view_reports``, ``export_csv``
+   - Inglés
+   - ``manage_sessions``, ``view_reports``, ``export_csv``
  * - Nombres de grupos (system y custom)
- - Inglés con sufijo ``_group``
- - ``basic_operator_group``, ``auditor_group``
+   - Inglés con sufijo ``_group``
+   - ``basic_operator_group``, ``auditor_group``
  * - Nombres de reglas SoD
- - Inglés con sufijo ``_separation``
- - ``pipeline_audit_separation``
+   - Inglés con sufijo ``_separation``
+   - ``pipeline_audit_separation``
  * - Comentarios en código
- - Español
- - ``# Validar antes de persistir``
+   - Español
+   - ``# Validar antes de persistir``
  * - Docstrings de clases / métodos
- - Español
- - ``"""Grupo de funciones que se asignan juntas."""``
+   - Español
+   - ``"""Grupo de funciones que se asignan juntas."""``
  * - help_text de campos Django
- - Español
- - ``help_text="Identificador único del grupo (AGR-001)"``
+   - Español
+   - ``help_text="Identificador único del grupo (AGR-001)"``
  * - Documentación técnica (.rst, .md)
- - Español
- - "El sistema permite..."
+   - Español
+   - "El sistema permite..."
  * - Mensajes de UI / errores al usuario final
- - Español
- - ``"No tiene permiso para esta acción"``
+   - Español
+   - ``"No tiene permiso para esta acción"``
  * - Logs de aplicación
- - Inglés
- - ``"User authenticated successfully"``
+   - Inglés
+   - ``"User authenticated successfully"``
  * - Mensajes de commit Git
- - Inglés (Tim Pope)
- - ``"Add FunctionGroup model"``
+   - Inglés (Tim Pope)
+   - ``"Add FunctionGroup model"``
 
 7.2 Justificación
 ^^^^^^^^^^^^^^^^^
@@ -608,11 +608,11 @@ del merge.
  :widths: 12 12 76
 
  * - Versión
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-04-28
- - Versión inicial. Define convenciones para 12 tipos de artefactos
- en source/, reglas de directorios, caracteres prohibidos,
- versión en metadata (no filename), index.rst como entry-point,
- tabla de decisión rápida.
+   - 2026-04-28
+   - Versión inicial. Define convenciones para 12 tipos de artefactos
+     en source/, reglas de directorios, caracteres prohibidos,
+     versión en metadata (no filename), index.rst como entry-point,
+     tabla de decisión rápida.

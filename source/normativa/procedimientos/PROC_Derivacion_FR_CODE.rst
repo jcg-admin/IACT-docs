@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Derivacion_FR_CODE
+   - PROC_Derivacion_FR_CODE
  * - **Nombre**
- - Derivacion de Requisitos Funcionales a Codigo
+   - Derivacion de Requisitos Funcionales a Codigo
  * - **Categoria**
- - Derivacion
+   - Derivacion
  * - **Ratio**
- - 1 FR -> N archivos/funciones
+   - 1 FR -> N archivos/funciones
  * - **Duracion**
- - Variable segun complejidad
+   - Variable segun complejidad
 
 ----
 
@@ -122,17 +122,17 @@ Registrar mapeo en matriz de trazabilidad.
  :header-rows: 1
 
  * - FR
- - Archivo
- - Funcion/Clase
+   - Archivo
+   - Funcion/Clase
  * - FR_UC001_01
- - auth/serializers.py
- - LoginSerializer.validate_username
+   - auth/serializers.py
+   - LoginSerializer.validate_username
  * - FR_UC001_02
- - auth/services.py
- - AuthService.verify_credentials
+   - auth/services.py
+   - AuthService.verify_credentials
  * - FR_UC001_03
- - auth/services.py
- - JWTService.generate_token
+   - auth/services.py
+   - JWTService.generate_token
 
 ----
 
@@ -170,11 +170,11 @@ Registrar mapeo en matriz de trazabilidad.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

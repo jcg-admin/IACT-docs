@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_011
+   - BR_011
  * - **Nombre**
- - Límites de Exportación
+   - Límites de Exportación
  * - **Tipo**
- - Restricción
+   - Restricción
  * - **Categoría**
- - Operacional / Rendimiento
+   - Operacional / Rendimiento
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -95,9 +95,9 @@ Los límites de exportación protegen:
  :header-rows: 0
 
  * - **Tipo**
- - **Restricción**
+   - **Restricción**
  * - 
- - [X] **Restricción**: Limita volumen de datos en exportaciones
+   - [X] **Restricción**: Limita volumen de datos en exportaciones
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -119,13 +119,13 @@ Los límites de exportación protegen:
  :header-rows: 0
 
  * - **Documento**
- - CNST_007_Limites_Performance_SLA.rst
+   - CNST_007_Limites_Performance_SLA.rst
  * - **Sección**
- - Límites de Exportación
+   - Límites de Exportación
  * - **Versión**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST (Restricción Técnica de Performance)
+   - CNST (Restricción Técnica de Performance)
 
 3.2 Autoridad de Modificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,17 +147,17 @@ Los límites de exportación protegen:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - UC_RPT_10
- - Exportar CSV - Valida límite antes de generar
+   - Exportar CSV - Valida límite antes de generar
  * - UC_RPT_11
- - Exportar Excel - Valida límite antes de generar
+   - Exportar Excel - Valida límite antes de generar
  * - UC_RPT_12
- - Exportar PDF - Valida límite antes de generar
+   - Exportar PDF - Valida límite antes de generar
  * - UC_AUD_03
- - Exportar Auditoría - Aplica mismo límite
+   - Exportar Auditoría - Aplica mismo límite
  * - UC_LOG_03
- - Exportar Logs - Aplica mismo límite
+   - Exportar Logs - Aplica mismo límite
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -184,9 +184,9 @@ Los límites de exportación protegen:
  :header-rows: 1
 
  * - CNST
- - Relación
+   - Relación
  * - CNST_007
- - Define límites de performance incluyendo exportaciones
+   - Define límites de performance incluyendo exportaciones
 
 5.2 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -196,17 +196,17 @@ Los límites de exportación protegen:
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC_RPT_10
- - Validación previa en exportación CSV
+   - Validación previa en exportación CSV
  * - UC_RPT_11
- - Validación previa en exportación Excel
+   - Validación previa en exportación Excel
  * - UC_RPT_12
- - Validación previa en exportación PDF
+   - Validación previa en exportación PDF
  * - UC_AUD_03
- - Validación previa en exportación auditoría
+   - Validación previa en exportación auditoría
  * - UC_LOG_03
- - Validación previa en exportación logs
+   - Validación previa en exportación logs
 
 ----
 
@@ -316,13 +316,13 @@ La regla se considera cumplida cuando:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Descripción del Cambio
+   - Fecha
+   - Autor
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Versión inicial derivada de CNST_007
+   - 2026-01-07
+   - Equipo IACT
+   - Versión inicial derivada de CNST_007
 
 ----
 

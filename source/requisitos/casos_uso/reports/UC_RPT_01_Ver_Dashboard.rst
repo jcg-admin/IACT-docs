@@ -19,21 +19,21 @@ UC_RPT_01: Ver Dashboard
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_01
+   - UC_RPT_01
  * - **Nombre**
- - Ver Dashboard
+   - Ver Dashboard
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-001: ve_reportes
+   - RPT-001: ve_reportes
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-001
+   - BRQ-RPT-001
 
 2. Descripcion
 --------------
@@ -94,13 +94,13 @@ automaticamente por el segmento del usuario (CNST_008).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-001
+   - El usuario tiene sesion activa con funcion RPT-001
  * - PRE-02
- - El usuario tiene un segmento asignado
+   - El usuario tiene un segmento asignado
  * - PRE-03
- - Existen datos en BD Analytics para el segmento
+   - Existen datos en BD Analytics para el segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -115,11 +115,11 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra dashboard con datos del segmento del usuario
+   - Se muestra dashboard con datos del segmento del usuario
  * - POST-02
- - El dashboard se actualiza automaticamente cada 30 segundos
+   - El dashboard se actualiza automaticamente cada 30 segundos
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -129,32 +129,32 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede al dashboard
+   - Usuario
+   - Accede al dashboard
  * - 2
- - Sistema
- - Valida funcion RPT-001
+   - Sistema
+   - Valida funcion RPT-001
  * - 3
- - Sistema
- - Obtiene segmento del usuario
+   - Sistema
+   - Obtiene segmento del usuario
  * - 4
- - Sistema
- - Consulta KPIs de BD Analytics con filtro de segmento
+   - Sistema
+   - Consulta KPIs de BD Analytics con filtro de segmento
  * - 5
- - Sistema
- - Consulta tendencias del dia
+   - Sistema
+   - Consulta tendencias del dia
  * - 6
- - Sistema
- - Renderiza dashboard con graficos
+   - Sistema
+   - Renderiza dashboard con graficos
  * - 7
- - Sistema
- - Inicia temporizador de auto-refresh (30s)
+   - Sistema
+   - Inicia temporizador de auto-refresh (30s)
  * - 8
- - Usuario
- - Visualiza metricas y tendencias
+   - Usuario
+   - Visualiza metricas y tendencias
 
 6. Diagrama de Secuencia
 ------------------------
@@ -211,17 +211,17 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Sistema
- - No encuentra datos para el segmento del usuario
+   - Sistema
+   - No encuentra datos para el segmento del usuario
  * - 4b
- - Sistema
- - Muestra dashboard con valores en cero
+   - Sistema
+   - Muestra dashboard con valores en cero
  * - 4c
- - Sistema
- - Muestra mensaje: Sin datos disponibles para hoy
+   - Sistema
+   - Muestra mensaje: Sin datos disponibles para hoy
 
 7.2 FA-02: Ver Detalle de KPI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -231,14 +231,14 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Usuario
- - Hace clic en un KPI especifico
+   - Usuario
+   - Hace clic en un KPI especifico
  * - 8b
- - Sistema
- - Navega a reporte detallado del KPI
+   - Sistema
+   - Navega a reporte detallado del KPI
 
 8. Excepciones
 --------------
@@ -251,15 +251,15 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion RPT-001
+   - Usuario no tiene funcion RPT-001
  * - **Accion Sistema**
- - Rechaza acceso al dashboard
+   - Rechaza acceso al dashboard
  * - **Mensaje Usuario**
- - No tiene permisos para ver reportes
+   - No tiene permisos para ver reportes
  * - **Codigo Error**
- - RPT-001
+   - RPT-001
 
 8.2 EX-02: Usuario Sin Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -269,15 +269,15 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Usuario no tiene segmento asignado
+   - Usuario no tiene segmento asignado
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - Usuario sin segmento asignado. Contacte al administrador.
+   - Usuario sin segmento asignado. Contacte al administrador.
  * - **Codigo Error**
- - RPT-002
+   - RPT-002
 
 9. Diagrama de Actividad
 ------------------------
@@ -328,20 +328,20 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-01
- - Filtro por Segmento
- - El usuario solo ve datos de su segmento asignado (CNST_008)
+   - Filtro por Segmento
+   - El usuario solo ve datos de su segmento asignado (CNST_008)
  * - BR-RPT-02
- - Auto Refresh
- - El dashboard se actualiza automaticamente cada 30 segundos
+   - Auto Refresh
+   - El dashboard se actualiza automaticamente cada 30 segundos
  * - BR-RPT-03
- - Solo Lectura
- - El dashboard es de solo lectura, no permite modificaciones
+   - Solo Lectura
+   - El dashboard es de solo lectura, no permite modificaciones
  * - BR-RPT-04
- - Datos del Dia
- - Por defecto muestra datos del dia actual
+   - Datos del Dia
+   - Por defecto muestra datos del dia actual
 
 **Formulas de KPIs:**
 
@@ -361,14 +361,14 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Los datos del dashboard se leen exclusivamente de BD Analytics. No se accede a BD IVR.
+   - BD Dual
+   - Los datos del dashboard se leen exclusivamente de BD Analytics. No se accede a BD IVR.
  * - CNST_008
- - Segmentos
- - El filtro por segmento se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros segmentos.
+   - Segmentos
+   - El filtro por segmento se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros segmentos.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -378,20 +378,20 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-001
- - El sistema debe mostrar KPIs principales
- - Llamadas, TMO, abandono, nivel servicio visibles
+   - El sistema debe mostrar KPIs principales
+   - Llamadas, TMO, abandono, nivel servicio visibles
  * - FR-RPT-002
- - El sistema debe filtrar por segmento automaticamente
- - Solo datos del segmento del usuario mostrados
+   - El sistema debe filtrar por segmento automaticamente
+   - Solo datos del segmento del usuario mostrados
  * - FR-RPT-003
- - El sistema debe auto-refrescar cada 30s
- - Datos actualizados sin recargar pagina
+   - El sistema debe auto-refrescar cada 30s
+   - Datos actualizados sin recargar pagina
  * - FR-RPT-004
- - El sistema debe mostrar tendencias
- - Grafico de llamadas por hora del dia
+   - El sistema debe mostrar tendencias
+   - Grafico de llamadas por hora del dia
 
 13. Trazabilidad
 ----------------
@@ -401,17 +401,17 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-001: Permitir visualizacion de dashboard principal
+   - BRQ-RPT-001: Permitir visualizacion de dashboard principal
  * - **Reglas de Negocio**
- - BR-RPT-01 a BR-RPT-04
+   - BR-RPT-01 a BR-RPT-04
  * - **Restricciones**
- - CNST_007 (BD Dual), CNST_008 (Segmentos)
+   - CNST_007 (BD Dual), CNST_008 (Segmentos)
  * - **UC Relacionados**
- - UC_RPT_02 (Metricas RT), UC_RPT_03 (Historicos)
+   - UC_RPT_02 (Metricas RT), UC_RPT_03 (Historicos)
  * - **Actor Principal**
- - AGR-001: agr_operador_basico
+   - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
- - RPT-001: ve_reportes
+   - RPT-001: ve_reportes
 
 14. Historial de Cambios
 ------------------------
@@ -421,10 +421,10 @@ El usuario accede al modulo de reportes o al dashboard principal.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_007 y CNST_008
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_007 y CNST_008

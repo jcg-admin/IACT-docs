@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_001
+   - BR_001
  * - **Nombre**
- - Fuente Operacional Inmutable
+   - Fuente Operacional Inmutable
  * - **Tipo**
- - Hecho
+   - Hecho
  * - **Categoria**
- - Operacional
+   - Operacional
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -100,13 +100,13 @@ cliente como requisito no negociable.
  :header-rows: 0
 
  * - **Documento**
- - CNST_003_Base_Datos_Dual_Inmutable
+   - CNST_003_Base_Datos_Dual_Inmutable
  * - **Seccion**
- - Arquitectura de Datos
+   - Arquitectura de Datos
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST (Restriccion del cliente)
+   - CNST (Restriccion del cliente)
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,13 +128,13 @@ cliente como requisito no negociable.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - Database Router
- - IVRReadOnlyRouter bloquea escrituras a base IVR
+   - IVRReadOnlyRouter bloquea escrituras a base IVR
  * - MOD_Pipeline
- - ETL solo extrae datos, no modifica origen
+   - ETL solo extrae datos, no modifica origen
  * - Django ORM
- - Modelos IVR marcados como managed=False
+   - Modelos IVR marcados como managed=False
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -160,9 +160,9 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST_003
- - Define arquitectura dual y permisos de base de datos
+   - Define arquitectura dual y permisos de base de datos
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -172,9 +172,9 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-005
- - Integridad de Datos Operacionales
+   - Integridad de Datos Operacionales
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,11 +184,11 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-050
- - Supervisar Estado ETL - solo lectura de IVR
+   - Supervisar Estado ETL - solo lectura de IVR
  * - UC-017 a UC-024
- - Reportes - consultan datos IVR via replica
+   - Reportes - consultan datos IVR via replica
 
 ----
 
@@ -226,10 +226,10 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

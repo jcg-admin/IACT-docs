@@ -45,15 +45,15 @@ Audiencia
  :widths: 30 70
 
  * - Rol
- - Uso del Subdominio
+   - Uso del Subdominio
  * - Arquitecto
- - Referencia para estructura formal del sistema
+   - Referencia para estructura formal del sistema
  * - Analista de Negocio
- - Clasificacion de requisitos y artefactos
+   - Clasificacion de requisitos y artefactos
  * - Desarrollador
- - Comprension de modelos de datos y relaciones
+   - Comprension de modelos de datos y relaciones
  * - QA
- - Validacion de cobertura y trazabilidad
+   - Validacion de cobertura y trazabilidad
 
 ----
 
@@ -86,17 +86,17 @@ Catalogo de Taxonomias
  :widths: 15 35 50
 
  * - ID
- - Nombre
- - Contenido
+   - Nombre
+   - Contenido
  * - TXM_01
- - :ref:`txm-01`
- - Clasificacion jerarquica de tipos de requisitos (BR, UC, FR, NFR)
+   - :ref:`txm-01`
+   - Clasificacion jerarquica de tipos de requisitos (BR, UC, FR, NFR)
  * - TXM_02
- - :ref:`txm-02`
- - Clasificacion de todos los artefactos del sistema documental
+   - :ref:`txm-02`
+   - Clasificacion de todos los artefactos del sistema documental
  * - TXM_03
- - :ref:`txm-03`
- - Clasificacion de los 5 tipos de Business Rules
+   - :ref:`txm-03`
+   - Clasificacion de los 5 tipos de Business Rules
 
 Proposito de las Taxonomias
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -118,17 +118,17 @@ Catalogo de Metamodelos
  :widths: 15 35 50
 
  * - ID
- - Nombre
- - Contenido
+   - Nombre
+   - Contenido
  * - MTM_01
- - :ref:`mtm-01`
- - Diagrama UML de clases de tipos de requisitos
+   - :ref:`mtm-01`
+   - Diagrama UML de clases de tipos de requisitos
  * - MTM_02
- - :ref:`mtm-02`
- - Modelo formal de trazabilidad y tipos de enlaces
+   - :ref:`mtm-02`
+   - Modelo formal de trazabilidad y tipos de enlaces
  * - MTM_03
- - :ref:`mtm-03`
- - Modelo RBAC: Usuario, Rol, Permiso, Sesion, Segmento
+   - :ref:`mtm-03`
+   - Modelo RBAC: Usuario, Rol, Permiso, Sesion, Segmento
 
 Proposito de los Metamodelos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,23 +150,23 @@ Diferencia: Taxonomia vs Metamodelo
  :widths: 25 37 38
 
  * - Aspecto
- - Taxonomia (TXM)
- - Metamodelo (MTM)
+   - Taxonomia (TXM)
+   - Metamodelo (MTM)
  * - Pregunta
- - ¿Como se clasifica?
- - ¿Como se estructura?
+   - ¿Como se clasifica?
+   - ¿Como se estructura?
  * - Notacion
- - Arboles jerarquicos
- - Diagramas UML
+   - Arboles jerarquicos
+   - Diagramas UML
  * - Contenido
- - Categorias y subtipos
- - Clases y relaciones
+   - Categorias y subtipos
+   - Clases y relaciones
  * - Proposito
- - Organizar conceptos
- - Formalizar estructura
+   - Organizar conceptos
+   - Formalizar estructura
  * - Ejemplo
- - "FR es subtipo de Requisito"
- - "FR tiene cardinalidad 1:N con UC"
+   - "FR es subtipo de Requisito"
+   - "FR tiene cardinalidad 1:N con UC"
 
 ----
 
@@ -207,20 +207,20 @@ Como se relacionan taxonomias y metamodelos:
  :widths: 25 25 50
 
  * - Taxonomia
- - Metamodelo
- - Relacion
+   - Metamodelo
+   - Relacion
  * - TXM_01 (Requisitos)
- - MTM_01 (Requisitos)
- - TXM clasifica, MTM formaliza relaciones
+   - MTM_01 (Requisitos)
+   - TXM clasifica, MTM formaliza relaciones
  * - TXM_03 (BR)
- - MTM_01 (Requisitos)
- - TXM detalla tipos BR, MTM los relaciona con UC/FR
+   - MTM_01 (Requisitos)
+   - TXM detalla tipos BR, MTM los relaciona con UC/FR
  * - TXM_02 (Artefactos)
- - MTM_02 (Trazabilidad)
- - TXM lista artefactos, MTM define enlaces entre ellos
+   - MTM_02 (Trazabilidad)
+   - TXM lista artefactos, MTM define enlaces entre ellos
  * - --
- - MTM_03 (RBAC)
- - Core de seguridad, referenciado por SBVR_01
+   - MTM_03 (RBAC)
+   - Core de seguridad, referenciado por SBVR_01
 
 ----
 
@@ -232,37 +232,37 @@ Estadisticas del Subdominio
  :widths: 30 20 25 25
 
  * - Archivo
- - Lineas
- - Tipo
- - Estado
+   - Lineas
+   - Tipo
+   - Estado
  * - TXM_01_Taxonomia_Requisitos
- - 651
- - Taxonomia
- - Completo
+   - 651
+   - Taxonomia
+   - Completo
  * - TXM_02_Taxonomia_Artefactos
- - 639
- - Taxonomia
- - Completo
+   - 639
+   - Taxonomia
+   - Completo
  * - TXM_03_Taxonomia_Reglas_Negocio
- - 682
- - Taxonomia
- - Completo
+   - 682
+   - Taxonomia
+   - Completo
  * - MTM_01_Metamodelo_Requisitos
- - 654
- - Metamodelo
- - Completo
+   - 654
+   - Metamodelo
+   - Completo
  * - MTM_02_Metamodelo_Trazabilidad
- - 625
- - Metamodelo
- - Completo
+   - 625
+   - Metamodelo
+   - Completo
  * - MTM_03_Metamodelo_RBAC
- - 696
- - Metamodelo
- - Completo
+   - 696
+   - Metamodelo
+   - Completo
  * - **TOTAL**
- - **3,947**
- - **6 artefactos**
- - **100%**
+   - **3,947**
+   - **6 artefactos**
+   - **100%**
 
 ----
 
@@ -293,13 +293,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 3 TXM + 3 MTM
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 3 TXM + 3 MTM
 
 ----
 

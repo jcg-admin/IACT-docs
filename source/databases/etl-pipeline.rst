@@ -35,20 +35,20 @@ Analytics del sistema IACT.
  :header-rows: 1
 
  * - Etapa
- - Componente
- - Responsabilidad
+   - Componente
+   - Responsabilidad
  * - Extract
- - ``etl/extractors/``
- - Lee de BD MySQL IVR (SELECT only)
+   - ``etl/extractors/``
+   - Lee de BD MySQL IVR (SELECT only)
  * - Transform
- - ``etl/transformers/``
- - Calcula metricas derivadas (tasa abandono, TMO, etc.)
+   - ``etl/transformers/``
+   - Calcula metricas derivadas (tasa abandono, TMO, etc.)
  * - Load
- - ``etl/loaders/``
- - Inserta/upserta en BD PostgreSQL Analytics
+   - ``etl/loaders/``
+   - Inserta/upserta en BD PostgreSQL Analytics
  * - Track
- - Modelo ``ETLRun``
- - Registra inicio, fin, registros procesados, errores
+   - Modelo ``ETLRun``
+   - Registra inicio, fin, registros procesados, errores
 
 3. Casos de uso relacionados
 =============================

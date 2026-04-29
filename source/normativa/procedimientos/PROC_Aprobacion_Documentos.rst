@@ -27,19 +27,19 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Aprobacion_Documentos
+   - PROC_Aprobacion_Documentos
  * - **Nombre**
- - Aprobacion Formal de Documentos
+   - Aprobacion Formal de Documentos
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada documento revisado
+   - Por cada documento revisado
  * - **Duracion Estimada**
- - 5-15 minutos
+   - 5-15 minutos
  * - **Estado**
- - Vigente
+   - Vigente
  * - **Nota**
- - Renombrado desde PROC_003_Aprobacion_Documentos
+   - Renombrado desde PROC_003_Aprobacion_Documentos
 
 ----
 
@@ -80,17 +80,17 @@ a "Aprobado", habilitandolos para uso oficial.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Revisor
- - Envia documento para aprobacion
- - Lectura
+   - Envia documento para aprobacion
+   - Lectura
  * - Aprobador
- - Autoriza documento
- - Aprobacion
+   - Autoriza documento
+   - Aprobacion
  * - Administrador Doc
- - Actualiza estado y publica
- - Escritura
+   - Actualiza estado y publica
+   - Escritura
 
 ----
 
@@ -113,14 +113,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Documento revisado
- - Artefacto con revision aprobada
- - Si
+   - Artefacto con revision aprobada
+   - Si
  * - Reporte de revision
- - Resultado de PROC_Revision_Artefactos
- - Si
+   - Resultado de PROC_Revision_Artefactos
+   - Si
 
 ----
 
@@ -243,13 +243,13 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Documento
- - Tipo
- - Fecha
- - Aprobador
+   - Tipo
+   - Fecha
+   - Aprobador
  * - BR_020
- - BR
- - 2026-01-07
- - Arquitecto
+   - BR
+   - 2026-01-07
+   - Arquitecto
 
 - **Resultado**: Aprobacion registrada
 - **Verificacion**: Entrada agregada
@@ -293,14 +293,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Documento aprobado
- - Con estado Aprobado
- - Ubicacion oficial
+   - Con estado Aprobado
+   - Ubicacion oficial
  * - Registro de aprobacion
- - Entrada en registro
- - Registro central
+   - Entrada en registro
+   - Registro central
 
 ----
 
@@ -337,23 +337,23 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Tipo de Documento
- - Aprobador
- - Notas
+   - Aprobador
+   - Notas
  * - POL (Politicas)
- - Director
- - Maximo nivel
+   - Director
+   - Maximo nivel
  * - STD (Estandares)
- - Arquitecto Doc
- - Nivel tecnico
+   - Arquitecto Doc
+   - Nivel tecnico
  * - PROC (Procedimientos)
- - Arquitecto Doc
- - Nivel tecnico
+   - Arquitecto Doc
+   - Nivel tecnico
  * - BR, UC, FR
- - QA Lead
- - Nivel operativo
+   - QA Lead
+   - Nivel operativo
  * - TPL (Templates)
- - Arquitecto Doc
- - Nivel tecnico
+   - Arquitecto Doc
+   - Nivel tecnico
 
 ----
 
@@ -365,13 +365,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Aprobador no disponible
- - Aprobador suplente autorizado
+   - Aprobador suplente autorizado
  * - Rechazo sin justificacion
- - Solicitar motivos especificos
+   - Solicitar motivos especificos
  * - Urgencia
- - Aprobacion via email, formalizar despues
+   - Aprobacion via email, formalizar despues
 
 ----
 
@@ -392,13 +392,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Renombrado desde PROC_003, nueva nomenclatura
+   - 2026-01-07
+   - Equipo IACT
+   - Renombrado desde PROC_003, nueva nomenclatura
 
 ----
 

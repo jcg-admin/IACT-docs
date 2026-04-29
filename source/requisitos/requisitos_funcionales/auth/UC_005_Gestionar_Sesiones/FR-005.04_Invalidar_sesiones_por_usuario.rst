@@ -22,19 +22,19 @@ FR-005.04: Invalidar todas las sesiones de un usuario
  :widths: 25 75
 
  * - **ID**
- - FR-005.04
+   - FR-005.04
  * - **Nombre**
- - Invalidar todas las sesiones de un usuario específico
+   - Invalidar todas las sesiones de un usuario específico
  * - **UC Origen**
- - UC_005: Gestionar Sesiones Activas
+   - UC_005: Gestionar Sesiones Activas
  * - **Paso UC**
- - FA-1 del flujo alterno
+   - FA-1 del flujo alterno
  * - **Módulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Prioridad**
- - Media
+   - Media
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -126,17 +126,17 @@ FR-005.04: Invalidar todas las sesiones de un usuario
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_005: Gestionar Sesiones
+   - UC_005: Gestionar Sesiones
  * - **Depende de**
- - FR-005.01
+   - FR-005.01
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **CNST**
- - CNST-002, CNST-009
+   - CNST-002, CNST-009
  * - **TEST**
- - TST-FR-005.04 (pendiente)
+   - TST-FR-005.04 (pendiente)
 
 ----
 
@@ -148,8 +148,8 @@ FR-005.04: Invalidar todas las sesiones de un usuario
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_005
+   - 2026-01-07
+   - Versión inicial derivada de UC_005

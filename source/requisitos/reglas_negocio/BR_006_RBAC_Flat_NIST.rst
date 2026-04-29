@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_006
+   - BR_006
  * - **Nombre**
- - RBAC Flat NIST
+   - RBAC Flat NIST
  * - **Tipo**
- - Hecho
+   - Hecho
  * - **Categoria**
- - Seguridad
+   - Seguridad
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -102,13 +102,13 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  :header-rows: 0
 
  * - **Documento**
- - CNST_005_Seguridad_DRF_Checklist
+   - CNST_005_Seguridad_DRF_Checklist
  * - **Seccion**
- - Modelo de Control de Acceso
+   - Modelo de Control de Acceso
  * - **Version**
- - 1.0.0
+   - 1.0.0
  * - **Tipo Fuente**
- - CNST + Estandar NIST
+   - CNST + Estandar NIST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -130,13 +130,13 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
  :header-rows: 1
 
  * - Componente
- - Descripcion de Aplicacion
+   - Descripcion de Aplicacion
  * - MOD_Access
- - Implementa modelo RBAC con 42 funciones atomicas
+   - Implementa modelo RBAC con 42 funciones atomicas
  * - Middleware DRF
- - Valida permisos por funcion, no por rol
+   - Valida permisos por funcion, no por rol
  * - Base Analytics
- - Tablas: funciones, agrupadores, user_funciones
+   - Tablas: funciones, agrupadores, user_funciones
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -161,12 +161,12 @@ Sin excepciones. El modelo Flat es absoluto.
  :header-rows: 1
 
  * - CNST
- - Relacion
+   - Relacion
  * - CNST-005
- - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
+   - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
  * - :ref:`cnst-012`
- - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
- permisos temporales con vencimiento. Implementa esta BR.
+   - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
+     permisos temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -176,9 +176,9 @@ Sin excepciones. El modelo Flat es absoluto.
  :header-rows: 1
 
  * - BReq
- - Descripcion
+   - Descripcion
  * - BReq-004
- - Cumplimiento de Seguridad
+   - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,17 +188,17 @@ Sin excepciones. El modelo Flat es absoluto.
  :header-rows: 1
 
  * - UC
- - Donde Aplica
+   - Donde Aplica
  * - UC-010
- - Asignar Funciones a Usuario
+   - Asignar Funciones a Usuario
  * - UC-011
- - Gestionar Permisos por Agrupador
+   - Gestionar Permisos por Agrupador
  * - UC-044
- - Consultar Permisos Efectivos
+   - Consultar Permisos Efectivos
  * - UC-045
- - Gestionar Catalogo de Agrupadores
+   - Gestionar Catalogo de Agrupadores
  * - UC-046
- - Gestionar Catalogo de Funciones
+   - Gestionar Catalogo de Funciones
 
 ----
 
@@ -235,10 +235,10 @@ Sin excepciones. El modelo Flat es absoluto.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Descripcion del Cambio
+   - Fecha
+   - Autor
+   - Descripcion del Cambio
  * - 1.0.0
- - 2026-01-04
- - Equipo IACT
- - Version inicial
+   - 2026-01-04
+   - Equipo IACT
+   - Version inicial

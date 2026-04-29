@@ -25,17 +25,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - BR_017
+   - BR_017
  * - **Nombre**
- - Tiempo Promedio de Espera
+   - Tiempo Promedio de Espera
  * - **Tipo**
- - Cálculo
+   - Cálculo
  * - **Categoría**
- - KPI / Métricas Operacionales
+   - KPI / Métricas Operacionales
  * - **Criticidad**
- - Alta
+   - Alta
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -106,9 +106,9 @@ El TPE es un KPI crítico porque:
  :header-rows: 0
 
  * - **Tipo**
- - **Cálculo**
+   - **Cálculo**
  * - 
- - [X] **Cálculo**: Define fórmula matemática para derivar valor
+   - [X] **Cálculo**: Define fórmula matemática para derivar valor
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -130,15 +130,15 @@ El TPE es un KPI crítico porque:
  :header-rows: 1
 
  * - Componente
- - Descripción de Aplicación
+   - Descripción de Aplicación
  * - Dashboard Principal
- - KPI destacado junto a tasa de abandono
+   - KPI destacado junto a tasa de abandono
  * - Gráfico por Hora
- - Tendencia de TPE durante el día
+   - Tendencia de TPE durante el día
  * - Reportes
- - Comparativo por centro y período
+   - Comparativo por centro y período
  * - Alertas
- - Umbral de alerta si > 120 segundos
+   - Umbral de alerta si > 120 segundos
 
 3.2 Umbrales de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -148,20 +148,20 @@ El TPE es un KPI crítico porque:
  :header-rows: 1
 
  * - Rango
- - Clasificación
- - Acción
+   - Clasificación
+   - Acción
  * - 0 - 30 seg
- - Excelente
- - Ninguna
+   - Excelente
+   - Ninguna
  * - 30 - 60 seg
- - Bueno
- - Monitorear
+   - Bueno
+   - Monitorear
  * - 60 - 120 seg
- - Aceptable
- - Revisar capacidad
+   - Aceptable
+   - Revisar capacidad
  * - > 120 seg
- - Crítico
- - Alerta BR_014
+   - Crítico
+   - Alerta BR_014
 
 ----
 
@@ -243,11 +243,11 @@ El TPE es un KPI crítico porque:
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Descripción del Cambio
+   - Fecha
+   - Descripción del Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial
+   - 2026-01-07
+   - Versión inicial
 
 ----
 

@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Derivacion_BReq_BR
+   - PROC_Derivacion_BReq_BR
  * - **Nombre**
- - Derivacion de BReq a BR
+   - Derivacion de BReq a BR
  * - **Categoria**
- - Derivacion
+   - Derivacion
  * - **Ratio Esperado**
- - 1 BReq -> 2-3 BR
+   - 1 BReq -> 2-3 BR
  * - **Duracion**
- - 1-2 horas por BReq
+   - 1-2 horas por BReq
 
 ----
 
@@ -116,17 +116,17 @@ En cada BR, documentar BReq origen.
  :header-rows: 1
 
  * - BReq
- - BR Derivadas
- - Cantidad
+   - BR Derivadas
+   - Cantidad
  * - BReq_001
- - BR_001, BR_002
- - 2
+   - BR_001, BR_002
+   - 2
  * - BReq_002
- - BR_003, BR_004, BR_005
- - 3
+   - BR_003, BR_004, BR_005
+   - 3
  * - BReq_004
- - BR_005, BR_008, BR_015
- - 3
+   - BR_005, BR_008, BR_015
+   - 3
 
 ----
 
@@ -163,11 +163,11 @@ En cada BR, documentar BReq origen.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

@@ -22,19 +22,19 @@ FR-006.05: Registrar evento de creación en auditoría
  :widths: 25 75
 
  * - **ID**
- - FR-006.05
+   - FR-006.05
  * - **Nombre**
- - Registrar creación de usuario en auditoría
+   - Registrar creación de usuario en auditoría
  * - **UC Origen**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Paso UC**
- - Paso 10 del flujo normal
+   - Paso 10 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Auditoría
+   - Auditoría
 
 ----
 
@@ -130,19 +130,19 @@ creación del usuario. Si falla la auditoría, se revierte todo.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_006: Crear Usuario
+   - UC_006: Crear Usuario
  * - **Depende de**
- - FR-006.04
+   - FR-006.04
  * - **Requerido por**
- - FR-061.01 (consulta auditoría)
+   - FR-061.01 (consulta auditoría)
  * - **BR**
- - BR_008
+   - BR_008
  * - **CNST**
- - CNST-009, CNST-010
+   - CNST-009, CNST-010
  * - **TEST**
- - TST-FR-006.05 (pendiente)
+   - TST-FR-006.05 (pendiente)
 
 ----
 
@@ -154,8 +154,8 @@ creación del usuario. Si falla la auditoría, se revierte todo.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_006
+   - 2026-01-07
+   - Versión inicial derivada de UC_006

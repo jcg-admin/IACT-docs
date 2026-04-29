@@ -19,21 +19,21 @@ UC_PIP_02: Consultar Errores ETL
  :header-rows: 0
 
  * - **ID**
- - UC_PIP_02
+   - UC_PIP_02
  * - **Nombre**
- - Consultar Errores ETL
+   - Consultar Errores ETL
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Modulo**
- - MOD_Pipeline
+   - MOD_Pipeline
  * - **Funcion RBAC**
- - PIP-002: ve_errores_etl
+   - PIP-002: ve_errores_etl
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-PIP-002
+   - BRQ-PIP-002
 
 2. Descripcion
 --------------
@@ -86,11 +86,11 @@ para diagnostico.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion PIP-002
+   - El administrador tiene sesion activa con funcion PIP-002
  * - PRE-02
- - Existen registros de ejecuciones ETL
+   - Existen registros de ejecuciones ETL
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -105,11 +105,11 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra el historial de errores filtrado
+   - Se muestra el historial de errores filtrado
  * - POST-02
- - La consulta no modifica ningun dato
+   - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -119,29 +119,29 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede a consulta de errores ETL
+   - Admin
+   - Accede a consulta de errores ETL
  * - 2
- - Sistema
- - Valida funcion PIP-002
+   - Sistema
+   - Valida funcion PIP-002
  * - 3
- - Sistema
- - Consulta ejecuciones con status ERROR
+   - Sistema
+   - Consulta ejecuciones con status ERROR
  * - 4
- - Sistema
- - Presenta lista con: fecha, tipo error, registros afectados
+   - Sistema
+   - Presenta lista con: fecha, tipo error, registros afectados
  * - 5
- - Admin
- - Selecciona un error para ver detalle
+   - Admin
+   - Selecciona un error para ver detalle
  * - 6
- - Sistema
- - Muestra detalle: mensaje, stack trace, contexto
+   - Sistema
+   - Muestra detalle: mensaje, stack trace, contexto
  * - 7
- - Admin
- - Opcionalmente exporta log
+   - Admin
+   - Opcionalmente exporta log
 
 6. Diagrama de Secuencia
 ------------------------
@@ -192,14 +192,14 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 4a
- - Sistema
- - No encuentra errores en el periodo
+   - Sistema
+   - No encuentra errores en el periodo
  * - 4b
- - Sistema
- - Muestra mensaje: Sin errores en el periodo
+   - Sistema
+   - Muestra mensaje: Sin errores en el periodo
 
 7.2 FA-02: Exportar Log
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -209,17 +209,17 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 7a
- - Admin
- - Hace clic en Exportar
+   - Admin
+   - Hace clic en Exportar
  * - 7b
- - Sistema
- - Genera archivo con errores filtrados
+   - Sistema
+   - Genera archivo con errores filtrados
  * - 7c
- - Sistema
- - Descarga archivo
+   - Sistema
+   - Descarga archivo
 
 8. Excepciones
 --------------
@@ -232,15 +232,15 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Usuario no tiene funcion PIP-002
+   - Usuario no tiene funcion PIP-002
  * - **Accion Sistema**
- - Rechaza acceso
+   - Rechaza acceso
  * - **Mensaje Usuario**
- - No tiene permisos para ver errores ETL
+   - No tiene permisos para ver errores ETL
  * - **Codigo Error**
- - PIP-010
+   - PIP-010
 
 9. Diagrama de Actividad
 ------------------------
@@ -282,17 +282,17 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-PIP-10
- - Retencion Errores
- - Los errores se retienen por 90 dias para analisis
+   - Retencion Errores
+   - Los errores se retienen por 90 dias para analisis
  * - BR-PIP-11
- - Solo Lectura
- - No se pueden modificar ni eliminar registros de error
+   - Solo Lectura
+   - No se pueden modificar ni eliminar registros de error
  * - BR-PIP-12
- - Stack Trace Completo
- - Se almacena el stack trace completo para diagnostico
+   - Stack Trace Completo
+   - Se almacena el stack trace completo para diagnostico
 
 **Tipos de Errores ETL:**
 
@@ -301,17 +301,17 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - Tipo
- - Descripcion
+   - Descripcion
  * - CONNECTION_ERROR
- - Fallo de conexion a BD IVR o Analytics
+   - Fallo de conexion a BD IVR o Analytics
  * - VALIDATION_ERROR
- - Datos no cumplen validaciones
+   - Datos no cumplen validaciones
  * - TRANSFORM_ERROR
- - Error en transformacion de datos
+   - Error en transformacion de datos
  * - LOAD_ERROR
- - Error al cargar en Analytics
+   - Error al cargar en Analytics
  * - TIMEOUT_ERROR
- - Ejecucion excedio tiempo limite
+   - Ejecucion excedio tiempo limite
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -321,14 +321,14 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_007
- - BD Dual
- - Los errores se leen de BD Analytics (etl_error_details). Los errores pueden originarse en lectura de IVR o escritura en Analytics.
+   - BD Dual
+   - Los errores se leen de BD Analytics (etl_error_details). Los errores pueden originarse en lectura de IVR o escritura en Analytics.
  * - CNST_025
- - Auditoria Inmutable
- - Los registros de error son inmutables, no pueden modificarse.
+   - Auditoria Inmutable
+   - Los registros de error son inmutables, no pueden modificarse.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -338,17 +338,17 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-PIP-010
- - El sistema debe listar errores ETL
- - Lista paginada con filtros
+   - El sistema debe listar errores ETL
+   - Lista paginada con filtros
  * - FR-PIP-011
- - El sistema debe mostrar detalle de error
- - Mensaje, stack trace, contexto, registros afectados
+   - El sistema debe mostrar detalle de error
+   - Mensaje, stack trace, contexto, registros afectados
  * - FR-PIP-012
- - El sistema debe permitir exportar errores
- - Archivo descargable con filtros aplicados
+   - El sistema debe permitir exportar errores
+   - Archivo descargable con filtros aplicados
 
 13. Trazabilidad
 ----------------
@@ -358,17 +358,17 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-PIP-002: Permitir consulta de errores ETL
+   - BRQ-PIP-002: Permitir consulta de errores ETL
  * - **Reglas de Negocio**
- - BR-PIP-10 a BR-PIP-12
+   - BR-PIP-10 a BR-PIP-12
  * - **Restricciones**
- - CNST_007, CNST_025
+   - CNST_007, CNST_025
  * - **UC Relacionados**
- - UC_PIP_01, UC_PIP_04
+   - UC_PIP_01, UC_PIP_04
  * - **Actor Principal**
- - AGR-009: agr_admin_pipeline
+   - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
- - PIP-002: ve_errores_etl
+   - PIP-002: ve_errores_etl
 
 14. Historial de Cambios
 ------------------------
@@ -378,10 +378,10 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

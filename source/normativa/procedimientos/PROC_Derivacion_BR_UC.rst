@@ -25,15 +25,15 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Derivacion_BR_UC
+   - PROC_Derivacion_BR_UC
  * - **Nombre**
- - Derivacion de BR a UC
+   - Derivacion de BR a UC
  * - **Categoria**
- - Derivacion
+   - Derivacion
  * - **Ratio Esperado**
- - 1 BR -> 2-3 UC
+   - 1 BR -> 2-3 UC
  * - **Duracion**
- - 1-2 horas por modulo
+   - 1-2 horas por modulo
 
 ----
 
@@ -126,17 +126,17 @@ Cada BR debe tener al menos 1 UC que la implemente.
  :header-rows: 1
 
  * - BR
- - UC que Aplican
- - Cantidad
+   - UC que Aplican
+   - Cantidad
  * - BR_005
- - UC_001, UC_002, UC_005
- - 3
+   - UC_001, UC_002, UC_005
+   - 3
  * - BR_008
- - UC_001, UC_002, UC_060
- - 3
+   - UC_001, UC_002, UC_060
+   - 3
  * - BR_015
- - UC_001
- - 1
+   - UC_001
+   - 1
 
 ----
 
@@ -173,11 +173,11 @@ Cada BR debe tener al menos 1 UC que la implemente.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

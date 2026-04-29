@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_001
+   - CNST_001
  * - **Categoria**
- - Comunicaciones
+   - Comunicaciones
  * - **Tipo (TXM_01)**
- - Negocio
+   - Negocio
  * - **Criticidad**
- - Critico
+   - Critico
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -97,11 +97,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - Modulo
- - Impacto
+   - Impacto
  * - MOD_Notifications
- - Implementa el buzon interno como unico canal
+   - Implementa el buzon interno como unico canal
  * - MOD_Auth
- - Recuperacion de password sin email
+   - Recuperacion de password sin email
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,19 +111,19 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - UC
- - Impacto
+   - Impacto
  * - UC_003
- - Recuperar Contraseña — usa preguntas de seguridad en lugar de email
+   - Recuperar Contraseña — usa preguntas de seguridad en lugar de email
  * - UC_036
- - Configurar Alertas — destino unico buzon interno
+   - Configurar Alertas — destino unico buzon interno
  * - UC_037
- - Recibir Notificacion
+   - Recibir Notificacion
  * - UC_038
- - Marcar Alerta como Leida
+   - Marcar Alerta como Leida
  * - UC_039
- - Archivar Alerta
+   - Archivar Alerta
  * - UC_040
- - Consultar Historial de Alertas
+   - Consultar Historial de Alertas
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -141,11 +141,11 @@ Ver subseccion 2.1.
  :header-rows: 1
 
  * - BR
- - Nombre
- - Relacion
+   - Nombre
+   - Relacion
  * - BR (pendiente)
- - Notificacion via buzon interno como BR derivada
- - FND_07:561-563 — pendiente WP requisitos
+   - Notificacion via buzon interno como BR derivada
+   - FND_07:561-563 — pendiente WP requisitos
 
 5. Implementacion
 -----------------
@@ -204,15 +204,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_002_Buzon_Interno_Obligatorio`
+   - :doc:`CNST_002_Buzon_Interno_Obligatorio`
  * - **BR derivadas**
- - BR (pendiente)
+   - BR (pendiente)
  * - **UCs afectados**
- - UC_003, UC_036, UC_037, UC_038, UC_039, UC_040
+   - UC_003, UC_036, UC_037, UC_038, UC_039, UC_040
  * - **MODs afectados**
- - MOD_Notifications, MOD_Auth
+   - MOD_Notifications, MOD_Auth
  * - **ADRs relacionados**
- - Pendiente WP arquitectura tecnica
+   - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
@@ -222,15 +222,15 @@ El cumplimiento se verifica via los snippets de la seccion 5.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-17
- - NestorMonroy
- - Version inicial (consolidada del backup canonico)
+   - 2025-12-17
+   - NestorMonroy
+   - Version inicial (consolidada del backup canonico)
  * - 2.0.0
- - 2026-04-28
- - NestorMonroy
- - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+   - 2026-04-28
+   - NestorMonroy
+   - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

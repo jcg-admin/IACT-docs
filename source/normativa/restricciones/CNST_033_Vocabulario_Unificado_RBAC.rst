@@ -24,17 +24,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - CNST_033
+   - CNST_033
  * - **Categoria**
- - RBAC
+   - RBAC
  * - **Tipo (TXM_01)**
- - Tecnica
+   - Tecnica
  * - **Criticidad**
- - Alto
+   - Alto
  * - **Negociable**
- - No
+   - No
  * - **Estado**
- - Vigente
+   - Vigente
 
 1. Definicion
 -------------
@@ -91,49 +91,49 @@ el de la columna izquierda**.
  :header-rows: 1
 
  * - Termino canonico (docs)
- - Termino en codigo
- - Termino legacy v5.2.1
- - Termino PERM granular (deprecated)
+   - Termino en codigo
+   - Termino legacy v5.2.1
+   - Termino PERM granular (deprecated)
  * - Funcion
- - Function
- - Funcion (``functions``)
- - Capacidad (``Capacidad``)
+   - Function
+   - Funcion (``functions``)
+   - Capacidad (``Capacidad``)
  * - Grupo de Permisos
- - FunctionGroup
- - Grupo (``function_groups``)
- - GrupoPermiso
+   - FunctionGroup
+   - Grupo (``function_groups``)
+   - GrupoPermiso
  * - Membresia
- - GroupMembership
- - ``function_group_membership``
- - GrupoCapacidad
+   - GroupMembership
+   - ``function_group_membership``
+   - GrupoCapacidad
  * - Asignacion de Grupo
- - UserGroupAssignment
- - ``user_function_group_assignments``
- - UsuarioGrupo
+   - UserGroupAssignment
+   - ``user_function_group_assignments``
+   - UsuarioGrupo
  * - Asignacion Directa
- - DirectFunctionAssignment
- - ``user_function_assignments``
- - (parte de ``PermisoExcepcional``)
+   - DirectFunctionAssignment
+   - ``user_function_assignments``
+   - (parte de ``PermisoExcepcional``)
  * - Permiso Excepcional / Temporal
- - TemporaryPermission
- - (asignacion directa con expires_at)
- - ``PermisoExcepcional``
+   - TemporaryPermission
+   - (asignacion directa con expires_at)
+   - ``PermisoExcepcional``
  * - Regla SoD
- - SeparationOfDutiesRule
- - ``function_separation_rules``
- - (sin equivalente)
+   - SeparationOfDutiesRule
+   - ``function_separation_rules``
+   - (sin equivalente)
  * - Verificacion de Permiso
- - has_permission
- - ``usuario_tiene_permiso``
- - ``verificar_permiso_y_auditar``
+   - has_permission
+   - ``usuario_tiene_permiso``
+   - ``verificar_permiso_y_auditar``
  * - Menu Dinamico
- - get_user_menu
- - (no existia en v5.2.1)
- - ``obtener_menu_usuario``
+   - get_user_menu
+   - (no existia en v5.2.1)
+   - ``obtener_menu_usuario``
  * - AuditoriaPermiso
- - PermissionAudit
- - (no existia en v5.2.1)
- - ``AuditoriaPermiso``
+   - PermissionAudit
+   - (no existia en v5.2.1)
+   - ``AuditoriaPermiso``
 
 2.2 Convencion de idioma (referencia)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,26 +143,26 @@ el de la columna izquierda**.
  :header-rows: 1
 
  * - Tipo de elemento
- - Idioma
- - Ejemplo
+   - Idioma
+   - Ejemplo
  * - Modelos Django, clases, metodos
- - Ingles
- - ``class FunctionGroup``
+   - Ingles
+   - ``class FunctionGroup``
  * - Funciones SQL nativas (PostgreSQL)
- - Ingles
- - ``user_has_permission``
+   - Ingles
+   - ``user_has_permission``
  * - Variables, atributos
- - Ingles
- - ``user_id``, ``expires_at``
+   - Ingles
+   - ``user_id``, ``expires_at``
  * - Codigos de funciones (capabilities)
- - Ingles
- - ``manage_sessions``, ``view_reports``
+   - Ingles
+   - ``manage_sessions``, ``view_reports``
  * - Comentarios, docstrings, help_text
- - Espanol
- - ``"""Grupo de funciones que se asignan juntas."""``
+   - Espanol
+   - ``"""Grupo de funciones que se asignan juntas."""``
  * - Documentacion (.rst, .md)
- - Espanol
- - "El sistema permite..."
+   - Espanol
+   - "El sistema permite..."
 
 Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTANDAR DE NOMENCLATURA
 v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
@@ -274,18 +274,18 @@ ADR-GOB-008. Ver
  :header-rows: 0
 
  * - **CNSTs relacionadas**
- - :doc:`CNST_029_RBAC_Modelo_Plano`,
- :doc:`CNST_032_Menu_Dinamico_Obligatorio`
+   - :doc:`CNST_029_RBAC_Modelo_Plano`,
+     :doc:`CNST_032_Menu_Dinamico_Obligatorio`
  * - **BR derivadas**
- - Pendiente WP requisitos
+   - Pendiente WP requisitos
  * - **UCs afectados**
- - Transversal (todos los UCs deben usar vocabulario canonico)
+   - Transversal (todos los UCs deben usar vocabulario canonico)
  * - **MODs afectados**
- - Transversal
+   - Transversal
  * - **ADRs relacionados**
- - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
+   - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
  * - **Glosario canonico**
- - :doc:`/base_cognitiva/glosario` § H
+   - :doc:`/base_cognitiva/glosario` § H
 
 9. Historial de Cambios
 -----------------------
@@ -295,11 +295,11 @@ ADR-GOB-008. Ver
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-04-29
- - NestorMonroy
- - Version inicial. Restriccion creada en iteracion correspondiente tras decisiones
- D-RBAC-1 y D-RBAC-6 del WP #6.
+   - 2026-04-29
+   - NestorMonroy
+   - Version inicial. Restriccion creada en iteracion correspondiente tras decisiones
+     D-RBAC-1 y D-RBAC-6 del WP #6.

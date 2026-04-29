@@ -19,21 +19,21 @@ UC_ALR_03: Reconocer Alerta
  :header-rows: 0
 
  * - **ID**
- - UC_ALR_03
+   - UC_ALR_03
  * - **Nombre**
- - Reconocer Alerta
+   - Reconocer Alerta
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Alerts
+   - MOD_Alerts
  * - **Funcion RBAC**
- - ALR-003: reconoce_alertas
+   - ALR-003: reconoce_alertas
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-ALR-003
+   - BRQ-ALR-003
 
 2. Descripcion
 --------------
@@ -91,13 +91,13 @@ al equipo via InternalMessage (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion ALR-003
+   - El usuario tiene sesion activa con funcion ALR-003
  * - PRE-02
- - La alerta existe y esta en estado ACTIVE
+   - La alerta existe y esta en estado ACTIVE
  * - PRE-03
- - La alerta pertenece al segmento del usuario
+   - La alerta pertenece al segmento del usuario
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -114,13 +114,13 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - La alerta queda marcada como ACKNOWLEDGED
+   - La alerta queda marcada como ACKNOWLEDGED
  * - POST-02
- - Se registra ALERT_ACK en auditoria (CNST_025)
+   - Se registra ALERT_ACK en auditoria (CNST_025)
  * - POST-03
- - Se notifica al equipo via InternalMessage (CNST_001)
+   - Se notifica al equipo via InternalMessage (CNST_001)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -130,41 +130,41 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Supervisor
- - Visualiza alerta activa en el panel
+   - Supervisor
+   - Visualiza alerta activa en el panel
  * - 2
- - Supervisor
- - Hace clic en boton Reconocer
+   - Supervisor
+   - Hace clic en boton Reconocer
  * - 3
- - Sistema
- - Valida funcion ALR-003
+   - Sistema
+   - Valida funcion ALR-003
  * - 4
- - Sistema
- - Muestra dialogo de reconocimiento
+   - Sistema
+   - Muestra dialogo de reconocimiento
  * - 5
- - Supervisor
- - Opcionalmente ingresa comentario de accion
+   - Supervisor
+   - Opcionalmente ingresa comentario de accion
  * - 6
- - Supervisor
- - Confirma reconocimiento
+   - Supervisor
+   - Confirma reconocimiento
  * - 7
- - Sistema
- - Actualiza estado de alerta a ACKNOWLEDGED
+   - Sistema
+   - Actualiza estado de alerta a ACKNOWLEDGED
  * - 8
- - Sistema
- - Registra usuario y timestamp de reconocimiento
+   - Sistema
+   - Registra usuario y timestamp de reconocimiento
  * - 9
- - Sistema
- - Registra ALERT_ACK en auditoria
+   - Sistema
+   - Registra ALERT_ACK en auditoria
  * - 10
- - Sistema
- - Envia notificacion via InternalMessage al equipo
+   - Sistema
+   - Envia notificacion via InternalMessage al equipo
  * - 11
- - Sistema
- - Muestra confirmacion
+   - Sistema
+   - Muestra confirmacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -235,14 +235,14 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Supervisor
- - Ingresa comentario detallado de accion tomada
+   - Supervisor
+   - Ingresa comentario detallado de accion tomada
  * - 10a
- - Sistema
- - Incluye comentario en la notificacion al equipo
+   - Sistema
+   - Incluye comentario en la notificacion al equipo
 
 7.2 FA-02: Reconocer Multiples Alertas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,17 +252,17 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Supervisor
- - Selecciona multiples alertas activas
+   - Supervisor
+   - Selecciona multiples alertas activas
  * - 2a
- - Supervisor
- - Hace clic en Reconocer Seleccionadas
+   - Supervisor
+   - Hace clic en Reconocer Seleccionadas
  * - 7a
- - Sistema
- - Procesa reconocimiento de cada alerta
+   - Sistema
+   - Procesa reconocimiento de cada alerta
 
 8. Excepciones
 --------------
@@ -275,15 +275,15 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - La alerta ya tiene status ACKNOWLEDGED
+   - La alerta ya tiene status ACKNOWLEDGED
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - Esta alerta ya fue reconocida por [usuario] el [fecha]
+   - Esta alerta ya fue reconocida por [usuario] el [fecha]
  * - **Codigo Error**
- - ALR-020
+   - ALR-020
 
 8.2 EX-02: Alerta Ya Resuelta
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,15 +293,15 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - La alerta ya tiene status RESOLVED
+   - La alerta ya tiene status RESOLVED
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - Esta alerta ya fue resuelta automaticamente
+   - Esta alerta ya fue resuelta automaticamente
  * - **Codigo Error**
- - ALR-021
+   - ALR-021
 
 8.3 EX-03: Sin Permiso ALR-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -311,15 +311,15 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - Usuario no tiene funcion ALR-003
+   - Usuario no tiene funcion ALR-003
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - No tiene permisos para reconocer alertas
+   - No tiene permisos para reconocer alertas
  * - **Codigo Error**
- - ALR-022
+   - ALR-022
 
 9. Diagrama de Actividad
 ------------------------
@@ -376,20 +376,20 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ALR-20
- - Unico Reconocimiento
- - Una alerta solo puede ser reconocida una vez
+   - Unico Reconocimiento
+   - Una alerta solo puede ser reconocida una vez
  * - BR-ALR-21
- - No Resuelve
- - El reconocimiento no resuelve la alerta, solo indica que se vio
+   - No Resuelve
+   - El reconocimiento no resuelve la alerta, solo indica que se vio
  * - BR-ALR-22
- - Notificacion Equipo
- - Se notifica al equipo via InternalMessage unicamente
+   - Notificacion Equipo
+   - Se notifica al equipo via InternalMessage unicamente
  * - BR-ALR-23
- - Registro Completo
- - Se registra usuario, timestamp y comentario opcional
+   - Registro Completo
+   - Se registra usuario, timestamp y comentario opcional
 
 **Transiciones de Estado:**
 
@@ -407,14 +407,14 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_001
- - Comunicacion Interna
- - Notificacion de reconocimiento SOLO via InternalMessage.notify. PROHIBIDO email/SMS.
+   - Comunicacion Interna
+   - Notificacion de reconocimiento SOLO via InternalMessage.notify. PROHIBIDO email/SMS.
  * - CNST_025
- - Auditoria Inmutable
- - Registro ALERT_ACK con usuario, alerta, comentario y timestamp.
+   - Auditoria Inmutable
+   - Registro ALERT_ACK con usuario, alerta, comentario y timestamp.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -424,20 +424,20 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ALR-020
- - El sistema debe permitir reconocer alertas
- - Estado cambia a ACKNOWLEDGED correctamente
+   - El sistema debe permitir reconocer alertas
+   - Estado cambia a ACKNOWLEDGED correctamente
  * - FR-ALR-021
- - El sistema debe registrar quien reconocio
- - Campos acked_by y acked_at poblados
+   - El sistema debe registrar quien reconocio
+   - Campos acked_by y acked_at poblados
  * - FR-ALR-022
- - El sistema debe notificar al equipo
- - Mensaje enviado via InternalMessage
+   - El sistema debe notificar al equipo
+   - Mensaje enviado via InternalMessage
  * - FR-ALR-023
- - El sistema debe auditar el reconocimiento
- - Registro en user_action_log
+   - El sistema debe auditar el reconocimiento
+   - Registro en user_action_log
 
 13. Trazabilidad
 ----------------
@@ -447,17 +447,17 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ALR-003: Reconocer alertas activas
+   - BRQ-ALR-003: Reconocer alertas activas
  * - **Reglas de Negocio**
- - BR-ALR-20 a BR-ALR-23
+   - BR-ALR-20 a BR-ALR-23
  * - **Restricciones**
- - CNST_001 (InternalMessage), CNST_025 (Auditoria)
+   - CNST_001 (InternalMessage), CNST_025 (Auditoria)
  * - **UC Relacionados**
- - UC_ALR_02 (Ver Alertas), UC_ALR_04 (Historial)
+   - UC_ALR_02 (Ver Alertas), UC_ALR_04 (Historial)
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - ALR-003: reconoce_alertas
+   - ALR-003: reconoce_alertas
 
 14. Historial de Cambios
 ------------------------
@@ -467,10 +467,10 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_001
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_001

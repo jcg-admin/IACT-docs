@@ -19,21 +19,21 @@ UC_RPT_08: Ver Reportes Programados
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_08
+   - UC_RPT_08
  * - **Nombre**
- - Ver Reportes Programados
+   - Ver Reportes Programados
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-008: ve_programados
+   - RPT-008: ve_programados
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-RPT-008
+   - BRQ-RPT-008
 
 2. Descripcion
 --------------
@@ -77,9 +77,9 @@ proxima ejecucion y historial de ejecuciones anteriores.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - Usuario tiene funcion RPT-008
+   - Usuario tiene funcion RPT-008
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -94,9 +94,9 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra lista de programaciones
+   - Se muestra lista de programaciones
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -106,23 +106,23 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Accede a reportes programados
+   - Usuario
+   - Accede a reportes programados
  * - 2
- - Sistema
- - Valida RPT-008
+   - Sistema
+   - Valida RPT-008
  * - 3
- - Sistema
- - Consulta programaciones del segmento
+   - Sistema
+   - Consulta programaciones del segmento
  * - 4
- - Sistema
- - Muestra lista con estado y proxima ejecucion
+   - Sistema
+   - Muestra lista con estado y proxima ejecucion
  * - 5
- - Usuario
- - Selecciona programacion para ver detalle
+   - Usuario
+   - Selecciona programacion para ver detalle
 
 6. Diagrama de Secuencia
 ------------------------
@@ -168,14 +168,14 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 5a
- - Usuario
- - Hace clic en Ver Historial
+   - Usuario
+   - Hace clic en Ver Historial
  * - 5b
- - Sistema
- - Muestra ejecuciones anteriores con estado
+   - Sistema
+   - Muestra ejecuciones anteriores con estado
 
 8. Excepciones
 --------------
@@ -188,9 +188,9 @@ Usuario accede a reportes programados.
  :header-rows: 0
 
  * - **Condicion**
- - No hay programaciones para el segmento
+   - No hay programaciones para el segmento
  * - **Mensaje**
- - No hay reportes programados
+   - No hay reportes programados
 
 9. Diagrama de Actividad
 ------------------------
@@ -224,14 +224,14 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-70
- - Por Segmento
- - Solo programaciones del segmento del usuario
+   - Por Segmento
+   - Solo programaciones del segmento del usuario
  * - BR-RPT-71
- - Historial
- - Se conservan ultimas 30 ejecuciones
+   - Historial
+   - Se conservan ultimas 30 ejecuciones
 
 **Estados de Programacion:**
 
@@ -240,13 +240,13 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - Estado
- - Descripcion
+   - Descripcion
  * - ACTIVE
- - Programacion activa, se ejecutara
+   - Programacion activa, se ejecutara
  * - PAUSED
- - Pausada temporalmente
+   - Pausada temporalmente
  * - DISABLED
- - Deshabilitada
+   - Deshabilitada
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -256,11 +256,11 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion
+   - Nombre
+   - Aplicacion
  * - CNST_008
- - Segmentos
- - Solo programaciones del segmento
+   - Segmentos
+   - Solo programaciones del segmento
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -270,14 +270,14 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-070
- - Listar programaciones
- - Lista con estado y proxima ejecucion
+   - Listar programaciones
+   - Lista con estado y proxima ejecucion
  * - FR-RPT-071
- - Ver historial
- - Ultimas 30 ejecuciones
+   - Ver historial
+   - Ultimas 30 ejecuciones
 
 13. Trazabilidad
 ----------------
@@ -287,15 +287,15 @@ Usuario accede a reportes programados.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-008
+   - BRQ-RPT-008
  * - **Restricciones**
- - CNST_008
+   - CNST_008
  * - **UC Relacionados**
- - UC_RPT_07
+   - UC_RPT_07
  * - **Actor Principal**
- - AGR-003: agr_supervisor
+   - AGR-003: agr_supervisor
  * - **Funcion RBAC**
- - RPT-008: ve_programados
+   - RPT-008: ve_programados
 
 14. Historial de Cambios
 ------------------------
@@ -305,8 +305,8 @@ Usuario accede a reportes programados.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Version inicial v4.0
+   - 2026-01-06
+   - Version inicial v4.0

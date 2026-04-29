@@ -22,19 +22,19 @@ FR-010.04: Calcular permisos efectivos
  :widths: 25 75
 
  * - **ID**
- - FR-010.04
+   - FR-010.04
  * - **Nombre**
- - Calcular permisos efectivos del usuario
+   - Calcular permisos efectivos del usuario
  * - **UC Origen**
- - UC_010: Asignar Funciones a Usuario
+   - UC_010: Asignar Funciones a Usuario
  * - **Paso UC**
- - Paso 6 del flujo normal (preview)
+   - Paso 6 del flujo normal (preview)
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -131,17 +131,17 @@ ni denegaciones explícitas en el modelo RBAC Flat.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_010: Asignar Funciones
+   - UC_010: Asignar Funciones
  * - **Depende de**
- - FR-010.03
+   - FR-010.03
  * - **Requerido por**
- - FR-044.01 (consulta permisos)
+   - FR-044.01 (consulta permisos)
  * - **BR**
- - BR_006
+   - BR_006
  * - **TEST**
- - TST-FR-010.04 (pendiente)
+   - TST-FR-010.04 (pendiente)
 
 ----
 
@@ -153,8 +153,8 @@ ni denegaciones explícitas en el modelo RBAC Flat.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_010
+   - 2026-01-07
+   - Versión inicial derivada de UC_010

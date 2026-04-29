@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Generacion_TST
+   - PROC_Generacion_TST
  * - **Nombre**
- - Generacion de Casos de Prueba
+   - Generacion de Casos de Prueba
  * - **Categoria**
- - Generacion de Artefactos
+   - Generacion de Artefactos
  * - **Frecuencia**
- - Por cada FR a verificar
+   - Por cada FR a verificar
  * - **Duracion Estimada**
- - 15-30 minutos por TST
+   - 15-30 minutos por TST
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -81,14 +81,14 @@ garanticen la verificacion de cada FR.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Tester
- - Genera TST siguiendo TPL
- - Escritura en pruebas/
+   - Genera TST siguiendo TPL
+   - Escritura en pruebas/
  * - Desarrollador
- - Revisa codigo pytest
- - Lectura de TST
+   - Revisa codigo pytest
+   - Lectura de TST
 
 ----
 
@@ -112,17 +112,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_TST_Pruebas_1_0_0.rst
- - Template de TST
- - Si
+   - Template de TST
+   - Si
  * - FR_[ID].rst
- - Requisito Funcional origen
- - Si
+   - Requisito Funcional origen
+   - Si
  * - UC_[NNN].rst
- - Caso de Uso relacionado
- - No
+   - Caso de Uso relacionado
+   - No
 
 ----
 
@@ -384,14 +384,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - TST_[MOD]_[NNN]_[Nombre].rst
- - Caso de Prueba documentado
- - /tmp/pruebas/[mod]/
+   - Caso de Prueba documentado
+   - /tmp/pruebas/[mod]/
  * - test_[nombre].py
- - Codigo pytest (opcional)
- - tests/test_[mod]/
+   - Codigo pytest (opcional)
+   - tests/test_[mod]/
 
 ----
 
@@ -429,29 +429,29 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - #
- - Seccion
- - Verificar
+   - Seccion
+   - Verificar
  * - 1
- - Objetivo
- - Claro y relacionado con FR
+   - Objetivo
+   - Claro y relacionado con FR
  * - 2
- - Precondiciones
- - Checklist completo
+   - Precondiciones
+   - Checklist completo
  * - 3
- - Datos de Prueba
- - Entrada y contexto
+   - Datos de Prueba
+   - Entrada y contexto
  * - 4
- - Pasos de Ejecucion
- - Tabla accion/resultado
+   - Pasos de Ejecucion
+   - Tabla accion/resultado
  * - 5
- - Resultado Esperado
- - Criterios exito/fallo
+   - Resultado Esperado
+   - Criterios exito/fallo
  * - 6
- - Codigo de Prueba
- - pytest implementado
+   - Codigo de Prueba
+   - pytest implementado
  * - 7
- - Trazabilidad
- - FR, UC, BR enlazados
+   - Trazabilidad
+   - FR, UC, BR enlazados
 
 ----
 
@@ -463,13 +463,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - FR sin Criterio de Aceptacion
- - Solicitar completar FR primero
+   - Solicitar completar FR primero
  * - Codigo no ejecutable
- - Documentar como "manual" temporalmente
+   - Documentar como "manual" temporalmente
  * - Multiples escenarios en un FR
- - Crear TST separado por escenario
+   - Crear TST separado por escenario
 
 ----
 
@@ -491,13 +491,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

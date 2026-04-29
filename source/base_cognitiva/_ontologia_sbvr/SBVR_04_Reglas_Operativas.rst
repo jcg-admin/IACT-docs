@@ -62,20 +62,20 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
  :widths: 20 30 50
 
  * - Tipo
- - Keyword
- - Descripcion
+   - Keyword
+   - Descripcion
  * - **Obligacion**
- - DEBE
- - Accion requerida, no opcional
+   - DEBE
+   - Accion requerida, no opcional
  * - **Prohibicion**
- - NO DEBE
- - Accion no permitida bajo ninguna condicion
+   - NO DEBE
+   - Accion no permitida bajo ninguna condicion
  * - **Permiso**
- - PUEDE
- - Accion opcional, permitida pero no requerida
+   - PUEDE
+   - Accion opcional, permitida pero no requerida
  * - **Restriccion**
- - SOLO, UNICAMENTE
- - Limita quien o cuando puede hacer algo
+   - SOLO, UNICAMENTE
+   - Limita quien o cuando puede hacer algo
 
 ----
 
@@ -696,125 +696,125 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
  :widths: 12 30 15 20 23
 
  * - Codigo
- - Regla
- - Tipo
- - Keyword
- - Referencia
+   - Regla
+   - Tipo
+   - Keyword
+   - Referencia
  * - DEO-001
- - Usuario debe tener rol
- - Obligacion
- - DEBE
- - ALE-012
+   - Usuario debe tener rol
+   - Obligacion
+   - DEBE
+   - ALE-012
  * - DEO-002
- - Sesion registra IP
- - Obligacion
- - DEBE
- - Auditoria
+   - Sesion registra IP
+   - Obligacion
+   - DEBE
+   - Auditoria
  * - DEO-003
- - Accion genera auditoria
- - Obligacion
- - DEBE
- - Compliance
+   - Accion genera auditoria
+   - Obligacion
+   - DEBE
+   - Compliance
  * - DEO-004
- - Alerta tiene destinatario
- - Obligacion
- - DEBE
- - ALE-014
+   - Alerta tiene destinatario
+   - Obligacion
+   - DEBE
+   - ALE-014
  * - DEO-005
- - Cambio rol justificado
- - Obligacion
- - DEBE
- - Gobernanza
+   - Cambio rol justificado
+   - Obligacion
+   - DEBE
+   - Gobernanza
  * - DEO-006
- - Password cumple politica
- - Obligacion
- - DEBE
- - Seguridad
+   - Password cumple politica
+   - Obligacion
+   - DEBE
+   - Seguridad
  * - DEO-007
- - No roles conflictivos
- - Prohibicion
- - NO DEBE
- - BR_015
+   - No roles conflictivos
+   - Prohibicion
+   - NO DEBE
+   - BR_015
  * - DEO-008
- - No email externo
- - Prohibicion
- - NO DEBE
- - CNST_001
+   - No email externo
+   - Prohibicion
+   - NO DEBE
+   - CNST_001
  * - DEO-009
- - No modificar BD IVR
- - Prohibicion
- - NO DEBE
- - BR_001
+   - No modificar BD IVR
+   - Prohibicion
+   - NO DEBE
+   - BR_001
  * - DEO-010
- - No modificar auditoria
- - Prohibicion
- - NO DEBE
- - ALE-015
+   - No modificar auditoria
+   - Prohibicion
+   - NO DEBE
+   - ALE-015
  * - DEO-011
- - Inactivo no login
- - Prohibicion
- - NO DEBE
- - Seguridad
+   - Inactivo no login
+   - Prohibicion
+   - NO DEBE
+   - Seguridad
  * - DEO-012
- - No exceder 50K export
- - Prohibicion
- - NO DEBE
- - Seguridad
+   - No exceder 50K export
+   - Prohibicion
+   - NO DEBE
+   - Seguridad
  * - DEO-013
- - Admin cierra sesion
- - Permiso
- - PUEDE
- - R016
+   - Admin cierra sesion
+   - Permiso
+   - PUEDE
+   - R016
  * - DEO-014
- - Personalizar dashboard
- - Permiso
- - PUEDE
- - R009
+   - Personalizar dashboard
+   - Permiso
+   - PUEDE
+   - R009
  * - DEO-015
- - Analista consulta SQL
- - Permiso
- - PUEDE
- - R010
+   - Analista consulta SQL
+   - Permiso
+   - PUEDE
+   - R010
  * - DEO-016
- - Solo admin gestiona
- - Restriccion
- - SOLO
- - R001
+   - Solo admin gestiona
+   - Restriccion
+   - SOLO
+   - R001
  * - DEO-017
- - Solo buzon interno
- - Restriccion
- - UNICAMENTE
- - CNST_001
+   - Solo buzon interno
+   - Restriccion
+   - UNICAMENTE
+   - CNST_001
  * - DEO-018
- - Solo ETL nocturno
- - Restriccion
- - SOLO
- - BR_002
+   - Solo ETL nocturno
+   - Restriccion
+   - SOLO
+   - BR_002
  * - DEO-019
- - Solo auditor ve logs
- - Restriccion
- - SOLO
- - R017
+   - Solo auditor ve logs
+   - Restriccion
+   - SOLO
+   - R017
  * - DEO-020
- - 90 dias -> inactivo
- - Trigger
- - SI...ENTONCES
- - BR_003
+   - 90 dias -> inactivo
+   - Trigger
+   - SI...ENTONCES
+   - BR_003
  * - DEO-021
- - 3 intentos -> bloqueo
- - Trigger
- - SI...ENTONCES
- - Seguridad
+   - 3 intentos -> bloqueo
+   - Trigger
+   - SI...ENTONCES
+   - Seguridad
  * - DEO-022
- - Alerta -> notificar
- - Trigger
- - SI...ENTONCES
- - Alertas
+   - Alerta -> notificar
+   - Trigger
+   - SI...ENTONCES
+   - Alertas
  * - DEO-023
- - >10K -> confirmar
- - Trigger
- - SI...ENTONCES
- - UX
+   - >10K -> confirmar
+   - Trigger
+   - SI...ENTONCES
+   - UX
 
 ----
 
@@ -849,13 +849,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-20
- - Equipo IACT
- - Version inicial con 23 reglas operativas
+   - 2025-12-20
+   - Equipo IACT
+   - Version inicial con 23 reglas operativas
 
 ----
 

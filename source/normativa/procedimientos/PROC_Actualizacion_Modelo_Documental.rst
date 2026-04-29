@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Actualizacion_Modelo_Documental
+   - PROC_Actualizacion_Modelo_Documental
  * - **Nombre**
- - Actualizar Modelo Documental IACT
+   - Actualizar Modelo Documental IACT
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada cambio significativo
+   - Por cada cambio significativo
  * - **Duracion Estimada**
- - 30-60 minutos
+   - 30-60 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -78,14 +78,14 @@ del proyecto, aplicando versionado semantico.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Arquitecto Doc
- - Ejecuta actualizacion
- - Escritura en modelo
+   - Ejecuta actualizacion
+   - Escritura en modelo
  * - QA Lead
- - Valida consistencia
- - Lectura de modelo
+   - Valida consistencia
+   - Lectura de modelo
 
 ----
 
@@ -108,17 +108,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - MODELO_DOCUMENTAL_IACT_vX.Y.Z.md
- - Version actual del modelo
- - Si
+   - Version actual del modelo
+   - Si
  * - Lista de cambios
- - Cambios a incorporar
- - Si
+   - Cambios a incorporar
+   - Si
  * - STD_006
- - Estandar de versionado
- - Si
+   - Estandar de versionado
+   - Si
 
 ----
 
@@ -250,17 +250,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - v2.1.2
- - 2026-01-07
- - +8 PROC FASE 1, +11 TPL
+   - 2026-01-07
+   - +8 PROC FASE 1, +11 TPL
  * - v2.1.1
- - 2026-01-07
- - +10 BR, STD_006
+   - 2026-01-07
+   - +10 BR, STD_006
  * - v2.1.0
- - 2026-01-06
- - Modelo base
+   - 2026-01-06
+   - Modelo base
 
 - **Resultado**: CHANGELOG actualizado
 - **Verificacion**: Entrada agregada
@@ -304,11 +304,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - MODELO_DOCUMENTAL_IACT_vX_Y_Z.md
- - Modelo actualizado
- - /mnt/user-data/outputs/
+   - Modelo actualizado
+   - /mnt/user-data/outputs/
 
 ----
 
@@ -355,13 +355,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Metricas no cuadran
- - Recontar artefactos reales
+   - Recontar artefactos reales
  * - Version duplicada
- - Incrementar PATCH adicional
+   - Incrementar PATCH adicional
  * - Cambios multiples categorias
- - Usar incremento mayor
+   - Usar incremento mayor
 
 ----
 
@@ -381,13 +381,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

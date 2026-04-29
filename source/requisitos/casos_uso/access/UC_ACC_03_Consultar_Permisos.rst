@@ -28,23 +28,23 @@ UC_ACC_03: Consultar Permisos
  :header-rows: 0
 
  * - **ID**
- - UC_ACC_03
+   - UC_ACC_03
  * - **Nombre**
- - Consultar Permisos
+   - Consultar Permisos
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Actor Secundario**
- - N/A
+   - N/A
  * - **Modulo**
- - MOD_Access
+   - MOD_Access
  * - **Funcion RBAC**
- - ACC-003: ve_asignaciones
+   - ACC-003: ve_asignaciones
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Baja
+   - Baja
  * - **BReq Origen**
- - BRQ-ACC-003
+   - BRQ-ACC-003
 
 2. Descripcion
 --------------
@@ -101,11 +101,11 @@ directamente, funciones de agrupadores y permisos temporales.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion ACC-003
+   - El administrador tiene sesion activa con funcion ACC-003
  * - PRE-02
- - El usuario consultado existe en el sistema
+   - El usuario consultado existe en el sistema
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -120,11 +120,11 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se muestra la informacion de permisos del usuario
+   - Se muestra la informacion de permisos del usuario
  * - POST-02
- - La consulta no modifica ningun dato
+   - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -134,38 +134,38 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de control de acceso
+   - Admin
+   - Accede al modulo de control de acceso
  * - 2
- - Sistema
- - Valida funcion ACC-003 (ve_asignaciones)
+   - Sistema
+   - Valida funcion ACC-003 (ve_asignaciones)
  * - 3
- - Admin
- - Busca y selecciona usuario
+   - Admin
+   - Busca y selecciona usuario
  * - 4
- - Sistema
- - Consulta funciones directas del usuario
+   - Sistema
+   - Consulta funciones directas del usuario
  * - 5
- - Sistema
- - Consulta agrupadores asignados
+   - Sistema
+   - Consulta agrupadores asignados
  * - 6
- - Sistema
- - Consulta permisos temporales activos
+   - Sistema
+   - Consulta permisos temporales activos
  * - 7
- - Sistema
- - Consulta segmento asignado
+   - Sistema
+   - Consulta segmento asignado
  * - 8
- - Sistema
- - Calcula permisos efectivos (union)
+   - Sistema
+   - Calcula permisos efectivos (union)
  * - 9
- - Sistema
- - Detecta posibles conflictos SoD
+   - Sistema
+   - Detecta posibles conflictos SoD
  * - 10
- - Sistema
- - Presenta panel con toda la informacion
+   - Sistema
+   - Presenta panel con toda la informacion
 
 6. Diagrama de Secuencia
 ------------------------
@@ -242,17 +242,17 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 10a
- - Sistema
- - Detecta que usuario no tiene ninguna funcion
+   - Sistema
+   - Detecta que usuario no tiene ninguna funcion
  * - 10b
- - Sistema
- - Muestra mensaje: "Usuario sin permisos asignados"
+   - Sistema
+   - Muestra mensaje: "Usuario sin permisos asignados"
  * - 10c
- - Sistema
- - Ofrece opcion de asignar funciones (UC_ACC_01)
+   - Sistema
+   - Ofrece opcion de asignar funciones (UC_ACC_01)
 
 7.2 FA-02: Conflicto SoD Detectado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,17 +262,17 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 9a
- - Sistema
- - Detecta conflicto SoD en permisos actuales
+   - Sistema
+   - Detecta conflicto SoD en permisos actuales
  * - 9b
- - Sistema
- - Muestra alerta visual en el panel
+   - Sistema
+   - Muestra alerta visual en el panel
  * - 9c
- - Sistema
- - Indica funciones en conflicto y regla violada
+   - Sistema
+   - Indica funciones en conflicto y regla violada
 
 8. Excepciones
 --------------
@@ -285,15 +285,15 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion ACC-003
+   - Administrador no tiene funcion ACC-003
  * - **Accion Sistema**
- - Rechaza consulta
+   - Rechaza consulta
  * - **Mensaje Usuario**
- - "No tiene permisos para ver asignaciones"
+   - "No tiene permisos para ver asignaciones"
  * - **Codigo Error**
- - ACC-020
+   - ACC-020
 
 8.2 EX-02: Usuario No Encontrado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,15 +303,15 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - ID de usuario no existe
+   - ID de usuario no existe
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Usuario no encontrado"
+   - "Usuario no encontrado"
  * - **Codigo Error**
- - ACC-021
+   - ACC-021
 
 9. Diagrama de Actividad
 ------------------------
@@ -368,20 +368,20 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-ACC-20
- - Permisos Efectivos
- - Los permisos efectivos son la union de: funciones directas + funciones de agrupadores + permisos temporales activos.
+   - Permisos Efectivos
+   - Los permisos efectivos son la union de: funciones directas + funciones de agrupadores + permisos temporales activos.
  * - BR-ACC-21
- - Precedencia
- - En caso de conflicto: Permiso Temporal > Funcion Directa > Agrupador.
+   - Precedencia
+   - En caso de conflicto: Permiso Temporal > Funcion Directa > Agrupador.
  * - BR-ACC-22
- - Solo Lectura
- - Esta operacion es de solo lectura, no modifica datos.
+   - Solo Lectura
+   - Esta operacion es de solo lectura, no modifica datos.
  * - BR-ACC-23
- - Deteccion SoD
- - Se detectan y alertan conflictos SoD aunque ya existan (para limpieza).
+   - Deteccion SoD
+   - Se detectan y alertan conflictos SoD aunque ya existan (para limpieza).
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -391,11 +391,11 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_029
- - RBAC Flat
- - Se muestran las tres fuentes de permisos separadas y su union. Se respeta precedencia para calculo de efectivos.
+   - RBAC Flat
+   - Se muestran las tres fuentes de permisos separadas y su union. Se respeta precedencia para calculo de efectivos.
 
 **Estructura de Permisos Efectivos:**
 
@@ -428,23 +428,23 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-ACC-020
- - El sistema debe mostrar funciones directas
- - Lista con codigo, nombre y fecha asignacion
+   - El sistema debe mostrar funciones directas
+   - Lista con codigo, nombre y fecha asignacion
  * - FR-ACC-021
- - El sistema debe mostrar funciones de agrupadores
- - Lista indicando agrupador de origen
+   - El sistema debe mostrar funciones de agrupadores
+   - Lista indicando agrupador de origen
  * - FR-ACC-022
- - El sistema debe mostrar permisos temporales
- - Lista con fecha de expiracion
+   - El sistema debe mostrar permisos temporales
+   - Lista con fecha de expiracion
  * - FR-ACC-023
- - El sistema debe calcular permisos efectivos
- - Union de todas las fuentes sin duplicados
+   - El sistema debe calcular permisos efectivos
+   - Union de todas las fuentes sin duplicados
  * - FR-ACC-024
- - El sistema debe alertar conflictos SoD
- - Indicador visual cuando hay conflicto
+   - El sistema debe alertar conflictos SoD
+   - Indicador visual cuando hay conflicto
 
 13. Trazabilidad
 ----------------
@@ -454,19 +454,19 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-ACC-003: Permitir consulta de permisos de usuarios
+   - BRQ-ACC-003: Permitir consulta de permisos de usuarios
  * - **Reglas de Negocio**
- - BR-ACC-20 a BR-ACC-23
+   - BR-ACC-20 a BR-ACC-23
  * - **Restricciones**
- - CNST_029 (RBAC Flat)
+   - CNST_029 (RBAC Flat)
  * - **FR Derivados**
- - FR-ACC-020 a FR-ACC-024
+   - FR-ACC-020 a FR-ACC-024
  * - **UC Relacionados**
- - UC_ACC_01 (Asignar), UC_ACC_02 (Revocar), UC_ACC_08 (Temporal)
+   - UC_ACC_01 (Asignar), UC_ACC_02 (Revocar), UC_ACC_08 (Temporal)
  * - **Actor Principal**
- - AGR-007: agr_admin_acceso
+   - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
- - ACC-003: ve_asignaciones
+   - ACC-003: ve_asignaciones
 
 14. Historial de Cambios
 ------------------------
@@ -476,10 +476,10 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con deteccion SoD
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con deteccion SoD

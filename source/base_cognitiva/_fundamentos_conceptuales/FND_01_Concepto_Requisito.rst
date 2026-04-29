@@ -49,20 +49,20 @@ estandar, especificacion u otro documento formalmente impuesto.
  :widths: 20 40 40
 
  * - Aspecto
- - Requisito
- - Deseo
+   - Requisito
+   - Deseo
  * - Naturaleza
- - Obligatorio, contractual
- - Opcional, aspiracional
+   - Obligatorio, contractual
+   - Opcional, aspiracional
  * - Verificacion
- - Medible y comprobable
- - Subjetivo
+   - Medible y comprobable
+   - Subjetivo
  * - Ejemplo
- - "Sistema DEBE autenticar usuarios"
- - "Sistema deberia ser bonito"
+   - "Sistema DEBE autenticar usuarios"
+   - "Sistema deberia ser bonito"
  * - Consecuencia
- - Falla = incumplimiento
- - No cumplir = aceptable
+   - Falla = incumplimiento
+   - No cumplir = aceptable
 
 1.3 Requisito vs Especificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,20 +72,20 @@ estandar, especificacion u otro documento formalmente impuesto.
  :widths: 20 40 40
 
  * - Aspecto
- - Requisito
- - Especificacion
+   - Requisito
+   - Especificacion
  * - Nivel
- - QUE debe hacerse
- - COMO debe hacerse
+   - QUE debe hacerse
+   - COMO debe hacerse
  * - Abstraccion
- - Mayor
- - Menor
+   - Mayor
+   - Menor
  * - Ejemplo Requisito
- - "Sistema DEBE hashear passwords"
- - (no aplica)
+   - "Sistema DEBE hashear passwords"
+   - (no aplica)
  * - Ejemplo Especificacion
- - (no aplica)
- - "Usar bcrypt con cost=12"
+   - (no aplica)
+   - "Usar bcrypt con cost=12"
 
 ----
 
@@ -154,19 +154,19 @@ no funcionalidades especificas.
  :widths: 25 75
 
  * - Categoria
- - Descripcion
+   - Descripcion
  * - Rendimiento
- - Tiempo de respuesta, throughput, latencia
+   - Tiempo de respuesta, throughput, latencia
  * - Escalabilidad
- - Usuarios simultaneos, crecimiento de datos
+   - Usuarios simultaneos, crecimiento de datos
  * - Seguridad
- - Autenticacion, autorizacion, encriptacion
+   - Autenticacion, autorizacion, encriptacion
  * - Disponibilidad
- - Uptime, recuperacion ante desastres
+   - Uptime, recuperacion ante desastres
  * - Mantenibilidad
- - Facilidad de cambios, modularidad
+   - Facilidad de cambios, modularidad
  * - Usabilidad
- - Facilidad de aprendizaje, accesibilidad
+   - Facilidad de aprendizaje, accesibilidad
 
 **Ejemplos en IACT:**
 
@@ -184,23 +184,23 @@ no funcionalidades especificas.
  :widths: 20 40 40
 
  * - Aspecto
- - FR (Funcional)
- - NFR (No Funcional)
+   - FR (Funcional)
+   - NFR (No Funcional)
  * - Pregunta
- - Que debe hacer?
- - Que tan bien?
+   - Que debe hacer?
+   - Que tan bien?
  * - Enfoque
- - Capacidades
- - Cualidades
+   - Capacidades
+   - Cualidades
  * - Verificacion
- - Binaria
- - Grado
+   - Binaria
+   - Grado
  * - Testing
- - Test funcional
- - Test rendimiento/carga
+   - Test funcional
+   - Test rendimiento/carga
  * - Ejemplo
- - "Validar email"
- - "Validar en < 100ms"
+   - "Validar email"
+   - "Validar en < 100ms"
 
 ----
 
@@ -217,23 +217,23 @@ Un requisito bien escrito cumple con SMART:
  :widths: 15 30 55
 
  * - Letra
- - Significado
- - Aplicacion
+   - Significado
+   - Aplicacion
  * - S
- - Specific (Especifico)
- - Sin ambiguedad, una sola interpretacion
+   - Specific (Especifico)
+   - Sin ambiguedad, una sola interpretacion
  * - M
- - Measurable (Medible)
- - Criterios de aceptacion verificables
+   - Measurable (Medible)
+   - Criterios de aceptacion verificables
  * - A
- - Achievable (Alcanzable)
- - Tecnicamente factible
+   - Achievable (Alcanzable)
+   - Tecnicamente factible
  * - R
- - Relevant (Relevante)
- - Aporta valor al negocio
+   - Relevant (Relevante)
+   - Aporta valor al negocio
  * - T
- - Time-bound (Temporal)
- - Tiene fecha o contexto temporal
+   - Time-bound (Temporal)
+   - Tiene fecha o contexto temporal
 
 3.2 Caracteristicas Esenciales
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -399,23 +399,23 @@ Evitar estas palabras por ser ambiguas:
  :widths: 20 40 40
 
  * - Palabra
- - Problema
- - Alternativa
+   - Problema
+   - Alternativa
  * - "rapido"
- - No cuantificable
- - "en < 2 segundos"
+   - No cuantificable
+   - "en < 2 segundos"
  * - "facil"
- - Subjetivo
- - "en < 3 pasos"
+   - Subjetivo
+   - "en < 3 pasos"
  * - "seguro"
- - Muy amplio
- - Especificar mecanismo
+   - Muy amplio
+   - Especificar mecanismo
  * - "flexible"
- - Vago
- - Definir parametros
+   - Vago
+   - Definir parametros
  * - "adecuado"
- - Subjetivo
- - Cuantificar
+   - Subjetivo
+   - Cuantificar
 
 ----
 
@@ -433,23 +433,23 @@ exponencialmente segun la fase donde se detectan:
  :widths: 40 30 30
 
  * - Fase de Deteccion
- - Costo Relativo
- - Ejemplo ($)
+   - Costo Relativo
+   - Ejemplo ($)
  * - Requisitos
- - 1x
- - $100
+   - 1x
+   - $100
  * - Diseno
- - 5x
- - $500
+   - 5x
+   - $500
  * - Codigo
- - 10x
- - $1,000
+   - 10x
+   - $1,000
  * - Testing
- - 20x
- - $2,000
+   - 20x
+   - $2,000
  * - Produccion
- - 100-200x
- - $10,000-20,000
+   - 100-200x
+   - $10,000-20,000
 
 6.2 Beneficios de Requisitos Bien Escritos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -529,13 +529,13 @@ Historial de Cambios
  :widths: 15 15 20 50
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-19
- - Equipo IACT
- - Version inicial aprobada
+   - 2025-12-19
+   - Equipo IACT
+   - Version inicial aprobada
 
 ----
 

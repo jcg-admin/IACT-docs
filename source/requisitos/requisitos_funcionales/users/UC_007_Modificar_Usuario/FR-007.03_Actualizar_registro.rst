@@ -22,19 +22,19 @@ FR-007.03: Actualizar registro de usuario
  :widths: 25 75
 
  * - **ID**
- - FR-007.03
+   - FR-007.03
  * - **Nombre**
- - Actualizar registro de usuario en base de datos
+   - Actualizar registro de usuario en base de datos
  * - **UC Origen**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Paso UC**
- - Paso 6 del flujo normal
+   - Paso 6 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Datos
+   - Datos
 
 ----
 
@@ -125,17 +125,17 @@ modificaciones concurrentes y evitar pérdida de datos.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Depende de**
- - FR-007.02
+   - FR-007.02
  * - **Requerido por**
- - FR-007.04
+   - FR-007.04
  * - **CNST**
- - CNST-002
+   - CNST-002
  * - **TEST**
- - TST-FR-007.03 (pendiente)
+   - TST-FR-007.03 (pendiente)
 
 ----
 
@@ -147,8 +147,8 @@ modificaciones concurrentes y evitar pérdida de datos.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_007
+   - 2026-01-07
+   - Versión inicial derivada de UC_007

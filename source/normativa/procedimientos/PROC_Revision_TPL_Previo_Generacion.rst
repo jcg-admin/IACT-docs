@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Revision_TPL_Previo_Generacion
+   - PROC_Revision_TPL_Previo_Generacion
  * - **Nombre**
- - Revision de Template Previo a Generacion de Artefacto
+   - Revision de Template Previo a Generacion de Artefacto
  * - **Categoria**
- - Preparacion
+   - Preparacion
  * - **Frecuencia**
- - Antes de generar cualquier artefacto
+   - Antes de generar cualquier artefacto
  * - **Duracion Estimada**
- - 5-10 minutos
+   - 5-10 minutos
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -79,11 +79,11 @@ secciones obligatorias definidas en su template.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Generador
- - Revisa TPL antes de crear artefacto
- - Lectura de TPL
+   - Revisa TPL antes de crear artefacto
+   - Lectura de TPL
 
 ----
 
@@ -106,11 +106,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - TPL_[TIPO]_[Nombre]_X_Y_Z.rst
- - Template del tipo de artefacto
- - Si
+   - Template del tipo de artefacto
+   - Si
 
 ----
 
@@ -259,11 +259,11 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - Plantilla copiada
- - Codigo RST base para nuevo artefacto
- - Memoria/portapapeles
+   - Codigo RST base para nuevo artefacto
+   - Memoria/portapapeles
 
 ----
 
@@ -310,13 +310,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - TPL no existe
- - Crear TPL primero usando TPL_INDEX como guia
+   - Crear TPL primero usando TPL_INDEX como guia
  * - TPL desactualizado
- - Actualizar TPL antes de generar artefactos
+   - Actualizar TPL antes de generar artefactos
  * - Version TPL incorrecta
- - Usar ultima version disponible
+   - Usar ultima version disponible
 
 ----
 
@@ -337,13 +337,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial
 
 ----
 

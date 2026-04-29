@@ -26,17 +26,17 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Derivacion_FR_TST
+   - PROC_Derivacion_FR_TST
  * - **Nombre**
- - Derivacion de Requisitos Funcionales a Casos de Prueba
+   - Derivacion de Requisitos Funcionales a Casos de Prueba
  * - **Categoria**
- - Derivacion
+   - Derivacion
  * - **Frecuencia**
- - Por cada modulo con FR completados
+   - Por cada modulo con FR completados
  * - **Duracion Estimada**
- - 2-4 horas por modulo
+   - 2-4 horas por modulo
  * - **Estado**
- - Vigente
+   - Vigente
 
 ----
 
@@ -80,14 +80,14 @@ para cada FR del sistema.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Tester
- - Ejecuta derivacion, genera TST
- - Escritura en pruebas/
+   - Ejecuta derivacion, genera TST
+   - Escritura en pruebas/
  * - QA Lead
- - Valida cobertura y calidad
- - Lectura de FR, TST
+   - Valida cobertura y calidad
+   - Lectura de FR, TST
 
 ----
 
@@ -111,14 +111,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - FR_[ID].rst
- - Requisitos Funcionales del modulo
- - Si
+   - Requisitos Funcionales del modulo
+   - Si
  * - TPL_TST_Pruebas_1_0_0.rst
- - Template de TST
- - Si
+   - Template de TST
+   - Si
 
 ----
 
@@ -174,26 +174,26 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Tipo FR
- - Tipo TST
- - Ejemplo
+   - Tipo TST
+   - Ejemplo
  * - Validacion
- - Unitaria
- - test_valida_formato_username
+   - Unitaria
+   - test_valida_formato_username
  * - Proceso
- - Integracion
- - test_genera_token_jwt
+   - Integracion
+   - test_genera_token_jwt
  * - Interfaz
- - Funcional
- - test_muestra_formulario
+   - Funcional
+   - test_muestra_formulario
  * - Datos
- - Unitaria
- - test_guarda_sesion_bd
+   - Unitaria
+   - test_guarda_sesion_bd
  * - Auditoria
- - Integracion
- - test_registra_evento
+   - Integracion
+   - test_registra_evento
  * - Seguridad
- - Funcional
- - test_bloquea_cuenta
+   - Funcional
+   - test_bloquea_cuenta
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -305,17 +305,17 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - TST_[MOD]_[NNN].rst
- - Casos de Prueba (multiples)
- - /tmp/pruebas/[mod]/
+   - Casos de Prueba (multiples)
+   - /tmp/pruebas/[mod]/
  * - index.rst
- - Indice del modulo
- - /tmp/pruebas/[mod]/
+   - Indice del modulo
+   - /tmp/pruebas/[mod]/
  * - Matriz de cobertura
- - FR vs TST
- - Documento de trabajo
+   - FR vs TST
+   - Documento de trabajo
 
 ----
 
@@ -342,35 +342,35 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Modulo
- - FR
- - TST
- - Ratio
- - Cobertura
- - Estado
+   - FR
+   - TST
+   - Ratio
+   - Cobertura
+   - Estado
  * - MOD_Auth
- - 21
- - ~25
- - 1.2
- - 100%
- - Pendiente
+   - 21
+   - ~25
+   - 1.2
+   - 100%
+   - Pendiente
  * - MOD_Users
- - 17
- - ~20
- - 1.2
- - 100%
- - Pendiente
+   - 17
+   - ~20
+   - 1.2
+   - 100%
+   - Pendiente
  * - MOD_Access
- - 30
- - ~36
- - 1.2
- - 100%
- - Pendiente
+   - 30
+   - ~36
+   - 1.2
+   - 100%
+   - Pendiente
  * - ...
- - ...
- - ...
- - ...
- - ...
- - ...
+   - ...
+   - ...
+   - ...
+   - ...
+   - ...
 
 9.2 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -390,13 +390,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - FR sin Criterio de Aceptacion
- - Solicitar completar FR primero
+   - Solicitar completar FR primero
  * - Cobertura < 100%
- - Identificar FR faltantes, generar TST
+   - Identificar FR faltantes, generar TST
  * - Ratio > 2.0
- - Revisar si hay TST duplicados
+   - Revisar si hay TST duplicados
 
 ----
 
@@ -418,17 +418,17 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.1.0
- - 2026-01-07
- - Equipo IACT
- - Version completa corregida
+   - 2026-01-07
+   - Equipo IACT
+   - Version completa corregida
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Version inicial (incompleta)
+   - 2026-01-07
+   - Equipo IACT
+   - Version inicial (incompleta)
 
 ----
 

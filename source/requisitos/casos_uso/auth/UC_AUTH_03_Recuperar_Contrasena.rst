@@ -19,23 +19,23 @@ UC_AUTH_03: Recuperar Contrasena
  :header-rows: 0
 
  * - **ID**
- - UC_AUTH_03
+   - UC_AUTH_03
  * - **Nombre**
- - Recuperar Contrasena
+   - Recuperar Contrasena
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Actor Secundario**
- - Usuario afectado (recibe notificacion)
+   - Usuario afectado (recibe notificacion)
  * - **Modulo**
- - MOD_Auth
+   - MOD_Auth
  * - **Funcion RBAC**
- - AUT-003: resetea_password
+   - AUT-003: resetea_password
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-AUTH-003
+   - BRQ-AUTH-003
 
 2. Descripcion
 --------------
@@ -106,15 +106,15 @@ interno del sistema (CNST_001).
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El administrador tiene sesion activa con funcion AUT-003
+   - El administrador tiene sesion activa con funcion AUT-003
  * - PRE-02
- - El usuario destino existe en el sistema
+   - El usuario destino existe en el sistema
  * - PRE-03
- - El usuario destino tiene estado ACTIVO, BLOQUEADO o PENDIENTE_CONFIGURACION
+   - El usuario destino tiene estado ACTIVO, BLOQUEADO o PENDIENTE_CONFIGURACION
  * - PRE-04
- - El usuario destino no es el mismo administrador (no auto-reset)
+   - El usuario destino no es el mismo administrador (no auto-reset)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -132,19 +132,19 @@ para un usuario especifico.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera una contrasena temporal segura (12+ caracteres)
+   - Se genera una contrasena temporal segura (12+ caracteres)
  * - POST-02
- - El hash de la contrasena anterior se reemplaza
+   - El hash de la contrasena anterior se reemplaza
  * - POST-03
- - El estado del usuario cambia a PENDIENTE_CONFIGURACION
+   - El estado del usuario cambia a PENDIENTE_CONFIGURACION
  * - POST-04
- - Se envia InternalMessage con la contrasena temporal (CNST_001)
+   - Se envia InternalMessage con la contrasena temporal (CNST_001)
  * - POST-05
- - Se cierran todas las sesiones activas del usuario
+   - Se cierran todas las sesiones activas del usuario
  * - POST-06
- - Se registra PASSWORD_RESET en auditoria (CNST_025)
+   - Se registra PASSWORD_RESET en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -154,59 +154,59 @@ para un usuario especifico.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Admin
- - Accede al modulo de gestion de usuarios
+   - Admin
+   - Accede al modulo de gestion de usuarios
  * - 2
- - Sistema
- - Valida que el admin tenga funcion AUT-003 (resetea_password)
+   - Sistema
+   - Valida que el admin tenga funcion AUT-003 (resetea_password)
  * - 3
- - Admin
- - Busca y selecciona el usuario afectado
+   - Admin
+   - Busca y selecciona el usuario afectado
  * - 4
- - Admin
- - Hace clic en "Resetear Contrasena"
+   - Admin
+   - Hace clic en "Resetear Contrasena"
  * - 5
- - Sistema
- - Muestra dialogo de confirmacion con advertencia
+   - Sistema
+   - Muestra dialogo de confirmacion con advertencia
  * - 6
- - Admin
- - Confirma la accion
+   - Admin
+   - Confirma la accion
  * - 7
- - Sistema
- - Valida que el usuario destino no sea el mismo admin
+   - Sistema
+   - Valida que el usuario destino no sea el mismo admin
  * - 8
- - Sistema
- - Valida que el estado del usuario permita reset
+   - Sistema
+   - Valida que el estado del usuario permita reset
  * - 9
- - Sistema
- - Genera contrasena temporal segura (12 caracteres, mixta)
+   - Sistema
+   - Genera contrasena temporal segura (12 caracteres, mixta)
  * - 10
- - Sistema
- - Hashea la nueva contrasena con bcrypt
+   - Sistema
+   - Hashea la nueva contrasena con bcrypt
  * - 11
- - Sistema
- - Actualiza password_hash del usuario en base de datos
+   - Sistema
+   - Actualiza password_hash del usuario en base de datos
  * - 12
- - Sistema
- - Cambia estado del usuario a PENDIENTE_CONFIGURACION
+   - Sistema
+   - Cambia estado del usuario a PENDIENTE_CONFIGURACION
  * - 13
- - Sistema
- - Cierra todas las sesiones activas del usuario
+   - Sistema
+   - Cierra todas las sesiones activas del usuario
  * - 14
- - Sistema
- - Crea InternalMessage con la contrasena temporal (CNST_001)
+   - Sistema
+   - Crea InternalMessage con la contrasena temporal (CNST_001)
  * - 15
- - Sistema
- - Registra PASSWORD_RESET en UserActionLog (CNST_025)
+   - Sistema
+   - Registra PASSWORD_RESET en UserActionLog (CNST_025)
  * - 16
- - Sistema
- - Muestra confirmacion al administrador
+   - Sistema
+   - Muestra confirmacion al administrador
  * - 17
- - Usuario
- - Recibe mensaje en su buzon interno con contrasena temporal
+   - Usuario
+   - Recibe mensaje en su buzon interno con contrasena temporal
 
 6. Diagrama de Secuencia
 ------------------------
@@ -332,17 +332,17 @@ para un usuario especifico.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 8a
- - Sistema
- - Detecta usuario con estado BLOQUEADO
+   - Sistema
+   - Detecta usuario con estado BLOQUEADO
  * - 8b
- - Sistema
- - Permite el reset pero mantiene estado BLOQUEADO
+   - Sistema
+   - Permite el reset pero mantiene estado BLOQUEADO
  * - 8c
- - Sistema
- - Muestra advertencia: "Usuario bloqueado. Debera desbloquearlo despues del reset."
+   - Sistema
+   - Muestra advertencia: "Usuario bloqueado. Debera desbloquearlo despues del reset."
 
 7.2 FA-02: Administrador Cancela
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -352,17 +352,17 @@ para un usuario especifico.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Admin
- - Cancela el dialogo de confirmacion
+   - Admin
+   - Cancela el dialogo de confirmacion
  * - 6b
- - Sistema
- - No realiza ninguna accion
+   - Sistema
+   - No realiza ninguna accion
  * - 6c
- - Sistema
- - Retorna a la lista de usuarios
+   - Sistema
+   - Retorna a la lista de usuarios
 
 8. Excepciones
 --------------
@@ -375,15 +375,15 @@ para un usuario especifico.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 2
+   - 2
  * - **Condicion**
- - Administrador no tiene funcion AUT-003 asignada
+   - Administrador no tiene funcion AUT-003 asignada
  * - **Accion Sistema**
- - Rechaza peticion, registra intento no autorizado
+   - Rechaza peticion, registra intento no autorizado
  * - **Mensaje Usuario**
- - "No tiene permisos para resetear contrasenas"
+   - "No tiene permisos para resetear contrasenas"
  * - **Codigo Error**
- - AUTH-020
+   - AUTH-020
 
 8.2 EX-02: Usuario No Encontrado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -393,15 +393,15 @@ para un usuario especifico.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 3
+   - 3
  * - **Condicion**
- - ID de usuario no existe en base de datos
+   - ID de usuario no existe en base de datos
  * - **Accion Sistema**
- - Retorna error 404
+   - Retorna error 404
  * - **Mensaje Usuario**
- - "Usuario no encontrado"
+   - "Usuario no encontrado"
  * - **Codigo Error**
- - AUTH-021
+   - AUTH-021
 
 8.3 EX-03: Auto-Reset No Permitido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -411,15 +411,15 @@ para un usuario especifico.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 7
+   - 7
  * - **Condicion**
- - Administrador intenta resetear su propia contrasena
+   - Administrador intenta resetear su propia contrasena
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "No puede resetear su propia contrasena. Use 'Cambiar Contrasena'."
+   - "No puede resetear su propia contrasena. Use 'Cambiar Contrasena'."
  * - **Codigo Error**
- - AUTH-022
+   - AUTH-022
 
 8.4 EX-04: Usuario Eliminado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -429,15 +429,15 @@ para un usuario especifico.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 8
+   - 8
  * - **Condicion**
- - Usuario destino tiene estado ELIMINADO
+   - Usuario destino tiene estado ELIMINADO
  * - **Accion Sistema**
- - Rechaza operacion
+   - Rechaza operacion
  * - **Mensaje Usuario**
- - "No se puede resetear contrasena de usuario eliminado"
+   - "No se puede resetear contrasena de usuario eliminado"
  * - **Codigo Error**
- - AUTH-023
+   - AUTH-023
 
 9. Diagrama de Actividad
 ------------------------
@@ -521,26 +521,26 @@ para un usuario especifico.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-AUTH-20
- - Solo Admin Reset
- - Solo usuarios con funcion AUT-003 pueden resetear contrasenas de otros usuarios.
+   - Solo Admin Reset
+   - Solo usuarios con funcion AUT-003 pueden resetear contrasenas de otros usuarios.
  * - BR-AUTH-21
- - Password Temporal
- - La contrasena generada debe tener minimo 12 caracteres con mayusculas, minusculas, numeros y simbolos.
+   - Password Temporal
+   - La contrasena generada debe tener minimo 12 caracteres con mayusculas, minusculas, numeros y simbolos.
  * - BR-AUTH-22
- - Cambio Obligatorio
- - El usuario debe cambiar la contrasena temporal en su primer login posterior al reset.
+   - Cambio Obligatorio
+   - El usuario debe cambiar la contrasena temporal en su primer login posterior al reset.
  * - BR-AUTH-23
- - Sin Auto-Reset
- - Un administrador no puede resetear su propia contrasena mediante esta funcion.
+   - Sin Auto-Reset
+   - Un administrador no puede resetear su propia contrasena mediante esta funcion.
  * - BR-AUTH-24
- - Cierre de Sesiones
- - Al resetear contrasena, todas las sesiones activas del usuario se cierran automaticamente.
+   - Cierre de Sesiones
+   - Al resetear contrasena, todas las sesiones activas del usuario se cierran automaticamente.
  * - BR-AUTH-25
- - Solo Buzon Interno
- - La contrasena temporal SOLO se comunica via InternalMessage, nunca por canales externos.
+   - Solo Buzon Interno
+   - La contrasena temporal SOLO se comunica via InternalMessage, nunca por canales externos.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -550,14 +550,14 @@ para un usuario especifico.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_001
- - Comunicaciones Prohibidas
- - La contrasena temporal se envia UNICAMENTE via InternalMessage.notify. Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
+   - Comunicaciones Prohibidas
+   - La contrasena temporal se envia UNICAMENTE via InternalMessage.notify. Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
  * - CNST_025
- - Auditoria Inmutable
- - Se registra evento PASSWORD_RESET en UserActionLog incluyendo: admin que ejecuto, usuario afectado, timestamp e IP. El registro es inmutable.
+   - Auditoria Inmutable
+   - Se registra evento PASSWORD_RESET en UserActionLog incluyendo: admin que ejecuto, usuario afectado, timestamp e IP. El registro es inmutable.
 
 **Implementacion CNST_001:**
 
@@ -611,23 +611,23 @@ para un usuario especifico.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-AUTH-020
- - El sistema debe validar funcion AUT-003 antes de permitir reset
- - Error 403 si no tiene la funcion asignada
+   - El sistema debe validar funcion AUT-003 antes de permitir reset
+   - Error 403 si no tiene la funcion asignada
  * - FR-AUTH-021
- - El sistema debe generar contrasenas temporales seguras
- - Minimo 12 caracteres, mixtos, sin palabras de diccionario
+   - El sistema debe generar contrasenas temporales seguras
+   - Minimo 12 caracteres, mixtos, sin palabras de diccionario
  * - FR-AUTH-022
- - El sistema debe notificar SOLO via buzon interno
- - InternalMessage creado, sin emails enviados
+   - El sistema debe notificar SOLO via buzon interno
+   - InternalMessage creado, sin emails enviados
  * - FR-AUTH-023
- - El sistema debe cerrar sesiones del usuario afectado
- - Todas las sesiones marcadas como inactivas
+   - El sistema debe cerrar sesiones del usuario afectado
+   - Todas las sesiones marcadas como inactivas
  * - FR-AUTH-024
- - El sistema debe registrar reset en auditoria
- - Evento PASSWORD_RESET con admin y usuario afectado
+   - El sistema debe registrar reset en auditoria
+   - Evento PASSWORD_RESET con admin y usuario afectado
 
 13. Trazabilidad
 ----------------
@@ -637,19 +637,19 @@ para un usuario especifico.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-AUTH-003: Permitir recuperacion de contrasenas por administrador
+   - BRQ-AUTH-003: Permitir recuperacion de contrasenas por administrador
  * - **Reglas de Negocio**
- - BR-AUTH-20 a BR-AUTH-25
+   - BR-AUTH-20 a BR-AUTH-25
  * - **Restricciones**
- - CNST_001 (No Email), CNST_025 (Auditoria Inmutable)
+   - CNST_001 (No Email), CNST_025 (Auditoria Inmutable)
  * - **FR Derivados**
- - FR-AUTH-020 a FR-AUTH-024
+   - FR-AUTH-020 a FR-AUTH-024
  * - **UC Relacionados**
- - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_04 (Cambiar Contrasena), UC_USR_03 (Modificar Usuario)
+   - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_04 (Cambiar Contrasena), UC_USR_03 (Modificar Usuario)
  * - **Actor Principal**
- - AGR-006: agr_admin_usuarios
+   - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
- - AUT-003: resetea_password
+   - AUT-003: resetea_password
 
 14. Historial de Cambios
 ------------------------
@@ -659,10 +659,10 @@ para un usuario especifico.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0 con CNST_001 aplicada
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0 con CNST_001 aplicada

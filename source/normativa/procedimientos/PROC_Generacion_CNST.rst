@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_CNST
+   - PROC_Generacion_CNST
  * - **Nombre**
- - Generacion de Restricciones Tecnicas
+   - Generacion de Restricciones Tecnicas
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 20-40 minutos por CNST
+   - 20-40 minutos por CNST
 
 ----
 
@@ -59,20 +59,20 @@ tecnologicas, decisiones de stack y constraints del sistema.
  :header-rows: 1
 
  * - Rango
- - Categoria
- - Ejemplos
+   - Categoria
+   - Ejemplos
  * - 001-003
- - Stack Tecnologico
- - Python, Django, PostgreSQL
+   - Stack Tecnologico
+   - Python, Django, PostgreSQL
  * - 004-006
- - Seguridad
- - JWT, RBAC, DRF
+   - Seguridad
+   - JWT, RBAC, DRF
  * - 007-008
- - Integracion
- - APIs externas, formatos
+   - Integracion
+   - APIs externas, formatos
  * - 009-010
- - Infraestructura
- - Docker, Cloud
+   - Infraestructura
+   - Docker, Cloud
 
 ----
 
@@ -161,11 +161,11 @@ Como validar cumplimiento de la restriccion.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

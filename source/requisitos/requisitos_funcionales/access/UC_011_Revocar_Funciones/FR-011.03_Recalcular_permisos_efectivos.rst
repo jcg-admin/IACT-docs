@@ -22,19 +22,19 @@ FR-011.03: Recalcular permisos efectivos
  :widths: 25 75
 
  * - **ID**
- - FR-011.03
+   - FR-011.03
  * - **Nombre**
- - Recalcular permisos efectivos tras revocación
+   - Recalcular permisos efectivos tras revocación
  * - **UC Origen**
- - UC_011: Revocar Funciones a Usuario
+   - UC_011: Revocar Funciones a Usuario
  * - **Paso UC**
- - Paso 4 (preview) y post-paso 6
+   - Paso 4 (preview) y post-paso 6
  * - **Módulo**
- - MOD_Access
+   - MOD_Access
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Proceso
+   - Proceso
 
 ----
 
@@ -126,21 +126,21 @@ inmediatamente al revocar funciones.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_011: Revocar Funciones
+   - UC_011: Revocar Funciones
  * - **Depende de**
- - FR-011.02
+   - FR-011.02
  * - **Requerido por**
- - Ninguno
+   - Ninguno
  * - **BR**
- - BR_006
+   - BR_006
  * - **CNST**
- - CNST-007
+   - CNST-007
  * - **Relacionado**
- - FR-010.04 (cálculo similar)
+   - FR-010.04 (cálculo similar)
  * - **TEST**
- - TST-FR-011.03 (pendiente)
+   - TST-FR-011.03 (pendiente)
 
 ----
 
@@ -152,8 +152,8 @@ inmediatamente al revocar funciones.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_011
+   - 2026-01-07
+   - Versión inicial derivada de UC_011

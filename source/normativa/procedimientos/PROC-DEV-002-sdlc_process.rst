@@ -945,69 +945,69 @@ Roles y Responsabilidades
  :widths: 14 11 11 9 13 11 11 11
 
  * - Rol
- - Planning
- - Feasibility
- - Design
- - Implementation
- - Testing
- - Deployment
- - Maintenance
+   - Planning
+   - Feasibility
+   - Design
+   - Implementation
+   - Testing
+   - Deployment
+   - Maintenance
  * - **Product Owner**
- - Lead
- - Review
- - Review
- - \-
- - UAT
- - Approval
- - Prioritize bugs
+   - Lead
+   - Review
+   - Review
+   - \-
+   - UAT
+   - Approval
+   - Prioritize bugs
  * - **Arquitecto**
- - Consult
- - Technical Lead
- - Lead
- - Review
- - Review
- - Approval
- - Escalation
+   - Consult
+   - Technical Lead
+   - Lead
+   - Review
+   - Review
+   - Approval
+   - Escalation
  * - **Tech Lead**
- - Estimate
- - Lead
- - Review
- - Review + Merge
- - Review
- - Lead
- - On-call rotation
+   - Estimate
+   - Lead
+   - Review
+   - Review + Merge
+   - Review
+   - Lead
+   - On-call rotation
  * - **Developer**
- - Contribute
- - \-
- - LLD
- - Lead
- - Lead
- - Support
- - Bug fixes
+   - Contribute
+   - \-
+   - LLD
+   - Lead
+   - Lead
+   - Support
+   - Bug fixes
  * - **QA Engineer**
- - Contribute
- - \-
- - \-
- - \-
- - Lead
- - Validate
- - Test automation
+   - Contribute
+   - \-
+   - \-
+   - \-
+   - Lead
+   - Validate
+   - Test automation
  * - **DevOps/SRE**
- - Infra planning
- - Infra assess
- - Infra design
- - \-
- - Infra tests
- - Lead
- - Lead
+   - Infra planning
+   - Infra assess
+   - Infra design
+   - \-
+   - Infra tests
+   - Lead
+   - Lead
  * - **Security**
- - Security reqs
- - Security risk
- - Security review
- - Review
- - Security tests
- - Review
- - Vulnerability mgmt
+   - Security reqs
+   - Security risk
+   - Security review
+   - Review
+   - Security tests
+   - Review
+   - Vulnerability mgmt
 
 --------------
 

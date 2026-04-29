@@ -19,21 +19,21 @@ UC_RPT_05: Exportar Excel
  :header-rows: 0
 
  * - **ID**
- - UC_RPT_05
+   - UC_RPT_05
  * - **Nombre**
- - Exportar Excel
+   - Exportar Excel
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Modulo**
- - MOD_Reports
+   - MOD_Reports
  * - **Funcion RBAC**
- - RPT-005: exporta_excel
+   - RPT-005: exporta_excel
  * - **Prioridad**
- - Media
+   - Media
  * - **Complejidad**
- - Media
+   - Media
  * - **BReq Origen**
- - BRQ-RPT-005
+   - BRQ-RPT-005
 
 2. Descripcion
 --------------
@@ -87,13 +87,13 @@ hojas de calculo.
  :header-rows: 1
 
  * - ID
- - Precondicion
+   - Precondicion
  * - PRE-01
- - El usuario tiene sesion activa con funcion RPT-005
+   - El usuario tiene sesion activa con funcion RPT-005
  * - PRE-02
- - Existen datos para exportar
+   - Existen datos para exportar
  * - PRE-03
- - El usuario tiene segmento asignado
+   - El usuario tiene segmento asignado
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -110,11 +110,11 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - ID
- - Postcondicion
+   - Postcondicion
  * - POST-01
- - Se genera archivo XLSX con datos formateados
+   - Se genera archivo XLSX con datos formateados
  * - POST-02
- - Se registra EXPORT_EXCEL en auditoria (CNST_025)
+   - Se registra EXPORT_EXCEL en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -124,35 +124,35 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1
- - Usuario
- - Hace clic en Exportar Excel
+   - Usuario
+   - Hace clic en Exportar Excel
  * - 2
- - Sistema
- - Valida funcion RPT-005
+   - Sistema
+   - Valida funcion RPT-005
  * - 3
- - Sistema
- - Cuenta registros a exportar
+   - Sistema
+   - Cuenta registros a exportar
  * - 4
- - Sistema
- - Valida limite 100,000 registros
+   - Sistema
+   - Valida limite 100,000 registros
  * - 5
- - Sistema
- - Aplica filtro de segmento
+   - Sistema
+   - Aplica filtro de segmento
  * - 6
- - Sistema
- - Crea workbook con hoja principal
+   - Sistema
+   - Crea workbook con hoja principal
  * - 7
- - Sistema
- - Aplica estilos y formato
+   - Sistema
+   - Aplica estilos y formato
  * - 8
- - Sistema
- - Registra en auditoria
+   - Sistema
+   - Registra en auditoria
  * - 9
- - Sistema
- - Descarga archivo XLSX
+   - Sistema
+   - Descarga archivo XLSX
 
 6. Diagrama de Secuencia
 ------------------------
@@ -213,17 +213,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 1a
- - Usuario
- - Selecciona opcion Incluir Graficos
+   - Usuario
+   - Selecciona opcion Incluir Graficos
  * - 7a
- - Sistema
- - Genera grafico de datos en hoja separada
+   - Sistema
+   - Genera grafico de datos en hoja separada
  * - 7b
- - Sistema
- - Embebe grafico en el workbook
+   - Sistema
+   - Embebe grafico en el workbook
 
 7.2 FA-02: Multiples Hojas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,17 +233,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - Paso
- - Actor
- - Accion
+   - Actor
+   - Accion
  * - 6a
- - Sistema
- - Detecta multiples tipos de datos
+   - Sistema
+   - Detecta multiples tipos de datos
  * - 6b
- - Sistema
- - Crea una hoja por cada tipo
+   - Sistema
+   - Crea una hoja por cada tipo
  * - 6c
- - Sistema
- - Agrega hoja de resumen
+   - Sistema
+   - Agrega hoja de resumen
 
 8. Excepciones
 --------------
@@ -256,15 +256,15 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 4
+   - 4
  * - **Condicion**
- - Mas de 100,000 registros
+   - Mas de 100,000 registros
  * - **Accion Sistema**
- - Rechaza exportacion
+   - Rechaza exportacion
  * - **Mensaje Usuario**
- - Limite de exportacion Excel es 100,000 registros
+   - Limite de exportacion Excel es 100,000 registros
  * - **Codigo Error**
- - RPT-040
+   - RPT-040
 
 8.2 EX-02: Error Generacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -274,15 +274,15 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 0
 
  * - **Paso de Origen**
- - 6
+   - 6
  * - **Condicion**
- - Error al generar workbook
+   - Error al generar workbook
  * - **Accion Sistema**
- - Informa error
+   - Informa error
  * - **Mensaje Usuario**
- - Error al generar archivo Excel
+   - Error al generar archivo Excel
  * - **Codigo Error**
- - RPT-041
+   - RPT-041
 
 9. Diagrama de Actividad
 ------------------------
@@ -338,17 +338,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - ID
- - Regla
- - Descripcion
+   - Regla
+   - Descripcion
  * - BR-RPT-40
- - Limite
- - Maximo 100,000 registros por exportacion
+   - Limite
+   - Maximo 100,000 registros por exportacion
  * - BR-RPT-41
- - Formato
- - XLSX nativo compatible con Excel 2010+
+   - Formato
+   - XLSX nativo compatible con Excel 2010+
  * - BR-RPT-42
- - Estilos
- - Cabeceras en negrita, bordes en tabla
+   - Estilos
+   - Cabeceras en negrita, bordes en tabla
 
 **Caracteristicas del XLSX:**
 
@@ -357,17 +357,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - Caracteristica
- - Descripcion
+   - Descripcion
  * - Formato
- - Office Open XML (.xlsx)
+   - Office Open XML (.xlsx)
  * - Cabeceras
- - Negrita, fondo gris, filtros automaticos
+   - Negrita, fondo gris, filtros automaticos
  * - Columnas
- - Auto-ajuste de ancho
+   - Auto-ajuste de ancho
  * - Fechas
- - Formato regional configurable
+   - Formato regional configurable
  * - Numeros
- - Separador de miles, decimales
+   - Separador de miles, decimales
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -377,17 +377,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - CNST
- - Nombre
- - Aplicacion en este UC
+   - Nombre
+   - Aplicacion en este UC
  * - CNST_008
- - Segmentos
- - Filtro automatico por segmento
+   - Segmentos
+   - Filtro automatico por segmento
  * - CNST_017
- - Exportaciones
- - Limite 100,000 registros
+   - Exportaciones
+   - Limite 100,000 registros
  * - CNST_025
- - Auditoria Inmutable
- - Registro EXPORT_EXCEL con detalles
+   - Auditoria Inmutable
+   - Registro EXPORT_EXCEL con detalles
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -397,17 +397,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - ID
- - Requisito
- - Criterio de Aceptacion
+   - Requisito
+   - Criterio de Aceptacion
  * - FR-RPT-040
- - El sistema debe exportar a XLSX
- - Archivo Excel descargable
+   - El sistema debe exportar a XLSX
+   - Archivo Excel descargable
  * - FR-RPT-041
- - El sistema debe incluir formato
- - Estilos y graficos aplicados
+   - El sistema debe incluir formato
+   - Estilos y graficos aplicados
  * - FR-RPT-042
- - El sistema debe auditar
- - Registro en user_action_log
+   - El sistema debe auditar
+   - Registro en user_action_log
 
 13. Trazabilidad
 ----------------
@@ -417,17 +417,17 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 0
 
  * - **BReq Origen**
- - BRQ-RPT-005: Exportar a Excel
+   - BRQ-RPT-005: Exportar a Excel
  * - **Reglas de Negocio**
- - BR-RPT-40 a BR-RPT-42
+   - BR-RPT-40 a BR-RPT-42
  * - **Restricciones**
- - CNST_008, CNST_017, CNST_025
+   - CNST_008, CNST_017, CNST_025
  * - **UC Relacionados**
- - UC_RPT_04 (CSV), UC_RPT_06 (PDF)
+   - UC_RPT_04 (CSV), UC_RPT_06 (PDF)
  * - **Actor Principal**
- - AGR-004: agr_exportador
+   - AGR-004: agr_exportador
  * - **Funcion RBAC**
- - RPT-005: exporta_excel
+   - RPT-005: exporta_excel
 
 14. Historial de Cambios
 ------------------------
@@ -437,10 +437,10 @@ El usuario hace clic en Exportar Excel desde un reporte.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 4.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial v4.0
+   - 2026-01-06
+   - Equipo IACT
+   - Version inicial v4.0

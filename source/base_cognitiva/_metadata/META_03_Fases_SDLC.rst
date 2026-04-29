@@ -52,20 +52,20 @@ y la organización.
  :header-rows: 1
 
  * - Fase
- - Duración Est.
- - Objetivo Principal
+   - Duración Est.
+   - Objetivo Principal
  * - Inception
- - 4 semanas
- - Establecer visión, alcance y viabilidad del proyecto.
+   - 4 semanas
+   - Establecer visión, alcance y viabilidad del proyecto.
  * - Elaboration
- - 8 semanas
- - Definir arquitectura base y mitigar riesgos técnicos principales.
+   - 8 semanas
+   - Definir arquitectura base y mitigar riesgos técnicos principales.
  * - Construction
- - 16 semanas
- - Desarrollar el sistema completo de forma incremental.
+   - 16 semanas
+   - Desarrollar el sistema completo de forma incremental.
  * - Transition
- - 4 semanas
- - Desplegar en producción y transferir a operaciones.
+   - 4 semanas
+   - Desplegar en producción y transferir a operaciones.
 
 3.2. Fase: Inception
 ^^^^^^^^^^^^^^^^^^^^
@@ -92,15 +92,15 @@ y la organización.
  :header-rows: 1
 
  * - Artefacto
- - Dominio IACT
+   - Dominio IACT
  * - META_01_Identidad_Proyecto
- - base_cognitiva/_metadata/
+   - base_cognitiva/_metadata/
  * - Visión del Producto
- - requisitos/vision/
+   - requisitos/vision/
  * - Lista inicial de Stakeholders
- - base_cognitiva/_metadata/
+   - base_cognitiva/_metadata/
  * - Riesgos identificados
- - (gestión de proyecto)
+   - (gestión de proyecto)
 
 **Criterios de Salida (Milestone: Lifecycle Objectives):**
 
@@ -134,17 +134,17 @@ y la organización.
  :header-rows: 1
 
  * - Artefacto
- - Dominio IACT
+   - Dominio IACT
  * - Reglas de Negocio (BR_xxx)
- - requisitos/reglas_negocio/
+   - requisitos/reglas_negocio/
  * - Casos de Uso (UC_xxx)
- - requisitos/casos_uso/
+   - requisitos/casos_uso/
  * - Requisitos Funcionales (FR_xxx)
- - requisitos/funcionales/
+   - requisitos/funcionales/
  * - Documento de Arquitectura (SAD)
- - arquitectura_tecnica/arquitectura/
+   - arquitectura_tecnica/arquitectura/
  * - ADRs iniciales
- - arquitectura_tecnica/arquitectura/decisiones/
+   - arquitectura_tecnica/arquitectura/decisiones/
 
 **Criterios de Salida (Milestone: Lifecycle Architecture):**
 
@@ -179,15 +179,15 @@ y la organización.
  :header-rows: 1
 
  * - Artefacto
- - Dominio IACT
+   - Dominio IACT
  * - Diseño Detallado (DES_xxx)
- - arquitectura_tecnica/diseño_detallado/
+   - arquitectura_tecnica/diseño_detallado/
  * - Especificaciones de API
- - arquitectura_tecnica/especificaciones/
+   - arquitectura_tecnica/especificaciones/
  * - Casos de Prueba
- - (gestión de calidad)
+   - (gestión de calidad)
  * - Manuales de Usuario
- - (documentación de usuario)
+   - (documentación de usuario)
 
 **Criterios de Salida (Milestone: Initial Operational Capability):**
 
@@ -222,13 +222,13 @@ y la organización.
  :header-rows: 1
 
  * - Artefacto
- - Dominio IACT
+   - Dominio IACT
  * - Runbook de Operaciones
- - arquitectura_tecnica/especificaciones/
+   - arquitectura_tecnica/especificaciones/
  * - Guía de Despliegue
- - arquitectura_tecnica/especificaciones/
+   - arquitectura_tecnica/especificaciones/
  * - Acta de Cierre
- - (gestión de proyecto)
+   - (gestión de proyecto)
 
 **Criterios de Salida (Milestone: Product Release):**
 
@@ -247,15 +247,15 @@ y la organización.
  :stub-columns: 1
 
  * - **Fase Actual**
- - Elaboration
+   - Elaboration
  * - **Iteración**
- - E2 (segunda iteración de Elaboration)
+   - E2 (segunda iteración de Elaboration)
  * - **Fecha Inicio Fase**
- - 2025-02-12
+   - 2025-02-12
  * - **Fecha Estimada Fin**
- - 2025-04-09
+   - 2025-04-09
  * - **Próximo Milestone**
- - LCA (Lifecycle Architecture)
+   - LCA (Lifecycle Architecture)
 
 ---------------------------------
 5. Relación Fases-Artefactos IACT
@@ -269,45 +269,45 @@ principales tipos de artefactos del modelo IACT:
  :header-rows: 1
 
  * - Tipo Artefacto
- - Inception
- - Elaboration
- - Construction
- - Transition
+   - Inception
+   - Elaboration
+   - Construction
+   - Transition
  * - META_xx (Identidad)
- - Crear
- - Actualizar
- - \-
- - \-
+   - Crear
+   - Actualizar
+   - \-
+   - \-
  * - BR_xxx (Reglas Negocio)
- - Identificar
- - Crear
- - Refinar
- - \-
+   - Identificar
+   - Crear
+   - Refinar
+   - \-
  * - UC_xxx (Casos de Uso)
- - Listar
- - Crear
- - Refinar
- - \-
+   - Listar
+   - Crear
+   - Refinar
+   - \-
  * - FR_xxx (Funcionales)
- - \-
- - Crear
- - Refinar
- - \-
+   - \-
+   - Crear
+   - Refinar
+   - \-
  * - ADR_xxx (Decisiones)
- - \-
- - Crear
- - Crear
- - \-
+   - \-
+   - Crear
+   - Crear
+   - \-
  * - DES_xxx (Diseño)
- - \-
- - Inicial
- - Crear
- - \-
+   - \-
+   - Inicial
+   - Crear
+   - \-
  * - RTM (Trazabilidad)
- - \-
- - Crear
- - Mantener
- - Cerrar
+   - \-
+   - Crear
+   - Mantener
+   - Cerrar
 
 --------------
 6. Referencias
@@ -318,13 +318,13 @@ principales tipos de artefactos del modelo IACT:
  :header-rows: 1
 
  * - Documento
- - Referencia
+   - Referencia
  * - Identidad del Proyecto
- - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`META_01_Identidad_Proyecto`
  * - Contexto IACT
- - :doc:`META_04_Contexto_IACT`
+   - :doc:`META_04_Contexto_IACT`
  * - Estructura Documental
- - :doc:`META_05_Estructura_Documental`
+   - :doc:`META_05_Estructura_Documental`
 
 --------------------
 Historial de Cambios
@@ -335,13 +335,13 @@ Historial de Cambios
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2025-12-18
- - PMO IACT
- - Versión inicial aprobada
+   - 2025-12-18
+   - PMO IACT
+   - Versión inicial aprobada
 
 ----
 

@@ -148,14 +148,14 @@ Actores secundarios PARTICIPAN en el UC pero NO lo inician. Pueden ser:
  :widths: 25 50 25
 
  * - Actor Secundario
- - Rol en el UC
- - Momento de Participacion
+   - Rol en el UC
+   - Momento de Participacion
  * - Nombre Actor
- - Que hace o provee
- - En que paso participa
+   - Que hace o provee
+   - En que paso participa
  * - Nombre Actor 2
- - Que hace o provee
- - En que paso participa
+   - Que hace o provee
+   - En que paso participa
 
 **EJEMPLO COMPLETO (UC-RPT-01):**
 
@@ -164,17 +164,17 @@ Actores secundarios PARTICIPAN en el UC pero NO lo inician. Pueden ser:
  :widths: 25 50 25
 
  * - Actor Secundario
- - Rol en el UC
- - Momento de Participacion
+   - Rol en el UC
+   - Momento de Participacion
  * - Sistema Analytics
- - Provee datos agregados de BD
- - Paso 7: Ejecuta query principal
+   - Provee datos agregados de BD
+   - Paso 7: Ejecuta query principal
  * - Supervisor de Area
- - Aprueba consultas grandes
- - FA-2: Cuando count mayor 10,000
+   - Aprueba consultas grandes
+   - FA-2: Cuando count mayor 10,000
  * - Servicio de Email
- - Envia reporte por email
- - Paso 11: Si usuario solicita envio
+   - Envia reporte por email
+   - Paso 11: Si usuario solicita envio
 
 ----------------------------------------------------------------------
 3. PRECONDICIONES
@@ -992,20 +992,20 @@ inputs al sistema.
  :widths: 10 60 30
 
  * - Paso
- - Descripcion
- - FR Derivado
+   - Descripcion
+   - FR Derivado
  * - 1
- - Usuario ingresa datos
- - -
+   - Usuario ingresa datos
+   - -
  * - 2
- - Sistema valida datos
- - FR-XXX-NN-01
+   - Sistema valida datos
+   - FR-XXX-NN-01
  * - 3
- - Usuario confirma
- - -
+   - Usuario confirma
+   - -
  * - 4
- - Sistema procesa
- - FR-XXX-NN-02
+   - Sistema procesa
+   - FR-XXX-NN-02
 
 **DERIVACION FR:**
 
@@ -1014,11 +1014,11 @@ inputs al sistema.
  :widths: 10 60 30
 
  * - Paso
- - Descripcion
- - FR Derivado
+   - Descripcion
+   - FR Derivado
  * - N
- - Descripcion del paso
- - FR-XXX-NN-ZZ
+   - Descripcion del paso
+   - FR-XXX-NN-ZZ
 
 **EJEMPLO COMPLETO (UC-RPT-01):**
 
@@ -1027,44 +1027,44 @@ inputs al sistema.
  :widths: 10 50 40
 
  * - Paso
- - Descripcion
- - FR Derivado
+   - Descripcion
+   - FR Derivado
  * - 1
- - Usuario selecciona parametros
- - FR-RPT-01-01
+   - Usuario selecciona parametros
+   - FR-RPT-01-01
  * - 2
- - Sistema valida formato
- - FR-RPT-01-02
+   - Sistema valida formato
+   - FR-RPT-01-02
  * - 3
- - Usuario click Generar
- - -
+   - Usuario click Generar
+   - -
  * - 4
- - Sistema muestra mensaje calculando
- - FR-RPT-01-03
+   - Sistema muestra mensaje calculando
+   - FR-RPT-01-03
  * - 5
- - Sistema ejecuta COUNT
- - FR-RPT-01-04
+   - Sistema ejecuta COUNT
+   - FR-RPT-01-04
  * - 6
- - Sistema evalua resultado count
- - FR-RPT-01-05
+   - Sistema evalua resultado count
+   - FR-RPT-01-05
  * - 7
- - Sistema ejecuta query principal
- - FR-RPT-01-06
+   - Sistema ejecuta query principal
+   - FR-RPT-01-06
  * - 8
- - Sistema calcula metricas derivadas
- - FR-RPT-01-07
+   - Sistema calcula metricas derivadas
+   - FR-RPT-01-07
  * - 9
- - Sistema genera graficos
- - FR-RPT-01-08
+   - Sistema genera graficos
+   - FR-RPT-01-08
  * - 10
- - Sistema muestra resultados
- - FR-RPT-01-09
+   - Sistema muestra resultados
+   - FR-RPT-01-09
  * - 11
- - Sistema registra en audit log
- - FR-RPT-01-10
+   - Sistema registra en audit log
+   - FR-RPT-01-10
  * - 12
- - UC termina exitosamente
- - -
+   - UC termina exitosamente
+   - -
 
 **Detalles de FR Principales:**
 
@@ -1172,21 +1172,21 @@ SECCION 12: HISTORIAL DE VERSIONES
  :widths: 10 15 50 25
 
  * - Version
- - Fecha
- - Cambios
- - Autor
+   - Fecha
+   - Cambios
+   - Autor
  * - 4.0.0
- - YYYY-MM-DD
- - Version inicial - Creacion de UC
- - Nombre del BA
+   - YYYY-MM-DD
+   - Version inicial - Creacion de UC
+   - Nombre del BA
  * - 4.1.0
- - YYYY-MM-DD
- - Agrega nuevo FA-3 para manejo de cache
- - Nombre del BA
+   - YYYY-MM-DD
+   - Agrega nuevo FA-3 para manejo de cache
+   - Nombre del BA
  * - 5.0.0
- - YYYY-MM-DD
- - Cambio MAJOR: Rediseno completo de flujo
- - Nombre del BA
+   - YYYY-MM-DD
+   - Cambio MAJOR: Rediseno completo de flujo
+   - Nombre del BA
 
 **Versionado Semantico para UC:**
 

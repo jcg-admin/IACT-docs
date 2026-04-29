@@ -27,19 +27,19 @@ Resumen Ejecutivo
  :header-rows: 0
 
  * - **ID**
- - PROC_Cambio_Requisitos
+   - PROC_Cambio_Requisitos
  * - **Nombre**
- - Gestion de Cambios en Requisitos
+   - Gestion de Cambios en Requisitos
  * - **Categoria**
- - Gobernanza
+   - Gobernanza
  * - **Frecuencia**
- - Por cada solicitud de cambio
+   - Por cada solicitud de cambio
  * - **Duracion Estimada**
- - Variable segun impacto
+   - Variable segun impacto
  * - **Estado**
- - Vigente
+   - Vigente
  * - **Nota**
- - Renombrado desde PROC_001_Cambio_Requisitos
+   - Renombrado desde PROC_001_Cambio_Requisitos
 
 ----
 
@@ -82,20 +82,20 @@ y manteniendo trazabilidad.
  :header-rows: 1
 
  * - Rol
- - Responsabilidad
- - Permisos Requeridos
+   - Responsabilidad
+   - Permisos Requeridos
  * - Solicitante
- - Inicia solicitud de cambio
- - Lectura de requisitos
+   - Inicia solicitud de cambio
+   - Lectura de requisitos
  * - Analista
- - Evalua impacto del cambio
- - Lectura de todos los artefactos
+   - Evalua impacto del cambio
+   - Lectura de todos los artefactos
  * - CCB (Change Control Board)
- - Aprueba o rechaza cambios
- - Aprobacion de cambios
+   - Aprueba o rechaza cambios
+   - Aprobacion de cambios
  * - Implementador
- - Ejecuta cambios aprobados
- - Escritura en requisitos
+   - Ejecuta cambios aprobados
+   - Escritura en requisitos
 
 ----
 
@@ -118,14 +118,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Obligatorio
+   - Descripcion
+   - Obligatorio
  * - Solicitud de Cambio (RFC)
- - Formulario con detalles del cambio
- - Si
+   - Formulario con detalles del cambio
+   - Si
  * - Requisito actual
- - Artefacto a modificar
- - Si
+   - Artefacto a modificar
+   - Si
 
 ----
 
@@ -262,14 +262,14 @@ Antes de iniciar este procedimiento, verificar:
  :header-rows: 1
 
  * - Artefacto
- - Descripcion
- - Ubicacion
+   - Descripcion
+   - Ubicacion
  * - RFC cerrado
- - Solicitud con resolucion
- - Registro de RFCs
+   - Solicitud con resolucion
+   - Registro de RFCs
  * - Requisito(s) actualizado(s)
- - Artefactos modificados
- - Ubicacion original
+   - Artefactos modificados
+   - Ubicacion original
 
 ----
 
@@ -306,13 +306,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Excepcion
- - Accion
+   - Accion
  * - Cambio urgente
- - CCB puede aprobar via email, documentar post-facto
+   - CCB puede aprobar via email, documentar post-facto
  * - Impacto desconocido
- - Solicitar analisis adicional
+   - Solicitar analisis adicional
  * - Conflicto de cambios
- - CCB prioriza
+   - CCB prioriza
 
 ----
 
@@ -333,13 +333,13 @@ Al finalizar este procedimiento:
  :header-rows: 1
 
  * - Version
- - Fecha
- - Autor
- - Cambios
+   - Fecha
+   - Autor
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Equipo IACT
- - Renombrado desde PROC_001, nueva nomenclatura
+   - 2026-01-07
+   - Equipo IACT
+   - Renombrado desde PROC_001, nueva nomenclatura
 
 ----
 

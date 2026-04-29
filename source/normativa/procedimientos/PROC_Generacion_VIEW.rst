@@ -25,13 +25,13 @@ Resumen Ejecutivo
  :widths: 25 75
 
  * - **ID**
- - PROC_Generacion_VIEW
+   - PROC_Generacion_VIEW
  * - **Nombre**
- - Generacion de Vistas Arquitectonicas
+   - Generacion de Vistas Arquitectonicas
  * - **Categoria**
- - Generacion
+   - Generacion
  * - **Duracion**
- - 30-60 minutos por VIEW
+   - 30-60 minutos por VIEW
 
 ----
 
@@ -59,23 +59,23 @@ del sistema segun modelo 4+1.
  :header-rows: 1
 
  * - Vista
- - Perspectiva
- - Diagramas
+   - Perspectiva
+   - Diagramas
  * - Logica
- - Funcionalidad
- - Clases, secuencia
+   - Funcionalidad
+   - Clases, secuencia
  * - Desarrollo
- - Organizacion codigo
- - Paquetes, componentes
+   - Organizacion codigo
+   - Paquetes, componentes
  * - Proceso
- - Comportamiento runtime
- - Actividad, estados
+   - Comportamiento runtime
+   - Actividad, estados
  * - Fisica
- - Deployment
- - Infraestructura
+   - Deployment
+   - Infraestructura
  * - Escenarios
- - Casos de uso
- - UC, interaccion
+   - Casos de uso
+   - UC, interaccion
 
 ----
 
@@ -164,11 +164,11 @@ Referenciar decisiones relacionadas.
  :header-rows: 1
 
  * - Version
- - Fecha
- - Cambios
+   - Fecha
+   - Cambios
  * - 1.0.0
- - 2026-01-07
- - Version inicial
+   - 2026-01-07
+   - Version inicial
 
 ----
 

@@ -24,23 +24,23 @@ cobertura objetivo y procesos.
  :header-rows: 1
 
  * - Nivel
- - Herramientas
- - Foco
+   - Herramientas
+   - Foco
  * - Unit tests
- - pytest, jest
- - Logica de negocio aislada por componente
+   - pytest, jest
+   - Logica de negocio aislada por componente
  * - Integration tests
- - pytest, supertest
- - Interaccion entre componentes (BD, API, ETL)
+   - pytest, supertest
+   - Interaccion entre componentes (BD, API, ETL)
  * - E2E tests
- - Cypress, Playwright
- - Flujos de usuario completos UI ↔ backend
+   - Cypress, Playwright
+   - Flujos de usuario completos UI ↔ backend
  * - Performance tests
- - Locust, k6
- - SLA endpoints (CNST_017)
+   - Locust, k6
+   - SLA endpoints (CNST_017)
  * - Security tests
- - Bandit, OWASP ZAP
- - CNST_009..014 (Auth/Permission/Throttling/Validacion)
+   - Bandit, OWASP ZAP
+   - CNST_009..014 (Auth/Permission/Throttling/Validacion)
 
 2. Cobertura objetivo
 =====================

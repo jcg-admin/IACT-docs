@@ -354,9 +354,9 @@ Formato de Dos Columnas
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - [Paso del actor]
- - [Pasos del sistema]
+   - [Pasos del sistema]
 
 Reglas de Escritura
 ~~~~~~~~~~~~~~~~~~~
@@ -377,13 +377,13 @@ Plantilla de Inicio
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - 1. El [actor] [acción inicial]
- - 
+   - 
  * - 2. El [actor] [proporciona información]
- - 3. El sistema [valida información]<br>4. El sistema [procesa información]
+   - 3. El sistema [valida información]<br>4. El sistema [procesa información]
  * - 5. El [actor] [confirma acción]
- - 6. El sistema [ejecuta acción]<br>7. El sistema [muestra resultado]
+   - 6. El sistema [ejecuta acción]<br>7. El sistema [muestra resultado]
 
 Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -396,19 +396,19 @@ Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - 1. El Auditor accede al módulo de reportes
- - 2. El sistema muestra opciones de reportes disponibles
+   - 2. El sistema muestra opciones de reportes disponibles
  * - 3. El Auditor selecciona "Reporte de Auditoría"
- - 4. El sistema muestra formulario con filtros (fecha inicio, fecha fin, tipo de transacción)
+   - 4. El sistema muestra formulario con filtros (fecha inicio, fecha fin, tipo de transacción)
  * - 5. El Auditor ingresa rango de fechas y selecciona tipo de transacción
- - 6. El sistema valida que fecha inicio < fecha fin<br>7. El sistema valida que rango no exceda 90 días
+   - 6. El sistema valida que fecha inicio < fecha fin<br>7. El sistema valida que rango no exceda 90 días
  * - 8. El Auditor hace clic en "Generar Reporte"
- - 9. El sistema consulta transacciones en el rango especificado<br>10. El sistema genera reporte en formato PDF<br>11. El sistema muestra vista previa del reporte
+   - 9. El sistema consulta transacciones en el rango especificado<br>10. El sistema genera reporte en formato PDF<br>11. El sistema muestra vista previa del reporte
  * - 12. El Auditor revisa el reporte
- - 
+   - 
  * - 13. El Auditor hace clic en "Descargar"
- - 14. El sistema descarga el archivo PDF<br>15. El sistema registra la generación del reporte en log de auditoría
+   - 14. El sistema descarga el archivo PDF<br>15. El sistema registra la generación del reporte en log de auditoría
 
 Principio QUÉ vs CÓMO
 ~~~~~~~~~~~~~~~~~~~~~
@@ -1141,17 +1141,17 @@ PASO 5: Flujo Normal
  :header-rows: 1
 
  * - ACCIONES DEL ACTOR
- - RESPONSABILIDADES DEL SISTEMA
+   - RESPONSABILIDADES DEL SISTEMA
  * - 1. El Administrador accede al módulo de gestión de usuarios
- - 2. El sistema muestra el dashboard de usuarios
+   - 2. El sistema muestra el dashboard de usuarios
  * - 3. El Administrador hace clic en "Registrar Nuevo Usuario"
- - 4. El sistema muestra formulario de registro (nombre, email, rol, departamento)
+   - 4. El sistema muestra formulario de registro (nombre, email, rol, departamento)
  * - 5. El Administrador completa el formulario:<br>- Nombre: Juan Pérez<br>- Email: juan.perez@ejemplo.com<br>- Rol: Analista<br>- Departamento: Laboratorio A
- - 6. El sistema valida formato de email<br>7. El sistema verifica que email no esté registrado<br>8. El sistema valida que todos los campos requeridos estén completos
+   - 6. El sistema valida formato de email<br>7. El sistema verifica que email no esté registrado<br>8. El sistema valida que todos los campos requeridos estén completos
  * - 9. El Administrador hace clic en "Guardar"
- - 10. El sistema crea el registro de usuario<br>11. El sistema genera contraseña temporal<br>12. El sistema envía email de bienvenida con contraseña temporal<br>13. El sistema muestra mensaje "Usuario registrado exitosamente"
+   - 10. El sistema crea el registro de usuario<br>11. El sistema genera contraseña temporal<br>12. El sistema envía email de bienvenida con contraseña temporal<br>13. El sistema muestra mensaje "Usuario registrado exitosamente"
  * - 14. El Administrador confirma el mensaje
- - 15. El sistema actualiza la lista de usuarios mostrando el nuevo usuario
+   - 15. El sistema actualiza la lista de usuarios mostrando el nuevo usuario
 
 PASO 6: Flujos Alternos y Excepciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

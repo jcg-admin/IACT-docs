@@ -22,19 +22,19 @@ FR-007.02: Validar campos modificados
  :widths: 25 75
 
  * - **ID**
- - FR-007.02
+   - FR-007.02
  * - **Nombre**
- - Validar campos que fueron modificados
+   - Validar campos que fueron modificados
  * - **UC Origen**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Paso UC**
- - Paso 5 del flujo normal
+   - Paso 5 del flujo normal
  * - **Módulo**
- - MOD_Users
+   - MOD_Users
  * - **Prioridad**
- - Alta
+   - Alta
  * - **Tipo**
- - Validación
+   - Validación
 
 ----
 
@@ -120,17 +120,17 @@ al no mostrar errores en campos no modificados.
  :widths: 20 80
 
  * - **BReq**
- - BReq-004: Cumplimiento de Seguridad
+   - BReq-004: Cumplimiento de Seguridad
  * - **UC**
- - UC_007: Modificar Usuario
+   - UC_007: Modificar Usuario
  * - **Depende de**
- - FR-007.01
+   - FR-007.01
  * - **Requerido por**
- - FR-007.03
+   - FR-007.03
  * - **CNST**
- - CNST-005
+   - CNST-005
  * - **TEST**
- - TST-FR-007.02 (pendiente)
+   - TST-FR-007.02 (pendiente)
 
 ----
 
@@ -142,8 +142,8 @@ al no mostrar errores en campos no modificados.
  :header-rows: 1
 
  * - Versión
- - Fecha
- - Cambio
+   - Fecha
+   - Cambio
  * - 1.0.0
- - 2026-01-07
- - Versión inicial derivada de UC_007
+   - 2026-01-07
+   - Versión inicial derivada de UC_007
