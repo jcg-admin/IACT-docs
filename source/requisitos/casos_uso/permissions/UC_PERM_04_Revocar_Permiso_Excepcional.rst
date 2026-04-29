@@ -19,14 +19,14 @@ UC_PERM_04: Revocar Permiso Excepcional
 
 
 1. Resumen
-   ----------
+----------
 
 
 El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA una funcion específica que el usuario tendría por sus grupos. Tiene prioridad sobre las concesiones de grupos.
 
 
 2. Actores
-   ----------
+----------
 
 
 - **Actor Primario**: Administrador de Sistema
@@ -34,7 +34,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 3. Precondiciones
-   -----------------
+-----------------
 
 
 
@@ -56,7 +56,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 4. Postcondiciones
-   ------------------
+------------------
 
 
 
@@ -80,7 +80,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 5. Flujo Principal
-   ------------------
+------------------
 
 
 
@@ -140,7 +140,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 6. Reglas de Negocio
-   --------------------
+--------------------
 
 
 
@@ -167,7 +167,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 7. Datos de Entrada
-   -------------------
+-------------------
 
 
 .. code-block:: json
@@ -184,7 +184,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 8. Datos de Salida
-   ------------------
+------------------
 
 
 .. code-block:: json
@@ -207,7 +207,7 @@ El Administrador de Sistema crea una excepción de tipo "revocar" que BLOQUEA un
 
 
 9. Especificaciones Técnicas
-   ----------------------------
+----------------------------
 
 
 

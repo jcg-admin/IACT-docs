@@ -12,7 +12,7 @@ UC_USR_04: Eliminar Usuario
 ===========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_USR_04: Eliminar Usuario
    - BRQ-USR-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) dar de
 baja a un usuario del sistema. La eliminacion es SIEMPRE LOGICA (CNST_029),
@@ -63,7 +63,7 @@ auditoria.
  fisico sobre la tabla de usuarios.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_USR_04
@@ -98,7 +98,7 @@ auditoria.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -148,7 +148,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - El usuario no puede iniciar sesion
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -204,7 +204,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Actualiza lista de usuarios
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_USR_04
@@ -316,7 +316,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Cancelar Eliminacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -359,7 +359,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Las alertas del usuario se pausan automaticamente
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso USR-004
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -434,7 +434,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - USR-033
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_USR_04
@@ -502,7 +502,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -531,7 +531,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Un usuario ELIMINADO no puede ser reactivado. Se debe crear nuevo usuario si es necesario.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -573,7 +573,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  # User.objects.filter(id=user_id).delete # PROHIBIDO
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -599,7 +599,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Error 400 si admin == user
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -621,7 +621,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - USR-004: elimina_usuarios
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

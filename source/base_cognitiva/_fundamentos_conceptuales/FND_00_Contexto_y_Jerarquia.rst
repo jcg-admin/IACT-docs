@@ -23,7 +23,7 @@ FND_00: Contexto y Jerarquía de Documentación
 ---
 
 1. Introducción
-   ===============
+===============
 
 1.1 Propósito de Esta Documentación
 ------------------------------------
@@ -274,7 +274,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 ---
 
 2. Ejemplo Introductorio: BR_011
-   =================================
+=================================
 
 Para ilustrar los conceptos de esta documentación, usaremos como ejemplo 
 **BR_011: Límites de Exportación**.
@@ -687,7 +687,7 @@ lo que ayuda a mantener el conteo dentro de los límites de BR_011.
 ---
 
 3. Jerarquía de Transformación
-   ===============================
+===============================
 
 3.1 Del Requisito de Negocio a la Implementación
 -------------------------------------------------
@@ -779,7 +779,7 @@ La trazabilidad permite navegar en ambas direcciones:
 ---
 
 4. Próximos Pasos
-   =================
+=================
 
 Esta introducción ha establecido:
 

@@ -17,7 +17,7 @@ Procedimiento para configurar el entorno de desarrollo local del
 proyecto IACT.
 
 1. Prerequisitos
-   ================
+================
 
 - Ubuntu 22.04 LTS o equivalente.
 - Python 3.10+.
@@ -27,7 +27,7 @@ proyecto IACT.
 - git.
 
 2. Clonar repositorio
-   =====================
+=====================
 
 .. code-block:: bash
 
@@ -35,7 +35,7 @@ proyecto IACT.
  cd iact
 
 3. Configurar backend
-   =====================
+=====================
 
 .. code-block:: bash
 
@@ -46,7 +46,7 @@ proyecto IACT.
  python manage.py createsuperuser
 
 4. Configurar frontend
-   ======================
+======================
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ proyecto IACT.
  npm run dev
 
 5. Configurar BDs
-   =================
+=================
 
 Ver procedimientos especificos:
 
@@ -63,7 +63,7 @@ Ver procedimientos especificos:
 - :doc:`/databases/index` (cuando este disponible)
 
 6. Build de la documentacion
-   ============================
+============================
 
 .. code-block:: bash
 

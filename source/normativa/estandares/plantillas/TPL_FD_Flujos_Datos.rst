@@ -168,7 +168,7 @@ Plantilla
  ----
 
  1. Descripcion General
-    ----------------------
+ ----------------------
 
  [Descripcion del proposito del flujo de datos en 2-3 oraciones.
  Responde: Que datos se mueven, de donde a donde, y por que?]
@@ -176,7 +176,7 @@ Plantilla
  ----
 
  2. Diagrama de Flujo
-    --------------------
+ --------------------
 
  .. uml::
  :caption: Diagrama de Flujo FD_[NN]
@@ -213,7 +213,7 @@ Plantilla
  ----
 
  3. Fuentes de Datos
-    -------------------
+ -------------------
 
  .. list-table::
  :widths: 25 25 50
@@ -232,7 +232,7 @@ Plantilla
  ----
 
  4. Destinos de Datos
-    --------------------
+ --------------------
 
  .. list-table::
  :widths: 25 25 50
@@ -251,7 +251,7 @@ Plantilla
  ----
 
  5. Transformaciones
-    -------------------
+ -------------------
 
  5.1 Secuencia de Transformaciones
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -288,7 +288,7 @@ Plantilla
  ----
 
  6. Estructura de Datos
-    ----------------------
+ ----------------------
 
  6.1 Datos de Entrada
  ^^^^^^^^^^^^^^^^^^^^
@@ -315,7 +315,7 @@ Plantilla
  ----
 
  7. Componentes Involucrados
-    ---------------------------
+ ---------------------------
 
  .. list-table::
  :widths: 25 25 50
@@ -334,7 +334,7 @@ Plantilla
  ----
 
  8. Manejo de Errores
-    --------------------
+ --------------------
 
  8.1 Errores Posibles
  ^^^^^^^^^^^^^^^^^^^^
@@ -363,7 +363,7 @@ Plantilla
  ----
 
  9. Rendimiento
-    --------------
+ --------------
 
  9.1 Metricas Esperadas
  ^^^^^^^^^^^^^^^^^^^^^^
@@ -394,7 +394,7 @@ Plantilla
  ----
 
  10. Seguridad
-     -------------
+ -------------
 
  10.1 Datos Sensibles
  ^^^^^^^^^^^^^^^^^^^^
@@ -411,7 +411,7 @@ Plantilla
  ----
 
  11. Trazabilidad
-     ----------------
+ ----------------
 
  .. list-table::
  :widths: 25 75
@@ -429,7 +429,7 @@ Plantilla
  ----
 
  12. Historial de Cambios
-     ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

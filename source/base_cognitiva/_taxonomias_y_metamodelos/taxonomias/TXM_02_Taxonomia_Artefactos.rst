@@ -28,7 +28,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 1. Vista General de la Taxonomia
-   --------------------------------
+--------------------------------
 
 .. code-block:: text
 
@@ -64,7 +64,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 2. Artefactos Cognitivos
-   ------------------------
+------------------------
 
 2.1 Metadata (META\_)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -214,7 +214,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 3. Artefactos Normativos
-   ------------------------
+------------------------
 
 3.1 Procedimiento (PROC\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -274,7 +274,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 4. Artefactos de Requisitos
-   ---------------------------
+---------------------------
 
 4.1 Regla de Negocio (BR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 5. Artefactos Arquitectonicos
-   -----------------------------
+-----------------------------
 
 5.1 Decision Arquitectonica (ADR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -386,7 +386,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 6. Artefactos de Trazabilidad
-   -----------------------------
+-----------------------------
 
 6.1 Matriz RTM (RTM\_)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -417,7 +417,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 7. Matriz de Artefactos por Dominio
-   -----------------------------------
+-----------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -447,7 +447,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 8. Nomenclatura y Convenciones
-   ------------------------------
+------------------------------
 
 8.1 Formato de Identificador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -498,7 +498,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 9. Ciclo de Vida de Artefactos
-   ------------------------------
+------------------------------
 
 9.1 Estados
 ^^^^^^^^^^^
@@ -536,7 +536,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 10. Estadisticas del Sistema Documental
-    ---------------------------------------
+---------------------------------------
 
 10.1 Por Dominio
 ^^^^^^^^^^^^^^^^
@@ -590,7 +590,7 @@ ubicaciones y relaciones entre artefactos.
 ----
 
 11. Referencias
-    ---------------
+---------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

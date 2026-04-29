@@ -37,7 +37,7 @@ Checklists Disponibles
 ----------------------
 
 1. Checklist de Pre-Commit
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Usar antes de hacer commit:**
 
@@ -89,7 +89,7 @@ Checklists Disponibles
 - ☐ Secrets no expuestos en código
 
 2. Checklist de Pull Request
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Antes de crear PR:**
 
@@ -124,7 +124,7 @@ Checklists Disponibles
 - ☐ Labels apropiados (bug, feature, docs, etc.)
 
 3. Checklist de Code Review
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Como revisor, verificar:**
 
@@ -153,7 +153,7 @@ correcta
 creado (si decisión arquitectónica)
 
 4. Checklist de Testing
-   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 **Tests Unitarios:**
 
@@ -183,7 +183,7 @@ creado (si decisión arquitectónica)
 - ☐ Branch coverage verificado
 
 5. Checklist de Deployment
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Pre-Deployment:**
 
@@ -217,7 +217,7 @@ creado (si decisión arquitectónica)
 - ☐ Post-mortem agendado (si hubo issues)
 
 6. Checklist de Onboarding
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Día 1:**
 
@@ -248,7 +248,7 @@ creado (si decisión arquitectónica)
 - ☐ Conocimiento de herramientas de monitoreo
 
 7. Checklist de Incident Response
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Detección:**
 
@@ -288,7 +288,7 @@ creado (si decisión arquitectónica)
 - ☐ Mejoras implementadas
 
 8. Checklist de Security Review
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Código:**
 

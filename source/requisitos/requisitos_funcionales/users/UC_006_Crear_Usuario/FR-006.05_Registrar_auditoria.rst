@@ -16,7 +16,7 @@ FR-006.05: Registrar evento de creación en auditoría
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-006.05: Registrar evento de creación en auditoría
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -78,7 +78,7 @@ FR-006.05: Registrar evento de creación en auditoría
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -107,7 +107,7 @@ FR-006.05: Registrar evento de creación en auditoría
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:**
  - BR_008: Auditoría obligatoria
@@ -124,7 +124,7 @@ creación del usuario. Si falla la auditoría, se revierte todo.
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -147,7 +147,7 @@ creación del usuario. Si falla la auditoría, se revierte todo.
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

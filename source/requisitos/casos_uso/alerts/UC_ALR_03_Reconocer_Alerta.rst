@@ -12,7 +12,7 @@ UC_ALR_03: Reconocer Alerta
 ===========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ALR_03: Reconocer Alerta
    - BRQ-ALR-003
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un supervisor reconocer (acknowledge) una
 alerta activa, indicando que ha sido vista y se esta tomando accion.
@@ -58,7 +58,7 @@ al equipo via InternalMessage (CNST_001).
 - RESOLVED: Metrica volvio a nivel normal (automatico)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ALR_03
@@ -81,7 +81,7 @@ al equipo via InternalMessage (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Se notifica al equipo via InternalMessage (CNST_001)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -167,7 +167,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ALR_03
@@ -225,7 +225,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Reconocer con Comentario Detallado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -265,7 +265,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Procesa reconocimiento de cada alerta
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Alerta Ya Reconocida
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,7 +322,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - ALR-022
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ALR_03
@@ -369,7 +369,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -400,7 +400,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  ACKNOWLEDGED --> RESOLVED (automatico cuando metrica vuelve a normal)
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -417,7 +417,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Registro ALERT_ACK con usuario, alerta, comentario y timestamp.
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -440,7 +440,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Registro en user_action_log
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -460,7 +460,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - ALR-003: reconoce_alertas
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

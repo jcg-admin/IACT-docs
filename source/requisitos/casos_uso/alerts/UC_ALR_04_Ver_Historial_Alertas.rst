@@ -12,7 +12,7 @@ UC_ALR_04: Ver Historial Alertas
 ================================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ALR_04: Ver Historial Alertas
    - BRQ-ALR-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite consultar el historial de alertas pasadas,
 incluyendo alertas resueltas y reconocidas. Util para analisis de
@@ -52,7 +52,7 @@ tendencias y patrones de problemas operativos.
 - Exportar historial para analisis
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ALR_04
@@ -75,7 +75,7 @@ tendencias y patrones de problemas operativos.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -113,7 +113,7 @@ El supervisor accede a la seccion de historial de alertas.
    - La consulta no modifica ningun dato (solo lectura)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -148,7 +148,7 @@ El supervisor accede a la seccion de historial de alertas.
    - Opcionalmente selecciona alerta para ver detalle
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ALR_04
@@ -202,7 +202,7 @@ El supervisor accede a la seccion de historial de alertas.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Exportar Historial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,7 +262,7 @@ El supervisor accede a la seccion de historial de alertas.
    - Muestra grafico de alertas por periodo
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Rango Excede 2 Anios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -299,7 +299,7 @@ El supervisor accede a la seccion de historial de alertas.
    - No se encontraron alertas para el periodo seleccionado
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ALR_04
@@ -344,7 +344,7 @@ El supervisor accede a la seccion de historial de alertas.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -386,7 +386,7 @@ El supervisor accede a la seccion de historial de alertas.
    - TMO, ABANDONO, ESPERA, etc.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -406,7 +406,7 @@ El supervisor accede a la seccion de historial de alertas.
    - Maximo 2 anios de historial consultable
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -429,7 +429,7 @@ El supervisor accede a la seccion de historial de alertas.
    - CSV descargable con alertas filtradas
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -449,7 +449,7 @@ El supervisor accede a la seccion de historial de alertas.
    - ALR-004: ve_historial_alertas
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

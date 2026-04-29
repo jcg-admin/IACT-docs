@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Establecer la trazabilidad entre Requisitos Funcionales (FR) y el
 codigo que los implementa, permitiendo verificar cobertura de implementacion.
@@ -46,7 +46,7 @@ codigo que los implementa, permitiendo verificar cobertura de implementacion.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Mapeo FR -> codigo Python/Django.
 
@@ -55,7 +55,7 @@ codigo que los implementa, permitiendo verificar cobertura de implementacion.
 ----
 
 3. Estructura de Codigo IACT
-   ----------------------------
+----------------------------
 
 ::
 
@@ -72,7 +72,7 @@ codigo que los implementa, permitiendo verificar cobertura de implementacion.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Identificar FR a Implementar**
 
@@ -116,7 +116,7 @@ Registrar mapeo en matriz de trazabilidad.
 ----
 
 5. Matriz de Trazabilidad
-   -------------------------
+-------------------------
 
 .. list-table::
  :header-rows: 1
@@ -137,7 +137,7 @@ Registrar mapeo en matriz de trazabilidad.
 ----
 
 6. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - Codigo implementado con docstrings
 - RTM_FR_CODE actualizada
@@ -145,7 +145,7 @@ Registrar mapeo en matriz de trazabilidad.
 ----
 
 7. Verificacion
-   ---------------
+---------------
 
 - [ ] Cada FR tiene codigo asociado
 - [ ] Docstrings referencian FR
@@ -155,7 +155,7 @@ Registrar mapeo en matriz de trazabilidad.
 ----
 
 8. Referencias
-   --------------
+--------------
 
 - PROC_Generacion_FR
 - PROC_Generacion_RTM
@@ -164,7 +164,7 @@ Registrar mapeo en matriz de trazabilidad.
 ----
 
 9. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

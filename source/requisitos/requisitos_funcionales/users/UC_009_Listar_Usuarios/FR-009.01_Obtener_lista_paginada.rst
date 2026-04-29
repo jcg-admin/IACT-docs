@@ -16,7 +16,7 @@ FR-009.01: Obtener lista paginada de usuarios
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-009.01: Obtener lista paginada de usuarios
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -74,7 +74,7 @@ FR-009.01: Obtener lista paginada de usuarios
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -109,7 +109,7 @@ FR-009.01: Obtener lista paginada de usuarios
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -125,7 +125,7 @@ FR-009.01: Obtener lista paginada de usuarios
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -146,7 +146,7 @@ FR-009.01: Obtener lista paginada de usuarios
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

@@ -21,7 +21,7 @@ UC_ACC_09: Auditar Cambios Acceso
 
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -45,7 +45,7 @@ UC_ACC_09: Auditar Cambios Acceso
    - BRQ-ACC-009
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un auditor (AGR-008) consultar el historial
 de cambios en el modelo de acceso: asignaciones, revocaciones, cambios
@@ -66,7 +66,7 @@ de segmento y permisos temporales.
  Quien audita NO puede operar ni gestionar permisos.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_09
@@ -89,7 +89,7 @@ de segmento y permisos temporales.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -125,7 +125,7 @@ El auditor accede al modulo de auditoria de acceso.
    - La consulta no modifica ningun dato (solo lectura)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -160,7 +160,7 @@ El auditor accede al modulo de auditoria de acceso.
    - Muestra detalle completo del cambio
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_09
@@ -198,7 +198,7 @@ El auditor accede al modulo de auditoria de acceso.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Exportar Historial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,7 +247,7 @@ El auditor accede al modulo de auditoria de acceso.
    - Ejecuta busqueda
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso Auditoria
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -268,7 +268,7 @@ El auditor accede al modulo de auditoria de acceso.
    - ACC-080
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_09
@@ -302,7 +302,7 @@ El auditor accede al modulo de auditoria de acceso.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -345,7 +345,7 @@ El auditor accede al modulo de auditoria de acceso.
    - Revocar permiso temporal
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -359,7 +359,7 @@ El auditor accede al modulo de auditoria de acceso.
    - Los registros son solo lectura. No existen operaciones de UPDATE ni DELETE sobre user_action_log.
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -379,7 +379,7 @@ El auditor accede al modulo de auditoria de acceso.
    - Quien, cuando, que, valores anteriores y nuevos
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -399,7 +399,7 @@ El auditor accede al modulo de auditoria de acceso.
    - AUD-001, AUD-002
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

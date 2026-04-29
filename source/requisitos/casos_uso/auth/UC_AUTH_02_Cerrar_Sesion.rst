@@ -12,7 +12,7 @@ UC_AUTH_02: Cerrar Sesion
 =========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_AUTH_02: Cerrar Sesion
    - BRQ-AUTH-002
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un usuario autenticado cerrar su sesion activa
 de forma voluntaria. El sistema invalida los tokens JWT, marca la sesion
@@ -53,7 +53,7 @@ como cerrada y registra el evento en auditoria.
 - Limpieza de datos de sesion en cliente
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUTH_02
@@ -86,7 +86,7 @@ como cerrada y registra el evento en auditoria.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -132,7 +132,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - El usuario es redirigido a la pantalla de login
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -176,7 +176,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - Redirige usuario a pantalla de login
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUTH_02
@@ -255,7 +255,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Logout desde Otro Dispositivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -298,7 +298,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - Retorna 204 (logout exitoso de todas formas)
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Token Invalido o Malformado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -355,7 +355,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - AUTH-012
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUTH_02
@@ -418,7 +418,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -441,7 +441,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - Todo cierre de sesion debe registrarse en auditoria, incluyendo IP y timestamp.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -477,7 +477,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
  return True
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -500,7 +500,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - Respuesta sin contenido, status 204
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -522,7 +522,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - (publico) - Cualquier usuario autenticado
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

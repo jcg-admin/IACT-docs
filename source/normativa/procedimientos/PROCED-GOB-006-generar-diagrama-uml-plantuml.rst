@@ -741,7 +741,7 @@ Tipos de Relaciones entre Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Include (Inclusión)
-   ^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 **Definición**: Un caso de uso SIEMPRE incluye el comportamiento de
 otro.
@@ -768,7 +768,7 @@ de uso - Siempre se ejecuta, no es opcional
 Impuestos”.
 
 2. Extend (Extensión)
-   ^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 **Definición**: Un caso de uso OPCIONALMENTE puede extender el
 comportamiento de otro bajo ciertas condiciones.
@@ -795,7 +795,7 @@ específica
 “Procesar Venta” si se cumplen condiciones (ej: cantidad >= 10).
 
 3. Generalización (Herencia)
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Sintaxis PlantUML**:
 

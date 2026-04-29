@@ -12,7 +12,7 @@ UC_RPT_10: Guardar Vista
 ========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_10: Guardar Vista
    - BRQ-RPT-010
 
 2. Descripcion
-   --------------
+--------------
 
 Permite guardar configuraciones de vistas personalizadas de reportes
 para acceso rapido posterior. Las vistas son privadas del usuario.
@@ -49,7 +49,7 @@ para acceso rapido posterior. Las vistas son privadas del usuario.
 - Acceso rapido desde menu
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_10
@@ -66,7 +66,7 @@ para acceso rapido posterior. Las vistas son privadas del usuario.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -100,7 +100,7 @@ Usuario hace clic en Guardar Vista.
    - Vista guardada y disponible en menu
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -132,7 +132,7 @@ Usuario hace clic en Guardar Vista.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_10
@@ -158,7 +158,7 @@ Usuario hace clic en Guardar Vista.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Cargar Vista Guardada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -198,7 +198,7 @@ Usuario hace clic en Guardar Vista.
    - Elimina vista guardada
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Nombre Duplicado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +215,7 @@ Usuario hace clic en Guardar Vista.
    - RPT-090
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_10
@@ -238,7 +238,7 @@ Usuario hace clic en Guardar Vista.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -258,7 +258,7 @@ Usuario hace clic en Guardar Vista.
    - Nombre unico por usuario
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -272,7 +272,7 @@ Usuario hace clic en Guardar Vista.
    - Vista respeta segmento del usuario
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -289,7 +289,7 @@ Usuario hace clic en Guardar Vista.
    - Configuracion restaurada
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -305,7 +305,7 @@ Usuario hace clic en Guardar Vista.
    - RPT-010: guarda_vistas
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

@@ -54,7 +54,7 @@ conectan los conceptos nucleares definidos en :ref:`sbvr-01`.
 ----
 
 1. Estructura de un Fact Type
-   -----------------------------
+-----------------------------
 
 1.1 Componentes
 ^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ Cada Fact Type se documenta con:
 ----
 
 2. Fact Types de Seguridad
-   --------------------------
+--------------------------
 
 2.1 Usuario tiene Rol
 ^^^^^^^^^^^^^^^^^^^^^
@@ -294,7 +294,7 @@ Cada Fact Type se documenta con:
 ----
 
 3. Fact Types de Dominio IVR
-   ----------------------------
+----------------------------
 
 3.1 Llamada origina_en Centro
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -402,7 +402,7 @@ Cada Fact Type se documenta con:
 ----
 
 4. Fact Types de Analitica
-   --------------------------
+--------------------------
 
 4.1 Reporte contiene Metrica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -521,7 +521,7 @@ Cada Fact Type se documenta con:
 ----
 
 5. Fact Types de Sistema
-   ------------------------
+------------------------
 
 5.1 Usuario recibe Mensaje_Interno
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -606,7 +606,7 @@ Cada Fact Type se documenta con:
 ----
 
 6. Matriz de Fact Types
-   -----------------------
+-----------------------
 
 Resumen de todas las relaciones:
 
@@ -710,7 +710,7 @@ Resumen de todas las relaciones:
 ----
 
 7. Diagrama de Relaciones
-   -------------------------
+-------------------------
 
 .. code-block:: text
 
@@ -771,7 +771,7 @@ Resumen de todas las relaciones:
 ----
 
 8. Referencias
-   --------------
+--------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

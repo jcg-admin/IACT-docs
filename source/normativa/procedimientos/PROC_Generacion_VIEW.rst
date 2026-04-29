@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Generar Vistas Arquitectonicas (VIEW) que documentan perspectivas
 del sistema segun modelo 4+1.
@@ -44,7 +44,7 @@ del sistema segun modelo 4+1.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Vistas del modelo 4+1.
 
@@ -53,7 +53,7 @@ del sistema segun modelo 4+1.
 ----
 
 3. Tipos de Vistas (4+1)
-   ------------------------
+------------------------
 
 .. list-table::
  :header-rows: 1
@@ -80,7 +80,7 @@ del sistema segun modelo 4+1.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Identificar Vista**
 
@@ -133,14 +133,14 @@ Referenciar decisiones relacionadas.
 ----
 
 5. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - VIEW_[Tipo]_[NNN].rst
 
 ----
 
 6. Verificacion
-   ---------------
+---------------
 
 - [ ] Diagrama PlantUML valido
 - [ ] Elementos documentados
@@ -149,7 +149,7 @@ Referenciar decisiones relacionadas.
 ----
 
 7. Referencias
-   --------------
+--------------
 
 - TPL_VIEW
 - Modelo 4+1
@@ -158,7 +158,7 @@ Referenciar decisiones relacionadas.
 ----
 
 8. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

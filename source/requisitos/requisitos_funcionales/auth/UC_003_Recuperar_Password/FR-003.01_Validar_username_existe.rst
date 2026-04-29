@@ -16,7 +16,7 @@ FR-003.01: Validar username existe
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-003.01: Validar username existe
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -65,7 +65,7 @@ FR-003.01: Validar username existe
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -98,7 +98,7 @@ FR-003.01: Validar username existe
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -114,7 +114,7 @@ FR-003.01: Validar username existe
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -135,7 +135,7 @@ FR-003.01: Validar username existe
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

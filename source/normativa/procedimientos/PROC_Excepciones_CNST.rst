@@ -17,7 +17,7 @@ PROC_Excepciones_CNST: Proceso de Excepción a una Restricción
 =============================================================
 
 1. Propósito
-   ------------
+------------
 
 Establecer el flujo formal para solicitar, evaluar, aprobar o rechazar
 excepciones temporales a una restricción arquitectónica (CNST) del
@@ -27,7 +27,7 @@ Sin este procedimiento, las excepciones quedan informales y sin
 trazabilidad, contradiciendo la naturaleza no negociable de los CNST.
 
 2. Alcance
-   ----------
+----------
 
 Aplica a cualquier solicitud de excepción a un CNST del catálogo
 canónico (CNST_001..CNST_033 al cierre v3 de WP #4). NO aplica a:
@@ -37,7 +37,7 @@ canónico (CNST_001..CNST_033 al cierre v3 de WP #4). NO aplica a:
 - Variaciones de implementación que NO violan el enunciado del CNST.
 
 3. Roles
-   --------
+--------
 
 .. list-table::
  :widths: 30 70
@@ -60,7 +60,7 @@ canónico (CNST_001..CNST_033 al cierre v3 de WP #4). NO aplica a:
    - Verifica trimestralmente las excepciones vigentes.
 
 4. Flujo del Proceso
-   --------------------
+--------------------
 
 4.1 Solicitud formal
 ^^^^^^^^^^^^^^^^^^^^
@@ -151,7 +151,7 @@ Al vencer la vigencia:
 - El reporte se archiva en el AuditLog inmutable.
 
 5. Excepciones que NO requieren este proceso
-   --------------------------------------------
+--------------------------------------------
 
 - Cambios al CNST mismo: usar ADR + bump versión del CNST.
 - Variaciones de implementación que NO violan el enunciado: no son
@@ -160,7 +160,7 @@ Al vencer la vigencia:
   proceso de incident response, no este.
 
 6. Trazabilidad
-   ---------------
+---------------
 
 Cada excepción genera tres artefactos:
 
@@ -171,7 +171,7 @@ Cada excepción genera tres artefactos:
 Los tres son inmutables (CNST_025 Auditoría Inmutable).
 
 7. Referencias
-   --------------
+--------------
 
 - :doc:`/normativa/restricciones/index` — catálogo de CNST canónicos
 - :doc:`/normativa/restricciones/CNST_025_Auditoria_Inmutable_Append_Only`
@@ -180,7 +180,7 @@ Los tres son inmutables (CNST_025 Auditoría Inmutable).
 - :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`
 
 8. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 12 15 25 48

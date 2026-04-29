@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Este procedimiento establece los pasos para generar Reglas de Negocio (BR)
 siguiendo el template TPL_BR y la taxonomia TXM_03.
@@ -52,7 +52,7 @@ acciones y trazabilidad a BReq y UC.
 ----
 
 2. Alcance
-   ----------
+----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -70,7 +70,7 @@ acciones y trazabilidad a BReq y UC.
 ----
 
 3. Roles y Responsabilidades
-   ----------------------------
+----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -89,7 +89,7 @@ acciones y trazabilidad a BReq y UC.
 ----
 
 4. Precondiciones
-   -----------------
+-----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -101,7 +101,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-   ------------------------
+------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -123,7 +123,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-   ----------------
+----------------
 
 6.1 Tipos de BR (TXM_03)
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -286,7 +286,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -302,7 +302,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-   ------------------
+------------------
 
 Al finalizar este procedimiento:
 
@@ -315,7 +315,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-   ----------------------------
+----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
-    -------------------------
+-------------------------
 
 .. list-table::
  :widths: 30 70
@@ -359,7 +359,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
-    ---------------
+---------------
 
 - TPL_BR_Business_Rules_1_0_0.rst
 - TXM_03: Taxonomia de Reglas de Negocio
@@ -368,7 +368,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 12 12 20 56

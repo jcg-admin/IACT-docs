@@ -12,7 +12,7 @@ UC_RPT_13: Ver Reporte Colas
 ============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_13: Ver Reporte Colas
    - BRQ-RPT-013
 
 2. Descripcion
-   --------------
+--------------
 
 Reporte especializado de rendimiento de colas de llamadas. Muestra
 metricas de cada cola y permite analizar tiempos de espera y abandono.
@@ -50,7 +50,7 @@ metricas de cada cola y permite analizar tiempos de espera y abandono.
 - Picos de demanda
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_13
@@ -69,7 +69,7 @@ metricas de cada cola y permite analizar tiempos de espera y abandono.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de colas.
    - Se muestra reporte de colas del segmento
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -132,7 +132,7 @@ Usuario accede a reporte de colas.
    - Selecciona cola para detalle
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_13
@@ -159,7 +159,7 @@ Usuario accede a reporte de colas.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Ver Tendencia Horaria
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -179,7 +179,7 @@ Usuario accede a reporte de colas.
    - Muestra grafico de llamadas por hora
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Colas en Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Usuario accede a reporte de colas.
    - No hay colas registradas en su segmento
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_13
@@ -222,7 +222,7 @@ Usuario accede a reporte de colas.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -258,7 +258,7 @@ Usuario accede a reporte de colas.
    - Porcentaje atendidas en umbral
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -275,7 +275,7 @@ Usuario accede a reporte de colas.
    - Solo colas del segmento
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -292,7 +292,7 @@ Usuario accede a reporte de colas.
    - Grafico de demanda por hora
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -310,7 +310,7 @@ Usuario accede a reporte de colas.
    - RPT-013: ve_colas
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

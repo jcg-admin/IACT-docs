@@ -28,7 +28,7 @@ ARQ_MOD_001: Autenticacion y Sesiones (AUTH)
 ----
 
 1. Proposito
-   ============
+============
 
 El modulo AUTH gestiona la **autenticacion de usuarios** y el **ciclo de vida
 de las sesiones** en el sistema IACT.
@@ -46,7 +46,7 @@ inactividad.
 ----
 
 2. Alcance
-   ==========
+==========
 
 2.1 Incluye
 -----------
@@ -73,7 +73,7 @@ inactividad.
 ----
 
 3. Responsabilidades
-   ====================
+====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -160,7 +160,7 @@ inactividad.
 ----
 
 4. Dependencias
-   ===============
+===============
 
 4.1 Depende de
 --------------
@@ -199,7 +199,7 @@ inactividad.
 ----
 
 5. Componentes Tecnicos
-   =======================
+=======================
 
 5.1 Apps Django
 ---------------
@@ -281,7 +281,7 @@ inactividad.
 ----
 
 6. Restricciones Aplicables
-   ===========================
+===========================
 
 .. list-table::
  :widths: 15 85
@@ -302,7 +302,7 @@ inactividad.
 ----
 
 7. Casos de Uso Asociados
-   =========================
+=========================
 
 .. list-table::
  :widths: 12 35 53
@@ -330,7 +330,7 @@ inactividad.
 ----
 
 8. Requisitos Funcionales Derivados
-   ===================================
+===================================
 
 .. list-table::
  :widths: 12 40 20 28
@@ -364,7 +364,7 @@ inactividad.
 ----
 
 9. Flujo de Autenticacion
-   =========================
+=========================
 
 .. code-block:: text
 
@@ -402,7 +402,7 @@ inactividad.
 ----
 
 10. Seguridad
-    =============
+=============
 
 10.1 Validaciones Obligatorias
 ------------------------------
@@ -434,7 +434,7 @@ inactividad.
 ----
 
 11. Diagrama de Contexto
-    ========================
+========================
 
 .. code-block:: text
 
@@ -458,7 +458,7 @@ inactividad.
 ----
 
 12. Metricas y Monitoreo
-    ========================
+========================
 
 .. list-table::
  :widths: 40 30 30
@@ -483,7 +483,7 @@ inactividad.
 ----
 
 13. Historial de Cambios
-    ========================
+========================
 
 .. list-table::
  :widths: 12 15 73

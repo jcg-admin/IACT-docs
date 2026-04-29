@@ -278,7 +278,7 @@ Elementos Obligatorios de la Especificación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Información de Cabecera
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -305,7 +305,7 @@ Elementos Obligatorios de la Especificación
  **Estado**: [borrador|en_revision|aprobado|obsoleto]
 
 2. Actores
-   ^^^^^^^^^^
+^^^^^^^^^^
 
 .. code:: markdown
 
@@ -322,7 +322,7 @@ son roles técnicos**: “Usuario Administrador”, “Cliente”, “Gerente de
 Laboratorio” (NO “Base de Datos MySQL”)
 
 3. Descripción
-   ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -331,7 +331,7 @@ Laboratorio” (NO “Base de Datos MySQL”)
  [Breve párrafo describiendo el propósito del caso de uso y el objetivo que el actor busca lograr]
 
 4. Desencadenador (Trigger)
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -344,7 +344,7 @@ químico” o “El sistema detecta que la fecha de vencimiento ha sido
 alcanzada”
 
 5. Precondiciones
-   ^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -362,7 +362,7 @@ existir un catálogo de productos disponible - El inventario debe estar
 actualizado
 
 6. Postcondiciones
-   ^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -379,7 +379,7 @@ path o caminos alternos exitosos).
 inventario ha sido actualizado - El recibo ha sido impreso
 
 7. Flujo Normal (Happy Path)
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -401,7 +401,7 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
 4)
 
 8. Flujos Alternos
-   ^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -438,7 +438,7 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
  **Punto de retorno**: Regresa al paso 5 si selecciona alternativa, o termina caso de uso
 
 9. Excepciones
-   ^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -462,7 +462,7 @@ diferente) - **Excepciones**: Situaciones de error que típicamente
 terminan el caso de uso sin éxito completo
 
 10. Requisitos Especiales
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -480,7 +480,7 @@ terminan el caso de uso sin éxito completo
 de uso, no todos los del sistema.
 
 11. Reglas de Negocio Relacionadas
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -493,7 +493,7 @@ de uso, no todos los del sistema.
 influyen en este caso de uso.
 
 12. Información Adicional
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 

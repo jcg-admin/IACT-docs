@@ -16,7 +16,7 @@ FR-001.03: Generar token JWT
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-001.03: Generar token JWT
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -71,7 +71,7 @@ FR-001.03: Generar token JWT
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -99,7 +99,7 @@ FR-001.03: Generar token JWT
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:**
  - BR_005: Sesión única por usuario
@@ -130,7 +130,7 @@ FR-001.03: Generar token JWT
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -153,7 +153,7 @@ FR-001.03: Generar token JWT
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

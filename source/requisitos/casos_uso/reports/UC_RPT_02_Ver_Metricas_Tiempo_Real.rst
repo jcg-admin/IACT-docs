@@ -12,7 +12,7 @@ UC_RPT_02: Ver Metricas Tiempo Real
 ===================================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_02: Ver Metricas Tiempo Real
    - BRQ-RPT-002
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite visualizar metricas operativas en tiempo real
 con actualizacion frecuente. Muestra estado actual de colas, agentes
@@ -52,7 +52,7 @@ y llamadas en curso filtrados por segmento (CNST_008).
 - Datos de BD Analytics (CNST_007)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_02
@@ -79,7 +79,7 @@ y llamadas en curso filtrados por segmento (CNST_008).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -117,7 +117,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Las metricas se actualizan cada 10 segundos
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -155,7 +155,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Inicia auto-refresh cada 10 segundos
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_02
@@ -202,7 +202,7 @@ El usuario accede a la vista de metricas en tiempo real.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Umbral Superado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -248,7 +248,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Continua con paso 8
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso RPT-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -287,7 +287,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - RPT-011
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_02
@@ -332,7 +332,7 @@ El usuario accede a la vista de metricas en tiempo real.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -376,7 +376,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Total de llamadas en curso
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -393,7 +393,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Filtro automatico por segmento del usuario
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -416,7 +416,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Datos actualizados automaticamente
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -436,7 +436,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - RPT-002: ve_dashboard
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

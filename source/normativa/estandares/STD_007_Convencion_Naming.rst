@@ -18,7 +18,7 @@ STD_007: Convención de Naming de Archivos y Carpetas
 
 
 1. Propósito
-   ------------
+------------
 
 Establecer las reglas obligatorias de nomenclatura para **todos los
 archivos y directorios** de la documentación del proyecto IACT que viven
@@ -35,7 +35,7 @@ bajo ``source/``. Garantiza:
 ----
 
 2. Alcance
-   ----------
+----------
 
 Aplica a:
 
@@ -56,7 +56,7 @@ NO aplica a:
 ----
 
 3. Reglas Generales (aplican a todo bajo source/)
-   -------------------------------------------------
+-------------------------------------------------
 
 3.1 Caracteres Permitidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ usar abreviaciones documentadas o reorganizar el contenido.
 ----
 
 4. Convenciones por Tipo de Artefacto
-   --------------------------------------
+--------------------------------------
 
 4.1 Artefactos Numerados con Prefijo Fijo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -291,7 +291,7 @@ entrada del directorio?
 ----
 
 5. Convenciones para Directorios
-   --------------------------------
+--------------------------------
 
 5.1 Patrón Recomendado
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ es intencional.
 ----
 
 6. Tabla de Decisión Rápida
-   ---------------------------
+---------------------------
 
 .. list-table::
  :header-rows: 1
@@ -390,7 +390,7 @@ es intencional.
 ----
 
 7. Convención de Idioma (código vs documentación)
-   --------------------------------------------------
+--------------------------------------------------
 
 Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTÁNDAR DE NOMENCLATURA
 v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
@@ -499,7 +499,7 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 ----
 
 8. Decisiones de Gobernanza
-   ---------------------------
+---------------------------
 
 8.1 Cambios a esta convención
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -551,7 +551,7 @@ sección 7.2.
 ----
 
 9. Cumplimiento
-   ---------------
+---------------
 
 9.1 Estado Actual del Proyecto (snapshot 2026-04-28)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -589,7 +589,7 @@ del merge.
 ----
 
 10. Referencias
-    ---------------
+---------------
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
   metadata, no en filename).
@@ -601,7 +601,7 @@ del merge.
 ----
 
 11. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :header-rows: 1

@@ -12,7 +12,7 @@ UC_RPT_04: Exportar CSV
 =======================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_04: Exportar CSV
    - BRQ-RPT-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite exportar datos de reportes a formato CSV.
 Todas las exportaciones se registran en auditoria (CNST_025) y estan
@@ -52,7 +52,7 @@ limitadas a 100,000 registros por exportacion (CNST_017).
 - Codificacion UTF-8 con BOM
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_04
@@ -77,7 +77,7 @@ limitadas a 100,000 registros por exportacion (CNST_017).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -119,7 +119,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - El archivo se descarga al navegador del usuario
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -160,7 +160,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - Recibe archivo CSV
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_04
@@ -214,7 +214,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Exportacion Asincrona
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,7 +263,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - Genera CSV solo con columnas seleccionadas
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Limite Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -302,7 +302,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - RPT-031
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_04
@@ -354,7 +354,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -387,7 +387,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  - Primera fila: cabeceras de columnas
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -426,7 +426,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
  )
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -449,7 +449,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - Solo datos del segmento en export
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -469,7 +469,7 @@ El usuario hace clic en Exportar CSV desde cualquier reporte.
    - RPT-004: exporta_csv
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

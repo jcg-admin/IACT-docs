@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Generar Restricciones Tecnicas (CNST) que documentan limitaciones
 tecnologicas, decisiones de stack y constraints del sistema.
@@ -44,7 +44,7 @@ tecnologicas, decisiones de stack y constraints del sistema.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Restricciones de tecnologia, infraestructura, integracion.
 
@@ -53,7 +53,7 @@ tecnologicas, decisiones de stack y constraints del sistema.
 ----
 
 3. Categorias de CNST
-   ---------------------
+---------------------
 
 .. list-table::
  :header-rows: 1
@@ -77,7 +77,7 @@ tecnologicas, decisiones de stack y constraints del sistema.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Identificar Restriccion**
 
@@ -114,7 +114,7 @@ Como validar cumplimiento de la restriccion.
 ----
 
 5. Ejemplo CNST
-   ---------------
+---------------
 
 .. code-block:: text
 
@@ -131,14 +131,14 @@ Como validar cumplimiento de la restriccion.
 ----
 
 6. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - CNST_[NNN]_[Nombre].rst
 
 ----
 
 7. Verificacion
-   ---------------
+---------------
 
 - [ ] Restriccion clara y verificable
 - [ ] Justificacion documentada
@@ -147,7 +147,7 @@ Como validar cumplimiento de la restriccion.
 ----
 
 8. Referencias
-   --------------
+--------------
 
 - TPL_CNST
 - ADR relacionadas
@@ -155,7 +155,7 @@ Como validar cumplimiento de la restriccion.
 ----
 
 9. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

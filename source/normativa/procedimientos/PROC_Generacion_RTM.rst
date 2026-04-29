@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Este procedimiento establece los pasos para generar Matrices de Trazabilidad
 de Requisitos (RTM) siguiendo el template TPL_RTM.
@@ -52,7 +52,7 @@ y permitan identificar gaps y huerfanos.
 ----
 
 2. Alcance
-   ----------
+----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -70,7 +70,7 @@ y permitan identificar gaps y huerfanos.
 ----
 
 3. Roles y Responsabilidades
-   ----------------------------
+----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -89,7 +89,7 @@ y permitan identificar gaps y huerfanos.
 ----
 
 4. Precondiciones
-   -----------------
+-----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -100,7 +100,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-   ------------------------
+------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -122,7 +122,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-   ----------------
+----------------
 
 6.1 RTM del Proyecto IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -351,7 +351,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -367,7 +367,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-   ------------------
+------------------
 
 Al finalizar este procedimiento:
 
@@ -380,7 +380,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-   ----------------------------
+----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -394,7 +394,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
-    -------------------------
+-------------------------
 
 .. list-table::
  :widths: 30 70
@@ -412,7 +412,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
-    ---------------
+---------------
 
 - TPL_RTM_Trazabilidad_1_0_0.rst
 - PROC_Verificacion_Cobertura
@@ -421,7 +421,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 12 12 20 56

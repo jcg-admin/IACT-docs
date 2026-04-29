@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Este procedimiento establece los pasos para generar Casos de Prueba (TST)
 a partir de Requisitos Funcionales (FR). Cada TST verifica que un FR
@@ -55,7 +55,7 @@ garanticen la verificacion de cada FR.
 ----
 
 2. Alcance
-   ----------
+----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -74,7 +74,7 @@ garanticen la verificacion de cada FR.
 ----
 
 3. Roles y Responsabilidades
-   ----------------------------
+----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -93,7 +93,7 @@ garanticen la verificacion de cada FR.
 ----
 
 4. Precondiciones
-   -----------------
+-----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -105,7 +105,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-   ------------------------
+------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -127,7 +127,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-   ----------------
+----------------
 
 6.1 Diagrama de Flujo
 ^^^^^^^^^^^^^^^^^^^^^
@@ -377,7 +377,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -396,7 +396,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-   ------------------
+------------------
 
 Al finalizar este procedimiento:
 
@@ -408,7 +408,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-   ----------------------------
+----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -456,7 +456,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
-    -------------------------
+-------------------------
 
 .. list-table::
  :widths: 30 70
@@ -474,7 +474,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
-    ---------------
+---------------
 
 - TPL_TST_Pruebas_1_0_0.rst
 - PROC_Derivacion_FR_TST
@@ -484,7 +484,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 12 12 20 56

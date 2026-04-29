@@ -60,7 +60,7 @@ Procedimiento de Revisión
 -------------------------
 
 1. Preparación del Cambio
-   ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.1 Crear Branch
 ^^^^^^^^^^^^^^^^
@@ -107,7 +107,7 @@ Procedimiento de Revisión
  aspell check docs/gobernanza/procesos/procedimiento_qa.md
 
 2. Checklist de Auto-Revisión
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ver: `Checklist de Cambios
 Documentales <../checklists/checklist_cambios_documentales.md>`__
@@ -152,7 +152,7 @@ Calidad
 - ☐ Español correcto
 
 3. Crear Pull Request
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -198,7 +198,7 @@ Calidad
  --reviewer equipo-qa
 
 4. Review
-   ~~~~~~~~~
+~~~~~~~~~
 
 4.1 Como Reviewer
 ^^^^^^^^^^^^^^^^^
@@ -239,7 +239,7 @@ Variables de entorno documentadas - [ ] Configuraciones actualizadas
  - Link al procedimiento de desarrollo local
 
 5. Aprobar y Merge
-   ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -251,7 +251,7 @@ Variables de entorno documentadas - [ ] Configuraciones actualizadas
  gh pr merge --squash --delete-branch
 
 6. Post-Merge
-   ~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 - ☐ Verificar que doc se ve bien en repo
 - ☐ Actualizar índices si es necesario

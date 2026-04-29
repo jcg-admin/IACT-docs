@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Derivar Casos de Uso (UC) desde Reglas de Negocio (BR),
 identificando las interacciones necesarias para implementar cada BR.
@@ -46,7 +46,7 @@ identificando las interacciones necesarias para implementar cada BR.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Derivacion sistematica BR -> UC por modulo.
 
@@ -55,7 +55,7 @@ identificando las interacciones necesarias para implementar cada BR.
 ----
 
 3. Metodologia de Derivacion
-   ----------------------------
+----------------------------
 
 Para cada BR, identificar:
 
@@ -68,7 +68,7 @@ Cada combinacion Actor-Accion-Objetivo = 1 UC candidato.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Agrupar BR por Modulo**
 
@@ -120,7 +120,7 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ----
 
 5. Matriz de Derivacion
-   -----------------------
+-----------------------
 
 .. list-table::
  :header-rows: 1
@@ -141,7 +141,7 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ----
 
 6. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - UC_[NNN].rst generados
 - RTM_BR_UC actualizada
@@ -149,7 +149,7 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ----
 
 7. Verificacion
-   ---------------
+---------------
 
 - [ ] Cada BR tiene minimo 1 UC
 - [ ] UC agrupados por modulo
@@ -158,7 +158,7 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ----
 
 8. Referencias
-   --------------
+--------------
 
 - PROC_Generacion_UC
 - PROC_Generacion_RTM
@@ -167,7 +167,7 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ----
 
 9. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

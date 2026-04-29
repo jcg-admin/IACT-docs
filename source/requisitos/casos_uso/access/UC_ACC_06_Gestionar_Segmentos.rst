@@ -12,7 +12,7 @@ UC_ACC_06: Gestionar Segmentos
 ==============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ACC_06: Gestionar Segmentos
    - BRQ-ACC-006
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite gestionar el catalogo de segmentos de datos del
 sistema. Los segmentos definen particiones de datos que limitan la
@@ -50,7 +50,7 @@ visibilidad de los usuarios.
 - Cada usuario pertenece a exactamente un segmento
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_06
@@ -75,7 +75,7 @@ visibilidad de los usuarios.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Se registra en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -153,7 +153,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_06
@@ -188,7 +188,7 @@ El administrador accede al modulo de gestion de segmentos.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Modificar Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -234,7 +234,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Cambia estado a INACTIVO
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Segmento con Usuarios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ El administrador accede al modulo de gestion de segmentos.
    - ACC-050
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_06
@@ -291,7 +291,7 @@ El administrador accede al modulo de gestion de segmentos.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -311,7 +311,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Los segmentos se desactivan, no se eliminan
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -328,7 +328,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Se registran operaciones sobre segmentos
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -345,7 +345,7 @@ El administrador accede al modulo de gestion de segmentos.
    - Error si segmento tiene usuarios
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -365,7 +365,7 @@ El administrador accede al modulo de gestion de segmentos.
    - ACC-006: gestiona_segmentos
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

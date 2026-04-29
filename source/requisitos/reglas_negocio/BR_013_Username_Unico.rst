@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
-   --------------------
+--------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,7 +89,7 @@ La unicidad del username garantiza:
 ----
 
 2. Clasificación
-   ----------------
+----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -113,7 +113,7 @@ La unicidad del username garantiza:
 ----
 
 3. Origen y Autoridad
-   ---------------------
+---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -141,7 +141,7 @@ La unicidad del username garantiza:
 ----
 
 4. Aplicación en Sistema
-   ------------------------
+------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -177,7 +177,7 @@ Sin excepciones. La unicidad es absoluta e incondicional.
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 5.1 Modelo de Datos
 ^^^^^^^^^^^^^^^^^^^
@@ -218,7 +218,7 @@ Sin excepciones. La unicidad es absoluta e incondicional.
 ----
 
 6. Verificación
-   ---------------
+---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -248,7 +248,7 @@ La regla se considera cumplida cuando:
 ----
 
 7. Implementación Técnica
-   -------------------------
+-------------------------
 
 7.1 Modelo Django
 ^^^^^^^^^^^^^^^^^
@@ -311,7 +311,7 @@ La regla se considera cumplida cuando:
 ----
 
 8. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 15 15 20 50

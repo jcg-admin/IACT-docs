@@ -35,7 +35,7 @@ Actividades recurrentes
 -----------------------
 
 1. Revisión de calidad editorial
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Ejecutar el checklist corporativo descrito en
   ```../documentacion_corporativa.md`` <../documentacion_corporativa.md>`__
@@ -46,7 +46,7 @@ Actividades recurrentes
   incumplimientos.
 
 2. Verificación de estructura y plantillas
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Confirmar que las nuevas entradas utilicen plantillas de
   ```../plantillas/`` <../plantillas/>`__ según el tipo de artefacto.
@@ -56,7 +56,7 @@ Actividades recurrentes
   requisitos o casos de uso.
 
 3. Auditoría de trazabilidad
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Actualizar
   ```../requisitos/trazabilidad.md`` <../requisitos/trazabilidad.md>`__

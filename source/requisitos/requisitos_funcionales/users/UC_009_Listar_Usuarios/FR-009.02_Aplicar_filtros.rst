@@ -16,7 +16,7 @@ FR-009.02: Aplicar filtros a la lista
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-009.02: Aplicar filtros a la lista
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -74,7 +74,7 @@ FR-009.02: Aplicar filtros a la lista
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -112,7 +112,7 @@ FR-009.02: Aplicar filtros a la lista
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -127,7 +127,7 @@ FR-009.02: Aplicar filtros a la lista
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -146,7 +146,7 @@ FR-009.02: Aplicar filtros a la lista
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

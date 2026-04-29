@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Validar que los artefactos RST generados cumplen con la sintaxis
 requerida por Sphinx y pueden compilarse sin errores.
@@ -46,7 +46,7 @@ requerida por Sphinx y pueden compilarse sin errores.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Todos los archivos .rst del proyecto.
 
@@ -55,7 +55,7 @@ requerida por Sphinx y pueden compilarse sin errores.
 ----
 
 3. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Ubicar Archivos a Validar**
 
@@ -114,7 +114,7 @@ Iterar hasta build exitoso.
 ----
 
 4. Comandos Utiles
-   ------------------
+------------------
 
 .. code-block:: bash
 
@@ -130,7 +130,7 @@ Iterar hasta build exitoso.
 ----
 
 5. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - Build exitoso (sin errores)
 - HTML generado (opcional)
@@ -138,7 +138,7 @@ Iterar hasta build exitoso.
 ----
 
 6. Verificacion
-   ---------------
+---------------
 
 - [ ] sphinx-build retorna codigo 0
 - [ ] Sin warnings (con flag -W)
@@ -147,7 +147,7 @@ Iterar hasta build exitoso.
 ----
 
 7. Referencias
-   --------------
+--------------
 
 - Sphinx Documentation
 - STD_005: Estilo Sphinx
@@ -155,7 +155,7 @@ Iterar hasta build exitoso.
 ----
 
 8. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

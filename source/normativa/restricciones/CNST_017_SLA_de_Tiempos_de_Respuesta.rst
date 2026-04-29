@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
-   -------------
+-------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
-   -------------------------
+-------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -102,7 +102,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 - django-debug-toolbar (dev)
 
 3. Impacto en Sistema
-   ---------------------
+---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -141,7 +141,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 - Ignorar degradacion de p99 sostenida
 
 4. Business Rules Derivadas
-   ---------------------------
+---------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -155,7 +155,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
    - FND_00:298 — pendiente WP requisitos
 
 5. Implementacion
-   -----------------
+-----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,7 +171,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 
 
 6. Excepciones
-   --------------
+--------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,7 +188,7 @@ el WP de gobernanza (`PROC_Excepciones_CNST` — ver
 (referencia interna) § W-4).
 
 7. Verificacion
-   ---------------
+---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -203,7 +203,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 - **Herramienta:** Sentry / Prometheus con alertas por endpoint
 
 8. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 30 70
@@ -221,7 +221,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
    - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 12 15 25 48

@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
-   -------------
+-------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -63,7 +63,7 @@ revisor.
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
-   -------------------------
+-------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +88,7 @@ Ver subseccion 2.1.
 - django-guardian (object-level)
 
 3. Impacto en Sistema
-   ---------------------
+---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -124,14 +124,14 @@ Ver subseccion 2.1.
 - Mezclar permisos en logica de la vista
 
 4. Business Rules Derivadas
-   ---------------------------
+---------------------------
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
 el WP de requisitos (deuda diferida).
 
 5. Implementacion
-   -----------------
+-----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -149,7 +149,7 @@ Ver seccion 5.1 (codigo de referencia es la validacion ejecutable).
 
 
 6. Excepciones
-   --------------
+--------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,7 +166,7 @@ el WP de gobernanza (`PROC_Excepciones_CNST` — ver
 (referencia interna) § W-4).
 
 7. Verificacion
-   ---------------
+---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,7 +181,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 - **Herramienta:** Linter custom que verifica hasattr(view, 'permission_classes')
 
 8. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 30 70
@@ -199,7 +199,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
    - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 12 15 25 48

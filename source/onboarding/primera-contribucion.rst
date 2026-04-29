@@ -16,7 +16,7 @@ Primera Contribucion
 Guia paso a paso para tu primera contribucion al proyecto IACT.
 
 1. Workflow git
-   ===============
+===============
 
 Ver :doc:`/normativa/procedimientos/PROCED-DEV-001-crear_pull_request`.
 
@@ -32,7 +32,7 @@ Resumen:
  # Crear PR en plataforma
 
 2. Convenciones obligatorias
-   ============================
+============================
 
 - :doc:`/normativa/estandares/STD_007_Convencion_Naming` — naming de
   archivos.
@@ -42,7 +42,7 @@ Resumen:
   comentarios en espanol.
 
 3. CNSTs criticos a respetar
-   ============================
+============================
 
 Antes de codificar, revisa:
 
@@ -52,7 +52,7 @@ Antes de codificar, revisa:
 - :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
 
 4. Code review
-   ==============
+==============
 
 Tu PR sera revisado por:
 

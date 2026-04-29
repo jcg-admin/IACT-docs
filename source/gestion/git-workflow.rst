@@ -11,7 +11,7 @@ This document standardizes Git workflows, branching strategies, and commit conve
 ---
 
 1. Conventional Commits Format
-   ================================================================================
+================================================================================
 
 The IACT-docs project follows the Conventional Commits specification to ensure clear, structured commit messages that can be automatically parsed and categorized.
 
@@ -391,7 +391,7 @@ This preserves the entire feature branch history while creating a single merge c
 ---
 
 2. Feature Branch Workflow
-   ================================================================================
+================================================================================
 
 This section describes how to create a feature branch, make changes, and prepare for merge to develop.
 
@@ -642,7 +642,7 @@ All feature branches must follow these naming rules for consistency and automati
 ---
 
 3. Feature → Develop Merge Workflow
-   ================================================================================
+================================================================================
 
 This section describes how to create a pull request from a feature branch to develop, handle code review feedback, resolve conflicts, and merge using GitHub.
 
@@ -1026,7 +1026,7 @@ This shows a visual tree of the merge, making it clear which commits belonged to
 ---
 
 4. Develop → Main Release Workflow
-   ================================================================================
+================================================================================
 
 This section describes how to prepare a release, create a release PR to main, tag the release, generate release notes, and handle rollbacks if needed.
 
@@ -1464,7 +1464,7 @@ Create a new tag to mark the rollback point:
 - No loss of data or commit history
 
 5. GitHub Branch Protection
-   ================================================================================
+================================================================================
 
 Branch protection rules enforce quality gates on the ``develop`` and ``main`` branches, preventing accidental or unauthorized changes. This section documents how to configure these rules.
 
@@ -1739,7 +1739,7 @@ If you have the GitHub CLI installed (``gh``):
 ---
 
 6. Troubleshooting Guide
-   ================================================================================
+================================================================================
 
 This section provides solutions for common Git workflow problems and error scenarios.
 
@@ -2043,7 +2043,7 @@ Lesson: Deleted local branches can be recovered from reflog or remote. Don't wor
 ---
 
 7. Audit Trail & Compliance
-   ================================================================================
+================================================================================
 
 This section documents how to trace commits, PRs, and releases for compliance and audit purposes.
 
@@ -2342,7 +2342,7 @@ This provides complete traceability from commit through release for compliance p
 ---
 
 8. Git Hooks (OPTIONAL)
-   ================================================================================
+================================================================================
 
 This section documents optional local Git hooks for enforcing conventions automatically.
 

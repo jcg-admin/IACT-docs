@@ -16,7 +16,7 @@ FR-010.02: Validar SoD antes de asignar
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-010.02: Validar SoD antes de asignar
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -72,7 +72,7 @@ FR-010.02: Validar SoD antes de asignar
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -109,7 +109,7 @@ FR-010.02: Validar SoD antes de asignar
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:**
  - BR_007: Separación de Funciones (SoD)
@@ -125,7 +125,7 @@ por el administrador de seguridad.
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -148,7 +148,7 @@ por el administrador de seguridad.
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

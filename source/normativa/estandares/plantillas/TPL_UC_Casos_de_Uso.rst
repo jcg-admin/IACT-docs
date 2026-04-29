@@ -120,7 +120,7 @@ Plantilla
  ----
 
  1. Resumen
-    ----------
+ ----------
 
  .. list-table::
  :widths: 25 75
@@ -146,7 +146,7 @@ Plantilla
  ----
 
  2. Descripcion
-    --------------
+ --------------
 
  [Descripcion del objetivo del caso de uso en 2-3 oraciones.
  Responde: ¿Que logra el usuario al completar este UC?]
@@ -154,7 +154,7 @@ Plantilla
  ----
 
  3. Diagrama de Caso de Uso
-    --------------------------
+ --------------------------
 
  .. uml::
  :caption: Diagrama de Caso de Uso - UC-[NNN]
@@ -182,7 +182,7 @@ Plantilla
  ----
 
  4. Contexto
-    -----------
+ -----------
 
  4.1 Precondiciones
  ^^^^^^^^^^^^^^^^^^
@@ -209,7 +209,7 @@ Plantilla
  ----
 
  5. Flujo Normal
-    ---------------
+ ---------------
 
  .. list-table::
  :widths: 8 46 46
@@ -234,7 +234,7 @@ Plantilla
  ----
 
  6. Diagrama de Secuencia
-    ------------------------
+ ------------------------
 
  .. uml::
  :caption: Secuencia - Flujo Normal UC-[NNN]
@@ -283,7 +283,7 @@ Plantilla
  ----
 
  7. Flujos Alternos
-    ------------------
+ ------------------
 
  7.1 FA-1: [Nombre del Flujo Alterno]
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -308,7 +308,7 @@ Plantilla
  ----
 
  8. Excepciones
-    --------------
+ --------------
 
  8.1 EX-1: [Nombre de la Excepcion]
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,7 +322,7 @@ Plantilla
  ----
 
  9. Diagrama de Actividad
-    ------------------------
+ ------------------------
 
  .. uml::
  :caption: Actividad - Flujos y Decisiones UC-[NNN]
@@ -355,7 +355,7 @@ Plantilla
  ----
 
  10. Reglas de Negocio
-     ---------------------
+ ---------------------
 
  .. list-table::
  :widths: 12 30 58
@@ -371,7 +371,7 @@ Plantilla
  ----
 
  11. Requerimientos Funcionales Derivados
-     ----------------------------------------
+ ----------------------------------------
 
  .. list-table::
  :widths: 15 85
@@ -387,7 +387,7 @@ Plantilla
  ----
 
  12. Trazabilidad
-     ----------------
+ ----------------
 
  .. list-table::
  :widths: 25 75
@@ -407,7 +407,7 @@ Plantilla
  ----
 
  13. Historial de Cambios
-     ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

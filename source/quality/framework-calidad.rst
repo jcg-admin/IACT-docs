@@ -16,7 +16,7 @@ Framework de Calidad
 Pipeline de validacion automatizada del sistema IACT.
 
 1. Stack
-   ========
+========
 
 .. list-table::
  :widths: 30 70
@@ -42,7 +42,7 @@ Pipeline de validacion automatizada del sistema IACT.
    - sphinx-build con ``-W`` en CI (CNST: build limpio)
 
 2. Pipeline CI
-   ==============
+==============
 
 .. code-block:: text
 
@@ -63,7 +63,7 @@ Pipeline de validacion automatizada del sistema IACT.
  Merge / Deploy
 
 3. Verificacion de cumplimiento de CNSTs
-   =========================================
+=========================================
 
 El framework de calidad verifica automaticamente cumplimiento de
 restricciones canonicas:

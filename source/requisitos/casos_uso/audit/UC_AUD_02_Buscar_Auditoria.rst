@@ -12,7 +12,7 @@ UC_AUD_02: Buscar Auditoria
 ===========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_AUD_02: Buscar Auditoria
    - BRQ-AUD-002
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite realizar busquedas avanzadas en el log de
 auditoria con criterios multiples y operadores logicos. Complementa
@@ -51,7 +51,7 @@ UC_AUD_01 con capacidades de busqueda mas sofisticadas.
 - Solo lectura (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUD_02
@@ -74,7 +74,7 @@ UC_AUD_01 con capacidades de busqueda mas sofisticadas.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - No se modifica ningun registro
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -151,7 +151,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - Navega por resultados
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUD_02
@@ -193,7 +193,7 @@ El auditor accede a la busqueda avanzada de auditoria.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Busqueda por Texto Libre
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,7 +247,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - Ejecuta busqueda con SIMILAR TO o regex
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Limite de Resultados Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -286,7 +286,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - AUD-011
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUD_02
@@ -328,7 +328,7 @@ El auditor accede a la busqueda avanzada de auditoria.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -365,7 +365,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - resource LIKE 'user%'
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -382,7 +382,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - Validar SoD-003 antes de busqueda
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -402,7 +402,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - Patrones regex funcionales
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -418,7 +418,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    - AUD-002: busca_auditoria
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

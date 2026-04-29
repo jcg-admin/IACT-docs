@@ -79,7 +79,7 @@ Los 5 Tipos de Reglas de Negocio
  5. CÁLCULOS COMPUTACIONALES
 
 1. HECHOS
-   ---------
+---------
 
 Definición
 ~~~~~~~~~~
@@ -166,7 +166,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 2. RESTRICCIONES
-   ----------------
+----------------
 
 .. _definición-1:
 
@@ -299,7 +299,7 @@ Formato de Documentación
  - Atributos de Calidad: [RNF-###]
 
 3. DESENCADENADORES DE ACCIÓN (Activadores)
-   -------------------------------------------
+-------------------------------------------
 
 .. _definición-2:
 
@@ -411,7 +411,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 4. INFERENCIAS
-   --------------
+--------------
 
 .. _definición-3:
 
@@ -527,7 +527,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 5. CÁLCULOS COMPUTACIONALES
-   ---------------------------
+---------------------------
 
 .. _definición-4:
 

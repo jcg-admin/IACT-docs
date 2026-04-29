@@ -12,7 +12,7 @@ UC_USR_01: Crear Usuario
 ========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_USR_01: Crear Usuario
    - BRQ-USR-001
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) crear
 nuevas cuentas de usuario en el sistema IACT. El proceso incluye la
@@ -62,7 +62,7 @@ y notificacion al usuario via buzon interno (CNST_001).
  ningun canal externo.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_USR_01
@@ -104,7 +104,7 @@ y notificacion al usuario via buzon interno (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -152,7 +152,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Se registra USER_CREATE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -223,7 +223,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Recibe mensaje en buzon interno con credenciales
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_USR_01
@@ -344,7 +344,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Sin Agrupador Inicial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -413,7 +413,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Crea usuarios en transaccion (todo o nada)
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso USR-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -488,7 +488,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - USR-004
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_USR_01
@@ -566,7 +566,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -595,7 +595,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Las credenciales SOLO se comunican via InternalMessage, nunca por canales externos.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -655,7 +655,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  return f"{base}.{count+1:04d}" # nombre.apellido.0001
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -681,7 +681,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Evento USER_CREATE sin datos de password
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -703,7 +703,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - USR-001: crea_usuarios
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

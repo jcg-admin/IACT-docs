@@ -28,7 +28,7 @@ ARQ_MOD_007: Auditoria Funcional (AUDIT)
 ----
 
 1. Proposito
-   ============
+============
 
 El modulo AUDIT registra **acciones de negocio** realizadas por los usuarios
 en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
@@ -42,7 +42,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 2. Alcance
-   ==========
+==========
 
 2.1 Incluye
 -----------
@@ -75,7 +75,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 3. Responsabilidades
-   ====================
+====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -131,7 +131,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 4. Estructura del Evento de Auditoria
-   =====================================
+=====================================
 
 .. code-block:: python
 
@@ -175,7 +175,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 5. Tipos de Accion Auditada
-   ===========================
+===========================
 
 .. list-table::
  :widths: 25 35 40
@@ -224,7 +224,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 6. Dependencias
-   ===============
+===============
 
 6.1 Depende de
 --------------
@@ -263,7 +263,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 7. Componentes Tecnicos
-   =======================
+=======================
 
 7.1 Apps Django
 ---------------
@@ -323,7 +323,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 8. Restricciones Aplicables
-   ===========================
+===========================
 
 .. list-table::
  :widths: 15 85
@@ -340,7 +340,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 9. Casos de Uso Asociados
-   =========================
+=========================
 
 .. list-table::
  :widths: 12 40 48
@@ -365,7 +365,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 10. Requisitos Funcionales Derivados
-    ====================================
+====================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -391,7 +391,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 11. Retencion y Compliance
-    ==========================
+==========================
 
 .. list-table::
  :widths: 30 70
@@ -413,7 +413,7 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 ----
 
 12. Historial de Cambios
-    ========================
+========================
 
 .. list-table::
  :widths: 12 15 73

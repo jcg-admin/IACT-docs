@@ -21,7 +21,7 @@ UC_ACC_03: Consultar Permisos
 
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -47,7 +47,7 @@ UC_ACC_03: Consultar Permisos
    - BRQ-ACC-003
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de acceso (AGR-007) consultar
 los permisos efectivos de un usuario, incluyendo funciones asignadas
@@ -63,7 +63,7 @@ directamente, funciones de agrupadores y permisos temporales.
 - Detectar conflictos SoD potenciales
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_03
@@ -91,7 +91,7 @@ directamente, funciones de agrupadores y permisos temporales.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -127,7 +127,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -168,7 +168,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Presenta panel con toda la informacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_03
@@ -232,7 +232,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Usuario Sin Permisos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -275,7 +275,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Indica funciones en conflicto y regla violada
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso ACC-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -314,7 +314,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - ACC-021
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_03
@@ -361,7 +361,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -384,7 +384,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Se detectan y alertan conflictos SoD aunque ya existan (para limpieza).
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -421,7 +421,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  }
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -447,7 +447,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Indicador visual cuando hay conflicto
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -469,7 +469,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - ACC-003: ve_asignaciones
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

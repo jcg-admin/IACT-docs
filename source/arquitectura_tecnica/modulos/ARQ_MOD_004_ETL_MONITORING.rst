@@ -28,7 +28,7 @@ ARQ_MOD_004: Supervision ETL y Calidad (ETL_MONITORING)
 ----
 
 1. Proposito
-   ============
+============
 
 El modulo ETL_MONITORING **supervisa el pipeline ETL** sin ejecutarlo.
 Permite ver el estado de las cargas, disponibilidad de datos, y errores
@@ -43,7 +43,7 @@ de transformacion.
 ----
 
 2. Alcance
-   ==========
+==========
 
 2.1 Incluye
 -----------
@@ -65,7 +65,7 @@ de transformacion.
 ----
 
 3. Responsabilidades
-   ====================
+====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -126,7 +126,7 @@ de transformacion.
 ----
 
 4. Dependencias
-   ===============
+===============
 
 4.1 Depende de
 --------------
@@ -159,7 +159,7 @@ de transformacion.
 ----
 
 5. Componentes Tecnicos
-   =======================
+=======================
 
 5.1 Apps Django
 ---------------
@@ -232,7 +232,7 @@ de transformacion.
 ----
 
 6. Restricciones Aplicables
-   ===========================
+===========================
 
 .. list-table::
  :widths: 15 85
@@ -250,7 +250,7 @@ de transformacion.
 ----
 
 7. Casos de Uso Asociados
-   =========================
+=========================
 
 .. list-table::
  :widths: 12 40 48
@@ -278,7 +278,7 @@ de transformacion.
 ----
 
 8. Requisitos Funcionales Derivados
-   ===================================
+===================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -308,7 +308,7 @@ de transformacion.
 ----
 
 9. Flujo ETL (Solo Supervision)
-   ===============================
+===============================
 
 .. code-block:: text
 
@@ -340,7 +340,7 @@ de transformacion.
 ----
 
 10. Historial de Cambios
-    ========================
+========================
 
 .. list-table::
  :widths: 12 15 73

@@ -28,14 +28,14 @@ UC_PERM_07: Verificar Permiso de Usuario
 
 
 1. Resumen
-   ----------
+----------
 
 
 El sistema verifica si un usuario tiene una funcion específica, evaluando en orden: revocaciones excepcionales, concesiones excepcionales, y grupos asignados.
 
 
 2. Precondiciones
-   -----------------
+-----------------
 
 
 - Usuario autenticado
@@ -43,7 +43,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 
 
 3. Algoritmo de Verificación (Orden de Precedencia)
-   ---------------------------------------------------
+---------------------------------------------------
 
 
 .. code-block:: text
@@ -56,7 +56,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 
 
 4. Performance Target
-   ---------------------
+---------------------
 
 
 - **Con SQL Function**: 5-10ms
@@ -65,7 +65,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 
 
 5. SQL Function
-   ---------------
+---------------
 
 
 .. code-block:: sql
@@ -91,7 +91,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 
 
 6. API Endpoint
-   ---------------
+---------------
 
 
 .. code-block:: text
@@ -111,7 +111,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 
 
 7. Casos de Uso
-   ---------------
+---------------
 
 
 
@@ -140,7 +140,7 @@ Caso 3: Usuario con concesión excepcional
 
 
 8. Integración
-   --------------
+--------------
 
 
 Este caso de uso es invocado por:

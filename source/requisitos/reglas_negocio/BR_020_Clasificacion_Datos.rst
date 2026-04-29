@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
-   --------------------
+--------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,7 +89,7 @@ La clasificación de datos garantiza:
 ----
 
 2. Clasificación
-   ----------------
+----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -113,7 +113,7 @@ La clasificación de datos garantiza:
 ----
 
 3. Niveles de Clasificación
-   ---------------------------
+---------------------------
 
 3.1 Matriz de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,7 +178,7 @@ La clasificación de datos garantiza:
 ----
 
 4. Aplicación en Sistema
-   ------------------------
+------------------------
 
 4.1 Controles por Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -229,7 +229,7 @@ La clasificación de datos garantiza:
 ----
 
 5. Implementación Técnica
-   -------------------------
+-------------------------
 
 5.1 Decorador de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ La clasificación de datos garantiza:
 ----
 
 6. Trazabilidad
-   ---------------
+---------------
 
 - **Origen**: CNST_010 (Clasificación y Protección de Datos)
 - **UC Relacionados**: Todos (aplica transversalmente)
@@ -313,7 +313,7 @@ La clasificación de datos garantiza:
 ----
 
 7. Verificación
-   ---------------
+---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -327,7 +327,7 @@ La clasificación de datos garantiza:
 ----
 
 8. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 15 15 70

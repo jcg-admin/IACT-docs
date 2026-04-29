@@ -12,7 +12,7 @@ UC_AUTH_01: Iniciar Sesion
 ==========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_AUTH_01: Iniciar Sesion
    - BRQ-AUTH-001
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un usuario registrado autenticarse en el sistema
 IACT mediante sus credenciales (username y password). El sistema valida las
@@ -56,7 +56,7 @@ sesion unica (CNST_003) y genera los tokens JWT correspondientes.
 - Registro de auditoria de todos los intentos (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUTH_01
@@ -91,7 +91,7 @@ sesion unica (CNST_003) y genera los tokens JWT correspondientes.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -156,7 +156,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - Si se exceden 5 intentos, se bloquea temporalmente (15 min)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -221,7 +221,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - Recibe confirmacion y es redirigido al dashboard o cambio de password
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUTH_01
@@ -328,7 +328,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Primer Login (Cambio de Password Requerido)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -371,7 +371,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - Frontend redirige a UC_AUTH_04
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Usuario No Existe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -464,7 +464,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - AUTH-003
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUTH_01
@@ -552,7 +552,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -584,7 +584,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - Por seguridad, errores de usuario inexistente y password incorrecto muestran el mismo mensaje.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -633,7 +633,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
  )
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -665,7 +665,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - Flag password_expired cuando password_changed_at > 90 dias
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -687,7 +687,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - (publico) - No requiere funcion previa
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
-   -------------
+-------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -78,7 +78,7 @@ La eleccion de "Funcion" como canonico se basa en:
 - **Fecha:** 2026-04-29
 
 2. Especificacion Tecnica
-   -------------------------
+-------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,7 +175,7 @@ v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 - Glosario canonico (:doc:`/base_cognitiva/glosario` § H)
 
 3. Impacto en Sistema
-   ---------------------
+---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -196,12 +196,12 @@ v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 - Renombrar a otro termino (ej: "Permission" en codigo) sin ADR formal
 
 4. Business Rules Derivadas
-   ---------------------------
+---------------------------
 
 Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
 
 5. Implementacion
-   -----------------
+-----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -230,7 +230,7 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
  && echo "VIOLACION CNST_033" || echo "OK"
 
 6. Excepciones
-   --------------
+--------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -248,7 +248,7 @@ ADR-GOB-008. Ver
 :doc:`/normativa/procedimientos/PROC_Excepciones_CNST`.
 
 7. Verificacion
-   ---------------
+---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ ADR-GOB-008. Ver
 - **Herramienta:** ruff/grep + checklist
 
 8. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 30 70
@@ -288,7 +288,7 @@ ADR-GOB-008. Ver
    - :doc:`/base_cognitiva/glosario` § H
 
 9. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 12 15 25 48

@@ -16,7 +16,7 @@ FR-003.02: Mostrar pregunta de seguridad
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-003.02: Mostrar pregunta de seguridad
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -68,7 +68,7 @@ FR-003.02: Mostrar pregunta de seguridad
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -93,7 +93,7 @@ FR-003.02: Mostrar pregunta de seguridad
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:**
  - BR_004: Comunicaciones internas (no email externo)
@@ -109,7 +109,7 @@ FR-003.02: Mostrar pregunta de seguridad
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -130,7 +130,7 @@ FR-003.02: Mostrar pregunta de seguridad
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

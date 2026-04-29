@@ -12,7 +12,7 @@ UC_USR_03: Modificar Usuario
 ============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_USR_03: Modificar Usuario
    - BRQ-USR-003
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) modificar
 los datos de un usuario existente, incluyendo cambios de estado. Los cambios
@@ -56,7 +56,7 @@ de estado criticos se notifican via buzon interno (CNST_001).
 - Registro completo en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_USR_03
@@ -97,7 +97,7 @@ de estado criticos se notifican via buzon interno (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Si se bloqueo, se cierran todas las sesiones activas
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -189,7 +189,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Muestra confirmacion de cambios guardados
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_USR_03
@@ -267,7 +267,7 @@ especifica (bloquear, desbloquear, reactivar).
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Bloquear Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,7 +363,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Registra USER_REACTIVATED en auditoria
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso USR-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -438,7 +438,7 @@ especifica (bloquear, desbloquear, reactivar).
    - USR-023
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_USR_03
@@ -508,7 +508,7 @@ especifica (bloquear, desbloquear, reactivar).
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -537,7 +537,7 @@ especifica (bloquear, desbloquear, reactivar).
    - ACTIVO puede ir a BLOQUEADO o INACTIVO. BLOQUEADO solo puede ir a ACTIVO. INACTIVO solo puede ir a ACTIVO.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -588,7 +588,7 @@ especifica (bloquear, desbloquear, reactivar).
  # PROHIBIDO: EmailService.send
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -614,7 +614,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Auditoria con campos old_value -> new_value
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -636,7 +636,7 @@ especifica (bloquear, desbloquear, reactivar).
    - USR-003, USR-007, USR-008, USR-009
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

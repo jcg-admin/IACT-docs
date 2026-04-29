@@ -19,7 +19,7 @@ PROCED-GOB-008: Configurar Permisos Git para Push de Tags y Branches
 --------------
 
 1. PROPOSITO
-   ------------
+------------
 
 1.1 Objetivo
 ~~~~~~~~~~~~
@@ -57,7 +57,7 @@ Error recibido:
 --------------
 
 2. ALCANCE
-   ----------
+----------
 
 2.1 Incluye
 ~~~~~~~~~~~
@@ -85,7 +85,7 @@ Error recibido:
 --------------
 
 3. PREREQUISITOS
-   ----------------
+----------------
 
 3.1 Tecnicos
 ~~~~~~~~~~~~
@@ -113,7 +113,7 @@ Error recibido:
 --------------
 
 4. DIAGNOSTICO INICIAL
-   ----------------------
+----------------------
 
 Paso 4.1: Verificar Configuracion Actual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -168,7 +168,7 @@ Paso 4.3: Verificar Permisos del Proxy
 --------------
 
 5. SOLUCION 1: CONFIGURAR CREDENCIALES EXPLICITAS
-   -------------------------------------------------
+-------------------------------------------------
 
 Paso 5.1: Configurar Credential Helper
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,7 +216,7 @@ Paso 5.3: Validar Credenciales
 --------------
 
 6. SOLUCION 2: AJUSTAR CONFIGURACION HTTP
-   -----------------------------------------
+-----------------------------------------
 
 Paso 6.1: Aumentar Buffer HTTP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,7 +257,7 @@ produccion
 --------------
 
 7. SOLUCION 3: MIGRAR A SSH (ALTERNATIVA)
-   -----------------------------------------
+-----------------------------------------
 
 Paso 7.1: Generar Clave SSH (si no existe)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -306,7 +306,7 @@ Paso 7.3: Cambiar URL Remoto a SSH
 --------------
 
 8. SOLUCION 4: CONFIGURAR PERMISOS EN PROXY LOCAL
-   -------------------------------------------------
+-------------------------------------------------
 
 Paso 8.1: Identificar Tipo de Proxy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,7 +363,7 @@ Paso 8.3: Reiniciar Proxy
 --------------
 
 9. VALIDACION
-   -------------
+-------------
 
 Paso 9.1: Probar Push de Branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -413,7 +413,7 @@ Paso 9.3: Limpiar Pruebas
 --------------
 
 10. TROUBLESHOOTING
-    -------------------
+-------------------
 
 Problema 1: Sigue error 403 tras configurar credenciales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -471,7 +471,7 @@ Problema 3: Timeout en push
 --------------
 
 11. CONFIGURACION RECOMENDADA FINAL
-    -----------------------------------
+-----------------------------------
 
 Tras aplicar soluciones, configuracion recomendada:
 
@@ -495,7 +495,7 @@ Tras aplicar soluciones, configuracion recomendada:
 --------------
 
 12. ROLLBACK
-    ------------
+------------
 
 Si configuracion causa problemas:
 
@@ -519,7 +519,7 @@ Si configuracion causa problemas:
 --------------
 
 13. CHECKLIST DE EJECUCION
-    --------------------------
+--------------------------
 
 - ☐ Diagnostico inicial completado
 - ☐ Solucion elegida: [ ] Cred. explicitas [ ] HTTP config [ ] SSH [ ]
@@ -534,7 +534,7 @@ Si configuracion causa problemas:
 --------------
 
 14. SIGUIENTE PASO
-    ------------------
+------------------
 
 Una vez completado este procedimiento:
 
@@ -548,7 +548,7 @@ docs/gobernanza/qa/QA-ANALISIS-RAMAS-001/TASK-001-crear-backup-seguridad/
 --------------
 
 15. REFERENCIAS
-    ---------------
+---------------
 
 Documentacion Git
 ~~~~~~~~~~~~~~~~~

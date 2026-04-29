@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Este procedimiento establece como aplicar el estandar STD_006 de Versionado
 Semantico a todos los artefactos del proyecto IACT.
@@ -52,7 +52,7 @@ el tipo de cambio realizado.
 ----
 
 2. Alcance
-   ----------
+----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -70,7 +70,7 @@ el tipo de cambio realizado.
 ----
 
 3. Roles y Responsabilidades
-   ----------------------------
+----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -86,7 +86,7 @@ el tipo de cambio realizado.
 ----
 
 4. Precondiciones
-   -----------------
+-----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -97,7 +97,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-   ------------------------
+------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -116,7 +116,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-   ----------------
+----------------
 
 6.1 Formato de Version
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -264,7 +264,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -280,7 +280,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-   ------------------
+------------------
 
 Al finalizar este procedimiento:
 
@@ -292,7 +292,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-   ----------------------------
+----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -321,7 +321,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
-    -------------------------
+-------------------------
 
 .. list-table::
  :widths: 30 70
@@ -339,7 +339,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
-    ---------------
+---------------
 
 - STD_006: Versionado Semantico
 - SemVer: https://semver.org/
@@ -347,7 +347,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 12 12 20 56

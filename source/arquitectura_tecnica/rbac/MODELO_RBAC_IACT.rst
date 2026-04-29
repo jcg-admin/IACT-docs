@@ -166,7 +166,7 @@ TABLA DE CONTENIDO
 
 
 1. FILOSOFÍA DEL MODELO
-   =======================
+=======================
 
 
 
@@ -208,7 +208,7 @@ TABLA DE CONTENIDO
 
 
 2. ARQUITECTURA IACT
-   ====================
+====================
 
 
 
@@ -279,7 +279,7 @@ TABLA DE CONTENIDO
 
 
 3. CATÁLOGO DE 42 FUNCIONES
-   ===========================
+===========================
 
 
 
@@ -775,7 +775,7 @@ TABLA DE CONTENIDO
 
 
 4. LOS 10 GRUPOS DE FUNCIONES
-   =============================
+=============================
 
 
 
@@ -1071,7 +1071,7 @@ AGR-010 system_admin_group
 
 
 5. SEPARACIÓN DE FUNCIONES (SoD)
-   ================================
+================================
 
 
 
@@ -1178,7 +1178,7 @@ SOD-003 access_audit_separation
 
 
 6. PERMISOS TEMPORALES
-   ======================
+======================
 
 
 
@@ -1230,7 +1230,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 7. MODELO DE DATOS
-   ==================
+==================
 
 
 
@@ -1252,7 +1252,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 8. IMPLEMENTACIÓN SQL
-   =====================
+=====================
 
 
 
@@ -1587,7 +1587,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 9. IMPLEMENTACIÓN DJANGO
-   ========================
+========================
 
 
 
@@ -1617,7 +1617,7 @@ Una función puede asignarse **temporalmente** con:
  - view_reports
  - export_csv
  - create_users
-   """
+ """
    function_id = models.CharField(
    max_length=20,
    unique=True,
@@ -1662,7 +1662,7 @@ Una función puede asignarse **temporalmente** con:
  Un grupo agrupa múltiples funciones relacionadas. Ejemplos:
  - basic_operator_group (view_reports + view_dashboard)
  - user_admin_group (create + update + delete users)
-   """
+ """
    group_id = models.CharField(
    max_length=20,
    unique=True,
@@ -1813,7 +1813,7 @@ Una función puede asignarse **temporalmente** con:
  Ejemplo: pipeline_audit_separation
  - Grupo A: Funciones de pipeline (PIP-001 a PIP-004)
  - Grupo B: Funciones de auditoría (AUD-001 a AUD-004)
-   """
+ """
    restriction_id = models.CharField(
    max_length=20,
    unique=True,
@@ -1920,7 +1920,7 @@ Una función puede asignarse **temporalmente** con:
  - Nombre descriptivo (NO "RBACService")
  - Métodos en inglés
  - Comentarios en español
-   """
+ """
  
  def __init__(self, request_user: User = None):
  """
@@ -2259,7 +2259,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 10. MAPEO FUNCIONES → CASOS DE USO
-    ==================================
+==================================
 
 
 
@@ -2409,7 +2409,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 11. MIGRACIÓN DESDE v5.2.0
-    ==========================
+==========================
 
 
 
@@ -2541,7 +2541,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 12. RESUMEN
-    ===========
+===========
 
 
 

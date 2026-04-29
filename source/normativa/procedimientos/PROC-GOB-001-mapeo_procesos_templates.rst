@@ -47,7 +47,7 @@ Tabla de Contenidos
 --------------
 
 1. Vision General del Ecosistema
-   --------------------------------
+--------------------------------
 
 ::
 
@@ -79,7 +79,7 @@ Tabla de Contenidos
 --------------
 
 2. Matriz de Trazabilidad Completa
-   ----------------------------------
+----------------------------------
 
 2.1 Matriz Principal: Proceso → Workflow → Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -229,7 +229,7 @@ Tabla de Contenidos
 --------------
 
 3. Mapeo por Fase SDLC
-   ----------------------
+----------------------
 
 FASE 1: Planning & Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -535,7 +535,7 @@ github_copilot_codespaces.md
 --------------
 
 4. Decision Tree: Que Template Usar
-   -----------------------------------
+-----------------------------------
 
 4.1 Decision Tree Principal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -660,7 +660,7 @@ github_copilot_codespaces.md
 --------------
 
 5. Flujos End-to-End
-   --------------------
+--------------------
 
 5.1 Flujo Completo: Nueva Feature (Dark Mode)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -889,7 +889,7 @@ github_copilot_codespaces.md
 --------------
 
 6. Referencias Cruzadas
-   -----------------------
+-----------------------
 
 6.1 De Procedimiento a Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1299,7 +1299,7 @@ Referencias
 --------------
 
 7. Metricas y Validacion
-   ------------------------
+------------------------
 
 7.1 Como Validar que Estoy Usando Correctamente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1329,7 +1329,7 @@ preguntar al Tech Lead.
 --------------
 
 8. Actualizaciones y Mantenimiento
-   ----------------------------------
+----------------------------------
 
 **Responsable:** Equipo Gobernanza
 
@@ -1347,7 +1347,7 @@ Validar mapeos y referencias cruzadas 3. Actualizar version en metadata
 --------------
 
 9. Recursos Adicionales
-   -----------------------
+-----------------------
 
 **Documentos Relacionados:** - `INDICE.md <../../INDICE.md>`__ - Indice
 general de documentacion - `AGENTES_SDLC.md <AGENTES_SDLC.md>`__ -

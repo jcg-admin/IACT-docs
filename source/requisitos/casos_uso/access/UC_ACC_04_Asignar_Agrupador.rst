@@ -21,7 +21,7 @@ UC_ACC_04: Asignar Agrupador
 
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -47,7 +47,7 @@ UC_ACC_04: Asignar Agrupador
    - BRQ-ACC-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de acceso (AGR-007) asignar
 un agrupador completo a un usuario. Un agrupador es un mecanismo de
@@ -69,7 +69,7 @@ asignacion masiva que contiene un conjunto predefinido de funciones.
  la administracion pero no introduce jerarquia.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_04
@@ -105,7 +105,7 @@ asignacion masiva que contiene un conjunto predefinido de funciones.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -149,7 +149,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Se registra AGRUPADOR_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -199,7 +199,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_04
@@ -303,7 +303,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Agrupador Ya Asignado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -343,7 +343,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Asigna todos o ninguno (atomico)
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Violacion SoD por Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -382,7 +382,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - ACC-031
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_04
@@ -438,7 +438,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -501,7 +501,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - LOG-001, LOG-002
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -518,7 +518,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Se registra AGRUPADOR_ASSIGN con: admin, usuario, agrupador asignado y lista de funciones incluidas.
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -541,7 +541,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Evento AGRUPADOR_ASSIGN con detalle
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -563,7 +563,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - ACC-004: asigna_agrupadores
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

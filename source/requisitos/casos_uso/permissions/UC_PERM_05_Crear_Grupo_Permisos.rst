@@ -19,14 +19,14 @@ UC_PERM_05: Crear Grupo de Permisos
 
 
 1. Resumen
-   ----------
+----------
 
 
 El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones relacionadas, facilitando la asignación masiva de permisos a usuarios.
 
 
 2. Precondiciones
-   -----------------
+-----------------
 
 
 - Admin autenticado con `sistema.administracion.grupos.crear`
@@ -34,7 +34,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 3. Flujo Principal
-   ------------------
+------------------
 
 
 
@@ -79,7 +79,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 4. Reglas de Negocio
-   --------------------
+--------------------
 
 
 
@@ -99,7 +99,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 5. Datos de Entrada
-   -------------------
+-------------------
 
 
 .. code-block:: json
@@ -119,7 +119,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 6. Datos de Salida
-   ------------------
+------------------
 
 
 .. code-block:: json
@@ -140,7 +140,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 7. API Endpoint
-   ---------------
+---------------
 
 
 .. code-block:: text
@@ -153,7 +153,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 8. SQL Operation
-   ----------------
+----------------
 
 
 .. code-block:: sql
@@ -175,7 +175,7 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones
 
 
 9. Escenarios de Prueba
-   -----------------------
+-----------------------
 
 
 

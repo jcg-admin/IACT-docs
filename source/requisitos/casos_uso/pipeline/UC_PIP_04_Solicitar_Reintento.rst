@@ -12,7 +12,7 @@ UC_PIP_04: Solicitar Reintento
 ==============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_PIP_04: Solicitar Reintento
    - BRQ-PIP-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite solicitar un reintento del proceso ETL para una
 fecha o rango de fechas especifico. Util para recuperar datos despues de
@@ -59,7 +59,7 @@ un fallo o para llenar gaps detectados.
  Quien opera el pipeline NO puede auditar el sistema.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_PIP_04
@@ -86,7 +86,7 @@ un fallo o para llenar gaps detectados.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -128,7 +128,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - Se registra RETRY_REQUEST en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -175,7 +175,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - El ETL se ejecuta asincronamente
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_PIP_04
@@ -235,7 +235,7 @@ El administrador solicita reintento desde errores o disponibilidad.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Reintento para Fecha Unica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -278,7 +278,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - Pre-llena justificacion: Reintento por error ID X
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso PIP-004
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -353,7 +353,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - PIP-033
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_PIP_04
@@ -393,7 +393,7 @@ El administrador solicita reintento desde errores o disponibilidad.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -435,7 +435,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - Reintento cancelado por admin
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -471,7 +471,7 @@ El administrador solicita reintento desde errores o disponibilidad.
  )
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -494,7 +494,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - Respuesta 202 Accepted inmediata
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -514,7 +514,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    - PIP-004: solicita_reintento_etl
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

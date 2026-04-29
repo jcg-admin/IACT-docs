@@ -168,7 +168,7 @@ Plantilla
  ----
 
  1. Proposito
-    ------------
+ ------------
 
  [Descripcion del proposito principal del modulo en 2-3 oraciones.
  Responde: Cual es la razon de existencia de este modulo?]
@@ -176,7 +176,7 @@ Plantilla
  ----
 
  2. Responsabilidades (PUEDE hacer)
-    ----------------------------------
+ ----------------------------------
 
  Este modulo ES RESPONSABLE de:
 
@@ -188,7 +188,7 @@ Plantilla
  ----
 
  3. Limites (NO PUEDE hacer)
-    ---------------------------
+ ---------------------------
 
  Este modulo NO ES RESPONSABLE de:
 
@@ -199,7 +199,7 @@ Plantilla
  ----
 
  4. Casos de Uso Asociados
-    -------------------------
+ -------------------------
 
  .. list-table::
  :widths: 20 50 30
@@ -221,7 +221,7 @@ Plantilla
  ----
 
  5. Restricciones Aplicables (CNST)
-    ----------------------------------
+ ----------------------------------
 
  .. list-table::
  :widths: 15 45 40
@@ -240,7 +240,7 @@ Plantilla
  ----
 
  6. Business Rules Aplicables (BR)
-    ---------------------------------
+ ---------------------------------
 
  .. list-table::
  :widths: 15 45 40
@@ -259,7 +259,7 @@ Plantilla
  ----
 
  7. Dependencias con otros Modulos
-    ---------------------------------
+ ---------------------------------
 
  7.1 Depende de
  ^^^^^^^^^^^^^^
@@ -292,7 +292,7 @@ Plantilla
  ----
 
  8. Componentes Internos
-    -----------------------
+ -----------------------
 
  8.1 Estructura Django
  ^^^^^^^^^^^^^^^^^^^^^
@@ -346,7 +346,7 @@ Plantilla
  ----
 
  9. Diagrama de Componentes
-    --------------------------
+ --------------------------
 
  .. uml::
  :caption: Componentes de MOD_[Nombre]
@@ -384,7 +384,7 @@ Plantilla
  ----
 
  10. Interfaces Expuestas
-     ------------------------
+ ------------------------
 
  10.1 API Endpoints
  ^^^^^^^^^^^^^^^^^^
@@ -415,7 +415,7 @@ Plantilla
  ----
 
  11. Trazabilidad
-     ----------------
+ ----------------
 
  .. list-table::
  :widths: 25 75
@@ -435,7 +435,7 @@ Plantilla
  ----
 
  12. Historial de Cambios
-     ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

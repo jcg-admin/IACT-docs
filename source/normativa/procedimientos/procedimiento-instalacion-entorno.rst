@@ -38,7 +38,7 @@ Procedimiento
 -------------
 
 1. Instalaciones Básicas
-   ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.1 Git
 ^^^^^^^
@@ -139,7 +139,7 @@ Procedimiento
  sudo apt-get install virtualbox
 
 2. Configuración de Git
-   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -160,7 +160,7 @@ Procedimiento
  git config --list
 
 3. Configuración de SSH para GitHub
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -181,7 +181,7 @@ Procedimiento
  # Agregar en GitHub: Settings > SSH and GPG keys > New SSH key
 
 4. Instalar gh CLI (Opcional pero Recomendado)
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Windows:**
 
@@ -211,7 +211,7 @@ Autenticar:
  gh auth login
 
 5. Clonar Repositorio
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -224,7 +224,7 @@ Autenticar:
  cd IACT---project
 
 6. Configurar Vagrant
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -240,7 +240,7 @@ Autenticar:
  ls -la
 
 7. Configurar Entorno Python (Dentro de VM)
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -255,7 +255,7 @@ Autenticar:
  pip install -r requirements/test.txt
 
 8. Configurar Base de Datos
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -272,7 +272,7 @@ Autenticar:
  python manage.py loaddata fixtures/initial_data.json
 
 9. Verificar Instalación
-   ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -286,7 +286,7 @@ Autenticar:
  # http://localhost:8080 (port forwarding de Vagrant)
 
 10. IDE Setup (VS Code Recomendado)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 10.1 Instalar VS Code
 ^^^^^^^^^^^^^^^^^^^^^

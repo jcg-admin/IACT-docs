@@ -36,14 +36,14 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Crear documentos de analisis (.md) para planificar sesiones de generacion.
 
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Planes, analisis, reportes, inventarios.
 
@@ -52,7 +52,7 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
 ----
 
 3. Tipos de Documentos
-   ----------------------
+----------------------
 
 .. list-table::
  :header-rows: 1
@@ -73,7 +73,7 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Definir Nomenclatura**
 
@@ -100,7 +100,7 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 ----
 
 5. Artefactos de Salida
-   -----------------------
+-----------------------
 
 .. list-table::
  :header-rows: 1
@@ -113,7 +113,7 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 ----
 
 6. Verificacion
-   ---------------
+---------------
 
 - [ ] Nombre sigue nomenclatura
 - [ ] Secciones completas
@@ -122,14 +122,14 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 ----
 
 7. Referencias
-   --------------
+--------------
 
 - PROC_Copiar_Tmp_Outputs
 
 ----
 
 8. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

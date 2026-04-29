@@ -12,7 +12,7 @@ UC_RPT_05: Exportar Excel
 =========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_05: Exportar Excel
    - BRQ-RPT-005
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite exportar datos de reportes a formato Excel (.xlsx)
 con formato enriquecido, incluyendo estilos, graficos embebidos y multiples
@@ -52,7 +52,7 @@ hojas de calculo.
 - Auditoria obligatoria (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_05
@@ -77,7 +77,7 @@ hojas de calculo.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -117,7 +117,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Se registra EXPORT_EXCEL en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -155,7 +155,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Descarga archivo XLSX
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_05
@@ -203,7 +203,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Incluir Graficos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,7 +246,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Agrega hoja de resumen
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Limite Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -285,7 +285,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - RPT-041
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_05
@@ -331,7 +331,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -370,7 +370,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Separador de miles, decimales
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -390,7 +390,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Registro EXPORT_EXCEL con detalles
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -410,7 +410,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - Registro en user_action_log
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -430,7 +430,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    - RPT-005: exporta_excel
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

@@ -17,7 +17,7 @@ Bienvenido al equipo IACT. Esta guia te orienta sobre la organizacion
 del proyecto, sus convenciones y los recursos clave para empezar.
 
 1. ¿Que es IACT?
-   ================
+================
 
 IACT (IVR Analytics & Customer Tracking) es un sistema de analisis
 de llamadas para call centers. Consume datos del sistema IVR del
@@ -28,7 +28,7 @@ Ver :doc:`/base_cognitiva/_metadata/META_04_Contexto_IACT` para
 detalle completo.
 
 2. Stack del producto
-   =====================
+=====================
 
 .. list-table::
  :widths: 30 70
@@ -46,7 +46,7 @@ detalle completo.
    - MySQL (operativa, RO) + PostgreSQL (analitica)
 
 3. Recursos clave
-   =================
+=================
 
 - :doc:`/base_cognitiva/index` — vocabulario y fundamentos del
   proyecto.

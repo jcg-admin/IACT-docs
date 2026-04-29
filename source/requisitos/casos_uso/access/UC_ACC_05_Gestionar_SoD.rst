@@ -12,7 +12,7 @@ UC_ACC_05: Gestionar SoD
 ========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_ACC_05: Gestionar SoD
    - BRQ-ACC-005
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de acceso (AGR-007) consultar
 y gestionar las reglas de Separacion de Funciones (SoD) del sistema. El
@@ -60,7 +60,7 @@ pueden consultarse y verificar su aplicacion.
  NO pueden ser modificadas ni eliminadas. Solo pueden consultarse.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_05
@@ -93,7 +93,7 @@ pueden consultarse y verificar su aplicacion.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -131,7 +131,7 @@ El administrador accede al modulo de gestion de SoD.
    - Se identifican usuarios con violaciones actuales
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -172,7 +172,7 @@ El administrador accede al modulo de gestion de SoD.
    - Genera reporte en formato tabla/exportable
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_05
@@ -250,7 +250,7 @@ El administrador accede al modulo de gestion de SoD.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Sin Violaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -296,7 +296,7 @@ El administrador accede al modulo de gestion de SoD.
    - Selecciona opcion (redirige a UC_ACC_02)
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso ACC-005
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,7 +317,7 @@ El administrador accede al modulo de gestion de SoD.
    - ACC-040
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_05
@@ -374,7 +374,7 @@ El administrador accede al modulo de gestion de SoD.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -420,7 +420,7 @@ El administrador accede al modulo de gestion de SoD.
    - Quien gestiona permisos NO puede auditar. Evita ocultar asignacion indebida de permisos.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -466,7 +466,7 @@ El administrador accede al modulo de gestion de SoD.
  'severity': 'CRITICAL'
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -486,7 +486,7 @@ El administrador accede al modulo de gestion de SoD.
    - Reporte exportable
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -508,7 +508,7 @@ El administrador accede al modulo de gestion de SoD.
    - ACC-005: gestiona_sod
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

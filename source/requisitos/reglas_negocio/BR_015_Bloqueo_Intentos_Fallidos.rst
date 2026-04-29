@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
-   --------------------
+--------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -83,7 +83,7 @@ El bloqueo por intentos fallidos protege contra:
 ----
 
 2. Clasificación
-   ----------------
+----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -107,7 +107,7 @@ El bloqueo por intentos fallidos protege contra:
 ----
 
 3. Aplicación en Sistema
-   ------------------------
+------------------------
 
 3.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -148,7 +148,7 @@ El bloqueo por intentos fallidos protege contra:
 ----
 
 4. Implementación Técnica
-   -------------------------
+-------------------------
 
 4.1 Modelo Django
 ^^^^^^^^^^^^^^^^^
@@ -183,7 +183,7 @@ El bloqueo por intentos fallidos protege contra:
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 - **Origen**: CNST_005 (Seguridad DRF Checklist)
 - **UC Relacionados**: UC_AUTH_01 (FA-1: Usuario bloqueado)
@@ -192,7 +192,7 @@ El bloqueo por intentos fallidos protege contra:
 ----
 
 6. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 15 15 70

@@ -27,7 +27,7 @@ Functional Requirements y como se relacionan entre si.
 ----
 
 1. Vision General
-   -----------------
+-----------------
 
 1.1 Principio Fundamental
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -103,7 +103,7 @@ Los BReq se documentan en requisitos/objetivos/BReq_001_Objetivos_IACT.rst
 ----
 
 2. Nivel 0: Business Rules (BR)
-   -------------------------------
+-------------------------------
 
 2.1 Definicion
 ^^^^^^^^^^^^^^
@@ -187,7 +187,7 @@ el software debe conformarse a ellas.
 ----
 
 3. Nivel 1: Business Requirements (BReq)
-   ----------------------------------------
+----------------------------------------
 
 3.1 Definicion
 ^^^^^^^^^^^^^^
@@ -278,7 +278,7 @@ construyendo este sistema?
 ----
 
 4. Nivel 2: User Requirements / Use Cases (UC)
-   ----------------------------------------------
+----------------------------------------------
 
 4.1 Definicion
 ^^^^^^^^^^^^^^
@@ -365,7 +365,7 @@ especifican interacciones completas entre actores y sistema.
 ----
 
 5. Nivel 3: Functional Requirements (FR)
-   ----------------------------------------
+----------------------------------------
 
 5.1 Definicion
 ^^^^^^^^^^^^^^
@@ -442,7 +442,7 @@ los Casos de Uso.
 ----
 
 6. Flujo de Influencia
-   ----------------------
+----------------------
 
 6.1 Diagrama de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -491,7 +491,7 @@ los Casos de Uso.
 ----
 
 7. Resumen Comparativo
-   ----------------------
+----------------------
 
 7.1 Tabla de Niveles
 ^^^^^^^^^^^^^^^^^^^^
@@ -581,7 +581,7 @@ los Casos de Uso.
 ----
 
 8. Aplicacion en IACT
-   ---------------------
+---------------------
 
 8.1 Ubicacion en Estructura
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -646,7 +646,7 @@ los Casos de Uso.
 ----
 
 9. Referencias
-   --------------
+--------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

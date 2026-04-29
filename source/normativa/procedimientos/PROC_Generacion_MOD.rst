@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Generar especificaciones de Modulo (MOD) que documentan la estructura,
 responsabilidades y componentes de cada modulo del sistema IACT.
@@ -44,7 +44,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Los 8 modulos IACT.
 
@@ -53,7 +53,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 ----
 
 3. Modulos IACT
-   ---------------
+---------------
 
 .. list-table::
  :header-rows: 1
@@ -89,7 +89,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 ----
 
 4. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Identificar Modulo**
 
@@ -127,7 +127,7 @@ Casos de uso que implementa.
 ----
 
 5. Estructura MOD
-   -----------------
+-----------------
 
 .. code-block:: text
 
@@ -145,14 +145,14 @@ Casos de uso que implementa.
 ----
 
 6. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - MOD_[Nombre].rst
 
 ----
 
 7. Verificacion
-   ---------------
+---------------
 
 - [ ] Responsabilidad clara (SRP)
 - [ ] Componentes listados
@@ -162,7 +162,7 @@ Casos de uso que implementa.
 ----
 
 8. Referencias
-   --------------
+--------------
 
 - TPL_MOD
 - FD del modulo
@@ -170,7 +170,7 @@ Casos de uso que implementa.
 ----
 
 9. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

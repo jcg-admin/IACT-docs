@@ -17,7 +17,7 @@ El sistema IACT opera sobre dos bases de datos separadas con
 proposito distinto.
 
 1. BD MySQL (IVR Operacional)
-   =============================
+=============================
 
 - **Owner:** cliente.
 - **Acceso desde IACT:** SOLO LECTURA (CNST_007).
@@ -27,7 +27,7 @@ proposito distinto.
   ``managed = False``, middleware de proteccion).
 
 2. BD PostgreSQL (IACT Analytics)
-   ==================================
+==================================
 
 - **Owner:** sistema IACT.
 - **Acceso:** read/write para IACT.
@@ -36,7 +36,7 @@ proposito distinto.
   audit log, configuraciones).
 
 3. Sincronizacion
-   =================
+=================
 
 Solo via ETL programado en ventana de 6 a 12 horas (CNST_008). NO
 existe sincronizacion en tiempo real.
@@ -44,7 +44,7 @@ existe sincronizacion en tiempo real.
 Ver :doc:`etl-pipeline`.
 
 4. Routers Django
-   =================
+=================
 
 .. code-block:: python
 

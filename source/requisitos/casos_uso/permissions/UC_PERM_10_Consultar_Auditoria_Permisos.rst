@@ -19,14 +19,14 @@ UC_PERM_10: Consultar Auditoria de Permisos
 
 
 1. Resumen
-   ----------
+----------
 
 
 El Administrador o Auditor consulta los registros históricos de verificaciones de permisos para análisis de seguridad, compliance o troubleshooting.
 
 
 2. Actores
-   ----------
+----------
 
 
 - **Actor Primario**: Administrador / Auditor
@@ -34,7 +34,7 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 3. Precondiciones
-   -----------------
+-----------------
 
 
 - Actor autenticado con `sistema.administracion.auditoria.ver`
@@ -42,7 +42,7 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 4. Flujo Principal
-   ------------------
+------------------
 
 
 
@@ -78,7 +78,7 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 5. Filtros Disponibles
-   ----------------------
+----------------------
 
 
 
@@ -114,7 +114,7 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 6. API Endpoint
-   ---------------
+---------------
 
 
 .. code-block:: text
@@ -152,7 +152,7 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 7. Casos de Uso Comunes
-   -----------------------
+-----------------------
 
 
 
@@ -219,7 +219,7 @@ Caso 3: Compliance Report
 
 
 8. Performance
-   --------------
+--------------
 
 
 
@@ -239,7 +239,7 @@ Caso 3: Compliance Report
 
 
 9. Optimizaciones
-   -----------------
+-----------------
 
 
 
@@ -265,7 +265,7 @@ Caso 3: Compliance Report
 
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 
 
@@ -289,7 +289,7 @@ Caso 3: Compliance Report
 
 
 11. Visualizaciones
-    -------------------
+-------------------
 
 
 
@@ -312,7 +312,7 @@ Dashboard de Auditoría
 
 
 12. Escenarios de Prueba
-    ------------------------
+------------------------
 
 
 
@@ -349,7 +349,7 @@ Caso 4: Rango muy amplio
 
 
 13. Seguridad
-    -------------
+-------------
 
 
 
@@ -364,7 +364,7 @@ Consideraciones:
 
 
 14. Integración con SIEM
-    ------------------------
+------------------------
 
 
 La tabla de auditoría puede integrarse con sistemas SIEM externos (Splunk, ELK, etc):

@@ -161,7 +161,7 @@ Plantilla
  ----
 
  1. Propósito
-    ------------
+ ------------
 
  [Descripción del objetivo del procedimiento en 2-3 oraciones.
  Responde: ¿Qué se logra al ejecutar este procedimiento?]
@@ -169,7 +169,7 @@ Plantilla
  ----
 
  2. Alcance
-    ----------
+ ----------
 
  2.1 Aplica A
  ^^^^^^^^^^^^
@@ -185,7 +185,7 @@ Plantilla
  ----
 
  3. Roles y Responsabilidades
-    ----------------------------
+ ----------------------------
 
  .. list-table::
  :widths: 20 30 50
@@ -207,7 +207,7 @@ Plantilla
  ----
 
  4. Precondiciones
-    -----------------
+ -----------------
 
  Antes de iniciar este procedimiento, verificar:
 
@@ -219,7 +219,7 @@ Plantilla
  ----
 
  5. Artefactos de Entrada
-    ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 30 50 20
@@ -241,7 +241,7 @@ Plantilla
  ----
 
  6. Procedimiento
-    ----------------
+ ----------------
 
  6.1 Diagrama de Flujo
  ^^^^^^^^^^^^^^^^^^^^^
@@ -308,7 +308,7 @@ Plantilla
  ----
 
  7. Artefactos de Salida
-    -----------------------
+ -----------------------
 
  .. list-table::
  :widths: 30 50 20
@@ -327,7 +327,7 @@ Plantilla
  ----
 
  8. Postcondiciones
-    ------------------
+ ------------------
 
  Al finalizar este procedimiento:
 
@@ -338,7 +338,7 @@ Plantilla
  ----
 
  9. Verificación y Validación
-    ----------------------------
+ ----------------------------
 
  9.1 Criterios de Aceptación
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -359,7 +359,7 @@ Plantilla
  ----
 
  10. Manejo de Excepciones
-     -------------------------
+ -------------------------
 
  .. list-table::
  :widths: 30 70
@@ -375,7 +375,7 @@ Plantilla
  ----
 
  11. Referencias
-     ---------------
+ ---------------
 
  - [TPL_xxx]: Plantilla utilizada
  - [STD_xxx]: Estándar relacionado
@@ -384,7 +384,7 @@ Plantilla
  ----
 
  12. Historial de Cambios
-     ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

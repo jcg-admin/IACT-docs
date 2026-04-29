@@ -79,7 +79,7 @@ Elementos Fundamentales
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Actores (Figuras de Palo)
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -100,7 +100,7 @@ español para roles de negocio - Nombres descriptivos, no técnicos - IDs
 cortos en minúsculas para referenciar
 
 2. Casos de Uso (Óvalos)
-   ^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -121,7 +121,7 @@ Nombres en español - IDs alineados con especificación textual - Óvalos
 estándar UML
 
 3. Límite del Sistema (Rectángulo)
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -145,7 +145,7 @@ dentro vs. fuera del sistema - Actores fuera del rectángulo - Casos de
 uso dentro del rectángulo
 
 4. Relaciones (Flechas) - CRÍTICO
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Esta es la parte más importante y donde hay más confusión.
 

@@ -12,7 +12,7 @@ UC_RPT_14: Ver Reporte Campanas
 ===============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_14: Ver Reporte Campanas
    - BRQ-RPT-014
 
 2. Descripcion
-   --------------
+--------------
 
 Reporte especializado de rendimiento de campanas de llamadas salientes
 o entrantes especiales. Muestra metricas de efectividad y conversion.
@@ -50,7 +50,7 @@ o entrantes especiales. Muestra metricas de efectividad y conversion.
 - Resultado por agente
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_14
@@ -69,7 +69,7 @@ o entrantes especiales. Muestra metricas de efectividad y conversion.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de campanas.
    - Se muestra reporte de campanas del segmento
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -132,7 +132,7 @@ Usuario accede a reporte de campanas.
    - Selecciona campana para detalle
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_14
@@ -159,7 +159,7 @@ Usuario accede a reporte de campanas.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Comparar Campanas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -179,7 +179,7 @@ Usuario accede a reporte de campanas.
    - Muestra comparativa lado a lado
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Campanas
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Usuario accede a reporte de campanas.
    - No hay campanas registradas en su segmento
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_14
@@ -222,7 +222,7 @@ Usuario accede a reporte de campanas.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -258,7 +258,7 @@ Usuario accede a reporte de campanas.
    - Tiempo promedio de llamada
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -275,7 +275,7 @@ Usuario accede a reporte de campanas.
    - Solo campanas del segmento
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -292,7 +292,7 @@ Usuario accede a reporte de campanas.
    - Vista lado a lado con variaciones
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -310,7 +310,7 @@ Usuario accede a reporte de campanas.
    - RPT-014: ve_campanas
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

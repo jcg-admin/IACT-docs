@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-   ------------
+------------
 
 Publicar documentacion validada y aprobada para acceso del equipo
 y stakeholders, generando HTML navegable con Sphinx.
@@ -46,7 +46,7 @@ y stakeholders, generando HTML navegable con Sphinx.
 ----
 
 2. Alcance
-   ----------
+----------
 
 **Aplica A:** Documentacion aprobada lista para publicar.
 
@@ -55,7 +55,7 @@ y stakeholders, generando HTML navegable con Sphinx.
 ----
 
 3. Procedimiento
-   ----------------
+----------------
 
 **Paso 1: Verificar Prerequisitos**
 
@@ -139,7 +139,7 @@ Segun ambiente destino:
 ----
 
 4. Artefactos de Salida
-   -----------------------
+-----------------------
 
 - HTML publicado
 - Notificacion enviada
@@ -148,7 +148,7 @@ Segun ambiente destino:
 ----
 
 5. Verificacion
-   ---------------
+---------------
 
 - [ ] URL accesible
 - [ ] Contenido actualizado
@@ -158,7 +158,7 @@ Segun ambiente destino:
 ----
 
 6. Referencias
-   --------------
+--------------
 
 - PROC_Validacion_Sphinx
 - PROC_Actualizacion_Modelo_Documental
@@ -167,7 +167,7 @@ Segun ambiente destino:
 ----
 
 7. Historial
-   ------------
+------------
 
 .. list-table::
  :header-rows: 1

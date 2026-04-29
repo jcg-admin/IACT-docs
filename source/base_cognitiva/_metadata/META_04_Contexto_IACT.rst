@@ -17,7 +17,7 @@ META_04 · Contexto del Modelo IACT
 ==================================
 
 1. Propósito
-   ------------
+------------
 
 Este documento introduce el modelo documental IACT (Integrated Analysis and
 Contextual Traceability) a nuevos miembros del equipo, explicando su filosofía,
@@ -25,7 +25,7 @@ estructura y aplicación práctica en el proyecto.
 
 --------------
 2. Qué es IACT
-   --------------
+--------------
 
 2.1. Definición
 ^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ con reglas claras de nomenclatura y trazabilidad explícita.
 
 ---------------------------
 3. Principios Fundamentales
-   ---------------------------
+---------------------------
 
 3.1. Jerarquía Estricta
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 
 ------------------------
 4. Estructura del Modelo
-   ------------------------
+------------------------
 
 4.1. Los 5 Dominios Primarios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +143,7 @@ Solo ``_metadata/`` es privado en el modelo actual.
 
 ------------------------------
 5. Flujo de Trabajo Documental
-   ------------------------------
+------------------------------
 
 5.1. Creación de Artefactos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,7 +178,7 @@ El modelo incluye validaciones automatizadas:
 
 ---------------------
 6. Guía de Onboarding
-   ---------------------
+---------------------
 
 6.1. Primeros Pasos
 ^^^^^^^^^^^^^^^^^^^
@@ -234,7 +234,7 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
 
 --------------
 7. Referencias
-   --------------
+--------------
 
 .. list-table::
  :widths: 30 70

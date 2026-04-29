@@ -17,7 +17,7 @@ BR_016: Tasa de Abandono
 ============================
 
 1. Definicion
-   -------------
+-------------
 
 La **Tasa de Abandono** es una metrica calculada que mide el
 porcentaje de llamadas que el cliente abandona antes de ser
@@ -37,7 +37,7 @@ Donde:
   durante la ventana de medicion.
 
 2. Tipo de regla
-   ----------------
+----------------
 
 **Tipo:** Regla de Calculo (categorizada en
 :doc:`/base_cognitiva/_fundamentos_conceptuales/FND_05_Jerarquia_4_Niveles`).
@@ -46,7 +46,7 @@ Es una de las 3 BRs de tipo "Calculo" del catalogo IACT (junto con
 BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
 
 3. Parametros
-   -------------
+-------------
 
 .. list-table::
  :header-rows: 1
@@ -66,7 +66,7 @@ BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
    - Total, por cola, por agente, por campana
 
 4. Umbrales operativos
-   ----------------------
+----------------------
 
 .. list-table::
  :header-rows: 1
@@ -89,14 +89,14 @@ Los umbrales son configurables por ``UC_ALR_01 Configurar
 Umbrales``.
 
 5. UCs relacionados
-   -------------------
+-------------------
 
 - :doc:`/requisitos/casos_uso/reports/UC_RPT_02_Ver_Metricas_Tiempo_Real`
 - :doc:`/requisitos/casos_uso/reports/UC_RPT_13_Ver_Reporte_Colas`
 - :doc:`/requisitos/casos_uso/alerts/UC_ALR_01_Configurar_Umbrales`
 
 6. CNSTs aplicables
-   -------------------
+-------------------
 
 - :doc:`/normativa/restricciones/CNST_017_SLA_de_Tiempos_de_Respuesta`
   — calculo en runtime debe responder en SLA p95 <= 2 s.
@@ -104,13 +104,13 @@ Umbrales``.
   — limite de ventana de medicion historica.
 
 7. BRs relacionadas
-   -------------------
+-------------------
 
 - BR_017 Tiempo Promedio Espera (otra metrica de calidad de servicio).
 - BR_018 Indice Eficiencia (metrica complementaria).
 
 8. Origen
-   ---------
+---------
 
 - **Fuente:** SLA de negocio del sistema IVR
 - **Documento:** referenciado en

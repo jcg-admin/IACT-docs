@@ -12,7 +12,7 @@ UC_USR_02: Consultar Usuarios
 =============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_USR_02: Consultar Usuarios
    - BRQ-USR-002
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) consultar,
 listar y buscar usuarios del sistema. Incluye capacidades de filtrado por
@@ -55,7 +55,7 @@ estado, segmento, agrupador y busqueda por texto.
 - Ordenamiento por columnas
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_USR_02
@@ -83,7 +83,7 @@ estado, segmento, agrupador y busqueda por texto.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -119,7 +119,7 @@ El administrador accede al modulo de gestion de usuarios.
    - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -160,7 +160,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Muestra panel de detalle con toda la informacion del usuario
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_USR_02
@@ -247,7 +247,7 @@ El administrador accede al modulo de gestion de usuarios.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Filtrar por Estado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -330,7 +330,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Descarga archivo (sin passwords ni datos sensibles)
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso para Listar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,7 +387,7 @@ El administrador accede al modulo de gestion de usuarios.
    - USR-012
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_USR_02
@@ -444,7 +444,7 @@ El administrador accede al modulo de gestion de usuarios.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -467,7 +467,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Por defecto se excluyen usuarios ELIMINADO, pero puede filtrarse para verlos.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -487,7 +487,7 @@ en auditoria para evitar sobrecarga. Sin embargo, se puede habilitar logging
 de acceso si se requiere por compliance.
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -510,7 +510,7 @@ de acceso si se requiere por compliance.
    - Incluye funciones asignadas, segmento, historial
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -532,7 +532,7 @@ de acceso si se requiere por compliance.
    - USR-002, USR-005, USR-006
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

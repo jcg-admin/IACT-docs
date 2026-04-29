@@ -23,7 +23,7 @@ STD: Naming de Identificadores Técnicos
 ----
 
 1. Propósito
-   ============
+============
 
 Establecer los principios obligatorios para nombrar **identificadores
 técnicos** del proyecto IACT: funciones, métodos, clases, variables,
@@ -40,7 +40,7 @@ dentro del código.
 ----
 
 2. Alcance
-   ==========
+==========
 
 Aplica a:
 
@@ -62,7 +62,7 @@ NO aplica a:
 ----
 
 3. Principios
-   =============
+=============
 
 3.1 Clean Code Obligatorio
 ---------------------------
@@ -184,7 +184,7 @@ identificadores que aparecen citados en ella mantienen el inglés.
 ----
 
 4. Convenciones por Lenguaje
-   ============================
+============================
 
 4.1 Python (backend Django REST Framework)
 -------------------------------------------
@@ -224,7 +224,7 @@ identificadores que aparecen citados en ella mantienen el inglés.
 ----
 
 5. Aplicación a la documentación
-   ================================
+================================
 
 Cuando un identificador aparece **citado** en un documento RST
 (bloques ``.. code-block::``, ``literal``, ``:code:``), debe
@@ -239,7 +239,7 @@ técnica** en ``risks-technical-debt/`` y se programa su renombrado.
 ----
 
 6. Cumplimiento
-   ===============
+===============
 
 6.1 Estado actual
 -----------------
@@ -260,7 +260,7 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
 ----
 
 7. Referencias
-   ==============
+==============
 
 - :ref:`std-001` — Documentación Sin Emojis.
 - :ref:`std-002` — Nomenclatura Estándar del Proyecto.
@@ -272,7 +272,7 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
 ----
 
 8. Historial
-   ============
+============
 
 .. list-table::
  :header-rows: 1

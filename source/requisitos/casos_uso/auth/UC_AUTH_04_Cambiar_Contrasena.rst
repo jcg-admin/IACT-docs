@@ -12,7 +12,7 @@ UC_AUTH_04: Cambiar Contrasena
 ==============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_AUTH_04: Cambiar Contrasena
    - BRQ-AUTH-004
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite a cualquier usuario autenticado cambiar su propia
 contrasena. Se requiere conocer la contrasena actual para poder establecer
@@ -57,7 +57,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
 - Registro en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUTH_04
@@ -92,7 +92,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - Opcionalmente se cierran otras sesiones
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -207,7 +207,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - Redirige al dashboard (o login si era obligatorio)
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUTH_04
@@ -319,7 +319,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Cambio Obligatorio (Post-Reset)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -382,7 +382,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - Incluye en auditoria: close_other_sessions=true
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Contrasena Actual Incorrecta
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -457,7 +457,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - AUTH-033 (frontend)
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUTH_04
@@ -534,7 +534,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -563,7 +563,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - NUNCA se registra el password en logs o auditoria.
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -599,7 +599,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
  )
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -625,7 +625,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - Auditoria visible, sin datos sensibles
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -647,7 +647,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - (publico) - Cualquier usuario autenticado
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

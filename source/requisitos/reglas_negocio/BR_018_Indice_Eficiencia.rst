@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
-   --------------------
+--------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,7 +96,7 @@ El Índice de Eficiencia es importante porque:
 ----
 
 2. Clasificación
-   ----------------
+----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -120,7 +120,7 @@ El Índice de Eficiencia es importante porque:
 ----
 
 3. Aplicación en Sistema
-   ------------------------
+------------------------
 
 3.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -164,7 +164,7 @@ El Índice de Eficiencia es importante porque:
 ----
 
 4. Implementación Técnica
-   -------------------------
+-------------------------
 
 4.1 SQL de Cálculo
 ^^^^^^^^^^^^^^^^^^
@@ -223,7 +223,7 @@ El Índice de Eficiencia es importante porque:
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 - **Origen**: BReq_RPT_Reporteria
 - **UC Relacionados**: UC_RPT_01, UC_RPT_06, UC_RPT_07
@@ -232,7 +232,7 @@ El Índice de Eficiencia es importante porque:
 ----
 
 6. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 15 15 70

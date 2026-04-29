@@ -128,7 +128,7 @@ Plantilla
  ----
 
  1. Identificación
-    -----------------
+ -----------------
 
  .. list-table::
  :widths: 25 75
@@ -152,7 +152,7 @@ Plantilla
  ----
 
  2. Especificación
-    -----------------
+ -----------------
 
  2.1 Descripción
  ^^^^^^^^^^^^^^^
@@ -169,7 +169,7 @@ Plantilla
  ----
 
  3. Criterio de Aceptación
-    -------------------------
+ -------------------------
 
  .. note:: **Formato DADO/CUANDO/ENTONCES**
 
@@ -188,7 +188,7 @@ Plantilla
  ----
 
  4. Reglas y Restricciones
-    -------------------------
+ -------------------------
 
  4.1 Reglas de Negocio Aplicables
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -221,7 +221,7 @@ Plantilla
  ----
 
  5. Trazabilidad
-    ---------------
+ ---------------
 
  .. list-table::
  :widths: 25 75
@@ -243,7 +243,7 @@ Plantilla
  ----
 
  6. Historial de Cambios
-    -----------------------
+ -----------------------
 
  .. list-table::
  :widths: 12 12 20 56

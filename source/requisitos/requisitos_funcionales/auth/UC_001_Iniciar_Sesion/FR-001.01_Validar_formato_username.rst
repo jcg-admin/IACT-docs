@@ -16,7 +16,7 @@ FR-001.01: Validar formato username
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-001.01: Validar formato username
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -60,7 +60,7 @@ FR-001.01: Validar formato username
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -86,7 +86,7 @@ FR-001.01: Validar formato username
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:** Ninguna específica
 - **CNST aplicables:** CNST-005 (Seguridad DRF)
@@ -100,7 +100,7 @@ FR-001.01: Validar formato username
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -121,7 +121,7 @@ FR-001.01: Validar formato username
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

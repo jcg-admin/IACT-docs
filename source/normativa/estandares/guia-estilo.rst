@@ -31,7 +31,7 @@ Esta guía aplica a: - Documentación (archivos .md) - Código fuente
 --------------
 
 1. Uso de Emojis
-   ----------------
+----------------
 
 Regla Principal
 ~~~~~~~~~~~~~~~
@@ -119,7 +119,7 @@ Emoji Alternativa
 --------------
 
 2. Formato de Documentación Markdown
-   ------------------------------------
+------------------------------------
 
 Encabezados
 ~~~~~~~~~~~
@@ -217,7 +217,7 @@ Enlaces
 --------------
 
 3. Estilo de Código Python
-   --------------------------
+--------------------------
 
 Formateo
 ~~~~~~~~
@@ -324,7 +324,7 @@ Type Hints
 --------------
 
 4. Mensajes de Commit
-   ---------------------
+---------------------
 
 Formato Conventional Commits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -432,7 +432,7 @@ Ejemplos Incorrectos
 --------------
 
 5. Pull Requests
-   ----------------
+----------------
 
 Título
 ~~~~~~
@@ -499,7 +499,7 @@ Reglas
 --------------
 
 6. Nombres de Archivos
-   ----------------------
+----------------------
 
 Convenciones
 ~~~~~~~~~~~~
@@ -540,7 +540,7 @@ Evitar
 --------------
 
 7. Comentarios en Código
-   ------------------------
+------------------------
 
 Cuándo Comentar
 ~~~~~~~~~~~~~~~
@@ -584,7 +584,7 @@ TODOs
 --------------
 
 8. Estructura de Directorios
-   ----------------------------
+----------------------------
 
 Nomenclatura
 ~~~~~~~~~~~~
@@ -608,7 +608,7 @@ Nomenclatura
 --------------
 
 9. Testing
-   ----------
+----------
 
 Nombres de Tests
 ~~~~~~~~~~~~~~~~
@@ -650,7 +650,7 @@ Estructura (AAA Pattern)
 --------------
 
 10. Documentación de APIs
-    -------------------------
+-------------------------
 
 Formato OpenAPI/Swagger
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -686,7 +686,7 @@ Formato OpenAPI/Swagger
 --------------
 
 11. Versionado Semántico
-    ------------------------
+------------------------
 
 .. _guia-estilo-formato-1:
 
@@ -722,7 +722,7 @@ Ejemplos
 --------------
 
 12. Validación Automática
-    -------------------------
+-------------------------
 
 Pre-commit Hooks
 ~~~~~~~~~~~~~~~~
@@ -751,7 +751,7 @@ Ejecutar Manualmente
 --------------
 
 13. Métricas de Calidad
-    -----------------------
+-----------------------
 
 Objetivos
 ~~~~~~~~~
@@ -786,7 +786,7 @@ Herramientas
 --------------
 
 14. Excepciones a la Guía
-    -------------------------
+-------------------------
 
 Proceso de Excepción
 ~~~~~~~~~~~~~~~~~~~~
@@ -824,7 +824,7 @@ Ejemplo
 --------------
 
 15. Recursos Adicionales
-    ------------------------
+------------------------
 
 Referencias
 ~~~~~~~~~~~

@@ -28,14 +28,14 @@ UC_PERM_02: Revocar Grupo a Usuario
 
 
 1. Resumen
-   ----------
+----------
 
 
 El Administrador de Sistema revoca un grupo de permisos previamente asignado a un usuario, desactivando todos los permisos asociados a ese grupo.
 
 
 2. Actores
-   ----------
+----------
 
 
 - **Actor Primario**: Administrador de Sistema
@@ -43,7 +43,7 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 3. Precondiciones
-   -----------------
+-----------------
 
 
 
@@ -67,7 +67,7 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 4. Postcondiciones
-   ------------------
+------------------
 
 
 
@@ -91,7 +91,7 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 5. Flujo Principal
-   ------------------
+------------------
 
 
 
@@ -151,7 +151,7 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 6. Flujos Alternativos
-   ----------------------
+----------------------
 
 
 
@@ -218,7 +218,7 @@ FA-002.3: Usuario es el último administrador
 
 
 7. Flujos de Excepción
-   ----------------------
+----------------------
 
 
 
@@ -271,7 +271,7 @@ FE-002.2: Error de base de datos
 
 
 8. Reglas de Negocio
-   --------------------
+--------------------
 
 
 
@@ -301,7 +301,7 @@ FE-002.2: Error de base de datos
 
 
 9. Requisitos No Funcionales
-   ----------------------------
+----------------------------
 
 
 
@@ -328,7 +328,7 @@ FE-002.2: Error de base de datos
 
 
 10. Datos de Entrada
-    --------------------
+--------------------
 
 
 .. code-block:: json
@@ -343,7 +343,7 @@ FE-002.2: Error de base de datos
 
 
 11. Datos de Salida
-    -------------------
+-------------------
 
 
 
@@ -385,7 +385,7 @@ Caso Error (HTTP 403)
 
 
 12. Especificaciones Técnicas
-    -----------------------------
+-----------------------------
 
 
 
@@ -452,7 +452,7 @@ Performance
 
 
 13. Escenarios de Prueba
-    ------------------------
+------------------------
 
 
 
@@ -530,7 +530,7 @@ Caso de Prueba 4: Sin permisos
 
 
 14. Trazabilidad
-    ----------------
+----------------
 
 
 
@@ -560,7 +560,7 @@ Related Use Cases
 
 
 15. Notas Adicionales
-    ---------------------
+---------------------
 
 
 

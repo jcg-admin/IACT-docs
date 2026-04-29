@@ -12,7 +12,7 @@ UC_PIP_01: Supervisar ETL
 =========================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_PIP_01: Supervisar ETL
    - BRQ-PIP-001
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite al administrador del pipeline (AGR-009) supervisar
 el estado del proceso ETL que sincroniza datos desde la base IVR hacia la
@@ -60,7 +60,7 @@ base Analytics. Muestra metricas de ejecucion, estado actual y alertas.
  Este UC solo muestra informacion, no modifica el pipeline.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_PIP_01
@@ -85,7 +85,7 @@ base Analytics. Muestra metricas de ejecucion, estado actual y alertas.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -121,7 +121,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -156,7 +156,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - Actualiza automaticamente cada 60 segundos
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_PIP_01
@@ -204,7 +204,7 @@ El administrador accede al dashboard de supervision del pipeline.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Pipeline en Error
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,7 +247,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - Muestra razon de pausa si existe
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Permiso PIP-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -286,7 +286,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - PIP-002
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_PIP_01
@@ -329,7 +329,7 @@ El administrador accede al dashboard de supervision del pipeline.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -374,7 +374,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - Esperando proxima ejecucion
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -414,7 +414,7 @@ El administrador accede al dashboard de supervision del pipeline.
  }
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -434,7 +434,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - Dashboard actualizado sin recargar pagina
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -454,7 +454,7 @@ El administrador accede al dashboard de supervision del pipeline.
    - PIP-001: ve_estado_etl
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

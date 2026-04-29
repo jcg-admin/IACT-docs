@@ -16,7 +16,7 @@ FR-010.03: Crear asignación usuario-función
 
 
 1. Identificación
-   -----------------
+-----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-010.03: Crear asignación usuario-función
 ----
 
 2. Especificación
-   -----------------
+-----------------
 
 **Declaración:**
 
@@ -93,7 +93,7 @@ FR-010.03: Crear asignación usuario-función
 ----
 
 3. Criterio de Aceptación
-   -------------------------
+-------------------------
 
 ::
 
@@ -129,7 +129,7 @@ FR-010.03: Crear asignación usuario-función
 ----
 
 4. Reglas y Restricciones
-   -------------------------
+-------------------------
 
 - **BR aplicables:**
  - BR_006: RBAC Flat NIST
@@ -145,7 +145,7 @@ asignaciones duplicadas de la misma función.
 ----
 
 5. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 20 80
@@ -168,7 +168,7 @@ asignaciones duplicadas de la misma función.
 ----
 
 6. Historial
-   ------------
+------------
 
 .. list-table::
  :widths: 15 15 70

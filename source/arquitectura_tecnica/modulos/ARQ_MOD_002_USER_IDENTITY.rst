@@ -28,7 +28,7 @@ ARQ_MOD_002: Gestion de Identidades (USER_IDENTITY)
 ----
 
 1. Proposito
-   ============
+============
 
 El modulo USER_IDENTITY gestiona el **ciclo de vida de las cuentas de usuario**:
 alta, modificacion, baja logica, y datos de perfil.
@@ -42,7 +42,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 2. Alcance
-   ==========
+==========
 
 2.1 Incluye
 -----------
@@ -65,7 +65,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 3. Responsabilidades
-   ====================
+====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -138,7 +138,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 4. Dependencias
-   ===============
+===============
 
 4.1 Depende de
 --------------
@@ -171,7 +171,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 5. Componentes Tecnicos
-   =======================
+=======================
 
 5.1 Apps Django
 ---------------
@@ -242,7 +242,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 6. Restricciones Aplicables
-   ===========================
+===========================
 
 .. list-table::
  :widths: 15 85
@@ -260,7 +260,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 7. Casos de Uso Asociados
-   =========================
+=========================
 
 .. list-table::
  :widths: 12 40 48
@@ -288,7 +288,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 8. Requisitos Funcionales Derivados
-   ===================================
+===================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -322,7 +322,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 9. Estados del Usuario
-   ======================
+======================
 
 .. code-block:: text
 
@@ -353,7 +353,7 @@ alta, modificacion, baja logica, y datos de perfil.
 ----
 
 10. Historial de Cambios
-    ========================
+========================
 
 .. list-table::
  :widths: 12 15 73

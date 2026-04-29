@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
-   -------------
+-------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
-   -------------------------
+-------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,7 +105,7 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 - Limites por formato y por rol
 
 3. Impacto en Sistema
-   ---------------------
+---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +143,7 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 - Ejecutar export con timeout > el de su formato
 
 4. Business Rules Derivadas
-   ---------------------------
+---------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -157,7 +157,7 @@ Previene scraping, controla uso de recursos y mantiene UX usable
    - FND_00:298 — vinculo historico
 
 5. Implementacion
-   -----------------
+-----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,7 +175,7 @@ Ver seccion 5.1 (codigo de referencia es la validacion ejecutable).
 
 
 6. Excepciones
-   --------------
+--------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -192,7 +192,7 @@ el WP de gobernanza (`PROC_Excepciones_CNST` — ver
 (referencia interna) § W-4).
 
 7. Verificacion
-   ---------------
+---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -207,7 +207,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 - **Herramienta:** Tests que verifican respuesta 429 al exceder limites
 
 8. Trazabilidad
-   ---------------
+---------------
 
 .. list-table::
  :widths: 30 70
@@ -225,7 +225,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
    - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 12 15 25 48

@@ -12,7 +12,7 @@ UC_AUD_01: Consultar Auditoria
 ==============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_AUD_01: Consultar Auditoria
    - BRQ-AUD-001
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite consultar el log de auditoria del sistema
 (user_action_log). Los registros de auditoria son INMUTABLES (CNST_025)
@@ -63,7 +63,7 @@ y el acceso esta restringido por Segregacion de Funciones (CNST_027).
  SoD-003: auditor vs administrador_usuarios.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUD_01
@@ -86,7 +86,7 @@ y el acceso esta restringido por Segregacion de Funciones (CNST_027).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -124,7 +124,7 @@ El auditor accede al modulo de auditoria.
    - No se modifica ningun registro (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -162,7 +162,7 @@ El auditor accede al modulo de auditoria.
    - Muestra detalle completo del registro
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUD_01
@@ -214,7 +214,7 @@ El auditor accede al modulo de auditoria.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Filtrar por Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ El auditor accede al modulo de auditoria.
    - Filtra registros en el rango especificado
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Violacion SoD-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -328,7 +328,7 @@ El auditor accede al modulo de auditoria.
    - AUD-003
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUD_01
@@ -374,7 +374,7 @@ El auditor accede al modulo de auditoria.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -431,7 +431,7 @@ El auditor accede al modulo de auditoria.
    - Fecha y hora de la accion
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -464,7 +464,7 @@ El auditor accede al modulo de auditoria.
  FOR EACH ROW EXECUTE FUNCTION prevent_audit_modification;
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -487,7 +487,7 @@ El auditor accede al modulo de auditoria.
    - Filtros por usuario, accion, fecha funcionales
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -507,7 +507,7 @@ El auditor accede al modulo de auditoria.
    - AUD-001: consulta_auditoria
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

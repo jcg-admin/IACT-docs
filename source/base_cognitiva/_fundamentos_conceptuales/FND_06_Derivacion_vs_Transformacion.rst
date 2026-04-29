@@ -46,7 +46,7 @@ responsabilidad unica.
 ----
 
 1. El Problema de la Ambiguedad
-   -------------------------------
+-------------------------------
 
 1.1 La Pregunta Central
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,7 +91,7 @@ Aplicar este concepto a requisitos es **conceptualmente incorrecto**.
 ----
 
 2. Derivacion: El Termino Correcto
-   ----------------------------------
+----------------------------------
 
 2.1 Definicion de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,7 +172,7 @@ son la **explicitacion** de capacidades que el UC ya contiene implicitamente.
 ----
 
 3. Principio de Responsabilidad Unica
-   -------------------------------------
+-------------------------------------
 
 3.1 Definicion
 ^^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ La derivacion correcta preserva la responsabilidad unica:
 ----
 
 4. Direccion de Derivacion
-   --------------------------
+--------------------------
 
 4.1 Proyectos Greenfield
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -374,7 +374,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 5. Implicaciones Practicas
-   --------------------------
+--------------------------
 
 5.1 Proceso de Derivacion Correcto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -444,7 +444,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 6. Aplicacion en IACT
-   ---------------------
+---------------------
 
 6.1 Ejemplo de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -489,7 +489,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 7. Referencias
-   --------------
+--------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -12,7 +12,7 @@ UC_RPT_09: Configurar Filtros
 =============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_09: Configurar Filtros
    - BRQ-RPT-009
 
 2. Descripcion
-   --------------
+--------------
 
 Permite configurar filtros predeterminados para reportes que seran
 aplicados automaticamente segun el perfil del usuario o el tipo
@@ -50,7 +50,7 @@ de reporte.
 - Registro de cambios en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_09
@@ -69,7 +69,7 @@ de reporte.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -105,7 +105,7 @@ Usuario accede a configuracion de filtros.
    - Registro en auditoria
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -143,7 +143,7 @@ Usuario accede a configuracion de filtros.
    - Registra en auditoria
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_09
@@ -177,7 +177,7 @@ Usuario accede a configuracion de filtros.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Modificar Filtro Existente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -197,7 +197,7 @@ Usuario accede a configuracion de filtros.
    - Carga valores actuales
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Filtro Fuera de Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -214,7 +214,7 @@ Usuario accede a configuracion de filtros.
    - RPT-080
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_09
@@ -238,7 +238,7 @@ Usuario accede a configuracion de filtros.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -272,7 +272,7 @@ Usuario accede a configuracion de filtros.
    - Metricas a incluir
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -289,7 +289,7 @@ Usuario accede a configuracion de filtros.
    - Registro de cambios
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -306,7 +306,7 @@ Usuario accede a configuracion de filtros.
    - Rechazo si fuera de segmento
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -322,7 +322,7 @@ Usuario accede a configuracion de filtros.
    - RPT-009: configura_filtros
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

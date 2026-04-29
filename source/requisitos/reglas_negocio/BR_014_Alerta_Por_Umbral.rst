@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
-   --------------------
+--------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,7 +84,7 @@ Las alertas por umbral permiten:
 ----
 
 2. Clasificación
-   ----------------
+----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -108,7 +108,7 @@ Las alertas por umbral permiten:
 ----
 
 3. Aplicación en Sistema
-   ------------------------
+------------------------
 
 3.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -137,7 +137,7 @@ Las alertas por umbral permiten:
 ----
 
 4. Trazabilidad
-   ---------------
+---------------
 
 - **Origen**: BReq_ALR_Alertas
 - **UC Relacionados**: UC_ALR_01, UC_ALR_02, UC_ALR_04, UC_ALR_05
@@ -147,7 +147,7 @@ Las alertas por umbral permiten:
 ----
 
 5. Historial de Cambios
-   -----------------------
+-----------------------
 
 .. list-table::
  :widths: 15 15 70

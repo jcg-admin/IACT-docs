@@ -39,7 +39,7 @@ Procedimiento
 -------------
 
 1. Clonar el Repositorio
-   ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -47,7 +47,7 @@ Procedimiento
  cd IACT---project
 
 2. Configurar Entorno Virtual
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Opción A: Usando Vagrant (Recomendado)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,7 +81,7 @@ Opción B: Desarrollo Directo (Sin VM)
  pip install -r requirements/test.txt
 
 3. Configurar Base de Datos
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -95,7 +95,7 @@ Opción B: Desarrollo Directo (Sin VM)
  python manage.py loaddata fixtures/initial_data.json
 
 4. Instalar Git Hooks
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Instalar hooks de validación antes de commit y push:
 
@@ -120,7 +120,7 @@ Para más información sobre hooks: `Git Hooks
 README <../.github/hooks/README.md>`__
 
 5. Ejecutar Servidor de Desarrollo
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -131,7 +131,7 @@ README <../.github/hooks/README.md>`__
  # http://localhost:8000 (o http://localhost:8080 si estás en Vagrant)
 
 6. Ejecutar Tests
-   ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -145,7 +145,7 @@ README <../.github/hooks/README.md>`__
  pytest api/tests/test_authentication.py
 
 7. Trabajar con Git
-   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Crear Nueva Feature
 ^^^^^^^^^^^^^^^^^^^
@@ -186,7 +186,7 @@ Ejecutar checklist:
 Ver: `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
 
 8. Crear Pull Request
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 

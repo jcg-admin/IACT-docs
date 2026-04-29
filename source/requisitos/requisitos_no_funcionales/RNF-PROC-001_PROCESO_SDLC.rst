@@ -28,7 +28,7 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 --------------
 
 1. Propósito y Obligaciones
-   ---------------------------
+---------------------------
 
 - **Estandarizar la ejecución del SDLC** mediante guías y workflows
   documentados, asegurando que cada fase se trace en el RTM y en los
@@ -39,7 +39,7 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
   outputs depositados en ``docs/`` o generados por CI/CD.
 
 2. Flujo Mínimo de Cumplimiento
-   -------------------------------
+-------------------------------
 
 +-----------------------+-----------------------+-----------------------+
 | Paso | Acción requerida | Evidencia generada |
@@ -75,7 +75,7 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 +-----------------------+-----------------------+-----------------------+
 
 3. Controles Operativos
-   -----------------------
+-----------------------
 
 - **Parámetros y contexto**: cada ejecución de scripts debe indicar
   entorno, fechas o rango de datos usados.

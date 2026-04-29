@@ -28,7 +28,7 @@ ARQ_MOD_005: Visualizacion y Reportes (VIS_REPORTS)
 ----
 
 1. Proposito
-   ============
+============
 
 El modulo VIS_REPORTS es el **punto unico** para dashboards, reportes tabulares
 y exportaciones del sistema IACT. Consume datos ya procesados por el ETL y
@@ -41,7 +41,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 2. Alcance
-   ==========
+==========
 
 2.1 Incluye
 -----------
@@ -83,7 +83,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 3. Responsabilidades
-   ====================
+====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -184,7 +184,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 4. Flujo de Acceso
-   ==================
+==================
 
 .. code-block:: text
 
@@ -210,7 +210,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 5. Dependencias
-   ===============
+===============
 
 5.1 Depende de
 --------------
@@ -245,7 +245,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 6. Componentes Tecnicos
-   =======================
+=======================
 
 6.1 Apps Django
 ---------------
@@ -324,7 +324,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 7. Restricciones Aplicables
-   ===========================
+===========================
 
 .. list-table::
  :widths: 15 85
@@ -342,7 +342,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 8. Casos de Uso Asociados (14 UC)
-   =================================
+=================================
 
 .. list-table::
  :widths: 12 40 48
@@ -397,7 +397,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 9. Requisitos Funcionales Derivados
-   ===================================
+===================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -439,7 +439,7 @@ aplica permisos de RBAC_CORE.
 ----
 
 10. Historial de Cambios
-    ========================
+========================
 
 .. list-table::
  :widths: 12 15 73

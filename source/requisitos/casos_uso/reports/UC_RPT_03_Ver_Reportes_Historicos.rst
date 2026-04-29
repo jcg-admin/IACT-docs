@@ -12,7 +12,7 @@ UC_RPT_03: Ver Reportes Historicos
 ==================================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_03: Ver Reportes Historicos
    - BRQ-RPT-003
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite consultar reportes historicos con datos agregados
 por periodo. Permite analizar tendencias, comparar periodos y generar
@@ -52,7 +52,7 @@ informes para toma de decisiones.
 - Multiples dimensiones de analisis
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_03
@@ -77,7 +77,7 @@ informes para toma de decisiones.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ El usuario accede a reportes historicos desde el menu.
    - Los datos estan filtrados por segmento del usuario
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -156,7 +156,7 @@ El usuario accede a reportes historicos desde el menu.
    - Visualiza reporte historico
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_03
@@ -200,7 +200,7 @@ El usuario accede a reportes historicos desde el menu.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Comparar Periodos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,7 +246,7 @@ El usuario accede a reportes historicos desde el menu.
    - Actualiza tabla y graficos
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Rango Excede 2 Anios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -285,7 +285,7 @@ El usuario accede a reportes historicos desde el menu.
    - RPT-021
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_03
@@ -333,7 +333,7 @@ El usuario accede a reportes historicos desde el menu.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -356,7 +356,7 @@ El usuario accede a reportes historicos desde el menu.
    - Permite comparar dos periodos de igual duracion
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -376,7 +376,7 @@ El usuario accede a reportes historicos desde el menu.
    - Maximo 2 anios de datos historicos consultables
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -399,7 +399,7 @@ El usuario accede a reportes historicos desde el menu.
    - Graficos de linea renderizados
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -419,7 +419,7 @@ El usuario accede a reportes historicos desde el menu.
    - RPT-003: ve_historicos
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 20 50

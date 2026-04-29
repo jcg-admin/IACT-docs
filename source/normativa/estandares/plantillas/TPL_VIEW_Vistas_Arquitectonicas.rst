@@ -189,7 +189,7 @@ Plantilla
  ----
 
  1. Proposito
-    ------------
+ ------------
 
  [Descripcion del proposito de esta vista en 2-3 oraciones.
  Responde: Que perspectiva del sistema muestra y para quien?]
@@ -197,7 +197,7 @@ Plantilla
  ----
 
  2. Audiencia
-    ------------
+ ------------
 
  Esta vista esta dirigida a:
 
@@ -215,7 +215,7 @@ Plantilla
  ----
 
  3. Diagrama Principal
-    ---------------------
+ ---------------------
 
  .. uml::
  :caption: VIEW_[NNN] - [Nombre de la Vista]
@@ -253,7 +253,7 @@ Plantilla
  ----
 
  4. Elementos de la Vista
-    ------------------------
+ ------------------------
 
  4.1 Componentes Principales
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -291,7 +291,7 @@ Plantilla
  ----
 
  5. Diagramas Complementarios
-    ----------------------------
+ ----------------------------
 
  5.1 Diagrama de Detalle [Nombre]
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -307,7 +307,7 @@ Plantilla
  ----
 
  6. Decisiones Arquitectonicas
-    -----------------------------
+ -----------------------------
 
  Esta vista refleja las siguientes decisiones:
 
@@ -325,7 +325,7 @@ Plantilla
  ----
 
  7. Restricciones Reflejadas
-    ---------------------------
+ ---------------------------
 
  .. list-table::
  :widths: 20 80
@@ -341,7 +341,7 @@ Plantilla
  ----
 
  8. Escenarios de Validacion
-    ---------------------------
+ ---------------------------
 
  Esta vista se valida mediante los siguientes escenarios:
 
@@ -362,7 +362,7 @@ Plantilla
  ----
 
  9. Consideraciones
-    ------------------
+ ------------------
 
  9.1 Limitaciones de la Vista
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -379,7 +379,7 @@ Plantilla
  ----
 
  10. Trazabilidad
-     ----------------
+ ----------------
 
  .. list-table::
  :widths: 25 75
@@ -399,7 +399,7 @@ Plantilla
  ----
 
  11. Historial de Cambios
-     ------------------------
+ ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

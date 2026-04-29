@@ -12,7 +12,7 @@ UC_RPT_12: Ver Reporte Agentes
 ==============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_12: Ver Reporte Agentes
    - BRQ-RPT-012
 
 2. Descripcion
-   --------------
+--------------
 
 Reporte especializado de rendimiento de agentes del call center.
 Muestra metricas individuales y comparativas por agente.
@@ -50,7 +50,7 @@ Muestra metricas individuales y comparativas por agente.
 - Tasa de resolucion
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_12
@@ -69,7 +69,7 @@ Muestra metricas individuales y comparativas por agente.
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de agentes.
    - Se muestra reporte de agentes del segmento
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -132,7 +132,7 @@ Usuario accede a reporte de agentes.
    - Selecciona agente para detalle
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_12
@@ -159,7 +159,7 @@ Usuario accede a reporte de agentes.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Ver Detalle de Agente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -182,7 +182,7 @@ Usuario accede a reporte de agentes.
    - Muestra tendencia historica
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Sin Agentes en Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -197,7 +197,7 @@ Usuario accede a reporte de agentes.
    - No hay agentes registrados en su segmento
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_12
@@ -225,7 +225,7 @@ Usuario accede a reporte de agentes.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -259,7 +259,7 @@ Usuario accede a reporte de agentes.
    - Porcentaje tiempo disponible
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -276,7 +276,7 @@ Usuario accede a reporte de agentes.
    - Solo agentes del segmento
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -293,7 +293,7 @@ Usuario accede a reporte de agentes.
    - Metricas individuales y tendencia
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -311,7 +311,7 @@ Usuario accede a reporte de agentes.
    - RPT-012: ve_agentes
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

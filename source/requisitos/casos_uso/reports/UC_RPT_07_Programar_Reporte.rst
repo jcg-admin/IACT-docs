@@ -12,7 +12,7 @@ UC_RPT_07: Programar Reporte
 ============================
 
 1. Resumen
-   ----------
+----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_07: Programar Reporte
    - BRQ-RPT-007
 
 2. Descripcion
-   --------------
+--------------
 
 Este caso de uso permite programar la generacion automatica de reportes
 en horarios definidos. Los reportes generados se notifican via
@@ -57,7 +57,7 @@ InternalMessage (CNST_001).
  InternalMessage.notify. PROHIBIDO enviar por email o SMS.
 
 3. Diagrama de Caso de Uso
-   --------------------------
+--------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_07
@@ -83,7 +83,7 @@ InternalMessage (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-   ------------------------
+------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ El usuario accede a programacion de reportes.
    - Se registra SCHEDULE_CREATE en auditoria
 
 5. Flujo Normal (Camino Feliz)
-   ------------------------------
+------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -167,7 +167,7 @@ El usuario accede a programacion de reportes.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_07
@@ -218,7 +218,7 @@ El usuario accede a programacion de reportes.
  @enduml
 
 7. Flujos Alternos
-   ------------------
+------------------
 
 7.1 FA-01: Modificar Programacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -238,7 +238,7 @@ El usuario accede a programacion de reportes.
    - Actualiza programacion
 
 8. Excepciones
-   --------------
+--------------
 
 8.1 EX-01: Destinatario Otro Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ El usuario accede a programacion de reportes.
    - RPT-060
 
 9. Diagrama de Actividad
-   ------------------------
+------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_07
@@ -280,7 +280,7 @@ El usuario accede a programacion de reportes.
  @enduml
 
 10. Reglas de Negocio
-    ---------------------
+---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -300,7 +300,7 @@ El usuario accede a programacion de reportes.
    - Destinatarios del mismo segmento
 
 11. Restricciones de Arquitectura
-    ---------------------------------
+---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -320,7 +320,7 @@ El usuario accede a programacion de reportes.
    - Registro de programaciones
 
 12. Requisitos Funcionales Derivados
-    ------------------------------------
+------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -337,7 +337,7 @@ El usuario accede a programacion de reportes.
    - Via InternalMessage
 
 13. Trazabilidad
-    ----------------
+----------------
 
 .. list-table::
  :widths: 25 75
@@ -353,7 +353,7 @@ El usuario accede a programacion de reportes.
    - RPT-007: programa_reportes
 
 14. Historial de Cambios
-    ------------------------
+------------------------
 
 .. list-table::
  :widths: 15 15 70

@@ -55,7 +55,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 1. Tipos de Reglas Deonticas
-   ----------------------------
+----------------------------
 
 .. list-table::
  :header-rows: 1
@@ -80,7 +80,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 2. Reglas de Obligacion (DEBE)
-   ------------------------------
+------------------------------
 
 2.1 Usuario debe tener Rol
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -239,7 +239,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 3. Reglas de Prohibicion (NO DEBE)
-   ----------------------------------
+----------------------------------
 
 3.1 Usuario no debe tener Roles Conflictivos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -415,7 +415,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 4. Reglas de Permiso (PUEDE)
-   ----------------------------
+----------------------------
 
 4.1 Administrador puede cerrar Sesion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -492,7 +492,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 5. Reglas de Restriccion (SOLO/UNICAMENTE)
-   ------------------------------------------
+------------------------------------------
 
 5.1 Solo Administrador gestiona Usuarios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -591,7 +591,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 6. Reglas Condicionales (SI...ENTONCES)
-   ---------------------------------------
+---------------------------------------
 
 6.1 Si inactivo 90 dias, entonces bloquear
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -689,7 +689,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 7. Matriz de Reglas Operativas
-   ------------------------------
+------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -819,7 +819,7 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
 ----
 
 8. Referencias
-   --------------
+--------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

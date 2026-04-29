@@ -28,7 +28,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 1. Modelo NIST RBAC
-   -------------------
+-------------------
 
 1.1 Niveles RBAC
 ^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 2. Diagrama de Clases Principal
-   -------------------------------
+-------------------------------
 
 2.1 Vista General
 ^^^^^^^^^^^^^^^^^
@@ -138,7 +138,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 3. Detalle de Entidades
-   -----------------------
+-----------------------
 
 3.1 Usuario
 ^^^^^^^^^^^
@@ -346,7 +346,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 4. Tablas de Relacion
-   ---------------------
+---------------------
 
 4.1 Usuario_Rol (N:N)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -419,7 +419,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 5. Diagrama ER Completo
-   -----------------------
+-----------------------
 
 .. code-block:: text
 
@@ -474,7 +474,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 6. Algoritmos Clave
-   -------------------
+-------------------
 
 6.1 Verificar Permiso
 ^^^^^^^^^^^^^^^^^^^^^
@@ -557,7 +557,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 7. Restricciones del Modelo
-   ---------------------------
+---------------------------
 
 7.1 Restricciones de Integridad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -617,7 +617,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 8. Estadisticas IACT
-   --------------------
+--------------------
 
 8.1 Volumetria Esperada
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -706,7 +706,7 @@ Detalle completo de los 10 grupos: ver
 ----
 
 9. Referencias
-   --------------
+--------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

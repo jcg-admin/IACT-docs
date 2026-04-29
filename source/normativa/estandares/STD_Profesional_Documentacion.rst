@@ -23,7 +23,7 @@ STD: Documentación Profesional
 ----
 
 1. Propósito
-   ============
+============
 
 Establecer el lenguaje, tono y estructura obligatorios para toda
 la documentación del proyecto IACT. Garantiza:
@@ -37,7 +37,7 @@ la documentación del proyecto IACT. Garantiza:
 ----
 
 2. Alcance
-   ==========
+==========
 
 Aplica a todo documento bajo ``source/`` del proyecto IACT,
 incluyendo:
@@ -62,7 +62,7 @@ NO aplica a:
 ----
 
 3. Lenguaje obligatorio
-   =======================
+=======================
 
 3.1 Tono profesional
 --------------------
@@ -130,7 +130,7 @@ alternativa profesional.
 ----
 
 4. Estructura obligatoria
-   =========================
+=========================
 
 4.1 Estilo de headings
 ----------------------
@@ -227,7 +227,7 @@ identificador.
 ----
 
 5. Headings recomendados (referencia)
-   =====================================
+=====================================
 
 Para artefactos del proyecto se recomienda usar (entre otros) los
 siguientes nombres de sección:
@@ -247,7 +247,7 @@ siguientes nombres de sección:
 ----
 
 6. Cumplimiento
-   ===============
+===============
 
 6.1 Aplicación retroactiva
 --------------------------
@@ -278,7 +278,7 @@ de univocidad".
 ----
 
 7. Referencias
-   ==============
+==============
 
 - :ref:`std-001` — Documentación Sin Emojis (complementario:
   prohibición de emojis en documentación técnica).
@@ -289,7 +289,7 @@ de univocidad".
 ----
 
 8. Historial
-   ============
+============
 
 .. list-table::
  :header-rows: 1

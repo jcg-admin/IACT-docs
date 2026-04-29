@@ -49,7 +49,7 @@ Procedimiento
 -------------
 
 1. Planificación del Cambio
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.1 Identificar Necesidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ O crear en GitHub: - Título descriptivo - Descripción clara del problema
 - Criterios de aceptación - Prioridad y labels
 
 2. Desarrollo del Cambio
-   ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1 Crear Rama Feature
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -130,7 +130,7 @@ Usar Conventional Commits:
  Fixes #456"
 
 3. Pre-Pull Request
-   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 3.1 Validación Local
 ^^^^^^^^^^^^^^^^^^^^
@@ -171,7 +171,7 @@ Usar Conventional Commits:
  git push -u origin feature/tu-rama
 
 4. Crear Pull Request
-   ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 4.1 Usando gh CLI
 ^^^^^^^^^^^^^^^^^
@@ -226,7 +226,7 @@ versión anterior
 Migraciones de DB - Cambios de configuración
 
 5. Code Review
-   ~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 5.1 Como Autor
 ^^^^^^^^^^^^^^
@@ -261,7 +261,7 @@ Queries optimizadas
 si aplica - [ ] ADR creado si es decisión arquitectónica
 
 6. Merge
-   ~~~~~~~~
+~~~~~~~~
 
 6.1 Pre-Merge Checklist
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -296,7 +296,7 @@ si aplica - [ ] ADR creado si es decisión arquitectónica
 .. _cambios-de-documentación-1:
 
 7. Cambios de Documentación
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 7.1 Flujo Simplificado
 ^^^^^^^^^^^^^^^^^^^^^^
