@@ -18,7 +18,7 @@ MODELO RBAC IACT
 
 .. note::
 
- **Migrado desde** `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` (1793 lineas) en
+ **Migrado desde** `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`` (1793 lineas) en
  WP #7 v1 (2026-04-29). El nombre del archivo NO incluye version
  (per :doc:`/normativa/estandares/std-006-versionado-semantico`);
  la version vive en metadata (``:version: 5.2.1``).

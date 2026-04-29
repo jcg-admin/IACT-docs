@@ -29,7 +29,7 @@ Modulos arquitectonicos
 =======================
 
 El backend implementa los 8 modulos definidos en
-:doc:`/arquitectura_tecnica/modulos/index`:
+:doc:`/arquitectura-tecnica/modulos/index`:
 
 - AUTH — autenticacion y sesion
 - USER_IDENTITY — identidad y perfiles

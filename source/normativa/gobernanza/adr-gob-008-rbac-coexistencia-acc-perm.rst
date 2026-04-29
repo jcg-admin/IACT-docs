@@ -31,7 +31,7 @@ formal:
 
 **Vista funcional (MOD_Access — modelo conceptual v5.2.1):**
 
-- Documentada en `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT``.
+- Documentada en `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact``.
 - Catalogo cerrado: 42 funciones atomicas + 10 grupos predefinidos
   AGR-001..AGR-010 + 3 reglas SoD.
 - Vocabulario: "Funcion", "Grupo predefinido", "Agrupador".
@@ -179,7 +179,7 @@ Implementacion
 3. **iteracion correspondiente** (este ADR): ADR-GOB-008 oficializa la coexistencia.
 4. **iteracion correspondiente** (en curso): cross-refs UC_ACC ↔ UC_PERM + mapeo refs
    CNST en bodies + Capacidad → Funcion.
-5. **WP #7** (pendiente): migrar `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` a
+5. **WP #7** (pendiente): migrar `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`` a
    ``source/arquitectura_tecnica/rbac/`` para que sea consultable.
 6. **Codigo backend**: migracion ``Capacidad`` → ``Function``
    (D-RBAC-2 + D-RBAC-8) — fuera de scope del rebuild documental.

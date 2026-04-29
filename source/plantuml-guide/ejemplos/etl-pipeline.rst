@@ -206,5 +206,5 @@ Referencias
 - :doc:`../guidelines` — Cómo usar estilos centralizados
 - :doc:`../color-palette` — Convenciones de color
 - :doc:`/requisitos/index` — Casos de uso UC_PIP_01 a UC_PIP_04
-- :doc:`/arquitectura_tecnica/index` — Detalles técnicos del pipeline
+- :doc:`/arquitectura-tecnica/index` — Detalles técnicos del pipeline
 - :doc:`/normativa/index` — Restricciones CNST-003, CNST-007, CNST-009

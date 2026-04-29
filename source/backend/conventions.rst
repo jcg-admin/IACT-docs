@@ -102,7 +102,7 @@ Permisos
 ========
 
 - Usar el modelo RBAC canonico documentado en
-  :doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`.
+  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
 - Las clases de permiso DRF deben mapear a las funciones (no a
   permisos legacy tabla-PERM). La migracion vocabulario
   ``Capacidad`` → ``Function`` (D-RBAC-2 + D-RBAC-8) esta

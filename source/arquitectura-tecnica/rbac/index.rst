@@ -30,4 +30,4 @@ Dinamico, CNST_033 Vocabulario Unificado).
  :maxdepth: 1
  :caption: Modelo RBAC
 
- MODELO_RBAC_IACT
+ modelo-rbac-iact

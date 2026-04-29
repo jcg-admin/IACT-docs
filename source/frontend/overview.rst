@@ -29,7 +29,7 @@ cubiertos por esta documentacion son:
 - **Routing** — esquema de rutas y navegacion entre vistas.
 - **Integracion con backend** — clientes HTTP, contratos
   de API, manejo de errores. Detalle en
-  :doc:`/arquitectura_tecnica/modulos/index`.
+  :doc:`/arquitectura-tecnica/modulos/index`.
 
 Webpack
 =======
@@ -50,7 +50,7 @@ Microfrontends
 El frontend se descompone en microfrontends por dominio
 funcional. La integracion entre ellos sigue las decisiones
 arquitectonicas registradas en
-:doc:`/arquitectura_tecnica/index`.
+:doc:`/arquitectura-tecnica/index`.
 
 Out of scope
 ============

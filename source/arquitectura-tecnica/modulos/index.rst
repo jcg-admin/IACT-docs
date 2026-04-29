@@ -59,11 +59,11 @@ Catalogo
 .. toctree::
  :maxdepth: 1
 
- ARQ_MOD_001_AUTH
- ARQ_MOD_002_USER_IDENTITY
- ARQ_MOD_003_RBAC_CORE
- ARQ_MOD_004_ETL_MONITORING
- ARQ_MOD_005_VIS_REPORTS
- ARQ_MOD_006_ALERTS
- ARQ_MOD_007_AUDIT
- ARQ_MOD_008_SYS_LOGS
+ arq-mod-001-auth
+ arq-mod-002-user-identity
+ arq-mod-003-rbac-core
+ arq-mod-004-etl-monitoring
+ arq-mod-005-vis-reports
+ arq-mod-006-alerts
+ arq-mod-007-audit
+ arq-mod-008-sys-logs

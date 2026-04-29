@@ -53,6 +53,6 @@ detalle completo.
 - :doc:`/normativa/index` — estandares, plantillas, procedimientos
   y restricciones del sistema.
 - :doc:`/requisitos/index` — casos de uso, BRs, FRs, NFRs.
-- :doc:`/arquitectura_tecnica/index` — modelo arquitectonico
+- :doc:`/arquitectura-tecnica/index` — modelo arquitectonico
   (RBAC, modulos).
 - :doc:`/gestion/index` — gestion del proyecto, manuales, evidencias.

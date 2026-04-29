@@ -505,7 +505,7 @@ Referencias
 -----------
 
 
-- :doc:`Modelo RBAC IACT </arquitectura_tecnica/rbac/MODELO_RBAC_IACT>`
+- :doc:`Modelo RBAC IACT </arquitectura-tecnica/rbac/modelo-rbac-iact>`
   (sistema de permisos canónico).
 - :doc:`ADR-GOB-008 — Coexistencia ACC↔PERM </normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm>`
   (estrategia híbrida del modelo de acceso).

@@ -83,7 +83,7 @@ Contenido publicado
  :maxdepth: 2
  :caption: Arquitectura Tecnica
 
- arquitectura_tecnica/index
+ arquitectura-tecnica/index
 
 .. toctree::
  :maxdepth: 2

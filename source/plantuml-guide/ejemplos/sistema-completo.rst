@@ -155,5 +155,5 @@ Referencias
 Ver documentación relacionada:
 - :doc:`../guidelines` — Guía de uso de estilos
 - :doc:`../color-palette` — Convenciones de colores
-- :doc:`/arquitectura_tecnica/index` — Detalles de arquitectura
+- :doc:`/arquitectura-tecnica/index` — Detalles de arquitectura
 - :doc:`/requisitos/index` — Casos de uso funcionales
