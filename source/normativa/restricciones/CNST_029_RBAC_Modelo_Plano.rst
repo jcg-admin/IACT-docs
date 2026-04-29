@@ -151,7 +151,7 @@ editables por admin. Estan definidos en seed inicial del sistema.
 El admin puede crear **custom groups** dinamicamente via
 :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`,
 asignando capabilities especificas via
-:doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Capacidades_Grupo`.
+:doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Funciones_Grupo`.
 
 Las reglas SoD (:doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`)
 aplican TANTO a system groups como a custom groups.

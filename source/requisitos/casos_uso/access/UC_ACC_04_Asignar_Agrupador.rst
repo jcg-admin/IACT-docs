@@ -15,7 +15,7 @@ UC_ACC_04: Asignar Agrupador
 
    Este UC representa una vista del modelo RBAC. La
    vista tecnica granular del mismo concepto esta en
-   :doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Capacidades_Grupo`
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Funciones_Grupo`
    (o equivalente). Ambas coexisten per
    :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
 

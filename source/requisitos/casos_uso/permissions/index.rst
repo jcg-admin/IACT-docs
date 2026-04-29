@@ -27,7 +27,7 @@ Casos de Uso
    UC_PERM_03_Conceder_Permiso_Excepcional
    UC_PERM_04_Revocar_Permiso_Excepcional
    UC_PERM_05_Crear_Grupo_Permisos
-   UC_PERM_06_Asignar_Capacidades_Grupo
+   UC_PERM_06_Asignar_Funciones_Grupo
    UC_PERM_07_Verificar_Permiso_Usuario
    UC_PERM_08_Generar_Menu_Dinamico
    UC_PERM_09_Auditar_Acceso
