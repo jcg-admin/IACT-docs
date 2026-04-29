@@ -4,11 +4,11 @@ work_package: 2026-04-28-05-28-49-source-rebuild-infrastructure
 parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
 parent_relationship: child #10 of 16 (tech-skeleton)
 created_at: 2026-04-28 05:28:49
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 1 — DISCOVER (DIFERIDO)
 flow: thyrox
 methodology_step: workflow-discover
 author: NestorMonroy
-status: Borrador (no iniciado)
+status: DIFERIDO — 2026-04-29 (heavy: 205 inputs, 236 variantes en temp-holding/. Iteracion futura cuando se priorice infra)
 ```
 
 # WP-hijo #10 — Source Rebuild: infrastructure (Ubuntu + Apache)

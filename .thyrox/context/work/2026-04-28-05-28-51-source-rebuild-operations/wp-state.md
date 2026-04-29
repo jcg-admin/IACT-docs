@@ -4,11 +4,11 @@ work_package: 2026-04-28-05-28-51-source-rebuild-operations
 parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
 parent_relationship: child #12 of 16 (tech-skeleton)
 created_at: 2026-04-28 05:28:51
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 1 — DISCOVER (DIFERIDO)
 flow: thyrox
 methodology_step: workflow-discover
 author: NestorMonroy
-status: Borrador (no iniciado)
+status: DIFERIDO — 2026-04-29 (heavy: 203 inputs en temp-holding/. Iteracion futura cuando se priorice operations)
 ```
 
 # WP-hijo #12 — Source Rebuild: operations
