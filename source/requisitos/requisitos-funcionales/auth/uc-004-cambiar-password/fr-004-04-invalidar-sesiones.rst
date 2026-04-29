@@ -5,7 +5,7 @@
  :subdominio: funcionales/auth
  :estado: Aprobado
  :version: 1.0.0
- :fecha: 2026-01-07
+ :fecha_creacion: 2026-01-07
  :autor: Equipo IACT
 
 .. _fr-004-04:

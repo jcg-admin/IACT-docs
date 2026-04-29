@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ARQ-MOD-004
+ :tipo: Guia
+ :dominio: arquitectura-tecnica
+ :subdominio: modulos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-27
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 .. =============================================================================
 .. ARQ_MOD_004_ETL_MONITORING.rst
 .. Modulo Funcional: Supervision del ETL, Calidad y Disponibilidad de Datos

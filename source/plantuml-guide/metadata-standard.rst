@@ -1,3 +1,13 @@
+.. meta::
+ :artefacto: Metadata_Standard
+ :tipo: Guia
+ :dominio: plantuml-guide
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ==================================================
 PlantUML Diagram Metadata Standard — @IACT-DIAGRAM
 ==================================================

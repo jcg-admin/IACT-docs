@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ADR-BACK-004
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ADR-012: Sistema de Permisos Granular SIN Roles Jerarquicos
 ===========================================================
 

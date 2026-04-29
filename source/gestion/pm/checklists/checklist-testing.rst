@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: Checklist_Testing
+ :tipo: Checklist
+ :dominio: gestion
+ :subdominio: pm
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 Checklist de testing
 ====================
 

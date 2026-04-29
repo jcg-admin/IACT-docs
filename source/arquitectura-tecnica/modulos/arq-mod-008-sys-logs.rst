@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ARQ-MOD-008
+ :tipo: Guia
+ :dominio: arquitectura-tecnica
+ :subdominio: modulos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-27
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 .. =============================================================================
 .. ARQ_MOD_008_SYS_LOGS.rst
 .. Modulo Funcional: Bitacoras Tecnicas y Monitoreo del Sistema

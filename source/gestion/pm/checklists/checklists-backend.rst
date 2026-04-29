@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: Checklists_Backend
+ :tipo: Checklist
+ :dominio: gestion
+ :subdominio: pm
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 Checklists del backend
 ======================
 

@@ -1,3 +1,13 @@
+.. meta::
+ :artefacto: Git_Workflow
+ :tipo: Guia
+ :dominio: gestion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-27
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ==========================
 Git Workflow Documentation
 ==========================

@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: Test_Uc_Diagram
+ :tipo: Test/Ejemplo
+ :dominio: plantuml-guide
+ :subdominio: ejemplos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ===============================================
 Test: Use Case Diagram with Centralized Styling
 ===============================================

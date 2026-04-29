@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ARQ-MOD-006
+ :tipo: Guia
+ :dominio: arquitectura-tecnica
+ :subdominio: modulos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-27
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 .. =============================================================================
 .. ARQ_MOD_006_ALERTS.rst
 .. Modulo Funcional: Alertas Internas y Notificaciones

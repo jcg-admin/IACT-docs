@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ADR-FRONT-002
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ADR-016: Redux Toolkit para State Management (no Context API)
 =============================================================
 

@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: ADR-FRONT-004
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 ESTO NO ES NECESARIO, AGREGA COMPLEJIDAD AL PROYECTO
 
 Contexto

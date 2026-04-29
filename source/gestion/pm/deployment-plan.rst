@@ -1,3 +1,14 @@
+.. meta::
+ :artefacto: Deployment_Plan
+ :tipo: Guia
+ :dominio: gestion
+ :subdominio: pm
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 FASE 5: DEPLOYMENT - Plan de Despliegue Tests TDD
 =================================================
 

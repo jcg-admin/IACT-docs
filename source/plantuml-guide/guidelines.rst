@@ -1,3 +1,13 @@
+.. meta::
+ :artefacto: Guidelines
+ :tipo: Guia
+ :dominio: plantuml-guide
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-26
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 =========================================
 PlantUML Centralized Styling — GUIDELINES
 =========================================
