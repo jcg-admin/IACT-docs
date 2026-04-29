@@ -36,3 +36,4 @@ de codigo, no en esta documentacion.
  adr-back-003-orm-sql-hybrid-permissions
  adr-back-004-sistema-permisos-sin-roles-jerarquicos
  adr-back-005-middleware-decoradores-permisos
+ adr-back-006-rbac-estrategia-implementacion

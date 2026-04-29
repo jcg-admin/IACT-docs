@@ -37,6 +37,7 @@ Catalogo
  adr-gob-006-diagramas-uml-casos-uso
  adr-gob-007-trazabilidad-artefactos-requisitos
  adr-gob-008-rbac-coexistencia-acc-perm
+ adr-gob-009-rbac-modelo-conceptual
 
 Estructura por dominio
 ----------------------
