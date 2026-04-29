@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.1.0
+ :version: 2.0.0
  :fecha_creacion: 2026-04-28
  :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
@@ -26,8 +26,11 @@ bajo ``source/``. Garantiza:
 
 - Consistencia entre dominios (procedimientos, gobernanza, requisitos,
   etc.).
-- Compatibilidad cross-platform (Windows, Linux, macOS).
-- Resolución correcta de URLs HTML rendered.
+- Compatibilidad cross-platform (Windows NTFS, macOS HFS+ son
+  case-insensitive — sin uppercase no hay riesgo).
+- Resolución correcta de URLs HTML rendered (lowercase canonical).
+- Resolución correcta de ``:doc:`` y ``:ref:`` (case-sensitive en
+  Sphinx).
 - Predictibilidad para autores nuevos.
 - Reducción de fricción en shell, git, autocompletado y herramientas
   de búsqueda.
@@ -55,25 +58,41 @@ NO aplica a:
 
 ----
 
-3. Reglas Generales (aplican a todo bajo source/)
--------------------------------------------------
+3. Reglas Universales (aplican a TODO bajo source/)
+---------------------------------------------------
 
-3.1 Caracteres Permitidos
-^^^^^^^^^^^^^^^^^^^^^^^^^
+3.1 Patrón Único
+^^^^^^^^^^^^^^^^
 
-Los nombres de archivos y directorios DEBEN contener únicamente:
+**Toda la nomenclatura sigue una sola regla:**
 
-- Letras ASCII: ``a-z``, ``A-Z``
-- Dígitos: ``0-9``
-- Separadores: ``-`` (hyphen) y ``_`` (underscore)
-- Punto: ``.`` solo para extensión final (``.rst``, ``.puml``)
+- **Minúsculas exclusivamente** (``a-z``, ``0-9``).
+- **Guión medio** (``-``) como único separador en descripciones.
+- **Sin underscore** en descripciones (excepto en directorios internos
+  Sphinx, §5.2).
+- **Sin MAYÚSCULAS** en ningún componente.
+
+**Patrón canónico de archivos numerados:**
+
+::
+
+  <prefix>-<NNN>-<descripcion-kebab>.rst
+
+**Patrón canónico de directorios:**
+
+::
+
+  <descripcion-kebab>/
 
 3.2 Caracteres PROHIBIDOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Los nombres NO DEBEN contener:
 
-- **Espacios** — usar ``-`` o ``_`` en su lugar.
+- **Espacios** — usar ``-`` en su lugar.
+- **MAYÚSCULAS** — todo en minúsculas.
+- **Underscore** ``_`` en descripciones (preservado solo para prefijos
+  internos Sphinx ``_static``, ``_templates``, ``_metadata``, etc.).
 - **Paréntesis** ``(``, ``)``, ``[``, ``]``, ``{``, ``}``.
 - **Tildes**: ``á``, ``é``, ``í``, ``ó``, ``ú``, ``ü``.
 - **Eñe**: ``ñ``, ``Ñ`` — usar ``n`` o ``ny``.
@@ -85,93 +104,39 @@ Los nombres NO DEBEN contener:
 
 **Ejemplos PROHIBIDOS:**
 
-- ``Diagramas de Referencia - README.rst`` (espacios)
-- ``Architecture Decision Records (ADRs) - Indice Maestro.rst`` (espacios + parens)
-- ``diseño_detallado/`` (ñ)
-- ``Planificación y releases del frontend-README.rst`` (tildes + espacios)
+- ``Diagramas de Referencia.rst`` (espacios + mayúsculas)
+- ``UC_ACC_01_Asignar_Funciones.rst`` (mayúsculas + underscore)
+- ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mezcla; underscore en
+  descripción)
+- ``arquitectura_tecnica/`` (underscore en directorio público)
+- ``UC_001_Iniciar_Sesion/`` (mayúsculas + underscore)
 
 **Ejemplos CORRECTOS:**
 
 - ``diagramas-de-referencia.rst``
-- ``adr-indice-maestro.rst``
-- ``diseno_detallado/``
-- ``planificacion-y-releases-frontend.rst``
+- ``uc-acc-01-asignar-funciones.rst``
+- ``proc-dev-001-pipeline-trabajo-iact.rst``
+- ``arquitectura-tecnica/``
+- ``uc-001-iniciar-sesion/``
 
-3.3 Mezcla de Separadores y Selección de Dialecto
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Regla general:** NO mezclar ``-`` y ``_`` arbitrariamente. Los
-dialectos permitidos están enumerados taxativamente en §4.1–§4.5.
-Cualquier patrón fuera de esos cinco dialectos está **prohibido**.
-
-**Selección de dialecto por categoría de artefacto:**
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 25 45
-
-   * - Categoría
-     - Dialecto
-     - Sección que lo define
-   * - UC, BR, CNST, STD, TPL, META, FND, SBVR, MTM, TXM, GOB, BReq
-     - snake + PascalCase (``Prefix_NN_Descripcion_PascalCase``)
-     - §4.1
-   * - ADR, PROCED, PROC, RNF
-     - kebab puro (``Prefix-MOD-NNN-descripcion-kebab``)
-     - §4.2
-   * - FR
-     - mixed (``FR-NNN.NN_Descripcion_snake_case``)
-     - §4.3
-   * - Guías generales sin numeración intrínseca
-     - kebab puro (``descripcion-kebab.rst``)
-     - §4.4
-   * - Punto de entrada de directorio
-     - ``index.rst`` (excepción)
-     - §4.5
-
-**Permitido (sigue uno de los 5 dialectos):**
-
-- ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst`` (§4.2)
-- ``UC_ACC_01_Asignar_Funciones.rst`` (§4.1)
-- ``FR-010.01_Listar_funciones_disponibles.rst`` (§4.3)
-- ``git-workflow.rst`` (§4.4)
-
-**Prohibido (no sigue ningún dialecto definido):**
-
-- ``mi_archivo-de-prueba.rst`` (mezcla sin estructura categorial)
-- ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mezcla; el patrón
-  correcto §4.2 exige kebab puro en la descripción:
-  ``PROC-DEV-001-pipeline-trabajo-iact.rst``)
-- ``Mi_Documento.rst`` cuando NO hay prefijo categorial (§4.4
-  exige kebab para guías sin prefijo)
-
-**Por qué esta clarificación (v1.1.0):** la versión 1.0.0 de
-§3.3 daba la impresión de que kebab puro era una opción
-genérica, contradiciendo §4.2. La v1.1.0 explicita que la
-elección de dialecto está determinada por la **categoría del
-artefacto**, no por preferencia del autor. Decisión registrada
-en ADR ``adr-naming-conventions-heterogeneity-accepted.md``.
-
-3.4 Versión en Filename
+3.3 Versión en Filename
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 NO incluir versión en el nombre del archivo. La versión vive en el
-metadata YAML del archivo, NO en el filename.
+metadata YAML del archivo.
 
 **Prohibido:**
 
-- ``TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst``
-- ``IACT_Glossary_v1_0_0.rst``
-- ``MODELO_RBAC_v5_2_1.rst``
+- ``tpl-adr-decisiones-arquitectonicas-1-0-0.rst``
+- ``modelo-rbac-v5-2-1.rst``
 
 **Correcto:**
 
-- ``TPL_ADR_Decisiones_Arquitectonicas.rst`` (con ``:version:`` en
+- ``tpl-adr-decisiones-arquitectonicas.rst`` (con ``:version:`` en
   meta YAML).
-- ``IACT_Glossary.rst``
-- ``MODELO_RBAC.rst``
+- ``modelo-rbac.rst``
 
-3.5 Longitud Máxima
+3.4 Longitud Máxima
 ^^^^^^^^^^^^^^^^^^^
 
 Filenames ≤ 100 caracteres (incluyendo extensión). Más allá de eso,
@@ -179,202 +144,130 @@ usar abreviaciones documentadas o reorganizar el contenido.
 
 ----
 
-4. Convenciones por Tipo de Artefacto
---------------------------------------
+4. Patrones por Tipo de Artefacto
+----------------------------------
 
-4.1 Artefactos Numerados con Prefijo Fijo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Patrón:** ``<PREFIX>_<NN>_<Descripcion_PascalCase>.rst``
-
-Donde:
-
-- ``<PREFIX>`` es un acronym de 2-5 caracteres en MAYÚSCULAS.
-- ``<NN>`` es 2 o 3 dígitos zero-padded (``01``, ``002``).
-- ``<Descripcion_PascalCase>`` con cada palabra capitalizada y
-  separada por ``_``.
-
-**Aplica a:**
+Una sola regla universal: ``<prefix>-<NNN>-<descripcion-kebab>.rst``.
+Los prefijos identifican la categoría sin cambiar la convención.
 
 .. list-table::
  :header-rows: 1
- :widths: 15 30 55
+ :widths: 18 30 52
 
  * - Prefijo
-   - Dominio
+   - Tipo
    - Ejemplo
- * - ``UC``
-   - Casos de uso (con sub-módulo)
-   - ``UC_ACC_01_Asignar_Funciones.rst``
- * - ``BR``
-   - Reglas de negocio
-   - ``BR_001_Fuente_Operacional_Inmutable.rst``
- * - ``BReq``
-   - Business requirements
-   - ``BReq_001_Visibilidad_Metricas.rst``
- * - ``CNST``
-   - Restricciones arquitectónicas
-   - ``CNST_001_Comunicaciones_Prohibidas.rst``
- * - ``META``
+ * - ``uc``
+   - Caso de uso (con módulo)
+   - ``uc-acc-01-asignar-funciones.rst``
+ * - ``br``
+   - Regla de negocio
+   - ``br-001-fuente-operacional-inmutable.rst``
+ * - ``breq``
+   - Business requirement
+   - ``breq-001-visibilidad-metricas.rst``
+ * - ``cnst``
+   - Restricción arquitectónica
+   - ``cnst-001-comunicaciones-prohibidas.rst``
+ * - ``meta``
    - Metadata del proyecto
-   - ``META_01_Identidad_Proyecto.rst``
- * - ``FND``
-   - Fundamentos conceptuales
-   - ``FND_01_Concepto_Requisito.rst``
- * - ``SBVR``
+   - ``meta-01-identidad-proyecto.rst``
+ * - ``fnd``
+   - Fundamento conceptual
+   - ``fnd-01-concepto-requisito.rst``
+ * - ``sbvr``
    - Ontología SBVR
-   - ``SBVR_01_Conceptos_Nucleares.rst``
- * - ``MTM``
-   - Metamodelos
-   - ``MTM_03_Metamodelo_RBAC.rst``
- * - ``TXM``
-   - Taxonomías
-   - ``TXM_01_Taxonomia_Requisitos.rst``
- * - ``GOB``
+   - ``sbvr-01-conceptos-nucleares.rst``
+ * - ``mtm``
+   - Metamodelo
+   - ``mtm-03-metamodelo-rbac.rst``
+ * - ``txm``
+   - Taxonomía
+   - ``txm-01-taxonomia-requisitos.rst``
+ * - ``gob``
    - Gobernanza
-   - ``GOB_01_Modelo_Gobernanza_IACT.rst``
- * - ``STD``
-   - Estándares
-   - ``STD_006_Versionado_Semantico.rst``
- * - ``TPL``
-   - Plantillas (templates)
-   - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
+   - ``gob-01-modelo-gobernanza-iact.rst``
+ * - ``std``
+   - Estándar
+   - ``std-006-versionado-semantico.rst``
+ * - ``tpl``
+   - Plantilla
+   - ``tpl-adr-decisiones-arquitectonicas.rst``
+ * - ``adr``
+   - Architecture Decision Record (con módulo)
+   - ``adr-back-001-grupos-funcionales-sin-jerarquia.rst``
+ * - ``proced``
+   - Procedimiento de gobernanza (con módulo)
+   - ``proced-gob-003-documentar-regla-negocio.rst``
+ * - ``proc``
+   - Procedimiento general (con módulo)
+   - ``proc-dev-001-pipeline-trabajo-iact.rst``
+ * - ``rnf``
+   - Requisito no funcional (con módulo)
+   - ``rnf-proc-001-proceso-sdlc.rst``
+ * - ``fr``
+   - Requisito funcional (sub-numerado)
+   - ``fr-010-01-listar-funciones-disponibles.rst``
+ * - (sin prefijo)
+   - Guía o documento general
+   - ``git-workflow.rst``, ``glosario.rst``
 
-4.2 Artefactos con Módulo y Numeración
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Notas:**
 
-**Patrón:** ``<PREFIX>-<MOD>-<NNN>-<descripcion-en-kebab>.rst``
-
-Donde:
-
-- ``<PREFIX>`` y ``<MOD>`` van en MAYÚSCULAS, separados por ``-``.
-- ``<NNN>`` es 3 dígitos zero-padded.
-- ``<descripcion>`` en kebab-case minúsculas.
-
-**Aplica a:**
-
-.. list-table::
- :header-rows: 1
- :widths: 20 30 50
-
- * - Prefijo
-   - Dominio
-   - Ejemplo
- * - ``ADR``
-   - Architecture Decision Records
-   - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
- * - ``PROCED``
-   - Procedimientos de gobernanza
-   - ``PROCED-GOB-003-documentar-regla-negocio.rst``
- * - ``PROC``
-   - Procedimientos generales
-   - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
- * - ``RNF``
-   - Requisitos no funcionales
-   - ``RNF-PROC-001-proceso-sdlc.rst``
-
-**Migración recomendada:** los archivos actuales con mixed-separators
-(``PROC-DEV-001-pipeline_trabajo_iact.rst``) → kebab puro
-(``PROC-DEV-001-pipeline-trabajo-iact.rst``).
-
-4.3 Requisitos Funcionales (FR) Sub-numerados
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Patrón:** ``FR-NNN.NN_descripcion_snake_case.rst``
-
-Donde:
-
-- ``NNN`` es número del UC asociado.
-- ``.NN`` es sub-numeración del FR (01, 02, ...).
-
-**Ejemplo:**
-
-- ``FR-010.01_Listar_funciones_disponibles.rst``
-- ``FR-010.02_Validar_SoD_antes_asignar.rst``
-
-4.4 Guías y Documentos Generales
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Patrón:** ``<descripcion-en-kebab-case>.rst``
-
-Para artefactos sin numeración intrínseca (guías de estilo, lineamientos,
-glosarios, etc.).
-
-**Ejemplos:**
-
-- ``git-workflow.rst``
-- ``color-palette.rst``
-- ``glosario.rst``
-- ``actores.rst``
-- ``shell-scripting-guide.rst`` (renombrado de
-  ``shell_scripting_guide.rst``)
-
-4.5 Punto de Entrada de Directorio
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Regla:** ``index.rst`` (NO ``README.rst``).
-
-Sphinx usa ``index.rst`` como punto de entrada por convención. Tener
-``README.rst`` en paralelo crea ambigüedad: ¿cuál es el punto de
-entrada del directorio?
-
-**Migración:** los 11 archivos ``README*.rst`` deben convertirse:
-
-- Si el directorio NO tiene ``index.rst``: renombrar ``README.rst`` →
-  ``index.rst``.
-- Si ya hay ``index.rst``: el ``README.rst`` debe re-nombrarse
-  conceptualmente (ej. ``arquitectura-overview.rst``) o mergearse al
-  ``index.rst``.
+- ``<NNN>`` es 2 o 3 dígitos zero-padded según la categoría
+  (``01``, ``001``).
+- El módulo ``<MOD>`` (cuando aplica) va entre prefijo y número, en
+  minúsculas: ``adr-back-001-...``, ``proc-dev-001-...``.
+- ``fr`` antes usaba ``FR-NNN.NN`` con punto; en v2.0.0 se reemplaza
+  por ``fr-NNN-NN-`` para evitar el punto en filename (Sphinx URL).
 
 ----
 
 5. Convenciones para Directorios
 --------------------------------
 
-5.1 Patrón Recomendado
-^^^^^^^^^^^^^^^^^^^^^^
+5.1 Patrón Universal
+^^^^^^^^^^^^^^^^^^^^
 
-``snake_case`` para directorios con palabras múltiples.
+``kebab-case`` en minúsculas para todos los directorios públicos.
 
 **Ejemplos correctos:**
 
-- ``arquitectura_tecnica/``
-- ``casos_uso/``
-- ``reglas_negocio/``
-- ``requisitos_funcionales/``
+- ``arquitectura-tecnica/``
+- ``casos-uso/``
+- ``reglas-negocio/``
+- ``requisitos-funcionales/``
+- ``uc-001-iniciar-sesion/``
+- ``uc-006-crear-usuario/``
 
-**Ejemplos a renombrar:**
+**Ejemplos PROHIBIDOS:**
 
-- ``diseño_detallado/`` → ``diseno_detallado/`` (sin ñ)
-- ``plantuml-guide/`` → ``plantuml_guide/`` (consistencia con resto;
-  alternativa: dejar como excepción si el nombre del producto es así)
+- ``arquitectura_tecnica/`` (underscore)
+- ``UC_001_Iniciar_Sesion/`` (mayúsculas + underscore)
+- ``diseño_detallado/`` (ñ + underscore)
 
-5.2 Directorios Internos con prefijo underscore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5.2 Directorios Internos Sphinx (excepción)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Regla:** prefijar con ``_`` los directorios cuyo contenido es
-referencia interna y NO debe aparecer en navegación pública.
-
-**Ejemplos:**
-
-- ``_metadata/``
-- ``_fundamentos_conceptuales/``
-- ``_ontologia_sbvr/``
-- ``_taxonomias_y_metamodelos/``
-
-Sphinx por defecto excluye ``_`` prefijos del toctree público — esto
-es intencional.
-
-5.3 Directorios con Numeración (Casos de Uso)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Patrón:** ``UC_<NNN>_<Descripcion_PascalCase>/``
+**Regla:** los directorios cuyo prefijo ``_`` los excluye del toctree
+público preservan ese prefijo (convención Sphinx). Su contenido sigue
+en kebab-case.
 
 **Ejemplos:**
 
-- ``UC_001_Iniciar_Sesion/``
-- ``UC_006_Crear_Usuario/``
-- ``UC_010_Asignar_Funciones/``
+- ``_static/`` (Sphinx asset directory)
+- ``_templates/`` (Sphinx template directory)
+- ``_metadata/`` (referencia interna)
+- ``_fundamentos-conceptuales/`` (kebab interno)
+- ``_ontologia-sbvr/``
+- ``_taxonomias-y-metamodelos/``
+
+5.3 Punto de Entrada de Directorio
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Regla:** ``index.rst`` (NO ``README.rst``). Es la única excepción
+permitida al patrón kebab-lowercase: el nombre ``index`` es palabra
+simple en minúsculas y no requiere transformación.
 
 ----
 
@@ -383,46 +276,49 @@ es intencional.
 
 .. list-table::
  :header-rows: 1
- :widths: 30 25 45
+ :widths: 32 30 38
 
- * - Tipo de Artefacto
-   - Convención
+ * - Tipo
+   - Patrón
    - Ejemplo
- * - Caso de Uso
-   - ``UC_<MOD>_<NN>_<Desc>.rst``
-   - ``UC_ACC_01_Asignar_Funciones.rst``
- * - Regla de Negocio
-   - ``BR_<NNN>_<Desc>.rst``
-   - ``BR_001_Fuente_Operacional_Inmutable.rst``
+ * - Caso de uso
+   - ``uc-<mod>-<nn>-<desc>.rst``
+   - ``uc-acc-01-asignar-funciones.rst``
+ * - Regla de negocio
+   - ``br-<nnn>-<desc>.rst``
+   - ``br-001-fuente-operacional-inmutable.rst``
  * - Restricción
-   - ``CNST_<NNN>_<Desc>.rst``
-   - ``CNST_001_Comunicaciones_Prohibidas.rst``
+   - ``cnst-<nnn>-<desc>.rst``
+   - ``cnst-001-comunicaciones-prohibidas.rst``
  * - ADR
-   - ``ADR-<MOD>-<NNN>-<desc-kebab>.rst``
-   - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
- * - Procedimiento (gobernanza)
-   - ``PROCED-<MOD>-<NNN>-<desc-kebab>.rst``
-   - ``PROCED-GOB-003-documentar-regla-negocio.rst``
+   - ``adr-<mod>-<nnn>-<desc>.rst``
+   - ``adr-back-001-grupos-funcionales.rst``
+ * - Procedimiento gobernanza
+   - ``proced-<mod>-<nnn>-<desc>.rst``
+   - ``proced-gob-003-documentar-regla-negocio.rst``
  * - Procedimiento general
-   - ``PROC-<MOD>-<NNN>-<desc-kebab>.rst``
-   - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
+   - ``proc-<mod>-<nnn>-<desc>.rst``
+   - ``proc-dev-001-pipeline-trabajo-iact.rst``
  * - Estándar
-   - ``STD_<NNN>_<Desc>.rst``
-   - ``STD_006_Versionado_Semantico.rst``
+   - ``std-<nnn>-<desc>.rst``
+   - ``std-006-versionado-semantico.rst``
  * - Plantilla
-   - ``TPL_<KEY>_<Desc>.rst``
-   - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
- * - Guía general
+   - ``tpl-<key>-<desc>.rst``
+   - ``tpl-adr-decisiones-arquitectonicas.rst``
+ * - Requisito funcional
+   - ``fr-<nnn>-<nn>-<desc>.rst``
+   - ``fr-010-01-listar-funciones.rst``
+ * - Guía sin prefijo
    - ``<desc-kebab>.rst``
    - ``git-workflow.rst``
- * - Punto de entrada de dir
+ * - Punto de entrada
    - ``index.rst``
-   - ``arquitectura_tecnica/index.rst``
- * - Directorio
-   - ``snake_case/``
-   - ``casos_uso/``
- * - Directorio interno
-   - ``_snake_case/``
+   - ``arquitectura-tecnica/index.rst``
+ * - Directorio público
+   - ``<desc-kebab>/``
+   - ``casos-uso/``
+ * - Directorio interno Sphinx
+   - ``_<desc-kebab>/``
    - ``_metadata/``
 
 ----
@@ -430,8 +326,7 @@ es intencional.
 7. Convención de Idioma (código vs documentación)
 --------------------------------------------------
 
-Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTÁNDAR DE NOMENCLATURA
-v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
+Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
 + decisiones D-RBAC-1 y CNST_033 Vocabulario Unificado RBAC.
 
 7.1 Tabla canónica de idioma por tipo de elemento
@@ -484,6 +379,10 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
    - Inglés (Tim Pope)
    - ``"Add FunctionGroup model"``
 
+**Nota:** la convención de idioma aplica a CONTENIDO de código y docs,
+NO a nombres de archivo. Los archivos siempre siguen kebab-lowercase
+(§3-§4).
+
 7.2 Justificación
 ^^^^^^^^^^^^^^^^^
 
@@ -499,32 +398,7 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
   asumen inglés. Los logs son consumidos por operaciones técnicas,
   no por usuarios finales.
 
-7.3 Ejemplo aplicado
-^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
-
- class FunctionGroup(models.Model):
- """Grupo predefinido o creable de funciones (capabilities).""" # ← Español
-
- group_id = models.CharField( # ← Inglés
- max_length=10,
- help_text="Identificador único (ej: AGR-001 para system groups)" # ← Español
- )
- name = models.CharField(
- max_length=50,
- help_text="Nombre en inglés con sufijo _group (ej: basic_operator_group)"
- )
- is_custom = models.BooleanField(
- default=False,
- help_text="True si fue creado vía UC_PERM_05; False si es system group"
- )
-
- def has_function(self, function_code):
- """Verifica si este grupo contiene la función dada.""" # ← Español
- return self.functions.filter(code=function_code).exists # ← Inglés
-
-7.4 Excepciones
+7.3 Excepciones
 ^^^^^^^^^^^^^^^
 
 - **Documentos legados** (creados antes de esta convención): se
@@ -544,75 +418,58 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 
 Cualquier cambio a esta convención requiere:
 
-1. Propuesta documentada como ADR (``ADR-GOB-NNN-<desc>.rst``).
+1. Propuesta documentada como ADR (``adr-gob-NNN-<desc>.rst``).
 2. Aprobación del Tech Lead + Equipo de Gobernanza.
 3. Bump MAJOR de versión en este documento.
 4. Migración planificada de archivos existentes.
 
-8.2 Excepciones
-^^^^^^^^^^^^^^^
+8.2 Commitment de Estabilidad (v2.0.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Existen excepciones documentadas:
+**30 días sin nuevas modificaciones a STD_007 después de la fecha
+de v2.0.0** (2026-04-29 → 2026-05-29).
 
-- ``index.rst`` y archivos generados por Sphinx (no toca naming).
-- Directorios ``_static/``, ``_templates/`` (convención Sphinx).
-- ``readme.rst`` en raíz (es legacy del proyecto, no en
-  ``source/``).
-- **Procedimientos transversales sin módulo asignable.** Variante
-  ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
-  procedimiento no pertenece a un módulo funcional específico
-  (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
-  documental. Ejemplos:
+Esta cláusula previene "norm churn" — la modificación reactiva de
+normas más rápido de lo que el sistema puede asimilarlas. Si en
+30 días aparece evidencia que justifique nueva modificación, debe
+abrirse WP propio con deep-review previo.
 
-  - ``PROC_Generacion_UC.rst`` (procedimiento de generación
-    aplicable a todas las áreas).
-  - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
-    inter-niveles, no específico de un módulo).
-  - ``PROC_Validacion_Sphinx.rst`` (validación documental
-    transversal).
+Decisión registrada en
+``adr-naming-conventions-kebab-correction.md``.
 
- La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
- variante reconocida y no requiere migración a §4.2. Aplicada
- al rebuild en ``source/normativa/procedimientos/`` (~37
- archivos).
+8.3 Excepciones permitidas al patrón
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Plantillas con descripción larga.** Variante
-  ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
-  ``TPL_API_Documentacion_API.rst``,
-  ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
-  de ``KEY`` permite distinguir variantes del mismo tipo de
-  artefacto sin requerir numeración secuencial.
+Solo dos excepciones documentadas:
 
-Cualquier nueva excepción requiere registro en este documento bajo
-sección 7.2.
+- ``index.rst`` — punto de entrada Sphinx por convención.
+- Directorios con prefijo ``_`` — exclusión del toctree público
+  por convención Sphinx (``_static/``, ``_templates/``,
+  ``_metadata/``, etc.). El resto del nombre sigue en kebab-lowercase.
+
+Cualquier nueva excepción requiere bump MAJOR + ADR.
 
 ----
 
 9. Cumplimiento
 ---------------
 
-9.1 Estado Actual del Proyecto (snapshot 2026-04-28)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+9.1 Estado del Proyecto (snapshot v2.0.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Auditoría inicial detectó:
+Auditoría 2026-04-29 detectó (verificado con find/grep):
 
-- 377 archivos ``.rst`` en 34 patrones distintos.
-- 9 archivos con espacios.
-- 2 archivos con paréntesis.
-- 1 directorio con ñ (``diseño_detallado``).
-- 46 archivos con mixed-separators sin razón estructural.
-- 17+ archivos con versión en filename.
-- 11 archivos ``README*.rst`` paralelos a ``index.rst``.
+- 401 archivos ``.rst`` totales bajo ``source/``.
+- **315 archivos** con violación del patrón universal nuevo.
+- **18 directorios** públicos con violación.
+- 6 directorios ``_*`` Sphinx preservados.
+- 48 ``index.rst`` preservados (excepción).
+- 242 referencias ``:doc:`` + 128 ``:ref:`` + 123 toctrees a
+  actualizar en cascada.
 
-Plan de migración por dominio (dividido en WPs separados):
-
-- WP cleanup procedimientos
-- WP cleanup gobernanza
-- WP cleanup estándares
-- WP cleanup arquitectura técnica
-- WP cleanup gestión
-
-Cada WP renombra archivos de su dominio + actualiza refs en cascada.
+La migración se ejecuta en WP único
+``2026-04-29-14-56-40-std007-rename-cleanup`` con script idempotente
+y PILOT previo.
 
 9.2 Validación de Nombres Nuevos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -631,10 +488,10 @@ del merge.
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
   metadata, no en filename).
-- ``ADR-GOB-006-clasificacion-reglas-negocio.rst`` — convenciones de
-  clasificación que usan estos prefijos.
-- ``GUIA_ESTILO.rst`` — guía de estilo de redacción (complementa este
-  estándar).
+- ``adr-naming-conventions-heterogeneity-accepted.md`` — ADR original
+  v1.0.0 que aceptaba 5 dialectos (corregido por v2.0.0).
+- ``adr-naming-conventions-kebab-correction.md`` — ADR de corrección
+  que motiva v2.0.0.
 
 ----
 
@@ -654,3 +511,23 @@ del merge.
      en source/, reglas de directorios, caracteres prohibidos,
      versión en metadata (no filename), index.rst como entry-point,
      tabla de decisión rápida.
+ * - 1.1.0
+   - 2026-04-29
+   - §3.3 clarifica que kebab puro NO es opción genérica: la
+     selección de dialecto está determinada por la categoría del
+     artefacto, no por preferencia del autor. Aceptaba 5 dialectos
+     coexistiendo (snake+Pascal, kebab puro, mixed, etc.).
+ * - 2.0.0
+   - 2026-04-29
+   - **MAJOR — corrección.** Reemplaza los 5 dialectos heterogéneos
+     por **patrón único universal**
+     ``<prefix>-<NNN>-<descripcion-kebab>.rst`` en minúsculas.
+     Aplica a archivos y directorios. Preserva solo ``index.rst``
+     y prefijos ``_`` de Sphinx. Motivado por:
+     (a) heterogeneidad estructural observable en cualquier ``ls``,
+     (b) costo de migración crece exponencial por refs cruzadas,
+     (c) forward-only institucionalizaba dos convenciones en lugar
+     de mitigarlas. Ver ADR
+     ``adr-naming-conventions-kebab-correction.md``. Incluye
+     commitment de 30 días sin modificaciones (§8.2) como
+     salvaguarda anti norm-churn.
