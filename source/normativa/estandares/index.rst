@@ -57,12 +57,12 @@ Los estándares cubren:
  :maxdepth: 1
  :caption: Estándares (STDs)
 
- STD_001_Estandares_Documentacion_Sin_Emojis
- STD_002_Nomenclatura_Proyecto
+ std-001-estandares-documentacion-sin-emojis
+ std-002-nomenclatura-proyecto
  std-006-versionado-semantico
- STD_007_Convencion_Naming
- STD_Naming_Identificadores
- STD_Profesional_Documentacion
+ std-007-convencion-naming
+ std-naming-identificadores
+ std-profesional-documentacion
 
 .. toctree::
  :maxdepth: 2

@@ -34,7 +34,7 @@ Resumen:
 2. Convenciones obligatorias
 ============================
 
-- :doc:`/normativa/estandares/STD_007_Convencion_Naming` — naming de
+- :doc:`/normativa/estandares/std-007-convencion-naming` — naming de
   archivos.
 - :doc:`/normativa/estandares/std-006-versionado-semantico` —
   versionado.

@@ -108,5 +108,5 @@ Convenciones
   respectivos, no aqui (ver `discover/handoff-to-tech-wps.md` del
   WP gobernanza para el detalle de transferencias).
 - El formato sigue
-  :doc:`/normativa/estandares/STD_007_Convencion_Naming` y
-  :doc:`/normativa/estandares/plantillas/TPL_ADR_Decisiones_Arquitectonicas`.
+  :doc:`/normativa/estandares/std-007-convencion-naming` y
+  :doc:`/normativa/estandares/plantillas/tpl-adr-decisiones-arquitectonicas`.

@@ -125,5 +125,5 @@ Convenciones
 - Cada CNST tiene clasificacion ``Critico``, ``Alto`` o ``Medio``
   segun el impacto de su violacion.
 - El formato de archivo y metadata sigue
-  :doc:`/normativa/estandares/STD_007_Convencion_Naming` y
-  :doc:`/normativa/estandares/plantillas/TPL_CNST_Restricciones`.
+  :doc:`/normativa/estandares/std-007-convencion-naming` y
+  :doc:`/normativa/estandares/plantillas/tpl-cnst-restricciones`.

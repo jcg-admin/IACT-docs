@@ -41,7 +41,7 @@ Webpack
 Archivos
 --------
 
-- Aplica :doc:`/normativa/estandares/STD_007_Convencion_Naming`:
+- Aplica :doc:`/normativa/estandares/std-007-convencion-naming`:
   kebab-case, sin espacios, sin tildes ni enies.
 
 Estructura de carpetas

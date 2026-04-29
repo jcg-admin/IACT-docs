@@ -42,7 +42,7 @@ DRF
 Archivos
 --------
 
-- Aplica :doc:`/normativa/estandares/STD_007_Convencion_Naming`:
+- Aplica :doc:`/normativa/estandares/std-007-convencion-naming`:
   snake_case en Python, sin tildes ni enies.
 
 URLs / API

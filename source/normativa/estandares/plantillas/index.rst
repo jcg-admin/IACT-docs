@@ -44,54 +44,54 @@ Plantillas por categoría
  :maxdepth: 1
  :caption: Spec — Requisitos
 
- TPL_BReq_Objetivos_Negocio
- TPL_BR_Business_Rules
- TPL_BR_Decision_Tipo
- TPL_FR_Requisitos_Funcionales
- TPL_FR_Documentacion_10_Componentes
- TPL_FR_Query_SQL
- TPL_FR_Validacion_Reglas
- TPL_NFR_No_Funcionales
+ tpl-breq-objetivos-negocio
+ tpl-br-business-rules
+ tpl-br-decision-tipo
+ tpl-fr-requisitos-funcionales
+ tpl-fr-documentacion-10-componentes
+ tpl-fr-query-sql
+ tpl-fr-validacion-reglas
+ tpl-nfr-no-funcionales
 
 .. toctree::
  :maxdepth: 1
  :caption: Casos de Uso (7 patrones)
 
- TPL_UC_Casos_de_Uso
- TPL_UC_Construccion_7_Pasos
- TPL_UC_Actor_Secundario
- TPL_UC_CRUD_Operaciones
- TPL_UC_Larman_Contratos
- TPL_UC_Stakeholder_Driven
- TPL_UC_Temporal_Schedulers
- TPL_UC_UI_Driven
+ tpl-uc-casos-de-uso
+ tpl-uc-construccion-7-pasos
+ tpl-uc-actor-secundario
+ tpl-uc-crud-operaciones
+ tpl-uc-larman-contratos
+ tpl-uc-stakeholder-driven
+ tpl-uc-temporal-schedulers
+ tpl-uc-ui-driven
 
 .. toctree::
  :maxdepth: 1
  :caption: Spec — Trazabilidad
 
- TPL_TRZ_Matriz_RTM
+ tpl-trz-matriz-rtm
 
 .. toctree::
  :maxdepth: 1
  :caption: Arquitectura técnica
 
- TPL_ADR_Decisiones_Arquitectonicas
- TPL_API_Documentacion_API
- TPL_CNST_Restricciones
- TPL_FD_Flujos_Datos
- TPL_MOD_Modulos
- TPL_VIEW_Vistas_Arquitectonicas
+ tpl-adr-decisiones-arquitectonicas
+ tpl-api-documentacion-api
+ tpl-cnst-restricciones
+ tpl-fd-flujos-datos
+ tpl-mod-modulos
+ tpl-view-vistas-arquitectonicas
 
 .. toctree::
  :maxdepth: 1
  :caption: Gobernanza
 
- TPL_INDEX_Indices
- TPL_POL_Politicas
- TPL_PROC_Procedimientos
- TPL_STD_Estandares
- TPL_TST_Pruebas
+ tpl-index-indices
+ tpl-pol-politicas
+ tpl-proc-procedimientos
+ tpl-std-estandares
+ tpl-tst-pruebas
 
 ----
 

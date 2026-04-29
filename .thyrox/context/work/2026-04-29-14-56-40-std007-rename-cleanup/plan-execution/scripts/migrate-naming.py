@@ -251,6 +251,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--by-category", action="store_true")
     ap.add_argument("--pilot", help="Renombrar solo este path (relativo a source/)")
+    ap.add_argument("--domain", help="Limitar renames a paths bajo este prefijo (ej. source/normativa/estandares)")
     ap.add_argument("--execute", action="store_true")
     args = ap.parse_args()
 
@@ -267,6 +268,19 @@ def main():
         if not file_renames:
             print(f"PILOT: {target} no requiere rename o no existe.")
             return
+
+    if args.domain:
+        prefix = (REPO_ROOT / args.domain).resolve()
+        prefix_str = str(prefix)
+        file_renames = [
+            (o, n) for o, n in file_renames
+            if str(o.resolve()).startswith(prefix_str)
+        ]
+        dir_renames = [
+            (o, n) for o, n in dir_renames
+            if str(o.resolve()).startswith(prefix_str)
+        ]
+        print(f"--domain={args.domain}: {len(file_renames)} archivos, {len(dir_renames)} dirs")
 
     # Maps
     file_map = build_doc_path_map(file_renames, dir_renames)
