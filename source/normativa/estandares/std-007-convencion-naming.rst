@@ -349,6 +349,39 @@ Reservados para futuro: ``sec`` (seguridad), ``perf``
 
 Reservados para futuro: ``svc`` (servicio), ``comp`` (componente).
 
+**Ubicación física de los ADRs por módulo (convención de
+directorios):**
+
+Los ADRs viven en el **directorio de su módulo de dominio**,
+no en un cajón centralizado. Esto refleja el principio de
+organización-por-dominio (ADR-GOB-001).
+
+.. list-table::
+ :header-rows: 1
+ :widths: 18 42 40
+
+ * - Módulo
+   - Directorio destino
+   - Razón
+ * - ``adr-gob-*``
+   - ``source/normativa/gobernanza/``
+   - "gob" ES su módulo de dominio
+ * - ``adr-back-*``
+   - ``source/backend/``
+   - Decisiones del backend viven con la doc del backend
+ * - ``adr-front-*``
+   - ``source/frontend/``
+   - Decisiones del frontend viven con la doc del frontend
+ * - ``adr-devops-*``
+   - ``source/devops/``
+   - Decisiones de infraestructura viven con la doc de devops
+ * - ``adr-qa-*``
+   - ``source/quality/``
+   - Decisiones de QA/testing viven con la doc de calidad
+
+Aplicado en el WP ``2026-04-29-22-23-05-adr-domain-reorganization``
+(Z.1.A del programa modelo-rbac-improvement).
+
 ----
 
 5. Convenciones para Directorios

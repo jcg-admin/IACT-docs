@@ -22,6 +22,16 @@ de codigo, no en esta documentacion.
 
 .. toctree::
  :maxdepth: 1
+ :caption: Skeleton
 
  overview
  conventions
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs Backend
+
+ adr-back-001-grupos-funcionales-sin-jerarquia
+ adr-back-002-configuracion-dinamica-sistema
+ adr-back-003-orm-sql-hybrid-permissions
+ adr-back-004-sistema-permisos-sin-roles-jerarquicos

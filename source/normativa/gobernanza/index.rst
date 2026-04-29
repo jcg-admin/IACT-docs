@@ -13,16 +13,14 @@
 Gobernanza del Proyecto
 =======================
 
-Las decisiones arquitectonicas (ADR) del proyecto IACT viven en este
-cajon, organizadas por modulo:
+Las decisiones arquitectonicas (ADR) del proyecto IACT viven
+**organizadas por su modulo de dominio** (per STD-007 v2.0.2 §4):
 
-- **ADR-GOB**: gobernanza transversal (organizacion, requisitos,
-  diagramas, trazabilidad).
-- **ADR-BACK**: decisiones del backend (Django, ORM, permisos).
-- **ADR-FRONT**: decisiones del frontend (React, Webpack, state
-  management).
-- **ADR-DEVOPS**: decisiones de infraestructura y despliegue.
-- **ADR-QA**: decisiones de testing y calidad.
+- **ADR-GOB**: gobernanza transversal — viven en este cajon.
+- **ADR-BACK**: decisiones del backend — viven en :doc:`/backend/index`.
+- **ADR-FRONT**: decisiones del frontend — viven en :doc:`/frontend/index`.
+- **ADR-DEVOPS**: decisiones de infraestructura — viven en :doc:`/devops/index`.
+- **ADR-QA**: decisiones de testing y calidad — viven en :doc:`/quality/index`.
 
 Catalogo
 --------
@@ -39,38 +37,6 @@ Catalogo
  adr-gob-006-diagramas-uml-casos-uso
  adr-gob-007-trazabilidad-artefactos-requisitos
  adr-gob-008-rbac-coexistencia-acc-perm
-
-.. toctree::
- :maxdepth: 1
- :caption: ADRs Backend
-
- adr-back-001-grupos-funcionales-sin-jerarquia
- adr-back-002-configuracion-dinamica-sistema
- adr-back-003-orm-sql-hybrid-permissions
- adr-back-004-sistema-permisos-sin-roles-jerarquicos
-
-.. toctree::
- :maxdepth: 1
- :caption: ADRs Frontend
-
- adr-front-001-frontend-modular-monolith
- adr-front-002-redux-toolkit-state-management
- adr-front-003-webpack-bundler
- adr-front-004-arquitectura-microfrontends
- adr-front-010-typescript-adopcion-gradual
-
-.. toctree::
- :maxdepth: 1
- :caption: ADRs DevOps
-
- adr-devops-001-vagrant-mod-wsgi-importante-produc
- adr-devops-003-wasi-style-virtualization-importante-db
-
-.. toctree::
- :maxdepth: 1
- :caption: ADRs QA
-
- adr-qa-002-testing-strategy-jest-testing-library
 
 Estructura por dominio
 ----------------------

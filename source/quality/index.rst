@@ -18,9 +18,16 @@ proyecto IACT.
 
 .. toctree::
  :maxdepth: 1
+ :caption: Estrategia y Framework
 
  estrategia-testing
  framework-calidad
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs QA
+
+ adr-qa-002-testing-strategy-jest-testing-library
 
 .. note::
 

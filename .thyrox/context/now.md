@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.5
-updated_at: 2026-04-29 18:16:19
+updated_at: 2026-04-29 22:23:40
 cold_boot: false
 current_epic: 14
 epic_name: std007-spec-gaps-cleanup (cerrada)
-current_work: .thyrox/context/work/2026-04-29-18-15-42-rbac-adr-superseding
+current_work: .thyrox/context/work/2026-04-29-22-23-05-adr-domain-reorganization
 stage: idle
 stage_number: —
 current_phase: —

@@ -111,6 +111,12 @@ Contenido publicado
 
 .. toctree::
  :maxdepth: 2
+ :caption: DevOps
+
+ devops/index
+
+.. toctree::
+ :maxdepth: 2
  :caption: Riesgos y Deuda Tecnica
 
  risks-technical-debt/index

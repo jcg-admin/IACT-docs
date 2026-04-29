@@ -21,6 +21,17 @@ repositorio de codigo, no en esta documentacion.
 
 .. toctree::
  :maxdepth: 1
+ :caption: Skeleton
 
  overview
  conventions
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs Frontend
+
+ adr-front-001-frontend-modular-monolith
+ adr-front-002-redux-toolkit-state-management
+ adr-front-003-webpack-bundler
+ adr-front-004-arquitectura-microfrontends
+ adr-front-010-typescript-adopcion-gradual
