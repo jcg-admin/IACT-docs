@@ -53,9 +53,9 @@ cobertura objetivo y procesos.
 3. Procedimientos relacionados
 ==============================
 
-- :doc:`/normativa/procedimientos/PROC-QA-001-actividades_garantia_documental`
-- :doc:`/normativa/procedimientos/PROC-QA-002-estrategia_qa`
-- :doc:`/normativa/procedimientos/PROCED-QA-001-ejecutar_tests`
+- :doc:`/normativa/procedimientos/proc-qa-001-actividades-garantia-documental`
+- :doc:`/normativa/procedimientos/proc-qa-002-estrategia-qa`
+- :doc:`/normativa/procedimientos/proced-qa-001-ejecutar-tests`
 
 4. ADRs aplicables
 ==================

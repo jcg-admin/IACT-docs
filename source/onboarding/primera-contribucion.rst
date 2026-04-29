@@ -18,7 +18,7 @@ Guia paso a paso para tu primera contribucion al proyecto IACT.
 1. Workflow git
 ===============
 
-Ver :doc:`/normativa/procedimientos/PROCED-DEV-001-crear_pull_request`.
+Ver :doc:`/normativa/procedimientos/proced-dev-001-crear-pull-request`.
 
 Resumen:
 

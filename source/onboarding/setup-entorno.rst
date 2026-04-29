@@ -59,7 +59,7 @@ proyecto IACT.
 
 Ver procedimientos especificos:
 
-- :doc:`/normativa/procedimientos/PROCED-DEVOPS-001-deploy_staging`
+- :doc:`/normativa/procedimientos/proced-devops-001-deploy-staging`
 - :doc:`/databases/index` (cuando este disponible)
 
 6. Build de la documentacion

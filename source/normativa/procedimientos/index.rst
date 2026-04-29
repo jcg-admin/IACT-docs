@@ -45,36 +45,36 @@ Procedimientos generales (PROC-MOD-NNN)
  :maxdepth: 1
  :caption: Desarrollo (DEV)
 
- PROC-DEV-001-pipeline_trabajo_iact
- PROC-DEV-002-sdlc_process
+ proc-dev-001-pipeline-trabajo-iact
+ proc-dev-002-sdlc-process
 
 .. toctree::
  :maxdepth: 1
  :caption: DevOps
 
- PROC-DEVOPS-001-devops_automation
+ proc-devops-001-devops-automation
 
 .. toctree::
  :maxdepth: 1
  :caption: Operaciones (OPS)
 
- PROC-OPS-001-deployment
- PROC-OPS-002-setup-entorno-desarrollo
+ proc-ops-001-deployment
+ proc-ops-002-setup-entorno-desarrollo
 
 .. toctree::
  :maxdepth: 1
  :caption: Calidad (QA)
 
- PROC-QA-001-actividades_garantia_documental
- PROC-QA-002-estrategia_qa
+ proc-qa-001-actividades-garantia-documental
+ proc-qa-002-estrategia-qa
 
 .. toctree::
  :maxdepth: 1
  :caption: Gobernanza (GOB)
 
- PROC-GOB-001-mapeo_procesos_templates
- PROC-GOB-002-gobernanza-sdlc
- PROC-GOB-008-reorganizacion-estructura-documental
+ proc-gob-001-mapeo-procesos-templates
+ proc-gob-002-gobernanza-sdlc
+ proc-gob-008-reorganizacion-estructura-documental
 
 ----
 
@@ -85,41 +85,41 @@ Procedimientos de gobernanza (PROCED-MOD-NNN)
  :maxdepth: 1
  :caption: Desarrollo
 
- PROCED-DEV-001-crear_pull_request
- PROCED-DEV-002-code_review
- PROCED-DEV-003-resolver_conflictos_merge
+ proced-dev-001-crear-pull-request
+ proced-dev-002-code-review
+ proced-dev-003-resolver-conflictos-merge
 
 .. toctree::
  :maxdepth: 1
  :caption: DevOps
 
- PROCED-DEVOPS-001-deploy_staging
+ proced-devops-001-deploy-staging
 
 .. toctree::
  :maxdepth: 1
  :caption: Gobernanza de excepciones
 
- PROC_Excepciones_CNST
+ proc-excepciones-cnst
 
 .. toctree::
  :maxdepth: 1
  :caption: Gobernanza
 
- PROCED-GOB-001-crear_adr
- PROCED-GOB-002-actualizar_documentacion
- PROCED-GOB-003-documentar-regla-negocio
- PROCED-GOB-004-crear-caso-uso
- PROCED-GOB-005-analisis-impacto-cambios
- PROCED-GOB-006-generar-diagrama-uml-plantuml
- PROCED-GOB-007-consolidacion-ramas-git
- PROCED-GOB-008-configurar-permisos-git-push
- PROCED-GOB-009-refactorizaciones-codigo-tdd
+ proced-gob-001-crear-adr
+ proced-gob-002-actualizar-documentacion
+ proced-gob-003-documentar-regla-negocio
+ proced-gob-004-crear-caso-uso
+ proced-gob-005-analisis-impacto-cambios
+ proced-gob-006-generar-diagrama-uml-plantuml
+ proced-gob-007-consolidacion-ramas-git
+ proced-gob-008-configurar-permisos-git-push
+ proced-gob-009-refactorizaciones-codigo-tdd
 
 .. toctree::
  :maxdepth: 1
  :caption: Calidad
 
- PROCED-QA-001-ejecutar_tests
+ proced-qa-001-ejecutar-tests
 
 ----
 
@@ -133,64 +133,64 @@ proyecto a partir de plantillas y reglas de derivación.
  :maxdepth: 1
  :caption: Generación por tipo de artefacto
 
- PROC_Generacion_BReq
- PROC_Generacion_BR
- PROC_Generacion_UC
- PROC_Generacion_FR
- PROC_Generacion_NFR
- PROC_Generacion_CNST
- PROC_Generacion_MOD
- PROC_Generacion_FD
- PROC_Generacion_VIEW
- PROC_Generacion_API
- PROC_Generacion_ADR
- PROC_Generacion_STD
- PROC_Generacion_POL
- PROC_Generacion_TST
- PROC_Generacion_RTM
- PROC_Generacion_Index
+ proc-generacion-breq
+ proc-generacion-br
+ proc-generacion-uc
+ proc-generacion-fr
+ proc-generacion-nfr
+ proc-generacion-cnst
+ proc-generacion-mod
+ proc-generacion-fd
+ proc-generacion-view
+ proc-generacion-api
+ proc-generacion-adr
+ proc-generacion-std
+ proc-generacion-pol
+ proc-generacion-tst
+ proc-generacion-rtm
+ proc-generacion-index
 
 .. toctree::
  :maxdepth: 1
  :caption: Derivación entre niveles
 
- PROC_Derivacion_BReq_BR
- PROC_Derivacion_BR_UC
- PROC_Derivacion_UC_FR
- PROC_Derivacion_FR_CODE
- PROC_Derivacion_FR_TST
+ proc-derivacion-breq-br
+ proc-derivacion-br-uc
+ proc-derivacion-uc-fr
+ proc-derivacion-fr-code
+ proc-derivacion-fr-tst
 
 .. toctree::
  :maxdepth: 1
  :caption: Revisión y validación
 
- PROC_Revision_TPL_Previo_Generacion
- PROC_Revision_UC_Previo_Derivacion
- PROC_Revision_Artefactos
- PROC_Validacion_Sphinx
- PROC_Verificacion_Cobertura
- PROC_Identificar_Gaps_Huerfanos
+ proc-revision-tpl-previo-generacion
+ proc-revision-uc-previo-derivacion
+ proc-revision-artefactos
+ proc-validacion-sphinx
+ proc-verificacion-cobertura
+ proc-identificar-gaps-huerfanos
 
 .. toctree::
  :maxdepth: 1
  :caption: Lifecycle documental
 
- PROC_Crear_Plan_Analisis
- PROC_Crear_Estructura_Directorios_Tmp
- PROC_Cambio_Requisitos
- PROC_Aprobacion_Documentos
- PROC_Actualizacion_Modelo_Documental
- PROC_Auditoria_Documental
- PROC_Versionado_Semantico
- PROC_Publicacion_Documentacion
- PROC_Congelamiento_Subdominio
- PROC_Descongelamiento_Subdominio
+ proc-crear-plan-analisis
+ proc-crear-estructura-directorios-tmp
+ proc-cambio-requisitos
+ proc-aprobacion-documentos
+ proc-actualizacion-modelo-documental
+ proc-auditoria-documental
+ proc-versionado-semantico
+ proc-publicacion-documentacion
+ proc-congelamiento-subdominio
+ proc-descongelamiento-subdominio
 
 .. toctree::
  :maxdepth: 1
  :caption: Procedimiento integrador (meta-flujo)
 
- PROC_Elaboracion_Completa_Requisitos
+ proc-elaboracion-completa-requisitos
 
 ----
 
