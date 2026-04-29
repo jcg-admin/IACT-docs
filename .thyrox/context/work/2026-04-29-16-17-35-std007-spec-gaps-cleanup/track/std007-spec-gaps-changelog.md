@@ -174,6 +174,88 @@ a634e23 — Complete Block A — Measure & Analyze for spec-gaps WP
 41cae6c — Fix F-10: replace literal .md titles with proper RST frontmatter
 4852e24 — Migrate F-13: 51 legacy UC schema to canonical metadata
 3ab5484 — Add canonical .. meta:: blocks to 35 files + fix :fecha: legacy
+3083a01 — Close WP std007-spec-gaps-cleanup with all F-01..F-13 resolved
 ```
 
-8 commits totales.
+9 commits del scope formal.
+
+## Post-closure adjustments
+
+Tras el cierre formal del WP (commit `3083a01`), se ejecutaron 2
+revisiones adicionales sobre el mismo scope que produjeron correcciones
+sin reabrir formalmente el WP. Documentadas aquí para trazabilidad.
+
+### Hot-fix 1 (`cb5d19d`) — Bugs detectados por deep-review post-cierre
+
+Segundo deep-review adversarial detectó 3 bugs introducidos por las
+migraciones del scope:
+
+| Bug | Severidad | Origen | Resolución |
+|-----|-----------|--------|------------|
+| 8 archivos `arq-mod-*` con DOBLE `.. meta::` | MAJOR | T-015 add-meta-block.py usaba `head -3` y no detectó meta interno preexistente en línea ~22 | Script de fix dropea bloque insertado, normaliza el original (kebab dominio, hyphen artefacto, Aprobado state) |
+| 45 archivos FR sin `:clasificacion:` | MAJOR | T-014 migrate-uc-schema.py no agregaba este default (sí lo hacía add-meta-block.py) | Sed agrega `:clasificacion: Interno` después de `:autor:` |
+| 2 plantuml/ejemplos con `:tipo: Caso de Uso` incorrecto | MINOR | T-014 aplicó defaults legacy UC a 2 archivos plantuml | Manual fix a `:tipo: Test/Ejemplo` + `:dominio: plantuml-guide` + agregar `:artefacto:` |
+
+Falsos positivos confirmados (sin acción): A-02, A-09, A-24, A-25, A-26.
+
+Build verificado tras los fixes: 0 warnings con SPHINX_NITPICKY=1.
+
+### Hot-fix 2 (`b748039`) — Cold rebuild detectó renumber inconsistencies
+
+`make clean && make html` detectó **2 warnings** que el build incremental
+había ocultado (cache parcial sobre headers ya renderizados):
+
+```
+std-007-convencion-naming.rst:701: WARNING: Title underline too short.
+```
+
+Origen: bump v2.0.2 renumeró §6→§7→§8→§9→§10 pero NO actualizó:
+
+- Subrayado de `10. Cumplimiento` (15 chars vs título 16)
+- 6 subsecciones con numeración antigua: §7.1/§7.2/§7.3 (ahora §8.x —
+  Convención de Idioma), §8.1/§8.2/§8.3 (ahora §9.x — Decisiones de
+  Gobernanza), §9.1/§9.2 (ahora §10.x — Cumplimiento)
+
+Fix: extender underline + renumerar las 6 subsecciones.
+
+### Verificación exhaustiva del cold rebuild
+
+```bash
+make clean && SPHINX_NITPICKY=1 SPHINXOPTS="-W --keep-going" make html
+# build succeeded. Exit code: 0
+```
+
+| Métrica | Valor |
+|---------|-------|
+| Tiempo cold rebuild | 2m19s |
+| Líneas log build | 64 |
+| `grep -ci warning` | **0** |
+| `grep -ci error` | **0** |
+| `grep -ciE 'severe\|critical'` | **0** |
+| Frase final del log | `build succeeded.` (sin sufijo "with N warnings") |
+| Exit code con `-W --keep-going` | **0** |
+
+`-W` convierte CUALQUIER warning en error. Exit 0 = literalmente
+cero warnings en el corpus.
+
+### Lección aprendida
+
+**Cold rebuilds son obligatorios después de renumeración estructural
+de un documento.** Builds incrementales con cache parcial ocultan
+warnings sobre headers ya renderizados que cambian de tamaño/estructura
+en la edición.
+
+**Política propuesta para el flujo:** todo bump MAJOR/MINOR de un STD
+debe cerrar con `make clean && SPHINX_NITPICKY=1 make html` antes del
+commit final. PATCH bumps que solo cambian texto inline pueden seguir
+con incremental.
+
+## Commits totales (incluyendo post-closure)
+
+```
+f704a6c, a5f9c7b, a634e23, 2635dda, 5946129, 41cae6c, 4852e24,
+3ab5484, 3083a01 — scope formal del WP (9)
+cb5d19d, b748039  — post-closure adjustments (2)
+```
+
+**11 commits totales.**
