@@ -43,18 +43,18 @@ UC_USR_01: Crear Usuario
 Este caso de uso permite a un administrador de usuarios (AGR-006) crear
 nuevas cuentas de usuario en el sistema IACT. El proceso incluye la
 generacion automatica de username, asignacion de contrasena temporal,
-y notificacion al usuario via buzon interno (CNST-001).
+y notificacion al usuario via buzon interno (CNST_001).
 
 **Caracteristicas principales:**
 
-- Username generado automaticamente (CNST-005)
+- Username generado automaticamente (CNST_029)
 - Contrasena temporal generada por el sistema
-- Estado inicial: PENDIENTE_CONFIGURACION (CNST-005)
-- Notificacion SOLO via buzon interno (CNST-001)
+- Estado inicial: PENDIENTE_CONFIGURACION (CNST_029)
+- Notificacion SOLO via buzon interno (CNST_001)
 - Asignacion obligatoria de segmento
-- Registro completo en auditoria (CNST-009)
+- Registro completo en auditoria (CNST_025)
 
-**Restriccion critica CNST-001:**
+**Restriccion critica CNST_001:**
 
 .. warning::
    Las credenciales del nuevo usuario se envian UNICAMENTE via
@@ -92,12 +92,12 @@ y notificacion al usuario via buzon interno (CNST-001).
    SYS --> AUD
 
    note right of GEN
-     CNST-005: Username
+     CNST_029: Username
      autogenerado, no editable
    end note
 
    note right of NOT
-     CNST-001: SOLO buzon interno
+     CNST_001: SOLO buzon interno
      NO email, NO SMS
    end note
 
@@ -147,9 +147,9 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    * - POST-04
      - Contrasena temporal hasheada almacenada
    * - POST-05
-     - Se envia InternalMessage con credenciales (CNST-001)
+     - Se envia InternalMessage con credenciales (CNST_001)
    * - POST-06
-     - Se registra USER_CREATE en auditoria (CNST-009)
+     - Se registra USER_CREATE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -211,10 +211,10 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
      - Si se selecciono agrupador, asigna funciones del agrupador
    * - 17
      - Sistema
-     - Crea InternalMessage con username y contrasena temporal (CNST-001)
+     - Crea InternalMessage con username y contrasena temporal (CNST_001)
    * - 18
      - Sistema
-     - Registra USER_CREATE en UserActionLog (CNST-009)
+     - Registra USER_CREATE en UserActionLog (CNST_025)
    * - 19
      - Sistema
      - Muestra confirmacion con username generado
@@ -276,11 +276,11 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
      FE --> A: Error: Email ya registrado
    end
 
-   == Generar Username (CNST-005) ==
+   == Generar Username (CNST_029) ==
    US -> UG: generate(nombre, apellido)
    activate UG
    note right of UG
-     CNST-005: Username
+     CNST_029: Username
      autogenerado, no editable
      Formato: nombre.apellido.NNNN
    end note
@@ -310,22 +310,22 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
      US -> DB: INSERT INTO user_functions\n(user_id, function_id)\nSELECT user_id, function_id\nFROM agrupador_functions\nWHERE agrupador_id = ?
    end
 
-   == Notificar via Buzon Interno (CNST-001) ==
+   == Notificar via Buzon Interno (CNST_001) ==
    US -> IM: notify(user_id, subject, body)
    activate IM
    note right of IM
-     CNST-001: SOLO buzon interno
+     CNST_001: SOLO buzon interno
      NO email, SMS, webhook
    end note
    IM -> DB: INSERT INTO internal_messages\n(recipient_id, sender_id,\nsubject, body, created_at)
    IM --> US: message_sent
    deactivate IM
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    US -> UAL: record(USER_CREATE, admin, new_user)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Sin password en detalles
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -527,7 +527,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
 
    :Generar username automatico;
    note right
-     CNST-005
+     CNST_029
      nombre.apellido.NNNN
    end note
 
@@ -549,13 +549,13 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
 
    :Enviar InternalMessage con credenciales;
    note right
-     CNST-001
+     CNST_001
      Solo buzon interno
    end note
 
    :Registrar USER_CREATE en auditoria;
    note right
-     CNST-009
+     CNST_025
      Sin password
    end note
 
@@ -604,17 +604,17 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicaciones Prohibidas
      - Las credenciales (username y password temporal) se envian UNICAMENTE via InternalMessage.notify(). Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - Username autogenerado, no editable por usuario. Estado inicial PENDIENTE_CONFIGURACION. Segmento obligatorio.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra evento USER_CREATE en UserActionLog incluyendo: admin creador, datos del nuevo usuario (SIN password). El registro es inmutable.
 
-**Implementacion CNST-001:**
+**Implementacion CNST_001:**
 
 .. code-block:: python
 
@@ -622,7 +622,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    def create_user(self, data: dict, admin: User) -> User:
        # ... crear usuario ...
 
-       # CNST-001: Solo InternalMessage, NO email
+       # CNST_001: Solo InternalMessage, NO email
        InternalMessage.notify(
            recipient=new_user,
            sender=admin,
@@ -638,7 +638,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 
-**Implementacion CNST-005:**
+**Implementacion CNST_029:**
 
 .. code-block:: python
 
@@ -692,7 +692,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    * - **Reglas de Negocio**
      - BR-USR-01 a BR-USR-06
    * - **Restricciones**
-     - CNST-001 (No Email), CNST-005 (RBAC Flat), CNST-009 (Auditoria)
+     - CNST_001 (No Email), CNST_029 (RBAC Flat), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-USR-001 a FR-USR-005
    * - **UC Relacionados**
@@ -716,4 +716,4 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-001 y CNST-005 aplicadas
+     - Version inicial v4.0 con CNST_001 y CNST_029 aplicadas

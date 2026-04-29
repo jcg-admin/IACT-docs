@@ -267,7 +267,7 @@ Usuario hace clic en Guardar Vista.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Vista respeta segmento del usuario
 
@@ -298,7 +298,7 @@ Usuario hace clic en Guardar Vista.
    * - **BReq Origen**
      - BRQ-RPT-010
    * - **Restricciones**
-     - CNST-004
+     - CNST_008
    * - **Actor Principal**
      - AGR-002: agr_operador_reportes
    * - **Funcion RBAC**

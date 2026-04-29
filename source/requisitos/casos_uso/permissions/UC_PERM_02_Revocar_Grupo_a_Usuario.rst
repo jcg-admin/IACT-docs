@@ -16,6 +16,15 @@
 UC_PERM_02: Revocar Grupo a Usuario
 ===================================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista funcional / catalogo cerrado del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 
 
 1. Resumen
@@ -37,45 +46,108 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 -----------------
 
 
-| ID | Descripción |
-|----|-------------|
-| PRE-002.1 | El administrador está autenticado en el sistema |
-| PRE-002.2 | El administrador tiene la capacidad `sistema.administracion.usuarios.editar` |
-| PRE-002.3 | El usuario objetivo existe en el sistema |
-| PRE-002.4 | El usuario tiene al menos un grupo asignado activo |
-| PRE-002.5 | El grupo a revocar está actualmente asignado y activo |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - ID
+     - Descripción
+   * - PRE-002.1
+     - El administrador está autenticado en el sistema
+   * - PRE-002.2
+     - El administrador tiene la funcion `sistema.administracion.usuarios.editar`
+   * - PRE-002.3
+     - El usuario objetivo existe en el sistema
+   * - PRE-002.4
+     - El usuario tiene al menos un grupo asignado activo
+   * - PRE-002.5
+     - El grupo a revocar está actualmente asignado y activo
+
 
 
 4. Postcondiciones
 ------------------
 
 
-| ID | Descripción |
-|----|-------------|
-| POST-002.1 | La asignación del grupo se marca como `activo=False` |
-| POST-002.2 | El usuario pierde acceso a todas las capacidades del grupo revocado |
-| POST-002.3 | Se registra un evento de auditoría con la revocación |
-| POST-002.4 | El timestamp `updated_at` se actualiza |
-| POST-002.5 | El usuario recibe notificación de revocación de permisos |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - ID
+     - Descripción
+   * - POST-002.1
+     - La asignación del grupo se marca como `activo=False`
+   * - POST-002.2
+     - El usuario pierde acceso a todas las funciones del grupo revocado
+   * - POST-002.3
+     - Se registra un evento de auditoría con la revocación
+   * - POST-002.4
+     - El timestamp `updated_at` se actualiza
+   * - POST-002.5
+     - El usuario recibe notificación de revocación de permisos
+
 
 
 5. Flujo Principal
 ------------------
 
 
-| Paso | Actor | Acción | Sistema |
-|------|-------|--------|---------|
-| 1 | Admin | Accede al módulo de gestión de usuarios | Muestra lista de usuarios |
-| 2 | Admin | Selecciona usuario objetivo | Muestra perfil del usuario con grupos asignados |
-| 3 | Admin | Visualiza grupos activos del usuario | Muestra lista de grupos con estado activo |
-| 4 | Admin | Selecciona grupo a revocar | Muestra confirmación con impacto de revocación |
-| 5 | Admin | Ingresa motivo de revocación | Valida que el motivo no esté vacío |
-| 6 | Admin | Confirma revocación | Verifica permiso `sistema.administracion.usuarios.editar` |
-| 7 | Sistema | Marca asignación como `activo=False` | Actualiza registro en tabla `usuarios_grupos` |
-| 8 | Sistema | Registra evento en auditoría | Inserta en tabla `auditoria_permisos` |
-| 9 | Sistema | Invalida cache de permisos del usuario | Elimina entradas de cache relacionadas |
-| 10 | Sistema | Envía notificación al usuario | Envía email/notificación interna |
-| 11 | Sistema | Muestra confirmación de éxito | Mensaje: "Grupo revocado exitosamente" |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Paso
+     - Actor
+     - Acción
+     - Sistema
+   * - 1
+     - Admin
+     - Accede al módulo de gestión de usuarios
+     - Muestra lista de usuarios
+   * - 2
+     - Admin
+     - Selecciona usuario objetivo
+     - Muestra perfil del usuario con grupos asignados
+   * - 3
+     - Admin
+     - Visualiza grupos activos del usuario
+     - Muestra lista de grupos con estado activo
+   * - 4
+     - Admin
+     - Selecciona grupo a revocar
+     - Muestra confirmación con impacto de revocación
+   * - 5
+     - Admin
+     - Ingresa motivo de revocación
+     - Valida que el motivo no esté vacío
+   * - 6
+     - Admin
+     - Confirma revocación
+     - Verifica permiso `sistema.administracion.usuarios.editar`
+   * - 7
+     - Sistema
+     - Marca asignación como `activo=False`
+     - Actualiza registro en tabla `usuarios_grupos`
+   * - 8
+     - Sistema
+     - Registra evento en auditoría
+     - Inserta en tabla `auditoria_permisos`
+   * - 9
+     - Sistema
+     - Invalida cache de permisos del usuario
+     - Elimina entradas de cache relacionadas
+   * - 10
+     - Sistema
+     - Envía notificación al usuario
+     - Envía email/notificación interna
+   * - 11
+     - Sistema
+     - Muestra confirmación de éxito
+     - Mensaje: "Grupo revocado exitosamente"
+
 
 
 6. Flujos Alternativos
@@ -87,34 +159,62 @@ FA-002.1: Usuario no tiene el grupo asignado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-| Paso | Descripción |
-|------|-------------|
-| 4a | Sistema detecta que el usuario no tiene el grupo asignado |
-| 4b | Sistema muestra error: "El usuario no tiene este grupo asignado" |
-| 4c | Flujo termina |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Paso
+     - Descripción
+   * - 4a
+     - Sistema detecta que el usuario no tiene el grupo asignado
+   * - 4b
+     - Sistema muestra error: "El usuario no tiene este grupo asignado"
+   * - 4c
+     - Flujo termina
+
 
 
 FA-002.2: Grupo ya está inactivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-| Paso | Descripción |
-|------|-------------|
-| 6a | Sistema detecta que el grupo ya está marcado como `activo=False` |
-| 6b | Sistema muestra advertencia: "Este grupo ya está revocado" |
-| 6c | Admin puede confirmar para actualizar motivo o cancelar |
-| 6d | Si confirma, continúa en paso 7 |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Paso
+     - Descripción
+   * - 6a
+     - Sistema detecta que el grupo ya está marcado como `activo=False`
+   * - 6b
+     - Sistema muestra advertencia: "Este grupo ya está revocado"
+   * - 6c
+     - Admin puede confirmar para actualizar motivo o cancelar
+   * - 6d
+     - Si confirma, continúa en paso 7
+
 
 
 FA-002.3: Usuario es el último administrador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-| Paso | Descripción |
-|------|-------------|
-| 6a | Sistema detecta que el usuario es el único con grupo de administradores |
-| 6b | Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema" |
-| 6c | Flujo termina |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Paso
+     - Descripción
+   * - 6a
+     - Sistema detecta que el usuario es el único con grupo de administradores
+   * - 6b
+     - Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema"
+   * - 6c
+     - Flujo termina
+
 
 
 7. Flujos de Excepción
@@ -126,51 +226,105 @@ FE-002.1: Error de permisos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-| Paso | Descripción |
-|------|-------------|
-| 6a | Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar` |
-| 6b | Sistema retorna HTTP 403 Forbidden |
-| 6c | Mensaje: "No tiene permisos para revocar grupos" |
-| 6d | Flujo termina |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Paso
+     - Descripción
+   * - 6a
+     - Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar`
+   * - 6b
+     - Sistema retorna HTTP 403 Forbidden
+   * - 6c
+     - Mensaje: "No tiene permisos para revocar grupos"
+   * - 6d
+     - Flujo termina
+
 
 
 FE-002.2: Error de base de datos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-| Paso | Descripción |
-|------|-------------|
-| 7a | Error al actualizar registro en base de datos |
-| 7b | Sistema ejecuta rollback de transacción |
-| 7c | Sistema retorna HTTP 500 Internal Server Error |
-| 7d | Sistema registra error en logs |
-| 7e | Mensaje: "Error al revocar grupo. Intente nuevamente" |
-| 7f | Flujo termina |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Paso
+     - Descripción
+   * - 7a
+     - Error al actualizar registro en base de datos
+   * - 7b
+     - Sistema ejecuta rollback de transacción
+   * - 7c
+     - Sistema retorna HTTP 500 Internal Server Error
+   * - 7d
+     - Sistema registra error en logs
+   * - 7e
+     - Mensaje: "Error al revocar grupo. Intente nuevamente"
+   * - 7f
+     - Flujo termina
+
 
 
 8. Reglas de Negocio
 --------------------
 
 
-| ID | Regla | Tipo |
-|----|-------|------|
-| RN-002.1 | No se puede revocar el último grupo de administradores del sistema | Crítica |
-| RN-002.2 | El motivo de revocación es obligatorio | Alta |
-| RN-002.3 | La revocación no elimina el registro, solo lo marca como inactivo | Alta |
-| RN-002.4 | La revocación es inmediata (no hay período de gracia) | Media |
-| RN-002.5 | Se debe notificar al usuario afectado | Media |
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - ID
+     - Regla
+     - Tipo
+   * - RN-002.1
+     - No se puede revocar el último grupo de administradores del sistema
+     - Crítica
+   * - RN-002.2
+     - El motivo de revocación es obligatorio
+     - Alta
+   * - RN-002.3
+     - La revocación no elimina el registro, solo lo marca como inactivo
+     - Alta
+   * - RN-002.4
+     - La revocación es inmediata (no hay período de gracia)
+     - Media
+   * - RN-002.5
+     - Se debe notificar al usuario afectado
+     - Media
+
 
 
 9. Requisitos No Funcionales
 ----------------------------
 
 
-| ID | Requisito | Valor Objetivo |
-|----|-----------|----------------|
-| RNF-002.1 | Tiempo de respuesta | < 500ms |
-| RNF-002.2 | Invalidación de cache | < 100ms |
-| RNF-002.3 | Disponibilidad | 99.9% |
-| RNF-002.4 | Registro de auditoría | 100% de casos |
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - ID
+     - Requisito
+     - Valor Objetivo
+   * - RNF-002.1
+     - Tiempo de respuesta
+     - < 500ms
+   * - RNF-002.2
+     - Invalidación de cache
+     - < 100ms
+   * - RNF-002.3
+     - Disponibilidad
+     - 99.9%
+   * - RNF-002.4
+     - Registro de auditoría
+     - 100% de casos
+
 
 
 10. Datos de Entrada
@@ -423,7 +577,7 @@ Consideraciones de UX
 ^^^^^^^^^^^^^^^^^^^^^
 
 
-1. **Confirmación con impacto**: Mostrar cuántas capacidades perderá el usuario
+1. **Confirmación con impacto**: Mostrar cuántas funciones perderá el usuario
 2. **Motivo obligatorio**: Forzar explicación para trazabilidad
 3. **Notificación clara**: Usuario debe saber por qué perdió permisos
 
@@ -440,6 +594,17 @@ Changelog
 ---------
 
 
-| Versión | Fecha | Autor | Cambios |
-|---------|-------|-------|---------|
-| 1.0.0 | 2025-01-09 | Sistema | Creación inicial |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-01-09
+     - Sistema
+     - Creación inicial
+

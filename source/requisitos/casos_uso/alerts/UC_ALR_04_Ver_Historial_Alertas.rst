@@ -45,9 +45,9 @@ tendencias y patrones de problemas operativos.
 **Caracteristicas principales:**
 
 - Consultar alertas historicas por rango de fechas
-- Maximo 2 anios de historial (CNST-006)
+- Maximo 2 anios de historial (CNST_015)
 - Filtrar por estado, severidad, metrica
-- Filtrado automatico por segmento (CNST-004)
+- Filtrado automatico por segmento (CNST_008)
 - Ver detalle completo de cada alerta
 - Exportar historial para analisis
 
@@ -136,7 +136,7 @@ El supervisor accede a la seccion de historial de alertas.
      - Opcionalmente aplica filtros adicionales
    * - 5
      - Sistema
-     - Valida rango no excede 2 anios (CNST-006)
+     - Valida rango no excede 2 anios (CNST_015)
    * - 6
      - Sistema
      - Consulta alertas con filtro de segmento automatico
@@ -167,7 +167,7 @@ El supervisor accede a la seccion de historial de alertas.
 
    AC -> AHS: get_history(filters, segmento)
    AHS -> DB: SELECT * FROM alerts\nWHERE segmento_id = ?\nAND created_at >= NOW() - INTERVAL '30 days'\nORDER BY created_at DESC
-   note right of DB: CNST-003 BD Analytics
+   note right of DB: CNST_007 BD Analytics
    DB --> AHS: alerts
    AHS --> AC: paginated_alerts
    AC --> FE: 200 OK
@@ -177,7 +177,7 @@ El supervisor accede a la seccion de historial de alertas.
    FE -> AC: GET /api/alerts/history?start=X&end=Y&status=Z
 
    AC -> AHS: validate_date_range(start, end)
-   note right: CNST-006 max 2 anios
+   note right: CNST_015 max 2 anios
 
    alt rango > 2 anios
      AHS --> AC: DateRangeExceededError
@@ -320,14 +320,14 @@ El supervisor accede a la seccion de historial de alertas.
      :Validar rango de fechas;
      if (Rango > 2 anios?) then (si)
        :Mostrar error rango excedido;
-       note right: CNST-006
+       note right: CNST_015
        stop
      else (no)
      endif
    endif
 
    :Consultar alertas con filtro de segmento;
-   note right: CNST-004
+   note right: CNST_008
 
    :Mostrar lista paginada;
 
@@ -355,10 +355,10 @@ El supervisor accede a la seccion de historial de alertas.
      - Descripcion
    * - BR-ALR-30
      - Retencion 2 Anios
-     - Solo se pueden consultar alertas de los ultimos 2 anios (CNST-006)
+     - Solo se pueden consultar alertas de los ultimos 2 anios (CNST_015)
    * - BR-ALR-31
      - Filtro Segmento
-     - Solo alertas del segmento del usuario visibles (CNST-004)
+     - Solo alertas del segmento del usuario visibles (CNST_008)
    * - BR-ALR-32
      - Paginacion
      - Maximo 100 alertas por pagina
@@ -395,13 +395,13 @@ El supervisor accede a la seccion de historial de alertas.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos historicos de BD Analytics
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtro automatico por segmento del usuario
-   * - CNST-006
+   * - CNST_015
      - Retencion
      - Maximo 2 anios de historial consultable
 
@@ -440,7 +440,7 @@ El supervisor accede a la seccion de historial de alertas.
    * - **Reglas de Negocio**
      - BR-ALR-30 a BR-ALR-33
    * - **Restricciones**
-     - CNST-003, CNST-004, CNST-006
+     - CNST_007, CNST_008, CNST_015
    * - **UC Relacionados**
      - UC_ALR_02 (Ver Activas), UC_ALR_03 (Reconocer)
    * - **Actor Principal**
@@ -462,4 +462,4 @@ El supervisor accede a la seccion de historial de alertas.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-006
+     - Version inicial v4.0 con CNST_015

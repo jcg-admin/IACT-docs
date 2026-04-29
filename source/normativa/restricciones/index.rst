@@ -114,12 +114,14 @@ Catalogo
    CNST_029_RBAC_Modelo_Plano
    CNST_030_Reglas_de_Separacion_de_Funciones_SoD
    CNST_031_Permisos_Temporales_Maximo_6_Meses
+   CNST_032_Menu_Dinamico_Obligatorio
+   CNST_033_Vocabulario_Unificado_RBAC
 
 Convenciones
 ------------
 
 - Todas las CNST estan en estado Vigente desde 2026-04-28.
-- La numeracion es flat consecutiva (CNST_001 a CNST_031).
+- La numeracion es flat consecutiva (CNST_001 a CNST_033).
 - Cada CNST tiene clasificacion ``Critico``, ``Alto`` o ``Medio``
   segun el impacto de su violacion.
 - El formato de archivo y metadata sigue

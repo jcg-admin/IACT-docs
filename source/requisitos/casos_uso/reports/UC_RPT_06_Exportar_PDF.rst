@@ -49,7 +49,7 @@ graficos y tablas estilizadas.
 - Graficos incluidos como imagenes
 - Tablas con paginacion automatica
 - Limite 50 paginas por documento
-- Auditoria obligatoria (CNST-009)
+- Auditoria obligatoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -112,7 +112,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    * - POST-01
      - Se genera archivo PDF con formato corporativo
    * - POST-02
-     - Se registra EXPORT_PDF en auditoria (CNST-009)
+     - Se registra EXPORT_PDF en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -197,7 +197,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    PS -> PS: add_footer()
 
    PS -> UAL: record(EXPORT_PDF)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT audit
 
    PS --> EC: pdf_file
@@ -283,7 +283,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    endif
 
    :Obtener datos con filtro segmento;
-   note right: CNST-004
+   note right: CNST_008
 
    :Estimar paginas;
 
@@ -302,7 +302,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    :Agregar pie de pagina;
 
    :Registrar auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Descargar archivo;
 
@@ -356,13 +356,13 @@ El usuario hace clic en Exportar PDF desde un reporte.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtro automatico por segmento
-   * - CNST-007
+   * - CNST_017
      - Exportaciones
      - Limite 50 paginas por PDF
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Registro EXPORT_PDF con detalles
 
@@ -398,7 +398,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    * - **Reglas de Negocio**
      - BR-RPT-50 a BR-RPT-52
    * - **Restricciones**
-     - CNST-004, CNST-007, CNST-009
+     - CNST_008, CNST_017, CNST_025
    * - **UC Relacionados**
      - UC_RPT_04 (CSV), UC_RPT_05 (Excel)
    * - **Actor Principal**

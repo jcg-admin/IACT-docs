@@ -106,7 +106,7 @@ El administrador accede al modulo de gestion de segmentos.
    * - POST-01
      - El catalogo de segmentos se actualiza segun la operacion
    * - POST-02
-     - Se registra en auditoria (CNST-009)
+     - Se registra en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -320,10 +320,10 @@ El administrador accede al modulo de gestion de segmentos.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - Los segmentos son parte del modelo de permisos
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registran operaciones sobre segmentos
 
@@ -356,7 +356,7 @@ El administrador accede al modulo de gestion de segmentos.
    * - **Reglas de Negocio**
      - BR-ACC-50 a BR-ACC-52
    * - **Restricciones**
-     - CNST-005, CNST-009
+     - CNST_029, CNST_025
    * - **UC Relacionados**
      - UC_ACC_07 (Asignar Segmento)
    * - **Actor Principal**

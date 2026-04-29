@@ -40,7 +40,7 @@ UC_LOG_04: Exportar Logs
 
 Este caso de uso permite exportar logs del sistema a formatos externos
 para analisis offline o archivo. La exportacion se registra en
-auditoria (CNST-009). Limite de 500,000 registros por exportacion.
+auditoria (CNST_025). Limite de 500,000 registros por exportacion.
 
 **Caracteristicas principales:**
 
@@ -48,7 +48,7 @@ auditoria (CNST-009). Limite de 500,000 registros por exportacion.
 - Exportar logs filtrados o resultados de busqueda
 - Limite 500,000 registros por exportacion
 - Registro de exportacion en auditoria
-- Mantiene formato JSON estructurado (CNST-008)
+- Mantiene formato JSON estructurado (CNST_024)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -109,7 +109,7 @@ El operador hace clic en Exportar desde la vista de logs.
    * - POST-01
      - Se genera archivo con logs exportados
    * - POST-02
-     - Se registra LOG_EXPORT en auditoria (CNST-009)
+     - Se registra LOG_EXPORT en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -186,7 +186,7 @@ El operador hace clic en Exportar desde la vista de logs.
 
    alt formato JSON
      ES -> ES: generate_json(logs)
-     note right: CNST-008 mantiene estructura
+     note right: CNST_024 mantiene estructura
    else formato CSV
      ES -> ES: flatten_to_csv(logs)
    else formato TXT
@@ -195,7 +195,7 @@ El operador hace clic en Exportar desde la vista de logs.
 
    ES -> UAL: record(LOG_EXPORT)
    note right of UAL
-     CNST-009: Registra
+     CNST_025: Registra
      - usuario
      - filtros
      - cantidad
@@ -329,7 +329,7 @@ El operador hace clic en Exportar desde la vista de logs.
    switch (Formato?)
    case (JSON)
      :Generar JSON estructurado;
-     note right: CNST-008
+     note right: CNST_024
    case (CSV)
      :Aplanar a CSV;
    case (TXT)
@@ -337,7 +337,7 @@ El operador hace clic en Exportar desde la vista de logs.
    endswitch
 
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Descargar archivo;
 
@@ -359,13 +359,13 @@ El operador hace clic en Exportar desde la vista de logs.
      - Maximo 500,000 registros por exportacion
    * - BR-LOG-31
      - Auditoria
-     - Toda exportacion se registra en auditoria (CNST-009)
+     - Toda exportacion se registra en auditoria (CNST_025)
    * - BR-LOG-32
      - Formatos
      - Soportados: JSON, CSV, TXT
    * - BR-LOG-33
      - Estructura JSON
-     - Formato JSON mantiene estructura original (CNST-008)
+     - Formato JSON mantiene estructura original (CNST_024)
 
 **Formatos de Exportacion:**
 
@@ -382,7 +382,7 @@ El operador hace clic en Exportar desde la vista de logs.
    * - TXT
      - Formato legible: [timestamp] [LEVEL] component: message
 
-**Registro de Auditoria (CNST-009):**
+**Registro de Auditoria (CNST_025):**
 
 .. code-block:: python
 
@@ -413,10 +413,10 @@ El operador hace clic en Exportar desde la vista de logs.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-008
+   * - CNST_024
      - Logs JSON
      - Exportacion JSON mantiene estructura original
-   * - CNST-009
+   * - CNST_025
      - Auditoria
      - Registro de exportacion en user_action_log
 
@@ -450,7 +450,7 @@ El operador hace clic en Exportar desde la vista de logs.
    * - **BReq Origen**
      - BRQ-LOG-004
    * - **Restricciones**
-     - CNST-008, CNST-009
+     - CNST_024, CNST_025
    * - **UC Relacionados**
      - UC_LOG_01, UC_LOG_03
    * - **Funcion RBAC**

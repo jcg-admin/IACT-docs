@@ -54,7 +54,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
 - Verificacion de historial (no reutilizar ultimas 5)
 - Actualizacion de estado a ACTIVO si era PENDIENTE
 - Cierre opcional de otras sesiones
-- Registro en auditoria (CNST-009)
+- Registro en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -137,7 +137,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    * - POST-04
      - Si estado era PENDIENTE, cambia a ACTIVO
    * - POST-05
-     - Se registra PASSWORD_CHANGE en auditoria (CNST-009)
+     - Se registra PASSWORD_CHANGE en auditoria (CNST_025)
    * - POST-06
      - Opcionalmente se cierran otras sesiones
 
@@ -198,7 +198,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
      - Si estado=PENDIENTE, actualiza a ACTIVO
    * - 16
      - Sistema
-     - Registra PASSWORD_CHANGE en UserActionLog (CNST-009)
+     - Registra PASSWORD_CHANGE en UserActionLog (CNST_025)
    * - 17
      - Sistema
      - Muestra confirmacion exitosa
@@ -294,11 +294,11 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    == Actualizar Estado si PENDIENTE ==
    PS -> DB: UPDATE users SET status = 'ACTIVO'\nWHERE status = 'PENDIENTE_CONFIGURACION'
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    PS -> UAL: record(PASSWORD_CHANGE, user_id)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Solo registra el evento,
      NUNCA el password
    end note
@@ -521,7 +521,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
 
    :Registrar PASSWORD_CHANGE;
    note right
-     CNST-009
+     CNST_025
      Sin passwords
    end note
 
@@ -572,14 +572,14 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-002
+   * - CNST_003
      - Sesion Unica
      - Si el usuario elige "Cerrar otras sesiones", se aplica SessionService.close_other_sessions(). La sesion actual permanece activa.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra evento PASSWORD_CHANGE en UserActionLog. NUNCA se incluye el password ni nuevo ni anterior en el registro.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -636,7 +636,7 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    * - **Reglas de Negocio**
      - BR-AUTH-30 a BR-AUTH-35
    * - **Restricciones**
-     - CNST-002 (Sesion Unica), CNST-009 (Auditoria sin PII)
+     - CNST_003 (Sesion Unica), CNST_025 (Auditoria sin PII)
    * - **FR Derivados**
      - FR-AUTH-030 a FR-AUTH-034
    * - **UC Relacionados**

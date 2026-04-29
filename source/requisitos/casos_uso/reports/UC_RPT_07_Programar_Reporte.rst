@@ -40,17 +40,17 @@ UC_RPT_07: Programar Reporte
 
 Este caso de uso permite programar la generacion automatica de reportes
 en horarios definidos. Los reportes generados se notifican via
-InternalMessage (CNST-001).
+InternalMessage (CNST_001).
 
 **Caracteristicas principales:**
 
 - Programar reportes periodicos (diario, semanal, mensual)
 - Definir hora de ejecucion
 - Seleccionar destinatarios del segmento
-- Notificacion via InternalMessage unicamente (CNST-001)
-- Registro de programacion en auditoria (CNST-009)
+- Notificacion via InternalMessage unicamente (CNST_001)
+- Registro de programacion en auditoria (CNST_025)
 
-**Restriccion CNST-001:**
+**Restriccion CNST_001:**
 
 .. warning::
    Los reportes programados se notifican EXCLUSIVAMENTE via
@@ -192,13 +192,13 @@ El usuario accede a programacion de reportes.
    SC -> SS: create_schedule(config)
 
    SS -> SS: validate_recipients_segment()
-   note right: CNST-004
+   note right: CNST_008
 
    SS -> DB: INSERT INTO report_schedules
    DB --> SS: schedule_id
 
    SS -> UAL: record(SCHEDULE_CREATE)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT audit
 
    SS --> SC: schedule_created
@@ -214,7 +214,7 @@ El usuario accede a programacion de reportes.
    SS -> SS: generate_report()
    SS -> SS: generate_report()
    SS -> IM: notify(destinatarios)
-   note right: CNST-001
+   note right: CNST_001
    @enduml
 
 7. Flujos Alternos
@@ -294,7 +294,7 @@ El usuario accede a programacion de reportes.
      - Diario, semanal, mensual
    * - BR-RPT-61
      - Notificacion
-     - Solo via InternalMessage (CNST-001)
+     - Solo via InternalMessage (CNST_001)
    * - BR-RPT-62
      - Segmento
      - Destinatarios del mismo segmento
@@ -309,13 +309,13 @@ El usuario accede a programacion de reportes.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-001
+   * - CNST_001
      - Comunicacion Interna
      - Notificacion SOLO via InternalMessage
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Destinatarios del segmento
-   * - CNST-009
+   * - CNST_025
      - Auditoria
      - Registro de programaciones
 
@@ -346,7 +346,7 @@ El usuario accede a programacion de reportes.
    * - **BReq Origen**
      - BRQ-RPT-007
    * - **Restricciones**
-     - CNST-001, CNST-004, CNST-009
+     - CNST_001, CNST_008, CNST_025
    * - **Actor Principal**
      - AGR-003: agr_supervisor
    * - **Funcion RBAC**

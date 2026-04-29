@@ -11,6 +11,15 @@
 UC_ACC_02: Revocar Funciones
 ============================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica granular del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_02_Revocar_Grupo_a_Usuario`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -49,7 +58,7 @@ inmediato y se registra en auditoria.
 - Revocacion de funciones individuales o multiples
 - Efecto inmediato en permisos del usuario
 - Validacion de permisos minimos (no dejar sin acceso basico)
-- Registro detallado en auditoria (CNST-009)
+- Registro detallado en auditoria (CNST_025)
 - Opcion de revocar todas las funciones
 
 3. Diagrama de Caso de Uso
@@ -122,7 +131,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    * - POST-02
      - Los permisos efectivos del usuario se actualizan inmediatamente
    * - POST-03
-     - Se registra FUNCTION_REVOKE en auditoria (CNST-009)
+     - Se registra FUNCTION_REVOKE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -163,7 +172,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
      - Elimina registros de user_functions
    * - 10
      - Sistema
-     - Registra FUNCTION_REVOKE en UserActionLog (CNST-009)
+     - Registra FUNCTION_REVOKE en UserActionLog (CNST_025)
    * - 11
      - Sistema
      - Actualiza vista de permisos del usuario
@@ -230,11 +239,11 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    == Revocar Funciones ==
    AS -> DB: DELETE FROM user_functions\nWHERE user_id = ? AND function_id IN (...)
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(FUNCTION_REVOKE, admin, user, functions)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Detalla cada funcion revocada
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -380,7 +389,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
 
    :Registrar FUNCTION_REVOKE;
    note right
-     CNST-009
+     CNST_025
      Auditoria inmutable
    end note
 
@@ -425,14 +434,14 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - La revocacion elimina registros directos de user_functions. No hay efectos en cascada porque no hay jerarquia de roles.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra FUNCTION_REVOKE en UserActionLog con: admin ejecutor, usuario afectado, lista de funciones revocadas.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -484,7 +493,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    * - **Reglas de Negocio**
      - BR-ACC-10 a BR-ACC-13
    * - **Restricciones**
-     - CNST-005 (RBAC Flat), CNST-009 (Auditoria)
+     - CNST_029 (RBAC Flat), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-ACC-010 a FR-ACC-013
    * - **UC Relacionados**

@@ -40,7 +40,7 @@ UC_RPT_02: Ver Metricas Tiempo Real
 
 Este caso de uso permite visualizar metricas operativas en tiempo real
 con actualizacion frecuente. Muestra estado actual de colas, agentes
-y llamadas en curso filtrados por segmento (CNST-004).
+y llamadas en curso filtrados por segmento (CNST_008).
 
 **Caracteristicas principales:**
 
@@ -49,7 +49,7 @@ y llamadas en curso filtrados por segmento (CNST-004).
 - Estado de agentes (disponible, en llamada, pausa)
 - Llamadas en espera y en curso
 - Alertas visuales por umbrales
-- Datos de BD Analytics (CNST-003)
+- Datos de BD Analytics (CNST_007)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -176,7 +176,7 @@ El usuario accede a la vista de metricas en tiempo real.
    RC -> RTS: get_realtime_metrics(segmento)
 
    RTS -> DB: SELECT * FROM vista_colas_rt\nWHERE segmento_id = ?
-   note right of DB: CNST-003 Analytics
+   note right of DB: CNST_007 Analytics
    DB --> RTS: colas_data
 
    RTS -> DB: SELECT * FROM vista_agentes_rt\nWHERE segmento_id = ?
@@ -303,7 +303,7 @@ El usuario accede a la vista de metricas en tiempo real.
    endif
 
    :Obtener segmento;
-   note right: CNST-004
+   note right: CNST_008
 
    fork
      :Consultar estado colas;
@@ -385,10 +385,10 @@ El usuario accede a la vista de metricas en tiempo real.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos de vistas materializadas en BD Analytics que se refrescan frecuentemente desde IVR
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtro automatico por segmento del usuario
 
@@ -427,7 +427,7 @@ El usuario accede a la vista de metricas en tiempo real.
    * - **Reglas de Negocio**
      - BR-RPT-10 a BR-RPT-13
    * - **Restricciones**
-     - CNST-003, CNST-004
+     - CNST_007, CNST_008
    * - **UC Relacionados**
      - UC_RPT_01 (Dashboard), UC_ALR_01 (Umbrales), UC_ALR_02 (Alertas)
    * - **Actor Principal**

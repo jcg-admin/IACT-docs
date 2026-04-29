@@ -52,8 +52,8 @@ cerrar todas las sesiones de un usuario especifico.
 - Cerrar sesion individual de cualquier usuario
 - Cerrar todas las sesiones de un usuario especifico
 - Filtrar sesiones por usuario, fecha, estado
-- Aplicacion de CNST-002 (sesion unica por usuario)
-- Registro de todas las acciones en auditoria (CNST-009)
+- Aplicacion de CNST_003 (sesion unica por usuario)
+- Registro de todas las acciones en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -84,7 +84,7 @@ cerrar todas las sesiones de un usuario especifico.
    SYS --> AUD
 
    note right of CLOSEALL
-     CNST-002: Solo 1 sesion
+     CNST_003: Solo 1 sesion
      por usuario permitida
    end note
 
@@ -142,7 +142,7 @@ administracion.
    * - POST-03
      - Los tokens asociados quedan invalidados
    * - POST-04
-     - Se registra SESSION_CLOSED en auditoria (CNST-009)
+     - Se registra SESSION_CLOSED en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -198,7 +198,7 @@ administracion.
      - Agrega token a blacklist
    * - 15
      - Sistema
-     - Registra SESSION_CLOSED en UserActionLog (CNST-009)
+     - Registra SESSION_CLOSED en UserActionLog (CNST_025)
    * - 16
      - Sistema
      - Actualiza lista de sesiones
@@ -280,11 +280,11 @@ administracion.
    TB --> SS: blacklisted
    deactivate TB
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    SS -> UAL: record(SESSION_CLOSED, admin, target_user)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Incluye admin y usuario afectado
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -490,7 +490,7 @@ administracion.
 
    :Registrar SESSION_CLOSED;
    note right
-     CNST-009
+     CNST_025
      Incluye admin y usuario
    end note
 
@@ -526,7 +526,7 @@ administracion.
      - Al cerrar una sesion, el token debe quedar invalido inmediatamente (blacklist).
    * - BR-AUTH-44
      - Sesion Unica
-     - Coherente con CNST-002, cada usuario solo puede tener una sesion activa.
+     - Coherente con CNST_003, cada usuario solo puede tener una sesion activa.
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -538,14 +538,14 @@ administracion.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-002
+   * - CNST_003
      - Sesion Unica
      - El listado de sesiones deberia mostrar maximo 1 sesion activa por usuario. Si hay multiples (estado inconsistente), se debe alertar y permitir limpiar.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Todo cierre de sesion administrativa se registra en UserActionLog con: admin ejecutor, usuario afectado, session_id, IP de ambos y razon.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -563,7 +563,7 @@ administracion.
        # Blacklist token
        TokenBlacklist.add(session.token_hash)
 
-       # CNST-009: Auditoria
+       # CNST_025: Auditoria
        UserActionLog.record(
            user=admin,
            action='SESSION_CLOSED',
@@ -617,7 +617,7 @@ administracion.
    * - **Reglas de Negocio**
      - BR-AUTH-40 a BR-AUTH-44
    * - **Restricciones**
-     - CNST-002 (Sesion Unica), CNST-009 (Auditoria Inmutable)
+     - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
    * - **FR Derivados**
      - FR-AUTH-040 a FR-AUTH-044
    * - **UC Relacionados**

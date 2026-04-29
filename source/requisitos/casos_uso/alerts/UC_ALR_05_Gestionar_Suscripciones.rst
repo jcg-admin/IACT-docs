@@ -40,17 +40,17 @@ UC_ALR_05: Gestionar Suscripciones
 
 Este caso de uso permite gestionar las suscripciones de usuarios a
 alertas. Define quien recibe notificaciones cuando se disparan alertas.
-Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST-001).
+Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
 
 **Caracteristicas principales:**
 
 - Suscribir usuarios a tipos de alertas
 - Configurar nivel de severidad minimo para notificacion
-- Suscripcion por segmento (CNST-004)
-- Notificaciones SOLO via InternalMessage (CNST-001)
-- Registro de cambios en auditoria (CNST-009)
+- Suscripcion por segmento (CNST_008)
+- Notificaciones SOLO via InternalMessage (CNST_001)
+- Registro de cambios en auditoria (CNST_025)
 
-**Restriccion Critica CNST-001:**
+**Restriccion Critica CNST_001:**
 
 .. warning::
    Las notificaciones de alerta se envian EXCLUSIVAMENTE via
@@ -120,7 +120,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    * - POST-01
      - La suscripcion queda configurada
    * - POST-02
-     - Se registra SUBSCRIPTION_CONFIG en auditoria (CNST-009)
+     - Se registra SUBSCRIPTION_CONFIG en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -202,7 +202,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    DB --> SS: user
 
    SS -> SS: validate_same_segment()
-   note right: CNST-004
+   note right: CNST_008
 
    alt usuario diferente segmento
      SS --> AC: SegmentMismatchError
@@ -210,10 +210,10 @@ El gestor de alertas accede a la gestion de suscripciones.
    end
 
    SS -> DB: INSERT/UPDATE alert_subscriptions\nSET alert_type = ?,\nmin_severity = ?,\nnotify_method = 'INTERNAL_MESSAGE'
-   note right: CNST-001 Solo InternalMessage
+   note right: CNST_001 Solo InternalMessage
 
    SS -> UAL: record(SUBSCRIPTION_CONFIG)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT user_action_log
 
    SS --> AC: subscription_saved
@@ -232,7 +232,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    loop cada suscriptor
      SS -> IM: notify(user, alert)
      note right
-       CNST-001: SOLO
+       CNST_001: SOLO
        InternalMessage
        PROHIBIDO email/SMS
      end note
@@ -378,7 +378,7 @@ El gestor de alertas accede a la gestion de suscripciones.
 
    if (Usuario del mismo segmento?) then (no)
      :Mostrar error de segmento;
-     note right: CNST-004
+     note right: CNST_008
      stop
    else (si)
    endif
@@ -394,13 +394,13 @@ El gestor de alertas accede a la gestion de suscripciones.
    :Guardar suscripcion;
 
    note right
-     CNST-001: Notificaciones
+     CNST_001: Notificaciones
      SOLO via InternalMessage
      PROHIBIDO email/SMS
    end note
 
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Mostrar confirmacion;
 
@@ -419,10 +419,10 @@ El gestor de alertas accede a la gestion de suscripciones.
      - Descripcion
    * - BR-ALR-40
      - Solo InternalMessage
-     - Las notificaciones se envian EXCLUSIVAMENTE via InternalMessage (CNST-001)
+     - Las notificaciones se envian EXCLUSIVAMENTE via InternalMessage (CNST_001)
    * - BR-ALR-41
      - Mismo Segmento
-     - Solo se pueden suscribir usuarios del mismo segmento (CNST-004)
+     - Solo se pueden suscribir usuarios del mismo segmento (CNST_008)
    * - BR-ALR-42
      - Nivel Minimo
      - El usuario solo recibe alertas de severidad >= nivel configurado
@@ -476,17 +476,17 @@ El gestor de alertas accede a la gestion de suscripciones.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicacion Interna
      - Las notificaciones se envian SOLO via InternalMessage.notify(). PROHIBIDO email/SMS/push.
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Solo usuarios del mismo segmento pueden suscribirse
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Registro de creacion, modificacion y eliminacion de suscripciones
 
-**Implementacion CNST-001:**
+**Implementacion CNST_001:**
 
 .. code-block:: python
 
@@ -500,7 +500,7 @@ El gestor de alertas accede a la gestion de suscripciones.
            )
 
            for sub in subscriptions:
-               # CNST-001: SOLO InternalMessage
+               # CNST_001: SOLO InternalMessage
                InternalMessage.notify(
                    recipient=sub.user,
                    title=f"Alerta: {alert.type}",
@@ -547,7 +547,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    * - **Reglas de Negocio**
      - BR-ALR-40 a BR-ALR-43
    * - **Restricciones**
-     - CNST-001 (critica), CNST-004, CNST-009
+     - CNST_001 (critica), CNST_008, CNST_025
    * - **UC Relacionados**
      - UC_ALR_01 (Umbrales), UC_ALR_02 (Ver Alertas)
    * - **Actor Principal**
@@ -569,4 +569,4 @@ El gestor de alertas accede a la gestion de suscripciones.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-001
+     - Version inicial v4.0 con CNST_001

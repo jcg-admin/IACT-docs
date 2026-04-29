@@ -476,11 +476,11 @@ El administrador accede al modulo de gestion de usuarios.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Las consultas de lectura no generan registros de auditoria individuales. Solo se auditan accesos a datos sensibles o exportaciones.
 
-**Nota sobre CNST-009:**
+**Nota sobre CNST_025:**
 
 Este caso de uso es principalmente de lectura. No se registra cada consulta
 en auditoria para evitar sobrecarga. Sin embargo, se puede habilitar logging
@@ -521,7 +521,7 @@ de acceso si se requiere por compliance.
    * - **Reglas de Negocio**
      - BR-USR-10 a BR-USR-13
    * - **Restricciones**
-     - CNST-009 (Auditoria - no aplica a lecturas)
+     - CNST_025 (Auditoria - no aplica a lecturas)
    * - **FR Derivados**
      - FR-USR-010 a FR-USR-013
    * - **UC Relacionados**

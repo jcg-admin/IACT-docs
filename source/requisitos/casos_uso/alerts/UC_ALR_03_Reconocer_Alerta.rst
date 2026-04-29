@@ -40,8 +40,8 @@ UC_ALR_03: Reconocer Alerta
 
 Este caso de uso permite a un supervisor reconocer (acknowledge) una
 alerta activa, indicando que ha sido vista y se esta tomando accion.
-El reconocimiento se registra en auditoria (CNST-009) y se notifica
-al equipo via InternalMessage (CNST-001).
+El reconocimiento se registra en auditoria (CNST_025) y se notifica
+al equipo via InternalMessage (CNST_001).
 
 **Caracteristicas principales:**
 
@@ -118,9 +118,9 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    * - POST-01
      - La alerta queda marcada como ACKNOWLEDGED
    * - POST-02
-     - Se registra ALERT_ACK en auditoria (CNST-009)
+     - Se registra ALERT_ACK en auditoria (CNST_025)
    * - POST-03
-     - Se notifica al equipo via InternalMessage (CNST-001)
+     - Se notifica al equipo via InternalMessage (CNST_001)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -210,12 +210,12 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    DB --> AS: updated
 
    AS -> UAL: record(ALERT_ACK, user, alert, comment)
-   note right of UAL: CNST-009
+   note right of UAL: CNST_025
    UAL -> DB: INSERT user_action_log
 
    AS -> IM: notify(team_subscribers, alert_acked)
    note right of IM
-     CNST-001: SOLO
+     CNST_001: SOLO
      InternalMessage
    end note
 
@@ -358,10 +358,10 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    :Registrar acked_by y acked_at;
 
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Notificar equipo via InternalMessage;
-   note right: CNST-001
+   note right: CNST_001
 
    :Mostrar confirmacion;
 
@@ -409,10 +409,10 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicacion Interna
      - Notificacion de reconocimiento SOLO via InternalMessage.notify(). PROHIBIDO email/SMS.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Registro ALERT_ACK con usuario, alerta, comentario y timestamp.
 
@@ -451,7 +451,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    * - **Reglas de Negocio**
      - BR-ALR-20 a BR-ALR-23
    * - **Restricciones**
-     - CNST-001 (InternalMessage), CNST-009 (Auditoria)
+     - CNST_001 (InternalMessage), CNST_025 (Auditoria)
    * - **UC Relacionados**
      - UC_ALR_02 (Ver Alertas), UC_ALR_04 (Historial)
    * - **Actor Principal**
@@ -473,4 +473,4 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-001
+     - Version inicial v4.0 con CNST_001

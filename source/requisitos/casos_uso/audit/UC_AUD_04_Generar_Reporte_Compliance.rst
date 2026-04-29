@@ -48,8 +48,8 @@ permisos, acciones administrativas y otros requeridos por regulaciones.
 - Formatos PDF y Excel con formato corporativo
 - Periodos configurables (mensual, trimestral, anual)
 - Incluye estadisticas y graficos
-- Datos de auditoria inmutables (CNST-009)
-- Acceso restringido a auditor (CNST-010)
+- Datos de auditoria inmutables (CNST_025)
+- Acceso restringido a auditor (CNST_027)
 
 **Reportes Disponibles:**
 
@@ -199,7 +199,7 @@ El auditor accede a generacion de reportes de compliance.
    AC -> CS: generate_compliance_report(params)
 
    CS -> DB: SELECT datos segun tipo de reporte\nFROM user_action_log\nWHERE created_at BETWEEN ? AND ?
-   note right of DB: CNST-009 Solo SELECT
+   note right of DB: CNST_025 Solo SELECT
    DB --> CS: audit_data
 
    CS -> CS: calculate_statistics()
@@ -344,7 +344,7 @@ El auditor accede a generacion de reportes de compliance.
    :Seleccionar formato;
 
    :Consultar datos de auditoria;
-   note right: CNST-009 Solo lectura
+   note right: CNST_025 Solo lectura
 
    :Calcular estadisticas;
    :Detectar anomalias;
@@ -419,10 +419,10 @@ El auditor accede a generacion de reportes de compliance.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-009
+   * - CNST_025
      - Inmutable
      - Datos de auditoria no se modifican al generar
-   * - CNST-010
+   * - CNST_027
      - SoD
      - Solo auditor puede generar reportes compliance
 
@@ -459,7 +459,7 @@ El auditor accede a generacion de reportes de compliance.
    * - **BReq Origen**
      - BRQ-AUD-004
    * - **Restricciones**
-     - CNST-009, CNST-010
+     - CNST_025, CNST_027
    * - **UC Relacionados**
      - UC_AUD_01, UC_AUD_03
    * - **Funcion RBAC**

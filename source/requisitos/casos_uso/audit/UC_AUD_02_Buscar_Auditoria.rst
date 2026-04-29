@@ -48,7 +48,7 @@ UC_AUD_01 con capacidades de busqueda mas sofisticadas.
 - Busqueda con operadores AND/OR
 - Busqueda por patron (regex) en campos especificos
 - Maximo 10,000 resultados por busqueda
-- Solo lectura (CNST-009)
+- Solo lectura (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -182,7 +182,7 @@ El auditor accede a la busqueda avanzada de auditoria.
 
    SS -> DB: SELECT * FROM user_action_log\nWHERE (criterios)\nORDER BY created_at DESC\nLIMIT 10000
    note right of DB
-     CNST-009: Solo SELECT
+     CNST_025: Solo SELECT
      Max 10,000 resultados
    end note
    DB --> SS: results
@@ -342,10 +342,10 @@ El auditor accede a la busqueda avanzada de auditoria.
      - Maximo 10,000 resultados por busqueda
    * - BR-AUD-11
      - Solo Lectura
-     - Busqueda no modifica datos (CNST-009)
+     - Busqueda no modifica datos (CNST_025)
    * - BR-AUD-12
      - SoD
-     - Solo auditores pueden buscar (CNST-010)
+     - Solo auditores pueden buscar (CNST_027)
 
 **Operadores de Busqueda:**
 
@@ -374,10 +374,10 @@ El auditor accede a la busqueda avanzada de auditoria.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-009
+   * - CNST_025
      - Inmutable
      - Solo SELECT permitido
-   * - CNST-010
+   * - CNST_027
      - SoD
      - Validar SoD-003 antes de busqueda
 
@@ -411,7 +411,7 @@ El auditor accede a la busqueda avanzada de auditoria.
    * - **BReq Origen**
      - BRQ-AUD-002
    * - **Restricciones**
-     - CNST-009, CNST-010
+     - CNST_025, CNST_027
    * - **UC Relacionados**
      - UC_AUD_01, UC_AUD_03
    * - **Funcion RBAC**

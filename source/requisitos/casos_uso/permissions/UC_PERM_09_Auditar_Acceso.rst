@@ -16,13 +16,22 @@
 UC_PERM_09: Auditar Acceso
 ==========================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista funcional / catalogo cerrado del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 
 
 1. Resumen
 ----------
 
 
-El sistema registra automáticamente cada verificación de permisos en la tabla de auditoría, capturando quién, cuándo, qué capacidad y el resultado.
+El sistema registra automáticamente cada verificación de permisos en la tabla de auditoría, capturando quién, cuándo, qué funcion y el resultado.
 
 
 2. Actores
@@ -37,15 +46,36 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 -------------------
 
 
-| Campo | Descripción | Ejemplo |
-|-------|-------------|---------|
-| usuario_id | ID del usuario verificado | 123 |
-| capacidad_codigo | Capacidad verificada | "sistema.vistas.dashboards.ver" |
-| resultado | Concedido (true) o denegado (false) | true |
-| ip_address | IP del cliente | "192.168.1.100" |
-| user_agent | Navegador/cliente | "Mozilla/5.0..." |
-| timestamp | Momento exacto | "2025-01-09T12:30:45Z" |
-| metadatos | Info adicional (path, method, latency) | {"path": "/dashboard", "latency_ms": 15} |
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - Campo
+     - Descripción
+     - Ejemplo
+   * - usuario_id
+     - ID del usuario verificado
+     - 123
+   * - capacidad_codigo
+     - Funcion verificada
+     - "sistema.vistas.dashboards.ver"
+   * - resultado
+     - Concedido (true) o denegado (false)
+     - true
+   * - ip_address
+     - IP del cliente
+     - "192.168.1.100"
+   * - user_agent
+     - Navegador/cliente
+     - "Mozilla/5.0..."
+   * - timestamp
+     - Momento exacto
+     - "2025-01-09T12:30:45Z"
+   * - metadatos
+     - Info adicional (path, method, latency)
+     - {"path": "/dashboard", "latency_ms": 15}
+
 
 
 4. SQL Function
@@ -127,7 +157,7 @@ Opción 2: Auditoría Asíncrona (producción)
    
    # tasks.py
    @celery_app.task
-   def audit_permission_check(usuario_id, capacidad, resultado, ip, user_agent):
+   def audit_permission_check(usuario_id, funcion, resultado, ip, user_agent):
        AuditoriaPermiso.objects.create(...)
 
 
@@ -136,11 +166,20 @@ Opción 2: Auditoría Asíncrona (producción)
 ---------------------
 
 
-| Período | Acción |
-|---------|--------|
-| 0-90 días | Online (tabla principal) |
-| 91-365 días | Archivo (tabla histórica) |
-| > 365 días | Cold storage (S3/Glacier) |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Período
+     - Acción
+   * - 0-90 días
+     - Online (tabla principal)
+   * - 91-365 días
+     - Archivo (tabla histórica)
+   * - > 365 días
+     - Cold storage (S3/Glacier)
+
 
 
 8. Consultas de Auditoría
@@ -193,18 +232,29 @@ Alerta 1: Múltiples accesos denegados
 - Posible indicador: Ataque de escalación de privilegios
 
 
-Alerta 2: Acceso a capacidades críticas
+Alerta 2: Acceso a funciones críticas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Trigger: Verificación de capacidades admin fuera de horario
+- Trigger: Verificación de funciones admin fuera de horario
 - Acción: Notificar a administradores
-- Capacidades críticas: *.usuarios.eliminar, *.permisos.*
+- Funciones críticas: *.usuarios.eliminar, *.permisos.*
 
 
 Changelog
 ---------
 
 
-| Versión | Fecha | Autor | Cambios |
-|---------|-------|-------|---------|
-| 1.0.0 | 2025-01-09 | Sistema | Creación inicial |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-01-09
+     - Sistema
+     - Creación inicial
+

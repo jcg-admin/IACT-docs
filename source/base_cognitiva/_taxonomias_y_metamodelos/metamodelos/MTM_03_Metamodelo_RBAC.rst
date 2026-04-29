@@ -204,29 +204,50 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    | + getPermissions(): Set<Permission>                              |
    +------------------------------------------------------------------+
 
-   CATALOGO CERRADO (18 roles):
-   +-------+---------------------------+--------------------+
-   | Codigo| Nombre                    | Categoria          |
-   +-------+---------------------------+--------------------+
-   | R001  | USERS_FULL_MANAGER        | Gestion Usuarios   |
-   | R002  | USERS_VIEWER              | Gestion Usuarios   |
-   | R003  | USERS_TEAM_MANAGER        | Gestion Usuarios   |
-   | R004  | REPORTS_VIEWER            | Reportes           |
-   | R005  | REPORTS_EXPORTER          | Reportes           |
-   | R006  | REPORTS_ADVANCED_VIEWER   | Reportes           |
-   | R007  | REPORTS_CREATOR           | Reportes           |
-   | R008  | DASHBOARD_VIEWER          | Visualizacion      |
-   | R009  | DASHBOARD_CUSTOMIZER      | Visualizacion      |
-   | R010  | DATA_ANALYST              | Analisis           |
-   | R011  | ALERTS_VIEWER             | Alertas            |
-   | R012  | ALERTS_CONFIGURATOR       | Alertas            |
-   | R013  | ALERTS_TEAM_MANAGER       | Alertas            |
-   | R014  | ALERTS_GLOBAL_ADMIN       | Alertas            |
-   | R015  | MODULES_ADMIN             | Administracion     |
-   | R016  | SYSTEM_ADMIN              | Administracion     |
-   | R017  | AUDIT_VIEWER              | Administracion     |
-   | R018  | SECURITY_ADMIN            | Administracion     |
-   +-------+---------------------------+--------------------+
+   CATALOGO DEL MODELO v5.2.x (vigente):
+
+   El modelo v4.0 legacy (18 roles tipo USERS_FULL_MANAGER /
+   SYSTEM_ADMIN basados en cargos) fue ABANDONADO en v5.0 a favor del
+   enfoque "Sin Pretensiones": las funciones describen QUE HACE la
+   accion, no QUIEN es la persona.
+
+   El catalogo vigente declara:
+
+   - **42 funciones atomicas** (capabilities) en formato accion-recurso:
+     manage_sessions, view_reports, export_csv, etc.
+   - **10 grupos predefinidos** (system groups, inmutables)
+     AGR-001..AGR-010 que agrupan funciones por uso tipico.
+   - **3 reglas SoD** (Separation of Duties) atomicas: SOD-001
+     pipeline_audit_separation, SOD-002 user_audit_separation,
+     SOD-003 access_audit_separation.
+
+   Tabla de los 10 grupos predefinidos:
+
+   +---------+-----------------------------+-------------+----------------+
+   | Codigo  | Nombre (ingles)             | # funciones | Actor tipico   |
+   +---------+-----------------------------+-------------+----------------+
+   | AGR-001 | basic_operator_group        | 6           | Operador       |
+   | AGR-002 | report_viewer_group         | 8           | Analista       |
+   | AGR-003 | quality_supervisor_group    | 11          | Supervisor     |
+   | AGR-004 | data_exporter_group         | 14          | Data Analyst   |
+   | AGR-005 | alert_manager_group         | 6           | Gestor Alertas |
+   | AGR-006 | user_admin_group            | 9           | Admin Usuarios |
+   | AGR-007 | permission_admin_group      | 5           | Admin Permisos |
+   | AGR-008 | auditor_group               | 4           | Auditor        |
+   | AGR-009 | pipeline_admin_group        | 4           | Admin Pipeline |
+   | AGR-010 | system_admin_group          | 6           | Sysadmin       |
+   +---------+-----------------------------+-------------+----------------+
+
+   Ademas de los 10 grupos predefinidos (system, inmutables), el
+   admin puede crear **custom groups** dinamicamente via
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`.
+   Las 3 reglas SoD aplican TANTO a system como a custom groups.
+
+   La materializacion concreta de este metamodelo (las 42 funciones,
+   los 10 grupos, las 3 reglas SoD, la politica de permisos
+   temporales) esta documentada en la restriccion
+   :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` (cuyo
+   detalle pendiente de enriquecer en iteracion v3 del WP #4).
 
 3.3 Permiso
 ^^^^^^^^^^^

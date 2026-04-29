@@ -39,8 +39,8 @@ UC_AUD_01: Consultar Auditoria
 --------------
 
 Este caso de uso permite consultar el log de auditoria del sistema
-(user_action_log). Los registros de auditoria son INMUTABLES (CNST-009)
-y el acceso esta restringido por Segregacion de Funciones (CNST-010).
+(user_action_log). Los registros de auditoria son INMUTABLES (CNST_025)
+y el acceso esta restringido por Segregacion de Funciones (CNST_027).
 
 **Caracteristicas principales:**
 
@@ -50,13 +50,13 @@ y el acceso esta restringido por Segregacion de Funciones (CNST-010).
 - Acceso restringido a rol auditor (SoD)
 - Visualizacion de detalles completos
 
-**Restriccion Critica CNST-009:**
+**Restriccion Critica CNST_025:**
 
 .. warning::
    Los registros de auditoria son INMUTABLES. No existe operacion
    de UPDATE o DELETE sobre user_action_log. Solo INSERT permitido.
 
-**Segregacion de Funciones CNST-010:**
+**Segregacion de Funciones CNST_027:**
 
 .. warning::
    El rol auditor NO puede tener funciones administrativas.
@@ -121,7 +121,7 @@ El auditor accede al modulo de auditoria.
    * - POST-01
      - Se muestran registros de auditoria (solo lectura)
    * - POST-02
-     - No se modifica ningun registro (CNST-009)
+     - No se modifica ningun registro (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -195,7 +195,7 @@ El auditor accede al modulo de auditoria.
    AC -> AS: get_audit_logs(filters)
    AS -> DB: SELECT * FROM user_action_log\nWHERE created_at >= NOW() - INTERVAL '24h'\nORDER BY created_at DESC\nLIMIT 100
    note right of DB
-     CNST-009: Solo SELECT
+     CNST_025: Solo SELECT
      No UPDATE, No DELETE
    end note
    DB --> AS: logs
@@ -265,7 +265,7 @@ El auditor accede al modulo de auditoria.
      - Selecciona fecha inicio y fecha fin
    * - 6a
      - Sistema
-     - Valida rango no exceda 2 anios (CNST-006)
+     - Valida rango no exceda 2 anios (CNST_015)
    * - 6b
      - Sistema
      - Filtra registros en el rango especificado
@@ -345,7 +345,7 @@ El auditor accede al modulo de auditoria.
 
    if (Cumple SoD-003?) then (no)
      :Mostrar error conflicto SoD;
-     note right: CNST-010
+     note right: CNST_027
      stop
    else (si)
    endif
@@ -362,7 +362,7 @@ El auditor accede al modulo de auditoria.
    endif
 
    :Ejecutar consulta SELECT;
-   note right: CNST-009 Solo lectura
+   note right: CNST_025 Solo lectura
 
    :Mostrar lista paginada;
 
@@ -385,16 +385,16 @@ El auditor accede al modulo de auditoria.
      - Descripcion
    * - BR-AUD-01
      - Inmutabilidad
-     - Los registros de auditoria NO pueden modificarse ni eliminarse (CNST-009)
+     - Los registros de auditoria NO pueden modificarse ni eliminarse (CNST_025)
    * - BR-AUD-02
      - SoD Auditor
-     - El auditor no puede tener roles administrativos (CNST-010)
+     - El auditor no puede tener roles administrativos (CNST_027)
    * - BR-AUD-03
      - Solo Lectura
      - La consulta de auditoria es exclusivamente de lectura
    * - BR-AUD-04
      - Retencion
-     - Datos disponibles por 2 anios (CNST-006)
+     - Datos disponibles por 2 anios (CNST_015)
 
 **Estructura de Registro de Auditoria:**
 
@@ -440,14 +440,14 @@ El auditor accede al modulo de auditoria.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Solo operaciones SELECT permitidas. PROHIBIDO UPDATE y DELETE sobre user_action_log.
-   * - CNST-010
+   * - CNST_027
      - Segregacion de Funciones
      - SoD-003: El rol auditor no puede coexistir con roles administrativos en el mismo usuario.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: sql
 
@@ -455,7 +455,7 @@ El auditor accede al modulo de auditoria.
    CREATE OR REPLACE FUNCTION prevent_audit_modification()
    RETURNS TRIGGER AS $$
    BEGIN
-     RAISE EXCEPTION 'CNST-009: Registros de auditoria son inmutables';
+     RAISE EXCEPTION 'CNST_025: Registros de auditoria son inmutables';
    END;
    $$ LANGUAGE plpgsql;
 
@@ -498,7 +498,7 @@ El auditor accede al modulo de auditoria.
    * - **Reglas de Negocio**
      - BR-AUD-01 a BR-AUD-04
    * - **Restricciones**
-     - CNST-009 (Inmutable), CNST-010 (SoD)
+     - CNST_025 (Inmutable), CNST_027 (SoD)
    * - **UC Relacionados**
      - UC_AUD_02 (Buscar), UC_AUD_03 (Exportar)
    * - **Actor Principal**
@@ -520,4 +520,4 @@ El auditor accede al modulo de auditoria.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-009 y CNST-010
+     - Version inicial v4.0 con CNST_025 y CNST_027

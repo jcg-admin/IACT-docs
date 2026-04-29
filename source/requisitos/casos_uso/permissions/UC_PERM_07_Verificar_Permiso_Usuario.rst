@@ -16,13 +16,22 @@
 UC_PERM_07: Verificar Permiso de Usuario
 ========================================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista funcional / catalogo cerrado del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 
 
 1. Resumen
 ----------
 
 
-El sistema verifica si un usuario tiene una capacidad específica, evaluando en orden: revocaciones excepcionales, concesiones excepcionales, y grupos asignados.
+El sistema verifica si un usuario tiene una funcion específica, evaluando en orden: revocaciones excepcionales, concesiones excepcionales, y grupos asignados.
 
 
 2. Precondiciones
@@ -30,7 +39,7 @@ El sistema verifica si un usuario tiene una capacidad específica, evaluando en 
 
 
 - Usuario autenticado
-- Capacidad a verificar existe
+- Funcion a verificar existe
 
 
 3. Algoritmo de Verificación (Orden de Precedencia)
@@ -41,7 +50,7 @@ El sistema verifica si un usuario tiene una capacidad específica, evaluando en 
 
    1. SI existe revocación excepcional activa → DENEGAR (prioridad máxima)
    2. SI existe concesión excepcional activa → CONCEDER
-   3. SI usuario tiene capacidad por algún grupo activo → CONCEDER
+   3. SI usuario tiene funcion por algún grupo activo → CONCEDER
    4. SINO → DENEGAR
 
 
@@ -87,13 +96,13 @@ El sistema verifica si un usuario tiene una capacidad específica, evaluando en 
 
 .. code-block:: text
 
-   GET /api/permisos/verificar/{usuario_id}/tiene-permiso/?capacidad={codigo}
+   GET /api/permisos/verificar/{usuario_id}/tiene-permiso/?funcion={codigo}
    Authorization: Bearer <token>
    
    Response:
    {
      "usuario_id": 123,
-     "capacidad": "sistema.vistas.dashboards.ver",
+     "funcion": "sistema.vistas.dashboards.ver",
      "tiene_permiso": true,
      "origen": "grupo",  // o "excepcional_conceder" o "excepcional_revocar"
      "verificado_en": "2025-01-09T12:00:00Z"
@@ -106,7 +115,7 @@ El sistema verifica si un usuario tiene una capacidad específica, evaluando en 
 
 
 
-Caso 1: Usuario con capacidad por grupo
+Caso 1: Usuario con funcion por grupo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Given: Usuario en grupo "Agentes" que tiene "dashboards.ver"
@@ -117,16 +126,16 @@ Caso 1: Usuario con capacidad por grupo
 Caso 2: Usuario con revocación excepcional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Given: Usuario en grupo con capacidad, PERO tiene revocación excepcional
-- When: Verificar esa capacidad
+- Given: Usuario en grupo con funcion, PERO tiene revocación excepcional
+- When: Verificar esa funcion
 - Then: tiene_permiso=false, origen="excepcional_revocar"
 
 
 Caso 3: Usuario con concesión excepcional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Given: Usuario sin grupo que tenga la capacidad, PERO tiene concesión
-- When: Verificar esa capacidad
+- Given: Usuario sin grupo que tenga la funcion, PERO tiene concesión
+- When: Verificar esa funcion
 - Then: tiene_permiso=true, origen="excepcional_conceder"
 
 
@@ -145,6 +154,17 @@ Changelog
 ---------
 
 
-| Versión | Fecha | Autor | Cambios |
-|---------|-------|-------|---------|
-| 1.0.0 | 2025-01-09 | Sistema | Creación inicial |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-01-09
+     - Sistema
+     - Creación inicial
+

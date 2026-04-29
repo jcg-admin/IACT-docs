@@ -50,7 +50,7 @@ un fallo o para llenar gaps detectados.
 - Solicitar reintento para rango de fechas
 - Justificacion obligatoria
 - El reintento se encola para ejecucion asincrona
-- Registro completo en auditoria (CNST-009)
+- Registro completo en auditoria (CNST_025)
 
 **Restriccion SoD:**
 
@@ -125,7 +125,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    * - POST-02
      - El reintento se encola para ejecucion
    * - POST-03
-     - Se registra RETRY_REQUEST en auditoria (CNST-009)
+     - Se registra RETRY_REQUEST en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -200,7 +200,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    PC -> RS: request_retry(dates, justification, admin)
 
    RS -> RS: validate_date_range()
-   note right: Max 2 anios CNST-006
+   note right: Max 2 anios CNST_015
 
    RS -> DB: SELECT * FROM etl_retry_requests\nWHERE status = 'PENDING'\nAND dates OVERLAP
    DB --> RS: existing_requests
@@ -220,7 +220,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    RS -> UAL: record(RETRY_REQUEST, admin, dates)
    UAL -> DB: INSERT audit
    note right of UAL
-     CNST-009: Auditoria
+     CNST_025: Auditoria
      Incluye fechas y justificacion
    end note
 
@@ -386,7 +386,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    :Crear solicitud de reintento;
    :Encolar para ejecucion;
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
    :Mostrar confirmacion;
    :Ejecutar ETL asincronamente;
    stop
@@ -444,14 +444,14 @@ El administrador solicita reintento desde errores o disponibilidad.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - El reintento lee de IVR (readonly) y escribe en Analytics. La solicitud se almacena en Analytics.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra RETRY_REQUEST con fechas, justificacion, admin solicitante y resultado.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -505,7 +505,7 @@ El administrador solicita reintento desde errores o disponibilidad.
    * - **Reglas de Negocio**
      - BR-PIP-30 a BR-PIP-33
    * - **Restricciones**
-     - CNST-003, CNST-009
+     - CNST_007, CNST_025
    * - **UC Relacionados**
      - UC_PIP_01, UC_PIP_02, UC_PIP_03
    * - **Actor Principal**

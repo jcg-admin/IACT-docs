@@ -40,8 +40,8 @@ UC_ALR_01: Configurar Umbrales
 
 Este caso de uso permite configurar los umbrales que disparan alertas
 automaticas cuando las metricas operativas superan valores criticos.
-Los umbrales se configuran por segmento (CNST-004) y los cambios
-se registran en auditoria (CNST-009).
+Los umbrales se configuran por segmento (CNST_008) y los cambios
+se registran en auditoria (CNST_025).
 
 **Caracteristicas principales:**
 
@@ -122,7 +122,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    * - POST-01
      - El umbral queda configurado y activo
    * - POST-02
-     - Se registra THRESHOLD_CONFIG en auditoria (CNST-009)
+     - Se registra THRESHOLD_CONFIG en auditoria (CNST_025)
    * - POST-03
      - El motor de alertas usa los nuevos valores
 
@@ -217,7 +217,7 @@ El gestor de alertas accede a la configuracion de umbrales.
 
    TS -> UAL: record(THRESHOLD_CONFIG)
    note right of UAL
-     CNST-009: Registra
+     CNST_025: Registra
      metrica, valores old/new
      usuario, timestamp
    end note
@@ -379,7 +379,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    endif
 
    :Seleccionar segmento destino;
-   note right: CNST-004
+   note right: CNST_008
 
    if (Existe umbral para metrica/segmento?) then (si)
      :Actualizar umbral existente;
@@ -388,7 +388,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    endif
 
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Mostrar confirmacion;
 
@@ -453,14 +453,14 @@ El gestor de alertas accede a la configuracion de umbrales.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-004
+   * - CNST_008
      - Segmentos de Datos
      - Umbrales se configuran por segmento. El gestor solo puede configurar umbrales para segmentos a los que tiene acceso.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Todo cambio de umbral se registra en UserActionLog con valores anteriores y nuevos.
 
-**Estructura de Auditoria (CNST-009):**
+**Estructura de Auditoria (CNST_025):**
 
 .. code-block:: python
 
@@ -515,7 +515,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    * - **Reglas de Negocio**
      - BR-ALR-01 a BR-ALR-04
    * - **Restricciones**
-     - CNST-004 (Segmentos), CNST-009 (Auditoria)
+     - CNST_008 (Segmentos), CNST_025 (Auditoria)
    * - **UC Relacionados**
      - UC_ALR_02 (Ver Alertas), UC_ALR_03 (Reconocer)
    * - **Actor Principal**
@@ -537,4 +537,4 @@ El gestor de alertas accede a la configuracion de umbrales.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-004 y CNST-009
+     - Version inicial v4.0 con CNST_008 y CNST_025

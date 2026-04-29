@@ -39,7 +39,7 @@ UC_LOG_01: Consultar Logs Sistema
 --------------
 
 Este caso de uso permite consultar los logs de aplicacion del sistema
-IACT. Los logs siguen formato JSON estructurado (CNST-008) para
+IACT. Los logs siguen formato JSON estructurado (CNST_024) para
 facilitar su procesamiento y analisis.
 
 **Caracteristicas principales:**
@@ -47,10 +47,10 @@ facilitar su procesamiento y analisis.
 - Consultar logs de aplicacion en tiempo real
 - Filtrar por nivel (DEBUG, INFO, WARNING, ERROR, CRITICAL)
 - Filtrar por componente/modulo
-- Formato JSON estructurado (CNST-008)
+- Formato JSON estructurado (CNST_024)
 - Visualizacion con resaltado de sintaxis
 
-**Restriccion CNST-008:**
+**Restriccion CNST_024:**
 
 .. note::
    Todos los logs del sistema utilizan formato JSON estructurado
@@ -174,7 +174,7 @@ El operador accede al visor de logs del sistema.
    FE --> O: Logs en formato JSON
 
    note right of FE
-     CNST-008: JSON estructurado
+     CNST_024: JSON estructurado
      {
        "timestamp": "2026-01-06T10:30:00Z",
        "level": "ERROR",
@@ -326,7 +326,7 @@ El operador accede al visor de logs del sistema.
 
    :Ejecutar consulta;
    :Formatear JSON con resaltado;
-   note right: CNST-008
+   note right: CNST_024
 
    :Mostrar resultados;
 
@@ -350,7 +350,7 @@ El operador accede al visor de logs del sistema.
      - Descripcion
    * - BR-LOG-01
      - Formato JSON
-     - Todos los logs usan formato JSON estructurado (CNST-008)
+     - Todos los logs usan formato JSON estructurado (CNST_024)
    * - BR-LOG-02
      - Niveles Estandar
      - DEBUG, INFO, WARNING, ERROR, CRITICAL
@@ -361,7 +361,7 @@ El operador accede al visor de logs del sistema.
      - Limite Consulta
      - Maximo 10,000 logs por consulta
 
-**Estructura JSON de Log (CNST-008):**
+**Estructura JSON de Log (CNST_024):**
 
 .. code-block:: json
 
@@ -408,7 +408,7 @@ El operador accede al visor de logs del sistema.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-008
+   * - CNST_024
      - Logs JSON
      - Todos los logs del sistema utilizan formato JSON estructurado con campos estandar para facilitar parsing y analisis.
 
@@ -447,7 +447,7 @@ El operador accede al visor de logs del sistema.
    * - **Reglas de Negocio**
      - BR-LOG-01 a BR-LOG-04
    * - **Restricciones**
-     - CNST-008 (Logs JSON)
+     - CNST_024 (Logs JSON)
    * - **UC Relacionados**
      - UC_LOG_02 (ETL), UC_LOG_03 (Buscar), UC_LOG_04 (Exportar)
    * - **Actor Principal**
@@ -469,4 +469,4 @@ El operador accede al visor de logs del sistema.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-008
+     - Version inicial v4.0 con CNST_024

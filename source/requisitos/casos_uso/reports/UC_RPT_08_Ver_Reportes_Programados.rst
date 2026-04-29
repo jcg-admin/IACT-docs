@@ -47,7 +47,7 @@ proxima ejecucion y historial de ejecuciones anteriores.
 - Ver estado de cada programacion
 - Ver proxima ejecucion programada
 - Ver historial de ejecuciones
-- Filtrado por segmento (CNST-004)
+- Filtrado por segmento (CNST_008)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -258,7 +258,7 @@ Usuario accede a reportes programados.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Solo programaciones del segmento
 
@@ -289,7 +289,7 @@ Usuario accede a reportes programados.
    * - **BReq Origen**
      - BRQ-RPT-008
    * - **Restricciones**
-     - CNST-004
+     - CNST_008
    * - **UC Relacionados**
      - UC_RPT_07
    * - **Actor Principal**

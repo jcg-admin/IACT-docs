@@ -51,9 +51,9 @@ base Analytics. Muestra metricas de ejecucion, estado actual y alertas.
 - Ver metricas: registros procesados, tiempo de ejecucion
 - Ver proxima ejecucion programada
 - Detectar retrasos o fallos
-- Solo lectura desde BD IVR (CNST-003)
+- Solo lectura desde BD IVR (CNST_007)
 
-**Arquitectura de Datos (CNST-003):**
+**Arquitectura de Datos (CNST_007):**
 
 .. note::
    El ETL lee desde BD IVR (solo lectura) y escribe en BD Analytics.
@@ -185,7 +185,7 @@ El administrador accede al dashboard de supervision del pipeline.
    ADB --> EMS: today_metrics
 
    note right of IVR
-     CNST-003: Solo lectura
+     CNST_007: Solo lectura
      No se consulta IVR
      directamente desde UI
    end note
@@ -383,10 +383,10 @@ El administrador accede al dashboard de supervision del pipeline.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Las metricas se leen de BD Analytics (etl_executions). No se accede directamente a BD IVR desde este UC.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - El acceso al dashboard no se audita individualmente para evitar sobrecarga.
 
@@ -445,7 +445,7 @@ El administrador accede al dashboard de supervision del pipeline.
    * - **Reglas de Negocio**
      - BR-PIP-01 a BR-PIP-03
    * - **Restricciones**
-     - CNST-003 (BD Dual), CNST-009
+     - CNST_007 (BD Dual), CNST_025
    * - **UC Relacionados**
      - UC_PIP_02, UC_PIP_03, UC_PIP_04
    * - **Actor Principal**

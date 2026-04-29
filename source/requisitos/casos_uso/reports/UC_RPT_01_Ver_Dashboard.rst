@@ -40,13 +40,13 @@ UC_RPT_01: Ver Dashboard
 
 Este caso de uso permite visualizar el dashboard principal con metricas
 consolidadas del call center. Los datos mostrados estan filtrados
-automaticamente por el segmento del usuario (CNST-004).
+automaticamente por el segmento del usuario (CNST_008).
 
 **Caracteristicas principales:**
 
 - Vista consolidada de KPIs principales
 - Filtrado automatico por segmento del usuario
-- Datos leidos exclusivamente de BD Analytics (CNST-003)
+- Datos leidos exclusivamente de BD Analytics (CNST_007)
 - Auto-refresh cada 30 segundos
 - Graficos de tendencia del dia
 
@@ -181,7 +181,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
 
    DS -> DB: SELECT\n  COUNT(*) as total_llamadas,\n  SUM(CASE WHEN atendida THEN 1 END) as atendidas,\n  AVG(duracion) as tmo\nFROM llamadas\nWHERE segmento_id = ?\nAND fecha = CURRENT_DATE
    note right of DB
-     CNST-003: Solo lectura
+     CNST_007: Solo lectura
      desde BD Analytics
    end note
    DB --> DS: kpis
@@ -296,7 +296,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    endif
 
    :Obtener segmento del usuario;
-   note right: CNST-004
+   note right: CNST_008
 
    if (Tiene segmento?) then (no)
      :Error sin segmento;
@@ -305,7 +305,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    endif
 
    :Consultar KPIs de Analytics;
-   note right: CNST-003
+   note right: CNST_007
 
    :Consultar tendencias;
 
@@ -332,7 +332,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
      - Descripcion
    * - BR-RPT-01
      - Filtro por Segmento
-     - El usuario solo ve datos de su segmento asignado (CNST-004)
+     - El usuario solo ve datos de su segmento asignado (CNST_008)
    * - BR-RPT-02
      - Auto Refresh
      - El dashboard se actualiza automaticamente cada 30 segundos
@@ -363,10 +363,10 @@ El usuario accede al modulo de reportes o al dashboard principal.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Los datos del dashboard se leen exclusivamente de BD Analytics. No se accede a BD IVR.
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - El filtro por segmento se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros segmentos.
 
@@ -405,7 +405,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    * - **Reglas de Negocio**
      - BR-RPT-01 a BR-RPT-04
    * - **Restricciones**
-     - CNST-003 (BD Dual), CNST-004 (Segmentos)
+     - CNST_007 (BD Dual), CNST_008 (Segmentos)
    * - **UC Relacionados**
      - UC_RPT_02 (Metricas RT), UC_RPT_03 (Historicos)
    * - **Actor Principal**
@@ -427,4 +427,4 @@ El usuario accede al modulo de reportes o al dashboard principal.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-003 y CNST-004
+     - Version inicial v4.0 con CNST_007 y CNST_008

@@ -11,6 +11,15 @@
 UC_ACC_09: Auditar Cambios Acceso
 =================================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica runtime del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_09_Auditar_Acceso`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -48,7 +57,7 @@ de segmento y permisos temporales.
 - Filtrar por usuario, fecha, tipo de accion
 - Ver detalle de cada cambio (quien, cuando, que)
 - Exportar historial para compliance
-- Solo lectura (CNST-009)
+- Solo lectura (CNST_025)
 
 **Restriccion SoD:**
 
@@ -345,7 +354,7 @@ El auditor accede al modulo de auditoria de acceso.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Los registros son solo lectura. No existen operaciones de UPDATE ni DELETE sobre user_action_log.
 
@@ -381,7 +390,7 @@ El auditor accede al modulo de auditoria de acceso.
    * - **Reglas de Negocio**
      - BR-ACC-80 a BR-ACC-82
    * - **Restricciones**
-     - CNST-009 (Auditoria Inmutable)
+     - CNST_025 (Auditoria Inmutable)
    * - **UC Relacionados**
      - UC_AUD_01, UC_AUD_02, UC_AUD_03
    * - **Actor Principal**

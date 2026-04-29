@@ -150,7 +150,7 @@ Usuario accede a reporte de colas.
    RC -> RC: get_user_segment()
    RC -> QRS: get_queue_metrics(segmento)
    QRS -> DB: SELECT cola, metricas\nFROM vista_colas\nWHERE segmento_id = ?
-   note right: CNST-003
+   note right: CNST_007
    DB --> QRS: queue_data
    QRS -> QRS: calculate_sla()
    QRS --> RC: report_data
@@ -206,7 +206,7 @@ Usuario accede a reporte de colas.
    else (si)
    endif
    :Consultar colas del segmento;
-   note right: CNST-004
+   note right: CNST_008
    if (Hay colas?) then (no)
      :Mostrar Sin colas;
      stop
@@ -267,10 +267,10 @@ Usuario accede a reporte de colas.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos de BD Analytics
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Solo colas del segmento
 
@@ -301,7 +301,7 @@ Usuario accede a reporte de colas.
    * - **BReq Origen**
      - BRQ-RPT-013
    * - **Restricciones**
-     - CNST-003, CNST-004
+     - CNST_007, CNST_008
    * - **UC Relacionados**
      - UC_RPT_12, UC_RPT_14
    * - **Actor Principal**

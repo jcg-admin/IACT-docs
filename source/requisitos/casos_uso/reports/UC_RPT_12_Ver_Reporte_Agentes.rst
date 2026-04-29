@@ -150,7 +150,7 @@ Usuario accede a reporte de agentes.
    RC -> RC: get_user_segment()
    RC -> ARS: get_agent_metrics(segmento)
    ARS -> DB: SELECT agente, metricas\nFROM vista_agentes\nWHERE segmento_id = ?
-   note right: CNST-003
+   note right: CNST_007
    DB --> ARS: agent_data
    ARS -> ARS: calculate_rankings()
    ARS --> RC: report_data
@@ -209,7 +209,7 @@ Usuario accede a reporte de agentes.
    else (si)
    endif
    :Consultar agentes del segmento;
-   note right: CNST-004
+   note right: CNST_008
    if (Hay agentes?) then (no)
      :Mostrar Sin agentes;
      stop
@@ -268,10 +268,10 @@ Usuario accede a reporte de agentes.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos de BD Analytics
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Solo agentes del segmento
 
@@ -302,7 +302,7 @@ Usuario accede a reporte de agentes.
    * - **BReq Origen**
      - BRQ-RPT-012
    * - **Restricciones**
-     - CNST-003, CNST-004
+     - CNST_007, CNST_008
    * - **UC Relacionados**
      - UC_RPT_13, UC_RPT_14
    * - **Actor Principal**

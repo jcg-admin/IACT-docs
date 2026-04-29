@@ -41,21 +41,21 @@ UC_USR_04: Eliminar Usuario
 --------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) dar de
-baja a un usuario del sistema. La eliminacion es SIEMPRE LOGICA (CNST-005),
+baja a un usuario del sistema. La eliminacion es SIEMPRE LOGICA (CNST_029),
 nunca fisica, para mantener la integridad referencial y el historial de
 auditoria.
 
 **Caracteristicas principales:**
 
-- Baja LOGICA, nunca fisica (CNST-005)
+- Baja LOGICA, nunca fisica (CNST_029)
 - Estado cambia a ELIMINADO
 - Cierre de todas las sesiones activas
 - Revocacion de todas las funciones asignadas
 - El registro permanece para auditoria
 - No se puede eliminar al propio administrador
-- Registro completo en auditoria (CNST-009)
+- Registro completo en auditoria (CNST_025)
 
-**Restriccion critica CNST-005:**
+**Restriccion critica CNST_029:**
 
 .. warning::
    La eliminacion de usuarios es SIEMPRE LOGICA. El registro permanece
@@ -91,7 +91,7 @@ auditoria.
    SYS --> AUD
 
    note right of DEL
-     CNST-005: Baja LOGICA
+     CNST_029: Baja LOGICA
      Nunca DELETE fisico
    end note
 
@@ -143,7 +143,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    * - POST-04
      - El registro permanece en base de datos (baja logica)
    * - POST-05
-     - Se registra USER_DELETE en auditoria (CNST-009)
+     - Se registra USER_DELETE en auditoria (CNST_025)
    * - POST-06
      - El usuario no puede iniciar sesion
 
@@ -195,7 +195,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
      - Registra deleted_at, deleted_by, deleted_reason
    * - 13
      - Sistema
-     - Registra USER_DELETE en UserActionLog (CNST-009)
+     - Registra USER_DELETE en UserActionLog (CNST_025)
    * - 14
      - Sistema
      - Muestra confirmacion de eliminacion
@@ -284,19 +284,19 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    AS --> US: functions_revoked
    deactivate AS
 
-   == Baja Logica (CNST-005) ==
+   == Baja Logica (CNST_029) ==
    US -> DB: UPDATE users SET\nstatus = 'ELIMINADO',\ndeleted_at = now(),\ndeleted_by = admin_id,\ndeleted_reason = reason
    note right of DB
-     CNST-005: Baja LOGICA
+     CNST_029: Baja LOGICA
      NO se ejecuta DELETE
      El registro permanece
    end note
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    US -> UAL: record(USER_DELETE, admin, user, reason)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Incluye motivo y admin
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -480,7 +480,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
 
    :Cambiar estado a ELIMINADO;
    note right
-     CNST-005
+     CNST_029
      Baja LOGICA
      NO DELETE fisico
    end note
@@ -489,7 +489,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
 
    :Registrar USER_DELETE en auditoria;
    note right
-     CNST-009
+     CNST_025
      Registro inmutable
    end note
 
@@ -540,14 +540,14 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat / Baja Logica
      - La eliminacion es SIEMPRE logica. Se ejecuta UPDATE SET status='ELIMINADO', NUNCA DELETE FROM users. El registro permanece para integridad referencial y auditoria.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra USER_DELETE en UserActionLog con: admin ejecutor, usuario eliminado, motivo, timestamp. El registro de auditoria permanece aunque el usuario este eliminado.
 
-**Implementacion CNST-005:**
+**Implementacion CNST_029:**
 
 .. code-block:: python
 
@@ -561,7 +561,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
        # Revocar funciones
        UserFunction.objects.filter(user_id=user_id).delete()
 
-       # CNST-005: Baja LOGICA, nunca DELETE fisico
+       # CNST_029: Baja LOGICA, nunca DELETE fisico
        user.status = UserStatus.ELIMINADO
        user.deleted_at = timezone.now()
        user.deleted_by = admin
@@ -610,7 +610,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    * - **Reglas de Negocio**
      - BR-USR-30 a BR-USR-35
    * - **Restricciones**
-     - CNST-005 (Baja Logica), CNST-009 (Auditoria Inmutable)
+     - CNST_029 (Baja Logica), CNST_025 (Auditoria Inmutable)
    * - **FR Derivados**
      - FR-USR-030 a FR-USR-034
    * - **UC Relacionados**
@@ -634,4 +634,4 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-005 baja logica
+     - Version inicial v4.0 con CNST_029 baja logica

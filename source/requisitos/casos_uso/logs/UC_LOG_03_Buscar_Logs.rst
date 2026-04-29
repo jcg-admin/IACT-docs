@@ -40,7 +40,7 @@ UC_LOG_03: Buscar Logs
 
 Este caso de uso permite realizar busquedas avanzadas en los logs
 del sistema utilizando texto libre o expresiones regulares.
-Los logs estan en formato JSON (CNST-008).
+Los logs estan en formato JSON (CNST_024).
 
 **Caracteristicas principales:**
 
@@ -184,7 +184,7 @@ El operador accede a la busqueda de logs.
    FE --> O: Resultados con resaltado
 
    note right of FE
-     CNST-008: Busqueda en
+     CNST_024: Busqueda en
      estructura JSON:
      - message
      - context.*
@@ -346,7 +346,7 @@ El operador accede a la busqueda de logs.
      - Correlation ID
      - Permite trazar un request completo a traves del sistema
 
-**Campos Buscables (CNST-008):**
+**Campos Buscables (CNST_024):**
 
 .. list-table::
    :widths: 25 75
@@ -375,7 +375,7 @@ El operador accede a la busqueda de logs.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-008
+   * - CNST_024
      - Logs JSON
      - Busqueda optimizada para estructura JSON
 
@@ -409,7 +409,7 @@ El operador accede a la busqueda de logs.
    * - **BReq Origen**
      - BRQ-LOG-003
    * - **Restricciones**
-     - CNST-008
+     - CNST_024
    * - **UC Relacionados**
      - UC_LOG_01, UC_LOG_04
    * - **Funcion RBAC**

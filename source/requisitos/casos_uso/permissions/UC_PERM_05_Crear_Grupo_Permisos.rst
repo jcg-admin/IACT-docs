@@ -22,7 +22,7 @@ UC_PERM_05: Crear Grupo de Permisos
 ----------
 
 
-El Administrador crea un nuevo grupo de permisos que agrupa múltiples capacidades relacionadas, facilitando la asignación masiva de permisos a usuarios.
+El Administrador crea un nuevo grupo de permisos que agrupa múltiples funciones relacionadas, facilitando la asignación masiva de permisos a usuarios.
 
 
 2. Precondiciones
@@ -37,29 +37,65 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples capacidad
 ------------------
 
 
-| Paso | Actor | Sistema |
-|------|-------|---------|
-| 1 | Accede a gestión de grupos | Muestra formulario |
-| 2 | Ingresa código único (ej: "agentes_nivel_2") | Valida formato y unicidad |
-| 3 | Ingresa nombre descriptivo | Valida no vacío |
-| 4 | Opcionalmente ingresa descripción | Valida longitud |
-| 5 | Selecciona capacidades a incluir (búsqueda) | Muestra capacidades disponibles |
-| 6 | Confirma creación | Valida al menos 1 capacidad |
-| 7 | - | Crea grupo (INSERT) |
-| 8 | - | Asocia capacidades (INSERT en grupo_capacidades) |
-| 9 | - | Registra en auditoría |
-| 10 | - | Muestra confirmación |
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - Paso
+     - Actor
+     - Sistema
+   * - 1
+     - Accede a gestión de grupos
+     - Muestra formulario
+   * - 2
+     - Ingresa código único (ej: "agentes_nivel_2")
+     - Valida formato y unicidad
+   * - 3
+     - Ingresa nombre descriptivo
+     - Valida no vacío
+   * - 4
+     - Opcionalmente ingresa descripción
+     - Valida longitud
+   * - 5
+     - Selecciona funciones a incluir (búsqueda)
+     - Muestra funciones disponibles
+   * - 6
+     - Confirma creación
+     - Valida al menos 1 funcion
+   * - 7
+     - -
+     - Crea grupo (INSERT)
+   * - 8
+     - -
+     - Asocia funciones (INSERT en grupo_capacidades)
+   * - 9
+     - -
+     - Registra en auditoría
+   * - 10
+     - -
+     - Muestra confirmación
+
 
 
 4. Reglas de Negocio
 --------------------
 
 
-| ID | Regla |
-|----|-------|
-| RN-005.1 | Código del grupo debe ser único y alfanumérico con guiones bajos |
-| RN-005.2 | Debe tener al menos 1 capacidad asociada |
-| RN-005.3 | Nombre y descripción son obligatorios |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - ID
+     - Regla
+   * - RN-005.1
+     - Código del grupo debe ser único y alfanumérico con guiones bajos
+   * - RN-005.2
+     - Debe tener al menos 1 funcion asociada
+   * - RN-005.3
+     - Nombre y descripción son obligatorios
+
 
 
 5. Datos de Entrada
@@ -129,9 +165,9 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples capacidad
    VALUES ('analistas_calidad', 'Analistas de Calidad', '...', TRUE)
    RETURNING id;
    
-   -- Asociar capacidades
+   -- Asociar funciones
    INSERT INTO grupo_capacidades (grupo_id, capacidad_id)
-   SELECT 15, id FROM capacidades
+   SELECT 15, id FROM funciones
    WHERE codigo IN ('sistema.vistas.calidad.ver', ...);
    
    COMMIT;
@@ -146,9 +182,9 @@ El Administrador crea un nuevo grupo de permisos que agrupa múltiples capacidad
 Caso 1: Creación exitosa
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Given: Código único, 3 capacidades válidas
+- Given: Código único, 3 funciones válidas
 - When: Admin crea grupo
-- Then: HTTP 201, grupo creado con 3 capacidades
+- Then: HTTP 201, grupo creado con 3 funciones
 
 
 Caso 2: Código duplicado
@@ -159,18 +195,29 @@ Caso 2: Código duplicado
 - Then: HTTP 400, error de unicidad
 
 
-Caso 3: Sin capacidades
+Caso 3: Sin funciones
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- Given: Grupo sin capacidades
+- Given: Grupo sin funciones
 - When: Admin intenta crear
-- Then: HTTP 400, "Debe seleccionar al menos 1 capacidad"
+- Then: HTTP 400, "Debe seleccionar al menos 1 funcion"
 
 
 Changelog
 ---------
 
 
-| Versión | Fecha | Autor | Cambios |
-|---------|-------|-------|---------|
-| 1.0.0 | 2025-01-09 | Sistema | Creación inicial |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-01-09
+     - Sistema
+     - Creación inicial
+

@@ -39,7 +39,7 @@ UC_LOG_02: Consultar Logs ETL
 --------------
 
 Este caso de uso permite consultar los logs especificos del proceso
-ETL que sincroniza datos desde BD IVR hacia BD Analytics (CNST-003).
+ETL que sincroniza datos desde BD IVR hacia BD Analytics (CNST_007).
 Fundamental para diagnosticar problemas de carga de datos.
 
 **Caracteristicas principales:**
@@ -48,9 +48,9 @@ Fundamental para diagnosticar problemas de carga de datos.
 - Monitoreo de sincronizacion IVR -> Analytics
 - Estado de cada ejecucion (exito, error, parcial)
 - Metricas de registros procesados
-- Formato JSON estructurado (CNST-008)
+- Formato JSON estructurado (CNST_024)
 
-**Restriccion CNST-003:**
+**Restriccion CNST_007:**
 
 .. note::
    El ETL es el UNICO mecanismo de transferencia de datos desde
@@ -189,8 +189,8 @@ El operador accede al visor de logs ETL.
    FE --> O: Detalle con logs y metricas
 
    note right of FE
-     CNST-003: IVR -> Analytics
-     CNST-008: Formato JSON
+     CNST_007: IVR -> Analytics
+     CNST_024: Formato JSON
 
      Metricas mostradas:
      - registros_leidos
@@ -324,9 +324,9 @@ El operador accede al visor de logs ETL.
    if (Ver detalle?) then (si)
      :Obtener logs de ejecucion;
      :Mostrar logs JSON;
-     note right: CNST-008
+     note right: CNST_024
      :Mostrar metricas de carga;
-     note right: CNST-003
+     note right: CNST_007
 
      if (Tiene errores?) then (si)
        :Resaltar errores;
@@ -349,7 +349,7 @@ El operador accede al visor de logs ETL.
      - Descripcion
    * - BR-LOG-10
      - Flujo ETL
-     - ETL transfiere datos IVR -> Analytics (CNST-003)
+     - ETL transfiere datos IVR -> Analytics (CNST_007)
    * - BR-LOG-11
      - Estados
      - SUCCESS, PARTIAL, FAILED, RUNNING
@@ -358,9 +358,9 @@ El operador accede al visor de logs ETL.
      - Cada ejecucion registra metricas de procesamiento
    * - BR-LOG-13
      - Formato
-     - Logs en formato JSON (CNST-008)
+     - Logs en formato JSON (CNST_024)
 
-**Estructura de Log ETL (CNST-008):**
+**Estructura de Log ETL (CNST_024):**
 
 .. code-block:: json
 
@@ -408,10 +408,10 @@ El operador accede al visor de logs ETL.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - ETL es el unico mecanismo IVR -> Analytics
-   * - CNST-008
+   * - CNST_024
      - Logs JSON
      - Formato JSON estructurado
 
@@ -445,7 +445,7 @@ El operador accede al visor de logs ETL.
    * - **BReq Origen**
      - BRQ-LOG-002
    * - **Restricciones**
-     - CNST-003, CNST-008
+     - CNST_007, CNST_024
    * - **UC Relacionados**
      - UC_LOG_01, UC_PIP_01 (Monitorear ETL)
    * - **Funcion RBAC**

@@ -43,7 +43,7 @@ UC_AUTH_01: Iniciar Sesion
 Este caso de uso permite a un usuario registrado autenticarse en el sistema
 IACT mediante sus credenciales (username y password). El sistema valida las
 credenciales, verifica el estado del usuario, aplica las restricciones de
-sesion unica (CNST-002) y genera los tokens JWT correspondientes.
+sesion unica (CNST_003) y genera los tokens JWT correspondientes.
 
 **Caracteristicas principales:**
 
@@ -53,7 +53,7 @@ sesion unica (CNST-002) y genera los tokens JWT correspondientes.
 - Throttling de intentos fallidos (5 intentos / 5 minutos)
 - Bloqueo temporal tras exceder intentos
 - Deteccion de primer login para cambio de password obligatorio
-- Registro de auditoria de todos los intentos (CNST-009)
+- Registro de auditoria de todos los intentos (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -84,7 +84,7 @@ sesion unica (CNST-002) y genera los tokens JWT correspondientes.
    SYS --> AUD
 
    note right of CLOSE
-     CNST-002: Sesion unica
+     CNST_003: Sesion unica
      Nueva sesion cierra anteriores
    end note
 
@@ -134,9 +134,9 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    * - POST-03
      - Se crea un registro de sesion activa
    * - POST-04
-     - Se cierran todas las sesiones anteriores del usuario (CNST-002)
+     - Se cierran todas las sesiones anteriores del usuario (CNST_003)
    * - POST-05
-     - Se registra el evento LOGIN_SUCCESS en auditoria (CNST-009)
+     - Se registra el evento LOGIN_SUCCESS en auditoria (CNST_025)
    * - POST-06
      - Se reinicia el contador de intentos fallidos
 
@@ -151,7 +151,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    * - POST-F1
      - Se incrementa el contador de intentos fallidos
    * - POST-F2
-     - Se registra el evento LOGIN_FAILURE en auditoria (CNST-009)
+     - Se registra el evento LOGIN_FAILURE en auditoria (CNST_025)
    * - POST-F3
      - Si se exceden 5 intentos, se bloquea temporalmente (15 min)
 
@@ -194,7 +194,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
      - Valida password contra hash almacenado (bcrypt)
    * - 10
      - Sistema
-     - Cierra todas las sesiones activas anteriores del usuario (CNST-002)
+     - Cierra todas las sesiones activas anteriores del usuario (CNST_003)
    * - 11
      - Sistema
      - Genera token de acceso JWT (expiracion: 15 minutos)
@@ -206,7 +206,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
      - Crea registro en tabla UserSession con datos de sesion
    * - 14
      - Sistema
-     - Registra evento LOGIN_SUCCESS en UserActionLog (CNST-009)
+     - Registra evento LOGIN_SUCCESS en UserActionLog (CNST_025)
    * - 15
      - Sistema
      - Reinicia contador de intentos fallidos
@@ -283,11 +283,11 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
      AS --> AC: 401 Unauthorized
    end
 
-   == Cerrar Sesiones Anteriores (CNST-002) ==
+   == Cerrar Sesiones Anteriores (CNST_003) ==
    AS -> SS: close_all_sessions(user_id)
    activate SS
    note right of SS
-     CNST-002: Sesion unica
+     CNST_003: Sesion unica
      Cierra todas las sesiones
      activas del usuario
    end note
@@ -302,11 +302,11 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    == Crear Nueva Sesion ==
    AS -> DB: INSERT INTO user_sessions\n(user_id, token, ip, user_agent)
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(LOGIN_SUCCESS, user_id, ip)
    activate UAL
    note right of UAL
-     CNST-009: Auditoria inmutable
+     CNST_025: Auditoria inmutable
      Registro append-only
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -523,7 +523,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
 
    :Cerrar sesiones anteriores;
    note right
-     CNST-002
+     CNST_003
      Sesion unica
    end note
 
@@ -535,7 +535,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
 
    :Registrar LOGIN_SUCCESS;
    note right
-     CNST-009
+     CNST_025
      Auditoria inmutable
    end note
 
@@ -593,14 +593,14 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-002
+   * - CNST_003
      - Sesion Unica
      - Al autenticar exitosamente, se cierran todas las sesiones activas anteriores del usuario mediante SessionService.close_all_sessions(). Timeout de inactividad: 15 minutos.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra en UserActionLog tanto intentos exitosos (LOGIN_SUCCESS) como fallidos (LOGIN_FAILURE, LOGIN_BLOCKED). Los registros son append-only y no pueden modificarse ni eliminarse.
 
-**Implementacion CNST-002:**
+**Implementacion CNST_003:**
 
 .. code-block:: python
 
@@ -617,7 +617,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
        )
        return count
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -676,7 +676,7 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    * - **Reglas de Negocio**
      - BR-AUTH-01, BR-AUTH-02, BR-AUTH-03, BR-AUTH-04, BR-AUTH-05, BR-AUTH-06, BR-AUTH-07
    * - **Restricciones**
-     - CNST-002 (Sesion Unica), CNST-009 (Auditoria Inmutable)
+     - CNST_003 (Sesion Unica), CNST_025 (Auditoria Inmutable)
    * - **FR Derivados**
      - FR-AUTH-001 a FR-AUTH-007
    * - **UC Relacionados**

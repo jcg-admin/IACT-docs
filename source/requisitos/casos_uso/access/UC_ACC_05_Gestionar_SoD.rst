@@ -53,7 +53,7 @@ pueden consultarse y verificar su aplicacion.
 - Generar reporte de conflictos
 - Las reglas son parte del nucleo del sistema (no modificables)
 
-**Reglas SoD Predefinidas (CNST-005):**
+**Reglas SoD Predefinidas (CNST_029):**
 
 .. warning::
    Las 3 reglas SoD son parte del nucleo de seguridad del sistema y
@@ -429,10 +429,10 @@ El administrador accede al modulo de gestion de SoD.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat / SoD
      - Las reglas SoD estan hardcodeadas en el sistema. Este UC permite consultarlas y detectar violaciones pero no modificarlas.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Las verificaciones de SoD se registran en auditoria cuando se generan reportes.
 
@@ -497,7 +497,7 @@ El administrador accede al modulo de gestion de SoD.
    * - **Reglas de Negocio**
      - BR-ACC-40 a BR-ACC-42
    * - **Restricciones**
-     - CNST-005 (SoD), CNST-009 (Auditoria)
+     - CNST_029 (SoD), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-ACC-040 a FR-ACC-042
    * - **UC Relacionados**

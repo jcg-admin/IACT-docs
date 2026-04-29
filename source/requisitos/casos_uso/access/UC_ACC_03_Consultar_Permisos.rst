@@ -11,6 +11,15 @@
 UC_ACC_03: Consultar Permisos
 =============================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica runtime del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_07_Verificar_Permiso_Usuario`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -203,7 +212,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    == Calcular Efectivos ==
    PS -> PS: merge_permissions(\ndirect, agrupador, temp)
    note right of PS
-     CNST-005: Precedencia
+     CNST_029: Precedencia
      Temporal > Directo > Agrupador
    end note
 
@@ -334,7 +343,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
 
    :Calcular permisos efectivos;
    note right
-     CNST-005
+     CNST_029
      Union de todas las fuentes
    end note
 
@@ -384,7 +393,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - Se muestran las tres fuentes de permisos separadas y su union. Se respeta precedencia para calculo de efectivos.
 
@@ -449,7 +458,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    * - **Reglas de Negocio**
      - BR-ACC-20 a BR-ACC-23
    * - **Restricciones**
-     - CNST-005 (RBAC Flat)
+     - CNST_029 (RBAC Flat)
    * - **FR Derivados**
      - FR-ACC-020 a FR-ACC-024
    * - **UC Relacionados**

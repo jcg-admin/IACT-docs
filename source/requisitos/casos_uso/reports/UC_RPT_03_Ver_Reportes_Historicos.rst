@@ -45,10 +45,10 @@ informes para toma de decisiones.
 **Caracteristicas principales:**
 
 - Consulta de datos historicos por rango de fechas
-- Rango maximo de 2 anios (CNST-006)
+- Rango maximo de 2 anios (CNST_015)
 - Agregaciones por dia, semana, mes
 - Comparacion entre periodos
-- Filtrado por segmento automatico (CNST-004)
+- Filtrado por segmento automatico (CNST_008)
 - Multiples dimensiones de analisis
 
 3. Diagrama de Caso de Uso
@@ -138,7 +138,7 @@ El usuario accede a reportes historicos desde el menu.
      - Selecciona fecha inicio y fecha fin
    * - 5
      - Sistema
-     - Valida rango no excede 2 anios (CNST-006)
+     - Valida rango no excede 2 anios (CNST_015)
    * - 6
      - Usuario
      - Selecciona tipo de agregacion (dia/semana/mes)
@@ -178,7 +178,7 @@ El usuario accede a reportes historicos desde el menu.
    FE -> RC: GET /api/reports/historical?start=X&end=Y&agg=Z
 
    RC -> RC: validate_date_range(start, end)
-   note right: CNST-006 max 2 anios
+   note right: CNST_015 max 2 anios
 
    alt rango > 2 anios
      RC --> FE: 400 Bad Request
@@ -188,7 +188,7 @@ El usuario accede a reportes historicos desde el menu.
    RC -> HS: get_historical_data(params, segmento)
 
    HS -> DB: SELECT\n  DATE_TRUNC(agregacion, fecha) as periodo,\n  SUM(llamadas) as total,\n  AVG(tmo) as tmo_prom\nFROM metricas_diarias\nWHERE segmento_id = ?\nAND fecha BETWEEN ? AND ?\nGROUP BY periodo\nORDER BY periodo
-   note right of DB: CNST-003 Analytics
+   note right of DB: CNST_007 Analytics
    DB --> HS: historical_data
 
    HS -> HS: calculate_trends()
@@ -305,7 +305,7 @@ El usuario accede a reportes historicos desde el menu.
 
    if (Rango > 2 anios?) then (si)
      :Error rango excedido;
-     note right: CNST-006
+     note right: CNST_015
      stop
    else (no)
    endif
@@ -317,7 +317,7 @@ El usuario accede a reportes historicos desde el menu.
    endif
 
    :Consultar datos historicos;
-   note right: Filtro segmento CNST-004
+   note right: Filtro segmento CNST_008
 
    :Calcular agregaciones;
    :Calcular tendencias;
@@ -344,7 +344,7 @@ El usuario accede a reportes historicos desde el menu.
      - Descripcion
    * - BR-RPT-20
      - Rango Maximo
-     - Solo se pueden consultar datos de los ultimos 2 anios (CNST-006)
+     - Solo se pueden consultar datos de los ultimos 2 anios (CNST_015)
    * - BR-RPT-21
      - Agregaciones
      - Disponibles: diaria, semanal, mensual
@@ -365,13 +365,13 @@ El usuario accede a reportes historicos desde el menu.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos historicos de BD Analytics exclusivamente
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtro automatico por segmento
-   * - CNST-006
+   * - CNST_015
      - Retencion
      - Maximo 2 anios de datos historicos consultables
 
@@ -410,7 +410,7 @@ El usuario accede a reportes historicos desde el menu.
    * - **Reglas de Negocio**
      - BR-RPT-20 a BR-RPT-23
    * - **Restricciones**
-     - CNST-003, CNST-004, CNST-006
+     - CNST_007, CNST_008, CNST_015
    * - **UC Relacionados**
      - UC_RPT_01, UC_RPT_04 (Exportar)
    * - **Actor Principal**

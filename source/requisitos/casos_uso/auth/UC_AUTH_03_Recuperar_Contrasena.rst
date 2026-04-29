@@ -43,7 +43,7 @@ UC_AUTH_03: Recuperar Contrasena
 Este caso de uso permite a un administrador de usuarios (AGR-006) generar
 una contrasena temporal para un usuario que ha olvidado sus credenciales.
 La nueva contrasena se comunica al usuario unicamente a traves del buzon
-interno del sistema (CNST-001).
+interno del sistema (CNST_001).
 
 **Caracteristicas principales:**
 
@@ -52,9 +52,9 @@ interno del sistema (CNST-001).
 - Notificacion SOLO via buzon interno (InternalMessage)
 - El usuario debe cambiar la contrasena en su primer login
 - Estado del usuario cambia a PENDIENTE_CONFIGURACION
-- Registro completo en auditoria (CNST-009)
+- Registro completo en auditoria (CNST_025)
 
-**Restriccion critica CNST-001:**
+**Restriccion critica CNST_001:**
 
 .. warning::
    NO se permite enviar la contrasena por email, SMS, webhook ni ningun
@@ -89,7 +89,7 @@ interno del sistema (CNST-001).
    SYS --> AUD
 
    note right of NOT
-     CNST-001: SOLO buzon interno
+     CNST_001: SOLO buzon interno
      NO email, NO SMS, NO webhook
    end note
 
@@ -140,11 +140,11 @@ para un usuario especifico.
    * - POST-03
      - El estado del usuario cambia a PENDIENTE_CONFIGURACION
    * - POST-04
-     - Se envia InternalMessage con la contrasena temporal (CNST-001)
+     - Se envia InternalMessage con la contrasena temporal (CNST_001)
    * - POST-05
      - Se cierran todas las sesiones activas del usuario
    * - POST-06
-     - Se registra PASSWORD_RESET en auditoria (CNST-009)
+     - Se registra PASSWORD_RESET en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -197,10 +197,10 @@ para un usuario especifico.
      - Cierra todas las sesiones activas del usuario
    * - 14
      - Sistema
-     - Crea InternalMessage con la contrasena temporal (CNST-001)
+     - Crea InternalMessage con la contrasena temporal (CNST_001)
    * - 15
      - Sistema
-     - Registra PASSWORD_RESET en UserActionLog (CNST-009)
+     - Registra PASSWORD_RESET en UserActionLog (CNST_025)
    * - 16
      - Sistema
      - Muestra confirmacion al administrador
@@ -288,22 +288,22 @@ para un usuario especifico.
    SS --> AS: sessions_closed
    deactivate SS
 
-   == Notificar via Buzon Interno (CNST-001) ==
+   == Notificar via Buzon Interno (CNST_001) ==
    AS -> IM: notify(user_id, subject, body)
    activate IM
    note right of IM
-     CNST-001: SOLO buzon interno
+     CNST_001: SOLO buzon interno
      NO email, SMS, webhook
    end note
    IM -> DB: INSERT INTO internal_messages\n(recipient_id, sender_id,\nsubject, body, created_at)
    IM --> AS: message_sent
    deactivate IM
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(PASSWORD_RESET, admin, user)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Incluye admin que ejecuto
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -497,13 +497,13 @@ para un usuario especifico.
 
    :Enviar InternalMessage con password;
    note right
-     CNST-001
+     CNST_001
      Solo buzon interno
    end note
 
    :Registrar PASSWORD_RESET en auditoria;
    note right
-     CNST-009
+     CNST_025
      Registro inmutable
    end note
 
@@ -552,14 +552,14 @@ para un usuario especifico.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicaciones Prohibidas
      - La contrasena temporal se envia UNICAMENTE via InternalMessage.notify(). Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra evento PASSWORD_RESET en UserActionLog incluyendo: admin que ejecuto, usuario afectado, timestamp e IP. El registro es inmutable.
 
-**Implementacion CNST-001:**
+**Implementacion CNST_001:**
 
 .. code-block:: python
 
@@ -570,7 +570,7 @@ para un usuario especifico.
 
        # ... actualizar usuario ...
 
-       # CNST-001: Solo InternalMessage, NO email
+       # CNST_001: Solo InternalMessage, NO email
        InternalMessage.notify(
            recipient=user,
            sender=admin,
@@ -585,7 +585,7 @@ para un usuario especifico.
        )
        # PROHIBIDO: EmailService.send(), SMSService.send(), etc.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -641,7 +641,7 @@ para un usuario especifico.
    * - **Reglas de Negocio**
      - BR-AUTH-20 a BR-AUTH-25
    * - **Restricciones**
-     - CNST-001 (No Email), CNST-009 (Auditoria Inmutable)
+     - CNST_001 (No Email), CNST_025 (Auditoria Inmutable)
    * - **FR Derivados**
      - FR-AUTH-020 a FR-AUTH-024
    * - **UC Relacionados**
@@ -665,4 +665,4 @@ para un usuario especifico.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-001 aplicada
+     - Version inicial v4.0 con CNST_001 aplicada

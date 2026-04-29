@@ -171,7 +171,7 @@ El administrador accede al modulo de disponibilidad de datos.
    ADB --> DAS: analytics_data
 
    note right of IVR
-     CNST-003: Solo lectura
+     CNST_007: Solo lectura
      Comparacion programada,
      no en tiempo real
    end note
@@ -314,7 +314,7 @@ El administrador accede al modulo de disponibilidad de datos.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - La disponibilidad se calcula comparando conteos de IVR vs Analytics. La comparacion se hace en proceso batch, no en tiempo real.
 
@@ -350,7 +350,7 @@ El administrador accede al modulo de disponibilidad de datos.
    * - **Reglas de Negocio**
      - BR-PIP-20 a BR-PIP-22
    * - **Restricciones**
-     - CNST-003 (BD Dual)
+     - CNST_007 (BD Dual)
    * - **UC Relacionados**
      - UC_PIP_01, UC_PIP_04
    * - **Actor Principal**

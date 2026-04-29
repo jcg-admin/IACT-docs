@@ -42,7 +42,7 @@ UC_USR_03: Modificar Usuario
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) modificar
 los datos de un usuario existente, incluyendo cambios de estado. Los cambios
-de estado criticos se notifican via buzon interno (CNST-001).
+de estado criticos se notifican via buzon interno (CNST_001).
 
 **Caracteristicas principales:**
 
@@ -51,9 +51,9 @@ de estado criticos se notifican via buzon interno (CNST-001).
 - Bloquear usuario (USR-007)
 - Desbloquear usuario (USR-008)
 - Reactivar usuario inactivo (USR-009)
-- El username NO es modificable (CNST-005)
-- Notificaciones via buzon interno (CNST-001)
-- Registro completo en auditoria (CNST-009)
+- El username NO es modificable (CNST_029)
+- Notificaciones via buzon interno (CNST_001)
+- Registro completo en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -90,7 +90,7 @@ de estado criticos se notifican via buzon interno (CNST-001).
    SYS --> AUD
 
    note right of NOT
-     CNST-001: Solo buzon interno
+     CNST_001: Solo buzon interno
      para cambios de estado
    end note
 
@@ -135,9 +135,9 @@ especifica (bloquear, desbloquear, reactivar).
    * - POST-01
      - Los datos del usuario se actualizan en base de datos
    * - POST-02
-     - Si cambio estado, se notifica via InternalMessage (CNST-001)
+     - Si cambio estado, se notifica via InternalMessage (CNST_001)
    * - POST-03
-     - Se registra USER_UPDATE en auditoria (CNST-009)
+     - Se registra USER_UPDATE en auditoria (CNST_025)
    * - POST-04
      - Si se bloqueo, se cierran todas las sesiones activas
 
@@ -183,7 +183,7 @@ especifica (bloquear, desbloquear, reactivar).
      - Actualiza registro en base de datos
    * - 11
      - Sistema
-     - Registra USER_UPDATE en UserActionLog (CNST-009)
+     - Registra USER_UPDATE en UserActionLog (CNST_025)
    * - 12
      - Sistema
      - Muestra confirmacion de cambios guardados
@@ -243,11 +243,11 @@ especifica (bloquear, desbloquear, reactivar).
    == Actualizar Usuario ==
    US -> DB: UPDATE users SET\nnombre = ?, apellido = ?,\nemail = ?, segmento_id = ?,\nupdated_at = now(), updated_by = ?
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    US -> UAL: record(USER_UPDATE, admin, user, changes)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Incluye campos modificados
      (old_value -> new_value)
    end note
@@ -299,7 +299,7 @@ especifica (bloquear, desbloquear, reactivar).
      - Cierra todas las sesiones activas del usuario
    * - 8a
      - Sistema
-     - Envia InternalMessage notificando bloqueo (CNST-001)
+     - Envia InternalMessage notificando bloqueo (CNST_001)
    * - 9a
      - Sistema
      - Registra USER_BLOCKED en auditoria
@@ -328,7 +328,7 @@ especifica (bloquear, desbloquear, reactivar).
      - Cambia estado a ACTIVO
    * - 6a
      - Sistema
-     - Envia InternalMessage notificando desbloqueo (CNST-001)
+     - Envia InternalMessage notificando desbloqueo (CNST_001)
    * - 7a
      - Sistema
      - Registra USER_UNBLOCKED en auditoria
@@ -357,7 +357,7 @@ especifica (bloquear, desbloquear, reactivar).
      - Cambia estado a ACTIVO
    * - 6a
      - Sistema
-     - Envia InternalMessage notificando reactivacion (CNST-001)
+     - Envia InternalMessage notificando reactivacion (CNST_001)
    * - 7a
      - Sistema
      - Registra USER_REACTIVATED en auditoria
@@ -476,7 +476,7 @@ especifica (bloquear, desbloquear, reactivar).
      :Cambiar estado a BLOQUEADO;
      :Cerrar sesiones activas;
      :Notificar via buzon;
-     note right: CNST-001
+     note right: CNST_001
 
    case (Desbloquear)
      if (Tiene USR-008?) then (no)
@@ -499,7 +499,7 @@ especifica (bloquear, desbloquear, reactivar).
    endswitch
 
    :Registrar en auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Mostrar confirmacion;
 
@@ -519,7 +519,7 @@ especifica (bloquear, desbloquear, reactivar).
      - Descripcion
    * - BR-USR-20
      - Username Inmutable
-     - El username nunca puede modificarse despues de creado (CNST-005).
+     - El username nunca puede modificarse despues de creado (CNST_029).
    * - BR-USR-21
      - Motivo Obligatorio
      - El bloqueo de usuario requiere motivo obligatorio que se registra en auditoria.
@@ -546,17 +546,17 @@ especifica (bloquear, desbloquear, reactivar).
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicaciones Prohibidas
      - Las notificaciones de cambio de estado (bloqueo, desbloqueo, reactivacion) se envian UNICAMENTE via InternalMessage. NO email, SMS ni webhooks.
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - El username es inmutable despues de la creacion. Los estados de usuario siguen transiciones definidas.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Todo cambio se registra en UserActionLog con: admin ejecutor, usuario afectado, campos modificados (valor anterior y nuevo), motivo si aplica.
 
-**Implementacion CNST-001 (Notificacion de Bloqueo):**
+**Implementacion CNST_001 (Notificacion de Bloqueo):**
 
 .. code-block:: python
 
@@ -572,7 +572,7 @@ especifica (bloquear, desbloquear, reactivar).
        # Cerrar sesiones
        SessionService.close_all_sessions(user_id)
 
-       # CNST-001: Solo InternalMessage
+       # CNST_001: Solo InternalMessage
        InternalMessage.notify(
            recipient=user,
            sender=admin,
@@ -625,7 +625,7 @@ especifica (bloquear, desbloquear, reactivar).
    * - **Reglas de Negocio**
      - BR-USR-20 a BR-USR-25
    * - **Restricciones**
-     - CNST-001 (No Email), CNST-005 (Username inmutable), CNST-009 (Auditoria)
+     - CNST_001 (No Email), CNST_029 (Username inmutable), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-USR-020 a FR-USR-024
    * - **UC Relacionados**

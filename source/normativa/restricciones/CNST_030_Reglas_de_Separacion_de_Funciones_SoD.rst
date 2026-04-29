@@ -75,6 +75,56 @@ revisor humano.
   asignacion crea un par prohibido.
 - Reporte periodico de violaciones existentes (sanity check).
 
+**Catalogo de las 3 reglas SoD vigentes (modelo v5.2.1):**
+
+.. list-table::
+   :widths: 15 30 25 20 10
+   :header-rows: 1
+
+   * - ID
+     - Nombre (ingles)
+     - Grupo A
+     - Grupo B
+     - CNST
+   * - SOD-001
+     - pipeline_audit_separation
+     - Pipeline (PIP-001..004): view_pipeline_status,
+       view_pipeline_errors, view_data_availability,
+       request_pipeline_retry
+     - Audit (AUD-001..004): view_audit_log, search_audit_log,
+       export_audit_log, generate_compliance_report
+     - CNST_030
+   * - SOD-002
+     - user_audit_separation
+     - Gestion Users criticas (4 funciones): create_users,
+       delete_users, list_users, unblock_users
+     - Audit parcial (3 funciones): view_audit_log,
+       search_audit_log, export_audit_log
+     - CNST_030
+   * - SOD-003
+     - access_audit_separation
+     - Gestion Acceso (3 funciones): assign_functions,
+       revoke_functions, manage_sod
+     - Audit (2 funciones): view_audit_log, search_audit_log
+     - CNST_030
+
+**Razon de cada regla:**
+
+- **SOD-001:** quien opera el ETL no debe auditarlo (independencia
+  operador/auditor).
+- **SOD-002:** quien gestiona usuarios no debe auditar sus propias
+  acciones de gestion.
+- **SOD-003:** quien gestiona acceso no debe auditar cambios de
+  permisos que el mismo aplico.
+
+**Aplicabilidad a custom groups (decision D-RBAC-7):**
+
+Las 3 reglas SoD aplican TANTO a system groups (AGR-001..010) como a
+**custom groups** creados via UC_PERM_05. La validacion runtime
+verifica las funciones contenidas en cualquier grupo, sin distincion
+de origen (predefinido o creable). Esto previene que admin tech
+cree un custom group que combine funciones prohibidas por SoD.
+
 2.2 Parametros
 ^^^^^^^^^^^^^^
 

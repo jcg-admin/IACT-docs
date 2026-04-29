@@ -325,7 +325,69 @@ G. Métodos de verificación (ISO 29148, Clause 6.5.2.2)
 
 ----
 
-H. Abreviaturas comunes
+H. Vocabulario RBAC unificado (canónico)
+========================================
+
+Tras la decisión arquitectónica documentada en el ADR-GOB-008 (RBAC
+Coexistencia ACC ↔ PERM), estos son los términos canónicos del modelo
+RBAC del sistema IACT. **El uso de estos términos es obligatorio** en
+toda documentación nueva del proyecto (ver CNST_033 Vocabulario
+Unificado RBAC, pendiente de creación en WP #4 v3).
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Término canónico (docs)
+     - Definición
+   * - **Función**
+     - Capacidad atómica del sistema RBAC: una acción concreta
+       verificable expresada como verbo+recurso (``view_audit_log``,
+       ``manage_sessions``, ``export_csv``). En código: ``Function``
+       (modelo Django, en inglés). Sustituye al término "Capacidad"
+       del sistema PERM granular (D-RBAC-1).
+   * - **Grupo de Permisos**
+     - Set de funciones asignables como bloque. Puede ser
+       **predefinido** (system group AGR-001..010, inmutable) o
+       **creable** dinámicamente por admin via
+       :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`.
+   * - **Agrupador**
+     - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
+       del modelo legacy v5.2.1). Equivalente a system group.
+   * - **Permiso Excepcional**
+     - Asignación directa de funciones a un usuario fuera de grupos,
+       con justificación obligatoria mínimo 20 caracteres y
+       vencimiento máximo 6 meses (ver
+       :doc:`/normativa/restricciones/CNST_031_Permisos_Temporales_Maximo_6_Meses`).
+   * - **Regla SoD**
+     - Restricción de mutual exclusion entre dos grupos
+       (Separation of Duties). El sistema declara 3 reglas:
+       SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
+       SOD-003 (access ⊕ audit). Aplican tanto a system como a
+       custom groups (ver
+       :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`).
+   * - **Verificación de Permiso**
+     - Función SQL nativa que evalúa en tiempo real si un usuario
+       tiene una función específica. Implementación PostgreSQL:
+       ``usuario_tiene_permiso(user_id, function_code)`` y la
+       variante ``verificar_permiso_y_auditar()`` que registra cada
+       verificación.
+   * - **Menú Dinámico**
+     - Estructura de navegación jerárquica calculada en runtime
+       según las funciones del usuario. Implementación PostgreSQL:
+       ``obtener_menu_usuario(user_id)``. Es la materialización UX
+       del modelo RBAC plano (CNST_029): sin él, los permisos no
+       tienen efecto visible en UI.
+   * - **AuditoriaPermiso**
+     - Tabla append-only que registra cada verificación de permiso
+       en runtime (cumple ``CNST_025`` Auditoría Inmutable). Distinta
+       de ``AuditLog`` (auditoría general del sistema) — coexisten
+       como tablas separadas con misma política inmutable
+       (decisión D-RBAC-3).
+
+----
+
+I. Abreviaturas comunes
 =======================
 
 ============ ============================================

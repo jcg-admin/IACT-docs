@@ -49,7 +49,7 @@ como cerrada y registra el evento en auditoria.
 - Invalidacion del token de acceso actual
 - Invalidacion del token de refresco
 - Cierre de la sesion activa en base de datos
-- Registro de auditoria del cierre (CNST-009)
+- Registro de auditoria del cierre (CNST_025)
 - Limpieza de datos de sesion en cliente
 
 3. Diagrama de Caso de Uso
@@ -79,7 +79,7 @@ como cerrada y registra el evento en auditoria.
    SYS --> AUD
 
    note right of AUD
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      de cierre de sesion
    end note
 
@@ -127,7 +127,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    * - POST-03
      - La sesion se marca como cerrada en base de datos
    * - POST-04
-     - Se registra evento LOGOUT en auditoria (CNST-009)
+     - Se registra evento LOGOUT en auditoria (CNST_025)
    * - POST-05
      - El usuario es redirigido a la pantalla de login
 
@@ -164,7 +164,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
      - Actualiza registro de sesion: is_active=false, closed_at=now()
    * - 8
      - Sistema
-     - Registra evento LOGOUT en UserActionLog (CNST-009)
+     - Registra evento LOGOUT en UserActionLog (CNST_025)
    * - 9
      - Sistema
      - Retorna respuesta exitosa (204 No Content)
@@ -231,11 +231,11 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    SS --> AS: session_closed
    deactivate SS
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(LOGOUT, user_id, ip)
    activate UAL
    note right of UAL
-     CNST-009: Auditoria inmutable
+     CNST_025: Auditoria inmutable
      Registro de cierre voluntario
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -403,7 +403,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
 
    :Registrar LOGOUT en auditoria;
    note right
-     CNST-009
+     CNST_025
      Registro inmutable
    end note
 
@@ -450,11 +450,11 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra evento LOGOUT en UserActionLog con user_id, IP, user_agent y timestamp. El registro es append-only y no puede modificarse.
 
-**Implementacion CNST-009:**
+**Implementacion CNST_025:**
 
 .. code-block:: python
 
@@ -511,7 +511,7 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    * - **Reglas de Negocio**
      - BR-AUTH-10, BR-AUTH-11, BR-AUTH-12, BR-AUTH-13
    * - **Restricciones**
-     - CNST-009 (Auditoria Inmutable)
+     - CNST_025 (Auditoria Inmutable)
    * - **FR Derivados**
      - FR-AUTH-010 a FR-AUTH-013
    * - **UC Relacionados**

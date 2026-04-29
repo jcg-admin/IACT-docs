@@ -40,15 +40,15 @@ UC_AUD_03: Exportar Auditoria
 
 Este caso de uso permite exportar registros de auditoria a formatos
 CSV o Excel para analisis externo o archivo. La exportacion esta
-limitada a 100,000 registros (CNST-007) y se registra en auditoria.
+limitada a 100,000 registros (CNST_017) y se registra en auditoria.
 
 **Caracteristicas principales:**
 
 - Exportar a CSV o Excel
-- Limite 100,000 registros (CNST-007)
+- Limite 100,000 registros (CNST_017)
 - Exportar resultados filtrados o busquedas
 - La propia exportacion se registra en auditoria
-- Solo lectura de datos (CNST-009)
+- Solo lectura de datos (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -140,7 +140,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
      - Cuenta registros a exportar
    * - 6
      - Sistema
-     - Valida limite 100,000 (CNST-007)
+     - Valida limite 100,000 (CNST_017)
    * - 7
      - Sistema
      - Muestra opciones de formato
@@ -184,14 +184,14 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    DB --> ES: count
 
    alt count > 100000
-     note right of ES: CNST-007
+     note right of ES: CNST_017
      ES --> AC: ExportLimitExceeded
      AC --> FE: 400 Bad Request
      FE --> A: Error: Limite 100,000 excedido
    end
 
    ES -> DB: SELECT * FROM user_action_log\nWHERE (filters)\nLIMIT 100000
-   note right of DB: CNST-009 Solo SELECT
+   note right of DB: CNST_025 Solo SELECT
    DB --> ES: records
 
    ES -> ES: generate_file(records, format)
@@ -328,7 +328,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
 
    if (Count > 100,000?) then (si)
      :Error limite;
-     note right: CNST-007
+     note right: CNST_017
      stop
    else (no)
    endif
@@ -353,7 +353,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
      - Descripcion
    * - BR-AUD-20
      - Limite Exportacion
-     - Maximo 100,000 registros por exportacion (CNST-007)
+     - Maximo 100,000 registros por exportacion (CNST_017)
    * - BR-AUD-21
      - Auditoria de Exportacion
      - Toda exportacion se registra en user_action_log
@@ -388,13 +388,13 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-007
+   * - CNST_017
      - Exportaciones
      - Limite 100,000 registros
-   * - CNST-009
+   * - CNST_025
      - Inmutable
      - Solo SELECT para obtener datos
-   * - CNST-010
+   * - CNST_027
      - SoD
      - Validar SoD-003 antes de exportar
 
@@ -428,7 +428,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    * - **BReq Origen**
      - BRQ-AUD-003
    * - **Restricciones**
-     - CNST-007, CNST-009, CNST-010
+     - CNST_017, CNST_025, CNST_027
    * - **UC Relacionados**
      - UC_AUD_01, UC_AUD_02
    * - **Funcion RBAC**

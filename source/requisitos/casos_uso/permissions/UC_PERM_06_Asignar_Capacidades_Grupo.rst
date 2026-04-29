@@ -13,8 +13,17 @@
 .. _uc-perm-06:
 
 =======================================
-UC_PERM_06: Asignar Capacidades a Grupo
+UC_PERM_06: Asignar Funciones a Grupo
 =======================================
+
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista funcional / catalogo cerrado del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
 
 
 
@@ -22,30 +31,53 @@ UC_PERM_06: Asignar Capacidades a Grupo
 ----------
 
 
-El Administrador modifica las capacidades asociadas a un grupo existente, agregando o removiendo capacidades según necesidades del negocio.
+El Administrador modifica las funciones asociadas a un grupo existente, agregando o removiendo funciones según necesidades del negocio.
 
 
 2. Flujo Principal
 ------------------
 
 
-| Paso | Actor | Sistema |
-|------|-------|---------|
-| 1 | Selecciona grupo existente | Muestra capacidades actuales |
-| 2 | Agrega nuevas capacidades | Valida que no estén ya asociadas |
-| 3 | Opcionalmente remueve capacidades | Muestra impacto en usuarios |
-| 4 | Confirma cambios | Valida grupo tenga al menos 1 capacidad |
-| 5 | - | Actualiza asociaciones (INSERT/DELETE) |
-| 6 | - | Invalida cache de todos los usuarios del grupo |
-| 7 | - | Registra auditoría |
-| 8 | - | Notifica usuarios afectados |
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - Paso
+     - Actor
+     - Sistema
+   * - 1
+     - Selecciona grupo existente
+     - Muestra funciones actuales
+   * - 2
+     - Agrega nuevas funciones
+     - Valida que no estén ya asociadas
+   * - 3
+     - Opcionalmente remueve funciones
+     - Muestra impacto en usuarios
+   * - 4
+     - Confirma cambios
+     - Valida grupo tenga al menos 1 funcion
+   * - 5
+     - -
+     - Actualiza asociaciones (INSERT/DELETE)
+   * - 6
+     - -
+     - Invalida cache de todos los usuarios del grupo
+   * - 7
+     - -
+     - Registra auditoría
+   * - 8
+     - -
+     - Notifica usuarios afectados
+
 
 
 3. Reglas de Negocio
 --------------------
 
 
-- RN-006.1: Grupo debe mantener al menos 1 capacidad
+- RN-006.1: Grupo debe mantener al menos 1 funcion
 - RN-006.2: Cambios afectan inmediatamente a todos los usuarios del grupo
 - RN-006.3: Se debe auditar cada cambio
 
@@ -74,7 +106,7 @@ El Administrador modifica las capacidades asociadas a un grupo existente, agrega
 
 .. code-block:: text
 
-   PUT /api/permisos/grupos/5/capacidades/
+   PUT /api/permisos/grupos/5/funciones/
    Authorization: Bearer <token>
 
 
@@ -83,7 +115,7 @@ El Administrador modifica las capacidades asociadas a un grupo existente, agrega
 ----------
 
 
-Al modificar capacidades de un grupo, TODOS los usuarios con ese grupo se ven afectados inmediatamente. El sistema debe:
+Al modificar funciones de un grupo, TODOS los usuarios con ese grupo se ven afectados inmediatamente. El sistema debe:
 - Invalidar cache de TODOS los usuarios del grupo
 - Notificar cambios a usuarios activos
 - Registrar en auditoría con lista de usuarios afectados
@@ -93,6 +125,17 @@ Changelog
 ---------
 
 
-| Versión | Fecha | Autor | Cambios |
-|---------|-------|-------|---------|
-| 1.0.0 | 2025-01-09 | Sistema | Creación inicial |
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Autor
+     - Cambios
+   * - 1.0.0
+     - 2025-01-09
+     - Sistema
+     - Creación inicial
+

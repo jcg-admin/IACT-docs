@@ -39,9 +39,9 @@ UC_RPT_11: Compartir Reporte
 --------------
 
 Permite compartir un reporte generado con otros usuarios del mismo
-segmento. La notificacion se envia via InternalMessage (CNST-001).
+segmento. La notificacion se envia via InternalMessage (CNST_001).
 
-**Restriccion CNST-001:** Notificaciones SOLO via InternalMessage.
+**Restriccion CNST_001:** Notificaciones SOLO via InternalMessage.
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -153,11 +153,11 @@ Usuario hace clic en Compartir desde un reporte.
    SC -> SC: verify_function(RPT-011)
    SC -> SS: share_report(report, destinatarios)
    SS -> SS: validate_same_segment()
-   note right: CNST-004
+   note right: CNST_008
    SS -> IM: notify(destinatarios, report_link)
-   note right: CNST-001
+   note right: CNST_001
    SS -> UAL: record(REPORT_SHARE)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT audit
    SS --> SC: shared
    SC --> FE: 200 OK
@@ -220,7 +220,7 @@ Usuario hace clic en Compartir desde un reporte.
    else (si)
    endif
    :Enviar via InternalMessage;
-   note right: CNST-001
+   note right: CNST_001
    :Registrar auditoria;
    stop
    @enduml
@@ -252,13 +252,13 @@ Usuario hace clic en Compartir desde un reporte.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-001
+   * - CNST_001
      - Comunicacion Interna
      - Solo InternalMessage
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Mismo segmento
-   * - CNST-009
+   * - CNST_025
      - Auditoria
      - Registro REPORT_SHARE
 
@@ -289,7 +289,7 @@ Usuario hace clic en Compartir desde un reporte.
    * - **BReq Origen**
      - BRQ-RPT-011
    * - **Restricciones**
-     - CNST-001, CNST-004, CNST-009
+     - CNST_001, CNST_008, CNST_025
    * - **Actor Principal**
      - AGR-003: agr_supervisor
    * - **Funcion RBAC**

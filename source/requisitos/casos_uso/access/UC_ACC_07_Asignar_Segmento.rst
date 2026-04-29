@@ -106,7 +106,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    * - POST-01
      - El usuario queda asignado al nuevo segmento
    * - POST-02
-     - Se registra SEGMENT_ASSIGN en auditoria (CNST-009)
+     - Se registra SEGMENT_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -285,10 +285,10 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - El segmento es parte del modelo de permisos
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra SEGMENT_ASSIGN con segmento anterior y nuevo
 
@@ -321,7 +321,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    * - **Reglas de Negocio**
      - BR-ACC-60 a BR-ACC-62
    * - **Restricciones**
-     - CNST-005, CNST-009
+     - CNST_029, CNST_025
    * - **UC Relacionados**
      - UC_ACC_06 (Gestionar Segmentos), UC_USR_01 (Crear Usuario)
    * - **Actor Principal**

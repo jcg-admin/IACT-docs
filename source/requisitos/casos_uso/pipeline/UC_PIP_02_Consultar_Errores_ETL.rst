@@ -323,10 +323,10 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Los errores se leen de BD Analytics (etl_error_details). Los errores pueden originarse en lectura de IVR o escritura en Analytics.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Los registros de error son inmutables, no pueden modificarse.
 
@@ -362,7 +362,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    * - **Reglas de Negocio**
      - BR-PIP-10 a BR-PIP-12
    * - **Restricciones**
-     - CNST-003, CNST-009
+     - CNST_007, CNST_025
    * - **UC Relacionados**
      - UC_PIP_01, UC_PIP_04
    * - **Actor Principal**

@@ -150,7 +150,7 @@ Usuario accede a reporte de campanas.
    RC -> RC: get_user_segment()
    RC -> CRS: get_campaign_metrics(segmento)
    CRS -> DB: SELECT campana, metricas\nFROM vista_campanas\nWHERE segmento_id = ?
-   note right: CNST-003
+   note right: CNST_007
    DB --> CRS: campaign_data
    CRS -> CRS: calculate_conversion_rates()
    CRS --> RC: report_data
@@ -206,7 +206,7 @@ Usuario accede a reporte de campanas.
    else (si)
    endif
    :Consultar campanas del segmento;
-   note right: CNST-004
+   note right: CNST_008
    if (Hay campanas?) then (no)
      :Mostrar Sin campanas;
      stop
@@ -267,10 +267,10 @@ Usuario accede a reporte de campanas.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos de BD Analytics
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Solo campanas del segmento
 
@@ -301,7 +301,7 @@ Usuario accede a reporte de campanas.
    * - **BReq Origen**
      - BRQ-RPT-014
    * - **Restricciones**
-     - CNST-003, CNST-004
+     - CNST_007, CNST_008
    * - **UC Relacionados**
      - UC_RPT_12, UC_RPT_13
    * - **Actor Principal**

@@ -45,9 +45,9 @@ de reporte.
 **Caracteristicas principales:**
 
 - Definir filtros por defecto para reportes
-- Filtros aplicados dentro del segmento (CNST-004)
+- Filtros aplicados dentro del segmento (CNST_008)
 - Guardar configuraciones de filtros
-- Registro de cambios en auditoria (CNST-009)
+- Registro de cambios en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -166,10 +166,10 @@ Usuario accede a configuracion de filtros.
    FE -> FC: POST /api/reports/filters
    FC -> FS: save_filter_config(config)
    FS -> FS: validate_within_segment()
-   note right: CNST-004
+   note right: CNST_008
    FS -> DB: INSERT/UPDATE filter_config
    FS -> UAL: record(FILTER_CONFIG)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT audit
    FS --> FC: saved
    FC --> FE: 200 OK
@@ -281,10 +281,10 @@ Usuario accede a configuracion de filtros.
    * - CNST
      - Nombre
      - Aplicacion
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtros dentro del segmento
-   * - CNST-009
+   * - CNST_025
      - Auditoria
      - Registro de cambios
 
@@ -315,7 +315,7 @@ Usuario accede a configuracion de filtros.
    * - **BReq Origen**
      - BRQ-RPT-009
    * - **Restricciones**
-     - CNST-004, CNST-009
+     - CNST_008, CNST_025
    * - **Actor Principal**
      - AGR-003: agr_supervisor
    * - **Funcion RBAC**

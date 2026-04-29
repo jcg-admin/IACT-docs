@@ -39,9 +39,9 @@ UC_ALR_02: Ver Alertas Activas
 --------------
 
 Este caso de uso permite visualizar las alertas activas del sistema en
-tiempo real. Solo se muestran alertas del segmento del usuario (CNST-004).
-Los datos provienen de BD Analytics (CNST-003) y las notificaciones
-se envian via InternalMessage (CNST-001).
+tiempo real. Solo se muestran alertas del segmento del usuario (CNST_008).
+Los datos provienen de BD Analytics (CNST_007) y las notificaciones
+se envian via InternalMessage (CNST_001).
 
 **Caracteristicas principales:**
 
@@ -51,7 +51,7 @@ se envian via InternalMessage (CNST-001).
 - Auto-refresh cada 30 segundos
 - Ordenamiento por severidad (criticas primero)
 
-**Restriccion CNST-001:**
+**Restriccion CNST_001:**
 
 .. warning::
    Las notificaciones de alerta se envian EXCLUSIVAMENTE via
@@ -175,7 +175,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
 
    AC -> AS: get_active_alerts(segmento)
    AS -> DB: SELECT * FROM alerts\nWHERE segmento_id = ?\nAND status = 'ACTIVE'\nORDER BY severity DESC,\ncreated_at DESC
-   note right of DB: CNST-003 BD Analytics
+   note right of DB: CNST_007 BD Analytics
    DB --> AS: alerts
    AS --> AC: alerts
    AC --> FE: 200 OK + alerts
@@ -195,7 +195,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    AS -> DB: INSERT INTO alerts
    AS -> IM: notify(subscribers, alert)
    note right of IM
-     CNST-001: SOLO
+     CNST_001: SOLO
      InternalMessage
      PROHIBIDO email/SMS
    end note
@@ -317,7 +317,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    endif
 
    :Obtener segmento del usuario;
-   note right: CNST-004
+   note right: CNST_008
 
    if (Usuario tiene segmento?) then (no)
      :Mostrar error sin segmento;
@@ -326,7 +326,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    endif
 
    :Consultar alertas activas;
-   note right: CNST-003 BD Analytics
+   note right: CNST_007 BD Analytics
 
    :Ordenar por severidad;
 
@@ -371,7 +371,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
      - Panel se actualiza cada 30 segundos
    * - BR-ALR-13
      - Solo InternalMessage
-     - Notificaciones SOLO via InternalMessage (CNST-001)
+     - Notificaciones SOLO via InternalMessage (CNST_001)
 
 **Niveles de Severidad:**
 
@@ -402,17 +402,17 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-001
+   * - CNST_001
      - Comunicacion Interna
      - Las notificaciones de alerta se envian EXCLUSIVAMENTE via InternalMessage.notify(). PROHIBIDO email, SMS o canales externos.
-   * - CNST-003
+   * - CNST_007
      - BD Dual
      - Datos de alertas se leen de BD Analytics
-   * - CNST-004
+   * - CNST_008
      - Segmentos de Datos
      - Filtro automatico por segmento del usuario
 
-**Implementacion CNST-001:**
+**Implementacion CNST_001:**
 
 .. code-block:: python
 
@@ -420,7 +420,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    class AlertNotifier:
        def notify_alert(self, alert, subscribers):
            for user in subscribers:
-               # CNST-001: SOLO InternalMessage
+               # CNST_001: SOLO InternalMessage
                InternalMessage.notify(
                    recipient=user,
                    title=f"Alerta {alert.severity}: {alert.metrica}",
@@ -467,7 +467,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    * - **Reglas de Negocio**
      - BR-ALR-10 a BR-ALR-13
    * - **Restricciones**
-     - CNST-001 (InternalMessage), CNST-003 (BD Dual), CNST-004 (Segmentos)
+     - CNST_001 (InternalMessage), CNST_007 (BD Dual), CNST_008 (Segmentos)
    * - **UC Relacionados**
      - UC_ALR_01 (Umbrales), UC_ALR_03 (Reconocer), UC_ALR_04 (Historial)
    * - **Actor Principal**
@@ -489,4 +489,4 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    * - 4.0.0
      - 2026-01-06
      - Equipo IACT
-     - Version inicial v4.0 con CNST-001
+     - Version inicial v4.0 con CNST_001

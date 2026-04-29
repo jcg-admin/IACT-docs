@@ -11,6 +11,15 @@
 UC_ACC_04: Asignar Agrupador
 ============================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica granular del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Capacidades_Grupo`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -50,9 +59,9 @@ asignacion masiva que contiene un conjunto predefinido de funciones.
 - Validacion automatica de SoD considerando todas las funciones del agrupador
 - Un usuario puede tener multiples agrupadores
 - Las funciones se heredan automaticamente
-- Registro detallado en auditoria (CNST-009)
+- Registro detallado en auditoria (CNST_025)
 
-**Concepto de Agrupador (CNST-005):**
+**Concepto de Agrupador (CNST_029):**
 
 .. note::
    Un agrupador NO es un rol. Es un mecanismo de asignacion masiva que
@@ -137,7 +146,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    * - POST-02
      - Las funciones del agrupador se agregan a los permisos efectivos
    * - POST-03
-     - Se registra AGRUPADOR_ASSIGN en auditoria (CNST-009)
+     - Se registra AGRUPADOR_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -178,13 +187,13 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
      - Valida que usuario tenga estado ACTIVO
    * - 10
      - Sistema
-     - Valida restricciones SoD (CNST-005)
+     - Valida restricciones SoD (CNST_029)
    * - 11
      - Sistema
      - Crea registro en user_agrupadores
    * - 12
      - Sistema
-     - Registra AGRUPADOR_ASSIGN en UserActionLog (CNST-009)
+     - Registra AGRUPADOR_ASSIGN en UserActionLog (CNST_025)
    * - 13
      - Sistema
      - Muestra confirmacion
@@ -247,7 +256,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    AS -> DB: SELECT function_id FROM agrupador_functions\nWHERE agrupador_id = ?
    DB --> AS: agrupador_functions
 
-   == Validar SoD (CNST-005) ==
+   == Validar SoD (CNST_029) ==
    AS -> SOD: validate(user_id, agrupador_functions)
    activate SOD
 
@@ -261,7 +270,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
 
    alt SoD violation
      note right of SOD
-       CNST-005: Separacion
+       CNST_029: Separacion
        de Funciones
      end note
      SOD --> AS: SoDViolationError
@@ -275,7 +284,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    == Asignar Agrupador ==
    AS -> DB: INSERT INTO user_agrupadores\n(user_id, agrupador_id, assigned_by, assigned_at)
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(AGRUPADOR_ASSIGN, admin, user, agrupador)
    activate UAL
    UAL -> DB: INSERT INTO user_action_log
@@ -406,7 +415,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
 
    :Validar SoD con todas las funciones;
    note right
-     CNST-005
+     CNST_029
      Considerar funciones actuales
      + funciones del agrupador
    end note
@@ -420,7 +429,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    :Crear registro en user_agrupadores;
 
    :Registrar AGRUPADOR_ASSIGN;
-   note right: CNST-009
+   note right: CNST_025
 
    :Mostrar confirmacion;
 
@@ -501,10 +510,10 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat / SoD
      - Antes de asignar agrupador, se valida SoD considerando todas las funciones que contiene mas las que ya tiene el usuario.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra AGRUPADOR_ASSIGN con: admin, usuario, agrupador asignado y lista de funciones incluidas.
 
@@ -543,7 +552,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    * - **Reglas de Negocio**
      - BR-ACC-30 a BR-ACC-33
    * - **Restricciones**
-     - CNST-005 (RBAC Flat, SoD), CNST-009 (Auditoria)
+     - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-ACC-030 a FR-ACC-033
    * - **UC Relacionados**

@@ -16,6 +16,15 @@
 UC_PERM_01: Asignar Grupo a Usuario
 ===================================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista funcional / catalogo cerrado del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 
 
 Identificación
@@ -49,7 +58,7 @@ Actor primario
 ^^^^^^^^^^^^^^
 
 - **Rol**: Administrador de Sistema
-- **Descripción**: Usuario con permisos de administración de usuarios y grupos. Tiene la capacidad `sistema.administracion.usuarios.asignar_grupos`.
+- **Descripción**: Usuario con permisos de administración de usuarios y grupos. Tiene la funcion `sistema.administracion.usuarios.asignar_grupos`.
 
 
 Actores secundarios
@@ -64,7 +73,7 @@ Precondiciones
 
 
 1. El administrador está autenticado en el sistema
-2. El administrador tiene la capacidad `sistema.administracion.usuarios.asignar_grupos`
+2. El administrador tiene la funcion `sistema.administracion.usuarios.asignar_grupos`
 3. El usuario objetivo existe en el sistema y está activo
 4. Los grupos de permisos a asignar existen y están activos
 
@@ -73,22 +82,42 @@ Flujo principal
 ---------------
 
 
-| Actor | Sistema |
-|-------|---------|
-| 1. Navega al módulo de gestión de usuarios | |
-| 2. Selecciona usuario objetivo | |
-| | 3. Muestra información del usuario actual |
-| | 4. Muestra grupos disponibles para asignar |
-| 5. Selecciona uno o más grupos de permisos | |
-| 6. [OPCIONAL] Define fecha de expiración | |
-| 7. [OPCIONAL] Ingresa motivo de asignación | |
-| 8. Confirma asignación | |
-| | 9. Valida que el administrador tiene permiso |
-| | 10. Valida que los grupos existen y están activos |
-| | 11. Crea relaciones UsuarioGrupo en base de datos |
-| | 12. Registra asignación en auditoría (AuditoriaPermiso) |
-| | 13. Muestra confirmación de éxito |
-| | 14. Actualiza vista con grupos asignados |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - 1. Navega al módulo de gestión de usuarios
+     - (vacio)
+   * - 2. Selecciona usuario objetivo
+     - (vacio)
+   * - (vacio)
+     - 3. Muestra información del usuario actual
+   * - (vacio)
+     - 4. Muestra grupos disponibles para asignar
+   * - 5. Selecciona uno o más grupos de permisos
+     - (vacio)
+   * - 6. [OPCIONAL] Define fecha de expiración
+     - (vacio)
+   * - 7. [OPCIONAL] Ingresa motivo de asignación
+     - (vacio)
+   * - 8. Confirma asignación
+     - (vacio)
+   * - (vacio)
+     - 9. Valida que el administrador tiene permiso
+   * - (vacio)
+     - 10. Valida que los grupos existen y están activos
+   * - (vacio)
+     - 11. Crea relaciones UsuarioGrupo en base de datos
+   * - (vacio)
+     - 12. Registra asignación en auditoría (AuditoriaPermiso)
+   * - (vacio)
+     - 13. Muestra confirmación de éxito
+   * - (vacio)
+     - 14. Actualiza vista con grupos asignados
+
 
 
 Flujos alternos
@@ -103,12 +132,22 @@ FA-1: Usuario ya tiene grupo asignado
 **Condición**: El usuario ya tiene asignado uno de los grupos seleccionados
 
 **Acción**:
-| Actor | Sistema |
-|-------|---------|
-| | 11.a. Sistema detecta duplicado |
-| | 11.b. Sistema ignora grupo duplicado |
-| | 11.c. Sistema continúa con otros grupos |
-| | 11.d. Sistema notifica grupos que fueron ignorados |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 11.a. Sistema detecta duplicado
+   * - (vacio)
+     - 11.b. Sistema ignora grupo duplicado
+   * - (vacio)
+     - 11.c. Sistema continúa con otros grupos
+   * - (vacio)
+     - 11.d. Sistema notifica grupos que fueron ignorados
+
 
 **Retorna a**: Paso 12
 
@@ -120,11 +159,20 @@ FA-2: Asignación temporal (con fecha de expiración)
 **Condición**: Administrador define fecha de expiración
 
 **Acción**:
-| Actor | Sistema |
-|-------|---------|
-| 6.a. Administrador selecciona fecha de expiración | |
-| | 6.b. Sistema valida que fecha es futura |
-| | 6.c. Sistema almacena fecha_expiracion |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - 6.a. Administrador selecciona fecha de expiración
+     - (vacio)
+   * - (vacio)
+     - 6.b. Sistema valida que fecha es futura
+   * - (vacio)
+     - 6.c. Sistema almacena fecha_expiracion
+
 
 **Retorna a**: Paso 7
 
@@ -136,11 +184,20 @@ FA-3: Reactivación de grupo previamente revocado
 **Condición**: Usuario tuvo el grupo pero fue desactivado
 
 **Acción**:
-| Actor | Sistema |
-|-------|---------|
-| | 11.a. Sistema detecta registro inactivo existente |
-| | 11.b. Sistema reactiva el registro (activo=TRUE) |
-| | 11.c. Sistema actualiza fecha_asignacion |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 11.a. Sistema detecta registro inactivo existente
+   * - (vacio)
+     - 11.b. Sistema reactiva el registro (activo=TRUE)
+   * - (vacio)
+     - 11.c. Sistema actualiza fecha_asignacion
+
 
 **Retorna a**: Paso 12
 
@@ -154,15 +211,25 @@ FE-1: Administrador sin permisos suficientes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Momento**: Paso 9 del flujo principal
-**Condición de error**: Administrador no tiene capacidad requerida
+**Condición de error**: Administrador no tiene funcion requerida
 
 **Manejo**:
-| Actor | Sistema |
-|-------|---------|
-| | 9.e1. Sistema detecta falta de permisos |
-| | 9.e2. Sistema registra intento en auditoría (acceso_denegado) |
-| | 9.e3. Sistema muestra error: "No tiene permisos para asignar grupos" |
-| 9.e4. Administrador reconoce error | |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 9.e1. Sistema detecta falta de permisos
+   * - (vacio)
+     - 9.e2. Sistema registra intento en auditoría (acceso_denegado)
+   * - (vacio)
+     - 9.e3. Sistema muestra error: "No tiene permisos para asignar grupos"
+   * - 9.e4. Administrador reconoce error
+     - (vacio)
+
 
 **Resultado**: Caso de uso termina sin asignación
 
@@ -174,12 +241,22 @@ FE-2: Grupo no existe o está inactivo
 **Condición de error**: Uno o más grupos seleccionados no existen o están inactivos
 
 **Manejo**:
-| Actor | Sistema |
-|-------|---------|
-| | 10.e1. Sistema valida grupos |
-| | 10.e2. Sistema identifica grupos inválidos |
-| | 10.e3. Sistema muestra error específico con nombres de grupos |
-| 10.e4. Administrador corrige selección | |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 10.e1. Sistema valida grupos
+   * - (vacio)
+     - 10.e2. Sistema identifica grupos inválidos
+   * - (vacio)
+     - 10.e3. Sistema muestra error específico con nombres de grupos
+   * - 10.e4. Administrador corrige selección
+     - (vacio)
+
 
 **Resultado**: Retorna a paso 5
 
@@ -191,11 +268,20 @@ FE-3: Usuario objetivo no existe o está inactivo
 **Condición de error**: Usuario seleccionado no existe o is_active=False
 
 **Manejo**:
-| Actor | Sistema |
-|-------|---------|
-| | 2.e1. Sistema valida existencia y estado |
-| | 2.e2. Sistema muestra error: "Usuario no encontrado o inactivo" |
-| 2.e3. Administrador selecciona otro usuario | |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 2.e1. Sistema valida existencia y estado
+   * - (vacio)
+     - 2.e2. Sistema muestra error: "Usuario no encontrado o inactivo"
+   * - 2.e3. Administrador selecciona otro usuario
+     - (vacio)
+
 
 **Resultado**: Retorna a paso 2
 
@@ -207,13 +293,24 @@ FE-4: Error de base de datos
 **Condición de error**: Fallo al escribir en base de datos
 
 **Manejo**:
-| Actor | Sistema |
-|-------|---------|
-| | 11.e1. Sistema detecta error de BD |
-| | 11.e2. Sistema hace rollback de transacción |
-| | 11.e3. Sistema registra error en logs |
-| | 11.e4. Sistema muestra error genérico al usuario |
-| 11.e5. Administrador puede reintentar | |
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Actor
+     - Sistema
+   * - (vacio)
+     - 11.e1. Sistema detecta error de BD
+   * - (vacio)
+     - 11.e2. Sistema hace rollback de transacción
+   * - (vacio)
+     - 11.e3. Sistema registra error en logs
+   * - (vacio)
+     - 11.e4. Sistema muestra error genérico al usuario
+   * - 11.e5. Administrador puede reintentar
+     - (vacio)
+
 
 **Resultado**: Caso de uso termina, datos no modificados
 
@@ -229,7 +326,7 @@ Postcondiciones de éxito
 1. El usuario tiene los grupos asignados en tabla `usuarios_grupos` con `activo=TRUE`
 2. Si se definió fecha de expiración, está almacenada en `fecha_expiracion`
 3. El registro de auditoría existe con `accion=asignacion_grupo` y `resultado=exito`
-4. El usuario puede ejercer las capacidades de los grupos asignados inmediatamente
+4. El usuario puede ejercer las funciones de los grupos asignados inmediatamente
 5. La vista `vista_grupos_usuario` refleja los nuevos grupos
 
 
@@ -247,7 +344,7 @@ Reglas de negocio vinculadas
 
 - **RN-PERM-001**: Un usuario puede tener múltiples grupos simultáneamente
 - **RN-PERM-002**: Las asignaciones temporales expiran automáticamente (verificado en queries)
-- **RN-PERM-003**: Solo usuarios con capacidad `sistema.administracion.usuarios.asignar_grupos` pueden asignar
+- **RN-PERM-003**: Solo usuarios con funcion `sistema.administracion.usuarios.asignar_grupos` pueden asignar
 - **RN-PERM-004**: Todas las asignaciones deben auditarse
 - **RN-PERM-005**: Los grupos inactivos no pueden ser asignados
 
@@ -269,7 +366,7 @@ Seguridad
 ^^^^^^^^^
 
 - Autenticación requerida (token JWT válido)
-- Autorización por capacidad (verificar antes de ejecutar)
+- Autorización por funcion (verificar antes de ejecutar)
 - Logging completo de operación (quién, qué, cuándo, dónde)
 - Protección contra CSRF en endpoints web
 
@@ -331,7 +428,7 @@ Funcionales
 ^^^^^^^^^^^
 
 - **RF-PERM-001**: API REST POST /api/usuarios/:id/asignar_grupos/
-- **RF-PERM-002**: Endpoint debe validar capacidad del solicitante
+- **RF-PERM-002**: Endpoint debe validar funcion del solicitante
 - **RF-PERM-003**: Endpoint debe crear registros en usuarios_grupos
 - **RF-PERM-004**: Endpoint debe registrar en auditoria_permisos
 - **RF-PERM-005**: Endpoint debe soportar asignación batch (múltiples grupos)
@@ -356,7 +453,7 @@ Tests de verificación
 - **TEST-PERM-004**: Verificar error cuando administrador sin permisos
 - **TEST-PERM-005**: Verificar error cuando grupo no existe
 - **TEST-PERM-006**: Verificar registro de auditoría en todos los casos
-- **TEST-PERM-007**: Verificar que usuario puede usar capacidades inmediatamente
+- **TEST-PERM-007**: Verificar que usuario puede usar funciones inmediatamente
 
 
 Diagramas

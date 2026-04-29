@@ -11,6 +11,15 @@
 UC_ACC_01: Asignar Funciones
 ============================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica granular del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_01_Asignar_Grupo_a_Usuario`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -48,12 +57,12 @@ confirmar la asignacion.
 **Caracteristicas principales:**
 
 - Asignacion de funciones atomicas individuales (44 disponibles)
-- Validacion automatica de restricciones SoD (CNST-005)
+- Validacion automatica de restricciones SoD (CNST_029)
 - Verificacion de estado del usuario (debe ser ACTIVO)
-- Registro detallado en auditoria (CNST-009)
+- Registro detallado en auditoria (CNST_025)
 - Las funciones se asignan directamente, sin jerarquia de roles
 
-**Modelo RBAC Flat (CNST-005):**
+**Modelo RBAC Flat (CNST_029):**
 
 .. note::
    IACT implementa RBAC Flat: las funciones se asignan directamente a
@@ -90,7 +99,7 @@ confirmar la asignacion.
    SYS --> AUD
 
    note right of SOD
-     CNST-005: Validar
+     CNST_029: Validar
      Separacion de Funciones
      antes de asignar
    end note
@@ -140,7 +149,7 @@ El administrador accede al modulo de control de acceso y selecciona
    * - POST-02
      - Se crean registros en tabla user_functions
    * - POST-03
-     - Se registra FUNCTION_ASSIGN en auditoria (CNST-009)
+     - Se registra FUNCTION_ASSIGN en auditoria (CNST_025)
    * - POST-04
      - Los permisos efectivos del usuario se actualizan
 
@@ -180,13 +189,13 @@ El administrador accede al modulo de control de acceso y selecciona
      - Valida que usuario tenga estado ACTIVO
    * - 9
      - Sistema
-     - Valida restricciones SoD (CNST-005)
+     - Valida restricciones SoD (CNST_029)
    * - 10
      - Sistema
      - Crea registros en user_functions
    * - 11
      - Sistema
-     - Registra FUNCTION_ASSIGN en UserActionLog (CNST-009)
+     - Registra FUNCTION_ASSIGN en UserActionLog (CNST_025)
    * - 12
      - Sistema
      - Muestra confirmacion con funciones asignadas
@@ -247,7 +256,7 @@ El administrador accede al modulo de control de acceso y selecciona
      AC --> FE: 400 Bad Request
    end
 
-   == Validar SoD (CNST-005) ==
+   == Validar SoD (CNST_029) ==
    AS -> SOD: validate(user_id, new_function_ids)
    activate SOD
 
@@ -261,7 +270,7 @@ El administrador accede al modulo de control de acceso y selecciona
 
    alt SoD violation
      note right of SOD
-       CNST-005: Separacion
+       CNST_029: Separacion
        de Funciones
      end note
      SOD --> AS: SoDViolationError\n{conflicting_functions, rule}
@@ -278,11 +287,11 @@ El administrador accede al modulo de control de acceso y selecciona
      AS -> DB: INSERT INTO user_functions\n(user_id, function_id, assigned_by, assigned_at)
    end
 
-   == Registrar Auditoria (CNST-009) ==
+   == Registrar Auditoria (CNST_025) ==
    AS -> UAL: record(FUNCTION_ASSIGN, admin, user, functions)
    activate UAL
    note right of UAL
-     CNST-009: Registro inmutable
+     CNST_025: Registro inmutable
      Detalla cada funcion asignada
    end note
    UAL -> DB: INSERT INTO user_action_log
@@ -435,7 +444,7 @@ El administrador accede al modulo de control de acceso y selecciona
 
    :Validar restricciones SoD;
    note right
-     CNST-005
+     CNST_029
      Separacion de Funciones
    end note
 
@@ -450,7 +459,7 @@ El administrador accede al modulo de control de acceso y selecciona
 
    :Registrar FUNCTION_ASSIGN;
    note right
-     CNST-009
+     CNST_025
      Auditoria inmutable
    end note
 
@@ -521,14 +530,14 @@ El administrador accede al modulo de control de acceso y selecciona
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat / SoD
      - Antes de asignar, se validan las 3 restricciones SoD. Si la combinacion de funciones actuales + nuevas viola alguna regla, se rechaza la operacion.
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra FUNCTION_ASSIGN en UserActionLog con: admin ejecutor, usuario destino, lista de funciones asignadas, timestamp.
 
-**Implementacion CNST-005 (Validacion SoD):**
+**Implementacion CNST_029 (Validacion SoD):**
 
 .. code-block:: python
 
@@ -594,7 +603,7 @@ El administrador accede al modulo de control de acceso y selecciona
    * - **Reglas de Negocio**
      - BR-ACC-01 a BR-ACC-05
    * - **Restricciones**
-     - CNST-005 (RBAC Flat, SoD), CNST-009 (Auditoria)
+     - CNST_029 (RBAC Flat, SoD), CNST_025 (Auditoria)
    * - **FR Derivados**
      - FR-ACC-001 a FR-ACC-005
    * - **UC Relacionados**

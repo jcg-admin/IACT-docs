@@ -70,12 +70,91 @@ en permisos efectivos opacos al revisor.
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-- Unidad atomica: funcion (action sobre un recurso, ej.
-  ``alertas.crear``).
-- Grupo: conjunto de funciones agrupadas por rol de negocio.
-- Asignacion: usuario en N grupos, no roles directos sobre usuario.
+- Unidad atomica: **Funcion** (vocabulario canonico,
+  :doc:`CNST_033_Vocabulario_Unificado_RBAC`). Una accion concreta
+  expresada como verbo+recurso, ej. ``manage_sessions``,
+  ``view_reports``, ``export_csv``.
+- **Grupo de Permisos**: conjunto de funciones asignables como bloque.
+- **Asignacion**: usuario en N grupos. No hay asignacion directa de
+  funciones a usuarios (excepto via Permisos Excepcionales,
+  :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`).
 - Sin herencia: si un grupo deriva de otro, sus funciones se copian
   explicitamente.
+
+**Catalogo de Grupos predefinidos (system groups, inmutables):**
+
+.. list-table::
+   :widths: 12 30 13 25 20
+   :header-rows: 1
+
+   * - ID
+     - Nombre (ingles)
+     - # Funciones
+     - Actor tipico
+     - Tipo
+   * - AGR-001
+     - basic_operator_group
+     - 6
+     - Operador
+     - system
+   * - AGR-002
+     - report_viewer_group
+     - 8
+     - Analista
+     - system
+   * - AGR-003
+     - quality_supervisor_group
+     - 11
+     - Supervisor
+     - system
+   * - AGR-004
+     - data_exporter_group
+     - 14
+     - Data Analyst
+     - system
+   * - AGR-005
+     - alert_manager_group
+     - 6
+     - Gestor Alertas
+     - system
+   * - AGR-006
+     - user_admin_group
+     - 9
+     - Admin Usuarios
+     - system
+   * - AGR-007
+     - permission_admin_group
+     - 5
+     - Admin Permisos
+     - system
+   * - AGR-008
+     - auditor_group
+     - 4
+     - Auditor
+     - system
+   * - AGR-009
+     - pipeline_admin_group
+     - 4
+     - Admin Pipeline
+     - system
+   * - AGR-010
+     - system_admin_group
+     - 6
+     - Sysadmin
+     - system
+
+**System groups vs custom groups (decision D-RBAC-4):**
+
+Los 10 grupos AGR-001..010 son **system groups**: inmutables, no
+editables por admin. Estan definidos en seed inicial del sistema.
+
+El admin puede crear **custom groups** dinamicamente via
+:doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`,
+asignando capabilities especificas via
+:doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Capacidades_Grupo`.
+
+Las reglas SoD (:doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`)
+aplican TANTO a system groups como a custom groups.
 
 2.2 Parametros
 ^^^^^^^^^^^^^^

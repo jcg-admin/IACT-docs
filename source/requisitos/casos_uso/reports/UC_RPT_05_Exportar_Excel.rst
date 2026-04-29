@@ -48,8 +48,8 @@ hojas de calculo.
 - Formato enriquecido con estilos
 - Graficos embebidos opcionales
 - Multiples hojas por tipo de dato
-- Limite 100,000 registros (CNST-007)
-- Auditoria obligatoria (CNST-009)
+- Limite 100,000 registros (CNST_017)
+- Auditoria obligatoria (CNST_025)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -114,7 +114,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    * - POST-01
      - Se genera archivo XLSX con datos formateados
    * - POST-02
-     - Se registra EXPORT_EXCEL en auditoria (CNST-009)
+     - Se registra EXPORT_EXCEL en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -184,7 +184,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    end
 
    ES -> DB: SELECT * FROM datos\nWHERE segmento_id = ?
-   note right: CNST-004
+   note right: CNST_008
    DB --> ES: data
 
    ES -> ES: create_workbook()
@@ -194,7 +194,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    ES -> ES: add_filters()
 
    ES -> UAL: record(EXPORT_EXCEL)
-   note right: CNST-009
+   note right: CNST_025
    UAL -> DB: INSERT audit
 
    ES --> EC: xlsx_file
@@ -304,13 +304,13 @@ El usuario hace clic en Exportar Excel desde un reporte.
 
    if (Count > 100,000?) then (si)
      :Error limite;
-     note right: CNST-007
+     note right: CNST_017
      stop
    else (no)
    endif
 
    :Aplicar filtro segmento;
-   note right: CNST-004
+   note right: CNST_008
 
    :Crear workbook;
 
@@ -323,7 +323,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    :Agregar filtros Excel;
 
    :Registrar auditoria;
-   note right: CNST-009
+   note right: CNST_025
 
    :Descargar archivo;
 
@@ -379,13 +379,13 @@ El usuario hace clic en Exportar Excel desde un reporte.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-004
+   * - CNST_008
      - Segmentos
      - Filtro automatico por segmento
-   * - CNST-007
+   * - CNST_017
      - Exportaciones
      - Limite 100,000 registros
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Registro EXPORT_EXCEL con detalles
 
@@ -421,7 +421,7 @@ El usuario hace clic en Exportar Excel desde un reporte.
    * - **Reglas de Negocio**
      - BR-RPT-40 a BR-RPT-42
    * - **Restricciones**
-     - CNST-004, CNST-007, CNST-009
+     - CNST_008, CNST_017, CNST_025
    * - **UC Relacionados**
      - UC_RPT_04 (CSV), UC_RPT_06 (PDF)
    * - **Actor Principal**

@@ -11,6 +11,15 @@
 UC_ACC_08: Permiso Temporal
 ===========================
 
+.. note:: Vista alternativa (coexistencia ACC ↔ PERM)
+
+   Este UC representa una vista del modelo RBAC. La
+   vista tecnica runtime del mismo concepto esta en
+   :doc:`/requisitos/casos_uso/permissions/UC_PERM_03_Conceder_Permiso_Excepcional`
+   (o equivalente). Ambas coexisten per
+   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+
+
 1. Resumen
 ----------
 
@@ -45,7 +54,7 @@ proyectos especiales o accesos limitados en tiempo.
 **Caracteristicas principales:**
 
 - Asignar funciones con fecha de inicio y fin
-- Maximo 6 meses de duracion (CNST-005)
+- Maximo 6 meses de duracion (CNST_029)
 - Justificacion obligatoria
 - Validacion SoD igual que permisos permanentes
 - Expiracion automatica por el sistema
@@ -189,7 +198,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    AC -> TPS: grant_temp_permission(data)
 
    TPS -> TPS: validate_duration(inicio, fin)
-   note right: Max 6 meses CNST-005
+   note right: Max 6 meses CNST_029
 
    TPS -> SOD: validate(user_id, [function])
    SOD --> TPS: valid o SoDViolation
@@ -381,10 +390,10 @@ El administrador selecciona asignar permiso temporal a un usuario.
    * - CNST
      - Nombre
      - Aplicacion en este UC
-   * - CNST-005
+   * - CNST_029
      - RBAC Flat
      - Permisos temporales max 6 meses, con justificacion obligatoria
-   * - CNST-009
+   * - CNST_025
      - Auditoria Inmutable
      - Se registra TEMP_PERMISSION_GRANT con justificacion y fechas
 
@@ -420,7 +429,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    * - **Reglas de Negocio**
      - BR-ACC-70 a BR-ACC-74
    * - **Restricciones**
-     - CNST-005, CNST-009
+     - CNST_029, CNST_025
    * - **UC Relacionados**
      - UC_ACC_01, UC_ACC_03
    * - **Actor Principal**
