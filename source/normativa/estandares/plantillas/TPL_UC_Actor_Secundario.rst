@@ -35,6 +35,7 @@ declarar el siguiente bloque de metadata:
  :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
 -----------------------
+
 Estructura del template
 -----------------------
 
@@ -47,6 +48,7 @@ Estructura del template
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -95,6 +97,7 @@ NO use este template para:
 5. **Integracion:** Entender sistemas externos involucrados
 
 ----------------------
+
 1. DIAGRAMA DE ACTORES
 ----------------------
 
@@ -194,6 +197,7 @@ Visualizar graficamente los actores y sus relaciones en el UC.
    - Analista solicito consulta original
 
 -----------------------------
+
 2. TABLA DE RESPONSABILIDADES
 -----------------------------
 
@@ -323,6 +327,7 @@ Restricciones:
 - Acceso: Via usuario de servicio iact-app
 
 -------------------------------------
+
 3. FLUJO CON INTERACCIONES DETALLADAS
 -------------------------------------
 
@@ -575,6 +580,7 @@ En paso 4, si Supervisor selecciona Rechazar:
  4e. UC termina, consulta no se ejecuta
 
 ---------------------------
+
 4. CODIGO DE NOTIFICACIONES
 ---------------------------
 
@@ -739,6 +745,7 @@ Documentar codigo especifico de comunicacion entre actores.
  )
 
 -----------
+
 REFERENCIAS
 -----------
 

@@ -38,6 +38,7 @@ TRZ-IACT-MOD-NN: Matriz de Trazabilidad - Modulo
 **Clasificacion:** C2 - INTERNAL
 
 ------------
+
 INTRODUCCION
 ------------
 
@@ -97,6 +98,7 @@ hasta su implementacion final (codigo, tests).
 - Facilita onboarding de nuevos miembros
 
 ------------------------
+
 1. TRAZABILIDAD BACKWARD
 ------------------------
 
@@ -189,6 +191,7 @@ Desde Codigo/Tests hacia el origen del requisito.
 - Huerfanos (sin FR): 0
 
 -----------------------
+
 2. TRAZABILIDAD FORWARD
 -----------------------
 
@@ -282,6 +285,7 @@ BR-IACT-053:
 - Estado: 100% implementado
 
 --------------------------
+
 3. TRAZABILIDAD HORIZONTAL
 --------------------------
 
@@ -350,6 +354,7 @@ Dependencias entre componentes del mismo nivel.
    - UC-AUTH-05 (Listar Notificaciones)
 
 ----------------------
+
 4. MATRIZ RTM COMPLETA
 ----------------------
 
@@ -529,6 +534,7 @@ Tabla maestra con toda la trazabilidad en un solo lugar.
    - OK
 
 -------------------
+
 5. ANALISIS DE GAPS
 -------------------
 
@@ -582,6 +588,7 @@ Estado: No hay codigo huerfano
 Accion: Crear test_visualizations.py::test_kpi_card
 
 ---------------------------------
+
 6. ANALISIS DE IMPACTO DE CAMBIOS
 ---------------------------------
 
@@ -631,6 +638,7 @@ Analizar impacto si un componente cambia.
 - Requiere: Regression testing completo
 
 ------------------------------
+
 7. MATRIZ DE RESPONSABILIDADES
 ------------------------------
 
@@ -680,6 +688,7 @@ Quien es responsable de cada componente.
    - Tech Lead
 
 ---------------------------
+
 8. HISTORIAL DE CAMBIOS RTM
 ---------------------------
 
@@ -709,6 +718,7 @@ Rastrear cambios en la matriz de trazabilidad.
    - Ana Lopez
 
 -----------
+
 REFERENCIAS
 -----------
 

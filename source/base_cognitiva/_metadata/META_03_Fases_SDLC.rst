@@ -25,6 +25,7 @@ Este documento define las fases del ciclo de vida de desarrollo de software
 metodológico que contextualiza toda la documentación del sistema.
 
 --------------------------
+
 2. Modelo de Ciclo de Vida
 --------------------------
 
@@ -41,6 +42,7 @@ y la organización.
 - Compatible con prácticas ágiles dentro de cada iteración.
 
 ---------------------
+
 3. Fases del Proyecto
 ---------------------
 
@@ -238,6 +240,7 @@ y la organización.
 - Proyecto cerrado formalmente.
 
 -----------------------------
+
 4. Estado Actual del Proyecto
 -----------------------------
 
@@ -258,6 +261,7 @@ y la organización.
    - LCA (Lifecycle Architecture)
 
 ---------------------------------
+
 5. Relación Fases-Artefactos IACT
 ---------------------------------
 
@@ -310,6 +314,7 @@ principales tipos de artefactos del modelo IACT:
    - Cerrar
 
 --------------
+
 6. Referencias
 --------------
 
@@ -327,6 +332,7 @@ principales tipos de artefactos del modelo IACT:
    - :doc:`META_05_Estructura_Documental`
 
 --------------------
+
 Historial de Cambios
 --------------------
 

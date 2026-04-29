@@ -32,6 +32,7 @@ Python
 
 DRF
 ----
+
 - **Serializers:** sufijo ``Serializer`` (``UserSerializer``).
 - **ViewSets:** sufijo ``ViewSet`` (``UserViewSet``).
 - **APIViews:** sufijo ``View`` (``LoginView``).

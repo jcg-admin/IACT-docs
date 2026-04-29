@@ -44,6 +44,7 @@ sus sinónimos aceptados y términos prohibidos, garantizando consistencia
 y eliminando ambigüedad en la documentación de requisitos.
 
 ----------------------
+
 2. Uso del Vocabulario
 ----------------------
 
@@ -66,6 +67,7 @@ Este documento debe consultarse:
 - Si se necesita un término nuevo, solicitar aprobación al BA Lead
 
 -------------------------
+
 3. Vocabulario de Actores
 -------------------------
 
@@ -90,6 +92,7 @@ Este documento debe consultarse:
    - Centralita, PBX, Call Center
 
 -------------------
+
 4. Vocabulario RBAC
 -------------------
 
@@ -199,6 +202,7 @@ Los 6 segmentos definidos:
    - Datos agregados para toma de decisiones
 
 -------------------------
+
 5. Vocabulario de Negocio
 -------------------------
 
@@ -229,6 +233,7 @@ Los 6 segmentos definidos:
    - Documento, Listado, Export
 
 --------------------------
+
 6. Vocabulario de Acciones
 --------------------------
 
@@ -320,6 +325,7 @@ Los 6 segmentos definidos:
    - dar, poner, setear
 
 ---------------------------------
+
 7. Vocabulario de Cuantificadores
 ---------------------------------
 
@@ -347,6 +353,7 @@ Los 6 segmentos definidos:
    - ni uno, nada de
 
 -----------------------------
+
 8. Vocabulario de Condiciones
 -----------------------------
 
@@ -377,6 +384,7 @@ Los 6 segmentos definidos:
    - posterior a
 
 -------------------------------
+
 9. Términos Técnicos Permitidos
 -------------------------------
 
@@ -405,6 +413,7 @@ cuando se refieren a conceptos específicos del sistema:
    - Tiempo límite de sesión o operación
 
 ---------------------------
+
 10. Checklist de Validación
 ---------------------------
 
@@ -430,6 +439,7 @@ Al escribir o revisar una regla de negocio, verificar:
    - Los términos técnicos están en la lista permitida
 
 -------------------------
+
 11. Proceso de Ampliación
 -------------------------
 
@@ -444,6 +454,7 @@ Para agregar un nuevo término al vocabulario controlado:
 7. Se notifica al equipo el nuevo término
 
 ---------------
+
 12. Referencias
 ---------------
 
@@ -463,6 +474,7 @@ Para agregar un nuevo término al vocabulario controlado:
    - Ver glosario del sistema
 
 --------------------
+
 Historial de Cambios
 --------------------
 

@@ -42,6 +42,7 @@ UC-IACT-MOD-NN: Nombre del Use Case
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -90,6 +91,7 @@ beneficios:
 5. UC Formal Resultante
 
 ---------------------------
+
 1. CONTEXTO DEL STAKEHOLDER
 ---------------------------
 
@@ -180,6 +182,7 @@ Entender necesidades de reportes operacionales para metricas IVR
 y problemas actuales con performance del sistema de consultas.
 
 -------------------------------------
+
 2. NARRATIVA ORIGINAL DEL STAKEHOLDER
 -------------------------------------
 
@@ -342,6 +345,7 @@ o copiar y pegar en Excel manualmente."
 BA: "Perfecto, lo notamos. Gracias por tu tiempo."
 
 ---------------------------
+
 3. EXTRACCION DE REQUISITOS
 ---------------------------
 
@@ -502,6 +506,7 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
    - Exportar reporte a Excel
 
 ----------------------------
+
 4. MAPEO A COMPONENTES DE UC
 ----------------------------
 
@@ -583,6 +588,7 @@ Transformar la narrativa informal en componentes formales de UC.
    - FE-1: Timeout de Base de Datos
 
 -----------------------
+
 5. UC FORMAL RESULTANTE
 -----------------------
 
@@ -717,6 +723,7 @@ BR-IACT-028: Aprobacion de Consultas Grandes (umbral 10,000)
 BR-IACT-053: Calculo de Tasa de Abandono
 
 -----------
+
 REFERENCIAS
 -----------
 

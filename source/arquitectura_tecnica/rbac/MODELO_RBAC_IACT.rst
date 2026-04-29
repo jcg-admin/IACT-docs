@@ -32,9 +32,7 @@ MODELO RBAC IACT
 Sistema IACT - IVR Analytics Customer Tracking
 ===============================================
 
-
-----
-**Proyecto:** IACT-2025-001 
+**Proyecto:** IACT-2025-001
 **Documento:** IACT-RBAC-001-v5.2.1 
 **Título:** Modelo de Control de Acceso Basado en Funciones Atómicas 
 **Versión:** 5.2.1 - Clean Code Completo + 42 Funciones 
@@ -42,6 +40,7 @@ Sistema IACT - IVR Analytics Customer Tracking
 **Estado:** Listo para Implementación
 
 ----
+
 CONTROL DE CAMBIOS
 ==================
 
@@ -109,6 +108,7 @@ Cambios v5.2.0 → v5.2.1
 
 
 ----
+
 ESTÁNDAR DE NOMENCLATURA v5.2.1
 ===============================
 
@@ -137,14 +137,13 @@ ESTÁNDAR DE NOMENCLATURA v5.2.1
 
 
 ----
+
 TABLA DE CONTENIDO
 ==================
 
 .. contents::
    :depth: 2
    :local:
-
-----
 
 
 1. FILOSOFÍA DEL MODELO
@@ -314,6 +313,7 @@ TABLA DE CONTENIDO
 
 
 ----
+
 3.2 MOD_Users (9 funciones)
 ---------------------------
 
@@ -396,6 +396,7 @@ TABLA DE CONTENIDO
 
 
 ----
+
 3.3 MOD_Access (5 funciones)
 ----------------------------
 
@@ -453,6 +454,7 @@ TABLA DE CONTENIDO
 - CNST-005: Permisos temporales: justificación mín 20 chars, vencimiento máx 6 meses
 
 ----
+
 3.4 MOD_Pipeline (4 funciones)
 ------------------------------
 
@@ -500,6 +502,7 @@ TABLA DE CONTENIDO
 - CNST-009: Auditar cambios críticos
 
 ------------------------------------------
+
 3.5 MOD_Reports (8 funciones) CORE NEGOCIO
 ------------------------------------------
 
@@ -592,6 +595,7 @@ TABLA DE CONTENIDO
 
 
 ----
+
 3.6 MOD_Alerts (6 funciones)
 ----------------------------
 
@@ -648,6 +652,7 @@ TABLA DE CONTENIDO
 - CNST-009: Auditar configuración de alertas
 
 ----
+
 3.7 MOD_Audit (4 funciones)
 ---------------------------
 
@@ -695,6 +700,7 @@ TABLA DE CONTENIDO
 - CNST-009: Checksum SHA-256 por registro
 
 ----
+
 3.8 MOD_Logs (2 funciones)
 --------------------------
 
@@ -837,6 +843,7 @@ AGR-001 basic_operator_group
 **Propósito:** Usuario básico que solo visualiza información.
 
 ----
+
 AGR-002 report_viewer_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -853,6 +860,7 @@ AGR-002 report_viewer_group
 **Propósito:** Analista que puede aplicar filtros pero no exportar.
 
 ----
+
 AGR-003 quality_supervisor_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -870,6 +878,7 @@ AGR-003 quality_supervisor_group
 **Propósito:** Supervisor con capacidad de configurar alertas propias.
 
 ----
+
 AGR-004 data_exporter_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -887,6 +896,7 @@ AGR-004 data_exporter_group
 **Propósito:** Analista autorizado para exportar con límites CNST-007.
 
 ----
+
 AGR-005 alert_manager_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -906,6 +916,7 @@ AGR-005 alert_manager_group
 **Propósito:** Gestor de alertas de equipo/departamento.
 
 ----
+
 AGR-006 user_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -930,6 +941,7 @@ AGR-006 user_admin_group
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
+
 AGR-007 permission_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -950,6 +962,7 @@ AGR-007 permission_admin_group
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
+
 AGR-008 auditor_group
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -972,6 +985,7 @@ AGR-008 auditor_group
 - AGR-009 (pipeline_admin_group)
 
 ----
+
 AGR-009 pipeline_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -991,6 +1005,7 @@ AGR-009 pipeline_admin_group
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
 ----
+
 AGR-010 system_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1053,6 +1068,7 @@ SOD-001 pipeline_audit_separation
 **CNST:** CNST-005
 
 ----
+
 SOD-002 user_audit_separation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1083,6 +1099,7 @@ SOD-002 user_audit_separation
 **CNST:** CNST-005
 
 ----
+
 SOD-003 access_audit_separation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -2464,6 +2481,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 ----
+
 12. RESUMEN
 ===========
 
@@ -2525,6 +2543,7 @@ Una función puede asignarse **temporalmente** con:
    - ``description`` en español
 
 ----
+
 **FIN DEL DOCUMENTO**
 
 **Versión:** 5.2.1 

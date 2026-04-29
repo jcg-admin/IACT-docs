@@ -153,7 +153,7 @@ Referencias
 ===========
 
 Ver documentación relacionada:
-- :doc:`../GUIDELINES` — Guía de uso de estilos
+- :doc:`../guidelines` — Guía de uso de estilos
 - :doc:`../color-palette` — Convenciones de colores
-- :ref:`arquitectura-tecnica` — Detalles de arquitectura
-- :ref:`requisitos` — Casos de uso funcionales
+- :doc:`/arquitectura_tecnica/index` — Detalles de arquitectura
+- :doc:`/requisitos/index` — Casos de uso funcionales

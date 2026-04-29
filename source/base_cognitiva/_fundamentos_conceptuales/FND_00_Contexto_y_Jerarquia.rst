@@ -21,6 +21,7 @@ FND_00: Contexto y Jerarquía de Documentación
 :Prerequisitos: Familiaridad con análisis de requisitos y UML básico
 
 ----
+
 1. Introducción
 ===============
 
@@ -52,6 +53,7 @@ La documentación se organiza en 3 partes:
 - **PARTE 2:** Cómo transformar Business Rules en Casos de Uso y Requisitos Funcionales
 
 ----
+
 1.2 Estructura de la Documentación base_cognitiva/
 --------------------------------------------------
 
@@ -86,6 +88,7 @@ la metodología de análisis de requisitos:
 - **TXM:** Transformación metodológica
 
 ---------------------------------
+
 1.3 Caso de Estudio: Sistema IACT
 ---------------------------------
 
@@ -150,6 +153,7 @@ El sistema IACT se compone de:
 - **CNST_001:** Solo notificaciones internas (NO email, SMS, webhook)
 
 ----
+
 1.3.2 Los 8 Módulos Funcionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -208,6 +212,7 @@ El sistema IACT se divide en 8 módulos funcionales:
 **Total:** 49 Casos de Uso, 23,401 líneas de documentación RST, 147 diagramas PlantUML
 
 ----
+
 1.3.3 Artefactos Documentados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -233,6 +238,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 - 38 Procedimientos (PROC)
 
 ----
+
 1.3.4 Estadísticas del Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -266,6 +272,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  Reglas SoD 3
 
 ----
+
 2. Ejemplo Introductorio: BR_011
 =================================
 
@@ -281,6 +288,7 @@ Este ejemplo es ideal porque:
 - Tiene implementación técnica concreta
 
 ------------------------
+
 2.1 Definición de BR_011
 ------------------------
 
@@ -317,6 +325,7 @@ Los límites se establecen por:
 - **PDF (10k):** Rendering complejo, timeout de generación a los 60 segundos
 
 -------------------------------------
+
 2.2 Casos de Uso Afectados por BR_011
 -------------------------------------
 
@@ -373,6 +382,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
  2.5 Sistema registra intento en UserActionLog (CNST_025 - Auditoria Inmutable)
 
 ----
+
 2.2.2 UC_RPT_05: Exportar Excel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -388,6 +398,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 - Validación idéntica pero con umbral diferente
 
 ----
+
 2.2.3 UC_RPT_06: Exportar PDF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -403,6 +414,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 - Timeout configurado a 60 segundos máximo
 
 ----
+
 2.2.4 UC_AUD_03: Exportar Auditoría
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -416,6 +428,7 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 de exportación para mantener consistencia en el sistema.
 
 ----
+
 2.2.5 UC_LOG_04: Exportar Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -426,6 +439,7 @@ de exportación para mantener consistencia en el sistema.
 :Aplicación BR_011: Mismos límites, principalmente CSV
 
 ------------------------------------
+
 2.3 Implementación Técnica de BR_011
 ------------------------------------
 
@@ -544,6 +558,7 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
  super.__init__(message)
 
 ----
+
 2.4 Relacion con CNST_020 (Throttling de Exportaciones)
 -------------------------------------------------------
 
@@ -595,6 +610,7 @@ Nota: el concepto antiguo de "Limites de Exportacion" del set legacy quedo distr
  "Los UC validan el límite antes de exportar"
 
 -------------------------------------
+
 2.5 Relación con Otras Business Rules
 -------------------------------------
 
@@ -639,6 +655,7 @@ llamadas del año 2024 en formato CSV:
    → Resultado: APROBADO, procede con exportación
 
 ----
+
 2.5.2 BR_019: Retención 2 Años
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -668,6 +685,7 @@ lo que ayuda a mantener el conteo dentro de los límites de BR_011.
  validate_export_limit('csv', record_count)
 
 ----
+
 3. Jerarquía de Transformación
 ===============================
 
@@ -726,6 +744,7 @@ el nivel más alto hasta el código:
 5. **CODE:** ``validate_export_limit('csv', record_count)``
 
 ------------------------------
+
 3.2 Trazabilidad Bidireccional
 ------------------------------
 
@@ -758,6 +777,7 @@ La trazabilidad permite navegar en ambas direcciones:
  └─ origina → BReq_RPT
 
 ----
+
 4. Próximos Pasos
 =================
 
@@ -782,6 +802,7 @@ OK La jerarquía de transformación de requisitos
 - ``normativa/restricciones/CNST_020_Throttling_de_Exportaciones_por_Formato.rst``
 
 ----
+
 .. note::
  
  **Nota pedagógica:**
@@ -796,6 +817,7 @@ OK La jerarquía de transformación de requisitos
  - Código Python/SQL funcional
 
 ----
+
 **Historial de Versiones**
 
 .. list-table::

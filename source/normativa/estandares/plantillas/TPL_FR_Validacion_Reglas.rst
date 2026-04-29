@@ -40,6 +40,7 @@ FR-MOD-NN-ZZ: Titulo del Functional Requirement - Validacion
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -93,6 +94,7 @@ NO use este template para:
 5. Tests exhaustivos
 
 ---------------------------
+
 1. CATALOGO DE VALIDACIONES
 ---------------------------
 
@@ -388,6 +390,7 @@ Ningún parámetro puede ser vacío, None, o solo espacios en blanco
  raise ValidationError("Segment es requerido y no puede estar vacío")
 
 -------------------------
+
 2. VALIDACION CLIENT-SIDE
 -------------------------
 
@@ -654,6 +657,7 @@ de enviar al servidor.
  export default QuarterlyReportForm;
 
 -------------------------
+
 3. VALIDACION SERVER-SIDE
 -------------------------
 
@@ -833,6 +837,7 @@ client-side.
  }, status=500)
 
 --------------------------
+
 4. TESTING DE VALIDACIONES
 --------------------------
 
@@ -985,6 +990,7 @@ Tests exhaustivos para cada regla V-N, casos validos e invalidos.
  validate_quarterly_report_parameters('Q1', 2024, '')
 
 -----------
+
 REFERENCIAS
 -----------
 

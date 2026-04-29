@@ -40,6 +40,7 @@ UC-IACT-MOD-NN: Nombre del Use Case Temporal
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -86,6 +87,7 @@ UC Temporal:
 - Sin UI, solo logs y monitoreo
 
 -------------------
+
 1. TRIGGER TEMPORAL
 -------------------
 
@@ -183,6 +185,7 @@ Cada 1 minuto, 24/7, todo el ano
 - Permisos: Acceso a BD, logs, no sudo
 
 -------------------
+
 2. FLUJO AUTOMATICO
 -------------------
 
@@ -366,6 +369,7 @@ En paso 5, si query SELECT tarda mayor 10 segundos:
  5d. Proceso termina con error, exit code 1
 
 -----------------------
+
 3. LOCKS Y CONCURRENCIA
 -----------------------
 
@@ -481,6 +485,7 @@ Genera integer hash consistente del string
 - Nivel de sesion, no de transaccion
 
 ------------------
+
 4. CODIGO COMPLETO
 ------------------
 
@@ -634,6 +639,7 @@ Codigo funcional completo del job/command.
  return rows_updated
 
 ----------------------
+
 5. MONITOREO Y ALERTAS
 ----------------------
 
@@ -795,6 +801,7 @@ Cuando enviar notificaciones:
 - Email: Resumen diario de metricas
 
 -----------
+
 REFERENCIAS
 -----------
 

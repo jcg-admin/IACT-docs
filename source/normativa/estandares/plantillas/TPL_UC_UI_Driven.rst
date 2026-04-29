@@ -40,6 +40,7 @@ UC-IACT-MOD-NN: Nombre del Use Case UI-Driven
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -85,6 +86,7 @@ UC UI-Driven:
 5. Derivacion de FR desde interacciones UI
 
 -------------------
+
 1. MOCKUP/WIREFRAME
 -------------------
 
@@ -173,6 +175,7 @@ Describir las secciones logicas:
    - Links ayuda
 
 ------------------------
+
 2. ELEMENTOS UI - INPUTS
 ------------------------
 
@@ -263,6 +266,7 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - CSS Classes: form-select, segment-selector
 
 -------------------------
+
 3. ELEMENTOS UI - BOTONES
 -------------------------
 
@@ -334,6 +338,7 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - Handler: onClick={ => handleExportPDF}
 
 -------------------------
+
 4. ELEMENTOS UI - OUTPUTS
 -------------------------
 
@@ -480,6 +485,7 @@ Documentar cada elemento de entrada (inputs) en detalle.
  </table>
 
 ---------------------------------
+
 5. INTERACCIONES Y EVENT HANDLERS
 ---------------------------------
 
@@ -720,6 +726,7 @@ Documentar todos los event handlers y la logica de interaccion.
  };
 
 ---------------------
+
 6. MENSAJES Y MODALES
 ---------------------
 
@@ -800,6 +807,7 @@ Documentar todos los event handlers y la logica de interaccion.
  }
 
 ----------------------------------------
+
 7. DERIVACION DE FUNCTIONAL REQUIREMENTS
 ----------------------------------------
 
@@ -867,6 +875,7 @@ Mapear cada interaccion UI a los FR que debe implementar.
    - FR-RPT-01-13: Exportar a PDF
 
 -----------
+
 REFERENCIAS
 -----------
 

@@ -24,6 +24,7 @@ Contextual Traceability) a nuevos miembros del equipo, explicando su filosofía,
 estructura y aplicación práctica en el proyecto.
 
 --------------
+
 2. Qué es IACT
 --------------
 
@@ -56,6 +57,7 @@ IACT aborda estos problemas mediante una estructura jerárquica gobernada,
 con reglas claras de nomenclatura y trazabilidad explícita.
 
 ---------------------------
+
 3. Principios Fundamentales
 ---------------------------
 
@@ -103,6 +105,7 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 - El descongelamiento requiere justificación formal.
 
 ------------------------
+
 4. Estructura del Modelo
 ------------------------
 
@@ -142,6 +145,7 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 Solo ``_metadata/`` es privado en el modelo actual.
 
 ------------------------------
+
 5. Flujo de Trabajo Documental
 ------------------------------
 
@@ -177,6 +181,7 @@ El modelo incluye validaciones automatizadas:
 - Subdominios congelados sin subcarpetas.
 
 ---------------------
+
 6. Guía de Onboarding
 ---------------------
 
@@ -233,6 +238,7 @@ R: Consultar la matriz RTM en ``trazabilidad/matrices/``.
 R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
 
 --------------
+
 7. Referencias
 --------------
 
@@ -252,6 +258,7 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
    - Ver glosario del sistema
 
 --------------------
+
 Historial de Cambios
 --------------------
 

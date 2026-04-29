@@ -26,6 +26,7 @@ arquitectura v2.0 del rebuild de ``source/`` (ÉPICA 8 ``source-rebuild-strategy
 Proporciona navegación rápida y visión global del sistema.
 
 --------------------
+
 2. Resumen Ejecutivo
 --------------------
 
@@ -48,6 +49,7 @@ Proporciona navegación rápida y visión global del sistema.
    - v2.0 (ÉPICA 8, 2026-04-28)
 
 -----------------------------
+
 3. Las tres capas ortogonales
 -----------------------------
 
@@ -138,6 +140,7 @@ del tiempo.
      ``retrospectives/``, ``team/``.
 
 -------------------------
+
 4. Reglas de organización
 -------------------------
 
@@ -179,6 +182,7 @@ gestado internamente debe llegar al sitio público, se re-autora
 a mano en RST en el cajón correspondiente de ``source/``.
 
 -----------------------------
+
 5. Dependencias entre cajones
 -----------------------------
 
@@ -197,6 +201,7 @@ Refs cruzadas usan ``:ref:`` con anchor explícito (no ``:doc:``
 con path) — robustez frente a futuros renombres.
 
 --------------------------------------------
+
 6. Construcción incremental de la estructura
 --------------------------------------------
 
@@ -206,6 +211,7 @@ contenido inicial está listo. Hasta entonces, el cajón puede no
 estar presente en la navegación pública aunque exista físicamente.
 
 ------------
+
 7. Historial
 ------------
 

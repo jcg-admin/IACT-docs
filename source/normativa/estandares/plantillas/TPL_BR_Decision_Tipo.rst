@@ -39,6 +39,7 @@ BR-IACT-XXX: Titulo Descriptivo de la Business Rule
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -84,6 +85,7 @@ La clasificacion determina como se implementa la BR:
  - Puede implementarse en UC temporal con actor Sistema
 
 --------------------
+
 SECCION 1: ENUNCIADO
 --------------------
 
@@ -227,6 +229,7 @@ en los ultimos 90 dias."
 Existe registro en ivr_calls con call_date >= NOW - INTERVAL '90 days'
 
 ----------------------------------------------
+
 SECCION 2: DERIVADO DE (Backward Traceability)
 ----------------------------------------------
 
@@ -429,6 +432,7 @@ Metricas:
    - menor 5/mes
 
 ----------------------------------
+
 SECCION 3: CRITERIOS DE ACEPTACION
 ----------------------------------
 
@@ -642,6 +646,7 @@ CA-5: Sistema no ejecuta query principal si no hay aprobacion
  execute_query(params)
 
 ----------------------------------
+
 SECCION 4: ANALISIS POR TIPO DE BR
 ----------------------------------
 
@@ -1538,6 +1543,7 @@ Codigo Python:
  )
 
 -------------------------------------------
+
 SECCION 5: GENERA UC (Forward Traceability)
 -------------------------------------------
 
@@ -1660,6 +1666,7 @@ Definicion (BR-IACT-001):
  - Segmentacion
 
 ----------------------------------------
+
 SECCION 6: TRAZABILIDAD FORWARD COMPLETA
 ----------------------------------------
 
@@ -1758,6 +1765,7 @@ Desde esta BR hasta codigo y tests:
    - test_create_approval
 
 -----------------------------
+
 SECCION 7: IMPACTO DE CAMBIOS
 -----------------------------
 
@@ -1905,6 +1913,7 @@ Ejemplo: Eliminar aprobacion, implementar paginacion automatica
 - Requiere: Aprobacion stakeholder, testing extenso
 
 -------------------------------
+
 SECCION 8: VALIDACION Y TESTING
 -------------------------------
 
@@ -2082,6 +2091,7 @@ A completar durante ejecucion del test
    - Firma: _______ Fecha: _____
 
 ------------------------------
+
 SECCION 9: NOTAS Y EXCEPCIONES
 ------------------------------
 
@@ -2146,6 +2156,7 @@ Excepcion 1: Usuarios Administradores
 - Trade-offs: Que se sacrifico
 
 ----------------------------------
+
 SECCION 10: HISTORIAL DE VERSIONES
 ----------------------------------
 
@@ -2185,6 +2196,7 @@ SECCION 10: HISTORIAL DE VERSIONES
  Ejemplo: Corregir typo en enunciado
 
 -----------
+
 REFERENCIAS
 -----------
 
@@ -2215,6 +2227,7 @@ REFERENCIAS
 - Regulacion o normativa
 
 ------
+
 ANEXOS
 ------
 

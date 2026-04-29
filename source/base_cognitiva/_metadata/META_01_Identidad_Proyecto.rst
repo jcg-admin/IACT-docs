@@ -38,6 +38,7 @@ META_01 · Identidad del Proyecto
    - En Desarrollo (Fase Elaboration)
 
 ---------------------------
+
 2. Descripción del Proyecto
 ---------------------------
 
@@ -77,6 +78,7 @@ El sistema expone APIs RESTful para integración con plataformas IVR externas
 y provee dashboards analíticos en tiempo real.
 
 -----------------------
+
 3. Alcance del Proyecto
 -----------------------
 
@@ -103,6 +105,7 @@ y provee dashboards analíticos en tiempo real.
 - Facturación o billing
 
 -------------------------
+
 4. Objetivos del Proyecto
 -------------------------
 
@@ -132,6 +135,7 @@ con sistemas IVR.
    - Cumplir con requisitos de auditoría y trazabilidad de datos
 
 ---------------------------
+
 5. Stakeholders Principales
 ---------------------------
 
@@ -162,6 +166,7 @@ con sistemas IVR.
    - Usabilidad, acceso a información
 
 ----------------------------
+
 6. Restricciones y Supuestos
 ----------------------------
 
@@ -198,6 +203,7 @@ con sistemas IVR.
    - Disponibilidad de SMEs de Contact Center para validación de requisitos
 
 --------------
+
 7. Referencias
 --------------
 
@@ -217,6 +223,7 @@ con sistemas IVR.
    - :doc:`META_05_Estructura_Documental`
 
 --------------------
+
 Historial de Cambios
 --------------------
 

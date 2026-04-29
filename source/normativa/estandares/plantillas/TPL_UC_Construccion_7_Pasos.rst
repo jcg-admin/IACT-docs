@@ -40,6 +40,7 @@ UC-IACT-MOD-NN: Nombre del Use Case
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -83,6 +84,7 @@ un objetivo de valor para el negocio. Un UC bien escrito:
 - Trazable: Derivacion clara a FR
 
 ------------------
+
 1. ACTOR PRINCIPAL
 ------------------
 
@@ -129,6 +131,7 @@ segmento de cliente y tipo de consulta, para identificar patrones,
 calcular KPIs y reportar a gerencia.
 
 ----------------------
+
 2. ACTORES SECUNDARIOS
 ----------------------
 
@@ -177,6 +180,7 @@ Actores secundarios PARTICIPAN en el UC pero NO lo inician. Pueden ser:
    - Paso 11: Si usuario solicita envio
 
 -----------------
+
 3. PRECONDICIONES
 -----------------
 
@@ -263,6 +267,7 @@ Verificacion:
  -- Debe retornar 2 filas
 
 ----------------------------------
+
 4. TRIGGER (Evento Desencadenante)
 ----------------------------------
 
@@ -302,6 +307,7 @@ Ubicacion: Barra de navegacion principal, seccion Reportes
 Icono: Grafico de barras, color azul
 
 ---------------
+
 5. FLUJO NORMAL
 ---------------
 
@@ -434,6 +440,7 @@ Usuario ve reporte completo en pantalla, puede exportar a Excel/PDF
 si lo desea mediante opciones adicionales.
 
 -----------------------
+
 6. FLUJOS ALTERNOS (FA)
 -----------------------
 
@@ -556,6 +563,7 @@ En paso 6, si count mayor 10,000 registros:
  UC-RPT-02: Ejecutar Reporte Aprobado
 
 ---------------------------
+
 7. FLUJOS DE EXCEPCION (FE)
 ---------------------------
 
@@ -653,6 +661,7 @@ En paso 7, si query principal no responde en 30 segundos:
  7g. UC termina con falla, usuario puede reintentar con otros parametros
 
 ------------------
+
 8. POSTCONDICIONES
 ------------------
 
@@ -750,6 +759,7 @@ Verificacion:
 - Catalogo de segmentos permanece consistente
 
 ----------------------------------
+
 9. REQUISITOS NO FUNCIONALES (RNF)
 ----------------------------------
 
@@ -874,6 +884,7 @@ Metrica:
 - Cache valido hasta 24 horas
 
 -------------------------------
+
 10. REGLAS DE NEGOCIO ASOCIADAS
 -------------------------------
 
@@ -971,6 +982,7 @@ Codigo:
  return round((abandoned / total) * 100, 2)
 
 -----------------------------------------
+
 11. DERIVACION DE FUNCTIONAL REQUIREMENTS
 -----------------------------------------
 
@@ -1099,6 +1111,7 @@ inputs al sistema.
 - Tipo: INSERT
 
 ------------
+
 TRAZABILIDAD
 ------------
 
@@ -1164,6 +1177,7 @@ Tests:
   Relacion: Puede interrumpir si sesion expira durante consulta
 
 ----------------------------------
+
 SECCION 12: HISTORIAL DE VERSIONES
 ----------------------------------
 
@@ -1195,6 +1209,7 @@ SECCION 12: HISTORIAL DE VERSIONES
 - PATCH X.Y.Z: Clarificaciones, correcciones de documentacion, sin cambio funcional
 
 -----------
+
 REFERENCIAS
 -----------
 

@@ -40,6 +40,7 @@ FR-MOD-NN-ZZ: Titulo Descriptivo del Functional Requirement
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -83,6 +84,7 @@ Cada componente cubre un aspecto critico de la implementacion:
 5. Validar nomenclatura antes de aprobar
 
 -------------------------------------------------
+
 COMPONENTE 1: DERIVADO DE (Backward Traceability)
 -------------------------------------------------
 
@@ -149,6 +151,7 @@ Los datos retornados seran usados por FR posteriores para:
 - Mostrar tabla de resultados
 
 -------------------------
+
 COMPONENTE 2: DESCRIPCION
 -------------------------
 
@@ -226,6 +229,7 @@ y promedios de duracion.
 - Count ya evaluado por FR-RPT-01-04, menor o igual 10,000
 
 --------------------------
+
 COMPONENTE 3: CONSULTA SQL
 --------------------------
 
@@ -333,6 +337,7 @@ Parametros bound:
 - :segment (STRING)
 
 ------------------------
+
 COMPONENTE 4: PARAMETROS
 ------------------------
 
@@ -403,6 +408,7 @@ validaciones y valores por defecto.
 Ver COMPONENTE 6 para validaciones detalladas.
 
 --------------------
+
 COMPONENTE 5: OUTPUT
 --------------------
 
@@ -492,6 +498,7 @@ metricas agregadas:
 - Cada dia puede tener 0 a 50,000 llamadas
 
 --------------------------
+
 COMPONENTE 6: VALIDACIONES
 --------------------------
 
@@ -641,6 +648,7 @@ Codigo:
  )
 
 ---------------------
+
 COMPONENTE 7: TIMEOUT
 ---------------------
 
@@ -718,6 +726,7 @@ O a nivel de query:
  cursor.execute(query, params)
 
 -------------------------------
+
 COMPONENTE 8: MANEJO DE ERRORES
 -------------------------------
 
@@ -911,6 +920,7 @@ Si error es CRITICAL o mas de 5 errores en 1 minuto:
 - Crear ticket en Jira proyecto IACT
 
 ------------------
+
 COMPONENTE 9: LOGS
 ------------------
 
@@ -1080,6 +1090,7 @@ Adicionalmente, enviar metricas a Prometheus:
  query_executions.labels(status='success', segment=segment).inc
 
 --------------------
+
 COMPONENTE 10: TESTS
 --------------------
 
@@ -1278,6 +1289,7 @@ pytest para Python, con fixtures y mocks
 Objetivo: Mayor o igual 80% de cobertura de lineas
 
 ----------------------------------
+
 SECCION 11: HISTORIAL DE VERSIONES
 ----------------------------------
 
@@ -1303,6 +1315,7 @@ SECCION 11: HISTORIAL DE VERSIONES
    - Nombre del Developer
 
 -----------
+
 REFERENCIAS
 -----------
 

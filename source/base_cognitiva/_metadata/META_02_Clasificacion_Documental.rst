@@ -25,6 +25,7 @@ a toda la documentación del proyecto IACT, definiendo restricciones de acceso,
 manejo y distribución para cada nivel.
 
 ---------------------------
+
 2. Niveles de Clasificación
 ---------------------------
 
@@ -106,6 +107,7 @@ alineados con la política corporativa de seguridad de la información:
    - Prohibido
 
 ---------------------------------
+
 3. Clasificación por Dominio IACT
 ---------------------------------
 
@@ -136,6 +138,7 @@ dominio primario del modelo documental IACT:
    - Matrices de relación sin datos operativos.
 
 ---------------------------
+
 4. Etiquetado de Documentos
 ---------------------------
 
@@ -168,6 +171,7 @@ bloque ``.. meta::``:
   efectiva del dominio para efectos de acceso.
 
 -----------------
+
 5. Roles y Acceso
 -----------------
 
@@ -212,6 +216,7 @@ bloque ``.. meta::``:
    - Sin acceso
 
 ---------------------------
+
 6. Procedimientos de Manejo
 ---------------------------
 
@@ -236,6 +241,7 @@ Ante divulgación no autorizada de información clasificada:
 4. Registrar incidente y acciones correctivas.
 
 --------------
+
 7. Referencias
 --------------
 
@@ -253,6 +259,7 @@ Ante divulgación no autorizada de información clasificada:
    - (Documento externo al sistema IACT)
 
 --------------------
+
 Historial de Cambios
 --------------------
 

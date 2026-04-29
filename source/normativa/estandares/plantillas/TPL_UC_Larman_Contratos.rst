@@ -36,6 +36,7 @@ UC-IACT-XXX-YY: [Nombre] (Técnica Larman)
 **Enfoque:** Diseño Orientado a Objetos
 
 --------------------------------
+
 INTRODUCCION A LA TECNICA LARMAN
 --------------------------------
 
@@ -71,6 +72,7 @@ Craig Larman propone documentar Use Cases usando:
 - Gamma et al. "Design Patterns: Elements of Reusable OO Software"
 
 ----------------------
+
 CONTRATOS DE OPERACION
 ----------------------
 
@@ -229,6 +231,7 @@ POST-2: Asociación formada:
 POST-3: Instancia a de AuditLog creada
 
 ------------------------------------------------
+
 GRASP PATTERNS - ASIGNACION DE RESPONSABILIDADES
 ------------------------------------------------
 
@@ -777,6 +780,7 @@ Usar interfaces estables para proteger contra cambios.
 **Beneficio:** Agregar formatos sin romper código existente
 
 ---------------------
+
 DIAGRAMA DE SECUENCIA
 ---------------------
 
@@ -871,6 +875,7 @@ Secuencia para: generarReporteTrimestral(quarter, year, segment, userId)
 14. Handler retorna response a Actor
 
 -----------------------
+
 CODIGO EJEMPLO COMPLETO
 -----------------------
 
@@ -1004,6 +1009,7 @@ CODIGO EJEMPLO COMPLETO
  )
 
 ---------------
+
 DERIVACION A FR
 ---------------
 
@@ -1016,6 +1022,7 @@ Cada método de las clases deriva un FR:
 - FR-RPT-01-05: GenerateQuarterlyReportHandler.handle
 
 -----------
+
 REFERENCIAS
 -----------
 

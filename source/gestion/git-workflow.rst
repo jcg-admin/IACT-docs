@@ -9,6 +9,7 @@ This document standardizes Git workflows, branching strategies, and commit conve
  :depth: 2
 
 ----
+
 1. Conventional Commits Format
 ================================================================================
 
@@ -391,6 +392,7 @@ The actual merge command (detailed in section 2) will look like:
 This preserves the entire feature branch history while creating a single merge commit on the develop/main branch.
 
 ----
+
 2. Feature Branch Workflow
 ================================================================================
 
@@ -639,7 +641,7 @@ All feature branches must follow these naming rules for consistency and automati
  # feature/api-authentication
 
 ----
-----
+
 3. Feature → Develop Merge Workflow
 ================================================================================
 
@@ -1021,7 +1023,7 @@ This shows a visual tree of the merge, making it clear which commits belonged to
  * def5678 previous commit on develop
 
 ----
-----
+
 4. Develop → Main Release Workflow
 ================================================================================
 
@@ -1745,6 +1747,7 @@ If you have the GitHub CLI installed (``gh``):
 
 
 ----
+
 6. Troubleshooting Guide
 ================================================================================
 
@@ -2048,6 +2051,7 @@ Lesson: Deleted local branches can be recovered from reflog or remote. Don't wor
 
 
 ----
+
 7. Audit Trail & Compliance
 ================================================================================
 
@@ -2346,6 +2350,7 @@ This provides complete traceability from commit through release for compliance p
 
 
 ----
+
 8. Git Hooks (OPTIONAL)
 ================================================================================
 

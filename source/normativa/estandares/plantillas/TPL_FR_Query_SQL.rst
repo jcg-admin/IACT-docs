@@ -40,6 +40,7 @@ FR-MOD-NN-ZZ: Titulo del Functional Requirement - Query SQL
 **Clasificacion:** C2 - INTERNAL
 
 ------------------------
+
 INTRODUCCION AL TEMPLATE
 ------------------------
 
@@ -88,6 +89,7 @@ FR Query SQL (este template):
 6. Testing de performance
 
 ----------------------
+
 1. QUERY SQL PRINCIPAL
 ----------------------
 
@@ -270,6 +272,7 @@ Variacion 2: Con Filtro Adicional de Tipo de Consulta
  AND deleted_at IS NULL
 
 -------------------
+
 2. PARAMETROS BOUND
 -------------------
 
@@ -399,6 +402,7 @@ prevenir SQL injection.
  return cursor.fetchall
 
 ---------------------
+
 3. INDICES REQUERIDOS
 ---------------------
 
@@ -510,6 +514,7 @@ Usar CREATE INDEX CONCURRENTLY en produccion para crear indices sin
 bloquear tabla. Tarda mas pero permite operaciones concurrentes.
 
 ------------------
+
 4. EXPLAIN ANALYZE
 ------------------
 
@@ -625,6 +630,7 @@ Resultado tras optimizacion:
    - Index Scan
 
 ---------------------------
+
 5. OPTIMIZACIONES APLICADAS
 ---------------------------
 
@@ -711,6 +717,7 @@ Impacto: 72% reduccion escaneo de tabla (1 scan vs 3 scans)
 Impacto: Sort en memoria es 10x mas rapido que en disco
 
 ----------
+
 6. TESTING
 ----------
 
@@ -818,6 +825,7 @@ Tests para verificar correctitud y performance de la query.
  assert len(results) >= 90 # Al menos 90 dias
 
 -----------
+
 REFERENCIAS
 -----------
 

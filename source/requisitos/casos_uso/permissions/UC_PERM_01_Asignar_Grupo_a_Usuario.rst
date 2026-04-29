@@ -513,6 +513,7 @@ Referencias
   (guía de UC).
 
 ----
+
 **Estado**: Aprobado
 **Fecha**: 2025-11-09
 **Owner**: equipo-backend

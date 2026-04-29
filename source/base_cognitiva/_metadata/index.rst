@@ -46,6 +46,7 @@ Artefactos
 
 Uso
 ----
+
 Estos documentos deben ser consultados:
 
 - Al inicio del proyecto para entender contexto e identidad
