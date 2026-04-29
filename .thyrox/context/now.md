@@ -1,47 +1,75 @@
 ```yml
 type: Estado de Sesión
-version: 3.2
-updated_at: 2026-04-29 06:05:18
+version: 3.3
+updated_at: 2026-04-29 06:35:00
 cold_boot: false
-current_epic: 5
-epic_name: source-rebuild-strategy
-current_work: .thyrox/context/work/2026-04-28-01-58-08-source-rebuild-strategy
-stage: ÉPICA 8 CERRADA
-stage_number: 11
-current_phase: Phase 11 — TRACK (CERRADO 2026-04-28 05:35)
+current_epic: 12
+epic_name: methodology-recalibration (cerrada)
+current_work: ninguno (todos los WPs activos cerrados)
+stage: idle
+stage_number: —
+current_phase: —
 flow: thyrox
 methodology_step: cerrado
 blockers: []
-last_completed_phase: Phase 10 — EXECUTE (33/33 tareas completas, 16 hijos spawneados)
-next_decision_required: "Decidir qué WP-hijo abrir primero (recomendado: source-rebuild-base-cognitiva)"
-stage_sync_required: true
+last_completed_phase: ÉPICA 12 cerrada (methodology-recalibration) — 2026-04-29 06:00
+next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion"
+stage_sync_required: false
 ```
 
-# IACT-docs — Source Rebuild Strategy
+# IACT-docs — Estado de Sesión
 
-**WP activo:** `2026-04-28-01-58-08-source-rebuild-strategy`
-**Branch:** `feature/solve-problem-docs`
-**Phase 1 DISCOVER:** completa — D1-D5 + F-04/F-05 + F-NEW-1..7 resueltos.
-**Phase 5 STRATEGY:** aprobada (v2.0) — 10 Key Ideas, 14 Decisions, 3 análisis de soporte.
-**Phase 6 PLAN:** en curso.
+## Resumen 2026-04-29
 
-## Strategy v2.0 — resumen
+3 hitos completados en esta sesión:
 
-- 3 dimensiones: methodology + spec/tech + lifecycle.
-- 16 WPs granular en orden secuencial.
-- 8 cajones técnicos nuevos (backend, frontend, infrastructure, databases, operations, onboarding, quality, risks-technical-debt).
-- source/ y .thyrox/ son worlds separados.
-- Re-autoría con v1.0.0 fresh (no migración).
-- Skeleton-first para tech cajones.
+1. **Saneamiento md→rst** (WP `2026-04-29-05-35-11`) —
+   19222 issues → 0 en 11 batches. `build succeeded` con
+   0 WARN / 0 ERR / 0 CRIT verificado.
 
-## WPs relacionados
+2. **Methodology recalibration** (WP `2026-04-29-05-51-27`) —
+   Meta-WP de validación adversarial vía deep-dive. Reveló
+   over-engineering en propuesta I-017. Relocalizó I-016
+   a references/ lazy-load. Documentó sesgo "realismo
+   performativo metodológico".
 
-- `bootstrap-hardening` (2026-04-28-03-59-01) — paralelo, recibió F-NEW-8 (tech-skill fix backend-nodejs → backend-django) pendiente.
+3. **Gap audit y reconciliación** — 8 WPs hijos cerrados
+   recibieron sus changelogs faltantes (política
+   `changelog-policy.md`). #8 backend y #9 frontend
+   reflejan ahora CERRADO v1. #10 infrastructure y #12
+   operations marcados formalmente como DIFERIDO.
 
-## Próximo paso
+## WPs hijos source-rebuild — estado actual
 
-Phase 6 PLAN del WP source-rebuild-strategy:
-- Definir in/out scope detallado del WP-padre.
-- Listar los 16 WPs hijos como spinoff.
-- Actualizar ROADMAP.md si existe.
-- Producir `plan/source-rebuild-strategy-plan.md`.
+- **14 CERRADO v1**: base-cognitiva, normativa-* (4), requisitos,
+  arquitectura-tecnica, backend, frontend, databases, onboarding,
+  quality, risks-technical-debt, gestion.
+- **2 DIFERIDO**: infrastructure (205 inputs heavy),
+  operations (203 inputs).
+
+Ver `track/children-status-summary.md` del WP padre
+`source-rebuild-strategy` para detalle.
+
+## Build status
+
+```
+make clean && make html
+build succeeded.
+WARN: 0  ERR: 0  CRIT: 0
+```
+
+## Próxima decisión
+
+Pendiente del ejecutor:
+
+- (a) Retomar WP #10 infrastructure (205 inputs heavy).
+- (b) Retomar WP #12 operations (203 inputs).
+- (c) Atacar DEBT items (DEBT-001..007 en
+  `source/risks-technical-debt/deuda-tecnica-rebuild.rst`).
+- (d) Nueva dirección no relacionada al rebuild.
+
+## Repositorio
+
+- **Branch:** `feature/solve-problem-docs`
+- **HEAD:** `3977f8b` (sincronizado con origin)
+- **Working tree:** clean

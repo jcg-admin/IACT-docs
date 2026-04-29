@@ -12,12 +12,14 @@
 | 7 | 2026-04-28-00-19-57-source-references-audit | feature/repository-diagnostics | Phase 1 DISCOVER (audit-only, no fixes) |
 | 9 | 2026-04-28-03-59-01-bootstrap-hardening | feature/solve-problem-docs | Phase 1 DISCOVER (Makefile guard + venv fix commiteados; F-NEW-8 + F-NEW-9 pendientes) |
 | 10 | 2026-04-28-05-07-32-multi-wp-state-strategy | feature/solve-problem-docs | Phase 1 DISCOVER (creado, pausado — análisis preliminar heredado de ÉPICA 8) |
-| — | 16 WPs-hijos `source-rebuild-*` (de ÉPICA 8) | feature/solve-problem-docs (próximamente cada uno en su feature/*) | Phase 1 DISCOVER (Borrador, no iniciados — spawneados por ÉPICA 8) |
+| — | 16 WPs-hijos `source-rebuild-*` (de ÉPICA 8) | feature/solve-problem-docs | 14 CERRADO v1 (skeleton/amplia) + 2 DIFERIDO (#10 infrastructure, #12 operations). Ver `track/children-status-summary.md` del padre |
 
 ## Completadas
 
 | ÉPICA | WP | Cierre | Highlights |
 |-------|----|--------|------------|
+| 12 | 2026-04-29-05-51-27-methodology-recalibration | 2026-04-29 | Meta-WP post-saneamiento. Deep-review adversarial revelo over-engineering en propuesta I-017. Relocalizado I-016 a references/ lazy-load. Sesgo "realismo performativo metodologico" documentado |
+| 11 | 2026-04-29-05-35-11-md-to-rst-saneamiento | 2026-04-29 | Saneamiento masivo md→rst del corpus `source/`. 19222 issues → 0 (build succeeded, 0 WARN/ERR/CRIT) en 11 batches. 9 scripts archivados como canalizacion post-conversion para reuso futuro |
 | 8 | 2026-04-28-01-58-08-source-rebuild-strategy | 2026-04-28 | Strategy v2.0 con 3-dimension architecture; 14 Decisions; 16 WPs-hijos spawneados; 5 análisis de soporte. Ver `CLOSURE-NOTICE.md`. |
 | 3 | 2026-04-26-02-39-17-git-workflow-documentation | 2026-04-26 | Convención feature/* + merge develop→main + git hooks + audit trail |
 | 2 | 2026-04-23-18-51-33-plantuml-java-integration-impl | 2026-04-25 | PlantUML + Java integration, color system, central styles, 13 tareas |
