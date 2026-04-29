@@ -22,6 +22,12 @@ high-level, vistas, modelos de datos y diagramas.
 
    rbac/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Modulos arquitectonicos
+
+   modulos/index
+
 .. note::
 
    Este cajon esta en construccion incremental. Los siguientes
