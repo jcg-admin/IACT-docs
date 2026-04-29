@@ -165,8 +165,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - CNST_[NNN]
@@ -191,8 +191,8 @@ Plantilla
 
  .. warning:: **Restriccion Arquitectonica CNST_[NNN]**
 
- [Enunciado claro y conciso de la restriccion.
- Debe expresar QUE esta limitado o prohibido tecnicamente.]
+    [Enunciado claro y conciso de la restriccion.
+    Debe expresar QUE esta limitado o prohibido tecnicamente.]
 
  1.2 Justificacion Tecnica
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -223,8 +223,8 @@ Plantilla
  ^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 30 30 40
- :header-rows: 1
+    :widths: 30 30 40
+    :header-rows: 1
 
  * - Parametro
  - Valor
@@ -251,8 +251,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - Modulo
  - Impacto
@@ -265,8 +265,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - UC
  - Impacto
@@ -287,8 +287,8 @@ Plantilla
  ---------------------------
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - BR
  - Nombre
@@ -310,8 +310,8 @@ Plantilla
 
  .. code-block:: python
 
- # Implementacion de CNST_[NNN]
- # [Nombre de la restriccion]
+    # Implementacion de CNST_[NNN]
+    # [Nombre de la restriccion]
  
  # settings.py o configuracion relevante
  [CODIGO_EJEMPLO]
@@ -321,16 +321,16 @@ Plantilla
 
  .. code-block:: yaml
 
- # Configuracion requerida
- [CONFIGURACION_EJEMPLO]
+    # Configuracion requerida
+    [CONFIGURACION_EJEMPLO]
 
  5.3 Validacion de Cumplimiento
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: bash
 
- # Comando para verificar cumplimiento
- [COMANDO_VERIFICACION]
+    # Comando para verificar cumplimiento
+    [COMANDO_VERIFICACION]
 
  ----
 
@@ -377,8 +377,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ADR Relacionadas**
  - ADR_[NNN]: [Nombre]
@@ -397,8 +397,8 @@ Plantilla
  -----------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

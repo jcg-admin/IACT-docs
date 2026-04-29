@@ -209,8 +209,8 @@ Todo artefacto debe incluir una sección de historial con:
  --------------------
 
  .. list-table::
- :widths: 15 15 70
- :header-rows: 1
+    :widths: 15 15 70
+    :header-rows: 1
 
  * - Versión
  - Fecha

@@ -175,10 +175,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Verificar:
- - Reporte de revision existe
- - Resultado: Aprobado
- - Sin hallazgos criticos pendientes
+    Verificar:
+    - Reporte de revision existe
+    - Resultado: Aprobado
+    - Sin hallazgos criticos pendientes
 
 - **Resultado**: Revision confirmada
 - **Verificacion**: Documentacion completa
@@ -190,7 +190,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- SOLICITUD DE APROBACION
+    SOLICITUD DE APROBACION
  
  Documento: [ID]
  Tipo: [Tipo de artefacto]
@@ -222,10 +222,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. meta::
- :estado: Aprobado <- Actualizar
- :fecha_aprobacion: 2026-01-07 <- Agregar
- :aprobado_por: [Nombre] <- Agregar
+    .. meta::
+    :estado: Aprobado <- Actualizar
+    :fecha_aprobacion: 2026-01-07 <- Agregar
+    :aprobado_por: [Nombre] <- Agregar
 
 - **Resultado**: Estado actualizado
 - **Verificacion**: Meta tags correctos
@@ -237,7 +237,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- REGISTRO DE APROBACIONES
+    REGISTRO DE APROBACIONES
  
 .. list-table::
  :header-rows: 1
@@ -273,7 +273,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- NOTIFICACION DE APROBACION
+    NOTIFICACION DE APROBACION
  
  Documento: [ID] - [Nombre]
  Estado: APROBADO

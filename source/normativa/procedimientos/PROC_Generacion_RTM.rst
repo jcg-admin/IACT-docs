@@ -160,7 +160,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato: RTM_[Origen]_[Destino]
+    Formato: RTM_[Origen]_[Destino]
  
  Ejemplo: RTM_UC_FR
  - Origen: UC (Casos de Uso)
@@ -176,8 +176,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Ejemplo para UC
- find casos_uso/ -name "UC_*.rst" | sort
+    # Ejemplo para UC
+    find casos_uso/ -name "UC_*.rst" | sort
  
  # Resultado
  UC_001, UC_002, ..., UC_073
@@ -193,8 +193,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Ejemplo para FR
- find funcionales/ -name "FR_*.rst" | sort
+    # Ejemplo para FR
+    find funcionales/ -name "FR_*.rst" | sort
  
  # Resultado
  FR_UC001_01, FR_UC001_02, ..., FR_UC073_03
@@ -210,8 +210,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. list-table::
- :header-rows: 1
+    .. list-table::
+    :header-rows: 1
  
  * - UC Origen
  - FR Derivados
@@ -236,8 +236,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. list-table::
- :header-rows: 1
+    .. list-table::
+    :header-rows: 1
  
  * - FR
  - UC Origen
@@ -262,7 +262,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Metricas RTM_UC_FR:**
+    **Metricas RTM_UC_FR:**
  
  - Total UC: 49
  - UC con FR: 49
@@ -284,7 +284,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Analisis de Gaps:**
+    **Analisis de Gaps:**
  
  UC sin FR (requieren derivacion):
  - Ninguno
@@ -308,7 +308,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. uml::
+    .. uml::
  
  @startuml
  left to right direction
@@ -339,8 +339,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Guardar
- /tmp/trazabilidad/RTM_UC_FR_1_0_0.rst
+    # Guardar
+    /tmp/trazabilidad/RTM_UC_FR_1_0_0.rst
  
  # Validar
  sphinx-build -b html -W /tmp/trazabilidad/ /tmp/build/

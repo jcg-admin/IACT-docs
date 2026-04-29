@@ -761,8 +761,8 @@ Reviewer leaves a comment:
 
  .. code-block:: bash
 
- # Edit the files based on reviewer feedback
- nano source/gestion/git-workflow.rst
+    # Edit the files based on reviewer feedback
+    nano source/gestion/git-workflow.rst
 
  # Commit the changes
  git add source/gestion/git-workflow.rst
@@ -772,7 +772,7 @@ Reviewer leaves a comment:
 
  .. code-block:: bash
 
- git push origin feature/your-feature-name
+    git push origin feature/your-feature-name
 
 GitHub will automatically update the PR with your new commit. The reviewer can see:
 - The original commits
@@ -1146,13 +1146,13 @@ Use a temporary branch for the release PR (optional but recommended):
 
  .. code-block:: text
 
- Release v1.2.3 — Merge develop to main
+    Release v1.2.3 — Merge develop to main
 
 6. Use this PR description:
 
  .. code-block:: text
 
- ## Release: v1.2.3
+    ## Release: v1.2.3
 
  This PR merges develop to main for production release.
 
@@ -1197,7 +1197,7 @@ Once 2 approvals received and CI checks pass:
 
  .. code-block:: text
 
- Merge pull request #156 from develop
+    Merge pull request #156 from develop
 
  Release v1.2.3
 
@@ -1714,14 +1714,14 @@ If you have the GitHub CLI installed (``gh``):
 
  .. code-block:: bash
 
- git push origin feature/test-protection:develop
+    git push origin feature/test-protection:develop
 
  Expected result: **REJECTED** with message:
 
  .. code-block:: text
 
- remote: error: The develop branch is protected from force pushes
- ! [remote rejected] feature/test-protection -> develop (protected branch hook declined)
+    remote: error: The develop branch is protected from force pushes
+    ! [remote rejected] feature/test-protection -> develop (protected branch hook declined)
 
 2. Try to create a PR without approval:
 
@@ -1729,7 +1729,7 @@ If you have the GitHub CLI installed (``gh``):
 
  .. code-block:: text
 
- "Merging blocked — 1 approval required"
+    "Merging blocked — 1 approval required"
 
 3. Create a valid PR, get approval, and merge:
 

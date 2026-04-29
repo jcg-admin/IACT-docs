@@ -164,8 +164,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - TST_[MOD]_[NNN]
@@ -211,8 +211,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 35 40
- :header-rows: 1
+    :widths: 25 35 40
+    :header-rows: 1
 
  * - Campo
  - Valor
@@ -231,8 +231,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Elemento
  - Valor/Estado
@@ -251,8 +251,8 @@ Plantilla
  ---------------------
 
  .. list-table::
- :widths: 8 50 42
- :header-rows: 1
+    :widths: 8 50 42
+    :header-rows: 1
 
  * - Paso
  - Acción
@@ -296,8 +296,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 35 40
- :header-rows: 1
+    :widths: 25 35 40
+    :header-rows: 1
 
  * - Campo
  - Valor Esperado
@@ -319,7 +319,7 @@ Plantilla
 
  .. code-block:: python
 
- # tests/test_[modulo]/test_[nombre].py
+    # tests/test_[modulo]/test_[nombre].py
  
  import pytest
  from apps.[modulo].services import [Service]
@@ -363,8 +363,8 @@ Plantilla
 
  .. code-block:: bash
 
- # Ejecutar este test específico
- pytest tests/test_[modulo]/test_[nombre].py::TestTST[MOD][NNN] -v
+    # Ejecutar este test específico
+    pytest tests/test_[modulo]/test_[nombre].py::TestTST[MOD][NNN] -v
  
  # Ejecutar con coverage
  pytest tests/test_[modulo]/test_[nombre].py --cov=apps.[modulo]
@@ -375,8 +375,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **FR Verificado**
  - FR_UC[MOD]_[NN]_[NN]: [Nombre]
@@ -393,8 +393,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 15 15 46
- :header-rows: 1
+    :widths: 12 12 15 15 46
+    :header-rows: 1
 
  * - Fecha
  - Ejecutor
@@ -413,8 +413,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 15 50 20 15
- :header-rows: 1
+    :widths: 15 50 20 15
+    :header-rows: 1
 
  * - ID Defecto
  - Descripción
@@ -431,8 +431,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Versión
  - Fecha

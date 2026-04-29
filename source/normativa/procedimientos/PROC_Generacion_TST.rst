@@ -183,7 +183,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Ejemplo FR_UC001_03:
+    Ejemplo FR_UC001_03:
  
  Criterio de Aceptacion:
  DADO un usuario con credenciales verificadas exitosamente
@@ -200,7 +200,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato ID: TST_[MOD]_[NNN]
+    Formato ID: TST_[MOD]_[NNN]
  
  Donde:
  - TST: Prefijo fijo
@@ -224,32 +224,32 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- * - **ID**
- - TST_AUTH_003
- * - **Nombre**
- - Verificar generacion de token JWT
- * - **Tipo**
- - Unitaria
- * - **FR Verificado**
- - FR_UC001_03
- * - **Automatizado**
- - Si
- * - **Estado**
- - Pendiente
+    * - **ID**
+    - TST_AUTH_003
+    * - **Nombre**
+    - Verificar generacion de token JWT
+    * - **Tipo**
+    - Unitaria
+    * - **FR Verificado**
+    - FR_UC001_03
+    * - **Automatizado**
+    - Si
+    * - **Estado**
+    - Pendiente
 
  **3.2 Seccion Precondiciones:**
 
  .. code-block:: rst
 
- - [ ] Usuario de prueba existe en BD
- - [ ] Credenciales verificadas (mock o fixture)
- - [ ] SECRET_KEY configurada
+    - [ ] Usuario de prueba existe en BD
+    - [ ] Credenciales verificadas (mock o fixture)
+    - [ ] SECRET_KEY configurada
 
  **3.3 Seccion Datos de Prueba:**
 
  .. code-block:: rst
 
- **Datos de Entrada:**
+    **Datos de Entrada:**
  
  - user_id: "uuid-test-001"
  - username: "test_user"
@@ -270,9 +270,9 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. list-table::
- :widths: 10 50 40
- :header-rows: 1
+    .. list-table::
+    :widths: 10 50 40
+    :header-rows: 1
  
  * - Paso
  - Accion
@@ -297,9 +297,9 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: python
 
- import pytest
- from datetime import datetime, timedelta
- from apps.auth.services import JWTService
+    import pytest
+    from datetime import datetime, timedelta
+    from apps.auth.services import JWTService
  
  
  class TestGenerarTokenJWT:
@@ -362,8 +362,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Guardar TST
- /tmp/pruebas/auth/TST_AUTH_003_Generar_Token_JWT.rst
+    # Guardar TST
+    /tmp/pruebas/auth/TST_AUTH_003_Generar_Token_JWT.rst
  
  # Validar RST
  sphinx-build -b html -W /tmp/pruebas/ /tmp/build/

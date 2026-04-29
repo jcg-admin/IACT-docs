@@ -83,12 +83,12 @@ Procedimiento de Revisión
 
  .. code:: yaml
 
- ---
- id: DOC-PROC-QA
- estado: draft # draft, review, approved, active, deprecated
- propietario: equipo-qa
- ultima_actualizacion: 2025-11-04
- relacionados: ["DOC-PROC-DEV"]
+    ---
+    id: DOC-PROC-QA
+    estado: draft # draft, review, approved, active, deprecated
+    propietario: equipo-qa
+    ultima_actualizacion: 2025-11-04
+    relacionados: ["DOC-PROC-DEV"]
  
 
 1.3 Verificar Localmente

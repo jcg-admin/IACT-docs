@@ -205,8 +205,8 @@ genera al menos un FR.
 - **Accion**: Identificar modulo a derivar segun prioridad:
 
  .. list-table::
- :widths: 20 20 30 30
- :header-rows: 1
+    :widths: 20 20 30 30
+    :header-rows: 1
 
  * - Modulo
  - UC
@@ -255,7 +255,7 @@ genera al menos un FR.
 
  .. code-block:: bash
 
- ls casos_uso/[modulo]/UC_*.rst | sort
+    ls casos_uso/[modulo]/UC_*.rst | sort
 
 - **Resultado**: Lista de UC a procesar
 - **Verificacion**: Cantidad coincide con inventario
@@ -280,12 +280,12 @@ genera al menos un FR.
 
  .. code-block:: text
 
- Seccion Trazabilidad del UC:
- **FR Derivados:**
- - FR-001.01: Validar formato username
- - FR-001.02: Validar credenciales
- - FR-001.03: Generar token JWT
- ...
+    Seccion Trazabilidad del UC:
+    **FR Derivados:**
+    - FR-001.01: Validar formato username
+    - FR-001.02: Validar credenciales
+    - FR-001.03: Generar token JWT
+    ...
 
 - **Resultado**: Lista oficial de FR confirmada
 - **Verificacion**: FR candidatos = FR en Trazabilidad
@@ -304,12 +304,12 @@ genera al menos un FR.
 
  .. code-block:: text
 
- UC_001 Cobertura:
- - Paso 2 (muestra formulario) -> FR_UC001_01 [OK]
- - Paso 5 (valida formato) -> FR_UC001_02 [OK]
- - Paso 6 (verifica credenciales) -> FR_UC001_03 [OK]
- ...
- Cobertura: 100%
+    UC_001 Cobertura:
+    - Paso 2 (muestra formulario) -> FR_UC001_01 [OK]
+    - Paso 5 (valida formato) -> FR_UC001_02 [OK]
+    - Paso 6 (verifica credenciales) -> FR_UC001_03 [OK]
+    ...
+    Cobertura: 100%
 
 - **Resultado**: Cobertura verificada
 - **Verificacion**: Todos los pasos cubiertos
@@ -321,11 +321,11 @@ genera al menos un FR.
 
  .. code-block:: text
 
- Metricas MOD_Auth:
- - UC procesados: 5
- - FR generados: 21
- - Ratio promedio: 4.2 FR/UC
- - Cobertura: 100%
+    Metricas MOD_Auth:
+    - UC procesados: 5
+    - FR generados: 21
+    - Ratio promedio: 4.2 FR/UC
+    - Cobertura: 100%
 
 - **Resultado**: Metricas del modulo
 - **Verificacion**: Ratio dentro de rango esperado (3-8)
@@ -338,7 +338,7 @@ genera al menos un FR.
  .. code-block:: rst
 
  
- Requisitos Funcionales - MOD_Auth
+    Requisitos Funcionales - MOD_Auth
  
  
  .. toctree::

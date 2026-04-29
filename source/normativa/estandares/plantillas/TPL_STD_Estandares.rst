@@ -151,8 +151,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - STD_[NNN]
@@ -197,8 +197,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Termino
  - Definicion
@@ -222,13 +222,13 @@ Plantilla
 
  .. code-block:: [lenguaje]
 
- [Ejemplo de aplicacion correcta]
+    [Ejemplo de aplicacion correcta]
 
  **Ejemplo incorrecto:**
 
  .. code-block:: [lenguaje]
 
- [Ejemplo de aplicacion incorrecta]
+    [Ejemplo de aplicacion incorrecta]
 
  ----
 
@@ -242,13 +242,13 @@ Plantilla
 
  .. code-block:: [lenguaje]
 
- [Ejemplo de aplicacion correcta]
+    [Ejemplo de aplicacion correcta]
 
  **Ejemplo incorrecto:**
 
  .. code-block:: [lenguaje]
 
- [Ejemplo de aplicacion incorrecta]
+    [Ejemplo de aplicacion incorrecta]
 
  ----
 
@@ -262,7 +262,7 @@ Plantilla
 
  .. code-block:: [lenguaje]
 
- [Ejemplo de aplicacion correcta]
+    [Ejemplo de aplicacion correcta]
 
  ----
 
@@ -270,8 +270,8 @@ Plantilla
  --------------------------
 
  .. list-table::
- :widths: 10 40 25 25
- :header-rows: 1
+    :widths: 10 40 25 25
+    :header-rows: 1
 
  * - #
  - Regla
@@ -300,8 +300,8 @@ Plantilla
 
  .. code-block:: bash
 
- # Comando para verificar cumplimiento
- [comando_de_verificacion]
+    # Comando para verificar cumplimiento
+    [comando_de_verificacion]
 
  6.2 Verificacion Manual
  ^^^^^^^^^^^^^^^^^^^^^^^
@@ -352,8 +352,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **PROC Relacionados**
  - PROC_[NNN]: [Nombre]
@@ -376,8 +376,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

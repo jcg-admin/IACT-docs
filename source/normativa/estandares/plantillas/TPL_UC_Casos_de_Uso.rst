@@ -123,8 +123,8 @@ Plantilla
  ----------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - UC-[NNN]
@@ -212,8 +212,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 8 46 46
- :header-rows: 1
+    :widths: 8 46 46
+    :header-rows: 1
 
  * - Paso
  - Actor
@@ -293,8 +293,8 @@ Plantilla
  **Condicion:** [Cuando se activa este flujo]
 
  .. list-table::
- :widths: 10 90
- :header-rows: 1
+    :widths: 10 90
+    :header-rows: 1
 
  * - Paso
  - Descripcion
@@ -358,8 +358,8 @@ Plantilla
  ---------------------
 
  .. list-table::
- :widths: 12 30 58
- :header-rows: 1
+    :widths: 12 30 58
+    :header-rows: 1
 
  * - BR
  - Nombre
@@ -374,8 +374,8 @@ Plantilla
  ----------------------------------------
 
  .. list-table::
- :widths: 15 85
- :header-rows: 1
+    :widths: 15 85
+    :header-rows: 1
 
  * - FR
  - Descripcion
@@ -390,8 +390,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Origen (BReq)**
  - BReq-[NNN]: [Nombre]
@@ -410,8 +410,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

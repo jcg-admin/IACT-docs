@@ -12,8 +12,8 @@
 
 .. rubric:: Metadata sugerida para la instancia
 
-Cuando se crea una instancia a partir de esta plantilla,
-se sugiere declarar el siguiente bloque de metadata:
+   Cuando se crea una instancia a partir de esta plantilla,
+   se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
@@ -119,9 +119,9 @@ FLUJO NORMAL - CREATE
  
  .. code-block:: sql
  
- SELECT COUNT(*) FROM entidad
- WHERE campo_unico = :valor
- AND deleted_at IS NULL
+    SELECT COUNT(*) FROM entidad
+    WHERE campo_unico = :valor
+    AND deleted_at IS NULL
 
 8. Sistema genera UUID para nuevo registro (FR-XXX-01-04)
 
@@ -129,39 +129,39 @@ FLUJO NORMAL - CREATE
  
  .. code-block:: sql
  
- INSERT INTO entidad (
- id,
- campo1,
- campo2,
- campo3,
- created_at,
- created_by,
- version_number,
- status
- ) VALUES (
- :uuid,
- :campo1,
- :campo2,
- :campo3,
- NOW,
- :user_id,
- 1,
- 'ACTIVE'
- )
+    INSERT INTO entidad (
+    id,
+    campo1,
+    campo2,
+    campo3,
+    created_at,
+    created_by,
+    version_number,
+    status
+    ) VALUES (
+    :uuid,
+    :campo1,
+    :campo2,
+    :campo3,
+    NOW,
+    :user_id,
+    1,
+    'ACTIVE'
+    )
 
 10. Sistema registra en audit_log (FR-XXX-01-06)
  
  .. code-block:: sql
  
- INSERT INTO audit_log (
- action, table_name, record_id,
- user_id, old_values, new_values,
- created_at
- ) VALUES (
- 'CREATE', 'entidad', :uuid,
- :user_id, NULL, :json_values,
- NOW
- )
+    INSERT INTO audit_log (
+    action, table_name, record_id,
+    user_id, old_values, new_values,
+    created_at
+    ) VALUES (
+    'CREATE', 'entidad', :uuid,
+    :user_id, NULL, :json_values,
+    NOW
+    )
 
 11. Sistema confirma transacción (COMMIT)
 
@@ -198,11 +198,11 @@ En paso 4 o 6, si validación falla:
  
  .. code-block:: json
  
- {
- "campo1": "Este campo es obligatorio",
- "campo2": "Email inválido",
- "campo3": "Debe tener entre 5 y 100 caracteres"
- }
+    {
+    "campo1": "Este campo es obligatorio",
+    "campo2": "Email inválido",
+    "campo3": "Debe tener entre 5 y 100 caracteres"
+    }
  
  4c/6c. Sistema mantiene valores ingresados (pre-llenados)
  
@@ -221,10 +221,10 @@ En paso 7, si verificación de unicidad falla:
  
  .. code-block:: sql
  
- SELECT id, campo_unico FROM entidad
- WHERE campo_unico = :valor
- AND deleted_at IS NULL
- -- Retorna 1 fila
+    SELECT id, campo_unico FROM entidad
+    WHERE campo_unico = :valor
+    AND deleted_at IS NULL
+    -- Retorna 1 fila
  
  7b. Sistema muestra error específico:
  
@@ -281,10 +281,10 @@ En paso 9, si INSERT falla (error BD):
  
  .. code-block:: python
  
- logger.error(
- f"CREATE failed for entidad. "
- f"User: {user_id}, Error: {str(e)}"
- )
+    logger.error(
+    f"CREATE failed for entidad. "
+    f"User: {user_id}, Error: {str(e)}"
+    )
  
  9d. Sistema muestra mensaje genérico al usuario:
  
@@ -341,10 +341,10 @@ FLUJO NORMAL - READ
  
  .. code-block:: python
  
- def build_dynamic_query(filters):
- """Build WHERE clause from filters"""
- conditions = ["deleted_at IS NULL"] # Exclude soft-deleted
- params = {}
+    def build_dynamic_query(filters):
+    """Build WHERE clause from filters"""
+    conditions = ["deleted_at IS NULL"] # Exclude soft-deleted
+    params = {}
  
  if filters.get('campo1'):
  conditions.append("campo1 ILIKE :campo1")
@@ -361,11 +361,11 @@ FLUJO NORMAL - READ
  
  .. code-block:: sql
  
- SELECT COUNT(*) as total
- FROM entidad
- WHERE deleted_at IS NULL
- AND campo1 ILIKE :campo1
- AND campo2 = :campo2
+    SELECT COUNT(*) as total
+    FROM entidad
+    WHERE deleted_at IS NULL
+    AND campo1 ILIKE :campo1
+    AND campo2 = :campo2
 
 6. Sistema verifica que total < 1000 [BR-IACT-ZZZ]
 
@@ -373,20 +373,20 @@ FLUJO NORMAL - READ
  
  .. code-block:: sql
  
- SELECT 
- id,
- campo1,
- campo2,
- campo3,
- created_at,
- updated_at,
- status
- FROM entidad
- WHERE deleted_at IS NULL
- AND campo1 ILIKE :campo1
- AND campo2 = :campo2
- ORDER BY created_at DESC
- LIMIT :page_size OFFSET :offset
+    SELECT 
+    id,
+    campo1,
+    campo2,
+    campo3,
+    created_at,
+    updated_at,
+    status
+    FROM entidad
+    WHERE deleted_at IS NULL
+    AND campo1 ILIKE :campo1
+    AND campo2 = :campo2
+    ORDER BY created_at DESC
+    LIMIT :page_size OFFSET :offset
 
 8. Sistema calcula info de paginación:
  - Total páginas = CEIL(total / page_size)
@@ -473,9 +473,9 @@ En paso 2, si usuario ingresa ID exacto en campo especial:
  
  .. code-block:: sql
  
- SELECT * FROM entidad
- WHERE id = :uuid
- AND deleted_at IS NULL
+    SELECT * FROM entidad
+    WHERE id = :uuid
+    AND deleted_at IS NULL
  
  2c. Si encuentra registro:
  - Sistema redirige DIRECTAMENTE a pantalla de detalle
@@ -498,10 +498,10 @@ En paso 7, si SELECT excede timeout (5 segundos):
  
  .. code-block:: python
  
- logger.warning(
- f"READ query timeout. "
- f"Filters: {filters}, User: {user_id}"
- )
+    logger.warning(
+    f"READ query timeout. "
+    f"Filters: {filters}, User: {user_id}"
+    )
  
  7c. Sistema muestra mensaje:
  
@@ -537,18 +537,18 @@ FLUJO NORMAL - UPDATE
  
  .. code-block:: sql
  
- SELECT 
- id,
- campo1,
- campo2,
- campo3,
- version_number,
- created_at,
- updated_at,
- status
- FROM entidad
- WHERE id = :uuid
- AND deleted_at IS NULL
+    SELECT 
+    id,
+    campo1,
+    campo2,
+    campo3,
+    version_number,
+    created_at,
+    updated_at,
+    status
+    FROM entidad
+    WHERE id = :uuid
+    AND deleted_at IS NULL
 
 2. Sistema muestra formulario PRE-LLENADO con valores actuales
 
@@ -562,8 +562,8 @@ FLUJO NORMAL - UPDATE
  
  .. code-block:: javascript
  
- const originalValues = { ...formData };
- const dirtyFields = new Set;
+    const originalValues = { ...formData };
+    const dirtyFields = new Set;
  
  function trackChange(fieldName, newValue) {
  if (newValue !== originalValues[fieldName]) {
@@ -583,65 +583,65 @@ FLUJO NORMAL - UPDATE
  
  .. code-block:: sql
  
- SELECT version_number FROM entidad
- WHERE id = :uuid
+    SELECT version_number FROM entidad
+    WHERE id = :uuid
  
  .. code-block:: python
  
- if db_version != form_version:
- raise ConcurrencyConflictError(
- "Registro modificado por otro usuario"
- )
+    if db_version != form_version:
+    raise ConcurrencyConflictError(
+    "Registro modificado por otro usuario"
+    )
 
 9. Sistema captura valores ANTES del cambio (FR-XXX-03-04)
  
  .. code-block:: python
  
- before_values = {
- field: getattr(entity, field)
- for field in dirty_fields
- }
+    before_values = {
+    field: getattr(entity, field)
+    for field in dirty_fields
+    }
 
 10. Sistema ejecuta UPDATE (FR-XXX-03-05)
  
  .. code-block:: sql
  
- UPDATE entidad
- SET 
- campo1 = :nuevo_campo1,
- campo2 = :nuevo_campo2,
- updated_at = NOW,
- updated_by = :user_id,
- version_number = version_number + 1
- WHERE id = :uuid
- AND version_number = :expected_version
- AND deleted_at IS NULL
+    UPDATE entidad
+    SET 
+    campo1 = :nuevo_campo1,
+    campo2 = :nuevo_campo2,
+    updated_at = NOW,
+    updated_by = :user_id,
+    version_number = version_number + 1
+    WHERE id = :uuid
+    AND version_number = :expected_version
+    AND deleted_at IS NULL
 
 11. Sistema verifica que UPDATE afectó 1 fila
  
  .. code-block:: python
  
- if cursor.rowcount == 0:
- raise UpdateFailedError(
- "UPDATE did not affect any row. "
- "Possible concurrent modification."
- )
+    if cursor.rowcount == 0:
+    raise UpdateFailedError(
+    "UPDATE did not affect any row. "
+    "Possible concurrent modification."
+    )
 
 12. Sistema registra auditoría con before/after (FR-XXX-03-06)
  
  .. code-block:: sql
  
- INSERT INTO audit_log (
- action, table_name, record_id,
- user_id, old_values, new_values,
- created_at
- ) VALUES (
- 'UPDATE', 'entidad', :uuid,
- :user_id,
- :before_json, -- {"campo1": "old_val"}
- :after_json, -- {"campo1": "new_val"}
- NOW
- )
+    INSERT INTO audit_log (
+    action, table_name, record_id,
+    user_id, old_values, new_values,
+    created_at
+    ) VALUES (
+    'UPDATE', 'entidad', :uuid,
+    :user_id,
+    :before_json, -- {"campo1": "old_val"}
+    :after_json, -- {"campo1": "new_val"}
+    NOW
+    )
 
 13. Sistema confirma transacción (COMMIT)
 
@@ -703,7 +703,7 @@ En paso 8 o 11, si version_number no coincide:
  
  .. code-block:: text
  
- TUS CAMBIOS vs CAMBIOS DEL OTRO USUARIO:
+    TUS CAMBIOS vs CAMBIOS DEL OTRO USUARIO:
  
  Campo1: "tu_valor" → "valor_otro_usuario"
  Campo2: sin cambios
@@ -760,10 +760,10 @@ En paso 1, si SELECT retorna 0 filas:
  
  .. code-block:: python
  
- logger.warning(
- f"UPDATE failed: entity {uuid} not found. "
- f"User: {user_id}"
- )
+    logger.warning(
+    f"UPDATE failed: entity {uuid} not found. "
+    f"User: {user_id}"
+    )
  
  1c. Sistema muestra mensaje:
  
@@ -819,43 +819,43 @@ FLUJO NORMAL - DELETE
  
  .. code-block:: sql
  
- -- Verificar si otras tablas dependen de este registro
- SELECT COUNT(*) FROM tabla_dependiente
- WHERE entidad_id = :uuid
- AND deleted_at IS NULL
+    -- Verificar si otras tablas dependen de este registro
+    SELECT COUNT(*) FROM tabla_dependiente
+    WHERE entidad_id = :uuid
+    AND deleted_at IS NULL
  
  .. code-block:: python
  
- dependencies = check_dependencies(entity_id)
- if dependencies.count > 0:
- raise DependencyError(
- f"Entity has {dependencies.count} dependencies"
- )
+    dependencies = check_dependencies(entity_id)
+    if dependencies.count > 0:
+    raise DependencyError(
+    f"Entity has {dependencies.count} dependencies"
+    )
 
 4. Sistema captura estado actual (before delete) (FR-XXX-04-02)
  
  .. code-block:: python
  
- before_delete = {
- 'id': entity.id,
- 'campo1': entity.campo1,
- 'campo2': entity.campo2,
- 'status': entity.status,
- 'version_number': entity.version_number
- }
+    before_delete = {
+    'id': entity.id,
+    'campo1': entity.campo1,
+    'campo2': entity.campo2,
+    'status': entity.status,
+    'version_number': entity.version_number
+    }
 
 5. Sistema ejecuta SOFT DELETE (FR-XXX-04-03)
  
  .. code-block:: sql
  
- UPDATE entidad
- SET 
- deleted_at = NOW,
- deleted_by = :user_id,
- status = 'DELETED',
- updated_at = NOW
- WHERE id = :uuid
- AND deleted_at IS NULL
+    UPDATE entidad
+    SET 
+    deleted_at = NOW,
+    deleted_by = :user_id,
+    status = 'DELETED',
+    updated_at = NOW
+    WHERE id = :uuid
+    AND deleted_at IS NULL
 
 6. Sistema verifica que UPDATE afectó 1 fila
 
@@ -863,17 +863,17 @@ FLUJO NORMAL - DELETE
  
  .. code-block:: sql
  
- INSERT INTO audit_log (
- action, table_name, record_id,
- user_id, old_values, new_values,
- created_at
- ) VALUES (
- 'DELETE', 'entidad', :uuid,
- :user_id,
- :before_json,
- '{"deleted_at": "2026-01-09T10:30:00", "status": "DELETED"}',
- NOW
- )
+    INSERT INTO audit_log (
+    action, table_name, record_id,
+    user_id, old_values, new_values,
+    created_at
+    ) VALUES (
+    'DELETE', 'entidad', :uuid,
+    :user_id,
+    :before_json,
+    '{"deleted_at": "2026-01-09T10:30:00", "status": "DELETED"}',
+    NOW
+    )
 
 8. Sistema confirma transacción (COMMIT)
 
@@ -917,10 +917,10 @@ En paso 3, si check de dependencias falla:
  
  .. code-block:: python
  
- dependencies = [
- {'table': 'ventas', 'count': 15},
- {'table': 'facturas', 'count': 8}
- ]
+    dependencies = [
+    {'table': 'ventas', 'count': 15},
+    {'table': 'facturas', 'count': 8}
+    ]
  
  3b. Sistema muestra advertencia:
  
@@ -948,10 +948,10 @@ En paso 3, si check de dependencias falla:
  
  .. code-block:: sql
  
- -- Eliminar dependencias primero
- UPDATE tabla_dependiente
- SET deleted_at = NOW, deleted_by = :user_id
- WHERE entidad_id = :uuid;
+    -- Eliminar dependencias primero
+    UPDATE tabla_dependiente
+    SET deleted_at = NOW, deleted_by = :user_id
+    WHERE entidad_id = :uuid;
  
  -- Luego eliminar entidad principal
  UPDATE entidad
@@ -996,10 +996,10 @@ En paso 5, si UPDATE falla por constraint FK:
  
  .. code-block:: python
  
- logger.error(
- f"DELETE failed: integrity error. "
- f"Entity: {uuid}, Error: {str(e)}"
- )
+    logger.error(
+    f"DELETE failed: integrity error. "
+    f"Entity: {uuid}, Error: {str(e)}"
+    )
  
  5d. Sistema muestra mensaje:
  

@@ -147,8 +147,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - MOD_[Nombre]
@@ -202,8 +202,8 @@ Plantilla
  -------------------------
 
  .. list-table::
- :widths: 20 50 30
- :header-rows: 1
+    :widths: 20 50 30
+    :header-rows: 1
 
  * - UC
  - Nombre
@@ -224,8 +224,8 @@ Plantilla
  ----------------------------------
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - CNST
  - Nombre
@@ -243,8 +243,8 @@ Plantilla
  ---------------------------------
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - BR
  - Nombre
@@ -265,8 +265,8 @@ Plantilla
  ^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 40 40
- :header-rows: 1
+    :widths: 20 40 40
+    :header-rows: 1
 
  * - Modulo
  - Tipo Dependencia
@@ -279,8 +279,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 40 40
- :header-rows: 1
+    :widths: 20 40 40
+    :header-rows: 1
 
  * - Modulo
  - Tipo Dependencia
@@ -319,8 +319,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Modelo
  - Descripcion
@@ -333,8 +333,8 @@ Plantilla
  ^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 30 70
- :header-rows: 1
+    :widths: 30 70
+    :header-rows: 1
 
  * - Servicio
  - Responsabilidad
@@ -390,8 +390,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 15 35 25 25
- :header-rows: 1
+    :widths: 15 35 25 25
+    :header-rows: 1
 
  * - Metodo
  - Endpoint
@@ -418,8 +418,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **BReq Origen**
  - BReq_[MOD]: [Nombre]
@@ -438,8 +438,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

@@ -160,7 +160,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Preguntas para clasificar:
+    Preguntas para clasificar:
  
  1. El cambio rompe compatibilidad con version anterior?
     Si -> MAJOR
@@ -181,7 +181,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Version actual: 1.2.3
+    Version actual: 1.2.3
  
  Si MAJOR: 2.0.0 (resetea MINOR y PATCH)
  Si MINOR: 1.3.0 (resetea PATCH)
@@ -197,8 +197,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Formato
- [TIPO]_[Nombre]_[MAJOR]_[MINOR]_[PATCH].rst
+    # Formato
+    [TIPO]_[Nombre]_[MAJOR]_[MINOR]_[PATCH].rst
  
  # Ejemplo
  PROC_Generacion_FR_1_0_0.rst -> PROC_Generacion_FR_1_1_0.rst
@@ -213,9 +213,9 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. meta::
- :version: 1.1.0 <- Actualizar
- :ultimo_cambio: 2026-01-07 <- Actualizar
+    .. meta::
+    :version: 1.1.0 <- Actualizar
+    :ultimo_cambio: 2026-01-07 <- Actualizar
 
 - **Resultado**: Metadatos actualizados
 - **Verificacion**: Consistente con nombre archivo
@@ -227,8 +227,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. list-table::
- :header-rows: 1
+    .. list-table::
+    :header-rows: 1
  
  * - Version
  - Fecha
@@ -253,10 +253,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Buscar referencias a version anterior:
- - En otros PROC
- - En index.rst
- - En modelo documental
+    Buscar referencias a version anterior:
+    - En otros PROC
+    - En index.rst
+    - En modelo documental
 
 - **Resultado**: Referencias actualizadas
 - **Verificacion**: Sin referencias obsoletas

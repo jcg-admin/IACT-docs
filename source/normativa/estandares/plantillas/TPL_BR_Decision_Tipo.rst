@@ -12,8 +12,8 @@
 
 .. rubric:: Metadata sugerida para la instancia
 
-Cuando se crea una instancia a partir de esta plantilla,
-se sugiere declarar el siguiente bloque de metadata:
+   Cuando se crea una instancia a partir de esta plantilla,
+   se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
@@ -531,13 +531,13 @@ CA-2: Sistema solicita aprobacion si count mayor 10,000
  
  .. code-block:: sql
  
- INSERT INTO approvals (
- user_id, query_hash, record_count,
- status, created_at
- ) VALUES (
- :user_id, MD5(:query_params), 10500,
- 'PENDING', NOW
- )
+    INSERT INTO approvals (
+    user_id, query_hash, record_count,
+    status, created_at
+    ) VALUES (
+    :user_id, MD5(:query_params), 10500,
+    'PENDING', NOW
+    )
 
 - Sistema identifica supervisor del usuario
 - Sistema crea notificacion para supervisor
@@ -743,14 +743,14 @@ Si usuario intenta ejecutar query sin aprobacion:
  
  .. code-block:: sql
  
- INSERT INTO audit_log (
- action, user_id, details, severity
- ) VALUES (
- 'QUERY_BLOCKED_APPROVAL_REQUIRED',
- :user_id,
- 'Count: 10500, Threshold: 10000',
- 'INFO'
- )
+    INSERT INTO audit_log (
+    action, user_id, details, severity
+    ) VALUES (
+    'QUERY_BLOCKED_APPROVAL_REQUIRED',
+    :user_id,
+    'Count: 10500, Threshold: 10000',
+    'INFO'
+    )
 
 4. Sistema NO retorna datos al usuario
 

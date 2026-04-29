@@ -20,8 +20,8 @@ en el flujo principal.
 
 .. rubric:: Metadata sugerida para la instancia
 
-Cuando se crea una instancia a partir de esta plantilla, se sugiere
-declarar el siguiente bloque de metadata:
+   Cuando se crea una instancia a partir de esta plantilla, se sugiere
+   declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
@@ -418,13 +418,13 @@ en link "Revisar Solicitud"
 
  .. code-block:: sql
  
- UPDATE approvals
- SET status = 'APPROVED',
- approved_by = :supervisor_id,
- approved_at = NOW,
- scheduled_for = '2024-11-16 06:00:00',
- comments = :supervisor_comments
- WHERE id = :approval_id;
+    UPDATE approvals
+    SET status = 'APPROVED',
+    approved_by = :supervisor_id,
+    approved_at = NOW,
+    scheduled_for = '2024-11-16 06:00:00',
+    comments = :supervisor_comments
+    WHERE id = :approval_id;
 
 8. **Sistema programa ejecucion (FR-RPT-02-05)**
  
@@ -432,7 +432,7 @@ en link "Revisar Solicitud"
 
  .. code-block:: python
  
- from django_q.tasks import schedule
+    from django_q.tasks import schedule
  
  schedule(
  'reports.tasks.execute_approved_query',
@@ -447,9 +447,9 @@ en link "Revisar Solicitud"
 
  .. code-block:: python
  
- response = requests.get('http://analytics-db/health')
- if response.status_code != 200:
- raise AnalyticsUnavailableError
+    response = requests.get('http://analytics-db/health')
+    if response.status_code != 200:
+    raise AnalyticsUnavailableError
 
 10. **Sistema → Analista: Notifica aprobacion (FR-RPT-02-06)**
  
@@ -457,35 +457,35 @@ en link "Revisar Solicitud"
  
  .. code-block:: python
  
- Notification.objects.create(
- recipient=analista,
- type='APPROVAL_GRANTED',
- title='Consulta Aprobada',
- message=(
- 'Su consulta de Q3 2024 ha sido aprobada por '
- 'Carlos Martinez. '
- 'Se ejecutara el 2024-11-16 a las 6:00 AM. '
- 'Comentarios: "Aprobado. Ejecutar en horario valle..."'
- ),
- link=f'/reports/approval/{approval_id}'
- )
+    Notification.objects.create(
+    recipient=analista,
+    type='APPROVAL_GRANTED',
+    title='Consulta Aprobada',
+    message=(
+    'Su consulta de Q3 2024 ha sido aprobada por '
+    'Carlos Martinez. '
+    'Se ejecutara el 2024-11-16 a las 6:00 AM. '
+    'Comentarios: "Aprobado. Ejecutar en horario valle..."'
+    ),
+    link=f'/reports/approval/{approval_id}'
+    )
  
  **Email al Analista:**
  
  .. code-block:: python
  
- send_email(
- to='ana.lopez@iact.com',
- subject='Consulta Aprobada - Q3 2024',
- template='approval_granted.html',
- context={
- 'analista': 'Ana Lopez',
- 'supervisor': 'Carlos Martinez',
- 'query_params': 'Q3 2024, OP',
- 'scheduled_for': '2024-11-16 06:00 AM',
- 'comments': supervisor_comments
- }
- )
+    send_email(
+    to='ana.lopez@iact.com',
+    subject='Consulta Aprobada - Q3 2024',
+    template='approval_granted.html',
+    context={
+    'analista': 'Ana Lopez',
+    'supervisor': 'Carlos Martinez',
+    'query_params': 'Q3 2024, OP',
+    'scheduled_for': '2024-11-16 06:00 AM',
+    'comments': supervisor_comments
+    }
+    )
 
 11. **Sistema muestra confirmacion a Supervisor**
  
@@ -509,18 +509,18 @@ Nota: Esto ocurre en un UC separado o proceso temporal
 
  .. code-block:: sql
  
- SELECT 
- DATE_TRUNC('day', call_date) as dia,
- COUNT(*) as total_llamadas,
- SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END) as completadas,
- SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END) as abandonadas,
- AVG(duration_seconds) as duracion_promedio
- FROM ivr_calls
- WHERE quarter = 'Q3'
- AND year = 2024
- AND segment = 'OP'
- GROUP BY DATE_TRUNC('day', call_date)
- ORDER BY dia ASC
+    SELECT 
+    DATE_TRUNC('day', call_date) as dia,
+    COUNT(*) as total_llamadas,
+    SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END) as completadas,
+    SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END) as abandonadas,
+    AVG(duration_seconds) as duracion_promedio
+    FROM ivr_calls
+    WHERE quarter = 'Q3'
+    AND year = 2024
+    AND segment = 'OP'
+    GROUP BY DATE_TRUNC('day', call_date)
+    ORDER BY dia ASC
 
 8c. **Sistema Analytics → Sistema IACT: Retorna resultados**
 
@@ -560,13 +560,13 @@ En paso 4, si Supervisor selecciona Rechazar:
 
  .. code-block:: sql
  
- UPDATE approvals
- SET status = 'REJECTED',
- approved_by = :supervisor_id,
- approved_at = NOW,
- rejection_reason = :reason,
- comments = :supervisor_comments
- WHERE id = :approval_id
+    UPDATE approvals
+    SET status = 'REJECTED',
+    approved_by = :supervisor_id,
+    approved_at = NOW,
+    rejection_reason = :reason,
+    comments = :supervisor_comments
+    WHERE id = :approval_id
 
  4d. Sistema → Analista: Notifica rechazo
  

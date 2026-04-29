@@ -148,7 +148,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Niveles:
+    Niveles:
  
  1. Dominio: requisitos/, arquitectura_tecnica/, etc.
  2. Subdominio: reglas_negocio/, casos_uso/, etc.
@@ -164,8 +164,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Listar artefactos del subdominio
- ls -1 [subdominio]/*.rst | grep -v index.rst | sort
+    # Listar artefactos del subdominio
+    ls -1 [subdominio]/*.rst | grep -v index.rst | sort
  
  # Ejemplo
  BR_001_Sesion_Unica.rst
@@ -182,11 +182,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. meta::
- :dominio: [dominio]
- :subdominio: [subdominio]
- :tipo: Indice
- :version: 1.0.0
+    .. meta::
+    :dominio: [dominio]
+    :subdominio: [subdominio]
+    :tipo: Indice
+    :version: 1.0.0
  
  
  [Titulo del Subdominio]
@@ -221,9 +221,9 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. toctree::
- :maxdepth: 1
- :caption: Reglas de Negocio
+    .. toctree::
+    :maxdepth: 1
+    :caption: Reglas de Negocio
  
  BR_001_Sesion_Unica
  BR_002_Auditoria_Accesos
@@ -241,11 +241,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- Metricas
- --------
+    Metricas
+    --------
  
  .. list-table::
- :header-rows: 1
+    :header-rows: 1
  
  * - Metrica
  - Valor
@@ -266,7 +266,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- sphinx-build -b html -W docs/ docs/_build/
+    sphinx-build -b html -W docs/ docs/_build/
  
  # Errores comunes:
  # - "toctree contains reference to nonexisting document"
@@ -284,8 +284,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Nombre SIEMPRE es index.rst
- /tmp/[subdominio]/index.rst
+    # Nombre SIEMPRE es index.rst
+    /tmp/[subdominio]/index.rst
  
  # Ejemplo
  /tmp/reglas_negocio/index.rst

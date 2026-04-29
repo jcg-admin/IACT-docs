@@ -176,8 +176,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - BReq_[MOD]
@@ -202,9 +202,9 @@ Plantilla
 
  .. note:: **Objetivo de Negocio BReq_[MOD]**
 
- [Enunciado claro y conciso del objetivo de negocio en 1-2 oraciones.
- Debe expresar QUÉ se quiere lograr, no CÓMO lograrlo.
- Usar formato: "El sistema debe permitir/proveer/garantizar..."]
+    [Enunciado claro y conciso del objetivo de negocio en 1-2 oraciones.
+    Debe expresar QUÉ se quiere lograr, no CÓMO lograrlo.
+    Usar formato: "El sistema debe permitir/proveer/garantizar..."]
 
  1.2 Justificación de Negocio
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -243,8 +243,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 35 40
- :header-rows: 1
+    :widths: 25 35 40
+    :header-rows: 1
 
  * - Stakeholder
  - Rol
@@ -276,8 +276,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - BR
  - Nombre
@@ -293,8 +293,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 50 30
- :header-rows: 1
+    :widths: 20 50 30
+    :header-rows: 1
 
  * - UC
  - Nombre
@@ -321,8 +321,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - CNST
  - Nombre
@@ -353,8 +353,8 @@ Plantilla
  ----------
 
  .. list-table::
- :widths: 30 20 50
- :header-rows: 1
+    :widths: 30 20 50
+    :header-rows: 1
 
  * - Riesgo
  - Probabilidad
@@ -369,8 +369,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Módulo**
  - MOD_[Modulo]
@@ -387,8 +387,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Versión
  - Fecha

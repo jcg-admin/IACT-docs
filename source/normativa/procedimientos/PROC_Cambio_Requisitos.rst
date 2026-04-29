@@ -182,12 +182,12 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- RFC-[YYYY]-[NNN]
- Fecha: YYYY-MM-DD
- Solicitante: [Nombre]
- Requisito afectado: [ID]
- Descripcion del cambio: [Detalle]
- Justificacion: [Razon]
+    RFC-[YYYY]-[NNN]
+    Fecha: YYYY-MM-DD
+    Solicitante: [Nombre]
+    Requisito afectado: [ID]
+    Descripcion del cambio: [Detalle]
+    Justificacion: [Razon]
 
 - **Resultado**: RFC registrado
 - **Verificacion**: ID unico asignado
@@ -244,10 +244,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- RFC-[YYYY]-[NNN] - CERRADO
- Fecha cierre: YYYY-MM-DD
- Estado: Implementado / Rechazado
- Artefactos modificados: [Lista]
+    RFC-[YYYY]-[NNN] - CERRADO
+    Fecha cierre: YYYY-MM-DD
+    Estado: Implementado / Rechazado
+    Artefactos modificados: [Lista]
 
 - **Resultado**: RFC cerrado
 - **Verificacion**: Registro completo

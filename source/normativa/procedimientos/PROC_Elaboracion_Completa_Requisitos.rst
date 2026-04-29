@@ -658,7 +658,7 @@ Segun FND_03:
  -----------------
 
  .. list-table::
- :widths: 25 75
+    :widths: 25 75
 
  * - ID
  - UC_NNN
@@ -688,12 +688,12 @@ Segun FND_03:
 
  .. code-block:: text
 
- 1. Actor [accion]
- 2. Sistema [respuesta]
- 3. Actor [accion]
- 4. Sistema [respuesta]
- ...
- N. Sistema [estado final]
+    1. Actor [accion]
+    2. Sistema [respuesta]
+    3. Actor [accion]
+    4. Sistema [respuesta]
+    ...
+    N. Sistema [estado final]
 
  4. Flujos Alternos
  ------------------
@@ -702,9 +702,9 @@ Segun FND_03:
 
  .. code-block:: text
 
- Xa. [Condicion que dispara]
- Xb. Sistema [accion alternativa]
- Xc. [Continua en paso Y | UC termina]
+    Xa. [Condicion que dispara]
+    Xb. Sistema [accion alternativa]
+    Xc. [Continua en paso Y | UC termina]
 
  5. Excepciones
  --------------
@@ -713,9 +713,9 @@ Segun FND_03:
 
  .. code-block:: text
 
- *a. [Error detectado]
- *b. Sistema [manejo del error]
- *c. UC termina
+    *a. [Error detectado]
+    *b. Sistema [manejo del error]
+    *c. UC termina
 
  6. Postcondiciones
  ------------------

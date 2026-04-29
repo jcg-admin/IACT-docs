@@ -185,7 +185,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- find /ruta/casos_uso/[modulo] -name "UC_*.rst" | sort
+    find /ruta/casos_uso/[modulo] -name "UC_*.rst" | sort
 
 - **Resultado**: Lista ordenada de UC a revisar
 - **Verificacion**: Contar UC coincide con inventario del modulo
@@ -212,12 +212,12 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Ejemplo UC_001:
- - Paso 5: Sistema valida formato de campos -> FR-001.01
- - Paso 6: Sistema verifica credenciales -> FR-001.02
- - Paso 7: Sistema invalida sesiones previas -> FR-001.04
- - Paso 8: Sistema genera token JWT -> FR-001.03
- - Paso 9: Sistema registra evento auditoria -> FR-001.05
+    Ejemplo UC_001:
+    - Paso 5: Sistema valida formato de campos -> FR-001.01
+    - Paso 6: Sistema verifica credenciales -> FR-001.02
+    - Paso 7: Sistema invalida sesiones previas -> FR-001.04
+    - Paso 8: Sistema genera token JWT -> FR-001.03
+    - Paso 9: Sistema registra evento auditoria -> FR-001.05
 
 - **Resultado**: Lista de acciones del sistema = FR candidatos
 - **Verificacion**: Cada paso del sistema tiene FR asociado
@@ -229,10 +229,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- **FR Derivados:**
- - FR-001.01: Validar formato username
- - FR-001.02: Validar credenciales
- - FR-001.03: Generar token JWT
+    **FR Derivados:**
+    - FR-001.01: Validar formato username
+    - FR-001.02: Validar credenciales
+    - FR-001.03: Generar token JWT
 
 - **Resultado**: Lista oficial de FR a generar
 - **Verificacion**: Nomenclatura sigue patron FR-NNN.NN
@@ -244,10 +244,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- BR aplicables a este UC:
- - BR_005: Sesion Unica
- - BR_008: Auditoria Accesos
- - BR_015: Bloqueo Intentos
+    BR aplicables a este UC:
+    - BR_005: Sesion Unica
+    - BR_008: Auditoria Accesos
+    - BR_015: Bloqueo Intentos
 
 - **Resultado**: Lista de BR para incluir en cada FR
 - **Verificacion**: BR existen en catalogo

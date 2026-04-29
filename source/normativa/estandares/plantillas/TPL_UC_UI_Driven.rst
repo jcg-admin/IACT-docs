@@ -12,8 +12,8 @@
 
 .. rubric:: Metadata sugerida para la instancia
 
-Cuando se crea una instancia a partir de esta plantilla,
-se sugiere declarar el siguiente bloque de metadata:
+   Cuando se crea una instancia a partir de esta plantilla,
+   se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
@@ -242,12 +242,12 @@ Documentar cada elemento de entrada (inputs) en detalle.
  
  .. code-block:: javascript
  
- [
- { value: 'Q1', label: 'Q1 - Ene-Mar' },
- { value: 'Q2', label: 'Q2 - Abr-Jun' },
- { value: 'Q3', label: 'Q3 - Jul-Sep' },
- { value: 'Q4', label: 'Q4 - Oct-Dic' }
- ]
+    [
+    { value: 'Q1', label: 'Q1 - Ene-Mar' },
+    { value: 'Q2', label: 'Q2 - Abr-Jun' },
+    { value: 'Q3', label: 'Q3 - Jul-Sep' },
+    { value: 'Q4', label: 'Q4 - Oct-Dic' }
+    ]
 
 - Valor por defecto: Trimestre actual
 - Validacion: Debe seleccionar una opcion
@@ -265,11 +265,11 @@ Documentar cada elemento de entrada (inputs) en detalle.
  
  .. code-block:: javascript
  
- const currentYear = new Date.getFullYear;
- const years = [];
- for (let y = 2020; y <= currentYear; y++) {
- years.push({ value: y, label: y.toString });
- }
+    const currentYear = new Date.getFullYear;
+    const years = [];
+    for (let y = 2020; y <= currentYear; y++) {
+    years.push({ value: y, label: y.toString });
+    }
 
 - Valor por defecto: Ano actual
 - Validacion: Debe estar entre 2020 y ano actual
@@ -287,10 +287,10 @@ Documentar cada elemento de entrada (inputs) en detalle.
  
  .. code-block:: javascript
  
- [
- { value: 'OP', label: 'OP - Operaciones' },
- { value: 'MG', label: 'MG - Management' }
- ]
+    [
+    { value: 'OP', label: 'OP - Operaciones' },
+    { value: 'MG', label: 'MG - Management' }
+    ]
 
 - Valor por defecto: 'OP'
 - Validacion: Debe seleccionar una opcion valida

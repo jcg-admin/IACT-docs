@@ -165,11 +165,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Razones validas:
- - Correccion de error critico
- - Adicion de artefacto faltante
- - Actualizacion por cambio de requisito aprobado
- - Mejora estructural necesaria
+    Razones validas:
+    - Correccion de error critico
+    - Adicion de artefacto faltante
+    - Actualizacion por cambio de requisito aprobado
+    - Mejora estructural necesaria
  
  Razones invalidas:
  - Cambio estetico menor
@@ -186,11 +186,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- DESCONGELAMIENTO: requisitos/reglas_negocio/
- Fecha: 2026-01-07
- Solicitante: [Nombre]
- Razon: Agregar BR_021 por nuevo requisito de seguridad
- Aprobado por: Arquitecto Doc
+    DESCONGELAMIENTO: requisitos/reglas_negocio/
+    Fecha: 2026-01-07
+    Solicitante: [Nombre]
+    Razon: Agregar BR_021 por nuevo requisito de seguridad
+    Aprobado por: Arquitecto Doc
 
 - **Resultado**: Razon documentada
 - **Verificacion**: Registro completo
@@ -203,14 +203,14 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  
- Reglas de Negocio (BR) - [DESCONGELADO]
+    Reglas de Negocio (BR) - [DESCONGELADO]
  
  
  .. warning:: **Estado: DESCONGELADO**
  
- Este subdominio fue descongelado el 2026-01-07.
- Razon: Agregar BR_021 por nuevo requisito de seguridad.
- Recongelar al completar cambios.
+    Este subdominio fue descongelado el 2026-01-07.
+    Razon: Agregar BR_021 por nuevo requisito de seguridad.
+    Recongelar al completar cambios.
 
 - **Resultado**: Index actualizado
 - **Verificacion**: Estado cambiado
@@ -222,10 +222,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- requisitos/
- ├── reglas_negocio/ # [DESCONGELADO] 20 BR
- │ ├── index.rst
- │ └── ...
+    requisitos/
+    ├── reglas_negocio/ # [DESCONGELADO] 20 BR
+    │ ├── index.rst
+    │ └── ...
 
 - **Resultado**: Modelo actualizado
 - **Verificacion**: Marca [DESCONGELADO] presente
@@ -237,7 +237,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- REGISTRO DE DESCONGELAMIENTOS
+    REGISTRO DE DESCONGELAMIENTOS
  
 .. list-table::
  :header-rows: 1
@@ -261,7 +261,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- NOTIFICACION DE DESCONGELAMIENTO
+    NOTIFICACION DE DESCONGELAMIENTO
  
  Subdominio: requisitos/reglas_negocio/
  Fecha: 2026-01-07

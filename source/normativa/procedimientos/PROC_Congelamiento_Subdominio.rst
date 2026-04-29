@@ -172,8 +172,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Contar artefactos
- find [subdominio]/ -name "*.rst" | wc -l
+    # Contar artefactos
+    find [subdominio]/ -name "*.rst" | wc -l
  
  # Verificar contra inventario esperado
  # Ejemplo: reglas_negocio debe tener 20 BR
@@ -188,7 +188,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- sphinx-build -b html -W docs/ docs/_build/
+    sphinx-build -b html -W docs/ docs/_build/
  
  # -W convierte warnings en errores
 
@@ -203,13 +203,13 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  
- Reglas de Negocio (BR) - [CONGELADO]
+    Reglas de Negocio (BR) - [CONGELADO]
  
  
  .. note:: **Estado: CONGELADO**
  
- Este subdominio fue congelado el 2026-01-07.
- Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
+    Este subdominio fue congelado el 2026-01-07.
+    Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
 
 - **Resultado**: Index marcado
 - **Verificacion**: Nota visible
@@ -221,11 +221,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- requisitos/
- ├── reglas_negocio/ # [CONGELADO] 20 BR
- │ ├── index.rst
- │ ├── BR_001_...
- │ └── ...
+    requisitos/
+    ├── reglas_negocio/ # [CONGELADO] 20 BR
+    │ ├── index.rst
+    │ ├── BR_001_...
+    │ └── ...
 
 - **Resultado**: Modelo actualizado
 - **Verificacion**: Marca [CONGELADO] presente
@@ -237,7 +237,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- REGISTRO DE CONGELAMIENTOS
+    REGISTRO DE CONGELAMIENTOS
  
 .. list-table::
  :header-rows: 1
@@ -265,7 +265,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- NOTIFICACION DE CONGELAMIENTO
+    NOTIFICACION DE CONGELAMIENTO
  
  Subdominio: requisitos/reglas_negocio/
  Artefactos: 20 BR

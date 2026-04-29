@@ -63,12 +63,12 @@ FR-006.05: Registrar evento de creación en auditoría
  
  .. code-block:: json
  
- {
- "username": "nuevo.usuario",
- "full_name": "Nombre Completo",
- "email": "usuario@empresa.com",
- "initial_status": "ACTIVE"
- }
+    {
+    "username": "nuevo.usuario",
+    "full_name": "Nombre Completo",
+    "email": "usuario@empresa.com",
+    "initial_status": "ACTIVE"
+    }
  
  **Datos Excluidos (seguridad):**
  

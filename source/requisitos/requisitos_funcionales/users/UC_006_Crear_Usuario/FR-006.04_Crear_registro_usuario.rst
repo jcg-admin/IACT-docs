@@ -53,8 +53,8 @@ FR-006.04: Crear registro de usuario en BD
  **Campos del Usuario:**
  
  .. list-table::
- :widths: 25 20 55
- :header-rows: 1
+    :widths: 25 20 55
+    :header-rows: 1
  
  * - Campo
  - Tipo

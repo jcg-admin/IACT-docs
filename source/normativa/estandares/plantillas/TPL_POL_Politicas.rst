@@ -156,8 +156,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - POL_[NNN]
@@ -181,9 +181,9 @@ Plantilla
 
  .. note:: **Politica POL_[NNN]**
 
- [Declaracion formal de la politica en 2-4 oraciones.
- Debe ser clara, concisa y de alto nivel.
- Establece el compromiso y direccion general.]
+    [Declaracion formal de la politica en 2-4 oraciones.
+    Debe ser clara, concisa y de alto nivel.
+    Establece el compromiso y direccion general.]
 
  ----
 
@@ -258,8 +258,8 @@ Plantilla
  ----------------------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Rol
  - Responsabilidad
@@ -281,8 +281,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - STD
  - Como implementa la politica
@@ -295,8 +295,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - PROC
  - Como operacionaliza la politica
@@ -321,8 +321,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 40 30 30
- :header-rows: 1
+    :widths: 40 30 30
+    :header-rows: 1
 
  * - Metrica
  - Objetivo
@@ -363,8 +363,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 40 20 20
- :header-rows: 1
+    :widths: 20 40 20 20
+    :header-rows: 1
 
  * - ID
  - Descripcion
@@ -395,8 +395,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **STD Asociados**
  - STD_[NNN], STD_[NNN]
@@ -421,8 +421,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

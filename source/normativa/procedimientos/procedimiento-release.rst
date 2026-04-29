@@ -186,7 +186,7 @@ WARNING **IMPORTANTE**: Solo después de validación en staging
 
  .. code:: bash
 
- pg_dump -h prod-db -U iact -d iact_db > backup_pre_v1.2.0.sql
+    pg_dump -h prod-db -U iact -d iact_db > backup_pre_v1.2.0.sql
 
 - ☐ Notificar a stakeholders (ventana de mantenimiento)
 

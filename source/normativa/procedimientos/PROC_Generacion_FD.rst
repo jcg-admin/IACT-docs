@@ -71,7 +71,7 @@ Seleccionar entidad del modelo de dominio.
 .. code-block:: rst
 
  .. list-table::
- :header-rows: 1
+    :header-rows: 1
  
  * - Atributo
  - Tipo

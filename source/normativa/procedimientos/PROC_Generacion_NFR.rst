@@ -153,7 +153,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato: NFR_[CAT]_[NNN]
+    Formato: NFR_[CAT]_[NNN]
  
  Prefijos:
  - PERF: Rendimiento
@@ -178,7 +178,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Descripcion:**
+    **Descripcion:**
  
  El sistema DEBE [caracteristica de calidad] para [beneficio].
  
@@ -196,7 +196,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Metrica:**
+    **Metrica:**
  
  - Nombre: [Nombre de la metrica]
  - Unidad: [ms, %, req/s, etc.]
@@ -212,10 +212,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Valores Objetivo:**
+    **Valores Objetivo:**
  
  .. list-table::
- :header-rows: 1
+    :header-rows: 1
  
  * - Nivel
  - Valor
@@ -240,7 +240,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Metodo de Medicion:**
+    **Metodo de Medicion:**
  
  - Herramienta: [nombre]
  - Frecuencia: [cuando medir]
@@ -257,7 +257,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Condiciones de Medicion:**
+    **Condiciones de Medicion:**
  
  - Carga: [usuarios concurrentes, transacciones/s]
  - Ambiente: [produccion, staging]
@@ -274,7 +274,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Impacto en Arquitectura:**
+    **Impacto en Arquitectura:**
  
  - Componentes afectados: [lista]
  - Decisiones de diseno: [ADR relacionados]
@@ -290,8 +290,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Guardar
- /tmp/no_funcionales/NFR_PERF_001_Tiempo_Respuesta.rst
+    # Guardar
+    /tmp/no_funcionales/NFR_PERF_001_Tiempo_Respuesta.rst
  
  # Validar
  sphinx-build -b html -W /tmp/no_funcionales/ /tmp/build/

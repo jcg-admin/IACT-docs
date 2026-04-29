@@ -149,8 +149,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - FD_[NN]
@@ -216,8 +216,8 @@ Plantilla
  -------------------
 
  .. list-table::
- :widths: 25 25 50
- :header-rows: 1
+    :widths: 25 25 50
+    :header-rows: 1
 
  * - Fuente
  - Tipo
@@ -235,8 +235,8 @@ Plantilla
  --------------------
 
  .. list-table::
- :widths: 25 25 50
- :header-rows: 1
+    :widths: 25 25 50
+    :header-rows: 1
 
  * - Destino
  - Tipo
@@ -257,8 +257,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 10 30 60
- :header-rows: 1
+    :widths: 10 30 60
+    :header-rows: 1
 
  * - Paso
  - Transformacion
@@ -295,22 +295,22 @@ Plantilla
 
  .. code-block:: json
 
- {
- "campo_1": "[tipo] - [descripcion]",
- "campo_2": "[tipo] - [descripcion]",
- "campo_n": "[tipo] - [descripcion]"
- }
+    {
+    "campo_1": "[tipo] - [descripcion]",
+    "campo_2": "[tipo] - [descripcion]",
+    "campo_n": "[tipo] - [descripcion]"
+    }
 
  6.2 Datos de Salida
  ^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: json
 
- {
- "campo_1": "[tipo] - [descripcion]",
- "campo_2": "[tipo] - [descripcion]",
- "campo_n": "[tipo] - [descripcion]"
- }
+    {
+    "campo_1": "[tipo] - [descripcion]",
+    "campo_2": "[tipo] - [descripcion]",
+    "campo_n": "[tipo] - [descripcion]"
+    }
 
  ----
 
@@ -318,8 +318,8 @@ Plantilla
  ---------------------------
 
  .. list-table::
- :widths: 25 25 50
- :header-rows: 1
+    :widths: 25 25 50
+    :header-rows: 1
 
  * - Componente
  - Modulo
@@ -340,8 +340,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 30 30 40
- :header-rows: 1
+    :widths: 30 30 40
+    :header-rows: 1
 
  * - Error
  - Causa
@@ -369,8 +369,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 40 30 30
- :header-rows: 1
+    :widths: 40 30 30
+    :header-rows: 1
 
  * - Metrica
  - Valor Esperado
@@ -414,8 +414,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **UC Relacionados**
  - UC_[MOD]_[NN], UC_[MOD]_[NN]
@@ -432,8 +432,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

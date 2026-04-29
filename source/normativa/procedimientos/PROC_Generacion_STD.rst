@@ -154,7 +154,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato: STD_[NNN]
+    Formato: STD_[NNN]
  
  Ejemplos:
  - STD_001: Estructura Documentacion (Documentacion)
@@ -171,8 +171,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- 1. Proposito
- ------------
+    1. Proposito
+    ------------
  
  Este estandar define [que normaliza] para [objetivo].
  
@@ -192,8 +192,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- 2.1 Aplica A
- ^^^^^^^^^^^^
+    2.1 Aplica A
+    ^^^^^^^^^^^^
  
  - [Contexto 1 donde aplica]
  - [Contexto 2]
@@ -214,7 +214,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Regla STD_001-R01: [Nombre de la regla]**
+    **Regla STD_001-R01: [Nombre de la regla]**
  
  - **Descripcion**: [Que establece la regla]
  - **Obligatoriedad**: Obligatorio | Recomendado
@@ -224,13 +224,13 @@ Antes de iniciar este procedimiento, verificar:
  
  .. code-block:: [lenguaje]
  
- [codigo o texto correcto]
+    [codigo o texto correcto]
  
  **Ejemplo Incorrecto:**
  
  .. code-block:: [lenguaje]
  
- [codigo o texto incorrecto]
+    [codigo o texto incorrecto]
 
 - **Resultado**: Reglas documentadas
 - **Verificacion**: Ejemplos claros
@@ -242,8 +242,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- .. list-table::
- :header-rows: 1
+    .. list-table::
+    :header-rows: 1
  
  * - Regla
  - Descripcion
@@ -264,8 +264,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- 9. Verificacion
- ---------------
+    9. Verificacion
+    ---------------
  
  9.1 Automatica
  ^^^^^^^^^^^^^^
@@ -289,8 +289,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- 10. Excepciones
- ---------------
+    10. Excepciones
+    ---------------
  
  **Proceso para solicitar excepcion:**
  
@@ -308,8 +308,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Guardar
- /tmp/estandares/STD_006_Versionado_Semantico.rst
+    # Guardar
+    /tmp/estandares/STD_006_Versionado_Semantico.rst
  
  # Validar
  sphinx-build -b html -W /tmp/estandares/ /tmp/build/

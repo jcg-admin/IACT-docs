@@ -142,8 +142,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - PROC_[NNN]
@@ -188,8 +188,8 @@ Plantilla
  ----------------------------
 
  .. list-table::
- :widths: 20 30 50
- :header-rows: 1
+    :widths: 20 30 50
+    :header-rows: 1
 
  * - Rol
  - Responsabilidad
@@ -222,8 +222,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 30 50 20
- :header-rows: 1
+    :widths: 30 50 20
+    :header-rows: 1
 
  * - Artefacto
  - Descripción
@@ -311,8 +311,8 @@ Plantilla
  -----------------------
 
  .. list-table::
- :widths: 30 50 20
- :header-rows: 1
+    :widths: 30 50 20
+    :header-rows: 1
 
  * - Artefacto
  - Descripción
@@ -353,8 +353,8 @@ Plantilla
 
  .. code-block:: bash
 
- # Validar artefactos generados
- sphinx-build -b html -W docs/ docs/_build/
+    # Validar artefactos generados
+    sphinx-build -b html -W docs/ docs/_build/
 
  ----
 
@@ -362,8 +362,8 @@ Plantilla
  -------------------------
 
  .. list-table::
- :widths: 30 70
- :header-rows: 1
+    :widths: 30 70
+    :header-rows: 1
 
  * - Excepción
  - Acción Correctiva
@@ -387,8 +387,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Versión
  - Fecha

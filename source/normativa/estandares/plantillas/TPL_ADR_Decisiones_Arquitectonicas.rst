@@ -164,8 +164,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - ADR_[NNN]
@@ -261,7 +261,7 @@ Plantilla
 
  .. note:: **Decision**
 
- Se selecciona la **Alternativa [X]: [Nombre]**.
+    Se selecciona la **Alternativa [X]: [Nombre]**.
 
  4.2 Justificacion
  ^^^^^^^^^^^^^^^^^
@@ -294,8 +294,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 40 20 40
- :header-rows: 1
+    :widths: 40 20 40
+    :header-rows: 1
 
  * - Riesgo
  - Probabilidad
@@ -362,8 +362,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **CNST Generadas**
  - CNST_[NNN], CNST_[NNN]
@@ -389,8 +389,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

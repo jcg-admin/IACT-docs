@@ -177,15 +177,15 @@ ETAPA 2: IMPLEMENTACIÓN
 
  .. code:: bash
 
- black callcentersite/
- isort callcentersite/
- flake8 callcentersite/
+    black callcentersite/
+    isort callcentersite/
+    flake8 callcentersite/
 
 5. **Verificar Coverage**
 
  .. code:: bash
 
- pytest --cov=callcentersite --cov-report=term --cov-fail-under=80
+    pytest --cov=callcentersite --cov-report=term --cov-fail-under=80
 
 **Criterios de Salida**: - [ ] Tests unitarios pasan - [ ] Tests de
 integración pasan - [ ] Coverage >= 80% - [ ] Linters pasan (black,
@@ -223,7 +223,7 @@ ETAPA 3: CODE REVIEW PREPARATION
 
  .. code:: bash
 
- git push -u origin feature/ISSUE-123-descripcion
+    git push -u origin feature/ISSUE-123-descripcion
 
 3. **Crear Pull Request**
 
@@ -233,8 +233,8 @@ ETAPA 3: CODE REVIEW PREPARATION
 
  .. code:: markdown
 
- ## Descripción
- Breve descripción del cambio.
+    ## Descripción
+    Breve descripción del cambio.
 
  ## Tipo de cambio
  - [x] Feature nueva
@@ -338,10 +338,10 @@ ETAPA 5: MERGE Y DEPLOYMENT A STAGING
 
  .. code:: yaml
 
- - Ejecutar migraciones (staging DB)
- - Deploy de aplicación (staging server)
- - Smoke tests automáticos
- - Notificar en Slack/Discord
+    - Ejecutar migraciones (staging DB)
+    - Deploy de aplicación (staging server)
+    - Smoke tests automáticos
+    - Notificar en Slack/Discord
 
 3. **Verificación Manual en Staging**
 
@@ -383,12 +383,12 @@ completado
 
  .. code:: bash
 
- # Manual trigger o automático desde main
- - Activar maintenance mode (si necesario)
- - Ejecutar migraciones en producción
- - Deploy de aplicación
- - Smoke tests automáticos
- - Desactivar maintenance mode
+    # Manual trigger o automático desde main
+    - Activar maintenance mode (si necesario)
+    - Ejecutar migraciones en producción
+    - Deploy de aplicación
+    - Smoke tests automáticos
+    - Desactivar maintenance mode
 
 3. **Validación Post-Deployment**
 

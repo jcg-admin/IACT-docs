@@ -159,8 +159,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - BR_[NNN]
@@ -185,17 +185,17 @@ Plantilla
 
  .. note:: **Regla de Negocio BR_[NNN]**
 
- [Enunciado claro y conciso de la regla en lenguaje natural.
- Debe ser comprensible para stakeholders no técnicos.]
+    [Enunciado claro y conciso de la regla en lenguaje natural.
+    Debe ser comprensible para stakeholders no técnicos.]
 
  1.2 Formulación SBVR
  ^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: text
 
- VOCABULARIO:
- - [termino_1]: [Definición del término]
- - [termino_2]: [Definición del término]
+    VOCABULARIO:
+    - [termino_1]: [Definición del término]
+    - [termino_2]: [Definición del término]
 
  REGLA:
  Es [OBLIGATORIO|PROHIBIDO|PERMITIDO] que [sujeto] [verbo] [predicado].
@@ -221,8 +221,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 80
- :header-rows: 0
+    :widths: 20 80
+    :header-rows: 0
 
  * - **Tipo**
  - **[Tipo seleccionado]**
@@ -253,8 +253,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Documento**
  - [CNST_NNN_Nombre.rst | Normativa externa | Decisión de diseño]
@@ -281,8 +281,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 30 70
- :header-rows: 1
+    :widths: 30 70
+    :header-rows: 1
 
  * - Componente
  - Descripción de Aplicación
@@ -303,8 +303,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **CNST Origen**
  - CNST_[NNN]: [Nombre] (si aplica)
@@ -344,15 +344,15 @@ Plantilla
 
  .. code-block:: text
 
- [Módulo/Clase/Función que implementa la regla]
+    [Módulo/Clase/Función que implementa la regla]
 
  7.2 Código de Referencia
  ^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: python
 
- # Ejemplo de implementación
- # BR_[NNN]: [Nombre de la regla]
+    # Ejemplo de implementación
+    # BR_[NNN]: [Nombre de la regla]
  
  def [funcion_que_implementa]:
  
@@ -366,8 +366,8 @@ Plantilla
  -----------------------
 
  .. list-table::
- :widths: 15 15 70
- :header-rows: 1
+    :widths: 15 15 70
+    :header-rows: 1
 
  * - Versión
  - Fecha

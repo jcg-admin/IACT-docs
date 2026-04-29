@@ -170,8 +170,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - VIEW_[NNN]
@@ -202,8 +202,8 @@ Plantilla
  Esta vista esta dirigida a:
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Stakeholder
  - Interes
@@ -259,8 +259,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Elemento
  - Descripcion
@@ -275,8 +275,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 20 60
- :header-rows: 1
+    :widths: 20 20 60
+    :header-rows: 1
 
  * - Desde
  - Hacia
@@ -312,8 +312,8 @@ Plantilla
  Esta vista refleja las siguientes decisiones:
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - ADR
  - Impacto en la Vista
@@ -328,8 +328,8 @@ Plantilla
  ---------------------------
 
  .. list-table::
- :widths: 20 80
- :header-rows: 1
+    :widths: 20 80
+    :header-rows: 1
 
  * - CNST
  - Manifestacion en la Vista
@@ -382,8 +382,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Tipo de Vista**
  - [Logica|Proceso|Desarrollo|Fisica]
@@ -402,8 +402,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

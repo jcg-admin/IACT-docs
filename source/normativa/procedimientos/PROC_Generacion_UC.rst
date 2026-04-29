@@ -150,7 +150,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: text
 
- Formato: UC_[NNN]
+    Formato: UC_[NNN]
  
  Rangos por modulo:
  - MOD_Auth: UC_001 - UC_005
@@ -174,13 +174,13 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: text
 
- Actores IACT:
- - Usuario no autenticado
- - Usuario autenticado
- - Administrador
- - Supervisor
- - Sistema (para UC automaticos)
- - API Externa
+    Actores IACT:
+    - Usuario no autenticado
+    - Usuario autenticado
+    - Administrador
+    - Supervisor
+    - Sistema (para UC automaticos)
+    - API Externa
 
 - **Resultado**: Actor identificado
 - **Verificacion**: Actor valido del sistema
@@ -192,8 +192,8 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: text
 
- Formato:
- "Permite a [actor] [accion principal] para [objetivo/beneficio]."
+    Formato:
+    "Permite a [actor] [accion principal] para [objetivo/beneficio]."
  
  Ejemplo UC_001:
  "Permite a un usuario autenticarse en el sistema IACT
@@ -210,7 +210,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- **Precondiciones:**
+    **Precondiciones:**
  
  1. [Condicion que debe cumplirse antes]
  2. [Otra condicion]
@@ -237,7 +237,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- ::
+    ::
  
  1. Actor [accion]
  2. Sistema [respuesta]
@@ -262,7 +262,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- **FA-1: [Nombre del flujo alterno]**
+    **FA-1: [Nombre del flujo alterno]**
  
  ::
  
@@ -280,7 +280,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- **EX-1: [Nombre de la excepcion]**
+    **EX-1: [Nombre de la excepcion]**
  
  ::
  
@@ -298,8 +298,8 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- .. list-table::
- :header-rows: 1
+    .. list-table::
+    :header-rows: 1
  
  * - BR
  - Nombre
@@ -318,7 +318,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: rst
 
- **FR Derivados:**
+    **FR Derivados:**
  
  - FR-001.01: Validar formato username
  - FR-001.02: Validar credenciales
@@ -334,8 +334,8 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
  .. code-block:: bash
 
- # Guardar
- /tmp/casos_uso/auth/UC_001_Iniciar_Sesion.rst
+    # Guardar
+    /tmp/casos_uso/auth/UC_001_Iniciar_Sesion.rst
  
  # Validar
  sphinx-build -b html -W /tmp/casos_uso/ /tmp/build/

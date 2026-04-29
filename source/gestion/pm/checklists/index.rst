@@ -5,8 +5,8 @@ Checklists
  :hidden:
  :maxdepth: 1
 
- checklists-backend-readme
- README
+ checklists-backend
+ checklists-pm
  checklist_cambios_documentales
  checklist_desarrollo
  checklist_testing

@@ -12,8 +12,8 @@
 
 .. rubric:: Metadata sugerida para la instancia
 
-Cuando se crea una instancia a partir de esta plantilla,
-se sugiere declarar el siguiente bloque de metadata:
+   Cuando se crea una instancia a partir de esta plantilla,
+   se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
@@ -228,8 +228,8 @@ FLUJO AUTOMATICO - Marcar Sesiones Expiradas
  
  .. code-block:: sql
  
- -- Advisory lock en PostgreSQL
- SELECT pg_try_advisory_lock(hashtext('mark_expired_sessions'));
+    -- Advisory lock en PostgreSQL
+    SELECT pg_try_advisory_lock(hashtext('mark_expired_sessions'));
  
  Si lock NO se puede adquirir (otra ejecucion en progreso):
  
@@ -245,27 +245,27 @@ FLUJO AUTOMATICO - Marcar Sesiones Expiradas
  
  .. code-block:: python
  
- logger.info({
- 'event': 'mark_expired_sessions_start',
- 'timestamp': datetime.now.isoformat
- })
+    logger.info({
+    'event': 'mark_expired_sessions_start',
+    'timestamp': datetime.now.isoformat
+    })
 
 4. Sistema calcula cutoff timestamp (FR-AUTH-08-03)
  
  .. code-block:: python
  
- cutoff = datetime.now - timedelta(minutes=15)
- # Sesiones con last_activity_at menor cutoff estan expiradas
+    cutoff = datetime.now - timedelta(minutes=15)
+    # Sesiones con last_activity_at menor cutoff estan expiradas
 
 5. Sistema identifica sesiones a expirar (FR-AUTH-08-04)
  
  .. code-block:: sql
  
- SELECT id, user_id, last_activity_at
- FROM ivr_sessions
- WHERE status = 'ACTIVE'
- AND last_activity_at < :cutoff
- FOR UPDATE SKIP LOCKED;
+    SELECT id, user_id, last_activity_at
+    FROM ivr_sessions
+    WHERE status = 'ACTIVE'
+    AND last_activity_at < :cutoff
+    FOR UPDATE SKIP LOCKED;
  
  Nota: FOR UPDATE SKIP LOCKED evita bloqueos
 
@@ -285,11 +285,11 @@ FLUJO AUTOMATICO - Marcar Sesiones Expiradas
  
  .. code-block:: sql
  
- UPDATE ivr_sessions
- SET status = 'EXPIRED',
- expired_at = NOW,
- updated_at = NOW
- WHERE id IN :session_ids;
+    UPDATE ivr_sessions
+    SET status = 'EXPIRED',
+    expired_at = NOW,
+    updated_at = NOW
+    WHERE id IN :session_ids;
 
 9. Sistema verifica filas actualizadas
  
@@ -305,35 +305,35 @@ FLUJO AUTOMATICO - Marcar Sesiones Expiradas
  
  .. code-block:: python
  
- logger.info({
- 'event': 'sessions_expired',
- 'count': rows_updated,
- 'cutoff': cutoff.isoformat,
- 'execution_time_ms': execution_time
- })
+    logger.info({
+    'event': 'sessions_expired',
+    'count': rows_updated,
+    'cutoff': cutoff.isoformat,
+    'execution_time_ms': execution_time
+    })
  
  Enviar metricas a Prometheus:
  
  .. code-block:: python
  
- sessions_expired_total.inc(rows_updated)
- session_expiry_duration.observe(execution_time)
+    sessions_expired_total.inc(rows_updated)
+    session_expiry_duration.observe(execution_time)
 
 11. Sistema libera lock (FR-AUTH-08-07)
  
  .. code-block:: sql
  
- SELECT pg_advisory_unlock(hashtext('mark_expired_sessions'));
+    SELECT pg_advisory_unlock(hashtext('mark_expired_sessions'));
 
 12. Sistema registra fin exitoso
  
  .. code-block:: python
  
- logger.info({
- 'event': 'mark_expired_sessions_success',
- 'total_expired': rows_updated,
- 'duration_ms': total_duration
- })
+    logger.info({
+    'event': 'mark_expired_sessions_success',
+    'total_expired': rows_updated,
+    'duration_ms': total_duration
+    })
 
 13. Proceso termina exitosamente, exit code 0
 

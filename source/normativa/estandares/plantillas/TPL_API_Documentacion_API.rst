@@ -148,8 +148,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **API**
  - API_[Nombre]
@@ -186,16 +186,16 @@ Plantilla
 
  .. code-block:: http
 
- Authorization: Bearer <token>
+    Authorization: Bearer <token>
 
  2.2 Obtencion de Token
  ^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: bash
 
- curl -X POST /api/auth/login/ \
- -H "Content-Type: application/json" \
- -d '{"username": "user", "password": "pass"}'
+    curl -X POST /api/auth/login/ \
+    -H "Content-Type: application/json" \
+    -d '{"username": "user", "password": "pass"}'
 
  ----
 
@@ -213,15 +213,15 @@ Plantilla
 
  .. code-block:: http
 
- GET /api/[nombre]/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
+    GET /api/[nombre]/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
 
  **Query Parameters:**
 
  .. list-table::
- :widths: 20 15 15 50
- :header-rows: 1
+    :widths: 20 15 15 50
+    :header-rows: 1
 
  * - Parametro
  - Tipo
@@ -244,25 +244,25 @@ Plantilla
 
  .. code-block:: json
 
- {
- "count": 100,
- "next": "/api/[nombre]/?page=2",
- "previous": null,
- "results": [
- {
- "id": 1,
- "campo_1": "valor",
- "campo_2": "valor"
- }
- ]
- }
+    {
+    "count": 100,
+    "next": "/api/[nombre]/?page=2",
+    "previous": null,
+    "results": [
+    {
+    "id": 1,
+    "campo_1": "valor",
+    "campo_2": "valor"
+    }
+    ]
+    }
 
  **Ejemplo curl:**
 
  .. code-block:: bash
 
- curl -X GET "/api/[nombre]/?page=1&page_size=10" \
- -H "Authorization: Bearer $TOKEN"
+    curl -X GET "/api/[nombre]/?page=1&page_size=10" \
+    -H "Authorization: Bearer $TOKEN"
 
  ----
 
@@ -277,15 +277,15 @@ Plantilla
 
  .. code-block:: http
 
- GET /api/[nombre]/{id}/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
+    GET /api/[nombre]/{id}/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
 
  **Path Parameters:**
 
  .. list-table::
- :widths: 20 15 65
- :header-rows: 1
+    :widths: 20 15 65
+    :header-rows: 1
 
  * - Parametro
  - Tipo
@@ -298,21 +298,21 @@ Plantilla
 
  .. code-block:: json
 
- {
- "id": 1,
- "campo_1": "valor",
- "campo_2": "valor",
- "created_at": "2026-01-07T10:00:00Z",
- "updated_at": "2026-01-07T10:00:00Z"
- }
+    {
+    "id": 1,
+    "campo_1": "valor",
+    "campo_2": "valor",
+    "created_at": "2026-01-07T10:00:00Z",
+    "updated_at": "2026-01-07T10:00:00Z"
+    }
 
  **Response 404 Not Found:**
 
  .. code-block:: json
 
- {
- "detail": "No encontrado."
- }
+    {
+    "detail": "No encontrado."
+    }
 
  ----
 
@@ -327,25 +327,25 @@ Plantilla
 
  .. code-block:: http
 
- POST /api/[nombre]/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
- Content-Type: application/json
+    POST /api/[nombre]/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
+    Content-Type: application/json
 
  **Request Body:**
 
  .. code-block:: json
 
- {
- "campo_1": "valor",
- "campo_2": "valor"
- }
+    {
+    "campo_1": "valor",
+    "campo_2": "valor"
+    }
 
  **Body Parameters:**
 
  .. list-table::
- :widths: 20 15 15 50
- :header-rows: 1
+    :widths: 20 15 15 50
+    :header-rows: 1
 
  * - Campo
  - Tipo
@@ -364,29 +364,29 @@ Plantilla
 
  .. code-block:: json
 
- {
- "id": 1,
- "campo_1": "valor",
- "campo_2": "valor",
- "created_at": "2026-01-07T10:00:00Z"
- }
+    {
+    "id": 1,
+    "campo_1": "valor",
+    "campo_2": "valor",
+    "created_at": "2026-01-07T10:00:00Z"
+    }
 
  **Response 400 Bad Request:**
 
  .. code-block:: json
 
- {
- "campo_1": ["Este campo es requerido."]
- }
+    {
+    "campo_1": ["Este campo es requerido."]
+    }
 
  **Ejemplo curl:**
 
  .. code-block:: bash
 
- curl -X POST "/api/[nombre]/" \
- -H "Authorization: Bearer $TOKEN" \
- -H "Content-Type: application/json" \
- -d '{"campo_1": "valor", "campo_2": "valor"}'
+    curl -X POST "/api/[nombre]/" \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{"campo_1": "valor", "campo_2": "valor"}'
 
  ----
 
@@ -401,10 +401,10 @@ Plantilla
 
  .. code-block:: http
 
- PUT /api/[nombre]/{id}/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
- Content-Type: application/json
+    PUT /api/[nombre]/{id}/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
+    Content-Type: application/json
 
  **Request Body:** Igual que POST (todos los campos requeridos)
 
@@ -416,10 +416,10 @@ Plantilla
 
  .. code-block:: bash
 
- curl -X PUT "/api/[nombre]/1/" \
- -H "Authorization: Bearer $TOKEN" \
- -H "Content-Type: application/json" \
- -d '{"campo_1": "nuevo_valor", "campo_2": "nuevo_valor"}'
+    curl -X PUT "/api/[nombre]/1/" \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{"campo_1": "nuevo_valor", "campo_2": "nuevo_valor"}'
 
  ----
 
@@ -434,18 +434,18 @@ Plantilla
 
  .. code-block:: http
 
- PATCH /api/[nombre]/{id}/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
- Content-Type: application/json
+    PATCH /api/[nombre]/{id}/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
+    Content-Type: application/json
 
  **Request Body:** Solo campos a actualizar
 
  .. code-block:: json
 
- {
- "campo_1": "nuevo_valor"
- }
+    {
+    "campo_1": "nuevo_valor"
+    }
 
  **Response 200 OK:** Recurso actualizado
 
@@ -453,10 +453,10 @@ Plantilla
 
  .. code-block:: bash
 
- curl -X PATCH "/api/[nombre]/1/" \
- -H "Authorization: Bearer $TOKEN" \
- -H "Content-Type: application/json" \
- -d '{"campo_1": "nuevo_valor"}'
+    curl -X PATCH "/api/[nombre]/1/" \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{"campo_1": "nuevo_valor"}'
 
  ----
 
@@ -471,9 +471,9 @@ Plantilla
 
  .. code-block:: http
 
- DELETE /api/[nombre]/{id}/ HTTP/1.1
- Host: api.iact.com
- Authorization: Bearer <token>
+    DELETE /api/[nombre]/{id}/ HTTP/1.1
+    Host: api.iact.com
+    Authorization: Bearer <token>
 
  **Response 204 No Content:** Eliminado exitosamente
 
@@ -485,8 +485,8 @@ Plantilla
 
  .. code-block:: bash
 
- curl -X DELETE "/api/[nombre]/1/" \
- -H "Authorization: Bearer $TOKEN"
+    curl -X DELETE "/api/[nombre]/1/" \
+    -H "Authorization: Bearer $TOKEN"
 
  ----
 
@@ -494,8 +494,8 @@ Plantilla
  -----------------------
 
  .. list-table::
- :widths: 15 35 50
- :header-rows: 1
+    :widths: 15 35 50
+    :header-rows: 1
 
  * - Codigo
  - Significado
@@ -537,8 +537,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 30 20 25 25
- :header-rows: 1
+    :widths: 30 20 25 25
+    :header-rows: 1
 
  * - Endpoint
  - Metodo
@@ -580,18 +580,18 @@ Plantilla
 
  .. code-block:: json
 
- {
- "count": 100,
- "next": "/api/[nombre]/?page=2",
- "previous": null,
- "results": [...]
- }
+    {
+    "count": 100,
+    "next": "/api/[nombre]/?page=2",
+    "previous": null,
+    "results": [...]
+    }
 
  **Parametros de paginacion:**
 
  .. list-table::
- :widths: 20 20 60
- :header-rows: 1
+    :widths: 20 20 60
+    :header-rows: 1
 
  * - Parametro
  - Default
@@ -607,7 +607,7 @@ Plantilla
 
  .. code-block:: bash
 
- curl "/api/[nombre]/?page=2&page_size=50"
+    curl "/api/[nombre]/?page=2&page_size=50"
 
  ----
 
@@ -618,8 +618,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 25 50
- :header-rows: 1
+    :widths: 25 25 50
+    :header-rows: 1
 
  * - Filtro
  - Tipo
@@ -653,7 +653,7 @@ Plantilla
 
  .. code-block:: http
 
- GET /api/[nombre]/?ordering=-created_at
+    GET /api/[nombre]/?ordering=-created_at
 
  - Prefijo ``-`` para orden descendente
  - Sin prefijo para orden ascendente
@@ -667,8 +667,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 30 70
- :header-rows: 0
+    :widths: 30 70
+    :header-rows: 0
 
  * - **Limite anonimo**
  - 100 requests/hora
@@ -683,9 +683,9 @@ Plantilla
 
  .. code-block:: json
 
- {
- "detail": "Request was throttled. Expected available in 3600 seconds."
- }
+    {
+    "detail": "Request was throttled. Expected available in 3600 seconds."
+    }
 
  ----
 
@@ -697,40 +697,40 @@ Plantilla
 
  .. code-block:: json
 
- {
- "detail": "Mensaje de error general",
- "code": "error_code"
- }
+    {
+    "detail": "Mensaje de error general",
+    "code": "error_code"
+    }
 
  9.2 Errores de Validacion (400)
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: json
 
- {
- "campo_1": ["Este campo es requerido."],
- "campo_2": ["Asegurese de que este valor sea menor o igual a 100."]
- }
+    {
+    "campo_1": ["Este campo es requerido."],
+    "campo_2": ["Asegurese de que este valor sea menor o igual a 100."]
+    }
 
  9.3 Errores de Autenticacion (401)
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: json
 
- {
- "detail": "Las credenciales de autenticacion no se proveyeron.",
- "code": "not_authenticated"
- }
+    {
+    "detail": "Las credenciales de autenticacion no se proveyeron.",
+    "code": "not_authenticated"
+    }
 
  9.4 Errores de Permisos (403)
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: json
 
- {
- "detail": "No tiene permiso para realizar esta accion.",
- "code": "permission_denied"
- }
+    {
+    "detail": "No tiene permiso para realizar esta accion.",
+    "code": "permission_denied"
+    }
 
  ----
 
@@ -738,8 +738,8 @@ Plantilla
  ----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Modulo**
  - MOD_[Nombre]
@@ -758,8 +758,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha

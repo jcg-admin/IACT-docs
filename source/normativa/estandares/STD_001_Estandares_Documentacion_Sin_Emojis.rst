@@ -477,8 +477,8 @@ STD_001: Estándar de Documentación Sin Emojis
 .. code-block:: rst
 
  .. note::
- El código original contiene emojis. En código propio de IACT,
- usar ``[OK]`` en su lugar.
+    El código original contiene emojis. En código propio de IACT,
+    usar ``[OK]`` en su lugar.
 
 6.4. Capturas de Pantalla
 --------------------------

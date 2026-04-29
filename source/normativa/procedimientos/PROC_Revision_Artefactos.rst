@@ -210,11 +210,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Verificar presencia de:
- - Meta tags
- - Titulo
- - Todas las secciones del TPL
- - Historial de cambios
+    Verificar presencia de:
+    - Meta tags
+    - Titulo
+    - Todas las secciones del TPL
+    - Historial de cambios
 
 - **Resultado**: Lista de secciones faltantes (si hay)
 - **Verificacion**: Checklist de estructura
@@ -239,8 +239,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Verificar ID en meta tag
- grep ":artefacto:" [archivo]
+    # Verificar ID en meta tag
+    grep ":artefacto:" [archivo]
  
  # Verificar nombre archivo
  ls -la [archivo]
@@ -267,7 +267,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- sphinx-build -b html -W docs/ docs/_build/
+    sphinx-build -b html -W docs/ docs/_build/
 
 - **Resultado**: Build exitoso
 - **Verificacion**: Sin errores ni warnings
@@ -279,11 +279,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- REVISION: [ID artefacto]
- Fecha: YYYY-MM-DD
- Revisor: [Nombre]
- Resultado: Aprobado / Rechazado / Con observaciones
- Hallazgos: [Lista]
+    REVISION: [ID artefacto]
+    Fecha: YYYY-MM-DD
+    Revisor: [Nombre]
+    Resultado: Aprobado / Rechazado / Con observaciones
+    Hallazgos: [Lista]
 
 - **Resultado**: Revision documentada
 - **Verificacion**: Registro completo

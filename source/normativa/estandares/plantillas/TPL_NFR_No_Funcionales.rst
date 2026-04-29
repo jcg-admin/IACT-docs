@@ -183,8 +183,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - NFR_[NNN]
@@ -211,8 +211,8 @@ Plantilla
 
  .. note:: **Requisito No Funcional NFR_[NNN]**
 
- [Enunciado claro y conciso del requisito no funcional.
- Debe ser específico, medible, alcanzable, relevante y temporal (SMART).]
+    [Enunciado claro y conciso del requisito no funcional.
+    Debe ser específico, medible, alcanzable, relevante y temporal (SMART).]
 
  1.2 Justificación
  ^^^^^^^^^^^^^^^^^
@@ -229,8 +229,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Nombre**
  - [Nombre de la métrica]
@@ -243,8 +243,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 20 30 50
- :header-rows: 1
+    :widths: 20 30 50
+    :header-rows: 1
 
  * - Nivel
  - Umbral
@@ -325,8 +325,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 25 75
- :header-rows: 1
+    :widths: 25 75
+    :header-rows: 1
 
  * - Componente
  - Impacto
@@ -348,8 +348,8 @@ Plantilla
  -----------------------------
 
  .. list-table::
- :widths: 15 45 40
- :header-rows: 1
+    :widths: 15 45 40
+    :header-rows: 1
 
  * - CNST
  - Nombre
@@ -383,8 +383,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 30 30 40
- :header-rows: 1
+    :widths: 30 30 40
+    :header-rows: 1
 
  * - Indicador
  - Umbral de Alerta
@@ -408,8 +408,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **Categoría ISO 25010**
  - [Categoría]
@@ -426,8 +426,8 @@ Plantilla
  ------------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Versión
  - Fecha

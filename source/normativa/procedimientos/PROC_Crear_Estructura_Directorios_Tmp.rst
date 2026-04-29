@@ -203,8 +203,8 @@ Antes de iniciar este procedimiento, verificar:
 - **Accion**: Determinar estructura segun tipo de artefacto:
 
  .. list-table::
- :widths: 20 40 40
- :header-rows: 1
+    :widths: 20 40 40
+    :header-rows: 1
 
  * - Tipo
  - Estructura
@@ -238,7 +238,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- mkdir -p /tmp/[dominio]
+    mkdir -p /tmp/[dominio]
 
 - **Resultado**: Carpeta raiz creada
 - **Verificacion**: ``ls /tmp/[dominio]`` no da error
@@ -250,10 +250,10 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Los 8 modulos IACT
- for mod in auth users access pipeline reports alerts audit logs; do
- mkdir -p /tmp/[dominio]/$mod
- done
+    # Los 8 modulos IACT
+    for mod in auth users access pipeline reports alerts audit logs; do
+    mkdir -p /tmp/[dominio]/$mod
+    done
 
 - **Resultado**: 8 subcarpetas de modulo creadas
 - **Verificacion**: ``ls /tmp/[dominio]/`` muestra 8 carpetas
@@ -265,12 +265,12 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Ejemplo para auth (5 UC)
- mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
- mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
- mkdir -p /tmp/funcionales/auth/UC_003_Recuperar_Password
- mkdir -p /tmp/funcionales/auth/UC_004_Cambiar_Password
- mkdir -p /tmp/funcionales/auth/UC_005_Gestionar_Sesiones
+    # Ejemplo para auth (5 UC)
+    mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
+    mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
+    mkdir -p /tmp/funcionales/auth/UC_003_Recuperar_Password
+    mkdir -p /tmp/funcionales/auth/UC_004_Cambiar_Password
+    mkdir -p /tmp/funcionales/auth/UC_005_Gestionar_Sesiones
 
 - **Resultado**: Subcarpetas por UC creadas
 - **Verificacion**: Estructura lista para recibir FR
@@ -282,8 +282,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Verificar estructura
- find /tmp/[dominio] -type d | head -20
+    # Verificar estructura
+    find /tmp/[dominio] -type d | head -20
 
 - **Resultado**: Estructura verificada
 - **Verificacion**: Todas las carpetas necesarias existen

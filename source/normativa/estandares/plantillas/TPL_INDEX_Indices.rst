@@ -114,8 +114,8 @@ Plantilla Basica
  --------
 
  .. list-table::
- :widths: 50 50
- :header-rows: 0
+    :widths: 50 50
+    :header-rows: 0
 
  * - **Total Artefactos**
  - [N]
@@ -180,8 +180,8 @@ Plantilla Extendida (con categorias)
  --------
 
  .. list-table::
- :widths: 40 30 30
- :header-rows: 1
+    :widths: 40 30 30
+    :header-rows: 1
 
  * - Categoria
  - Cantidad
@@ -226,8 +226,8 @@ Plantilla Extendida (con categorias)
  --------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Version
  - Fecha
@@ -284,8 +284,8 @@ Plantilla para Modulos (casos_uso, funcionales, pruebas)
  --------
 
  .. list-table::
- :widths: 50 50
- :header-rows: 0
+    :widths: 50 50
+    :header-rows: 0
 
  * - **Modulo**
  - MOD_[Modulo]
@@ -315,8 +315,8 @@ Plantilla para Modulos (casos_uso, funcionales, pruebas)
  ------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **BReq**
  - BReq_[MOD]
@@ -360,8 +360,8 @@ Ejemplo 1: index.rst para reglas_negocio
  --------
 
  .. list-table::
- :widths: 40 30 30
- :header-rows: 1
+    :widths: 40 30 30
+    :header-rows: 1
 
  * - Tipo (TXM_03)
  - Cantidad
@@ -422,8 +422,8 @@ Ejemplo 2: index.rst para casos_uso/auth
  --------
 
  .. list-table::
- :widths: 50 50
- :header-rows: 0
+    :widths: 50 50
+    :header-rows: 0
 
  * - **Modulo**
  - MOD_Auth

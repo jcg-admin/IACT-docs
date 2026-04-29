@@ -62,21 +62,21 @@ FR-007.04: Registrar cambios en auditoría
  
  .. code-block:: json
  
- {
- "changes": [
- {
- "field": "full_name",
- "before": "Juan Pérez",
- "after": "Juan Antonio Pérez"
- },
- {
- "field": "status",
- "before": "ACTIVE",
- "after": "INACTIVE",
- "reason": "Baja por renuncia"
- }
- ]
- }
+    {
+    "changes": [
+    {
+    "field": "full_name",
+    "before": "Juan Pérez",
+    "after": "Juan Antonio Pérez"
+    },
+    {
+    "field": "status",
+    "before": "ACTIVE",
+    "after": "INACTIVE",
+    "reason": "Baja por renuncia"
+    }
+    ]
+    }
 
 ----
 

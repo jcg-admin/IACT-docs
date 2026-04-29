@@ -116,7 +116,7 @@ FASE 0: Preparación y Análisis Inicial
 
  .. code:: bash
 
- mkdir -p docs/{dominio}/qa/QA-ANALISIS-ESTRUCTURA-{DOMINIO}-001/
+    mkdir -p docs/{dominio}/qa/QA-ANALISIS-ESTRUCTURA-{DOMINIO}-001/
 
 2. **Generar análisis de situación actual**
 
@@ -282,39 +282,39 @@ Lecciones aprendidas documentadas (TASK-065)
 
  .. code:: bash
 
- # Script de validación de enlaces
- # Output: reporte JSON con enlaces válidos/rotos
- # Target: 90%+ enlaces válidos
+    # Script de validación de enlaces
+    # Output: reporte JSON con enlaces válidos/rotos
+    # Target: 90%+ enlaces válidos
 
 2. **TASK-056: Presencia de READMEs**
 
  .. code:: bash
 
- # Validar 100% directorios con README
- # Output: lista de directorios sin README
+    # Validar 100% directorios con README
+    # Output: lista de directorios sin README
 
 3. **TASK-057: Metadatos YAML**
 
  .. code:: bash
 
- # Validar frontmatter YAML en .md
- # Target: 90%+ archivos con YAML válido
+    # Validar frontmatter YAML en .md
+    # Target: 90%+ archivos con YAML válido
 
 4. **TASK-058: Nomenclatura**
 
  .. code:: bash
 
- # Validar snake_case en archivos/directorios
- # Target: 98%+ cumplimiento
+    # Validar snake_case en archivos/directorios
+    # Target: 98%+ cumplimiento
 
 5. **Limpieza de emojis/iconos**
 
  .. code:: bash
 
- # Procesar TODOS los .md
- # Reemplazar: ✓→OK, ✅→[OK], ❌→[ERROR], ⚠️→[WARNING]
- # Eliminar emojis decorativos
- # Output: REPORTE-LIMPIEZA-EMOJIS.md
+    # Procesar TODOS los .md
+    # Reemplazar: ✓→OK, ✅→[OK], ❌→[ERROR], ⚠️→[WARNING]
+    # Eliminar emojis decorativos
+    # Output: REPORTE-LIMPIEZA-EMOJIS.md
 
 **Criterios de salida:** - 90%+ enlaces válidos - 100% directorios con
 README - 90%+ metadatos YAML válidos - 98%+ nomenclatura correcta - 0

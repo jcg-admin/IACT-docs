@@ -205,7 +205,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- find funcionales/[mod] -name "FR_*.rst" | sort
+    find funcionales/[mod] -name "FR_*.rst" | sort
 
 - **Resultado**: Lista de FR a cubrir
 - **Verificacion**: Cantidad correcta
@@ -217,7 +217,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- FR_UC001_03: Generar token JWT
+    FR_UC001_03: Generar token JWT
  
  Escenario 1: Generacion exitosa
  DADO usuario autenticado
@@ -239,11 +239,11 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- FR_UC001_01 -> TST_AUTH_001 (1 escenario)
- FR_UC001_02 -> TST_AUTH_002 (1 escenario)
- FR_UC001_03 -> TST_AUTH_003, TST_AUTH_004 (2 escenarios)
- FR_UC001_04 -> TST_AUTH_005 (1 escenario)
- FR_UC001_05 -> TST_AUTH_006 (1 escenario)
+    FR_UC001_01 -> TST_AUTH_001 (1 escenario)
+    FR_UC001_02 -> TST_AUTH_002 (1 escenario)
+    FR_UC001_03 -> TST_AUTH_003, TST_AUTH_004 (2 escenarios)
+    FR_UC001_04 -> TST_AUTH_005 (1 escenario)
+    FR_UC001_05 -> TST_AUTH_006 (1 escenario)
 
 - **Resultado**: Mapeo completo
 - **Verificacion**: Todos los FR mapeados
@@ -262,12 +262,12 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Cobertura MOD_Auth:
- - FR totales: 21
- - FR con TST: 21
- - TST totales: 25
- - Cobertura: 100%
- - Ratio: 1.19 TST/FR
+    Cobertura MOD_Auth:
+    - FR totales: 21
+    - FR con TST: 21
+    - TST totales: 25
+    - Cobertura: 100%
+    - Ratio: 1.19 TST/FR
 
 - **Resultado**: Metricas de cobertura
 - **Verificacion**: Cobertura >= 100%
@@ -280,7 +280,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  
- Casos de Prueba - MOD_Auth
+    Casos de Prueba - MOD_Auth
  
  
  .. toctree::

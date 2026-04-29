@@ -131,8 +131,8 @@ Plantilla
  -----------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **ID**
  - FR_UC[MOD]_[NN]_[NN]
@@ -173,9 +173,9 @@ Plantilla
 
  .. note:: **Formato DADO/CUANDO/ENTONCES**
 
- **DADO:**
- - [Precondición 1: Estado inicial del sistema]
- - [Precondición 2: Datos o contexto necesario]
+    **DADO:**
+    - [Precondición 1: Estado inicial del sistema]
+    - [Precondición 2: Datos o contexto necesario]
 
  **CUANDO:**
  - [Acción que dispara el requisito]
@@ -194,8 +194,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 15 35 50
- :header-rows: 1
+    :widths: 15 35 50
+    :header-rows: 1
 
  * - BR
  - Nombre
@@ -208,8 +208,8 @@ Plantilla
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. list-table::
- :widths: 15 35 50
- :header-rows: 1
+    :widths: 15 35 50
+    :header-rows: 1
 
  * - CNST
  - Nombre
@@ -224,8 +224,8 @@ Plantilla
  ---------------
 
  .. list-table::
- :widths: 25 75
- :header-rows: 0
+    :widths: 25 75
+    :header-rows: 0
 
  * - **UC Padre**
  - UC_[MOD]_[NN]: [Nombre del UC]
@@ -246,8 +246,8 @@ Plantilla
  -----------------------
 
  .. list-table::
- :widths: 12 12 20 56
- :header-rows: 1
+    :widths: 12 12 20 56
+    :header-rows: 1
 
  * - Versión
  - Fecha

@@ -45,38 +45,38 @@ Checklists Disponibles
 
  .. code:: bash
 
- black .
+    black .
 
 - ☐ Imports ordenados con isort
 
  .. code:: bash
 
- isort .
+    isort .
 
 - ☐ Linting pasado sin errores críticos
 
  .. code:: bash
 
- pylint **/*.py
- flake8 .
+    pylint **/*.py
+    flake8 .
 
 - ☐ Type hints verificados (futuro)
 
  .. code:: bash
 
- mypy .
+    mypy .
 
 - ☐ Tests unitarios pasan
 
  .. code:: bash
 
- pytest
+    pytest
 
 - ☐ Cobertura >= 80% para archivos modificados
 
  .. code:: bash
 
- pytest --cov=. --cov-report=term-missing
+    pytest --cov=. --cov-report=term-missing
 
 - ☐ No hay código comentado innecesario
 
@@ -321,8 +321,8 @@ creado (si decisión arquitectónica)
 
  .. code:: bash
 
- pip-audit
- safety check
+    pip-audit
+    safety check
 
 Uso de Checklists
 -----------------

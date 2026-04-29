@@ -161,7 +161,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Preguntas de clasificacion:
+    Preguntas de clasificacion:
  
  - Limita un valor? -> Restriccion
  - Calcula un resultado? -> Derivacion
@@ -179,7 +179,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato: BR_[NNN]
+    Formato: BR_[NNN]
  
  Donde [NNN] es numero secuencial de 3 digitos.
  
@@ -199,8 +199,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato:
- "El sistema DEBE [accion] CUANDO [condicion] PARA [proposito]"
+    Formato:
+    "El sistema DEBE [accion] CUANDO [condicion] PARA [proposito]"
  
  Ejemplo BR_005:
  "El sistema DEBE invalidar todas las sesiones previas del usuario
@@ -217,7 +217,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Condicion de Activacion:**
+    **Condicion de Activacion:**
  
  - Usuario inicia sesion exitosamente
  - Existen sesiones previas del usuario
@@ -238,7 +238,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Excepciones:**
+    **Excepciones:**
  
  - No aplica a sesiones de API (tokens de servicio)
  - Administradores pueden tener multiples sesiones
@@ -253,7 +253,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **Trazabilidad:**
+    **Trazabilidad:**
  
  * - **BReq Origen**
  - BReq_004: Cumplimiento de Seguridad
@@ -274,8 +274,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Guardar
- /tmp/reglas_negocio/BR_005_Sesion_Unica.rst
+    # Guardar
+    /tmp/reglas_negocio/BR_005_Sesion_Unica.rst
  
  # Validar sintaxis
  sphinx-build -b html -W /tmp/reglas_negocio/ /tmp/build/

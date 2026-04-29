@@ -165,8 +165,8 @@ Antes de iniciar este procedimiento, verificar:
 - **Accion**: Determinar cual TPL usar segun tipo de artefacto:
 
  .. list-table::
- :widths: 30 70
- :header-rows: 1
+    :widths: 30 70
+    :header-rows: 1
 
  * - Artefacto
  - TPL
@@ -212,8 +212,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato general:
- [TIPO]_[Identificador]_[Nombre].rst
+    Formato general:
+    [TIPO]_[Identificador]_[Nombre].rst
  
  Ejemplos:
  - BR_015_Bloqueo_Intentos_Fallidos.rst
@@ -230,14 +230,14 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- Plantilla
- ---------
+    Plantilla
+    ---------
 
  .. code-block:: rst
 
- .. meta::
- :artefacto: [ID]
- ...
+    .. meta::
+    :artefacto: [ID]
+    ...
 
 - **Resultado**: Codigo RST base localizado
 - **Verificacion**: Seccion contiene code-block rst

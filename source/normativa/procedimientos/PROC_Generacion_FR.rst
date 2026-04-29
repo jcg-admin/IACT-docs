@@ -196,7 +196,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Formato ID: FR_UC[MOD]_[NN]_[NN]
+    Formato ID: FR_UC[MOD]_[NN]_[NN]
  
  Donde:
  - FR: Prefijo fijo
@@ -222,24 +222,24 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- * - **ID**
- - FR_UC001_01
- * - **Nombre**
- - [Nombre descriptivo del FR]
- * - **UC Padre**
- - UC_001: Iniciar Sesion
- * - **Modulo**
- - MOD_Auth
- * - **Tipo**
- - [Validacion|Proceso|Interfaz|Datos|Auditoria|Seguridad]
- * - **Prioridad**
- - [Critica|Alta|Media|Baja]
+    * - **ID**
+    - FR_UC001_01
+    * - **Nombre**
+    - [Nombre descriptivo del FR]
+    * - **UC Padre**
+    - UC_001: Iniciar Sesion
+    * - **Modulo**
+    - MOD_Auth
+    * - **Tipo**
+    - [Validacion|Proceso|Interfaz|Datos|Auditoria|Seguridad]
+    * - **Prioridad**
+    - [Critica|Alta|Media|Baja]
 
  **3.2 Seccion Especificacion:**
 
  .. code-block:: rst
 
- **Descripcion:**
+    **Descripcion:**
  
  El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
 
@@ -247,7 +247,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- ::
+    ::
  
  DADO [contexto inicial]
  CUANDO [accion del usuario o sistema]
@@ -263,7 +263,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- **BR Aplicables:**
+    **BR Aplicables:**
  
  - BR_005: Sesion Unica por Usuario
  - BR_008: Auditoria de Accesos
@@ -283,16 +283,16 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: rst
 
- * - **UC Origen**
- - UC_001: Iniciar Sesion
- * - **BReq Origen**
- - BReq_AUTH
- * - **BR Aplicables**
- - BR_005, BR_008
- * - **CNST Aplicables**
- - CNST_002, CNST_005
- * - **TST Relacionados**
- - TST_FR_UC001_01 (pendiente)
+    * - **UC Origen**
+    - UC_001: Iniciar Sesion
+    * - **BReq Origen**
+    - BReq_AUTH
+    * - **BR Aplicables**
+    - BR_005, BR_008
+    * - **CNST Aplicables**
+    - CNST_002, CNST_005
+    * - **TST Relacionados**
+    - TST_FR_UC001_01 (pendiente)
 
 - **Resultado**: Trazabilidad completa
 - **Verificacion**: Enlaces bidireccionales verificables
@@ -304,8 +304,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Ruta: /tmp/funcionales/[modulo]/UC_[NNN]_[Nombre]/
- /tmp/funcionales/auth/UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato_username.rst
+    # Ruta: /tmp/funcionales/[modulo]/UC_[NNN]_[Nombre]/
+    /tmp/funcionales/auth/UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato_username.rst
 
 - **Resultado**: Archivo FR creado
 - **Verificacion**: Archivo existe en ruta correcta
@@ -317,8 +317,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Validar archivo individual
- rst2html.py FR_UC001_01.rst /dev/null
+    # Validar archivo individual
+    rst2html.py FR_UC001_01.rst /dev/null
  
  # O validar con Sphinx
  sphinx-build -b html -W /tmp/funcionales/ /tmp/build/

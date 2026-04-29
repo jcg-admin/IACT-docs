@@ -170,8 +170,8 @@ Antes de iniciar este procedimiento, verificar:
 - **Accion**: Clasificar cambios segun STD_006:
 
  .. list-table::
- :widths: 20 40 40
- :header-rows: 1
+    :widths: 20 40 40
+    :header-rows: 1
 
  * - Tipo
  - Descripcion
@@ -196,7 +196,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Version actual: 2.1.1
+    Version actual: 2.1.1
  
  Si MAJOR: 3.0.0
  Si MINOR: 2.2.0
@@ -225,14 +225,14 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: text
 
- Metricas v2.1.2:
- - BReq: 8
- - BR: 20 (sin cambio)
- - UC: 49 (sin cambio)
- - FR: 55 -> 75 (+20)
- - TST: 0
- - PROC: 3 -> 11 (+8)
- - TPL: 6 -> 17 (+11)
+    Metricas v2.1.2:
+    - BReq: 8
+    - BR: 20 (sin cambio)
+    - UC: 49 (sin cambio)
+    - FR: 55 -> 75 (+20)
+    - TST: 0
+    - PROC: 3 -> 11 (+8)
+    - TPL: 6 -> 17 (+11)
 
 - **Resultado**: Metricas actualizadas
 - **Verificacion**: Totales correctos
@@ -244,7 +244,7 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: markdown
 
- ## CHANGELOG
+    ## CHANGELOG
  
 .. list-table::
  :header-rows: 1
@@ -272,8 +272,8 @@ Antes de iniciar este procedimiento, verificar:
 
  .. code-block:: bash
 
- # Nombre del archivo
- MODELO_DOCUMENTAL_IACT_v2_1_2.md
+    # Nombre del archivo
+    MODELO_DOCUMENTAL_IACT_v2_1_2.md
  
  # Guardar en /tmp primero
  /tmp/MODELO_DOCUMENTAL_IACT_v2_1_2.md
