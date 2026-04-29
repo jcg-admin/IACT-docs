@@ -149,9 +149,9 @@ Los 10 grupos AGR-001..010 son **system groups**: inmutables, no
 editables por admin. Estan definidos en seed inicial del sistema.
 
 El admin puede crear **custom groups** dinamicamente via
-:doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`,
+:doc:`/requisitos/casos-uso/permissions/uc-perm-05-crear-grupo-permisos`,
 asignando capabilities especificas via
-:doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Funciones_Grupo`.
+:doc:`/requisitos/casos-uso/permissions/uc-perm-06-asignar-funciones-grupo`.
 
 Las reglas SoD (:doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`)
 aplican TANTO a system groups como a custom groups.

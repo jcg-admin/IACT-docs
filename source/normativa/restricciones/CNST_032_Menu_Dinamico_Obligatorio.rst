@@ -135,9 +135,9 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 
  * - UC
    - Impacto
- * - :doc:`/requisitos/casos_uso/permissions/UC_PERM_08_Generar_Menu_Dinamico`
+ * - :doc:`/requisitos/casos-uso/permissions/uc-perm-08-generar-menu-dinamico`
    - Implementa la generacion de menu (CORE)
- * - :doc:`/requisitos/casos_uso/auth/UC_AUTH_01_Iniciar_Sesion`
+ * - :doc:`/requisitos/casos-uso/auth/uc-auth-01-iniciar-sesion`
    - Tras login exitoso, frontend invoca el endpoint
 
 3.3 Lo que NO se puede hacer

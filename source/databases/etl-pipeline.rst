@@ -53,16 +53,16 @@ Analytics del sistema IACT.
 3. Casos de uso relacionados
 =============================
 
-- :doc:`/requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL`
-- :doc:`/requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL`
-- :doc:`/requisitos/casos_uso/pipeline/UC_PIP_03_Consultar_Disponibilidad`
-- :doc:`/requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-01-supervisar-etl`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-02-consultar-errores-etl`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-03-consultar-disponibilidad`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-04-solicitar-reintento`
 
 4. Reglas de negocio
 ====================
 
-- :doc:`/requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno`
-- :doc:`/requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias`
+- :doc:`/requisitos/reglas-negocio/br-002-etl-batch-nocturno`
+- :doc:`/requisitos/reglas-negocio/br-003-usuario-inactivo-90-dias`
 
 5. UI obligatoria
 =================

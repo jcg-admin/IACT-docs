@@ -20,22 +20,22 @@ negocio, requisitos funcionales y no-funcionales.
  :maxdepth: 2
  :caption: Casos de Uso
 
- casos_uso/index
+ casos-uso/index
 
 .. toctree::
  :maxdepth: 2
  :caption: Reglas de Negocio
 
- reglas_negocio/index
+ reglas-negocio/index
 
 .. toctree::
  :maxdepth: 2
  :caption: Requisitos Funcionales
 
- requisitos_funcionales/index
+ requisitos-funcionales/index
 
 .. toctree::
  :maxdepth: 2
  :caption: Requisitos No Funcionales
 
- requisitos_no_funcionales/index
+ requisitos-no-funcionales/index

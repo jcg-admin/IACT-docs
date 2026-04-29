@@ -192,7 +192,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  Ademas de los 10 grupos predefinidos (system, inmutables), el
  admin puede crear **custom groups** dinamicamente via
- :doc:`/requisitos/casos_uso/permissions/UC_PERM_05_Crear_Grupo_Permisos`.
+ :doc:`/requisitos/casos-uso/permissions/uc-perm-05-crear-grupo-permisos`.
  Las 3 reglas SoD aplican TANTO a system como a custom groups.
 
  La materializacion concreta de este metamodelo (las 42 funciones,

@@ -1,0 +1,28 @@
+.. meta::
+ :artefacto: INDEX_UC_USERS
+ :tipo: Indice
+ :dominio: requisitos
+ :subdominio: casos_uso/users
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
+
+==================================
+MOD_Users — Gestion de Identidades
+==================================
+
+Alta, modificacion, baja logica de usuarios.
+
+Casos de Uso
+------------
+
+.. toctree::
+ :maxdepth: 1
+
+ uc-usr-01-crear-usuario
+ uc-usr-02-consultar-usuarios
+ uc-usr-03-modificar-usuario
+ uc-usr-04-eliminar-usuario

@@ -29,28 +29,28 @@ Mapeo modulo ↔ casos de uso:
    - UCs en requisitos
    - # UCs
  * - ARQ_MOD_001 AUTH
-   - :doc:`/requisitos/casos_uso/auth/index`
+   - :doc:`/requisitos/casos-uso/auth/index`
    - 5
  * - ARQ_MOD_002 USER_IDENTITY
-   - :doc:`/requisitos/casos_uso/users/index`
+   - :doc:`/requisitos/casos-uso/users/index`
    - 4
  * - ARQ_MOD_003 RBAC_CORE
-   - :doc:`/requisitos/casos_uso/access/index` + :doc:`/requisitos/casos_uso/permissions/index`
+   - :doc:`/requisitos/casos-uso/access/index` + :doc:`/requisitos/casos-uso/permissions/index`
    - 19 (9 ACC + 10 PERM)
  * - ARQ_MOD_004 ETL_MONITORING
-   - :doc:`/requisitos/casos_uso/pipeline/index`
+   - :doc:`/requisitos/casos-uso/pipeline/index`
    - 4
  * - ARQ_MOD_005 VIS_REPORTS
-   - :doc:`/requisitos/casos_uso/reports/index`
+   - :doc:`/requisitos/casos-uso/reports/index`
    - 14
  * - ARQ_MOD_006 ALERTS
-   - :doc:`/requisitos/casos_uso/alerts/index`
+   - :doc:`/requisitos/casos-uso/alerts/index`
    - 5
  * - ARQ_MOD_007 AUDIT
-   - :doc:`/requisitos/casos_uso/audit/index`
+   - :doc:`/requisitos/casos-uso/audit/index`
    - 4
  * - ARQ_MOD_008 SYS_LOGS
-   - :doc:`/requisitos/casos_uso/logs/index`
+   - :doc:`/requisitos/casos-uso/logs/index`
    - 4
 
 Catalogo
