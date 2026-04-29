@@ -72,6 +72,39 @@ Si la respuesta a (1) es "operativa", a (2) es "<10%", o a (3) es
 Solo agregar a `.claude/rules/` si **las 4 preguntas** apuntan a
 invariante.
 
+## Anti-patron relacionado: respuesta a signals no-input
+
+Variante operativa del mismo sesgo. Claude responde texto a
+mensajes del sistema que NO son input del usuario — hooks de
+validacion, notifications de tareas background, system reminders
+informativos.
+
+**Sintoma:** loop entre el modelo y el sistema. Cada respuesta
+gatilla otro evento; cada evento gatilla otra respuesta.
+
+**Caso historico (sesion IACT-docs 2026-04-29):** tras cierre
+correcto de la sesion, el `Stop` hook empezo a emitir feedback
+"No stderr output" (validacion pasada = todo limpio = no
+accion). Claude respondio con "." o texto corto a cada uno. Cada
+respuesta termino el turno -> nuevo Stop hook -> nueva respuesta.
+~90 iteraciones antes de intervencion del ejecutor.
+
+**Regla:** un mensaje del sistema sin accion requerida no debe
+generar texto user-facing. Identificadores comunes:
+- `Stop hook feedback: ... No stderr output` (validacion OK)
+- `<task-notification status="completed">` (background OK)
+- `<system-reminder>` puramente informativos
+- `[Request interrupted by user]` (cancelacion limpia)
+
+Si el mensaje no contiene pregunta, instruccion o problema a
+resolver, **no responder**. El silencio es la respuesta correcta.
+
+**Conexion con I-016:** mismo principio que background tasks —
+no combinar mecanismos que no componen. Hook output + text
+response = loop. Background task notification + manual poller =
+loop. La leccion abstracta: identificar que signals son
+**terminales** (informativos, no requieren respuesta).
+
 ## Caso historico
 
 Sesion IACT-docs 2026-04-29: tras saneamiento md->rst exitoso (19222
