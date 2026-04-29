@@ -1,19 +1,30 @@
 .. meta::
  :artefacto: ADR-BACK-004
  :tipo: ADR
- :dominio: normativa
- :subdominio: gobernanza
- :estado: Aprobado
- :version: 1.0.0
+ :dominio: backend
+ :estado: Superseded
+ :version: 1.1.0
  :fecha_creacion: 2026-04-26
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
 ADR-012: Sistema de Permisos Granular SIN Roles Jerarquicos
 ===========================================================
 
-**Estado:** Aceptado **Fecha:** 2025-11-07 **Decidido por:** Arquitecto
-Senior, Tech Lead **Relevancia:** Prioridad 1 - CRITICA
+.. warning::
+
+   **Superseded by**
+   :doc:`/normativa/gobernanza/adr-gob-009-rbac-modelo-conceptual`
+   (2026-04-29).
+
+   Este ADR es redundante con ADR-BACK-001 (mismo problema, dos
+   angulos). Su contenido se consolido en el ADR sucesor.
+   La nota in-text "DOCUMENTAR MATRIZ RACI" quedo diferida como
+   DEBT-RBAC-RACI en deuda tecnica. Preservado por trazabilidad
+   historica.
+
+**Estado:** Superseded (preservado por trazabilidad)
 
 --------------
 

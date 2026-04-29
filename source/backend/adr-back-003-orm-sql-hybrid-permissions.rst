@@ -1,22 +1,32 @@
 .. meta::
  :artefacto: ADR-BACK-003
  :tipo: ADR
- :dominio: normativa
- :subdominio: gobernanza
- :estado: Aprobado
- :version: 1.0.0
+ :dominio: backend
+ :estado: Superseded
+ :version: 1.1.0
  :fecha_creacion: 2026-04-26
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
 ADR-010: Estrategia Híbrida ORM + SQL Nativo para Permisos
 ==========================================================
 
-NOTA: VALIDAR ESTA ESTRATEGIA YA QUE ES REDUDANTE QUE SE CONSIDERE
-DEVELOP Y TEST, SE TIENE QUE CREAR UNA ESTRATEGIA SOLO PARA PRODUCCION
-PARA QUE SE MANTEGA UNA SOLA TRAZABILIDAD DE PERMISOS
+.. warning::
 
-**Estado:** aceptada
+   **Superseded by**
+   :doc:`/backend/adr-back-006-rbac-estrategia-implementacion`
+   (2026-04-29).
+
+   La estrategia hibrida ORM + SQL se preserva en el ADR sucesor.
+   La nota in-text "VALIDAR ESTA ESTRATEGIA — TRAZABILIDAD UNICA
+   DE PERMISOS" se resuelve en el ADR sucesor § "Single source
+   of truth for enforcement". Vocabulario "Capacidad" del legacy
+   se reemplaza por "Function" canonico (CNST-033).
+
+   Preservado por trazabilidad historica.
+
+**Estado:** Superseded (preservado por trazabilidad)
 
 **Fecha:** 2025-11-09
 
