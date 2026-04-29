@@ -81,6 +81,12 @@ Contenido publicado
 
 .. toctree::
  :maxdepth: 2
+ :caption: Frontend
+
+ frontend/index
+
+.. toctree::
+ :maxdepth: 2
  :caption: Bases de Datos
 
  databases/index
