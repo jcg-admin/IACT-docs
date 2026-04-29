@@ -575,7 +575,7 @@ Nuevos archivos NO deben usar el schema legacy.
 Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
 + decisiones D-RBAC-1 y CNST_033 Vocabulario Unificado RBAC.
 
-7.1 Tabla canónica de idioma por tipo de elemento
+8.1 Tabla canónica de idioma por tipo de elemento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -629,7 +629,7 @@ Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
 NO a nombres de archivo. Los archivos siempre siguen kebab-lowercase
 (§3-§4).
 
-7.2 Justificación
+8.2 Justificación
 ^^^^^^^^^^^^^^^^^
 
 - **Código en inglés**: facilita la colaboración con equipos
@@ -644,7 +644,7 @@ NO a nombres de archivo. Los archivos siempre siguen kebab-lowercase
   asumen inglés. Los logs son consumidos por operaciones técnicas,
   no por usuarios finales.
 
-7.3 Excepciones
+8.3 Excepciones
 ^^^^^^^^^^^^^^^
 
 - **Documentos legados** (creados antes de esta convención): se
@@ -659,7 +659,7 @@ NO a nombres de archivo. Los archivos siempre siguen kebab-lowercase
 9. Decisiones de Gobernanza
 ---------------------------
 
-8.1 Cambios a esta convención
+9.1 Cambios a esta convención
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Cualquier cambio a esta convención requiere:
@@ -669,7 +669,7 @@ Cualquier cambio a esta convención requiere:
 3. Bump MAJOR de versión en este documento.
 4. Migración planificada de archivos existentes.
 
-8.2 Commitment de Estabilidad (v2.0.0)
+9.2 Commitment de Estabilidad (v2.0.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **30 días sin nuevas modificaciones a STD_007 después de la fecha
@@ -683,7 +683,7 @@ abrirse WP propio con deep-review previo.
 Decisión registrada en
 ``adr-naming-conventions-kebab-correction.md``.
 
-8.3 Excepciones permitidas al patrón
+9.3 Excepciones permitidas al patrón
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Solo dos excepciones documentadas:
@@ -698,10 +698,10 @@ Cualquier nueva excepción requiere bump MAJOR + ADR.
 ----
 
 10. Cumplimiento
----------------
+----------------
 
-9.1 Estado del Proyecto (snapshot v2.0.0)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10.1 Estado del Proyecto (snapshot v2.0.0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Auditoría 2026-04-29 detectó (verificado con find/grep):
 
@@ -717,8 +717,8 @@ La migración se ejecuta en WP único
 ``2026-04-29-14-56-40-std007-rename-cleanup`` con script idempotente
 y PILOT previo.
 
-9.2 Validación de Nombres Nuevos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10.2 Validación de Nombres Nuevos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NO se incluye validación automatizada en CI (decisión del ejecutor).
 La validación es por revisión manual en PRs.
