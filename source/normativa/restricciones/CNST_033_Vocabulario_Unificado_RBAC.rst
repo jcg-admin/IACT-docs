@@ -245,7 +245,7 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
 
 Cambios al vocabulario canonico requieren actualizar este CNST y
 ADR-GOB-008. Ver
-``PROC_Excepciones_CNST`` (pendiente WP #3 v2) (pendiente).
+:doc:`/normativa/procedimientos/PROC_Excepciones_CNST`.
 
 7. Verificacion
 ---------------

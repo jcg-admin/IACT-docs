@@ -389,10 +389,119 @@ es intencional.
 
 ----
 
-7. Decisiones de Gobernanza
+7. Convención de Idioma (código vs documentación)
+--------------------------------------------------
+
+Origen: ``MODELO_RBAC_IACT_v5_2_1.md`` § "ESTÁNDAR DE NOMENCLATURA
+v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
++ decisiones D-RBAC-1 y CNST_033 Vocabulario Unificado RBAC.
+
+7.1 Tabla canónica de idioma por tipo de elemento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :widths: 40 20 40
+   :header-rows: 1
+
+   * - Tipo de elemento
+     - Idioma
+     - Ejemplo
+   * - Modelos Django (clases, métodos)
+     - Inglés
+     - ``class FunctionGroup(models.Model):``
+   * - Funciones SQL nativas (PostgreSQL)
+     - Inglés
+     - ``CREATE FUNCTION user_has_permission(...)``
+   * - Variables, atributos en código
+     - Inglés
+     - ``user_id``, ``expires_at``
+   * - Códigos de funciones (capabilities)
+     - Inglés
+     - ``manage_sessions``, ``view_reports``, ``export_csv``
+   * - Nombres de grupos (system y custom)
+     - Inglés con sufijo ``_group``
+     - ``basic_operator_group``, ``auditor_group``
+   * - Nombres de reglas SoD
+     - Inglés con sufijo ``_separation``
+     - ``pipeline_audit_separation``
+   * - Comentarios en código
+     - Español
+     - ``# Validar antes de persistir``
+   * - Docstrings de clases / métodos
+     - Español
+     - ``"""Grupo de funciones que se asignan juntas."""``
+   * - help_text de campos Django
+     - Español
+     - ``help_text="Identificador único del grupo (AGR-001)"``
+   * - Documentación técnica (.rst, .md)
+     - Español
+     - "El sistema permite..."
+   * - Mensajes de UI / errores al usuario final
+     - Español
+     - ``"No tiene permiso para esta acción"``
+   * - Logs de aplicación
+     - Inglés
+     - ``"User authenticated successfully"``
+   * - Mensajes de commit Git
+     - Inglés (Tim Pope)
+     - ``"Add FunctionGroup model"``
+
+7.2 Justificación
+^^^^^^^^^^^^^^^^^
+
+- **Código en inglés**: facilita la colaboración con equipos
+  internacionales, alineamiento con frameworks (Django, DRF) y
+  bibliotecas (SQL, Python) que usan inglés. Reduce fricción al
+  buscar documentación externa.
+- **Documentación y comentarios en español**: el equipo de negocio
+  consume la documentación. Los comentarios contextualizan
+  decisiones del dominio. La UI es en español porque los usuarios
+  finales son hispanohablantes.
+- **Logs en inglés**: facilita parsing por herramientas SIEM/ELK que
+  asumen inglés. Los logs son consumidos por operaciones técnicas,
+  no por usuarios finales.
+
+7.3 Ejemplo aplicado
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+   class FunctionGroup(models.Model):
+       """Grupo predefinido o creable de funciones (capabilities)."""  # ← Español
+
+       group_id = models.CharField(                          # ← Inglés
+           max_length=10,
+           help_text="Identificador único (ej: AGR-001 para system groups)"  # ← Español
+       )
+       name = models.CharField(
+           max_length=50,
+           help_text="Nombre en inglés con sufijo _group (ej: basic_operator_group)"
+       )
+       is_custom = models.BooleanField(
+           default=False,
+           help_text="True si fue creado vía UC_PERM_05; False si es system group"
+       )
+
+       def has_function(self, function_code):
+           """Verifica si este grupo contiene la función dada."""  # ← Español
+           return self.functions.filter(code=function_code).exists()  # ← Inglés
+
+7.4 Excepciones
+^^^^^^^^^^^^^^^
+
+- **Documentos legados** (creados antes de esta convención): se
+  permite preservar el idioma original; nuevas ediciones aplican la
+  convención.
+- **Términos técnicos sin traducción aceptada**: ``framework``,
+  ``timeout``, ``token``, ``cache``, ``deploy`` se mantienen en
+  inglés incluso en docs en español.
+
+----
+
+8. Decisiones de Gobernanza
 ---------------------------
 
-7.1 Cambios a esta convención
+8.1 Cambios a esta convención
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Cualquier cambio a esta convención requiere:
@@ -402,7 +511,7 @@ Cualquier cambio a esta convención requiere:
 3. Bump MAJOR de versión en este documento.
 4. Migración planificada de archivos existentes.
 
-7.2 Excepciones
+8.2 Excepciones
 ^^^^^^^^^^^^^^^
 
 Existen excepciones documentadas:
@@ -441,10 +550,10 @@ sección 7.2.
 
 ----
 
-8. Cumplimiento
+9. Cumplimiento
 ---------------
 
-8.1 Estado Actual del Proyecto (snapshot 2026-04-28)
+9.1 Estado Actual del Proyecto (snapshot 2026-04-28)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Auditoría inicial detectó:
@@ -467,7 +576,7 @@ Plan de migración por dominio (dividido en WPs separados):
 
 Cada WP renombra archivos de su dominio + actualiza refs en cascada.
 
-8.2 Validación de Nombres Nuevos
+9.2 Validación de Nombres Nuevos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NO se incluye validación automatizada en CI (decisión del ejecutor).
@@ -479,8 +588,8 @@ del merge.
 
 ----
 
-9. Referencias
---------------
+10. Referencias
+---------------
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
   metadata, no en filename).
@@ -491,7 +600,7 @@ del merge.
 
 ----
 
-10. Historial de Cambios
+11. Historial de Cambios
 ------------------------
 
 .. list-table::

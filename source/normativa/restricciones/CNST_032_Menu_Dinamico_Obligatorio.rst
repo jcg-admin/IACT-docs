@@ -204,7 +204,7 @@ sea consistente con los permisos del usuario.
 
 Cualquier solicitud de excepcion (ej: menu hardcoded por motivos de
 performance) requiere ADR + revision de seguridad. Ver
-``PROC_Excepciones_CNST`` (pendiente WP #3 v2) (pendiente
+:doc:`/normativa/procedimientos/PROC_Excepciones_CNST` (pendiente
 de creacion en WP #3 v2).
 
 7. Verificacion

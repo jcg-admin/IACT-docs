@@ -97,6 +97,12 @@ Procedimientos de gobernanza (PROCED-MOD-NNN)
 
 .. toctree::
    :maxdepth: 1
+   :caption: Gobernanza de excepciones
+
+   PROC_Excepciones_CNST
+
+.. toctree::
+   :maxdepth: 1
    :caption: Gobernanza
 
    PROCED-GOB-001-crear_adr
