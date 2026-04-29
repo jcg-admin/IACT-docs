@@ -1,12 +1,19 @@
 ```yml
 project: IACT-docs
 work_package: 2026-04-29-17-52-15-modelo-rbac-improvement
+type: Programa padre (multi-WP)
 created_at: 2026-04-29 17:52:15
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 5 — STRATEGY (decided Mode B)
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: program-coordinator
 author: NestorMonroy
-status: Activo
+status: Activo (programa padre — cierra cuando Z.1..Z.5 cierren)
+sub_wps:
+  - Z.1: rbac-adr-superseding (pending open)
+  - Z.2: rbac-modelo-conceptual-cleanup (blocked by Z.1)
+  - Z.3: rbac-arq-mod-003-reconciliation (blocked by Z.2)
+  - Z.4: rbac-bidirectional-traceability (blocked by Z.3)
+  - Z.5: rbac-final-adversarial-validation (blocked by Z.4)
 ```
 
 # WP — Modelo RBAC IACT Improvement
