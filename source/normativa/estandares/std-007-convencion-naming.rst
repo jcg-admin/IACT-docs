@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 2.0.1
+ :version: 2.0.2
  :fecha_creacion: 2026-04-28
  :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
@@ -55,6 +55,10 @@ NO aplica a:
 - Archivos fuera de ``source/`` (configuración del entorno,
   tooling interno, scripts del repositorio).
 - ``LICENSE``, ``CHANGELOG.md``, ``ROADMAP.md``, ``readme.rst`` en raíz.
+- **Campos de metadata YAML** dentro de archivos (``:artefacto:``,
+  ``:tipo:``, ``:dominio:``, etc.). Son **códigos semánticos del
+  artefacto**, no filenames — siguen su schema canónico documentado
+  en §6 (PascalCase, snake_case, abreviaturas según el campo).
 
 ----
 
@@ -142,6 +146,32 @@ metadata YAML del archivo.
 Filenames ≤ 100 caracteres (incluyendo extensión). Más allá de eso,
 usar abreviaciones documentadas o reorganizar el contenido.
 
+3.5 Filenames únicos en source/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Regla:** los filenames ``.rst`` deben ser únicos en todo
+``source/``. Permite que las refs ``:doc:`relative-path``` resuelvan
+sin ambigüedad.
+
+**Excepción documentada:** archivos paralelos intencionales en
+dominios mirror son aceptables. La paralelidad debe ser explícita
+en el toctree padre o en metadata. Casos actualmente aceptados:
+
+.. list-table::
+ :header-rows: 1
+ :widths: 30 70
+
+ * - Filename
+   - Paths
+ * - ``conventions.rst``
+   - ``frontend/`` y ``backend/`` (mirror)
+ * - ``overview.rst``
+   - ``frontend/`` y ``backend/`` (mirror)
+ * - ``etl-pipeline.rst``
+   - ``databases/`` y ``plantuml-guide/ejemplos/`` (contextos distintos)
+
+Nuevos casos paralelos requieren registro como excepción aquí.
+
 ----
 
 4. Patrones por Tipo de Artefacto
@@ -208,9 +238,13 @@ Los prefijos identifican la categoría sin cambiar la convención.
  * - ``fr``
    - Requisito funcional (sub-numerado)
    - ``fr-010-01-listar-funciones-disponibles.rst``
+ * - ``arq``
+   - Documento de arquitectura técnica (con módulo: mod, futuros svc/comp)
+   - ``arq-mod-001-auth.rst``
  * - (sin prefijo)
-   - Guía o documento general
-   - ``git-workflow.rst``, ``glosario.rst``
+   - Guía o documento general (puede coexistir en dirs temáticos —
+     ver §5.4)
+   - ``git-workflow.rst``, ``glosario.rst``, ``guia-estilo.rst``
 
 **Notas:**
 
@@ -256,6 +290,64 @@ Los prefijos identifican la categoría sin cambiar la convención.
      documentales (no de requisitos): STD, ADR, POL, MOD,
      FD, VIEW, RTM, API, TST, INDEX + tooling Sphinx
    - ``proc-doc-001-generacion-std.rst``
+
+**Módulos canónicos para Architecture Decision Records (adr):**
+
+.. list-table::
+ :header-rows: 1
+ :widths: 12 30 58
+
+ * - Módulo
+   - Dominio
+   - Ejemplo
+ * - ``back``
+   - Backend (servicios, modelos, APIs)
+   - ``adr-back-001-grupos-funcionales-sin-jerarquia.rst``
+ * - ``front``
+   - Frontend (UI, frameworks, bundling)
+   - ``adr-front-001-frontend-modular-monolith.rst``
+ * - ``devops``
+   - Infraestructura, CI/CD, automatización
+   - ``adr-devops-001-vagrant-mod-wsgi-importante-produc.rst``
+ * - ``gob``
+   - Gobernanza documental, naming, organización
+   - ``adr-gob-001-organizacion-proyecto-por-dominio.rst``
+ * - ``qa``
+   - Calidad, testing strategy
+   - ``adr-qa-002-testing-strategy-jest-testing-library.rst``
+
+Reservados para futuro: ``ops``, ``req``, ``doc``, ``data``.
+
+**Módulos canónicos para Requisitos No Funcionales (rnf):**
+
+.. list-table::
+ :header-rows: 1
+ :widths: 12 30 58
+
+ * - Módulo
+   - Dominio
+   - Ejemplo
+ * - ``proc``
+   - Procesos del sistema o SDLC (gobernanza del proceso)
+   - ``rnf-proc-001-proceso-sdlc.rst``
+
+Reservados para futuro: ``sec`` (seguridad), ``perf``
+(performance), ``avail`` (disponibilidad), ``scal`` (escalabilidad).
+
+**Módulos canónicos para Documentos de Arquitectura (arq):**
+
+.. list-table::
+ :header-rows: 1
+ :widths: 12 30 58
+
+ * - Módulo
+   - Dominio
+   - Ejemplo
+ * - ``mod``
+   - Módulo funcional del sistema
+   - ``arq-mod-001-auth.rst``
+
+Reservados para futuro: ``svc`` (servicio), ``comp`` (componente).
 
 ----
 
@@ -305,9 +397,127 @@ en kebab-case.
 permitida al patrón kebab-lowercase: el nombre ``index`` es palabra
 simple en minúsculas y no requiere transformación.
 
+5.4 Guías sin prefijo en directorios temáticos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Los archivos sin prefijo (``<descripcion-kebab>.rst``) pueden
+coexistir con artefactos numerados en directorios temáticos cuando
+son **guías normativas** complementarias. La distinción categorial
+vive en el campo ``:tipo:`` del frontmatter (``:tipo: Guia`` vs
+``:tipo: Estándar``), no en el directorio.
+
+Casos actualmente aceptados:
+
+.. list-table::
+ :header-rows: 1
+ :widths: 50 50
+
+ * - Path
+   - Justificación
+ * - ``normativa/estandares/guia-estilo.rst``
+   - Guía de estilo redaccional (:tipo: Guia)
+ * - ``normativa/estandares/estandares-codigo.rst``
+   - Convenciones de código (:tipo: Guia)
+ * - ``normativa/estandares/shell-scripting-guide.rst``
+   - Guía operativa de shell (:tipo: Guia)
+
 ----
 
-6. Tabla de Decisión Rápida
+6. Schema Canónico de Metadata YAML
+------------------------------------
+
+El frontmatter ``.. meta::`` de cada archivo ``.rst`` bajo
+``source/`` sigue el schema canónico definido en esta sección.
+Schemas alternativos (legacy UC) están **deprecados** y deben
+migrar.
+
+6.1 Campos obligatorios
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :header-rows: 1
+ :widths: 22 28 50
+
+ * - Campo
+   - Formato
+   - Ejemplo
+ * - ``:artefacto:``
+   - ID semántico (PascalCase, snake_case, UPPER, abreviaturas
+     según convención del artefacto)
+   - ``STD_007``, ``UC_ACC_01``, ``BR_009``, ``Guia_Estilo``
+ * - ``:tipo:``
+   - Categoría en PascalCase
+   - ``Estándar``, ``Caso de Uso``, ``Regla de Negocio``,
+     ``Guia``, ``Procedimiento``, ``ADR``
+ * - ``:dominio:``
+   - Top-level dir bajo ``source/`` (kebab)
+   - ``normativa``, ``requisitos``, ``arquitectura-tecnica``
+ * - ``:subdominio:``
+   - Sub-categoría (kebab, suele coincidir con sub-dir)
+   - ``estandares``, ``casos-uso``, ``procedimientos``
+ * - ``:estado:``
+   - Lifecycle status
+   - ``Borrador``, ``En Revisión``, ``Aprobado``, ``Deprecado``
+ * - ``:version:``
+   - SemVer 2.0.0 (ver STD_006)
+   - ``1.0.0``, ``2.0.1``
+ * - ``:fecha_creacion:``
+   - ISO date ``YYYY-MM-DD``
+   - ``2026-04-29``
+ * - ``:autor:``
+   - Equipo o persona
+   - ``Equipo IACT``, ``NestorMonroy``
+
+6.2 Campos recomendados
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :header-rows: 1
+ :widths: 25 75
+
+ * - Campo
+   - Cuándo usar
+ * - ``:ultimo_cambio:``
+   - Si difiere de ``:fecha_creacion:``
+ * - ``:clasificacion:``
+   - ``Interno`` / ``Público`` / ``Confidencial``
+ * - ``:normativa:``
+   - Cross-refs a CNSTs aplicables (UCs, FRs)
+
+6.3 Schema legacy UC (DEPRECADO)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Algunos artefactos UC/FR históricos usan un schema alternativo
+que **debe migrar** al canónico. Mapeo de equivalencias:
+
+.. list-table::
+ :header-rows: 1
+ :widths: 30 10 60
+
+ * - Legacy
+   - →
+   - Canonical
+ * - ``:uc_id:``
+   - →
+   - ``:artefacto:``
+ * - ``:date:``
+   - →
+   - ``:fecha_creacion:``
+ * - ``:status:``
+   - →
+   - ``:estado:``
+ * - ``:module:``
+   - →
+   - ``:subdominio:``
+ * - ``:project:``
+   - →
+   - (eliminar — redundante con repo-level)
+
+Nuevos archivos NO deben usar el schema legacy.
+
+----
+
+7. Tabla de Decisión Rápida
 ---------------------------
 
 .. list-table::
@@ -359,7 +569,7 @@ simple en minúsculas y no requiere transformación.
 
 ----
 
-7. Convención de Idioma (código vs documentación)
+8. Convención de Idioma (código vs documentación)
 --------------------------------------------------
 
 Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
@@ -446,7 +656,7 @@ NO a nombres de archivo. Los archivos siempre siguen kebab-lowercase
 
 ----
 
-8. Decisiones de Gobernanza
+9. Decisiones de Gobernanza
 ---------------------------
 
 8.1 Cambios a esta convención
@@ -487,7 +697,7 @@ Cualquier nueva excepción requiere bump MAJOR + ADR.
 
 ----
 
-9. Cumplimiento
+10. Cumplimiento
 ---------------
 
 9.1 Estado del Proyecto (snapshot v2.0.0)
@@ -519,7 +729,7 @@ del merge.
 
 ----
 
-10. Referencias
+11. Referencias
 ---------------
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
@@ -531,7 +741,7 @@ del merge.
 
 ----
 
-11. Historial de Cambios
+12. Historial de Cambios
 ------------------------
 
 .. list-table::
@@ -579,3 +789,19 @@ del merge.
      clarificación es compatible y no rompe el commitment de
      estabilidad de v2.0.0. Ver ADR
      ``adr-procedimientos-modulos-req-doc.md``.
+ * - 2.0.2
+   - 2026-04-29
+   - **PATCH — spec gaps.** Cierra 7 huecos detectados por
+     deep-review adversarial sin alterar el patrón universal §3:
+     (1) §2 NO aplica clarifica que campos de metadata YAML
+     quedan fuera de scope; (2) §3.5 nueva regla de filenames
+     únicos con excepciones documentadas (frontend/backend mirror,
+     etl-pipeline cross-context); (3) §4 agrega prefijo ``arq``
+     con módulo ``mod``; (4) §4 agrega tablas de módulos canónicos
+     para ``adr-`` ({back, front, devops, gob, qa}) y ``rnf-``
+     ({proc}); (5) §5.4 nueva sección autoriza guías sin prefijo
+     en directorios temáticos (distinción por ``:tipo: Guia``);
+     (6) §6 nueva sección define schema canónico de metadata YAML
+     y deprecación del schema legacy UC. Compatible con v2.0.0/v2.0.1.
+     Commitment de 30 días NO se reinicia. Ver ADR
+     ``adr-std007-spec-gaps-fix.md``.
