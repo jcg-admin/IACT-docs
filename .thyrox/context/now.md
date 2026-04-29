@@ -1,19 +1,19 @@
 ```yml
 type: Estado de Sesión
-version: 3.3
-updated_at: 2026-04-29 14:57:10
+version: 3.4
+updated_at: 2026-04-29 16:30:00
 cold_boot: false
-current_epic: 12
-epic_name: methodology-recalibration (cerrada)
-current_work: .thyrox/context/work/2026-04-29-14-56-40-std007-rename-cleanup
+current_epic: 13
+epic_name: std007-rename-cleanup (cerrada)
+current_work: null
 stage: idle
 stage_number: —
 current_phase: —
 flow: thyrox
 methodology_step: cerrado
 blockers: []
-last_completed_phase: ÉPICA 12 cerrada (methodology-recalibration) — 2026-04-29 06:00
-next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion"
+last_completed_phase: ÉPICA 13 cerrada (std007-rename-cleanup v2.0.0) — 2026-04-29 16:30
+next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion. Commitment vigente: 30 dias sin modificar STD_007 (hasta 2026-05-29)"
 stage_sync_required: true
 ```
 
@@ -21,7 +21,17 @@ stage_sync_required: true
 
 ## Resumen 2026-04-29
 
-3 hitos completados en esta sesión:
+4 hitos completados en esta sesión:
+
+0. **STD_007 v2.0.0 universal kebab cleanup** (WP
+   `2026-04-29-14-56-40-std007-rename-cleanup`) — migración
+   total del corpus al patrón único `<prefix>-<NNN>-<desc>.rst`
+   minúsculas. 315 archivos + 18 directorios públicos + 3
+   directorios `_*` con kebab interno + 370+ refs cascading
+   updated. 10 commits Tim Pope, build verde 0/0/0 con
+   `SPHINX_NITPICKY=1` en cada batch. Commitment activo: 30
+   días sin modificar STD_007.
+
 
 1. **Saneamiento md→rst** (WP `2026-04-29-05-35-11`) —
    19222 issues → 0 en 11 batches. `build succeeded` con
