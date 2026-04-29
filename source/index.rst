@@ -67,6 +67,12 @@ Contenido publicado
 
    normativa/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Requisitos
+
+   requisitos/index
+
 ----
 
 Índices y Búsqueda
