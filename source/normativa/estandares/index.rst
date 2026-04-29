@@ -59,7 +59,7 @@ Los estándares cubren:
 
  STD_001_Estandares_Documentacion_Sin_Emojis
  STD_002_Nomenclatura_Proyecto
- STD_006_Versionado_Semantico
+ std-006-versionado-semantico
  STD_007_Convencion_Naming
  STD_Naming_Identificadores
  STD_Profesional_Documentacion

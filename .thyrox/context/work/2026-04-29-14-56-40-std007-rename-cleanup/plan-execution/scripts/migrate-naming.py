@@ -127,46 +127,73 @@ def build_dir_segment_map(dir_renames):
 DOC_REF_RE = re.compile(r":doc:`([^`<>]*?<)?([^`<>]+?)(>?)`")
 
 
-def update_refs_in_text(text, file_map, dir_map):
-    """Actualiza :doc: refs, toctree entries, paths inline.
+def resolve_ref(path, file_dir, file_map, dir_map):
+    """Resuelve un path (absoluto o relativo) y devuelve su nuevo valor.
 
-    Estrategia conservadora:
-    - Reemplazo solo de paths conocidos (mapping completo).
-    - Sin transformación heurística.
+    file_dir: dir relativo a SOURCE del archivo que contiene la ref.
+    Devuelve None si no hay match en ningún mapping.
+    """
+    cleaned = path.strip()
+    if not cleaned:
+        return None
+    abs_marker = cleaned.startswith("/")
+    norm = cleaned.lstrip("/")
+
+    # Construir candidato: si es relativo, prepend file_dir
+    if abs_marker:
+        candidate = norm
+    else:
+        candidate = (Path(file_dir) / norm).as_posix() if file_dir else norm
+
+    # File mappings (más específico)
+    file_items = sorted(file_map.items(), key=lambda x: -len(x[0]))
+    for old, new in file_items:
+        if candidate == old:
+            if abs_marker:
+                return "/" + new
+            # Re-relativizar respecto a file_dir
+            if file_dir:
+                rel = os.path.relpath(new, file_dir).replace(os.sep, "/")
+                return rel
+            return new
+
+    # Dir mappings (prefijos de path)
+    dir_items = sorted(dir_map.items(), key=lambda x: -len(x[0]))
+    for old, new in dir_items:
+        if candidate == old or candidate.startswith(old + "/"):
+            replaced = candidate.replace(old, new, 1)
+            if abs_marker:
+                return "/" + replaced
+            if file_dir:
+                rel = os.path.relpath(replaced, file_dir).replace(os.sep, "/")
+                return rel
+            return replaced
+
+    return None
+
+
+def update_refs_in_text(text, file_dir, file_map, dir_map):
+    """Actualiza :doc: refs y toctree entries.
+
+    file_dir: dir relativo a SOURCE del archivo que se procesa.
     """
     new_text = text
 
-    # Sort by length desc para evitar prefix collisions
-    file_items = sorted(file_map.items(), key=lambda x: -len(x[0]))
-    dir_items = sorted(dir_map.items(), key=lambda x: -len(x[0]))
-
-    # Update :doc:`...` refs
     def repl_doc(match):
         title = match.group(1) or ""
         path = match.group(2)
         closer = match.group(3) or ""
-        # Try exact file match (with leading /)
-        normalized = path.lstrip("/")
-        for old, new in file_items:
-            if normalized == old:
-                replaced = "/" + new if path.startswith("/") else new
-                return ":doc:`" + title + replaced + closer + "`"
-        # Try with prefix /sphinx-style absolute path
-        for old, new in file_items:
-            if normalized == old or normalized.endswith("/" + old):
-                replaced = path.replace(old, new, 1)
-                return ":doc:`" + title + replaced + closer + "`"
-        return match.group(0)
+        new_path = resolve_ref(path, file_dir, file_map, dir_map)
+        if new_path is None:
+            return match.group(0)
+        return ":doc:`" + title + new_path + closer + "`"
 
     new_text = DOC_REF_RE.sub(repl_doc, new_text)
-
-    # Update toctree entries (lines inside .. toctree:: blocks)
-    new_text = update_toctree_entries(new_text, file_map, dir_map)
-
+    new_text = update_toctree_entries(new_text, file_dir, file_map, dir_map)
     return new_text
 
 
-def update_toctree_entries(text, file_map, dir_map):
+def update_toctree_entries(text, file_dir, file_map, dir_map):
     """Actualiza líneas de toctree replazando paths conocidos."""
     lines = text.split("\n")
     out = []
@@ -182,7 +209,6 @@ def update_toctree_entries(text, file_map, dir_map):
             continue
 
         if in_toctree:
-            # Toctree termina cuando hay línea no indentada (o con menos indent)
             if raw.strip() == "":
                 out.append(raw)
                 continue
@@ -191,13 +217,10 @@ def update_toctree_entries(text, file_map, dir_map):
                 in_toctree = False
                 out.append(raw)
                 continue
-
-            # Línea de opción :maxdepth: o :caption: etc — preservar
             if stripped_left.startswith(":"):
                 out.append(raw)
                 continue
 
-            # Es un path o "Title <path>"
             content = stripped_left
             m = re.match(r"^(.*?<)([^>]+)(>.*)$", content)
             if m:
@@ -205,44 +228,14 @@ def update_toctree_entries(text, file_map, dir_map):
             else:
                 prefix, path, suffix = "", content.rstrip(), ""
 
-            # Reemplazo
-            new_path = replace_path(path, file_map, dir_map)
-            new_line = current_indent + prefix + new_path + suffix
-            # Preserve trailing newline behavior
-            out.append(new_line)
+            new_path = resolve_ref(path, file_dir, file_map, dir_map)
+            final_path = new_path if new_path is not None else path
+            out.append(current_indent + prefix + final_path + suffix)
             continue
 
         out.append(raw)
 
     return "\n".join(out)
-
-
-def replace_path(path, file_map, dir_map):
-    """Reemplaza path viejo por nuevo si existe en mapping.
-
-    Aplica primero file_map (más específico), luego dir_map.
-    """
-    cleaned = path.strip()
-    if not cleaned:
-        return path
-
-    # Quitar leading /
-    abs_marker = cleaned.startswith("/")
-    norm = cleaned.lstrip("/")
-
-    file_items = sorted(file_map.items(), key=lambda x: -len(x[0]))
-    for old, new in file_items:
-        if norm == old:
-            return ("/" if abs_marker else "") + new
-
-    # No exact file match — try dir prefix
-    dir_items = sorted(dir_map.items(), key=lambda x: -len(x[0]))
-    for old, new in dir_items:
-        if norm == old or norm.startswith(old + "/"):
-            replaced = norm.replace(old, new, 1)
-            return ("/" if abs_marker else "") + replaced
-
-    return path
 
 
 def git_mv(src: Path, dst: Path):
@@ -305,7 +298,10 @@ def main():
         refs_changed = 0
         for rst in SOURCE.rglob("*.rst"):
             text = rst.read_text()
-            new_text = update_refs_in_text(text, file_map, dir_map)
+            file_dir = str(rst.parent.relative_to(SOURCE)).replace(os.sep, "/")
+            if file_dir == ".":
+                file_dir = ""
+            new_text = update_refs_in_text(text, file_dir, file_map, dir_map)
             if new_text != text:
                 refs_changed += 1
         print(f"\n==> {refs_changed} archivos .rst con refs/toctree a actualizar")
@@ -328,7 +324,10 @@ def main():
         updated = 0
         for rst in rst_files:
             text = rst.read_text()
-            new_text = update_refs_in_text(text, file_map, dir_map)
+            file_dir = str(rst.parent.relative_to(SOURCE)).replace(os.sep, "/")
+            if file_dir == ".":
+                file_dir = ""
+            new_text = update_refs_in_text(text, file_dir, file_map, dir_map)
             if new_text != text:
                 rst.write_text(new_text)
                 updated += 1

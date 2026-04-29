@@ -36,7 +36,7 @@ Resumen:
 
 - :doc:`/normativa/estandares/STD_007_Convencion_Naming` — naming de
   archivos.
-- :doc:`/normativa/estandares/STD_006_Versionado_Semantico` —
+- :doc:`/normativa/estandares/std-006-versionado-semantico` —
   versionado.
 - STD_007 § 7 "Convencion de Idioma" — codigo en ingles, docs y
   comentarios en espanol.
