@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-=============
+============
 Convenciones
-=============
+============
 
 Convenciones de naming, estructura y estilo para el frontend
 IACT. Aplica a React y Webpack.

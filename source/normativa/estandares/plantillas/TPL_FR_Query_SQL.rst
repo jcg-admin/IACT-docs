@@ -39,9 +39,9 @@ FR-MOD-NN-ZZ: Titulo del Functional Requirement - Query SQL
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Functional Requirements cuya implementacion
 principal es una query SQL compleja, con enfasis en optimizacion,
@@ -87,9 +87,9 @@ FR Query SQL (este template):
 5. Optimizaciones aplicadas
 6. Testing de performance
 
-----------------------------------------------------------------------
+----------------------
 1. QUERY SQL PRINCIPAL
-----------------------------------------------------------------------
+----------------------
 
 **Proposito:**
 
@@ -269,9 +269,9 @@ Variacion 2: Con Filtro Adicional de Tipo de Consulta
  AND query_type = :query_type -- Adicional
  AND deleted_at IS NULL
 
-----------------------------------------------------------------------
+-------------------
 2. PARAMETROS BOUND
-----------------------------------------------------------------------
+-------------------
 
 **Proposito:**
 
@@ -398,9 +398,9 @@ prevenir SQL injection.
  
  return cursor.fetchall
 
-----------------------------------------------------------------------
+---------------------
 3. INDICES REQUERIDOS
-----------------------------------------------------------------------
+---------------------
 
 **Proposito:**
 
@@ -509,9 +509,9 @@ excluye valores 0 que no se usan en calculos.
 Usar CREATE INDEX CONCURRENTLY en produccion para crear indices sin
 bloquear tabla. Tarda mas pero permite operaciones concurrentes.
 
-----------------------------------------------------------------------
+------------------
 4. EXPLAIN ANALYZE
-----------------------------------------------------------------------
+------------------
 
 **Proposito:**
 
@@ -624,9 +624,9 @@ Resultado tras optimizacion:
    - Index Scan
    - Index Scan
 
-----------------------------------------------------------------------
+---------------------------
 5. OPTIMIZACIONES APLICADAS
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -710,9 +710,9 @@ Impacto: 72% reduccion escaneo de tabla (1 scan vs 3 scans)
 
 Impacto: Sort en memoria es 10x mas rapido que en disco
 
-----------------------------------------------------------------------
+----------
 6. TESTING
-----------------------------------------------------------------------
+----------
 
 **Proposito:**
 
@@ -817,9 +817,9 @@ Tests para verificar correctitud y performance de la query.
  # (medido en CI, no en test)
  assert len(results) >= 90 # Al menos 90 dias
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

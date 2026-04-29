@@ -45,8 +45,7 @@ Artefactos
  META_05_Estructura_Documental
 
 Uso
----
-
+----
 Estos documentos deben ser consultados:
 
 - Al inicio del proyecto para entender contexto e identidad

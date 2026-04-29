@@ -1,6 +1,6 @@
-================================================================================
+==========================
 Git Workflow Documentation
-================================================================================
+==========================
 
 This document standardizes Git workflows, branching strategies, and commit conventions for the IACT-docs repository.
 
@@ -8,8 +8,7 @@ This document standardizes Git workflows, branching strategies, and commit conve
  :local:
  :depth: 2
 
----
-
+----
 1. Conventional Commits Format
 ================================================================================
 
@@ -391,8 +390,7 @@ The actual merge command (detailed in section 2) will look like:
 
 This preserves the entire feature branch history while creating a single merge commit on the develop/main branch.
 
----
-
+----
 2. Feature Branch Workflow
 ================================================================================
 
@@ -640,10 +638,8 @@ All feature branches must follow these naming rules for consistency and automati
  # feature/sphinx-config-modularization
  # feature/api-authentication
 
----
-
----
-
+----
+----
 3. Feature → Develop Merge Workflow
 ================================================================================
 
@@ -1024,10 +1020,8 @@ This shows a visual tree of the merge, making it clear which commits belonged to
    |/
  * def5678 previous commit on develop
 
----
-
----
-
+----
+----
 4. Develop → Main Release Workflow
 ================================================================================
 
@@ -1750,8 +1744,7 @@ If you have the GitHub CLI installed (``gh``):
  Expected: **Merge succeeds** and branch protection rules are satisfied.
 
 
----
-
+----
 6. Troubleshooting Guide
 ================================================================================
 
@@ -2054,8 +2047,7 @@ Recovery (if you remember recent commit message):
 Lesson: Deleted local branches can be recovered from reflog or remote. Don't worry about deleting local branches.
 
 
----
-
+----
 7. Audit Trail & Compliance
 ================================================================================
 
@@ -2353,8 +2345,7 @@ A complete audit trail from commit to production consists of:
 This provides complete traceability from commit through release for compliance purposes.
 
 
----
-
+----
 8. Git Hooks (OPTIONAL)
 ================================================================================
 

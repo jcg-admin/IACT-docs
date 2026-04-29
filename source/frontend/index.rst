@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==========
+========
 Frontend
-==========
+========
 
 Documentacion de la capa frontend del proyecto IACT (React + Webpack).
 

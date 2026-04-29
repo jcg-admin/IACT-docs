@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==============================
+=========================
 Deuda Tecnica del Rebuild
-==============================
+=========================
 
 Deuda tecnica documentada durante las iteraciones del rebuild
 ``source/`` (WPs hijos #1..#16 del padre source-rebuild-strategy).

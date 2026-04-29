@@ -35,9 +35,9 @@ UC-IACT-XXX-YY: [Nombre] (Técnica Larman)
 **Técnica:** Craig Larman - Operation Contracts + GRASP Patterns 
 **Enfoque:** Diseño Orientado a Objetos
 
-----------------------------------------------------------------------
+--------------------------------
 INTRODUCCION A LA TECNICA LARMAN
-----------------------------------------------------------------------
+--------------------------------
 
 **¿Qué es la Técnica Larman?**
 
@@ -70,9 +70,9 @@ Craig Larman propone documentar Use Cases usando:
 - Larman, Craig. "Applying UML and Patterns" (3rd Edition, 2004)
 - Gamma et al. "Design Patterns: Elements of Reusable OO Software"
 
-----------------------------------------------------------------------
+----------------------
 CONTRATOS DE OPERACION
-----------------------------------------------------------------------
+----------------------
 
 **Estructura de un Contrato:**
 
@@ -228,9 +228,9 @@ POST-2: Asociación formada:
 
 POST-3: Instancia a de AuditLog creada
 
-----------------------------------------------------------------------
+------------------------------------------------
 GRASP PATTERNS - ASIGNACION DE RESPONSABILIDADES
-----------------------------------------------------------------------
+------------------------------------------------
 
 **¿Qué son los GRASP Patterns?**
 
@@ -776,9 +776,9 @@ Usar interfaces estables para proteger contra cambios.
 
 **Beneficio:** Agregar formatos sin romper código existente
 
-----------------------------------------------------------------------
+---------------------
 DIAGRAMA DE SECUENCIA
-----------------------------------------------------------------------
+---------------------
 
 Secuencia para: generarReporteTrimestral(quarter, year, segment, userId)
 
@@ -786,28 +786,70 @@ Secuencia para: generarReporteTrimestral(quarter, year, segment, userId)
 
  Actor Handler Service Repository Database
  | | | | |
- |--request----->| | | |
- | | | | |
- | |--validate---->| | |
- | | permissions | | |
- | |<--authorized--| | |
+ .. list-table::
+    :header-rows: 1
+
+    * - --request----->
+      - \ 
+      - \ 
+      - \ 
+    * - \ 
+      - --validate---->
+      - \ 
+      - \ 
+    * - \ 
+      - permissions
+      - \ 
+      - \ 
+    * - \ 
+      - <--authorized--
+      - \ 
+      - \ 
  | | | | |
  | |--generate---->| | |
- | | report | | |
- | | | | |
- | | |--calculate--->| |
- | | | metrics | |
- | | | |--SELECT---->|
- | | | |<--rows------|
- | | |<--data--------| |
+ .. list-table::
+    :header-rows: 1
+
+    * - \ 
+      - report
+      - \ 
+      - \ 
+    * - \ 
+      - \ 
+      - --calculate--->
+      - \ 
+    * - \ 
+      - \ 
+      - metrics
+      - \ 
+    * - \ 
+      - \ 
+      - \ 
+      - --SELECT---->
+    * - \ 
+      - \ 
+      - \ 
+      - <--rows------
+    * - \ 
+      - \ 
+      - <--data--------
+      - \ 
  | | | | |
  | | |--save-------->| |
  | | | report | |
  | | | |--INSERT---->|
  | | | |<--OK--------|
- | | |<--saved-------| |
- | | | | |
- | |<--report------| | |
+ .. list-table::
+    :header-rows: 1
+
+    * - \ 
+      - \ 
+      - <--saved-------
+      - \ 
+    * - \ 
+      - <--report------
+      - \ 
+      - \ 
  | | | | |
  |<--response----| | | |
 
@@ -828,9 +870,9 @@ Secuencia para: generarReporteTrimestral(quarter, year, segment, userId)
 13. Service retorna Report a Handler
 14. Handler retorna response a Actor
 
-----------------------------------------------------------------------
+-----------------------
 CODIGO EJEMPLO COMPLETO
-----------------------------------------------------------------------
+-----------------------
 
 **Aplicando los 9 GRASP Patterns:**
 
@@ -961,9 +1003,9 @@ CODIGO EJEMPLO COMPLETO
  command.user_id
  )
 
-----------------------------------------------------------------------
+---------------
 DERIVACION A FR
-----------------------------------------------------------------------
+---------------
 
 Cada método de las clases deriva un FR:
 
@@ -973,9 +1015,9 @@ Cada método de las clases deriva un FR:
 - FR-RPT-01-04: IAuthorizationService.check_permission
 - FR-RPT-01-05: GenerateQuarterlyReportHandler.handle
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Bibliografía:**
 

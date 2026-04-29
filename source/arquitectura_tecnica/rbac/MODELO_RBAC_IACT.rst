@@ -33,8 +33,7 @@ Sistema IACT - IVR Analytics Customer Tracking
 ===============================================
 
 
----
-
+----
 **Proyecto:** IACT-2025-001 
 **Documento:** IACT-RBAC-001-v5.2.1 
 **Título:** Modelo de Control de Acceso Basado en Funciones Atómicas 
@@ -42,9 +41,7 @@ Sistema IACT - IVR Analytics Customer Tracking
 **Fecha:** 13 de enero de 2026 
 **Estado:** Listo para Implementación
 
----
-
-
+----
 CONTROL DE CAMBIOS
 ==================
 
@@ -111,9 +108,7 @@ Cambios v5.2.0 → v5.2.1
    - **Completa**
 
 
----
-
-
+----
 ESTÁNDAR DE NOMENCLATURA v5.2.1
 ===============================
 
@@ -141,28 +136,15 @@ ESTÁNDAR DE NOMENCLATURA v5.2.1
  )
 
 
----
-
-
+----
 TABLA DE CONTENIDO
 ==================
 
+.. contents::
+   :depth: 2
+   :local:
 
-1. [Filosofía del Modelo](#1-filosofia)
-2. [Arquitectura IACT](#2-arquitectura)
-3. [Catálogo de 42 Funciones](#3-catalogo-funciones)
-4. [Los 10 Grupos de Funciones](#4-grupos)
-5. [Separación de Funciones (SoD)](#5-sod)
-6. [Permisos Temporales](#6-permisos-temporales)
-7. [Modelo de Datos](#7-modelo-datos)
-8. [Implementación SQL](#8-sql)
-9. [Implementación Django](#9-django)
-10. [Mapeo Funciones → Casos de Uso](#10-mapeo-uc)
-11. [Migración desde v5.2.0](#11-migracion)
-
----
-
-<a name="1-filosofia"></a>
+----
 
 
 1. FILOSOFÍA DEL MODELO
@@ -174,7 +156,7 @@ TABLA DE CONTENIDO
 ---------------------
 
 
-> **Los nombres de funciones describen QUÉ HACE la función, NO QUIÉN es la persona**
+   **Los nombres de funciones describen QUÉ HACE la función, NO QUIÉN es la persona**
 
 
 1.2 Enfoque Sin Pretensiones
@@ -202,9 +184,7 @@ TABLA DE CONTENIDO
  - export_csv → Capacidad específica
 
 
----
-
-<a name="2-arquitectura"></a>
+----
 
 
 2. ARQUITECTURA IACT
@@ -273,9 +253,7 @@ TABLA DE CONTENIDO
    - -
 
 
----
-
-<a name="3-catalogo-funciones"></a>
+----
 
 
 3. CATÁLOGO DE 42 FUNCIONES
@@ -335,9 +313,7 @@ TABLA DE CONTENIDO
  pass
 
 
----
-
-
+----
 3.2 MOD_Users (9 funciones)
 ---------------------------
 
@@ -419,9 +395,7 @@ TABLA DE CONTENIDO
  pass
 
 
----
-
-
+----
 3.3 MOD_Access (5 funciones)
 ----------------------------
 
@@ -478,9 +452,7 @@ TABLA DE CONTENIDO
 - CNST-005: SoD obligatorio
 - CNST-005: Permisos temporales: justificación mín 20 chars, vencimiento máx 6 meses
 
----
-
-
+----
 3.4 MOD_Pipeline (4 funciones)
 ------------------------------
 
@@ -527,11 +499,9 @@ TABLA DE CONTENIDO
 - CNST-003: NO real-time
 - CNST-009: Auditar cambios críticos
 
----
-
-
+------------------------------------------
 3.5 MOD_Reports (8 funciones) CORE NEGOCIO
--------------------------------------------
+------------------------------------------
 
 
 
@@ -621,9 +591,7 @@ TABLA DE CONTENIDO
    - 120s
 
 
----
-
-
+----
 3.6 MOD_Alerts (6 funciones)
 ----------------------------
 
@@ -679,9 +647,7 @@ TABLA DE CONTENIDO
 - CNST-004: Máximo 50 destinatarios por alerta
 - CNST-009: Auditar configuración de alertas
 
----
-
-
+----
 3.7 MOD_Audit (4 funciones)
 ---------------------------
 
@@ -728,9 +694,7 @@ TABLA DE CONTENIDO
 - CNST-008: Sin PII innecesaria
 - CNST-009: Checksum SHA-256 por registro
 
----
-
-
+----
 3.8 MOD_Logs (2 funciones)
 --------------------------
 
@@ -769,9 +733,7 @@ TABLA DE CONTENIDO
 - **MOD_Audit:** Eventos de negocio (quién hizo qué)
 - **MOD_Logs:** Eventos técnicos (errores, performance)
 
----
-
-<a name="4-grupos"></a>
+----
 
 
 4. LOS 10 GRUPOS DE FUNCIONES
@@ -874,9 +836,7 @@ AGR-001 basic_operator_group
 
 **Propósito:** Usuario básico que solo visualiza información.
 
----
-
-
+----
 AGR-002 report_viewer_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -892,9 +852,7 @@ AGR-002 report_viewer_group
 
 **Propósito:** Analista que puede aplicar filtros pero no exportar.
 
----
-
-
+----
 AGR-003 quality_supervisor_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -911,9 +869,7 @@ AGR-003 quality_supervisor_group
 
 **Propósito:** Supervisor con capacidad de configurar alertas propias.
 
----
-
-
+----
 AGR-004 data_exporter_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -930,9 +886,7 @@ AGR-004 data_exporter_group
 
 **Propósito:** Analista autorizado para exportar con límites CNST-007.
 
----
-
-
+----
 AGR-005 alert_manager_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -951,9 +905,7 @@ AGR-005 alert_manager_group
 
 **Propósito:** Gestor de alertas de equipo/departamento.
 
----
-
-
+----
 AGR-006 user_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -977,9 +929,7 @@ AGR-006 user_admin_group
 
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
----
-
-
+----
 AGR-007 permission_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -999,9 +949,7 @@ AGR-007 permission_admin_group
 
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
----
-
-
+----
 AGR-008 auditor_group
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -1023,9 +971,7 @@ AGR-008 auditor_group
 - AGR-007 (permission_admin_group)
 - AGR-009 (pipeline_admin_group)
 
----
-
-
+----
 AGR-009 pipeline_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1044,9 +990,7 @@ AGR-009 pipeline_admin_group
 
 **SoD:** NO puede tener funciones de AGR-008 (auditoría).
 
----
-
-
+----
 AGR-010 system_admin_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1065,9 +1009,7 @@ AGR-010 system_admin_group
 
 **Propósito:** Administración técnica del sistema.
 
----
-
-<a name="5-sod"></a>
+----
 
 
 5. SEPARACIÓN DE FUNCIONES (SoD)
@@ -1110,9 +1052,7 @@ SOD-001 pipeline_audit_separation
 
 **CNST:** CNST-005
 
----
-
-
+----
 SOD-002 user_audit_separation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1142,9 +1082,7 @@ SOD-002 user_audit_separation
 
 **CNST:** CNST-005
 
----
-
-
+----
 SOD-003 access_audit_separation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1172,9 +1110,7 @@ SOD-003 access_audit_separation
 
 **CNST:** CNST-005
 
----
-
-<a name="6-permisos-temporales"></a>
+----
 
 
 6. PERMISOS TEMPORALES
@@ -1224,9 +1160,7 @@ Una función puede asignarse **temporalmente** con:
  )
 
 
----
-
-<a name="7-modelo-datos"></a>
+----
 
 
 7. MODELO DE DATOS
@@ -1246,9 +1180,7 @@ Una función puede asignarse **temporalmente** con:
 6. **``function_separation_rules``** - 3 reglas SoD
 7. **``function_separation_rule_details``** - Detalle SoD (grupos A/B)
 
----
-
-<a name="8-sql"></a>
+----
 
 
 8. IMPLEMENTACIÓN SQL
@@ -1581,9 +1513,7 @@ Una función puede asignarse **temporalmente** con:
  ('SOD-003', 'AUD-002', 'B');
 
 
----
-
-<a name="9-django"></a>
+----
 
 
 9. IMPLEMENTACIÓN DJANGO
@@ -2253,9 +2183,7 @@ Una función puede asignarse **temporalmente** con:
  python manage.py initialize_separation_rules # 3 reglas SoD
 
 
----
-
-<a name="10-mapeo-uc"></a>
+----
 
 
 10. MAPEO FUNCIONES → CASOS DE USO
@@ -2403,9 +2331,7 @@ Una función puede asignarse **temporalmente** con:
    - Logs
 
 
----
-
-<a name="11-migracion"></a>
+----
 
 
 11. MIGRACIÓN DESDE v5.2.0
@@ -2537,9 +2463,7 @@ Una función puede asignarse **temporalmente** con:
  CHANGE separation_group rule_group CHAR(1) NOT NULL;
 
 
----
-
-
+----
 12. RESUMEN
 ===========
 
@@ -2600,8 +2524,7 @@ Una función puede asignarse **temporalmente** con:
    - ``help_text`` en español
    - ``description`` en español
 
----
-
+----
 **FIN DEL DOCUMENTO**
 
 **Versión:** 5.2.1 

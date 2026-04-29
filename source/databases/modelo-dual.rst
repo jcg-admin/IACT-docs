@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Critico
 
-==========================
+====================
 Modelo de Datos Dual
-==========================
+====================
 
 El sistema IACT opera sobre dos bases de datos separadas con
 proposito distinto.

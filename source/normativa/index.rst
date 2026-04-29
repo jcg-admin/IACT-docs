@@ -1,8 +1,8 @@
 .. _normativa:
 
-==========
+=========
 Normativa
-==========
+=========
 
 Propósito del Dominio
 =====================

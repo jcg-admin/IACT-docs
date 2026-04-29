@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==================
+=================
 Riesgos Conocidos
-==================
+=================
 
 Catalogo de riesgos identificados en el proyecto IACT. Cada riesgo
 incluye impacto, probabilidad, estado y mitigacion.

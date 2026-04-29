@@ -39,9 +39,9 @@ FR-MOD-NN-ZZ: Titulo Descriptivo del Functional Requirement
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Functional Requirements utilizando el estandar
 de 10 componentes obligatorios definido en PARTE_4 del material
@@ -82,9 +82,9 @@ Cada componente cubre un aspecto critico de la implementacion:
 4. Usar ejemplo concreto del dominio IACT
 5. Validar nomenclatura antes de aprobar
 
-----------------------------------------------------------------------
+-------------------------------------------------
 COMPONENTE 1: DERIVADO DE (Backward Traceability)
-----------------------------------------------------------------------
+-------------------------------------------------
 
 **Proposito:**
 
@@ -148,9 +148,9 @@ Los datos retornados seran usados por FR posteriores para:
 - Generar graficos visuales
 - Mostrar tabla de resultados
 
-----------------------------------------------------------------------
+-------------------------
 COMPONENTE 2: DESCRIPCION
-----------------------------------------------------------------------
+-------------------------
 
 **Que Hace Este FR:**
 
@@ -225,9 +225,9 @@ y promedios de duracion.
 - Parametros ya validados por FR-RPT-01-02
 - Count ya evaluado por FR-RPT-01-04, menor o igual 10,000
 
-----------------------------------------------------------------------
+--------------------------
 COMPONENTE 3: CONSULTA SQL
-----------------------------------------------------------------------
+--------------------------
 
 **Proposito:**
 
@@ -332,9 +332,9 @@ Parametros bound:
 - :year (INTEGER)
 - :segment (STRING)
 
-----------------------------------------------------------------------
+------------------------
 COMPONENTE 4: PARAMETROS
-----------------------------------------------------------------------
+------------------------
 
 **Proposito:**
 
@@ -402,9 +402,9 @@ validaciones y valores por defecto.
 
 Ver COMPONENTE 6 para validaciones detalladas.
 
-----------------------------------------------------------------------
+--------------------
 COMPONENTE 5: OUTPUT
-----------------------------------------------------------------------
+--------------------
 
 **Proposito:**
 
@@ -491,9 +491,9 @@ metricas agregadas:
 - Maximo 92 dias por trimestre (Q1-Q4)
 - Cada dia puede tener 0 a 50,000 llamadas
 
-----------------------------------------------------------------------
+--------------------------
 COMPONENTE 6: VALIDACIONES
-----------------------------------------------------------------------
+--------------------------
 
 **Proposito:**
 
@@ -640,9 +640,9 @@ Codigo:
  f"Cannot query future quarter: {quarter} {year}"
  )
 
-----------------------------------------------------------------------
+---------------------
 COMPONENTE 7: TIMEOUT
-----------------------------------------------------------------------
+---------------------
 
 **Proposito:**
 
@@ -717,9 +717,9 @@ O a nivel de query:
  cursor.execute("SET statement_timeout = '30s'")
  cursor.execute(query, params)
 
-----------------------------------------------------------------------
+-------------------------------
 COMPONENTE 8: MANEJO DE ERRORES
-----------------------------------------------------------------------
+-------------------------------
 
 **Proposito:**
 
@@ -910,9 +910,9 @@ Si error es CRITICAL o mas de 5 errores en 1 minuto:
 - Enviar alerta a Slack canal alerts-database
 - Crear ticket en Jira proyecto IACT
 
-----------------------------------------------------------------------
+------------------
 COMPONENTE 9: LOGS
-----------------------------------------------------------------------
+------------------
 
 **Proposito:**
 
@@ -1079,9 +1079,9 @@ Adicionalmente, enviar metricas a Prometheus:
  
  query_executions.labels(status='success', segment=segment).inc
 
-----------------------------------------------------------------------
+--------------------
 COMPONENTE 10: TESTS
-----------------------------------------------------------------------
+--------------------
 
 **Proposito:**
 
@@ -1277,9 +1277,9 @@ pytest para Python, con fixtures y mocks
 
 Objetivo: Mayor o igual 80% de cobertura de lineas
 
-----------------------------------------------------------------------
+----------------------------------
 SECCION 11: HISTORIAL DE VERSIONES
-----------------------------------------------------------------------
+----------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -1302,9 +1302,9 @@ SECCION 11: HISTORIAL DE VERSIONES
    - Corrige typo en mensaje de error
    - Nombre del Developer
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

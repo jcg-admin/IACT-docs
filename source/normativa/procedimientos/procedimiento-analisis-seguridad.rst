@@ -123,24 +123,24 @@ Crear sección de activos críticos con clasificación:
  ```mermaid
  graph TB
  subgraph "Activos de Datos"
- A1[Credenciales de usuarios<br/>password_hash bcrypt]
- A2[Tokens JWT<br/>SECRET_KEY]
- A3[Datos personales<br/>PII]
- A4[Configuración RBAC<br/>permisos + roles]
- A5[Logs de auditoría<br/>inmutables]
+ A1[Credenciales de usuariospassword_hash bcrypt]
+ A2[Tokens JWTSECRET_KEY]
+ A3[Datos personalesPII]
+ A4[Configuración RBACpermisos + roles]
+ A5[Logs de auditoríainmutables]
  end
 
  subgraph "Activos de Sistema"
- S1[Motor de autorización<br/>RBAC Engine]
- S2[Servicio de autenticación<br/>Auth Service]
- S3[Base de datos<br/>PostgreSQL]
- S4[SECRET_KEY<br/>>= 256 bits]
+ S1[Motor de autorizaciónRBAC Engine]
+ S2[Servicio de autenticaciónAuth Service]
+ S3[Base de datosPostgreSQL]
+ S4[SECRET_KEY>= 256 bits]
  end
 
  subgraph "Activos de Negocio"
- B1[Disponibilidad del sistema<br/>99.9% SLA]
- B2[Integridad de decisiones<br/>RBAC correctas]
- B3[Confidencialidad<br/>segmentación de datos]
+ B1[Disponibilidad del sistema99.9% SLA]
+ B2[Integridad de decisionesRBAC correctas]
+ B3[Confidencialidadsegmentación de datos]
  end
 
  style A1 fill:#FFB6C1
@@ -255,50 +255,177 @@ Crear sección de activos críticos con clasificación:
 
  ### 4.1 Spoofing (Suplantación de Identidad)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | LoginView | Ataque de fuerza bruta en credenciales | Alta | Crítico | **CRÍTICO** | Rate limiting (5 intentos/min), bloqueo temporal 15 min |
- | JWT Tokens | Falsificación de tokens | Media | Crítico | **ALTO** | Firma HMAC-SHA256, SECRET_KEY >= 256 bits, rotación periódica |
- | User Model | Session hijacking | Media | Alto | **ALTO** | Tokens vinculados a IP/User-Agent, validación en cada request |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - LoginView
+      - Ataque de fuerza bruta en credenciales
+      - Alta
+      - Crítico
+      - **CRÍTICO**
+      - Rate limiting (5 intentos/min), bloqueo temporal 15 min
+    * - JWT Tokens
+      - Falsificación de tokens
+      - Media
+      - Crítico
+      - **ALTO**
+      - Firma HMAC-SHA256, SECRET_KEY >= 256 bits, rotación periódica
+    * - User Model
+      - Session hijacking
+      - Media
+      - Alto
+      - **ALTO**
+      - Tokens vinculados a IP/User-Agent, validación en cada request
 
  ### 4.2 Tampering (Manipulación de Datos)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | RBAC Permissions | Modificación de permisos en DB | Baja | Crítico | **MEDIO** | Audit logs inmutables, validación de integridad, restricciones DB |
- | Password Hash | Rainbow table attacks | Media | Crítico | **ALTO** | bcrypt cost factor 12, salt único por usuario |
- | Audit Logs | Eliminación de evidencia | Baja | Alto | **MEDIO** | Eliminación lógica, permisos restrictivos, backup continuo |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - RBAC Permissions
+      - Modificación de permisos en DB
+      - Baja
+      - Crítico
+      - **MEDIO**
+      - Audit logs inmutables, validación de integridad, restricciones DB
+    * - Password Hash
+      - Rainbow table attacks
+      - Media
+      - Crítico
+      - **ALTO**
+      - bcrypt cost factor 12, salt único por usuario
+    * - Audit Logs
+      - Eliminación de evidencia
+      - Baja
+      - Alto
+      - **MEDIO**
+      - Eliminación lógica, permisos restrictivos, backup continuo
 
  ### 4.3 Repudiation (No Repudio)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | Login/Logout | Usuario niega haber iniciado sesión | Media | Medio | **MEDIO** | Audit logs con IP, timestamp, User-Agent |
- | RBAC Decisions | Negación de acceso a recurso | Baja | Alto | **MEDIO** | Log de cada decisión RBAC (grant/deny) |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - Login/Logout
+      - Usuario niega haber iniciado sesión
+      - Media
+      - Medio
+      - **MEDIO**
+      - Audit logs con IP, timestamp, User-Agent
+    * - RBAC Decisions
+      - Negación de acceso a recurso
+      - Baja
+      - Alto
+      - **MEDIO**
+      - Log de cada decisión RBAC (grant/deny)
 
  ### 4.4 Information Disclosure (Divulgación de Información)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | API Errors | Stack traces expuestos | Baja | Alto | **MEDIO** | DEBUG=False, error handlers genéricos |
- | Password Reset | Enumeración de usuarios | Media | Medio | **MEDIO** | Mensajes genéricos, rate limiting |
- | Logs | Credenciales en logs | Media | Crítico | **ALTO** | Sanitización de logs, no loggear passwords/tokens |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - API Errors
+      - Stack traces expuestos
+      - Baja
+      - Alto
+      - **MEDIO**
+      - DEBUG=False, error handlers genéricos
+    * - Password Reset
+      - Enumeración de usuarios
+      - Media
+      - Medio
+      - **MEDIO**
+      - Mensajes genéricos, rate limiting
+    * - Logs
+      - Credenciales en logs
+      - Media
+      - Crítico
+      - **ALTO**
+      - Sanitización de logs, no loggear passwords/tokens
 
  ### 4.5 Denial of Service (Denegación de Servicio)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | Login Endpoint | Flood de requests | Alta | Alto | **ALTO** | Rate limiting, CAPTCHA tras N intentos, WAF |
- | DB Queries | SQL query sin índices | Media | Alto | **MEDIO** | Índices optimizados, query timeout, connection pooling |
- | Background Jobs | Job infinito sin timeout | Baja | Medio | **BAJO** | Timeout configurado, dead letter queue |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - Login Endpoint
+      - Flood de requests
+      - Alta
+      - Alto
+      - **ALTO**
+      - Rate limiting, CAPTCHA tras N intentos, WAF
+    * - DB Queries
+      - SQL query sin índices
+      - Media
+      - Alto
+      - **MEDIO**
+      - Índices optimizados, query timeout, connection pooling
+    * - Background Jobs
+      - Job infinito sin timeout
+      - Baja
+      - Medio
+      - **BAJO**
+      - Timeout configurado, dead letter queue
 
  ### 4.6 Elevation of Privilege (Escalada de Privilegios)
 
- | Componente | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
- |------------|---------|--------------|---------|--------|------------|
- | RBAC Engine | Bypass de validación de permisos | Baja | Crítico | **ALTO** | Short-circuit evaluation, tests exhaustivos, code review |
- | Direct Object Reference | IDOR para acceder datos de otro usuario | Media | Alto | **ALTO** | Validación de ownership, filtros por segmento/rol |
- | Admin Endpoints | Acceso no autorizado a /admin/ | Media | Crítico | **ALTO** | IP whitelist, MFA obligatorio para admins |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo
+      - Mitigación
+    * - RBAC Engine
+      - Bypass de validación de permisos
+      - Baja
+      - Crítico
+      - **ALTO**
+      - Short-circuit evaluation, tests exhaustivos, code review
+    * - Direct Object Reference
+      - IDOR para acceder datos de otro usuario
+      - Media
+      - Alto
+      - **ALTO**
+      - Validación de ownership, filtros por segmento/rol
+    * - Admin Endpoints
+      - Acceso no autorizado a /admin/
+      - Media
+      - Crítico
+      - **ALTO**
+      - IP whitelist, MFA obligatorio para admins
 
 **Niveles de Riesgo:** - **CRÍTICO**: Probabilidad Alta + Impacto
 Crítico - **ALTO**: Probabilidad Media/Alta + Impacto Alto/Crítico -
@@ -331,9 +458,9 @@ se mueven los datos sensibles.
 
  ```mermaid
  flowchart LR
- U[Usuario] -->|1. Credenciales<br/>(HTTPS)| SYS[Sistema IACT]
- SYS -->|2. Tokens JWT<br/>(HTTPS)| U
- U -->|3. Request + Token<br/>(HTTPS)| SYS
+ U[Usuario] -->|1. Credenciales(HTTPS)| SYS[Sistema IACT]
+ SYS -->|2. Tokens JWT(HTTPS)| U
+ U -->|3. Request + Token(HTTPS)| SYS
  SYS -->|4. Decisión RBAC| U
  SYS -->|5. Audit Event| LOG[(Audit Logs)]
 
@@ -347,7 +474,7 @@ se mueven los datos sensibles.
 .. code:: mermaid
 
  flowchart TD
- U[Usuario] -->|POST /login<br/>username, password| API[API Gateway]
+ U[Usuario] -->|POST /loginusername, password| API[API Gateway]
  API -->|Validar formato| AS[Auth Service]
  AS -->|Query user| DB[(PostgreSQL)]
  DB -->|User data| AS
@@ -391,18 +518,64 @@ se mueven los datos sensibles.
 
  ### 5.1 Amenazas Identificadas
 
- | ID | Categoría STRIDE | Amenaza | CWE | OWASP Top 10 |
- |----|------------------|---------|-----|--------------|
- | T-001 | Spoofing | Brute force en login | CWE-307 | A07:2021 – Identification and Authentication Failures |
- | T-002 | Spoofing | JWT token forgery | CWE-347 | A02:2021 – Cryptographic Failures |
- | T-003 | Tampering | SQL injection en queries dinámicas | CWE-89 | A03:2021 – Injection |
- | T-004 | Tampering | Password hash cracking (bcrypt débil) | CWE-916 | A02:2021 – Cryptographic Failures |
- | T-005 | Repudiation | Falta de audit logs | CWE-778 | A09:2021 – Security Logging Failures |
- | T-006 | Info Disclosure | Stack trace expuesto | CWE-209 | A05:2021 – Security Misconfiguration |
- | T-007 | Info Disclosure | User enumeration en login | CWE-204 | A07:2021 – Identification Failures |
- | T-008 | DoS | Flood de requests sin rate limit | CWE-770 | A04:2021 – Insecure Design |
- | T-009 | Elevation | RBAC bypass por lógica incorrecta | CWE-863 | A01:2021 – Broken Access Control |
- | T-010 | Elevation | IDOR (Insecure Direct Object Reference) | CWE-639 | A01:2021 – Broken Access Control |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Categoría STRIDE
+      - Amenaza
+      - CWE
+      - OWASP Top 10
+    * - T-001
+      - Spoofing
+      - Brute force en login
+      - CWE-307
+      - A07:2021 – Identification and Authentication Failures
+    * - T-002
+      - Spoofing
+      - JWT token forgery
+      - CWE-347
+      - A02:2021 – Cryptographic Failures
+    * - T-003
+      - Tampering
+      - SQL injection en queries dinámicas
+      - CWE-89
+      - A03:2021 – Injection
+    * - T-004
+      - Tampering
+      - Password hash cracking (bcrypt débil)
+      - CWE-916
+      - A02:2021 – Cryptographic Failures
+    * - T-005
+      - Repudiation
+      - Falta de audit logs
+      - CWE-778
+      - A09:2021 – Security Logging Failures
+    * - T-006
+      - Info Disclosure
+      - Stack trace expuesto
+      - CWE-209
+      - A05:2021 – Security Misconfiguration
+    * - T-007
+      - Info Disclosure
+      - User enumeration en login
+      - CWE-204
+      - A07:2021 – Identification Failures
+    * - T-008
+      - DoS
+      - Flood de requests sin rate limit
+      - CWE-770
+      - A04:2021 – Insecure Design
+    * - T-009
+      - Elevation
+      - RBAC bypass por lógica incorrecta
+      - CWE-863
+      - A01:2021 – Broken Access Control
+    * - T-010
+      - Elevation
+      - IDOR (Insecure Direct Object Reference)
+      - CWE-639
+      - A01:2021 – Broken Access Control
 
 **Checklist:** - [ ] Cada amenaza tiene ID único (T-XXX) - [ ] Categoría
 STRIDE asignada - [ ] CWE (Common Weakness Enumeration) referenciado - [
@@ -421,31 +594,117 @@ STRIDE asignada - [ ] CWE (Common Weakness Enumeration) referenciado - [
 
  ### 8.1 Controles Preventivos
 
- | Amenaza ID | Control | Tipo | Estado | Responsable | Verificación |
- |------------|---------|------|--------|-------------|--------------|
- | T-001 | Rate limiting (5 req/min por IP) | Técnico | OK Implementado | DevOps | `TEST-SEC-001` |
- | T-001 | Bloqueo de cuenta (3 intentos, 15 min) | Técnico | OK Implementado | Backend | `TEST-SEC-002` |
- | T-002 | SECRET_KEY >= 256 bits | Técnico | OK Implementado | DevOps | Audit config |
- | T-002 | Firma HMAC-SHA256 en JWT | Técnico | OK Implementado | Backend | `TEST-SEC-003` |
- | T-003 | Django ORM (sin queries raw) | Técnico | OK Implementado | Backend | Code review |
- | T-004 | bcrypt cost factor 12 | Técnico | OK Implementado | Backend | `TEST-SEC-004` |
- | T-009 | RBAC short-circuit evaluation | Lógico | OK Implementado | Backend | `TEST-SEC-010` |
+ .. list-table::
+    :header-rows: 1
+
+    * - Amenaza ID
+      - Control
+      - Tipo
+      - Estado
+      - Responsable
+      - Verificación
+    * - T-001
+      - Rate limiting (5 req/min por IP)
+      - Técnico
+      - OK Implementado
+      - DevOps
+      - `TEST-SEC-001`
+    * - T-001
+      - Bloqueo de cuenta (3 intentos, 15 min)
+      - Técnico
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-002`
+    * - T-002
+      - SECRET_KEY >= 256 bits
+      - Técnico
+      - OK Implementado
+      - DevOps
+      - Audit config
+    * - T-002
+      - Firma HMAC-SHA256 en JWT
+      - Técnico
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-003`
+    * - T-003
+      - Django ORM (sin queries raw)
+      - Técnico
+      - OK Implementado
+      - Backend
+      - Code review
+    * - T-004
+      - bcrypt cost factor 12
+      - Técnico
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-004`
+    * - T-009
+      - RBAC short-circuit evaluation
+      - Lógico
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-010`
 
  ### 8.2 Controles Detectivos
 
- | Amenaza ID | Control | Tipo | Estado | Responsable | Verificación |
- |------------|---------|------|--------|-------------|--------------|
- | T-001 | Alertas por intentos fallidos masivos | Monitoreo | DMZ Planificado | DevOps | Dashboard |
- | T-005 | Audit logs de autenticación | Auditoría | OK Implementado | Backend | `TEST-SEC-005` |
- | T-006 | Logging de errores (sin stack trace) | Auditoría | OK Implementado | Backend | Validación manual |
- | T-009 | Logging de decisiones RBAC | Auditoría | OK Implementado | Backend | `TEST-SEC-011` |
+ .. list-table::
+    :header-rows: 1
+
+    * - Amenaza ID
+      - Control
+      - Tipo
+      - Estado
+      - Responsable
+      - Verificación
+    * - T-001
+      - Alertas por intentos fallidos masivos
+      - Monitoreo
+      - DMZ Planificado
+      - DevOps
+      - Dashboard
+    * - T-005
+      - Audit logs de autenticación
+      - Auditoría
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-005`
+    * - T-006
+      - Logging de errores (sin stack trace)
+      - Auditoría
+      - OK Implementado
+      - Backend
+      - Validación manual
+    * - T-009
+      - Logging de decisiones RBAC
+      - Auditoría
+      - OK Implementado
+      - Backend
+      - `TEST-SEC-011`
 
  ### 8.3 Controles Correctivos
 
- | Amenaza ID | Control | Tipo | Estado | Responsable | Verificación |
- |------------|---------|------|--------|-------------|--------------|
- | T-001 | Desbloqueo manual por admin | Proceso | OK Implementado | Soporte | Runbook |
- | T-008 | Auto-scaling en picos de tráfico | Infraestructura | DMZ Planificado | DevOps | Terraform |
+ .. list-table::
+    :header-rows: 1
+
+    * - Amenaza ID
+      - Control
+      - Tipo
+      - Estado
+      - Responsable
+      - Verificación
+    * - T-001
+      - Desbloqueo manual por admin
+      - Proceso
+      - OK Implementado
+      - Soporte
+      - Runbook
+    * - T-008
+      - Auto-scaling en picos de tráfico
+      - Infraestructura
+      - DMZ Planificado
+      - DevOps
+      - Terraform
 
 **Estados:** - OK Implementado - DMZ Planificado - NO No planificado
 (riesgo aceptado)
@@ -471,14 +730,65 @@ FASE 5: Matriz de Riesgos y Priorización
 
  ### 6.1 Matriz de Probabilidad vs Impacto
 
- | Amenaza ID | Amenaza | Probabilidad | Impacto | Riesgo Inherente | Controles | Riesgo Residual | Prioridad |
- |------------|---------|--------------|---------|------------------|-----------|-----------------|-----------|
- | T-001 | Brute force login | Alta | Crítico | **CRÍTICO** | Rate limit + bloqueo | **BAJO** | P1 |
- | T-002 | JWT forgery | Media | Crítico | **ALTO** | HMAC-SHA256 + SECRET_KEY | **BAJO** | P1 |
- | T-009 | RBAC bypass | Baja | Crítico | **ALTO** | Short-circuit + tests | **MEDIO** | P2 |
- | T-003 | SQL injection | Baja | Crítico | **MEDIO** | Django ORM | **BAJO** | P3 |
- | T-007 | User enumeration | Media | Medio | **MEDIO** | Mensajes genéricos | **BAJO** | P3 |
- | T-008 | DoS flood | Alta | Alto | **ALTO** | Rate limit + WAF | **MEDIO** | P2 |
+ .. list-table::
+    :header-rows: 1
+
+    * - Amenaza ID
+      - Amenaza
+      - Probabilidad
+      - Impacto
+      - Riesgo Inherente
+      - Controles
+      - Riesgo Residual
+      - Prioridad
+    * - T-001
+      - Brute force login
+      - Alta
+      - Crítico
+      - **CRÍTICO**
+      - Rate limit + bloqueo
+      - **BAJO**
+      - P1
+    * - T-002
+      - JWT forgery
+      - Media
+      - Crítico
+      - **ALTO**
+      - HMAC-SHA256 + SECRET_KEY
+      - **BAJO**
+      - P1
+    * - T-009
+      - RBAC bypass
+      - Baja
+      - Crítico
+      - **ALTO**
+      - Short-circuit + tests
+      - **MEDIO**
+      - P2
+    * - T-003
+      - SQL injection
+      - Baja
+      - Crítico
+      - **MEDIO**
+      - Django ORM
+      - **BAJO**
+      - P3
+    * - T-007
+      - User enumeration
+      - Media
+      - Medio
+      - **MEDIO**
+      - Mensajes genéricos
+      - **BAJO**
+      - P3
+    * - T-008
+      - DoS flood
+      - Alta
+      - Alto
+      - **ALTO**
+      - Rate limit + WAF
+      - **MEDIO**
+      - P2
 
  ### 6.2 Priorización de Remediación
 
@@ -518,14 +828,37 @@ FASE 6: Métricas y Auditoría
 
  ### 10.1 KPIs de Seguridad
 
- | Métrica | Target | Medición | Responsable |
- |---------|--------|----------|-------------|
- | Intentos fallidos de login | < 5% de requests totales | Logs de auditoría | Security |
- | Tiempo de bloqueo promedio | 15 min | UserSession.locked_until | Backend |
- | Tokens JWT válidos sin expirar | > 95% | Token validation logs | Backend |
- | Cobertura de tests de seguridad | 100% de controles | pytest + coverage | QA |
- | Vulnerabilidades críticas abiertas | 0 | Dependabot + Snyk | DevOps |
- | Tiempo de respuesta a incidentes | < 24 hrs | Incident tracking | Security |
+ .. list-table::
+    :header-rows: 1
+
+    * - Métrica
+      - Target
+      - Medición
+      - Responsable
+    * - Intentos fallidos de login
+      - < 5% de requests totales
+      - Logs de auditoría
+      - Security
+    * - Tiempo de bloqueo promedio
+      - 15 min
+      - UserSession.locked_until
+      - Backend
+    * - Tokens JWT válidos sin expirar
+      - > 95%
+      - Token validation logs
+      - Backend
+    * - Cobertura de tests de seguridad
+      - 100% de controles
+      - pytest + coverage
+      - QA
+    * - Vulnerabilidades críticas abiertas
+      - 0
+      - Dependabot + Snyk
+      - DevOps
+    * - Tiempo de respuesta a incidentes
+      - < 24 hrs
+      - Incident tracking
+      - Security
 
  ### 10.2 Auditoría de Controles
 

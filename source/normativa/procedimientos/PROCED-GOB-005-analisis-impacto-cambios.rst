@@ -567,21 +567,65 @@ Tabla Resumen de Acciones
 
  ## Resumen de Acciones
 
- | ID | Nombre | Acción | Prioridad |
- |---|---|---|---|
- | RNEG-BACK-001 | Sistema de autenticación seguro | Actualizar | Alta |
- | UC-BACK-001 | Iniciar Sesión | Actualizar | Alta |
- | UC-BACK-003 | Cambiar Contraseña | Actualizar | Media |
- | UC-BACK-004 | Recuperar Contraseña | Actualizar | Media |
- | RF-BACK-010 | Validar credenciales | Sin cambios | N/A |
- | RF-BACK-011 | Generar token JWT | Actualizar | Alta |
- | RF-BACK-065 | Generar código TOTP | Crear nuevo | Alta |
- | RF-BACK-066 | Validar código TOTP | Crear nuevo | Alta |
- | RF-BACK-067 | Registrar dispositivo 2FA | Crear nuevo | Alta |
- | RNF-BACK-005 | Contraseña mínimo 8 caracteres | Sin cambios | N/A |
- | RNF-BACK-007 | Sesión expira en 30 min | Sin cambios | N/A |
- | RNF-BACK-020 | Código TOTP expira en 30s | Crear nuevo | Alta |
- | UCD-BACK-001 | Diagrama autenticación | Actualizar | Media |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Nombre
+      - Acción
+      - Prioridad
+    * - RNEG-BACK-001
+      - Sistema de autenticación seguro
+      - Actualizar
+      - Alta
+    * - UC-BACK-001
+      - Iniciar Sesión
+      - Actualizar
+      - Alta
+    * - UC-BACK-003
+      - Cambiar Contraseña
+      - Actualizar
+      - Media
+    * - UC-BACK-004
+      - Recuperar Contraseña
+      - Actualizar
+      - Media
+    * - RF-BACK-010
+      - Validar credenciales
+      - Sin cambios
+      - N/A
+    * - RF-BACK-011
+      - Generar token JWT
+      - Actualizar
+      - Alta
+    * - RF-BACK-065
+      - Generar código TOTP
+      - Crear nuevo
+      - Alta
+    * - RF-BACK-066
+      - Validar código TOTP
+      - Crear nuevo
+      - Alta
+    * - RF-BACK-067
+      - Registrar dispositivo 2FA
+      - Crear nuevo
+      - Alta
+    * - RNF-BACK-005
+      - Contraseña mínimo 8 caracteres
+      - Sin cambios
+      - N/A
+    * - RNF-BACK-007
+      - Sesión expira en 30 min
+      - Sin cambios
+      - N/A
+    * - RNF-BACK-020
+      - Código TOTP expira en 30s
+      - Crear nuevo
+      - Alta
+    * - UCD-BACK-001
+      - Diagrama autenticación
+      - Actualizar
+      - Media
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-3:
 
@@ -904,31 +948,103 @@ Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md
 
  ## Matriz Vertical
 
- | RN | RNEG | UC | RF | RNF |
- |---|---|---|---|---|
- | RN-BACK-001 | RNEG-BACK-001 | UC-BACK-001 | RF-BACK-010 | RNF-BACK-005 |
- | | | | RF-BACK-011 | RNF-BACK-007 |
- | | | | RF-BACK-065 ← NUEVO | RNF-BACK-020 ← NUEVO |
- | | | | RF-BACK-066 ← NUEVO | |
- | | | | RF-BACK-067 ← NUEVO | |
- | | | UC-BACK-003 | RF-BACK-014 | RNF-BACK-005 |
- | | | UC-BACK-004 | RF-BACK-018 | |
+ .. list-table::
+    :header-rows: 1
+
+    * - RN
+      - RNEG
+      - UC
+      - RF
+      - RNF
+    * - RN-BACK-001
+      - RNEG-BACK-001
+      - UC-BACK-001
+      - RF-BACK-010
+      - RNF-BACK-005
+    * - \ 
+      - \ 
+      - \ 
+      - RF-BACK-011
+      - RNF-BACK-007
+    * - \ 
+      - \ 
+      - \ 
+      - RF-BACK-065 ← NUEVO
+      - RNF-BACK-020 ← NUEVO
+    * - \ 
+      - \ 
+      - \ 
+      - RF-BACK-066 ← NUEVO
+      - \ 
+    * - \ 
+      - \ 
+      - \ 
+      - RF-BACK-067 ← NUEVO
+      - \ 
+    * - \ 
+      - \ 
+      - UC-BACK-003
+      - RF-BACK-014
+      - RNF-BACK-005
+    * - \ 
+      - \ 
+      - UC-BACK-004
+      - RF-BACK-018
+      - \ 
 
  ## Matriz por Caso de Uso: UC-BACK-001
 
- | Tipo | ID | Nombre | Versión |
- |---|---|---|---|
- | RN | RN-BACK-001 | Usuario debe estar autenticado con 2FA | 2.0.0 ← ACTUALIZADO |
- | RNEG | RNEG-BACK-001 | Sistema de autenticación seguro | 1.1.0 ← ACTUALIZADO |
- | UC | UC-BACK-001 | Iniciar Sesión | 1.1.0 ← ACTUALIZADO |
- | RF | RF-BACK-010 | Validar credenciales | 1.0.0 |
- | RF | RF-BACK-011 | Generar token JWT | 1.1.0 ← ACTUALIZADO |
- | RF | RF-BACK-065 | Generar código TOTP | 1.0.0 ← NUEVO |
- | RF | RF-BACK-066 | Validar código TOTP | 1.0.0 ← NUEVO |
- | RF | RF-BACK-067 | Registrar dispositivo 2FA | 1.0.0 ← NUEVO |
- | RNF | RNF-BACK-005 | Contraseña mínimo 8 caracteres | 1.0.0 |
- | RNF | RNF-BACK-007 | Sesión expira en 30 minutos | 1.0.0 |
- | RNF | RNF-BACK-020 | Código TOTP expira en 30 segundos | 1.0.0 ← NUEVO |
+ .. list-table::
+    :header-rows: 1
+
+    * - Tipo
+      - ID
+      - Nombre
+      - Versión
+    * - RN
+      - RN-BACK-001
+      - Usuario debe estar autenticado con 2FA
+      - 2.0.0 ← ACTUALIZADO
+    * - RNEG
+      - RNEG-BACK-001
+      - Sistema de autenticación seguro
+      - 1.1.0 ← ACTUALIZADO
+    * - UC
+      - UC-BACK-001
+      - Iniciar Sesión
+      - 1.1.0 ← ACTUALIZADO
+    * - RF
+      - RF-BACK-010
+      - Validar credenciales
+      - 1.0.0
+    * - RF
+      - RF-BACK-011
+      - Generar token JWT
+      - 1.1.0 ← ACTUALIZADO
+    * - RF
+      - RF-BACK-065
+      - Generar código TOTP
+      - 1.0.0 ← NUEVO
+    * - RF
+      - RF-BACK-066
+      - Validar código TOTP
+      - 1.0.0 ← NUEVO
+    * - RF
+      - RF-BACK-067
+      - Registrar dispositivo 2FA
+      - 1.0.0 ← NUEVO
+    * - RNF
+      - RNF-BACK-005
+      - Contraseña mínimo 8 caracteres
+      - 1.0.0
+    * - RNF
+      - RNF-BACK-007
+      - Sesión expira en 30 minutos
+      - 1.0.0
+    * - RNF
+      - RNF-BACK-020
+      - Código TOTP expira en 30 segundos
+      - 1.0.0 ← NUEVO
 
  ## Cambios en esta Actualización
 

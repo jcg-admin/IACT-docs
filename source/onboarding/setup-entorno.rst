@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-========================
+=======================
 Setup del Entorno Local
-========================
+=======================
 
 Procedimiento para configurar el entorno de desarrollo local del
 proyecto IACT.

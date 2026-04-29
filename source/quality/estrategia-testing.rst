@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Alto
 
-==========================
+=====================
 Estrategia de Testing
-==========================
+=====================
 
 Estrategia de testing del sistema IACT: niveles, herramientas,
 cobertura objetivo y procesos.

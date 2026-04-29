@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-============
+==========
 Bienvenida
-============
+==========
 
 Bienvenido al equipo IACT. Esta guia te orienta sobre la organizacion
 del proyecto, sus convenciones y los recursos clave para empezar.

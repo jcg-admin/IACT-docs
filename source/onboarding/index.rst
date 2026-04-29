@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-============
+==========
 Onboarding
-============
+==========
 
 Guias de incorporacion para nuevos integrantes del equipo IACT.
 Cubre desde setup del entorno local hasta primer contribucion.

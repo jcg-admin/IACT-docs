@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==================
+==============
 Vision General
-==================
+==============
 
 Scope arquitectonico del frontend IACT. Sin codigo — solo
 descripcion de capas y responsabilidades.

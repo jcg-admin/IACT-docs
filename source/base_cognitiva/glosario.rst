@@ -12,9 +12,9 @@
 .. _glosario:
 .. _glosario-iact:
 
-==============
+=============
 Glosario IACT
-==============
+=============
 
 Glosario consolidado del proyecto IACT. Reúne en un único archivo:
 

@@ -34,9 +34,9 @@ declarar el siguiente bloque de metadata:
  :Autor: Nombre del Business Analyst
  :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
-----------------------------------------------------------------------
+-----------------------
 Estructura del template
-----------------------------------------------------------------------
+-----------------------
 
 **Proyecto:** IACT - IVR Analytics & Customer Tracking 
 **Actor Principal:** Rol del Actor Principal 
@@ -46,9 +46,9 @@ Estructura del template
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Use Cases donde los actores secundarios
 juegan un rol significativo en el flujo, con interacciones complejas
@@ -94,9 +94,9 @@ NO use este template para:
 4. **Testing:** Saber que actores mockear
 5. **Integracion:** Entender sistemas externos involucrados
 
-----------------------------------------------------------------------
+----------------------
 1. DIAGRAMA DE ACTORES
-----------------------------------------------------------------------
+----------------------
 
 **Proposito:**
 
@@ -193,9 +193,9 @@ Visualizar graficamente los actores y sus relaciones en el UC.
    - Sistema IACT
    - Analista solicito consulta original
 
-----------------------------------------------------------------------
+-----------------------------
 2. TABLA DE RESPONSABILIDADES
-----------------------------------------------------------------------
+-----------------------------
 
 **Proposito:**
 
@@ -322,9 +322,9 @@ Restricciones:
 - Timeout: 30 segundos maximo por query
 - Acceso: Via usuario de servicio iact-app
 
-----------------------------------------------------------------------
+-------------------------------------
 3. FLUJO CON INTERACCIONES DETALLADAS
-----------------------------------------------------------------------
+-------------------------------------
 
 **Proposito:**
 
@@ -574,9 +574,9 @@ En paso 4, si Supervisor selecciona Rechazar:
 
  4e. UC termina, consulta no se ejecuta
 
-----------------------------------------------------------------------
+---------------------------
 4. CODIGO DE NOTIFICACIONES
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -738,9 +738,9 @@ Documentar codigo especifico de comunicacion entre actores.
  html_message=html_message
  )
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

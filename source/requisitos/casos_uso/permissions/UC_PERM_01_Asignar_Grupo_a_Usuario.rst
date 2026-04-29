@@ -512,8 +512,7 @@ Referencias
 - :doc:`ADR-GOB-005 — Especificación Casos de Uso </normativa/gobernanza/ADR-GOB-005-especificacion-casos-uso>`
   (guía de UC).
 
----
-
+----
 **Estado**: Aprobado
 **Fecha**: 2025-11-09
 **Owner**: equipo-backend

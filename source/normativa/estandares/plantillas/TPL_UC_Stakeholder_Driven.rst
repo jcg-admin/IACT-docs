@@ -41,9 +41,9 @@ UC-IACT-MOD-NN: Nombre del Use Case
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Use Cases que se derivan de narrativas de
 stakeholders, tipicamente obtenidas en entrevistas, workshops o
@@ -89,9 +89,9 @@ beneficios:
 4. Mapeo a Componentes de UC
 5. UC Formal Resultante
 
-----------------------------------------------------------------------
+---------------------------
 1. CONTEXTO DEL STAKEHOLDER
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -179,9 +179,9 @@ Entrevista presencial en oficina de Maria, formato semi-estructurado.
 Entender necesidades de reportes operacionales para metricas IVR
 y problemas actuales con performance del sistema de consultas.
 
-----------------------------------------------------------------------
+-------------------------------------
 2. NARRATIVA ORIGINAL DEL STAKEHOLDER
-----------------------------------------------------------------------
+-------------------------------------
 
 **Proposito:**
 
@@ -341,9 +341,9 @@ o copiar y pegar en Excel manualmente."
 
 BA: "Perfecto, lo notamos. Gracias por tu tiempo."
 
-----------------------------------------------------------------------
+---------------------------
 3. EXTRACCION DE REQUISITOS
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -501,9 +501,9 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
  * - FR-RPT-01-12
    - Exportar reporte a Excel
 
-----------------------------------------------------------------------
+----------------------------
 4. MAPEO A COMPONENTES DE UC
-----------------------------------------------------------------------
+----------------------------
 
 **Proposito:**
 
@@ -582,9 +582,9 @@ Transformar la narrativa informal en componentes formales de UC.
  * - "se cuelga, timeout"
    - FE-1: Timeout de Base de Datos
 
-----------------------------------------------------------------------
+-----------------------
 5. UC FORMAL RESULTANTE
-----------------------------------------------------------------------
+-----------------------
 
 **Proposito:**
 
@@ -716,9 +716,9 @@ BR-IACT-028: Aprobacion de Consultas Grandes (umbral 10,000)
 
 BR-IACT-053: Calculo de Tasa de Abandono
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

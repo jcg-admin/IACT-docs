@@ -63,11 +63,11 @@ Tipos de Trazabilidad (ISO 29148 - 5.2.8)
 
  graph TB
  subgraph "Upward Traceability (origen)"
- N[N-001<br/>Necesidad]
- RN[RN-001<br/>Requisito Negocio]
- RS[RS-001<br/>Stakeholder Req]
- RF[RF-001<br/>Funcional]
- RNF[RNF-001<br/>No Funcional]
+ N[N-001Necesidad]
+ RN[RN-001Requisito Negocio]
+ RS[RS-001Stakeholder Req]
+ RF[RF-001Funcional]
+ RNF[RNF-001No Funcional]
  end
 
  subgraph "Downward Traceability (verificación)"
@@ -315,11 +315,29 @@ traza a ≥ 1 RN-XXX - [ ] Cadena de trazabilidad completa sin gaps
 
  ## Matriz de Trazabilidad Forward (Upward)
 
- | Necesidad | Requisito Negocio | Stakeholder Req | Funcional | No Funcional |
- |-----------|-------------------|-----------------|-----------|--------------|
- | N-001 | RN-001 | RS-001 | RF-001, RF-002 | RNF-001, RNF-002 |
- | N-001 | RN-001 | RS-002 | RF-003 | - |
- | N-002 | RN-002 | RS-003 | RF-004, RF-005 | RNF-003 |
+ .. list-table::
+    :header-rows: 1
+
+    * - Necesidad
+      - Requisito Negocio
+      - Stakeholder Req
+      - Funcional
+      - No Funcional
+    * - N-001
+      - RN-001
+      - RS-001
+      - RF-001, RF-002
+      - RNF-001, RNF-002
+    * - N-001
+      - RN-001
+      - RS-002
+      - RF-003
+      - -
+    * - N-002
+      - RN-002
+      - RS-003
+      - RF-004, RF-005
+      - RNF-003
 
 **Validaciones automáticas (CI/CD):**
 
@@ -370,11 +388,25 @@ FASE 3: Trazabilidad Downward (Verificación)
 
  ### 7.1 Matriz de Trazabilidad Backward
 
- | Requisito | Sección Diseño | Diagrama | Componente Código |
- |-----------|----------------|----------|-------------------|
- | RF-001 | 2.1 Diagrama de Secuencia | Fig 2.1 | InventoryService.calculate_min_stock |
- | RF-002 | 2.2 Diagrama de Secuencia | Fig 2.2 | AlertView.list_active_alerts |
- | RNF-001 | 5.1 Modelo de Datos | Índices DB | Index on inventory.sku |
+ .. list-table::
+    :header-rows: 1
+
+    * - Requisito
+      - Sección Diseño
+      - Diagrama
+      - Componente Código
+    * - RF-001
+      - 2.1 Diagrama de Secuencia
+      - Fig 2.1
+      - InventoryService.calculate_min_stock
+    * - RF-002
+      - 2.2 Diagrama de Secuencia
+      - Fig 2.2
+      - AlertView.list_active_alerts
+    * - RNF-001
+      - 5.1 Modelo de Datos
+      - Índices DB
+      - Index on inventory.sku
 
 **Checklist:** - [ ] Todos los RF-XXX tienen ≥ 1 sección de diseño - [ ]
 Diagramas de secuencia mapeados a RF-XXX - [ ] Componentes de código
@@ -559,9 +591,19 @@ El workflow genera 5 documentos automáticamente:
 
  ## 4. Traceability Matrix (ISO 9.3.5)
 
- | Necesidad | Requisito Negocio | Stakeholder Req | Solución Req | Tests |
- |-----------|-------------------|-----------------|--------------|-------|
- | N-001 | RN-001 | RS-001 | RF-001, RF-002 | TEST-001, TEST-002 |
+ .. list-table::
+    :header-rows: 1
+
+    * - Necesidad
+      - Requisito Negocio
+      - Stakeholder Req
+      - Solución Req
+      - Tests
+    * - N-001
+      - RN-001
+      - RS-001
+      - RF-001, RF-002
+      - TEST-001, TEST-002
 
 **Checklist:** - [ ] BRS generado cumple estructura ISO 9.3 - [ ] StRS
 generado cumple estructura ISO 9.4 - [ ] SyRS generado cumple estructura
@@ -746,13 +788,39 @@ Ejemplo 2: Matriz RTM Generada
 
  ## Trazabilidad Forward (Upward)
 
- | ID | Tipo | Título | Upward IDs | Downward IDs |
- |----|------|--------|------------|--------------|
- | N-001 | necesidad | Autenticación segura | - | RN-001 |
- | RN-001 | negocio | Login local | N-001 | RS-001, RF-005, RF-006 |
- | RS-001 | stakeholder | Acceso gerente 24/7 | N-001, RN-001 | RF-005 |
- | RF-005 | funcional | Login username/password | N-001, RN-001, RS-001 | DESIGN-001, TEST-005 |
- | RNF-001 | no_funcional | Tiempo auth < 500ms | N-001, RN-001 | DESIGN-001, TEST-006 |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Tipo
+      - Título
+      - Upward IDs
+      - Downward IDs
+    * - N-001
+      - necesidad
+      - Autenticación segura
+      - -
+      - RN-001
+    * - RN-001
+      - negocio
+      - Login local
+      - N-001
+      - RS-001, RF-005, RF-006
+    * - RS-001
+      - stakeholder
+      - Acceso gerente 24/7
+      - N-001, RN-001
+      - RF-005
+    * - RF-005
+      - funcional
+      - Login username/password
+      - N-001, RN-001, RS-001
+      - DESIGN-001, TEST-005
+    * - RNF-001
+      - no_funcional
+      - Tiempo auth < 500ms
+      - N-001, RN-001
+      - DESIGN-001, TEST-006
 
  ## Estadísticas
 

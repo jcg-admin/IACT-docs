@@ -563,7 +563,7 @@ Mejores Prácticas
 -----------------
 
 DO [OK]
-~~~~~
+~~~~~~~
 
 1. **Actualizar docs en mismo PR que código**
 
@@ -592,7 +592,7 @@ DO [OK]
    - Funciona en cualquier entorno
 
 DON’T [NO]
-~~~~~~~~
+~~~~~~~~~~
 
 1. **Dejar docs desactualizados**
 

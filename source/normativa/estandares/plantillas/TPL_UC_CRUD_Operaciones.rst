@@ -36,9 +36,9 @@ UC-IACT-XXX-YY: CRUD de [Nombre Entidad]
 **Tipo:** CRUD (Create, Read, Update, Delete) 
 **Modulo:** [RPT|AUTH|ACC|PIPE|DASH|ADMIN|API|NOTIF]
 
-----------------------------------------------------------------------
+-----------------------------
 INTRODUCCION AL TEMPLATE CRUD
-----------------------------------------------------------------------
+-----------------------------
 
 Este template documenta las 4 operaciones estándar de CRUD para
 cualquier entidad del dominio.
@@ -75,9 +75,9 @@ para una entidad del dominio (Cliente, Usuario, Producto, etc.).
 - DELETE Operation (soft delete + dependencias + 2 FA + 1 FE)
 - Ejemplo Completo: Entidad Cliente
 
-----------------------------------------------------------------------
+------------------------------------------
 OPERACION 1: CREATE (Crear Nuevo Registro)
-----------------------------------------------------------------------
+------------------------------------------
 
 **Actor Principal:** Usuario con permiso de creación
 
@@ -306,9 +306,9 @@ PC-F1: No se creó registro en BD
 PC-F2: Error registrado en logs
 PC-F3: Alerta enviada a equipo técnico
 
-----------------------------------------------------------------------
+---------------------------------------------
 OPERACION 2: READ (Buscar y Listar Registros)
-----------------------------------------------------------------------
+---------------------------------------------
 
 **Actor Principal:** Usuario con permiso de lectura
 
@@ -514,9 +514,9 @@ En paso 7, si SELECT excede timeout (5 segundos):
 **Derivación:** FR-XXX-02-03 (timeout handling)
 
 
-----------------------------------------------------------------------
+---------------------------------------------------
 OPERACION 3: UPDATE (Actualizar Registro Existente)
-----------------------------------------------------------------------
+---------------------------------------------------
 
 **Actor Principal:** Usuario con permiso de edición
 
@@ -778,9 +778,9 @@ En paso 1, si SELECT retorna 0 filas:
 
 **Derivación:** FR-XXX-03-01
 
-----------------------------------------------------------------------
+-----------------------------------------------------
 OPERACION 4: DELETE (Eliminar Registro - Soft Delete)
-----------------------------------------------------------------------
+-----------------------------------------------------
 
 **Actor Principal:** Usuario con permiso de eliminación
 
@@ -1014,9 +1014,9 @@ En paso 5, si UPDATE falla por constraint FK:
 
 **Derivación:** FR-XXX-04-03 (error handling)
 
-----------------------------------------------------------------------
+---------------------------------
 EJEMPLO COMPLETO: ENTIDAD CLIENTE
-----------------------------------------------------------------------
+---------------------------------
 
 **Modelo de Datos:**
 
@@ -1274,9 +1274,9 @@ EJEMPLO COMPLETO: ENTIDAD CLIENTE
  
  return True
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estándares:**
 

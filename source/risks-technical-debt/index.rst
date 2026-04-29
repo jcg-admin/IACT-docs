@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==========================
+=======================
 Riesgos y Deuda Tecnica
-==========================
+=======================
 
 Registro vivo de riesgos identificados y deuda tecnica acumulada
 durante el rebuild de ``source/`` y la operacion del proyecto IACT.

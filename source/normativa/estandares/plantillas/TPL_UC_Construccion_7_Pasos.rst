@@ -39,9 +39,9 @@ UC-IACT-MOD-NN: Nombre del Use Case
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Use Cases siguiendo la estructura estandar de
 11 componentes basada en las mejores practicas de Cockburn, Larman
@@ -82,9 +82,9 @@ un objetivo de valor para el negocio. Un UC bien escrito:
 - Modificable: Facil de actualizar
 - Trazable: Derivacion clara a FR
 
-----------------------------------------------------------------------
+------------------
 1. ACTOR PRINCIPAL
-----------------------------------------------------------------------
+------------------
 
 **Definicion:**
 
@@ -128,9 +128,9 @@ El Analista necesita datos agregados de llamadas IVR por trimestre,
 segmento de cliente y tipo de consulta, para identificar patrones,
 calcular KPIs y reportar a gerencia.
 
-----------------------------------------------------------------------
+----------------------
 2. ACTORES SECUNDARIOS
-----------------------------------------------------------------------
+----------------------
 
 **Definicion:**
 
@@ -176,9 +176,9 @@ Actores secundarios PARTICIPAN en el UC pero NO lo inician. Pueden ser:
    - Envia reporte por email
    - Paso 11: Si usuario solicita envio
 
-----------------------------------------------------------------------
+-----------------
 3. PRECONDICIONES
-----------------------------------------------------------------------
+-----------------
 
 **Definicion:**
 
@@ -262,9 +262,9 @@ Verificacion:
  AND is_active = TRUE
  -- Debe retornar 2 filas
 
-----------------------------------------------------------------------
+----------------------------------
 4. TRIGGER (Evento Desencadenante)
-----------------------------------------------------------------------
+----------------------------------
 
 **Definicion:**
 
@@ -301,9 +301,9 @@ Elemento UI: Menu item con ID=menu-reports-quarterly
 Ubicacion: Barra de navegacion principal, seccion Reportes
 Icono: Grafico de barras, color azul
 
-----------------------------------------------------------------------
+---------------
 5. FLUJO NORMAL
-----------------------------------------------------------------------
+---------------
 
 **Definicion:**
 
@@ -433,9 +433,9 @@ FLUJO NORMAL - Consultar Reporte Trimestral
 Usuario ve reporte completo en pantalla, puede exportar a Excel/PDF
 si lo desea mediante opciones adicionales.
 
-----------------------------------------------------------------------
+-----------------------
 6. FLUJOS ALTERNOS (FA)
-----------------------------------------------------------------------
+-----------------------
 
 **Definicion:**
 
@@ -555,9 +555,9 @@ En paso 6, si count mayor 10,000 registros:
  Nota: La ejecucion del reporte ocurrira en UC separado
  UC-RPT-02: Ejecutar Reporte Aprobado
 
-----------------------------------------------------------------------
+---------------------------
 7. FLUJOS DE EXCEPCION (FE)
-----------------------------------------------------------------------
+---------------------------
 
 **Definicion:**
 
@@ -652,9 +652,9 @@ En paso 7, si query principal no responde en 30 segundos:
 
  7g. UC termina con falla, usuario puede reintentar con otros parametros
 
-----------------------------------------------------------------------
+------------------
 8. POSTCONDICIONES
-----------------------------------------------------------------------
+------------------
 
 **Definicion:**
 
@@ -749,9 +749,9 @@ Verificacion:
 - Permisos del usuario sin cambios
 - Catalogo de segmentos permanece consistente
 
-----------------------------------------------------------------------
+----------------------------------
 9. REQUISITOS NO FUNCIONALES (RNF)
-----------------------------------------------------------------------
+----------------------------------
 
 **Definicion:**
 
@@ -873,9 +873,9 @@ Metrica:
 - Fallback a cache en menos 2 segundos
 - Cache valido hasta 24 horas
 
-----------------------------------------------------------------------
+-------------------------------
 10. REGLAS DE NEGOCIO ASOCIADAS
-----------------------------------------------------------------------
+-------------------------------
 
 **Definicion:**
 
@@ -970,9 +970,9 @@ Codigo:
  return None
  return round((abandoned / total) * 100, 2)
 
-----------------------------------------------------------------------
+-----------------------------------------
 11. DERIVACION DE FUNCTIONAL REQUIREMENTS
-----------------------------------------------------------------------
+-----------------------------------------
 
 **Definicion:**
 
@@ -1098,9 +1098,9 @@ inputs al sistema.
 - Output: Registro en tabla report_audit_log
 - Tipo: INSERT
 
-----------------------------------------------------------------------
+------------
 TRAZABILIDAD
-----------------------------------------------------------------------
+------------
 
 **Backward Traceability (de donde viene este UC):**
 
@@ -1163,9 +1163,9 @@ Tests:
 - UC-AUTH-07: Notificar Sesion Proxima a Expirar
   Relacion: Puede interrumpir si sesion expira durante consulta
 
-----------------------------------------------------------------------
+----------------------------------
 SECCION 12: HISTORIAL DE VERSIONES
-----------------------------------------------------------------------
+----------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -1194,9 +1194,9 @@ SECCION 12: HISTORIAL DE VERSIONES
 - MINOR X.Y.0: Nuevos FA/FE, nuevos pasos opcionales, compatible con version anterior
 - PATCH X.Y.Z: Clarificaciones, correcciones de documentacion, sin cambio funcional
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares del Proyecto:**
 

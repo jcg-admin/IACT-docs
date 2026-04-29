@@ -39,9 +39,9 @@ UC-IACT-MOD-NN: Nombre del Use Case Temporal
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Use Cases que se ejecutan automaticamente
 por tiempo (schedulers, cron jobs) sin intervencion de usuario humano.
@@ -85,9 +85,9 @@ UC Temporal:
 - Trigger: Tiempo (cron)
 - Sin UI, solo logs y monitoreo
 
-----------------------------------------------------------------------
+-------------------
 1. TRIGGER TEMPORAL
-----------------------------------------------------------------------
+-------------------
 
 **Proposito:**
 
@@ -182,9 +182,9 @@ Cada 1 minuto, 24/7, todo el ano
 - Grupo: iact
 - Permisos: Acceso a BD, logs, no sudo
 
-----------------------------------------------------------------------
+-------------------
 2. FLUJO AUTOMATICO
-----------------------------------------------------------------------
+-------------------
 
 **Proposito:**
 
@@ -365,9 +365,9 @@ En paso 5, si query SELECT tarda mayor 10 segundos:
  
  5d. Proceso termina con error, exit code 1
 
-----------------------------------------------------------------------
+-----------------------
 3. LOCKS Y CONCURRENCIA
-----------------------------------------------------------------------
+-----------------------
 
 **Proposito:**
 
@@ -480,9 +480,9 @@ Genera integer hash consistente del string
 - Muy rapido (in-memory)
 - Nivel de sesion, no de transaccion
 
-----------------------------------------------------------------------
+------------------
 4. CODIGO COMPLETO
-----------------------------------------------------------------------
+------------------
 
 **Proposito:**
 
@@ -633,9 +633,9 @@ Codigo funcional completo del job/command.
  
  return rows_updated
 
-----------------------------------------------------------------------
+----------------------
 5. MONITOREO Y ALERTAS
-----------------------------------------------------------------------
+----------------------
 
 **Proposito:**
 
@@ -794,9 +794,9 @@ Cuando enviar notificaciones:
 - PagerDuty: Job stalled mayor 10 minutos
 - Email: Resumen diario de metricas
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

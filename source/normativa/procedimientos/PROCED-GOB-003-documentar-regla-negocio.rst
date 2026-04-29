@@ -333,11 +333,29 @@ TIPO 2: Restricción
 
  ## Matriz de Permisos (si aplica)
 
- | Operación | Administrador | Staff | Usuario | Invitado |
- |---|:---:|:---:|:---:|:---:|
- | Ver registro | OK | OK | OK | OK |
- | Editar registro | OK | OK | NO | NO |
- | Eliminar registro | OK | NO | NO | NO |
+ .. list-table::
+    :header-rows: 1
+
+    * - Operación
+      - Administrador
+      - Staff
+      - Usuario
+      - Invitado
+    * - Ver registro
+      - OK
+      - OK
+      - OK
+      - OK
+    * - Editar registro
+      - OK
+      - OK
+      - NO
+      - NO
+    * - Eliminar registro
+      - OK
+      - NO
+      - NO
+      - NO
 
  Leyenda: OK = Permitido NO = No permitido
 
@@ -487,11 +505,21 @@ Constante) + Variable3
 
  ## Tabla de Valores (si aplica)
 
- | ID | Rango Entrada | Valor Calculado |
- |---|---|---|
- | CAL-1 | 0 - 10 | 0% |
- | CAL-2 | 11 - 20 | 10% |
- | CAL-3 | 21+ | 20% |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Rango Entrada
+      - Valor Calculado
+    * - CAL-1
+      - 0 - 10
+      - 0%
+    * - CAL-2
+      - 11 - 20
+      - 10%
+    * - CAL-3
+      - 21+
+      - 20%
 
  ## Ejemplo de Cálculo
  [Ejemplo numérico concreto paso a paso]
@@ -823,11 +851,29 @@ PASO 4: Template Completado
 
  ## Matriz de Permisos
 
- | Operación | Administrador | Staff | Usuario | Invitado |
- |---|:---:|:---:|:---:|:---:|
- | Ver configuración | OK | NO | NO | NO |
- | Editar configuración | OK | NO | NO | NO |
- | Restaurar configuración | OK | NO | NO | NO |
+ .. list-table::
+    :header-rows: 1
+
+    * - Operación
+      - Administrador
+      - Staff
+      - Usuario
+      - Invitado
+    * - Ver configuración
+      - OK
+      - NO
+      - NO
+      - NO
+    * - Editar configuración
+      - OK
+      - NO
+      - NO
+      - NO
+    * - Restaurar configuración
+      - OK
+      - NO
+      - NO
+      - NO
 
  Leyenda: OK = Permitido NO = No permitido
 

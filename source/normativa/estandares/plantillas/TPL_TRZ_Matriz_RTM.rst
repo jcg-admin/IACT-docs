@@ -37,9 +37,9 @@ TRZ-IACT-MOD-NN: Matriz de Trazabilidad - Modulo
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------
 INTRODUCCION
-----------------------------------------------------------------------
+------------
 
 **Que es una Matriz de Trazabilidad (RTM):**
 
@@ -96,9 +96,9 @@ hasta su implementacion final (codigo, tests).
 - Cumplimiento de auditorias (ISO, FDA, etc)
 - Facilita onboarding de nuevos miembros
 
-----------------------------------------------------------------------
+------------------------
 1. TRAZABILIDAD BACKWARD
-----------------------------------------------------------------------
+------------------------
 
 **Proposito:**
 
@@ -188,9 +188,9 @@ Desde Codigo/Tests hacia el origen del requisito.
 - BReq origen: 1 (BRQ-015)
 - Huerfanos (sin FR): 0
 
-----------------------------------------------------------------------
+-----------------------
 2. TRAZABILIDAD FORWARD
-----------------------------------------------------------------------
+-----------------------
 
 **Proposito:**
 
@@ -281,9 +281,9 @@ BR-IACT-053:
 - FR derivados: 1 (FR-RPT-01-07)
 - Estado: 100% implementado
 
-----------------------------------------------------------------------
+--------------------------
 3. TRAZABILIDAD HORIZONTAL
-----------------------------------------------------------------------
+--------------------------
 
 **Proposito:**
 
@@ -349,9 +349,9 @@ Dependencias entre componentes del mismo nivel.
    - FR-RPT-01-11
    - UC-AUTH-05 (Listar Notificaciones)
 
-----------------------------------------------------------------------
+----------------------
 4. MATRIZ RTM COMPLETA
-----------------------------------------------------------------------
+----------------------
 
 **Proposito:**
 
@@ -528,9 +528,9 @@ Tabla maestra con toda la trazabilidad en un solo lugar.
    - 0
    - OK
 
-----------------------------------------------------------------------
+-------------------
 5. ANALISIS DE GAPS
-----------------------------------------------------------------------
+-------------------
 
 **Proposito:**
 
@@ -581,9 +581,9 @@ Estado: No hay codigo huerfano
 
 Accion: Crear test_visualizations.py::test_kpi_card
 
-----------------------------------------------------------------------
+---------------------------------
 6. ANALISIS DE IMPACTO DE CAMBIOS
-----------------------------------------------------------------------
+---------------------------------
 
 **Proposito:**
 
@@ -630,9 +630,9 @@ Analizar impacto si un componente cambia.
 - Tests afectados: 2
 - Requiere: Regression testing completo
 
-----------------------------------------------------------------------
+------------------------------
 7. MATRIZ DE RESPONSABILIDADES
-----------------------------------------------------------------------
+------------------------------
 
 **Proposito:**
 
@@ -679,9 +679,9 @@ Quien es responsable de cada componente.
    - Ana Lopez (QA)
    - Tech Lead
 
-----------------------------------------------------------------------
+---------------------------
 8. HISTORIAL DE CAMBIOS RTM
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -708,9 +708,9 @@ Rastrear cambios en la matriz de trazabilidad.
    - Actualizado estado tests: 100% cobertura
    - Ana Lopez
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

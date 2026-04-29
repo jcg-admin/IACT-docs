@@ -220,7 +220,7 @@ FASE 2: Documentar Arquitectura y Diagramas
  end
 
  subgraph "Capa de Persistencia"
- D[Django ORM<br/>PostgreSQL]
+ D[Django ORMPostgreSQL]
  end
 
  A --> B
@@ -262,7 +262,7 @@ FASE 2: Documentar Arquitectura y Diagramas
  participant UM as User Model
  participant DB as PostgreSQL
 
- U->>V: POST /api/v1/auth/login<br/>{username, password}
+ U->>V: POST /api/v1/auth/login{username, password}
 
  activate V
  V->>AS: login(username, password)
@@ -368,7 +368,7 @@ FASE 2: Documentar Arquitectura y Diagramas
  stateDiagram-v2
  [*] --> ACTIVE: Login exitoso
 
- ACTIVE --> ACTIVE: Refresh token<br/>(< 30 min)
+ ACTIVE --> ACTIVE: Refresh token(< 30 min)
  ACTIVE --> INACTIVE: Sin actividad 30 min
  ACTIVE --> CLOSED: Logout explícito
  ACTIVE --> EXPIRED: Access token expira
@@ -472,24 +472,61 @@ FASE 2: Documentar Arquitectura y Diagramas
 
  ### 7.1 Matriz de Trazabilidad Forward (Requisitos -> Diseño)
 
- | Requisito | Tipo | Título | Componentes de Diseño |
- |-----------|------|--------|-----------------------|
- | N-001 | Necesidad | Autenticación segura del sistema | Arquitectura General, AuthenticationService |
- | RN-001 | Negocio | Sistema de login con credenciales locales | LoginView, TokenService |
- | RF-005 | Funcional | Login con credenciales locales | Diagrama 2.1, Flujo 3.1 |
- | RF-006 | Funcional | Logout y cierre de sesión | Diagrama 2.2, Estados 4.1 |
- | RF-007 | Funcional | Refresh token | Diagrama 2.3, TokenService |
- | RNF-001 | No Funcional | Tiempo de respuesta < 200ms | Rate limiting, Índices DB |
+ .. list-table::
+    :header-rows: 1
+
+    * - Requisito
+      - Tipo
+      - Título
+      - Componentes de Diseño
+    * - N-001
+      - Necesidad
+      - Autenticación segura del sistema
+      - Arquitectura General, AuthenticationService
+    * - RN-001
+      - Negocio
+      - Sistema de login con credenciales locales
+      - LoginView, TokenService
+    * - RF-005
+      - Funcional
+      - Login con credenciales locales
+      - Diagrama 2.1, Flujo 3.1
+    * - RF-006
+      - Funcional
+      - Logout y cierre de sesión
+      - Diagrama 2.2, Estados 4.1
+    * - RF-007
+      - Funcional
+      - Refresh token
+      - Diagrama 2.3, TokenService
+    * - RNF-001
+      - No Funcional
+      - Tiempo de respuesta < 200ms
+      - Rate limiting, Índices DB
 
  ### 7.2 Matriz de Trazabilidad Backward (Diseño -> Tests)
 
- | Componente de Diseño | Test ID | Ubicación del Test |
- |----------------------|---------|-------------------|
- | Diagrama 2.1 - Login | TEST-005 | `backend/tests/test_auth_login.py` |
- | Diagrama 2.2 - Logout | TEST-006 | `backend/tests/test_auth_logout.py` |
- | Diagrama 2.3 - Refresh | TEST-007 | `backend/tests/test_auth_refresh.py` |
- | Flujo 3.1 - Validación | TEST-008 | `backend/tests/test_validation_flow.py` |
- | Estados 4.1 - UserSession | TEST-009 | `backend/tests/test_session_states.py` |
+ .. list-table::
+    :header-rows: 1
+
+    * - Componente de Diseño
+      - Test ID
+      - Ubicación del Test
+    * - Diagrama 2.1 - Login
+      - TEST-005
+      - `backend/tests/test_auth_login.py`
+    * - Diagrama 2.2 - Logout
+      - TEST-006
+      - `backend/tests/test_auth_logout.py`
+    * - Diagrama 2.3 - Refresh
+      - TEST-007
+      - `backend/tests/test_auth_refresh.py`
+    * - Flujo 3.1 - Validación
+      - TEST-008
+      - `backend/tests/test_validation_flow.py`
+    * - Estados 4.1 - UserSession
+      - TEST-009
+      - `backend/tests/test_session_states.py`
 
 **Checklist:** - [ ] Matriz Forward: Todos los RF-XXX mapeados a
 secciones del diseño - [ ] Matriz Backward: Todos los diagramas tienen

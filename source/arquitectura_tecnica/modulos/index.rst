@@ -10,9 +10,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==========================
+=======================
 Modulos Arquitectonicos
-==========================
+=======================
 
 Definicion arquitectonica de los **8 modulos funcionales** del sistema
 IACT. Cada ``ARQ_MOD_NNN`` documenta el proposito, responsabilidades,

@@ -264,7 +264,7 @@ Ejemplo Completo: UC-001 Procesar Venta
  * - 1. El cajero comienza una nueva venta
    - 
  * - 2. El cajero introduce el identificador del artículo
-   - 3. El sistema guarda el artículo<br>4. El sistema muestra descripción y subtotal
+   - 3. El sistema guarda el artículo4. El sistema muestra descripción y subtotal
  * - El cajero repite pasos 2-4 hasta terminar
    - 
  * - 5. El cajero indica fin de captura
@@ -272,7 +272,7 @@ Ejemplo Completo: UC-001 Procesar Venta
  * - 7. El cajero solicita método de pago al cliente
    - 
  * - 8. El cliente proporciona pago
-   - 9. El sistema procesa el pago<br>10. El sistema registra la venta<br>11. El sistema actualiza inventario<br>12. El sistema imprime recibo
+   - 9. El sistema procesa el pago10. El sistema registra la venta11. El sistema actualiza inventario12. El sistema imprime recibo
 
 Elementos Obligatorios de la Especificación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

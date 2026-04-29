@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-=========
+=======
 Calidad
-=========
+=======
 
 Estrategia de testing, framework de calidad y metricas de proceso del
 proyecto IACT.

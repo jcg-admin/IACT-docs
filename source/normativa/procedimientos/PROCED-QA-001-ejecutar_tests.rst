@@ -272,7 +272,7 @@ PASO 5: Analizar Resultados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 5.1 Tests que pasan [OK]
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Si todos los tests pasan:
 
@@ -285,7 +285,7 @@ Si todos los tests pasan:
 --------------
 
 5.2 Tests que fallan [NO]
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Output de fallo**:
 
@@ -333,7 +333,7 @@ Si todos los tests pasan:
 --------------
 
 5.3 Tests que se saltean (skipped) [ALERTA]️
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Output**:
 
@@ -414,12 +414,24 @@ Crear reporte manual con:
 
  ## Coverage por Módulo
 
- | Módulo | Coverage | Status |
- |--------|----------|--------|
- | auth | 95% | [OK] |
- | permissions | 88% | [OK] |
- | models | 92% | [OK] |
- | utils | 75% | [ALERTA]️ |
+ .. list-table::
+    :header-rows: 1
+
+    * - Módulo
+      - Coverage
+      - Status
+    * - auth
+      - 95%
+      - [OK]
+    * - permissions
+      - 88%
+      - [OK]
+    * - models
+      - 92%
+      - [OK]
+    * - utils
+      - 75%
+      - [ALERTA]️
 
  ## Recomendaciones
 

@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-=============
+============
 Convenciones
-=============
+============
 
 Convenciones de naming, estructura y estilo para el backend
 IACT (Django REST Framework). Aplica a Python, DRF y artefactos
@@ -31,8 +31,7 @@ Python
 - **Constantes:** UPPER_SNAKE_CASE (``DEFAULT_PAGE_SIZE``).
 
 DRF
----
-
+----
 - **Serializers:** sufijo ``Serializer`` (``UserSerializer``).
 - **ViewSets:** sufijo ``ViewSet`` (``UserViewSet``).
 - **APIViews:** sufijo ``View`` (``LoginView``).

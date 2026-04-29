@@ -10,9 +10,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==================
+=================
 Reglas de Negocio
-==================
+=================
 
 Catálogo de Reglas de Negocio (BR) del sistema IACT. Las BRs son
 políticas y restricciones del dominio de negocio que el sistema debe

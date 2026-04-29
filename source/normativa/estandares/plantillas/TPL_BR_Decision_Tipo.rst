@@ -38,9 +38,9 @@ BR-IACT-XXX: Titulo Descriptivo de la Business Rule
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Business Rules siguiendo la taxonomia estandar
 de 5 tipos de BR, con enfasis en el TEST DE OBSERVABILIDAD para
@@ -83,9 +83,9 @@ La clasificacion determina como se implementa la BR:
  - Deriva FR directo
  - Puede implementarse en UC temporal con actor Sistema
 
-----------------------------------------------------------------------
+--------------------
 SECCION 1: ENUNCIADO
-----------------------------------------------------------------------
+--------------------
 
 **Definicion:**
 
@@ -226,9 +226,9 @@ en los ultimos 90 dias."
 
 Existe registro en ivr_calls con call_date >= NOW - INTERVAL '90 days'
 
-----------------------------------------------------------------------
+----------------------------------------------
 SECCION 2: DERIVADO DE (Backward Traceability)
-----------------------------------------------------------------------
+----------------------------------------------
 
 **Proposito:**
 
@@ -428,9 +428,9 @@ Metricas:
    - 23/mes
    - menor 5/mes
 
-----------------------------------------------------------------------
+----------------------------------
 SECCION 3: CRITERIOS DE ACEPTACION
-----------------------------------------------------------------------
+----------------------------------
 
 **Definicion:**
 
@@ -641,9 +641,9 @@ CA-5: Sistema no ejecuta query principal si no hay aprobacion
  with pytest.raises(ApprovalRequiredError):
  execute_query(params)
 
-----------------------------------------------------------------------
+----------------------------------
 SECCION 4: ANALISIS POR TIPO DE BR
-----------------------------------------------------------------------
+----------------------------------
 
 **Instruccion:**
 
@@ -1537,9 +1537,9 @@ Codigo Python:
  has_recent_contact
  )
 
-----------------------------------------------------------------------
+-------------------------------------------
 SECCION 5: GENERA UC (Forward Traceability)
-----------------------------------------------------------------------
+-------------------------------------------
 
 **Reglas de Transformacion BR → UC:**
 
@@ -1659,9 +1659,9 @@ Definicion (BR-IACT-001):
  - Filtros en reportes
  - Segmentacion
 
-----------------------------------------------------------------------
+----------------------------------------
 SECCION 6: TRAZABILIDAD FORWARD COMPLETA
-----------------------------------------------------------------------
+----------------------------------------
 
 **Arbol de Trazabilidad:**
 
@@ -1757,9 +1757,9 @@ Desde esta BR hasta codigo y tests:
    - approvals.py:89
    - test_create_approval
 
-----------------------------------------------------------------------
+-----------------------------
 SECCION 7: IMPACTO DE CAMBIOS
-----------------------------------------------------------------------
+-----------------------------
 
 **Proposito:**
 
@@ -1904,9 +1904,9 @@ Ejemplo: Eliminar aprobacion, implementar paginacion automatica
 - Impacto: Experiencia usuario muy diferente
 - Requiere: Aprobacion stakeholder, testing extenso
 
-----------------------------------------------------------------------
+-------------------------------
 SECCION 8: VALIDACION Y TESTING
-----------------------------------------------------------------------
+-------------------------------
 
 8.1 Como se Valida esta BR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2081,9 +2081,9 @@ A completar durante ejecucion del test
    - [ ]
    - Firma: _______ Fecha: _____
 
-----------------------------------------------------------------------
+------------------------------
 SECCION 9: NOTAS Y EXCEPCIONES
-----------------------------------------------------------------------
+------------------------------
 
 9.1 Excepciones Conocidas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2145,9 +2145,9 @@ Excepcion 1: Usuarios Administradores
 - Razon: Por que se eligio esta opcion
 - Trade-offs: Que se sacrifico
 
-----------------------------------------------------------------------
+----------------------------------
 SECCION 10: HISTORIAL DE VERSIONES
-----------------------------------------------------------------------
+----------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -2184,9 +2184,9 @@ SECCION 10: HISTORIAL DE VERSIONES
  
  Ejemplo: Corregir typo en enunciado
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares del Proyecto:**
 
@@ -2214,9 +2214,9 @@ REFERENCIAS
 - Referencia a estandar de industria
 - Regulacion o normativa
 
-----------------------------------------------------------------------
+------
 ANEXOS
-----------------------------------------------------------------------
+------
 
 ANEXO A: Glosario de Terminos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

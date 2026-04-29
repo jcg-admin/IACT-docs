@@ -255,7 +255,7 @@ PASO 6: Decisión de Aprobación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 6.1 Aprobar con [BIEN] (Approve)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Criterios**: - [OK] Todos los checks de CI/CD pasan - [OK] Código cumple
 todos los estándares de calidad - [OK] Tests adecuados y pasando - [OK] Sin
@@ -270,7 +270,7 @@ estructurados y coverage adecuado. \``\`
 --------------
 
 6.2 Request Changes [ALERTA]️
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Criterios**: - [CRITICO] Hay blockers que deben corregirse - [CRITICO] Tests
 faltantes o failing - [CRITICO] Problemas de seguridad - [CRITICO] Violaciones
@@ -284,7 +284,8 @@ significativas de estándares
 2. **Testing**: Agregar tests para edge case de token expirado
 3. **Performance**: Optimizar N+1 query en ``auth_service.py:78``
 
-### Sugerencias Opcionales [MEDIO]
+Sugerencias Opcionales [MEDIO]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Considerar extraer lógica de refresh token a servicio separado
 2. Agregar logging para intentos de autenticación fallidos
@@ -294,7 +295,7 @@ Por favor actualizar y re-solicitar review. \``\`
 --------------
 
 6.3 Comment (sin aprobar/rechazar) [NOTA]
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Cuándo usar**: - Tienes preguntas que necesitan clarificación -
 Quieres dar feedback pero no eres el único reviewer - Cambios son muy
@@ -349,7 +350,7 @@ Mejores Prácticas para Reviewers
 --------------------------------
 
 DO [OK]
-~~~~~
+~~~~~~~
 
 1. **Ser constructivo**: Sugerir soluciones, no solo señalar problemas
 2. **Ser específico**: Indicar líneas exactas y explicar el por qué
@@ -359,7 +360,7 @@ DO [OK]
 6. **Ser oportuno**: Responder rápido para no bloquear al equipo
 
 DON’T [NO]
-~~~~~~~~
+~~~~~~~~~~
 
 1. **Ser vago**: “Este código no me gusta” sin explicación
 2. **Ser condescendiente**: “Obviamente esto está mal”

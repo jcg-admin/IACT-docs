@@ -330,9 +330,17 @@ Fase 5: Sign-off
  - Blocked: 0
 
  ## Bugs Found
- | ID | Severity | Status | Description |
- |----|----------|--------|-------------|
- | #234 | Low | Open | Typo en mensaje de error |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Severity
+      - Status
+      - Description
+    * - #234
+      - Low
+      - Open
+      - Typo en mensaje de error
 
  ## Performance
  - Average response time: 145ms OK

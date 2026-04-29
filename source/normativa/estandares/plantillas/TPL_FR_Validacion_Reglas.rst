@@ -39,9 +39,9 @@ FR-MOD-NN-ZZ: Titulo del Functional Requirement - Validacion
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Functional Requirements cuya funcion principal
 es validar inputs de usuario o datos del sistema antes de procesarlos.
@@ -92,9 +92,9 @@ NO use este template para:
 4. Mensajes de error especificos
 5. Tests exhaustivos
 
-----------------------------------------------------------------------
+---------------------------
 1. CATALOGO DE VALIDACIONES
-----------------------------------------------------------------------
+---------------------------
 
 **Proposito:**
 
@@ -387,9 +387,9 @@ Ningún parámetro puede ser vacío, None, o solo espacios en blanco
  if not segment or (isinstance(segment, str) and not segment.strip):
  raise ValidationError("Segment es requerido y no puede estar vacío")
 
-----------------------------------------------------------------------
+-------------------------
 2. VALIDACION CLIENT-SIDE
-----------------------------------------------------------------------
+-------------------------
 
 **Proposito:**
 
@@ -653,9 +653,9 @@ de enviar al servidor.
  
  export default QuarterlyReportForm;
 
-----------------------------------------------------------------------
+-------------------------
 3. VALIDACION SERVER-SIDE
-----------------------------------------------------------------------
+-------------------------
 
 **Proposito:**
 
@@ -832,9 +832,9 @@ client-side.
  'message': 'Error interno del servidor'
  }, status=500)
 
-----------------------------------------------------------------------
+--------------------------
 4. TESTING DE VALIDACIONES
-----------------------------------------------------------------------
+--------------------------
 
 **Proposito:**
 
@@ -984,9 +984,9 @@ Tests exhaustivos para cada regla V-N, casos validos e invalidos.
  with pytest.raises(ValidationError, match="requerido"):
  validate_quarterly_report_parameters('Q1', 2024, '')
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

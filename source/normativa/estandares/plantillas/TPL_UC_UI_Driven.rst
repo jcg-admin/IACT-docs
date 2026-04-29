@@ -39,9 +39,9 @@ UC-IACT-MOD-NN: Nombre del Use Case UI-Driven
 **Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
-----------------------------------------------------------------------
+------------------------
 INTRODUCCION AL TEMPLATE
-----------------------------------------------------------------------
+------------------------
 
 Este template documenta Use Cases cuya especificacion se centra en
 la interfaz de usuario, elementos visuales, interacciones y flujo
@@ -84,9 +84,9 @@ UC UI-Driven:
 4. Mensajes y modales
 5. Derivacion de FR desde interacciones UI
 
-----------------------------------------------------------------------
+-------------------
 1. MOCKUP/WIREFRAME
-----------------------------------------------------------------------
+-------------------
 
 **Proposito:**
 
@@ -172,9 +172,9 @@ Describir las secciones logicas:
    - Copyright
    - Links ayuda
 
-----------------------------------------------------------------------
+------------------------
 2. ELEMENTOS UI - INPUTS
-----------------------------------------------------------------------
+------------------------
 
 **Proposito:**
 
@@ -262,9 +262,9 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - Tamano: 180px width
 - CSS Classes: form-select, segment-selector
 
-----------------------------------------------------------------------
+-------------------------
 3. ELEMENTOS UI - BOTONES
-----------------------------------------------------------------------
+-------------------------
 
 **Formato por Boton:**
 
@@ -333,9 +333,9 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - CSS Classes: btn, btn-danger, btn-export
 - Handler: onClick={ => handleExportPDF}
 
-----------------------------------------------------------------------
+-------------------------
 4. ELEMENTOS UI - OUTPUTS
-----------------------------------------------------------------------
+-------------------------
 
 **Formato por Output:**
 
@@ -479,9 +479,9 @@ Documentar cada elemento de entrada (inputs) en detalle.
  </tbody>
  </table>
 
-----------------------------------------------------------------------
+---------------------------------
 5. INTERACCIONES Y EVENT HANDLERS
-----------------------------------------------------------------------
+---------------------------------
 
 **Proposito:**
 
@@ -719,9 +719,9 @@ Documentar todos los event handlers y la logica de interaccion.
  showSuccessToast('Reporte exportado a Excel');
  };
 
-----------------------------------------------------------------------
+---------------------
 6. MENSAJES Y MODALES
-----------------------------------------------------------------------
+---------------------
 
 **Tipos de Mensajes:**
 
@@ -799,9 +799,9 @@ Documentar todos los event handlers y la logica de interaccion.
  );
  }
 
-----------------------------------------------------------------------
+----------------------------------------
 7. DERIVACION DE FUNCTIONAL REQUIREMENTS
-----------------------------------------------------------------------
+----------------------------------------
 
 **Proposito:**
 
@@ -866,9 +866,9 @@ Mapear cada interaccion UI a los FR que debe implementar.
    - btn-export-pdf
    - FR-RPT-01-13: Exportar a PDF
 
-----------------------------------------------------------------------
+-----------
 REFERENCIAS
-----------------------------------------------------------------------
+-----------
 
 **Estandares:**
 

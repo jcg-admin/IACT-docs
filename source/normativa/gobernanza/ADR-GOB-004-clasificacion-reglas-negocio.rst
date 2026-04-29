@@ -242,14 +242,44 @@ Para restricciones basadas en roles de usuario, usar matriz:
 
  ## Matriz de Roles y Permisos: [Sistema/Módulo]
 
- | Operación | Administrador | Staff | Usuario | Invitado |
- |---|:---:|:---:|:---:|:---:|
- | Ver registro | OK | OK | OK | OK |
- | Editar registro | OK | OK | NO | NO |
- | Eliminar registro | OK | NO | NO | NO |
- | Buscar en catálogo | OK | OK | OK | OK |
- | Generar reportes | OK | OK | NO | NO |
- | Configurar sistema | OK | NO | NO | NO |
+ .. list-table::
+    :header-rows: 1
+
+    * - Operación
+      - Administrador
+      - Staff
+      - Usuario
+      - Invitado
+    * - Ver registro
+      - OK
+      - OK
+      - OK
+      - OK
+    * - Editar registro
+      - OK
+      - OK
+      - NO
+      - NO
+    * - Eliminar registro
+      - OK
+      - NO
+      - NO
+      - NO
+    * - Buscar en catálogo
+      - OK
+      - OK
+      - OK
+      - OK
+    * - Generar reportes
+      - OK
+      - OK
+      - NO
+      - NO
+    * - Configurar sistema
+      - OK
+      - NO
+      - NO
+      - NO
 
  Leyenda: OK = Permitido NO = No permitido
 
@@ -603,12 +633,24 @@ Para reglas complejas, usar representación tabular:
 
  ## Tabla de Descuentos por Volumen (RN-BACK-052)
 
- | ID | Cantidad Compra | Porcentaje Descuento |
- |---|---|---|
- | DISC-1 | 1 - 5 | 0% |
- | DISC-2 | 6 - 10 | 10% |
- | DISC-3 | 11 - 20 | 20% |
- | DISC-4 | 21 o más | 30% |
+ .. list-table::
+    :header-rows: 1
+
+    * - ID
+      - Cantidad Compra
+      - Porcentaje Descuento
+    * - DISC-1
+      - 1 - 5
+      - 0%
+    * - DISC-2
+      - 6 - 10
+      - 10%
+    * - DISC-3
+      - 11 - 20
+      - 20%
+    * - DISC-4
+      - 21 o más
+      - 30%
 
 **Ventajas de tablas**: - Claridad visual - Elimina ambigüedades del
 lenguaje natural - Facilita implementación - Fácil de mantener y

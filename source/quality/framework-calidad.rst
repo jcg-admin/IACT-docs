@@ -9,9 +9,9 @@
  :autor: NestorMonroy
  :clasificacion: Medio
 
-============================
+====================
 Framework de Calidad
-============================
+====================
 
 Pipeline de validacion automatizada del sistema IACT.
 

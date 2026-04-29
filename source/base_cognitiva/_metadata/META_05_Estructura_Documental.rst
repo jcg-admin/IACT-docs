@@ -47,9 +47,9 @@ Proporciona navegación rápida y visión global del sistema.
  * - Versión de la arquitectura
    - v2.0 (ÉPICA 8, 2026-04-28)
 
-------------------------------
+-----------------------------
 3. Las tres capas ortogonales
-------------------------------
+-----------------------------
 
 3.1. Capa 1 — Methodology / Governance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,9 +137,9 @@ del tiempo.
      ``okrs/``, ``epicas/``, ``sprints/``, ``releases/``,
      ``retrospectives/``, ``team/``.
 
---------------------------
+-------------------------
 4. Reglas de organización
---------------------------
+-------------------------
 
 4.1. Naming
 ^^^^^^^^^^^
@@ -178,9 +178,9 @@ no se referencia desde aquí. Si una decisión o aprendizaje
 gestado internamente debe llegar al sitio público, se re-autora
 a mano en RST en el cajón correspondiente de ``source/``.
 
-------------------------------
+-----------------------------
 5. Dependencias entre cajones
-------------------------------
+-----------------------------
 
 Reglas de referencia ``:doc:`` y ``:ref:`` entre cajones:
 

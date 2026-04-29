@@ -10,9 +10,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-============
+===========
 Modelo RBAC
-============
+===========
 
 Modelo conceptual completo del control de acceso basado en roles
 (RBAC) del sistema IACT.

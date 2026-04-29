@@ -393,9 +393,9 @@ Plantilla de Inicio
  * - 1. El [actor] [acción inicial]
    - 
  * - 2. El [actor] [proporciona información]
-   - 3. El sistema [valida información]<br>4. El sistema [procesa información]
+   - 3. El sistema [valida información]4. El sistema [procesa información]
  * - 5. El [actor] [confirma acción]
-   - 6. El sistema [ejecuta acción]<br>7. El sistema [muestra resultado]
+   - 6. El sistema [ejecuta acción]7. El sistema [muestra resultado]
 
 Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -414,13 +414,13 @@ Ejemplo Completo: UC-BACK-020 Generar Reporte de Auditoría
  * - 3. El Auditor selecciona "Reporte de Auditoría"
    - 4. El sistema muestra formulario con filtros (fecha inicio, fecha fin, tipo de transacción)
  * - 5. El Auditor ingresa rango de fechas y selecciona tipo de transacción
-   - 6. El sistema valida que fecha inicio < fecha fin<br>7. El sistema valida que rango no exceda 90 días
+   - 6. El sistema valida que fecha inicio < fecha fin7. El sistema valida que rango no exceda 90 días
  * - 8. El Auditor hace clic en "Generar Reporte"
-   - 9. El sistema consulta transacciones en el rango especificado<br>10. El sistema genera reporte en formato PDF<br>11. El sistema muestra vista previa del reporte
+   - 9. El sistema consulta transacciones en el rango especificado10. El sistema genera reporte en formato PDF11. El sistema muestra vista previa del reporte
  * - 12. El Auditor revisa el reporte
    - 
  * - 13. El Auditor hace clic en "Descargar"
-   - 14. El sistema descarga el archivo PDF<br>15. El sistema registra la generación del reporte en log de auditoría
+   - 14. El sistema descarga el archivo PDF15. El sistema registra la generación del reporte en log de auditoría
 
 Principio QUÉ vs CÓMO
 ~~~~~~~~~~~~~~~~~~~~~
@@ -1161,10 +1161,10 @@ PASO 5: Flujo Normal
    - 2. El sistema muestra el dashboard de usuarios
  * - 3. El Administrador hace clic en "Registrar Nuevo Usuario"
    - 4. El sistema muestra formulario de registro (nombre, email, rol, departamento)
- * - 5. El Administrador completa el formulario:<br>- Nombre: Juan Pérez<br>- Email: juan.perez@ejemplo.com<br>- Rol: Analista<br>- Departamento: Laboratorio A
-   - 6. El sistema valida formato de email<br>7. El sistema verifica que email no esté registrado<br>8. El sistema valida que todos los campos requeridos estén completos
+ * - 5. El Administrador completa el formulario:- Nombre: Juan Pérez- Email: juan.perez@ejemplo.com- Rol: Analista- Departamento: Laboratorio A
+   - 6. El sistema valida formato de email7. El sistema verifica que email no esté registrado8. El sistema valida que todos los campos requeridos estén completos
  * - 9. El Administrador hace clic en "Guardar"
-   - 10. El sistema crea el registro de usuario<br>11. El sistema genera contraseña temporal<br>12. El sistema envía email de bienvenida con contraseña temporal<br>13. El sistema muestra mensaje "Usuario registrado exitosamente"
+   - 10. El sistema crea el registro de usuario11. El sistema genera contraseña temporal12. El sistema envía email de bienvenida con contraseña temporal13. El sistema muestra mensaje "Usuario registrado exitosamente"
  * - 14. El Administrador confirma el mensaje
    - 15. El sistema actualiza la lista de usuarios mostrando el nuevo usuario
 
