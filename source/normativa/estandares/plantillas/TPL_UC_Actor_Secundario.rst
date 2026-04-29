@@ -20,8 +20,8 @@ en el flujo principal.
 
 .. rubric:: Metadata sugerida para la instancia
 
-   Cuando se crea una instancia a partir de esta plantilla, se sugiere
-   declarar el siguiente bloque de metadata:
+Cuando se crea una instancia a partir de esta plantilla, se sugiere
+declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
