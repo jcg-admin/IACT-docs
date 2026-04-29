@@ -189,27 +189,27 @@ Antes de iniciar este procedimiento, verificar:
     :version: 1.0.0
  
  
- [Titulo del Subdominio]
+    [Titulo del Subdominio]
  
  
- **Descripcion:** [Breve descripcion]
+    **Descripcion:** [Breve descripcion]
  
- **Total artefactos:** [N]
+    **Total artefactos:** [N]
  
- **Fecha actualizacion:** [YYYY-MM-DD]
+    **Fecha actualizacion:** [YYYY-MM-DD]
  
- ----
+    ----
  
- Contenido
- ---------
+    Contenido
+    ---------
  
- .. toctree::
- :maxdepth: 1
- :caption: [Categoria]
+    .. toctree::
+    :maxdepth: 1
+    :caption: [Categoria]
  
- [artefacto_1_sin_extension]
- [artefacto_2_sin_extension]
- ...
+    [artefacto_1_sin_extension]
+    [artefacto_2_sin_extension]
+    ...
 
 - **Resultado**: Estructura base
 - **Verificacion**: Secciones completas
@@ -225,11 +225,11 @@ Antes de iniciar este procedimiento, verificar:
     :maxdepth: 1
     :caption: Reglas de Negocio
  
- BR_001_Sesion_Unica
- BR_002_Auditoria_Accesos
- BR_003_Formato_Username
+    BR_001_Sesion_Unica
+    BR_002_Auditoria_Accesos
+    BR_003_Formato_Username
 
- **IMPORTANTE:** No incluir ".rst" en toctree.
+    **IMPORTANTE:** No incluir ".rst" en toctree.
 
 - **Resultado**: toctree completo
 - **Verificacion**: Nombres sin extension
@@ -244,17 +244,17 @@ Antes de iniciar este procedimiento, verificar:
     Metricas
     --------
  
- .. list-table::
+    .. list-table::
     :header-rows: 1
  
-  * - Metrica
-  - Valor
-  * - Total artefactos
-  - 20
-  * - Estado Aprobado
-  - 20
-  * - Ultima actualizacion
-  - 2026-01-07
+    * - Metrica
+    - Valor
+    * - Total artefactos
+    - 20
+    * - Estado Aprobado
+    - 20
+    * - Ultima actualizacion
+    - 2026-01-07
 
 - **Resultado**: Metricas agregadas
 - **Verificacion**: Valores correctos

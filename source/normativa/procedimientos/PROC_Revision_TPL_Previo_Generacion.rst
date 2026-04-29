@@ -233,7 +233,7 @@ Antes de iniciar este procedimiento, verificar:
     Plantilla
     ---------
 
- .. code-block:: rst
+    .. code-block:: rst
 
     .. meta::
     :artefacto: [ID]

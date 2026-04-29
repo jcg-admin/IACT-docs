@@ -96,371 +96,371 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: UC_[NNN]
- :tipo: Caso de Uso
- :dominio: requisitos
- :subdominio: casos_uso/[modulo]
- :modulo: MOD_[Modulo]
- :estado: [Borrador|Revision|Aprobado]
- :version: 2.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :autor: Equipo IACT
+   .. meta::
+   :artefacto: UC_[NNN]
+   :tipo: Caso de Uso
+   :dominio: requisitos
+   :subdominio: casos_uso/[modulo]
+   :modulo: MOD_[Modulo]
+   :estado: [Borrador|Revision|Aprobado]
+   :version: 2.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :autor: Equipo IACT
 
- .. _uc-[nnn]:
+   .. _uc-[nnn]:
 
  
- UC-[NNN]: [Nombre del Caso de Uso]
+   UC-[NNN]: [Nombre del Caso de Uso]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- 1. Resumen
- ----------
+   1. Resumen
+   ----------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - UC-[NNN]
- * - **Nombre**
- - [Nombre descriptivo del caso de uso]
- * - **Actor Primario**
- - [Actor principal que inicia el UC]
- * - **Actores Secundarios**
- - [Otros actores involucrados, o "Ninguno"]
- * - **Modulo**
- - MOD_[Modulo]
- * - **Complejidad**
- - [Baja|Media|Alta]
- * - **Prioridad**
- - [Alta|Media|Baja]
- * - **BReq Origen**
- - BReq-[NNN]: [Nombre del Business Requirement]
+   * - **ID**
+   - UC-[NNN]
+   * - **Nombre**
+   - [Nombre descriptivo del caso de uso]
+   * - **Actor Primario**
+   - [Actor principal que inicia el UC]
+   * - **Actores Secundarios**
+   - [Otros actores involucrados, o "Ninguno"]
+   * - **Modulo**
+   - MOD_[Modulo]
+   * - **Complejidad**
+   - [Baja|Media|Alta]
+   * - **Prioridad**
+   - [Alta|Media|Baja]
+   * - **BReq Origen**
+   - BReq-[NNN]: [Nombre del Business Requirement]
 
- ----
+   ----
 
- 2. Descripcion
- --------------
+   2. Descripcion
+   --------------
 
- [Descripcion del objetivo del caso de uso en 2-3 oraciones.
- Responde: ¿Que logra el usuario al completar este UC?]
+   [Descripcion del objetivo del caso de uso en 2-3 oraciones.
+   Responde: ¿Que logra el usuario al completar este UC?]
 
- ----
+   ----
 
- 3. Diagrama de Caso de Uso
- --------------------------
+   3. Diagrama de Caso de Uso
+   --------------------------
 
- .. uml::
- :caption: Diagrama de Caso de Uso - UC-[NNN]
- :align: center
- :scale: 90%
+   .. uml::
+   :caption: Diagrama de Caso de Uso - UC-[NNN]
+   :align: center
+   :scale: 90%
 
- @startuml
- left to right direction
- skinparam actorStyle awesome
- skinparam backgroundColor #FAFAFA
- skinparam usecase {
- BackgroundColor #E3F2FD
- BorderColor #1976D2
- }
+   @startuml
+   left to right direction
+   skinparam actorStyle awesome
+   skinparam backgroundColor #FAFAFA
+   skinparam usecase {
+   BackgroundColor #E3F2FD
+   BorderColor #1976D2
+   }
 
- actor "[Actor Primario]" as AP
+   actor "[Actor Primario]" as AP
 
- rectangle "MOD_[Modulo]" {
- usecase "UC-[NNN]:\n[Nombre]" as UC
- }
+   rectangle "MOD_[Modulo]" {
+   usecase "UC-[NNN]:\n[Nombre]" as UC
+   }
 
- AP --> UC
- @enduml
+   AP --> UC
+   @enduml
 
- ----
+   ----
 
- 4. Contexto
- -----------
+   4. Contexto
+   -----------
 
- 4.1 Precondiciones
- ^^^^^^^^^^^^^^^^^^
+   4.1 Precondiciones
+   ^^^^^^^^^^^^^^^^^^
 
- 1. [Condicion que debe ser verdadera antes de iniciar]
- 2. [Otra precondicion]
+   1. [Condicion que debe ser verdadera antes de iniciar]
+   2. [Otra precondicion]
 
- 4.2 Trigger
- ^^^^^^^^^^^
+   4.2 Trigger
+   ^^^^^^^^^^^
 
- [Evento o accion que inicia el caso de uso]
+   [Evento o accion que inicia el caso de uso]
 
- 4.3 Postcondiciones de Exito
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   4.3 Postcondiciones de Exito
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- 1. [Estado del sistema tras completar exitosamente]
- 2. [Otro resultado esperado]
+   1. [Estado del sistema tras completar exitosamente]
+   2. [Otro resultado esperado]
 
- 4.4 Garantias Minimas
- ^^^^^^^^^^^^^^^^^^^^^
+   4.4 Garantias Minimas
+   ^^^^^^^^^^^^^^^^^^^^^
 
- 1. [Lo que siempre se garantiza, incluso si el UC falla]
+   1. [Lo que siempre se garantiza, incluso si el UC falla]
 
- ----
+   ----
 
- 5. Flujo Normal
- ---------------
+   5. Flujo Normal
+   ---------------
 
- .. list-table::
+   .. list-table::
     :widths: 8 46 46
     :header-rows: 1
 
- * - Paso
- - Actor
- - Sistema
- * - 1
- - [Accion del actor]
+   * - Paso
+   - Actor
+   - Sistema
+   * - 1
+   - [Accion del actor]
  
- * - 2
+   * - 2
  
- - [Respuesta del sistema]
- * - 3
- - [Siguiente accion]
+   - [Respuesta del sistema]
+   * - 3
+   - [Siguiente accion]
  
- * - 4
+   * - 4
  
- - [Siguiente respuesta]
+   - [Siguiente respuesta]
 
- ----
+   ----
 
- 6. Diagrama de Secuencia
- ------------------------
+   6. Diagrama de Secuencia
+   ------------------------
 
- .. uml::
- :caption: Secuencia - Flujo Normal UC-[NNN]
- :align: center
+   .. uml::
+   :caption: Secuencia - Flujo Normal UC-[NNN]
+   :align: center
 
- @startuml
- skinparam backgroundColor #FAFAFA
- skinparam sequenceMessageAlign center
- skinparam participant {
- BackgroundColor #E8F5E9
- BorderColor #388E3C
- }
- skinparam database {
- BackgroundColor #FFF3E0
- BorderColor #F57C00
- }
+   @startuml
+   skinparam backgroundColor #FAFAFA
+   skinparam sequenceMessageAlign center
+   skinparam participant {
+   BackgroundColor #E8F5E9
+   BorderColor #388E3C
+   }
+   skinparam database {
+   BackgroundColor #FFF3E0
+   BorderColor #F57C00
+   }
 
- actor "[Actor]" as A
- participant "Frontend" as FE #E3F2FD
- participant "[Controller]" as CTRL #E8F5E9
- participant "[Service]" as SVC #E8F5E9
- database "PostgreSQL" as DB #FFF3E0
+   actor "[Actor]" as A
+   participant "Frontend" as FE #E3F2FD
+   participant "[Controller]" as CTRL #E8F5E9
+   participant "[Service]" as SVC #E8F5E9
+   database "PostgreSQL" as DB #FFF3E0
 
- A -> FE: 1. [Accion inicial]
- activate FE
+   A -> FE: 1. [Accion inicial]
+   activate FE
 
- FE -> CTRL: 2. [HTTP Request]
- activate CTRL
+   FE -> CTRL: 2. [HTTP Request]
+   activate CTRL
 
- CTRL -> SVC: 3. [Llamada a servicio]
- activate SVC
+   CTRL -> SVC: 3. [Llamada a servicio]
+   activate SVC
 
- SVC -> DB: 4. [Query]
- DB --> SVC: 5. [Resultado]
+   SVC -> DB: 4. [Query]
+   DB --> SVC: 5. [Resultado]
 
- SVC --> CTRL: 6. [Respuesta]
- deactivate SVC
+   SVC --> CTRL: 6. [Respuesta]
+   deactivate SVC
 
- CTRL --> FE: 7. [HTTP Response]
- deactivate CTRL
+   CTRL --> FE: 7. [HTTP Response]
+   deactivate CTRL
 
- FE --> A: 8. [Actualiza UI]
- deactivate FE
- @enduml
+   FE --> A: 8. [Actualiza UI]
+   deactivate FE
+   @enduml
 
- ----
+   ----
 
- 7. Flujos Alternos
- ------------------
+   7. Flujos Alternos
+   ------------------
 
- 7.1 FA-1: [Nombre del Flujo Alterno]
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   7.1 FA-1: [Nombre del Flujo Alterno]
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Punto de bifurcacion:** Paso [N] del flujo normal
+   **Punto de bifurcacion:** Paso [N] del flujo normal
 
- **Condicion:** [Cuando se activa este flujo]
+   **Condicion:** [Cuando se activa este flujo]
 
- .. list-table::
+   .. list-table::
     :widths: 10 90
     :header-rows: 1
 
- * - Paso
- - Descripcion
- * - [N].1
- - [Primera accion del flujo alterno]
- * - [N].2
- - [Segunda accion]
+   * - Paso
+   - Descripcion
+   * - [N].1
+   - [Primera accion del flujo alterno]
+   * - [N].2
+   - [Segunda accion]
 
- **Retorno:** [Paso M del flujo normal | Fin del UC]
+   **Retorno:** [Paso M del flujo normal | Fin del UC]
 
- ----
+   ----
 
- 8. Excepciones
- --------------
+   8. Excepciones
+   --------------
 
- 8.1 EX-1: [Nombre de la Excepcion]
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8.1 EX-1: [Nombre de la Excepcion]
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Condicion:** [Cuando ocurre esta excepcion]
+   **Condicion:** [Cuando ocurre esta excepcion]
 
- **Accion del Sistema:** [Que hace el sistema]
+   **Accion del Sistema:** [Que hace el sistema]
 
- **Mensaje al Usuario:** "[Texto del mensaje de error]"
+   **Mensaje al Usuario:** "[Texto del mensaje de error]"
 
- ----
+   ----
 
- 9. Diagrama de Actividad
- ------------------------
+   9. Diagrama de Actividad
+   ------------------------
 
- .. uml::
- :caption: Actividad - Flujos y Decisiones UC-[NNN]
- :align: center
+   .. uml::
+   :caption: Actividad - Flujos y Decisiones UC-[NNN]
+   :align: center
 
- @startuml
- skinparam backgroundColor #FAFAFA
- skinparam activity {
- BackgroundColor #E3F2FD
- BorderColor #1976D2
- DiamondBackgroundColor #FFF9C4
- DiamondBorderColor #F57C00
- }
+   @startuml
+   skinparam backgroundColor #FAFAFA
+   skinparam activity {
+   BackgroundColor #E3F2FD
+   BorderColor #1976D2
+   DiamondBackgroundColor #FFF9C4
+   DiamondBorderColor #F57C00
+   }
 
- start
+   start
 
- :[Paso inicial];
+   :[Paso inicial];
 
- if ([Condicion de decision]?) then (si)
- :[Accion si verdadero];
- else (no)
- :[Accion si falso];
- endif
+   if ([Condicion de decision]?) then (si)
+   :[Accion si verdadero];
+   else (no)
+   :[Accion si falso];
+   endif
 
- :[Paso final];
+   :[Paso final];
 
- stop
- @enduml
+   stop
+   @enduml
 
- ----
+   ----
 
- 10. Reglas de Negocio
- ---------------------
+   10. Reglas de Negocio
+   ---------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 30 58
     :header-rows: 1
 
- * - BR
- - Nombre
- - Aplicacion en este UC
- * - BR_[NNN]
- - [Nombre de la regla]
- - [Como y en que paso se aplica esta regla]
+   * - BR
+   - Nombre
+   - Aplicacion en este UC
+   * - BR_[NNN]
+   - [Nombre de la regla]
+   - [Como y en que paso se aplica esta regla]
 
- ----
+   ----
 
- 11. Requerimientos Funcionales Derivados
- ----------------------------------------
+   11. Requerimientos Funcionales Derivados
+   ----------------------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 15 85
     :header-rows: 1
 
- * - FR
- - Descripcion
- * - FR-[NNN].01
- - [Descripcion breve del requerimiento funcional]
- * - FR-[NNN].02
- - [Descripcion breve]
+   * - FR
+   - Descripcion
+   * - FR-[NNN].01
+   - [Descripcion breve del requerimiento funcional]
+   * - FR-[NNN].02
+   - [Descripcion breve]
 
- ----
+   ----
 
- 12. Trazabilidad
- ----------------
+   12. Trazabilidad
+   ----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **Origen (BReq)**
- - BReq-[NNN]: [Nombre]
- * - **BR Aplicables**
- - BR_[NNN], BR_[NNN]
- * - **FR Derivados**
- - FR-[NNN].01 a FR-[NNN].[NN]
- * - **Actores RBAC**
- - AGR-[NNN]: [nombre_agrupador]
- * - **Funciones RBAC**
- - [XXX]-[NNN]: [nombre_funcion]
+   * - **Origen (BReq)**
+   - BReq-[NNN]: [Nombre]
+   * - **BR Aplicables**
+   - BR_[NNN], BR_[NNN]
+   * - **FR Derivados**
+   - FR-[NNN].01 a FR-[NNN].[NN]
+   * - **Actores RBAC**
+   - AGR-[NNN]: [nombre_agrupador]
+   * - **Funciones RBAC**
+   - [XXX]-[NNN]: [nombre_funcion]
 
- ----
+   ----
 
- 13. Historial de Cambios
- ------------------------
+   13. Historial de Cambios
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Version
- - Fecha
- - Autor
- - Cambios
- * - 2.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Version inicial con PlantUML embebido
+   * - Version
+   - Fecha
+   - Autor
+   - Cambios
+   * - 2.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Version inicial con PlantUML embebido
 
-----
+   ----
 
-Diagramas Obligatorios
-----------------------
+   Diagramas Obligatorios
+   ----------------------
 
-Cada UC v2.0 DEBE incluir minimo estos diagramas:
+   Cada UC v2.0 DEBE incluir minimo estos diagramas:
 
-1. **Diagrama de Caso de Uso** (Seccion 3)
+   1. **Diagrama de Caso de Uso** (Seccion 3)
    - Muestra actor(es) y su relacion con el UC
    - Incluye relaciones <<include>> o <<extends>> si aplica
 
-2. **Diagrama de Secuencia** (Seccion 6)
+   2. **Diagrama de Secuencia** (Seccion 6)
    - Muestra interaccion entre componentes
    - Pasos numerados del flujo normal
    - Incluye Frontend, Controller, Service, BD
 
-3. **Diagrama de Actividad** (Seccion 9)
+   3. **Diagrama de Actividad** (Seccion 9)
    - Muestra flujo de decision
    - Incluye flujos alternos y excepciones
    - Start/Stop claramente marcados
 
-----
+   ----
 
-Validacion
-----------
+   Validacion
+   ----------
 
-Antes de aprobar un UC, verificar:
+   Antes de aprobar un UC, verificar:
 
-.. code-block:: bash
+   .. code-block:: bash
 
- # Validar sintaxis RST y PlantUML
- sphinx-build -b html -W docs/ docs/_build/
+   # Validar sintaxis RST y PlantUML
+   sphinx-build -b html -W docs/ docs/_build/
 
- # Si hay errores PlantUML, se mostraran en consola
+   # Si hay errores PlantUML, se mostraran en consola
 
-----
+   ----
 
-Referencias
------------
+   Referencias
+   -----------
 
 - FND_03 v1.3.0: Casos de Uso (definicion conceptual)
 - FND_05: Jerarquia de 4 Niveles

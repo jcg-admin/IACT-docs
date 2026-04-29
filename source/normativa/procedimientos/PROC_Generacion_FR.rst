@@ -235,23 +235,23 @@ Antes de iniciar este procedimiento, verificar:
     * - **Prioridad**
     - [Critica|Alta|Media|Baja]
 
- **3.2 Seccion Especificacion:**
+    **3.2 Seccion Especificacion:**
 
- .. code-block:: rst
+    .. code-block:: rst
 
     **Descripcion:**
  
- El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
+    El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
 
- **3.3 Seccion Criterio de Aceptacion (OBLIGATORIO):**
+    **3.3 Seccion Criterio de Aceptacion (OBLIGATORIO):**
 
- .. code-block:: rst
+    .. code-block:: rst
 
     ::
  
- DADO [contexto inicial]
- CUANDO [accion del usuario o sistema]
- ENTONCES [resultado esperado]
+    DADO [contexto inicial]
+    CUANDO [accion del usuario o sistema]
+    ENTONCES [resultado esperado]
 
 - **Resultado**: FR con contenido completo
 - **Verificacion**: Todas las secciones completadas
@@ -265,13 +265,13 @@ Antes de iniciar este procedimiento, verificar:
 
     **BR Aplicables:**
  
-  - BR_005: Sesion Unica por Usuario
-  - BR_008: Auditoria de Accesos
+    - BR_005: Sesion Unica por Usuario
+    - BR_008: Auditoria de Accesos
  
- **CNST Aplicables:**
+    **CNST Aplicables:**
  
-  - CNST_002: Gestion de Sesiones en BD
-  - CNST_005: Seguridad DRF Checklist
+    - CNST_002: Gestion de Sesiones en BD
+    - CNST_005: Seguridad DRF Checklist
 
 - **Resultado**: Trazabilidad a BR y CNST
 - **Verificacion**: BR y CNST existen en catalogo

@@ -258,206 +258,206 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: rst
 
- - Item con guión
- * Item con asterisco
+   - Item con guión
+   * Item con asterisco
  
- 1. Item numerado
- 2. Segundo item
+   1. Item numerado
+   2. Segundo item
 
-**En archivos de texto plano (.txt):**
+   **En archivos de texto plano (.txt):**
 
-.. code-block:: text
+   .. code-block:: text
 
- - Item
- * Alternativa
- 1. Numerado
+   - Item
+   * Alternativa
+   1. Numerado
 
-**NUNCA usar:** ▶, ●, ★, ♦, •
+   **NUNCA usar:** ▶, ●, ★, ♦, •
 
-4.4. Flechas y Direcciones
----------------------------
+   4.4. Flechas y Direcciones
+   ---------------------------
 
-**Según tipo de archivo:**
+   **Según tipo de archivo:**
 
-**ASCII estándar:**
+   **ASCII estándar:**
 
-.. code-block:: text
+   .. code-block:: text
 
- -> Flecha simple
- => Flecha doble
- <- Flecha izquierda
- <=> Bidireccional
+   -> Flecha simple
+   => Flecha doble
+   <- Flecha izquierda
+   <=> Bidireccional
 
-**En diagramas técnicos:**
+   **En diagramas técnicos:**
 
-.. code-block:: text
+   .. code-block:: text
 
- A -> B -> C
+   A -> B -> C
  
- Usuario -> Sistema -> Base de Datos
+   Usuario -> Sistema -> Base de Datos
  
- if (condicion) {
- // true
- } else {
- // false
- }
+   if (condicion) {
+   // true
+   } else {
+   // false
+   }
 
-**NUNCA usar:** →, ⇒, ➜, ➔, ⬅, ⬆, ⬇
+   **NUNCA usar:** →, ⇒, ➜, ➔, ⬅, ⬆, ⬇
 
-4.5. Marcadores de Estado
---------------------------
+   4.5. Marcadores de Estado
+   --------------------------
 
-**Check/Cross:**
+   **Check/Cross:**
 
-.. code-block:: text
+   .. code-block:: text
 
- [OK] En lugar de: ✓ ✔ ☑
- [PASS] En lugar de: ✅
- [FAIL] En lugar de: ✗ ✘ ☒
- [ERROR] En lugar de: ❌
+   [OK] En lugar de: ✓ ✔ ☑
+   [PASS] En lugar de: ✅
+   [FAIL] En lugar de: ✗ ✘ ☒
+   [ERROR] En lugar de: ❌
 
-**Ejemplo de checklist:**
+   **Ejemplo de checklist:**
 
-.. code-block:: text
+   .. code-block:: text
 
- Validación de Capítulo:
+   Validación de Capítulo:
  
- [OK] Sintaxis RST correcta
- [OK] Referencias cruzadas válidas
- [FAIL] Glosario incompleto
- [OK] Build exitoso
+   [OK] Sintaxis RST correcta
+   [OK] Referencias cruzadas válidas
+   [FAIL] Glosario incompleto
+   [OK] Build exitoso
 
-----
+   ----
 
-5. Tabla de Referencia Rápida
-==============================
+   5. Tabla de Referencia Rápida
+   ==============================
 
-.. list-table:: Conversión de Símbolos a Texto
- :widths: 25 25 25 25
- :header-rows: 1
+   .. list-table:: Conversión de Símbolos a Texto
+   :widths: 25 25 25 25
+   :header-rows: 1
 
- * - Concepto
+   * - Concepto
    - ❌ No Usar
    - ✅ Usar
    - Comentarios
- * - **Completado**
+   * - **Completado**
    - ✅ ✓ ☑
    - [OK] [SUCCESS] [DONE]
    - ASCII estándar
- * - **Error**
+   * - **Error**
    - ❌ ✗ ☒
    - [ERROR] [FAIL] [FAILED]
    - Parseable
- * - **Advertencia**
+   * - **Advertencia**
    - ⚠️ ⚡ ⛔
    - [WARN] [WARNING]
    - Compatible terminales
- * - **Información**
+   * - **Información**
    - ℹ️ 💡 📢
    - [INFO] [NOTE]
    - Búsqueda fácil
- * - **Depuración**
+   * - **Depuración**
    - 🐛 🔍
    - [DEBUG]
    - Logs analizables
- * - **En proceso**
+   * - **En proceso**
    - ⏳ 🔄 ⌛
    - [RUNNING] [PROCESSING]
    - Estados claros
- * - **Esperando**
+   * - **Esperando**
    - ⏰ ⏱️
    - [PENDING] [WAITING]
    - Sin ambigüedad
- * - **Inicio**
+   * - **Inicio**
    - 🚀 ▶️
    - [START] Starting...
    - Texto explícito
- * - **Fin**
+   * - **Fin**
    - 🏁 ⏹️
    - [STOP] [END] Finished
    - Claro y directo
- * - **Archivo**
+   * - **Archivo**
    - 📁 📄 💾
    - FILE: archivo.txt
    - Identificable
- * - **Carpeta**
+   * - **Carpeta**
    - 📂 🗂️
    - DIRECTORY: /ruta/
    - Estándar Unix
- * - **Red**
+   * - **Red**
    - 🌐 📡
    - [NETWORK]
    - Compatible
- * - **Usuario**
+   * - **Usuario**
    - 👤 👥
    - USER: username
    - Parseable
- * - **Tiempo**
+   * - **Tiempo**
    - ⏰ 🕐
    - TIME: 10:30
    - ISO 8601
- * - **Fecha**
+   * - **Fecha**
    - 📅 🗓️
    - DATE: 2026-01-11
    - ISO 8601 YYYY-MM-DD
- * - **Viñetas**
+   * - **Viñetas**
    - ▶ ● ★ ♦
    - ``-`` ``*`` ``1.`` ``2.``
    - Según formato archivo
- * - **Flechas**
+   * - **Flechas**
    - → ⇒ ➜ ➔
    - ``->`` ``=>``
    - ASCII estándar
- * - **Check**
+   * - **Check**
    - ☑ ✓ ✔
    - [OK] PASS
    - Texto claro
- * - **Cross**
+   * - **Cross**
    - ☒ ✗ ✘
    - [FAIL] ERROR
    - Sin ambigüedad
 
-----
+   ----
 
-6. Casos Especiales y Excepciones
-==================================
+   6. Casos Especiales y Excepciones
+   ==================================
 
-6.1. Ecuaciones Matemáticas
-----------------------------
+   6.1. Ecuaciones Matemáticas
+   ----------------------------
 
-**PERMITIDO:** Símbolos matemáticos en contexto formal.
+   **PERMITIDO:** Símbolos matemáticos en contexto formal.
 
-.. code-block:: rst
+   .. code-block:: rst
 
- .. math::
+   .. math::
  
- E = mc^2
+   E = mc^2
  
- \sum_{i=1}^{n} x_i
+   \sum_{i=1}^{n} x_i
  
- \int_{0}^{\infty} f(x) dx
+   \int_{0}^{\infty} f(x) dx
 
-**Razón:** MathJax/LaTeX los renderiza correctamente, son contenido técnico esencial.
+   **Razón:** MathJax/LaTeX los renderiza correctamente, son contenido técnico esencial.
 
-6.2. Diagramas Técnicos ASCII
-------------------------------
+   6.2. Diagramas Técnicos ASCII
+   ------------------------------
 
-**PERMITIDO:** Cuando es contenido técnico, NO decoración.
+   **PERMITIDO:** Cuando es contenido técnico, NO decoración.
 
-.. code-block:: text
+   .. code-block:: text
 
- Diagrama de flujo aceptable:
+   Diagrama de flujo aceptable:
  
- .. list-table::
+   .. list-table::
 
     * - Usuario
- |
- v
- .. list-table::
+   |
+   v
+   .. list-table::
 
     * - Sistema
 
-**Criterio:** ¿Es esencial para entender el concepto técnico?
+   **Criterio:** ¿Es esencial para entender el concepto técnico?
 - Sí → Permitido
 - No (solo decorativo) → Prohibido
 
@@ -476,189 +476,189 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: rst
 
- .. note::
+   .. note::
     El código original contiene emojis. En código propio de IACT,
     usar ``[OK]`` en su lugar.
 
-6.4. Capturas de Pantalla
---------------------------
+   6.4. Capturas de Pantalla
+   --------------------------
 
-**PERMITIDO:** Emojis en imágenes/screenshots.
+   **PERMITIDO:** Emojis en imágenes/screenshots.
 
-Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
+   Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 
-----
+   ----
 
-7. Validación
-=============
+   7. Validación
+   =============
 
-7.1. Detección Automatizada
-----------------------------
+   7.1. Detección Automatizada
+   ----------------------------
 
-**Script:** ``detect_emojis.py``
+   **Script:** ``detect_emojis.py``
 
-.. code-block:: python
+   .. code-block:: python
 
- #!/usr/bin/env python3
- """Detecta emojis y símbolos Unicode no permitidos."""
+   #!/usr/bin/env python3
+   """Detecta emojis y símbolos Unicode no permitidos."""
  
- import re
- import sys
+   import re
+   import sys
  
- PROHIBITED_CHARS = {
- '✅': '[OK]',
- '❌': '[ERROR]',
- '⚠️': '[WARN]',
- '🚀': '[START]',
- '📁': 'FILE:',
- '💾': '[SAVE]',
- '✓': '[OK]',
- '✗': '[FAIL]',
- '→': '->',
- '⇒': '=>',
- # Añadir más según tabla de referencia
- }
+   PROHIBITED_CHARS = {
+   '✅': '[OK]',
+   '❌': '[ERROR]',
+   '⚠️': '[WARN]',
+   '🚀': '[START]',
+   '📁': 'FILE:',
+   '💾': '[SAVE]',
+   '✓': '[OK]',
+   '✗': '[FAIL]',
+   '→': '->',
+   '⇒': '=>',
+   # Añadir más según tabla de referencia
+   }
  
- def check_file(filepath):
- with open(filepath, 'r', encoding='utf-8') as f:
- content = f.read
+   def check_file(filepath):
+   with open(filepath, 'r', encoding='utf-8') as f:
+   content = f.read
  
- violations = []
- for char, replacement in PROHIBITED_CHARS.items:
- if char in content:
- count = content.count(char)
- violations.append(f"'{char}' encontrado {count} veces. Usar: {replacement}")
+   violations = []
+   for char, replacement in PROHIBITED_CHARS.items:
+   if char in content:
+   count = content.count(char)
+   violations.append(f"'{char}' encontrado {count} veces. Usar: {replacement}")
  
- return violations
+   return violations
  
- if __name__ == '__main__':
- if len(sys.argv) < 2:
- print("Uso: python detect_emojis.py archivo.rst")
- sys.exit(1)
+   if __name__ == '__main__':
+   if len(sys.argv) < 2:
+   print("Uso: python detect_emojis.py archivo.rst")
+   sys.exit(1)
  
- violations = check_file(sys.argv[1])
+   violations = check_file(sys.argv[1])
  
- if violations:
- print(f"[ERROR] Emojis/símbolos prohibidos encontrados en {sys.argv[1]}:")
- for v in violations:
- print(f" - {v}")
- sys.exit(1)
- else:
- print(f"[OK] {sys.argv[1]} cumple STD_001")
+   if violations:
+   print(f"[ERROR] Emojis/símbolos prohibidos encontrados en {sys.argv[1]}:")
+   for v in violations:
+   print(f" - {v}")
+   sys.exit(1)
+   else:
+   print(f"[OK] {sys.argv[1]} cumple STD_001")
 
-**Uso:**
+   **Uso:**
 
-.. code-block:: bash
+   .. code-block:: bash
 
- python detect_emojis.py source/procedimientos/PROC_001.rst
+   python detect_emojis.py source/procedimientos/PROC_001.rst
 
-7.2. Integración con Build
----------------------------
+   7.2. Integración con Build
+   ---------------------------
 
-**En Makefile o CI/CD:**
+   **En Makefile o CI/CD:**
 
-.. code-block:: makefile
+   .. code-block:: makefile
 
- validate-emojis:
- @echo "[INFO] Validando cumplimiento STD_001..."
- @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
+   validate-emojis:
+   @echo "[INFO] Validando cumplimiento STD_001..."
+   @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
 
-7.3. Pre-commit Hook
---------------------
+   7.3. Pre-commit Hook
+   --------------------
 
-**Archivo:** ``.git/hooks/pre-commit``
+   **Archivo:** ``.git/hooks/pre-commit``
 
-.. code-block:: bash
+   .. code-block:: bash
 
- #!/bin/bash
+   #!/bin/bash
  
- echo "[INFO] Validando STD_001 (sin emojis)..."
+   echo "[INFO] Validando STD_001 (sin emojis)..."
  
- # Buscar archivos .rst modificados
- changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.rst$')
+   # Buscar archivos .rst modificados
+   changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.rst$')
  
- for file in $changed_files; do
- if ! python scripts/detect_emojis.py "$file"; then
- echo "[ERROR] Commit bloqueado: $file contiene emojis prohibidos"
- echo "[INFO] Ver STD_001 para alternativas permitidas"
- exit 1
- fi
- done
+   for file in $changed_files; do
+   if ! python scripts/detect_emojis.py "$file"; then
+   echo "[ERROR] Commit bloqueado: $file contiene emojis prohibidos"
+   echo "[INFO] Ver STD_001 para alternativas permitidas"
+   exit 1
+   fi
+   done
  
- echo "[OK] Todos los archivos cumplen STD_001"
+   echo "[OK] Todos los archivos cumplen STD_001"
 
-----
+   ----
 
-8. Ejemplos Completos
-=====================
+   8. Ejemplos Completos
+   =====================
 
-8.1. Ejemplo INCORRECTO
------------------------
+   8.1. Ejemplo INCORRECTO
+   -----------------------
 
-.. code-block:: text
+   .. code-block:: text
 
- ✅ FASE 6 completada
+   ✅ FASE 6 completada
  
- Archivos procesados:
- 📁 PROC_001.rst
- 📁 PROC_004.rst
+   Archivos procesados:
+   📁 PROC_001.rst
+   📁 PROC_004.rst
  
- Estado:
- ✓ Build exitoso
- ⚠️ 3 warnings
+   Estado:
+   ✓ Build exitoso
+   ⚠️ 3 warnings
  
- Siguiente paso:
- 🚀 Iniciar FASE 7
+   Siguiente paso:
+   🚀 Iniciar FASE 7
 
-8.2. Ejemplo CORRECTO
----------------------
+   8.2. Ejemplo CORRECTO
+   ---------------------
 
-.. code-block:: text
+   .. code-block:: text
 
- [OK] FASE 6 completada
+   [OK] FASE 6 completada
  
- Archivos procesados:
- - PROC_001.rst
- - PROC_004.rst
+   Archivos procesados:
+   - PROC_001.rst
+   - PROC_004.rst
  
- Estado:
- [OK] Build exitoso
- [WARN] 3 warnings
+   Estado:
+   [OK] Build exitoso
+   [WARN] 3 warnings
  
- Siguiente paso:
- [START] Iniciar FASE 7
+   Siguiente paso:
+   [START] Iniciar FASE 7
 
-8.3. Script Output INCORRECTO
-------------------------------
+   8.3. Script Output INCORRECTO
+   ------------------------------
 
-.. code-block:: bash
+   .. code-block:: bash
 
- echo "✅ Traducción completada"
- echo "📊 Estadísticas:"
- echo " • 1,234 líneas"
- echo " • 45 términos"
- echo "🎉 ¡Éxito!"
+   echo "✅ Traducción completada"
+   echo "📊 Estadísticas:"
+   echo " • 1,234 líneas"
+   echo " • 45 términos"
+   echo "🎉 ¡Éxito!"
 
-8.4. Script Output CORRECTO
-----------------------------
+   8.4. Script Output CORRECTO
+   ----------------------------
 
-.. code-block:: bash
+   .. code-block:: bash
 
- echo "[SUCCESS] Traducción completada"
- echo "[INFO] Estadísticas:"
- echo " - 1,234 líneas"
- echo " - 45 términos"
- echo "[OK] Proceso finalizado exitosamente"
+   echo "[SUCCESS] Traducción completada"
+   echo "[INFO] Estadísticas:"
+   echo " - 1,234 líneas"
+   echo " - 45 términos"
+   echo "[OK] Proceso finalizado exitosamente"
 
-----
+   ----
 
-9. Integración con Proyecto IACT
-=================================
+   9. Integración con Proyecto IACT
+   =================================
 
-9.1. Relación con Otros Estándares
------------------------------------
+   9.1. Relación con Otros Estándares
+   -----------------------------------
 
-**STD_001 complementa:**
+   **STD_001 complementa:**
 
 - **STD_002:** Formato RST (sintaxis)
 - **STD_003:** Metadata obligatoria

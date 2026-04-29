@@ -135,332 +135,332 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: ADR_[NNN]
- :tipo: Decision Arquitectonica
- :dominio: arquitectura_tecnica
- :subdominio: decisiones
- :estado_adr: [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
- :fecha_decision: [YYYY-MM-DD]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :ultimo_cambio: [YYYY-MM-DD]
- :autor: Equipo IACT
- :clasificacion: Interno
+   .. meta::
+   :artefacto: ADR_[NNN]
+   :tipo: Decision Arquitectonica
+   :dominio: arquitectura_tecnica
+   :subdominio: decisiones
+   :estado_adr: [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
+   :fecha_decision: [YYYY-MM-DD]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :ultimo_cambio: [YYYY-MM-DD]
+   :autor: Equipo IACT
+   :clasificacion: Interno
 
- .. _adr-[nnn]:
+   .. _adr-[nnn]:
 
  
- ADR_[NNN]: [Titulo de la Decision]
+   ADR_[NNN]: [Titulo de la Decision]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- Resumen Ejecutivo
- -----------------
+   Resumen Ejecutivo
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - ADR_[NNN]
- * - **Titulo**
- - [Titulo descriptivo de la decision]
- * - **Estado**
- - [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
- * - **Fecha Decision**
- - [YYYY-MM-DD]
- * - **Decisores**
- - [Nombres o roles de quienes tomaron la decision]
- * - **Categoria**
- - [Tecnologia|Arquitectura|Seguridad|Datos|Infraestructura]
+   * - **ID**
+   - ADR_[NNN]
+   * - **Titulo**
+   - [Titulo descriptivo de la decision]
+   * - **Estado**
+   - [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
+   * - **Fecha Decision**
+   - [YYYY-MM-DD]
+   * - **Decisores**
+   - [Nombres o roles de quienes tomaron la decision]
+   * - **Categoria**
+   - [Tecnologia|Arquitectura|Seguridad|Datos|Infraestructura]
 
- ----
+   ----
 
- 1. Contexto
- -----------
+   1. Contexto
+   -----------
 
- [Descripcion detallada del contexto que motiva esta decision.
- Incluir:
- - Situacion actual o problema a resolver
- - Fuerzas en juego (requisitos, restricciones, preocupaciones)
- - Stakeholders afectados
- - Urgencia o importancia de la decision]
+   [Descripcion detallada del contexto que motiva esta decision.
+   Incluir:
+   - Situacion actual o problema a resolver
+   - Fuerzas en juego (requisitos, restricciones, preocupaciones)
+   - Stakeholders afectados
+   - Urgencia o importancia de la decision]
 
- ----
+   ----
 
- 2. Problema
- -----------
+   2. Problema
+   -----------
 
- [Enunciado claro y conciso del problema o pregunta que esta decision resuelve.
- Formato sugerido: "Necesitamos decidir [X] porque [Y]"]
+   [Enunciado claro y conciso del problema o pregunta que esta decision resuelve.
+   Formato sugerido: "Necesitamos decidir [X] porque [Y]"]
 
- ----
+   ----
 
- 3. Alternativas Consideradas
- ----------------------------
+   3. Alternativas Consideradas
+   ----------------------------
 
- 3.1 Alternativa A: [Nombre]
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3.1 Alternativa A: [Nombre]
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Descripcion:**
- [Descripcion de la alternativa]
+   **Descripcion:**
+   [Descripcion de la alternativa]
 
- **Ventajas:**
- - [Ventaja 1]
- - [Ventaja 2]
+   **Ventajas:**
+   - [Ventaja 1]
+   - [Ventaja 2]
 
- **Desventajas:**
- - [Desventaja 1]
- - [Desventaja 2]
+   **Desventajas:**
+   - [Desventaja 1]
+   - [Desventaja 2]
 
- **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
+   **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
 
- 3.2 Alternativa B: [Nombre]
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3.2 Alternativa B: [Nombre]
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Descripcion:**
- [Descripcion de la alternativa]
+   **Descripcion:**
+   [Descripcion de la alternativa]
 
- **Ventajas:**
- - [Ventaja 1]
- - [Ventaja 2]
+   **Ventajas:**
+   - [Ventaja 1]
+   - [Ventaja 2]
 
- **Desventajas:**
- - [Desventaja 1]
- - [Desventaja 2]
+   **Desventajas:**
+   - [Desventaja 1]
+   - [Desventaja 2]
 
- **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
+   **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
 
- 3.3 Alternativa C: [Nombre] (si aplica)
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3.3 Alternativa C: [Nombre] (si aplica)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Descripcion:**
- [Descripcion de la alternativa]
+   **Descripcion:**
+   [Descripcion de la alternativa]
 
- **Ventajas:**
- - [Ventaja 1]
+   **Ventajas:**
+   - [Ventaja 1]
 
- **Desventajas:**
- - [Desventaja 1]
+   **Desventajas:**
+   - [Desventaja 1]
 
- **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
+   **Estimacion de esfuerzo:** [Alto|Medio|Bajo]
 
- ----
+   ----
 
- 4. Decision
- -----------
+   4. Decision
+   -----------
 
- 4.1 Alternativa Seleccionada
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   4.1 Alternativa Seleccionada
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. note:: **Decision**
+   .. note:: **Decision**
 
     Se selecciona la **Alternativa [X]: [Nombre]**.
 
- 4.2 Justificacion
- ^^^^^^^^^^^^^^^^^
+   4.2 Justificacion
+   ^^^^^^^^^^^^^^^^^
 
- [Explicacion detallada de por que se eligio esta alternativa.
- Incluir:
- - Criterios de evaluacion utilizados
- - Peso de cada criterio
- - Por que las otras alternativas fueron descartadas]
+   [Explicacion detallada de por que se eligio esta alternativa.
+   Incluir:
+   - Criterios de evaluacion utilizados
+   - Peso de cada criterio
+   - Por que las otras alternativas fueron descartadas]
 
- ----
+   ----
 
- 5. Consecuencias
- ----------------
+   5. Consecuencias
+   ----------------
 
- 5.1 Consecuencias Positivas
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   5.1 Consecuencias Positivas
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Consecuencia positiva 1]
- - [Consecuencia positiva 2]
- - [Consecuencia positiva 3]
+   - [Consecuencia positiva 1]
+   - [Consecuencia positiva 2]
+   - [Consecuencia positiva 3]
 
- 5.2 Consecuencias Negativas
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   5.2 Consecuencias Negativas
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Consecuencia negativa 1 y como se mitigara]
- - [Consecuencia negativa 2 y como se mitigara]
+   - [Consecuencia negativa 1 y como se mitigara]
+   - [Consecuencia negativa 2 y como se mitigara]
 
- 5.3 Riesgos Identificados
- ^^^^^^^^^^^^^^^^^^^^^^^^^
+   5.3 Riesgos Identificados
+   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 40 20 40
     :header-rows: 1
 
- * - Riesgo
- - Probabilidad
- - Mitigacion
- * - [Descripcion del riesgo]
- - [Alta|Media|Baja]
- - [Estrategia de mitigacion]
+   * - Riesgo
+   - Probabilidad
+   - Mitigacion
+   * - [Descripcion del riesgo]
+   - [Alta|Media|Baja]
+   - [Estrategia de mitigacion]
 
- ----
+   ----
 
- 6. Implementacion
- -----------------
+   6. Implementacion
+   -----------------
 
- 6.1 Acciones Requeridas
- ^^^^^^^^^^^^^^^^^^^^^^^
+   6.1 Acciones Requeridas
+   ^^^^^^^^^^^^^^^^^^^^^^^
 
- 1. [Accion 1 para implementar la decision]
- 2. [Accion 2 para implementar la decision]
- 3. [Accion 3 para implementar la decision]
+   1. [Accion 1 para implementar la decision]
+   2. [Accion 2 para implementar la decision]
+   3. [Accion 3 para implementar la decision]
 
- 6.2 Componentes Afectados
- ^^^^^^^^^^^^^^^^^^^^^^^^^
+   6.2 Componentes Afectados
+   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - MOD_[xxx]: [Como afecta]
- - MOD_[yyy]: [Como afecta]
+   - MOD_[xxx]: [Como afecta]
+   - MOD_[yyy]: [Como afecta]
 
- 6.3 Timeline Estimado
- ^^^^^^^^^^^^^^^^^^^^^
+   6.3 Timeline Estimado
+   ^^^^^^^^^^^^^^^^^^^^^
 
- - **Inicio**: [Fecha o sprint]
- - **Fin estimado**: [Fecha o sprint]
+   - **Inicio**: [Fecha o sprint]
+   - **Fin estimado**: [Fecha o sprint]
 
- ----
+   ----
 
- 7. Validacion
- -------------
+   7. Validacion
+   -------------
 
- 7.1 Criterios de Exito
- ^^^^^^^^^^^^^^^^^^^^^^
+   7.1 Criterios de Exito
+   ^^^^^^^^^^^^^^^^^^^^^^
 
- La decision se considera exitosa si:
+   La decision se considera exitosa si:
 
- - [ ] [Criterio 1]
- - [ ] [Criterio 2]
- - [ ] [Criterio 3]
+   - [ ] [Criterio 1]
+   - [ ] [Criterio 2]
+   - [ ] [Criterio 3]
 
- 7.2 Metricas de Seguimiento
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   7.2 Metricas de Seguimiento
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Metrica 1]: [Como se medira]
- - [Metrica 2]: [Como se medira]
+   - [Metrica 1]: [Como se medira]
+   - [Metrica 2]: [Como se medira]
 
- ----
+   ----
 
- 8. Relaciones
- -------------
+   8. Relaciones
+   -------------
 
- 8.1 ADR Relacionados
- ^^^^^^^^^^^^^^^^^^^^
+   8.1 ADR Relacionados
+   ^^^^^^^^^^^^^^^^^^^^
 
- - ADR_[NNN]: [Relacion - complementa/depende/supersede]
+   - ADR_[NNN]: [Relacion - complementa/depende/supersede]
 
- 8.2 Artefactos Afectados
- ^^^^^^^^^^^^^^^^^^^^^^^^
+   8.2 Artefactos Afectados
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **CNST Generadas**
- - CNST_[NNN], CNST_[NNN]
- * - **BR Afectadas**
- - BR_[NNN], BR_[NNN]
- * - **MOD Afectados**
- - MOD_[xxx], MOD_[yyy]
- * - **NFR Relacionados**
- - NFR_[NNN]
+   * - **CNST Generadas**
+   - CNST_[NNN], CNST_[NNN]
+   * - **BR Afectadas**
+   - BR_[NNN], BR_[NNN]
+   * - **MOD Afectados**
+   - MOD_[xxx], MOD_[yyy]
+   * - **NFR Relacionados**
+   - NFR_[NNN]
 
- ----
+   ----
 
- 9. Referencias
- --------------
+   9. Referencias
+   --------------
 
- - [Documento 1]: [URL o referencia]
- - [Documento 2]: [URL o referencia]
- - [Documentacion oficial]: [URL]
+   - [Documento 1]: [URL o referencia]
+   - [Documento 2]: [URL o referencia]
+   - [Documentacion oficial]: [URL]
 
- ----
+   ----
 
- 10. Historial de Cambios
- ------------------------
+   10. Historial de Cambios
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Version
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Decision inicial documentada
+   * - Version
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Decision inicial documentada
 
- ----
+   ----
 
- *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
+   *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada ADR DEBE incluir minimo estas 10 secciones:
+   Cada ADR DEBE incluir minimo estas 10 secciones:
 
-.. list-table::
- :widths: 5 25 70
- :header-rows: 1
+   .. list-table::
+   :widths: 5 25 70
+   :header-rows: 1
 
- * - #
+   * - #
    - Seccion
    - Contenido
- * - 0
+   * - 0
    - Resumen Ejecutivo
    - ID, titulo, estado, fecha, decisores
- * - 1
+   * - 1
    - Contexto
    - Situacion, fuerzas, stakeholders
- * - 2
+   * - 2
    - Problema
    - Enunciado claro del problema
- * - 3
+   * - 3
    - Alternativas
    - Opciones evaluadas con pros/contras
- * - 4
+   * - 4
    - Decision
    - Alternativa seleccionada y justificacion
- * - 5
+   * - 5
    - Consecuencias
    - Positivas, negativas, riesgos
- * - 6
+   * - 6
    - Implementacion
    - Acciones, componentes, timeline
- * - 7
+   * - 7
    - Validacion
    - Criterios de exito, metricas
- * - 8
+   * - 8
    - Relaciones
    - ADR, CNST, BR, MOD relacionados
- * - 9
+   * - 9
    - Referencias
    - Documentacion externa
- * - 10
+   * - 10
    - Historial
    - Control de versiones
 
-----
+   ----
 
-Validacion
-----------
+   Validacion
+   ----------
 
-Antes de aprobar un ADR, verificar:
+   Antes de aprobar un ADR, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura ADR_[NNN]
 - [ ] Estado del ADR especificado

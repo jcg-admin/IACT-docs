@@ -230,18 +230,18 @@ Antes de iniciar este procedimiento, verificar:
     .. list-table::
     :header-rows: 1
  
-  * - Version
-  - Fecha
-  - Autor
-  - Cambios
-  * - 1.1.0 <- Nueva entrada
-  - 2026-01-07
-  - Equipo IACT
-  - Agregada seccion de validacion
-  * - 1.0.0
-  - 2026-01-06
-  - Equipo IACT
-  - Version inicial
+    * - Version
+    - Fecha
+    - Autor
+    - Cambios
+    * - 1.1.0 <- Nueva entrada
+    - 2026-01-07
+    - Equipo IACT
+    - Agregada seccion de validacion
+    * - 1.0.0
+    - 2026-01-06
+    - Equipo IACT
+    - Version inicial
 
 - **Resultado**: Historial actualizado
 - **Verificacion**: Entrada agregada

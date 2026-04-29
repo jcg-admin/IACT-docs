@@ -206,7 +206,7 @@ Antes de iniciar este procedimiento, verificar:
     Reglas de Negocio (BR) - [CONGELADO]
  
  
- .. note:: **Estado: CONGELADO**
+    .. note:: **Estado: CONGELADO**
  
     Este subdominio fue congelado el 2026-01-07.
     Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.

@@ -70,23 +70,23 @@ Seleccionar entidad del modelo de dominio.
 
 .. code-block:: rst
 
- .. list-table::
+   .. list-table::
     :header-rows: 1
  
- * - Atributo
- - Tipo
- - Obligatorio
- - Descripcion
- * - id
- - UUID
- - Si
- - Identificador unico
- * - username
- - String(50)
- - Si
- - Nombre de usuario
+   * - Atributo
+   - Tipo
+   - Obligatorio
+   - Descripcion
+   * - id
+   - UUID
+   - Si
+   - Identificador unico
+   * - username
+   - String(50)
+   - Si
+   - Nombre de usuario
 
-**Paso 4: Documentar Relaciones**
+   **Paso 4: Documentar Relaciones**
 
 - Entidades relacionadas
 - Tipo de relacion (1:1, 1:N, N:M)
@@ -102,24 +102,24 @@ Seleccionar entidad del modelo de dominio.
 
 .. code-block:: rst
 
- .. uml::
+   .. uml::
  
- @startuml
- entity User {
- * id: UUID
+   @startuml
+   entity User {
+   * id: UUID
  
- * username: String
- * email: String
+   * username: String
+   * email: String
    is_active: Boolean
    }
    @enduml
 
-**Paso 7: Guardar y Validar**
+   **Paso 7: Guardar y Validar**
 
-----
+   ----
 
-4. Artefactos de Salida
------------------------
+   4. Artefactos de Salida
+   -----------------------
 
 - FD_[NNN]_[Entidad].rst
 

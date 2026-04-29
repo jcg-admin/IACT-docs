@@ -205,101 +205,101 @@ Todo artefacto debe incluir una sección de historial con:
 
 .. code-block:: rst
 
- Historial de Cambios
- --------------------
+   Historial de Cambios
+   --------------------
 
- .. list-table::
+   .. list-table::
     :widths: 15 15 70
     :header-rows: 1
 
- * - Versión
- - Fecha
- - Descripción del Cambio
- * - 1.0.0
- - 2026-01-07
- - Versión inicial
+   * - Versión
+   - Fecha
+   - Descripción del Cambio
+   * - 1.0.0
+   - 2026-01-07
+   - Versión inicial
 
-----
+   ----
 
-7. Ejemplos Aplicados al Proyecto IACT
---------------------------------------
+   7. Ejemplos Aplicados al Proyecto IACT
+   --------------------------------------
 
-7.1 Evolución del Modelo Documental
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   7.1 Evolución del Modelo Documental
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. list-table::
- :widths: 15 20 65
- :header-rows: 1
+   .. list-table::
+   :widths: 15 20 65
+   :header-rows: 1
 
- * - Versión
+   * - Versión
    - Tipo Cambio
    - Descripción
- * - v2.0.0
+   * - v2.0.0
    - MAJOR
    - Reestructuración completa del modelo
- * - v2.0.3
+   * - v2.0.3
    - PATCH
    - Añadido subdominio modulos/, nomenclatura Clean Code
- * - v2.0.4
+   * - v2.0.4
    - PATCH
    - Añadido nivel BReq
- * - v2.0.5
+   * - v2.0.5
    - PATCH
    - Nueva nomenclatura UC: UC_MOD_NN
- * - v2.0.6
+   * - v2.0.6
    - PATCH
    - Integración MODELO RBAC v5.2.x
- * - v2.0.7
+   * - v2.0.7
    - PATCH
    - Generación 49 UC completos
- * - v2.0.8
+   * - v2.0.8
    - PATCH
    - Consolidación final UC v4.0
- * - v2.1.0
+   * - v2.1.0
    - MINOR
    - Inicio generación FR (55 FR nuevos)
 
-7.2 Decisión de Versionado: Caso Real
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   7.2 Decisión de Versionado: Caso Real
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Situación:** Se generó v2.0.9 con errores de nomenclatura (UC_001 en lugar
-de UC_AUTH_01).
+   **Situación:** Se generó v2.0.9 con errores de nomenclatura (UC_001 en lugar
+   de UC_AUTH_01).
 
-**Análisis:**
+   **Análisis:**
 
-.. code-block:: text
+   .. code-block:: text
 
- Opción A: v2.0.10 (corrección del error)
- └── Solo si fuera corrección sin contenido nuevo
+   Opción A: v2.0.10 (corrección del error)
+   └── Solo si fuera corrección sin contenido nuevo
  
- Opción B: v2.1.0 (nueva funcionalidad) ✅
- └── Correcto porque añade 55 FR nuevos
+   Opción B: v2.1.0 (nueva funcionalidad) ✅
+   └── Correcto porque añade 55 FR nuevos
  
- Opción C: v2.1.9 (salto arbitrario)
- └── Incorrecto: viola regla de no saltar versiones
+   Opción C: v2.1.9 (salto arbitrario)
+   └── Incorrecto: viola regla de no saltar versiones
 
-**Decisión:** ``v2.1.0`` porque incluye nueva funcionalidad (FR) además de
-correcciones.
+   **Decisión:** ``v2.1.0`` porque incluye nueva funcionalidad (FR) además de
+   correcciones.
 
-----
+   ----
 
-8. Verificación de Cumplimiento
--------------------------------
+   8. Verificación de Cumplimiento
+   -------------------------------
 
-Checklist para revisores:
+   Checklist para revisores:
 
-.. code-block:: text
+   .. code-block:: text
 
- [ ] Formato MAJOR.MINOR.PATCH correcto
- [ ] No hay saltos de versión injustificados
- [ ] Historial de cambios actualizado
- [ ] Tipo de incremento corresponde al cambio realizado
- [ ] Artefactos dependientes evaluados (si aplica)
+   [ ] Formato MAJOR.MINOR.PATCH correcto
+   [ ] No hay saltos de versión injustificados
+   [ ] Historial de cambios actualizado
+   [ ] Tipo de incremento corresponde al cambio realizado
+   [ ] Artefactos dependientes evaluados (si aplica)
 
-----
+   ----
 
-9. Referencias
---------------
+   9. Referencias
+   --------------
 
 - Semantic Versioning 2.0.0: https://semver.org/
 - GOB_05_Control_Versiones.rst

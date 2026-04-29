@@ -103,282 +103,282 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: FR_UC[MOD]_[NN]_[NN]
- :tipo: Requisito Funcional
- :dominio: requisitos
- :subdominio: funcionales/[modulo]
- :modulo: MOD_[Modulo]
- :uc_padre: UC_[MOD]_[NN]
- :estado: [Borrador|Revision|Aprobado]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :autor: Equipo IACT
+   .. meta::
+   :artefacto: FR_UC[MOD]_[NN]_[NN]
+   :tipo: Requisito Funcional
+   :dominio: requisitos
+   :subdominio: funcionales/[modulo]
+   :modulo: MOD_[Modulo]
+   :uc_padre: UC_[MOD]_[NN]
+   :estado: [Borrador|Revision|Aprobado]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :autor: Equipo IACT
 
- .. _fr-uc[mod]-[nn]-[nn]:
+   .. _fr-uc[mod]-[nn]-[nn]:
 
  
- FR_UC[MOD]_[NN]_[NN]: [Nombre del Requisito Funcional]
+   FR_UC[MOD]_[NN]_[NN]: [Nombre del Requisito Funcional]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- 1. Identificación
- -----------------
+   1. Identificación
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - FR_UC[MOD]_[NN]_[NN]
- * - **Nombre**
- - [Nombre descriptivo del requisito funcional]
- * - **UC Padre**
- - UC_[MOD]_[NN]: [Nombre del UC]
- * - **Módulo**
- - MOD_[Modulo]
- * - **Tipo**
- - [Validación|Proceso|Interfaz|Datos|Auditoría|Seguridad]
- * - **Prioridad**
- - [Alta|Media|Baja]
- * - **Complejidad**
- - [Alta|Media|Baja]
+   * - **ID**
+   - FR_UC[MOD]_[NN]_[NN]
+   * - **Nombre**
+   - [Nombre descriptivo del requisito funcional]
+   * - **UC Padre**
+   - UC_[MOD]_[NN]: [Nombre del UC]
+   * - **Módulo**
+   - MOD_[Modulo]
+   * - **Tipo**
+   - [Validación|Proceso|Interfaz|Datos|Auditoría|Seguridad]
+   * - **Prioridad**
+   - [Alta|Media|Baja]
+   * - **Complejidad**
+   - [Alta|Media|Baja]
 
- ----
+   ----
 
- 2. Especificación
- -----------------
+   2. Especificación
+   -----------------
 
- 2.1 Descripción
- ^^^^^^^^^^^^^^^
+   2.1 Descripción
+   ^^^^^^^^^^^^^^^
 
- [Descripción detallada del requisito funcional en 2-4 oraciones.
- Debe responder: ¿Qué debe hacer el sistema específicamente?]
+   [Descripción detallada del requisito funcional en 2-4 oraciones.
+   Debe responder: ¿Qué debe hacer el sistema específicamente?]
 
- 2.2 Justificación
- ^^^^^^^^^^^^^^^^^
+   2.2 Justificación
+   ^^^^^^^^^^^^^^^^^
 
- [Por qué es necesario este requisito. Qué problema resuelve o qué
- valor aporta al usuario o al sistema.]
+   [Por qué es necesario este requisito. Qué problema resuelve o qué
+   valor aporta al usuario o al sistema.]
 
- ----
+   ----
 
- 3. Criterio de Aceptación
- -------------------------
+   3. Criterio de Aceptación
+   -------------------------
 
- .. note:: **Formato DADO/CUANDO/ENTONCES**
+   .. note:: **Formato DADO/CUANDO/ENTONCES**
 
     **DADO:**
     - [Precondición 1: Estado inicial del sistema]
     - [Precondición 2: Datos o contexto necesario]
 
- **CUANDO:**
- - [Acción que dispara el requisito]
+   **CUANDO:**
+   - [Acción que dispara el requisito]
 
- **ENTONCES:**
- - [Resultado esperado 1]
- - [Resultado esperado 2]
- - [Resultado esperado N]
+   **ENTONCES:**
+   - [Resultado esperado 1]
+   - [Resultado esperado 2]
+   - [Resultado esperado N]
 
- ----
+   ----
 
- 4. Reglas y Restricciones
- -------------------------
+   4. Reglas y Restricciones
+   -------------------------
 
- 4.1 Reglas de Negocio Aplicables
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   4.1 Reglas de Negocio Aplicables
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 15 35 50
     :header-rows: 1
 
- * - BR
- - Nombre
- - Aplicación en este FR
- * - BR_[NNN]
- - [Nombre de la regla]
- - [Cómo aplica esta BR al FR]
+   * - BR
+   - Nombre
+   - Aplicación en este FR
+   * - BR_[NNN]
+   - [Nombre de la regla]
+   - [Cómo aplica esta BR al FR]
 
- 4.2 Restricciones Arquitectónicas
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   4.2 Restricciones Arquitectónicas
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 15 35 50
     :header-rows: 1
 
- * - CNST
- - Nombre
- - Aplicación en este FR
- * - CNST_[NNN]
- - [Nombre de la restricción]
- - [Cómo aplica esta CNST al FR]
+   * - CNST
+   - Nombre
+   - Aplicación en este FR
+   * - CNST_[NNN]
+   - [Nombre de la restricción]
+   - [Cómo aplica esta CNST al FR]
 
- ----
+   ----
 
- 5. Trazabilidad
- ---------------
+   5. Trazabilidad
+   ---------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **UC Padre**
- - UC_[MOD]_[NN]: [Nombre del UC]
- * - **Paso del Flujo**
- - Paso [N] del flujo [normal|alterno|excepción]
- * - **BReq Origen**
- - BReq_[MOD]: [Nombre]
- * - **BR Aplicables**
- - BR_[NNN], BR_[NNN]
- * - **CNST Aplicables**
- - CNST_[NNN], CNST_[NNN]
- * - **Función RBAC**
- - [xxx]_[nnn]: [nombre_funcion]
+   * - **UC Padre**
+   - UC_[MOD]_[NN]: [Nombre del UC]
+   * - **Paso del Flujo**
+   - Paso [N] del flujo [normal|alterno|excepción]
+   * - **BReq Origen**
+   - BReq_[MOD]: [Nombre]
+   * - **BR Aplicables**
+   - BR_[NNN], BR_[NNN]
+   * - **CNST Aplicables**
+   - CNST_[NNN], CNST_[NNN]
+   * - **Función RBAC**
+   - [xxx]_[nnn]: [nombre_funcion]
 
- ----
+   ----
 
- 6. Historial de Cambios
- -----------------------
+   6. Historial de Cambios
+   -----------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Versión
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Versión inicial
+   * - Versión
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Versión inicial
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada FR DEBE incluir mínimo estas 6 secciones:
+   Cada FR DEBE incluir mínimo estas 6 secciones:
 
-.. list-table::
- :widths: 5 25 70
- :header-rows: 1
+   .. list-table::
+   :widths: 5 25 70
+   :header-rows: 1
 
- * - #
+   * - #
    - Sección
    - Contenido
- * - 1
+   * - 1
    - Identificación
    - ID, nombre, UC padre, módulo, tipo, prioridad
- * - 2
+   * - 2
    - Especificación
    - Descripción detallada y justificación
- * - 3
+   * - 3
    - Criterio de Aceptación
    - Formato DADO/CUANDO/ENTONCES obligatorio
- * - 4
+   * - 4
    - Reglas y Restricciones
    - BR y CNST aplicables
- * - 5
+   * - 5
    - Trazabilidad
    - Enlaces a UC, BReq, BR, CNST, RBAC
- * - 6
+   * - 6
    - Historial
    - Control de versiones del FR
 
-----
+   ----
 
-Tipos de FR
------------
+   Tipos de FR
+   -----------
 
-Clasificación según TXM_01:
+   Clasificación según TXM_01:
 
-.. list-table::
- :widths: 20 80
- :header-rows: 1
+   .. list-table::
+   :widths: 20 80
+   :header-rows: 1
 
- * - Tipo
+   * - Tipo
    - Descripción
- * - **Validación**
+   * - **Validación**
    - Verifica formato, rango, existencia de datos
- * - **Proceso**
+   * - **Proceso**
    - Ejecuta lógica de negocio, transformaciones
- * - **Interfaz**
+   * - **Interfaz**
    - Presenta información al usuario, actualiza UI
- * - **Datos**
+   * - **Datos**
    - CRUD en base de datos
- * - **Auditoría**
+   * - **Auditoría**
    - Registra eventos en logs de auditoría
- * - **Seguridad**
+   * - **Seguridad**
    - Verifica permisos, autenticación, autorización
 
-----
+   ----
 
-Ejemplos de Criterios de Aceptación
------------------------------------
+   Ejemplos de Criterios de Aceptación
+   -----------------------------------
 
-**Ejemplo 1: FR de Validación**
+   **Ejemplo 1: FR de Validación**
 
-::
+   ::
 
- DADO:
- - El usuario está en el formulario de login
- - El campo username está visible
+   DADO:
+   - El usuario está en el formulario de login
+   - El campo username está visible
 
- CUANDO:
- - El usuario ingresa un username con formato inválido
+   CUANDO:
+   - El usuario ingresa un username con formato inválido
 
- ENTONCES:
- - El sistema muestra mensaje "Username debe tener 3-50 caracteres alfanuméricos"
- - El campo username se resalta en rojo
- - El botón Submit permanece deshabilitado
+   ENTONCES:
+   - El sistema muestra mensaje "Username debe tener 3-50 caracteres alfanuméricos"
+   - El campo username se resalta en rojo
+   - El botón Submit permanece deshabilitado
 
-**Ejemplo 2: FR de Proceso**
+   **Ejemplo 2: FR de Proceso**
 
-::
+   ::
 
- DADO:
- - El usuario tiene sesión activa
- - El usuario tiene función auth_logout asignada
+   DADO:
+   - El usuario tiene sesión activa
+   - El usuario tiene función auth_logout asignada
 
- CUANDO:
- - El usuario hace clic en "Cerrar Sesión"
+   CUANDO:
+   - El usuario hace clic en "Cerrar Sesión"
 
- ENTONCES:
- - El token JWT actual se invalida
- - La sesión se elimina de la base de datos
- - El usuario es redirigido a la página de login
- - Se registra evento en auditoría
+   ENTONCES:
+   - El token JWT actual se invalida
+   - La sesión se elimina de la base de datos
+   - El usuario es redirigido a la página de login
+   - Se registra evento en auditoría
 
-**Ejemplo 3: FR de Auditoría**
+   **Ejemplo 3: FR de Auditoría**
 
-::
+   ::
 
- DADO:
- - Un usuario ha completado una acción auditable
- - El sistema está configurado para auditar
+   DADO:
+   - Un usuario ha completado una acción auditable
+   - El sistema está configurado para auditar
 
- CUANDO:
- - La acción se completa exitosamente
+   CUANDO:
+   - La acción se completa exitosamente
 
- ENTONCES:
- - Se crea registro en user_action_log
- - El registro incluye: user_id, action, timestamp, ip_address
- - El registro es inmutable (BR_010)
+   ENTONCES:
+   - Se crea registro en user_action_log
+   - El registro incluye: user_id, action, timestamp, ip_address
+   - El registro es inmutable (BR_010)
 
-----
+   ----
 
-Validación
-----------
+   Validación
+   ----------
 
-Antes de aprobar un FR, verificar:
+   Antes de aprobar un FR, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura FR_UC[MOD]_[NN]_[NN]
 - [ ] UC padre existe y está referenciado

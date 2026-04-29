@@ -137,359 +137,359 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: CNST_[NNN]
- :tipo: Restriccion
- :dominio: normativa
- :subdominio: restricciones
- :estado: [Borrador|Revision|Vigente]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :ultimo_cambio: [YYYY-MM-DD]
- :autor: [Autor]
- :clasificacion: [Critico|Alto|Medio|Bajo]
+   .. meta::
+   :artefacto: CNST_[NNN]
+   :tipo: Restriccion
+   :dominio: normativa
+   :subdominio: restricciones
+   :estado: [Borrador|Revision|Vigente]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :ultimo_cambio: [YYYY-MM-DD]
+   :autor: [Autor]
+   :clasificacion: [Critico|Alto|Medio|Bajo]
 
- .. _cnst-[nnn]:
+   .. _cnst-[nnn]:
 
  
- CNST_[NNN]: [Nombre de la Restriccion]
+   CNST_[NNN]: [Nombre de la Restriccion]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- Resumen Ejecutivo
- -----------------
+   Resumen Ejecutivo
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - CNST_[NNN]
- * - **Nombre**
- - [Nombre descriptivo de la restriccion]
- * - **Categoria**
- - [Comunicaciones|Datos|Seguridad|Infraestructura|Integracion|Rendimiento]
- * - **Criticidad**
- - [Critica|Alta|Media|Baja]
- * - **Negociable**
- - No
- * - **Estado**
- - Vigente
+   * - **ID**
+   - CNST_[NNN]
+   * - **Nombre**
+   - [Nombre descriptivo de la restriccion]
+   * - **Categoria**
+   - [Comunicaciones|Datos|Seguridad|Infraestructura|Integracion|Rendimiento]
+   * - **Criticidad**
+   - [Critica|Alta|Media|Baja]
+   * - **Negociable**
+   - No
+   * - **Estado**
+   - Vigente
 
- ----
+   ----
 
- 1. Definicion
- -------------
+   1. Definicion
+   -------------
 
- 1.1 Enunciado de la Restriccion
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   1.1 Enunciado de la Restriccion
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. warning:: **Restriccion Arquitectonica CNST_[NNN]**
+   .. warning:: **Restriccion Arquitectonica CNST_[NNN]**
 
     [Enunciado claro y conciso de la restriccion.
     Debe expresar QUE esta limitado o prohibido tecnicamente.]
 
- 1.2 Justificacion Tecnica
- ^^^^^^^^^^^^^^^^^^^^^^^^^
+   1.2 Justificacion Tecnica
+   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
- [Por que existe esta restriccion. Que problema tecnico resuelve,
- que riesgo mitiga, que dependencia impone.]
+   [Por que existe esta restriccion. Que problema tecnico resuelve,
+   que riesgo mitiga, que dependencia impone.]
 
- 1.3 Origen
- ^^^^^^^^^^
+   1.3 Origen
+   ^^^^^^^^^^
 
- - **Fuente**: [Requisito de negocio|Limitacion tecnica|Normativa|Decisiones previas]
- - **Documento**: [Referencia al documento origen si existe]
- - **Fecha**: [Fecha de establecimiento]
+   - **Fuente**: [Requisito de negocio|Limitacion tecnica|Normativa|Decisiones previas]
+   - **Documento**: [Referencia al documento origen si existe]
+   - **Fecha**: [Fecha de establecimiento]
 
- ----
+   ----
 
- 2. Especificacion Tecnica
- -------------------------
+   2. Especificacion Tecnica
+   -------------------------
 
- 2.1 Descripcion Detallada
- ^^^^^^^^^^^^^^^^^^^^^^^^^
+   2.1 Descripcion Detallada
+   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
- [Descripcion tecnica completa de la restriccion.
- Incluir detalles de implementacion, tecnologias involucradas,
- configuraciones requeridas.]
+   [Descripcion tecnica completa de la restriccion.
+   Incluir detalles de implementacion, tecnologias involucradas,
+   configuraciones requeridas.]
 
- 2.2 Parametros
- ^^^^^^^^^^^^^^
+   2.2 Parametros
+   ^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 30 30 40
     :header-rows: 1
 
- * - Parametro
- - Valor
- - Descripcion
- * - [parametro_1]
- - [valor_1]
- - [Descripcion del parametro]
- * - [parametro_2]
- - [valor_2]
- - [Descripcion del parametro]
+   * - Parametro
+   - Valor
+   - Descripcion
+   * - [parametro_1]
+   - [valor_1]
+   - [Descripcion del parametro]
+   * - [parametro_2]
+   - [valor_2]
+   - [Descripcion del parametro]
 
- 2.3 Tecnologias Involucradas
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   2.3 Tecnologias Involucradas
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Tecnologia 1]: [Rol en la restriccion]
- - [Tecnologia 2]: [Rol en la restriccion]
+   - [Tecnologia 1]: [Rol en la restriccion]
+   - [Tecnologia 2]: [Rol en la restriccion]
 
- ----
+   ----
 
- 3. Impacto en Sistema
- ---------------------
+   3. Impacto en Sistema
+   ---------------------
 
- 3.1 Modulos Afectados
- ^^^^^^^^^^^^^^^^^^^^^
+   3.1 Modulos Afectados
+   ^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 20 80
     :header-rows: 1
 
- * - Modulo
- - Impacto
- * - MOD_[xxx]
- - [Como afecta esta CNST al modulo]
- * - MOD_[yyy]
- - [Como afecta esta CNST al modulo]
+   * - Modulo
+   - Impacto
+   * - MOD_[xxx]
+   - [Como afecta esta CNST al modulo]
+   * - MOD_[yyy]
+   - [Como afecta esta CNST al modulo]
 
- 3.2 Casos de Uso Afectados
- ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3.2 Casos de Uso Afectados
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 20 80
     :header-rows: 1
 
- * - UC
- - Impacto
- * - UC_[MOD]_[NN]
- - [Como afecta esta CNST al UC]
- * - UC_[MOD]_[NN]
- - [Como afecta esta CNST al UC]
+   * - UC
+   - Impacto
+   * - UC_[MOD]_[NN]
+   - [Como afecta esta CNST al UC]
+   * - UC_[MOD]_[NN]
+   - [Como afecta esta CNST al UC]
 
- 3.3 Lo que NO se puede hacer
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   3.3 Lo que NO se puede hacer
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Accion o funcionalidad prohibida por esta restriccion]
- - [Otra accion prohibida]
+   - [Accion o funcionalidad prohibida por esta restriccion]
+   - [Otra accion prohibida]
 
- ----
+   ----
 
- 4. Business Rules Derivadas
- ---------------------------
+   4. Business Rules Derivadas
+   ---------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 15 45 40
     :header-rows: 1
 
- * - BR
- - Nombre
- - Relacion
- * - BR_[NNN]
- - [Nombre de la BR]
- - [Como esta BR implementa la CNST]
- * - BR_[NNN]
- - [Nombre de la BR]
- - [Como esta BR implementa la CNST]
+   * - BR
+   - Nombre
+   - Relacion
+   * - BR_[NNN]
+   - [Nombre de la BR]
+   - [Como esta BR implementa la CNST]
+   * - BR_[NNN]
+   - [Nombre de la BR]
+   - [Como esta BR implementa la CNST]
 
- ----
+   ----
 
- 5. Implementacion
- -----------------
+   5. Implementacion
+   -----------------
 
- 5.1 Codigo de Referencia
- ^^^^^^^^^^^^^^^^^^^^^^^^
+   5.1 Codigo de Referencia
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. code-block:: python
+   .. code-block:: python
 
     # Implementacion de CNST_[NNN]
     # [Nombre de la restriccion]
  
- # settings.py o configuracion relevante
- [CODIGO_EJEMPLO]
+   # settings.py o configuracion relevante
+   [CODIGO_EJEMPLO]
 
- 5.2 Configuracion
- ^^^^^^^^^^^^^^^^^
+   5.2 Configuracion
+   ^^^^^^^^^^^^^^^^^
 
- .. code-block:: yaml
+   .. code-block:: yaml
 
     # Configuracion requerida
     [CONFIGURACION_EJEMPLO]
 
- 5.3 Validacion de Cumplimiento
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   5.3 Validacion de Cumplimiento
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. code-block:: bash
+   .. code-block:: bash
 
     # Comando para verificar cumplimiento
     [COMANDO_VERIFICACION]
 
- ----
+   ----
 
- 6. Excepciones
- --------------
+   6. Excepciones
+   --------------
 
- 6.1 Excepciones Permitidas
- ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   6.1 Excepciones Permitidas
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Excepcion 1: Condicion bajo la cual no aplica]
- - [Excepcion 2: Otra condicion de excepcion]
+   - [Excepcion 1: Condicion bajo la cual no aplica]
+   - [Excepcion 2: Otra condicion de excepcion]
 
- 6.2 Proceso de Excepcion
- ^^^^^^^^^^^^^^^^^^^^^^^^
+   6.2 Proceso de Excepcion
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
- Para solicitar una excepcion a esta CNST:
+   Para solicitar una excepcion a esta CNST:
 
- 1. [Paso 1 del proceso]
- 2. [Paso 2 del proceso]
- 3. [Paso 3: Aprobacion requerida por...]
+   1. [Paso 1 del proceso]
+   2. [Paso 2 del proceso]
+   3. [Paso 3: Aprobacion requerida por...]
 
- ----
+   ----
 
- 7. Verificacion
- ---------------
+   7. Verificacion
+   ---------------
 
- 7.1 Criterios de Cumplimiento
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   7.1 Criterios de Cumplimiento
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [ ] [Criterio verificable 1]
- - [ ] [Criterio verificable 2]
- - [ ] [Criterio verificable 3]
+   - [ ] [Criterio verificable 1]
+   - [ ] [Criterio verificable 2]
+   - [ ] [Criterio verificable 3]
 
- 7.2 Metodo de Verificacion
- ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   7.2 Metodo de Verificacion
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - **Tipo**: [Automatico|Manual|Mixto]
- - **Frecuencia**: [Continuo|Por deployment|Por release]
- - **Herramienta**: [Herramienta de verificacion]
+   - **Tipo**: [Automatico|Manual|Mixto]
+   - **Frecuencia**: [Continuo|Por deployment|Por release]
+   - **Herramienta**: [Herramienta de verificacion]
 
- ----
+   ----
 
- 8. Trazabilidad
- ---------------
+   8. Trazabilidad
+   ---------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ADR Relacionadas**
- - ADR_[NNN]: [Nombre]
- * - **BR Derivadas**
- - BR_[NNN], BR_[NNN]
- * - **UC Afectados**
- - UC_[MOD]_[NN], UC_[MOD]_[NN]
- * - **MOD Afectados**
- - MOD_[xxx], MOD_[yyy]
- * - **NFR Relacionados**
- - NFR_[NNN]
+   * - **ADR Relacionadas**
+   - ADR_[NNN]: [Nombre]
+   * - **BR Derivadas**
+   - BR_[NNN], BR_[NNN]
+   * - **UC Afectados**
+   - UC_[MOD]_[NN], UC_[MOD]_[NN]
+   * - **MOD Afectados**
+   - MOD_[xxx], MOD_[yyy]
+   * - **NFR Relacionados**
+   - NFR_[NNN]
 
- ----
+   ----
 
- 9. Historial de Cambios
- -----------------------
+   9. Historial de Cambios
+   -----------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Version
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Version inicial
+   * - Version
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Version inicial
 
- ----
+   ----
 
- *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
+   *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada CNST DEBE incluir minimo estas 9 secciones:
+   Cada CNST DEBE incluir minimo estas 9 secciones:
 
-.. list-table::
- :widths: 5 30 65
- :header-rows: 1
+   .. list-table::
+   :widths: 5 30 65
+   :header-rows: 1
 
- * - #
+   * - #
    - Seccion
    - Contenido
- * - 0
+   * - 0
    - Resumen Ejecutivo
    - ID, nombre, categoria, criticidad
- * - 1
+   * - 1
    - Definicion
    - Enunciado, justificacion, origen
- * - 2
+   * - 2
    - Especificacion Tecnica
    - Descripcion, parametros, tecnologias
- * - 3
+   * - 3
    - Impacto en Sistema
    - MOD, UC afectados, prohibiciones
- * - 4
+   * - 4
    - BR Derivadas
    - Business Rules que implementan la CNST
- * - 5
+   * - 5
    - Implementacion
    - Codigo, configuracion, validacion
- * - 6
+   * - 6
    - Excepciones
    - Excepciones permitidas y proceso
- * - 7
+   * - 7
    - Verificacion
    - Criterios y metodo
- * - 8
+   * - 8
    - Trazabilidad
    - ADR, BR, UC, MOD, NFR relacionados
- * - 9
+   * - 9
    - Historial
    - Control de versiones
 
-----
+   ----
 
-Categorias de CNST
-------------------
+   Categorias de CNST
+   ------------------
 
-.. list-table::
- :widths: 25 75
- :header-rows: 1
+   .. list-table::
+   :widths: 25 75
+   :header-rows: 1
 
- * - Categoria
+   * - Categoria
    - Descripcion
- * - **Comunicaciones**
+   * - **Comunicaciones**
    - Restricciones sobre canales de comunicacion (email, SMS, etc.)
- * - **Datos**
+   * - **Datos**
    - Restricciones sobre almacenamiento, acceso, retencion de datos
- * - **Seguridad**
+   * - **Seguridad**
    - Restricciones de autenticacion, autorizacion, cifrado
- * - **Infraestructura**
+   * - **Infraestructura**
    - Restricciones de deployment, servidores, contenedores
- * - **Integracion**
+   * - **Integracion**
    - Restricciones de APIs externas, protocolos, formatos
- * - **Rendimiento**
+   * - **Rendimiento**
    - Restricciones de tiempos, throughput, recursos
 
-----
+   ----
 
-Validacion
-----------
+   Validacion
+   ----------
 
-Antes de aprobar una CNST, verificar:
+   Antes de aprobar una CNST, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura CNST_[NNN]
 - [ ] Categoria asignada correctamente

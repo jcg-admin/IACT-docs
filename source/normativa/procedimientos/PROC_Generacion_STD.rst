@@ -174,13 +174,13 @@ Antes de iniciar este procedimiento, verificar:
     1. Proposito
     ------------
  
- Este estandar define [que normaliza] para [objetivo].
+    Este estandar define [que normaliza] para [objetivo].
  
- **Aplica a:** [ambito de aplicacion]
+    **Aplica a:** [ambito de aplicacion]
  
- **Beneficios:**
-  - [Beneficio 1]
-  - [Beneficio 2]
+    **Beneficios:**
+    - [Beneficio 1]
+    - [Beneficio 2]
 
 - **Resultado**: Proposito claro
 - **Verificacion**: Objetivo entendible
@@ -195,14 +195,14 @@ Antes de iniciar este procedimiento, verificar:
     2.1 Aplica A
     ^^^^^^^^^^^^
  
-  - [Contexto 1 donde aplica]
-  - [Contexto 2]
+    - [Contexto 1 donde aplica]
+    - [Contexto 2]
  
- 2.2 No Aplica A
- ^^^^^^^^^^^^^^^
+    2.2 No Aplica A
+    ^^^^^^^^^^^^^^^
  
-  - [Excepcion 1]
-  - [Excepcion 2]
+    - [Excepcion 1]
+    - [Excepcion 2]
 
 - **Resultado**: Alcance definido
 - **Verificacion**: Limites claros
@@ -216,19 +216,19 @@ Antes de iniciar este procedimiento, verificar:
 
     **Regla STD_001-R01: [Nombre de la regla]**
  
-  - **Descripcion**: [Que establece la regla]
-  - **Obligatoriedad**: Obligatorio | Recomendado
-  - **Verificacion**: Manual | Automatica | Herramienta
+    - **Descripcion**: [Que establece la regla]
+    - **Obligatoriedad**: Obligatorio | Recomendado
+    - **Verificacion**: Manual | Automatica | Herramienta
  
- **Ejemplo Correcto:**
+    **Ejemplo Correcto:**
  
- .. code-block:: [lenguaje]
+    .. code-block:: [lenguaje]
  
     [codigo o texto correcto]
  
- **Ejemplo Incorrecto:**
+    **Ejemplo Incorrecto:**
  
- .. code-block:: [lenguaje]
+    .. code-block:: [lenguaje]
  
     [codigo o texto incorrecto]
 
@@ -245,14 +245,14 @@ Antes de iniciar este procedimiento, verificar:
     .. list-table::
     :header-rows: 1
  
-  * - Regla
-  - Descripcion
-  - Obligatorio
-  - Verificacion
-  * - R01
-  - [Descripcion corta]
-  - Si/No
-  - Manual/Auto/Tool
+    * - Regla
+    - Descripcion
+    - Obligatorio
+    - Verificacion
+    * - R01
+    - [Descripcion corta]
+    - Si/No
+    - Manual/Auto/Tool
 
 - **Resultado**: Tabla resumen
 - **Verificacion**: Todas las reglas listadas
@@ -267,17 +267,17 @@ Antes de iniciar este procedimiento, verificar:
     9. Verificacion
     ---------------
  
- 9.1 Automatica
- ^^^^^^^^^^^^^^
+    9.1 Automatica
+    ^^^^^^^^^^^^^^
  
-  - Herramienta: [nombre]
-  - Comando: [comando]
+    - Herramienta: [nombre]
+    - Comando: [comando]
  
- 9.2 Manual
- ^^^^^^^^^^
+    9.2 Manual
+    ^^^^^^^^^^
  
-  - Checklist de revision
-  - Frecuencia: [cuando]
+    - Checklist de revision
+    - Frecuencia: [cuando]
 
 - **Resultado**: Metodos de verificacion
 - **Verificacion**: Al menos 1 metodo definido
@@ -292,11 +292,11 @@ Antes de iniciar este procedimiento, verificar:
     10. Excepciones
     ---------------
  
- **Proceso para solicitar excepcion:**
+    **Proceso para solicitar excepcion:**
  
-  1. Documentar justificacion
-  2. Aprobar con Arquitecto
-  3. Registrar en historial del artefacto
+    1. Documentar justificacion
+    2. Aprobar con Arquitecto
+    3. Registrar en historial del artefacto
 
 - **Resultado**: Proceso de excepciones
 - **Verificacion**: Proceso claro

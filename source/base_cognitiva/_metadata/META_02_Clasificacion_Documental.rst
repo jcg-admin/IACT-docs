@@ -147,12 +147,12 @@ bloque ``.. meta::``:
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: XX_NNN
- :clasificacion: Interno
+   .. meta::
+   :artefacto: XX_NNN
+   :clasificacion: Interno
 
-4.2. Valores Permitidos
-^^^^^^^^^^^^^^^^^^^^^^^
+   4.2. Valores Permitidos
+   ^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``Publico``
 - ``Interno``

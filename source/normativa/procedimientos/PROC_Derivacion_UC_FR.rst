@@ -341,13 +341,13 @@ genera al menos un FR.
     Requisitos Funcionales - MOD_Auth
  
  
- .. toctree::
- :maxdepth: 2
- :caption: UC_001: Iniciar Sesion
+    .. toctree::
+    :maxdepth: 2
+    :caption: UC_001: Iniciar Sesion
  
- UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato
- UC_001_Iniciar_Sesion/FR_UC001_02_Verificar_credenciales
- ...
+    UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato
+    UC_001_Iniciar_Sesion/FR_UC001_02_Verificar_credenciales
+    ...
 
 - **Resultado**: Index actualizado
 - **Verificacion**: Todos los FR listados en toctree

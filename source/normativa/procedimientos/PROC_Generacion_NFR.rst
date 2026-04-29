@@ -180,11 +180,11 @@ Antes de iniciar este procedimiento, verificar:
 
     **Descripcion:**
  
- El sistema DEBE [caracteristica de calidad] para [beneficio].
+    El sistema DEBE [caracteristica de calidad] para [beneficio].
  
- Ejemplo:
- "El sistema DEBE responder a peticiones API en menos de 500ms
- para garantizar una experiencia de usuario fluida."
+    Ejemplo:
+    "El sistema DEBE responder a peticiones API en menos de 500ms
+    para garantizar una experiencia de usuario fluida."
 
 - **Resultado**: Descripcion clara
 - **Verificacion**: Caracteristica identificable
@@ -198,9 +198,9 @@ Antes de iniciar este procedimiento, verificar:
 
     **Metrica:**
  
-  - Nombre: [Nombre de la metrica]
-  - Unidad: [ms, %, req/s, etc.]
-  - Formula: [Como se calcula]
+    - Nombre: [Nombre de la metrica]
+    - Unidad: [ms, %, req/s, etc.]
+    - Formula: [Como se calcula]
 
 - **Resultado**: Metrica definida
 - **Verificacion**: Metrica medible
@@ -214,21 +214,21 @@ Antes de iniciar este procedimiento, verificar:
 
     **Valores Objetivo:**
  
- .. list-table::
+    .. list-table::
     :header-rows: 1
  
-  * - Nivel
-  - Valor
-  - Descripcion
-  * - Minimo
-  - [valor]
-  - Limite inferior aceptable
-  * - Objetivo
-  - [valor]
-  - Valor deseado
-  * - Optimo
-  - [valor]
-  - Mejor caso posible
+    * - Nivel
+    - Valor
+    - Descripcion
+    * - Minimo
+    - [valor]
+    - Limite inferior aceptable
+    * - Objetivo
+    - [valor]
+    - Valor deseado
+    * - Optimo
+    - [valor]
+    - Mejor caso posible
 
 - **Resultado**: Umbrales definidos
 - **Verificacion**: 3 niveles especificados
@@ -242,10 +242,10 @@ Antes de iniciar este procedimiento, verificar:
 
     **Metodo de Medicion:**
  
-  - Herramienta: [nombre]
-  - Frecuencia: [cuando medir]
-  - Ambiente: [donde medir]
-  - Procedimiento: [como ejecutar medicion]
+    - Herramienta: [nombre]
+    - Frecuencia: [cuando medir]
+    - Ambiente: [donde medir]
+    - Procedimiento: [como ejecutar medicion]
 
 - **Resultado**: Metodo definido
 - **Verificacion**: Procedimiento replicable
@@ -259,10 +259,10 @@ Antes de iniciar este procedimiento, verificar:
 
     **Condiciones de Medicion:**
  
-  - Carga: [usuarios concurrentes, transacciones/s]
-  - Ambiente: [produccion, staging]
-  - Datos: [volumen de datos]
-  - Red: [condiciones de red]
+    - Carga: [usuarios concurrentes, transacciones/s]
+    - Ambiente: [produccion, staging]
+    - Datos: [volumen de datos]
+    - Red: [condiciones de red]
 
 - **Resultado**: Condiciones especificadas
 - **Verificacion**: Contexto reproducible
@@ -276,9 +276,9 @@ Antes de iniciar este procedimiento, verificar:
 
     **Impacto en Arquitectura:**
  
-  - Componentes afectados: [lista]
-  - Decisiones de diseno: [ADR relacionados]
-  - Trade-offs: [compromisos]
+    - Componentes afectados: [lista]
+    - Decisiones de diseno: [ADR relacionados]
+    - Trade-offs: [compromisos]
 
 - **Resultado**: Impacto documentado
 - **Verificacion**: Componentes identificados

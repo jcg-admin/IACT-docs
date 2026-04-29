@@ -206,7 +206,7 @@ Antes de iniciar este procedimiento, verificar:
     Reglas de Negocio (BR) - [DESCONGELADO]
  
  
- .. warning:: **Estado: DESCONGELADO**
+    .. warning:: **Estado: DESCONGELADO**
  
     Este subdominio fue descongelado el 2026-01-07.
     Razon: Agregar BR_021 por nuevo requisito de seguridad.

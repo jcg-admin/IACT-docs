@@ -114,420 +114,420 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: PROC_[NNN]
- :tipo: Procedimiento
- :dominio: normativa
- :subdominio: procedimientos
- :estado: [Borrador|Revision|Aprobado]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :ultimo_cambio: [YYYY-MM-DD]
- :autor: Equipo IACT
- :clasificacion: Interno
+   .. meta::
+   :artefacto: PROC_[NNN]
+   :tipo: Procedimiento
+   :dominio: normativa
+   :subdominio: procedimientos
+   :estado: [Borrador|Revision|Aprobado]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :ultimo_cambio: [YYYY-MM-DD]
+   :autor: Equipo IACT
+   :clasificacion: Interno
 
- .. _proc-[nnn]:
+   .. _proc-[nnn]:
 
  
- PROC_[NNN]: [Nombre del Procedimiento]
+   PROC_[NNN]: [Nombre del Procedimiento]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- Resumen Ejecutivo
- -----------------
+   Resumen Ejecutivo
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - PROC_[NNN]
- * - **Nombre**
- - [Nombre descriptivo del procedimiento]
- * - **Categoría**
- - [Cambio|Generación|Derivación|Gobernanza|Trazabilidad|Verificación]
- * - **Frecuencia**
- - [Por evento|Diario|Semanal|Por release]
- * - **Duración Estimada**
- - [Tiempo estimado de ejecución]
- * - **Estado**
- - Vigente
+   * - **ID**
+   - PROC_[NNN]
+   * - **Nombre**
+   - [Nombre descriptivo del procedimiento]
+   * - **Categoría**
+   - [Cambio|Generación|Derivación|Gobernanza|Trazabilidad|Verificación]
+   * - **Frecuencia**
+   - [Por evento|Diario|Semanal|Por release]
+   * - **Duración Estimada**
+   - [Tiempo estimado de ejecución]
+   * - **Estado**
+   - Vigente
 
- ----
+   ----
 
- 1. Propósito
- ------------
+   1. Propósito
+   ------------
 
- [Descripción del objetivo del procedimiento en 2-3 oraciones.
- Responde: ¿Qué se logra al ejecutar este procedimiento?]
+   [Descripción del objetivo del procedimiento en 2-3 oraciones.
+   Responde: ¿Qué se logra al ejecutar este procedimiento?]
 
- ----
+   ----
 
- 2. Alcance
- ----------
+   2. Alcance
+   ----------
 
- 2.1 Aplica A
- ^^^^^^^^^^^^
+   2.1 Aplica A
+   ^^^^^^^^^^^^
 
- - [Artefactos, actividades o situaciones donde aplica]
- - [Otro contexto de aplicación]
+   - [Artefactos, actividades o situaciones donde aplica]
+   - [Otro contexto de aplicación]
 
- 2.2 No Aplica A
- ^^^^^^^^^^^^^^^
+   2.2 No Aplica A
+   ^^^^^^^^^^^^^^^
 
- - [Excepciones o situaciones donde NO se usa este procedimiento]
+   - [Excepciones o situaciones donde NO se usa este procedimiento]
 
- ----
+   ----
 
- 3. Roles y Responsabilidades
- ----------------------------
+   3. Roles y Responsabilidades
+   ----------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 20 30 50
     :header-rows: 1
 
- * - Rol
- - Responsabilidad
- - Permisos Requeridos
- * - [Rol_Ejecutor]
- - Ejecuta los pasos del procedimiento
- - [Función RBAC requerida]
- * - [Rol_Revisor]
- - Revisa y aprueba resultados
- - [Función RBAC requerida]
- * - [Rol_Aprobador]
- - Aprobación final
- - [Función RBAC requerida]
+   * - Rol
+   - Responsabilidad
+   - Permisos Requeridos
+   * - [Rol_Ejecutor]
+   - Ejecuta los pasos del procedimiento
+   - [Función RBAC requerida]
+   * - [Rol_Revisor]
+   - Revisa y aprueba resultados
+   - [Función RBAC requerida]
+   * - [Rol_Aprobador]
+   - Aprobación final
+   - [Función RBAC requerida]
 
- ----
+   ----
 
- 4. Precondiciones
- -----------------
+   4. Precondiciones
+   -----------------
 
- Antes de iniciar este procedimiento, verificar:
+   Antes de iniciar este procedimiento, verificar:
 
- - [ ] [Precondición 1: Artefacto o estado requerido]
- - [ ] [Precondición 2: Acceso o permiso necesario]
- - [ ] [Precondición 3: Template disponible]
- - [ ] [Precondición 4: Información de entrada completa]
+   - [ ] [Precondición 1: Artefacto o estado requerido]
+   - [ ] [Precondición 2: Acceso o permiso necesario]
+   - [ ] [Precondición 3: Template disponible]
+   - [ ] [Precondición 4: Información de entrada completa]
 
- ----
+   ----
 
- 5. Artefactos de Entrada
- ------------------------
+   5. Artefactos de Entrada
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 30 50 20
     :header-rows: 1
 
- * - Artefacto
- - Descripción
- - Obligatorio
- * - [TPL_xxx]
- - Plantilla a utilizar
- - Sí
- * - [Artefacto_Fuente]
- - Documento origen de información
- - Sí
- * - [Artefacto_Referencia]
- - Documento de consulta
- - No
+   * - Artefacto
+   - Descripción
+   - Obligatorio
+   * - [TPL_xxx]
+   - Plantilla a utilizar
+   - Sí
+   * - [Artefacto_Fuente]
+   - Documento origen de información
+   - Sí
+   * - [Artefacto_Referencia]
+   - Documento de consulta
+   - No
 
- ----
+   ----
 
- 6. Procedimiento
- ----------------
+   6. Procedimiento
+   ----------------
 
- 6.1 Diagrama de Flujo
- ^^^^^^^^^^^^^^^^^^^^^
+   6.1 Diagrama de Flujo
+   ^^^^^^^^^^^^^^^^^^^^^
 
- .. uml::
- :caption: Flujo del Procedimiento PROC_[NNN]
- :align: center
+   .. uml::
+   :caption: Flujo del Procedimiento PROC_[NNN]
+   :align: center
 
- @startuml
- skinparam backgroundColor #FAFAFA
- skinparam activity {
- BackgroundColor #E3F2FD
- BorderColor #1976D2
- DiamondBackgroundColor #FFF9C4
- DiamondBorderColor #F57C00
- }
+   @startuml
+   skinparam backgroundColor #FAFAFA
+   skinparam activity {
+   BackgroundColor #E3F2FD
+   BorderColor #1976D2
+   DiamondBackgroundColor #FFF9C4
+   DiamondBorderColor #F57C00
+   }
 
- start
+   start
 
- :[Paso 1];
+   :[Paso 1];
 
- if ([Condición de decisión]?) then (sí)
- :[Acción si verdadero];
- else (no)
- :[Acción si falso];
- endif
+   if ([Condición de decisión]?) then (sí)
+   :[Acción si verdadero];
+   else (no)
+   :[Acción si falso];
+   endif
 
- :[Paso final];
+   :[Paso final];
 
- stop
- @enduml
+   stop
+   @enduml
 
- 6.2 Pasos Detallados
- ^^^^^^^^^^^^^^^^^^^^
+   6.2 Pasos Detallados
+   ^^^^^^^^^^^^^^^^^^^^
 
- **Paso 1: [Nombre del Paso]**
+   **Paso 1: [Nombre del Paso]**
 
- - **Responsable**: [Rol]
- - **Acción**: [Descripción detallada de la acción]
- - **Resultado**: [Qué se produce o cambia]
- - **Verificación**: [Cómo verificar que se completó correctamente]
+   - **Responsable**: [Rol]
+   - **Acción**: [Descripción detallada de la acción]
+   - **Resultado**: [Qué se produce o cambia]
+   - **Verificación**: [Cómo verificar que se completó correctamente]
 
- **Paso 2: [Nombre del Paso]**
+   **Paso 2: [Nombre del Paso]**
 
- - **Responsable**: [Rol]
- - **Acción**: [Descripción detallada de la acción]
- - **Resultado**: [Qué se produce o cambia]
- - **Verificación**: [Cómo verificar que se completó correctamente]
+   - **Responsable**: [Rol]
+   - **Acción**: [Descripción detallada de la acción]
+   - **Resultado**: [Qué se produce o cambia]
+   - **Verificación**: [Cómo verificar que se completó correctamente]
 
- **Paso 3: [Nombre del Paso]**
+   **Paso 3: [Nombre del Paso]**
 
- - **Responsable**: [Rol]
- - **Acción**: [Descripción detallada de la acción]
- - **Resultado**: [Qué se produce o cambia]
- - **Verificación**: [Cómo verificar que se completó correctamente]
+   - **Responsable**: [Rol]
+   - **Acción**: [Descripción detallada de la acción]
+   - **Resultado**: [Qué se produce o cambia]
+   - **Verificación**: [Cómo verificar que se completó correctamente]
 
- **Paso N: [Nombre del Paso Final]**
+   **Paso N: [Nombre del Paso Final]**
 
- - **Responsable**: [Rol]
- - **Acción**: [Descripción detallada de la acción]
- - **Resultado**: [Qué se produce o cambia]
- - **Verificación**: [Cómo verificar que se completó correctamente]
+   - **Responsable**: [Rol]
+   - **Acción**: [Descripción detallada de la acción]
+   - **Resultado**: [Qué se produce o cambia]
+   - **Verificación**: [Cómo verificar que se completó correctamente]
 
- ----
+   ----
 
- 7. Artefactos de Salida
- -----------------------
+   7. Artefactos de Salida
+   -----------------------
 
- .. list-table::
+   .. list-table::
     :widths: 30 50 20
     :header-rows: 1
 
- * - Artefacto
- - Descripción
- - Ubicación
- * - [Artefacto_Generado]
- - [Descripción del artefacto producido]
- - [Ruta en el proyecto]
- * - [Registro_Actualizado]
- - [Documento actualizado como resultado]
- - [Ruta en el proyecto]
+   * - Artefacto
+   - Descripción
+   - Ubicación
+   * - [Artefacto_Generado]
+   - [Descripción del artefacto producido]
+   - [Ruta en el proyecto]
+   * - [Registro_Actualizado]
+   - [Documento actualizado como resultado]
+   - [Ruta en el proyecto]
 
- ----
+   ----
 
- 8. Postcondiciones
- ------------------
+   8. Postcondiciones
+   ------------------
 
- Al finalizar este procedimiento:
+   Al finalizar este procedimiento:
 
- - [ ] [Postcondición 1: Estado final del sistema o artefacto]
- - [ ] [Postcondición 2: Registro o log actualizado]
- - [ ] [Postcondición 3: Notificación enviada]
+   - [ ] [Postcondición 1: Estado final del sistema o artefacto]
+   - [ ] [Postcondición 2: Registro o log actualizado]
+   - [ ] [Postcondición 3: Notificación enviada]
 
- ----
+   ----
 
- 9. Verificación y Validación
- ----------------------------
+   9. Verificación y Validación
+   ----------------------------
 
- 9.1 Criterios de Aceptación
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9.1 Criterios de Aceptación
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [ ] [Criterio 1: Artefacto cumple con template]
- - [ ] [Criterio 2: Nomenclatura correcta]
- - [ ] [Criterio 3: Trazabilidad completa]
- - [ ] [Criterio 4: Validación Sphinx exitosa]
+   - [ ] [Criterio 1: Artefacto cumple con template]
+   - [ ] [Criterio 2: Nomenclatura correcta]
+   - [ ] [Criterio 3: Trazabilidad completa]
+   - [ ] [Criterio 4: Validación Sphinx exitosa]
 
- 9.2 Comando de Validación
- ^^^^^^^^^^^^^^^^^^^^^^^^^
+   9.2 Comando de Validación
+   ^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. code-block:: bash
+   .. code-block:: bash
 
     # Validar artefactos generados
     sphinx-build -b html -W docs/ docs/_build/
 
- ----
+   ----
 
- 10. Manejo de Excepciones
- -------------------------
+   10. Manejo de Excepciones
+   -------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 30 70
     :header-rows: 1
 
- * - Excepción
- - Acción Correctiva
- * - [Excepción 1]
- - [Qué hacer si ocurre esta excepción]
- * - [Excepción 2]
- - [Qué hacer si ocurre esta excepción]
+   * - Excepción
+   - Acción Correctiva
+   * - [Excepción 1]
+   - [Qué hacer si ocurre esta excepción]
+   * - [Excepción 2]
+   - [Qué hacer si ocurre esta excepción]
 
- ----
+   ----
 
- 11. Referencias
- ---------------
+   11. Referencias
+   ---------------
 
- - [TPL_xxx]: Plantilla utilizada
- - [STD_xxx]: Estándar relacionado
- - [PROC_xxx]: Procedimiento relacionado
+   - [TPL_xxx]: Plantilla utilizada
+   - [STD_xxx]: Estándar relacionado
+   - [PROC_xxx]: Procedimiento relacionado
 
- ----
+   ----
 
- 12. Historial de Cambios
- ------------------------
+   12. Historial de Cambios
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Versión
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Versión inicial
+   * - Versión
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Versión inicial
 
- ----
+   ----
 
- *Documento versión 1.0.0 - Proyecto IACT Dashboard Analytics*
+   *Documento versión 1.0.0 - Proyecto IACT Dashboard Analytics*
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada PROC DEBE incluir mínimo estas 12 secciones:
+   Cada PROC DEBE incluir mínimo estas 12 secciones:
 
-.. list-table::
- :widths: 5 25 70
- :header-rows: 1
+   .. list-table::
+   :widths: 5 25 70
+   :header-rows: 1
 
- * - #
+   * - #
    - Sección
    - Contenido
- * - 0
+   * - 0
    - Resumen Ejecutivo
    - ID, nombre, categoría, frecuencia, duración
- * - 1
+   * - 1
    - Propósito
    - Objetivo del procedimiento
- * - 2
+   * - 2
    - Alcance
    - Donde aplica y donde NO aplica
- * - 3
+   * - 3
    - Roles y Responsabilidades
    - Quién ejecuta, revisa, aprueba
- * - 4
+   * - 4
    - Precondiciones
    - Checklist antes de iniciar
- * - 5
+   * - 5
    - Artefactos de Entrada
    - Templates y documentos necesarios
- * - 6
+   * - 6
    - Procedimiento
    - Diagrama + pasos detallados
- * - 7
+   * - 7
    - Artefactos de Salida
    - Qué se produce
- * - 8
+   * - 8
    - Postcondiciones
    - Estado final esperado
- * - 9
+   * - 9
    - Verificación
    - Criterios y comandos de validación
- * - 10
+   * - 10
    - Manejo de Excepciones
    - Qué hacer si algo falla
- * - 11
+   * - 11
    - Referencias
    - Templates, estándares, otros PROC
- * - 12
+   * - 12
    - Historial
    - Control de versiones
 
-----
+   ----
 
-Categorías de Procedimientos
-----------------------------
+   Categorías de Procedimientos
+   ----------------------------
 
-.. list-table::
- :widths: 25 75
- :header-rows: 1
+   .. list-table::
+   :widths: 25 75
+   :header-rows: 1
 
- * - Categoría
+   * - Categoría
    - Descripción
- * - **Cambio**
+   * - **Cambio**
    - Control de cambios en requisitos y documentos
- * - **Generación**
+   * - **Generación**
    - Crear nuevos artefactos (BR, UC, FR, etc.)
- * - **Derivación**
+   * - **Derivación**
    - Derivar artefactos hijos de padres (UC→FR)
- * - **Gobernanza**
+   * - **Gobernanza**
    - Versionado, congelamiento, aprobaciones
- * - **Trazabilidad**
+   * - **Trazabilidad**
    - Generar y mantener RTM
- * - **Verificación**
+   * - **Verificación**
    - Validar cumplimiento y cobertura
 
-----
+   ----
 
-Ejemplo de Pasos
-----------------
+   Ejemplo de Pasos
+   ----------------
 
-**Ejemplo: Procedimiento de Generación de FR**
+   **Ejemplo: Procedimiento de Generación de FR**
 
-::
+   ::
 
- Paso 1: Revisar Template
- - Responsable: Analista
- - Acción: Abrir TPL_FR_Requisitos_Funcionales_1_0_0.rst
- - Resultado: Template disponible para uso
- - Verificación: Template existe y es versión correcta
+   Paso 1: Revisar Template
+   - Responsable: Analista
+   - Acción: Abrir TPL_FR_Requisitos_Funcionales_1_0_0.rst
+   - Resultado: Template disponible para uso
+   - Verificación: Template existe y es versión correcta
 
- Paso 2: Identificar UC Padre
- - Responsable: Analista
- - Acción: Localizar UC del cual se derivará el FR
- - Resultado: UC identificado con sus pasos de flujo
- - Verificación: UC está en estado Aprobado
+   Paso 2: Identificar UC Padre
+   - Responsable: Analista
+   - Acción: Localizar UC del cual se derivará el FR
+   - Resultado: UC identificado con sus pasos de flujo
+   - Verificación: UC está en estado Aprobado
 
- Paso 3: Crear Archivo FR
- - Responsable: Analista
- - Acción: Copiar template y nombrar según nomenclatura
- - Resultado: Archivo FR_UCxxx_nn_nn.rst creado
- - Verificación: Nombre sigue patrón FR_UC[MOD]_[NN]_[NN].rst
+   Paso 3: Crear Archivo FR
+   - Responsable: Analista
+   - Acción: Copiar template y nombrar según nomenclatura
+   - Resultado: Archivo FR_UCxxx_nn_nn.rst creado
+   - Verificación: Nombre sigue patrón FR_UC[MOD]_[NN]_[NN].rst
 
- Paso 4: Completar Secciones
- - Responsable: Analista
- - Acción: Llenar las 6 secciones obligatorias
- - Resultado: FR documentado completamente
- - Verificación: Todas las secciones tienen contenido
+   Paso 4: Completar Secciones
+   - Responsable: Analista
+   - Acción: Llenar las 6 secciones obligatorias
+   - Resultado: FR documentado completamente
+   - Verificación: Todas las secciones tienen contenido
 
- Paso 5: Validar
- - Responsable: Analista
- - Acción: Ejecutar sphinx-build -W
- - Resultado: Build exitoso sin errores
- - Verificación: Comando retorna código 0
+   Paso 5: Validar
+   - Responsable: Analista
+   - Acción: Ejecutar sphinx-build -W
+   - Resultado: Build exitoso sin errores
+   - Verificación: Comando retorna código 0
 
-----
+   ----
 
-Validación
-----------
+   Validación
+   ----------
 
-Antes de aprobar un PROC, verificar:
+   Antes de aprobar un PROC, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura PROC_[NNN]
 - [ ] Categoría asignada correctamente

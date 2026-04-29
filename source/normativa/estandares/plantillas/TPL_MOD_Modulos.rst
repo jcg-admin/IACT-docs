@@ -118,404 +118,404 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: MOD_[Nombre]
- :tipo: Modulo Arquitectonico
- :dominio: arquitectura_tecnica
- :subdominio: modulos
- :django_app: apps.[nombre]
- :estado: [Borrador|Revision|Aprobado]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :ultimo_cambio: [YYYY-MM-DD]
- :autor: Equipo IACT
- :clasificacion: Interno
+   .. meta::
+   :artefacto: MOD_[Nombre]
+   :tipo: Modulo Arquitectonico
+   :dominio: arquitectura_tecnica
+   :subdominio: modulos
+   :django_app: apps.[nombre]
+   :estado: [Borrador|Revision|Aprobado]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :ultimo_cambio: [YYYY-MM-DD]
+   :autor: Equipo IACT
+   :clasificacion: Interno
 
- .. _mod-[nombre]:
+   .. _mod-[nombre]:
 
  
- MOD_[Nombre]: [Titulo del Modulo]
+   MOD_[Nombre]: [Titulo del Modulo]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- Resumen Ejecutivo
- -----------------
+   Resumen Ejecutivo
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - MOD_[Nombre]
- * - **Nombre**
- - [Nombre descriptivo del modulo]
- * - **Django App**
- - apps.[nombre]
- * - **Prefijo UC**
- - UC_[MOD]_
- * - **Total UC**
- - [N] casos de uso
- * - **BReq Asociado**
- - BReq_[MOD]
- * - **Estado**
- - [Activo|En desarrollo|Congelado]
+   * - **ID**
+   - MOD_[Nombre]
+   * - **Nombre**
+   - [Nombre descriptivo del modulo]
+   * - **Django App**
+   - apps.[nombre]
+   * - **Prefijo UC**
+   - UC_[MOD]_
+   * - **Total UC**
+   - [N] casos de uso
+   * - **BReq Asociado**
+   - BReq_[MOD]
+   * - **Estado**
+   - [Activo|En desarrollo|Congelado]
 
- ----
+   ----
 
- 1. Proposito
- ------------
+   1. Proposito
+   ------------
 
- [Descripcion del proposito principal del modulo en 2-3 oraciones.
- Responde: Cual es la razon de existencia de este modulo?]
+   [Descripcion del proposito principal del modulo en 2-3 oraciones.
+   Responde: Cual es la razon de existencia de este modulo?]
 
- ----
+   ----
 
- 2. Responsabilidades (PUEDE hacer)
- ----------------------------------
+   2. Responsabilidades (PUEDE hacer)
+   ----------------------------------
 
- Este modulo ES RESPONSABLE de:
+   Este modulo ES RESPONSABLE de:
 
- - [Responsabilidad 1: Descripcion de lo que puede hacer]
- - [Responsabilidad 2: Descripcion de lo que puede hacer]
- - [Responsabilidad 3: Descripcion de lo que puede hacer]
- - [Responsabilidad N: Descripcion de lo que puede hacer]
+   - [Responsabilidad 1: Descripcion de lo que puede hacer]
+   - [Responsabilidad 2: Descripcion de lo que puede hacer]
+   - [Responsabilidad 3: Descripcion de lo que puede hacer]
+   - [Responsabilidad N: Descripcion de lo que puede hacer]
 
- ----
+   ----
 
- 3. Limites (NO PUEDE hacer)
- ---------------------------
+   3. Limites (NO PUEDE hacer)
+   ---------------------------
 
- Este modulo NO ES RESPONSABLE de:
+   Este modulo NO ES RESPONSABLE de:
 
- - [Limite 1: Lo que NO puede hacer y quien lo hace]
- - [Limite 2: Lo que NO puede hacer y quien lo hace]
- - [Limite 3: Lo que NO puede hacer y quien lo hace]
+   - [Limite 1: Lo que NO puede hacer y quien lo hace]
+   - [Limite 2: Lo que NO puede hacer y quien lo hace]
+   - [Limite 3: Lo que NO puede hacer y quien lo hace]
 
- ----
+   ----
 
- 4. Casos de Uso Asociados
- -------------------------
+   4. Casos de Uso Asociados
+   -------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 20 50 30
     :header-rows: 1
 
- * - UC
- - Nombre
- - Estado
- * - UC_[MOD]_01
- - [Nombre del UC]
- - [Aprobado|En revision]
- * - UC_[MOD]_02
- - [Nombre del UC]
- - [Aprobado|En revision]
- * - UC_[MOD]_NN
- - [Nombre del UC]
- - [Aprobado|En revision]
+   * - UC
+   - Nombre
+   - Estado
+   * - UC_[MOD]_01
+   - [Nombre del UC]
+   - [Aprobado|En revision]
+   * - UC_[MOD]_02
+   - [Nombre del UC]
+   - [Aprobado|En revision]
+   * - UC_[MOD]_NN
+   - [Nombre del UC]
+   - [Aprobado|En revision]
 
- ----
+   ----
 
- 5. Restricciones Aplicables (CNST)
- ----------------------------------
+   5. Restricciones Aplicables (CNST)
+   ----------------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 15 45 40
     :header-rows: 1
 
- * - CNST
- - Nombre
- - Aplicacion en MOD
- * - CNST_[NNN]
- - [Nombre de la restriccion]
- - [Como aplica al modulo]
- * - CNST_[NNN]
- - [Nombre de la restriccion]
- - [Como aplica al modulo]
+   * - CNST
+   - Nombre
+   - Aplicacion en MOD
+   * - CNST_[NNN]
+   - [Nombre de la restriccion]
+   - [Como aplica al modulo]
+   * - CNST_[NNN]
+   - [Nombre de la restriccion]
+   - [Como aplica al modulo]
 
- ----
+   ----
 
- 6. Business Rules Aplicables (BR)
- ---------------------------------
+   6. Business Rules Aplicables (BR)
+   ---------------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 15 45 40
     :header-rows: 1
 
- * - BR
- - Nombre
- - Aplicacion en MOD
- * - BR_[NNN]
- - [Nombre de la regla]
- - [Como aplica al modulo]
- * - BR_[NNN]
- - [Nombre de la regla]
- - [Como aplica al modulo]
+   * - BR
+   - Nombre
+   - Aplicacion en MOD
+   * - BR_[NNN]
+   - [Nombre de la regla]
+   - [Como aplica al modulo]
+   * - BR_[NNN]
+   - [Nombre de la regla]
+   - [Como aplica al modulo]
 
- ----
+   ----
 
- 7. Dependencias con otros Modulos
- ---------------------------------
+   7. Dependencias con otros Modulos
+   ---------------------------------
 
- 7.1 Depende de
- ^^^^^^^^^^^^^^
+   7.1 Depende de
+   ^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 20 40 40
     :header-rows: 1
 
- * - Modulo
- - Tipo Dependencia
- - Descripcion
- * - MOD_[xxx]
- - [Obligatoria|Opcional]
- - [Para que necesita este modulo]
+   * - Modulo
+   - Tipo Dependencia
+   - Descripcion
+   * - MOD_[xxx]
+   - [Obligatoria|Opcional]
+   - [Para que necesita este modulo]
 
- 7.2 Dependido por
- ^^^^^^^^^^^^^^^^^
+   7.2 Dependido por
+   ^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 20 40 40
     :header-rows: 1
 
- * - Modulo
- - Tipo Dependencia
- - Descripcion
- * - MOD_[yyy]
- - [Obligatoria|Opcional]
- - [Por que depende de este modulo]
+   * - Modulo
+   - Tipo Dependencia
+   - Descripcion
+   * - MOD_[yyy]
+   - [Obligatoria|Opcional]
+   - [Por que depende de este modulo]
 
- ----
+   ----
 
- 8. Componentes Internos
- -----------------------
+   8. Componentes Internos
+   -----------------------
 
- 8.1 Estructura Django
- ^^^^^^^^^^^^^^^^^^^^^
+   8.1 Estructura Django
+   ^^^^^^^^^^^^^^^^^^^^^
 
- ::
+   ::
 
- apps/[nombre]/
- |-- __init__.py
- |-- admin.py
- |-- apps.py
- |-- models.py # Modelos de datos
- |-- views.py # Vistas/ViewSets DRF
- |-- serializers.py # Serializadores DRF
- |-- services.py # Logica de negocio
- |-- urls.py # Rutas del modulo
- |-- permissions.py # Permisos personalizados
- +-- tests/
- |-- __init__.py
- |-- test_models.py
- |-- test_views.py
- +-- test_services.py
+   apps/[nombre]/
+   |-- __init__.py
+   |-- admin.py
+   |-- apps.py
+   |-- models.py # Modelos de datos
+   |-- views.py # Vistas/ViewSets DRF
+   |-- serializers.py # Serializadores DRF
+   |-- services.py # Logica de negocio
+   |-- urls.py # Rutas del modulo
+   |-- permissions.py # Permisos personalizados
+   +-- tests/
+   |-- __init__.py
+   |-- test_models.py
+   |-- test_views.py
+   +-- test_services.py
 
- 8.2 Modelos Principales
- ^^^^^^^^^^^^^^^^^^^^^^^
+   8.2 Modelos Principales
+   ^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 1
 
- * - Modelo
- - Descripcion
- * - [NombreModelo]
- - [Descripcion del modelo y su proposito]
- * - [NombreModelo]
- - [Descripcion del modelo y su proposito]
+   * - Modelo
+   - Descripcion
+   * - [NombreModelo]
+   - [Descripcion del modelo y su proposito]
+   * - [NombreModelo]
+   - [Descripcion del modelo y su proposito]
 
- 8.3 Servicios
- ^^^^^^^^^^^^^
+   8.3 Servicios
+   ^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 30 70
     :header-rows: 1
 
- * - Servicio
- - Responsabilidad
- * - [NombreService]
- - [Que hace este servicio]
- * - [NombreService]
- - [Que hace este servicio]
+   * - Servicio
+   - Responsabilidad
+   * - [NombreService]
+   - [Que hace este servicio]
+   * - [NombreService]
+   - [Que hace este servicio]
 
- ----
+   ----
 
- 9. Diagrama de Componentes
- --------------------------
+   9. Diagrama de Componentes
+   --------------------------
 
- .. uml::
- :caption: Componentes de MOD_[Nombre]
- :align: center
+   .. uml::
+   :caption: Componentes de MOD_[Nombre]
+   :align: center
 
- @startuml
- skinparam backgroundColor #FAFAFA
- skinparam component {
- BackgroundColor #E3F2FD
- BorderColor #1976D2
- }
- skinparam package {
- BackgroundColor #FAFAFA
- BorderColor #90A4AE
- }
+   @startuml
+   skinparam backgroundColor #FAFAFA
+   skinparam component {
+   BackgroundColor #E3F2FD
+   BorderColor #1976D2
+   }
+   skinparam package {
+   BackgroundColor #FAFAFA
+   BorderColor #90A4AE
+   }
 
- package "MOD_[Nombre]" {
- [Views/ViewSets] as V
- [Serializers] as S
- [Services] as SVC
- [Models] as M
- [Permissions] as P
- }
+   package "MOD_[Nombre]" {
+   [Views/ViewSets] as V
+   [Serializers] as S
+   [Services] as SVC
+   [Models] as M
+   [Permissions] as P
+   }
 
- database "PostgreSQL" as DB
+   database "PostgreSQL" as DB
 
- V --> S : usa
- V --> P : verifica
- S --> SVC : delega
- SVC --> M : opera
- M --> DB : persiste
+   V --> S : usa
+   V --> P : verifica
+   S --> SVC : delega
+   SVC --> M : opera
+   M --> DB : persiste
 
- @enduml
+   @enduml
 
- ----
+   ----
 
- 10. Interfaces Expuestas
- ------------------------
+   10. Interfaces Expuestas
+   ------------------------
 
- 10.1 API Endpoints
- ^^^^^^^^^^^^^^^^^^
+   10.1 API Endpoints
+   ^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 15 35 25 25
     :header-rows: 1
 
- * - Metodo
- - Endpoint
- - Descripcion
- - Permiso
- * - GET
- - /api/[modulo]/
- - [Descripcion]
- - [funcion_requerida]
- * - POST
- - /api/[modulo]/
- - [Descripcion]
- - [funcion_requerida]
+   * - Metodo
+   - Endpoint
+   - Descripcion
+   - Permiso
+   * - GET
+   - /api/[modulo]/
+   - [Descripcion]
+   - [funcion_requerida]
+   * - POST
+   - /api/[modulo]/
+   - [Descripcion]
+   - [funcion_requerida]
 
- 10.2 Eventos Emitidos
- ^^^^^^^^^^^^^^^^^^^^^
+   10.2 Eventos Emitidos
+   ^^^^^^^^^^^^^^^^^^^^^
 
- - [Evento 1]: [Cuando se emite y que contiene]
- - [Evento 2]: [Cuando se emite y que contiene]
+   - [Evento 1]: [Cuando se emite y que contiene]
+   - [Evento 2]: [Cuando se emite y que contiene]
 
- ----
+   ----
 
- 11. Trazabilidad
- ----------------
+   11. Trazabilidad
+   ----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **BReq Origen**
- - BReq_[MOD]: [Nombre]
- * - **UC Asociados**
- - UC_[MOD]_01, UC_[MOD]_02, ... UC_[MOD]_NN
- * - **CNST Aplicables**
- - CNST_[NNN], CNST_[NNN]
- * - **BR Aplicables**
- - BR_[NNN], BR_[NNN]
- * - **API Documento**
- - API_[Nombre].rst
+   * - **BReq Origen**
+   - BReq_[MOD]: [Nombre]
+   * - **UC Asociados**
+   - UC_[MOD]_01, UC_[MOD]_02, ... UC_[MOD]_NN
+   * - **CNST Aplicables**
+   - CNST_[NNN], CNST_[NNN]
+   * - **BR Aplicables**
+   - BR_[NNN], BR_[NNN]
+   * - **API Documento**
+   - API_[Nombre].rst
 
- ----
+   ----
 
- 12. Historial de Cambios
- ------------------------
+   12. Historial de Cambios
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Version
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Version inicial
+   * - Version
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Version inicial
 
- ----
+   ----
 
- *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
+   *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada MOD DEBE incluir minimo estas 12 secciones:
+   Cada MOD DEBE incluir minimo estas 12 secciones:
 
-.. list-table::
- :widths: 5 30 65
- :header-rows: 1
+   .. list-table::
+   :widths: 5 30 65
+   :header-rows: 1
 
- * - #
+   * - #
    - Seccion
    - Contenido
- * - 0
+   * - 0
    - Resumen Ejecutivo
    - ID, Django App, prefijo UC, BReq
- * - 1
+   * - 1
    - Proposito
    - Razon de existencia del modulo
- * - 2
+   * - 2
    - Responsabilidades
    - Lo que PUEDE hacer
- * - 3
+   * - 3
    - Limites
    - Lo que NO PUEDE hacer
- * - 4
+   * - 4
    - Casos de Uso
    - UC asociados al modulo
- * - 5
+   * - 5
    - Restricciones (CNST)
    - CNST que aplican
- * - 6
+   * - 6
    - Business Rules (BR)
    - BR que aplican
- * - 7
+   * - 7
    - Dependencias
    - Relacion con otros modulos
- * - 8
+   * - 8
    - Componentes Internos
    - Estructura Django, modelos, servicios
- * - 9
+   * - 9
    - Diagrama
    - PlantUML de componentes
- * - 10
+   * - 10
    - Interfaces
    - API endpoints, eventos
- * - 11
+   * - 11
    - Trazabilidad
    - Enlaces a BReq, UC, CNST, BR, API
- * - 12
+   * - 12
    - Historial
    - Control de versiones
 
-----
+   ----
 
-Validacion
-----------
+   Validacion
+   ----------
 
-Antes de aprobar un MOD, verificar:
+   Antes de aprobar un MOD, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura MOD_[Nombre]
 - [ ] Django App especificada correctamente

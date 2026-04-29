@@ -237,28 +237,28 @@ Antes de iniciar este procedimiento, verificar:
     * - **Estado**
     - Pendiente
 
- **3.2 Seccion Precondiciones:**
+    **3.2 Seccion Precondiciones:**
 
- .. code-block:: rst
+    .. code-block:: rst
 
     - [ ] Usuario de prueba existe en BD
     - [ ] Credenciales verificadas (mock o fixture)
     - [ ] SECRET_KEY configurada
 
- **3.3 Seccion Datos de Prueba:**
+    **3.3 Seccion Datos de Prueba:**
 
- .. code-block:: rst
+    .. code-block:: rst
 
     **Datos de Entrada:**
  
-  - user_id: "uuid-test-001"
-  - username: "test_user"
-  - roles: ["ROL-003"]
-  - segment_id: 1
+    - user_id: "uuid-test-001"
+    - username: "test_user"
+    - roles: ["ROL-003"]
+    - segment_id: 1
  
- **Datos de Contexto:**
+    **Datos de Contexto:**
  
-  - SECRET_KEY: "test-secret-key-256-bits"
+    - SECRET_KEY: "test-secret-key-256-bits"
 
 - **Resultado**: Secciones de datos completas
 - **Verificacion**: Datos suficientes para prueba
@@ -274,18 +274,18 @@ Antes de iniciar este procedimiento, verificar:
     :widths: 10 50 40
     :header-rows: 1
  
-  * - Paso
-  - Accion
-  - Resultado Esperado
-  * - 1
-  - Preparar usuario con credenciales verificadas
-  - Objeto User disponible
-  * - 2
-  - Invocar metodo generate_jwt_token(user)
-  - Token JWT retornado
-  * - 3
-  - Decodificar token
-  - Payload contiene user_id, roles, exp
+    * - Paso
+    - Accion
+    - Resultado Esperado
+    * - 1
+    - Preparar usuario con credenciales verificadas
+    - Objeto User disponible
+    * - 2
+    - Invocar metodo generate_jwt_token(user)
+    - Token JWT retornado
+    * - 3
+    - Decodificar token
+    - Payload contiene user_id, roles, exp
 
 - **Resultado**: Pasos de ejecucion definidos
 - **Verificacion**: Pasos son ejecutables

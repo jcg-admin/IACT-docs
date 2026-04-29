@@ -212,20 +212,20 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **Precondiciones:**
  
-  1. [Condicion que debe cumplirse antes]
-  2. [Otra condicion]
+    1. [Condicion que debe cumplirse antes]
+    2. [Otra condicion]
  
- **Trigger:**
+    **Trigger:**
  
- [Evento que inicia el UC]
+    [Evento que inicia el UC]
  
- **Postcondiciones de Exito:**
+    **Postcondiciones de Exito:**
  
-  1. [Estado despues de exito]
+    1. [Estado despues de exito]
  
- **Garantias Minimas:**
+    **Garantias Minimas:**
  
-  1. [Lo que siempre se cumple, exito o fallo]
+    1. [Lo que siempre se cumple, exito o fallo]
 
 - **Resultado**: Contexto completo
 - **Verificacion**: 4 elementos definidos
@@ -239,18 +239,18 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     ::
  
-  1. Actor [accion]
-  2. Sistema [respuesta]
-  3. Actor [accion]
-  4. Sistema [respuesta]
- ...
+    1. Actor [accion]
+    2. Sistema [respuesta]
+    3. Actor [accion]
+    4. Sistema [respuesta]
+    ...
 
- **Reglas:**
+    **Reglas:**
  
-  - Alternar actor/sistema cuando aplique
-  - Pasos del sistema inician con "Sistema"
-  - Ser especifico, no ambiguo
-  - 5-15 pasos tipicamente
+    - Alternar actor/sistema cuando aplique
+    - Pasos del sistema inician con "Sistema"
+    - Ser especifico, no ambiguo
+    - 5-15 pasos tipicamente
 
 - **Resultado**: Flujo normal completo
 - **Verificacion**: Pasos claros y secuenciales
@@ -264,11 +264,11 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **FA-1: [Nombre del flujo alterno]**
  
- ::
+    ::
  
- Na. [Condicion alternativa]
- Nb. Sistema [accion]
- Nc. [Continua o termina]
+    Na. [Condicion alternativa]
+    Nb. Sistema [accion]
+    Nc. [Continua o termina]
 
 - **Resultado**: Flujos alternos documentados
 - **Verificacion**: Cada FA tiene condicion clara
@@ -282,11 +282,11 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **EX-1: [Nombre de la excepcion]**
  
- ::
+    ::
  
- *a. [Condicion de error]
- *b. Sistema [manejo del error]
- *c. UC termina
+    *a. [Condicion de error]
+    *b. Sistema [manejo del error]
+    *c. UC termina
 
 - **Resultado**: Excepciones documentadas
 - **Verificacion**: Manejo de errores claro
@@ -301,12 +301,12 @@ Segun TPL_UC v2.0.0, un UC tiene:
     .. list-table::
     :header-rows: 1
  
-  * - BR
-  - Nombre
-  - Aplicacion
-  * - BR_005
-  - Sesion Unica
-  - Paso 7: Invalida sesiones
+    * - BR
+    - Nombre
+    - Aplicacion
+    * - BR_005
+    - Sesion Unica
+    - Paso 7: Invalida sesiones
 
 - **Resultado**: BR vinculadas
 - **Verificacion**: BR existen en catalogo
@@ -320,9 +320,9 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **FR Derivados:**
  
-  - FR-001.01: Validar formato username
-  - FR-001.02: Validar credenciales
-  - FR-001.03: Generar token JWT
+    - FR-001.01: Validar formato username
+    - FR-001.02: Validar credenciales
+    - FR-001.03: Generar token JWT
 
 - **Resultado**: FR identificados
 - **Verificacion**: Nomenclatura FR correcta

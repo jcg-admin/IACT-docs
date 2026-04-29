@@ -321,48 +321,48 @@ de restricciones del cliente y politicas organizacionales.
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: BR_NNN
- :tipo: Regla de Negocio
- :dominio: requisitos
- :subdominio: reglas_negocio
- :estado: [Borrador|En Revision|Aprobado]
- :version: 1.0.0
+   .. meta::
+   :artefacto: BR_NNN
+   :tipo: Regla de Negocio
+   :dominio: requisitos
+   :subdominio: reglas_negocio
+   :estado: [Borrador|En Revision|Aprobado]
+   :version: 1.0.0
 
- .. _br-nnn:
+   .. _br-nnn:
 
- ==============================================================================
- BR_NNN: [Nombre Descriptivo]
- ==============================================================================
+   ==============================================================================
+   BR_NNN: [Nombre Descriptivo]
+   ==============================================================================
 
- 1. Definicion Formal
- --------------------
+   1. Definicion Formal
+   --------------------
  
- **Enunciado SBVR:**
+   **Enunciado SBVR:**
  
- Es [obligatorio|prohibido|necesario] que [sujeto] [verbo] [complemento]
- [cuando condicion].
+   Es [obligatorio|prohibido|necesario] que [sujeto] [verbo] [complemento]
+   [cuando condicion].
 
- 2. Clasificacion
- ----------------
+   2. Clasificacion
+   ----------------
  
- - **Tipo:** [Restriccion|Desencadenador|Hecho|Calculo|Inferencia]
- - **Modalidad:** [Aletrica|Deontica]
- - **Origen:** [CNST_NNN|Politica X|Regulacion Y]
+   - **Tipo:** [Restriccion|Desencadenador|Hecho|Calculo|Inferencia]
+   - **Modalidad:** [Aletrica|Deontica]
+   - **Origen:** [CNST_NNN|Politica X|Regulacion Y]
 
- 3. Justificacion
- ----------------
+   3. Justificacion
+   ----------------
  
- [Por que existe esta regla]
+   [Por que existe esta regla]
 
- 4. Trazabilidad
- ---------------
+   4. Trazabilidad
+   ---------------
  
- **Deriva de:** CNST_NNN
- **Genera:** BReq_NNN, UC_NNN
+   **Deriva de:** CNST_NNN
+   **Genera:** BReq_NNN, UC_NNN
 
-8.5 Criterio de Salida Fase 1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8.5 Criterio de Salida Fase 1
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Todos los BR derivados de CNST estan documentados
 - Cada BR tiene estado "Aprobado"
@@ -443,50 +443,50 @@ el proyecto, derivadas de las reglas de negocio.
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: BReq_NNN
- :tipo: Requisito de Negocio
- :dominio: requisitos
- :subdominio: requisitos_negocio
- :estado: [Borrador|En Revision|Aprobado]
+   .. meta::
+   :artefacto: BReq_NNN
+   :tipo: Requisito de Negocio
+   :dominio: requisitos
+   :subdominio: requisitos_negocio
+   :estado: [Borrador|En Revision|Aprobado]
 
- .. _breq-nnn:
+   .. _breq-nnn:
 
- ==============================================================================
- BReq_NNN: [Nombre Descriptivo]
- ==============================================================================
+   ==============================================================================
+   BReq_NNN: [Nombre Descriptivo]
+   ==============================================================================
 
- 1. Enunciado del Requisito
- --------------------------
+   1. Enunciado del Requisito
+   --------------------------
  
- El negocio NECESITA que [actores] puedan [accion] para [objetivo],
- cumpliendo con [restricciones BR].
+   El negocio NECESITA que [actores] puedan [accion] para [objetivo],
+   cumpliendo con [restricciones BR].
 
- 2. Contexto
- -----------
+   2. Contexto
+   -----------
  
- [Situacion actual, problema que resuelve]
+   [Situacion actual, problema que resuelve]
 
- 3. Restricciones Aplicables
- ---------------------------
+   3. Restricciones Aplicables
+   ---------------------------
  
- - BR_NNN: [Como limita]
- - BR_NNN: [Como limita]
+   - BR_NNN: [Como limita]
+   - BR_NNN: [Como limita]
 
- 4. Criterios de Exito
- ---------------------
+   4. Criterios de Exito
+   ---------------------
  
- - [KPI 1]: [Valor objetivo]
- - [KPI 2]: [Valor objetivo]
+   - [KPI 1]: [Valor objetivo]
+   - [KPI 2]: [Valor objetivo]
 
- 5. Trazabilidad
- ---------------
+   5. Trazabilidad
+   ---------------
  
- **Deriva de:** BR_NNN, BR_NNN
- **Implementado por:** UC_NNN → FR_NNN
+   **Deriva de:** BR_NNN, BR_NNN
+   **Implementado por:** UC_NNN → FR_NNN
 
-9.5 Criterio de Salida Fase 2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9.5 Criterio de Salida Fase 2
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Todos los BReq identificados estan documentados
 - Cada BReq tiene al menos 1 BR como origen
@@ -641,52 +641,52 @@ Segun FND_03:
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: UC_NNN
- :tipo: Caso de Uso
- :dominio: requisitos
- :subdominio: casos_uso
- :estado: [Borrador|En Revision|Aprobado]
+   .. meta::
+   :artefacto: UC_NNN
+   :tipo: Caso de Uso
+   :dominio: requisitos
+   :subdominio: casos_uso
+   :estado: [Borrador|En Revision|Aprobado]
 
- .. _uc-nnn:
+   .. _uc-nnn:
 
- ==============================================================================
- UC_NNN: [Verbo] [Objeto]
- ==============================================================================
+   ==============================================================================
+   UC_NNN: [Verbo] [Objeto]
+   ==============================================================================
 
- 1. Identificacion
- -----------------
+   1. Identificacion
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
 
- * - ID
- - UC_NNN
- * - Nombre
- - [Verbo + Objeto]
- * - Actor Primario
- - [Rol que inicia]
- * - Actores Secundarios
- - [Otros roles o "Ninguno"]
- * - Prioridad
- - [Critica|Alta|Media|Baja]
+   * - ID
+   - UC_NNN
+   * - Nombre
+   - [Verbo + Objeto]
+   * - Actor Primario
+   - [Rol que inicia]
+   * - Actores Secundarios
+   - [Otros roles o "Ninguno"]
+   * - Prioridad
+   - [Critica|Alta|Media|Baja]
 
- 2. Contexto
- -----------
+   2. Contexto
+   -----------
 
- **Objetivo:** [Meta del actor]
+   **Objetivo:** [Meta del actor]
 
- **Precondiciones:**
+   **Precondiciones:**
 
- 1. [Condicion que debe ser verdadera ANTES]
- 2. [Otra condicion]
+   1. [Condicion que debe ser verdadera ANTES]
+   2. [Otra condicion]
 
- **Trigger:** [Evento que inicia el UC]
+   **Trigger:** [Evento que inicia el UC]
 
- 3. Flujo Normal
- ---------------
+   3. Flujo Normal
+   ---------------
 
- .. code-block:: text
+   .. code-block:: text
 
     1. Actor [accion]
     2. Sistema [respuesta]
@@ -695,88 +695,88 @@ Segun FND_03:
     ...
     N. Sistema [estado final]
 
- 4. Flujos Alternos
- ------------------
+   4. Flujos Alternos
+   ------------------
 
- **FA-1: [Nombre del alterno]**
+   **FA-1: [Nombre del alterno]**
 
- .. code-block:: text
+   .. code-block:: text
 
     Xa. [Condicion que dispara]
     Xb. Sistema [accion alternativa]
     Xc. [Continua en paso Y | UC termina]
 
- 5. Excepciones
- --------------
+   5. Excepciones
+   --------------
 
- **EX-1: [Nombre de la excepcion]**
+   **EX-1: [Nombre de la excepcion]**
 
- .. code-block:: text
+   .. code-block:: text
 
     *a. [Error detectado]
     *b. Sistema [manejo del error]
     *c. UC termina
 
- 6. Postcondiciones
- ------------------
+   6. Postcondiciones
+   ------------------
 
- **Exito:**
- - [Estado del sistema tras ejecucion exitosa]
+   **Exito:**
+   - [Estado del sistema tras ejecucion exitosa]
 
- **Fallo:**
- - [Estado del sistema si UC falla]
+   **Fallo:**
+   - [Estado del sistema si UC falla]
 
- 7. Reglas de Negocio Aplicadas
- ------------------------------
+   7. Reglas de Negocio Aplicadas
+   ------------------------------
 
- - BR_NNN: [Como se aplica en este UC]
+   - BR_NNN: [Como se aplica en este UC]
 
- 8. Trazabilidad
- ---------------
+   8. Trazabilidad
+   ---------------
 
- **Deriva de:** BReq_NNN
- **Genera:** FR_NNN_01, FR_NNN_02, ...
+   **Deriva de:** BReq_NNN
+   **Genera:** FR_NNN_01, FR_NNN_02, ...
 
-10.6 Decision: Estructura Plana vs Secciones
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   10.6 Decision: Estructura Plana vs Secciones
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Segun DEFINICIONES_OFICIALES v2.0.0, Seccion 4:
+   Segun DEFINICIONES_OFICIALES v2.0.0, Seccion 4:
 
-.. code-block:: text
+   .. code-block:: text
 
- OPCION A: ESTRUCTURA PLANA (por defecto)
- ─────────────────────────────────────────
- casos_uso/
- ├── index.rst
- ├── UC_001_Iniciar_Sesion.rst
- ├── UC_002_Cerrar_Sesion.rst
- ├── ...
- └── UC_042_Gestionar_Permisos.rst
+   OPCION A: ESTRUCTURA PLANA (por defecto)
+   ─────────────────────────────────────────
+   casos_uso/
+   ├── index.rst
+   ├── UC_001_Iniciar_Sesion.rst
+   ├── UC_002_Cerrar_Sesion.rst
+   ├── ...
+   └── UC_042_Gestionar_Permisos.rst
  
- Usar cuando: <30 UC
+   Usar cuando: <30 UC
 
- OPCION B: ESTRUCTURA CON SECCIONES (permitido si >30 UC)
- ────────────────────────────────────────────────────────
- casos_uso/
- ├── index.rst
- ├── autenticacion/ ← SECCION (NO es subcarpeta)
- │ ├── UC_001_Iniciar_Sesion.rst
- │ ├── UC_002_Cerrar_Sesion.rst
- │ └── ...
- ├── usuarios/ ← SECCION
- │ ├── UC_010_Crear_Usuario.rst
- │ └── ...
- └── dashboard/ ← SECCION
- └── UC_050_Consultar.rst
+   OPCION B: ESTRUCTURA CON SECCIONES (permitido si >30 UC)
+   ────────────────────────────────────────────────────────
+   casos_uso/
+   ├── index.rst
+   ├── autenticacion/ ← SECCION (NO es subcarpeta)
+   │ ├── UC_001_Iniciar_Sesion.rst
+   │ ├── UC_002_Cerrar_Sesion.rst
+   │ └── ...
+   ├── usuarios/ ← SECCION
+   │ ├── UC_010_Crear_Usuario.rst
+   │ └── ...
+   └── dashboard/ ← SECCION
+   └── UC_050_Consultar.rst
  
- Usar cuando: >30 UC y mejora legibilidad
+   Usar cuando: >30 UC y mejora legibilidad
  
- NOTA: Secciones NO introducen nuevo prefijo,
- NO requieren descongelamiento,
- Owner puede crearlas libremente.
+   NOTA: Secciones NO introducen nuevo prefijo,
+   NO requieren descongelamiento,
+   Owner puede crearlas libremente.
 
-10.7 Criterio de Salida Fase 3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   10.7 Criterio de Salida Fase 3
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Todos los UC identificados estan documentados
 - Cada UC sigue estructura FND_03
@@ -912,62 +912,62 @@ Segun FND_07:
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: FR_NNN_NN
- :tipo: Requisito Funcional
- :dominio: requisitos
- :subdominio: requisitos_funcionales
- :estado: [Borrador|En Revision|Aprobado]
+   .. meta::
+   :artefacto: FR_NNN_NN
+   :tipo: Requisito Funcional
+   :dominio: requisitos
+   :subdominio: requisitos_funcionales
+   :estado: [Borrador|En Revision|Aprobado]
 
- .. _fr-nnn-nn:
+   .. _fr-nnn-nn:
 
- ==============================================================================
- FR_NNN_NN: [Nombre Descriptivo]
- ==============================================================================
+   ==============================================================================
+   FR_NNN_NN: [Nombre Descriptivo]
+   ==============================================================================
 
- 1. Enunciado
- ------------
+   1. Enunciado
+   ------------
 
- El sistema DEBE [verbo] [objeto] [condicion].
+   El sistema DEBE [verbo] [objeto] [condicion].
 
- 2. Criterios SMART
- ------------------
+   2. Criterios SMART
+   ------------------
 
- - **S** (Specific): [Por que es especifico]
- - **M** (Measurable): [Como se mide]
- - **A** (Achievable): [Por que es alcanzable]
- - **R** (Relevant): [Relacion con objetivo negocio]
- - **T** (Traceable): [Link a UC origen]
+   - **S** (Specific): [Por que es especifico]
+   - **M** (Measurable): [Como se mide]
+   - **A** (Achievable): [Por que es alcanzable]
+   - **R** (Relevant): [Relacion con objetivo negocio]
+   - **T** (Traceable): [Link a UC origen]
 
- 3. Criterio de Aceptacion
- -------------------------
+   3. Criterio de Aceptacion
+   -------------------------
 
- DADO [precondicion]
- CUANDO [accion]
- ENTONCES [resultado esperado]
+   DADO [precondicion]
+   CUANDO [accion]
+   ENTONCES [resultado esperado]
 
- 4. Trazabilidad
- ---------------
+   4. Trazabilidad
+   ---------------
 
- **Deriva de:** UC_NNN, Paso N
- **Prueba:** TC_NNN_NN
+   **Deriva de:** UC_NNN, Paso N
+   **Prueba:** TC_NNN_NN
 
-11.7 Ratio Esperado
-^^^^^^^^^^^^^^^^^^^
+   11.7 Ratio Esperado
+   ^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: text
+   .. code-block:: text
 
- RATIO UC:FR TIPICO
+   RATIO UC:FR TIPICO
  
- UC simple (CRUD): 1 UC → 8-15 FR
- UC medio (workflow): 1 UC → 15-30 FR
- UC complejo (segur.): 1 UC → 30-50 FR
+   UC simple (CRUD): 1 UC → 8-15 FR
+   UC medio (workflow): 1 UC → 15-30 FR
+   UC complejo (segur.): 1 UC → 30-50 FR
  
- EJEMPLO IACT:
- 42 UC × 12 FR/UC promedio = ~500 FR
+   EJEMPLO IACT:
+   42 UC × 12 FR/UC promedio = ~500 FR
 
-11.8 Criterio de Salida Fase 4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   11.8 Criterio de Salida Fase 4
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Todos los UC aprobados tienen FR derivados
 - Cada FR cumple criterios SMART

@@ -147,347 +147,347 @@ Plantilla
 
 .. code-block:: rst
 
- .. meta::
- :artefacto: BReq_[MOD]
- :tipo: Objetivo de Negocio
- :dominio: requisitos
- :subdominio: objetivos_negocio
- :modulo: MOD_[Modulo]
- :estado: [Borrador|Revision|Aprobado]
- :version: 1.0.0
- :fecha_creacion: [YYYY-MM-DD]
- :ultimo_cambio: [YYYY-MM-DD]
- :autor: Equipo IACT
- :clasificacion: Interno
+   .. meta::
+   :artefacto: BReq_[MOD]
+   :tipo: Objetivo de Negocio
+   :dominio: requisitos
+   :subdominio: objetivos_negocio
+   :modulo: MOD_[Modulo]
+   :estado: [Borrador|Revision|Aprobado]
+   :version: 1.0.0
+   :fecha_creacion: [YYYY-MM-DD]
+   :ultimo_cambio: [YYYY-MM-DD]
+   :autor: Equipo IACT
+   :clasificacion: Interno
 
- .. _breq-[mod]:
+   .. _breq-[mod]:
 
  
- BReq_[MOD]: [Nombre del Objetivo de Negocio]
+   BReq_[MOD]: [Nombre del Objetivo de Negocio]
  
 
- .. contents:: Contenido
- :local:
- :depth: 2
+   .. contents:: Contenido
+   :local:
+   :depth: 2
 
- ----
+   ----
 
- Resumen Ejecutivo
- -----------------
+   Resumen Ejecutivo
+   -----------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **ID**
- - BReq_[MOD]
- * - **Nombre**
- - [Nombre descriptivo del objetivo]
- * - **Módulo**
- - MOD_[Modulo]
- * - **Stakeholder**
- - [Stakeholder principal interesado]
- * - **Prioridad**
- - [Crítica|Alta|Media|Baja]
- * - **Estado**
- - Vigente
+   * - **ID**
+   - BReq_[MOD]
+   * - **Nombre**
+   - [Nombre descriptivo del objetivo]
+   * - **Módulo**
+   - MOD_[Modulo]
+   * - **Stakeholder**
+   - [Stakeholder principal interesado]
+   * - **Prioridad**
+   - [Crítica|Alta|Media|Baja]
+   * - **Estado**
+   - Vigente
 
- ----
+   ----
 
- 1. Declaración del Objetivo
- ---------------------------
+   1. Declaración del Objetivo
+   ---------------------------
 
- 1.1 Enunciado
- ^^^^^^^^^^^^^
+   1.1 Enunciado
+   ^^^^^^^^^^^^^
 
- .. note:: **Objetivo de Negocio BReq_[MOD]**
+   .. note:: **Objetivo de Negocio BReq_[MOD]**
 
     [Enunciado claro y conciso del objetivo de negocio en 1-2 oraciones.
     Debe expresar QUÉ se quiere lograr, no CÓMO lograrlo.
     Usar formato: "El sistema debe permitir/proveer/garantizar..."]
 
- 1.2 Justificación de Negocio
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   1.2 Justificación de Negocio
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- [Por qué es importante este objetivo para el negocio.
- Qué valor aporta, qué problema resuelve, qué necesidad satisface.]
+   [Por qué es importante este objetivo para el negocio.
+   Qué valor aporta, qué problema resuelve, qué necesidad satisface.]
 
- 1.3 Beneficios Esperados
- ^^^^^^^^^^^^^^^^^^^^^^^^
+   1.3 Beneficios Esperados
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Beneficio 1: Descripción del beneficio esperado]
- - [Beneficio 2: Descripción del beneficio esperado]
- - [Beneficio 3: Descripción del beneficio esperado]
+   - [Beneficio 1: Descripción del beneficio esperado]
+   - [Beneficio 2: Descripción del beneficio esperado]
+   - [Beneficio 3: Descripción del beneficio esperado]
 
- ----
+   ----
 
- 2. Alcance
- ----------
+   2. Alcance
+   ----------
 
- 2.1 Incluido
- ^^^^^^^^^^^^
+   2.1 Incluido
+   ^^^^^^^^^^^^
 
- - [Funcionalidad o capacidad incluida en este objetivo]
- - [Otra funcionalidad incluida]
- - [Otra funcionalidad incluida]
+   - [Funcionalidad o capacidad incluida en este objetivo]
+   - [Otra funcionalidad incluida]
+   - [Otra funcionalidad incluida]
 
- 2.2 Excluido
- ^^^^^^^^^^^^
+   2.2 Excluido
+   ^^^^^^^^^^^^
 
- - [Funcionalidad explícitamente fuera de alcance]
- - [Otra exclusión]
+   - [Funcionalidad explícitamente fuera de alcance]
+   - [Otra exclusión]
 
- ----
+   ----
 
- 3. Stakeholders
- ---------------
+   3. Stakeholders
+   ---------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 35 40
     :header-rows: 1
 
- * - Stakeholder
- - Rol
- - Interés
- * - [Stakeholder 1]
- - [Rol en el proyecto]
- - [Qué espera de este objetivo]
- * - [Stakeholder 2]
- - [Rol en el proyecto]
- - [Qué espera de este objetivo]
+   * - Stakeholder
+   - Rol
+   - Interés
+   * - [Stakeholder 1]
+   - [Rol en el proyecto]
+   - [Qué espera de este objetivo]
+   * - [Stakeholder 2]
+   - [Rol en el proyecto]
+   - [Qué espera de este objetivo]
 
- ----
+   ----
 
- 4. Criterios de Éxito
- ---------------------
+   4. Criterios de Éxito
+   ---------------------
 
- El objetivo se considera alcanzado cuando:
+   El objetivo se considera alcanzado cuando:
 
- - [ ] [Criterio medible y verificable 1]
- - [ ] [Criterio medible y verificable 2]
- - [ ] [Criterio medible y verificable 3]
+   - [ ] [Criterio medible y verificable 1]
+   - [ ] [Criterio medible y verificable 2]
+   - [ ] [Criterio medible y verificable 3]
 
- ----
+   ----
 
- 5. Artefactos Derivados
- -----------------------
+   5. Artefactos Derivados
+   -----------------------
 
- 5.1 Business Rules (BR)
- ^^^^^^^^^^^^^^^^^^^^^^^
+   5.1 Business Rules (BR)
+   ^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 15 45 40
     :header-rows: 1
 
- * - BR
- - Nombre
- - Relación con BReq
- * - BR_[NNN]
- - [Nombre de la BR]
- - [Cómo esta BR implementa el objetivo]
- * - BR_[NNN]
- - [Nombre de la BR]
- - [Cómo esta BR implementa el objetivo]
+   * - BR
+   - Nombre
+   - Relación con BReq
+   * - BR_[NNN]
+   - [Nombre de la BR]
+   - [Cómo esta BR implementa el objetivo]
+   * - BR_[NNN]
+   - [Nombre de la BR]
+   - [Cómo esta BR implementa el objetivo]
 
- 5.2 Casos de Uso (UC)
- ^^^^^^^^^^^^^^^^^^^^^
+   5.2 Casos de Uso (UC)
+   ^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 20 50 30
     :header-rows: 1
 
- * - UC
- - Nombre
- - Cobertura
- * - UC_[MOD]_[NN]
- - [Nombre del UC]
- - [Qué parte del objetivo cubre]
- * - UC_[MOD]_[NN]
- - [Nombre del UC]
- - [Qué parte del objetivo cubre]
+   * - UC
+   - Nombre
+   - Cobertura
+   * - UC_[MOD]_[NN]
+   - [Nombre del UC]
+   - [Qué parte del objetivo cubre]
+   * - UC_[MOD]_[NN]
+   - [Nombre del UC]
+   - [Qué parte del objetivo cubre]
 
- ----
+   ----
 
- 6. Restricciones
- ----------------
+   6. Restricciones
+   ----------------
 
- 6.1 Restricciones de Negocio
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   6.1 Restricciones de Negocio
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - [Restricción de negocio que limita el objetivo]
- - [Otra restricción de negocio]
+   - [Restricción de negocio que limita el objetivo]
+   - [Otra restricción de negocio]
 
- 6.2 Restricciones Técnicas (CNST)
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   6.2 Restricciones Técnicas (CNST)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- .. list-table::
+   .. list-table::
     :widths: 15 45 40
     :header-rows: 1
 
- * - CNST
- - Nombre
- - Impacto en BReq
- * - CNST_[NNN]
- - [Nombre de la restricción]
- - [Cómo afecta al objetivo]
+   * - CNST
+   - Nombre
+   - Impacto en BReq
+   * - CNST_[NNN]
+   - [Nombre de la restricción]
+   - [Cómo afecta al objetivo]
 
- ----
+   ----
 
- 7. Dependencias
- ---------------
+   7. Dependencias
+   ---------------
 
- 7.1 Depende De
- ^^^^^^^^^^^^^^
+   7.1 Depende De
+   ^^^^^^^^^^^^^^
 
- - [BReq_XXX]: [Descripción de la dependencia]
- - [Sistema externo]: [Descripción de la dependencia]
+   - [BReq_XXX]: [Descripción de la dependencia]
+   - [Sistema externo]: [Descripción de la dependencia]
 
- 7.2 Requerido Por
- ^^^^^^^^^^^^^^^^^
+   7.2 Requerido Por
+   ^^^^^^^^^^^^^^^^^
 
- - [BReq_YYY]: [Por qué depende de este objetivo]
+   - [BReq_YYY]: [Por qué depende de este objetivo]
 
- ----
+   ----
 
- 8. Riesgos
- ----------
+   8. Riesgos
+   ----------
 
- .. list-table::
+   .. list-table::
     :widths: 30 20 50
     :header-rows: 1
 
- * - Riesgo
- - Probabilidad
- - Mitigación
- * - [Descripción del riesgo]
- - [Alta|Media|Baja]
- - [Estrategia de mitigación]
+   * - Riesgo
+   - Probabilidad
+   - Mitigación
+   * - [Descripción del riesgo]
+   - [Alta|Media|Baja]
+   - [Estrategia de mitigación]
 
- ----
+   ----
 
- 9. Trazabilidad
- ---------------
+   9. Trazabilidad
+   ---------------
 
- .. list-table::
+   .. list-table::
     :widths: 25 75
     :header-rows: 0
 
- * - **Módulo**
- - MOD_[Modulo]
- * - **BR Derivadas**
- - BR_[NNN], BR_[NNN], BR_[NNN]
- * - **UC Derivados**
- - UC_[MOD]_[NN], UC_[MOD]_[NN]
- * - **CNST Aplicables**
- - CNST_[NNN], CNST_[NNN]
+   * - **Módulo**
+   - MOD_[Modulo]
+   * - **BR Derivadas**
+   - BR_[NNN], BR_[NNN], BR_[NNN]
+   * - **UC Derivados**
+   - UC_[MOD]_[NN], UC_[MOD]_[NN]
+   * - **CNST Aplicables**
+   - CNST_[NNN], CNST_[NNN]
 
- ----
+   ----
 
- 10. Historial de Cambios
- ------------------------
+   10. Historial de Cambios
+   ------------------------
 
- .. list-table::
+   .. list-table::
     :widths: 12 12 20 56
     :header-rows: 1
 
- * - Versión
- - Fecha
- - Autor
- - Cambios
- * - 1.0.0
- - [YYYY-MM-DD]
- - Equipo IACT
- - Versión inicial
+   * - Versión
+   - Fecha
+   - Autor
+   - Cambios
+   * - 1.0.0
+   - [YYYY-MM-DD]
+   - Equipo IACT
+   - Versión inicial
 
- ----
+   ----
 
- *Documento versión 1.0.0 - Proyecto IACT Dashboard Analytics*
+   *Documento versión 1.0.0 - Proyecto IACT Dashboard Analytics*
 
-----
+   ----
 
-Secciones Obligatorias
-----------------------
+   Secciones Obligatorias
+   ----------------------
 
-Cada BReq DEBE incluir mínimo estas 10 secciones:
+   Cada BReq DEBE incluir mínimo estas 10 secciones:
 
-.. list-table::
- :widths: 5 30 65
- :header-rows: 1
+   .. list-table::
+   :widths: 5 30 65
+   :header-rows: 1
 
- * - #
+   * - #
    - Sección
    - Contenido
- * - 0
+   * - 0
    - Resumen Ejecutivo
    - ID, nombre, módulo, stakeholder, prioridad
- * - 1
+   * - 1
    - Declaración del Objetivo
    - Enunciado, justificación, beneficios
- * - 2
+   * - 2
    - Alcance
    - Incluido y excluido
- * - 3
+   * - 3
    - Stakeholders
    - Interesados y sus expectativas
- * - 4
+   * - 4
    - Criterios de Éxito
    - Métricas verificables
- * - 5
+   * - 5
    - Artefactos Derivados
    - BR y UC que implementan el objetivo
- * - 6
+   * - 6
    - Restricciones
    - De negocio y técnicas (CNST)
- * - 7
+   * - 7
    - Dependencias
    - De qué depende y qué depende de él
- * - 8
+   * - 8
    - Riesgos
    - Riesgos y mitigaciones
- * - 9
+   * - 9
    - Trazabilidad
    - Enlaces a MOD, BR, UC, CNST
- * - 10
+   * - 10
    - Historial
    - Control de versiones
 
-----
+   ----
 
-Buenas Prácticas
-----------------
+   Buenas Prácticas
+   ----------------
 
-**Redacción del Enunciado:**
+   **Redacción del Enunciado:**
 
-::
+   ::
 
- ✅ CORRECTO (orientado a valor):
- "El sistema debe permitir a los usuarios autenticarse de forma segura
- para acceder a las funcionalidades según su rol asignado."
+   ✅ CORRECTO (orientado a valor):
+   "El sistema debe permitir a los usuarios autenticarse de forma segura
+   para acceder a las funcionalidades según su rol asignado."
 
- ❌ INCORRECTO (orientado a implementación):
- "El sistema debe usar JWT con expiración de 8 horas y almacenar
- sesiones en PostgreSQL."
+   ❌ INCORRECTO (orientado a implementación):
+   "El sistema debe usar JWT con expiración de 8 horas y almacenar
+   sesiones en PostgreSQL."
 
-**Criterios de Éxito:**
+   **Criterios de Éxito:**
 
-::
+   ::
 
- ✅ CORRECTO (medible):
- "El 100% de los accesos están controlados por el modelo RBAC"
- "El tiempo de autenticación es menor a 2 segundos"
+   ✅ CORRECTO (medible):
+   "El 100% de los accesos están controlados por el modelo RBAC"
+   "El tiempo de autenticación es menor a 2 segundos"
 
- ❌ INCORRECTO (vago):
- "El sistema es seguro"
- "La autenticación funciona bien"
+   ❌ INCORRECTO (vago):
+   "El sistema es seguro"
+   "La autenticación funciona bien"
 
-----
+   ----
 
-Validación
-----------
+   Validación
+   ----------
 
-Antes de aprobar un BReq, verificar:
+   Antes de aprobar un BReq, verificar:
 
-**Checklist:**
+   **Checklist:**
 
 - [ ] ID sigue nomenclatura BReq_[MOD]
 - [ ] Enunciado orientado a valor, no a implementación

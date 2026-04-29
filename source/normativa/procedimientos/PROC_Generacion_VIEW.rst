@@ -103,37 +103,37 @@ Usar PlantUML segun tipo:
 
 .. code-block:: rst
 
- .. uml::
+   .. uml::
  
- @startuml
- package "MOD_Auth" {
- [AuthService]
- [JWTService]
- }
- package "MOD_Users" {
- [UserService]
- }
- [AuthService] --> [UserService]
- @enduml
+   @startuml
+   package "MOD_Auth" {
+   [AuthService]
+   [JWTService]
+   }
+   package "MOD_Users" {
+   [UserService]
+   }
+   [AuthService] --> [UserService]
+   @enduml
 
-**Paso 4: Documentar Elementos**
+   **Paso 4: Documentar Elementos**
 
-Describir componentes del diagrama.
+   Describir componentes del diagrama.
 
-**Paso 5: Documentar Relaciones**
+   **Paso 5: Documentar Relaciones**
 
-Explicar conexiones y dependencias.
+   Explicar conexiones y dependencias.
 
-**Paso 6: Vincular ADR**
+   **Paso 6: Vincular ADR**
 
-Referenciar decisiones relacionadas.
+   Referenciar decisiones relacionadas.
 
-**Paso 7: Guardar y Validar**
+   **Paso 7: Guardar y Validar**
 
-----
+   ----
 
-5. Artefactos de Salida
------------------------
+   5. Artefactos de Salida
+   -----------------------
 
 - VIEW_[Tipo]_[NNN].rst
 
