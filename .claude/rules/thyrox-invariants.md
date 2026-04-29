@@ -141,56 +141,12 @@ PROHIBIDO: saltar Stage 4 porque el documento externo analizado menciona "FASE 4
 CORRECTO:  nota en discover/-analysis.md: "el documento usa FASE 4 con semántica propia, no aplica al WP"
 ```
 
-## I-016: Background tasks — un solo mecanismo de espera, nunca dos
+<!-- I-016 RELOCALIZADO. Era una regla de uso de Bash con run_in_background
+     (aplicable a <5% de las sesiones). Movido a:
+     .claude/skills/thyrox/references/bash-background-tasks.md
+     Ver decision en:
+     .thyrox/context/work/2026-04-29-05-51-27-methodology-recalibration/
+     plan/correction-plan.md (accion A1).
+     Razon: .claude/rules/ carga siempre (I-009); regla de tool especifico
+     no merece costo permanente de context budget. -->
 
-Cuando se ejecuta un comando con `run_in_background: true`, la infraestructura
-de Claude Code captura stdout+stderr en el archivo `<task-id>.output` y emite
-una `<task-notification>` cuando termina. Ese es **el único** mecanismo de
-espera. **NUNCA** combinar:
-
-1. `run_in_background: true` con redirección que saca el output del task file
-   (`> /tmp/file.txt`, `> /dev/null`, etc.). El task `.output` queda vacío y
-   las notifications llegan, pero los pollers manuales no encuentran datos.
-
-2. `run_in_background: true` + un `Bash` separado con `until grep ...; do sleep N; done`.
-   El loop polea sin timeout y queda zombie eternamente si la condición nunca se
-   cumple (ej. archivo vacío por bug #1, o cadena buscada que el comando real
-   nunca emite). Acumulación de pollers consume CPU/IO y degrada la sesión.
-
-```
-PROHIBIDO:
-  Bash(command="make html 2>&1 > /tmp/build.txt", run_in_background=true)
-  Bash(command="until grep -q succeeded /tmp/.../tasks/<id>.output; do sleep 10; done")
-  # task .output vacío → poller infinito → proceso zombie
-
-PROHIBIDO:
-  Bash(command="make html", run_in_background=true)
-  Bash(command="sleep 30 && grep ...")
-  # sleep arbitrario, no garantiza completión
-
-CORRECTO (notification-driven, nada de polling manual):
-  Bash(command="make html 2>&1", run_in_background=true)
-  # esperar la <task-notification status="completed"> y leer el .output
-
-CORRECTO (síncrono con timeout duro):
-  Bash(command="make html 2>&1", timeout=600000)
-
-CORRECTO (poll sólo cuando es estrictamente necesario, con timeout):
-  Bash(command="timeout 600 bash -c 'until grep -q X /tmp/file; do sleep 5; done'")
-```
-
-**Detección de zombies acumulados** (auditoría manual):
-
-```bash
-ps --ppid <claude-pid> -o pid,etime,cmd | grep -E "until|sleep"
-```
-
-Si aparecen procesos con `etime` mayor a la duración esperada del job real,
-matarlos: `kill -9 <pid>`.
-
-**Anti-patrón documentado:** sesión IACT-docs 2026-04-29 — 36 procesos
-zombie acumulados durante 3-4 h por combinar `run_in_background` con
-redirección `> /tmp/buildN.txt` y `until grep ...; do sleep N; done` sin
-timeout. La combinación se gatilló porque la guideline "no polls" se mezcló
-con "redirigir output a archivo nombrado" sin ver que ambas son
-incompatibles.

@@ -4,11 +4,11 @@ work_package: 2026-04-29-05-51-27-methodology-recalibration
 parent_wp: 2026-04-29-05-35-11-md-to-rst-saneamiento
 parent_relationship: meta-analysis (recalibracion post-mortem del WP de saneamiento)
 created_at: 2026-04-29 05:51:27
-current_phase: Phase 6 — PLAN
+current_phase: Cerrado
 flow: thyrox
-methodology_step: workflow-plan
+methodology_step: cerrado
 author: NestorMonroy
-status: Borrador
+status: Cerrado
 ```
 
 # WP — Methodology Recalibration (post-saneamiento)
