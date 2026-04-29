@@ -198,6 +198,12 @@ plantuml = _os.environ.get('PLANTUML_BIN') or (
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
 
+# Tolerancia a errores de sintaxis: en vez de crashear el build cuando un
+# diagrama falla (FileNotFoundError sobre <hash>.png.new al renombrar),
+# renderizar una imagen-de-error con el mensaje del parser. El build termina
+# y queda visible cuál diagrama tiene el problema.
+plantuml_syntax_error_image = True
+
 # Usar ubicación estándar de sphinxcontrib.plantuml (_images/)
 # El hook post-build reorganiza metadatos pero mantiene referencias HTML válidas
 # NO personalizar plantuml_output_dir para evitar mismatch con referencias HTML
