@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.3
-updated_at: 2026-04-29 14:35:28
+updated_at: 2026-04-29 14:57:10
 cold_boot: false
 current_epic: 12
 epic_name: methodology-recalibration (cerrada)
-current_work: .thyrox/context/work/2026-04-29-14-28-18-build-performance
+current_work: .thyrox/context/work/2026-04-29-14-56-40-std007-rename-cleanup
 stage: idle
 stage_number: —
 current_phase: —
