@@ -40,14 +40,8 @@ Catálogo
    BR_013_Username_Unico
    BR_014_Alerta_Por_Umbral
    BR_015_Bloqueo_Intentos_Fallidos
+   BR_016_Tasa_Abandono
    BR_017_Tiempo_Promedio_Espera
    BR_018_Indice_Eficiencia
    BR_019_Retencion_2_Anios
    BR_020_Clasificacion_Datos
-
-.. note::
-
-   ``BR_016`` reservado / no asignado en este catálogo. Gap intencional
-   tras consolidacion del catalogo canónico v4.0.0. La numeración no
-   es secuencial estricta — ``BR_016`` puede asignarse en futuras
-   iteraciones si surge una regla de negocio que encaje en la posición.

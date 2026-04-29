@@ -662,7 +662,7 @@ Modelos IACT
 ^^^^^^^^^^^^
 
 - MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental
-- MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso
+- MODELO_RBAC_IACT_v5.2.1 - Modelo de control de acceso
 
 Fuentes Externas
 ^^^^^^^^^^^^^^^^

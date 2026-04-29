@@ -18,6 +18,24 @@ MTM_01: Metamodelo de Requisitos
 ================================
 
 
+.. note:: Ejemplos pedagogicos del modelo legacy v4.0
+
+   Este documento contiene ejemplos pedagogicos que usan la
+   nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
+   ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
+   Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
+   "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
+   atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+
+   **Vocabulario canonico vigente:**
+   :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+   y :doc:`/base_cognitiva/glosario` § H.
+
+   Los ejemplos legacy se preservan por valor pedagogico historico —
+   ilustran la evolucion del modelo. NO deben citarse como referencia
+   actual ni replicarse en docs nuevos.
+
+
 Proposito
 ---------
 

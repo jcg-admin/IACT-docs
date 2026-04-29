@@ -125,7 +125,7 @@ La segmentación por centro garantiza:
    :header-rows: 0
 
    * - **Documento**
-     - MODELO_RBAC_IACT_v5_1_1.md
+     - MODELO_RBAC_IACT_v5_2_1.md
    * - **Sección**
      - Segmentación por Centro
    * - **Versión**
@@ -357,14 +357,14 @@ La regla se considera cumplida cuando:
    * - 1.0.0
      - 2026-01-07
      - Equipo IACT
-     - Versión inicial basada en MODELO_RBAC_IACT_v5_1_1
+     - Versión inicial basada en MODELO_RBAC_IACT_v5_2_1
 
 ----
 
 Referencias
 -----------
 
-- MODELO_RBAC_IACT_v5_1_1.md: Modelo de permisos y segmentación
+- MODELO_RBAC_IACT_v5_2_1.md: Modelo de permisos y segmentación
 - FND_02: Reglas de Negocio
 - UC_ACC_06: Asignar Segmento
 

@@ -667,20 +667,40 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
      - report_viewer_group
      - 8
      - Analista
+   * - AGR-003
+     - quality_supervisor_group
+     - 11
+     - Supervisor
    * - AGR-004
      - data_exporter_group
      - 14
      - Data Analyst
+   * - AGR-005
+     - alert_manager_group
+     - 6
+     - Gestor Alertas
    * - AGR-006
      - user_admin_group
      - 9
      - Admin Usuarios
+   * - AGR-007
+     - permission_admin_group
+     - 5
+     - Admin Permisos
+   * - AGR-008
+     - auditor_group
+     - 4
+     - Auditor
+   * - AGR-009
+     - pipeline_admin_group
+     - 4
+     - Admin Pipeline
    * - AGR-010
      - system_admin_group
      - 6
      - Sysadmin
 
-Catalogo completo de los 10 grupos: ver
+Detalle completo de los 10 grupos: ver
 :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` § 2.1.
 
 ----

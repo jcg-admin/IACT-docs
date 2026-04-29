@@ -17,6 +17,24 @@ FND_03: Casos de Uso
 ====================
 
 
+.. note:: Ejemplos pedagogicos del modelo legacy v4.0
+
+   Este documento contiene ejemplos pedagogicos que usan la
+   nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
+   ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
+   Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
+   "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
+   atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+
+   **Vocabulario canonico vigente:**
+   :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+   y :doc:`/base_cognitiva/glosario` § H.
+
+   Los ejemplos legacy se preservan por valor pedagogico historico —
+   ilustran la evolucion del modelo. NO deben citarse como referencia
+   actual ni replicarse en docs nuevos.
+
+
 Proposito
 ---------
 
@@ -247,10 +265,10 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
      - Proporciona informacion o recibe notificacion
      - Ejemplo: AGR-007 que recibe notificacion de cambio
 
-3.4 Actores en IACT (Agrupadores RBAC v5.1.1)
+3.4 Actores en IACT (Agrupadores RBAC v5.2.x)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.1.1,
+Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.2.x,
 siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
@@ -318,7 +336,7 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018:
      - Renombrado
    * - (nuevo)
      - AGR-010: operador_etl
-     - Nuevo en RBAC v5.1.1
+     - Nuevo en RBAC v5.2.x
 
 ----
 
@@ -598,7 +616,7 @@ Los Casos de Uso en IACT siguen la convencion:
 8. Lista de UC Identificados en IACT (49 UC)
 --------------------------------------------
 
-Basado en el analisis del modelo RBAC v5.1.1, se han identificado 49 Casos de Uso
+Basado en el analisis del modelo RBAC v5.2.x, se han identificado 49 Casos de Uso
 distribuidos en 8 modulos funcionales.
 
 8.1 Autenticacion - MOD_Auth (5 UC)
@@ -784,7 +802,7 @@ Documentos Relacionados
 Modelos IACT
 ^^^^^^^^^^^^
 
-- MODELO_RBAC_IACT_v5.1.1 - Modelo de control de acceso
+- MODELO_RBAC_IACT_v5.2.1 - Modelo de control de acceso
 - MODELO_DOCUMENTAL_IACT_v2.0.7 - Estructura documental
 
 Fuentes Externas
@@ -810,7 +828,7 @@ Historial de Cambios
    * - 1.2.0
      - 2026-01-04
      - Equipo IACT
-     - Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.1.1). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.
+     - Lista de UC actualizada de 38 a 49. Actores cambiados de R00x a AGR-00x (Agrupadores RBAC v5.2.x). Agregados modulos Auth, Pipeline, Audit, Logs. Mapeo de actores legacy incluido. Reorganizacion de UC por modulos.
    * - 1.1.0
      - 2025-12-21
      - Equipo IACT

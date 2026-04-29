@@ -248,7 +248,7 @@ Todo artefacto debe incluir una sección de historial con:
      - Nueva nomenclatura UC: UC_MOD_NN
    * - v2.0.6
      - PATCH
-     - Integración MODELO RBAC v5.1.1
+     - Integración MODELO RBAC v5.2.x
    * - v2.0.7
      - PATCH
      - Generación 49 UC completos
