@@ -137,21 +137,21 @@ Plan de Implementación
 
 1. **Fase 1: [Nombre]**
 
- - Acción específica 1
- - Acción específica 2
- - Timeframe: [X semanas]
+   - Acción específica 1
+   - Acción específica 2
+   - Timeframe: [X semanas]
 
 2. **Fase 2: [Nombre]**
 
- - Acción específica 1
- - Acción específica 2
- - Timeframe: [X semanas]
+   - Acción específica 1
+   - Acción específica 2
+   - Timeframe: [X semanas]
 
 3. **Fase 3: [Nombre]**
 
- - Acción específica 1
- - Acción específica 2
- - Timeframe: [X semanas]
+   - Acción específica 1
+   - Acción específica 2
+   - Timeframe: [X semanas]
 
 Validación y Métricas
 ---------------------
@@ -210,9 +210,9 @@ Instrucciones de Uso
 1. **Copiar esta plantilla** para crear un nuevo ADR
 2. **Nombrar el archivo**: ``adr_YYYY_NNN_titulo_corto.md``
 
- - YYYY: Año (ej: 2025)
- - NNN: Número secuencial (001, 002, etc.)
- - titulo_corto: Descripción breve en snake_case
+   - YYYY: Año (ej: 2025)
+   - NNN: Número secuencial (001, 002, etc.)
+   - titulo_corto: Descripción breve en snake_case
 
 3. **Completar todas las secciones** relevantes
 4. **Actualizar el frontmatter** con ID único

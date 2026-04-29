@@ -272,9 +272,9 @@ Antes de iniciar este procedimiento, verificar:
  Fecha: 2026-01-07
  
  A partir de esta fecha, cualquier cambio requiere:
- 1. Ejecutar PROC_Descongelamiento_Subdominio
- 2. Realizar cambios
- 3. Ejecutar PROC_Congelamiento_Subdominio
+  1. Ejecutar PROC_Descongelamiento_Subdominio
+  2. Realizar cambios
+  3. Ejecutar PROC_Congelamiento_Subdominio
 
 - **Resultado**: Equipo notificado
 - **Verificacion**: Comunicacion enviada

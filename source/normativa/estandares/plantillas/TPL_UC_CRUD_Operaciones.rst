@@ -97,23 +97,23 @@ FLUJO NORMAL - CREATE
 1. Sistema muestra formulario vacío con campos de la entidad
 
 2. Usuario completa campos obligatorios:
- - [Campo 1]: [tipo]
- - [Campo 2]: [tipo]
- - [Campo 3]: [tipo]
+   - [Campo 1]: [tipo]
+   - [Campo 2]: [tipo]
+   - [Campo 3]: [tipo]
 
 3. Usuario hace click en "Guardar"
 
 4. Sistema valida datos en cliente (JavaScript) (FR-XXX-01-01)
- - Campos obligatorios no vacíos
- - Formatos correctos (email, teléfono, etc.)
- - Longitudes dentro de rango
+   - Campos obligatorios no vacíos
+   - Formatos correctos (email, teléfono, etc.)
+   - Longitudes dentro de rango
 
 5. Sistema envía POST request al backend
 
 6. Sistema valida datos en servidor (FR-XXX-01-02)
- - Re-valida campos obligatorios
- - Verifica tipos de datos
- - Aplica reglas de negocio [BR-IACT-YYY]
+   - Re-valida campos obligatorios
+   - Verifica tipos de datos
+   - Aplica reglas de negocio [BR-IACT-YYY]
 
 7. Sistema verifica unicidad de campos únicos (FR-XXX-01-03)
  
@@ -326,14 +326,14 @@ FLUJO NORMAL - READ
 ~~~~~~~~~~~~~~~~~~~
 
 1. Sistema muestra pantalla de búsqueda/listado con:
- - Formulario de filtros (opcional)
- - Tabla de resultados (vacía inicialmente)
- - Paginación (10/25/50/100 por página)
+   - Formulario de filtros (opcional)
+   - Tabla de resultados (vacía inicialmente)
+   - Paginación (10/25/50/100 por página)
 
 2. Usuario OPCIONALMENTE ingresa criterios de búsqueda:
- - Campo 1: [texto/dropdown/fecha]
- - Campo 2: [texto/dropdown/fecha]
- - Operador: [contiene/igual/mayor que/menor que]
+   - Campo 1: [texto/dropdown/fecha]
+   - Campo 2: [texto/dropdown/fecha]
+   - Operador: [contiene/igual/mayor que/menor que]
 
 3. Usuario hace click en "Buscar" (o presiona Enter)
 
@@ -389,14 +389,14 @@ FLUJO NORMAL - READ
     LIMIT :page_size OFFSET :offset
 
 8. Sistema calcula info de paginación:
- - Total páginas = CEIL(total / page_size)
- - Página actual
- - Rango mostrado (ej: "1-10 de 45 registros")
+   - Total páginas = CEIL(total / page_size)
+   - Página actual
+   - Rango mostrado (ej: "1-10 de 45 registros")
 
 9. Sistema renderiza tabla con resultados:
- - Columnas configurables
- - Acciones por fila: [Ver] [Editar] [Eliminar]
- - Ordenamiento por columna (click en header)
+   - Columnas configurables
+   - Acciones por fila: [Ver] [Editar] [Eliminar]
+   - Ordenamiento por columna (click en header)
 
 10. Sistema muestra panel de paginación:
     [<< Primera] [< Anterior] [1] [2] [3] [Siguiente >] [Última >>]
@@ -553,10 +553,10 @@ FLUJO NORMAL - UPDATE
 2. Sistema muestra formulario PRE-LLENADO con valores actuales
 
 3. Sistema marca campos modificables vs solo-lectura:
- - id: solo-lectura
- - created_at: solo-lectura
- - updated_at: solo-lectura
- - campo1, campo2, campo3: modificables
+   - id: solo-lectura
+   - created_at: solo-lectura
+   - updated_at: solo-lectura
+   - campo1, campo2, campo3: modificables
 
 4. Sistema activa tracking de campos modificados (dirty fields)
  
@@ -883,7 +883,7 @@ FLUJO NORMAL - DELETE
 10. Sistema remueve fila de la tabla visual (con animación fade-out)
 
 11. Si usuario está en pantalla de detalle:
- - Sistema redirige a listado
+    - Sistema redirige a listado
 
 12. Caso de uso termina exitosamente
 

@@ -183,17 +183,17 @@ Negativas (mitigadas)
 
 1. **Duplicación de estructura**: Cada dominio tiene tests/, scripts/
 
- - **Mitigación**: Scripts cross-cutting en scripts/ raíz
+   - **Mitigación**: Scripts cross-cutting en scripts/ raíz
 
 2. **Convenciones tradicionales**: Difiere de proyectos tipo src/,
    tests/
 
- - **Mitigación**: Es más moderno y escalable (usado por monorepos)
+   - **Mitigación**: Es más moderno y escalable (usado por monorepos)
 
 3. **Descubrimiento inicial**: Desarrolladores nuevos deben aprender
    estructura
 
- - **Mitigación**: Este ADR + README documentan la decisión
+   - **Mitigación**: Este ADR + README documentan la decisión
 
 Neutrales
 ~~~~~~~~~

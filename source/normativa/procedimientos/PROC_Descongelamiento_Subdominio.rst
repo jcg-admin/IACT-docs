@@ -172,9 +172,9 @@ Antes de iniciar este procedimiento, verificar:
     - Mejora estructural necesaria
  
  Razones invalidas:
- - Cambio estetico menor
- - Preferencia personal
- - Sin justificacion documentada
+  - Cambio estetico menor
+  - Preferencia personal
+  - Sin justificacion documentada
 
 - **Resultado**: Solicitud aprobada/rechazada
 - **Verificacion**: Justificacion documentada

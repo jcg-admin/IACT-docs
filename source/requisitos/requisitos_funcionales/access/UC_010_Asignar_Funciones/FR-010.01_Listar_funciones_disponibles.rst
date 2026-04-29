@@ -110,7 +110,7 @@ FR-010.01: Listar funciones disponibles
 -------------------------
 
 - **BR aplicables:**
- - BR_006: Modelo RBAC Flat NIST
+  - BR_006: Modelo RBAC Flat NIST
  
 - **CNST aplicables:** Ninguna específica
 

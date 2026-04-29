@@ -113,7 +113,7 @@ FR-010.04: Calcular permisos efectivos
 -------------------------
 
 - **BR aplicables:**
- - BR_006: RBAC Flat NIST (permisos aditivos)
+  - BR_006: RBAC Flat NIST (permisos aditivos)
  
 - **CNST aplicables:** Ninguna específica
 

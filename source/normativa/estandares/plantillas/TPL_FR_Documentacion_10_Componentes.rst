@@ -214,9 +214,9 @@ y promedios de duracion.
 
 - Casos especiales:
  
- - Si no hay datos: Lista vacia []
- - Si error: Lanza QueryExecutionError
- - Si timeout: Lanza QueryTimeoutError
+  - Si no hay datos: Lista vacia []
+  - Si error: Lanza QueryExecutionError
+  - Si timeout: Lanza QueryTimeoutError
 
 **Precondiciones Tecnicas:**
 
@@ -1314,9 +1314,9 @@ REFERENCIAS
 **Material Pedagogico:**
 
 - PARTE_4_Functional_Requirements_IACT_1_0_0.md
- - Seccion 2: Los 10 Componentes Obligatorios
- - Seccion 3: Derivacion UC → FR
- - Seccion 4: Testing de FR
+  - Seccion 2: Los 10 Componentes Obligatorios
+  - Seccion 3: Derivacion UC → FR
+  - Seccion 4: Testing de FR
 
 **Documentos Relacionados:**
 

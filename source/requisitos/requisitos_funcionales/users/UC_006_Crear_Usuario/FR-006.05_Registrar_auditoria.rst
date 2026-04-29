@@ -110,11 +110,11 @@ FR-006.05: Registrar evento de creación en auditoría
 -------------------------
 
 - **BR aplicables:**
- - BR_008: Auditoría obligatoria
+  - BR_008: Auditoría obligatoria
  
 - **CNST aplicables:**
- - CNST-009: Logging y auditoría inmutable
- - CNST-010: Clasificación de datos (excluir PII sensible)
+  - CNST-009: Logging y auditoría inmutable
+  - CNST-010: Clasificación de datos (excluir PII sensible)
 
 **Transacción:**
 

@@ -133,13 +133,13 @@ Un diagrama UML debe mostrar casos de uso que:
 
 1. **Pertenecen al mismo módulo funcional**
 
- - Ejemplo: Todos los casos de uso de “Autenticación”
- - Ejemplo: Todos los casos de uso de “Gestión de Usuarios”
- - Ejemplo: Todos los casos de uso de “Reportes de Auditoría”
+   - Ejemplo: Todos los casos de uso de “Autenticación”
+   - Ejemplo: Todos los casos de uso de “Gestión de Usuarios”
+   - Ejemplo: Todos los casos de uso de “Reportes de Auditoría”
 
 2. **Comparten actores comunes**
 
- - Ejemplo: Todos los casos de uso que ejecuta el “Administrador”
+   - Ejemplo: Todos los casos de uso que ejecuta el “Administrador”
 
 3. **Tienen relaciones entre sí** (include, extend, generalización)
 

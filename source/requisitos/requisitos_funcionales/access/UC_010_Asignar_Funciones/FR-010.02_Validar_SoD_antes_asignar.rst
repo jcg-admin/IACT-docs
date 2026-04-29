@@ -112,10 +112,10 @@ FR-010.02: Validar SoD antes de asignar
 -------------------------
 
 - **BR aplicables:**
- - BR_007: Separación de Funciones (SoD)
+  - BR_007: Separación de Funciones (SoD)
  
 - **CNST aplicables:**
- - CNST-010: Segregación de funciones
+  - CNST-010: Segregación de funciones
 
 **Configuración SoD:**
 

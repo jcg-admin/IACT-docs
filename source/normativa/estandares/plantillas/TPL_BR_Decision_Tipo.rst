@@ -1573,20 +1573,20 @@ SECCION 5: GENERA UC (Forward Traceability)
 
 - UC Generado:
  
- - ID: UC_IACT_MOD_NN_Nombre_4_0_0.rst
- - Nombre: Nombre descriptivo del UC
- - Actor Principal: Usuario o Sistema
- - Tipo: Normal|Temporal|CRUD
- - Archivo: Nombre del archivo UC
+  - ID: UC_IACT_MOD_NN_Nombre_4_0_0.rst
+  - Nombre: Nombre descriptivo del UC
+  - Actor Principal: Usuario o Sistema
+  - Tipo: Normal|Temporal|CRUD
+  - Archivo: Nombre del archivo UC
 
 **Si esta BR afecta UC existente:**
 
 - UC Afectado:
  
- - ID: UC_IACT_MOD_NN_Nombre_4_0_0.rst
- - Nombre: Nombre del UC existente
- - Donde se implementa: Paso N | FA-X | FE-X | Precondicion PC-N
- - Tipo de impacto: Agrega validacion | Modifica flujo | Nueva precondicion | Nuevo FA
+  - ID: UC_IACT_MOD_NN_Nombre_4_0_0.rst
+  - Nombre: Nombre del UC existente
+  - Donde se implementa: Paso N | FA-X | FE-X | Precondicion PC-N
+  - Tipo de impacto: Agrega validacion | Modifica flujo | Nueva precondicion | Nuevo FA
 
 **Si esta BR NO genera UC:**
 
@@ -2137,9 +2137,9 @@ Excepcion 1: Usuarios Administradores
 - Contexto: Por que se necesitaba decidir
 - Alternativas consideradas:
  
- - Opcion A: descripcion
- - Opcion B: descripcion
- - Opcion C: descripcion
+  - Opcion A: descripcion
+  - Opcion B: descripcion
+  - Opcion C: descripcion
 
 - Decision tomada: Opcion elegida
 - Razon: Por que se eligio esta opcion
@@ -2197,10 +2197,10 @@ REFERENCIAS
 
 - PARTE_1_Identificar_Reglas_Negocio_IACT_1_0_0.md
  
- - Seccion 2: Taxonomia de Business Rules, 5 tipos
- - Seccion 3: Desencadenadores vs Inferencias, TEST CRITICO
- - Seccion 4: Documentacion de BR
- - Seccion 5: Derivacion BR → UC → FR
+  - Seccion 2: Taxonomia de Business Rules, 5 tipos
+  - Seccion 3: Desencadenadores vs Inferencias, TEST CRITICO
+  - Seccion 4: Documentacion de BR
+  - Seccion 5: Derivacion BR → UC → FR
 
 **Documentos Relacionados:**
 

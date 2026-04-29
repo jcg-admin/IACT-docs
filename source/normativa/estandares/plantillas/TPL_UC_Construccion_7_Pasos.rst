@@ -345,17 +345,17 @@ FLUJO NORMAL - Consultar Reporte Trimestral
 
 1. Usuario selecciona parametros de consulta en formulario:
  
- - Trimestre: Q3 (dropdown)
- - Ano: 2024 (dropdown)
- - Segmento: OP - Operaciones (dropdown)
- - Tipo Consulta: Todas (checkbox)
+   - Trimestre: Q3 (dropdown)
+   - Ano: 2024 (dropdown)
+   - Segmento: OP - Operaciones (dropdown)
+   - Tipo Consulta: Todas (checkbox)
 
 2. Sistema valida formato de parametros (FR-RPT-01-01)
  
  Verifica:
- - Trimestre en Q1, Q2, Q3, Q4
- - Ano entre 2020 y ano actual
- - Segmento en OP, MG
+   - Trimestre en Q1, Q2, Q3, Q4
+   - Ano entre 2020 y ano actual
+   - Segmento en OP, MG
 
 3. Usuario hace click en boton "Generar Reporte"
 
@@ -408,9 +408,9 @@ FLUJO NORMAL - Consultar Reporte Trimestral
 
 9. Sistema genera graficos visuales (FR-RPT-01-07)
  
- - Grafico de lineas: Llamadas por dia
- - Grafico de barras: Completadas vs Abandonadas
- - KPI card: Tasa de abandono con semaforo
+   - Grafico de lineas: Llamadas por dia
+   - Grafico de barras: Completadas vs Abandonadas
+   - KPI card: Tasa de abandono con semaforo
 
 10. Sistema muestra tabla de resultados con graficos en pantalla
     (FR-RPT-01-08)
@@ -921,12 +921,12 @@ Como se implementa:
 
 1. Sistema calcula COUNT con mismos parametros que query principal
 2. Si COUNT mayor 10,000:
- - NO ejecuta query principal
- - Crea registro en tabla approvals
- - Notifica a supervisor
- - Muestra mensaje de espera a usuario
+   - NO ejecuta query principal
+   - Crea registro en tabla approvals
+   - Notifica a supervisor
+   - Muestra mensaje de espera a usuario
 3. Si COUNT menor o igual 10,000:
- - Continua con query principal normalmente
+   - Continua con query principal normalmente
 
 Codigo clave:
 
@@ -1206,10 +1206,10 @@ REFERENCIAS
 **Material Pedagogico:**
 
 - PARTE_2_Documentar_Use_Cases_IACT_1_0_0.md
- - Seccion 2: 11 Componentes de UC
- - Seccion 3: Flujos Alternos vs Excepciones
- - Seccion 4: Derivacion UC → FR
- - Seccion 5: Trazabilidad
+  - Seccion 2: 11 Componentes de UC
+  - Seccion 3: Flujos Alternos vs Excepciones
+  - Seccion 4: Derivacion UC → FR
+  - Seccion 5: Trazabilidad
 
 **Fuentes Externas:**
 

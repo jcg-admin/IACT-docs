@@ -110,22 +110,22 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 
 - **Enviar email**
  
- - Viola restriccion critica → **CNST_001**
- - Todo va por InternalMessage (buzon interno)
+  - Viola restriccion critica → **CNST_001**
+  - Todo va por InternalMessage (buzon interno)
 
 - **Consultar BD IVR directamente**
  
- - Debe usar datos de BD Analytics (ya transformados)
- - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING**
+  - Debe usar datos de BD Analytics (ya transformados)
+  - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING**
 
 - **Implementar logica de permisos**
  
- - Ejemplo: "Solo admin ve estas alertas"
- - Debe pasar por → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "Solo admin ve estas alertas"
+  - Debe pasar por → **ARQ_MOD_003_RBAC_CORE**
 
 - **Generar reportes de negocio**
  
- - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
+  - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
 
 ----
 

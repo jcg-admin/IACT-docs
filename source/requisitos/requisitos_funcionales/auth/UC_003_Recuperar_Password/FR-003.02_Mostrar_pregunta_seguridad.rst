@@ -96,7 +96,7 @@ FR-003.02: Mostrar pregunta de seguridad
 -------------------------
 
 - **BR aplicables:**
- - BR_004: Comunicaciones internas (no email externo)
+  - BR_004: Comunicaciones internas (no email externo)
  
 - **CNST aplicables:** Ninguna específica
 

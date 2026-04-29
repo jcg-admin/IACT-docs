@@ -156,17 +156,17 @@ Antes de iniciar este procedimiento, verificar:
     Formato: NFR_[CAT]_[NNN]
  
  Prefijos:
- - PERF: Rendimiento
- - SEC: Seguridad
- - USA: Usabilidad
- - REL: Confiabilidad
- - MNT: Mantenibilidad
- - PRT: Portabilidad
+  - PERF: Rendimiento
+  - SEC: Seguridad
+  - USA: Usabilidad
+  - REL: Confiabilidad
+  - MNT: Mantenibilidad
+  - PRT: Portabilidad
  
  Ejemplos:
- - NFR_PERF_001: Tiempo de respuesta API
- - NFR_SEC_001: Cifrado de datos
- - NFR_REL_001: Disponibilidad 99.5%
+  - NFR_PERF_001: Tiempo de respuesta API
+  - NFR_SEC_001: Cifrado de datos
+  - NFR_REL_001: Disponibilidad 99.5%
 
 - **Resultado**: ID asignado
 - **Verificacion**: Prefijo correcto
@@ -198,9 +198,9 @@ Antes de iniciar este procedimiento, verificar:
 
     **Metrica:**
  
- - Nombre: [Nombre de la metrica]
- - Unidad: [ms, %, req/s, etc.]
- - Formula: [Como se calcula]
+  - Nombre: [Nombre de la metrica]
+  - Unidad: [ms, %, req/s, etc.]
+  - Formula: [Como se calcula]
 
 - **Resultado**: Metrica definida
 - **Verificacion**: Metrica medible
@@ -217,18 +217,18 @@ Antes de iniciar este procedimiento, verificar:
  .. list-table::
     :header-rows: 1
  
- * - Nivel
- - Valor
- - Descripcion
- * - Minimo
- - [valor]
- - Limite inferior aceptable
- * - Objetivo
- - [valor]
- - Valor deseado
- * - Optimo
- - [valor]
- - Mejor caso posible
+  * - Nivel
+  - Valor
+  - Descripcion
+  * - Minimo
+  - [valor]
+  - Limite inferior aceptable
+  * - Objetivo
+  - [valor]
+  - Valor deseado
+  * - Optimo
+  - [valor]
+  - Mejor caso posible
 
 - **Resultado**: Umbrales definidos
 - **Verificacion**: 3 niveles especificados
@@ -242,10 +242,10 @@ Antes de iniciar este procedimiento, verificar:
 
     **Metodo de Medicion:**
  
- - Herramienta: [nombre]
- - Frecuencia: [cuando medir]
- - Ambiente: [donde medir]
- - Procedimiento: [como ejecutar medicion]
+  - Herramienta: [nombre]
+  - Frecuencia: [cuando medir]
+  - Ambiente: [donde medir]
+  - Procedimiento: [como ejecutar medicion]
 
 - **Resultado**: Metodo definido
 - **Verificacion**: Procedimiento replicable
@@ -259,10 +259,10 @@ Antes de iniciar este procedimiento, verificar:
 
     **Condiciones de Medicion:**
  
- - Carga: [usuarios concurrentes, transacciones/s]
- - Ambiente: [produccion, staging]
- - Datos: [volumen de datos]
- - Red: [condiciones de red]
+  - Carga: [usuarios concurrentes, transacciones/s]
+  - Ambiente: [produccion, staging]
+  - Datos: [volumen de datos]
+  - Red: [condiciones de red]
 
 - **Resultado**: Condiciones especificadas
 - **Verificacion**: Contexto reproducible
@@ -276,9 +276,9 @@ Antes de iniciar este procedimiento, verificar:
 
     **Impacto en Arquitectura:**
  
- - Componentes afectados: [lista]
- - Decisiones de diseno: [ADR relacionados]
- - Trade-offs: [compromisos]
+  - Componentes afectados: [lista]
+  - Decisiones de diseno: [ADR relacionados]
+  - Trade-offs: [compromisos]
 
 - **Resultado**: Impacto documentado
 - **Verificacion**: Componentes identificados

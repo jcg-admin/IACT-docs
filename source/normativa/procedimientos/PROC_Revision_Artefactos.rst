@@ -224,10 +224,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Revisar calidad del contenido:
 
- - Claridad de redaccion
- - Completitud de informacion
- - Precision tecnica
- - Consistencia con otros artefactos
+  - Claridad de redaccion
+  - Completitud de informacion
+  - Precision tecnica
+  - Consistencia con otros artefactos
 
 - **Resultado**: Observaciones de contenido
 - **Verificacion**: Sin ambiguedades
@@ -253,9 +253,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Validar referencias:
 
- - Artefacto padre existe
- - Artefactos relacionados existen
- - Bidireccionalidad de referencias
+  - Artefacto padre existe
+  - Artefactos relacionados existen
+  - Bidireccionalidad de referencias
 
 - **Resultado**: Trazabilidad consistente
 - **Verificacion**: Sin referencias rotas

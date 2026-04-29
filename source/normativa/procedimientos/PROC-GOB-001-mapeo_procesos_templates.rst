@@ -1071,10 +1071,10 @@ Archivo de configuracion centralizado que contiene:
   scripts, agentes
 - **reverse_mappings**: Mapeo inverso para consultas rapidas
 
- - by_template: template -> workflows
- - by_procedimiento: procedimiento -> workflows
- - by_agente: agente -> workflows
- - by_fase_sdlc: fase -> workflows
+  - by_template: template -> workflows
+  - by_procedimiento: procedimiento -> workflows
+  - by_agente: agente -> workflows
+  - by_fase_sdlc: fase -> workflows
 
 - **template_metadata**: Metadata de cada template (categoria,
   prioridad, fase_sdlc, workflows_requeridos)

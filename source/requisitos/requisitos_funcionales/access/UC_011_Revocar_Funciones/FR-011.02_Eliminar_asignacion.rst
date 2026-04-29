@@ -109,11 +109,11 @@ FR-011.02: Eliminar asignación de función
 -------------------------
 
 - **BR aplicables:**
- - BR_009: Bajas lógicas (si aplica)
+  - BR_009: Bajas lógicas (si aplica)
  
 - **CNST aplicables:**
- - CNST-002: Gestión de datos
- - CNST-009: Auditoría obligatoria
+  - CNST-002: Gestión de datos
+  - CNST-009: Auditoría obligatoria
 
 **Atomicidad:**
 

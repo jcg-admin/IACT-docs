@@ -153,14 +153,14 @@ Segun TPL_UC v2.0.0, un UC tiene:
     Formato: UC_[NNN]
  
  Rangos por modulo:
- - MOD_Auth: UC_001 - UC_005
- - MOD_Users: UC_006 - UC_009
- - MOD_Access: UC_010 - UC_011, UC_041 - UC_047
- - MOD_Reports: UC_017 - UC_030
- - MOD_Alerts: UC_036 - UC_040
- - MOD_Pipeline: UC_050 - UC_053
- - MOD_Audit: UC_060 - UC_063
- - MOD_Logs: UC_070 - UC_073
+  - MOD_Auth: UC_001 - UC_005
+  - MOD_Users: UC_006 - UC_009
+  - MOD_Access: UC_010 - UC_011, UC_041 - UC_047
+  - MOD_Reports: UC_017 - UC_030
+  - MOD_Alerts: UC_036 - UC_040
+  - MOD_Pipeline: UC_050 - UC_053
+  - MOD_Audit: UC_060 - UC_063
+  - MOD_Logs: UC_070 - UC_073
  
  Archivo: UC_[NNN]_[Nombre_Accion].rst
 
@@ -212,8 +212,8 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **Precondiciones:**
  
- 1. [Condicion que debe cumplirse antes]
- 2. [Otra condicion]
+  1. [Condicion que debe cumplirse antes]
+  2. [Otra condicion]
  
  **Trigger:**
  
@@ -221,11 +221,11 @@ Segun TPL_UC v2.0.0, un UC tiene:
  
  **Postcondiciones de Exito:**
  
- 1. [Estado despues de exito]
+  1. [Estado despues de exito]
  
  **Garantias Minimas:**
  
- 1. [Lo que siempre se cumple, exito o fallo]
+  1. [Lo que siempre se cumple, exito o fallo]
 
 - **Resultado**: Contexto completo
 - **Verificacion**: 4 elementos definidos
@@ -239,18 +239,18 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     ::
  
- 1. Actor [accion]
- 2. Sistema [respuesta]
- 3. Actor [accion]
- 4. Sistema [respuesta]
+  1. Actor [accion]
+  2. Sistema [respuesta]
+  3. Actor [accion]
+  4. Sistema [respuesta]
  ...
 
  **Reglas:**
  
- - Alternar actor/sistema cuando aplique
- - Pasos del sistema inician con "Sistema"
- - Ser especifico, no ambiguo
- - 5-15 pasos tipicamente
+  - Alternar actor/sistema cuando aplique
+  - Pasos del sistema inician con "Sistema"
+  - Ser especifico, no ambiguo
+  - 5-15 pasos tipicamente
 
 - **Resultado**: Flujo normal completo
 - **Verificacion**: Pasos claros y secuenciales
@@ -301,12 +301,12 @@ Segun TPL_UC v2.0.0, un UC tiene:
     .. list-table::
     :header-rows: 1
  
- * - BR
- - Nombre
- - Aplicacion
- * - BR_005
- - Sesion Unica
- - Paso 7: Invalida sesiones
+  * - BR
+  - Nombre
+  - Aplicacion
+  * - BR_005
+  - Sesion Unica
+  - Paso 7: Invalida sesiones
 
 - **Resultado**: BR vinculadas
 - **Verificacion**: BR existen en catalogo
@@ -320,9 +320,9 @@ Segun TPL_UC v2.0.0, un UC tiene:
 
     **FR Derivados:**
  
- - FR-001.01: Validar formato username
- - FR-001.02: Validar credenciales
- - FR-001.03: Generar token JWT
+  - FR-001.01: Validar formato username
+  - FR-001.02: Validar credenciales
+  - FR-001.03: Generar token JWT
 
 - **Resultado**: FR identificados
 - **Verificacion**: Nomenclatura FR correcta

@@ -109,7 +109,7 @@ FR-011.01: Listar funciones asignadas al usuario
 -------------------------
 
 - **BR aplicables:**
- - BR_006: RBAC Flat NIST
+  - BR_006: RBAC Flat NIST
  
 - **CNST aplicables:** Ninguna específica
 

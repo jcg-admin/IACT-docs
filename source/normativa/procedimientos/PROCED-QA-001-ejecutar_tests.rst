@@ -309,9 +309,9 @@ Si todos los tests pasan:
 
 2. **Identificar el problema**:
 
- - Status code esperado: 401 (Unauthorized)
- - Status code recibido: 500 (Server Error)
- - Hay un error interno, no solo credenciales incorrectas
+   - Status code esperado: 401 (Unauthorized)
+   - Status code recibido: 500 (Server Error)
+   - Hay un error interno, no solo credenciales incorrectas
 
 3. **Ejecutar test en modo debug**:
 
@@ -525,9 +525,9 @@ Problema 3: Tests muy lentos
 
 3. **Optimizar tests lentos**:
 
- - Usar fixtures compartidos
- - Mock servicios externos
- - Reducir datos de test
+   - Usar fixtures compartidos
+   - Mock servicios externos
+   - Reducir datos de test
 
 --------------
 

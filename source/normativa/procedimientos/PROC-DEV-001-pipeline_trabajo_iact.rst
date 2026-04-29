@@ -72,22 +72,22 @@ Entradas (Inputs)
 
 1. **Issue en GitHub** con:
 
- - Descripción del requerimiento
- - Criterios de aceptación
- - Prioridad asignada
- - Labels apropiados
+   - Descripción del requerimiento
+   - Criterios de aceptación
+   - Prioridad asignada
+   - Labels apropiados
 
 2. **Contexto del Proyecto**:
 
- - Documentación de arquitectura
- - ADRs relevantes
- - Restricciones (RNF-002: NO Redis, etc.)
+   - Documentación de arquitectura
+   - ADRs relevantes
+   - Restricciones (RNF-002: NO Redis, etc.)
 
 3. **Recursos**:
 
- - Tiempo estimado
- - Developer asignado
- - Ambiente de desarrollo configurado
+   - Tiempo estimado
+   - Developer asignado
+   - Ambiente de desarrollo configurado
 
 --------------
 
@@ -117,23 +117,23 @@ ETAPA 1: ANÁLISIS Y PLANIFICACIÓN
 
 1. **Analizar Issue**
 
- - Leer descripción completa
- - Identificar dependencias
- - Estimar complejidad (story points)
- - Identificar riesgos
+   - Leer descripción completa
+   - Identificar dependencias
+   - Estimar complejidad (story points)
+   - Identificar riesgos
 
 2. **Diseñar Solución**
 
- - Revisar ADRs relacionados
- - Identificar componentes afectados
- - Diseñar modelos/servicios/views necesarios
- - Definir estructura de tests
+   - Revisar ADRs relacionados
+   - Identificar componentes afectados
+   - Diseñar modelos/servicios/views necesarios
+   - Definir estructura de tests
 
 3. **Crear Branch**
 
- - Nomenclatura: ``feature/ISSUE-123-descripcion-breve``
- - Desde: ``main`` o ``develop`` (según estrategia de branching)
- - Comando: ``git checkout -b feature/ISSUE-123-descripcion``
+   - Nomenclatura: ``feature/ISSUE-123-descripcion-breve``
+   - Desde: ``main`` o ``develop`` (según estrategia de branching)
+   - Comando: ``git checkout -b feature/ISSUE-123-descripcion``
 
 **Criterios de Salida**: - [ ] Diseño técnico claro - [ ] Branch creado
 - [ ] Componentes identificados - [ ] Estimación de tiempo realista
@@ -154,24 +154,24 @@ ETAPA 2: IMPLEMENTACIÓN
 
 1. **Escribir Tests (TDD - Red Phase)**
 
- - Tests unitarios primero
- - Tests de integración
- - Verificar que tests fallan (RED)
+   - Tests unitarios primero
+   - Tests de integración
+   - Verificar que tests fallan (RED)
 
 2. **Implementar Código (TDD - Green Phase)**
 
- - Modelos Django
- - Services (lógica de negocio)
- - Serializers (DRF)
- - Views/ViewSets (endpoints)
- - Verificar que tests pasan (GREEN)
+   - Modelos Django
+   - Services (lógica de negocio)
+   - Serializers (DRF)
+   - Views/ViewSets (endpoints)
+   - Verificar que tests pasan (GREEN)
 
 3. **Refactorizar (TDD - Refactor Phase)**
 
- - Mejorar legibilidad
- - Eliminar duplicación
- - Aplicar SOLID principles
- - Tests siguen pasando
+   - Mejorar legibilidad
+   - Eliminar duplicación
+   - Aplicar SOLID principles
+   - Tests siguen pasando
 
 4. **Ejecutar Linters**
 
@@ -207,15 +207,15 @@ ETAPA 3: CODE REVIEW PREPARATION
 
 1. **Commit Changes**
 
- - Conventional Commits:
+   - Conventional Commits:
 
  ::
 
  feat(users): agregar validacion de permisos granulares
 
- - Implementar servicio de verificacion de capacidades
- - Agregar tests unitarios para edge cases
- - Actualizar documentacion de API
+   - Implementar servicio de verificacion de capacidades
+   - Agregar tests unitarios para edge cases
+   - Actualizar documentacion de API
 
  Closes #123
 
@@ -227,9 +227,9 @@ ETAPA 3: CODE REVIEW PREPARATION
 
 3. **Crear Pull Request**
 
- - Título: ``feat(users): agregar validacion de permisos granulares``
+   - Título: ``feat(users): agregar validacion de permisos granulares``
 
- - Descripción con template:
+   - Descripción con template:
 
  .. code:: markdown
 
@@ -237,15 +237,15 @@ ETAPA 3: CODE REVIEW PREPARATION
     Breve descripción del cambio.
 
  ## Tipo de cambio
- - [x] Feature nueva
- - [ ] Bug fix
- - [ ] Refactoring
+   - [x] Feature nueva
+   - [ ] Bug fix
+   - [ ] Refactoring
 
  ## Checklist
- - [x] Tests pasan
- - [x] Coverage >= 80%
- - [x] Linters pasan
- - [x] Documentación actualizada
+   - [x] Tests pasan
+   - [x] Coverage >= 80%
+   - [x] Linters pasan
+   - [x] Documentación actualizada
 
  ## Capturas (si aplica)
  Screenshots/videos si hay UI.
@@ -254,8 +254,8 @@ ETAPA 3: CODE REVIEW PREPARATION
 
 4. **Asignar Reviewers**
 
- - Mínimo: 2 reviewers
- - Al menos 1 reviewer senior/tech lead
+   - Mínimo: 2 reviewers
+   - Al menos 1 reviewer senior/tech lead
 
 **Criterios de Salida**: - [ ] PR creado con descripción completa - [ ]
 Reviewers asignados - [ ] Labels asignados (feature, priority, etc.) - [
@@ -277,34 +277,34 @@ ETAPA 4: CODE REVIEW
 
 1. **Revisión Automatizada (CI/CD)**
 
- - Backend CI (pytest, coverage, linters)
- - Frontend CI (Jest, ESLint)
- - Security scan (Bandit, npm audit)
- - Todos los checks deben pasar
+   - Backend CI (pytest, coverage, linters)
+   - Frontend CI (Jest, ESLint)
+   - Security scan (Bandit, npm audit)
+   - Todos los checks deben pasar
 
 2. **Revisión Manual por Reviewers**
 
- - Verificar:
+   - Verificar:
 
- - Cumple requisitos del issue
- - Código legible y mantenible
- - Tests adecuados
- - No hay code smells
- - Cumple estándares del proyecto
- - No viola ADRs
+   - Cumple requisitos del issue
+   - Código legible y mantenible
+   - Tests adecuados
+   - No hay code smells
+   - Cumple estándares del proyecto
+   - No viola ADRs
 
 3. **Feedback y Correcciones**
 
- - Reviewers dejan comentarios
- - Developer corrige
- - Push de correcciones
- - Re-review si necesario
+   - Reviewers dejan comentarios
+   - Developer corrige
+   - Push de correcciones
+   - Re-review si necesario
 
 4. **Aprobación**
 
- - Mínimo 2 aprobaciones
- - Todos los comentarios resueltos
- - CI/CD verde
+   - Mínimo 2 aprobaciones
+   - Todos los comentarios resueltos
+   - CI/CD verde
 
 **Criterios de Salida**: - [ ] 2+ aprobaciones recibidas - [ ] Todos los
 checks CI/CD verdes - [ ] Todos los comentarios resueltos - [ ]
@@ -326,15 +326,15 @@ ETAPA 5: MERGE Y DEPLOYMENT A STAGING
 
 1. **Merge to Main/Develop**
 
- - Método: Squash and Merge (preferido) o Merge Commit
- - Eliminar branch feature después de merge
- - Generar tag si es release
+   - Método: Squash and Merge (preferido) o Merge Commit
+   - Eliminar branch feature después de merge
+   - Generar tag si es release
 
 2. **Deployment Automático a Staging**
 
- - Trigger: Merge a ``develop`` branch
+   - Trigger: Merge a ``develop`` branch
 
- - CI/CD ejecuta:
+   - CI/CD ejecuta:
 
  .. code:: yaml
 
@@ -345,9 +345,9 @@ ETAPA 5: MERGE Y DEPLOYMENT A STAGING
 
 3. **Verificación Manual en Staging**
 
- - QA Engineer valida funcionalidad
- - Product Owner valida requisitos
- - Smoke tests manuales
+   - QA Engineer valida funcionalidad
+   - Product Owner valida requisitos
+   - Smoke tests manuales
 
 **Criterios de Salida**: - [ ] Código mergeado a main/develop - [ ]
 Deploy a staging exitoso - [ ] Smoke tests pasan - [ ] Feature validada
@@ -373,11 +373,11 @@ completado
 
 1. **Pre-Deployment Checklist**
 
- - ☐ Backup de base de datos completado
- - ☐ Changelog actualizado
- - ☐ Release notes preparadas
- - ☐ Rollback plan definido
- - ☐ Equipo notificado
+   - ☐ Backup de base de datos completado
+   - ☐ Changelog actualizado
+   - ☐ Release notes preparadas
+   - ☐ Rollback plan definido
+   - ☐ Equipo notificado
 
 2. **Ejecutar Deployment**
 
@@ -392,17 +392,17 @@ completado
 
 3. **Validación Post-Deployment**
 
- - Smoke tests manuales
- - Verificar logs (sin errores)
- - Verificar métricas (response time, error rate)
- - Validar feature funciona en producción
+   - Smoke tests manuales
+   - Verificar logs (sin errores)
+   - Verificar métricas (response time, error rate)
+   - Validar feature funciona en producción
 
 4. **Monitoreo (primeras 2 horas)**
 
- - Observar error rate
- - Observar response times
- - Revisar logs de aplicación
- - Estar listo para rollback si necesario
+   - Observar error rate
+   - Observar response times
+   - Revisar logs de aplicación
+   - Estar listo para rollback si necesario
 
 **Criterios de Salida**: - [ ] Deploy a producción exitoso - [ ] Smoke
 tests pasan - [ ] Métricas normales (error rate, response time) - [ ]
@@ -425,29 +425,29 @@ ETAPA 7: POST-DEPLOYMENT
 
 1. **Actualizar Issue**
 
- - Marcar como completado
- - Agregar link a PR
- - Agregar link a deployment
- - Cerrar issue
+   - Marcar como completado
+   - Agregar link a PR
+   - Agregar link a deployment
+   - Cerrar issue
 
 2. **Actualizar Documentación**
 
- - Actualizar README si aplica
- - Actualizar API docs si aplica
- - Crear/actualizar ADR si hay decisión arquitectónica
+   - Actualizar README si aplica
+   - Actualizar API docs si aplica
+   - Crear/actualizar ADR si hay decisión arquitectónica
 
 3. **Registrar Métricas DORA**
 
- - Lead Time for Changes
- - Deployment Frequency
- - Mean Time to Recovery (si hubo incidente)
- - Change Failure Rate
+   - Lead Time for Changes
+   - Deployment Frequency
+   - Mean Time to Recovery (si hubo incidente)
+   - Change Failure Rate
 
 4. **Retrospectiva (opcional)**
 
- - Qué salió bien
- - Qué mejorar
- - Lecciones aprendidas
+   - Qué salió bien
+   - Qué mejorar
+   - Lecciones aprendidas
 
 **Criterios de Salida**: - [ ] Issue cerrado - [ ] Documentación
 actualizada - [ ] Métricas DORA registradas - [ ] Retrospectiva

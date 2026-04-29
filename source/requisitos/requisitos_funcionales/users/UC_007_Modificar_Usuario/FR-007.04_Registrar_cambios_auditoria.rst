@@ -118,11 +118,11 @@ FR-007.04: Registrar cambios en auditoría
 -------------------------
 
 - **BR aplicables:**
- - BR_008: Auditoría obligatoria
+  - BR_008: Auditoría obligatoria
  
 - **CNST aplicables:**
- - CNST-009: Auditoría inmutable
- - CNST-010: No registrar datos sensibles
+  - CNST-009: Auditoría inmutable
+  - CNST-010: No registrar datos sensibles
 
 **Campos Enmascarados:**
 

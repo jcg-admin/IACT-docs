@@ -567,52 +567,52 @@ DO ✅
 
 1. **Actualizar docs en mismo PR que código**
 
- - Cambio de código + update de docs = 1 PR
- - Mantiene docs sincronizados
+   - Cambio de código + update de docs = 1 PR
+   - Mantiene docs sincronizados
 
 2. **Usar ejemplos ejecutables**
 
- - Código que realmente funciona
- - Testeado antes de documentar
+   - Código que realmente funciona
+   - Testeado antes de documentar
 
 3. **Ser específico**
 
- - “Ejecutar ``npm test``” mejor que “correr tests”
- - Incluir outputs esperados
+   - “Ejecutar ``npm test``” mejor que “correr tests”
+   - Incluir outputs esperados
 
 4. **Mantener histórico**
 
- - No borrar secciones obsoletas, marcarlas como tal
- - Mantener changelog
+   - No borrar secciones obsoletas, marcarlas como tal
+   - Mantener changelog
 
 5. **Links relativos**
 
- - ``[ADR](../adr/ADR-BACK-001.md)`` no
+   - ``[ADR](../adr/ADR-BACK-001.md)`` no
    ``[ADR](https://github.com/...)``
- - Funciona en cualquier entorno
+   - Funciona en cualquier entorno
 
 DON’T ❌
 ~~~~~~~~
 
 1. **Dejar docs desactualizados**
 
- - Docs incorrectos peores que no docs
+   - Docs incorrectos peores que no docs
 
 2. **Hacer cambios sin versionar**
 
- - Siempre actualizar versión y fecha
+   - Siempre actualizar versión y fecha
 
 3. **Olvidar links cruzados**
 
- - Actualizar referencias en otros docs
+   - Actualizar referencias en otros docs
 
 4. **Documentar “en el futuro”**
 
- - Solo documentar lo que YA existe
+   - Solo documentar lo que YA existe
 
 5. **Asumir conocimiento previo excesivo**
 
- - Explicar desde nivel apropiado para audiencia
+   - Explicar desde nivel apropiado para audiencia
 
 --------------
 

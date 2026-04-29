@@ -115,18 +115,18 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 
 - **Guardar stack traces o errores tecnicos**
  
- - Ejemplo: Tracebacks de excepciones Python
- - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
+  - Ejemplo: Tracebacks de excepciones Python
+  - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
 
 - **Definir reglas de acceso**
  
- - Ejemplo: "Solo auditor ve esto"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "Solo auditor ve esto"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Almacenar logs de infraestructura**
  
- - Ejemplo: Estado de servicios, timeouts, conexiones
- - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
+  - Ejemplo: Estado de servicios, timeouts, conexiones
+  - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
 
 ----
 

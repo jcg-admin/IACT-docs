@@ -123,8 +123,8 @@ Restricciones técnicas documentadas (ver
 
 1. Crear archivo en ``docs/implementacion/{dominio}/diseno/``
 
- - Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.md``
- - Ejemplo: ``DISENO_TECNICO_AUTENTICACION.md``
+   - Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.md``
+   - Ejemplo: ``DISENO_TECNICO_AUTENTICACION.md``
 
 2. Incluir header estándar:
 
@@ -558,8 +558,8 @@ Una vez aprobado:
 
 2. Crear ADR si hay decisiones arquitectónicas importantes:
 
- - Ubicación: ``docs/arquitectura/adr/``
- - Ver plantilla: ``plantilla_adr.md``
+   - Ubicación: ``docs/arquitectura/adr/``
+   - Ver plantilla: ``plantilla_adr.md``
 
 3. Notificar al equipo de desarrollo para inicio de implementación
 

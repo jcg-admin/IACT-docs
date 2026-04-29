@@ -58,17 +58,17 @@ hasta su implementacion final (codigo, tests).
 **Tipos de Trazabilidad:**
 
 1. **Backward (hacia atras):**
- - De Codigo/Tests → FR → UC → BR → BReq → Stakeholder
- - Responde: "Por que existe este codigo?"
+   - De Codigo/Tests → FR → UC → BR → BReq → Stakeholder
+   - Responde: "Por que existe este codigo?"
 
 2. **Forward (hacia adelante):**
- - De BReq → BR → UC → FR → Codigo → Tests
- - Responde: "Donde esta implementado este requisito?"
+   - De BReq → BR → UC → FR → Codigo → Tests
+   - Responde: "Donde esta implementado este requisito?"
 
 3. **Horizontal (lateral):**
- - UC ↔ UC: Dependencias entre casos de uso
- - FR ↔ FR: Dependencias entre functional requirements
- - Responde: "Que otros componentes dependen de este?"
+   - UC ↔ UC: Dependencias entre casos de uso
+   - FR ↔ FR: Dependencias entre functional requirements
+   - Responde: "Que otros componentes dependen de este?"
 
 **Niveles de Trazabilidad:**
 

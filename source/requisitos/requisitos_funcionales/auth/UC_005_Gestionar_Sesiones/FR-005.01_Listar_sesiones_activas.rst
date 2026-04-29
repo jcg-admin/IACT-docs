@@ -111,7 +111,7 @@ FR-005.01: Listar sesiones activas
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Consulta de user_sessions
+  - CNST-002: Consulta de user_sessions
 
 **Permisos Requeridos:**
 

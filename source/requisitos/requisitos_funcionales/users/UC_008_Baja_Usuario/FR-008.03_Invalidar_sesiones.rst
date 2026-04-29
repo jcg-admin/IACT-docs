@@ -104,7 +104,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD
+  - CNST-002: Gestión de sesiones en BD
 
 **Transacción Atómica:**
 

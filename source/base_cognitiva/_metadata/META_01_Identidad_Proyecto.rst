@@ -60,9 +60,9 @@ Sistema web multi-tier compuesto por:
   gobernanza).
 - **Bases de datos:** arquitectura dual.
 
- - **MySQL** — fuente operativa, modo solo-lectura desde IACT
+  - **MySQL** — fuente operativa, modo solo-lectura desde IACT
    (los datos los genera el sistema IVR origen externo).
- - **PostgreSQL** — destino analítico, optimizado para consultas
+  - **PostgreSQL** — destino analítico, optimizado para consultas
    agregadas y reportes.
 
 - **Infraestructura:** Ubuntu + Apache (``mod_wsgi`` para servir

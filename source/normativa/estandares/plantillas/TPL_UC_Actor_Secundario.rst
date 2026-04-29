@@ -258,25 +258,25 @@ Documentar detalladamente que hace cada actor en el UC.
 Responsabilidades Principales:
 
 1. **Revisar Solicitud:**
- - Verificar parametros de la consulta (trimestre, ano, segmento)
- - Ver count estimado de registros
- - Revisar quien solicito y cuando
- - Verificar historial de consultas del solicitante
+   - Verificar parametros de la consulta (trimestre, ano, segmento)
+   - Ver count estimado de registros
+   - Revisar quien solicito y cuando
+   - Verificar historial de consultas del solicitante
 
 2. **Evaluar Necesidad:**
- - Determinar si la consulta es realmente necesaria
- - Considerar si parametros pueden optimizarse
- - Evaluar urgencia vs carga del sistema
- - Considerar horario de ejecucion (pico vs valle)
+   - Determinar si la consulta es realmente necesaria
+   - Considerar si parametros pueden optimizarse
+   - Evaluar urgencia vs carga del sistema
+   - Considerar horario de ejecucion (pico vs valle)
 
 3. **Tomar Decision:**
- - Aprobar si justificado
- - Rechazar si innecesario o puede optimizarse
- - Proporcionar feedback al solicitante
+   - Aprobar si justificado
+   - Rechazar si innecesario o puede optimizarse
+   - Proporcionar feedback al solicitante
 
 4. **Gestionar Equipo:**
- - Educar a analistas sobre uso responsable
- - Monitorear patrones de consultas del equipo
+   - Educar a analistas sobre uso responsable
+   - Monitorear patrones de consultas del equipo
 
 Autoridad:
 
@@ -296,33 +296,33 @@ espera la decision del Supervisor.
 Responsabilidades en UC-RPT-02:
 
 1. **Recibir Notificacion:**
- - Ser notificado cuando Supervisor aprueba/rechaza
- - Ver resultado en bandeja de notificaciones
+   - Ser notificado cuando Supervisor aprueba/rechaza
+   - Ver resultado en bandeja de notificaciones
 
 2. **Acceder a Reporte:**
- - Si aprobado: Ver link al reporte generado
- - Descargar/exportar reporte
+   - Si aprobado: Ver link al reporte generado
+   - Descargar/exportar reporte
 
 3. **Aprender:**
- - Si rechazado: Leer feedback del Supervisor
- - Ajustar parametros y volver a solicitar
+   - Si rechazado: Leer feedback del Supervisor
+   - Ajustar parametros y volver a solicitar
 
 **Sistema Analytics (Actor Secundario):**
 
 Responsabilidades:
 
 1. **Proveer Datos:**
- - Mantener datos de ivr_calls actualizados
- - Garantizar integridad de datos
+   - Mantener datos de ivr_calls actualizados
+   - Garantizar integridad de datos
 
 2. **Ejecutar Query:**
- - Recibir query parametrizada del Sistema IACT
- - Ejecutar con timeout de 30 segundos
- - Retornar dataset o error
+   - Recibir query parametrizada del Sistema IACT
+   - Ejecutar con timeout de 30 segundos
+   - Retornar dataset o error
 
 3. **Performance:**
- - Responder en tiempo aceptable
- - No degradar por consultas concurrentes
+   - Responder en tiempo aceptable
+   - No degradar por consultas concurrentes
 
 Restricciones:
 
@@ -375,33 +375,33 @@ en link "Revisar Solicitud"
 1. **Sistema muestra pantalla de revision de solicitud (FR-RPT-02-01)**
  
  Pantalla contiene:
- - Datos de la solicitud: ID, fecha, hora
- - Solicitante: Ana Lopez (Analista)
- - Parametros: Q3 2024, Segmento OP
- - Count estimado: 25,000 registros
- - Umbral: 10,000 (excedido por 15,000)
- - Historial: Ultimas 5 consultas de Ana
+   - Datos de la solicitud: ID, fecha, hora
+   - Solicitante: Ana Lopez (Analista)
+   - Parametros: Q3 2024, Segmento OP
+   - Count estimado: 25,000 registros
+   - Umbral: 10,000 (excedido por 15,000)
+   - Historial: Ultimas 5 consultas de Ana
 
 2. **Supervisor revisa informacion**
  
  Supervisor analiza:
- - Es necesaria la consulta?
- - Parametros pueden optimizarse?
- - Horario actual: 2:00 PM (horario pico)
- - Sugerencia del sistema: "Ejecutar en horario valle (6-8 AM)"
+   - Es necesaria la consulta?
+   - Parametros pueden optimizarse?
+   - Horario actual: 2:00 PM (horario pico)
+   - Sugerencia del sistema: "Ejecutar en horario valle (6-8 AM)"
 
 3. **Supervisor hace click en boton "Aprobar" (FR-RPT-02-02)**
 
  Pantalla muestra form:
- - Radio buttons: Aprobar | Rechazar
- - Selector: Ejecutar Ahora | Programar para
- - Text area: Comentarios (opcional)
+   - Radio buttons: Aprobar | Rechazar
+   - Selector: Ejecutar Ahora | Programar para
+   - Text area: Comentarios (opcional)
 
 4. **Supervisor selecciona opciones:**
  
- - Opcion: Aprobar
- - Ejecutar: Programar para manana 6:00 AM
- - Comentarios: "Aprobado. Ejecutar en horario valle para no
+   - Opcion: Aprobar
+   - Ejecutar: Programar para manana 6:00 AM
+   - Comentarios: "Aprobado. Ejecutar en horario valle para no
    afectar performance."
 
 5. **Supervisor hace click en "Confirmar Decision"**
@@ -409,9 +409,9 @@ en link "Revisar Solicitud"
 6. **Sistema valida decision (FR-RPT-02-03)**
  
  Validaciones:
- - Supervisor tiene autoridad sobre Analista solicitante
- - Decision es Aprobar o Rechazar
- - Si programada, hora futura valida
+   - Supervisor tiene autoridad sobre Analista solicitante
+   - Decision es Aprobar o Rechazar
+   - Si programada, hora futura valida
 
 7. **Sistema actualiza registro de aprobacion (FR-RPT-02-04)**
 

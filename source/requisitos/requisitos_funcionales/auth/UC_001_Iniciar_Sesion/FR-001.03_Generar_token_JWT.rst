@@ -102,11 +102,11 @@ FR-001.03: Generar token JWT
 -------------------------
 
 - **BR aplicables:**
- - BR_005: Sesión única por usuario
+  - BR_005: Sesión única por usuario
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD (registro obligatorio)
- - CNST-005: Seguridad DRF
+  - CNST-002: Gestión de sesiones en BD (registro obligatorio)
+  - CNST-005: Seguridad DRF
 
 **Parámetros de Configuración:**
 

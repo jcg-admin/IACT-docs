@@ -104,7 +104,7 @@ FR-007.02: Validar campos modificados
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-005: Seguridad (sanitización)
+  - CNST-005: Seguridad (sanitización)
 
 **Optimización:**
 

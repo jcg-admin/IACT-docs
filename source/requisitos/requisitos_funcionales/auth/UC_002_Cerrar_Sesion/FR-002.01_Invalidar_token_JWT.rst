@@ -100,7 +100,7 @@ FR-002.01: Invalidar token JWT
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD
+  - CNST-002: Gestión de sesiones en BD
 
 **Consideraciones de Performance:**
 

@@ -558,9 +558,9 @@ Problema 3: Muchos conflictos (>10 archivos)
 
 2. **O dividir el trabajo**:
 
- - Resolver archivos críticos primero
- - Commit resolución parcial
- - Continuar con resto
+   - Resolver archivos críticos primero
+   - Commit resolución parcial
+   - Continuar con resto
 
 --------------
 
@@ -597,18 +597,18 @@ Mejores Prácticas
 
 2. **Feature branches pequeños**:
 
- - Trabajar en PRs de < 500 líneas
- - Merge rápido (< 3 días)
+   - Trabajar en PRs de < 500 líneas
+   - Merge rápido (< 3 días)
 
 3. **Comunicación**:
 
- - Avisar en equipo si vas a modificar archivos centrales
- - Coordinar con otros developers en mismos archivos
+   - Avisar en equipo si vas a modificar archivos centrales
+   - Coordinar con otros developers en mismos archivos
 
 4. **Atomic commits**:
 
- - Un cambio lógico por commit
- - Facilita resolución commit por commit con rebase
+   - Un cambio lógico por commit
+   - Facilita resolución commit por commit con rebase
 
 --------------
 

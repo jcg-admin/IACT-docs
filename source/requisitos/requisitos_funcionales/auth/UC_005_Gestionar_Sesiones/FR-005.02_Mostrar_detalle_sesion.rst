@@ -112,7 +112,7 @@ FR-005.02: Mostrar detalle de sesión
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-009: Consulta de auditoría para historial
+  - CNST-009: Consulta de auditoría para historial
 
 **Datos Sensibles:**
 

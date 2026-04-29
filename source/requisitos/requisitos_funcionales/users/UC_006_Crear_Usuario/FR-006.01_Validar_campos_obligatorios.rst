@@ -120,7 +120,7 @@ FR-006.01: Validar campos obligatorios
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-005: Seguridad (sanitización de inputs)
+  - CNST-005: Seguridad (sanitización de inputs)
 
 **Validación en Frontend y Backend:**
 

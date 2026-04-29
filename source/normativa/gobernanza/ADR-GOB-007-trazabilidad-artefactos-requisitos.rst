@@ -587,68 +587,68 @@ Positivas
 
 1. **Gestión de cambios efectiva**
 
- - Impacto visible inmediatamente
- - Checklist de artefactos a actualizar
- - Previene cambios inconsistentes
+   - Impacto visible inmediatamente
+   - Checklist de artefactos a actualizar
+   - Previene cambios inconsistentes
 
 2. **Validación de cobertura**
 
- - Verificar que todos los RN tienen UC
- - Confirmar que todos los UC tienen RF
- - Identificar gaps
+   - Verificar que todos los RN tienen UC
+   - Confirmar que todos los UC tienen RF
+   - Identificar gaps
 
 3. **Onboarding mejorado**
 
- - Nuevos miembros siguen referencias
- - Comprenden relaciones entre artefactos
- - Documentación autoexplicativa
+   - Nuevos miembros siguen referencias
+   - Comprenden relaciones entre artefactos
+   - Documentación autoexplicativa
 
 4. **Análisis de impacto**
 
- - Bottom-up: “¿Por qué existe esto?”
- - Top-down: “¿Qué implementa esto?”
- - Lateral: “¿Qué más se afecta?”
+   - Bottom-up: “¿Por qué existe esto?”
+   - Top-down: “¿Qué implementa esto?”
+   - Lateral: “¿Qué más se afecta?”
 
 5. **Auditorías facilitadas**
 
- - Demostrar que requisitos se cumplen
- - Trazabilidad desde código hasta reglas
+   - Demostrar que requisitos se cumplen
+   - Trazabilidad desde código hasta reglas
 
 Negativas
 ~~~~~~~~~
 
 1. **Overhead de documentación**
 
- - Mantener referencias actualizadas
- - Riesgo de referencias rotas
+   - Mantener referencias actualizadas
+   - Riesgo de referencias rotas
 
  **Mitigación**:
 
- - Scripts de validación
- - CI/CD verifica trazabilidad
- - Code reviews incluyen revisar referencias
+   - Scripts de validación
+   - CI/CD verifica trazabilidad
+   - Code reviews incluyen revisar referencias
 
 2. **Redundancia**
 
- - Misma información en múltiples lugares
- - UC lista RF, RF lista UC
+   - Misma información en múltiples lugares
+   - UC lista RF, RF lista UC
 
  **Mitigación**:
 
- - Generar matrices automáticamente
- - Single source of truth en IDs
- - Scripts detectan inconsistencias
+   - Generar matrices automáticamente
+   - Single source of truth en IDs
+   - Scripts detectan inconsistencias
 
 3. **Complejidad inicial**
 
- - Tiempo para establecer trazabilidad
- - Curva de aprendizaje
+   - Tiempo para establecer trazabilidad
+   - Curva de aprendizaje
 
  **Mitigación**:
 
- - Templates pre-poblados con secciones
- - Ejemplos completos
- - Capacitación
+   - Templates pre-poblados con secciones
+   - Ejemplos completos
+   - Capacitación
 
 Implementación
 --------------

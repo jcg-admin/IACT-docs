@@ -197,10 +197,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Evaluar impacto en:
 
- - Artefactos derivados (UC -> FR -> TST)
- - Artefactos relacionados (BR, CNST)
- - Codigo implementado
- - Cronograma
+  - Artefactos derivados (UC -> FR -> TST)
+  - Artefactos relacionados (BR, CNST)
+  - Codigo implementado
+  - Cronograma
 
 - **Resultado**: Analisis de impacto
 - **Verificacion**: Todos los impactos identificados
@@ -210,10 +210,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: CCB
 - **Accion**: Revisar RFC y analisis, decidir:
 
- - Aprobar
- - Aprobar con condiciones
- - Rechazar
- - Solicitar mas informacion
+  - Aprobar
+  - Aprobar con condiciones
+  - Rechazar
+  - Solicitar mas informacion
 
 - **Resultado**: Decision documentada
 - **Verificacion**: Acta de CCB
@@ -223,9 +223,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Implementador
 - **Accion**: Ejecutar cambio segun procedimientos:
 
- - Si subdominio congelado: PROC_Descongelamiento primero
- - Aplicar versionado semantico
- - Actualizar artefactos derivados
+  - Si subdominio congelado: PROC_Descongelamiento primero
+  - Aplicar versionado semantico
+  - Actualizar artefactos derivados
 
 - **Resultado**: Cambio implementado
 - **Verificacion**: Artefactos actualizados

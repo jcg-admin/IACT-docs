@@ -44,14 +44,14 @@ INTRODUCCION A LA TECNICA LARMAN
 Craig Larman propone documentar Use Cases usando:
 
 1. **Operation Contracts (Contratos de Operación)**
- - Definen QUÉ debe lograr una operación del sistema
- - No describen CÓMO (eso es diseño)
- - Formato: Precondiciones + Postcondiciones
+   - Definen QUÉ debe lograr una operación del sistema
+   - No describen CÓMO (eso es diseño)
+   - Formato: Precondiciones + Postcondiciones
 
 2. **GRASP Patterns (Patrones de Asignación de Responsabilidades)**
- - 9 patrones para asignar responsabilidades a clases
- - Responden: ¿QUÉ clase hace QUÉ?
- - Fundamento para diseño OOP
+   - 9 patrones para asignar responsabilidades a clases
+   - Responden: ¿QUÉ clase hace QUÉ?
+   - Fundamento para diseño OOP
 
 **¿Cuándo usar este template?**
 

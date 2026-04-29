@@ -563,22 +563,22 @@ Escenario: Q3 2024, Segmento OP, ~8,500 filas esperadas
 **Puntos Positivos:**
 
 1. **Index Scan:** Usa indice idx_ivr_calls_quarter_year_segment_date
- - BIEN: Evita full table scan
- - Cost 0.56 es muy bajo, indica inicio rapido
+   - BIEN: Evita full table scan
+   - Cost 0.56 es muy bajo, indica inicio rapido
 
 2. **Rows Estimados vs Actuales:**
- - Estimado: 8,500
- - Actual: 8,492
- - BIEN: Estadisticas precisas, planner toma buenas decisiones
+   - Estimado: 8,500
+   - Actual: 8,492
+   - BIEN: Estadisticas precisas, planner toma buenas decisiones
 
 3. **Execution Time: 12.789 ms**
- - EXCELENTE: Menor al objetivo de 3 segundos (3000 ms)
+   - EXCELENTE: Menor al objetivo de 3 segundos (3000 ms)
 
 **Puntos a Mejorar:**
 
 1. **Sort Method: external merge Disk: 1024kB**
- - WARNING: Sort usa disco, no memoria
- - Solucion: Aumentar work_mem
+   - WARNING: Sort usa disco, no memoria
+   - Solucion: Aumentar work_mem
 
 **Optimizaciones Aplicadas:**
 

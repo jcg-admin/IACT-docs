@@ -100,7 +100,7 @@ FR-008.01: Validar que el usuario está activo
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-010: Segregación de funciones
+  - CNST-010: Segregación de funciones
 
 **Protección del Sistema:**
 

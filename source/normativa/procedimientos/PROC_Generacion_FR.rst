@@ -179,12 +179,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Del UC origen, extraer:
 
- - ID del UC (ej: UC_001)
- - Nombre del UC
- - Modulo (ej: MOD_Auth)
- - Paso del flujo normal que origina el FR
- - BR aplicables
- - FR listados en seccion Trazabilidad
+  - ID del UC (ej: UC_001)
+  - Nombre del UC
+  - Modulo (ej: MOD_Auth)
+  - Paso del flujo normal que origina el FR
+  - BR aplicables
+  - FR listados en seccion Trazabilidad
 
 - **Resultado**: Informacion de contexto disponible
 - **Verificacion**: Datos completos para el FR
@@ -199,16 +199,16 @@ Antes de iniciar este procedimiento, verificar:
     Formato ID: FR_UC[MOD]_[NN]_[NN]
  
  Donde:
- - FR: Prefijo fijo
- - UC[MOD]: Codigo UC padre (ej: UC001)
- - [NN]: Numero secuencial del FR dentro del UC
+  - FR: Prefijo fijo
+  - UC[MOD]: Codigo UC padre (ej: UC001)
+  - [NN]: Numero secuencial del FR dentro del UC
  
  Ejemplos:
- - FR_UC001_01 (primer FR de UC_001)
- - FR_UC001_05 (quinto FR de UC_001)
+  - FR_UC001_01 (primer FR de UC_001)
+  - FR_UC001_05 (quinto FR de UC_001)
  
  Formato alternativo (usado en UC existentes):
- - FR-001.01, FR-001.02, etc.
+  - FR-001.01, FR-001.02, etc.
 
 - **Resultado**: ID del FR definido
 - **Verificacion**: ID unico, sigue nomenclatura
@@ -265,13 +265,13 @@ Antes de iniciar este procedimiento, verificar:
 
     **BR Aplicables:**
  
- - BR_005: Sesion Unica por Usuario
- - BR_008: Auditoria de Accesos
+  - BR_005: Sesion Unica por Usuario
+  - BR_008: Auditoria de Accesos
  
  **CNST Aplicables:**
  
- - CNST_002: Gestion de Sesiones en BD
- - CNST_005: Seguridad DRF Checklist
+  - CNST_002: Gestion de Sesiones en BD
+  - CNST_005: Seguridad DRF Checklist
 
 - **Resultado**: Trazabilidad a BR y CNST
 - **Verificacion**: BR y CNST existen en catalogo

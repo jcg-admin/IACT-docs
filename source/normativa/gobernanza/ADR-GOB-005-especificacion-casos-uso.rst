@@ -651,92 +651,92 @@ Positivas
 
 1. **Claridad en responsabilidades**
 
- - Columnas separan actor vs. sistema
- - Obvio qué debe implementarse
- - Fácil identificar requisitos funcionales
+   - Columnas separan actor vs. sistema
+   - Obvio qué debe implementarse
+   - Fácil identificar requisitos funcionales
 
 2. **Perspectiva de usuario mantenida**
 
- - Principio QUÉ vs CÓMO previene sobre-especificación técnica
- - Casos de uso comprensibles por stakeholders no técnicos
- - Enfoque en valor para usuario
+   - Principio QUÉ vs CÓMO previene sobre-especificación técnica
+   - Casos de uso comprensibles por stakeholders no técnicos
+   - Enfoque en valor para usuario
 
 3. **Trazabilidad completa**
 
- - Referencias a reglas de negocio
- - Referencias a RNF
- - IDs únicos permiten seguimiento
+   - Referencias a reglas de negocio
+   - Referencias a RNF
+   - IDs únicos permiten seguimiento
 
 4. **Detalle suficiente**
 
- - Formato completo con precondiciones, postcondiciones, flujos
+   - Formato completo con precondiciones, postcondiciones, flujos
    alternos
- - Desarrolladores tienen información necesaria
- - QA puede derivar casos de prueba directamente
+   - Desarrolladores tienen información necesaria
+   - QA puede derivar casos de prueba directamente
 
 5. **Consistencia**
 
- - Nomenclatura VERBO+OBJETO estándar
- - Estructura uniforme entre casos de uso
- - Fácil comparar y mantener
+   - Nomenclatura VERBO+OBJETO estándar
+   - Estructura uniforme entre casos de uso
+   - Fácil comparar y mantener
 
 6. **Documentación duradera**
 
- - Casos de uso son estables (menos cambios que código)
- - Sirven como especificación oficial
- - Base para regresión y auditorías
+   - Casos de uso son estables (menos cambios que código)
+   - Sirven como especificación oficial
+   - Base para regresión y auditorías
 
 Negativas
 ~~~~~~~~~
 
 1. **Overhead de documentación**
 
- - Formato completo requiere tiempo
- - Múltiples secciones obligatorias
- - Puede parecer excesivo para casos muy simples
+   - Formato completo requiere tiempo
+   - Múltiples secciones obligatorias
+   - Puede parecer excesivo para casos muy simples
 
  **Mitigación**:
 
- - Templates aceleran creación
- - Permitir omitir secciones vacías (ej: si no hay precondiciones)
- - Priorizar casos de uso críticos
- - No documentar casos triviales si no aportan valor
+   - Templates aceleran creación
+   - Permitir omitir secciones vacías (ej: si no hay precondiciones)
+   - Priorizar casos de uso críticos
+   - No documentar casos triviales si no aportan valor
 
 2. **Curva de aprendizaje**
 
- - Equipo debe aprender formato
- - Principio QUÉ vs CÓMO requiere disciplina
- - Nomenclatura VERBO+OBJETO no es intuitiva para todos
+   - Equipo debe aprender formato
+   - Principio QUÉ vs CÓMO requiere disciplina
+   - Nomenclatura VERBO+OBJETO no es intuitiva para todos
 
  **Mitigación**:
 
- - Capacitación inicial con ejemplos
- - Templates con instrucciones inline
- - Code reviews de especificaciones
- - Guía de escritura de casos de uso (crear como GUIA-GOB-###)
+   - Capacitación inicial con ejemplos
+   - Templates con instrucciones inline
+   - Code reviews de especificaciones
+   - Guía de escritura de casos de uso (crear como GUIA-GOB-###)
 
 3. **Mantenimiento**
 
- - Cambios en reglas de negocio requieren actualizar casos de uso
- - Riesgo de desincronización con sistema real
+   - Cambios en reglas de negocio requieren actualizar casos de uso
+   - Riesgo de desincronización con sistema real
 
  **Mitigación**:
 
- - Revisión periódica (trimestral)
- - Casos de uso versionados
- - Cambios en RN desencadenan review de casos de uso relacionados
- - Trazabilidad facilita identificar qué actualizar
+   - Revisión periódica (trimestral)
+   - Casos de uso versionados
+   - Cambios en RN desencadenan review de casos de uso relacionados
+   - Trazabilidad facilita identificar qué actualizar
 
 4. **No siempre es formato ideal**
 
- - Para casos extremadamente simples puede ser overkill
- - Formato de dos columnas puede ser rígido para ciertos flujos
+   - Para casos extremadamente simples puede ser overkill
+   - Formato de dos columnas puede ser rígido para ciertos flujos
 
  **Mitigación**:
 
- - Permitir flexibilidad cuando se justifique
- - Principio: “¿Este formato agrega valor o solo burocracia?”
- - Documentar excepciones explícitamente
+   - Permitir flexibilidad cuando se justifique
+   - Principio: “¿Este formato agrega valor o solo burocracia?”
+   - Documentar excepciones explícitamente
 
 Implementación
 --------------
@@ -762,16 +762,16 @@ Fase 3: Capacitación (Semana 2)
 
 1. Sesión de 3 horas:
 
- - Diferencia especificar vs. ilustrar
- - Principio QUÉ vs CÓMO con ejercicios
- - Nomenclatura VERBO+OBJETO
- - Formato de dos columnas
+   - Diferencia especificar vs. ilustrar
+   - Principio QUÉ vs CÓMO con ejercicios
+   - Nomenclatura VERBO+OBJETO
+   - Formato de dos columnas
 
 2. Taller práctico:
 
- - Escribir 2-3 casos de uso en equipos
- - Peer review
- - Corrección grupal
+   - Escribir 2-3 casos de uso en equipos
+   - Peer review
+   - Corrección grupal
 
 Fase 4: Migración de Casos Existentes (Semanas 3-4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

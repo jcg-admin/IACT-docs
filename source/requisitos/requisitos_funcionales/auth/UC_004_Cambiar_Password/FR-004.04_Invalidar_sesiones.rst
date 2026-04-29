@@ -106,8 +106,8 @@ FR-004.04: Invalidar sesiones tras cambio de password
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD
- - CNST-009: Auditoría
+  - CNST-002: Gestión de sesiones en BD
+  - CNST-009: Auditoría
 
 **Proceso Atómico:**
 

@@ -163,11 +163,11 @@ Antes de iniciar este procedimiento, verificar:
 
     Preguntas de clasificacion:
  
- - Limita un valor? -> Restriccion
- - Calcula un resultado? -> Derivacion
- - Verifica una condicion? -> Validacion
- - Define quien puede hacer algo? -> Autorizacion
- - Define un flujo obligatorio? -> Proceso
+  - Limita un valor? -> Restriccion
+  - Calcula un resultado? -> Derivacion
+  - Verifica una condicion? -> Validacion
+  - Define quien puede hacer algo? -> Autorizacion
+  - Define un flujo obligatorio? -> Proceso
 
 - **Resultado**: Tipo identificado
 - **Verificacion**: Tipo valido segun TXM_03
@@ -186,8 +186,8 @@ Antes de iniciar este procedimiento, verificar:
  Archivo: BR_[NNN]_[Nombre_Descriptivo].rst
  
  Ejemplos:
- - BR_001_Sesion_Unica_Por_Usuario.rst
- - BR_015_Bloqueo_Por_Intentos_Fallidos.rst
+  - BR_001_Sesion_Unica_Por_Usuario.rst
+  - BR_015_Bloqueo_Por_Intentos_Fallidos.rst
 
 - **Resultado**: ID asignado
 - **Verificacion**: ID unico en catalogo
@@ -219,14 +219,14 @@ Antes de iniciar este procedimiento, verificar:
 
     **Condicion de Activacion:**
  
- - Usuario inicia sesion exitosamente
- - Existen sesiones previas del usuario
+  - Usuario inicia sesion exitosamente
+  - Existen sesiones previas del usuario
  
  **Accion a Ejecutar:**
  
- 1. Buscar sesiones activas del user_id
- 2. Marcar como invalidas (is_active = False)
- 3. Registrar evento de invalidacion
+  1. Buscar sesiones activas del user_id
+  2. Marcar como invalidas (is_active = False)
+  3. Registrar evento de invalidacion
 
 - **Resultado**: Logica detallada
 - **Verificacion**: Condiciones y acciones claras
@@ -240,8 +240,8 @@ Antes de iniciar este procedimiento, verificar:
 
     **Excepciones:**
  
- - No aplica a sesiones de API (tokens de servicio)
- - Administradores pueden tener multiples sesiones
+  - No aplica a sesiones de API (tokens de servicio)
+  - Administradores pueden tener multiples sesiones
 
 - **Resultado**: Excepciones documentadas
 - **Verificacion**: Excepciones justificadas
@@ -255,14 +255,14 @@ Antes de iniciar este procedimiento, verificar:
 
     **Trazabilidad:**
  
- * - **BReq Origen**
- - BReq_004: Cumplimiento de Seguridad
- * - **UC que Aplican**
- - UC_001: Iniciar Sesion
- * - **FR Derivados**
- - FR_UC001_04: Invalidar sesiones previas
- * - **CNST Relacionadas**
- - CNST_002: Gestion de Sesiones en BD
+  * - **BReq Origen**
+  - BReq_004: Cumplimiento de Seguridad
+  * - **UC que Aplican**
+  - UC_001: Iniciar Sesion
+  * - **FR Derivados**
+  - FR_UC001_04: Invalidar sesiones previas
+  * - **CNST Relacionadas**
+  - CNST_002: Gestion de Sesiones en BD
 
 - **Resultado**: Trazabilidad completa
 - **Verificacion**: Referencias validas

@@ -151,10 +151,10 @@ Segun TPL_API v1.1.0:
     Formato: API_[Recurso]
  
  Ejemplos:
- - API_Users: Gestion de usuarios
- - API_Roles: Gestion de roles
- - API_Sessions: Gestion de sesiones
- - API_Reports: Generacion de reportes
+  - API_Users: Gestion de usuarios
+  - API_Roles: Gestion de roles
+  - API_Sessions: Gestion de sesiones
+  - API_Reports: Generacion de reportes
 
 - **Resultado**: ID asignado
 - **Verificacion**: Recurso identificable
@@ -174,9 +174,9 @@ Segun TPL_API v1.1.0:
  
  **Autenticacion:**
  
- - Tipo: Bearer Token (JWT)
- - Header: ``Authorization: Bearer <token>``
- - Obtencion: POST /auth/token/
+  - Tipo: Bearer Token (JWT)
+  - Header: ``Authorization: Bearer <token>``
+  - Obtencion: POST /auth/token/
 
 - **Resultado**: Info general completa
 - **Verificacion**: URL y auth claros
@@ -195,9 +195,9 @@ Segun TPL_API v1.1.0:
  
  **Request:**
  
- - Method: GET
- - URL: /api/v1/users/
- - Query params: page, page_size, search, ordering
+  - Method: GET
+  - URL: /api/v1/users/
+  - Query params: page, page_size, search, ordering
  
  **Response 200:**
  
@@ -245,9 +245,9 @@ Segun TPL_API v1.1.0:
  
  **Validaciones:**
  
- - username: 3-50 caracteres, alfanumerico
- - email: formato valido RFC 5322
- - password: minimo 8 caracteres, 1 mayuscula, 1 numero
+  - username: 3-50 caracteres, alfanumerico
+  - email: formato valido RFC 5322
+  - password: minimo 8 caracteres, 1 mayuscula, 1 numero
 
 - **Resultado**: Request body documentado
 - **Verificacion**: Campos y validaciones claros
@@ -264,30 +264,30 @@ Segun TPL_API v1.1.0:
  .. list-table::
     :header-rows: 1
  
- * - Codigo
- - Significado
- - Cuando
- * - 200
- - OK
- - GET exitoso
- * - 201
- - Created
- - POST exitoso
- * - 400
- - Bad Request
- - Validacion fallida
- * - 401
- - Unauthorized
- - Token invalido/ausente
- * - 403
- - Forbidden
- - Sin permisos
- * - 404
- - Not Found
- - Recurso no existe
- * - 429
- - Too Many Requests
- - Rate limit excedido
+  * - Codigo
+  - Significado
+  - Cuando
+  * - 200
+  - OK
+  - GET exitoso
+  * - 201
+  - Created
+  - POST exitoso
+  * - 400
+  - Bad Request
+  - Validacion fallida
+  * - 401
+  - Unauthorized
+  - Token invalido/ausente
+  * - 403
+  - Forbidden
+  - Sin permisos
+  * - 404
+  - Not Found
+  - Recurso no existe
+  * - 429
+  - Too Many Requests
+  - Rate limit excedido
 
 - **Resultado**: Codigos documentados
 - **Verificacion**: Todos los codigos posibles
@@ -304,21 +304,21 @@ Segun TPL_API v1.1.0:
  .. list-table::
     :header-rows: 1
  
- * - Endpoint
- - Metodo
- - Funcion RBAC
- * - /users/
- - GET
- - FN_USR_VIEW
- * - /users/
- - POST
- - FN_USR_CREATE
- * - /users/{id}/
- - PUT
- - FN_USR_EDIT
- * - /users/{id}/
- - DELETE
- - FN_USR_DELETE
+  * - Endpoint
+  - Metodo
+  - Funcion RBAC
+  * - /users/
+  - GET
+  - FN_USR_VIEW
+  * - /users/
+  - POST
+  - FN_USR_CREATE
+  * - /users/{id}/
+  - PUT
+  - FN_USR_EDIT
+  * - /users/{id}/
+  - DELETE
+  - FN_USR_DELETE
 
 - **Resultado**: Permisos documentados
 - **Verificacion**: Cada endpoint tiene permiso

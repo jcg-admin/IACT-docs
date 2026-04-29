@@ -208,9 +208,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Aprobador
 - **Accion**: Revisar y decidir:
 
- - Revisar documento brevemente
- - Revisar reporte de revision
- - Autorizar o rechazar
+  - Revisar documento brevemente
+  - Revisar reporte de revision
+  - Autorizar o rechazar
 
 - **Resultado**: Decision tomada
 - **Verificacion**: Autorizacion documentada
@@ -259,9 +259,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Mover a ubicacion oficial:
 
- - Si estaba en /tmp, copiar a destino final
- - Actualizar index.rst correspondiente
- - Regenerar documentacion Sphinx
+  - Si estaba en /tmp, copiar a destino final
+  - Actualizar index.rst correspondiente
+  - Regenerar documentacion Sphinx
 
 - **Resultado**: Documento publicado
 - **Verificacion**: Accesible en ubicacion oficial

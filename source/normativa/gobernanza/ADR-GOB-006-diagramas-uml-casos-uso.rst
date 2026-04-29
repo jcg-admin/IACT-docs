@@ -581,83 +581,83 @@ Positivas
 
 1. **Vista panorámica**
 
- - Stakeholders ven todas las relaciones de un vistazo
- - Fotografía instantánea del sistema
- - Comunicación rápida y visual
+   - Stakeholders ven todas las relaciones de un vistazo
+   - Fotografía instantánea del sistema
+   - Comunicación rápida y visual
 
 2. **Claridad en roles**
 
- - Dirección de flechas hace obvio actor primario vs. secundario
- - No hay ambigüedad
- - Alineado con especificación textual
+   - Dirección de flechas hace obvio actor primario vs. secundario
+   - No hay ambigüedad
+   - Alineado con especificación textual
 
 3. **Versionabilidad**
 
- - PlantUML como código (texto plano)
- - Git diff funcional
- - Revisable en PRs
- - Consistente con ADR-GOB-004
+   - PlantUML como código (texto plano)
+   - Git diff funcional
+   - Revisable en PRs
+   - Consistente con ADR-GOB-004
 
 4. **Complemento a especificaciones**
 
- - Diagramas de actividad para flujos complejos
- - Mejor comprensión de branches y condicionales
- - Especificación textual + diagrama = documentación completa
+   - Diagramas de actividad para flujos complejos
+   - Mejor comprensión de branches y condicionales
+   - Especificación textual + diagrama = documentación completa
 
 5. **Consistencia**
 
- - Nomenclatura estándar
- - Elementos estándar UML
- - Herramienta única (PlantUML)
+   - Nomenclatura estándar
+   - Elementos estándar UML
+   - Herramienta única (PlantUML)
 
 Negativas
 ~~~~~~~~~
 
 1. **Curva de aprendizaje PlantUML**
 
- - Sintaxis específica
- - No es WYSIWYG
- - Layout automático puede requerir ajustes
+   - Sintaxis específica
+   - No es WYSIWYG
+   - Layout automático puede requerir ajustes
 
  **Mitigación**:
 
- - Templates aceleran creación
- - Ejemplos en documentación
- - Plugins de VSCode con preview
- - Capacitación inicial
+   - Templates aceleran creación
+   - Ejemplos en documentación
+   - Plugins de VSCode con preview
+   - Capacitación inicial
 
 2. **Mantenimiento de diagramas**
 
- - Cambios en casos de uso requieren actualizar diagramas
- - Riesgo de desincronización
+   - Cambios en casos de uso requieren actualizar diagramas
+   - Riesgo de desincronización
 
  **Mitigación**:
 
- - Revisar diagramas en mismo PR que especificaciones
- - Referencias explícitas entre diagrama y especificación
- - CI/CD puede validar existencia de diagramas
+   - Revisar diagramas en mismo PR que especificaciones
+   - Referencias explícitas entre diagrama y especificación
+   - CI/CD puede validar existencia de diagramas
 
 3. **Overhead de creación**
 
- - Tiempo adicional para crear diagramas
- - Generación de SVGs
+   - Tiempo adicional para crear diagramas
+   - Generación de SVGs
 
  **Mitigación**:
 
- - Scripts automatizados para generar SVGs
- - CI/CD genera automáticamente
- - Priorizar diagramas para casos de uso críticos
+   - Scripts automatizados para generar SVGs
+   - CI/CD genera automáticamente
+   - Priorizar diagramas para casos de uso críticos
 
 4. **Layout automático no siempre óptimo**
 
- - PlantUML decide posiciones
- - Puede requerir hints de layout
+   - PlantUML decide posiciones
+   - Puede requerir hints de layout
 
  **Mitigación**:
 
- - ``left to right direction`` para mejorar layout
- - Aceptar que semántica > estética pixel-perfect
- - Documentar tips de layout comunes
+   - ``left to right direction`` para mejorar layout
+   - Aceptar que semántica > estética pixel-perfect
+   - Documentar tips de layout comunes
 
 Implementación
 --------------

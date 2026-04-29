@@ -102,10 +102,10 @@ FR-008.02: Cambiar estado a INACTIVO
 -------------------------
 
 - **BR aplicables:**
- - BR_009: Solo bajas lógicas, nunca DELETE físico
+  - BR_009: Solo bajas lógicas, nunca DELETE físico
  
 - **CNST aplicables:**
- - CNST-002: Gestión de datos en BD
+  - CNST-002: Gestión de datos en BD
 
 **Integridad Referencial:**
 

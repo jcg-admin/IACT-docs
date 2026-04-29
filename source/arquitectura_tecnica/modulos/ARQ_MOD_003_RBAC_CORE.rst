@@ -121,22 +121,22 @@ validaciones internas del RBAC.
 
 - **Mostrar UI funcional final**
  
- - Ejemplo: Renderizar dashboards o reportes
- - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
+  - Ejemplo: Renderizar dashboards o reportes
+  - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
 
 - **Implementar logica de negocio de reportes**
  
- - Ejemplo: "Aplicar este filtro SQL concreto para metricas"
- - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
+  - Ejemplo: "Aplicar este filtro SQL concreto para metricas"
+  - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
 
 - **Ejecutar ETL o agendar jobs**
  
- - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING**
+  - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING**
 
 - **Validaciones propias del dominio IVR**
  
- - Ejemplo: Reglas de menus, transferencias, etc.
- - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
+  - Ejemplo: Reglas de menus, transferencias, etc.
+  - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
 
 ----
 

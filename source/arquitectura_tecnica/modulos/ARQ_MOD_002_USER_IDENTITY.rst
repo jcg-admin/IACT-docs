@@ -117,23 +117,23 @@ alta, modificacion, baja logica, y datos de perfil.
 
 - **Calcular permisos efectivos**
  
- - Ejemplo: "Si tiene rol X y segmento Y, puede acceder a Z"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "Si tiene rol X y segmento Y, puede acceder a Z"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Validar conflictos de roles (SoD)**
  
- - Ejemplo: "No puede tener rol A y rol B simultaneamente"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "No puede tener rol A y rol B simultaneamente"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Definir catalogos de permisos**
  
- - Los enums y catalogos de permisos van en RBAC_CORE
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Los enums y catalogos de permisos van en RBAC_CORE
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Implementar logica de precedencia**
  
- - Directo > Rol > Segmento
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Directo > Rol > Segmento
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 ----
 

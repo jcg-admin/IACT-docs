@@ -526,11 +526,11 @@ Existen excepciones documentadas:
   (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
   documental. Ejemplos:
 
- - ``PROC_Generacion_UC.rst`` (procedimiento de generación
+  - ``PROC_Generacion_UC.rst`` (procedimiento de generación
    aplicable a todas las áreas).
- - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
+  - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
    inter-niveles, no específico de un módulo).
- - ``PROC_Validacion_Sphinx.rst`` (validación documental
+  - ``PROC_Validacion_Sphinx.rst`` (validación documental
    transversal).
 
  La versión vive en metadata YAML (cumple §3.4 / STD_006). Es

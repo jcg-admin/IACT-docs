@@ -430,18 +430,18 @@ Diagramas Obligatorios
 Cada UC v2.0 DEBE incluir minimo estos diagramas:
 
 1. **Diagrama de Caso de Uso** (Seccion 3)
- - Muestra actor(es) y su relacion con el UC
- - Incluye relaciones <<include>> o <<extends>> si aplica
+   - Muestra actor(es) y su relacion con el UC
+   - Incluye relaciones <<include>> o <<extends>> si aplica
 
 2. **Diagrama de Secuencia** (Seccion 6)
- - Muestra interaccion entre componentes
- - Pasos numerados del flujo normal
- - Incluye Frontend, Controller, Service, BD
+   - Muestra interaccion entre componentes
+   - Pasos numerados del flujo normal
+   - Incluye Frontend, Controller, Service, BD
 
 3. **Diagrama de Actividad** (Seccion 9)
- - Muestra flujo de decision
- - Incluye flujos alternos y excepciones
- - Start/Stop claramente marcados
+   - Muestra flujo de decision
+   - Incluye flujos alternos y excepciones
+   - Start/Stop claramente marcados
 
 ----
 

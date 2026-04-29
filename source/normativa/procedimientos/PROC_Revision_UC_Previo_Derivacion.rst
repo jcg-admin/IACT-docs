@@ -195,12 +195,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Para cada UC, abrir archivo y extraer:
 
- 1. **Seccion Resumen**: ID, Nombre, Actor, Modulo, Prioridad
- 2. **Seccion Flujo Normal**: Identificar pasos que inician con "Sistema..."
- 3. **Seccion Flujos Alternos**: Identificar variaciones
- 4. **Seccion Excepciones**: Identificar manejo de errores
- 5. **Seccion Reglas de Negocio**: BR aplicables
- 6. **Seccion Trazabilidad**: FR Derivados ya identificados
+  1. **Seccion Resumen**: ID, Nombre, Actor, Modulo, Prioridad
+  2. **Seccion Flujo Normal**: Identificar pasos que inician con "Sistema..."
+  3. **Seccion Flujos Alternos**: Identificar variaciones
+  4. **Seccion Excepciones**: Identificar manejo de errores
+  5. **Seccion Reglas de Negocio**: BR aplicables
+  6. **Seccion Trazabilidad**: FR Derivados ya identificados
 
 - **Resultado**: Informacion extraida por UC
 - **Verificacion**: Todas las secciones revisadas
@@ -257,11 +257,11 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Crear documento de trabajo con:
 
- - Total UC revisados
- - Total FR identificados
- - FR por UC (ratio)
- - BR aplicables por FR
- - CNST aplicables
+  - Total UC revisados
+  - Total FR identificados
+  - FR por UC (ratio)
+  - BR aplicables por FR
+  - CNST aplicables
 
 - **Resultado**: Documento de trabajo para derivacion
 - **Verificacion**: Totales cuadran con inventario

@@ -605,9 +605,9 @@ Una vez aprobado:
 
 2. Crear issues de remediación en GitHub:
 
- - Prioridad P1: Label ``security-critical``
- - Prioridad P2: Label ``security-high``
- - Prioridad P3: Label ``security-medium``
+   - Prioridad P1: Label ``security-critical``
+   - Prioridad P2: Label ``security-high``
+   - Prioridad P3: Label ``security-medium``
 
 3. Programar auditoría trimestral en calendario
 

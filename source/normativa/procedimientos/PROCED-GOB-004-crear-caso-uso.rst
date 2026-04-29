@@ -239,10 +239,10 @@ Acciones
 
 2. Convertir nombre VERBO+OBJETO a snake_case:
 
- - “Generar Reporte de Auditoría” → “generar-reporte-auditoria”
- - Minúsculas
- - Guiones en lugar de espacios
- - Sin acentos (ó → o, í → i)
+   - “Generar Reporte de Auditoría” → “generar-reporte-auditoria”
+   - Minúsculas
+   - Guiones en lugar de espacios
+   - Sin acentos (ó → o, í → i)
 
 3. Formar ID completo
 

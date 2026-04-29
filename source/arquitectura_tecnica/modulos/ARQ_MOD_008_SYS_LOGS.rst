@@ -111,18 +111,18 @@ del sistema. Orientado a soporte, NOC y devops.
 
 - **Registrar acciones de negocio**
  
- - Ejemplo: "Usuario exporto reporte X"
- - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
+  - Ejemplo: "Usuario exporto reporte X"
+  - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
 
 - **Definir reglas de seguridad**
  
- - Ejemplo: "Si hay muchos errores de login, bloquear usuario"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
+  - Ejemplo: "Si hay muchos errores de login, bloquear usuario"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
 
 - **Exponer PII sin enmascarar**
  
- - Viola → **CNST_009** (proteccion de datos en logs)
- - Usernames, IPs deben enmascararse en logs publicos
+  - Viola → **CNST_009** (proteccion de datos en logs)
+  - Usernames, IPs deben enmascararse en logs publicos
 
 ----
 

@@ -612,9 +612,9 @@ Usuario hace click en menu "Reportes > Metricas Trimestrales"
 **Flujo Normal:**
 
 1. Usuario selecciona parametros de consulta en formulario:
- - Trimestre: Q1, Q2, Q3, Q4
- - Ano: 2020 a ano actual
- - Segmento: OP o MG
+   - Trimestre: Q1, Q2, Q3, Q4
+   - Ano: 2020 a ano actual
+   - Segmento: OP o MG
 
 2. Sistema valida formato de parametros (FR-RPT-01-01)
 

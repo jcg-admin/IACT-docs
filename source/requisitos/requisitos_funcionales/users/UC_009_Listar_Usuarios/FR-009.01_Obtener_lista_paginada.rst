@@ -114,7 +114,7 @@ FR-009.01: Obtener lista paginada de usuarios
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-007: Límites de performance (paginación obligatoria)
+  - CNST-007: Límites de performance (paginación obligatoria)
 
 **Performance:**
 

@@ -107,8 +107,8 @@ FR-004.03: Actualizar hash en BD
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de datos en BD
- - CNST-005: Seguridad
+  - CNST-002: Gestión de datos en BD
+  - CNST-005: Seguridad
 
 **Parámetros de Hashing:**
 

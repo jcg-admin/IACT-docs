@@ -105,8 +105,8 @@ Justificacion:
 3. Las dos vistas reflejan **dos perfiles reales de admin** del
    sistema:
 
- - Admin no-tech (RH, ops): asigna agrupadores predefinidos.
- - Admin tech (DevSecOps): crea grupos custom, define capacidades
+   - Admin no-tech (RH, ops): asigna agrupadores predefinidos.
+   - Admin tech (DevSecOps): crea grupos custom, define capacidades
    finas.
 
 4. La duplicacion aparente se mitiga con vocabulario unificado

@@ -58,17 +58,17 @@ Acciones
 
 1. Identificar fuente de la regla:
 
- - Regulación externa (ley, norma)
- - Política interna organizacional
- - Requerimiento de stakeholder
- - Análisis del marco integrado
+   - Regulación externa (ley, norma)
+   - Política interna organizacional
+   - Requerimiento de stakeholder
+   - Análisis del marco integrado
 
 2. Capturar información clave:
 
- - Descripción completa de la regla
- - Fuente (documento, persona, regulación)
- - Contexto de aplicación
- - Dominio afectado
+   - Descripción completa de la regla
+   - Fuente (documento, persona, regulación)
+   - Contexto de aplicación
+   - Dominio afectado
 
 Ejemplo
 ~~~~~~~
@@ -217,9 +217,9 @@ Acciones
 
 2. Generar descripción breve en snake_case:
 
- - Máximo 4-5 palabras
- - Sin artículos (el, la, los, las)
- - Descriptiva del contenido
+   - Máximo 4-5 palabras
+   - Sin artículos (el, la, los, las)
+   - Descriptiva del contenido
 
 3. Formar ID completo
 
@@ -548,25 +548,25 @@ Acciones
 
 1. **Identificar Requerimientos de Negocio (RNEG) relacionados**:
 
- - ¿Esta regla contribuye a algún objetivo organizacional?
- - ¿Qué RNEG se apoya en esta regla?
+   - ¿Esta regla contribuye a algún objetivo organizacional?
+   - ¿Qué RNEG se apoya en esta regla?
 
 2. **Identificar Casos de Uso (UC) afectados**:
 
- - ¿Qué casos de uso deben cumplir esta regla?
- - ¿Qué interacciones de usuario están restringidas/habilitadas por
+   - ¿Qué casos de uso deben cumplir esta regla?
+   - ¿Qué interacciones de usuario están restringidas/habilitadas por
    esta regla?
 
 3. **Identificar Requisitos Funcionales (RF) necesarios**:
 
- - ¿Qué funcionalidades del sistema implementan esta regla?
- - ¿Qué validaciones debe hacer el sistema?
+   - ¿Qué funcionalidades del sistema implementan esta regla?
+   - ¿Qué validaciones debe hacer el sistema?
 
 4. **Identificar Atributos de Calidad (RNF) relacionados**:
 
- - ¿Esta regla impone requisitos de seguridad, rendimiento,
+   - ¿Esta regla impone requisitos de seguridad, rendimiento,
    usabilidad?
- - ¿Hay restricciones de calidad derivadas de esta regla?
+   - ¿Hay restricciones de calidad derivadas de esta regla?
 
 Ejemplo de Trazabilidad
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -663,11 +663,11 @@ Validación de Ubicación
 
 - ☐ Archivo en carpeta correcta según tipo:
 
- - ``reglas_negocio/hechos/``
- - ``reglas_negocio/restricciones/``
- - ``reglas_negocio/desencadenadores/``
- - ``reglas_negocio/inferencias/``
- - ``reglas_negocio/calculos/``
+  - ``reglas_negocio/hechos/``
+  - ``reglas_negocio/restricciones/``
+  - ``reglas_negocio/desencadenadores/``
+  - ``reglas_negocio/inferencias/``
+  - ``reglas_negocio/calculos/``
 
 Acciones de Revisión
 ~~~~~~~~~~~~~~~~~~~~

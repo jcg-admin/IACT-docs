@@ -112,8 +112,8 @@ FR-005.03: Invalidar sesión individual
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones
- - CNST-009: Auditoría obligatoria
+  - CNST-002: Gestión de sesiones
+  - CNST-009: Auditoría obligatoria
 
 **Restricciones:**
 

@@ -69,11 +69,11 @@ Justificación
 1. **Compatibilidad**: Emojis y caracteres especiales pueden no
    renderizarse correctamente en:
 
- - Terminales legacy
- - Sistemas Windows con codificación antigua
- - Logs de CI/CD
- - Archivos de log
- - Monitores de sistema
+   - Terminales legacy
+   - Sistemas Windows con codificación antigua
+   - Logs de CI/CD
+   - Archivos de log
+   - Monitores de sistema
 
 2. **Profesionalismo**: Los scripts de producción deben ser
    profesionales y corporativos
@@ -651,6 +651,6 @@ Changelog
 
 - **2025-11-02**: Creación inicial
 
- - Agregar regla fundamental sobre emojis
- - Definir estándares de Python, Bash, PowerShell
- - Incluir script de validación y pre-commit hooks
+  - Agregar regla fundamental sobre emojis
+  - Definir estándares de Python, Bash, PowerShell
+  - Incluir script de validación y pre-commit hooks

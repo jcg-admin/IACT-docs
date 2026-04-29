@@ -104,11 +104,11 @@ FR-001.02: Validar credenciales
 -------------------------
 
 - **BR aplicables:**
- - BR_015: Bloqueo tras 5 intentos fallidos en 30 minutos
+  - BR_015: Bloqueo tras 5 intentos fallidos en 30 minutos
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD
- - CNST-005: Seguridad DRF
+  - CNST-002: Gestión de sesiones en BD
+  - CNST-005: Seguridad DRF
 
 **Notas de Seguridad:**
 

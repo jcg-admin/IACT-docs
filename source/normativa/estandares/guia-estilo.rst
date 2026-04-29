@@ -369,22 +369,22 @@ Reglas
 
 1. **Descripción corta:**
 
- - Máximo 72 caracteres
- - Minúsculas
- - Sin punto final
- - Verbo en infinitivo
+   - Máximo 72 caracteres
+   - Minúsculas
+   - Sin punto final
+   - Verbo en infinitivo
 
 2. **Descripción larga:**
 
- - Opcional pero recomendada
- - Explicar QUÉ y POR QUÉ (no CÓMO)
- - Máximo 80 caracteres por línea
+   - Opcional pero recomendada
+   - Explicar QUÉ y POR QUÉ (no CÓMO)
+   - Máximo 80 caracteres por línea
 
 3. **Referencias:**
 
- - ``Closes #123`` - Cierra issue automáticamente
- - ``Fixes #456`` - Corrige bug
- - ``Related to #789`` - Relacionado sin cerrar
+   - ``Closes #123`` - Cierra issue automáticamente
+   - ``Fixes #456`` - Corrige bug
+   - ``Related to #789`` - Relacionado sin cerrar
 
 Ejemplos Correctos
 ~~~~~~~~~~~~~~~~~~
@@ -811,16 +811,16 @@ Si necesitas una excepción a esta guía:
 
 1. **Crear issue** describiendo:
 
- - Regla a exceptuar
- - Razón justificada
- - Alcance de la excepción
- - Duración (temporal/permanente)
+   - Regla a exceptuar
+   - Razón justificada
+   - Alcance de la excepción
+   - Duración (temporal/permanente)
 
 2. **Aprobación requerida:**
 
- - Tech Lead (decisiones técnicas)
- - BA Lead (requisitos y docs)
- - Security Lead (seguridad)
+   - Tech Lead (decisiones técnicas)
+   - BA Lead (requisitos y docs)
+   - Security Lead (seguridad)
 
 3. **Documentar** en ADR si es decisión arquitectónica
 

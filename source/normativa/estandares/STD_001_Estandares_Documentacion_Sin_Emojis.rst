@@ -676,8 +676,8 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 **STD_001 se relaciona con:**
 
 - **CNST_05:** Restricción creación iterativa
- - Ambos buscan calidad y profesionalismo
- - Ambos previenen atajos que reducen calidad
+  - Ambos buscan calidad y profesionalismo
+  - Ambos previenen atajos que reducen calidad
 
 9.3. Aplicación en Procedimientos
 ----------------------------------

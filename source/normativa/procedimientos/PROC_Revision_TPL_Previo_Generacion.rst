@@ -168,26 +168,26 @@ Antes de iniciar este procedimiento, verificar:
     :widths: 30 70
     :header-rows: 1
 
- * - Artefacto
- - TPL
- * - BR
- - TPL_BR_Business_Rules_1_0_0.rst
- * - UC
- - TPL_UC_Casos_de_Uso_2_0_0.rst
- * - FR
- - TPL_FR_Requisitos_Funcionales_1_0_0.rst
- * - TST
- - TPL_TST_Pruebas_1_0_0.rst
- * - CNST
- - TPL_CNST_Restricciones_1_0_0.rst
- * - MOD
- - TPL_MOD_Modulos_1_0_0.rst
- * - ADR
- - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
- * - STD
- - TPL_STD_Estandares_1_0_0.rst
- * - PROC
- - TPL_PROC_Procedimientos_1_0_0.rst
+  * - Artefacto
+  - TPL
+  * - BR
+  - TPL_BR_Business_Rules_1_0_0.rst
+  * - UC
+  - TPL_UC_Casos_de_Uso_2_0_0.rst
+  * - FR
+  - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+  * - TST
+  - TPL_TST_Pruebas_1_0_0.rst
+  * - CNST
+  - TPL_CNST_Restricciones_1_0_0.rst
+  * - MOD
+  - TPL_MOD_Modulos_1_0_0.rst
+  * - ADR
+  - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
+  * - STD
+  - TPL_STD_Estandares_1_0_0.rst
+  * - PROC
+  - TPL_PROC_Procedimientos_1_0_0.rst
 
 - **Resultado**: TPL identificado
 - **Verificacion**: TPL existe en carpeta plantillas/
@@ -197,10 +197,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Abrir archivo TPL y leer secciones clave:
 
- 1. **Proposito**: Entender para que sirve el artefacto
- 2. **Nomenclatura**: Verificar formato de ID y nombre de archivo
- 3. **Secciones Obligatorias**: Lista de secciones que DEBE tener
- 4. **Plantilla**: Codigo RST a copiar
+  1. **Proposito**: Entender para que sirve el artefacto
+  2. **Nomenclatura**: Verificar formato de ID y nombre de archivo
+  3. **Secciones Obligatorias**: Lista de secciones que DEBE tener
+  4. **Plantilla**: Codigo RST a copiar
 
 - **Resultado**: Comprension de estructura requerida
 - **Verificacion**: Secciones obligatorias identificadas
@@ -216,9 +216,9 @@ Antes de iniciar este procedimiento, verificar:
     [TIPO]_[Identificador]_[Nombre].rst
  
  Ejemplos:
- - BR_015_Bloqueo_Intentos_Fallidos.rst
- - FR-001.03_Generar_token_JWT.rst
- - UC_001_Iniciar_Sesion.rst
+  - BR_015_Bloqueo_Intentos_Fallidos.rst
+  - FR-001.03_Generar_token_JWT.rst
+  - UC_001_Iniciar_Sesion.rst
 
 - **Resultado**: Nomenclatura correcta definida
 - **Verificacion**: Patron coincide con ejemplos en TPL

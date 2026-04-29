@@ -96,10 +96,10 @@ FR-002.02: Registrar evento logout
 -------------------------
 
 - **BR aplicables:**
- - BR_008: Auditoría de accesos obligatoria
+  - BR_008: Auditoría de accesos obligatoria
  
 - **CNST aplicables:**
- - CNST-009: Logging y auditoría inmutable
+  - CNST-009: Logging y auditoría inmutable
 
 **Tipos de Logout:**
 

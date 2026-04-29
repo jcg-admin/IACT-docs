@@ -162,13 +162,13 @@ Antes de iniciar este procedimiento, verificar:
 
     Preguntas para clasificar:
  
- 1. El cambio rompe compatibilidad con version anterior?
+  1. El cambio rompe compatibilidad con version anterior?
     Si -> MAJOR
  
- 2. Se agrega funcionalidad nueva manteniendo compatibilidad?
+  2. Se agrega funcionalidad nueva manteniendo compatibilidad?
     Si -> MINOR
  
- 3. Es correccion de error o mejora menor?
+  3. Es correccion de error o mejora menor?
     Si -> PATCH
 
 - **Resultado**: Tipo identificado
@@ -230,18 +230,18 @@ Antes de iniciar este procedimiento, verificar:
     .. list-table::
     :header-rows: 1
  
- * - Version
- - Fecha
- - Autor
- - Cambios
- * - 1.1.0 <- Nueva entrada
- - 2026-01-07
- - Equipo IACT
- - Agregada seccion de validacion
- * - 1.0.0
- - 2026-01-06
- - Equipo IACT
- - Version inicial
+  * - Version
+  - Fecha
+  - Autor
+  - Cambios
+  * - 1.1.0 <- Nueva entrada
+  - 2026-01-07
+  - Equipo IACT
+  - Agregada seccion de validacion
+  * - 1.0.0
+  - 2026-01-06
+  - Equipo IACT
+  - Version inicial
 
 - **Resultado**: Historial actualizado
 - **Verificacion**: Entrada agregada

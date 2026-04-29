@@ -2582,23 +2582,23 @@ Una función puede asignarse **temporalmente** con:
 
 
 1. **✅ 100% Inglés en código:**
- - Funciones: ``manage_sessions``, ``view_reports``, ``export_csv``
- - Grupos: ``basic_operator_group``, ``user_admin_group``
- - Reglas SoD: ``pipeline_audit_separation``
+   - Funciones: ``manage_sessions``, ``view_reports``, ``export_csv``
+   - Grupos: ``basic_operator_group``, ``user_admin_group``
+   - Reglas SoD: ``pipeline_audit_separation``
 
 2. **✅ Clean Code completo:**
- - Sin prefijos redundantes (``agr_``, ``sod_``)
- - Sin acrónimos en nombres (ETL en descripción OK)
- - Nombres descriptivos completos
+   - Sin prefijos redundantes (``agr_``, ``sod_``)
+   - Sin acrónimos en nombres (ETL en descripción OK)
+   - Nombres descriptivos completos
 
 3. **✅ Convenciones SQL:**
- - ``assigned_at`` (NO ``assigned_date``)
- - ``rule_group`` (NO ``separation_group``)
+   - ``assigned_at`` (NO ``assigned_date``)
+   - ``rule_group`` (NO ``separation_group``)
 
 4. **✅ Comentarios español:**
- - Docstrings en español
- - ``help_text`` en español
- - ``description`` en español
+   - Docstrings en español
+   - ``help_text`` en español
+   - ``description`` en español
 
 ---
 

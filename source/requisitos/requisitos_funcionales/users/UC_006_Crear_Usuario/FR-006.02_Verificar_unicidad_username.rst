@@ -101,7 +101,7 @@ FR-006.02: Verificar unicidad de username
 -------------------------
 
 - **BR aplicables:**
- - BR_013: Username único en todo el sistema
+  - BR_013: Username único en todo el sistema
  
 - **CNST aplicables:** Ninguna específica
 

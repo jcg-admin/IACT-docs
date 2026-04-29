@@ -173,18 +173,18 @@ Antes de iniciar este procedimiento, verificar:
     :widths: 20 40 40
     :header-rows: 1
 
- * - Tipo
- - Descripcion
- - Incremento
- * - MAJOR
- - Cambio incompatible, reestructuracion
- - X.0.0
- * - MINOR
- - Nueva funcionalidad, nuevos artefactos
- - x.Y.0
- * - PATCH
- - Correccion, actualizacion metricas
- - x.y.Z
+  * - Tipo
+  - Descripcion
+  - Incremento
+  * - MAJOR
+  - Cambio incompatible, reestructuracion
+  - X.0.0
+  * - MINOR
+  - Nueva funcionalidad, nuevos artefactos
+  - x.Y.0
+  * - PATCH
+  - Correccion, actualizacion metricas
+  - x.y.Z
 
 - **Resultado**: Tipo de cambio identificado
 - **Verificacion**: Clasificacion correcta
@@ -210,10 +210,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Modificar secciones relevantes:
 
- - Arbol de directorios (si cambio estructura)
- - Inventario de artefactos (si nuevos artefactos)
- - Metricas (siempre actualizar)
- - Estado de subdominios (congelado/descongelado)
+  - Arbol de directorios (si cambio estructura)
+  - Inventario de artefactos (si nuevos artefactos)
+  - Metricas (siempre actualizar)
+  - Estado de subdominios (congelado/descongelado)
 
 - **Resultado**: Secciones actualizadas
 - **Verificacion**: Datos correctos
@@ -286,10 +286,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Verificar:
 
- - Totales de metricas cuadran
- - Arbol refleja estructura real
- - CHANGELOG completo
- - Version correcta en header
+  - Totales de metricas cuadran
+  - Arbol refleja estructura real
+  - CHANGELOG completo
+  - Version correcta en header
 
 - **Resultado**: Modelo validado
 - **Verificacion**: Sin inconsistencias

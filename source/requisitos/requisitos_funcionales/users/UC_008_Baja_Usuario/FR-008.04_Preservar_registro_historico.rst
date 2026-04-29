@@ -113,11 +113,11 @@ FR-008.04: Preservar registro histórico
 -------------------------
 
 - **BR aplicables:**
- - BR_009: Solo bajas lógicas (preservación obligatoria)
+  - BR_009: Solo bajas lógicas (preservación obligatoria)
  
 - **CNST aplicables:**
- - CNST-006: Políticas de retención
- - CNST-009: Auditoría inmutable
+  - CNST-006: Políticas de retención
+  - CNST-009: Auditoría inmutable
 
 **Prohibiciones:**
 

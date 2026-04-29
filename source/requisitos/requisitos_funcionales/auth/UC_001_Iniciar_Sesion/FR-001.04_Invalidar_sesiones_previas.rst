@@ -94,10 +94,10 @@ FR-001.04: Invalidar sesiones previas
 -------------------------
 
 - **BR aplicables:**
- - BR_005: Sesión única - Un usuario solo puede tener una sesión activa
+  - BR_005: Sesión única - Un usuario solo puede tener una sesión activa
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones en BD
+  - CNST-002: Gestión de sesiones en BD
 
 **Comportamiento Transaccional:**
 

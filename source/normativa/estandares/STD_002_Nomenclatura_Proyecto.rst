@@ -1177,33 +1177,33 @@ Al crear o renombrar un artefacto, verificar:
 ------------------------
 
 1. **Casos de Uso (UC):**
- - Mantienen 2 dígitos (01, 02, ..., 99)
- - Añadir versionado semántico
- - Ejemplo: UC_ACC_01 → UC_ACC_01_Asignar_Funciones_4_0_0.rst
+   - Mantienen 2 dígitos (01, 02, ..., 99)
+   - Añadir versionado semántico
+   - Ejemplo: UC_ACC_01 → UC_ACC_01_Asignar_Funciones_4_0_0.rst
 
 2. **Artefactos globales (BR, CNST, STD, ADR, POL, NOM):**
- - Mantienen 3 dígitos (001, 002, ..., 999)
- - Añadir versionado semántico si no lo tienen
- - Ejemplo: BR_001_Fuente_Inmutable → BR_001_Fuente_Inmutable_1_0_0.rst
+   - Mantienen 3 dígitos (001, 002, ..., 999)
+   - Añadir versionado semántico si no lo tienen
+   - Ejemplo: BR_001_Fuente_Inmutable → BR_001_Fuente_Inmutable_1_0_0.rst
 
 3. **Requisitos Funcionales (FR):**
- - Nuevo formato: FR_[NNN].[NN]_[Nombre]_X_Y_Z.rst
- - Usar guión bajo + punto (no guión medio)
- - Ejemplo: FR-001.01 → FR_001.01_Validar_Username_1_0_0.rst
+   - Nuevo formato: FR_[NNN].[NN]_[Nombre]_X_Y_Z.rst
+   - Usar guión bajo + punto (no guión medio)
+   - Ejemplo: FR-001.01 → FR_001.01_Validar_Username_1_0_0.rst
 
 4. **Templates (TPL):**
- - Añadir nombre descriptivo si falta
- - Versionado ya obligatorio
- - Ejemplo: TPL_BR_1_0_0 → TPL_BR_Business_Rules_1_0_0.rst
+   - Añadir nombre descriptivo si falta
+   - Versionado ya obligatorio
+   - Ejemplo: TPL_BR_1_0_0 → TPL_BR_Business_Rules_1_0_0.rst
 
 5. **Procedimientos (PROC):**
- - Añadir versionado semántico si no lo tienen
- - Ejemplo: PROC_Generacion_FR → PROC_Generacion_FR_1_0_0.rst
+   - Añadir versionado semántico si no lo tienen
+   - Ejemplo: PROC_Generacion_FR → PROC_Generacion_FR_1_0_0.rst
 
 6. **Artefactos privados (FND, SBVR, TXM, MTM, META):**
- - Mantener 2 dígitos (01, 02, ...)
- - Sin versionado (documentos internos)
- - Ejemplo: FND_05 (sin cambios)
+   - Mantener 2 dígitos (01, 02, ...)
+   - Sin versionado (documentos internos)
+   - Ejemplo: FND_05 (sin cambios)
 
 ----
 

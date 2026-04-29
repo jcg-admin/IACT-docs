@@ -151,26 +151,26 @@ Describir las secciones logicas:
 **Secciones:**
 
 1. **Header Global:**
- - Logo IACT
- - Titulo aplicacion
- - User info (nombre, avatar)
- - Logout link
+   - Logo IACT
+   - Titulo aplicacion
+   - User info (nombre, avatar)
+   - Logout link
 
 2. **Breadcrumb:**
- - Navegacion: Home > Reportes > Metricas Trimestrales
+   - Navegacion: Home > Reportes > Metricas Trimestrales
 
 3. **Panel Parametros:**
- - Form con 3 dropdowns
- - 2 botones accion
+   - Form con 3 dropdowns
+   - 2 botones accion
 
 4. **Panel Resultados:**
- - Subseccion graficos
- - Subseccion tabla datos
- - Botones exportar
+   - Subseccion graficos
+   - Subseccion tabla datos
+   - Botones exportar
 
 5. **Footer (no mostrado):**
- - Copyright
- - Links ayuda
+   - Copyright
+   - Links ayuda
 
 ----------------------------------------------------------------------
 2. ELEMENTOS UI - INPUTS
@@ -355,18 +355,18 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - Descripcion: Serie temporal de llamadas totales por dia del trimestre
 - Datos:
  
- - Eje X: Fechas (dias del trimestre)
- - Eje Y: Numero de llamadas
- - Serie 1: Total llamadas (linea azul)
- - Serie 2: Completadas (linea verde)
- - Serie 3: Abandonadas (linea roja)
+  - Eje X: Fechas (dias del trimestre)
+  - Eje Y: Numero de llamadas
+  - Serie 1: Total llamadas (linea azul)
+  - Serie 2: Completadas (linea verde)
+  - Serie 3: Abandonadas (linea roja)
 
 - Opciones:
  
- - Responsive: true
- - Legend: Mostrar arriba
- - Tooltip: Mostrar valores al hover
- - Grid: Lineas horizontales
+  - Responsive: true
+  - Legend: Mostrar arriba
+  - Tooltip: Mostrar valores al hover
+  - Grid: Lineas horizontales
 
 - Tamano: 100% width, 300px height
 - Actualizacion: Cuando se generan nuevos resultados
@@ -409,10 +409,10 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - Descripcion: Tasa de abandono promedio del trimestre
 - Estructura:
  
- - Titulo: "Tasa de Abandono"
- - Valor: Porcentaje con 2 decimales, grande
- - Color del valor: Rojo si mayor 15%, Amarillo si 10-15%, Verde si menor 10%
- - Icono: Semaforo segun umbral
+  - Titulo: "Tasa de Abandono"
+  - Valor: Porcentaje con 2 decimales, grande
+  - Color del valor: Rojo si mayor 15%, Amarillo si 10-15%, Verde si menor 10%
+  - Icono: Semaforo segun umbral
 
 - Tamano: 200px width, 120px height
 - Posicion: Junto al grafico
@@ -443,18 +443,18 @@ Documentar cada elemento de entrada (inputs) en detalle.
 - Descripcion: Tabla con metricas diarias del trimestre
 - Columnas:
  
- 1. Dia (fecha, formato DD/MM)
- 2. Total Llamadas (integer con separador de miles)
- 3. Completadas (integer)
- 4. Abandonadas (integer)
- 5. Duracion Promedio (float, formato XXX.XX s)
- 6. Tasa Abandono (float, formato XX.XX %)
+  1. Dia (fecha, formato DD/MM)
+  2. Total Llamadas (integer con separador de miles)
+  3. Completadas (integer)
+  4. Abandonadas (integer)
+  5. Duracion Promedio (float, formato XXX.XX s)
+  6. Tasa Abandono (float, formato XX.XX %)
 
 - Features:
  
- - Sorting: Todas las columnas
- - Pagination: 20 filas por pagina
- - Search: Buscar en cualquier campo
+  - Sorting: Todas las columnas
+  - Pagination: 20 filas por pagina
+  - Search: Buscar en cualquier campo
 
 - Tamano: 100% width, auto height
 - CSS Classes: table, table-striped, table-hover

@@ -1043,26 +1043,26 @@ Correcciones Críticas Incluidas
 1. **Matriz de Compatibilidad de Shell Corregida (Sección Selección de
    Shell)**
 
- - ``set -o pipefail``: Cambiado de SI a NO para POSIX sh y dash
- - Notas críticas agregadas explicando que pipefail NO está en
+   - ``set -o pipefail``: Cambiado de SI a NO para POSIX sh y dash
+   - Notas críticas agregadas explicando que pipefail NO está en
    estándar POSIX
 
 2. **Eliminado ``local`` de Ejemplos POSIX**
 
- - Todos los ejemplos compatibles con POSIX ahora evitan palabra
+   - Todos los ejemplos compatibles con POSIX ahora evitan palabra
    clave ``local``
- - Agregada convención de prefijo con guión bajo para variables
+   - Agregada convención de prefijo con guión bajo para variables
    temporales
- - Agregado patrón de limpieza con ``unset``
+   - Agregado patrón de limpieza con ``unset``
 
 3. **Prevención de Doble Limpieza**
 
- - Agregada bandera ``CLEANUP_DONE`` para prevenir condiciones de
+   - Agregada bandera ``CLEANUP_DONE`` para prevenir condiciones de
    carrera
 
 4. **Referencias Corregidas**
 
- - Removida afirmación falsa sobre POSIX.1-2024 agregando pipefail
+   - Removida afirmación falsa sobre POSIX.1-2024 agregando pipefail
 
 --------------
 

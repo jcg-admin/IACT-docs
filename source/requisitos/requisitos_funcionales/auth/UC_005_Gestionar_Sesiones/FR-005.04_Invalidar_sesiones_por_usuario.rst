@@ -108,8 +108,8 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de sesiones
- - CNST-009: Auditoría obligatoria
+  - CNST-002: Gestión de sesiones
+  - CNST-009: Auditoría obligatoria
 
 **Consideraciones:**
 

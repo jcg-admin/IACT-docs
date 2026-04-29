@@ -207,9 +207,9 @@ The commit body is optional but **highly recommended** for non-trivial changes. 
 - Use clear, concise language explaining the **why**, not the **what** (the diff shows the what)
 - Structure body in 2–3 paragraphs:
 
- 1. **Problem statement** — What issue or gap does this commit address?
- 2. **Solution description** — How does this change solve the problem?
- 3. **Additional context** — Design decisions, trade-offs, or considerations for reviewers
+  1. **Problem statement** — What issue or gap does this commit address?
+  2. **Solution description** — How does this change solve the problem?
+  3. **Additional context** — Design decisions, trade-offs, or considerations for reviewers
 
 **Example: Multi-Paragraph Body**
 
@@ -1161,16 +1161,16 @@ Use a temporary branch for the release PR (optional but recommended):
 
  ### Release Summary
 
- - [List key features added in this release]
- - [List critical fixes]
- - [Any breaking changes]
+   - [List key features added in this release]
+   - [List critical fixes]
+   - [Any breaking changes]
 
  ### Release Artifacts
 
- - Build: ✓ make html successful
- - Tests: ✓ all tests pass
- - Quality: ✓ no lint/type errors
- - Documentation: ✓ CHANGELOG.md updated
+   - Build: ✓ make html successful
+   - Tests: ✓ all tests pass
+   - Quality: ✓ no lint/type errors
+   - Documentation: ✓ CHANGELOG.md updated
 
  ### Deployment
 
@@ -1205,12 +1205,12 @@ Once 2 approvals received and CI checks pass:
  Release v1.2.3
 
  Key features:
- - [Feature 1]
- - [Feature 2]
+   - [Feature 1]
+   - [Feature 2]
 
  Fixes:
- - [Fix 1]
- - [Fix 2]
+   - [Fix 1]
+   - [Fix 2]
 
 4. Click **Confirm merge**
 
@@ -1261,9 +1261,9 @@ Replace v1.2.3 with the actual version number.
 
 - **Version format**: ``vMAJOR.MINOR.PATCH`` (e.g., v1.2.3, v2.0.0)
 - **Follow Semantic Versioning 2.0.0**:
- - MAJOR: Breaking changes
- - MINOR: New features, backward compatible
- - PATCH: Bug fixes, backward compatible
+  - MAJOR: Breaking changes
+  - MINOR: New features, backward compatible
+  - PATCH: Bug fixes, backward compatible
 - **Never use leading zeros**: v1.2.3 not v1.02.003
 - **Annotated tags only**: Use ``git tag -a``, not ``git tag``
 
@@ -1510,18 +1510,18 @@ Enter the branch name pattern:
 Then configure these settings:
 
 1. **Require a pull request before merging** — ✓ Check this box
- - ``Require approvals`` — Check this box
- - ``Required number of approvals before merging`` — Set to **1** (minimum review)
- - ``Require approval from code owners`` — Optional (check if you have CODEOWNERS file)
+   - ``Require approvals`` — Check this box
+   - ``Required number of approvals before merging`` — Set to **1** (minimum review)
+   - ``Require approval from code owners`` — Optional (check if you have CODEOWNERS file)
 
 2. **Require status checks to pass before merging** — ✓ Check this box
- - ``Require branches to be up to date before merging`` — ✓ Check this box
- - ``Search for status checks that run in this repository...`` — Select:
+   - ``Require branches to be up to date before merging`` — ✓ Check this box
+   - ``Search for status checks that run in this repository...`` — Select:
 
- - ``build`` (Sphinx build validation)
- - ``tests`` (any test suites)
+   - ``build`` (Sphinx build validation)
+   - ``tests`` (any test suites)
 
- - Add any other CI workflows relevant to your project
+   - Add any other CI workflows relevant to your project
 
 3. **Require code review before merging** — Covered in step 1 above
 
@@ -1532,7 +1532,7 @@ Then configure these settings:
    (Only if you enforce GPG signing for compliance)
 
 6. **Restrict who can push to matching branches** — ✓ Check this box
- - ``Restrict who can push to matching branches`` — Add your team or leave for all maintainers
+   - ``Restrict who can push to matching branches`` — Add your team or leave for all maintainers
 
 7. **Allow force pushes** — ✓ **Do NOT check** (prevent rewriting history)
 
@@ -1554,20 +1554,20 @@ Repeat the process but enter:
 Configure with **stricter** settings:
 
 1. **Require a pull request before merging** — ✓ Check this box
- - ``Require approvals`` — Check this box
- - ``Required number of approvals before merging`` — Set to **2** (higher bar for main)
- - ``Require approval from code owners`` — ✓ Check this box (if available)
- - ``Dismiss stale pull request approvals when new commits are pushed`` — ✓ Check this box
- - ``Require review from Code Owners`` — ✓ Check this box (if CODEOWNERS exists)
+   - ``Require approvals`` — Check this box
+   - ``Required number of approvals before merging`` — Set to **2** (higher bar for main)
+   - ``Require approval from code owners`` — ✓ Check this box (if available)
+   - ``Dismiss stale pull request approvals when new commits are pushed`` — ✓ Check this box
+   - ``Require review from Code Owners`` — ✓ Check this box (if CODEOWNERS exists)
 
 2. **Require status checks to pass before merging** — ✓ Check this box
- - ``Require branches to be up to date before merging`` — ✓ Check this box
- - Select the same status checks as develop (build, tests, etc.)
+   - ``Require branches to be up to date before merging`` — ✓ Check this box
+   - Select the same status checks as develop (build, tests, etc.)
 
 3. **Require conversation resolution before merging** — ✓ Check this box
 
 4. **Restrict who can push to matching branches** — ✓ Check this box
- - Add **only administrators** (repository owners)
+   - Add **only administrators** (repository owners)
 
 5. **Allow force pushes** — ✓ **Do NOT check**
 
@@ -2311,26 +2311,26 @@ Store CI artifacts for compliance:
 A complete audit trail from commit to production consists of:
 
 1. **Commit** (author, timestamp, message, code changes)
- - Command: ``git log abc1234 --format="%H %an %ai %s"``
+   - Command: ``git log abc1234 --format="%H %an %ai %s"``
 
 2. **Pull Request** (reviewer, approval date, description)
- - Link: ``https://github.com/jcg-admin/IACT-docs/pull/156``
+   - Link: ``https://github.com/jcg-admin/IACT-docs/pull/156``
 
 3. **Code Review** (comments, suggestions, approvals)
- - Visible in PR comments and review tab
+   - Visible in PR comments and review tab
 
 4. **CI/CD** (test results, security scan results, build artifacts)
- - Link: ``https://github.com/jcg-admin/IACT-docs/actions/runs/12345``
+   - Link: ``https://github.com/jcg-admin/IACT-docs/actions/runs/12345``
 
 5. **Merge** (who merged, when, merge commit hash)
- - Command: ``git log --oneline --grep="Merge pull request"``
+   - Command: ``git log --oneline --grep="Merge pull request"``
 
 6. **Release Tag** (version, release date, tag message)
- - Command: ``git tag -l v1.2.3 -n`` (shows tag message)
- - Link: ``https://github.com/jcg-admin/IACT-docs/releases/tag/v1.2.3``
+   - Command: ``git tag -l v1.2.3 -n`` (shows tag message)
+   - Link: ``https://github.com/jcg-admin/IACT-docs/releases/tag/v1.2.3``
 
 7. **Release Notes** (features, fixes, breaking changes)
- - File: ``CHANGELOG.md``
+   - File: ``CHANGELOG.md``
 
 **To generate a complete audit report:**
 

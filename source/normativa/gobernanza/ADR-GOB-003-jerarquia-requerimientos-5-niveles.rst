@@ -414,94 +414,94 @@ Positivas
 
 1. **Trazabilidad completa**
 
- - Cada feature se justifica desde reglas de negocio hasta atributos
+   - Cada feature se justifica desde reglas de negocio hasta atributos
    de calidad
- - Fácil responder “¿por qué existe esta funcionalidad?”
- - Validación de que objetivos de negocio se cumplen
+   - Fácil responder “¿por qué existe esta funcionalidad?”
+   - Validación de que objetivos de negocio se cumplen
 
 2. **Comunicación mejorada**
 
- - Cada stakeholder trabaja en su nivel apropiado
- - Ejecutivos ven requisitos de negocio
- - Desarrolladores ven requisitos funcionales
- - Traducción clara entre niveles
+   - Cada stakeholder trabaja en su nivel apropiado
+   - Ejecutivos ven requisitos de negocio
+   - Desarrolladores ven requisitos funcionales
+   - Traducción clara entre niveles
 
 3. **Gestión de cambios efectiva**
 
- - Cambio en regla de negocio se propaga correctamente
- - Impacto visible en todos los niveles
- - Decisiones informadas sobre aceptar/rechazar cambios
+   - Cambio en regla de negocio se propaga correctamente
+   - Impacto visible en todos los niveles
+   - Decisiones informadas sobre aceptar/rechazar cambios
 
 4. **Cumplimiento regulatorio**
 
- - Reglas de negocio externas explícitas
- - Auditorías pueden verificar cumplimiento
- - Evidencia de conformidad con regulaciones
+   - Reglas de negocio externas explícitas
+   - Auditorías pueden verificar cumplimiento
+   - Evidencia de conformidad con regulaciones
 
 5. **Priorización basada en valor**
 
- - Requisitos vinculados a objetivos de negocio
- - Fácil identificar “nice to have” vs “must have”
- - ROI más claro
+   - Requisitos vinculados a objetivos de negocio
+   - Fácil identificar “nice to have” vs “must have”
+   - ROI más claro
 
 6. **Arquitectura coherente**
 
- - Atributos de calidad informan decisiones de arquitectura
- - No son “extras opcionales”
- - Evita deuda técnica por omisión de RNF
+   - Atributos de calidad informan decisiones de arquitectura
+   - No son “extras opcionales”
+   - Evita deuda técnica por omisión de RNF
 
 Negativas
 ~~~~~~~~~
 
 1. **Curva de aprendizaje**
 
- - Equipo debe entender la jerarquía
- - Requiere disciplina para mantenerla
- - Tentación de atajos (saltar niveles)
+   - Equipo debe entender la jerarquía
+   - Requiere disciplina para mantenerla
+   - Tentación de atajos (saltar niveles)
 
  **Mitigación**:
 
- - Capacitación inicial en jerarquía
- - Templates y ejemplos claros
- - Revisiones de calidad de documentación
- - ADRs complementarios (006-009)
+   - Capacitación inicial en jerarquía
+   - Templates y ejemplos claros
+   - Revisiones de calidad de documentación
+   - ADRs complementarios (006-009)
 
 2. **Overhead de documentación**
 
- - Más documentos que enfoque plano
- - Mantenimiento de relaciones entre niveles
- - Tiempo inicial mayor
+   - Más documentos que enfoque plano
+   - Mantenimiento de relaciones entre niveles
+   - Tiempo inicial mayor
 
  **Mitigación**:
 
- - Herramientas de trazabilidad
- - Templates reutilizables
- - Generación automática de matrices de trazabilidad
- - Revisar solo lo necesario (no documentar por documentar)
+   - Herramientas de trazabilidad
+   - Templates reutilizables
+   - Generación automática de matrices de trazabilidad
+   - Revisar solo lo necesario (no documentar por documentar)
 
 3. **Riesgo de inconsistencias**
 
- - Cambio en un nivel puede no reflejarse en otros
- - Documentos pueden desincronizarse
+   - Cambio en un nivel puede no reflejarse en otros
+   - Documentos pueden desincronizarse
 
  **Mitigación**:
 
- - Referencias explícitas entre documentos (IDs)
- - Code reviews de documentación
- - Scripts de validación de trazabilidad
- - Principio: cambio en nivel superior requiere review de niveles
+   - Referencias explícitas entre documentos (IDs)
+   - Code reviews de documentación
+   - Scripts de validación de trazabilidad
+   - Principio: cambio en nivel superior requiere review de niveles
    inferiores
 
 4. **Complejidad en proyectos pequeños**
 
- - Para features muy simples puede ser excesivo
- - No todo requisito necesita 5 niveles
+   - Para features muy simples puede ser excesivo
+   - No todo requisito necesita 5 niveles
 
  **Mitigación**:
 
- - Permitir niveles implícitos cuando sean obvios
- - No forzar documentación de niveles triviales
- - Usar juicio: “¿agrega valor documentar esto en 5 niveles?”
+   - Permitir niveles implícitos cuando sean obvios
+   - No forzar documentación de niveles triviales
+   - Usar juicio: “¿agrega valor documentar esto en 5 niveles?”
 
 Implementación
 --------------

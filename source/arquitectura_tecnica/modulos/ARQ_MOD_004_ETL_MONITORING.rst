@@ -105,23 +105,23 @@ de transformacion.
 
 - **Generar tablas/graficos operativos para usuario final**
  
- - Ejemplo: Dashboard de llamadas por centro
- - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
+  - Ejemplo: Dashboard de llamadas por centro
+  - Eso es responsabilidad de → **ARQ_MOD_005_VIS_REPORTS**
 
 - **Exponer logs tecnicos crudos del sistema**
  
- - Ejemplo: Stack traces, errores de servidor
- - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
+  - Ejemplo: Stack traces, errores de servidor
+  - Eso es responsabilidad de → **ARQ_MOD_008_SYS_LOGS**
 
 - **Consultar BD IVR directamente**
  
- - Solo puede usar vista vw_llamadas
- - Viola → **CNST_003** (BD dual inmutable)
+  - Solo puede usar vista vw_llamadas
+  - Viola → **CNST_003** (BD dual inmutable)
 
 - **Definir reglas de seguridad**
  
- - Ejemplo: "Si falla N veces, bloquear algo"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
+  - Ejemplo: "Si falla N veces, bloquear algo"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
 
 ----
 

@@ -132,10 +132,10 @@ FR-010.03: Crear asignación usuario-función
 -------------------------
 
 - **BR aplicables:**
- - BR_006: RBAC Flat NIST
+  - BR_006: RBAC Flat NIST
  
 - **CNST aplicables:**
- - CNST-002: Gestión de datos en BD
+  - CNST-002: Gestión de datos en BD
 
 **Unicidad:**
 

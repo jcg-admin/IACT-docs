@@ -162,24 +162,24 @@ aplica permisos de RBAC_CORE.
 
 - **Ejecutar ETL o agendar jobs**
  
- - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING** / Backend
- - El ETL es nocturno y automatizado
+  - Eso es responsabilidad de → **ARQ_MOD_004_ETL_MONITORING** / Backend
+  - El ETL es nocturno y automatizado
 
 - **Implementar logica de RBAC**
  
- - Ejemplo: Resolver roles, calcular precedencia
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
- - VIS_REPORTS solo **consume** permisos ya calculados
+  - Ejemplo: Resolver roles, calcular precedencia
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - VIS_REPORTS solo **consume** permisos ya calculados
 
 - **Usar real-time (WebSockets, SSE, auto-refresh)**
  
- - Viola → **CNST_003** (no tiempo real)
- - Los datos se actualizan con el ETL nocturno
+  - Viola → **CNST_003** (no tiempo real)
+  - Los datos se actualizan con el ETL nocturno
 
 - **Consultar BD IVR directamente**
  
- - Solo puede usar datos de BD Analytics
- - Viola → **CNST_003** (BD dual inmutable)
+  - Solo puede usar datos de BD Analytics
+  - Viola → **CNST_003** (BD dual inmutable)
 
 ----
 

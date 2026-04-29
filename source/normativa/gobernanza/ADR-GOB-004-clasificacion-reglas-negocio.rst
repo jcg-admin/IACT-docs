@@ -805,71 +805,71 @@ Positivas
 
 1. **Claridad en documentación**
 
- - Tipo de regla explícito
- - Herramientas apropiadas para cada tipo
- - Menor ambigüedad
+   - Tipo de regla explícito
+   - Herramientas apropiadas para cada tipo
+   - Menor ambigüedad
 
 2. **Implementación más fácil**
 
- - Desarrolladores entienden qué tipo de lógica implementar
- - Desencadenadores claramente diferenciados de inferencias
- - Cálculos con fórmulas precisas
+   - Desarrolladores entienden qué tipo de lógica implementar
+   - Desencadenadores claramente diferenciados de inferencias
+   - Cálculos con fórmulas precisas
 
 3. **Mantenimiento estructurado**
 
- - Cada tipo en su ubicación
- - Fácil encontrar reglas específicas
- - Cambios impactan área clara
+   - Cada tipo en su ubicación
+   - Fácil encontrar reglas específicas
+   - Cambios impactan área clara
 
 4. **Validación apropiada**
 
- - Cada tipo tiene criterios de validación específicos
- - Tests más dirigidos
- - Auditorías más eficientes
+   - Cada tipo tiene criterios de validación específicos
+   - Tests más dirigidos
+   - Auditorías más eficientes
 
 5. **Comunicación efectiva**
 
- - Stakeholders entienden mejor las reglas
- - Matrices visuales para restricciones
- - Tablas claras para cálculos
+   - Stakeholders entienden mejor las reglas
+   - Matrices visuales para restricciones
+   - Tablas claras para cálculos
 
 Negativas
 ~~~~~~~~~
 
 1. **Curva de aprendizaje**
 
- - Equipo debe aprender 5 tipos
- - Requiere práctica para clasificar correctamente
- - Posible confusión inicial entre desencadenadores e inferencias
+   - Equipo debe aprender 5 tipos
+   - Requiere práctica para clasificar correctamente
+   - Posible confusión inicial entre desencadenadores e inferencias
 
  **Mitigación**:
 
- - Capacitación inicial
- - Ejemplos claros en documentación
- - Guía de decisión para clasificar
- - Code reviews de documentación
+   - Capacitación inicial
+   - Ejemplos claros en documentación
+   - Guía de decisión para clasificar
+   - Code reviews de documentación
 
 2. **Overhead de clasificación**
 
- - Tiempo para decidir tipo de cada regla
- - Posibles debates sobre clasificación ambigua
+   - Tiempo para decidir tipo de cada regla
+   - Posibles debates sobre clasificación ambigua
 
  **Mitigación**:
 
- - Árbol de decisión para clasificar
- - Permitir reclasificación si se identifica error
- - Priorizar valor sobre perfección
+   - Árbol de decisión para clasificar
+   - Permitir reclasificación si se identifica error
+   - Priorizar valor sobre perfección
 
 3. **Mantenimiento de estructura de carpetas**
 
- - Múltiples subcarpetas
- - Archivos distribuidos
+   - Múltiples subcarpetas
+   - Archivos distribuidos
 
  **Mitigación**:
 
- - IDs únicos permiten búsqueda fácil
- - Scripts de validación de estructura
- - Templates automatizan creación en lugar correcto
+   - IDs únicos permiten búsqueda fácil
+   - Scripts de validación de estructura
+   - Templates automatizan creación en lugar correcto
 
 Implementación
 --------------

@@ -137,7 +137,7 @@ FR-006.04: Crear registro de usuario en BD
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-002: Gestión de datos en BD
+  - CNST-002: Gestión de datos en BD
 
 **Integridad Referencial:**
 

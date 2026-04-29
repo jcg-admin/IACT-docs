@@ -120,33 +120,33 @@ FASE 0: Preparación y Análisis Inicial
 
 2. **Generar análisis de situación actual**
 
- - Comparar ``docs/{dominio}/`` vs ``docs/gobernanza/``
- - Identificar gaps estructurales
- - Documentar problemas actuales
- - **Output:** ``README.md`` en carpeta QA
+   - Comparar ``docs/{dominio}/`` vs ``docs/gobernanza/``
+   - Identificar gaps estructurales
+   - Documentar problemas actuales
+   - **Output:** ``README.md`` en carpeta QA
 
 3. **Crear índice maestro**
 
- - Documentar propósito del análisis
- - Listar documentos a generar
- - Definir métricas clave
- - **Output:** ``INDICE.md``
+   - Documentar propósito del análisis
+   - Listar documentos a generar
+   - Definir métricas clave
+   - **Output:** ``INDICE.md``
 
 4. **Elaborar plan de reorganización**
 
- - Estructura objetivo
- - 4 fases de ejecución
- - 60-70 tareas estimadas
- - Timeline y recursos
- - **Output:**
+   - Estructura objetivo
+   - 4 fases de ejecución
+   - 60-70 tareas estimadas
+   - Timeline y recursos
+   - **Output:**
    ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
 
 5. **Listar todas las tareas**
 
- - Desglose completo por fase
- - Duraciones estimadas
- - Dependencias entre tareas
- - **Output:** ``LISTADO-COMPLETO-TAREAS.md``
+   - Desglose completo por fase
+   - Duraciones estimadas
+   - Dependencias entre tareas
+   - **Output:** ``LISTADO-COMPLETO-TAREAS.md``
 
 FASE 1: Preparación (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -180,17 +180,17 @@ Validar ADRs creados
 
 2. **Consolidar diseño (TASK-011 a TASK-024)**
 
- - Crear subcarpetas en diseno/
- - Mover contenido a ubicaciones correctas
- - Crear READMEs por subcarpeta
- - Actualizar README principal
- - Validar consolidación
+   - Crear subcarpetas en diseno/
+   - Mover contenido a ubicaciones correctas
+   - Crear READMEs por subcarpeta
+   - Actualizar README principal
+   - Validar consolidación
 
 3. **Consolidar planificación (TASK-025 a TASK-030)**
 
- - Mover feasibility, planning, análisis
- - Consolidar releases
- - Validar estructura
+   - Mover feasibility, planning, análisis
+   - Consolidar releases
+   - Validar estructura
 
 **Criterios de salida:** - Diseño consolidado y documentado - ADRs
 formales creados - Contenido legacy migrado
@@ -212,51 +212,51 @@ CI/CD documentado
 
 1. **Catalogos (TASK-031 a TASK-034)**
 
- - CATALOGO-APIs.md
- - CATALOGO-SERVICIOS.md
- - CATALOGO-MODELOS.md
- - CATALOGO-ENDPOINTS.md
+   - CATALOGO-APIs.md
+   - CATALOGO-SERVICIOS.md
+   - CATALOGO-MODELOS.md
+   - CATALOGO-ENDPOINTS.md
 
 2. **Procesos (TASK-035 a TASK-038)**
 
- - PROC-{DOMINIO}-001: Desarrollo de features
- - PROC-{DOMINIO}-002: Gestión de dependencias
- - PROC-{DOMINIO}-003+: Procesos específicos del dominio
- - INDICE_PROCESOS.md
+   - PROC-{DOMINIO}-001: Desarrollo de features
+   - PROC-{DOMINIO}-002: Gestión de dependencias
+   - PROC-{DOMINIO}-003+: Procesos específicos del dominio
+   - INDICE_PROCESOS.md
 
 3. **Trazabilidad (TASK-039 a TASK-042)**
 
- - MATRIZ-requisitos-tests.md
- - MATRIZ-requisitos-codigo.md
- - Matrices específicas del dominio
+   - MATRIZ-requisitos-tests.md
+   - MATRIZ-requisitos-codigo.md
+   - Matrices específicas del dominio
 
 4. **Plantillas (TASK-044 a TASK-045)**
 
- - plantilla-adr-{dominio}.md
- - plantilla-procedimiento-{dominio}.md
- - plantilla-requisito-funcional.md
+   - plantilla-adr-{dominio}.md
+   - plantilla-procedimiento-{dominio}.md
+   - plantilla-requisito-funcional.md
 
 5. **Visión y Estrategia (TASK-046 a TASK-047)**
 
- - VISION-{DOMINIO}-2025.md
- - ROADMAP-{DOMINIO}-2025.md
+   - VISION-{DOMINIO}-2025.md
+   - ROADMAP-{DOMINIO}-2025.md
 
 6. **Metodologías (TASK-048 a TASK-050)**
 
- - Metodologías aplicadas (TDD, Clean Architecture, etc.)
- - README.md metodologías
+   - Metodologías aplicadas (TDD, Clean Architecture, etc.)
+   - README.md metodologías
 
 7. **Referencias (TASK-051 a TASK-053)**
 
- - Referencias técnicas de frameworks
- - APIs externas
- - Estándares
+   - Referencias técnicas de frameworks
+   - APIs externas
+   - Estándares
 
 8. **CI/CD (TASK-054)**
 
- - Pipeline específico del dominio
- - Tests automatizados
- - Deployment workflows
+   - Pipeline específico del dominio
+   - Tests automatizados
+   - Deployment workflows
 
 **Criterios de salida:** - Catálogos completos y actualizados - Procesos
 y procedimientos documentados - Trazabilidad implementada - Contenido
@@ -627,7 +627,7 @@ Documentos Modelo
 
 - ``docs/gobernanza/`` - Estructura de referencia
 - ``docs/gobernanza/procedimientos/PROCED-GOB-007-consolidacion-ramas-git.md``
- - Metodología
+  - Metodología
 - ``docs/backend/qa/QA-ANALISIS-ESTRUCTURA-BACKEND-001/`` - Ejemplo
    exitoso
 

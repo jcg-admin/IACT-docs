@@ -359,11 +359,11 @@ Opción B: Crear en GitHub UI
 1. Ir a: https://github.com/2-Coatl/IACT—project/issues/new
 2. Completar:
 
- - **Título**: ``feat: Agregar autenticación JWT``
- - **Descripción**: Usar template anterior
- - **Labels**: ``enhancement``, ``backend``, ``priority-high``
- - **Assignees**: Tu usuario
- - **Projects**: Agregar al proyecto actual si existe
+   - **Título**: ``feat: Agregar autenticación JWT``
+   - **Descripción**: Usar template anterior
+   - **Labels**: ``enhancement``, ``backend``, ``priority-high``
+   - **Assignees**: Tu usuario
+   - **Projects**: Agregar al proyecto actual si existe
 
 2.3 Verificar No Hay Duplicados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2008,11 +2008,11 @@ Changelog
 
 - **2025-11-06**: Creación inicial de la guía completa
 
- - Flujo completo paso a paso con ejemplos
- - Sección de TDD con código de ejemplo
- - Troubleshooting común
- - Caso especial de hotfix
- - Métricas de calidad
+  - Flujo completo paso a paso con ejemplos
+  - Sección de TDD con código de ejemplo
+  - Troubleshooting común
+  - Caso especial de hotfix
+  - Métricas de calidad
 
 --------------
 

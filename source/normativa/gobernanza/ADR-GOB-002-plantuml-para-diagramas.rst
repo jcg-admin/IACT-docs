@@ -198,112 +198,112 @@ Positivas
 
 1. **Versionabilidad eficiente**
 
- - Archivos texto plano
- - Git diffs legibles
- - Fácil ver cambios en PR reviews
- - Historial completo de evolución
+   - Archivos texto plano
+   - Git diffs legibles
+   - Fácil ver cambios en PR reviews
+   - Historial completo de evolución
 
 2. **Edición simplificada**
 
- - Cualquier editor de texto
- - No requiere software especial
- - Plugins disponibles para VSCode, IntelliJ, Vim, etc.
- - Live preview en la mayoría de IDEs
+   - Cualquier editor de texto
+   - No requiere software especial
+   - Plugins disponibles para VSCode, IntelliJ, Vim, etc.
+   - Live preview en la mayoría de IDEs
 
 3. **Documentación como código**
 
- - Diagramas viven junto al código
- - Actualizables en mismo PR que código
- - Revisables en code reviews
- - Búsqueda de texto en diagramas
+   - Diagramas viven junto al código
+   - Actualizables en mismo PR que código
+   - Revisables en code reviews
+   - Búsqueda de texto en diagramas
 
 4. **Automatización**
 
- - Generación automática en CI/CD
- - Validación sintáctica en pipelines
- - Detección de diagramas desactualizados
- - Scripts de generación batch
+   - Generación automática en CI/CD
+   - Validación sintáctica en pipelines
+   - Detección de diagramas desactualizados
+   - Scripts de generación batch
 
 5. **Reproducibilidad**
 
- - Mismo ``.puml`` genera mismo diagrama
- - No hay “versión de herramienta” que cambie output
- - Consistencia visual automática con themes
+   - Mismo ``.puml`` genera mismo diagrama
+   - No hay “versión de herramienta” que cambie output
+   - Consistencia visual automática con themes
 
 6. **Amplio soporte**
 
- - Soporta todos los tipos UML estándar
- - Soporta BPMN
- - Extensiones para C4 model
- - Comunidad activa y grande
+   - Soporta todos los tipos UML estándar
+   - Soporta BPMN
+   - Extensiones para C4 model
+   - Comunidad activa y grande
 
 7. **Exportabilidad**
 
- - SVG (vectorial, escalable)
- - PNG (raster)
- - PDF (documentación formal)
- - ASCII art (para documentos texto)
+   - SVG (vectorial, escalable)
+   - PNG (raster)
+   - PDF (documentación formal)
+   - ASCII art (para documentos texto)
 
 Negativas
 ~~~~~~~~~
 
 1. **Curva de aprendizaje**
 
- - Requiere aprender sintaxis PlantUML
- - No es WYSIWYG (lo que ves es lo que obtienes)
- - Layout automático puede no ser óptimo
+   - Requiere aprender sintaxis PlantUML
+   - No es WYSIWYG (lo que ves es lo que obtienes)
+   - Layout automático puede no ser óptimo
 
  **Mitigación**:
 
- - Crear plantillas reutilizables
- - Documentar ejemplos comunes en PROCED-GOB-002
- - Snippets en VSCode para patrones frecuentes
+   - Crear plantillas reutilizables
+   - Documentar ejemplos comunes en PROCED-GOB-002
+   - Snippets en VSCode para patrones frecuentes
 
 2. **Control limitado de layout**
 
- - Layout automático no siempre perfecto
- - Requiere hints para ajustar posicionamiento
- - Puede necesitar iteración para resultado óptimo
+   - Layout automático no siempre perfecto
+   - Requiere hints para ajustar posicionamiento
+   - Puede necesitar iteración para resultado óptimo
 
  **Mitigación**:
 
- - Usar directivas de layout (``left to right``, ``top to bottom``)
- - Documentar tricks de posicionamiento
- - Aceptar que semántica > estética pixel-perfect
+   - Usar directivas de layout (``left to right``, ``top to bottom``)
+   - Documentar tricks de posicionamiento
+   - Aceptar que semántica > estética pixel-perfect
 
 3. **Dependencia de PlantUML**
 
- - Requiere Java instalado para generación local
- - Requiere plantuml.jar o servidor PlantUML
- - Actualizaciones de PlantUML pueden cambiar rendering
+   - Requiere Java instalado para generación local
+   - Requiere plantuml.jar o servidor PlantUML
+   - Actualizaciones de PlantUML pueden cambiar rendering
 
  **Mitigación**:
 
- - Dockerizar PlantUML para CI/CD
- - Fijar versión de PlantUML en CI
- - Documentar instalación en README
+   - Dockerizar PlantUML para CI/CD
+   - Fijar versión de PlantUML en CI
+   - Documentar instalación en README
 
 4. **Tamaño de imágenes generadas**
 
- - SVG puede ser grande para diagramas complejos
- - Aumenta tamaño del repositorio
+   - SVG puede ser grande para diagramas complejos
+   - Aumenta tamaño del repositorio
 
  **Mitigación**:
 
- - Comprimir SVG con herramientas
- - Considerar PNG optimizado para diagramas muy grandes
- - Git LFS si repositorio crece demasiado
+   - Comprimir SVG con herramientas
+   - Considerar PNG optimizado para diagramas muy grandes
+   - Git LFS si repositorio crece demasiado
 
 5. **No todos los tipos de diagramas soportados perfectamente**
 
- - BPMN es extensión, no core
- - Algunos diagramas UML 2.5 avanzados limitados
+   - BPMN es extensión, no core
+   - Algunos diagramas UML 2.5 avanzados limitados
 
  **Mitigación**:
 
- - Usar extensiones de PlantUML cuando sea necesario
- - Evaluar caso por caso si PlantUML es adecuado
- - Para casos extremos, considerar excepción documentada
+   - Usar extensiones de PlantUML cuando sea necesario
+   - Evaluar caso por caso si PlantUML es adecuado
+   - Para casos extremos, considerar excepción documentada
 
 Impacto en el Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~

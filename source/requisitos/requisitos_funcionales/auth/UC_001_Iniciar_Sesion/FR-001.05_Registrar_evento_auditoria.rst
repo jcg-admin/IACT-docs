@@ -103,11 +103,11 @@ FR-001.05: Registrar evento auditoría login
 -------------------------
 
 - **BR aplicables:**
- - BR_008: Auditoría de accesos obligatoria
+  - BR_008: Auditoría de accesos obligatoria
  
 - **CNST aplicables:**
- - CNST-009: Logging y auditoría inmutable
- - CNST-010: Clasificación de datos (no loguear PII sensible)
+  - CNST-009: Logging y auditoría inmutable
+  - CNST-010: Clasificación de datos (no loguear PII sensible)
 
 **Tipos de Evento Login:**
 

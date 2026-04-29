@@ -175,11 +175,11 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Del FR origen, extraer:
 
- 1. ID del FR
- 2. Nombre del FR
- 3. UC padre
- 4. Criterio de Aceptacion (DADO/CUANDO/ENTONCES)
- 5. BR aplicables
+  1. ID del FR
+  2. Nombre del FR
+  3. UC padre
+  4. Criterio de Aceptacion (DADO/CUANDO/ENTONCES)
+  5. BR aplicables
 
  .. code-block:: text
 
@@ -203,14 +203,14 @@ Antes de iniciar este procedimiento, verificar:
     Formato ID: TST_[MOD]_[NNN]
  
  Donde:
- - TST: Prefijo fijo
- - [MOD]: Codigo del modulo (AUTH, USR, ACC, etc.)
- - [NNN]: Numero secuencial de 3 digitos
+  - TST: Prefijo fijo
+  - [MOD]: Codigo del modulo (AUTH, USR, ACC, etc.)
+  - [NNN]: Numero secuencial de 3 digitos
  
  Ejemplos:
- - TST_AUTH_001
- - TST_AUTH_002
- - TST_USR_001
+  - TST_AUTH_001
+  - TST_AUTH_002
+  - TST_USR_001
 
 - **Resultado**: ID del TST definido
 - **Verificacion**: ID unico en el modulo
@@ -251,14 +251,14 @@ Antes de iniciar este procedimiento, verificar:
 
     **Datos de Entrada:**
  
- - user_id: "uuid-test-001"
- - username: "test_user"
- - roles: ["ROL-003"]
- - segment_id: 1
+  - user_id: "uuid-test-001"
+  - username: "test_user"
+  - roles: ["ROL-003"]
+  - segment_id: 1
  
  **Datos de Contexto:**
  
- - SECRET_KEY: "test-secret-key-256-bits"
+  - SECRET_KEY: "test-secret-key-256-bits"
 
 - **Resultado**: Secciones de datos completas
 - **Verificacion**: Datos suficientes para prueba
@@ -274,18 +274,18 @@ Antes de iniciar este procedimiento, verificar:
     :widths: 10 50 40
     :header-rows: 1
  
- * - Paso
- - Accion
- - Resultado Esperado
- * - 1
- - Preparar usuario con credenciales verificadas
- - Objeto User disponible
- * - 2
- - Invocar metodo generate_jwt_token(user)
- - Token JWT retornado
- * - 3
- - Decodificar token
- - Payload contiene user_id, roles, exp
+  * - Paso
+  - Accion
+  - Resultado Esperado
+  * - 1
+  - Preparar usuario con credenciales verificadas
+  - Objeto User disponible
+  * - 2
+  - Invocar metodo generate_jwt_token(user)
+  - Token JWT retornado
+  * - 3
+  - Decodificar token
+  - Payload contiene user_id, roles, exp
 
 - **Resultado**: Pasos de ejecucion definidos
 - **Verificacion**: Pasos son ejecutables

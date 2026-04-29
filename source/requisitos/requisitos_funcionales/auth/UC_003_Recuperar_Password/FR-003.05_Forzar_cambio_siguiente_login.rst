@@ -104,7 +104,7 @@ FR-003.05: Forzar cambio en siguiente login
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-005: Seguridad
+  - CNST-005: Seguridad
 
 **Campos de BD Relacionados:**
 

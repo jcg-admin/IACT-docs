@@ -111,7 +111,7 @@ FR-009.04: Mostrar indicador de inactividad
 -------------------------
 
 - **BR aplicables:**
- - BR_003: Visibilidad de estado de usuarios
+  - BR_003: Visibilidad de estado de usuarios
  
 - **CNST aplicables:** Ninguna específica
 

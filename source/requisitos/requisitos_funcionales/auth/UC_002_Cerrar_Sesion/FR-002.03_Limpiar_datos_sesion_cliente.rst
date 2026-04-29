@@ -104,7 +104,7 @@ FR-002.03: Limpiar datos de sesión en cliente
 - **BR aplicables:** Ninguna específica
  
 - **CNST aplicables:**
- - CNST-005: Seguridad (no dejar datos sensibles)
+  - CNST-005: Seguridad (no dejar datos sensibles)
 
 **Implementación Frontend:**
 

@@ -129,33 +129,33 @@ inactividad.
 
 - **Decidir si un usuario puede ver un modulo**
  
- - Ejemplo: "Si es ADMIN puede ver X modulo"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "Si es ADMIN puede ver X modulo"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Validar permisos especificos**
  
- - Ejemplo: "Si no tiene rol R017 no puede ver auditoria"
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+  - Ejemplo: "Si no tiene rol R017 no puede ver auditoria"
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Generar alertas por fallos de login**
  
- - Ejemplo: "Si falla 5 veces, generar alerta"
- - Eso es responsabilidad de → **ARQ_MOD_006_ALERTS**
+  - Ejemplo: "Si falla 5 veces, generar alerta"
+  - Eso es responsabilidad de → **ARQ_MOD_006_ALERTS**
 
 - **Bloquear usuario por intentos fallidos**
  
- - La logica de bloqueo es de seguridad avanzada
- - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
+  - La logica de bloqueo es de seguridad avanzada
+  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
 
 - **Enviar notificaciones por email**
  
- - Viola restriccion critica CNST_001
- - Solo se usa buzon interno → **ARQ_MOD_006_ALERTS**
+  - Viola restriccion critica CNST_001
+  - Solo se usa buzon interno → **ARQ_MOD_006_ALERTS**
 
 - **Registrar eventos de auditoria**
  
- - AUTH emite el evento, pero no lo registra
- - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
+  - AUTH emite el evento, pero no lo registra
+  - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
 
 ----
 

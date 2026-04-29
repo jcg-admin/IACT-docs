@@ -107,10 +107,10 @@ FR-011.03: Recalcular permisos efectivos
 -------------------------
 
 - **BR aplicables:**
- - BR_006: RBAC Flat NIST
+  - BR_006: RBAC Flat NIST
  
 - **CNST aplicables:**
- - CNST-007: Performance (caché de permisos)
+  - CNST-007: Performance (caché de permisos)
 
 **Caché de Permisos:**
 

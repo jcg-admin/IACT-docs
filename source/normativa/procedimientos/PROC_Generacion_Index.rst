@@ -150,9 +150,9 @@ Antes de iniciar este procedimiento, verificar:
 
     Niveles:
  
- 1. Dominio: requisitos/, arquitectura_tecnica/, etc.
- 2. Subdominio: reglas_negocio/, casos_uso/, etc.
- 3. Modulo: auth/, users/, access/, etc.
+  1. Dominio: requisitos/, arquitectura_tecnica/, etc.
+  2. Subdominio: reglas_negocio/, casos_uso/, etc.
+  3. Modulo: auth/, users/, access/, etc.
 
 - **Resultado**: Tipo identificado
 - **Verificacion**: Ubicacion correcta
@@ -247,14 +247,14 @@ Antes de iniciar este procedimiento, verificar:
  .. list-table::
     :header-rows: 1
  
- * - Metrica
- - Valor
- * - Total artefactos
- - 20
- * - Estado Aprobado
- - 20
- * - Ultima actualizacion
- - 2026-01-07
+  * - Metrica
+  - Valor
+  * - Total artefactos
+  - 20
+  * - Estado Aprobado
+  - 20
+  * - Ultima actualizacion
+  - 2026-01-07
 
 - **Resultado**: Metricas agregadas
 - **Verificacion**: Valores correctos

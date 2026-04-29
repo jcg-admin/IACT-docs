@@ -163,8 +163,8 @@ Antes de iniciar este procedimiento, verificar:
     Formato: RTM_[Origen]_[Destino]
  
  Ejemplo: RTM_UC_FR
- - Origen: UC (Casos de Uso)
- - Destino: FR (Requisitos Funcionales)
+  - Origen: UC (Casos de Uso)
+  - Destino: FR (Requisitos Funcionales)
 
 - **Resultado**: RTM identificada
 - **Verificacion**: Par valido segun jerarquia
@@ -213,18 +213,18 @@ Antes de iniciar este procedimiento, verificar:
     .. list-table::
     :header-rows: 1
  
- * - UC Origen
- - FR Derivados
- - Cantidad
- * - UC_001
- - FR_UC001_01, FR_UC001_02, FR_UC001_03, FR_UC001_04, FR_UC001_05
- - 5
- * - UC_002
- - FR_UC002_01, FR_UC002_02, FR_UC002_03
- - 3
- * - ...
- - ...
- - ...
+  * - UC Origen
+  - FR Derivados
+  - Cantidad
+  * - UC_001
+  - FR_UC001_01, FR_UC001_02, FR_UC001_03, FR_UC001_04, FR_UC001_05
+  - 5
+  * - UC_002
+  - FR_UC002_01, FR_UC002_02, FR_UC002_03
+  - 3
+  * - ...
+  - ...
+  - ...
 
 - **Resultado**: Matriz directa
 - **Verificacion**: Todos los origenes mapeados
@@ -239,18 +239,18 @@ Antes de iniciar este procedimiento, verificar:
     .. list-table::
     :header-rows: 1
  
- * - FR
- - UC Origen
- - Estado
- * - FR_UC001_01
- - UC_001
- - OK
- * - FR_UC001_02
- - UC_001
- - OK
- * - FR_XXXX_01
- - ???
- - HUERFANO
+  * - FR
+  - UC Origen
+  - Estado
+  * - FR_UC001_01
+  - UC_001
+  - OK
+  * - FR_UC001_02
+  - UC_001
+  - OK
+  * - FR_XXXX_01
+  - ???
+  - HUERFANO
 
 - **Resultado**: Matriz inversa
 - **Verificacion**: Huerfanos identificados
@@ -264,15 +264,15 @@ Antes de iniciar este procedimiento, verificar:
 
     **Metricas RTM_UC_FR:**
  
- - Total UC: 49
- - UC con FR: 49
- - UC sin FR (gaps): 0
- - Cobertura: 100%
+  - Total UC: 49
+  - UC con FR: 49
+  - UC sin FR (gaps): 0
+  - Cobertura: 100%
  
- - Total FR: 158
- - FR con UC: 158
- - FR huerfanos: 0
- - Ratio promedio: 3.2 FR/UC
+  - Total FR: 158
+  - FR con UC: 158
+  - FR huerfanos: 0
+  - Ratio promedio: 3.2 FR/UC
 
 - **Resultado**: Metricas calculadas
 - **Verificacion**: Cobertura >= objetivo
@@ -287,16 +287,16 @@ Antes de iniciar este procedimiento, verificar:
     **Analisis de Gaps:**
  
  UC sin FR (requieren derivacion):
- - Ninguno
+  - Ninguno
  
  **Analisis de Huerfanos:**
  
  FR sin UC (posible error):
- - Ninguno
+  - Ninguno
  
  **Exclusiones Justificadas:**
  
- - UC_099: Caso de uso futuro, excluido de RTM
+  - UC_099: Caso de uso futuro, excluido de RTM
 
 - **Resultado**: Analisis documentado
 - **Verificacion**: Gaps/huerfanos explicados

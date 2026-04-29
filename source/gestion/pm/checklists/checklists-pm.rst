@@ -107,9 +107,9 @@ Checklists Disponibles
 - ☐ **Summary**: Qué cambió y por qué (3-5 bullets)
 - ☐ **Test Plan**: Cómo se probó
 
- - ☐ Tests unitarios agregados/actualizados
- - ☐ Tests de integración (si aplica)
- - ☐ Verificación manual realizada
+  - ☐ Tests unitarios agregados/actualizados
+  - ☐ Tests de integración (si aplica)
+  - ☐ Verificación manual realizada
 
 - ☐ **Related Issues**: Links a issues (#123)
 - ☐ **Breaking Changes**: Documentar si aplica
