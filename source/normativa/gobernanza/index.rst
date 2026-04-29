@@ -4,31 +4,32 @@
  :dominio: normativa
  :subdominio: gobernanza
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-29
  :autor: NestorMonroy
  :clasificacion: Interno
 
 Gobernanza del Proyecto
 =======================
 
-Las decisiones de gobernanza (ADR-GOB-NNN) registran las elecciones
-arquitectonicas y metodologicas que aplican al proyecto IACT como un
-todo, sin atarse a un tier tecnico especifico.
+Las decisiones arquitectonicas (ADR) del proyecto IACT viven en este
+cajon, organizadas por modulo:
 
-A diferencia de los ADRs tecnicos (ADR-BACK, ADR-FRONT, ADR-DEVOPS,
-ADR-QA), que viven en sus respectivos cajones, los ADR-GOB son
-transversales: describen como se organiza el proyecto, como se
-estructuran los artefactos de requisitos, y como se trazan las
-relaciones entre ellos.
+- **ADR-GOB**: gobernanza transversal (organizacion, requisitos,
+  diagramas, trazabilidad).
+- **ADR-BACK**: decisiones del backend (Django, ORM, permisos).
+- **ADR-FRONT**: decisiones del frontend (React, Webpack, state
+  management).
+- **ADR-DEVOPS**: decisiones de infraestructura y despliegue.
+- **ADR-QA**: decisiones de testing y calidad.
 
 Catalogo
 --------
 
 .. toctree::
  :maxdepth: 1
- :caption: ADRs de Gobernanza
+ :caption: ADRs de Gobernanza (transversales)
 
  ADR-GOB-001-organizacion-proyecto-por-dominio
  ADR-GOB-002-plantuml-para-diagramas
@@ -38,6 +39,38 @@ Catalogo
  ADR-GOB-006-diagramas-uml-casos-uso
  ADR-GOB-007-trazabilidad-artefactos-requisitos
  ADR-GOB-008-rbac-coexistencia-acc-perm
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs Backend
+
+ ADR-BACK-001-grupos-funcionales-sin-jerarquia
+ ADR-BACK-002-configuracion-dinamica-sistema
+ ADR-BACK-003-orm-sql-hybrid-permissions
+ ADR-BACK-004-sistema-permisos-sin-roles-jerarquicos
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs Frontend
+
+ ADR-FRONT-001-frontend-modular-monolith
+ ADR-FRONT-002-redux-toolkit-state-management
+ ADR-FRONT-003-webpack-bundler
+ ADR-FRONT-004-arquitectura-microfrontends
+ ADR-FRONT-010-typescript-adopcion-gradual
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs DevOps
+
+ ADR-DEVOPS-001-vagrant-mod-wsgi-importante-produc
+ ADR-DEVOPS-003-wasi-style-virtualization-importante-db
+
+.. toctree::
+ :maxdepth: 1
+ :caption: ADRs QA
+
+ ADR-QA-002-testing-strategy-jest-testing-library
 
 Estructura por dominio
 ----------------------

@@ -505,9 +505,12 @@ Referencias
 -----------
 
 
-- [Sistema de Permisos Granular](../backend/arquitectura/permisos-granular.md)
-- [ADR-2025-010: Estrategia Híbrida ORM + SQL](../adr/adr_2025_010_orm_sql_hybrid_permissions.md)
-- [Guía de Casos de Uso](../gobernanza/casos_de_uso_guide.md)
+- :doc:`Modelo RBAC IACT </arquitectura_tecnica/rbac/MODELO_RBAC_IACT>`
+  (sistema de permisos canónico).
+- :doc:`ADR-GOB-008 — Coexistencia ACC↔PERM </normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm>`
+  (estrategia híbrida del modelo de acceso).
+- :doc:`ADR-GOB-005 — Especificación Casos de Uso </normativa/gobernanza/ADR-GOB-005-especificacion-casos-uso>`
+  (guía de UC).
 
 ---
 

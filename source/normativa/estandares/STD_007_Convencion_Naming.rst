@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -97,22 +97,60 @@ Los nombres NO DEBEN contener:
 - ``diseno_detallado/``
 - ``planificacion-y-releases-frontend.rst``
 
-3.3 Mezcla de Separadores
-^^^^^^^^^^^^^^^^^^^^^^^^^
+3.3 Mezcla de Separadores y Selección de Dialecto
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-NO mezclar ``-`` y ``_`` en el mismo nombre **a menos que** la mezcla
-siga la estructura: ``<PREFIX-CON-HYPHEN>_<descripcion-con-cualquiera>``.
+**Regla general:** NO mezclar ``-`` y ``_`` arbitrariamente. Los
+dialectos permitidos están enumerados taxativamente en §4.1–§4.5.
+Cualquier patrón fuera de esos cinco dialectos está **prohibido**.
 
-**Permitido (estructural):**
+**Selección de dialecto por categoría de artefacto:**
 
-- ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst`` (kebab puro)
-- ``UC_ACC_01_Asignar_Funciones.rst`` (snake puro)
-- ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mixed permitido: prefix
-  con hyphen, descripción con underscore)
+.. list-table::
+   :header-rows: 1
+   :widths: 30 25 45
 
-**Prohibido (caos):**
+   * - Categoría
+     - Dialecto
+     - Sección que lo define
+   * - UC, BR, CNST, STD, TPL, META, FND, SBVR, MTM, TXM, GOB, BReq
+     - snake + PascalCase (``Prefix_NN_Descripcion_PascalCase``)
+     - §4.1
+   * - ADR, PROCED, PROC, RNF
+     - kebab puro (``Prefix-MOD-NNN-descripcion-kebab``)
+     - §4.2
+   * - FR
+     - mixed (``FR-NNN.NN_Descripcion_snake_case``)
+     - §4.3
+   * - Guías generales sin numeración intrínseca
+     - kebab puro (``descripcion-kebab.rst``)
+     - §4.4
+   * - Punto de entrada de directorio
+     - ``index.rst`` (excepción)
+     - §4.5
 
-- ``mi_archivo-de-prueba.rst`` (mezcla sin razón estructural)
+**Permitido (sigue uno de los 5 dialectos):**
+
+- ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst`` (§4.2)
+- ``UC_ACC_01_Asignar_Funciones.rst`` (§4.1)
+- ``FR-010.01_Listar_funciones_disponibles.rst`` (§4.3)
+- ``git-workflow.rst`` (§4.4)
+
+**Prohibido (no sigue ningún dialecto definido):**
+
+- ``mi_archivo-de-prueba.rst`` (mezcla sin estructura categorial)
+- ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mezcla; el patrón
+  correcto §4.2 exige kebab puro en la descripción:
+  ``PROC-DEV-001-pipeline-trabajo-iact.rst``)
+- ``Mi_Documento.rst`` cuando NO hay prefijo categorial (§4.4
+  exige kebab para guías sin prefijo)
+
+**Por qué esta clarificación (v1.1.0):** la versión 1.0.0 de
+§3.3 daba la impresión de que kebab puro era una opción
+genérica, contradiciendo §4.2. La v1.1.0 explicita que la
+elección de dialecto está determinada por la **categoría del
+artefacto**, no por preferencia del autor. Decisión registrada
+en ADR ``adr-naming-conventions-heterogeneity-accepted.md``.
 
 3.4 Versión en Filename
 ^^^^^^^^^^^^^^^^^^^^^^^
