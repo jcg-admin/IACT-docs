@@ -31,71 +31,71 @@ Catalogo
  :maxdepth: 1
  :caption: ADRs de Gobernanza (transversales)
 
- ADR-GOB-001-organizacion-proyecto-por-dominio
- ADR-GOB-002-plantuml-para-diagramas
- ADR-GOB-003-jerarquia-requerimientos-5-niveles
- ADR-GOB-004-clasificacion-reglas-negocio
- ADR-GOB-005-especificacion-casos-uso
- ADR-GOB-006-diagramas-uml-casos-uso
- ADR-GOB-007-trazabilidad-artefactos-requisitos
- ADR-GOB-008-rbac-coexistencia-acc-perm
+ adr-gob-001-organizacion-proyecto-por-dominio
+ adr-gob-002-plantuml-para-diagramas
+ adr-gob-003-jerarquia-requerimientos-5-niveles
+ adr-gob-004-clasificacion-reglas-negocio
+ adr-gob-005-especificacion-casos-uso
+ adr-gob-006-diagramas-uml-casos-uso
+ adr-gob-007-trazabilidad-artefactos-requisitos
+ adr-gob-008-rbac-coexistencia-acc-perm
 
 .. toctree::
  :maxdepth: 1
  :caption: ADRs Backend
 
- ADR-BACK-001-grupos-funcionales-sin-jerarquia
- ADR-BACK-002-configuracion-dinamica-sistema
- ADR-BACK-003-orm-sql-hybrid-permissions
- ADR-BACK-004-sistema-permisos-sin-roles-jerarquicos
+ adr-back-001-grupos-funcionales-sin-jerarquia
+ adr-back-002-configuracion-dinamica-sistema
+ adr-back-003-orm-sql-hybrid-permissions
+ adr-back-004-sistema-permisos-sin-roles-jerarquicos
 
 .. toctree::
  :maxdepth: 1
  :caption: ADRs Frontend
 
- ADR-FRONT-001-frontend-modular-monolith
- ADR-FRONT-002-redux-toolkit-state-management
- ADR-FRONT-003-webpack-bundler
- ADR-FRONT-004-arquitectura-microfrontends
- ADR-FRONT-010-typescript-adopcion-gradual
+ adr-front-001-frontend-modular-monolith
+ adr-front-002-redux-toolkit-state-management
+ adr-front-003-webpack-bundler
+ adr-front-004-arquitectura-microfrontends
+ adr-front-010-typescript-adopcion-gradual
 
 .. toctree::
  :maxdepth: 1
  :caption: ADRs DevOps
 
- ADR-DEVOPS-001-vagrant-mod-wsgi-importante-produc
- ADR-DEVOPS-003-wasi-style-virtualization-importante-db
+ adr-devops-001-vagrant-mod-wsgi-importante-produc
+ adr-devops-003-wasi-style-virtualization-importante-db
 
 .. toctree::
  :maxdepth: 1
  :caption: ADRs QA
 
- ADR-QA-002-testing-strategy-jest-testing-library
+ adr-qa-002-testing-strategy-jest-testing-library
 
 Estructura por dominio
 ----------------------
 
 **Organizacion del proyecto**
 
-- :doc:`ADR-GOB-001-organizacion-proyecto-por-dominio` — organizacion
+- :doc:`adr-gob-001-organizacion-proyecto-por-dominio` — organizacion
   del repositorio por dominio (no por tipo de archivo).
 
 **Documentacion y diagramas**
 
-- :doc:`ADR-GOB-002-plantuml-para-diagramas` — PlantUML como
+- :doc:`adr-gob-002-plantuml-para-diagramas` — PlantUML como
   estandar para todos los diagramas UML.
-- :doc:`ADR-GOB-006-diagramas-uml-casos-uso` — diagramas UML
+- :doc:`adr-gob-006-diagramas-uml-casos-uso` — diagramas UML
   obligatorios para los casos de uso.
 
 **Modelo de requisitos**
 
-- :doc:`ADR-GOB-003-jerarquia-requerimientos-5-niveles` — jerarquia
+- :doc:`adr-gob-003-jerarquia-requerimientos-5-niveles` — jerarquia
   de 5 niveles (BReq → BR → UC → FR → NFR/CNST).
-- :doc:`ADR-GOB-004-clasificacion-reglas-negocio` — clasificacion
+- :doc:`adr-gob-004-clasificacion-reglas-negocio` — clasificacion
   y formato canonico de las BRs.
-- :doc:`ADR-GOB-005-especificacion-casos-uso` — formato completo de
+- :doc:`adr-gob-005-especificacion-casos-uso` — formato completo de
   los UCs.
-- :doc:`ADR-GOB-007-trazabilidad-artefactos-requisitos` — matrices
+- :doc:`adr-gob-007-trazabilidad-artefactos-requisitos` — matrices
   de trazabilidad bidireccional entre BR/UC/FR/CNST.
 
 Convenciones

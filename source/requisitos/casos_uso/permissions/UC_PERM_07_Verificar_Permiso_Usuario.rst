@@ -22,7 +22,7 @@ UC_PERM_07: Verificar Permiso de Usuario
  vista funcional / catalogo cerrado del mismo concepto esta en
  :doc:`/requisitos/casos_uso/access/UC_ACC_03_Consultar_Permisos`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 

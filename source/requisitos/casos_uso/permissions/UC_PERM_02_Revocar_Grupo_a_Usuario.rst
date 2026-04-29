@@ -22,7 +22,7 @@ UC_PERM_02: Revocar Grupo a Usuario
  vista funcional / catalogo cerrado del mismo concepto esta en
  :doc:`/requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 

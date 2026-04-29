@@ -22,7 +22,7 @@ UC_PERM_09: Auditar Acceso
  vista funcional / catalogo cerrado del mismo concepto esta en
  :doc:`/requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 

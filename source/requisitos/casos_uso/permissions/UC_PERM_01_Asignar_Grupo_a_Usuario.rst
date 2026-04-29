@@ -22,7 +22,7 @@ UC_PERM_01: Asignar Grupo a Usuario
  vista funcional / catalogo cerrado del mismo concepto esta en
  :doc:`/requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 
@@ -507,9 +507,9 @@ Referencias
 
 - :doc:`Modelo RBAC IACT </arquitectura_tecnica/rbac/MODELO_RBAC_IACT>`
   (sistema de permisos canónico).
-- :doc:`ADR-GOB-008 — Coexistencia ACC↔PERM </normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm>`
+- :doc:`ADR-GOB-008 — Coexistencia ACC↔PERM </normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm>`
   (estrategia híbrida del modelo de acceso).
-- :doc:`ADR-GOB-005 — Especificación Casos de Uso </normativa/gobernanza/ADR-GOB-005-especificacion-casos-uso>`
+- :doc:`ADR-GOB-005 — Especificación Casos de Uso </normativa/gobernanza/adr-gob-005-especificacion-casos-uso>`
   (guía de UC).
 
 ----

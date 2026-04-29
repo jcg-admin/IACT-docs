@@ -17,7 +17,7 @@ UC_ACC_03: Consultar Permisos
  vista tecnica runtime del mismo concepto esta en
  :doc:`/requisitos/casos_uso/permissions/UC_PERM_07_Verificar_Permiso_Usuario`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 1. Resumen

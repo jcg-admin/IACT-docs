@@ -60,7 +60,7 @@ cobertura objetivo y procesos.
 4. ADRs aplicables
 ==================
 
-- :doc:`/normativa/gobernanza/ADR-GOB-003-jerarquia-requerimientos-5-niveles`
+- :doc:`/normativa/gobernanza/adr-gob-003-jerarquia-requerimientos-5-niveles`
 - ADR-QA-002 (testing strategy Jest + Testing Library) — pendiente
   migracion a source en WP #14 v2 (vive actualmente en
   ``inputs/canonical/``).

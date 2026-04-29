@@ -17,7 +17,7 @@ UC_ACC_09: Auditar Cambios Acceso
  vista tecnica runtime del mismo concepto esta en
  :doc:`/requisitos/casos_uso/permissions/UC_PERM_09_Auditar_Acceso`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 1. Resumen

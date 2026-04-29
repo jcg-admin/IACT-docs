@@ -17,7 +17,7 @@ UC_ACC_04: Asignar Agrupador
  vista tecnica granular del mismo concepto esta en
  :doc:`/requisitos/casos_uso/permissions/UC_PERM_06_Asignar_Funciones_Grupo`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 1. Resumen

@@ -17,7 +17,7 @@ UC_ACC_01: Asignar Funciones
  vista tecnica granular del mismo concepto esta en
  :doc:`/requisitos/casos_uso/permissions/UC_PERM_01_Asignar_Grupo_a_Usuario`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 1. Resumen

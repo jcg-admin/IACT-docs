@@ -22,7 +22,7 @@ UC_PERM_06: Asignar Funciones a Grupo
  vista funcional / catalogo cerrado del mismo concepto esta en
  :doc:`/requisitos/casos_uso/access/UC_ACC_04_Asignar_Agrupador`
  (o equivalente). Ambas coexisten per
- :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`.
 
 
 
