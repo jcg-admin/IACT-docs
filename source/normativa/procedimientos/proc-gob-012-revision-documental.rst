@@ -69,7 +69,7 @@ Procedimiento de Revisión
 
  git checkout main
  git pull origin main
- git checkout -b docs/actualizar-procedimiento-qa-20251104
+ git checkout -b docs/actualizar-proc-qa-004-qa-20251104
 
 1.2 Hacer Cambios
 ^^^^^^^^^^^^^^^^^
@@ -165,7 +165,7 @@ Calidad
  - Corregir typos en ejemplos"
 
  # Push
- git push -u origin docs/actualizar-procedimiento-qa-20251104
+ git push -u origin docs/actualizar-proc-qa-004-qa-20251104
 
  # PR
  gh pr create \

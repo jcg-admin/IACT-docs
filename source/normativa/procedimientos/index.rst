@@ -201,12 +201,12 @@ Guías y procedimientos transversales
  :maxdepth: 1
 
  guia-completa-desarrollo-features
- procedimiento-analisis-seguridad
- procedimiento-desarrollo-local
- procedimiento-diseno-tecnico
- procedimiento-gestion-cambios
- procedimiento-instalacion-entorno
- procedimiento-qa
- procedimiento-release
- procedimiento-revision-documental
- procedimiento-trazabilidad-requisitos
+ proc-qa-003-analisis-seguridad
+ proc-dev-003-desarrollo-local
+ proc-dev-004-diseno-tecnico
+ proc-gob-011-gestion-cambios
+ proc-ops-003-instalacion-entorno
+ proc-qa-004-qa
+ proc-devops-002-release
+ proc-gob-012-revision-documental
+ proc-req-019-trazabilidad-requisitos

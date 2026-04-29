@@ -523,7 +523,7 @@ Convenciones
 
  # Documentación: snake_case o kebab-case
  guia_desarrollo.md
- procedimiento-qa.md
+ proc-qa-004-qa.md
  README.md
 
  # Configuración: lowercase con guiones
