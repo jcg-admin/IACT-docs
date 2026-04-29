@@ -46,7 +46,7 @@ responsabilidad unica.
 ----
 
 1. El Problema de la Ambiguedad
--------------------------------
+   -------------------------------
 
 1.1 La Pregunta Central
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,7 +91,7 @@ Aplicar este concepto a requisitos es **conceptualmente incorrecto**.
 ----
 
 2. Derivacion: El Termino Correcto
-----------------------------------
+   ----------------------------------
 
 2.1 Definicion de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,7 +172,7 @@ son la **explicitacion** de capacidades que el UC ya contiene implicitamente.
 ----
 
 3. Principio de Responsabilidad Unica
--------------------------------------
+   -------------------------------------
 
 3.1 Definicion
 ^^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ La derivacion correcta preserva la responsabilidad unica:
 ----
 
 4. Direccion de Derivacion
---------------------------
+   --------------------------
 
 4.1 Proyectos Greenfield
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -374,7 +374,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 5. Implicaciones Practicas
---------------------------
+   --------------------------
 
 5.1 Proceso de Derivacion Correcto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -384,7 +384,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
  PARA CADA PASO DEL CASO DE USO:
 
  1. Leer el paso del UC
- "Sistema valida disponibilidad del producto"
+    "Sistema valida disponibilidad del producto"
 
  2. Preguntar: Que capacidades atomicas implica?
  - Consultar stock
@@ -392,15 +392,15 @@ En proyectos con codigo existente, la direccion puede ser inversa
  - Generar mensaje resultado
 
  3. Documentar cada capacidad como FR individual
- FR-xx.1: Sistema DEBE consultar stock actual
- FR-xx.2: Sistema DEBE comparar cantidad vs disponible
- FR-xx.3: Sistema DEBE mostrar mensaje de resultado
+    FR-xx.1: Sistema DEBE consultar stock actual
+    FR-xx.2: Sistema DEBE comparar cantidad vs disponible
+    FR-xx.3: Sistema DEBE mostrar mensaje de resultado
 
  4. Verificar trazabilidad
- Cada FR debe apuntar al paso UC del que deriva
+    Cada FR debe apuntar al paso UC del que deriva
 
  5. Verificar atomicidad
- Cada FR debe ser verificable independientemente
+    Cada FR debe ser verificable independientemente
 
 5.2 Errores a Evitar
 ^^^^^^^^^^^^^^^^^^^^
@@ -444,7 +444,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 6. Aplicacion en IACT
----------------------
+   ---------------------
 
 6.1 Ejemplo de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -489,7 +489,7 @@ En proyectos con codigo existente, la direccion puede ser inversa
 ----
 
 7. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -507,7 +507,7 @@ Fuentes Externas
 - Robert C. Martin: "Clean Architecture" (Single Responsibility Principle).
 - Karl Wiegers: "Software Requirements".
 - Documento metodológico interno sobre estrategia de derivación
- de FR en proyectos greenfield.
+  de FR en proyectos greenfield.
 
 ----
 

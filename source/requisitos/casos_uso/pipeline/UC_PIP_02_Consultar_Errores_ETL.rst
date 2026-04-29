@@ -12,7 +12,7 @@ UC_PIP_02: Consultar Errores ETL
 ================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_PIP_02: Consultar Errores ETL
    - BRQ-PIP-002
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite consultar el historial de errores del proceso ETL,
 incluyendo detalles de cada fallo, registros afectados y trazas de error
@@ -51,7 +51,7 @@ para diagnostico.
 - Exportar log de errores
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_PIP_02
@@ -76,7 +76,7 @@ para diagnostico.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -112,7 +112,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - La consulta no modifica ningun dato
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -144,7 +144,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - Opcionalmente exporta log
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_PIP_02
@@ -182,7 +182,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Sin Errores
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -222,7 +222,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - Descarga archivo
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso PIP-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -243,7 +243,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - PIP-010
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_PIP_02
@@ -275,7 +275,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -314,7 +314,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - Ejecucion excedio tiempo limite
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -331,7 +331,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - Los registros de error son inmutables, no pueden modificarse.
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -351,7 +351,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - Archivo descargable con filtros aplicados
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -371,7 +371,7 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - PIP-002: ve_errores_etl
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

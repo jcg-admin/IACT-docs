@@ -113,20 +113,20 @@ Para nuevos miembros del equipo, se recomienda leer en este orden:
 .. code-block:: text
 
  1. FND_01 (Concepto Requisito)
- |
- v
+    |
+    v
  2. FND_05 (Jerarquia 4 Niveles)
- |
- +---> 3a. FND_02 (Reglas de Negocio)
- |
- +---> 3b. FND_03 (Casos de Uso)
- |
- +---> 3c. FND_07 (Requerimientos Funcionales)
- |
- v
+    |
+    +---> 3a. FND_02 (Reglas de Negocio)
+    |
+    +---> 3b. FND_03 (Casos de Uso)
+    |
+    +---> 3c. FND_07 (Requerimientos Funcionales)
+    |
+    v
  4. FND_06 (Derivacion vs Transformacion)
- |
- v
+    |
+    v
  5. FND_04 (Trazabilidad)
 
 Relacion con Otros Subdominios

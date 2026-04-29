@@ -18,7 +18,7 @@ META_05 · Estructura Documental
 ===============================
 
 1. Propósito
-------------
+   ------------
 
 Este documento presenta el mapa completo de la estructura documental
 del proyecto IACT, organizada en **3 capas ortogonales** según la
@@ -27,7 +27,7 @@ Proporciona navegación rápida y visión global del sistema.
 
 --------------------
 2. Resumen Ejecutivo
---------------------
+   --------------------
 
 .. list-table::
  :widths: 40 60
@@ -49,7 +49,7 @@ Proporciona navegación rápida y visión global del sistema.
 
 ------------------------------
 3. Las tres capas ortogonales
-------------------------------
+   ------------------------------
 
 3.1. Capa 1 — Methodology / Governance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,7 +139,7 @@ del tiempo.
 
 --------------------------
 4. Reglas de organización
---------------------------
+   --------------------------
 
 4.1. Naming
 ^^^^^^^^^^^
@@ -150,7 +150,7 @@ Reglas clave:
 
 - snake_case para directorios.
 - Prefijo ``_`` para sub-dominios de referencia interna
- (ej: ``base_cognitiva/_fundamentos_conceptuales/``).
+  (ej: ``base_cognitiva/_fundamentos_conceptuales/``).
 - Sin tildes, ñ, espacios o paréntesis en filenames.
 - Versiones en metadata YAML, **no** en filename.
 
@@ -180,7 +180,7 @@ a mano en RST en el cajón correspondiente de ``source/``.
 
 ------------------------------
 5. Dependencias entre cajones
-------------------------------
+   ------------------------------
 
 Reglas de referencia ``:doc:`` y ``:ref:`` entre cajones:
 
@@ -198,7 +198,7 @@ con path) — robustez frente a futuros renombres.
 
 --------------------------------------------
 6. Construcción incremental de la estructura
---------------------------------------------
+   --------------------------------------------
 
 La estructura v2.0 se construye de forma **incremental dominio
 por dominio**. Cada dominio entra al toctree raíz cuando su
@@ -207,7 +207,7 @@ estar presente en la navegación pública aunque exista físicamente.
 
 ------------
 7. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

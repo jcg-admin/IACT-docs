@@ -177,7 +177,7 @@ Plantilla
  ----
 
  1. Declaracion de la Politica
- -----------------------------
+    -----------------------------
 
  .. note:: **Politica POL_[NNN]**
 
@@ -188,7 +188,7 @@ Plantilla
  ----
 
  2. Proposito
- ------------
+    ------------
 
  [Descripcion del proposito de la politica.
  Responde: Por que existe esta politica y que objetivo busca?]
@@ -196,7 +196,7 @@ Plantilla
  ----
 
  3. Alcance
- ----------
+    ----------
 
  3.1 Aplica A
  ^^^^^^^^^^^^
@@ -212,7 +212,7 @@ Plantilla
  ----
 
  4. Principios
- -------------
+    -------------
 
  4.1 Principio 1: [Nombre]
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,7 +232,7 @@ Plantilla
  ----
 
  5. Directrices
- --------------
+    --------------
 
  5.1 [Area 1]
  ^^^^^^^^^^^^
@@ -255,7 +255,7 @@ Plantilla
  ----
 
  6. Roles y Responsabilidades
- ----------------------------
+    ----------------------------
 
  .. list-table::
  :widths: 25 75
@@ -275,7 +275,7 @@ Plantilla
  ----
 
  7. Implementacion
- -----------------
+    -----------------
 
  7.1 Estandares Asociados
  ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -308,7 +308,7 @@ Plantilla
  ----
 
  8. Cumplimiento
- ---------------
+    ---------------
 
  8.1 Monitoreo
  ^^^^^^^^^^^^^
@@ -347,7 +347,7 @@ Plantilla
  ----
 
  9. Excepciones
- --------------
+    --------------
 
  9.1 Proceso de Excepcion
  ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -378,7 +378,7 @@ Plantilla
  ----
 
  10. Revision y Actualizacion
- ----------------------------
+     ----------------------------
 
  - **Frecuencia de revision**: [Anual|Semestral|Por evento]
  - **Responsable de revision**: [Rol]
@@ -392,7 +392,7 @@ Plantilla
  ----
 
  11. Trazabilidad
- ----------------
+     ----------------
 
  .. list-table::
  :widths: 25 75
@@ -410,7 +410,7 @@ Plantilla
  ----
 
  12. Referencias
- ---------------
+     ---------------
 
  - [Referencia 1]: [Norma, ley o documento externo]
  - [Referencia 2]: [Norma, ley o documento externo]
@@ -418,7 +418,7 @@ Plantilla
  ----
 
  13. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

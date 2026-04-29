@@ -18,17 +18,17 @@ datos desde la BD MySQL IVR del cliente hacia la BD PostgreSQL
 Analytics del sistema IACT.
 
 1. Restricciones canonicas
-===========================
+   ===========================
 
 - **Frecuencia:** cada 6 a 12 horas (CNST_008). NO puede ser menor a
- 6h ni mayor a 12h.
+  6h ni mayor a 12h.
 - **Mecanismo:** ``django-crontab`` o scheduler equivalente.
 - **Ventana preferente:** 02:00-04:00 hora local.
 - **Prohibido:** Debezium, WebSockets, polling agresivo, replicacion
- sincrona, triggers cross-database.
+  sincrona, triggers cross-database.
 
 2. Etapas
-=========
+   =========
 
 .. list-table::
  :widths: 15 35 50
@@ -51,7 +51,7 @@ Analytics del sistema IACT.
    - Registra inicio, fin, registros procesados, errores
 
 3. Casos de uso relacionados
-=============================
+   =============================
 
 - :doc:`/requisitos/casos_uso/pipeline/UC_PIP_01_Supervisar_ETL`
 - :doc:`/requisitos/casos_uso/pipeline/UC_PIP_02_Consultar_Errores_ETL`
@@ -59,13 +59,13 @@ Analytics del sistema IACT.
 - :doc:`/requisitos/casos_uso/pipeline/UC_PIP_04_Solicitar_Reintento`
 
 4. Reglas de negocio
-====================
+   ====================
 
 - :doc:`/requisitos/reglas_negocio/BR_002_ETL_Batch_Nocturno`
 - :doc:`/requisitos/reglas_negocio/BR_003_Usuario_Inactivo_90_Dias`
 
 5. UI obligatoria
-=================
+   =================
 
 Las vistas que consultan datos provenientes de IVR DEBEN mostrar al
 usuario el ``timestamp`` de la ultima actualizacion ETL para que la

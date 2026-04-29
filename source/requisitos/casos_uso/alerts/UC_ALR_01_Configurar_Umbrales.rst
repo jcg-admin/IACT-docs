@@ -12,7 +12,7 @@ UC_ALR_01: Configurar Umbrales
 ==============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ALR_01: Configurar Umbrales
    - BRQ-ALR-001
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite configurar los umbrales que disparan alertas
 automaticas cuando las metricas operativas superan valores criticos.
@@ -60,7 +60,7 @@ se registran en auditoria (CNST_025).
 - Ocupacion de Agentes
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ALR_01
@@ -85,7 +85,7 @@ se registran en auditoria (CNST_025).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -127,7 +127,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - El motor de alertas usa los nuevos valores
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -177,7 +177,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ALR_01
@@ -229,7 +229,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Modificar Umbral Existente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -292,7 +292,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Crea nuevo umbral en segmento destino
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Valores Invalidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -349,7 +349,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - ALR-003
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ALR_01
@@ -396,7 +396,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -444,7 +444,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Tiempo de agentes en llamada vs disponible
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -481,7 +481,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  )
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -504,7 +504,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Motor de alertas usa umbrales del segmento correspondiente
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -524,7 +524,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - ALR-001: configura_umbrales
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

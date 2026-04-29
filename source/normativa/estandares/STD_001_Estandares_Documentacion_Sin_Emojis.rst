@@ -23,7 +23,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 1. Estándar
-===========
+   ===========
 
 **REGLA FUNDAMENTAL:**
 
@@ -36,7 +36,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 2. Justificación Técnica
-=========================
+   =========================
 
 2.1. Problemas de Compatibilidad
 ---------------------------------
@@ -97,7 +97,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 3. Elementos Prohibidos
-========================
+   ========================
 
 3.1. Emojis
 -----------
@@ -191,7 +191,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 4. Alternativas Permitidas
-===========================
+   ===========================
 
 4.1. Sistema de Prefijos Estándar
 ----------------------------------
@@ -330,7 +330,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 5. Tabla de Referencia Rápida
-==============================
+   ==============================
 
 .. list-table:: Conversión de Símbolos a Texto
  :widths: 25 25 25 25
@@ -420,7 +420,7 @@ STD_001: Estándar de Documentación Sin Emojis
 ----
 
 6. Casos Especiales y Excepciones
-==================================
+   ==================================
 
 6.1. Ecuaciones Matemáticas
 ----------------------------
@@ -490,7 +490,7 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 ----
 
 7. Validación
-=============
+   =============
 
 7.1. Detección Automatizada
 ----------------------------
@@ -590,7 +590,7 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 ----
 
 8. Ejemplos Completos
-=====================
+   =====================
 
 8.1. Ejemplo INCORRECTO
 -----------------------
@@ -653,7 +653,7 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 ----
 
 9. Integración con Proyecto IACT
-=================================
+   =================================
 
 9.1. Relación con Otros Estándares
 -----------------------------------
@@ -692,7 +692,7 @@ Al generar outputs, logs, mensajes:
 ----
 
 10. Checklist de Cumplimiento
-==============================
+    ==============================
 
 **Al crear/modificar documentación:**
 
@@ -711,7 +711,7 @@ Al generar outputs, logs, mensajes:
 ----
 
 11. Referencias
-===============
+    ===============
 
 11.1. Estándares Relacionados
 ------------------------------
@@ -726,9 +726,9 @@ Al generar outputs, logs, mensajes:
 
 - :ref:`std-002` — Nomenclatura del Proyecto.
 - ``STD_003_Metadata_Obligatoria`` (pendiente de creación en
- ``normativa/estandares/``).
+  ``normativa/estandares/``).
 - ``CNST_05_Restriccion_Creacion_Iterativa`` (pendiente de
- reconciliación en ``normativa/restricciones/``).
+  reconciliación en ``normativa/restricciones/``).
 
 11.3. Recursos Externos
 -----------------------
@@ -740,7 +740,7 @@ Al generar outputs, logs, mensajes:
 ----
 
 12. Resumen de Cambios
-=======================
+    =======================
 
 **Versión 2.0.0 (2026-01-11):**
 

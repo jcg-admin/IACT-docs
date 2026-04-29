@@ -204,7 +204,7 @@ Plantilla
  ----
 
  1. Especificación
- -----------------
+    -----------------
 
  1.1 Enunciado
  ^^^^^^^^^^^^^
@@ -223,7 +223,7 @@ Plantilla
  ----
 
  2. Métricas y Umbrales
- ----------------------
+    ----------------------
 
  2.1 Métrica Principal
  ^^^^^^^^^^^^^^^^^^^^^
@@ -269,7 +269,7 @@ Plantilla
  ----
 
  3. Escenarios de Prueba
- -----------------------
+    -----------------------
 
  3.1 Escenario Normal
  ^^^^^^^^^^^^^^^^^^^^
@@ -292,7 +292,7 @@ Plantilla
  ----
 
  4. Método de Verificación
- -------------------------
+    -------------------------
 
  4.1 Herramientas
  ^^^^^^^^^^^^^^^^
@@ -319,7 +319,7 @@ Plantilla
  ----
 
  5. Aplicabilidad
- ----------------
+    ----------------
 
  5.1 Componentes Afectados
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -345,7 +345,7 @@ Plantilla
  ----
 
  6. Restricciones Relacionadas
- -----------------------------
+    -----------------------------
 
  .. list-table::
  :widths: 15 45 40
@@ -361,7 +361,7 @@ Plantilla
  ----
 
  7. Impacto en Arquitectura
- --------------------------
+    --------------------------
 
  7.1 Decisiones Arquitectónicas
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -377,7 +377,7 @@ Plantilla
  ----
 
  8. Monitoreo
- ------------
+    ------------
 
  8.1 Indicadores de Monitoreo
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -405,7 +405,7 @@ Plantilla
  ----
 
  9. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -423,7 +423,7 @@ Plantilla
  ----
 
  10. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

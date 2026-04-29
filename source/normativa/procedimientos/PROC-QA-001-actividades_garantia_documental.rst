@@ -25,47 +25,47 @@ Objetivos
 ---------
 
 - Garantizar que cada modificación en ``docs/`` pase por revisiones
- estructuradas.
+  estructuradas.
 - Confirmar el uso de plantillas oficiales para requisitos, casos de
- uso y matrices.
+  uso y matrices.
 - Mantener trazabilidad completa entre reglas de negocio, requisitos,
- casos de uso y pruebas.
+  casos de uso y pruebas.
 
 Actividades recurrentes
 -----------------------
 
 1. Revisión de calidad editorial
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Ejecutar el checklist corporativo descrito en
- ```../documentacion_corporativa.md`` <../documentacion_corporativa.md>`__
- antes de aprobar un cambio.
+  ```../documentacion_corporativa.md`` <../documentacion_corporativa.md>`__
+  antes de aprobar un cambio.
 - Validar que los documentos incluyan secciones de limitaciones y
- distinción explícita entre QUÉ y CÓMO.
+  distinción explícita entre QUÉ y CÓMO.
 - Registrar hallazgos en la bitácora de QA si se detectan
- incumplimientos.
+  incumplimientos.
 
 2. Verificación de estructura y plantillas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Confirmar que las nuevas entradas utilicen plantillas de
- ```../plantillas/`` <../plantillas/>`__ según el tipo de artefacto.
+  ```../plantillas/`` <../plantillas/>`__ según el tipo de artefacto.
 - Revisar que cada caso de uso documente precondiciones, flujos y
- excepciones con la nomenclatura UC-XXX.
+  excepciones con la nomenclatura UC-XXX.
 - Escalar al equipo de producto cuando falten campos obligatorios en
- requisitos o casos de uso.
+  requisitos o casos de uso.
 
 3. Auditoría de trazabilidad
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Actualizar
- ```../requisitos/trazabilidad.md`` <../requisitos/trazabilidad.md>`__
- con cualquier relación nueva entre reglas, requisitos, casos de uso y
- pruebas.
+  ```../requisitos/trazabilidad.md`` <../requisitos/trazabilidad.md>`__
+  con cualquier relación nueva entre reglas, requisitos, casos de uso y
+  pruebas.
 - Verificar que la cadena RN → N → RB → RS → UC → RF → TEST esté
- completa para cada iniciativa en curso.
+  completa para cada iniciativa en curso.
 - Programar una revisión cruzada semanal con producto y arquitectura
- para cerrar brechas detectadas.
+  para cerrar brechas detectadas.
 
 Actividades por entrega
 -----------------------
@@ -129,11 +129,11 @@ Procedimiento de escalamiento
 1. Registrar el incumplimiento en la bitácora de QA.
 2. Notificar al responsable del documento mediante comentario en PR.
 3. Programar reunión de ajuste si el bloqueo persiste por más de dos
- días hábiles.
+   días hábiles.
 4. Actualizar la matriz de trazabilidad con el resultado final.
 
 Histórico de revisiones
 -----------------------
 
 - **2025-02-19:** Documento inicial que formaliza actividades de
- control documental coordinadas por QA.
+  control documental coordinadas por QA.

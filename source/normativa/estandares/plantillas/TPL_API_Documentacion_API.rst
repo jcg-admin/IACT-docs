@@ -169,7 +169,7 @@ Plantilla
  ----
 
  1. Descripcion General
- ----------------------
+    ----------------------
 
  [Descripcion del proposito de esta API en 2-3 oraciones.
  Que recursos expone y para que se utiliza.]
@@ -177,7 +177,7 @@ Plantilla
  ----
 
  2. Autenticacion
- ----------------
+    ----------------
 
  2.1 Metodo de Autenticacion
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -200,7 +200,7 @@ Plantilla
  ----
 
  3. Endpoints
- ------------
+    ------------
 
  3.1 [GET] /api/[nombre]/
  ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -491,7 +491,7 @@ Plantilla
  ----
 
  4. Codigos de Respuesta
- -----------------------
+    -----------------------
 
  .. list-table::
  :widths: 15 35 50
@@ -534,7 +534,7 @@ Plantilla
  ----
 
  5. Permisos RBAC
- ----------------
+    ----------------
 
  .. list-table::
  :widths: 30 20 25 25
@@ -572,7 +572,7 @@ Plantilla
  ----
 
  6. Paginacion
- -------------
+    -------------
 
  Todos los endpoints de listado (GET collection) usan paginacion:
 
@@ -612,7 +612,7 @@ Plantilla
  ----
 
  7. Filtros y Ordenamiento
- -------------------------
+    -------------------------
 
  7.1 Filtros Disponibles
  ^^^^^^^^^^^^^^^^^^^^^^^
@@ -664,7 +664,7 @@ Plantilla
  ----
 
  8. Rate Limiting
- ----------------
+    ----------------
 
  .. list-table::
  :widths: 30 70
@@ -690,7 +690,7 @@ Plantilla
  ----
 
  9. Manejo de Errores
- --------------------
+    --------------------
 
  9.1 Formato de Error
  ^^^^^^^^^^^^^^^^^^^^
@@ -735,7 +735,7 @@ Plantilla
  ----
 
  10. Trazabilidad
- ----------------
+     ----------------
 
  .. list-table::
  :widths: 25 75
@@ -755,7 +755,7 @@ Plantilla
  ----
 
  11. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

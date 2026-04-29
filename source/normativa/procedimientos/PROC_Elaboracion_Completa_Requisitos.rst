@@ -23,7 +23,7 @@ PROC_05: Elaboracion Completa de Requisitos (Flujo BR → UC → FR)
 ----
 
 1. Proposito
-------------
+   ------------
 
 Este procedimiento define el **flujo completo y auditable** para elaborar
 requisitos del sistema IACT, desde la identificacion de restricciones del
@@ -40,7 +40,7 @@ cliente (CNST) hasta la derivacion de requisitos funcionales (FR) verificables.
 ----
 
 2. Referencias Normativas
--------------------------
+   -------------------------
 
 Este procedimiento se basa en las siguientes fuentes normativas:
 
@@ -85,7 +85,7 @@ Este procedimiento se basa en las siguientes fuentes normativas:
 ----
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 .. list-table::
  :header-rows: 1
@@ -110,7 +110,7 @@ Este procedimiento se basa en las siguientes fuentes normativas:
 ----
 
 4. Entradas Requeridas
-----------------------
+   ----------------------
 
 Antes de iniciar este procedimiento, se requiere:
 
@@ -119,8 +119,8 @@ Antes de iniciar este procedimiento, se requiere:
  ENTRADAS OBLIGATORIAS:
  
  1. Restricciones del Cliente (CNST_*)
- Ubicacion: arquitectura_tecnica/restricciones/
- Estado: Aprobado
+    Ubicacion: arquitectura_tecnica/restricciones/
+    Estado: Aprobado
  
  2. Documentos de Elicitacion
  - Actas de reunion con stakeholders
@@ -128,7 +128,7 @@ Antes de iniciar este procedimiento, se requiere:
  - Regulaciones aplicables
  
  3. Plantillas Disponibles
- Ubicacion: normativa/estandares/plantillas/
+    Ubicacion: normativa/estandares/plantillas/
  - TPL_Regla_Negocio.rst
  - TPL_Caso_Uso.rst
  - TPL_Requisito_Funcional.rst
@@ -136,7 +136,7 @@ Antes de iniciar este procedimiento, se requiere:
 ----
 
 5. Salidas Producidas
----------------------
+   ---------------------
 
 Al completar este procedimiento, se generan:
 
@@ -145,28 +145,28 @@ Al completar este procedimiento, se generan:
  SALIDAS:
  
  1. Business Rules (BR_*)
- Ubicacion: requisitos/reglas_negocio/
- Cantidad tipica: 3-10 por proyecto
+    Ubicacion: requisitos/reglas_negocio/
+    Cantidad tipica: 3-10 por proyecto
  
  2. Business Requirements (BReq_*)
- Ubicacion: requisitos/requisitos_negocio/
- Cantidad tipica: 3-5 por proyecto
+    Ubicacion: requisitos/requisitos_negocio/
+    Cantidad tipica: 3-5 por proyecto
  
  3. Casos de Uso (UC_*)
- Ubicacion: requisitos/casos_uso/
- Cantidad tipica: 20-100 por proyecto
+    Ubicacion: requisitos/casos_uso/
+    Cantidad tipica: 20-100 por proyecto
  
  4. Requisitos Funcionales (FR_*)
- Ubicacion: requisitos/requisitos_funcionales/
- Cantidad tipica: 100-500 por proyecto
+    Ubicacion: requisitos/requisitos_funcionales/
+    Cantidad tipica: 100-500 por proyecto
  
  5. Matriz de Trazabilidad Actualizada
- Ubicacion: requisitos/rtm/
+    Ubicacion: requisitos/rtm/
 
 ----
 
 6. Flujo del Procedimiento
---------------------------
+   --------------------------
 
 .. code-block:: text
 
@@ -194,7 +194,7 @@ Al completar este procedimiento, se generan:
 ----
 
 7. FASE 0: Verificar Restricciones (CNST)
------------------------------------------
+   -----------------------------------------
 
 7.1 Objetivo
 ^^^^^^^^^^^^
@@ -254,7 +254,7 @@ antes de derivar reglas de negocio.
 ----
 
 8. FASE 1: Crear Business Rules (BR)
-------------------------------------
+   ------------------------------------
 
 8.1 Objetivo
 ^^^^^^^^^^^^
@@ -336,7 +336,7 @@ de restricciones del cliente y politicas organizacionales.
  ==============================================================================
 
  1. Definicion Formal
- --------------------
+    --------------------
  
  **Enunciado SBVR:**
  
@@ -344,19 +344,19 @@ de restricciones del cliente y politicas organizacionales.
  [cuando condicion].
 
  2. Clasificacion
- ----------------
+    ----------------
  
  - **Tipo:** [Restriccion|Desencadenador|Hecho|Calculo|Inferencia]
  - **Modalidad:** [Aletrica|Deontica]
  - **Origen:** [CNST_NNN|Politica X|Regulacion Y]
 
  3. Justificacion
- ----------------
+    ----------------
  
  [Por que existe esta regla]
 
  4. Trazabilidad
- ---------------
+    ---------------
  
  **Deriva de:** CNST_NNN
  **Genera:** BReq_NNN, UC_NNN
@@ -372,7 +372,7 @@ de restricciones del cliente y politicas organizacionales.
 ----
 
 9. FASE 2: Crear Business Requirements (BReq)
----------------------------------------------
+   ---------------------------------------------
 
 9.1 Objetivo
 ^^^^^^^^^^^^
@@ -457,30 +457,30 @@ el proyecto, derivadas de las reglas de negocio.
  ==============================================================================
 
  1. Enunciado del Requisito
- --------------------------
+    --------------------------
  
  El negocio NECESITA que [actores] puedan [accion] para [objetivo],
  cumpliendo con [restricciones BR].
 
  2. Contexto
- -----------
+    -----------
  
  [Situacion actual, problema que resuelve]
 
  3. Restricciones Aplicables
- ---------------------------
+    ---------------------------
  
  - BR_NNN: [Como limita]
  - BR_NNN: [Como limita]
 
  4. Criterios de Exito
- ---------------------
+    ---------------------
  
  - [KPI 1]: [Valor objetivo]
  - [KPI 2]: [Valor objetivo]
 
  5. Trazabilidad
- ---------------
+    ---------------
  
  **Deriva de:** BR_NNN, BR_NNN
  **Implementado por:** UC_NNN → FR_NNN
@@ -496,7 +496,7 @@ el proyecto, derivadas de las reglas de negocio.
 ----
 
 10. FASE 3: Crear Casos de Uso (UC)
------------------------------------
+    -----------------------------------
 
 10.1 Objetivo
 ^^^^^^^^^^^^^
@@ -655,7 +655,7 @@ Segun FND_03:
  ==============================================================================
 
  1. Identificacion
- -----------------
+    -----------------
 
  .. list-table::
  :widths: 25 75
@@ -672,7 +672,7 @@ Segun FND_03:
  - [Critica|Alta|Media|Baja]
 
  2. Contexto
- -----------
+    -----------
 
  **Objetivo:** [Meta del actor]
 
@@ -684,7 +684,7 @@ Segun FND_03:
  **Trigger:** [Evento que inicia el UC]
 
  3. Flujo Normal
- ---------------
+    ---------------
 
  .. code-block:: text
 
@@ -696,7 +696,7 @@ Segun FND_03:
  N. Sistema [estado final]
 
  4. Flujos Alternos
- ------------------
+    ------------------
 
  **FA-1: [Nombre del alterno]**
 
@@ -707,7 +707,7 @@ Segun FND_03:
  Xc. [Continua en paso Y | UC termina]
 
  5. Excepciones
- --------------
+    --------------
 
  **EX-1: [Nombre de la excepcion]**
 
@@ -718,7 +718,7 @@ Segun FND_03:
  *c. UC termina
 
  6. Postcondiciones
- ------------------
+    ------------------
 
  **Exito:**
  - [Estado del sistema tras ejecucion exitosa]
@@ -727,12 +727,12 @@ Segun FND_03:
  - [Estado del sistema si UC falla]
 
  7. Reglas de Negocio Aplicadas
- ------------------------------
+    ------------------------------
 
  - BR_NNN: [Como se aplica en este UC]
 
  8. Trazabilidad
- ---------------
+    ---------------
 
  **Deriva de:** BReq_NNN
  **Genera:** FR_NNN_01, FR_NNN_02, ...
@@ -787,7 +787,7 @@ Segun DEFINICIONES_OFICIALES v2.0.0, Seccion 4:
 ----
 
 11. FASE 4: Derivar Requisitos Funcionales (FR)
------------------------------------------------
+    -----------------------------------------------
 
 11.1 Objetivo
 ^^^^^^^^^^^^^
@@ -926,12 +926,12 @@ Segun FND_07:
  ==============================================================================
 
  1. Enunciado
- ------------
+    ------------
 
  El sistema DEBE [verbo] [objeto] [condicion].
 
  2. Criterios SMART
- ------------------
+    ------------------
 
  - **S** (Specific): [Por que es especifico]
  - **M** (Measurable): [Como se mide]
@@ -940,14 +940,14 @@ Segun FND_07:
  - **T** (Traceable): [Link a UC origen]
 
  3. Criterio de Aceptacion
- -------------------------
+    -------------------------
 
  DADO [precondicion]
  CUANDO [accion]
  ENTONCES [resultado esperado]
 
  4. Trazabilidad
- ---------------
+    ---------------
 
  **Deriva de:** UC_NNN, Paso N
  **Prueba:** TC_NNN_NN
@@ -978,7 +978,7 @@ Segun FND_07:
 ----
 
 12. FASE 5: Actualizar RTM
---------------------------
+    --------------------------
 
 12.1 Objetivo
 ^^^^^^^^^^^^^
@@ -1047,7 +1047,7 @@ Mantener la matriz de trazabilidad actualizada con todas las relaciones.
 ----
 
 13. Metricas de Proceso
------------------------
+    -----------------------
 
 13.1 Metricas de Cobertura
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1100,7 +1100,7 @@ Mantener la matriz de trazabilidad actualizada con todas las relaciones.
 ----
 
 14. Checklist de Validacion Final
----------------------------------
+    ---------------------------------
 
 .. code-block:: text
 
@@ -1142,7 +1142,7 @@ Mantener la matriz de trazabilidad actualizada con todas las relaciones.
 ----
 
 15. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :header-rows: 1

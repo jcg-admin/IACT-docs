@@ -18,13 +18,13 @@ Contenido
 =========
 
 - **Lenguaje común:** vocabulario oficial y términos técnicos del
- proyecto.
+  proyecto.
 - **Base semántica:** definiciones precisas que eliminan
- ambigüedad cross-dominio.
+  ambigüedad cross-dominio.
 - **Fundamento teórico:** marco conceptual que sustenta el modelo
- de análisis.
+  de análisis.
 - **Trazabilidad:** base para la interpretación correcta de
- requisitos, restricciones, ADRs.
+  requisitos, restricciones, ADRs.
 
 Subdominios
 ===========

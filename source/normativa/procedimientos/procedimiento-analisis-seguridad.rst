@@ -69,9 +69,9 @@ Metodologías Complementarias
 
 - **Attack Trees**: Modelado de vectores de ataque
 - **DREAD**: Scoring de riesgos (Damage, Reproducibility,
- Exploitability, Affected users, Discoverability)
+  Exploitability, Affected users, Discoverability)
 - **CVSS**: Scoring de vulnerabilidades (Common Vulnerability Scoring
- System)
+  System)
 
 --------------
 
@@ -646,14 +646,14 @@ Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
 
 - **STRIDE**: `Microsoft Threat
- Modeling <https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling>`__
+  Modeling <https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling>`__
 - **PASTA**: `Process for Attack Simulation and Threat
- Analysis <https://versprite.com/blog/what-is-pasta-threat-modeling/>`__
+  Analysis <https://versprite.com/blog/what-is-pasta-threat-modeling/>`__
 - **LINDDUN**: `Privacy Threat Modeling <https://linddun.org/>`__
 - **OWASP Top 10 2021**: `owasp.org/Top10 <https://owasp.org/Top10/>`__
 - **CWE**: `Common Weakness Enumeration <https://cwe.mitre.org/>`__
 - **CVSS**: `Common Vulnerability Scoring
- System <https://www.first.org/cvss/>`__
+  System <https://www.first.org/cvss/>`__
 
 --------------
 
@@ -713,7 +713,7 @@ confianza, downtime 4-24h - Medio: Degradación de servicio, downtime <
 
 1. **Opción A:** Implementar controles adicionales hasta reducir a MEDIO
 2. **Opción B:** Aceptar el riesgo con aprobación ejecutiva (Risk
- Acceptance Form)
+   Acceptance Form)
 3. **Opción C:** Transferir el riesgo (seguro, tercerización)
 4. **Opción D:** Evitar el riesgo (no implementar la funcionalidad)
 

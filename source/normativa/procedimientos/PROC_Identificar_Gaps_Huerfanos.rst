@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Identificar artefactos sin cobertura (gaps) y artefactos sin origen
 (huerfanos) para mantener integridad del modelo documental.
@@ -46,7 +46,7 @@ Identificar artefactos sin cobertura (gaps) y artefactos sin origen
 ----
 
 2. Definiciones
----------------
+   ---------------
 
 **Gap:** Artefacto origen que no tiene artefacto destino derivado.
 
@@ -59,7 +59,7 @@ Identificar artefactos sin cobertura (gaps) y artefactos sin origen
 ----
 
 3. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Inventariar Origenes**
 
@@ -121,7 +121,7 @@ Para cada gap/huerfano:
 ----
 
 4. Comandos de Verificacion
----------------------------
+   ---------------------------
 
 .. code-block:: bash
 
@@ -137,7 +137,7 @@ Para cada gap/huerfano:
 ----
 
 5. Artefactos de Salida
------------------------
+   -----------------------
 
 - Lista de gaps
 - Lista de huerfanos
@@ -146,7 +146,7 @@ Para cada gap/huerfano:
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 - [ ] Todos los origenes verificados
 - [ ] Todos los destinos verificados
@@ -156,7 +156,7 @@ Para cada gap/huerfano:
 ----
 
 7. Referencias
---------------
+   --------------
 
 - PROC_Generacion_RTM
 - PROC_Verificacion_Cobertura
@@ -164,7 +164,7 @@ Para cada gap/huerfano:
 ----
 
 8. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

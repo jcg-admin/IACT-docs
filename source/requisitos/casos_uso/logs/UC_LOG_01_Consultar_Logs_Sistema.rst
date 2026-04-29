@@ -12,7 +12,7 @@ UC_LOG_01: Consultar Logs Sistema
 =================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_LOG_01: Consultar Logs Sistema
    - BRQ-LOG-001
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite consultar los logs de aplicacion del sistema
 IACT. Los logs siguen formato JSON estructurado (CNST_024) para
@@ -57,7 +57,7 @@ facilitar su procesamiento y analisis.
  con campos estandar: timestamp, level, component, message, context.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_LOG_01
@@ -80,7 +80,7 @@ facilitar su procesamiento y analisis.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -118,7 +118,7 @@ El operador accede al visor de logs del sistema.
    - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -150,7 +150,7 @@ El operador accede al visor de logs del sistema.
    - Navega por los logs o activa modo tiempo real
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_LOG_01
@@ -206,7 +206,7 @@ El operador accede al visor de logs del sistema.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Filtrar por Nivel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,7 +263,7 @@ El operador accede al visor de logs del sistema.
    - Muestra nuevos logs conforme llegan
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso LOG-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -302,7 +302,7 @@ El operador accede al visor de logs del sistema.
    - LOG-002
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_LOG_01
@@ -339,7 +339,7 @@ El operador accede al visor de logs del sistema.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -399,7 +399,7 @@ El operador accede al visor de logs del sistema.
    - Proceso de carga de datos
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -413,7 +413,7 @@ El operador accede al visor de logs del sistema.
    - Todos los logs del sistema utilizan formato JSON estructurado con campos estandar para facilitar parsing y analisis.
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -436,7 +436,7 @@ El operador accede al visor de logs del sistema.
    - Logs mostrados en streaming via WebSocket
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -456,7 +456,7 @@ El operador accede al visor de logs del sistema.
    - LOG-001: consulta_logs_sistema
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

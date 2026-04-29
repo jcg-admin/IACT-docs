@@ -42,11 +42,11 @@ Estado de la documentación
  capas ortogonales (ver :doc:`base_cognitiva/_metadata/META_05_Estructura_Documental`):
 
  - **Capa 1 — Methodology / Governance:** standards, plantillas,
- procedimientos, restricciones, ADRs internos.
+   procedimientos, restricciones, ADRs internos.
  - **Capa 2 — Product spec + Tech implementation:** UCs, FRs,
- NFRs, BRs + arquitectura + cajones por tier técnico.
+   NFRs, BRs + arquitectura + cajones por tier técnico.
  - **Capa 3 — Project lifecycle:** charter, roadmap, OKRs,
- épicas, releases, retrospectives, team.
+   épicas, releases, retrospectives, team.
 
  La estructura se construye de forma **incremental dominio por
  dominio**. Los cajones aparecen en la navegación cuando su

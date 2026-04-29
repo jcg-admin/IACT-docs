@@ -59,14 +59,14 @@ Necesidades del Proyecto IACT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Vista panorámica**: Stakeholders necesitan ver “el bosque, no solo
- los árboles”
+   los árboles”
 2. **Comunicación visual**: Diagramas comunican más rápido que texto
 3. **Versionabilidad**: Diagramas como código (PlantUML - ver
- ADR-GOB-004)
+   ADR-GOB-004)
 4. **Claridad en roles**: Actor primario vs. secundario debe ser obvio
 5. **Consistencia**: Mismos elementos y notación en todos los diagramas
 6. **Complemento a flujos**: Diagramas de actividad para flujos
- complejos
+   complejos
 
 Decisión
 --------
@@ -79,7 +79,7 @@ Elementos Fundamentales
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Actores (Figuras de Palo)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -100,7 +100,7 @@ español para roles de negocio - Nombres descriptivos, no técnicos - IDs
 cortos en minúsculas para referenciar
 
 2. Casos de Uso (Óvalos)
-^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -121,7 +121,7 @@ Nombres en español - IDs alineados con especificación textual - Óvalos
 estándar UML
 
 3. Límite del Sistema (Rectángulo)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Representación PlantUML**:
 
@@ -145,7 +145,7 @@ dentro vs. fuera del sistema - Actores fuera del rectángulo - Casos de
 uso dentro del rectángulo
 
 4. Relaciones (Flechas) - CRÍTICO
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Esta es la parte más importante y donde hay más confusión.
 
@@ -708,10 +708,10 @@ Fase 5: CI/CD (Semana 5)
  steps:
  - uses: actions/checkout@v3
  - name: Generate PlantUML diagrams
- uses: grassedge/generate-plantuml-action@v1.5
- with:
- path: docs/
- message: "Regenerate UML diagrams"
+   uses: grassedge/generate-plantuml-action@v1.5
+   with:
+   path: docs/
+   message: "Regenerate UML diagrams"
 
 Validación
 ----------
@@ -721,7 +721,7 @@ Criterios de Éxito
 
 - 100% de módulos principales tienen diagrama UML de casos de uso
 - 100% de casos de uso complejos (>= 3 flujos alternos) tienen diagrama
- de actividad
+  de actividad
 - Diagramas siguen convenciones de dirección de flechas
 - SVGs generados automáticamente en CI/CD
 - Stakeholders reportan mejor comprensión visual
@@ -739,15 +739,15 @@ Referencias
 -----------
 
 - `UML 2.5 Specification - Use Case
- Diagrams <https://www.omg.org/spec/UML/2.5/>`__
+  Diagrams <https://www.omg.org/spec/UML/2.5/>`__
 - `PlantUML Use Case Diagram
- Documentation <https://plantuml.com/use-case-diagram>`__
+  Documentation <https://plantuml.com/use-case-diagram>`__
 - `PlantUML Activity Diagram
- Documentation <https://plantuml.com/activity-diagram-beta>`__
+  Documentation <https://plantuml.com/activity-diagram-beta>`__
 - `ADR-GOB-004: PlantUML para
- Diagramas <ADR-GOB-004-plantuml-para-diagramas.md>`__
+  Diagramas <ADR-GOB-004-plantuml-para-diagramas.md>`__
 - `ADR-GOB-007: Especificación de Casos de
- Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
 
 Historial de Cambios
 --------------------

@@ -125,15 +125,15 @@ Pasos que realiza:
 
 1. Verifica que ``uv`` está instalado.
 2. Detecta libsystem ``enchant``; instala con apt/brew si falta (con
- sudo si es necesario).
+   sudo si es necesario).
 3. Verifica Java (``java -version``); instala JRE portable Adoptium
- si falta y no hay package manager.
+   si falta y no hay package manager.
 4. Descarga ``tools/plantuml.jar`` (~22 MB) si no existe o si el
- archivo previo está corrupto.
+   archivo previo está corrupto.
 5. Ejecuta ``uv sync`` para instalar dependencias Python en
- ``.venv/``.
+   ``.venv/``.
 6. Activa los git hooks de ``.githooks/`` con
- ``git config core.hooksPath``.
+   ``git config core.hooksPath``.
 
 Salida esperada:
 
@@ -165,10 +165,10 @@ ejecutá:
 Comportamiento esperado:
 
 - ``uv``, Java, ``plantuml.jar``, ``uv sync`` y hooks: ✓ funcionan
- igual que en Linux.
+  igual que en Linux.
 - ``enchant``: el script intenta detectar con ``ldconfig`` (que no
- existe en Windows) y registra WARN. **No bloquea** el setup —
- ``sphinx-spelling`` simplemente no estará disponible.
+  existe en Windows) y registra WARN. **No bloquea** el setup —
+  ``sphinx-spelling`` simplemente no estará disponible.
 
 Windows con PowerShell (script .ps1 nativo)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -230,7 +230,7 @@ Verificar Output
 Después del build, abrir en el navegador:
 
 - Linux/macOS: ``open build/html/index.html`` (macOS) o
- ``xdg-open build/html/index.html`` (Linux).
+  ``xdg-open build/html/index.html`` (Linux).
 - Windows: ``start build\html\index.html`` (PowerShell o cmd).
 
 ----
@@ -363,11 +363,11 @@ Referencias
 -----------
 
 - :ref:`proc-ops-001` — Despliegue de Documentación a Producción
- (siguiente paso: cómo descargar el release y subirlo al servidor).
+  (siguiente paso: cómo descargar el release y subirlo al servidor).
 - :ref:`std-007` — Convención de Naming de Archivos y Carpetas
- (para autores que crean nuevos ``.rst``).
+  (para autores que crean nuevos ``.rst``).
 - :ref:`std-006` — Versionado Semántico (cómo versionar los archivos
- que se editan).
+  que se editan).
 
 ----
 

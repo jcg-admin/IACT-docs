@@ -45,9 +45,9 @@ Necesidades Específicas del Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Versionabilidad**: Diagramas deben ser texto plano para git diff
- efectivo
+   efectivo
 2. **Editabilidad**: Desarrolladores deben poder editar sin herramientas
- especiales
+   especiales
 3. **Reproducibilidad**: Mismo código genera mismo diagrama
 4. **Integración CI/CD**: Generación automática en pipelines
 5. **Documentación como código**: Diagramas viven junto al código
@@ -392,10 +392,10 @@ Fase 3: CI/CD Integration (Semana 3)
  steps:
  - uses: actions/checkout@v3
  - name: Generate diagrams
- uses: grassedge/generate-plantuml-action@v1.5
- with:
- path: docs/
- message: "Regenerate PlantUML diagrams"
+   uses: grassedge/generate-plantuml-action@v1.5
+   with:
+   path: docs/
+   message: "Regenerate PlantUML diagrams"
 
 Fase 4: Migración Gradual (Ongoing)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -431,11 +431,11 @@ Referencias
 - `PlantUML Cheat Sheet <https://plantuml.com/guide>`__
 - `Real World PlantUML <https://real-world-plantuml.com/>`__
 - `C4 Model with
- PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
+  PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
 - `PROCED-GOB-002: Actualizar
- Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.md>`__
+  Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.md>`__
 - `GUIA-GOB-002: Convenciones de
- Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
 
 Ejemplos de Uso
 ---------------

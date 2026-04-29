@@ -16,7 +16,7 @@ FR-007.04: Registrar cambios en auditoría
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-007.04: Registrar cambios en auditoría
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -81,7 +81,7 @@ FR-007.04: Registrar cambios en auditoría
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -115,7 +115,7 @@ FR-007.04: Registrar cambios en auditoría
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_008: Auditoría obligatoria
@@ -132,7 +132,7 @@ FR-007.04: Registrar cambios en auditoría
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -155,7 +155,7 @@ FR-007.04: Registrar cambios en auditoría
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

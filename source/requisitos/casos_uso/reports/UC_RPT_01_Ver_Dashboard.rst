@@ -12,7 +12,7 @@ UC_RPT_01: Ver Dashboard
 ========================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_01: Ver Dashboard
    - BRQ-RPT-001
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite visualizar el dashboard principal con metricas
 consolidadas del call center. Los datos mostrados estan filtrados
@@ -59,7 +59,7 @@ automaticamente por el segmento del usuario (CNST_008).
 - Tiempo promedio de espera
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_01
@@ -84,7 +84,7 @@ automaticamente por el segmento del usuario (CNST_008).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -122,7 +122,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - El dashboard se actualiza automaticamente cada 30 segundos
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -157,7 +157,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Visualiza metricas y tendencias
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_01
@@ -201,7 +201,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Sin Datos para el Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,7 +241,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Navega a reporte detallado del KPI
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso RPT-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -280,7 +280,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - RPT-002
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_01
@@ -321,7 +321,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -354,7 +354,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
  Tasa_Abandono = (llamadas_abandonadas / total_llamadas) * 100
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -371,7 +371,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - El filtro por segmento se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros segmentos.
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -394,7 +394,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Grafico de llamadas por hora del dia
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -414,7 +414,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - RPT-001: ve_reportes
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

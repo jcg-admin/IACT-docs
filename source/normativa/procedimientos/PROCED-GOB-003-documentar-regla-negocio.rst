@@ -30,7 +30,7 @@ Antes de comenzar este procedimiento, debe:
 - Haber leído ADR-GOB-006 (Clasificación de Reglas de Negocio)
 - Tener acceso al repositorio del proyecto
 - Conocer el dominio al que pertenece la regla (BACK, FRONT, DEVOPS,
- QA, AI, GOB)
+  QA, AI, GOB)
 
 Resultado Esperado
 ------------------
@@ -177,7 +177,7 @@ Validación
 ~~~~~~~~~~
 
 - ☐ Tipo seleccionado (Hecho, Restricción, Desencadenador, Inferencia,
- Cálculo)
+  Cálculo)
 - ☐ Palabras clave identificadas
 - ☐ Si hay duda entre 2 tipos, documentar razón de elección
 
@@ -555,7 +555,7 @@ Acciones
 
  - ¿Qué casos de uso deben cumplir esta regla?
  - ¿Qué interacciones de usuario están restringidas/habilitadas por
- esta regla?
+   esta regla?
 
 3. **Identificar Requisitos Funcionales (RF) necesarios**:
 
@@ -565,7 +565,7 @@ Acciones
 4. **Identificar Atributos de Calidad (RNF) relacionados**:
 
  - ¿Esta regla impone requisitos de seguridad, rendimiento,
- usabilidad?
+   usabilidad?
  - ¿Hay restricciones de calidad derivadas de esta regla?
 
 Ejemplo de Trazabilidad
@@ -608,7 +608,7 @@ Validación
 
 - ☐ Al menos 1 artefacto relacionado identificado
 - ☐ Referencias bidireccionales (cuando el artefacto relacionado
- existe, actualizarlo también)
+  existe, actualizarlo también)
 - ☐ IDs correctos y verificables
 
 PASO 6: Validar y Revisar
@@ -630,7 +630,7 @@ Validación de Formato
 - ☐ Frontmatter completo y correcto
 - ☐ ID único asignado (RN-DOMINIO-###)
 - ☐ Tipo correcto (hecho, restriccion, desencadenador, inferencia,
- calculo)
+  calculo)
 - ☐ Título descriptivo
 
 Validación de Contenido
@@ -646,7 +646,7 @@ Validación de Clasificación
 
 - ☐ Tipo es consistente con contenido
 - ☐ Si es RESTRICCIÓN: usa palabras clave (debe, no debe, no puede,
- solo puede)
+  solo puede)
 - ☐ Si es DESENCADENADOR: ENTONCES describe ACCIÓN
 - ☐ Si es INFERENCIA: ENTONCES describe CONOCIMIENTO
 - ☐ Si es CÁLCULO: incluye fórmula clara
@@ -975,11 +975,11 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
- Negocio </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 
 Historial de Cambios
 --------------------

@@ -45,7 +45,7 @@ Integraci?n con SDLC
 -----------------------
 
 1. Validaci?n Pre-Commit
-~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scripts existentes**:
 
@@ -91,7 +91,7 @@ Integraci?n con SDLC
  echo "? Pre-commit hooks instalados"
 
 2. Testing Automatizado
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Script de test completo**:
 
@@ -135,7 +135,7 @@ Integraci?n con SDLC
  echo "========================================="
 
 3. Deployment Local
-~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~
 
 **Deploy script**:
 
@@ -187,7 +187,7 @@ Integraci?n con SDLC
  echo "? Deploy exitoso a $ENV"
 
 4. Monitoreo y M?tricas
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Script de health check**:
 
@@ -226,7 +226,7 @@ Integraci?n con SDLC
  fi
 
 5. Database Maintenance
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Script de limpieza de sesiones**:
 
@@ -267,7 +267,7 @@ Integraci?n con SDLC
  */5 * * * * /path/to/scripts/health_check.sh >> /var/log/iact/health.log 2>&1
 
 6. M?tricas DORA
-~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~
 
 **Script local de DORA metrics**:
 
@@ -312,7 +312,7 @@ Integraci?n con SDLC
  echo "=========================================="
 
 7. Analytics Service Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Template para gesti?n de requests de analytics**:
 
@@ -362,7 +362,7 @@ El proyecto IACT gestiona requests de an?lisis de m?tricas IVR mediante:
  - Per?odo
  - Umbral de abandono
  - Desglose (por hora/d?a)
- EOF
+   EOF
 
  echo "? Analytics portal configurado"
 
@@ -423,7 +423,7 @@ El proyecto IACT gestiona requests de an?lisis de m?tricas IVR mediante:
  EOF
 
 8. Validaci?n de Documentaci?n
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Script de validaci?n docs** (ya existente mejorado):
 
@@ -459,7 +459,7 @@ Best Practices IACT
 -------------------
 
 1. Scripts Primero, CI/CD Despu?s
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **CORRECTO** ?:
 
@@ -477,7 +477,7 @@ Best Practices IACT
  # Solo en GitHub Actions, no funciona local
 
 2. MySQL para Todo
-~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~
 
 **CORRECTO** ?:
 
@@ -500,7 +500,7 @@ Best Practices IACT
  CACHES = { 'default': { 'BACKEND': 'django_redis...' } } # Redis ?
 
 3. Buz?n Interno, No Email
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **CORRECTO** ?:
 
@@ -525,7 +525,7 @@ Best Practices IACT
  )
 
 4. Shell Scripts Portables
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -608,7 +608,7 @@ Referencias
 
 - **Proceso SDLC**: ``docs/gobernanza/procesos/SDLC_PROCESS.md``
 - **Restricciones**:
- ``docs/backend/requisitos/restricciones_y_lineamientos.md``
+  ``docs/backend/requisitos/restricciones_y_lineamientos.md``
 - **RNF-002**: NO Redis - Sesiones en MySQL
 - **Scripts**: ``scripts/*.sh``
 - **DORA Calculator**: ``scripts/dora_metrics.py``

@@ -789,9 +789,9 @@ Infrastructure: Prometheus + Grafana - Logs: ELK Stack, CloudWatch
  notification: [#incidents, on-call-engineer]
 
  - name: HighLatency
- condition: p95_latency > 1000ms
- severity: P2
- notification: [#performance]
+   condition: p95_latency > 1000ms
+   severity: P2
+   notification: [#performance]
 
 7.2 Incident Response
 ^^^^^^^^^^^^^^^^^^^^^
@@ -1034,17 +1034,17 @@ Deployment Metrics (DORA)
 - **Deployment frequency**: How often we deploy (target: Daily)
 - **Lead time for changes**: Commit to deploy time (target: <4 hours)
 - **Mean time to recovery (MTTR)**: Time to recover from failure
- (target: <1 hour)
+  (target: <1 hour)
 - **Change failure rate**: % of deployments causing incidents (target:
- <5%)
+  <5%)
 
 Incident Metrics
 ~~~~~~~~~~~~~~~~
 
 - **Mean time to detect (MTTD)**: Time to detect incident (target: <5
- min)
+  min)
 - **Mean time to resolve (MTTR)**: Time to resolve incident (target: P0
- <1h, P1 <4h)
+  <1h, P1 <4h)
 
 --------------
 

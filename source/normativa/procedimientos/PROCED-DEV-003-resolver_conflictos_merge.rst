@@ -665,11 +665,11 @@ Referencias
 -----------
 
 - `Git Documentation - Basic Merge
- Conflicts <https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>`__
+  Conflicts <https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>`__
 - `PROC-DEV-001: Pipeline de Trabajo
- IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.md>`__
+  IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.md>`__
 - `PROCED-DEV-001: Crear Pull
- Request <PROCED-DEV-001-crear_pull_request.md>`__
+  Request <PROCED-DEV-001-crear_pull_request.md>`__
 
 Historial de Cambios
 --------------------

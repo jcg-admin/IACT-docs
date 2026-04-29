@@ -17,26 +17,26 @@ El sistema IACT opera sobre dos bases de datos separadas con
 proposito distinto.
 
 1. BD MySQL (IVR Operacional)
-=============================
+   =============================
 
 - **Owner:** cliente.
 - **Acceso desde IACT:** SOLO LECTURA (CNST_007).
 - **Contenido:** llamadas, agentes, colas, eventos del IVR.
 - **No se modifica:** IACT no escribe NADA en esta BD bajo ninguna
- circunstancia (3 niveles de enforcement: GRANT SELECT, Django
- ``managed = False``, middleware de proteccion).
+  circunstancia (3 niveles de enforcement: GRANT SELECT, Django
+  ``managed = False``, middleware de proteccion).
 
 2. BD PostgreSQL (IACT Analytics)
-==================================
+   ==================================
 
 - **Owner:** sistema IACT.
 - **Acceso:** read/write para IACT.
 - **Contenido:** tablas analiticas derivadas del ETL + tablas
- operacionales del sistema (usuarios, sesiones, RBAC, alertas,
- audit log, configuraciones).
+  operacionales del sistema (usuarios, sesiones, RBAC, alertas,
+  audit log, configuraciones).
 
 3. Sincronizacion
-=================
+   =================
 
 Solo via ETL programado en ventana de 6 a 12 horas (CNST_008). NO
 existe sincronizacion en tiempo real.
@@ -44,7 +44,7 @@ existe sincronizacion en tiempo real.
 Ver :doc:`etl-pipeline`.
 
 4. Routers Django
-=================
+   =================
 
 .. code-block:: python
 

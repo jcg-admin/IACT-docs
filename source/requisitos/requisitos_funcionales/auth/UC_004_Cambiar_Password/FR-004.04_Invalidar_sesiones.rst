@@ -16,7 +16,7 @@ FR-004.04: Invalidar sesiones tras cambio de password
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-004.04: Invalidar sesiones tras cambio de password
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -66,7 +66,7 @@ FR-004.04: Invalidar sesiones tras cambio de password
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -101,7 +101,7 @@ FR-004.04: Invalidar sesiones tras cambio de password
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -118,7 +118,7 @@ no se debe completar el cambio de password.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -139,7 +139,7 @@ no se debe completar el cambio de password.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

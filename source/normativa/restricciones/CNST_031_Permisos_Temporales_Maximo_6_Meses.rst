@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
--------------
+   -------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -64,7 +64,7 @@ elimina la responsabilidad del olvido humano.
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
--------------------------
+   -------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,11 +78,11 @@ elimina la responsabilidad del olvido humano.
 - Vigencia maxima: 6 meses (180 dias) desde la asignacion.
 - Justificacion: minimo 20 caracteres, texto libre.
 - Revocacion: proceso programado diario que desasigna permisos
- vencidos.
+  vencidos.
 - Auditoria: cada uso del permiso temporal genera registro en
- ``AuditLog`` (CNST_025).
+  ``AuditLog`` (CNST_025).
 - SoD: la validacion de :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
- aplica tambien a permisos temporales.
+  aplica tambien a permisos temporales.
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,7 +92,7 @@ elimina la responsabilidad del olvido humano.
 - Validacion de justificacion (regex >= 20 ch)
 
 3. Impacto en Sistema
----------------------
+   ---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -131,14 +131,14 @@ elimina la responsabilidad del olvido humano.
 - Asignar permisos temporales que violen SoD (CNST_030)
 
 4. Business Rules Derivadas
----------------------------
+   ---------------------------
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
 el WP de requisitos (deuda diferida).
 
 5. Implementacion
------------------
+   -----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,7 +156,7 @@ Ver seccion 5.1 (codigo de referencia es la validacion ejecutable).
 
 
 6. Excepciones
---------------
+   --------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,7 +173,7 @@ el WP de gobernanza (`PROC_Excepciones_CNST` — ver
 (referencia interna) § W-4).
 
 7. Verificacion
----------------
+   ---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,7 +188,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 - **Herramienta:** Test que verifica vigencia <= 180 dias y len(justification) >= 20 + cron diario
 
 8. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 30 70
@@ -206,7 +206,7 @@ El cumplimiento se verifica via los snippets de la seccion 5.
    - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 12 15 25 48

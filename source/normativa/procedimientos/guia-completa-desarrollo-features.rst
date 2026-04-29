@@ -350,8 +350,8 @@ Opción A: Usando gh CLI (Recomendado)
  ## Referencias
  - Django REST Framework JWT docs
  - RFC 7519 (JWT)" \
- --label "enhancement,backend,priority-high" \
- --assignee @me
+   --label "enhancement,backend,priority-high" \
+   --assignee @me
 
 Opción B: Crear en GitHub UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1316,7 +1316,7 @@ Test Plan
 - ☒ Tests unitarios de TokenSerializer (generación tokens)
 - ☒ Tests unitarios de RefreshTokenSerializer (validación)
 - ☒ Tests de integración LoginView (success, invalid creds, missing
- fields, inactive user)
+  fields, inactive user)
 - ☒ Tests de integración RefreshTokenView (success, invalid token)
 - ☒ Tests de middleware JWT (sin token, token válido, token expirado)
 - ☒ Cobertura total: 95%
@@ -1371,9 +1371,9 @@ Checklist
 - ☒ Security scan pasó
 - ☒ Pre-commit hooks pasaron
 - ☒ Branch actualizado con main EOF )”
- –assignee @me
- –reviewer @equipo-backend
- –label “enhancement,backend”
+  –assignee @me
+  –reviewer @equipo-backend
+  –label “enhancement,backend”
 
 ::
 
@@ -1598,7 +1598,7 @@ Después del merge, automáticamente:
 - **Branch se elimina** (si seleccionaste delete branch)
 - **Docs se regeneran** (workflow ``docs.yml`` se ejecuta)
 - **Índices ISO 29148 se actualizan** (workflow
- ``requirements-index.yml``)
+  ``requirements-index.yml``)
 - **Main se actualiza** con tu código
 
 --------------
@@ -1947,31 +1947,31 @@ Documentación Interna
 ~~~~~~~~~~~~~~~~~~~~~
 
 - `Procedimiento de Gestión de
- Cambios <procedimiento_gestion_cambios.md>`__ - Proceso formal
+  Cambios <procedimiento_gestion_cambios.md>`__ - Proceso formal
 - `Procedimiento de Desarrollo
- Local <procedimiento_desarrollo_local.md>`__ - Setup entorno
+  Local <procedimiento_desarrollo_local.md>`__ - Setup entorno
 - `Procedimiento de QA <procedimiento_qa.md>`__ - Testing y calidad
 - `Procedimiento de Release <procedimiento_release.md>`__ - Releases y
- deployment
+  deployment
 - `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__ -
- Estándares de código
+  Estándares de código
 - `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__ -
- Checklist completo
+  Checklist completo
 
 Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
 
 - `Conventional Commits <https://www.conventionalcommits.org/>`__ -
- Formato de commits
+  Formato de commits
 - `GitHub Flow <https://guides.github.com/introduction/flow/>`__ -
- Workflow Git
+  Workflow Git
 - `Semantic Versioning <https://semver.org/>`__ - Versionado semántico
 - `Test-Driven
- Development <https://testdriven.io/test-driven-development/>`__ - TDD
- best practices
+  Development <https://testdriven.io/test-driven-development/>`__ - TDD
+  best practices
 - `Django Best
- Practices <https://django-best-practices.readthedocs.io/>`__ - Django
- patterns
+  Practices <https://django-best-practices.readthedocs.io/>`__ - Django
+  patterns
 
 Herramientas
 ~~~~~~~~~~~~

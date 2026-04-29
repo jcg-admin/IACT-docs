@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Este procedimiento establece los pasos para generar Estandares (STD)
 siguiendo el template TPL_STD.
@@ -52,7 +52,7 @@ correctos/incorrectos y metodos de verificacion.
 ----
 
 2. Alcance
-----------
+   ----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -69,7 +69,7 @@ correctos/incorrectos y metodos de verificacion.
 ----
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -88,7 +88,7 @@ correctos/incorrectos y metodos de verificacion.
 ----
 
 4. Precondiciones
------------------
+   -----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -100,7 +100,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-------------------------
+   ------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -116,7 +116,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-----------------
+   ----------------
 
 6.1 Categorias de STD
 ^^^^^^^^^^^^^^^^^^^^^
@@ -172,7 +172,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  1. Proposito
- ------------
+    ------------
  
  Este estandar define [que normaliza] para [objetivo].
  
@@ -265,7 +265,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  9. Verificacion
- ---------------
+    ---------------
  
  9.1 Automatica
  ^^^^^^^^^^^^^^
@@ -290,7 +290,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
  10. Excepciones
- ---------------
+     ---------------
  
  **Proceso para solicitar excepcion:**
  
@@ -320,7 +320,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -336,7 +336,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-------------------
+   ------------------
 
 Al finalizar este procedimiento:
 
@@ -348,7 +348,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-----------------------------
+   ----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -362,7 +362,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
--------------------------
+    -------------------------
 
 .. list-table::
  :widths: 30 70
@@ -378,7 +378,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
----------------
+    ---------------
 
 - TPL_STD_Estandares_1_0_0.rst
 - STD existentes del proyecto
@@ -386,7 +386,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 12 12 20 56

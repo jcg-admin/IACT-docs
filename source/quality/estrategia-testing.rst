@@ -17,7 +17,7 @@ Estrategia de testing del sistema IACT: niveles, herramientas,
 cobertura objetivo y procesos.
 
 1. Niveles de Testing
-======================
+   ======================
 
 .. list-table::
  :widths: 25 25 50
@@ -43,24 +43,24 @@ cobertura objetivo y procesos.
    - CNST_009..014 (Auth/Permission/Throttling/Validacion)
 
 2. Cobertura objetivo
-=====================
+   =====================
 
 - **Unit tests**: 80% statement coverage minimo en backend.
 - **Integration tests**: cubrir todos los UCs criticos (CNST_017 SLA).
 - **E2E tests**: cubrir los UC_AUTH_* + UC_USR_* + 1 flujo completo
- por modulo.
+  por modulo.
 
 3. Procedimientos relacionados
-==============================
+   ==============================
 
 - :doc:`/normativa/procedimientos/PROC-QA-001-actividades_garantia_documental`
 - :doc:`/normativa/procedimientos/PROC-QA-002-estrategia_qa`
 - :doc:`/normativa/procedimientos/PROCED-QA-001-ejecutar_tests`
 
 4. ADRs aplicables
-==================
+   ==================
 
 - :doc:`/normativa/gobernanza/ADR-GOB-003-jerarquia-requerimientos-5-niveles`
 - ADR-QA-002 (testing strategy Jest + Testing Library) — pendiente
- migracion a source en WP #14 v2 (vive actualmente en
- ``inputs/canonical/``).
+  migracion a source en WP #14 v2 (vive actualmente en
+  ``inputs/canonical/``).

@@ -99,12 +99,12 @@ Uso de plantillas
 =================
 
 1. Identificar el tipo de artefacto a crear y elegir la plantilla
- correspondiente.
+   correspondiente.
 2. Para casos de uso, elegir el patrón apropiado entre las 7
- variantes disponibles según el tipo de UC (CRUD, Larman,
- Stakeholder_Driven, etc.).
+   variantes disponibles según el tipo de UC (CRUD, Larman,
+   Stakeholder_Driven, etc.).
 3. Copiar la sección "Plantilla" del archivo TPL al nuevo
- artefacto.
+   artefacto.
 4. Reemplazar los placeholders.
 5. Aplicar :ref:`std-007` al filename del nuevo archivo.
 6. Aplicar :ref:`std-006` para versionado en metadata.

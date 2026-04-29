@@ -12,7 +12,7 @@ UC_AUD_03: Exportar Auditoria
 =============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_AUD_03: Exportar Auditoria
    - BRQ-AUD-003
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite exportar registros de auditoria a formatos
 CSV o Excel para analisis externo o archivo. La exportacion esta
@@ -51,7 +51,7 @@ limitada a 100,000 registros (CNST_017) y se registra en auditoria.
 - Solo lectura de datos (CNST_025)
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUD_03
@@ -74,7 +74,7 @@ limitada a 100,000 registros (CNST_017) y se registra en auditoria.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -114,7 +114,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - Se registra AUDIT_EXPORT en auditoria
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -158,7 +158,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - Inicia descarga del archivo
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUD_03
@@ -210,7 +210,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Exportar a CSV
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -264,7 +264,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - Exporta resultados de la busqueda
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Limite Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - AUD-021
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUD_03
@@ -342,7 +342,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -379,7 +379,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
  )
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -399,7 +399,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - Validar SoD-003 antes de exportar
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -419,7 +419,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - Registro en user_action_log
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -435,7 +435,7 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - AUD-003: exporta_auditoria
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

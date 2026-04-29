@@ -496,7 +496,7 @@ CA-1: Sistema calcula count antes de ejecutar query principal
 
 - Usuario autenticado con permiso RPT-001.
 - Usuario solicita reporte trimestral con parámetros: Trimestre Q3,
- Año 2024, Segmento OP.
+  Año 2024, Segmento OP.
 
 **Cuando:**
 
@@ -566,9 +566,9 @@ CA-3: Supervisor recibe notificacion en buzon interno
 
 - Supervisor ve notificación en su bandeja de entrada.
 - La notificación contiene: título ("Aprobación requerida:
- Consulta de nombre_usuario"), descripción ("La consulta
- retornaría 10500 registros"), link directo a la pantalla de
- aprobación y timestamp.
+  Consulta de nombre_usuario"), descripción ("La consulta
+  retornaría 10500 registros"), link directo a la pantalla de
+  aprobación y timestamp.
 - Badge de notificaciones incrementa +1.
 
 **Verificacion:**
@@ -2101,7 +2101,7 @@ SECCION 9: NOTAS Y EXCEPCIONES
 Excepcion 1: Usuarios Administradores
 
 - Descripcion: Administradores del sistema pueden ejecutar cualquier
- consulta sin limite ni aprobacion
+  consulta sin limite ni aprobacion
 - Razon: Necesidad operativa para debugging y analisis urgente
 - Comportamiento: Sistema valida rol, si user.role='ADMIN' → skip approval
 - Frecuencia: Rara, 2-3 veces/mes

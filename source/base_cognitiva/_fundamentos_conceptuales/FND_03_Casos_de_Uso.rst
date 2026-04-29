@@ -45,7 +45,7 @@ de requisitos.
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Que es un Caso de Uso
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,7 +134,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 ----
 
 2. Estructura de un Caso de Uso
--------------------------------
+   -------------------------------
 
 2.1 Componentes Obligatorios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,11 +183,11 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
  Precondiciones:
  - Usuario autenticado con agrupador AGR-008
  - Existen funciones definidas en catalogo RBAC
- Postcondiciones:
+   Postcondiciones:
  - Restriccion SoD creada en sistema
  - Evento registrado en auditoria
  - Administradores notificados
- Trigger: Admin selecciona Gestionar SoD
+   Trigger: Admin selecciona Gestionar SoD
 
  FLUJO NORMAL:
  1. Admin Seguridad selecciona Gestionar SoD
@@ -222,7 +222,7 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 ----
 
 3. Actores
-----------
+   ----------
 
 3.1 Definicion de Actor
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ Para compatibilidad con documentacion anterior que usaba roles R001-R018:
 ----
 
 4. Flujos
----------
+   ---------
 
 4.1 Flujo Normal (Happy Path)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -410,7 +410,7 @@ Las excepciones son situaciones de ERROR que impiden completar el UC.
 ----
 
 5. Tecnicas de Identificacion de UC
------------------------------------
+   -----------------------------------
 
 Existen cinco tecnicas complementarias para identificar Casos de Uso.
 
@@ -523,7 +523,7 @@ UC que provienen de necesidades explicitas no capturadas como BR.
 ----
 
 6. Contratos de Operacion
--------------------------
+   -------------------------
 
 6.1 Definicion
 ^^^^^^^^^^^^^^
@@ -558,7 +558,7 @@ sistema, sin especificar COMO lo hace. Define precondiciones y postcondiciones.
 ----
 
 7. Casos de Uso en el Contexto IACT
------------------------------------
+   -----------------------------------
 
 7.1 Nomenclatura
 ^^^^^^^^^^^^^^^^
@@ -614,7 +614,7 @@ Los Casos de Uso en IACT siguen la convencion:
 ----
 
 8. Lista de UC Identificados en IACT (49 UC)
---------------------------------------------
+   --------------------------------------------
 
 Basado en el analisis del modelo RBAC v5.2.x, se han identificado 49 Casos de Uso
 distribuidos en 8 modulos funcionales.
@@ -788,7 +788,7 @@ distribuidos en 8 modulos funcionales.
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

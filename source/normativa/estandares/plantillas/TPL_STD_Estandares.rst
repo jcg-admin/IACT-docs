@@ -170,7 +170,7 @@ Plantilla
  ----
 
  1. Proposito
- ------------
+    ------------
 
  [Descripcion del proposito del estandar en 2-3 oraciones.
  Responde: Por que existe este estandar y que problema resuelve?]
@@ -178,7 +178,7 @@ Plantilla
  ----
 
  2. Alcance
- ----------
+    ----------
 
  2.1 Aplica A
  ^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Plantilla
  ----
 
  3. Definiciones
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -210,7 +210,7 @@ Plantilla
  ----
 
  4. Reglas del Estandar
- ----------------------
+    ----------------------
 
  4.1 Regla 1: [Nombre de la Regla]
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ Plantilla
  ----
 
  5. Tabla de Reglas Resumen
- --------------------------
+    --------------------------
 
  .. list-table::
  :widths: 10 40 25 25
@@ -293,7 +293,7 @@ Plantilla
  ----
 
  6. Verificacion
- ---------------
+    ---------------
 
  6.1 Verificacion Automatica
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -321,7 +321,7 @@ Plantilla
  ----
 
  7. Excepciones
- --------------
+    --------------
 
  7.1 Excepciones Permitidas
  ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ Plantilla
  ----
 
  8. Consecuencias de Incumplimiento
- ----------------------------------
+    ----------------------------------
 
  - [Consecuencia 1: Que pasa si no se cumple]
  - [Consecuencia 2: Impacto en el proyecto]
@@ -349,7 +349,7 @@ Plantilla
  ----
 
  9. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -365,7 +365,7 @@ Plantilla
  ----
 
  10. Referencias
- ---------------
+     ---------------
 
  - [Referencia 1]: [URL o documento]
  - [Referencia 2]: [URL o documento]
@@ -373,7 +373,7 @@ Plantilla
  ----
 
  11. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

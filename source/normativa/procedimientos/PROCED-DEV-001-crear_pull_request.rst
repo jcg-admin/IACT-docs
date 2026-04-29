@@ -330,11 +330,11 @@ Referencias
 -----------
 
 - `PROC-DEV-001: Pipeline de Trabajo
- IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.md>`__
+  IACT <../procesos/PROC-DEV-001-pipeline_trabajo_iact.md>`__
 - `GUIA-GOB-002: Convenciones de
- Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
 - `Git Workflow
- Documentation <https://docs.github.com/en/pull-requests>`__
+  Documentation <https://docs.github.com/en/pull-requests>`__
 
 Historial de Cambios
 --------------------

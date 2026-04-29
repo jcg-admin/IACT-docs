@@ -84,7 +84,7 @@ un objetivo de valor para el negocio. Un UC bien escrito:
 
 ----------------------------------------------------------------------
 1. ACTOR PRINCIPAL
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -130,7 +130,7 @@ calcular KPIs y reportar a gerencia.
 
 ----------------------------------------------------------------------
 2. ACTORES SECUNDARIOS
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -178,7 +178,7 @@ Actores secundarios PARTICIPAN en el UC pero NO lo inician. Pueden ser:
 
 ----------------------------------------------------------------------
 3. PRECONDICIONES
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -264,7 +264,7 @@ Verificacion:
 
 ----------------------------------------------------------------------
 4. TRIGGER (Evento Desencadenante)
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -303,7 +303,7 @@ Icono: Grafico de barras, color azul
 
 ----------------------------------------------------------------------
 5. FLUJO NORMAL
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -360,10 +360,10 @@ FLUJO NORMAL - Consultar Reporte Trimestral
 3. Usuario hace click en boton "Generar Reporte"
 
 4. Sistema muestra mensaje "Calculando volumen de datos..."
- (FR-RPT-01-02)
+   (FR-RPT-01-02)
 
 5. Sistema ejecuta COUNT para estimar volumen de registros
- (FR-RPT-01-03)
+   (FR-RPT-01-03)
  
  Implementa BR-IACT-028: Aprobacion Consultas Grandes
 
@@ -398,7 +398,7 @@ FLUJO NORMAL - Consultar Reporte Trimestral
  ORDER BY dia
 
 8. Sistema procesa resultados y calcula metricas derivadas
- (FR-RPT-01-06)
+   (FR-RPT-01-06)
  
  Implementa BR-IACT-053: Calculo Tasa Abandono
 
@@ -413,7 +413,7 @@ FLUJO NORMAL - Consultar Reporte Trimestral
  - KPI card: Tasa de abandono con semaforo
 
 10. Sistema muestra tabla de resultados con graficos en pantalla
- (FR-RPT-01-08)
+    (FR-RPT-01-08)
 
 11. Sistema registra consulta ejecutada en audit log (FR-RPT-01-09)
 
@@ -435,7 +435,7 @@ si lo desea mediante opciones adicionales.
 
 ----------------------------------------------------------------------
 6. FLUJOS ALTERNOS (FA)
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -557,7 +557,7 @@ En paso 6, si count mayor 10,000 registros:
 
 ----------------------------------------------------------------------
 7. FLUJOS DE EXCEPCION (FE)
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -654,7 +654,7 @@ En paso 7, si query principal no responde en 30 segundos:
 
 ----------------------------------------------------------------------
 8. POSTCONDICIONES
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -751,7 +751,7 @@ Verificacion:
 
 ----------------------------------------------------------------------
 9. REQUISITOS NO FUNCIONALES (RNF)
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -875,7 +875,7 @@ Metrica:
 
 ----------------------------------------------------------------------
 10. REGLAS DE NEGOCIO ASOCIADAS
-----------------------------------------------------------------------
+    ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -972,7 +972,7 @@ Codigo:
 
 ----------------------------------------------------------------------
 11. DERIVACION DE FUNCTIONAL REQUIREMENTS
-----------------------------------------------------------------------
+    ----------------------------------------------------------------------
 
 **Definicion:**
 
@@ -1155,13 +1155,13 @@ Tests:
 **Horizontal:**
 
 - UC-RPT-02: Ejecutar Reporte Aprobado
- Relacion: Se invoca cuando supervisor aprueba en FA-2
+  Relacion: Se invoca cuando supervisor aprueba en FA-2
 
 - UC-RPT-03: Exportar Reporte a Excel
- Relacion: Usuario puede exportar reporte generado
+  Relacion: Usuario puede exportar reporte generado
 
 - UC-AUTH-07: Notificar Sesion Proxima a Expirar
- Relacion: Puede interrumpir si sesion expira durante consulta
+  Relacion: Puede interrumpir si sesion expira durante consulta
 
 ----------------------------------------------------------------------
 SECCION 12: HISTORIAL DE VERSIONES

@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Generar Fichas de Dominio (FD) que documentan entidades, atributos
 y relaciones del modelo de datos.
@@ -44,7 +44,7 @@ y relaciones del modelo de datos.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Entidades del modelo de dominio.
 
@@ -53,7 +53,7 @@ y relaciones del modelo de datos.
 ----
 
 3. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Identificar Entidad**
 
@@ -110,23 +110,23 @@ Seleccionar entidad del modelo de dominio.
  
  * username: String
  * email: String
- is_active: Boolean
- }
- @enduml
+   is_active: Boolean
+   }
+   @enduml
 
 **Paso 7: Guardar y Validar**
 
 ----
 
 4. Artefactos de Salida
------------------------
+   -----------------------
 
 - FD_[NNN]_[Entidad].rst
 
 ----
 
 5. Verificacion
----------------
+   ---------------
 
 - [ ] Atributos con tipos
 - [ ] Relaciones documentadas
@@ -136,7 +136,7 @@ Seleccionar entidad del modelo de dominio.
 ----
 
 6. Referencias
---------------
+   --------------
 
 - TPL_FD
 - MOD del modulo
@@ -144,7 +144,7 @@ Seleccionar entidad del modelo de dominio.
 ----
 
 7. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

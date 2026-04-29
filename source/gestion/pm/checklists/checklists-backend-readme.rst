@@ -31,12 +31,12 @@ Recomendaciones
 ~~~~~~~~~~~~~~~
 
 - Mantener responsables y fechas de revisión en el front matter de cada
- checklist.
+  checklist.
 - Referenciar estos artefactos desde
- ```../gobernanza/README.md`` <../gobernanza/README.md>`__ al preparar
- ceremonias del backend.
+  ```../gobernanza/README.md`` <../gobernanza/README.md>`__ al preparar
+  ceremonias del backend.
 - Registrar el control documental transversal en
- ```../../infrastructure/checklists/checklist_cambios_documentales.md`` <../../infrastructure/checklists/checklist_cambios_documentales.md>`__.
+  ```../../infrastructure/checklists/checklist_cambios_documentales.md`` <../../infrastructure/checklists/checklist_cambios_documentales.md>`__.
 
 Estado de cumplimiento
 ----------------------
@@ -75,8 +75,8 @@ Acciones prioritarias
 ---------------------
 
 - ☐ Crear inventario maestro con owners y fechas de revisión de cada
- checklist.
+  checklist.
 - ☐ Definir cadencia de auditoría para medir cumplimiento y actualizar
- métricas en QA.
+  métricas en QA.
 - ☐ Conectar cada checklist con los rituales documentados en
- Gobernanza.
+  Gobernanza.

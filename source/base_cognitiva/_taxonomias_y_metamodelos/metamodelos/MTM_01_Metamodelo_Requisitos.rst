@@ -55,7 +55,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 1. Diagrama de Clases Principal
--------------------------------
+   -------------------------------
 
 1.1 Vista General
 ^^^^^^^^^^^^^^^^^
@@ -104,20 +104,20 @@ UML y especifica cardinalidades, herencia y restricciones.
  - estado: EstadoRequisito
  - version: String
  + validar: Boolean
- }
+   }
 
  class BusinessRule {
  - tipo: TipoBR
  - modalidad: Modalidad
  - fuente: String
  - estatica: Boolean
- }
+   }
 
  class BusinessRequirement {
  - objetivo: String
  - alcance: String
  - justificacion: String
- }
+   }
 
  class UseCase {
  - actorPrimario: Actor
@@ -126,19 +126,19 @@ UML y especifica cardinalidades, herencia y restricciones.
  - postcondiciones: List
  - flujoNormal: List<Paso>
  - flujosAlternos: List<Flujo>
- }
+   }
 
  class FunctionalRequirement {
  - ucOrigen: UseCase
  - pasoOrigen: Integer
  - categoria: CategoriaFR
- }
+   }
 
  class NonFunctionalRequirement {
  - categoria: CategoriaNFR
  - metrica: String
  - umbral: String
- }
+   }
 
  Requisito <|-- BusinessRule
  Requisito <|-- BusinessRequirement
@@ -151,7 +151,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 2. Relaciones entre Tipos
--------------------------
+   -------------------------
 
 2.1 Diagrama de Relaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +215,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 3. Detalle de Clases
---------------------
+   --------------------
 
 3.1 Clase BusinessRule
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -333,7 +333,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 4. Enumeraciones
-----------------
+   ----------------
 
 4.1 TipoBR
 ^^^^^^^^^^
@@ -404,7 +404,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 5. Relaciones Detalladas
-------------------------
+   ------------------------
 
 5.1 BR influye UC
 ^^^^^^^^^^^^^^^^^
@@ -466,7 +466,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 6. Diagrama de Derivacion
--------------------------
+   -------------------------
 
 6.1 Flujo de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -510,7 +510,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 7. Restricciones del Metamodelo
--------------------------------
+   -------------------------------
 
 7.1 Restricciones OCL
 ^^^^^^^^^^^^^^^^^^^^^
@@ -566,7 +566,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 8. Instanciacion IACT
----------------------
+   ---------------------
 
 8.1 Conteo de Instancias
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -624,7 +624,7 @@ UML y especifica cardinalidades, herencia y restricciones.
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -55,7 +55,7 @@ y criterios de clasificacion.
 ----
 
 1. Vista General de la Taxonomia
---------------------------------
+   --------------------------------
 
 .. code-block:: text
 
@@ -113,7 +113,7 @@ y criterios de clasificacion.
 ----
 
 2. Nivel 0: Requisitos de Negocio
----------------------------------
+   ---------------------------------
 
 2.1 Reglas de Negocio (BR)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -204,7 +204,7 @@ negocio, independientes del sistema de software.
 ----
 
 3. Nivel 2: Requisitos de Usuario
----------------------------------
+   ---------------------------------
 
 3.1 Casos de Uso (UC)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -266,7 +266,7 @@ negocio, independientes del sistema de software.
 ----
 
 4. Nivel 3: Requisitos Funcionales
-----------------------------------
+   ----------------------------------
 
 4.1 FR por Categoria
 ^^^^^^^^^^^^^^^^^^^^
@@ -318,7 +318,7 @@ negocio, independientes del sistema de software.
 ----
 
 5. Requisitos No Funcionales
-----------------------------
+   ----------------------------
 
 5.1 Calidad de Producto (ISO 25010)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -390,7 +390,7 @@ negocio, independientes del sistema de software.
 ----
 
 6. Restricciones
-----------------
+   ----------------
 
 6.1 Tipos de Restricciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -438,7 +438,7 @@ negocio, independientes del sistema de software.
 ----
 
 7. Matriz de Clasificacion
---------------------------
+   --------------------------
 
 7.1 Por Nivel de Abstraccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -532,7 +532,7 @@ negocio, independientes del sistema de software.
 ----
 
 8. Estadisticas IACT
---------------------
+   --------------------
 
 8.1 Conteo por Tipo
 ^^^^^^^^^^^^^^^^^^^
@@ -579,7 +579,7 @@ negocio, independientes del sistema de software.
 ----
 
 9. Criterios de Clasificacion
------------------------------
+   -----------------------------
 
 9.1 Arbol de Decision
 ^^^^^^^^^^^^^^^^^^^^^
@@ -619,7 +619,7 @@ negocio, independientes del sistema de software.
 ----
 
 10. Referencias
----------------
+    ---------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

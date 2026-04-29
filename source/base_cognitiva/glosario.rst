@@ -19,9 +19,9 @@ Glosario IACT
 Glosario consolidado del proyecto IACT. Reúne en un único archivo:
 
 - Términos del producto y del stack técnico real (React+Webpack /
- Django REST Framework / Ubuntu+Apache / MySQL+PostgreSQL).
+  Django REST Framework / Ubuntu+Apache / MySQL+PostgreSQL).
 - Términos de metodología y estándares vigentes en el proyecto:
- BABOK v3, PMBOK 7th Ed, ISO/IEC/IEEE 29148:2018.
+  BABOK v3, PMBOK 7th Ed, ISO/IEC/IEEE 29148:2018.
 - Verbos modales y métodos de verificación obligatorios.
 - Abreviaturas comunes.
 
@@ -448,15 +448,15 @@ I. Referencias
 ==============
 
 1. **BABOK® Guide v3** (2015). International Institute of Business
- Analysis (IIBA).
+   Analysis (IIBA).
 2. **A Guide to the Project Management Body of Knowledge (PMBOK®
- Guide)** — 7th Edition (2021). Project Management Institute
- (PMI).
+   Guide)** — 7th Edition (2021). Project Management Institute
+   (PMI).
 3. **ISO/IEC/IEEE 29148:2018** — Systems and software engineering
- — Life cycle processes — Requirements engineering.
+   — Life cycle processes — Requirements engineering.
 4. **ISO/IEC 25010:2011** — Systems and software Quality
- Requirements and Evaluation (SQuaRE) — System and software
- quality models.
+   Requirements and Evaluation (SQuaRE) — System and software
+   quality models.
 
 ----
 
@@ -467,11 +467,11 @@ Este glosario se mantiene actualizado conforme el proyecto
 evoluciona. Adiciones / cambios:
 
 - Se incorporan términos nuevos cuando emergen del proyecto y
- alcanzan uso recurrente.
+  alcanzan uso recurrente.
 - Se actualizan definiciones cuando cambia el alcance del término
- (con bump de ``:version:`` en metadata).
+  (con bump de ``:version:`` en metadata).
 - Términos obsoletos se marcan ``[obsoleto]`` en lugar de
- eliminarse, para preservar contexto histórico.
+  eliminarse, para preservar contexto histórico.
 
 Historial
 ---------

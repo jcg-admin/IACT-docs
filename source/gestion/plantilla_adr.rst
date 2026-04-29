@@ -233,5 +233,5 @@ Enlaces Relacionados
 
 - `Índice de Arquitectura <../README.md>`__
 - `ADR-001: Vagrant + mod_wsgi <ADR-001-vagrant-mod-wsgi.md>`__
- (ejemplo existente)
+  (ejemplo existente)
 - `Gobernanza <../../gobernanza/README.md>`__

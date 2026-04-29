@@ -16,7 +16,7 @@ FR-008.01: Validar que el usuario está activo
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-008.01: Validar que el usuario está activo
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -63,7 +63,7 @@ FR-008.01: Validar que el usuario está activo
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -95,7 +95,7 @@ FR-008.01: Validar que el usuario está activo
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -110,7 +110,7 @@ con capacidad de administración para evitar bloqueo total.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -131,7 +131,7 @@ con capacidad de administración para evitar bloqueo total.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

@@ -99,11 +99,11 @@ Información a Capturar
 
 1. **ID del artefacto**: RN-BACK-001, UC-BACK-010, etc.
 2. **Tipo de artefacto**: Regla de Negocio, Caso de Uso, Requisito
- Funcional, etc.
+   Funcional, etc.
 3. **Tipo de cambio**: Menor, Mayor, Breaking
 4. **Operación**: Modificar, Agregar, Eliminar, Deprecar
 5. **Razón del cambio**: Regulación nueva, error identificado, mejora
- solicitada
+   solicitada
 6. **Contenido antes del cambio**: Capturar estado actual
 7. **Contenido después del cambio**: Describir estado deseado
 
@@ -350,11 +350,11 @@ Criterios de Inclusión
 Un artefacto está potencialmente afectado si:
 
 1. **Referencia directa**: El artefacto menciona el ID del artefacto
- modificado
+   modificado
 2. **Dependencia lógica**: El artefacto implementa o depende del
- artefacto modificado
+   artefacto modificado
 3. **Cascada**: Un artefacto afectado tiene dependientes que también
- pueden afectarse
+   pueden afectarse
 
 Proceso
 ~~~~~~~
@@ -765,7 +765,7 @@ Ejemplo: Crear RF-BACK-065
  ## Referencias
 
  - [RFC 6238: TOTP](https://tools.ietf.org/html/rfc6238)
- EOF
+   EOF
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-5:
 
@@ -796,9 +796,9 @@ Validación de Trazabilidad Bidireccional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ☐ Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
- UC-BACK-001
+  UC-BACK-001
 - ☐ Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
- RN-BACK-001
+  RN-BACK-001
 - ☐ Todas las referencias bidireccionales son correctas
 
 Validación de IDs
@@ -862,7 +862,7 @@ Revisión Manual
 2. Leer cada artefacto actualizado
 3. Preguntar: “¿Este artefacto es consistente con el cambio origen?”
 4. Preguntar: “¿Este artefacto es consistente con los demás artefactos
- actualizados?”
+   actualizados?”
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-6:
 
@@ -1293,13 +1293,13 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 - `PROCED-GOB-003: Documentar Regla de
- Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
 - `PROCED-GOB-004: Crear Caso de
- Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
 
 Historial de Cambios
 --------------------

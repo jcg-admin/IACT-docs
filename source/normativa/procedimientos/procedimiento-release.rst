@@ -39,7 +39,7 @@ Procedimiento de Release
 ------------------------
 
 1. Pre-Release
-~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~
 
 1.1 Verificación
 ^^^^^^^^^^^^^^^^
@@ -101,7 +101,7 @@ Procedimiento de Release
  git push -u origin release/v1.2.0
 
 2. Release PR
-~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -141,7 +141,7 @@ Procedimiento de Release
  --label "release"
 
 3. Deployment a Staging
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -159,7 +159,7 @@ Procedimiento de Release
  vagrant ssh -- "cd /vagrant && git pull && sudo systemctl restart iact-django"
 
 4. Smoke Tests en Staging
-~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -175,7 +175,7 @@ Procedimiento de Release
  pytest tests/smoke/
 
 5. Deployment a Producción
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 WARNING **IMPORTANTE**: Solo después de validación en staging
 
@@ -229,7 +229,7 @@ WARNING **IMPORTANTE**: Solo después de validación en staging
 - ☐ Funcionalidad crítica verificada manualmente
 
 6. Comunicación
-~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
@@ -326,7 +326,7 @@ Recursos Relacionados
 
 - `Procedimiento: QA <procedimiento_qa.md>`__
 - `Procedimiento: Gestión de
- Cambios <procedimiento_gestion_cambios.md>`__
+  Cambios <procedimiento_gestion_cambios.md>`__
 - `Runbooks DevOps <../devops/runbooks/>`__
 
 Changelog

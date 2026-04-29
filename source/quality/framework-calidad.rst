@@ -16,7 +16,7 @@ Framework de Calidad
 Pipeline de validacion automatizada del sistema IACT.
 
 1. Stack
-========
+   ========
 
 .. list-table::
  :widths: 30 70
@@ -42,7 +42,7 @@ Pipeline de validacion automatizada del sistema IACT.
    - sphinx-build con ``-W`` en CI (CNST: build limpio)
 
 2. Pipeline CI
-==============
+   ==============
 
 .. code-block:: text
 
@@ -63,18 +63,18 @@ Pipeline de validacion automatizada del sistema IACT.
  Merge / Deploy
 
 3. Verificacion de cumplimiento de CNSTs
-=========================================
+   =========================================
 
 El framework de calidad verifica automaticamente cumplimiento de
 restricciones canonicas:
 
 - :doc:`/normativa/restricciones/CNST_009_Autenticacion_DRF_Obligatoria`
- → tests verifican ``permission_classes`` declaradas
+  → tests verifican ``permission_classes`` declaradas
 - :doc:`/normativa/restricciones/CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
- → tests verifican rate limits
+  → tests verifican rate limits
 - :doc:`/normativa/restricciones/CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
- → linter de logs sanitiza PII
+  → linter de logs sanitiza PII
 - :doc:`/normativa/restricciones/CNST_032_Menu_Dinamico_Obligatorio`
- → E2E test verifica `obtener_menu_usuario`
+  → E2E test verifica `obtener_menu_usuario`
 - :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
- → linter custom rechaza "Capacidad" en codigo nuevo
+  → linter custom rechaza "Capacidad" en codigo nuevo

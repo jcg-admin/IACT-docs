@@ -37,7 +37,7 @@ Checklists Disponibles
 ----------------------
 
 1. Checklist de Pre-Commit
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Usar antes de hacer commit:**
 
@@ -89,7 +89,7 @@ Checklists Disponibles
 - ☐ Secrets no expuestos en código
 
 2. Checklist de Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Antes de crear PR:**
 
@@ -124,7 +124,7 @@ Checklists Disponibles
 - ☐ Labels apropiados (bug, feature, docs, etc.)
 
 3. Checklist de Code Review
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Como revisor, verificar:**
 
@@ -153,7 +153,7 @@ correcta
 creado (si decisión arquitectónica)
 
 4. Checklist de Testing
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Tests Unitarios:**
 
@@ -183,7 +183,7 @@ creado (si decisión arquitectónica)
 - ☐ Branch coverage verificado
 
 5. Checklist de Deployment
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Pre-Deployment:**
 
@@ -217,7 +217,7 @@ creado (si decisión arquitectónica)
 - ☐ Post-mortem agendado (si hubo issues)
 
 6. Checklist de Onboarding
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Día 1:**
 
@@ -226,7 +226,7 @@ creado (si decisión arquitectónica)
 - ☐ Acceso a Slack/Teams
 - ☐ Lectura de README.md
 - ☐ Lectura de
- `Convenciones <../../.github/claude-code-conventions.md>`__
+  `Convenciones <../../.github/claude-code-conventions.md>`__
 
 **Primera Semana:**
 
@@ -237,7 +237,7 @@ creado (si decisión arquitectónica)
 - ☐ Primer PR creado (pequeño cambio)
 - ☐ Lectura de `Arquitectura <../arquitectura/readme.md>`__
 - ☐ Lectura de `Lineamientos de
- Código <../arquitectura/lineamientos_codigo.md>`__
+  Código <../arquitectura/lineamientos_codigo.md>`__
 
 **Primer Mes:**
 
@@ -248,7 +248,7 @@ creado (si decisión arquitectónica)
 - ☐ Conocimiento de herramientas de monitoreo
 
 7. Checklist de Incident Response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Detección:**
 
@@ -288,7 +288,7 @@ creado (si decisión arquitectónica)
 - ☐ Mejoras implementadas
 
 8. Checklist de Security Review
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Código:**
 
@@ -375,14 +375,14 @@ Muchos de estos checks pueden automatizarse:
  steps:
  - uses: actions/checkout@v3
  - name: Run linting
- run: |
- pip install pylint flake8 black isort
- black --check .
- isort --check .
- pylint **/*.py
- flake8 .
+   run: |
+   pip install pylint flake8 black isort
+   black --check .
+   isort --check .
+   pylint **/*.py
+   flake8 .
  - name: Run tests
- run: pytest --cov=. --cov-fail-under=80
+   run: pytest --cov=. --cov-fail-under=80
 
 Estado de cumplimiento
 ----------------------
@@ -426,6 +426,6 @@ Recursos relacionados
 - `QA - Estrategia <../qa/estrategia_qa.md>`__
 - `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
 - `Convenciones de Claude
- Code <../../.github/claude-code-conventions.md>`__
+  Code <../../.github/claude-code-conventions.md>`__
 - `Backend - Checklists <../backend/checklists/readme.md>`__
 - `Frontend - Checklists <../frontend/checklists/readme.md>`__

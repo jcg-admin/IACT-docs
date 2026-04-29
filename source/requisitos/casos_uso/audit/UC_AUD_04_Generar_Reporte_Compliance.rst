@@ -12,7 +12,7 @@ UC_AUD_04: Generar Reporte Compliance
 =====================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_AUD_04: Generar Reporte Compliance
    - BRQ-AUD-004
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite generar reportes predefinidos de compliance
 y cumplimiento normativo. Incluye reportes de accesos, cambios de
@@ -60,7 +60,7 @@ permisos, acciones administrativas y otros requeridos por regulaciones.
 - Reporte de Alertas: Alertas generadas y reconocidas
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUD_04
@@ -83,7 +83,7 @@ permisos, acciones administrativas y otros requeridos por regulaciones.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ El auditor accede a generacion de reportes de compliance.
    - Se registra COMPLIANCE_REPORT en auditoria
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -170,7 +170,7 @@ El auditor accede a generacion de reportes de compliance.
    - Descarga documento
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUD_04
@@ -222,7 +222,7 @@ El auditor accede a generacion de reportes de compliance.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Reporte de Accesos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -282,7 +282,7 @@ El auditor accede a generacion de reportes de compliance.
    - Genera PDF con graficos embebidos
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Datos en Periodo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -319,7 +319,7 @@ El auditor accede a generacion de reportes de compliance.
    - AUD-030
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUD_04
@@ -358,7 +358,7 @@ El auditor accede a generacion de reportes de compliance.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -410,7 +410,7 @@ El auditor accede a generacion de reportes de compliance.
 7. Conclusiones y recomendaciones
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -427,7 +427,7 @@ El auditor accede a generacion de reportes de compliance.
    - Solo auditor puede generar reportes compliance
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -450,7 +450,7 @@ El auditor accede a generacion de reportes de compliance.
    - Registro en user_action_log
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -466,7 +466,7 @@ El auditor accede a generacion de reportes de compliance.
    - AUD-004: genera_compliance
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

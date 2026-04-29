@@ -27,7 +27,7 @@ como se derivan de los Casos de Uso.
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Que es un Requerimiento Funcional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,7 +85,7 @@ Los FR estan en el **nivel medio** de abstraccion:
 ----
 
 2. Origen de los FR
--------------------
+   -------------------
 
 2.1 Fuentes de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,7 +145,7 @@ Cada paso del Caso de Uso donde el sistema actua genera uno o mas FR:
 ----
 
 3. Caracteristicas SMART
-------------------------
+   ------------------------
 
 Un buen FR cumple con el criterio SMART:
 
@@ -254,7 +254,7 @@ El FR debe estar asignado a un release especifico.
 ----
 
 4. Reglas de Escritura (INCOSE)
--------------------------------
+   -------------------------------
 
 4.1 Lenguaje Imperativo
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,7 +322,7 @@ El FR debe estar asignado a un release especifico.
 ----
 
 5. Template de FR
------------------
+   -----------------
 
 5.1 Formato Estandar IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -370,7 +370,7 @@ El FR debe estar asignado a un release especifico.
 ----
 
 6. Beneficios de FR Bien Escritos
----------------------------------
+   ---------------------------------
 
 6.1 Estadisticas de Industria
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -443,7 +443,7 @@ El FR debe estar asignado a un release especifico.
 ----
 
 7. FR en el Contexto IACT
--------------------------
+   -------------------------
 
 7.1 Nomenclatura
 ^^^^^^^^^^^^^^^^
@@ -500,7 +500,7 @@ Los FR en IACT siguen la convencion:
 ----
 
 8. Ejemplos IACT
-----------------
+   ----------------
 
 8.1 FR de Validacion
 ^^^^^^^^^^^^^^^^^^^^
@@ -567,7 +567,7 @@ Los FR en IACT siguen la convencion:
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

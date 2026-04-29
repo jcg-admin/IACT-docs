@@ -37,17 +37,17 @@ Tabla de Contenidos
 
 1. `Vision General del Ecosistema <#1-vision-general-del-ecosistema>`__
 2. `Matriz de Trazabilidad
- Completa <#2-matriz-de-trazabilidad-completa>`__
+   Completa <#2-matriz-de-trazabilidad-completa>`__
 3. `Mapeo por Fase SDLC <#3-mapeo-por-fase-sdlc>`__
 4. `Decision Tree: Que Template
- Usar <#4-decision-tree-que-template-usar>`__
+   Usar <#4-decision-tree-que-template-usar>`__
 5. `Flujos End-to-End <#5-flujos-end-to-end>`__
 6. `Referencias Cruzadas <#6-referencias-cruzadas>`__
 
 --------------
 
 1. Vision General del Ecosistema
---------------------------------
+   --------------------------------
 
 ::
 
@@ -79,7 +79,7 @@ Tabla de Contenidos
 --------------
 
 2. Matriz de Trazabilidad Completa
-----------------------------------
+   ----------------------------------
 
 2.1 Matriz Principal: Proceso → Workflow → Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -229,7 +229,7 @@ Tabla de Contenidos
 --------------
 
 3. Mapeo por Fase SDLC
-----------------------
+   ----------------------
 
 FASE 1: Planning & Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,23 +241,23 @@ FASE 1: Planning & Requirements
 ::
 
  1. Identificar Business Need
- ├─> Usar: template_necesidad.md
- └─> Checklist: checklist_trazabilidad_requisitos.md
+    ├─> Usar: template_necesidad.md
+    └─> Checklist: checklist_trazabilidad_requisitos.md
 
  2. Analisis de Stakeholders
- ├─> Usar: plantilla_stakeholder_analysis.md
- └─> Procedimiento: (ninguno especifico)
+    ├─> Usar: plantilla_stakeholder_analysis.md
+    └─> Procedimiento: (ninguno especifico)
 
  3. Derivar Requisitos de Negocio
- ├─> Usar: template_requisito_negocio.md
- └─> Procedimiento: procedimiento_trazabilidad_requisitos.md
+    ├─> Usar: template_requisito_negocio.md
+    └─> Procedimiento: procedimiento_trazabilidad_requisitos.md
 
  4. Derivar Requisitos Funcionales/No Funcionales
- ├─> Usar: template_requisito_funcional.md, template_requisito_no_funcional.md
- └─> Checklist: checklist_trazabilidad_requisitos.md
+    ├─> Usar: template_requisito_funcional.md, template_requisito_no_funcional.md
+    └─> Checklist: checklist_trazabilidad_requisitos.md
 
  5. Justificar con Business Case (opcional)
- └─> Usar: plantilla_business_case.md
+    └─> Usar: plantilla_business_case.md
 
 **Workflows CI/CD:** Ninguno (fase pre-desarrollo)
 
@@ -280,31 +280,31 @@ FASE 2: Feasibility & Design
 ::
 
  1. Analisis de Factibilidad
- ├─> Agente: SDLCFeasibilityAgent
- └─> Output: feasibility_report.md (generado por agente)
+    ├─> Agente: SDLCFeasibilityAgent
+    └─> Output: feasibility_report.md (generado por agente)
 
  2. Diseno de Alto Nivel (HLD)
- ├─> Procedimiento: procedimiento_diseno_tecnico.md
- ├─> Usar: plantilla_sad.md (Software Architecture Document)
- └─> Agente: SDLCDesignAgent (genera HLD automaticamente)
+    ├─> Procedimiento: procedimiento_diseno_tecnico.md
+    ├─> Usar: plantilla_sad.md (Software Architecture Document)
+    └─> Agente: SDLCDesignAgent (genera HLD automaticamente)
 
  3. Casos de Uso
- ├─> Usar: plantilla_caso_de_uso.md
- └─> Procedimiento: procedimiento_diseno_tecnico.md
+    ├─> Usar: plantilla_caso_de_uso.md
+    └─> Procedimiento: procedimiento_diseno_tecnico.md
 
  4. Diseno de Base de Datos
- ├─> Usar: plantilla_database_design.md
- └─> Workflow posterior: migrations.yml (validara migraciones)
+    ├─> Usar: plantilla_database_design.md
+    └─> Workflow posterior: migrations.yml (validara migraciones)
 
  5. Diseno de Bajo Nivel (LLD)
- ├─> Usar: plantilla_spec.md, plantilla_srs.md
- └─> Agente: SDLCDesignAgent (genera LLD automaticamente)
+    ├─> Usar: plantilla_spec.md, plantilla_srs.md
+    └─> Agente: SDLCDesignAgent (genera LLD automaticamente)
 
  6. Reglas de Negocio
- └─> Usar: plantilla_regla_negocio.md
+    └─> Usar: plantilla_regla_negocio.md
 
  7. Diseno UI/UX (si aplica)
- └─> Usar: plantilla_ui_ux.md
+    └─> Usar: plantilla_ui_ux.md
 
 **Workflows CI/CD:** Ninguno (fase de diseno)
 
@@ -329,37 +329,37 @@ FASE 3: Development & Implementation
 ::
 
  1. Setup Inicial (primera vez)
- ├─> Procedimiento: procedimiento_instalacion_entorno.md
- └─> Template: plantilla_setup_entorno.md
+    ├─> Procedimiento: procedimiento_instalacion_entorno.md
+    └─> Template: plantilla_setup_entorno.md
 
  2. Desarrollo Local (diario)
- ├─> Procedimiento: procedimiento_desarrollo_local.md
- ├─> Guia: guia_completa_desarrollo_features.md
- └─> Checklist: checklist_desarrollo.md
+    ├─> Procedimiento: procedimiento_desarrollo_local.md
+    ├─> Guia: guia_completa_desarrollo_features.md
+    └─> Checklist: checklist_desarrollo.md
 
  3. Crear Django App
- ├─> Template: plantilla_django_app.md
- └─> Workflow: backend-ci.yml (se ejecuta al push)
+    ├─> Template: plantilla_django_app.md
+    └─> Workflow: backend-ci.yml (se ejecuta al push)
 
  4. Crear ETL Job
- ├─> Template: plantilla_etl_job.md
- └─> Workflow: backend-ci.yml
+    ├─> Template: plantilla_etl_job.md
+    └─> Workflow: backend-ci.yml
 
  5. Test Driven Development
- ├─> Template: plantilla_tdd.md
- ├─> Workflow: backend-ci.yml, test-pyramid.yml
- └─> Script: backend_test.sh
+    ├─> Template: plantilla_tdd.md
+    ├─> Workflow: backend-ci.yml, test-pyramid.yml
+    └─> Script: backend_test.sh
 
  6. Pre-Commit
- ├─> Checklist: checklist_desarrollo.md
- └─> Validaciones: black, isort, flake8, tests
+    ├─> Checklist: checklist_desarrollo.md
+    └─> Validaciones: black, isort, flake8, tests
 
  7. Push a GitHub
- ├─> Workflow: backend-ci.yml (automatico)
- │ └─> Ejecuta: backend_test.sh
- │ └─> Valida: RNF-002, tests, coverage ≥80%, lint
- └─> Workflow: frontend-ci.yml (si frontend)
- └─> Ejecuta: frontend_test.sh
+    ├─> Workflow: backend-ci.yml (automatico)
+    │ └─> Ejecuta: backend_test.sh
+    │ └─> Valida: RNF-002, tests, coverage ≥80%, lint
+    └─> Workflow: frontend-ci.yml (si frontend)
+    └─> Ejecuta: frontend_test.sh
 
 **Workflows CI/CD:** - backend-ci.yml - frontend-ci.yml
 
@@ -382,29 +382,29 @@ FASE 4: Testing & QA
 ::
 
  1. Crear Plan de Pruebas
- ├─> Template: plantilla_plan_pruebas.md
- ├─> Procedimiento: procedimiento_qa.md
- └─> Agente: SDLCTestingAgent (genera test plan)
+    ├─> Template: plantilla_plan_pruebas.md
+    ├─> Procedimiento: procedimiento_qa.md
+    └─> Agente: SDLCTestingAgent (genera test plan)
 
  2. Crear Casos de Prueba
- ├─> Template: plantilla_caso_prueba.md
- └─> Agente: SDLCTestingAgent (genera test cases)
+    ├─> Template: plantilla_caso_prueba.md
+    └─> Agente: SDLCTestingAgent (genera test cases)
 
  3. Setup QA Environment
- └─> Template: plantilla_setup_qa.md
+    └─> Template: plantilla_setup_qa.md
 
  4. Ejecutar Tests
- ├─> Procedimiento: procedimiento_qa.md
- └─> Checklist: checklist_testing.md
+    ├─> Procedimiento: procedimiento_qa.md
+    └─> Checklist: checklist_testing.md
 
  5. Validar Test Pyramid
- ├─> Workflow: test-pyramid.yml (automatico)
- ├─> Script: test_pyramid_check.sh
- └─> Validacion: 60% Unit / 30% Integration / 10% E2E
+    ├─> Workflow: test-pyramid.yml (automatico)
+    ├─> Script: test_pyramid_check.sh
+    └─> Validacion: 60% Unit / 30% Integration / 10% E2E
 
  6. Validar Coverage
- ├─> Target: ≥80%
- └─> Workflow: backend-ci.yml (incluye coverage check)
+    ├─> Target: ≥80%
+    └─> Workflow: backend-ci.yml (incluye coverage check)
 
 **Workflows CI/CD:** - test-pyramid.yml - backend-ci.yml (incluye
 coverage)
@@ -430,41 +430,41 @@ FASE 5: Deployment & Release
 ::
 
  1. Crear Release Plan
- ├─> Template: plantilla_release_plan.md
- ├─> Procedimiento: procedimiento_release.md
- └─> Agente: SDLCDeploymentAgent (genera deployment plan)
+    ├─> Template: plantilla_release_plan.md
+    ├─> Procedimiento: procedimiento_release.md
+    └─> Agente: SDLCDeploymentAgent (genera deployment plan)
 
  2. Crear Deployment Guide
- ├─> Template: plantilla_deployment_guide.md
- └─> Agente: SDLCDeploymentAgent
+    ├─> Template: plantilla_deployment_guide.md
+    └─> Agente: SDLCDeploymentAgent
 
  3. Crear Runbooks (si necesario)
- └─> Template: plantilla_runbook.md
+    └─> Template: plantilla_runbook.md
 
  4. Gestion de Cambios
- ├─> Procedimiento: procedimiento_gestion_cambios.md
- └─> Template: plantilla_release_plan.md
+    ├─> Procedimiento: procedimiento_gestion_cambios.md
+    └─> Template: plantilla_release_plan.md
 
  5. Pre-Deployment
- ├─> Runbook: verificar_servicios.md
- └─> Checklist: (incluido en plantilla_deployment_guide)
+    ├─> Runbook: verificar_servicios.md
+    └─> Checklist: (incluido en plantilla_deployment_guide)
 
  6. Deploy a Staging
- ├─> Workflow: deploy.yml (automatico)
- └─> Strategy: blue-green deployment
+    ├─> Workflow: deploy.yml (automatico)
+    └─> Strategy: blue-green deployment
 
  7. Validar Migraciones
- ├─> Workflow: migrations.yml
- └─> Validaciones: dry-run, conflicts, backwards compatibility
+    ├─> Workflow: migrations.yml
+    └─> Validaciones: dry-run, conflicts, backwards compatibility
 
  8. Deploy a Production
- ├─> Workflow: deploy.yml
- ├─> Health checks
- └─> Auto rollback si falla
+    ├─> Workflow: deploy.yml
+    ├─> Health checks
+    └─> Auto rollback si falla
 
  9. Post-Deployment
- ├─> Runbook: verificar_servicios.md
- └─> Monitoring
+    ├─> Runbook: verificar_servicios.md
+    └─> Monitoring
 
 **Workflows CI/CD:** - deploy.yml - migrations.yml
 
@@ -491,33 +491,33 @@ FASE 6: Operations & Maintenance
 ::
 
  1. Monitoreo Continuo
- └─> Workflow: incident-response.yml (si hay incidente)
+    └─> Workflow: incident-response.yml (si hay incidente)
 
  2. Security Scanning
- ├─> Workflow: security-scan.yml (automatico, periodico)
- └─> Script: security_scan.sh
- └─> Validaciones: Bandit, secrets, SQL injection, RNF-002
+    ├─> Workflow: security-scan.yml (automatico, periodico)
+    └─> Script: security_scan.sh
+    └─> Validaciones: Bandit, secrets, SQL injection, RNF-002
 
  3. Troubleshooting
- ├─> Template: plantilla_troubleshooting.md
- └─> Runbooks:
- ├─> reprocesar_etl_fallido.md
- └─> claude_code.md
+    ├─> Template: plantilla_troubleshooting.md
+    └─> Runbooks:
+    ├─> reprocesar_etl_fallido.md
+    └─> claude_code.md
 
  4. Documentacion de API
- ├─> Template: plantilla_api_reference.md
- └─> Procedimiento: procedimiento_revision_documental.md
+    ├─> Template: plantilla_api_reference.md
+    └─> Procedimiento: procedimiento_revision_documental.md
 
  5. Manual de Usuario
- └─> Template: plantilla_manual_usuario.md
+    └─> Template: plantilla_manual_usuario.md
 
  6. Revision Documental
- ├─> Procedimiento: procedimiento_revision_documental.md
- └─> Checklist: checklist_cambios_documentales.md
+    ├─> Procedimiento: procedimiento_revision_documental.md
+    └─> Checklist: checklist_cambios_documentales.md
 
  7. Incident Response
- └─> Workflow: incident-response.yml (automatico)
- └─> Auto-rollback, alertas, post-mortem
+    └─> Workflow: incident-response.yml (automatico)
+    └─> Auto-rollback, alertas, post-mortem
 
 **Workflows CI/CD:** - security-scan.yml - incident-response.yml
 
@@ -535,7 +535,7 @@ github_copilot_codespaces.md
 --------------
 
 4. Decision Tree: Que Template Usar
------------------------------------
+   -----------------------------------
 
 4.1 Decision Tree Principal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -660,7 +660,7 @@ github_copilot_codespaces.md
 --------------
 
 5. Flujos End-to-End
---------------------
+   --------------------
 
 5.1 Flujo Completo: Nueva Feature (Dark Mode)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -670,139 +670,139 @@ github_copilot_codespaces.md
 ::
 
  1. Identificar necesidad
- └─> Crear: BN-001-dark-mode.md (template_necesidad.md)
+    └─> Crear: BN-001-dark-mode.md (template_necesidad.md)
 
  2. Derivar requisito de negocio
- └─> Crear: RN-001-dark-mode.md (template_requisito_negocio.md)
+    └─> Crear: RN-001-dark-mode.md (template_requisito_negocio.md)
 
  3. Derivar requisitos funcionales
- └─> Crear: RF-001-dark-mode-toggle.md (template_requisito_funcional.md)
- └─> Crear: RF-002-dark-mode-persistence.md
+    └─> Crear: RF-001-dark-mode-toggle.md (template_requisito_funcional.md)
+    └─> Crear: RF-002-dark-mode-persistence.md
 
  4. Validar trazabilidad
- └─> Seguir: procedimiento_trazabilidad_requisitos.md
- └─> Checklist: checklist_trazabilidad_requisitos.md
+    └─> Seguir: procedimiento_trazabilidad_requisitos.md
+    └─> Checklist: checklist_trazabilidad_requisitos.md
 
 **Fase 2: Feasibility (Architect)**
 
 ::
 
  5. Analisis de factibilidad
- └─> Ejecutar: SDLCFeasibilityAgent
- └─> Output: feasibility_report_dark_mode.md
- └─> Decision: GO
+    └─> Ejecutar: SDLCFeasibilityAgent
+    └─> Output: feasibility_report_dark_mode.md
+    └─> Decision: GO
 
  6. Casos de uso
- └─> Crear: UC-001-activar-dark-mode.md (plantilla_caso_de_uso.md)
+    └─> Crear: UC-001-activar-dark-mode.md (plantilla_caso_de_uso.md)
 
 **Fase 3: Design (Tech Lead)**
 
 ::
 
  7. Diseno de alto nivel
- └─> Seguir: procedimiento_diseno_tecnico.md
- └─> Ejecutar: SDLCDesignAgent
- └─> Crear: HLD-dark-mode.md (plantilla_sad.md)
+    └─> Seguir: procedimiento_diseno_tecnico.md
+    └─> Ejecutar: SDLCDesignAgent
+    └─> Crear: HLD-dark-mode.md (plantilla_sad.md)
 
  8. Diseno de bajo nivel
- └─> Ejecutar: SDLCDesignAgent
- └─> Crear: LLD-dark-mode.md (plantilla_srs.md)
- └─> Output: Mermaid diagrams (agente)
+    └─> Ejecutar: SDLCDesignAgent
+    └─> Crear: LLD-dark-mode.md (plantilla_srs.md)
+    └─> Output: Mermaid diagrams (agente)
 
  9. Diseno de base de datos (si necesario)
- └─> Crear: DB-user-preferences.md (plantilla_database_design.md)
+    └─> Crear: DB-user-preferences.md (plantilla_database_design.md)
 
 **Fase 4: Development (Developer)**
 
 ::
 
  10. Setup (si primera vez)
- └─> Seguir: procedimiento_instalacion_entorno.md
+     └─> Seguir: procedimiento_instalacion_entorno.md
 
  11. Crear Django app
- └─> Usar: plantilla_django_app.md
- └─> Crear: api/callcentersite/apps/preferences/
+     └─> Usar: plantilla_django_app.md
+     └─> Crear: api/callcentersite/apps/preferences/
 
  12. Desarrollo TDD
- └─> Seguir: guia_completa_desarrollo_features.md
- └─> Usar: plantilla_tdd.md
- └─> Checklist: checklist_desarrollo.md
+     └─> Seguir: guia_completa_desarrollo_features.md
+     └─> Usar: plantilla_tdd.md
+     └─> Checklist: checklist_desarrollo.md
 
  13. Pre-commit
- └─> Checklist: checklist_desarrollo.md
- └─> Ejecutar: black, isort, flake8, tests
+     └─> Checklist: checklist_desarrollo.md
+     └─> Ejecutar: black, isort, flake8, tests
 
  14. Push a GitHub
- └─> Workflow: backend-ci.yml (automatico)
- └─> Ejecuta: backend_test.sh
- └─> Valida: PASS
+     └─> Workflow: backend-ci.yml (automatico)
+     └─> Ejecuta: backend_test.sh
+     └─> Valida: PASS
 
 **Fase 5: Testing (QA)**
 
 ::
 
  15. Plan de pruebas
- └─> Ejecutar: SDLCTestingAgent
- └─> Crear: test_plan_dark_mode.md (plantilla_plan_pruebas.md)
+     └─> Ejecutar: SDLCTestingAgent
+     └─> Crear: test_plan_dark_mode.md (plantilla_plan_pruebas.md)
 
  16. Casos de prueba
- └─> Ejecutar: SDLCTestingAgent
- └─> Crear: TC-001-toggle-dark-mode.md (plantilla_caso_prueba.md)
+     └─> Ejecutar: SDLCTestingAgent
+     └─> Crear: TC-001-toggle-dark-mode.md (plantilla_caso_prueba.md)
 
  17. Ejecutar tests
- └─> Seguir: procedimiento_qa.md
- └─> Checklist: checklist_testing.md
+     └─> Seguir: procedimiento_qa.md
+     └─> Checklist: checklist_testing.md
 
  18. Validar test pyramid
- └─> Workflow: test-pyramid.yml (automatico)
- └─> Validacion: PASS (60/30/10)
+     └─> Workflow: test-pyramid.yml (automatico)
+     └─> Validacion: PASS (60/30/10)
 
 **Fase 6: Deployment (DevOps)**
 
 ::
 
  19. Release plan
- └─> Ejecutar: SDLCDeploymentAgent
- └─> Crear: release_plan_v1.5.0.md (plantilla_release_plan.md)
+     └─> Ejecutar: SDLCDeploymentAgent
+     └─> Crear: release_plan_v1.5.0.md (plantilla_release_plan.md)
 
  20. Deployment guide
- └─> Ejecutar: SDLCDeploymentAgent
- └─> Crear: deployment_guide_staging.md (plantilla_deployment_guide.md)
+     └─> Ejecutar: SDLCDeploymentAgent
+     └─> Crear: deployment_guide_staging.md (plantilla_deployment_guide.md)
 
  21. Pre-deployment
- └─> Seguir: procedimiento_release.md
- └─> Runbook: verificar_servicios.md
+     └─> Seguir: procedimiento_release.md
+     └─> Runbook: verificar_servicios.md
 
  22. Deploy staging
- └─> Workflow: deploy.yml (automatico al crear tag v1.5.0-rc1)
- └─> Strategy: blue-green
- └─> Health checks: PASS
+     └─> Workflow: deploy.yml (automatico al crear tag v1.5.0-rc1)
+     └─> Strategy: blue-green
+     └─> Health checks: PASS
 
  23. Validar migraciones
- └─> Workflow: migrations.yml
- └─> Validacion: PASS
+     └─> Workflow: migrations.yml
+     └─> Validacion: PASS
 
  24. Deploy production
- └─> Workflow: deploy.yml (automatico al crear tag v1.5.0)
- └─> Health checks: PASS
+     └─> Workflow: deploy.yml (automatico al crear tag v1.5.0)
+     └─> Health checks: PASS
 
  25. Post-deployment
- └─> Runbook: verificar_servicios.md
- └─> Runbook: merge_y_limpieza_ramas.md
+     └─> Runbook: verificar_servicios.md
+     └─> Runbook: merge_y_limpieza_ramas.md
 
 **Fase 7: Operations (DevOps/Support)**
 
 ::
 
  26. Documentacion API (si aplica)
- └─> Crear: api_reference_preferences.md (plantilla_api_reference.md)
+     └─> Crear: api_reference_preferences.md (plantilla_api_reference.md)
 
  27. Security scan
- └─> Workflow: security-scan.yml (automatico diario)
- └─> Validacion: PASS
+     └─> Workflow: security-scan.yml (automatico diario)
+     └─> Validacion: PASS
 
  28. Monitoreo continuo
- └─> Si incident → Workflow: incident-response.yml
+     └─> Si incident → Workflow: incident-response.yml
 
 **Total time:** ~3-5 dias (dependiendo de complejidad)
 
@@ -816,36 +816,36 @@ github_copilot_codespaces.md
 ::
 
  1. Error rate > threshold
- └─> Workflow: incident-response.yml (automatico)
- └─> Alertas enviadas
+    └─> Workflow: incident-response.yml (automatico)
+    └─> Alertas enviadas
 
  2. Diagnostico inicial
- └─> Runbook: verificar_servicios.md
- └─> Identificado: MySQL crashed
+    └─> Runbook: verificar_servicios.md
+    └─> Identificado: MySQL crashed
 
 **Fase 2: Resolution (DevOps)**
 
 ::
 
  3. Solucion inmediata
- └─> Runbook: verificar_servicios.md
- └─> Accion: Restart MySQL
- └─> Health checks: PASS
+    └─> Runbook: verificar_servicios.md
+    └─> Accion: Restart MySQL
+    └─> Health checks: PASS
 
  4. Validar servicios
- └─> Runbook: verificar_servicios.md
- └─> Status: Operacional
+    └─> Runbook: verificar_servicios.md
+    └─> Status: Operacional
 
 **Fase 3: Post-Incident (Tech Lead)**
 
 ::
 
  5. Post-mortem
- └─> Crear: troubleshooting_mysql_crash.md (plantilla_troubleshooting.md)
- └─> Root cause: Disk full
+    └─> Crear: troubleshooting_mysql_crash.md (plantilla_troubleshooting.md)
+    └─> Root cause: Disk full
 
  6. Acciones preventivas
- └─> Crear: RNF-005-disk-monitoring.md (template_requisito_no_funcional.md)
+    └─> Crear: RNF-005-disk-monitoring.md (template_requisito_no_funcional.md)
 
 **Total MTTR:** ~15 minutos
 
@@ -859,37 +859,37 @@ github_copilot_codespaces.md
 ::
 
  1. ETL job fallo
- └─> Log: ERROR in process_customer_data
+    └─> Log: ERROR in process_customer_data
 
 **Fase 2: Resolution (Developer/DevOps)**
 
 ::
 
  2. Troubleshooting
- └─> Runbook: reprocesar_etl_fallido.md
- └─> Diagnostico: Datos corruptos en fuente
+    └─> Runbook: reprocesar_etl_fallido.md
+    └─> Diagnostico: Datos corruptos en fuente
 
  3. Corregir datos fuente
- └─> Procedimiento: (especifico del ETL)
+    └─> Procedimiento: (especifico del ETL)
 
  4. Reprocesar ETL
- └─> Runbook: reprocesar_etl_fallido.md
- └─> Script: ./scripts/etl/reprocess.py --job-id 12345
- └─> Status: SUCCESS
+    └─> Runbook: reprocesar_etl_fallido.md
+    └─> Script: ./scripts/etl/reprocess.py --job-id 12345
+    └─> Status: SUCCESS
 
 **Fase 3: Documentation (Developer)**
 
 ::
 
  5. Documentar solucion
- └─> Actualizar: troubleshooting_etl.md (plantilla_troubleshooting.md)
+    └─> Actualizar: troubleshooting_etl.md (plantilla_troubleshooting.md)
 
 **Total time:** ~30 minutos
 
 --------------
 
 6. Referencias Cruzadas
------------------------
+   -----------------------
 
 6.1 De Procedimiento a Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1085,7 +1085,7 @@ Archivos del Sistema
 Archivo de configuracion centralizado que contiene:
 
 - **mappings**: Mapeo forward de workflows a templates, procedimientos,
- scripts, agentes
+  scripts, agentes
 - **reverse_mappings**: Mapeo inverso para consultas rapidas
 
  - by_template: template -> workflows
@@ -1094,9 +1094,9 @@ Archivo de configuracion centralizado que contiene:
  - by_fase_sdlc: fase -> workflows
 
 - **template_metadata**: Metadata de cada template (categoria,
- prioridad, fase_sdlc, workflows_requeridos)
+  prioridad, fase_sdlc, workflows_requeridos)
 - **workflow_generation_rules**: Reglas de cuando usar cada
- template/workflow
+  template/workflow
 
 **2. Script de Consulta:
 ``scripts/generate_workflow_from_template.py``**
@@ -1265,11 +1265,11 @@ Mantenimiento del Sistema
 **Cuando actualizar ``.claude/workflow_template_mapping.json``:**
 
 1. **Nuevo workflow creado**: Agregar entrada en ``mappings`` con
- templates, procedimientos, scripts
+   templates, procedimientos, scripts
 2. **Nuevo template creado**: Agregar a workflow existente + actualizar
- ``reverse_mappings.by_template``
+   ``reverse_mappings.by_template``
 3. **Nuevo procedimiento**: Agregar a workflow + actualizar
- ``reverse_mappings.by_procedimiento``
+   ``reverse_mappings.by_procedimiento``
 4. **Cambio en asociacion**: Actualizar ambos forward y reverse mappings
 
 **Validar cambios:**
@@ -1299,7 +1299,7 @@ Referencias
 --------------
 
 7. Metricas y Validacion
-------------------------
+   ------------------------
 
 7.1 Como Validar que Estoy Usando Correctamente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1313,7 +1313,7 @@ Referencias
 - ☐ Valide con el checklist correspondiente
 - ☐ Confirme que el workflow automatico se ejecuto (si aplica)
 - ☐ Revise que el agente SDLC genero la documentacion esperada (si
- aplica)
+  aplica)
 
 **Señales de que algo esta mal:**
 
@@ -1329,7 +1329,7 @@ preguntar al Tech Lead.
 --------------
 
 8. Actualizaciones y Mantenimiento
-----------------------------------
+   ----------------------------------
 
 **Responsable:** Equipo Gobernanza
 
@@ -1347,7 +1347,7 @@ Validar mapeos y referencias cruzadas 3. Actualizar version en metadata
 --------------
 
 9. Recursos Adicionales
------------------------
+   -----------------------
 
 **Documentos Relacionados:** - `INDICE.md <../../INDICE.md>`__ - Indice
 general de documentacion - `AGENTES_SDLC.md <AGENTES_SDLC.md>`__ -

@@ -14,14 +14,14 @@ PROCED-GOB-009: Procedimiento para Refactorizaciones de Código con TDD
 ======================================================================
 
 1. Propósito
-------------
+   ------------
 
 Establecer un proceso estandarizado para ejecutar refactorizaciones de
 código usando metodologia Test-Driven Development (TDD), garantizando
 zero regresiones funcionales y manteniendo calidad del código.
 
 2. Alcance
-----------
+   ----------
 
 **Aplica a:** - Refactorizaciones de calidad (mejoras sin cambio
 funcional) - Modernizacion de sintaxis (PEP 585, ES6+, etc.) -
@@ -33,7 +33,7 @@ normal) - Cambios breaking que modifican APIs publicas - Hotfixes
 urgentes de produccion
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 **Desarrollador/Agente:** - Ejecutar el procedimiento completo - Generar
 evidencias en cada fase - Ejecutar rollback si es necesario
@@ -44,7 +44,7 @@ de impacto
 **QA:** - Validar que tests pasan - Verificar evidencias completas
 
 4. Prerequisitos
-----------------
+   ----------------
 
 Antes de iniciar refactorización: - [ ] Tests automatizados existen (o
 crear smoke tests basicos) - [ ] Rama de desarrollo limpia y actualizada
@@ -131,7 +131,7 @@ Ejemplo Real (QA-REFACTOR-MCP-002)
 “Refactorizaciones Pendientes”
 
 5. Fases del Procedimiento
---------------------------
+   --------------------------
 
 FASE 1: ANALISIS (60-90 min)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -416,7 +416,7 @@ re-aplicar refactorizaciones sobre develop actualizado - Documentar
 resolucion de conflictos en evidencias/sync-conflicts-resolution.md
 
 6. Metodologia TDD
-------------------
+   ------------------
 
 Ciclo TDD para Refactorizaciones:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -424,28 +424,28 @@ Ciclo TDD para Refactorizaciones:
 ::
 
  1. RED (Baseline)
- ├── Ejecutar tests existentes
- ├── Documentar cuantos pasan (N tests)
- └── Guardar estado actual
+    ├── Ejecutar tests existentes
+    ├── Documentar cuantos pasan (N tests)
+    └── Guardar estado actual
 
  2. REFACTOR (Cambio)
- ├── Aplicar refactorizacion
- ├── Resolver conflictos
- └── Validar sintaxis basica
+    ├── Aplicar refactorizacion
+    ├── Resolver conflictos
+    └── Validar sintaxis basica
 
  3. GREEN (Validacion)
- ├── Ejecutar tests nuevamente
- ├── Comparar con baseline
- └── MISMO numero de tests pasando (CRITICO)
+    ├── Ejecutar tests nuevamente
+    ├── Comparar con baseline
+    └── MISMO numero de tests pasando (CRITICO)
 
  4. VALIDATE (Adicional)
- ├── Type checking
- ├── Smoke tests
- └── Validaciones especificas
+    ├── Type checking
+    ├── Smoke tests
+    └── Validaciones especificas
 
  5. Decision
- ├── Si TODO OK → Continuar
- └── Si FALLO → ROLLBACK INMEDIATO
+    ├── Si TODO OK → Continuar
+    └── Si FALLO → ROLLBACK INMEDIATO
 
 Principios TDD Aplicados:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -603,7 +603,7 @@ Ejemplo de Secuencia Completa
  # Paso 5: Si todo OK, continuar. Si falla, rollback
 
 7. Gestion de Evidencias
-------------------------
+   ------------------------
 
 Estructura de Evidencias:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -641,7 +641,7 @@ refactor-applied.log - tests-post-refactor.log - validation-results.log
 push-result.log
 
 8. Estrategia de Rollback
--------------------------
+   -------------------------
 
 Rollback por Fase:
 ~~~~~~~~~~~~~~~~~~
@@ -685,10 +685,10 @@ Criterios para Ejecutar Rollback:
 - **INMEDIATO:** Errores de sintaxis o imports
 - **INMEDIATO:** Regresion funcional detectada
 - **EVALUACION:** Type checker reporta nuevos errores (puede ser falso
- positivo)
+  positivo)
 
 9. Riesgos Comunes y Mitigaciones
----------------------------------
+   ---------------------------------
 
 +-------+------------+--------+------------------+--------------------+
 | R | Pr | I | Mitigacion | Mitigacion |
@@ -734,7 +734,7 @@ Criterios para Ejecutar Rollback:
 +-------+------------+--------+------------------+--------------------+
 
 10. Criterios de Exito
-----------------------
+    ----------------------
 
 Una refactorización es exitosa cuando:
 
@@ -752,7 +752,7 @@ ejecutable probada - [ ] Cada fase cumple criterios de salida
 necesario
 
 11. Métricas y Reporting
-------------------------
+    ------------------------
 
 Métricas a Capturar:
 ~~~~~~~~~~~~~~~~~~~~
@@ -776,7 +776,7 @@ Refactorizaciones aplicadas - Estado final de tests - Problemas
 encontrados y resoluciones - Métricas completas - Lecciones aprendidas
 
 12. Frecuencia de Uso
----------------------
+    ---------------------
 
 **Ad-hoc:** Cuando se requiera refactorizar código
 
@@ -786,7 +786,7 @@ detecta magic numbers o code smells - Consolidacion de trabajo de
 multiples ramas - Mejora de mantenibilidad identificada
 
 13. Herramientas Recomendadas
------------------------------
+    -----------------------------
 
 **Testing:** - pytest (Python) - jest/vitest (JavaScript) - unittest
 (Python stdlib)
@@ -987,11 +987,11 @@ Referencias
 
 - Conventional Commits: https://www.conventionalcommits.org/
 - Angular Convention:
- https://github.com/angular/angular/blob/main/CONTRIBUTING.md
+  https://github.com/angular/angular/blob/main/CONTRIBUTING.md
 - Commitlint: https://commitlint.js.org/
 
 14. Plantillas de Referencia
-----------------------------
+    ----------------------------
 
 **Analisis:**
 docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/ANALISIS-REFACTORIZACIONES-2025-11-17.md
@@ -1002,7 +1002,7 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 **Tareas:** docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/TASK-NNN-\*/
 
 15. Historial de Cambios
-------------------------
+    ------------------------
 
 +------------------------+-------------------+------------------------+
 | Version | Fecha | Cambios |
@@ -1039,10 +1039,10 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 .. _referencias-1:
 
 16. Referencias
----------------
+    ---------------
 
 - **Caso de estudio:** QA-REFACTOR-MCP-002 (2 refactorizaciones, 16
- tareas, 100% exitoso)
+  tareas, 100% exitoso)
 - **PEP 585:** Type Hinting Generics In Standard Collections
 - **TDD:** Test-Driven Development (Kent Beck)
 - **Conventional Commits:** https://www.conventionalcommits.org/

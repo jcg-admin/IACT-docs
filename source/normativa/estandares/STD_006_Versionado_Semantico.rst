@@ -18,7 +18,7 @@ STD_006: Versionado Semántico
 
 
 1. Propósito
-------------
+   ------------
 
 Establecer las reglas obligatorias para el versionado de todos los artefactos
 documentales del proyecto IACT, garantizando trazabilidad, consistencia y
@@ -30,7 +30,7 @@ adaptándolo a las necesidades específicas de documentación técnica.
 ----
 
 2. Alcance
-----------
+   ----------
 
 Este estándar aplica a:
 
@@ -45,7 +45,7 @@ Este estándar aplica a:
 ----
 
 3. Formato de Versión
----------------------
+   ---------------------
 
 .. code-block:: text
 
@@ -71,7 +71,7 @@ Este estándar aplica a:
 ----
 
 4. Reglas de Incremento
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -150,7 +150,7 @@ Se incrementa PATCH cuando:
 ----
 
 5. Reglas Específicas IACT
---------------------------
+   --------------------------
 
 5.1 Versión Inicial
 ~~~~~~~~~~~~~~~~~~~
@@ -199,7 +199,7 @@ Cada versión debe tener un commit/registro que la justifique.
 ----
 
 6. Registro de Versiones
-------------------------
+   ------------------------
 
 Todo artefacto debe incluir una sección de historial con:
 
@@ -222,7 +222,7 @@ Todo artefacto debe incluir una sección de historial con:
 ----
 
 7. Ejemplos Aplicados al Proyecto IACT
---------------------------------------
+   --------------------------------------
 
 7.1 Evolución del Modelo Documental
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -284,7 +284,7 @@ correcciones.
 ----
 
 8. Verificación de Cumplimiento
--------------------------------
+   -------------------------------
 
 Checklist para revisores:
 
@@ -299,7 +299,7 @@ Checklist para revisores:
 ----
 
 9. Referencias
---------------
+   --------------
 
 - Semantic Versioning 2.0.0: https://semver.org/
 - GOB_05_Control_Versiones.rst
@@ -308,7 +308,7 @@ Checklist para revisores:
 ----
 
 10. Trazabilidad
-----------------
+    ----------------
 
 **Origen:**
 
@@ -327,7 +327,7 @@ Checklist para revisores:
 ----
 
 11. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

@@ -61,11 +61,11 @@ Necesidades del Proyecto IACT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Múltiples dominios**: Backend, Frontend, requieren casos de uso
- consistentes
+   consistentes
 2. **Múltiples stakeholders**: Desde usuarios finales hasta
- desarrolladores
+   desarrolladores
 3. **Trazabilidad completa**: Desde reglas de negocio hasta requisitos
- funcionales
+   funcionales
 4. **Perspectiva de usuario**: Describir QUÉ sin especificar CÓMO
 5. **Documentación detallada**: Nivel completo, no breve ni casual
 
@@ -169,7 +169,7 @@ Ejemplos INCORRECTOS
 
 - “Login” (no es verbo+objeto, es un sustantivo)
 - “El usuario inicia sesión” (incluye sujeto, debe ser solo
- verbo+objeto)
+  verbo+objeto)
 - “Sistema de autenticación” (es un sistema, no una acción)
 - “Autenticarse” (solo verbo, falta objeto)
 
@@ -201,7 +201,7 @@ Existen tres grados de formalidad para casos de uso:
 1. **Breves**: Resumen en un párrafo del escenario principal
 2. **Casuales**: Párrafos informales que cubren varios escenarios
 3. **Completos**: Todos los pasos y variaciones escritos en detalle, con
- secciones de apoyo
+   secciones de apoyo
 
 **Decisión**: Usar **formato completo** para el proyecto IACT.
 
@@ -278,7 +278,7 @@ Elementos Obligatorios de la Especificación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Información de Cabecera
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -305,7 +305,7 @@ Elementos Obligatorios de la Especificación
  **Estado**: [borrador|en_revision|aprobado|obsoleto]
 
 2. Actores
-^^^^^^^^^^
+   ^^^^^^^^^^
 
 .. code:: markdown
 
@@ -322,7 +322,7 @@ son roles técnicos**: “Usuario Administrador”, “Cliente”, “Gerente de
 Laboratorio” (NO “Base de Datos MySQL”)
 
 3. Descripción
-^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -331,7 +331,7 @@ Laboratorio” (NO “Base de Datos MySQL”)
  [Breve párrafo describiendo el propósito del caso de uso y el objetivo que el actor busca lograr]
 
 4. Desencadenador (Trigger)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -344,7 +344,7 @@ químico” o “El sistema detecta que la fecha de vencimiento ha sido
 alcanzada”
 
 5. Precondiciones
-^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -362,7 +362,7 @@ existir un catálogo de productos disponible - El inventario debe estar
 actualizado
 
 6. Postcondiciones
-^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -379,7 +379,7 @@ path o caminos alternos exitosos).
 inventario ha sido actualizado - El recibo ha sido impreso
 
 7. Flujo Normal (Happy Path)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -401,7 +401,7 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
 4)
 
 8. Flujos Alternos
-^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -438,7 +438,7 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
  **Punto de retorno**: Regresa al paso 5 si selecciona alternativa, o termina caso de uso
 
 9. Excepciones
-^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -462,7 +462,7 @@ diferente) - **Excepciones**: Situaciones de error que típicamente
 terminan el caso de uso sin éxito completo
 
 10. Requisitos Especiales
-^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -480,7 +480,7 @@ terminan el caso de uso sin éxito completo
 de uso, no todos los del sistema.
 
 11. Reglas de Negocio Relacionadas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -493,7 +493,7 @@ de uso, no todos los del sistema.
 influyen en este caso de uso.
 
 12. Información Adicional
-^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
@@ -670,7 +670,7 @@ Positivas
 4. **Detalle suficiente**
 
  - Formato completo con precondiciones, postcondiciones, flujos
- alternos
+   alternos
  - Desarrolladores tienen información necesaria
  - QA puede derivar casos de prueba directamente
 
@@ -798,7 +798,7 @@ Criterios de Éxito
 - 100% de nuevos casos de uso usan formato completo
 - 100% de casos de uso usan nomenclatura VERBO+OBJETO
 - 100% de casos de uso tienen referencias a reglas de negocio
- relevantes
+  relevantes
 - Stakeholders reportan casos de uso más claros
 - Desarrolladores pueden derivar RF directamente de casos de uso
 
@@ -815,17 +815,17 @@ Referencias
 -----------
 
 - `Ivar Jacobson: Use Case 2.0
- (2011) <https://www.ivarjacobson.com/publications/white-papers/use-case-ebook>`__
+  (2011) <https://www.ivarjacobson.com/publications/white-papers/use-case-ebook>`__
 - `Alistair Cockburn: Writing Effective Use Cases
- (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
+  (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
- Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
- Uso <ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso <ADR-GOB-008-diagramas-uml-casos-uso.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 
 Historial de Cambios
 --------------------

@@ -51,10 +51,10 @@ Este procedimiento implementa **Full Conformance** a ISO/IEC/IEEE
 
 - OK **Clause 5.2.8**: Traceability requirements
 - OK **Clause 6**: Process requirements (Stakeholder needs, System
- requirements)
+  requirements)
 - OK **Clause 7**: Information items (BRS, StRS, SyRS, SRS)
 - OK **Clause 9**: Content outlines (9.3 BRS, 9.4 StRS, 9.5 SyRS, 9.6
- SRS)
+  SRS)
 
 Tipos de Trazabilidad (ISO 29148 - 5.2.8)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -462,23 +462,23 @@ modificando requisitos - Manual dispatch
  - uses: actions/checkout@v3
 
  - name: Setup Node.js
- uses: actions/setup-node@v3
- with:
- node-version: '18'
+   uses: actions/setup-node@v3
+   with:
+   node-version: '18'
 
  - name: Generate ISO 29148 Indices
- run: node scripts/generate-requirements-index.js
+   run: node scripts/generate-requirements-index.js
 
  - name: Validate Traceability
- run: python scripts/validate_traceability.py
+   run: python scripts/validate_traceability.py
 
  - name: Commit Generated Indices
- run: |
- git config user.name "GitHub Actions"
- git config user.email "actions@github.com"
- git add docs/requisitos/*.md
- git commit -m "chore(requisitos): regenerar índices ISO 29148 [skip ci]" || echo "No changes"
- git push
+   run: |
+   git config user.name "GitHub Actions"
+   git config user.email "actions@github.com"
+   git add docs/requisitos/*.md
+   git commit -m "chore(requisitos): regenerar índices ISO 29148 [skip ci]" || echo "No changes"
+   git push
 
 **Checklist:** - [ ] Workflow configurado en ``.github/workflows/`` - [
 ] Script ``generate-requirements-index.js`` funcional - [ ] Script
@@ -688,25 +688,25 @@ Plantillas Relacionadas
 
 - ``plantillas/template_necesidad.md`` - Necesidades de negocio (N-XXX)
 - ``plantillas/template_requisito_negocio.md`` - Requisitos de negocio
- (RN-XXX)
+  (RN-XXX)
 - ``plantillas/template_requisito_stakeholder.md`` - Requisitos de
- stakeholders (RS-XXX)
+  stakeholders (RS-XXX)
 - ``plantillas/template_requisito_funcional.md`` - Requisitos
- funcionales (RF-XXX)
+  funcionales (RF-XXX)
 - ``plantillas/template_requisito_no_funcional.md`` - Requisitos no
- funcionales (RNF-XXX)
+  funcionales (RNF-XXX)
 
 Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
 
 - **ISO/IEC/IEEE 29148:2018**:
- `iso.org <https://www.iso.org/standard/72089.html>`__
+  `iso.org <https://www.iso.org/standard/72089.html>`__
 - **BABOK v3**: `IIBA Body of
- Knowledge <https://www.iiba.org/standards-and-resources/babok/>`__
+  Knowledge <https://www.iiba.org/standards-and-resources/babok/>`__
 - **PMBOK Guide 7th Ed**: `PMI
- Knowledge <https://www.pmi.org/pmbok-guide-standards/foundational/pmbok>`__
+  Knowledge <https://www.pmi.org/pmbok-guide-standards/foundational/pmbok>`__
 - **Requirements Traceability**: `INCOSE
- Guide <https://www.incose.org/products-and-publications/se-handbook>`__
+  Guide <https://www.incose.org/products-and-publications/se-handbook>`__
 
 --------------
 

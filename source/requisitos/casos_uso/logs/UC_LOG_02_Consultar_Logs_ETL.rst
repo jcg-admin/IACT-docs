@@ -12,7 +12,7 @@ UC_LOG_02: Consultar Logs ETL
 =============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_LOG_02: Consultar Logs ETL
    - BRQ-LOG-002
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite consultar los logs especificos del proceso
 ETL que sincroniza datos desde BD IVR hacia BD Analytics (CNST_007).
@@ -57,7 +57,7 @@ Fundamental para diagnosticar problemas de carga de datos.
  BD IVR hacia BD Analytics. Estos logs documentan ese proceso.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_LOG_02
@@ -80,7 +80,7 @@ Fundamental para diagnosticar problemas de carga de datos.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -116,7 +116,7 @@ El operador accede al visor de logs ETL.
    - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -148,7 +148,7 @@ El operador accede al visor de logs ETL.
    - Muestra metricas: registros leidos, insertados, errores
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_LOG_02
@@ -177,7 +177,7 @@ El operador accede al visor de logs ETL.
  - PARTIAL (amarillo)
  - FAILED (rojo)
  - RUNNING (azul)
- end note
+   end note
 
  O -> FE: Click en ejecucion
  FE -> LC: GET /api/logs/etl/executions/{id}
@@ -198,11 +198,11 @@ El operador accede al visor de logs ETL.
  - registros_actualizados
  - registros_error
  - duracion_segundos
- end note
- @enduml
+   end note
+   @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Ver Ejecucion con Errores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,7 +259,7 @@ El operador accede al visor de logs ETL.
    - Muestra grafico de exitos/fallos por dia
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Ejecuciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -296,7 +296,7 @@ El operador accede al visor de logs ETL.
    - LOG-010
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_LOG_02
@@ -338,7 +338,7 @@ El operador accede al visor de logs ETL.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -399,7 +399,7 @@ El operador accede al visor de logs ETL.
    - Tiempo total de ejecucion
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -416,7 +416,7 @@ El operador accede al visor de logs ETL.
    - Formato JSON estructurado
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -436,7 +436,7 @@ El operador accede al visor de logs ETL.
    - Detalle de registros fallidos
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -452,7 +452,7 @@ El operador accede al visor de logs ETL.
    - LOG-002: consulta_logs_etl
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

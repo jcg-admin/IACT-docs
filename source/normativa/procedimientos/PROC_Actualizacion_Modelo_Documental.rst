@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Este procedimiento establece como actualizar el documento MODELO_DOCUMENTAL_IACT
 cuando se realizan cambios en la estructura, artefactos o metricas del proyecto.
@@ -52,7 +52,7 @@ del proyecto, aplicando versionado semantico.
 ----
 
 2. Alcance
-----------
+   ----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -71,7 +71,7 @@ del proyecto, aplicando versionado semantico.
 ----
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -90,7 +90,7 @@ del proyecto, aplicando versionado semantico.
 ----
 
 4. Precondiciones
------------------
+   -----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -101,7 +101,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-------------------------
+   ------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -123,7 +123,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-----------------
+   ----------------
 
 6.1 Diagrama de Flujo
 ^^^^^^^^^^^^^^^^^^^^^
@@ -297,7 +297,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -313,7 +313,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-------------------
+   ------------------
 
 Al finalizar este procedimiento:
 
@@ -325,7 +325,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-----------------------------
+   ----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -348,7 +348,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
--------------------------
+    -------------------------
 
 .. list-table::
  :widths: 30 70
@@ -366,7 +366,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
----------------
+    ---------------
 
 - STD_006: Versionado Semantico
 - MODELO_DOCUMENTAL_IACT (version actual)
@@ -374,7 +374,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 12 12 20 56

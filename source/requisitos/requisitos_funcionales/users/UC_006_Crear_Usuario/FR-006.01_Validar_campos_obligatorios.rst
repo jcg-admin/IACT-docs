@@ -16,7 +16,7 @@ FR-006.01: Validar campos obligatorios
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-006.01: Validar campos obligatorios
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -83,7 +83,7 @@ FR-006.01: Validar campos obligatorios
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -115,7 +115,7 @@ FR-006.01: Validar campos obligatorios
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -130,7 +130,7 @@ para mejorar UX y garantizar seguridad.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -151,7 +151,7 @@ para mejorar UX y garantizar seguridad.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

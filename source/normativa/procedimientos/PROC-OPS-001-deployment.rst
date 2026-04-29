@@ -60,7 +60,7 @@ Pre-requisitos
 - Acceso de lectura al repositorio en GitHub.
 - Acceso SSH o equivalente al servidor on-premise que sirve los docs.
 - Permisos de escritura en el directorio de despliegue (``/var/www/iact-docs/``
- u otro según infraestructura).
+  u otro según infraestructura).
 - ``sha256sum`` o equivalente disponible localmente.
 
 ----

@@ -16,7 +16,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -64,7 +64,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -99,7 +99,7 @@ FR-008.03: Invalidar sesiones del usuario dado de baja
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -114,7 +114,7 @@ que el cambio de estado. Si falla una, falla todo.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -137,7 +137,7 @@ que el cambio de estado. Si falla una, falla todo.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

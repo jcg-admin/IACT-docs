@@ -87,7 +87,7 @@ UC Temporal:
 
 ----------------------------------------------------------------------
 1. TRIGGER TEMPORAL
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -116,12 +116,12 @@ Documentar cuando y como se ejecuta automaticamente el UC.
  # Formato: minuto hora dia mes dia_semana
  
  * * * * *
- | | | | |
- | | | | +-- Dia de semana (0-6, 0=Domingo)
- | | | +---- Mes (1-12)
- | | +------ Dia del mes (1-31)
- | +-------- Hora (0-23)
- +---------- Minuto (0-59)
+   | | | | |
+   | | | | +-- Dia de semana (0-6, 0=Domingo)
+   | | | +---- Mes (1-12)
+   | | +------ Dia del mes (1-31)
+   | +-------- Hora (0-23)
+   +---------- Minuto (0-59)
 
 **Comando de Ejecucion:**
 
@@ -184,7 +184,7 @@ Cada 1 minuto, 24/7, todo el ano
 
 ----------------------------------------------------------------------
 2. FLUJO AUTOMATICO
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -367,7 +367,7 @@ En paso 5, si query SELECT tarda mayor 10 segundos:
 
 ----------------------------------------------------------------------
 3. LOCKS Y CONCURRENCIA
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -482,7 +482,7 @@ Genera integer hash consistente del string
 
 ----------------------------------------------------------------------
 4. CODIGO COMPLETO
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -635,7 +635,7 @@ Codigo funcional completo del job/command.
 
 ----------------------------------------------------------------------
 5. MONITOREO Y ALERTAS
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -710,39 +710,39 @@ Alerta 1: Job No Ejecutado en 5 Minutos
 .. code-block:: yaml
 
  - alert: SessionExpiryJobStalled
- expr: time - last_success_timestamp > 300
- for: 1m
- labels:
- severity: critical
- annotations:
- summary: "Session expiry job has not run in 5 minutes"
- description: "Last successful run was {{ $value }} seconds ago"
+   expr: time - last_success_timestamp > 300
+   for: 1m
+   labels:
+   severity: critical
+   annotations:
+   summary: "Session expiry job has not run in 5 minutes"
+   description: "Last successful run was {{ $value }} seconds ago"
 
 Alerta 2: Duracion Excesiva
 
 .. code-block:: yaml
 
  - alert: SessionExpiryJobSlow
- expr: session_expiry_duration_seconds > 10
- for: 2m
- labels:
- severity: warning
- annotations:
- summary: "Session expiry job taking too long"
- description: "Execution took {{ $value }} seconds"
+   expr: session_expiry_duration_seconds > 10
+   for: 2m
+   labels:
+   severity: warning
+   annotations:
+   summary: "Session expiry job taking too long"
+   description: "Execution took {{ $value }} seconds"
 
 Alerta 3: Alto Volumen de Expiraciones
 
 .. code-block:: yaml
 
  - alert: HighSessionExpiryRate
- expr: rate(sessions_expired_total[5m]) > 100
- for: 5m
- labels:
- severity: warning
- annotations:
- summary: "High rate of session expiries"
- description: "{{ $value }} sessions/sec being expired"
+   expr: rate(sessions_expired_total[5m]) > 100
+   for: 5m
+   labels:
+   severity: warning
+   annotations:
+   summary: "High rate of session expiries"
+   description: "{{ $value }} sessions/sec being expired"
 
 **Healthcheck Endpoint:**
 

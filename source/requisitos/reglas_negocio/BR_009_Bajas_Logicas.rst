@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ permite reactivacion si es necesario.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ permite reactivacion si es necesario.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -107,7 +107,7 @@ permite reactivacion si es necesario.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ Solo datos de prueba en ambiente de desarrollo pueden ser borrados fisicamente.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 UC Afectados
 ^^^^^^^^^^^^^^^^
@@ -138,7 +138,7 @@ Solo datos de prueba en ambiente de desarrollo pueden ser borrados fisicamente.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,7 +150,7 @@ Solo datos de prueba en ambiente de desarrollo pueden ser borrados fisicamente.
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

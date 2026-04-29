@@ -12,7 +12,7 @@ UC_RPT_11: Compartir Reporte
 ============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_11: Compartir Reporte
    - BRQ-RPT-011
 
 2. Descripcion
---------------
+   --------------
 
 Permite compartir un reporte generado con otros usuarios del mismo
 segmento. La notificacion se envia via InternalMessage (CNST_001).
@@ -44,7 +44,7 @@ segmento. La notificacion se envia via InternalMessage (CNST_001).
 **Restriccion CNST_001:** Notificaciones SOLO via InternalMessage.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_11
@@ -61,7 +61,7 @@ segmento. La notificacion se envia via InternalMessage (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -99,7 +99,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Notificacion enviada via InternalMessage
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -134,7 +134,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Registra en auditoria
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_11
@@ -165,7 +165,7 @@ Usuario hace clic en Compartir desde un reporte.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Compartir con Mensaje
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,7 +185,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Incluye mensaje en notificacion
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Destinatario Otro Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -202,7 +202,7 @@ Usuario hace clic en Compartir desde un reporte.
    - RPT-100
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_11
@@ -226,7 +226,7 @@ Usuario hace clic en Compartir desde un reporte.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -243,7 +243,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Via InternalMessage unicamente
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -263,7 +263,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Registro REPORT_SHARE
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -280,7 +280,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Solo mismo segmento
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -296,7 +296,7 @@ Usuario hace clic en Compartir desde un reporte.
    - RPT-011: comparte_reportes
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

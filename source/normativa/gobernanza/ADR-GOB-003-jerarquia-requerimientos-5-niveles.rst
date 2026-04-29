@@ -48,13 +48,13 @@ Necesidades del Proyecto IACT
 El proyecto IACT requiere:
 
 1. **Múltiples dominios**: Backend, Frontend, DevOps, QA, AI requieren
- organización consistente
+   organización consistente
 2. **Cumplimiento regulatorio**: Reglas de negocio externas (LFPDPPP,
- normas de salud, etc.)
+   normas de salud, etc.)
 3. **Múltiples stakeholders**: Desde ejecutivos hasta desarrolladores
 4. **Trazabilidad completa**: Desde políticas hasta código
 5. **Evolución controlada**: Cambios en un nivel deben propagarse
- correctamente
+   correctamente
 
 Marco de Referencia
 ~~~~~~~~~~~~~~~~~~~
@@ -451,7 +451,7 @@ Positivas
 1. **Trazabilidad completa**
 
  - Cada feature se justifica desde reglas de negocio hasta atributos
- de calidad
+   de calidad
  - Fácil responder “¿por qué existe esta funcionalidad?”
  - Validación de que objetivos de negocio se cumplen
 
@@ -526,7 +526,7 @@ Negativas
  - Code reviews de documentación
  - Scripts de validación de trazabilidad
  - Principio: cambio en nivel superior requiere review de niveles
- inferiores
+   inferiores
 
 4. **Complejidad en proyectos pequeños**
 
@@ -602,9 +602,9 @@ Métricas
 
 - Número de requisitos por nivel
 - Cobertura de trazabilidad (% de requisitos con links a nivel
- superior/inferior)
+  superior/inferior)
 - Tiempo promedio para derivar requisito de nivel inferior desde
- superior
+  superior
 - Satisfacción del equipo con la estructura (survey trimestral)
 - Reducción de defectos por “requisito no entendido”
 
@@ -612,16 +612,16 @@ Referencias
 -----------
 
 - `IEEE 29148-2018: Systems and software engineering — Life cycle
- processes — Requirements
- engineering <https://standards.ieee.org/standard/29148-2018.html>`__
+  processes — Requirements
+  engineering <https://standards.ieee.org/standard/29148-2018.html>`__
 - `IIBA BABOK v3: Business Analysis Body of
- Knowledge <https://www.iiba.org/business-analysis-certifications/babok/>`__
+  Knowledge <https://www.iiba.org/business-analysis-certifications/babok/>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
- Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
 - `ADR-GOB-007: Especificación de Casos de
- Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 
 Historial de Cambios
 --------------------

@@ -16,7 +16,7 @@ FR-004.03: Actualizar hash en BD
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-004.03: Actualizar hash en BD
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -67,7 +67,7 @@ FR-004.03: Actualizar hash en BD
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -102,7 +102,7 @@ FR-004.03: Actualizar hash en BD
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -132,7 +132,7 @@ FR-004.03: Actualizar hash en BD
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -153,7 +153,7 @@ FR-004.03: Actualizar hash en BD
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

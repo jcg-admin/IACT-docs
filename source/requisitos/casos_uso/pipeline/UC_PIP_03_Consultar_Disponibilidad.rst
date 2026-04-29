@@ -12,7 +12,7 @@ UC_PIP_03: Consultar Disponibilidad
 ===================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_PIP_03: Consultar Disponibilidad
    - BRQ-PIP-003
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite consultar la disponibilidad de datos por periodo,
 mostrando que fechas tienen datos sincronizados y cuales tienen gaps o
@@ -51,7 +51,7 @@ datos faltantes.
 - Detectar inconsistencias
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_PIP_03
@@ -74,7 +74,7 @@ datos faltantes.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - Se identifican gaps si existen
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -148,7 +148,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - Selecciona fecha para ver detalle
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_PIP_03
@@ -193,7 +193,7 @@ El administrador accede al modulo de disponibilidad de datos.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Gaps Detectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,7 +233,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - Muestra: registros procesados, hora de carga, fuente
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso PIP-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,7 +254,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - PIP-020
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_PIP_03
@@ -285,7 +285,7 @@ El administrador accede al modulo de disponibilidad de datos.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -305,7 +305,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - Una fecha parcial tiene entre 1% y 99% de registros esperados
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -319,7 +319,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - La disponibilidad se calcula comparando conteos de IVR vs Analytics. La comparacion se hace en proceso batch, no en tiempo real.
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -339,7 +339,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - Registros procesados, timestamp, fuente
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -359,7 +359,7 @@ El administrador accede al modulo de disponibilidad de datos.
    - PIP-003: ve_disponibilidad_datos
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

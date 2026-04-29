@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Este procedimiento establece la obligacion de revisar el template (TPL) correspondiente
 antes de generar cualquier artefacto del modelo documental. Garantiza consistencia
@@ -53,7 +53,7 @@ secciones obligatorias definidas en su template.
 ----
 
 2. Alcance
-----------
+   ----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -72,7 +72,7 @@ secciones obligatorias definidas en su template.
 ----
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -88,7 +88,7 @@ secciones obligatorias definidas en su template.
 ----
 
 4. Precondiciones
------------------
+   -----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -99,7 +99,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-------------------------
+   ------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -115,7 +115,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-----------------
+   ----------------
 
 6.1 Diagrama de Flujo
 ^^^^^^^^^^^^^^^^^^^^^
@@ -252,7 +252,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -268,7 +268,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-------------------
+   ------------------
 
 Al finalizar este procedimiento:
 
@@ -280,7 +280,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-----------------------------
+   ----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
--------------------------
+    -------------------------
 
 .. list-table::
  :widths: 30 70
@@ -321,7 +321,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
----------------
+    ---------------
 
 - normativa/estandares/plantillas/index.rst: Indice de TPL
 - STD_006: Versionado Semantico
@@ -330,7 +330,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 12 12 20 56

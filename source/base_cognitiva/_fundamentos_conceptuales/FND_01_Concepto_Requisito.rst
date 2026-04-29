@@ -25,7 +25,7 @@ estableciendo la base conceptual para todo el dominio ``requisitos/``.
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Que es un Requisito
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ estandar, especificacion u otro documento formalmente impuesto.
 ----
 
 2. Tipos de Requisitos
-----------------------
+   ----------------------
 
 2.1 Taxonomia Principal
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -205,7 +205,7 @@ no funcionalidades especificas.
 ----
 
 3. Caracteristicas de un Buen Requisito
----------------------------------------
+   ---------------------------------------
 
 3.1 Criterio SMART
 ^^^^^^^^^^^^^^^^^^
@@ -290,7 +290,7 @@ El requisito debe estar en el nivel medio de abstraccion:
 ----
 
 4. Origen de los Requisitos
----------------------------
+   ---------------------------
 
 4.1 Fuentes de Requisitos
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -349,7 +349,7 @@ Para mas detalle, ver :ref:`fnd-05`.
 ----
 
 5. Anti-patrones de Requisitos
-------------------------------
+   ------------------------------
 
 5.1 Errores Comunes
 ^^^^^^^^^^^^^^^^^^^
@@ -420,7 +420,7 @@ Evitar estas palabras por ser ambiguas:
 ----
 
 6. Costo de Requisitos Mal Escritos
------------------------------------
+   -----------------------------------
 
 6.1 Impacto Economico
 ^^^^^^^^^^^^^^^^^^^^^
@@ -463,7 +463,7 @@ exponencialmente segun la fase donde se detectan:
 ----
 
 7. Requisitos en el Contexto IACT
----------------------------------
+   ---------------------------------
 
 7.1 Nomenclatura
 ^^^^^^^^^^^^^^^^
@@ -503,7 +503,7 @@ Los requisitos en IACT siguen la convencion:
 ----
 
 8. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

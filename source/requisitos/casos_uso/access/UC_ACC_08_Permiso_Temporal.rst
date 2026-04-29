@@ -21,7 +21,7 @@ UC_ACC_08: Permiso Temporal
 
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -45,7 +45,7 @@ UC_ACC_08: Permiso Temporal
    - BRQ-ACC-008
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite asignar funciones temporales a un usuario con
 fecha de vencimiento automatico. Util para permisos de cobertura,
@@ -60,7 +60,7 @@ proyectos especiales o accesos limitados en tiempo.
 - Expiracion automatica por el sistema
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_08
@@ -84,7 +84,7 @@ proyectos especiales o accesos limitados en tiempo.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -124,7 +124,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Se registra TEMP_PERMISSION_GRANT en auditoria
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -174,7 +174,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_08
@@ -213,7 +213,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Extender Permiso Existente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,7 +259,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Registra TEMP_PERMISSION_REVOKE
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Duracion Excede 6 Meses
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -316,7 +316,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - ACC-072
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_08
@@ -355,7 +355,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -381,7 +381,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Permisos temporales tienen precedencia sobre agrupadores
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -398,7 +398,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Se registra TEMP_PERMISSION_GRANT con justificacion y fechas
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -418,7 +418,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Permiso inactivo al pasar fecha_fin
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -438,7 +438,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - ACC-001: asigna_funciones
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

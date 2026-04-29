@@ -30,12 +30,12 @@ Contenido
 Los estándares cubren:
 
 - Documentación: prohibición de emojis, lenguaje profesional
- obligatorio, frases prohibidas con alternativas.
+  obligatorio, frases prohibidas con alternativas.
 - Naming: convenciones de archivos, directorios, identificadores
- técnicos.
+  técnicos.
 - Versionado: SemVer 2.0.0 en metadata, no en filenames.
 - Plantillas reutilizables: moldes para UCs, BRs, FRs, NFRs,
- ADRs, restricciones, etc.
+  ADRs, restricciones, etc.
 
 .. note::
 

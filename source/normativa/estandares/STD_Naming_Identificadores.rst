@@ -23,7 +23,7 @@ STD: Naming de Identificadores Técnicos
 ----
 
 1. Propósito
-============
+   ============
 
 Establecer los principios obligatorios para nombrar **identificadores
 técnicos** del proyecto IACT: funciones, métodos, clases, variables,
@@ -40,7 +40,7 @@ dentro del código.
 ----
 
 2. Alcance
-==========
+   ==========
 
 Aplica a:
 
@@ -49,20 +49,20 @@ Aplica a:
 - Nombres de variables locales, atributos de instancia, propiedades.
 - Nombres de constantes y parámetros.
 - Nombres de columnas y tablas en bases de datos cuando son
- consumidos por el código del proyecto.
+  consumidos por el código del proyecto.
 - Identificadores citados en la documentación (RST) en bloques
- ``code-block``, ``literal``, ``code:`` y similares.
+  ``code-block``, ``literal``, ``code:`` y similares.
 
 NO aplica a:
 
 - Nombres de archivos y directorios (rige STD_007).
 - IDs de artefactos de documentación: UC-001, BR-001, FND-01, etc.
- (rigen STD_002 y STD_007 §4).
+  (rigen STD_002 y STD_007 §4).
 
 ----
 
 3. Principios
-=============
+   =============
 
 3.1 Clean Code Obligatorio
 ---------------------------
@@ -165,7 +165,7 @@ Ejemplo:
 
 - ``hasPermission(permission)`` ✓ (universal)
 - ``hasIACTPermission(permission)`` ✗ (acoplamiento al producto en
- el nombre).
+  el nombre).
 
 3.5 Coherencia de Idioma
 ------------------------
@@ -184,7 +184,7 @@ identificadores que aparecen citados en ella mantienen el inglés.
 ----
 
 4. Convenciones por Lenguaje
-============================
+   ============================
 
 4.1 Python (backend Django REST Framework)
 -------------------------------------------
@@ -202,14 +202,14 @@ identificadores que aparecen citados en ella mantienen el inglés.
 - Clases y componentes React: ``PascalCase``.
 - Constantes: ``UPPER_SNAKE_CASE``.
 - Hooks personalizados: prefijo ``use`` + ``camelCase``
- (``useReportData``).
+  (``useReportData``).
 - Booleanos: prefijos ``is``, ``has``, ``should``, ``can``.
 
 4.3 SQL (PostgreSQL + MySQL)
 ----------------------------
 
 - Tablas y columnas: ``snake_case``, plural para tablas
- (``user_roles``).
+  (``user_roles``).
 - Foreign key: ``{tabla_singular}_id``.
 - Índices: ``ix_{tabla}_{columnas}``.
 - Constraints unique: ``uq_{tabla}_{columnas}``.
@@ -224,7 +224,7 @@ identificadores que aparecen citados en ella mantienen el inglés.
 ----
 
 5. Aplicación a la documentación
-================================
+   ================================
 
 Cuando un identificador aparece **citado** en un documento RST
 (bloques ``.. code-block::``, ``literal``, ``:code:``), debe
@@ -239,7 +239,7 @@ técnica** en ``risks-technical-debt/`` y se programa su renombrado.
 ----
 
 6. Cumplimiento
-===============
+   ===============
 
 6.1 Estado actual
 -----------------
@@ -260,19 +260,19 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
 ----
 
 7. Referencias
-==============
+   ==============
 
 - :ref:`std-001` — Documentación Sin Emojis.
 - :ref:`std-002` — Nomenclatura Estándar del Proyecto.
 - :ref:`std-006` — Versionado Semántico.
 - :ref:`std-007` — Convención de Naming de Archivos y Carpetas.
 - Robert C. Martin: "Clean Code: A Handbook of Agile Software
- Craftsmanship" (capítulo 2: Meaningful Names).
+  Craftsmanship" (capítulo 2: Meaningful Names).
 
 ----
 
 8. Historial
-============
+   ============
 
 .. list-table::
  :header-rows: 1

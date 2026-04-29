@@ -936,9 +936,9 @@ Documentos Relacionados
 -----------------------
 
 - `Estándares de Código - Regla
- Fundamental <estandares_codigo.md#regla-fundamental-output-profesional>`__
+  Fundamental <estandares_codigo.md#regla-fundamental-output-profesional>`__
 - `Scripts de Requisitos -
- README <../../scripts/requisitos/README.md>`__
+  README <../../scripts/requisitos/README.md>`__
 - `Scripts del Proyecto - Índice <../../scripts/README.md>`__
 
 --------------
@@ -970,24 +970,24 @@ Correcciones Críticas Incluidas
 **Cambios Mayores en v2.1:**
 
 1. **Matriz de Compatibilidad de Shell Corregida (Sección Selección de
- Shell)**
+   Shell)**
 
  - ``set -o pipefail``: Cambiado de SI a NO para POSIX sh y dash
  - Notas críticas agregadas explicando que pipefail NO está en
- estándar POSIX
+   estándar POSIX
 
 2. **Eliminado ``local`` de Ejemplos POSIX**
 
  - Todos los ejemplos compatibles con POSIX ahora evitan palabra
- clave ``local``
+   clave ``local``
  - Agregada convención de prefijo con guión bajo para variables
- temporales
+   temporales
  - Agregado patrón de limpieza con ``unset``
 
 3. **Prevención de Doble Limpieza**
 
  - Agregada bandera ``CLEANUP_DONE`` para prevenir condiciones de
- carrera
+   carrera
 
 4. **Referencias Corregidas**
 

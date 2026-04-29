@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -75,7 +75,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -92,7 +92,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -120,7 +120,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -153,7 +153,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 Restricciones Origen (CNST)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -198,7 +198,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,7 +224,7 @@ por recursos con operaciones diurnas del call center.
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

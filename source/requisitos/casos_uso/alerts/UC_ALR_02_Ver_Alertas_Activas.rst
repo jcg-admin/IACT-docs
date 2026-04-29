@@ -12,7 +12,7 @@ UC_ALR_02: Ver Alertas Activas
 ==============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ALR_02: Ver Alertas Activas
    - BRQ-ALR-002
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite visualizar las alertas activas del sistema en
 tiempo real. Solo se muestran alertas del segmento del usuario (CNST_008).
@@ -58,7 +58,7 @@ se envian via InternalMessage (CNST_001).
  InternalMessage.notify. PROHIBIDO enviar por email o SMS.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ALR_02
@@ -82,7 +82,7 @@ se envian via InternalMessage (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -120,7 +120,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - El panel se actualiza automaticamente cada 30 segundos
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -155,7 +155,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Visualiza alertas activas
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ALR_02
@@ -202,7 +202,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Sin Alertas Activas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,7 +262,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Muestra panel de detalle con metrica, valor, umbral, timestamp
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso ALR-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -301,7 +301,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - ALR-011
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ALR_02
@@ -351,7 +351,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -393,7 +393,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Alerta informativa, sin accion requerida
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -433,7 +433,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  # - PushNotification.send
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -456,7 +456,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Notificaciones en buzon interno unicamente
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -476,7 +476,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - ALR-002: ve_alertas
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

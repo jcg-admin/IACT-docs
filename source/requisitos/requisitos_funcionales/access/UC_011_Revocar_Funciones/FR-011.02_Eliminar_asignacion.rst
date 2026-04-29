@@ -16,7 +16,7 @@ FR-011.02: Eliminar asignación de función
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-011.02: Eliminar asignación de función
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -70,7 +70,7 @@ FR-011.02: Eliminar asignación de función
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -106,7 +106,7 @@ FR-011.02: Eliminar asignación de función
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_009: Bajas lógicas (si aplica)
@@ -123,7 +123,7 @@ Si falla una, no se revoca ninguna.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -146,7 +146,7 @@ Si falla una, no se revoca ninguna.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

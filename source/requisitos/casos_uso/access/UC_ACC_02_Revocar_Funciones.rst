@@ -21,7 +21,7 @@ UC_ACC_02: Revocar Funciones
 
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -47,7 +47,7 @@ UC_ACC_02: Revocar Funciones
    - BRQ-ACC-002
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite a un administrador de acceso (AGR-007) revocar
 funciones previamente asignadas a un usuario. La revocacion tiene efecto
@@ -62,7 +62,7 @@ inmediato y se registra en auditoria.
 - Opcion de revocar todas las funciones
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_02
@@ -92,7 +92,7 @@ inmediato y se registra en auditoria.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -134,7 +134,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - Se registra FUNCTION_REVOKE en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -181,7 +181,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_02
@@ -263,7 +263,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Revocar Todas las Funciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -309,7 +309,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - Permanece en vista de permisos
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso ACC-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -348,7 +348,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - ACC-011
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_02
@@ -402,7 +402,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -425,7 +425,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - La revocacion es atomica: se revocan todas las seleccionadas o ninguna.
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -459,7 +459,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
  )
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -482,7 +482,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - Evento FUNCTION_REVOKE con detalle
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -504,7 +504,7 @@ El administrador selecciona un usuario y elige "Revocar Funciones".
    - ACC-002: revoca_funciones
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

@@ -195,7 +195,7 @@ Plantilla
  ----
 
  1. Declaración del Objetivo
- ---------------------------
+    ---------------------------
 
  1.1 Enunciado
  ^^^^^^^^^^^^^
@@ -222,7 +222,7 @@ Plantilla
  ----
 
  2. Alcance
- ----------
+    ----------
 
  2.1 Incluido
  ^^^^^^^^^^^^
@@ -240,7 +240,7 @@ Plantilla
  ----
 
  3. Stakeholders
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 35 40
@@ -259,7 +259,7 @@ Plantilla
  ----
 
  4. Criterios de Éxito
- ---------------------
+    ---------------------
 
  El objetivo se considera alcanzado cuando:
 
@@ -270,7 +270,7 @@ Plantilla
  ----
 
  5. Artefactos Derivados
- -----------------------
+    -----------------------
 
  5.1 Business Rules (BR)
  ^^^^^^^^^^^^^^^^^^^^^^^
@@ -309,7 +309,7 @@ Plantilla
  ----
 
  6. Restricciones
- ----------------
+    ----------------
 
  6.1 Restricciones de Negocio
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -334,7 +334,7 @@ Plantilla
  ----
 
  7. Dependencias
- ---------------
+    ---------------
 
  7.1 Depende De
  ^^^^^^^^^^^^^^
@@ -350,7 +350,7 @@ Plantilla
  ----
 
  8. Riesgos
- ----------
+    ----------
 
  .. list-table::
  :widths: 30 20 50
@@ -366,7 +366,7 @@ Plantilla
  ----
 
  9. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -384,7 +384,7 @@ Plantilla
  ----
 
  10. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

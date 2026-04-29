@@ -27,7 +27,7 @@ se clasifican segun sus tipos y modalidades.
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Que es una Regla de Negocio
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,7 +93,7 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
 ----
 
 2. Fuentes de Business Rules
-----------------------------
+   ----------------------------
 
 2.1 Fuentes Externas (Obligatorias)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,7 +147,7 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
 ----
 
 3. Taxonomia de Business Rules
-------------------------------
+   ------------------------------
 
 Las Business Rules se clasifican en **5 tipos** segun su naturaleza:
 
@@ -345,7 +345,7 @@ nuevo hecho INTERNO (no observable externamente).
 ----
 
 4. Modalidades SBVR
--------------------
+   -------------------
 
 El estandar SBVR (Semantics of Business Vocabulary and Rules) define
 dos modalidades logicas para clasificar las reglas de negocio.
@@ -469,7 +469,7 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
 ----
 
 5. Template de Business Rule
-----------------------------
+   ----------------------------
 
 5.1 Formato Estandar IACT
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -569,7 +569,7 @@ del OMG que combina aspectos de ontologias y sistemas de reglas.
 ----
 
 6. Tecnicas de Elicitacion de BR
---------------------------------
+   --------------------------------
 
 6.1 Las 6 Preguntas Estrategicas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -629,7 +629,7 @@ Para descubrir Business Rules de manera sistematica, usar estas preguntas:
 ----
 
 7. Business Rules en el Contexto IACT
--------------------------------------
+   -------------------------------------
 
 7.1 Nomenclatura
 ^^^^^^^^^^^^^^^^
@@ -684,7 +684,7 @@ Las Business Rules en IACT siguen la convencion:
 ----
 
 8. Ejemplos en IACT
--------------------
+   -------------------
 
 8.1 BR de Tipo Restriccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -739,7 +739,7 @@ Las Business Rules en IACT siguen la convencion:
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

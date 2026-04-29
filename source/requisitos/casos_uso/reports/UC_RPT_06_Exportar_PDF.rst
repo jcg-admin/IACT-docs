@@ -12,7 +12,7 @@ UC_RPT_06: Exportar PDF
 =======================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_06: Exportar PDF
    - BRQ-RPT-006
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite exportar reportes a formato PDF para impresion
 o distribucion formal. Incluye formato corporativo con encabezados,
@@ -52,7 +52,7 @@ graficos y tablas estilizadas.
 - Auditoria obligatoria (CNST_025)
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_06
@@ -75,7 +75,7 @@ graficos y tablas estilizadas.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Se registra EXPORT_PDF en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -153,7 +153,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Descarga archivo PDF
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_06
@@ -206,7 +206,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Solo Resumen
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,7 +246,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Genera PDF en formato landscape
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Limite Paginas Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - RPT-050
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_06
@@ -310,7 +310,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -347,7 +347,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Numero de pagina, fecha de generacion
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -367,7 +367,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Registro EXPORT_PDF con detalles
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -387,7 +387,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - Graficos renderizados como imagenes
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -407,7 +407,7 @@ El usuario hace clic en Exportar PDF desde un reporte.
    - RPT-006: exporta_pdf
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

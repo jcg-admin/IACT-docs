@@ -184,7 +184,7 @@ Plantilla
  ----
 
  1. Definicion
- -------------
+    -------------
 
  1.1 Enunciado de la Restriccion
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -210,7 +210,7 @@ Plantilla
  ----
 
  2. Especificacion Tecnica
- -------------------------
+    -------------------------
 
  2.1 Descripcion Detallada
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -245,7 +245,7 @@ Plantilla
  ----
 
  3. Impacto en Sistema
- ---------------------
+    ---------------------
 
  3.1 Modulos Afectados
  ^^^^^^^^^^^^^^^^^^^^^
@@ -284,7 +284,7 @@ Plantilla
  ----
 
  4. Business Rules Derivadas
- ---------------------------
+    ---------------------------
 
  .. list-table::
  :widths: 15 45 40
@@ -303,7 +303,7 @@ Plantilla
  ----
 
  5. Implementacion
- -----------------
+    -----------------
 
  5.1 Codigo de Referencia
  ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -335,7 +335,7 @@ Plantilla
  ----
 
  6. Excepciones
- --------------
+    --------------
 
  6.1 Excepciones Permitidas
  ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -355,7 +355,7 @@ Plantilla
  ----
 
  7. Verificacion
- ---------------
+    ---------------
 
  7.1 Criterios de Cumplimiento
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -374,7 +374,7 @@ Plantilla
  ----
 
  8. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -394,7 +394,7 @@ Plantilla
  ----
 
  9. Historial de Cambios
- -----------------------
+    -----------------------
 
  .. list-table::
  :widths: 12 12 20 56

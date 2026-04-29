@@ -45,7 +45,7 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ----
 
 1. Principios del Vocabulario Controlado
-----------------------------------------
+   ----------------------------------------
 
 1.1 Objetivo
 ^^^^^^^^^^^^
@@ -70,7 +70,7 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ----
 
 2. Keywords Obligatorios (Modalidad)
-------------------------------------
+   ------------------------------------
 
 2.1 Keywords Deonticos
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -153,7 +153,7 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ----
 
 3. Terminos Prohibidos
-----------------------
+   ----------------------
 
 3.1 Palabras Ambiguas
 ^^^^^^^^^^^^^^^^^^^^^
@@ -240,7 +240,7 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ----
 
 4. Conceptos del Dominio
-------------------------
+   ------------------------
 
 4.1 Terminos Preferidos
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,7 +300,7 @@ Usar siempre el codigo oficial:
 ----
 
 5. Patrones de Redaccion
-------------------------
+   ------------------------
 
 5.1 Patron para Obligacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -402,7 +402,7 @@ Usar siempre el codigo oficial:
 ----
 
 6. Checklist de Validacion
---------------------------
+   --------------------------
 
 6.1 Antes de Aprobar una BR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -442,7 +442,7 @@ Reglas que pueden validarse por patron:
 ----
 
 7. Ejemplos Corregidos
-----------------------
+   ----------------------
 
 7.1 Antes y Despues
 ^^^^^^^^^^^^^^^^^^^
@@ -473,7 +473,7 @@ Reglas que pueden validarse por patron:
 ----
 
 8. Glosario de Keywords
------------------------
+   -----------------------
 
 Referencia rapida alfabetica:
 
@@ -527,7 +527,7 @@ Referencia rapida alfabetica:
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

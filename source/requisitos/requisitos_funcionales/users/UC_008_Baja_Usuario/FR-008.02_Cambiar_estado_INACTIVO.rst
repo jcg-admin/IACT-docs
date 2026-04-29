@@ -16,7 +16,7 @@ FR-008.02: Cambiar estado a INACTIVO
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-008.02: Cambiar estado a INACTIVO
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -64,7 +64,7 @@ FR-008.02: Cambiar estado a INACTIVO
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -99,7 +99,7 @@ FR-008.02: Cambiar estado a INACTIVO
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_009: Solo bajas lógicas, nunca DELETE físico
@@ -115,7 +115,7 @@ referencias al usuario dado de baja para histórico completo.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -138,7 +138,7 @@ referencias al usuario dado de baja para histórico completo.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

@@ -19,14 +19,14 @@ UC_PERM_08: Generar Menu Dinamico
 
 
 1. Resumen
-----------
+   ----------
 
 
 El sistema genera una estructura de menú jerárquica basada en todas las funciones que tiene un usuario, facilitando la navegación en el frontend.
 
 
 2. Precondiciones
------------------
+   -----------------
 
 
 - Usuario autenticado
@@ -34,7 +34,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 3. Algoritmo
-------------
+   ------------
 
 
 .. code-block:: text
@@ -48,7 +48,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 4. SQL Function
----------------
+   ---------------
 
 
 .. code-block:: sql
@@ -82,7 +82,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 5. API Endpoint
----------------
+   ---------------
 
 
 .. code-block:: text
@@ -106,7 +106,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 6. Performance
---------------
+   --------------
 
 
 - **SQL Function**: 20-40ms (p95)
@@ -115,7 +115,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 7. Uso en Frontend
-------------------
+   ------------------
 
 
 .. code-block:: typescript
@@ -140,7 +140,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 
 8. Casos de Prueba
-------------------
+   ------------------
 
 
 

@@ -469,46 +469,46 @@ DIAGRAMA DE FLUJO
  - Analizar requisitos
  - Diseñar solución
  - Crear branch
- ↓
- [ETAPA 2: Implementación]
+   ↓
+   [ETAPA 2: Implementación]
  - TDD: Red → Green → Refactor
  - Ejecutar linters
  - Verificar coverage
- ↓
- [ETAPA 3: PR Preparation]
+   ↓
+   [ETAPA 3: PR Preparation]
  - Commit con Conventional Commits
  - Push a remote
  - Crear Pull Request
- ↓
- [ETAPA 4: Code Review]
+   ↓
+   [ETAPA 4: Code Review]
  - CI/CD automático
  - Revisión manual por pares
  - Correcciones si necesario
  - Aprobación (2+ reviewers)
- ↓
- [ETAPA 5: Merge & Deploy Staging]
+   ↓
+   [ETAPA 5: Merge & Deploy Staging]
  - Merge a main/develop
  - Deploy automático a staging
  - Validación por QA
- ↓
- ¿Aprobado?
- ├─ NO → Corregir en nueva iteración
- └─ SI ↓
- [ETAPA 6: Deploy Producción]
+   ↓
+   ¿Aprobado?
+   ├─ NO → Corregir en nueva iteración
+   └─ SI ↓
+   [ETAPA 6: Deploy Producción]
  - Pre-deployment checklist
  - Ejecutar deployment
  - Smoke tests
  - Monitoreo (2 horas)
- ↓
- ¿Exitoso?
- ├─ NO → Rollback (PROCED-ROLLBACK-001)
- └─ SI ↓
- [ETAPA 7: Post-Deployment]
+   ↓
+   ¿Exitoso?
+   ├─ NO → Rollback (PROCED-ROLLBACK-001)
+   └─ SI ↓
+   [ETAPA 7: Post-Deployment]
  - Cerrar issue
  - Actualizar docs
  - Registrar métricas DORA
- ↓
- [Feature en Producción]
+   ↓
+   [Feature en Producción]
 
 --------------
 
@@ -761,11 +761,11 @@ REFERENCIAS
 -----------
 
 - `Guía: Procesos vs
- Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md>`__
+  Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md>`__
 - `ADR-002: Estrategia de
- Branching <../adr/ADR-002-branching-strategy.md>`__
+  Branching <../adr/ADR-002-branching-strategy.md>`__
 - `ADR-056: Agentic Design
- Principles <../adr/ADR-056-agentic-design-principles.md>`__
+  Principles <../adr/ADR-056-agentic-design-principles.md>`__
 - `Guía de Estilo <../GUIA_ESTILO.md>`__
 - `Conventional Commits <https://www.conventionalcommits.org/>`__
 

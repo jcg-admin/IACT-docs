@@ -28,18 +28,18 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 --------------
 
 1. Propósito y Obligaciones
----------------------------
+   ---------------------------
 
 - **Estandarizar la ejecución del SDLC** mediante guías y workflows
- documentados, asegurando que cada fase se trace en el RTM y en los
- artefactos de entrega.
+  documentados, asegurando que cada fase se trace en el RTM y en los
+  artefactos de entrega.
 - **Cumplir la Constitución del proyecto** y las normas de seguridad y
- calidad antes de emitir artefactos funcionales.
+  calidad antes de emitir artefactos funcionales.
 - **Mantener trazabilidad manual** hacia las fases ejecutadas y los
- outputs depositados en ``docs/`` o generados por CI/CD.
+  outputs depositados en ``docs/`` o generados por CI/CD.
 
 2. Flujo Mínimo de Cumplimiento
--------------------------------
+   -------------------------------
 
 +-----------------------+-----------------------+-----------------------+
 | Paso | Acción requerida | Evidencia generada |
@@ -75,12 +75,12 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 +-----------------------+-----------------------+-----------------------+
 
 3. Controles Operativos
------------------------
+   -----------------------
 
 - **Parámetros y contexto**: cada ejecución de scripts debe indicar
- entorno, fechas o rango de datos usados.
+  entorno, fechas o rango de datos usados.
 - **Validaciones previas**: verificar versión de Python y dependencias
- antes de correr automatizaciones locales o CI.
+  antes de correr automatizaciones locales o CI.
 - **Trazabilidad bidireccional**: cada artefacto generado debe citar
- este RNF en su frontmatter o bloque de trazabilidad e indicar el
- responsable que lo ejecutó.
+  este RNF en su frontmatter o bloque de trazabilidad e indicar el
+  responsable que lo ejecutó.

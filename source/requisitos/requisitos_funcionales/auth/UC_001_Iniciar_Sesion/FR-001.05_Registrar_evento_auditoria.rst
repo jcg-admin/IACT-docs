@@ -16,7 +16,7 @@ FR-001.05: Registrar evento auditoría login
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-001.05: Registrar evento auditoría login
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -70,7 +70,7 @@ FR-001.05: Registrar evento auditoría login
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -100,7 +100,7 @@ FR-001.05: Registrar evento auditoría login
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_008: Auditoría de accesos obligatoria
@@ -129,7 +129,7 @@ FR-001.05: Registrar evento auditoría login
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -152,7 +152,7 @@ FR-001.05: Registrar evento auditoría login
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

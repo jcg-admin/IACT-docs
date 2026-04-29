@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Derivar Reglas de Negocio (BR) desde Objetivos de Negocio (BReq),
 garantizando trazabilidad completa y cobertura de requisitos.
@@ -46,7 +46,7 @@ garantizando trazabilidad completa y cobertura de requisitos.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Derivacion sistematica BReq -> BR.
 
@@ -55,7 +55,7 @@ garantizando trazabilidad completa y cobertura de requisitos.
 ----
 
 3. Jerarquia de Derivacion
---------------------------
+   --------------------------
 
 ::
 
@@ -67,7 +67,7 @@ garantizando trazabilidad completa y cobertura de requisitos.
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Seleccionar BReq**
 
@@ -110,7 +110,7 @@ En cada BR, documentar BReq origen.
 ----
 
 5. Matriz de Derivacion
------------------------
+   -----------------------
 
 .. list-table::
  :header-rows: 1
@@ -131,7 +131,7 @@ En cada BR, documentar BReq origen.
 ----
 
 6. Artefactos de Salida
------------------------
+   -----------------------
 
 - BR_[NNN].rst generadas
 - RTM_BReq_BR actualizada
@@ -139,7 +139,7 @@ En cada BR, documentar BReq origen.
 ----
 
 7. Verificacion
----------------
+   ---------------
 
 - [ ] Cada BReq tiene minimo 1 BR
 - [ ] Ratio BReq:BR entre 1:2 y 1:4
@@ -148,7 +148,7 @@ En cada BR, documentar BReq origen.
 ----
 
 8. Referencias
---------------
+   --------------
 
 - PROC_Generacion_BR
 - PROC_Generacion_RTM
@@ -157,7 +157,7 @@ En cada BR, documentar BReq origen.
 ----
 
 9. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

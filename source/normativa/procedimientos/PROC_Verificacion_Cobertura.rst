@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Verificar que los requisitos tienen cobertura adecuada en los niveles
 inferiores de la jerarquia (derivacion) y superiores (trazabilidad).
@@ -46,7 +46,7 @@ inferiores de la jerarquia (derivacion) y superiores (trazabilidad).
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Todas las RTM del proyecto.
 
@@ -55,7 +55,7 @@ inferiores de la jerarquia (derivacion) y superiores (trazabilidad).
 ----
 
 3. Metricas de Cobertura
-------------------------
+   ------------------------
 
 .. list-table::
  :header-rows: 1
@@ -82,7 +82,7 @@ inferiores de la jerarquia (derivacion) y superiores (trazabilidad).
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Obtener RTM Actuales**
 
@@ -161,7 +161,7 @@ Para cada gap, definir accion:
 ----
 
 5. Artefactos de Salida
------------------------
+   -----------------------
 
 - Reporte de cobertura
 - Lista de gaps con plan de accion
@@ -169,7 +169,7 @@ Para cada gap, definir accion:
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 - [ ] Todas las RTM evaluadas
 - [ ] Cobertura >= minimo aceptable
@@ -179,7 +179,7 @@ Para cada gap, definir accion:
 ----
 
 7. Referencias
---------------
+   --------------
 
 - PROC_Generacion_RTM
 - PROC_Identificar_Gaps_Huerfanos
@@ -187,7 +187,7 @@ Para cada gap, definir accion:
 ----
 
 8. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -130,7 +130,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 Restricciones Origen (CNST)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -154,7 +154,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,7 +166,7 @@ trazabilidad de acciones en el sistema.
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

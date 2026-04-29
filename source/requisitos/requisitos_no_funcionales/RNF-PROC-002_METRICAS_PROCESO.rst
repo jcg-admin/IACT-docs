@@ -26,18 +26,18 @@ Requisito No Funcional: Métricas y Reporting del SDLC (sin DORA)
 --------------
 
 1. Reglas de Medición
----------------------
+   ---------------------
 
 - **Fuente única de verdad**: los datos de despliegues, incidentes y
- tiempos de ciclo deben almacenarse en los JSON de ``logs_data/`` con
- fecha y origen documentados.
+  tiempos de ciclo deben almacenarse en los JSON de ``logs_data/`` con
+  fecha y origen documentados.
 - **Periodicidad**: actualizar los archivos al menos una vez por ciclo
- de release y registrar la fecha en el README de acompañamiento.
+  de release y registrar la fecha en el README de acompañamiento.
 - **Integridad del dato**: cada actualización debe documentar el método
- de recolección y cualquier limitación conocida.
+  de recolección y cualquier limitación conocida.
 
 2. Procedimiento Operativo
---------------------------
+   --------------------------
 
 +-----------------------+-----------------------+-----------------------+
 | Paso | Acción requerida | Evidencia |
@@ -69,11 +69,11 @@ Requisito No Funcional: Métricas y Reporting del SDLC (sin DORA)
 +-----------------------+-----------------------+-----------------------+
 
 3. Criterios de Cumplimiento
-----------------------------
+   ----------------------------
 
 - Las métricas deben estar disponibles para auditoría y ser
- reproducibles a partir de los datos en ``logs_data/``.
+  reproducibles a partir de los datos en ``logs_data/``.
 - Cualquier automatización futura (scripts ``metrics``) debe incluir
- pruebas unitarias y quedar documentada antes de habilitarse en CI/CD.
+  pruebas unitarias y quedar documentada antes de habilitarse en CI/CD.
 - Los reportes consumidos por dashboards deben citar este RNF y la
- ubicación exacta de los datos usados.
+  ubicación exacta de los datos usados.

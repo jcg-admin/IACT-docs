@@ -28,14 +28,14 @@ UC_PERM_03: Conceder Permiso Excepcional
 
 
 1. Resumen
-----------
+   ----------
 
 
 El Administrador de Sistema concede una funcion específica a un usuario de manera excepcional, sin modificar sus grupos de permisos. Útil para casos temporales o situaciones especiales.
 
 
 2. Actores
-----------
+   ----------
 
 
 - **Actor Primario**: Administrador de Sistema
@@ -43,7 +43,7 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
 
 
 3. Precondiciones
------------------
+   -----------------
 
 
 
@@ -67,7 +67,7 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
 
 
 4. Postcondiciones
-------------------
+   ------------------
 
 
 
@@ -91,7 +91,7 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
 
 
 5. Flujo Principal
-------------------
+   ------------------
 
 
 
@@ -155,7 +155,7 @@ El Administrador de Sistema concede una funcion específica a un usuario de mane
 
 
 6. Flujos Alternativos
-----------------------
+   ----------------------
 
 
 
@@ -226,7 +226,7 @@ FA-003.3: Funcion ya existe pero está inactiva
 
 
 7. Flujos de Excepción
-----------------------
+   ----------------------
 
 
 
@@ -275,7 +275,7 @@ FE-003.2: Funcion no existe
 
 
 8. Reglas de Negocio
---------------------
+   --------------------
 
 
 
@@ -305,7 +305,7 @@ FE-003.2: Funcion no existe
 
 
 9. Requisitos No Funcionales
-----------------------------
+   ----------------------------
 
 
 
@@ -332,7 +332,7 @@ FE-003.2: Funcion no existe
 
 
 10. Datos de Entrada
---------------------
+    --------------------
 
 
 .. code-block:: json
@@ -349,7 +349,7 @@ FE-003.2: Funcion no existe
 
 
 11. Datos de Salida
--------------------
+    -------------------
 
 
 
@@ -380,7 +380,7 @@ Caso Exitoso (HTTP 201)
 
 
 12. Especificaciones Técnicas
------------------------------
+    -----------------------------
 
 
 
@@ -462,7 +462,7 @@ Performance
 
 
 13. Escenarios de Prueba
-------------------------
+    ------------------------
 
 
 
@@ -477,9 +477,9 @@ Caso de Prueba 1: Concesión exitosa temporal
  - Funcion "sistema.vistas.reportes.exportar" existe
  - Usuario NO tiene esta funcion
  - Admin tiene permiso de conceder
- When:
+   When:
  - Admin concede funcion con fecha_fin = "2025-01-15T23:59:59Z"
- Then:
+   Then:
  - Se crea registro en permisos_excepcionales
  - activo=True, tipo='conceder'
  - Usuario puede usar funcion inmediatamente
@@ -522,7 +522,7 @@ Caso de Prueba 3: Motivo muy corto
 
 
 14. Trazabilidad
-----------------
+    ----------------
 
 
 

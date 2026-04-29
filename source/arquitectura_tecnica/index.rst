@@ -34,7 +34,7 @@ high-level, vistas, modelos de datos y diagramas.
  subdominios se incorporaran en iteraciones futuras del WP #7:
 
  - ``arquitectura/`` — overview, observability, storage, data
- centralization, design patterns
+   centralization, design patterns
  - ``despliegue/`` — deployment topologies, infraestructura
  - ``diseno_detallado/`` — diseno de componentes
  - ``plantuml-guide/`` — guia de diagramas PlantUML

@@ -12,7 +12,7 @@ UC_LOG_04: Exportar Logs
 ========================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_LOG_04: Exportar Logs
    - BRQ-LOG-004
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite exportar logs del sistema a formatos externos
 para analisis offline o archivo. La exportacion se registra en
@@ -51,7 +51,7 @@ auditoria (CNST_025). Limite de 500,000 registros por exportacion.
 - Mantiene formato JSON estructurado (CNST_024)
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_LOG_04
@@ -74,7 +74,7 @@ auditoria (CNST_025). Limite de 500,000 registros por exportacion.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -112,7 +112,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - Se registra LOG_EXPORT en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -153,7 +153,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - Inicia descarga del archivo
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_LOG_04
@@ -200,8 +200,8 @@ El operador hace clic en Exportar desde la vista de logs.
  - filtros
  - cantidad
  - formato
- end note
- UAL -> DB: INSERT user_action_log
+   end note
+   UAL -> DB: INSERT user_action_log
 
  ES --> LC: file
  LC --> FE: 200 OK + file
@@ -209,7 +209,7 @@ El operador hace clic en Exportar desde la vista de logs.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Exportar a JSON
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,7 +263,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - Exporta resultados de busqueda
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Limite Excedido
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,7 +300,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - No hay logs para exportar
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_LOG_04
@@ -345,7 +345,7 @@ El operador hace clic en Exportar desde la vista de logs.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -404,7 +404,7 @@ El operador hace clic en Exportar desde la vista de logs.
  )
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -421,7 +421,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - Registro de exportacion en user_action_log
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -441,7 +441,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - Registro en user_action_log
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -457,7 +457,7 @@ El operador hace clic en Exportar desde la vista de logs.
    - LOG-004: exporta_logs
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

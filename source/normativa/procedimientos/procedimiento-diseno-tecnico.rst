@@ -43,7 +43,7 @@ OK Usar cuando:
 ~~~~~~~~~~~~~~~
 
 - Se inicia el diseño de una nueva funcionalidad con ≥ 3 requisitos
- funcionales
+  funcionales
 - Se requiere modificación arquitectónica de componentes existentes
 - Se necesita documentar diagramas de secuencia, flujo o estados
 - Stakeholders solicitan especificación técnica antes de implementación
@@ -604,7 +604,7 @@ Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
 
 - **UML 2.5**: `OMG UML
- Specification <https://www.omg.org/spec/UML/2.5/>`__
+  Specification <https://www.omg.org/spec/UML/2.5/>`__
 - **C4 Model**: `c4model.com <https://c4model.com/>`__
 - **ISO/IEC/IEEE 42010:2011**: Architecture description standard
 - **Mermaid Docs**: `mermaid.js.org <https://mermaid.js.org/>`__

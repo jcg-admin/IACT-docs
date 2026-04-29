@@ -12,7 +12,7 @@ UC_ALR_05: Gestionar Suscripciones
 ==================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ALR_05: Gestionar Suscripciones
    - BRQ-ALR-005
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite gestionar las suscripciones de usuarios a
 alertas. Define quien recibe notificaciones cuando se disparan alertas.
@@ -58,7 +58,7 @@ Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
  por email, SMS o cualquier otro canal externo.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ALR_05
@@ -83,7 +83,7 @@ Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -123,7 +123,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Se registra SUBSCRIPTION_CONFIG en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -170,7 +170,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ALR_05
@@ -240,7 +240,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Desuscribir Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Actualiza registro existente
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Usuario de Otro Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -358,7 +358,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Suscripcion actualizada
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ALR_05
@@ -408,7 +408,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -467,7 +467,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Recibe todas las alertas (incluyendo informativas)
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -513,7 +513,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  # - PushNotification.send
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -536,7 +536,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Registro en user_action_log
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -556,7 +556,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - ALR-005: gestiona_suscripciones
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

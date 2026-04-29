@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Generar Politicas (POL) que establecen directrices de alto nivel
 para gobierno del proyecto.
@@ -44,7 +44,7 @@ para gobierno del proyecto.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Directrices organizacionales y de proyecto.
 
@@ -53,7 +53,7 @@ para gobierno del proyecto.
 ----
 
 3. Diferencia POL vs STD vs PROC
---------------------------------
+   --------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -74,7 +74,7 @@ para gobierno del proyecto.
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Identificar Necesidad**
 
@@ -119,14 +119,14 @@ POL requiere aprobacion de nivel directivo.
 ----
 
 5. Artefactos de Salida
------------------------
+   -----------------------
 
 - POL_[NNN]_[Nombre].rst
 
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 - [ ] Directriz clara
 - [ ] Alcance definido
@@ -136,7 +136,7 @@ POL requiere aprobacion de nivel directivo.
 ----
 
 7. Referencias
---------------
+   --------------
 
 - TPL_POL
 - STD relacionados
@@ -145,7 +145,7 @@ POL requiere aprobacion de nivel directivo.
 ----
 
 8. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

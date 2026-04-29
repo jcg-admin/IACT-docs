@@ -16,7 +16,7 @@ FR-006.02: Verificar unicidad de username
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-006.02: Verificar unicidad de username
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -64,7 +64,7 @@ FR-006.02: Verificar unicidad de username
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -98,7 +98,7 @@ FR-006.02: Verificar unicidad de username
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_013: Username único en todo el sistema
@@ -113,7 +113,7 @@ normalizado (lowercase) para garantizar unicidad a nivel de BD.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -134,7 +134,7 @@ normalizado (lowercase) para garantizar unicidad a nivel de BD.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definición Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,7 +85,7 @@ La política de retención de 2 años:
 ----
 
 2. Clasificación
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ La política de retención de 2 años:
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -137,7 +137,7 @@ La política de retención de 2 años:
 ----
 
 4. Aplicación en Sistema
-------------------------
+   ------------------------
 
 4.1 Tablas Afectadas
 ^^^^^^^^^^^^^^^^^^^^
@@ -183,7 +183,7 @@ La política de retención de 2 años:
 ----
 
 5. Implementación Técnica
--------------------------
+   -------------------------
 
 5.1 Comando de Limpieza
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -257,7 +257,7 @@ La política de retención de 2 años:
 ----
 
 6. Trazabilidad
----------------
+   ---------------
 
 - **Origen**: CNST_006 (Retención de Datos)
 - **UC Relacionados**: UC_LOG_04 (Configurar Retención)
@@ -266,7 +266,7 @@ La política de retención de 2 años:
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 70

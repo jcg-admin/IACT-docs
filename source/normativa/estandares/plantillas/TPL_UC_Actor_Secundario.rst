@@ -96,7 +96,7 @@ NO use este template para:
 
 ----------------------------------------------------------------------
 1. DIAGRAMA DE ACTORES
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -196,7 +196,7 @@ Visualizar graficamente los actores y sus relaciones en el UC.
 
 ----------------------------------------------------------------------
 2. TABLA DE RESPONSABILIDADES
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -333,7 +333,7 @@ Restricciones:
 
 ----------------------------------------------------------------------
 3. FLUJO CON INTERACCIONES DETALLADAS
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -403,7 +403,7 @@ en link "Revisar Solicitud"
  - Opcion: Aprobar
  - Ejecutar: Programar para manana 6:00 AM
  - Comentarios: "Aprobado. Ejecutar en horario valle para no
- afectar performance."
+   afectar performance."
 
 5. **Supervisor hace click en "Confirmar Decision"**
 
@@ -585,7 +585,7 @@ En paso 4, si Supervisor selecciona Rechazar:
 
 ----------------------------------------------------------------------
 4. CODIGO DE NOTIFICACIONES
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -604,7 +604,7 @@ Documentar codigo especifico de comunicacion entre actores.
  - Supervisor (principal actor)
  - Analyst (secondary actor, requester)
  - Analytics System (secondary actor, data provider)
- """
+   """
  
  from django.core.mail import send_mail
  from django.template.loader import render_to_string

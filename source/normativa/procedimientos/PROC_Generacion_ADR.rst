@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Documentar Decisiones Arquitectonicas (ADR) siguiendo formato estandar
 para registrar el contexto, decision y consecuencias.
@@ -44,7 +44,7 @@ para registrar el contexto, decision y consecuencias.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Decisiones tecnicas significativas.
 
@@ -53,7 +53,7 @@ para registrar el contexto, decision y consecuencias.
 ----
 
 3. Cuando Crear ADR
--------------------
+   -------------------
 
 - Seleccion de tecnologia
 - Patron arquitectonico
@@ -63,7 +63,7 @@ para registrar el contexto, decision y consecuencias.
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Identificar Decision**
 
@@ -125,7 +125,7 @@ Impacto positivo y negativo:
 ----
 
 5. Estados de ADR
------------------
+   -----------------
 
 - **Propuesta:** En evaluacion
 - **Aceptada:** Decision tomada
@@ -135,14 +135,14 @@ Impacto positivo y negativo:
 ----
 
 6. Artefactos de Salida
------------------------
+   -----------------------
 
 - ADR_[NNN]_[Titulo].rst
 
 ----
 
 7. Verificacion
----------------
+   ---------------
 
 - [ ] Contexto claro
 - [ ] Decision explicita
@@ -152,7 +152,7 @@ Impacto positivo y negativo:
 ----
 
 8. Referencias
---------------
+   --------------
 
 - TPL_ADR
 - CNST relacionadas
@@ -160,7 +160,7 @@ Impacto positivo y negativo:
 ----
 
 9. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

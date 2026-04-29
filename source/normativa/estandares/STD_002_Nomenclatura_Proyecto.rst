@@ -23,7 +23,7 @@ STD_002: Nomenclatura Estándar del Proyecto IACT
 ----
 
 1. Propósito
-============
+   ============
 
 Este documento define la **nomenclatura estándar** para todos los artefactos
 del proyecto IACT. Establece las convenciones de nombres de archivo,
@@ -41,7 +41,7 @@ documentación del proyecto.
 ----
 
 2. Principios Generales
-=======================
+   =======================
 
 2.1 Separadores
 ---------------
@@ -114,7 +114,7 @@ documentación del proyecto.
 ----
 
 3. Versionado Semántico
-=======================
+   =======================
 
 3.1 Formato
 -----------
@@ -158,7 +158,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 ----
 
 4. Nomenclatura por Tipo de Artefacto
-=====================================
+   =====================================
 
 4.1 Templates (TPL) - 17 Templates en
 -------------------------------------
@@ -859,7 +859,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 ----
 
 5. Catálogo Completo de Prefijos
-=================================
+   =================================
 
 .. list-table::
  :widths: 10 30 15 45
@@ -983,7 +983,7 @@ Todos los artefactos usan **versionado semántico SemVer 2.0.0**:
 ----
 
 6. Checklist de Validación
-===========================
+   ===========================
 
 Al crear o renombrar un artefacto, verificar:
 
@@ -1013,7 +1013,7 @@ Al crear o renombrar un artefacto, verificar:
 ----
 
 7. Ejemplos Completos por Dominio
-==================================
+   ==================================
 
 7.1 Dominio: requisitos/
 -------------------------
@@ -1110,7 +1110,7 @@ Al crear o renombrar un artefacto, verificar:
 ----
 
 8. Migración de Nomenclatura v1.0 → v2.0
-========================================
+   ========================================
 
 8.1 Cambios Principales
 ------------------------
@@ -1208,7 +1208,7 @@ Al crear o renombrar un artefacto, verificar:
 ----
 
 9. Historial de Cambios
-========================
+   ========================
 
 .. list-table::
  :widths: 10 15 20 55

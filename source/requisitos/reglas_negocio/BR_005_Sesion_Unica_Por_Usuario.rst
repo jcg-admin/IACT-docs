@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -118,7 +118,7 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -149,7 +149,7 @@ Sin excepciones definidas.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 Restricciones Origen (CNST)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Sin excepciones definidas.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,7 +220,7 @@ Sin excepciones definidas.
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

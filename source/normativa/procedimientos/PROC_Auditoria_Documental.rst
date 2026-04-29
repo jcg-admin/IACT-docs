@@ -38,7 +38,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Realizar auditoria integral del modelo documental para verificar
 consistencia, completitud y adherencia a estandares.
@@ -46,7 +46,7 @@ consistencia, completitud y adherencia a estandares.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Todo el modelo documental IACT.
 
@@ -55,7 +55,7 @@ consistencia, completitud y adherencia a estandares.
 ----
 
 3. Areas de Auditoria
----------------------
+   ---------------------
 
 1. **Estructura:** Carpetas y organizacion
 2. **Nomenclatura:** IDs y nombres de archivo
@@ -66,7 +66,7 @@ consistencia, completitud y adherencia a estandares.
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Verificar Estructura**
 
@@ -136,7 +136,7 @@ Para cada hallazgo, asignar responsable y fecha.
 ----
 
 5. Artefactos de Salida
------------------------
+   -----------------------
 
 - Reporte de auditoria
 - Plan de remediacion
@@ -145,7 +145,7 @@ Para cada hallazgo, asignar responsable y fecha.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 - [ ] 5 areas auditadas
 - [ ] Hallazgos documentados
@@ -154,7 +154,7 @@ Para cada hallazgo, asignar responsable y fecha.
 ----
 
 7. Referencias
---------------
+   --------------
 
 - PROC_Verificacion_Cobertura
 - PROC_Identificar_Gaps_Huerfanos
@@ -163,7 +163,7 @@ Para cada hallazgo, asignar responsable y fecha.
 ----
 
 8. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

@@ -12,7 +12,7 @@ UC_RPT_08: Ver Reportes Programados
 ===================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_RPT_08: Ver Reportes Programados
    - BRQ-RPT-008
 
 2. Descripcion
---------------
+   --------------
 
 Permite consultar las programaciones de reportes activas, su estado,
 proxima ejecucion y historial de ejecuciones anteriores.
@@ -50,7 +50,7 @@ proxima ejecucion y historial de ejecuciones anteriores.
 - Filtrado por segmento (CNST_008)
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_RPT_08
@@ -67,7 +67,7 @@ proxima ejecucion y historial de ejecuciones anteriores.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -99,7 +99,7 @@ Usuario accede a reportes programados.
    - Se muestra lista de programaciones
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -125,7 +125,7 @@ Usuario accede a reportes programados.
    - Selecciona programacion para ver detalle
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_RPT_08
@@ -158,7 +158,7 @@ Usuario accede a reportes programados.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Ver Historial de Ejecucion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,7 +178,7 @@ Usuario accede a reportes programados.
    - Muestra ejecuciones anteriores con estado
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Programaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,7 +193,7 @@ Usuario accede a reportes programados.
    - No hay reportes programados
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_RPT_08
@@ -217,7 +217,7 @@ Usuario accede a reportes programados.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -249,7 +249,7 @@ Usuario accede a reportes programados.
    - Deshabilitada
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -263,7 +263,7 @@ Usuario accede a reportes programados.
    - Solo programaciones del segmento
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -280,7 +280,7 @@ Usuario accede a reportes programados.
    - Ultimas 30 ejecuciones
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -298,7 +298,7 @@ Usuario accede a reportes programados.
    - RPT-008: ve_programados
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

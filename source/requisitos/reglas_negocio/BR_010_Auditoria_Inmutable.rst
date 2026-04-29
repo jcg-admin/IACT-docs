@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,7 +72,7 @@ cumplimiento regulatorio, y deteccion de manipulacion de logs.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -89,7 +89,7 @@ cumplimiento regulatorio, y deteccion de manipulacion de logs.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -108,7 +108,7 @@ cumplimiento regulatorio, y deteccion de manipulacion de logs.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -126,7 +126,7 @@ politica de retencion (ver BR_018).
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 Restricciones Origen (CNST)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +143,7 @@ politica de retencion (ver BR_018).
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -155,7 +155,7 @@ politica de retencion (ver BR_018).
 ----
 
 7. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

@@ -16,7 +16,7 @@ FR-003.03: Validar respuesta de seguridad
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-003.03: Validar respuesta de seguridad
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -67,7 +67,7 @@ FR-003.03: Validar respuesta de seguridad
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -101,7 +101,7 @@ FR-003.03: Validar respuesta de seguridad
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -118,7 +118,7 @@ FR-003.03: Validar respuesta de seguridad
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -139,7 +139,7 @@ FR-003.03: Validar respuesta de seguridad
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

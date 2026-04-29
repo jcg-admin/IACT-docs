@@ -23,21 +23,21 @@ STD: Documentación Profesional
 ----
 
 1. Propósito
-============
+   ============
 
 Establecer el lenguaje, tono y estructura obligatorios para toda
 la documentación del proyecto IACT. Garantiza:
 
 - Comunicación técnica clara y directa.
 - Ausencia de coloquialismos, metáforas decorativas y vocabulario
- no profesional.
+  no profesional.
 - Consistencia de tono y terminología en toda la documentación
- publicada.
+  publicada.
 
 ----
 
 2. Alcance
-==========
+   ==========
 
 Aplica a todo documento bajo ``source/`` del proyecto IACT,
 incluyendo:
@@ -54,15 +54,15 @@ incluyendo:
 NO aplica a:
 
 - Comentarios dentro del código (rige STD_Naming_Identificadores
- para nombres + clean code para comentarios).
+  para nombres + clean code para comentarios).
 - Logs operacionales del sistema.
 - Mensajes de commit (rigen los lineamientos de Tim Pope del
- repositorio, no este STD).
+  repositorio, no este STD).
 
 ----
 
 3. Lenguaje obligatorio
-=======================
+   =======================
 
 3.1 Tono profesional
 --------------------
@@ -75,7 +75,7 @@ La documentación usa lenguaje técnico, directo y formal.
 - Directo y claro.
 - Formal pero no rígido.
 - Inglés cuando el documento es en inglés; español cuando es en
- español. Sin mezclar idiomas sin razón.
+  español. Sin mezclar idiomas sin razón.
 - Terminología consistente.
 
 **No aceptable:**
@@ -130,7 +130,7 @@ alternativa profesional.
 ----
 
 4. Estructura obligatoria
-=========================
+   =========================
 
 4.1 Estilo de headings
 ----------------------
@@ -147,7 +147,7 @@ En documentos RST (formato del proyecto), los underlines siguen
 la jerarquía estándar. Los **textos** de los headings cumplen:
 
 - Heading principal de archivo: en Title Case o all caps según
- el estilo del documento, manteniendo profesionalismo.
+  el estilo del documento, manteniendo profesionalismo.
 - Sub-headings: Title Case.
 
 **Anti-patrones de heading prohibidos:**
@@ -227,7 +227,7 @@ identificador.
 ----
 
 5. Headings recomendados (referencia)
-=====================================
+   =====================================
 
 Para artefactos del proyecto se recomienda usar (entre otros) los
 siguientes nombres de sección:
@@ -247,7 +247,7 @@ siguientes nombres de sección:
 ----
 
 6. Cumplimiento
-===============
+   ===============
 
 6.1 Aplicación retroactiva
 --------------------------
@@ -278,18 +278,18 @@ de univocidad".
 ----
 
 7. Referencias
-==============
+   ==============
 
 - :ref:`std-001` — Documentación Sin Emojis (complementario:
- prohibición de emojis en documentación técnica).
+  prohibición de emojis en documentación técnica).
 - :ref:`std-naming-identificadores` — Naming de identificadores
- técnicos (complementario: aplica a identificadores de código,
- este STD aplica a narrativa de documentación).
+  técnicos (complementario: aplica a identificadores de código,
+  este STD aplica a narrativa de documentación).
 
 ----
 
 8. Historial
-============
+   ============
 
 .. list-table::
  :header-rows: 1

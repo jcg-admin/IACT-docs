@@ -178,7 +178,7 @@ Plantilla
  ----
 
  1. Definición Formal
- --------------------
+    --------------------
 
  1.1 Enunciado de la Regla
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +215,7 @@ Plantilla
  ----
 
  2. Clasificación
- ----------------
+    ----------------
 
  2.1 Tipo de Regla
  ^^^^^^^^^^^^^^^^^
@@ -247,7 +247,7 @@ Plantilla
  ----
 
  3. Origen y Autoridad
- ---------------------
+    ---------------------
 
  3.1 Fuente Primaria
  ^^^^^^^^^^^^^^^^^^^
@@ -275,7 +275,7 @@ Plantilla
  ----
 
  4. Aplicación en Sistema
- ------------------------
+    ------------------------
 
  4.1 Donde Aplica
  ^^^^^^^^^^^^^^^^
@@ -300,7 +300,7 @@ Plantilla
  ----
 
  5. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -318,7 +318,7 @@ Plantilla
  ----
 
  6. Verificación
- ---------------
+    ---------------
 
  6.1 Criterios de Cumplimiento
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,7 +337,7 @@ Plantilla
  ----
 
  7. Implementación Técnica
- -------------------------
+    -------------------------
 
  7.1 Componentes Involucrados
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,7 +363,7 @@ Plantilla
  ----
 
  8. Historial de Cambios
- -----------------------
+    -----------------------
 
  .. list-table::
  :widths: 15 15 70

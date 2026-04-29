@@ -183,7 +183,7 @@ Plantilla
  ----
 
  1. Contexto
- -----------
+    -----------
 
  [Descripcion detallada del contexto que motiva esta decision.
  Incluir:
@@ -195,7 +195,7 @@ Plantilla
  ----
 
  2. Problema
- -----------
+    -----------
 
  [Enunciado claro y conciso del problema o pregunta que esta decision resuelve.
  Formato sugerido: "Necesitamos decidir [X] porque [Y]"]
@@ -203,7 +203,7 @@ Plantilla
  ----
 
  3. Alternativas Consideradas
- ----------------------------
+    ----------------------------
 
  3.1 Alternativa A: [Nombre]
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,7 +254,7 @@ Plantilla
  ----
 
  4. Decision
- -----------
+    -----------
 
  4.1 Alternativa Seleccionada
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -275,7 +275,7 @@ Plantilla
  ----
 
  5. Consecuencias
- ----------------
+    ----------------
 
  5.1 Consecuencias Positivas
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -307,7 +307,7 @@ Plantilla
  ----
 
  6. Implementacion
- -----------------
+    -----------------
 
  6.1 Acciones Requeridas
  ^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,7 +331,7 @@ Plantilla
  ----
 
  7. Validacion
- -------------
+    -------------
 
  7.1 Criterios de Exito
  ^^^^^^^^^^^^^^^^^^^^^^
@@ -351,7 +351,7 @@ Plantilla
  ----
 
  8. Relaciones
- -------------
+    -------------
 
  8.1 ADR Relacionados
  ^^^^^^^^^^^^^^^^^^^^
@@ -377,7 +377,7 @@ Plantilla
  ----
 
  9. Referencias
- --------------
+    --------------
 
  - [Documento 1]: [URL o referencia]
  - [Documento 2]: [URL o referencia]
@@ -386,7 +386,7 @@ Plantilla
  ----
 
  10. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

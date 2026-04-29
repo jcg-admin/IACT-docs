@@ -166,7 +166,7 @@ TABLA DE CONTENIDO
 
 
 1. FILOSOFÍA DEL MODELO
-=======================
+   =======================
 
 
 
@@ -208,7 +208,7 @@ TABLA DE CONTENIDO
 
 
 2. ARQUITECTURA IACT
-====================
+   ====================
 
 
 
@@ -279,7 +279,7 @@ TABLA DE CONTENIDO
 
 
 3. CATÁLOGO DE 42 FUNCIONES
-===========================
+   ===========================
 
 
 
@@ -775,7 +775,7 @@ TABLA DE CONTENIDO
 
 
 4. LOS 10 GRUPOS DE FUNCIONES
-=============================
+   =============================
 
 
 
@@ -1071,7 +1071,7 @@ AGR-010 system_admin_group
 
 
 5. SEPARACIÓN DE FUNCIONES (SoD)
-================================
+   ================================
 
 
 
@@ -1178,7 +1178,7 @@ SOD-003 access_audit_separation
 
 
 6. PERMISOS TEMPORALES
-======================
+   ======================
 
 
 
@@ -1230,7 +1230,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 7. MODELO DE DATOS
-==================
+   ==================
 
 
 
@@ -1252,7 +1252,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 8. IMPLEMENTACIÓN SQL
-=====================
+   =====================
 
 
 
@@ -1587,7 +1587,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 9. IMPLEMENTACIÓN DJANGO
-========================
+   ========================
 
 
 
@@ -1617,33 +1617,33 @@ Una función puede asignarse **temporalmente** con:
  - view_reports
  - export_csv
  - create_users
- """
- function_id = models.CharField(
- max_length=20,
- unique=True,
- help_text="Identificador único (AUTH-001, USR-001, etc.)"
- )
- name = models.CharField(
- max_length=100,
- help_text="Nombre descriptivo (view_reports, export_csv, create_users)"
- )
- description = models.TextField(
- help_text="Descripción de qué hace la función"
- )
- category = models.CharField(
- max_length=50,
- choices=[
- ('auth', 'Autenticación'),
- ('users', 'Usuarios'),
- ('access', 'Acceso'),
- ('pipeline', 'Pipeline'),
- ('reports', 'Reportes'),
- ('alerts', 'Alertas'),
- ('audit', 'Auditoría'),
- ('logs', 'Logs'),
- ],
- help_text="Módulo al que pertenece"
- )
+   """
+   function_id = models.CharField(
+   max_length=20,
+   unique=True,
+   help_text="Identificador único (AUTH-001, USR-001, etc.)"
+   )
+   name = models.CharField(
+   max_length=100,
+   help_text="Nombre descriptivo (view_reports, export_csv, create_users)"
+   )
+   description = models.TextField(
+   help_text="Descripción de qué hace la función"
+   )
+   category = models.CharField(
+   max_length=50,
+   choices=[
+   ('auth', 'Autenticación'),
+   ('users', 'Usuarios'),
+   ('access', 'Acceso'),
+   ('pipeline', 'Pipeline'),
+   ('reports', 'Reportes'),
+   ('alerts', 'Alertas'),
+   ('audit', 'Auditoría'),
+   ('logs', 'Logs'),
+   ],
+   help_text="Módulo al que pertenece"
+   )
  
  class Meta:
  db_table = 'functions'
@@ -1662,25 +1662,25 @@ Una función puede asignarse **temporalmente** con:
  Un grupo agrupa múltiples funciones relacionadas. Ejemplos:
  - basic_operator_group (view_reports + view_dashboard)
  - user_admin_group (create + update + delete users)
- """
- group_id = models.CharField(
- max_length=20,
- unique=True,
- help_text="Identificador único (AGR-001 a AGR-010)"
- )
- name = models.CharField(
- max_length=100,
- help_text="Nombre del grupo (basic_operator_group, user_admin_group)"
- )
- description = models.TextField(
- help_text="Descripción del grupo"
- )
- functions = models.ManyToManyField(
- Function,
- through='FunctionGroupMembership',
- related_name='groups',
- help_text="Funciones incluidas en este grupo"
- )
+   """
+   group_id = models.CharField(
+   max_length=20,
+   unique=True,
+   help_text="Identificador único (AGR-001 a AGR-010)"
+   )
+   name = models.CharField(
+   max_length=100,
+   help_text="Nombre del grupo (basic_operator_group, user_admin_group)"
+   )
+   description = models.TextField(
+   help_text="Descripción del grupo"
+   )
+   functions = models.ManyToManyField(
+   Function,
+   through='FunctionGroupMembership',
+   related_name='groups',
+   help_text="Funciones incluidas en este grupo"
+   )
  
  class Meta:
  db_table = 'function_groups'
@@ -1813,30 +1813,30 @@ Una función puede asignarse **temporalmente** con:
  Ejemplo: pipeline_audit_separation
  - Grupo A: Funciones de pipeline (PIP-001 a PIP-004)
  - Grupo B: Funciones de auditoría (AUD-001 a AUD-004)
- """
- restriction_id = models.CharField(
- max_length=20,
- unique=True,
- help_text="Identificador único (SOD-001, SOD-002, SOD-003)"
- )
- name = models.CharField(
- max_length=100,
- help_text="Nombre de la regla (pipeline_audit_separation)"
- )
- description = models.TextField(
- help_text="Descripción de la restricción"
- )
- reason = models.TextField(
- help_text="Razón de negocio para la separación"
- )
- cnst_reference = models.CharField(
- max_length=20,
- help_text="Restricción CNST relacionada (CNST-005)"
- )
- active = models.BooleanField(
- default=True,
- help_text="Si la regla está activa"
- )
+   """
+   restriction_id = models.CharField(
+   max_length=20,
+   unique=True,
+   help_text="Identificador único (SOD-001, SOD-002, SOD-003)"
+   )
+   name = models.CharField(
+   max_length=100,
+   help_text="Nombre de la regla (pipeline_audit_separation)"
+   )
+   description = models.TextField(
+   help_text="Descripción de la restricción"
+   )
+   reason = models.TextField(
+   help_text="Razón de negocio para la separación"
+   )
+   cnst_reference = models.CharField(
+   max_length=20,
+   help_text="Restricción CNST relacionada (CNST-005)"
+   )
+   active = models.BooleanField(
+   default=True,
+   help_text="Si la regla está activa"
+   )
  
  class Meta:
  db_table = 'function_separation_rules'
@@ -1920,7 +1920,7 @@ Una función puede asignarse **temporalmente** con:
  - Nombre descriptivo (NO "RBACService")
  - Métodos en inglés
  - Comentarios en español
- """
+   """
  
  def __init__(self, request_user: User = None):
  """
@@ -2259,7 +2259,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 10. MAPEO FUNCIONES → CASOS DE USO
-==================================
+    ==================================
 
 
 
@@ -2409,7 +2409,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 11. MIGRACIÓN DESDE v5.2.0
-==========================
+    ==========================
 
 
 
@@ -2541,7 +2541,7 @@ Una función puede asignarse **temporalmente** con:
 
 
 12. RESUMEN
-===========
+    ===========
 
 
 

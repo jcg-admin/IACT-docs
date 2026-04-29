@@ -664,11 +664,11 @@ Referencias
 -----------
 
 - `ADR-GOB-002: Organización de Proyecto por
- Dominio <../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.md>`__
+  Dominio <../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.md>`__
 - `GUIA-GOB-002: Convenciones de
- Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
 - `Architecture Decision Records - Michael
- Nygard <https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions>`__
+  Nygard <https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions>`__
 
 Historial de Cambios
 --------------------

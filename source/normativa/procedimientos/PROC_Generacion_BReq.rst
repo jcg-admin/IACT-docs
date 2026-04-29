@@ -36,7 +36,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Generar Objetivos de Negocio (BReq) que representan las metas de alto
 nivel del sistema IACT siguiendo TPL_BReq.
@@ -44,7 +44,7 @@ nivel del sistema IACT siguiendo TPL_BReq.
 ----
 
 2. Alcance
-----------
+   ----------
 
 **Aplica A:** Definicion de objetivos estrategicos del sistema.
 
@@ -53,7 +53,7 @@ nivel del sistema IACT siguiendo TPL_BReq.
 ----
 
 3. Categorias de BReq
----------------------
+   ---------------------
 
 .. list-table::
  :header-rows: 1
@@ -80,7 +80,7 @@ nivel del sistema IACT siguiendo TPL_BReq.
 ----
 
 4. Procedimiento
-----------------
+   ----------------
 
 **Paso 1: Identificar Objetivo**
 
@@ -118,14 +118,14 @@ Listar BR que implementaran el BReq.
 ----
 
 5. Artefactos de Salida
------------------------
+   -----------------------
 
 - BReq_[NNN]_[Nombre].rst
 
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 - [ ] Objetivo claro y medible
 - [ ] KPIs definidos
@@ -134,7 +134,7 @@ Listar BR que implementaran el BReq.
 ----
 
 7. Referencias
---------------
+   --------------
 
 - TPL_BReq
 - PROC_Derivacion_BReq_BR
@@ -142,7 +142,7 @@ Listar BR que implementaran el BReq.
 ----
 
 8. Historial
-------------
+   ------------
 
 .. list-table::
  :header-rows: 1

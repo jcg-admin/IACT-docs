@@ -16,7 +16,7 @@ FR-011.01: Listar funciones asignadas al usuario
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-011.01: Listar funciones asignadas al usuario
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -72,7 +72,7 @@ FR-011.01: Listar funciones asignadas al usuario
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -106,7 +106,7 @@ FR-011.01: Listar funciones asignadas al usuario
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_006: RBAC Flat NIST
@@ -121,7 +121,7 @@ para evitar bloqueo de acceso.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -142,7 +142,7 @@ para evitar bloqueo de acceso.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

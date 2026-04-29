@@ -185,7 +185,7 @@ Plantilla
  ----
 
  1. Objetivo
- -----------
+    -----------
 
  [Descripción del objetivo del caso de prueba en 1-2 oraciones.
  Responde: ¿Qué se está verificando con esta prueba?]
@@ -193,7 +193,7 @@ Plantilla
  ----
 
  2. Precondiciones
- -----------------
+    -----------------
 
  Antes de ejecutar esta prueba, verificar:
 
@@ -205,7 +205,7 @@ Plantilla
  ----
 
  3. Datos de Prueba
- ------------------
+    ------------------
 
  3.1 Datos de Entrada
  ^^^^^^^^^^^^^^^^^^^^
@@ -248,7 +248,7 @@ Plantilla
  ----
 
  4. Pasos de Ejecución
- ---------------------
+    ---------------------
 
  .. list-table::
  :widths: 8 50 42
@@ -273,7 +273,7 @@ Plantilla
  ----
 
  5. Resultado Esperado
- ---------------------
+    ---------------------
 
  5.1 Criterio de Éxito
  ^^^^^^^^^^^^^^^^^^^^^
@@ -312,7 +312,7 @@ Plantilla
  ----
 
  6. Código de Prueba
- -------------------
+    -------------------
 
  6.1 Implementación pytest
  ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -372,7 +372,7 @@ Plantilla
  ----
 
  7. Trazabilidad
- ---------------
+    ---------------
 
  .. list-table::
  :widths: 25 75
@@ -390,7 +390,7 @@ Plantilla
  ----
 
  8. Registro de Ejecución
- ------------------------
+    ------------------------
 
  .. list-table::
  :widths: 12 12 15 15 46
@@ -410,7 +410,7 @@ Plantilla
  ----
 
  9. Defectos Relacionados
- ------------------------
+    ------------------------
 
  .. list-table::
  :widths: 15 50 20 15
@@ -428,7 +428,7 @@ Plantilla
  ----
 
  10. Historial de Cambios
- ------------------------
+     ------------------------
 
  .. list-table::
  :widths: 12 12 20 56

@@ -28,7 +28,7 @@ ARQ_MOD_003: Roles, Segmentos y Permisos (RBAC_CORE)
 ----
 
 1. Proposito
-============
+   ============
 
 El modulo RBAC_CORE es el **nucleo de control de acceso** del sistema IACT.
 Define roles, permisos, segmentos de datos, y calcula los permisos efectivos
@@ -44,7 +44,7 @@ validaciones internas del RBAC.
 ----
 
 2. Alcance
-==========
+   ==========
 
 2.1 Incluye
 -----------
@@ -69,7 +69,7 @@ validaciones internas del RBAC.
 ----
 
 3. Responsabilidades
-====================
+   ====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -141,7 +141,7 @@ validaciones internas del RBAC.
 ----
 
 4. Enforcers de Seguridad (ex-SEC_RULES)
-========================================
+   ========================================
 
 Los enforcers aplican **automaticamente** las restricciones criticas:
 
@@ -174,7 +174,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 5. Dependencias
-===============
+   ===============
 
 5.1 Depende de
 --------------
@@ -211,7 +211,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 6. Componentes Tecnicos
-=======================
+   =======================
 
 6.1 Apps Django
 ---------------
@@ -293,7 +293,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 7. Restricciones Aplicables
-===========================
+   ===========================
 
 .. list-table::
  :widths: 15 85
@@ -310,7 +310,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 8. Casos de Uso Asociados
-=========================
+   =========================
 
 .. list-table::
  :widths: 12 40 48
@@ -344,7 +344,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 9. Precedencia de Permisos
-==========================
+   ==========================
 
 .. code-block:: text
 
@@ -367,22 +367,22 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 ----
 
 10. Reglas SoD (Separation of Duties)
-=====================================
+    =====================================
 
 .. code-block:: text
 
  CONFLICTOS DEFINIDOS:
  
  - USERS_CREATOR (R006) <-> AUDIT_VIEWER (R017)
- Quien crea usuarios no puede ver auditoria completa
+   Quien crea usuarios no puede ver auditoria completa
  
  - REPORTS_ADMIN (R003) <-> EXPORT_UNLIMITED (R004)
- Evita acumulacion de poder sobre datos
+   Evita acumulacion de poder sobre datos
 
 ----
 
 11. Historial de Cambios
-========================
+    ========================
 
 .. list-table::
  :widths: 12 15 73

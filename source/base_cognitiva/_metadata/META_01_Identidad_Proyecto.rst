@@ -17,7 +17,7 @@ META_01 · Identidad del Proyecto
 ================================
 
 1. Identificación Oficial
--------------------------
+   -------------------------
 
 .. list-table:: Datos de Identificación
  :widths: 30 70
@@ -39,7 +39,7 @@ META_01 · Identidad del Proyecto
 
 ---------------------------
 2. Descripción del Proyecto
----------------------------
+   ---------------------------
 
 2.1. Descripción Ejecutiva
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -56,17 +56,17 @@ Sistema web multi-tier compuesto por:
 
 - **Backend:** Django REST Framework (Python 3.11+).
 - **Frontend:** React + Webpack (lenguaje JavaScript /
- TypeScript — decisión pendiente, registrada como ADR en
- gobernanza).
+  TypeScript — decisión pendiente, registrada como ADR en
+  gobernanza).
 - **Bases de datos:** arquitectura dual.
 
  - **MySQL** — fuente operativa, modo solo-lectura desde IACT
- (los datos los genera el sistema IVR origen externo).
+   (los datos los genera el sistema IVR origen externo).
  - **PostgreSQL** — destino analítico, optimizado para consultas
- agregadas y reportes.
+   agregadas y reportes.
 
 - **Infraestructura:** Ubuntu + Apache (``mod_wsgi`` para servir
- Django).
+  Django).
 - **Cache:** sin caché distribuido (Redis no aplicado).
 - **Mensajería asíncrona:** sin broker (Celery no aplicado).
 
@@ -78,7 +78,7 @@ y provee dashboards analíticos en tiempo real.
 
 -----------------------
 3. Alcance del Proyecto
------------------------
+   -----------------------
 
 3.1. Dentro del Alcance (In-Scope)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ y provee dashboards analíticos en tiempo real.
 
 -------------------------
 4. Objetivos del Proyecto
--------------------------
+   -------------------------
 
 4.1. Objetivo General
 ^^^^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ con sistemas IVR.
 
 ---------------------------
 5. Stakeholders Principales
----------------------------
+   ---------------------------
 
 .. list-table::
  :widths: 25 25 50
@@ -163,7 +163,7 @@ con sistemas IVR.
 
 ----------------------------
 6. Restricciones y Supuestos
-----------------------------
+   ----------------------------
 
 6.1. Restricciones
 ^^^^^^^^^^^^^^^^^^
@@ -199,7 +199,7 @@ con sistemas IVR.
 
 --------------
 7. Referencias
---------------
+   --------------
 
 .. list-table::
  :widths: 30 70

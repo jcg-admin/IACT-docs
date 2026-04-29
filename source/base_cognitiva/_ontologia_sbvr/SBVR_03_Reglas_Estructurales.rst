@@ -54,7 +54,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 1. Diferencia: Aletica vs Deontica
-----------------------------------
+   ----------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -82,7 +82,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 2. Reglas de Identidad
-----------------------
+   ----------------------
 
 2.1 Unicidad de Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,7 +177,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 3. Reglas de Existencia
------------------------
+   -----------------------
 
 3.1 Usuario tiene Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -268,7 +268,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 4. Reglas de Estado
--------------------
+   -------------------
 
 4.1 Estados de Usuario
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -339,7 +339,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 5. Reglas de Cardinalidad
--------------------------
+   -------------------------
 
 5.1 Roles por Usuario
 ^^^^^^^^^^^^^^^^^^^^^
@@ -404,7 +404,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 6. Reglas de Inmutabilidad
---------------------------
+   --------------------------
 
 6.1 Registros de Auditoria
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -462,7 +462,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 7. Reglas de Catalogo Cerrado
------------------------------
+   -----------------------------
 
 7.1 Catalogo de Roles
 ^^^^^^^^^^^^^^^^^^^^^
@@ -543,7 +543,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 8. Reglas de Herencia
----------------------
+   ---------------------
 
 8.1 Sin Herencia de Roles
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -595,7 +595,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 9. Matriz de Reglas Estructurales
----------------------------------
+   ---------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -693,7 +693,7 @@ verdadero en el dominio - verdades estructurales que no pueden violarse.
 ----
 
 10. Referencias
----------------
+    ---------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

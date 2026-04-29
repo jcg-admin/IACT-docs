@@ -16,7 +16,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -68,7 +68,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -103,7 +103,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:** Ninguna específica
  
@@ -120,7 +120,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -141,7 +141,7 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

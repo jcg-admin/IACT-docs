@@ -28,14 +28,14 @@ UC_PERM_09: Auditar Acceso
 
 
 1. Resumen
-----------
+   ----------
 
 
 El sistema registra automáticamente cada verificación de permisos en la tabla de auditoría, capturando quién, cuándo, qué funcion y el resultado.
 
 
 2. Actores
-----------
+   ----------
 
 
 - **Actor Primario**: PermissionAuditMiddleware
@@ -43,7 +43,7 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 
 3. Datos Capturados
--------------------
+   -------------------
 
 
 
@@ -79,7 +79,7 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 
 4. SQL Function
----------------
+   ---------------
 
 
 .. code-block:: sql
@@ -120,7 +120,7 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 
 5. Performance
---------------
+   --------------
 
 
 - **Síncrono**: 10-15ms (INSERT + verificación)
@@ -129,7 +129,7 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 
 6. Estrategias de Auditoría
----------------------------
+   ---------------------------
 
 
 
@@ -163,7 +163,7 @@ Opción 2: Auditoría Asíncrona (producción)
 
 
 7. Retención de Datos
----------------------
+   ---------------------
 
 
 
@@ -183,7 +183,7 @@ Opción 2: Auditoría Asíncrona (producción)
 
 
 8. Consultas de Auditoría
--------------------------
+   -------------------------
 
 
 
@@ -220,7 +220,7 @@ Consulta 2: Actividad por usuario
 
 
 9. Alertas Automáticas
-----------------------
+   ----------------------
 
 
 

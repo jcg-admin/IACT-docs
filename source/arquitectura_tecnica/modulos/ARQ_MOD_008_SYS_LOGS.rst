@@ -28,7 +28,7 @@ ARQ_MOD_008: Bitacoras Tecnicas (SYS_LOGS)
 ----
 
 1. Proposito
-============
+   ============
 
 El modulo SYS_LOGS gestiona los **logs tecnicos** y el **estado de salud**
 del sistema. Orientado a soporte, NOC y devops.
@@ -42,7 +42,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 2. Alcance
-==========
+   ==========
 
 2.1 Incluye
 -----------
@@ -71,7 +71,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 3. Responsabilidades
-====================
+   ====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -127,7 +127,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 4. Niveles de Log
-=================
+   =================
 
 .. list-table::
  :widths: 15 25 60
@@ -155,7 +155,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 5. Configuracion de Logging
-===========================
+   ===========================
 
 .. code-block:: python
 
@@ -203,7 +203,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 6. Health Checks
-================
+   ================
 
 .. code-block:: python
 
@@ -232,7 +232,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 7. Dependencias
-===============
+   ===============
 
 7.1 Depende de
 --------------
@@ -265,7 +265,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 8. Componentes Tecnicos
-=======================
+   =======================
 
 8.1 Apps Django
 ---------------
@@ -310,7 +310,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 9. Restricciones Aplicables
-===========================
+   ===========================
 
 .. list-table::
  :widths: 15 85
@@ -328,7 +328,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 10. Casos de Uso Asociados
-==========================
+    ==========================
 
 .. list-table::
  :widths: 12 40 48
@@ -353,7 +353,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 11. Requisitos Funcionales Derivados
-====================================
+    ====================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -379,7 +379,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 12. Metricas Tecnicas
-=====================
+    =====================
 
 .. list-table::
  :widths: 30 30 40
@@ -407,7 +407,7 @@ del sistema. Orientado a soporte, NOC y devops.
 ----
 
 13. Historial de Cambios
-========================
+    ========================
 
 .. list-table::
  :widths: 12 15 73

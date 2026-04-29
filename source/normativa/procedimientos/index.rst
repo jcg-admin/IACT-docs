@@ -29,12 +29,12 @@ Categorización
 ==============
 
 - ``PROC-MOD-NNN-desc`` — procedimientos generales de un módulo
- funcional (DEV, DEVOPS, OPS, QA, GOB).
+  funcional (DEV, DEVOPS, OPS, QA, GOB).
 - ``PROCED-MOD-NNN-desc`` — procedimientos de gobernanza
- (creación de artefactos, revisión, aprobación).
+  (creación de artefactos, revisión, aprobación).
 - ``PROC_Desc`` — procedimientos de generación y derivación de
- artefactos documentales (variante sin módulo, scope
- transversal).
+  artefactos documentales (variante sin módulo, scope
+  transversal).
 
 ----
 

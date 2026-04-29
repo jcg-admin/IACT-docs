@@ -28,14 +28,14 @@ UC_PERM_06: Asignar Funciones a Grupo
 
 
 1. Resumen
-----------
+   ----------
 
 
 El Administrador modifica las funciones asociadas a un grupo existente, agregando o removiendo funciones según necesidades del negocio.
 
 
 2. Flujo Principal
-------------------
+   ------------------
 
 
 
@@ -74,7 +74,7 @@ El Administrador modifica las funciones asociadas a un grupo existente, agregand
 
 
 3. Reglas de Negocio
---------------------
+   --------------------
 
 
 - RN-006.1: Grupo debe mantener al menos 1 funcion
@@ -83,7 +83,7 @@ El Administrador modifica las funciones asociadas a un grupo existente, agregand
 
 
 4. Datos de Entrada
--------------------
+   -------------------
 
 
 .. code-block:: json
@@ -101,7 +101,7 @@ El Administrador modifica las funciones asociadas a un grupo existente, agregand
 
 
 5. API Endpoint
----------------
+   ---------------
 
 
 .. code-block:: text
@@ -112,7 +112,7 @@ El Administrador modifica las funciones asociadas a un grupo existente, agregand
 
 
 6. Impacto
-----------
+   ----------
 
 
 Al modificar funciones de un grupo, TODOS los usuarios con ese grupo se ven afectados inmediatamente. El sistema debe:

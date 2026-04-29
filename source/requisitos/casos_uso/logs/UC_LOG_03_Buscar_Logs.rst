@@ -12,7 +12,7 @@ UC_LOG_03: Buscar Logs
 ======================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_LOG_03: Buscar Logs
    - BRQ-LOG-003
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite realizar busquedas avanzadas en los logs
 del sistema utilizando texto libre o expresiones regulares.
@@ -51,7 +51,7 @@ Los logs estan en formato JSON (CNST_024).
 - Resultados ordenados por relevancia o fecha
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_LOG_03
@@ -74,7 +74,7 @@ Los logs estan en formato JSON (CNST_024).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ El operador accede a la busqueda de logs.
    - La consulta es de solo lectura
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -148,7 +148,7 @@ El operador accede a la busqueda de logs.
    - Navega por resultados
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_LOG_03
@@ -189,11 +189,11 @@ El operador accede a la busqueda de logs.
  - message
  - context.*
  - correlation_id
- end note
- @enduml
+   end note
+   @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Busqueda por Texto Libre
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,7 +247,7 @@ El operador accede a la busqueda de logs.
    - Retorna todos los logs de ese flujo ordenados
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Regex Invalido
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -284,7 +284,7 @@ El operador accede a la busqueda de logs.
    - No se encontraron logs para la busqueda
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_LOG_03
@@ -324,7 +324,7 @@ El operador accede a la busqueda de logs.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -366,7 +366,7 @@ El operador accede a la busqueda de logs.
    - Nivel de severidad
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -380,7 +380,7 @@ El operador accede a la busqueda de logs.
    - Busqueda optimizada para estructura JSON
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -400,7 +400,7 @@ El operador accede a la busqueda de logs.
    - Flujo completo visible
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -416,7 +416,7 @@ El operador accede a la busqueda de logs.
    - LOG-003: busca_logs
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 70

@@ -36,11 +36,11 @@ Tradicionalmente, los proyectos se organizan por **tipo de archivo**
 puede generar problemas de cohesión cuando el proyecto crece:
 
 - Archivos relacionados funcionalmente están dispersos en diferentes
- directorios raíz
+  directorios raíz
 - Dificulta la navegación: para trabajar en infraestructura, hay que
- tocar scripts/, tests/, docs/, artifacts/
+  tocar scripts/, tests/, docs/, artifacts/
 - Escalabilidad limitada: cuando se agregan nuevos dominios (ui/,
- api/), la raíz se satura
+  api/), la raíz se satura
 - Falta de boundaries claros entre dominios
 
 Opciones Evaluadas
@@ -176,7 +176,7 @@ Positivas
 4. **Modularización**: Boundaries claros entre dominios
 5. **Onboarding más fácil**: Estructura intuitiva
 6. **Migración futura facilitada**: Cada dominio puede convertirse en
- repo separado si es necesario
+   repo separado si es necesario
 
 Negativas (mitigadas)
 ~~~~~~~~~~~~~~~~~~~~~
@@ -186,12 +186,12 @@ Negativas (mitigadas)
  - **Mitigación**: Scripts cross-cutting en scripts/ raíz
 
 2. **Convenciones tradicionales**: Difiere de proyectos tipo src/,
- tests/
+   tests/
 
  - **Mitigación**: Es más moderno y escalable (usado por monorepos)
 
 3. **Descubrimiento inicial**: Desarrolladores nuevos deben aprender
- estructura
+   estructura
 
  - **Mitigación**: Este ADR + README documentan la decisión
 
@@ -457,7 +457,7 @@ Documentación del Proyecto
 - Este ADR documenta la decisión y justificación
 - README principal debe incluir mapa de navegación
 - Cada dominio (``api/``, ``ui/``, ``infrastructure/``) debe tener su
- propio README
+  propio README
 
 --------------
 
@@ -499,7 +499,7 @@ Estado de Implementación
 
 - COMPLETADO: Migración de ``infrastructure/`` a dominio (2025-11-06)
 - COMPLETADO: Reorganización de CPython como subdomain
- ``infrastructure/cpython/`` (2025-11-06)
+  ``infrastructure/cpython/`` (2025-11-06)
 - PENDIENTE: README principal actualizado con mapa de navegación
 - PENDIENTE: Documentar en guía de desarrollo
 - PENDIENTE: Aplicar a ``api/`` cuando se agreguen tests/scripts

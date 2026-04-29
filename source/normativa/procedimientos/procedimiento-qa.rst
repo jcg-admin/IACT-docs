@@ -29,7 +29,7 @@ Niveles de Testing
 ------------------
 
 1. Tests Unitarios (Desarrolladores)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsable**: Desarrollador **Cuándo**: Durante desarrollo (TDD)
 **Cobertura objetivo**: 80%+
@@ -46,7 +46,7 @@ Niveles de Testing
  open htmlcov/index.html
 
 2. Tests de Integración (Desarrolladores + QA)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsable**: Desarrollador (crea), QA (valida) **Cuándo**: Antes de
 PR **Alcance**: Integración entre componentes
@@ -60,7 +60,7 @@ PR **Alcance**: Integración entre componentes
  pytest tests/integration/ --use-real-db
 
 3. Tests End-to-End (QA)
-~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsable**: QA **Cuándo**: En staging antes de release **Alcance**:
 Flujos completos de usuario
@@ -73,7 +73,7 @@ Flujos completos de usuario
  # O manualmente siguiendo test cases
 
 4. Tests de Aceptación (QA + Product Owner)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsable**: QA y PO **Cuándo**: Antes de release a producción
 **Alcance**: Validación de criterios de aceptación
@@ -443,7 +443,7 @@ Recursos Relacionados
 - `Checklist de Testing <../checklists/checklist_testing.md>`__
 - `Estrategia de QA <../qa/estrategia_qa.md>`__
 - `Procedimiento: Desarrollo
- Local <procedimiento_desarrollo_local.md>`__
+  Local <procedimiento_desarrollo_local.md>`__
 - `Procedimiento: Release <procedimiento_release.md>`__
 
 Referencias
@@ -451,9 +451,9 @@ Referencias
 
 - `pytest Documentation <https://docs.pytest.org/>`__
 - `Django
- Testing <https://docs.djangoproject.com/en/stable/topics/testing/>`__
+  Testing <https://docs.djangoproject.com/en/stable/topics/testing/>`__
 - `Test
- Pyramid <https://martinfowler.com/articles/practical-test-pyramid.html>`__
+  Pyramid <https://martinfowler.com/articles/practical-test-pyramid.html>`__
 
 Changelog
 ---------

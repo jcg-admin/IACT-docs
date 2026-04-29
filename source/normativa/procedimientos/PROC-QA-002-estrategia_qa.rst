@@ -27,9 +27,9 @@ Línea base de QA
 
 - Consolidar suite ``pytest`` con cobertura mínima de 80 %.
 - Registrar TC-USR-010 y TC-ADM-005 en ``tests/`` por aplicación
- Django.
+  Django.
 - Documentar criterios de salida para despliegues APScheduler y
- reportes.
+  reportes.
 - Mantener bitácora de ejecuciones en ``registros/``.
 
 Métricas esperadas
@@ -55,18 +55,18 @@ Actividades coordinadas
 -----------------------
 
 - Seguir las tareas definidas en
- ```actividades_garantia_documental.md`` <actividades_garantia_documental.md>`__
- para revisar plantillas y trazabilidad.
+  ```actividades_garantia_documental.md`` <actividades_garantia_documental.md>`__
+  para revisar plantillas y trazabilidad.
 - Levantar hallazgos en ``qa/registros/`` cuando se detecten
- incumplimientos de documentación.
+  incumplimientos de documentación.
 - Alinear con producto y arquitectura una revisión semanal dedicada a
- documentación.
+  documentación.
 
 Acciones prioritarias
 ---------------------
 
 - ☐ Generar reporte inicial de cobertura y publicarlo en
- ``registros/``.
+  ``registros/``.
 - ☐ Completar registro de criterios de salida y enlazarlo con
- Planificación y DevOps.
+  Planificación y DevOps.
 - ☐ Configurar automatización de tests en la canalización CI.

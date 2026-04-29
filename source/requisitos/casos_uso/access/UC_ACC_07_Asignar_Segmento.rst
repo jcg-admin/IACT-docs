@@ -12,7 +12,7 @@ UC_ACC_07: Asignar Segmento
 ===========================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -36,7 +36,7 @@ UC_ACC_07: Asignar Segmento
    - BRQ-ACC-007
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite asignar o cambiar el segmento de datos de un
 usuario. El segmento determina que datos puede ver el usuario segun su
@@ -50,7 +50,7 @@ ubicacion o area de responsabilidad.
 - El cambio tiene efecto inmediato
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_07
@@ -71,7 +71,7 @@ ubicacion o area de responsabilidad.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -109,7 +109,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - Se registra SEGMENT_ASSIGN en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -147,7 +147,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - Muestra confirmacion
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_07
@@ -182,7 +182,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Mismo Segmento
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -202,7 +202,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - Muestra mensaje: Sin cambios
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Segmento Inactivo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -223,7 +223,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - ACC-060
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_07
@@ -256,7 +256,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -276,7 +276,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - El cambio afecta inmediatamente la visibilidad de datos
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -293,7 +293,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - Se registra SEGMENT_ASSIGN con segmento anterior y nuevo
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -310,7 +310,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - Auditoria con old y new segmento
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -330,7 +330,7 @@ El administrador selecciona un usuario y elige cambiar su segmento.
    - USR-010: asigna_segmento
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

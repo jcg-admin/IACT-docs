@@ -47,7 +47,7 @@ Necesidades del Proyecto IACT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Trazabilidad bidireccional**: Desde reglas de negocio hasta código
- y viceversa
+   y viceversa
 2. **IDs únicos**: Cada artefacto identificable y referenciable
 3. **Referencias explícitas**: Conexiones documentadas entre artefactos
 4. **Gestión de cambios**: Identificar impacto de modificaciones
@@ -700,13 +700,13 @@ Referencias
 -----------
 
 - `IEEE 29148-2018: Requirements
- Traceability <https://standards.ieee.org/standard/29148-2018.html>`__
+  Traceability <https://standards.ieee.org/standard/29148-2018.html>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-006: Clasificación de Reglas de
- Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
 - `ADR-GOB-007: Especificación de Casos de
- Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
 
 Historial de Cambios
 --------------------

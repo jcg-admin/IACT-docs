@@ -16,7 +16,7 @@ FR-001.04: Invalidar sesiones previas
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-001.04: Invalidar sesiones previas
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -62,7 +62,7 @@ FR-001.04: Invalidar sesiones previas
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -91,7 +91,7 @@ FR-001.04: Invalidar sesiones previas
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_005: Sesión única - Un usuario solo puede tener una sesión activa
@@ -108,7 +108,7 @@ FR-001.04: Invalidar sesiones previas
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -131,7 +131,7 @@ FR-001.04: Invalidar sesiones previas
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

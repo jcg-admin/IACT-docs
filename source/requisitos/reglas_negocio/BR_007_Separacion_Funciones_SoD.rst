@@ -40,7 +40,7 @@ Resumen Ejecutivo
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Enunciado de la Regla
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ Cumple con principios de auditoria y control interno.
 ----
 
 2. Clasificacion
-----------------
+   ----------------
 
 2.1 Tipo de Regla
 ^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ Cumple con principios de auditoria y control interno.
 ----
 
 3. Origen y Autoridad
----------------------
+   ---------------------
 
 3.1 Fuente Primaria
 ^^^^^^^^^^^^^^^^^^^
@@ -118,7 +118,7 @@ Cumple con principios de auditoria y control interno.
 ----
 
 4. Aplicacion en Sistema
-------------------------
+   ------------------------
 
 4.1 Donde Aplica
 ^^^^^^^^^^^^^^^^
@@ -150,7 +150,7 @@ documentada del sponsor y registro en auditoria.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 5.1 Restricciones Origen (CNST)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,7 +195,7 @@ documentada del sponsor y registro en auditoria.
 ----
 
 6. Verificacion
----------------
+   ---------------
 
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -221,7 +221,7 @@ documentada del sponsor y registro en auditoria.
 ----
 
 7. Restricciones SoD Definidas
-------------------------------
+   ------------------------------
 
 ::
 
@@ -232,7 +232,7 @@ documentada del sponsor y registro en auditoria.
 ----
 
 8. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 15 15 20 50

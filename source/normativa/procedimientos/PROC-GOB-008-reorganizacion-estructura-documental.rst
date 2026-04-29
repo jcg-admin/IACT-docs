@@ -139,7 +139,7 @@ FASE 0: Preparación y Análisis Inicial
  - 60-70 tareas estimadas
  - Timeline y recursos
  - **Output:**
- ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
+   ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
 
 5. **Listar todas las tareas**
 
@@ -376,7 +376,7 @@ Herramientas
 
 - **Git**: Control de versiones y backup
 - **Agentes de IA especializados**: Automatización de creación de
- tareas y contenido
+  tareas y contenido
 - **Scripts de validación**: Bash/Python para FASE 4
 - **Markdown**: Formato de documentación
 
@@ -538,20 +538,20 @@ Lecciones Aprendidas (de docs/backend/)
 
 1. **Uso masivo de agentes en paralelo**: Reducción 70% tiempo ejecución
 2. **Técnicas de prompting avanzadas**: Auto-CoT y Self-Consistency
- aumentaron calidad
+   aumentaron calidad
 3. **Validaciones automatizadas FASE 4**: Identificación temprana de
- problemas
+   problemas
 4. **Documentación de evidencias**: Trazabilidad completa del proceso
 
 Áreas de Mejora
 ~~~~~~~~~~~~~~~
 
 1. **Metadatos YAML**: Solo 0.18% válidos inicialmente - necesita más
- atención
+   atención
 2. **Enlaces rotos**: 44.97% válidos - crear script prevención desde
- inicio
+   inicio
 3. **READMEs**: 62.4% cobertura inicial - incluir en checklist de
- creación de carpetas
+   creación de carpetas
 
 Recomendaciones
 ~~~~~~~~~~~~~~~
@@ -622,7 +622,7 @@ Documentos Modelo
 - ``docs/gobernanza/procedimientos/PROCED-GOB-007-consolidacion-ramas-git.md``
  - Metodología
 - ``docs/backend/qa/QA-ANALISIS-ESTRUCTURA-BACKEND-001/`` - Ejemplo
- exitoso
+   exitoso
 
 Plantillas
 ~~~~~~~~~~

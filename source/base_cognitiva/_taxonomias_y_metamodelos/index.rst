@@ -178,22 +178,22 @@ Para comprension completa del modelo IACT:
 .. code-block:: text
 
  1. TXM_01 Taxonomia Requisitos
- └── Entender tipos de requisitos
+    └── Entender tipos de requisitos
 
  2. TXM_03 Taxonomia Reglas Negocio
- └── Entender los 5 tipos de BR
+    └── Entender los 5 tipos de BR
 
  3. MTM_01 Metamodelo Requisitos
- └── Formalizar relaciones BR-UC-FR
+    └── Formalizar relaciones BR-UC-FR
 
  4. MTM_02 Metamodelo Trazabilidad
- └── Entender links y cobertura
+    └── Entender links y cobertura
 
  5. TXM_02 Taxonomia Artefactos
- └── Mapa completo del sistema documental
+    └── Mapa completo del sistema documental
 
  6. MTM_03 Metamodelo RBAC
- └── Core de seguridad del sistema
+    └── Core de seguridad del sistema
 
 ----
 

@@ -28,7 +28,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 1. Modelo NIST RBAC
--------------------
+   -------------------
 
 1.1 Niveles RBAC
 ^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 2. Diagrama de Clases Principal
--------------------------------
+   -------------------------------
 
 2.1 Vista General
 ^^^^^^^^^^^^^^^^^
@@ -138,7 +138,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 3. Detalle de Entidades
------------------------
+   -----------------------
 
 3.1 Usuario
 ^^^^^^^^^^^
@@ -214,12 +214,12 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  El catalogo vigente declara:
 
  - **42 funciones atomicas** (capabilities) en formato accion-recurso:
- manage_sessions, view_reports, export_csv, etc.
+   manage_sessions, view_reports, export_csv, etc.
  - **10 grupos predefinidos** (system groups, inmutables)
- AGR-001..AGR-010 que agrupan funciones por uso tipico.
+   AGR-001..AGR-010 que agrupan funciones por uso tipico.
  - **3 reglas SoD** (Separation of Duties) atomicas: SOD-001
- pipeline_audit_separation, SOD-002 user_audit_separation,
- SOD-003 access_audit_separation.
+   pipeline_audit_separation, SOD-002 user_audit_separation,
+   SOD-003 access_audit_separation.
 
  Tabla de los 10 grupos predefinidos:
 
@@ -346,7 +346,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 4. Tablas de Relacion
----------------------
+   ---------------------
 
 4.1 Usuario_Rol (N:N)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -419,7 +419,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 5. Diagrama ER Completo
------------------------
+   -----------------------
 
 .. code-block:: text
 
@@ -474,7 +474,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 6. Algoritmos Clave
--------------------
+   -------------------
 
 6.1 Verificar Permiso
 ^^^^^^^^^^^^^^^^^^^^^
@@ -488,10 +488,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  SELECT role_id FROM user_roles WHERE user_id = @user_id
 
  2. Para cada rol, obtener permisos
- SELECT permission_id FROM role_permissions WHERE role_id IN (roles)
+    SELECT permission_id FROM role_permissions WHERE role_id IN (roles)
 
  3. Verificar si permiso existe en conjunto
- RETURN permission_name IN user_permissions
+    RETURN permission_name IN user_permissions
 
  SQL EQUIVALENTE:
  SELECT EXISTS (
@@ -557,7 +557,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 7. Restricciones del Modelo
----------------------------
+   ---------------------------
 
 7.1 Restricciones de Integridad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -617,7 +617,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 ----
 
 8. Estadisticas IACT
---------------------
+   --------------------
 
 8.1 Volumetria Esperada
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -706,7 +706,7 @@ Detalle completo de los 10 grupos: ver
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -46,7 +46,7 @@ principales, sus caracteristicas distintivas y criterios de clasificacion.
 ----
 
 1. Vista General de la Taxonomia
---------------------------------
+   --------------------------------
 
 .. code-block:: text
 
@@ -94,7 +94,7 @@ principales, sus caracteristicas distintivas y criterios de clasificacion.
 ----
 
 2. Tipo 1: Hecho (Fact)
------------------------
+   -----------------------
 
 2.1 Definicion
 ^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ de datos y las relaciones entre entidades.
 ----
 
 3. Tipo 2: Restriccion (Constraint)
------------------------------------
+   -----------------------------------
 
 3.1 Definicion
 ^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ o no puede ocurrir en el sistema.
 ----
 
 4. Tipo 3: Desencadenador (Trigger)
------------------------------------
+   -----------------------------------
 
 4.1 Definicion
 ^^^^^^^^^^^^^^
@@ -344,7 +344,7 @@ ENTONCES produce una **accion observable** externamente.
 ----
 
 5. Tipo 4: Inferencia (Inference)
----------------------------------
+   ---------------------------------
 
 5.1 Definicion
 ^^^^^^^^^^^^^^
@@ -425,7 +425,7 @@ ENTONCES produce un **cambio interno** no observable directamente.
 ----
 
 6. Tipo 5: Calculo (Calculation)
---------------------------------
+   --------------------------------
 
 6.1 Definicion
 ^^^^^^^^^^^^^^
@@ -508,7 +508,7 @@ en un resultado.
 ----
 
 7. Comparacion de Tipos
------------------------
+   -----------------------
 
 7.1 Tabla Comparativa
 ^^^^^^^^^^^^^^^^^^^^^
@@ -584,7 +584,7 @@ en un resultado.
 ----
 
 8. Matriz de Transformacion
----------------------------
+   ---------------------------
 
 .. list-table::
  :header-rows: 1
@@ -618,7 +618,7 @@ en un resultado.
 ----
 
 9. Estadisticas IACT
---------------------
+   --------------------
 
 9.1 BR Identificadas por Tipo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -652,7 +652,7 @@ en un resultado.
 ----
 
 10. Referencias
----------------
+    ---------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

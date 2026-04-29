@@ -12,7 +12,7 @@ UC_AUTH_03: Recuperar Contrasena
 ================================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_AUTH_03: Recuperar Contrasena
    - BRQ-AUTH-003
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) generar
 una contrasena temporal para un usuario que ha olvidado sus credenciales.
@@ -61,7 +61,7 @@ interno del sistema (CNST_001).
  otro canal externo. Solo se utiliza InternalMessage (buzon interno).
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUTH_03
@@ -96,7 +96,7 @@ interno del sistema (CNST_001).
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -147,7 +147,7 @@ para un usuario especifico.
    - Se registra PASSWORD_RESET en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -209,7 +209,7 @@ para un usuario especifico.
    - Recibe mensaje en su buzon interno con contrasena temporal
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUTH_03
@@ -322,7 +322,7 @@ para un usuario especifico.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Usuario Bloqueado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -365,7 +365,7 @@ para un usuario especifico.
    - Retorna a la lista de usuarios
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso AUT-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -440,7 +440,7 @@ para un usuario especifico.
    - AUTH-023
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUTH_03
@@ -514,7 +514,7 @@ para un usuario especifico.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -543,7 +543,7 @@ para un usuario especifico.
    - La contrasena temporal SOLO se comunica via InternalMessage, nunca por canales externos.
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -604,7 +604,7 @@ para un usuario especifico.
  )
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -630,7 +630,7 @@ para un usuario especifico.
    - Evento PASSWORD_RESET con admin y usuario afectado
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -652,7 +652,7 @@ para un usuario especifico.
    - AUT-003: resetea_password
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

@@ -28,7 +28,7 @@ ARQ_MOD_006: Alertas y Notificaciones (ALERTS)
 ----
 
 1. Proposito
-============
+   ============
 
 El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 **buzon interno de notificaciones**. Respeta la restriccion critica de
@@ -41,7 +41,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 2. Alcance
-==========
+   ==========
 
 2.1 Incluye
 -----------
@@ -64,7 +64,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 3. Responsabilidades
-====================
+   ====================
 
 3.1 PUEDE Hacer
 ---------------
@@ -130,7 +130,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 4. Tipos de Alerta
-==================
+   ==================
 
 .. list-table::
  :widths: 20 40 40
@@ -152,7 +152,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 5. InternalMessage (Reemplaza Email)
-====================================
+   ====================================
 
 .. code-block:: python
 
@@ -185,7 +185,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 6. Dependencias
-===============
+   ===============
 
 6.1 Depende de
 --------------
@@ -224,7 +224,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 7. Componentes Tecnicos
-=======================
+   =======================
 
 7.1 Apps Django
 ---------------
@@ -300,7 +300,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 8. Restricciones Aplicables
-===========================
+   ===========================
 
 .. list-table::
  :widths: 15 85
@@ -315,7 +315,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 9. Casos de Uso Asociados
-=========================
+   =========================
 
 .. list-table::
  :widths: 12 40 48
@@ -343,7 +343,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 10. Requisitos Funcionales Derivados
-====================================
+    ====================================
 
 .. list-table::
  :widths: 12 45 20 23
@@ -373,7 +373,7 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 ----
 
 11. Historial de Cambios
-========================
+    ========================
 
 .. list-table::
  :widths: 12 15 73

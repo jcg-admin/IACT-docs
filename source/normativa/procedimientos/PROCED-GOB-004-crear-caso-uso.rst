@@ -363,12 +363,12 @@ Reglas de Escritura
 
 1. **Numerar pasos secuencialmente**: 1, 2, 3, …
 2. **Un paso = una acción concreta**: No “el sistema hace A, B, C y D”
- en un paso
+   en un paso
 3. **Separar claramente**: Actor en columna izquierda, Sistema en
- columna derecha
+   columna derecha
 4. **Perspectiva del usuario**: Describir comportamiento observable
 5. **Principio QUÉ vs CÓMO**: Describir QUÉ hace el sistema, NO CÓMO lo
- hace
+   hace
 
 Plantilla de Inicio
 ~~~~~~~~~~~~~~~~~~~
@@ -576,7 +576,7 @@ Preguntas para Identificar Flujos Alternos
 1. ¿Hay diferentes formas de lograr el mismo objetivo?
 2. ¿Hay opciones que el usuario puede elegir?
 3. ¿Qué pasa si ciertos datos no están disponibles pero el caso de uso
- puede continuar?
+   puede continuar?
 
 Preguntas para Identificar Excepciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -684,7 +684,7 @@ Proceso de Derivación
 
 1. Revisar cada paso en “RESPONSABILIDADES DEL SISTEMA”
 2. Por cada responsabilidad, preguntar: ¿Qué funcionalidad específica se
- necesita?
+   necesita?
 3. Documentar como RF
 
 Relación UC → RF
@@ -1382,15 +1382,15 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-007: Especificación de Casos de
- Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
- Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 - `PROCED-GOB-003: Documentar Regla de
- Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
 
 Historial de Cambios
 --------------------

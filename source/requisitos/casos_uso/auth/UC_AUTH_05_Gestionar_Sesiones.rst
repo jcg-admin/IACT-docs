@@ -12,7 +12,7 @@ UC_AUTH_05: Gestionar Sesiones
 ==============================
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -38,7 +38,7 @@ UC_AUTH_05: Gestionar Sesiones
    - BRQ-AUTH-005
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) visualizar
 y gestionar las sesiones activas de todos los usuarios del sistema. Incluye
@@ -56,7 +56,7 @@ cerrar todas las sesiones de un usuario especifico.
 - Registro de todas las acciones en auditoria (CNST_025)
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_AUTH_05
@@ -91,7 +91,7 @@ cerrar todas las sesiones de un usuario especifico.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -145,7 +145,7 @@ administracion.
    - Se registra SESSION_CLOSED en auditoria (CNST_025)
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -207,7 +207,7 @@ administracion.
    - Muestra confirmacion de cierre
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_AUTH_05
@@ -304,7 +304,7 @@ administracion.
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Cerrar Todas las Sesiones de un Usuario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -379,7 +379,7 @@ administracion.
    - Redirige a pantalla de login
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Sin Permiso para Ver Sesiones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -436,7 +436,7 @@ administracion.
    - AUTH-042
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_AUTH_05
@@ -503,7 +503,7 @@ administracion.
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -529,7 +529,7 @@ administracion.
    - Coherente con CNST_003, cada usuario solo puede tener una sesion activa.
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -580,7 +580,7 @@ administracion.
  )
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -606,7 +606,7 @@ administracion.
    - Evento SESSION_CLOSED con admin y usuario afectado
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -628,7 +628,7 @@ administracion.
    - AUT-001, AUT-002, AUT-004
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

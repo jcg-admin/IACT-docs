@@ -16,7 +16,7 @@ FR-010.04: Calcular permisos efectivos
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-010.04: Calcular permisos efectivos
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -76,7 +76,7 @@ FR-010.04: Calcular permisos efectivos
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -110,7 +110,7 @@ FR-010.04: Calcular permisos efectivos
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_006: RBAC Flat NIST (permisos aditivos)
@@ -125,7 +125,7 @@ ni denegaciones explícitas en el modelo RBAC Flat.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -146,7 +146,7 @@ ni denegaciones explícitas en el modelo RBAC Flat.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

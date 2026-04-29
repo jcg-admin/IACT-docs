@@ -45,12 +45,12 @@ Tabla de Contenidos
 -------------------
 
 1. `Regla Fundamental: Output
- Profesional <#regla-fundamental-output-profesional>`__
+   Profesional <#regla-fundamental-output-profesional>`__
 2. `Estándares de Python <#estándares-de-python>`__
 3. `Estándares de Scripts de Shell <#estándares-de-scripts-de-shell>`__
 4. `Estándares de PowerShell <#estándares-de-powershell>`__
 5. `Validación y Control de
- Calidad <#validación-y-control-de-calidad>`__
+   Calidad <#validación-y-control-de-calidad>`__
 
 --------------
 
@@ -67,7 +67,7 @@ Justificación
 ~~~~~~~~~~~~~
 
 1. **Compatibilidad**: Emojis y caracteres especiales pueden no
- renderizarse correctamente en:
+   renderizarse correctamente en:
 
  - Terminales legacy
  - Sistemas Windows con codificación antigua
@@ -76,10 +76,10 @@ Justificación
  - Monitores de sistema
 
 2. **Profesionalismo**: Los scripts de producción deben ser
- profesionales y corporativos
+   profesionales y corporativos
 
 3. **Parsing**: Logs con emojis son difíciles de parsear con
- herramientas estándar (grep, awk, sed)
+   herramientas estándar (grep, awk, sed)
 
 4. **Accesibilidad**: Screen readers tienen problemas con emojis
 
@@ -263,7 +263,7 @@ La única excepción a esta regla es:
 
 - **Documentación de usuario final** (README.md, guías de usuario)
 - **Comentarios de código** (pueden usar emojis para claridad durante
- desarrollo)
+  desarrollo)
 - **Commits de git** (permitido pero no recomendado)
 
 **NUNCA en:** - Scripts de producción - Logs de aplicación - Output de
@@ -496,18 +496,18 @@ Configurar pre-commit hooks para validar automáticamente:
  language_version: python3.11
 
  - repo: https://github.com/PyCQA/flake8
- rev: 6.0.0
- hooks:
+   rev: 6.0.0
+   hooks:
  - id: flake8
- args: [--max-line-length=88]
+   args: [--max-line-length=88]
 
  - repo: local
- hooks:
+   hooks:
  - id: no-emojis-in-scripts
- name: No emojis in production scripts
- entry: scripts/check_no_emojis.sh
- language: script
- files: \.(py|sh|ps1)$
+   name: No emojis in production scripts
+   entry: scripts/check_no_emojis.sh
+   language: script
+   files: \.(py|sh|ps1)$
 
 Script de Validación
 ~~~~~~~~~~~~~~~~~~~~
@@ -597,12 +597,12 @@ Referencias
 -----------
 
 - `PEP 8 - Style Guide for Python
- Code <https://peps.python.org/pep-0008/>`__
+  Code <https://peps.python.org/pep-0008/>`__
 - `Black Code Formatter <https://black.readthedocs.io/>`__
 - `Google Shell Style
- Guide <https://google.github.io/styleguide/shellguide.html>`__
+  Guide <https://google.github.io/styleguide/shellguide.html>`__
 - `PowerShell Best
- Practices <https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines>`__
+  Practices <https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines>`__
 
 --------------
 

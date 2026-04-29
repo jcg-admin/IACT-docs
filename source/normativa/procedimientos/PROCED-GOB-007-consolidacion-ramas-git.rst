@@ -19,7 +19,7 @@ PROCED-GOB-007: Consolidacion de Ramas Git
 --------------
 
 1. PROPOSITO
-------------
+   ------------
 
 1.1 Objetivo
 ~~~~~~~~~~~~
@@ -49,7 +49,7 @@ actualizado.
 --------------
 
 2. ALCANCE
-----------
+   ----------
 
 2.1 Incluye
 ~~~~~~~~~~~
@@ -79,7 +79,7 @@ actualizado.
 --------------
 
 3. ROLES Y RESPONSABILIDADES
-----------------------------
+   ----------------------------
 
 3.1 Matriz RACI
 ~~~~~~~~~~~~~~~
@@ -117,7 +117,7 @@ recuperacion
 --------------
 
 4. PREREQUISITOS
-----------------
+   ----------------
 
 4.1 Tecnicos
 ~~~~~~~~~~~~
@@ -146,7 +146,7 @@ recuperacion
 --------------
 
 5. PROCEDIMIENTO DETALLADO
---------------------------
+   --------------------------
 
 ETAPA 1: ANALISIS DE RAMAS (60 minutos)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -464,7 +464,7 @@ consolidacion programada
 --------------
 
 6. ARTEFACTOS GENERADOS
------------------------
+   -----------------------
 
 6.1 Carpeta Principal
 ~~~~~~~~~~~~~~~~~~~~~
@@ -502,7 +502,7 @@ Ramas eliminadas Documentadas en reporte
 --------------
 
 7. CRITERIOS DE EXITO
----------------------
+   ---------------------
 
 7.1 Cuantitativos
 ~~~~~~~~~~~~~~~~~
@@ -531,7 +531,7 @@ Ramas eliminadas Documentadas en reporte
 --------------
 
 8. RIESGOS Y MITIGACIONES
--------------------------
+   -------------------------
 
 8.1 Riesgos Tecnicos
 ~~~~~~~~~~~~~~~~~~~~
@@ -592,7 +592,7 @@ Ramas eliminadas Documentadas en reporte
 --------------
 
 9. MEJORES PRACTICAS
---------------------
+   --------------------
 
 9.1 Antes de Ejecutar
 ~~~~~~~~~~~~~~~~~~~~~
@@ -621,7 +621,7 @@ Ramas eliminadas Documentadas en reporte
 --------------
 
 10. HERRAMIENTAS Y REFERENCIAS
-------------------------------
+    ------------------------------
 
 10.1 Herramientas Requeridas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -665,7 +665,7 @@ Ramas eliminadas Documentadas en reporte
 --------------
 
 11. CONTROL DE CAMBIOS
-----------------------
+    ----------------------
 
 Version 1.0.0 (2025-11-17)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -685,7 +685,7 @@ Proximas Versiones
 --------------
 
 12. APROBACIONES
-----------------
+    ----------------
 
 =============== =========== ================ ==========
 Rol Nombre Firma Fecha
@@ -698,7 +698,7 @@ Aprobador Tech Lead \_\_\_\_\_\_\_\_ YYYY-MM-DD
 --------------
 
 13. ANEXOS
-----------
+    ----------
 
 Anexo A: Ejemplo de Ejecucion Exitosa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

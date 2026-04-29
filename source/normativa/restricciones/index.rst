@@ -123,7 +123,7 @@ Convenciones
 - Todas las CNST estan en estado Vigente desde 2026-04-28.
 - La numeracion es flat consecutiva (CNST_001 a CNST_033).
 - Cada CNST tiene clasificacion ``Critico``, ``Alto`` o ``Medio``
- segun el impacto de su violacion.
+  segun el impacto de su violacion.
 - El formato de archivo y metadata sigue
- :doc:`/normativa/estandares/STD_007_Convencion_Naming` y
- :doc:`/normativa/estandares/plantillas/TPL_CNST_Restricciones`.
+  :doc:`/normativa/estandares/STD_007_Convencion_Naming` y
+  :doc:`/normativa/estandares/plantillas/TPL_CNST_Restricciones`.

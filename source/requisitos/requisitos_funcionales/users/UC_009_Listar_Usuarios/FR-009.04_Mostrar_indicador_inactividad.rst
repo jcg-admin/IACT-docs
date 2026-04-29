@@ -16,7 +16,7 @@ FR-009.04: Mostrar indicador de inactividad
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-009.04: Mostrar indicador de inactividad
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -72,7 +72,7 @@ FR-009.04: Mostrar indicador de inactividad
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -108,7 +108,7 @@ FR-009.04: Mostrar indicador de inactividad
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_003: Visibilidad de estado de usuarios
@@ -123,7 +123,7 @@ también por forma/texto para usuarios con daltonismo.
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -144,7 +144,7 @@ también por forma/texto para usuarios con daltonismo.
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

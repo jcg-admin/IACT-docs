@@ -53,7 +53,7 @@ sobre el cual se construyen todas las reglas de negocio.
 ----
 
 1. Categorias de Conceptos
---------------------------
+   --------------------------
 
 Los conceptos del dominio IACT se organizan en 5 categorias:
 
@@ -77,7 +77,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 2. Categoria: Actores
----------------------
+   ---------------------
 
 2.1 Usuario
 ^^^^^^^^^^^
@@ -146,7 +146,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 3. Categoria: Seguridad
------------------------
+   -----------------------
 
 3.1 Rol
 ^^^^^^^
@@ -320,7 +320,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 4. Categoria: Dominio IVR
--------------------------
+   -------------------------
 
 4.1 Llamada
 ^^^^^^^^^^^
@@ -430,7 +430,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 5. Categoria: Analitica
------------------------
+   -----------------------
 
 5.1 Reporte
 ^^^^^^^^^^^
@@ -547,7 +547,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 6. Categoria: Sistema
----------------------
+   ---------------------
 
 6.1 Modulo
 ^^^^^^^^^^
@@ -641,7 +641,7 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
 ----
 
 7. Relaciones entre Conceptos
------------------------------
+   -----------------------------
 
 Vista general de como se relacionan los conceptos nucleares:
 
@@ -694,7 +694,7 @@ Vista general de como se relacionan los conceptos nucleares:
 ----
 
 8. Glosario Rapido
-------------------
+   ------------------
 
 .. list-table::
  :header-rows: 1
@@ -730,7 +730,7 @@ Vista general de como se relacionan los conceptos nucleares:
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

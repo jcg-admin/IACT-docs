@@ -83,7 +83,7 @@ Agentes Implementados
 ---------------------
 
 1. SDLCPlannerAgent
-~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~
 
 **Fase**: Planning (Fase 1)
 
@@ -138,7 +138,7 @@ duplicados - Formato GitHub issue completo
 --------------
 
 2. SDLCFeasibilityAgent
-~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Fase**: Feasibility Analysis (Fase 2)
 
@@ -210,7 +210,7 @@ horas/dias - Analisis de dependencias
 --------------
 
 3. SDLCDesignAgent
-~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~
 
 **Fase**: System Design (Fase 3)
 
@@ -288,7 +288,7 @@ criticas - Design review checklist completo
 --------------
 
 4. SDLCTestingAgent
-~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~
 
 **Fase**: Testing (Fase 5)
 
@@ -380,7 +380,7 @@ componente - Testing checklist ejecutable
 --------------
 
 5. SDLCDeploymentAgent
-~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~
 
 **Fase**: Deployment (Fase 6)
 
@@ -467,7 +467,7 @@ Post-deployment monitoring (5 min, 24h, 1 week)
 --------------
 
 6. SDLCOrchestratorAgent
-~~~~~~~~~~~~~~~~~~~~~~~~
+   ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Responsabilidad**: Orquestar pipeline completo con Go/No-Go decisions
 

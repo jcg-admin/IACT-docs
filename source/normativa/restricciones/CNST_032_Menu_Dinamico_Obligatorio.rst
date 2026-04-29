@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
--------------
+   -------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -66,7 +66,7 @@ items que el usuario realmente puede ejecutar.
 - **Fecha:** 2026-04-29
 
 2. Especificacion Tecnica
--------------------------
+   -------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,9 +78,9 @@ JSON con la jerarquia ``dominio → subdominio → funcion → [acciones]``
 calculada en tiempo real desde:
 
 - Funciones obtenidas via grupos (``UsuarioGrupo`` →
- ``GrupoCapacidad`` → ``Capacidad``).
+  ``GrupoCapacidad`` → ``Capacidad``).
 - Funciones obtenidas via permisos excepcionales vigentes
- (``PermisoExcepcional``).
+  (``PermisoExcepcional``).
 
 El frontend renderiza solo los items presentes en el JSON devuelto.
 
@@ -110,7 +110,7 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 - Frontend (React/Vue/cualquier UI): cliente que invoca el endpoint
 
 3. Impacto en Sistema
----------------------
+   ---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -147,16 +147,16 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 - Calcular menu en frontend basado en lista de roles del usuario
 - Cachear menu por mas de la sesion actual
 - Asumir items de menu que no esten en la respuesta de
- ``obtener_menu_usuario``
+  ``obtener_menu_usuario``
 
 4. Business Rules Derivadas
----------------------------
+   ---------------------------
 
 Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT
 (WP requisitos v2 — Q-4).
 
 5. Implementacion
------------------
+   -----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -191,7 +191,7 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT
  http://localhost:8000/api/permisos/verificar/1/menu/
 
 6. Excepciones
---------------
+   --------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,7 +208,7 @@ performance) requiere ADR + revision de seguridad. Ver
 de creacion en iteracion correspondiente).
 
 7. Verificacion
----------------
+   ---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -226,7 +226,7 @@ de creacion en iteracion correspondiente).
 - **Herramienta:** Tests E2E + audit del codigo frontend
 
 8. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 30 70
@@ -245,7 +245,7 @@ de creacion en iteracion correspondiente).
    - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
 
 9. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 12 15 25 48

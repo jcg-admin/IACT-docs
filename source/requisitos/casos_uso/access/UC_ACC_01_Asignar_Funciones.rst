@@ -21,7 +21,7 @@ UC_ACC_01: Asignar Funciones
 
 
 1. Resumen
-----------
+   ----------
 
 .. list-table::
  :widths: 25 75
@@ -47,7 +47,7 @@ UC_ACC_01: Asignar Funciones
    - BRQ-ACC-001
 
 2. Descripcion
---------------
+   --------------
 
 Este caso de uso permite a un administrador de acceso (AGR-007) asignar
 funciones atomicas del catalogo RBAC a un usuario especifico. El sistema
@@ -70,7 +70,7 @@ confirmar la asignacion.
  mecanismos de asignacion masiva, no roles.
 
 3. Diagrama de Caso de Uso
---------------------------
+   --------------------------
 
 .. uml::
  :caption: Diagrama de Caso de Uso - UC_ACC_01
@@ -107,7 +107,7 @@ confirmar la asignacion.
  @enduml
 
 4. Contexto de Ejecucion
-------------------------
+   ------------------------
 
 4.1 Precondiciones
 ^^^^^^^^^^^^^^^^^^
@@ -154,7 +154,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Los permisos efectivos del usuario se actualizan
 
 5. Flujo Normal (Camino Feliz)
-------------------------------
+   ------------------------------
 
 .. list-table::
  :widths: 10 20 70
@@ -204,7 +204,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Actualiza vista de permisos del usuario
 
 6. Diagrama de Secuencia
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Secuencia - UC_ACC_01
@@ -311,7 +311,7 @@ El administrador accede al modulo de control de acceso y selecciona
  @enduml
 
 7. Flujos Alternos
-------------------
+   ------------------
 
 7.1 FA-01: Funcion Ya Asignada
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -354,7 +354,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Redirige a UC_ACC_04 (Asignar Agrupador)
 
 8. Excepciones
---------------
+   --------------
 
 8.1 EX-01: Violacion de SoD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -411,7 +411,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - ACC-003
 
 9. Diagrama de Actividad
-------------------------
+   ------------------------
 
 .. uml::
  :caption: Diagrama de Actividad - UC_ACC_01
@@ -472,7 +472,7 @@ El administrador accede al modulo de control de acceso y selecciona
  @enduml
 
 10. Reglas de Negocio
----------------------
+    ---------------------
 
 .. list-table::
  :widths: 15 35 50
@@ -521,7 +521,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Quien asigna no audita
 
 11. Restricciones de Arquitectura
----------------------------------
+    ---------------------------------
 
 .. list-table::
  :widths: 15 25 60
@@ -566,7 +566,7 @@ El administrador accede al modulo de control de acceso y selecciona
  return True
 
 12. Requisitos Funcionales Derivados
-------------------------------------
+    ------------------------------------
 
 .. list-table::
  :widths: 15 40 45
@@ -592,7 +592,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Evento FUNCTION_ASSIGN con detalle
 
 13. Trazabilidad
-----------------
+    ----------------
 
 .. list-table::
  :widths: 25 75
@@ -614,7 +614,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - ACC-001: asigna_funciones
 
 14. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 15 15 20 50

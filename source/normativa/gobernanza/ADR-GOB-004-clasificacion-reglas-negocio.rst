@@ -69,17 +69,17 @@ Los 5 Tipos de Reglas de Negocio
 ::
 
  1. HECHOS
- ↓
+    ↓
  2. RESTRICCIONES
- ↓
+    ↓
  3. DESENCADENADORES DE ACCIÓN
- ↓
+    ↓
  4. INFERENCIAS
- ↓
+    ↓
  5. CÁLCULOS COMPUTACIONALES
 
 1. HECHOS
----------
+   ---------
 
 Definición
 ~~~~~~~~~~
@@ -166,7 +166,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 2. RESTRICCIONES
-----------------
+   ----------------
 
 .. _definición-1:
 
@@ -299,7 +299,7 @@ Formato de Documentación
  - Atributos de Calidad: [RNF-###]
 
 3. DESENCADENADORES DE ACCIÓN (Activadores)
--------------------------------------------
+   -------------------------------------------
 
 .. _definición-2:
 
@@ -411,7 +411,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 4. INFERENCIAS
---------------
+   --------------
 
 .. _definición-3:
 
@@ -527,7 +527,7 @@ Formato de Documentación
  - Requisitos Funcionales: [RF-###]
 
 5. CÁLCULOS COMPUTACIONALES
----------------------------
+   ---------------------------
 
 .. _definición-4:
 
@@ -917,13 +917,13 @@ Referencias
 -----------
 
 - `The Business Rules Group: Defining Business
- Rules <http://www.businessrulesgroup.org/>`__
+  Rules <http://www.businessrulesgroup.org/>`__
 - `OMG Business Motivation Model
- (BMM) <https://www.omg.org/spec/BMM/>`__
+  (BMM) <https://www.omg.org/spec/BMM/>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
- Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
- Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 
 Historial de Cambios
 --------------------

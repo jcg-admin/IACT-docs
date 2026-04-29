@@ -16,7 +16,7 @@ FR-008.04: Preservar registro histórico
 
 
 1. Identificación
------------------
+   -----------------
 
 .. list-table::
  :widths: 25 75
@@ -39,7 +39,7 @@ FR-008.04: Preservar registro histórico
 ----
 
 2. Especificación
------------------
+   -----------------
 
 **Declaración:**
 
@@ -73,7 +73,7 @@ FR-008.04: Preservar registro histórico
 ----
 
 3. Criterio de Aceptación
--------------------------
+   -------------------------
 
 ::
 
@@ -110,7 +110,7 @@ FR-008.04: Preservar registro histórico
 ----
 
 4. Reglas y Restricciones
--------------------------
+   -------------------------
 
 - **BR aplicables:**
  - BR_009: Solo bajas lógicas (preservación obligatoria)
@@ -128,7 +128,7 @@ FR-008.04: Preservar registro histórico
 ----
 
 5. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 20 80
@@ -151,7 +151,7 @@ FR-008.04: Preservar registro histórico
 ----
 
 6. Historial
-------------
+   ------------
 
 .. list-table::
  :widths: 15 15 70

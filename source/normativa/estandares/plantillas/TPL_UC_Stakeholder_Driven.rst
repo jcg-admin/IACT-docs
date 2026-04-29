@@ -73,12 +73,12 @@ Mantener la narrativa original del stakeholder tiene multiples
 beneficios:
 
 1. **Trazabilidad:** Conexion clara entre lo que pidio el stakeholder
- y lo que se implemento
+   y lo que se implemento
 2. **Validacion:** Stakeholder puede revisar su narrativa y confirmar
- que se entendio correctamente
+   que se entendio correctamente
 3. **Contexto:** Futuras modificaciones entienden el "por que"
 4. **Requisitos ocultos:** La narrativa puede revelar requisitos
- implicitos que no se documentarian en UC formal
+   implicitos que no se documentarian en UC formal
 5. **Prioridad:** El lenguaje del stakeholder indica prioridades
 
 **Estructura de Este Template:**
@@ -91,7 +91,7 @@ beneficios:
 
 ----------------------------------------------------------------------
 1. CONTEXTO DEL STAKEHOLDER
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -172,7 +172,7 @@ Entrevista presencial en oficina de Maria, formato semi-estructurado.
 - Acta: ACTA_REUNION_OPS_2024_11_15.docx
 - Notas: Notas_Entrevista_Maria_RPT.md
 - Email confirmacion: "RE: Requerimientos Performance Reportes"
- enviado 2024-11-16
+  enviado 2024-11-16
 
 **Objetivo de la Sesion:**
 
@@ -181,7 +181,7 @@ y problemas actuales con performance del sistema de consultas.
 
 ----------------------------------------------------------------------
 2. NARRATIVA ORIGINAL DEL STAKEHOLDER
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -343,7 +343,7 @@ BA: "Perfecto, lo notamos. Gracias por tu tiempo."
 
 ----------------------------------------------------------------------
 3. EXTRACCION DE REQUISITOS
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -503,7 +503,7 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
 
 ----------------------------------------------------------------------
 4. MAPEO A COMPONENTES DE UC
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -584,7 +584,7 @@ Transformar la narrativa informal en componentes formales de UC.
 
 ----------------------------------------------------------------------
 5. UC FORMAL RESULTANTE
-----------------------------------------------------------------------
+   ----------------------------------------------------------------------
 
 **Proposito:**
 
@@ -621,10 +621,10 @@ Usuario hace click en menu "Reportes > Metricas Trimestrales"
 3. Usuario hace click en boton "Generar Reporte"
 
 4. Sistema muestra mensaje "Calculando volumen de datos..."
- (FR-RPT-01-02)
+   (FR-RPT-01-02)
 
 5. Sistema ejecuta COUNT para estimar volumen de registros
- (FR-RPT-01-04)
+   (FR-RPT-01-04)
  
  Implementa BR-IACT-028: Aprobacion Consultas Grandes
 
@@ -636,7 +636,7 @@ Usuario hace click en menu "Reportes > Metricas Trimestrales"
 7. Sistema ejecuta query principal de reporte (FR-RPT-01-06)
 
 8. Sistema procesa resultados y calcula metricas derivadas
- (FR-RPT-01-07)
+   (FR-RPT-01-07)
  
  Implementa BR-IACT-053: Calculo Tasa Abandono
 

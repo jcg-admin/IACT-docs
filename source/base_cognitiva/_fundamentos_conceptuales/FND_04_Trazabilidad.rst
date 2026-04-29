@@ -27,7 +27,7 @@ las herramientas utilizadas para mantener la trazabilidad.
 ----
 
 1. Definicion Formal
---------------------
+   --------------------
 
 1.1 Que es Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,7 +79,7 @@ de verificacion.
 ----
 
 2. Tipos de Enlaces
--------------------
+   -------------------
 
 2.1 Taxonomia de Enlaces
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ de verificacion.
 ----
 
 3. Matriz RTM (Requirements Traceability Matrix)
-------------------------------------------------
+   ------------------------------------------------
 
 3.1 Definicion
 ^^^^^^^^^^^^^^
@@ -268,7 +268,7 @@ que documenta todos los enlaces entre requisitos y sus derivados.
 ----
 
 4. Metricas de Cobertura
-------------------------
+   ------------------------
 
 4.1 Definicion de Metricas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -334,7 +334,7 @@ que documenta todos los enlaces entre requisitos y sus derivados.
 ----
 
 5. Herramientas de Trazabilidad en IACT
----------------------------------------
+   ---------------------------------------
 
 5.1 Sphinx Cross-References
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -413,7 +413,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
 ----
 
 6. Proceso de Mantenimiento de Trazabilidad
--------------------------------------------
+   -------------------------------------------
 
 6.1 Al Crear Nuevo Artefacto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,7 +451,7 @@ Todo artefacto de requisitos DEBE incluir una seccion de trazabilidad:
 ----
 
 7. Trazabilidad por Nivel en IACT
----------------------------------
+   ---------------------------------
 
 7.1 Nivel 0 a 1: BR a BReq (Influencia)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -541,7 +541,7 @@ Ejemplo detallado para UC-043:
 ----
 
 8. Analisis de Impacto
-----------------------
+   ----------------------
 
 8.1 Definicion
 ^^^^^^^^^^^^^^
@@ -588,7 +588,7 @@ artefactos se ven afectados por un cambio propuesto.
 ----
 
 9. Referencias
---------------
+   --------------
 
 Documentos Relacionados
 ^^^^^^^^^^^^^^^^^^^^^^^

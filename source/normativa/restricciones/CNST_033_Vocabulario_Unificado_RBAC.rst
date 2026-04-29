@@ -37,7 +37,7 @@ Resumen Ejecutivo
    - Vigente
 
 1. Definicion
--------------
+   -------------
 
 1.1 Enunciado
 ^^^^^^^^^^^^^
@@ -64,11 +64,11 @@ y codigo, causando confusion y drift de conceptos.
 La eleccion de "Funcion" como canonico se basa en:
 
 - Consistencia con MODELO_RBAC_IACT_v5_2_1 (modelo conceptual del
- proyecto).
+  proyecto).
 - "Funcion" describe **que hace** (action), alineado con la filosofia
- "Sin Pretensiones" del proyecto.
+  "Sin Pretensiones" del proyecto.
 - "Capacidad" sugiere atributo del usuario (lo que puede hacer); el
- modelo IACT define la accion atomica, no la propiedad del actor.
+  modelo IACT define la accion atomica, no la propiedad del actor.
 
 1.3 Origen
 ^^^^^^^^^^
@@ -78,7 +78,7 @@ La eleccion de "Funcion" como canonico se basa en:
 - **Fecha:** 2026-04-29
 
 2. Especificacion Tecnica
--------------------------
+   -------------------------
 
 2.1 Descripcion Detallada
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,7 +175,7 @@ v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 - Glosario canonico (:doc:`/base_cognitiva/glosario` § H)
 
 3. Impacto en Sistema
----------------------
+   ---------------------
 
 3.1 Modulos Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -196,12 +196,12 @@ v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 - Renombrar a otro termino (ej: "Permission" en codigo) sin ADR formal
 
 4. Business Rules Derivadas
----------------------------
+   ---------------------------
 
 Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
 
 5. Implementacion
------------------
+   -----------------
 
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -230,15 +230,15 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
  && echo "VIOLACION CNST_033" || echo "OK"
 
 6. Excepciones
---------------
+   --------------
 
 6.1 Excepciones Permitidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Documentos historicos / archivados (no se reescribe el pasado).
 - Migracion gradual: en codigo legacy se permite alias deprecated por
- un periodo de transicion (max 6 meses) marcado con comentario
- ``# DEPRECATED: usar Function en codigo nuevo``.
+  un periodo de transicion (max 6 meses) marcado con comentario
+  ``# DEPRECATED: usar Function en codigo nuevo``.
 
 6.2 Proceso de Excepcion
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -248,16 +248,16 @@ ADR-GOB-008. Ver
 :doc:`/normativa/procedimientos/PROC_Excepciones_CNST`.
 
 7. Verificacion
----------------
+   ---------------
 
 7.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - 0 ocurrencias de "Capacidad" en docs nuevos del proyecto.
 - 0 ocurrencias de "Capacity" en codigo nuevo (excepto alias
- deprecated marcados).
+  deprecated marcados).
 - Code review aprueba uso consistente de "Function" en codigo y
- "Funcion" en docs.
+  "Funcion" en docs.
 
 7.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +267,7 @@ ADR-GOB-008. Ver
 - **Herramienta:** ruff/grep + checklist
 
 8. Trazabilidad
----------------
+   ---------------
 
 .. list-table::
  :widths: 30 70
@@ -288,7 +288,7 @@ ADR-GOB-008. Ver
    - :doc:`/base_cognitiva/glosario` § H
 
 9. Historial de Cambios
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 12 15 25 48

@@ -320,7 +320,7 @@ PASO 7: Seguimiento Post-Review
 
 - Monitorear que el PR sea merged
 - Si hay cambios adicionales después de tu aprobación, considerar
- re-revisar
+  re-revisar
 
 --------------
 
@@ -418,11 +418,11 @@ Referencias
 -----------
 
 - `Google Engineering Practices - Code
- Review <https://google.github.io/eng-practices/review/>`__
+  Review <https://google.github.io/eng-practices/review/>`__
 - `PROC-QA-001: Actividades de Garantía
- Documental <../procesos/PROC-QA-001-actividades_garantia_documental.md>`__
+  Documental <../procesos/PROC-QA-001-actividades_garantia_documental.md>`__
 - `PROC-QA-002: Estrategia
- QA <../procesos/PROC-QA-002-estrategia_qa.md>`__
+  QA <../procesos/PROC-QA-002-estrategia_qa.md>`__
 
 Historial de Cambios
 --------------------

@@ -42,7 +42,7 @@ Al completar este procedimiento tendrá:
 - Archivo .puml con diagrama de casos de uso
 - Archivo .svg generado del diagrama
 - Diagrama con dirección correcta de flechas (Actor → UC = primario, UC
- → Actor = secundario)
+  → Actor = secundario)
 - Límite del sistema claramente definido
 - Relaciones include/extend si aplican
 - Diagrama referenciado en especificación textual del caso de uso
@@ -157,7 +157,7 @@ Preguntas Guía
 2. ¿Qué casos de uso pertenecen a este módulo?
 3. ¿Cuántos casos de uso hay? (Recomendado: 3-10 por diagrama)
 4. ¿Hay demasiados casos de uso para un solo diagrama? (Considerar
- dividir)
+   dividir)
 
 Ejemplo: Módulo de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -350,7 +350,7 @@ Validación
 ~~~~~~~~~~
 
 - ☐ Archivo creado con nombre correcto
- (UCD-DOMINIO-###-descripcion.puml)
+  (UCD-DOMINIO-###-descripcion.puml)
 - ☐ Ubicación correcta (diagramas/casos_uso/)
 - ☐ Estructura básica PlantUML presente
 - ☐ @startuml y @enduml presentes
@@ -494,7 +494,7 @@ Convenciones
 1. **Formato VERBO+OBJETO** (ver ADR-GOB-007)
 2. **Capitalización** de palabras principales
 3. **ID correlacionado** con especificación textual (UC-BACK-001 →
- UC001)
+   UC001)
 4. **Dentro del rectángulo** del sistema
 
 Límite del Sistema
@@ -721,7 +721,7 @@ Validación
 ~~~~~~~~~~
 
 - ☐ Cada caso de uso tiene AL MENOS 1 actor primario (flecha Actor →
- UC)
+  UC)
 - ☐ Actores secundarios correctamente conectados (flecha UC → Actor)
 - ☐ Dirección de flechas es consistente con especificación textual
 - ☐ No hay flechas en dirección incorrecta
@@ -741,7 +741,7 @@ Tipos de Relaciones entre Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Include (Inclusión)
-^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^
 
 **Definición**: Un caso de uso SIEMPRE incluye el comportamiento de
 otro.
@@ -768,7 +768,7 @@ de uso - Siempre se ejecuta, no es opcional
 Impuestos”.
 
 2. Extend (Extensión)
-^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^
 
 **Definición**: Un caso de uso OPCIONALMENTE puede extender el
 comportamiento de otro bajo ciertas condiciones.
@@ -795,7 +795,7 @@ específica
 “Procesar Venta” si se cumplen condiciones (ej: cantidad >= 10).
 
 3. Generalización (Herencia)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Sintaxis PlantUML**:
 
@@ -913,7 +913,7 @@ Validación
 
 - ☐ Relaciones include/extend solo si existen realmente
 - ☐ Sintaxis correcta (.> para include/extend, –\|> para
- generalización)
+  generalización)
 - ☐ Dirección de flechas correcta
 - ☐ Relaciones documentadas en especificaciones textuales también
 
@@ -1167,11 +1167,11 @@ Si Múltiples Casos de Uso Comparten Diagrama
 Todos los casos de uso del módulo pueden referenciar el mismo diagrama:
 
 - UC-BACK-001: Iniciar Sesión → referencia
- UCD-BACK-001-autenticacion.svg
+  UCD-BACK-001-autenticacion.svg
 - UC-BACK-002: Cerrar Sesión → referencia
- UCD-BACK-001-autenticacion.svg
+  UCD-BACK-001-autenticacion.svg
 - UC-BACK-003: Cambiar Contraseña → referencia
- UCD-BACK-001-autenticacion.svg
+  UCD-BACK-001-autenticacion.svg
 
 Actualizar Varios Archivos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1194,7 +1194,7 @@ Validación
 
 - ☐ Diagrama agregado a especificación(es) de caso(s) de uso
 - ☐ Ruta relativa correcta (verifica que imagen se muestre en preview
- de markdown)
+  de markdown)
 - ☐ Link a archivo .puml incluido
 - ☐ Ubicado al inicio del documento, después del título
 
@@ -1215,7 +1215,7 @@ Archivos a Commitear
 1. **Archivo .puml** (código fuente, principal)
 2. **Archivo .svg** (imagen generada, derivada)
 3. **Especificaciones de casos de uso actualizadas** (que referencian el
- diagrama)
+   diagrama)
 
 Verificar Archivos
 ~~~~~~~~~~~~~~~~~~
@@ -1650,15 +1650,15 @@ Referencias
 -----------
 
 - `ADR-GOB-004: PlantUML para
- Diagramas </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.md>`__
+  Diagramas </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.md>`__
 - `ADR-GOB-007: Especificación de Casos de
- Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
- Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
 - `PROCED-GOB-004: Crear Caso de
- Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
 - `PlantUML Use Case Diagram
- Documentation <https://plantuml.com/use-case-diagram>`__
+  Documentation <https://plantuml.com/use-case-diagram>`__
 
 Historial de Cambios
 --------------------

@@ -18,24 +18,24 @@ STD_007: Convención de Naming de Archivos y Carpetas
 
 
 1. Propósito
-------------
+   ------------
 
 Establecer las reglas obligatorias de nomenclatura para **todos los
 archivos y directorios** de la documentación del proyecto IACT que viven
 bajo ``source/``. Garantiza:
 
 - Consistencia entre dominios (procedimientos, gobernanza, requisitos,
- etc.).
+  etc.).
 - Compatibilidad cross-platform (Windows, Linux, macOS).
 - Resolución correcta de URLs HTML rendered.
 - Predictibilidad para autores nuevos.
 - Reducción de fricción en shell, git, autocompletado y herramientas
- de búsqueda.
+  de búsqueda.
 
 ----
 
 2. Alcance
-----------
+   ----------
 
 Aplica a:
 
@@ -43,20 +43,20 @@ Aplica a:
 - **Todos los archivos** ``.puml`` referenciados desde ``source/``.
 - **Todos los directorios** bajo ``source/``.
 - **Todos los archivos** dentro de ``source/_static/`` y
- ``source/_templates/`` (con excepciones documentadas).
+  ``source/_templates/`` (con excepciones documentadas).
 
 NO aplica a:
 
 - Archivos de configuración del proyecto (``conf.py``,
- ``pyproject.toml``, etc.).
+  ``pyproject.toml``, etc.).
 - Archivos fuera de ``source/`` (configuración del entorno,
- tooling interno, scripts del repositorio).
+  tooling interno, scripts del repositorio).
 - ``LICENSE``, ``CHANGELOG.md``, ``ROADMAP.md``, ``readme.rst`` en raíz.
 
 ----
 
 3. Reglas Generales (aplican a todo bajo source/)
--------------------------------------------------
+   -------------------------------------------------
 
 3.1 Caracteres Permitidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,10 +78,10 @@ Los nombres NO DEBEN contener:
 - **Tildes**: ``á``, ``é``, ``í``, ``ó``, ``ú``, ``ü``.
 - **Eñe**: ``ñ``, ``Ñ`` — usar ``n`` o ``ny``.
 - **Otros símbolos**: arroba, hash, dolar, porcentaje, ampersand,
- asterisco, signo de pregunta, exclamación, suma, igual, coma,
- punto y coma, dos puntos, comillas (dobles o simples), backtick,
- tilde, pipe, backslash. La barra ``/`` solo se permite como
- separador de path.
+  asterisco, signo de pregunta, exclamación, suma, igual, coma,
+  punto y coma, dos puntos, comillas (dobles o simples), backtick,
+  tilde, pipe, backslash. La barra ``/`` solo se permite como
+  separador de path.
 
 **Ejemplos PROHIBIDOS:**
 
@@ -108,7 +108,7 @@ siga la estructura: ``<PREFIX-CON-HYPHEN>_<descripcion-con-cualquiera>``.
 - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst`` (kebab puro)
 - ``UC_ACC_01_Asignar_Funciones.rst`` (snake puro)
 - ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mixed permitido: prefix
- con hyphen, descripción con underscore)
+  con hyphen, descripción con underscore)
 
 **Prohibido (caos):**
 
@@ -129,7 +129,7 @@ metadata YAML del archivo, NO en el filename.
 **Correcto:**
 
 - ``TPL_ADR_Decisiones_Arquitectonicas.rst`` (con ``:version:`` en
- meta YAML).
+  meta YAML).
 - ``IACT_Glossary.rst``
 - ``MODELO_RBAC.rst``
 
@@ -142,7 +142,7 @@ usar abreviaciones documentadas o reorganizar el contenido.
 ----
 
 4. Convenciones por Tipo de Artefacto
---------------------------------------
+   --------------------------------------
 
 4.1 Artefactos Numerados con Prefijo Fijo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -154,7 +154,7 @@ Donde:
 - ``<PREFIX>`` es un acronym de 2-5 caracteres en MAYÚSCULAS.
 - ``<NN>`` es 2 o 3 dígitos zero-padded (``01``, ``002``).
 - ``<Descripcion_PascalCase>`` con cada palabra capitalizada y
- separada por ``_``.
+  separada por ``_``.
 
 **Aplica a:**
 
@@ -269,7 +269,7 @@ glosarios, etc.).
 - ``glosario.rst``
 - ``actores.rst``
 - ``shell-scripting-guide.rst`` (renombrado de
- ``shell_scripting_guide.rst``)
+  ``shell_scripting_guide.rst``)
 
 4.5 Punto de Entrada de Directorio
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -283,15 +283,15 @@ entrada del directorio?
 **Migración:** los 11 archivos ``README*.rst`` deben convertirse:
 
 - Si el directorio NO tiene ``index.rst``: renombrar ``README.rst`` →
- ``index.rst``.
+  ``index.rst``.
 - Si ya hay ``index.rst``: el ``README.rst`` debe re-nombrarse
- conceptualmente (ej. ``arquitectura-overview.rst``) o mergearse al
- ``index.rst``.
+  conceptualmente (ej. ``arquitectura-overview.rst``) o mergearse al
+  ``index.rst``.
 
 ----
 
 5. Convenciones para Directorios
---------------------------------
+   --------------------------------
 
 5.1 Patrón Recomendado
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -309,7 +309,7 @@ entrada del directorio?
 
 - ``diseño_detallado/`` → ``diseno_detallado/`` (sin ñ)
 - ``plantuml-guide/`` → ``plantuml_guide/`` (consistencia con resto;
- alternativa: dejar como excepción si el nombre del producto es así)
+  alternativa: dejar como excepción si el nombre del producto es así)
 
 5.2 Directorios Internos con prefijo underscore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -341,7 +341,7 @@ es intencional.
 ----
 
 6. Tabla de Decisión Rápida
----------------------------
+   ---------------------------
 
 .. list-table::
  :header-rows: 1
@@ -390,7 +390,7 @@ es intencional.
 ----
 
 7. Convención de Idioma (código vs documentación)
---------------------------------------------------
+   --------------------------------------------------
 
 Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTÁNDAR DE NOMENCLATURA
 v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
@@ -450,16 +450,16 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 ^^^^^^^^^^^^^^^^^
 
 - **Código en inglés**: facilita la colaboración con equipos
- internacionales, alineamiento con frameworks (Django, DRF) y
- bibliotecas (SQL, Python) que usan inglés. Reduce fricción al
- buscar documentación externa.
+  internacionales, alineamiento con frameworks (Django, DRF) y
+  bibliotecas (SQL, Python) que usan inglés. Reduce fricción al
+  buscar documentación externa.
 - **Documentación y comentarios en español**: el equipo de negocio
- consume la documentación. Los comentarios contextualizan
- decisiones del dominio. La UI es en español porque los usuarios
- finales son hispanohablantes.
+  consume la documentación. Los comentarios contextualizan
+  decisiones del dominio. La UI es en español porque los usuarios
+  finales son hispanohablantes.
 - **Logs en inglés**: facilita parsing por herramientas SIEM/ELK que
- asumen inglés. Los logs son consumidos por operaciones técnicas,
- no por usuarios finales.
+  asumen inglés. Los logs son consumidos por operaciones técnicas,
+  no por usuarios finales.
 
 7.3 Ejemplo aplicado
 ^^^^^^^^^^^^^^^^^^^^
@@ -490,16 +490,16 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 ^^^^^^^^^^^^^^^
 
 - **Documentos legados** (creados antes de esta convención): se
- permite preservar el idioma original; nuevas ediciones aplican la
- convención.
+  permite preservar el idioma original; nuevas ediciones aplican la
+  convención.
 - **Términos técnicos sin traducción aceptada**: ``framework``,
- ``timeout``, ``token``, ``cache``, ``deploy`` se mantienen en
- inglés incluso en docs en español.
+  ``timeout``, ``token``, ``cache``, ``deploy`` se mantienen en
+  inglés incluso en docs en español.
 
 ----
 
 8. Decisiones de Gobernanza
----------------------------
+   ---------------------------
 
 8.1 Cambios a esta convención
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -519,19 +519,19 @@ Existen excepciones documentadas:
 - ``index.rst`` y archivos generados por Sphinx (no toca naming).
 - Directorios ``_static/``, ``_templates/`` (convención Sphinx).
 - ``readme.rst`` en raíz (es legacy del proyecto, no en
- ``source/``).
+  ``source/``).
 - **Procedimientos transversales sin módulo asignable.** Variante
- ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
- procedimiento no pertenece a un módulo funcional específico
- (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
- documental. Ejemplos:
+  ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
+  procedimiento no pertenece a un módulo funcional específico
+  (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
+  documental. Ejemplos:
 
  - ``PROC_Generacion_UC.rst`` (procedimiento de generación
- aplicable a todas las áreas).
+   aplicable a todas las áreas).
  - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
- inter-niveles, no específico de un módulo).
+   inter-niveles, no específico de un módulo).
  - ``PROC_Validacion_Sphinx.rst`` (validación documental
- transversal).
+   transversal).
 
  La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
  variante reconocida y no requiere migración a §4.2. Aplicada
@@ -539,11 +539,11 @@ Existen excepciones documentadas:
  archivos).
 
 - **Plantillas con descripción larga.** Variante
- ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
- ``TPL_API_Documentacion_API.rst``,
- ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
- de ``KEY`` permite distinguir variantes del mismo tipo de
- artefacto sin requerir numeración secuencial.
+  ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
+  ``TPL_API_Documentacion_API.rst``,
+  ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
+  de ``KEY`` permite distinguir variantes del mismo tipo de
+  artefacto sin requerir numeración secuencial.
 
 Cualquier nueva excepción requiere registro en este documento bajo
 sección 7.2.
@@ -551,7 +551,7 @@ sección 7.2.
 ----
 
 9. Cumplimiento
----------------
+   ---------------
 
 9.1 Estado Actual del Proyecto (snapshot 2026-04-28)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -589,19 +589,19 @@ del merge.
 ----
 
 10. Referencias
----------------
+    ---------------
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
- metadata, no en filename).
+  metadata, no en filename).
 - ``ADR-GOB-006-clasificacion-reglas-negocio.rst`` — convenciones de
- clasificación que usan estos prefijos.
+  clasificación que usan estos prefijos.
 - ``GUIA_ESTILO.rst`` — guía de estilo de redacción (complementa este
- estándar).
+  estándar).
 
 ----
 
 11. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :header-rows: 1

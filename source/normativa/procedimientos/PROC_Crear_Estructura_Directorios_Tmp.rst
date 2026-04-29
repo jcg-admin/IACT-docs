@@ -41,7 +41,7 @@ Resumen Ejecutivo
 ----
 
 1. Proposito
-------------
+   ------------
 
 Este procedimiento establece como crear la estructura de directorios en /tmp
 antes de generar artefactos. El uso de /tmp permite trabajar de forma segura
@@ -53,7 +53,7 @@ correcta de carpetas para generar artefactos de forma organizada.
 ----
 
 2. Alcance
-----------
+   ----------
 
 2.1 Aplica A
 ^^^^^^^^^^^^
@@ -72,7 +72,7 @@ correcta de carpetas para generar artefactos de forma organizada.
 ----
 
 3. Roles y Responsabilidades
-----------------------------
+   ----------------------------
 
 .. list-table::
  :widths: 20 40 40
@@ -88,7 +88,7 @@ correcta de carpetas para generar artefactos de forma organizada.
 ----
 
 4. Precondiciones
------------------
+   -----------------
 
 Antes de iniciar este procedimiento, verificar:
 
@@ -99,7 +99,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 5. Artefactos de Entrada
-------------------------
+   ------------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -115,7 +115,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 6. Procedimiento
-----------------
+   ----------------
 
 6.1 Diagrama de Flujo
 ^^^^^^^^^^^^^^^^^^^^^
@@ -291,7 +291,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 7. Artefactos de Salida
------------------------
+   -----------------------
 
 .. list-table::
  :widths: 30 50 20
@@ -307,7 +307,7 @@ Antes de iniciar este procedimiento, verificar:
 ----
 
 8. Postcondiciones
-------------------
+   ------------------
 
 Al finalizar este procedimiento:
 
@@ -319,7 +319,7 @@ Al finalizar este procedimiento:
 ----
 
 9. Verificacion y Validacion
-----------------------------
+   ----------------------------
 
 9.1 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -342,7 +342,7 @@ Al finalizar este procedimiento:
 ----
 
 10. Manejo de Excepciones
--------------------------
+    -------------------------
 
 .. list-table::
  :widths: 30 70
@@ -360,7 +360,7 @@ Al finalizar este procedimiento:
 ----
 
 11. Referencias
----------------
+    ---------------
 
 - MODELO_DOCUMENTAL_IACT: Estructura oficial de carpetas
 - PROC_Copiar_Tmp_Outputs: Siguiente paso (transferir a outputs)
@@ -368,7 +368,7 @@ Al finalizar este procedimiento:
 ----
 
 12. Historial de Cambios
-------------------------
+    ------------------------
 
 .. list-table::
  :widths: 12 12 20 56

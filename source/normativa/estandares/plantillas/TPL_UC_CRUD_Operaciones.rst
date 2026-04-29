@@ -166,7 +166,7 @@ FLUJO NORMAL - CREATE
 11. Sistema confirma transacción (COMMIT)
 
 12. Sistema muestra mensaje de éxito:
- "Registro creado exitosamente. ID: [uuid]"
+    "Registro creado exitosamente. ID: [uuid]"
 
 13. Sistema redirige a pantalla de detalle del nuevo registro
 
@@ -399,7 +399,7 @@ FLUJO NORMAL - READ
  - Ordenamiento por columna (click en header)
 
 10. Sistema muestra panel de paginación:
- [<< Primera] [< Anterior] [1] [2] [3] [Siguiente >] [Última >>]
+    [<< Primera] [< Anterior] [1] [2] [3] [Siguiente >] [Última >>]
 
 11. Usuario visualiza resultados
 
@@ -646,7 +646,7 @@ FLUJO NORMAL - UPDATE
 13. Sistema confirma transacción (COMMIT)
 
 14. Sistema muestra mensaje:
- "Cambios guardados exitosamente. Campos actualizados: [lista]"
+    "Cambios guardados exitosamente. Campos actualizados: [lista]"
 
 15. Sistema actualiza pantalla con nuevos valores y version_number+1
 
@@ -713,7 +713,8 @@ En paso 8 o 11, si version_number no coincide:
  8e/11e. Si usuario elige "Forzar":
  - Sistema ejecuta UPDATE sin validar version
  - Sistema registra en audit_log:
- action='FORCE_UPDATE', severity='WARNING'
+
+   action='FORCE_UPDATE', severity='WARNING'
  - Sistema notifica al otro usuario de sobrescritura
  - Continúa flujo normal desde paso 10
  
@@ -877,7 +878,7 @@ FLUJO NORMAL - DELETE
 8. Sistema confirma transacción (COMMIT)
 
 9. Sistema muestra mensaje:
- "Registro eliminado exitosamente. ID: [uuid]"
+   "Registro eliminado exitosamente. ID: [uuid]"
 
 10. Sistema remueve fila de la tabla visual (con animación fade-out)
 

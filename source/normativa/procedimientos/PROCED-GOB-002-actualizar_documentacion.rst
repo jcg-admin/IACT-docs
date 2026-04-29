@@ -260,7 +260,7 @@ Response:
 **Reglas de versionado (Semantic Versioning)**:
 
 - ``MAJOR`` (X.0.0): Cambios que rompen compatibilidad o
- restructuración completa
+  restructuración completa
 - ``MINOR`` (1.X.0): Agregar nueva sección significativa
 - ``PATCH`` (1.0.X): Correcciones, aclaraciones, typos
 
@@ -457,8 +457,8 @@ PASO 7: Commit y PR
 
  - Implementa: ADR-BACK-006-django-orm-vs-sqlalchemy
  - Cierra: TASK-089
- EOF
- )"
+   EOF
+   )"
 
 --------------
 
@@ -588,7 +588,7 @@ DO ✅
 5. **Links relativos**
 
  - ``[ADR](../adr/ADR-BACK-001.md)`` no
- ``[ADR](https://github.com/...)``
+   ``[ADR](https://github.com/...)``
  - Funciona en cualquier entorno
 
 DON’T ❌
@@ -713,12 +713,12 @@ Referencias
 -----------
 
 - `PROC-GOB-001: Mapeo de Procesos y
- Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.md>`__
+  Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.md>`__
 - `GUIA-GOB-002: Convenciones de
- Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
 - `PROCED-GOB-001: Crear ADR <PROCED-GOB-001-crear_adr.md>`__
 - `Write the Docs - Documentation
- Guide <https://www.writethedocs.org/guide/>`__
+  Guide <https://www.writethedocs.org/guide/>`__
 
 Historial de Cambios
 --------------------

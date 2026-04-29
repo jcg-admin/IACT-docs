@@ -535,9 +535,9 @@ Referencias
 -----------
 
 - `PROC-DEVOPS-001: DevOps
- Automation <../procesos/PROC-DEVOPS-001-devops_automation.md>`__
+  Automation <../procesos/PROC-DEVOPS-001-devops_automation.md>`__
 - `ADR-DEVOPS-001: Vagrant
- mod_wsgi <../adr/ADR-DEVOPS-001-vagrant-mod-wsgi.md>`__
+  mod_wsgi <../adr/ADR-DEVOPS-001-vagrant-mod-wsgi.md>`__
 - `Twelve-Factor App: Deployment <https://12factor.net/>`__
 
 Historial de Cambios
