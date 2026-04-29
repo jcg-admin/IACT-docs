@@ -103,9 +103,13 @@ smartquotes_action = 'De'  # (D)ashes y (e)llipses
 # -- Configuración de Strictness --
 # nitpicky activa la deteccion de cross-references rotas como warnings.
 # Sin esto, Sphinx default solo valida sintaxis, no semantica de refs.
-# Activado tras deep-review 2026-04-29 (WP source-final-cleanup) que
-# detecto que "build verde" sin nitpicky era de baja resolucion.
-nitpicky = True
+#
+# Toggle por env var (WP build-performance 2026-04-29 14:28):
+# - Default (dev local): SPHINX_NITPICKY no seteado -> nitpicky=False
+#   build mas rapido para iteracion.
+# - CI / pre-merge: SPHINX_NITPICKY=1 make html -> nitpicky=True
+#   gate estricto antes de merge.
+nitpicky = os.environ.get('SPHINX_NITPICKY', '0') == '1'
 
 # -- Configuración de Lexers --
 # Politica 0/0: NO suprimir warnings de lexers desconocidos.

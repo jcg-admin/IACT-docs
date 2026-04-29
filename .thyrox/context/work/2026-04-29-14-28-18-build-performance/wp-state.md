@@ -2,11 +2,11 @@
 project: IACT-docs
 work_package: 2026-04-29-14-28-18-build-performance
 created_at: 2026-04-29 14:28:18
-current_phase: Phase 8 — PLAN EXECUTION
+current_phase: Cerrado
 flow: thyrox
-methodology_step: workflow-decompose
+methodology_step: cerrado
 author: NestorMonroy
-status: Listo para ejecucion
+status: Cerrado — 2026-04-29 (objetivos cumplidos, ver track/)
 ```
 
 # WP — Build Performance (Sphinx + PlantUML)

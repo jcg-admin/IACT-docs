@@ -8,6 +8,31 @@
 #   make html                      # Genera documentación
 #
 # ========================================================================================
+# FLUJOS RECOMENDADOS (por situación)
+#
+#   Edición continua (edit + preview):
+#     make livehtml                # sphinx-autobuild en http://127.0.0.1:8000
+#                                  # Watch + incremental + browser reload
+#
+#   Build incremental (uso diario):
+#     make html                    # Solo procesa archivos cambiados (~9s)
+#
+#   Reset rápido (HTML+doctrees, preserva cache PlantUML):
+#     make clean-fast && make html # ~30-90s. Usar si hay duda con cache HTML.
+#
+#   Reset total (incluye cache PlantUML, lento):
+#     make clean && make html      # ~6 min. Solo si cambió conf.py o cache corrupto.
+#
+#   Pre-merge / CI gate (estricto, detecta cross-refs rotas):
+#     SPHINX_NITPICKY=1 make html
+#
+#   Build serial (debug):
+#     SPHINXOPTS="" make html      # Override del default `-j auto`
+#
+# Decisiones documentadas en WP:
+#   .thyrox/context/work/2026-04-29-14-28-18-build-performance/
+#
+# ========================================================================================
 # INSTALACIÓN INICIAL:
 #
 #   Si no tienes 'uv' instalado:
@@ -33,7 +58,9 @@
 VENV            = .venv
 
 # Estas variables pueden definirse desde la línea de comandos.
-SPHINXOPTS      =
+# Default: -j auto activa build paralelo (usa todos los cores).
+# Override con: SPHINXOPTS="" make html  (serial)
+SPHINXOPTS      ?= -j auto
 
 # Selección de sphinx-build:
 # Preferir el ejecutable del venv (Linux/Mac primero, Windows después).
@@ -135,9 +162,26 @@ help: help-uv help-sphinx help-plantuml
 	@echo "  make help-plantuml     # Validación de PlantUML"
 	@echo ""
 
-# Elimina todo el contenido generado dentro del directorio de construcción.
+# Elimina TODO el contenido generado, incluyendo cache de PlantUML.
+# WHEN: cambios en conf.py, theme/extensions, debug de cache corrupto.
+# COSTO: ~6 min en clean rebuild (re-render de todos los diagramas).
 clean:
 	rm -rf $(BUILDDIR)/*
+
+# Clean selectivo — preserva cache PlantUML (build/html/_plantuml/)
+# y otros assets cacheados (_images, _static).
+# WHEN: uso diario. Reset HTML+doctrees sin regenerar diagramas.
+# COSTO ESPERADO: ~30-90s vs ~6min de clean total.
+# WP origen: 2026-04-29-14-28-18-build-performance.
+clean-fast:
+	rm -rf $(BUILDDIR)/doctrees
+	@if [ -d $(BUILDDIR)/html ]; then \
+		find $(BUILDDIR)/html -mindepth 1 -maxdepth 1 \
+			-not -name "_plantuml" \
+			-not -name "_images" \
+			-not -name "_static" \
+			-exec rm -rf {} +; \
+	fi
 
 # Guard de bootstrap — verifica que setup.sh fue ejecutado.
 # Falla con mensaje accionable si falta plantuml.jar o el venv.
@@ -161,11 +205,15 @@ html: check-bootstrap
 	@echo
 	@echo "Construcción finalizada. Los archivos HTML están en $(BUILDDIR)/html."
 
-# Nuevo target para Live Reload (Servidor embebido)
+# Servidor con Live Reload (sphinx-autobuild).
+# WHEN: ciclo edit-preview de documentacion. Watches source/,
+# rebuilda incremental + recarga browser en cada save.
+# Browser: http://127.0.0.1:8000
+# Detener con Ctrl+C.
 livehtml:
-	@echo "Iniciando servidor con recarga en vivo (Live Reload)..."
+	@echo "Iniciando sphinx-autobuild en http://127.0.0.1:8000"
 	@echo "Detenga con Ctrl+C."
-	$(SPHINXAUTOBUILD) source $(BUILDDIR)/html
+	$(SPHINXAUTOBUILD) $(SPHINXOPTS) source $(BUILDDIR)/html
 	@echo
 
 # Builder para HTML con estructura basada en directorios.
