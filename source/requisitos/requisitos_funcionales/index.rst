@@ -1,3 +1,15 @@
+.. meta::
+   :artefacto: INDEX_REQUISITOS_FUNCIONALES
+   :tipo: Indice
+   :dominio: requisitos
+   :subdominio: requisitos_funcionales
+   :estado: Vigente
+   :version: 1.0.0
+   :fecha_creacion: 2026-04-29
+   :ultimo_cambio: 2026-04-29
+   :autor: NestorMonroy
+   :clasificacion: Interno
+
 .. _requisitos-funcionales:
 
 ======================

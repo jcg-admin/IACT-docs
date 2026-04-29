@@ -190,7 +190,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    | - role_id: SERIAL                                                |
    |                                                                   |
    | <<unique>>                                                        |
-   | - codigo: VARCHAR(50)  // R001-R018                              |
+   | - codigo: VARCHAR(50)  // ej. AGR-001..AGR-010 (system groups)   |
    |                                                                   |
    | <<attributes>>                                                    |
    | - nombre: VARCHAR(100)                                           |
@@ -401,13 +401,17 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    | - razon: TEXT                                                    |
    +------------------------------------------------------------------+
 
-   PARES CONFLICTIVOS IACT:
-   +-------+-------+------------------------------------+
-   | Rol A | Rol B | Razon                              |
-   +-------+-------+------------------------------------+
-   | R016  | R017  | Operador NO debe auditar           |
-   | R001  | R017  | Gestor usuarios NO debe auditar    |
-   +-------+-------+------------------------------------+
+   PARES CONFLICTIVOS IACT (modelo v5.2.x — 3 reglas SoD atomicas):
+   +-----------+-----------+----------------------------------------+
+   | Grupo A   | Grupo B   | Razon                                  |
+   +-----------+-----------+----------------------------------------+
+   | Pipeline  | Audit     | Quien opera ETL no debe auditarlo      |
+   | Users     | Audit     | Quien gestiona users no debe auditar   |
+   | Access    | Audit     | Quien gestiona acceso no debe auditar  |
+   +-----------+-----------+----------------------------------------+
+
+   Detalle SOD-001/SOD-002/SOD-003:
+   :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
 
    PROPIEDAD:
    La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.
@@ -644,33 +648,40 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
      - 2
      - Pares definidos
 
-8.2 Permisos por Rol
-^^^^^^^^^^^^^^^^^^^^
+8.2 Funciones por Grupo Predefinido
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :header-rows: 1
    :widths: 15 35 25 25
 
-   * - Rol
-     - Nombre
-     - Permisos
-     - Tipo
-   * - R002
-     - USERS_VIEWER
-     - 7
-     - Solo lectura
-   * - R004
-     - REPORTS_VIEWER
-     - 12
-     - Solo lectura
-   * - R001
-     - USERS_FULL_MANAGER
-     - 28
-     - CRUD completo
-   * - R016
-     - SYSTEM_ADMIN
-     - 35
-     - Administracion
+   * - Codigo
+     - Nombre (ingles)
+     - # Funciones
+     - Actor tipico
+   * - AGR-001
+     - basic_operator_group
+     - 6
+     - Operador
+   * - AGR-002
+     - report_viewer_group
+     - 8
+     - Analista
+   * - AGR-004
+     - data_exporter_group
+     - 14
+     - Data Analyst
+   * - AGR-006
+     - user_admin_group
+     - 9
+     - Admin Usuarios
+   * - AGR-010
+     - system_admin_group
+     - 6
+     - Sysadmin
+
+Catalogo completo de los 10 grupos: ver
+:doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` § 2.1.
 
 ----
 

@@ -132,7 +132,7 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
    * - Componente
      - Descripcion de Aplicacion
    * - MOD_Access
-     - Implementa modelo RBAC con 44 funciones atomicas
+     - Implementa modelo RBAC con 42 funciones atomicas
    * - Middleware DRF
      - Valida permisos por funcion, no por rol
    * - Base Analytics
@@ -210,7 +210,7 @@ Sin excepciones. El modelo Flat es absoluto.
 
 1. No existe tabla de herencia de roles
 2. Permisos se resuelven por union de funciones asignadas
-3. 44 funciones atomicas definidas en catalogo
+3. 42 funciones atomicas definidas en catalogo
 
 6.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

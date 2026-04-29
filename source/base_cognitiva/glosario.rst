@@ -331,8 +331,8 @@ H. Vocabulario RBAC unificado (canónico)
 Tras la decisión arquitectónica documentada en el ADR-GOB-008 (RBAC
 Coexistencia ACC ↔ PERM), estos son los términos canónicos del modelo
 RBAC del sistema IACT. **El uso de estos términos es obligatorio** en
-toda documentación nueva del proyecto (ver CNST_033 Vocabulario
-Unificado RBAC, pendiente de creación en WP #4 v3).
+toda documentación nueva del proyecto (formalizado en
+:doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`).
 
 .. list-table::
    :header-rows: 1

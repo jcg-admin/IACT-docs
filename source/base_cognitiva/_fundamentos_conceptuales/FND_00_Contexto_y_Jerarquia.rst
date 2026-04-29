@@ -229,7 +229,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 
 - 8 Módulos funcionales (MOD)
 - 31 Restricciones arquitectonicas (CNST) — set canonico SRP (WP #4)
-- Modelo RBAC v5.1.1 con 44 funciones atómicas y 10 agrupadores
+- Modelo RBAC v5.1.1 con 42 funciones atómicas y 10 agrupadores
 
 **Gobernanza:**
 
@@ -268,7 +268,7 @@ El proyecto IACT tiene los siguientes artefactos documentados:
    MODELO RBAC v5.1.1:
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Agrupadores (AGR)      10
-   Funciones atómicas     44
+   Funciones atómicas     42
    Reglas SoD              3
 
 ---

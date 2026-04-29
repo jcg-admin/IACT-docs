@@ -44,3 +44,10 @@ Catálogo
    BR_018_Indice_Eficiencia
    BR_019_Retencion_2_Anios
    BR_020_Clasificacion_Datos
+
+.. note::
+
+   ``BR_016`` reservado / no asignado en este catálogo. Gap intencional
+   tras consolidacion del catalogo canónico v4.0.0. La numeración no
+   es secuencial estricta — ``BR_016`` puede asignarse en futuras
+   iteraciones si surge una regla de negocio que encaje en la posición.

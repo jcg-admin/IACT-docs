@@ -56,7 +56,7 @@ confirmar la asignacion.
 
 **Caracteristicas principales:**
 
-- Asignacion de funciones atomicas individuales (44 disponibles)
+- Asignacion de funciones atomicas individuales (42 disponibles)
 - Validacion automatica de restricciones SoD (CNST_029)
 - Verificacion de estado del usuario (debe ser ACTIVO)
 - Registro detallado en auditoria (CNST_025)
@@ -177,7 +177,7 @@ El administrador accede al modulo de control de acceso y selecciona
      - Muestra funciones actuales del usuario
    * - 5
      - Sistema
-     - Muestra catalogo de funciones disponibles (44)
+     - Muestra catalogo de funciones disponibles (42)
    * - 6
      - Admin
      - Selecciona funciones a asignar
@@ -226,7 +226,7 @@ El administrador accede al modulo de control de acceso y selecciona
    AC --> FE: current_functions
 
    FE -> AC: GET /api/functions
-   AC --> FE: all_functions (44)
+   AC --> FE: all_functions (42)
 
    FE --> A: Muestra funciones actuales y disponibles
 
@@ -432,7 +432,7 @@ El administrador accede al modulo de control de acceso y selecciona
 
    :Mostrar funciones actuales;
 
-   :Mostrar catalogo de funciones (44);
+   :Mostrar catalogo de funciones (42);
 
    :Admin selecciona funciones;
 
@@ -582,7 +582,7 @@ El administrador accede al modulo de control de acceso y selecciona
      - El sistema debe validar SoD antes de asignar
      - Rechazo con mensaje si viola SoD
    * - FR-ACC-003
-     - El sistema debe mostrar catalogo de 44 funciones
+     - El sistema debe mostrar catalogo de 42 funciones
      - Lista completa con descripcion y modulo
    * - FR-ACC-004
      - El sistema debe mostrar funciones actuales del usuario

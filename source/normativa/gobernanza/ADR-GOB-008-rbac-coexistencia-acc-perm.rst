@@ -40,7 +40,7 @@ formal:
 
 **Vista tecnica (MOD_Permissions — sistema PERM granular):**
 
-- Implementacion backend 75 % completa: 8 modelos Django, 5 funciones
+- Implementacion backend con 8 modelos Django, 5 funciones
   SQL nativas (incluida ``obtener_menu_usuario()``), 2 vistas SQL,
   3 migraciones.
 - Modelo flexible: grupos creables dinamicamente, capacidades
@@ -101,7 +101,7 @@ Justificacion:
    ADR previo que los invalide.
 2. Los 10 UC_PERM tienen contenido sustantivo (1 894 lineas en
    total) con frontmatter formal. Son las **especificaciones de la
-   implementacion backend ya construida** (75 % completa).
+   implementacion backend ya construida** (estado de avance documentado en GAP_ANALYSIS_SISTEMA_PERMISOS.md, fuera del scope de este ADR).
 3. Las dos vistas reflejan **dos perfiles reales de admin** del
    sistema:
 
