@@ -204,7 +204,7 @@ sea consistente con los permisos del usuario.
 
 Cualquier solicitud de excepcion (ej: menu hardcoded por motivos de
 performance) requiere ADR + revision de seguridad. Ver
-:doc:`/normativa/procedimientos/proc-excepciones-cnst` (pendiente
+:doc:`/normativa/procedimientos/proc-req-015-excepciones-cnst` (pendiente
 de creacion en iteracion correspondiente).
 
 7. Verificacion

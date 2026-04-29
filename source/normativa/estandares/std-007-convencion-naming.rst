@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 2.0.0
+ :version: 2.0.1
  :fecha_creacion: 2026-04-28
  :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
@@ -200,7 +200,7 @@ Los prefijos identifican la categoría sin cambiar la convención.
    - Procedimiento de gobernanza (con módulo)
    - ``proced-gob-003-documentar-regla-negocio.rst``
  * - ``proc``
-   - Procedimiento general (con módulo)
+   - Procedimiento (con módulo: dev, devops, ops, qa, gob, req, doc)
    - ``proc-dev-001-pipeline-trabajo-iact.rst``
  * - ``rnf``
    - Requisito no funcional (con módulo)
@@ -220,6 +220,42 @@ Los prefijos identifican la categoría sin cambiar la convención.
   minúsculas: ``adr-back-001-...``, ``proc-dev-001-...``.
 - ``fr`` antes usaba ``FR-NNN.NN`` con punto; en v2.0.0 se reemplaza
   por ``fr-NNN-NN-`` para evitar el punto en filename (Sphinx URL).
+
+**Módulos canónicos para procedimientos (proc/proced):**
+
+.. list-table::
+ :header-rows: 1
+ :widths: 12 30 58
+
+ * - Módulo
+   - Dominio
+   - Ejemplo
+ * - ``dev``
+   - Software development pipeline
+   - ``proc-dev-001-pipeline-trabajo-iact.rst``
+ * - ``devops``
+   - Infraestructura, CI/CD, automatización
+   - ``proc-devops-001-devops-automation.rst``
+ * - ``ops``
+   - Operaciones, deployment, runtime
+   - ``proc-ops-001-deployment.rst``
+ * - ``qa``
+   - Calidad, garantía documental, testing
+   - ``proc-qa-001-actividades-garantia-documental.rst``
+ * - ``gob``
+   - Gobernanza documental — lifecycle: aprobación,
+     publicación, congelamiento, auditoría, versionado
+   - ``proc-gob-003-aprobacion-documentos.rst``
+ * - ``req``
+   - Requirements engineering — generación, derivación,
+     revisión y cobertura de artefactos de requisitos
+     (UC, BR, BReq, CNST, FR, NFR)
+   - ``proc-req-007-generacion-uc.rst``
+ * - ``doc``
+   - Documentation engineering — generación de artefactos
+     documentales (no de requisitos): STD, ADR, POL, MOD,
+     FD, VIEW, RTM, API, TST, INDEX + tooling Sphinx
+   - ``proc-doc-001-generacion-std.rst``
 
 ----
 
@@ -531,3 +567,15 @@ del merge.
      ``adr-naming-conventions-kebab-correction.md``. Incluye
      commitment de 30 días sin modificaciones (§8.2) como
      salvaguarda anti norm-churn.
+ * - 2.0.1
+   - 2026-04-29
+   - **PATCH — clarificación.** §4 documenta tabla canónica de
+     módulos para ``proc``/``proced``: ``dev``, ``devops``, ``ops``,
+     ``qa``, ``gob``, ``req`` (nuevo), ``doc`` (nuevo). REQ y DOC
+     creados para clasificar 32 procedimientos previamente
+     transversales (sin módulo). 7 procedimientos adicionales
+     asignados a ``gob`` (lifecycle documental). Total 39 archivos
+     re-clasificados. NO modifica el patrón universal §3 — la
+     clarificación es compatible y no rompe el commitment de
+     estabilidad de v2.0.0. Ver ADR
+     ``adr-procedimientos-modulos-req-doc.md``.
