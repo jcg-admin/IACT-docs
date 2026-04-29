@@ -1765,33 +1765,33 @@ Métricas del Proyecto
 .. list-table::
    :header-rows: 1
 
-   * - Métrica Target Cómo Medir
-     - \ 
-     - \ 
-   * - **Cobertura de código** ≥ 80% ``
-     - pytest --cov`
-     - `
-   * - **Tamaño de PR** < 400 líneas ``
-     - gh pr diff \|
-     - wc -l``
-   * - **Tiempo de review** < 48 horas
-     - GitHub PR met
-     - rics
+   * - Métrica
+     - Target
+     - Cómo Medir
+   * - **Cobertura de código**
+     - ≥ 80%
+     - ``pytest --cov``
+   * - **Tamaño de PR**
+     - < 400 líneas
+     - ``gh pr diff | wc -l``
+   * - **Tiempo de review**
+     - < 48 horas
+     - GitHub PR metrics
    * - **Tasa aprobación 1er intento**
-     - > 70% Manual
-     - \ 
-   * - **PRs simultáneos por dev** < 3
-     - ``gh pr list
-     - --author @me``
-   * - **Tests pasan** 100% CI status
-     - \ 
-     - \ 
-   * - **Security issues** 0 Bandit rep
-     - ort
-     - \ 
-   * - **Secrets detectados** 0 detect-
-     - secrets
-     - \ 
+     - > 70%
+     - Manual
+   * - **PRs simultáneos por dev**
+     - < 3
+     - ``gh pr list --author @me``
+   * - **Tests pasan**
+     - 100%
+     - CI status
+   * - **Security issues**
+     - 0
+     - Bandit report
+   * - **Secrets detectados**
+     - 0
+     - detect-secrets
 
 Verificar Métricas
 ~~~~~~~~~~~~~~~~~~

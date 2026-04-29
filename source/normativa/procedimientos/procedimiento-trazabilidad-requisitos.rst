@@ -669,8 +669,8 @@ Herramientas Obligatorias
      - Uso
    * - **YAML**
      - Frontmatter de requisitos
-   * - **GitHub
-     - Actions** CI/CD para generación de índices
+   * - **GitHub Actions**
+     - CI/CD para generación de índices
    * - **Node.js**
      - Script de generación de índices
    * - **Python**

@@ -447,19 +447,16 @@ STD_001: Estándar de Documentación Sin Emojis
    .. code-block:: text
 
       Diagrama de flujo aceptable:
- 
-   .. list-table::
 
-    * - Usuario
-   |
-   v
-   .. list-table::
-
-    * - Sistema
+      [Usuario]
+         |
+         v
+      [Sistema]
 
    **Criterio:** ¿Es esencial para entender el concepto técnico?
-- Sí → Permitido
-- No (solo decorativo) → Prohibido
+
+   - Sí → Permitido
+   - No (solo decorativo) → Prohibido
 
 6.3. Ejemplos de Código Externo
 --------------------------------

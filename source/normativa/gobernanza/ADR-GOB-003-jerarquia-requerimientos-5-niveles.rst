@@ -415,7 +415,7 @@ Positivas
 1. **Trazabilidad completa**
 
    - Cada feature se justifica desde reglas de negocio hasta atributos
-   de calidad
+     de calidad
    - Fácil responder “¿por qué existe esta funcionalidad?”
    - Validación de que objetivos de negocio se cumplen
 
@@ -490,7 +490,7 @@ Negativas
    - Code reviews de documentación
    - Scripts de validación de trazabilidad
    - Principio: cambio en nivel superior requiere review de niveles
-   inferiores
+     inferiores
 
 4. **Complejidad en proyectos pequeños**
 

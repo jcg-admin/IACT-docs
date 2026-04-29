@@ -144,24 +144,24 @@ Convenciones de Nomenclatura de Archivos
 .. list-table::
    :header-rows: 1
 
-   * - Tipo Patrón Ejempl
-     - o
-     - \ 
+   * - Tipo
+     - Patrón
+     - Ejemplo
    * - Script ejecutable
      - ``{verbo}-{sustantivo}.sh``
      - ``deploy-app.sh``
-   * - Script de test ``t
-     - est-{component}.sh`` ``test-
-     - database.sh``
-   * - Biblioteca/Utils `
-     - `{sustantivo}-utils.sh`` ``s
-     - tring-utils.sh``
-   * - Script de setup ``
-     - setup-{component}.sh`` ``set
-     - up-docker.sh``
-   * - Script hook ``{hoo
-     - k-name}`` ``pre-commit`` (si
-     - n .sh)
+   * - Script de test
+     - ``test-{component}.sh``
+     - ``test-database.sh``
+   * - Biblioteca/Utils
+     - ``{sustantivo}-utils.sh``
+     - ``string-utils.sh``
+   * - Script de setup
+     - ``setup-{component}.sh``
+     - ``setup-docker.sh``
+   * - Script hook
+     - ``{hook-name}`` (sin .sh)
+     - ``pre-commit``
 
 Cuándo NO Usar Scripts de Shell
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -201,54 +201,54 @@ Matriz de Compatibilidad de Shell (CORREGIDA)
 .. list-table::
    :header-rows: 1
 
-   * - Característica POSIX
-     - sh bash d
-     - ash k
-     - sh93 zs
-     - h
-     - \ 
-   * - ``set -e`` SI SI SI S
-     - I SI
-     - \ 
-     - \ 
-     - \ 
-     - \ 
-   * - ``set -u`` SI SI SI S
-     - I SI
-     - \ 
-     - \ 
-     - \ 
-     - \ 
-   * - ``set -o pipefail`` *
-     - *NO** SI
-     - **NO*
-     - * SI SI
-     - \ 
-     - \ 
-   * - ``$`` command sub SI
-     - SI SI SI
+   * - Característica
+     - POSIX sh
+     - bash
+     - dash
+     - ksh93
+     - zsh
+   * - ``set -e``
      - SI
-     - \ 
-     - \ 
-     - \ 
-   * - ``[[ ]]`` test NO SI
-     - NO SI SI
-     - \ 
-     - \ 
-     - \ 
-     - \ 
-   * - Arrays NO SI NO SI SI
-     - \ 
-     - \ 
-     - \ 
-     - \ 
-     - \ 
-   * - ``local`` keyword NO\
-     - * SI SI S
-     - I SI
-     - \ 
-     - \ 
-     - \ 
+     - SI
+     - SI
+     - SI
+     - SI
+   * - ``set -u``
+     - SI
+     - SI
+     - SI
+     - SI
+     - SI
+   * - ``set -o pipefail``
+     - **NO**
+     - SI
+     - **NO**
+     - SI
+     - SI
+   * - ``$()`` command sub
+     - SI
+     - SI
+     - SI
+     - SI
+     - SI
+   * - ``[[ ]]`` test
+     - NO
+     - SI
+     - NO
+     - SI
+     - SI
+   * - Arrays
+     - NO
+     - SI
+     - NO
+     - SI
+     - SI
+   * - ``local`` keyword
+     - NO
+     - SI
+     - SI
+     - SI
+     - SI
 
 **NOTAS CRÍTICAS:** - ``set -o pipefail`` NO es parte de POSIX (a partir
 de 2024) - ``dash`` NO soporta pipefail en ninguna versión - ``local``
@@ -1045,20 +1045,20 @@ Correcciones Críticas Incluidas
 
    - ``set -o pipefail``: Cambiado de SI a NO para POSIX sh y dash
    - Notas críticas agregadas explicando que pipefail NO está en
-   estándar POSIX
+     estándar POSIX
 
 2. **Eliminado ``local`` de Ejemplos POSIX**
 
    - Todos los ejemplos compatibles con POSIX ahora evitan palabra
-   clave ``local``
+     clave ``local``
    - Agregada convención de prefijo con guión bajo para variables
-   temporales
+     temporales
    - Agregado patrón de limpieza con ``unset``
 
 3. **Prevención de Doble Limpieza**
 
    - Agregada bandera ``CLEANUP_DONE`` para prevenir condiciones de
-   carrera
+     carrera
 
 4. **Referencias Corregidas**
 

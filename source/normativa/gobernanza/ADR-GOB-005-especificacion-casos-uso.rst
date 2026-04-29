@@ -670,7 +670,7 @@ Positivas
 4. **Detalle suficiente**
 
    - Formato completo con precondiciones, postcondiciones, flujos
-   alternos
+     alternos
    - Desarrolladores tienen información necesaria
    - QA puede derivar casos de prueba directamente
 

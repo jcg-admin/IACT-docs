@@ -555,7 +555,7 @@ Acciones
 
    - ¿Qué casos de uso deben cumplir esta regla?
    - ¿Qué interacciones de usuario están restringidas/habilitadas por
-   esta regla?
+     esta regla?
 
 3. **Identificar Requisitos Funcionales (RF) necesarios**:
 
@@ -565,7 +565,7 @@ Acciones
 4. **Identificar Atributos de Calidad (RNF) relacionados**:
 
    - ¿Esta regla impone requisitos de seguridad, rendimiento,
-   usabilidad?
+     usabilidad?
    - ¿Hay restricciones de calidad derivadas de esta regla?
 
 Ejemplo de Trazabilidad

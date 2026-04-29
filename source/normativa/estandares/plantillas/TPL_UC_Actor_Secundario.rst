@@ -228,27 +228,19 @@ Documentar detalladamente que hace cada actor en el UC.
    - Pasos
  * - Supervisor de Area
    - Principal
-   - - Revisar solicitud de consulta grande
-   - Evaluar si la consulta es necesaria
-   - Aprobar o rechazar solicitud
-   - Proporcionar justificacion si rechaza
+   - Revisar solicitud; evaluar si es necesaria; aprobar o rechazar; proporcionar justificacion si rechaza
    - Paso 3-7
  * - Analista de Operaciones
    - Secundario
-   - - Origino la solicitud en UC-RPT-01
-   - Recibe notificacion de resultado
-   - Puede ver reporte si fue aprobado
+   - Origino la solicitud en UC-RPT-01; recibe notificacion de resultado; puede ver reporte si fue aprobado
    - Paso 1 (contexto), Paso 10
  * - Sistema Analytics
    - Secundario
-   - - Proveer datos de llamadas IVR
-   - Ejecutar query principal si aprobada
-   - Retornar dataset con metricas
+   - Proveer datos de llamadas IVR; ejecutar query principal si aprobada; retornar dataset con metricas
    - Paso 8-9
  * - Servicio de Email
    - Secundario
-   - - Enviar email a Supervisor cuando hay solicitud
-   - Enviar email a Analista con resultado
+   - Enviar email a Supervisor cuando hay solicitud; enviar email a Analista con resultado
    - Paso 2, Paso 10
 
 **Detalle de Responsabilidades por Actor:**
@@ -402,7 +394,7 @@ en link "Revisar Solicitud"
    - Opcion: Aprobar
    - Ejecutar: Programar para manana 6:00 AM
    - Comentarios: "Aprobado. Ejecutar en horario valle para no
-   afectar performance."
+     afectar performance."
 
 5. **Supervisor hace click en "Confirmar Decision"**
 

@@ -712,9 +712,7 @@ En paso 8 o 11, si version_number no coincide:
  
  8e/11e. Si usuario elige "Forzar":
  - Sistema ejecuta UPDATE sin validar version
- - Sistema registra en audit_log:
-
-   action='FORCE_UPDATE', severity='WARNING'
+ - Sistema registra en audit_log: ``action='FORCE_UPDATE', severity='WARNING'``
  - Sistema notifica al otro usuario de sobrescritura
  - Continúa flujo normal desde paso 10
  

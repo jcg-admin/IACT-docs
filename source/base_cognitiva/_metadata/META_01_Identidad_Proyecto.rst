@@ -61,9 +61,9 @@ Sistema web multi-tier compuesto por:
 - **Bases de datos:** arquitectura dual.
 
   - **MySQL** — fuente operativa, modo solo-lectura desde IACT
-   (los datos los genera el sistema IVR origen externo).
+    (los datos los genera el sistema IVR origen externo).
   - **PostgreSQL** — destino analítico, optimizado para consultas
-   agregadas y reportes.
+    agregadas y reportes.
 
 - **Infraestructura:** Ubuntu + Apache (``mod_wsgi`` para servir
   Django).

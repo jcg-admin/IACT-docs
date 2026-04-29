@@ -54,9 +54,11 @@ FR-003.05: Forzar cambio en siguiente login
  1. Actualiza campo ``must_change_password = true`` en tabla users
  2. Registra timestamp de la solicitud de recuperación
  3. En el siguiente login exitoso con password temporal:
- - Redirecciona a pantalla de cambio de password
- - No permite acceso a otras funciones hasta cambiar
- - Muestra mensaje explicativo
+
+    - Redirecciona a pantalla de cambio de password
+    - No permite acceso a otras funciones hasta cambiar
+    - Muestra mensaje explicativo
+
  4. Después de cambiar, ``must_change_password = false``
 
 ----

@@ -357,18 +357,18 @@ Diferencia con Inferencias
 .. list-table::
    :header-rows: 1
 
-   * - Aspecto Desenc
-     - adenadores de Acción Infere
-     - ncias
+   * - Aspecto
+     - Desencadenadores de Acción
+     - Inferencias
    * - **Propósito**
-     - Ejecutar **acciones** Crear
-     - **conocimiento**
+     - Ejecutar **acciones**
+     - Crear **conocimiento**
    * - **Resultado**
-     - Algo **sucede** Algo **se e
-     - stablece**
-   * - **Ejemplo** “E
-     - nviar notificación” “Marcar
-     - como deudor”
+     - Algo **sucede**
+     - Algo **se establece**
+   * - **Ejemplo**
+     - "Enviar notificación"
+     - "Marcar como deudor"
 
 .. _formato-de-documentación-2:
 

@@ -744,11 +744,13 @@ REFERENCIAS
  - Contexto del stakeholder completo
  - Narrativa original transcrita literalmente
  - Extraccion de requisitos sistematica:
- * Actores identificados
- * Pasos/acciones extraidos
- * Reglas de negocio marcadas
- * Datos/entidades listados
- * RNF capturados
+
+   * Actores identificados
+   * Pasos/acciones extraidos
+   * Reglas de negocio marcadas
+   * Datos/entidades listados
+   * RNF capturados
+
  - Mapeo narrativa → componentes UC
  - UC formal resultante completo
  - Trazabilidad clara desde narrativa a UC

@@ -139,7 +139,7 @@ FASE 0: Preparación y Análisis Inicial
    - 60-70 tareas estimadas
    - Timeline y recursos
    - **Output:**
-   ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
+     ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
 
 5. **Listar todas las tareas**
 

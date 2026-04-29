@@ -588,7 +588,7 @@ DO ✅
 5. **Links relativos**
 
    - ``[ADR](../adr/ADR-BACK-001.md)`` no
-   ``[ADR](https://github.com/...)``
+     ``[ADR](https://github.com/...)``
    - Funciona en cualquier entorno
 
 DON’T ❌

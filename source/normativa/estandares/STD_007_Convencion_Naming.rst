@@ -527,11 +527,11 @@ Existen excepciones documentadas:
   documental. Ejemplos:
 
   - ``PROC_Generacion_UC.rst`` (procedimiento de generación
-   aplicable a todas las áreas).
+    aplicable a todas las áreas).
   - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
-   inter-niveles, no específico de un módulo).
+    inter-niveles, no específico de un módulo).
   - ``PROC_Validacion_Sphinx.rst`` (validación documental
-   transversal).
+    transversal).
 
  La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
  variante reconocida y no requiere migración a §4.2. Aplicada

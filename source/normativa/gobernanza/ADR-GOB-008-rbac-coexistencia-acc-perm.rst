@@ -107,7 +107,7 @@ Justificacion:
 
    - Admin no-tech (RH, ops): asigna agrupadores predefinidos.
    - Admin tech (DevSecOps): crea grupos custom, define capacidades
-   finas.
+     finas.
 
 4. La duplicacion aparente se mitiga con vocabulario unificado
    (CNST_033) y referencias cruzadas explicitas en cada UC afectado

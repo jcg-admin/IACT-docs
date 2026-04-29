@@ -207,17 +207,15 @@ ETAPA 3: CODE REVIEW PREPARATION
 
 1. **Commit Changes**
 
-   - Conventional Commits:
+   - Conventional Commits::
 
- ::
+       feat(users): agregar validacion de permisos granulares
 
- feat(users): agregar validacion de permisos granulares
+       - Implementar servicio de verificacion de capacidades
+       - Agregar tests unitarios para edge cases
+       - Actualizar documentacion de API
 
-   - Implementar servicio de verificacion de capacidades
-   - Agregar tests unitarios para edge cases
-   - Actualizar documentacion de API
-
- Closes #123
+       Closes #123
 
 2. **Push to Remote**
 
