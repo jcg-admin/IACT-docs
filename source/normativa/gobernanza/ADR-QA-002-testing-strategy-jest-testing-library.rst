@@ -175,7 +175,7 @@ Estrategia de Testing por Capa
 2. React Components (Component Tests)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: javascript
+.. code:: text
 
    // src/app/App.test.jsx
    import { render, screen } from '@testing-library/react';
@@ -200,7 +200,7 @@ Estrategia de Testing por Capa
 3. Hooks (Unit Tests)
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: javascript
+.. code:: text
 
    // src/hooks/useAppConfig.test.js
    import { renderHook } from '@testing-library/react';
@@ -245,7 +245,7 @@ Convenciones
 
 2. **Estructura de tests**:
 
-.. code:: javascript
+.. code:: text
 
    describe('ComponentName', () => {
      // Setup común

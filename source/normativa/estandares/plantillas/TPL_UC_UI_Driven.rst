@@ -424,7 +424,7 @@ Documentar cada elemento de entrada (inputs) en detalle.
 
 **Codigo React:**
 
-.. code-block:: javascript
+.. code-block:: text
 
  function KPICard({ rate }) {
  const getColor = (r) => {
@@ -538,7 +538,7 @@ Documentar todos los event handlers y la logica de interaccion.
 
 **Codigo React Completo:**
 
-.. code-block:: javascript
+.. code-block:: text
 
  const handleGenerateReport = async => {
  try {
@@ -777,7 +777,7 @@ Documentar todos los event handlers y la logica de interaccion.
 
 **Codigo React:**
 
-.. code-block:: javascript
+.. code-block:: text
 
  function ApprovalModal({ count, onClose }) {
  return (

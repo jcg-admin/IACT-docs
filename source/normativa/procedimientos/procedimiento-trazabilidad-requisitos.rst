@@ -59,7 +59,7 @@ Este procedimiento implementa **Full Conformance** a ISO/IEC/IEEE
 Tipos de Trazabilidad (ISO 29148 - 5.2.8)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: mermaid
+.. code:: text
 
  graph TB
  subgraph "Upward Traceability (origen)"
@@ -128,7 +128,7 @@ FASE 1: Clasificación y Frontmatter YAML
 
 **Decisión Tree:**
 
-.. code:: mermaid
+.. code:: text
 
  flowchart TD
  Start{¿Qué estoy documentando?}

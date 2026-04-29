@@ -88,7 +88,7 @@ difícil
 
 **Ejemplo**:
 
-.. code:: sql
+.. code:: text
 
    -- SQL puro
    CREATE FUNCTION usuario_tiene_permiso(

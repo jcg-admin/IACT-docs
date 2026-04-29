@@ -140,7 +140,7 @@ el WP de requisitos (deuda diferida).
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code-block:: sql
+.. code-block:: text
 
  CREATE OR REPLACE FUNCTION audit_immutable RETURNS TRIGGER AS $$
  BEGIN RAISE EXCEPTION 'audit log is append-only'; END;

@@ -161,7 +161,7 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT
 5.1 Codigo de Referencia
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: python
+.. code-block:: text
 
  # frontend (pseudo)
  async function bootstrapNavigation(userId) {

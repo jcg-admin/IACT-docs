@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 2.0.0
+ :version: 2.1.0
  :fecha_creacion: 2026-01-11
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -277,9 +277,47 @@ STD_001: Estándar de Documentación Sin Emojis
    4.4. Flechas y Direcciones
    ---------------------------
 
-   **Según tipo de archivo:**
+   **REGLA REVISADA v2.0.0 (2026-04-29):** Distinguir entre flechas
+   **decorativas** (prohibidas) y flechas **técnicas semánticas**
+   (permitidas con criterio). La revisión surge de validación
+   empírica del corpus (549 ocurrencias de ``→`` en 74 archivos
+   con uso semántico legítimo en taxonomías y mapeos).
 
-   **ASCII estándar:**
+   4.4.1. PROHIBIDAS (decorativas)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   .. code-block:: text
+
+      ➜ ➔ ⬅ ⬆ ⬇ ▶ ◄ ▲ ▼
+
+   **Razón:** ornamento visual, redundantes con alternativas técnicas.
+
+   4.4.2. PERMITIDAS CON CRITERIO (técnicas semánticas)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   .. code-block:: text
+
+      → ← ↑ ↓ ↔   (flechas direccionales/bidireccional)
+      ⇒ ⇐ ⇔        (implicación lógica)
+
+   **Criterio de uso permitido:**
+
+   - **Taxonomías y jerarquías**: ``BReq → BR → UC → FR → NFR``
+   - **Mapeos bidireccionales**: ``UC ↔ FR``, ``Vista Funcional ↔ Vista Tecnica``
+   - **Transformaciones**: ``Verbo + Objeto → Acción ejecutable``
+   - **Implicación lógica formal**: ``A ⇒ B`` en reglas de negocio
+   - **Diagramas inline en títulos y notas técnicas**
+
+   **NO permitido:**
+
+   - Decorar listas (``→ Item 1``, ``→ Item 2`` — usar bullet ``-``)
+   - Indicar estado (``→ Completado`` — usar ``[OK]``)
+   - Reemplazar texto narrativo (``"...debe → debería"`` — usar palabras)
+
+   4.4.3. ASCII estándar (siempre seguro)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Para outputs de scripts, terminales, archivos ``.txt`` y código:
 
    .. code-block:: text
 
@@ -288,21 +326,10 @@ STD_001: Estándar de Documentación Sin Emojis
       <- Flecha izquierda
       <=> Bidireccional
 
-   **En diagramas técnicos:**
-
-   .. code-block:: text
-
-      A -> B -> C
- 
-   Usuario -> Sistema -> Base de Datos
- 
-   if (condicion) {
-   // true
-   } else {
-   // false
-   }
-
-   **NUNCA usar:** →, ⇒, ➜, ➔, ⬅, ⬆, ⬇
+   En documentación RST/Markdown técnica, las opciones §4.4.2 y
+   §4.4.3 son intercambiables según legibilidad. Las §4.4.2 son
+   más legibles en taxonomías largas; las §4.4.3 son más portables
+   a outputs ASCII puros.
 
    4.5. Marcadores de Estado
    --------------------------
@@ -471,7 +498,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
 **Aclaración:** Añadir nota explicativa.
 
-.. code-block:: rst
+.. code-block:: text
 
    .. note::
     El código original contiene emojis. En código propio de IACT,

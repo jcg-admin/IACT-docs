@@ -94,7 +94,7 @@ Principios WASI
 
 1. **Capabilities explicitas**
 
-   .. code:: json
+   .. code:: text
 
       {
         "filesystem": {"read": [...], "write": [...]},

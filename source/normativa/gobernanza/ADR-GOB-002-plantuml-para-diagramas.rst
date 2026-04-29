@@ -99,7 +99,7 @@ Estilo y Convenciones
 
 **Usar skin moderno**:
 
-.. code:: plantuml
+.. code:: text
 
  @startuml
  !theme plain
@@ -112,7 +112,7 @@ Elementos de negocio: Español (actores, casos de uso, descripciones)
 
 **Ejemplo completo**:
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UC-BACK-001-login-usuario
  !theme plain
@@ -443,7 +443,7 @@ Ejemplos de Uso
 Diagrama de Secuencia
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml SEQ-BACK-006-autenticacion-jwt
  !theme plain
@@ -471,7 +471,7 @@ Diagrama de Secuencia
 Diagrama de Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UC-BACK-001-gestion-usuarios
  !theme plain
@@ -499,7 +499,7 @@ Diagrama de Casos de Uso
 Diagrama de Clases
 ~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml CLASS-BACK-010-modelo-permisos
  !theme plain

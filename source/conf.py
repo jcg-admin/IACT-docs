@@ -100,9 +100,21 @@ pygments_style = 'sphinx'
 smartquotes = True
 smartquotes_action = 'De'  # (D)ashes y (e)llipses
 
+# -- Configuración de Strictness --
+# nitpicky activa la deteccion de cross-references rotas como warnings.
+# Sin esto, Sphinx default solo valida sintaxis, no semantica de refs.
+# Activado tras deep-review 2026-04-29 (WP source-final-cleanup) que
+# detecto que "build verde" sin nitpicky era de baja resolucion.
+nitpicky = True
+
 # -- Configuración de Lexers --
-# Ignorar warnings de lexers desconocidos (plantuml, mermaid, cql)
-suppress_warnings = ['misc.highlighting_failure']
+# Politica 0/0: NO suprimir warnings de lexers desconocidos.
+# Si plantuml/mermaid/cql u otro lexer falla, debe ser visible.
+# Si el lexer es legitimo pero no instalado, registrar la deuda en
+# technical-debt.md y resolver instalando el extension correspondiente.
+# Removida la directiva `suppress_warnings = ['misc.highlighting_failure']`
+# tras deep-review 2026-04-29 que la identifico como instancia del
+# anti-patron "calibracion del instrumento para que cumpla la metrica".
 
 # -- Configuración de Salida HTML (Tema FURO) --
 html_theme = 'furo'

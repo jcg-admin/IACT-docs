@@ -270,7 +270,7 @@ Crear Archivo
 Estructura Básica del Archivo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion
  !theme plain
@@ -308,7 +308,7 @@ Estructura Básica del Archivo
 Ejemplo Completo Inicial
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion
  !theme plain
@@ -370,7 +370,7 @@ diagrama.
 Sintaxis PlantUML para Actores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  actor "Nombre del Actor" as actorID
 
@@ -385,7 +385,7 @@ Convenciones
 Ejemplos
 ~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  ' Actores de negocio
  actor "Usuario" as usuario
@@ -407,7 +407,7 @@ distinguirán por la **dirección de las flechas** en PASO 5.
 
 Por ahora, solo declarar todos los actores:
 
-.. code:: plantuml
+.. code:: text
 
  ' ===================================
  ' ACTORES
@@ -424,7 +424,7 @@ Por ahora, solo declarar todos los actores:
 Ejemplo Completo: Módulo de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion
  !theme plain
@@ -482,7 +482,7 @@ límite del sistema.
 Sintaxis PlantUML para Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  usecase "VERBO Objeto" as UC###
 
@@ -500,7 +500,7 @@ Convenciones
 Límite del Sistema
 ~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  rectangle "Nombre del Sistema - Módulo Específico" {
  ' Casos de uso van DENTRO del rectángulo
@@ -516,7 +516,7 @@ DENTRO.
 Ejemplo Completo: Módulo de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion
  !theme plain
@@ -551,7 +551,7 @@ Ejemplo Completo: Módulo de Autenticación
 Ejemplo: Módulo de Gestión de Usuarios
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  rectangle "Sistema IACT - Módulo de Gestión de Usuarios" {
  usecase "Registrar Usuario en Sistema" as UC010
@@ -599,7 +599,7 @@ Esta es la regla MÁS IMPORTANTE del diagrama.
 Sintaxis PlantUML
 ~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  ' Actor primario (flecha de actor a caso de uso)
  actor1 --> UC001
@@ -613,7 +613,7 @@ Ejemplos Visuales
 Ejemplo 1: UC-BACK-001 Iniciar Sesión
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: plantuml
+.. code:: text
 
  ' Actor primario: Usuario ejecuta "Iniciar Sesión"
  usuario --> UC001
@@ -629,7 +629,7 @@ autenticación y datos)
 Ejemplo 2: UC-BACK-004 Recuperar Contraseña
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: plantuml
+.. code:: text
 
  ' Actor primario: Usuario ejecuta "Recuperar Contraseña"
  usuario --> UC004
@@ -645,7 +645,7 @@ de recuperación
 ERROR Común
 ~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  ' INCORRECTO: Todas las flechas en la misma dirección
  usuario --> UC001
@@ -660,7 +660,7 @@ cual es incorrecto.
 Ejemplo Completo: Módulo de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion
  !theme plain
@@ -748,7 +748,7 @@ otro.
 
 **Sintaxis PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC001 .> UC002 : <<include>>
 
@@ -757,7 +757,7 @@ de uso - Siempre se ejecuta, no es opcional
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Procesar Venta" as UC001
  usecase "Calcular Impuestos" as UC002
@@ -775,7 +775,7 @@ comportamiento de otro bajo ciertas condiciones.
 
 **Sintaxis PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC003 .> UC001 : <<extend>>
 
@@ -784,7 +784,7 @@ específica
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Procesar Venta" as UC001
  usecase "Aplicar Descuento por Volumen" as UC003
@@ -799,7 +799,7 @@ específica
 
 **Sintaxis PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC005 --|> UC001
 
@@ -808,7 +808,7 @@ comportamiento
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Autenticar Usuario" as UC001
  usecase "Autenticar con JWT" as UC005
@@ -820,7 +820,7 @@ comportamiento
 Ejemplo: Módulo de Autenticación con Include
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-001-autenticacion-con-include
  !theme plain
@@ -859,7 +859,7 @@ SIEMPRE incluyen “Validar Credenciales”.
 Ejemplo: Módulo de Gestión con Extend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-002-gestion-usuarios-con-extend
  !theme plain
@@ -1001,7 +1001,7 @@ Ajustar Layout si es Necesario
 
 Si el diagrama no se ve bien, ajustar con hints:
 
-.. code:: plantuml
+.. code:: text
 
  ' Cambiar dirección (izquierda a derecha es recomendado)
  left to right direction
@@ -1341,7 +1341,7 @@ Template Completo de Diagrama UML
 Template Básico
 ~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-DOMINIO-###-descripcion
  !theme plain
@@ -1404,7 +1404,7 @@ Template Básico
 Template Avanzado con Include/Extend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-DOMINIO-###-descripcion-avanzado
  !theme plain
@@ -1484,7 +1484,7 @@ Ejemplo Completo: Módulo de Auditoría
 Archivo: UCD-BACK-003-modulo-auditoria.puml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-003-modulo-auditoria
  !theme plain
@@ -1595,7 +1595,7 @@ Problema 2: Flechas se cruzan y es confuso
 
 **Solución**:
 
-.. code:: plantuml
+.. code:: text
 
  ' Cambiar orientación
  top to bottom direction ' En lugar de left to right

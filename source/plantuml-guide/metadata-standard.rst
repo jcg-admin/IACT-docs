@@ -28,7 +28,7 @@ Formato de Metadatos
 
 Agregar al inicio de cada bloque PlantUML:
 
-.. code-block:: plaintext
+.. code-block:: text
 
    ' @IACT-DIAGRAM
    ' module: {modulo}
@@ -115,7 +115,7 @@ Ejemplo por Tipo
 
 **Use Case:**
 
-.. code-block:: plaintext
+.. code-block:: text
 
    ' @IACT-DIAGRAM
    ' module: requisitos
@@ -126,7 +126,7 @@ Ejemplo por Tipo
 
 **Component:**
 
-.. code-block:: plaintext
+.. code-block:: text
 
    ' @IACT-DIAGRAM
    ' module: arquitectura_tecnica
@@ -138,7 +138,7 @@ Ejemplo por Tipo
 
 **Sequence:**
 
-.. code-block:: plaintext
+.. code-block:: text
 
    ' @IACT-DIAGRAM
    ' module: arquitectura_tecnica
@@ -150,7 +150,7 @@ Ejemplo por Tipo
 
 **Activity:**
 
-.. code-block:: plaintext
+.. code-block:: text
 
    ' @IACT-DIAGRAM
    ' module: requisitos

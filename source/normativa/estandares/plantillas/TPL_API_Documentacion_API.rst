@@ -115,7 +115,7 @@ Nomenclatura
 Plantilla
 ---------
 
-.. code-block:: rst
+.. code-block:: text
 
    .. meta::
    :artefacto: API_[Nombre]

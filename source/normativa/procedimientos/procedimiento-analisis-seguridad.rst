@@ -200,7 +200,7 @@ Crear sección de activos críticos con clasificación:
 2.2 Límites de Confianza (Trust Boundaries)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: mermaid
+.. code:: text
 
  flowchart TB
  subgraph Internet["INTERNET INTERNET (Untrusted)"]
@@ -471,7 +471,7 @@ se mueven los datos sensibles.
 3.2 DFD Nivel 1 - Flujo de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: mermaid
+.. code:: text
 
  flowchart TD
  U[Usuario] -->|POST /loginusername, password| API[API Gateway]

@@ -479,7 +479,7 @@ excluye valores 0 que no se usan en calculos.
 
 **Script Completo de Indices:**
 
-.. code-block:: sql
+.. code-block:: text
 
  -- ============================================================
  -- Indices para FR-RPT-01-06

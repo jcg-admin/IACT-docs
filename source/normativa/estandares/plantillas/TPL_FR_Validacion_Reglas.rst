@@ -421,7 +421,7 @@ de enviar al servidor.
 
 **React Component con Validacion:**
 
-.. code-block:: javascript
+.. code-block:: text
 
  import React, { useState } from 'react';
  

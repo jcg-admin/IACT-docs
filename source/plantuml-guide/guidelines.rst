@@ -190,7 +190,7 @@ How to Include Styles
 
 Every PlantUML diagram must include the centralized style file at the top:
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml diagram-name
    !include ../_static/plantuml-styles.puml
@@ -219,7 +219,7 @@ The consolidated style system includes predefined stereotypes for common element
 
 Use when representing different roles or actors in use case diagrams:
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml roles-example
    !include ../_static/plantuml-styles.puml
@@ -234,7 +234,7 @@ Use when representing different roles or actors in use case diagrams:
 
 Use in sequence and component diagrams to color elements by responsibility:
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml architecture-sequence
    !include ../_static/plantuml-styles.puml
@@ -250,7 +250,7 @@ Use in sequence and component diagrams to color elements by responsibility:
 
 Use in context and architecture diagrams:
 
-.. code-block:: puml
+.. code-block:: text
 
    rectangle "Presentation Layer" <<presentation>> { }
    rectangle "Application Layer" <<application>> { }
@@ -274,7 +274,7 @@ Examples
 Example 1: Simple Use Case Diagram
 __________________________________
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml simple-uc
    !include ../_static/plantuml-styles.puml
@@ -290,7 +290,7 @@ __________________________________
 Example 2: Sequence with Multiple Actors
 _________________________________________
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml authentication-sequence
    !include ../_static/plantuml-styles.puml
@@ -308,7 +308,7 @@ _________________________________________
 Example 3: Component Architecture
 __________________________________
 
-.. code-block:: puml
+.. code-block:: text
 
    @startuml system-architecture
    !include ../_static/plantuml-styles.puml
@@ -353,13 +353,13 @@ Anti-patterns
 
 [NO] Duplicate styles per diagram
 
-.. code-block:: puml
+.. code-block:: text
 
    skinparam actor { backgroundColor #0066CC }  ' NO! Already in _static/
 
 [NO] Hardcode colors inline
 
-.. code-block:: puml
+.. code-block:: text
 
    actor "User" #0066CC  ' NO! Use the centralized style
 
@@ -370,7 +370,7 @@ Anti-patterns
 
 [NO] Ignore path resolution
 
-.. code-block:: puml
+.. code-block:: text
 
    !include plantuml-styles.puml  ' WRONG! Full relative path required
 

@@ -204,7 +204,7 @@ FASE 2: Documentar Arquitectura y Diagramas
 1.2 Capas de la Aplicación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: mermaid
+.. code:: text
 
  graph LR
  subgraph "Capa de Presentación"

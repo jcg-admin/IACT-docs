@@ -258,7 +258,7 @@ Integraci?n con SDLC
 
 **Cron job** (agregar a crontab):
 
-.. code:: cron
+.. code:: text
 
  # Limpiar sesiones cada 6 horas
  0 */6 * * * /path/to/scripts/cleanup_sessions.sh >> /var/log/iact/cleanup.log 2>&1

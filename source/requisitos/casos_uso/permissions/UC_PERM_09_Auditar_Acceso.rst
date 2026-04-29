@@ -82,7 +82,7 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 ---------------
 
 
-.. code-block:: sql
+.. code-block:: text
 
  CREATE OR REPLACE FUNCTION verificar_permiso_y_auditar(
  p_usuario_id INTEGER,

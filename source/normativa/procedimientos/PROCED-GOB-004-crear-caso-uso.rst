@@ -887,7 +887,7 @@ Ejemplo:
 Template PlantUML
 ~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-003-modulo-auditoria
  !theme plain
@@ -934,7 +934,7 @@ Reglas de Dirección de Flechas
 Ejemplo: UC-BACK-020
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-003-modulo-auditoria
  !theme plain
@@ -1267,7 +1267,7 @@ PASO 9: Validación QUÉ vs CÓMO
 PASO 10: Diagrama UML
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-BACK-002-gestion-usuarios
  !theme plain

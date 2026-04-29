@@ -68,7 +68,7 @@ El sistema verifica si un usuario tiene una funcion específica, evaluando en or
 ---------------
 
 
-.. code-block:: sql
+.. code-block:: text
 
  CREATE OR REPLACE FUNCTION usuario_tiene_permiso(
  p_usuario_id INTEGER,

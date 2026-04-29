@@ -101,7 +101,7 @@ Reglas de Módulos
 Ejemplo: Módulo Dashboard
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: javascript
+.. code:: text
 
    // src/modules/dashboard/index.js
    export { default } from './DashboardModule';

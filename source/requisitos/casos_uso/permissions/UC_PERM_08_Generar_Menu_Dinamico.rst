@@ -51,7 +51,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 ---------------
 
 
-.. code-block:: sql
+.. code-block:: text
 
  CREATE OR REPLACE FUNCTION obtener_menu_usuario(
  p_usuario_id INTEGER
@@ -118,7 +118,7 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 ------------------
 
 
-.. code-block:: typescript
+.. code-block:: text
 
  const { menu, loading } = useMenu;
  

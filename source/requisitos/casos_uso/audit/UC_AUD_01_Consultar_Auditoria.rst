@@ -449,7 +449,7 @@ El auditor accede al modulo de auditoria.
 
 **Implementacion CNST_025:**
 
-.. code-block:: sql
+.. code-block:: text
 
  -- Trigger para prevenir UPDATE/DELETE
  CREATE OR REPLACE FUNCTION prevent_audit_modification

@@ -83,13 +83,13 @@ Elementos Fundamentales
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  actor "Nombre del Actor" as ActorID
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  actor "Solicitante" as solicitante
  actor "Gerente de Laboratorio" as gerente
@@ -104,13 +104,13 @@ cortos en minúsculas para referenciar
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "VERBO Objeto" as UC###
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Registrar Vuelo" as UC001
  usecase "Imprimir Pases de Abordar" as UC002
@@ -125,7 +125,7 @@ estándar UML
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  rectangle "Nombre del Sistema" {
  ' casos de uso van aquí
@@ -133,7 +133,7 @@ estándar UML
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  rectangle "Sistema IACT" {
  usecase "Iniciar Sesión" as UC001
@@ -162,7 +162,7 @@ Regla de Oro: Dirección de Flechas
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  ' Actor primario (flecha de actor a caso de uso)
  solicitante --> UC004
@@ -173,7 +173,7 @@ Regla de Oro: Dirección de Flechas
 Ejemplo Visual Completo
 '''''''''''''''''''''''
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UC-BACK-004-solicitar-producto-quimico
 
@@ -207,7 +207,7 @@ algunos pasos hay interacción con Comprador e Inventario
 ERROR Común
 '''''''''''
 
-.. code:: plantuml
+.. code:: text
 
  ' INCORRECTO: Todas las flechas en la misma dirección
  solicitante --> UC004
@@ -231,13 +231,13 @@ otro.
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC001 .> UC002 : <<include>>
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Procesar Venta" as UC001
  usecase "Calcular Impuestos" as UC002
@@ -259,13 +259,13 @@ comportamiento de otro bajo ciertas condiciones.
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC003 .> UC001 : <<extend>>
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Procesar Venta" as UC001
  usecase "Aplicar Descuento por Volumen" as UC003
@@ -284,13 +284,13 @@ Generalización (Herencia)
 
 **Representación PlantUML**:
 
-.. code:: plantuml
+.. code:: text
 
  UC005 --|> UC004
 
 **Ejemplo**:
 
-.. code:: plantuml
+.. code:: text
 
  usecase "Autenticar Usuario" as UC001
  usecase "Autenticar con JWT" as UC005
@@ -326,7 +326,7 @@ Crear diagrama de actividad si el caso de uso cumple alguno:
 Ejemplo: Diagrama de Actividad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: plantuml
+.. code:: text
 
  @startuml ACT-BACK-004-solicitar-producto-quimico
 
@@ -432,7 +432,7 @@ organizacional.
 Template PlantUML para Diagrama de Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml UCD-DOMINIO-###-descripcion
  !theme plain
@@ -474,7 +474,7 @@ Template PlantUML para Diagrama de Casos de Uso
 Template PlantUML para Diagrama de Actividad
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: plantuml
+.. code:: text
 
  @startuml ACT-DOMINIO-###-descripcion
  !theme plain
