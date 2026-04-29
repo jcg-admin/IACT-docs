@@ -79,6 +79,36 @@ Contenido publicado
 
    arquitectura_tecnica/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Bases de Datos
+
+   databases/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Calidad
+
+   quality/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Riesgos y Deuda Tecnica
+
+   risks-technical-debt/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Onboarding
+
+   onboarding/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Gestion del Proyecto
+
+   gestion/index
+
 ----
 
 Índices y Búsqueda
