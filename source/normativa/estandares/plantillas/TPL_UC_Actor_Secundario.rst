@@ -106,16 +106,16 @@ Visualizar graficamente los actores y sus relaciones en el UC.
 
 .. code-block:: text
 
- +------------------+
- | Actor Principal |
- +------------------+
+ .. list-table::
+
+    * - Actor Principal
  |
  | inicia UC
  v
- +------------------+
- | Sistema IACT |
- +------------------+
- | |
+ .. list-table::
+
+    * - Sistema IACT
+    * - 
  | solicita | notifica
  v v
  +---------+ +---------+
@@ -142,10 +142,9 @@ Visualizar graficamente los actores y sus relaciones en el UC.
  ^
  | (3) notifica
  |
- +-------------------------+
- | Sistema IACT |
- | (Modulo Reportes) |
- +-------------------------+
+ .. list-table::
+
+    * - Sistema IACT (Modulo Reportes)
  ^ |
  | | (5) ejecuta
  | (1) crea |

@@ -321,21 +321,15 @@ de transformacion.
  | vw_llamadas (vista) |
  | |
  v |
- +-------+----------------------------+--------+
- | ETL NOCTURNO |
- | (Job automatizado, NO manual desde UI) |
- | |
- | 1. Extract: SELECT FROM vw_llamadas |
- | 2. Transform: Calcular metricas |
- | 3. Load: INSERT INTO analytics |
- +---------------------------------------------+
+ .. list-table::
+
+    * - ETL NOCTURNO (Job automatizado, NO manual desde UI) 1. Extract: SELECT FROM vw_llamadas 2. Transform: Calcular metricas 3. Load: INSERT INTO analytics
  |
  | (registra ejecucion)
  v
- +-------+--------+
- | ETL_MONITORING |
- | (SUPERVISION) |
- +----------------+
+ .. list-table::
+
+    * - ETL_MONITORING (SUPERVISION)
 
 ----
 

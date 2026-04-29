@@ -261,12 +261,14 @@ y permisos que pueden violarse (y el sistema debe prevenir o detectar).
  SI Rol_A excluye Rol_B
 
  PARES CONFLICTIVOS:
- +------+------+--------------------------------+
- | Rol A| Rol B| Razon |
- +------+------+--------------------------------+
- | R016 | R017 | Operador NO debe auditar |
- | R001 | R017 | Gestor usuarios NO debe auditar|
- +------+------+--------------------------------+
+ .. list-table::
+
+    * - Rol A
+      - Rol B
+      - Razon
+    * - R016 R001
+      - R017 R017
+      - Operador NO debe auditar Gestor usuarios NO debe auditar
 
  VALIDACION:
  - Al asignar rol: verificar conflictos SoD

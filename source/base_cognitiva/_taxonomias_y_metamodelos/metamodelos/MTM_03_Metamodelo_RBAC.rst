@@ -101,13 +101,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  |
  | N:N (SoD)
  v
- +--------+---------+
- | RolConflicto |
- +------------------+
- | - rol_a: FK |
- | - rol_b: FK |
- | - razon |
- +------------------+
+ .. list-table::
+
+    * - RolConflicto
+    * - - rol_a: FK - rol_b: FK - razon
 
 2.2 Diagrama con Sesion
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,15 +122,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  | | - last_activity |
  | 1:N | - is_active |
  v +------------------+
- +------------------+
- | RegistroAudit |
- +------------------+
- | - log_id: PK |
- | - user_id: FK |
- | - timestamp |
- | - action_type |
- | - result |
- +------------------+
+ .. list-table::
+
+    * - RegistroAudit
+    * - - log_id: PK - user_id: FK - timestamp - action_type - result
 
 ----
 
@@ -145,32 +137,11 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | Usuario |
- +------------------------------------------------------------------+
- | <<primary key>> |
- | - user_id: SERIAL |
- | |
- | <<unique>> |
- | - username: VARCHAR(100) |
- | - email: VARCHAR(255) |
- | |
- | <<attributes>> |
- | - password_hash: VARCHAR(255) |
- | - nombre_completo: VARCHAR(200) |
- | - estado: EstadoUsuario |
- | - segment_id: FK -> Segmento |
- | - created_at: TIMESTAMP |
- | - updated_at: TIMESTAMP |
- | - last_login: TIMESTAMP |
- | - failed_attempts: INTEGER DEFAULT 0 |
- +------------------------------------------------------------------+
- | <<operations>> |
- | + authenticate(password): Boolean |
- | + hasPermission(permission): Boolean |
- | + hasRole(role): Boolean |
- | + getEffectivePermissions: Set<Permission> |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - Usuario
+    * - <<primary key>> - user_id: SERIAL <<unique>> - username: VARCHAR(100) - email: VARCHAR(255) <<attributes>> - password_hash: VARCHAR(255) - nombre_completo: VARCHAR(200) - estado: EstadoUsuario - segment_id: FK -> Segmento - created_at: TIMESTAMP - updated_at: TIMESTAMP - last_login: TIMESTAMP - failed_attempts: INTEGER DEFAULT 0
+    * - <<operations>> + authenticate(password): Boolean + hasPermission(permission): Boolean + hasRole(role): Boolean + getEffectivePermissions: Set<Permission>
 
  INVARIANTES:
  - username es unico y no nulo
@@ -183,26 +154,11 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | Rol |
- +------------------------------------------------------------------+
- | <<primary key>> |
- | - role_id: SERIAL |
- | |
- | <<unique>> |
- | - codigo: VARCHAR(50) // ej. AGR-001..AGR-010 (system groups) |
- | |
- | <<attributes>> |
- | - nombre: VARCHAR(100) |
- | - descripcion: TEXT |
- | - categoria: CategoriaRol |
- | - is_active: BOOLEAN DEFAULT TRUE |
- +------------------------------------------------------------------+
- | <<operations>> |
- | + containsPermission(permission): Boolean |
- | + isCompatibleWith(otherRole): Boolean |
- | + getPermissions: Set<Permission> |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - Rol
+    * - <<primary key>> - role_id: SERIAL <<unique>> - codigo: VARCHAR(50) // ej. AGR-001..AGR-010 (system groups) <<attributes>> - nombre: VARCHAR(100) - descripcion: TEXT - categoria: CategoriaRol - is_active: BOOLEAN DEFAULT TRUE
+    * - <<operations>> + containsPermission(permission): Boolean + isCompatibleWith(otherRole): Boolean + getPermissions: Set<Permission>
 
  CATALOGO DEL MODELO v5.2.x (vigente):
 
@@ -223,20 +179,16 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  Tabla de los 10 grupos predefinidos:
 
- +---------+-----------------------------+-------------+----------------+
- | Codigo | Nombre (ingles) | # funciones | Actor tipico |
- +---------+-----------------------------+-------------+----------------+
- | AGR-001 | basic_operator_group | 6 | Operador |
- | AGR-002 | report_viewer_group | 8 | Analista |
- | AGR-003 | quality_supervisor_group | 11 | Supervisor |
- | AGR-004 | data_exporter_group | 14 | Data Analyst |
- | AGR-005 | alert_manager_group | 6 | Gestor Alertas |
- | AGR-006 | user_admin_group | 9 | Admin Usuarios |
- | AGR-007 | permission_admin_group | 5 | Admin Permisos |
- | AGR-008 | auditor_group | 4 | Auditor |
- | AGR-009 | pipeline_admin_group | 4 | Admin Pipeline |
- | AGR-010 | system_admin_group | 6 | Sysadmin |
- +---------+-----------------------------+-------------+----------------+
+ .. list-table::
+
+    * - Codigo
+      - Nombre (ingles)
+      - # funciones
+      - Actor tipico
+    * - AGR-001 AGR-002 AGR-003 AGR-004 AGR-005 AGR-006 AGR-007 AGR-008 AGR-009 AGR-010
+      - basic_operator_group report_viewer_group quality_supervisor_group data_exporter_group alert_manager_group user_admin_group permission_admin_group auditor_group pipeline_admin_group system_admin_group
+      - 6 8 11 14 6 9 5 4 4 6
+      - Operador Analista Supervisor Data Analyst Gestor Alertas Admin Usuarios Admin Permisos Auditor Admin Pipeline Sysadmin
 
  Ademas de los 10 grupos predefinidos (system, inmutables), el
  admin puede crear **custom groups** dinamicamente via
@@ -254,21 +206,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | Permiso |
- +------------------------------------------------------------------+
- | <<primary key>> |
- | - permission_id: SERIAL |
- | |
- | <<unique>> |
- | - nombre: VARCHAR(100) // recurso.accion[.modificador] |
- | |
- | <<attributes>> |
- | - descripcion: TEXT |
- | - recurso: VARCHAR(50) |
- | - accion: VARCHAR(50) |
- | - modificador: VARCHAR(50) NULLABLE |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - Permiso
+    * - <<primary key>> - permission_id: SERIAL <<unique>> - nombre: VARCHAR(100) // recurso.accion[.modificador] <<attributes>> - descripcion: TEXT - recurso: VARCHAR(50) - accion: VARCHAR(50) - modificador: VARCHAR(50) NULLABLE
 
  FORMATO NOMBRE:
  {recurso}.{accion}[.{modificador}]
@@ -286,55 +227,28 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | Segmento |
- +------------------------------------------------------------------+
- | <<primary key>> |
- | - segment_id: SERIAL |
- | |
- | <<unique>> |
- | - codigo: VARCHAR(50) |
- | |
- | <<attributes>> |
- | - nombre: VARCHAR(100) |
- | - descripcion: TEXT |
- | - filtro_sql: TEXT // Clausula WHERE para filtrar datos |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - Segmento
+    * - <<primary key>> - segment_id: SERIAL <<unique>> - codigo: VARCHAR(50) <<attributes>> - nombre: VARCHAR(100) - descripcion: TEXT - filtro_sql: TEXT // Clausula WHERE para filtrar datos
 
  INSTANCIAS CONOCIDAS:
- +---------------------+--------------------------------+
- | Codigo | Filtro SQL |
- +---------------------+--------------------------------+
- | DATOS_CONSOLIDADOS | 1=1 (sin filtro) |
- | CENTRO_NORTE | centro_id IN (1,2,3) |
- | CENTRO_SUR | centro_id IN (4,5,6) |
- | CENTRO_ORIENTE | centro_id IN (7,8) |
- | CENTRO_OCCIDENTE | centro_id IN (9,10) |
- +---------------------+--------------------------------+
+ .. list-table::
+
+    * - Codigo
+      - Filtro SQL
+    * - DATOS_CONSOLIDADOS CENTRO_NORTE CENTRO_SUR CENTRO_ORIENTE CENTRO_OCCIDENTE
+      - 1=1 (sin filtro) centro_id IN (1,2,3) centro_id IN (4,5,6) centro_id IN (7,8) centro_id IN (9,10)
 
 3.5 Sesion
 ^^^^^^^^^^
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | Sesion |
- +------------------------------------------------------------------+
- | <<primary key>> |
- | - session_id: VARCHAR(255) |
- | |
- | <<foreign key>> |
- | - user_id: FK -> Usuario |
- | |
- | <<attributes>> |
- | - ip_address: VARCHAR(45) |
- | - user_agent: VARCHAR(500) |
- | - login_at: TIMESTAMP |
- | - last_activity: TIMESTAMP |
- | - logout_at: TIMESTAMP NULLABLE |
- | - logout_reason: VARCHAR(50) NULLABLE |
- | - is_active: BOOLEAN DEFAULT TRUE |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - Sesion
+    * - <<primary key>> - session_id: VARCHAR(255) <<foreign key>> - user_id: FK -> Usuario <<attributes>> - ip_address: VARCHAR(45) - user_agent: VARCHAR(500) - login_at: TIMESTAMP - last_activity: TIMESTAMP - logout_at: TIMESTAMP NULLABLE - logout_reason: VARCHAR(50) NULLABLE - is_active: BOOLEAN DEFAULT TRUE
 
  RESTRICCION CRITICA:
  Solo UNA sesion activa por usuario (sesion unica).
@@ -353,18 +267,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | user_roles |
- +------------------------------------------------------------------+
- | <<composite key>> |
- | - user_id: FK -> Usuario |
- | - role_id: FK -> Rol |
- | |
- | <<attributes>> |
- | - assigned_at: TIMESTAMP |
- | - assigned_by: FK -> Usuario |
- | - justificacion: TEXT (min 20 chars) |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - user_roles
+    * - <<composite key>> - user_id: FK -> Usuario - role_id: FK -> Rol <<attributes>> - assigned_at: TIMESTAMP - assigned_by: FK -> Usuario - justificacion: TEXT (min 20 chars)
 
  REGLA:
  Usuario debe tener al menos 1 rol.
@@ -374,13 +280,10 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | role_permissions |
- +------------------------------------------------------------------+
- | <<composite key>> |
- | - role_id: FK -> Rol |
- | - permission_id: FK -> Permiso |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - role_permissions
+    * - <<composite key>> - role_id: FK -> Rol - permission_id: FK -> Permiso
 
  REGLA:
  Rol debe tener al menos 1 permiso.
@@ -390,25 +293,20 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | role_conflicts |
- +------------------------------------------------------------------+
- | <<composite key>> |
- | - role_a: FK -> Rol |
- | - role_b: FK -> Rol |
- | |
- | <<attributes>> |
- | - razon: TEXT |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - role_conflicts
+    * - <<composite key>> - role_a: FK -> Rol - role_b: FK -> Rol <<attributes>> - razon: TEXT
 
  PARES CONFLICTIVOS IACT (modelo v5.2.x — 3 reglas SoD atomicas):
- +-----------+-----------+----------------------------------------+
- | Grupo A | Grupo B | Razon |
- +-----------+-----------+----------------------------------------+
- | Pipeline | Audit | Quien opera ETL no debe auditarlo |
- | Users | Audit | Quien gestiona users no debe auditar |
- | Access | Audit | Quien gestiona acceso no debe auditar |
- +-----------+-----------+----------------------------------------+
+ .. list-table::
+
+    * - Grupo A
+      - Grupo B
+      - Razon
+    * - Pipeline Users Access
+      - Audit Audit Audit
+      - Quien opera ETL no debe auditarlo Quien gestiona users no debe auditar Quien gestiona acceso no debe auditar
 
  Detalle SOD-001/SOD-002/SOD-003:
  :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`

@@ -455,18 +455,21 @@ de error (excepciones).
 Diferencia entre Flujos Alternos y Excepciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------+-----------------------+-----------------------+
-| Aspecto | Flujo Alterno | Excepción |
-+=======================+=======================+=======================+
-| Resultado | Éxito (puede haber | Error o fallo |
-| | postcondición | |
-| | diferente) | |
-+-----------------------+-----------------------+-----------------------+
-| Validez | Camino válido | Situación anormal |
-+-----------------------+-----------------------+-----------------------+
-| Ejemplo | “Pago con tarjeta” vs | “Tarjeta rechazada” |
-| | “Pago en efectivo” | |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Aspecto
+     - Flujo Alterno
+     - Excepción
+   * - Resultado
+     - Éxito (puede haber postcondición diferente)
+     - Error o fallo
+   * - Validez
+     - Camino válido
+     - Situación anormal
+   * - Ejemplo
+     - “Pago con tarjeta” vs “Pago en efectivo”
+     - “Tarjeta rechazada”
 
 Formato de Flujo Alterno
 ~~~~~~~~~~~~~~~~~~~~~~~~

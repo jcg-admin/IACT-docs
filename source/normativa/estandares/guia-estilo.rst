@@ -855,13 +855,17 @@ Herramientas
 Changelog
 ---------
 
-+-------------------+--------------+-------------------+--------------+
-| Versión | Fecha | Cambios | Autor |
-+===================+==============+===================+==============+
-| 1.0.0 | 2025-11-06 | Creación inicial | Equipo |
-| | | de guía de estilo | Gobernanza |
-| | | completa | |
-+-------------------+--------------+-------------------+--------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+     - Autor
+   * - 1.0.0
+     - 2025-11-06
+     - Creación inicial de guía de estilo completa
+     - Equipo Gobernanza
 
 --------------
 

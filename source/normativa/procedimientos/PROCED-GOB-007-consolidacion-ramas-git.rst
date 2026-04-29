@@ -84,21 +84,44 @@ actualizado.
 3.1 Matriz RACI
 ~~~~~~~~~~~~~~~
 
-+---------------------------------+----------+-----------+---------------+------------+
-| Actividad | Analista | Tech Lead | Desarrollador | Arquitecto |
-+=================================+==========+===========+===============+============+
-| Ejecutar analisis de ramas | R | C | I | I |
-+---------------------------------+----------+-----------+---------------+------------+
-| Generar plan de consolidacion | R | A | I | C |
-+---------------------------------+----------+-----------+---------------+------------+
-| Aprobar plan | I | A | I | C |
-+---------------------------------+----------+-----------+---------------+------------+
-| Ejecutar tareas de integracion | I | C | R | I |
-+---------------------------------+----------+-----------+---------------+------------+
-| Validar resultados | C | A | R | C |
-+---------------------------------+----------+-----------+---------------+------------+
-| Documentar lecciones aprendidas | R | A | C | I |
-+---------------------------------+----------+-----------+---------------+------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Actividad
+     - Analista
+     - Tech Lead
+     - Desarrollador
+     - Arquitecto
+   * - Ejecutar analisis de ramas
+     - R
+     - C
+     - I
+     - I
+   * - Generar plan de consolidacion
+     - R
+     - A
+     - I
+     - C
+   * - Aprobar plan
+     - I
+     - A
+     - I
+     - C
+   * - Ejecutar tareas de integracion
+     - I
+     - C
+     - R
+     - I
+   * - Validar resultados
+     - C
+     - A
+     - R
+     - C
+   * - Documentar lecciones aprendidas
+     - R
+     - A
+     - C
+     - I
 
 **Leyenda:** - R: Responsable de ejecutar - A: Aprobador final - C:
 Consultado durante proceso - I: Informado de resultados
@@ -536,58 +559,57 @@ Ramas eliminadas Documentadas en reporte
 8.1 Riesgos Tecnicos
 ~~~~~~~~~~~~~~~~~~~~
 
-+--------+--------------+---------+------------+---------------------+
-| Riesgo | Probabilidad | Impacto | Mitigacion | Plan Contingencia |
-+========+==============+=========+============+=====================+
-| Conf | MEDIA | ALTO | Analisis | Resolucion manual + |
-| lictos | | | previo de | backup |
-| de | | | conflictos | |
-| merge | | | | |
-| com | | | | |
-| plejos | | | | |
-+--------+--------------+---------+------------+---------------------+
-| P | BAJA | CRITICO | Tag backup | Restaurar desde |
-| erdida | | | o | backup |
-| de | | | bligatorio | |
-| t | | | | |
-| rabajo | | | | |
-| por | | | | |
-| error | | | | |
-+--------+--------------+---------+------------+---------------------+
-| Tests | MEDIA | MEDIO | Validar | Revertir |
-| fallan | | | tras cada | integracion |
-| post | | | fase | problematica |
-| -integ | | | | |
-| racion | | | | |
-+--------+--------------+---------+------------+---------------------+
-| Falta | MEDIA | BAJO | Buffer 20% | Completar en |
-| tiempo | | | adicional | siguiente sesion |
-| es | | | | |
-| timado | | | | |
-+--------+--------------+---------+------------+---------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Riesgo
+     - Probabilidad
+     - Impacto
+     - Mitigacion
+     - Plan Contingencia
+   * - Conf lictos de merge com plejos
+     - MEDIA
+     - ALTO
+     - Analisis previo de conflictos
+     - Resolucion manual + backup
+   * - P erdida de t rabajo por error
+     - BAJA
+     - CRITICO
+     - Tag backup o bligatorio
+     - Restaurar desde backup
+   * - Tests fallan post -integ racion
+     - MEDIA
+     - MEDIO
+     - Validar tras cada fase
+     - Revertir integracion problematica
+   * - Falta tiempo es timado
+     - MEDIA
+     - BAJO
+     - Buffer 20% adicional
+     - Completar en siguiente sesion
 
 8.2 Riesgos Organizacionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------+---------------------+--------------+------------------+
-| Riesgo | Probabilidad | Impacto | Mitigacion |
-+=============+=====================+==============+==================+
-| Falta | BAJA | ALTO | Involucrar desde |
-| aprobacion | | | analisis |
-| de | | | |
-| s | | | |
-| takeholders | | | |
-+-------------+---------------------+--------------+------------------+
-| Trabajo | MEDIA | ALTO | Validar con |
-| activo en | | | equipo antes |
-| ramas a | | | |
-| eliminar | | | |
-+-------------+---------------------+--------------+------------------+
-| I | BAJA | MEDIO | Bloque de tiempo |
-| nterrupcion | | | reservado |
-| durante | | | |
-| ejecucion | | | |
-+-------------+---------------------+--------------+------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Riesgo
+     - Probabilidad
+     - Impacto
+     - Mitigacion
+   * - Falta aprobacion de s takeholders
+     - BAJA
+     - ALTO
+     - Involucrar desde analisis
+   * - Trabajo activo en ramas a eliminar
+     - MEDIA
+     - ALTO
+     - Validar con equipo antes
+   * - I nterrupcion durante ejecucion
+     - BAJA
+     - MEDIO
+     - Bloque de tiempo reservado
 
 --------------
 

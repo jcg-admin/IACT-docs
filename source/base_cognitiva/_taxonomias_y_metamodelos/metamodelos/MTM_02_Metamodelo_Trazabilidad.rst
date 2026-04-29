@@ -82,19 +82,11 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | <<abstract>> |
- | TraceableItem |
- +------------------------------------------------------------------+
- | - id: String |
- | - tipo: TipoArtefacto |
- | - version: String |
- | - estado: EstadoArtefacto |
- +------------------------------------------------------------------+
- | + obtenerLinksEntrantes: List<TraceLink> |
- | + obtenerLinksSalientes: List<TraceLink> |
- | + calcularCobertura: Float |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - <<abstract>> TraceableItem
+    * - - id: String - tipo: TipoArtefacto - version: String - estado: EstadoArtefacto
+    * - + obtenerLinksEntrantes: List<TraceLink> + obtenerLinksSalientes: List<TraceLink> + calcularCobertura: Float
  △
  │
  ┌────────────┬───────────────┼───────────────┬────────────┐
@@ -108,21 +100,11 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | TraceLink |
- +------------------------------------------------------------------+
- | - id: String |
- | - origen: TraceableItem |
- | - destino: TraceableItem |
- | - tipoLink: TipoLink |
- | - direccion: Direccion |
- | - justificacion: String |
- | - fechaCreacion: Date |
- | - creadoPor: String |
- +------------------------------------------------------------------+
- | + esValido: Boolean |
- | + obtenerCamino: List<TraceableItem> |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - TraceLink
+    * - - id: String - origen: TraceableItem - destino: TraceableItem - tipoLink: TipoLink - direccion: Direccion - justificacion: String - fechaCreacion: Date - creadoPor: String
+    * - + esValido: Boolean + obtenerCamino: List<TraceableItem>
 
 2.3 Diagrama de Relaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,13 +116,13 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  +------+------+ +------+------+
  | |
  | 1 | *
- +------------------------------------+
- | linksSalientes |
- +------------------------------------+
+ .. list-table::
+
+    * - linksSalientes
  | 1 | *
- +------------------------------------+
- | linksEntrantes |
- +------------------------------------+
+ .. list-table::
+
+    * - linksEntrantes
 
 ----
 
@@ -348,15 +330,29 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
 
  RTM (Requirements Traceability Matrix)
 
- +--------+--------+--------+--------+--------+--------+--------+
- | BR_ID | UC_ID | FR_ID | CODE | TEST | STATUS | NOTES |
- +--------+--------+--------+--------+--------+--------+--------+
- | BR_015 | UC_010 | FR-10.6| Role | T_010 | IMPL | SoD |
- | | | | Svc. | _06 | | valid. |
- +--------+--------+--------+--------+--------+--------+--------+
- | BR_001 | -- | -- | DB | T_DB | IMPL | Read |
- | | | | Config | _001 | | only |
- +--------+--------+--------+--------+--------+--------+--------+
+ .. list-table::
+
+    * - BR_ID
+      - UC_ID
+      - FR_ID
+      - CODE
+      - TEST
+      - STATUS
+      - NOTES
+    * - BR_015
+      - UC_010
+      - FR-10.6
+      - Role Svc.
+      - T_010 _06
+      - IMPL
+      - SoD valid.
+    * - BR_001
+      - --
+      - --
+      - DB Config
+      - T_DB _001
+      - IMPL
+      - Read only
 
 5.2 Estados de Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -524,21 +520,38 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
 
 .. code-block:: text
 
- +--------+--------+----------+------------------+------------+--------+
- | BR | UC | FR | CODE | TEST | STATUS |
- +--------+--------+----------+------------------+------------+--------+
- | BR_015 | UC-010 | FR-10.6 | RoleService. | T_010_06 | VERIF |
- | | | | validateSoD | | |
- +--------+--------+----------+------------------+------------+--------+
- | BR_015 | UC-010 | FR-10.7 | RoleService. | T_010_07 | IMPL |
- | | | | checkConflicts | | |
- +--------+--------+----------+------------------+------------+--------+
- | BR_001 | -- | FR-ETL.1 | ETLJob. | T_ETL_01 | VERIF |
- | | | | readOnly | | |
- +--------+--------+----------+------------------+------------+--------+
- | BR_002 | UC-ETL | FR-ETL.3 | ETLJob. | T_ETL_03 | IMPL |
- | | | | syncNightly | | |
- +--------+--------+----------+------------------+------------+--------+
+ .. list-table::
+
+    * - BR
+      - UC
+      - FR
+      - CODE
+      - TEST
+      - STATUS
+    * - BR_015
+      - UC-010
+      - FR-10.6
+      - RoleService. validateSoD
+      - T_010_06
+      - VERIF
+    * - BR_015
+      - UC-010
+      - FR-10.7
+      - RoleService. checkConflicts
+      - T_010_07
+      - IMPL
+    * - BR_001
+      - --
+      - FR-ETL.1
+      - ETLJob. readOnly
+      - T_ETL_01
+      - VERIF
+    * - BR_002
+      - UC-ETL
+      - FR-ETL.3
+      - ETLJob. syncNightly
+      - T_ETL_03
+      - IMPL
 
 8.2 Estadisticas Actuales
 ^^^^^^^^^^^^^^^^^^^^^^^^^

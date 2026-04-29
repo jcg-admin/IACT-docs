@@ -102,15 +102,16 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
 
  FUENTES EXTERNAS:
 
- +------------------+----------------------------------------+
- | Leyes | Regulaciones federales, estatales |
- +------------------+----------------------------------------+
- | Regulaciones | Normas de industria, compliance |
- +------------------+----------------------------------------+
- | Estandares | ISO, IEEE, normas internacionales |
- +------------------+----------------------------------------+
- | Contratos | Acuerdos con clientes, proveedores |
- +------------------+----------------------------------------+
+ .. list-table::
+
+    * - Leyes
+      - Regulaciones federales, estatales
+    * - Regulaciones
+      - Normas de industria, compliance
+    * - Estandares
+      - ISO, IEEE, normas internacionales
+    * - Contratos
+      - Acuerdos con clientes, proveedores
 
 2.2 Fuentes Internas (Organizacionales)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -119,13 +120,14 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
 
  FUENTES INTERNAS:
 
- +------------------+----------------------------------------+
- | Politicas | Politicas corporativas vigentes |
- +------------------+----------------------------------------+
- | Procedimientos | Procedimientos operativos estandar |
- +------------------+----------------------------------------+
- | Mejores Practicas| Practicas establecidas en la org |
- +------------------+----------------------------------------+
+ .. list-table::
+
+    * - Politicas
+      - Politicas corporativas vigentes
+    * - Procedimientos
+      - Procedimientos operativos estandar
+    * - Mejores Practicas
+      - Practicas establecidas en la org
 
 2.3 Relacion con el Sistema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,14 +137,9 @@ Las Business Rules tienen cuatro caracteristicas fundamentales:
  FUENTES EXTERNAS FUENTES INTERNAS
  | |
  v v
- +--------------------------------------------------+
- | |
- | SISTEMA DE SOFTWARE |
- | |
- | El sistema NO crea las reglas |
- | El sistema CUMPLE las reglas |
- | |
- +--------------------------------------------------+
+ .. list-table::
+
+    * - SISTEMA DE SOFTWARE El sistema NO crea las reglas El sistema CUMPLE las reglas
 
 ----
 

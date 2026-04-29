@@ -323,50 +323,55 @@ emojis/iconos en documentación
 Inputs
 ------
 
-+-----------------+--------------------------------+-------------------+
-| Input | Descripción | Fuente |
-+=================+================================+===================+
-| Estructura | Carpeta ``docs/{dominio}/`` | Repositorio |
-| actual | existente | |
-+-----------------+--------------------------------+-------------------+
-| Modelo de | Estructura | Repositorio |
-| referencia | ``docs/gobernanza/`` | |
-+-----------------+--------------------------------+-------------------+
-| Metodología | PROCED-GOB-007 (consolidación) | Gobernanza |
-+-----------------+--------------------------------+-------------------+
-| Restricciones | Lineamientos técnicos | docs/{dom |
-| del proyecto | específicos | inio}/requisitos/ |
-+-----------------+--------------------------------+-------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Descripción
+     - Fuente
+   * - Estructura actual
+     - Carpeta ``docs/{dominio}/`` existente
+     - Repositorio
+   * - Modelo de referencia
+     - Estructura ``docs/gobernanza/``
+     - Repositorio
+   * - Metodología
+     - PROCED-GOB-007 (consolidación)
+     - Gobernanza
+   * - Restricciones del proyecto
+     - Lineamientos técnicos específicos
+     - docs/{dom inio}/requisitos/
 
 Outputs
 -------
 
-+-----------------+----------------------------+-----------------------+
-| Output | Descripción | Ubicación |
-+=================+============================+=======================+
-| Análisis QA | Documentación completa del | docs/{dominio |
-| | análisis | }/qa/QA-ANALISIS-ESTR |
-| | | UCTURA-{DOMINIO}-001/ |
-+-----------------+----------------------------+-----------------------+
-| Plan de | Plan ejecutable detallado | doc |
-| reorganización | | s/{dominio}/qa/…/PLAN |
-| | | -REORGANIZACION-\*.md |
-+-----------------+----------------------------+-----------------------+
-| 60-70 tareas | Tareas individuales con | docs/{do |
-| | evidencias | minio}/qa/…/TASK-XXX/ |
-+-----------------+----------------------------+-----------------------+
-| Estructura | Carpetas alineadas con | docs/{dominio}/ |
-| reorganizada | gobernanza | |
-+-----------------+----------------------------+-----------------------+
-| Contenido nuevo | Catálogos, procesos, | Diversas ubicaciones |
-| | procedimientos, ADRs | |
-+-----------------+----------------------------+-----------------------+
-| Reportes de | Resultados FASE 4 | docs/{domini |
-| validación | | o}/qa/…/REPORTE-\*.md |
-+-----------------+----------------------------+-----------------------+
-| Commit final | Commit comprehensivo | Git |
-| | documentando todo | |
-+-----------------+----------------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Output
+     - Descripción
+     - Ubicación
+   * - Análisis QA
+     - Documentación completa del análisis
+     - docs/{dominio }/qa/QA-ANALISIS-ESTR UCTURA-{DOMINIO}-001/
+   * - Plan de reorganización
+     - Plan ejecutable detallado
+     - doc s/{dominio}/qa/…/PLAN -REORGANIZACION-\*.md
+   * - 60-70 tareas
+     - Tareas individuales con evidencias
+     - docs/{do minio}/qa/…/TASK-XXX/
+   * - Estructura reorganizada
+     - Carpetas alineadas con gobernanza
+     - docs/{dominio}/
+   * - Contenido nuevo
+     - Catálogos, procesos, procedimientos, ADRs
+     - Diversas ubicaciones
+   * - Reportes de validación
+     - Resultados FASE 4
+     - docs/{domini o}/qa/…/REPORTE-\*.md
+   * - Commit final
+     - Commit comprehensivo documentando todo
+     - Git
 
 Herramientas y Técnicas
 -----------------------
@@ -429,29 +434,30 @@ Cualitativos
 Métricas y KPIs
 ---------------
 
-+-----------------------+---------------------+-----------------------+
-| Métrica | Target | Cálculo |
-+=======================+=====================+=======================+
-| Cobertura de READMEs | 100% | (dirs_con_readme / |
-| | | total_dirs) \* 100 |
-+-----------------------+---------------------+-----------------------+
-| Validez de enlaces | 90%+ | (enlaces_validos / |
-| | | total_enlaces) \* 100 |
-+-----------------------+---------------------+-----------------------+
-| Metadatos YAML | 90%+ | (archivos_yaml_valido |
-| válidos | | / total_md) \* 100 |
-+-----------------------+---------------------+-----------------------+
-| Nomenclatura correcta | 98%+ | (archivos_snake_case |
-| | | / total_archivos) \* |
-| | | 100 |
-+-----------------------+---------------------+-----------------------+
-| Tareas completadas | 100% | (tareas_completadas / |
-| | | total_tareas) \* 100 |
-+-----------------------+---------------------+-----------------------+
-| Calidad estructural | 7+/10 | Evaluación |
-| | | comparativa vs |
-| | | gobernanza |
-+-----------------------+---------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Target
+     - Cálculo
+   * - Cobertura de READMEs
+     - 100%
+     - (dirs_con_readme / total_dirs) \* 100
+   * - Validez de enlaces
+     - 90%+
+     - (enlaces_validos / total_enlaces) \* 100
+   * - Metadatos YAML válidos
+     - 90%+
+     - (archivos_yaml_valido / total_md) \* 100
+   * - Nomenclatura correcta
+     - 98%+
+     - (archivos_snake_case / total_archivos) \* 100
+   * - Tareas completadas
+     - 100%
+     - (tareas_completadas / total_tareas) \* 100
+   * - Calidad estructural
+     - 7+/10
+     - Evaluación comparativa vs gobernanza
 
 Restricciones y Lineamientos
 ----------------------------
@@ -499,36 +505,37 @@ En caso de necesitar revertir la reorganización:
 Riesgos y Mitigaciones
 ----------------------
 
-+------------+----------------------+--------------+-------------------+
-| Riesgo | Probabilidad | Impacto | Mitigación |
-+============+======================+==============+===================+
-| Enlaces | ALTA | MEDIO | Script validación |
-| rotos tras | | | automatizado |
-| reor | | | (TASK-055) |
-| ganización | | | |
-+------------+----------------------+--------------+-------------------+
-| Pérdida de | BAJA | CRÍTICO | Backup |
-| contenido | | | obligatorio (git |
-| | | | tag) antes de |
-| | | | iniciar |
-+------------+----------------------+--------------+-------------------+
-| Confusión | MEDIA | MEDIO | Sesión |
-| del equipo | | | capacitación + |
-| | | | GUIA_NAVEGACION |
-+------------+----------------------+--------------+-------------------+
-| Tiempo | MEDIA | MEDIO | Buffer 20% en |
-| in | | | estimaciones |
-| suficiente | | | |
-+------------+----------------------+--------------+-------------------+
-| Emojis | MEDIA | BAJO | Validación |
-| olvidados | | | automatizada + |
-| | | | reporte |
-+------------+----------------------+--------------+-------------------+
-| Metadatos | ALTA | MEDIO | Validación |
-| YAML | | | automatizada + |
-| inválidos | | | corrección |
-| | | | iterativa |
-+------------+----------------------+--------------+-------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Riesgo
+     - Probabilidad
+     - Impacto
+     - Mitigación
+   * - Enlaces rotos tras reor ganización
+     - ALTA
+     - MEDIO
+     - Script validación automatizado (TASK-055)
+   * - Pérdida de contenido
+     - BAJA
+     - CRÍTICO
+     - Backup obligatorio (git tag) antes de iniciar
+   * - Confusión del equipo
+     - MEDIA
+     - MEDIO
+     - Sesión capacitación + GUIA_NAVEGACION
+   * - Tiempo in suficiente
+     - MEDIA
+     - MEDIO
+     - Buffer 20% en estimaciones
+   * - Emojis olvidados
+     - MEDIA
+     - BAJO
+     - Validación automatizada + reporte
+   * - Metadatos YAML inválidos
+     - ALTA
+     - MEDIO
+     - Validación automatizada + corrección iterativa
 
 Lecciones Aprendidas (de docs/backend/)
 ---------------------------------------

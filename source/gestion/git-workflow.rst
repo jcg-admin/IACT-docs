@@ -157,21 +157,24 @@ Recommended scopes for IACT-docs:
 
 The scope must follow these rules for consistency across the project:
 
-+-----------------------------------+---------------------+-------------------------------------------+
-| Characteristic | Valid Examples | Invalid Examples |
-+===================================+=====================+===========================================+
-| Case | kebab-case | ``GitWorkflow``, ``git_workflow``, |
-| | | ``Git Workflow``, ``GITWORKFLOW`` |
-+-----------------------------------+---------------------+-------------------------------------------+
-| Length | Concise (1-3 words) | ``git-workflow-feature-documentation``, |
-| | separated by hyphens| overly long scopes reduce readability |
-+-----------------------------------+---------------------+-------------------------------------------+
-| Content | Domain-specific | Generic: ``misc``, ``stuff``, |
-| | names | ``change``, ``update`` |
-+-----------------------------------+---------------------+-------------------------------------------+
-| Spaces / Special chars | Hyphens only | ``git_workflow``, ``git.workflow``, |
-| | | ``git/workflow``, ``git workflow`` |
-+-----------------------------------+---------------------+-------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Characteristic
+     - Valid Examples
+     - Invalid Examples
+   * - Case
+     - kebab-case
+     - ``GitWorkflow``, ``git_workflow``, ``Git Workflow``, ``GITWORKFLOW``
+   * - Length
+     - Concise (1-3 words) separated by hyphens
+     - ``git-workflow-feature-documentation``, overly long scopes reduce readability
+   * - Content
+     - Domain-specific names
+     - Generic: ``misc``, ``stuff``, ``change``, ``update``
+   * - Spaces / Special chars
+     - Hyphens only
+     - ``git_workflow``, ``git.workflow``, ``git/workflow``, ``git workflow``
 
 **Valid Scope Examples:**
 
@@ -1578,25 +1581,36 @@ Configure with **stricter** settings:
 
 **Summary Table — develop vs main:**
 
-+-------------------------------------------+-----------+---------+
-| Rule | develop | main |
-+===========================================+===========+=========+
-| Require PR before merge | ✓ | ✓ |
-+-------------------------------------------+-----------+---------+
-| Required approvals | 1 | 2 |
-+-------------------------------------------+-----------+---------+
-| Require code owner approval | Optional | ✓ |
-+-------------------------------------------+-----------+---------+
-| Require status checks (CI) | ✓ | ✓ |
-+-------------------------------------------+-----------+---------+
-| Require linear history | Optional | ✓ |
-+-------------------------------------------+-----------+---------+
-| Restrict push to admins only | No | ✓ |
-+-------------------------------------------+-----------+---------+
-| Allow force push | ✗ | ✗ |
-+-------------------------------------------+-----------+---------+
-| Allow deletion | ✗ | ✗ |
-+-------------------------------------------+-----------+---------+
+.. list-table::
+   :header-rows: 1
+
+   * - Rule
+     - develop
+     - main
+   * - Require PR before merge
+     - ✓
+     - ✓
+   * - Required approvals
+     - 1
+     - 2
+   * - Require code owner approval
+     - Optional
+     - ✓
+   * - Require status checks (CI)
+     - ✓
+     - ✓
+   * - Require linear history
+     - Optional
+     - ✓
+   * - Restrict push to admins only
+     - No
+     - ✓
+   * - Allow force push
+     - ✗
+     - ✗
+   * - Allow deletion
+     - ✗
+     - ✗
 
 5.3 API Configuration — GitHub REST API
 --------------------------------------------------------------------------------

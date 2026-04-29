@@ -557,31 +557,24 @@ artefactos se ven afectados por un cambio propuesto.
  CAMBIO PROPUESTO: Modificar BR_007 (agregar nueva restriccion SoD)
 
  PASO 1: Identificar derivados directos
- +------------------------------------------+
- | BR_007 --> BReq-004 --> UC-043 |
- | --> UC-044 |
- | --> UC-047 |
- +------------------------------------------+
+ .. list-table::
+
+    * - BR_007 --> BReq-004 --> UC-043 --> UC-044 --> UC-047
 
  PASO 2: Propagar a siguientes niveles
- +------------------------------------------+
- | UC-043 --> FR-043.1 a FR-043.5 |
- | UC-044 --> FR-044.1 a FR-044.3 |
- | UC-047 --> FR-047.1 a FR-047.4 |
- +------------------------------------------+
+ .. list-table::
+
+    * - UC-043 --> FR-043.1 a FR-043.5 UC-044 --> FR-044.1 a FR-044.3 UC-047 --> FR-047.1 a FR-047.4
 
  PASO 3: Identificar codigo afectado
- +------------------------------------------+
- | apps/access/sod.py |
- | apps/access/validators/ |
- | apps/access/middleware/ |
- +------------------------------------------+
+ .. list-table::
+
+    * - apps/access/sod.py apps/access/validators/ apps/access/middleware/
 
  PASO 4: Identificar tests a actualizar
- +------------------------------------------+
- | tests/access/test_sod_*.py |
- | tests/integration/test_sod_flow.py |
- +------------------------------------------+
+ .. list-table::
+
+    * - tests/access/test_sod_*.py tests/integration/test_sod_flow.py
 
  RESULTADO: 3 UC, 12 FR aprox, 3 modulos, 10 tests afectados
 

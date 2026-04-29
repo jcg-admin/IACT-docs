@@ -97,27 +97,23 @@ Tipos de Trazabilidad (ISO 29148 - 5.2.8)
 Roles y Responsabilidades
 -------------------------
 
-+---------------+------------------------------------------------------+
-| Rol | Responsabilidad |
-+===============+======================================================+
-| **BA Lead** | Mantener matriz de trazabilidad (RTM), validar |
-| | upward traceability |
-+---------------+------------------------------------------------------+
-| **Product | Aprobar necesidades de negocio (N-XXX), priorizar |
-| Owner** | requisitos |
-+---------------+------------------------------------------------------+
-| **Tech Lead** | Validar downward traceability (Requisitos -> Diseño |
-| | -> Código) |
-+---------------+------------------------------------------------------+
-| **QA Lead** | Validar trazabilidad a tests (Requisitos -> Tests), |
-| | verificar cobertura |
-+---------------+------------------------------------------------------+
-| **De | Actualizar frontmatter YAML con trazabilidad en cada |
-| sarrollador** | commit |
-+---------------+------------------------------------------------------+
-| **CI/CD | Generar índices ISO 29148 automáticamente |
-| System** | |
-+---------------+------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Rol
+     - Responsabilidad
+   * - **BA Lead**
+     - Mantener matriz de trazabilidad (RTM), validar upward traceability
+   * - **Product Owner**
+     - Aprobar necesidades de negocio (N-XXX), priorizar requisitos
+   * - **Tech Lead**
+     - Validar downward traceability (Requisitos -> Diseño -> Código)
+   * - **QA Lead**
+     - Validar trazabilidad a tests (Requisitos -> Tests), verificar cobertura
+   * - **De sarrollador**
+     - Actualizar frontmatter YAML con trazabilidad en cada commit
+   * - **CI/CD System**
+     - Generar índices ISO 29148 automáticamente
 
 --------------
 
@@ -157,33 +153,27 @@ FASE 1: Clasificación y Frontmatter YAML
 
 **Ubicaciones según PROPUESTA_FINAL_REESTRUCTURACION.md:**
 
-+-----------+-------------------------------------------+-------------+
-| Tipo | Ubicación Principal | Owner |
-+===========+===========================================+=============+
-| Ne | ``impleme | BA Lead + |
-| cesidades | ntacion/backend/requisitos/necesidades/`` | PMO |
-| (N-XXX) | | |
-+-----------+-------------------------------------------+-------------+
-| R | ``imple | Equipo por |
-| equisitos | mentacion/{dominio}/requisitos/negocio/`` | dominio |
-| Negocio | | |
-| (RN-XXX) | | |
-+-----------+-------------------------------------------+-------------+
-| R | ``implementa | Equipo por |
-| equisitos | cion/{dominio}/requisitos/stakeholders/`` | dominio |
-| Sta | | |
-| keholders | | |
-| (RS-XXX) | | |
-+-----------+-------------------------------------------+-------------+
-| Fu | ``implement | Equipo por |
-| ncionales | acion/{dominio}/requisitos/funcionales/`` | dominio |
-| (RF-XXX) | | |
-+-----------+-------------------------------------------+-------------+
-| No | ``implementaci | Equipo por |
-| Fu | on/{dominio}/requisitos/no_funcionales/`` | dominio |
-| ncionales | | |
-| (RNF-XXX) | | |
-+-----------+-------------------------------------------+-------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo
+     - Ubicación Principal
+     - Owner
+   * - Ne cesidades (N-XXX)
+     - ``impleme ntacion/backend/requisitos/necesidades/``
+     - BA Lead + PMO
+   * - R equisitos Negocio (RN-XXX)
+     - ``imple mentacion/{dominio}/requisitos/negocio/``
+     - Equipo por dominio
+   * - R equisitos Sta keholders (RS-XXX)
+     - ``implementa cion/{dominio}/requisitos/stakeholders/``
+     - Equipo por dominio
+   * - Fu ncionales (RF-XXX)
+     - ``implement acion/{dominio}/requisitos/funcionales/``
+     - Equipo por dominio
+   * - No Fu ncionales (RNF-XXX)
+     - ``implementaci on/{dominio}/requisitos/no_funcionales/``
+     - Equipo por dominio
 
 **Checklist:** - [ ] Tipo de requisito identificado (N, RN, RS, RF, RNF)
 - [ ] Dominio técnico asignado (backend, frontend, infrastructure) - [ ]
@@ -492,34 +482,33 @@ modificando requisitos - Manual dispatch
 
 El workflow genera 5 documentos automáticamente:
 
-+---------------+--------------------+---------------+---------------+
-| Documento | Cláusula ISO | Contenido | Ubicación |
-+===============+====================+===============+===============+
-| **BRS** | 9.3 | Business | ``docs/re |
-| | | Requirements | quisitos/brs_ |
-| | | Specification | business_requ |
-| | | | irements.md`` |
-+---------------+--------------------+---------------+---------------+
-| **StRS** | 9.4 | Stakeholder | ``docs/requis |
-| | | Requirements | itos/strs_sta |
-| | | Specification | keholder_requ |
-| | | | irements.md`` |
-+---------------+--------------------+---------------+---------------+
-| **SyRS** | 9.5 | System | ``docs/r |
-| | | Requirements | equisitos/syr |
-| | | Specification | s_system_requ |
-| | | | irements.md`` |
-+---------------+--------------------+---------------+---------------+
-| **SRS** | 9.6 | Software | ``docs/re |
-| | | Requirements | quisitos/srs_ |
-| | | Specification | software_requ |
-| | | | irements.md`` |
-+---------------+--------------------+---------------+---------------+
-| **RTM** | 5.2.8 | Requirements | ``docs/ |
-| | | Traceability | requisitos/ma |
-| | | Matrix | triz_trazabil |
-| | | | idad_rtm.md`` |
-+---------------+--------------------+---------------+---------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Documento
+     - Cláusula ISO
+     - Contenido
+     - Ubicación
+   * - **BRS**
+     - 9.3
+     - Business Requirements Specification
+     - ``docs/re quisitos/brs_ business_requ irements.md``
+   * - **StRS**
+     - 9.4
+     - Stakeholder Requirements Specification
+     - ``docs/requis itos/strs_sta keholder_requ irements.md``
+   * - **SyRS**
+     - 9.5
+     - System Requirements Specification
+     - ``docs/r equisitos/syr s_system_requ irements.md``
+   * - **SRS**
+     - 9.6
+     - Software Requirements Specification
+     - ``docs/re quisitos/srs_ software_requ irements.md``
+   * - **RTM**
+     - 5.2.8
+     - Requirements Traceability Matrix
+     - ``docs/ requisitos/ma triz_trazabil idad_rtm.md``
 
 **Ejemplo de BRS generado:**
 

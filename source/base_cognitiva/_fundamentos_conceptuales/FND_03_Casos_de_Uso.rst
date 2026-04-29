@@ -508,17 +508,17 @@ UC que provienen de necesidades explicitas no capturadas como BR.
 
  COBERTURA TOTAL:
 
- +----------------------------------+------------+--------------+
- | Tecnica | Porcentaje | UC Tipicos |
- +----------------------------------+------------+--------------+
- | 1. Business Rules (Deductiva) | 22% | 11 UC |
- | 2. CRUD (Inductiva) | 40% | 20 UC |
- | 3. Larman/Eventos (Inductiva) | 22% | 11 UC |
- | 4. UI-Driven (Inductiva) | 11% | 5 UC |
- | 5. Stakeholders (Inductiva) | 5% | 2 UC |
- +----------------------------------+------------+--------------+
- | TOTAL | 100% | 49 UC |
- +----------------------------------+------------+--------------+
+ .. list-table::
+
+    * - Tecnica
+      - Porcentaje
+      - UC Tipicos
+    * - 1. Business Rules (Deductiva) 2. CRUD (Inductiva) 3. Larman/Eventos (Inductiva) 4. UI-Driven (Inductiva) 5. Stakeholders (Inductiva)
+      - 22% 40% 22% 11% 5%
+      - 11 UC 20 UC 11 UC 5 UC 2 UC
+    * - TOTAL
+      - 100%
+      - 49 UC
 
 ----
 

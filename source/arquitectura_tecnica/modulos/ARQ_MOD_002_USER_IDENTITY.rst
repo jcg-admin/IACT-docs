@@ -326,18 +326,19 @@ alta, modificacion, baja logica, y datos de perfil.
 
 .. code-block:: text
 
- +------------------------+
- | PENDIENTE_CONFIGURACION|
- +------------+-----------+
+ .. list-table::
+
+    * - PENDIENTE_CONFIGURACION
  |
  | (completa preguntas seguridad)
  v
- +------------+-----------+
- | ACTIVO |
- +------------+-----------+
+ .. list-table::
+
+    * - ACTIVO
  |
- +-------+-------+
- | |
+ .. list-table::
+
+    * - 
  v v
  +----+----+ +-----+-----+
  | INACTIVO| | BLOQUEADO |

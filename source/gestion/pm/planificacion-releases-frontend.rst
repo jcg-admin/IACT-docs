@@ -61,24 +61,24 @@ Pendiente: Definir calendario de releases y roadmap
 Estado de cumplimiento
 ----------------------
 
-+-----------------------+-----------------------+-----------------------+
-| Elemento en la base | ¿Existe en | Observaciones |
-| maestra | repositorio? | |
-+=======================+=======================+=======================+
-| Portada de | Sí | Este archivo |
-| Planificación | | documenta la gestión |
-| frontend | | de releases |
-+-----------------------+-----------------------+-----------------------+
-| Plan de releases | Pendiente | Crear calendario de |
-| | | releases y criterios |
-+-----------------------+-----------------------+-----------------------+
-| Roadmap de features | Pendiente | Definir roadmap |
-| | | trimestral |
-+-----------------------+-----------------------+-----------------------+
-| Changelog | Pendiente | Establecer formato y |
-| | | proceso de |
-| | | mantenimiento |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Elemento en la base maestra
+     - ¿Existe en repositorio?
+     - Observaciones
+   * - Portada de Planificación frontend
+     - Sí
+     - Este archivo documenta la gestión de releases
+   * - Plan de releases
+     - Pendiente
+     - Crear calendario de releases y criterios
+   * - Roadmap de features
+     - Pendiente
+     - Definir roadmap trimestral
+   * - Changelog
+     - Pendiente
+     - Establecer formato y proceso de mantenimiento
 
 Acciones prioritarias
 ---------------------

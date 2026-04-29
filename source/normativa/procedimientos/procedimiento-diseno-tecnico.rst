@@ -62,25 +62,21 @@ NO No usar para:
 Roles y Responsabilidades
 -------------------------
 
-+---------------+------------------------------------------------------+
-| Rol | Responsabilidad |
-+===============+======================================================+
-| **Tech Lead / | Crear y aprobar el documento de diseño técnico |
-| Arquitecto** | |
-+---------------+------------------------------------------------------+
-| **BA | Validar trazabilidad a requisitos de negocio |
-| (Business | |
-| Analyst)** | |
-+---------------+------------------------------------------------------+
-| ** | Revisar factibilidad técnica y esfuerzo |
-| Desarrollador | |
-| Asignado** | |
-+---------------+------------------------------------------------------+
-| **QA Lead** | Validar criterios de aceptación y testabilidad |
-+---------------+------------------------------------------------------+
-| **Product | Aprobar alcance y prioridad del diseño |
-| Owner** | |
-+---------------+------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Rol
+     - Responsabilidad
+   * - **Tech Lead / Arquitecto**
+     - Crear y aprobar el documento de diseño técnico
+   * - **BA (Business Analyst)**
+     - Validar trazabilidad a requisitos de negocio
+   * - ** Desarrollador Asignado**
+     - Revisar factibilidad técnica y esfuerzo
+   * - **QA Lead**
+     - Validar criterios de aceptación y testabilidad
+   * - **Product Owner**
+     - Aprobar alcance y prioridad del diseño
 
 --------------
 
@@ -575,23 +571,17 @@ Herramientas y Referencias
 Herramientas Obligatorias
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------------------------------------------------+-------------------+
-| Herramienta | Uso |
-+===================================================+===================+
-| **Mermaid** | Todos los |
-| | diagramas |
-| | (sequence, |
-| | flowchart, |
-| | stateDiagram, |
-| | erDiagram) |
-+---------------------------------------------------+-------------------+
-| **Markdown** | Formato del |
-| | documento |
-+---------------------------------------------------+-------------------+
-| **Git** | Control de |
-| | versiones del |
-| | diseño |
-+---------------------------------------------------+-------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Herramienta
+     - Uso
+   * - **Mermaid**
+     - Todos los diagramas (sequence, flowchart, stateDiagram, erDiagram)
+   * - **Markdown**
+     - Formato del documento
+   * - **Git**
+     - Control de versiones del diseño
 
 Plantillas Relacionadas
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -637,22 +627,24 @@ Métricas de Calidad
 KPIs del Proceso
 ~~~~~~~~~~~~~~~~
 
-+-----------------------+--------------------+-------------------------+
-| Métrica | Target | Medición |
-+=======================+====================+=========================+
-| Tiempo de creación de | < 2 semanas | Fecha creación -> Fecha |
-| diseño | | aprobación |
-+-----------------------+--------------------+-------------------------+
-| % de requisitos | 100% | (RF mapeados / RF |
-| cubiertos | | totales) × 100 |
-+-----------------------+--------------------+-------------------------+
-| % de diseños con | 100% | (Diagramas con TEST-XXX |
-| tests trazables | | / Total diagramas) × |
-| | | 100 |
-+-----------------------+--------------------+-------------------------+
-| Ciclos de revisión | ≤ 2 | Número de rondas de |
-| | | feedback |
-+-----------------------+--------------------+-------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Target
+     - Medición
+   * - Tiempo de creación de diseño
+     - < 2 semanas
+     - Fecha creación -> Fecha aprobación
+   * - % de requisitos cubiertos
+     - 100%
+     - (RF mapeados / RF totales) × 100
+   * - % de diseños con tests trazables
+     - 100%
+     - (Diagramas con TEST-XXX / Total diagramas) × 100
+   * - Ciclos de revisión
+     - ≤ 2
+     - Número de rondas de feedback
 
 --------------
 
@@ -706,12 +698,17 @@ Incluir enlaces bidireccionales en ambos documentos.
 Control de Versiones
 --------------------
 
-+-------------------+--------------+-------------------+--------------+
-| Versión | Fecha | Cambios | Autor |
-+===================+==============+===================+==============+
-| 1.0.0 | 2025-11-04 | Creación inicial | Equipo |
-| | | del procedimiento | Arquitectura |
-+-------------------+--------------+-------------------+--------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+     - Autor
+   * - 1.0.0
+     - 2025-11-04
+     - Creación inicial del procedimiento
+     - Equipo Arquitectura
 
 --------------
 

@@ -35,21 +35,21 @@ Línea base de QA
 Métricas esperadas
 ------------------
 
-+-----------------------+-----------------------+-----------------------+
-| Métrica | Objetivo | Fuente |
-+=======================+=======================+=======================+
-| Cobertura unitaria | ≥ 80 % | Reportes de |
-| | | ``pytest --cov``. |
-+-----------------------+-----------------------+-----------------------+
-| Tiempo medio para | ≤ 2 días | Bitácora en |
-| corregir fallos | | ``registros/``. |
-| críticos | | |
-+-----------------------+-----------------------+-----------------------+
-| Actividades de | 100 % por release | ``actividades_garan |
-| control documental | | tia_documental.md`` |
-| completadas | | |
-| | | |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Objetivo
+     - Fuente
+   * - Cobertura unitaria
+     - ≥ 80 %
+     - Reportes de ``pytest --cov``.
+   * - Tiempo medio para corregir fallos críticos
+     - ≤ 2 días
+     - Bitácora en ``registros/``.
+   * - Actividades de control documental completadas
+     - 100 % por release
+     - ``actividades_garan tia_documental.md``
 
 Actividades coordinadas
 -----------------------

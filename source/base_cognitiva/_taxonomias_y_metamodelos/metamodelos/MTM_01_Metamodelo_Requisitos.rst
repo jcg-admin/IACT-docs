@@ -62,21 +62,11 @@ UML y especifica cardinalidades, herencia y restricciones.
 
 .. code-block:: text
 
- +------------------------------------------------------------------+
- | <<abstract>> |
- | Requisito |
- +------------------------------------------------------------------+
- | - id: String |
- | - nombre: String |
- | - descripcion: Text |
- | - estado: EstadoRequisito |
- | - version: String |
- | - fecha_creacion: Date |
- | - autor: String |
- +------------------------------------------------------------------+
- | + validar: Boolean |
- | + obtenerTrazabilidad: List<Requisito> |
- +------------------------------------------------------------------+
+ .. list-table::
+
+    * - <<abstract>> Requisito
+    * - - id: String - nombre: String - descripcion: Text - estado: EstadoRequisito - version: String - fecha_creacion: Date - autor: String
+    * - + validar: Boolean + obtenerTrazabilidad: List<Requisito>
  △
  │
  ┌─────────────┬───────────┼───────────┬─────────────┐
@@ -166,18 +156,16 @@ UML y especifica cardinalidades, herencia y restricciones.
  | influye (0..*) | genera (1..*)
  | |
  v v
- +-------+-----------------------------+---------+
- | UseCase |
- | (UC) |
- +----------------------+------------------------+
+ .. list-table::
+
+    * - UseCase (UC)
  |
  | deriva (1..*)
  |
  v
- +----------------------+------------------------+
- | FunctionalRequirement |
- | (FR) |
- +-----------------------------------------------+
+ .. list-table::
+
+    * - FunctionalRequirement (FR)
 
 2.2 Matriz de Relaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -222,22 +210,11 @@ UML y especifica cardinalidades, herencia y restricciones.
 
 .. code-block:: text
 
- +--------------------------------------------------+
- | BusinessRule |
- +--------------------------------------------------+
- | <<attributes>> |
- | - tipo: TipoBR {Hecho, Restriccion, Trigger, |
- | Inferencia, Calculo} |
- | - modalidad: Modalidad {Aletica, Deontica} |
- | - fuente: String |
- | - fechaEfectiva: Date |
- | - estatica: Boolean |
- +--------------------------------------------------+
- | <<operations>> |
- | + esViolable: Boolean |
- | + generaUC: Boolean |
- | + obtenerUCDerivados: List<UseCase> |
- +--------------------------------------------------+
+ .. list-table::
+
+    * - BusinessRule
+    * - <<attributes>> - tipo: TipoBR {Hecho, Restriccion, Trigger, Inferencia, Calculo} - modalidad: Modalidad {Aletica, Deontica} - fuente: String - fechaEfectiva: Date - estatica: Boolean
+    * - <<operations>> + esViolable: Boolean + generaUC: Boolean + obtenerUCDerivados: List<UseCase>
 
  INVARIANTES:
  - Si tipo = Trigger ENTONCES generaUC = true
@@ -249,28 +226,12 @@ UML y especifica cardinalidades, herencia y restricciones.
 
 .. code-block:: text
 
- +--------------------------------------------------+
- | UseCase |
- +--------------------------------------------------+
- | <<attributes>> |
- | - actorPrimario: Actor |
- | - actoresSecundarios: List<Actor> |
- | - objetivo: String |
- | - precondiciones: List<Condicion> |
- | - postcondiciones: List<Condicion> |
- | - trigger: String |
- +--------------------------------------------------+
- | <<associations>> |
- | - flujoNormal: List<Paso> [1..*] |
- | - flujosAlternos: List<FlujoAlterno> [0..*] |
- | - excepciones: List<Excepcion> [0..*] |
- | - businessRules: List<BusinessRule> [0..*] |
- +--------------------------------------------------+
- | <<operations>> |
- | + obtenerFR: List<FunctionalRequirement> |
- | + contarPasos: Integer |
- | + validarCompletitud: Boolean |
- +--------------------------------------------------+
+ .. list-table::
+
+    * - UseCase
+    * - <<attributes>> - actorPrimario: Actor - actoresSecundarios: List<Actor> - objetivo: String - precondiciones: List<Condicion> - postcondiciones: List<Condicion> - trigger: String
+    * - <<associations>> - flujoNormal: List<Paso> [1..*] - flujosAlternos: List<FlujoAlterno> [0..*] - excepciones: List<Excepcion> [0..*] - businessRules: List<BusinessRule> [0..*]
+    * - <<operations>> + obtenerFR: List<FunctionalRequirement> + contarPasos: Integer + validarCompletitud: Boolean
 
  INVARIANTES:
  - flujoNormal.size >= 3 (minimo inicio, proceso, fin)
@@ -282,23 +243,11 @@ UML y especifica cardinalidades, herencia y restricciones.
 
 .. code-block:: text
 
- +--------------------------------------------------+
- | FunctionalRequirement |
- +--------------------------------------------------+
- | <<attributes>> |
- | - ucOrigen: UseCase |
- | - pasoOrigen: Integer |
- | - categoria: CategoriaFR {Validacion, |
- | Procesamiento, Presentacion, |
- | Integracion, Seguridad} |
- | - prioridad: Prioridad {Must, Should, Could} |
- | - release: String |
- +--------------------------------------------------+
- | <<operations>> |
- | + esVerificable: Boolean |
- | + obtenerTestCases: List<TestCase> |
- | + validarAtomicidad: Boolean |
- +--------------------------------------------------+
+ .. list-table::
+
+    * - FunctionalRequirement
+    * - <<attributes>> - ucOrigen: UseCase - pasoOrigen: Integer - categoria: CategoriaFR {Validacion, Procesamiento, Presentacion, Integracion, Seguridad} - prioridad: Prioridad {Must, Should, Could} - release: String
+    * - <<operations>> + esVerificable: Boolean + obtenerTestCases: List<TestCase> + validarAtomicidad: Boolean
 
  INVARIANTES:
  - ucOrigen != null (todo FR deriva de un UC)
@@ -310,21 +259,11 @@ UML y especifica cardinalidades, herencia y restricciones.
 
 .. code-block:: text
 
- +--------------------------------------------------+
- | NonFunctionalRequirement |
- +--------------------------------------------------+
- | <<attributes>> |
- | - categoria: CategoriaNFR |
- | {Rendimiento, Seguridad, Usabilidad, |
- | Confiabilidad, Mantenibilidad} |
- | - metrica: String |
- | - umbral: String |
- | - metodoVerificacion: String |
- +--------------------------------------------------+
- | <<operations>> |
- | + esMedible: Boolean |
- | + obtenerMetrica: Metrica |
- +--------------------------------------------------+
+ .. list-table::
+
+    * - NonFunctionalRequirement
+    * - <<attributes>> - categoria: CategoriaNFR {Rendimiento, Seguridad, Usabilidad, Confiabilidad, Mantenibilidad} - metrica: String - umbral: String - metodoVerificacion: String
+    * - <<operations>> + esMedible: Boolean + obtenerMetrica: Metrica
 
  INVARIANTES:
  - metrica != null (debe ser medible)

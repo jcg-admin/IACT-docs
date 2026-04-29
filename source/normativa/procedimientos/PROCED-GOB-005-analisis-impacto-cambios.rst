@@ -49,42 +49,43 @@ Tipos de Cambios
 Clasificación por Magnitud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------+-----------------------+-----------------------+
-| Tipo | Descripción | Ejemplo |
-+=======================+=======================+=======================+
-| **Menor** | Corrección de typos, | Corregir ortografía |
-| | clarificación de | en UC-BACK-001 |
-| | texto | |
-+-----------------------+-----------------------+-----------------------+
-| **Mayor** | Cambio en lógica, | Agregar validación |
-| | flujos, condiciones | adicional en |
-| | | RN-BACK-001 |
-+-----------------------+-----------------------+-----------------------+
-| **Breaking** | Cambio que invalida | Cambiar objetivo |
-| | artefactos | completo de UC, |
-| | dependientes | eliminar RN |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo
+     - Descripción
+     - Ejemplo
+   * - **Menor**
+     - Corrección de typos, clarificación de texto
+     - Corregir ortografía en UC-BACK-001
+   * - **Mayor**
+     - Cambio en lógica, flujos, condiciones
+     - Agregar validación adicional en RN-BACK-001
+   * - **Breaking**
+     - Cambio que invalida artefactos dependientes
+     - Cambiar objetivo completo de UC, eliminar RN
 
 Clasificación por Operación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------+-----------------------+-----------------------+
-| Operación | Descripción | Impacto Típico |
-+=======================+=======================+=======================+
-| **Modificar** | Cambiar contenido de | Actualizar artefactos |
-| | artefacto existente | relacionados |
-+-----------------------+-----------------------+-----------------------+
-| **Agregar** | Crear nuevo artefacto | Agregar referencias |
-| | | en artefactos |
-| | | relacionados |
-+-----------------------+-----------------------+-----------------------+
-| **Eliminar** | Remover artefacto | Eliminar referencias, |
-| | | posiblemente eliminar |
-| | | dependientes |
-+-----------------------+-----------------------+-----------------------+
-| **Deprecar** | Marcar artefacto como | Marcar dependientes, |
-| | obsoleto | planear migración |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Operación
+     - Descripción
+     - Impacto Típico
+   * - **Modificar**
+     - Cambiar contenido de artefacto existente
+     - Actualizar artefactos relacionados
+   * - **Agregar**
+     - Crear nuevo artefacto
+     - Agregar referencias en artefactos relacionados
+   * - **Eliminar**
+     - Remover artefacto
+     - Eliminar referencias, posiblemente eliminar dependientes
+   * - **Deprecar**
+     - Marcar artefacto como obsoleto
+     - Marcar dependientes, planear migración
 
 PASO 1: Identificar Artefacto que Cambió
 ----------------------------------------
@@ -433,28 +434,27 @@ necesita actualización y qué tipo de cambio requiere.
 Tipos de Acción
 ~~~~~~~~~~~~~~~
 
-+-----------------------+-----------------------+-----------------------+
-| Acción | Descripción | Ejemplo |
-+=======================+=======================+=======================+
-| **Actualizar** | Modificar contenido | Agregar paso de 2FA |
-| | existente | en flujo de |
-| | | UC-BACK-001 |
-+-----------------------+-----------------------+-----------------------+
-| **Sin cambios** | No requiere | RNF-BACK-005 sigue |
-| | modificación | siendo válido sin |
-| | | cambios |
-+-----------------------+-----------------------+-----------------------+
-| **Crear nuevo** | Artefacto nuevo | RF-BACK-065: Generar |
-| | necesario | código TOTP |
-+-----------------------+-----------------------+-----------------------+
-| **Deprecar** | Marcar como obsoleto | RF-BACK-010 se |
-| | | reemplaza por |
-| | | RF-BACK-010-v2 |
-+-----------------------+-----------------------+-----------------------+
-| **Eliminar** | Remover completamente | (Raro, solo si |
-| | | artefacto ya no |
-| | | aplica) |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Acción
+     - Descripción
+     - Ejemplo
+   * - **Actualizar**
+     - Modificar contenido existente
+     - Agregar paso de 2FA en flujo de UC-BACK-001
+   * - **Sin cambios**
+     - No requiere modificación
+     - RNF-BACK-005 sigue siendo válido sin cambios
+   * - **Crear nuevo**
+     - Artefacto nuevo necesario
+     - RF-BACK-065: Generar código TOTP
+   * - **Deprecar**
+     - Marcar como obsoleto
+     - RF-BACK-010 se reemplaza por RF-BACK-010-v2
+   * - **Eliminar**
+     - Remover completamente
+     - (Raro, solo si artefacto ya no aplica)
 
 Proceso de Revisión
 ~~~~~~~~~~~~~~~~~~~
@@ -502,13 +502,13 @@ Ejemplo: Revisión de UC-BACK-001
 
 Agregar después del paso 6 (validar credenciales):
 
-+-----------------------------------+-----------------------------------+
-| ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
-+===================================+===================================+
-| 7. El Usuario ingresa código 2FA | 8. El sistema valida el código |
-| de su aplicación autenticadora | TOTP9. El sistema verifica que el |
-| | código no haya expirado |
-+-----------------------------------+-----------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - ACCIONES DEL ACTOR
+     - RESPONSABILIDADES DEL SISTEMA
+   * - 7. El Usuario ingresa código 2FA de su aplicación autenticadora
+     - 8. El sistema valida el código TOTP9. El sistema verifica que el código no haya expirado
 
 Agregar excepción: ### Excepción 8.1: Código 2FA Incorrecto - El sistema
 muestra error “Código 2FA incorrecto” - El Usuario puede reintentar

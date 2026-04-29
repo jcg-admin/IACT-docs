@@ -172,28 +172,14 @@ Los conceptos del dominio IACT se organizan en 5 categorias:
  CATALOGO:
  El sistema define exactamente 18 roles funcionales:
 
- +-------+-------------------------+----------------------+
- | Codigo| Nombre | Categoria |
- +-------+-------------------------+----------------------+
- | R001 | USERS_FULL_MANAGER | Gestion de Usuarios |
- | R002 | USERS_VIEWER | Gestion de Usuarios |
- | R003 | USERS_TEAM_MANAGER | Gestion de Usuarios |
- | R004 | REPORTS_VIEWER | Reportes |
- | R005 | REPORTS_EXPORTER | Reportes |
- | R006 | REPORTS_ADVANCED_VIEWER | Reportes |
- | R007 | REPORTS_CREATOR | Reportes |
- | R008 | DASHBOARD_VIEWER | Visualizacion |
- | R009 | DASHBOARD_CUSTOMIZER | Visualizacion |
- | R010 | DATA_ANALYST | Analisis |
- | R011 | ALERTS_VIEWER | Alertas |
- | R012 | ALERTS_CONFIGURATOR | Alertas |
- | R013 | ALERTS_TEAM_MANAGER | Alertas |
- | R014 | ALERTS_GLOBAL_ADMIN | Alertas |
- | R015 | MODULES_ADMIN | Administracion |
- | R016 | SYSTEM_ADMIN | Administracion |
- | R017 | AUDIT_VIEWER | Administracion |
- | R018 | SECURITY_ADMIN | Administracion |
- +-------+-------------------------+----------------------+
+ .. list-table::
+
+    * - Codigo
+      - Nombre
+      - Categoria
+    * - R001 R002 R003 R004 R005 R006 R007 R008 R009 R010 R011 R012 R013 R014 R015 R016 R017 R018
+      - USERS_FULL_MANAGER USERS_VIEWER USERS_TEAM_MANAGER REPORTS_VIEWER REPORTS_EXPORTER REPORTS_ADVANCED_VIEWER REPORTS_CREATOR DASHBOARD_VIEWER DASHBOARD_CUSTOMIZER DATA_ANALYST ALERTS_VIEWER ALERTS_CONFIGURATOR ALERTS_TEAM_MANAGER ALERTS_GLOBAL_ADMIN MODULES_ADMIN SYSTEM_ADMIN AUDIT_VIEWER SECURITY_ADMIN
+      - Gestion de Usuarios Gestion de Usuarios Gestion de Usuarios Reportes Reportes Reportes Reportes Visualizacion Visualizacion Analisis Alertas Alertas Alertas Alertas Administracion Administracion Administracion Administracion
 
  REPRESENTACION BD:
  Tabla: roles

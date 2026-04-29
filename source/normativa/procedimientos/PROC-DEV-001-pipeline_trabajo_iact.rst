@@ -518,26 +518,30 @@ MÉTRICAS DEL PROCESO
 KPIs Principales
 ~~~~~~~~~~~~~~~~
 
-+-----------------------+--------------------+-------------------------+
-| Métrica | Target | Medición |
-+=======================+====================+=========================+
-| **Lead Time for | < 3 días | Desde commit hasta |
-| Changes** | | producción |
-+-----------------------+--------------------+-------------------------+
-| **Deployment | 2-3 por semana | Deployments a |
-| Frequency** | | producción |
-+-----------------------+--------------------+-------------------------+
-| **Change Failure | < 15% | % deployments que |
-| Rate** | | requieren rollback |
-+-----------------------+--------------------+-------------------------+
-| **Time to Restore** | < 2 horas | Tiempo para recuperar |
-| | | de fallo |
-+-----------------------+--------------------+-------------------------+
-| **Code Review Time** | < 24 horas | Desde PR hasta merge |
-+-----------------------+--------------------+-------------------------+
-| **Test Coverage** | >= 80% | Coverage de tests |
-| | | unitarios |
-+-----------------------+--------------------+-------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Target
+     - Medición
+   * - **Lead Time for Changes**
+     - < 3 días
+     - Desde commit hasta producción
+   * - **Deployment Frequency**
+     - 2-3 por semana
+     - Deployments a producción
+   * - **Change Failure Rate**
+     - < 15%
+     - % deployments que requieren rollback
+   * - **Time to Restore**
+     - < 2 horas
+     - Tiempo para recuperar de fallo
+   * - **Code Review Time**
+     - < 24 horas
+     - Desde PR hasta merge
+   * - **Test Coverage**
+     - >= 80%
+     - Coverage de tests unitarios
 
 Métricas Secundarias
 ~~~~~~~~~~~~~~~~~~~~

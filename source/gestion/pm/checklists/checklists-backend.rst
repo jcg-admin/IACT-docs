@@ -41,35 +41,27 @@ Recomendaciones
 Estado de cumplimiento
 ----------------------
 
-+-----------------------+-----------------------+-----------------------+
-| Elemento en la base | ¿Existe en | Observaciones |
-| maestra | repositorio? | |
-+=======================+=======================+=======================+
-| Portada del espacio | Sí | Este archivo mantiene |
-| de checklists | | la jerarquía y |
-| | | metadatos requeridos. |
-+-----------------------+-----------------------+-----------------------+
-| Checklist de | Sí | Disponible en |
-| desarrollo | | ```checklist_des |
-| | | arrollo.md`` <checkli |
-| | | st_desarrollo.md>`__. |
-+-----------------------+-----------------------+-----------------------+
-| Checklist de pruebas | Sí | Registrado en |
-| | | ```checkli |
-| | | st_testing.md`` <chec |
-| | | klist_testing.md>`__. |
-+-----------------------+-----------------------+-----------------------+
-| Checklist de | Sí | Disponible en |
-| trazabilidad de | | ```checklist_trazabil |
-| requisitos | | idad_requisitos.md`` |
-| | | <checklist_trazabilid |
-| | | ad_requisitos.md>`__. |
-+-----------------------+-----------------------+-----------------------+
-| Registro de owners y | No | Falta consolidar |
-| fechas de vigencia | | inventario con |
-| | | responsables y última |
-| | | revisión. |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Elemento en la base maestra
+     - ¿Existe en repositorio?
+     - Observaciones
+   * - Portada del espacio de checklists
+     - Sí
+     - Este archivo mantiene la jerarquía y metadatos requeridos.
+   * - Checklist de desarrollo
+     - Sí
+     - Disponible en ```checklist_des arrollo.md`` <checkli st_desarrollo.md>`__.
+   * - Checklist de pruebas
+     - Sí
+     - Registrado en ```checkli st_testing.md`` <chec klist_testing.md>`__.
+   * - Checklist de trazabilidad de requisitos
+     - Sí
+     - Disponible en ```checklist_trazabil idad_requisitos.md`` <checklist_trazabilid ad_requisitos.md>`__.
+   * - Registro de owners y fechas de vigencia
+     - No
+     - Falta consolidar inventario con responsables y última revisión.
 
 Acciones prioritarias
 ---------------------

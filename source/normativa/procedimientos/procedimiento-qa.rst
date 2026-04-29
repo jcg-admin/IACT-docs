@@ -218,36 +218,24 @@ Usar checklist de QA:
 
 **Feature**: Autenticación JWT
 
-+-----------+-------+---------------------+-----------------+--------+
-| Test Case | Pasos | Resultado Esperado | Resultado Real | Status |
-+===========+=======+=====================+=================+========+
-| TC-001 | 1. Ir | Token recibido | Token recibido | OK |
-| | a | | | PASS |
-| | /lo | | | |
-| | gin2. | | | |
-| | Ing | | | |
-| | resar | | | |
-| | cred | | | |
-| | encia | | | |
-| | les3. | | | |
-| | Click | | | |
-| | Login | | | |
-+-----------+-------+---------------------+-----------------+--------+
-| TC-002 | 1. Ir | Error 401 | Error 401 | OK |
-| | a | | | PASS |
-| | /lo | | | |
-| | gin2. | | | |
-| | Ing | | | |
-| | resar | | | |
-| | cr | | | |
-| | edenc | | | |
-| | iales | | | |
-| | i | | | |
-| | nváli | | | |
-| | das3. | | | |
-| | Click | | | |
-| | Login | | | |
-+-----------+-------+---------------------+-----------------+--------+
+.. list-table::
+   :header-rows: 1
+
+   * - Test Case
+     - Pasos
+     - Resultado Esperado
+     - Resultado Real
+     - Status
+   * - TC-001
+     - 1. Ir a /lo gin2. Ing resar cred encia les3. Click Login
+     - Token recibido
+     - Token recibido
+     - OK PASS
+   * - TC-002
+     - 1. Ir a /lo gin2. Ing resar cr edenc iales i nváli das3. Click Login
+     - Error 401
+     - Error 401
+     - OK PASS
 
 Ver: `Checklist de Testing <../checklists/checklist_testing.md>`__
 

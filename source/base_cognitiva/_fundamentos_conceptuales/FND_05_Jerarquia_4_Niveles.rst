@@ -136,12 +136,9 @@ el software debe conformarse a ellas.
 ::
 
  FUENTES EXTERNAS (Obligatorias):
- +------------------+
- | Leyes |
- | Regulaciones |
- | Estandares |
- | Contratos |
- +------------------+
+ .. list-table::
+
+    * - Leyes Regulaciones Estandares Contratos
  |
  v
  +------------------+
@@ -149,11 +146,9 @@ el software debe conformarse a ellas.
  +------------------+ El sistema NO CREA las reglas
  
  |
- +------------------+
- | Politicas |
- | Procedimientos |
- | Mejores Practicas|
- +------------------+
+ .. list-table::
+
+    * - Politicas Procedimientos Mejores Practicas
  FUENTES INTERNAS (Organizacionales)
 
 2.4 Tipos de BR (Taxonomia)

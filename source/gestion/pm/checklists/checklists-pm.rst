@@ -387,27 +387,36 @@ Muchos de estos checks pueden automatizarse:
 Estado de cumplimiento
 ----------------------
 
-+-----------------------+----------------+-----------------------------+
-| Checklist | Estado | Automatizado |
-+=======================+================+=============================+
-| Pre-Commit | OK Documentado | WARNING Parcial (pre-commit |
-| | | hooks) |
-+-----------------------+----------------+-----------------------------+
-| Pull Request | OK Documentado | NO No |
-+-----------------------+----------------+-----------------------------+
-| Code Review | OK Documentado | NO No |
-+-----------------------+----------------+-----------------------------+
-| Testing | OK Documentado | WARNING Parcial (pytest) |
-+-----------------------+----------------+-----------------------------+
-| Deployment | OK Documentado | NO No |
-+-----------------------+----------------+-----------------------------+
-| Onboarding | OK Documentado | NO No |
-+-----------------------+----------------+-----------------------------+
-| Incident Response | OK Documentado | NO No |
-+-----------------------+----------------+-----------------------------+
-| Security Review | OK Documentado | WARNING Parcial (safety, |
-| | | pip-audit) |
-+-----------------------+----------------+-----------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Checklist
+     - Estado
+     - Automatizado
+   * - Pre-Commit
+     - OK Documentado
+     - WARNING Parcial (pre-commit hooks)
+   * - Pull Request
+     - OK Documentado
+     - NO No
+   * - Code Review
+     - OK Documentado
+     - NO No
+   * - Testing
+     - OK Documentado
+     - WARNING Parcial (pytest)
+   * - Deployment
+     - OK Documentado
+     - NO No
+   * - Onboarding
+     - OK Documentado
+     - NO No
+   * - Incident Response
+     - OK Documentado
+     - NO No
+   * - Security Review
+     - OK Documentado
+     - WARNING Parcial (safety, pip-audit)
 
 Acciones prioritarias
 ---------------------

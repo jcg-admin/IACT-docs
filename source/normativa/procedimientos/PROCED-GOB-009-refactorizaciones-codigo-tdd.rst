@@ -61,25 +61,24 @@ commits/versiones, seguir esta matriz de decision:
 Matriz de Decision
 ~~~~~~~~~~~~~~~~~~
 
-+--------------------+--------------------+----------------------------+
-| Escenario | Estrategia | Justificacion |
-+====================+====================+============================+
-| Versiones | Aplicar solo la | Evita duplicacion, usa |
-| identicas (mismo | mas reciente | version mas validada |
-| diff) | | |
-+--------------------+--------------------+----------------------------+
-| Versiones | Aplicar ambas | Acumula mejoras, valida |
-| compatibles (no | secuencialmente | cada una con TDD |
-| conflicto) | | |
-+--------------------+--------------------+----------------------------+
-| Versiones en | Analisis manual + | Requiere juicio tecnico, |
-| conflicto (mismo | elegir mejor | documentar decision |
-| codigo) | | |
-+--------------------+--------------------+----------------------------+
-| Versiones | Aplicar solo | Eficiencia, version final |
-| incrementales (v1 | version final | incluye mejoras previas |
-| < v2 < v3) | | |
-+--------------------+--------------------+----------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Escenario
+     - Estrategia
+     - Justificacion
+   * - Versiones identicas (mismo diff)
+     - Aplicar solo la mas reciente
+     - Evita duplicacion, usa version mas validada
+   * - Versiones compatibles (no conflicto)
+     - Aplicar ambas secuencialmente
+     - Acumula mejoras, valida cada una con TDD
+   * - Versiones en conflicto (mismo codigo)
+     - Analisis manual + elegir mejor
+     - Requiere juicio tecnico, documentar decision
+   * - Versiones incrementales (v1 < v2 < v3)
+     - Aplicar solo version final
+     - Eficiencia, version final incluye mejoras previas
 
 Proceso de Resolucion
 ~~~~~~~~~~~~~~~~~~~~~
@@ -690,48 +689,44 @@ Criterios para Ejecutar Rollback:
 9. Riesgos Comunes y Mitigaciones
 ---------------------------------
 
-+-------+------------+--------+------------------+--------------------+
-| R | Pr | I | Mitigacion | Mitigacion |
-| iesgo | obabilidad | mpacto | Primaria | Secundaria |
-+=======+============+========+==================+====================+
-| Tests | MEDIA | MEDIO | Crear smoke | Validacion manual |
-| no | | | tests basicos | exhaustiva |
-| ex | | | | |
-| isten | | | | |
-+-------+------------+--------+------------------+--------------------+
-| Ru | BAJA | ALTO | Validar version | ABORTAR si |
-| ntime | | | temprano | incompatible |
-| in | | | | |
-| compa | | | | |
-| tible | | | | |
-+-------+------------+--------+------------------+--------------------+
-| Confl | MEDIA | MEDIO | Aplicacion | Documentar |
-| ictos | | | manual con diff | resolucion |
-| c | | | | |
-| herry | | | | |
-| -pick | | | | |
-+-------+------------+--------+------------------+--------------------+
-| Tests | BAJA | ALTO | Rollback | Analizar causa y |
-| f | | | inmediato | reintentar |
-| allan | | | | |
-| pos | | | | |
-| t-ref | | | | |
-| actor | | | | |
-+-------+------------+--------+------------------+--------------------+
-| Regr | BAJA | ALTO | Suite completa + | Code review |
-| esion | | | smoke tests | adicional |
-| no | | | | |
-| dete | | | | |
-| ctada | | | | |
-+-------+------------+--------+------------------+--------------------+
-| Type | MEDIA | BAJO | Validacion | Actualizar |
-| ch | | | manual | configuracion |
-| ecker | | | | |
-| f | | | | |
-| alsos | | | | |
-| posi | | | | |
-| tivos | | | | |
-+-------+------------+--------+------------------+--------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - R iesgo
+     - Pr obabilidad
+     - I mpacto
+     - Mitigacion Primaria
+     - Mitigacion Secundaria
+   * - Tests no ex isten
+     - MEDIA
+     - MEDIO
+     - Crear smoke tests basicos
+     - Validacion manual exhaustiva
+   * - Ru ntime in compa tible
+     - BAJA
+     - ALTO
+     - Validar version temprano
+     - ABORTAR si incompatible
+   * - Confl ictos c herry -pick
+     - MEDIA
+     - MEDIO
+     - Aplicacion manual con diff
+     - Documentar resolucion
+   * - Tests f allan pos t-ref actor
+     - BAJA
+     - ALTO
+     - Rollback inmediato
+     - Analizar causa y reintentar
+   * - Regr esion no dete ctada
+     - BAJA
+     - ALTO
+     - Suite completa + smoke tests
+     - Code review adicional
+   * - Type ch ecker f alsos posi tivos
+     - MEDIA
+     - BAJO
+     - Validacion manual
+     - Actualizar configuracion
 
 10. Criterios de Exito
 ----------------------
@@ -1004,37 +999,18 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 15. Historial de Cambios
 ------------------------
 
-+------------------------+-------------------+------------------------+
-| Version | Fecha | Cambios |
-+========================+===================+========================+
-| 1.1.0 | 2025-11-18 | Actualizacion basada |
-| | | en reporte de |
-| | | verificacion |
-| | | (REPORTE-VERIFICAC |
-| | | ION-PROCED-GOB-009.md) |
-| | | - Correccion de 4 gaps |
-| | | criticos: (1) Tiempos |
-| | | reales FASE 1: |
-| | | 60-90min, FASE 2: |
-| | | 60-90min, nueva FASE |
-| | | 2.5: 60-120min (2) |
-| | | Template detallado de |
-| | | tareas con metadata |
-| | | YAML (3) Estrategia |
-| | | para versiones |
-| | | multiples con matriz |
-| | | de decision (4) Nueva |
-| | | FASE 7 para |
-| | | sincronizacion con |
-| | | main. Ademas: ejemplos |
-| | | de smoke tests y |
-| | | seccion de |
-| | | Conventional Commits |
-+------------------------+-------------------+------------------------+
-| 1.0.0 | 2025-11-17 | Creacion inicial |
-| | | basada en |
-| | | QA-REFACTOR-MCP-002 |
-+------------------------+-------------------+------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - Cambios
+   * - 1.1.0
+     - 2025-11-18
+     - Actualizacion basada en reporte de verificacion (REPORTE-VERIFICAC ION-PROCED-GOB-009.md) - Correccion de 4 gaps criticos: (1) Tiempos reales FASE 1: 60-90min, FASE 2: 60-90min, nueva FASE 2.5: 60-120min (2) Template detallado de tareas con metadata YAML (3) Estrategia para versiones multiples con matriz de decision (4) Nueva FASE 7 para sincronizacion con main. Ademas: ejemplos de smoke tests y seccion de Conventional Commits
+   * - 1.0.0
+     - 2025-11-17
+     - Creacion inicial basada en QA-REFACTOR-MCP-002
 
 .. _referencias-1:
 

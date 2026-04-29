@@ -448,14 +448,14 @@ STD_001: Estándar de Documentación Sin Emojis
 
  Diagrama de flujo aceptable:
  
- +----------+
- | Usuario |
- +----------+
+ .. list-table::
+
+    * - Usuario
  |
  v
- +----------+
- | Sistema |
- +----------+
+ .. list-table::
+
+    * - Sistema
 
 **Criterio:** ¿Es esencial para entender el concepto técnico?
 - Sí → Permitido

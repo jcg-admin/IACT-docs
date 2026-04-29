@@ -101,40 +101,42 @@ Flowchart Completo de Decisión
 Matriz de Decisión Detallada
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------------------+-------------------+----------------------------+
-| Propósito del | Ubicación | Consideraciones |
-| Script | Primaria | Secundarias |
-+=====================+===================+============================+
-| Test unitario para | ``test/unit/`` | Nombrar como |
-| módulo X | | ``test-{module}.sh`` |
-+---------------------+-------------------+----------------------------+
-| Test de integración | ``te | Incluir prefijo |
-| | st/integration/`` | ``integration-`` |
-+---------------------+-------------------+----------------------------+
-| Test de sistema/E2E | ``test/system/`` | Incluir prefijo |
-| | | ``system-`` |
-+---------------------+-------------------+----------------------------+
-| Git hook | ``infras | Coincidir nombre exacto |
-| | tructure/hooks/`` | del hook |
-+---------------------+-------------------+----------------------------+
-| Bootstrap nuevo | ``scripts/set | Se espera ejecución única |
-| ambiente | up/bootstrap.sh`` | |
-+---------------------+-------------------+----------------------------+
-| Backup de base de | ``scripts/mainte | Ubicación específica del |
-| datos | nance/database/`` | componente |
-+---------------------+-------------------+----------------------------+
-| Rotación de logs | ``scripts/maint | Ubicación específica del |
-| | enance/logging/`` | componente |
-+---------------------+-------------------+----------------------------+
-| Cargar ambiente | ``infrastr | Gestión de configuración |
-| | ucture/configs/`` | |
-+---------------------+-------------------+----------------------------+
-| Logging común | ``infrastructure/ | Sourced por otros scripts |
-| | utils/logger.sh`` | |
-+---------------------+-------------------+----------------------------+
-| Workflow GitHub | `` | Seguir convención GitHub |
-| | script/{action}`` | |
-+---------------------+-------------------+----------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Propósito del Script
+     - Ubicación Primaria
+     - Consideraciones Secundarias
+   * - Test unitario para módulo X
+     - ``test/unit/``
+     - Nombrar como ``test-{module}.sh``
+   * - Test de integración
+     - ``te st/integration/``
+     - Incluir prefijo ``integration-``
+   * - Test de sistema/E2E
+     - ``test/system/``
+     - Incluir prefijo ``system-``
+   * - Git hook
+     - ``infras tructure/hooks/``
+     - Coincidir nombre exacto del hook
+   * - Bootstrap nuevo ambiente
+     - ``scripts/set up/bootstrap.sh``
+     - Se espera ejecución única
+   * - Backup de base de datos
+     - ``scripts/mainte nance/database/``
+     - Ubicación específica del componente
+   * - Rotación de logs
+     - ``scripts/maint enance/logging/``
+     - Ubicación específica del componente
+   * - Cargar ambiente
+     - ``infrastr ucture/configs/``
+     - Gestión de configuración
+   * - Logging común
+     - ``infrastructure/ utils/logger.sh``
+     - Sourced por otros scripts
+   * - Workflow GitHub
+     - `` script/{action}``
+     - Seguir convención GitHub
 
 Convenciones de Nomenclatura de Archivos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -360,26 +362,33 @@ Códigos de Salida
 
 Convenciones estándar de códigos de salida:
 
-+--------+-----------------------------+-----------------------------+
-| Código | Significado | Uso |
-+========+=============================+=============================+
-| 0 | Éxito | Operación completada |
-| | | exitosamente |
-+--------+-----------------------------+-----------------------------+
-| 1 | Error general | Fallo genérico |
-+--------+-----------------------------+-----------------------------+
-| 2 | Mal uso | Argumentos inválidos o uso |
-| | | incorrecto |
-+--------+-----------------------------+-----------------------------+
-| 126 | Comando no puede ejecutarse | Problema de permisos |
-+--------+-----------------------------+-----------------------------+
-| 127 | Comando no encontrado | Dependencia faltante |
-+--------+-----------------------------+-----------------------------+
-| 130 | Terminado por Ctrl+C | Interrupción de usuario |
-+--------+-----------------------------+-----------------------------+
-| 255 | Código de salida fuera de | Estado de salida inválido |
-| | rango | |
-+--------+-----------------------------+-----------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Código
+     - Significado
+     - Uso
+   * - 0
+     - Éxito
+     - Operación completada exitosamente
+   * - 1
+     - Error general
+     - Fallo genérico
+   * - 2
+     - Mal uso
+     - Argumentos inválidos o uso incorrecto
+   * - 126
+     - Comando no puede ejecutarse
+     - Problema de permisos
+   * - 127
+     - Comando no encontrado
+     - Dependencia faltante
+   * - 130
+     - Terminado por Ctrl+C
+     - Interrupción de usuario
+   * - 255
+     - Código de salida fuera de rango
+     - Estado de salida inválido
 
 Códigos de salida personalizados (128+):
 
@@ -447,35 +456,41 @@ Guías de Seguridad
 Reglas de Seguridad Críticas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------+---------------+---------------+-----------------------------+
-| ID | Regla | Nivel | Descripción |
-+========+===============+===============+=============================+
-| S1 | No secretos | CRÍTICO | Nunca incluir contraseñas, |
-| | hardcodeados | | tokens, API keys |
-+--------+---------------+---------------+-----------------------------+
-| S2 | Validar todo | CRÍTICO | Siempre sanitizar datos |
-| | input | | provistos por usuario |
-+--------+---------------+---------------+-----------------------------+
-| S3 | Privilegio | ALTO | Solicitar acceso elevado |
-| | mínimo | | solo cuando sea requerido |
-+--------+---------------+---------------+-----------------------------+
-| S4 | Archivos | ALTO | Usar mktemp con permisos |
-| | temporales | | restrictivos |
-| | seguros | | |
-+--------+---------------+---------------+-----------------------------+
-| S5 | No eval con | CRÍTICO | Nunca usar eval con datos |
-| | input de | | no sanitizados |
-| | usuario | | |
-+--------+---------------+---------------+-----------------------------+
-| S6 | Citar todas | ALTO | Prevenir inyección y word |
-| | las variables | | splitting |
-+--------+---------------+---------------+-----------------------------+
-| S7 | Evitar | ALTO | Riesgo de inyección de |
-| | command | | comandos |
-| | substitution | | |
-| | con datos de | | |
-| | usuario | | |
-+--------+---------------+---------------+-----------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - ID
+     - Regla
+     - Nivel
+     - Descripción
+   * - S1
+     - No secretos hardcodeados
+     - CRÍTICO
+     - Nunca incluir contraseñas, tokens, API keys
+   * - S2
+     - Validar todo input
+     - CRÍTICO
+     - Siempre sanitizar datos provistos por usuario
+   * - S3
+     - Privilegio mínimo
+     - ALTO
+     - Solicitar acceso elevado solo cuando sea requerido
+   * - S4
+     - Archivos temporales seguros
+     - ALTO
+     - Usar mktemp con permisos restrictivos
+   * - S5
+     - No eval con input de usuario
+     - CRÍTICO
+     - Nunca usar eval con datos no sanitizados
+   * - S6
+     - Citar todas las variables
+     - ALTO
+     - Prevenir inyección y word splitting
+   * - S7
+     - Evitar command substitution con datos de usuario
+     - ALTO
+     - Riesgo de inyección de comandos
 
 Gestión de Secretos
 ~~~~~~~~~~~~~~~~~~~
@@ -700,21 +715,25 @@ Requerimientos de Testing
 Tipos de Test
 ~~~~~~~~~~~~~
 
-+--------------------+---------------+---------------+---------------+
-| Tipo de Test | Ubicación | Propósito | Ejecución |
-+====================+===============+===============+===============+
-| Unitario | ` | Testing de | Rápido, |
-| | `test/unit/`` | función | aislado |
-| | | individual | |
-+--------------------+---------------+---------------+---------------+
-| Integración | ``test/i | Interacción | Velocidad |
-| | ntegration/`` | de | media |
-| | | componentes | |
-+--------------------+---------------+---------------+---------------+
-| Sistema | ``t | Workflows | Más lento, |
-| | est/system/`` | end-to-end | ambiente |
-| | | | completo |
-+--------------------+---------------+---------------+---------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo de Test
+     - Ubicación
+     - Propósito
+     - Ejecución
+   * - Unitario
+     - ` `test/unit/``
+     - Testing de función individual
+     - Rápido, aislado
+   * - Integración
+     - ``test/i ntegration/``
+     - Interacción de componentes
+     - Velocidad media
+   * - Sistema
+     - ``t est/system/``
+     - Workflows end-to-end
+     - Más lento, ambiente completo
 
 Integración ShellCheck
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -946,21 +965,21 @@ Documentos Relacionados
 Changelog
 ---------
 
-+------------------------+-------------------+------------------------+
-| Versión | Fecha | Cambios |
-+========================+===================+========================+
-| 2.1 | 2025-11-03 | Adaptación para |
-| | | proyecto IACT, |
-| | | integración con |
-| | | estándares existentes |
-+------------------------+-------------------+------------------------+
-| 2.0 | 2025-11-03 | Reescritura completa |
-| | | con flowcharts de |
-| | | decisión, estándares |
-| | | de output |
-+------------------------+-------------------+------------------------+
-| 1.0 | 2025-10-15 | Versión inicial |
-+------------------------+-------------------+------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+   * - 2.1
+     - 2025-11-03
+     - Adaptación para proyecto IACT, integración con estándares existentes
+   * - 2.0
+     - 2025-11-03
+     - Reescritura completa con flowcharts de decisión, estándares de output
+   * - 1.0
+     - 2025-10-15
+     - Versión inicial
 
 --------------
 

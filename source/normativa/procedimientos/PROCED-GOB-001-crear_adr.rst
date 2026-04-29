@@ -528,24 +528,27 @@ PASO 6: Actualizar Estado del ADR
 6.1 Estados posibles
 ^^^^^^^^^^^^^^^^^^^^
 
-+---------------+--------------------------+--------------------------+
-| Estado | Significado | Cuándo usar |
-+===============+==========================+==========================+
-| ``propuesta`` | En revisión | ADR creado, esperando |
-| | | aprobación |
-+---------------+--------------------------+--------------------------+
-| ``aceptada`` | Aprobado y activo | Decisión aprobada, en |
-| | | implementación |
-+---------------+--------------------------+--------------------------+
-| ``rechazada`` | No aprobado | Decisión rechazada tras |
-| | | revisión |
-+---------------+--------------------------+--------------------------+
-| ``obsoleta`` | Ya no aplica | Tecnología/contexto |
-| | | cambió |
-+---------------+--------------------------+--------------------------+
-| `` | Reemplazada | Otro ADR la reemplaza |
-| supersedida`` | | |
-+---------------+--------------------------+--------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Estado
+     - Significado
+     - Cuándo usar
+   * - ``propuesta``
+     - En revisión
+     - ADR creado, esperando aprobación
+   * - ``aceptada``
+     - Aprobado y activo
+     - Decisión aprobada, en implementación
+   * - ``rechazada``
+     - No aprobado
+     - Decisión rechazada tras revisión
+   * - ``obsoleta``
+     - Ya no aplica
+     - Tecnología/contexto cambió
+   * - `` supersedida``
+     - Reemplazada
+     - Otro ADR la reemplaza
 
 6.2 Actualizar tras aprobación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

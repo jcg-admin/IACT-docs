@@ -1314,16 +1314,15 @@ Push
 Por Qué Commitear Tanto .puml como .svg
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------+-----------------------------------+
-| Archivo | Razón para Commitear |
-+===================================+===================================+
-| **.puml** | Código fuente versionable, |
-| | legible en git diff, editable |
-+-----------------------------------+-----------------------------------+
-| **.svg** | Visualización directa en |
-| | GitHub/GitLab sin necesitar |
-| | PlantUML |
-+-----------------------------------+-----------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Archivo
+     - Razón para Commitear
+   * - **.puml**
+     - Código fuente versionable, legible en git diff, editable
+   * - **.svg**
+     - Visualización directa en GitHub/GitLab sin necesitar PlantUML
 
 .. _proced-gob-006-generar-diagrama-uml-plantuml-validación-8:
 

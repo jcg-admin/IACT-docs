@@ -4,26 +4,19 @@ RNF-PROC-001_PROCESO_SDLC.md
 Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 --------------------------------------------------------------------
 
-+-----------------------------------+-----------------------------------+
-| Campo | Valor |
-+===================================+===================================+
-| **ID RNF** | RNF-PROC-001 |
-+-----------------------------------+-----------------------------------+
-| **Dominio** | Proceso / Gobernanza SDLC |
-+-----------------------------------+-----------------------------------+
-| **Alcance** | Planificación, diseño, |
-| | construcción, pruebas y |
-| | despliegue ejecutados por el |
-| | equipo de desarrollo (sin agentes |
-| | IA). |
-+-----------------------------------+-----------------------------------+
-| **Implementación** | Guías de proceso y checklists |
-| | operativos documentados en |
-| | ``docs/gobernanza/`` y scripts de |
-| | soporte manuales |
-| | (``scripts/run_all_tests.sh``, |
-| | pipelines CI/CD). |
-+-----------------------------------+-----------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Campo
+     - Valor
+   * - **ID RNF**
+     - RNF-PROC-001
+   * - **Dominio**
+     - Proceso / Gobernanza SDLC
+   * - **Alcance**
+     - Planificación, diseño, construcción, pruebas y despliegue ejecutados por el equipo de desarrollo (sin agentes IA).
+   * - **Implementación**
+     - Guías de proceso y checklists operativos documentados en ``docs/gobernanza/`` y scripts de soporte manuales (``scripts/run_all_tests.sh``, pipelines CI/CD).
 
 --------------
 
@@ -41,38 +34,24 @@ Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
 2. Flujo Mínimo de Cumplimiento
 -------------------------------
 
-+-----------------------+-----------------------+-----------------------+
-| Paso | Acción requerida | Evidencia generada |
-+=======================+=======================+=======================+
-| **1** | Seleccionar la fase a | Registro en |
-| | ejecutar (planning, | issue/ticket con la |
-| | design, testing, | fase y fecha. |
-| | deployment) y seguir | |
-| | la guía | |
-| | correspondiente. | |
-+-----------------------+-----------------------+-----------------------+
-| **2** | Validar requisitos | Checklist completado |
-| | previos | en la guía o en el |
-| | (dependencias, | PR. |
-| | credenciales, | |
-| | entorno) antes de | |
-| | ejecutar scripts o | |
-| | pipelines. | |
-+-----------------------+-----------------------+-----------------------+
-| **3** | Almacenar artefactos | Archivos versionados |
-| | producidos | en el repo con |
-| | (diagramas, planes de | referencia al ticket. |
-| | prueba, reportes) en | |
-| | el subdirectorio | |
-| | indicado por la guía. | |
-+-----------------------+-----------------------+-----------------------+
-| **4** | Registrar en el RTM y | Entrada en el índice |
-| | en el Índice de | correspondiente. |
-| | Trazabilidad la fase, | |
-| | responsables y | |
-| | entregables | |
-| | asociados. | |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Paso
+     - Acción requerida
+     - Evidencia generada
+   * - **1**
+     - Seleccionar la fase a ejecutar (planning, design, testing, deployment) y seguir la guía correspondiente.
+     - Registro en issue/ticket con la fase y fecha.
+   * - **2**
+     - Validar requisitos previos (dependencias, credenciales, entorno) antes de ejecutar scripts o pipelines.
+     - Checklist completado en la guía o en el PR.
+   * - **3**
+     - Almacenar artefactos producidos (diagramas, planes de prueba, reportes) en el subdirectorio indicado por la guía.
+     - Archivos versionados en el repo con referencia al ticket.
+   * - **4**
+     - Registrar en el RTM y en el Índice de Trazabilidad la fase, responsables y entregables asociados.
+     - Entrada en el índice correspondiente.
 
 3. Controles Operativos
 -----------------------

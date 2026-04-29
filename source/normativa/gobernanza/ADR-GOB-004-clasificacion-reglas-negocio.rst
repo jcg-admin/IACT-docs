@@ -191,24 +191,24 @@ Características
 Palabras Clave para Identificar
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------+-----------------------+-----------------------+
-| Indicador | Función | Ejemplo |
-+=======================+=======================+=======================+
-| **Debe** | Obligación | “El usuario debe |
-| | | proporcionar |
-| | | credenciales” |
-+-----------------------+-----------------------+-----------------------+
-| **No debe** | Prohibición | “El sistema no debe |
-| | | mostrar datos |
-| | | confidenciales” |
-+-----------------------+-----------------------+-----------------------+
-| **No puede** | Limitación | “Un usuario no puede |
-| | | tener más de 10 |
-| | | sesiones activas” |
-+-----------------------+-----------------------+-----------------------+
-| **Solo puede** | Restricción exclusiva | “Solo puede acceder |
-| | | el administrador” |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Indicador
+     - Función
+     - Ejemplo
+   * - **Debe**
+     - Obligación
+     - “El usuario debe proporcionar credenciales”
+   * - **No debe**
+     - Prohibición
+     - “El sistema no debe mostrar datos confidenciales”
+   * - **No puede**
+     - Limitación
+     - “Un usuario no puede tener más de 10 sesiones activas”
+   * - **Solo puede**
+     - Restricción exclusiva
+     - “Solo puede acceder el administrador”
 
 .. _ejemplos-1:
 

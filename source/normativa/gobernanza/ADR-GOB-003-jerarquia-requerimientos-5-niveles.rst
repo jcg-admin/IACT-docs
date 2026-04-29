@@ -217,59 +217,24 @@ Tabla de Influencia entre Niveles
 
 Esta tabla muestra cómo las Reglas de Negocio influyen en cada nivel:
 
-+-----------------------+-----------------------+-----------------------+
-| Tipo de Requerimiento | Cómo Influyen las | Ejemplo Práctico |
-| | Reglas de Negocio | |
-+=======================+=======================+=======================+
-| **Requerimientos de | Las regulaciones | El sistema de |
-| Negocio** | gubernamentales | seguimiento de |
-| | pueden conducir a | químicos debe |
-| | objetivos de negocio | permitir el |
-| | necesarios para un | cumplimiento de todas |
-| | proyecto | las regulaciones |
-| | | federales y estatales |
-| | | sobre el uso de |
-| | | químicos y su |
-| | | eliminación en un |
-| | | período de 5 meses |
-+-----------------------+-----------------------+-----------------------+
-| **Requerimientos de | Las políticas de | Los gerentes de |
-| Usuario** | privacidad dictan qué | laboratorio están |
-| | usuarios pueden y no | autorizados a generar |
-| | pueden realizar | informes de |
-| | ciertas tareas con el | exposición química |
-| | sistema | para cualquier |
-| | | persona |
-+-----------------------+-----------------------+-----------------------+
-| **Requerimientos | Las políticas | Política: todos los |
-| Funcionales** | empresariales | proveedores deben |
-| | establecen procesos | estar registrados y |
-| | específicos que el | aprobados antes de |
-| | sistema debe | que se pague una |
-| | implementar | factura. |
-| | | Funcionalidad: cuando |
-| | | una factura es |
-| | | recibida por un |
-| | | proveedor no |
-| | | registrado, el |
-| | | sistema enviará un |
-| | | email al proveedor |
-| | | con un PDF editable |
-| | | para darse de alta |
-+-----------------------+-----------------------+-----------------------+
-| **Atributos de | Las regulaciones de | El sistema debe |
-| Calidad** | agencias | mantener registros de |
-| | gubernamentales | entrenamiento de |
-| | pueden dictar ciertos | seguridad que se |
-| | requisitos de | deben verificar para |
-| | seguridad que deben | garantizar que los |
-| | aplicarse a través de | usuarios están |
-| | la funcionalidad del | debidamente |
-| | sistema | capacitados antes de |
-| | | poder solicitar un |
-| | | producto químico |
-| | | peligroso |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Tipo de Requerimiento
+     - Cómo Influyen las Reglas de Negocio
+     - Ejemplo Práctico
+   * - **Requerimientos de Negocio**
+     - Las regulaciones gubernamentales pueden conducir a objetivos de negocio necesarios para un proyecto
+     - El sistema de seguimiento de químicos debe permitir el cumplimiento de todas las regulaciones federales y estatales sobre el uso de químicos y su eliminación en un período de 5 meses
+   * - **Requerimientos de Usuario**
+     - Las políticas de privacidad dictan qué usuarios pueden y no pueden realizar ciertas tareas con el sistema
+     - Los gerentes de laboratorio están autorizados a generar informes de exposición química para cualquier persona
+   * - **Requerimientos Funcionales**
+     - Las políticas empresariales establecen procesos específicos que el sistema debe implementar
+     - Política: todos los proveedores deben estar registrados y aprobados antes de que se pague una factura. Funcionalidad: cuando una factura es recibida por un proveedor no registrado, el sistema enviará un email al proveedor con un PDF editable para darse de alta
+   * - **Atributos de Calidad**
+     - Las regulaciones de agencias gubernamentales pueden dictar ciertos requisitos de seguridad que deben aplicarse a través de la funcionalidad del sistema
+     - El sistema debe mantener registros de entrenamiento de seguridad que se deben verificar para garantizar que los usuarios están debidamente capacitados antes de poder solicitar un producto químico peligroso
 
 Estructura de Directorios
 -------------------------
@@ -334,47 +299,46 @@ Principio 3: Stakeholders Apropiados
 
 Cada nivel tiene stakeholders primarios diferentes:
 
-+-----------------------+-----------------------+-----------------------+
-| Nivel | Stakeholders | Stakeholders |
-| | Primarios | Secundarios |
-+=======================+=======================+=======================+
-| Reglas de Negocio | Legal, Compliance, | Product Owner, |
-| | C-Suite | Arquitectos |
-+-----------------------+-----------------------+-----------------------+
-| Requerimientos de | C-Suite, Product | Arquitectos, Tech |
-| Negocio | Owner | Leads |
-+-----------------------+-----------------------+-----------------------+
-| Requerimientos de | Product Owner, UX, | Desarrolladores |
-| Usuario | Usuarios Finales | |
-+-----------------------+-----------------------+-----------------------+
-| Requerimientos | Desarrolladores, Tech | QA, DevOps |
-| Funcionales | Leads | |
-+-----------------------+-----------------------+-----------------------+
-| Atributos de Calidad | Arquitectos, DevOps, | Desarrolladores |
-| | QA | |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Nivel
+     - Stakeholders Primarios
+     - Stakeholders Secundarios
+   * - Reglas de Negocio
+     - Legal, Compliance, C-Suite
+     - Product Owner, Arquitectos
+   * - Requerimientos de Negocio
+     - C-Suite, Product Owner
+     - Arquitectos, Tech Leads
+   * - Requerimientos de Usuario
+     - Product Owner, UX, Usuarios Finales
+     - Desarrolladores
+   * - Requerimientos Funcionales
+     - Desarrolladores, Tech Leads
+     - QA, DevOps
+   * - Atributos de Calidad
+     - Arquitectos, DevOps, QA
+     - Desarrolladores
 
 Principio 4: Diferentes Técnicas de Validación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------+-----------------------------------+
-| Nivel | Técnicas de Validación |
-+===================================+===================================+
-| Reglas de Negocio | Auditoría legal, revisión de |
-| | compliance |
-+-----------------------------------+-----------------------------------+
-| Requerimientos de Negocio | Validación con ejecutivos, |
-| | análisis de ROI |
-+-----------------------------------+-----------------------------------+
-| Requerimientos de Usuario | Prototipos, entrevistas, |
-| | observación de usuarios |
-+-----------------------------------+-----------------------------------+
-| Requerimientos Funcionales | Code reviews, tests unitarios e |
-| | integración |
-+-----------------------------------+-----------------------------------+
-| Atributos de Calidad | Tests de rendimiento, auditorías |
-| | de seguridad, análisis de código |
-+-----------------------------------+-----------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Nivel
+     - Técnicas de Validación
+   * - Reglas de Negocio
+     - Auditoría legal, revisión de compliance
+   * - Requerimientos de Negocio
+     - Validación con ejecutivos, análisis de ROI
+   * - Requerimientos de Usuario
+     - Prototipos, entrevistas, observación de usuarios
+   * - Requerimientos Funcionales
+     - Code reviews, tests unitarios e integración
+   * - Atributos de Calidad
+     - Tests de rendimiento, auditorías de seguridad, análisis de código
 
 Alternativas Consideradas
 -------------------------

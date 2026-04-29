@@ -44,25 +44,24 @@ Metodologías Aplicables
 Metodologías Obligatorias
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------------+--------------------+---------------------------+
-| Metodología | Cuándo Usar | Output Esperado |
-+====================+====================+===========================+
-| **STRIDE** | Análisis de | Catálogo de amenazas por |
-| | amenazas de | categoría |
-| | componentes | |
-+--------------------+--------------------+---------------------------+
-| **PASTA** (Process | Análisis de | Matriz de riesgos con |
-| for Attack | riesgos end-to-end | probabilidad e impacto |
-| Simulation and | | |
-| Threat Analysis) | | |
-+--------------------+--------------------+---------------------------+
-| **LINDDUN** | Análisis de | Threat trees de |
-| | privacidad y datos | privacidad |
-| | personales | |
-+--------------------+--------------------+---------------------------+
-| **OWASP Top 10** | Validación de | Checklist de mitigaciones |
-| | controles web | |
-+--------------------+--------------------+---------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Metodología
+     - Cuándo Usar
+     - Output Esperado
+   * - **STRIDE**
+     - Análisis de amenazas de componentes
+     - Catálogo de amenazas por categoría
+   * - **PASTA** (Process for Attack Simulation and Threat Analysis)
+     - Análisis de riesgos end-to-end
+     - Matriz de riesgos con probabilidad e impacto
+   * - **LINDDUN**
+     - Análisis de privacidad y datos personales
+     - Threat trees de privacidad
+   * - **OWASP Top 10**
+     - Validación de controles web
+     - Checklist de mitigaciones
 
 Metodologías Complementarias
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,28 +77,23 @@ Metodologías Complementarias
 Roles y Responsabilidades
 -------------------------
 
-+---------------+------------------------------------------------------+
-| Rol | Responsabilidad |
-+===============+======================================================+
-| **Security | Liderar análisis STRIDE, aprobar controles |
-| Lead / | |
-| Arquitecto de | |
-| Seguridad** | |
-+---------------+------------------------------------------------------+
-| **Tech Lead** | Proveer contexto técnico, validar factibilidad de |
-| | mitigaciones |
-+---------------+------------------------------------------------------+
-| **BA Lead** | Identificar activos de negocio críticos |
-+---------------+------------------------------------------------------+
-| **DevOps | Implementar controles de infraestructura |
-| Lead** | |
-+---------------+------------------------------------------------------+
-| **QA Lead** | Diseñar tests de seguridad y penetration testing |
-+---------------+------------------------------------------------------+
-| **Compliance | Validar cumplimiento regulatorio (GDPR, HIPAA, etc.) |
-| Officer** (si | |
-| aplica) | |
-+---------------+------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Rol
+     - Responsabilidad
+   * - **Security Lead / Arquitecto de Seguridad**
+     - Liderar análisis STRIDE, aprobar controles
+   * - **Tech Lead**
+     - Proveer contexto técnico, validar factibilidad de mitigaciones
+   * - **BA Lead**
+     - Identificar activos de negocio críticos
+   * - **DevOps Lead**
+     - Implementar controles de infraestructura
+   * - **QA Lead**
+     - Diseñar tests de seguridad y penetration testing
+   * - **Compliance Officer** (si aplica)
+     - Validar cumplimiento regulatorio (GDPR, HIPAA, etc.)
 
 --------------
 
@@ -625,22 +619,21 @@ Herramientas y Referencias
 Herramientas Obligatorias
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------------------------------+----------------------------------+
-| Herramienta | Uso |
-+==================================+==================================+
-| **Mermaid** | Diagramas DFD, flujos de |
-| | amenazas |
-+----------------------------------+----------------------------------+
-| **OWASP Threat Dragon** | Modelado visual de amenazas |
-| (opcional) | |
-+----------------------------------+----------------------------------+
-| **Snyk / Dependabot** | Escaneo de vulnerabilidades en |
-| | dependencias |
-+----------------------------------+----------------------------------+
-| **Bandit** (Python) | Análisis estático de seguridad |
-+----------------------------------+----------------------------------+
-| **pytest** | Tests de controles de seguridad |
-+----------------------------------+----------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Herramienta
+     - Uso
+   * - **Mermaid**
+     - Diagramas DFD, flujos de amenazas
+   * - **OWASP Threat Dragon** (opcional)
+     - Modelado visual de amenazas
+   * - **Snyk / Dependabot**
+     - Escaneo de vulnerabilidades en dependencias
+   * - **Bandit** (Python)
+     - Análisis estático de seguridad
+   * - **pytest**
+     - Tests de controles de seguridad
 
 Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
@@ -737,12 +730,17 @@ Documentar la decisión en un ADR.
 Control de Versiones
 --------------------
 
-+-------------------+--------------+-------------------+--------------+
-| Versión | Fecha | Cambios | Autor |
-+===================+==============+===================+==============+
-| 1.0.0 | 2025-11-04 | Creación inicial | Equipo |
-| | | del procedimiento | Seguridad |
-+-------------------+--------------+-------------------+--------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Versión
+     - Fecha
+     - Cambios
+     - Autor
+   * - 1.0.0
+     - 2025-11-04
+     - Creación inicial del procedimiento
+     - Equipo Seguridad
 
 --------------
 

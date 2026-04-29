@@ -379,26 +379,23 @@ El FR debe estar asignado a un release especifico.
 
  CAPERS JONES (2017) - Defectos por origen:
 
- +----------------------+-----------+
- | Fase | % Defectos|
- +----------------------+-----------+
- | Requerimientos | 40-50% |
- | Diseno | 25-30% |
- | Codificacion | 15-20% |
- | Testing | 5-10% |
- +----------------------+-----------+
+ .. list-table::
+
+    * - Fase
+      - % Defectos
+    * - Requerimientos Diseno Codificacion Testing
+      - 40-50% 25-30% 15-20% 5-10%
 
  Costo de correccion por fase:
 
- +----------------------+-------+----------+
- | Fase | Costo | Ejemplo |
- +----------------------+-------+----------+
- | Requerimientos | 1x | $100 |
- | Diseno | 5x | $500 |
- | Codificacion | 10x | $1,000 |
- | Testing | 20x | $2,000 |
- | Produccion | 100x | $10,000 |
- +----------------------+-------+----------+
+ .. list-table::
+
+    * - Fase
+      - Costo
+      - Ejemplo
+    * - Requerimientos Diseno Codificacion Testing Produccion
+      - 1x 5x 10x 20x 100x
+      - $100 $500 $1,000 $2,000 $10,000
 
  CONCLUSION:
  Invertir 2x en requerimientos ahorra 50x en produccion

@@ -70,58 +70,48 @@ Actividades recurrentes
 Actividades por entrega
 -----------------------
 
-+-----------------+-----------------+-----------------+-----------------+
-| Momento | Responsables | Acción | Evidencia |
-+=================+=================+=================+=================+
-| Inicio de | Producto + QA | Revisar backlog | Notas en ritual |
-| iteración | | y asegurar que | de |
-| | | cada requisito | planificación. |
-| | | tenga plantilla | |
-| | | base | |
-| | | completada. | |
-+-----------------+-----------------+-----------------+-----------------+
-| Durante | QA | Corroborar que | Comentarios en |
-| desarrollo | | los casos de | pull requests. |
-| | | uso reflejen | |
-| | | reglas de | |
-| | | negocio activas | |
-| | | y generen | |
-| | | requisitos | |
-| | | funcionales | |
-| | | claros. | |
-+-----------------+-----------------+-----------------+-----------------+
-| Pre-cierre | QA + | Ejecutar | Actualización |
-| | Arquitectura | auditoría de | firmada en |
-| | | trazabilidad y | ``tra |
-| | | documentar | zabilidad.md``. |
-| | | ajustes. | |
-+-----------------+-----------------+-----------------+-----------------+
-| Post-cierre | QA | Publicar | Entrada en |
-| | | resumen de | ``q |
-| | | hallazgos y | a/registros/``. |
-| | | acciones | |
-| | | correctivas. | |
-+-----------------+-----------------+-----------------+-----------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Momento
+     - Responsables
+     - Acción
+     - Evidencia
+   * - Inicio de iteración
+     - Producto + QA
+     - Revisar backlog y asegurar que cada requisito tenga plantilla base completada.
+     - Notas en ritual de planificación.
+   * - Durante desarrollo
+     - QA
+     - Corroborar que los casos de uso reflejen reglas de negocio activas y generen requisitos funcionales claros.
+     - Comentarios en pull requests.
+   * - Pre-cierre
+     - QA + Arquitectura
+     - Ejecutar auditoría de trazabilidad y documentar ajustes.
+     - Actualización firmada en ``tra zabilidad.md``.
+   * - Post-cierre
+     - QA
+     - Publicar resumen de hallazgos y acciones correctivas.
+     - Entrada en ``q a/registros/``.
 
 Métricas de seguimiento
 -----------------------
 
-+-----------------------+-----------------------+-----------------------+
-| Métrica | Objetivo | Fuente |
-+=======================+=======================+=======================+
-| Revisiones | 100 % de los cambios | Historial de PR y |
-| documentales | en ``docs/`` | checklist QA. |
-| cumplidas | | |
-+-----------------------+-----------------------+-----------------------+
-| Plantillas utilizadas | ≥ 95 % | Auditoría mensual del |
-| sin modificaciones | | repositorio. |
-| estructurales | | |
-+-----------------------+-----------------------+-----------------------+
-| Cadena de | 100 % de iniciativas | ```../r |
-| trazabilidad completa | activas | equisitos/trazabilida |
-| | | d.md`` <../requisitos |
-| | | /trazabilidad.md>`__. |
-+-----------------------+-----------------------+-----------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Métrica
+     - Objetivo
+     - Fuente
+   * - Revisiones documentales cumplidas
+     - 100 % de los cambios en ``docs/``
+     - Historial de PR y checklist QA.
+   * - Plantillas utilizadas sin modificaciones estructurales
+     - ≥ 95 %
+     - Auditoría mensual del repositorio.
+   * - Cadena de trazabilidad completa
+     - 100 % de iniciativas activas
+     - ```../r equisitos/trazabilida d.md`` <../requisitos /trazabilidad.md>`__.
 
 Procedimiento de escalamiento
 -----------------------------

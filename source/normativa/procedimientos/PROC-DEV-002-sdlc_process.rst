@@ -38,24 +38,15 @@ Las 7 Fases del SDLC en IACT
 
 ::
 
- +---------------------------------------------------------+
- | SDLC LIFECYCLE |
- | |
- | +----------+ +----------+ +----------+ |
- | | Planning |-->|Feasibility|-->| Design | |
- | +----------+ +----------+ +----------+ |
- | | | | |
- | ? ? ? |
- | +----------+ +----------+ +----------+ |
- | |Implement |<--| Testing |<--| Deploy | |
- | +----------+ +----------+ +----------+ |
- | | | |
- | +--------------+---------------+ |
- | ? |
- | +--------------+ |
- | | Maintenance | |
- | +--------------+ |
- +---------------------------------------------------------+
+ .. list-table::
+
+    * - SDLC LIFECYCLE +----------+ +----------+ +----------+ +----------+ +----------+ +----------+ ? ? ? +----------+ +----------+ +----------+ +----------+ +----------+ +----------+ +--------------+---------------+ ? +--------------+ +--------------+
+      - Planning Implement Maintenance
+      - --> <--
+      - Feasibility Testing
+      - --> <--
+      - Design Deploy
+      - 
 
 --------------
 
@@ -208,22 +199,29 @@ actual? - ?Existen limitaciones t?cnicas?
 
 Usar matriz de riesgos:
 
-+---------+-----------------+-----------+-------------+---------------+
-| Riesgo | Probabilidad | Impacto | Severidad | Mitigaci?n |
-+=========+=================+===========+=============+===============+
-| Falta | Alta | Alto | **CR?TICO** | Sprint |
-| de | | | | dedicado de |
-| tests | | | | testing |
-+---------+-----------------+-----------+-------------+---------------+
-| CI/CD | Media | Alto | ALTO | Testing en |
-| falla | | | | staging |
-| | | | | primero |
-+---------+-----------------+-----------+-------------+---------------+
-| Equipo | Baja | Medio | MEDIO | Training |
-| no | | | | antes de |
-| conoce | | | | implementar |
-| tech | | | | |
-+---------+-----------------+-----------+-------------+---------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Riesgo
+     - Probabilidad
+     - Impacto
+     - Severidad
+     - Mitigaci?n
+   * - Falta de tests
+     - Alta
+     - Alto
+     - **CR?TICO**
+     - Sprint dedicado de testing
+   * - CI/CD falla
+     - Media
+     - Alto
+     - ALTO
+     - Testing en staging primero
+   * - Equipo no conoce tech
+     - Baja
+     - Medio
+     - MEDIO
+     - Training antes de implementar
 
 **Severidad**: Probabilidad x Impacto
 

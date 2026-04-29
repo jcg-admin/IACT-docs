@@ -894,111 +894,94 @@ github_copilot_codespaces.md
 6.1 De Procedimiento a Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------------------+-------------------------------------------+
-| Procedimiento | Templates Relacionados |
-+==========================+===========================================+
-| procedimi | plantilla_setup_entorno |
-| ento_instalacion_entorno | |
-+--------------------------+-------------------------------------------+
-| proced | plantilla_django_app, plantilla_etl_job, |
-| imiento_desarrollo_local | plantilla_tdd |
-+--------------------------+-------------------------------------------+
-| proc | plantilla_sad, plantilla_spec, |
-| edimiento_diseno_tecnico | plantilla_srs, plantilla_caso_de_uso, |
-| | plantilla_database_design |
-+--------------------------+-------------------------------------------+
-| procedimiento | template_necesidad, |
-| _trazabilidad_requisitos | template_requisito\_\* |
-+--------------------------+-------------------------------------------+
-| procedimiento_qa | plantilla_plan_pruebas, |
-| | plantilla_caso_prueba, plantilla_setup_qa |
-+--------------------------+-------------------------------------------+
-| procedimiento_release | plantilla_release_plan, |
-| | plantilla_deployment_guide |
-+--------------------------+-------------------------------------------+
-| proce | plantilla_release_plan |
-| dimiento_gestion_cambios | |
-+--------------------------+-------------------------------------------+
-| procedim | (ninguno - usa security_scan.sh) |
-| iento_analisis_seguridad | |
-+--------------------------+-------------------------------------------+
-| procedimi | plantilla_api_reference, |
-| ento_revision_documental | plantilla_manual_usuario |
-+--------------------------+-------------------------------------------+
-| guia_comp | plantilla_django_app, plantilla_tdd |
-| leta_desarrollo_features | |
-+--------------------------+-------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Procedimiento
+     - Templates Relacionados
+   * - procedimi ento_instalacion_entorno
+     - plantilla_setup_entorno
+   * - proced imiento_desarrollo_local
+     - plantilla_django_app, plantilla_etl_job, plantilla_tdd
+   * - proc edimiento_diseno_tecnico
+     - plantilla_sad, plantilla_spec, plantilla_srs, plantilla_caso_de_uso, plantilla_database_design
+   * - procedimiento _trazabilidad_requisitos
+     - template_necesidad, template_requisito\_\*
+   * - procedimiento_qa
+     - plantilla_plan_pruebas, plantilla_caso_prueba, plantilla_setup_qa
+   * - procedimiento_release
+     - plantilla_release_plan, plantilla_deployment_guide
+   * - proce dimiento_gestion_cambios
+     - plantilla_release_plan
+   * - procedim iento_analisis_seguridad
+     - (ninguno - usa security_scan.sh)
+   * - procedimi ento_revision_documental
+     - plantilla_api_reference, plantilla_manual_usuario
+   * - guia_comp leta_desarrollo_features
+     - plantilla_django_app, plantilla_tdd
 
 6.2 De Workflow a Procedimientos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------+----------------------------------------------------+
-| Workflow | Procedimientos Relacionados |
-+=================+====================================================+
-| backend-ci.yml | procedimiento_desarrollo_local, |
-| | guia_completa_desarrollo_features |
-+-----------------+----------------------------------------------------+
-| frontend-ci.yml | procedimiento_desarrollo_local |
-+-----------------+----------------------------------------------------+
-| t | procedimiento_qa |
-| est-pyramid.yml | |
-+-----------------+----------------------------------------------------+
-| deploy.yml | procedimiento_release |
-+-----------------+----------------------------------------------------+
-| migrations.yml | procedimiento_diseno_tecnico (database design) |
-+-----------------+----------------------------------------------------+
-| infras | procedimiento_instalacion_entorno |
-| tructure-ci.yml | |
-+-----------------+----------------------------------------------------+
-| se | procedimiento_analisis_seguridad |
-| curity-scan.yml | |
-+-----------------+----------------------------------------------------+
-| incide | (runbooks) |
-| nt-response.yml | |
-+-----------------+----------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Workflow
+     - Procedimientos Relacionados
+   * - backend-ci.yml
+     - procedimiento_desarrollo_local, guia_completa_desarrollo_features
+   * - frontend-ci.yml
+     - procedimiento_desarrollo_local
+   * - t est-pyramid.yml
+     - procedimiento_qa
+   * - deploy.yml
+     - procedimiento_release
+   * - migrations.yml
+     - procedimiento_diseno_tecnico (database design)
+   * - infras tructure-ci.yml
+     - procedimiento_instalacion_entorno
+   * - se curity-scan.yml
+     - procedimiento_analisis_seguridad
+   * - incide nt-response.yml
+     - (runbooks)
 
 6.3 De Agente SDLC a Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------------+------------------------------------------------------+
-| Agente | Templates que Usa/Genera |
-+===============+======================================================+
-| SDL | template_necesidad, template_requisito\_\* |
-| CPlannerAgent | |
-+---------------+------------------------------------------------------+
-| SDLCFea | (genera feasibility_report.md - no template) |
-| sibilityAgent | |
-+---------------+------------------------------------------------------+
-| SD | plantilla_sad, plantilla_srs (como base) |
-| LCDesignAgent | |
-+---------------+------------------------------------------------------+
-| SDL | plantilla_plan_pruebas, plantilla_caso_prueba |
-| CTestingAgent | |
-+---------------+------------------------------------------------------+
-| SDLCDe | plantilla_deployment_guide, plantilla_release_plan |
-| ploymentAgent | |
-+---------------+------------------------------------------------------+
-| SDLCOrch | (orquesta todos los anteriores) |
-| estratorAgent | |
-+---------------+------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Agente
+     - Templates que Usa/Genera
+   * - SDL CPlannerAgent
+     - template_necesidad, template_requisito\_\*
+   * - SDLCFea sibilityAgent
+     - (genera feasibility_report.md - no template)
+   * - SD LCDesignAgent
+     - plantilla_sad, plantilla_srs (como base)
+   * - SDL CTestingAgent
+     - plantilla_plan_pruebas, plantilla_caso_prueba
+   * - SDLCDe ploymentAgent
+     - plantilla_deployment_guide, plantilla_release_plan
+   * - SDLCOrch estratorAgent
+     - (orquesta todos los anteriores)
 
 6.4 De Checklist a Procedimientos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------+--------------------------------------------------+
-| Checklist | Procedimientos Relacionados |
-+===================+==================================================+
-| che | procedimiento_desarrollo_local, |
-| cklist_desarrollo | guia_completa_desarrollo_features |
-+-------------------+--------------------------------------------------+
-| checklist_testing | procedimiento_qa |
-+-------------------+--------------------------------------------------+
-| checklist_trazab | procedimiento_trazabilidad_requisitos |
-| ilidad_requisitos | |
-+-------------------+--------------------------------------------------+
-| checklist_cam | procedimiento_revision_documental, |
-| bios_documentales | procedimiento_gestion_cambios |
-+-------------------+--------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Checklist
+     - Procedimientos Relacionados
+   * - che cklist_desarrollo
+     - procedimiento_desarrollo_local, guia_completa_desarrollo_features
+   * - checklist_testing
+     - procedimiento_qa
+   * - checklist_trazab ilidad_requisitos
+     - procedimiento_trazabilidad_requisitos
+   * - checklist_cam bios_documentales
+     - procedimiento_revision_documental, procedimiento_gestion_cambios
 
 6.5 Indice Rapido: “Estoy en X, que debo usar”
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1382,19 +1365,21 @@ plantillas
 Changelog
 ---------
 
-+-------------------+--------------+-------------------+--------------+
-| Version | Fecha | Cambios | Autor |
-+===================+==============+===================+==============+
-| 1.1.0 | 2025-11-06 | Agregada seccion | Equipo |
-| | | 6.6: Sistema de | Gobernanza |
-| | | consulta | |
-| | | programatica | |
-| | | workflow-template | |
-+-------------------+--------------+-------------------+--------------+
-| 1.0.0 | 2025-11-06 | Creacion inicial | Equipo |
-| | | del documento de | Gobernanza |
-| | | mapeo completo | |
-+-------------------+--------------+-------------------+--------------+
+.. list-table::
+   :header-rows: 1
+
+   * - Version
+     - Fecha
+     - Cambios
+     - Autor
+   * - 1.1.0
+     - 2025-11-06
+     - Agregada seccion 6.6: Sistema de consulta programatica workflow-template
+     - Equipo Gobernanza
+   * - 1.0.0
+     - 2025-11-06
+     - Creacion inicial del documento de mapeo completo
+     - Equipo Gobernanza
 
 --------------
 

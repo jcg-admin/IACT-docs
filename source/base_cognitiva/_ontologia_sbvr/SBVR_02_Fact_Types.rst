@@ -281,12 +281,14 @@ Cada Fact Type se documenta con:
  Opcional (solo aplica a roles con conflicto SoD)
 
  PARES CONOCIDOS:
- +------+------+--------------------------------+
- | Rol A| Rol B| Razon |
- +------+------+--------------------------------+
- | R016 | R017 | Operador NO debe auditar |
- | R001 | R017 | Gestor usuarios NO debe auditar|
- +------+------+--------------------------------+
+ .. list-table::
+
+    * - Rol A
+      - Rol B
+      - Razon
+    * - R016 R001
+      - R017 R017
+      - Operador NO debe auditar Gestor usuarios NO debe auditar
 
  IMPLEMENTACION:
  Tabla: role_conflicts (role_id_a, role_id_b, reason)
@@ -714,9 +716,9 @@ Resumen de todas las relaciones:
 
 .. code-block:: text
 
- +-------------+
- | Modulo |
- +------+------+
+ .. list-table::
+
+    * - Modulo
  
  | aplica_a
  |
@@ -764,9 +766,9 @@ Resumen de todas las relaciones:
  |
  | notifica_a
  v
- +----+-----+
- | Usuario |
- +----------+
+ .. list-table::
+
+    * - Usuario
 
 ----
 
