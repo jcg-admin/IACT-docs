@@ -49,9 +49,9 @@ As of Phase C, the PlantUML styling system has been **unified** from three diver
      - Useful macros and helper definitions (LAYER, COMPONENT, CNST_NOTE, etc.)
 
 3. **What changed:**
-   - ✅ Orphaned ``plantuml_styles.iuml`` deleted
-   - ✅ Architecture diagrams (``sistema_iact_contexto.puml``, ``permisos_granular_arquitectura.puml``) updated to use centralized ``!include``
-   - ✅ All inline color definitions replaced with include directive
+   - [OK] Orphaned ``plantuml_styles.iuml`` deleted
+   - [OK] Architecture diagrams (``sistema_iact_contexto.puml``, ``permisos_granular_arquitectura.puml``) updated to use centralized ``!include``
+   - [OK] All inline color definitions replaced with include directive
 
 **Impact:** You no longer need to remember which color file to use — always use ``_static/plantuml-styles.puml``. All colors, stereotypes, and macros are now in one place.
 
@@ -351,24 +351,24 @@ Anti-patterns
 
 **DON'T do this:**
 
-❌ Duplicate styles per diagram
+[NO] Duplicate styles per diagram
 
 .. code-block:: puml
 
    skinparam actor { backgroundColor #0066CC }  ' NO! Already in _static/
 
-❌ Hardcode colors inline
+[NO] Hardcode colors inline
 
 .. code-block:: puml
 
    actor "User" #0066CC  ' NO! Use the centralized style
 
-❌ Modify plantuml-styles.puml directly
+[NO] Modify plantuml-styles.puml directly
 
 - Edit ``plantuml-styles.puml`` only when adding diagram types or changing global style policy
 - Changes affect ALL diagrams — coordinate with team
 
-❌ Ignore path resolution
+[NO] Ignore path resolution
 
 .. code-block:: puml
 
@@ -402,10 +402,10 @@ Validation
 
 All diagrams using this system are automatically validated during Sphinx build:
 
-- ✓ PlantUML syntax validation
-- ✓ PNG/SVG generation
-- ✓ Color rendering
-- ✓ Path resolution
+- OK PlantUML syntax validation
+- OK PNG/SVG generation
+- OK Color rendering
+- OK Path resolution
 
 Run ``make plantuml-styles`` to verify all required files and artifacts.
 
@@ -414,41 +414,41 @@ Run ``make plantuml-styles`` to verify all required files and artifacts.
 Code Review Checklist
 =====================
 
-- ✓ Paleta de colores clara (no ambigüedad sobre qué usar cuándo)
+- OK Paleta de colores clara (no ambigüedad sobre qué usar cuándo)
 
   - Each color has clear semantic meaning and use case documented
 
-- ✓ POSIX _prefix convention está bien explicado para documentadores no-técnicos
+- OK POSIX _prefix convention está bien explicado para documentadores no-técnicos
 
   - Section 2 explains private vs. public with clear examples
   - Reference to ADR-plantuml-naming-conventions.md included
 
-- ✓ Ejemplos compilan y funcionan (PlantUML syntax correcto)
+- OK Ejemplos compilan y funcionan (PlantUML syntax correcto)
 
   - All 3 examples are compilable PlantUML code: UC, Sequence, Component
   - Copy-paste ready format with no placeholders
 
-- ✓ Referencias a ADR incluidas y validadas en POSIX section
+- OK Referencias a ADR incluidas y validadas en POSIX section
 
   - ADR reference in POSIX _prefix Convention section
   - Link to adr-plantuml-naming-conventions.md correctly formatted
 
-- ✓ Terminología consistente con rest del proyecto
+- OK Terminología consistente con rest del proyecto
 
   - Uses THYROX terminology (Phase, EXECUTE, etc.)
   - Consistent with task-plan and spec documents
 
-- ✓ Sin [NEEDS CLARIFICATION] markers pendientes
+- OK Sin [NEEDS CLARIFICATION] markers pendientes
 
   - No markers found. All sections complete and clear.
 
-- ✓ Lenguaje es accesible (documentadores van a leerlo)
+- OK Lenguaje es accesible (documentadores van a leerlo)
 
   - Written in clear, accessible English/Spanish mix
   - No jargon without explanation
   - Examples are self-documenting
 
-**Review Status:** ✅ PASSED all criteria (8/8 checkboxes)
+**Review Status:** [OK] PASSED all criteria (8/8 checkboxes)
 
 **Reviewer:** Automated validation
 
@@ -460,4 +460,4 @@ Code Review Checklist
 
 **Last Updated:** 2026-04-26 (Phase C Consolidation)
 
-**Status:** ✅ APPROVED — Ready for production use with consolidated PlantUML styles (Phase C v2.0.0)
+**Status:** [OK] APPROVED — Ready for production use with consolidated PlantUML styles (Phase C v2.0.0)

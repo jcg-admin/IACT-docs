@@ -460,11 +460,11 @@ Plantilla
 
    ::
 
-   ✅ CORRECTO (orientado a valor):
+   [OK] CORRECTO (orientado a valor):
    "El sistema debe permitir a los usuarios autenticarse de forma segura
    para acceder a las funcionalidades según su rol asignado."
 
-   ❌ INCORRECTO (orientado a implementación):
+   [NO] INCORRECTO (orientado a implementación):
    "El sistema debe usar JWT con expiración de 8 horas y almacenar
    sesiones en PostgreSQL."
 
@@ -472,11 +472,11 @@ Plantilla
 
    ::
 
-   ✅ CORRECTO (medible):
+   [OK] CORRECTO (medible):
    "El 100% de los accesos están controlados por el modelo RBAC"
    "El tiempo de autenticación es menor a 2 segundos"
 
-   ❌ INCORRECTO (vago):
+   [NO] INCORRECTO (vago):
    "El sistema es seguro"
    "La autenticación funciona bien"
 

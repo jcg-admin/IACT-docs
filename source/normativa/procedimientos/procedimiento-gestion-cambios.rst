@@ -54,9 +54,9 @@ Procedimiento
 1.1 Identificar Necesidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Documentar el problema o requisito
-- ☐ Verificar que no exista issue duplicado
-- ☐ Determinar el tipo de cambio
+- [ ] Documentar el problema o requisito
+- [ ] Verificar que no exista issue duplicado
+- [ ] Determinar el tipo de cambio
 
 1.2 Crear Issue
 ^^^^^^^^^^^^^^^
@@ -92,11 +92,11 @@ O crear en GitHub: - Título descriptivo - Descripción clara del problema
 2.2 Implementar Cambio
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Seguir `Lineamientos de
+- [ ] Seguir `Lineamientos de
   Código <../arquitectura/lineamientos_codigo.md>`__
-- ☐ Escribir tests (TDD cuando sea posible)
-- ☐ Actualizar documentación relevante
-- ☐ Seguir `Checklist de
+- [ ] Escribir tests (TDD cuando sea posible)
+- [ ] Actualizar documentación relevante
+- [ ] Seguir `Checklist de
   Desarrollo <../checklists/checklist_desarrollo.md>`__
 
 2.3 Commits
@@ -231,10 +231,10 @@ Migraciones de DB - Cambios de configuración
 5.1 Como Autor
 ^^^^^^^^^^^^^^
 
-- ☐ Responder a comentarios en < 24 horas
-- ☐ Hacer cambios solicitados
-- ☐ Pushear cambios
-- ☐ Re-solicitar review cuando esté listo
+- [ ] Responder a comentarios en < 24 horas
+- [ ] Hacer cambios solicitados
+- [ ] Pushear cambios
+- [ ] Re-solicitar review cuando esté listo
 
 5.2 Como Reviewer
 ^^^^^^^^^^^^^^^^^
@@ -266,10 +266,10 @@ si aplica - [ ] ADR creado si es decisión arquitectónica
 6.1 Pre-Merge Checklist
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Todos los reviews aprobados (mínimo 1)
-- ☐ CI pasó (cuando se implemente)
-- ☐ Conflictos resueltos
-- ☐ Rama actualizada con main
+- [ ] Todos los reviews aprobados (mínimo 1)
+- [ ] CI pasó (cuando se implemente)
+- [ ] Conflictos resueltos
+- [ ] Rama actualizada con main
 
 6.2 Merge Strategy
 ^^^^^^^^^^^^^^^^^^
@@ -288,10 +288,10 @@ si aplica - [ ] ADR creado si es decisión arquitectónica
 6.3 Post-Merge
 ^^^^^^^^^^^^^^
 
-- ☐ Verificar que PR fue mergeado
-- ☐ Rama feature eliminada
-- ☐ Issue relacionado cerrado automáticamente
-- ☐ Actualizar proyecto/board si aplica
+- [ ] Verificar que PR fue mergeado
+- [ ] Rama feature eliminada
+- [ ] Issue relacionado cerrado automáticamente
+- [ ] Actualizar proyecto/board si aplica
 
 .. _cambios-de-documentación-1:
 

@@ -121,8 +121,8 @@ ESTÁNDAR DE NOMENCLATURA v5.2.1
 
 .. code-block:: text
 
- ✅ CÓDIGO: Inglés (clases, métodos, variables, NOMBRES DE FUNCIONES)
- ✅ COMENTARIOS: Español (docstrings, help_text, comments)
+ [OK] CÓDIGO: Inglés (clases, métodos, variables, NOMBRES DE FUNCIONES)
+ [OK] COMENTARIOS: Español (docstrings, help_text, comments)
  
  NINGUNA EXCEPCIÓN - TODO el código en inglés
 
@@ -181,7 +181,7 @@ TABLA DE CONTENIDO
 ----------------------------
 
 
-**❌ INCORRECTO - Con Pretensiones:**
+**[NO] INCORRECTO - Con Pretensiones:**
 
 
 .. code-block:: text
@@ -191,7 +191,7 @@ TABLA DE CONTENIDO
  - SYSTEM_ADMIN → Cargo jerárquico
 
 
-**✅ CORRECTO - Sin Pretensiones:**
+**[OK] CORRECTO - Sin Pretensiones:**
 
 
 .. code-block:: text
@@ -2581,21 +2581,21 @@ Una función puede asignarse **temporalmente** con:
 -------------------------
 
 
-1. **✅ 100% Inglés en código:**
+1. **[OK] 100% Inglés en código:**
    - Funciones: ``manage_sessions``, ``view_reports``, ``export_csv``
    - Grupos: ``basic_operator_group``, ``user_admin_group``
    - Reglas SoD: ``pipeline_audit_separation``
 
-2. **✅ Clean Code completo:**
+2. **[OK] Clean Code completo:**
    - Sin prefijos redundantes (``agr_``, ``sod_``)
    - Sin acrónimos en nombres (ETL en descripción OK)
    - Nombres descriptivos completos
 
-3. **✅ Convenciones SQL:**
+3. **[OK] Convenciones SQL:**
    - ``assigned_at`` (NO ``assigned_date``)
    - ``rule_group`` (NO ``separation_group``)
 
-4. **✅ Comentarios español:**
+4. **[OK] Comentarios español:**
    - Docstrings en español
    - ``help_text`` en español
    - ``description`` en español
@@ -2606,7 +2606,7 @@ Una función puede asignarse **temporalmente** con:
 
 **Versión:** 5.2.1 
 **Fecha:** 13 de enero de 2026 
-**Estado:** ✅ Listo para Implementación 
+**Estado:** [OK] Listo para Implementación 
 **Changelog:**
 - v5.2.0 → v5.2.1: Consistencia 100% inglés en código
 - Nombres funciones: español → inglés

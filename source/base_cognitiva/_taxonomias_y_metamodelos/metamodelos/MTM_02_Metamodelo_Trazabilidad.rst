@@ -567,11 +567,11 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  * - BR identificadas
    - 6
    - --
-   - ✓
+   - OK
  * - UC derivados
    - 38
    - --
-   - ✓
+   - OK
  * - FR estimados
    - ~300
    - --
@@ -579,7 +579,7 @@ validacion para la Matriz de Trazabilidad de Requisitos (RTM).
  * - Cobertura BR->UC
    - 100%
    - 100%
-   - ✓
+   - OK
  * - Cobertura UC->FR
    - 0%
    - 100%

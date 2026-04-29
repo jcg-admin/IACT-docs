@@ -54,13 +54,13 @@ PASO 1: Identificar Necesidad de Actualización
 
 La documentación debe actualizarse cuando:
 
-- ✅ **Cambio de código**: Implementación difiere de docs
-- ✅ **Nueva funcionalidad**: Feature agregada no documentada
-- ✅ **Deprecación**: Funcionalidad obsoleta documentada
-- ✅ **Error encontrado**: Información incorrecta en docs
-- ✅ **Feedback de usuario**: Docs confusas o incompletas
-- ✅ **Decisión arquitectónica**: ADR aprobada requiere update
-- ✅ **Cambio de proceso**: Workflow modificado
+- [OK] **Cambio de código**: Implementación difiere de docs
+- [OK] **Nueva funcionalidad**: Feature agregada no documentada
+- [OK] **Deprecación**: Funcionalidad obsoleta documentada
+- [OK] **Error encontrado**: Información incorrecta en docs
+- [OK] **Feedback de usuario**: Docs confusas o incompletas
+- [OK] **Decisión arquitectónica**: ADR aprobada requiere update
+- [OK] **Cambio de proceso**: Workflow modificado
 
 --------------
 
@@ -221,7 +221,7 @@ Response:
  ```markdown
  ## ~~Login con Basic Auth~~ (OBSOLETO)
 
- > ⚠️ **OBSOLETO desde v1.2.0**
+ > [ALERTA]️ **OBSOLETO desde v1.2.0**
  >
  > Basic Auth fue reemplazado por JWT authentication.
  > Ver sección [Login con JWT](#login-con-jwt).
@@ -305,13 +305,13 @@ PASO 5: Verificar Calidad
 5.1 Checklist de calidad
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ **Precisión**: Información correcta y actualizada
-- ☐ **Completitud**: No faltan pasos críticos
-- ☐ **Claridad**: Lenguaje claro y conciso
-- ☐ **Ejemplos**: Código de ejemplo funcional y actualizado
-- ☐ **Links**: Todos los links internos/externos funcionan
-- ☐ **Formato**: Markdown válido, sintaxis correcta
-- ☐ **Consistencia**: Sigue estilo del resto de docs
+- [ ] **Precisión**: Información correcta y actualizada
+- [ ] **Completitud**: No faltan pasos críticos
+- [ ] **Claridad**: Lenguaje claro y conciso
+- [ ] **Ejemplos**: Código de ejemplo funcional y actualizado
+- [ ] **Links**: Todos los links internos/externos funcionan
+- [ ] **Formato**: Markdown válido, sintaxis correcta
+- [ ] **Consistencia**: Sigue estilo del resto de docs
 
 --------------
 
@@ -437,11 +437,11 @@ PASO 7: Commit y PR
 
  ## Cambios
 
- - ✅ Actualizado endpoint de `/api/login` a `/api/auth/login`
- - ✅ Agregada sección de Refresh Tokens
- - ✅ Marcado Basic Auth como obsoleto
- - ✅ Todos los ejemplos de código actualizados y probados
- - ✅ Links verificados
+ - [OK] Actualizado endpoint de `/api/login` a `/api/auth/login`
+ - [OK] Agregada sección de Refresh Tokens
+ - [OK] Marcado Basic Auth como obsoleto
+ - [OK] Todos los ejemplos de código actualizados y probados
+ - [OK] Links verificados
 
  ## Checklist
 
@@ -546,7 +546,7 @@ Mensaje en canal de equipo:
 
 ::
 
- 📚 Documentación actualizada: Authentication Guide
+ [DOCS] Documentación actualizada: Authentication Guide
 
  Cambios principales:
  - Migrado de Basic Auth a JWT
@@ -562,7 +562,7 @@ Mensaje en canal de equipo:
 Mejores Prácticas
 -----------------
 
-DO ✅
+DO [OK]
 ~~~~~
 
 1. **Actualizar docs en mismo PR que código**
@@ -591,7 +591,7 @@ DO ✅
      ``[ADR](https://github.com/...)``
    - Funciona en cualquier entorno
 
-DON’T ❌
+DON’T [NO]
 ~~~~~~~~
 
 1. **Dejar docs desactualizados**
@@ -631,7 +631,7 @@ Plantilla de Actualización
 
  # [Título Existente]
 
- > 📝 **Última actualización**: [FECHA] - [Resumen breve del cambio]
+ > [NOTA] **Última actualización**: [FECHA] - [Resumen breve del cambio]
 
  [CONTENIDO ACTUALIZADO]
 

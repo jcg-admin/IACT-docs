@@ -29,11 +29,11 @@ proyecto.
 Pre-requisitos
 --------------
 
-- ☐ Vagrant instalado (ver
+- [ ] Vagrant instalado (ver
   `procedimiento_instalacion_entorno.md <procedimiento_instalacion_entorno.md>`__)
-- ☐ Git configurado
-- ☐ IDE/Editor de código (VS Code recomendado)
-- ☐ Acceso al repositorio GitHub
+- [ ] Git configurado
+- [ ] IDE/Editor de código (VS Code recomendado)
+- [ ] Acceso al repositorio GitHub
 
 Procedimiento
 -------------

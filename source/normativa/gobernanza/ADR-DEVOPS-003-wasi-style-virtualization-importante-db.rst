@@ -355,34 +355,34 @@ Implementation Plan
 Fase 1: Core Scripts (DONE)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ☒ virtualize.sh (Docker-based)
--  ☒ lightweight_venv.sh (Bash-only)
--  ☒ wasm_style_sandbox.sh (WASI-style)
--  ☒ demo.sh (Demo interactivo)
--  ☒ README.md (Documentacion)
+-  [x] virtualize.sh (Docker-based)
+-  [x] lightweight_venv.sh (Bash-only)
+-  [x] wasm_style_sandbox.sh (WASI-style)
+-  [x] demo.sh (Demo interactivo)
+-  [x] README.md (Documentacion)
 
 Fase 2: Integration
 ~~~~~~~~~~~~~~~~~~~
 
--  ☐ Integrar con environment_config.py (auto-deteccion)
--  ☐ Tests de integracion
--  ☐ CI/CD examples
+-  [ ] Integrar con environment_config.py (auto-deteccion)
+-  [ ] Tests de integracion
+-  [ ] CI/CD examples
 
 Fase 3: Advanced Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ☐ User namespaces (sin root)
--  ☐ Cgroups v2 integration (limits reales)
--  ☐ Seccomp filters (syscall filtering)
--  ☐ Networking avanzado (veth pairs)
+-  [ ] User namespaces (sin root)
+-  [ ] Cgroups v2 integration (limits reales)
+-  [ ] Seccomp filters (syscall filtering)
+-  [ ] Networking avanzado (veth pairs)
 
 Fase 4: Tooling
 ~~~~~~~~~~~~~~~
 
--  ☐ UI/TUI para gestion de sandboxes
--  ☐ Monitoring/metrics
--  ☐ Backup/restore de sandboxes
--  ☐ Templates pre-configurados
+-  [ ] UI/TUI para gestion de sandboxes
+-  [ ] Monitoring/metrics
+-  [ ] Backup/restore de sandboxes
+-  [ ] Templates pre-configurados
 
 --------------
 

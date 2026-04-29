@@ -133,13 +133,13 @@ Potencial:** Equipo debe recordar qué archivos son ``.ts`` vs ``.js``
    }
 
    // Progreso actual:
-   // ✓ types/permisos.types.ts - MIGRADO
-   // ✓ hooks/usePermisos.ts - MIGRADO
-   // ✓ lib/permisos-client.ts - MIGRADO
-   // ✓ config/api.config.ts - MIGRADO
-   // ⏳ services/*.js - EN PROGRESO
-   // ⏳ components/*.js - PENDIENTE
-   // ⏳ state/slices/*.js - PENDIENTE
+   // OK types/permisos.types.ts - MIGRADO
+   // OK hooks/usePermisos.ts - MIGRADO
+   // OK lib/permisos-client.ts - MIGRADO
+   // OK config/api.config.ts - MIGRADO
+   // [PENDIENTE] services/*.js - EN PROGRESO
+   // [PENDIENTE] components/*.js - PENDIENTE
+   // [PENDIENTE] state/slices/*.js - PENDIENTE
 
 --------------
 
@@ -345,7 +345,7 @@ Fase 2: Migrar Tipos y Configuración - COMPLETADO
 
 .. code:: typescript
 
-   // ✓ src/types/permisos.types.ts - MIGRADO
+   // OK src/types/permisos.types.ts - MIGRADO
    export interface Permiso {
      id: string;
      codigo: string;
@@ -360,13 +360,13 @@ Fase 2: Migrar Tipos y Configuración - COMPLETADO
      permisos: Permiso[];
    }
 
-   // ✓ src/config/api.config.ts - MIGRADO
+   // OK src/config/api.config.ts - MIGRADO
    export const API_CONFIG = {
      baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000",
      timeout: 30000,
    } as const;
 
-   // ✓ src/lib/permisos-client.ts - MIGRADO
+   // OK src/lib/permisos-client.ts - MIGRADO
    import type { Permiso, Usuario } from "@/types/permisos.types";
 
    export class PermisosClient {
@@ -379,7 +379,7 @@ Fase 2: Migrar Tipos y Configuración - COMPLETADO
      }
    }
 
-   // ✓ src/hooks/usePermisos.ts - MIGRADO
+   // OK src/hooks/usePermisos.ts - MIGRADO
    import { useState, useEffect } from "react";
    import type { Permiso } from "@/types/permisos.types";
 
@@ -397,17 +397,17 @@ Fase 3: Migrar Services - EN PROGRESO
 
 .. code:: typescript
 
-   // ⏳ src/services/AppConfigService.ts - PENDIENTE
-   // ⏳ src/services/PermissionsService.ts - PENDIENTE
-   // ⏳ src/services/CallsService.ts - PENDIENTE
+   // [PENDIENTE] src/services/AppConfigService.ts - PENDIENTE
+   // [PENDIENTE] src/services/PermissionsService.ts - PENDIENTE
+   // [PENDIENTE] src/services/CallsService.ts - PENDIENTE
 
 Fase 4: Migrar Componentes - PENDIENTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: typescript
 
-   // ⏳ src/components/PermisosTable.tsx - PENDIENTE
-   // ⏳ src/modules/home/HomeView.tsx - PENDIENTE
+   // [PENDIENTE] src/components/PermisosTable.tsx - PENDIENTE
+   // [PENDIENTE] src/modules/home/HomeView.tsx - PENDIENTE
 
 Fase 5: Aumentar Strictness - FUTURO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -437,11 +437,11 @@ Métrica          Baseline Target Actual      Estado
 ================ ======== ====== =========== =============
 Archivos .ts     0        50%    ~15% (4/30) → EN PROGRESO
 Type coverage    0%       80%    ~15%        → EN PROGRESO
-Strict mode      false    true   false       ⏳ FUTURO
-Type errors (TS) N/A      0      0           ✓ OK
-Migración types/ 0%       100%   100%        ✓ COMPLETADO
-Migración hooks/ 0%       100%   100%        ✓ COMPLETADO
-Migración lib/   0%       100%   100%        ✓ COMPLETADO
+Strict mode      false    true   false       [PENDIENTE] FUTURO
+Type errors (TS) N/A      0      0           OK OK
+Migración types/ 0%       100%   100%        OK COMPLETADO
+Migración hooks/ 0%       100%   100%        OK COMPLETADO
+Migración lib/   0%       100%   100%        OK COMPLETADO
 ================ ======== ====== =========== =============
 
 KPIs de Calidad
@@ -470,18 +470,18 @@ Progreso de Migración
 .. code:: yaml
 
    Completado (100%):
-     - ✓ types/permisos.types.ts
-     - ✓ hooks/usePermisos.ts
-     - ✓ lib/permisos-client.ts
-     - ✓ config/api.config.ts
+     - OK types/permisos.types.ts
+     - OK hooks/usePermisos.ts
+     - OK lib/permisos-client.ts
+     - OK config/api.config.ts
 
    En Progreso (0-50%):
-     - ⏳ services/*.js → .ts
+     - [PENDIENTE] services/*.js → .ts
 
    Pendiente (0%):
-     - ⏳ components/*.jsx → .tsx
-     - ⏳ state/slices/*.js → .ts
-     - ⏳ modules/**/*.js → .ts
+     - [PENDIENTE] components/*.jsx → .tsx
+     - [PENDIENTE] state/slices/*.js → .ts
+     - [PENDIENTE] modules/**/*.js → .ts
 
 --------------
 
@@ -577,14 +577,14 @@ Cuando cobertura >80%, habilitar ``strict: true`` completo
 Lecciones Aprendidas
 ~~~~~~~~~~~~~~~~~~~~
 
-**Do’s:** - ✓ Migrar types y shared libs primero - ✓ Usar
-``allowJs: true`` durante transición - ✓ No forzar strict mode desde el
-inicio - ✓ Migrar módulo completo, no archivos sueltos - ✓ Agregar types
+**Do’s:** - OK Migrar types y shared libs primero - OK Usar
+``allowJs: true`` durante transición - OK No forzar strict mode desde el
+inicio - OK Migrar módulo completo, no archivos sueltos - OK Agregar types
 a nuevos módulos desde día 1
 
-**Don’ts:** - ✗ No migrar todo de una vez (big bang) - ✗ No habilitar
-strict mode con coverage bajo - ✗ No mezclar ``.js`` y ``.ts`` en mismo
-módulo - ✗ No usar ``any`` como escape hatch - ✗ No ignorar type errors
+**Don’ts:** - NO No migrar todo de una vez (big bang) - NO No habilitar
+strict mode con coverage bajo - NO No mezclar ``.js`` y ``.ts`` en mismo
+módulo - NO No usar ``any`` como escape hatch - NO No ignorar type errors
 con ``@ts-ignore``
 
 Roadmap Futuro

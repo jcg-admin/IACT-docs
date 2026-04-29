@@ -64,7 +64,7 @@ PASO 1: Identificar Conflictos
  # Intentar merge de main
  git merge origin/main
 
-**Escenario A: Sin conflictos** ✅
+**Escenario A: Sin conflictos** [OK]
 
 ::
 
@@ -76,7 +76,7 @@ PASO 1: Identificar Conflictos
 
 --------------
 
-**Escenario B: Con conflictos** ⚠️
+**Escenario B: Con conflictos** [ALERTA]️
 
 ::
 
@@ -405,7 +405,7 @@ PASO 5: Verificar Resolución
  # O tests completos
  pytest
 
-**Criterio**: Todos los tests pasan ✅
+**Criterio**: Todos los tests pasan [OK]
 
 --------------
 
@@ -452,7 +452,7 @@ PASO 6: Completar el Merge
  - src/auth/service.py: Combinado JWT auth con error handling
  - src/permissions/models.py: Mantenido cambios de ambas versiones
 
- Tests verificados: ✅ All passing
+ Tests verificados: [OK] All passing
 
 --------------
 
@@ -472,7 +472,7 @@ Si el conflicto fue complejo:
 
 ::
 
- 🔄 Resolved merge conflicts in feature/user-authentication
+ [CICLO] Resolved merge conflicts in feature/user-authentication
 
  Files affected:
  - src/auth/service.py
@@ -480,7 +480,7 @@ Si el conflicto fue complejo:
 
  Resolution: Combined JWT authentication with error handling from main
 
- All tests passing ✅
+ All tests passing [OK]
 
 --------------
 

@@ -249,8 +249,8 @@ PASO 4: Generar Reporte de Coverage
  ---------------------------------------------
  TOTAL 167 13 92%
 
-**Criterios de calidad**: - ✅ **Excelente**: >= 90% coverage - ⚠️
-**Aceptable**: >= 80% coverage - ❌ **Insuficiente**: < 80% coverage
+**Criterios de calidad**: - [OK] **Excelente**: >= 90% coverage - [ALERTA]️
+**Aceptable**: >= 80% coverage - [NO] **Insuficiente**: < 80% coverage
 
 4.3 Revisar reporte HTML detallado
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,8 +262,8 @@ PASO 4: Generar Reporte de Coverage
  xdg-open htmlcov/index.html # Linux
  start htmlcov/index.html # Windows
 
-En el reporte HTML, identificar: - 🔴 **Líneas no cubiertas** (rojo) -
-🟡 **Líneas parcialmente cubiertas** (amarillo) - 🟢 **Líneas
+En el reporte HTML, identificar: - [CRITICO] **Líneas no cubiertas** (rojo) -
+[MEDIO] **Líneas parcialmente cubiertas** (amarillo) - [OK] **Líneas
 cubiertas** (verde)
 
 --------------
@@ -271,7 +271,7 @@ cubiertas** (verde)
 PASO 5: Analizar Resultados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-5.1 Tests que pasan ✅
+5.1 Tests que pasan [OK]
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Si todos los tests pasan:
@@ -284,7 +284,7 @@ Si todos los tests pasan:
 
 --------------
 
-5.2 Tests que fallan ❌
+5.2 Tests que fallan [NO]
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 **Output de fallo**:
@@ -332,7 +332,7 @@ Si todos los tests pasan:
 
 --------------
 
-5.3 Tests que se saltean (skipped) ⚠️
+5.3 Tests que se saltean (skipped) [ALERTA]️
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Output**:
@@ -416,10 +416,10 @@ Crear reporte manual con:
 
  | Módulo | Coverage | Status |
  |--------|----------|--------|
- | auth | 95% | ✅ |
- | permissions | 88% | ✅ |
- | models | 92% | ✅ |
- | utils | 75% | ⚠️ |
+ | auth | 95% | [OK] |
+ | permissions | 88% | [OK] |
+ | models | 92% | [OK] |
+ | utils | 75% | [ALERTA]️ |
 
  ## Recomendaciones
 
@@ -435,25 +435,25 @@ PASO 7: Acciones Post-Ejecución
 7.1 Si todos los tests pasan
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. ✅ Commit cambios
-2. ✅ Push a branch
-3. ✅ Crear o actualizar PR
+1. [OK] Commit cambios
+2. [OK] Push a branch
+3. [OK] Crear o actualizar PR
 
 7.2 Si hay tests fallidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. ❌ NO hacer commit hasta corregir
-2. 🔍 Investigar y corregir fallos
-3. 🔄 Re-ejecutar tests
-4. ✅ Commit solo cuando TODO pase
+1. [NO] NO hacer commit hasta corregir
+2. [BUSCAR] Investigar y corregir fallos
+3. [CICLO] Re-ejecutar tests
+4. [OK] Commit solo cuando TODO pase
 
 7.3 Si coverage es insuficiente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. 📊 Identificar módulos con bajo coverage
-2. ✍️ Escribir tests adicionales
-3. 🔄 Re-ejecutar con coverage
-4. ✅ Commit cuando coverage >= 80%
+1. [METRICA] Identificar módulos con bajo coverage
+2. [FIRMAR]️ Escribir tests adicionales
+3. [CICLO] Re-ejecutar con coverage
+4. [OK] Commit cuando coverage >= 80%
 
 --------------
 

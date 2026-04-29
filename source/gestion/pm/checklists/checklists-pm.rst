@@ -41,87 +41,87 @@ Checklists Disponibles
 
 **Usar antes de hacer commit:**
 
-- ☐ Código formateado con Black
+- [ ] Código formateado con Black
 
  .. code:: bash
 
     black .
 
-- ☐ Imports ordenados con isort
+- [ ] Imports ordenados con isort
 
  .. code:: bash
 
     isort .
 
-- ☐ Linting pasado sin errores críticos
+- [ ] Linting pasado sin errores críticos
 
  .. code:: bash
 
     pylint **/*.py
     flake8 .
 
-- ☐ Type hints verificados (futuro)
+- [ ] Type hints verificados (futuro)
 
  .. code:: bash
 
     mypy .
 
-- ☐ Tests unitarios pasan
+- [ ] Tests unitarios pasan
 
  .. code:: bash
 
     pytest
 
-- ☐ Cobertura >= 80% para archivos modificados
+- [ ] Cobertura >= 80% para archivos modificados
 
  .. code:: bash
 
     pytest --cov=. --cov-report=term-missing
 
-- ☐ No hay código comentado innecesario
+- [ ] No hay código comentado innecesario
 
-- ☐ No hay ``print`` o ``console.log`` de debugging
+- [ ] No hay ``print`` o ``console.log`` de debugging
 
-- ☐ No hay TODOs sin issue asociado
+- [ ] No hay TODOs sin issue asociado
 
-- ☐ Variables de entorno no committeadas
+- [ ] Variables de entorno no committeadas
 
-- ☐ Secrets no expuestos en código
+- [ ] Secrets no expuestos en código
 
 2. Checklist de Pull Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Antes de crear PR:**
 
-- ☐ Rama sigue convención ``feature/nombre-timestamp``
-- ☐ Commits siguen Conventional Commits
-- ☐ Todos los tests pasan localmente
-- ☐ Cobertura cumple mínimo 80%
-- ☐ Documentación actualizada (si aplica)
-- ☐ CHANGELOG.md actualizado (si es release)
-- ☐ Screenshots incluidos (si es cambio visual)
-- ☐ Migraciones generadas (si cambió modelos)
+- [ ] Rama sigue convención ``feature/nombre-timestamp``
+- [ ] Commits siguen Conventional Commits
+- [ ] Todos los tests pasan localmente
+- [ ] Cobertura cumple mínimo 80%
+- [ ] Documentación actualizada (si aplica)
+- [ ] CHANGELOG.md actualizado (si es release)
+- [ ] Screenshots incluidos (si es cambio visual)
+- [ ] Migraciones generadas (si cambió modelos)
 
 **Descripción de PR debe incluir:**
 
-- ☐ **Summary**: Qué cambió y por qué (3-5 bullets)
-- ☐ **Test Plan**: Cómo se probó
+- [ ] **Summary**: Qué cambió y por qué (3-5 bullets)
+- [ ] **Test Plan**: Cómo se probó
 
-  - ☐ Tests unitarios agregados/actualizados
-  - ☐ Tests de integración (si aplica)
-  - ☐ Verificación manual realizada
+  - [ ] Tests unitarios agregados/actualizados
+  - [ ] Tests de integración (si aplica)
+  - [ ] Verificación manual realizada
 
-- ☐ **Related Issues**: Links a issues (#123)
-- ☐ **Breaking Changes**: Documentar si aplica
-- ☐ **Deployment Notes**: Pasos especiales (si aplica)
+- [ ] **Related Issues**: Links a issues (#123)
+- [ ] **Breaking Changes**: Documentar si aplica
+- [ ] **Deployment Notes**: Pasos especiales (si aplica)
 
 **Revisar antes de marcar “Ready for Review”:**
 
-- ☐ CI pasó (cuando se implemente)
-- ☐ Sin conflictos con rama base
-- ☐ Self-review completado
-- ☐ Reviewers asignados
-- ☐ Labels apropiados (bug, feature, docs, etc.)
+- [ ] CI pasó (cuando se implemente)
+- [ ] Sin conflictos con rama base
+- [ ] Self-review completado
+- [ ] Reviewers asignados
+- [ ] Labels apropiados (bug, feature, docs, etc.)
 
 3. Checklist de Code Review
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,167 +157,167 @@ creado (si decisión arquitectónica)
 
 **Tests Unitarios:**
 
-- ☐ Cada función pública tiene test
-- ☐ Casos happy path cubiertos
-- ☐ Casos de error cubiertos
-- ☐ Edge cases identificados y probados
-- ☐ Tests siguen patrón Arrange-Act-Assert
-- ☐ Nombres de test descriptivos
-- ☐ Tests son independientes (no orden)
-- ☐ Mocks usados apropiadamente
-- ☐ Assertions específicas (no solo ``assert True``)
+- [ ] Cada función pública tiene test
+- [ ] Casos happy path cubiertos
+- [ ] Casos de error cubiertos
+- [ ] Edge cases identificados y probados
+- [ ] Tests siguen patrón Arrange-Act-Assert
+- [ ] Nombres de test descriptivos
+- [ ] Tests son independientes (no orden)
+- [ ] Mocks usados apropiadamente
+- [ ] Assertions específicas (no solo ``assert True``)
 
 **Tests de Integración:**
 
-- ☐ Flujos end-to-end probados
-- ☐ Integración con DB probada
-- ☐ APIs externas mockeadas
-- ☐ Transacciones manejadas correctamente
-- ☐ Setup y teardown apropiados
+- [ ] Flujos end-to-end probados
+- [ ] Integración con DB probada
+- [ ] APIs externas mockeadas
+- [ ] Transacciones manejadas correctamente
+- [ ] Setup y teardown apropiados
 
 **Cobertura:**
 
-- ☐ Coverage >= 80% global
-- ☐ Coverage 100% en servicios críticos
-- ☐ Líneas no cubiertas justificadas
-- ☐ Branch coverage verificado
+- [ ] Coverage >= 80% global
+- [ ] Coverage 100% en servicios críticos
+- [ ] Líneas no cubiertas justificadas
+- [ ] Branch coverage verificado
 
 5. Checklist de Deployment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Pre-Deployment:**
 
-- ☐ Todos los tests pasan
-- ☐ Code review aprobado
-- ☐ Merge a rama develop/main
-- ☐ Tag de versión creado (``v1.2.3``)
-- ☐ CHANGELOG.md actualizado
-- ☐ Migraciones revisadas
-- ☐ Backup de DB realizado
-- ☐ Ventana de mantenimiento comunicada
+- [ ] Todos los tests pasan
+- [ ] Code review aprobado
+- [ ] Merge a rama develop/main
+- [ ] Tag de versión creado (``v1.2.3``)
+- [ ] CHANGELOG.md actualizado
+- [ ] Migraciones revisadas
+- [ ] Backup de DB realizado
+- [ ] Ventana de mantenimiento comunicada
 
 **Deployment:**
 
-- ☐ Deployment a staging exitoso
-- ☐ Smoke tests en staging pasaron
-- ☐ Aprobación de stakeholders
-- ☐ Deployment a producción ejecutado
-- ☐ Migraciones aplicadas sin errores
-- ☐ Servicios reiniciados
-- ☐ Health checks pasaron
+- [ ] Deployment a staging exitoso
+- [ ] Smoke tests en staging pasaron
+- [ ] Aprobación de stakeholders
+- [ ] Deployment a producción ejecutado
+- [ ] Migraciones aplicadas sin errores
+- [ ] Servicios reiniciados
+- [ ] Health checks pasaron
 
 **Post-Deployment:**
 
-- ☐ Smoke tests en producción pasaron
-- ☐ Monitoreo de métricas (30 min)
-- ☐ Logs revisados para errores
-- ☐ Rollback plan listo (si se necesita)
-- ☐ Comunicación a stakeholders
-- ☐ Documentación actualizada
-- ☐ Post-mortem agendado (si hubo issues)
+- [ ] Smoke tests en producción pasaron
+- [ ] Monitoreo de métricas (30 min)
+- [ ] Logs revisados para errores
+- [ ] Rollback plan listo (si se necesita)
+- [ ] Comunicación a stakeholders
+- [ ] Documentación actualizada
+- [ ] Post-mortem agendado (si hubo issues)
 
 6. Checklist de Onboarding
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Día 1:**
 
-- ☐ Acceso a GitHub configurado
-- ☐ Agregado a organización 2-Coatl
-- ☐ Acceso a Slack/Teams
-- ☐ Lectura de README.md
-- ☐ Lectura de
+- [ ] Acceso a GitHub configurado
+- [ ] Agregado a organización 2-Coatl
+- [ ] Acceso a Slack/Teams
+- [ ] Lectura de README.md
+- [ ] Lectura de
   `Convenciones <../../.github/claude-code-conventions.md>`__
 
 **Primera Semana:**
 
-- ☐ Vagrant configurado y funcionando
-- ☐ Entorno virtual Python creado
-- ☐ Tests corriendo localmente
-- ☐ Primer commit realizado
-- ☐ Primer PR creado (pequeño cambio)
-- ☐ Lectura de `Arquitectura <../arquitectura/readme.md>`__
-- ☐ Lectura de `Lineamientos de
+- [ ] Vagrant configurado y funcionando
+- [ ] Entorno virtual Python creado
+- [ ] Tests corriendo localmente
+- [ ] Primer commit realizado
+- [ ] Primer PR creado (pequeño cambio)
+- [ ] Lectura de `Arquitectura <../arquitectura/readme.md>`__
+- [ ] Lectura de `Lineamientos de
   Código <../arquitectura/lineamientos_codigo.md>`__
 
 **Primer Mes:**
 
-- ☐ Feature completa implementada
-- ☐ Familiarizado con codebase principal
-- ☐ Participación en code reviews
-- ☐ Comprensión de flujo de deployment
-- ☐ Conocimiento de herramientas de monitoreo
+- [ ] Feature completa implementada
+- [ ] Familiarizado con codebase principal
+- [ ] Participación en code reviews
+- [ ] Comprensión de flujo de deployment
+- [ ] Conocimiento de herramientas de monitoreo
 
 7. Checklist de Incident Response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Detección:**
 
-- ☐ Incidente confirmado
-- ☐ Severidad determinada (P0-P4)
-- ☐ Stakeholders notificados
-- ☐ Incident lead asignado
+- [ ] Incidente confirmado
+- [ ] Severidad determinada (P0-P4)
+- [ ] Stakeholders notificados
+- [ ] Incident lead asignado
 
 **Investigación:**
 
-- ☐ Logs revisados
-- ☐ Métricas analizadas
-- ☐ Hipótesis de causa formulada
-- ☐ Timeline del incidente documentado
+- [ ] Logs revisados
+- [ ] Métricas analizadas
+- [ ] Hipótesis de causa formulada
+- [ ] Timeline del incidente documentado
 
 **Mitigación:**
 
-- ☐ Workaround implementado (si aplica)
-- ☐ Clientes impactados identificados
-- ☐ Comunicación a usuarios (si aplica)
-- ☐ Rollback ejecutado (si necesario)
+- [ ] Workaround implementado (si aplica)
+- [ ] Clientes impactados identificados
+- [ ] Comunicación a usuarios (si aplica)
+- [ ] Rollback ejecutado (si necesario)
 
 **Resolución:**
 
-- ☐ Root cause identificada
-- ☐ Fix implementado
-- ☐ Tests agregados para prevenir regresión
-- ☐ Deploy de fix completado
-- ☐ Verificación de resolución
+- [ ] Root cause identificada
+- [ ] Fix implementado
+- [ ] Tests agregados para prevenir regresión
+- [ ] Deploy de fix completado
+- [ ] Verificación de resolución
 
 **Post-Incident:**
 
-- ☐ Post-mortem agendado
-- ☐ Timeline documentado
-- ☐ Action items identificados
-- ☐ Responsables asignados
-- ☐ Mejoras implementadas
+- [ ] Post-mortem agendado
+- [ ] Timeline documentado
+- [ ] Action items identificados
+- [ ] Responsables asignados
+- [ ] Mejoras implementadas
 
 8. Checklist de Security Review
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Código:**
 
-- ☐ No hay secrets hardcodeados
-- ☐ Inputs validados y sanitizados
-- ☐ Outputs encoded apropiadamente
-- ☐ SQL injection prevenido (usar ORM)
-- ☐ XSS prevenido
-- ☐ CSRF protection habilitado
+- [ ] No hay secrets hardcodeados
+- [ ] Inputs validados y sanitizados
+- [ ] Outputs encoded apropiadamente
+- [ ] SQL injection prevenido (usar ORM)
+- [ ] XSS prevenido
+- [ ] CSRF protection habilitado
 
 **Autenticación/Autorización:**
 
-- ☐ Passwords hasheados (no plaintext)
-- ☐ Session management seguro
-- ☐ Permisos verificados en cada endpoint
-- ☐ Roles y permisos documentados
+- [ ] Passwords hasheados (no plaintext)
+- [ ] Session management seguro
+- [ ] Permisos verificados en cada endpoint
+- [ ] Roles y permisos documentados
 
 **Datos:**
 
-- ☐ PII identificado y protegido
-- ☐ Datos sensibles encriptados at rest
-- ☐ TLS/SSL para datos in transit
-- ☐ Backups encriptados
+- [ ] PII identificado y protegido
+- [ ] Datos sensibles encriptados at rest
+- [ ] TLS/SSL para datos in transit
+- [ ] Backups encriptados
 
 **Dependencias:**
 
-- ☐ Dependencias actualizadas
+- [ ] Dependencias actualizadas
 
-- ☐ Vulnerabilidades conocidas verificadas
+- [ ] Vulnerabilidades conocidas verificadas
 
  .. code:: bash
 
@@ -421,12 +421,12 @@ Estado de cumplimiento
 Acciones prioritarias
 ---------------------
 
-- ☐ Configurar pre-commit hooks automáticos
-- ☐ Crear GitHub Actions para validar PRs
-- ☐ Crear templates de PR con checklists
-- ☐ Crear templates de issues con checklists
-- ☐ Automatizar security scans en CI
-- ☐ Crear dashboard de métricas de calidad
+- [ ] Configurar pre-commit hooks automáticos
+- [ ] Crear GitHub Actions para validar PRs
+- [ ] Crear templates de PR con checklists
+- [ ] Crear templates de issues con checklists
+- [ ] Automatizar security scans en CI
+- [ ] Crear dashboard de métricas de calidad
 
 Recursos relacionados
 ---------------------

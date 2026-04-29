@@ -163,8 +163,8 @@ identificador.
 
 Ejemplo:
 
-- ``hasPermission(permission)`` ✓ (universal)
-- ``hasIACTPermission(permission)`` ✗ (acoplamiento al producto en
+- ``hasPermission(permission)`` OK (universal)
+- ``hasIACTPermission(permission)`` NO (acoplamiento al producto en
   el nombre).
 
 3.5 Coherencia de Idioma

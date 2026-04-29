@@ -66,9 +66,9 @@ Estado de cumplimiento
 Acciones prioritarias
 ---------------------
 
-- ☐ Crear inventario maestro con owners y fechas de revisión de cada
+- [ ] Crear inventario maestro con owners y fechas de revisión de cada
   checklist.
-- ☐ Definir cadencia de auditoría para medir cumplimiento y actualizar
+- [ ] Definir cadencia de auditoría para medir cumplimiento y actualizar
   métricas en QA.
-- ☐ Conectar cada checklist con los rituales documentados en
+- [ ] Conectar cada checklist con los rituales documentados en
   Gobernanza.

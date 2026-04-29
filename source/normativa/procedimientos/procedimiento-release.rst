@@ -44,12 +44,12 @@ Procedimiento de Release
 1.1 Verificación
 ^^^^^^^^^^^^^^^^
 
-- ☐ Todos los PRs target mergeados a main
-- ☐ Todos los tests pasando
-- ☐ Cobertura >= 80%
-- ☐ No hay issues críticos abiertos
-- ☐ Documentación actualizada
-- ☐ CHANGELOG.md preparado
+- [ ] Todos los PRs target mergeados a main
+- [ ] Todos los tests pasando
+- [ ] Cobertura >= 80%
+- [ ] No hay issues críticos abiertos
+- [ ] Documentación actualizada
+- [ ] CHANGELOG.md preparado
 
 1.2 Crear Release Branch
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -182,15 +182,15 @@ WARNING **IMPORTANTE**: Solo después de validación en staging
 5.1 Preparación
 ^^^^^^^^^^^^^^^
 
-- ☐ Backup de base de datos
+- [ ] Backup de base de datos
 
  .. code:: bash
 
     pg_dump -h prod-db -U iact -d iact_db > backup_pre_v1.2.0.sql
 
-- ☐ Notificar a stakeholders (ventana de mantenimiento)
+- [ ] Notificar a stakeholders (ventana de mantenimiento)
 
-- ☐ Rollback plan documentado
+- [ ] Rollback plan documentado
 
 5.2 Deployment
 ^^^^^^^^^^^^^^
@@ -222,11 +222,11 @@ WARNING **IMPORTANTE**: Solo después de validación en staging
 5.3 Verificación Post-Deploy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Health checks pasan
-- ☐ Smoke tests pasan
-- ☐ Logs sin errores críticos
-- ☐ Métricas normales (response time, error rate)
-- ☐ Funcionalidad crítica verificada manualmente
+- [ ] Health checks pasan
+- [ ] Smoke tests pasan
+- [ ] Logs sin errores críticos
+- [ ] Métricas normales (response time, error rate)
+- [ ] Funcionalidad crítica verificada manualmente
 
 6. Comunicación
 ~~~~~~~~~~~~~~~
@@ -301,19 +301,19 @@ Si hay problemas críticos:
 Checklist de Release
 --------------------
 
-- ☐ Código mergeado a main
-- ☐ Tests pasan
-- ☐ CHANGELOG.md actualizado
-- ☐ Versión bumpeada
-- ☐ Tag creado
-- ☐ Deploy a staging exitoso
-- ☐ Smoke tests en staging pasan
-- ☐ Backup de producción realizado
-- ☐ Ventana de mantenimiento comunicada
-- ☐ Deploy a producción exitoso
-- ☐ Verificación post-deploy completa
-- ☐ Monitoreo activo (primeras 2 horas)
-- ☐ Release comunicado
+- [ ] Código mergeado a main
+- [ ] Tests pasan
+- [ ] CHANGELOG.md actualizado
+- [ ] Versión bumpeada
+- [ ] Tag creado
+- [ ] Deploy a staging exitoso
+- [ ] Smoke tests en staging pasan
+- [ ] Backup de producción realizado
+- [ ] Ventana de mantenimiento comunicada
+- [ ] Deploy a producción exitoso
+- [ ] Verificación post-deploy completa
+- [ ] Monitoreo activo (primeras 2 horas)
+- [ ] Release comunicado
 
 Monitoreo Post-Release
 ----------------------

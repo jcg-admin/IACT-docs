@@ -134,8 +134,8 @@ Example complete commit:
 
 When choosing a scope:
 
-- Use **kebab-case** (lowercase with hyphens): ``git-workflow``, ``branch-protection``, ``config-management`` ✓
-- **Do NOT use** PascalCase, snake_case, or spaces: ``GitWorkflow`` ✗, ``git_workflow`` ✗, ``git workflow`` ✗
+- Use **kebab-case** (lowercase with hyphens): ``git-workflow``, ``branch-protection``, ``config-management`` OK
+- **Do NOT use** PascalCase, snake_case, or spaces: ``GitWorkflow`` NO, ``git_workflow`` NO, ``git workflow`` NO
 - Scope is **recommended but optional** for clarity; however, including scope makes commit history much more searchable
 - Scope should be **specific to the affected area**, not generic: ``docs`` is acceptable, ``docs(git-workflow)`` is better
 
@@ -178,22 +178,22 @@ The scope must follow these rules for consistency across the project:
 
 **Valid Scope Examples:**
 
-- ``feat(github-actions): ...`` ✓
-- ``fix(sphinx-config): ...`` ✓
-- ``docs(api): ...`` ✓
-- ``refactor(build): ...`` ✓
-- ``test(validation): ...`` ✓
-- ``chore(deps): ...`` ✓
-- ``feat(docs): ...`` ✓ (simple, single-word scopes are acceptable)
+- ``feat(github-actions): ...`` OK
+- ``fix(sphinx-config): ...`` OK
+- ``docs(api): ...`` OK
+- ``refactor(build): ...`` OK
+- ``test(validation): ...`` OK
+- ``chore(deps): ...`` OK
+- ``feat(docs): ...`` OK (simple, single-word scopes are acceptable)
 
 **Invalid Scope Examples:**
 
-- ``feat(GitHub-Actions): ...`` ✗ (PascalCase, not kebab-case)
-- ``fix(sphinx_config): ...`` ✗ (snake_case, not kebab-case)
-- ``docs(Sphinx Config): ...`` ✗ (spaces and capitals)
-- ``refactor(BUILDTOOL): ...`` ✗ (UPPERCASE, not kebab-case)
-- ``feat: ...`` ✗ (empty scope — use no scope instead of empty parens)
-- ``feat(git-workflow-update-system): ...`` ✗ (unnecessarily long)
+- ``feat(GitHub-Actions): ...`` NO (PascalCase, not kebab-case)
+- ``fix(sphinx_config): ...`` NO (snake_case, not kebab-case)
+- ``docs(Sphinx Config): ...`` NO (spaces and capitals)
+- ``refactor(BUILDTOOL): ...`` NO (UPPERCASE, not kebab-case)
+- ``feat: ...`` NO (empty scope — use no scope instead of empty parens)
+- ``feat(git-workflow-update-system): ...`` NO (unnecessarily long)
 
 1.6 Body Format — Multi-Paragraph Structure
 --------------------------------------------------------------------------------
@@ -607,20 +607,20 @@ All feature branches must follow these naming rules for consistency and automati
 
 **Valid Branch Names:**
 
-- ``feature/github-actions-setup`` ✓
-- ``feature/fix-broken-links`` ✓
-- ``feature/sphinx-config-modularization`` ✓
-- ``feature/api-authentication`` ✓
-- ``feature/user-guide-rewrite`` ✓
+- ``feature/github-actions-setup`` OK
+- ``feature/fix-broken-links`` OK
+- ``feature/sphinx-config-modularization`` OK
+- ``feature/api-authentication`` OK
+- ``feature/user-guide-rewrite`` OK
 
 **Invalid Branch Names:**
 
-- ``feature/GitHub-Actions-Setup`` ✗ (PascalCase, not kebab-case)
-- ``feature/github_actions_setup`` ✗ (snake_case, not kebab-case)
-- ``feature/feature-1`` ✗ (not descriptive)
-- ``new-feature`` ✗ (missing ``feature/`` prefix)
-- ``GitHub-Actions`` ✗ (missing ``feature/`` prefix, PascalCase)
-- ``main`` ✗ (don't create features from main)
+- ``feature/GitHub-Actions-Setup`` NO (PascalCase, not kebab-case)
+- ``feature/github_actions_setup`` NO (snake_case, not kebab-case)
+- ``feature/feature-1`` NO (not descriptive)
+- ``new-feature`` NO (missing ``feature/`` prefix)
+- ``GitHub-Actions`` NO (missing ``feature/`` prefix, PascalCase)
+- ``main`` NO (don't create features from main)
 
 **Why These Rules?**
 
@@ -895,7 +895,7 @@ On the PR page, click the **Merge pull request** dropdown:
 
 .. code-block:: text
 
- [Merge pull request ▼]
+ [Merge pull request v]
  • Create a merge commit (recommended)
  • Squash and merge
  • Rebase and merge
@@ -1109,12 +1109,12 @@ Before creating a release PR, complete this checklist to ensure quality:
 **Release Checklist Summary:**
 
 Only proceed to release PR if:
-- ✓ Documentation updated and reviewed
-- ✓ Build succeeds (make html, make clean, no warnings)
-- ✓ All tests pass
-- ✓ Code quality checks pass (flake8, mypy, etc.)
-- ✓ Test build artifacts are valid
-- ✓ Version numbering follows Semantic Versioning 2.0.0
+- OK Documentation updated and reviewed
+- OK Build succeeds (make html, make clean, no warnings)
+- OK All tests pass
+- OK Code quality checks pass (flake8, mypy, etc.)
+- OK Test build artifacts are valid
+- OK Version numbering follows Semantic Versioning 2.0.0
 
 If any check fails, **DO NOT proceed** — fix issues before release.
 
@@ -1167,10 +1167,10 @@ Use a temporary branch for the release PR (optional but recommended):
 
  ### Release Artifacts
 
-   - Build: ✓ make html successful
-   - Tests: ✓ all tests pass
-   - Quality: ✓ no lint/type errors
-   - Documentation: ✓ CHANGELOG.md updated
+   - Build: OK make html successful
+   - Tests: OK all tests pass
+   - Quality: OK no lint/type errors
+   - Documentation: OK CHANGELOG.md updated
 
  ### Deployment
 
@@ -1509,13 +1509,13 @@ Enter the branch name pattern:
 
 Then configure these settings:
 
-1. **Require a pull request before merging** — ✓ Check this box
+1. **Require a pull request before merging** — OK Check this box
    - ``Require approvals`` — Check this box
    - ``Required number of approvals before merging`` — Set to **1** (minimum review)
    - ``Require approval from code owners`` — Optional (check if you have CODEOWNERS file)
 
-2. **Require status checks to pass before merging** — ✓ Check this box
-   - ``Require branches to be up to date before merging`` — ✓ Check this box
+2. **Require status checks to pass before merging** — OK Check this box
+   - ``Require branches to be up to date before merging`` — OK Check this box
    - ``Search for status checks that run in this repository...`` — Select:
 
    - ``build`` (Sphinx build validation)
@@ -1525,18 +1525,18 @@ Then configure these settings:
 
 3. **Require code review before merging** — Covered in step 1 above
 
-4. **Require conversation resolution before merging** — ✓ Check this box
+4. **Require conversation resolution before merging** — OK Check this box
    (Ensures all review comments are addressed)
 
 5. **Require commits to be signed** — Optional
    (Only if you enforce GPG signing for compliance)
 
-6. **Restrict who can push to matching branches** — ✓ Check this box
+6. **Restrict who can push to matching branches** — OK Check this box
    - ``Restrict who can push to matching branches`` — Add your team or leave for all maintainers
 
-7. **Allow force pushes** — ✓ **Do NOT check** (prevent rewriting history)
+7. **Allow force pushes** — OK **Do NOT check** (prevent rewriting history)
 
-8. **Allow deletions** — ✓ **Do NOT check** (prevent accidental branch deletion)
+8. **Allow deletions** — OK **Do NOT check** (prevent accidental branch deletion)
 
 9. **Require linear history** — Optional but recommended
    (Ensures commits can't have multiple parents)
@@ -1553,29 +1553,29 @@ Repeat the process but enter:
 
 Configure with **stricter** settings:
 
-1. **Require a pull request before merging** — ✓ Check this box
+1. **Require a pull request before merging** — OK Check this box
    - ``Require approvals`` — Check this box
    - ``Required number of approvals before merging`` — Set to **2** (higher bar for main)
-   - ``Require approval from code owners`` — ✓ Check this box (if available)
-   - ``Dismiss stale pull request approvals when new commits are pushed`` — ✓ Check this box
-   - ``Require review from Code Owners`` — ✓ Check this box (if CODEOWNERS exists)
+   - ``Require approval from code owners`` — OK Check this box (if available)
+   - ``Dismiss stale pull request approvals when new commits are pushed`` — OK Check this box
+   - ``Require review from Code Owners`` — OK Check this box (if CODEOWNERS exists)
 
-2. **Require status checks to pass before merging** — ✓ Check this box
-   - ``Require branches to be up to date before merging`` — ✓ Check this box
+2. **Require status checks to pass before merging** — OK Check this box
+   - ``Require branches to be up to date before merging`` — OK Check this box
    - Select the same status checks as develop (build, tests, etc.)
 
-3. **Require conversation resolution before merging** — ✓ Check this box
+3. **Require conversation resolution before merging** — OK Check this box
 
-4. **Restrict who can push to matching branches** — ✓ Check this box
+4. **Restrict who can push to matching branches** — OK Check this box
    - Add **only administrators** (repository owners)
 
-5. **Allow force pushes** — ✓ **Do NOT check**
+5. **Allow force pushes** — OK **Do NOT check**
 
-6. **Allow deletions** — ✓ **Do NOT check**
+6. **Allow deletions** — OK **Do NOT check**
 
-7. **Require linear history** — ✓ Check this box
+7. **Require linear history** — OK Check this box
 
-8. **Require branches to be up to date before merging** — ✓ Check this box
+8. **Require branches to be up to date before merging** — OK Check this box
 
 **Click "Create" to save the rule for main**
 
@@ -1588,29 +1588,29 @@ Configure with **stricter** settings:
      - develop
      - main
    * - Require PR before merge
-     - ✓
-     - ✓
+     - OK
+     - OK
    * - Required approvals
      - 1
      - 2
    * - Require code owner approval
      - Optional
-     - ✓
+     - OK
    * - Require status checks (CI)
-     - ✓
-     - ✓
+     - OK
+     - OK
    * - Require linear history
      - Optional
-     - ✓
+     - OK
    * - Restrict push to admins only
      - No
-     - ✓
+     - OK
    * - Allow force push
-     - ✗
-     - ✗
+     - NO
+     - NO
    * - Allow deletion
-     - ✗
-     - ✗
+     - NO
+     - NO
 
 5.3 API Configuration — GitHub REST API
 --------------------------------------------------------------------------------
@@ -2228,10 +2228,10 @@ Go to the Pull Request page and scroll to "Checks" section:
 
 .. code-block:: text
 
- ✓ build (GitHub Actions) — Passed
- ✓ tests (GitHub Actions) — Passed
- ✓ lint (GitHub Actions) — Passed
- ✗ Documentation build — FAILED ← Click to see error details
+ OK build (GitHub Actions) — Passed
+ OK tests (GitHub Actions) — Passed
+ OK lint (GitHub Actions) — Passed
+ NO Documentation build — FAILED ← Click to see error details
 
 Click the failed check to see the full log.
 
@@ -2385,9 +2385,9 @@ Prevents accidental direct pushes to main or develop:
 
 .. code-block:: text
 
- ✗ Blocks: git push origin develop
- ✗ Blocks: git push origin main
- ✓ Allows: git push origin feature/your-branch
+ NO Blocks: git push origin develop
+ NO Blocks: git push origin main
+ OK Allows: git push origin feature/your-branch
 
 - Runs before push
 - Enforces PR workflow (must push to feature branch, then create PR)
@@ -2467,7 +2467,7 @@ Or add to a setup script:
  fi
 
  git config core.hooksPath .githooks
- echo "✓ Git hooks configured. Run 'git config core.hooksPath' to verify."
+ echo "OK Git hooks configured. Run 'git config core.hooksPath' to verify."
 
 8.3 Hook Behavior — Examples
 --------------------------------------------------------------------------------

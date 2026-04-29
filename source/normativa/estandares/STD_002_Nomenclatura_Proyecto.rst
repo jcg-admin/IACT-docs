@@ -991,23 +991,23 @@ Al crear o renombrar un artefacto, verificar:
  :widths: 10 90
  :header-rows: 0
 
- * - ☐
+ * - [ ]
    - Prefijo correcto según tipo de artefacto
- * - ☐
+ * - [ ]
    - Separadores correctos (guión bajo entre componentes)
- * - ☐
+ * - [ ]
    - Capitalización correcta (prefijos MAYÚSCULAS)
- * - ☐
+ * - [ ]
    - Nombre descriptivo en PascalCase
- * - ☐
+ * - [ ]
    - Sin espacios en el nombre del archivo
- * - ☐
+ * - [ ]
    - Extensión en minúsculas (.rst)
- * - ☐
+ * - [ ]
    - Versionado semántico si aplica (templates, procedimientos, normativas)
- * - ☐
+ * - [ ]
    - Números secuenciales con 3 dígitos para artefactos públicos (001, 002)
- * - ☐
+ * - [ ]
    - Números secuenciales con 2 dígitos para artefactos privados (01, 02)
 
 ----

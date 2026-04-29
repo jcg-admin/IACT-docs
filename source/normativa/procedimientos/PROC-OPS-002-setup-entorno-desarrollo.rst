@@ -164,7 +164,7 @@ ejecutá:
 
 Comportamiento esperado:
 
-- ``uv``, Java, ``plantuml.jar``, ``uv sync`` y hooks: ✓ funcionan
+- ``uv``, Java, ``plantuml.jar``, ``uv sync`` y hooks: OK funcionan
   igual que en Linux.
 - ``enchant``: el script intenta detectar con ``ldconfig`` (que no
   existe en Windows) y registra WARN. **No bloquea** el setup —

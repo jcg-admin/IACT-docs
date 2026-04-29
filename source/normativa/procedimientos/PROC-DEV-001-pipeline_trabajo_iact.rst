@@ -371,11 +371,11 @@ completado
 
 1. **Pre-Deployment Checklist**
 
-   - ☐ Backup de base de datos completado
-   - ☐ Changelog actualizado
-   - ☐ Release notes preparadas
-   - ☐ Rollback plan definido
-   - ☐ Equipo notificado
+   - [ ] Backup de base de datos completado
+   - [ ] Changelog actualizado
+   - [ ] Release notes preparadas
+   - [ ] Rollback plan definido
+   - [ ] Equipo notificado
 
 2. **Ejecutar Deployment**
 

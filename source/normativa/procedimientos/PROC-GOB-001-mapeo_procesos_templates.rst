@@ -1289,22 +1289,22 @@ Referencias
 
 **Checklist de Auto-Validacion:**
 
-- ☐ He consultado este documento MAPEO antes de empezar
-- ☐ Identifique la fase SDLC en la que estoy
-- ☐ Seleccione el procedimiento correcto para mi fase
-- ☐ Use el template correcto para el artefacto que necesito
-- ☐ Valide con el checklist correspondiente
-- ☐ Confirme que el workflow automatico se ejecuto (si aplica)
-- ☐ Revise que el agente SDLC genero la documentacion esperada (si
+- [ ] He consultado este documento MAPEO antes de empezar
+- [ ] Identifique la fase SDLC en la que estoy
+- [ ] Seleccione el procedimiento correcto para mi fase
+- [ ] Use el template correcto para el artefacto que necesito
+- [ ] Valide con el checklist correspondiente
+- [ ] Confirme que el workflow automatico se ejecuto (si aplica)
+- [ ] Revise que el agente SDLC genero la documentacion esperada (si
   aplica)
 
 **Señales de que algo esta mal:**
 
-- ☐ No se cual template usar
-- ☐ El workflow CI/CD fallo y no se por que
-- ☐ No hay procedimiento que describa lo que estoy haciendo
-- ☐ El agente SDLC no genero lo que esperaba
-- ☐ No se como validar que lo hice correctamente
+- [ ] No se cual template usar
+- [ ] El workflow CI/CD fallo y no se por que
+- [ ] No hay procedimiento que describa lo que estoy haciendo
+- [ ] El agente SDLC no genero lo que esperaba
+- [ ] No se como validar que lo hice correctamente
 
 **Accion:** Si alguna señal esta presente, consultar este documento o
 preguntar al Tech Lead.

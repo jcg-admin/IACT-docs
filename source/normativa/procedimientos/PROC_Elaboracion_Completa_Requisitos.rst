@@ -176,14 +176,14 @@ Al completar este procedimiento, se generan:
  │ FASE 0 FASE 1 FASE 2 FASE 3 FASE 4 │
  │ ──────── ──────── ──────── ──────── ──────── │
  │ │
- │ CNST_ ──────► BR_ ─────────► BReq_ ────────► UC_ ─────────► FR_ │
+ │ CNST_ ──────> BR_ ─────────> BReq_ ────────> UC_ ─────────> FR_ │
  │ (Cliente) (Reglas) (Objetivos) (Casos) (Func.) │
  │ │
  │ Restricciones Politicas Necesidades Interacciones Atomicos │
  │ tecnicas dominio stakeholder usuario-sist verific. │
  │ │
  │ │ │ │ │
- │ ▼ ▼ ▼ │
+ │ v v v │
  │ ┌───────────────────────────────────────┐ │
  │ │ RTM (Trazabilidad) │ │
  │ │ CNST → BR → BReq → UC → FR → TST │ │
@@ -889,16 +889,16 @@ Segun FND_06:
  │
  │ ANALISIS: ¿Que capacidades implica?
  │
- ├─► Capacidad 1: Verificar que usuario existe
+ ├─> Capacidad 1: Verificar que usuario existe
  │ → FR_001_01: Sistema DEBE verificar existencia de username en BD
  │
- ├─► Capacidad 2: Comparar password
+ ├─> Capacidad 2: Comparar password
  │ → FR_001_02: Sistema DEBE comparar password hasheado con bcrypt
  │
- ├─► Capacidad 3: Verificar cuenta activa
+ ├─> Capacidad 3: Verificar cuenta activa
  │ → FR_001_03: Sistema DEBE verificar que cuenta.estado = 'activo'
  │
- └─► Capacidad 4: Manejar credenciales invalidas
+ └─> Capacidad 4: Manejar credenciales invalidas
  → FR_001_04: SI credenciales invalidas, Sistema DEBE incrementar
  contador de intentos fallidos
  → FR_001_05: SI intentos >= 5, Sistema DEBE bloquear cuenta 30 min

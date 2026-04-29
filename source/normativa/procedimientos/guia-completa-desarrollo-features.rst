@@ -56,12 +56,12 @@ Paso 0: Pre-requisitos
 Software Requerido
 ~~~~~~~~~~~~~~~~~~
 
-- ☐ Python 3.11+
-- ☐ Vagrant + VirtualBox 7+
-- ☐ Git configurado
-- ☐ gh CLI (GitHub CLI) - opcional pero recomendado
-- ☐ VS Code o IDE similar
-- ☐ Acceso al repositorio GitHub
+- [ ] Python 3.11+
+- [ ] Vagrant + VirtualBox 7+
+- [ ] Git configurado
+- [ ] gh CLI (GitHub CLI) - opcional pero recomendado
+- [ ] VS Code o IDE similar
+- [ ] Acceso al repositorio GitHub
 
 Verificar Instalación
 ~~~~~~~~~~~~~~~~~~~~~
@@ -220,11 +220,11 @@ Paso 2: Planificación de la Feature
 
 Antes de crear una feature, define claramente:
 
-- ☐ ¿Qué problema resuelve?
-- ☐ ¿Cuáles son los criterios de aceptación?
-- ☐ ¿Requiere cambios en BD, API, o ambos?
-- ☐ ¿Hay dependencias con otros issues?
-- ☐ ¿Es una feature completa o un spike de investigación?
+- [ ] ¿Qué problema resuelve?
+- [ ] ¿Cuáles son los criterios de aceptación?
+- [ ] ¿Requiere cambios en BD, API, o ambos?
+- [ ] ¿Hay dependencias con otros issues?
+- [ ] ¿Es una feature completa o un spike de investigación?
 
 2.1.1 Crear Especificación de Feature (Spec)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1312,17 +1312,17 @@ Paso 8: Crear Pull Request
 Test Plan
 ---------
 
-- ☒ Tests unitarios de LoginSerializer (4 casos)
-- ☒ Tests unitarios de TokenSerializer (generación tokens)
-- ☒ Tests unitarios de RefreshTokenSerializer (validación)
-- ☒ Tests de integración LoginView (success, invalid creds, missing
+- [x] Tests unitarios de LoginSerializer (4 casos)
+- [x] Tests unitarios de TokenSerializer (generación tokens)
+- [x] Tests unitarios de RefreshTokenSerializer (validación)
+- [x] Tests de integración LoginView (success, invalid creds, missing
   fields, inactive user)
-- ☒ Tests de integración RefreshTokenView (success, invalid token)
-- ☒ Tests de middleware JWT (sin token, token válido, token expirado)
-- ☒ Cobertura total: 95%
-- ☒ Security scan con Bandit: 0 issues
-- ☒ Secret detection: 0 secrets detectados
-- ☒ Validación manual en desarrollo
+- [x] Tests de integración RefreshTokenView (success, invalid token)
+- [x] Tests de middleware JWT (sin token, token válido, token expirado)
+- [x] Cobertura total: 95%
+- [x] Security scan con Bandit: 0 issues
+- [x] Secret detection: 0 secrets detectados
+- [x] Validación manual en desarrollo
 
 Related Issues
 --------------
@@ -1364,13 +1364,13 @@ N/A - Backend API
 Checklist
 ---------
 
-- ☒ Código sigue lineamientos del proyecto
-- ☒ Tests agregados con cobertura >= 80%
-- ☒ Documentación actualizada
-- ☒ Sin secretos en código
-- ☒ Security scan pasó
-- ☒ Pre-commit hooks pasaron
-- ☒ Branch actualizado con main EOF )”
+- [x] Código sigue lineamientos del proyecto
+- [x] Tests agregados con cobertura >= 80%
+- [x] Documentación actualizada
+- [x] Sin secretos en código
+- [x] Security scan pasó
+- [x] Pre-commit hooks pasaron
+- [x] Branch actualizado con main EOF )”
   –assignee @me
   –reviewer @equipo-backend
   –label “enhancement,backend”
@@ -1433,12 +1433,12 @@ Al crear el PR, se ejecutan automáticamente:
 9.2 Requisitos para Aprobar
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☐ Mínimo 1 review aprobado
-- ☐ Todos los CI checks pasan (verde)
-- ☐ Sin conflictos con main
-- ☐ Cobertura >= 80%
-- ☐ Sin secretos detectados
-- ☐ Bandit security scan sin issues HIGH/CRITICAL
+- [ ] Mínimo 1 review aprobado
+- [ ] Todos los CI checks pasan (verde)
+- [ ] Sin conflictos con main
+- [ ] Cobertura >= 80%
+- [ ] Sin secretos detectados
+- [ ] Bandit security scan sin issues HIGH/CRITICAL
 
 9.3 Como Autor del PR
 ~~~~~~~~~~~~~~~~~~~~~

@@ -202,11 +202,11 @@ One-Time Password) según RFC 6238.
 Validación
 ~~~~~~~~~~
 
-- ☐ ID del artefacto identificado
-- ☐ Tipo de cambio clasificado (Menor/Mayor/Breaking)
-- ☐ Razón del cambio documentada
-- ☐ Contenido antes y después capturado
-- ☐ Fecha y analista registrados
+- [ ] ID del artefacto identificado
+- [ ] Tipo de cambio clasificado (Menor/Mayor/Breaking)
+- [ ] Razón del cambio documentada
+- [ ] Contenido antes y después capturado
+- [ ] Fecha y analista registrados
 
 PASO 2: Consultar Trazabilidad Bidireccional
 --------------------------------------------
@@ -329,10 +329,10 @@ Documentar Resultados
 Validación
 ~~~~~~~~~~
 
-- ☐ Trazabilidad upstream identificada (0 o más artefactos)
-- ☐ Trazabilidad downstream identificada (0 o más artefactos)
-- ☐ Todos los IDs de artefactos relacionados capturados
-- ☐ Resultados documentados
+- [ ] Trazabilidad upstream identificada (0 o más artefactos)
+- [ ] Trazabilidad downstream identificada (0 o más artefactos)
+- [ ] Todos los IDs de artefactos relacionados capturados
+- [ ] Resultados documentados
 
 PASO 3: Listar Artefactos Potencialmente Afectados
 --------------------------------------------------
@@ -415,10 +415,10 @@ Ejemplo: RN-BACK-001 (2FA)
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los artefactos de nivel 1 listados
-- ☐ Artefactos de nivel 2 considerados
-- ☐ Nuevos artefactos necesarios identificados
-- ☐ Diagramas y documentación complementaria incluidos
+- [ ] Todos los artefactos de nivel 1 listados
+- [ ] Artefactos de nivel 2 considerados
+- [ ] Nuevos artefactos necesarios identificados
+- [ ] Diagramas y documentación complementaria incluidos
 
 PASO 4: Revisar Cada Artefacto y Determinar Acción
 --------------------------------------------------
@@ -588,11 +588,11 @@ Tabla Resumen de Acciones
 Validación
 ~~~~~~~~~~
 
-- ☐ Cada artefacto revisado individualmente
-- ☐ Acción específica asignada
-- ☐ Cambio detallado documentado
-- ☐ Prioridad asignada
-- ☐ Tabla resumen creada
+- [ ] Cada artefacto revisado individualmente
+- [ ] Acción específica asignada
+- [ ] Cambio detallado documentado
+- [ ] Prioridad asignada
+- [ ] Tabla resumen creada
 
 PASO 5: Crear Checklist de Cambios
 ----------------------------------
@@ -654,11 +654,11 @@ Formato de Checklist
 Validación
 ~~~~~~~~~~
 
-- ☐ Checklist completo con todos los artefactos
-- ☐ Organizado por prioridad
-- ☐ Incluye cambio origen
-- ☐ Incluye nuevos artefactos
-- ☐ Incluye matrices y documentación
+- [ ] Checklist completo con todos los artefactos
+- [ ] Organizado por prioridad
+- [ ] Incluye cambio origen
+- [ ] Incluye nuevos artefactos
+- [ ] Incluye matrices y documentación
 
 PASO 6: Actualizar Artefactos Afectados
 ---------------------------------------
@@ -772,11 +772,11 @@ Ejemplo: Crear RF-BACK-065
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los checkboxes del checklist marcados
-- ☐ Cada archivo actualizado tiene fecha actualizada
-- ☐ Versiones incrementadas donde aplica
-- ☐ Trazabilidad actualizada en cada archivo
-- ☐ Archivos guardados pero NO commiteados aún
+- [ ] Todos los checkboxes del checklist marcados
+- [ ] Cada archivo actualizado tiene fecha actualizada
+- [ ] Versiones incrementadas donde aplica
+- [ ] Trazabilidad actualizada en cada archivo
+- [ ] Archivos guardados pero NO commiteados aún
 
 PASO 7: Validar Consistencia
 ----------------------------
@@ -795,32 +795,32 @@ Checklist de Consistencia
 Validación de Trazabilidad Bidireccional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
+- [ ] Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
   UC-BACK-001
-- ☐ Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
+- [ ] Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
   RN-BACK-001
-- ☐ Todas las referencias bidireccionales son correctas
+- [ ] Todas las referencias bidireccionales son correctas
 
 Validación de IDs
 ^^^^^^^^^^^^^^^^^
 
-- ☐ No hay referencias a IDs que no existen
-- ☐ Todos los IDs nuevos siguen nomenclatura correcta
-- ☐ No hay IDs duplicados
+- [ ] No hay referencias a IDs que no existen
+- [ ] Todos los IDs nuevos siguen nomenclatura correcta
+- [ ] No hay IDs duplicados
 
 Validación de Formato
 ^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Todos los archivos markdown tienen frontmatter completo
-- ☐ Fechas en formato YYYY-MM-DD
-- ☐ Versiones en formato semántico (X.Y.Z)
+- [ ] Todos los archivos markdown tienen frontmatter completo
+- [ ] Fechas en formato YYYY-MM-DD
+- [ ] Versiones en formato semántico (X.Y.Z)
 
 Validación de Contenido
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Cambios alineados con el cambio origen
-- ☐ No hay contradicciones entre artefactos
-- ☐ Terminología consistente
+- [ ] Cambios alineados con el cambio origen
+- [ ] No hay contradicciones entre artefactos
+- [ ] Terminología consistente
 
 Scripts de Validación
 ~~~~~~~~~~~~~~~~~~~~~
@@ -869,11 +869,11 @@ Revisión Manual
 Validación
 ~~~~~~~~~~
 
-- ☐ Script de validación ejecutado sin errores
-- ☐ Revisión manual completada
-- ☐ Trazabilidad bidireccional verificada
-- ☐ Contenido consistente entre artefactos
-- ☐ Listo para commit
+- [ ] Script de validación ejecutado sin errores
+- [ ] Revisión manual completada
+- [ ] Trazabilidad bidireccional verificada
+- [ ] Contenido consistente entre artefactos
+- [ ] Listo para commit
 
 PASO 8: Actualizar Matrices de Trazabilidad
 -------------------------------------------
@@ -952,11 +952,11 @@ Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md
 Validación
 ~~~~~~~~~~
 
-- ☐ Matriz vertical actualizada
-- ☐ Matrices horizontales actualizadas
-- ☐ Nuevos artefactos agregados
-- ☐ Versiones reflejadas correctamente
-- ☐ Cambios documentados en la matriz
+- [ ] Matriz vertical actualizada
+- [ ] Matrices horizontales actualizadas
+- [ ] Nuevos artefactos agregados
+- [ ] Versiones reflejadas correctamente
+- [ ] Cambios documentados en la matriz
 
 PASO 9: Commit Atómico de Todos los Cambios
 -------------------------------------------
@@ -1099,12 +1099,12 @@ Push al Repositorio
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los archivos agregados a git
-- ☐ Commit creado con mensaje descriptivo completo
-- ☐ Mensaje incluye BREAKING CHANGE si aplica
-- ☐ Mensaje lista todos los artefactos actualizados y nuevos
-- ☐ Push exitoso
-- ☐ Working tree clean
+- [ ] Todos los archivos agregados a git
+- [ ] Commit creado con mensaje descriptivo completo
+- [ ] Mensaje incluye BREAKING CHANGE si aplica
+- [ ] Mensaje lista todos los artefactos actualizados y nuevos
+- [ ] Push exitoso
+- [ ] Working tree clean
 
 Documentar el Análisis
 ----------------------

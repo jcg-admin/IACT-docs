@@ -311,9 +311,9 @@ Usar siempre el codigo oficial:
  [Sujeto] DEBE [accion] [objeto] [condicion opcional]
 
  EJEMPLOS:
- ✓ "Usuario DEBE tener al menos un rol"
- ✓ "Sistema DEBE registrar toda accion en auditoria"
- ✓ "Sesion DEBE registrar IP de origen"
+ OK "Usuario DEBE tener al menos un rol"
+ OK "Sistema DEBE registrar toda accion en auditoria"
+ OK "Sesion DEBE registrar IP de origen"
 
 5.2 Patron para Prohibicion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -324,9 +324,9 @@ Usar siempre el codigo oficial:
  [Sujeto] NO DEBE [accion] [objeto] [condicion opcional]
 
  EJEMPLOS:
- ✓ "Usuario NO DEBE tener roles conflictivos"
- ✓ "Sistema NO DEBE enviar correo electronico externo"
- ✓ "IACT NO DEBE modificar datos en BD IVR"
+ OK "Usuario NO DEBE tener roles conflictivos"
+ OK "Sistema NO DEBE enviar correo electronico externo"
+ OK "IACT NO DEBE modificar datos en BD IVR"
 
 5.3 Patron para Permiso
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,8 +337,8 @@ Usar siempre el codigo oficial:
  [Sujeto con condicion] PUEDE [accion] [objeto]
 
  EJEMPLOS:
- ✓ "Usuario con R016 PUEDE cerrar sesion de otro usuario"
- ✓ "Usuario con R009 PUEDE personalizar su dashboard"
+ OK "Usuario con R016 PUEDE cerrar sesion de otro usuario"
+ OK "Usuario con R009 PUEDE personalizar su dashboard"
 
 5.4 Patron para Restriccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -349,8 +349,8 @@ Usar siempre el codigo oficial:
  SOLO [sujeto calificado] PUEDE [accion]
 
  EJEMPLOS:
- ✓ "SOLO usuarios con R001 pueden crear usuarios"
- ✓ "SOLO usuarios con R017 pueden ver logs de auditoria"
+ OK "SOLO usuarios con R001 pueden crear usuarios"
+ OK "SOLO usuarios con R017 pueden ver logs de auditoria"
 
 5.5 Patron para Trigger
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -361,9 +361,9 @@ Usar siempre el codigo oficial:
  SI [condicion] ENTONCES [sujeto] DEBE [accion]
 
  EJEMPLOS:
- ✓ "SI usuario falla 3 intentos ENTONCES sistema DEBE bloquear cuenta"
- ✓ "SI metrica > umbral ENTONCES sistema DEBE notificar destinatarios"
- ✓ "SI 90 dias sin login ENTONCES sistema DEBE marcar usuario inactivo"
+ OK "SI usuario falla 3 intentos ENTONCES sistema DEBE bloquear cuenta"
+ OK "SI metrica > umbral ENTONCES sistema DEBE notificar destinatarios"
+ OK "SI 90 dias sin login ENTONCES sistema DEBE marcar usuario inactivo"
 
 5.6 Patron para Hecho
 ^^^^^^^^^^^^^^^^^^^^^
@@ -375,9 +375,9 @@ Usar siempre el codigo oficial:
  CADA [sujeto] TIENE [relacion] [objeto]
 
  EJEMPLOS:
- ✓ "Username ES unico en el sistema"
- ✓ "CADA usuario TIENE exactamente un segmento"
- ✓ "Registros de auditoria son inmutables"
+ OK "Username ES unico en el sistema"
+ OK "CADA usuario TIENE exactamente un segmento"
+ OK "Registros de auditoria son inmutables"
 
 5.7 Patron para Recomendacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -391,9 +391,9 @@ Usar siempre el codigo oficial:
  Usar cuando la regla es una buena practica, no un requisito estricto.
 
  EJEMPLOS:
- ✓ "Sistema DEBERIA enviar confirmacion por email"
- ✓ "Usuario DEBERIA cambiar password cada 90 dias"
- ✓ "Dashboard DEBERIA cargar datos de ultimas 24 horas"
+ OK "Sistema DEBERIA enviar confirmacion por email"
+ OK "Usuario DEBERIA cambiar password cada 90 dias"
+ OK "Dashboard DEBERIA cargar datos de ultimas 24 horas"
 
  DIFERENCIA CON DEBE:
  - DEBE: Obligatorio, sistema falla si no se cumple

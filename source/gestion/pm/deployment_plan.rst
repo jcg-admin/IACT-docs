@@ -30,12 +30,12 @@ deployment
 Pre-Deployment Checklist
 ------------------------
 
-- ☐ All tests implemented
-- ☐ Coverage >= 80%
-- ☐ CI/CD configured
-- ☐ Documentation complete
-- ☐ Code review approved
-- ☐ No blocking bugs
+- [ ] All tests implemented
+- [ ] Coverage >= 80%
+- [ ] CI/CD configured
+- [ ] Documentation complete
+- [ ] Code review approved
+- [ ] No blocking bugs
 
 --------------
 

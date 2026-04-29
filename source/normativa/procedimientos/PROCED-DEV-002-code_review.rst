@@ -59,7 +59,7 @@ contexto adicional (issues, ADRs)?
 1.2 Verificar información básica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-✅ **Checklist preliminar**: - [ ] Título descriptivo y sigue convención
+[OK] **Checklist preliminar**: - [ ] Título descriptivo y sigue convención
 - [ ] Descripción completa con resumen - [ ] Test plan incluido - [ ]
 Checklist del autor completado - [ ] Issues/ADRs relacionados vinculados
 - [ ] Labels apropiados
@@ -75,7 +75,7 @@ PASO 2: Verificación de CI/CD (2 minutos)
 2.1 Revisar estado de checks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-✅ **Verificar que pasen**: - [ ] Tests unitarios - [ ] Tests de
+[OK] **Verificar que pasen**: - [ ] Tests unitarios - [ ] Tests de
 integración - [ ] Linters (flake8, eslint, etc.) - [ ] Code coverage >=
 umbral (típicamente 80%) - [ ] Build exitoso - [ ] Security scans sin
 alertas críticas
@@ -85,8 +85,8 @@ alertas críticas
 .. code:: markdown
 
  Los siguientes checks están fallando:
- - ❌ Tests unitarios: 3 tests failing en `test_auth.py`
- - ❌ Coverage: 75% (< 80% requerido)
+ - [NO] Tests unitarios: 3 tests failing en `test_auth.py`
+ - [NO] Coverage: 75% (< 80% requerido)
 
  Por favor corregir antes de continuar con el review.
 
@@ -117,13 +117,13 @@ sección abajo).
 
 **Formato recomendado**:
 
-**❌ Comentario NO constructivo**:
+**[NO] Comentario NO constructivo**:
 
 ::
 
  Este código está mal.
 
-**✅ Comentario constructivo**:
+**[OK] Comentario constructivo**:
 
 .. code:: markdown
 
@@ -150,11 +150,11 @@ Optimization <https://docs.djangoproject.com/en/4.2/topics/db/optimization/>`__
 
 
  **Tipos de comentarios**:
- - 🔴 **Blocker**: Debe corregirse antes de merge
- - 🟡 **Major**: Debería corregirse (discutible)
- - 🟢 **Minor**: Sugerencia opcional (nitpick)
- - 💡 **Question**: Clarificación o pregunta
- - 👍 **Praise**: Reconocer buen trabajo
+ - [CRITICO] **Blocker**: Debe corregirse antes de merge
+ - [MEDIO] **Major**: Debería corregirse (discutible)
+ - [OK] **Minor**: Sugerencia opcional (nitpick)
+ - [IDEA] **Question**: Clarificación o pregunta
+ - [BIEN] **Praise**: Reconocer buen trabajo
 
  ---
 
@@ -245,8 +245,8 @@ Optimization <https://docs.djangoproject.com/en/4.2/topics/db/optimization/>`__
 
  # Probar manualmente la funcionalidad
 
-Verificar: - ✅ Aplicación inicia sin errores - ✅ Funcionalidad nueva
-trabaja como se espera - ✅ No hay regresiones en funcionalidad
+Verificar: - [OK] Aplicación inicia sin errores - [OK] Funcionalidad nueva
+trabaja como se espera - [OK] No hay regresiones en funcionalidad
 existente
 
 --------------
@@ -254,37 +254,37 @@ existente
 PASO 6: Decisión de Aprobación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6.1 Aprobar con 👍 (Approve)
+6.1 Aprobar con [BIEN] (Approve)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Criterios**: - ✅ Todos los checks de CI/CD pasan - ✅ Código cumple
-todos los estándares de calidad - ✅ Tests adecuados y pasando - ✅ Sin
-blockers pendientes - ✅ Documentación completa
+**Criterios**: - [OK] Todos los checks de CI/CD pasan - [OK] Código cumple
+todos los estándares de calidad - [OK] Tests adecuados y pasando - [OK] Sin
+blockers pendientes - [OK] Documentación completa
 
 **Acción en GitHub**: 1. Click en “Review changes” 2. Seleccionar
-“Approve” 3. Mensaje: \``\` LGTM! 👍
+“Approve” 3. Mensaje: \``\` LGTM! [BIEN]
 
 Excelente trabajo con la implementación de autenticación JWT. Tests bien
 estructurados y coverage adecuado. \``\`
 
 --------------
 
-6.2 Request Changes ⚠️
+6.2 Request Changes [ALERTA]️
 ^^^^^^^^^^^^^^^^^^^^^^
 
-**Criterios**: - 🔴 Hay blockers que deben corregirse - 🔴 Tests
-faltantes o failing - 🔴 Problemas de seguridad - 🔴 Violaciones
+**Criterios**: - [CRITICO] Hay blockers que deben corregirse - [CRITICO] Tests
+faltantes o failing - [CRITICO] Problemas de seguridad - [CRITICO] Violaciones
 significativas de estándares
 
 **Acción en GitHub**: 1. Click en “Review changes” 2. Seleccionar
 “Request changes” 3. Mensaje claro con lista de cambios requeridos:
-\```markdown ### Cambios Requeridos 🔴
+\```markdown ### Cambios Requeridos [CRITICO]
 
 1. **Security**: Remover hardcoded API key en ``config.py:42``
 2. **Testing**: Agregar tests para edge case de token expirado
 3. **Performance**: Optimizar N+1 query en ``auth_service.py:78``
 
-### Sugerencias Opcionales 🟡
+### Sugerencias Opcionales [MEDIO]
 
 1. Considerar extraer lógica de refresh token a servicio separado
 2. Agregar logging para intentos de autenticación fallidos
@@ -293,7 +293,7 @@ Por favor actualizar y re-solicitar review. \``\`
 
 --------------
 
-6.3 Comment (sin aprobar/rechazar) 💬
+6.3 Comment (sin aprobar/rechazar) [NOTA]
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Cuándo usar**: - Tienes preguntas que necesitan clarificación -
@@ -348,7 +348,7 @@ Tiempos Esperados de Respuesta
 Mejores Prácticas para Reviewers
 --------------------------------
 
-DO ✅
+DO [OK]
 ~~~~~
 
 1. **Ser constructivo**: Sugerir soluciones, no solo señalar problemas
@@ -358,7 +358,7 @@ DO ✅
 5. **Priorizar**: Separar blockers de nitpicks
 6. **Ser oportuno**: Responder rápido para no bloquear al equipo
 
-DON’T ❌
+DON’T [NO]
 ~~~~~~~~
 
 1. **Ser vago**: “Este código no me gusta” sin explicación

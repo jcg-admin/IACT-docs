@@ -56,13 +56,13 @@ PASO 1: Determinar si se Necesita un ADR
 
 ¿La decisión cumple al menos UNO de estos criterios?
 
-- ✅ **Impacto estructural**: Afecta arquitectura general del sistema
-- ✅ **Difícil de revertir**: Cambiarla después sería costoso
-- ✅ **Afecta múltiples equipos**: Impacta varios dominios
-- ✅ **Nueva tecnología**: Introducción de nueva herramienta/framework
-- ✅ **Cambio de patrón**: Modificación de patrón arquitectónico
-- ✅ **Trade-offs significativos**: Pros/cons importantes a considerar
-- ✅ **Precedente**: Sentará base para decisiones futuras
+- [OK] **Impacto estructural**: Afecta arquitectura general del sistema
+- [OK] **Difícil de revertir**: Cambiarla después sería costoso
+- [OK] **Afecta múltiples equipos**: Impacta varios dominios
+- [OK] **Nueva tecnología**: Introducción de nueva herramienta/framework
+- [OK] **Cambio de patrón**: Modificación de patrón arquitectónico
+- [OK] **Trade-offs significativos**: Pros/cons importantes a considerar
+- [OK] **Precedente**: Sentará base para decisiones futuras
 
 **Ejemplos que SÍ requieren ADR**: - Elegir base de datos (PostgreSQL vs
 MongoDB) - Adoptar arquitectura de microservicios - Seleccionar
@@ -195,20 +195,20 @@ Copiar y completar template:
  ### Opción 1: [Nombre]
 
  **Pros:**
- - ✅ Ventaja 1
- - ✅ Ventaja 2
+ - [OK] Ventaja 1
+ - [OK] Ventaja 2
 
  **Contras:**
- - ❌ Desventaja 1
- - ❌ Desventaja 2
+ - [NO] Desventaja 1
+ - [NO] Desventaja 2
 
  ### Opción 2: [Nombre]
 
  **Pros:**
- - ✅ Ventaja 1
+ - [OK] Ventaja 1
 
  **Contras:**
- - ❌ Desventaja 1
+ - [NO] Desventaja 1
 
  ### Opción Elegida: [Nombre]
 
@@ -218,15 +218,15 @@ Copiar y completar template:
  ## Consecuencias
 
  ### Positivas
- - ✅ Beneficio 1
- - ✅ Beneficio 2
+ - [OK] Beneficio 1
+ - [OK] Beneficio 2
 
  ### Negativas
- - ⚠️ Trade-off 1
- - ⚠️ Trade-off 2
+ - [ALERTA]️ Trade-off 1
+ - [ALERTA]️ Trade-off 2
 
  ### Neutrales
- - 🔄 Cambio 1 (ni bueno ni malo)
+ - [CICLO] Cambio 1 (ni bueno ni malo)
 
  ## Implementación
 
@@ -334,15 +334,15 @@ cada una - Por qué fueron descartadas
  ### Opción 1: SQL Directo (Status Quo)
 
  **Pros:**
- - ✅ Control total sobre queries
- - ✅ Performance óptimo para casos específicos
- - ✅ No hay curva de aprendizaje
+ - [OK] Control total sobre queries
+ - [OK] Performance óptimo para casos específicos
+ - [OK] No hay curva de aprendizaje
 
  **Contras:**
- - ❌ Alto riesgo de SQL injection
- - ❌ Difícil de mantener
- - ❌ No hay abstracción de BD
- - ❌ Mucho código boilerplate
+ - [NO] Alto riesgo de SQL injection
+ - [NO] Difícil de mantener
+ - [NO] No hay abstracción de BD
+ - [NO] Mucho código boilerplate
 
  **Por qué fue descartada:** Los riesgos de seguridad y mantenibilidad superan los beneficios.
 
@@ -351,16 +351,16 @@ cada una - Por qué fueron descartadas
  ### Opción 2: SQLAlchemy
 
  **Pros:**
- - ✅ ORM muy potente y flexible
- - ✅ Excelente performance
- - ✅ Permite raw SQL cuando se necesita
- - ✅ Independiente de framework
+ - [OK] ORM muy potente y flexible
+ - [OK] Excelente performance
+ - [OK] Permite raw SQL cuando se necesita
+ - [OK] Independiente de framework
 
  **Contras:**
- - ❌ Curva de aprendizaje pronunciada
- - ❌ Más verbose que Django ORM
- - ❌ Equipo no está familiarizado
- - ❌ Requiere configuración adicional
+ - [NO] Curva de aprendizaje pronunciada
+ - [NO] Más verbose que Django ORM
+ - [NO] Equipo no está familiarizado
+ - [NO] Requiere configuración adicional
 
  **Por qué fue descartada:** La curva de aprendizaje ralentizaría el desarrollo.
 
@@ -369,17 +369,17 @@ cada una - Por qué fueron descartadas
  ### Opción Elegida: Django ORM
 
  **Pros:**
- - ✅ Equipo ya conoce Django
- - ✅ Integración nativa con Django
- - ✅ Sintaxis simple e intuitiva
- - ✅ Migraciones automáticas
- - ✅ Admin panel gratis
- - ✅ Gran comunidad y documentación
+ - [OK] Equipo ya conoce Django
+ - [OK] Integración nativa con Django
+ - [OK] Sintaxis simple e intuitiva
+ - [OK] Migraciones automáticas
+ - [OK] Admin panel gratis
+ - [OK] Gran comunidad y documentación
 
  **Contras:**
- - ⚠️ Menos flexible que SQLAlchemy
- - ⚠️ Performance subóptimo en casos edge
- - ⚠️ Acoplamiento a Django framework
+ - [ALERTA]️ Menos flexible que SQLAlchemy
+ - [ALERTA]️ Performance subóptimo en casos edge
+ - [ALERTA]️ Acoplamiento a Django framework
 
  **Justificación:**
 
@@ -408,23 +408,23 @@ cada una - Por qué fueron descartadas
 
  ### Positivas
 
- - ✅ **Seguridad mejorada**: ORM previene SQL injection automáticamente
- - ✅ **Productividad aumentada**: Menos código boilerplate, desarrollo más rápido
- - ✅ **Mantenibilidad**: Código Python en lugar de strings SQL
- - ✅ **Testing**: Fácil mockear modelos en tests
- - ✅ **Migraciones**: Sistema automático de migrations evita errores manuales
+ - [OK] **Seguridad mejorada**: ORM previene SQL injection automáticamente
+ - [OK] **Productividad aumentada**: Menos código boilerplate, desarrollo más rápido
+ - [OK] **Mantenibilidad**: Código Python en lugar de strings SQL
+ - [OK] **Testing**: Fácil mockear modelos en tests
+ - [OK] **Migraciones**: Sistema automático de migrations evita errores manuales
 
  ### Negativas
 
- - ⚠️ **Dependencia de Django**: Difícil migrar a otro framework en futuro
- - ⚠️ **Performance**: Queries complejas pueden ser menos eficientes que SQL puro
- - ⚠️ **Curva de aprendizaje**: Nuevos devs deben aprender Django ORM quirks
- - ⚠️ **Debug**: Más difícil debuggear queries generadas automáticamente
+ - [ALERTA]️ **Dependencia de Django**: Difícil migrar a otro framework en futuro
+ - [ALERTA]️ **Performance**: Queries complejas pueden ser menos eficientes que SQL puro
+ - [ALERTA]️ **Curva de aprendizaje**: Nuevos devs deben aprender Django ORM quirks
+ - [ALERTA]️ **Debug**: Más difícil debuggear queries generadas automáticamente
 
  ### Neutrales
 
- - 🔄 **Tamaño del proyecto**: Django agrega dependencias (~10MB)
- - 🔄 **Estilo de código**: Cambio de paradigma de procedural SQL a OOP models
+ - [CICLO] **Tamaño del proyecto**: Django agrega dependencias (~10MB)
+ - [CICLO] **Estilo de código**: Cambio de paradigma de procedural SQL a OOP models
 
 --------------
 
@@ -491,16 +491,16 @@ PASO 5: Revisión y Aprobación
 
 Revisar checklist:
 
-- ☐ Título descriptivo y conciso
-- ☐ Frontmatter completo (id, estado, propietario, fecha)
-- ☐ Contexto explica claramente el problema
-- ☐ Decisión es clara y sin ambigüedades
-- ☐ Al menos 2 alternativas documentadas
-- ☐ Pros/cons de cada alternativa
-- ☐ Justificación de la opción elegida
-- ☐ Consecuencias realistas (no solo positivas)
-- ☐ Plan de implementación con timeline
-- ☐ Referencias incluidas (si aplica)
+- [ ] Título descriptivo y conciso
+- [ ] Frontmatter completo (id, estado, propietario, fecha)
+- [ ] Contexto explica claramente el problema
+- [ ] Decisión es clara y sin ambigüedades
+- [ ] Al menos 2 alternativas documentadas
+- [ ] Pros/cons de cada alternativa
+- [ ] Justificación de la opción elegida
+- [ ] Consecuencias realistas (no solo positivas)
+- [ ] Plan de implementación con timeline
+- [ ] Referencias incluidas (si aplica)
 
 --------------
 
@@ -605,7 +605,7 @@ PASO 7: Comunicar la Decisión
 
 ::
 
- 📢 Nuevo ADR aprobado: ADR-BACK-006
+ [ANUNCIO] Nuevo ADR aprobado: ADR-BACK-006
 
  Hemos decidido usar Django ORM como capa de abstracción de BD.
 
@@ -626,7 +626,7 @@ Si hay un README en ``/docs/gobernanza/adr/README.md``, agregar entrada:
 
  - [ADR-BACK-001: Grupos Funcionales Sin Jerarquía](ADR-BACK-001-grupos-funcionales-sin-jerarquia.md)
  - ...
- - [ADR-BACK-006: Django ORM vs SQLAlchemy](ADR-BACK-006-django-orm-vs-sqlalchemy.md) ⭐ NEW
+ - [ADR-BACK-006: Django ORM vs SQLAlchemy](ADR-BACK-006-django-orm-vs-sqlalchemy.md) [IMPORTANTE] NEW
 
 --------------
 
@@ -664,18 +664,18 @@ Checklist Final
 
 Antes de marcar ADR como completo:
 
-- ☐ Archivo nombrado correctamente: ``ADR-{DOMINIO}-{###}-{titulo}.md``
-- ☐ Frontmatter completo y correcto
-- ☐ Contexto claro y conciso
-- ☐ Decisión inequívoca
-- ☐ >= 2 alternativas documentadas
-- ☐ Pros/cons realistas para cada alternativa
-- ☐ Consecuencias honestas (positivas Y negativas)
-- ☐ Plan de implementación con timeline
-- ☐ PR creado y revisado
-- ☐ Aprobado por tech lead
-- ☐ Merged a main
-- ☐ Equipo notificado
+- [ ] Archivo nombrado correctamente: ``ADR-{DOMINIO}-{###}-{titulo}.md``
+- [ ] Frontmatter completo y correcto
+- [ ] Contexto claro y conciso
+- [ ] Decisión inequívoca
+- [ ] >= 2 alternativas documentadas
+- [ ] Pros/cons realistas para cada alternativa
+- [ ] Consecuencias honestas (positivas Y negativas)
+- [ ] Plan de implementación con timeline
+- [ ] PR creado y revisado
+- [ ] Aprobado por tech lead
+- [ ] Merged a main
+- [ ] Equipo notificado
 
 --------------
 

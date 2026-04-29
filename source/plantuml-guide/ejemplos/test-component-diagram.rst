@@ -11,10 +11,10 @@ Test: Component Diagram with Centralized Styling
 Validations
 ===========
 
-- ✓ !include path resolution (second diagram type)
-- ✓ Style inheritance across diagram types
-- ✓ Component and interface coloring
-- ✓ Sphinx sphinxcontrib-plantuml integration
+- OK !include path resolution (second diagram type)
+- OK Style inheritance across diagram types
+- OK Component and interface coloring
+- OK Sphinx sphinxcontrib-plantuml integration
 
 Diagram
 =======
@@ -56,8 +56,8 @@ Diagram
 Success Criteria
 ================
 
-- ✓ File created in discover/test-component-diagram.rst
-- ✓ !include path correct: ``!include ../../../_static/plantuml-styles.puml``
-- ✓ Diagram contains 3 packages and 8 components with relationships
-- ✓ Markup is well-formed
-- ✓ Diagram syntax is valid PlantUML
+- OK File created in discover/test-component-diagram.rst
+- OK !include path correct: ``!include ../../../_static/plantuml-styles.puml``
+- OK Diagram contains 3 packages and 8 components with relationships
+- OK Markup is well-formed
+- OK Diagram syntax is valid PlantUML

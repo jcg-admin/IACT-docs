@@ -83,7 +83,7 @@ Estado de cumplimiento
 Acciones prioritarias
 ---------------------
 
-- ☐ Definir calendario de releases
-- ☐ Crear roadmap de features frontend
-- ☐ Establecer proceso de changelog
-- ☐ Coordinar releases con backend e infrastructure
+- [ ] Definir calendario de releases
+- [ ] Crear roadmap de features frontend
+- [ ] Establecer proceso de changelog
+- [ ] Coordinar releases con backend e infrastructure

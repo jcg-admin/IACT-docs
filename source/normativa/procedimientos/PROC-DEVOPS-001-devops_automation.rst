@@ -550,34 +550,34 @@ Roadmap de Automatizaci?n
 Fase 1: Scripts Locales (COMPLETADO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☒ validate_critical_restrictions.sh
-- ☒ validate_security_config.sh
-- ☒ validate_database_router.sh
-- ☒ validar_estructura_docs.sh
+- [x] validate_critical_restrictions.sh
+- [x] validate_security_config.sh
+- [x] validate_database_router.sh
+- [x] validar_estructura_docs.sh
 
 Fase 2: Testing y Deploy (EN PROGRESO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☐ run_all_tests.sh (test completo local)
-- ☐ deploy.sh (deploy automatizado con validaci?n)
-- ☐ health_check.sh (monitoring continuo)
-- ☐ cleanup_sessions.sh (maintenance MySQL)
+- [ ] run_all_tests.sh (test completo local)
+- [ ] deploy.sh (deploy automatizado con validaci?n)
+- [ ] health_check.sh (monitoring continuo)
+- [ ] cleanup_sessions.sh (maintenance MySQL)
 
 Fase 3: Analytics Service Management (PR?XIMO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☐ analytics_portal_setup.sh
-- ☐ process_analytics_request.sh
-- ☐ triage_analytics_requests.sh
-- ☐ generate_analytics_reports.sh
+- [ ] analytics_portal_setup.sh
+- [ ] process_analytics_request.sh
+- [ ] triage_analytics_requests.sh
+- [ ] generate_analytics_reports.sh
 
 Fase 4: M?tricas y Observability (FUTURO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☐ dora_report.sh (m?tricas DORA locales)
-- ☐ performance_baseline.sh
-- ☐ capacity_planning.sh
-- ☐ incident_postmortem.sh
+- [ ] dora_report.sh (m?tricas DORA locales)
+- [ ] performance_baseline.sh
+- [ ] capacity_planning.sh
+- [ ] incident_postmortem.sh
 
 Checklist de Deployment
 -----------------------

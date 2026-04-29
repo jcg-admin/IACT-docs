@@ -212,11 +212,11 @@ Ejemplo: Módulo de Gestión de Usuarios
 Validación
 ~~~~~~~~~~
 
-- ☐ Módulo funcional identificado
-- ☐ Lista de casos de uso a incluir (3-10 recomendado)
-- ☐ Actores primarios identificados
-- ☐ Actores secundarios identificados
-- ☐ ID del diagrama asignado (UCD-DOMINIO-###-descripcion)
+- [ ] Módulo funcional identificado
+- [ ] Lista de casos de uso a incluir (3-10 recomendado)
+- [ ] Actores primarios identificados
+- [ ] Actores secundarios identificados
+- [ ] ID del diagrama asignado (UCD-DOMINIO-###-descripcion)
 
 PASO 2: Crear Archivo .puml con Nomenclatura
 --------------------------------------------
@@ -349,12 +349,12 @@ Ejemplo Completo Inicial
 Validación
 ~~~~~~~~~~
 
-- ☐ Archivo creado con nombre correcto
+- [ ] Archivo creado con nombre correcto
   (UCD-DOMINIO-###-descripcion.puml)
-- ☐ Ubicación correcta (diagramas/casos_uso/)
-- ☐ Estructura básica PlantUML presente
-- ☐ @startuml y @enduml presentes
-- ☐ Tema y configuración básica incluidos
+- [ ] Ubicación correcta (diagramas/casos_uso/)
+- [ ] Estructura básica PlantUML presente
+- [ ] @startuml y @enduml presentes
+- [ ] Tema y configuración básica incluidos
 
 PASO 3: Definir Actores (Primarios y Secundarios)
 -------------------------------------------------
@@ -462,11 +462,11 @@ Ejemplo Completo: Módulo de Autenticación
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los actores declarados
-- ☐ Nombres descriptivos en español
-- ☐ IDs cortos asignados
-- ☐ Comentarios identifican primarios vs secundarios
-- ☐ Sintaxis PlantUML correcta
+- [ ] Todos los actores declarados
+- [ ] Nombres descriptivos en español
+- [ ] IDs cortos asignados
+- [ ] Comentarios identifican primarios vs secundarios
+- [ ] Sintaxis PlantUML correcta
 
 PASO 4: Definir Casos de Uso Dentro del Límite del Sistema
 ----------------------------------------------------------
@@ -566,11 +566,11 @@ Ejemplo: Módulo de Gestión de Usuarios
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los casos de uso declarados
-- ☐ Formato VERBO+OBJETO correcto
-- ☐ Casos de uso DENTRO del rectángulo del sistema
-- ☐ IDs correlacionados con especificaciones textuales
-- ☐ Nombre descriptivo del sistema/módulo
+- [ ] Todos los casos de uso declarados
+- [ ] Formato VERBO+OBJETO correcto
+- [ ] Casos de uso DENTRO del rectángulo del sistema
+- [ ] IDs correlacionados con especificaciones textuales
+- [ ] Nombre descriptivo del sistema/módulo
 
 PASO 5: Establecer Relaciones con Dirección Correcta de Flechas
 ---------------------------------------------------------------
@@ -720,11 +720,11 @@ Ejemplo Completo: Módulo de Autenticación
 Validación
 ~~~~~~~~~~
 
-- ☐ Cada caso de uso tiene AL MENOS 1 actor primario (flecha Actor →
+- [ ] Cada caso de uso tiene AL MENOS 1 actor primario (flecha Actor →
   UC)
-- ☐ Actores secundarios correctamente conectados (flecha UC → Actor)
-- ☐ Dirección de flechas es consistente con especificación textual
-- ☐ No hay flechas en dirección incorrecta
+- [ ] Actores secundarios correctamente conectados (flecha UC → Actor)
+- [ ] Dirección de flechas es consistente con especificación textual
+- [ ] No hay flechas en dirección incorrecta
 
 PASO 6: Agregar Relaciones Include/Extend si Aplica
 ---------------------------------------------------
@@ -911,11 +911,11 @@ Cuándo NO Usar Include/Extend
 Validación
 ~~~~~~~~~~
 
-- ☐ Relaciones include/extend solo si existen realmente
-- ☐ Sintaxis correcta (.> para include/extend, –\|> para
+- [ ] Relaciones include/extend solo si existen realmente
+- [ ] Sintaxis correcta (.> para include/extend, –\|> para
   generalización)
-- ☐ Dirección de flechas correcta
-- ☐ Relaciones documentadas en especificaciones textuales también
+- [ ] Dirección de flechas correcta
+- [ ] Relaciones documentadas en especificaciones textuales también
 
 PASO 7: Generar SVG Localmente para Validar
 -------------------------------------------
@@ -988,13 +988,13 @@ Checklist de Validación Visual
 
 Al visualizar el SVG, verificar:
 
-- ☐ Actores aparecen como figuras de palo
-- ☐ Casos de uso aparecen como óvalos
-- ☐ Límite del sistema (rectángulo) visible
-- ☐ Flechas en dirección correcta
-- ☐ Nombres legibles
-- ☐ Layout es comprensible (no hay solapamientos)
-- ☐ Relaciones include/extend visibles (si aplican)
+- [ ] Actores aparecen como figuras de palo
+- [ ] Casos de uso aparecen como óvalos
+- [ ] Límite del sistema (rectángulo) visible
+- [ ] Flechas en dirección correcta
+- [ ] Nombres legibles
+- [ ] Layout es comprensible (no hay solapamientos)
+- [ ] Relaciones include/extend visibles (si aplican)
 
 Ajustar Layout si es Necesario
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1060,11 +1060,11 @@ Cada vez que modifique el .puml, regenerar SVG:
 Validación
 ~~~~~~~~~~
 
-- ☐ SVG generado exitosamente
-- ☐ SVG visualizado correctamente
-- ☐ Layout es comprensible
-- ☐ Todos los elementos visibles
-- ☐ Listo para referenciar en especificación textual
+- [ ] SVG generado exitosamente
+- [ ] SVG visualizado correctamente
+- [ ] Layout es comprensible
+- [ ] Todos los elementos visibles
+- [ ] Listo para referenciar en especificación textual
 
 PASO 8: Referenciar Diagrama en Especificación Textual
 ------------------------------------------------------
@@ -1192,11 +1192,11 @@ Actualizar Varios Archivos
 Validación
 ~~~~~~~~~~
 
-- ☐ Diagrama agregado a especificación(es) de caso(s) de uso
-- ☐ Ruta relativa correcta (verifica que imagen se muestre en preview
+- [ ] Diagrama agregado a especificación(es) de caso(s) de uso
+- [ ] Ruta relativa correcta (verifica que imagen se muestre en preview
   de markdown)
-- ☐ Link a archivo .puml incluido
-- ☐ Ubicado al inicio del documento, después del título
+- [ ] Link a archivo .puml incluido
+- [ ] Ubicado al inicio del documento, después del título
 
 PASO 9: Commit de .puml y .svg
 ------------------------------
@@ -1329,11 +1329,11 @@ Por Qué Commitear Tanto .puml como .svg
 Validación
 ~~~~~~~~~~
 
-- ☐ Archivo .puml commiteado
-- ☐ Archivo .svg commiteado
-- ☐ Especificaciones de casos de uso actualizadas commiteadas
-- ☐ Commit creado con mensaje descriptivo
-- ☐ Push exitoso
+- [ ] Archivo .puml commiteado
+- [ ] Archivo .svg commiteado
+- [ ] Especificaciones de casos de uso actualizadas commiteadas
+- [ ] Commit creado con mensaje descriptivo
+- [ ] Push exitoso
 
 Template Completo de Diagrama UML
 ---------------------------------

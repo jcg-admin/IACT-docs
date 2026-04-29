@@ -153,14 +153,14 @@ Flujo de Ejecución
 
 .. code-block:: text
 
-   MySQL → Extract → Pre-Check ✓ → Parse → Rules → Map → Schema ✓
-   → Batch → PostgreSQL → Commit ✓ → Audit Log
+   MySQL → Extract → Pre-Check OK → Parse → Rules → Map → Schema OK
+   → Batch → PostgreSQL → Commit OK → Audit Log
 
 **Escenario con Errores:**
 
 .. code-block:: text
 
-   MySQL → Extract → Pre-Check ✗ → Error Logger → Dead Letter Queue
+   MySQL → Extract → Pre-Check NO → Error Logger → Dead Letter Queue
                                                   ↓
                                             Audit Log (CNST-009)
 
@@ -193,12 +193,12 @@ Validación del Diagrama
 
 Este ejemplo demuestra:
 
-- ✓ Flujo completo de ETL con todas las fases
-- ✓ Manejo explícito de errores
-- ✓ Auditoría e inmutabilidad (CNST-009)
-- ✓ Monitoreo de métricas
-- ✓ Colores semánticos (verde=almacenamiento, rojo=errores, azul=procesamiento)
-- ✓ Integración con casos de uso del proyecto
+- OK Flujo completo de ETL con todas las fases
+- OK Manejo explícito de errores
+- OK Auditoría e inmutabilidad (CNST-009)
+- OK Monitoreo de métricas
+- OK Colores semánticos (verde=almacenamiento, rojo=errores, azul=procesamiento)
+- OK Integración con casos de uso del proyecto
 
 Referencias
 ===========

@@ -254,8 +254,8 @@ PASO 6: Verificaciones Post-Creación
 6.1 Verificar CI/CD
 ^^^^^^^^^^^^^^^^^^^
 
-Esperar que checks pasen: - ✅ Tests unitarios - ✅ Linters - ✅
-Coverage - ✅ Build exitoso
+Esperar que checks pasen: - [OK] Tests unitarios - [OK] Linters - [OK]
+Coverage - [OK] Build exitoso
 
 6.2 Revisar diff
 ^^^^^^^^^^^^^^^^
@@ -272,12 +272,12 @@ Opcional: Enviar mensaje en Slack/Teams notificando el PR.
 Criterios de Éxito Global
 -------------------------
 
-- ✅ PR creado y visible en GitHub
-- ✅ Todos los checks de CI/CD en verde
-- ✅ Reviewers asignados
-- ✅ Descripción completa con test plan
-- ✅ No hay merge conflicts
-- ✅ Diff contiene solo cambios intencionales
+- [OK] PR creado y visible en GitHub
+- [OK] Todos los checks de CI/CD en verde
+- [OK] Reviewers asignados
+- [OK] Descripción completa con test plan
+- [OK] No hay merge conflicts
+- [OK] Diff contiene solo cambios intencionales
 
 Problemas Comunes y Soluciones
 ------------------------------

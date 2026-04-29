@@ -74,12 +74,12 @@ Procedimiento de Revisión
 1.2 Hacer Cambios
 ^^^^^^^^^^^^^^^^^
 
-- ☐ Seguir `Estándares de
+- [ ] Seguir `Estándares de
   Documentación <../gobernanza/documentacion_corporativa.md>`__
 
-- ☐ Mantener formato markdown consistente
+- [ ] Mantener formato markdown consistente
 
-- ☐ Actualizar front matter (YAML)
+- [ ] Actualizar front matter (YAML)
 
  .. code:: yaml
 
@@ -115,41 +115,41 @@ Documentales <../checklists/checklist_cambios_documentales.md>`__
 Contenido
 ^^^^^^^^^
 
-- ☐ Propósito claro del documento
-- ☐ Alcance definido
-- ☐ Audiencia identificada
-- ☐ Estructura lógica
-- ☐ Ejemplos claros (si aplica)
-- ☐ Sin ambigüedades
+- [ ] Propósito claro del documento
+- [ ] Alcance definido
+- [ ] Audiencia identificada
+- [ ] Estructura lógica
+- [ ] Ejemplos claros (si aplica)
+- [ ] Sin ambigüedades
 
 Formato
 ^^^^^^^
 
-- ☐ Markdown válido
-- ☐ Títulos jerárquicos (# ## ###)
-- ☐ Code blocks con lenguaje especificado
-- ☐ Links válidos (internos y externos)
-- ☐ Imágenes con alt text
-- ☐ Tablas bien formateadas
+- [ ] Markdown válido
+- [ ] Títulos jerárquicos (# ## ###)
+- [ ] Code blocks con lenguaje especificado
+- [ ] Links válidos (internos y externos)
+- [ ] Imágenes con alt text
+- [ ] Tablas bien formateadas
 
 Metadata
 ^^^^^^^^
 
-- ☐ Front matter completo
-- ☐ ID único
-- ☐ Estado correcto
-- ☐ Propietario asignado
-- ☐ Fecha actualizada
-- ☐ Referencias cruzadas
+- [ ] Front matter completo
+- [ ] ID único
+- [ ] Estado correcto
+- [ ] Propietario asignado
+- [ ] Fecha actualizada
+- [ ] Referencias cruzadas
 
 Calidad
 ^^^^^^^
 
-- ☐ Sin typos evidentes
-- ☐ Lenguaje claro y conciso
-- ☐ Terminología consistente
-- ☐ Tono profesional
-- ☐ Español correcto
+- [ ] Sin typos evidentes
+- [ ] Lenguaje claro y conciso
+- [ ] Terminología consistente
+- [ ] Tono profesional
+- [ ] Español correcto
 
 3. Crear Pull Request
 ~~~~~~~~~~~~~~~~~~~~~
@@ -253,10 +253,10 @@ Variables de entorno documentadas - [ ] Configuraciones actualizadas
 6. Post-Merge
 ~~~~~~~~~~~~~
 
-- ☐ Verificar que doc se ve bien en repo
-- ☐ Actualizar índices si es necesario
-- ☐ Notificar a equipo si el cambio les afecta
-- ☐ Actualizar MkDocs site (futuro)
+- [ ] Verificar que doc se ve bien en repo
+- [ ] Actualizar índices si es necesario
+- [ ] Notificar a equipo si el cambio les afecta
+- [ ] Actualizar MkDocs site (futuro)
 
 ADRs (Architecture Decision Records)
 ------------------------------------
@@ -278,12 +278,12 @@ Crear ADR
 Review de ADR
 ~~~~~~~~~~~~~
 
-- ☐ Contexto bien explicado
-- ☐ Opciones consideradas documentadas
-- ☐ Pros/cons analizados objetivamente
-- ☐ Decisión justificada
-- ☐ Consecuencias identificadas
-- ☐ Stakeholders consultados
+- [ ] Contexto bien explicado
+- [ ] Opciones consideradas documentadas
+- [ ] Pros/cons analizados objetivamente
+- [ ] Decisión justificada
+- [ ] Consecuencias identificadas
+- [ ] Stakeholders consultados
 
 Aprobar ADR
 ~~~~~~~~~~~

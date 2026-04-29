@@ -90,25 +90,25 @@ Error recibido:
 3.1 Tecnicos
 ~~~~~~~~~~~~
 
-- ☐ Git 2.x o superior instalado
-- ☐ Acceso al entorno local
-- ☐ Permisos de escritura en directorio del repositorio
-- ☐ Conexion al proxy local activa (puerto 61479)
+- [ ] Git 2.x o superior instalado
+- [ ] Acceso al entorno local
+- [ ] Permisos de escritura en directorio del repositorio
+- [ ] Conexion al proxy local activa (puerto 61479)
 
 3.2 Credenciales
 ~~~~~~~~~~~~~~~~
 
-- ☐ Usuario Git: Claude
-- ☐ Email Git: noreply@anthropic.com
-- ☐ Token de acceso (si aplica)
-- ☐ Clave SSH (si se migra a SSH)
+- [ ] Usuario Git: Claude
+- [ ] Email Git: noreply@anthropic.com
+- [ ] Token de acceso (si aplica)
+- [ ] Clave SSH (si se migra a SSH)
 
 3.3 Conocimientos
 ~~~~~~~~~~~~~~~~~
 
-- ☐ Configuracion de Git (git config)
-- ☐ Manejo de credenciales
-- ☐ Debug de conexiones HTTP/HTTPS
+- [ ] Configuracion de Git (git config)
+- [ ] Manejo de credenciales
+- [ ] Debug de conexiones HTTP/HTTPS
 
 --------------
 
@@ -521,15 +521,15 @@ Si configuracion causa problemas:
 13. CHECKLIST DE EJECUCION
 --------------------------
 
-- ☐ Diagnostico inicial completado
-- ☐ Solucion elegida: [ ] Cred. explicitas [ ] HTTP config [ ] SSH [ ]
+- [ ] Diagnostico inicial completado
+- [ ] Solucion elegida: [ ] Cred. explicitas [ ] HTTP config [ ] SSH [ ]
   Proxy config
-- ☐ Configuracion aplicada
-- ☐ Push de branch validado (sin error 403)
-- ☐ Push de tag validado (sin error 403)
-- ☐ Pruebas limpiadas
-- ☐ Configuracion documentada
-- ☐ Procedimiento marcado como completado
+- [ ] Configuracion aplicada
+- [ ] Push de branch validado (sin error 403)
+- [ ] Push de tag validado (sin error 403)
+- [ ] Pruebas limpiadas
+- [ ] Configuracion documentada
+- [ ] Procedimiento marcado como completado
 
 --------------
 

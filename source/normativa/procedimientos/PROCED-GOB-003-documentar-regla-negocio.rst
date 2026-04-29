@@ -83,9 +83,9 @@ Ejemplo
 Validación
 ~~~~~~~~~~
 
-- ☐ La regla está claramente expresada
-- ☐ Se conoce la fuente original
-- ☐ Se identifica el dominio (BACK, FRONT, etc.)
+- [ ] La regla está claramente expresada
+- [ ] Se conoce la fuente original
+- [ ] Se identifica el dominio (BACK, FRONT, etc.)
 
 PASO 2: Clasificar en uno de 5 Tipos
 ------------------------------------
@@ -176,10 +176,10 @@ Ejemplo de Clasificación
 Validación
 ~~~~~~~~~~
 
-- ☐ Tipo seleccionado (Hecho, Restricción, Desencadenador, Inferencia,
+- [ ] Tipo seleccionado (Hecho, Restricción, Desencadenador, Inferencia,
   Cálculo)
-- ☐ Palabras clave identificadas
-- ☐ Si hay duda entre 2 tipos, documentar razón de elección
+- [ ] Palabras clave identificadas
+- [ ] Si hay duda entre 2 tipos, documentar razón de elección
 
 PASO 3: Asignar ID Único
 ------------------------
@@ -239,10 +239,10 @@ Ejemplos de IDs Correctos
 Validación
 ~~~~~~~~~~
 
-- ☐ ID no existe previamente
-- ☐ Número es consecutivo al último del dominio
-- ☐ Descripción en snake_case
-- ☐ Formato correcto: RN-DOMINIO-###-descripcion.md
+- [ ] ID no existe previamente
+- [ ] Número es consecutivo al último del dominio
+- [ ] Descripción en snake_case
+- [ ] Formato correcto: RN-DOMINIO-###-descripcion.md
 
 PASO 4: Completar Template Apropiado según Tipo
 -----------------------------------------------
@@ -335,11 +335,11 @@ TIPO 2: Restricción
 
  | Operación | Administrador | Staff | Usuario | Invitado |
  |---|:---:|:---:|:---:|:---:|
- | Ver registro | ✓ | ✓ | ✓ | ✓ |
- | Editar registro | ✓ | ✓ | ✗ | ✗ |
- | Eliminar registro | ✓ | ✗ | ✗ | ✗ |
+ | Ver registro | OK | OK | OK | OK |
+ | Editar registro | OK | OK | NO | NO |
+ | Eliminar registro | OK | NO | NO | NO |
 
- Leyenda: ✓ = Permitido ✗ = No permitido
+ Leyenda: OK = Permitido NO = No permitido
 
  ## Justificación
  [Por qué existe esta restricción: seguridad, regulación, política]
@@ -524,11 +524,11 @@ Acciones
 Validación
 ~~~~~~~~~~
 
-- ☐ Frontmatter completo (id, tipo, subtipo, categoria, version, fecha)
-- ☐ Título con formato: RN-DOMINIO-###: [Título Descriptivo]
-- ☐ Todas las secciones obligatorias completadas
-- ☐ Lenguaje claro y sin ambigüedades
-- ☐ Ejemplos incluidos cuando aplica
+- [ ] Frontmatter completo (id, tipo, subtipo, categoria, version, fecha)
+- [ ] Título con formato: RN-DOMINIO-###: [Título Descriptivo]
+- [ ] Todas las secciones obligatorias completadas
+- [ ] Lenguaje claro y sin ambigüedades
+- [ ] Ejemplos incluidos cuando aplica
 
 PASO 5: Identificar Impacto en Otros Niveles
 --------------------------------------------
@@ -606,10 +606,10 @@ como “Pendiente de crear”:
 Validación
 ~~~~~~~~~~
 
-- ☐ Al menos 1 artefacto relacionado identificado
-- ☐ Referencias bidireccionales (cuando el artefacto relacionado
+- [ ] Al menos 1 artefacto relacionado identificado
+- [ ] Referencias bidireccionales (cuando el artefacto relacionado
   existe, actualizarlo también)
-- ☐ IDs correctos y verificables
+- [ ] IDs correctos y verificables
 
 PASO 6: Validar y Revisar
 -------------------------
@@ -627,41 +627,41 @@ Checklist de Validación
 Validación de Formato
 ^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Frontmatter completo y correcto
-- ☐ ID único asignado (RN-DOMINIO-###)
-- ☐ Tipo correcto (hecho, restriccion, desencadenador, inferencia,
+- [ ] Frontmatter completo y correcto
+- [ ] ID único asignado (RN-DOMINIO-###)
+- [ ] Tipo correcto (hecho, restriccion, desencadenador, inferencia,
   calculo)
-- ☐ Título descriptivo
+- [ ] Título descriptivo
 
 Validación de Contenido
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Declaración clara y sin ambigüedades
-- ☐ Fuente documentada
-- ☐ Ejemplos incluidos (cuando aplica)
-- ☐ Lenguaje apropiado para el tipo
+- [ ] Declaración clara y sin ambigüedades
+- [ ] Fuente documentada
+- [ ] Ejemplos incluidos (cuando aplica)
+- [ ] Lenguaje apropiado para el tipo
 
 Validación de Clasificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Tipo es consistente con contenido
-- ☐ Si es RESTRICCIÓN: usa palabras clave (debe, no debe, no puede,
+- [ ] Tipo es consistente con contenido
+- [ ] Si es RESTRICCIÓN: usa palabras clave (debe, no debe, no puede,
   solo puede)
-- ☐ Si es DESENCADENADOR: ENTONCES describe ACCIÓN
-- ☐ Si es INFERENCIA: ENTONCES describe CONOCIMIENTO
-- ☐ Si es CÁLCULO: incluye fórmula clara
+- [ ] Si es DESENCADENADOR: ENTONCES describe ACCIÓN
+- [ ] Si es INFERENCIA: ENTONCES describe CONOCIMIENTO
+- [ ] Si es CÁLCULO: incluye fórmula clara
 
 Validación de Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Al menos 1 impacto identificado
-- ☐ IDs referenciados son correctos
-- ☐ Referencias bidireccionales establecidas
+- [ ] Al menos 1 impacto identificado
+- [ ] IDs referenciados son correctos
+- [ ] Referencias bidireccionales establecidas
 
 Validación de Ubicación
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Archivo en carpeta correcta según tipo:
+- [ ] Archivo en carpeta correcta según tipo:
 
   - ``reglas_negocio/hechos/``
   - ``reglas_negocio/restricciones/``
@@ -682,9 +682,9 @@ Acciones de Revisión
 Validación
 ~~~~~~~~~~
 
-- ☐ Checklist completado
-- ☐ Archivo en ubicación correcta
-- ☐ Sin errores de sintaxis markdown
+- [ ] Checklist completado
+- [ ] Archivo en ubicación correcta
+- [ ] Sin errores de sintaxis markdown
 
 PASO 7: Commit y Push
 ---------------------
@@ -761,9 +761,9 @@ Formato de Mensaje de Commit
 Validación
 ~~~~~~~~~~
 
-- ☐ Archivo agregado a git
-- ☐ Commit creado con mensaje descriptivo
-- ☐ Push exitoso
+- [ ] Archivo agregado a git
+- [ ] Commit creado con mensaje descriptivo
+- [ ] Push exitoso
 
 Ejemplo Completo: RN-BACK-029
 -----------------------------
@@ -825,11 +825,11 @@ PASO 4: Template Completado
 
  | Operación | Administrador | Staff | Usuario | Invitado |
  |---|:---:|:---:|:---:|:---:|
- | Ver configuración | ✓ | ✗ | ✗ | ✗ |
- | Editar configuración | ✓ | ✗ | ✗ | ✗ |
- | Restaurar configuración | ✓ | ✗ | ✗ | ✗ |
+ | Ver configuración | OK | NO | NO | NO |
+ | Editar configuración | OK | NO | NO | NO |
+ | Restaurar configuración | OK | NO | NO | NO |
 
- Leyenda: ✓ = Permitido ✗ = No permitido
+ Leyenda: OK = Permitido NO = No permitido
 
  ## Justificación
  La configuración del sistema afecta aspectos críticos de operación, seguridad y rendimiento. El acceso debe limitarse exclusivamente a personal con capacitación y autorización adecuadas para prevenir errores de configuración que puedan comprometer el sistema.
@@ -876,13 +876,13 @@ PASO 6: Validación Completada
 
 ::
 
- ✓ Frontmatter completo
- ✓ Tipo: restriccion
- ✓ Declaración usa "solo pueden"
- ✓ Matriz de permisos incluida
- ✓ Justificación clara
- ✓ Trazabilidad con 2 UC, 2 RF, 1 RNF
- ✓ Ubicación: reglas_negocio/restricciones/
+ OK Frontmatter completo
+ OK Tipo: restriccion
+ OK Declaración usa "solo pueden"
+ OK Matriz de permisos incluida
+ OK Justificación clara
+ OK Trazabilidad con 2 UC, 2 RF, 1 RNF
+ OK Ubicación: reglas_negocio/restricciones/
 
 PASO 7: Commit
 ~~~~~~~~~~~~~~

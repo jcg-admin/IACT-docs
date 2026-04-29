@@ -188,7 +188,7 @@ Sin excepciones. La unicidad es absoluta e incondicional.
  │ Usuario │
  ├─────────────────────────────────────┤
  │ id : INTEGER (PK) │
- │ username : VARCHAR(150) UNIQUE │◄── BR_013: Constraint UNIQUE
+ │ username : VARCHAR(150) UNIQUE │<── BR_013: Constraint UNIQUE
  │ email : VARCHAR(254) │
  │ estado : ENUM(ACTIVO,INACTIVO)│
  │ created_at : TIMESTAMP │

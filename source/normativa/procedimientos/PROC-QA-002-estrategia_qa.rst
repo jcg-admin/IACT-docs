@@ -65,8 +65,8 @@ Actividades coordinadas
 Acciones prioritarias
 ---------------------
 
-- ☐ Generar reporte inicial de cobertura y publicarlo en
+- [ ] Generar reporte inicial de cobertura y publicarlo en
   ``registros/``.
-- ☐ Completar registro de criterios de salida y enlazarlo con
+- [ ] Completar registro de criterios de salida y enlazarlo con
   Planificación y DevOps.
-- ☐ Configurar automatización de tests en la canalización CI.
+- [ ] Configurar automatización de tests en la canalización CI.

@@ -145,26 +145,26 @@ recuperacion
 4.1 Tecnicos
 ~~~~~~~~~~~~
 
-- ☐ Acceso al repositorio con permisos de escritura
-- ☐ Git 2.x o superior instalado
-- ☐ Conexion estable a repositorio remoto
-- ☐ Bash shell disponible (Linux/Mac/WSL)
+- [ ] Acceso al repositorio con permisos de escritura
+- [ ] Git 2.x o superior instalado
+- [ ] Conexion estable a repositorio remoto
+- [ ] Bash shell disponible (Linux/Mac/WSL)
 
 4.2 Organizacionales
 ~~~~~~~~~~~~~~~~~~~~
 
-- ☐ Bloque de tiempo reservado (3-4 horas)
-- ☐ Notificacion al equipo sobre consolidacion planificada
-- ☐ No hay trabajo critico en progreso en ramas a consolidar
-- ☐ Backlog de PRs revisado y cerrado
+- [ ] Bloque de tiempo reservado (3-4 horas)
+- [ ] Notificacion al equipo sobre consolidacion planificada
+- [ ] No hay trabajo critico en progreso en ramas a consolidar
+- [ ] Backlog de PRs revisado y cerrado
 
 4.3 Conocimientos
 ~~~~~~~~~~~~~~~~~
 
-- ☐ Git: merge, rebase, cherry-pick, reset
-- ☐ Resolucion de conflictos
-- ☐ Estrategias de rollback
-- ☐ Estructura del proyecto IACT
+- [ ] Git: merge, rebase, cherry-pick, reset
+- [ ] Resolucion de conflictos
+- [ ] Estrategias de rollback
+- [ ] Estructura del proyecto IACT
 
 --------------
 
@@ -423,12 +423,12 @@ ETAPA 6: VALIDACION FINAL (30 minutos)
 Paso 6.1: Checklist de Validacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Todas las tareas marcadas como completadas
-- ☐ git status muestra working tree clean
-- ☐ Numero de ramas reducido segun objetivo
-- ☐ Rama consolidada tiene commits esperados
-- ☐ Tests base pasan (si aplica)
-- ☐ No hay archivos huerfanos en raiz
+- [ ] Todas las tareas marcadas como completadas
+- [ ] git status muestra working tree clean
+- [ ] Numero de ramas reducido segun objetivo
+- [ ] Rama consolidada tiene commits esperados
+- [ ] Tests base pasan (si aplica)
+- [ ] No hay archivos huerfanos en raiz
 
 Paso 6.2: Validacion Tecnica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -552,26 +552,26 @@ Donde NNN = numero secuencial (001, 002, …)
 7.1 Cuantitativos
 ~~~~~~~~~~~~~~~~~
 
-- ☐ Reduccion minima 50% en numero de ramas activas
-- ☐ Todas las tareas del plan completadas (100%)
-- ☐ 0 conflictos de merge sin resolver
-- ☐ Tiempo real dentro de +20% del estimado
+- [ ] Reduccion minima 50% en numero de ramas activas
+- [ ] Todas las tareas del plan completadas (100%)
+- [ ] 0 conflictos de merge sin resolver
+- [ ] Tiempo real dentro de +20% del estimado
 
 7.2 Cualitativos
 ~~~~~~~~~~~~~~~~
 
-- ☐ Rama consolidada funcional y estable
-- ☐ Tests base pasando (si aplica)
-- ☐ Equipo notificado y satisfecho
-- ☐ Documentacion completa y clara
+- [ ] Rama consolidada funcional y estable
+- [ ] Tests base pasando (si aplica)
+- [ ] Equipo notificado y satisfecho
+- [ ] Documentacion completa y clara
 
 7.3 Metricas de Calidad
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- ☐ Tag de backup creado exitosamente
-- ☐ Working tree limpio (git status)
-- ☐ No archivos huerfanos en raiz
-- ☐ Lecciones aprendidas documentadas
+- [ ] Tag de backup creado exitosamente
+- [ ] Working tree limpio (git status)
+- [ ] No archivos huerfanos en raiz
+- [ ] Lecciones aprendidas documentadas
 
 --------------
 

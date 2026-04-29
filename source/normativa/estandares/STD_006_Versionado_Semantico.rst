@@ -191,8 +191,8 @@ hijos derivados deben evaluarse para actualización:
 
 .. code-block:: text
 
- ❌ v2.0.8 → v2.1.9 (salta v2.1.0 a v2.1.8)
- ✅ v2.0.8 → v2.1.0 (incremento correcto)
+ [NO] v2.0.8 → v2.1.9 (salta v2.1.0 a v2.1.8)
+ [OK] v2.0.8 → v2.1.0 (incremento correcto)
 
 Cada versión debe tener un commit/registro que la justifique.
 
@@ -272,7 +272,7 @@ Todo artefacto debe incluir una sección de historial con:
       Opción A: v2.0.10 (corrección del error)
       └── Solo si fuera corrección sin contenido nuevo
  
-   Opción B: v2.1.0 (nueva funcionalidad) ✅
+   Opción B: v2.1.0 (nueva funcionalidad) [OK]
    └── Correcto porque añade 55 FR nuevos
  
    Opción C: v2.1.9 (salto arbitrario)

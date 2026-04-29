@@ -184,12 +184,12 @@ Nuevo Diagrama: Checklist
 
 Para agregar un nuevo diagrama PlantUML:
 
-1. ☐ Crear bloque ``.. uml::`` en archivo RST
-2. ☐ Agregar ``!include ../_static/plantuml-styles.puml``
-3. ☐ **Agregar metadatos @IACT-DIAGRAM** (¡esto es crítico!)
-4. ☐ Completar el diagrama PlantUML
-5. ☐ Ejecutar ``make clean && make html``
-6. ☐ Verificar: Diagrama aparece en ``build/html/_static/img/diagrams/{modulo}/{tipo}/``
+1. [ ] Crear bloque ``.. uml::`` en archivo RST
+2. [ ] Agregar ``!include ../_static/plantuml-styles.puml``
+3. [ ] **Agregar metadatos @IACT-DIAGRAM** (¡esto es crítico!)
+4. [ ] Completar el diagrama PlantUML
+5. [ ] Ejecutar ``make clean && make html``
+6. [ ] Verificar: Diagrama aparece en ``build/html/_static/img/diagrams/{modulo}/{tipo}/``
 
 Preguntas Frecuentes
 ====================

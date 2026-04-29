@@ -87,10 +87,10 @@ Fase 1: Planning
 1.1 Recibir Feature/Bug
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Leer issue/requisito completo
-- ☐ Entender criterios de aceptación
-- ☐ Identificar casos de prueba
-- ☐ Estimar esfuerzo de testing
+- [ ] Leer issue/requisito completo
+- [ ] Entender criterios de aceptación
+- [ ] Identificar casos de prueba
+- [ ] Estimar esfuerzo de testing
 
 1.2 Crear Test Plan
 ^^^^^^^^^^^^^^^^^^^
@@ -301,13 +301,13 @@ Fase 5: Sign-off
 5.1 Criterios de Sign-off
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ☐ Todos los test cases ejecutados
-- ☐ > 95% de tests pasan
-- ☐ Bugs críticos: 0
-- ☐ Bugs altos: < 3
-- ☐ Documentación QA completada
-- ☐ Performance aceptable
-- ☐ No hay security issues
+- [ ] Todos los test cases ejecutados
+- [ ] > 95% de tests pasan
+- [ ] Bugs críticos: 0
+- [ ] Bugs altos: < 3
+- [ ] Documentación QA completada
+- [ ] Performance aceptable
+- [ ] No hay security issues
 
 5.2 QA Report
 ^^^^^^^^^^^^^

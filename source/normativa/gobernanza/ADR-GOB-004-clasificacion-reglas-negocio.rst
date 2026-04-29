@@ -244,14 +244,14 @@ Para restricciones basadas en roles de usuario, usar matriz:
 
  | Operación | Administrador | Staff | Usuario | Invitado |
  |---|:---:|:---:|:---:|:---:|
- | Ver registro | ✓ | ✓ | ✓ | ✓ |
- | Editar registro | ✓ | ✓ | ✗ | ✗ |
- | Eliminar registro | ✓ | ✗ | ✗ | ✗ |
- | Buscar en catálogo | ✓ | ✓ | ✓ | ✓ |
- | Generar reportes | ✓ | ✓ | ✗ | ✗ |
- | Configurar sistema | ✓ | ✗ | ✗ | ✗ |
+ | Ver registro | OK | OK | OK | OK |
+ | Editar registro | OK | OK | NO | NO |
+ | Eliminar registro | OK | NO | NO | NO |
+ | Buscar en catálogo | OK | OK | OK | OK |
+ | Generar reportes | OK | OK | NO | NO |
+ | Configurar sistema | OK | NO | NO | NO |
 
- Leyenda: ✓ = Permitido ✗ = No permitido
+ Leyenda: OK = Permitido NO = No permitido
 
 .. _formato-de-documentación-1:
 

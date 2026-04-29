@@ -143,11 +143,11 @@ Validación
 
 Este ejemplo demuestra:
 
-- ✓ Componentes con colores semánticos (verde=datos, azul=interfaces, etc.)
-- ✓ Flujos de datos directos e indirectos
-- ✓ Arquitectura de 3 capas (datos, aplicación, cliente)
-- ✓ Decisiones arquitectónicas (read-only MySQL, PostgreSQL analítico)
-- ✓ Conformidad con restricciones del proyecto (CNST-003, CNST-009)
+- OK Componentes con colores semánticos (verde=datos, azul=interfaces, etc.)
+- OK Flujos de datos directos e indirectos
+- OK Arquitectura de 3 capas (datos, aplicación, cliente)
+- OK Decisiones arquitectónicas (read-only MySQL, PostgreSQL analítico)
+- OK Conformidad con restricciones del proyecto (CNST-003, CNST-009)
 
 Referencias
 ===========

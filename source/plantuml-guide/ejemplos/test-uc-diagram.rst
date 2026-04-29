@@ -11,10 +11,10 @@ Test: Use Case Diagram with Centralized Styling
 Validations
 ===========
 
-- ✓ !include path resolution from discover/ to _static/
-- ✓ Actor and UseCase color application
-- ✓ Sphinx sphinxcontrib-plantuml integration
-- ✓ Diagram compiles without PlantUML errors
+- OK !include path resolution from discover/ to _static/
+- OK Actor and UseCase color application
+- OK Sphinx sphinxcontrib-plantuml integration
+- OK Diagram compiles without PlantUML errors
 
 Diagram
 =======
@@ -46,8 +46,8 @@ Diagram
 Success Criteria
 ================
 
-- ✓ File created in discover/test-uc-diagram.rst
-- ✓ PlantUML block contains !include with correct path: ``!include ../../../_static/plantuml-styles.puml``
-- ✓ Diagram contains 3-5 actors (4 total: student, instructor, admin) and 4 use cases
-- ✓ Markup is well-formed (Sphinx parseable)
-- ✓ Diagram syntax is valid PlantUML
+- OK File created in discover/test-uc-diagram.rst
+- OK PlantUML block contains !include with correct path: ``!include ../../../_static/plantuml-styles.puml``
+- OK Diagram contains 3-5 actors (4 total: student, instructor, admin) and 4 use cases
+- OK Markup is well-formed (Sphinx parseable)
+- OK Diagram syntax is valid PlantUML

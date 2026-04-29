@@ -241,9 +241,9 @@ RN-XXX, RS-XXX, RF-XXX, RNF-XXX) - OK ``tipo``: Clasificación BABOK - OK
 requisitos origen - OK ``trazabilidad_downward``: Lista de artefactos
 derivados (diseños, tests) - OK ``estado``: Estado del ciclo de vida
 
-**Campos recomendados:** - 🔶 ``iso29148_clause``: Mapeo a cláusula del
-estándar - 🔶 ``verificacion_metodo``: Cómo se verificará el requisito -
-🔶 ``criterios_aceptacion``: Lista de criterios medibles
+**Campos recomendados:** - [NOTA] ``iso29148_clause``: Mapeo a cláusula del
+estándar - [NOTA] ``verificacion_metodo``: Cómo se verificará el requisito -
+[NOTA] ``criterios_aceptacion``: Lista de criterios medibles
 
 **Checklist:** - [ ] Frontmatter YAML válido (sin errores de sintaxis) -
 [ ] Todos los campos obligatorios completados - [ ] IDs de trazabilidad

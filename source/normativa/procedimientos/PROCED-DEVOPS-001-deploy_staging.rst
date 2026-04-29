@@ -63,9 +63,9 @@ PASO 1: Pre-Deployment Checks
 1.2 Verificar tests en CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ir a GitHub Actions / Jenkins y confirmar: - ✅ Tests unitarios: PASSED
-- ✅ Tests de integración: PASSED - ✅ Linters: PASSED - ✅ Security
-scans: PASSED - ✅ Build: SUCCESSFUL
+Ir a GitHub Actions / Jenkins y confirmar: - [OK] Tests unitarios: PASSED
+- [OK] Tests de integración: PASSED - [OK] Linters: PASSED - [OK] Security
+scans: PASSED - [OK] Build: SUCCESSFUL
 
 **Si algún check falla**: NO proceder con deployment.
 
@@ -95,14 +95,14 @@ Enviar mensaje en canal de equipo:
 
 ::
 
- 🚀 Starting deployment to staging
+ [INICIO] Starting deployment to staging
 
  Branch: develop
  Commit: abc1234 - "feat(auth): implement JWT authentication"
  ETA: 15 minutos
  Expected downtime: 0 minutos
 
- Status updates: 🧵
+ Status updates: [HILO]
 
 --------------
 
@@ -283,8 +283,8 @@ Ejecutar tests críticos:
 4.4 Verificar UI manualmente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Abrir en navegador: - ✅ https://staging.iact-project.com - ✅ Login
-exitoso - ✅ Navegar páginas principales - ✅ Verificar nueva
+Abrir en navegador: - [OK] https://staging.iact-project.com - [OK] Login
+exitoso - [OK] Navegar páginas principales - [OK] Verificar nueva
 funcionalidad deployada
 
 --------------
@@ -292,9 +292,9 @@ funcionalidad deployada
 4.5 Verificar metrics
 ^^^^^^^^^^^^^^^^^^^^^
 
-Revisar dashboard de monitoreo (Datadog, Grafana, etc.): - ✅ Response
-times < threshold - ✅ Error rate < 1% - ✅ CPU usage normal - ✅ Memory
-usage normal - ✅ No picos de latencia
+Revisar dashboard de monitoreo (Datadog, Grafana, etc.): - [OK] Response
+times < threshold - [OK] Error rate < 1% - [OK] CPU usage normal - [OK] Memory
+usage normal - [OK] No picos de latencia
 
 --------------
 
@@ -336,14 +336,14 @@ Mensaje en canal de equipo:
 
 ::
 
- ✅ Deployment to staging SUCCESSFUL
+ [OK] Deployment to staging SUCCESSFUL
 
  Version: 1.2.3
  Duration: 12 minutos
  Downtime: 0 minutos
 
- Health checks: ✅ All passing
- Smoke tests: ✅ All passing
+ Health checks: [OK] All passing
+ Smoke tests: [OK] All passing
 
  Staging ready for testing!
 
@@ -355,8 +355,8 @@ PASO 6: Rollback (Si hay Problemas)
 6.1 Identificar problema
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Síntomas que requieren rollback: - 🔴 Health checks failing - 🔴 Error
-rate > 5% - 🔴 Critical functionality broken - 🔴 Database corruption
+Síntomas que requieren rollback: - [CRITICO] Health checks failing - [CRITICO] Error
+rate > 5% - [CRITICO] Critical functionality broken - [CRITICO] Database corruption
 
 --------------
 
@@ -411,11 +411,11 @@ Repetir health checks y smoke tests del PASO 4.
 
 ::
 
- ⚠️ ROLLBACK executed on staging
+ [ALERTA]️ ROLLBACK executed on staging
 
  Reason: Critical error in JWT authentication
  Rolled back to: version 1.2.2 (commit abc1234)
- Status: ✅ Staging stable
+ Status: [OK] Staging stable
 
  Investigation ongoing.
 

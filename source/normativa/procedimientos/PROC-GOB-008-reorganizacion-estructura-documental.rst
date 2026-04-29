@@ -312,7 +312,7 @@ Lecciones aprendidas documentadas (TASK-065)
  .. code:: bash
 
     # Procesar TODOS los .md
-    # Reemplazar: ✓→OK, ✅→[OK], ❌→[ERROR], ⚠️→[WARNING]
+    # Reemplazar: OK→OK, [OK]→[OK], [NO]→[ERROR], [ALERTA]️→[WARNING]
     # Eliminar emojis decorativos
     # Output: REPORTE-LIMPIEZA-EMOJIS.md
 
@@ -399,10 +399,10 @@ Técnicas de Prompting (para Agentes de IA)
 Criterios de Entrada
 --------------------
 
-- ☐ Plan de reorganización aprobado por Tech Lead del dominio
-- ☐ Backup creado (git tag local)
-- ☐ Equipo notificado del inicio
-- ☐ Restricciones del proyecto documentadas
+- [ ] Plan de reorganización aprobado por Tech Lead del dominio
+- [ ] Backup creado (git tag local)
+- [ ] Equipo notificado del inicio
+- [ ] Restricciones del proyecto documentadas
 
 Criterios de Salida
 -------------------
@@ -410,26 +410,26 @@ Criterios de Salida
 Cuantitativos
 ~~~~~~~~~~~~~
 
-- ☐ 13 carpetas nuevas creadas
-- ☐ 60-70 tareas completadas (100%)
-- ☐ 5+ ADRs formales creados
-- ☐ 4+ catálogos técnicos creados
-- ☐ 5+ procesos creados
-- ☐ 4+ procedimientos creados
-- ☐ 5+ matrices de trazabilidad creadas
-- ☐ 90%+ enlaces válidos
-- ☐ 100% directorios con README
-- ☐ 90%+ metadatos YAML válidos
-- ☐ 0 emojis/iconos en documentación
+- [ ] 13 carpetas nuevas creadas
+- [ ] 60-70 tareas completadas (100%)
+- [ ] 5+ ADRs formales creados
+- [ ] 4+ catálogos técnicos creados
+- [ ] 5+ procesos creados
+- [ ] 4+ procedimientos creados
+- [ ] 5+ matrices de trazabilidad creadas
+- [ ] 90%+ enlaces válidos
+- [ ] 100% directorios con README
+- [ ] 90%+ metadatos YAML válidos
+- [ ] 0 emojis/iconos en documentación
 
 Cualitativos
 ~~~~~~~~~~~~
 
-- ☐ Estructura alineada con docs/gobernanza/
-- ☐ Fácil navegación por desarrolladores
-- ☐ Trazabilidad completa implementada
-- ☐ Plantillas documentadas y accesibles
-- ☐ Equipo capacitado en nueva estructura
+- [ ] Estructura alineada con docs/gobernanza/
+- [ ] Fácil navegación por desarrolladores
+- [ ] Trazabilidad completa implementada
+- [ ] Plantillas documentadas y accesibles
+- [ ] Equipo capacitado en nueva estructura
 
 Métricas y KPIs
 ---------------
@@ -683,65 +683,65 @@ Checklist de Ejecución
 Preparación
 ~~~~~~~~~~~
 
-- ☐ Plan aprobado
-- ☐ Backup creado
-- ☐ Equipo notificado
-- ☐ Carpeta QA creada
-- ☐ Análisis completado
-- ☐ Plan documentado
-- ☐ Tareas listadas
+- [ ] Plan aprobado
+- [ ] Backup creado
+- [ ] Equipo notificado
+- [ ] Carpeta QA creada
+- [ ] Análisis completado
+- [ ] Plan documentado
+- [ ] Tareas listadas
 
 FASE 1
 ~~~~~~
 
-- ☐ Backup (git tag)
-- ☐ 13 carpetas creadas
-- ☐ READMEs iniciales
-- ☐ .gitkeep actualizado
-- ☐ Mapeo documentado
+- [ ] Backup (git tag)
+- [ ] 13 carpetas creadas
+- [ ] READMEs iniciales
+- [ ] .gitkeep actualizado
+- [ ] Mapeo documentado
 
 FASE 2
 ~~~~~~
 
-- ☐ 5+ ADRs creados
-- ☐ diseño/ consolidado
-- ☐ planificacion/ consolidado
-- ☐ sesiones/ reorganizado
-- ☐ qa/ expandido
+- [ ] 5+ ADRs creados
+- [ ] diseño/ consolidado
+- [ ] planificacion/ consolidado
+- [ ] sesiones/ reorganizado
+- [ ] qa/ expandido
 
 FASE 3
 ~~~~~~
 
-- ☐ 4+ catálogos creados
-- ☐ 5+ procesos creados
-- ☐ 4+ procedimientos creados
-- ☐ 5+ matrices trazabilidad
-- ☐ Plantillas creadas
-- ☐ Visión y roadmap
-- ☐ Metodologías
-- ☐ Referencias
-- ☐ CI/CD documentado
+- [ ] 4+ catálogos creados
+- [ ] 5+ procesos creados
+- [ ] 4+ procedimientos creados
+- [ ] 5+ matrices trazabilidad
+- [ ] Plantillas creadas
+- [ ] Visión y roadmap
+- [ ] Metodologías
+- [ ] Referencias
+- [ ] CI/CD documentado
 
 FASE 4
 ~~~~~~
 
-- ☐ Enlaces validados (90%+)
-- ☐ READMEs validados (100%)
-- ☐ YAML validado (90%+)
-- ☐ Nomenclatura validada (98%+)
-- ☐ Emojis eliminados (100%)
-- ☐ Legacy eliminado
-- ☐ Documentación actualizada
+- [ ] Enlaces validados (90%+)
+- [ ] READMEs validados (100%)
+- [ ] YAML validado (90%+)
+- [ ] Nomenclatura validada (98%+)
+- [ ] Emojis eliminados (100%)
+- [ ] Legacy eliminado
+- [ ] Documentación actualizada
 
 Finalización
 ~~~~~~~~~~~~
 
-- ☐ CHANGELOG creado
-- ☐ GUIA_NAVEGACION creada
-- ☐ Lecciones documentadas
-- ☐ Commit creado
-- ☐ Push exitoso
-- ☐ PR creado
+- [ ] CHANGELOG creado
+- [ ] GUIA_NAVEGACION creada
+- [ ] Lecciones documentadas
+- [ ] Commit creado
+- [ ] Push exitoso
+- [ ] PR creado
 
 Historial de Cambios
 --------------------

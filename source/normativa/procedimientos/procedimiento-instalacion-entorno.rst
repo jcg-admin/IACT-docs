@@ -377,18 +377,18 @@ Tests fallan
 Checklist de Verificación
 -------------------------
 
-- ☐ Git instalado y configurado
-- ☐ Python 3.11+ instalado
-- ☐ Vagrant y VirtualBox instalados
-- ☐ SSH configurado para GitHub
-- ☐ Repositorio clonado
-- ☐ VM de Vagrant funcionando
-- ☐ Dependencias Python instaladas
-- ☐ Migraciones aplicadas
-- ☐ Tests pasan
-- ☐ Servidor Django arranca
-- ☐ VS Code configurado
-- ☐ Acceso a documentación
+- [ ] Git instalado y configurado
+- [ ] Python 3.11+ instalado
+- [ ] Vagrant y VirtualBox instalados
+- [ ] SSH configurado para GitHub
+- [ ] Repositorio clonado
+- [ ] VM de Vagrant funcionando
+- [ ] Dependencias Python instaladas
+- [ ] Migraciones aplicadas
+- [ ] Tests pasan
+- [ ] Servidor Django arranca
+- [ ] VS Code configurado
+- [ ] Acceso a documentación
 
 Recursos Relacionados
 ---------------------

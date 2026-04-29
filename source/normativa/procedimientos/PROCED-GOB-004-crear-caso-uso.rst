@@ -111,10 +111,10 @@ Ejemplo 3: Sistema de Autenticación
 Validación
 ~~~~~~~~~~
 
-- ☐ Actor primario identificado (persona, rol o sistema)
-- ☐ Objetivo claro y medible
-- ☐ Actores secundarios identificados (0 o más)
-- ☐ El objetivo agrega valor al actor primario
+- [ ] Actor primario identificado (persona, rol o sistema)
+- [ ] Objetivo claro y medible
+- [ ] Actores secundarios identificados (0 o más)
+- [ ] El objetivo agrega valor al actor primario
 
 PASO 2: Nombrar con Patrón VERBO+OBJETO
 ---------------------------------------
@@ -199,11 +199,11 @@ Ejemplos INCORRECTOS y Corrección
 Validación
 ~~~~~~~~~~
 
-- ☐ Formato VERBO+OBJETO
-- ☐ Sin artículos (el, la, los, las)
-- ☐ Sin sujeto (usuario, sistema)
-- ☐ Capitalización correcta
-- ☐ Descriptivo del objetivo
+- [ ] Formato VERBO+OBJETO
+- [ ] Sin artículos (el, la, los, las)
+- [ ] Sin sujeto (usuario, sistema)
+- [ ] Capitalización correcta
+- [ ] Descriptivo del objetivo
 
 PASO 3: Asignar ID Único
 ------------------------
@@ -262,10 +262,10 @@ Ejemplos de IDs Correctos
 Validación
 ~~~~~~~~~~
 
-- ☐ ID no existe previamente
-- ☐ Número es consecutivo al último del dominio
-- ☐ verbo-objeto en snake_case (minúsculas, guiones)
-- ☐ Formato correcto: UC-DOMINIO-###-verbo-objeto.md
+- [ ] ID no existe previamente
+- [ ] Número es consecutivo al último del dominio
+- [ ] verbo-objeto en snake_case (minúsculas, guiones)
+- [ ] Formato correcto: UC-DOMINIO-###-verbo-objeto.md
 
 PASO 4: Identificar Precondiciones
 ----------------------------------
@@ -340,9 +340,9 @@ Es válido no tener precondiciones:
 Validación
 ~~~~~~~~~~
 
-- ☐ Precondiciones son estados previos, no acciones
-- ☐ Precondiciones son verificables
-- ☐ Si no hay precondiciones, documentar explícitamente “Ninguna”
+- [ ] Precondiciones son estados previos, no acciones
+- [ ] Precondiciones son verificables
+- [ ] Si no hay precondiciones, documentar explícitamente “Ninguna”
 
 PASO 5: Escribir Flujo Normal en Formato Dos Columnas
 -----------------------------------------------------
@@ -446,12 +446,12 @@ Principio QUÉ vs CÓMO
 Validación
 ~~~~~~~~~~
 
-- ☐ Pasos numerados secuencialmente
-- ☐ Separación clara entre actor y sistema
-- ☐ Un paso = una acción concreta
-- ☐ Describe QUÉ, no CÓMO
-- ☐ Comportamiento observable por el usuario
-- ☐ Flujo lleva a un resultado exitoso
+- [ ] Pasos numerados secuencialmente
+- [ ] Separación clara entre actor y sistema
+- [ ] Un paso = una acción concreta
+- [ ] Describe QUÉ, no CÓMO
+- [ ] Comportamiento observable por el usuario
+- [ ] Flujo lleva a un resultado exitoso
 
 PASO 6: Identificar Flujos Alternos y Excepciones
 -------------------------------------------------
@@ -606,11 +606,11 @@ Preguntas para Identificar Excepciones
 Validación
 ~~~~~~~~~~
 
-- ☐ Al menos 1 flujo alterno o 1 excepción identificado
-- ☐ Punto de entrada claro para cada flujo/excepción
-- ☐ Condición de activación especificada
-- ☐ Punto de retorno o terminación especificado
-- ☐ Diferencia clara entre alternos (éxito) y excepciones (error)
+- [ ] Al menos 1 flujo alterno o 1 excepción identificado
+- [ ] Punto de entrada claro para cada flujo/excepción
+- [ ] Condición de activación especificada
+- [ ] Punto de retorno o terminación especificado
+- [ ] Diferencia clara entre alternos (éxito) y excepciones (error)
 
 PASO 7: Listar Reglas de Negocio Relacionadas
 ---------------------------------------------
@@ -678,10 +678,10 @@ Y luego crear las RN usando PROCED-GOB-003.
 Validación
 ~~~~~~~~~~
 
-- ☐ Al menos 1 regla de negocio relacionada identificada
-- ☐ IDs correctos (RN-DOMINIO-###)
-- ☐ Nombres descriptivos
-- ☐ Si RN no existe, marcada como [Pendiente]
+- [ ] Al menos 1 regla de negocio relacionada identificada
+- [ ] IDs correctos (RN-DOMINIO-###)
+- [ ] Nombres descriptivos
+- [ ] Si RN no existe, marcada como [Pendiente]
 
 PASO 8: Derivar Requisitos Funcionales Necesarios
 -------------------------------------------------
@@ -764,10 +764,10 @@ separados).
 Validación
 ~~~~~~~~~~
 
-- ☐ Al menos 1 RF derivado por cada responsabilidad del sistema
-- ☐ RF describe funcionalidad específica
-- ☐ RF es implementable por desarrolladores
-- ☐ IDs correctos (RF-DOMINIO-###)
+- [ ] Al menos 1 RF derivado por cada responsabilidad del sistema
+- [ ] RF describe funcionalidad específica
+- [ ] RF es implementable por desarrolladores
+- [ ] IDs correctos (RF-DOMINIO-###)
 
 PASO 9: Validar Principio QUÉ vs CÓMO
 -------------------------------------
@@ -786,12 +786,12 @@ Checklist de Validación QUÉ vs CÓMO
 Revisar Flujo Normal
 ^^^^^^^^^^^^^^^^^^^^
 
-- ☐ NO menciona tecnologías específicas (SQL, PostgreSQL, Redis, JWT)
-- ☐ NO menciona componentes internos (clases, módulos, servicios)
-- ☐ NO menciona algoritmos (SHA256, AES, RSA)
-- ☐ NO menciona estructuras de datos (arrays, hash maps, árboles)
-- ☐ SÍ describe comportamiento observable
-- ☐ SÍ describe resultados visibles para el usuario
+- [ ] NO menciona tecnologías específicas (SQL, PostgreSQL, Redis, JWT)
+- [ ] NO menciona componentes internos (clases, módulos, servicios)
+- [ ] NO menciona algoritmos (SHA256, AES, RSA)
+- [ ] NO menciona estructuras de datos (arrays, hash maps, árboles)
+- [ ] SÍ describe comportamiento observable
+- [ ] SÍ describe resultados visibles para el usuario
 
 Ejemplos de Corrección
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -848,10 +848,10 @@ Proceso de Corrección
 Validación
 ~~~~~~~~~~
 
-- ☐ Ningún paso menciona tecnologías específicas
-- ☐ Ningún paso describe algoritmos
-- ☐ Todo describe comportamiento observable
-- ☐ Un stakeholder no técnico puede entender el caso de uso
+- [ ] Ningún paso menciona tecnologías específicas
+- [ ] Ningún paso describe algoritmos
+- [ ] Todo describe comportamiento observable
+- [ ] Un stakeholder no técnico puede entender el caso de uso
 
 PASO 10: Crear Diagrama UML Complementario
 ------------------------------------------
@@ -1010,11 +1010,11 @@ Agregar al inicio del archivo del caso de uso:
 Validación
 ~~~~~~~~~~
 
-- ☐ Archivo .puml creado
-- ☐ SVG generado correctamente
-- ☐ Actores primarios con flecha Actor → UC
-- ☐ Actores secundarios con flecha UC → Actor
-- ☐ Diagrama referenciado en especificación del caso de uso
+- [ ] Archivo .puml creado
+- [ ] SVG generado correctamente
+- [ ] Actores primarios con flecha Actor → UC
+- [ ] Actores secundarios con flecha UC → Actor
+- [ ] Diagrama referenciado en especificación del caso de uso
 
 PASO 11: Commit y Push
 ----------------------
@@ -1101,9 +1101,9 @@ Formato de Mensaje de Commit
 Validación
 ~~~~~~~~~~
 
-- ☐ Todos los archivos agregados a git
-- ☐ Commit creado con mensaje descriptivo
-- ☐ Push exitoso
+- [ ] Todos los archivos agregados a git
+- [ ] Commit creado con mensaje descriptivo
+- [ ] Push exitoso
 
 Ejemplo Completo: UC-BACK-010 Registrar Usuario en Sistema
 ----------------------------------------------------------
@@ -1256,11 +1256,11 @@ PASO 9: Validación QUÉ vs CÓMO
 ::
 
  Revisión:
- ✓ No menciona base de datos específica (PostgreSQL, MySQL)
- ✓ No menciona algoritmo de generación de contraseña (random, UUID)
- ✓ No menciona tecnología de email (SendGrid, SMTP)
- ✓ Describe comportamiento observable
- ✓ Stakeholder no técnico puede entender
+ OK No menciona base de datos específica (PostgreSQL, MySQL)
+ OK No menciona algoritmo de generación de contraseña (random, UUID)
+ OK No menciona tecnología de email (SendGrid, SMTP)
+ OK Describe comportamiento observable
+ OK Stakeholder no técnico puede entender
 
  Aprobado: Cumple principio QUÉ vs CÓMO
 

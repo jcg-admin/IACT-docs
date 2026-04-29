@@ -129,10 +129,10 @@ Iconos Unicode
  echo "- Item"
  echo "-> Siguiente paso"
  echo "* Importante"
- echo "♦ Nota"
- echo "■ Opción"
+ echo "[NOTA] Nota"
+ echo "* Opción"
  echo "> Paso"
- echo "» Info"
+ echo ">> Info"
 
 Box Drawing Characters
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -239,61 +239,61 @@ Tabla de Referencia Rápida
      - sar OK Usar
      - \ 
    * - **Completado** O
-     - K [OK] ☑ [OK] [S
+     - K [OK] [x] [OK] [S
      - UCCESS] [DONE]
    * - **Error** NO [FA
-     - IL] ☒ [ERROR] [F
+     - IL] [x] [ERROR] [F
      - AIL] [FAILED]
    * - **Advertencia**
-     - WARNING FAST ⛔ [
+     - WARNING FAST [BLOQUEADO] [
      - WARN] [WARNING]
    * - **Información**
-     - INFO 📢 [INFO] [N
+     - INFO [ANUNCIO] [INFO] [N
      - OTE]
    * - **Depuración** [
      - BUG] BUSCAR [DEB
      - UG]
    * - **En proceso** E
-     - SPERANDO 🔄 ⌛ [RU
+     - SPERANDO [CICLO] [ESPERA] [RU
      - NNING] [PROCESSING]
-   * - **Esperando** ⏰
-     - ⏱️ [PENDING] [WA
+   * - **Esperando** [TIEMPO]
+     - [TIEMPO]️ [PENDING] [WA
      - ITING]
    * - **Inicio** START
      - >️ [START] Star
      - ting…
-   * - **Fin** 🏁 ⏹️ [ST
+   * - **Fin** [FIN] [STOP]️ [ST
      - OP] [END] Finish
      - ed
    * - **Archivo** FILE
      - FILE SAVE FILE:
      - file.txt
-   * - **Carpeta** 📂 🗂️
+   * - **Carpeta** [CARPETA] [ARCHIVADOR]️
      - DIRECTORY: /pat
      - h/
-   * - **Red** 🌐 📡 [NET
+   * - **Red** [RED] [ANTENA] [NET
      - WORK]
      - \ 
-   * - **Usuario** 👤 👥
+   * - **Usuario** [USUARIO] [USUARIOS]
      - USER: username
      - \ 
-   * - **Tiempo** ⏰ 🕐 T
+   * - **Tiempo** [TIEMPO] [HORA] T
      - IME: 10:30
      - \ 
-   * - **Fecha** 📅 PLAN
+   * - **Fecha** [FECHA] PLAN
      - DATE: 2025-10-2
      - 1
    * - **Viñetas** > -
-     - \* ♦ - \* 1. 2.
+     - \* [NOTA] - \* 1. 2.
      - \ 
    * - **Flechas** -> ⇒
-     - ➜ ➔ -> =>
+     - -> -> -> =>
      - \ 
-   * - **Check** ☑ [OK]
-     - ✔ [OK] PASS
+   * - **Check** [x] [OK]
+     - OK [OK] PASS
      - \ 
-   * - **Cross** ☒ [FAI
-     - L] ✘ [FAIL] ERRO
+   * - **Cross** [x] [FAI
+     - L] NO [FAIL] ERRO
      - R
 
 Excepciones
@@ -562,7 +562,7 @@ Script de Validación
  found_emojis=0
 
  # Lista de emojis comunes a detectar
- emoji_pattern='[OKNOWARNINGSTARTFILESAVEBUSCARESPERANDONUEVOEXITO>-->*♦■>»╔═╗║╚╝┌─┐│└┘]'
+ emoji_pattern='[OKNOWARNINGSTARTFILESAVEBUSCARESPERANDONUEVOEXITO>-->*[NOTA]*>>>╔═╗║╚╝┌─┐│└┘]'
 
  for file in $files; do
  # Saltar archivos de documentación
@@ -593,14 +593,14 @@ Checklist de Code Review
 
 Al revisar código, verificar:
 
-- ☐ No hay emojis en output de scripts
-- ☐ Se usan prefijos estándar ([INFO], [ERROR], etc.)
-- ☐ Logs son parseables con herramientas estándar
-- ☐ Separadores usan caracteres ASCII estándar
-- ☐ Type hints en funciones públicas (Python)
-- ☐ Docstrings presentes y en español
-- ☐ Tests tienen cobertura mínima 80%
-- ☐ Linters pasan sin errores
+- [ ] No hay emojis en output de scripts
+- [ ] Se usan prefijos estándar ([INFO], [ERROR], etc.)
+- [ ] Logs son parseables con herramientas estándar
+- [ ] Separadores usan caracteres ASCII estándar
+- [ ] Type hints en funciones públicas (Python)
+- [ ] Docstrings presentes y en español
+- [ ] Tests tienen cobertura mínima 80%
+- [ ] Linters pasan sin errores
 
 --------------
 
