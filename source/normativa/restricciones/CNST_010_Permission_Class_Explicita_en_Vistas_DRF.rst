@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_010
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_010
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-010:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_010
-   * - **Categoria**
-     - Seguridad DRF
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_010
+ * - **Categoria**
+ - Seguridad DRF
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -71,8 +71,8 @@ revisor.
 
 - ``DEFAULT_PERMISSION_CLASSES = [IsAuthenticated]`` como fallback.
 - Toda vista que opera sobre PII o catalogo RBAC declara una
-  permission class especifica (``HasFunctionPermission``,
-  ``IsAdminUser``).
+ permission class especifica (``HasFunctionPermission``,
+ ``IsAdminUser``).
 - Esta prohibido ``permission_classes = [AllowAny]`` excepto en login.
 
 2.2 Parametros
@@ -94,27 +94,27 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Access
-     - Define permission classes custom
-   * - Todos los DRF views
-     - Declaran permission_classes
+ * - Modulo
+ - Impacto
+ * - MOD_Access
+ - Define permission classes custom
+ * - Todos los DRF views
+ - Declaran permission_classes
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - Todos los UCs sobre PII o catalogo RBAC
-     - Requieren permission class explicita
+ * - UC
+ - Impacto
+ * - Todos los UCs sobre PII o catalogo RBAC
+ - Requieren permission class explicita
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,7 +128,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -139,8 +139,8 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   for view in get_all_drf_views():
-       assert hasattr(view, "permission_classes")
+ for view in get_all_drf_views:
+ assert hasattr(view, "permission_classes")
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,7 +163,7 @@ Sin excepciones — toda vista declara permission_classes.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -184,37 +184,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_009_Autenticacion_DRF_Obligatoria`, :doc:`CNST_029_RBAC_Modelo_Plano`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - Todos los UCs sobre PII o catalogo RBAC
-   * - **MODs afectados**
-     - MOD_Access, Todos los DRF views
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_009_Autenticacion_DRF_Obligatoria`, :doc:`CNST_029_RBAC_Modelo_Plano`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - Todos los UCs sobre PII o catalogo RBAC
+ * - **MODs afectados**
+ - MOD_Access, Todos los DRF views
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

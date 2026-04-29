@@ -30,12 +30,12 @@ deployment
 Pre-Deployment Checklist
 ------------------------
 
--  ☐ All tests implemented
--  ☐ Coverage >= 80%
--  ☐ CI/CD configured
--  ☐ Documentation complete
--  ☐ Code review approved
--  ☐ No blocking bugs
+- ☐ All tests implemented
+- ☐ Coverage >= 80%
+- ☐ CI/CD configured
+- ☐ Documentation complete
+- ☐ Code review approved
+- ☐ No blocking bugs
 
 --------------
 
@@ -47,59 +47,59 @@ Step 1: Create Test Infrastructure
 
 .. code:: bash
 
-   mkdir -p scripts/coding/ai/tests/techniques
-   mkdir -p scripts/coding/ai/tests/fixtures
-   mkdir -p scripts/coding/ai/tests/integration
-   touch scripts/coding/ai/tests/__init__.py
-   touch scripts/coding/ai/tests/techniques/__init__.py
+ mkdir -p scripts/coding/ai/tests/techniques
+ mkdir -p scripts/coding/ai/tests/fixtures
+ mkdir -p scripts/coding/ai/tests/integration
+ touch scripts/coding/ai/tests/__init__.py
+ touch scripts/coding/ai/tests/techniques/__init__.py
 
 Step 2: Deploy conftest.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Create conftest.py with shared fixtures
-   cp docs/agent/design/conftest_template.py scripts/coding/ai/tests/conftest.py
+ # Create conftest.py with shared fixtures
+ cp docs/agent/design/conftest_template.py scripts/coding/ai/tests/conftest.py
 
 Step 3: Deploy Test Files (Rolling)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Group 1
-   git add scripts/coding/ai/tests/techniques/test_auto_cot_agent.py
-   git add scripts/coding/ai/tests/techniques/test_self_consistency.py
-   git commit -m "feat(tests): add Auto-CoT and Self-Consistency tests"
+ # Group 1
+ git add scripts/coding/ai/tests/techniques/test_auto_cot_agent.py
+ git add scripts/coding/ai/tests/techniques/test_self_consistency.py
+ git commit -m "feat(tests): add Auto-CoT and Self-Consistency tests"
 
-   # Verify
-   pytest scripts/coding/ai/tests/techniques/test_auto_cot_agent.py -v
-   pytest scripts/coding/ai/tests/techniques/test_self_consistency.py -v
+ # Verify
+ pytest scripts/coding/ai/tests/techniques/test_auto_cot_agent.py -v
+ pytest scripts/coding/ai/tests/techniques/test_self_consistency.py -v
 
-   # If pass, continue with next group
-   # If fail, fix and retry
+ # If pass, continue with next group
+ # If fail, fix and retry
 
 Step 4: Activate CI/CD
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Add GitHub Actions workflow
-   cp docs/agent/testing/workflow_template.yml .github/workflows/test-prompting-techniques.yml
-   git add .github/workflows/test-prompting-techniques.yml
-   git commit -m "ci: add test workflow for prompting techniques"
-   git push
+ # Add GitHub Actions workflow
+ cp docs/agent/testing/workflow_template.yml .github/workflows/test-prompting-techniques.yml
+ git add .github/workflows/test-prompting-techniques.yml
+ git commit -m "ci: add test workflow for prompting techniques"
+ git push
 
 Step 5: Monitor & Validate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Watch CI/CD
-   gh run watch
+ # Watch CI/CD
+ gh run watch
 
-   # Generate coverage report
-   pytest --cov=scripts/coding/ai/agents/base --cov-report=html
-   open htmlcov/index.html
+ # Generate coverage report
+ pytest --cov=scripts/coding/ai/agents/base --cov-report=html
+ open htmlcov/index.html
 
 --------------
 
@@ -110,7 +110,7 @@ Trigger: Test failures in production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Actions**: 1. Identify failing test 2. Disable in pytest.ini:
-``ini  [pytest]  python_files = test_*.py  python_functions = test_*  markers =  slow: marks tests as slow  skip_on_ci: skip in CI``
+``ini [pytest] python_files = test_*.py python_functions = test_* markers = slow: marks tests as slow skip_on_ci: skip in CI``
 3. Create hotfix 4. Re-deploy
 
 Rollback Command
@@ -118,8 +118,8 @@ Rollback Command
 
 .. code:: bash
 
-   git revert <commit-hash>
-   git push origin main
+ git revert <commit-hash>
+ git push origin main
 
 --------------
 
@@ -131,14 +131,14 @@ Post-Deployment Validation
 
 .. code:: bash
 
-   # Run all tests
-   pytest scripts/coding/ai/tests/ -v
+ # Run all tests
+ pytest scripts/coding/ai/tests/ -v
 
-   # Check coverage
-   pytest --cov=scripts/coding/ai/agents/base --cov-report=term
+ # Check coverage
+ pytest --cov=scripts/coding/ai/agents/base --cov-report=term
 
-   # Verify CI passing
-   gh run list --workflow=test-prompting-techniques.yml
+ # Verify CI passing
+ gh run list --workflow=test-prompting-techniques.yml
 
 Success Criteria
 ~~~~~~~~~~~~~~~~
@@ -154,18 +154,18 @@ Monitoring
 Metrics to Track
 ~~~~~~~~~~~~~~~~
 
--  Test execution time
--  Test pass rate
--  Coverage percentage
--  Number of flaky tests
--  CI/CD pipeline duration
+- Test execution time
+- Test pass rate
+- Coverage percentage
+- Number of flaky tests
+- CI/CD pipeline duration
 
 Alerting
 ~~~~~~~~
 
--  Email on CI failure
--  Slack notification on coverage drop
--  GitHub PR comments on test failures
+- Email on CI failure
+- Slack notification on coverage drop
+- GitHub PR comments on test failures
 
 --------------
 

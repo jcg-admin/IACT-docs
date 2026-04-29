@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: UC_PERM_10
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :subdominio: casos_uso/permissions
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-09
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Media
+ :artefacto: UC_PERM_10
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: casos_uso/permissions
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-09
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Media
 
 .. _uc-perm-10:
 
@@ -47,33 +47,33 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 .. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
+ :widths: 33 33 33
+ :header-rows: 1
 
-   * - Paso
-     - Actor
-     - Sistema
-   * - 1
-     - Accede a módulo de auditoría
-     - Muestra interfaz de consulta
-   * - 2
-     - Selecciona filtros de búsqueda
-     - Valida parámetros
-   * - 3
-     - Opcionalmente define rango de fechas
-     - Valida rango no > 90 días
-   * - 4
-     - Ejecuta consulta
-     - Aplica filtros y paginación
-   * - 5
-     - -
-     - Retorna resultados (max 1000 registros)
-   * - 6
-     - Visualiza resultados
-     - Muestra tabla con datos
-   * - 7
-     - Opcionalmente exporta a CSV/Excel
-     - Genera archivo
+ * - Paso
+ - Actor
+ - Sistema
+ * - 1
+ - Accede a módulo de auditoría
+ - Muestra interfaz de consulta
+ * - 2
+ - Selecciona filtros de búsqueda
+ - Valida parámetros
+ * - 3
+ - Opcionalmente define rango de fechas
+ - Valida rango no > 90 días
+ * - 4
+ - Ejecuta consulta
+ - Aplica filtros y paginación
+ * - 5
+ - -
+ - Retorna resultados (max 1000 registros)
+ * - 6
+ - Visualiza resultados
+ - Muestra tabla con datos
+ * - 7
+ - Opcionalmente exporta a CSV/Excel
+ - Genera archivo
 
 
 
@@ -83,33 +83,33 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 
 .. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
+ :widths: 33 33 33
+ :header-rows: 1
 
-   * - Filtro
-     - Tipo
-     - Ejemplo
-   * - usuario_id
-     - Integer
-     - 123
-   * - capacidad_codigo
-     - String
-     - "sistema.vistas.dashboards.ver"
-   * - resultado
-     - Boolean
-     - true/false
-   * - fecha_desde
-     - DateTime
-     - "2025-01-01T00:00:00Z"
-   * - fecha_hasta
-     - DateTime
-     - "2025-01-09T23:59:59Z"
-   * - ip_address
-     - String
-     - "192.168.1.100"
-   * - user_agent__contains
-     - String
-     - "Chrome"
+ * - Filtro
+ - Tipo
+ - Ejemplo
+ * - usuario_id
+ - Integer
+ - 123
+ * - capacidad_codigo
+ - String
+ - "sistema.vistas.dashboards.ver"
+ * - resultado
+ - Boolean
+ - true/false
+ * - fecha_desde
+ - DateTime
+ - "2025-01-01T00:00:00Z"
+ * - fecha_hasta
+ - DateTime
+ - "2025-01-09T23:59:59Z"
+ * - ip_address
+ - String
+ - "192.168.1.100"
+ * - user_agent__contains
+ - String
+ - "Chrome"
 
 
 
@@ -119,35 +119,35 @@ El Administrador o Auditor consulta los registros históricos de verificaciones 
 
 .. code-block:: text
 
-   GET /api/permisos/auditoria/?usuario_id=123&resultado=false&fecha_desde=2025-01-01
-   Authorization: Bearer <token>
-   
-   Response:
-   {
-     "count": 45,
-     "next": "/api/permisos/auditoria/?page=2",
-     "previous": null,
-     "results": [
-       {
-         "id": 99999,
-         "usuario": {
-           "id": 123,
-           "username": "carlos.ruiz"
-         },
-         "capacidad_codigo": "sistema.administracion.usuarios.eliminar",
-         "resultado": false,
-         "ip_address": "192.168.1.100",
-         "user_agent": "Mozilla/5.0...",
-         "timestamp": "2025-01-09T14:30:15Z",
-         "metadatos": {
-           "path": "/admin/usuarios/456/delete/",
-           "method": "DELETE",
-           "latency_ms": 25
-         }
-       },
-       // ... más registros
-     ]
-   }
+ GET /api/permisos/auditoria/?usuario_id=123&resultado=false&fecha_desde=2025-01-01
+ Authorization: Bearer <token>
+ 
+ Response:
+ {
+ "count": 45,
+ "next": "/api/permisos/auditoria/?page=2",
+ "previous": null,
+ "results": [
+ {
+ "id": 99999,
+ "usuario": {
+ "id": 123,
+ "username": "carlos.ruiz"
+ },
+ "capacidad_codigo": "sistema.administracion.usuarios.eliminar",
+ "resultado": false,
+ "ip_address": "192.168.1.100",
+ "user_agent": "Mozilla/5.0...",
+ "timestamp": "2025-01-09T14:30:15Z",
+ "metadatos": {
+ "path": "/admin/usuarios/456/delete/",
+ "method": "DELETE",
+ "latency_ms": 25
+ }
+ },
+ // ... más registros
+ ]
+ }
 
 
 
@@ -165,11 +165,11 @@ Caso 1: Investigar accesos denegados de un usuario
 **Consulta**:
 .. code-block:: text
 
-   GET /api/permisos/auditoria/
-     ?usuario_id=123
-     &resultado=false
-     &fecha_desde=2025-01-09T00:00:00Z
-     &limit=50
+ GET /api/permisos/auditoria/
+ ?usuario_id=123
+ &resultado=false
+ &fecha_desde=2025-01-09T00:00:00Z
+ &limit=50
 
 
 **Análisis**:
@@ -187,10 +187,10 @@ Caso 2: Auditoría de seguridad
 **Consulta**:
 .. code-block:: text
 
-   GET /api/permisos/auditoria/
-     ?capacidad_codigo__contains=administracion
-     &resultado=false
-     &fecha_desde=2025-01-01T00:00:00Z
+ GET /api/permisos/auditoria/
+ ?capacidad_codigo__contains=administracion
+ &resultado=false
+ &fecha_desde=2025-01-01T00:00:00Z
 
 
 **Análisis**:
@@ -208,11 +208,11 @@ Caso 3: Compliance Report
 **Consulta**:
 .. code-block:: text
 
-   GET /api/permisos/auditoria/
-     ?capacidad_codigo=sistema.datos.sensibles.ver
-     &fecha_desde=2025-01-01
-     &fecha_hasta=2025-01-31
-     &export=excel
+ GET /api/permisos/auditoria/
+ ?capacidad_codigo=sistema.datos.sensibles.ver
+ &fecha_desde=2025-01-01
+ &fecha_hasta=2025-01-31
+ &export=excel
 
 
 **Output**: Excel con todos los accesos a datos sensibles en enero
@@ -224,17 +224,17 @@ Caso 3: Compliance Report
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Escenario
-     - Performance
-   * - Consulta simple (< 1000 registros)
-     - 100-200ms
-   * - Consulta compleja con múltiples filtros
-     - 300-500ms
-   * - Exportación a Excel (< 10,000 registros)
-     - 2-5s
+ * - Escenario
+ - Performance
+ * - Consulta simple (< 1000 registros)
+ - 100-200ms
+ * - Consulta compleja con múltiples filtros
+ - 300-500ms
+ * - Exportación a Excel (< 10,000 registros)
+ - 2-5s
 
 
 
@@ -249,18 +249,18 @@ Caso 3: Compliance Report
 
 .. code-block:: sql
 
-   CREATE INDEX idx_auditoria_usuario_timestamp
-       ON auditoria_permisos(usuario_id, timestamp DESC);
-   
-   CREATE INDEX idx_auditoria_capacidad_timestamp
-       ON auditoria_permisos(capacidad_codigo, timestamp DESC);
-   
-   CREATE INDEX idx_auditoria_resultado_timestamp
-       ON auditoria_permisos(resultado, timestamp DESC)
-       WHERE resultado = FALSE;  -- Partial index para denegados
-   
-   CREATE INDEX idx_auditoria_timestamp
-       ON auditoria_permisos(timestamp DESC);
+ CREATE INDEX idx_auditoria_usuario_timestamp
+ ON auditoria_permisos(usuario_id, timestamp DESC);
+ 
+ CREATE INDEX idx_auditoria_capacidad_timestamp
+ ON auditoria_permisos(capacidad_codigo, timestamp DESC);
+ 
+ CREATE INDEX idx_auditoria_resultado_timestamp
+ ON auditoria_permisos(resultado, timestamp DESC)
+ WHERE resultado = FALSE; -- Partial index para denegados
+ 
+ CREATE INDEX idx_auditoria_timestamp
+ ON auditoria_permisos(timestamp DESC);
 
 
 
@@ -270,21 +270,21 @@ Caso 3: Compliance Report
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - ID
-     - Regla
-   * - RN-010.1
-     - Solo usuarios con permiso `sistema.administracion.auditoria.ver` pueden consultar
-   * - RN-010.2
-     - Consultas limitadas a 90 días por performance
-   * - RN-010.3
-     - Máximo 1000 registros por página
-   * - RN-010.4
-     - Exportaciones limitadas a 10,000 registros
-   * - RN-010.5
-     - Auditoría de TODAS las consultas a auditoría (meta-auditoría)
+ * - ID
+ - Regla
+ * - RN-010.1
+ - Solo usuarios con permiso `sistema.administracion.auditoria.ver` pueden consultar
+ * - RN-010.2
+ - Consultas limitadas a 90 días por performance
+ * - RN-010.3
+ - Máximo 1000 registros por página
+ * - RN-010.4
+ - Exportaciones limitadas a 10,000 registros
+ * - RN-010.5
+ - Auditoría de TODAS las consultas a auditoría (meta-auditoría)
 
 
 
@@ -371,18 +371,18 @@ La tabla de auditoría puede integrarse con sistemas SIEM externos (Splunk, ELK,
 
 .. code-block:: python
 
-   # Ejemplo: Enviar logs a Splunk
-   @receiver(post_save, sender=AuditoriaPermiso)
-   def send_to_splunk(sender, instance, created, **kwargs):
-       if created:
-           splunk_client.send({
-               'event': 'permission_check',
-               'user_id': instance.usuario_id,
-               'permission': instance.capacidad_codigo,
-               'result': instance.resultado,
-               'ip': instance.ip_address,
-               'timestamp': instance.timestamp.isoformat(),
-           })
+ # Ejemplo: Enviar logs a Splunk
+ @receiver(post_save, sender=AuditoriaPermiso)
+ def send_to_splunk(sender, instance, created, **kwargs):
+ if created:
+ splunk_client.send({
+ 'event': 'permission_check',
+ 'user_id': instance.usuario_id,
+ 'permission': instance.capacidad_codigo,
+ 'result': instance.resultado,
+ 'ip': instance.ip_address,
+ 'timestamp': instance.timestamp.isoformat,
+ })
 
 
 
@@ -392,15 +392,15 @@ Changelog
 
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-01-09
-     - Sistema
-     - Creación inicial
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-01-09
+ - Sistema
+ - Creación inicial
 

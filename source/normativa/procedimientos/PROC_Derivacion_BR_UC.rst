@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Derivacion_BR_UC
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Derivacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Derivacion_BR_UC
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Derivacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-derivacion-br-uc:
 
@@ -22,18 +22,18 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Derivacion_BR_UC
-   * - **Nombre**
-     - Derivacion de BR a UC
-   * - **Categoria**
-     - Derivacion
-   * - **Ratio Esperado**
-     - 1 BR -> 2-3 UC
-   * - **Duracion**
-     - 1-2 horas por modulo
+ * - **ID**
+ - PROC_Derivacion_BR_UC
+ * - **Nombre**
+ - Derivacion de BR a UC
+ * - **Categoria**
+ - Derivacion
+ * - **Ratio Esperado**
+ - 1 BR -> 2-3 UC
+ * - **Duracion**
+ - 1-2 horas por modulo
 
 ----
 
@@ -74,10 +74,10 @@ Cada combinacion Actor-Accion-Objetivo = 1 UC candidato.
 
 .. code-block:: text
 
-   MOD_Auth:
-   - BR_005: Sesion Unica
-   - BR_008: Auditoria Accesos
-   - BR_015: Bloqueo Intentos
+ MOD_Auth:
+ - BR_005: Sesion Unica
+ - BR_008: Auditoria Accesos
+ - BR_015: Bloqueo Intentos
 
 **Paso 2: Analizar Cada BR**
 
@@ -85,12 +85,12 @@ Extraer interacciones necesarias:
 
 .. code-block:: text
 
-   BR_005: Sesion Unica
-   
-   Interacciones:
-   - Usuario inicia sesion -> UC_001
-   - Usuario cierra sesion -> UC_002
-   - Admin gestiona sesiones -> UC_005
+ BR_005: Sesion Unica
+ 
+ Interacciones:
+ - Usuario inicia sesion -> UC_001
+ - Usuario cierra sesion -> UC_002
+ - Admin gestiona sesiones -> UC_005
 
 **Paso 3: Identificar UC Candidatos**
 
@@ -98,12 +98,12 @@ Consolidar interacciones en UC:
 
 .. code-block:: text
 
-   UC identificados para MOD_Auth:
-   - UC_001: Iniciar Sesion
-   - UC_002: Cerrar Sesion
-   - UC_003: Recuperar Password
-   - UC_004: Cambiar Password
-   - UC_005: Gestionar Sesiones
+ UC identificados para MOD_Auth:
+ - UC_001: Iniciar Sesion
+ - UC_002: Cerrar Sesion
+ - UC_003: Recuperar Password
+ - UC_004: Cambiar Password
+ - UC_005: Gestionar Sesiones
 
 **Paso 4: Generar UC**
 
@@ -123,20 +123,20 @@ Cada BR debe tener al menos 1 UC que la implemente.
 -----------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - BR
-     - UC que Aplican
-     - Cantidad
-   * - BR_005
-     - UC_001, UC_002, UC_005
-     - 3
-   * - BR_008
-     - UC_001, UC_002, UC_060
-     - 3
-   * - BR_015
-     - UC_001
-     - 1
+ * - BR
+ - UC que Aplican
+ - Cantidad
+ * - BR_005
+ - UC_001, UC_002, UC_005
+ - 3
+ * - BR_008
+ - UC_001, UC_002, UC_060
+ - 3
+ * - BR_015
+ - UC_001
+ - 1
 
 ----
 
@@ -170,14 +170,14 @@ Cada BR debe tener al menos 1 UC que la implemente.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

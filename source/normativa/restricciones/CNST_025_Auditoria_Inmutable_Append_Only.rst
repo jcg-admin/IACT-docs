@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_025
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_025
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-025:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_025
-   * - **Categoria**
-     - Logging
-   * - **Tipo (TXM_01)**
-     - Regulatoria
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_025
+ * - **Categoria**
+ - Logging
+ * - **Tipo (TXM_01)**
+ - Regulatoria
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -69,11 +69,11 @@ de un auditor externo.
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-- Modelo ``AuditLog`` rechaza ``save()`` para registros existentes
-  (override que rechaza ``pk is not None``).
+- Modelo ``AuditLog`` rechaza ``save`` para registros existentes
+ (override que rechaza ``pk is not None``).
 - A nivel BD: trigger que rechaza ``UPDATE`` y ``DELETE``.
 - Usuario de BD de aplicacion sin permisos ``UPDATE``/``DELETE`` sobre
-  la tabla.
+ la tabla.
 - Retencion minima: 7 anos.
 
 2.2 Parametros
@@ -95,29 +95,29 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Audit
-     - Implementa AuditLog + trigger
-   * - (todos)
-     - Generan eventos auditables
+ * - Modulo
+ - Impacto
+ * - MOD_Audit
+ - Implementa AuditLog + trigger
+ * - (todos)
+ - Generan eventos auditables
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - Todos los UCs sensibles
-     - Generan AuditLog inmutable
-   * - UC_005
-     - Gestion de Sesiones — audit log
+ * - UC
+ - Impacto
+ * - Todos los UCs sensibles
+ - Generan AuditLog inmutable
+ * - UC_005
+ - Gestion de Sesiones — audit log
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -131,7 +131,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -142,9 +142,9 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: sql
 
-   CREATE OR REPLACE FUNCTION audit_immutable() RETURNS TRIGGER AS $$
-   BEGIN RAISE EXCEPTION 'audit log is append-only'; END;
-   $$ LANGUAGE plpgsql;
+ CREATE OR REPLACE FUNCTION audit_immutable RETURNS TRIGGER AS $$
+ BEGIN RAISE EXCEPTION 'audit log is append-only'; END;
+ $$ LANGUAGE plpgsql;
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -167,7 +167,7 @@ Archivado a cold storage requiere ADR + procedimiento de cadena de custodia.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -188,37 +188,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_024_Logs_Estructurados_en_Formato_JSON`, :doc:`CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - Todos los UCs sensibles, UC_005
-   * - **MODs afectados**
-     - MOD_Audit, (todos)
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_024_Logs_Estructurados_en_Formato_JSON`, :doc:`CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - Todos los UCs sensibles, UC_005
+ * - **MODs afectados**
+ - MOD_Audit, (todos)
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

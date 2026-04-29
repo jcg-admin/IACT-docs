@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Crear_Estructura_Directorios_Tmp
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Preparacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Crear_Estructura_Directorios_Tmp
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Preparacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-crear-estructura-directorios-tmp:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Crear_Estructura_Directorios_Tmp
-   * - **Nombre**
-     - Crear Estructura de Directorios en /tmp
-   * - **Categoria**
-     - Preparacion
-   * - **Frecuencia**
-     - Antes de cada sesion de generacion masiva
-   * - **Duracion Estimada**
-     - 2-5 minutos
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Crear_Estructura_Directorios_Tmp
+ * - **Nombre**
+ - Crear Estructura de Directorios en /tmp
+ * - **Categoria**
+ - Preparacion
+ * - **Frecuencia**
+ - Antes de cada sesion de generacion masiva
+ * - **Duracion Estimada**
+ - 2-5 minutos
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -75,15 +75,15 @@ correcta de carpetas para generar artefactos de forma organizada.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Generador
-     - Crea estructura de directorios
-     - Escritura en /tmp
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Generador
+ - Crea estructura de directorios
+ - Escritura en /tmp
 
 ----
 
@@ -102,15 +102,15 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - MODELO_DOCUMENTAL_IACT
-     - Estructura de carpetas oficial
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - MODELO_DOCUMENTAL_IACT
+ - Estructura de carpetas oficial
+ - Si
 
 ----
 
@@ -121,35 +121,35 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Creacion de Estructura
-   :align: center
+ :caption: Flujo de Creacion de Estructura
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-       DiamondBackgroundColor #FFF9C4
-       DiamondBorderColor #F57C00
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ DiamondBackgroundColor #FFF9C4
+ DiamondBorderColor #F57C00
+ }
 
-   start
+ start
 
-   :Identificar tipo de artefacto;
-   :Determinar estructura de carpetas;
+ :Identificar tipo de artefacto;
+ :Determinar estructura de carpetas;
 
-   if (Estructura por modulo?) then (si)
-       :Crear carpeta raiz en /tmp;
-       :Crear subcarpetas por modulo;
-       :Crear subcarpetas por UC (si aplica);
-   else (no)
-       :Crear carpeta unica en /tmp;
-   endif
+ if (Estructura por modulo?) then (si)
+ :Crear carpeta raiz en /tmp;
+ :Crear subcarpetas por modulo;
+ :Crear subcarpetas por UC (si aplica);
+ else (no)
+ :Crear carpeta unica en /tmp;
+ endif
 
-   :Verificar estructura creada;
+ :Verificar estructura creada;
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Estructuras por Tipo de Artefacto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,41 +158,41 @@ Antes de iniciar este procedimiento, verificar:
 
 .. code-block:: bash
 
-   # Estructura para FR
-   mkdir -p /tmp/funcionales/{auth,users,access,pipeline,reports,alerts,audit,logs}
-   
-   # Subcarpetas por UC dentro de cada modulo
-   mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
-   mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
-   # ... etc
+ # Estructura para FR
+ mkdir -p /tmp/funcionales/{auth,users,access,pipeline,reports,alerts,audit,logs}
+ 
+ # Subcarpetas por UC dentro de cada modulo
+ mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
+ mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
+ # ... etc
 
 **Para TST (Pruebas):**
 
 .. code-block:: bash
 
-   # Estructura para TST
-   mkdir -p /tmp/pruebas/{auth,users,access,pipeline,reports,alerts,audit,logs}
+ # Estructura para TST
+ mkdir -p /tmp/pruebas/{auth,users,access,pipeline,reports,alerts,audit,logs}
 
 **Para UC (Casos de Uso):**
 
 .. code-block:: bash
 
-   # Estructura para UC
-   mkdir -p /tmp/casos_uso/{auth,users,access,pipeline,reports,alerts,audit,logs}
+ # Estructura para UC
+ mkdir -p /tmp/casos_uso/{auth,users,access,pipeline,reports,alerts,audit,logs}
 
 **Para BR (Business Rules):**
 
 .. code-block:: bash
 
-   # Estructura plana para BR
-   mkdir -p /tmp/reglas_negocio
+ # Estructura plana para BR
+ mkdir -p /tmp/reglas_negocio
 
 **Para PROC (Procedimientos):**
 
 .. code-block:: bash
 
-   # Estructura plana para PROC
-   mkdir -p /tmp/procedimientos
+ # Estructura plana para PROC
+ mkdir -p /tmp/procedimientos
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -202,31 +202,31 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Determinar estructura segun tipo de artefacto:
 
-  .. list-table::
-     :widths: 20 40 40
-     :header-rows: 1
+ .. list-table::
+ :widths: 20 40 40
+ :header-rows: 1
 
-     * - Tipo
-       - Estructura
-       - Ejemplo
-     * - FR
-       - Por modulo y UC
-       - /tmp/funcionales/auth/UC_001/
-     * - TST
-       - Por modulo
-       - /tmp/pruebas/auth/
-     * - UC
-       - Por modulo
-       - /tmp/casos_uso/auth/
-     * - BR
-       - Plana
-       - /tmp/reglas_negocio/
-     * - PROC
-       - Plana
-       - /tmp/procedimientos/
-     * - TPL
-       - Plana
-       - /tmp/plantillas/
+ * - Tipo
+ - Estructura
+ - Ejemplo
+ * - FR
+ - Por modulo y UC
+ - /tmp/funcionales/auth/UC_001/
+ * - TST
+ - Por modulo
+ - /tmp/pruebas/auth/
+ * - UC
+ - Por modulo
+ - /tmp/casos_uso/auth/
+ * - BR
+ - Plana
+ - /tmp/reglas_negocio/
+ * - PROC
+ - Plana
+ - /tmp/procedimientos/
+ * - TPL
+ - Plana
+ - /tmp/plantillas/
 
 - **Resultado**: Estructura identificada
 - **Verificacion**: Coincide con modelo documental
@@ -236,9 +236,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Crear carpeta principal en /tmp
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     mkdir -p /tmp/[dominio]
+ mkdir -p /tmp/[dominio]
 
 - **Resultado**: Carpeta raiz creada
 - **Verificacion**: ``ls /tmp/[dominio]`` no da error
@@ -248,12 +248,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Crear los 8 modulos IACT
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Los 8 modulos IACT
-     for mod in auth users access pipeline reports alerts audit logs; do
-         mkdir -p /tmp/[dominio]/$mod
-     done
+ # Los 8 modulos IACT
+ for mod in auth users access pipeline reports alerts audit logs; do
+ mkdir -p /tmp/[dominio]/$mod
+ done
 
 - **Resultado**: 8 subcarpetas de modulo creadas
 - **Verificacion**: ``ls /tmp/[dominio]/`` muestra 8 carpetas
@@ -263,14 +263,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Para FR, crear carpeta por cada UC
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Ejemplo para auth (5 UC)
-     mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
-     mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
-     mkdir -p /tmp/funcionales/auth/UC_003_Recuperar_Password
-     mkdir -p /tmp/funcionales/auth/UC_004_Cambiar_Password
-     mkdir -p /tmp/funcionales/auth/UC_005_Gestionar_Sesiones
+ # Ejemplo para auth (5 UC)
+ mkdir -p /tmp/funcionales/auth/UC_001_Iniciar_Sesion
+ mkdir -p /tmp/funcionales/auth/UC_002_Cerrar_Sesion
+ mkdir -p /tmp/funcionales/auth/UC_003_Recuperar_Password
+ mkdir -p /tmp/funcionales/auth/UC_004_Cambiar_Password
+ mkdir -p /tmp/funcionales/auth/UC_005_Gestionar_Sesiones
 
 - **Resultado**: Subcarpetas por UC creadas
 - **Verificacion**: Estructura lista para recibir FR
@@ -280,10 +280,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Listar estructura creada
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Verificar estructura
-     find /tmp/[dominio] -type d | head -20
+ # Verificar estructura
+ find /tmp/[dominio] -type d | head -20
 
 - **Resultado**: Estructura verificada
 - **Verificacion**: Todas las carpetas necesarias existen
@@ -294,15 +294,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - Estructura de directorios
-     - Carpetas creadas en /tmp
-     - /tmp/[dominio]/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - Estructura de directorios
+ - Carpetas creadas en /tmp
+ - /tmp/[dominio]/
 
 ----
 
@@ -334,10 +334,10 @@ Al finalizar este procedimiento:
 
 .. code-block:: bash
 
-   # Verificar estructura FR
-   find /tmp/funcionales -type d | wc -l
-   
-   # Debe ser: 1 (raiz) + 8 (modulos) + N (UC) = minimo 9
+ # Verificar estructura FR
+ find /tmp/funcionales -type d | wc -l
+ 
+ # Debe ser: 1 (raiz) + 8 (modulos) + N (UC) = minimo 9
 
 ----
 
@@ -345,17 +345,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Carpeta ya existe
-     - Verificar contenido, limpiar si es necesario
-   * - Sin permisos en /tmp
-     - Usar directorio alternativo con permisos
-   * - Espacio insuficiente
-     - Limpiar /tmp de archivos anteriores
+ * - Excepcion
+ - Accion
+ * - Carpeta ya existe
+ - Verificar contenido, limpiar si es necesario
+ * - Sin permisos en /tmp
+ - Usar directorio alternativo con permisos
+ * - Espacio insuficiente
+ - Limpiar /tmp de archivos anteriores
 
 ----
 
@@ -371,17 +371,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

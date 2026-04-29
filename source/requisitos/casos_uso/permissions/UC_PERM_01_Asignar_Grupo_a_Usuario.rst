@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: UC_PERM_01
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :subdominio: casos_uso/permissions
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-09
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critica
+ :artefacto: UC_PERM_01
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: casos_uso/permissions
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-09
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critica
 
 .. _uc-perm-01:
 
@@ -18,11 +18,11 @@ UC_PERM_01: Asignar Grupo a Usuario
 
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
-   Este UC representa una vista del modelo RBAC. La
-   vista funcional / catalogo cerrado del mismo concepto esta en
-   :doc:`/requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones`
-   (o equivalente). Ambas coexisten per
-   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ Este UC representa una vista del modelo RBAC. La
+ vista funcional / catalogo cerrado del mismo concepto esta en
+ :doc:`/requisitos/casos_uso/access/UC_ACC_01_Asignar_Funciones`
+ (o equivalente). Ambas coexisten per
+ :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
 
 
 
@@ -84,39 +84,39 @@ Flujo principal
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - 1. Navega al módulo de gestión de usuarios
-     - (vacio)
-   * - 2. Selecciona usuario objetivo
-     - (vacio)
-   * - (vacio)
-     - 3. Muestra información del usuario actual
-   * - (vacio)
-     - 4. Muestra grupos disponibles para asignar
-   * - 5. Selecciona uno o más grupos de permisos
-     - (vacio)
-   * - 6. [OPCIONAL] Define fecha de expiración
-     - (vacio)
-   * - 7. [OPCIONAL] Ingresa motivo de asignación
-     - (vacio)
-   * - 8. Confirma asignación
-     - (vacio)
-   * - (vacio)
-     - 9. Valida que el administrador tiene permiso
-   * - (vacio)
-     - 10. Valida que los grupos existen y están activos
-   * - (vacio)
-     - 11. Crea relaciones UsuarioGrupo en base de datos
-   * - (vacio)
-     - 12. Registra asignación en auditoría (AuditoriaPermiso)
-   * - (vacio)
-     - 13. Muestra confirmación de éxito
-   * - (vacio)
-     - 14. Actualiza vista con grupos asignados
+ * - Actor
+ - Sistema
+ * - 1. Navega al módulo de gestión de usuarios
+ - (vacio)
+ * - 2. Selecciona usuario objetivo
+ - (vacio)
+ * - (vacio)
+ - 3. Muestra información del usuario actual
+ * - (vacio)
+ - 4. Muestra grupos disponibles para asignar
+ * - 5. Selecciona uno o más grupos de permisos
+ - (vacio)
+ * - 6. [OPCIONAL] Define fecha de expiración
+ - (vacio)
+ * - 7. [OPCIONAL] Ingresa motivo de asignación
+ - (vacio)
+ * - 8. Confirma asignación
+ - (vacio)
+ * - (vacio)
+ - 9. Valida que el administrador tiene permiso
+ * - (vacio)
+ - 10. Valida que los grupos existen y están activos
+ * - (vacio)
+ - 11. Crea relaciones UsuarioGrupo en base de datos
+ * - (vacio)
+ - 12. Registra asignación en auditoría (AuditoriaPermiso)
+ * - (vacio)
+ - 13. Muestra confirmación de éxito
+ * - (vacio)
+ - 14. Actualiza vista con grupos asignados
 
 
 
@@ -134,19 +134,19 @@ FA-1: Usuario ya tiene grupo asignado
 **Acción**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 11.a. Sistema detecta duplicado
-   * - (vacio)
-     - 11.b. Sistema ignora grupo duplicado
-   * - (vacio)
-     - 11.c. Sistema continúa con otros grupos
-   * - (vacio)
-     - 11.d. Sistema notifica grupos que fueron ignorados
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 11.a. Sistema detecta duplicado
+ * - (vacio)
+ - 11.b. Sistema ignora grupo duplicado
+ * - (vacio)
+ - 11.c. Sistema continúa con otros grupos
+ * - (vacio)
+ - 11.d. Sistema notifica grupos que fueron ignorados
 
 
 **Retorna a**: Paso 12
@@ -161,17 +161,17 @@ FA-2: Asignación temporal (con fecha de expiración)
 **Acción**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - 6.a. Administrador selecciona fecha de expiración
-     - (vacio)
-   * - (vacio)
-     - 6.b. Sistema valida que fecha es futura
-   * - (vacio)
-     - 6.c. Sistema almacena fecha_expiracion
+ * - Actor
+ - Sistema
+ * - 6.a. Administrador selecciona fecha de expiración
+ - (vacio)
+ * - (vacio)
+ - 6.b. Sistema valida que fecha es futura
+ * - (vacio)
+ - 6.c. Sistema almacena fecha_expiracion
 
 
 **Retorna a**: Paso 7
@@ -186,17 +186,17 @@ FA-3: Reactivación de grupo previamente revocado
 **Acción**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 11.a. Sistema detecta registro inactivo existente
-   * - (vacio)
-     - 11.b. Sistema reactiva el registro (activo=TRUE)
-   * - (vacio)
-     - 11.c. Sistema actualiza fecha_asignacion
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 11.a. Sistema detecta registro inactivo existente
+ * - (vacio)
+ - 11.b. Sistema reactiva el registro (activo=TRUE)
+ * - (vacio)
+ - 11.c. Sistema actualiza fecha_asignacion
 
 
 **Retorna a**: Paso 12
@@ -216,19 +216,19 @@ FE-1: Administrador sin permisos suficientes
 **Manejo**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 9.e1. Sistema detecta falta de permisos
-   * - (vacio)
-     - 9.e2. Sistema registra intento en auditoría (acceso_denegado)
-   * - (vacio)
-     - 9.e3. Sistema muestra error: "No tiene permisos para asignar grupos"
-   * - 9.e4. Administrador reconoce error
-     - (vacio)
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 9.e1. Sistema detecta falta de permisos
+ * - (vacio)
+ - 9.e2. Sistema registra intento en auditoría (acceso_denegado)
+ * - (vacio)
+ - 9.e3. Sistema muestra error: "No tiene permisos para asignar grupos"
+ * - 9.e4. Administrador reconoce error
+ - (vacio)
 
 
 **Resultado**: Caso de uso termina sin asignación
@@ -243,19 +243,19 @@ FE-2: Grupo no existe o está inactivo
 **Manejo**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 10.e1. Sistema valida grupos
-   * - (vacio)
-     - 10.e2. Sistema identifica grupos inválidos
-   * - (vacio)
-     - 10.e3. Sistema muestra error específico con nombres de grupos
-   * - 10.e4. Administrador corrige selección
-     - (vacio)
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 10.e1. Sistema valida grupos
+ * - (vacio)
+ - 10.e2. Sistema identifica grupos inválidos
+ * - (vacio)
+ - 10.e3. Sistema muestra error específico con nombres de grupos
+ * - 10.e4. Administrador corrige selección
+ - (vacio)
 
 
 **Resultado**: Retorna a paso 5
@@ -270,17 +270,17 @@ FE-3: Usuario objetivo no existe o está inactivo
 **Manejo**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 2.e1. Sistema valida existencia y estado
-   * - (vacio)
-     - 2.e2. Sistema muestra error: "Usuario no encontrado o inactivo"
-   * - 2.e3. Administrador selecciona otro usuario
-     - (vacio)
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 2.e1. Sistema valida existencia y estado
+ * - (vacio)
+ - 2.e2. Sistema muestra error: "Usuario no encontrado o inactivo"
+ * - 2.e3. Administrador selecciona otro usuario
+ - (vacio)
 
 
 **Resultado**: Retorna a paso 2
@@ -295,21 +295,21 @@ FE-4: Error de base de datos
 **Manejo**:
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Actor
-     - Sistema
-   * - (vacio)
-     - 11.e1. Sistema detecta error de BD
-   * - (vacio)
-     - 11.e2. Sistema hace rollback de transacción
-   * - (vacio)
-     - 11.e3. Sistema registra error en logs
-   * - (vacio)
-     - 11.e4. Sistema muestra error genérico al usuario
-   * - 11.e5. Administrador puede reintentar
-     - (vacio)
+ * - Actor
+ - Sistema
+ * - (vacio)
+ - 11.e1. Sistema detecta error de BD
+ * - (vacio)
+ - 11.e2. Sistema hace rollback de transacción
+ * - (vacio)
+ - 11.e3. Sistema registra error en logs
+ * - (vacio)
+ - 11.e4. Sistema muestra error genérico al usuario
+ * - 11.e5. Administrador puede reintentar
+ - (vacio)
 
 
 **Resultado**: Caso de uso termina, datos no modificados

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: ADR_GOB_005_especificacion_casos_uso
-   :tipo: ADR
-   :dominio: normativa
-   :subdominio: gobernanza
-   :estado: Aceptada
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-06
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo Arquitectura
-   :clasificacion: Critico
+ :artefacto: ADR_GOB_005_especificacion_casos_uso
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: Aceptada
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-06
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo Arquitectura
+ :clasificacion: Critico
 
 .. _adr_gob_005_especificacion_casos_uso:
 
@@ -61,11 +61,11 @@ Necesidades del Proyecto IACT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Múltiples dominios**: Backend, Frontend, requieren casos de uso
-   consistentes
+ consistentes
 2. **Múltiples stakeholders**: Desde usuarios finales hasta
-   desarrolladores
+ desarrolladores
 3. **Trazabilidad completa**: Desde reglas de negocio hasta requisitos
-   funcionales
+ funcionales
 4. **Perspectiva de usuario**: Describir QUÉ sin especificar CÓMO
 5. **Documentación detallada**: Nivel completo, no breve ni casual
 
@@ -84,8 +84,8 @@ Principio 1: Especificar vs. Ilustrar
 
 ::
 
-   ESPECIFICAR casos de uso = ESCRIBIR documentos de texto con escenarios
-   ILUSTRAR diagramas UML = DIBUJAR figuras (actores, óvalos, flechas)
+ ESPECIFICAR casos de uso = ESCRIBIR documentos de texto con escenarios
+ ILUSTRAR diagramas UML = DIBUJAR figuras (actores, óvalos, flechas)
 
 Los casos de uso son especificaciones textuales. Los diagramas UML son
 complementarios.
@@ -100,13 +100,13 @@ decidir **CÓMO** se hará.
 
 ::
 
-   4. El sistema guarda la venta
+ 4. El sistema guarda la venta
 
 **INCORRECTO (CÓMO)**:
 
 ::
 
-   4. El sistema escribe la venta dentro de una base de datos SQL mediante un INSERT
+ 4. El sistema escribe la venta dentro de una base de datos SQL mediante un INSERT
 
 **Razón**: El caso de uso especifica comportamiento esperado, no
 implementación. La decisión de usar SQL, NoSQL, archivos, etc., es de
@@ -132,13 +132,13 @@ Patrón
 
 ::
 
-   VERBO + OBJETO
+ VERBO + OBJETO
 
 O equivalentemente:
 
 ::
 
-   ACCIÓN + OBJETO
+ ACCIÓN + OBJETO
 
 Reglas
 ^^^^^^
@@ -167,18 +167,18 @@ Producto Químico - UC-BACK-005: Generar Reporte de Auditoría
 Ejemplos INCORRECTOS
 ^^^^^^^^^^^^^^^^^^^^
 
--  “Login” (no es verbo+objeto, es un sustantivo)
--  “El usuario inicia sesión” (incluye sujeto, debe ser solo
-   verbo+objeto)
--  “Sistema de autenticación” (es un sistema, no una acción)
--  “Autenticarse” (solo verbo, falta objeto)
+- “Login” (no es verbo+objeto, es un sustantivo)
+- “El usuario inicia sesión” (incluye sujeto, debe ser solo
+ verbo+objeto)
+- “Sistema de autenticación” (es un sistema, no una acción)
+- “Autenticarse” (solo verbo, falta objeto)
 
 Nomenclatura de Archivos
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-   UC-DOMINIO-###-verbo-objeto.md
+ UC-DOMINIO-###-verbo-objeto.md
 
 Donde: - **UC**: Use Case - **DOMINIO**: BACK, FRONT, DEVOPS, QA, AI,
 GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
@@ -188,10 +188,10 @@ snake_case (minúsculas con guiones)
 
 ::
 
-   UC-BACK-001-iniciar-sesion.md
-   UC-BACK-004-solicitar-producto-quimico.md
-   UC-FRONT-001-registrar-vuelo.md
-   UC-BACK-010-gestionar-permisos.md
+ UC-BACK-001-iniciar-sesion.md
+ UC-BACK-004-solicitar-producto-quimico.md
+ UC-FRONT-001-registrar-vuelo.md
+ UC-BACK-010-gestionar-permisos.md
 
 Grado de Formalidad: Completo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -201,7 +201,7 @@ Existen tres grados de formalidad para casos de uso:
 1. **Breves**: Resumen en un párrafo del escenario principal
 2. **Casuales**: Párrafos informales que cubren varios escenarios
 3. **Completos**: Todos los pasos y variaciones escritos en detalle, con
-   secciones de apoyo
+ secciones de apoyo
 
 **Decisión**: Usar **formato completo** para el proyecto IACT.
 
@@ -216,24 +216,24 @@ Estructura
 
 ::
 
-   ┌────────────────────────────────────────────────────────┐
-   │  UC-DOMINIO-###: [VERBO OBJETO]                       │
-   │  Actores Primarios: [Actor]                           │
-   │  Actores Secundarios: [Actor, Sistema Externo]        │
-   ├──────────────────────────┬─────────────────────────────┤
-   │  ACCIONES DEL ACTOR      │  RESPONSABILIDADES SISTEMA  │
-   ├──────────────────────────┼─────────────────────────────┤
-   │ 1. Actor hace X          │                             │
-   ├──────────────────────────┼─────────────────────────────┤
-   │ 2. Actor introduce Y     │                             │
-   ├──────────────────────────┼─────────────────────────────┤
-   │                          │ 3. Sistema valida Y         │
-   │                          │ 4. Sistema guarda Y         │
-   ├──────────────────────────┼─────────────────────────────┤
-   │ 5. Actor confirma        │                             │
-   ├──────────────────────────┼─────────────────────────────┤
-   │                          │ 6. Sistema muestra resultado│
-   └──────────────────────────┴─────────────────────────────┘
+ ┌────────────────────────────────────────────────────────┐
+ │ UC-DOMINIO-###: [VERBO OBJETO] │
+ │ Actores Primarios: [Actor] │
+ │ Actores Secundarios: [Actor, Sistema Externo] │
+ ├──────────────────────────┬─────────────────────────────┤
+ │ ACCIONES DEL ACTOR │ RESPONSABILIDADES SISTEMA │
+ ├──────────────────────────┼─────────────────────────────┤
+ │ 1. Actor hace X │ │
+ ├──────────────────────────┼─────────────────────────────┤
+ │ 2. Actor introduce Y │ │
+ ├──────────────────────────┼─────────────────────────────┤
+ │ │ 3. Sistema valida Y │
+ │ │ 4. Sistema guarda Y │
+ ├──────────────────────────┼─────────────────────────────┤
+ │ 5. Actor confirma │ │
+ ├──────────────────────────┼─────────────────────────────┤
+ │ │ 6. Sistema muestra resultado│
+ └──────────────────────────┴─────────────────────────────┘
 
 Ventajas del Formato
 ^^^^^^^^^^^^^^^^^^^^
@@ -249,30 +249,30 @@ Ejemplo Completo: UC-001 Procesar Venta
 
 .. code:: markdown
 
-   ## UC-BACK-001: Procesar Venta
+ ## UC-BACK-001: Procesar Venta
 
-   **Actores Primarios**: Cajero
-   **Actores Secundarios**: Sistema de Inventario
+ **Actores Primarios**: Cajero
+ **Actores Secundarios**: Sistema de Inventario
 
-   ### Flujo Normal (Happy Path)
+ ### Flujo Normal (Happy Path)
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - ACCIONES DEL ACTOR
-     - RESPONSABILIDADES DEL SISTEMA
-   * - 1. El cajero comienza una nueva venta
-     - 
-   * - 2. El cajero introduce el identificador del artículo
-     - 3. El sistema guarda el artículo<br>4. El sistema muestra descripción y subtotal
-   * - El cajero repite pasos 2-4 hasta terminar
-     - 
-   * - 5. El cajero indica fin de captura
-     - 6. El sistema muestra total con impuestos calculados
-   * - 7. El cajero solicita método de pago al cliente
-     - 
-   * - 8. El cliente proporciona pago
-     - 9. El sistema procesa el pago<br>10. El sistema registra la venta<br>11. El sistema actualiza inventario<br>12. El sistema imprime recibo
+ * - ACCIONES DEL ACTOR
+ - RESPONSABILIDADES DEL SISTEMA
+ * - 1. El cajero comienza una nueva venta
+ - 
+ * - 2. El cajero introduce el identificador del artículo
+ - 3. El sistema guarda el artículo<br>4. El sistema muestra descripción y subtotal
+ * - El cajero repite pasos 2-4 hasta terminar
+ - 
+ * - 5. El cajero indica fin de captura
+ - 6. El sistema muestra total con impuestos calculados
+ * - 7. El cajero solicita método de pago al cliente
+ - 
+ * - 8. El cliente proporciona pago
+ - 9. El sistema procesa el pago<br>10. El sistema registra la venta<br>11. El sistema actualiza inventario<br>12. El sistema imprime recibo
 
 Elementos Obligatorios de la Especificación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -282,38 +282,38 @@ Elementos Obligatorios de la Especificación
 
 .. code:: markdown
 
-   ---
-   id: UC-DOMINIO-###
-   tipo: caso_uso
-   categoria: [dominio]
-   version: 1.0.0
-   fecha_creacion: YYYY-MM-DD
-   ultima_actualizacion: YYYY-MM-DD
-   autor: [Nombre]
-   estado: [borrador|en_revision|aprobado|obsoleto]
-                                                   
+ ---
+ id: UC-DOMINIO-###
+ tipo: caso_uso
+ categoria: [dominio]
+ version: 1.0.0
+ fecha_creacion: YYYY-MM-DD
+ ultima_actualizacion: YYYY-MM-DD
+ autor: [Nombre]
+ estado: [borrador|en_revision|aprobado|obsoleto]
+ 
 
-   # UC-DOMINIO-###: [VERBO OBJETO]
+ # UC-DOMINIO-###: [VERBO OBJETO]
 
-   ## Información General
+ ## Información General
 
-   **ID**: UC-DOMINIO-###
-   **Nombre**: [VERBO OBJETO]
-   **Creado por**: [Autor]
-   **Fecha de creación**: YYYY-MM-DD
-   **Última actualización**: YYYY-MM-DD
-   **Estado**: [borrador|en_revision|aprobado|obsoleto]
+ **ID**: UC-DOMINIO-###
+ **Nombre**: [VERBO OBJETO]
+ **Creado por**: [Autor]
+ **Fecha de creación**: YYYY-MM-DD
+ **Última actualización**: YYYY-MM-DD
+ **Estado**: [borrador|en_revision|aprobado|obsoleto]
 
 2. Actores
 ^^^^^^^^^^
 
 .. code:: markdown
 
-   ## Actores
+ ## Actores
 
-   **Actores Primarios**: [Actor que ejecuta/dispara el caso de uso]
+ **Actores Primarios**: [Actor que ejecuta/dispara el caso de uso]
 
-   **Actores Secundarios**: [Actores de apoyo: otros usuarios, sistemas externos, bases de datos]
+ **Actores Secundarios**: [Actores de apoyo: otros usuarios, sistemas externos, bases de datos]
 
 **Reglas**: - **Actores Primarios**: Quiénes ejecutan el caso de uso (1
 o más) - **Actores Secundarios**: Quiénes proporcionan soporte (0 o más)
@@ -326,18 +326,18 @@ Laboratorio” (NO “Base de Datos MySQL”)
 
 .. code:: markdown
 
-   ## Descripción
+ ## Descripción
 
-   [Breve párrafo describiendo el propósito del caso de uso y el objetivo que el actor busca lograr]
+ [Breve párrafo describiendo el propósito del caso de uso y el objetivo que el actor busca lograr]
 
 4. Desencadenador (Trigger)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: markdown
 
-   ## Desencadenador
+ ## Desencadenador
 
-   [Qué evento o condición inicia este caso de uso]
+ [Qué evento o condición inicia este caso de uso]
 
 **Ejemplo**: “El solicitante indica una solicitud de un producto
 químico” o “El sistema detecta que la fecha de vencimiento ha sido
@@ -348,11 +348,11 @@ alcanzada”
 
 .. code:: markdown
 
-   ## Precondiciones
+ ## Precondiciones
 
-   - [Condición 1 que debe ser cierta ANTES de iniciar]
-   - [Condición 2]
-   - [...]
+ - [Condición 1 que debe ser cierta ANTES de iniciar]
+ - [Condición 2]
+ - [...]
 
 **Importante**: Pueden haber **0 o más precondiciones**. No es
 obligatorio tenerlas.
@@ -366,11 +366,11 @@ actualizado
 
 .. code:: markdown
 
-   ## Postcondiciones
+ ## Postcondiciones
 
-   - [Estado 1 del sistema DESPUÉS de completar exitosamente]
-   - [Estado 2]
-   - [...]
+ - [Estado 1 del sistema DESPUÉS de completar exitosamente]
+ - [Estado 2]
+ - [...]
 
 **Importante**: Describe el estado al finalizar **con éxito** (happy
 path o caminos alternos exitosos).
@@ -383,17 +383,17 @@ inventario ha sido actualizado - El recibo ha sido impreso
 
 .. code:: markdown
 
-   ## Flujo Normal (Happy Path)
+ ## Flujo Normal (Happy Path)
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - ACCIONES DEL ACTOR
-     - RESPONSABILIDADES DEL SISTEMA
-   * - [Paso del actor]
-     - [Pasos del sistema]
-   * - ...
-     - ...
+ * - ACCIONES DEL ACTOR
+ - RESPONSABILIDADES DEL SISTEMA
+ * - [Paso del actor]
+ - [Pasos del sistema]
+ * - ...
+ - ...
 
 **Reglas**: - Numerar pasos secuencialmente - Separar claramente
 acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
@@ -405,56 +405,56 @@ acciones de actor vs. sistema - Un paso = una acción concreta - Evitar
 
 .. code:: markdown
 
-   ## Flujos Alternos
+ ## Flujos Alternos
 
-   ### Flujo Alterno #.#: [Nombre descriptivo]
+ ### Flujo Alterno #.#: [Nombre descriptivo]
 
-   **Punto de entrada**: Después del paso # del flujo normal
+ **Punto de entrada**: Después del paso # del flujo normal
 
-   **Condición**: [Qué condición dispara este flujo alterno]
+ **Condición**: [Qué condición dispara este flujo alterno]
 
-   **Pasos**:
-   - #.#.1 [Paso 1]
-   - #.#.2 [Paso 2]
-   - ...
+ **Pasos**:
+ - #.#.1 [Paso 1]
+ - #.#.2 [Paso 2]
+ - ...
 
-   **Punto de retorno**: [Paso al que regresa, o "El caso de uso termina"]
+ **Punto de retorno**: [Paso al que regresa, o "El caso de uso termina"]
 
 **Ejemplo**:
 
 .. code:: markdown
 
-   ### Flujo Alterno 4.1: Producto No Disponible
+ ### Flujo Alterno 4.1: Producto No Disponible
 
-   **Punto de entrada**: Después del paso 4 del flujo normal
+ **Punto de entrada**: Después del paso 4 del flujo normal
 
-   **Condición**: El producto solicitado no está en stock
+ **Condición**: El producto solicitado no está en stock
 
-   **Pasos**:
-   - 4.1.1 El sistema muestra mensaje "Producto no disponible"
-   - 4.1.2 El sistema sugiere productos alternativos
-   - 4.1.3 El solicitante puede seleccionar un producto alternativo
+ **Pasos**:
+ - 4.1.1 El sistema muestra mensaje "Producto no disponible"
+ - 4.1.2 El sistema sugiere productos alternativos
+ - 4.1.3 El solicitante puede seleccionar un producto alternativo
 
-   **Punto de retorno**: Regresa al paso 5 si selecciona alternativa, o termina caso de uso
+ **Punto de retorno**: Regresa al paso 5 si selecciona alternativa, o termina caso de uso
 
 9. Excepciones
 ^^^^^^^^^^^^^^
 
 .. code:: markdown
 
-   ## Excepciones
+ ## Excepciones
 
-   ### Excepción #.#.#: [Nombre de la excepción]
+ ### Excepción #.#.#: [Nombre de la excepción]
 
-   **Punto de entrada**: Durante el paso #.#
+ **Punto de entrada**: Durante el paso #.#
 
-   **Condición**: [Condición de error]
+ **Condición**: [Condición de error]
 
-   **Pasos**:
-   - #.#.#.1 [Paso de manejo de error]
-   - #.#.#.2 [...]
+ **Pasos**:
+ - #.#.#.1 [Paso de manejo de error]
+ - #.#.#.2 [...]
 
-   **Resultado**: [El caso de uso termina | Regresa a paso #]
+ **Resultado**: [El caso de uso termina | Regresa a paso #]
 
 **Diferencia con Flujos Alternos**: - **Flujos Alternos**: Caminos
 válidos que llevan a éxito (puede haber postcondición ligeramente
@@ -466,15 +466,15 @@ terminan el caso de uso sin éxito completo
 
 .. code:: markdown
 
-   ## Requisitos Especiales
+ ## Requisitos Especiales
 
-   **Requerimientos No Funcionales Relacionados**:
-   - RNF-DOMINIO-###: [Descripción breve]
-   - RNF-DOMINIO-###: [Descripción breve]
+ **Requerimientos No Funcionales Relacionados**:
+ - RNF-DOMINIO-###: [Descripción breve]
+ - RNF-DOMINIO-###: [Descripción breve]
 
-   **Restricciones**:
-   - [Restricción técnica específica]
-   - [...]
+ **Restricciones**:
+ - [Restricción técnica específica]
+ - [...]
 
 **Nota**: Solo listar RNF y restricciones **específicos** de este caso
 de uso, no todos los del sistema.
@@ -484,10 +484,10 @@ de uso, no todos los del sistema.
 
 .. code:: markdown
 
-   ## Reglas de Negocio Relacionadas
+ ## Reglas de Negocio Relacionadas
 
-   - RN-DOMINIO-###: [Nombre de la regla]
-   - RN-DOMINIO-###: [Nombre de la regla]
+ - RN-DOMINIO-###: [Nombre de la regla]
+ - RN-DOMINIO-###: [Nombre de la regla]
 
 **Propósito**: Trazabilidad. Permite rastrear qué reglas de negocio
 influyen en este caso de uso.
@@ -497,18 +497,18 @@ influyen en este caso de uso.
 
 .. code:: markdown
 
-   ## Información Adicional
+ ## Información Adicional
 
-   **Prioridad**: [Alta | Media | Baja]
+ **Prioridad**: [Alta | Media | Baja]
 
-   **Frecuencia de uso**: [Diaria | Semanal | Mensual | Ocasional]
+ **Frecuencia de uso**: [Diaria | Semanal | Mensual | Ocasional]
 
-   **Suposiciones**:
-   - [Suposición 1]
-   - [...]
+ **Suposiciones**:
+ - [Suposición 1]
+ - [...]
 
-   **Notas**:
-   - [Nota relevante]
+ **Notas**:
+ - [Nota relevante]
 
 Términos Clave
 ~~~~~~~~~~~~~~
@@ -547,15 +547,15 @@ Ubicación en Proyecto
 
 ::
 
-   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
-   ├── UC-BACK-001-iniciar-sesion.md
-   ├── UC-BACK-002-gestionar-permisos.md
-   ├── UC-BACK-003-cambiar-contrasena.md
-   ├── UC-BACK-004-solicitar-producto-quimico.md
-   ├── UC-BACK-005-generar-reporte-auditoria.md
-   ├── UC-FRONT-001-registrar-vuelo.md
-   ├── UC-FRONT-002-imprimir-pases-abordar.md
-   └── ...
+ docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
+ ├── UC-BACK-001-iniciar-sesion.md
+ ├── UC-BACK-002-gestionar-permisos.md
+ ├── UC-BACK-003-cambiar-contrasena.md
+ ├── UC-BACK-004-solicitar-producto-quimico.md
+ ├── UC-BACK-005-generar-reporte-auditoria.md
+ ├── UC-FRONT-001-registrar-vuelo.md
+ ├── UC-FRONT-002-imprimir-pases-abordar.md
+ └── ...
 
 Alternativas Consideradas
 -------------------------
@@ -569,9 +569,9 @@ Alternativa 1: Formato Breve (Un Párrafo)
 
 ::
 
-   UC-001: Procesar Venta. El cajero registra los artículos que el cliente
-   desea comprar, el sistema calcula el total con impuestos, el cajero
-   procesa el pago y el sistema imprime el recibo.
+ UC-001: Procesar Venta. El cajero registra los artículos que el cliente
+ desea comprar, el sistema calcula el total con impuestos, el cajero
+ procesa el pago y el sistema imprime el recibo.
 
 **Pros**: - Muy rápido de escribir - Fácil de leer overview
 
@@ -607,8 +607,8 @@ Alternativa 3: User Stories (Agile)
 
 ::
 
-   Como cajero, quiero procesar ventas de artículos para que el cliente
-   pueda pagar y llevarse sus productos.
+ Como cajero, quiero procesar ventas de artículos para que el cliente
+ pueda pagar y llevarse sus productos.
 
 **Pros**: - Muy ágil - Enfocado en valor de negocio - Conversaciones
 sobre documentación
@@ -629,11 +629,11 @@ Alternativa 4: Formato de Una Sola Columna
 
 ::
 
-   1. El cajero comienza nueva venta
-   2. El cajero introduce artículo
-   3. El sistema guarda artículo
-   4. El sistema muestra subtotal
-   ...
+ 1. El cajero comienza nueva venta
+ 2. El cajero introduce artículo
+ 3. El sistema guarda artículo
+ 4. El sistema muestra subtotal
+ ...
 
 **Pros**: - Más simple visualmente - Secuencia clara
 
@@ -651,92 +651,92 @@ Positivas
 
 1. **Claridad en responsabilidades**
 
-   -  Columnas separan actor vs. sistema
-   -  Obvio qué debe implementarse
-   -  Fácil identificar requisitos funcionales
+ - Columnas separan actor vs. sistema
+ - Obvio qué debe implementarse
+ - Fácil identificar requisitos funcionales
 
 2. **Perspectiva de usuario mantenida**
 
-   -  Principio QUÉ vs CÓMO previene sobre-especificación técnica
-   -  Casos de uso comprensibles por stakeholders no técnicos
-   -  Enfoque en valor para usuario
+ - Principio QUÉ vs CÓMO previene sobre-especificación técnica
+ - Casos de uso comprensibles por stakeholders no técnicos
+ - Enfoque en valor para usuario
 
 3. **Trazabilidad completa**
 
-   -  Referencias a reglas de negocio
-   -  Referencias a RNF
-   -  IDs únicos permiten seguimiento
+ - Referencias a reglas de negocio
+ - Referencias a RNF
+ - IDs únicos permiten seguimiento
 
 4. **Detalle suficiente**
 
-   -  Formato completo con precondiciones, postcondiciones, flujos
-      alternos
-   -  Desarrolladores tienen información necesaria
-   -  QA puede derivar casos de prueba directamente
+ - Formato completo con precondiciones, postcondiciones, flujos
+ alternos
+ - Desarrolladores tienen información necesaria
+ - QA puede derivar casos de prueba directamente
 
 5. **Consistencia**
 
-   -  Nomenclatura VERBO+OBJETO estándar
-   -  Estructura uniforme entre casos de uso
-   -  Fácil comparar y mantener
+ - Nomenclatura VERBO+OBJETO estándar
+ - Estructura uniforme entre casos de uso
+ - Fácil comparar y mantener
 
 6. **Documentación duradera**
 
-   -  Casos de uso son estables (menos cambios que código)
-   -  Sirven como especificación oficial
-   -  Base para regresión y auditorías
+ - Casos de uso son estables (menos cambios que código)
+ - Sirven como especificación oficial
+ - Base para regresión y auditorías
 
 Negativas
 ~~~~~~~~~
 
 1. **Overhead de documentación**
 
-   -  Formato completo requiere tiempo
-   -  Múltiples secciones obligatorias
-   -  Puede parecer excesivo para casos muy simples
+ - Formato completo requiere tiempo
+ - Múltiples secciones obligatorias
+ - Puede parecer excesivo para casos muy simples
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Templates aceleran creación
-   -  Permitir omitir secciones vacías (ej: si no hay precondiciones)
-   -  Priorizar casos de uso críticos
-   -  No documentar casos triviales si no aportan valor
+ - Templates aceleran creación
+ - Permitir omitir secciones vacías (ej: si no hay precondiciones)
+ - Priorizar casos de uso críticos
+ - No documentar casos triviales si no aportan valor
 
 2. **Curva de aprendizaje**
 
-   -  Equipo debe aprender formato
-   -  Principio QUÉ vs CÓMO requiere disciplina
-   -  Nomenclatura VERBO+OBJETO no es intuitiva para todos
+ - Equipo debe aprender formato
+ - Principio QUÉ vs CÓMO requiere disciplina
+ - Nomenclatura VERBO+OBJETO no es intuitiva para todos
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Capacitación inicial con ejemplos
-   -  Templates con instrucciones inline
-   -  Code reviews de especificaciones
-   -  Guía de escritura de casos de uso (crear como GUIA-GOB-###)
+ - Capacitación inicial con ejemplos
+ - Templates con instrucciones inline
+ - Code reviews de especificaciones
+ - Guía de escritura de casos de uso (crear como GUIA-GOB-###)
 
 3. **Mantenimiento**
 
-   -  Cambios en reglas de negocio requieren actualizar casos de uso
-   -  Riesgo de desincronización con sistema real
+ - Cambios en reglas de negocio requieren actualizar casos de uso
+ - Riesgo de desincronización con sistema real
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Revisión periódica (trimestral)
-   -  Casos de uso versionados
-   -  Cambios en RN desencadenan review de casos de uso relacionados
-   -  Trazabilidad facilita identificar qué actualizar
+ - Revisión periódica (trimestral)
+ - Casos de uso versionados
+ - Cambios en RN desencadenan review de casos de uso relacionados
+ - Trazabilidad facilita identificar qué actualizar
 
 4. **No siempre es formato ideal**
 
-   -  Para casos extremadamente simples puede ser overkill
-   -  Formato de dos columnas puede ser rígido para ciertos flujos
+ - Para casos extremadamente simples puede ser overkill
+ - Formato de dos columnas puede ser rígido para ciertos flujos
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Permitir flexibilidad cuando se justifique
-   -  Principio: “¿Este formato agrega valor o solo burocracia?”
-   -  Documentar excepciones explícitamente
+ - Permitir flexibilidad cuando se justifique
+ - Principio: “¿Este formato agrega valor o solo burocracia?”
+ - Documentar excepciones explícitamente
 
 Implementación
 --------------
@@ -746,9 +746,9 @@ Fase 1: Reorganización (Semana 1)
 
 .. code:: bash
 
-   # Mover casos_de_uso a ubicación correcta
-   git mv docs/gobernanza/casos_de_uso \
-           docs/gobernanza/requisitos/requerimientos_usuario/casos_uso
+ # Mover casos_de_uso a ubicación correcta
+ git mv docs/gobernanza/casos_de_uso \
+ docs/gobernanza/requisitos/requerimientos_usuario/casos_uso
 
 Fase 2: Templates (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -762,16 +762,16 @@ Fase 3: Capacitación (Semana 2)
 
 1. Sesión de 3 horas:
 
-   -  Diferencia especificar vs. ilustrar
-   -  Principio QUÉ vs CÓMO con ejercicios
-   -  Nomenclatura VERBO+OBJETO
-   -  Formato de dos columnas
+ - Diferencia especificar vs. ilustrar
+ - Principio QUÉ vs CÓMO con ejercicios
+ - Nomenclatura VERBO+OBJETO
+ - Formato de dos columnas
 
 2. Taller práctico:
 
-   -  Escribir 2-3 casos de uso en equipos
-   -  Peer review
-   -  Corrección grupal
+ - Escribir 2-3 casos de uso en equipos
+ - Peer review
+ - Corrección grupal
 
 Fase 4: Migración de Casos Existentes (Semanas 3-4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -795,51 +795,51 @@ Validación
 Criterios de Éxito
 ~~~~~~~~~~~~~~~~~~
 
--  100% de nuevos casos de uso usan formato completo
--  100% de casos de uso usan nomenclatura VERBO+OBJETO
--  100% de casos de uso tienen referencias a reglas de negocio
-   relevantes
--  Stakeholders reportan casos de uso más claros
--  Desarrolladores pueden derivar RF directamente de casos de uso
+- 100% de nuevos casos de uso usan formato completo
+- 100% de casos de uso usan nomenclatura VERBO+OBJETO
+- 100% de casos de uso tienen referencias a reglas de negocio
+ relevantes
+- Stakeholders reportan casos de uso más claros
+- Desarrolladores pueden derivar RF directamente de casos de uso
 
 Métricas
 ~~~~~~~~
 
--  Número de casos de uso documentados
--  Cobertura: % de funcionalidades con caso de uso
--  Tiempo promedio de creación de caso de uso
--  Defectos por “requisito no entendido” (debería reducirse)
--  Satisfacción del equipo (survey)
+- Número de casos de uso documentados
+- Cobertura: % de funcionalidades con caso de uso
+- Tiempo promedio de creación de caso de uso
+- Defectos por “requisito no entendido” (debería reducirse)
+- Satisfacción del equipo (survey)
 
 Referencias
 -----------
 
--  `Ivar Jacobson: Use Case 2.0
-   (2011) <https://www.ivarjacobson.com/publications/white-papers/use-case-ebook>`__
--  `Alistair Cockburn: Writing Effective Use Cases
-   (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
--  `ADR-GOB-005: Jerarquía de Requerimientos en 5
-   Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
--  `ADR-GOB-006: Clasificación y Documentación de Reglas de
-   Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
--  `ADR-GOB-008: Diagramas UML de Casos de
-   Uso <ADR-GOB-008-diagramas-uml-casos-uso.md>`__
--  `ADR-GOB-009: Trazabilidad entre Artefactos de
-   Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+- `Ivar Jacobson: Use Case 2.0
+ (2011) <https://www.ivarjacobson.com/publications/white-papers/use-case-ebook>`__
+- `Alistair Cockburn: Writing Effective Use Cases
+ (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
+- `ADR-GOB-005: Jerarquía de Requerimientos en 5
+ Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+- `ADR-GOB-006: Clasificación y Documentación de Reglas de
+ Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+- `ADR-GOB-008: Diagramas UML de Casos de
+ Uso <ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+- `ADR-GOB-009: Trazabilidad entre Artefactos de
+ Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
 
 Historial de Cambios
 --------------------
 
 ======= ========== =========== ===============
-Versión Fecha      Autor       Cambios
+Versión Fecha Autor Cambios
 ======= ========== =========== ===============
-1.0.0   2025-11-17 Claude Code Versión inicial
+1.0.0 2025-11-17 Claude Code Versión inicial
 ======= ========== =========== ===============
 
 Aprobación
 ----------
 
--  **Autor**: Claude Code (Sonnet 4.5)
--  **Revisado por**: Pendiente
--  **Aprobado por**: Pendiente
--  **Fecha de próxima revisión**: 2026-05-17
+- **Autor**: Claude Code (Sonnet 4.5)
+- **Revisado por**: Pendiente
+- **Aprobado por**: Pendiente
+- **Fecha de próxima revisión**: 2026-05-17

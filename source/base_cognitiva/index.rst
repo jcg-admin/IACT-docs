@@ -18,43 +18,43 @@ Contenido
 =========
 
 - **Lenguaje común:** vocabulario oficial y términos técnicos del
-  proyecto.
+ proyecto.
 - **Base semántica:** definiciones precisas que eliminan
-  ambigüedad cross-dominio.
+ ambigüedad cross-dominio.
 - **Fundamento teórico:** marco conceptual que sustenta el modelo
-  de análisis.
+ de análisis.
 - **Trazabilidad:** base para la interpretación correcta de
-  requisitos, restricciones, ADRs.
+ requisitos, restricciones, ADRs.
 
 Subdominios
 ===========
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Glosario
+ :maxdepth: 2
+ :caption: Glosario
 
-   glosario
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Fundamentos Conceptuales
-
-   _fundamentos_conceptuales/index
+ glosario
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Metadata del Proyecto
+ :maxdepth: 2
+ :caption: Fundamentos Conceptuales
 
-   _metadata/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Ontología SBVR
-
-   _ontologia_sbvr/index
+ _fundamentos_conceptuales/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Taxonomías y Metamodelos
+ :maxdepth: 2
+ :caption: Metadata del Proyecto
 
-   _taxonomias_y_metamodelos/index
+ _metadata/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Ontología SBVR
+
+ _ontologia_sbvr/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Taxonomías y Metamodelos
+
+ _taxonomias_y_metamodelos/index

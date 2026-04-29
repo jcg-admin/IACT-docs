@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_BR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_BR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-br:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_BR
-   * - **Nombre**
-     - Generacion de Reglas de Negocio
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada BR a documentar
-   * - **Duracion Estimada**
-     - 15-30 minutos por BR
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_BR
+ * - **Nombre**
+ - Generacion de Reglas de Negocio
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada BR a documentar
+ * - **Duracion Estimada**
+ - 15-30 minutos por BR
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ acciones y trazabilidad a BReq y UC.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Analista
-     - Genera BR siguiendo TPL
-     - Escritura en reglas_negocio/
-   * - Experto Dominio
-     - Valida logica de negocio
-     - Lectura
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Analista
+ - Genera BR siguiendo TPL
+ - Escritura en reglas_negocio/
+ * - Experto Dominio
+ - Valida logica de negocio
+ - Lectura
 
 ----
 
@@ -104,21 +104,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_BR_Business_Rules_1_0_0.rst
-     - Template de BR
-     - Si
-   * - BReq_[NNN].rst
-     - Objetivo de negocio origen
-     - Si
-   * - TXM_03
-     - Taxonomia de tipos de BR
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_BR_Business_Rules_1_0_0.rst
+ - Template de BR
+ - Si
+ * - BReq_[NNN].rst
+ - Objetivo de negocio origen
+ - Si
+ * - TXM_03
+ - Taxonomia de tipos de BR
+ - Si
 
 ----
 
@@ -129,27 +129,27 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 50 30
-   :header-rows: 1
+ :widths: 20 50 30
+ :header-rows: 1
 
-   * - Tipo
-     - Descripcion
-     - Ejemplo
-   * - Restriccion
-     - Limita valores o acciones
-     - Password minimo 8 caracteres
-   * - Derivacion
-     - Calcula valor desde otros
-     - Estado = f(intentos, tiempo)
-   * - Validacion
-     - Verifica condicion
-     - Email formato valido
-   * - Autorizacion
-     - Define permisos
-     - Solo admin puede crear usuarios
-   * - Proceso
-     - Define flujo obligatorio
-     - Login invalida sesiones previas
+ * - Tipo
+ - Descripcion
+ - Ejemplo
+ * - Restriccion
+ - Limita valores o acciones
+ - Password minimo 8 caracteres
+ * - Derivacion
+ - Calcula valor desde otros
+ - Estado = f(intentos, tiempo)
+ * - Validacion
+ - Verifica condicion
+ - Email formato valido
+ * - Autorizacion
+ - Define permisos
+ - Solo admin puede crear usuarios
+ * - Proceso
+ - Define flujo obligatorio
+ - Login invalida sesiones previas
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -159,15 +159,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Clasificar BR segun TXM_03:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Preguntas de clasificacion:
-     
-     - Limita un valor? -> Restriccion
-     - Calcula un resultado? -> Derivacion
-     - Verifica una condicion? -> Validacion
-     - Define quien puede hacer algo? -> Autorizacion
-     - Define un flujo obligatorio? -> Proceso
+ Preguntas de clasificacion:
+ 
+ - Limita un valor? -> Restriccion
+ - Calcula un resultado? -> Derivacion
+ - Verifica una condicion? -> Validacion
+ - Define quien puede hacer algo? -> Autorizacion
+ - Define un flujo obligatorio? -> Proceso
 
 - **Resultado**: Tipo identificado
 - **Verificacion**: Tipo valido segun TXM_03
@@ -177,17 +177,17 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Asignar ID secuencial:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato: BR_[NNN]
-     
-     Donde [NNN] es numero secuencial de 3 digitos.
-     
-     Archivo: BR_[NNN]_[Nombre_Descriptivo].rst
-     
-     Ejemplos:
-     - BR_001_Sesion_Unica_Por_Usuario.rst
-     - BR_015_Bloqueo_Por_Intentos_Fallidos.rst
+ Formato: BR_[NNN]
+ 
+ Donde [NNN] es numero secuencial de 3 digitos.
+ 
+ Archivo: BR_[NNN]_[Nombre_Descriptivo].rst
+ 
+ Ejemplos:
+ - BR_001_Sesion_Unica_Por_Usuario.rst
+ - BR_015_Bloqueo_Por_Intentos_Fallidos.rst
 
 - **Resultado**: ID asignado
 - **Verificacion**: ID unico en catalogo
@@ -197,15 +197,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Escribir declaracion en formato SBVR:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato:
-     "El sistema DEBE [accion] CUANDO [condicion] PARA [proposito]"
-     
-     Ejemplo BR_005:
-     "El sistema DEBE invalidar todas las sesiones previas del usuario
-     CUANDO este inicia una nueva sesion PARA garantizar que solo
-     exista una sesion activa por usuario."
+ Formato:
+ "El sistema DEBE [accion] CUANDO [condicion] PARA [proposito]"
+ 
+ Ejemplo BR_005:
+ "El sistema DEBE invalidar todas las sesiones previas del usuario
+ CUANDO este inicia una nueva sesion PARA garantizar que solo
+ exista una sesion activa por usuario."
 
 - **Resultado**: Declaracion formal
 - **Verificacion**: Formato DEBE/CUANDO/PARA
@@ -215,18 +215,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Detallar logica:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Condicion de Activacion:**
-     
-     - Usuario inicia sesion exitosamente
-     - Existen sesiones previas del usuario
-     
-     **Accion a Ejecutar:**
-     
-     1. Buscar sesiones activas del user_id
-     2. Marcar como invalidas (is_active = False)
-     3. Registrar evento de invalidacion
+ **Condicion de Activacion:**
+ 
+ - Usuario inicia sesion exitosamente
+ - Existen sesiones previas del usuario
+ 
+ **Accion a Ejecutar:**
+ 
+ 1. Buscar sesiones activas del user_id
+ 2. Marcar como invalidas (is_active = False)
+ 3. Registrar evento de invalidacion
 
 - **Resultado**: Logica detallada
 - **Verificacion**: Condiciones y acciones claras
@@ -236,12 +236,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Documentar casos especiales:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Excepciones:**
-     
-     - No aplica a sesiones de API (tokens de servicio)
-     - Administradores pueden tener multiples sesiones
+ **Excepciones:**
+ 
+ - No aplica a sesiones de API (tokens de servicio)
+ - Administradores pueden tener multiples sesiones
 
 - **Resultado**: Excepciones documentadas
 - **Verificacion**: Excepciones justificadas
@@ -251,18 +251,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Enlazar con artefactos relacionados:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Trazabilidad:**
-     
-     * - **BReq Origen**
-       - BReq_004: Cumplimiento de Seguridad
-     * - **UC que Aplican**
-       - UC_001: Iniciar Sesion
-     * - **FR Derivados**
-       - FR_UC001_04: Invalidar sesiones previas
-     * - **CNST Relacionadas**
-       - CNST_002: Gestion de Sesiones en BD
+ **Trazabilidad:**
+ 
+ * - **BReq Origen**
+ - BReq_004: Cumplimiento de Seguridad
+ * - **UC que Aplican**
+ - UC_001: Iniciar Sesion
+ * - **FR Derivados**
+ - FR_UC001_04: Invalidar sesiones previas
+ * - **CNST Relacionadas**
+ - CNST_002: Gestion de Sesiones en BD
 
 - **Resultado**: Trazabilidad completa
 - **Verificacion**: Referencias validas
@@ -272,13 +272,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Guardar en /tmp y validar:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Guardar
-     /tmp/reglas_negocio/BR_005_Sesion_Unica.rst
-     
-     # Validar sintaxis
-     sphinx-build -b html -W /tmp/reglas_negocio/ /tmp/build/
+ # Guardar
+ /tmp/reglas_negocio/BR_005_Sesion_Unica.rst
+ 
+ # Validar sintaxis
+ sphinx-build -b html -W /tmp/reglas_negocio/ /tmp/build/
 
 - **Resultado**: BR guardada y validada
 - **Verificacion**: Sin errores Sphinx
@@ -289,15 +289,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - BR_[NNN]_[Nombre].rst
-     - Regla de Negocio generada
-     - /tmp/reglas_negocio/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - BR_[NNN]_[Nombre].rst
+ - Regla de Negocio generada
+ - /tmp/reglas_negocio/
 
 ----
 
@@ -344,17 +344,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Tipo no claro
-     - Consultar con experto de dominio
-   * - BR duplicada
-     - Verificar si es variante, consolidar
-   * - Sin BReq origen
-     - Documentar como BR autonoma
+ * - Excepcion
+ - Accion
+ * - Tipo no claro
+ - Consultar con experto de dominio
+ * - BR duplicada
+ - Verificar si es variante, consolidar
+ * - Sin BReq origen
+ - Documentar como BR autonoma
 
 ----
 
@@ -371,17 +371,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

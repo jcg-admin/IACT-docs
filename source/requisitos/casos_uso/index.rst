@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: INDEX_CASOS_USO
-   :tipo: Indice
-   :dominio: requisitos
-   :subdominio: casos_uso
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: INDEX_CASOS_USO
+ :tipo: Indice
+ :dominio: requisitos
+ :subdominio: casos_uso
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ============
 Casos de Uso
@@ -23,14 +23,14 @@ Modulos
 -------
 
 .. toctree::
-   :maxdepth: 2
+ :maxdepth: 2
 
-   auth/index
-   users/index
-   access/index
-   permissions/index
-   reports/index
-   alerts/index
-   pipeline/index
-   audit/index
-   logs/index
+ auth/index
+ users/index
+ access/index
+ permissions/index
+ reports/index
+ alerts/index
+ pipeline/index
+ audit/index
+ logs/index

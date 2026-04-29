@@ -1,13 +1,13 @@
 .. meta::
-   :artefacto: RISKS_001
-   :tipo: Riesgo
-   :dominio: risks-technical-debt
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-03-27
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: RISKS_001
+ :tipo: Riesgo
+ :dominio: risks-technical-debt
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-03-27
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ==================
 Riesgos Conocidos
@@ -21,23 +21,23 @@ Plantilla de entrada
 
 .. code-block:: text
 
-   Riesgo:        <descripcion corta>
-   Impacto:       <Critico | Alto | Medio | Bajo>
-   Probabilidad:  <Alta | Media | Baja>
-   Estado:        <Activo | Mitigado | Materializado | Cerrado>
-   Mitigacion:    <accion concreta>
-   Owner:         <responsable>
-   Fecha deteccion: YYYY-MM-DD
+ Riesgo: <descripcion corta>
+ Impacto: <Critico | Alto | Medio | Bajo>
+ Probabilidad: <Alta | Media | Baja>
+ Estado: <Activo | Mitigado | Materializado | Cerrado>
+ Mitigacion: <accion concreta>
+ Owner: <responsable>
+ Fecha deteccion: YYYY-MM-DD
 
 Riesgos activos
 ================
 
 .. note::
 
-   Este registro inicio el 2026-03-27. Los riesgos se documentan a
-   medida que se detectan durante operacion o auditorias. Riesgos
-   identificados durante el rebuild ``source/`` se registran en
-   :doc:`deuda-tecnica-rebuild`.
+ Este registro inicio el 2026-03-27. Los riesgos se documentan a
+ medida que se detectan durante operacion o auditorias. Riesgos
+ identificados durante el rebuild ``source/`` se registran en
+ :doc:`deuda-tecnica-rebuild`.
 
 Catalogo
 --------

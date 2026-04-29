@@ -1,13 +1,13 @@
 .. meta::
-   :artefacto: INDEX_REQUISITOS
-   :tipo: Indice
-   :dominio: requisitos
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: INDEX_REQUISITOS
+ :tipo: Indice
+ :dominio: requisitos
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ==========
 Requisitos
@@ -17,25 +17,25 @@ Catalogo de requisitos del sistema IACT: casos de uso, reglas de
 negocio, requisitos funcionales y no-funcionales.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Casos de Uso
+ :maxdepth: 2
+ :caption: Casos de Uso
 
-   casos_uso/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Reglas de Negocio
-
-   reglas_negocio/index
+ casos_uso/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Requisitos Funcionales
+ :maxdepth: 2
+ :caption: Reglas de Negocio
 
-   requisitos_funcionales/index
+ reglas_negocio/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Requisitos No Funcionales
+ :maxdepth: 2
+ :caption: Requisitos Funcionales
 
-   requisitos_no_funcionales/index
+ requisitos_funcionales/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Requisitos No Funcionales
+
+ requisitos_no_funcionales/index

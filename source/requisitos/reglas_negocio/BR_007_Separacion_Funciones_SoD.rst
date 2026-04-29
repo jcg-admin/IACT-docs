@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_007
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_007
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-007:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_007
-   * - **Nombre**
-     - Separacion de Funciones SoD
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_007
+ * - **Nombre**
+ - Separacion de Funciones SoD
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ restricciones SoD antes de cualquier asignacion de funciones.
 
 ::
 
-   VOCABULARIO:
-     - SoD: Separation of Duties (Segregacion de Funciones)
-     - Restriccion SoD: Par de funciones mutuamente excluyentes
-     - Conflicto SoD: Usuario con funciones que violan restriccion
+ VOCABULARIO:
+ - SoD: Separation of Duties (Segregacion de Funciones)
+ - Restriccion SoD: Par de funciones mutuamente excluyentes
+ - Conflicto SoD: Usuario con funciones que violan restriccion
 
-   REGLA:
-     Es prohibido que un usuario tenga funciones que violen una restriccion SoD.
-     Es obligatorio que el sistema valide SoD antes de asignar funciones.
+ REGLA:
+ Es prohibido que un usuario tenga funciones que violen una restriccion SoD.
+ Es obligatorio que el sistema valide SoD antes de asignar funciones.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -96,17 +96,17 @@ Cumple con principios de auditoria y control interno.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_005_Seguridad_DRF_Checklist
-   * - **Seccion**
-     - Segregacion de Funciones
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST + Estandar NIST
+ * - **Documento**
+ - CNST_005_Seguridad_DRF_Checklist
+ * - **Seccion**
+ - Segregacion de Funciones
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST + Estandar NIST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,17 +124,17 @@ Cumple con principios de auditoria y control interno.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Access
-     - Valida SoD en asignacion de funciones
-   * - Tabla sod_restrictions
-     - Almacena pares de funciones incompatibles
-   * - API asignacion
-     - Rechaza asignacion si viola SoD
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Access
+ - Valida SoD en asignacion de funciones
+ * - Tabla sod_restrictions
+ - Almacena pares de funciones incompatibles
+ * - API asignacion
+ - Rechaza asignacion si viola SoD
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -156,41 +156,41 @@ documentada del sponsor y registro en auditoria.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_005
-     - Define requisitos de SoD
+ * - CNST
+ - Relacion
+ * - CNST_005
+ - Define requisitos de SoD
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-004
-     - Cumplimiento de Seguridad
+ * - BReq
+ - Descripcion
+ * - BReq-004
+ - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-010
-     - Asignar Funciones - validacion SoD
-   * - UC-043
-     - Configurar SoD - definir restricciones
-   * - UC-044
-     - Consultar Permisos Efectivos - muestra conflictos
+ * - UC
+ - Donde Aplica
+ * - UC-010
+ - Asignar Funciones - validacion SoD
+ * - UC-043
+ - Configurar SoD - definir restricciones
+ * - UC-044
+ - Consultar Permisos Efectivos - muestra conflictos
 
 ----
 
@@ -225,9 +225,9 @@ documentada del sponsor y registro en auditoria.
 
 ::
 
-   SOD_001: USR-001 (crear usuario) vs ACC-001 (asignar funcion admin)
-   SOD_002: AUD-001 (ver auditoria) vs AUD-004 (exportar auditoria)
-   SOD_003: PIP-001 (ejecutar ETL) vs PIP-004 (modificar config ETL)
+ SOD_001: USR-001 (crear usuario) vs ACC-001 (asignar funcion admin)
+ SOD_002: AUD-001 (ver auditoria) vs AUD-004 (exportar auditoria)
+ SOD_003: PIP-001 (ejecutar ETL) vs PIP-004 (modificar config ETL)
 
 ----
 
@@ -235,14 +235,14 @@ documentada del sponsor y registro en auditoria.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

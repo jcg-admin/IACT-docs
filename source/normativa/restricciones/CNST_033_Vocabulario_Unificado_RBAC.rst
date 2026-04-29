@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_033
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_033
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-033:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_033
-   * - **Categoria**
-     - RBAC
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_033
+ * - **Categoria**
+ - RBAC
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -64,11 +64,11 @@ y codigo, causando confusion y drift de conceptos.
 La eleccion de "Funcion" como canonico se basa en:
 
 - Consistencia con MODELO_RBAC_IACT_v5_2_1 (modelo conceptual del
-  proyecto).
+ proyecto).
 - "Funcion" describe **que hace** (action), alineado con la filosofia
-  "Sin Pretensiones" del proyecto.
+ "Sin Pretensiones" del proyecto.
 - "Capacidad" sugiere atributo del usuario (lo que puede hacer); el
-  modelo IACT define la accion atomica, no la propiedad del actor.
+ modelo IACT define la accion atomica, no la propiedad del actor.
 
 1.3 Origen
 ^^^^^^^^^^
@@ -87,84 +87,84 @@ Tabla de equivalencias entre vocabularios. **El termino canonico es
 el de la columna izquierda**.
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Termino canonico (docs)
-     - Termino en codigo
-     - Termino legacy v5.2.1
-     - Termino PERM granular (deprecated)
-   * - Funcion
-     - Function
-     - Funcion (``functions``)
-     - Capacidad (``Capacidad``)
-   * - Grupo de Permisos
-     - FunctionGroup
-     - Grupo (``function_groups``)
-     - GrupoPermiso
-   * - Membresia
-     - GroupMembership
-     - ``function_group_membership``
-     - GrupoCapacidad
-   * - Asignacion de Grupo
-     - UserGroupAssignment
-     - ``user_function_group_assignments``
-     - UsuarioGrupo
-   * - Asignacion Directa
-     - DirectFunctionAssignment
-     - ``user_function_assignments``
-     - (parte de ``PermisoExcepcional``)
-   * - Permiso Excepcional / Temporal
-     - TemporaryPermission
-     - (asignacion directa con expires_at)
-     - ``PermisoExcepcional``
-   * - Regla SoD
-     - SeparationOfDutiesRule
-     - ``function_separation_rules``
-     - (sin equivalente)
-   * - Verificacion de Permiso
-     - has_permission()
-     - ``usuario_tiene_permiso()``
-     - ``verificar_permiso_y_auditar()``
-   * - Menu Dinamico
-     - get_user_menu()
-     - (no existia en v5.2.1)
-     - ``obtener_menu_usuario()``
-   * - AuditoriaPermiso
-     - PermissionAudit
-     - (no existia en v5.2.1)
-     - ``AuditoriaPermiso``
+ * - Termino canonico (docs)
+ - Termino en codigo
+ - Termino legacy v5.2.1
+ - Termino PERM granular (deprecated)
+ * - Funcion
+ - Function
+ - Funcion (``functions``)
+ - Capacidad (``Capacidad``)
+ * - Grupo de Permisos
+ - FunctionGroup
+ - Grupo (``function_groups``)
+ - GrupoPermiso
+ * - Membresia
+ - GroupMembership
+ - ``function_group_membership``
+ - GrupoCapacidad
+ * - Asignacion de Grupo
+ - UserGroupAssignment
+ - ``user_function_group_assignments``
+ - UsuarioGrupo
+ * - Asignacion Directa
+ - DirectFunctionAssignment
+ - ``user_function_assignments``
+ - (parte de ``PermisoExcepcional``)
+ * - Permiso Excepcional / Temporal
+ - TemporaryPermission
+ - (asignacion directa con expires_at)
+ - ``PermisoExcepcional``
+ * - Regla SoD
+ - SeparationOfDutiesRule
+ - ``function_separation_rules``
+ - (sin equivalente)
+ * - Verificacion de Permiso
+ - has_permission
+ - ``usuario_tiene_permiso``
+ - ``verificar_permiso_y_auditar``
+ * - Menu Dinamico
+ - get_user_menu
+ - (no existia en v5.2.1)
+ - ``obtener_menu_usuario``
+ * - AuditoriaPermiso
+ - PermissionAudit
+ - (no existia en v5.2.1)
+ - ``AuditoriaPermiso``
 
 2.2 Convencion de idioma (referencia)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 50 25 25
-   :header-rows: 1
+ :widths: 50 25 25
+ :header-rows: 1
 
-   * - Tipo de elemento
-     - Idioma
-     - Ejemplo
-   * - Modelos Django, clases, metodos
-     - Ingles
-     - ``class FunctionGroup``
-   * - Funciones SQL nativas (PostgreSQL)
-     - Ingles
-     - ``user_has_permission()``
-   * - Variables, atributos
-     - Ingles
-     - ``user_id``, ``expires_at``
-   * - Codigos de funciones (capabilities)
-     - Ingles
-     - ``manage_sessions``, ``view_reports``
-   * - Comentarios, docstrings, help_text
-     - Espanol
-     - ``"""Grupo de funciones que se asignan juntas."""``
-   * - Documentacion (.rst, .md)
-     - Espanol
-     - "El sistema permite..."
+ * - Tipo de elemento
+ - Idioma
+ - Ejemplo
+ * - Modelos Django, clases, metodos
+ - Ingles
+ - ``class FunctionGroup``
+ * - Funciones SQL nativas (PostgreSQL)
+ - Ingles
+ - ``user_has_permission``
+ * - Variables, atributos
+ - Ingles
+ - ``user_id``, ``expires_at``
+ * - Codigos de funciones (capabilities)
+ - Ingles
+ - ``manage_sessions``, ``view_reports``
+ * - Comentarios, docstrings, help_text
+ - Espanol
+ - ``"""Grupo de funciones que se asignan juntas."""``
+ * - Documentacion (.rst, .md)
+ - Espanol
+ - "El sistema permite..."
 
-Origen: ``MODELO_RBAC_IACT_v5_2_1.md`` § "ESTANDAR DE NOMENCLATURA
+Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTANDAR DE NOMENCLATURA
 v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 
 2.3 Tecnologias Involucradas
@@ -208,26 +208,26 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
 
 .. code-block:: python
 
-   # CORRECTO
-   class Function(models.Model):
-       """Funcion atomica del sistema RBAC."""
-       code = models.CharField(max_length=50)
-       help_text = "Identificador unico de la funcion (ej: manage_sessions)"
+ # CORRECTO
+ class Function(models.Model):
+ """Funcion atomica del sistema RBAC."""
+ code = models.CharField(max_length=50)
+ help_text = "Identificador unico de la funcion (ej: manage_sessions)"
 
-   # INCORRECTO (vocabulario mezclado)
-   class Capacidad(models.Model):
-       """Function atomica del sistema RBAC."""
-       capacity_code = models.CharField(max_length=50)
+ # INCORRECTO (vocabulario mezclado)
+ class Capacidad(models.Model):
+ """Function atomica del sistema RBAC."""
+ capacity_code = models.CharField(max_length=50)
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
-   # Buscar usos prohibidos del termino legacy en codigo
-   grep -rn "Capacidad\|Capacity" backend/ src/ docs/ \\
-     | grep -v "deprecated\|legacy" \\
-     && echo "VIOLACION CNST_033" || echo "OK"
+ # Buscar usos prohibidos del termino legacy en codigo
+ grep -rn "Capacidad\|Capacity" backend/ src/ docs/ \\
+ | grep -v "deprecated\|legacy" \\
+ && echo "VIOLACION CNST_033" || echo "OK"
 
 6. Excepciones
 --------------
@@ -237,8 +237,8 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT.
 
 - Documentos historicos / archivados (no se reescribe el pasado).
 - Migracion gradual: en codigo legacy se permite alias deprecated por
-  un periodo de transicion (max 6 meses) marcado con comentario
-  ``# DEPRECATED: usar Function en codigo nuevo``.
+ un periodo de transicion (max 6 meses) marcado con comentario
+ ``# DEPRECATED: usar Function en codigo nuevo``.
 
 6.2 Proceso de Excepcion
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -255,9 +255,9 @@ ADR-GOB-008. Ver
 
 - 0 ocurrencias de "Capacidad" en docs nuevos del proyecto.
 - 0 ocurrencias de "Capacity" en codigo nuevo (excepto alias
-  deprecated marcados).
+ deprecated marcados).
 - Code review aprueba uso consistente de "Function" en codigo y
-  "Funcion" en docs.
+ "Funcion" en docs.
 
 7.2 Metodo de Verificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -270,36 +270,36 @@ ADR-GOB-008. Ver
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_029_RBAC_Modelo_Plano`,
-       :doc:`CNST_032_Menu_Dinamico_Obligatorio`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - Transversal (todos los UCs deben usar vocabulario canonico)
-   * - **MODs afectados**
-     - Transversal
-   * - **ADRs relacionados**
-     - ADR-GOB-008 (RBAC Coexistencia, pendiente WP #5 v2)
-   * - **Glosario canonico**
-     - :doc:`/base_cognitiva/glosario` § H
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_029_RBAC_Modelo_Plano`,
+ :doc:`CNST_032_Menu_Dinamico_Obligatorio`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - Transversal (todos los UCs deben usar vocabulario canonico)
+ * - **MODs afectados**
+ - Transversal
+ * - **ADRs relacionados**
+ - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
+ * - **Glosario canonico**
+ - :doc:`/base_cognitiva/glosario` § H
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-04-29
-     - NestorMonroy
-     - Version inicial. Restriccion creada en WP #4 v3 tras decisiones
-       D-RBAC-1 y D-RBAC-6 del WP #6.
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-04-29
+ - NestorMonroy
+ - Version inicial. Restriccion creada en iteracion correspondiente tras decisiones
+ D-RBAC-1 y D-RBAC-6 del WP #6.

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_008
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_008
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-008:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_008
-   * - **Categoria**
-     - Base de datos
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_008
+ * - **Categoria**
+ - Base de datos
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -79,7 +79,7 @@ analisis historico, no para operacion en tiempo real.
 - Ventana preferente: madrugada (02:00-04:00 hora local).
 - Mecanismo: ``django-crontab`` o scheduler equivalente.
 - Mecanismos prohibidos: Debezium, WebSockets, polling inferior a 6 h,
-  triggers cross-database.
+ triggers cross-database.
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,29 +95,29 @@ analisis historico, no para operacion en tiempo real.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_ETL
-     - Implementa la sincronizacion programada
-   * - MOD_Reports
-     - Consume datos sincronizados
+ * - Modulo
+ - Impacto
+ * - MOD_ETL
+ - Implementa la sincronizacion programada
+ * - MOD_Reports
+ - Consume datos sincronizados
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_025
-     - Dashboard — muestra timestamp ultima ETL
-   * - UC_017
-     - Reportes — datos hasta ultima ventana ETL
+ * - UC
+ - Impacto
+ * - UC_025
+ - Dashboard — muestra timestamp ultima ETL
+ * - UC_017
+ - Reportes — datos hasta ultima ventana ETL
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,7 +132,7 @@ analisis historico, no para operacion en tiempo real.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -143,9 +143,9 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   from etl.models import ETLRun
-   last = ETLRun.objects.latest("finished_at")
-   assert (now() - last.finished_at).total_seconds() <= 12 * 3600
+ from etl.models import ETLRun
+ last = ETLRun.objects.latest("finished_at")
+ assert (now - last.finished_at).total_seconds <= 12 * 3600
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,7 +168,7 @@ Reload manual requiere aprobacion del administrador del sistema y queda registra
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -189,37 +189,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_006_Arquitectura_de_Base_de_Datos_Dual`, :doc:`CNST_007_Base_de_Datos_IVR_es_Solo_Lectura`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_025, UC_017
-   * - **MODs afectados**
-     - MOD_ETL, MOD_Reports
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_006_Arquitectura_de_Base_de_Datos_Dual`, :doc:`CNST_007_Base_de_Datos_IVR_es_Solo_Lectura`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_025, UC_017
+ * - **MODs afectados**
+ - MOD_ETL, MOD_Reports
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

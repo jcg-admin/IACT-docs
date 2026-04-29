@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_017
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_017
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-017:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_017
-   * - **Categoria**
-     - Performance
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_017
+ * - **Categoria**
+ - Performance
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -73,27 +73,27 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 
 
 .. list-table::
-   :header-rows: 1
-   :widths: 50 25 25
+ :header-rows: 1
+ :widths: 50 25 25
 
-   * - Tipo de endpoint
-     - SLA p95
-     - SLA p99
-   * - Lectura simple (detalle)
-     - 200 ms
-     - 500 ms
-   * - Lectura paginada
-     - 500 ms
-     - 1 s
-   * - Escritura (CRUD)
-     - 800 ms
-     - 2 s
-   * - Reporte sincrono
-     - 5 s
-     - 10 s
-   * - Login
-     - 1 s
-     - 2 s
+ * - Tipo de endpoint
+ - SLA p95
+ - SLA p99
+ * - Lectura simple (detalle)
+ - 200 ms
+ - 500 ms
+ * - Lectura paginada
+ - 500 ms
+ - 1 s
+ * - Escritura (CRUD)
+ - 800 ms
+ - 2 s
+ * - Reporte sincrono
+ - 5 s
+ - 10 s
+ * - Login
+ - 1 s
+ - 2 s
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,31 +108,31 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - Todos los modulos DRF
-     - Cumplen SLA por endpoint type
+ * - Modulo
+ - Impacto
+ * - Todos los modulos DRF
+ - Cumplen SLA por endpoint type
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_017
-     - Reporte simple (<5s)
-   * - UC_018
-     - Reporte complejo (<10s)
-   * - UC_019
-     - Analisis exploratorio (<300s)
-   * - UC_025
-     - Dashboard (<3s carga inicial)
+ * - UC
+ - Impacto
+ * - UC_017
+ - Reporte simple (<5s)
+ * - UC_018
+ - Reporte complejo (<10s)
+ * - UC_019
+ - Analisis exploratorio (<300s)
+ * - UC_025
+ - Dashboard (<3s carga inicial)
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,15 +144,15 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 ---------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - BR
-     - Nombre
-     - Relacion
-   * - BR_011 (legacy)
-     - Limites de Exportacion (relacionado pero no equivalente)
-     - FND_00:298 — pendiente WP requisitos
+ * - BR
+ - Nombre
+ - Relacion
+ * - BR_011 (legacy)
+ - Limites de Exportacion (relacionado pero no equivalente)
+ - FND_00:298 — pendiente WP requisitos
 
 5. Implementacion
 -----------------
@@ -167,7 +167,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 
 
 - APM en produccion (Sentry o Prometheus) con alertas por endpoint
-  que exceda el p95 sostenido.
+ que exceda el p95 sostenido.
 
 
 6. Excepciones
@@ -185,7 +185,7 @@ Endpoint que excede SLA p95 sostenido requiere ticket de optimizacion o reclasif
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -206,37 +206,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_018_Rango_Maximo_de_Consulta_de_2_Anos`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
-   * - **BR derivadas**
-     - BR_011 (legacy)
-   * - **UCs afectados**
-     - UC_017, UC_018, UC_019, UC_025
-   * - **MODs afectados**
-     - Todos los modulos DRF
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_018_Rango_Maximo_de_Consulta_de_2_Anos`, :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`
+ * - **BR derivadas**
+ - BR_011 (legacy)
+ * - **UCs afectados**
+ - UC_017, UC_018, UC_019, UC_025
+ * - **MODs afectados**
+ - Todos los modulos DRF
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_030
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_030
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-030:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_030
-   * - **Categoria**
-     - RBAC
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_030
+ * - **Categoria**
+ - RBAC
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -60,7 +60,7 @@ revisor humano.
 ^^^^^^^^^^
 
 - **Fuente:** Compliance + prevencion de fraude
-- **Documento:** MODELO_RBAC_IACT_v5_2_1.md:524-603
+- **Documento:** MODELO_RBAC_IACT:524-603
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
@@ -72,50 +72,50 @@ revisor humano.
 
 - Modelo ``SoDRule`` con campos ``group_a``, ``group_b``, ``rationale``.
 - Validacion en signal ``pre_save`` de ``UserGroup``: rechaza si la
-  asignacion crea un par prohibido.
+ asignacion crea un par prohibido.
 - Reporte periodico de violaciones existentes (sanity check).
 
 **Catalogo de las 3 reglas SoD vigentes (modelo v5.2.1):**
 
 .. list-table::
-   :widths: 15 30 25 20 10
-   :header-rows: 1
+ :widths: 15 30 25 20 10
+ :header-rows: 1
 
-   * - ID
-     - Nombre (ingles)
-     - Grupo A
-     - Grupo B
-     - CNST
-   * - SOD-001
-     - pipeline_audit_separation
-     - Pipeline (PIP-001..004): view_pipeline_status,
-       view_pipeline_errors, view_data_availability,
-       request_pipeline_retry
-     - Audit (AUD-001..004): view_audit_log, search_audit_log,
-       export_audit_log, generate_compliance_report
-     - CNST_030
-   * - SOD-002
-     - user_audit_separation
-     - Gestion Users criticas (4 funciones): create_users,
-       delete_users, list_users, unblock_users
-     - Audit parcial (3 funciones): view_audit_log,
-       search_audit_log, export_audit_log
-     - CNST_030
-   * - SOD-003
-     - access_audit_separation
-     - Gestion Acceso (3 funciones): assign_functions,
-       revoke_functions, manage_sod
-     - Audit (2 funciones): view_audit_log, search_audit_log
-     - CNST_030
+ * - ID
+ - Nombre (ingles)
+ - Grupo A
+ - Grupo B
+ - CNST
+ * - SOD-001
+ - pipeline_audit_separation
+ - Pipeline (PIP-001..004): view_pipeline_status,
+ view_pipeline_errors, view_data_availability,
+ request_pipeline_retry
+ - Audit (AUD-001..004): view_audit_log, search_audit_log,
+ export_audit_log, generate_compliance_report
+ - CNST_030
+ * - SOD-002
+ - user_audit_separation
+ - Gestion Users criticas (4 funciones): create_users,
+ delete_users, list_users, unblock_users
+ - Audit parcial (3 funciones): view_audit_log,
+ search_audit_log, export_audit_log
+ - CNST_030
+ * - SOD-003
+ - access_audit_separation
+ - Gestion Acceso (3 funciones): assign_functions,
+ revoke_functions, manage_sod
+ - Audit (2 funciones): view_audit_log, search_audit_log
+ - CNST_030
 
 **Razon de cada regla:**
 
 - **SOD-001:** quien opera el ETL no debe auditarlo (independencia
-  operador/auditor).
+ operador/auditor).
 - **SOD-002:** quien gestiona usuarios no debe auditar sus propias
-  acciones de gestion.
+ acciones de gestion.
 - **SOD-003:** quien gestiona acceso no debe auditar cambios de
-  permisos que el mismo aplico.
+ permisos que el mismo aplico.
 
 **Aplicabilidad a custom groups (decision D-RBAC-7):**
 
@@ -144,27 +144,27 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Access
-     - Implementa SoDRule + signal de validacion
+ * - Modulo
+ - Impacto
+ * - MOD_Access
+ - Implementa SoDRule + signal de validacion
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_004
-     - Asignar Rol — valida SoD
-   * - UC_005
-     - Auditoria de violaciones SoD
+ * - UC
+ - Impacto
+ * - UC_004
+ - Asignar Rol — valida SoD
+ * - UC_005
+ - Auditoria de violaciones SoD
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,7 +178,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -189,11 +189,11 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   # signal handler
-   def on_user_group_save(sender, instance, **kwargs):
-       conflicting = SoDRule.find_conflict(instance.user, instance.group)
-       if conflicting:
-           raise ValidationError(f"SoD: conflict with {conflicting}")
+ # signal handler
+ def on_user_group_save(sender, instance, **kwargs):
+ conflicting = SoDRule.find_conflict(instance.user, instance.group)
+ if conflicting:
+ raise ValidationError(f"SoD: conflict with {conflicting}")
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -216,7 +216,7 @@ Solicitud formal con justificacion de negocio + analisis de riesgo + aprobacion 
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -237,37 +237,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_004, UC_005
-   * - **MODs afectados**
-     - MOD_Access
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_004, UC_005
+ * - **MODs afectados**
+ - MOD_Access
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

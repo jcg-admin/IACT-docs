@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-005.01
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-005.01
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-005-01:
 
@@ -19,22 +19,22 @@ FR-005.01: Listar sesiones activas
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-005.01
-   * - **Nombre**
-     - Listar todas las sesiones activas del sistema
-   * - **UC Origen**
-     - UC_005: Gestionar Sesiones Activas
-   * - **Paso UC**
-     - Paso 2 del flujo normal
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Media
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-005.01
+ * - **Nombre**
+ - Listar todas las sesiones activas del sistema
+ * - **UC Origen**
+ - UC_005: Gestionar Sesiones Activas
+ * - **Paso UC**
+ - Paso 2 del flujo normal
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Media
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,31 +43,31 @@ FR-005.01: Listar sesiones activas
 
 **Declaración:**
 
-   El sistema DEBE mostrar un listado de todas las sesiones activas
-   CUANDO un administrador de seguridad accede a la gestión de sesiones.
+ El sistema DEBE mostrar un listado de todas las sesiones activas
+ CUANDO un administrador de seguridad accede a la gestión de sesiones.
 
 **Descripción:**
 
-   El sistema obtiene y presenta:
-   
-   **Datos por Sesión:**
-   
-   - Username del usuario
-   - Nombre completo del usuario
-   - IP de origen
-   - User Agent (navegador/dispositivo)
-   - Fecha/hora de inicio de sesión
-   - Fecha/hora de última actividad
-   - Duración de la sesión
-   - Estado (ACTIVE)
-   
-   **Funcionalidades del Listado:**
-   
-   - Paginación (20 sesiones por página)
-   - Ordenamiento por: usuario, inicio, última actividad
-   - Filtro por: usuario, rango de fechas, IP
-   - Búsqueda por username
-   - Actualización automática cada 30 segundos
+ El sistema obtiene y presenta:
+ 
+ **Datos por Sesión:**
+ 
+ - Username del usuario
+ - Nombre completo del usuario
+ - IP de origen
+ - User Agent (navegador/dispositivo)
+ - Fecha/hora de inicio de sesión
+ - Fecha/hora de última actividad
+ - Duración de la sesión
+ - Estado (ACTIVE)
+ 
+ **Funcionalidades del Listado:**
+ 
+ - Paginación (20 sesiones por página)
+ - Ordenamiento por: usuario, inicio, última actividad
+ - Filtro por: usuario, rango de fechas, IP
+ - Búsqueda por username
+ - Actualización automática cada 30 segundos
 
 ----
 
@@ -76,32 +76,32 @@ FR-005.01: Listar sesiones activas
 
 ::
 
-   DADO un admin de seguridad con AGR-008
-   CUANDO accede a "Gestionar Sesiones"
-   ENTONCES ve listado de todas las sesiones activas
-   
-   Escenario 1: Listado inicial
-   DADO admin en pantalla de sesiones
-   CUANDO carga la vista
-   ENTONCES se muestran las sesiones ordenadas por última actividad DESC
-   Y se muestra contador total de sesiones activas
-   
-   Escenario 2: Paginación
-   DADO más de 20 sesiones activas
-   CUANDO se navega entre páginas
-   ENTONCES se muestran 20 sesiones por página
-   Y se mantienen los filtros aplicados
-   
-   Escenario 3: Filtro por usuario
-   DADO filtro por username = "juan"
-   CUANDO se aplica el filtro
-   ENTONCES se muestran solo sesiones de usuarios que contienen "juan"
-   
-   Escenario 4: Auto-refresh
-   DADO listado de sesiones visible
-   CUANDO pasan 30 segundos
-   ENTONCES el listado se actualiza automáticamente
-   Y se preserva la posición de scroll
+ DADO un admin de seguridad con AGR-008
+ CUANDO accede a "Gestionar Sesiones"
+ ENTONCES ve listado de todas las sesiones activas
+ 
+ Escenario 1: Listado inicial
+ DADO admin en pantalla de sesiones
+ CUANDO carga la vista
+ ENTONCES se muestran las sesiones ordenadas por última actividad DESC
+ Y se muestra contador total de sesiones activas
+ 
+ Escenario 2: Paginación
+ DADO más de 20 sesiones activas
+ CUANDO se navega entre páginas
+ ENTONCES se muestran 20 sesiones por página
+ Y se mantienen los filtros aplicados
+ 
+ Escenario 3: Filtro por usuario
+ DADO filtro por username = "juan"
+ CUANDO se aplica el filtro
+ ENTONCES se muestran solo sesiones de usuarios que contienen "juan"
+ 
+ Escenario 4: Auto-refresh
+ DADO listado de sesiones visible
+ CUANDO pasan 30 segundos
+ ENTONCES el listado se actualiza automáticamente
+ Y se preserva la posición de scroll
 
 ----
 
@@ -109,9 +109,9 @@ FR-005.01: Listar sesiones activas
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-  
+ 
 - **CNST aplicables:**
-  - CNST-002: Consulta de user_sessions
+ - CNST-002: Consulta de user_sessions
 
 **Permisos Requeridos:**
 
@@ -124,20 +124,20 @@ FR-005.01: Listar sesiones activas
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_005: Gestionar Sesiones
-   * - **Depende de**
-     - CNST-002 (tabla user_sessions)
-   * - **Requerido por**
-     - FR-005.02, FR-005.03
-   * - **CNST**
-     - CNST-002
-   * - **TEST**
-     - TST-FR-005.01 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_005: Gestionar Sesiones
+ * - **Depende de**
+ - CNST-002 (tabla user_sessions)
+ * - **Requerido por**
+ - FR-005.02, FR-005.03
+ * - **CNST**
+ - CNST-002
+ * - **TEST**
+ - TST-FR-005.01 (pendiente)
 
 ----
 
@@ -145,12 +145,12 @@ FR-005.01: Listar sesiones activas
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_005
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_005

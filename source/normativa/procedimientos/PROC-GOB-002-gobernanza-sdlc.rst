@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROC_GOB_002
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_GOB_002
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 Agentes SDLC - Documentacion Completa
 =====================================
@@ -34,14 +34,14 @@ Ubicacion
 
 ::
 
-   scripts/ai/agents/
-     sdlc_base.py           - Clases base (SDLCAgent, SDLCPhaseResult, SDLCPipeline)
-     sdlc_planner.py        - Phase 1: Planning
-     sdlc_feasibility.py    - Phase 2: Feasibility Analysis
-     sdlc_design.py         - Phase 3: System Design
-     sdlc_testing.py        - Phase 5: Testing
-     sdlc_deployment.py     - Phase 6: Deployment
-     sdlc_orchestrator.py   - Pipeline orchestrator
+ scripts/ai/agents/
+ sdlc_base.py - Clases base (SDLCAgent, SDLCPhaseResult, SDLCPipeline)
+ sdlc_planner.py - Phase 1: Planning
+ sdlc_feasibility.py - Phase 2: Feasibility Analysis
+ sdlc_design.py - Phase 3: System Design
+ sdlc_testing.py - Phase 5: Testing
+ sdlc_deployment.py - Phase 6: Deployment
+ sdlc_orchestrator.py - Pipeline orchestrator
 
 Patron de Diseno
 ~~~~~~~~~~~~~~~~
@@ -50,9 +50,9 @@ Patron de Diseno
 
 ::
 
-   Planning → Feasibility → Design → Implementation → Testing → Deployment
-              ↓ NO-GO
-              STOP
+ Planning → Feasibility → Design → Implementation → Testing → Deployment
+ ↓ NO-GO
+ STOP
 
 Cada fase puede retornar: - **GO**: Continuar a siguiente fase -
 **NO-GO**: Detener pipeline, resolver blockers - **REVIEW**: Requiere
@@ -63,19 +63,19 @@ Flujo de Datos
 
 ::
 
-   Input: Feature Request (str)
-     ↓
-   Planning Agent → Issue (dict)
-     ↓
-   Feasibility Agent → Feasibility Report (dict)
-     ↓ (if GO)
-   Design Agent → HLD, LLD, ADRs (dict)
-     ↓
-   [Manual Implementation]
-     ↓
-   Testing Agent → Test Plan, Test Cases (dict)
-     ↓
-   Deployment Agent → Deployment Plan, Rollback Plan (dict)
+ Input: Feature Request (str)
+ ↓
+ Planning Agent → Issue (dict)
+ ↓
+ Feasibility Agent → Feasibility Report (dict)
+ ↓ (if GO)
+ Design Agent → HLD, LLD, ADRs (dict)
+ ↓
+ [Manual Implementation]
+ ↓
+ Testing Agent → Test Plan, Test Cases (dict)
+ ↓
+ Deployment Agent → Deployment Plan, Rollback Plan (dict)
 
 --------------
 
@@ -94,31 +94,31 @@ estructurado
 
 .. code:: python
 
-   {
-       "feature_request": str,          # Descripcion del feature
-       "project_context": str,          # Contexto del proyecto (opcional)
-       "backlog": list                  # Backlog existente (opcional)
-   }
+ {
+ "feature_request": str, # Descripcion del feature
+ "project_context": str, # Contexto del proyecto (opcional)
+ "backlog": list # Backlog existente (opcional)
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "issue": {
-           "issue_title": str,          # Titulo del issue
-           "issue_body": str,           # Cuerpo completo (markdown)
-           "user_story": str,           # User story formato: As/Want/So
-           "acceptance_criteria": list, # Criteria verificables
-           "technical_requirements": list,
-           "story_points": int,         # Fibonacci: 1,2,3,5,8,13
-           "priority": str,             # P0, P1, P2, P3
-           "labels": list,              # ['feature', 'backend', etc]
-           "assignees": list
-       },
-       "issue_path": str,               # Path del archivo generado
-       "phase_result": SDLCPhaseResult  # decision="go"
-   }
+ {
+ "issue": {
+ "issue_title": str, # Titulo del issue
+ "issue_body": str, # Cuerpo completo (markdown)
+ "user_story": str, # User story formato: As/Want/So
+ "acceptance_criteria": list, # Criteria verificables
+ "technical_requirements": list,
+ "story_points": int, # Fibonacci: 1,2,3,5,8,13
+ "priority": str, # P0, P1, P2, P3
+ "labels": list, # ['feature', 'backend', etc]
+ "assignees": list
+ },
+ "issue_path": str, # Path del archivo generado
+ "phase_result": SDLCPhaseResult # decision="go"
+ }
 
 **Artefactos Generados**: -
 ``docs/sdlc_outputs/planning/ISSUE_YYYYMMDD_HHMMSS.md``
@@ -127,9 +127,9 @@ estructurado
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase planning \
-       --input "Implementar dark mode toggle en settings"
+ python scripts/sdlc_agent.py \
+ --phase planning \
+ --input "Implementar dark mode toggle en settings"
 
 **Caracteristicas**: - Estimacion automatica (story points Fibonacci) -
 Priorizacion automatica (P0-P3) - Analisis de backlog para evitar
@@ -148,43 +148,43 @@ duplicados - Formato GitHub issue completo
 
 .. code:: python
 
-   {
-       "issue": dict,                      # Output de SDLCPlannerAgent
-       "project_context": str,
-       "technical_constraints": {
-           "no_redis": True,                # RNF-002
-           "no_email": True,
-           "budget": float,
-           "deadline": str
-       }
-   }
+ {
+ "issue": dict, # Output de SDLCPlannerAgent
+ "project_context": str,
+ "technical_constraints": {
+ "no_redis": True, # RNF-002
+ "no_email": True,
+ "budget": float,
+ "deadline": str
+ }
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "feasibility_report": str,          # Reporte completo (markdown)
-       "decision": str,                    # "go", "no-go", "review"
-       "confidence": float,                # 0.0 - 1.0
-       "risks": [
-           {
-               "description": str,
-               "severity": str,             # "low", "medium", "high", "critical"
-               "probability": str,          # "low", "medium", "high"
-               "impact": str,
-               "mitigation": str
-           }
-       ],
-       "technical_feasibility": dict,
-       "effort_analysis": {
-           "story_points": int,
-           "estimated_hours": int,
-           "estimated_days": int
-       },
-       "report_path": str,
-       "phase_result": SDLCPhaseResult
-   }
+ {
+ "feasibility_report": str, # Reporte completo (markdown)
+ "decision": str, # "go", "no-go", "review"
+ "confidence": float, # 0.0 - 1.0
+ "risks": [
+ {
+ "description": str,
+ "severity": str, # "low", "medium", "high", "critical"
+ "probability": str, # "low", "medium", "high"
+ "impact": str,
+ "mitigation": str
+ }
+ ],
+ "technical_feasibility": dict,
+ "effort_analysis": {
+ "story_points": int,
+ "estimated_hours": int,
+ "estimated_days": int
+ },
+ "report_path": str,
+ "phase_result": SDLCPhaseResult
+ }
 
 **Artefactos Generados**: -
 ``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_YYYYMMDD_HHMMSS.md``
@@ -199,9 +199,9 @@ budget/timeline
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase feasibility \
-       --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ python scripts/sdlc_agent.py \
+ --phase feasibility \
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
 
 **Caracteristicas**: - Risk assessment matrix (Severity x Probability) -
 Validacion restricciones IACT automatica - Conversion story points →
@@ -220,34 +220,34 @@ horas/dias - Analisis de dependencias
 
 .. code:: python
 
-   {
-       "issue": dict,                   # Output de SDLCPlannerAgent
-       "feasibility_result": dict,      # Output de SDLCFeasibilityAgent
-       "project_context": str
-   }
+ {
+ "issue": dict, # Output de SDLCPlannerAgent
+ "feasibility_result": dict, # Output de SDLCFeasibilityAgent
+ "project_context": str
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "hld": str,                      # High-Level Design (markdown)
-       "hld_path": str,
-       "lld": str,                      # Low-Level Design (markdown)
-       "lld_path": str,
-       "adrs": [str],                   # Architecture Decision Records
-       "diagrams": {
-           "architecture": str,         # Mermaid diagram
-           "sequence": str,
-           "components": str,
-           "database": str              # ER diagram
-       },
-       "diagrams_path": str,
-       "review_checklist": str,
-       "review_path": str,
-       "artifacts": list,
-       "phase_result": SDLCPhaseResult
-   }
+ {
+ "hld": str, # High-Level Design (markdown)
+ "hld_path": str,
+ "lld": str, # Low-Level Design (markdown)
+ "lld_path": str,
+ "adrs": [str], # Architecture Decision Records
+ "diagrams": {
+ "architecture": str, # Mermaid diagram
+ "sequence": str,
+ "components": str,
+ "database": str # ER diagram
+ },
+ "diagrams_path": str,
+ "review_checklist": str,
+ "review_path": str,
+ "artifacts": list,
+ "phase_result": SDLCPhaseResult
+ }
 
 **Artefactos Generados**: - ``HLD_YYYYMMDD_HHMMSS.md`` - High-Level
 Design - ``LLD_YYYYMMDD_HHMMSS.md`` - Low-Level Design -
@@ -277,9 +277,9 @@ flows) - Components (module relationships) - Database ER
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase design \
-       --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+ python scripts/sdlc_agent.py \
+ --phase design \
+ --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
 
 **Caracteristicas**: - Genera codigo de ejemplo (models, views,
 services) - Diagramas Mermaid auto-generados - ADRs para decisiones
@@ -299,56 +299,56 @@ strategy
 
 .. code:: python
 
-   {
-       "issue": dict,
-       "design_result": dict,           # Output de SDLCDesignAgent
-       "implementation_status": str     # "pending", "in_progress", "completed"
-   }
+ {
+ "issue": dict,
+ "design_result": dict, # Output de SDLCDesignAgent
+ "implementation_status": str # "pending", "in_progress", "completed"
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "test_plan": str,                # Test plan completo (markdown)
-       "test_plan_path": str,
-       "test_cases": [
-           {
-               "id": str,                # "UT-001", "IT-001", "E2E-001"
-               "type": str,              # "unit", "integration", "e2e"
-               "name": str,
-               "description": str,
-               "preconditions": str,
-               "steps": list,
-               "expected_result": str,
-               "priority": str           # "high", "medium", "low"
-           }
-       ],
-       "test_cases_path": str,
-       "test_pyramid": {
-           "total_tests": int,
-           "unit_tests": {
-               "count": int,
-               "percentage": float,
-               "target": 60,
-               "status": str             # "on_target", "needs_more"
-           },
-           "integration_tests": {...},
-           "e2e_tests": {...}
-       },
-       "test_pyramid_path": str,
-       "coverage_requirements": {
-           "overall_target": 80,         # Porcentaje
-           "critical_paths": 100,
-           "models": 90,
-           "services": 85,
-           "views": 80
-       },
-       "testing_checklist": str,
-       "checklist_path": str,
-       "artifacts": list,
-       "phase_result": SDLCPhaseResult
-   }
+ {
+ "test_plan": str, # Test plan completo (markdown)
+ "test_plan_path": str,
+ "test_cases": [
+ {
+ "id": str, # "UT-001", "IT-001", "E2E-001"
+ "type": str, # "unit", "integration", "e2e"
+ "name": str,
+ "description": str,
+ "preconditions": str,
+ "steps": list,
+ "expected_result": str,
+ "priority": str # "high", "medium", "low"
+ }
+ ],
+ "test_cases_path": str,
+ "test_pyramid": {
+ "total_tests": int,
+ "unit_tests": {
+ "count": int,
+ "percentage": float,
+ "target": 60,
+ "status": str # "on_target", "needs_more"
+ },
+ "integration_tests": {...},
+ "e2e_tests": {...}
+ },
+ "test_pyramid_path": str,
+ "coverage_requirements": {
+ "overall_target": 80, # Porcentaje
+ "critical_paths": 100,
+ "models": 90,
+ "services": 85,
+ "views": 80
+ },
+ "testing_checklist": str,
+ "checklist_path": str,
+ "artifacts": list,
+ "phase_result": SDLCPhaseResult
+ }
 
 **Artefactos Generados**: - ``TEST_PLAN_YYYYMMDD_HHMMSS.md`` -
 ``TEST_CASES_YYYYMMDD_HHMMSS.md`` - ``TEST_PYRAMID_YYYYMMDD_HHMMSS.md``
@@ -369,9 +369,9 @@ Critical user flows
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase testing \
-       --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
+ python scripts/sdlc_agent.py \
+ --phase testing \
+ --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
 
 **Caracteristicas**: - Genera test cases concretos con steps -
 Validacion test pyramid automatica - Coverage requirements por
@@ -390,32 +390,32 @@ componente - Testing checklist ejecutable
 
 .. code:: python
 
-   {
-       "issue": dict,
-       "design_result": dict,
-       "testing_result": dict,          # Output de SDLCTestingAgent
-       "environment": str               # "staging", "production"
-   }
+ {
+ "issue": dict,
+ "design_result": dict,
+ "testing_result": dict, # Output de SDLCTestingAgent
+ "environment": str # "staging", "production"
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "deployment_plan": str,          # Deployment plan completo
-       "deployment_path": str,
-       "rollback_plan": str,
-       "rollback_path": str,
-       "pre_deployment_checklist": str,
-       "pre_checklist_path": str,
-       "post_deployment_checklist": str,
-       "post_checklist_path": str,
-       "monitoring_plan": str,
-       "monitoring_path": str,
-       "environment": str,
-       "artifacts": list,
-       "phase_result": SDLCPhaseResult
-   }
+ {
+ "deployment_plan": str, # Deployment plan completo
+ "deployment_path": str,
+ "rollback_plan": str,
+ "rollback_path": str,
+ "pre_deployment_checklist": str,
+ "pre_checklist_path": str,
+ "post_deployment_checklist": str,
+ "post_checklist_path": str,
+ "monitoring_plan": str,
+ "monitoring_path": str,
+ "environment": str,
+ "artifacts": list,
+ "phase_result": SDLCPhaseResult
+ }
 
 **Artefactos Generados**: - ``DEPLOYMENT_PLAN_{env}_YYYYMMDD_HHMMSS.md``
 - ``ROLLBACK_PLAN_{env}_YYYYMMDD_HHMMSS.md`` -
@@ -448,17 +448,17 @@ Response
 
 .. code:: bash
 
-   # Staging
-   python scripts/sdlc_agent.py \
-       --phase deployment \
-       --environment staging \
-       --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ # Staging
+ python scripts/sdlc_agent.py \
+ --phase deployment \
+ --environment staging \
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
 
-   # Production
-   python scripts/sdlc_agent.py \
-       --phase deployment \
-       --environment production \
-       --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ # Production
+ python scripts/sdlc_agent.py \
+ --phase deployment \
+ --environment production \
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
 
 **Caracteristicas**: - Blue-green deployment strategy - Database backup
 automatico - Health checks en cada paso - Rollback plan ejecutable -
@@ -475,41 +475,41 @@ Post-deployment monitoring (5 min, 24h, 1 week)
 
 .. code:: python
 
-   {
-       "feature_request": str,
-       "project_context": str,
-       "technical_constraints": dict,
-       "start_phase": str,              # "planning", "feasibility", etc.
-       "end_phase": str,                # "deployment"
-       "skip_phases": list,             # ["implementation"]
-       "environment": str               # "staging", "production"
-   }
+ {
+ "feature_request": str,
+ "project_context": str,
+ "technical_constraints": dict,
+ "start_phase": str, # "planning", "feasibility", etc.
+ "end_phase": str, # "deployment"
+ "skip_phases": list, # ["implementation"]
+ "environment": str # "staging", "production"
+ }
 
 **Output**:
 
 .. code:: python
 
-   {
-       "status": str,                   # "completed", "early_stop"
-       "feature_request": str,
-       "phase_results": {
-           "planning": dict,
-           "feasibility": dict,
-           "design": dict,
-           "testing": dict,
-           "deployment": dict
-       },
-       "execution_log": [
-           {
-               "phase": str,
-               "status": str,           # "completed", "manual", "failed"
-               "decision": str          # "go", "no-go", "n/a"
-           }
-       ],
-       "all_artifacts": list,           # Paths de todos los artefactos
-       "final_report": str,
-       "report_path": str
-   }
+ {
+ "status": str, # "completed", "early_stop"
+ "feature_request": str,
+ "phase_results": {
+ "planning": dict,
+ "feasibility": dict,
+ "design": dict,
+ "testing": dict,
+ "deployment": dict
+ },
+ "execution_log": [
+ {
+ "phase": str,
+ "status": str, # "completed", "manual", "failed"
+ "decision": str # "go", "no-go", "n/a"
+ }
+ ],
+ "all_artifacts": list, # Paths de todos los artefactos
+ "final_report": str,
+ "report_path": str
+ }
 
 **Artefactos Generados**: - ``SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md``
 - Reporte consolidado - Todos los artefactos de cada fase
@@ -518,23 +518,23 @@ Post-deployment monitoring (5 min, 24h, 1 week)
 
 .. code:: bash
 
-   # Pipeline completo
-   python scripts/sdlc_agent.py \
-       --phase orchestration \
-       --input "Implementar dark mode toggle en settings"
+ # Pipeline completo
+ python scripts/sdlc_agent.py \
+ --phase orchestration \
+ --input "Implementar dark mode toggle en settings"
 
-   # Ejecutar solo design → testing
-   python scripts/sdlc_agent.py \
-       --phase orchestration \
-       --start-phase design \
-       --end-phase testing \
-       --input "Feature request"
+ # Ejecutar solo design → testing
+ python scripts/sdlc_agent.py \
+ --phase orchestration \
+ --start-phase design \
+ --end-phase testing \
+ --input "Feature request"
 
-   # Skip implementation (manual)
-   python scripts/sdlc_agent.py \
-       --phase orchestration \
-       --skip-phases implementation \
-       --input "Feature request"
+ # Skip implementation (manual)
+ python scripts/sdlc_agent.py \
+ --phase orchestration \
+ --skip-phases implementation \
+ --input "Feature request"
 
 **Caracteristicas**: - Go/No-Go decisions entre fases - Early stop si
 fase falla - Reporte consolidado final - Lessons learned automaticas -
@@ -550,36 +550,36 @@ CLI: scripts/sdlc_agent.py
 
 .. code:: bash
 
-   # Ver ayuda
-   python scripts/sdlc_agent.py --help
+ # Ver ayuda
+ python scripts/sdlc_agent.py --help
 
-   # Ejecutar fase individual
-   python scripts/sdlc_agent.py \
-       --phase planning \
-       --input "Feature request description"
+ # Ejecutar fase individual
+ python scripts/sdlc_agent.py \
+ --phase planning \
+ --input "Feature request description"
 
-   # Ejecutar con archivo
-   python scripts/sdlc_agent.py \
-       --phase feasibility \
-       --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ # Ejecutar con archivo
+ python scripts/sdlc_agent.py \
+ --phase feasibility \
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
 
-   # Output en JSON
-   python scripts/sdlc_agent.py \
-       --phase design \
-       --input-file ... \
-       --format json
+ # Output en JSON
+ python scripts/sdlc_agent.py \
+ --phase design \
+ --input-file ... \
+ --format json
 
-   # Dry-run (no guarda archivos)
-   python scripts/sdlc_agent.py \
-       --phase testing \
-       --input-file ... \
-       --dry-run
+ # Dry-run (no guarda archivos)
+ python scripts/sdlc_agent.py \
+ --phase testing \
+ --input-file ... \
+ --dry-run
 
-   # Pipeline completo
-   python scripts/sdlc_agent.py \
-       --phase orchestration \
-       --input "Implementar export a Excel en reportes" \
-       --environment staging
+ # Pipeline completo
+ python scripts/sdlc_agent.py \
+ --phase orchestration \
+ --input "Implementar export a Excel en reportes" \
+ --environment staging
 
 Ejemplo Completo: Dark Mode Feature
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -589,9 +589,9 @@ Step 1: Planning
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase planning \
-       --input "Implementar dark mode toggle en settings para mejorar UX"
+ python scripts/sdlc_agent.py \
+ --phase planning \
+ --input "Implementar dark mode toggle en settings para mejorar UX"
 
 Output: - Issue: ``docs/sdlc_outputs/planning/ISSUE_20251106_150610.md``
 - Story points: 5 - Priority: P2
@@ -601,9 +601,9 @@ Step 2: Feasibility
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase feasibility \
-       --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ python scripts/sdlc_agent.py \
+ --phase feasibility \
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
 
 Output: - Feasibility Report:
 ``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md``
@@ -614,9 +614,9 @@ Step 3: Design
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase design \
-       --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+ python scripts/sdlc_agent.py \
+ --phase design \
+ --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
 
 Output: - HLD: ``docs/sdlc_outputs/design/HLD_20251106_151530.md`` -
 LLD: ``docs/sdlc_outputs/design/LLD_20251106_151530.md`` - Diagrams:
@@ -633,9 +633,9 @@ Step 5: Testing
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase testing \
-       --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
+ python scripts/sdlc_agent.py \
+ --phase testing \
+ --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
 
 Output: - Test Plan:
 ``docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md`` - Test Cases:
@@ -646,10 +646,10 @@ Step 6: Deployment
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase deployment \
-       --environment staging \
-       --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ python scripts/sdlc_agent.py \
+ --phase deployment \
+ --environment staging \
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
 
 Output: - Deployment Plan:
 ``docs/sdlc_outputs/deployment/DEPLOYMENT_PLAN_staging_20251106_152530.md``
@@ -666,10 +666,10 @@ Pipeline Automatico
 
 .. code:: bash
 
-   python scripts/sdlc_agent.py \
-       --phase orchestration \
-       --input "Feature request" \
-       --environment staging
+ python scripts/sdlc_agent.py \
+ --phase orchestration \
+ --input "Feature request" \
+ --environment staging
 
 Output: - SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md - Todos los artefactos
 de todas las fases
@@ -681,15 +681,15 @@ Si Feasibility retorna NO-GO:
 
 ::
 
-   Planning → Feasibility (NO-GO: Redis required) → STOP
+ Planning → Feasibility (NO-GO: Redis required) → STOP
 
-   Pipeline stopped at feasibility phase.
-   Reason: Feature requires Redis (prohibited by RNF-002)
+ Pipeline stopped at feasibility phase.
+ Reason: Feature requires Redis (prohibited by RNF-002)
 
-   Recommendations:
-   1. Review feasibility report for blockers
-   2. Redesign to use MySQL only
-   3. Re-run pipeline after fixes
+ Recommendations:
+ 1. Review feasibility report for blockers
+ 2. Redesign to use MySQL only
+ 3. Re-run pipeline after fixes
 
 --------------
 
@@ -705,14 +705,14 @@ RNF-002: NO Redis
 
 .. code:: python
 
-   def _analyze_technical_feasibility(self, issue, constraints):
-       requirements = " ".join(issue.get("technical_requirements", [])).lower()
+ def _analyze_technical_feasibility(self, issue, constraints):
+ requirements = " ".join(issue.get("technical_requirements", [])).lower
 
-       if constraints.get("no_redis") and "redis" in requirements:
-           feasibility["blockers"].append("BLOCKER: Redis prohibited (RNF-002)")
-           feasibility["is_feasible"] = False
+ if constraints.get("no_redis") and "redis" in requirements:
+ feasibility["blockers"].append("BLOCKER: Redis prohibited (RNF-002)")
+ feasibility["is_feasible"] = False
 
-       return feasibility
+ return feasibility
 
 **Result**: Decision = NO-GO si detecta Redis
 
@@ -723,17 +723,17 @@ Sesiones en MySQL
 
 .. code:: python
 
-   if self._has_session_requirement(technical_requirements):
-       adr = self._create_adr(
-           title="Almacenamiento de Sesiones en MySQL",
-           decision="Usar django.contrib.sessions.backends.db",
-           rationale=[
-               "RNF-002: Redis prohibido",
-               "MySQL ya disponible",
-               "Cumple performance requirements"
-           ]
-       )
-       adrs.append(adr)
+ if self._has_session_requirement(technical_requirements):
+ adr = self._create_adr(
+ title="Almacenamiento de Sesiones en MySQL",
+ decision="Usar django.contrib.sessions.backends.db",
+ rationale=[
+ "RNF-002: Redis prohibido",
+ "MySQL ya disponible",
+ "Cumple performance requirements"
+ ]
+ )
+ adrs.append(adr)
 
 NO Email
 ~~~~~~~~
@@ -755,11 +755,11 @@ Todos los artefactos generados son texto ASCII puro.
 Referencias
 -----------
 
--  SDLC Process: docs/gobernanza/procesos/SDLC_PROCESS.md
--  DevOps Automation: docs/gobernanza/procesos/DEVOPS_AUTOMATION.md
--  Base Classes: scripts/ai/agents/sdlc_base.py
--  CLI: scripts/sdlc_agent.py
--  RNF-002: docs/backend/requisitos/restricciones_y_lineamientos.md
+- SDLC Process: docs/gobernanza/procesos/SDLC_PROCESS.md
+- DevOps Automation: docs/gobernanza/procesos/DEVOPS_AUTOMATION.md
+- Base Classes: scripts/ai/agents/sdlc_base.py
+- CLI: scripts/sdlc_agent.py
+- RNF-002: docs/backend/requisitos/restricciones_y_lineamientos.md
 
 --------------
 

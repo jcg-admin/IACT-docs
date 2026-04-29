@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Revision_TPL_Previo_Generacion
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Preparacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Revision_TPL_Previo_Generacion
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Preparacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-revision-tpl-previo-generacion:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Revision_TPL_Previo_Generacion
-   * - **Nombre**
-     - Revision de Template Previo a Generacion de Artefacto
-   * - **Categoria**
-     - Preparacion
-   * - **Frecuencia**
-     - Antes de generar cualquier artefacto
-   * - **Duracion Estimada**
-     - 5-10 minutos
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Revision_TPL_Previo_Generacion
+ * - **Nombre**
+ - Revision de Template Previo a Generacion de Artefacto
+ * - **Categoria**
+ - Preparacion
+ * - **Frecuencia**
+ - Antes de generar cualquier artefacto
+ * - **Duracion Estimada**
+ - 5-10 minutos
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -75,15 +75,15 @@ secciones obligatorias definidas en su template.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Generador
-     - Revisa TPL antes de crear artefacto
-     - Lectura de TPL
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Generador
+ - Revisa TPL antes de crear artefacto
+ - Lectura de TPL
 
 ----
 
@@ -102,15 +102,15 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_[TIPO]_[Nombre]_X_Y_Z.rst
-     - Template del tipo de artefacto
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_[TIPO]_[Nombre]_X_Y_Z.rst
+ - Template del tipo de artefacto
+ - Si
 
 ----
 
@@ -121,40 +121,40 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Revision de TPL
-   :align: center
+ :caption: Flujo de Revision de TPL
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-       DiamondBackgroundColor #FFF9C4
-       DiamondBorderColor #F57C00
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ DiamondBackgroundColor #FFF9C4
+ DiamondBorderColor #F57C00
+ }
 
-   start
+ start
 
-   :Identificar tipo de artefacto a generar;
+ :Identificar tipo de artefacto a generar;
 
-   :Localizar TPL correspondiente;
+ :Localizar TPL correspondiente;
 
-   if (TPL existe?) then (si)
-       :Abrir TPL;
-       :Leer seccion Proposito;
-       :Leer seccion Nomenclatura;
-       :Leer seccion Secciones Obligatorias;
-       :Localizar seccion Plantilla;
-       :Copiar contenido de Plantilla;
-       :Proceder con generacion;
-   else (no)
-       :Reportar TPL faltante;
-       :Crear TPL primero;
-       stop
-   endif
+ if (TPL existe?) then (si)
+ :Abrir TPL;
+ :Leer seccion Proposito;
+ :Leer seccion Nomenclatura;
+ :Leer seccion Secciones Obligatorias;
+ :Localizar seccion Plantilla;
+ :Copiar contenido de Plantilla;
+ :Proceder con generacion;
+ else (no)
+ :Reportar TPL faltante;
+ :Crear TPL primero;
+ stop
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -164,30 +164,30 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Determinar cual TPL usar segun tipo de artefacto:
 
-  .. list-table::
-     :widths: 30 70
-     :header-rows: 1
+ .. list-table::
+ :widths: 30 70
+ :header-rows: 1
 
-     * - Artefacto
-       - TPL
-     * - BR
-       - TPL_BR_Business_Rules_1_0_0.rst
-     * - UC
-       - TPL_UC_Casos_de_Uso_2_0_0.rst
-     * - FR
-       - TPL_FR_Requisitos_Funcionales_1_0_0.rst
-     * - TST
-       - TPL_TST_Pruebas_1_0_0.rst
-     * - CNST
-       - TPL_CNST_Restricciones_1_0_0.rst
-     * - MOD
-       - TPL_MOD_Modulos_1_0_0.rst
-     * - ADR
-       - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
-     * - STD
-       - TPL_STD_Estandares_1_0_0.rst
-     * - PROC
-       - TPL_PROC_Procedimientos_1_0_0.rst
+ * - Artefacto
+ - TPL
+ * - BR
+ - TPL_BR_Business_Rules_1_0_0.rst
+ * - UC
+ - TPL_UC_Casos_de_Uso_2_0_0.rst
+ * - FR
+ - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+ * - TST
+ - TPL_TST_Pruebas_1_0_0.rst
+ * - CNST
+ - TPL_CNST_Restricciones_1_0_0.rst
+ * - MOD
+ - TPL_MOD_Modulos_1_0_0.rst
+ * - ADR
+ - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
+ * - STD
+ - TPL_STD_Estandares_1_0_0.rst
+ * - PROC
+ - TPL_PROC_Procedimientos_1_0_0.rst
 
 - **Resultado**: TPL identificado
 - **Verificacion**: TPL existe en carpeta plantillas/
@@ -197,10 +197,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Abrir archivo TPL y leer secciones clave:
 
-  1. **Proposito**: Entender para que sirve el artefacto
-  2. **Nomenclatura**: Verificar formato de ID y nombre de archivo
-  3. **Secciones Obligatorias**: Lista de secciones que DEBE tener
-  4. **Plantilla**: Codigo RST a copiar
+ 1. **Proposito**: Entender para que sirve el artefacto
+ 2. **Nomenclatura**: Verificar formato de ID y nombre de archivo
+ 3. **Secciones Obligatorias**: Lista de secciones que DEBE tener
+ 4. **Plantilla**: Codigo RST a copiar
 
 - **Resultado**: Comprension de estructura requerida
 - **Verificacion**: Secciones obligatorias identificadas
@@ -210,15 +210,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Verificar formato correcto:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato general:
-     [TIPO]_[Identificador]_[Nombre].rst
-     
-     Ejemplos:
-     - BR_015_Bloqueo_Intentos_Fallidos.rst
-     - FR-001.03_Generar_token_JWT.rst
-     - UC_001_Iniciar_Sesion.rst
+ Formato general:
+ [TIPO]_[Identificador]_[Nombre].rst
+ 
+ Ejemplos:
+ - BR_015_Bloqueo_Intentos_Fallidos.rst
+ - FR-001.03_Generar_token_JWT.rst
+ - UC_001_Iniciar_Sesion.rst
 
 - **Resultado**: Nomenclatura correcta definida
 - **Verificacion**: Patron coincide con ejemplos en TPL
@@ -228,16 +228,16 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Buscar seccion "Plantilla" en TPL que contiene el codigo RST base:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     Plantilla
-     ---------
+ Plantilla
+ ---------
 
-     .. code-block:: rst
+ .. code-block:: rst
 
-        .. meta::
-           :artefacto: [ID]
-           ...
+ .. meta::
+ :artefacto: [ID]
+ ...
 
 - **Resultado**: Codigo RST base localizado
 - **Verificacion**: Seccion contiene code-block rst
@@ -255,15 +255,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - Plantilla copiada
-     - Codigo RST base para nuevo artefacto
-     - Memoria/portapapeles
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - Plantilla copiada
+ - Codigo RST base para nuevo artefacto
+ - Memoria/portapapeles
 
 ----
 
@@ -294,11 +294,11 @@ Al finalizar este procedimiento:
 
 .. code-block:: text
 
-   Antes de generar [TIPO]:
-   [ ] Abri TPL_[TIPO]?
-   [ ] Lei nomenclatura?
-   [ ] Copie la plantilla?
-   [ ] Conozco secciones obligatorias?
+ Antes de generar [TIPO]:
+ [ ] Abri TPL_[TIPO]?
+ [ ] Lei nomenclatura?
+ [ ] Copie la plantilla?
+ [ ] Conozco secciones obligatorias?
 
 ----
 
@@ -306,17 +306,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - TPL no existe
-     - Crear TPL primero usando TPL_INDEX como guia
-   * - TPL desactualizado
-     - Actualizar TPL antes de generar artefactos
-   * - Version TPL incorrecta
-     - Usar ultima version disponible
+ * - Excepcion
+ - Accion
+ * - TPL no existe
+ - Crear TPL primero usando TPL_INDEX como guia
+ * - TPL desactualizado
+ - Actualizar TPL antes de generar artefactos
+ * - Version TPL incorrecta
+ - Usar ultima version disponible
 
 ----
 
@@ -333,17 +333,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

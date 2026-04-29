@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: FND_00
-   :tipo: Fundamento Conceptual (pedagógico)
-   :dominio: base_cognitiva
-   :subdominio: _fundamentos_conceptuales
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-08
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Pedagógico
+ :artefacto: FND_00
+ :tipo: Fundamento Conceptual (pedagógico)
+ :dominio: base_cognitiva
+ :subdominio: _fundamentos_conceptuales
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-08
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Pedagógico
 
 .. _fnd-00:
 
@@ -36,15 +36,15 @@ de requisitos de negocio en especificaciones técnicas, utilizando como caso de 
 
 .. code-block:: text
 
-   Business Requirements (BReq)
-        ↓
-   Business Rules (BR)
-        ↓
-   Use Cases (UC)
-        ↓
-   Functional Requirements (FR)
-        ↓
-   CODE + TESTS
+ Business Requirements (BReq)
+ ↓
+ Business Rules (BR)
+ ↓
+ Use Cases (UC)
+ ↓
+ Functional Requirements (FR)
+ ↓
+ CODE + TESTS
 
 La documentación se organiza en 3 partes:
 
@@ -62,24 +62,24 @@ la metodología de análisis de requisitos:
 
 .. code-block:: text
 
-   base_cognitiva/
-   ├── FND_00_Contexto_y_Jerarquia.rst        (Este documento)
-   ├── FND_01_Identidad_Estrategica.rst       (Fundamentos)
-   ├── FND_02_Glosario_de_Terminos.rst        (Glosario)
-   ├── FND_03_Taxonomia_BR.rst                (5 tipos de BR)
-   │
-   ├── MTM_01_BR_a_UC_Trazabilidad.rst        (Matriz BR→UC)
-   ├── MTM_02_UC_a_FR_Trazabilidad.rst        (Matriz UC→FR)
-   ├── MTM_03_Esquema_Trazabilidad.rst        (Diagramas)
-   │
-   ├── TXM_01_Nomenclatura_UC_FR.rst          (Nomenclatura)
-   ├── TXM_02_Plantillas_UC_FR.rst            (Plantillas)
-   ├── TXM_03_Patrones_Transformacion.rst     (Patrones)
-   ├── TXM_04_Proceso_Construccion.rst        (Proceso paso a paso)
-   ├── TXM_05_Integracion_BR.rst              (Integración de BR)
-   ├── TXM_06_Derivacion_FR.rst               (Derivación de FR)
-   ├── TXM_07_Matriz_Trazabilidad.rst         (Matriz completa)
-   └── TXM_08_Validacion_Calidad.rst          (Validación)
+ base_cognitiva/
+ ├── FND_00_Contexto_y_Jerarquia.rst (Este documento)
+ ├── FND_01_Identidad_Estrategica.rst (Fundamentos)
+ ├── FND_02_Glosario_de_Terminos.rst (Glosario)
+ ├── FND_03_Taxonomia_BR.rst (5 tipos de BR)
+ │
+ ├── MTM_01_BR_a_UC_Trazabilidad.rst (Matriz BR→UC)
+ ├── MTM_02_UC_a_FR_Trazabilidad.rst (Matriz UC→FR)
+ ├── MTM_03_Esquema_Trazabilidad.rst (Diagramas)
+ │
+ ├── TXM_01_Nomenclatura_UC_FR.rst (Nomenclatura)
+ ├── TXM_02_Plantillas_UC_FR.rst (Plantillas)
+ ├── TXM_03_Patrones_Transformacion.rst (Patrones)
+ ├── TXM_04_Proceso_Construccion.rst (Proceso paso a paso)
+ ├── TXM_05_Integracion_BR.rst (Integración de BR)
+ ├── TXM_06_Derivacion_FR.rst (Derivación de FR)
+ ├── TXM_07_Matriz_Trazabilidad.rst (Matriz completa)
+ └── TXM_08_Validacion_Calidad.rst (Validación)
 
 **Prefijos:**
 
@@ -122,29 +122,29 @@ El sistema IACT se compone de:
 
 .. code-block:: text
 
-   ┌─────────────────────────────────────────────────┐
-   │  MySQL IVR (Sistema Operacional)                │
-   │  - Base de datos del sistema telefónico         │
-   │  - Acceso: READONLY para IACT (BR_001)          │
-   │  - Contiene: llamadas, agentes, colas           │
-   └─────────────────────────────────────────────────┘
-                    ↓
-           ETL Batch Nocturno (BR_002)
-           Ejecuta cada día a las 02:00 AM
-                    ↓
-   ┌─────────────────────────────────────────────────┐
-   │  PostgreSQL Analytics (Sistema Analítico)       │
-   │  - Base de datos del sistema IACT               │
-   │  - Acceso: READ/WRITE para IACT                 │
-   │  - Optimizado para consultas analíticas         │
-   └─────────────────────────────────────────────────┘
-                    ↓
-   ┌─────────────────────────────────────────────────┐
-   │  Aplicación Web Django + React                  │
-   │  - Dashboards y reportes                        │
-   │  - Sistema de alertas                           │
-   │  - Gestión de usuarios y permisos               │
-   └─────────────────────────────────────────────────┘
+ ┌─────────────────────────────────────────────────┐
+ │ MySQL IVR (Sistema Operacional) │
+ │ - Base de datos del sistema telefónico │
+ │ - Acceso: READONLY para IACT (BR_001) │
+ │ - Contiene: llamadas, agentes, colas │
+ └─────────────────────────────────────────────────┘
+ ↓
+ ETL Batch Nocturno (BR_002)
+ Ejecuta cada día a las 02:00 AM
+ ↓
+ ┌─────────────────────────────────────────────────┐
+ │ PostgreSQL Analytics (Sistema Analítico) │
+ │ - Base de datos del sistema IACT │
+ │ - Acceso: READ/WRITE para IACT │
+ │ - Optimizado para consultas analíticas │
+ └─────────────────────────────────────────────────┘
+ ↓
+ ┌─────────────────────────────────────────────────┐
+ │ Aplicación Web Django + React │
+ │ - Dashboards y reportes │
+ │ - Sistema de alertas │
+ │ - Gestión de usuarios y permisos │
+ └─────────────────────────────────────────────────┘
 
 **Restricciones arquitectónicas clave:**
 
@@ -160,54 +160,54 @@ El sistema IACT se compone de:
 El sistema IACT se divide en 8 módulos funcionales:
 
 .. list-table:: Módulos del Sistema IACT
-   :widths: 10 20 15 10 45
-   :header-rows: 1
+ :widths: 10 20 15 10 45
+ :header-rows: 1
 
-   * - Código
-     - Nombre
-     - Prefijo UC
-     - # UC
-     - Responsabilidad
-   * - MOD_Auth
-     - Autenticación
-     - UC_AUTH
-     - 5
-     - Login, logout, recuperación contraseña, 2FA
-   * - MOD_Users
-     - Gestión Usuarios
-     - UC_USR
-     - 4
-     - CRUD de usuarios, suspensión, activación
-   * - MOD_Access
-     - Control Acceso
-     - UC_ACC
-     - 9
-     - RBAC, permisos, agrupadores, SoD, segmentos
-   * - MOD_Pipeline
-     - Supervisión ETL
-     - UC_PIP
-     - 4
-     - Monitoreo ETL, errores, disponibilidad
-   * - MOD_Reports
-     - Reportería
-     - UC_RPT
-     - 14
-     - Dashboards, reportes, exportaciones, métricas
-   * - MOD_Alerts
-     - Sistema Alertas
-     - UC_ALR
-     - 5
-     - Configuración alertas, umbrales, suscripciones
-   * - MOD_Audit
-     - Auditoría
-     - UC_AUD
-     - 4
-     - Consulta auditoría, compliance, exportación
-   * - MOD_Logs
-     - Bitácoras
-     - UC_LOG
-     - 4
-     - Consulta logs técnicos, exportación
+ * - Código
+ - Nombre
+ - Prefijo UC
+ - # UC
+ - Responsabilidad
+ * - MOD_Auth
+ - Autenticación
+ - UC_AUTH
+ - 5
+ - Login, logout, recuperación contraseña, 2FA
+ * - MOD_Users
+ - Gestión Usuarios
+ - UC_USR
+ - 4
+ - CRUD de usuarios, suspensión, activación
+ * - MOD_Access
+ - Control Acceso
+ - UC_ACC
+ - 9
+ - RBAC, permisos, agrupadores, SoD, segmentos
+ * - MOD_Pipeline
+ - Supervisión ETL
+ - UC_PIP
+ - 4
+ - Monitoreo ETL, errores, disponibilidad
+ * - MOD_Reports
+ - Reportería
+ - UC_RPT
+ - 14
+ - Dashboards, reportes, exportaciones, métricas
+ * - MOD_Alerts
+ - Sistema Alertas
+ - UC_ALR
+ - 5
+ - Configuración alertas, umbrales, suscripciones
+ * - MOD_Audit
+ - Auditoría
+ - UC_AUD
+ - 4
+ - Consulta auditoría, compliance, exportación
+ * - MOD_Logs
+ - Bitácoras
+ - UC_LOG
+ - 4
+ - Consulta logs técnicos, exportación
 
 **Total:** 49 Casos de Uso, 23,401 líneas de documentación RST, 147 diagramas PlantUML
 
@@ -244,32 +244,32 @@ El proyecto IACT tiene los siguientes artefactos documentados:
 
 .. code-block:: text
 
-   CASOS DE USO (49 UC):
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   MOD_Auth       5 UC     3,251 líneas    (14%)
-   MOD_Users      4 UC     2,584 líneas    (11%)
-   MOD_Access     9 UC     4,180 líneas    (18%)
-   MOD_Pipeline   4 UC     1,778 líneas    ( 8%)
-   MOD_Reports   14 UC     5,288 líneas    (23%)
-   MOD_Alerts     5 UC     2,565 líneas    (11%)
-   MOD_Audit      4 UC     1,900 líneas    ( 8%)
-   MOD_Logs       4 UC     1,855 líneas    ( 8%)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   TOTAL         49 UC    23,401 líneas   (100%)
+ CASOS DE USO (49 UC):
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ MOD_Auth 5 UC 3,251 líneas (14%)
+ MOD_Users 4 UC 2,584 líneas (11%)
+ MOD_Access 9 UC 4,180 líneas (18%)
+ MOD_Pipeline 4 UC 1,778 líneas ( 8%)
+ MOD_Reports 14 UC 5,288 líneas (23%)
+ MOD_Alerts 5 UC 2,565 líneas (11%)
+ MOD_Audit 4 UC 1,900 líneas ( 8%)
+ MOD_Logs 4 UC 1,855 líneas ( 8%)
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ TOTAL 49 UC 23,401 líneas (100%)
 
-   BUSINESS RULES (20 BR):
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Restricciones          10 BR   (50%)
-   Desencadenadores        3 BR   (15%)
-   Hechos                  3 BR   (15%)
-   Inferencias             1 BR   ( 5%)
-   Cálculos                3 BR   (15%)
+ BUSINESS RULES (20 BR):
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Restricciones 10 BR (50%)
+ Desencadenadores 3 BR (15%)
+ Hechos 3 BR (15%)
+ Inferencias 1 BR ( 5%)
+ Cálculos 3 BR (15%)
 
-   MODELO RBAC v5.2.x:
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Agrupadores (AGR)      10
-   Funciones atómicas     42
-   Reglas SoD              3
+ MODELO RBAC v5.2.x:
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Agrupadores (AGR) 10
+ Funciones atómicas 42
+ Reglas SoD 3
 
 ---
 
@@ -302,19 +302,19 @@ Este ejemplo es ideal porque:
 
 **Enunciado formal:**
 
-  Las exportaciones de reportes tienen límites máximos por formato 
-  para garantizar el rendimiento del sistema y evitar timeouts:
-  
-  - **Formato CSV:** Máximo 100,000 registros
-  - **Formato Excel:** Máximo 50,000 registros  
-  - **Formato PDF:** Máximo 10,000 registros
-  
-  Si un usuario intenta exportar más registros que el límite permitido 
-  para el formato seleccionado, el sistema debe:
-  
-  1. Rechazar la operación
-  2. Mostrar un mensaje de error indicando el límite excedido
-  3. Sugerir filtrar los datos o usar un formato con límite mayor
+ Las exportaciones de reportes tienen límites máximos por formato 
+ para garantizar el rendimiento del sistema y evitar timeouts:
+ 
+ - **Formato CSV:** Máximo 100,000 registros
+ - **Formato Excel:** Máximo 50,000 registros 
+ - **Formato PDF:** Máximo 10,000 registros
+ 
+ Si un usuario intenta exportar más registros que el límite permitido 
+ para el formato seleccionado, el sistema debe:
+ 
+ 1. Rechazar la operación
+ 2. Mostrar un mensaje de error indicando el límite excedido
+ 3. Sugerir filtrar los datos o usar un formato con límite mayor
 
 **Justificación de negocio:**
 
@@ -344,42 +344,42 @@ Esta regla de negocio impacta directamente a **5 Casos de Uso**:
 
 .. code-block:: text
 
-   Paso 5: Sistema valida límite de exportación
-   
-   5.1 Sistema cuenta registros a exportar
-   5.2 Sistema compara con límite CSV (100,000 - BR_011)
-   5.3 SI count > 100,000:
-       5.3.1 Sistema rechaza la exportación
-       5.3.2 Sistema muestra mensaje de error (FA-2)
-       5.3.3 UC termina sin exportar
-   5.4 SI count <= 100,000:
-       5.4.1 Sistema continúa con generación del archivo
-       
+ Paso 5: Sistema valida límite de exportación
+ 
+ 5.1 Sistema cuenta registros a exportar
+ 5.2 Sistema compara con límite CSV (100,000 - BR_011)
+ 5.3 SI count > 100,000:
+ 5.3.1 Sistema rechaza la exportación
+ 5.3.2 Sistema muestra mensaje de error (FA-2)
+ 5.3.3 UC termina sin exportar
+ 5.4 SI count <= 100,000:
+ 5.4.1 Sistema continúa con generación del archivo
+ 
 **Flujo Alterno FA-2: Límite Excedido**
 
 .. code-block:: text
 
-   Condición: El usuario intenta exportar más de 100,000 registros
-   
-   2.1 Sistema calcula: count = 125,000 registros
-   2.2 Sistema detecta: 125,000 > 100,000 (BR_011 violada)
-   2.3 Sistema muestra mensaje:
-       
-       "ERROR: Límite de exportación excedido
-       
-        Formato:    CSV
-        Límite:     100,000 registros
-        Solicitado: 125,000 registros
-        
-        Sugerencias:
-        - Aplique filtros para reducir el conjunto de datos
-        - Use formato CSV en múltiples exportaciones
-        - Contacte al administrador para exportación masiva
-        
-        (BR_011 - CNST_020)"
-   
-   2.4 UC termina sin exportar
-   2.5 Sistema registra intento en UserActionLog (CNST_025 - Auditoria Inmutable)
+ Condición: El usuario intenta exportar más de 100,000 registros
+ 
+ 2.1 Sistema calcula: count = 125,000 registros
+ 2.2 Sistema detecta: 125,000 > 100,000 (BR_011 violada)
+ 2.3 Sistema muestra mensaje:
+ 
+ "ERROR: Límite de exportación excedido
+ 
+ Formato: CSV
+ Límite: 100,000 registros
+ Solicitado: 125,000 registros
+ 
+ Sugerencias:
+ - Aplique filtros para reducir el conjunto de datos
+ - Use formato CSV en múltiples exportaciones
+ - Contacte al administrador para exportación masiva
+ 
+ (BR_011 - CNST_020)"
+ 
+ 2.4 UC termina sin exportar
+ 2.5 Sistema registra intento en UserActionLog (CNST_025 - Auditoria Inmutable)
 
 ---
 
@@ -447,115 +447,115 @@ La regla de negocio BR_011 se implementa en el servicio de exportación:
 
 .. code-block:: python
 
-   # services/reports/export_service.py
-   
-   class ExportService:
-       """
-       Servicio centralizado de exportación de datos.
-       Implementa BR_011: Límites de Exportación.
-       """
-       
-       # Limites definidos por BR_011 y CNST_020 (Throttling de Exportaciones)
-       EXPORT_LIMITS = {
-           'csv': 100_000,
-           'excel': 50_000,
-           'pdf': 10_000
-       }
-       
-       def validate_export_limit(self, format: str, record_count: int):
-           """
-           Valida que el número de registros no exceda el límite 
-           para el formato especificado.
-           
-           Args:
-               format: Formato de exportación ('csv', 'excel', 'pdf')
-               record_count: Número de registros a exportar
-           
-           Raises:
-               ExportLimitExceededError: Si excede el límite (BR_011)
-           """
-           limit = self.EXPORT_LIMITS.get(format)
-           
-           if limit is None:
-               raise ValueError(f"Formato inválido: {format}")
-           
-           if record_count > limit:
-               raise ExportLimitExceededError(
-                   format=format,
-                   limit=limit,
-                   requested=record_count,
-                   br_code='BR_011',
-                   cnst_code='CNST_020'
-               )
-       
-       def export_to_csv(self, queryset, filename):
-           """
-           Exporta queryset a formato CSV respetando BR_011.
-           """
-           # Contar registros antes de exportar
-           record_count = queryset.count()
-           
-           # Validar límite (BR_011)
-           self.validate_export_limit('csv', record_count)
-           
-           # Proceder con exportación
-           buffer = io.StringIO()
-           writer = csv.writer(buffer)
-           
-           # Escribir headers
-           headers = [field.name for field in queryset.model._meta.fields]
-           writer.writerow(headers)
-           
-           # Escribir datos
-           for record in queryset:
-               row = [getattr(record, field) for field in headers]
-               writer.writerow(row)
-           
-           # Registrar auditoria (CNST_025)
-           UserActionLog.record(
-               action='EXPORT_CSV',
-               resource=filename,
-               result='SUCCESS',
-               details={
-                   'record_count': record_count,
-                   'format': 'csv',
-                   'br_applied': 'BR_011'
-               }
-           )
-           
-           return buffer.getvalue()
+ # services/reports/export_service.py
+ 
+ class ExportService:
+ """
+ Servicio centralizado de exportación de datos.
+ Implementa BR_011: Límites de Exportación.
+ """
+ 
+ # Limites definidos por BR_011 y CNST_020 (Throttling de Exportaciones)
+ EXPORT_LIMITS = {
+ 'csv': 100_000,
+ 'excel': 50_000,
+ 'pdf': 10_000
+ }
+ 
+ def validate_export_limit(self, format: str, record_count: int):
+ """
+ Valida que el número de registros no exceda el límite 
+ para el formato especificado.
+ 
+ Args:
+ format: Formato de exportación ('csv', 'excel', 'pdf')
+ record_count: Número de registros a exportar
+ 
+ Raises:
+ ExportLimitExceededError: Si excede el límite (BR_011)
+ """
+ limit = self.EXPORT_LIMITS.get(format)
+ 
+ if limit is None:
+ raise ValueError(f"Formato inválido: {format}")
+ 
+ if record_count > limit:
+ raise ExportLimitExceededError(
+ format=format,
+ limit=limit,
+ requested=record_count,
+ br_code='BR_011',
+ cnst_code='CNST_020'
+ )
+ 
+ def export_to_csv(self, queryset, filename):
+ """
+ Exporta queryset a formato CSV respetando BR_011.
+ """
+ # Contar registros antes de exportar
+ record_count = queryset.count
+ 
+ # Validar límite (BR_011)
+ self.validate_export_limit('csv', record_count)
+ 
+ # Proceder con exportación
+ buffer = io.StringIO
+ writer = csv.writer(buffer)
+ 
+ # Escribir headers
+ headers = [field.name for field in queryset.model._meta.fields]
+ writer.writerow(headers)
+ 
+ # Escribir datos
+ for record in queryset:
+ row = [getattr(record, field) for field in headers]
+ writer.writerow(row)
+ 
+ # Registrar auditoria (CNST_025)
+ UserActionLog.record(
+ action='EXPORT_CSV',
+ resource=filename,
+ result='SUCCESS',
+ details={
+ 'record_count': record_count,
+ 'format': 'csv',
+ 'br_applied': 'BR_011'
+ }
+ )
+ 
+ return buffer.getvalue
 
 
-   # exceptions.py
-   
-   class ExportLimitExceededError(Exception):
-       """
-       Excepción lanzada cuando se excede el límite de exportación (BR_011).
-       """
-       
-       def __init__(self, format, limit, requested, br_code, cnst_code):
-           self.format = format
-           self.limit = limit
-           self.requested = requested
-           self.br_code = br_code
-           self.cnst_code = cnst_code
-           
-           message = (
-               f"Límite de exportación excedido\n"
-               f"\n"
-               f"Formato:     {format.upper()}\n"
-               f"Límite:      {limit:,} registros\n"
-               f"Solicitado:  {requested:,} registros\n"
-               f"\n"
-               f"Sugerencias:\n"
-               f"- Aplique filtros para reducir el conjunto de datos\n"
-               f"- Use múltiples exportaciones más pequeñas\n"
-               f"- Contacte al administrador para exportación masiva\n"
-               f"\n"
-               f"({br_code} - {cnst_code})"
-           )
-           
-           super().__init__(message)
+ # exceptions.py
+ 
+ class ExportLimitExceededError(Exception):
+ """
+ Excepción lanzada cuando se excede el límite de exportación (BR_011).
+ """
+ 
+ def __init__(self, format, limit, requested, br_code, cnst_code):
+ self.format = format
+ self.limit = limit
+ self.requested = requested
+ self.br_code = br_code
+ self.cnst_code = cnst_code
+ 
+ message = (
+ f"Límite de exportación excedido\n"
+ f"\n"
+ f"Formato: {format.upper}\n"
+ f"Límite: {limit:,} registros\n"
+ f"Solicitado: {requested:,} registros\n"
+ f"\n"
+ f"Sugerencias:\n"
+ f"- Aplique filtros para reducir el conjunto de datos\n"
+ f"- Use múltiples exportaciones más pequeñas\n"
+ f"- Contacte al administrador para exportación masiva\n"
+ f"\n"
+ f"({br_code} - {cnst_code})"
+ )
+ 
+ super.__init__(message)
 
 ---
 
@@ -569,45 +569,45 @@ Nota: el concepto antiguo de "Limites de Exportacion" del set legacy quedo distr
 **Diferencia entre BR y CNST:**
 
 .. list-table::
-   :widths: 30 35 35
-   :header-rows: 1
+ :widths: 30 35 35
+ :header-rows: 1
 
-   * - Aspecto
-     - BR_011 (Business Rule)
-     - CNST_020 (Constraint)
-   * - **Naturaleza**
-     - Regla de negocio
-     - Restricción arquitectónica
-   * - **Origen**
-     - Requisitos de negocio
-     - Requisitos no funcionales (performance)
-   * - **Definición**
-     - "Las exportaciones tienen límites"
-     - "Límites técnicos del sistema"
-   * - **Valores**
-     - 100k CSV, 50k Excel, 10k PDF
-     - Basado en capacidad del servidor
-   * - **Puede cambiar**
-     - Sí (decisión de negocio)
-     - Difícil (requiere cambio infraestructura)
-   * - **Documentado en**
-     - BR_011 (reglas_negocio/)
-     - CNST_020 (normativa/restricciones/)
+ * - Aspecto
+ - BR_011 (Business Rule)
+ - CNST_020 (Constraint)
+ * - **Naturaleza**
+ - Regla de negocio
+ - Restricción arquitectónica
+ * - **Origen**
+ - Requisitos de negocio
+ - Requisitos no funcionales (performance)
+ * - **Definición**
+ - "Las exportaciones tienen límites"
+ - "Límites técnicos del sistema"
+ * - **Valores**
+ - 100k CSV, 50k Excel, 10k PDF
+ - Basado en capacidad del servidor
+ * - **Puede cambiar**
+ - Sí (decisión de negocio)
+ - Difícil (requiere cambio infraestructura)
+ * - **Documentado en**
+ - BR_011 (reglas_negocio/)
+ - CNST_020 (normativa/restricciones/)
 
 **Relación:**
 
 .. code-block:: text
 
-   CNST_020 (Restriccion Arquitectonica)
-      "El servidor tiene capacidad limitada para 
-       generar archivos grandes sin timeout"
-         ↓ origina
-   BR_011 (Regla de Negocio)
-      "Las exportaciones tienen límites específicos 
-       por formato para garantizar rendimiento"
-         ↓ afecta
-   UC_RPT_04, UC_RPT_05, UC_RPT_06, UC_AUD_03, UC_LOG_04
-      "Los UC validan el límite antes de exportar"
+ CNST_020 (Restriccion Arquitectonica)
+ "El servidor tiene capacidad limitada para 
+ generar archivos grandes sin timeout"
+ ↓ origina
+ BR_011 (Regla de Negocio)
+ "Las exportaciones tienen límites específicos 
+ por formato para garantizar rendimiento"
+ ↓ afecta
+ UC_RPT_04, UC_RPT_05, UC_RPT_06, UC_AUD_03, UC_LOG_04
+ "Los UC validan el límite antes de exportar"
 
 ---
 
@@ -631,17 +631,17 @@ del usuario que exporta (BR_012).
 
 .. code-block:: python
 
-   # El queryset ya está filtrado por segmento (BR_012)
-   queryset = Llamada.objects.filter(
-       centro_id=request.user.segmento_id  # BR_012
-   )
-   
-   # Contar registros del segmento del usuario
-   record_count = queryset.count()
-   
-   # Validar límite (BR_011)
-   if record_count > 100_000:
-       raise ExportLimitExceededError(...)
+ # El queryset ya está filtrado por segmento (BR_012)
+ queryset = Llamada.objects.filter(
+ centro_id=request.user.segmento_id # BR_012
+ )
+ 
+ # Contar registros del segmento del usuario
+ record_count = queryset.count
+ 
+ # Validar límite (BR_011)
+ if record_count > 100_000:
+ raise ExportLimitExceededError(...)
 
 **Escenario combinado:**
 
@@ -649,10 +649,10 @@ Un usuario AGR_008 del segmento "Centro Lima" intenta exportar
 llamadas del año 2024 en formato CSV:
 
 1. Sistema aplica BR_012: Filtra solo registros de "Centro Lima"
-   → Resultado: 80,000 registros
-   
+ → Resultado: 80,000 registros
+ 
 2. Sistema aplica BR_011: Valida 80,000 < 100,000
-   → Resultado: APROBADO, procede con exportación
+ → Resultado: APROBADO, procede con exportación
 
 ---
 
@@ -670,19 +670,19 @@ lo que ayuda a mantener el conteo dentro de los límites de BR_011.
 
 .. code-block:: python
 
-   from datetime import timedelta
-   
-   # Filtrar por rango de retención (BR_019)
-   two_years_ago = now() - timedelta(days=730)
-   
-   queryset = Llamada.objects.filter(
-       fecha_llamada__gte=two_years_ago,  # BR_019
-       centro_id=request.user.segmento_id  # BR_012
-   )
-   
-   # Validar límite de exportación (BR_011)
-   record_count = queryset.count()
-   validate_export_limit('csv', record_count)
+ from datetime import timedelta
+ 
+ # Filtrar por rango de retención (BR_019)
+ two_years_ago = now - timedelta(days=730)
+ 
+ queryset = Llamada.objects.filter(
+ fecha_llamada__gte=two_years_ago, # BR_019
+ centro_id=request.user.segmento_id # BR_012
+ )
+ 
+ # Validar límite de exportación (BR_011)
+ record_count = queryset.count
+ validate_export_limit('csv', record_count)
 
 ---
 
@@ -696,44 +696,44 @@ El siguiente diagrama muestra cómo se transforman los requisitos desde
 el nivel más alto hasta el código:
 
 .. uml::
-   :caption: Jerarquía de Transformación de Requisitos
+ :caption: Jerarquía de Transformación de Requisitos
 
-   @startuml
-   
-   package "Nivel 1: Negocio" {
-       [BReq_RPT\nReportería\nAnalítica] as breq
-   }
-   
-   package "Nivel 2: Reglas" {
-       [BR_011\nLímites\nExportación] as br
-   }
-   
-   package "Nivel 3: Casos de Uso" {
-       [UC_RPT_04\nExportar CSV] as uc1
-       [UC_RPT_05\nExportar Excel] as uc2
-       [UC_RPT_06\nExportar PDF] as uc3
-   }
-   
-   package "Nivel 4: Requisitos Funcionales" {
-       [RF_UCRPT_04_01\nValidar Límite CSV] as fr1
-       [RF_UCRPT_04_02\nGenerar Archivo CSV] as fr2
-   }
-   
-   package "Nivel 5: Implementación" {
-       [ExportService\nvalidate_limit()] as code1
-       [ExportService\nexport_to_csv()] as code2
-   }
-   
-   breq --> br : "origina"
-   br --> uc1 : "restringe"
-   br --> uc2 : "restringe"
-   br --> uc3 : "restringe"
-   uc1 --> fr1 : "deriva"
-   uc1 --> fr2 : "deriva"
-   fr1 --> code1 : "implementa"
-   fr2 --> code2 : "implementa"
-   
-   @enduml
+ @startuml
+ 
+ package "Nivel 1: Negocio" {
+ [BReq_RPT\nReportería\nAnalítica] as breq
+ }
+ 
+ package "Nivel 2: Reglas" {
+ [BR_011\nLímites\nExportación] as br
+ }
+ 
+ package "Nivel 3: Casos de Uso" {
+ [UC_RPT_04\nExportar CSV] as uc1
+ [UC_RPT_05\nExportar Excel] as uc2
+ [UC_RPT_06\nExportar PDF] as uc3
+ }
+ 
+ package "Nivel 4: Requisitos Funcionales" {
+ [RF_UCRPT_04_01\nValidar Límite CSV] as fr1
+ [RF_UCRPT_04_02\nGenerar Archivo CSV] as fr2
+ }
+ 
+ package "Nivel 5: Implementación" {
+ [ExportService\nvalidate_limit] as code1
+ [ExportService\nexport_to_csv] as code2
+ }
+ 
+ breq --> br : "origina"
+ br --> uc1 : "restringe"
+ br --> uc2 : "restringe"
+ br --> uc3 : "restringe"
+ uc1 --> fr1 : "deriva"
+ uc1 --> fr2 : "deriva"
+ fr1 --> code1 : "implementa"
+ fr2 --> code2 : "implementa"
+ 
+ @enduml
 
 **Explicación de cada nivel:**
 
@@ -754,27 +754,27 @@ La trazabilidad permite navegar en ambas direcciones:
 
 .. code-block:: text
 
-   BR_011
-     ├─ afecta → UC_RPT_04 (Exportar CSV)
-     │             ├─ deriva → RF_UCRPT_04_01 (Validar límite)
-     │             │             └─ implementa → validate_export_limit()
-     │             └─ deriva → RF_UCRPT_04_02 (Generar archivo)
-     │                           └─ implementa → export_to_csv()
-     │
-     ├─ afecta → UC_RPT_05 (Exportar Excel)
-     ├─ afecta → UC_RPT_06 (Exportar PDF)
-     ├─ afecta → UC_AUD_03 (Exportar Auditoría)
-     └─ afecta → UC_LOG_04 (Exportar Logs)
+ BR_011
+ ├─ afecta → UC_RPT_04 (Exportar CSV)
+ │ ├─ deriva → RF_UCRPT_04_01 (Validar límite)
+ │ │ └─ implementa → validate_export_limit
+ │ └─ deriva → RF_UCRPT_04_02 (Generar archivo)
+ │ └─ implementa → export_to_csv
+ │
+ ├─ afecta → UC_RPT_05 (Exportar Excel)
+ ├─ afecta → UC_RPT_06 (Exportar PDF)
+ ├─ afecta → UC_AUD_03 (Exportar Auditoría)
+ └─ afecta → UC_LOG_04 (Exportar Logs)
 
 **Hacia atrás (Backward Tracing):**
 
 .. code-block:: text
 
-   ExportService.validate_export_limit()
-     └─ implementa → RF_UCRPT_04_01
-                       └─ deriva de → UC_RPT_04
-                                        └─ restringe → BR_011
-                                                         └─ origina → BReq_RPT
+ ExportService.validate_export_limit
+ └─ implementa → RF_UCRPT_04_01
+ └─ deriva de → UC_RPT_04
+ └─ restringe → BR_011
+ └─ origina → BReq_RPT
 
 ---
 
@@ -804,30 +804,30 @@ Esta introducción ha establecido:
 ---
 
 .. note::
-   
-   **Nota pedagógica:**
-   
-   Este documento usa el Sistema IACT como caso de estudio real. 
-   Todos los UC, BR y ejemplos de código corresponden a la 
-   implementación real del proyecto documentado en:
-   
-   - 49 Casos de Uso (23,401 líneas RST)
-   - 20 Business Rules clasificadas
-   - 147 Diagramas PlantUML
-   - Código Python/SQL funcional
+ 
+ **Nota pedagógica:**
+ 
+ Este documento usa el Sistema IACT como caso de estudio real. 
+ Todos los UC, BR y ejemplos de código corresponden a la 
+ implementación real del proyecto documentado en:
+ 
+ - 49 Casos de Uso (23,401 líneas RST)
+ - 20 Business Rules clasificadas
+ - 147 Diagramas PlantUML
+ - Código Python/SQL funcional
 
 ---
 
 **Historial de Versiones**
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-08
-     - Versión inicial con dominio IACT. Reemplaza ejemplos de 
-       productos químicos con Sistema IVR Analytics real.
+ * - Versión
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-08
+ - Versión inicial con dominio IACT. Reemplaza ejemplos de 
+ productos químicos con Sistema IVR Analytics real.

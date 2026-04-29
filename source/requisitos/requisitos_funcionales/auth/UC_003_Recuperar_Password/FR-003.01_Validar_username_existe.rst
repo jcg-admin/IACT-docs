@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-003.01
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-003.01
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-003-01:
 
@@ -19,22 +19,22 @@ FR-003.01: Validar username existe
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-003.01
-   * - **Nombre**
-     - Validar que username existe en el sistema
-   * - **UC Origen**
-     - UC_003: Recuperar Password
-   * - **Paso UC**
-     - Paso 3-4 del flujo normal
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Alta
-   * - **Tipo**
-     - Validación
+ * - **ID**
+ - FR-003.01
+ * - **Nombre**
+ - Validar que username existe en el sistema
+ * - **UC Origen**
+ - UC_003: Recuperar Password
+ * - **Paso UC**
+ - Paso 3-4 del flujo normal
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Alta
+ * - **Tipo**
+ - Validación
 
 ----
 
@@ -43,24 +43,24 @@ FR-003.01: Validar username existe
 
 **Declaración:**
 
-   El sistema DEBE validar que el username proporcionado existe y tiene
-   cuenta activa CUANDO el usuario solicita recuperar su password.
+ El sistema DEBE validar que el username proporcionado existe y tiene
+ cuenta activa CUANDO el usuario solicita recuperar su password.
 
 **Descripción:**
 
-   El sistema realiza la validación:
-   
-   1. Recibe username del formulario de recuperación
-   2. Busca en tabla ``users`` por username exacto
-   3. Verifica que el usuario exista
-   4. Verifica que status = 'ACTIVE'
-   5. Verifica que tenga pregunta de seguridad configurada
-   
-   **Seguridad - Mensajes Genéricos:**
-   
-   Para evitar enumeración de usuarios, si el username no existe o está
-   inactivo, el sistema muestra un mensaje genérico que no revela si
-   el usuario existe o no.
+ El sistema realiza la validación:
+ 
+ 1. Recibe username del formulario de recuperación
+ 2. Busca en tabla ``users`` por username exacto
+ 3. Verifica que el usuario exista
+ 4. Verifica que status = 'ACTIVE'
+ 5. Verifica que tenga pregunta de seguridad configurada
+ 
+ **Seguridad - Mensajes Genéricos:**
+ 
+ Para evitar enumeración de usuarios, si el username no existe o está
+ inactivo, el sistema muestra un mensaje genérico que no revela si
+ el usuario existe o no.
 
 ----
 
@@ -69,31 +69,31 @@ FR-003.01: Validar username existe
 
 ::
 
-   DADO un usuario en pantalla de recuperación de password
-   CUANDO ingresa su username
-   ENTONCES el sistema valida existencia sin revelar información
-   
-   Escenario 1: Usuario existe y activo
-   DADO username = "juan.perez" con status ACTIVE
-   CUANDO se valida el username
-   ENTONCES se procede a mostrar pregunta de seguridad
-   
-   Escenario 2: Usuario no existe
-   DADO username = "usuario_falso"
-   CUANDO se valida el username
-   ENTONCES se muestra "Si el usuario existe, verá su pregunta de seguridad"
-   Y se simula delay similar a usuario válido (timing attack prevention)
-   
-   Escenario 3: Usuario inactivo
-   DADO username con status = INACTIVE
-   CUANDO se valida el username
-   ENTONCES se muestra mismo mensaje genérico
-   Y NO se revela que el usuario está inactivo
-   
-   Escenario 4: Sin pregunta de seguridad
-   DADO usuario sin pregunta de seguridad configurada
-   CUANDO se valida
-   ENTONCES se muestra "Contacte al administrador para recuperar acceso"
+ DADO un usuario en pantalla de recuperación de password
+ CUANDO ingresa su username
+ ENTONCES el sistema valida existencia sin revelar información
+ 
+ Escenario 1: Usuario existe y activo
+ DADO username = "juan.perez" con status ACTIVE
+ CUANDO se valida el username
+ ENTONCES se procede a mostrar pregunta de seguridad
+ 
+ Escenario 2: Usuario no existe
+ DADO username = "usuario_falso"
+ CUANDO se valida el username
+ ENTONCES se muestra "Si el usuario existe, verá su pregunta de seguridad"
+ Y se simula delay similar a usuario válido (timing attack prevention)
+ 
+ Escenario 3: Usuario inactivo
+ DADO username con status = INACTIVE
+ CUANDO se valida el username
+ ENTONCES se muestra mismo mensaje genérico
+ Y NO se revela que el usuario está inactivo
+ 
+ Escenario 4: Sin pregunta de seguridad
+ DADO usuario sin pregunta de seguridad configurada
+ CUANDO se valida
+ ENTONCES se muestra "Contacte al administrador para recuperar acceso"
 
 ----
 
@@ -101,9 +101,9 @@ FR-003.01: Validar username existe
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-  
+ 
 - **CNST aplicables:**
-  - CNST-005: Seguridad DRF (no revelar existencia de usuarios)
+ - CNST-005: Seguridad DRF (no revelar existencia de usuarios)
 
 **Consideraciones de Seguridad:**
 
@@ -117,20 +117,20 @@ FR-003.01: Validar username existe
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_003: Recuperar Password
-   * - **Depende de**
-     - Ninguno
-   * - **Requerido por**
-     - FR-003.02
-   * - **CNST**
-     - CNST-005
-   * - **TEST**
-     - TST-FR-003.01 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_003: Recuperar Password
+ * - **Depende de**
+ - Ninguno
+ * - **Requerido por**
+ - FR-003.02
+ * - **CNST**
+ - CNST-005
+ * - **TEST**
+ - TST-FR-003.01 (pendiente)
 
 ----
 
@@ -138,12 +138,12 @@ FR-003.01: Validar username existe
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_003
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_003

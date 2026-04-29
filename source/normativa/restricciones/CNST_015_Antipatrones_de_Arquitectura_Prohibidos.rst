@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_015
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_015
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-015:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_015
-   * - **Categoria**
-     - Arquitectura
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_015
+ * - **Categoria**
+ - Arquitectura
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -68,27 +68,27 @@ Los antipatrones erosionan la mantenibilidad del codebase, concentran riesgo en 
 
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 70
+ :header-rows: 1
+ :widths: 30 70
 
-   * - Antipatron
-     - Razon
-   * - Fat Models
-     - Modelos con >300 lineas o >15 metodos. Mover logica a service layer.
-   * - Fat Views
-     - Vistas con logica de negocio. Vistas son orquestadores delgados.
-   * - God Object
-     - Cualquier clase >500 lineas que abarca multiples dominios.
-   * - Hardcoded Configuration
-     - Valores de produccion en codigo. Usar ``settings`` o env vars.
-   * - SQL Injection via Raw SQL
-     - ``cursor.execute(f"...{user_input}...")``. Usar parametros.
-   * - Sleep en Vistas
-     - ``time.sleep`` en path de request.
-   * - N+1 Queries
-     - Sin ``select_related``/``prefetch_related`` cuando aplica.
-   * - Catch Pokemon
-     - ``except Exception: pass`` sin logging ni accion.
+ * - Antipatron
+ - Razon
+ * - Fat Models
+ - Modelos con >300 lineas o >15 metodos. Mover logica a service layer.
+ * - Fat Views
+ - Vistas con logica de negocio. Vistas son orquestadores delgados.
+ * - God Object
+ - Cualquier clase >500 lineas que abarca multiples dominios.
+ * - Hardcoded Configuration
+ - Valores de produccion en codigo. Usar ``settings`` o env vars.
+ * - SQL Injection via Raw SQL
+ - ``cursor.execute(f"...{user_input}...")``. Usar parametros.
+ * - Sleep en Vistas
+ - ``time.sleep`` en path de request.
+ * - N+1 Queries
+ - Sin ``select_related``/``prefetch_related`` cuando aplica.
+ * - Catch Pokemon
+ - ``except Exception: pass`` sin logging ni accion.
 
 2.2 Parametros
 ^^^^^^^^^^^^^^
@@ -109,25 +109,25 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - (todos)
-     - Aplica al codebase completo
+ * - Modulo
+ - Impacto
+ * - (todos)
+ - Aplica al codebase completo
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - (transversal)
-     - Aplica a todo el codigo IACT
+ * - UC
+ - Impacto
+ * - (transversal)
+ - Aplica a todo el codigo IACT
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,7 +146,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -179,7 +179,7 @@ Excepciones temporales requieren issue + plan de refactor.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -200,37 +200,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_016_Principios_SOLID_Obligatorios`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - (transversal)
-   * - **MODs afectados**
-     - (todos)
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_016_Principios_SOLID_Obligatorios`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - (transversal)
+ * - **MODs afectados**
+ - (todos)
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROCED_QA_001
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROCED_QA_001
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCED-QA-001: Ejecutar Tests
 =============================
@@ -33,17 +33,17 @@ entorno de testing - CI/CD pipelines
 Pre-requisitos
 --------------
 
--  Entorno de desarrollo configurado
--  Dependencias instaladas
--  Base de datos de test disponible (si aplica)
--  Variables de entorno configuradas
+- Entorno de desarrollo configurado
+- Dependencias instaladas
+- Base de datos de test disponible (si aplica)
+- Variables de entorno configuradas
 
 Roles y Responsabilidades
 -------------------------
 
--  **Developer**: Ejecuta tests antes de PR
--  **QA Engineer**: Ejecuta suite completa y valida coverage
--  **CI/CD**: Ejecuta automáticamente en cada push
+- **Developer**: Ejecuta tests antes de PR
+- **QA Engineer**: Ejecuta suite completa y valida coverage
+- **CI/CD**: Ejecuta automáticamente en cada push
 
 Procedimiento Detallado
 -----------------------
@@ -58,33 +58,33 @@ PASO 1: Preparación del Entorno
 
 .. code:: bash
 
-   # Activar entorno virtual
-   source venv/bin/activate  # Linux/Mac
-   venv\Scripts\activate     # Windows
+ # Activar entorno virtual
+ source venv/bin/activate # Linux/Mac
+ venv\Scripts\activate # Windows
 
-   # Verificar pytest instalado
-   pytest --version
-   # Output esperado: pytest 7.x.x
+ # Verificar pytest instalado
+ pytest --version
+ # Output esperado: pytest 7.x.x
 
 **Para JavaScript/Node**:
 
 .. code:: bash
 
-   # Verificar jest/mocha instalado
-   npm test -- --version
-   # Output esperado: jest 29.x.x
+ # Verificar jest/mocha instalado
+ npm test -- --version
+ # Output esperado: jest 29.x.x
 
 1.2 Configurar variables de entorno de test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Copiar archivo de configuración de test
-   cp .env.test.example .env.test
+ # Copiar archivo de configuración de test
+ cp .env.test.example .env.test
 
-   # O exportar variables manualmente
-   export DJANGO_SETTINGS_MODULE=config.settings.test
-   export DATABASE_URL=sqlite:///test.db
+ # O exportar variables manualmente
+ export DJANGO_SETTINGS_MODULE=config.settings.test
+ export DATABASE_URL=sqlite:///test.db
 
 1.3 Preparar base de datos de test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,11 +93,11 @@ PASO 1: Preparación del Entorno
 
 .. code:: bash
 
-   # Crear base de datos de test
-   python manage.py migrate --settings=config.settings.test
+ # Crear base de datos de test
+ python manage.py migrate --settings=config.settings.test
 
-   # Cargar fixtures si es necesario
-   python manage.py loaddata test_fixtures.json
+ # Cargar fixtures si es necesario
+ python manage.py loaddata test_fixtures.json
 
 **Criterio de éxito**: Comandos ejecutan sin errores
 
@@ -113,63 +113,63 @@ PASO 2: Ejecutar Tests Unitarios
 
 .. code:: bash
 
-   # Ejecutar toda la suite
-   pytest
+ # Ejecutar toda la suite
+ pytest
 
-   # Con output más verboso
-   pytest -v
+ # Con output más verboso
+ pytest -v
 
-   # Mostrar print statements
-   pytest -s
+ # Mostrar print statements
+ pytest -s
 
 **JavaScript/Jest**:
 
 .. code:: bash
 
-   # Ejecutar todos los tests
-   npm test
+ # Ejecutar todos los tests
+ npm test
 
-   # O directamente
-   jest
+ # O directamente
+ jest
 
 **Output esperado**:
 
 ::
 
-   ======================== test session starts ========================
-   collected 156 items
+ ======================== test session starts ========================
+ collected 156 items
 
-   tests/test_auth.py ........                                   [  5%]
-   tests/test_permissions.py ................                    [ 15%]
-   tests/test_models.py ......................                   [ 29%]
-   ...
+ tests/test_auth.py ........ [ 5%]
+ tests/test_permissions.py ................ [ 15%]
+ tests/test_models.py ...................... [ 29%]
+ ...
 
-   ===================== 156 passed in 12.34s ======================
+ ===================== 156 passed in 12.34s ======================
 
 2.2 Ejecutar tests de un módulo específico
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Python - Solo tests de autenticación
-   pytest tests/test_auth.py
+ # Python - Solo tests de autenticación
+ pytest tests/test_auth.py
 
-   # JavaScript - Solo tests de un archivo
-   jest tests/auth.test.js
+ # JavaScript - Solo tests de un archivo
+ jest tests/auth.test.js
 
 2.3 Ejecutar un test específico
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Python - Test específico por nombre
-   pytest tests/test_auth.py::test_login_success
+ # Python - Test específico por nombre
+ pytest tests/test_auth.py::test_login_success
 
-   # Python - Tests que coincidan con patrón
-   pytest -k "login"
+ # Python - Tests que coincidan con patrón
+ pytest -k "login"
 
-   # JavaScript - Test específico
-   jest -t "should login successfully"
+ # JavaScript - Test específico
+ jest -t "should login successfully"
 
 --------------
 
@@ -183,22 +183,22 @@ Los tests de integración requieren servicios externos (BD, cache, etc.)
 
 .. code:: bash
 
-   # Usando Docker Compose
-   docker-compose -f docker-compose.test.yml up -d
+ # Usando Docker Compose
+ docker-compose -f docker-compose.test.yml up -d
 
-   # Verificar servicios activos
-   docker-compose ps
+ # Verificar servicios activos
+ docker-compose ps
 
 3.2 Ejecutar suite de integración
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Python - Tests marcados como integration
-   pytest -m integration
+ # Python - Tests marcados como integration
+ pytest -m integration
 
-   # JavaScript - Tests en carpeta de integración
-   jest --testPathPattern=integration
+ # JavaScript - Tests en carpeta de integración
+ jest --testPathPattern=integration
 
 **Criterio de éxito**: Todos los tests pasan
 
@@ -214,24 +214,24 @@ PASO 4: Generar Reporte de Coverage
 
 .. code:: bash
 
-   # Generar coverage en terminal
-   pytest --cov=src --cov-report=term
+ # Generar coverage en terminal
+ pytest --cov=src --cov-report=term
 
-   # Generar reporte HTML
-   pytest --cov=src --cov-report=html
+ # Generar reporte HTML
+ pytest --cov=src --cov-report=html
 
-   # Generar reporte XML (para CI/CD)
-   pytest --cov=src --cov-report=xml
+ # Generar reporte XML (para CI/CD)
+ pytest --cov=src --cov-report=xml
 
 **JavaScript**:
 
 .. code:: bash
 
-   # Jest incluye coverage por defecto
-   npm test -- --coverage
+ # Jest incluye coverage por defecto
+ npm test -- --coverage
 
-   # O en package.json
-   npm run test:coverage
+ # O en package.json
+ npm run test:coverage
 
 4.2 Interpretar reporte de coverage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -240,14 +240,14 @@ PASO 4: Generar Reporte de Coverage
 
 ::
 
-   Name                      Stmts   Miss  Cover
-   ---------------------------------------------
-   src/auth/service.py          45      3    93%
-   src/auth/middleware.py       32      0   100%
-   src/permissions/models.py    67      8    88%
-   src/permissions/utils.py     23      2    91%
-   ---------------------------------------------
-   TOTAL                       167     13    92%
+ Name Stmts Miss Cover
+ ---------------------------------------------
+ src/auth/service.py 45 3 93%
+ src/auth/middleware.py 32 0 100%
+ src/permissions/models.py 67 8 88%
+ src/permissions/utils.py 23 2 91%
+ ---------------------------------------------
+ TOTAL 167 13 92%
 
 **Criterios de calidad**: - ✅ **Excelente**: >= 90% coverage - ⚠️
 **Aceptable**: >= 80% coverage - ❌ **Insuficiente**: < 80% coverage
@@ -257,10 +257,10 @@ PASO 4: Generar Reporte de Coverage
 
 .. code:: bash
 
-   # Abrir reporte HTML
-   open htmlcov/index.html  # Mac
-   xdg-open htmlcov/index.html  # Linux
-   start htmlcov/index.html  # Windows
+ # Abrir reporte HTML
+ open htmlcov/index.html # Mac
+ xdg-open htmlcov/index.html # Linux
+ start htmlcov/index.html # Windows
 
 En el reporte HTML, identificar: - 🔴 **Líneas no cubiertas** (rojo) -
 🟡 **Líneas parcialmente cubiertas** (amarillo) - 🟢 **Líneas
@@ -278,7 +278,7 @@ Si todos los tests pasan:
 
 ::
 
-   ===================== 156 passed in 12.34s ======================
+ ===================== 156 passed in 12.34s ======================
 
 **Acción**: Proceder con confianza (PR ready)
 
@@ -291,7 +291,7 @@ Si todos los tests pasan:
 
 ::
 
-   FAILED tests/test_auth.py::test_login_invalid_credentials - AssertionError
+ FAILED tests/test_auth.py::test_login_invalid_credentials - AssertionError
 
 **Pasos de análisis**:
 
@@ -299,36 +299,36 @@ Si todos los tests pasan:
 
 .. code:: python
 
-   def test_login_invalid_credentials():
-       response = client.post('/api/auth/login', {
-           'username': 'user',
-           'password': 'wrongpass'
-       })
-   >   assert response.status_code == 401
-   E   AssertionError: assert 500 == 401
+ def test_login_invalid_credentials:
+ response = client.post('/api/auth/login', {
+ 'username': 'user',
+ 'password': 'wrongpass'
+ })
+ > assert response.status_code == 401
+ E AssertionError: assert 500 == 401
 
 2. **Identificar el problema**:
 
-   -  Status code esperado: 401 (Unauthorized)
-   -  Status code recibido: 500 (Server Error)
-   -  Hay un error interno, no solo credenciales incorrectas
+ - Status code esperado: 401 (Unauthorized)
+ - Status code recibido: 500 (Server Error)
+ - Hay un error interno, no solo credenciales incorrectas
 
 3. **Ejecutar test en modo debug**:
 
 .. code:: bash
 
-   # Python - Con pdb
-   pytest --pdb tests/test_auth.py::test_login_invalid_credentials
+ # Python - Con pdb
+ pytest --pdb tests/test_auth.py::test_login_invalid_credentials
 
-   # O agregar breakpoint en el test
-   import pdb; pdb.set_trace()
+ # O agregar breakpoint en el test
+ import pdb; pdb.set_trace
 
 4. **Revisar logs de aplicación**:
 
 .. code:: bash
 
-   # Ver logs detallados
-   pytest -s tests/test_auth.py::test_login_invalid_credentials
+ # Ver logs detallados
+ pytest -s tests/test_auth.py::test_login_invalid_credentials
 
 --------------
 
@@ -339,7 +339,7 @@ Si todos los tests pasan:
 
 ::
 
-   tests/test_external_api.py::test_api_call SKIPPED (requires network)
+ tests/test_external_api.py::test_api_call SKIPPED (requires network)
 
 **Acciones**: - Verificar por qué está skipped (decorador
 ``@pytest.mark.skip``) - Asegurar que tests críticos NO estén skipped
@@ -347,7 +347,7 @@ sin razón - Ejecutar tests skipped cuando sea posible:
 
 .. code:: bash
 
-   pytest --run-skip-reason="requires network"
+ pytest --run-skip-reason="requires network"
 
 --------------
 
@@ -359,19 +359,19 @@ PASO 6: Generar Reporte de Resultados
 
 .. code:: bash
 
-   # Python
-   pytest --junitxml=test-results.xml
+ # Python
+ pytest --junitxml=test-results.xml
 
-   # JavaScript
-   jest --reporters=jest-junit
+ # JavaScript
+ jest --reporters=jest-junit
 
 6.2 Reporte HTML completo
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Usando pytest-html
-   pytest --html=report.html --self-contained-html
+ # Usando pytest-html
+ pytest --html=report.html --self-contained-html
 
 6.3 Reporte para QA
 ^^^^^^^^^^^^^^^^^^^
@@ -380,52 +380,52 @@ Crear reporte manual con:
 
 .. code:: markdown
 
-   # Test Execution Report
+ # Test Execution Report
 
-   **Fecha**: 2025-11-17
-   **Ejecutado por**: [Tu nombre]
-   **Branch**: feature/user-authentication
-   **Commit**: abc1234
+ **Fecha**: 2025-11-17
+ **Ejecutado por**: [Tu nombre]
+ **Branch**: feature/user-authentication
+ **Commit**: abc1234
 
-   ## Resumen
+ ## Resumen
 
-   - **Total tests**: 156
-   - **Passed**: 153 (98%)
-   - **Failed**: 3 (2%)
-   - **Skipped**: 0
-   - **Coverage**: 92%
+ - **Total tests**: 156
+ - **Passed**: 153 (98%)
+ - **Failed**: 3 (2%)
+ - **Skipped**: 0
+ - **Coverage**: 92%
 
-   ## Tests Fallidos
+ ## Tests Fallidos
 
-   ### 1. test_login_invalid_credentials
-   - **Archivo**: tests/test_auth.py:42
-   - **Razón**: Server error (500) en lugar de Unauthorized (401)
-   - **Acción**: Investigar error en auth service
+ ### 1. test_login_invalid_credentials
+ - **Archivo**: tests/test_auth.py:42
+ - **Razón**: Server error (500) en lugar de Unauthorized (401)
+ - **Acción**: Investigar error en auth service
 
-   ### 2. test_permission_check
-   - **Archivo**: tests/test_permissions.py:78
-   - **Razón**: Assertion failed - expected True, got False
-   - **Acción**: Revisar lógica de permissions
+ ### 2. test_permission_check
+ - **Archivo**: tests/test_permissions.py:78
+ - **Razón**: Assertion failed - expected True, got False
+ - **Acción**: Revisar lógica de permissions
 
-   ### 3. test_token_refresh
-   - **Archivo**: tests/test_auth.py:89
-   - **Razón**: Token expirado antes de tiempo
-   - **Acción**: Ajustar timing en test
+ ### 3. test_token_refresh
+ - **Archivo**: tests/test_auth.py:89
+ - **Razón**: Token expirado antes de tiempo
+ - **Acción**: Ajustar timing en test
 
-   ## Coverage por Módulo
+ ## Coverage por Módulo
 
-   | Módulo | Coverage | Status |
-   |--------|----------|--------|
-   | auth | 95% | ✅ |
-   | permissions | 88% | ✅ |
-   | models | 92% | ✅ |
-   | utils | 75% | ⚠️ |
+ | Módulo | Coverage | Status |
+ |--------|----------|--------|
+ | auth | 95% | ✅ |
+ | permissions | 88% | ✅ |
+ | models | 92% | ✅ |
+ | utils | 75% | ⚠️ |
 
-   ## Recomendaciones
+ ## Recomendaciones
 
-   1. Aumentar coverage de módulo utils (target: 80%)
-   2. Corregir 3 tests fallidos antes de merge
-   3. Agregar tests para edge cases de token refresh
+ 1. Aumentar coverage de módulo utils (target: 80%)
+ 2. Corregir 3 tests fallidos antes de merge
+ 3. Agregar tests para edge cases de token refresh
 
 --------------
 
@@ -467,17 +467,17 @@ Problema 1: “ModuleNotFoundError”
 
 ::
 
-   ModuleNotFoundError: No module named 'pytest'
+ ModuleNotFoundError: No module named 'pytest'
 
 **Solución**:
 
 .. code:: bash
 
-   # Instalar dependencias de test
-   pip install -r requirements-test.txt
+ # Instalar dependencias de test
+ pip install -r requirements-test.txt
 
-   # O instalar pytest directamente
-   pip install pytest pytest-cov pytest-django
+ # O instalar pytest directamente
+ pip install pytest pytest-cov pytest-django
 
 --------------
 
@@ -492,11 +492,11 @@ dependientes de orden de ejecución - Tests que dependen de datos locales
 
 .. code:: bash
 
-   # Ejecutar en modo aleatorio para detectar dependencias
-   pytest --random-order
+ # Ejecutar en modo aleatorio para detectar dependencias
+ pytest --random-order
 
-   # Ejecutar con misma configuración que CI
-   docker run -v $(pwd):/app python:3.11 pytest
+ # Ejecutar con misma configuración que CI
+ docker run -v $(pwd):/app python:3.11 pytest
 
 --------------
 
@@ -511,23 +511,23 @@ Problema 3: Tests muy lentos
 
 .. code:: bash
 
-   # Python - Usando pytest-xdist
-   pytest -n auto  # Auto detecta cores
+ # Python - Usando pytest-xdist
+ pytest -n auto # Auto detecta cores
 
-   # JavaScript
-   jest --maxWorkers=4
+ # JavaScript
+ jest --maxWorkers=4
 
 2. **Identificar tests lentos**:
 
 .. code:: bash
 
-   pytest --durations=10  # Muestra 10 tests más lentos
+ pytest --durations=10 # Muestra 10 tests más lentos
 
 3. **Optimizar tests lentos**:
 
-   -  Usar fixtures compartidos
-   -  Mock servicios externos
-   -  Reducir datos de test
+ - Usar fixtures compartidos
+ - Mock servicios externos
+ - Reducir datos de test
 
 --------------
 
@@ -540,11 +540,11 @@ Problema 4: Database locked
 
 .. code:: bash
 
-   # Usar base de datos en memoria para tests
-   export DATABASE_URL=sqlite:///:memory:
+ # Usar base de datos en memoria para tests
+ export DATABASE_URL=sqlite:///:memory:
 
-   # O usar PostgreSQL de test
-   export DATABASE_URL=postgresql://user:pass@localhost/test_db
+ # O usar PostgreSQL de test
+ export DATABASE_URL=postgresql://user:pass@localhost/test_db
 
 --------------
 
@@ -553,32 +553,32 @@ Comandos Rápidos de Referencia
 
 .. code:: bash
 
-   # Ejecutar todo
-   pytest
+ # Ejecutar todo
+ pytest
 
-   # Solo un archivo
-   pytest tests/test_auth.py
+ # Solo un archivo
+ pytest tests/test_auth.py
 
-   # Solo un test
-   pytest tests/test_auth.py::test_login
+ # Solo un test
+ pytest tests/test_auth.py::test_login
 
-   # Con coverage
-   pytest --cov=src
+ # Con coverage
+ pytest --cov=src
 
-   # En paralelo
-   pytest -n auto
+ # En paralelo
+ pytest -n auto
 
-   # Modo verboso
-   pytest -v
+ # Modo verboso
+ pytest -v
 
-   # Con prints
-   pytest -s
+ # Con prints
+ pytest -s
 
-   # Solo tests que fallaron la última vez
-   pytest --lf
+ # Solo tests que fallaron la última vez
+ pytest --lf
 
-   # Detener al primer fallo
-   pytest -x
+ # Detener al primer fallo
+ pytest -x
 
 --------------
 
@@ -595,24 +595,24 @@ de ejecución**: Idealmente < 2 minutos - **Coverage**: >= 80% mínimo -
 Referencias
 -----------
 
--  `pytest Documentation <https://docs.pytest.org/>`__
--  `Jest Documentation <https://jestjs.io/>`__
--  `PROC-QA-002: Estrategia
-   QA <../procesos/PROC-QA-002-estrategia_qa.md>`__
+- `pytest Documentation <https://docs.pytest.org/>`__
+- `Jest Documentation <https://jestjs.io/>`__
+- `PROC-QA-002: Estrategia
+ QA <../procesos/PROC-QA-002-estrategia_qa.md>`__
 
 Historial de Cambios
 --------------------
 
 ======= ========== =========== ===============
-Versión Fecha      Autor       Cambios
+Versión Fecha Autor Cambios
 ======= ========== =========== ===============
-1.0.0   2025-11-17 Claude Code Versión inicial
+1.0.0 2025-11-17 Claude Code Versión inicial
 ======= ========== =========== ===============
 
 Aprobación
 ----------
 
--  **Autor**: Claude Code (Sonnet 4.5)
--  **Revisado por**: Pendiente
--  **Aprobado por**: Pendiente
--  **Fecha de próxima revisión**: 2026-02-17
+- **Autor**: Claude Code (Sonnet 4.5)
+- **Revisado por**: Pendiente
+- **Aprobado por**: Pendiente
+- **Fecha de próxima revisión**: 2026-02-17

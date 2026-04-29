@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_027
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_027
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-027:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_027
-   * - **Categoria**
-     - Datos
-   * - **Tipo (TXM_01)**
-     - Regulatoria
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_027
+ * - **Categoria**
+ - Datos
+ * - **Tipo (TXM_01)**
+ - Regulatoria
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -69,9 +69,9 @@ Sin clasificacion explicita, las decisiones de proteccion (cifrado, exportacion,
 
 
 - Cada modelo declara ``Meta.classification`` con uno de los 4
-  valores.
+ valores.
 - Datos ``Confidential`` y ``Restricted`` requieren cifrado en reposo
-  (CNST_028).
+ (CNST_028).
 
 2.2 Parametros
 ^^^^^^^^^^^^^^
@@ -91,25 +91,25 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - (todos los modulos con modelos)
-     - Declaran Meta.classification
+ * - Modulo
+ - Impacto
+ * - (todos los modulos con modelos)
+ - Declaran Meta.classification
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - (transversal)
-     - Todos los UCs que manejan datos clasificados
+ * - UC
+ - Impacto
+ * - (transversal)
+ - Todos los UCs que manejan datos clasificados
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,7 +122,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -133,9 +133,9 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   for model in apps.get_models():
-       if hasattr(model.Meta, "classification"):
-           assert model.Meta.classification in ["Public", "Internal", "Confidential", "Restricted"]
+ for model in apps.get_models:
+ if hasattr(model.Meta, "classification"):
+ assert model.Meta.classification in ["Public", "Internal", "Confidential", "Restricted"]
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +158,7 @@ Sin excepciones — todo modelo persistido tiene clasificacion.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -173,43 +173,43 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 
 - **Tipo:** Automatico
 - **Frecuencia:** Por deployment
-- **Herramienta:** Test que itera apps.get_models() y valida Meta.classification
+- **Herramienta:** Test que itera apps.get_models y valida Meta.classification
 
 8. Trazabilidad
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_028_Cifrado_Obligatorio_de_Datos_Confidenciales`, :doc:`CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - (transversal)
-   * - **MODs afectados**
-     - (todos los modulos con modelos)
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_028_Cifrado_Obligatorio_de_Datos_Confidenciales`, :doc:`CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - (transversal)
+ * - **MODs afectados**
+ - (todos los modulos con modelos)
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

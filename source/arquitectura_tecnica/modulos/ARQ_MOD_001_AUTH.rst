@@ -9,21 +9,21 @@ ARQ_MOD_001: Autenticacion y Sesiones (AUTH)
 ================================================
 
 .. meta::
-   :artefacto: ARQ_MOD_001
-   :tipo: Modulo Arquitectonico
-   :dominio: arquitectura_tecnica
-   :subdominio: modulos
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2025-12-22
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: ARQ_MOD_001
+ :tipo: Modulo Arquitectonico
+ :dominio: arquitectura_tecnica
+ :subdominio: modulos
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2025-12-22
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 
 .. contents:: Contenido
-   :local:
-   :depth: 2
+ :local:
+ :depth: 2
 
 ----
 
@@ -35,7 +35,7 @@ de las sesiones** en el sistema IACT.
 
 **Pregunta clave que responde:**
 
-   *"¿Quien eres? ¿Tu sesion es valida?"*
+ *"¿Quien eres? ¿Tu sesion es valida?"*
 
 Este modulo es el punto de entrada al sistema. Valida credenciales, genera
 tokens JWT, gestiona sesiones en base de datos, y controla el timeout de
@@ -79,83 +79,83 @@ inactividad.
 ---------------
 
 .. list-table::
-   :widths: 60 20 20
-   :header-rows: 1
+ :widths: 60 20 20
+ :header-rows: 1
 
-   * - Responsabilidad
-     - UC Relacionado
-     - CNST Aplicable
-   * - Validar credenciales (username + password)
-     - UC_001
-     - CNST_005
-   * - Generar token JWT con claims basicos
-     - UC_001
-     - CNST_005
-   * - Registrar sesion en base de datos
-     - UC_001
-     - CNST_002
-   * - Invalidar sesion previa (sesion unica)
-     - UC_001
-     - CNST_002
-   * - Cerrar sesion y blacklist de token
-     - UC_002
-     - CNST_002
-   * - Validar preguntas de seguridad
-     - UC_003
-     - CNST_001
-   * - Generar contrasena temporal
-     - UC_003
-     - CNST_001
-   * - Cambiar contrasena con validacion
-     - UC_004
-     - CNST_005
-   * - Listar sesiones activas del usuario
-     - UC_005
-     - CNST_002
-   * - Cerrar sesiones remotas
-     - UC_005
-     - CNST_002
-   * - Aplicar timeout de 15 minutos
-     - UC_005
-     - CNST_002
+ * - Responsabilidad
+ - UC Relacionado
+ - CNST Aplicable
+ * - Validar credenciales (username + password)
+ - UC_001
+ - CNST_005
+ * - Generar token JWT con claims basicos
+ - UC_001
+ - CNST_005
+ * - Registrar sesion en base de datos
+ - UC_001
+ - CNST_002
+ * - Invalidar sesion previa (sesion unica)
+ - UC_001
+ - CNST_002
+ * - Cerrar sesion y blacklist de token
+ - UC_002
+ - CNST_002
+ * - Validar preguntas de seguridad
+ - UC_003
+ - CNST_001
+ * - Generar contrasena temporal
+ - UC_003
+ - CNST_001
+ * - Cambiar contrasena con validacion
+ - UC_004
+ - CNST_005
+ * - Listar sesiones activas del usuario
+ - UC_005
+ - CNST_002
+ * - Cerrar sesiones remotas
+ - UC_005
+ - CNST_002
+ * - Aplicar timeout de 15 minutos
+ - UC_005
+ - CNST_002
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
 
 .. warning::
 
-   Las siguientes acciones **violan la separacion de responsabilidades**
-   y NO deben implementarse en este modulo:
+ Las siguientes acciones **violan la separacion de responsabilidades**
+ y NO deben implementarse en este modulo:
 
 - **Decidir si un usuario puede ver un modulo**
-  
-  - Ejemplo: "Si es ADMIN puede ver X modulo"
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Ejemplo: "Si es ADMIN puede ver X modulo"
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Validar permisos especificos**
-  
-  - Ejemplo: "Si no tiene rol R017 no puede ver auditoria"
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Ejemplo: "Si no tiene rol R017 no puede ver auditoria"
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Generar alertas por fallos de login**
-  
-  - Ejemplo: "Si falla 5 veces, generar alerta"
-  - Eso es responsabilidad de → **ARQ_MOD_006_ALERTS**
+ 
+ - Ejemplo: "Si falla 5 veces, generar alerta"
+ - Eso es responsabilidad de → **ARQ_MOD_006_ALERTS**
 
 - **Bloquear usuario por intentos fallidos**
-  
-  - La logica de bloqueo es de seguridad avanzada
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
+ 
+ - La logica de bloqueo es de seguridad avanzada
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE** (enforcers)
 
 - **Enviar notificaciones por email**
-  
-  - Viola restriccion critica CNST_001
-  - Solo se usa buzon interno → **ARQ_MOD_006_ALERTS**
+ 
+ - Viola restriccion critica CNST_001
+ - Solo se usa buzon interno → **ARQ_MOD_006_ALERTS**
 
 - **Registrar eventos de auditoria**
-  
-  - AUTH emite el evento, pero no lo registra
-  - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
+ 
+ - AUTH emite el evento, pero no lo registra
+ - Eso es responsabilidad de → **ARQ_MOD_007_AUDIT**
 
 ----
 
@@ -166,35 +166,35 @@ inactividad.
 --------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Modulo
-     - Razon
-   * - ARQ_MOD_002_USER_IDENTITY
-     - Necesita validar que el usuario existe y esta activo
-   * - ARQ_MOD_003_RBAC_CORE
-     - Consulta roles basicos para incluir en claims JWT
+ * - Modulo
+ - Razon
+ * - ARQ_MOD_002_USER_IDENTITY
+ - Necesita validar que el usuario existe y esta activo
+ * - ARQ_MOD_003_RBAC_CORE
+ - Consulta roles basicos para incluir en claims JWT
 
 4.2 Es Requerido por
 --------------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Modulo
-     - Razon
-   * - ARQ_MOD_003_RBAC_CORE
-     - Necesita sesion valida para calcular permisos
-   * - ARQ_MOD_005_VIS_REPORTS
-     - Requiere autenticacion para acceder
-   * - ARQ_MOD_006_ALERTS
-     - Requiere autenticacion para ver notificaciones
-   * - ARQ_MOD_007_AUDIT
-     - Registra eventos de login/logout
-   * - TODOS
-     - Todos los modulos requieren sesion autenticada
+ * - Modulo
+ - Razon
+ * - ARQ_MOD_003_RBAC_CORE
+ - Necesita sesion valida para calcular permisos
+ * - ARQ_MOD_005_VIS_REPORTS
+ - Requiere autenticacion para acceder
+ * - ARQ_MOD_006_ALERTS
+ - Requiere autenticacion para ver notificaciones
+ * - ARQ_MOD_007_AUDIT
+ - Registra eventos de login/logout
+ * - TODOS
+ - Todos los modulos requieren sesion autenticada
 
 ----
 
@@ -205,13 +205,13 @@ inactividad.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - App
-     - Descripcion
-   * - apps.users
-     - Contiene vistas de login, logout, modelos de sesion
+ * - App
+ - Descripcion
+ * - apps.users
+ - Contiene vistas de login, logout, modelos de sesion
 
 5.2 Modelos de Datos
 --------------------
@@ -221,15 +221,15 @@ inactividad.
 
 .. code-block:: python
 
-   # Modelo de Sesion (apps/users/models.py)
-   class UserSession(models.Model):
-       user = models.ForeignKey(User, on_delete=models.CASCADE)
-       token_hash = models.CharField(max_length=64, unique=True)
-       ip_address = models.GenericIPAddressField()
-       user_agent = models.TextField()
-       created_at = models.DateTimeField(auto_now_add=True)
-       last_activity = models.DateTimeField(auto_now=True)
-       is_active = models.BooleanField(default=True)
+ # Modelo de Sesion (apps/users/models.py)
+ class UserSession(models.Model):
+ user = models.ForeignKey(User, on_delete=models.CASCADE)
+ token_hash = models.CharField(max_length=64, unique=True)
+ ip_address = models.GenericIPAddressField
+ user_agent = models.TextField
+ created_at = models.DateTimeField(auto_now_add=True)
+ last_activity = models.DateTimeField(auto_now=True)
+ is_active = models.BooleanField(default=True)
 
 5.3 APIs Expuestas
 ------------------
@@ -237,46 +237,46 @@ inactividad.
 - **API_001_Auth_Endpoints**
 
 .. list-table::
-   :widths: 20 30 50
-   :header-rows: 1
+ :widths: 20 30 50
+ :header-rows: 1
 
-   * - Metodo
-     - Endpoint
-     - Descripcion
-   * - POST
-     - /api/v1/auth/login
-     - Iniciar sesion
-   * - POST
-     - /api/v1/auth/logout
-     - Cerrar sesion
-   * - POST
-     - /api/v1/auth/refresh
-     - Renovar token
-   * - POST
-     - /api/v1/auth/password/recovery
-     - Recuperar contrasena
-   * - PUT
-     - /api/v1/auth/password/change
-     - Cambiar contrasena
-   * - GET
-     - /api/v1/auth/sessions
-     - Listar sesiones activas
-   * - DELETE
-     - /api/v1/auth/sessions/{id}
-     - Cerrar sesion especifica
+ * - Metodo
+ - Endpoint
+ - Descripcion
+ * - POST
+ - /api/v1/auth/login
+ - Iniciar sesion
+ * - POST
+ - /api/v1/auth/logout
+ - Cerrar sesion
+ * - POST
+ - /api/v1/auth/refresh
+ - Renovar token
+ * - POST
+ - /api/v1/auth/password/recovery
+ - Recuperar contrasena
+ * - PUT
+ - /api/v1/auth/password/change
+ - Cambiar contrasena
+ * - GET
+ - /api/v1/auth/sessions
+ - Listar sesiones activas
+ * - DELETE
+ - /api/v1/auth/sessions/{id}
+ - Cerrar sesion especifica
 
 5.4 Middleware
 --------------
 
 .. code-block:: python
 
-   # apps/common/middleware.py
-   
-   class SessionTimeoutMiddleware:
-       """Verifica timeout de 15 minutos por inactividad"""
-       
-   class SingleSessionMiddleware:
-       """Garantiza sesion unica por usuario"""
+ # apps/common/middleware.py
+ 
+ class SessionTimeoutMiddleware:
+ """Verifica timeout de 15 minutos por inactividad"""
+ 
+ class SingleSessionMiddleware:
+ """Garantiza sesion unica por usuario"""
 
 ----
 
@@ -284,20 +284,20 @@ inactividad.
 ===========================
 
 .. list-table::
-   :widths: 15 85
-   :header-rows: 1
+ :widths: 15 85
+ :header-rows: 1
 
-   * - CNST
-     - Descripcion y Aplicacion
-   * - CNST_001
-     - **Comunicaciones Prohibidas**: No enviar email para recuperacion. 
-       Usar preguntas de seguridad + buzon interno.
-   * - CNST_002
-     - **Gestion Sesiones BD**: Sesiones en PostgreSQL, no Redis. 
-       Sesion unica por usuario. Timeout 15 min. Validar IP+UA.
-   * - CNST_005
-     - **Seguridad DRF**: JWT con SimpleJWT. Blacklist de tokens. 
-       HTTPS obligatorio.
+ * - CNST
+ - Descripcion y Aplicacion
+ * - CNST_001
+ - **Comunicaciones Prohibidas**: No enviar email para recuperacion. 
+ Usar preguntas de seguridad + buzon interno.
+ * - CNST_002
+ - **Gestion Sesiones BD**: Sesiones en PostgreSQL, no Redis. 
+ Sesion unica por usuario. Timeout 15 min. Validar IP+UA.
+ * - CNST_005
+ - **Seguridad DRF**: JWT con SimpleJWT. Blacklist de tokens. 
+ HTTPS obligatorio.
 
 ----
 
@@ -305,27 +305,27 @@ inactividad.
 =========================
 
 .. list-table::
-   :widths: 12 35 53
-   :header-rows: 1
+ :widths: 12 35 53
+ :header-rows: 1
 
-   * - UC ID
-     - Nombre
-     - Descripcion
-   * - UC_001
-     - Iniciar_Sesion
-     - Usuario ingresa credenciales y obtiene sesion valida
-   * - UC_002
-     - Cerrar_Sesion
-     - Usuario cierra sesion, token se invalida
-   * - UC_003
-     - Recuperar_Contrasena
-     - Usuario recupera acceso via preguntas de seguridad
-   * - UC_004
-     - Cambiar_Contrasena
-     - Usuario cambia su contrasena actual
-   * - UC_005
-     - Gestionar_Sesiones_Activas
-     - Usuario ve y cierra sus sesiones remotas
+ * - UC ID
+ - Nombre
+ - Descripcion
+ * - UC_001
+ - Iniciar_Sesion
+ - Usuario ingresa credenciales y obtiene sesion valida
+ * - UC_002
+ - Cerrar_Sesion
+ - Usuario cierra sesion, token se invalida
+ * - UC_003
+ - Recuperar_Contrasena
+ - Usuario recupera acceso via preguntas de seguridad
+ * - UC_004
+ - Cambiar_Contrasena
+ - Usuario cambia su contrasena actual
+ * - UC_005
+ - Gestionar_Sesiones_Activas
+ - Usuario ve y cierra sus sesiones remotas
 
 ----
 
@@ -333,33 +333,33 @@ inactividad.
 ===================================
 
 .. list-table::
-   :widths: 12 40 20 28
-   :header-rows: 1
+ :widths: 12 40 20 28
+ :header-rows: 1
 
-   * - FR ID
-     - Nombre
-     - Deriva de
-     - Descripcion
-   * - FR_001
-     - Validar_Credenciales
-     - UC_001
-     - Verificar username/password contra BD
-   * - FR_002
-     - Generar_Token_JWT
-     - UC_001
-     - Crear JWT con claims de usuario
-   * - FR_003
-     - Registrar_Sesion_BD
-     - UC_001
-     - Insertar sesion en tabla UserSession
-   * - FR_004
-     - Invalidar_Token
-     - UC_002
-     - Agregar token a blacklist
-   * - FR_005
-     - Verificar_Preguntas_Seguridad
-     - UC_003
-     - Validar respuestas de seguridad
+ * - FR ID
+ - Nombre
+ - Deriva de
+ - Descripcion
+ * - FR_001
+ - Validar_Credenciales
+ - UC_001
+ - Verificar username/password contra BD
+ * - FR_002
+ - Generar_Token_JWT
+ - UC_001
+ - Crear JWT con claims de usuario
+ * - FR_003
+ - Registrar_Sesion_BD
+ - UC_001
+ - Insertar sesion en tabla UserSession
+ * - FR_004
+ - Invalidar_Token
+ - UC_002
+ - Agregar token a blacklist
+ * - FR_005
+ - Verificar_Preguntas_Seguridad
+ - UC_003
+ - Validar respuestas de seguridad
 
 ----
 
@@ -368,36 +368,36 @@ inactividad.
 
 .. code-block:: text
 
-   +-------------+     +-------------+     +----------------+
-   |   Cliente   |     | ARQ_MOD_001 |     | ARQ_MOD_002    |
-   |   (React)   |     |    AUTH     |     | USER_IDENTITY  |
-   +------+------+     +------+------+     +-------+--------+
-          |                   |                    |
-          | POST /login       |                    |
-          |------------------>|                    |
-          |                   | Validar usuario    |
-          |                   |------------------->|
-          |                   |    Usuario activo  |
-          |                   |<-------------------|
-          |                   |                    |
-          |                   | Validar password   |
-          |                   |----+               |
-          |                   |    | (bcrypt)      |
-          |                   |<---+               |
-          |                   |                    |
-          |                   | Crear sesion BD    |
-          |                   |----+               |
-          |                   |    | (UserSession) |
-          |                   |<---+               |
-          |                   |                    |
-          |                   | Generar JWT        |
-          |                   |----+               |
-          |                   |    | (SimpleJWT)   |
-          |                   |<---+               |
-          |                   |                    |
-          |   200 + JWT       |                    |
-          |<------------------|                    |
-          |                   |                    |
+ +-------------+ +-------------+ +----------------+
+ | Cliente | | ARQ_MOD_001 | | ARQ_MOD_002 |
+ | (React) | | AUTH | | USER_IDENTITY |
+ +------+------+ +------+------+ +-------+--------+
+ | | |
+ | POST /login | |
+ |------------------>| |
+ | | Validar usuario |
+ | |------------------->|
+ | | Usuario activo |
+ | |<-------------------|
+ | | |
+ | | Validar password |
+ | |----+ |
+ | | | (bcrypt) |
+ | |<---+ |
+ | | |
+ | | Crear sesion BD |
+ | |----+ |
+ | | | (UserSession) |
+ | |<---+ |
+ | | |
+ | | Generar JWT |
+ | |----+ |
+ | | | (SimpleJWT) |
+ | |<---+ |
+ | | |
+ | 200 + JWT | |
+ |<------------------| |
+ | | |
 
 ----
 
@@ -417,19 +417,19 @@ inactividad.
 ----------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Ataque
-     - Mitigacion
-   * - Brute Force
-     - Rate limiting en login (5 intentos/minuto)
-   * - Session Hijacking
-     - Validacion IP + User-Agent
-   * - Token Theft
-     - Blacklist de tokens, sesion unica
-   * - CSRF
-     - Tokens JWT (no cookies de sesion)
+ * - Ataque
+ - Mitigacion
+ * - Brute Force
+ - Rate limiting en login (5 intentos/minuto)
+ * - Session Hijacking
+ - Validacion IP + User-Agent
+ * - Token Theft
+ - Blacklist de tokens, sesion unica
+ * - CSRF
+ - Tokens JWT (no cookies de sesion)
 
 ----
 
@@ -438,22 +438,22 @@ inactividad.
 
 .. code-block:: text
 
-                        +------------------+
-                        |                  |
-                        |   ARQ_MOD_001    |
-                        |      AUTH        |
-                        |                  |
-                        +--------+---------+
-                                 |
-          +----------------------+----------------------+
-          |                      |                      |
-          v                      v                      v
-   +-------------+      +----------------+      +-------------+
-   | ARQ_MOD_002 |      | ARQ_MOD_003    |      | ARQ_MOD_007 |
-   | USER_IDENTITY|      | RBAC_CORE      |      | AUDIT       |
-   | (validar    |      | (roles para    |      | (registrar  |
-   |  usuario)   |      |  claims JWT)   |      |  eventos)   |
-   +-------------+      +----------------+      +-------------+
+ +------------------+
+ | |
+ | ARQ_MOD_001 |
+ | AUTH |
+ | |
+ +--------+---------+
+ |
+ +----------------------+----------------------+
+ | | |
+ v v v
+ +-------------+ +----------------+ +-------------+
+ | ARQ_MOD_002 | | ARQ_MOD_003 | | ARQ_MOD_007 |
+ | USER_IDENTITY| | RBAC_CORE | | AUDIT |
+ | (validar | | (roles para | | (registrar |
+ | usuario) | | claims JWT) | | eventos) |
+ +-------------+ +----------------+ +-------------+
 
 ----
 
@@ -461,24 +461,24 @@ inactividad.
 ========================
 
 .. list-table::
-   :widths: 40 30 30
-   :header-rows: 1
+ :widths: 40 30 30
+ :header-rows: 1
 
-   * - Metrica
-     - Tipo
-     - Umbral Alerta
-   * - Logins exitosos/hora
-     - Counter
-     - N/A (informativo)
-   * - Logins fallidos/hora
-     - Counter
-     - > 100 (posible ataque)
-   * - Sesiones activas
-     - Gauge
-     - > 500 (capacidad)
-   * - Tiempo de respuesta login
-     - Histogram
-     - > 2s (degradacion)
+ * - Metrica
+ - Tipo
+ - Umbral Alerta
+ * - Logins exitosos/hora
+ - Counter
+ - N/A (informativo)
+ * - Logins fallidos/hora
+ - Counter
+ - > 100 (posible ataque)
+ * - Sesiones activas
+ - Gauge
+ - > 500 (capacidad)
+ * - Tiempo de respuesta login
+ - Histogram
+ - > 2s (degradacion)
 
 ----
 
@@ -486,17 +486,17 @@ inactividad.
 ========================
 
 .. list-table::
-   :widths: 12 15 73
-   :header-rows: 1
+ :widths: 12 15 73
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2025-12-22
-     - Version inicial. Definicion de proposito, alcance, 
-       responsabilidades PUEDE/NO PUEDE, dependencias, 
-       componentes tecnicos, UC y FR asociados.
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2025-12-22
+ - Version inicial. Definicion de proposito, alcance, 
+ responsabilidades PUEDE/NO PUEDE, dependencias, 
+ componentes tecnicos, UC y FR asociados.
 
 ----
 

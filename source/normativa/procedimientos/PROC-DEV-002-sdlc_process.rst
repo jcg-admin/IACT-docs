@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROC_DEV_002
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_DEV_002
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 Proceso SDLC del Proyecto IACT
 ==============================
@@ -38,24 +38,24 @@ Las 7 Fases del SDLC en IACT
 
 ::
 
-   +---------------------------------------------------------+
-   |                   SDLC LIFECYCLE                         |
-   |                                                          |
-   |  +----------+   +----------+   +----------+           |
-   |  | Planning |-->|Feasibility|-->|  Design  |           |
-   |  +----------+   +----------+   +----------+           |
-   |       |              |               |                  |
-   |       ?              ?               ?                  |
-   |  +----------+   +----------+   +----------+           |
-   |  |Implement |<--|  Testing |<--| Deploy   |           |
-   |  +----------+   +----------+   +----------+           |
-   |       |                              |                  |
-   |       +--------------+---------------+                  |
-   |                      ?                                  |
-   |               +--------------+                          |
-   |               | Maintenance  |                          |
-   |               +--------------+                          |
-   +---------------------------------------------------------+
+ +---------------------------------------------------------+
+ | SDLC LIFECYCLE |
+ | |
+ | +----------+ +----------+ +----------+ |
+ | | Planning |-->|Feasibility|-->| Design | |
+ | +----------+ +----------+ +----------+ |
+ | | | | |
+ | ? ? ? |
+ | +----------+ +----------+ +----------+ |
+ | |Implement |<--| Testing |<--| Deploy | |
+ | +----------+ +----------+ +----------+ |
+ | | | |
+ | +--------------+---------------+ |
+ | ? |
+ | +--------------+ |
+ | | Maintenance | |
+ | +--------------+ |
+ +---------------------------------------------------------+
 
 --------------
 
@@ -82,27 +82,27 @@ features de negocio)
 
 .. code:: markdown
 
-   ## User Story
-   Como [rol], quiero [funcionalidad] para [beneficio]
+ ## User Story
+ Como [rol], quiero [funcionalidad] para [beneficio]
 
-   ## Acceptance Criteria
-   - [ ] Criterio 1
-   - [ ] Criterio 2
-   - [ ] Criterio 3
+ ## Acceptance Criteria
+ - [ ] Criterio 1
+ - [ ] Criterio 2
+ - [ ] Criterio 3
 
-   ## Technical Requirements
-   - Stack: [Django/React/Terraform]
-   - Dependencies: [otras issues]
-   - Affected components: [authentication, users, etc.]
+ ## Technical Requirements
+ - Stack: [Django/React/Terraform]
+ - Dependencies: [otras issues]
+ - Affected components: [authentication, users, etc.]
 
-   ## Estimation
-   Story Points: [1, 2, 3, 5, 8, 13]
+ ## Estimation
+ Story Points: [1, 2, 3, 5, 8, 13]
 
-   ## Priority
-   [P0-Critical, P1-High, P2-Medium, P3-Low]
+ ## Priority
+ [P0-Critical, P1-High, P2-Medium, P3-Low]
 
-   ## Labels
-   [feature, bug, enhancement, documentation, infrastructure]
+ ## Labels
+ [feature, bug, enhancement, documentation, infrastructure]
 
 1.2 Sprint Planning
 ^^^^^^^^^^^^^^^^^^^
@@ -130,51 +130,51 @@ del equipo (velocity) considerada
 
 .. code:: markdown
 
-   ---
-   id: RF-XXX
-   tipo: requisito_funcional
-   prioridad: HIGH
-   estado: aprobado
-   owner: product-owner
-   relacionados: [N-XXX, RN-XXX]
-                                
+ ---
+ id: RF-XXX
+ tipo: requisito_funcional
+ prioridad: HIGH
+ estado: aprobado
+ owner: product-owner
+ relacionados: [N-XXX, RN-XXX]
+ 
 
-   # RF-XXX: Nombre del Requisito
+ # RF-XXX: Nombre del Requisito
 
-   ## Descripci?n
-   [Descripci?n detallada]
+ ## Descripci?n
+ [Descripci?n detallada]
 
-   ## Justificaci?n de Negocio
-   [Por qu? es necesario]
+ ## Justificaci?n de Negocio
+ [Por qu? es necesario]
 
-   ## Criterios de Aceptaci?n
-   1. [Criterio 1]
-   2. [Criterio 2]
+ ## Criterios de Aceptaci?n
+ 1. [Criterio 1]
+ 2. [Criterio 2]
 
-   ## Casos de Uso
-   ### UC-1: Flujo Principal
-   ...
+ ## Casos de Uso
+ ### UC-1: Flujo Principal
+ ...
 
-   ## Dependencias
-   - [Otros requisitos]
+ ## Dependencias
+ - [Otros requisitos]
 
-   ## Riesgos
-   - [Riesgos identificados]
+ ## Riesgos
+ - [Riesgos identificados]
 
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  Issues/tickets en sistema de gesti?n
--  Sprint Backlog
--  Documentos de requisitos (para features grandes)
--  Estimaciones de esfuerzo
+- Issues/tickets en sistema de gesti?n
+- Sprint Backlog
+- Documentos de requisitos (para features grandes)
+- Estimaciones de esfuerzo
 
 Responsable
 ~~~~~~~~~~~
 
--  **Product Owner**: Priorizaci?n
--  **Tech Lead**: Estimaci?n t?cnica
--  **Scrum Master**: Facilitaci?n
+- **Product Owner**: Priorizaci?n
+- **Tech Lead**: Estimaci?n t?cnica
+- **Scrum Master**: Facilitaci?n
 
 --------------
 
@@ -209,20 +209,20 @@ actual? - ?Existen limitaciones t?cnicas?
 Usar matriz de riesgos:
 
 +---------+-----------------+-----------+-------------+---------------+
-| Riesgo  | Probabilidad    | Impacto   | Severidad   | Mitigaci?n    |
+| Riesgo | Probabilidad | Impacto | Severidad | Mitigaci?n |
 +=========+=================+===========+=============+===============+
-| Falta   | Alta            | Alto      | **CR?TICO** | Sprint        |
-| de      |                 |           |             | dedicado de   |
-| tests   |                 |           |             | testing       |
+| Falta | Alta | Alto | **CR?TICO** | Sprint |
+| de | | | | dedicado de |
+| tests | | | | testing |
 +---------+-----------------+-----------+-------------+---------------+
-| CI/CD   | Media           | Alto      | ALTO        | Testing en    |
-| falla   |                 |           |             | staging       |
-|         |                 |           |             | primero       |
+| CI/CD | Media | Alto | ALTO | Testing en |
+| falla | | | | staging |
+| | | | | primero |
 +---------+-----------------+-----------+-------------+---------------+
-| Equipo  | Baja            | Medio     | MEDIO       | Training      |
-| no      |                 |           |             | antes de      |
-| conoce  |                 |           |             | implementar   |
-| tech    |                 |           |             |               |
+| Equipo | Baja | Medio | MEDIO | Training |
+| no | | | | antes de |
+| conoce | | | | implementar |
+| tech | | | | |
 +---------+-----------------+-----------+-------------+---------------+
 
 **Severidad**: Probabilidad x Impacto
@@ -249,19 +249,19 @@ ROI positivo - Recursos disponibles
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  Documento de viabilidad t?cnica
--  Risk assessment matrix
--  Cost-benefit analysis
--  Go/No-Go decision documentada
+- Documento de viabilidad t?cnica
+- Risk assessment matrix
+- Cost-benefit analysis
+- Go/No-Go decision documentada
 
 .. _responsable-1:
 
 Responsable
 ~~~~~~~~~~~
 
--  **Arquitecto Senior**: Viabilidad t?cnica
--  **Tech Lead**: Risk assessment
--  **Product Owner**: Cost-benefit
+- **Arquitecto Senior**: Viabilidad t?cnica
+- **Tech Lead**: Risk assessment
+- **Product Owner**: Cost-benefit
 
 --------------
 
@@ -310,28 +310,28 @@ Para decisiones significativas, crear ADR:
 
 .. code:: markdown
 
-   ---
-   id: ADR-XXX
-   status: accepted
-   date: 2025-11-XX
-                   
+ ---
+ id: ADR-XXX
+ status: accepted
+ date: 2025-11-XX
+ 
 
-   # ADR-XXX: [Decision Title]
+ # ADR-XXX: [Decision Title]
 
-   ## Context
-   [Por qu? necesitamos tomar esta decisi?n]
+ ## Context
+ [Por qu? necesitamos tomar esta decisi?n]
 
-   ## Decision
-   [Qu? decidimos hacer]
+ ## Decision
+ [Qu? decidimos hacer]
 
-   ## Alternatives Considered
-   1. [Opci?n A] - Pros/Cons
-   2. [Opci?n B] - Pros/Cons
+ ## Alternatives Considered
+ 1. [Opci?n A] - Pros/Cons
+ 2. [Opci?n B] - Pros/Cons
 
-   ## Consequences
-   - Positive: ...
-   - Negative: ...
-   - Risks: ...
+ ## Consequences
+ - Positive: ...
+ - Negative: ...
+ - Risks: ...
 
 3.4 Design Review
 ^^^^^^^^^^^^^^^^^
@@ -349,20 +349,20 @@ Documentaci?n clara y completa
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  HLD document
--  LLD document
--  ADRs (si aplica)
--  Diagramas (arquitectura, flujo, secuencia)
--  Design review approved
+- HLD document
+- LLD document
+- ADRs (si aplica)
+- Diagramas (arquitectura, flujo, secuencia)
+- Design review approved
 
 .. _responsable-2:
 
 Responsable
 ~~~~~~~~~~~
 
--  **Arquitecto Senior**: Design review y aprobaci?n
--  **Tech Lead**: HLD y coordinaci?n
--  **Developers**: LLD de componentes asignados
+- **Arquitecto Senior**: Design review y aprobaci?n
+- **Tech Lead**: HLD y coordinaci?n
+- **Developers**: LLD de componentes asignados
 
 --------------
 
@@ -392,9 +392,9 @@ configurados
 
 .. code:: bash
 
-   feature/ISSUE-123-short-description
-   bugfix/ISSUE-456-bug-description
-   hotfix/critical-security-fix
+ feature/ISSUE-123-short-description
+ bugfix/ISSUE-456-bug-description
+ hotfix/critical-security-fix
 
 4.2 Coding Standards
 ^^^^^^^^^^^^^^^^^^^^
@@ -407,21 +407,21 @@ JavaScript/React - Black + isort para Python - Type hints en Python
 
 .. code:: python
 
-   def function_name(param1: str, param2: int) -> bool:
-                                                       
-       Brief description.
+ def function_name(param1: str, param2: int) -> bool:
+ 
+ Brief description.
 
-       Args:
-           param1: Description of param1
-           param2: Description of param2
+ Args:
+ param1: Description of param1
+ param2: Description of param2
 
-       Returns:
-           Description of return value
+ Returns:
+ Description of return value
 
-       Raises:
-           ValueError: When validation fails
-                                            
-       pass
+ Raises:
+ ValueError: When validation fails
+ 
+ pass
 
 4.3 Atomic Commits
 ^^^^^^^^^^^^^^^^^^
@@ -432,11 +432,11 @@ JavaScript/React - Black + isort para Python - Type hints en Python
 
 ::
 
-   <type>(<scope>): <subject>
+ <type>(<scope>): <subject>
 
-   <body>
+ <body>
 
-   <footer>
+ <footer>
 
 **Types**: - ``feat``: Nueva feature - ``fix``: Bug fix - ``docs``: Solo
 documentaci?n - ``style``: Formatting, missing semicolons, etc. -
@@ -447,16 +447,16 @@ Agregar tests - ``chore``: Mantenimiento, dependencies, etc.
 
 ::
 
-   feat(authentication): agregar bloqueo por intentos fallidos
+ feat(authentication): agregar bloqueo por intentos fallidos
 
-   Implementa RF-003: Bloqueo de cuenta despu?s de 5 intentos
-   fallidos en 15 minutos.
+ Implementa RF-003: Bloqueo de cuenta despu?s de 5 intentos
+ fallidos en 15 minutos.
 
-   - LoginAttemptService.count_recent_failures()
-   - L?gica de bloqueo en AuthenticationService
-   - Tests unitarios para bloqueo
+ - LoginAttemptService.count_recent_failures
+ - L?gica de bloqueo en AuthenticationService
+ - Tests unitarios para bloqueo
 
-   Closes #123
+ Closes #123
 
 4.4 Test-Driven Development (TDD)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -478,34 +478,34 @@ hardcodeados - [ ] Linters pasan - [ ] Build local exitoso
 
 .. code:: markdown
 
-   ## Description
-   [Descripci?n de los cambios]
+ ## Description
+ [Descripci?n de los cambios]
 
-   ## Related Issue
-   Closes #123
+ ## Related Issue
+ Closes #123
 
-   ## Type of Change
-   - [ ] Bug fix
-   - [ ] New feature
-   - [ ] Breaking change
-   - [ ] Documentation update
+ ## Type of Change
+ - [ ] Bug fix
+ - [ ] New feature
+ - [ ] Breaking change
+ - [ ] Documentation update
 
-   ## How Has This Been Tested?
-   - [ ] Unit tests
-   - [ ] Integration tests
-   - [ ] Manual testing
+ ## How Has This Been Tested?
+ - [ ] Unit tests
+ - [ ] Integration tests
+ - [ ] Manual testing
 
-   ## Checklist
-   - [ ] Code follows style guidelines
-   - [ ] Self-review performed
-   - [ ] Comments added for complex logic
-   - [ ] Documentation updated
-   - [ ] Tests added/updated
-   - [ ] No new warnings generated
-   - [ ] Dependent changes merged
+ ## Checklist
+ - [ ] Code follows style guidelines
+ - [ ] Self-review performed
+ - [ ] Comments added for complex logic
+ - [ ] Documentation updated
+ - [ ] Tests added/updated
+ - [ ] No new warnings generated
+ - [ ] Dependent changes merged
 
-   ## Screenshots (if applicable)
-   [Screenshots]
+ ## Screenshots (if applicable)
+ [Screenshots]
 
 **Code Review Checklist** (Reviewer): - [ ] C?digo legible y mantenible
 - [ ] L?gica correcta - [ ] Tests adecuados - [ ] Sin vulnerabilidades
@@ -520,20 +520,20 @@ de seguridad - [ ] Performance aceptable - [ ] Documentaci?n suficiente
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  C?digo funcional
--  Tests (unit + integration)
--  Commits at?micos con mensajes claros
--  Pull Request con descripci?n completa
--  Code review aprobado
+- C?digo funcional
+- Tests (unit + integration)
+- Commits at?micos con mensajes claros
+- Pull Request con descripci?n completa
+- Code review aprobado
 
 .. _responsable-3:
 
 Responsable
 ~~~~~~~~~~~
 
--  **Developers**: Implementaci?n y tests
--  **Tech Lead**: Code reviews
--  **Arquitecto**: Review de cambios arquitect?nicos
+- **Developers**: Implementaci?n y tests
+- **Tech Lead**: Code reviews
+- **Arquitecto**: Review de cambios arquitect?nicos
 
 --------------
 
@@ -563,7 +563,7 @@ Niveles de Testing
 
 .. code:: bash
 
-   pytest api/callcentersite/tests/ --cov --cov-report=html
+ pytest api/callcentersite/tests/ --cov --cov-report=html
 
 5.2 Integration Testing
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -619,35 +619,35 @@ Test Automation
 
 .. code:: yaml
 
-   on: [push, pull_request]
-   jobs:
-     test:
-       - Linting
-       - Unit tests
-       - Integration tests
-       - Security scans
-       - Coverage report
+ on: [push, pull_request]
+ jobs:
+ test:
+ - Linting
+ - Unit tests
+ - Integration tests
+ - Security scans
+ - Coverage report
 
 .. _artefactos-generados-4:
 
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  Test suites (unit, integration, E2E)
--  Coverage reports (>=80%)
--  Performance test results
--  Security scan reports
--  UAT sign-off
+- Test suites (unit, integration, E2E)
+- Coverage reports (>=80%)
+- Performance test results
+- Security scan reports
+- UAT sign-off
 
 .. _responsable-4:
 
 Responsable
 ~~~~~~~~~~~
 
--  **Developers**: Unit + integration tests
--  **QA Engineer**: E2E, performance, coordinar UAT
--  **Security Engineer**: Security testing
--  **Product Owner**: UAT approval
+- **Developers**: Unit + integration tests
+- **QA Engineer**: E2E, performance, coordinar UAT
+- **Security Engineer**: Security testing
+- **Product Owner**: UAT approval
 
 --------------
 
@@ -671,11 +671,11 @@ Estrategias de Deployment
 
 .. code:: bash
 
-   # Deploy a staging
-   git checkout main
-   git pull origin main
-   git merge --no-ff feature/ISSUE-123
-   ./scripts/deploy_staging.sh
+ # Deploy a staging
+ git checkout main
+ git pull origin main
+ git merge --no-ff feature/ISSUE-123
+ ./scripts/deploy_staging.sh
 
 **Validaciones en staging**: - [ ] Smoke tests pasan - [ ] E2E tests
 pasan - [ ] Performance aceptable - [ ] No hay errores en logs - [ ] UAT
@@ -722,12 +722,12 @@ deployment
 
 .. code:: bash
 
-   # Rollback inmediato
-   ./scripts/rollback_to_previous_version.sh
+ # Rollback inmediato
+ ./scripts/rollback_to_previous_version.sh
 
-   # O via feature flag
-   curl -X POST /api/feature-flags/disable \
-     -d '{"flag": "new_authentication"}'
+ # O via feature flag
+ curl -X POST /api/feature-flags/disable \
+ -d '{"flag": "new_authentication"}'
 
 **Triggers para rollback**: - Error rate > 5% - Latency p95 > 2x normal
 - Critical bug descubierto - Database corruption
@@ -737,19 +737,19 @@ deployment
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  Deployment plan
--  Rollback plan
--  Deployment logs
--  Post-deployment validation report
+- Deployment plan
+- Rollback plan
+- Deployment logs
+- Post-deployment validation report
 
 .. _responsable-5:
 
 Responsable
 ~~~~~~~~~~~
 
--  **DevOps Engineer**: Ejecutar deployment
--  **Tech Lead**: Aprobar deployment
--  **SRE**: Monitoring durante deployment
+- **DevOps Engineer**: Ejecutar deployment
+- **Tech Lead**: Aprobar deployment
+- **SRE**: Monitoring durante deployment
 
 --------------
 
@@ -782,16 +782,16 @@ Infrastructure: Prometheus + Grafana - Logs: ELK Stack, CloudWatch
 
 .. code:: yaml
 
-   alerts:
-     - name: HighErrorRate
-       condition: error_rate > 5%
-       severity: P1
-       notification: [#incidents, on-call-engineer]
+ alerts:
+ - name: HighErrorRate
+ condition: error_rate > 5%
+ severity: P1
+ notification: [#incidents, on-call-engineer]
 
-     - name: HighLatency
-       condition: p95_latency > 1000ms
-       severity: P2
-       notification: [#performance]
+ - name: HighLatency
+ condition: p95_latency > 1000ms
+ severity: P2
+ notification: [#performance]
 
 7.2 Incident Response
 ^^^^^^^^^^^^^^^^^^^^^
@@ -812,19 +812,19 @@ P0/P1: Escalar a Tech Lead 4. Mitigar (rollback, feature flag, hotfix)
 
 ::
 
-   Bug report -> Triage -> Priority -> Sprint planning -> Fix -> Deploy
+ Bug report -> Triage -> Priority -> Sprint planning -> Fix -> Deploy
 
 **Hotfix process** (para P0):
 
 .. code:: bash
 
-   git checkout main
-   git checkout -b hotfix/critical-security-fix
-   # Fix bug
-   # Test
-   git push
-   # Fast-track PR review
-   # Deploy ASAP
+ git checkout main
+ git checkout -b hotfix/critical-security-fix
+ # Fix bug
+ # Test
+ git push
+ # Fast-track PR review
+ # Deploy ASAP
 
 7.4 Updates y Patches
 ^^^^^^^^^^^^^^^^^^^^^
@@ -845,61 +845,61 @@ Runbooks - [ ] User guides
 
 .. code:: markdown
 
-   # Post-Mortem: [Incident Title]
+ # Post-Mortem: [Incident Title]
 
-   ## Summary
-   [Brief description]
+ ## Summary
+ [Brief description]
 
-   ## Timeline
-   - 10:00 AM: Incident detected
-   - 10:05 AM: On-call paged
-   - 10:15 AM: Root cause identified
-   - 10:30 AM: Fix deployed
-   - 11:00 AM: Incident resolved
+ ## Timeline
+ - 10:00 AM: Incident detected
+ - 10:05 AM: On-call paged
+ - 10:15 AM: Root cause identified
+ - 10:30 AM: Fix deployed
+ - 11:00 AM: Incident resolved
 
-   ## Root Cause
-   [Technical explanation]
+ ## Root Cause
+ [Technical explanation]
 
-   ## Impact
-   - Duration: 1 hour
-   - Users affected: 1,200
-   - Revenue lost: $X
+ ## Impact
+ - Duration: 1 hour
+ - Users affected: 1,200
+ - Revenue lost: $X
 
-   ## What Went Well
-   - Fast detection
-   - Clear runbook followed
+ ## What Went Well
+ - Fast detection
+ - Clear runbook followed
 
-   ## What Went Wrong
-   - No monitoring alert
-   - Rollback took too long
+ ## What Went Wrong
+ - No monitoring alert
+ - Rollback took too long
 
-   ## Action Items
-   - [ ] Add monitoring for X
-   - [ ] Improve rollback script
-   - [ ] Update runbook
+ ## Action Items
+ - [ ] Add monitoring for X
+ - [ ] Improve rollback script
+ - [ ] Update runbook
 
-   ## Lessons Learned
-   [Key takeaways]
+ ## Lessons Learned
+ [Key takeaways]
 
 .. _artefactos-generados-6:
 
 Artefactos Generados
 ~~~~~~~~~~~~~~~~~~~~
 
--  Monitoring dashboards
--  Alert configurations
--  Incident reports
--  Post-mortems
--  Runbooks actualizados
+- Monitoring dashboards
+- Alert configurations
+- Incident reports
+- Post-mortems
+- Runbooks actualizados
 
 .. _responsable-6:
 
 Responsable
 ~~~~~~~~~~~
 
--  **SRE/DevOps**: Monitoring, incident response
--  **On-call Engineer**: First responder
--  **Tech Lead**: Escalation, post-mortems
+- **SRE/DevOps**: Monitoring, incident response
+- **On-call Engineer**: First responder
+- **Tech Lead**: Escalation, post-mortems
 
 --------------
 
@@ -909,31 +909,31 @@ Integraciones con Herramientas
 GitHub
 ~~~~~~
 
--  Issues para planning
--  Projects para sprint tracking
--  Pull Requests para code review
--  Actions para CI/CD
+- Issues para planning
+- Projects para sprint tracking
+- Pull Requests para code review
+- Actions para CI/CD
 
 Jira (opcional)
 ~~~~~~~~~~~~~~~
 
--  Epics para features grandes
--  Stories para user stories
--  Sprints para planning
+- Epics para features grandes
+- Stories para user stories
+- Sprints para planning
 
 CI/CD
 ~~~~~
 
--  GitHub Actions (actual)
--  GitLab CI (alternativa)
--  Jenkins (legacy, deprecar)
+- GitHub Actions (actual)
+- GitLab CI (alternativa)
+- Jenkins (legacy, deprecar)
 
 Monitoring
 ~~~~~~~~~~
 
--  Sentry para errors
--  Prometheus + Grafana para metrics
--  ELK para logs
+- Sentry para errors
+- Prometheus + Grafana para metrics
+- ELK para logs
 
 --------------
 
@@ -941,73 +941,73 @@ Roles y Responsabilidades
 -------------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 14 11 11 9 13 11 11 11
+ :header-rows: 1
+ :widths: 14 11 11 9 13 11 11 11
 
-   * - Rol
-     - Planning
-     - Feasibility
-     - Design
-     - Implementation
-     - Testing
-     - Deployment
-     - Maintenance
-   * - **Product Owner**
-     - Lead
-     - Review
-     - Review
-     - \-
-     - UAT
-     - Approval
-     - Prioritize bugs
-   * - **Arquitecto**
-     - Consult
-     - Technical Lead
-     - Lead
-     - Review
-     - Review
-     - Approval
-     - Escalation
-   * - **Tech Lead**
-     - Estimate
-     - Lead
-     - Review
-     - Review + Merge
-     - Review
-     - Lead
-     - On-call rotation
-   * - **Developer**
-     - Contribute
-     - \-
-     - LLD
-     - Lead
-     - Lead
-     - Support
-     - Bug fixes
-   * - **QA Engineer**
-     - Contribute
-     - \-
-     - \-
-     - \-
-     - Lead
-     - Validate
-     - Test automation
-   * - **DevOps/SRE**
-     - Infra planning
-     - Infra assess
-     - Infra design
-     - \-
-     - Infra tests
-     - Lead
-     - Lead
-   * - **Security**
-     - Security reqs
-     - Security risk
-     - Security review
-     - Review
-     - Security tests
-     - Review
-     - Vulnerability mgmt
+ * - Rol
+ - Planning
+ - Feasibility
+ - Design
+ - Implementation
+ - Testing
+ - Deployment
+ - Maintenance
+ * - **Product Owner**
+ - Lead
+ - Review
+ - Review
+ - \-
+ - UAT
+ - Approval
+ - Prioritize bugs
+ * - **Arquitecto**
+ - Consult
+ - Technical Lead
+ - Lead
+ - Review
+ - Review
+ - Approval
+ - Escalation
+ * - **Tech Lead**
+ - Estimate
+ - Lead
+ - Review
+ - Review + Merge
+ - Review
+ - Lead
+ - On-call rotation
+ * - **Developer**
+ - Contribute
+ - \-
+ - LLD
+ - Lead
+ - Lead
+ - Support
+ - Bug fixes
+ * - **QA Engineer**
+ - Contribute
+ - \-
+ - \-
+ - \-
+ - Lead
+ - Validate
+ - Test automation
+ * - **DevOps/SRE**
+ - Infra planning
+ - Infra assess
+ - Infra design
+ - \-
+ - Infra tests
+ - Lead
+ - Lead
+ * - **Security**
+ - Security reqs
+ - Security risk
+ - Security review
+ - Review
+ - Security tests
+ - Review
+ - Vulnerability mgmt
 
 --------------
 
@@ -1017,34 +1017,34 @@ M?tricas y KPIs
 Sprint Metrics
 ~~~~~~~~~~~~~~
 
--  **Velocity**: Story points completed per sprint
--  **Burn-down chart**: Work remaining vs time
--  **Sprint goal achievement**: % of sprint goals met
+- **Velocity**: Story points completed per sprint
+- **Burn-down chart**: Work remaining vs time
+- **Sprint goal achievement**: % of sprint goals met
 
 Quality Metrics
 ~~~~~~~~~~~~~~~
 
--  **Test coverage**: % of code covered by tests (target: >=80%)
--  **Bug density**: Bugs per KLOC
--  **Defect escape rate**: Bugs found in prod vs total bugs
+- **Test coverage**: % of code covered by tests (target: >=80%)
+- **Bug density**: Bugs per KLOC
+- **Defect escape rate**: Bugs found in prod vs total bugs
 
 Deployment Metrics (DORA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Deployment frequency**: How often we deploy (target: Daily)
--  **Lead time for changes**: Commit to deploy time (target: <4 hours)
--  **Mean time to recovery (MTTR)**: Time to recover from failure
-   (target: <1 hour)
--  **Change failure rate**: % of deployments causing incidents (target:
-   <5%)
+- **Deployment frequency**: How often we deploy (target: Daily)
+- **Lead time for changes**: Commit to deploy time (target: <4 hours)
+- **Mean time to recovery (MTTR)**: Time to recover from failure
+ (target: <1 hour)
+- **Change failure rate**: % of deployments causing incidents (target:
+ <5%)
 
 Incident Metrics
 ~~~~~~~~~~~~~~~~
 
--  **Mean time to detect (MTTD)**: Time to detect incident (target: <5
-   min)
--  **Mean time to resolve (MTTR)**: Time to resolve incident (target: P0
-   <1h, P1 <4h)
+- **Mean time to detect (MTTD)**: Time to detect incident (target: <5
+ min)
+- **Mean time to resolve (MTTR)**: Time to resolve incident (target: P0
+ <1h, P1 <4h)
 
 --------------
 
@@ -1054,19 +1054,19 @@ Compliance y Auditor?a
 ISO 27001 Requirements
 ~~~~~~~~~~~~~~~~~~~~~~
 
--  Todos los cambios documentados
--  Code reviews obligatorios
--  Tests obligatorios
--  Deployment aprobado
--  Audit trail completo (Git + AuditLog)
+- Todos los cambios documentados
+- Code reviews obligatorios
+- Tests obligatorios
+- Deployment aprobado
+- Audit trail completo (Git + AuditLog)
 
 SOC 2 Requirements
 ~~~~~~~~~~~~~~~~~~
 
--  Change management process
--  Separation of duties (developer ? approver)
--  Security testing
--  Incident response
+- Change management process
+- Separation of duties (developer ? approver)
+- Security testing
+- Incident response
 
 --------------
 
@@ -1076,28 +1076,28 @@ Templates y Recursos
 Templates Disponibles
 ~~~~~~~~~~~~~~~~~~~~~
 
--  ``docs/plantillas/issue_template.md``
--  ``docs/plantillas/pr_template.md``
--  ``docs/plantillas/hld_template.md``
--  ``docs/plantillas/lld_template.md``
--  ``docs/plantillas/adr_template.md``
--  ``docs/plantillas/postmortem_template.md``
+- ``docs/plantillas/issue_template.md``
+- ``docs/plantillas/pr_template.md``
+- ``docs/plantillas/hld_template.md``
+- ``docs/plantillas/lld_template.md``
+- ``docs/plantillas/adr_template.md``
+- ``docs/plantillas/postmortem_template.md``
 
 Scripts de Automatizaci?n
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``scripts/create_issue.sh`` - Crear issue desde CLI
--  ``scripts/start_sprint.sh`` - Inicializar sprint
--  ``scripts/deploy_staging.sh`` - Deploy a staging
--  ``scripts/deploy_production.sh`` - Deploy a producci?n
--  ``scripts/rollback.sh`` - Rollback a versi?n anterior
+- ``scripts/create_issue.sh`` - Crear issue desde CLI
+- ``scripts/start_sprint.sh`` - Inicializar sprint
+- ``scripts/deploy_staging.sh`` - Deploy a staging
+- ``scripts/deploy_production.sh`` - Deploy a producci?n
+- ``scripts/rollback.sh`` - Rollback a versi?n anterior
 
 Runbooks
 ~~~~~~~~
 
--  ``docs/infraestructura/devops/runbooks/deployment.md``
--  ``docs/infraestructura/devops/runbooks/incident_response.md``
--  ``docs/infraestructura/devops/runbooks/rollback.md``
+- ``docs/infraestructura/devops/runbooks/deployment.md``
+- ``docs/infraestructura/devops/runbooks/incident_response.md``
+- ``docs/infraestructura/devops/runbooks/rollback.md``
 
 --------------
 

@@ -1,11 +1,11 @@
 .. meta::
-   :project: IACT - Call Center Analytics
-   :version: 4.0.0
-   :date: 2026-01-06
-   :status: Aprobado
-   :module: MOD_Reports
-   :uc_id: UC_RPT_12
-   :normativa: CNST_007, CNST_008
+ :project: IACT - Call Center Analytics
+ :version: 4.0.0
+ :date: 2026-01-06
+ :status: Aprobado
+ :module: MOD_Reports
+ :uc_id: UC_RPT_12
+ :normativa: CNST_007, CNST_008
 
 ==============================
 UC_RPT_12: Ver Reporte Agentes
@@ -15,25 +15,25 @@ UC_RPT_12: Ver Reporte Agentes
 ----------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - UC_RPT_12
-   * - **Nombre**
-     - Ver Reporte Agentes
-   * - **Actor Principal**
-     - AGR-003: agr_supervisor
-   * - **Modulo**
-     - MOD_Reports
-   * - **Funcion RBAC**
-     - RPT-012: ve_agentes
-   * - **Prioridad**
-     - Alta
-   * - **Complejidad**
-     - Media
-   * - **BReq Origen**
-     - BRQ-RPT-012
+ * - **ID**
+ - UC_RPT_12
+ * - **Nombre**
+ - Ver Reporte Agentes
+ * - **Actor Principal**
+ - AGR-003: agr_supervisor
+ * - **Modulo**
+ - MOD_Reports
+ * - **Funcion RBAC**
+ - RPT-012: ve_agentes
+ * - **Prioridad**
+ - Alta
+ * - **Complejidad**
+ - Media
+ * - **BReq Origen**
+ - BRQ-RPT-012
 
 2. Descripcion
 --------------
@@ -53,20 +53,20 @@ Muestra metricas individuales y comparativas por agente.
 --------------------------
 
 .. uml::
-   :caption: Diagrama de Caso de Uso - UC_RPT_12
+ :caption: Diagrama de Caso de Uso - UC_RPT_12
 
-   @startuml
-   left to right direction
-   actor "AGR-003\nagr_supervisor" as USER
-   rectangle "MOD_Reports" {
-     usecase "UC_RPT_12\nVer Reporte Agentes" as UC12
-     usecase "Ver Detalle\nAgente" as DET
-     usecase "Comparar\nAgentes" as COMP
-   }
-   USER --> UC12
-   UC12 --> DET : extend
-   UC12 --> COMP : extend
-   @enduml
+ @startuml
+ left to right direction
+ actor "AGR-003\nagr_supervisor" as USER
+ rectangle "MOD_Reports" {
+ usecase "UC_RPT_12\nVer Reporte Agentes" as UC12
+ usecase "Ver Detalle\nAgente" as DET
+ usecase "Comparar\nAgentes" as COMP
+ }
+ USER --> UC12
+ UC12 --> DET : extend
+ UC12 --> COMP : extend
+ @enduml
 
 4. Contexto de Ejecucion
 ------------------------
@@ -75,15 +75,15 @@ Muestra metricas individuales y comparativas por agente.
 ^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 10 90
-   :header-rows: 1
+ :widths: 10 90
+ :header-rows: 1
 
-   * - ID
-     - Precondicion
-   * - PRE-01
-     - Usuario tiene funcion RPT-012
-   * - PRE-02
-     - Existen datos de agentes en el segmento
+ * - ID
+ - Precondicion
+ * - PRE-01
+ - Usuario tiene funcion RPT-012
+ * - PRE-02
+ - Existen datos de agentes en el segmento
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -94,69 +94,69 @@ Usuario accede a reporte de agentes.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 10 90
-   :header-rows: 1
+ :widths: 10 90
+ :header-rows: 1
 
-   * - ID
-     - Postcondicion
-   * - POST-01
-     - Se muestra reporte de agentes del segmento
+ * - ID
+ - Postcondicion
+ * - POST-01
+ - Se muestra reporte de agentes del segmento
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
 
 .. list-table::
-   :widths: 10 20 70
-   :header-rows: 1
+ :widths: 10 20 70
+ :header-rows: 1
 
-   * - Paso
-     - Actor
-     - Accion
-   * - 1
-     - Usuario
-     - Accede a reporte de agentes
-   * - 2
-     - Sistema
-     - Valida RPT-012
-   * - 3
-     - Sistema
-     - Consulta metricas de agentes del segmento
-   * - 4
-     - Sistema
-     - Calcula ranking por metricas
-   * - 5
-     - Sistema
-     - Renderiza tabla comparativa
-   * - 6
-     - Usuario
-     - Selecciona agente para detalle
+ * - Paso
+ - Actor
+ - Accion
+ * - 1
+ - Usuario
+ - Accede a reporte de agentes
+ * - 2
+ - Sistema
+ - Valida RPT-012
+ * - 3
+ - Sistema
+ - Consulta metricas de agentes del segmento
+ * - 4
+ - Sistema
+ - Calcula ranking por metricas
+ * - 5
+ - Sistema
+ - Renderiza tabla comparativa
+ * - 6
+ - Usuario
+ - Selecciona agente para detalle
 
 6. Diagrama de Secuencia
 ------------------------
 
 .. uml::
-   :caption: Diagrama de Secuencia - UC_RPT_12
+ :caption: Diagrama de Secuencia - UC_RPT_12
 
-   @startuml
-   actor "Usuario" as U
-   participant "Frontend" as FE
-   participant "ReportController" as RC
-   participant "AgentReportService" as ARS
-   database "Analytics" as DB
+ @startuml
+ actor "Usuario" as U
+ participant "Frontend" as FE
+ participant "ReportController" as RC
+ participant "AgentReportService" as ARS
+ database "Analytics" as DB
 
-   U -> FE: Reporte Agentes
-   FE -> RC: GET /api/reports/agents
-   RC -> RC: verify_function(RPT-012)
-   RC -> RC: get_user_segment()
-   RC -> ARS: get_agent_metrics(segmento)
-   ARS -> DB: SELECT agente, metricas\nFROM vista_agentes\nWHERE segmento_id = ?
-   note right: CNST_007
-   DB --> ARS: agent_data
-   ARS -> ARS: calculate_rankings()
-   ARS --> RC: report_data
-   RC --> FE: 200 OK
-   FE --> U: Reporte de agentes
-   @enduml
+ U -> FE: Reporte Agentes
+ FE -> RC: GET /api/reports/agents
+ RC -> RC: verify_function(RPT-012)
+ RC -> RC: get_user_segment
+ RC -> ARS: get_agent_metrics(segmento)
+ ARS -> DB: SELECT agente, metricas\nFROM vista_agentes\nWHERE segmento_id = ?
+ note right: CNST_007
+ DB --> ARS: agent_data
+ ARS -> ARS: calculate_rankings
+ ARS --> RC: report_data
+ RC --> FE: 200 OK
+ FE --> U: Reporte de agentes
+ @enduml
 
 7. Flujos Alternos
 ------------------
@@ -165,21 +165,21 @@ Usuario accede a reporte de agentes.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 10 20 70
-   :header-rows: 1
+ :widths: 10 20 70
+ :header-rows: 1
 
-   * - Paso
-     - Actor
-     - Accion
-   * - 6a
-     - Usuario
-     - Hace clic en agente
-   * - 6b
-     - Sistema
-     - Muestra metricas detalladas del agente
-   * - 6c
-     - Sistema
-     - Muestra tendencia historica
+ * - Paso
+ - Actor
+ - Accion
+ * - 6a
+ - Usuario
+ - Hace clic en agente
+ * - 6b
+ - Sistema
+ - Muestra metricas detalladas del agente
+ * - 6c
+ - Sistema
+ - Muestra tendencia historica
 
 8. Excepciones
 --------------
@@ -188,138 +188,138 @@ Usuario accede a reporte de agentes.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Condicion**
-     - No hay agentes en el segmento
-   * - **Mensaje**
-     - No hay agentes registrados en su segmento
+ * - **Condicion**
+ - No hay agentes en el segmento
+ * - **Mensaje**
+ - No hay agentes registrados en su segmento
 
 9. Diagrama de Actividad
 ------------------------
 
 .. uml::
-   :caption: Diagrama de Actividad - UC_RPT_12
+ :caption: Diagrama de Actividad - UC_RPT_12
 
-   @startuml
-   start
-   if (Tiene RPT-012?) then (no)
-     stop
-   else (si)
-   endif
-   :Consultar agentes del segmento;
-   note right: CNST_008
-   if (Hay agentes?) then (no)
-     :Mostrar Sin agentes;
-     stop
-   else (si)
-   endif
-   :Calcular metricas;
-   :Generar ranking;
-   :Renderizar reporte;
-   if (Ver detalle?) then (si)
-     :Mostrar detalle agente;
-   endif
-   stop
-   @enduml
+ @startuml
+ start
+ if (Tiene RPT-012?) then (no)
+ stop
+ else (si)
+ endif
+ :Consultar agentes del segmento;
+ note right: CNST_008
+ if (Hay agentes?) then (no)
+ :Mostrar Sin agentes;
+ stop
+ else (si)
+ endif
+ :Calcular metricas;
+ :Generar ranking;
+ :Renderizar reporte;
+ if (Ver detalle?) then (si)
+ :Mostrar detalle agente;
+ endif
+ stop
+ @enduml
 
 10. Reglas de Negocio
 ---------------------
 
 .. list-table::
-   :widths: 15 35 50
-   :header-rows: 1
+ :widths: 15 35 50
+ :header-rows: 1
 
-   * - ID
-     - Regla
-     - Descripcion
-   * - BR-RPT-110
-     - Por Segmento
-     - Solo agentes del segmento
-   * - BR-RPT-111
-     - Ranking
-     - Ordenamiento por metrica seleccionada
+ * - ID
+ - Regla
+ - Descripcion
+ * - BR-RPT-110
+ - Por Segmento
+ - Solo agentes del segmento
+ * - BR-RPT-111
+ - Ranking
+ - Ordenamiento por metrica seleccionada
 
 **Metricas de Agentes:**
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Metrica
-     - Descripcion
-   * - Llamadas
-     - Total llamadas atendidas
-   * - TMO
-     - Tiempo medio de operacion
-   * - Ocupacion
-     - Porcentaje tiempo en llamada
-   * - Disponibilidad
-     - Porcentaje tiempo disponible
+ * - Metrica
+ - Descripcion
+ * - Llamadas
+ - Total llamadas atendidas
+ * - TMO
+ - Tiempo medio de operacion
+ * - Ocupacion
+ - Porcentaje tiempo en llamada
+ * - Disponibilidad
+ - Porcentaje tiempo disponible
 
 11. Restricciones de Arquitectura
 ---------------------------------
 
 .. list-table::
-   :widths: 15 25 60
-   :header-rows: 1
+ :widths: 15 25 60
+ :header-rows: 1
 
-   * - CNST
-     - Nombre
-     - Aplicacion
-   * - CNST_007
-     - BD Dual
-     - Datos de BD Analytics
-   * - CNST_008
-     - Segmentos
-     - Solo agentes del segmento
+ * - CNST
+ - Nombre
+ - Aplicacion
+ * - CNST_007
+ - BD Dual
+ - Datos de BD Analytics
+ * - CNST_008
+ - Segmentos
+ - Solo agentes del segmento
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
 
 .. list-table::
-   :widths: 15 40 45
-   :header-rows: 1
+ :widths: 15 40 45
+ :header-rows: 1
 
-   * - ID
-     - Requisito
-     - Criterio de Aceptacion
-   * - FR-RPT-110
-     - Mostrar metricas de agentes
-     - Tabla con metricas por agente
-   * - FR-RPT-111
-     - Ver detalle de agente
-     - Metricas individuales y tendencia
+ * - ID
+ - Requisito
+ - Criterio de Aceptacion
+ * - FR-RPT-110
+ - Mostrar metricas de agentes
+ - Tabla con metricas por agente
+ * - FR-RPT-111
+ - Ver detalle de agente
+ - Metricas individuales y tendencia
 
 13. Trazabilidad
 ----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **BReq Origen**
-     - BRQ-RPT-012
-   * - **Restricciones**
-     - CNST_007, CNST_008
-   * - **UC Relacionados**
-     - UC_RPT_13, UC_RPT_14
-   * - **Actor Principal**
-     - AGR-003: agr_supervisor
-   * - **Funcion RBAC**
-     - RPT-012: ve_agentes
+ * - **BReq Origen**
+ - BRQ-RPT-012
+ * - **Restricciones**
+ - CNST_007, CNST_008
+ * - **UC Relacionados**
+ - UC_RPT_13, UC_RPT_14
+ * - **Actor Principal**
+ - AGR-003: agr_supervisor
+ * - **Funcion RBAC**
+ - RPT-012: ve_agentes
 
 14. Historial de Cambios
 ------------------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 4.0.0
-     - 2026-01-06
-     - Version inicial v4.0
+ * - Version
+ - Fecha
+ - Cambios
+ * - 4.0.0
+ - 2026-01-06
+ - Version inicial v4.0

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: META_04
-   :tipo: Contexto
-   :dominio: base_cognitiva
-   :subdominio: _metadata
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-12-18
-   :ultimo_cambio: 2025-12-18
-   :autor: PMO IACT
-   :clasificacion: Interno
+ :artefacto: META_04
+ :tipo: Contexto
+ :dominio: base_cognitiva
+ :subdominio: _metadata
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-12-18
+ :ultimo_cambio: 2025-12-18
+ :autor: PMO IACT
+ :clasificacion: Interno
 
 .. _meta_04_contexto_iact:
 
@@ -74,7 +74,7 @@ Toda la documentación se organiza en una jerarquía de cuatro niveles:
 
 Cada artefacto sigue el patrón::
 
-   PREFIJO_NÚMERO_Nombre_Descriptivo.rst
+ PREFIJO_NÚMERO_Nombre_Descriptivo.rst
 
 Ejemplos:
 
@@ -110,21 +110,21 @@ Estas relaciones se consolidan en matrices RTM (Requirements Traceability Matrix
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Dominio
-     - Propósito
-   * - base_cognitiva/
-     - Fundamentos conceptuales, metodologías, glosario y metadata del proyecto.
-   * - requisitos/
-     - Reglas de negocio, casos de uso, requisitos funcionales y no funcionales.
-   * - arquitectura_tecnica/
-     - Decisiones arquitectónicas, diseño detallado, especificaciones técnicas.
-   * - normativa/
-     - Estándares de codificación, restricciones, plantillas oficiales.
-   * - trazabilidad/
-     - Matrices RTM, reportes de cobertura, validaciones cruzadas.
+ * - Dominio
+ - Propósito
+ * - base_cognitiva/
+ - Fundamentos conceptuales, metodologías, glosario y metadata del proyecto.
+ * - requisitos/
+ - Reglas de negocio, casos de uso, requisitos funcionales y no funcionales.
+ * - arquitectura_tecnica/
+ - Decisiones arquitectónicas, diseño detallado, especificaciones técnicas.
+ * - normativa/
+ - Estándares de codificación, restricciones, plantillas oficiales.
+ * - trazabilidad/
+ - Matrices RTM, reportes de cobertura, validaciones cruzadas.
 
 4.2. Conteo Oficial
 ^^^^^^^^^^^^^^^^^^^
@@ -195,21 +195,21 @@ Para nuevos miembros del equipo:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Rol
-     - Artefactos Principales
-   * - Business Analyst
-     - BR_xxx (Reglas de Negocio), UC_xxx (Casos de Uso)
-   * - Arquitecto
-     - ADR_xxx (Decisiones), SAD (Arquitectura), DES_xxx (Diseño)
-   * - Desarrollador
-     - FR_xxx (Funcionales), DES_xxx (Diseño), Especificaciones API
-   * - QA
-     - UC_xxx (Casos de Uso), FR_xxx (Funcionales), RTM
-   * - PMO
-     - META_xx (Metadata), RTM, Reportes de Trazabilidad
+ * - Rol
+ - Artefactos Principales
+ * - Business Analyst
+ - BR_xxx (Reglas de Negocio), UC_xxx (Casos de Uso)
+ * - Arquitecto
+ - ADR_xxx (Decisiones), SAD (Arquitectura), DES_xxx (Diseño)
+ * - Desarrollador
+ - FR_xxx (Funcionales), DES_xxx (Diseño), Especificaciones API
+ * - QA
+ - UC_xxx (Casos de Uso), FR_xxx (Funcionales), RTM
+ * - PMO
+ - META_xx (Metadata), RTM, Reportes de Trazabilidad
 
 6.3. Preguntas Frecuentes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,36 +237,36 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
 --------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Documento
-     - Referencia
-   * - Identidad del Proyecto
-     - :doc:`META_01_Identidad_Proyecto`
-   * - Estructura Documental
-     - :doc:`META_05_Estructura_Documental`
-   * - Definiciones Oficiales
-     - Ver seccion de Restricciones (CNST_001-031)
-   * - Glosario IACT
-     - Ver glosario del sistema
+ * - Documento
+ - Referencia
+ * - Identidad del Proyecto
+ - :doc:`META_01_Identidad_Proyecto`
+ * - Estructura Documental
+ - :doc:`META_05_Estructura_Documental`
+ * - Definiciones Oficiales
+ - Ver seccion de Restricciones (CNST_001-031)
+ * - Glosario IACT
+ - Ver glosario del sistema
 
 --------------------
 Historial de Cambios
 --------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-18
-     - PMO IACT
-     - Versión inicial aprobada
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-18
+ - PMO IACT
+ - Versión inicial aprobada
 
 ----
 

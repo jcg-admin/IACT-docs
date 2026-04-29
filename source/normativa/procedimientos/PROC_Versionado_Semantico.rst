@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Versionado_Semantico
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Versionado_Semantico
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-versionado-semantico:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Versionado_Semantico
-   * - **Nombre**
-     - Aplicar Versionado Semantico a Artefactos
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Por cada cambio en artefacto
-   * - **Duracion Estimada**
-     - 2-5 minutos
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Versionado_Semantico
+ * - **Nombre**
+ - Aplicar Versionado Semantico a Artefactos
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Por cada cambio en artefacto
+ * - **Duracion Estimada**
+ - 2-5 minutos
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,15 +73,15 @@ el tipo de cambio realizado.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Autor
-     - Aplica versionado al modificar
-     - Escritura en artefacto
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Autor
+ - Aplica versionado al modificar
+ - Escritura en artefacto
 
 ----
 
@@ -100,18 +100,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Artefacto a versionar
-     - Documento con cambios
-     - Si
-   * - STD_006
-     - Estandar de versionado
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Artefacto a versionar
+ - Documento con cambios
+ - Si
+ * - STD_006
+ - Estandar de versionado
+ - Si
 
 ----
 
@@ -123,32 +123,32 @@ Antes de iniciar este procedimiento, verificar:
 
 .. code-block:: text
 
-   MAJOR.MINOR.PATCH
-   
-   Donde:
-   - MAJOR: Cambios incompatibles, reestructuracion
-   - MINOR: Nueva funcionalidad, compatible
-   - PATCH: Correcciones, mejoras menores
+ MAJOR.MINOR.PATCH
+ 
+ Donde:
+ - MAJOR: Cambios incompatibles, reestructuracion
+ - MINOR: Nueva funcionalidad, compatible
+ - PATCH: Correcciones, mejoras menores
 
 6.2 Reglas de Incremento
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 50 30
-   :header-rows: 1
+ :widths: 20 50 30
+ :header-rows: 1
 
-   * - Incremento
-     - Cuando Aplicar
-     - Ejemplo
-   * - MAJOR
-     - Reestructuracion completa, cambio de formato
-     - 1.0.0 -> 2.0.0
-   * - MINOR
-     - Nueva seccion, contenido adicional significativo
-     - 1.0.0 -> 1.1.0
-   * - PATCH
-     - Correccion de errores, mejoras menores
-     - 1.0.0 -> 1.0.1
+ * - Incremento
+ - Cuando Aplicar
+ - Ejemplo
+ * - MAJOR
+ - Reestructuracion completa, cambio de formato
+ - 1.0.0 -> 2.0.0
+ * - MINOR
+ - Nueva seccion, contenido adicional significativo
+ - 1.0.0 -> 1.1.0
+ * - PATCH
+ - Correccion de errores, mejoras menores
+ - 1.0.0 -> 1.0.1
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -158,18 +158,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Clasificar el cambio:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Preguntas para clasificar:
-     
-     1. El cambio rompe compatibilidad con version anterior?
-        Si -> MAJOR
-     
-     2. Se agrega funcionalidad nueva manteniendo compatibilidad?
-        Si -> MINOR
-     
-     3. Es correccion de error o mejora menor?
-        Si -> PATCH
+ Preguntas para clasificar:
+ 
+ 1. El cambio rompe compatibilidad con version anterior?
+ Si -> MAJOR
+ 
+ 2. Se agrega funcionalidad nueva manteniendo compatibilidad?
+ Si -> MINOR
+ 
+ 3. Es correccion de error o mejora menor?
+ Si -> PATCH
 
 - **Resultado**: Tipo identificado
 - **Verificacion**: Clasificacion correcta
@@ -179,13 +179,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Aplicar incremento:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Version actual: 1.2.3
-     
-     Si MAJOR: 2.0.0 (resetea MINOR y PATCH)
-     Si MINOR: 1.3.0 (resetea PATCH)
-     Si PATCH: 1.2.4
+ Version actual: 1.2.3
+ 
+ Si MAJOR: 2.0.0 (resetea MINOR y PATCH)
+ Si MINOR: 1.3.0 (resetea PATCH)
+ Si PATCH: 1.2.4
 
 - **Resultado**: Nueva version
 - **Verificacion**: Formato X.Y.Z
@@ -195,13 +195,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Renombrar archivo con nueva version:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Formato
-     [TIPO]_[Nombre]_[MAJOR]_[MINOR]_[PATCH].rst
-     
-     # Ejemplo
-     PROC_Generacion_FR_1_0_0.rst -> PROC_Generacion_FR_1_1_0.rst
+ # Formato
+ [TIPO]_[Nombre]_[MAJOR]_[MINOR]_[PATCH].rst
+ 
+ # Ejemplo
+ PROC_Generacion_FR_1_0_0.rst -> PROC_Generacion_FR_1_1_0.rst
 
 - **Resultado**: Archivo renombrado
 - **Verificacion**: Nombre correcto
@@ -211,11 +211,11 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Modificar meta tags:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. meta::
-        :version: 1.1.0           <- Actualizar
-        :ultimo_cambio: 2026-01-07  <- Actualizar
+ .. meta::
+ :version: 1.1.0 <- Actualizar
+ :ultimo_cambio: 2026-01-07 <- Actualizar
 
 - **Resultado**: Metadatos actualizados
 - **Verificacion**: Consistente con nombre archivo
@@ -225,23 +225,23 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Agregar entrada al historial:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. list-table::
-        :header-rows: 1
-     
-        * - Version
-          - Fecha
-          - Autor
-          - Cambios
-        * - 1.1.0          <- Nueva entrada
-          - 2026-01-07
-          - Equipo IACT
-          - Agregada seccion de validacion
-        * - 1.0.0
-          - 2026-01-06
-          - Equipo IACT
-          - Version inicial
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.1.0 <- Nueva entrada
+ - 2026-01-07
+ - Equipo IACT
+ - Agregada seccion de validacion
+ * - 1.0.0
+ - 2026-01-06
+ - Equipo IACT
+ - Version inicial
 
 - **Resultado**: Historial actualizado
 - **Verificacion**: Entrada agregada
@@ -251,12 +251,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Autor
 - **Accion**: Si otros artefactos referencian este, actualizar:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Buscar referencias a version anterior:
-     - En otros PROC
-     - En index.rst
-     - En modelo documental
+ Buscar referencias a version anterior:
+ - En otros PROC
+ - En index.rst
+ - En modelo documental
 
 - **Resultado**: Referencias actualizadas
 - **Verificacion**: Sin referencias obsoletas
@@ -267,15 +267,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - Artefacto versionado
-     - Documento con nueva version
-     - Ubicacion original
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - Artefacto versionado
+ - Documento con nueva version
+ - Ubicacion original
 
 ----
 
@@ -306,17 +306,17 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 40 60
-   :header-rows: 1
+ :widths: 40 60
+ :header-rows: 1
 
-   * - Error
-     - Correccion
-   * - Saltar version (1.0.0 -> 1.0.2)
-     - Siempre incrementar secuencialmente
-   * - No resetear al incrementar MAJOR
-     - 1.5.3 -> 2.0.0 (no 2.5.3)
-   * - Version en archivo != meta tag
-     - Sincronizar ambos valores
+ * - Error
+ - Correccion
+ * - Saltar version (1.0.0 -> 1.0.2)
+ - Siempre incrementar secuencialmente
+ * - No resetear al incrementar MAJOR
+ - 1.5.3 -> 2.0.0 (no 2.5.3)
+ * - Version en archivo != meta tag
+ - Sincronizar ambos valores
 
 ----
 
@@ -324,17 +324,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Version ya existe
-     - Incrementar PATCH adicional
-   * - Duda sobre tipo de cambio
-     - Usar incremento menor (PATCH)
-   * - Multiples cambios
-     - Usar el incremento mayor aplicable
+ * - Excepcion
+ - Accion
+ * - Version ya existe
+ - Incrementar PATCH adicional
+ * - Duda sobre tipo de cambio
+ - Usar incremento menor (PATCH)
+ * - Multiples cambios
+ - Usar el incremento mayor aplicable
 
 ----
 
@@ -350,17 +350,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

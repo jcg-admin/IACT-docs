@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Derivacion_FR_TST
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Derivacion
-   :estado: Aprobado
-   :version: 1.1.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Derivacion_FR_TST
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Derivacion
+ :estado: Aprobado
+ :version: 1.1.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-derivacion-fr-tst:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Derivacion_FR_TST
-   * - **Nombre**
-     - Derivacion de Requisitos Funcionales a Casos de Prueba
-   * - **Categoria**
-     - Derivacion
-   * - **Frecuencia**
-     - Por cada modulo con FR completados
-   * - **Duracion Estimada**
-     - 2-4 horas por modulo
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Derivacion_FR_TST
+ * - **Nombre**
+ - Derivacion de Requisitos Funcionales a Casos de Prueba
+ * - **Categoria**
+ - Derivacion
+ * - **Frecuencia**
+ - Por cada modulo con FR completados
+ * - **Duracion Estimada**
+ - 2-4 horas por modulo
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -76,18 +76,18 @@ para cada FR del sistema.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Tester
-     - Ejecuta derivacion, genera TST
-     - Escritura en pruebas/
-   * - QA Lead
-     - Valida cobertura y calidad
-     - Lectura de FR, TST
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Tester
+ - Ejecuta derivacion, genera TST
+ - Escritura en pruebas/
+ * - QA Lead
+ - Valida cobertura y calidad
+ - Lectura de FR, TST
 
 ----
 
@@ -107,18 +107,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - FR_[ID].rst
-     - Requisitos Funcionales del modulo
-     - Si
-   * - TPL_TST_Pruebas_1_0_0.rst
-     - Template de TST
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - FR_[ID].rst
+ - Requisitos Funcionales del modulo
+ - Si
+ * - TPL_TST_Pruebas_1_0_0.rst
+ - Template de TST
+ - Si
 
 ----
 
@@ -129,38 +129,38 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Derivacion FR a TST
-   :align: center
+ :caption: Flujo de Derivacion FR a TST
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Seleccionar modulo;
-   :Listar FR del modulo;
+ start
+ :Seleccionar modulo;
+ :Listar FR del modulo;
 
-   while (Mas FR?) is (si)
-       :Abrir FR;
-       :Extraer Criterio de Aceptacion;
-       :Contar escenarios;
-       
-       if (Multiples escenarios?) then (si)
-           :Crear 1 TST por escenario;
-       else (no)
-           :Crear 1 TST;
-       endif
-       
-       :Ejecutar PROC_Generacion_TST;
-   endwhile (no)
+ while (Mas FR?) is (si)
+ :Abrir FR;
+ :Extraer Criterio de Aceptacion;
+ :Contar escenarios;
+ 
+ if (Multiples escenarios?) then (si)
+ :Crear 1 TST por escenario;
+ else (no)
+ :Crear 1 TST;
+ endif
+ 
+ :Ejecutar PROC_Generacion_TST;
+ endwhile (no)
 
-   :Calcular cobertura;
-   :Generar index.rst;
-   stop
-   @enduml
+ :Calcular cobertura;
+ :Generar index.rst;
+ stop
+ @enduml
 
 6.2 Estrategia de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,30 +170,30 @@ Antes de iniciar este procedimiento, verificar:
 **Tipos de TST por Tipo de FR:**
 
 .. list-table::
-   :widths: 25 25 50
-   :header-rows: 1
+ :widths: 25 25 50
+ :header-rows: 1
 
-   * - Tipo FR
-     - Tipo TST
-     - Ejemplo
-   * - Validacion
-     - Unitaria
-     - test_valida_formato_username
-   * - Proceso
-     - Integracion
-     - test_genera_token_jwt
-   * - Interfaz
-     - Funcional
-     - test_muestra_formulario
-   * - Datos
-     - Unitaria
-     - test_guarda_sesion_bd
-   * - Auditoria
-     - Integracion
-     - test_registra_evento
-   * - Seguridad
-     - Funcional
-     - test_bloquea_cuenta
+ * - Tipo FR
+ - Tipo TST
+ - Ejemplo
+ * - Validacion
+ - Unitaria
+ - test_valida_formato_username
+ * - Proceso
+ - Integracion
+ - test_genera_token_jwt
+ * - Interfaz
+ - Funcional
+ - test_muestra_formulario
+ * - Datos
+ - Unitaria
+ - test_guarda_sesion_bd
+ * - Auditoria
+ - Integracion
+ - test_registra_evento
+ * - Seguridad
+ - Funcional
+ - test_bloquea_cuenta
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -203,9 +203,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Obtener lista de FR:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     find funcionales/[mod] -name "FR_*.rst" | sort
+ find funcionales/[mod] -name "FR_*.rst" | sort
 
 - **Resultado**: Lista de FR a cubrir
 - **Verificacion**: Cantidad correcta
@@ -215,19 +215,19 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Extraer escenarios de cada FR:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     FR_UC001_03: Generar token JWT
-     
-     Escenario 1: Generacion exitosa
-     DADO usuario autenticado
-     CUANDO genera token
-     ENTONCES token valido creado
-     
-     Escenario 2: Token unico
-     DADO dos logins consecutivos
-     CUANDO genera tokens
-     ENTONCES cada token tiene jti diferente
+ FR_UC001_03: Generar token JWT
+ 
+ Escenario 1: Generacion exitosa
+ DADO usuario autenticado
+ CUANDO genera token
+ ENTONCES token valido creado
+ 
+ Escenario 2: Token unico
+ DADO dos logins consecutivos
+ CUANDO genera tokens
+ ENTONCES cada token tiene jti diferente
 
 - **Resultado**: Lista de escenarios = TST a crear
 - **Verificacion**: Cada escenario identificado
@@ -237,13 +237,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Crear mapeo FR -> TST:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     FR_UC001_01 -> TST_AUTH_001 (1 escenario)
-     FR_UC001_02 -> TST_AUTH_002 (1 escenario)
-     FR_UC001_03 -> TST_AUTH_003, TST_AUTH_004 (2 escenarios)
-     FR_UC001_04 -> TST_AUTH_005 (1 escenario)
-     FR_UC001_05 -> TST_AUTH_006 (1 escenario)
+ FR_UC001_01 -> TST_AUTH_001 (1 escenario)
+ FR_UC001_02 -> TST_AUTH_002 (1 escenario)
+ FR_UC001_03 -> TST_AUTH_003, TST_AUTH_004 (2 escenarios)
+ FR_UC001_04 -> TST_AUTH_005 (1 escenario)
+ FR_UC001_05 -> TST_AUTH_006 (1 escenario)
 
 - **Resultado**: Mapeo completo
 - **Verificacion**: Todos los FR mapeados
@@ -260,14 +260,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Calcular cobertura:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Cobertura MOD_Auth:
-     - FR totales: 21
-     - FR con TST: 21
-     - TST totales: 25
-     - Cobertura: 100%
-     - Ratio: 1.19 TST/FR
+ Cobertura MOD_Auth:
+ - FR totales: 21
+ - FR con TST: 21
+ - TST totales: 25
+ - Cobertura: 100%
+ - Ratio: 1.19 TST/FR
 
 - **Resultado**: Metricas de cobertura
 - **Verificacion**: Cobertura >= 100%
@@ -277,20 +277,20 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Tester
 - **Accion**: Crear index.rst para pruebas:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-                               
-     Casos de Prueba - MOD_Auth
-                               
-     
-     .. toctree::
-        :maxdepth: 1
-     
-        TST_AUTH_001_Validar_formato_username
-        TST_AUTH_002_Verificar_credenciales
-        TST_AUTH_003_Generar_token_exitoso
-        TST_AUTH_004_Token_unico
-        ...
+ 
+ Casos de Prueba - MOD_Auth
+ 
+ 
+ .. toctree::
+ :maxdepth: 1
+ 
+ TST_AUTH_001_Validar_formato_username
+ TST_AUTH_002_Verificar_credenciales
+ TST_AUTH_003_Generar_token_exitoso
+ TST_AUTH_004_Token_unico
+ ...
 
 - **Resultado**: Index creado
 - **Verificacion**: Todos los TST listados
@@ -301,21 +301,21 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - TST_[MOD]_[NNN].rst
-     - Casos de Prueba (multiples)
-     - /tmp/pruebas/[mod]/
-   * - index.rst
-     - Indice del modulo
-     - /tmp/pruebas/[mod]/
-   * - Matriz de cobertura
-     - FR vs TST
-     - Documento de trabajo
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - TST_[MOD]_[NNN].rst
+ - Casos de Prueba (multiples)
+ - /tmp/pruebas/[mod]/
+ * - index.rst
+ - Indice del modulo
+ - /tmp/pruebas/[mod]/
+ * - Matriz de cobertura
+ - FR vs TST
+ - Documento de trabajo
 
 ----
 
@@ -338,39 +338,39 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 15 15 15 15 20
-   :header-rows: 1
+ :widths: 20 15 15 15 15 20
+ :header-rows: 1
 
-   * - Modulo
-     - FR
-     - TST
-     - Ratio
-     - Cobertura
-     - Estado
-   * - MOD_Auth
-     - 21
-     - ~25
-     - 1.2
-     - 100%
-     - Pendiente
-   * - MOD_Users
-     - 17
-     - ~20
-     - 1.2
-     - 100%
-     - Pendiente
-   * - MOD_Access
-     - 30
-     - ~36
-     - 1.2
-     - 100%
-     - Pendiente
-   * - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
+ * - Modulo
+ - FR
+ - TST
+ - Ratio
+ - Cobertura
+ - Estado
+ * - MOD_Auth
+ - 21
+ - ~25
+ - 1.2
+ - 100%
+ - Pendiente
+ * - MOD_Users
+ - 17
+ - ~20
+ - 1.2
+ - 100%
+ - Pendiente
+ * - MOD_Access
+ - 30
+ - ~36
+ - 1.2
+ - 100%
+ - Pendiente
+ * - ...
+ - ...
+ - ...
+ - ...
+ - ...
+ - ...
 
 9.2 Criterios de Aceptacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -386,17 +386,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - FR sin Criterio de Aceptacion
-     - Solicitar completar FR primero
-   * - Cobertura < 100%
-     - Identificar FR faltantes, generar TST
-   * - Ratio > 2.0
-     - Revisar si hay TST duplicados
+ * - Excepcion
+ - Accion
+ * - FR sin Criterio de Aceptacion
+ - Solicitar completar FR primero
+ * - Cobertura < 100%
+ - Identificar FR faltantes, generar TST
+ * - Ratio > 2.0
+ - Revisar si hay TST duplicados
 
 ----
 
@@ -414,21 +414,21 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.1.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version completa corregida
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial (incompleta)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.1.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version completa corregida
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial (incompleta)
 
 ----
 

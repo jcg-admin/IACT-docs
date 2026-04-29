@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Crear_Plan_Analisis
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Crear_Plan_Analisis
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-crear-plan-analisis:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Crear_Plan_Analisis
-   * - **Nombre**
-     - Crear Documentos de Analisis y Planificacion
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 15-45 minutos
+ * - **ID**
+ - PROC_Crear_Plan_Analisis
+ * - **Nombre**
+ - Crear Documentos de Analisis y Planificacion
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 15-45 minutos
 
 ----
 
@@ -55,20 +55,20 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
 ----------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Tipo
-     - Nomenclatura
-     - Uso
-   * - Plan
-     - PLAN_[Tema]_vX_Y_Z.md
-     - Planificar actividades
-   * - Analisis
-     - ANALISIS_[Tema]_vX_Y_Z.md
-     - Documentar hallazgos
-   * - Reporte
-     - REPORTE_[Tema].md
-     - Resumir resultados
+ * - Tipo
+ - Nomenclatura
+ - Uso
+ * - Plan
+ - PLAN_[Tema]_vX_Y_Z.md
+ - Planificar actividades
+ * - Analisis
+ - ANALISIS_[Tema]_vX_Y_Z.md
+ - Documentar hallazgos
+ * - Reporte
+ - REPORTE_[Tema].md
+ - Resumir resultados
 
 ----
 
@@ -91,7 +91,7 @@ Tablas con datos cuantitativos y tracking de progreso.
 
 .. code-block:: bash
 
-   /tmp/PLAN_FR_GENERACION_v1_0_0.md
+ /tmp/PLAN_FR_GENERACION_v1_0_0.md
 
 **Paso 5: Copiar a outputs**
 
@@ -103,12 +103,12 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 -----------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Artefacto
-     - Ubicacion
-   * - [TIPO]_[Tema]_vX_Y_Z.md
-     - /tmp/ -> /outputs/
+ * - Artefacto
+ - Ubicacion
+ * - [TIPO]_[Tema]_vX_Y_Z.md
+ - /tmp/ -> /outputs/
 
 ----
 
@@ -132,14 +132,14 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

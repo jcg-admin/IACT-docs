@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: TPL_UC_Stakeholder_Driven
-   :tipo: Plantilla
-   :dominio: normativa
-   :subdominio: estandares/plantillas
-   :estado: Aprobado
-   :version: 1.3.0
-   :fecha_creacion: 2026-01-13
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TPL_UC_Stakeholder_Driven
+ :tipo: Plantilla
+ :dominio: normativa
+ :subdominio: estandares/plantillas
+ :estado: Aprobado
+ :version: 1.3.0
+ :fecha_creacion: 2026-01-13
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. rubric:: Metadata sugerida para la instancia
 
@@ -17,28 +17,28 @@ se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
-   :Proyecto: IACT
-   :Codigo: UC-IACT-MOD-NN
-   :Titulo: Nombre del Use Case
-   :Version: 4.0.0
-   :Actor_Principal: Rol del Actor
-   :Tipo: Normal|CRUD|Temporal|UI-Driven
-   :Derivado_De: Entrevista con Stakeholder
-   :Fecha: YYYY-MM-DD
-   :Autor: Nombre del Business Analyst
-   :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
+ :Proyecto: IACT
+ :Codigo: UC-IACT-MOD-NN
+ :Titulo: Nombre del Use Case
+ :Version: 4.0.0
+ :Actor_Principal: Rol del Actor
+ :Tipo: Normal|CRUD|Temporal|UI-Driven
+ :Derivado_De: Entrevista con Stakeholder
+ :Fecha: YYYY-MM-DD
+ :Autor: Nombre del Business Analyst
+ :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
 
 ===================================
 UC-IACT-MOD-NN: Nombre del Use Case
 ===================================
 
-**Proyecto:** IACT - IVR Analytics & Customer Tracking  
-**Actor Principal:** Rol del Actor Principal  
-**Tipo:** Normal|CRUD|Temporal|UI-Driven  
-**Derivado De:** Entrevista con Stakeholder - Nombre del Stakeholder  
-**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED  
-**Prioridad:** Alta|Media|Baja  
+**Proyecto:** IACT - IVR Analytics & Customer Tracking 
+**Actor Principal:** Rol del Actor Principal 
+**Tipo:** Normal|CRUD|Temporal|UI-Driven 
+**Derivado De:** Entrevista con Stakeholder - Nombre del Stakeholder 
+**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED 
+**Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
 ----------------------------------------------------------------------
@@ -73,12 +73,12 @@ Mantener la narrativa original del stakeholder tiene multiples
 beneficios:
 
 1. **Trazabilidad:** Conexion clara entre lo que pidio el stakeholder
-   y lo que se implemento
+ y lo que se implemento
 2. **Validacion:** Stakeholder puede revisar su narrativa y confirmar
-   que se entendio correctamente
+ que se entendio correctamente
 3. **Contexto:** Futuras modificaciones entienden el "por que"
 4. **Requisitos ocultos:** La narrativa puede revelar requisitos
-   implicitos que no se documentarian en UC formal
+ implicitos que no se documentarian en UC formal
 5. **Prioridad:** El lenguaje del stakeholder indica prioridades
 
 **Estructura de Este Template:**
@@ -172,7 +172,7 @@ Entrevista presencial en oficina de Maria, formato semi-estructurado.
 - Acta: ACTA_REUNION_OPS_2024_11_15.docx
 - Notas: Notas_Entrevista_Maria_RPT.md
 - Email confirmacion: "RE: Requerimientos Performance Reportes"
-  enviado 2024-11-16
+ enviado 2024-11-16
 
 **Objetivo de la Sesion:**
 
@@ -364,142 +364,142 @@ pasos, reglas de negocio, requisitos funcionales y no funcionales.
 **Actores Identificados:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 25 50 25
+ :header-rows: 1
+ :widths: 25 50 25
 
-   * - Actor
-     - Evidencia en Narrativa
-     - Rol en UC
-   * - Analista de Operaciones
-     - "Yo entro al sistema", "lleno el formulario"
-     - Actor Principal
-   * - Supervisor de Area
-     - "mi supervisor recibe notificacion", "puede aprobar"
-     - Actor Secundario
-   * - Sistema Analytics
-     - "el sistema calcula", "ejecuta la consulta"
-     - Actor Secundario
+ * - Actor
+ - Evidencia en Narrativa
+ - Rol en UC
+ * - Analista de Operaciones
+ - "Yo entro al sistema", "lleno el formulario"
+ - Actor Principal
+ * - Supervisor de Area
+ - "mi supervisor recibe notificacion", "puede aprobar"
+ - Actor Secundario
+ * - Sistema Analytics
+ - "el sistema calcula", "ejecuta la consulta"
+ - Actor Secundario
 
 **Pasos/Acciones Identificadas:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 10 40 50
+ :header-rows: 1
+ :widths: 10 40 50
 
-   * - Paso
-     - Texto de Narrativa
-     - Accion Extraida
-   * - 1
-     - "lleno un formulario con trimestre"
-     - Usuario ingresa parametros (trimestre, ano, segmento)
-   * - 2
-     - "Le doy en Generar Reporte"
-     - Usuario hace click en boton Generar
-   * - 3
-     - "sistema primero calcula cuantos registros"
-     - Sistema ejecuta COUNT para estimar volumen
-   * - 4
-     - "Si son menos de 10,000, ejecuta la consulta"
-     - Sistema evalua umbral y decide flujo
-   * - 5
-     - "me muestra los resultados en tabla y graficos"
-     - Sistema muestra reporte con visualizaciones
-   * - 6
-     - "muestra un mensaje que dice 'requiere aprobacion'"
-     - Sistema notifica necesidad de aprobacion
-   * - 7
-     - "supervisor recibe notificacion"
-     - Sistema envia notificacion a supervisor
-   * - 8
-     - "puede aprobarla o rechazarla"
-     - Supervisor toma decision
-   * - 9
-     - "el sistema ejecuta el reporte y me notifica"
-     - Sistema ejecuta tras aprobacion y notifica
+ * - Paso
+ - Texto de Narrativa
+ - Accion Extraida
+ * - 1
+ - "lleno un formulario con trimestre"
+ - Usuario ingresa parametros (trimestre, ano, segmento)
+ * - 2
+ - "Le doy en Generar Reporte"
+ - Usuario hace click en boton Generar
+ * - 3
+ - "sistema primero calcula cuantos registros"
+ - Sistema ejecuta COUNT para estimar volumen
+ * - 4
+ - "Si son menos de 10,000, ejecuta la consulta"
+ - Sistema evalua umbral y decide flujo
+ * - 5
+ - "me muestra los resultados en tabla y graficos"
+ - Sistema muestra reporte con visualizaciones
+ * - 6
+ - "muestra un mensaje que dice 'requiere aprobacion'"
+ - Sistema notifica necesidad de aprobacion
+ * - 7
+ - "supervisor recibe notificacion"
+ - Sistema envia notificacion a supervisor
+ * - 8
+ - "puede aprobarla o rechazarla"
+ - Supervisor toma decision
+ * - 9
+ - "el sistema ejecuta el reporte y me notifica"
+ - Sistema ejecuta tras aprobacion y notifica
 
 **Reglas de Negocio Identificadas:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 70
+ :header-rows: 1
+ :widths: 30 70
 
-   * - Regla
-     - Evidencia en Narrativa
-   * - BR-IACT-028: Aprobacion Consultas Grandes
-     - "si va a retornar mas de 10,000 registros, ya es grande", "requiere aprobacion de supervisor"
-   * - BR-IACT-053: Calculo Tasa Abandono
-     - "cuantas se abandonaron", "tasa de abandono es un KPI", "menor al 15%"
-   * - Umbral = 10,000 registros
-     - "si va a retornar mas de 10,000 registros"
-   * - Supervisor aprueba
-     - "deberia ser el supervisor del analista"
+ * - Regla
+ - Evidencia en Narrativa
+ * - BR-IACT-028: Aprobacion Consultas Grandes
+ - "si va a retornar mas de 10,000 registros, ya es grande", "requiere aprobacion de supervisor"
+ * - BR-IACT-053: Calculo Tasa Abandono
+ - "cuantas se abandonaron", "tasa de abandono es un KPI", "menor al 15%"
+ * - Umbral = 10,000 registros
+ - "si va a retornar mas de 10,000 registros"
+ * - Supervisor aprueba
+ - "deberia ser el supervisor del analista"
 
 **Datos/Entidades Identificadas:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 70
+ :header-rows: 1
+ :widths: 30 70
 
-   * - Entidad/Campo
-     - Evidencia en Narrativa
-   * - Trimestre
-     - "trimestre que quiero", "Q3 completo"
-   * - Ano
-     - "el ano", "ano 2024"
-   * - Segmento
-     - "OP operaciones normales, MG management"
-   * - Total Llamadas
-     - "cuantas llamadas tuvimos"
-   * - Llamadas Completadas
-     - "cuantas se completaron"
-   * - Llamadas Abandonadas
-     - "cuantas se abandonaron"
-   * - Tasa Abandono
-     - "tasa de abandono es un KPI"
-   * - Duracion Promedio
-     - "duracion promedio de las llamadas"
+ * - Entidad/Campo
+ - Evidencia en Narrativa
+ * - Trimestre
+ - "trimestre que quiero", "Q3 completo"
+ * - Ano
+ - "el ano", "ano 2024"
+ * - Segmento
+ - "OP operaciones normales, MG management"
+ * - Total Llamadas
+ - "cuantas llamadas tuvimos"
+ * - Llamadas Completadas
+ - "cuantas se completaron"
+ * - Llamadas Abandonadas
+ - "cuantas se abandonaron"
+ * - Tasa Abandono
+ - "tasa de abandono es un KPI"
+ * - Duracion Promedio
+ - "duracion promedio de las llamadas"
 
 **Requisitos No Funcionales:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 70
+ :header-rows: 1
+ :widths: 30 70
 
-   * - RNF
-     - Evidencia en Narrativa
-   * - Performance: Tiempo Respuesta
-     - "a veces son 3-4 segundos y esta bien", "20, 30 segundos es malo"
-   * - Usabilidad: Prevenir Timeouts
-     - "se cuelga el sistema y me dice timeout. Eso es muy frustrante"
-   * - Usabilidad: Mensajes Claros
-     - "que me avise antes", "me muestra un mensaje que dice"
-   * - Performance: Evitar Sobrecarga
-     - "cuando varios estamos sacando reportes, el sistema se pone lentisimo"
+ * - RNF
+ - Evidencia en Narrativa
+ * - Performance: Tiempo Respuesta
+ - "a veces son 3-4 segundos y esta bien", "20, 30 segundos es malo"
+ * - Usabilidad: Prevenir Timeouts
+ - "se cuelga el sistema y me dice timeout. Eso es muy frustrante"
+ * - Usabilidad: Mensajes Claros
+ - "que me avise antes", "me muestra un mensaje que dice"
+ * - Performance: Evitar Sobrecarga
+ - "cuando varios estamos sacando reportes, el sistema se pone lentisimo"
 
 **Requisitos Funcionales Derivados:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 80
+ :header-rows: 1
+ :widths: 20 80
 
-   * - FR ID
-     - Descripcion
-   * - FR-RPT-01-01
-     - Validar formato de parametros (trimestre, ano, segmento)
-   * - FR-RPT-01-04
-     - Calcular COUNT de registros antes de ejecutar query principal
-   * - FR-RPT-01-05
-     - Evaluar si count excede umbral de 10,000
-   * - FR-RPT-01-06
-     - Ejecutar query principal si count menor o igual 10,000
-   * - FR-RPT-01-08
-     - Generar graficos visuales (tabla, graficos)
-   * - FR-RPT-01-10
-     - Crear solicitud de aprobacion si count mayor 10,000
-   * - FR-RPT-01-11
-     - Notificar a supervisor sobre solicitud aprobacion
-   * - FR-RPT-01-12
-     - Exportar reporte a Excel
+ * - FR ID
+ - Descripcion
+ * - FR-RPT-01-01
+ - Validar formato de parametros (trimestre, ano, segmento)
+ * - FR-RPT-01-04
+ - Calcular COUNT de registros antes de ejecutar query principal
+ * - FR-RPT-01-05
+ - Evaluar si count excede umbral de 10,000
+ * - FR-RPT-01-06
+ - Ejecutar query principal si count menor o igual 10,000
+ * - FR-RPT-01-08
+ - Generar graficos visuales (tabla, graficos)
+ * - FR-RPT-01-10
+ - Crear solicitud de aprobacion si count mayor 10,000
+ * - FR-RPT-01-11
+ - Notificar a supervisor sobre solicitud aprobacion
+ * - FR-RPT-01-12
+ - Exportar reporte a Excel
 
 ----------------------------------------------------------------------
 4. MAPEO A COMPONENTES DE UC
@@ -512,75 +512,75 @@ Transformar la narrativa informal en componentes formales de UC.
 **Mapeo de Narrativa → UC:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 40 60
+ :header-rows: 1
+ :widths: 40 60
 
-   * - Elemento de Narrativa
-     - Componente de UC
-   * - "Yo entro al sistema, lleno formulario"
-     - Actor Principal + Trigger
-   * - "trimestre, ano, segmento"
-     - Parametros/Inputs
-   * - "Le doy en Generar Reporte"
-     - Trigger especifico
-   * - "sistema calcula... si son menos de 10,000"
-     - Flujo Normal pasos 3-4
-   * - "ejecuta la consulta"
-     - Flujo Normal paso 5
-   * - "me muestra resultados"
-     - Flujo Normal paso 6
-   * - "si son mas de 10,000"
-     - Condicion para Flujo Alterno
-   * - "muestra mensaje requiere aprobacion"
-     - Flujo Alterno FA-2
-   * - "supervisor recibe notificacion"
-     - Flujo Alterno FA-2 continuacion
-   * - "se cuelga el sistema, timeout"
-     - Flujo de Excepcion FE-1
-   * - "mas de 10,000 registros"
-     - Business Rule BR-IACT-028
-   * - "tasa de abandono menor 15%"
-     - Business Rule BR-IACT-053
-   * - "3-4 segundos esta bien"
-     - RNF Performance p95 menor 5 seg
-   * - "exportar a Excel"
-     - Extension del UC o UC relacionado
+ * - Elemento de Narrativa
+ - Componente de UC
+ * - "Yo entro al sistema, lleno formulario"
+ - Actor Principal + Trigger
+ * - "trimestre, ano, segmento"
+ - Parametros/Inputs
+ * - "Le doy en Generar Reporte"
+ - Trigger especifico
+ * - "sistema calcula... si son menos de 10,000"
+ - Flujo Normal pasos 3-4
+ * - "ejecuta la consulta"
+ - Flujo Normal paso 5
+ * - "me muestra resultados"
+ - Flujo Normal paso 6
+ * - "si son mas de 10,000"
+ - Condicion para Flujo Alterno
+ * - "muestra mensaje requiere aprobacion"
+ - Flujo Alterno FA-2
+ * - "supervisor recibe notificacion"
+ - Flujo Alterno FA-2 continuacion
+ * - "se cuelga el sistema, timeout"
+ - Flujo de Excepcion FE-1
+ * - "mas de 10,000 registros"
+ - Business Rule BR-IACT-028
+ * - "tasa de abandono menor 15%"
+ - Business Rule BR-IACT-053
+ * - "3-4 segundos esta bien"
+ - RNF Performance p95 menor 5 seg
+ * - "exportar a Excel"
+ - Extension del UC o UC relacionado
 
 **Transformacion Narrativa → Pasos Formales:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 50 50
+ :header-rows: 1
+ :widths: 50 50
 
-   * - Narrativa Informal
-     - Paso Formal de UC
-   * - "lleno un formulario con trimestre Q3"
-     - 1. Usuario selecciona parametros de consulta en formulario
-   * - "Le doy en Generar Reporte"
-     - 2. Usuario hace click en boton "Generar Reporte"
-   * - "sistema calcula cuantos registros"
-     - 3. Sistema ejecuta COUNT para estimar volumen (FR-RPT-01-04)
-   * - "Si son menos de 10,000, ejecuta"
-     - 4. Sistema evalua resultado del count (FR-RPT-01-05)
-   * - "ejecuta la consulta"
-     - 5. Sistema ejecuta query principal (FR-RPT-01-06)
-   * - "me muestra resultados en tabla"
-     - 6. Sistema muestra resultados en tabla y graficos (FR-RPT-01-08)
+ * - Narrativa Informal
+ - Paso Formal de UC
+ * - "lleno un formulario con trimestre Q3"
+ - 1. Usuario selecciona parametros de consulta en formulario
+ * - "Le doy en Generar Reporte"
+ - 2. Usuario hace click en boton "Generar Reporte"
+ * - "sistema calcula cuantos registros"
+ - 3. Sistema ejecuta COUNT para estimar volumen (FR-RPT-01-04)
+ * - "Si son menos de 10,000, ejecuta"
+ - 4. Sistema evalua resultado del count (FR-RPT-01-05)
+ * - "ejecuta la consulta"
+ - 5. Sistema ejecuta query principal (FR-RPT-01-06)
+ * - "me muestra resultados en tabla"
+ - 6. Sistema muestra resultados en tabla y graficos (FR-RPT-01-08)
 
 **Identificacion de Flujos Alternos:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 50 50
+ :header-rows: 1
+ :widths: 50 50
 
-   * - Condicion en Narrativa
-     - Flujo Alterno
-   * - "si son mas de 10,000"
-     - FA-2: Consulta Requiere Aprobacion
-   * - "supervisor puede rechazarla"
-     - FA-3: Supervisor Rechaza Consulta
-   * - "se cuelga, timeout"
-     - FE-1: Timeout de Base de Datos
+ * - Condicion en Narrativa
+ - Flujo Alterno
+ * - "si son mas de 10,000"
+ - FA-2: Consulta Requiere Aprobacion
+ * - "supervisor puede rechazarla"
+ - FA-3: Supervisor Rechaza Consulta
+ * - "se cuelga, timeout"
+ - FE-1: Timeout de Base de Datos
 
 ----------------------------------------------------------------------
 5. UC FORMAL RESULTANTE
@@ -612,33 +612,33 @@ Usuario hace click en menu "Reportes > Metricas Trimestrales"
 **Flujo Normal:**
 
 1. Usuario selecciona parametros de consulta en formulario:
-   - Trimestre: Q1, Q2, Q3, Q4
-   - Ano: 2020 a ano actual
-   - Segmento: OP o MG
+ - Trimestre: Q1, Q2, Q3, Q4
+ - Ano: 2020 a ano actual
+ - Segmento: OP o MG
 
 2. Sistema valida formato de parametros (FR-RPT-01-01)
 
 3. Usuario hace click en boton "Generar Reporte"
 
 4. Sistema muestra mensaje "Calculando volumen de datos..."
-   (FR-RPT-01-02)
+ (FR-RPT-01-02)
 
 5. Sistema ejecuta COUNT para estimar volumen de registros
-   (FR-RPT-01-04)
-   
-   Implementa BR-IACT-028: Aprobacion Consultas Grandes
+ (FR-RPT-01-04)
+ 
+ Implementa BR-IACT-028: Aprobacion Consultas Grandes
 
 6. Sistema evalua resultado del count (FR-RPT-01-05)
-   
-   Si count menor o igual 10,000 → Continua paso 7
-   Si count mayor 10,000 → FA-2: Requiere Aprobacion
+ 
+ Si count menor o igual 10,000 → Continua paso 7
+ Si count mayor 10,000 → FA-2: Requiere Aprobacion
 
 7. Sistema ejecuta query principal de reporte (FR-RPT-01-06)
 
 8. Sistema procesa resultados y calcula metricas derivadas
-   (FR-RPT-01-07)
-   
-   Implementa BR-IACT-053: Calculo Tasa Abandono
+ (FR-RPT-01-07)
+ 
+ Implementa BR-IACT-053: Calculo Tasa Abandono
 
 9. Sistema genera graficos visuales (FR-RPT-01-08)
 
@@ -654,26 +654,26 @@ FA-2: Consulta Requiere Aprobacion del Supervisor
 
 En paso 6, si count mayor 10,000 registros:
 
-  6a. Sistema NO ejecuta query principal
-  
-  6b. Sistema crea solicitud de aprobacion (FR-RPT-01-11)
-  
-  6c. Sistema identifica supervisor del usuario
-  
-  6d. Sistema notifica a supervisor (FR-RPT-01-12)
-  
-  6e. Sistema muestra modal al usuario:
-      
-      "Su consulta requiere aprobacion del supervisor debido al
-      volumen de datos (count registros).
-      
-      Le notificaremos cuando sea aprobada o rechazada.
-      
-      Tiempo estimado: 2-4 horas."
-  
-  6f. Usuario hace click en OK
-  
-  6g. UC termina, usuario debe esperar aprobacion
+ 6a. Sistema NO ejecuta query principal
+ 
+ 6b. Sistema crea solicitud de aprobacion (FR-RPT-01-11)
+ 
+ 6c. Sistema identifica supervisor del usuario
+ 
+ 6d. Sistema notifica a supervisor (FR-RPT-01-12)
+ 
+ 6e. Sistema muestra modal al usuario:
+ 
+ "Su consulta requiere aprobacion del supervisor debido al
+ volumen de datos (count registros).
+ 
+ Le notificaremos cuando sea aprobada o rechazada.
+ 
+ Tiempo estimado: 2-4 horas."
+ 
+ 6f. Usuario hace click en OK
+ 
+ 6g. UC termina, usuario debe esperar aprobacion
 
 **Flujos de Excepcion:**
 
@@ -681,16 +681,16 @@ FE-1: Timeout de Base de Datos
 
 En paso 7, si query principal no responde en 30 segundos:
 
-  7a. Sistema cancela query
-  
-  7b. Sistema registra error en log
-  
-  7c. Sistema muestra mensaje al usuario:
-      
-      "La consulta tardo demasiado. Intente reducir el rango de
-      fechas o consultar en horario de menor carga."
-  
-  7d. UC termina con falla
+ 7a. Sistema cancela query
+ 
+ 7b. Sistema registra error en log
+ 
+ 7c. Sistema muestra mensaje al usuario:
+ 
+ "La consulta tardo demasiado. Intente reducir el rango de
+ fechas o consultar en horario de menor carga."
+ 
+ 7d. UC termina con falla
 
 **Postcondiciones:**
 
@@ -739,24 +739,24 @@ REFERENCIAS
 ----------------------------------------------------------------------
 
 .. note::
-   CHECKLIST STAKEHOLDER-DRIVEN:
-   
-   - Contexto del stakeholder completo
-   - Narrativa original transcrita literalmente
-   - Extraccion de requisitos sistematica:
-     * Actores identificados
-     * Pasos/acciones extraidos
-     * Reglas de negocio marcadas
-     * Datos/entidades listados
-     * RNF capturados
-   - Mapeo narrativa → componentes UC
-   - UC formal resultante completo
-   - Trazabilidad clara desde narrativa a UC
+ CHECKLIST STAKEHOLDER-DRIVEN:
+ 
+ - Contexto del stakeholder completo
+ - Narrativa original transcrita literalmente
+ - Extraccion de requisitos sistematica:
+ * Actores identificados
+ * Pasos/acciones extraidos
+ * Reglas de negocio marcadas
+ * Datos/entidades listados
+ * RNF capturados
+ - Mapeo narrativa → componentes UC
+ - UC formal resultante completo
+ - Trazabilidad clara desde narrativa a UC
 
 ----------------------------------------------------------------------
 
-**Archivo:** TPL_UC_Stakeholder_Driven_1_3_0.rst  
-**Version Template:** 1.3.0  
-**Fecha Creacion Template:** 2026-01-11  
-**Autor Template:** Sistema de Regeneracion IACT  
+**Archivo:** TPL_UC_Stakeholder_Driven_1_3_0.rst 
+**Version Template:** 1.3.0 
+**Fecha Creacion Template:** 2026-01-11 
+**Autor Template:** Sistema de Regeneracion IACT 
 **Lineas Totales:** aproximadamente 600

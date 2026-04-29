@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_Index
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_Index
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-index:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_Index
-   * - **Nombre**
-     - Generacion de Archivos Index para Sphinx
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada subdominio/modulo
-   * - **Duracion Estimada**
-     - 10-20 minutos por index
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_Index
+ * - **Nombre**
+ - Generacion de Archivos Index para Sphinx
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada subdominio/modulo
+ * - **Duracion Estimada**
+ - 10-20 minutos por index
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,15 +73,15 @@ de la documentacion y build exitoso de Sphinx.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Generador
-     - Crea/actualiza index.rst
-     - Escritura en subdominio
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Generador
+ - Crea/actualiza index.rst
+ - Escritura en subdominio
 
 ----
 
@@ -100,18 +100,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_INDEX_Indices_1_0_0.rst
-     - Template de Index
-     - Si
-   * - Artefactos del subdominio
-     - Archivos a listar
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_INDEX_Indices_1_0_0.rst
+ - Template de Index
+ - Si
+ * - Artefactos del subdominio
+ - Archivos a listar
+ - Si
 
 ----
 
@@ -122,21 +122,21 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 30 40
-   :header-rows: 1
+ :widths: 30 30 40
+ :header-rows: 1
 
-   * - Tipo
-     - Ubicacion
-     - Contenido
-   * - Dominio
-     - requisitos/index.rst
-     - Lista subdominios
-   * - Subdominio
-     - reglas_negocio/index.rst
-     - Lista artefactos BR
-   * - Modulo
-     - casos_uso/auth/index.rst
-     - Lista UC del modulo
+ * - Tipo
+ - Ubicacion
+ - Contenido
+ * - Dominio
+ - requisitos/index.rst
+ - Lista subdominios
+ * - Subdominio
+ - reglas_negocio/index.rst
+ - Lista artefactos BR
+ * - Modulo
+ - casos_uso/auth/index.rst
+ - Lista UC del modulo
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -146,13 +146,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Determinar nivel del index:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Niveles:
-     
-     1. Dominio: requisitos/, arquitectura_tecnica/, etc.
-     2. Subdominio: reglas_negocio/, casos_uso/, etc.
-     3. Modulo: auth/, users/, access/, etc.
+ Niveles:
+ 
+ 1. Dominio: requisitos/, arquitectura_tecnica/, etc.
+ 2. Subdominio: reglas_negocio/, casos_uso/, etc.
+ 3. Modulo: auth/, users/, access/, etc.
 
 - **Resultado**: Tipo identificado
 - **Verificacion**: Ubicacion correcta
@@ -162,15 +162,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Obtener lista de archivos:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Listar artefactos del subdominio
-     ls -1 [subdominio]/*.rst | grep -v index.rst | sort
-     
-     # Ejemplo
-     BR_001_Sesion_Unica.rst
-     BR_002_Auditoria_Accesos.rst
-     ...
+ # Listar artefactos del subdominio
+ ls -1 [subdominio]/*.rst | grep -v index.rst | sort
+ 
+ # Ejemplo
+ BR_001_Sesion_Unica.rst
+ BR_002_Auditoria_Accesos.rst
+ ...
 
 - **Resultado**: Lista de artefactos
 - **Verificacion**: Sin duplicados
@@ -180,36 +180,36 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Usar estructura segun TPL_INDEX:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. meta::
-        :dominio: [dominio]
-        :subdominio: [subdominio]
-        :tipo: Indice
-        :version: 1.0.0
-     
-                            
-     [Titulo del Subdominio]
-                            
-     
-     **Descripcion:** [Breve descripcion]
-     
-     **Total artefactos:** [N]
-     
-     **Fecha actualizacion:** [YYYY-MM-DD]
-     
-     ----
-     
-     Contenido
-     ---------
-     
-     .. toctree::
-        :maxdepth: 1
-        :caption: [Categoria]
-     
-        [artefacto_1_sin_extension]
-        [artefacto_2_sin_extension]
-        ...
+ .. meta::
+ :dominio: [dominio]
+ :subdominio: [subdominio]
+ :tipo: Indice
+ :version: 1.0.0
+ 
+ 
+ [Titulo del Subdominio]
+ 
+ 
+ **Descripcion:** [Breve descripcion]
+ 
+ **Total artefactos:** [N]
+ 
+ **Fecha actualizacion:** [YYYY-MM-DD]
+ 
+ ----
+ 
+ Contenido
+ ---------
+ 
+ .. toctree::
+ :maxdepth: 1
+ :caption: [Categoria]
+ 
+ [artefacto_1_sin_extension]
+ [artefacto_2_sin_extension]
+ ...
 
 - **Resultado**: Estructura base
 - **Verificacion**: Secciones completas
@@ -219,17 +219,17 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Listar archivos SIN extension:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. toctree::
-        :maxdepth: 1
-        :caption: Reglas de Negocio
-     
-        BR_001_Sesion_Unica
-        BR_002_Auditoria_Accesos
-        BR_003_Formato_Username
+ .. toctree::
+ :maxdepth: 1
+ :caption: Reglas de Negocio
+ 
+ BR_001_Sesion_Unica
+ BR_002_Auditoria_Accesos
+ BR_003_Formato_Username
 
-  **IMPORTANTE:** No incluir ".rst" en toctree.
+ **IMPORTANTE:** No incluir ".rst" en toctree.
 
 - **Resultado**: toctree completo
 - **Verificacion**: Nombres sin extension
@@ -239,22 +239,22 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Incluir estadisticas:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     Metricas
-     --------
-     
-     .. list-table::
-        :header-rows: 1
-     
-        * - Metrica
-          - Valor
-        * - Total artefactos
-          - 20
-        * - Estado Aprobado
-          - 20
-        * - Ultima actualizacion
-          - 2026-01-07
+ Metricas
+ --------
+ 
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Metrica
+ - Valor
+ * - Total artefactos
+ - 20
+ * - Estado Aprobado
+ - 20
+ * - Ultima actualizacion
+ - 2026-01-07
 
 - **Resultado**: Metricas agregadas
 - **Verificacion**: Valores correctos
@@ -264,15 +264,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Ejecutar build:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     sphinx-build -b html -W docs/ docs/_build/
-     
-     # Errores comunes:
-     # - "toctree contains reference to nonexisting document"
-     #   -> Verificar nombre de archivo
-     # - "duplicate label"
-     #   -> Verificar referencias unicas
+ sphinx-build -b html -W docs/ docs/_build/
+ 
+ # Errores comunes:
+ # - "toctree contains reference to nonexisting document"
+ # -> Verificar nombre de archivo
+ # - "duplicate label"
+ # -> Verificar referencias unicas
 
 - **Resultado**: Build exitoso
 - **Verificacion**: Sin errores ni warnings
@@ -282,13 +282,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Generador
 - **Accion**: Guardar como index.rst:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Nombre SIEMPRE es index.rst
-     /tmp/[subdominio]/index.rst
-     
-     # Ejemplo
-     /tmp/reglas_negocio/index.rst
+ # Nombre SIEMPRE es index.rst
+ /tmp/[subdominio]/index.rst
+ 
+ # Ejemplo
+ /tmp/reglas_negocio/index.rst
 
 - **Resultado**: Index guardado
 - **Verificacion**: Nombre exacto "index.rst"
@@ -299,15 +299,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - index.rst
-     - Indice del subdominio
-     - /tmp/[subdominio]/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - index.rst
+ - Indice del subdominio
+ - /tmp/[subdominio]/
 
 ----
 
@@ -349,17 +349,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Artefacto no encontrado
-     - Verificar nombre exacto del archivo
-   * - Duplicate label
-     - Verificar que referencias son unicas
-   * - Subdominio vacio
-     - No crear index hasta tener artefactos
+ * - Excepcion
+ - Accion
+ * - Artefacto no encontrado
+ - Verificar nombre exacto del archivo
+ * - Duplicate label
+ - Verificar que referencias son unicas
+ * - Subdominio vacio
+ - No crear index hasta tener artefactos
 
 ----
 
@@ -376,17 +376,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

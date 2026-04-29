@@ -1,13 +1,13 @@
 .. meta::
-   :artefacto: ONB_PRIMERA-CONTRIBUCION
-   :tipo: Guia
-   :dominio: onboarding
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: ONB_PRIMERA-CONTRIBUCION
+ :tipo: Guia
+ :dominio: onboarding
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 =========================
 Primera Contribucion
@@ -24,22 +24,22 @@ Resumen:
 
 .. code-block:: bash
 
-   git checkout -b feature/<descripcion-corta>
-   # ... hacer cambios ...
-   git add <archivos>
-   git commit -m "Subject corto en imperativo (≤50 ch)"  # Tim Pope style
-   git push -u origin feature/<rama>
-   # Crear PR en plataforma
+ git checkout -b feature/<descripcion-corta>
+ # ... hacer cambios ...
+ git add <archivos>
+ git commit -m "Subject corto en imperativo (≤50 ch)" # Tim Pope style
+ git push -u origin feature/<rama>
+ # Crear PR en plataforma
 
 2. Convenciones obligatorias
 ============================
 
 - :doc:`/normativa/estandares/STD_007_Convencion_Naming` — naming de
-  archivos.
+ archivos.
 - :doc:`/normativa/estandares/STD_006_Versionado_Semantico` —
-  versionado.
+ versionado.
 - STD_007 § 7 "Convencion de Idioma" — codigo en ingles, docs y
-  comentarios en espanol.
+ comentarios en espanol.
 
 3. CNSTs criticos a respetar
 ============================

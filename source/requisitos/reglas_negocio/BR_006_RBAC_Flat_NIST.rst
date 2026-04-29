@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_006
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_006
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-006:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_006
-   * - **Nombre**
-     - RBAC Flat NIST
-   * - **Tipo**
-     - Hecho
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_006
+ * - **Nombre**
+ - RBAC Flat NIST
+ * - **Tipo**
+ - Hecho
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -55,15 +55,15 @@ administrativa.
 
 ::
 
-   VOCABULARIO:
-     - RBAC: Role-Based Access Control
-     - Flat: Sin jerarquia de herencia entre roles
-     - Funcion atomica: Permiso indivisible (ej: USR-001)
-     - Agrupador: Conjunto de funciones para asignacion conveniente
+ VOCABULARIO:
+ - RBAC: Role-Based Access Control
+ - Flat: Sin jerarquia de herencia entre roles
+ - Funcion atomica: Permiso indivisible (ej: USR-001)
+ - Agrupador: Conjunto de funciones para asignacion conveniente
 
-   REGLA:
-     Es obligatorio que el modelo de acceso siga NIST RBAC.
-     Es obligatorio que no exista herencia entre roles/agrupadores.
+ REGLA:
+ Es obligatorio que el modelo de acceso siga NIST RBAC.
+ Es obligatorio que no exista herencia entre roles/agrupadores.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -98,17 +98,17 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_005_Seguridad_DRF_Checklist
-   * - **Seccion**
-     - Modelo de Control de Acceso
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST + Estandar NIST
+ * - **Documento**
+ - CNST_005_Seguridad_DRF_Checklist
+ * - **Seccion**
+ - Modelo de Control de Acceso
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST + Estandar NIST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,17 +126,17 @@ Cumple con NIST SP 800-53 y facilita revision de accesos.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Access
-     - Implementa modelo RBAC con 42 funciones atomicas
-   * - Middleware DRF
-     - Valida permisos por funcion, no por rol
-   * - Base Analytics
-     - Tablas: funciones, agrupadores, user_funciones
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Access
+ - Implementa modelo RBAC con 42 funciones atomicas
+ * - Middleware DRF
+ - Valida permisos por funcion, no por rol
+ * - Base Analytics
+ - Tablas: funciones, agrupadores, user_funciones
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -157,48 +157,48 @@ Sin excepciones. El modelo Flat es absoluto.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST-005
-     - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
-   * - :ref:`cnst-012`
-     - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
-       permisos temporales con vencimiento. Implementa esta BR.
+ * - CNST
+ - Relacion
+ * - CNST-005
+ - Estandar de seguridad DRF (autenticacion, autorizacion en APIs)
+ * - :ref:`cnst-012`
+ - Modelo RBAC Flat consolidado: 42 funciones, 10 grupos, 3 reglas SoD,
+ permisos temporales con vencimiento. Implementa esta BR.
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-004
-     - Cumplimiento de Seguridad
+ * - BReq
+ - Descripcion
+ * - BReq-004
+ - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-010
-     - Asignar Funciones a Usuario
-   * - UC-011
-     - Gestionar Permisos por Agrupador
-   * - UC-044
-     - Consultar Permisos Efectivos
-   * - UC-045
-     - Gestionar Catalogo de Agrupadores
-   * - UC-046
-     - Gestionar Catalogo de Funciones
+ * - UC
+ - Donde Aplica
+ * - UC-010
+ - Asignar Funciones a Usuario
+ * - UC-011
+ - Gestionar Permisos por Agrupador
+ * - UC-044
+ - Consultar Permisos Efectivos
+ * - UC-045
+ - Gestionar Catalogo de Agrupadores
+ * - UC-046
+ - Gestionar Catalogo de Funciones
 
 ----
 
@@ -231,14 +231,14 @@ Sin excepciones. El modelo Flat es absoluto.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

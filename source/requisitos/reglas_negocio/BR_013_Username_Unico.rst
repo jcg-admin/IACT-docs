@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_013
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_013
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-013:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_013
-   * - **Nombre**
-     - Username Único
-   * - **Tipo**
-     - Hecho
-   * - **Categoría**
-     - Identidad / Integridad de Datos
-   * - **Criticidad**
-     - Crítica
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_013
+ * - **Nombre**
+ - Username Único
+ * - **Tipo**
+ - Hecho
+ * - **Categoría**
+ - Identidad / Integridad de Datos
+ * - **Criticidad**
+ - Crítica
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -47,33 +47,33 @@ Resumen Ejecutivo
 
 .. note:: **Regla de Negocio BR_013**
 
-   Cada usuario en el sistema IACT DEBE tener un username único e irrepetible.
-   No pueden existir dos usuarios con el mismo username, independientemente
-   de su estado (activo/inactivo). El username es inmutable una vez creado.
+ Cada usuario en el sistema IACT DEBE tener un username único e irrepetible.
+ No pueden existir dos usuarios con el mismo username, independientemente
+ de su estado (activo/inactivo). El username es inmutable una vez creado.
 
 1.2 Formulación SBVR
 ^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   VOCABULARIO:
-     - username: Identificador único de texto para autenticación
-     - usuario: Entidad que representa una identidad en el sistema
-     - estado_usuario: ACTIVO | INACTIVO
+ VOCABULARIO:
+ - username: Identificador único de texto para autenticación
+ - usuario: Entidad que representa una identidad en el sistema
+ - estado_usuario: ACTIVO | INACTIVO
 
-   HECHOS:
-     Cada usuario TIENE exactamente un username.
-     
-     Cada username PERTENECE a exactamente un usuario.
-     
-     La relación usuario-username ES de tipo uno-a-uno (1:1).
+ HECHOS:
+ Cada usuario TIENE exactamente un username.
+ 
+ Cada username PERTENECE a exactamente un usuario.
+ 
+ La relación usuario-username ES de tipo uno-a-uno (1:1).
 
-   REGLA:
-     Es OBLIGATORIO que cada username sea UNICO en todo el sistema.
-     
-     Es PROHIBIDO reutilizar un username de un usuario dado de baja.
-     
-     Es PROHIBIDO modificar el username una vez creado el usuario.
+ REGLA:
+ Es OBLIGATORIO que cada username sea UNICO en todo el sistema.
+ 
+ Es PROHIBIDO reutilizar un username de un usuario dado de baja.
+ 
+ Es PROHIBIDO modificar el username una vez creado el usuario.
 
 1.3 Justificación
 ^^^^^^^^^^^^^^^^^
@@ -95,13 +95,13 @@ La unicidad del username garantiza:
 ^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 0
+ :widths: 20 80
+ :header-rows: 0
 
-   * - **Tipo**
-     - **Hecho**
-   * - 
-     - [X] **Hecho**: Define cardinalidad 1:1 entre usuario y username
+ * - **Tipo**
+ - **Hecho**
+ * - 
+ - [X] **Hecho**: Define cardinalidad 1:1 entre usuario y username
 
 2.2 Naturaleza
 ^^^^^^^^^^^^^^
@@ -119,17 +119,17 @@ La unicidad del username garantiza:
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - Modelo de Identidades IACT
-   * - **Sección**
-     - Gestión de Usuarios
-   * - **Versión**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - Requisito de Seguridad
+ * - **Documento**
+ - Modelo de Identidades IACT
+ * - **Sección**
+ - Gestión de Usuarios
+ * - **Versión**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - Requisito de Seguridad
 
 3.2 Autoridad de Modificación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,21 +147,21 @@ La unicidad del username garantiza:
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripción de Aplicación
-   * - UC_USR_01
-     - Crear Usuario - Valida unicidad antes de INSERT
-   * - UC_AUTH_01
-     - Iniciar Sesión - Busca por username único
-   * - UC_AUTH_03
-     - Recuperar Contraseña - Identifica por username
-   * - Modelo User
-     - Constraint UNIQUE en columna username
-   * - API
-     - Validación en serializer antes de crear
+ * - Componente
+ - Descripción de Aplicación
+ * - UC_USR_01
+ - Crear Usuario - Valida unicidad antes de INSERT
+ * - UC_AUTH_01
+ - Iniciar Sesión - Busca por username único
+ * - UC_AUTH_03
+ - Recuperar Contraseña - Identifica por username
+ * - Modelo User
+ - Constraint UNIQUE en columna username
+ * - API
+ - Validación en serializer antes de crear
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -184,36 +184,36 @@ Sin excepciones. La unicidad es absoluta e incondicional.
 
 .. code-block:: text
 
-   ┌─────────────────────────────────────┐
-   │              Usuario                │
-   ├─────────────────────────────────────┤
-   │ id           : INTEGER (PK)         │
-   │ username     : VARCHAR(150) UNIQUE  │◄── BR_013: Constraint UNIQUE
-   │ email        : VARCHAR(254)         │
-   │ estado       : ENUM(ACTIVO,INACTIVO)│
-   │ created_at   : TIMESTAMP            │
-   │ ...                                 │
-   └─────────────────────────────────────┘
-   
-   INDEX: idx_users_username (username) UNIQUE
+ ┌─────────────────────────────────────┐
+ │ Usuario │
+ ├─────────────────────────────────────┤
+ │ id : INTEGER (PK) │
+ │ username : VARCHAR(150) UNIQUE │◄── BR_013: Constraint UNIQUE
+ │ email : VARCHAR(254) │
+ │ estado : ENUM(ACTIVO,INACTIVO)│
+ │ created_at : TIMESTAMP │
+ │ ... │
+ └─────────────────────────────────────┘
+ 
+ INDEX: idx_users_username (username) UNIQUE
 
 5.2 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC_USR_01
-     - Crear Usuario - Valida unicidad
-   * - UC_USR_02
-     - Modificar Usuario - Username NO editable
-   * - UC_AUTH_01
-     - Login - Búsqueda por username único
-   * - UC_AUTH_03
-     - Recuperar Password - Identificación por username
+ * - UC
+ - Donde Aplica
+ * - UC_USR_01
+ - Crear Usuario - Valida unicidad
+ * - UC_USR_02
+ - Modificar Usuario - Username NO editable
+ * - UC_AUTH_01
+ - Login - Búsqueda por username único
+ * - UC_AUTH_03
+ - Recuperar Password - Identificación por username
 
 ----
 
@@ -255,58 +255,58 @@ La regla se considera cumplida cuando:
 
 .. code-block:: python
 
-   # apps/users/models.py
-   
-   class User(AbstractBaseUser, PermissionsMixin):
-                                               
-       Modelo de usuario que implementa BR_013.
-                                               
-       username = models.CharField(
-           max_length=150,
-           unique=True,  # BR_013: Username único
-           validators=[username_validator],
-           error_messages={
-               'unique': 'Ya existe un usuario con este username.',
-           },
-       )
-       email = models.EmailField(blank=True)
-       estado = models.CharField(
-           max_length=10,
-           choices=[('ACTIVO', 'Activo'), ('INACTIVO', 'Inactivo')],
-           default='ACTIVO'
-       )
-       
-       USERNAME_FIELD = 'username'
-       
-       class Meta:
-           db_table = 'users'
-           indexes = [
-               models.Index(fields=['username'], name='idx_users_username'),
-           ]
+ # apps/users/models.py
+ 
+ class User(AbstractBaseUser, PermissionsMixin):
+ 
+ Modelo de usuario que implementa BR_013.
+ 
+ username = models.CharField(
+ max_length=150,
+ unique=True, # BR_013: Username único
+ validators=[username_validator],
+ error_messages={
+ 'unique': 'Ya existe un usuario con este username.',
+ },
+ )
+ email = models.EmailField(blank=True)
+ estado = models.CharField(
+ max_length=10,
+ choices=[('ACTIVO', 'Activo'), ('INACTIVO', 'Inactivo')],
+ default='ACTIVO'
+ )
+ 
+ USERNAME_FIELD = 'username'
+ 
+ class Meta:
+ db_table = 'users'
+ indexes = [
+ models.Index(fields=['username'], name='idx_users_username'),
+ ]
 
 7.2 Validación en Serializer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
-   # apps/users/serializers.py
-   
-   class UserCreateSerializer(serializers.ModelSerializer):
-                                                           
-       Serializer para creación de usuario.
-       Implementa validación BR_013.
-                                    
-       
-       def validate_username(self, value):
-                                                
-           Valida unicidad de username (BR_013).
-                                                
-           if User.objects.filter(username__iexact=value).exists():
-               raise serializers.ValidationError(
-                   "BR_013: Ya existe un usuario con este username. "
-                   "El username debe ser único en todo el sistema."
-               )
-           return value.lower()  # Normalizar a minúsculas
+ # apps/users/serializers.py
+ 
+ class UserCreateSerializer(serializers.ModelSerializer):
+ 
+ Serializer para creación de usuario.
+ Implementa validación BR_013.
+ 
+ 
+ def validate_username(self, value):
+ 
+ Valida unicidad de username (BR_013).
+ 
+ if User.objects.filter(username__iexact=value).exists:
+ raise serializers.ValidationError(
+ "BR_013: Ya existe un usuario con este username. "
+ "El username debe ser único en todo el sistema."
+ )
+ return value.lower # Normalizar a minúsculas
 
 ----
 
@@ -314,17 +314,17 @@ La regla se considera cumplida cuando:
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Descripción del Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Versión inicial - Regla fundamental de identidad
+ * - Versión
+ - Fecha
+ - Autor
+ - Descripción del Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Versión inicial - Regla fundamental de identidad
 
 ----
 

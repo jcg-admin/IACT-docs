@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_014
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_014
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-014:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_014
-   * - **Categoria**
-     - Seguridad DRF
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_014
+ * - **Categoria**
+ - Seguridad DRF
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -44,7 +44,7 @@ Resumen Ejecutivo
 
 
 Todo endpoint DRF que retorne una lista DEBE paginar la respuesta.
-Esta prohibido retornar ``QuerySet.all()`` sin paginar para evitar
+Esta prohibido retornar ``QuerySet.all`` sin paginar para evitar
 cargas no acotadas.
 
 1.2 Justificacion
@@ -90,32 +90,32 @@ previene exfiltracion masiva por endpoints de lectura.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - Todos los modulos DRF
-     - Heredan paginacion default
+ * - Modulo
+ - Impacto
+ * - Todos los modulos DRF
+ - Heredan paginacion default
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_017..025
-     - Listados paginados
-   * - Cualquier UC con lista
-     - Pagina respuesta
+ * - UC
+ - Impacto
+ * - UC_017..025
+ - Listados paginados
+ * - Cualquier UC con lista
+ - Pagina respuesta
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Retornar QuerySet.all() sin paginar
+- Retornar QuerySet.all sin paginar
 - Permitir page_size > 200
 - Devolver listas no acotadas
 
@@ -124,7 +124,7 @@ previene exfiltracion masiva por endpoints de lectura.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -135,10 +135,10 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   resp = client.get("/api/clientes/")
-   data = resp.json()
-   assert "results" in data and "count" in data
-   assert len(data["results"]) <= 50
+ resp = client.get("/api/clientes/")
+ data = resp.json
+ assert "results" in data and "count" in data
+ assert len(data["results"]) <= 50
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -161,7 +161,7 @@ Endpoints exentos requieren cache y limite duro de tamano.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -182,37 +182,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_017_SLA_de_Tiempos_de_Respuesta`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_017..025, Cualquier UC con lista
-   * - **MODs afectados**
-     - Todos los modulos DRF
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_017_SLA_de_Tiempos_de_Respuesta`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_017..025, Cualquier UC con lista
+ * - **MODs afectados**
+ - Todos los modulos DRF
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

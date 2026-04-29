@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_POL
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_POL
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-pol:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_POL
-   * - **Nombre**
-     - Generacion de Politicas
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 30-60 minutos por POL
+ * - **ID**
+ - PROC_Generacion_POL
+ * - **Nombre**
+ - Generacion de Politicas
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 30-60 minutos por POL
 
 ----
 
@@ -56,20 +56,20 @@ para gobierno del proyecto.
 --------------------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Tipo
-     - Nivel
-     - Responde a
-   * - POL
-     - Estrategico
-     - Que debemos hacer?
-   * - STD
-     - Tactico
-     - Como debe ser?
-   * - PROC
-     - Operativo
-     - Como se hace?
+ * - Tipo
+ - Nivel
+ - Responde a
+ * - POL
+ - Estrategico
+ - Que debemos hacer?
+ * - STD
+ - Tactico
+ - Como debe ser?
+ * - PROC
+ - Operativo
+ - Como se hace?
 
 ----
 
@@ -84,8 +84,8 @@ Definir area que requiere politica.
 
 .. code-block:: text
 
-   Formato: POL_[NNN]
-   Archivo: POL_[NNN]_[Nombre].rst
+ Formato: POL_[NNN]
+ Archivo: POL_[NNN]_[Nombre].rst
 
 **Paso 3: Redactar Declaracion**
 
@@ -93,10 +93,10 @@ Directriz clara y concisa:
 
 .. code-block:: text
 
-   POL_001: Politica de Seguridad
-   
-   "Todo acceso al sistema IACT debe estar autenticado
-   y autorizado segun modelo RBAC definido."
+ POL_001: Politica de Seguridad
+ 
+ "Todo acceso al sistema IACT debe estar autenticado
+ y autorizado segun modelo RBAC definido."
 
 **Paso 4: Definir Alcance**
 
@@ -148,14 +148,14 @@ POL requiere aprobacion de nivel directivo.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

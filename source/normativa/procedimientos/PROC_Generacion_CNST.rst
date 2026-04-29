@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_CNST
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_CNST
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-cnst:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_CNST
-   * - **Nombre**
-     - Generacion de Restricciones Tecnicas
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 20-40 minutos por CNST
+ * - **ID**
+ - PROC_Generacion_CNST
+ * - **Nombre**
+ - Generacion de Restricciones Tecnicas
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 20-40 minutos por CNST
 
 ----
 
@@ -56,23 +56,23 @@ tecnologicas, decisiones de stack y constraints del sistema.
 ---------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Rango
-     - Categoria
-     - Ejemplos
-   * - 001-003
-     - Stack Tecnologico
-     - Python, Django, PostgreSQL
-   * - 004-006
-     - Seguridad
-     - JWT, RBAC, DRF
-   * - 007-008
-     - Integracion
-     - APIs externas, formatos
-   * - 009-010
-     - Infraestructura
-     - Docker, Cloud
+ * - Rango
+ - Categoria
+ - Ejemplos
+ * - 001-003
+ - Stack Tecnologico
+ - Python, Django, PostgreSQL
+ * - 004-006
+ - Seguridad
+ - JWT, RBAC, DRF
+ * - 007-008
+ - Integracion
+ - APIs externas, formatos
+ * - 009-010
+ - Infraestructura
+ - Docker, Cloud
 
 ----
 
@@ -87,8 +87,8 @@ Documentar constraint tecnico obligatorio.
 
 .. code-block:: text
 
-   Formato: CNST_[NNN]
-   Archivo: CNST_[NNN]_[Nombre].rst
+ Formato: CNST_[NNN]
+ Archivo: CNST_[NNN]_[Nombre].rst
 
 **Paso 3: Documentar Justificacion**
 
@@ -118,15 +118,15 @@ Como validar cumplimiento de la restriccion.
 
 .. code-block:: text
 
-   CNST_001: Stack Backend Python/Django
-   
-   Restriccion: El backend DEBE usar Python 3.11+ y Django 5.0+
-   
-   Justificacion: Estandar corporativo, equipo capacitado
-   
-   Impacto: Todos los modulos backend
-   
-   Verificacion: python --version, pip show django
+ CNST_001: Stack Backend Python/Django
+ 
+ Restriccion: El backend DEBE usar Python 3.11+ y Django 5.0+
+ 
+ Justificacion: Estandar corporativo, equipo capacitado
+ 
+ Impacto: Todos los modulos backend
+ 
+ Verificacion: python --version, pip show django
 
 ----
 
@@ -158,14 +158,14 @@ Como validar cumplimiento de la restriccion.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

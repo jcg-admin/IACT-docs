@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: META_03
-   :tipo: Ciclo de Vida
-   :dominio: base_cognitiva
-   :subdominio: _metadata
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-12-18
-   :ultimo_cambio: 2025-12-18
-   :autor: PMO IACT
-   :clasificacion: Interno
+ :artefacto: META_03
+ :tipo: Ciclo de Vida
+ :dominio: base_cognitiva
+ :subdominio: _metadata
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-12-18
+ :ultimo_cambio: 2025-12-18
+ :autor: PMO IACT
+ :clasificacion: Interno
 
 .. _meta-03:
 .. _meta_03_fases_sdlc:
@@ -48,24 +48,24 @@ y la organización.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 15 65
-   :header-rows: 1
+ :widths: 20 15 65
+ :header-rows: 1
 
-   * - Fase
-     - Duración Est.
-     - Objetivo Principal
-   * - Inception
-     - 4 semanas
-     - Establecer visión, alcance y viabilidad del proyecto.
-   * - Elaboration
-     - 8 semanas
-     - Definir arquitectura base y mitigar riesgos técnicos principales.
-   * - Construction
-     - 16 semanas
-     - Desarrollar el sistema completo de forma incremental.
-   * - Transition
-     - 4 semanas
-     - Desplegar en producción y transferir a operaciones.
+ * - Fase
+ - Duración Est.
+ - Objetivo Principal
+ * - Inception
+ - 4 semanas
+ - Establecer visión, alcance y viabilidad del proyecto.
+ * - Elaboration
+ - 8 semanas
+ - Definir arquitectura base y mitigar riesgos técnicos principales.
+ * - Construction
+ - 16 semanas
+ - Desarrollar el sistema completo de forma incremental.
+ * - Transition
+ - 4 semanas
+ - Desplegar en producción y transferir a operaciones.
 
 3.2. Fase: Inception
 ^^^^^^^^^^^^^^^^^^^^
@@ -88,19 +88,19 @@ y la organización.
 **Artefactos Clave:**
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Artefacto
-     - Dominio IACT
-   * - META_01_Identidad_Proyecto
-     - base_cognitiva/_metadata/
-   * - Visión del Producto
-     - requisitos/vision/
-   * - Lista inicial de Stakeholders
-     - base_cognitiva/_metadata/
-   * - Riesgos identificados
-     - (gestión de proyecto)
+ * - Artefacto
+ - Dominio IACT
+ * - META_01_Identidad_Proyecto
+ - base_cognitiva/_metadata/
+ * - Visión del Producto
+ - requisitos/vision/
+ * - Lista inicial de Stakeholders
+ - base_cognitiva/_metadata/
+ * - Riesgos identificados
+ - (gestión de proyecto)
 
 **Criterios de Salida (Milestone: Lifecycle Objectives):**
 
@@ -130,21 +130,21 @@ y la organización.
 **Artefactos Clave:**
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Artefacto
-     - Dominio IACT
-   * - Reglas de Negocio (BR_xxx)
-     - requisitos/reglas_negocio/
-   * - Casos de Uso (UC_xxx)
-     - requisitos/casos_uso/
-   * - Requisitos Funcionales (FR_xxx)
-     - requisitos/funcionales/
-   * - Documento de Arquitectura (SAD)
-     - arquitectura_tecnica/arquitectura/
-   * - ADRs iniciales
-     - arquitectura_tecnica/arquitectura/decisiones/
+ * - Artefacto
+ - Dominio IACT
+ * - Reglas de Negocio (BR_xxx)
+ - requisitos/reglas_negocio/
+ * - Casos de Uso (UC_xxx)
+ - requisitos/casos_uso/
+ * - Requisitos Funcionales (FR_xxx)
+ - requisitos/funcionales/
+ * - Documento de Arquitectura (SAD)
+ - arquitectura_tecnica/arquitectura/
+ * - ADRs iniciales
+ - arquitectura_tecnica/arquitectura/decisiones/
 
 **Criterios de Salida (Milestone: Lifecycle Architecture):**
 
@@ -175,19 +175,19 @@ y la organización.
 **Artefactos Clave:**
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Artefacto
-     - Dominio IACT
-   * - Diseño Detallado (DES_xxx)
-     - arquitectura_tecnica/diseño_detallado/
-   * - Especificaciones de API
-     - arquitectura_tecnica/especificaciones/
-   * - Casos de Prueba
-     - (gestión de calidad)
-   * - Manuales de Usuario
-     - (documentación de usuario)
+ * - Artefacto
+ - Dominio IACT
+ * - Diseño Detallado (DES_xxx)
+ - arquitectura_tecnica/diseño_detallado/
+ * - Especificaciones de API
+ - arquitectura_tecnica/especificaciones/
+ * - Casos de Prueba
+ - (gestión de calidad)
+ * - Manuales de Usuario
+ - (documentación de usuario)
 
 **Criterios de Salida (Milestone: Initial Operational Capability):**
 
@@ -218,17 +218,17 @@ y la organización.
 **Artefactos Clave:**
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Artefacto
-     - Dominio IACT
-   * - Runbook de Operaciones
-     - arquitectura_tecnica/especificaciones/
-   * - Guía de Despliegue
-     - arquitectura_tecnica/especificaciones/
-   * - Acta de Cierre
-     - (gestión de proyecto)
+ * - Artefacto
+ - Dominio IACT
+ * - Runbook de Operaciones
+ - arquitectura_tecnica/especificaciones/
+ * - Guía de Despliegue
+ - arquitectura_tecnica/especificaciones/
+ * - Acta de Cierre
+ - (gestión de proyecto)
 
 **Criterios de Salida (Milestone: Product Release):**
 
@@ -242,20 +242,20 @@ y la organización.
 -----------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
-   :stub-columns: 1
+ :widths: 30 70
+ :header-rows: 0
+ :stub-columns: 1
 
-   * - **Fase Actual**
-     - Elaboration
-   * - **Iteración**
-     - E2 (segunda iteración de Elaboration)
-   * - **Fecha Inicio Fase**
-     - 2025-02-12
-   * - **Fecha Estimada Fin**
-     - 2025-04-09
-   * - **Próximo Milestone**
-     - LCA (Lifecycle Architecture)
+ * - **Fase Actual**
+ - Elaboration
+ * - **Iteración**
+ - E2 (segunda iteración de Elaboration)
+ * - **Fecha Inicio Fase**
+ - 2025-02-12
+ * - **Fecha Estimada Fin**
+ - 2025-04-09
+ * - **Próximo Milestone**
+ - LCA (Lifecycle Architecture)
 
 ---------------------------------
 5. Relación Fases-Artefactos IACT
@@ -265,83 +265,83 @@ La siguiente matriz indica en qué fase se crean o actualizan los
 principales tipos de artefactos del modelo IACT:
 
 .. list-table::
-   :widths: 30 15 15 15 15
-   :header-rows: 1
+ :widths: 30 15 15 15 15
+ :header-rows: 1
 
-   * - Tipo Artefacto
-     - Inception
-     - Elaboration
-     - Construction
-     - Transition
-   * - META_xx (Identidad)
-     - Crear
-     - Actualizar
-     - \-
-     - \-
-   * - BR_xxx (Reglas Negocio)
-     - Identificar
-     - Crear
-     - Refinar
-     - \-
-   * - UC_xxx (Casos de Uso)
-     - Listar
-     - Crear
-     - Refinar
-     - \-
-   * - FR_xxx (Funcionales)
-     - \-
-     - Crear
-     - Refinar
-     - \-
-   * - ADR_xxx (Decisiones)
-     - \-
-     - Crear
-     - Crear
-     - \-
-   * - DES_xxx (Diseño)
-     - \-
-     - Inicial
-     - Crear
-     - \-
-   * - RTM (Trazabilidad)
-     - \-
-     - Crear
-     - Mantener
-     - Cerrar
+ * - Tipo Artefacto
+ - Inception
+ - Elaboration
+ - Construction
+ - Transition
+ * - META_xx (Identidad)
+ - Crear
+ - Actualizar
+ - \-
+ - \-
+ * - BR_xxx (Reglas Negocio)
+ - Identificar
+ - Crear
+ - Refinar
+ - \-
+ * - UC_xxx (Casos de Uso)
+ - Listar
+ - Crear
+ - Refinar
+ - \-
+ * - FR_xxx (Funcionales)
+ - \-
+ - Crear
+ - Refinar
+ - \-
+ * - ADR_xxx (Decisiones)
+ - \-
+ - Crear
+ - Crear
+ - \-
+ * - DES_xxx (Diseño)
+ - \-
+ - Inicial
+ - Crear
+ - \-
+ * - RTM (Trazabilidad)
+ - \-
+ - Crear
+ - Mantener
+ - Cerrar
 
 --------------
 6. Referencias
 --------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Documento
-     - Referencia
-   * - Identidad del Proyecto
-     - :doc:`META_01_Identidad_Proyecto`
-   * - Contexto IACT
-     - :doc:`META_04_Contexto_IACT`
-   * - Estructura Documental
-     - :doc:`META_05_Estructura_Documental`
+ * - Documento
+ - Referencia
+ * - Identidad del Proyecto
+ - :doc:`META_01_Identidad_Proyecto`
+ * - Contexto IACT
+ - :doc:`META_04_Contexto_IACT`
+ * - Estructura Documental
+ - :doc:`META_05_Estructura_Documental`
 
 --------------------
 Historial de Cambios
 --------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-18
-     - PMO IACT
-     - Versión inicial aprobada
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-18
+ - PMO IACT
+ - Versión inicial aprobada
 
 ----
 

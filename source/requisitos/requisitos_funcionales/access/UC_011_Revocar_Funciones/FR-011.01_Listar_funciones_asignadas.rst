@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-011.01
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/access
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-011.01
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/access
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-011-01:
 
@@ -19,22 +19,22 @@ FR-011.01: Listar funciones asignadas al usuario
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-011.01
-   * - **Nombre**
-     - Listar funciones actualmente asignadas al usuario
-   * - **UC Origen**
-     - UC_011: Revocar Funciones a Usuario
-   * - **Paso UC**
-     - Paso 2 del flujo normal
-   * - **Módulo**
-     - MOD_Access
-   * - **Prioridad**
-     - Alta
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-011.01
+ * - **Nombre**
+ - Listar funciones actualmente asignadas al usuario
+ * - **UC Origen**
+ - UC_011: Revocar Funciones a Usuario
+ * - **Paso UC**
+ - Paso 2 del flujo normal
+ * - **Módulo**
+ - MOD_Access
+ * - **Prioridad**
+ - Alta
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,31 +43,31 @@ FR-011.01: Listar funciones asignadas al usuario
 
 **Declaración:**
 
-   El sistema DEBE mostrar todas las funciones asignadas al usuario
-   con su origen y metadata CUANDO el admin accede a la revocación.
+ El sistema DEBE mostrar todas las funciones asignadas al usuario
+ con su origen y metadata CUANDO el admin accede a la revocación.
 
 **Descripción:**
 
-   Para cada función asignada mostrar:
-   
-   **Información de la Función:**
-   
-   - Código (AUT-xxx, USR-xxx, etc.)
-   - Nombre descriptivo
-   - Módulo al que pertenece
-   - Descripción breve
-   
-   **Metadata de Asignación:**
-   
-   - Fecha de asignación
-   - Quién la asignó
-   - Origen: Directa | vía Agrupador (indicar cuál)
-   - Vigencia: Indefinida | Hasta [fecha]
-   
-   **Indicadores Especiales:**
-   
-   - Funciones que no se pueden revocar (ej: última función admin)
-   - Funciones con dependencias
+ Para cada función asignada mostrar:
+ 
+ **Información de la Función:**
+ 
+ - Código (AUT-xxx, USR-xxx, etc.)
+ - Nombre descriptivo
+ - Módulo al que pertenece
+ - Descripción breve
+ 
+ **Metadata de Asignación:**
+ 
+ - Fecha de asignación
+ - Quién la asignó
+ - Origen: Directa | vía Agrupador (indicar cuál)
+ - Vigencia: Indefinida | Hasta [fecha]
+ 
+ **Indicadores Especiales:**
+ 
+ - Funciones que no se pueden revocar (ej: última función admin)
+ - Funciones con dependencias
 
 ----
 
@@ -76,32 +76,32 @@ FR-011.01: Listar funciones asignadas al usuario
 
 ::
 
-   DADO un admin en pantalla de revocación
-   CUANDO se carga la vista para un usuario
-   ENTONCES ve todas las funciones asignadas con su metadata
-   
-   Escenario 1: Lista completa
-   DADO usuario con 5 funciones asignadas
-   CUANDO se carga la pantalla
-   ENTONCES se muestran las 5 funciones
-   Y cada una tiene su metadata visible
-   
-   Escenario 2: Distinción de origen
-   DADO función asignada vía AGR-003
-   CUANDO se muestra en lista
-   ENTONCES indica "vía AGR-003"
-   Y tiene icono de agrupador
-   
-   Escenario 3: Función no revocable
-   DADO último usuario con ACC-001
-   CUANDO se muestra ACC-001 en su lista
-   ENTONCES está deshabilitada para selección
-   Y tooltip indica "No se puede revocar: único admin con esta función"
-   
-   Escenario 4: Selección múltiple
-   DADO lista de funciones visible
-   CUANDO admin selecciona varias
-   ENTONCES se habilita botón "Revocar seleccionadas"
+ DADO un admin en pantalla de revocación
+ CUANDO se carga la vista para un usuario
+ ENTONCES ve todas las funciones asignadas con su metadata
+ 
+ Escenario 1: Lista completa
+ DADO usuario con 5 funciones asignadas
+ CUANDO se carga la pantalla
+ ENTONCES se muestran las 5 funciones
+ Y cada una tiene su metadata visible
+ 
+ Escenario 2: Distinción de origen
+ DADO función asignada vía AGR-003
+ CUANDO se muestra en lista
+ ENTONCES indica "vía AGR-003"
+ Y tiene icono de agrupador
+ 
+ Escenario 3: Función no revocable
+ DADO último usuario con ACC-001
+ CUANDO se muestra ACC-001 en su lista
+ ENTONCES está deshabilitada para selección
+ Y tooltip indica "No se puede revocar: único admin con esta función"
+ 
+ Escenario 4: Selección múltiple
+ DADO lista de funciones visible
+ CUANDO admin selecciona varias
+ ENTONCES se habilita botón "Revocar seleccionadas"
 
 ----
 
@@ -109,8 +109,8 @@ FR-011.01: Listar funciones asignadas al usuario
 -------------------------
 
 - **BR aplicables:**
-  - BR_006: RBAC Flat NIST
-  
+ - BR_006: RBAC Flat NIST
+ 
 - **CNST aplicables:** Ninguna específica
 
 **Protección:**
@@ -124,20 +124,20 @@ para evitar bloqueo de acceso.
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_011: Revocar Funciones
-   * - **Depende de**
-     - Ninguno
-   * - **Requerido por**
-     - FR-011.02
-   * - **BR**
-     - BR_006
-   * - **TEST**
-     - TST-FR-011.01 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_011: Revocar Funciones
+ * - **Depende de**
+ - Ninguno
+ * - **Requerido por**
+ - FR-011.02
+ * - **BR**
+ - BR_006
+ * - **TEST**
+ - TST-FR-011.01 (pendiente)
 
 ----
 
@@ -145,12 +145,12 @@ para evitar bloqueo de acceso.
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_011
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_011

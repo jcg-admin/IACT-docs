@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_031
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_031
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-031:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_031
-   * - **Categoria**
-     - RBAC
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_031
+ * - **Categoria**
+ - RBAC
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -60,7 +60,7 @@ elimina la responsabilidad del olvido humano.
 ^^^^^^^^^^
 
 - **Fuente:** Compliance + control de privilegios
-- **Documento:** MODELO_RBAC_IACT_v5_2_1.md:610-623
+- **Documento:** MODELO_RBAC_IACT:610-623
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
@@ -78,11 +78,11 @@ elimina la responsabilidad del olvido humano.
 - Vigencia maxima: 6 meses (180 dias) desde la asignacion.
 - Justificacion: minimo 20 caracteres, texto libre.
 - Revocacion: proceso programado diario que desasigna permisos
-  vencidos.
+ vencidos.
 - Auditoria: cada uso del permiso temporal genera registro en
-  ``AuditLog`` (CNST_025).
+ ``AuditLog`` (CNST_025).
 - SoD: la validacion de :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
-  aplica tambien a permisos temporales.
+ aplica tambien a permisos temporales.
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,29 +98,29 @@ elimina la responsabilidad del olvido humano.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Access
-     - Implementa TemporaryPermission + revocacion programada
-   * - MOD_Audit
-     - Registra cada uso del permiso temporal
+ * - Modulo
+ - Impacto
+ * - MOD_Access
+ - Implementa TemporaryPermission + revocacion programada
+ * - MOD_Audit
+ - Registra cada uso del permiso temporal
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_004
-     - Asignar permisos temporales
-   * - UC_005
-     - Renovacion + auditoria
+ * - UC
+ - Impacto
+ * - UC_004
+ - Asignar permisos temporales
+ * - UC_005
+ - Renovacion + auditoria
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,7 +135,7 @@ elimina la responsabilidad del olvido humano.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -146,8 +146,8 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   assert (perm.expires_at - perm.granted_at).days <= 180
-   assert len(perm.justification) >= 20
+ assert (perm.expires_at - perm.granted_at).days <= 180
+ assert len(perm.justification) >= 20
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,7 +170,7 @@ Renovacion requiere nueva solicitud formal con justificacion actualizada y aprob
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -191,37 +191,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_004, UC_005
-   * - **MODs afectados**
-     - MOD_Access, MOD_Audit
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_029_RBAC_Modelo_Plano`, :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_025_Auditoria_Inmutable_Append_Only`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_004, UC_005
+ * - **MODs afectados**
+ - MOD_Access, MOD_Audit
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

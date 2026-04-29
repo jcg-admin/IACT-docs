@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_BReq
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_BReq
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-breq:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_BReq
-   * - **Nombre**
-     - Generacion de Objetivos de Negocio
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 30-60 minutos por BReq
+ * - **ID**
+ - PROC_Generacion_BReq
+ * - **Nombre**
+ - Generacion de Objetivos de Negocio
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 30-60 minutos por BReq
 
 ----
 
@@ -56,26 +56,26 @@ nivel del sistema IACT siguiendo TPL_BReq.
 ---------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - ID
-     - Categoria
-     - Descripcion
-   * - BReq_001-002
-     - Funcionalidad Core
-     - Dashboard, reportes
-   * - BReq_003
-     - Rendimiento
-     - Tiempos de respuesta
-   * - BReq_004
-     - Seguridad
-     - Cumplimiento normativo
-   * - BReq_005-006
-     - Usabilidad
-     - UX, accesibilidad
-   * - BReq_007-008
-     - Integracion
-     - APIs, datos externos
+ * - ID
+ - Categoria
+ - Descripcion
+ * - BReq_001-002
+ - Funcionalidad Core
+ - Dashboard, reportes
+ * - BReq_003
+ - Rendimiento
+ - Tiempos de respuesta
+ * - BReq_004
+ - Seguridad
+ - Cumplimiento normativo
+ * - BReq_005-006
+ - Usabilidad
+ - UX, accesibilidad
+ * - BReq_007-008
+ - Integracion
+ - APIs, datos externos
 
 ----
 
@@ -90,18 +90,18 @@ Definir meta de negocio clara y medible.
 
 .. code-block:: text
 
-   Formato: BReq_[NNN]
-   Archivo: BReq_[NNN]_[Nombre].rst
+ Formato: BReq_[NNN]
+ Archivo: BReq_[NNN]_[Nombre].rst
 
 **Paso 3: Redactar Declaracion**
 
 .. code-block:: text
 
-   "El sistema DEBE [capacidad] PARA [beneficio de negocio]"
-   
-   Ejemplo:
-   "El sistema DEBE proporcionar dashboards interactivos
-   PARA facilitar la toma de decisiones basada en datos"
+ "El sistema DEBE [capacidad] PARA [beneficio de negocio]"
+ 
+ Ejemplo:
+ "El sistema DEBE proporcionar dashboards interactivos
+ PARA facilitar la toma de decisiones basada en datos"
 
 **Paso 4: Definir Metricas de Exito**
 
@@ -145,14 +145,14 @@ Listar BR que implementaran el BReq.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

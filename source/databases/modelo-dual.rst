@@ -1,13 +1,13 @@
 .. meta::
-   :artefacto: DB_001
-   :tipo: Modelo de Datos
-   :dominio: databases
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: DB_001
+ :tipo: Modelo de Datos
+ :dominio: databases
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 ==========================
 Modelo de Datos Dual
@@ -23,8 +23,8 @@ proposito distinto.
 - **Acceso desde IACT:** SOLO LECTURA (CNST_007).
 - **Contenido:** llamadas, agentes, colas, eventos del IVR.
 - **No se modifica:** IACT no escribe NADA en esta BD bajo ninguna
-  circunstancia (3 niveles de enforcement: GRANT SELECT, Django
-  ``managed = False``, middleware de proteccion).
+ circunstancia (3 niveles de enforcement: GRANT SELECT, Django
+ ``managed = False``, middleware de proteccion).
 
 2. BD PostgreSQL (IACT Analytics)
 ==================================
@@ -32,8 +32,8 @@ proposito distinto.
 - **Owner:** sistema IACT.
 - **Acceso:** read/write para IACT.
 - **Contenido:** tablas analiticas derivadas del ETL + tablas
-  operacionales del sistema (usuarios, sesiones, RBAC, alertas,
-  audit log, configuraciones).
+ operacionales del sistema (usuarios, sesiones, RBAC, alertas,
+ audit log, configuraciones).
 
 3. Sincronizacion
 =================
@@ -48,15 +48,15 @@ Ver :doc:`etl-pipeline`.
 
 .. code-block:: python
 
-   # api/db_routers.py
-   class IVRRouter:
-       """Enruta lecturas de modelos IVR a BD MySQL readonly."""
-       def db_for_read(self, model, **hints):
-           if model._meta.app_label == 'ivr':
-               return 'ivr'
-           return None
+ # api/db_routers.py
+ class IVRRouter:
+ """Enruta lecturas de modelos IVR a BD MySQL readonly."""
+ def db_for_read(self, model, **hints):
+ if model._meta.app_label == 'ivr':
+ return 'ivr'
+ return None
 
-       def db_for_write(self, model, **hints):
-           if model._meta.app_label == 'ivr':
-               raise ProtectedError("CNST_007: BD IVR is read-only")
-           return None
+ def db_for_write(self, model, **hints):
+ if model._meta.app_label == 'ivr':
+ raise ProtectedError("CNST_007: BD IVR is read-only")
+ return None

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_008
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_008
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-008:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_008
-   * - **Nombre**
-     - Auditoria de Accesos
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_008
+ * - **Nombre**
+ - Auditoria de Accesos
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ recurso accedido, y resultado (exito/fallo).
 
 ::
 
-   VOCABULARIO:
-     - Acceso: Login, logout, operacion sobre recursos
-     - Log de auditoria: Registro inmutable de eventos
-     - Evento auditable: Accion que requiere registro
+ VOCABULARIO:
+ - Acceso: Login, logout, operacion sobre recursos
+ - Log de auditoria: Registro inmutable de eventos
+ - Evento auditable: Accion que requiere registro
 
-   REGLA:
-     Es obligatorio que todo acceso genere registro de auditoria.
-     Es obligatorio que el registro incluya todos los campos requeridos.
+ REGLA:
+ Es obligatorio que todo acceso genere registro de auditoria.
+ Es obligatorio que el registro incluya todos los campos requeridos.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -96,15 +96,15 @@ trazabilidad de acciones en el sistema.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_009_Logging_Auditoria_Inmutable
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST
+ * - **Documento**
+ - CNST_009_Logging_Auditoria_Inmutable
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST
 
 ----
 
@@ -115,17 +115,17 @@ trazabilidad de acciones en el sistema.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Auth
-     - Registra login/logout
-   * - MOD_Audit
-     - Almacena y consulta logs
-   * - Middleware DRF
-     - Captura todas las operaciones
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Auth
+ - Registra login/logout
+ * - MOD_Audit
+ - Almacena y consulta logs
+ * - Middleware DRF
+ - Captura todas las operaciones
 
 ----
 
@@ -136,13 +136,13 @@ trazabilidad de acciones en el sistema.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_009
-     - Define requisitos de logging y auditoria
+ * - CNST
+ - Relacion
+ * - CNST_009
+ - Define requisitos de logging y auditoria
 
 5.2 UC Afectados
 ^^^^^^^^^^^^^^^^
@@ -169,14 +169,14 @@ trazabilidad de acciones en el sistema.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

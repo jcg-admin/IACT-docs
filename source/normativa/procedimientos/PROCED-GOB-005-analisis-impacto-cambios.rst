@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROCED_GOB_005
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROCED_GOB_005
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCED-GOB-005: Análisis de Impacto de Cambios en Requisitos
 ============================================================
@@ -26,22 +26,22 @@ Pre-requisitos
 
 Antes de comenzar este procedimiento, debe:
 
--  Haber leído ADR-GOB-009 (Trazabilidad entre Artefactos)
--  Tener trazabilidad establecida en los artefactos del proyecto
--  Conocer el artefacto que cambió o va a cambiar
--  Tener acceso al repositorio del proyecto
+- Haber leído ADR-GOB-009 (Trazabilidad entre Artefactos)
+- Tener trazabilidad establecida en los artefactos del proyecto
+- Conocer el artefacto que cambió o va a cambiar
+- Tener acceso al repositorio del proyecto
 
 Resultado Esperado
 ------------------
 
 Al completar este procedimiento tendrá:
 
--  Lista completa de artefactos afectados por el cambio
--  Checklist de cambios necesarios
--  Todos los artefactos afectados actualizados consistentemente
--  Matrices de trazabilidad actualizadas
--  Commit atómico en git con todos los cambios relacionados
--  Documentación del análisis de impacto
+- Lista completa de artefactos afectados por el cambio
+- Checklist de cambios necesarios
+- Todos los artefactos afectados actualizados consistentemente
+- Matrices de trazabilidad actualizadas
+- Commit atómico en git con todos los cambios relacionados
+- Documentación del análisis de impacto
 
 Tipos de Cambios
 ----------------
@@ -50,40 +50,40 @@ Clasificación por Magnitud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+-----------------------+-----------------------+
-| Tipo                  | Descripción           | Ejemplo               |
+| Tipo | Descripción | Ejemplo |
 +=======================+=======================+=======================+
-| **Menor**             | Corrección de typos,  | Corregir ortografía   |
-|                       | clarificación de      | en UC-BACK-001        |
-|                       | texto                 |                       |
+| **Menor** | Corrección de typos, | Corregir ortografía |
+| | clarificación de | en UC-BACK-001 |
+| | texto | |
 +-----------------------+-----------------------+-----------------------+
-| **Mayor**             | Cambio en lógica,     | Agregar validación    |
-|                       | flujos, condiciones   | adicional en          |
-|                       |                       | RN-BACK-001           |
+| **Mayor** | Cambio en lógica, | Agregar validación |
+| | flujos, condiciones | adicional en |
+| | | RN-BACK-001 |
 +-----------------------+-----------------------+-----------------------+
-| **Breaking**          | Cambio que invalida   | Cambiar objetivo      |
-|                       | artefactos            | completo de UC,       |
-|                       | dependientes          | eliminar RN           |
+| **Breaking** | Cambio que invalida | Cambiar objetivo |
+| | artefactos | completo de UC, |
+| | dependientes | eliminar RN |
 +-----------------------+-----------------------+-----------------------+
 
 Clasificación por Operación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+-----------------------+-----------------------+
-| Operación             | Descripción           | Impacto Típico        |
+| Operación | Descripción | Impacto Típico |
 +=======================+=======================+=======================+
-| **Modificar**         | Cambiar contenido de  | Actualizar artefactos |
-|                       | artefacto existente   | relacionados          |
+| **Modificar** | Cambiar contenido de | Actualizar artefactos |
+| | artefacto existente | relacionados |
 +-----------------------+-----------------------+-----------------------+
-| **Agregar**           | Crear nuevo artefacto | Agregar referencias   |
-|                       |                       | en artefactos         |
-|                       |                       | relacionados          |
+| **Agregar** | Crear nuevo artefacto | Agregar referencias |
+| | | en artefactos |
+| | | relacionados |
 +-----------------------+-----------------------+-----------------------+
-| **Eliminar**          | Remover artefacto     | Eliminar referencias, |
-|                       |                       | posiblemente eliminar |
-|                       |                       | dependientes          |
+| **Eliminar** | Remover artefacto | Eliminar referencias, |
+| | | posiblemente eliminar |
+| | | dependientes |
 +-----------------------+-----------------------+-----------------------+
-| **Deprecar**          | Marcar artefacto como | Marcar dependientes,  |
-|                       | obsoleto              | planear migración     |
+| **Deprecar** | Marcar artefacto como | Marcar dependientes, |
+| | obsoleto | planear migración |
 +-----------------------+-----------------------+-----------------------+
 
 PASO 1: Identificar Artefacto que Cambió
@@ -99,11 +99,11 @@ Información a Capturar
 
 1. **ID del artefacto**: RN-BACK-001, UC-BACK-010, etc.
 2. **Tipo de artefacto**: Regla de Negocio, Caso de Uso, Requisito
-   Funcional, etc.
+ Funcional, etc.
 3. **Tipo de cambio**: Menor, Mayor, Breaking
 4. **Operación**: Modificar, Agregar, Eliminar, Deprecar
 5. **Razón del cambio**: Regulación nueva, error identificado, mejora
-   solicitada
+ solicitada
 6. **Contenido antes del cambio**: Capturar estado actual
 7. **Contenido después del cambio**: Describir estado deseado
 
@@ -112,31 +112,31 @@ Plantilla de Documentación
 
 .. code:: markdown
 
-   # Análisis de Impacto: [ID del Artefacto]
+ # Análisis de Impacto: [ID del Artefacto]
 
-   ## Artefacto Modificado
+ ## Artefacto Modificado
 
-   **ID**: [RN-BACK-001]
-   **Tipo**: [Regla de Negocio - Restricción]
-   **Archivo**: [/ruta/completa/al/archivo.md]
+ **ID**: [RN-BACK-001]
+ **Tipo**: [Regla de Negocio - Restricción]
+ **Archivo**: [/ruta/completa/al/archivo.md]
 
-   ## Tipo de Cambio
+ ## Tipo de Cambio
 
-   **Magnitud**: [Menor | Mayor | Breaking]
-   **Operación**: [Modificar | Agregar | Eliminar | Deprecar]
+ **Magnitud**: [Menor | Mayor | Breaking]
+ **Operación**: [Modificar | Agregar | Eliminar | Deprecar]
 
-   ## Razón del Cambio
+ ## Razón del Cambio
 
-   [Descripción de por qué se necesita este cambio. Ejemplo: Nueva regulación LFPDPPP requiere autenticación de dos factores]
+ [Descripción de por qué se necesita este cambio. Ejemplo: Nueva regulación LFPDPPP requiere autenticación de dos factores]
 
-   ## Contenido Antes del Cambio
+ ## Contenido Antes del Cambio
 
 Usuario debe estar autenticado para acceder al sistema
 
 ::
 
 
-   ## Contenido Después del Cambio
+ ## Contenido Después del Cambio
 
 Usuario debe estar autenticado con autenticación de dos factores (2FA)
 para acceder al sistema
@@ -144,44 +144,44 @@ para acceder al sistema
 ::
 
 
-   ## Fecha de Análisis
+ ## Fecha de Análisis
 
-   2025-11-17
+ 2025-11-17
 
-   ## Analista
+ ## Analista
 
-   [Nombre]
+ [Nombre]
 
 Ejemplo Completo
 ~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   # Análisis de Impacto: RN-BACK-001
+ # Análisis de Impacto: RN-BACK-001
 
-   ## Artefacto Modificado
+ ## Artefacto Modificado
 
-   **ID**: RN-BACK-001
-   **Tipo**: Regla de Negocio - Restricción
-   **Archivo**: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
+ **ID**: RN-BACK-001
+ **Tipo**: Regla de Negocio - Restricción
+ **Archivo**: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
 
-   ## Tipo de Cambio
+ ## Tipo de Cambio
 
-   **Magnitud**: Mayor (Breaking)
-   **Operación**: Modificar
+ **Magnitud**: Mayor (Breaking)
+ **Operación**: Modificar
 
-   ## Razón del Cambio
+ ## Razón del Cambio
 
-   Nueva regulación de seguridad LFPDPPP Artículo 12 bis (vigente desde 2025-12-01) requiere autenticación de dos factores para acceso a datos personales. El sistema actual solo implementa autenticación básica con usuario y contraseña.
+ Nueva regulación de seguridad LFPDPPP Artículo 12 bis (vigente desde 2025-12-01) requiere autenticación de dos factores para acceso a datos personales. El sistema actual solo implementa autenticación básica con usuario y contraseña.
 
-   ## Contenido Antes del Cambio
+ ## Contenido Antes del Cambio
 
 Usuario debe estar autenticado para acceder al sistema
 
 ::
 
 
-   ## Contenido Después del Cambio
+ ## Contenido Después del Cambio
 
 Usuario debe estar autenticado con autenticación de dos factores (2FA)
 para acceder al sistema. La autenticación 2FA debe usar TOTP (Time-based
@@ -190,22 +190,22 @@ One-Time Password) según RFC 6238.
 ::
 
 
-   ## Fecha de Análisis
+ ## Fecha de Análisis
 
-   2025-11-17
+ 2025-11-17
 
-   ## Analista
+ ## Analista
 
-   Claude Code
+ Claude Code
 
 Validación
 ~~~~~~~~~~
 
--  ☐ ID del artefacto identificado
--  ☐ Tipo de cambio clasificado (Menor/Mayor/Breaking)
--  ☐ Razón del cambio documentada
--  ☐ Contenido antes y después capturado
--  ☐ Fecha y analista registrados
+- ☐ ID del artefacto identificado
+- ☐ Tipo de cambio clasificado (Menor/Mayor/Breaking)
+- ☐ Razón del cambio documentada
+- ☐ Contenido antes y después capturado
+- ☐ Fecha y analista registrados
 
 PASO 2: Consultar Trazabilidad Bidireccional
 --------------------------------------------
@@ -225,7 +225,7 @@ Trazabilidad Upstream (Hacia Arriba)
 
 ::
 
-   RF → UC → RNEG → RN
+ RF → UC → RNEG → RN
 
 **Preguntas**: - ¿Qué caso de uso implementa este RF? - ¿Qué regla de
 negocio justifica este UC? - ¿Qué requerimiento de negocio motiva esta
@@ -238,7 +238,7 @@ Trazabilidad Downstream (Hacia Abajo)
 
 ::
 
-   RN → RNEG → UC → RF → RNF
+ RN → RNEG → UC → RF → RNF
 
 **Preguntas**: - ¿Qué casos de uso están influenciados por esta RN? -
 ¿Qué requisitos funcionales implementan este UC? - ¿Qué atributos de
@@ -254,84 +254,84 @@ Abrir el archivo markdown del artefacto y buscar secciones:
 
 .. code:: markdown
 
-   ## Reglas de Negocio Relacionadas
-   ## Requisitos Funcionales Derivados
-   ## Impacto en Requisitos
-   ## Trazabilidad
+ ## Reglas de Negocio Relacionadas
+ ## Requisitos Funcionales Derivados
+ ## Impacto en Requisitos
+ ## Trazabilidad
 
 Método 2: Búsqueda con Grep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Buscar todas las referencias al artefacto en el proyecto
-   grep -r "RN-BACK-001" docs/gobernanza/requisitos/
+ # Buscar todas las referencias al artefacto en el proyecto
+ grep -r "RN-BACK-001" docs/gobernanza/requisitos/
 
-   # Buscar en casos de uso
-   grep -r "RN-BACK-001" docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
+ # Buscar en casos de uso
+ grep -r "RN-BACK-001" docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
 
-   # Buscar en requisitos funcionales
-   grep -r "RN-BACK-001" docs/gobernanza/requisitos/requerimientos_funcionales/
+ # Buscar en requisitos funcionales
+ grep -r "RN-BACK-001" docs/gobernanza/requisitos/requerimientos_funcionales/
 
 Método 3: Consultar Matriz de Trazabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Si existe matriz de trazabilidad
-   cat docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md | grep "RN-BACK-001"
+ # Si existe matriz de trazabilidad
+ cat docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md | grep "RN-BACK-001"
 
 Ejemplo: RN-BACK-001
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Buscar todas las referencias
-   grep -r "RN-BACK-001" docs/gobernanza/requisitos/
+ # Buscar todas las referencias
+ grep -r "RN-BACK-001" docs/gobernanza/requisitos/
 
-   # Resultados:
-   # docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
-   # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
-   # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
-   # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-010-validar-credenciales.md
-   # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
-   # docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-005-contrasena-minimo-8-caracteres.md
+ # Resultados:
+ # docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
+ # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
+ # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-010-validar-credenciales.md
+ # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
+ # docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-005-contrasena-minimo-8-caracteres.md
 
 Documentar Resultados
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ## Trazabilidad Identificada
+ ## Trazabilidad Identificada
 
-   ### Upstream (Justificación)
+ ### Upstream (Justificación)
 
-   - RNEG-BACK-001: Sistema de autenticación seguro
+ - RNEG-BACK-001: Sistema de autenticación seguro
 
-   ### Downstream (Dependientes)
+ ### Downstream (Dependientes)
 
-   **Requerimientos de Usuario**:
-   - UC-BACK-001: Iniciar Sesión
-   - UC-BACK-003: Cambiar Contraseña
-   - UC-BACK-004: Recuperar Contraseña
+ **Requerimientos de Usuario**:
+ - UC-BACK-001: Iniciar Sesión
+ - UC-BACK-003: Cambiar Contraseña
+ - UC-BACK-004: Recuperar Contraseña
 
-   **Requisitos Funcionales**:
-   - RF-BACK-010: Validar credenciales contra base de datos
-   - RF-BACK-011: Generar token JWT con expiración
+ **Requisitos Funcionales**:
+ - RF-BACK-010: Validar credenciales contra base de datos
+ - RF-BACK-011: Generar token JWT con expiración
 
-   **Atributos de Calidad**:
-   - RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
-   - RNF-BACK-007: Sesión expira después de 30 minutos de inactividad
+ **Atributos de Calidad**:
+ - RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+ - RNF-BACK-007: Sesión expira después de 30 minutos de inactividad
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-1:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Trazabilidad upstream identificada (0 o más artefactos)
--  ☐ Trazabilidad downstream identificada (0 o más artefactos)
--  ☐ Todos los IDs de artefactos relacionados capturados
--  ☐ Resultados documentados
+- ☐ Trazabilidad upstream identificada (0 o más artefactos)
+- ☐ Trazabilidad downstream identificada (0 o más artefactos)
+- ☐ Todos los IDs de artefactos relacionados capturados
+- ☐ Resultados documentados
 
 PASO 3: Listar Artefactos Potencialmente Afectados
 --------------------------------------------------
@@ -350,11 +350,11 @@ Criterios de Inclusión
 Un artefacto está potencialmente afectado si:
 
 1. **Referencia directa**: El artefacto menciona el ID del artefacto
-   modificado
+ modificado
 2. **Dependencia lógica**: El artefacto implementa o depende del
-   artefacto modificado
+ artefacto modificado
 3. **Cascada**: Un artefacto afectado tiene dependientes que también
-   pueden afectarse
+ pueden afectarse
 
 Proceso
 ~~~~~~~
@@ -369,55 +369,55 @@ Ejemplo: RN-BACK-001 (2FA)
 
 .. code:: markdown
 
-   ## Artefactos Potencialmente Afectados
+ ## Artefactos Potencialmente Afectados
 
-   ### Nivel 1: Referencias Directas
+ ### Nivel 1: Referencias Directas
 
-   **Requerimientos de Negocio**:
-   - RNEG-BACK-001: Sistema de autenticación seguro
+ **Requerimientos de Negocio**:
+ - RNEG-BACK-001: Sistema de autenticación seguro
 
-   **Casos de Uso**:
-   - UC-BACK-001: Iniciar Sesión
-   - UC-BACK-003: Cambiar Contraseña
-   - UC-BACK-004: Recuperar Contraseña
+ **Casos de Uso**:
+ - UC-BACK-001: Iniciar Sesión
+ - UC-BACK-003: Cambiar Contraseña
+ - UC-BACK-004: Recuperar Contraseña
 
-   **Requisitos Funcionales**:
-   - RF-BACK-010: Validar credenciales contra base de datos
-   - RF-BACK-011: Generar token JWT con expiración
+ **Requisitos Funcionales**:
+ - RF-BACK-010: Validar credenciales contra base de datos
+ - RF-BACK-011: Generar token JWT con expiración
 
-   **Atributos de Calidad**:
-   - RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
-   - RNF-BACK-007: Sesión expira después de 30 minutos
+ **Atributos de Calidad**:
+ - RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+ - RNF-BACK-007: Sesión expira después de 30 minutos
 
-   ### Nivel 2: Dependencias Indirectas
+ ### Nivel 2: Dependencias Indirectas
 
-   **Nuevos artefactos necesarios**:
-   - RF-BACK-[NUEVO]: Generar código TOTP
-   - RF-BACK-[NUEVO]: Validar código TOTP
-   - RF-BACK-[NUEVO]: Registrar dispositivo 2FA
-   - RNF-BACK-[NUEVO]: Código TOTP debe expirar en 30 segundos
+ **Nuevos artefactos necesarios**:
+ - RF-BACK-[NUEVO]: Generar código TOTP
+ - RF-BACK-[NUEVO]: Validar código TOTP
+ - RF-BACK-[NUEVO]: Registrar dispositivo 2FA
+ - RNF-BACK-[NUEVO]: Código TOTP debe expirar en 30 segundos
 
-   **Diagramas UML**:
-   - UCD-BACK-001-autenticacion.puml: Agregar paso de 2FA
+ **Diagramas UML**:
+ - UCD-BACK-001-autenticacion.puml: Agregar paso de 2FA
 
-   **Tests (fuera de alcance de requisitos, pero considerar)**:
-   - TS-BACK-010-*: Tests de autenticación
-   - TS-BACK-011-*: Tests de generación de tokens
+ **Tests (fuera de alcance de requisitos, pero considerar)**:
+ - TS-BACK-010-*: Tests de autenticación
+ - TS-BACK-011-*: Tests de generación de tokens
 
-   ### Nivel 3: Documentación Relacionada
+ ### Nivel 3: Documentación Relacionada
 
-   - README de módulo de autenticación
-   - Guía de usuario para configurar 2FA
+ - README de módulo de autenticación
+ - Guía de usuario para configurar 2FA
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-2:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Todos los artefactos de nivel 1 listados
--  ☐ Artefactos de nivel 2 considerados
--  ☐ Nuevos artefactos necesarios identificados
--  ☐ Diagramas y documentación complementaria incluidos
+- ☐ Todos los artefactos de nivel 1 listados
+- ☐ Artefactos de nivel 2 considerados
+- ☐ Nuevos artefactos necesarios identificados
+- ☐ Diagramas y documentación complementaria incluidos
 
 PASO 4: Revisar Cada Artefacto y Determinar Acción
 --------------------------------------------------
@@ -434,26 +434,26 @@ Tipos de Acción
 ~~~~~~~~~~~~~~~
 
 +-----------------------+-----------------------+-----------------------+
-| Acción                | Descripción           | Ejemplo               |
+| Acción | Descripción | Ejemplo |
 +=======================+=======================+=======================+
-| **Actualizar**        | Modificar contenido   | Agregar paso de 2FA   |
-|                       | existente             | en flujo de           |
-|                       |                       | UC-BACK-001           |
+| **Actualizar** | Modificar contenido | Agregar paso de 2FA |
+| | existente | en flujo de |
+| | | UC-BACK-001 |
 +-----------------------+-----------------------+-----------------------+
-| **Sin cambios**       | No requiere           | RNF-BACK-005 sigue    |
-|                       | modificación          | siendo válido sin     |
-|                       |                       | cambios               |
+| **Sin cambios** | No requiere | RNF-BACK-005 sigue |
+| | modificación | siendo válido sin |
+| | | cambios |
 +-----------------------+-----------------------+-----------------------+
-| **Crear nuevo**       | Artefacto nuevo       | RF-BACK-065: Generar  |
-|                       | necesario             | código TOTP           |
+| **Crear nuevo** | Artefacto nuevo | RF-BACK-065: Generar |
+| | necesario | código TOTP |
 +-----------------------+-----------------------+-----------------------+
-| **Deprecar**          | Marcar como obsoleto  | RF-BACK-010 se        |
-|                       |                       | reemplaza por         |
-|                       |                       | RF-BACK-010-v2        |
+| **Deprecar** | Marcar como obsoleto | RF-BACK-010 se |
+| | | reemplaza por |
+| | | RF-BACK-010-v2 |
 +-----------------------+-----------------------+-----------------------+
-| **Eliminar**          | Remover completamente | (Raro, solo si        |
-|                       |                       | artefacto ya no       |
-|                       |                       | aplica)               |
+| **Eliminar** | Remover completamente | (Raro, solo si |
+| | | artefacto ya no |
+| | | aplica) |
 +-----------------------+-----------------------+-----------------------+
 
 Proceso de Revisión
@@ -472,42 +472,42 @@ Plantilla de Análisis por Artefacto
 
 .. code:: markdown
 
-   ### [ID]: [Nombre]
+ ### [ID]: [Nombre]
 
-   **Acción**: [Actualizar | Sin cambios | Crear nuevo | Deprecar | Eliminar]
+ **Acción**: [Actualizar | Sin cambios | Crear nuevo | Deprecar | Eliminar]
 
-   **Razón**: [Por qué esta acción]
+ **Razón**: [Por qué esta acción]
 
-   **Cambio Específico**:
+ **Cambio Específico**:
 
 [Descripción del cambio necesario]
 
 ::
 
 
-   **Prioridad**: [Alta | Media | Baja]
+ **Prioridad**: [Alta | Media | Baja]
 
 Ejemplo: Revisión de UC-BACK-001
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ### UC-BACK-001: Iniciar Sesión
+ ### UC-BACK-001: Iniciar Sesión
 
-   **Acción**: Actualizar
+ **Acción**: Actualizar
 
-   **Razón**: El flujo normal debe incluir paso de validación de código 2FA después de validar contraseña
+ **Razón**: El flujo normal debe incluir paso de validación de código 2FA después de validar contraseña
 
-   **Cambio Específico**:
+ **Cambio Específico**:
 
 Agregar después del paso 6 (validar credenciales):
 
 +-----------------------------------+-----------------------------------+
-| ACCIONES DEL ACTOR                | RESPONSABILIDADES DEL SISTEMA     |
+| ACCIONES DEL ACTOR | RESPONSABILIDADES DEL SISTEMA |
 +===================================+===================================+
-| 7. El Usuario ingresa código 2FA  | 8. El sistema valida el código    |
-| de su aplicación autenticadora    | TOTP9. El sistema verifica que el |
-|                                   | código no haya expirado           |
+| 7. El Usuario ingresa código 2FA | 8. El sistema valida el código |
+| de su aplicación autenticadora | TOTP9. El sistema verifica que el |
+| | código no haya expirado |
 +-----------------------------------+-----------------------------------+
 
 Agregar excepción: ### Excepción 8.1: Código 2FA Incorrecto - El sistema
@@ -518,36 +518,36 @@ minutos
 ::
 
 
-   **Prioridad**: Alta (cambio breaking, funcionalidad core)
+ **Prioridad**: Alta (cambio breaking, funcionalidad core)
 
 Ejemplo: Revisión de RNF-BACK-005
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ### RNF-BACK-005: Contraseña Mínimo 8 Caracteres
+ ### RNF-BACK-005: Contraseña Mínimo 8 Caracteres
 
-   **Acción**: Sin cambios
+ **Acción**: Sin cambios
 
-   **Razón**: Esta regla de calidad para contraseñas sigue siendo válida independientemente de agregar 2FA. Ambas medidas de seguridad son complementarias.
+ **Razón**: Esta regla de calidad para contraseñas sigue siendo válida independientemente de agregar 2FA. Ambas medidas de seguridad son complementarias.
 
-   **Cambio Específico**:
-   Ninguno.
+ **Cambio Específico**:
+ Ninguno.
 
-   **Prioridad**: N/A
+ **Prioridad**: N/A
 
 Ejemplo: Nuevo Artefacto Necesario
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ### RF-BACK-065: [NUEVO] Generar Código TOTP
+ ### RF-BACK-065: [NUEVO] Generar Código TOTP
 
-   **Acción**: Crear nuevo
+ **Acción**: Crear nuevo
 
-   **Razón**: Se requiere nueva funcionalidad para generar códigos TOTP según RFC 6238 para 2FA
+ **Razón**: Se requiere nueva funcionalidad para generar códigos TOTP según RFC 6238 para 2FA
 
-   **Cambio Específico**:
+ **Cambio Específico**:
 
 Crear nuevo archivo: RF-BACK-065-generar-codigo-totp.md
 
@@ -558,41 +558,41 @@ Algoritmo: HMAC-SHA1 - Período de validez: 30 segundos - Basado en RFC
 ::
 
 
-   **Prioridad**: Alta (requisito para implementar 2FA)
+ **Prioridad**: Alta (requisito para implementar 2FA)
 
 Tabla Resumen de Acciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ## Resumen de Acciones
+ ## Resumen de Acciones
 
-   | ID | Nombre | Acción | Prioridad |
-   |---|---|---|---|
-   | RNEG-BACK-001 | Sistema de autenticación seguro | Actualizar | Alta |
-   | UC-BACK-001 | Iniciar Sesión | Actualizar | Alta |
-   | UC-BACK-003 | Cambiar Contraseña | Actualizar | Media |
-   | UC-BACK-004 | Recuperar Contraseña | Actualizar | Media |
-   | RF-BACK-010 | Validar credenciales | Sin cambios | N/A |
-   | RF-BACK-011 | Generar token JWT | Actualizar | Alta |
-   | RF-BACK-065 | Generar código TOTP | Crear nuevo | Alta |
-   | RF-BACK-066 | Validar código TOTP | Crear nuevo | Alta |
-   | RF-BACK-067 | Registrar dispositivo 2FA | Crear nuevo | Alta |
-   | RNF-BACK-005 | Contraseña mínimo 8 caracteres | Sin cambios | N/A |
-   | RNF-BACK-007 | Sesión expira en 30 min | Sin cambios | N/A |
-   | RNF-BACK-020 | Código TOTP expira en 30s | Crear nuevo | Alta |
-   | UCD-BACK-001 | Diagrama autenticación | Actualizar | Media |
+ | ID | Nombre | Acción | Prioridad |
+ |---|---|---|---|
+ | RNEG-BACK-001 | Sistema de autenticación seguro | Actualizar | Alta |
+ | UC-BACK-001 | Iniciar Sesión | Actualizar | Alta |
+ | UC-BACK-003 | Cambiar Contraseña | Actualizar | Media |
+ | UC-BACK-004 | Recuperar Contraseña | Actualizar | Media |
+ | RF-BACK-010 | Validar credenciales | Sin cambios | N/A |
+ | RF-BACK-011 | Generar token JWT | Actualizar | Alta |
+ | RF-BACK-065 | Generar código TOTP | Crear nuevo | Alta |
+ | RF-BACK-066 | Validar código TOTP | Crear nuevo | Alta |
+ | RF-BACK-067 | Registrar dispositivo 2FA | Crear nuevo | Alta |
+ | RNF-BACK-005 | Contraseña mínimo 8 caracteres | Sin cambios | N/A |
+ | RNF-BACK-007 | Sesión expira en 30 min | Sin cambios | N/A |
+ | RNF-BACK-020 | Código TOTP expira en 30s | Crear nuevo | Alta |
+ | UCD-BACK-001 | Diagrama autenticación | Actualizar | Media |
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-3:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Cada artefacto revisado individualmente
--  ☐ Acción específica asignada
--  ☐ Cambio detallado documentado
--  ☐ Prioridad asignada
--  ☐ Tabla resumen creada
+- ☐ Cada artefacto revisado individualmente
+- ☐ Acción específica asignada
+- ☐ Cambio detallado documentado
+- ☐ Prioridad asignada
+- ☐ Tabla resumen creada
 
 PASO 5: Crear Checklist de Cambios
 ----------------------------------
@@ -609,56 +609,56 @@ Formato de Checklist
 
 .. code:: markdown
 
-   ## Checklist de Implementación de Cambios
+ ## Checklist de Implementación de Cambios
 
-   ### Cambio Origen
-   - [ ] RN-BACK-001: Actualizar con requisito de 2FA
+ ### Cambio Origen
+ - [ ] RN-BACK-001: Actualizar con requisito de 2FA
 
-   ### Artefactos a Actualizar
+ ### Artefactos a Actualizar
 
-   **Alta Prioridad**:
-   - [ ] RNEG-BACK-001: Actualizar descripción de sistema de autenticación
-   - [ ] UC-BACK-001: Agregar pasos de 2FA en flujo normal
-   - [ ] RF-BACK-011: Incluir validación de 2FA antes de generar token
-   - [ ] UCD-BACK-001: Actualizar diagrama con paso de 2FA
+ **Alta Prioridad**:
+ - [ ] RNEG-BACK-001: Actualizar descripción de sistema de autenticación
+ - [ ] UC-BACK-001: Agregar pasos de 2FA en flujo normal
+ - [ ] RF-BACK-011: Incluir validación de 2FA antes de generar token
+ - [ ] UCD-BACK-001: Actualizar diagrama con paso de 2FA
 
-   **Media Prioridad**:
-   - [ ] UC-BACK-003: Agregar nota sobre 2FA en cambio de contraseña
-   - [ ] UC-BACK-004: Documentar proceso de recuperación con 2FA
+ **Media Prioridad**:
+ - [ ] UC-BACK-003: Agregar nota sobre 2FA en cambio de contraseña
+ - [ ] UC-BACK-004: Documentar proceso de recuperación con 2FA
 
-   **Baja Prioridad**:
-   - [ ] Ninguno
+ **Baja Prioridad**:
+ - [ ] Ninguno
 
-   ### Nuevos Artefactos a Crear
+ ### Nuevos Artefactos a Crear
 
-   **Alta Prioridad**:
-   - [ ] RF-BACK-065: Generar código TOTP
-   - [ ] RF-BACK-066: Validar código TOTP
-   - [ ] RF-BACK-067: Registrar dispositivo 2FA
-   - [ ] RNF-BACK-020: Código TOTP expira en 30 segundos
+ **Alta Prioridad**:
+ - [ ] RF-BACK-065: Generar código TOTP
+ - [ ] RF-BACK-066: Validar código TOTP
+ - [ ] RF-BACK-067: Registrar dispositivo 2FA
+ - [ ] RNF-BACK-020: Código TOTP expira en 30 segundos
 
-   ### Artefactos Sin Cambios (Validados)
-   - [x] RF-BACK-010: Validar credenciales (sin cambios)
-   - [x] RNF-BACK-005: Contraseña mínimo 8 caracteres (sin cambios)
-   - [x] RNF-BACK-007: Sesión expira en 30 minutos (sin cambios)
+ ### Artefactos Sin Cambios (Validados)
+ - [x] RF-BACK-010: Validar credenciales (sin cambios)
+ - [x] RNF-BACK-005: Contraseña mínimo 8 caracteres (sin cambios)
+ - [x] RNF-BACK-007: Sesión expira en 30 minutos (sin cambios)
 
-   ### Documentación Complementaria
-   - [ ] README: Actualizar guía de autenticación
-   - [ ] CHANGELOG: Documentar cambio breaking
+ ### Documentación Complementaria
+ - [ ] README: Actualizar guía de autenticación
+ - [ ] CHANGELOG: Documentar cambio breaking
 
-   ### Matrices de Trazabilidad
-   - [ ] MATRIZ-BACK-autenticacion.md: Agregar nuevos RF y RNF
+ ### Matrices de Trazabilidad
+ - [ ] MATRIZ-BACK-autenticacion.md: Agregar nuevos RF y RNF
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-4:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Checklist completo con todos los artefactos
--  ☐ Organizado por prioridad
--  ☐ Incluye cambio origen
--  ☐ Incluye nuevos artefactos
--  ☐ Incluye matrices y documentación
+- ☐ Checklist completo con todos los artefactos
+- ☐ Organizado por prioridad
+- ☐ Incluye cambio origen
+- ☐ Incluye nuevos artefactos
+- ☐ Incluye matrices y documentación
 
 PASO 6: Actualizar Artefactos Afectados
 ---------------------------------------
@@ -698,85 +698,85 @@ Ejemplo: Actualizar UC-BACK-001
 
 .. code:: bash
 
-   # 1. Abrir archivo
-   vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ # 1. Abrir archivo
+ vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
 
-   # 2. Actualizar frontmatter
-   version: 1.0.0 → 1.1.0
-   ultima_actualizacion: 2025-11-17
+ # 2. Actualizar frontmatter
+ version: 1.0.0 → 1.1.0
+ ultima_actualizacion: 2025-11-17
 
-   # 3. Actualizar flujo normal
-   # Agregar pasos de 2FA después de validar credenciales
+ # 3. Actualizar flujo normal
+ # Agregar pasos de 2FA después de validar credenciales
 
-   # 4. Actualizar reglas de negocio relacionadas
-   Agregar: - RN-BACK-001: Usuario debe estar autenticado con 2FA
+ # 4. Actualizar reglas de negocio relacionadas
+ Agregar: - RN-BACK-001: Usuario debe estar autenticado con 2FA
 
-   # 5. Actualizar RF derivados
-   Agregar: - RF-BACK-065: Generar código TOTP
-   Agregar: - RF-BACK-066: Validar código TOTP
+ # 5. Actualizar RF derivados
+ Agregar: - RF-BACK-065: Generar código TOTP
+ Agregar: - RF-BACK-066: Validar código TOTP
 
-   # 6. Guardar
-   :wq
+ # 6. Guardar
+ :wq
 
-   # 7. Marcar en checklist
-   - [x] UC-BACK-001: Agregar pasos de 2FA en flujo normal
+ # 7. Marcar en checklist
+ - [x] UC-BACK-001: Agregar pasos de 2FA en flujo normal
 
 Ejemplo: Crear RF-BACK-065
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Usar procedimiento PROCED-GOB-003 para crear nuevo RF
-   # O crear manualmente siguiendo template
+ # Usar procedimiento PROCED-GOB-003 para crear nuevo RF
+ # O crear manualmente siguiendo template
 
-   cat > docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md <<'EOF'
-                                                                                                         
-   id: RF-BACK-065
-   tipo: requisito_funcional
-   categoria: backend
-   version: 1.0.0
-   fecha: 2025-11-17
-                    
+ cat > docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md <<'EOF'
+ 
+ id: RF-BACK-065
+ tipo: requisito_funcional
+ categoria: backend
+ version: 1.0.0
+ fecha: 2025-11-17
+ 
 
-   # RF-BACK-065: Generar Código TOTP
+ # RF-BACK-065: Generar Código TOTP
 
-   ## Descripción
+ ## Descripción
 
-   El sistema debe generar códigos TOTP (Time-based One-Time Password) de 6 dígitos para autenticación de dos factores según RFC 6238.
+ El sistema debe generar códigos TOTP (Time-based One-Time Password) de 6 dígitos para autenticación de dos factores según RFC 6238.
 
-   ## Especificación
+ ## Especificación
 
-   **Algoritmo**: HMAC-SHA1
-   **Longitud de código**: 6 dígitos
-   **Período de validez**: 30 segundos
-   **Sincronización de tiempo**: NTP
+ **Algoritmo**: HMAC-SHA1
+ **Longitud de código**: 6 dígitos
+ **Período de validez**: 30 segundos
+ **Sincronización de tiempo**: NTP
 
-   ## Trazabilidad
+ ## Trazabilidad
 
-   **Implementa Casos de Uso**:
-   - UC-BACK-001: Iniciar Sesión
+ **Implementa Casos de Uso**:
+ - UC-BACK-001: Iniciar Sesión
 
-   **Derivado de Reglas de Negocio**:
-   - RN-BACK-001: Usuario debe estar autenticado con 2FA
+ **Derivado de Reglas de Negocio**:
+ - RN-BACK-001: Usuario debe estar autenticado con 2FA
 
-   **Cumple Atributos de Calidad**:
-   - RNF-BACK-020: Código TOTP expira en 30 segundos
+ **Cumple Atributos de Calidad**:
+ - RNF-BACK-020: Código TOTP expira en 30 segundos
 
-   ## Referencias
+ ## Referencias
 
-   - [RFC 6238: TOTP](https://tools.ietf.org/html/rfc6238)
-   EOF
+ - [RFC 6238: TOTP](https://tools.ietf.org/html/rfc6238)
+ EOF
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-5:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Todos los checkboxes del checklist marcados
--  ☐ Cada archivo actualizado tiene fecha actualizada
--  ☐ Versiones incrementadas donde aplica
--  ☐ Trazabilidad actualizada en cada archivo
--  ☐ Archivos guardados pero NO commiteados aún
+- ☐ Todos los checkboxes del checklist marcados
+- ☐ Cada archivo actualizado tiene fecha actualizada
+- ☐ Versiones incrementadas donde aplica
+- ☐ Trazabilidad actualizada en cada archivo
+- ☐ Archivos guardados pero NO commiteados aún
 
 PASO 7: Validar Consistencia
 ----------------------------
@@ -795,65 +795,65 @@ Checklist de Consistencia
 Validación de Trazabilidad Bidireccional
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
-   UC-BACK-001
--  ☐ Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
-   RN-BACK-001
--  ☐ Todas las referencias bidireccionales son correctas
+- ☐ Si UC-BACK-001 menciona RF-BACK-065, entonces RF-BACK-065 menciona
+ UC-BACK-001
+- ☐ Si RN-BACK-001 menciona UC-BACK-001, entonces UC-BACK-001 menciona
+ RN-BACK-001
+- ☐ Todas las referencias bidireccionales son correctas
 
 Validación de IDs
 ^^^^^^^^^^^^^^^^^
 
--  ☐ No hay referencias a IDs que no existen
--  ☐ Todos los IDs nuevos siguen nomenclatura correcta
--  ☐ No hay IDs duplicados
+- ☐ No hay referencias a IDs que no existen
+- ☐ Todos los IDs nuevos siguen nomenclatura correcta
+- ☐ No hay IDs duplicados
 
 Validación de Formato
 ^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Todos los archivos markdown tienen frontmatter completo
--  ☐ Fechas en formato YYYY-MM-DD
--  ☐ Versiones en formato semántico (X.Y.Z)
+- ☐ Todos los archivos markdown tienen frontmatter completo
+- ☐ Fechas en formato YYYY-MM-DD
+- ☐ Versiones en formato semántico (X.Y.Z)
 
 Validación de Contenido
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Cambios alineados con el cambio origen
--  ☐ No hay contradicciones entre artefactos
--  ☐ Terminología consistente
+- ☐ Cambios alineados con el cambio origen
+- ☐ No hay contradicciones entre artefactos
+- ☐ Terminología consistente
 
 Scripts de Validación
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   #!/bin/bash
-   # scripts/validar-consistencia.sh
+ #!/bin/bash
+ # scripts/validar-consistencia.sh
 
-   echo "Validando trazabilidad bidireccional..."
+ echo "Validando trazabilidad bidireccional..."
 
-   # Buscar todas las referencias a RF-BACK-065
-   grep -r "RF-BACK-065" docs/gobernanza/requisitos/ > /tmp/rf065-refs.txt
+ # Buscar todas las referencias a RF-BACK-065
+ grep -r "RF-BACK-065" docs/gobernanza/requisitos/ > /tmp/rf065-refs.txt
 
-   # El archivo RF-BACK-065 debe existir
-   if [ ! -f "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md" ]; then
-     echo "ERROR: RF-BACK-065 es referenciado pero no existe"
-     exit 1
-   fi
+ # El archivo RF-BACK-065 debe existir
+ if [ ! -f "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md" ]; then
+ echo "ERROR: RF-BACK-065 es referenciado pero no existe"
+ exit 1
+ fi
 
-   # Validar que UC-BACK-001 menciona RF-BACK-065
-   if ! grep -q "RF-BACK-065" "docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md"; then
-     echo "ERROR: UC-BACK-001 no menciona RF-BACK-065 pero debería"
-     exit 1
-   fi
+ # Validar que UC-BACK-001 menciona RF-BACK-065
+ if ! grep -q "RF-BACK-065" "docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md"; then
+ echo "ERROR: UC-BACK-001 no menciona RF-BACK-065 pero debería"
+ exit 1
+ fi
 
-   # Validar que RF-BACK-065 menciona UC-BACK-001
-   if ! grep -q "UC-BACK-001" "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md"; then
-     echo "ERROR: RF-BACK-065 no menciona UC-BACK-001 pero debería"
-     exit 1
-   fi
+ # Validar que RF-BACK-065 menciona UC-BACK-001
+ if ! grep -q "UC-BACK-001" "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md"; then
+ echo "ERROR: RF-BACK-065 no menciona UC-BACK-001 pero debería"
+ exit 1
+ fi
 
-   echo "Validación exitosa"
+ echo "Validación exitosa"
 
 Revisión Manual
 ~~~~~~~~~~~~~~~
@@ -862,18 +862,18 @@ Revisión Manual
 2. Leer cada artefacto actualizado
 3. Preguntar: “¿Este artefacto es consistente con el cambio origen?”
 4. Preguntar: “¿Este artefacto es consistente con los demás artefactos
-   actualizados?”
+ actualizados?”
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-6:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Script de validación ejecutado sin errores
--  ☐ Revisión manual completada
--  ☐ Trazabilidad bidireccional verificada
--  ☐ Contenido consistente entre artefactos
--  ☐ Listo para commit
+- ☐ Script de validación ejecutado sin errores
+- ☐ Revisión manual completada
+- ☐ Trazabilidad bidireccional verificada
+- ☐ Contenido consistente entre artefactos
+- ☐ Listo para commit
 
 PASO 8: Actualizar Matrices de Trazabilidad
 -------------------------------------------
@@ -898,65 +898,65 @@ Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md
 
 .. code:: markdown
 
-   # Matriz de Trazabilidad: Módulo de Autenticación
+ # Matriz de Trazabilidad: Módulo de Autenticación
 
-   Última actualización: 2025-11-17
+ Última actualización: 2025-11-17
 
-   ## Matriz Vertical
+ ## Matriz Vertical
 
-   | RN | RNEG | UC | RF | RNF |
-   |---|---|---|---|---|
-   | RN-BACK-001 | RNEG-BACK-001 | UC-BACK-001 | RF-BACK-010 | RNF-BACK-005 |
-   |  |  |  | RF-BACK-011 | RNF-BACK-007 |
-   |  |  |  | RF-BACK-065 ← NUEVO | RNF-BACK-020 ← NUEVO |
-   |  |  |  | RF-BACK-066 ← NUEVO |  |
-   |  |  |  | RF-BACK-067 ← NUEVO |  |
-   |  |  | UC-BACK-003 | RF-BACK-014 | RNF-BACK-005 |
-   |  |  | UC-BACK-004 | RF-BACK-018 |  |
+ | RN | RNEG | UC | RF | RNF |
+ |---|---|---|---|---|
+ | RN-BACK-001 | RNEG-BACK-001 | UC-BACK-001 | RF-BACK-010 | RNF-BACK-005 |
+ | | | | RF-BACK-011 | RNF-BACK-007 |
+ | | | | RF-BACK-065 ← NUEVO | RNF-BACK-020 ← NUEVO |
+ | | | | RF-BACK-066 ← NUEVO | |
+ | | | | RF-BACK-067 ← NUEVO | |
+ | | | UC-BACK-003 | RF-BACK-014 | RNF-BACK-005 |
+ | | | UC-BACK-004 | RF-BACK-018 | |
 
-   ## Matriz por Caso de Uso: UC-BACK-001
+ ## Matriz por Caso de Uso: UC-BACK-001
 
-   | Tipo | ID | Nombre | Versión |
-   |---|---|---|---|
-   | RN | RN-BACK-001 | Usuario debe estar autenticado con 2FA | 2.0.0 ← ACTUALIZADO |
-   | RNEG | RNEG-BACK-001 | Sistema de autenticación seguro | 1.1.0 ← ACTUALIZADO |
-   | UC | UC-BACK-001 | Iniciar Sesión | 1.1.0 ← ACTUALIZADO |
-   | RF | RF-BACK-010 | Validar credenciales | 1.0.0 |
-   | RF | RF-BACK-011 | Generar token JWT | 1.1.0 ← ACTUALIZADO |
-   | RF | RF-BACK-065 | Generar código TOTP | 1.0.0 ← NUEVO |
-   | RF | RF-BACK-066 | Validar código TOTP | 1.0.0 ← NUEVO |
-   | RF | RF-BACK-067 | Registrar dispositivo 2FA | 1.0.0 ← NUEVO |
-   | RNF | RNF-BACK-005 | Contraseña mínimo 8 caracteres | 1.0.0 |
-   | RNF | RNF-BACK-007 | Sesión expira en 30 minutos | 1.0.0 |
-   | RNF | RNF-BACK-020 | Código TOTP expira en 30 segundos | 1.0.0 ← NUEVO |
+ | Tipo | ID | Nombre | Versión |
+ |---|---|---|---|
+ | RN | RN-BACK-001 | Usuario debe estar autenticado con 2FA | 2.0.0 ← ACTUALIZADO |
+ | RNEG | RNEG-BACK-001 | Sistema de autenticación seguro | 1.1.0 ← ACTUALIZADO |
+ | UC | UC-BACK-001 | Iniciar Sesión | 1.1.0 ← ACTUALIZADO |
+ | RF | RF-BACK-010 | Validar credenciales | 1.0.0 |
+ | RF | RF-BACK-011 | Generar token JWT | 1.1.0 ← ACTUALIZADO |
+ | RF | RF-BACK-065 | Generar código TOTP | 1.0.0 ← NUEVO |
+ | RF | RF-BACK-066 | Validar código TOTP | 1.0.0 ← NUEVO |
+ | RF | RF-BACK-067 | Registrar dispositivo 2FA | 1.0.0 ← NUEVO |
+ | RNF | RNF-BACK-005 | Contraseña mínimo 8 caracteres | 1.0.0 |
+ | RNF | RNF-BACK-007 | Sesión expira en 30 minutos | 1.0.0 |
+ | RNF | RNF-BACK-020 | Código TOTP expira en 30 segundos | 1.0.0 ← NUEVO |
 
-   ## Cambios en esta Actualización
+ ## Cambios en esta Actualización
 
-   **Fecha**: 2025-11-17
-   **Cambio Origen**: RN-BACK-001 actualizado para requerir 2FA
+ **Fecha**: 2025-11-17
+ **Cambio Origen**: RN-BACK-001 actualizado para requerir 2FA
 
-   **Artefactos Actualizados**:
-   - RN-BACK-001: v1.0.0 → v2.0.0 (Breaking change: agregar 2FA)
-   - RNEG-BACK-001: v1.0.0 → v1.1.0 (Actualizar descripción)
-   - UC-BACK-001: v1.0.0 → v1.1.0 (Agregar pasos de 2FA)
-   - RF-BACK-011: v1.0.0 → v1.1.0 (Validar 2FA antes de token)
+ **Artefactos Actualizados**:
+ - RN-BACK-001: v1.0.0 → v2.0.0 (Breaking change: agregar 2FA)
+ - RNEG-BACK-001: v1.0.0 → v1.1.0 (Actualizar descripción)
+ - UC-BACK-001: v1.0.0 → v1.1.0 (Agregar pasos de 2FA)
+ - RF-BACK-011: v1.0.0 → v1.1.0 (Validar 2FA antes de token)
 
-   **Artefactos Nuevos**:
-   - RF-BACK-065: Generar código TOTP
-   - RF-BACK-066: Validar código TOTP
-   - RF-BACK-067: Registrar dispositivo 2FA
-   - RNF-BACK-020: Código TOTP expira en 30 segundos
+ **Artefactos Nuevos**:
+ - RF-BACK-065: Generar código TOTP
+ - RF-BACK-066: Validar código TOTP
+ - RF-BACK-067: Registrar dispositivo 2FA
+ - RNF-BACK-020: Código TOTP expira en 30 segundos
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-7:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Matriz vertical actualizada
--  ☐ Matrices horizontales actualizadas
--  ☐ Nuevos artefactos agregados
--  ☐ Versiones reflejadas correctamente
--  ☐ Cambios documentados en la matriz
+- ☐ Matriz vertical actualizada
+- ☐ Matrices horizontales actualizadas
+- ☐ Nuevos artefactos agregados
+- ☐ Versiones reflejadas correctamente
+- ☐ Cambios documentados en la matriz
 
 PASO 9: Commit Atómico de Todos los Cambios
 -------------------------------------------
@@ -981,130 +981,130 @@ Verificar Archivos Modificados
 
 .. code:: bash
 
-   git status
+ git status
 
-   # Salida esperada:
-   # modified:   docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
-   # new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md
-   # new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-066-validar-codigo-totp.md
-   # new file:   docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-067-registrar-dispositivo-2fa.md
-   # new file:   docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-020-codigo-totp-expira-30s.md
-   # modified:   docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
-   # modified:   docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md
+ # Salida esperada:
+ # modified: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
+ # modified: docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
+ # modified: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-066-validar-codigo-totp.md
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-067-registrar-dispositivo-2fa.md
+ # new file: docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-020-codigo-totp-expira-30s.md
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
+ # modified: docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md
 
 Agregar Todos los Archivos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Agregar todos los archivos modificados y nuevos
-   git add docs/gobernanza/requisitos/
-   git add docs/gobernanza/trazabilidad/
+ # Agregar todos los archivos modificados y nuevos
+ git add docs/gobernanza/requisitos/
+ git add docs/gobernanza/trazabilidad/
 
 Crear Mensaje de Commit Descriptivo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   git commit -m "$(cat <<'EOF'
-   docs(requisitos): implementar autenticación 2FA (BREAKING CHANGE)
+ git commit -m "$(cat <<'EOF'
+ docs(requisitos): implementar autenticación 2FA (BREAKING CHANGE)
 
-   Cambio origen: RN-BACK-001 actualizado para requerir autenticación de dos
-   factores (2FA) según nueva regulación LFPDPPP Art. 12 bis.
+ Cambio origen: RN-BACK-001 actualizado para requerir autenticación de dos
+ factores (2FA) según nueva regulación LFPDPPP Art. 12 bis.
 
-   BREAKING CHANGE: La autenticación ahora requiere 2FA con TOTP. Esto afecta
-   todos los flujos de inicio de sesión.
+ BREAKING CHANGE: La autenticación ahora requiere 2FA con TOTP. Esto afecta
+ todos los flujos de inicio de sesión.
 
-   Artefactos actualizados (6):
-   - RN-BACK-001: v1.0.0 → v2.0.0 - Agregar requisito de 2FA
-   - RNEG-BACK-001: v1.0.0 → v1.1.0 - Actualizar descripción
-   - UC-BACK-001: v1.0.0 → v1.1.0 - Agregar pasos de 2FA en flujo
-   - UC-BACK-003: v1.0.0 → v1.1.0 - Nota sobre 2FA
-   - UC-BACK-004: v1.0.0 → v1.1.0 - Proceso de recuperación con 2FA
-   - RF-BACK-011: v1.0.0 → v1.1.0 - Validar 2FA antes de generar token
+ Artefactos actualizados (6):
+ - RN-BACK-001: v1.0.0 → v2.0.0 - Agregar requisito de 2FA
+ - RNEG-BACK-001: v1.0.0 → v1.1.0 - Actualizar descripción
+ - UC-BACK-001: v1.0.0 → v1.1.0 - Agregar pasos de 2FA en flujo
+ - UC-BACK-003: v1.0.0 → v1.1.0 - Nota sobre 2FA
+ - UC-BACK-004: v1.0.0 → v1.1.0 - Proceso de recuperación con 2FA
+ - RF-BACK-011: v1.0.0 → v1.1.0 - Validar 2FA antes de generar token
 
-   Artefactos nuevos (4):
-   - RF-BACK-065: Generar código TOTP según RFC 6238
-   - RF-BACK-066: Validar código TOTP
-   - RF-BACK-067: Registrar dispositivo 2FA del usuario
-   - RNF-BACK-020: Código TOTP debe expirar en 30 segundos
+ Artefactos nuevos (4):
+ - RF-BACK-065: Generar código TOTP según RFC 6238
+ - RF-BACK-066: Validar código TOTP
+ - RF-BACK-067: Registrar dispositivo 2FA del usuario
+ - RNF-BACK-020: Código TOTP debe expirar en 30 segundos
 
-   Diagramas actualizados:
-   - UCD-BACK-001: Agregar paso de validación 2FA
+ Diagramas actualizados:
+ - UCD-BACK-001: Agregar paso de validación 2FA
 
-   Matrices actualizadas:
-   - MATRIZ-BACK-autenticacion.md
+ Matrices actualizadas:
+ - MATRIZ-BACK-autenticacion.md
 
-   Fecha de análisis: 2025-11-17
-   Analista: Claude Code
+ Fecha de análisis: 2025-11-17
+ Analista: Claude Code
 
-   Relacionado: ADR-GOB-005, ADR-GOB-009
-   Regulación: LFPDPPP Art. 12 bis
-   EOF
-   )"
+ Relacionado: ADR-GOB-005, ADR-GOB-009
+ Regulación: LFPDPPP Art. 12 bis
+ EOF
+ )"
 
 Formato de Mensaje de Commit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-   docs(requisitos): [descripción breve del cambio] (BREAKING CHANGE si aplica)
+ docs(requisitos): [descripción breve del cambio] (BREAKING CHANGE si aplica)
 
-   Cambio origen: [ID] [descripción del cambio origen]
+ Cambio origen: [ID] [descripción del cambio origen]
 
-   BREAKING CHANGE: [descripción del impacto si es breaking]
+ BREAKING CHANGE: [descripción del impacto si es breaking]
 
-   Artefactos actualizados (N):
-   - [ID]: [versión anterior] → [versión nueva] - [cambio]
-   - ...
+ Artefactos actualizados (N):
+ - [ID]: [versión anterior] → [versión nueva] - [cambio]
+ - ...
 
-   Artefactos nuevos (N):
-   - [ID]: [descripción]
-   - ...
+ Artefactos nuevos (N):
+ - [ID]: [descripción]
+ - ...
 
-   Diagramas actualizados:
-   - [ID]: [cambio]
+ Diagramas actualizados:
+ - [ID]: [cambio]
 
-   Matrices actualizadas:
-   - [archivo]
+ Matrices actualizadas:
+ - [archivo]
 
-   Fecha de análisis: [YYYY-MM-DD]
-   Analista: [Nombre]
+ Fecha de análisis: [YYYY-MM-DD]
+ Analista: [Nombre]
 
-   Relacionado: [ADRs relacionados]
-   [Información adicional relevante]
+ Relacionado: [ADRs relacionados]
+ [Información adicional relevante]
 
 Push al Repositorio
 ~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Verificar que todo está commiteado
-   git status
+ # Verificar que todo está commiteado
+ git status
 
-   # Debería mostrar:
-   # On branch main
-   # nothing to commit, working tree clean
+ # Debería mostrar:
+ # On branch main
+ # nothing to commit, working tree clean
 
-   # Push
-   git push origin main
+ # Push
+ git push origin main
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-8:
 
 Validación
 ~~~~~~~~~~
 
--  ☐ Todos los archivos agregados a git
--  ☐ Commit creado con mensaje descriptivo completo
--  ☐ Mensaje incluye BREAKING CHANGE si aplica
--  ☐ Mensaje lista todos los artefactos actualizados y nuevos
--  ☐ Push exitoso
--  ☐ Working tree clean
+- ☐ Todos los archivos agregados a git
+- ☐ Commit creado con mensaje descriptivo completo
+- ☐ Mensaje incluye BREAKING CHANGE si aplica
+- ☐ Mensaje lista todos los artefactos actualizados y nuevos
+- ☐ Push exitoso
+- ☐ Working tree clean
 
 Documentar el Análisis
 ----------------------
@@ -1121,25 +1121,25 @@ Crear Documento de Análisis
 
 .. code:: bash
 
-   mkdir -p docs/gobernanza/analisis_impacto/
+ mkdir -p docs/gobernanza/analisis_impacto/
 
-   cat > docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md <<'EOF'
-   [Contenido completo del análisis de los PASOS 1-9]
-   EOF
+ cat > docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md <<'EOF'
+ [Contenido completo del análisis de los PASOS 1-9]
+ EOF
 
 Commitar Documento de Análisis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   git add docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md
+ git add docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md
 
-   git commit -m "docs(analisis): documentar análisis de impacto RN-BACK-001 (2FA)
+ git commit -m "docs(analisis): documentar análisis de impacto RN-BACK-001 (2FA)
 
-   Análisis completo del cambio de autenticación básica a 2FA.
-   Fecha: 2025-11-17"
+ Análisis completo del cambio de autenticación básica a 2FA.
+ Fecha: 2025-11-17"
 
-   git push origin main
+ git push origin main
 
 Ejemplo Completo: RN-BACK-015 Cambio Menor
 ------------------------------------------
@@ -1149,95 +1149,95 @@ Escenario
 
 ::
 
-   Cambio: Corregir typo en RN-BACK-015
-   Antes: "Solo usuarios con rol Auditor puede generar reportes"
-   Después: "Solo usuarios con rol Auditor pueden generar reportes"
-   Tipo: Menor (corrección ortográfica)
+ Cambio: Corregir typo en RN-BACK-015
+ Antes: "Solo usuarios con rol Auditor puede generar reportes"
+ Después: "Solo usuarios con rol Auditor pueden generar reportes"
+ Tipo: Menor (corrección ortográfica)
 
 PASO 1: Identificar Artefacto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ## Artefacto Modificado
-   **ID**: RN-BACK-015
-   **Tipo**: Regla de Negocio - Restricción
-   **Magnitud**: Menor
-   **Operación**: Modificar
-   **Razón**: Corrección ortográfica (puede → pueden)
+ ## Artefacto Modificado
+ **ID**: RN-BACK-015
+ **Tipo**: Regla de Negocio - Restricción
+ **Magnitud**: Menor
+ **Operación**: Modificar
+ **Razón**: Corrección ortográfica (puede → pueden)
 
 PASO 2: Consultar Trazabilidad
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   grep -r "RN-BACK-015" docs/gobernanza/requisitos/
+ grep -r "RN-BACK-015" docs/gobernanza/requisitos/
 
-   # Resultados:
-   # UC-BACK-020-generar-reporte-auditoria.md
+ # Resultados:
+ # UC-BACK-020-generar-reporte-auditoria.md
 
 PASO 3: Artefactos Afectados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ## Artefactos Potencialmente Afectados
+ ## Artefactos Potencialmente Afectados
 
-   - UC-BACK-020: Generar Reporte de Auditoría (solo referencia, contenido no afectado)
+ - UC-BACK-020: Generar Reporte de Auditoría (solo referencia, contenido no afectado)
 
 PASO 4: Determinar Acción
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ### UC-BACK-020
-   **Acción**: Sin cambios
-   **Razón**: El typo está en RN-BACK-015, no en UC-BACK-020. La referencia por ID sigue siendo válida.
+ ### UC-BACK-020
+ **Acción**: Sin cambios
+ **Razón**: El typo está en RN-BACK-015, no en UC-BACK-020. La referencia por ID sigue siendo válida.
 
 PASO 5: Checklist
 ~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   ## Checklist
+ ## Checklist
 
-   - [ ] RN-BACK-015: Corregir typo "puede" → "pueden"
-   - [x] UC-BACK-020: Sin cambios (validado)
+ - [ ] RN-BACK-015: Corregir typo "puede" → "pueden"
+ - [x] UC-BACK-020: Sin cambios (validado)
 
 PASO 6-7: Actualizar y Validar
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Solo actualizar RN-BACK-015
-   vim docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+ # Solo actualizar RN-BACK-015
+ vim docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
 
-   # Cambiar "puede" por "pueden"
-   # Actualizar fecha (no versión, es cambio menor)
+ # Cambiar "puede" por "pueden"
+ # Actualizar fecha (no versión, es cambio menor)
 
 PASO 8: Matrices
 ~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
-   No requiere actualización de matrices (contenido no cambió, solo ortografía)
+ No requiere actualización de matrices (contenido no cambió, solo ortografía)
 
 PASO 9: Commit
 ~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+ git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
 
-   git commit -m "fix(requisitos): corregir typo en RN-BACK-015
+ git commit -m "fix(requisitos): corregir typo en RN-BACK-015
 
-   Corrección ortográfica: 'puede' → 'pueden'
+ Corrección ortográfica: 'puede' → 'pueden'
 
-   Artefactos afectados: Ninguno (solo corrección ortográfica)
+ Artefactos afectados: Ninguno (solo corrección ortográfica)
 
-   Fecha: 2025-11-17"
+ Fecha: 2025-11-17"
 
-   git push origin main
+ git push origin main
 
 Problemas Comunes y Soluciones
 ------------------------------
@@ -1268,15 +1268,15 @@ Problema 3: No encuentro todas las referencias
 
 .. code:: bash
 
-   # Búsqueda exhaustiva con grep
-   grep -r "RN-BACK-001" docs/
-   grep -r "RN-BACK-001" --include="*.md" .
+ # Búsqueda exhaustiva con grep
+ grep -r "RN-BACK-001" docs/
+ grep -r "RN-BACK-001" --include="*.md" .
 
-   # Búsqueda por palabra clave
-   grep -r "autenticación" docs/gobernanza/requisitos/
+ # Búsqueda por palabra clave
+ grep -r "autenticación" docs/gobernanza/requisitos/
 
-   # Consultar git history
-   git log --all --grep="RN-BACK-001"
+ # Consultar git history
+ git log --all --grep="RN-BACK-001"
 
 Problema 4: Conflicto entre cambios
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1292,20 +1292,20 @@ cambios
 Referencias
 -----------
 
--  `ADR-GOB-005: Jerarquía de Requerimientos en 5
-   Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
--  `ADR-GOB-009: Trazabilidad entre Artefactos de
-   Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
--  `PROCED-GOB-003: Documentar Regla de
-   Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
--  `PROCED-GOB-004: Crear Caso de
-   Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
+- `ADR-GOB-005: Jerarquía de Requerimientos en 5
+ Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+- `ADR-GOB-009: Trazabilidad entre Artefactos de
+ Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+- `PROCED-GOB-003: Documentar Regla de
+ Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
+- `PROCED-GOB-004: Crear Caso de
+ Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
 
 Historial de Cambios
 --------------------
 
 ======= ========== =========== ===============
-Versión Fecha      Autor       Cambios
+Versión Fecha Autor Cambios
 ======= ========== =========== ===============
-1.0.0   2025-11-17 Claude Code Versión inicial
+1.0.0 2025-11-17 Claude Code Versión inicial
 ======= ========== =========== ===============

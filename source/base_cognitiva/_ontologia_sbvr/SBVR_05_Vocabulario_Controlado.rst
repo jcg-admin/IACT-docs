@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: SBVR_05
-   :tipo: Ontologia SBVR
-   :dominio: base_cognitiva
-   :subdominio: _ontologia_sbvr
-   :estado: Aprobado
-   :version: 1.1.0
-   :fecha_creacion: 2025-12-20
-   :ultimo_cambio: 2025-12-21
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: SBVR_05
+ :tipo: Ontologia SBVR
+ :dominio: base_cognitiva
+ :subdominio: _ontologia_sbvr
+ :estado: Aprobado
+ :version: 1.1.0
+ :fecha_creacion: 2025-12-20
+ :ultimo_cambio: 2025-12-21
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _sbvr-05:
 
@@ -19,20 +19,20 @@ SBVR_05: Vocabulario Controlado
 
 .. note:: Ejemplos pedagogicos del modelo legacy v4.0
 
-   Este documento contiene ejemplos pedagogicos que usan la
-   nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
-   ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
-   Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
-   "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
-   atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
+ Este documento contiene ejemplos pedagogicos que usan la
+ nomenclatura del modelo RBAC legacy v4.0 (roles tipo R001..R018,
+ ``USERS_FULL_MANAGER``, ``SYSTEM_ADMIN``, ``SECURITY_ADMIN``).
+ Esta nomenclatura **fue abandonada en v5.0** a favor del enfoque
+ "Sin Pretensiones" del modelo vigente v5.2.x: 42 funciones
+ atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
 
-   **Vocabulario canonico vigente:**
-   :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
-   y :doc:`/base_cognitiva/glosario` § H.
+ **Vocabulario canonico vigente:**
+ :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+ y :doc:`/base_cognitiva/glosario` § H.
 
-   Los ejemplos legacy se preservan por valor pedagogico historico —
-   ilustran la evolucion del modelo. NO deben citarse como referencia
-   actual ni replicarse en docs nuevos.
+ Los ejemplos legacy se preservan por valor pedagogico historico —
+ ilustran la evolucion del modelo. NO deben citarse como referencia
+ actual ni replicarse en docs nuevos.
 
 
 Proposito
@@ -52,20 +52,20 @@ y las reglas de redaccion que garantizan precision y consistencia.
 
 .. code-block:: text
 
-   Un vocabulario controlado garantiza:
+ Un vocabulario controlado garantiza:
 
-   - PRECISION: Cada termino tiene un solo significado
-   - CONSISTENCIA: Mismos terminos en todas las BR
-   - VERIFICABILIDAD: Reglas pueden validarse automaticamente
-   - CLARIDAD: Sin ambiguedad ni interpretaciones multiples
+ - PRECISION: Cada termino tiene un solo significado
+ - CONSISTENCIA: Mismos terminos en todas las BR
+ - VERIFICABILIDAD: Reglas pueden validarse automaticamente
+ - CLARIDAD: Sin ambiguedad ni interpretaciones multiples
 
 1.2 Principio fundamental de univocidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   Si una palabra puede interpretarse de más de una manera,
-   no debe usarse en una Business Rule.
+ Si una palabra puede interpretarse de más de una manera,
+ no debe usarse en una Business Rule.
 
 ----
 
@@ -76,79 +76,79 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
+ :header-rows: 1
+ :widths: 20 40 40
 
-   * - Keyword
-     - Significado
-     - Ejemplo
-   * - **DEBE**
-     - Obligacion incondicional
-     - "Usuario DEBE tener al menos un rol"
-   * - **NO DEBE**
-     - Prohibicion incondicional
-     - "Sistema NO DEBE enviar email externo"
-   * - **PUEDE**
-     - Permiso (opcional)
-     - "Administrador PUEDE cerrar sesion de otro usuario"
-   * - **SOLO**
-     - Restriccion exclusiva
-     - "SOLO R001 puede crear usuarios"
-   * - **UNICAMENTE**
-     - Sinonimo de SOLO
-     - "Notificaciones UNICAMENTE via buzon interno"
-   * - **DEBERIA**
-     - Recomendado pero no obligatorio
-     - "Sistema DEBERIA enviar confirmacion por email"
+ * - Keyword
+ - Significado
+ - Ejemplo
+ * - **DEBE**
+ - Obligacion incondicional
+ - "Usuario DEBE tener al menos un rol"
+ * - **NO DEBE**
+ - Prohibicion incondicional
+ - "Sistema NO DEBE enviar email externo"
+ * - **PUEDE**
+ - Permiso (opcional)
+ - "Administrador PUEDE cerrar sesion de otro usuario"
+ * - **SOLO**
+ - Restriccion exclusiva
+ - "SOLO R001 puede crear usuarios"
+ * - **UNICAMENTE**
+ - Sinonimo de SOLO
+ - "Notificaciones UNICAMENTE via buzon interno"
+ * - **DEBERIA**
+ - Recomendado pero no obligatorio
+ - "Sistema DEBERIA enviar confirmacion por email"
 
 2.2 Keywords Aleticos
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
+ :header-rows: 1
+ :widths: 20 40 40
 
-   * - Keyword
-     - Significado
-     - Ejemplo
-   * - **ES**
-     - Verdad estructural
-     - "Username ES unico"
-   * - **TIENE**
-     - Posesion/relacion
-     - "Usuario TIENE exactamente un segmento"
-   * - **CADA**
-     - Cuantificador universal
-     - "CADA rol contiene al menos un permiso"
-   * - **EXISTE**
-     - Cuantificador existencial
-     - "EXISTE al menos un administrador activo"
-   * - **EXACTAMENTE**
-     - Cardinalidad precisa
-     - "Usuario tiene EXACTAMENTE una sesion activa"
+ * - Keyword
+ - Significado
+ - Ejemplo
+ * - **ES**
+ - Verdad estructural
+ - "Username ES unico"
+ * - **TIENE**
+ - Posesion/relacion
+ - "Usuario TIENE exactamente un segmento"
+ * - **CADA**
+ - Cuantificador universal
+ - "CADA rol contiene al menos un permiso"
+ * - **EXISTE**
+ - Cuantificador existencial
+ - "EXISTE al menos un administrador activo"
+ * - **EXACTAMENTE**
+ - Cardinalidad precisa
+ - "Usuario tiene EXACTAMENTE una sesion activa"
 
 2.3 Keywords Condicionales
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
+ :header-rows: 1
+ :widths: 20 40 40
 
-   * - Keyword
-     - Significado
-     - Ejemplo
-   * - **SI**
-     - Condicion antecedente
-     - "SI usuario falla 3 intentos..."
-   * - **ENTONCES**
-     - Consecuencia
-     - "...ENTONCES sistema bloquea cuenta"
-   * - **CUANDO**
-     - Sinonimo de SI (temporal)
-     - "CUANDO hora = 00:00, ejecutar ETL"
-   * - **MIENTRAS**
-     - Condicion continua
-     - "MIENTRAS sesion activa, registrar actividad"
+ * - Keyword
+ - Significado
+ - Ejemplo
+ * - **SI**
+ - Condicion antecedente
+ - "SI usuario falla 3 intentos..."
+ * - **ENTONCES**
+ - Consecuencia
+ - "...ENTONCES sistema bloquea cuenta"
+ * - **CUANDO**
+ - Sinonimo de SI (temporal)
+ - "CUANDO hora = 00:00, ejecutar ETL"
+ * - **MIENTRAS**
+ - Condicion continua
+ - "MIENTRAS sesion activa, registrar actividad"
 
 ----
 
@@ -159,83 +159,83 @@ y las reglas de redaccion que garantizan precision y consistencia.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
+ :header-rows: 1
+ :widths: 20 40 40
 
-   * - Prohibido
-     - Problema
-     - Alternativa
-   * - podria
-     - Ambiguo (¿permiso o posibilidad?)
-     - PUEDE
-   * - normalmente
-     - Impreciso (¿cuando no?)
-     - Especificar condicion exacta
-   * - generalmente
-     - Impreciso
-     - Especificar condicion exacta
-   * - a veces
-     - Impreciso (¿cuando?)
-     - SI [condicion] ENTONCES
-   * - quizas
-     - Incertidumbre
-     - Eliminar o especificar
-   * - posiblemente
-     - Incertidumbre
-     - Eliminar o especificar
-   * - aproximadamente
-     - Impreciso
-     - Valor exacto o rango
+ * - Prohibido
+ - Problema
+ - Alternativa
+ * - podria
+ - Ambiguo (¿permiso o posibilidad?)
+ - PUEDE
+ * - normalmente
+ - Impreciso (¿cuando no?)
+ - Especificar condicion exacta
+ * - generalmente
+ - Impreciso
+ - Especificar condicion exacta
+ * - a veces
+ - Impreciso (¿cuando?)
+ - SI [condicion] ENTONCES
+ * - quizas
+ - Incertidumbre
+ - Eliminar o especificar
+ * - posiblemente
+ - Incertidumbre
+ - Eliminar o especificar
+ * - aproximadamente
+ - Impreciso
+ - Valor exacto o rango
 
 3.2 Palabras Vagas
 ^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 40 40
+ :header-rows: 1
+ :widths: 20 40 40
 
-   * - Prohibido
-     - Problema
-     - Alternativa
-   * - rapido
-     - ¿Cuanto es rapido?
-     - "< 2 segundos"
-   * - suficiente
-     - ¿Cuanto es suficiente?
-     - Valor numerico especifico
-   * - adecuado
-     - Subjetivo
-     - Criterio medible
-   * - razonable
-     - Subjetivo
-     - Criterio especifico
-   * - varios
-     - ¿Cuantos?
-     - Numero exacto o rango
-   * - algunos
-     - ¿Cuantos?
-     - "al menos N" o "entre N y M"
-   * - muchos
-     - ¿Cuantos?
-     - Numero o porcentaje
-   * - frecuentemente
-     - ¿Cada cuanto?
-     - "cada N horas/dias"
+ * - Prohibido
+ - Problema
+ - Alternativa
+ * - rapido
+ - ¿Cuanto es rapido?
+ - "< 2 segundos"
+ * - suficiente
+ - ¿Cuanto es suficiente?
+ - Valor numerico especifico
+ * - adecuado
+ - Subjetivo
+ - Criterio medible
+ * - razonable
+ - Subjetivo
+ - Criterio especifico
+ * - varios
+ - ¿Cuantos?
+ - Numero exacto o rango
+ * - algunos
+ - ¿Cuantos?
+ - "al menos N" o "entre N y M"
+ * - muchos
+ - ¿Cuantos?
+ - Numero o porcentaje
+ * - frecuentemente
+ - ¿Cada cuanto?
+ - "cada N horas/dias"
 
 3.3 Construcciones Prohibidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PROHIBIDO                          CORRECTO
-   ─────────────────────────────────────────────────────────────
-   "debe ser rapido"                  "debe responder en < 2 seg"
-   "normalmente se hace"              "DEBE hacerse" o eliminar
-   "el usuario puede o no"            "el usuario PUEDE" (implicito)
-   "es recomendable"                  "DEBERIA" (si opcional) o "DEBE"
-   "en la medida de lo posible"       Eliminar (no aporta)
-   "segun sea necesario"              Especificar condicion
-   "a menos que se indique"           SI [condicion] ENTONCES
+ PROHIBIDO CORRECTO
+ ─────────────────────────────────────────────────────────────
+ "debe ser rapido" "debe responder en < 2 seg"
+ "normalmente se hace" "DEBE hacerse" o eliminar
+ "el usuario puede o no" "el usuario PUEDE" (implicito)
+ "es recomendable" "DEBERIA" (si opcional) o "DEBE"
+ "en la medida de lo posible" Eliminar (no aporta)
+ "segun sea necesario" Especificar condicion
+ "a menos que se indique" SI [condicion] ENTONCES
 
 ----
 
@@ -248,42 +248,42 @@ y las reglas de redaccion que garantizan precision y consistencia.
 Usar siempre el termino preferido (de SBVR_01):
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 35 35
+ :header-rows: 1
+ :widths: 30 35 35
 
-   * - Preferido
-     - Sinonimos Aceptados
-     - NO Usar
-   * - Usuario
-     - Operador, Cuenta
-     - user, persona, individuo
-   * - Rol
-     - Rol funcional
-     - perfil, grupo, tipo
-   * - Permiso
-     - Privilegio, Capacidad
-     - derecho, acceso
-   * - Sesion
-     - Session, Conexion activa
-     - login, conexion
-   * - Segmento
-     - Segmento de Datos
-     - particion, scope, ambito
-   * - Llamada
-     - Call, Contacto telefonico
-     - llamado, comunicacion
-   * - Centro
-     - Centro de atencion
-     - sede, oficina, sucursal
-   * - Reporte
-     - Informe
-     - documento, archivo
-   * - Dashboard
-     - Tablero, Panel
-     - pantalla, vista
-   * - Alerta
-     - Notificacion de umbral
-     - aviso, mensaje, warning
+ * - Preferido
+ - Sinonimos Aceptados
+ - NO Usar
+ * - Usuario
+ - Operador, Cuenta
+ - user, persona, individuo
+ * - Rol
+ - Rol funcional
+ - perfil, grupo, tipo
+ * - Permiso
+ - Privilegio, Capacidad
+ - derecho, acceso
+ * - Sesion
+ - Session, Conexion activa
+ - login, conexion
+ * - Segmento
+ - Segmento de Datos
+ - particion, scope, ambito
+ * - Llamada
+ - Call, Contacto telefonico
+ - llamado, comunicacion
+ * - Centro
+ - Centro de atencion
+ - sede, oficina, sucursal
+ * - Reporte
+ - Informe
+ - documento, archivo
+ * - Dashboard
+ - Tablero, Panel
+ - pantalla, vista
+ * - Alerta
+ - Notificacion de umbral
+ - aviso, mensaje, warning
 
 4.2 Roles del Sistema
 ^^^^^^^^^^^^^^^^^^^^^
@@ -292,10 +292,10 @@ Usar siempre el codigo oficial:
 
 .. code-block:: text
 
-   CORRECTO:    "Usuario con rol R001"
-   CORRECTO:    "Usuario con rol USERS_FULL_MANAGER"
-   INCORRECTO:  "el administrador de usuarios"
-   INCORRECTO:  "quien gestiona usuarios"
+ CORRECTO: "Usuario con rol R001"
+ CORRECTO: "Usuario con rol USERS_FULL_MANAGER"
+ INCORRECTO: "el administrador de usuarios"
+ INCORRECTO: "quien gestiona usuarios"
 
 ----
 
@@ -307,97 +307,97 @@ Usar siempre el codigo oficial:
 
 .. code-block:: text
 
-   PATRON:
-   [Sujeto] DEBE [accion] [objeto] [condicion opcional]
+ PATRON:
+ [Sujeto] DEBE [accion] [objeto] [condicion opcional]
 
-   EJEMPLOS:
-   ✓ "Usuario DEBE tener al menos un rol"
-   ✓ "Sistema DEBE registrar toda accion en auditoria"
-   ✓ "Sesion DEBE registrar IP de origen"
+ EJEMPLOS:
+ ✓ "Usuario DEBE tener al menos un rol"
+ ✓ "Sistema DEBE registrar toda accion en auditoria"
+ ✓ "Sesion DEBE registrar IP de origen"
 
 5.2 Patron para Prohibicion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   [Sujeto] NO DEBE [accion] [objeto] [condicion opcional]
+ PATRON:
+ [Sujeto] NO DEBE [accion] [objeto] [condicion opcional]
 
-   EJEMPLOS:
-   ✓ "Usuario NO DEBE tener roles conflictivos"
-   ✓ "Sistema NO DEBE enviar correo electronico externo"
-   ✓ "IACT NO DEBE modificar datos en BD IVR"
+ EJEMPLOS:
+ ✓ "Usuario NO DEBE tener roles conflictivos"
+ ✓ "Sistema NO DEBE enviar correo electronico externo"
+ ✓ "IACT NO DEBE modificar datos en BD IVR"
 
 5.3 Patron para Permiso
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   [Sujeto con condicion] PUEDE [accion] [objeto]
+ PATRON:
+ [Sujeto con condicion] PUEDE [accion] [objeto]
 
-   EJEMPLOS:
-   ✓ "Usuario con R016 PUEDE cerrar sesion de otro usuario"
-   ✓ "Usuario con R009 PUEDE personalizar su dashboard"
+ EJEMPLOS:
+ ✓ "Usuario con R016 PUEDE cerrar sesion de otro usuario"
+ ✓ "Usuario con R009 PUEDE personalizar su dashboard"
 
 5.4 Patron para Restriccion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   SOLO [sujeto calificado] PUEDE [accion]
+ PATRON:
+ SOLO [sujeto calificado] PUEDE [accion]
 
-   EJEMPLOS:
-   ✓ "SOLO usuarios con R001 pueden crear usuarios"
-   ✓ "SOLO usuarios con R017 pueden ver logs de auditoria"
+ EJEMPLOS:
+ ✓ "SOLO usuarios con R001 pueden crear usuarios"
+ ✓ "SOLO usuarios con R017 pueden ver logs de auditoria"
 
 5.5 Patron para Trigger
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   SI [condicion] ENTONCES [sujeto] DEBE [accion]
+ PATRON:
+ SI [condicion] ENTONCES [sujeto] DEBE [accion]
 
-   EJEMPLOS:
-   ✓ "SI usuario falla 3 intentos ENTONCES sistema DEBE bloquear cuenta"
-   ✓ "SI metrica > umbral ENTONCES sistema DEBE notificar destinatarios"
-   ✓ "SI 90 dias sin login ENTONCES sistema DEBE marcar usuario inactivo"
+ EJEMPLOS:
+ ✓ "SI usuario falla 3 intentos ENTONCES sistema DEBE bloquear cuenta"
+ ✓ "SI metrica > umbral ENTONCES sistema DEBE notificar destinatarios"
+ ✓ "SI 90 dias sin login ENTONCES sistema DEBE marcar usuario inactivo"
 
 5.6 Patron para Hecho
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   [Sujeto] ES/TIENE [caracteristica]
-   CADA [sujeto] TIENE [relacion] [objeto]
+ PATRON:
+ [Sujeto] ES/TIENE [caracteristica]
+ CADA [sujeto] TIENE [relacion] [objeto]
 
-   EJEMPLOS:
-   ✓ "Username ES unico en el sistema"
-   ✓ "CADA usuario TIENE exactamente un segmento"
-   ✓ "Registros de auditoria son inmutables"
+ EJEMPLOS:
+ ✓ "Username ES unico en el sistema"
+ ✓ "CADA usuario TIENE exactamente un segmento"
+ ✓ "Registros de auditoria son inmutables"
 
 5.7 Patron para Recomendacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   PATRON:
-   [Sujeto] DEBERIA [accion] [objeto]
+ PATRON:
+ [Sujeto] DEBERIA [accion] [objeto]
 
-   NOTA: DEBERIA indica "recomendado pero no obligatorio"
-   Usar cuando la regla es una buena practica, no un requisito estricto.
+ NOTA: DEBERIA indica "recomendado pero no obligatorio"
+ Usar cuando la regla es una buena practica, no un requisito estricto.
 
-   EJEMPLOS:
-   ✓ "Sistema DEBERIA enviar confirmacion por email"
-   ✓ "Usuario DEBERIA cambiar password cada 90 dias"
-   ✓ "Dashboard DEBERIA cargar datos de ultimas 24 horas"
+ EJEMPLOS:
+ ✓ "Sistema DEBERIA enviar confirmacion por email"
+ ✓ "Usuario DEBERIA cambiar password cada 90 dias"
+ ✓ "Dashboard DEBERIA cargar datos de ultimas 24 horas"
 
-   DIFERENCIA CON DEBE:
-   - DEBE: Obligatorio, sistema falla si no se cumple
-   - DEBERIA: Recomendado, sistema funciona sin ello pero es mejor practica
+ DIFERENCIA CON DEBE:
+ - DEBE: Obligatorio, sistema falla si no se cumple
+ - DEBERIA: Recomendado, sistema funciona sin ello pero es mejor practica
 
 ----
 
@@ -409,16 +409,16 @@ Usar siempre el codigo oficial:
 
 .. code-block:: text
 
-   □ ¿Usa keywords permitidos (DEBE, DEBERIA, NO DEBE, PUEDE, ES, TIENE)?
-   □ ¿Evita palabras ambiguas (normalmente, a veces, podria)?
-   □ ¿Evita palabras vagas (rapido, suficiente, varios)?
-   □ ¿Usa terminos preferidos del dominio?
-   □ ¿Especifica valores numericos cuando aplica?
-   □ ¿Es verificable/testeable?
-   □ ¿Es atomica (una sola regla)?
-   □ ¿Tiene sujeto claro?
-   □ ¿Tiene accion clara?
-   □ ¿Las condiciones son precisas?
+ □ ¿Usa keywords permitidos (DEBE, DEBERIA, NO DEBE, PUEDE, ES, TIENE)?
+ □ ¿Evita palabras ambiguas (normalmente, a veces, podria)?
+ □ ¿Evita palabras vagas (rapido, suficiente, varios)?
+ □ ¿Usa terminos preferidos del dominio?
+ □ ¿Especifica valores numericos cuando aplica?
+ □ ¿Es verificable/testeable?
+ □ ¿Es atomica (una sola regla)?
+ □ ¿Tiene sujeto claro?
+ □ ¿Tiene accion clara?
+ □ ¿Las condiciones son precisas?
 
 6.2 Validacion Automatica
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -427,17 +427,17 @@ Reglas que pueden validarse por patron:
 
 .. code-block:: text
 
-   REGEX PARA DETECTAR PROBLEMAS:
+ REGEX PARA DETECTAR PROBLEMAS:
 
-   /podria/i           → WARNING: Usar PUEDE
-   /normalmente/i      → ERROR: Ambiguo
-   /generalmente/i     → ERROR: Ambiguo
-   /a veces/i          → ERROR: Usar SI...ENTONCES
-   /aproximadamente/i  → WARNING: Especificar valor
-   /suficiente/i       → ERROR: Especificar cantidad
-   /adecuado/i         → ERROR: Especificar criterio
+ /podria/i → WARNING: Usar PUEDE
+ /normalmente/i → ERROR: Ambiguo
+ /generalmente/i → ERROR: Ambiguo
+ /a veces/i → ERROR: Usar SI...ENTONCES
+ /aproximadamente/i → WARNING: Especificar valor
+ /suficiente/i → ERROR: Especificar cantidad
+ /adecuado/i → ERROR: Especificar criterio
 
-   NOTA: "deberia" es VALIDO, NO es un problema
+ NOTA: "deberia" es VALIDO, NO es un problema
 
 ----
 
@@ -448,27 +448,27 @@ Reglas que pueden validarse por patron:
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 50 50
+ :header-rows: 1
+ :widths: 50 50
 
-   * - Incorrecto
-     - Correcto
-   * - "El sistema podria validar la sesion"
-     - "Sistema DEBE validar sesion activa"
-   * - "Normalmente el usuario tiene un rol"
-     - "Usuario DEBE tener al menos un rol"
-   * - "La respuesta debe ser rapida"
-     - "Sistema DEBE responder en < 2 segundos"
-   * - "Algunos usuarios pueden exportar"
-     - "Usuario con R005 PUEDE exportar"
-   * - "El administrador gestiona usuarios"
-     - "Usuario con R001 PUEDE gestionar usuarios"
-   * - "A veces se bloquea la cuenta"
-     - "SI 3 intentos fallidos ENTONCES bloquear"
-   * - "El reporte debe tener suficientes datos"
-     - "Reporte DEBE contener al menos 1 registro"
-   * - "Es recomendable confirmar por email"
-     - "Sistema DEBERIA enviar confirmacion por email"
+ * - Incorrecto
+ - Correcto
+ * - "El sistema podria validar la sesion"
+ - "Sistema DEBE validar sesion activa"
+ * - "Normalmente el usuario tiene un rol"
+ - "Usuario DEBE tener al menos un rol"
+ * - "La respuesta debe ser rapida"
+ - "Sistema DEBE responder en < 2 segundos"
+ * - "Algunos usuarios pueden exportar"
+ - "Usuario con R005 PUEDE exportar"
+ * - "El administrador gestiona usuarios"
+ - "Usuario con R001 PUEDE gestionar usuarios"
+ * - "A veces se bloquea la cuenta"
+ - "SI 3 intentos fallidos ENTONCES bloquear"
+ * - "El reporte debe tener suficientes datos"
+ - "Reporte DEBE contener al menos 1 registro"
+ * - "Es recomendable confirmar por email"
+ - "Sistema DEBERIA enviar confirmacion por email"
 
 ----
 
@@ -478,51 +478,51 @@ Reglas que pueden validarse por patron:
 Referencia rapida alfabetica:
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 20 60
+ :header-rows: 1
+ :widths: 20 20 60
 
-   * - Keyword
-     - Tipo
-     - Uso
-   * - CADA
-     - Aletico
-     - Cuantificador universal
-   * - DEBE
-     - Deontico
-     - Obligacion incondicional
-   * - DEBERIA
-     - Deontico
-     - Recomendado pero no obligatorio
-   * - ENTONCES
-     - Condicional
-     - Consecuencia de SI
-   * - ES
-     - Aletico
-     - Verdad estructural
-   * - EXACTAMENTE
-     - Aletico
-     - Cardinalidad precisa
-   * - EXISTE
-     - Aletico
-     - Cuantificador existencial
-   * - NO DEBE
-     - Deontico
-     - Prohibicion
-   * - PUEDE
-     - Deontico
-     - Permiso
-   * - SI
-     - Condicional
-     - Condicion antecedente
-   * - SOLO
-     - Deontico
-     - Restriccion exclusiva
-   * - TIENE
-     - Aletico
-     - Posesion/relacion
-   * - UNICAMENTE
-     - Deontico
-     - Sinonimo de SOLO
+ * - Keyword
+ - Tipo
+ - Uso
+ * - CADA
+ - Aletico
+ - Cuantificador universal
+ * - DEBE
+ - Deontico
+ - Obligacion incondicional
+ * - DEBERIA
+ - Deontico
+ - Recomendado pero no obligatorio
+ * - ENTONCES
+ - Condicional
+ - Consecuencia de SI
+ * - ES
+ - Aletico
+ - Verdad estructural
+ * - EXACTAMENTE
+ - Aletico
+ - Cardinalidad precisa
+ * - EXISTE
+ - Aletico
+ - Cuantificador existencial
+ * - NO DEBE
+ - Deontico
+ - Prohibicion
+ * - PUEDE
+ - Deontico
+ - Permiso
+ * - SI
+ - Condicional
+ - Condicion antecedente
+ * - SOLO
+ - Deontico
+ - Restriccion exclusiva
+ * - TIENE
+ - Aletico
+ - Posesion/relacion
+ * - UNICAMENTE
+ - Deontico
+ - Sinonimo de SOLO
 
 ----
 
@@ -550,21 +550,21 @@ Historial de Cambios
 --------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 15 20 50
+ :header-rows: 1
+ :widths: 15 15 20 50
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.1.0
-     - 2025-12-21
-     - Equipo IACT
-     - Correccion: DEBERIA ahora es keyword VALIDO (recomendado pero no obligatorio). Agregado patron 5.7 para Recomendacion. Actualizado glosario y checklist.
-   * - 1.0.0
-     - 2025-12-20
-     - Equipo IACT
-     - Version inicial con vocabulario controlado
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.1.0
+ - 2025-12-21
+ - Equipo IACT
+ - Correccion: DEBERIA ahora es keyword VALIDO (recomendado pero no obligatorio). Agregado patron 5.7 para Recomendacion. Actualizado glosario y checklist.
+ * - 1.0.0
+ - 2025-12-20
+ - Equipo IACT
+ - Version inicial con vocabulario controlado
 
 ----
 

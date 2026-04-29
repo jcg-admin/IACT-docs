@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_009
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_009
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-009:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_009
-   * - **Nombre**
-     - Bajas Logicas
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Operacional
-   * - **Criticidad**
-     - Media
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_009
+ * - **Nombre**
+ - Bajas Logicas
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Operacional
+ * - **Criticidad**
+ - Media
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ INACTIVO, preservando el registro para auditoria e integridad referencial.
 
 ::
 
-   VOCABULARIO:
-     - Baja logica: Cambio de estado a INACTIVO sin borrar registro
-     - Baja fisica: DELETE del registro (prohibido)
-     - Estado de usuario: ACTIVO, INACTIVO, BLOQUEADO
+ VOCABULARIO:
+ - Baja logica: Cambio de estado a INACTIVO sin borrar registro
+ - Baja fisica: DELETE del registro (prohibido)
+ - Estado de usuario: ACTIVO, INACTIVO, BLOQUEADO
 
-   REGLA:
-     Es prohibido eliminar fisicamente registros de usuarios.
-     Es obligatorio que la eliminacion sea mediante cambio de estado.
+ REGLA:
+ Es prohibido eliminar fisicamente registros de usuarios.
+ Es obligatorio que la eliminacion sea mediante cambio de estado.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -96,13 +96,13 @@ permite reactivacion si es necesario.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - Politica de Retencion de Datos
-   * - **Tipo Fuente**
-     - Politica Interna
+ * - **Documento**
+ - Politica de Retencion de Datos
+ * - **Tipo Fuente**
+ - Politica Interna
 
 ----
 
@@ -153,14 +153,14 @@ Solo datos de prueba en ambiente de desarrollo pueden ser borrados fisicamente.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

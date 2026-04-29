@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_020
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Alto
+ :artefacto: CNST_020
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Alto
 
 .. _cnst-020:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_020
-   * - **Categoria**
-     - Performance
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Alto
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_020
+ * - **Categoria**
+ - Performance
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Alto
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -74,29 +74,29 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 25 25 20 15
+ :header-rows: 1
+ :widths: 15 25 25 20 15
 
-   * - Formato
-     - Max registros
-     - Max/dia/usuario
-     - Timeout
-     - Tamano aprox
-   * - CSV
-     - 100 000
-     - 10
-     - 60 s
-     - 15-20 MB
-   * - Excel
-     - 50 000
-     - 5
-     - 90 s
-     - 10-15 MB
-   * - PDF
-     - 10 000
-     - 3
-     - 120 s
-     - 5-10 MB
+ * - Formato
+ - Max registros
+ - Max/dia/usuario
+ - Timeout
+ - Tamano aprox
+ * - CSV
+ - 100 000
+ - 10
+ - 60 s
+ - 15-20 MB
+ * - Excel
+ - 50 000
+ - 5
+ - 90 s
+ - 10-15 MB
+ * - PDF
+ - 10 000
+ - 3
+ - 120 s
+ - 5-10 MB
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,29 +111,29 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Reports
-     - Aplica limites en export endpoints
+ * - Modulo
+ - Impacto
+ * - MOD_Reports
+ - Aplica limites en export endpoints
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_022
-     - CSV: 100k/10per_dia/60s
-   * - UC_023
-     - Excel: 50k/5per_dia/90s
-   * - UC_024
-     - PDF: 10k/3per_dia/120s
+ * - UC
+ - Impacto
+ * - UC_022
+ - CSV: 100k/10per_dia/60s
+ * - UC_023
+ - Excel: 50k/5per_dia/90s
+ * - UC_024
+ - PDF: 10k/3per_dia/120s
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,15 +146,15 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 ---------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - BR
-     - Nombre
-     - Relacion
-   * - BR_011 (legacy)
-     - Limites de Exportacion
-     - FND_00:298 — vinculo historico
+ * - BR
+ - Nombre
+ - Relacion
+ * - BR_011 (legacy)
+ - Limites de Exportacion
+ - FND_00:298 — vinculo historico
 
 5. Implementacion
 -----------------
@@ -165,8 +165,8 @@ Previene scraping, controla uso de recursos y mantiene UX usable
 
 .. code-block:: python
 
-   limits = {"csv": 100_000, "xlsx": 50_000, "pdf": 10_000}
-   assert export.records <= limits[export.format]
+ limits = {"csv": 100_000, "xlsx": 50_000, "pdf": 10_000}
+ assert export.records <= limits[export.format]
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -189,7 +189,7 @@ Limites por rol se configuran en settings, cambios requieren ADR.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -210,37 +210,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`, :doc:`CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
-   * - **BR derivadas**
-     - BR_011 (legacy)
-   * - **UCs afectados**
-     - UC_022, UC_023, UC_024
-   * - **MODs afectados**
-     - MOD_Reports
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros`, :doc:`CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
+ * - **BR derivadas**
+ - BR_011 (legacy)
+ * - **UCs afectados**
+ - UC_022, UC_023, UC_024
+ * - **MODs afectados**
+ - MOD_Reports
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: STD_006
-   :tipo: Estándar
-   :dominio: normativa
-   :subdominio: estandares
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: STD_006
+ :tipo: Estándar
+ :dominio: normativa
+ :subdominio: estandares
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _std-006:
 
@@ -49,12 +49,12 @@ Este estándar aplica a:
 
 .. code-block:: text
 
-   MAJOR.MINOR.PATCH
+ MAJOR.MINOR.PATCH
 
-   Donde:
-   ├── MAJOR = Número entero ≥ 0
-   ├── MINOR = Número entero ≥ 0
-   └── PATCH = Número entero ≥ 0
+ Donde:
+ ├── MAJOR = Número entero ≥ 0
+ ├── MINOR = Número entero ≥ 0
+ └── PATCH = Número entero ≥ 0
 
 **Ejemplos válidos:**
 
@@ -74,21 +74,21 @@ Este estándar aplica a:
 -----------------------
 
 .. list-table::
-   :widths: 15 35 50
-   :header-rows: 1
+ :widths: 15 35 50
+ :header-rows: 1
 
-   * - Componente
-     - Cuándo Incrementar
-     - Efecto en Otros
-   * - **MAJOR**
-     - Cambios incompatibles o ruptura de estructura
-     - MINOR y PATCH se reinician a 0
-   * - **MINOR**
-     - Nueva funcionalidad compatible hacia atrás
-     - PATCH se reinicia a 0
-   * - **PATCH**
-     - Correcciones de errores, ajustes menores, typos
-     - No afecta a otros componentes
+ * - Componente
+ - Cuándo Incrementar
+ - Efecto en Otros
+ * - **MAJOR**
+ - Cambios incompatibles o ruptura de estructura
+ - MINOR y PATCH se reinician a 0
+ * - **MINOR**
+ - Nueva funcionalidad compatible hacia atrás
+ - PATCH se reinicia a 0
+ * - **PATCH**
+ - Correcciones de errores, ajustes menores, typos
+ - No afecta a otros componentes
 
 4.1 Incremento de MAJOR
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,10 +104,10 @@ Se incrementa MAJOR cuando:
 
 .. code-block:: text
 
-   v1.0.0 → v2.0.0
-   
-   Cambio: Reestructuración de 4 dominios a 5 dominios
-   Impacto: Todos los artefactos deben reubicarse
+ v1.0.0 → v2.0.0
+ 
+ Cambio: Reestructuración de 4 dominios a 5 dominios
+ Impacto: Todos los artefactos deben reubicarse
 
 4.2 Incremento de MINOR
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,10 +123,10 @@ Se incrementa MINOR cuando:
 
 .. code-block:: text
 
-   v2.0.8 → v2.1.0
-   
-   Cambio: Inicio de generación de FR (55 FR nuevos)
-   Impacto: Compatible con v2.0.8, añade contenido
+ v2.0.8 → v2.1.0
+ 
+ Cambio: Inicio de generación de FR (55 FR nuevos)
+ Impacto: Compatible con v2.0.8, añade contenido
 
 4.3 Incremento de PATCH
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,10 +142,10 @@ Se incrementa PATCH cuando:
 
 .. code-block:: text
 
-   v2.0.8 → v2.0.9
-   
-   Cambio: Corrección de nomenclatura incorrecta
-   Impacto: Solo corrección, sin nuevo contenido
+ v2.0.8 → v2.0.9
+ 
+ Cambio: Corrección de nomenclatura incorrecta
+ Impacto: Solo corrección, sin nuevo contenido
 
 ----
 
@@ -178,11 +178,11 @@ hijos derivados deben evaluarse para actualización:
 
 .. code-block:: text
 
-   BR_001 v1.0.0 → v2.0.0 (cambio MAJOR)
-   │
-   └── UC_AUTH_01 debe revisarse
-       │
-       └── FR_UCAUTH_01_xx deben revisarse
+ BR_001 v1.0.0 → v2.0.0 (cambio MAJOR)
+ │
+ └── UC_AUTH_01 debe revisarse
+ │
+ └── FR_UCAUTH_01_xx deben revisarse
 
 5.4 Prohibición de Saltos
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -191,8 +191,8 @@ hijos derivados deben evaluarse para actualización:
 
 .. code-block:: text
 
-   ❌ v2.0.8 → v2.1.9  (salta v2.1.0 a v2.1.8)
-   ✅ v2.0.8 → v2.1.0  (incremento correcto)
+ ❌ v2.0.8 → v2.1.9 (salta v2.1.0 a v2.1.8)
+ ✅ v2.0.8 → v2.1.0 (incremento correcto)
 
 Cada versión debe tener un commit/registro que la justifique.
 
@@ -205,19 +205,19 @@ Todo artefacto debe incluir una sección de historial con:
 
 .. code-block:: rst
 
-   Historial de Cambios
-   --------------------
+ Historial de Cambios
+ --------------------
 
-   .. list-table::
-      :widths: 15 15 70
-      :header-rows: 1
+ .. list-table::
+ :widths: 15 15 70
+ :header-rows: 1
 
-      * - Versión
-        - Fecha
-        - Descripción del Cambio
-      * - 1.0.0
-        - 2026-01-07
-        - Versión inicial
+ * - Versión
+ - Fecha
+ - Descripción del Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial
 
 ----
 
@@ -228,36 +228,36 @@ Todo artefacto debe incluir una sección de historial con:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
-   :widths: 15 20 65
-   :header-rows: 1
+ :widths: 15 20 65
+ :header-rows: 1
 
-   * - Versión
-     - Tipo Cambio
-     - Descripción
-   * - v2.0.0
-     - MAJOR
-     - Reestructuración completa del modelo
-   * - v2.0.3
-     - PATCH
-     - Añadido subdominio modulos/, nomenclatura Clean Code
-   * - v2.0.4
-     - PATCH
-     - Añadido nivel BReq
-   * - v2.0.5
-     - PATCH
-     - Nueva nomenclatura UC: UC_MOD_NN
-   * - v2.0.6
-     - PATCH
-     - Integración MODELO RBAC v5.2.x
-   * - v2.0.7
-     - PATCH
-     - Generación 49 UC completos
-   * - v2.0.8
-     - PATCH
-     - Consolidación final UC v4.0
-   * - v2.1.0
-     - MINOR
-     - Inicio generación FR (55 FR nuevos)
+ * - Versión
+ - Tipo Cambio
+ - Descripción
+ * - v2.0.0
+ - MAJOR
+ - Reestructuración completa del modelo
+ * - v2.0.3
+ - PATCH
+ - Añadido subdominio modulos/, nomenclatura Clean Code
+ * - v2.0.4
+ - PATCH
+ - Añadido nivel BReq
+ * - v2.0.5
+ - PATCH
+ - Nueva nomenclatura UC: UC_MOD_NN
+ * - v2.0.6
+ - PATCH
+ - Integración MODELO RBAC v5.2.x
+ * - v2.0.7
+ - PATCH
+ - Generación 49 UC completos
+ * - v2.0.8
+ - PATCH
+ - Consolidación final UC v4.0
+ * - v2.1.0
+ - MINOR
+ - Inicio generación FR (55 FR nuevos)
 
 7.2 Decisión de Versionado: Caso Real
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -269,14 +269,14 @@ de UC_AUTH_01).
 
 .. code-block:: text
 
-   Opción A: v2.0.10 (corrección del error)
-   └── Solo si fuera corrección sin contenido nuevo
-   
-   Opción B: v2.1.0 (nueva funcionalidad) ✅
-   └── Correcto porque añade 55 FR nuevos
-   
-   Opción C: v2.1.9 (salto arbitrario)
-   └── Incorrecto: viola regla de no saltar versiones
+ Opción A: v2.0.10 (corrección del error)
+ └── Solo si fuera corrección sin contenido nuevo
+ 
+ Opción B: v2.1.0 (nueva funcionalidad) ✅
+ └── Correcto porque añade 55 FR nuevos
+ 
+ Opción C: v2.1.9 (salto arbitrario)
+ └── Incorrecto: viola regla de no saltar versiones
 
 **Decisión:** ``v2.1.0`` porque incluye nueva funcionalidad (FR) además de
 correcciones.
@@ -290,11 +290,11 @@ Checklist para revisores:
 
 .. code-block:: text
 
-   [ ] Formato MAJOR.MINOR.PATCH correcto
-   [ ] No hay saltos de versión injustificados
-   [ ] Historial de cambios actualizado
-   [ ] Tipo de incremento corresponde al cambio realizado
-   [ ] Artefactos dependientes evaluados (si aplica)
+ [ ] Formato MAJOR.MINOR.PATCH correcto
+ [ ] No hay saltos de versión injustificados
+ [ ] Historial de cambios actualizado
+ [ ] Tipo de incremento corresponde al cambio realizado
+ [ ] Artefactos dependientes evaluados (si aplica)
 
 ----
 
@@ -330,12 +330,12 @@ Checklist para revisores:
 ------------------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Descripción del Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial del estándar de versionado semántico
+ * - Versión
+ - Fecha
+ - Descripción del Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial del estándar de versionado semántico

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: STD_007
-   :tipo: Estándar
-   :dominio: normativa
-   :subdominio: estandares
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-28
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: STD_007
+ :tipo: Estándar
+ :dominio: normativa
+ :subdominio: estandares
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-28
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _std-007:
 
@@ -25,12 +25,12 @@ archivos y directorios** de la documentación del proyecto IACT que viven
 bajo ``source/``. Garantiza:
 
 - Consistencia entre dominios (procedimientos, gobernanza, requisitos,
-  etc.).
+ etc.).
 - Compatibilidad cross-platform (Windows, Linux, macOS).
 - Resolución correcta de URLs HTML rendered.
 - Predictibilidad para autores nuevos.
 - Reducción de fricción en shell, git, autocompletado y herramientas
-  de búsqueda.
+ de búsqueda.
 
 ----
 
@@ -43,14 +43,14 @@ Aplica a:
 - **Todos los archivos** ``.puml`` referenciados desde ``source/``.
 - **Todos los directorios** bajo ``source/``.
 - **Todos los archivos** dentro de ``source/_static/`` y
-  ``source/_templates/`` (con excepciones documentadas).
+ ``source/_templates/`` (con excepciones documentadas).
 
 NO aplica a:
 
 - Archivos de configuración del proyecto (``conf.py``,
-  ``pyproject.toml``, etc.).
+ ``pyproject.toml``, etc.).
 - Archivos fuera de ``source/`` (configuración del entorno,
-  tooling interno, scripts del repositorio).
+ tooling interno, scripts del repositorio).
 - ``LICENSE``, ``CHANGELOG.md``, ``ROADMAP.md``, ``readme.rst`` en raíz.
 
 ----
@@ -78,10 +78,10 @@ Los nombres NO DEBEN contener:
 - **Tildes**: ``á``, ``é``, ``í``, ``ó``, ``ú``, ``ü``.
 - **Eñe**: ``ñ``, ``Ñ`` — usar ``n`` o ``ny``.
 - **Otros símbolos**: arroba, hash, dolar, porcentaje, ampersand,
-  asterisco, signo de pregunta, exclamación, suma, igual, coma,
-  punto y coma, dos puntos, comillas (dobles o simples), backtick,
-  tilde, pipe, backslash. La barra ``/`` solo se permite como
-  separador de path.
+ asterisco, signo de pregunta, exclamación, suma, igual, coma,
+ punto y coma, dos puntos, comillas (dobles o simples), backtick,
+ tilde, pipe, backslash. La barra ``/`` solo se permite como
+ separador de path.
 
 **Ejemplos PROHIBIDOS:**
 
@@ -108,7 +108,7 @@ siga la estructura: ``<PREFIX-CON-HYPHEN>_<descripcion-con-cualquiera>``.
 - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst`` (kebab puro)
 - ``UC_ACC_01_Asignar_Funciones.rst`` (snake puro)
 - ``PROC-DEV-001-pipeline_trabajo_iact.rst`` (mixed permitido: prefix
-  con hyphen, descripción con underscore)
+ con hyphen, descripción con underscore)
 
 **Prohibido (caos):**
 
@@ -129,7 +129,7 @@ metadata YAML del archivo, NO en el filename.
 **Correcto:**
 
 - ``TPL_ADR_Decisiones_Arquitectonicas.rst`` (con ``:version:`` en
-  meta YAML).
+ meta YAML).
 - ``IACT_Glossary.rst``
 - ``MODELO_RBAC.rst``
 
@@ -154,53 +154,53 @@ Donde:
 - ``<PREFIX>`` es un acronym de 2-5 caracteres en MAYÚSCULAS.
 - ``<NN>`` es 2 o 3 dígitos zero-padded (``01``, ``002``).
 - ``<Descripcion_PascalCase>`` con cada palabra capitalizada y
-  separada por ``_``.
+ separada por ``_``.
 
 **Aplica a:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 30 55
+ :header-rows: 1
+ :widths: 15 30 55
 
-   * - Prefijo
-     - Dominio
-     - Ejemplo
-   * - ``UC``
-     - Casos de uso (con sub-módulo)
-     - ``UC_ACC_01_Asignar_Funciones.rst``
-   * - ``BR``
-     - Reglas de negocio
-     - ``BR_001_Fuente_Operacional_Inmutable.rst``
-   * - ``BReq``
-     - Business requirements
-     - ``BReq_001_Visibilidad_Metricas.rst``
-   * - ``CNST``
-     - Restricciones arquitectónicas
-     - ``CNST_001_Comunicaciones_Prohibidas.rst``
-   * - ``META``
-     - Metadata del proyecto
-     - ``META_01_Identidad_Proyecto.rst``
-   * - ``FND``
-     - Fundamentos conceptuales
-     - ``FND_01_Concepto_Requisito.rst``
-   * - ``SBVR``
-     - Ontología SBVR
-     - ``SBVR_01_Conceptos_Nucleares.rst``
-   * - ``MTM``
-     - Metamodelos
-     - ``MTM_03_Metamodelo_RBAC.rst``
-   * - ``TXM``
-     - Taxonomías
-     - ``TXM_01_Taxonomia_Requisitos.rst``
-   * - ``GOB``
-     - Gobernanza
-     - ``GOB_01_Modelo_Gobernanza_IACT.rst``
-   * - ``STD``
-     - Estándares
-     - ``STD_006_Versionado_Semantico.rst``
-   * - ``TPL``
-     - Plantillas (templates)
-     - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
+ * - Prefijo
+ - Dominio
+ - Ejemplo
+ * - ``UC``
+ - Casos de uso (con sub-módulo)
+ - ``UC_ACC_01_Asignar_Funciones.rst``
+ * - ``BR``
+ - Reglas de negocio
+ - ``BR_001_Fuente_Operacional_Inmutable.rst``
+ * - ``BReq``
+ - Business requirements
+ - ``BReq_001_Visibilidad_Metricas.rst``
+ * - ``CNST``
+ - Restricciones arquitectónicas
+ - ``CNST_001_Comunicaciones_Prohibidas.rst``
+ * - ``META``
+ - Metadata del proyecto
+ - ``META_01_Identidad_Proyecto.rst``
+ * - ``FND``
+ - Fundamentos conceptuales
+ - ``FND_01_Concepto_Requisito.rst``
+ * - ``SBVR``
+ - Ontología SBVR
+ - ``SBVR_01_Conceptos_Nucleares.rst``
+ * - ``MTM``
+ - Metamodelos
+ - ``MTM_03_Metamodelo_RBAC.rst``
+ * - ``TXM``
+ - Taxonomías
+ - ``TXM_01_Taxonomia_Requisitos.rst``
+ * - ``GOB``
+ - Gobernanza
+ - ``GOB_01_Modelo_Gobernanza_IACT.rst``
+ * - ``STD``
+ - Estándares
+ - ``STD_006_Versionado_Semantico.rst``
+ * - ``TPL``
+ - Plantillas (templates)
+ - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
 
 4.2 Artefactos con Módulo y Numeración
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -216,24 +216,24 @@ Donde:
 **Aplica a:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 30 50
+ :header-rows: 1
+ :widths: 20 30 50
 
-   * - Prefijo
-     - Dominio
-     - Ejemplo
-   * - ``ADR``
-     - Architecture Decision Records
-     - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
-   * - ``PROCED``
-     - Procedimientos de gobernanza
-     - ``PROCED-GOB-003-documentar-regla-negocio.rst``
-   * - ``PROC``
-     - Procedimientos generales
-     - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
-   * - ``RNF``
-     - Requisitos no funcionales
-     - ``RNF-PROC-001-proceso-sdlc.rst``
+ * - Prefijo
+ - Dominio
+ - Ejemplo
+ * - ``ADR``
+ - Architecture Decision Records
+ - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
+ * - ``PROCED``
+ - Procedimientos de gobernanza
+ - ``PROCED-GOB-003-documentar-regla-negocio.rst``
+ * - ``PROC``
+ - Procedimientos generales
+ - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
+ * - ``RNF``
+ - Requisitos no funcionales
+ - ``RNF-PROC-001-proceso-sdlc.rst``
 
 **Migración recomendada:** los archivos actuales con mixed-separators
 (``PROC-DEV-001-pipeline_trabajo_iact.rst``) → kebab puro
@@ -269,7 +269,7 @@ glosarios, etc.).
 - ``glosario.rst``
 - ``actores.rst``
 - ``shell-scripting-guide.rst`` (renombrado de
-  ``shell_scripting_guide.rst``)
+ ``shell_scripting_guide.rst``)
 
 4.5 Punto de Entrada de Directorio
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -283,10 +283,10 @@ entrada del directorio?
 **Migración:** los 11 archivos ``README*.rst`` deben convertirse:
 
 - Si el directorio NO tiene ``index.rst``: renombrar ``README.rst`` →
-  ``index.rst``.
+ ``index.rst``.
 - Si ya hay ``index.rst``: el ``README.rst`` debe re-nombrarse
-  conceptualmente (ej. ``arquitectura-overview.rst``) o mergearse al
-  ``index.rst``.
+ conceptualmente (ej. ``arquitectura-overview.rst``) o mergearse al
+ ``index.rst``.
 
 ----
 
@@ -309,7 +309,7 @@ entrada del directorio?
 
 - ``diseño_detallado/`` → ``diseno_detallado/`` (sin ñ)
 - ``plantuml-guide/`` → ``plantuml_guide/`` (consistencia con resto;
-  alternativa: dejar como excepción si el nombre del producto es así)
+ alternativa: dejar como excepción si el nombre del producto es así)
 
 5.2 Directorios Internos con prefijo underscore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -344,55 +344,55 @@ es intencional.
 ---------------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 25 45
+ :header-rows: 1
+ :widths: 30 25 45
 
-   * - Tipo de Artefacto
-     - Convención
-     - Ejemplo
-   * - Caso de Uso
-     - ``UC_<MOD>_<NN>_<Desc>.rst``
-     - ``UC_ACC_01_Asignar_Funciones.rst``
-   * - Regla de Negocio
-     - ``BR_<NNN>_<Desc>.rst``
-     - ``BR_001_Fuente_Operacional_Inmutable.rst``
-   * - Restricción
-     - ``CNST_<NNN>_<Desc>.rst``
-     - ``CNST_001_Comunicaciones_Prohibidas.rst``
-   * - ADR
-     - ``ADR-<MOD>-<NNN>-<desc-kebab>.rst``
-     - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
-   * - Procedimiento (gobernanza)
-     - ``PROCED-<MOD>-<NNN>-<desc-kebab>.rst``
-     - ``PROCED-GOB-003-documentar-regla-negocio.rst``
-   * - Procedimiento general
-     - ``PROC-<MOD>-<NNN>-<desc-kebab>.rst``
-     - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
-   * - Estándar
-     - ``STD_<NNN>_<Desc>.rst``
-     - ``STD_006_Versionado_Semantico.rst``
-   * - Plantilla
-     - ``TPL_<KEY>_<Desc>.rst``
-     - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
-   * - Guía general
-     - ``<desc-kebab>.rst``
-     - ``git-workflow.rst``
-   * - Punto de entrada de dir
-     - ``index.rst``
-     - ``arquitectura_tecnica/index.rst``
-   * - Directorio
-     - ``snake_case/``
-     - ``casos_uso/``
-   * - Directorio interno
-     - ``_snake_case/``
-     - ``_metadata/``
+ * - Tipo de Artefacto
+ - Convención
+ - Ejemplo
+ * - Caso de Uso
+ - ``UC_<MOD>_<NN>_<Desc>.rst``
+ - ``UC_ACC_01_Asignar_Funciones.rst``
+ * - Regla de Negocio
+ - ``BR_<NNN>_<Desc>.rst``
+ - ``BR_001_Fuente_Operacional_Inmutable.rst``
+ * - Restricción
+ - ``CNST_<NNN>_<Desc>.rst``
+ - ``CNST_001_Comunicaciones_Prohibidas.rst``
+ * - ADR
+ - ``ADR-<MOD>-<NNN>-<desc-kebab>.rst``
+ - ``ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst``
+ * - Procedimiento (gobernanza)
+ - ``PROCED-<MOD>-<NNN>-<desc-kebab>.rst``
+ - ``PROCED-GOB-003-documentar-regla-negocio.rst``
+ * - Procedimiento general
+ - ``PROC-<MOD>-<NNN>-<desc-kebab>.rst``
+ - ``PROC-DEV-001-pipeline-trabajo-iact.rst``
+ * - Estándar
+ - ``STD_<NNN>_<Desc>.rst``
+ - ``STD_006_Versionado_Semantico.rst``
+ * - Plantilla
+ - ``TPL_<KEY>_<Desc>.rst``
+ - ``TPL_ADR_Decisiones_Arquitectonicas.rst``
+ * - Guía general
+ - ``<desc-kebab>.rst``
+ - ``git-workflow.rst``
+ * - Punto de entrada de dir
+ - ``index.rst``
+ - ``arquitectura_tecnica/index.rst``
+ * - Directorio
+ - ``snake_case/``
+ - ``casos_uso/``
+ * - Directorio interno
+ - ``_snake_case/``
+ - ``_metadata/``
 
 ----
 
 7. Convención de Idioma (código vs documentación)
 --------------------------------------------------
 
-Origen: ``MODELO_RBAC_IACT_v5_2_1.md`` § "ESTÁNDAR DE NOMENCLATURA
+Origen: `:doc:`/arquitectura_tecnica/rbac/MODELO_RBAC_IACT`` § "ESTÁNDAR DE NOMENCLATURA
 v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 + decisiones D-RBAC-1 y CNST_033 Vocabulario Unificado RBAC.
 
@@ -400,101 +400,101 @@ v5.2.1" (pendiente migración a source en WP #7 arquitectura-tecnica)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 40 20 40
-   :header-rows: 1
+ :widths: 40 20 40
+ :header-rows: 1
 
-   * - Tipo de elemento
-     - Idioma
-     - Ejemplo
-   * - Modelos Django (clases, métodos)
-     - Inglés
-     - ``class FunctionGroup(models.Model):``
-   * - Funciones SQL nativas (PostgreSQL)
-     - Inglés
-     - ``CREATE FUNCTION user_has_permission(...)``
-   * - Variables, atributos en código
-     - Inglés
-     - ``user_id``, ``expires_at``
-   * - Códigos de funciones (capabilities)
-     - Inglés
-     - ``manage_sessions``, ``view_reports``, ``export_csv``
-   * - Nombres de grupos (system y custom)
-     - Inglés con sufijo ``_group``
-     - ``basic_operator_group``, ``auditor_group``
-   * - Nombres de reglas SoD
-     - Inglés con sufijo ``_separation``
-     - ``pipeline_audit_separation``
-   * - Comentarios en código
-     - Español
-     - ``# Validar antes de persistir``
-   * - Docstrings de clases / métodos
-     - Español
-     - ``"""Grupo de funciones que se asignan juntas."""``
-   * - help_text de campos Django
-     - Español
-     - ``help_text="Identificador único del grupo (AGR-001)"``
-   * - Documentación técnica (.rst, .md)
-     - Español
-     - "El sistema permite..."
-   * - Mensajes de UI / errores al usuario final
-     - Español
-     - ``"No tiene permiso para esta acción"``
-   * - Logs de aplicación
-     - Inglés
-     - ``"User authenticated successfully"``
-   * - Mensajes de commit Git
-     - Inglés (Tim Pope)
-     - ``"Add FunctionGroup model"``
+ * - Tipo de elemento
+ - Idioma
+ - Ejemplo
+ * - Modelos Django (clases, métodos)
+ - Inglés
+ - ``class FunctionGroup(models.Model):``
+ * - Funciones SQL nativas (PostgreSQL)
+ - Inglés
+ - ``CREATE FUNCTION user_has_permission(...)``
+ * - Variables, atributos en código
+ - Inglés
+ - ``user_id``, ``expires_at``
+ * - Códigos de funciones (capabilities)
+ - Inglés
+ - ``manage_sessions``, ``view_reports``, ``export_csv``
+ * - Nombres de grupos (system y custom)
+ - Inglés con sufijo ``_group``
+ - ``basic_operator_group``, ``auditor_group``
+ * - Nombres de reglas SoD
+ - Inglés con sufijo ``_separation``
+ - ``pipeline_audit_separation``
+ * - Comentarios en código
+ - Español
+ - ``# Validar antes de persistir``
+ * - Docstrings de clases / métodos
+ - Español
+ - ``"""Grupo de funciones que se asignan juntas."""``
+ * - help_text de campos Django
+ - Español
+ - ``help_text="Identificador único del grupo (AGR-001)"``
+ * - Documentación técnica (.rst, .md)
+ - Español
+ - "El sistema permite..."
+ * - Mensajes de UI / errores al usuario final
+ - Español
+ - ``"No tiene permiso para esta acción"``
+ * - Logs de aplicación
+ - Inglés
+ - ``"User authenticated successfully"``
+ * - Mensajes de commit Git
+ - Inglés (Tim Pope)
+ - ``"Add FunctionGroup model"``
 
 7.2 Justificación
 ^^^^^^^^^^^^^^^^^
 
 - **Código en inglés**: facilita la colaboración con equipos
-  internacionales, alineamiento con frameworks (Django, DRF) y
-  bibliotecas (SQL, Python) que usan inglés. Reduce fricción al
-  buscar documentación externa.
+ internacionales, alineamiento con frameworks (Django, DRF) y
+ bibliotecas (SQL, Python) que usan inglés. Reduce fricción al
+ buscar documentación externa.
 - **Documentación y comentarios en español**: el equipo de negocio
-  consume la documentación. Los comentarios contextualizan
-  decisiones del dominio. La UI es en español porque los usuarios
-  finales son hispanohablantes.
+ consume la documentación. Los comentarios contextualizan
+ decisiones del dominio. La UI es en español porque los usuarios
+ finales son hispanohablantes.
 - **Logs en inglés**: facilita parsing por herramientas SIEM/ELK que
-  asumen inglés. Los logs son consumidos por operaciones técnicas,
-  no por usuarios finales.
+ asumen inglés. Los logs son consumidos por operaciones técnicas,
+ no por usuarios finales.
 
 7.3 Ejemplo aplicado
 ^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
-   class FunctionGroup(models.Model):
-       """Grupo predefinido o creable de funciones (capabilities)."""  # ← Español
+ class FunctionGroup(models.Model):
+ """Grupo predefinido o creable de funciones (capabilities).""" # ← Español
 
-       group_id = models.CharField(                          # ← Inglés
-           max_length=10,
-           help_text="Identificador único (ej: AGR-001 para system groups)"  # ← Español
-       )
-       name = models.CharField(
-           max_length=50,
-           help_text="Nombre en inglés con sufijo _group (ej: basic_operator_group)"
-       )
-       is_custom = models.BooleanField(
-           default=False,
-           help_text="True si fue creado vía UC_PERM_05; False si es system group"
-       )
+ group_id = models.CharField( # ← Inglés
+ max_length=10,
+ help_text="Identificador único (ej: AGR-001 para system groups)" # ← Español
+ )
+ name = models.CharField(
+ max_length=50,
+ help_text="Nombre en inglés con sufijo _group (ej: basic_operator_group)"
+ )
+ is_custom = models.BooleanField(
+ default=False,
+ help_text="True si fue creado vía UC_PERM_05; False si es system group"
+ )
 
-       def has_function(self, function_code):
-           """Verifica si este grupo contiene la función dada."""  # ← Español
-           return self.functions.filter(code=function_code).exists()  # ← Inglés
+ def has_function(self, function_code):
+ """Verifica si este grupo contiene la función dada.""" # ← Español
+ return self.functions.filter(code=function_code).exists # ← Inglés
 
 7.4 Excepciones
 ^^^^^^^^^^^^^^^
 
 - **Documentos legados** (creados antes de esta convención): se
-  permite preservar el idioma original; nuevas ediciones aplican la
-  convención.
+ permite preservar el idioma original; nuevas ediciones aplican la
+ convención.
 - **Términos técnicos sin traducción aceptada**: ``framework``,
-  ``timeout``, ``token``, ``cache``, ``deploy`` se mantienen en
-  inglés incluso en docs en español.
+ ``timeout``, ``token``, ``cache``, ``deploy`` se mantienen en
+ inglés incluso en docs en español.
 
 ----
 
@@ -519,31 +519,31 @@ Existen excepciones documentadas:
 - ``index.rst`` y archivos generados por Sphinx (no toca naming).
 - Directorios ``_static/``, ``_templates/`` (convención Sphinx).
 - ``readme.rst`` en raíz (es legacy del proyecto, no en
-  ``source/``).
+ ``source/``).
 - **Procedimientos transversales sin módulo asignable.** Variante
-  ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
-  procedimiento no pertenece a un módulo funcional específico
-  (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
-  documental. Ejemplos:
+ ``PROC_<Descripcion_PascalCase>.rst`` permitida cuando el
+ procedimiento no pertenece a un módulo funcional específico
+ (DEV, DEVOPS, OPS, QA, GOB) sino que tiene scope transversal
+ documental. Ejemplos:
 
-  - ``PROC_Generacion_UC.rst`` (procedimiento de generación
-    aplicable a todas las áreas).
-  - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
-    inter-niveles, no específico de un módulo).
-  - ``PROC_Validacion_Sphinx.rst`` (validación documental
-    transversal).
+ - ``PROC_Generacion_UC.rst`` (procedimiento de generación
+ aplicable a todas las áreas).
+ - ``PROC_Derivacion_BR_UC.rst`` (procedimiento de derivación
+ inter-niveles, no específico de un módulo).
+ - ``PROC_Validacion_Sphinx.rst`` (validación documental
+ transversal).
 
-  La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
-  variante reconocida y no requiere migración a §4.2. Aplicada
-  al rebuild en ``source/normativa/procedimientos/`` (~37
-  archivos).
+ La versión vive en metadata YAML (cumple §3.4 / STD_006). Es
+ variante reconocida y no requiere migración a §4.2. Aplicada
+ al rebuild en ``source/normativa/procedimientos/`` (~37
+ archivos).
 
 - **Plantillas con descripción larga.** Variante
-  ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
-  ``TPL_API_Documentacion_API.rst``,
-  ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
-  de ``KEY`` permite distinguir variantes del mismo tipo de
-  artefacto sin requerir numeración secuencial.
+ ``TPL_<KEY>_<Descripcion_PascalCase>.rst`` válida (ej.
+ ``TPL_API_Documentacion_API.rst``,
+ ``TPL_BR_Decision_Tipo.rst``). El sufijo descriptivo después
+ de ``KEY`` permite distinguir variantes del mismo tipo de
+ artefacto sin requerir numeración secuencial.
 
 Cualquier nueva excepción requiere registro en este documento bajo
 sección 7.2.
@@ -592,11 +592,11 @@ del merge.
 ---------------
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
-  metadata, no en filename).
+ metadata, no en filename).
 - ``ADR-GOB-006-clasificacion-reglas-negocio.rst`` — convenciones de
-  clasificación que usan estos prefijos.
+ clasificación que usan estos prefijos.
 - ``GUIA_ESTILO.rst`` — guía de estilo de redacción (complementa este
-  estándar).
+ estándar).
 
 ----
 
@@ -604,15 +604,15 @@ del merge.
 ------------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 12 12 76
+ :header-rows: 1
+ :widths: 12 12 76
 
-   * - Versión
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-04-28
-     - Versión inicial. Define convenciones para 12 tipos de artefactos
-       en source/, reglas de directorios, caracteres prohibidos,
-       versión en metadata (no filename), index.rst como entry-point,
-       tabla de decisión rápida.
+ * - Versión
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-04-28
+ - Versión inicial. Define convenciones para 12 tipos de artefactos
+ en source/, reglas de directorios, caracteres prohibidos,
+ versión en metadata (no filename), index.rst como entry-point,
+ tabla de decisión rápida.

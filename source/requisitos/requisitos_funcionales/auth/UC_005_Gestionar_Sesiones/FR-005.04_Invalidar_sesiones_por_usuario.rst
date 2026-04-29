@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-005.04
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-005.04
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-005-04:
 
@@ -19,22 +19,22 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-005.04
-   * - **Nombre**
-     - Invalidar todas las sesiones de un usuario específico
-   * - **UC Origen**
-     - UC_005: Gestionar Sesiones Activas
-   * - **Paso UC**
-     - FA-1 del flujo alterno
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Media
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-005.04
+ * - **Nombre**
+ - Invalidar todas las sesiones de un usuario específico
+ * - **UC Origen**
+ - UC_005: Gestionar Sesiones Activas
+ * - **Paso UC**
+ - FA-1 del flujo alterno
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Media
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,27 +43,27 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 
 **Declaración:**
 
-   El sistema DEBE permitir cerrar todas las sesiones activas de un
-   usuario específico CUANDO el administrador de seguridad lo solicita.
+ El sistema DEBE permitir cerrar todas las sesiones activas de un
+ usuario específico CUANDO el administrador de seguridad lo solicita.
 
 **Descripción:**
 
-   El proceso de cierre masivo por usuario:
-   
-   1. Admin selecciona opción "Cerrar todas las sesiones" para un usuario
-   2. Sistema muestra resumen: número de sesiones a cerrar
-   3. Admin confirma con advertencia de impacto
-   4. Sistema invalida todas las sesiones activas del usuario
-   5. Sistema agrega todos los tokens a blacklist
-   6. Sistema registra evento único con conteo de sesiones cerradas
-   7. Sistema actualiza listado
-   
-   **Casos de Uso:**
-   
-   - Usuario reporta compromiso de cuenta
-   - Terminación de empleado
-   - Sospecha de actividad maliciosa
-   - Mantenimiento de seguridad
+ El proceso de cierre masivo por usuario:
+ 
+ 1. Admin selecciona opción "Cerrar todas las sesiones" para un usuario
+ 2. Sistema muestra resumen: número de sesiones a cerrar
+ 3. Admin confirma con advertencia de impacto
+ 4. Sistema invalida todas las sesiones activas del usuario
+ 5. Sistema agrega todos los tokens a blacklist
+ 6. Sistema registra evento único con conteo de sesiones cerradas
+ 7. Sistema actualiza listado
+ 
+ **Casos de Uso:**
+ 
+ - Usuario reporta compromiso de cuenta
+ - Terminación de empleado
+ - Sospecha de actividad maliciosa
+ - Mantenimiento de seguridad
 
 ----
 
@@ -72,33 +72,33 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 
 ::
 
-   DADO admin gestionando sesiones
-   CUANDO solicita cerrar todas las sesiones de un usuario
-   ENTONCES se invalidan todas tras confirmación
-   
-   Escenario 1: Cierre masivo exitoso
-   DADO usuario con 3 sesiones activas
-   CUANDO admin confirma cierre masivo
-   ENTONCES las 3 sesiones cambian a 'FORCED_LOGOUT'
-   Y los 3 tokens se agregan a blacklist
-   Y se crea 1 registro de auditoría con count = 3
-   
-   Escenario 2: Confirmación con resumen
-   DADO solicitud de cierre masivo
-   CUANDO se muestra confirmación
-   ENTONCES indica "Se cerrarán X sesiones del usuario Y"
-   Y advierte que el usuario deberá re-autenticarse
-   
-   Escenario 3: Usuario sin sesiones activas
-   DADO usuario sin sesiones activas
-   CUANDO admin intenta cierre masivo
-   ENTONCES se muestra "El usuario no tiene sesiones activas"
-   
-   Escenario 4: No afecta sesión del admin ejecutor
-   DADO admin ejecutando cierre de sus propias sesiones
-   CUANDO confirma
-   ENTONCES se cierran todas EXCEPTO la sesión actual
-   Y se advierte que no incluye sesión actual
+ DADO admin gestionando sesiones
+ CUANDO solicita cerrar todas las sesiones de un usuario
+ ENTONCES se invalidan todas tras confirmación
+ 
+ Escenario 1: Cierre masivo exitoso
+ DADO usuario con 3 sesiones activas
+ CUANDO admin confirma cierre masivo
+ ENTONCES las 3 sesiones cambian a 'FORCED_LOGOUT'
+ Y los 3 tokens se agregan a blacklist
+ Y se crea 1 registro de auditoría con count = 3
+ 
+ Escenario 2: Confirmación con resumen
+ DADO solicitud de cierre masivo
+ CUANDO se muestra confirmación
+ ENTONCES indica "Se cerrarán X sesiones del usuario Y"
+ Y advierte que el usuario deberá re-autenticarse
+ 
+ Escenario 3: Usuario sin sesiones activas
+ DADO usuario sin sesiones activas
+ CUANDO admin intenta cierre masivo
+ ENTONCES se muestra "El usuario no tiene sesiones activas"
+ 
+ Escenario 4: No afecta sesión del admin ejecutor
+ DADO admin ejecutando cierre de sus propias sesiones
+ CUANDO confirma
+ ENTONCES se cierran todas EXCEPTO la sesión actual
+ Y se advierte que no incluye sesión actual
 
 ----
 
@@ -106,10 +106,10 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-  
+ 
 - **CNST aplicables:**
-  - CNST-002: Gestión de sesiones
-  - CNST-009: Auditoría obligatoria
+ - CNST-002: Gestión de sesiones
+ - CNST-009: Auditoría obligatoria
 
 **Consideraciones:**
 
@@ -123,20 +123,20 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_005: Gestionar Sesiones
-   * - **Depende de**
-     - FR-005.01
-   * - **Requerido por**
-     - Ninguno
-   * - **CNST**
-     - CNST-002, CNST-009
-   * - **TEST**
-     - TST-FR-005.04 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_005: Gestionar Sesiones
+ * - **Depende de**
+ - FR-005.01
+ * - **Requerido por**
+ - Ninguno
+ * - **CNST**
+ - CNST-002, CNST-009
+ * - **TEST**
+ - TST-FR-005.04 (pendiente)
 
 ----
 
@@ -144,12 +144,12 @@ FR-005.04: Invalidar todas las sesiones de un usuario
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_005
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_005

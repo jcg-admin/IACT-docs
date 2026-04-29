@@ -1,16 +1,16 @@
 .. meta::
-   :artefacto: PROC_Revision_Artefactos
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
-   :anterior: PROC_002_Revision_Artefactos
+ :artefacto: PROC_Revision_Artefactos
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
+ :anterior: PROC_002_Revision_Artefactos
 
 .. _proc-revision-artefactos:
 
@@ -23,23 +23,23 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Revision_Artefactos
-   * - **Nombre**
-     - Revision de Artefactos del Modelo Documental
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Por cada artefacto generado
-   * - **Duracion Estimada**
-     - 10-30 minutos por artefacto
-   * - **Estado**
-     - Vigente
-   * - **Nota**
-     - Renombrado desde PROC_002_Revision_Artefactos
+ * - **ID**
+ - PROC_Revision_Artefactos
+ * - **Nombre**
+ - Revision de Artefactos del Modelo Documental
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Por cada artefacto generado
+ * - **Duracion Estimada**
+ - 10-30 minutos por artefacto
+ * - **Estado**
+ - Vigente
+ * - **Nota**
+ - Renombrado desde PROC_002_Revision_Artefactos
 
 ----
 
@@ -76,21 +76,21 @@ estandares y son tecnicamente correctos.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Autor
-     - Genera artefacto, solicita revision
-     - Escritura en artefacto
-   * - Revisor
-     - Ejecuta revision, reporta hallazgos
-     - Lectura de artefactos
-   * - Aprobador
-     - Aprueba artefacto revisado
-     - Aprobacion
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Autor
+ - Genera artefacto, solicita revision
+ - Escritura en artefacto
+ * - Revisor
+ - Ejecuta revision, reporta hallazgos
+ - Lectura de artefactos
+ * - Aprobador
+ - Aprueba artefacto revisado
+ - Aprobacion
 
 ----
 
@@ -109,21 +109,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Artefacto a revisar
-     - Documento generado
-     - Si
-   * - TPL correspondiente
-     - Template de referencia
-     - Si
-   * - Checklist de revision
-     - Criterios a verificar
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Artefacto a revisar
+ - Documento generado
+ - Si
+ * - TPL correspondiente
+ - Template de referencia
+ - Si
+ * - Checklist de revision
+ - Criterios a verificar
+ - Si
 
 ----
 
@@ -134,38 +134,38 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Revision
-   :align: center
+ :caption: Flujo de Revision
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Recibir artefacto;
-   :Verificar estructura vs TPL;
-   :Verificar contenido;
-   :Verificar nomenclatura;
-   :Verificar trazabilidad;
-   :Ejecutar validacion Sphinx;
+ start
+ :Recibir artefacto;
+ :Verificar estructura vs TPL;
+ :Verificar contenido;
+ :Verificar nomenclatura;
+ :Verificar trazabilidad;
+ :Ejecutar validacion Sphinx;
 
-   if (Hallazgos criticos?) then (si)
-       :Documentar hallazgos;
-       :Devolver al autor;
-       stop
-   else (no)
-       if (Hallazgos menores?) then (si)
-           :Documentar observaciones;
-       endif
-       :Aprobar revision;
-       :Enviar a aprobacion final;
-   endif
+ if (Hallazgos criticos?) then (si)
+ :Documentar hallazgos;
+ :Devolver al autor;
+ stop
+ else (no)
+ if (Hallazgos menores?) then (si)
+ :Documentar observaciones;
+ endif
+ :Aprobar revision;
+ :Enviar a aprobacion final;
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Checklist de Revision
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,13 +208,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Comparar artefacto contra TPL:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Verificar presencia de:
-     - Meta tags
-     - Titulo
-     - Todas las secciones del TPL
-     - Historial de cambios
+ Verificar presencia de:
+ - Meta tags
+ - Titulo
+ - Todas las secciones del TPL
+ - Historial de cambios
 
 - **Resultado**: Lista de secciones faltantes (si hay)
 - **Verificacion**: Checklist de estructura
@@ -224,10 +224,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Revisar calidad del contenido:
 
-  - Claridad de redaccion
-  - Completitud de informacion
-  - Precision tecnica
-  - Consistencia con otros artefactos
+ - Claridad de redaccion
+ - Completitud de informacion
+ - Precision tecnica
+ - Consistencia con otros artefactos
 
 - **Resultado**: Observaciones de contenido
 - **Verificacion**: Sin ambiguedades
@@ -237,13 +237,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Validar IDs y nombres:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Verificar ID en meta tag
-     grep ":artefacto:" [archivo]
-     
-     # Verificar nombre archivo
-     ls -la [archivo]
+ # Verificar ID en meta tag
+ grep ":artefacto:" [archivo]
+ 
+ # Verificar nombre archivo
+ ls -la [archivo]
 
 - **Resultado**: Nomenclatura correcta
 - **Verificacion**: Formato valido
@@ -253,9 +253,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Validar referencias:
 
-  - Artefacto padre existe
-  - Artefactos relacionados existen
-  - Bidireccionalidad de referencias
+ - Artefacto padre existe
+ - Artefactos relacionados existen
+ - Bidireccionalidad de referencias
 
 - **Resultado**: Trazabilidad consistente
 - **Verificacion**: Sin referencias rotas
@@ -265,9 +265,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Ejecutar validacion:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     sphinx-build -b html -W docs/ docs/_build/
+ sphinx-build -b html -W docs/ docs/_build/
 
 - **Resultado**: Build exitoso
 - **Verificacion**: Sin errores ni warnings
@@ -277,13 +277,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Revisor
 - **Accion**: Registrar resultado de revision:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     REVISION: [ID artefacto]
-     Fecha: YYYY-MM-DD
-     Revisor: [Nombre]
-     Resultado: Aprobado / Rechazado / Con observaciones
-     Hallazgos: [Lista]
+ REVISION: [ID artefacto]
+ Fecha: YYYY-MM-DD
+ Revisor: [Nombre]
+ Resultado: Aprobado / Rechazado / Con observaciones
+ Hallazgos: [Lista]
 
 - **Resultado**: Revision documentada
 - **Verificacion**: Registro completo
@@ -294,18 +294,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - Reporte de revision
-     - Resultado y hallazgos
-     - Registro de revisiones
-   * - Artefacto revisado
-     - Corregido si hubo hallazgos
-     - Ubicacion original
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - Reporte de revision
+ - Resultado y hallazgos
+ - Registro de revisiones
+ * - Artefacto revisado
+ - Corregido si hubo hallazgos
+ - Ubicacion original
 
 ----
 
@@ -334,21 +334,21 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Tipo
-     - Descripcion
-     - Accion
-   * - Critico
-     - Bloquea aprobacion
-     - Corregir y re-revisar
-   * - Mayor
-     - Importante pero no bloqueante
-     - Corregir antes de congelar
-   * - Menor
-     - Observacion
-     - Corregir cuando sea posible
+ * - Tipo
+ - Descripcion
+ - Accion
+ * - Critico
+ - Bloquea aprobacion
+ - Corregir y re-revisar
+ * - Mayor
+ - Importante pero no bloqueante
+ - Corregir antes de congelar
+ * - Menor
+ - Observacion
+ - Corregir cuando sea posible
 
 ----
 
@@ -356,15 +356,15 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Revisor no disponible
-     - Asignar revisor alternativo
-   * - Desacuerdo autor-revisor
-     - Escalar a Arquitecto Doc
+ * - Excepcion
+ - Accion
+ * - Revisor no disponible
+ - Asignar revisor alternativo
+ * - Desacuerdo autor-revisor
+ - Escalar a Arquitecto Doc
 
 ----
 
@@ -381,17 +381,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Renombrado desde PROC_002, nueva nomenclatura
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Renombrado desde PROC_002, nueva nomenclatura
 
 ----
 

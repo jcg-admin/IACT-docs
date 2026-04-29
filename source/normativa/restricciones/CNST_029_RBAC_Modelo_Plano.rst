@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_029
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 2.0.0
-   :fecha_creacion: 2025-12-17
-   :ultimo_cambio: 2026-04-28
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_029
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 2.0.0
+ :fecha_creacion: 2025-12-17
+ :ultimo_cambio: 2026-04-28
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-029:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_029
-   * - **Categoria**
-     - RBAC
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_029
+ * - **Categoria**
+ - RBAC
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -60,7 +60,7 @@ en permisos efectivos opacos al revisor.
 ^^^^^^^^^^
 
 - **Fuente:** Decision de arquitectura (simplicidad operativa)
-- **Documento:** MODELO_RBAC_IACT_v5_2_1.md
+- **Documento:** MODELO_RBAC_IACT
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica
@@ -71,77 +71,77 @@ en permisos efectivos opacos al revisor.
 
 
 - Unidad atomica: **Funcion** (vocabulario canonico,
-  :doc:`CNST_033_Vocabulario_Unificado_RBAC`). Una accion concreta
-  expresada como verbo+recurso, ej. ``manage_sessions``,
-  ``view_reports``, ``export_csv``.
+ :doc:`CNST_033_Vocabulario_Unificado_RBAC`). Una accion concreta
+ expresada como verbo+recurso, ej. ``manage_sessions``,
+ ``view_reports``, ``export_csv``.
 - **Grupo de Permisos**: conjunto de funciones asignables como bloque.
 - **Asignacion**: usuario en N grupos. No hay asignacion directa de
-  funciones a usuarios (excepto via Permisos Excepcionales,
-  :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`).
+ funciones a usuarios (excepto via Permisos Excepcionales,
+ :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`).
 - Sin herencia: si un grupo deriva de otro, sus funciones se copian
-  explicitamente.
+ explicitamente.
 
 **Catalogo de Grupos predefinidos (system groups, inmutables):**
 
 .. list-table::
-   :widths: 12 30 13 25 20
-   :header-rows: 1
+ :widths: 12 30 13 25 20
+ :header-rows: 1
 
-   * - ID
-     - Nombre (ingles)
-     - # Funciones
-     - Actor tipico
-     - Tipo
-   * - AGR-001
-     - basic_operator_group
-     - 6
-     - Operador
-     - system
-   * - AGR-002
-     - report_viewer_group
-     - 8
-     - Analista
-     - system
-   * - AGR-003
-     - quality_supervisor_group
-     - 11
-     - Supervisor
-     - system
-   * - AGR-004
-     - data_exporter_group
-     - 14
-     - Data Analyst
-     - system
-   * - AGR-005
-     - alert_manager_group
-     - 6
-     - Gestor Alertas
-     - system
-   * - AGR-006
-     - user_admin_group
-     - 9
-     - Admin Usuarios
-     - system
-   * - AGR-007
-     - permission_admin_group
-     - 5
-     - Admin Permisos
-     - system
-   * - AGR-008
-     - auditor_group
-     - 4
-     - Auditor
-     - system
-   * - AGR-009
-     - pipeline_admin_group
-     - 4
-     - Admin Pipeline
-     - system
-   * - AGR-010
-     - system_admin_group
-     - 6
-     - Sysadmin
-     - system
+ * - ID
+ - Nombre (ingles)
+ - # Funciones
+ - Actor tipico
+ - Tipo
+ * - AGR-001
+ - basic_operator_group
+ - 6
+ - Operador
+ - system
+ * - AGR-002
+ - report_viewer_group
+ - 8
+ - Analista
+ - system
+ * - AGR-003
+ - quality_supervisor_group
+ - 11
+ - Supervisor
+ - system
+ * - AGR-004
+ - data_exporter_group
+ - 14
+ - Data Analyst
+ - system
+ * - AGR-005
+ - alert_manager_group
+ - 6
+ - Gestor Alertas
+ - system
+ * - AGR-006
+ - user_admin_group
+ - 9
+ - Admin Usuarios
+ - system
+ * - AGR-007
+ - permission_admin_group
+ - 5
+ - Admin Permisos
+ - system
+ * - AGR-008
+ - auditor_group
+ - 4
+ - Auditor
+ - system
+ * - AGR-009
+ - pipeline_admin_group
+ - 4
+ - Admin Pipeline
+ - system
+ * - AGR-010
+ - system_admin_group
+ - 6
+ - Sysadmin
+ - system
 
 **System groups vs custom groups (decision D-RBAC-4):**
 
@@ -175,29 +175,29 @@ Ver subseccion 2.1.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Access
-     - Implementa modelo plano + 42 funciones atomicas
-   * - (todos)
-     - Consultan permisos sin jerarquia
+ * - Modulo
+ - Impacto
+ * - MOD_Access
+ - Implementa modelo plano + 42 funciones atomicas
+ * - (todos)
+ - Consultan permisos sin jerarquia
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - UC_042
-     - Precedencia de permisos
-   * - Todos los UCs con autorizacion
-     - Usan modelo plano
+ * - UC
+ - Impacto
+ * - UC_042
+ - Precedencia de permisos
+ * - Todos los UCs con autorizacion
+ - Usan modelo plano
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ Ver subseccion 2.1.
 
 Sin BRs especificas mapeadas a esta CNST en la base cognitiva actual.
 El catalogo BR_NNN del dominio IACT esta pendiente de elaborar en
-el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
+el WP de requisitos (deuda diferida).
 
 5. Implementacion
 -----------------
@@ -222,7 +222,7 @@ el WP de requisitos (ver `analyze/cross-wp-debt-summary.md` § W-2).
 
 .. code-block:: python
 
-   user.groups.all()  # union de funciones, sin jerarquia
+ user.groups.all # union de funciones, sin jerarquia
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -245,7 +245,7 @@ Cambio de modelo requiere ADR + revision arquitectonica.
 
 El protocolo formal de waiver de CNSTs esta pendiente de elaborar en
 el WP de gobernanza (`PROC_Excepciones_CNST` — ver
-`analyze/cross-wp-debt-summary.md` § W-4).
+(referencia interna) § W-4).
 
 7. Verificacion
 ---------------
@@ -266,37 +266,37 @@ El cumplimiento se verifica via los snippets de la seccion 5.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_042, Todos los UCs con autorizacion
-   * - **MODs afectados**
-     - MOD_Access, (todos)
-   * - **ADRs relacionados**
-     - Pendiente WP arquitectura tecnica
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_030_Reglas_de_Separacion_de_Funciones_SoD`, :doc:`CNST_031_Permisos_Temporales_Maximo_6_Meses`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_042, Todos los UCs con autorizacion
+ * - **MODs afectados**
+ - MOD_Access, (todos)
+ * - **ADRs relacionados**
+ - Pendiente WP arquitectura tecnica
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-12-17
-     - NestorMonroy
-     - Version inicial (consolidada del backup canonico)
-   * - 2.0.0
-     - 2026-04-28
-     - NestorMonroy
-     - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-12-17
+ - NestorMonroy
+ - Version inicial (consolidada del backup canonico)
+ * - 2.0.0
+ - 2026-04-28
+ - NestorMonroy
+ - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
 

@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-001.03
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-001.03
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-001-03:
 
@@ -19,22 +19,22 @@ FR-001.03: Generar token JWT
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-001.03
-   * - **Nombre**
-     - Generar token JWT para sesión
-   * - **UC Origen**
-     - UC_001: Iniciar Sesion
-   * - **Paso UC**
-     - Paso 8 del flujo normal
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Alta
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-001.03
+ * - **Nombre**
+ - Generar token JWT para sesión
+ * - **UC Origen**
+ - UC_001: Iniciar Sesion
+ * - **Paso UC**
+ - Paso 8 del flujo normal
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Alta
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,30 +43,30 @@ FR-001.03: Generar token JWT
 
 **Declaración:**
 
-   El sistema DEBE generar un token JWT válido CUANDO las credenciales
-   del usuario han sido verificadas exitosamente.
+ El sistema DEBE generar un token JWT válido CUANDO las credenciales
+ del usuario han sido verificadas exitosamente.
 
 **Descripción:**
 
-   El sistema genera un token JWT con las siguientes características:
-   
-   **Estructura del Token:**
-   
-   - Header: algoritmo HS256
-   - Payload:
-     - ``sub``: user_id (UUID)
-     - ``username``: username del usuario
-     - ``roles``: array de códigos de rol
-     - ``segment_id``: ID del segmento asignado
-     - ``iat``: timestamp de emisión
-     - ``exp``: timestamp de expiración (8 horas)
-     - ``jti``: identificador único del token (UUID)
-   - Signature: firmado con SECRET_KEY del servidor
+ El sistema genera un token JWT con las siguientes características:
+ 
+ **Estructura del Token:**
+ 
+ - Header: algoritmo HS256
+ - Payload:
+ - ``sub``: user_id (UUID)
+ - ``username``: username del usuario
+ - ``roles``: array de códigos de rol
+ - ``segment_id``: ID del segmento asignado
+ - ``iat``: timestamp de emisión
+ - ``exp``: timestamp de expiración (8 horas)
+ - ``jti``: identificador único del token (UUID)
+ - Signature: firmado con SECRET_KEY del servidor
 
-   **Almacenamiento:**
-   
-   - El token se registra en tabla ``user_sessions`` (CNST-002)
-   - Se almacena: jti, user_id, created_at, expires_at, ip_address, user_agent
+ **Almacenamiento:**
+ 
+ - El token se registra en tabla ``user_sessions`` (CNST-002)
+ - Se almacena: jti, user_id, created_at, expires_at, ip_address, user_agent
 
 ----
 
@@ -75,26 +75,26 @@ FR-001.03: Generar token JWT
 
 ::
 
-   DADO un usuario con credenciales verificadas exitosamente
-   CUANDO el sistema genera el token JWT
-   ENTONCES se crea un token válido con toda la información requerida
-   
-   Escenario 1: Generación exitosa
-   DADO usuario "juan.perez" autenticado
-   CUANDO se genera el token
-   ENTONCES el token contiene user_id, username, roles, segment_id
-   Y el token expira en exactamente 8 horas
-   Y se crea registro en user_sessions
-   
-   Escenario 2: Token único
-   DADO dos logins consecutivos del mismo usuario
-   CUANDO se generan los tokens
-   ENTONCES cada token tiene un jti diferente
-   
-   Escenario 3: Información de roles
-   DADO usuario con roles [ROL-003, ROL-005]
-   CUANDO se genera el token
-   ENTONCES el claim "roles" contiene ["ROL-003", "ROL-005"]
+ DADO un usuario con credenciales verificadas exitosamente
+ CUANDO el sistema genera el token JWT
+ ENTONCES se crea un token válido con toda la información requerida
+ 
+ Escenario 1: Generación exitosa
+ DADO usuario "juan.perez" autenticado
+ CUANDO se genera el token
+ ENTONCES el token contiene user_id, username, roles, segment_id
+ Y el token expira en exactamente 8 horas
+ Y se crea registro en user_sessions
+ 
+ Escenario 2: Token único
+ DADO dos logins consecutivos del mismo usuario
+ CUANDO se generan los tokens
+ ENTONCES cada token tiene un jti diferente
+ 
+ Escenario 3: Información de roles
+ DADO usuario con roles [ROL-003, ROL-005]
+ CUANDO se genera el token
+ ENTONCES el claim "roles" contiene ["ROL-003", "ROL-005"]
 
 ----
 
@@ -102,30 +102,30 @@ FR-001.03: Generar token JWT
 -------------------------
 
 - **BR aplicables:**
-  - BR_005: Sesión única por usuario
-  
+ - BR_005: Sesión única por usuario
+ 
 - **CNST aplicables:**
-  - CNST-002: Gestión de sesiones en BD (registro obligatorio)
-  - CNST-005: Seguridad DRF
+ - CNST-002: Gestión de sesiones en BD (registro obligatorio)
+ - CNST-005: Seguridad DRF
 
 **Parámetros de Configuración:**
 
 .. list-table::
-   :widths: 30 30 40
-   :header-rows: 1
+ :widths: 30 30 40
+ :header-rows: 1
 
-   * - Parámetro
-     - Valor
-     - Notas
-   * - Algoritmo
-     - HS256
-     - HMAC SHA-256
-   * - Expiración
-     - 8 horas
-     - Configurable por ambiente
-   * - Secret Key
-     - Env variable
-     - Mínimo 256 bits
+ * - Parámetro
+ - Valor
+ - Notas
+ * - Algoritmo
+ - HS256
+ - HMAC SHA-256
+ * - Expiración
+ - 8 horas
+ - Configurable por ambiente
+ * - Secret Key
+ - Env variable
+ - Mínimo 256 bits
 
 ----
 
@@ -133,22 +133,22 @@ FR-001.03: Generar token JWT
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_001: Iniciar Sesion
-   * - **Depende de**
-     - FR-001.02, FR-001.04
-   * - **Requerido por**
-     - FR-002.01 (invalidación)
-   * - **BR**
-     - BR_005
-   * - **CNST**
-     - CNST-002, CNST-005
-   * - **TEST**
-     - TST-FR-001.03 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_001: Iniciar Sesion
+ * - **Depende de**
+ - FR-001.02, FR-001.04
+ * - **Requerido por**
+ - FR-002.01 (invalidación)
+ * - **BR**
+ - BR_005
+ * - **CNST**
+ - CNST-002, CNST-005
+ * - **TEST**
+ - TST-FR-001.03 (pendiente)
 
 ----
 
@@ -156,12 +156,12 @@ FR-001.03: Generar token JWT
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_001
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_001

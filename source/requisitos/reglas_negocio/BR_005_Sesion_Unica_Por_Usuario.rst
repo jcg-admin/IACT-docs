@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_005
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_005
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-005:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_005
-   * - **Nombre**
-     - Sesion Unica por Usuario
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_005
+ * - **Nombre**
+ - Sesion Unica por Usuario
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ ENTONCES la sesion anterior DEBE ser invalidada automaticamente.
 
 ::
 
-   VOCABULARIO:
-     - Sesion activa: Token JWT valido asociado a usuario
-     - Nuevo login: Autenticacion exitosa desde cualquier dispositivo
-     - Invalidacion: Revocacion de token anterior
+ VOCABULARIO:
+ - Sesion activa: Token JWT valido asociado a usuario
+ - Nuevo login: Autenticacion exitosa desde cualquier dispositivo
+ - Invalidacion: Revocacion de token anterior
 
-   REGLA:
-     Es obligatorio que cada usuario tenga maximo una sesion activa.
-     Es obligatorio que el nuevo login invalide sesiones previas.
+ REGLA:
+ Es obligatorio que cada usuario tenga maximo una sesion activa.
+ Es obligatorio que el nuevo login invalide sesiones previas.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -96,17 +96,17 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_002_Gestion_Sesiones_BD
-   * - **Seccion**
-     - Politica de Sesiones
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST
+ * - **Documento**
+ - CNST_002_Gestion_Sesiones_BD
+ * - **Seccion**
+ - Politica de Sesiones
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,17 +124,17 @@ auditoria de accesos al tener una sola sesion rastreable por usuario.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Auth
-     - Invalida token anterior al crear nuevo
-   * - Middleware JWT
-     - Verifica validez de token en cada request
-   * - Base Analytics
-     - Tabla de sesiones activas
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Auth
+ - Invalida token anterior al crear nuevo
+ * - Middleware JWT
+ - Verifica validez de token en cada request
+ * - Base Analytics
+ - Tabla de sesiones activas
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -155,41 +155,41 @@ Sin excepciones definidas.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_002
-     - Define politica de gestion de sesiones
+ * - CNST
+ - Relacion
+ * - CNST_002
+ - Define politica de gestion de sesiones
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-004
-     - Cumplimiento de Seguridad
+ * - BReq
+ - Descripcion
+ * - BReq-004
+ - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-001
-     - Inicio de Sesion - invalida sesion previa
-   * - UC-002
-     - Cierre de Sesion - elimina sesion activa
-   * - UC-005
-     - Gestionar Sesiones - muestra sesion unica
+ * - UC
+ - Donde Aplica
+ * - UC-001
+ - Inicio de Sesion - invalida sesion previa
+ * - UC-002
+ - Cierre de Sesion - elimina sesion activa
+ * - UC-005
+ - Gestionar Sesiones - muestra sesion unica
 
 ----
 
@@ -223,14 +223,14 @@ Sin excepciones definidas.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

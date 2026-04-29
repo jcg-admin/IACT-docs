@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_001
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_001
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-001:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_001
-   * - **Nombre**
-     - Fuente Operacional Inmutable
-   * - **Tipo**
-     - Hecho
-   * - **Categoria**
-     - Operacional
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_001
+ * - **Nombre**
+ - Fuente Operacional Inmutable
+ * - **Tipo**
+ - Hecho
+ * - **Categoria**
+ - Operacional
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -53,14 +53,14 @@ IACT NO PUEDE ejecutar operaciones INSERT, UPDATE o DELETE en la base IVR.
 
 ::
 
-   VOCABULARIO:
-     - Base IVR: Base de datos MySQL del sistema de telefonia
-     - IACT: Sistema de analitica de dashboard
-     - Operacion de escritura: INSERT, UPDATE, DELETE
+ VOCABULARIO:
+ - Base IVR: Base de datos MySQL del sistema de telefonia
+ - IACT: Sistema de analitica de dashboard
+ - Operacion de escritura: INSERT, UPDATE, DELETE
 
-   REGLA:
-     Es obligatorio que IACT acceda a Base IVR unicamente en modo lectura.
-     Es prohibido que IACT ejecute operaciones de escritura en Base IVR.
+ REGLA:
+ Es obligatorio que IACT acceda a Base IVR unicamente en modo lectura.
+ Es prohibido que IACT ejecute operaciones de escritura en Base IVR.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -96,17 +96,17 @@ cliente como requisito no negociable.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_003_Base_Datos_Dual_Inmutable
-   * - **Seccion**
-     - Arquitectura de Datos
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST (Restriccion del cliente)
+ * - **Documento**
+ - CNST_003_Base_Datos_Dual_Inmutable
+ * - **Seccion**
+ - Arquitectura de Datos
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST (Restriccion del cliente)
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,17 +124,17 @@ cliente como requisito no negociable.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - Database Router
-     - IVRReadOnlyRouter bloquea escrituras a base IVR
-   * - MOD_Pipeline
-     - ETL solo extrae datos, no modifica origen
-   * - Django ORM
-     - Modelos IVR marcados como managed=False
+ * - Componente
+ - Descripcion de Aplicacion
+ * - Database Router
+ - IVRReadOnlyRouter bloquea escrituras a base IVR
+ * - MOD_Pipeline
+ - ETL solo extrae datos, no modifica origen
+ * - Django ORM
+ - Modelos IVR marcados como managed=False
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -156,39 +156,39 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_003
-     - Define arquitectura dual y permisos de base de datos
+ * - CNST
+ - Relacion
+ * - CNST_003
+ - Define arquitectura dual y permisos de base de datos
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-005
-     - Integridad de Datos Operacionales
+ * - BReq
+ - Descripcion
+ * - BReq-005
+ - Integridad de Datos Operacionales
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-050
-     - Supervisar Estado ETL - solo lectura de IVR
-   * - UC-017 a UC-024
-     - Reportes - consultan datos IVR via replica
+ * - UC
+ - Donde Aplica
+ * - UC-050
+ - Supervisar Estado ETL - solo lectura de IVR
+ * - UC-017 a UC-024
+ - Reportes - consultan datos IVR via replica
 
 ----
 
@@ -222,14 +222,14 @@ Sin excepciones definidas. La inmutabilidad es absoluta.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

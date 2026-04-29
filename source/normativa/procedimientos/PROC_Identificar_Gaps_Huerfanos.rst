@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Identificar_Gaps_Huerfanos
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Trazabilidad
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Identificar_Gaps_Huerfanos
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Trazabilidad
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-identificar-gaps-huerfanos:
 
@@ -22,18 +22,18 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Identificar_Gaps_Huerfanos
-   * - **Nombre**
-     - Identificar Gaps y Huerfanos en Trazabilidad
-   * - **Categoria**
-     - Trazabilidad
-   * - **Frecuencia**
-     - Con cada RTM
-   * - **Duracion**
-     - 15-30 minutos
+ * - **ID**
+ - PROC_Identificar_Gaps_Huerfanos
+ * - **Nombre**
+ - Identificar Gaps y Huerfanos en Trazabilidad
+ * - **Categoria**
+ - Trazabilidad
+ * - **Frecuencia**
+ - Con cada RTM
+ * - **Duracion**
+ - 15-30 minutos
 
 ----
 
@@ -65,17 +65,17 @@ Identificar artefactos sin cobertura (gaps) y artefactos sin origen
 
 .. code-block:: bash
 
-   # Listar todos los UC
-   find casos_uso/ -name "UC_*.rst" | wc -l
-   # Resultado: 49
+ # Listar todos los UC
+ find casos_uso/ -name "UC_*.rst" | wc -l
+ # Resultado: 49
 
 **Paso 2: Inventariar Destinos**
 
 .. code-block:: bash
 
-   # Listar todos los FR
-   find funcionales/ -name "FR_*.rst" | wc -l
-   # Resultado: 158
+ # Listar todos los FR
+ find funcionales/ -name "FR_*.rst" | wc -l
+ # Resultado: 158
 
 **Paso 3: Verificar Cobertura Origen -> Destino**
 
@@ -83,9 +83,9 @@ Para cada origen, verificar que tiene destino:
 
 .. code-block:: text
 
-   UC_001 -> FR_UC001_01, FR_UC001_02, ... [OK]
-   UC_002 -> FR_UC002_01, FR_UC002_02, ... [OK]
-   UC_099 -> ??? [GAP]
+ UC_001 -> FR_UC001_01, FR_UC001_02, ... [OK]
+ UC_002 -> FR_UC002_01, FR_UC002_02, ... [OK]
+ UC_099 -> ??? [GAP]
 
 **Paso 4: Verificar Trazabilidad Destino -> Origen**
 
@@ -93,22 +93,22 @@ Para cada destino, verificar que tiene origen:
 
 .. code-block:: text
 
-   FR_UC001_01 -> UC_001 [OK]
-   FR_UC001_02 -> UC_001 [OK]
-   FR_XXXX_01 -> ??? [HUERFANO]
+ FR_UC001_01 -> UC_001 [OK]
+ FR_UC001_02 -> UC_001 [OK]
+ FR_XXXX_01 -> ??? [HUERFANO]
 
 **Paso 5: Documentar Hallazgos**
 
 .. code-block:: text
 
-   GAPS IDENTIFICADOS:
-   - UC_099: Sin FR derivados (futuro)
-   
-   HUERFANOS IDENTIFICADOS:
-   - Ninguno
-   
-   EXCLUSIONES JUSTIFICADAS:
-   - UC_099: Caso de uso para fase 2
+ GAPS IDENTIFICADOS:
+ - UC_099: Sin FR derivados (futuro)
+ 
+ HUERFANOS IDENTIFICADOS:
+ - Ninguno
+ 
+ EXCLUSIONES JUSTIFICADAS:
+ - UC_099: Caso de uso para fase 2
 
 **Paso 6: Definir Acciones**
 
@@ -125,14 +125,14 @@ Para cada gap/huerfano:
 
 .. code-block:: bash
 
-   # Buscar UC sin FR en trazabilidad
-   for uc in $(find casos_uso/ -name "UC_*.rst"); do
-     id=$(basename $uc .rst | cut -d'_' -f2)
-     count=$(find funcionales/ -name "FR_UC${id}_*.rst" | wc -l)
-     if [ $count -eq 0 ]; then
-       echo "GAP: $uc"
-     fi
-   done
+ # Buscar UC sin FR en trazabilidad
+ for uc in $(find casos_uso/ -name "UC_*.rst"); do
+ id=$(basename $uc .rst | cut -d'_' -f2)
+ count=$(find funcionales/ -name "FR_UC${id}_*.rst" | wc -l)
+ if [ $count -eq 0 ]; then
+ echo "GAP: $uc"
+ fi
+ done
 
 ----
 
@@ -167,14 +167,14 @@ Para cada gap/huerfano:
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

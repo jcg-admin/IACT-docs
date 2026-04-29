@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: STD_001
-   :tipo: Estándar
-   :dominio: normativa
-   :subdominio: estandares
-   :estado: Aprobado
-   :version: 2.0.0
-   :fecha_creacion: 2026-01-11
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: STD_001
+ :tipo: Estándar
+ :dominio: normativa
+ :subdominio: estandares
+ :estado: Aprobado
+ :version: 2.0.0
+ :fecha_creacion: 2026-01-11
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _std-001:
 
@@ -17,8 +17,8 @@ STD_001: Estándar de Documentación Sin Emojis
 ==================================================
 
 .. contents:: Contenido
-   :depth: 3
-   :local:
+ :depth: 3
+ :local:
 
 ----
 
@@ -52,9 +52,9 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   Terminal macOS:  ✅ Build exitoso
-   Terminal Windows: □ Build exitoso  (cuadrado blanco)
-   PDF LaTeX:       [?] Build exitoso  (carácter desconocido)
+ Terminal macOS: ✅ Build exitoso
+ Terminal Windows: □ Build exitoso (cuadrado blanco)
+ PDF LaTeX: [?] Build exitoso (carácter desconocido)
 
 2.2. Problemas de Procesamiento Automático
 -------------------------------------------
@@ -69,11 +69,11 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: bash
 
-   # Con emojis - FALLA
-   grep "✅" build.log  # Encoding issues
-   
-   # Sin emojis - FUNCIONA
-   grep "\[OK\]" build.log  # Siempre funciona
+ # Con emojis - FALLA
+ grep "✅" build.log # Encoding issues
+ 
+ # Sin emojis - FUNCIONA
+ grep "\[OK\]" build.log # Siempre funciona
 
 2.3. Profesionalismo y Claridad
 --------------------------------
@@ -106,23 +106,23 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   ✅ Completado
-   ❌ Error
-   ⚠️ Advertencia
-   🚀 Iniciando
-   📁 Procesando
-   💾 Guardando
-   🔍 Buscando
-   ⏳ Esperando
-   ✨ Nuevo
-   🎉 Éxito
-   🐛 Debug
-   💡 Idea
-   📢 Anuncio
-   ⏰ Tiempo
-   📅 Fecha
-   👤 Usuario
-   🌐 Red
+ ✅ Completado
+ ❌ Error
+ ⚠️ Advertencia
+ 🚀 Iniciando
+ 📁 Procesando
+ 💾 Guardando
+ 🔍 Buscando
+ ⏳ Esperando
+ ✨ Nuevo
+ 🎉 Éxito
+ 🐛 Debug
+ 💡 Idea
+ 📢 Anuncio
+ ⏰ Tiempo
+ 📅 Fecha
+ 👤 Usuario
+ 🌐 Red
 
 **Razón:** Incompatibilidad, ambigüedad, no profesionales.
 
@@ -133,20 +133,20 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   ▶ Ejecutando
-   ● Item
-   → Siguiente
-   ★ Importante
-   ♦ Nota
-   ■ Opción
-   ▸ Paso
-   » Info
-   • Viñeta decorativa
-   ◆ Marcador
-   ► Play
-   ◄ Atrás
-   ▲ Arriba
-   ▼ Abajo
+ ▶ Ejecutando
+ ● Item
+ → Siguiente
+ ★ Importante
+ ♦ Nota
+ ■ Opción
+ ▸ Paso
+ » Info
+ • Viñeta decorativa
+ ◆ Marcador
+ ► Play
+ ◄ Atrás
+ ▲ Arriba
+ ▼ Abajo
 
 **Razón:** Problemas de renderizado en PDF, incompatibilidad terminales.
 
@@ -157,16 +157,16 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   ╔════════════╗
-   ║   Título   ║
-   ╚════════════╝
-   
-   ┌──────────┐
-   │  Caja    │
-   └──────────┘
-   
-   ├─ Item
-   │  └─ Subitem
+ ╔════════════╗
+ ║ Título ║
+ ╚════════════╝
+ 
+ ┌──────────┐
+ │ Caja │
+ └──────────┘
+ 
+ ├─ Item
+ │ └─ Subitem
 
 **Razón:** Rompe en copiar/pegar, problemas de encoding, no portables.
 
@@ -179,12 +179,12 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   ≈ Aproximadamente (usar: ~)
-   ≠ Diferente (usar: !=)
-   ≤ Menor igual (usar: <=)
-   ≥ Mayor igual (usar: >=)
-   ∞ Infinito (escribir: infinito)
-   ∑ Suma (escribir: suma)
+ ≈ Aproximadamente (usar: ~)
+ ≠ Diferente (usar: !=)
+ ≤ Menor igual (usar: <=)
+ ≥ Mayor igual (usar: >=)
+ ∞ Infinito (escribir: infinito)
+ ∑ Suma (escribir: suma)
 
 **Excepción:** En ecuaciones matemáticas formales (directiva ``.. math::``).
 
@@ -200,26 +200,26 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   [INFO]    Información general
-   [DEBUG]   Detalles de depuración
-   [WARN]    Advertencia
-   [WARNING] Advertencia (forma larga)
-   [ERROR]   Error encontrado
-   [FATAL]   Error crítico
-   [CRITICAL] Error crítico (alternativa)
-   [SUCCESS] Operación exitosa
-   [OK]      Todo bien
-   [FAIL]    Operación falló
-   [FAILED]  Operación falló (forma larga)
+ [INFO] Información general
+ [DEBUG] Detalles de depuración
+ [WARN] Advertencia
+ [WARNING] Advertencia (forma larga)
+ [ERROR] Error encontrado
+ [FATAL] Error crítico
+ [CRITICAL] Error crítico (alternativa)
+ [SUCCESS] Operación exitosa
+ [OK] Todo bien
+ [FAIL] Operación falló
+ [FAILED] Operación falló (forma larga)
 
 **Ejemplo en uso:**
 
 .. code-block:: text
 
-   [INFO] Iniciando build de documentación
-   [DEBUG] Procesando archivo: PROC_001.rst
-   [OK] Build completado exitosamente
-   [WARN] 3 referencias sin resolver
+ [INFO] Iniciando build de documentación
+ [DEBUG] Procesando archivo: PROC_001.rst
+ [OK] Build completado exitosamente
+ [WARN] 3 referencias sin resolver
 
 4.2. Estados de Proceso
 ------------------------
@@ -228,17 +228,17 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   [PENDING]    Operación pendiente
-   [RUNNING]    En ejecución
-   [PROCESSING] Procesando
-   [DONE]       Completado
-   [COMPLETE]   Completado (alternativa)
-   [SKIPPED]    Omitido
-   [RETRY]      Reintentando
-   [WAITING]    Esperando
-   [START]      Iniciando
-   [STOP]       Detenido
-   [END]        Finalizado
+ [PENDING] Operación pendiente
+ [RUNNING] En ejecución
+ [PROCESSING] Procesando
+ [DONE] Completado
+ [COMPLETE] Completado (alternativa)
+ [SKIPPED] Omitido
+ [RETRY] Reintentando
+ [WAITING] Esperando
+ [START] Iniciando
+ [STOP] Detenido
+ [END] Finalizado
 
 4.3. Viñetas y Listas
 ---------------------
@@ -249,28 +249,28 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: markdown
 
-   - Item con guión
-   * Item con asterisco
-   1. Item numerado
-   2. Segundo item
+ - Item con guión
+ * Item con asterisco
+ 1. Item numerado
+ 2. Segundo item
 
 **En reStructuredText (.rst):**
 
 .. code-block:: rst
 
-   - Item con guión
-   * Item con asterisco
-   
-   1. Item numerado
-   2. Segundo item
+ - Item con guión
+ * Item con asterisco
+ 
+ 1. Item numerado
+ 2. Segundo item
 
 **En archivos de texto plano (.txt):**
 
 .. code-block:: text
 
-   - Item
-   * Alternativa
-   1. Numerado
+ - Item
+ * Alternativa
+ 1. Numerado
 
 **NUNCA usar:** ▶, ●, ★, ♦, •
 
@@ -283,24 +283,24 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   -> Flecha simple
-   => Flecha doble
-   <- Flecha izquierda
-   <=> Bidireccional
+ -> Flecha simple
+ => Flecha doble
+ <- Flecha izquierda
+ <=> Bidireccional
 
 **En diagramas técnicos:**
 
 .. code-block:: text
 
-   A -> B -> C
-   
-   Usuario -> Sistema -> Base de Datos
-   
-   if (condicion) {
-       // true
-   } else {
-       // false
-   }
+ A -> B -> C
+ 
+ Usuario -> Sistema -> Base de Datos
+ 
+ if (condicion) {
+ // true
+ } else {
+ // false
+ }
 
 **NUNCA usar:** →, ⇒, ➜, ➔, ⬅, ⬆, ⬇
 
@@ -311,21 +311,21 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   [OK]   En lugar de: ✓ ✔ ☑
-   [PASS] En lugar de: ✅
-   [FAIL] En lugar de: ✗ ✘ ☒
-   [ERROR] En lugar de: ❌
+ [OK] En lugar de: ✓ ✔ ☑
+ [PASS] En lugar de: ✅
+ [FAIL] En lugar de: ✗ ✘ ☒
+ [ERROR] En lugar de: ❌
 
 **Ejemplo de checklist:**
 
 .. code-block:: text
 
-   Validación de Capítulo:
-   
-   [OK]   Sintaxis RST correcta
-   [OK]   Referencias cruzadas válidas
-   [FAIL] Glosario incompleto
-   [OK]   Build exitoso
+ Validación de Capítulo:
+ 
+ [OK] Sintaxis RST correcta
+ [OK] Referencias cruzadas válidas
+ [FAIL] Glosario incompleto
+ [OK] Build exitoso
 
 ----
 
@@ -333,89 +333,89 @@ STD_001: Estándar de Documentación Sin Emojis
 ==============================
 
 .. list-table:: Conversión de Símbolos a Texto
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Concepto
-     - ❌ No Usar
-     - ✅ Usar
-     - Comentarios
-   * - **Completado**
-     - ✅ ✓ ☑
-     - [OK] [SUCCESS] [DONE]
-     - ASCII estándar
-   * - **Error**
-     - ❌ ✗ ☒
-     - [ERROR] [FAIL] [FAILED]
-     - Parseable
-   * - **Advertencia**
-     - ⚠️ ⚡ ⛔
-     - [WARN] [WARNING]
-     - Compatible terminales
-   * - **Información**
-     - ℹ️ 💡 📢
-     - [INFO] [NOTE]
-     - Búsqueda fácil
-   * - **Depuración**
-     - 🐛 🔍
-     - [DEBUG]
-     - Logs analizables
-   * - **En proceso**
-     - ⏳ 🔄 ⌛
-     - [RUNNING] [PROCESSING]
-     - Estados claros
-   * - **Esperando**
-     - ⏰ ⏱️
-     - [PENDING] [WAITING]
-     - Sin ambigüedad
-   * - **Inicio**
-     - 🚀 ▶️
-     - [START] Starting...
-     - Texto explícito
-   * - **Fin**
-     - 🏁 ⏹️
-     - [STOP] [END] Finished
-     - Claro y directo
-   * - **Archivo**
-     - 📁 📄 💾
-     - FILE: archivo.txt
-     - Identificable
-   * - **Carpeta**
-     - 📂 🗂️
-     - DIRECTORY: /ruta/
-     - Estándar Unix
-   * - **Red**
-     - 🌐 📡
-     - [NETWORK]
-     - Compatible
-   * - **Usuario**
-     - 👤 👥
-     - USER: username
-     - Parseable
-   * - **Tiempo**
-     - ⏰ 🕐
-     - TIME: 10:30
-     - ISO 8601
-   * - **Fecha**
-     - 📅 🗓️
-     - DATE: 2026-01-11
-     - ISO 8601 YYYY-MM-DD
-   * - **Viñetas**
-     - ▶ ● ★ ♦
-     - ``-`` ``*`` ``1.`` ``2.``
-     - Según formato archivo
-   * - **Flechas**
-     - → ⇒ ➜ ➔
-     - ``->`` ``=>``
-     - ASCII estándar
-   * - **Check**
-     - ☑ ✓ ✔
-     - [OK] PASS
-     - Texto claro
-   * - **Cross**
-     - ☒ ✗ ✘
-     - [FAIL] ERROR
-     - Sin ambigüedad
+ * - Concepto
+ - ❌ No Usar
+ - ✅ Usar
+ - Comentarios
+ * - **Completado**
+ - ✅ ✓ ☑
+ - [OK] [SUCCESS] [DONE]
+ - ASCII estándar
+ * - **Error**
+ - ❌ ✗ ☒
+ - [ERROR] [FAIL] [FAILED]
+ - Parseable
+ * - **Advertencia**
+ - ⚠️ ⚡ ⛔
+ - [WARN] [WARNING]
+ - Compatible terminales
+ * - **Información**
+ - ℹ️ 💡 📢
+ - [INFO] [NOTE]
+ - Búsqueda fácil
+ * - **Depuración**
+ - 🐛 🔍
+ - [DEBUG]
+ - Logs analizables
+ * - **En proceso**
+ - ⏳ 🔄 ⌛
+ - [RUNNING] [PROCESSING]
+ - Estados claros
+ * - **Esperando**
+ - ⏰ ⏱️
+ - [PENDING] [WAITING]
+ - Sin ambigüedad
+ * - **Inicio**
+ - 🚀 ▶️
+ - [START] Starting...
+ - Texto explícito
+ * - **Fin**
+ - 🏁 ⏹️
+ - [STOP] [END] Finished
+ - Claro y directo
+ * - **Archivo**
+ - 📁 📄 💾
+ - FILE: archivo.txt
+ - Identificable
+ * - **Carpeta**
+ - 📂 🗂️
+ - DIRECTORY: /ruta/
+ - Estándar Unix
+ * - **Red**
+ - 🌐 📡
+ - [NETWORK]
+ - Compatible
+ * - **Usuario**
+ - 👤 👥
+ - USER: username
+ - Parseable
+ * - **Tiempo**
+ - ⏰ 🕐
+ - TIME: 10:30
+ - ISO 8601
+ * - **Fecha**
+ - 📅 🗓️
+ - DATE: 2026-01-11
+ - ISO 8601 YYYY-MM-DD
+ * - **Viñetas**
+ - ▶ ● ★ ♦
+ - ``-`` ``*`` ``1.`` ``2.``
+ - Según formato archivo
+ * - **Flechas**
+ - → ⇒ ➜ ➔
+ - ``->`` ``=>``
+ - ASCII estándar
+ * - **Check**
+ - ☑ ✓ ✔
+ - [OK] PASS
+ - Texto claro
+ * - **Cross**
+ - ☒ ✗ ✘
+ - [FAIL] ERROR
+ - Sin ambigüedad
 
 ----
 
@@ -429,13 +429,13 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: rst
 
-   .. math::
-   
-      E = mc^2
-      
-      \sum_{i=1}^{n} x_i
-      
-      \int_{0}^{\infty} f(x) dx
+ .. math::
+ 
+ E = mc^2
+ 
+ \sum_{i=1}^{n} x_i
+ 
+ \int_{0}^{\infty} f(x) dx
 
 **Razón:** MathJax/LaTeX los renderiza correctamente, son contenido técnico esencial.
 
@@ -446,16 +446,16 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: text
 
-   Diagrama de flujo aceptable:
-   
-      +----------+
-      | Usuario  |
-      +----------+
-           |
-           v
-      +----------+
-      | Sistema  |
-      +----------+
+ Diagrama de flujo aceptable:
+ 
+ +----------+
+ | Usuario |
+ +----------+
+ |
+ v
+ +----------+
+ | Sistema |
+ +----------+
 
 **Criterio:** ¿Es esencial para entender el concepto técnico?
 - Sí → Permitido
@@ -468,17 +468,17 @@ STD_001: Estándar de Documentación Sin Emojis
 
 .. code-block:: python
 
-   # Código de ejemplo de repositorio externo
-   def test_success():
-       print("✅ Test passed")  # Preservar como en original
+ # Código de ejemplo de repositorio externo
+ def test_success:
+ print("✅ Test passed") # Preservar como en original
 
 **Aclaración:** Añadir nota explicativa.
 
 .. code-block:: rst
 
-   .. note::
-      El código original contiene emojis. En código propio de IACT,
-      usar ``[OK]`` en su lugar.
+ .. note::
+ El código original contiene emojis. En código propio de IACT,
+ usar ``[OK]`` en su lugar.
 
 6.4. Capturas de Pantalla
 --------------------------
@@ -499,58 +499,58 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 
 .. code-block:: python
 
-   #!/usr/bin/env python3
-   """Detecta emojis y símbolos Unicode no permitidos."""
-   
-   import re
-   import sys
-   
-   PROHIBITED_CHARS = {
-       '✅': '[OK]',
-       '❌': '[ERROR]',
-       '⚠️': '[WARN]',
-       '🚀': '[START]',
-       '📁': 'FILE:',
-       '💾': '[SAVE]',
-       '✓': '[OK]',
-       '✗': '[FAIL]',
-       '→': '->',
-       '⇒': '=>',
-       # Añadir más según tabla de referencia
-   }
-   
-   def check_file(filepath):
-       with open(filepath, 'r', encoding='utf-8') as f:
-           content = f.read()
-       
-       violations = []
-       for char, replacement in PROHIBITED_CHARS.items():
-           if char in content:
-               count = content.count(char)
-               violations.append(f"'{char}' encontrado {count} veces. Usar: {replacement}")
-       
-       return violations
-   
-   if __name__ == '__main__':
-       if len(sys.argv) < 2:
-           print("Uso: python detect_emojis.py archivo.rst")
-           sys.exit(1)
-       
-       violations = check_file(sys.argv[1])
-       
-       if violations:
-           print(f"[ERROR] Emojis/símbolos prohibidos encontrados en {sys.argv[1]}:")
-           for v in violations:
-               print(f"  - {v}")
-           sys.exit(1)
-       else:
-           print(f"[OK] {sys.argv[1]} cumple STD_001")
+ #!/usr/bin/env python3
+ """Detecta emojis y símbolos Unicode no permitidos."""
+ 
+ import re
+ import sys
+ 
+ PROHIBITED_CHARS = {
+ '✅': '[OK]',
+ '❌': '[ERROR]',
+ '⚠️': '[WARN]',
+ '🚀': '[START]',
+ '📁': 'FILE:',
+ '💾': '[SAVE]',
+ '✓': '[OK]',
+ '✗': '[FAIL]',
+ '→': '->',
+ '⇒': '=>',
+ # Añadir más según tabla de referencia
+ }
+ 
+ def check_file(filepath):
+ with open(filepath, 'r', encoding='utf-8') as f:
+ content = f.read
+ 
+ violations = []
+ for char, replacement in PROHIBITED_CHARS.items:
+ if char in content:
+ count = content.count(char)
+ violations.append(f"'{char}' encontrado {count} veces. Usar: {replacement}")
+ 
+ return violations
+ 
+ if __name__ == '__main__':
+ if len(sys.argv) < 2:
+ print("Uso: python detect_emojis.py archivo.rst")
+ sys.exit(1)
+ 
+ violations = check_file(sys.argv[1])
+ 
+ if violations:
+ print(f"[ERROR] Emojis/símbolos prohibidos encontrados en {sys.argv[1]}:")
+ for v in violations:
+ print(f" - {v}")
+ sys.exit(1)
+ else:
+ print(f"[OK] {sys.argv[1]} cumple STD_001")
 
 **Uso:**
 
 .. code-block:: bash
 
-   python detect_emojis.py source/procedimientos/PROC_001.rst
+ python detect_emojis.py source/procedimientos/PROC_001.rst
 
 7.2. Integración con Build
 ---------------------------
@@ -559,9 +559,9 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 
 .. code-block:: makefile
 
-   validate-emojis:
-       @echo "[INFO] Validando cumplimiento STD_001..."
-       @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
+ validate-emojis:
+ @echo "[INFO] Validando cumplimiento STD_001..."
+ @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
 
 7.3. Pre-commit Hook
 --------------------
@@ -570,22 +570,22 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 
 .. code-block:: bash
 
-   #!/bin/bash
-   
-   echo "[INFO] Validando STD_001 (sin emojis)..."
-   
-   # Buscar archivos .rst modificados
-   changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.rst$')
-   
-   for file in $changed_files; do
-       if ! python scripts/detect_emojis.py "$file"; then
-           echo "[ERROR] Commit bloqueado: $file contiene emojis prohibidos"
-           echo "[INFO] Ver STD_001 para alternativas permitidas"
-           exit 1
-       fi
-   done
-   
-   echo "[OK] Todos los archivos cumplen STD_001"
+ #!/bin/bash
+ 
+ echo "[INFO] Validando STD_001 (sin emojis)..."
+ 
+ # Buscar archivos .rst modificados
+ changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.rst$')
+ 
+ for file in $changed_files; do
+ if ! python scripts/detect_emojis.py "$file"; then
+ echo "[ERROR] Commit bloqueado: $file contiene emojis prohibidos"
+ echo "[INFO] Ver STD_001 para alternativas permitidas"
+ exit 1
+ fi
+ done
+ 
+ echo "[OK] Todos los archivos cumplen STD_001"
 
 ----
 
@@ -597,58 +597,58 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 
 .. code-block:: text
 
-   ✅ FASE 6 completada
-   
-   Archivos procesados:
-   📁 PROC_001.rst
-   📁 PROC_004.rst
-   
-   Estado:
-   ✓ Build exitoso
-   ⚠️ 3 warnings
-   
-   Siguiente paso:
-   🚀 Iniciar FASE 7
+ ✅ FASE 6 completada
+ 
+ Archivos procesados:
+ 📁 PROC_001.rst
+ 📁 PROC_004.rst
+ 
+ Estado:
+ ✓ Build exitoso
+ ⚠️ 3 warnings
+ 
+ Siguiente paso:
+ 🚀 Iniciar FASE 7
 
 8.2. Ejemplo CORRECTO
 ---------------------
 
 .. code-block:: text
 
-   [OK] FASE 6 completada
-   
-   Archivos procesados:
-   - PROC_001.rst
-   - PROC_004.rst
-   
-   Estado:
-   [OK] Build exitoso
-   [WARN] 3 warnings
-   
-   Siguiente paso:
-   [START] Iniciar FASE 7
+ [OK] FASE 6 completada
+ 
+ Archivos procesados:
+ - PROC_001.rst
+ - PROC_004.rst
+ 
+ Estado:
+ [OK] Build exitoso
+ [WARN] 3 warnings
+ 
+ Siguiente paso:
+ [START] Iniciar FASE 7
 
 8.3. Script Output INCORRECTO
 ------------------------------
 
 .. code-block:: bash
 
-   echo "✅ Traducción completada"
-   echo "📊 Estadísticas:"
-   echo "   • 1,234 líneas"
-   echo "   • 45 términos"
-   echo "🎉 ¡Éxito!"
+ echo "✅ Traducción completada"
+ echo "📊 Estadísticas:"
+ echo " • 1,234 líneas"
+ echo " • 45 términos"
+ echo "🎉 ¡Éxito!"
 
 8.4. Script Output CORRECTO
 ----------------------------
 
 .. code-block:: bash
 
-   echo "[SUCCESS] Traducción completada"
-   echo "[INFO] Estadísticas:"
-   echo "   - 1,234 líneas"
-   echo "   - 45 términos"
-   echo "[OK] Proceso finalizado exitosamente"
+ echo "[SUCCESS] Traducción completada"
+ echo "[INFO] Estadísticas:"
+ echo " - 1,234 líneas"
+ echo " - 45 términos"
+ echo "[OK] Proceso finalizado exitosamente"
 
 ----
 
@@ -676,8 +676,8 @@ Las capturas de pantalla pueden contener emojis si son parte de la UI capturada.
 **STD_001 se relaciona con:**
 
 - **CNST_05:** Restricción creación iterativa
-  - Ambos buscan calidad y profesionalismo
-  - Ambos previenen atajos que reducen calidad
+ - Ambos buscan calidad y profesionalismo
+ - Ambos previenen atajos que reducen calidad
 
 9.3. Aplicación en Procedimientos
 ----------------------------------
@@ -698,15 +698,15 @@ Al generar outputs, logs, mensajes:
 
 .. code-block:: text
 
-   [ ] Sin emojis (✅❌⚠️🚀 etc.)
-   [ ] Sin iconos Unicode decorativos (▶●★♦ etc.)
-   [ ] Sin box drawing decorativo (╔═╗ etc.)
-   [ ] Usar prefijos ASCII: [OK], [ERROR], [WARN]
-   [ ] Viñetas apropiadas al formato (-, *, 1.)
-   [ ] Flechas ASCII estándar (->  =>)
-   [ ] Fechas en formato ISO 8601 (YYYY-MM-DD)
-   [ ] Script detect_emojis.py pasa
-   [ ] Build sin warnings sobre caracteres especiales
+ [ ] Sin emojis (✅❌⚠️🚀 etc.)
+ [ ] Sin iconos Unicode decorativos (▶●★♦ etc.)
+ [ ] Sin box drawing decorativo (╔═╗ etc.)
+ [ ] Usar prefijos ASCII: [OK], [ERROR], [WARN]
+ [ ] Viñetas apropiadas al formato (-, *, 1.)
+ [ ] Flechas ASCII estándar (-> =>)
+ [ ] Fechas en formato ISO 8601 (YYYY-MM-DD)
+ [ ] Script detect_emojis.py pasa
+ [ ] Build sin warnings sobre caracteres especiales
 
 ----
 
@@ -726,9 +726,9 @@ Al generar outputs, logs, mensajes:
 
 - :ref:`std-002` — Nomenclatura del Proyecto.
 - ``STD_003_Metadata_Obligatoria`` (pendiente de creación en
-  ``normativa/estandares/``).
+ ``normativa/estandares/``).
 - ``CNST_05_Restriccion_Creacion_Iterativa`` (pendiente de
-  reconciliación en ``normativa/restricciones/``).
+ reconciliación en ``normativa/restricciones/``).
 
 11.3. Recursos Externos
 -----------------------

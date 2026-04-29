@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_VIEW
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_VIEW
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-view:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_VIEW
-   * - **Nombre**
-     - Generacion de Vistas Arquitectonicas
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 30-60 minutos por VIEW
+ * - **ID**
+ - PROC_Generacion_VIEW
+ * - **Nombre**
+ - Generacion de Vistas Arquitectonicas
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 30-60 minutos por VIEW
 
 ----
 
@@ -56,26 +56,26 @@ del sistema segun modelo 4+1.
 ------------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Vista
-     - Perspectiva
-     - Diagramas
-   * - Logica
-     - Funcionalidad
-     - Clases, secuencia
-   * - Desarrollo
-     - Organizacion codigo
-     - Paquetes, componentes
-   * - Proceso
-     - Comportamiento runtime
-     - Actividad, estados
-   * - Fisica
-     - Deployment
-     - Infraestructura
-   * - Escenarios
-     - Casos de uso
-     - UC, interaccion
+ * - Vista
+ - Perspectiva
+ - Diagramas
+ * - Logica
+ - Funcionalidad
+ - Clases, secuencia
+ * - Desarrollo
+ - Organizacion codigo
+ - Paquetes, componentes
+ * - Proceso
+ - Comportamiento runtime
+ - Actividad, estados
+ * - Fisica
+ - Deployment
+ - Infraestructura
+ * - Escenarios
+ - Casos de uso
+ - UC, interaccion
 
 ----
 
@@ -90,12 +90,12 @@ Seleccionar perspectiva a documentar.
 
 .. code-block:: text
 
-   Formato: VIEW_[Tipo]_[NNN]
-   
-   Ejemplos:
-   - VIEW_Logica_001
-   - VIEW_Proceso_001
-   - VIEW_Fisica_001
+ Formato: VIEW_[Tipo]_[NNN]
+ 
+ Ejemplos:
+ - VIEW_Logica_001
+ - VIEW_Proceso_001
+ - VIEW_Fisica_001
 
 **Paso 3: Crear Diagrama Principal**
 
@@ -103,18 +103,18 @@ Usar PlantUML segun tipo:
 
 .. code-block:: rst
 
-   .. uml::
-   
-      @startuml
-      package "MOD_Auth" {
-        [AuthService]
-        [JWTService]
-      }
-      package "MOD_Users" {
-        [UserService]
-      }
-      [AuthService] --> [UserService]
-      @enduml
+ .. uml::
+ 
+ @startuml
+ package "MOD_Auth" {
+ [AuthService]
+ [JWTService]
+ }
+ package "MOD_Users" {
+ [UserService]
+ }
+ [AuthService] --> [UserService]
+ @enduml
 
 **Paso 4: Documentar Elementos**
 
@@ -161,14 +161,14 @@ Referenciar decisiones relacionadas.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

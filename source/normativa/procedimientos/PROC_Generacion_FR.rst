@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_FR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_FR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-fr:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_FR
-   * - **Nombre**
-     - Generacion de Requisitos Funcionales
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada UC a derivar
-   * - **Duracion Estimada**
-     - 10-20 minutos por FR
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_FR
+ * - **Nombre**
+ - Generacion de Requisitos Funcionales
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada UC a derivar
+ * - **Duracion Estimada**
+ - 10-20 minutos por FR
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -75,18 +75,18 @@ base para la implementacion y pruebas del sistema.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Analista
-     - Genera FR siguiendo TPL
-     - Escritura en funcionales/
-   * - Revisor
-     - Valida FR contra UC origen
-     - Lectura de UC y FR
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Analista
+ - Genera FR siguiendo TPL
+ - Escritura en funcionales/
+ * - Revisor
+ - Valida FR contra UC origen
+ - Lectura de UC y FR
 
 ----
 
@@ -107,24 +107,24 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
-     - Template de FR
-     - Si
-   * - UC_[NNN]_[Nombre].rst
-     - Caso de Uso origen
-     - Si
-   * - BR_[NNN].rst
-     - Reglas de negocio aplicables
-     - Si
-   * - CNST_[NNN].rst
-     - Restricciones aplicables
-     - No
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+ - Template de FR
+ - Si
+ * - UC_[NNN]_[Nombre].rst
+ - Caso de Uso origen
+ - Si
+ * - BR_[NNN].rst
+ - Reglas de negocio aplicables
+ - Si
+ * - CNST_[NNN].rst
+ - Restricciones aplicables
+ - No
 
 ----
 
@@ -135,41 +135,41 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Generacion de FR
-   :align: center
+ :caption: Flujo de Generacion de FR
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-       DiamondBackgroundColor #FFF9C4
-       DiamondBorderColor #F57C00
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ DiamondBackgroundColor #FFF9C4
+ DiamondBorderColor #F57C00
+ }
 
-   start
+ start
 
-   :Abrir UC origen;
-   :Localizar FR en seccion Trazabilidad;
+ :Abrir UC origen;
+ :Localizar FR en seccion Trazabilidad;
 
-   repeat
-       :Seleccionar FR a generar;
-       :Copiar plantilla TPL_FR;
-       :Completar Identificacion;
-       :Completar Especificacion;
-       :Redactar Criterio de Aceptacion;
-       note right: Formato DADO/CUANDO/ENTONCES
-       :Agregar BR y CNST aplicables;
-       :Completar Trazabilidad;
-       :Guardar en /tmp;
-       :Validar sintaxis RST;
-   repeat while (Mas FR del UC?) is (si)
+ repeat
+ :Seleccionar FR a generar;
+ :Copiar plantilla TPL_FR;
+ :Completar Identificacion;
+ :Completar Especificacion;
+ :Redactar Criterio de Aceptacion;
+ note right: Formato DADO/CUANDO/ENTONCES
+ :Agregar BR y CNST aplicables;
+ :Completar Trazabilidad;
+ :Guardar en /tmp;
+ :Validar sintaxis RST;
+ repeat while (Mas FR del UC?) is (si)
 
-   :Crear/actualizar index.rst del modulo;
-   :Ejecutar PROC_Copiar_Tmp_Outputs;
+ :Crear/actualizar index.rst del modulo;
+ :Ejecutar PROC_Copiar_Tmp_Outputs;
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -179,12 +179,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Del UC origen, extraer:
 
-  - ID del UC (ej: UC_001)
-  - Nombre del UC
-  - Modulo (ej: MOD_Auth)
-  - Paso del flujo normal que origina el FR
-  - BR aplicables
-  - FR listados en seccion Trazabilidad
+ - ID del UC (ej: UC_001)
+ - Nombre del UC
+ - Modulo (ej: MOD_Auth)
+ - Paso del flujo normal que origina el FR
+ - BR aplicables
+ - FR listados en seccion Trazabilidad
 
 - **Resultado**: Informacion de contexto disponible
 - **Verificacion**: Datos completos para el FR
@@ -194,21 +194,21 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Aplicar nomenclatura segun TPL_FR:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato ID: FR_UC[MOD]_[NN]_[NN]
-     
-     Donde:
-     - FR: Prefijo fijo
-     - UC[MOD]: Codigo UC padre (ej: UC001)
-     - [NN]: Numero secuencial del FR dentro del UC
-     
-     Ejemplos:
-     - FR_UC001_01 (primer FR de UC_001)
-     - FR_UC001_05 (quinto FR de UC_001)
-     
-     Formato alternativo (usado en UC existentes):
-     - FR-001.01, FR-001.02, etc.
+ Formato ID: FR_UC[MOD]_[NN]_[NN]
+ 
+ Donde:
+ - FR: Prefijo fijo
+ - UC[MOD]: Codigo UC padre (ej: UC001)
+ - [NN]: Numero secuencial del FR dentro del UC
+ 
+ Ejemplos:
+ - FR_UC001_01 (primer FR de UC_001)
+ - FR_UC001_05 (quinto FR de UC_001)
+ 
+ Formato alternativo (usado en UC existentes):
+ - FR-001.01, FR-001.02, etc.
 
 - **Resultado**: ID del FR definido
 - **Verificacion**: ID unico, sigue nomenclatura
@@ -218,40 +218,40 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Desde TPL_FR, copiar seccion Plantilla y completar:
 
-  **3.1 Seccion Identificacion:**
+ **3.1 Seccion Identificacion:**
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     * - **ID**
-       - FR_UC001_01
-     * - **Nombre**
-       - [Nombre descriptivo del FR]
-     * - **UC Padre**
-       - UC_001: Iniciar Sesion
-     * - **Modulo**
-       - MOD_Auth
-     * - **Tipo**
-       - [Validacion|Proceso|Interfaz|Datos|Auditoria|Seguridad]
-     * - **Prioridad**
-       - [Critica|Alta|Media|Baja]
+ * - **ID**
+ - FR_UC001_01
+ * - **Nombre**
+ - [Nombre descriptivo del FR]
+ * - **UC Padre**
+ - UC_001: Iniciar Sesion
+ * - **Modulo**
+ - MOD_Auth
+ * - **Tipo**
+ - [Validacion|Proceso|Interfaz|Datos|Auditoria|Seguridad]
+ * - **Prioridad**
+ - [Critica|Alta|Media|Baja]
 
-  **3.2 Seccion Especificacion:**
+ **3.2 Seccion Especificacion:**
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Descripcion:**
-     
-     El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
+ **Descripcion:**
+ 
+ El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
 
-  **3.3 Seccion Criterio de Aceptacion (OBLIGATORIO):**
+ **3.3 Seccion Criterio de Aceptacion (OBLIGATORIO):**
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     ::
-     
-        DADO [contexto inicial]
-        CUANDO [accion del usuario o sistema]
-        ENTONCES [resultado esperado]
+ ::
+ 
+ DADO [contexto inicial]
+ CUANDO [accion del usuario o sistema]
+ ENTONCES [resultado esperado]
 
 - **Resultado**: FR con contenido completo
 - **Verificacion**: Todas las secciones completadas
@@ -261,17 +261,17 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: En seccion "Reglas y Restricciones":
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **BR Aplicables:**
-     
-     - BR_005: Sesion Unica por Usuario
-     - BR_008: Auditoria de Accesos
-     
-     **CNST Aplicables:**
-     
-     - CNST_002: Gestion de Sesiones en BD
-     - CNST_005: Seguridad DRF Checklist
+ **BR Aplicables:**
+ 
+ - BR_005: Sesion Unica por Usuario
+ - BR_008: Auditoria de Accesos
+ 
+ **CNST Aplicables:**
+ 
+ - CNST_002: Gestion de Sesiones en BD
+ - CNST_005: Seguridad DRF Checklist
 
 - **Resultado**: Trazabilidad a BR y CNST
 - **Verificacion**: BR y CNST existen en catalogo
@@ -281,18 +281,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Completar seccion Trazabilidad:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     * - **UC Origen**
-       - UC_001: Iniciar Sesion
-     * - **BReq Origen**
-       - BReq_AUTH
-     * - **BR Aplicables**
-       - BR_005, BR_008
-     * - **CNST Aplicables**
-       - CNST_002, CNST_005
-     * - **TST Relacionados**
-       - TST_FR_UC001_01 (pendiente)
+ * - **UC Origen**
+ - UC_001: Iniciar Sesion
+ * - **BReq Origen**
+ - BReq_AUTH
+ * - **BR Aplicables**
+ - BR_005, BR_008
+ * - **CNST Aplicables**
+ - CNST_002, CNST_005
+ * - **TST Relacionados**
+ - TST_FR_UC001_01 (pendiente)
 
 - **Resultado**: Trazabilidad completa
 - **Verificacion**: Enlaces bidireccionales verificables
@@ -302,10 +302,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Guardar en estructura /tmp:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Ruta: /tmp/funcionales/[modulo]/UC_[NNN]_[Nombre]/
-     /tmp/funcionales/auth/UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato_username.rst
+ # Ruta: /tmp/funcionales/[modulo]/UC_[NNN]_[Nombre]/
+ /tmp/funcionales/auth/UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato_username.rst
 
 - **Resultado**: Archivo FR creado
 - **Verificacion**: Archivo existe en ruta correcta
@@ -315,13 +315,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Verificar sintaxis:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Validar archivo individual
-     rst2html.py FR_UC001_01.rst /dev/null
-     
-     # O validar con Sphinx
-     sphinx-build -b html -W /tmp/funcionales/ /tmp/build/
+ # Validar archivo individual
+ rst2html.py FR_UC001_01.rst /dev/null
+ 
+ # O validar con Sphinx
+ sphinx-build -b html -W /tmp/funcionales/ /tmp/build/
 
 - **Resultado**: Sin errores de sintaxis
 - **Verificacion**: Comando no reporta warnings
@@ -332,18 +332,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - FR_UC[NNN]_[NN]_[Nombre].rst
-     - Requisito Funcional generado
-     - /tmp/funcionales/[mod]/UC_[NNN]/
-   * - index.rst (actualizado)
-     - Indice del modulo con nuevo FR
-     - /tmp/funcionales/[mod]/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - FR_UC[NNN]_[NN]_[Nombre].rst
+ - Requisito Funcional generado
+ - /tmp/funcionales/[mod]/UC_[NNN]/
+ * - index.rst (actualizado)
+ - Indice del modulo con nuevo FR
+ - /tmp/funcionales/[mod]/
 
 ----
 
@@ -378,30 +378,30 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 5 45 50
-   :header-rows: 1
+ :widths: 5 45 50
+ :header-rows: 1
 
-   * - #
-     - Seccion
-     - Verificar
-   * - 1
-     - Identificacion
-     - ID, nombre, UC padre, modulo, tipo, prioridad
-   * - 2
-     - Especificacion
-     - Descripcion clara, justificacion
-   * - 3
-     - Criterio de Aceptacion
-     - Formato DADO/CUANDO/ENTONCES
-   * - 4
-     - Reglas y Restricciones
-     - BR y CNST listadas
-   * - 5
-     - Trazabilidad
-     - UC, BReq, BR, CNST, RBAC
-   * - 6
-     - Historial
-     - Version, fecha, autor
+ * - #
+ - Seccion
+ - Verificar
+ * - 1
+ - Identificacion
+ - ID, nombre, UC padre, modulo, tipo, prioridad
+ * - 2
+ - Especificacion
+ - Descripcion clara, justificacion
+ * - 3
+ - Criterio de Aceptacion
+ - Formato DADO/CUANDO/ENTONCES
+ * - 4
+ - Reglas y Restricciones
+ - BR y CNST listadas
+ * - 5
+ - Trazabilidad
+ - UC, BReq, BR, CNST, RBAC
+ * - 6
+ - Historial
+ - Version, fecha, autor
 
 ----
 
@@ -409,17 +409,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - UC sin FR en Trazabilidad
-     - Derivar FR desde pasos "Sistema..." del flujo normal
-   * - BR referenciada no existe
-     - Crear BR primero o documentar gap
-   * - Criterio de Aceptacion ambiguo
-     - Consultar con stakeholder, refinar
+ * - Excepcion
+ - Accion
+ * - UC sin FR en Trazabilidad
+ - Derivar FR desde pasos "Sistema..." del flujo normal
+ * - BR referenciada no existe
+ - Crear BR primero o documentar gap
+ * - Criterio de Aceptacion ambiguo
+ - Consultar con stakeholder, refinar
 
 ----
 
@@ -437,17 +437,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

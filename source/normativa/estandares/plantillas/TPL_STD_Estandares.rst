@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: TPL_STD
-   :tipo: Plantilla
-   :dominio: normativa
-   :subdominio: estandares/plantillas
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TPL_STD
+ :tipo: Plantilla
+ :dominio: normativa
+ :subdominio: estandares/plantillas
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _tpl-std:
 
@@ -35,12 +35,12 @@ que deben seguirse en el desarrollo y documentacion del proyecto.
 
 ::
 
-   STD_001  -> Estructura de Documentacion
-   STD_002  -> Nomenclatura de Artefactos
-   STD_003  -> Formato de Diagramas PlantUML
-   STD_004  -> Convenciones de Codigo Python
-   STD_005  -> Formato de Commits Git
-   STD_006  -> Versionado Semantico
+ STD_001 -> Estructura de Documentacion
+ STD_002 -> Nomenclatura de Artefactos
+ STD_003 -> Formato de Diagramas PlantUML
+ STD_004 -> Convenciones de Codigo Python
+ STD_005 -> Formato de Commits Git
+ STD_006 -> Versionado Semantico
 
 ----
 
@@ -56,7 +56,7 @@ Requisitos Tecnicos
 
 ::
 
-   normativa/estandares/STD_[NNN]_[Nombre_Descriptivo].rst
+ normativa/estandares/STD_[NNN]_[Nombre_Descriptivo].rst
 
 ----
 
@@ -80,40 +80,40 @@ Nomenclatura
 
 ::
 
-   STD_[NNN]
+ STD_[NNN]
 
-   Donde:
-   - STD: Prefijo fijo (Standard)
-   - [NNN]: Numero secuencial de 3 digitos (001-999)
+ Donde:
+ - STD: Prefijo fijo (Standard)
+ - [NNN]: Numero secuencial de 3 digitos (001-999)
 
 **Rangos por Categoria:**
 
 ::
 
-   001-019: Documentacion
-   020-039: Codigo
-   040-059: Arquitectura
-   060-079: Pruebas
-   080-099: Operaciones
+ 001-019: Documentacion
+ 020-039: Codigo
+ 040-059: Arquitectura
+ 060-079: Pruebas
+ 080-099: Operaciones
 
 **Ejemplos:**
 
 ::
 
-   STD_001  -> Estructura de Documentacion
-   STD_006  -> Versionado Semantico
-   STD_020  -> Convenciones Python
-   STD_040  -> Patrones de Diseno
+ STD_001 -> Estructura de Documentacion
+ STD_006 -> Versionado Semantico
+ STD_020 -> Convenciones Python
+ STD_040 -> Patrones de Diseno
 
 **Nombre de Archivo:**
 
 ::
 
-   STD_[NNN]_[Nombre_Descriptivo].rst
+ STD_[NNN]_[Nombre_Descriptivo].rst
 
-   Ejemplos:
-   - STD_001_Estructura_Documentacion.rst
-   - STD_006_Versionado_Semantico.rst
+ Ejemplos:
+ - STD_001_Estructura_Documentacion.rst
+ - STD_006_Versionado_Semantico.rst
 
 ----
 
@@ -122,275 +122,275 @@ Plantilla
 
 .. code-block:: rst
 
-   .. meta::
-      :artefacto: STD_[NNN]
-      :tipo: Estandar
-      :dominio: normativa
-      :subdominio: estandares
-      :categoria: [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
-      :estado: [Borrador|Revision|Aprobado]
-      :version: 1.0.0
-      :fecha_creacion: [YYYY-MM-DD]
-      :ultimo_cambio: [YYYY-MM-DD]
-      :autor: Equipo IACT
-      :clasificacion: Interno
+ .. meta::
+ :artefacto: STD_[NNN]
+ :tipo: Estandar
+ :dominio: normativa
+ :subdominio: estandares
+ :categoria: [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
+ :estado: [Borrador|Revision|Aprobado]
+ :version: 1.0.0
+ :fecha_creacion: [YYYY-MM-DD]
+ :ultimo_cambio: [YYYY-MM-DD]
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
-   .. _std-[nnn]:
+ .. _std-[nnn]:
 
-                                   
-   STD_[NNN]: [Nombre del Estandar]
-                                   
+ 
+ STD_[NNN]: [Nombre del Estandar]
+ 
 
-   .. contents:: Contenido
-      :local:
-      :depth: 2
+ .. contents:: Contenido
+ :local:
+ :depth: 2
 
-   ----
+ ----
 
-   Resumen Ejecutivo
-   -----------------
+ Resumen Ejecutivo
+ -----------------
 
-   .. list-table::
-      :widths: 25 75
-      :header-rows: 0
+ .. list-table::
+ :widths: 25 75
+ :header-rows: 0
 
-      * - **ID**
-        - STD_[NNN]
-      * - **Nombre**
-        - [Nombre descriptivo del estandar]
-      * - **Categoria**
-        - [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
-      * - **Obligatoriedad**
-        - [Obligatorio|Recomendado]
-      * - **Aplica a**
-        - [Artefactos o procesos donde aplica]
-      * - **Estado**
-        - Vigente
+ * - **ID**
+ - STD_[NNN]
+ * - **Nombre**
+ - [Nombre descriptivo del estandar]
+ * - **Categoria**
+ - [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
+ * - **Obligatoriedad**
+ - [Obligatorio|Recomendado]
+ * - **Aplica a**
+ - [Artefactos o procesos donde aplica]
+ * - **Estado**
+ - Vigente
 
-   ----
+ ----
 
-   1. Proposito
-   ------------
+ 1. Proposito
+ ------------
 
-   [Descripcion del proposito del estandar en 2-3 oraciones.
-   Responde: Por que existe este estandar y que problema resuelve?]
+ [Descripcion del proposito del estandar en 2-3 oraciones.
+ Responde: Por que existe este estandar y que problema resuelve?]
 
-   ----
+ ----
 
-   2. Alcance
-   ----------
+ 2. Alcance
+ ----------
 
-   2.1 Aplica A
-   ^^^^^^^^^^^^
+ 2.1 Aplica A
+ ^^^^^^^^^^^^
 
-   - [Tipo de artefacto o proceso donde aplica]
-   - [Otro contexto de aplicacion]
+ - [Tipo de artefacto o proceso donde aplica]
+ - [Otro contexto de aplicacion]
 
-   2.2 No Aplica A
-   ^^^^^^^^^^^^^^^
+ 2.2 No Aplica A
+ ^^^^^^^^^^^^^^^
 
-   - [Excepciones o situaciones donde NO se usa]
+ - [Excepciones o situaciones donde NO se usa]
 
-   ----
+ ----
 
-   3. Definiciones
-   ---------------
+ 3. Definiciones
+ ---------------
 
-   .. list-table::
-      :widths: 25 75
-      :header-rows: 1
+ .. list-table::
+ :widths: 25 75
+ :header-rows: 1
 
-      * - Termino
-        - Definicion
-      * - [Termino 1]
-        - [Definicion del termino]
-      * - [Termino 2]
-        - [Definicion del termino]
+ * - Termino
+ - Definicion
+ * - [Termino 1]
+ - [Definicion del termino]
+ * - [Termino 2]
+ - [Definicion del termino]
 
-   ----
+ ----
 
-   4. Reglas del Estandar
-   ----------------------
+ 4. Reglas del Estandar
+ ----------------------
 
-   4.1 Regla 1: [Nombre de la Regla]
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 4.1 Regla 1: [Nombre de la Regla]
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Enunciado:**
-   [Descripcion clara de la regla]
+ **Enunciado:**
+ [Descripcion clara de la regla]
 
-   **Ejemplo correcto:**
+ **Ejemplo correcto:**
 
-   .. code-block:: [lenguaje]
+ .. code-block:: [lenguaje]
 
-      [Ejemplo de aplicacion correcta]
+ [Ejemplo de aplicacion correcta]
 
-   **Ejemplo incorrecto:**
+ **Ejemplo incorrecto:**
 
-   .. code-block:: [lenguaje]
+ .. code-block:: [lenguaje]
 
-      [Ejemplo de aplicacion incorrecta]
+ [Ejemplo de aplicacion incorrecta]
 
-   ----
+ ----
 
-   4.2 Regla 2: [Nombre de la Regla]
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 4.2 Regla 2: [Nombre de la Regla]
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Enunciado:**
-   [Descripcion clara de la regla]
+ **Enunciado:**
+ [Descripcion clara de la regla]
 
-   **Ejemplo correcto:**
+ **Ejemplo correcto:**
 
-   .. code-block:: [lenguaje]
+ .. code-block:: [lenguaje]
 
-      [Ejemplo de aplicacion correcta]
+ [Ejemplo de aplicacion correcta]
 
-   **Ejemplo incorrecto:**
+ **Ejemplo incorrecto:**
 
-   .. code-block:: [lenguaje]
+ .. code-block:: [lenguaje]
 
-      [Ejemplo de aplicacion incorrecta]
+ [Ejemplo de aplicacion incorrecta]
 
-   ----
+ ----
 
-   4.3 Regla N: [Nombre de la Regla]
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 4.3 Regla N: [Nombre de la Regla]
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Enunciado:**
-   [Descripcion clara de la regla]
+ **Enunciado:**
+ [Descripcion clara de la regla]
 
-   **Ejemplo correcto:**
+ **Ejemplo correcto:**
 
-   .. code-block:: [lenguaje]
+ .. code-block:: [lenguaje]
 
-      [Ejemplo de aplicacion correcta]
+ [Ejemplo de aplicacion correcta]
 
-   ----
+ ----
 
-   5. Tabla de Reglas Resumen
-   --------------------------
+ 5. Tabla de Reglas Resumen
+ --------------------------
 
-   .. list-table::
-      :widths: 10 40 25 25
-      :header-rows: 1
+ .. list-table::
+ :widths: 10 40 25 25
+ :header-rows: 1
 
-      * - #
-        - Regla
-        - Obligatoriedad
-        - Verificacion
-      * - 1
-        - [Nombre regla 1]
-        - Obligatorio
-        - [Automatica|Manual]
-      * - 2
-        - [Nombre regla 2]
-        - Obligatorio
-        - [Automatica|Manual]
-      * - N
-        - [Nombre regla N]
-        - Recomendado
-        - [Automatica|Manual]
+ * - #
+ - Regla
+ - Obligatoriedad
+ - Verificacion
+ * - 1
+ - [Nombre regla 1]
+ - Obligatorio
+ - [Automatica|Manual]
+ * - 2
+ - [Nombre regla 2]
+ - Obligatorio
+ - [Automatica|Manual]
+ * - N
+ - [Nombre regla N]
+ - Recomendado
+ - [Automatica|Manual]
 
-   ----
+ ----
 
-   6. Verificacion
-   ---------------
+ 6. Verificacion
+ ---------------
 
-   6.1 Verificacion Automatica
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 6.1 Verificacion Automatica
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   .. code-block:: bash
+ .. code-block:: bash
 
-      # Comando para verificar cumplimiento
-      [comando_de_verificacion]
+ # Comando para verificar cumplimiento
+ [comando_de_verificacion]
 
-   6.2 Verificacion Manual
-   ^^^^^^^^^^^^^^^^^^^^^^^
+ 6.2 Verificacion Manual
+ ^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Checklist de revision:**
+ **Checklist de revision:**
 
-   - [ ] [Item de verificacion 1]
-   - [ ] [Item de verificacion 2]
-   - [ ] [Item de verificacion 3]
+ - [ ] [Item de verificacion 1]
+ - [ ] [Item de verificacion 2]
+ - [ ] [Item de verificacion 3]
 
-   6.3 Herramientas
-   ^^^^^^^^^^^^^^^^
+ 6.3 Herramientas
+ ^^^^^^^^^^^^^^^^
 
-   - [Herramienta 1]: [Para que se usa]
-   - [Herramienta 2]: [Para que se usa]
+ - [Herramienta 1]: [Para que se usa]
+ - [Herramienta 2]: [Para que se usa]
 
-   ----
+ ----
 
-   7. Excepciones
-   --------------
+ 7. Excepciones
+ --------------
 
-   7.1 Excepciones Permitidas
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 7.1 Excepciones Permitidas
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - [Excepcion 1: Condicion bajo la cual no aplica]
-   - [Excepcion 2: Otra condicion de excepcion]
+ - [Excepcion 1: Condicion bajo la cual no aplica]
+ - [Excepcion 2: Otra condicion de excepcion]
 
-   7.2 Proceso de Excepcion
-   ^^^^^^^^^^^^^^^^^^^^^^^^
+ 7.2 Proceso de Excepcion
+ ^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Para solicitar una excepcion a este estandar:
+ Para solicitar una excepcion a este estandar:
 
-   1. [Paso 1 del proceso]
-   2. [Paso 2 del proceso]
-   3. [Paso 3: Aprobacion requerida por...]
+ 1. [Paso 1 del proceso]
+ 2. [Paso 2 del proceso]
+ 3. [Paso 3: Aprobacion requerida por...]
 
-   ----
+ ----
 
-   8. Consecuencias de Incumplimiento
-   ----------------------------------
+ 8. Consecuencias de Incumplimiento
+ ----------------------------------
 
-   - [Consecuencia 1: Que pasa si no se cumple]
-   - [Consecuencia 2: Impacto en el proyecto]
+ - [Consecuencia 1: Que pasa si no se cumple]
+ - [Consecuencia 2: Impacto en el proyecto]
 
-   ----
+ ----
 
-   9. Trazabilidad
-   ---------------
+ 9. Trazabilidad
+ ---------------
 
-   .. list-table::
-      :widths: 25 75
-      :header-rows: 0
+ .. list-table::
+ :widths: 25 75
+ :header-rows: 0
 
-      * - **PROC Relacionados**
-        - PROC_[NNN]: [Nombre]
-      * - **TPL Relacionados**
-        - TPL_[XXX]: [Nombre]
-      * - **Artefactos Afectados**
-        - [Lista de tipos de artefactos]
+ * - **PROC Relacionados**
+ - PROC_[NNN]: [Nombre]
+ * - **TPL Relacionados**
+ - TPL_[XXX]: [Nombre]
+ * - **Artefactos Afectados**
+ - [Lista de tipos de artefactos]
 
-   ----
+ ----
 
-   10. Referencias
-   ---------------
+ 10. Referencias
+ ---------------
 
-   - [Referencia 1]: [URL o documento]
-   - [Referencia 2]: [URL o documento]
+ - [Referencia 1]: [URL o documento]
+ - [Referencia 2]: [URL o documento]
 
-   ----
+ ----
 
-   11. Historial de Cambios
-   ------------------------
+ 11. Historial de Cambios
+ ------------------------
 
-   .. list-table::
-      :widths: 12 12 20 56
-      :header-rows: 1
+ .. list-table::
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-      * - Version
-        - Fecha
-        - Autor
-        - Cambios
-      * - 1.0.0
-        - [YYYY-MM-DD]
-        - Equipo IACT
-        - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - [YYYY-MM-DD]
+ - Equipo IACT
+ - Version inicial
 
-   ----
+ ----
 
-   *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
+ *Documento version 1.0.0 - Proyecto IACT Dashboard Analytics*
 
 ----
 
@@ -400,48 +400,48 @@ Secciones Obligatorias
 Cada STD DEBE incluir minimo estas 11 secciones:
 
 .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+ :widths: 5 25 70
+ :header-rows: 1
 
-   * - #
-     - Seccion
-     - Contenido
-   * - 0
-     - Resumen Ejecutivo
-     - ID, nombre, categoria, obligatoriedad
-   * - 1
-     - Proposito
-     - Por que existe el estandar
-   * - 2
-     - Alcance
-     - Donde aplica y donde no
-   * - 3
-     - Definiciones
-     - Terminos clave
-   * - 4
-     - Reglas del Estandar
-     - Cada regla con ejemplos
-   * - 5
-     - Tabla de Reglas
-     - Resumen de todas las reglas
-   * - 6
-     - Verificacion
-     - Automatica, manual, herramientas
-   * - 7
-     - Excepciones
-     - Permitidas y proceso
-   * - 8
-     - Consecuencias
-     - Impacto de incumplimiento
-   * - 9
-     - Trazabilidad
-     - PROC, TPL, artefactos relacionados
-   * - 10
-     - Referencias
-     - Documentacion externa
-   * - 11
-     - Historial
-     - Control de versiones
+ * - #
+ - Seccion
+ - Contenido
+ * - 0
+ - Resumen Ejecutivo
+ - ID, nombre, categoria, obligatoriedad
+ * - 1
+ - Proposito
+ - Por que existe el estandar
+ * - 2
+ - Alcance
+ - Donde aplica y donde no
+ * - 3
+ - Definiciones
+ - Terminos clave
+ * - 4
+ - Reglas del Estandar
+ - Cada regla con ejemplos
+ * - 5
+ - Tabla de Reglas
+ - Resumen de todas las reglas
+ * - 6
+ - Verificacion
+ - Automatica, manual, herramientas
+ * - 7
+ - Excepciones
+ - Permitidas y proceso
+ * - 8
+ - Consecuencias
+ - Impacto de incumplimiento
+ * - 9
+ - Trazabilidad
+ - PROC, TPL, artefactos relacionados
+ * - 10
+ - Referencias
+ - Documentacion externa
+ * - 11
+ - Historial
+ - Control de versiones
 
 ----
 
@@ -465,8 +465,8 @@ Antes de aprobar un STD, verificar:
 
 .. code-block:: bash
 
-   # Validar sintaxis RST
-   sphinx-build -b html -W docs/ docs/_build/
+ # Validar sintaxis RST
+ sphinx-build -b html -W docs/ docs/_build/
 
 ----
 
@@ -483,14 +483,14 @@ Historial de Cambios
 --------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial de plantilla STD
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial de plantilla STD

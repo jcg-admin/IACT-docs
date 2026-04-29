@@ -39,20 +39,20 @@ Subdominios
 ===========
 
 .. toctree::
-   :maxdepth: 2
+ :maxdepth: 2
 
-   manuales_usuarios/index
-   pm/index
-   evidencia/index
+ manuales_usuarios/index
+ pm/index
+ evidencia/index
 
 .. note::
-   Los manuales de usuario derivan de los casos de uso documentados en el dominio 
-   de Requisitos, garantizando consistencia entre especificación e implementación.
+ Los manuales de usuario derivan de los casos de uso documentados en el dominio 
+ de Requisitos, garantizando consistencia entre especificación e implementación.
 
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
+ :hidden:
+ :maxdepth: 1
 
-   git-workflow
-   plantilla_adr
+ git-workflow
+ plantilla_adr

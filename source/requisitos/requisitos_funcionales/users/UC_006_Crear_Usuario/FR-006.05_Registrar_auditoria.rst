@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-006.05
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/users
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-006.05
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/users
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-006-05:
 
@@ -19,22 +19,22 @@ FR-006.05: Registrar evento de creación en auditoría
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-006.05
-   * - **Nombre**
-     - Registrar creación de usuario en auditoría
-   * - **UC Origen**
-     - UC_006: Crear Usuario
-   * - **Paso UC**
-     - Paso 10 del flujo normal
-   * - **Módulo**
-     - MOD_Users
-   * - **Prioridad**
-     - Alta
-   * - **Tipo**
-     - Auditoría
+ * - **ID**
+ - FR-006.05
+ * - **Nombre**
+ - Registrar creación de usuario en auditoría
+ * - **UC Origen**
+ - UC_006: Crear Usuario
+ * - **Paso UC**
+ - Paso 10 del flujo normal
+ * - **Módulo**
+ - MOD_Users
+ * - **Prioridad**
+ - Alta
+ * - **Tipo**
+ - Auditoría
 
 ----
 
@@ -43,37 +43,37 @@ FR-006.05: Registrar evento de creación en auditoría
 
 **Declaración:**
 
-   El sistema DEBE registrar un evento de auditoría inmutable CUANDO
-   se crea exitosamente un nuevo usuario en el sistema.
+ El sistema DEBE registrar un evento de auditoría inmutable CUANDO
+ se crea exitosamente un nuevo usuario en el sistema.
 
 **Descripción:**
 
-   El registro de auditoría incluye:
-   
-   **Datos del Evento:**
-   
-   - ``event_type``: 'USER_CREATED'
-   - ``actor_user_id``: ID del admin que creó
-   - ``target_user_id``: ID del usuario creado
-   - ``timestamp``: Fecha/hora exacta (UTC)
-   - ``ip_address``: IP del admin
-   - ``details``: JSON con datos no sensibles
-   
-   **Contenido de Details:**
-   
-   .. code-block:: json
-   
-      {
-        "username": "nuevo.usuario",
-        "full_name": "Nombre Completo",
-        "email": "usuario@empresa.com",
-        "initial_status": "ACTIVE"
-      }
-   
-   **Datos Excluidos (seguridad):**
-   
-   - Password temporal (nunca en logs)
-   - Respuesta de seguridad
+ El registro de auditoría incluye:
+ 
+ **Datos del Evento:**
+ 
+ - ``event_type``: 'USER_CREATED'
+ - ``actor_user_id``: ID del admin que creó
+ - ``target_user_id``: ID del usuario creado
+ - ``timestamp``: Fecha/hora exacta (UTC)
+ - ``ip_address``: IP del admin
+ - ``details``: JSON con datos no sensibles
+ 
+ **Contenido de Details:**
+ 
+ .. code-block:: json
+ 
+ {
+ "username": "nuevo.usuario",
+ "full_name": "Nombre Completo",
+ "email": "usuario@empresa.com",
+ "initial_status": "ACTIVE"
+ }
+ 
+ **Datos Excluidos (seguridad):**
+ 
+ - Password temporal (nunca en logs)
+ - Respuesta de seguridad
 
 ----
 
@@ -82,27 +82,27 @@ FR-006.05: Registrar evento de creación en auditoría
 
 ::
 
-   DADO un usuario creado exitosamente
-   CUANDO se completa la transacción
-   ENTONCES se registra evento en auditoría
-   
-   Escenario 1: Registro completo
-   DADO creación exitosa de usuario
-   CUANDO se registra auditoría
-   ENTONCES existe registro con event_type = 'USER_CREATED'
-   Y actor_user_id = ID del admin
-   Y target_user_id = ID del nuevo usuario
-   
-   Escenario 2: Datos sensibles excluidos
-   DADO registro de auditoría
-   CUANDO se consulta details
-   ENTONCES NO contiene password
-   Y NO contiene security_answer
-   
-   Escenario 3: Inmutabilidad
-   DADO registro de auditoría creado
-   CUANDO se intenta modificar
-   ENTONCES la operación es rechazada (CNST-009)
+ DADO un usuario creado exitosamente
+ CUANDO se completa la transacción
+ ENTONCES se registra evento en auditoría
+ 
+ Escenario 1: Registro completo
+ DADO creación exitosa de usuario
+ CUANDO se registra auditoría
+ ENTONCES existe registro con event_type = 'USER_CREATED'
+ Y actor_user_id = ID del admin
+ Y target_user_id = ID del nuevo usuario
+ 
+ Escenario 2: Datos sensibles excluidos
+ DADO registro de auditoría
+ CUANDO se consulta details
+ ENTONCES NO contiene password
+ Y NO contiene security_answer
+ 
+ Escenario 3: Inmutabilidad
+ DADO registro de auditoría creado
+ CUANDO se intenta modificar
+ ENTONCES la operación es rechazada (CNST-009)
 
 ----
 
@@ -110,11 +110,11 @@ FR-006.05: Registrar evento de creación en auditoría
 -------------------------
 
 - **BR aplicables:**
-  - BR_008: Auditoría obligatoria
-  
+ - BR_008: Auditoría obligatoria
+ 
 - **CNST aplicables:**
-  - CNST-009: Logging y auditoría inmutable
-  - CNST-010: Clasificación de datos (excluir PII sensible)
+ - CNST-009: Logging y auditoría inmutable
+ - CNST-010: Clasificación de datos (excluir PII sensible)
 
 **Transacción:**
 
@@ -127,22 +127,22 @@ creación del usuario. Si falla la auditoría, se revierte todo.
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_006: Crear Usuario
-   * - **Depende de**
-     - FR-006.04
-   * - **Requerido por**
-     - FR-061.01 (consulta auditoría)
-   * - **BR**
-     - BR_008
-   * - **CNST**
-     - CNST-009, CNST-010
-   * - **TEST**
-     - TST-FR-006.05 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_006: Crear Usuario
+ * - **Depende de**
+ - FR-006.04
+ * - **Requerido por**
+ - FR-061.01 (consulta auditoría)
+ * - **BR**
+ - BR_008
+ * - **CNST**
+ - CNST-009, CNST-010
+ * - **TEST**
+ - TST-FR-006.05 (pendiente)
 
 ----
 
@@ -150,12 +150,12 @@ creación del usuario. Si falla la auditoría, se revierte todo.
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_006
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_006

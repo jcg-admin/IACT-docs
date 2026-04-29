@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_002
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_002
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-002:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_002
-   * - **Nombre**
-     - ETL Batch Nocturno
-   * - **Tipo**
-     - Desencadenador
-   * - **Categoria**
-     - Operacional
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_002
+ * - **Nombre**
+ - ETL Batch Nocturno
+ * - **Tipo**
+ - Desencadenador
+ * - **Categoria**
+ - Operacional
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,15 +54,15 @@ de datos desde la base IVR hacia la base Analytics.
 
 ::
 
-   VOCABULARIO:
-     - ETL: Proceso Extract-Transform-Load
-     - Medianoche: 00:00:00 hora local del servidor
-     - Base IVR: Origen de datos operacionales
-     - Base Analytics: Destino de datos procesados
+ VOCABULARIO:
+ - ETL: Proceso Extract-Transform-Load
+ - Medianoche: 00:00:00 hora local del servidor
+ - Base IVR: Origen de datos operacionales
+ - Base Analytics: Destino de datos procesados
 
-   REGLA:
-     Es obligatorio que el proceso ETL se ejecute diariamente a medianoche.
-     Es obligatorio que ETL extraiga datos del dia anterior completo.
+ REGLA:
+ Es obligatorio que el proceso ETL se ejecute diariamente a medianoche.
+ Es obligatorio que ETL extraiga datos del dia anterior completo.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -98,17 +98,17 @@ por recursos con operaciones diurnas del call center.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_004_Actualizacion_Datos_ETL
-   * - **Seccion**
-     - Proceso ETL
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST
+ * - **Documento**
+ - CNST_004_Actualizacion_Datos_ETL
+ * - **Seccion**
+ - Proceso ETL
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,17 +126,17 @@ por recursos con operaciones diurnas del call center.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Pipeline
-     - Ejecuta jobs ETL programados
-   * - Celery Beat
-     - Scheduler que dispara proceso a medianoche
-   * - Base Analytics
-     - Recibe datos sincronizados
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Pipeline
+ - Ejecuta jobs ETL programados
+ * - Celery Beat
+ - Scheduler que dispara proceso a medianoche
+ * - Base Analytics
+ - Recibe datos sincronizados
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -159,41 +159,41 @@ por recursos con operaciones diurnas del call center.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_004
-     - Define proceso ETL y restricciones de actualizacion
+ * - CNST
+ - Relacion
+ * - CNST_004
+ - Define proceso ETL y restricciones de actualizacion
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-001
-     - Visibilidad de Metricas IVR (datos actualizados diariamente)
+ * - BReq
+ - Descripcion
+ * - BReq-001
+ - Visibilidad de Metricas IVR (datos actualizados diariamente)
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-050
-     - Supervisar Estado ETL - trigger nocturno
-   * - UC-051
-     - Consultar Errores ETL - post ejecucion
-   * - UC-052
-     - Consultar Disponibilidad Datos - actualizada tras ETL
+ * - UC
+ - Donde Aplica
+ * - UC-050
+ - Supervisar Estado ETL - trigger nocturno
+ * - UC-051
+ - Consultar Errores ETL - post ejecucion
+ * - UC-052
+ - Consultar Disponibilidad Datos - actualizada tras ETL
 
 ----
 
@@ -227,14 +227,14 @@ por recursos con operaciones diurnas del call center.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

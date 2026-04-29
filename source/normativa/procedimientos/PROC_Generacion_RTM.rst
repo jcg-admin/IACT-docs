@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_RTM
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_RTM
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-rtm:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_RTM
-   * - **Nombre**
-     - Generacion de Matrices de Trazabilidad
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada par de artefactos a trazar
-   * - **Duracion Estimada**
-     - 30-60 minutos por RTM
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_RTM
+ * - **Nombre**
+ - Generacion de Matrices de Trazabilidad
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada par de artefactos a trazar
+ * - **Duracion Estimada**
+ - 30-60 minutos por RTM
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ y permitan identificar gaps y huerfanos.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - QA Lead
-     - Genera RTM
-     - Lectura de todos los artefactos
-   * - Arquitecto
-     - Valida completitud
-     - Lectura
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - QA Lead
+ - Genera RTM
+ - Lectura de todos los artefactos
+ * - Arquitecto
+ - Valida completitud
+ - Lectura
 
 ----
 
@@ -103,21 +103,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_RTM_Trazabilidad_1_0_0.rst
-     - Template de RTM
-     - Si
-   * - Artefactos origen
-     - Nivel superior (BReq, BR, UC, FR)
-     - Si
-   * - Artefactos destino
-     - Nivel inferior (BR, UC, FR, TST)
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_RTM_Trazabilidad_1_0_0.rst
+ - Template de RTM
+ - Si
+ * - Artefactos origen
+ - Nivel superior (BReq, BR, UC, FR)
+ - Si
+ * - Artefactos destino
+ - Nivel inferior (BR, UC, FR, TST)
+ - Si
 
 ----
 
@@ -128,27 +128,27 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 30 40
-   :header-rows: 1
+ :widths: 30 30 40
+ :header-rows: 1
 
-   * - RTM
-     - Relacion
-     - Ratio Esperado
-   * - RTM_BReq_BR
-     - BReq -> BR
-     - 1:2-3
-   * - RTM_BR_UC
-     - BR -> UC
-     - 1:2-3
-   * - RTM_UC_FR
-     - UC -> FR
-     - 1:3-8
-   * - RTM_FR_TST
-     - FR -> TST
-     - 1:1-2
-   * - RTM_FR_CODE
-     - FR -> Codigo
-     - 1:N
+ * - RTM
+ - Relacion
+ - Ratio Esperado
+ * - RTM_BReq_BR
+ - BReq -> BR
+ - 1:2-3
+ * - RTM_BR_UC
+ - BR -> UC
+ - 1:2-3
+ * - RTM_UC_FR
+ - UC -> FR
+ - 1:3-8
+ * - RTM_FR_TST
+ - FR -> TST
+ - 1:1-2
+ * - RTM_FR_CODE
+ - FR -> Codigo
+ - 1:N
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -158,13 +158,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Determinar par origen-destino:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato: RTM_[Origen]_[Destino]
-     
-     Ejemplo: RTM_UC_FR
-     - Origen: UC (Casos de Uso)
-     - Destino: FR (Requisitos Funcionales)
+ Formato: RTM_[Origen]_[Destino]
+ 
+ Ejemplo: RTM_UC_FR
+ - Origen: UC (Casos de Uso)
+ - Destino: FR (Requisitos Funcionales)
 
 - **Resultado**: RTM identificada
 - **Verificacion**: Par valido segun jerarquia
@@ -174,14 +174,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Listar todos los artefactos origen:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Ejemplo para UC
-     find casos_uso/ -name "UC_*.rst" | sort
-     
-     # Resultado
-     UC_001, UC_002, ..., UC_073
-     Total: 49 UC
+ # Ejemplo para UC
+ find casos_uso/ -name "UC_*.rst" | sort
+ 
+ # Resultado
+ UC_001, UC_002, ..., UC_073
+ Total: 49 UC
 
 - **Resultado**: Lista de origenes
 - **Verificacion**: Cantidad correcta
@@ -191,14 +191,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Listar todos los artefactos destino:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Ejemplo para FR
-     find funcionales/ -name "FR_*.rst" | sort
-     
-     # Resultado
-     FR_UC001_01, FR_UC001_02, ..., FR_UC073_03
-     Total: 158 FR
+ # Ejemplo para FR
+ find funcionales/ -name "FR_*.rst" | sort
+ 
+ # Resultado
+ FR_UC001_01, FR_UC001_02, ..., FR_UC073_03
+ Total: 158 FR
 
 - **Resultado**: Lista de destinos
 - **Verificacion**: Cantidad correcta
@@ -208,23 +208,23 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Mapear cada origen a sus destinos:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. list-table::
-        :header-rows: 1
-     
-        * - UC Origen
-          - FR Derivados
-          - Cantidad
-        * - UC_001
-          - FR_UC001_01, FR_UC001_02, FR_UC001_03, FR_UC001_04, FR_UC001_05
-          - 5
-        * - UC_002
-          - FR_UC002_01, FR_UC002_02, FR_UC002_03
-          - 3
-        * - ...
-          - ...
-          - ...
+ .. list-table::
+ :header-rows: 1
+ 
+ * - UC Origen
+ - FR Derivados
+ - Cantidad
+ * - UC_001
+ - FR_UC001_01, FR_UC001_02, FR_UC001_03, FR_UC001_04, FR_UC001_05
+ - 5
+ * - UC_002
+ - FR_UC002_01, FR_UC002_02, FR_UC002_03
+ - 3
+ * - ...
+ - ...
+ - ...
 
 - **Resultado**: Matriz directa
 - **Verificacion**: Todos los origenes mapeados
@@ -234,23 +234,23 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Verificar que cada destino tiene origen:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. list-table::
-        :header-rows: 1
-     
-        * - FR
-          - UC Origen
-          - Estado
-        * - FR_UC001_01
-          - UC_001
-          - OK
-        * - FR_UC001_02
-          - UC_001
-          - OK
-        * - FR_XXXX_01
-          - ???
-          - HUERFANO
+ .. list-table::
+ :header-rows: 1
+ 
+ * - FR
+ - UC Origen
+ - Estado
+ * - FR_UC001_01
+ - UC_001
+ - OK
+ * - FR_UC001_02
+ - UC_001
+ - OK
+ * - FR_XXXX_01
+ - ???
+ - HUERFANO
 
 - **Resultado**: Matriz inversa
 - **Verificacion**: Huerfanos identificados
@@ -260,19 +260,19 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Calcular estadisticas:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Metricas RTM_UC_FR:**
-     
-     - Total UC: 49
-     - UC con FR: 49
-     - UC sin FR (gaps): 0
-     - Cobertura: 100%
-     
-     - Total FR: 158
-     - FR con UC: 158
-     - FR huerfanos: 0
-     - Ratio promedio: 3.2 FR/UC
+ **Metricas RTM_UC_FR:**
+ 
+ - Total UC: 49
+ - UC con FR: 49
+ - UC sin FR (gaps): 0
+ - Cobertura: 100%
+ 
+ - Total FR: 158
+ - FR con UC: 158
+ - FR huerfanos: 0
+ - Ratio promedio: 3.2 FR/UC
 
 - **Resultado**: Metricas calculadas
 - **Verificacion**: Cobertura >= objetivo
@@ -282,21 +282,21 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Documentar problemas encontrados:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Analisis de Gaps:**
-     
-     UC sin FR (requieren derivacion):
-     - Ninguno
-     
-     **Analisis de Huerfanos:**
-     
-     FR sin UC (posible error):
-     - Ninguno
-     
-     **Exclusiones Justificadas:**
-     
-     - UC_099: Caso de uso futuro, excluido de RTM
+ **Analisis de Gaps:**
+ 
+ UC sin FR (requieren derivacion):
+ - Ninguno
+ 
+ **Analisis de Huerfanos:**
+ 
+ FR sin UC (posible error):
+ - Ninguno
+ 
+ **Exclusiones Justificadas:**
+ 
+ - UC_099: Caso de uso futuro, excluido de RTM
 
 - **Resultado**: Analisis documentado
 - **Verificacion**: Gaps/huerfanos explicados
@@ -306,28 +306,28 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Crear visualizacion:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. uml::
-     
-        @startuml
-        left to right direction
-        
-        package "Casos de Uso" {
-          [UC_001]
-          [UC_002]
-        }
-        
-        package "Requisitos Funcionales" {
-          [FR_UC001_01]
-          [FR_UC001_02]
-          [FR_UC002_01]
-        }
-        
-        UC_001 --> FR_UC001_01
-        UC_001 --> FR_UC001_02
-        UC_002 --> FR_UC002_01
-        @enduml
+ .. uml::
+ 
+ @startuml
+ left to right direction
+ 
+ package "Casos de Uso" {
+ [UC_001]
+ [UC_002]
+ }
+ 
+ package "Requisitos Funcionales" {
+ [FR_UC001_01]
+ [FR_UC001_02]
+ [FR_UC002_01]
+ }
+ 
+ UC_001 --> FR_UC001_01
+ UC_001 --> FR_UC001_02
+ UC_002 --> FR_UC002_01
+ @enduml
 
 - **Resultado**: Diagrama generado
 - **Verificacion**: Visualizacion clara
@@ -337,13 +337,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Guardar y validar:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Guardar
-     /tmp/trazabilidad/RTM_UC_FR_1_0_0.rst
-     
-     # Validar
-     sphinx-build -b html -W /tmp/trazabilidad/ /tmp/build/
+ # Guardar
+ /tmp/trazabilidad/RTM_UC_FR_1_0_0.rst
+ 
+ # Validar
+ sphinx-build -b html -W /tmp/trazabilidad/ /tmp/build/
 
 - **Resultado**: RTM guardada y validada
 - **Verificacion**: Sin errores Sphinx
@@ -354,15 +354,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - RTM_[Origen]_[Destino].rst
-     - Matriz de Trazabilidad
-     - /tmp/trazabilidad/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - RTM_[Origen]_[Destino].rst
+ - Matriz de Trazabilidad
+ - /tmp/trazabilidad/
 
 ----
 
@@ -397,17 +397,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Cobertura < 95%
-     - Generar plan para cerrar gaps
-   * - Huerfanos encontrados
-     - Investigar origen, corregir o eliminar
-   * - Artefactos sin ID
-     - Asignar ID antes de incluir
+ * - Excepcion
+ - Accion
+ * - Cobertura < 95%
+ - Generar plan para cerrar gaps
+ * - Huerfanos encontrados
+ - Investigar origen, corregir o eliminar
+ * - Artefactos sin ID
+ - Asignar ID antes de incluir
 
 ----
 
@@ -424,17 +424,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

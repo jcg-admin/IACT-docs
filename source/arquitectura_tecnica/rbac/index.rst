@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: INDEX_RBAC
-   :tipo: Indice
-   :dominio: arquitectura_tecnica
-   :subdominio: rbac
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: INDEX_RBAC
+ :tipo: Indice
+ :dominio: arquitectura_tecnica
+ :subdominio: rbac
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ============
 Modelo RBAC
@@ -27,7 +27,7 @@ CNST_030 Reglas SoD, CNST_031 Permisos Temporales, CNST_032 Menu
 Dinamico, CNST_033 Vocabulario Unificado).
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Modelo RBAC
+ :maxdepth: 1
+ :caption: Modelo RBAC
 
-   MODELO_RBAC_IACT
+ MODELO_RBAC_IACT

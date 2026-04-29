@@ -1,16 +1,16 @@
 .. meta::
-   :artefacto: PROC_Cambio_Requisitos
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
-   :anterior: PROC_001_Cambio_Requisitos
+ :artefacto: PROC_Cambio_Requisitos
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
+ :anterior: PROC_001_Cambio_Requisitos
 
 .. _proc-cambio-requisitos:
 
@@ -23,23 +23,23 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Cambio_Requisitos
-   * - **Nombre**
-     - Gestion de Cambios en Requisitos
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Por cada solicitud de cambio
-   * - **Duracion Estimada**
-     - Variable segun impacto
-   * - **Estado**
-     - Vigente
-   * - **Nota**
-     - Renombrado desde PROC_001_Cambio_Requisitos
+ * - **ID**
+ - PROC_Cambio_Requisitos
+ * - **Nombre**
+ - Gestion de Cambios en Requisitos
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Por cada solicitud de cambio
+ * - **Duracion Estimada**
+ - Variable segun impacto
+ * - **Estado**
+ - Vigente
+ * - **Nota**
+ - Renombrado desde PROC_001_Cambio_Requisitos
 
 ----
 
@@ -78,24 +78,24 @@ y manteniendo trazabilidad.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Solicitante
-     - Inicia solicitud de cambio
-     - Lectura de requisitos
-   * - Analista
-     - Evalua impacto del cambio
-     - Lectura de todos los artefactos
-   * - CCB (Change Control Board)
-     - Aprueba o rechaza cambios
-     - Aprobacion de cambios
-   * - Implementador
-     - Ejecuta cambios aprobados
-     - Escritura en requisitos
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Solicitante
+ - Inicia solicitud de cambio
+ - Lectura de requisitos
+ * - Analista
+ - Evalua impacto del cambio
+ - Lectura de todos los artefactos
+ * - CCB (Change Control Board)
+ - Aprueba o rechaza cambios
+ - Aprobacion de cambios
+ * - Implementador
+ - Ejecuta cambios aprobados
+ - Escritura en requisitos
 
 ----
 
@@ -114,18 +114,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Solicitud de Cambio (RFC)
-     - Formulario con detalles del cambio
-     - Si
-   * - Requisito actual
-     - Artefacto a modificar
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Solicitud de Cambio (RFC)
+ - Formulario con detalles del cambio
+ - Si
+ * - Requisito actual
+ - Artefacto a modificar
+ - Si
 
 ----
 
@@ -136,41 +136,41 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Cambio de Requisitos
-   :align: center
+ :caption: Flujo de Cambio de Requisitos
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Recibir Solicitud de Cambio;
-   :Registrar RFC;
-   :Analizar Impacto;
+ start
+ :Recibir Solicitud de Cambio;
+ :Registrar RFC;
+ :Analizar Impacto;
 
-   if (Impacto aceptable?) then (si)
-       :Elevar a CCB;
-       
-       if (CCB aprueba?) then (si)
-           :Asignar implementador;
-           :Implementar cambio;
-           :Actualizar trazabilidad;
-           :Verificar cambio;
-           :Cerrar RFC;
-       else (no)
-           :Documentar rechazo;
-           :Cerrar RFC;
-       endif
-   else (no)
-       :Rechazar por impacto;
-       :Cerrar RFC;
-   endif
+ if (Impacto aceptable?) then (si)
+ :Elevar a CCB;
+ 
+ if (CCB aprueba?) then (si)
+ :Asignar implementador;
+ :Implementar cambio;
+ :Actualizar trazabilidad;
+ :Verificar cambio;
+ :Cerrar RFC;
+ else (no)
+ :Documentar rechazo;
+ :Cerrar RFC;
+ endif
+ else (no)
+ :Rechazar por impacto;
+ :Cerrar RFC;
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -180,14 +180,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Documentar solicitud:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     RFC-[YYYY]-[NNN]
-     Fecha: YYYY-MM-DD
-     Solicitante: [Nombre]
-     Requisito afectado: [ID]
-     Descripcion del cambio: [Detalle]
-     Justificacion: [Razon]
+ RFC-[YYYY]-[NNN]
+ Fecha: YYYY-MM-DD
+ Solicitante: [Nombre]
+ Requisito afectado: [ID]
+ Descripcion del cambio: [Detalle]
+ Justificacion: [Razon]
 
 - **Resultado**: RFC registrado
 - **Verificacion**: ID unico asignado
@@ -197,10 +197,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Evaluar impacto en:
 
-  - Artefactos derivados (UC -> FR -> TST)
-  - Artefactos relacionados (BR, CNST)
-  - Codigo implementado
-  - Cronograma
+ - Artefactos derivados (UC -> FR -> TST)
+ - Artefactos relacionados (BR, CNST)
+ - Codigo implementado
+ - Cronograma
 
 - **Resultado**: Analisis de impacto
 - **Verificacion**: Todos los impactos identificados
@@ -210,10 +210,10 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: CCB
 - **Accion**: Revisar RFC y analisis, decidir:
 
-  - Aprobar
-  - Aprobar con condiciones
-  - Rechazar
-  - Solicitar mas informacion
+ - Aprobar
+ - Aprobar con condiciones
+ - Rechazar
+ - Solicitar mas informacion
 
 - **Resultado**: Decision documentada
 - **Verificacion**: Acta de CCB
@@ -223,9 +223,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Implementador
 - **Accion**: Ejecutar cambio segun procedimientos:
 
-  - Si subdominio congelado: PROC_Descongelamiento primero
-  - Aplicar versionado semantico
-  - Actualizar artefactos derivados
+ - Si subdominio congelado: PROC_Descongelamiento primero
+ - Aplicar versionado semantico
+ - Actualizar artefactos derivados
 
 - **Resultado**: Cambio implementado
 - **Verificacion**: Artefactos actualizados
@@ -242,12 +242,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Analista
 - **Accion**: Documentar cierre:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     RFC-[YYYY]-[NNN] - CERRADO
-     Fecha cierre: YYYY-MM-DD
-     Estado: Implementado / Rechazado
-     Artefactos modificados: [Lista]
+ RFC-[YYYY]-[NNN] - CERRADO
+ Fecha cierre: YYYY-MM-DD
+ Estado: Implementado / Rechazado
+ Artefactos modificados: [Lista]
 
 - **Resultado**: RFC cerrado
 - **Verificacion**: Registro completo
@@ -258,18 +258,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - RFC cerrado
-     - Solicitud con resolucion
-     - Registro de RFCs
-   * - Requisito(s) actualizado(s)
-     - Artefactos modificados
-     - Ubicacion original
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - RFC cerrado
+ - Solicitud con resolucion
+ - Registro de RFCs
+ * - Requisito(s) actualizado(s)
+ - Artefactos modificados
+ - Ubicacion original
 
 ----
 
@@ -302,17 +302,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Cambio urgente
-     - CCB puede aprobar via email, documentar post-facto
-   * - Impacto desconocido
-     - Solicitar analisis adicional
-   * - Conflicto de cambios
-     - CCB prioriza
+ * - Excepcion
+ - Accion
+ * - Cambio urgente
+ - CCB puede aprobar via email, documentar post-facto
+ * - Impacto desconocido
+ - Solicitar analisis adicional
+ * - Conflicto de cambios
+ - CCB prioriza
 
 ----
 
@@ -329,17 +329,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Renombrado desde PROC_001, nueva nomenclatura
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Renombrado desde PROC_001, nueva nomenclatura
 
 ----
 

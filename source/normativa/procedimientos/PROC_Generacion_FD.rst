@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_FD
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_FD
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-fd:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_FD
-   * - **Nombre**
-     - Generacion de Fichas de Dominio
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 20-40 minutos por FD
+ * - **ID**
+ - PROC_Generacion_FD
+ * - **Nombre**
+ - Generacion de Fichas de Dominio
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 20-40 minutos por FD
 
 ----
 
@@ -63,28 +63,28 @@ Seleccionar entidad del modelo de dominio.
 
 .. code-block:: text
 
-   Formato: FD_[NNN]
-   Archivo: FD_[NNN]_[Entidad].rst
+ Formato: FD_[NNN]
+ Archivo: FD_[NNN]_[Entidad].rst
 
 **Paso 3: Documentar Atributos**
 
 .. code-block:: rst
 
-   .. list-table::
-      :header-rows: 1
-   
-      * - Atributo
-        - Tipo
-        - Obligatorio
-        - Descripcion
-      * - id
-        - UUID
-        - Si
-        - Identificador unico
-      * - username
-        - String(50)
-        - Si
-        - Nombre de usuario
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Atributo
+ - Tipo
+ - Obligatorio
+ - Descripcion
+ * - id
+ - UUID
+ - Si
+ - Identificador unico
+ * - username
+ - String(50)
+ - Si
+ - Nombre de usuario
 
 **Paso 4: Documentar Relaciones**
 
@@ -102,17 +102,17 @@ Seleccionar entidad del modelo de dominio.
 
 .. code-block:: rst
 
-   .. uml::
-   
-      @startuml
-      entity User {
-        * id: UUID
-                  
-        * username: String
-        * email: String
-        is_active: Boolean
-      }
-      @enduml
+ .. uml::
+ 
+ @startuml
+ entity User {
+ * id: UUID
+ 
+ * username: String
+ * email: String
+ is_active: Boolean
+ }
+ @enduml
 
 **Paso 7: Guardar y Validar**
 
@@ -147,14 +147,14 @@ Seleccionar entidad del modelo de dominio.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

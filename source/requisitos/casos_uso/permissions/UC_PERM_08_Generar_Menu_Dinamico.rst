@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: UC_PERM_08
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :subdominio: casos_uso/permissions
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-09
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Alta
+ :artefacto: UC_PERM_08
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: casos_uso/permissions
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-09
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Alta
 
 .. _uc-perm-08:
 
@@ -39,11 +39,11 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 .. code-block:: text
 
-   1. Obtener todas las funciones del usuario (grupos + excepcionales)
-   2. Para cada funcion con formato "dominio.subdominio.funcion.accion":
-      - Agrupar por dominio → subdominio → funcion → [acciones]
-   3. Construir estructura jerárquica tipo árbol
-   4. Retornar JSON con estructura navegable
+ 1. Obtener todas las funciones del usuario (grupos + excepcionales)
+ 2. Para cada funcion con formato "dominio.subdominio.funcion.accion":
+ - Agrupar por dominio → subdominio → funcion → [acciones]
+ 3. Construir estructura jerárquica tipo árbol
+ 4. Retornar JSON con estructura navegable
 
 
 
@@ -53,31 +53,31 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 .. code-block:: sql
 
-   CREATE OR REPLACE FUNCTION obtener_menu_usuario(
-       p_usuario_id INTEGER
-   ) RETURNS JSONB AS $$
-   DECLARE
-       v_menu JSONB;
-   BEGIN
-       SELECT jsonb_object_agg(
-           dominio,
-           funciones
-       ) INTO v_menu
-       FROM (
-           SELECT
-               split_part(capacidad_codigo, '.', 2) AS dominio,
-               jsonb_object_agg(
-                   split_part(capacidad_codigo, '.', 3),
-                   array_agg(split_part(capacidad_codigo, '.', 4))
-               ) AS funciones
-           FROM vista_capacidades_usuario
-           WHERE usuario_id = p_usuario_id
-           GROUP BY dominio
-       ) AS menu_data;
-   
-       RETURN COALESCE(v_menu, '{}'::jsonb);
-   END;
-   $$ LANGUAGE plpgsql STABLE;
+ CREATE OR REPLACE FUNCTION obtener_menu_usuario(
+ p_usuario_id INTEGER
+ ) RETURNS JSONB AS $$
+ DECLARE
+ v_menu JSONB;
+ BEGIN
+ SELECT jsonb_object_agg(
+ dominio,
+ funciones
+ ) INTO v_menu
+ FROM (
+ SELECT
+ split_part(capacidad_codigo, '.', 2) AS dominio,
+ jsonb_object_agg(
+ split_part(capacidad_codigo, '.', 3),
+ array_agg(split_part(capacidad_codigo, '.', 4))
+ ) AS funciones
+ FROM vista_capacidades_usuario
+ WHERE usuario_id = p_usuario_id
+ GROUP BY dominio
+ ) AS menu_data;
+ 
+ RETURN COALESCE(v_menu, '{}'::jsonb);
+ END;
+ $$ LANGUAGE plpgsql STABLE;
 
 
 
@@ -87,21 +87,21 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 .. code-block:: text
 
-   GET /api/permisos/verificar/{usuario_id}/menu/
-   Authorization: Bearer <token>
-   
-   Response:
-   {
-     "vistas": {
-       "dashboards": ["ver", "editar"],
-       "reportes": ["ver", "crear", "exportar"],
-       "calidad": ["ver", "evaluar"]
-     },
-     "administracion": {
-       "usuarios": ["ver", "crear", "editar"],
-       "grupos": ["ver", "crear"]
-     }
-   }
+ GET /api/permisos/verificar/{usuario_id}/menu/
+ Authorization: Bearer <token>
+ 
+ Response:
+ {
+ "vistas": {
+ "dashboards": ["ver", "editar"],
+ "reportes": ["ver", "crear", "exportar"],
+ "calidad": ["ver", "evaluar"]
+ },
+ "administracion": {
+ "usuarios": ["ver", "crear", "editar"],
+ "grupos": ["ver", "crear"]
+ }
+ }
 
 
 
@@ -120,22 +120,22 @@ El sistema genera una estructura de menú jerárquica basada en todas las funcio
 
 .. code-block:: typescript
 
-   const { menu, loading } = useMenu();
-   
-   return (
-     <nav>
-       {Object.entries(menu).map(([dominio, funciones]) => (
-         <MenuSection key={dominio} title={dominio}>
-           {Object.entries(funciones).map(([funcion, acciones]) => (
-             <MenuItem key={funcion}
-               to={`/${dominio}/${funcion}`}
-               actions={acciones}
-             />
-           ))}
-         </MenuSection>
-       ))}
-     </nav>
-   );
+ const { menu, loading } = useMenu;
+ 
+ return (
+ <nav>
+ {Object.entries(menu).map(([dominio, funciones]) => (
+ <MenuSection key={dominio} title={dominio}>
+ {Object.entries(funciones).map(([funcion, acciones]) => (
+ <MenuItem key={funcion}
+ to={`/${dominio}/${funcion}`}
+ actions={acciones}
+ />
+ ))}
+ </MenuSection>
+ ))}
+ </nav>
+ );
 
 
 
@@ -166,15 +166,15 @@ Changelog
 
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-01-09
-     - Sistema
-     - Creación inicial
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-01-09
+ - Sistema
+ - Creación inicial
 

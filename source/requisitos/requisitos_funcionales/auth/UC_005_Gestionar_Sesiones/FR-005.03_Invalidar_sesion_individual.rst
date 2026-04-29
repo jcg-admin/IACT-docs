@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-005.03
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-005.03
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-005-03:
 
@@ -19,22 +19,22 @@ FR-005.03: Invalidar sesión individual
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-005.03
-   * - **Nombre**
-     - Invalidar una sesión específica
-   * - **UC Origen**
-     - UC_005: Gestionar Sesiones Activas
-   * - **Paso UC**
-     - Paso 4-7 del flujo normal
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Media
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-005.03
+ * - **Nombre**
+ - Invalidar una sesión específica
+ * - **UC Origen**
+ - UC_005: Gestionar Sesiones Activas
+ * - **Paso UC**
+ - Paso 4-7 del flujo normal
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Media
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,28 +43,28 @@ FR-005.03: Invalidar sesión individual
 
 **Declaración:**
 
-   El sistema DEBE permitir cerrar una sesión específica CUANDO el
-   administrador de seguridad lo solicita y confirma la acción.
+ El sistema DEBE permitir cerrar una sesión específica CUANDO el
+ administrador de seguridad lo solicita y confirma la acción.
 
 **Descripción:**
 
-   El proceso de cierre individual:
-   
-   1. Admin selecciona sesión a cerrar
-   2. Sistema solicita confirmación con datos de la sesión
-   3. Admin confirma la acción
-   4. Sistema actualiza status en user_sessions a 'FORCED_LOGOUT'
-   5. Sistema agrega token a blacklist de Redis
-   6. Sistema registra evento en auditoría con admin que ejecutó
-   7. Sistema actualiza listado de sesiones
-   8. Usuario afectado recibe 401 en siguiente request
-   
-   **Información en Confirmación:**
-   
-   - Usuario afectado
-   - IP de la sesión
-   - Tiempo activa
-   - Advertencia de impacto
+ El proceso de cierre individual:
+ 
+ 1. Admin selecciona sesión a cerrar
+ 2. Sistema solicita confirmación con datos de la sesión
+ 3. Admin confirma la acción
+ 4. Sistema actualiza status en user_sessions a 'FORCED_LOGOUT'
+ 5. Sistema agrega token a blacklist de Redis
+ 6. Sistema registra evento en auditoría con admin que ejecutó
+ 7. Sistema actualiza listado de sesiones
+ 8. Usuario afectado recibe 401 en siguiente request
+ 
+ **Información en Confirmación:**
+ 
+ - Usuario afectado
+ - IP de la sesión
+ - Tiempo activa
+ - Advertencia de impacto
 
 ----
 
@@ -73,36 +73,36 @@ FR-005.03: Invalidar sesión individual
 
 ::
 
-   DADO admin con sesión seleccionada
-   CUANDO solicita cerrar la sesión
-   ENTONCES se invalida tras confirmación
-   
-   Escenario 1: Cierre exitoso
-   DADO sesión activa de otro usuario
-   CUANDO admin confirma cierre
-   ENTONCES status cambia a 'FORCED_LOGOUT'
-   Y token se agrega a blacklist
-   Y se registra en auditoría
-   
-   Escenario 2: Cancelación
-   DADO solicitud de cierre
-   CUANDO admin cancela confirmación
-   ENTONCES la sesión permanece activa
-   Y no se registra ningún cambio
-   
-   Escenario 3: Cierre de propia sesión impedido
-   DADO admin intentando cerrar su propia sesión actual
-   CUANDO solicita el cierre
-   ENTONCES se muestra "No puede cerrar su sesión actual desde aquí"
-   
-   Escenario 4: Registro de auditoría
-   DADO cierre de sesión exitoso
-   CUANDO se completa
-   ENTONCES auditoría contiene:
-      - event_type = 'SESSION_FORCED_LOGOUT'
-      - admin_user_id = ID del admin
-      - target_user_id = ID del usuario afectado
-      - target_session_id = jti cerrado
+ DADO admin con sesión seleccionada
+ CUANDO solicita cerrar la sesión
+ ENTONCES se invalida tras confirmación
+ 
+ Escenario 1: Cierre exitoso
+ DADO sesión activa de otro usuario
+ CUANDO admin confirma cierre
+ ENTONCES status cambia a 'FORCED_LOGOUT'
+ Y token se agrega a blacklist
+ Y se registra en auditoría
+ 
+ Escenario 2: Cancelación
+ DADO solicitud de cierre
+ CUANDO admin cancela confirmación
+ ENTONCES la sesión permanece activa
+ Y no se registra ningún cambio
+ 
+ Escenario 3: Cierre de propia sesión impedido
+ DADO admin intentando cerrar su propia sesión actual
+ CUANDO solicita el cierre
+ ENTONCES se muestra "No puede cerrar su sesión actual desde aquí"
+ 
+ Escenario 4: Registro de auditoría
+ DADO cierre de sesión exitoso
+ CUANDO se completa
+ ENTONCES auditoría contiene:
+ - event_type = 'SESSION_FORCED_LOGOUT'
+ - admin_user_id = ID del admin
+ - target_user_id = ID del usuario afectado
+ - target_session_id = jti cerrado
 
 ----
 
@@ -110,10 +110,10 @@ FR-005.03: Invalidar sesión individual
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-  
+ 
 - **CNST aplicables:**
-  - CNST-002: Gestión de sesiones
-  - CNST-009: Auditoría obligatoria
+ - CNST-002: Gestión de sesiones
+ - CNST-009: Auditoría obligatoria
 
 **Restricciones:**
 
@@ -127,20 +127,20 @@ FR-005.03: Invalidar sesión individual
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_005: Gestionar Sesiones
-   * - **Depende de**
-     - FR-005.01, FR-005.02
-   * - **Requerido por**
-     - Ninguno
-   * - **CNST**
-     - CNST-002, CNST-009
-   * - **TEST**
-     - TST-FR-005.03 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_005: Gestionar Sesiones
+ * - **Depende de**
+ - FR-005.01, FR-005.02
+ * - **Requerido por**
+ - Ninguno
+ * - **CNST**
+ - CNST-002, CNST-009
+ * - **TEST**
+ - TST-FR-005.03 (pendiente)
 
 ----
 
@@ -148,12 +148,12 @@ FR-005.03: Invalidar sesión individual
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_005
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_005

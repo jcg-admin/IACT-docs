@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: TPL_UC_Temporal_Schedulers
-   :tipo: Plantilla
-   :dominio: normativa
-   :subdominio: estandares/plantillas
-   :estado: Aprobado
-   :version: 1.3.0
-   :fecha_creacion: 2026-01-13
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TPL_UC_Temporal_Schedulers
+ :tipo: Plantilla
+ :dominio: normativa
+ :subdominio: estandares/plantillas
+ :estado: Aprobado
+ :version: 1.3.0
+ :fecha_creacion: 2026-01-13
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. rubric:: Metadata sugerida para la instancia
 
@@ -17,26 +17,26 @@ se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
-   :Proyecto: IACT
-   :Codigo: UC-IACT-MOD-NN
-   :Titulo: Nombre del Use Case Temporal
-   :Version: 4.0.0
-   :Actor_Principal: Sistema (Scheduler)
-   :Tipo: Temporal
-   :Fecha: YYYY-MM-DD
-   :Autor: Nombre del Business Analyst
-   :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
+ :Proyecto: IACT
+ :Codigo: UC-IACT-MOD-NN
+ :Titulo: Nombre del Use Case Temporal
+ :Version: 4.0.0
+ :Actor_Principal: Sistema (Scheduler)
+ :Tipo: Temporal
+ :Fecha: YYYY-MM-DD
+ :Autor: Nombre del Business Analyst
+ :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
 
 ============================================
 UC-IACT-MOD-NN: Nombre del Use Case Temporal
 ============================================
 
-**Proyecto:** IACT - IVR Analytics & Customer Tracking  
-**Actor Principal:** Sistema (Scheduler/Cron)  
-**Tipo:** Temporal  
-**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED  
-**Prioridad:** Alta|Media|Baja  
+**Proyecto:** IACT - IVR Analytics & Customer Tracking 
+**Actor Principal:** Sistema (Scheduler/Cron) 
+**Tipo:** Temporal 
+**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED 
+**Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
 ----------------------------------------------------------------------
@@ -113,15 +113,15 @@ Documentar cuando y como se ejecuta automaticamente el UC.
 
 .. code-block:: text
 
-   # Formato: minuto hora dia mes dia_semana
-   
-   * * * * *
-   | | | | |
-   | | | | +-- Dia de semana (0-6, 0=Domingo)
-   | | | +---- Mes (1-12)
-   | | +------ Dia del mes (1-31)
-   | +-------- Hora (0-23)
-   +---------- Minuto (0-59)
+ # Formato: minuto hora dia mes dia_semana
+ 
+ * * * * *
+ | | | | |
+ | | | | +-- Dia de semana (0-6, 0=Domingo)
+ | | | +---- Mes (1-12)
+ | | +------ Dia del mes (1-31)
+ | +-------- Hora (0-23)
+ +---------- Minuto (0-59)
 
 **Comando de Ejecucion:**
 
@@ -146,21 +146,21 @@ Cada 1 minuto, 24/7, todo el ano
 
 .. code-block:: text
 
-   */1 * * * *
-   
-   Explicacion:
-   - */1: Cada 1 minuto
-   - *: Toda hora
-   - *: Todo dia del mes
-   - *: Todo mes
-   - *: Todo dia de semana
+ */1 * * * *
+ 
+ Explicacion:
+ - */1: Cada 1 minuto
+ - *: Toda hora
+ - *: Todo dia del mes
+ - *: Todo mes
+ - *: Todo dia de semana
 
 **Comando de Ejecucion:**
 
 .. code-block:: bash
 
-   # Crontab entry
-   */1 * * * * cd /app/iact && /usr/bin/python manage.py mark_expired_sessions >> /var/log/iact/cron_sessions.log 2>&1
+ # Crontab entry
+ */1 * * * * cd /app/iact && /usr/bin/python manage.py mark_expired_sessions >> /var/log/iact/cron_sessions.log 2>&1
 
 **Desglose del Comando:**
 
@@ -221,119 +221,119 @@ N. Sistema libera lock y termina
 FLUJO AUTOMATICO - Marcar Sesiones Expiradas
 
 1. Sistema (cron) inicia ejecucion de mark_expired_sessions command
-   
-   Timestamp: Se registra hora de inicio
+ 
+ Timestamp: Se registra hora de inicio
 
 2. Sistema intenta adquirir lock de ejecucion (FR-AUTH-08-01)
-   
-   .. code-block:: sql
-   
-      -- Advisory lock en PostgreSQL
-      SELECT pg_try_advisory_lock(hashtext('mark_expired_sessions'));
-   
-   Si lock NO se puede adquirir (otra ejecucion en progreso):
-   
-   2a. Sistema registra en log: "Previous execution still running, skipping"
-   
-   2b. Sistema termina sin error, exit code 0
-   
-   Si lock SI se adquiere:
-   
-   2c. Continua al paso 3
+ 
+ .. code-block:: sql
+ 
+ -- Advisory lock en PostgreSQL
+ SELECT pg_try_advisory_lock(hashtext('mark_expired_sessions'));
+ 
+ Si lock NO se puede adquirir (otra ejecucion en progreso):
+ 
+ 2a. Sistema registra en log: "Previous execution still running, skipping"
+ 
+ 2b. Sistema termina sin error, exit code 0
+ 
+ Si lock SI se adquiere:
+ 
+ 2c. Continua al paso 3
 
 3. Sistema registra inicio en log (FR-AUTH-08-02)
-   
-   .. code-block:: python
-   
-      logger.info({
-          'event': 'mark_expired_sessions_start',
-          'timestamp': datetime.now().isoformat()
-      })
+ 
+ .. code-block:: python
+ 
+ logger.info({
+ 'event': 'mark_expired_sessions_start',
+ 'timestamp': datetime.now.isoformat
+ })
 
 4. Sistema calcula cutoff timestamp (FR-AUTH-08-03)
-   
-   .. code-block:: python
-   
-      cutoff = datetime.now() - timedelta(minutes=15)
-      # Sesiones con last_activity_at menor cutoff estan expiradas
+ 
+ .. code-block:: python
+ 
+ cutoff = datetime.now - timedelta(minutes=15)
+ # Sesiones con last_activity_at menor cutoff estan expiradas
 
 5. Sistema identifica sesiones a expirar (FR-AUTH-08-04)
-   
-   .. code-block:: sql
-   
-      SELECT id, user_id, last_activity_at
-      FROM ivr_sessions
-      WHERE status = 'ACTIVE'
-        AND last_activity_at < :cutoff
-      FOR UPDATE SKIP LOCKED;
-   
-   Nota: FOR UPDATE SKIP LOCKED evita bloqueos
+ 
+ .. code-block:: sql
+ 
+ SELECT id, user_id, last_activity_at
+ FROM ivr_sessions
+ WHERE status = 'ACTIVE'
+ AND last_activity_at < :cutoff
+ FOR UPDATE SKIP LOCKED;
+ 
+ Nota: FOR UPDATE SKIP LOCKED evita bloqueos
 
 6. Sistema cuenta sesiones identificadas
-   
-   count_to_expire = len(sessions_to_expire)
+ 
+ count_to_expire = len(sessions_to_expire)
 
 7. Si count_to_expire = 0:
-   
-   7a. Sistema registra en log: "No sessions to expire"
-   
-   7b. Salta al paso 11 (cleanup)
+ 
+ 7a. Sistema registra en log: "No sessions to expire"
+ 
+ 7b. Salta al paso 11 (cleanup)
 
 8. Sistema marca sesiones como expiradas (FR-AUTH-08-05)
-   
-   Implementa BR-IACT-046: Marcar Sesiones Expiradas
-   
-   .. code-block:: sql
-   
-      UPDATE ivr_sessions
-      SET status = 'EXPIRED',
-          expired_at = NOW(),
-          updated_at = NOW()
-      WHERE id IN :session_ids;
+ 
+ Implementa BR-IACT-046: Marcar Sesiones Expiradas
+ 
+ .. code-block:: sql
+ 
+ UPDATE ivr_sessions
+ SET status = 'EXPIRED',
+ expired_at = NOW,
+ updated_at = NOW
+ WHERE id IN :session_ids;
 
 9. Sistema verifica filas actualizadas
-   
-   rows_updated = cursor.rowcount
-   
-   Si rows_updated != count_to_expire:
-   
-   9a. Sistema registra WARNING: "Mismatch in expected vs actual updates"
-   
-   9b. Continua (no es error critico)
+ 
+ rows_updated = cursor.rowcount
+ 
+ Si rows_updated != count_to_expire:
+ 
+ 9a. Sistema registra WARNING: "Mismatch in expected vs actual updates"
+ 
+ 9b. Continua (no es error critico)
 
 10. Sistema registra metricas (FR-AUTH-08-06)
-    
-    .. code-block:: python
-    
-       logger.info({
-           'event': 'sessions_expired',
-           'count': rows_updated,
-           'cutoff': cutoff.isoformat(),
-           'execution_time_ms': execution_time
-       })
-    
-    Enviar metricas a Prometheus:
-    
-    .. code-block:: python
-    
-       sessions_expired_total.inc(rows_updated)
-       session_expiry_duration.observe(execution_time)
+ 
+ .. code-block:: python
+ 
+ logger.info({
+ 'event': 'sessions_expired',
+ 'count': rows_updated,
+ 'cutoff': cutoff.isoformat,
+ 'execution_time_ms': execution_time
+ })
+ 
+ Enviar metricas a Prometheus:
+ 
+ .. code-block:: python
+ 
+ sessions_expired_total.inc(rows_updated)
+ session_expiry_duration.observe(execution_time)
 
 11. Sistema libera lock (FR-AUTH-08-07)
-    
-    .. code-block:: sql
-    
-       SELECT pg_advisory_unlock(hashtext('mark_expired_sessions'));
+ 
+ .. code-block:: sql
+ 
+ SELECT pg_advisory_unlock(hashtext('mark_expired_sessions'));
 
 12. Sistema registra fin exitoso
-    
-    .. code-block:: python
-    
-       logger.info({
-           'event': 'mark_expired_sessions_success',
-           'total_expired': rows_updated,
-           'duration_ms': total_duration
-       })
+ 
+ .. code-block:: python
+ 
+ logger.info({
+ 'event': 'mark_expired_sessions_success',
+ 'total_expired': rows_updated,
+ 'duration_ms': total_duration
+ })
 
 13. Proceso termina exitosamente, exit code 0
 
@@ -343,27 +343,27 @@ FE-1: Error de Base de Datos
 
 En paso 8, si UPDATE falla por error de BD:
 
-  8a. Sistema registra ERROR con stack trace
-  
-  8b. Sistema hace ROLLBACK de transaccion
-  
-  8c. Sistema libera lock
-  
-  8d. Sistema envia alerta a Slack canal alerts-database
-  
-  8e. Proceso termina con error, exit code 1
+ 8a. Sistema registra ERROR con stack trace
+ 
+ 8b. Sistema hace ROLLBACK de transaccion
+ 
+ 8c. Sistema libera lock
+ 
+ 8d. Sistema envia alerta a Slack canal alerts-database
+ 
+ 8e. Proceso termina con error, exit code 1
 
 FE-2: Timeout de Query
 
 En paso 5, si query SELECT tarda mayor 10 segundos:
 
-  5a. Sistema cancela query
-  
-  5b. Sistema registra ERROR con timeout
-  
-  5c. Sistema libera lock
-  
-  5d. Proceso termina con error, exit code 1
+ 5a. Sistema cancela query
+ 
+ 5b. Sistema registra ERROR con timeout
+ 
+ 5c. Sistema libera lock
+ 
+ 5d. Proceso termina con error, exit code 1
 
 ----------------------------------------------------------------------
 3. LOCKS Y CONCURRENCIA
@@ -408,70 +408,70 @@ Genera integer hash consistente del string
 
 .. code-block:: python
 
-   import psycopg2
-   import hashlib
-   
-   def acquire_lock(connection, lock_name):
-       """
-       Attempts to acquire advisory lock.
-       
-       Returns:
-           bool: True if lock acquired, False otherwise
-       """
-       cursor = connection.cursor()
-       
-       # Hash del nombre a integer
-       lock_key = hash(lock_name) % (2**31)
-       
-       cursor.execute(
-           "SELECT pg_try_advisory_lock(%s)",
-           [lock_key]
-       )
-       
-       result = cursor.fetchone()[0]
-       return result
-   
-   def release_lock(connection, lock_name):
-       """Releases advisory lock."""
-       cursor = connection.cursor()
-       lock_key = hash(lock_name) % (2**31)
-       
-       cursor.execute(
-           "SELECT pg_advisory_unlock(%s)",
-           [lock_key]
-       )
+ import psycopg2
+ import hashlib
+ 
+ def acquire_lock(connection, lock_name):
+ """
+ Attempts to acquire advisory lock.
+ 
+ Returns:
+ bool: True if lock acquired, False otherwise
+ """
+ cursor = connection.cursor
+ 
+ # Hash del nombre a integer
+ lock_key = hash(lock_name) % (2**31)
+ 
+ cursor.execute(
+ "SELECT pg_try_advisory_lock(%s)",
+ [lock_key]
+ )
+ 
+ result = cursor.fetchone[0]
+ return result
+ 
+ def release_lock(connection, lock_name):
+ """Releases advisory lock."""
+ cursor = connection.cursor
+ lock_key = hash(lock_name) % (2**31)
+ 
+ cursor.execute(
+ "SELECT pg_advisory_unlock(%s)",
+ [lock_key]
+ )
 
 **Uso en Management Command:**
 
 .. code-block:: python
 
-   from django.core.management.base import BaseCommand
-   from django.db import connection
-   
-   class Command(BaseCommand):
-       help = 'Mark expired sessions'
-       
-       def handle(self, *args, **options):
-           lock_acquired = acquire_lock(
-               connection.connection,
-               'mark_expired_sessions'
-           )
-           
-           if not lock_acquired:
-               self.stdout.write(
-                   "Another execution running, skipping"
-               )
-               return
-           
-           try:
-               # Ejecutar logica principal
-               self.mark_sessions()
-           finally:
-               # SIEMPRE liberar lock
-               release_lock(
-                   connection.connection,
-                   'mark_expired_sessions'
-               )
+ from django.core.management.base import BaseCommand
+ from django.db import connection
+ 
+ class Command(BaseCommand):
+ help = 'Mark expired sessions'
+ 
+ def handle(self, *args, **options):
+ lock_acquired = acquire_lock(
+ connection.connection,
+ 'mark_expired_sessions'
+ )
+ 
+ if not lock_acquired:
+ self.stdout.write(
+ "Another execution running, skipping"
+ )
+ return
+ 
+ try:
+ # Ejecutar logica principal
+ self.mark_sessions
+ finally:
+ # SIEMPRE liberar lock
+ release_lock(
+ connection.connection,
+ 'mark_expired_sessions'
+ )
 
 **Ventajas de Advisory Locks:**
 
@@ -494,144 +494,144 @@ Codigo funcional completo del job/command.
 
 .. code-block:: python
 
-   """
-   Django management command: Mark expired sessions
-   
-   Implements UC-IACT-AUTH-08: Marcar Sesiones Expiradas
-   Implements BR-IACT-046: Inferencia - Marcar Sesiones
-   
-   Usage:
-       python manage.py mark_expired_sessions
-   
-   Cron:
-       */1 * * * * cd /app && python manage.py mark_expired_sessions
-   """
-   
-   import logging
-   import time
-   from datetime import datetime, timedelta
-   from django.core.management.base import BaseCommand
-   from django.db import connection, transaction
-   from prometheus_client import Counter, Histogram
-   
-   logger = logging.getLogger('iact.cron.sessions')
-   
-   # Prometheus metrics
-   sessions_expired_total = Counter(
-       'sessions_expired_total',
-       'Total sessions marked as expired'
-   )
-   
-   session_expiry_duration = Histogram(
-       'session_expiry_duration_seconds',
-       'Time to mark expired sessions'
-   )
-   
-   class Command(BaseCommand):
-       help = 'Mark expired sessions (runs every minute)'
-       
-       INACTIVITY_TIMEOUT_MINUTES = 15
-       LOCK_NAME = 'mark_expired_sessions'
-       
-       def handle(self, *args, **options):
-           start_time = time.time()
-           
-           # Try to acquire lock
-           if not self.acquire_lock():
-               logger.info(
-                   "Previous execution still running, skipping"
-               )
-               return
-           
-           try:
-               # Main logic
-               expired_count = self.mark_expired_sessions()
-               
-               # Success metrics
-               duration = time.time() - start_time
-               session_expiry_duration.observe(duration)
-               
-               logger.info({
-                   'event': 'mark_expired_sessions_success',
-                   'expired_count': expired_count,
-                   'duration_seconds': round(duration, 3)
-               })
-               
-           except Exception as e:
-               logger.error(
-                   "Error marking expired sessions",
-                   exc_info=True
-               )
-               raise
-               
-           finally:
-               # Always release lock
-               self.release_lock()
-       
-       def acquire_lock(self):
-           """Acquire PostgreSQL advisory lock."""
-           cursor = connection.cursor()
-           lock_key = hash(self.LOCK_NAME) % (2**31)
-           
-           cursor.execute(
-               "SELECT pg_try_advisory_lock(%s)",
-               [lock_key]
-           )
-           
-           return cursor.fetchone()[0]
-       
-       def release_lock(self):
-           """Release PostgreSQL advisory lock."""
-           cursor = connection.cursor()
-           lock_key = hash(self.LOCK_NAME) % (2**31)
-           
-           cursor.execute(
-               "SELECT pg_advisory_unlock(%s)",
-               [lock_key]
-           )
-       
-       def mark_expired_sessions(self):
-           """
-           Mark sessions as expired if inactive > 15 minutes.
-           
-           Returns:
-               int: Number of sessions marked as expired
-           """
-           cutoff = datetime.now() - timedelta(
-               minutes=self.INACTIVITY_TIMEOUT_MINUTES
-           )
-           
-           logger.info({
-               'event': 'mark_expired_sessions_start',
-               'cutoff': cutoff.isoformat()
-           })
-           
-           with transaction.atomic():
-               cursor = connection.cursor()
-               
-               # Update expired sessions
-               query = """
-                   UPDATE ivr_sessions
-                   SET status = 'EXPIRED',
-                       expired_at = NOW(),
-                       updated_at = NOW()
-                   WHERE status = 'ACTIVE'
-                     AND last_activity_at < %s
-               """
-               
-               cursor.execute(query, [cutoff])
-               rows_updated = cursor.rowcount
-               
-               # Update metrics
-               sessions_expired_total.inc(rows_updated)
-               
-               logger.info({
-                   'event': 'sessions_marked_expired',
-                   'count': rows_updated,
-                   'cutoff': cutoff.isoformat()
-               })
-               
-               return rows_updated
+ """
+ Django management command: Mark expired sessions
+ 
+ Implements UC-IACT-AUTH-08: Marcar Sesiones Expiradas
+ Implements BR-IACT-046: Inferencia - Marcar Sesiones
+ 
+ Usage:
+ python manage.py mark_expired_sessions
+ 
+ Cron:
+ */1 * * * * cd /app && python manage.py mark_expired_sessions
+ """
+ 
+ import logging
+ import time
+ from datetime import datetime, timedelta
+ from django.core.management.base import BaseCommand
+ from django.db import connection, transaction
+ from prometheus_client import Counter, Histogram
+ 
+ logger = logging.getLogger('iact.cron.sessions')
+ 
+ # Prometheus metrics
+ sessions_expired_total = Counter(
+ 'sessions_expired_total',
+ 'Total sessions marked as expired'
+ )
+ 
+ session_expiry_duration = Histogram(
+ 'session_expiry_duration_seconds',
+ 'Time to mark expired sessions'
+ )
+ 
+ class Command(BaseCommand):
+ help = 'Mark expired sessions (runs every minute)'
+ 
+ INACTIVITY_TIMEOUT_MINUTES = 15
+ LOCK_NAME = 'mark_expired_sessions'
+ 
+ def handle(self, *args, **options):
+ start_time = time.time
+ 
+ # Try to acquire lock
+ if not self.acquire_lock:
+ logger.info(
+ "Previous execution still running, skipping"
+ )
+ return
+ 
+ try:
+ # Main logic
+ expired_count = self.mark_expired_sessions
+ 
+ # Success metrics
+ duration = time.time - start_time
+ session_expiry_duration.observe(duration)
+ 
+ logger.info({
+ 'event': 'mark_expired_sessions_success',
+ 'expired_count': expired_count,
+ 'duration_seconds': round(duration, 3)
+ })
+ 
+ except Exception as e:
+ logger.error(
+ "Error marking expired sessions",
+ exc_info=True
+ )
+ raise
+ 
+ finally:
+ # Always release lock
+ self.release_lock
+ 
+ def acquire_lock(self):
+ """Acquire PostgreSQL advisory lock."""
+ cursor = connection.cursor
+ lock_key = hash(self.LOCK_NAME) % (2**31)
+ 
+ cursor.execute(
+ "SELECT pg_try_advisory_lock(%s)",
+ [lock_key]
+ )
+ 
+ return cursor.fetchone[0]
+ 
+ def release_lock(self):
+ """Release PostgreSQL advisory lock."""
+ cursor = connection.cursor
+ lock_key = hash(self.LOCK_NAME) % (2**31)
+ 
+ cursor.execute(
+ "SELECT pg_advisory_unlock(%s)",
+ [lock_key]
+ )
+ 
+ def mark_expired_sessions(self):
+ """
+ Mark sessions as expired if inactive > 15 minutes.
+ 
+ Returns:
+ int: Number of sessions marked as expired
+ """
+ cutoff = datetime.now - timedelta(
+ minutes=self.INACTIVITY_TIMEOUT_MINUTES
+ )
+ 
+ logger.info({
+ 'event': 'mark_expired_sessions_start',
+ 'cutoff': cutoff.isoformat
+ })
+ 
+ with transaction.atomic:
+ cursor = connection.cursor
+ 
+ # Update expired sessions
+ query = """
+ UPDATE ivr_sessions
+ SET status = 'EXPIRED',
+ expired_at = NOW,
+ updated_at = NOW
+ WHERE status = 'ACTIVE'
+ AND last_activity_at < %s
+ """
+ 
+ cursor.execute(query, [cutoff])
+ rows_updated = cursor.rowcount
+ 
+ # Update metrics
+ sessions_expired_total.inc(rows_updated)
+ 
+ logger.info({
+ 'event': 'sessions_marked_expired',
+ 'count': rows_updated,
+ 'cutoff': cutoff.isoformat
+ })
+ 
+ return rows_updated
 
 ----------------------------------------------------------------------
 5. MONITOREO Y ALERTAS
@@ -662,26 +662,26 @@ Como verificar que el job esta corriendo
 
 .. code-block:: python
 
-   # Contador de sesiones expiradas
-   sessions_expired_total = Counter(
-       'sessions_expired_total',
-       'Total sessions marked as expired'
-   )
-   
-   # Histograma de duracion
-   session_expiry_duration = Histogram(
-       'session_expiry_duration_seconds',
-       'Time to mark expired sessions',
-       buckets=[0.1, 0.5, 1.0, 2.0, 5.0]
-   )
-   
-   # Gauge de ultimo timestamp exitoso
-   from prometheus_client import Gauge
-   
-   last_success_timestamp = Gauge(
-       'session_expiry_last_success_timestamp',
-       'Timestamp of last successful execution'
-   )
+ # Contador de sesiones expiradas
+ sessions_expired_total = Counter(
+ 'sessions_expired_total',
+ 'Total sessions marked as expired'
+ )
+ 
+ # Histograma de duracion
+ session_expiry_duration = Histogram(
+ 'session_expiry_duration_seconds',
+ 'Time to mark expired sessions',
+ buckets=[0.1, 0.5, 1.0, 2.0, 5.0]
+ )
+ 
+ # Gauge de ultimo timestamp exitoso
+ from prometheus_client import Gauge
+ 
+ last_success_timestamp = Gauge(
+ 'session_expiry_last_success_timestamp',
+ 'Timestamp of last successful execution'
+ )
 
 **Dashboard Grafana:**
 
@@ -689,19 +689,19 @@ Panel 1: Sesiones Expiradas por Minuto
 
 .. code-block:: promql
 
-   rate(sessions_expired_total[5m]) * 60
+ rate(sessions_expired_total[5m]) * 60
 
 Panel 2: Duracion p95
 
 .. code-block:: promql
 
-   histogram_quantile(0.95, session_expiry_duration_seconds)
+ histogram_quantile(0.95, session_expiry_duration_seconds)
 
 Panel 3: Tiempo Desde Ultimo Exito
 
 .. code-block:: promql
 
-   time() - last_success_timestamp
+ time - last_success_timestamp
 
 **Alertas (AlertManager):**
 
@@ -709,40 +709,40 @@ Alerta 1: Job No Ejecutado en 5 Minutos
 
 .. code-block:: yaml
 
-   - alert: SessionExpiryJobStalled
-     expr: time() - last_success_timestamp > 300
-     for: 1m
-     labels:
-       severity: critical
-     annotations:
-       summary: "Session expiry job has not run in 5 minutes"
-       description: "Last successful run was {{ $value }} seconds ago"
+ - alert: SessionExpiryJobStalled
+ expr: time - last_success_timestamp > 300
+ for: 1m
+ labels:
+ severity: critical
+ annotations:
+ summary: "Session expiry job has not run in 5 minutes"
+ description: "Last successful run was {{ $value }} seconds ago"
 
 Alerta 2: Duracion Excesiva
 
 .. code-block:: yaml
 
-   - alert: SessionExpiryJobSlow
-     expr: session_expiry_duration_seconds > 10
-     for: 2m
-     labels:
-       severity: warning
-     annotations:
-       summary: "Session expiry job taking too long"
-       description: "Execution took {{ $value }} seconds"
+ - alert: SessionExpiryJobSlow
+ expr: session_expiry_duration_seconds > 10
+ for: 2m
+ labels:
+ severity: warning
+ annotations:
+ summary: "Session expiry job taking too long"
+ description: "Execution took {{ $value }} seconds"
 
 Alerta 3: Alto Volumen de Expiraciones
 
 .. code-block:: yaml
 
-   - alert: HighSessionExpiryRate
-     expr: rate(sessions_expired_total[5m]) > 100
-     for: 5m
-     labels:
-       severity: warning
-     annotations:
-       summary: "High rate of session expiries"
-       description: "{{ $value }} sessions/sec being expired"
+ - alert: HighSessionExpiryRate
+ expr: rate(sessions_expired_total[5m]) > 100
+ for: 5m
+ labels:
+ severity: warning
+ annotations:
+ summary: "High rate of session expiries"
+ description: "{{ $value }} sessions/sec being expired"
 
 **Healthcheck Endpoint:**
 
@@ -750,41 +750,41 @@ Crear endpoint HTTP que verifica ultimo run:
 
 .. code-block:: python
 
-   # views.py
-   
-   from django.http import JsonResponse
-   from datetime import datetime, timedelta
-   
-   def healthcheck_session_expiry(request):
-       """
-       Healthcheck for session expiry job.
-       
-       Returns 200 if job ran in last 2 minutes.
-       Returns 503 if job stalled.
-       """
-       # Query ultimo log exitoso
-       last_run = get_last_successful_run()
-       
-       if not last_run:
-           return JsonResponse({
-               'status': 'error',
-               'message': 'No successful runs found'
-           }, status=503)
-       
-       time_since = datetime.now() - last_run
-       
-       if time_since > timedelta(minutes=2):
-           return JsonResponse({
-               'status': 'stalled',
-               'last_run': last_run.isoformat(),
-               'minutes_ago': time_since.total_seconds() / 60
-           }, status=503)
-       
-       return JsonResponse({
-           'status': 'healthy',
-           'last_run': last_run.isoformat(),
-           'seconds_ago': time_since.total_seconds()
-       })
+ # views.py
+ 
+ from django.http import JsonResponse
+ from datetime import datetime, timedelta
+ 
+ def healthcheck_session_expiry(request):
+ """
+ Healthcheck for session expiry job.
+ 
+ Returns 200 if job ran in last 2 minutes.
+ Returns 503 if job stalled.
+ """
+ # Query ultimo log exitoso
+ last_run = get_last_successful_run
+ 
+ if not last_run:
+ return JsonResponse({
+ 'status': 'error',
+ 'message': 'No successful runs found'
+ }, status=503)
+ 
+ time_since = datetime.now - last_run
+ 
+ if time_since > timedelta(minutes=2):
+ return JsonResponse({
+ 'status': 'stalled',
+ 'last_run': last_run.isoformat,
+ 'minutes_ago': time_since.total_seconds / 60
+ }, status=503)
+ 
+ return JsonResponse({
+ 'status': 'healthy',
+ 'last_run': last_run.isoformat,
+ 'seconds_ago': time_since.total_seconds
+ })
 
 **Notificaciones:**
 
@@ -820,24 +820,24 @@ REFERENCIAS
 ----------------------------------------------------------------------
 
 .. note::
-   CHECKLIST UC TEMPORAL:
-   
-   - Trigger temporal con cron expression completa
-   - Comando exacto de ejecucion documentado
-   - Flujo automatico con pasos detallados
-   - Lock mechanism implementado
-   - Codigo Python/script completo y funcional
-   - Manejo de errores robusto
-   - Logging extensivo
-   - Metricas Prometheus definidas
-   - Alertas configuradas
-   - Healthcheck endpoint
-   - Actor es Sistema, no usuario
+ CHECKLIST UC TEMPORAL:
+ 
+ - Trigger temporal con cron expression completa
+ - Comando exacto de ejecucion documentado
+ - Flujo automatico con pasos detallados
+ - Lock mechanism implementado
+ - Codigo Python/script completo y funcional
+ - Manejo de errores robusto
+ - Logging extensivo
+ - Metricas Prometheus definidas
+ - Alertas configuradas
+ - Healthcheck endpoint
+ - Actor es Sistema, no usuario
 
 ----------------------------------------------------------------------
 
-**Archivo:** TPL_UC_Temporal_Schedulers_1_3_0.rst  
-**Version Template:** 1.3.0  
-**Fecha Creacion Template:** 2026-01-11  
-**Autor Template:** Sistema de Regeneracion IACT  
+**Archivo:** TPL_UC_Temporal_Schedulers_1_3_0.rst 
+**Version Template:** 1.3.0 
+**Fecha Creacion Template:** 2026-01-11 
+**Autor Template:** Sistema de Regeneracion IACT 
 **Lineas Totales:** aproximadamente 550

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_003
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_003
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-003:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_003
-   * - **Nombre**
-     - Usuario Inactivo 90 Dias
-   * - **Tipo**
-     - Inferencia
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Media
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_003
+ * - **Nombre**
+ - Usuario Inactivo 90 Dias
+ * - **Tipo**
+ - Inferencia
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Media
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ y su cuenta DEBE ser marcada para revision de seguridad.
 
 ::
 
-   VOCABULARIO:
-     - Usuario inactivo: Usuario sin inicio de sesion en 90+ dias
-     - Ultimo acceso: Fecha/hora del ultimo login exitoso
-     - Estado de revision: Marca para evaluacion de seguridad
+ VOCABULARIO:
+ - Usuario inactivo: Usuario sin inicio de sesion en 90+ dias
+ - Ultimo acceso: Fecha/hora del ultimo login exitoso
+ - Estado de revision: Marca para evaluacion de seguridad
 
-   REGLA:
-     Es obligatorio que un usuario sea clasificado como inactivo
-     si su ultimo acceso fue hace mas de 90 dias.
+ REGLA:
+ Es obligatorio que un usuario sea clasificado como inactivo
+ si su ultimo acceso fue hace mas de 90 dias.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -97,15 +97,15 @@ auditoria y posible desactivacion preventiva.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - Politica de Seguridad Organizacional
-   * - **Seccion**
-     - Gestion de Cuentas de Usuario
-   * - **Tipo Fuente**
-     - Politica Interna
+ * - **Documento**
+ - Politica de Seguridad Organizacional
+ * - **Seccion**
+ - Gestion de Cuentas de Usuario
+ * - **Tipo Fuente**
+ - Politica Interna
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,17 +123,17 @@ auditoria y posible desactivacion preventiva.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Users
-     - Almacena fecha de ultimo acceso
-   * - MOD_Access
-     - Evalua estado de inactividad
-   * - Job Batch
-     - Ejecuta revision periodica de cuentas
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Users
+ - Almacena fecha de ultimo acceso
+ * - MOD_Access
+ - Evalua estado de inactividad
+ * - Job Batch
+ - Ejecuta revision periodica de cuentas
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -156,39 +156,39 @@ auditoria y posible desactivacion preventiva.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - (ninguna)
-     - Derivada de politica organizacional
+ * - CNST
+ - Relacion
+ * - (ninguna)
+ - Derivada de politica organizacional
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-004
-     - Cumplimiento de Seguridad
+ * - BReq
+ - Descripcion
+ * - BReq-004
+ - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-009
-     - Listar Usuarios - muestra estado inactivo
-   * - UC-061
-     - Consultar Log Auditoria - registra cambios estado
+ * - UC
+ - Donde Aplica
+ * - UC-009
+ - Listar Usuarios - muestra estado inactivo
+ * - UC-061
+ - Consultar Log Auditoria - registra cambios estado
 
 ----
 
@@ -222,14 +222,14 @@ auditoria y posible desactivacion preventiva.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

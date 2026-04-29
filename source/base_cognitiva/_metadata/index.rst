@@ -35,14 +35,14 @@ Artefactos
 ----------
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Documentos de Metadata
+ :maxdepth: 1
+ :caption: Documentos de Metadata
 
-   META_01_Identidad_Proyecto
-   META_02_Clasificacion_Documental
-   META_03_Fases_SDLC
-   META_04_Contexto_IACT
-   META_05_Estructura_Documental
+ META_01_Identidad_Proyecto
+ META_02_Clasificacion_Documental
+ META_03_Fases_SDLC
+ META_04_Contexto_IACT
+ META_05_Estructura_Documental
 
 Uso
 ---

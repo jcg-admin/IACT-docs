@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: Procedimiento_Diseno_Tecnico
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: Procedimiento_Diseno_Tecnico
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 Procedimiento: Diseño Técnico Detallado
 =======================================
@@ -31,8 +31,8 @@ significativas del proyecto IACT que deriven de requisitos funcionales
 Página padre
 ------------
 
--  `Procesos de Gobernanza <readme.md>`__
--  `Gobernanza <../readme.md>`__
+- `Procesos de Gobernanza <readme.md>`__
+- `Gobernanza <../readme.md>`__
 
 --------------
 
@@ -42,20 +42,20 @@ Cuándo Usar Este Procedimiento
 OK Usar cuando:
 ~~~~~~~~~~~~~~~
 
--  Se inicia el diseño de una nueva funcionalidad con ≥ 3 requisitos
-   funcionales
--  Se requiere modificación arquitectónica de componentes existentes
--  Se necesita documentar diagramas de secuencia, flujo o estados
--  Stakeholders solicitan especificación técnica antes de implementación
--  Se implementan componentes críticos de seguridad o RBAC
+- Se inicia el diseño de una nueva funcionalidad con ≥ 3 requisitos
+ funcionales
+- Se requiere modificación arquitectónica de componentes existentes
+- Se necesita documentar diagramas de secuencia, flujo o estados
+- Stakeholders solicitan especificación técnica antes de implementación
+- Se implementan componentes críticos de seguridad o RBAC
 
 NO No usar para:
 ~~~~~~~~~~~~~~~~
 
--  Cambios triviales o refactoring sin impacto arquitectónico
--  Documentación de APIs (usar ``plantilla_api_reference.md``)
--  Documentación de apps Django (usar ``plantilla_django_app.md``)
--  Bug fixes sin cambios de diseño
+- Cambios triviales o refactoring sin impacto arquitectónico
+- Documentación de APIs (usar ``plantilla_api_reference.md``)
+- Documentación de apps Django (usar ``plantilla_django_app.md``)
+- Bug fixes sin cambios de diseño
 
 --------------
 
@@ -63,23 +63,23 @@ Roles y Responsabilidades
 -------------------------
 
 +---------------+------------------------------------------------------+
-| Rol           | Responsabilidad                                      |
+| Rol | Responsabilidad |
 +===============+======================================================+
-| **Tech Lead / | Crear y aprobar el documento de diseño técnico       |
-| Arquitecto**  |                                                      |
+| **Tech Lead / | Crear y aprobar el documento de diseño técnico |
+| Arquitecto** | |
 +---------------+------------------------------------------------------+
-| **BA          | Validar trazabilidad a requisitos de negocio         |
-| (Business     |                                                      |
-| Analyst)**    |                                                      |
+| **BA | Validar trazabilidad a requisitos de negocio |
+| (Business | |
+| Analyst)** | |
 +---------------+------------------------------------------------------+
-| **            | Revisar factibilidad técnica y esfuerzo              |
-| Desarrollador |                                                      |
-| Asignado**    |                                                      |
+| ** | Revisar factibilidad técnica y esfuerzo |
+| Desarrollador | |
+| Asignado** | |
 +---------------+------------------------------------------------------+
-| **QA Lead**   | Validar criterios de aceptación y testabilidad       |
+| **QA Lead** | Validar criterios de aceptación y testabilidad |
 +---------------+------------------------------------------------------+
-| **Product     | Aprobar alcance y prioridad del diseño               |
-| Owner**       |                                                      |
+| **Product | Aprobar alcance y prioridad del diseño |
+| Owner** | |
 +---------------+------------------------------------------------------+
 
 --------------
@@ -100,15 +100,15 @@ negocio (RN-XXX) - Necesidades (N-XXX) si aplica
 
 .. code:: markdown
 
-   # Ejemplo de trazabilidad upward en frontmatter
-                                                  
-   trazabilidad_upward:
-     - N-001  # Necesidad: Autenticación segura
-     - RN-001 # Requisito de negocio: Sistema de login
-     - RF-005 # Requisito funcional: Login con credenciales locales
-     - RF-006 # Requisito funcional: Logout y cierre de sesión
-     - RF-007 # Requisito funcional: Refresh token
-                                                  
+ # Ejemplo de trazabilidad upward en frontmatter
+ 
+ trazabilidad_upward:
+ - N-001 # Necesidad: Autenticación segura
+ - RN-001 # Requisito de negocio: Sistema de login
+ - RF-005 # Requisito funcional: Login con credenciales locales
+ - RF-006 # Requisito funcional: Logout y cierre de sesión
+ - RF-007 # Requisito funcional: Refresh token
+ 
 
 **Salida:** - Mapa de requisitos validado - Confirmación de alcance con
 Product Owner
@@ -127,31 +127,31 @@ Restricciones técnicas documentadas (ver
 
 1. Crear archivo en ``docs/implementacion/{dominio}/diseno/``
 
-   -  Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.md``
-   -  Ejemplo: ``DISENO_TECNICO_AUTENTICACION.md``
+ - Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.md``
+ - Ejemplo: ``DISENO_TECNICO_AUTENTICACION.md``
 
 2. Incluir header estándar:
 
 .. code:: markdown
 
-   # Diseño Técnico: {Nombre del Componente}
+ # Diseño Técnico: {Nombre del Componente}
 
-   **Versión:** 1.0
-   **Fecha:** {YYYY-MM-DD}
-   **Componente:** {Nombre + número si aplica}
-   **Estado:** En Diseño | Aprobado | Implementado
+ **Versión:** 1.0
+ **Fecha:** {YYYY-MM-DD}
+ **Componente:** {Nombre + número si aplica}
+ **Estado:** En Diseño | Aprobado | Implementado
 
-   ---
+ ---
 
-   ## NOTA Tabla de Contenidos
+ ## NOTA Tabla de Contenidos
 
-   1. [Arquitectura General](#1-arquitectura-general)
-   2. [Diagramas de Secuencia](#2-diagramas-de-secuencia)
-   3. [Diagramas de Flujo](#3-diagramas-de-flujo)
-   4. [Diagramas de Estados](#4-diagramas-de-estados)
-   5. [Modelo de Datos](#5-modelo-de-datos)
-   6. [Arquitectura de Componentes](#6-arquitectura-de-componentes)
-   7. [Trazabilidad a Requisitos](#7-trazabilidad-a-requisitos)
+ 1. [Arquitectura General](#1-arquitectura-general)
+ 2. [Diagramas de Secuencia](#2-diagramas-de-secuencia)
+ 3. [Diagramas de Flujo](#3-diagramas-de-flujo)
+ 4. [Diagramas de Estados](#4-diagramas-de-estados)
+ 5. [Modelo de Datos](#5-modelo-de-datos)
+ 6. [Arquitectura de Componentes](#6-arquitectura-de-componentes)
+ 7. [Trazabilidad a Requisitos](#7-trazabilidad-a-requisitos)
 
 **Checklist:** - [ ] Nombre de archivo sigue convención
 ``DISENO_TECNICO_{COMPONENTE}.md`` - [ ] Header incluye versión, fecha,
@@ -173,327 +173,327 @@ FASE 2: Documentar Arquitectura y Diagramas
 
 .. code:: markdown
 
-   ## 1. Arquitectura General
+ ## 1. Arquitectura General
 
-   ### 1.1 Vista de Alto Nivel
+ ### 1.1 Vista de Alto Nivel
 
-   ```mermaid
-   graph TB
-       subgraph "Frontend"
-           UI[Usuario / Interfaz Web]
-       end
+ ```mermaid
+ graph TB
+ subgraph "Frontend"
+ UI[Usuario / Interfaz Web]
+ end
 
-       subgraph "Backend - Django/DRF"
-           subgraph "Módulo Principal"
-               V1[Vista 1]
-               V2[Vista 2]
-               Service[Service Layer]
-           end
+ subgraph "Backend - Django/DRF"
+ subgraph "Módulo Principal"
+ V1[Vista 1]
+ V2[Vista 2]
+ Service[Service Layer]
+ end
 
-           subgraph "Models"
-               M1[Model 1]
-               M2[Model 2]
-           end
-       end
+ subgraph "Models"
+ M1[Model 1]
+ M2[Model 2]
+ end
+ end
 
-       subgraph "Database - PostgreSQL"
-           DB[(PostgreSQL)]
-       end
+ subgraph "Database - PostgreSQL"
+ DB[(PostgreSQL)]
+ end
 
-       UI -->|HTTPS| V1
-       V1 --> Service
-       Service --> M1
-       M1 --> DB
+ UI -->|HTTPS| V1
+ V1 --> Service
+ Service --> M1
+ M1 --> DB
 
 1.2 Capas de la Aplicación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: mermaid
 
-   graph LR
-       subgraph "Capa de Presentación"
-           A[API Views]
-       end
+ graph LR
+ subgraph "Capa de Presentación"
+ A[API Views]
+ end
 
-       subgraph "Capa de Servicio"
-           B[Services]
-       end
+ subgraph "Capa de Servicio"
+ B[Services]
+ end
 
-       subgraph "Capa de Dominio"
-           C[Models]
-       end
+ subgraph "Capa de Dominio"
+ C[Models]
+ end
 
-       subgraph "Capa de Persistencia"
-           D[Django ORM<br/>PostgreSQL]
-       end
+ subgraph "Capa de Persistencia"
+ D[Django ORM<br/>PostgreSQL]
+ end
 
-       A --> B
-       B --> C
-       C --> D
-
-::
-
-
-   **Checklist:**
-   - [ ] Diagrama de alto nivel incluye frontend, backend, database
-   - [ ] Diagrama de capas sigue patrón Presentación -> Servicio -> Dominio -> Persistencia
-   - [ ] Subgrafos agrupan componentes relacionados
-   - [ ] Estilos visuales aplicados (fill colors)
-
-   ---
-
-   #### 2.2 Diagramas de Secuencia
-
-   **Descripción:**
-   Documentar flujos de interacción paso a paso para cada requisito funcional.
-
-   **Regla obligatoria:**
-   - **1 diagrama de secuencia por cada RF-XXX**
-   - Título del diagrama debe incluir el ID del requisito
-
-   **Formato requerido:**
-
-   ```markdown
-   ## 2. Diagramas de Secuencia
-
-   ### 2.1 RF-005: Login con Credenciales Locales
-
-   ```mermaid
-   sequenceDiagram
-       actor U as Usuario
-       participant V as LoginView
-       participant AS as AuthenticationService
-       participant UM as User Model
-       participant DB as PostgreSQL
-
-       U->>V: POST /api/v1/auth/login<br/>{username, password}
-
-       activate V
-       V->>AS: login(username, password)
-       activate AS
-
-       AS->>UM: get(username=username)
-       UM->>DB: SELECT * FROM users WHERE...
-       DB-->>UM: user data
-       UM-->>AS: user
-
-       alt Credenciales válidas
-           AS->>AS: generate_tokens()
-           AS-->>V: {access_token, refresh_token}
-           V-->>U: 200 OK + tokens
-       else Credenciales inválidas
-           AS-->>V: raise InvalidCredentials
-           V-->>U: 401 Unauthorized
-       end
-
-       deactivate AS
-       deactivate V
+ A --> B
+ B --> C
+ C --> D
 
 ::
 
 
-   **Elementos obligatorios:**
-   - `actor` para usuarios finales
-   - `participant` para componentes del sistema
-   - `activate` / `deactivate` para mostrar scope de ejecución
-   - `alt` / `else` / `end` para flujos condicionales
-   - Anotaciones de códigos HTTP (200, 401, 403, 404, 500)
+ **Checklist:**
+ - [ ] Diagrama de alto nivel incluye frontend, backend, database
+ - [ ] Diagrama de capas sigue patrón Presentación -> Servicio -> Dominio -> Persistencia
+ - [ ] Subgrafos agrupan componentes relacionados
+ - [ ] Estilos visuales aplicados (fill colors)
 
-   **Checklist:**
-   - [ ] 1 diagrama por cada RF-XXX principal
-   - [ ] Incluye casos de éxito (happy path)
-   - [ ] Incluye casos de error (validaciones, excepciones)
-   - [ ] Muestra interacción con base de datos
-   - [ ] Nombres de participantes coinciden con código real
+ ---
 
-   ---
+ #### 2.2 Diagramas de Secuencia
 
-   #### 2.3 Diagramas de Flujo
+ **Descripción:**
+ Documentar flujos de interacción paso a paso para cada requisito funcional.
 
-   **Descripción:**
-   Documentar lógica de decisión compleja con flowcharts.
+ **Regla obligatoria:**
+ - **1 diagrama de secuencia por cada RF-XXX**
+ - Título del diagrama debe incluir el ID del requisito
 
-   **Formato requerido:**
+ **Formato requerido:**
 
-   ```markdown
-   ## 3. Diagramas de Flujo
+ ```markdown
+ ## 2. Diagramas de Secuencia
 
-   ### 3.1 Flujo de Validación de Credenciales
+ ### 2.1 RF-005: Login con Credenciales Locales
 
-   ```mermaid
-   flowchart TD
-       Start([POST /login])
+ ```mermaid
+ sequenceDiagram
+ actor U as Usuario
+ participant V as LoginView
+ participant AS as AuthenticationService
+ participant UM as User Model
+ participant DB as PostgreSQL
 
-       Start --> V1{¿Usuario existe?}
-       V1 -->|No| E1[401: Usuario no encontrado]
-       V1 -->|Sí| V2{¿Cuenta bloqueada?}
+ U->>V: POST /api/v1/auth/login<br/>{username, password}
 
-       V2 -->|Sí| V3{¿Bloqueo expiró?}
-       V3 -->|No| E2[423: Cuenta bloqueada]
-       V3 -->|Sí| Unlock[Desbloquear cuenta]
-       Unlock --> V4
+ activate V
+ V->>AS: login(username, password)
+ activate AS
 
-       V2 -->|No| V4{¿Password correcto?}
-       V4 -->|No| Inc[Incrementar failed_attempts]
-       Inc --> V5{¿>= 3 intentos?}
-       V5 -->|Sí| Lock[Bloquear cuenta 15 min]
-       Lock --> E3[401: Cuenta bloqueada]
-       V5 -->|No| E4[401: Credenciales inválidas]
+ AS->>UM: get(username=username)
+ UM->>DB: SELECT * FROM users WHERE...
+ DB-->>UM: user data
+ UM-->>AS: user
 
-       V4 -->|Sí| Reset[Reset failed_attempts]
-       Reset --> Gen[Generar tokens JWT]
-       Gen --> Success[200: Login exitoso]
+ alt Credenciales válidas
+ AS->>AS: generate_tokens
+ AS-->>V: {access_token, refresh_token}
+ V-->>U: 200 OK + tokens
+ else Credenciales inválidas
+ AS-->>V: raise InvalidCredentials
+ V-->>U: 401 Unauthorized
+ end
 
-::
-
-
-   **Checklist:**
-   - [ ] Usa `flowchart TD` (top-down) o `LR` (left-right)
-   - [ ] Decisiones en rombos `{¿Pregunta?}`
-   - [ ] Procesos en rectángulos `[Acción]`
-   - [ ] Inicio/fin en óvalos `([Inicio])`
-   - [ ] Códigos HTTP en nodos de salida
-
-   ---
-
-   #### 2.4 Diagramas de Estados
-
-   **Descripción:**
-   Documentar ciclo de vida de entidades con estados bien definidos.
-
-   **Formato requerido:**
-
-   ```markdown
-   ## 4. Diagramas de Estados
-
-   ### 4.1 Estados de UserSession
-
-   ```mermaid
-   stateDiagram-v2
-       [*] --> ACTIVE: Login exitoso
-
-       ACTIVE --> ACTIVE: Refresh token<br/>(< 30 min)
-       ACTIVE --> INACTIVE: Sin actividad 30 min
-       ACTIVE --> CLOSED: Logout explícito
-       ACTIVE --> EXPIRED: Access token expira
-
-       INACTIVE --> CLOSED: Job: close_inactive_sessions
-       EXPIRED --> ACTIVE: Refresh token válido
-       EXPIRED --> CLOSED: Refresh token expirado
-
-       CLOSED --> [*]
+ deactivate AS
+ deactivate V
 
 ::
 
 
-   **Checklist:**
-   - [ ] Estados en MAYÚSCULAS
-   - [ ] Transiciones con triggers claros
-   - [ ] Estado inicial `[*]` y final `[*]` definidos
-   - [ ] Transiciones reflexivas cuando aplica (ACTIVE -> ACTIVE)
+ **Elementos obligatorios:**
+ - `actor` para usuarios finales
+ - `participant` para componentes del sistema
+ - `activate` / `deactivate` para mostrar scope de ejecución
+ - `alt` / `else` / `end` para flujos condicionales
+ - Anotaciones de códigos HTTP (200, 401, 403, 404, 500)
 
-   ---
+ **Checklist:**
+ - [ ] 1 diagrama por cada RF-XXX principal
+ - [ ] Incluye casos de éxito (happy path)
+ - [ ] Incluye casos de error (validaciones, excepciones)
+ - [ ] Muestra interacción con base de datos
+ - [ ] Nombres de participantes coinciden con código real
 
-   #### 2.5 Modelo de Datos
+ ---
 
-   **Descripción:**
-   Documentar estructura de tablas PostgreSQL con relaciones.
+ #### 2.3 Diagramas de Flujo
 
-   **Formato requerido:**
+ **Descripción:**
+ Documentar lógica de decisión compleja con flowcharts.
 
-   ```markdown
-   ## 5. Modelo de Datos
+ **Formato requerido:**
 
-   ### 5.1 Diagrama ER
+ ```markdown
+ ## 3. Diagramas de Flujo
 
-   ```mermaid
-   erDiagram
-       USER ||--o{ USER_SESSION : "tiene"
-       USER ||--o{ PASSWORD_HISTORY : "registra"
-       USER }o--|| SEGMENT : "pertenece a"
-       USER }o--o{ ROLE : "asignado a"
-       USER }o--o{ PERMISSION : "tiene directo"
+ ### 3.1 Flujo de Validación de Credenciales
 
-       USER {
-           uuid id PK
-           string username UK
-           string password_hash
-           string email UK
-           boolean is_active
-           int failed_login_attempts
-           boolean is_locked
-           datetime locked_until
-           datetime last_login
-       }
+ ```mermaid
+ flowchart TD
+ Start([POST /login])
 
-       USER_SESSION {
-           uuid id PK
-           uuid user_id FK
-           string session_key UK
-           string ip_address
-           datetime login_at
-           datetime last_activity
-           datetime logout_at
-           string status
-       }
+ Start --> V1{¿Usuario existe?}
+ V1 -->|No| E1[401: Usuario no encontrado]
+ V1 -->|Sí| V2{¿Cuenta bloqueada?}
 
-       PASSWORD_HISTORY {
-           uuid id PK
-           uuid user_id FK
-           string password_hash
-           datetime changed_at
-       }
+ V2 -->|Sí| V3{¿Bloqueo expiró?}
+ V3 -->|No| E2[423: Cuenta bloqueada]
+ V3 -->|Sí| Unlock[Desbloquear cuenta]
+ Unlock --> V4
+
+ V2 -->|No| V4{¿Password correcto?}
+ V4 -->|No| Inc[Incrementar failed_attempts]
+ Inc --> V5{¿>= 3 intentos?}
+ V5 -->|Sí| Lock[Bloquear cuenta 15 min]
+ Lock --> E3[401: Cuenta bloqueada]
+ V5 -->|No| E4[401: Credenciales inválidas]
+
+ V4 -->|Sí| Reset[Reset failed_attempts]
+ Reset --> Gen[Generar tokens JWT]
+ Gen --> Success[200: Login exitoso]
 
 ::
 
 
-   **Elementos obligatorios:**
-   - Tipos de datos PostgreSQL (`uuid`, `string`, `int`, `boolean`, `datetime`, `jsonb`)
-   - Claves primarias marcadas con `PK`
-   - Claves foráneas marcadas con `FK`
-   - Unique keys marcadas con `UK`
-   - Cardinalidad correcta (`||--o{`, `}o--||`, etc.)
+ **Checklist:**
+ - [ ] Usa `flowchart TD` (top-down) o `LR` (left-right)
+ - [ ] Decisiones en rombos `{¿Pregunta?}`
+ - [ ] Procesos en rectángulos `[Acción]`
+ - [ ] Inicio/fin en óvalos `([Inicio])`
+ - [ ] Códigos HTTP en nodos de salida
 
-   **Checklist:**
-   - [ ] Todas las tablas incluyen `id uuid PK`
-   - [ ] Foreign keys referencian tablas correctas
-   - [ ] Campos de auditoría incluidos (created_at, updated_at)
-   - [ ] Índices importantes documentados en notas
+ ---
 
-   ---
+ #### 2.4 Diagramas de Estados
 
-   ### FASE 3: Trazabilidad a Requisitos
+ **Descripción:**
+ Documentar ciclo de vida de entidades con estados bien definidos.
 
-   #### 3.1 Matriz de Trazabilidad
+ **Formato requerido:**
 
-   **Descripción:**
-   Crear tabla que mapee cada componente/diagrama a sus requisitos origen.
+ ```markdown
+ ## 4. Diagramas de Estados
 
-   **Formato requerido:**
+ ### 4.1 Estados de UserSession
 
-   ```markdown
-   ## 7. Trazabilidad a Requisitos
+ ```mermaid
+ stateDiagram-v2
+ [*] --> ACTIVE: Login exitoso
 
-   ### 7.1 Matriz de Trazabilidad Forward (Requisitos -> Diseño)
+ ACTIVE --> ACTIVE: Refresh token<br/>(< 30 min)
+ ACTIVE --> INACTIVE: Sin actividad 30 min
+ ACTIVE --> CLOSED: Logout explícito
+ ACTIVE --> EXPIRED: Access token expira
 
-   | Requisito | Tipo | Título | Componentes de Diseño |
-   |-----------|------|--------|-----------------------|
-   | N-001 | Necesidad | Autenticación segura del sistema | Arquitectura General, AuthenticationService |
-   | RN-001 | Negocio | Sistema de login con credenciales locales | LoginView, TokenService |
-   | RF-005 | Funcional | Login con credenciales locales | Diagrama 2.1, Flujo 3.1 |
-   | RF-006 | Funcional | Logout y cierre de sesión | Diagrama 2.2, Estados 4.1 |
-   | RF-007 | Funcional | Refresh token | Diagrama 2.3, TokenService |
-   | RNF-001 | No Funcional | Tiempo de respuesta < 200ms | Rate limiting, Índices DB |
+ INACTIVE --> CLOSED: Job: close_inactive_sessions
+ EXPIRED --> ACTIVE: Refresh token válido
+ EXPIRED --> CLOSED: Refresh token expirado
 
-   ### 7.2 Matriz de Trazabilidad Backward (Diseño -> Tests)
+ CLOSED --> [*]
 
-   | Componente de Diseño | Test ID | Ubicación del Test |
-   |----------------------|---------|-------------------|
-   | Diagrama 2.1 - Login | TEST-005 | `backend/tests/test_auth_login.py` |
-   | Diagrama 2.2 - Logout | TEST-006 | `backend/tests/test_auth_logout.py` |
-   | Diagrama 2.3 - Refresh | TEST-007 | `backend/tests/test_auth_refresh.py` |
-   | Flujo 3.1 - Validación | TEST-008 | `backend/tests/test_validation_flow.py` |
-   | Estados 4.1 - UserSession | TEST-009 | `backend/tests/test_session_states.py` |
+::
+
+
+ **Checklist:**
+ - [ ] Estados en MAYÚSCULAS
+ - [ ] Transiciones con triggers claros
+ - [ ] Estado inicial `[*]` y final `[*]` definidos
+ - [ ] Transiciones reflexivas cuando aplica (ACTIVE -> ACTIVE)
+
+ ---
+
+ #### 2.5 Modelo de Datos
+
+ **Descripción:**
+ Documentar estructura de tablas PostgreSQL con relaciones.
+
+ **Formato requerido:**
+
+ ```markdown
+ ## 5. Modelo de Datos
+
+ ### 5.1 Diagrama ER
+
+ ```mermaid
+ erDiagram
+ USER ||--o{ USER_SESSION : "tiene"
+ USER ||--o{ PASSWORD_HISTORY : "registra"
+ USER }o--|| SEGMENT : "pertenece a"
+ USER }o--o{ ROLE : "asignado a"
+ USER }o--o{ PERMISSION : "tiene directo"
+
+ USER {
+ uuid id PK
+ string username UK
+ string password_hash
+ string email UK
+ boolean is_active
+ int failed_login_attempts
+ boolean is_locked
+ datetime locked_until
+ datetime last_login
+ }
+
+ USER_SESSION {
+ uuid id PK
+ uuid user_id FK
+ string session_key UK
+ string ip_address
+ datetime login_at
+ datetime last_activity
+ datetime logout_at
+ string status
+ }
+
+ PASSWORD_HISTORY {
+ uuid id PK
+ uuid user_id FK
+ string password_hash
+ datetime changed_at
+ }
+
+::
+
+
+ **Elementos obligatorios:**
+ - Tipos de datos PostgreSQL (`uuid`, `string`, `int`, `boolean`, `datetime`, `jsonb`)
+ - Claves primarias marcadas con `PK`
+ - Claves foráneas marcadas con `FK`
+ - Unique keys marcadas con `UK`
+ - Cardinalidad correcta (`||--o{`, `}o--||`, etc.)
+
+ **Checklist:**
+ - [ ] Todas las tablas incluyen `id uuid PK`
+ - [ ] Foreign keys referencian tablas correctas
+ - [ ] Campos de auditoría incluidos (created_at, updated_at)
+ - [ ] Índices importantes documentados en notas
+
+ ---
+
+ ### FASE 3: Trazabilidad a Requisitos
+
+ #### 3.1 Matriz de Trazabilidad
+
+ **Descripción:**
+ Crear tabla que mapee cada componente/diagrama a sus requisitos origen.
+
+ **Formato requerido:**
+
+ ```markdown
+ ## 7. Trazabilidad a Requisitos
+
+ ### 7.1 Matriz de Trazabilidad Forward (Requisitos -> Diseño)
+
+ | Requisito | Tipo | Título | Componentes de Diseño |
+ |-----------|------|--------|-----------------------|
+ | N-001 | Necesidad | Autenticación segura del sistema | Arquitectura General, AuthenticationService |
+ | RN-001 | Negocio | Sistema de login con credenciales locales | LoginView, TokenService |
+ | RF-005 | Funcional | Login con credenciales locales | Diagrama 2.1, Flujo 3.1 |
+ | RF-006 | Funcional | Logout y cierre de sesión | Diagrama 2.2, Estados 4.1 |
+ | RF-007 | Funcional | Refresh token | Diagrama 2.3, TokenService |
+ | RNF-001 | No Funcional | Tiempo de respuesta < 200ms | Rate limiting, Índices DB |
+
+ ### 7.2 Matriz de Trazabilidad Backward (Diseño -> Tests)
+
+ | Componente de Diseño | Test ID | Ubicación del Test |
+ |----------------------|---------|-------------------|
+ | Diagrama 2.1 - Login | TEST-005 | `backend/tests/test_auth_login.py` |
+ | Diagrama 2.2 - Logout | TEST-006 | `backend/tests/test_auth_logout.py` |
+ | Diagrama 2.3 - Refresh | TEST-007 | `backend/tests/test_auth_refresh.py` |
+ | Flujo 3.1 - Validación | TEST-008 | `backend/tests/test_validation_flow.py` |
+ | Estados 4.1 - UserSession | TEST-009 | `backend/tests/test_session_states.py` |
 
 **Checklist:** - [ ] Matriz Forward: Todos los RF-XXX mapeados a
 secciones del diseño - [ ] Matriz Backward: Todos los diagramas tienen
@@ -556,14 +556,14 @@ Una vez aprobado:
 
 .. code:: markdown
 
-   **Estado:** Aprobado
-   **Fecha de Aprobación:** {YYYY-MM-DD}
-   **Aprobadores:** {Lista de nombres}
+ **Estado:** Aprobado
+ **Fecha de Aprobación:** {YYYY-MM-DD}
+ **Aprobadores:** {Lista de nombres}
 
 2. Crear ADR si hay decisiones arquitectónicas importantes:
 
-   -  Ubicación: ``docs/arquitectura/adr/``
-   -  Ver plantilla: ``plantilla_adr.md``
+ - Ubicación: ``docs/arquitectura/adr/``
+ - Ver plantilla: ``plantilla_adr.md``
 
 3. Notificar al equipo de desarrollo para inicio de implementación
 
@@ -576,38 +576,38 @@ Herramientas Obligatorias
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +---------------------------------------------------+-------------------+
-| Herramienta                                       | Uso               |
+| Herramienta | Uso |
 +===================================================+===================+
-| **Mermaid**                                       | Todos los         |
-|                                                   | diagramas         |
-|                                                   | (sequence,        |
-|                                                   | flowchart,        |
-|                                                   | stateDiagram,     |
-|                                                   | erDiagram)        |
+| **Mermaid** | Todos los |
+| | diagramas |
+| | (sequence, |
+| | flowchart, |
+| | stateDiagram, |
+| | erDiagram) |
 +---------------------------------------------------+-------------------+
-| **Markdown**                                      | Formato del       |
-|                                                   | documento         |
+| **Markdown** | Formato del |
+| | documento |
 +---------------------------------------------------+-------------------+
-| **Git**                                           | Control de        |
-|                                                   | versiones del     |
-|                                                   | diseño            |
+| **Git** | Control de |
+| | versiones del |
+| | diseño |
 +---------------------------------------------------+-------------------+
 
 Plantillas Relacionadas
 ~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``plantillas/plantilla_sad.md`` - Software Architecture Document
--  ``plantillas/plantilla_tdd.md`` - Technical Design Document
--  ``plantillas/plantilla_api_reference.md`` - Para endpoints REST
+- ``plantillas/plantilla_sad.md`` - Software Architecture Document
+- ``plantillas/plantilla_tdd.md`` - Technical Design Document
+- ``plantillas/plantilla_api_reference.md`` - Para endpoints REST
 
 Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
 
--  **UML 2.5**: `OMG UML
-   Specification <https://www.omg.org/spec/UML/2.5/>`__
--  **C4 Model**: `c4model.com <https://c4model.com/>`__
--  **ISO/IEC/IEEE 42010:2011**: Architecture description standard
--  **Mermaid Docs**: `mermaid.js.org <https://mermaid.js.org/>`__
+- **UML 2.5**: `OMG UML
+ Specification <https://www.omg.org/spec/UML/2.5/>`__
+- **C4 Model**: `c4model.com <https://c4model.com/>`__
+- **ISO/IEC/IEEE 42010:2011**: Architecture description standard
+- **Mermaid Docs**: `mermaid.js.org <https://mermaid.js.org/>`__
 
 --------------
 
@@ -638,20 +638,20 @@ KPIs del Proceso
 ~~~~~~~~~~~~~~~~
 
 +-----------------------+--------------------+-------------------------+
-| Métrica               | Target             | Medición                |
+| Métrica | Target | Medición |
 +=======================+====================+=========================+
-| Tiempo de creación de | < 2 semanas        | Fecha creación -> Fecha |
-| diseño                |                    | aprobación              |
+| Tiempo de creación de | < 2 semanas | Fecha creación -> Fecha |
+| diseño | | aprobación |
 +-----------------------+--------------------+-------------------------+
-| % de requisitos       | 100%               | (RF mapeados / RF       |
-| cubiertos             |                    | totales) × 100          |
+| % de requisitos | 100% | (RF mapeados / RF |
+| cubiertos | | totales) × 100 |
 +-----------------------+--------------------+-------------------------+
-| % de diseños con      | 100%               | (Diagramas con TEST-XXX |
-| tests trazables       |                    | / Total diagramas) ×    |
-|                       |                    | 100                     |
+| % de diseños con | 100% | (Diagramas con TEST-XXX |
+| tests trazables | | / Total diagramas) × |
+| | | 100 |
 +-----------------------+--------------------+-------------------------+
-| Ciclos de revisión    | ≤ 2                | Número de rondas de     |
-|                       |                    | feedback                |
+| Ciclos de revisión | ≤ 2 | Número de rondas de |
+| | | feedback |
 +-----------------------+--------------------+-------------------------+
 
 --------------
@@ -707,10 +707,10 @@ Control de Versiones
 --------------------
 
 +-------------------+--------------+-------------------+--------------+
-| Versión           | Fecha        | Cambios           | Autor        |
+| Versión | Fecha | Cambios | Autor |
 +===================+==============+===================+==============+
-| 1.0.0             | 2025-11-04   | Creación inicial  | Equipo       |
-|                   |              | del procedimiento | Arquitectura |
+| 1.0.0 | 2025-11-04 | Creación inicial | Equipo |
+| | | del procedimiento | Arquitectura |
 +-------------------+--------------+-------------------+--------------+
 
 --------------
@@ -719,9 +719,9 @@ Aprobaciones
 ------------
 
 ========= =========== ===== =====
-Rol       Nombre      Fecha Firma
+Rol Nombre Fecha Firma
 ========= =========== ===== =====
-Tech Lead [Pendiente] -     -
-BA Lead   [Pendiente] -     -
-QA Lead   [Pendiente] -     -
+Tech Lead [Pendiente] - -
+BA Lead [Pendiente] - -
+QA Lead [Pendiente] - -
 ========= =========== ===== =====

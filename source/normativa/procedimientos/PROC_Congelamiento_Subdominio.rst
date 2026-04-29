@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Congelamiento_Subdominio
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Congelamiento_Subdominio
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-congelamiento-subdominio:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Congelamiento_Subdominio
-   * - **Nombre**
-     - Congelar Subdominio del Modelo Documental
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Por cada subdominio completado
-   * - **Duracion Estimada**
-     - 15-30 minutos
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Congelamiento_Subdominio
+ * - **Nombre**
+ - Congelar Subdominio del Modelo Documental
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Por cada subdominio completado
+ * - **Duracion Estimada**
+ - 15-30 minutos
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ comunicar que el subdominio esta listo para uso.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Arquitecto Doc
-     - Aprueba y ejecuta congelamiento
-     - Escritura en modelo
-   * - QA Lead
-     - Valida completitud antes de congelar
-     - Lectura de artefactos
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Arquitecto Doc
+ - Aprueba y ejecuta congelamiento
+ - Escritura en modelo
+ * - QA Lead
+ - Valida completitud antes de congelar
+ - Lectura de artefactos
 
 ----
 
@@ -104,21 +104,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Subdominio a congelar
-     - Carpeta con artefactos
-     - Si
-   * - index.rst
-     - Indice del subdominio
-     - Si
-   * - MODELO_DOCUMENTAL_IACT
-     - Para actualizar estado
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Subdominio a congelar
+ - Carpeta con artefactos
+ - Si
+ * - index.rst
+ - Indice del subdominio
+ - Si
+ * - MODELO_DOCUMENTAL_IACT
+ - Para actualizar estado
+ - Si
 
 ----
 
@@ -129,38 +129,38 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Congelamiento
-   :align: center
+ :caption: Flujo de Congelamiento
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Verificar completitud;
+ start
+ :Verificar completitud;
 
-   if (Artefactos completos?) then (si)
-       :Validar con Sphinx;
-       
-       if (Sin errores?) then (si)
-           :Actualizar index.rst;
-           :Marcar como CONGELADO en modelo;
-           :Documentar fecha de congelamiento;
-           :Notificar equipo;
-       else (no)
-           :Corregir errores;
-           stop
-       endif
-   else (no)
-       :Completar artefactos faltantes;
-       stop
-   endif
+ if (Artefactos completos?) then (si)
+ :Validar con Sphinx;
+ 
+ if (Sin errores?) then (si)
+ :Actualizar index.rst;
+ :Marcar como CONGELADO en modelo;
+ :Documentar fecha de congelamiento;
+ :Notificar equipo;
+ else (no)
+ :Corregir errores;
+ stop
+ endif
+ else (no)
+ :Completar artefactos faltantes;
+ stop
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -170,13 +170,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Confirmar que todos los artefactos existen:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Contar artefactos
-     find [subdominio]/ -name "*.rst" | wc -l
-     
-     # Verificar contra inventario esperado
-     # Ejemplo: reglas_negocio debe tener 20 BR
+ # Contar artefactos
+ find [subdominio]/ -name "*.rst" | wc -l
+ 
+ # Verificar contra inventario esperado
+ # Ejemplo: reglas_negocio debe tener 20 BR
 
 - **Resultado**: Inventario completo
 - **Verificacion**: Cantidad = esperado
@@ -186,11 +186,11 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: QA Lead
 - **Accion**: Ejecutar validacion Sphinx:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     sphinx-build -b html -W docs/ docs/_build/
-     
-     # -W convierte warnings en errores
+ sphinx-build -b html -W docs/ docs/_build/
+ 
+ # -W convierte warnings en errores
 
 - **Resultado**: Sin errores
 - **Verificacion**: Build exitoso
@@ -200,16 +200,16 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Agregar marca de congelamiento:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-                                         
-     Reglas de Negocio (BR) - [CONGELADO]
-                                         
-     
-     .. note:: **Estado: CONGELADO**
-     
-        Este subdominio fue congelado el 2026-01-07.
-        Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
+ 
+ Reglas de Negocio (BR) - [CONGELADO]
+ 
+ 
+ .. note:: **Estado: CONGELADO**
+ 
+ Este subdominio fue congelado el 2026-01-07.
+ Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
 
 - **Resultado**: Index marcado
 - **Verificacion**: Nota visible
@@ -219,13 +219,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Marcar subdominio en arbol:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     requisitos/
-     ├── reglas_negocio/           # [CONGELADO] 20 BR
-     │   ├── index.rst
-     │   ├── BR_001_...
-     │   └── ...
+ requisitos/
+ ├── reglas_negocio/ # [CONGELADO] 20 BR
+ │ ├── index.rst
+ │ ├── BR_001_...
+ │ └── ...
 
 - **Resultado**: Modelo actualizado
 - **Verificacion**: Marca [CONGELADO] presente
@@ -235,25 +235,25 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Agregar al registro de congelamientos:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     REGISTRO DE CONGELAMIENTOS
-     
+ REGISTRO DE CONGELAMIENTOS
+ 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Subdominio
-     - Artefactos
-     - Fecha
-     - Responsable
-   * - reglas_negocio
-     - 20 BR
-     - 2026-01-07
-     - Equipo IACT
-   * - restricciones
-     - 10 CNST
-     - 2026-01-06
-     - Equipo IACT
+ * - Subdominio
+ - Artefactos
+ - Fecha
+ - Responsable
+ * - reglas_negocio
+ - 20 BR
+ - 2026-01-07
+ - Equipo IACT
+ * - restricciones
+ - 10 CNST
+ - 2026-01-06
+ - Equipo IACT
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada
@@ -263,18 +263,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Comunicar congelamiento:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     NOTIFICACION DE CONGELAMIENTO
-     
-     Subdominio: requisitos/reglas_negocio/
-     Artefactos: 20 BR
-     Fecha: 2026-01-07
-     
-     A partir de esta fecha, cualquier cambio requiere:
-     1. Ejecutar PROC_Descongelamiento_Subdominio
-     2. Realizar cambios
-     3. Ejecutar PROC_Congelamiento_Subdominio
+ NOTIFICACION DE CONGELAMIENTO
+ 
+ Subdominio: requisitos/reglas_negocio/
+ Artefactos: 20 BR
+ Fecha: 2026-01-07
+ 
+ A partir de esta fecha, cualquier cambio requiere:
+ 1. Ejecutar PROC_Descongelamiento_Subdominio
+ 2. Realizar cambios
+ 3. Ejecutar PROC_Congelamiento_Subdominio
 
 - **Resultado**: Equipo notificado
 - **Verificacion**: Comunicacion enviada
@@ -285,18 +285,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - index.rst actualizado
-     - Con marca de congelamiento
-     - [subdominio]/
-   * - MODELO_DOCUMENTAL actualizado
-     - Con estado [CONGELADO]
-     - raiz/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - index.rst actualizado
+ - Con marca de congelamiento
+ - [subdominio]/
+ * - MODELO_DOCUMENTAL actualizado
+ - Con estado [CONGELADO]
+ - raiz/
 
 ----
 
@@ -328,21 +328,21 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 40 30 30
-   :header-rows: 1
+ :widths: 40 30 30
+ :header-rows: 1
 
-   * - Subdominio
-     - Artefactos
-     - Cuando Congelar
-   * - reglas_negocio/
-     - BR
-     - Cuando BR completas
-   * - restricciones/
-     - CNST
-     - Cuando CNST definidas
-   * - procedimientos/
-     - PROC
-     - Cuando PROC estables
+ * - Subdominio
+ - Artefactos
+ - Cuando Congelar
+ * - reglas_negocio/
+ - BR
+ - Cuando BR completas
+ * - restricciones/
+ - CNST
+ - Cuando CNST definidas
+ * - procedimientos/
+ - PROC
+ - Cuando PROC estables
 
 ----
 
@@ -350,17 +350,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Artefacto faltante descubierto
-     - Completar antes de congelar
-   * - Error de Sphinx
-     - Corregir, re-validar
-   * - Cambio urgente post-congelamiento
-     - Ejecutar PROC_Descongelamiento primero
+ * - Excepcion
+ - Accion
+ * - Artefacto faltante descubierto
+ - Completar antes de congelar
+ * - Error de Sphinx
+ - Corregir, re-validar
+ * - Cambio urgente post-congelamiento
+ - Ejecutar PROC_Descongelamiento primero
 
 ----
 
@@ -377,17 +377,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

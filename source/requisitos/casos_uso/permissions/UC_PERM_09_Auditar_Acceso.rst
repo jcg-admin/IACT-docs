@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: UC_PERM_09
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :subdominio: casos_uso/permissions
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-09
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critica
+ :artefacto: UC_PERM_09
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: casos_uso/permissions
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-09
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critica
 
 .. _uc-perm-09:
 
@@ -18,11 +18,11 @@ UC_PERM_09: Auditar Acceso
 
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
-   Este UC representa una vista del modelo RBAC. La
-   vista funcional / catalogo cerrado del mismo concepto esta en
-   :doc:`/requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso`
-   (o equivalente). Ambas coexisten per
-   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ Este UC representa una vista del modelo RBAC. La
+ vista funcional / catalogo cerrado del mismo concepto esta en
+ :doc:`/requisitos/casos_uso/access/UC_ACC_09_Auditar_Cambios_Acceso`
+ (o equivalente). Ambas coexisten per
+ :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
 
 
 
@@ -48,33 +48,33 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 
 .. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
+ :widths: 33 33 33
+ :header-rows: 1
 
-   * - Campo
-     - Descripción
-     - Ejemplo
-   * - usuario_id
-     - ID del usuario verificado
-     - 123
-   * - capacidad_codigo
-     - Funcion verificada
-     - "sistema.vistas.dashboards.ver"
-   * - resultado
-     - Concedido (true) o denegado (false)
-     - true
-   * - ip_address
-     - IP del cliente
-     - "192.168.1.100"
-   * - user_agent
-     - Navegador/cliente
-     - "Mozilla/5.0..."
-   * - timestamp
-     - Momento exacto
-     - "2025-01-09T12:30:45Z"
-   * - metadatos
-     - Info adicional (path, method, latency)
-     - {"path": "/dashboard", "latency_ms": 15}
+ * - Campo
+ - Descripción
+ - Ejemplo
+ * - usuario_id
+ - ID del usuario verificado
+ - 123
+ * - capacidad_codigo
+ - Funcion verificada
+ - "sistema.vistas.dashboards.ver"
+ * - resultado
+ - Concedido (true) o denegado (false)
+ - true
+ * - ip_address
+ - IP del cliente
+ - "192.168.1.100"
+ * - user_agent
+ - Navegador/cliente
+ - "Mozilla/5.0..."
+ * - timestamp
+ - Momento exacto
+ - "2025-01-09T12:30:45Z"
+ * - metadatos
+ - Info adicional (path, method, latency)
+ - {"path": "/dashboard", "latency_ms": 15}
 
 
 
@@ -84,38 +84,38 @@ El sistema registra automáticamente cada verificación de permisos en la tabla 
 
 .. code-block:: sql
 
-   CREATE OR REPLACE FUNCTION verificar_permiso_y_auditar(
-       p_usuario_id INTEGER,
-       p_capacidad_codigo VARCHAR(200),
-       p_ip_address VARCHAR(45),
-       p_user_agent TEXT
-   ) RETURNS BOOLEAN AS $$
-   DECLARE
-       v_tiene_permiso BOOLEAN;
-   BEGIN
-       -- Verificar permiso
-       v_tiene_permiso := usuario_tiene_permiso(p_usuario_id, p_capacidad_codigo);
-   
-       -- Auditar
-       INSERT INTO auditoria_permisos (
-           usuario_id,
-           capacidad_codigo,
-           resultado,
-           ip_address,
-           user_agent,
-           timestamp
-       ) VALUES (
-           p_usuario_id,
-           p_capacidad_codigo,
-           v_tiene_permiso,
-           p_ip_address,
-           p_user_agent,
-           NOW()
-       );
-   
-       RETURN v_tiene_permiso;
-   END;
-   $$ LANGUAGE plpgsql;
+ CREATE OR REPLACE FUNCTION verificar_permiso_y_auditar(
+ p_usuario_id INTEGER,
+ p_capacidad_codigo VARCHAR(200),
+ p_ip_address VARCHAR(45),
+ p_user_agent TEXT
+ ) RETURNS BOOLEAN AS $$
+ DECLARE
+ v_tiene_permiso BOOLEAN;
+ BEGIN
+ -- Verificar permiso
+ v_tiene_permiso := usuario_tiene_permiso(p_usuario_id, p_capacidad_codigo);
+ 
+ -- Auditar
+ INSERT INTO auditoria_permisos (
+ usuario_id,
+ capacidad_codigo,
+ resultado,
+ ip_address,
+ user_agent,
+ timestamp
+ ) VALUES (
+ p_usuario_id,
+ p_capacidad_codigo,
+ v_tiene_permiso,
+ p_ip_address,
+ p_user_agent,
+ NOW
+ );
+ 
+ RETURN v_tiene_permiso;
+ END;
+ $$ LANGUAGE plpgsql;
 
 
 
@@ -138,10 +138,10 @@ Opción 1: Auditoría Síncrona (desarrollo/staging)
 
 .. code-block:: python
 
-   @require_permission('sistema.vistas.dashboards.ver', audit=True)
-   def dashboard(request):
-       # Auditoría se ejecuta en mismo thread
-       return render(request, 'dashboard.html')
+ @require_permission('sistema.vistas.dashboards.ver', audit=True)
+ def dashboard(request):
+ # Auditoría se ejecuta en mismo thread
+ return render(request, 'dashboard.html')
 
 
 
@@ -150,15 +150,15 @@ Opción 2: Auditoría Asíncrona (producción)
 
 .. code-block:: python
 
-   # settings.py
-   PERMISSION_AUDIT_CONFIG = {
-       'async_audit': True,  # Usar Celery
-   }
-   
-   # tasks.py
-   @celery_app.task
-   def audit_permission_check(usuario_id, funcion, resultado, ip, user_agent):
-       AuditoriaPermiso.objects.create(...)
+ # settings.py
+ PERMISSION_AUDIT_CONFIG = {
+ 'async_audit': True, # Usar Celery
+ }
+ 
+ # tasks.py
+ @celery_app.task
+ def audit_permission_check(usuario_id, funcion, resultado, ip, user_agent):
+ AuditoriaPermiso.objects.create(...)
 
 
 
@@ -168,17 +168,17 @@ Opción 2: Auditoría Asíncrona (producción)
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Período
-     - Acción
-   * - 0-90 días
-     - Online (tabla principal)
-   * - 91-365 días
-     - Archivo (tabla histórica)
-   * - > 365 días
-     - Cold storage (S3/Glacier)
+ * - Período
+ - Acción
+ * - 0-90 días
+ - Online (tabla principal)
+ * - 91-365 días
+ - Archivo (tabla histórica)
+ * - > 365 días
+ - Cold storage (S3/Glacier)
 
 
 
@@ -192,12 +192,12 @@ Consulta 1: Accesos denegados últimas 24h
 
 .. code-block:: sql
 
-   SELECT usuario_id, capacidad_codigo, COUNT(*) as intentos
-   FROM auditoria_permisos
-   WHERE resultado = FALSE
-     AND timestamp > NOW() - INTERVAL '24 hours'
-   GROUP BY usuario_id, capacidad_codigo
-   ORDER BY intentos DESC;
+ SELECT usuario_id, capacidad_codigo, COUNT(*) as intentos
+ FROM auditoria_permisos
+ WHERE resultado = FALSE
+ AND timestamp > NOW - INTERVAL '24 hours'
+ GROUP BY usuario_id, capacidad_codigo
+ ORDER BY intentos DESC;
 
 
 
@@ -206,16 +206,16 @@ Consulta 2: Actividad por usuario
 
 .. code-block:: sql
 
-   SELECT
-       DATE_TRUNC('hour', timestamp) as hora,
-       COUNT(*) as total_verificaciones,
-       COUNT(*) FILTER (WHERE resultado = TRUE) as concedidas,
-       COUNT(*) FILTER (WHERE resultado = FALSE) as denegadas
-   FROM auditoria_permisos
-   WHERE usuario_id = 123
-     AND timestamp > NOW() - INTERVAL '7 days'
-   GROUP BY hora
-   ORDER BY hora DESC;
+ SELECT
+ DATE_TRUNC('hour', timestamp) as hora,
+ COUNT(*) as total_verificaciones,
+ COUNT(*) FILTER (WHERE resultado = TRUE) as concedidas,
+ COUNT(*) FILTER (WHERE resultado = FALSE) as denegadas
+ FROM auditoria_permisos
+ WHERE usuario_id = 123
+ AND timestamp > NOW - INTERVAL '7 days'
+ GROUP BY hora
+ ORDER BY hora DESC;
 
 
 
@@ -246,15 +246,15 @@ Changelog
 
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-01-09
-     - Sistema
-     - Creación inicial
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-01-09
+ - Sistema
+ - Creación inicial
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROCED_DEVOPS_001
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROCED_DEVOPS_001
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCED-DEVOPS-001: Deploy a Staging
 ===================================
@@ -33,17 +33,17 @@ servidores
 Pre-requisitos
 --------------
 
--  Acceso a CI/CD pipeline (GitHub Actions / Jenkins)
--  Credenciales para ambiente staging
--  Branch aprobado y merged a ``develop`` o rama correspondiente
--  Tests pasando en CI
+- Acceso a CI/CD pipeline (GitHub Actions / Jenkins)
+- Credenciales para ambiente staging
+- Branch aprobado y merged a ``develop`` o rama correspondiente
+- Tests pasando en CI
 
 Roles y Responsabilidades
 -------------------------
 
--  **DevOps Engineer**: Ejecuta deployment y monitorea
--  **Tech Lead**: Aprueba deployment de cambios mayores
--  **Developer**: Verifica funcionalidad post-deployment
+- **DevOps Engineer**: Ejecuta deployment y monitorea
+- **Tech Lead**: Aprueba deployment de cambios mayores
+- **Developer**: Verifica funcionalidad post-deployment
 
 Procedimiento Detallado
 -----------------------
@@ -56,9 +56,9 @@ PASO 1: Pre-Deployment Checks
 
 .. code:: bash
 
-   # Verificar que staging esté operacional
-   curl -f https://staging.iact-project.com/api/health
-   # Esperado: HTTP 200 OK
+ # Verificar que staging esté operacional
+ curl -f https://staging.iact-project.com/api/health
+ # Esperado: HTTP 200 OK
 
 1.2 Verificar tests en CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -76,11 +76,11 @@ scans: PASSED - ✅ Build: SUCCESSFUL
 
 .. code:: bash
 
-   # Ver commits desde último deploy
-   git log staging..develop --oneline
+ # Ver commits desde último deploy
+ git log staging..develop --oneline
 
-   # O usar GitHub compare
-   # https://github.com/org/repo/compare/staging...develop
+ # O usar GitHub compare
+ # https://github.com/org/repo/compare/staging...develop
 
 Verificar: - ¿Hay cambios de BD (migrations)? - ¿Hay cambios en
 variables de entorno? - ¿Hay cambios que requieren downtime? - ¿Hay
@@ -95,14 +95,14 @@ Enviar mensaje en canal de equipo:
 
 ::
 
-   🚀 Starting deployment to staging
+ 🚀 Starting deployment to staging
 
-   Branch: develop
-   Commit: abc1234 - "feat(auth): implement JWT authentication"
-   ETA: 15 minutos
-   Expected downtime: 0 minutos
+ Branch: develop
+ Commit: abc1234 - "feat(auth): implement JWT authentication"
+ ETA: 15 minutos
+ Expected downtime: 0 minutos
 
-   Status updates: 🧵
+ Status updates: 🧵
 
 --------------
 
@@ -114,14 +114,14 @@ PASO 2: Backup Pre-Deployment
 
 .. code:: bash
 
-   # Conectar a servidor de staging
-   ssh user@staging.iact-project.com
+ # Conectar a servidor de staging
+ ssh user@staging.iact-project.com
 
-   # Crear backup de BD
-   pg_dump -U postgres iact_staging > /backups/iact_staging_$(date +%Y%m%d_%H%M%S).sql
+ # Crear backup de BD
+ pg_dump -U postgres iact_staging > /backups/iact_staging_$(date +%Y%m%d_%H%M%S).sql
 
-   # Verificar backup creado
-   ls -lh /backups/iact_staging_*.sql | tail -1
+ # Verificar backup creado
+ ls -lh /backups/iact_staging_*.sql | tail -1
 
 **Criterio de éxito**: Archivo de backup creado con tamaño > 0
 
@@ -132,11 +132,11 @@ PASO 2: Backup Pre-Deployment
 
 .. code:: bash
 
-   # Backup de variables de entorno
-   cp .env .env.backup.$(date +%Y%m%d_%H%M%S)
+ # Backup de variables de entorno
+ cp .env .env.backup.$(date +%Y%m%d_%H%M%S)
 
-   # Backup de archivos de configuración
-   tar -czf /backups/config_$(date +%Y%m%d_%H%M%S).tar.gz /etc/nginx /etc/systemd
+ # Backup de archivos de configuración
+ tar -czf /backups/config_$(date +%Y%m%d_%H%M%S).tar.gz /etc/nginx /etc/systemd
 
 --------------
 
@@ -150,15 +150,15 @@ PASO 3: Ejecutar Deployment
 
 .. code:: bash
 
-   # Trigger deployment workflow
-   gh workflow run deploy-staging.yml --ref develop
+ # Trigger deployment workflow
+ gh workflow run deploy-staging.yml --ref develop
 
 **Verificar progreso**:
 
 .. code:: bash
 
-   # Ver status del workflow
-   gh run list --workflow=deploy-staging.yml --limit 1
+ # Ver status del workflow
+ gh run list --workflow=deploy-staging.yml --limit 1
 
 --------------
 
@@ -169,58 +169,58 @@ PASO 3: Ejecutar Deployment
 
 .. code:: bash
 
-   ssh user@staging.iact-project.com
+ ssh user@staging.iact-project.com
 
-   cd /var/www/iact-project
-   git fetch origin
-   git checkout develop
-   git pull origin develop
+ cd /var/www/iact-project
+ git fetch origin
+ git checkout develop
+ git pull origin develop
 
 **Paso 2: Instalar dependencias**
 
 .. code:: bash
 
-   # Python
-   source venv/bin/activate
-   pip install -r requirements.txt
+ # Python
+ source venv/bin/activate
+ pip install -r requirements.txt
 
-   # Node.js (si aplica)
-   npm install
+ # Node.js (si aplica)
+ npm install
 
 **Paso 3: Ejecutar migrations**
 
 .. code:: bash
 
-   # Django
-   python manage.py migrate --noinput
+ # Django
+ python manage.py migrate --noinput
 
-   # Verificar migrations aplicadas
-   python manage.py showmigrations
+ # Verificar migrations aplicadas
+ python manage.py showmigrations
 
 **Paso 4: Collectstatic (Django)**
 
 .. code:: bash
 
-   python manage.py collectstatic --noinput
+ python manage.py collectstatic --noinput
 
 **Paso 5: Build frontend (si aplica)**
 
 .. code:: bash
 
-   npm run build
+ npm run build
 
 **Paso 6: Restart services**
 
 .. code:: bash
 
-   # Reload application server
-   sudo systemctl restart iact-gunicorn
+ # Reload application server
+ sudo systemctl restart iact-gunicorn
 
-   # Reload nginx
-   sudo systemctl reload nginx
+ # Reload nginx
+ sudo systemctl reload nginx
 
-   # Restart workers (Celery, etc.)
-   sudo systemctl restart iact-celery-worker
+ # Restart workers (Celery, etc.)
+ sudo systemctl restart iact-celery-worker
 
 --------------
 
@@ -232,17 +232,17 @@ PASO 4: Verificación Post-Deployment
 
 .. code:: bash
 
-   # API health check
-   curl -f https://staging.iact-project.com/api/health
-   # Esperado: {"status": "healthy", "version": "1.2.3"}
+ # API health check
+ curl -f https://staging.iact-project.com/api/health
+ # Esperado: {"status": "healthy", "version": "1.2.3"}
 
-   # Database connection
-   curl -f https://staging.iact-project.com/api/db-check
-   # Esperado: {"database": "connected"}
+ # Database connection
+ curl -f https://staging.iact-project.com/api/db-check
+ # Esperado: {"database": "connected"}
 
-   # Cache connection
-   curl -f https://staging.iact-project.com/api/cache-check
-   # Esperado: {"cache": "connected"}
+ # Cache connection
+ curl -f https://staging.iact-project.com/api/cache-check
+ # Esperado: {"cache": "connected"}
 
 --------------
 
@@ -253,16 +253,16 @@ Ejecutar tests críticos:
 
 .. code:: bash
 
-   # Test de autenticación
-   curl -X POST https://staging.iact-project.com/api/auth/login \
-     -H "Content-Type: application/json" \
-     -d '{"username":"testuser","password":"testpass"}'
-   # Esperado: HTTP 200 + token
+ # Test de autenticación
+ curl -X POST https://staging.iact-project.com/api/auth/login \
+ -H "Content-Type: application/json" \
+ -d '{"username":"testuser","password":"testpass"}'
+ # Esperado: HTTP 200 + token
 
-   # Test de endpoint protegido
-   curl -H "Authorization: Bearer $TOKEN" \
-     https://staging.iact-project.com/api/users/me
-   # Esperado: HTTP 200 + user data
+ # Test de endpoint protegido
+ curl -H "Authorization: Bearer $TOKEN" \
+ https://staging.iact-project.com/api/users/me
+ # Esperado: HTTP 200 + user data
 
 --------------
 
@@ -271,12 +271,12 @@ Ejecutar tests críticos:
 
 .. code:: bash
 
-   # Logs de aplicación (últimos 5 minutos)
-   sudo journalctl -u iact-gunicorn --since "5 minutes ago" --no-pager
+ # Logs de aplicación (últimos 5 minutos)
+ sudo journalctl -u iact-gunicorn --since "5 minutes ago" --no-pager
 
-   # Verificar que NO haya errores críticos
-   sudo journalctl -u iact-gunicorn --since "5 minutes ago" | grep -i error
-   # Esperado: Sin resultados o solo warnings menores
+ # Verificar que NO haya errores críticos
+ sudo journalctl -u iact-gunicorn --since "5 minutes ago" | grep -i error
+ # Esperado: Sin resultados o solo warnings menores
 
 --------------
 
@@ -308,24 +308,24 @@ Editar ``CHANGELOG.md``:
 
 .. code:: markdown
 
-   ## [Unreleased]
+ ## [Unreleased]
 
-   ## [1.2.3] - 2025-11-17 (Staging)
+ ## [1.2.3] - 2025-11-17 (Staging)
 
-   ### Added
-   - JWT authentication system
-   - Refresh token mechanism
+ ### Added
+ - JWT authentication system
+ - Refresh token mechanism
 
-   ### Changed
-   - Updated user permissions model
+ ### Changed
+ - Updated user permissions model
 
-   ### Fixed
-   - Bug in permission validation
-   - Token expiration timing
+ ### Fixed
+ - Bug in permission validation
+ - Token expiration timing
 
-   ### Deployment Notes
-   - Requires new env var: JWT_SECRET_KEY
-   - Database migrations: 0042_add_refresh_token_field
+ ### Deployment Notes
+ - Requires new env var: JWT_SECRET_KEY
+ - Database migrations: 0042_add_refresh_token_field
 
 --------------
 
@@ -336,16 +336,16 @@ Mensaje en canal de equipo:
 
 ::
 
-   ✅ Deployment to staging SUCCESSFUL
+ ✅ Deployment to staging SUCCESSFUL
 
-   Version: 1.2.3
-   Duration: 12 minutos
-   Downtime: 0 minutos
+ Version: 1.2.3
+ Duration: 12 minutos
+ Downtime: 0 minutos
 
-   Health checks: ✅ All passing
-   Smoke tests: ✅ All passing
+ Health checks: ✅ All passing
+ Smoke tests: ✅ All passing
 
-   Staging ready for testing!
+ Staging ready for testing!
 
 --------------
 
@@ -367,35 +367,35 @@ rate > 5% - 🔴 Critical functionality broken - 🔴 Database corruption
 
 .. code:: bash
 
-   ssh user@staging.iact-project.com
-   cd /var/www/iact-project
+ ssh user@staging.iact-project.com
+ cd /var/www/iact-project
 
-   # Encontrar último commit funcional
-   git log --oneline | head -5
+ # Encontrar último commit funcional
+ git log --oneline | head -5
 
-   # Revert a ese commit
-   git checkout abc1234  # commit anterior
+ # Revert a ese commit
+ git checkout abc1234 # commit anterior
 
-   # Restart services
-   sudo systemctl restart iact-gunicorn
-   sudo systemctl restart iact-celery-worker
+ # Restart services
+ sudo systemctl restart iact-gunicorn
+ sudo systemctl restart iact-celery-worker
 
 **Opción 2: Rollback de migrations**
 
 .. code:: bash
 
-   # Si migrations causan el problema
-   python manage.py migrate app_name 0041  # migration anterior
+ # Si migrations causan el problema
+ python manage.py migrate app_name 0041 # migration anterior
 
-   # Restart services
-   sudo systemctl restart iact-gunicorn
+ # Restart services
+ sudo systemctl restart iact-gunicorn
 
 **Opción 3: Restaurar backup de BD**
 
 .. code:: bash
 
-   # SOLO si corruption de BD
-   psql -U postgres iact_staging < /backups/iact_staging_20251117_140000.sql
+ # SOLO si corruption de BD
+ psql -U postgres iact_staging < /backups/iact_staging_20251117_140000.sql
 
 --------------
 
@@ -411,13 +411,13 @@ Repetir health checks y smoke tests del PASO 4.
 
 ::
 
-   ⚠️ ROLLBACK executed on staging
+ ⚠️ ROLLBACK executed on staging
 
-   Reason: Critical error in JWT authentication
-   Rolled back to: version 1.2.2 (commit abc1234)
-   Status: ✅ Staging stable
+ Reason: Critical error in JWT authentication
+ Rolled back to: version 1.2.2 (commit abc1234)
+ Status: ✅ Staging stable
 
-   Investigation ongoing.
+ Investigation ongoing.
 
 --------------
 
@@ -457,12 +457,12 @@ Problema 1: Migrations fail
 
 .. code:: bash
 
-   # Verificar estado de migrations
-   python manage.py showmigrations
+ # Verificar estado de migrations
+ python manage.py showmigrations
 
-   # Aplicar migrations faltantes
-   python manage.py migrate --fake-initial
-   python manage.py migrate
+ # Aplicar migrations faltantes
+ python manage.py migrate --fake-initial
+ python manage.py migrate
 
 --------------
 
@@ -475,12 +475,12 @@ Problema 2: Static files not loading
 
 .. code:: bash
 
-   # Re-run collectstatic
-   python manage.py collectstatic --clear --noinput
+ # Re-run collectstatic
+ python manage.py collectstatic --clear --noinput
 
-   # Verify nginx configuration
-   sudo nginx -t
-   sudo systemctl reload nginx
+ # Verify nginx configuration
+ sudo nginx -t
+ sudo systemctl reload nginx
 
 --------------
 
@@ -493,11 +493,11 @@ Problema 3: Environment variables missing
 
 .. code:: bash
 
-   # Add missing variable to .env
-   echo "JWT_SECRET_KEY=your_secret_key_here" >> .env
+ # Add missing variable to .env
+ echo "JWT_SECRET_KEY=your_secret_key_here" >> .env
 
-   # Reload service
-   sudo systemctl restart iact-gunicorn
+ # Reload service
+ sudo systemctl restart iact-gunicorn
 
 --------------
 
@@ -506,53 +506,53 @@ Checklist de Deployment
 
 .. code:: markdown
 
-   Pre-Deployment:
-   - [ ] CI tests passing
-   - [ ] Changelog reviewed
-   - [ ] Team notified
-   - [ ] Backup de BD creado
-   - [ ] Backup de config creado
+ Pre-Deployment:
+ - [ ] CI tests passing
+ - [ ] Changelog reviewed
+ - [ ] Team notified
+ - [ ] Backup de BD creado
+ - [ ] Backup de config creado
 
-   Deployment:
-   - [ ] Code pulled/deployed
-   - [ ] Dependencies installed
-   - [ ] Migrations executed
-   - [ ] Static files collected
-   - [ ] Services restarted
+ Deployment:
+ - [ ] Code pulled/deployed
+ - [ ] Dependencies installed
+ - [ ] Migrations executed
+ - [ ] Static files collected
+ - [ ] Services restarted
 
-   Post-Deployment:
-   - [ ] Health checks passing
-   - [ ] Smoke tests passing
-   - [ ] Logs sin errores críticos
-   - [ ] UI verificada manualmente
-   - [ ] Metrics normales
-   - [ ] CHANGELOG actualizado
-   - [ ] Team notificado éxito
+ Post-Deployment:
+ - [ ] Health checks passing
+ - [ ] Smoke tests passing
+ - [ ] Logs sin errores críticos
+ - [ ] UI verificada manualmente
+ - [ ] Metrics normales
+ - [ ] CHANGELOG actualizado
+ - [ ] Team notificado éxito
 
 --------------
 
 Referencias
 -----------
 
--  `PROC-DEVOPS-001: DevOps
-   Automation <../procesos/PROC-DEVOPS-001-devops_automation.md>`__
--  `ADR-DEVOPS-001: Vagrant
-   mod_wsgi <../adr/ADR-DEVOPS-001-vagrant-mod-wsgi.md>`__
--  `Twelve-Factor App: Deployment <https://12factor.net/>`__
+- `PROC-DEVOPS-001: DevOps
+ Automation <../procesos/PROC-DEVOPS-001-devops_automation.md>`__
+- `ADR-DEVOPS-001: Vagrant
+ mod_wsgi <../adr/ADR-DEVOPS-001-vagrant-mod-wsgi.md>`__
+- `Twelve-Factor App: Deployment <https://12factor.net/>`__
 
 Historial de Cambios
 --------------------
 
 ======= ========== =========== ===============
-Versión Fecha      Autor       Cambios
+Versión Fecha Autor Cambios
 ======= ========== =========== ===============
-1.0.0   2025-11-17 Claude Code Versión inicial
+1.0.0 2025-11-17 Claude Code Versión inicial
 ======= ========== =========== ===============
 
 Aprobación
 ----------
 
--  **Autor**: Claude Code (Sonnet 4.5)
--  **Revisado por**: Pendiente
--  **Aprobado por**: Pendiente
--  **Fecha de próxima revisión**: 2026-02-17
+- **Autor**: Claude Code (Sonnet 4.5)
+- **Revisado por**: Pendiente
+- **Aprobado por**: Pendiente
+- **Fecha de próxima revisión**: 2026-02-17

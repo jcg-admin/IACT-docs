@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Auditoria_Documental
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Trazabilidad
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Auditoria_Documental
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Trazabilidad
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-auditoria-documental:
 
@@ -22,18 +22,18 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Auditoria_Documental
-   * - **Nombre**
-     - Auditoria del Modelo Documental
-   * - **Categoria**
-     - Trazabilidad
-   * - **Frecuencia**
-     - Mensual o por release
-   * - **Duracion**
-     - 2-4 horas
+ * - **ID**
+ - PROC_Auditoria_Documental
+ * - **Nombre**
+ - Auditoria del Modelo Documental
+ * - **Categoria**
+ - Trazabilidad
+ * - **Frecuencia**
+ - Mensual o por release
+ * - **Duracion**
+ - 2-4 horas
 
 ----
 
@@ -72,16 +72,16 @@ consistencia, completitud y adherencia a estandares.
 
 .. code-block:: bash
 
-   # Comparar estructura real vs modelo
-   find docs/ -type d | sort > estructura_real.txt
-   diff estructura_esperada.txt estructura_real.txt
+ # Comparar estructura real vs modelo
+ find docs/ -type d | sort > estructura_real.txt
+ diff estructura_esperada.txt estructura_real.txt
 
 **Paso 2: Verificar Nomenclatura**
 
 .. code-block:: bash
 
-   # Buscar archivos con nomenclatura incorrecta
-   find docs/ -name "*.rst" | grep -v -E "^(BR|UC|FR|TST|PROC|TPL)_"
+ # Buscar archivos con nomenclatura incorrecta
+ find docs/ -name "*.rst" | grep -v -E "^(BR|UC|FR|TST|PROC|TPL)_"
 
 **Paso 3: Verificar Secciones Obligatorias**
 
@@ -89,8 +89,8 @@ Para cada tipo de artefacto, verificar secciones del TPL:
 
 .. code-block:: bash
 
-   # Verificar que BR tiene seccion Declaracion
-   grep -L "Declaracion" reglas_negocio/BR_*.rst
+ # Verificar que BR tiene seccion Declaracion
+ grep -L "Declaracion" reglas_negocio/BR_*.rst
 
 **Paso 4: Verificar Trazabilidad**
 
@@ -100,34 +100,34 @@ Ejecutar PROC_Verificacion_Cobertura y PROC_Identificar_Gaps_Huerfanos.
 
 .. code-block:: bash
 
-   # Verificar coherencia version archivo vs meta
-   for f in PROC_*.rst; do
-     file_ver=$(echo $f | grep -oE "[0-9]+_[0-9]+_[0-9]+")
-     meta_ver=$(grep ":version:" $f | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
-     # Comparar
-   done
+ # Verificar coherencia version archivo vs meta
+ for f in PROC_*.rst; do
+ file_ver=$(echo $f | grep -oE "[0-9]+_[0-9]+_[0-9]+")
+ meta_ver=$(grep ":version:" $f | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
+ # Comparar
+ done
 
 **Paso 6: Generar Reporte**
 
 .. code-block:: text
 
-   REPORTE AUDITORIA - 2026-01-07
-   
-   ESTRUCTURA: OK
-   - Carpetas esperadas: 15
-   - Carpetas encontradas: 15
-   
-   NOMENCLATURA: OK
-   - Archivos correctos: 150/150
-   
-   CONTENIDO: 2 HALLAZGOS
-   - BR_015: Falta seccion Excepciones
-   - UC_030: Falta seccion Historial
-   
-   TRAZABILIDAD: OK
-   - Cobertura UC->FR: 100%
-   
-   VERSIONADO: OK
+ REPORTE AUDITORIA - 2026-01-07
+ 
+ ESTRUCTURA: OK
+ - Carpetas esperadas: 15
+ - Carpetas encontradas: 15
+ 
+ NOMENCLATURA: OK
+ - Archivos correctos: 150/150
+ 
+ CONTENIDO: 2 HALLAZGOS
+ - BR_015: Falta seccion Excepciones
+ - UC_030: Falta seccion Historial
+ 
+ TRAZABILIDAD: OK
+ - Cobertura UC->FR: 100%
+ 
+ VERSIONADO: OK
 
 **Paso 7: Plan de Remediacion**
 
@@ -166,14 +166,14 @@ Para cada hallazgo, asignar responsable y fecha.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

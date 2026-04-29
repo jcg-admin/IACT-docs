@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_010
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_010
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-010:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_010
-   * - **Nombre**
-     - Auditoria Inmutable
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_010
+ * - **Nombre**
+ - Auditoria Inmutable
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -54,14 +54,14 @@ del sistema tiene permiso de UPDATE o DELETE sobre registros de auditoria.
 
 ::
 
-   VOCABULARIO:
-     - Registro de auditoria: Entrada en log de eventos del sistema
-     - Append-only: Solo se permiten operaciones INSERT
-     - Inmutabilidad: Imposibilidad de modificar datos existentes
+ VOCABULARIO:
+ - Registro de auditoria: Entrada en log de eventos del sistema
+ - Append-only: Solo se permiten operaciones INSERT
+ - Inmutabilidad: Imposibilidad de modificar datos existentes
 
-   REGLA:
-     Es prohibido modificar registros de auditoria existentes.
-     Es prohibido eliminar registros de auditoria.
+ REGLA:
+ Es prohibido modificar registros de auditoria existentes.
+ Es prohibido eliminar registros de auditoria.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -95,15 +95,15 @@ cumplimiento regulatorio, y deteccion de manipulacion de logs.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_009_Logging_Auditoria_Inmutable
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST
+ * - **Documento**
+ - CNST_009_Logging_Auditoria_Inmutable
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST
 
 ----
 
@@ -148,7 +148,7 @@ politica de retencion (ver BR_018).
 6.1 Criterios de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Modelo de auditoria no tiene metodo save() para updates
+1. Modelo de auditoria no tiene metodo save para updates
 2. Usuario BD no tiene GRANT UPDATE/DELETE
 3. Intentos de modificacion generan error
 
@@ -158,14 +158,14 @@ politica de retencion (ver BR_018).
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: TPL_FR_Query_SQL
-   :tipo: Plantilla
-   :dominio: normativa
-   :subdominio: estandares/plantillas
-   :estado: Aprobado
-   :version: 1.3.0
-   :fecha_creacion: 2026-01-13
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TPL_FR_Query_SQL
+ :tipo: Plantilla
+ :dominio: normativa
+ :subdominio: estandares/plantillas
+ :estado: Aprobado
+ :version: 1.3.0
+ :fecha_creacion: 2026-01-13
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. rubric:: Metadata sugerida para la instancia
 
@@ -17,26 +17,26 @@ se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
-   :Proyecto: IACT
-   :Codigo: FR-MOD-NN-ZZ
-   :Titulo: Titulo del Functional Requirement - Query SQL
-   :Version: 1.0.0
-   :Derivado_De: UC-IACT-MOD-NN paso X
-   :Tipo: Query_SQL
-   :Fecha: YYYY-MM-DD
-   :Autor: Nombre del Developer
-   :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
+ :Proyecto: IACT
+ :Codigo: FR-MOD-NN-ZZ
+ :Titulo: Titulo del Functional Requirement - Query SQL
+ :Version: 1.0.0
+ :Derivado_De: UC-IACT-MOD-NN paso X
+ :Tipo: Query_SQL
+ :Fecha: YYYY-MM-DD
+ :Autor: Nombre del Developer
+ :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
 
 ===========================================================
 FR-MOD-NN-ZZ: Titulo del Functional Requirement - Query SQL
 ===========================================================
 
-**Proyecto:** IACT - IVR Analytics & Customer Tracking  
-**Derivado De:** UC-IACT-MOD-NN paso X  
-**Tipo:** Query_SQL  
-**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED  
-**Prioridad:** Alta|Media|Baja  
+**Proyecto:** IACT - IVR Analytics & Customer Tracking 
+**Derivado De:** UC-IACT-MOD-NN paso X 
+**Tipo:** Query_SQL 
+**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED 
+**Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
 ----------------------------------------------------------------------
@@ -100,20 +100,20 @@ linea.
 
 .. code-block:: sql
 
-   -- Comentario descriptivo de la query
-   -- Autor: Nombre
-   -- Fecha: YYYY-MM-DD
-   -- Performance objetivo: X segundos para Y filas
-   
-   SELECT 
-       -- Columnas con comentarios
-       columna1,
-       columna2
-   FROM tabla1
-   JOIN tabla2 ON condicion
-   WHERE filtros
-   GROUP BY agrupacion
-   ORDER BY ordenamiento
+ -- Comentario descriptivo de la query
+ -- Autor: Nombre
+ -- Fecha: YYYY-MM-DD
+ -- Performance objetivo: X segundos para Y filas
+ 
+ SELECT 
+ -- Columnas con comentarios
+ columna1,
+ columna2
+ FROM tabla1
+ JOIN tabla2 ON condicion
+ WHERE filtros
+ GROUP BY agrupacion
+ ORDER BY ordenamiento
 
 **Reglas de Estilo:**
 
@@ -137,107 +137,107 @@ y duracion promedio por dia.
 
 .. code-block:: sql
 
-   -- ============================================================
-   -- Query Principal: Reporte Trimestral Metricas IVR
-   -- ============================================================
-   -- Retorna metricas diarias agregadas para analisis trimestral
-   -- 
-   -- Parametros:
-   --   :quarter - Trimestre (Q1, Q2, Q3, Q4)
-   --   :year    - Ano (2020-2024)
-   --   :segment - Segmento cliente (OP, MG)
-   --
-   -- Performance objetivo:
-   --   - Volumen tipico: 1,000-10,000 filas
-   --   - Tiempo objetivo: < 3 segundos
-   --   - Con indices: < 1 segundo
-   --
-   -- Autor: Sistema IACT
-   -- Fecha: 2024-11-15
-   -- Version: 2.1 (optimizada con indices compuestos)
-   -- ============================================================
-   
-   SELECT 
-       -- ========================================
-       -- Dimension Temporal: Agregado por dia
-       -- ========================================
-       DATE_TRUNC('day', call_date) as dia,
-       
-       -- ========================================
-       -- Metricas de Volumen
-       -- ========================================
-       
-       -- Total de llamadas en el dia
-       COUNT(*) as total_llamadas,
-       
-       -- Llamadas que terminaron exitosamente
-       -- Status = 'COMPLETED' indica llamada atendida completamente
-       SUM(CASE 
-           WHEN status = 'COMPLETED' THEN 1 
-           ELSE 0 
-       END) as completadas,
-       
-       -- Llamadas abandonadas por cliente antes de ser atendidas
-       -- Status = 'ABANDONED' indica cliente colgo antes de agente
-       SUM(CASE 
-           WHEN status = 'ABANDONED' THEN 1 
-           ELSE 0 
-       END) as abandonadas,
-       
-       -- ========================================
-       -- Metricas de Duracion
-       -- ========================================
-       
-       -- Duracion promedio en segundos
-       -- Solo cuenta llamadas completadas (abandonadas tienen duracion = 0)
-       AVG(CASE 
-           WHEN status = 'COMPLETED' THEN duration_seconds 
-           ELSE NULL 
-       END) as duracion_promedio_completadas,
-       
-       -- Duracion maxima registrada en el dia
-       MAX(duration_seconds) as duracion_maxima,
-       
-       -- Duracion minima (excluyendo 0)
-       MIN(CASE 
-           WHEN duration_seconds > 0 THEN duration_seconds 
-           ELSE NULL 
-       END) as duracion_minima
-   
-   FROM ivr_calls
-   
-   -- ========================================
-   -- Filtros Parametrizados
-   -- ========================================
-   WHERE 
-       -- Filtro por trimestre
-       -- Campo quarter almacena 'Q1', 'Q2', 'Q3', 'Q4'
-       quarter = :quarter
-       
-       -- Filtro por ano
-       -- Campo year almacena integer 2020-2024
-       AND year = :year
-       
-       -- Filtro por segmento de cliente
-       -- OP = Operaciones (clientes normales)
-       -- MG = Management (ejecutivos/gerentes)
-       AND segment = :segment
-       
-       -- Excluir registros marcados como eliminados
-       -- Soft delete pattern: deleted_at IS NULL = activo
-       AND deleted_at IS NULL
-   
-   -- ========================================
-   -- Agrupacion por Dia
-   -- ========================================
-   -- Agrupa por fecha truncada a dia para serie temporal
-   GROUP BY DATE_TRUNC('day', call_date)
-   
-   -- ========================================
-   -- Ordenamiento Cronologico
-   -- ========================================
-   -- Orden ascendente para mostrar serie temporal de inicio a fin
-   ORDER BY dia ASC
+ -- ============================================================
+ -- Query Principal: Reporte Trimestral Metricas IVR
+ -- ============================================================
+ -- Retorna metricas diarias agregadas para analisis trimestral
+ -- 
+ -- Parametros:
+ -- :quarter - Trimestre (Q1, Q2, Q3, Q4)
+ -- :year - Ano (2020-2024)
+ -- :segment - Segmento cliente (OP, MG)
+ --
+ -- Performance objetivo:
+ -- - Volumen tipico: 1,000-10,000 filas
+ -- - Tiempo objetivo: < 3 segundos
+ -- - Con indices: < 1 segundo
+ --
+ -- Autor: Sistema IACT
+ -- Fecha: 2024-11-15
+ -- Version: 2.1 (optimizada con indices compuestos)
+ -- ============================================================
+ 
+ SELECT 
+ -- ========================================
+ -- Dimension Temporal: Agregado por dia
+ -- ========================================
+ DATE_TRUNC('day', call_date) as dia,
+ 
+ -- ========================================
+ -- Metricas de Volumen
+ -- ========================================
+ 
+ -- Total de llamadas en el dia
+ COUNT(*) as total_llamadas,
+ 
+ -- Llamadas que terminaron exitosamente
+ -- Status = 'COMPLETED' indica llamada atendida completamente
+ SUM(CASE 
+ WHEN status = 'COMPLETED' THEN 1 
+ ELSE 0 
+ END) as completadas,
+ 
+ -- Llamadas abandonadas por cliente antes de ser atendidas
+ -- Status = 'ABANDONED' indica cliente colgo antes de agente
+ SUM(CASE 
+ WHEN status = 'ABANDONED' THEN 1 
+ ELSE 0 
+ END) as abandonadas,
+ 
+ -- ========================================
+ -- Metricas de Duracion
+ -- ========================================
+ 
+ -- Duracion promedio en segundos
+ -- Solo cuenta llamadas completadas (abandonadas tienen duracion = 0)
+ AVG(CASE 
+ WHEN status = 'COMPLETED' THEN duration_seconds 
+ ELSE NULL 
+ END) as duracion_promedio_completadas,
+ 
+ -- Duracion maxima registrada en el dia
+ MAX(duration_seconds) as duracion_maxima,
+ 
+ -- Duracion minima (excluyendo 0)
+ MIN(CASE 
+ WHEN duration_seconds > 0 THEN duration_seconds 
+ ELSE NULL 
+ END) as duracion_minima
+ 
+ FROM ivr_calls
+ 
+ -- ========================================
+ -- Filtros Parametrizados
+ -- ========================================
+ WHERE 
+ -- Filtro por trimestre
+ -- Campo quarter almacena 'Q1', 'Q2', 'Q3', 'Q4'
+ quarter = :quarter
+ 
+ -- Filtro por ano
+ -- Campo year almacena integer 2020-2024
+ AND year = :year
+ 
+ -- Filtro por segmento de cliente
+ -- OP = Operaciones (clientes normales)
+ -- MG = Management (ejecutivos/gerentes)
+ AND segment = :segment
+ 
+ -- Excluir registros marcados como eliminados
+ -- Soft delete pattern: deleted_at IS NULL = activo
+ AND deleted_at IS NULL
+ 
+ -- ========================================
+ -- Agrupacion por Dia
+ -- ========================================
+ -- Agrupa por fecha truncada a dia para serie temporal
+ GROUP BY DATE_TRUNC('day', call_date)
+ 
+ -- ========================================
+ -- Ordenamiento Cronologico
+ -- ========================================
+ -- Orden ascendente para mostrar serie temporal de inicio a fin
+ ORDER BY dia ASC
 
 **Variaciones de la Query:**
 
@@ -245,29 +245,29 @@ Variacion 1: Sin Filtro de Segmento (todos los segmentos)
 
 .. code-block:: sql
 
-   -- Omitir filtro AND segment = :segment
-   -- Agregar columna segment en SELECT
-   SELECT 
-       DATE_TRUNC('day', call_date) as dia,
-       segment,  -- Adicional
-       COUNT(*) as total_llamadas,
-       ...
-   FROM ivr_calls
-   WHERE quarter = :quarter
-     AND year = :year
-     AND deleted_at IS NULL
-   GROUP BY DATE_TRUNC('day', call_date), segment  -- Modificado
-   ORDER BY dia, segment
+ -- Omitir filtro AND segment = :segment
+ -- Agregar columna segment en SELECT
+ SELECT 
+ DATE_TRUNC('day', call_date) as dia,
+ segment, -- Adicional
+ COUNT(*) as total_llamadas,
+ ...
+ FROM ivr_calls
+ WHERE quarter = :quarter
+ AND year = :year
+ AND deleted_at IS NULL
+ GROUP BY DATE_TRUNC('day', call_date), segment -- Modificado
+ ORDER BY dia, segment
 
 Variacion 2: Con Filtro Adicional de Tipo de Consulta
 
 .. code-block:: sql
 
-   WHERE quarter = :quarter
-     AND year = :year
-     AND segment = :segment
-     AND query_type = :query_type  -- Adicional
-     AND deleted_at IS NULL
+ WHERE quarter = :quarter
+ AND year = :year
+ AND segment = :segment
+ AND query_type = :query_type -- Adicional
+ AND deleted_at IS NULL
 
 ----------------------------------------------------------------------
 2. PARAMETROS BOUND
@@ -282,121 +282,121 @@ prevenir SQL injection.
 
 .. code-block:: python
 
-   # MAL - Vulnerable a SQL injection
-   query = f"SELECT * FROM users WHERE name = '{user_input}'"
-   
-   # BIEN - Parametros bound
-   query = "SELECT * FROM users WHERE name = %s"
-   cursor.execute(query, [user_input])
+ # MAL - Vulnerable a SQL injection
+ query = f"SELECT * FROM users WHERE name = '{user_input}'"
+ 
+ # BIEN - Parametros bound
+ query = "SELECT * FROM users WHERE name = %s"
+ cursor.execute(query, [user_input])
 
 **Tabla de Parametros:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 15 15 50
+ :header-rows: 1
+ :widths: 20 15 15 50
 
-   * - Parametro
-     - Tipo SQL
-     - Tipo Python
-     - Validacion
-   * - :quarter
-     - VARCHAR(2)
-     - str
-     - IN ('Q1','Q2','Q3','Q4')
-   * - :year
-     - INTEGER
-     - int
-     - BETWEEN 2020 AND 2024
-   * - :segment
-     - VARCHAR(2)
-     - str
-     - IN ('OP','MG')
+ * - Parametro
+ - Tipo SQL
+ - Tipo Python
+ - Validacion
+ * - :quarter
+ - VARCHAR(2)
+ - str
+ - IN ('Q1','Q2','Q3','Q4')
+ * - :year
+ - INTEGER
+ - int
+ - BETWEEN 2020 AND 2024
+ * - :segment
+ - VARCHAR(2)
+ - str
+ - IN ('OP','MG')
 
 **Codigo de Validacion:**
 
 .. code-block:: python
 
-   def validate_query_parameters(quarter, year, segment):
-       """
-       Validates query parameters before executing SQL.
-       
-       Implements FR-RPT-01-06 parameter validation.
-       
-       Args:
-           quarter (str): Q1, Q2, Q3, Q4
-           year (int): 2020-2024
-           segment (str): OP, MG
-       
-       Raises:
-           ValidationError: If any parameter is invalid
-       """
-       from datetime import datetime
-       
-       # Validate quarter
-       VALID_QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
-       if quarter not in VALID_QUARTERS:
-           raise ValidationError(
-               f"Invalid quarter: {quarter}. "
-               f"Must be one of: {', '.join(VALID_QUARTERS)}"
-           )
-       
-       # Validate year
-       CURRENT_YEAR = datetime.now().year
-       MIN_YEAR = 2020
-       
-       if not isinstance(year, int):
-           raise ValidationError(
-               f"Invalid year type: expected int, got {type(year)}"
-           )
-       
-       if not (MIN_YEAR <= year <= CURRENT_YEAR):
-           raise ValidationError(
-               f"Invalid year: {year}. "
-               f"Must be between {MIN_YEAR} and {CURRENT_YEAR}"
-           )
-       
-       # Validate segment
-       VALID_SEGMENTS = ['OP', 'MG']
-       if segment not in VALID_SEGMENTS:
-           raise ValidationError(
-               f"Invalid segment: {segment}. "
-               f"Must be one of: {', '.join(VALID_SEGMENTS)}"
-           )
-       
-       return True
+ def validate_query_parameters(quarter, year, segment):
+ """
+ Validates query parameters before executing SQL.
+ 
+ Implements FR-RPT-01-06 parameter validation.
+ 
+ Args:
+ quarter (str): Q1, Q2, Q3, Q4
+ year (int): 2020-2024
+ segment (str): OP, MG
+ 
+ Raises:
+ ValidationError: If any parameter is invalid
+ """
+ from datetime import datetime
+ 
+ # Validate quarter
+ VALID_QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
+ if quarter not in VALID_QUARTERS:
+ raise ValidationError(
+ f"Invalid quarter: {quarter}. "
+ f"Must be one of: {', '.join(VALID_QUARTERS)}"
+ )
+ 
+ # Validate year
+ CURRENT_YEAR = datetime.now.year
+ MIN_YEAR = 2020
+ 
+ if not isinstance(year, int):
+ raise ValidationError(
+ f"Invalid year type: expected int, got {type(year)}"
+ )
+ 
+ if not (MIN_YEAR <= year <= CURRENT_YEAR):
+ raise ValidationError(
+ f"Invalid year: {year}. "
+ f"Must be between {MIN_YEAR} and {CURRENT_YEAR}"
+ )
+ 
+ # Validate segment
+ VALID_SEGMENTS = ['OP', 'MG']
+ if segment not in VALID_SEGMENTS:
+ raise ValidationError(
+ f"Invalid segment: {segment}. "
+ f"Must be one of: {', '.join(VALID_SEGMENTS)}"
+ )
+ 
+ return True
 
 **Uso en Codigo:**
 
 .. code-block:: python
 
-   from django.db import connection
-   
-   def execute_quarterly_report_query(quarter, year, segment):
-       """Executes FR-RPT-01-06 with validated parameters."""
-       
-       # Validate first
-       validate_query_parameters(quarter, year, segment)
-       
-       # Execute with bound parameters
-       with connection.cursor() as cursor:
-           query = """
-               SELECT 
-                   DATE_TRUNC('day', call_date) as dia,
-                   COUNT(*) as total_llamadas,
-                   ...
-               FROM ivr_calls
-               WHERE quarter = %s
-                 AND year = %s
-                 AND segment = %s
-                 AND deleted_at IS NULL
-               GROUP BY DATE_TRUNC('day', call_date)
-               ORDER BY dia ASC
-           """
-           
-           # Parametros bound - seguro contra SQL injection
-           cursor.execute(query, [quarter, year, segment])
-           
-           return cursor.fetchall()
+ from django.db import connection
+ 
+ def execute_quarterly_report_query(quarter, year, segment):
+ """Executes FR-RPT-01-06 with validated parameters."""
+ 
+ # Validate first
+ validate_query_parameters(quarter, year, segment)
+ 
+ # Execute with bound parameters
+ with connection.cursor as cursor:
+ query = """
+ SELECT 
+ DATE_TRUNC('day', call_date) as dia,
+ COUNT(*) as total_llamadas,
+ ...
+ FROM ivr_calls
+ WHERE quarter = %s
+ AND year = %s
+ AND segment = %s
+ AND deleted_at IS NULL
+ GROUP BY DATE_TRUNC('day', call_date)
+ ORDER BY dia ASC
+ """
+ 
+ # Parametros bound - seguro contra SQL injection
+ cursor.execute(query, [quarter, year, segment])
+ 
+ return cursor.fetchall
 
 ----------------------------------------------------------------------
 3. INDICES REQUERIDOS
@@ -420,11 +420,11 @@ Indice 1: Compuesto Principal
 
 .. code-block:: sql
 
-   -- Indice compuesto para filtros de WHERE
-   -- Cubre quarter + year + segment
-   CREATE INDEX idx_ivr_calls_quarter_year_segment_date 
-   ON ivr_calls (quarter, year, segment, call_date)
-   WHERE deleted_at IS NULL;
+ -- Indice compuesto para filtros de WHERE
+ -- Cubre quarter + year + segment
+ CREATE INDEX idx_ivr_calls_quarter_year_segment_date 
+ ON ivr_calls (quarter, year, segment, call_date)
+ WHERE deleted_at IS NULL;
 
 **Razon:**
 
@@ -450,9 +450,9 @@ Indice 2: Status para CASE Statements
 
 .. code-block:: sql
 
-   -- Indice en status para optimizar CASE WHEN
-   CREATE INDEX idx_ivr_calls_status 
-   ON ivr_calls (status);
+ -- Indice en status para optimizar CASE WHEN
+ CREATE INDEX idx_ivr_calls_status 
+ ON ivr_calls (status);
 
 **Razon:**
 
@@ -463,10 +463,10 @@ Indice 3: Duration para Agregaciones
 
 .. code-block:: sql
 
-   -- Indice en duration para AVG/MAX/MIN
-   CREATE INDEX idx_ivr_calls_duration 
-   ON ivr_calls (duration_seconds)
-   WHERE duration_seconds > 0;
+ -- Indice en duration para AVG/MAX/MIN
+ CREATE INDEX idx_ivr_calls_duration 
+ ON ivr_calls (duration_seconds)
+ WHERE duration_seconds > 0;
 
 **Razon:**
 
@@ -477,32 +477,32 @@ excluye valores 0 que no se usan en calculos.
 
 .. code-block:: sql
 
-   -- ============================================================
-   -- Indices para FR-RPT-01-06
-   -- ============================================================
-   -- Ejecutar en orden
-   -- Tiempo estimado: 2-5 minutos en tabla de 1M filas
-   -- ============================================================
-   
-   -- Indice 1: Principal compuesto
-   CREATE INDEX CONCURRENTLY 
-       idx_ivr_calls_quarter_year_segment_date 
-   ON ivr_calls (quarter, year, segment, call_date)
-   WHERE deleted_at IS NULL;
-   
-   -- Indice 2: Status
-   CREATE INDEX CONCURRENTLY 
-       idx_ivr_calls_status 
-   ON ivr_calls (status);
-   
-   -- Indice 3: Duration
-   CREATE INDEX CONCURRENTLY 
-       idx_ivr_calls_duration 
-   ON ivr_calls (duration_seconds)
-   WHERE duration_seconds > 0;
-   
-   -- Verificar creacion
-   \d ivr_calls
+ -- ============================================================
+ -- Indices para FR-RPT-01-06
+ -- ============================================================
+ -- Ejecutar en orden
+ -- Tiempo estimado: 2-5 minutos en tabla de 1M filas
+ -- ============================================================
+ 
+ -- Indice 1: Principal compuesto
+ CREATE INDEX CONCURRENTLY 
+ idx_ivr_calls_quarter_year_segment_date 
+ ON ivr_calls (quarter, year, segment, call_date)
+ WHERE deleted_at IS NULL;
+ 
+ -- Indice 2: Status
+ CREATE INDEX CONCURRENTLY 
+ idx_ivr_calls_status 
+ ON ivr_calls (status);
+ 
+ -- Indice 3: Duration
+ CREATE INDEX CONCURRENTLY 
+ idx_ivr_calls_duration 
+ ON ivr_calls (duration_seconds)
+ WHERE duration_seconds > 0;
+ 
+ -- Verificar creacion
+ \d ivr_calls
 
 **Nota sobre CONCURRENTLY:**
 
@@ -522,9 +522,9 @@ indices y detectar cuellos de botella.
 
 .. code-block:: sql
 
-   EXPLAIN ANALYZE
-   SELECT ...
-   -- query completa aqui
+ EXPLAIN ANALYZE
+ SELECT ...
+ -- query completa aqui
 
 **EJEMPLO (FR-RPT-01-06):**
 
@@ -532,97 +532,97 @@ Escenario: Q3 2024, Segmento OP, ~8,500 filas esperadas
 
 .. code-block:: text
 
-   EXPLAIN ANALYZE Output:
-   
-   Sort  (cost=245.67..248.12 rows=92 width=56) 
-         (actual time=12.345..12.567 rows=92 loops=1)
-     Sort Key: (date_trunc('day'::text, call_date))
-     Sort Method: quicksort  Memory: 25kB
-     ->  GroupAggregate  (cost=200.34..242.45 rows=92 width=56) 
-                        (actual time=8.234..11.456 rows=92 loops=1)
-           Group Key: (date_trunc('day'::text, call_date))
-           ->  Sort  (cost=200.34..212.56 rows=8500 width=16) 
-                     (actual time=8.123..9.234 rows=8492 loops=1)
-                 Sort Key: (date_trunc('day'::text, call_date))
-                 Sort Method: external merge  Disk: 1024kB
-                 ->  Index Scan using idx_ivr_calls_quarter_year_segment_date 
-                     on ivr_calls  
-                     (cost=0.56..145.67 rows=8500 width=16) 
-                     (actual time=0.234..5.678 rows=8492 loops=1)
-                       Index Cond: ((quarter = 'Q3'::text) AND 
-                                    (year = 2024) AND 
-                                    (segment = 'OP'::text))
-                       Filter: (deleted_at IS NULL)
-                       Rows Removed by Filter: 0
-   
-   Planning Time: 0.456 ms
-   Execution Time: 12.789 ms
+ EXPLAIN ANALYZE Output:
+ 
+ Sort (cost=245.67..248.12 rows=92 width=56) 
+ (actual time=12.345..12.567 rows=92 loops=1)
+ Sort Key: (date_trunc('day'::text, call_date))
+ Sort Method: quicksort Memory: 25kB
+ -> GroupAggregate (cost=200.34..242.45 rows=92 width=56) 
+ (actual time=8.234..11.456 rows=92 loops=1)
+ Group Key: (date_trunc('day'::text, call_date))
+ -> Sort (cost=200.34..212.56 rows=8500 width=16) 
+ (actual time=8.123..9.234 rows=8492 loops=1)
+ Sort Key: (date_trunc('day'::text, call_date))
+ Sort Method: external merge Disk: 1024kB
+ -> Index Scan using idx_ivr_calls_quarter_year_segment_date 
+ on ivr_calls 
+ (cost=0.56..145.67 rows=8500 width=16) 
+ (actual time=0.234..5.678 rows=8492 loops=1)
+ Index Cond: ((quarter = 'Q3'::text) AND 
+ (year = 2024) AND 
+ (segment = 'OP'::text))
+ Filter: (deleted_at IS NULL)
+ Rows Removed by Filter: 0
+ 
+ Planning Time: 0.456 ms
+ Execution Time: 12.789 ms
 
 **Analisis del Plan:**
 
 **Puntos Positivos:**
 
 1. **Index Scan:** Usa indice idx_ivr_calls_quarter_year_segment_date
-   - BIEN: Evita full table scan
-   - Cost 0.56 es muy bajo, indica inicio rapido
+ - BIEN: Evita full table scan
+ - Cost 0.56 es muy bajo, indica inicio rapido
 
 2. **Rows Estimados vs Actuales:**
-   - Estimado: 8,500
-   - Actual: 8,492
-   - BIEN: Estadisticas precisas, planner toma buenas decisiones
+ - Estimado: 8,500
+ - Actual: 8,492
+ - BIEN: Estadisticas precisas, planner toma buenas decisiones
 
 3. **Execution Time: 12.789 ms**
-   - EXCELENTE: Menor al objetivo de 3 segundos (3000 ms)
+ - EXCELENTE: Menor al objetivo de 3 segundos (3000 ms)
 
 **Puntos a Mejorar:**
 
 1. **Sort Method: external merge Disk: 1024kB**
-   - WARNING: Sort usa disco, no memoria
-   - Solucion: Aumentar work_mem
+ - WARNING: Sort usa disco, no memoria
+ - Solucion: Aumentar work_mem
 
 **Optimizaciones Aplicadas:**
 
 .. code-block:: sql
 
-   -- Aumentar work_mem para esta sesion
-   SET work_mem = '4MB';
-   
-   -- Re-ejecutar query
-   EXPLAIN ANALYZE ...
+ -- Aumentar work_mem para esta sesion
+ SET work_mem = '4MB';
+ 
+ -- Re-ejecutar query
+ EXPLAIN ANALYZE ...
 
 Resultado tras optimizacion:
 
 .. code-block:: text
 
-   Sort Method: quicksort  Memory: 1024kB
-   -- Ahora usa memoria, mas rapido
+ Sort Method: quicksort Memory: 1024kB
+ -- Ahora usa memoria, mas rapido
 
 **Performance Metrics:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 25 25 20
+ :header-rows: 1
+ :widths: 30 25 25 20
 
-   * - Metrica
-     - Sin Indices
-     - Con Indices
-     - Objetivo
-   * - Execution Time
-     - 8,500 ms
-     - 12.8 ms
-     - < 3,000 ms
-   * - Planning Time
-     - 1.2 ms
-     - 0.5 ms
-     - < 5 ms
-   * - Rows Scanned
-     - 1,250,000
-     - 8,492
-     - Minimo posible
-   * - Index Usage
-     - Seq Scan
-     - Index Scan
-     - Index Scan
+ * - Metrica
+ - Sin Indices
+ - Con Indices
+ - Objetivo
+ * - Execution Time
+ - 8,500 ms
+ - 12.8 ms
+ - < 3,000 ms
+ * - Planning Time
+ - 1.2 ms
+ - 0.5 ms
+ - < 5 ms
+ * - Rows Scanned
+ - 1,250,000
+ - 8,492
+ - Minimo posible
+ * - Index Usage
+ - Seq Scan
+ - Index Scan
+ - Index Scan
 
 ----------------------------------------------------------------------
 5. OPTIMIZACIONES APLICADAS
@@ -638,15 +638,15 @@ Antes:
 
 .. code-block:: sql
 
-   -- Sin indice: Full table scan
-   Seq Scan on ivr_calls (cost=0.00..45000.00 rows=1250000)
+ -- Sin indice: Full table scan
+ Seq Scan on ivr_calls (cost=0.00..45000.00 rows=1250000)
 
 Despues:
 
 .. code-block:: sql
 
-   -- Con indice compuesto: Index scan
-   Index Scan using idx_... (cost=0.56..145.67 rows=8500)
+ -- Con indice compuesto: Index scan
+ Index Scan using idx_... (cost=0.56..145.67 rows=8500)
 
 Impacto: 99% reduccion en tiempo de ejecucion
 
@@ -656,16 +656,16 @@ Antes:
 
 .. code-block:: sql
 
-   CREATE INDEX idx_basic ON ivr_calls (quarter, year, segment);
-   -- Tamaño: 120 MB
+ CREATE INDEX idx_basic ON ivr_calls (quarter, year, segment);
+ -- Tamaño: 120 MB
 
 Despues:
 
 .. code-block:: sql
 
-   CREATE INDEX idx_partial ON ivr_calls (...)
-   WHERE deleted_at IS NULL;
-   -- Tamaño: 110 MB (8% mas pequeno)
+ CREATE INDEX idx_partial ON ivr_calls (...)
+ WHERE deleted_at IS NULL;
+ -- Tamaño: 110 MB (8% mas pequeno)
 
 Impacto: Indice mas pequeno, mas rapido
 
@@ -675,25 +675,25 @@ Antes (version inicial):
 
 .. code-block:: sql
 
-   -- 3 queries separadas
-   SELECT COUNT(*) FROM ivr_calls WHERE status = 'COMPLETED' ...
-   SELECT COUNT(*) FROM ivr_calls WHERE status = 'ABANDONED' ...
-   SELECT AVG(duration) FROM ivr_calls WHERE status = 'COMPLETED' ...
-   
-   -- Tiempo total: 3 x 15 ms = 45 ms
+ -- 3 queries separadas
+ SELECT COUNT(*) FROM ivr_calls WHERE status = 'COMPLETED' ...
+ SELECT COUNT(*) FROM ivr_calls WHERE status = 'ABANDONED' ...
+ SELECT AVG(duration) FROM ivr_calls WHERE status = 'COMPLETED' ...
+ 
+ -- Tiempo total: 3 x 15 ms = 45 ms
 
 Despues (version optimizada):
 
 .. code-block:: sql
 
-   -- 1 query con CASE WHEN
-   SELECT 
-       SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END),
-       SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END),
-       AVG(CASE WHEN status='COMPLETED' THEN duration ELSE NULL END)
-   FROM ivr_calls ...
-   
-   -- Tiempo total: 13 ms
+ -- 1 query con CASE WHEN
+ SELECT 
+ SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END),
+ SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END),
+ AVG(CASE WHEN status='COMPLETED' THEN duration ELSE NULL END)
+ FROM ivr_calls ...
+ 
+ -- Tiempo total: 13 ms
 
 Impacto: 72% reduccion escaneo de tabla (1 scan vs 3 scans)
 
@@ -701,12 +701,12 @@ Impacto: 72% reduccion escaneo de tabla (1 scan vs 3 scans)
 
 .. code-block:: sql
 
-   -- Default work_mem = 4MB insuficiente
-   -- Sort usa disco: external merge Disk: 1024kB
-   
-   SET work_mem = '8MB';
-   
-   -- Ahora sort usa memoria: quicksort Memory: 1024kB
+ -- Default work_mem = 4MB insuficiente
+ -- Sort usa disco: external merge Disk: 1024kB
+ 
+ SET work_mem = '8MB';
+ 
+ -- Ahora sort usa memoria: quicksort Memory: 1024kB
 
 Impacto: Sort en memoria es 10x mas rapido que en disco
 
@@ -722,100 +722,100 @@ Tests para verificar correctitud y performance de la query.
 
 .. code-block:: python
 
-   import pytest
-   from datetime import date
-   from reports.queries import execute_quarterly_report_query
-   
-   @pytest.mark.django_db
-   def test_quarterly_report_query_correctness():
-       """
-       Test FR-RPT-01-06 returns correct aggregations.
-       
-       Setup test data, execute query, verify results.
-       """
-       # Arrange: Create test data
-       from app.models import IVRCall
-       
-       # Day 1: 2 calls (1 completed, 1 abandoned)
-       IVRCall.objects.create(
-           call_date=date(2024, 7, 1),
-           quarter='Q3',
-           year=2024,
-           segment='OP',
-           status='COMPLETED',
-           duration_seconds=240
-       )
-       IVRCall.objects.create(
-           call_date=date(2024, 7, 1),
-           quarter='Q3',
-           year=2024,
-           segment='OP',
-           status='ABANDONED',
-           duration_seconds=0
-       )
-       
-       # Act
-       results = execute_quarterly_report_query('Q3', 2024, 'OP')
-       
-       # Assert
-       assert len(results) == 1  # 1 dia
-       
-       day_1 = results[0]
-       assert day_1['dia'] == date(2024, 7, 1)
-       assert day_1['total_llamadas'] == 2
-       assert day_1['completadas'] == 1
-       assert day_1['abandonadas'] == 1
-       assert day_1['duracion_promedio_completadas'] == 240.0
+ import pytest
+ from datetime import date
+ from reports.queries import execute_quarterly_report_query
+ 
+ @pytest.mark.django_db
+ def test_quarterly_report_query_correctness:
+ """
+ Test FR-RPT-01-06 returns correct aggregations.
+ 
+ Setup test data, execute query, verify results.
+ """
+ # Arrange: Create test data
+ from app.models import IVRCall
+ 
+ # Day 1: 2 calls (1 completed, 1 abandoned)
+ IVRCall.objects.create(
+ call_date=date(2024, 7, 1),
+ quarter='Q3',
+ year=2024,
+ segment='OP',
+ status='COMPLETED',
+ duration_seconds=240
+ )
+ IVRCall.objects.create(
+ call_date=date(2024, 7, 1),
+ quarter='Q3',
+ year=2024,
+ segment='OP',
+ status='ABANDONED',
+ duration_seconds=0
+ )
+ 
+ # Act
+ results = execute_quarterly_report_query('Q3', 2024, 'OP')
+ 
+ # Assert
+ assert len(results) == 1 # 1 dia
+ 
+ day_1 = results[0]
+ assert day_1['dia'] == date(2024, 7, 1)
+ assert day_1['total_llamadas'] == 2
+ assert day_1['completadas'] == 1
+ assert day_1['abandonadas'] == 1
+ assert day_1['duracion_promedio_completadas'] == 240.0
 
 **Test de Performance:**
 
 .. code-block:: python
 
-   @pytest.mark.slow
-   @pytest.mark.django_db
-   def test_quarterly_report_query_performance():
-       """
-       Test FR-RPT-01-06 meets performance requirements.
-       
-       Validates query completes in < 3 seconds for 10K rows.
-       """
-       import time
-       
-       # Arrange: Create 10,000 test records
-       create_test_data(count=10000, quarter='Q3', year=2024)
-       
-       # Act
-       start_time = time.time()
-       results = execute_quarterly_report_query('Q3', 2024, 'OP')
-       end_time = time.time()
-       
-       execution_time = end_time - start_time
-       
-       # Assert
-       assert execution_time < 3.0, \
-           f"Query took {execution_time}s, expected < 3s"
-       
-       assert len(results) > 0, "Should return results"
+ @pytest.mark.slow
+ @pytest.mark.django_db
+ def test_quarterly_report_query_performance:
+ """
+ Test FR-RPT-01-06 meets performance requirements.
+ 
+ Validates query completes in < 3 seconds for 10K rows.
+ """
+ import time
+ 
+ # Arrange: Create 10,000 test records
+ create_test_data(count=10000, quarter='Q3', year=2024)
+ 
+ # Act
+ start_time = time.time
+ results = execute_quarterly_report_query('Q3', 2024, 'OP')
+ end_time = time.time
+ 
+ execution_time = end_time - start_time
+ 
+ # Assert
+ assert execution_time < 3.0, \
+ f"Query took {execution_time}s, expected < 3s"
+ 
+ assert len(results) > 0, "Should return results"
 
 **Test con Volumenes Grandes:**
 
 .. code-block:: python
 
-   @pytest.mark.slow
-   @pytest.mark.skipif(not is_production_db(), 
-                       reason="Requires production-size DB")
-   def test_quarterly_report_large_volume():
-       """
-       Test FR-RPT-01-06 with production-like volume.
-       
-       50K+ records, should still complete in acceptable time.
-       """
-       # Test con datos reales de produccion
-       results = execute_quarterly_report_query('Q3', 2023, 'OP')
-       
-       # Verify reasonable performance
-       # (medido en CI, no en test)
-       assert len(results) >= 90  # Al menos 90 dias
+ @pytest.mark.slow
+ @pytest.mark.skipif(not is_production_db, 
+ reason="Requires production-size DB")
+ def test_quarterly_report_large_volume:
+ """
+ Test FR-RPT-01-06 with production-like volume.
+ 
+ 50K+ records, should still complete in acceptable time.
+ """
+ # Test con datos reales de produccion
+ results = execute_quarterly_report_query('Q3', 2023, 'OP')
+ 
+ # Verify reasonable performance
+ # (medido en CI, no en test)
+ assert len(results) >= 90 # Al menos 90 dias
 
 ----------------------------------------------------------------------
 REFERENCIAS
@@ -843,22 +843,22 @@ REFERENCIAS
 ----------------------------------------------------------------------
 
 .. note::
-   CHECKLIST FR QUERY SQL:
-   
-   - Query SQL completa y comentada linea por linea
-   - Parametros bound documentados (prevenir SQL injection)
-   - Validaciones de parametros implementadas
-   - Indices requeridos especificados con CREATE INDEX
-   - EXPLAIN ANALYZE output analizado
-   - Optimizaciones documentadas con impacto medido
-   - Tests unitarios de correctitud
-   - Tests de performance con volumenes grandes
-   - Metricas de performance: < 3s objetivo
+ CHECKLIST FR QUERY SQL:
+ 
+ - Query SQL completa y comentada linea por linea
+ - Parametros bound documentados (prevenir SQL injection)
+ - Validaciones de parametros implementadas
+ - Indices requeridos especificados con CREATE INDEX
+ - EXPLAIN ANALYZE output analizado
+ - Optimizaciones documentadas con impacto medido
+ - Tests unitarios de correctitud
+ - Tests de performance con volumenes grandes
+ - Metricas de performance: < 3s objetivo
 
 ----------------------------------------------------------------------
 
-**Archivo:** TPL_FR_Query_SQL_1_3_0.rst  
-**Version Template:** 1.3.0  
-**Fecha Creacion Template:** 2026-01-11  
-**Autor Template:** Sistema de Regeneracion IACT  
+**Archivo:** TPL_FR_Query_SQL_1_3_0.rst 
+**Version Template:** 1.3.0 
+**Fecha Creacion Template:** 2026-01-11 
+**Autor Template:** Sistema de Regeneracion IACT 
 **Lineas Totales:** aproximadamente 700

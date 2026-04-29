@@ -1,12 +1,12 @@
 .. meta::
-   :artefacto: FR-002.01
-   :tipo: Requisito Funcional
-   :dominio: requisitos
-   :subdominio: funcionales/auth
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha: 2026-01-07
-   :autor: Equipo IACT
+ :artefacto: FR-002.01
+ :tipo: Requisito Funcional
+ :dominio: requisitos
+ :subdominio: funcionales/auth
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha: 2026-01-07
+ :autor: Equipo IACT
 
 .. _fr-002-01:
 
@@ -19,22 +19,22 @@ FR-002.01: Invalidar token JWT
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - FR-002.01
-   * - **Nombre**
-     - Invalidar token JWT al cerrar sesión
-   * - **UC Origen**
-     - UC_002: Cerrar Sesion
-   * - **Paso UC**
-     - Paso 4 del flujo normal
-   * - **Módulo**
-     - MOD_Auth
-   * - **Prioridad**
-     - Alta
-   * - **Tipo**
-     - Proceso
+ * - **ID**
+ - FR-002.01
+ * - **Nombre**
+ - Invalidar token JWT al cerrar sesión
+ * - **UC Origen**
+ - UC_002: Cerrar Sesion
+ * - **Paso UC**
+ - Paso 4 del flujo normal
+ * - **Módulo**
+ - MOD_Auth
+ * - **Prioridad**
+ - Alta
+ * - **Tipo**
+ - Proceso
 
 ----
 
@@ -43,24 +43,24 @@ FR-002.01: Invalidar token JWT
 
 **Declaración:**
 
-   El sistema DEBE invalidar el token JWT activo CUANDO el usuario
-   solicita cerrar su sesión y confirma la acción.
+ El sistema DEBE invalidar el token JWT activo CUANDO el usuario
+ solicita cerrar su sesión y confirma la acción.
 
 **Descripción:**
 
-   El proceso de invalidación incluye:
-   
-   1. Extraer el jti (JWT ID) del token actual
-   2. Buscar registro en tabla ``user_sessions`` por jti
-   3. Actualizar status de 'ACTIVE' a 'LOGGED_OUT'
-   4. Registrar timestamp de cierre (logged_out_at)
-   5. Agregar jti a blacklist de tokens (cache Redis)
-   
-   **Blacklist de Tokens:**
-   
-   - Los tokens invalidados se agregan a Redis
-   - TTL igual al tiempo restante de expiración del token
-   - Toda validación de token consulta blacklist primero
+ El proceso de invalidación incluye:
+ 
+ 1. Extraer el jti (JWT ID) del token actual
+ 2. Buscar registro en tabla ``user_sessions`` por jti
+ 3. Actualizar status de 'ACTIVE' a 'LOGGED_OUT'
+ 4. Registrar timestamp de cierre (logged_out_at)
+ 5. Agregar jti a blacklist de tokens (cache Redis)
+ 
+ **Blacklist de Tokens:**
+ 
+ - Los tokens invalidados se agregan a Redis
+ - TTL igual al tiempo restante de expiración del token
+ - Toda validación de token consulta blacklist primero
 
 ----
 
@@ -69,28 +69,28 @@ FR-002.01: Invalidar token JWT
 
 ::
 
-   DADO un usuario con sesión activa
-   CUANDO solicita cerrar sesión y confirma
-   ENTONCES el token JWT queda invalidado inmediatamente
-   
-   Escenario 1: Cierre exitoso
-   DADO usuario con token válido
-   CUANDO confirma cierre de sesión
-   ENTONCES el registro en user_sessions cambia a status = 'LOGGED_OUT'
-   Y el token se agrega a la blacklist
-   Y cualquier request posterior con ese token retorna 401
-   
-   Escenario 2: Token ya en blacklist
-   DADO token que ya fue invalidado
-   CUANDO se intenta usar
-   ENTONCES retorna 401 Unauthorized
-   Y mensaje "Sesión expirada o inválida"
-   
-   Escenario 3: Cierre sin confirmar
-   DADO usuario que cancela confirmación
-   CUANDO no confirma el cierre
-   ENTONCES el token permanece válido
-   Y la sesión continúa activa
+ DADO un usuario con sesión activa
+ CUANDO solicita cerrar sesión y confirma
+ ENTONCES el token JWT queda invalidado inmediatamente
+ 
+ Escenario 1: Cierre exitoso
+ DADO usuario con token válido
+ CUANDO confirma cierre de sesión
+ ENTONCES el registro en user_sessions cambia a status = 'LOGGED_OUT'
+ Y el token se agrega a la blacklist
+ Y cualquier request posterior con ese token retorna 401
+ 
+ Escenario 2: Token ya en blacklist
+ DADO token que ya fue invalidado
+ CUANDO se intenta usar
+ ENTONCES retorna 401 Unauthorized
+ Y mensaje "Sesión expirada o inválida"
+ 
+ Escenario 3: Cierre sin confirmar
+ DADO usuario que cancela confirmación
+ CUANDO no confirma el cierre
+ ENTONCES el token permanece válido
+ Y la sesión continúa activa
 
 ----
 
@@ -98,9 +98,9 @@ FR-002.01: Invalidar token JWT
 -------------------------
 
 - **BR aplicables:** Ninguna específica
-  
+ 
 - **CNST aplicables:**
-  - CNST-002: Gestión de sesiones en BD
+ - CNST-002: Gestión de sesiones en BD
 
 **Consideraciones de Performance:**
 
@@ -114,20 +114,20 @@ FR-002.01: Invalidar token JWT
 ---------------
 
 .. list-table::
-   :widths: 20 80
+ :widths: 20 80
 
-   * - **BReq**
-     - BReq-004: Cumplimiento de Seguridad
-   * - **UC**
-     - UC_002: Cerrar Sesion
-   * - **Depende de**
-     - FR-001.03 (token existente)
-   * - **Requerido por**
-     - FR-002.02
-   * - **CNST**
-     - CNST-002
-   * - **TEST**
-     - TST-FR-002.01 (pendiente)
+ * - **BReq**
+ - BReq-004: Cumplimiento de Seguridad
+ * - **UC**
+ - UC_002: Cerrar Sesion
+ * - **Depende de**
+ - FR-001.03 (token existente)
+ * - **Requerido por**
+ - FR-002.02
+ * - **CNST**
+ - CNST-002
+ * - **TEST**
+ - TST-FR-002.01 (pendiente)
 
 ----
 
@@ -135,12 +135,12 @@ FR-002.01: Invalidar token JWT
 ------------
 
 .. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
+ :widths: 15 15 70
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Cambio
-   * - 1.0.0
-     - 2026-01-07
-     - Versión inicial derivada de UC_002
+ * - Versión
+ - Fecha
+ - Cambio
+ * - 1.0.0
+ - 2026-01-07
+ - Versión inicial derivada de UC_002

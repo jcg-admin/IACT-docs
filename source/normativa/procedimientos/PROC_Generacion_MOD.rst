@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_MOD
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_MOD
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-mod:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_MOD
-   * - **Nombre**
-     - Generacion de Especificaciones de Modulo
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 45-90 minutos por MOD
+ * - **ID**
+ - PROC_Generacion_MOD
+ * - **Nombre**
+ - Generacion de Especificaciones de Modulo
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 45-90 minutos por MOD
 
 ----
 
@@ -56,35 +56,35 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 ---------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - MOD
-     - Nombre
-     - Responsabilidad
-   * - MOD_Auth
-     - Autenticacion
-     - Login, sesiones, tokens
-   * - MOD_Users
-     - Usuarios
-     - CRUD usuarios, perfiles
-   * - MOD_Access
-     - Control Acceso
-     - RBAC, permisos
-   * - MOD_Pipeline
-     - Pipeline Datos
-     - ETL, transformaciones
-   * - MOD_Reports
-     - Reportes
-     - Dashboards, graficos
-   * - MOD_Alerts
-     - Alertas
-     - Notificaciones, umbrales
-   * - MOD_Audit
-     - Auditoria
-     - Logs, trazabilidad
-   * - MOD_Logs
-     - Logs Sistema
-     - Registro eventos
+ * - MOD
+ - Nombre
+ - Responsabilidad
+ * - MOD_Auth
+ - Autenticacion
+ - Login, sesiones, tokens
+ * - MOD_Users
+ - Usuarios
+ - CRUD usuarios, perfiles
+ * - MOD_Access
+ - Control Acceso
+ - RBAC, permisos
+ * - MOD_Pipeline
+ - Pipeline Datos
+ - ETL, transformaciones
+ * - MOD_Reports
+ - Reportes
+ - Dashboards, graficos
+ * - MOD_Alerts
+ - Alertas
+ - Notificaciones, umbrales
+ * - MOD_Audit
+ - Auditoria
+ - Logs, trazabilidad
+ * - MOD_Logs
+ - Logs Sistema
+ - Registro eventos
 
 ----
 
@@ -99,8 +99,8 @@ Seleccionar modulo a documentar.
 
 .. code-block:: text
 
-   Formato: MOD_[Nombre]
-   Archivo: MOD_[Nombre].rst
+ Formato: MOD_[Nombre]
+ Archivo: MOD_[Nombre].rst
 
 **Paso 3: Documentar Responsabilidad**
 
@@ -131,16 +131,16 @@ Casos de uso que implementa.
 
 .. code-block:: text
 
-   MOD_Auth
-   ├── Responsabilidad
-   ├── Componentes
-   │   ├── Models: User, Session
-   │   ├── Views: LoginView, LogoutView
-   │   └── Services: AuthService, JWTService
-   ├── Dependencias
-   │   ├── Usa: MOD_Audit
-   │   └── Usado por: MOD_Users, MOD_Access
-   └── UC: UC_001 - UC_005
+ MOD_Auth
+ ├── Responsabilidad
+ ├── Componentes
+ │ ├── Models: User, Session
+ │ ├── Views: LoginView, LogoutView
+ │ └── Services: AuthService, JWTService
+ ├── Dependencias
+ │ ├── Usa: MOD_Audit
+ │ └── Usado por: MOD_Users, MOD_Access
+ └── UC: UC_001 - UC_005
 
 ----
 
@@ -173,14 +173,14 @@ Casos de uso que implementa.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

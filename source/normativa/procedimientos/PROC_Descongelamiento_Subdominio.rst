@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Descongelamiento_Subdominio
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Descongelamiento_Subdominio
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-descongelamiento-subdominio:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Descongelamiento_Subdominio
-   * - **Nombre**
-     - Descongelar Subdominio del Modelo Documental
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Cuando se requieren cambios en subdominio congelado
-   * - **Duracion Estimada**
-     - 10-15 minutos
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Descongelamiento_Subdominio
+ * - **Nombre**
+ - Descongelar Subdominio del Modelo Documental
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Cuando se requieren cambios en subdominio congelado
+ * - **Duracion Estimada**
+ - 10-15 minutos
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ manteniendo trazabilidad y control.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Arquitecto Doc
-     - Aprueba y ejecuta descongelamiento
-     - Escritura en modelo
-   * - Solicitante
-     - Justifica necesidad de cambio
-     - N/A
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Arquitecto Doc
+ - Aprueba y ejecuta descongelamiento
+ - Escritura en modelo
+ * - Solicitante
+ - Justifica necesidad de cambio
+ - N/A
 
 ----
 
@@ -103,18 +103,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Subdominio congelado
-     - Carpeta con estado [CONGELADO]
-     - Si
-   * - Justificacion de cambio
-     - Razon del descongelamiento
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Subdominio congelado
+ - Carpeta con estado [CONGELADO]
+ - Si
+ * - Justificacion de cambio
+ - Razon del descongelamiento
+ - Si
 
 ----
 
@@ -125,35 +125,35 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Descongelamiento
-   :align: center
+ :caption: Flujo de Descongelamiento
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Recibir solicitud de cambio;
-   :Validar justificacion;
+ start
+ :Recibir solicitud de cambio;
+ :Validar justificacion;
 
-   if (Justificacion valida?) then (si)
-       :Documentar razon;
-       :Actualizar index.rst;
-       :Marcar como DESCONGELADO en modelo;
-       :Registrar descongelamiento;
-       :Notificar equipo;
-       :Realizar cambios necesarios;
-       :Ejecutar PROC_Congelamiento cuando termine;
-   else (no)
-       :Rechazar solicitud;
-       stop
-   endif
+ if (Justificacion valida?) then (si)
+ :Documentar razon;
+ :Actualizar index.rst;
+ :Marcar como DESCONGELADO en modelo;
+ :Registrar descongelamiento;
+ :Notificar equipo;
+ :Realizar cambios necesarios;
+ :Ejecutar PROC_Congelamiento cuando termine;
+ else (no)
+ :Rechazar solicitud;
+ stop
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -163,18 +163,18 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Evaluar razon del descongelamiento:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Razones validas:
-     - Correccion de error critico
-     - Adicion de artefacto faltante
-     - Actualizacion por cambio de requisito aprobado
-     - Mejora estructural necesaria
-     
-     Razones invalidas:
-     - Cambio estetico menor
-     - Preferencia personal
-     - Sin justificacion documentada
+ Razones validas:
+ - Correccion de error critico
+ - Adicion de artefacto faltante
+ - Actualizacion por cambio de requisito aprobado
+ - Mejora estructural necesaria
+ 
+ Razones invalidas:
+ - Cambio estetico menor
+ - Preferencia personal
+ - Sin justificacion documentada
 
 - **Resultado**: Solicitud aprobada/rechazada
 - **Verificacion**: Justificacion documentada
@@ -184,13 +184,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Registrar motivo:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     DESCONGELAMIENTO: requisitos/reglas_negocio/
-     Fecha: 2026-01-07
-     Solicitante: [Nombre]
-     Razon: Agregar BR_021 por nuevo requisito de seguridad
-     Aprobado por: Arquitecto Doc
+ DESCONGELAMIENTO: requisitos/reglas_negocio/
+ Fecha: 2026-01-07
+ Solicitante: [Nombre]
+ Razon: Agregar BR_021 por nuevo requisito de seguridad
+ Aprobado por: Arquitecto Doc
 
 - **Resultado**: Razon documentada
 - **Verificacion**: Registro completo
@@ -200,17 +200,17 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Cambiar marca de estado:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-                                            
-     Reglas de Negocio (BR) - [DESCONGELADO]
-                                            
-     
-     .. warning:: **Estado: DESCONGELADO**
-     
-        Este subdominio fue descongelado el 2026-01-07.
-        Razon: Agregar BR_021 por nuevo requisito de seguridad.
-        Recongelar al completar cambios.
+ 
+ Reglas de Negocio (BR) - [DESCONGELADO]
+ 
+ 
+ .. warning:: **Estado: DESCONGELADO**
+ 
+ Este subdominio fue descongelado el 2026-01-07.
+ Razon: Agregar BR_021 por nuevo requisito de seguridad.
+ Recongelar al completar cambios.
 
 - **Resultado**: Index actualizado
 - **Verificacion**: Estado cambiado
@@ -220,12 +220,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Cambiar marca en arbol:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     requisitos/
-     ├── reglas_negocio/           # [DESCONGELADO] 20 BR
-     │   ├── index.rst
-     │   └── ...
+ requisitos/
+ ├── reglas_negocio/ # [DESCONGELADO] 20 BR
+ │ ├── index.rst
+ │ └── ...
 
 - **Resultado**: Modelo actualizado
 - **Verificacion**: Marca [DESCONGELADO] presente
@@ -235,21 +235,21 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Agregar al registro:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     REGISTRO DE DESCONGELAMIENTOS
-     
+ REGISTRO DE DESCONGELAMIENTOS
+ 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Subdominio
-     - Fecha
-     - Razon
-     - Responsable
-   * - reglas_negocio
-     - 2026-01-07
-     - Agregar BR_021
-     - Arquitecto
+ * - Subdominio
+ - Fecha
+ - Razon
+ - Responsable
+ * - reglas_negocio
+ - 2026-01-07
+ - Agregar BR_021
+ - Arquitecto
 
 - **Resultado**: Registro actualizado
 - **Verificacion**: Entrada agregada
@@ -259,16 +259,16 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto Doc
 - **Accion**: Comunicar descongelamiento:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     NOTIFICACION DE DESCONGELAMIENTO
-     
-     Subdominio: requisitos/reglas_negocio/
-     Fecha: 2026-01-07
-     Razon: Agregar BR_021
-     
-     El subdominio esta disponible para modificaciones.
-     Recongelar al completar cambios.
+ NOTIFICACION DE DESCONGELAMIENTO
+ 
+ Subdominio: requisitos/reglas_negocio/
+ Fecha: 2026-01-07
+ Razon: Agregar BR_021
+ 
+ El subdominio esta disponible para modificaciones.
+ Recongelar al completar cambios.
 
 - **Resultado**: Equipo notificado
 - **Verificacion**: Comunicacion enviada
@@ -293,18 +293,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - index.rst actualizado
-     - Con marca [DESCONGELADO]
-     - [subdominio]/
-   * - Registro de descongelamiento
-     - Documentacion del cambio
-     - Registro central
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - index.rst actualizado
+ - Con marca [DESCONGELADO]
+ - [subdominio]/
+ * - Registro de descongelamiento
+ - Documentacion del cambio
+ - Registro central
 
 ----
 
@@ -335,9 +335,9 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
-   
-   Un subdominio no debe permanecer descongelado mas de 5 dias habiles.
-   Si los cambios requieren mas tiempo, documentar extension.
+ 
+ Un subdominio no debe permanecer descongelado mas de 5 dias habiles.
+ Si los cambios requieren mas tiempo, documentar extension.
 
 ----
 
@@ -345,17 +345,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Subdominio no estaba congelado
-     - No requiere descongelamiento
-   * - Justificacion insuficiente
-     - Solicitar mas detalle o rechazar
-   * - Cambios exceden lo justificado
-     - Documentar cambios adicionales
+ * - Excepcion
+ - Accion
+ * - Subdominio no estaba congelado
+ - No requiere descongelamiento
+ * - Justificacion insuficiente
+ - Solicitar mas detalle o rechazar
+ * - Cambios exceden lo justificado
+ - Documentar cambios adicionales
 
 ----
 
@@ -372,17 +372,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROC_OPS_001
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_OPS_001
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-ops-001:
 
@@ -60,7 +60,7 @@ Pre-requisitos
 - Acceso de lectura al repositorio en GitHub.
 - Acceso SSH o equivalente al servidor on-premise que sirve los docs.
 - Permisos de escritura en el directorio de despliegue (``/var/www/iact-docs/``
-  u otro según infraestructura).
+ u otro según infraestructura).
 - ``sha256sum`` o equivalente disponible localmente.
 
 ----
@@ -87,9 +87,9 @@ Descargar ambos:
 
 .. code-block:: bash
 
-   TAG=v1.1.0
-   wget https://github.com/jcg-admin/IACT-docs/releases/download/${TAG}/iact-docs-${TAG}.tar.gz
-   wget https://github.com/jcg-admin/IACT-docs/releases/download/${TAG}/iact-docs-${TAG}.tar.gz.sha256
+ TAG=v1.1.0
+ wget https://github.com/jcg-admin/IACT-docs/releases/download/${TAG}/iact-docs-${TAG}.tar.gz
+ wget https://github.com/jcg-admin/IACT-docs/releases/download/${TAG}/iact-docs-${TAG}.tar.gz.sha256
 
 PASO 3: Verificar integridad
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,13 +98,13 @@ Validar que el tarball no fue alterado durante el transporte:
 
 .. code-block:: bash
 
-   sha256sum -c iact-docs-${TAG}.tar.gz.sha256
+ sha256sum -c iact-docs-${TAG}.tar.gz.sha256
 
 Salida esperada:
 
 .. code-block:: text
 
-   iact-docs-v1.1.0.tar.gz: OK
+ iact-docs-v1.1.0.tar.gz: OK
 
 Si la verificación falla, **NO continuar**. Re-descargar y repetir. Si
 falla repetidamente, contactar al equipo de infraestructura del repo.
@@ -117,7 +117,7 @@ hay que hacer rollback:
 
 .. code-block:: bash
 
-   sudo cp -a /var/www/iact-docs /var/www/iact-docs.backup-$(date +%Y%m%d-%H%M%S)
+ sudo cp -a /var/www/iact-docs /var/www/iact-docs.backup-$(date +%Y%m%d-%H%M%S)
 
 Conservar al menos los **últimos 3 backups**. Eliminar los más antiguos
 manualmente para no agotar espacio.
@@ -129,13 +129,13 @@ Desempaquetar en una ubicación temporal antes de mover a producción:
 
 .. code-block:: bash
 
-   tar -xzf iact-docs-${TAG}.tar.gz -C /tmp/
+ tar -xzf iact-docs-${TAG}.tar.gz -C /tmp/
 
 Verificar la estructura esperada:
 
 .. code-block:: bash
 
-   ls /tmp/iact-docs-${TAG}/
+ ls /tmp/iact-docs-${TAG}/
 
 Debe contener:
 
@@ -148,7 +148,7 @@ Verificar que ``html/index.html`` existe y abre correctamente:
 
 .. code-block:: bash
 
-   test -f /tmp/iact-docs-${TAG}/html/index.html && echo OK
+ test -f /tmp/iact-docs-${TAG}/html/index.html && echo OK
 
 PASO 6: Desplegar al servidor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,11 +157,11 @@ Reemplazar el contenido del directorio servido por Apache/nginx:
 
 .. code-block:: bash
 
-   sudo rm -rf /var/www/iact-docs/*
-   sudo cp -r /tmp/iact-docs-${TAG}/html/* /var/www/iact-docs/
-   sudo chown -R www-data:www-data /var/www/iact-docs/
-   sudo chmod -R 644 /var/www/iact-docs/
-   sudo find /var/www/iact-docs/ -type d -exec chmod 755 {} \;
+ sudo rm -rf /var/www/iact-docs/*
+ sudo cp -r /tmp/iact-docs-${TAG}/html/* /var/www/iact-docs/
+ sudo chown -R www-data:www-data /var/www/iact-docs/
+ sudo chmod -R 644 /var/www/iact-docs/
+ sudo find /var/www/iact-docs/ -type d -exec chmod 755 {} \;
 
 PASO 7: Validar el despliegue
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,9 +170,9 @@ Probar que el sitio responde y muestra la nueva versión:
 
 .. code-block:: bash
 
-   curl -fI https://docs.iact.local/ | head -1
-   # esperado: HTTP/1.1 200 OK
-   curl -s https://docs.iact.local/ | grep -i "version\|build"
+ curl -fI https://docs.iact.local/ | head -1
+ # esperado: HTTP/1.1 200 OK
+ curl -s https://docs.iact.local/ | grep -i "version\|build"
 
 Abrir el sitio en navegador y verificar que la página principal carga.
 
@@ -181,8 +181,8 @@ PASO 8: Limpiar archivos temporales
 
 .. code-block:: bash
 
-   rm -rf /tmp/iact-docs-${TAG}
-   rm iact-docs-${TAG}.tar.gz iact-docs-${TAG}.tar.gz.sha256
+ rm -rf /tmp/iact-docs-${TAG}
+ rm iact-docs-${TAG}.tar.gz iact-docs-${TAG}.tar.gz.sha256
 
 PASO 9: Registrar el despliegue
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -207,9 +207,9 @@ Opción A — Restaurar desde backup local (rápido)
 
 .. code-block:: bash
 
-   sudo rm -rf /var/www/iact-docs
-   sudo mv /var/www/iact-docs.backup-{timestamp_previo} /var/www/iact-docs
-   curl -fI https://docs.iact.local/
+ sudo rm -rf /var/www/iact-docs
+ sudo mv /var/www/iact-docs.backup-{timestamp_previo} /var/www/iact-docs
+ curl -fI https://docs.iact.local/
 
 Tiempo estimado: < 1 minuto.
 
@@ -245,14 +245,14 @@ Historial de Cambios
 --------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 12 14 74
+ :header-rows: 1
+ :widths: 12 14 74
 
-   * - Versión
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-04-27
-     - Versión inicial. Procedimiento de descarga, verificación SHA-256,
-       backup, despliegue y rollback para releases publicados por el
-       pipeline ``release.yml``.
+ * - Versión
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-04-27
+ - Versión inicial. Procedimiento de descarga, verificación SHA-256,
+ backup, despliegue y rollback para releases publicados por el
+ pipeline ``release.yml``.

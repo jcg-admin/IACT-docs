@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Derivacion_UC_FR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Derivacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Derivacion_UC_FR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Derivacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-derivacion-uc-fr:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Derivacion_UC_FR
-   * - **Nombre**
-     - Derivacion de UC a FR
-   * - **Categoria**
-     - Derivacion
-   * - **Frecuencia**
-     - Por cada modulo a derivar
-   * - **Duracion Estimada**
-     - 1-2 horas por modulo
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Derivacion_UC_FR
+ * - **Nombre**
+ - Derivacion de UC a FR
+ * - **Categoria**
+ - Derivacion
+ * - **Frecuencia**
+ - Por cada modulo a derivar
+ * - **Duracion Estimada**
+ - 1-2 horas por modulo
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -77,18 +77,18 @@ los pasos del sistema definidos en los UC.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Analista
-     - Ejecuta derivacion, genera FR
-     - Escritura en funcionales/
-   * - Arquitecto
-     - Valida completitud y consistencia
-     - Lectura de UC, FR, BR
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Analista
+ - Ejecuta derivacion, genera FR
+ - Escritura en funcionales/
+ * - Arquitecto
+ - Valida completitud y consistencia
+ - Lectura de UC, FR, BR
 
 ----
 
@@ -109,21 +109,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - UC_[NNN]_[Nombre].rst
-     - Casos de Uso del modulo
-     - Si
-   * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
-     - Template de FR
-     - Si
-   * - Documento de trabajo
-     - Lista FR extraida de revision UC
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - UC_[NNN]_[Nombre].rst
+ - Casos de Uso del modulo
+ - Si
+ * - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+ - Template de FR
+ - Si
+ * - Documento de trabajo
+ - Lista FR extraida de revision UC
+ - Si
 
 ----
 
@@ -134,41 +134,41 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Derivacion UC a FR
-   :align: center
+ :caption: Flujo de Derivacion UC a FR
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-       DiamondBackgroundColor #FFF9C4
-       DiamondBorderColor #F57C00
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ DiamondBackgroundColor #FFF9C4
+ DiamondBorderColor #F57C00
+ }
 
-   start
+ start
 
-   :Seleccionar modulo a derivar;
-   :Obtener lista de UC del modulo;
+ :Seleccionar modulo a derivar;
+ :Obtener lista de UC del modulo;
 
-   partition "Por cada UC" {
-       :Abrir UC;
-       :Extraer pasos del Sistema;
-       :Mapear pasos a FR;
-       
-       partition "Por cada FR" {
-           :Ejecutar PROC_Generacion_FR;
-       }
-       
-       :Verificar cobertura UC;
-   }
+ partition "Por cada UC" {
+ :Abrir UC;
+ :Extraer pasos del Sistema;
+ :Mapear pasos a FR;
+ 
+ partition "Por cada FR" {
+ :Ejecutar PROC_Generacion_FR;
+ }
+ 
+ :Verificar cobertura UC;
+ }
 
-   :Calcular metricas de derivacion;
-   :Generar index.rst del modulo;
-   :Validar con Sphinx;
+ :Calcular metricas de derivacion;
+ :Generar index.rst del modulo;
+ :Validar con Sphinx;
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Metodologia de Derivacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,21 +180,21 @@ genera al menos un FR.
 
 .. code-block:: text
 
-   UC_001: Iniciar Sesion
-   
-   Flujo Normal:
-   1. Usuario accede a pantalla -> NO genera FR (accion usuario)
-   2. Sistema muestra formulario -> FR: Mostrar formulario login
-   3. Usuario ingresa credenciales -> NO genera FR (accion usuario)
-   4. Usuario presiona boton -> NO genera FR (accion usuario)
-   5. Sistema valida formato -> FR: Validar formato campos
-   6. Sistema verifica credenciales -> FR: Verificar credenciales
-   7. Sistema invalida sesiones -> FR: Invalidar sesiones previas
-   8. Sistema genera token -> FR: Generar token JWT
-   9. Sistema registra evento -> FR: Registrar evento auditoria
-   10. Sistema redirige -> FR: Redirigir a dashboard
-   
-   Resultado: 6 FR derivados de UC_001
+ UC_001: Iniciar Sesion
+ 
+ Flujo Normal:
+ 1. Usuario accede a pantalla -> NO genera FR (accion usuario)
+ 2. Sistema muestra formulario -> FR: Mostrar formulario login
+ 3. Usuario ingresa credenciales -> NO genera FR (accion usuario)
+ 4. Usuario presiona boton -> NO genera FR (accion usuario)
+ 5. Sistema valida formato -> FR: Validar formato campos
+ 6. Sistema verifica credenciales -> FR: Verificar credenciales
+ 7. Sistema invalida sesiones -> FR: Invalidar sesiones previas
+ 8. Sistema genera token -> FR: Generar token JWT
+ 9. Sistema registra evento -> FR: Registrar evento auditoria
+ 10. Sistema redirige -> FR: Redirigir a dashboard
+ 
+ Resultado: 6 FR derivados de UC_001
 
 6.3 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -204,46 +204,46 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Identificar modulo a derivar segun prioridad:
 
-  .. list-table::
-     :widths: 20 20 30 30
-     :header-rows: 1
+ .. list-table::
+ :widths: 20 20 30 30
+ :header-rows: 1
 
-     * - Modulo
-       - UC
-       - FR Estimados
-       - Prioridad
-     * - MOD_Auth
-       - 5
-       - ~21
-       - Alta
-     * - MOD_Users
-       - 4
-       - ~17
-       - Alta
-     * - MOD_Access
-       - 9
-       - ~30
-       - Alta
-     * - MOD_Reports
-       - 14
-       - ~41
-       - Media
-     * - MOD_Pipeline
-       - 4
-       - ~11
-       - Media
-     * - MOD_Alerts
-       - 5
-       - ~16
-       - Media
-     * - MOD_Audit
-       - 4
-       - ~12
-       - Baja
-     * - MOD_Logs
-       - 4
-       - ~10
-       - Baja
+ * - Modulo
+ - UC
+ - FR Estimados
+ - Prioridad
+ * - MOD_Auth
+ - 5
+ - ~21
+ - Alta
+ * - MOD_Users
+ - 4
+ - ~17
+ - Alta
+ * - MOD_Access
+ - 9
+ - ~30
+ - Alta
+ * - MOD_Reports
+ - 14
+ - ~41
+ - Media
+ * - MOD_Pipeline
+ - 4
+ - ~11
+ - Media
+ * - MOD_Alerts
+ - 5
+ - ~16
+ - Media
+ * - MOD_Audit
+ - 4
+ - ~12
+ - Baja
+ * - MOD_Logs
+ - 4
+ - ~10
+ - Baja
 
 - **Resultado**: Modulo seleccionado
 - **Verificacion**: UC del modulo disponibles
@@ -253,9 +253,9 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Obtener lista ordenada de UC:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     ls casos_uso/[modulo]/UC_*.rst | sort
+ ls casos_uso/[modulo]/UC_*.rst | sort
 
 - **Resultado**: Lista de UC a procesar
 - **Verificacion**: Cantidad coincide con inventario
@@ -265,10 +265,10 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Para cada UC, identificar pasos del sistema:
 
-  1. Abrir archivo UC
-  2. Localizar seccion "Flujo Normal"
-  3. Extraer pasos que inician con "Sistema"
-  4. Cada paso = 1 FR candidato
+ 1. Abrir archivo UC
+ 2. Localizar seccion "Flujo Normal"
+ 3. Extraer pasos que inician con "Sistema"
+ 4. Cada paso = 1 FR candidato
 
 - **Resultado**: Lista de FR candidatos
 - **Verificacion**: Todos los pasos "Sistema" identificados
@@ -278,14 +278,14 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Comparar FR candidatos con seccion "FR Derivados" del UC:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Seccion Trazabilidad del UC:
-     **FR Derivados:**
-     - FR-001.01: Validar formato username
-     - FR-001.02: Validar credenciales
-     - FR-001.03: Generar token JWT
-     ...
+ Seccion Trazabilidad del UC:
+ **FR Derivados:**
+ - FR-001.01: Validar formato username
+ - FR-001.02: Validar credenciales
+ - FR-001.03: Generar token JWT
+ ...
 
 - **Resultado**: Lista oficial de FR confirmada
 - **Verificacion**: FR candidatos = FR en Trazabilidad
@@ -302,14 +302,14 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Confirmar que todos los pasos "Sistema" tienen FR:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     UC_001 Cobertura:
-     - Paso 2 (muestra formulario) -> FR_UC001_01 [OK]
-     - Paso 5 (valida formato) -> FR_UC001_02 [OK]
-     - Paso 6 (verifica credenciales) -> FR_UC001_03 [OK]
-     ...
-     Cobertura: 100%
+ UC_001 Cobertura:
+ - Paso 2 (muestra formulario) -> FR_UC001_01 [OK]
+ - Paso 5 (valida formato) -> FR_UC001_02 [OK]
+ - Paso 6 (verifica credenciales) -> FR_UC001_03 [OK]
+ ...
+ Cobertura: 100%
 
 - **Resultado**: Cobertura verificada
 - **Verificacion**: Todos los pasos cubiertos
@@ -319,13 +319,13 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Al completar modulo, calcular:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Metricas MOD_Auth:
-     - UC procesados: 5
-     - FR generados: 21
-     - Ratio promedio: 4.2 FR/UC
-     - Cobertura: 100%
+ Metricas MOD_Auth:
+ - UC procesados: 5
+ - FR generados: 21
+ - Ratio promedio: 4.2 FR/UC
+ - Cobertura: 100%
 
 - **Resultado**: Metricas del modulo
 - **Verificacion**: Ratio dentro de rango esperado (3-8)
@@ -335,19 +335,19 @@ genera al menos un FR.
 - **Responsable**: Analista
 - **Accion**: Crear/actualizar index.rst:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-                                      
-     Requisitos Funcionales - MOD_Auth
-                                      
-     
-     .. toctree::
-        :maxdepth: 2
-        :caption: UC_001: Iniciar Sesion
-     
-        UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato
-        UC_001_Iniciar_Sesion/FR_UC001_02_Verificar_credenciales
-        ...
+ 
+ Requisitos Funcionales - MOD_Auth
+ 
+ 
+ .. toctree::
+ :maxdepth: 2
+ :caption: UC_001: Iniciar Sesion
+ 
+ UC_001_Iniciar_Sesion/FR_UC001_01_Validar_formato
+ UC_001_Iniciar_Sesion/FR_UC001_02_Verificar_credenciales
+ ...
 
 - **Resultado**: Index actualizado
 - **Verificacion**: Todos los FR listados en toctree
@@ -358,21 +358,21 @@ genera al menos un FR.
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - FR_UC[NNN]_[NN]_[Nombre].rst
-     - FR generados (multiples)
-     - /tmp/funcionales/[mod]/UC_[NNN]/
-   * - index.rst
-     - Indice del modulo
-     - /tmp/funcionales/[mod]/
-   * - Reporte de metricas
-     - Estadisticas de derivacion
-     - Documento de trabajo
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - FR_UC[NNN]_[NN]_[Nombre].rst
+ - FR generados (multiples)
+ - /tmp/funcionales/[mod]/UC_[NNN]/
+ * - index.rst
+ - Indice del modulo
+ - /tmp/funcionales/[mod]/
+ * - Reporte de metricas
+ - Estadisticas de derivacion
+ - Documento de trabajo
 
 ----
 
@@ -405,29 +405,29 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 20 20 20 20
-   :header-rows: 1
+ :widths: 20 20 20 20 20
+ :header-rows: 1
 
-   * - Modulo
-     - UC
-     - FR Esperados
-     - FR Generados
-     - Cobertura
-   * - MOD_Auth
-     - 5
-     - ~21
-     - [N]
-     - [%]
-   * - MOD_Users
-     - 4
-     - ~17
-     - [N]
-     - [%]
-   * - ...
-     - ...
-     - ...
-     - ...
-     - ...
+ * - Modulo
+ - UC
+ - FR Esperados
+ - FR Generados
+ - Cobertura
+ * - MOD_Auth
+ - 5
+ - ~21
+ - [N]
+ - [%]
+ * - MOD_Users
+ - 4
+ - ~17
+ - [N]
+ - [%]
+ * - ...
+ - ...
+ - ...
+ - ...
+ - ...
 
 ----
 
@@ -435,17 +435,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - UC sin pasos "Sistema"
-     - Revisar UC, posible error de redaccion
-   * - Ratio < 3 FR/UC
-     - Verificar que no faltan FR
-   * - Ratio > 8 FR/UC
-     - Verificar granularidad, posible subdivision excesiva
+ * - Excepcion
+ - Accion
+ * - UC sin pasos "Sistema"
+ - Revisar UC, posible error de redaccion
+ * - Ratio < 3 FR/UC
+ - Verificar que no faltan FR
+ * - Ratio > 8 FR/UC
+ - Verificar granularidad, posible subdivision excesiva
 
 ----
 
@@ -463,17 +463,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

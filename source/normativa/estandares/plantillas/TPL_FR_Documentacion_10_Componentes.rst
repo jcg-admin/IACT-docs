@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: TPL_FR_Documentacion_10_Componentes
-   :tipo: Plantilla
-   :dominio: normativa
-   :subdominio: estandares/plantillas
-   :estado: Aprobado
-   :version: 1.3.0
-   :fecha_creacion: 2026-01-13
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TPL_FR_Documentacion_10_Componentes
+ :tipo: Plantilla
+ :dominio: normativa
+ :subdominio: estandares/plantillas
+ :estado: Aprobado
+ :version: 1.3.0
+ :fecha_creacion: 2026-01-13
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. rubric:: Metadata sugerida para la instancia
 
@@ -17,26 +17,26 @@ se sugiere declarar el siguiente bloque de metadata:
 
 .. code-block:: text
 
-   :Proyecto: IACT
-   :Codigo: FR-MOD-NN-ZZ
-   :Titulo: Titulo Descriptivo del Functional Requirement
-   :Version: 1.0.0
-   :Derivado_De: UC-IACT-MOD-NN paso X
-   :Tipo: Query|INSERT|UPDATE|DELETE|Validacion|Calculo|UI
-   :Fecha: YYYY-MM-DD
-   :Autor: Nombre del Developer/Analyst
-   :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
+ :Proyecto: IACT
+ :Codigo: FR-MOD-NN-ZZ
+ :Titulo: Titulo Descriptivo del Functional Requirement
+ :Version: 1.0.0
+ :Derivado_De: UC-IACT-MOD-NN paso X
+ :Tipo: Query|INSERT|UPDATE|DELETE|Validacion|Calculo|UI
+ :Fecha: YYYY-MM-DD
+ :Autor: Nombre del Developer/Analyst
+ :Estado: DRAFT|REVIEW|APPROVED|IMPLEMENTED
 
 
 ===========================================================
 FR-MOD-NN-ZZ: Titulo Descriptivo del Functional Requirement
 ===========================================================
 
-**Proyecto:** IACT - IVR Analytics & Customer Tracking  
-**Derivado De:** UC-IACT-MOD-NN paso X  
-**Tipo:** Query|INSERT|UPDATE|DELETE|Validacion|Calculo|UI  
-**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED  
-**Prioridad:** Alta|Media|Baja  
+**Proyecto:** IACT - IVR Analytics & Customer Tracking 
+**Derivado De:** UC-IACT-MOD-NN paso X 
+**Tipo:** Query|INSERT|UPDATE|DELETE|Validacion|Calculo|UI 
+**Estado:** DRAFT|REVIEW|APPROVED|IMPLEMENTED 
+**Prioridad:** Alta|Media|Baja 
 **Clasificacion:** C2 - INTERNAL
 
 ----------------------------------------------------------------------
@@ -123,10 +123,10 @@ Por que es necesario este FR, que problema resuelve
 - Nombre: Consultar Reporte Trimestral
 - Paso: 7
 - Descripcion del paso:
-  
-  "Sistema ejecuta query principal de reporte para obtener metricas
-  diarias de llamadas IVR agrupadas por fecha, con totales de llamadas
-  completadas y abandonadas, y duracion promedio."
+ 
+ "Sistema ejecuta query principal de reporte para obtener metricas
+ diarias de llamadas IVR agrupadas por fecha, con totales de llamadas
+ completadas y abandonadas, y duracion promedio."
 
 **Business Rule Implementada:**
 
@@ -201,22 +201,22 @@ y promedios de duracion.
 
 .. code-block:: python
 
-   [
-       {
-           'dia': datetime.date,
-           'total_llamadas': int,
-           'completadas': int,
-           'abandonadas': int,
-           'duracion_promedio': float
-       },
-       ...
-   ]
+ [
+ {
+ 'dia': datetime.date,
+ 'total_llamadas': int,
+ 'completadas': int,
+ 'abandonadas': int,
+ 'duracion_promedio': float
+ },
+ ...
+ ]
 
 - Casos especiales:
-  
-  - Si no hay datos: Lista vacia []
-  - Si error: Lanza QueryExecutionError
-  - Si timeout: Lanza QueryTimeoutError
+ 
+ - Si no hay datos: Lista vacia []
+ - Si error: Lanza QueryExecutionError
+ - Si timeout: Lanza QueryTimeoutError
 
 **Precondiciones Tecnicas:**
 
@@ -238,14 +238,14 @@ este FR.
 
 .. code-block:: sql
 
-   -- Comentarios explicativos
-   -- de la query
-   
-   SELECT ...
-   FROM ...
-   WHERE ...
-   GROUP BY ...
-   ORDER BY ...
+ -- Comentarios explicativos
+ -- de la query
+ 
+ SELECT ...
+ FROM ...
+ WHERE ...
+ GROUP BY ...
+ ORDER BY ...
 
 **Consideraciones de Performance:**
 
@@ -267,45 +267,45 @@ Usar parametros bound (prepared statements) para evitar SQL injection:
 
 .. code-block:: sql
 
-   -- Query Principal: Reporte Trimestral de Metricas IVR
-   -- Obtiene metricas diarias agregadas para un trimestre especifico
-   -- Agrupa por dia, calcula totales y promedios
-   
-   SELECT 
-       -- Fecha agregada por dia
-       DATE_TRUNC('day', call_date) as dia,
-       
-       -- Total de llamadas en el dia
-       COUNT(*) as total_llamadas,
-       
-       -- Llamadas completadas (status = COMPLETED)
-       SUM(CASE 
-           WHEN status = 'COMPLETED' THEN 1 
-           ELSE 0 
-       END) as completadas,
-       
-       -- Llamadas abandonadas (status = ABANDONED)
-       SUM(CASE 
-           WHEN status = 'ABANDONED' THEN 1 
-           ELSE 0 
-       END) as abandonadas,
-       
-       -- Duracion promedio en segundos
-       AVG(duration_seconds) as duracion_promedio
-   
-   FROM ivr_calls
-   
-   -- Filtros por parametros
-   WHERE quarter = :quarter        -- Q1, Q2, Q3, Q4
-     AND year = :year              -- 2020-2024
-     AND segment = :segment        -- OP, MG
-     AND deleted_at IS NULL        -- Excluir registros borrados
-   
-   -- Agrupar por dia para serie temporal
-   GROUP BY DATE_TRUNC('day', call_date)
-   
-   -- Ordenar cronologicamente
-   ORDER BY dia ASC
+ -- Query Principal: Reporte Trimestral de Metricas IVR
+ -- Obtiene metricas diarias agregadas para un trimestre especifico
+ -- Agrupa por dia, calcula totales y promedios
+ 
+ SELECT 
+ -- Fecha agregada por dia
+ DATE_TRUNC('day', call_date) as dia,
+ 
+ -- Total de llamadas en el dia
+ COUNT(*) as total_llamadas,
+ 
+ -- Llamadas completadas (status = COMPLETED)
+ SUM(CASE 
+ WHEN status = 'COMPLETED' THEN 1 
+ ELSE 0 
+ END) as completadas,
+ 
+ -- Llamadas abandonadas (status = ABANDONED)
+ SUM(CASE 
+ WHEN status = 'ABANDONED' THEN 1 
+ ELSE 0 
+ END) as abandonadas,
+ 
+ -- Duracion promedio en segundos
+ AVG(duration_seconds) as duracion_promedio
+ 
+ FROM ivr_calls
+ 
+ -- Filtros por parametros
+ WHERE quarter = :quarter -- Q1, Q2, Q3, Q4
+ AND year = :year -- 2020-2024
+ AND segment = :segment -- OP, MG
+ AND deleted_at IS NULL -- Excluir registros borrados
+ 
+ -- Agrupar por dia para serie temporal
+ GROUP BY DATE_TRUNC('day', call_date)
+ 
+ -- Ordenar cronologicamente
+ ORDER BY dia ASC
 
 **Consideraciones de Performance:**
 
@@ -313,14 +313,14 @@ Indices requeridos:
 
 .. code-block:: sql
 
-   -- Indice compuesto para optimizar query
-   CREATE INDEX idx_ivr_calls_quarter_year_segment 
-   ON ivr_calls (quarter, year, segment, call_date)
-   WHERE deleted_at IS NULL;
-   
-   -- Indice para status (usado en CASE)
-   CREATE INDEX idx_ivr_calls_status 
-   ON ivr_calls (status);
+ -- Indice compuesto para optimizar query
+ CREATE INDEX idx_ivr_calls_quarter_year_segment 
+ ON ivr_calls (quarter, year, segment, call_date)
+ WHERE deleted_at IS NULL;
+ 
+ -- Indice para status (usado en CASE)
+ CREATE INDEX idx_ivr_calls_status 
+ ON ivr_calls (status);
 
 Metricas:
 - Estimated rows: 1,000 - 10,000 por trimestre
@@ -344,59 +344,59 @@ validaciones y valores por defecto.
 **Formato de Tabla:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 15 10 20 35
+ :header-rows: 1
+ :widths: 20 15 10 20 35
 
-   * - Parametro
-     - Tipo
-     - Obligatorio
-     - Valores/Rango
-     - Descripcion
-   * - nombre_param
-     - STRING
-     - SI
-     - valores permitidos
-     - Descripcion del parametro
+ * - Parametro
+ - Tipo
+ - Obligatorio
+ - Valores/Rango
+ - Descripcion
+ * - nombre_param
+ - STRING
+ - SI
+ - valores permitidos
+ - Descripcion del parametro
 
 **EJEMPLO COMPLETO (FR-RPT-01-07):**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 20 15 10 20 35
+ :header-rows: 1
+ :widths: 20 15 10 20 35
 
-   * - Parametro
-     - Tipo
-     - Obligatorio
-     - Valores/Rango
-     - Descripcion
-   * - quarter
-     - STRING
-     - SI
-     - Q1, Q2, Q3, Q4
-     - Trimestre a consultar
-   * - year
-     - INTEGER
-     - SI
-     - 2020-2024
-     - Ano del reporte
-   * - segment
-     - STRING
-     - SI
-     - OP, MG
-     - Segmento de clientes
-   * - include_deleted
-     - BOOLEAN
-     - NO
-     - TRUE, FALSE
-     - Incluir registros eliminados (default: FALSE)
+ * - Parametro
+ - Tipo
+ - Obligatorio
+ - Valores/Rango
+ - Descripcion
+ * - quarter
+ - STRING
+ - SI
+ - Q1, Q2, Q3, Q4
+ - Trimestre a consultar
+ * - year
+ - INTEGER
+ - SI
+ - 2020-2024
+ - Ano del reporte
+ * - segment
+ - STRING
+ - SI
+ - OP, MG
+ - Segmento de clientes
+ * - include_deleted
+ - BOOLEAN
+ - NO
+ - TRUE, FALSE
+ - Incluir registros eliminados (default: FALSE)
 
 **Valores por Defecto:**
 
 .. code-block:: python
 
-   DEFAULT_VALUES = {
-       'include_deleted': False
-   }
+ DEFAULT_VALUES = {
+ 'include_deleted': False
+ }
 
 **Validaciones por Parametro:**
 
@@ -422,11 +422,11 @@ Descripcion detallada de la estructura
 
 .. code-block:: json
 
-   {
-       "campo1": "tipo y ejemplo",
-       "campo2": 123,
-       "campo3": []
-   }
+ {
+ "campo1": "tipo y ejemplo",
+ "campo2": 123,
+ "campo3": []
+ }
 
 **Casos Especiales:**
 
@@ -447,23 +447,23 @@ metricas agregadas:
 
 .. code-block:: python
 
-   [
-       {
-           'dia': datetime.date(2024, 7, 1),
-           'total_llamadas': 1250,
-           'completadas': 1100,
-           'abandonadas': 150,
-           'duracion_promedio': 245.67
-       },
-       {
-           'dia': datetime.date(2024, 7, 2),
-           'total_llamadas': 1180,
-           'completadas': 1050,
-           'abandonadas': 130,
-           'duracion_promedio': 238.42
-       },
-       ...
-   ]
+ [
+ {
+ 'dia': datetime.date(2024, 7, 1),
+ 'total_llamadas': 1250,
+ 'completadas': 1100,
+ 'abandonadas': 150,
+ 'duracion_promedio': 245.67
+ },
+ {
+ 'dia': datetime.date(2024, 7, 2),
+ 'total_llamadas': 1180,
+ 'completadas': 1050,
+ 'abandonadas': 130,
+ 'duracion_promedio': 238.42
+ },
+ ...
+ ]
 
 **Tipos de Datos:**
 
@@ -512,8 +512,8 @@ Codigo:
 
 .. code-block:: python
 
-   if not condicion:
-       raise ValidationError("mensaje")
+ if not condicion:
+ raise ValidationError("mensaje")
 
 **EJEMPLO COMPLETO (FR-RPT-01-07):**
 
@@ -530,13 +530,13 @@ Codigo:
 
 .. code-block:: python
 
-   VALID_QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
-   
-   if quarter not in VALID_QUARTERS:
-       raise ValidationError(
-           f"Invalid quarter: {quarter}. "
-           f"Debe ser uno de: {', '.join(VALID_QUARTERS)}"
-       )
+ VALID_QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4']
+ 
+ if quarter not in VALID_QUARTERS:
+ raise ValidationError(
+ f"Invalid quarter: {quarter}. "
+ f"Debe ser uno de: {', '.join(VALID_QUARTERS)}"
+ )
 
 V-2: Year en Rango Valido
 
@@ -550,16 +550,16 @@ Codigo:
 
 .. code-block:: python
 
-   import datetime
-   
-   CURRENT_YEAR = datetime.datetime.now().year
-   MIN_YEAR = 2020
-   
-   if not (MIN_YEAR <= year <= CURRENT_YEAR):
-       raise ValidationError(
-           f"Invalid year: {year}. "
-           f"Debe estar entre {MIN_YEAR} y {CURRENT_YEAR}"
-       )
+ import datetime
+ 
+ CURRENT_YEAR = datetime.datetime.now.year
+ MIN_YEAR = 2020
+ 
+ if not (MIN_YEAR <= year <= CURRENT_YEAR):
+ raise ValidationError(
+ f"Invalid year: {year}. "
+ f"Debe estar entre {MIN_YEAR} y {CURRENT_YEAR}"
+ )
 
 V-3: Segment Valido
 
@@ -573,13 +573,13 @@ Codigo:
 
 .. code-block:: python
 
-   VALID_SEGMENTS = ['OP', 'MG']
-   
-   if segment not in VALID_SEGMENTS:
-       raise ValidationError(
-           f"Invalid segment: {segment}. "
-           f"Debe ser uno de: {', '.join(VALID_SEGMENTS)}"
-       )
+ VALID_SEGMENTS = ['OP', 'MG']
+ 
+ if segment not in VALID_SEGMENTS:
+ raise ValidationError(
+ f"Invalid segment: {segment}. "
+ f"Debe ser uno de: {', '.join(VALID_SEGMENTS)}"
+ )
 
 V-4: Tipos de Datos Correctos
 
@@ -595,23 +595,23 @@ Codigo:
 
 .. code-block:: python
 
-   if not isinstance(quarter, str):
-       raise ValidationError(
-           f"Invalid type for quarter: expected str, "
-           f"got {type(quarter).__name__}"
-       )
-   
-   if not isinstance(year, int):
-       raise ValidationError(
-           f"Invalid type for year: expected int, "
-           f"got {type(year).__name__}"
-       )
-   
-   if not isinstance(segment, str):
-       raise ValidationError(
-           f"Invalid type for segment: expected str, "
-           f"got {type(segment).__name__}"
-       )
+ if not isinstance(quarter, str):
+ raise ValidationError(
+ f"Invalid type for quarter: expected str, "
+ f"got {type(quarter).__name__}"
+ )
+ 
+ if not isinstance(year, int):
+ raise ValidationError(
+ f"Invalid type for year: expected int, "
+ f"got {type(year).__name__}"
+ )
+ 
+ if not isinstance(segment, str):
+ raise ValidationError(
+ f"Invalid type for segment: expected str, "
+ f"got {type(segment).__name__}"
+ )
 
 V-5: Trimestre No en el Futuro
 
@@ -625,20 +625,20 @@ Codigo:
 
 .. code-block:: python
 
-   from datetime import datetime
-   
-   # Mapeo quarter a mes de inicio
-   QUARTER_START_MONTH = {
-       'Q1': 1, 'Q2': 4, 'Q3': 7, 'Q4': 10
-   }
-   
-   query_date = datetime(year, QUARTER_START_MONTH[quarter], 1)
-   current_date = datetime.now()
-   
-   if query_date > current_date:
-       raise ValidationError(
-           f"Cannot query future quarter: {quarter} {year}"
-       )
+ from datetime import datetime
+ 
+ # Mapeo quarter a mes de inicio
+ QUARTER_START_MONTH = {
+ 'Q1': 1, 'Q2': 4, 'Q3': 7, 'Q4': 10
+ }
+ 
+ query_date = datetime(year, QUARTER_START_MONTH[quarter], 1)
+ current_date = datetime.now
+ 
+ if query_date > current_date:
+ raise ValidationError(
+ f"Cannot query future quarter: {quarter} {year}"
+ )
 
 ----------------------------------------------------------------------
 COMPONENTE 7: TIMEOUT
@@ -690,32 +690,32 @@ sintaxis o joins mal optimizados.
 
 .. code-block:: sql
 
-   -- Configuracion a nivel de session
-   SET statement_timeout = '30s';
+ -- Configuracion a nivel de session
+ SET statement_timeout = '30s';
 
 **Configuracion Python:**
 
 .. code-block:: python
 
-   from sqlalchemy import create_engine
-   
-   # Configurar timeout en connection string
-   engine = create_engine(
-       'postgresql://user:pass@host/db',
-       connect_args={
-           'options': '-c statement_timeout=30000'  # milliseconds
-       }
-   )
+ from sqlalchemy import create_engine
+ 
+ # Configurar timeout en connection string
+ engine = create_engine(
+ 'postgresql://user:pass@host/db',
+ connect_args={
+ 'options': '-c statement_timeout=30000' # milliseconds
+ }
+ )
 
 O a nivel de query:
 
 .. code-block:: python
 
-   from django.db import connection
-   
-   with connection.cursor() as cursor:
-       cursor.execute("SET statement_timeout = '30s'")
-       cursor.execute(query, params)
+ from django.db import connection
+ 
+ with connection.cursor as cursor:
+ cursor.execute("SET statement_timeout = '30s'")
+ cursor.execute(query, params)
 
 ----------------------------------------------------------------------
 COMPONENTE 8: MANEJO DE ERRORES
@@ -736,18 +736,18 @@ Documentar como se manejan todos los tipos de errores posibles.
 
 .. code-block:: python
 
-   try:
-       # Codigo del FR
-       pass
-   except TipoError1 as e:
-       # Manejo especifico
-       pass
-   except TipoError2 as e:
-       # Manejo especifico
-       pass
-   finally:
-       # Limpieza
-       pass
+ try:
+ # Codigo del FR
+ pass
+ except TipoError1 as e:
+ # Manejo especifico
+ pass
+ except TipoError2 as e:
+ # Manejo especifico
+ pass
+ finally:
+ # Limpieza
+ pass
 
 **Logging de Errores:**
 
@@ -766,136 +766,136 @@ Definir si se reintenta y cuantas veces
 
 .. code-block:: python
 
-   import logging
-   from django.db import connection, OperationalError, DatabaseError
-   from app.exceptions import (
-       ValidationError,
-       QueryTimeoutError,
-       QueryExecutionError,
-       DataIntegrityError
-   )
-   
-   logger = logging.getLogger(__name__)
-   
-   def execute_quarterly_report_query(quarter, year, segment):
-       """
-       Implements FR-RPT-01-07: Execute Main Query
-       
-       Args:
-           quarter (str): Q1, Q2, Q3, Q4
-           year (int): 2020-2024
-           segment (str): OP, MG
-       
-       Returns:
-           list: Dataset with daily metrics
-       
-       Raises:
-           ValidationError: Invalid parameters
-           QueryTimeoutError: Query exceeded 30s
-           QueryExecutionError: Database error
-           DataIntegrityError: Corrupt data detected
-       """
-       
-       # Validaciones (ver COMPONENTE 6)
-       validate_parameters(quarter, year, segment)
-       
-       try:
-           # Configurar timeout
-           with connection.cursor() as cursor:
-               cursor.execute("SET statement_timeout = '30s'")
-               
-               # Ejecutar query
-               query = """
-                   SELECT 
-                       DATE_TRUNC('day', call_date) as dia,
-                       COUNT(*) as total_llamadas,
-                       SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END) as completadas,
-                       SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END) as abandonadas,
-                       AVG(duration_seconds) as duracion_promedio
-                   FROM ivr_calls
-                   WHERE quarter = %s
-                     AND year = %s
-                     AND segment = %s
-                     AND deleted_at IS NULL
-                   GROUP BY DATE_TRUNC('day', call_date)
-                   ORDER BY dia ASC
-               """
-               
-               cursor.execute(query, [quarter, year, segment])
-               
-               # Fetch resultados
-               columns = [col[0] for col in cursor.description]
-               results = [
-                   dict(zip(columns, row))
-                   for row in cursor.fetchall()
-               ]
-               
-               # Validar integridad de datos
-               validate_data_integrity(results)
-               
-               # Log exitoso
-               logger.info(
-                   f"Query executed successfully: "
-                   f"quarter={quarter}, year={year}, segment={segment}, "
-                   f"rows={len(results)}"
-               )
-               
-               return results
-       
-       except OperationalError as e:
-           # Timeout o conexion perdida
-           if 'timeout' in str(e).lower():
-               logger.error(
-                   f"Query timeout: quarter={quarter}, year={year}, "
-                   f"segment={segment}, error={str(e)}"
-               )
-               raise QueryTimeoutError(
-                   "Query exceeded 30 second timeout. "
-                   "Try reducing date range or contact support."
-               ) from e
-           else:
-               logger.error(
-                   f"Database connection error: {str(e)}"
-               )
-               raise QueryExecutionError(
-                   "Database connection failed. Please retry."
-               ) from e
-       
-       except DatabaseError as e:
-           # Error de sintaxis SQL o constraint
-           logger.error(
-               f"Database error: quarter={quarter}, year={year}, "
-               f"segment={segment}, error={str(e)}"
-           )
-           raise QueryExecutionError(
-               "Database error occurred. Contact support."
-           ) from e
-       
-       except Exception as e:
-           # Error inesperado
-           logger.critical(
-               f"Unexpected error in FR-RPT-01-07: "
-               f"quarter={quarter}, year={year}, segment={segment}",
-               exc_info=True
-           )
-           raise QueryExecutionError(
-               "An unexpected error occurred. Contact support."
-           ) from e
-   
-   def validate_data_integrity(results):
-       """Validates data integrity invariants."""
-       for row in results:
-           total = row['total_llamadas']
-           comp = row['completadas']
-           aban = row['abandonadas']
-           
-           # Invariant: total = completadas + abandonadas
-           if total != comp + aban:
-               raise DataIntegrityError(
-                   f"Data integrity violation on {row['dia']}: "
-                   f"total ({total}) != completadas ({comp}) + "
-                   f"abandonadas ({aban})"
-               )
+ import logging
+ from django.db import connection, OperationalError, DatabaseError
+ from app.exceptions import (
+ ValidationError,
+ QueryTimeoutError,
+ QueryExecutionError,
+ DataIntegrityError
+ )
+ 
+ logger = logging.getLogger(__name__)
+ 
+ def execute_quarterly_report_query(quarter, year, segment):
+ """
+ Implements FR-RPT-01-07: Execute Main Query
+ 
+ Args:
+ quarter (str): Q1, Q2, Q3, Q4
+ year (int): 2020-2024
+ segment (str): OP, MG
+ 
+ Returns:
+ list: Dataset with daily metrics
+ 
+ Raises:
+ ValidationError: Invalid parameters
+ QueryTimeoutError: Query exceeded 30s
+ QueryExecutionError: Database error
+ DataIntegrityError: Corrupt data detected
+ """
+ 
+ # Validaciones (ver COMPONENTE 6)
+ validate_parameters(quarter, year, segment)
+ 
+ try:
+ # Configurar timeout
+ with connection.cursor as cursor:
+ cursor.execute("SET statement_timeout = '30s'")
+ 
+ # Ejecutar query
+ query = """
+ SELECT 
+ DATE_TRUNC('day', call_date) as dia,
+ COUNT(*) as total_llamadas,
+ SUM(CASE WHEN status='COMPLETED' THEN 1 ELSE 0 END) as completadas,
+ SUM(CASE WHEN status='ABANDONED' THEN 1 ELSE 0 END) as abandonadas,
+ AVG(duration_seconds) as duracion_promedio
+ FROM ivr_calls
+ WHERE quarter = %s
+ AND year = %s
+ AND segment = %s
+ AND deleted_at IS NULL
+ GROUP BY DATE_TRUNC('day', call_date)
+ ORDER BY dia ASC
+ """
+ 
+ cursor.execute(query, [quarter, year, segment])
+ 
+ # Fetch resultados
+ columns = [col[0] for col in cursor.description]
+ results = [
+ dict(zip(columns, row))
+ for row in cursor.fetchall
+ ]
+ 
+ # Validar integridad de datos
+ validate_data_integrity(results)
+ 
+ # Log exitoso
+ logger.info(
+ f"Query executed successfully: "
+ f"quarter={quarter}, year={year}, segment={segment}, "
+ f"rows={len(results)}"
+ )
+ 
+ return results
+ 
+ except OperationalError as e:
+ # Timeout o conexion perdida
+ if 'timeout' in str(e).lower:
+ logger.error(
+ f"Query timeout: quarter={quarter}, year={year}, "
+ f"segment={segment}, error={str(e)}"
+ )
+ raise QueryTimeoutError(
+ "Query exceeded 30 second timeout. "
+ "Try reducing date range or contact support."
+ ) from e
+ else:
+ logger.error(
+ f"Database connection error: {str(e)}"
+ )
+ raise QueryExecutionError(
+ "Database connection failed. Please retry."
+ ) from e
+ 
+ except DatabaseError as e:
+ # Error de sintaxis SQL o constraint
+ logger.error(
+ f"Database error: quarter={quarter}, year={year}, "
+ f"segment={segment}, error={str(e)}"
+ )
+ raise QueryExecutionError(
+ "Database error occurred. Contact support."
+ ) from e
+ 
+ except Exception as e:
+ # Error inesperado
+ logger.critical(
+ f"Unexpected error in FR-RPT-01-07: "
+ f"quarter={quarter}, year={year}, segment={segment}",
+ exc_info=True
+ )
+ raise QueryExecutionError(
+ "An unexpected error occurred. Contact support."
+ ) from e
+ 
+ def validate_data_integrity(results):
+ """Validates data integrity invariants."""
+ for row in results:
+ total = row['total_llamadas']
+ comp = row['completadas']
+ aban = row['abandonadas']
+ 
+ # Invariant: total = completadas + abandonadas
+ if total != comp + aban:
+ raise DataIntegrityError(
+ f"Data integrity violation on {row['dia']}: "
+ f"total ({total}) != completadas ({comp}) + "
+ f"abandonadas ({aban})"
+ )
 
 **Retry Logic:**
 
@@ -952,104 +952,104 @@ Estandar JSON estructurado para facil parsing
 
 .. code-block:: python
 
-   import logging
-   import json
-   from datetime import datetime
-   
-   logger = logging.getLogger('iact.reports.fr_rpt_01_07')
-   logger.setLevel(logging.INFO)
+ import logging
+ import json
+ from datetime import datetime
+ 
+ logger = logging.getLogger('iact.reports.fr_rpt_01_07')
+ logger.setLevel(logging.INFO)
 
 **Log al Inicio (INFO):**
 
 .. code-block:: python
 
-   logger.info(
-       json.dumps({
-           'event': 'fr_rpt_01_07_start',
-           'timestamp': datetime.now().isoformat(),
-           'user_id': request.user.id,
-           'parameters': {
-               'quarter': quarter,
-               'year': year,
-               'segment': segment
-           },
-           'request_id': request.id
-       })
-   )
+ logger.info(
+ json.dumps({
+ 'event': 'fr_rpt_01_07_start',
+ 'timestamp': datetime.now.isoformat,
+ 'user_id': request.user.id,
+ 'parameters': {
+ 'quarter': quarter,
+ 'year': year,
+ 'segment': segment
+ },
+ 'request_id': request.id
+ })
+ )
 
 Salida:
 
 .. code-block:: json
 
-   {
-       "event": "fr_rpt_01_07_start",
-       "timestamp": "2024-11-15T14:23:45.123456",
-       "user_id": "USR-001",
-       "parameters": {
-           "quarter": "Q3",
-           "year": 2024,
-           "segment": "OP"
-       },
-       "request_id": "req-abc123"
-   }
+ {
+ "event": "fr_rpt_01_07_start",
+ "timestamp": "2024-11-15T14:23:45.123456",
+ "user_id": "USR-001",
+ "parameters": {
+ "quarter": "Q3",
+ "year": 2024,
+ "segment": "OP"
+ },
+ "request_id": "req-abc123"
+ }
 
 **Log de Query Execution (DEBUG):**
 
 .. code-block:: python
 
-   logger.debug(
-       json.dumps({
-           'event': 'query_execution',
-           'timestamp': datetime.now().isoformat(),
-           'query_hash': hashlib.md5(query.encode()).hexdigest(),
-           'parameters': [quarter, year, segment]
-       })
-   )
+ logger.debug(
+ json.dumps({
+ 'event': 'query_execution',
+ 'timestamp': datetime.now.isoformat,
+ 'query_hash': hashlib.md5(query.encode).hexdigest,
+ 'parameters': [quarter, year, segment]
+ })
+ )
 
 **Log Exitoso (INFO):**
 
 .. code-block:: python
 
-   logger.info(
-       json.dumps({
-           'event': 'fr_rpt_01_07_success',
-           'timestamp': datetime.now().isoformat(),
-           'user_id': request.user.id,
-           'parameters': {
-               'quarter': quarter,
-               'year': year,
-               'segment': segment
-           },
-           'result': {
-               'rows_returned': len(results),
-               'execution_time_ms': execution_time
-           },
-           'request_id': request.id
-       })
-   )
+ logger.info(
+ json.dumps({
+ 'event': 'fr_rpt_01_07_success',
+ 'timestamp': datetime.now.isoformat,
+ 'user_id': request.user.id,
+ 'parameters': {
+ 'quarter': quarter,
+ 'year': year,
+ 'segment': segment
+ },
+ 'result': {
+ 'rows_returned': len(results),
+ 'execution_time_ms': execution_time
+ },
+ 'request_id': request.id
+ })
+ )
 
 **Log de Error (ERROR):**
 
 .. code-block:: python
 
-   logger.error(
-       json.dumps({
-           'event': 'fr_rpt_01_07_error',
-           'timestamp': datetime.now().isoformat(),
-           'user_id': request.user.id,
-           'parameters': {
-               'quarter': quarter,
-               'year': year,
-               'segment': segment
-           },
-           'error': {
-               'type': type(e).__name__,
-               'message': str(e),
-               'stack_trace': traceback.format_exc()
-           },
-           'request_id': request.id
-       })
-   )
+ logger.error(
+ json.dumps({
+ 'event': 'fr_rpt_01_07_error',
+ 'timestamp': datetime.now.isoformat,
+ 'user_id': request.user.id,
+ 'parameters': {
+ 'quarter': quarter,
+ 'year': year,
+ 'segment': segment
+ },
+ 'error': {
+ 'type': type(e).__name__,
+ 'message': str(e),
+ 'stack_trace': traceback.format_exc
+ },
+ 'request_id': request.id
+ })
+ )
 
 **Metricas para Observabilidad:**
 
@@ -1057,27 +1057,27 @@ Adicionalmente, enviar metricas a Prometheus:
 
 .. code-block:: python
 
-   from prometheus_client import Counter, Histogram
-   
-   # Counter de ejecuciones
-   query_executions = Counter(
-       'fr_rpt_01_07_executions_total',
-       'Total query executions',
-       ['status', 'segment']
-   )
-   
-   # Histogram de tiempos
-   query_duration = Histogram(
-       'fr_rpt_01_07_duration_seconds',
-       'Query execution duration',
-       ['segment']
-   )
-   
-   # Uso
-   with query_duration.labels(segment=segment).time():
-       results = execute_query()
-   
-   query_executions.labels(status='success', segment=segment).inc()
+ from prometheus_client import Counter, Histogram
+ 
+ # Counter de ejecuciones
+ query_executions = Counter(
+ 'fr_rpt_01_07_executions_total',
+ 'Total query executions',
+ ['status', 'segment']
+ )
+ 
+ # Histogram de tiempos
+ query_duration = Histogram(
+ 'fr_rpt_01_07_duration_seconds',
+ 'Query execution duration',
+ ['segment']
+ )
+ 
+ # Uso
+ with query_duration.labels(segment=segment).time:
+ results = execute_query
+ 
+ query_executions.labels(status='success', segment=segment).inc
 
 ----------------------------------------------------------------------
 COMPONENTE 10: TESTS
@@ -1111,169 +1111,169 @@ pytest para Python, con fixtures y mocks
 
 .. code-block:: python
 
-   # tests/unit/test_fr_rpt_01_07.py
-   
-   import pytest
-   from datetime import date
-   from reports.fr_rpt_01_07 import execute_quarterly_report_query
-   
-   def test_execute_query_success_q3_2024(mocker):
-       """
-       Test successful query execution for Q3 2024.
-       
-       Validates FR-RPT-01-07 with normal parameters.
-       """
-       # Arrange
-       quarter = 'Q3'
-       year = 2024
-       segment = 'OP'
-       
-       # Mock database response
-       mock_results = [
-           {
-               'dia': date(2024, 7, 1),
-               'total_llamadas': 1250,
-               'completadas': 1100,
-               'abandonadas': 150,
-               'duracion_promedio': 245.67
-           },
-           {
-               'dia': date(2024, 7, 2),
-               'total_llamadas': 1180,
-               'completadas': 1050,
-               'abandonadas': 130,
-               'duracion_promedio': 238.42
-           }
-       ]
-       
-       mocker.patch(
-           'reports.fr_rpt_01_07.execute_raw_query',
-           return_value=mock_results
-       )
-       
-       # Act
-       results = execute_quarterly_report_query(quarter, year, segment)
-       
-       # Assert
-       assert len(results) == 2
-       assert results[0]['dia'] == date(2024, 7, 1)
-       assert results[0]['total_llamadas'] == 1250
-       assert results[0]['completadas'] + results[0]['abandonadas'] == 1250
+ # tests/unit/test_fr_rpt_01_07.py
+ 
+ import pytest
+ from datetime import date
+ from reports.fr_rpt_01_07 import execute_quarterly_report_query
+ 
+ def test_execute_query_success_q3_2024(mocker):
+ """
+ Test successful query execution for Q3 2024.
+ 
+ Validates FR-RPT-01-07 with normal parameters.
+ """
+ # Arrange
+ quarter = 'Q3'
+ year = 2024
+ segment = 'OP'
+ 
+ # Mock database response
+ mock_results = [
+ {
+ 'dia': date(2024, 7, 1),
+ 'total_llamadas': 1250,
+ 'completadas': 1100,
+ 'abandonadas': 150,
+ 'duracion_promedio': 245.67
+ },
+ {
+ 'dia': date(2024, 7, 2),
+ 'total_llamadas': 1180,
+ 'completadas': 1050,
+ 'abandonadas': 130,
+ 'duracion_promedio': 238.42
+ }
+ ]
+ 
+ mocker.patch(
+ 'reports.fr_rpt_01_07.execute_raw_query',
+ return_value=mock_results
+ )
+ 
+ # Act
+ results = execute_quarterly_report_query(quarter, year, segment)
+ 
+ # Assert
+ assert len(results) == 2
+ assert results[0]['dia'] == date(2024, 7, 1)
+ assert results[0]['total_llamadas'] == 1250
+ assert results[0]['completadas'] + results[0]['abandonadas'] == 1250
 
 **Test Unitario 2: Validacion Falla**
 
 .. code-block:: python
 
-   def test_execute_query_invalid_quarter():
-       """Test validation error for invalid quarter."""
-       # Arrange
-       quarter = 'Q5'  # Invalid
-       year = 2024
-       segment = 'OP'
-       
-       # Act & Assert
-       with pytest.raises(ValidationError, match="Invalid quarter"):
-           execute_quarterly_report_query(quarter, year, segment)
+ def test_execute_query_invalid_quarter:
+ """Test validation error for invalid quarter."""
+ # Arrange
+ quarter = 'Q5' # Invalid
+ year = 2024
+ segment = 'OP'
+ 
+ # Act & Assert
+ with pytest.raises(ValidationError, match="Invalid quarter"):
+ execute_quarterly_report_query(quarter, year, segment)
 
 **Test Unitario 3: Year Fuera de Rango**
 
 .. code-block:: python
 
-   def test_execute_query_year_out_of_range():
-       """Test validation error for year out of range."""
-       # Arrange
-       quarter = 'Q3'
-       year = 2030  # Future year
-       segment = 'OP'
-       
-       # Act & Assert
-       with pytest.raises(ValidationError, match="Invalid year"):
-           execute_quarterly_report_query(quarter, year, segment)
+ def test_execute_query_year_out_of_range:
+ """Test validation error for year out of range."""
+ # Arrange
+ quarter = 'Q3'
+ year = 2030 # Future year
+ segment = 'OP'
+ 
+ # Act & Assert
+ with pytest.raises(ValidationError, match="Invalid year"):
+ execute_quarterly_report_query(quarter, year, segment)
 
 **Test de Integracion 1: Query Real en BD**
 
 .. code-block:: python
 
-   # tests/integration/test_fr_rpt_01_07_integration.py
-   
-   import pytest
-   from django.test import TestCase, TransactionTestCase
-   from reports.fr_rpt_01_07 import execute_quarterly_report_query
-   from app.models import IVRCall
-   from datetime import date
-   
-   @pytest.mark.django_db
-   class TestFRRPT0107Integration(TransactionTestCase):
-       """Integration tests for FR-RPT-01-07 with real database."""
-       
-       def setUp(self):
-           """Setup test data in database."""
-           # Create test data for Q3 2024
-           IVRCall.objects.create(
-               call_date=date(2024, 7, 1),
-               quarter='Q3',
-               year=2024,
-               segment='OP',
-               status='COMPLETED',
-               duration_seconds=240
-           )
-           IVRCall.objects.create(
-               call_date=date(2024, 7, 1),
-               quarter='Q3',
-               year=2024,
-               segment='OP',
-               status='ABANDONED',
-               duration_seconds=60
-           )
-           # ... more test data
-       
-       def test_query_returns_correct_aggregations(self):
-           """Test that query returns correct aggregated data."""
-           # Act
-           results = execute_quarterly_report_query('Q3', 2024, 'OP')
-           
-           # Assert
-           assert len(results) > 0
-           
-           # Verify first day
-           day_1 = results[0]
-           assert day_1['dia'] == date(2024, 7, 1)
-           assert day_1['total_llamadas'] == 2
-           assert day_1['completadas'] == 1
-           assert day_1['abandonadas'] == 1
-           assert day_1['duracion_promedio'] == 150.0  # (240+60)/2
+ # tests/integration/test_fr_rpt_01_07_integration.py
+ 
+ import pytest
+ from django.test import TestCase, TransactionTestCase
+ from reports.fr_rpt_01_07 import execute_quarterly_report_query
+ from app.models import IVRCall
+ from datetime import date
+ 
+ @pytest.mark.django_db
+ class TestFRRPT0107Integration(TransactionTestCase):
+ """Integration tests for FR-RPT-01-07 with real database."""
+ 
+ def setUp(self):
+ """Setup test data in database."""
+ # Create test data for Q3 2024
+ IVRCall.objects.create(
+ call_date=date(2024, 7, 1),
+ quarter='Q3',
+ year=2024,
+ segment='OP',
+ status='COMPLETED',
+ duration_seconds=240
+ )
+ IVRCall.objects.create(
+ call_date=date(2024, 7, 1),
+ quarter='Q3',
+ year=2024,
+ segment='OP',
+ status='ABANDONED',
+ duration_seconds=60
+ )
+ # ... more test data
+ 
+ def test_query_returns_correct_aggregations(self):
+ """Test that query returns correct aggregated data."""
+ # Act
+ results = execute_quarterly_report_query('Q3', 2024, 'OP')
+ 
+ # Assert
+ assert len(results) > 0
+ 
+ # Verify first day
+ day_1 = results[0]
+ assert day_1['dia'] == date(2024, 7, 1)
+ assert day_1['total_llamadas'] == 2
+ assert day_1['completadas'] == 1
+ assert day_1['abandonadas'] == 1
+ assert day_1['duracion_promedio'] == 150.0 # (240+60)/2
 
 **Test de Integracion 2: Timeout**
 
 .. code-block:: python
 
-   @pytest.mark.slow
-   def test_query_timeout_after_30_seconds(mocker):
-       """Test that query times out after 30 seconds."""
-       # Arrange
-       # Mock a slow query that takes > 30 seconds
-       def slow_query(*args, **kwargs):
-           import time
-           time.sleep(31)  # Simulate timeout
-       
-       mocker.patch(
-           'django.db.connection.cursor.execute',
-           side_effect=slow_query
-       )
-       
-       # Act & Assert
-       with pytest.raises(QueryTimeoutError):
-           execute_quarterly_report_query('Q3', 2024, 'OP')
+ @pytest.mark.slow
+ def test_query_timeout_after_30_seconds(mocker):
+ """Test that query times out after 30 seconds."""
+ # Arrange
+ # Mock a slow query that takes > 30 seconds
+ def slow_query(*args, **kwargs):
+ import time
+ time.sleep(31) # Simulate timeout
+ 
+ mocker.patch(
+ 'django.db.connection.cursor.execute',
+ side_effect=slow_query
+ )
+ 
+ # Act & Assert
+ with pytest.raises(QueryTimeoutError):
+ execute_quarterly_report_query('Q3', 2024, 'OP')
 
 **Cobertura de Tests:**
 
 .. code-block:: bash
 
-   # Run tests with coverage
-   pytest tests/unit/test_fr_rpt_01_07.py \
-          tests/integration/test_fr_rpt_01_07_integration.py \
-          --cov=reports.fr_rpt_01_07 \
-          --cov-report=html
+ # Run tests with coverage
+ pytest tests/unit/test_fr_rpt_01_07.py \
+ tests/integration/test_fr_rpt_01_07_integration.py \
+ --cov=reports.fr_rpt_01_07 \
+ --cov-report=html
 
 Objetivo: Mayor o igual 80% de cobertura de lineas
 
@@ -1282,25 +1282,25 @@ SECCION 11: HISTORIAL DE VERSIONES
 ----------------------------------------------------------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 10 15 50 25
+ :header-rows: 1
+ :widths: 10 15 50 25
 
-   * - Version
-     - Fecha
-     - Cambios
-     - Autor
-   * - 1.0.0
-     - YYYY-MM-DD
-     - Version inicial - Implementacion de FR
-     - Nombre del Developer
-   * - 1.1.0
-     - YYYY-MM-DD
-     - Agrega validacion V-5 (trimestre futuro)
-     - Nombre del Developer
-   * - 1.0.1
-     - YYYY-MM-DD
-     - Corrige typo en mensaje de error
-     - Nombre del Developer
+ * - Version
+ - Fecha
+ - Cambios
+ - Autor
+ * - 1.0.0
+ - YYYY-MM-DD
+ - Version inicial - Implementacion de FR
+ - Nombre del Developer
+ * - 1.1.0
+ - YYYY-MM-DD
+ - Agrega validacion V-5 (trimestre futuro)
+ - Nombre del Developer
+ * - 1.0.1
+ - YYYY-MM-DD
+ - Corrige typo en mensaje de error
+ - Nombre del Developer
 
 ----------------------------------------------------------------------
 REFERENCIAS
@@ -1314,9 +1314,9 @@ REFERENCIAS
 **Material Pedagogico:**
 
 - PARTE_4_Functional_Requirements_IACT_1_0_0.md
-  - Seccion 2: Los 10 Componentes Obligatorios
-  - Seccion 3: Derivacion UC → FR
-  - Seccion 4: Testing de FR
+ - Seccion 2: Los 10 Componentes Obligatorios
+ - Seccion 3: Derivacion UC → FR
+ - Seccion 4: Testing de FR
 
 **Documentos Relacionados:**
 
@@ -1326,32 +1326,32 @@ REFERENCIAS
 ----------------------------------------------------------------------
 
 .. note::
-   CHECKLIST DE CALIDAD - 10 COMPONENTES:
-   
-   Verificar que TODOS los componentes esten completos:
-   
-   - Componente 1: DERIVADO DE completo
-   - Componente 2: DESCRIPCION clara
-   - Componente 3: CONSULTA SQL funcional y comentada
-   - Componente 4: PARAMETROS con tipos y validaciones
-   - Componente 5: OUTPUT con estructura detallada
-   - Componente 6: VALIDACIONES V-1 a V-N con codigo
-   - Componente 7: TIMEOUT definido y configurado
-   - Componente 8: MANEJO ERRORES con try-catch completo
-   - Componente 9: LOGS en todos los niveles
-   - Componente 10: TESTS unitarios e integracion
-   
-   Codigo:
-   - Todo el codigo es funcional, no pseudocodigo
-   - Queries SQL usan parametros bound
-   - Excepciones son especificas, no genericas
-   - Logging es estructurado (JSON)
-   - Tests cubren casos normal, borde y error
+ CHECKLIST DE CALIDAD - 10 COMPONENTES:
+ 
+ Verificar que TODOS los componentes esten completos:
+ 
+ - Componente 1: DERIVADO DE completo
+ - Componente 2: DESCRIPCION clara
+ - Componente 3: CONSULTA SQL funcional y comentada
+ - Componente 4: PARAMETROS con tipos y validaciones
+ - Componente 5: OUTPUT con estructura detallada
+ - Componente 6: VALIDACIONES V-1 a V-N con codigo
+ - Componente 7: TIMEOUT definido y configurado
+ - Componente 8: MANEJO ERRORES con try-catch completo
+ - Componente 9: LOGS en todos los niveles
+ - Componente 10: TESTS unitarios e integracion
+ 
+ Codigo:
+ - Todo el codigo es funcional, no pseudocodigo
+ - Queries SQL usan parametros bound
+ - Excepciones son especificas, no genericas
+ - Logging es estructurado (JSON)
+ - Tests cubren casos normal, borde y error
 
 ----------------------------------------------------------------------
 
-**Archivo:** TPL_FR_Documentacion_10_Componentes_1_3_0.rst  
-**Version Template:** 1.3.0  
-**Fecha Creacion Template:** 2026-01-11  
-**Autor Template:** Sistema de Regeneracion IACT  
+**Archivo:** TPL_FR_Documentacion_10_Componentes_1_3_0.rst 
+**Version Template:** 1.3.0 
+**Fecha Creacion Template:** 2026-01-11 
+**Autor Template:** Sistema de Regeneracion IACT 
 **Lineas Totales:** aproximadamente 1,100

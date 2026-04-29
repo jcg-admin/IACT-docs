@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: STD_Naming_Identificadores
-   :tipo: Estándar
-   :dominio: normativa
-   :subdominio: estandares
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-28
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: STD_Naming_Identificadores
+ :tipo: Estándar
+ :dominio: normativa
+ :subdominio: estandares
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-28
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _std-naming-identificadores:
 
@@ -17,8 +17,8 @@ STD: Naming de Identificadores Técnicos
 ============================================================
 
 .. contents:: Contenido
-   :depth: 3
-   :local:
+ :depth: 3
+ :local:
 
 ----
 
@@ -49,15 +49,15 @@ Aplica a:
 - Nombres de variables locales, atributos de instancia, propiedades.
 - Nombres de constantes y parámetros.
 - Nombres de columnas y tablas en bases de datos cuando son
-  consumidos por el código del proyecto.
+ consumidos por el código del proyecto.
 - Identificadores citados en la documentación (RST) en bloques
-  ``code-block``, ``literal``, ``code:`` y similares.
+ ``code-block``, ``literal``, ``code:`` y similares.
 
 NO aplica a:
 
 - Nombres de archivos y directorios (rige STD_007).
 - IDs de artefactos de documentación: UC-001, BR-001, FND-01, etc.
-  (rigen STD_002 y STD_007 §4).
+ (rigen STD_002 y STD_007 §4).
 
 ----
 
@@ -91,22 +91,22 @@ nombre, el nombre **viola este estándar**.
 Ejemplos:
 
 .. list-table::
-   :header-rows: 1
-   :widths: 35 35 30
+ :header-rows: 1
+ :widths: 35 35 30
 
-   * - Correcto
-     - Por qué
-     - Incorrecto (anti-patrón)
-   * - ``getUserPermissions(userId)``
-     - El verbo y el sustantivo describen la operación.
-     - ``proc(uid)`` (abreviaturas crípticas, no se entiende qué
-       hace)
-   * - ``isReportExpired(report)``
-     - Predicado claro: "el reporte está expirado".
-     - ``check(r)`` (no dice qué se chequea)
-   * - ``calculateTotalPrice(items, taxRate)``
-     - Operación + objeto + cómo.
-     - ``calc(x, y)`` (parámetros sin contexto)
+ * - Correcto
+ - Por qué
+ - Incorrecto (anti-patrón)
+ * - ``getUserPermissions(userId)``
+ - El verbo y el sustantivo describen la operación.
+ - ``proc(uid)`` (abreviaturas crípticas, no se entiende qué
+ hace)
+ * - ``isReportExpired(report)``
+ - Predicado claro: "el reporte está expirado".
+ - ``check(r)`` (no dice qué se chequea)
+ * - ``calculateTotalPrice(items, taxRate)``
+ - Operación + objeto + cómo.
+ - ``calc(x, y)`` (parámetros sin contexto)
 
 3.3 Sin Abreviaturas de Dominio en Identificadores
 ---------------------------------------------------
@@ -126,25 +126,25 @@ implícito que rompe el principio de autoexplicativo (sección 3.2).
 Ejemplos:
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 35 35
+ :header-rows: 1
+ :widths: 30 35 35
 
-   * - Operación
-     - Identificador correcto
-     - Identificador incorrecto
-   * - Validar conflicto entre roles RBAC
-     - ``validateRoleConflict(...)``
-     - ``validateSoD(...)`` (SoD es abreviatura de dominio)
-   * - Procesar datos del pipeline ETL
-     - ``processIncomingData(...)``
-     - ``runETL(...)`` (ETL es jerga sin contexto en el
-       identificador)
-   * - Emitir métrica de KPI
-     - ``recordPerformanceMetric(...)``
-     - ``emitKPI(...)``
-   * - Construir matriz de trazabilidad
-     - ``buildTraceabilityMatrix(...)``
-     - ``buildRTM(...)``
+ * - Operación
+ - Identificador correcto
+ - Identificador incorrecto
+ * - Validar conflicto entre roles RBAC
+ - ``validateRoleConflict(...)``
+ - ``validateSoD(...)`` (SoD es abreviatura de dominio)
+ * - Procesar datos del pipeline ETL
+ - ``processIncomingData(...)``
+ - ``runETL(...)`` (ETL es jerga sin contexto en el
+ identificador)
+ * - Emitir métrica de KPI
+ - ``recordPerformanceMetric(...)``
+ - ``emitKPI(...)``
+ * - Construir matriz de trazabilidad
+ - ``buildTraceabilityMatrix(...)``
+ - ``buildRTM(...)``
 
 **Excepción:** los identificadores que **son** el nombre canónico
 de un concepto del lenguaje o framework (no del dominio del
@@ -165,7 +165,7 @@ Ejemplo:
 
 - ``hasPermission(permission)`` ✓ (universal)
 - ``hasIACTPermission(permission)`` ✗ (acoplamiento al producto en
-  el nombre).
+ el nombre).
 
 3.5 Coherencia de Idioma
 ------------------------
@@ -202,14 +202,14 @@ identificadores que aparecen citados en ella mantienen el inglés.
 - Clases y componentes React: ``PascalCase``.
 - Constantes: ``UPPER_SNAKE_CASE``.
 - Hooks personalizados: prefijo ``use`` + ``camelCase``
-  (``useReportData``).
+ (``useReportData``).
 - Booleanos: prefijos ``is``, ``has``, ``should``, ``can``.
 
 4.3 SQL (PostgreSQL + MySQL)
 ----------------------------
 
 - Tablas y columnas: ``snake_case``, plural para tablas
-  (``user_roles``).
+ (``user_roles``).
 - Foreign key: ``{tabla_singular}_id``.
 - Índices: ``ix_{tabla}_{columnas}``.
 - Constraints unique: ``uq_{tabla}_{columnas}``.
@@ -267,7 +267,7 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
 - :ref:`std-006` — Versionado Semántico.
 - :ref:`std-007` — Convención de Naming de Archivos y Carpetas.
 - Robert C. Martin: "Clean Code: A Handbook of Agile Software
-  Craftsmanship" (capítulo 2: Meaningful Names).
+ Craftsmanship" (capítulo 2: Meaningful Names).
 
 ----
 
@@ -275,16 +275,16 @@ con reglas para JS/TS) es deuda técnica abierta a futuro.
 ============
 
 .. list-table::
-   :header-rows: 1
-   :widths: 12 15 73
+ :header-rows: 1
+ :widths: 12 15 73
 
-   * - Versión
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-04-28
-     - Versión inicial. Establece principios obligatorios:
-       clean code, autoexplicativo, sin abreviaturas de dominio
-       en identificadores técnicos. Convenciones por lenguaje
-       del stack del producto IACT (Python/DRF, JavaScript/
-       TypeScript/React, SQL PostgreSQL+MySQL, Bash).
+ * - Versión
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-04-28
+ - Versión inicial. Establece principios obligatorios:
+ clean code, autoexplicativo, sin abreviaturas de dominio
+ en identificadores técnicos. Convenciones por lenguaje
+ del stack del producto IACT (Python/DRF, JavaScript/
+ TypeScript/React, SQL PostgreSQL+MySQL, Bash).

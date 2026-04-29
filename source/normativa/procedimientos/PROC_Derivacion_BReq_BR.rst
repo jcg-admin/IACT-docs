@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Derivacion_BReq_BR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Derivacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Derivacion_BReq_BR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Derivacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-derivacion-breq-br:
 
@@ -22,18 +22,18 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Derivacion_BReq_BR
-   * - **Nombre**
-     - Derivacion de BReq a BR
-   * - **Categoria**
-     - Derivacion
-   * - **Ratio Esperado**
-     - 1 BReq -> 2-3 BR
-   * - **Duracion**
-     - 1-2 horas por BReq
+ * - **ID**
+ - PROC_Derivacion_BReq_BR
+ * - **Nombre**
+ - Derivacion de BReq a BR
+ * - **Categoria**
+ - Derivacion
+ * - **Ratio Esperado**
+ - 1 BReq -> 2-3 BR
+ * - **Duracion**
+ - 1-2 horas por BReq
 
 ----
 
@@ -59,10 +59,10 @@ garantizando trazabilidad completa y cobertura de requisitos.
 
 ::
 
-   BReq (Objetivo de Negocio)
-     └── BR (Regla de Negocio)
-           └── UC (Caso de Uso)
-                 └── FR (Requisito Funcional)
+ BReq (Objetivo de Negocio)
+ └── BR (Regla de Negocio)
+ └── UC (Caso de Uso)
+ └── FR (Requisito Funcional)
 
 ----
 
@@ -88,12 +88,12 @@ Por cada requisito implicito, crear BR candidata:
 
 .. code-block:: text
 
-   BReq_004: Cumplimiento de Seguridad
-   
-   BR derivadas:
-   - BR_005: Sesion Unica (restriccion)
-   - BR_008: Auditoria Accesos (proceso)
-   - BR_015: Bloqueo Intentos (restriccion)
+ BReq_004: Cumplimiento de Seguridad
+ 
+ BR derivadas:
+ - BR_005: Sesion Unica (restriccion)
+ - BR_008: Auditoria Accesos (proceso)
+ - BR_015: Bloqueo Intentos (restriccion)
 
 **Paso 4: Generar BR**
 
@@ -113,20 +113,20 @@ En cada BR, documentar BReq origen.
 -----------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - BReq
-     - BR Derivadas
-     - Cantidad
-   * - BReq_001
-     - BR_001, BR_002
-     - 2
-   * - BReq_002
-     - BR_003, BR_004, BR_005
-     - 3
-   * - BReq_004
-     - BR_005, BR_008, BR_015
-     - 3
+ * - BReq
+ - BR Derivadas
+ - Cantidad
+ * - BReq_001
+ - BR_001, BR_002
+ - 2
+ * - BReq_002
+ - BR_003, BR_004, BR_005
+ - 3
+ * - BReq_004
+ - BR_005, BR_008, BR_015
+ - 3
 
 ----
 
@@ -160,14 +160,14 @@ En cada BR, documentar BReq origen.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

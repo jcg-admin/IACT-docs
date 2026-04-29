@@ -21,25 +21,25 @@ Subdominios
 ===========
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Estándares y Plantillas
+ :maxdepth: 2
+ :caption: Estándares y Plantillas
 
-   estandares/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Procedimientos
-
-   procedimientos/index
+ estandares/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Restricciones
+ :maxdepth: 2
+ :caption: Procedimientos
 
-   restricciones/index
+ procedimientos/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Gobernanza
+ :maxdepth: 2
+ :caption: Restricciones
 
-   gobernanza/index
+ restricciones/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Gobernanza
+
+ gobernanza/index

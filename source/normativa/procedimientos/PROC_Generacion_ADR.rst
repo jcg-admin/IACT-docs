@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_ADR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_ADR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-adr:
 
@@ -22,16 +22,16 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Generacion_ADR
-   * - **Nombre**
-     - Generacion de Decisiones Arquitectonicas
-   * - **Categoria**
-     - Generacion
-   * - **Duracion**
-     - 30-60 minutos por ADR
+ * - **ID**
+ - PROC_Generacion_ADR
+ * - **Nombre**
+ - Generacion de Decisiones Arquitectonicas
+ * - **Categoria**
+ - Generacion
+ * - **Duracion**
+ - 30-60 minutos por ADR
 
 ----
 
@@ -73,8 +73,8 @@ Documentar decision arquitectonica tomada.
 
 .. code-block:: text
 
-   Formato: ADR_[NNN]
-   Archivo: ADR_[NNN]_[Titulo].rst
+ Formato: ADR_[NNN]
+ Archivo: ADR_[NNN]_[Titulo].rst
 
 **Paso 3: Documentar Contexto**
 
@@ -90,12 +90,12 @@ La decision tomada y por que:
 
 .. code-block:: text
 
-   Decision: Usar JWT para autenticacion stateless
-   
-   Justificacion:
-   - Escalabilidad horizontal
-   - No requiere sesiones en servidor
-   - Estandar de industria
+ Decision: Usar JWT para autenticacion stateless
+ 
+ Justificacion:
+ - Escalabilidad horizontal
+ - No requiere sesiones en servidor
+ - Estandar de industria
 
 **Paso 5: Documentar Alternativas**
 
@@ -103,9 +103,9 @@ Opciones descartadas y por que:
 
 .. code-block:: text
 
-   Alternativas descartadas:
-   - Sesiones en BD: No escala bien
-   - OAuth solo: Complejidad innecesaria
+ Alternativas descartadas:
+ - Sesiones en BD: No escala bien
+ - OAuth solo: Complejidad innecesaria
 
 **Paso 6: Documentar Consecuencias**
 
@@ -113,12 +113,12 @@ Impacto positivo y negativo:
 
 .. code-block:: text
 
-   Positivas:
-   - Stateless, escala horizontalmente
-   
-   Negativas:
-   - No se puede invalidar token facilmente
-   - Requiere refresh token
+ Positivas:
+ - Stateless, escala horizontalmente
+ 
+ Negativas:
+ - No se puede invalidar token facilmente
+ - Requiere refresh token
 
 **Paso 7: Guardar y Validar**
 
@@ -163,14 +163,14 @@ Impacto positivo y negativo:
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: ADR_GOB_002_plantuml_para_diagramas
-   :tipo: ADR
-   :dominio: normativa
-   :subdominio: gobernanza
-   :estado: Aceptada
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-06
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo Arquitectura
-   :clasificacion: Medio
+ :artefacto: ADR_GOB_002_plantuml_para_diagramas
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: Aceptada
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-06
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo Arquitectura
+ :clasificacion: Medio
 
 .. _adr_gob_002_plantuml_para_diagramas:
 
@@ -45,9 +45,9 @@ Necesidades Específicas del Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Versionabilidad**: Diagramas deben ser texto plano para git diff
-   efectivo
+ efectivo
 2. **Editabilidad**: Desarrolladores deben poder editar sin herramientas
-   especiales
+ especiales
 3. **Reproducibilidad**: Mismo código genera mismo diagrama
 4. **Integración CI/CD**: Generación automática en pipelines
 5. **Documentación como código**: Diagramas viven junto al código
@@ -70,7 +70,7 @@ o en carpeta ``diagramas/``
 
 ::
 
-   TIPO-DOMINIO-###-descripcion.puml
+ TIPO-DOMINIO-###-descripcion.puml
 
 Ejemplos: - ``UC-BACK-001-login-usuario.puml`` (Caso de uso) -
 ``SEQ-BACK-006-autenticacion-jwt.puml`` (Secuencia) -
@@ -83,11 +83,11 @@ Ejemplos: - ``UC-BACK-001-login-usuario.puml`` (Caso de uso) -
 
 .. code:: markdown
 
-   ## Diagrama de Secuencia
+ ## Diagrama de Secuencia
 
-   ![Autenticación JWT](diagramas/SEQ-BACK-006-autenticacion-jwt.svg)
+ ![Autenticación JWT](diagramas/SEQ-BACK-006-autenticacion-jwt.svg)
 
-   Fuente: [SEQ-BACK-006-autenticacion-jwt.puml](diagramas/SEQ-BACK-006-autenticacion-jwt.puml)
+ Fuente: [SEQ-BACK-006-autenticacion-jwt.puml](diagramas/SEQ-BACK-006-autenticacion-jwt.puml)
 
 **Generación de imágenes**: - Formato salida: SVG (preferido) o PNG -
 Generación local: ``plantuml -tsvg diagrama.puml`` - Generación CI/CD:
@@ -101,11 +101,11 @@ Estilo y Convenciones
 
 .. code:: plantuml
 
-   @startuml
-   !theme plain
-   skinparam style strictuml
-   skinparam backgroundColor #FFFFFF
-   skinparam shadowing false
+ @startuml
+ !theme plain
+ skinparam style strictuml
+ skinparam backgroundColor #FFFFFF
+ skinparam shadowing false
 
 **Idioma**: - Elementos técnicos: Inglés (clases, métodos, variables) -
 Elementos de negocio: Español (actores, casos de uso, descripciones)
@@ -114,27 +114,27 @@ Elementos de negocio: Español (actores, casos de uso, descripciones)
 
 .. code:: plantuml
 
-   @startuml UC-BACK-001-login-usuario
-   !theme plain
-   skinparam actorStyle awesome
+ @startuml UC-BACK-001-login-usuario
+ !theme plain
+ skinparam actorStyle awesome
 
-   title Caso de Uso: Login de Usuario
+ title Caso de Uso: Login de Usuario
 
-   actor "Usuario" as user
-   actor "Sistema" as system
+ actor "Usuario" as user
+ actor "Sistema" as system
 
-   rectangle "Autenticación" {
-     usecase "UC-001: Iniciar sesión" as UC1
-     usecase "UC-002: Validar credenciales" as UC2
-     usecase "UC-003: Generar token JWT" as UC3
-   }
+ rectangle "Autenticación" {
+ usecase "UC-001: Iniciar sesión" as UC1
+ usecase "UC-002: Validar credenciales" as UC2
+ usecase "UC-003: Generar token JWT" as UC3
+ }
 
-   user --> UC1
-   UC1 ..> UC2 : include
-   UC2 ..> UC3 : include
-   system --> UC3
+ user --> UC1
+ UC1 ..> UC2 : include
+ UC2 ..> UC3 : include
+ system --> UC3
 
-   @enduml
+ @enduml
 
 Alternativas Consideradas
 -------------------------
@@ -198,112 +198,112 @@ Positivas
 
 1. **Versionabilidad eficiente**
 
-   -  Archivos texto plano
-   -  Git diffs legibles
-   -  Fácil ver cambios en PR reviews
-   -  Historial completo de evolución
+ - Archivos texto plano
+ - Git diffs legibles
+ - Fácil ver cambios en PR reviews
+ - Historial completo de evolución
 
 2. **Edición simplificada**
 
-   -  Cualquier editor de texto
-   -  No requiere software especial
-   -  Plugins disponibles para VSCode, IntelliJ, Vim, etc.
-   -  Live preview en la mayoría de IDEs
+ - Cualquier editor de texto
+ - No requiere software especial
+ - Plugins disponibles para VSCode, IntelliJ, Vim, etc.
+ - Live preview en la mayoría de IDEs
 
 3. **Documentación como código**
 
-   -  Diagramas viven junto al código
-   -  Actualizables en mismo PR que código
-   -  Revisables en code reviews
-   -  Búsqueda de texto en diagramas
+ - Diagramas viven junto al código
+ - Actualizables en mismo PR que código
+ - Revisables en code reviews
+ - Búsqueda de texto en diagramas
 
 4. **Automatización**
 
-   -  Generación automática en CI/CD
-   -  Validación sintáctica en pipelines
-   -  Detección de diagramas desactualizados
-   -  Scripts de generación batch
+ - Generación automática en CI/CD
+ - Validación sintáctica en pipelines
+ - Detección de diagramas desactualizados
+ - Scripts de generación batch
 
 5. **Reproducibilidad**
 
-   -  Mismo ``.puml`` genera mismo diagrama
-   -  No hay “versión de herramienta” que cambie output
-   -  Consistencia visual automática con themes
+ - Mismo ``.puml`` genera mismo diagrama
+ - No hay “versión de herramienta” que cambie output
+ - Consistencia visual automática con themes
 
 6. **Amplio soporte**
 
-   -  Soporta todos los tipos UML estándar
-   -  Soporta BPMN
-   -  Extensiones para C4 model
-   -  Comunidad activa y grande
+ - Soporta todos los tipos UML estándar
+ - Soporta BPMN
+ - Extensiones para C4 model
+ - Comunidad activa y grande
 
 7. **Exportabilidad**
 
-   -  SVG (vectorial, escalable)
-   -  PNG (raster)
-   -  PDF (documentación formal)
-   -  ASCII art (para documentos texto)
+ - SVG (vectorial, escalable)
+ - PNG (raster)
+ - PDF (documentación formal)
+ - ASCII art (para documentos texto)
 
 Negativas
 ~~~~~~~~~
 
 1. **Curva de aprendizaje**
 
-   -  Requiere aprender sintaxis PlantUML
-   -  No es WYSIWYG (lo que ves es lo que obtienes)
-   -  Layout automático puede no ser óptimo
+ - Requiere aprender sintaxis PlantUML
+ - No es WYSIWYG (lo que ves es lo que obtienes)
+ - Layout automático puede no ser óptimo
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Crear plantillas reutilizables
-   -  Documentar ejemplos comunes en PROCED-GOB-002
-   -  Snippets en VSCode para patrones frecuentes
+ - Crear plantillas reutilizables
+ - Documentar ejemplos comunes en PROCED-GOB-002
+ - Snippets en VSCode para patrones frecuentes
 
 2. **Control limitado de layout**
 
-   -  Layout automático no siempre perfecto
-   -  Requiere hints para ajustar posicionamiento
-   -  Puede necesitar iteración para resultado óptimo
+ - Layout automático no siempre perfecto
+ - Requiere hints para ajustar posicionamiento
+ - Puede necesitar iteración para resultado óptimo
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Usar directivas de layout (``left to right``, ``top to bottom``)
-   -  Documentar tricks de posicionamiento
-   -  Aceptar que semántica > estética pixel-perfect
+ - Usar directivas de layout (``left to right``, ``top to bottom``)
+ - Documentar tricks de posicionamiento
+ - Aceptar que semántica > estética pixel-perfect
 
 3. **Dependencia de PlantUML**
 
-   -  Requiere Java instalado para generación local
-   -  Requiere plantuml.jar o servidor PlantUML
-   -  Actualizaciones de PlantUML pueden cambiar rendering
+ - Requiere Java instalado para generación local
+ - Requiere plantuml.jar o servidor PlantUML
+ - Actualizaciones de PlantUML pueden cambiar rendering
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Dockerizar PlantUML para CI/CD
-   -  Fijar versión de PlantUML en CI
-   -  Documentar instalación en README
+ - Dockerizar PlantUML para CI/CD
+ - Fijar versión de PlantUML en CI
+ - Documentar instalación en README
 
 4. **Tamaño de imágenes generadas**
 
-   -  SVG puede ser grande para diagramas complejos
-   -  Aumenta tamaño del repositorio
+ - SVG puede ser grande para diagramas complejos
+ - Aumenta tamaño del repositorio
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Comprimir SVG con herramientas
-   -  Considerar PNG optimizado para diagramas muy grandes
-   -  Git LFS si repositorio crece demasiado
+ - Comprimir SVG con herramientas
+ - Considerar PNG optimizado para diagramas muy grandes
+ - Git LFS si repositorio crece demasiado
 
 5. **No todos los tipos de diagramas soportados perfectamente**
 
-   -  BPMN es extensión, no core
-   -  Algunos diagramas UML 2.5 avanzados limitados
+ - BPMN es extensión, no core
+ - Algunos diagramas UML 2.5 avanzados limitados
 
-   **Mitigación**:
+ **Mitigación**:
 
-   -  Usar extensiones de PlantUML cuando sea necesario
-   -  Evaluar caso por caso si PlantUML es adecuado
-   -  Para casos extremos, considerar excepción documentada
+ - Usar extensiones de PlantUML cuando sea necesario
+ - Evaluar caso por caso si PlantUML es adecuado
+ - Para casos extremos, considerar excepción documentada
 
 Impacto en el Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -330,30 +330,30 @@ Fase 1: Setup Inicial (Semana 1)
 
 .. code:: bash
 
-   # Mac
-   brew install plantuml
+ # Mac
+ brew install plantuml
 
-   # Ubuntu/Debian
-   sudo apt-get install plantuml
+ # Ubuntu/Debian
+ sudo apt-get install plantuml
 
-   # O usando JAR directamente
-   wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
+ # O usando JAR directamente
+ wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
 
 2. **VSCode plugin**:
 
 ::
 
-   Instalar: PlantUML (jebbs.plantuml)
+ Instalar: PlantUML (jebbs.plantuml)
 
 3. **Crear estructura de diagramas**:
 
 ::
 
-   docs/
-   ├── backend/diagramas/
-   ├── frontend/diagramas/
-   ├── devops/diagramas/
-   └── gobernanza/diagramas/
+ docs/
+ ├── backend/diagramas/
+ ├── frontend/diagramas/
+ ├── devops/diagramas/
+ └── gobernanza/diagramas/
 
 Fase 2: Plantillas y Guías (Semana 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -370,39 +370,39 @@ Fase 3: CI/CD Integration (Semana 3)
 
 .. code:: bash
 
-   #!/bin/bash
-   # scripts/generate-diagrams.sh
-   find docs -name "*.puml" -exec plantuml -tsvg {} \;
+ #!/bin/bash
+ # scripts/generate-diagrams.sh
+ find docs -name "*.puml" -exec plantuml -tsvg {} \;
 
 2. GitHub Action para validar y generar:
 
 .. code:: yaml
 
-   # .github/workflows/diagrams.yml
-   name: Generate PlantUML Diagrams
+ # .github/workflows/diagrams.yml
+ name: Generate PlantUML Diagrams
 
-   on:
-     pull_request:
-       paths:
-         - '**.puml'
+ on:
+ pull_request:
+ paths:
+ - '**.puml'
 
-   jobs:
-     generate:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-         - name: Generate diagrams
-           uses: grassedge/generate-plantuml-action@v1.5
-           with:
-             path: docs/
-             message: "Regenerate PlantUML diagrams"
+ jobs:
+ generate:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v3
+ - name: Generate diagrams
+ uses: grassedge/generate-plantuml-action@v1.5
+ with:
+ path: docs/
+ message: "Regenerate PlantUML diagrams"
 
 Fase 4: Migración Gradual (Ongoing)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  No requerido inmediatamente
--  Migrar diagramas existentes según se actualicen
--  Priorizar diagramas críticos de arquitectura
+- No requerido inmediatamente
+- Migrar diagramas existentes según se actualicen
+- Priorizar diagramas críticos de arquitectura
 
 Validación
 ----------
@@ -410,32 +410,32 @@ Validación
 Criterios de Éxito
 ~~~~~~~~~~~~~~~~~~
 
--  100% de nuevos diagramas en PlantUML
--  CI/CD genera automáticamente SVGs
--  Documentación con ejemplos y plantillas
--  Equipo capacitado en sintaxis básica
--  Al menos 10 diagramas creados en primer mes
+- 100% de nuevos diagramas en PlantUML
+- CI/CD genera automáticamente SVGs
+- Documentación con ejemplos y plantillas
+- Equipo capacitado en sintaxis básica
+- Al menos 10 diagramas creados en primer mes
 
 Métricas
 ~~~~~~~~
 
--  Número de archivos ``.puml`` en repositorio
--  Tiempo promedio para crear/actualizar diagrama
--  Issues relacionados con diagramas desactualizados
--  Satisfacción del equipo (survey)
+- Número de archivos ``.puml`` en repositorio
+- Tiempo promedio para crear/actualizar diagrama
+- Issues relacionados con diagramas desactualizados
+- Satisfacción del equipo (survey)
 
 Referencias
 -----------
 
--  `PlantUML Official Documentation <https://plantuml.com/>`__
--  `PlantUML Cheat Sheet <https://plantuml.com/guide>`__
--  `Real World PlantUML <https://real-world-plantuml.com/>`__
--  `C4 Model with
-   PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
--  `PROCED-GOB-002: Actualizar
-   Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.md>`__
--  `GUIA-GOB-002: Convenciones de
-   Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+- `PlantUML Official Documentation <https://plantuml.com/>`__
+- `PlantUML Cheat Sheet <https://plantuml.com/guide>`__
+- `Real World PlantUML <https://real-world-plantuml.com/>`__
+- `C4 Model with
+ PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
+- `PROCED-GOB-002: Actualizar
+ Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.md>`__
+- `GUIA-GOB-002: Convenciones de
+ Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
 
 Ejemplos de Uso
 ---------------
@@ -445,109 +445,109 @@ Diagrama de Secuencia
 
 .. code:: plantuml
 
-   @startuml SEQ-BACK-006-autenticacion-jwt
-   !theme plain
-   autonumber
+ @startuml SEQ-BACK-006-autenticacion-jwt
+ !theme plain
+ autonumber
 
-   actor Usuario
-   participant "Frontend" as FE
-   participant "Backend API" as API
-   participant "Auth Service" as Auth
-   database "PostgreSQL" as DB
+ actor Usuario
+ participant "Frontend" as FE
+ participant "Backend API" as API
+ participant "Auth Service" as Auth
+ database "PostgreSQL" as DB
 
-   Usuario -> FE: Ingresa credenciales
-   FE -> API: POST /api/auth/login\n{username, password}
-   API -> Auth: authenticate(username, password)
-   Auth -> DB: SELECT user WHERE username=?
-   DB --> Auth: user data
-   Auth -> Auth: verify_password(password, hash)
-   Auth -> Auth: generate_jwt_token(user)
-   Auth --> API: {access_token, refresh_token}
-   API --> FE: 200 OK\n{tokens}
-   FE --> Usuario: Redirigir a dashboard
+ Usuario -> FE: Ingresa credenciales
+ FE -> API: POST /api/auth/login\n{username, password}
+ API -> Auth: authenticate(username, password)
+ Auth -> DB: SELECT user WHERE username=?
+ DB --> Auth: user data
+ Auth -> Auth: verify_password(password, hash)
+ Auth -> Auth: generate_jwt_token(user)
+ Auth --> API: {access_token, refresh_token}
+ API --> FE: 200 OK\n{tokens}
+ FE --> Usuario: Redirigir a dashboard
 
-   @enduml
+ @enduml
 
 Diagrama de Casos de Uso
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: plantuml
 
-   @startuml UC-BACK-001-gestion-usuarios
-   !theme plain
-   left to right direction
-   skinparam packageStyle rectangle
+ @startuml UC-BACK-001-gestion-usuarios
+ !theme plain
+ left to right direction
+ skinparam packageStyle rectangle
 
-   actor "Administrador" as admin
-   actor "Usuario" as user
+ actor "Administrador" as admin
+ actor "Usuario" as user
 
-   rectangle "Sistema IACT" {
-     usecase "Iniciar sesión" as UC1
-     usecase "Gestionar permisos" as UC2
-     usecase "Ver auditoría" as UC3
-     usecase "Cambiar contraseña" as UC4
-   }
+ rectangle "Sistema IACT" {
+ usecase "Iniciar sesión" as UC1
+ usecase "Gestionar permisos" as UC2
+ usecase "Ver auditoría" as UC3
+ usecase "Cambiar contraseña" as UC4
+ }
 
-   admin --> UC2
-   admin --> UC3
-   user --> UC1
-   user --> UC4
-   admin --> UC1
+ admin --> UC2
+ admin --> UC3
+ user --> UC1
+ user --> UC4
+ admin --> UC1
 
-   @enduml
+ @enduml
 
 Diagrama de Clases
 ~~~~~~~~~~~~~~~~~~
 
 .. code:: plantuml
 
-   @startuml CLASS-BACK-010-modelo-permisos
-   !theme plain
+ @startuml CLASS-BACK-010-modelo-permisos
+ !theme plain
 
-   class User {
-     +id: UUID
-     +username: String
-     +email: String
-     +password_hash: String
-     +created_at: DateTime
-                          
-     +check_password(password: String): Boolean
-     +has_permission(permission: String): Boolean
-   }
+ class User {
+ +id: UUID
+ +username: String
+ +email: String
+ +password_hash: String
+ +created_at: DateTime
+ 
+ +check_password(password: String): Boolean
+ +has_permission(permission: String): Boolean
+ }
 
-   class Role {
-     +id: UUID
-     +name: String
-     +description: String
-                         
-     +add_permission(permission: Permission): void
-   }
+ class Role {
+ +id: UUID
+ +name: String
+ +description: String
+ 
+ +add_permission(permission: Permission): void
+ }
 
-   class Permission {
-     +id: UUID
-     +name: String
-     +resource: String
-     +action: String
-   }
+ class Permission {
+ +id: UUID
+ +name: String
+ +resource: String
+ +action: String
+ }
 
-   User "1" -- "*" Role : has
-   Role "1" -- "*" Permission : contains
+ User "1" -- "*" Role : has
+ Role "1" -- "*" Permission : contains
 
-   @enduml
+ @enduml
 
 Historial de Cambios
 --------------------
 
 ======= ========== =========== ===============
-Versión Fecha      Autor       Cambios
+Versión Fecha Autor Cambios
 ======= ========== =========== ===============
-1.0.0   2025-11-17 Claude Code Versión inicial
+1.0.0 2025-11-17 Claude Code Versión inicial
 ======= ========== =========== ===============
 
 Aprobación
 ----------
 
--  **Autor**: Claude Code (Sonnet 4.5)
--  **Revisado por**: Pendiente
--  **Aprobado por**: Pendiente
--  **Fecha de próxima revisión**: 2026-05-17
+- **Autor**: Claude Code (Sonnet 4.5)
+- **Revisado por**: Pendiente
+- **Aprobado por**: Pendiente
+- **Fecha de próxima revisión**: 2026-05-17

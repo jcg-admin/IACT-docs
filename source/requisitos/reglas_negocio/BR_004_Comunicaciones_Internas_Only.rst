@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: BR_004
-   :tipo: Regla de Negocio
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-04
-   :ultimo_cambio: 2026-01-04
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: BR_004
+ :tipo: Regla de Negocio
+ :dominio: requisitos
+ :subdominio: reglas_negocio
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-04
+ :ultimo_cambio: 2026-01-04
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _br-004:
 
@@ -21,21 +21,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - BR_004
-   * - **Nombre**
-     - Comunicaciones Internas Only
-   * - **Tipo**
-     - Restriccion
-   * - **Categoria**
-     - Seguridad
-   * - **Criticidad**
-     - Alta
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - BR_004
+ * - **Nombre**
+ - Comunicaciones Internas Only
+ * - **Tipo**
+ - Restriccion
+ * - **Categoria**
+ - Seguridad
+ * - **Criticidad**
+ - Alta
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -55,14 +55,14 @@ de terceros para notificaciones.
 
 ::
 
-   VOCABULARIO:
-     - Comunicacion externa: Email, SMS, webhook a servicios terceros
-     - Buzon interno: Sistema de mensajeria dentro de IACT
-     - Notificacion: Mensaje generado por el sistema para usuarios
+ VOCABULARIO:
+ - Comunicacion externa: Email, SMS, webhook a servicios terceros
+ - Buzon interno: Sistema de mensajeria dentro de IACT
+ - Notificacion: Mensaje generado por el sistema para usuarios
 
-   REGLA:
-     Es prohibido que IACT envie comunicaciones a servicios externos.
-     Es obligatorio que todas las notificaciones usen el buzon interno.
+ REGLA:
+ Es prohibido que IACT envie comunicaciones a servicios externos.
+ Es obligatorio que todas las notificaciones usen el buzon interno.
 
 1.3 Justificacion
 ^^^^^^^^^^^^^^^^^
@@ -97,17 +97,17 @@ operacional y simplifica cumplimiento de politicas de datos.
 ^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **Documento**
-     - CNST_001_Comunicaciones_Prohibidas
-   * - **Seccion**
-     - Restricciones de Comunicacion
-   * - **Version**
-     - 1.0.0
-   * - **Tipo Fuente**
-     - CNST
+ * - **Documento**
+ - CNST_001_Comunicaciones_Prohibidas
+ * - **Seccion**
+ - Restricciones de Comunicacion
+ * - **Version**
+ - 1.0.0
+ * - **Tipo Fuente**
+ - CNST
 
 3.2 Autoridad de Modificacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,17 +125,17 @@ operacional y simplifica cumplimiento de politicas de datos.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Componente
-     - Descripcion de Aplicacion
-   * - MOD_Alerts
-     - Notificaciones solo via buzon interno
-   * - MOD_Users
-     - Recuperacion password via pregunta seguridad
-   * - MOD_Audit
-     - Alertas de auditoria via buzon interno
+ * - Componente
+ - Descripcion de Aplicacion
+ * - MOD_Alerts
+ - Notificaciones solo via buzon interno
+ * - MOD_Users
+ - Recuperacion password via pregunta seguridad
+ * - MOD_Audit
+ - Alertas de auditoria via buzon interno
 
 4.2 Actores Afectados
 ^^^^^^^^^^^^^^^^^^^^^
@@ -157,41 +157,41 @@ Sin excepciones definidas.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - CNST
-     - Relacion
-   * - CNST_001
-     - Define prohibicion de comunicaciones externas
+ * - CNST
+ - Relacion
+ * - CNST_001
+ - Define prohibicion de comunicaciones externas
 
 5.2 BReq Influenciados
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - BReq
-     - Descripcion
-   * - BReq-004
-     - Cumplimiento de Seguridad
+ * - BReq
+ - Descripcion
+ * - BReq-004
+ - Cumplimiento de Seguridad
 
 5.3 Casos de Uso Afectados (UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+ :widths: 20 80
+ :header-rows: 1
 
-   * - UC
-     - Donde Aplica
-   * - UC-003
-     - Recuperar Password - sin email externo
-   * - UC-037
-     - Recibir Notificacion Alerta - via buzon interno
-   * - UC-040
-     - Gestionar Destinatarios - solo usuarios internos
+ * - UC
+ - Donde Aplica
+ * - UC-003
+ - Recuperar Password - sin email externo
+ * - UC-037
+ - Recibir Notificacion Alerta - via buzon interno
+ * - UC-040
+ - Gestionar Destinatarios - solo usuarios internos
 
 ----
 
@@ -225,14 +225,14 @@ Sin excepciones definidas.
 -----------------------
 
 .. list-table::
-   :widths: 15 15 20 50
-   :header-rows: 1
+ :widths: 15 15 20 50
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Descripcion del Cambio
-   * - 1.0.0
-     - 2026-01-04
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Descripcion del Cambio
+ * - 1.0.0
+ - 2026-01-04
+ - Equipo IACT
+ - Version inicial

@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: TXM_02
-   :tipo: Taxonomia
-   :dominio: base_cognitiva
-   :subdominio: _taxonomias_y_metamodelos
-   :subcarpeta: taxonomias
-   :estado: Aprobado
-   :version: 1.1.0
-   :fecha_creacion: 2025-12-20
-   :ultimo_cambio: 2025-12-22
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: TXM_02
+ :tipo: Taxonomia
+ :dominio: base_cognitiva
+ :subdominio: _taxonomias_y_metamodelos
+ :subcarpeta: taxonomias
+ :estado: Aprobado
+ :version: 1.1.0
+ :fecha_creacion: 2025-12-20
+ :ultimo_cambio: 2025-12-22
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _txm-02:
 
@@ -32,34 +32,34 @@ ubicaciones y relaciones entre artefactos.
 
 .. code-block:: text
 
-   ARTEFACTO DOCUMENTAL
-   │
-   ├── ARTEFACTO COGNITIVO (base_cognitiva/)
-   │   ├── Metadata (META\_)
-   │   ├── Glosario (GLOS\_)
-   │   ├── Fundamento Conceptual (FND\_)
-   │   ├── Ontologia SBVR (SBVR\_)
-   │   ├── Taxonomia (TXM\_)
-   │   ├── Metamodelo (MTM\_)
-   │   └── Metodologia (METH\_)
-   │
-   ├── ARTEFACTO NORMATIVO (normativa/)
-   │   ├── Procedimiento (PROC\_)
-   │   ├── Estandar (STD\_)
-   │   ├── Politica de Gobernanza (GOB\_)
-   │   ├── Restriccion (CNST\_)
-   │   └── Trazabilidad (RTM\_, COV\_)
-   │
-   ├── ARTEFACTO DE REQUISITOS (requisitos/)
-   │   ├── Regla de Negocio (BR\_)
-   │   ├── Caso de Uso (UC\_)
-   │   ├── Requisito Funcional (FR\_)
-   │   └── Requisito No Funcional (NFR\_)
-   │
-   └── ARTEFACTO ARQUITECTONICO (arquitectura/)
-       ├── Decision Arquitectonica (ADR\_)
-       ├── Vista Arquitectonica (VIEW\_)
-       └── Modelo de Datos (MDL\_)
+ ARTEFACTO DOCUMENTAL
+ │
+ ├── ARTEFACTO COGNITIVO (base_cognitiva/)
+ │ ├── Metadata (META\_)
+ │ ├── Glosario (GLOS\_)
+ │ ├── Fundamento Conceptual (FND\_)
+ │ ├── Ontologia SBVR (SBVR\_)
+ │ ├── Taxonomia (TXM\_)
+ │ ├── Metamodelo (MTM\_)
+ │ └── Metodologia (METH\_)
+ │
+ ├── ARTEFACTO NORMATIVO (normativa/)
+ │ ├── Procedimiento (PROC\_)
+ │ ├── Estandar (STD\_)
+ │ ├── Politica de Gobernanza (GOB\_)
+ │ ├── Restriccion (CNST\_)
+ │ └── Trazabilidad (RTM\_, COV\_)
+ │
+ ├── ARTEFACTO DE REQUISITOS (requisitos/)
+ │ ├── Regla de Negocio (BR\_)
+ │ ├── Caso de Uso (UC\_)
+ │ ├── Requisito Funcional (FR\_)
+ │ └── Requisito No Funcional (NFR\_)
+ │
+ └── ARTEFACTO ARQUITECTONICO (arquitectura/)
+ ├── Decision Arquitectonica (ADR\_)
+ ├── Vista Arquitectonica (VIEW\_)
+ └── Modelo de Datos (MDL\_)
 
 ----
 
@@ -74,21 +74,21 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Identidad, clasificacion y contexto del proyecto.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 25 75
+ :header-rows: 1
+ :widths: 25 75
 
-   * - Artefacto
-     - Contenido
-   * - META_01
-     - Identificacion del Proyecto (nombre, codigo, version)
-   * - META_02
-     - Clasificacion de Seguridad
-   * - META_03
-     - Contexto SDLC
-   * - META_04
-     - Stakeholders
-   * - META_05
-     - Alcance del Proyecto
+ * - Artefacto
+ - Contenido
+ * - META_01
+ - Identificacion del Proyecto (nombre, codigo, version)
+ * - META_02
+ - Clasificacion de Seguridad
+ * - META_03
+ - Contexto SDLC
+ * - META_04
+ - Stakeholders
+ * - META_05
+ - Alcance del Proyecto
 
 2.2 Glosario (GLOS\_)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -107,25 +107,25 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Marco teorico que fundamenta el modelo de analisis.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - FND_01
-     - Concepto de Requisito
-   * - FND_02
-     - Reglas de Negocio
-   * - FND_03
-     - Casos de Uso
-   * - FND_04
-     - Trazabilidad
-   * - FND_05
-     - Jerarquia de 4 Niveles
-   * - FND_06
-     - Derivacion vs Transformacion
-   * - FND_07
-     - Requerimientos Funcionales
+ * - ID
+ - Contenido
+ * - FND_01
+ - Concepto de Requisito
+ * - FND_02
+ - Reglas de Negocio
+ * - FND_03
+ - Casos de Uso
+ * - FND_04
+ - Trazabilidad
+ * - FND_05
+ - Jerarquia de 4 Niveles
+ * - FND_06
+ - Derivacion vs Transformacion
+ * - FND_07
+ - Requerimientos Funcionales
 
 2.4 Ontologia SBVR (SBVR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,21 +135,21 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Semantica formal de conceptos segun estandar SBVR.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - SBVR_01
-     - Conceptos Nucleares (sustantivos)
-   * - SBVR_02
-     - Fact Types (verbos/relaciones)
-   * - SBVR_03
-     - Reglas Estructurales (aleticas)
-   * - SBVR_04
-     - Reglas Operativas (deonticas)
-   * - SBVR_05
-     - Vocabulario Controlado
+ * - ID
+ - Contenido
+ * - SBVR_01
+ - Conceptos Nucleares (sustantivos)
+ * - SBVR_02
+ - Fact Types (verbos/relaciones)
+ * - SBVR_03
+ - Reglas Estructurales (aleticas)
+ * - SBVR_04
+ - Reglas Operativas (deonticas)
+ * - SBVR_05
+ - Vocabulario Controlado
 
 2.5 Taxonomia (TXM\_)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -159,17 +159,17 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Clasificaciones jerarquicas de conceptos.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - TXM_01
-     - Taxonomia de Requisitos
-   * - TXM_02
-     - Taxonomia de Artefactos (este documento)
-   * - TXM_03
-     - Taxonomia de Reglas de Negocio
+ * - ID
+ - Contenido
+ * - TXM_01
+ - Taxonomia de Requisitos
+ * - TXM_02
+ - Taxonomia de Artefactos (este documento)
+ * - TXM_03
+ - Taxonomia de Reglas de Negocio
 
 2.6 Metamodelo (MTM\_)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -179,17 +179,17 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Estructuras formales (diagramas UML/ER).
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - MTM_01
-     - Metamodelo de Requisitos
-   * - MTM_02
-     - Metamodelo de Trazabilidad
-   * - MTM_03
-     - Metamodelo RBAC
+ * - ID
+ - Contenido
+ * - MTM_01
+ - Metamodelo de Requisitos
+ * - MTM_02
+ - Metamodelo de Trazabilidad
+ * - MTM_03
+ - Metamodelo RBAC
 
 2.7 Metodologia (METH\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,17 +199,17 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Procedimientos de analisis y derivacion.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - METH_01
-     - Derivacion UC desde BR
-   * - METH_02
-     - Derivacion FR desde UC
-   * - METH_03
-     - Tecnicas de Larman
+ * - ID
+ - Contenido
+ * - METH_01
+ - Derivacion UC desde BR
+ * - METH_02
+ - Derivacion FR desde UC
+ * - METH_03
+ - Tecnicas de Larman
 
 ----
 
@@ -257,19 +257,19 @@ ubicaciones y relaciones entre artefactos.
 **Proposito:** Limitaciones impuestas al proyecto.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 85
+ :header-rows: 1
+ :widths: 15 85
 
-   * - ID
-     - Contenido
-   * - CNST_001
-     - Sin Correo Electronico Externo
-   * - CNST_002
-     - BD IVR Solo Lectura
-   * - CNST_004
-     - Sesion Unica por Usuario
-   * - CNST_025
-     - Auditoria Inmutable
+ * - ID
+ - Contenido
+ * - CNST_001
+ - Sin Correo Electronico Externo
+ * - CNST_002
+ - BD IVR Solo Lectura
+ * - CNST_004
+ - Sesion Unica por Usuario
+ * - CNST_025
+ - Auditoria Inmutable
 
 ----
 
@@ -288,24 +288,24 @@ ubicaciones y relaciones entre artefactos.
 **Ejemplos IACT:**
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 40 45
+ :header-rows: 1
+ :widths: 15 40 45
 
-   * - ID
-     - Nombre
-     - Tipo
-   * - BR_001
-     - Fuente Operacional Inmutable
-     - Restriccion
-   * - BR_002
-     - Sincronizacion ETL Nocturna
-     - Desencadenador
-   * - BR_011
-     - Modelo RBAC Flat
-     - Hecho
-   * - BR_015
-     - Separacion de Funciones
-     - Restriccion
+ * - ID
+ - Nombre
+ - Tipo
+ * - BR_001
+ - Fuente Operacional Inmutable
+ - Restriccion
+ * - BR_002
+ - Sincronizacion ETL Nocturna
+ - Desencadenador
+ * - BR_011
+ - Modelo RBAC Flat
+ - Hecho
+ * - BR_015
+ - Separacion de Funciones
+ - Restriccion
 
 4.2 Caso de Uso (UC\_)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -420,29 +420,29 @@ ubicaciones y relaciones entre artefactos.
 -----------------------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 25 20 15 40
+ :header-rows: 1
+ :widths: 25 20 15 40
 
-   * - Dominio
-     - Prefijos
-     - Cantidad
-     - Proposito
-   * - base_cognitiva
-     - META, GLOS, FND, SBVR, TXM, MTM, METH
-     - ~25
-     - Base semantica y conceptual
-   * - normativa
-     - PROC, STD, GOB, CNST, RTM, COV
-     - ~25
-     - Normas, gobernanza y trazabilidad
-   * - requisitos
-     - BR, UC, FR, NFR
-     - ~350
-     - Especificacion del sistema
-   * - arquitectura
-     - ADR, VIEW, MDL
-     - ~10
-     - Diseno tecnico
+ * - Dominio
+ - Prefijos
+ - Cantidad
+ - Proposito
+ * - base_cognitiva
+ - META, GLOS, FND, SBVR, TXM, MTM, METH
+ - ~25
+ - Base semantica y conceptual
+ * - normativa
+ - PROC, STD, GOB, CNST, RTM, COV
+ - ~25
+ - Normas, gobernanza y trazabilidad
+ * - requisitos
+ - BR, UC, FR, NFR
+ - ~350
+ - Especificacion del sistema
+ * - arquitectura
+ - ADR, VIEW, MDL
+ - ~10
+ - Diseno tecnico
 
 ----
 
@@ -454,46 +454,46 @@ ubicaciones y relaciones entre artefactos.
 
 .. code-block:: text
 
-   [PREFIJO]_[NNN]_[Nombre_Descriptivo].rst
+ [PREFIJO]_[NNN]_[Nombre_Descriptivo].rst
 
-   Donde:
-   - PREFIJO: Codigo de tipo (BR, UC, FND, etc.)
-   - NNN:     Numero secuencial (3 digitos)
-   - Nombre:  Descripcion en snake_case
+ Donde:
+ - PREFIJO: Codigo de tipo (BR, UC, FND, etc.)
+ - NNN: Numero secuencial (3 digitos)
+ - Nombre: Descripcion en snake_case
 
-   Ejemplos:
-   - BR_001_Fuente_Inmutable.rst
-   - UC_010_Asignar_Rol.rst
-   - FND_05_Jerarquia_4_Niveles.rst
+ Ejemplos:
+ - BR_001_Fuente_Inmutable.rst
+ - UC_010_Asignar_Rol.rst
+ - FND_05_Jerarquia_4_Niveles.rst
 
 8.2 Caso Especial: FR
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   FR_UC[NNN]_[Nombre_UC].rst
+ FR_UC[NNN]_[Nombre_UC].rst
 
-   Donde el archivo contiene todos los FR del UC.
+ Donde el archivo contiene todos los FR del UC.
 
-   Ejemplo:
-   - FR_UC010_Asignar_Rol.rst (contiene FR-10.1 a FR-10.N)
+ Ejemplo:
+ - FR_UC010_Asignar_Rol.rst (contiene FR-10.1 a FR-10.N)
 
 8.3 Visibilidad
 ^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 30 40
+ :header-rows: 1
+ :widths: 30 30 40
 
-   * - Prefijo Carpeta
-     - Visibilidad
-     - Ejemplo
-   * - _ (guion bajo)
-     - PRIVADO (excluido de build)
-     - _fundamentos_conceptuales/
-   * - (sin prefijo)
-     - PUBLICO (incluido en build)
-     - requisitos/, arquitectura/
+ * - Prefijo Carpeta
+ - Visibilidad
+ - Ejemplo
+ * - _ (guion bajo)
+ - PRIVADO (excluido de build)
+ - _fundamentos_conceptuales/
+ * - (sin prefijo)
+ - PUBLICO (incluido en build)
+ - requisitos/, arquitectura/
 
 ----
 
@@ -505,33 +505,33 @@ ubicaciones y relaciones entre artefactos.
 
 .. code-block:: text
 
-   BORRADOR
-       |
-       v
-   EN_REVISION
-       |
-       v
-   APROBADO
-       |
-       +---> OBSOLETO (si se reemplaza)
-       |
-       +---> CONGELADO (si es estable)
+ BORRADOR
+ |
+ v
+ EN_REVISION
+ |
+ v
+ APROBADO
+ |
+ +---> OBSOLETO (si se reemplaza)
+ |
+ +---> CONGELADO (si es estable)
 
 9.2 Versionado
 ^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-   MAJOR.MINOR.PATCH
+ MAJOR.MINOR.PATCH
 
-   - MAJOR: Cambios incompatibles o reestructuracion
-   - MINOR: Nuevas secciones o contenido significativo
-   - PATCH: Correcciones menores, typos
+ - MAJOR: Cambios incompatibles o reestructuracion
+ - MINOR: Nuevas secciones o contenido significativo
+ - PATCH: Correcciones menores, typos
 
-   Ejemplo: v1.2.3
-   - 1: Primera version mayor estable
-   - 2: Dos adiciones de contenido
-   - 3: Tres correcciones menores
+ Ejemplo: v1.2.3
+ - 1: Primera version mayor estable
+ - 2: Dos adiciones de contenido
+ - 3: Tres correcciones menores
 
 ----
 
@@ -542,50 +542,50 @@ ubicaciones y relaciones entre artefactos.
 ^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 20 25 25
+ :header-rows: 1
+ :widths: 30 20 25 25
 
-   * - Dominio
-     - Subdominios
-     - Artefactos
-     - Lineas (est.)
-   * - base_cognitiva
-     - 6
-     - ~25
-     - ~12,000
-   * - normativa
-     - 5
-     - ~25
-     - ~12,000
-   * - requisitos
-     - 4
-     - ~350
-     - ~15,000
-   * - arquitectura
-     - 3
-     - ~10
-     - ~2,000
-   * - **TOTAL**
-     - **18**
-     - **~410**
-     - **~41,000**
+ * - Dominio
+ - Subdominios
+ - Artefactos
+ - Lineas (est.)
+ * - base_cognitiva
+ - 6
+ - ~25
+ - ~12,000
+ * - normativa
+ - 5
+ - ~25
+ - ~12,000
+ * - requisitos
+ - 4
+ - ~350
+ - ~15,000
+ * - arquitectura
+ - 3
+ - ~10
+ - ~2,000
+ * - **TOTAL**
+ - **18**
+ - **~410**
+ - **~41,000**
 
 10.2 Por Estado
 ^^^^^^^^^^^^^^^
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 35 35
+ :header-rows: 1
+ :widths: 30 35 35
 
-   * - Estado
-     - Subdominios
-     - Descripcion
-   * - CONGELADO
-     - 12
-     - Estructura estable, contenido puede evolucionar
-   * - DESCONGELADO
-     - 5
-     - Estructura activa, en desarrollo
+ * - Estado
+ - Subdominios
+ - Descripcion
+ * - CONGELADO
+ - 12
+ - Estructura estable, contenido puede evolucionar
+ * - DESCONGELADO
+ - 5
+ - Estructura activa, en desarrollo
 
 ----
 
@@ -612,21 +612,21 @@ Historial de Cambios
 --------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 15 15 20 50
+ :header-rows: 1
+ :widths: 15 15 20 50
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.1.0
-     - 2025-12-22
-     - Equipo IACT
-     - Correccion nomenclatura: dominio "gobernanza" renombrado a "normativa". Actualizado estructura de subdominios (procedimientos, estandares, gobernanza, restricciones, trazabilidad). Actualizado estadisticas.
-   * - 1.0.0
-     - 2025-12-20
-     - Equipo IACT
-     - Version inicial con taxonomia completa
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.1.0
+ - 2025-12-22
+ - Equipo IACT
+ - Correccion nomenclatura: dominio "gobernanza" renombrado a "normativa". Actualizado estructura de subdominios (procedimientos, estandares, gobernanza, restricciones, trazabilidad). Actualizado estadisticas.
+ * - 1.0.0
+ - 2025-12-20
+ - Equipo IACT
+ - Version inicial con taxonomia completa
 
 ----
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: INDEX_REQUISITOS_FUNCIONALES
-   :tipo: Indice
-   :dominio: requisitos
-   :subdominio: requisitos_funcionales
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: INDEX_REQUISITOS_FUNCIONALES
+ :tipo: Indice
+ :dominio: requisitos
+ :subdominio: requisitos_funcionales
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 .. _requisitos-funcionales:
 
@@ -43,13 +43,13 @@ Los artefactos de este subdominio usan el prefijo **FR_** (Functional Requiremen
 Ejemplo: ``FR_001_Dashboard_Metricas_Tiempo_Real.rst``
 
 .. note::
-   Contenido en desarrollo. Los requisitos funcionales se documentarán conforme 
-   se detallen las capacidades del sistema.
+ Contenido en desarrollo. Los requisitos funcionales se documentarán conforme 
+ se detallen las capacidades del sistema.
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
+ :hidden:
+ :maxdepth: 1
 
-   users/index
-   auth/index
-   access/index
+ users/index
+ auth/index
+ access/index

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: CNST_032
-   :tipo: Restriccion
-   :dominio: normativa
-   :subdominio: restricciones
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: CNST_032
+ :tipo: Restriccion
+ :dominio: normativa
+ :subdominio: restricciones
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. _cnst-032:
 
@@ -20,21 +20,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **ID**
-     - CNST_032
-   * - **Categoria**
-     - RBAC
-   * - **Tipo (TXM_01)**
-     - Tecnica
-   * - **Criticidad**
-     - Critico
-   * - **Negociable**
-     - No
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - CNST_032
+ * - **Categoria**
+ - RBAC
+ * - **Tipo (TXM_01)**
+ - Tecnica
+ * - **Criticidad**
+ - Critico
+ * - **Negociable**
+ - No
+ * - **Estado**
+ - Vigente
 
 1. Definicion
 -------------
@@ -78,9 +78,9 @@ JSON con la jerarquia ``dominio → subdominio → funcion → [acciones]``
 calculada en tiempo real desde:
 
 - Funciones obtenidas via grupos (``UsuarioGrupo`` →
-  ``GrupoCapacidad`` → ``Capacidad``).
+ ``GrupoCapacidad`` → ``Capacidad``).
 - Funciones obtenidas via permisos excepcionales vigentes
-  (``PermisoExcepcional``).
+ (``PermisoExcepcional``).
 
 El frontend renderiza solo los items presentes en el JSON devuelto.
 
@@ -88,19 +88,19 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 ^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Parametro
-     - Valor
-   * - Endpoint
-     - ``GET /api/permisos/verificar/<user_id>/menu/``
-   * - Funcion SQL
-     - ``obtener_menu_usuario(user_id INTEGER) RETURNS JSONB``
-   * - Cache TTL
-     - 0 (sin cache — siempre runtime)
-   * - Refresh trigger
-     - Inicio de sesion + cualquier cambio de permisos del usuario
+ * - Parametro
+ - Valor
+ * - Endpoint
+ - ``GET /api/permisos/verificar/<user_id>/menu/``
+ * - Funcion SQL
+ - ``obtener_menu_usuario(user_id INTEGER) RETURNS JSONB``
+ * - Cache TTL
+ - 0 (sin cache — siempre runtime)
+ * - Refresh trigger
+ - Inicio de sesion + cualquier cambio de permisos del usuario
 
 2.3 Tecnologias Involucradas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -116,29 +116,29 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Modulo
-     - Impacto
-   * - MOD_Permissions
-     - Implementa la funcion SQL y el endpoint REST
-   * - Frontend (transversal)
-     - Invoca el endpoint en bootstrap de sesion + on-change
+ * - Modulo
+ - Impacto
+ * - MOD_Permissions
+ - Implementa la funcion SQL y el endpoint REST
+ * - Frontend (transversal)
+ - Invoca el endpoint en bootstrap de sesion + on-change
 
 3.2 Casos de Uso Afectados
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 35 65
-   :header-rows: 1
+ :widths: 35 65
+ :header-rows: 1
 
-   * - UC
-     - Impacto
-   * - :doc:`/requisitos/casos_uso/permissions/UC_PERM_08_Generar_Menu_Dinamico`
-     - Implementa la generacion de menu (CORE)
-   * - :doc:`/requisitos/casos_uso/auth/UC_AUTH_01_Iniciar_Sesion`
-     - Tras login exitoso, frontend invoca el endpoint
+ * - UC
+ - Impacto
+ * - :doc:`/requisitos/casos_uso/permissions/UC_PERM_08_Generar_Menu_Dinamico`
+ - Implementa la generacion de menu (CORE)
+ * - :doc:`/requisitos/casos_uso/auth/UC_AUTH_01_Iniciar_Sesion`
+ - Tras login exitoso, frontend invoca el endpoint
 
 3.3 Lo que NO se puede hacer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,7 +147,7 @@ El frontend renderiza solo los items presentes en el JSON devuelto.
 - Calcular menu en frontend basado en lista de roles del usuario
 - Cachear menu por mas de la sesion actual
 - Asumir items de menu que no esten en la respuesta de
-  ``obtener_menu_usuario``
+ ``obtener_menu_usuario``
 
 4. Business Rules Derivadas
 ---------------------------
@@ -163,32 +163,32 @@ Sin BRs especificas mapeadas hoy. Pendiente catalogo BRs IACT
 
 .. code-block:: python
 
-   # frontend (pseudo)
-   async function bootstrapNavigation(userId) {
-     const menu = await fetch(`/api/permisos/verificar/${userId}/menu/`);
-     renderMenu(menu);
-   }
+ # frontend (pseudo)
+ async function bootstrapNavigation(userId) {
+ const menu = await fetch(`/api/permisos/verificar/${userId}/menu/`);
+ renderMenu(menu);
+ }
 
-   # backend (Django REST)
-   class UserMenuView(APIView):
-       def get(self, request, user_id):
-           with connection.cursor() as cursor:
-               cursor.execute(
-                   "SELECT obtener_menu_usuario(%s)", [user_id]
-               )
-               return Response(cursor.fetchone()[0])
+ # backend (Django REST)
+ class UserMenuView(APIView):
+ def get(self, request, user_id):
+ with connection.cursor as cursor:
+ cursor.execute(
+ "SELECT obtener_menu_usuario(%s)", [user_id]
+ )
+ return Response(cursor.fetchone[0])
 
 5.2 Validacion de Cumplimiento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
-   # Verificar que la funcion SQL existe
-   psql -c "\\df obtener_menu_usuario" iact_analytics
+ # Verificar que la funcion SQL existe
+ psql -c "\\df obtener_menu_usuario" iact_analytics
 
-   # Verificar que el endpoint responde
-   curl -H "Authorization: Bearer $TOKEN" \\
-        http://localhost:8000/api/permisos/verificar/1/menu/
+ # Verificar que el endpoint responde
+ curl -H "Authorization: Bearer $TOKEN" \\
+ http://localhost:8000/api/permisos/verificar/1/menu/
 
 6. Excepciones
 --------------
@@ -205,7 +205,7 @@ sea consistente con los permisos del usuario.
 Cualquier solicitud de excepcion (ej: menu hardcoded por motivos de
 performance) requiere ADR + revision de seguridad. Ver
 :doc:`/normativa/procedimientos/PROC_Excepciones_CNST` (pendiente
-de creacion en WP #3 v2).
+de creacion en iteracion correspondiente).
 
 7. Verificacion
 ---------------
@@ -229,34 +229,34 @@ de creacion en WP #3 v2).
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 0
+ :widths: 30 70
+ :header-rows: 0
 
-   * - **CNSTs relacionadas**
-     - :doc:`CNST_029_RBAC_Modelo_Plano` (modelo base que este CNST hace visible),
-       :doc:`CNST_033_Vocabulario_Unificado_RBAC`
-   * - **BR derivadas**
-     - Pendiente WP requisitos
-   * - **UCs afectados**
-     - UC_PERM_08, UC_AUTH_01
-   * - **MODs afectados**
-     - MOD_Permissions, Frontend transversal
-   * - **ADRs relacionados**
-     - ADR-GOB-008 (RBAC Coexistencia, pendiente WP #5 v2)
+ * - **CNSTs relacionadas**
+ - :doc:`CNST_029_RBAC_Modelo_Plano` (modelo base que este CNST hace visible),
+ :doc:`CNST_033_Vocabulario_Unificado_RBAC`
+ * - **BR derivadas**
+ - Pendiente WP requisitos
+ * - **UCs afectados**
+ - UC_PERM_08, UC_AUTH_01
+ * - **MODs afectados**
+ - MOD_Permissions, Frontend transversal
+ * - **ADRs relacionados**
+ - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
 
 9. Historial de Cambios
 -----------------------
 
 .. list-table::
-   :widths: 12 15 25 48
-   :header-rows: 1
+ :widths: 12 15 25 48
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-04-29
-     - NestorMonroy
-     - Version inicial. Restriccion creada en WP #4 v3 tras decision
-       D-RBAC-5 del WP #6 (Hipotesis 1 RBAC Coexistencia).
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-04-29
+ - NestorMonroy
+ - Version inicial. Restriccion creada en iteracion correspondiente tras decision
+ D-RBAC-5 del WP #6 (Hipotesis 1 RBAC Coexistencia).

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: Procedimiento_Gestion_Cambios
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: Procedimiento_Gestion_Cambios
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 Procedimiento: Gestión de Cambios
 =================================
@@ -31,19 +31,19 @@ Tipos de Cambios
 Cambios de Código
 ~~~~~~~~~~~~~~~~~
 
--  **feat**: Nueva funcionalidad
--  **fix**: Corrección de bug
--  **refactor**: Refactorización sin cambio funcional
--  **perf**: Mejoras de performance
--  **test**: Agregar o modificar tests
--  **docs**: Solo cambios en documentación
+- **feat**: Nueva funcionalidad
+- **fix**: Corrección de bug
+- **refactor**: Refactorización sin cambio funcional
+- **perf**: Mejoras de performance
+- **test**: Agregar o modificar tests
+- **docs**: Solo cambios en documentación
 
 Cambios de Documentación
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Menor**: Corrección de typos, formato
--  **Mayor**: Nueva sección, reestructuración
--  **Crítico**: Cambio de proceso, ADR nueva
+- **Menor**: Corrección de typos, formato
+- **Mayor**: Nueva sección, reestructuración
+- **Crítico**: Cambio de proceso, ADR nueva
 
 Procedimiento
 -------------
@@ -54,20 +54,20 @@ Procedimiento
 1.1 Identificar Necesidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Documentar el problema o requisito
--  ☐ Verificar que no exista issue duplicado
--  ☐ Determinar el tipo de cambio
+- ☐ Documentar el problema o requisito
+- ☐ Verificar que no exista issue duplicado
+- ☐ Determinar el tipo de cambio
 
 1.2 Crear Issue
 ^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Usando gh CLI
-   gh issue create \
-     --title "feat: Agregar autenticación JWT" \
-     --body "Descripción detallada..." \
-     --label "enhancement"
+ # Usando gh CLI
+ gh issue create \
+ --title "feat: Agregar autenticación JWT" \
+ --body "Descripción detallada..." \
+ --label "enhancement"
 
 O crear en GitHub: - Título descriptivo - Descripción clara del problema
 - Criterios de aceptación - Prioridad y labels
@@ -80,24 +80,24 @@ O crear en GitHub: - Título descriptivo - Descripción clara del problema
 
 .. code:: bash
 
-   # Desde main actualizado
-   git checkout main
-   git pull origin main
+ # Desde main actualizado
+ git checkout main
+ git pull origin main
 
-   # Crear feature branch
-   git checkout -b feature/autenticacion-jwt-20251104
+ # Crear feature branch
+ git checkout -b feature/autenticacion-jwt-20251104
 
-   # Convención: {tipo}/{descripcion-corta}-{fecha}
+ # Convención: {tipo}/{descripcion-corta}-{fecha}
 
 2.2 Implementar Cambio
 ^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Seguir `Lineamientos de
-   Código <../arquitectura/lineamientos_codigo.md>`__
--  ☐ Escribir tests (TDD cuando sea posible)
--  ☐ Actualizar documentación relevante
--  ☐ Seguir `Checklist de
-   Desarrollo <../checklists/checklist_desarrollo.md>`__
+- ☐ Seguir `Lineamientos de
+ Código <../arquitectura/lineamientos_codigo.md>`__
+- ☐ Escribir tests (TDD cuando sea posible)
+- ☐ Actualizar documentación relevante
+- ☐ Seguir `Checklist de
+ Desarrollo <../checklists/checklist_desarrollo.md>`__
 
 2.3 Commits
 ^^^^^^^^^^^
@@ -106,28 +106,28 @@ Usar Conventional Commits:
 
 .. code:: bash
 
-   # Formato
-   git commit -m "{tipo}: {descripción corta}
+ # Formato
+ git commit -m "{tipo}: {descripción corta}
 
-   {descripción larga opcional}
+ {descripción larga opcional}
 
-   {referencias a issues}"
+ {referencias a issues}"
 
-   # Ejemplos
-   git commit -m "feat: agregar endpoint de login JWT
+ # Ejemplos
+ git commit -m "feat: agregar endpoint de login JWT
 
-   - Implementar serializer para credenciales
-   - Crear vista de autenticación
-   - Agregar tests unitarios
+ - Implementar serializer para credenciales
+ - Crear vista de autenticación
+ - Agregar tests unitarios
 
-   Closes #123"
+ Closes #123"
 
-   git commit -m "fix: corregir validación de passwords
+ git commit -m "fix: corregir validación de passwords
 
-   El validador no estaba verificando longitud mínima
-   correctamente cuando la contraseña tenía espacios.
+ El validador no estaba verificando longitud mínima
+ correctamente cuando la contraseña tenía espacios.
 
-   Fixes #456"
+ Fixes #456"
 
 3. Pre-Pull Request
 ~~~~~~~~~~~~~~~~~~~
@@ -137,38 +137,38 @@ Usar Conventional Commits:
 
 .. code:: bash
 
-   # Ejecutar checklist completo
-   black .
-   isort .
-   pylint api/**/*.py
-   flake8 .
+ # Ejecutar checklist completo
+ black .
+ isort .
+ pylint api/**/*.py
+ flake8 .
 
-   # Tests
-   pytest --cov=. --cov-report=html
+ # Tests
+ pytest --cov=. --cov-report=html
 
-   # Verificar cobertura >= 80%
+ # Verificar cobertura >= 80%
 
 3.2 Actualizar Rama
 ^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Asegurar que estás al día con main
-   git checkout main
-   git pull origin main
-   git checkout feature/tu-rama
-   git rebase main
+ # Asegurar que estás al día con main
+ git checkout main
+ git pull origin main
+ git checkout feature/tu-rama
+ git rebase main
 
-   # Resolver conflictos si hay
-   # Luego
-   git rebase --continue
+ # Resolver conflictos si hay
+ # Luego
+ git rebase --continue
 
 3.3 Push
 ^^^^^^^^
 
 .. code:: bash
 
-   git push -u origin feature/tu-rama
+ git push -u origin feature/tu-rama
 
 4. Crear Pull Request
 ~~~~~~~~~~~~~~~~~~~~~
@@ -178,32 +178,32 @@ Usar Conventional Commits:
 
 .. code:: bash
 
-   gh pr create \
-     --title "feat: Agregar autenticación JWT" \
-     --body "$(cat <<EOF
-   ## Summary
-   - Implementa autenticación con JSON Web Tokens
-   - Agrega endpoints /api/auth/login y /api/auth/refresh
-   - Configura middleware de autenticación
+ gh pr create \
+ --title "feat: Agregar autenticación JWT" \
+ --body "$(cat <<EOF
+ ## Summary
+ - Implementa autenticación con JSON Web Tokens
+ - Agrega endpoints /api/auth/login y /api/auth/refresh
+ - Configura middleware de autenticación
 
-   ## Test Plan
-   - [x] Tests unitarios de serializers
-   - [x] Tests de endpoints
-   - [x] Tests de integración con middleware
-   - [x] Validación manual en desarrollo
+ ## Test Plan
+ - [x] Tests unitarios de serializers
+ - [x] Tests de endpoints
+ - [x] Tests de integración con middleware
+ - [x] Validación manual en desarrollo
 
-   ## Related Issues
-   Closes #123
+ ## Related Issues
+ Closes #123
 
-   ## Breaking Changes
-   Ninguno
+ ## Breaking Changes
+ Ninguno
 
-   ## Screenshots
-   N/A - Backend API
-   EOF
-   )" \
-     --assignee @me \
-     --reviewer equipo-backend
+ ## Screenshots
+ N/A - Backend API
+ EOF
+ )" \
+ --assignee @me \
+ --reviewer equipo-backend
 
 4.2 Template de PR
 ^^^^^^^^^^^^^^^^^^
@@ -231,10 +231,10 @@ Migraciones de DB - Cambios de configuración
 5.1 Como Autor
 ^^^^^^^^^^^^^^
 
--  ☐ Responder a comentarios en < 24 horas
--  ☐ Hacer cambios solicitados
--  ☐ Pushear cambios
--  ☐ Re-solicitar review cuando esté listo
+- ☐ Responder a comentarios en < 24 horas
+- ☐ Hacer cambios solicitados
+- ☐ Pushear cambios
+- ☐ Re-solicitar review cuando esté listo
 
 5.2 Como Reviewer
 ^^^^^^^^^^^^^^^^^
@@ -266,32 +266,32 @@ si aplica - [ ] ADR creado si es decisión arquitectónica
 6.1 Pre-Merge Checklist
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Todos los reviews aprobados (mínimo 1)
--  ☐ CI pasó (cuando se implemente)
--  ☐ Conflictos resueltos
--  ☐ Rama actualizada con main
+- ☐ Todos los reviews aprobados (mínimo 1)
+- ☐ CI pasó (cuando se implemente)
+- ☐ Conflictos resueltos
+- ☐ Rama actualizada con main
 
 6.2 Merge Strategy
 ^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Squash and merge (preferido para features)
-   gh pr merge --squash --delete-branch
+ # Squash and merge (preferido para features)
+ gh pr merge --squash --delete-branch
 
-   # Merge commit (para releases)
-   gh pr merge --merge --delete-branch
+ # Merge commit (para releases)
+ gh pr merge --merge --delete-branch
 
-   # Rebase (para cambios lineales simples)
-   gh pr merge --rebase --delete-branch
+ # Rebase (para cambios lineales simples)
+ gh pr merge --rebase --delete-branch
 
 6.3 Post-Merge
 ^^^^^^^^^^^^^^
 
--  ☐ Verificar que PR fue mergeado
--  ☐ Rama feature eliminada
--  ☐ Issue relacionado cerrado automáticamente
--  ☐ Actualizar proyecto/board si aplica
+- ☐ Verificar que PR fue mergeado
+- ☐ Rama feature eliminada
+- ☐ Issue relacionado cerrado automáticamente
+- ☐ Actualizar proyecto/board si aplica
 
 .. _cambios-de-documentación-1:
 
@@ -305,20 +305,20 @@ Para cambios solo de documentación:
 
 .. code:: bash
 
-   # Rama docs
-   git checkout -b docs/actualizar-readme-20251104
+ # Rama docs
+ git checkout -b docs/actualizar-readme-20251104
 
-   # Hacer cambios
-   # ...
+ # Hacer cambios
+ # ...
 
-   # Commit
-   git commit -m "docs: actualizar guía de instalación"
+ # Commit
+ git commit -m "docs: actualizar guía de instalación"
 
-   # PR directo sin review extenso (para cambios menores)
-   gh pr create --title "docs: actualizar guía de instalación" --reviewer @me
+ # PR directo sin review extenso (para cambios menores)
+ gh pr create --title "docs: actualizar guía de instalación" --reviewer @me
 
-   # Self-merge si es cambio trivial
-   gh pr merge --squash --delete-branch
+ # Self-merge si es cambio trivial
+ gh pr merge --squash --delete-branch
 
 7.2 Cambios Mayores
 ^^^^^^^^^^^^^^^^^^^
@@ -334,48 +334,48 @@ Cambios de Emergencia (Hotfix)
 Cuando Usar
 ~~~~~~~~~~~
 
--  Bug crítico en producción
--  Vulnerabilidad de seguridad
--  Pérdida de servicio
+- Bug crítico en producción
+- Vulnerabilidad de seguridad
+- Pérdida de servicio
 
 Procedimiento Acelerado
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Desde main
-   git checkout main
-   git pull origin main
+ # Desde main
+ git checkout main
+ git pull origin main
 
-   # Crear hotfix branch
-   git checkout -b hotfix/corregir-login-roto-20251104
+ # Crear hotfix branch
+ git checkout -b hotfix/corregir-login-roto-20251104
 
-   # Implementar fix MÍNIMO
-   # ...
+ # Implementar fix MÍNIMO
+ # ...
 
-   # Tests
-   pytest tests/test_authentication.py
+ # Tests
+ pytest tests/test_authentication.py
 
-   # Commit y push
-   git commit -m "fix: corregir validación de login
+ # Commit y push
+ git commit -m "fix: corregir validación de login
 
-   Corrige error que permitía login con credenciales vacías.
-   CRÍTICO: afecta autenticación en producción.
+ Corrige error que permitía login con credenciales vacías.
+ CRÍTICO: afecta autenticación en producción.
 
-   Fixes #789"
-   git push -u origin hotfix/corregir-login-roto-20251104
+ Fixes #789"
+ git push -u origin hotfix/corregir-login-roto-20251104
 
-   # PR urgente
-   gh pr create --title "HOTFIX: Corregir validación de login" \
-     --label "hotfix,urgent" \
-     --reviewer @equipo-backend
+ # PR urgente
+ gh pr create --title "HOTFIX: Corregir validación de login" \
+ --label "hotfix,urgent" \
+ --reviewer @equipo-backend
 
-   # Una vez aprobado
-   gh pr merge --squash --delete-branch
+ # Una vez aprobado
+ gh pr merge --squash --delete-branch
 
-   # Tag inmediato
-   git tag -a v1.2.1 -m "Hotfix: login validation"
-   git push origin v1.2.1
+ # Tag inmediato
+ git tag -a v1.2.1 -m "Hotfix: login validation"
+ git push origin v1.2.1
 
 Ver: `Procedimiento de Release <procedimiento_release.md>`__ para
 deployment urgente.
@@ -390,28 +390,28 @@ Tamaño promedio de PR: < 400 líneas
 Herramientas
 ------------
 
--  **gh CLI**: Para automatizar workflow
--  **GitHub Actions**: CI/CD (futuro)
--  **GitLens (VS Code)**: Para ver historial
--  **GitHub Projects**: Para tracking
+- **gh CLI**: Para automatizar workflow
+- **GitHub Actions**: CI/CD (futuro)
+- **GitLens (VS Code)**: Para ver historial
+- **GitHub Projects**: Para tracking
 
 Recursos Relacionados
 ---------------------
 
--  `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
--  `Checklist de Testing <../checklists/checklist_testing.md>`__
--  `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
--  `Procedimiento de QA <procedimiento_qa.md>`__
--  `Procedimiento de Release <procedimiento_release.md>`__
+- `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
+- `Checklist de Testing <../checklists/checklist_testing.md>`__
+- `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
+- `Procedimiento de QA <procedimiento_qa.md>`__
+- `Procedimiento de Release <procedimiento_release.md>`__
 
 Referencias
 -----------
 
--  `Conventional Commits <https://www.conventionalcommits.org/>`__
--  `GitHub Flow <https://guides.github.com/introduction/flow/>`__
--  `Semantic Versioning <https://semver.org/>`__
+- `Conventional Commits <https://www.conventionalcommits.org/>`__
+- `GitHub Flow <https://guides.github.com/introduction/flow/>`__
+- `Semantic Versioning <https://semver.org/>`__
 
 Changelog
 ---------
 
--  2025-11-04: Creación inicial del procedimiento
+- 2025-11-04: Creación inicial del procedimiento

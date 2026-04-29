@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_NFR
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_NFR
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-nfr:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_NFR
-   * - **Nombre**
-     - Generacion de Requisitos No Funcionales
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada NFR a documentar
-   * - **Duracion Estimada**
-     - 20-40 minutos por NFR
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_NFR
+ * - **Nombre**
+ - Generacion de Requisitos No Funcionales
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada NFR a documentar
+ * - **Duracion Estimada**
+ - 20-40 minutos por NFR
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ y valores objetivo claros.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Arquitecto
-     - Genera NFR siguiendo TPL
-     - Escritura en no_funcionales/
-   * - DevOps
-     - Valida viabilidad tecnica
-     - Lectura
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Arquitecto
+ - Genera NFR siguiendo TPL
+ - Escritura en no_funcionales/
+ * - DevOps
+ - Valida viabilidad tecnica
+ - Lectura
 
 ----
 
@@ -103,18 +103,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_NFR_No_Funcionales_1_0_0.rst
-     - Template de NFR
-     - Si
-   * - BReq relacionado
-     - Objetivo de negocio origen
-     - No
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_NFR_No_Funcionales_1_0_0.rst
+ - Template de NFR
+ - Si
+ * - BReq relacionado
+ - Objetivo de negocio origen
+ - No
 
 ----
 
@@ -125,23 +125,23 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Categoria
-     - Subcategorias
-   * - Rendimiento
-     - Tiempo respuesta, throughput, utilizacion recursos
-   * - Seguridad
-     - Autenticacion, autorizacion, integridad, auditoria
-   * - Usabilidad
-     - Facilidad uso, accesibilidad, estetica
-   * - Confiabilidad
-     - Disponibilidad, tolerancia fallos, recuperabilidad
-   * - Mantenibilidad
-     - Modularidad, reusabilidad, analizabilidad
-   * - Portabilidad
-     - Adaptabilidad, instalabilidad, reemplazabilidad
+ * - Categoria
+ - Subcategorias
+ * - Rendimiento
+ - Tiempo respuesta, throughput, utilizacion recursos
+ * - Seguridad
+ - Autenticacion, autorizacion, integridad, auditoria
+ * - Usabilidad
+ - Facilidad uso, accesibilidad, estetica
+ * - Confiabilidad
+ - Disponibilidad, tolerancia fallos, recuperabilidad
+ * - Mantenibilidad
+ - Modularidad, reusabilidad, analizabilidad
+ * - Portabilidad
+ - Adaptabilidad, instalabilidad, reemplazabilidad
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -151,22 +151,22 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Asignar ID con prefijo de categoria:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato: NFR_[CAT]_[NNN]
-     
-     Prefijos:
-     - PERF: Rendimiento
-     - SEC: Seguridad
-     - USA: Usabilidad
-     - REL: Confiabilidad
-     - MNT: Mantenibilidad
-     - PRT: Portabilidad
-     
-     Ejemplos:
-     - NFR_PERF_001: Tiempo de respuesta API
-     - NFR_SEC_001: Cifrado de datos
-     - NFR_REL_001: Disponibilidad 99.5%
+ Formato: NFR_[CAT]_[NNN]
+ 
+ Prefijos:
+ - PERF: Rendimiento
+ - SEC: Seguridad
+ - USA: Usabilidad
+ - REL: Confiabilidad
+ - MNT: Mantenibilidad
+ - PRT: Portabilidad
+ 
+ Ejemplos:
+ - NFR_PERF_001: Tiempo de respuesta API
+ - NFR_SEC_001: Cifrado de datos
+ - NFR_REL_001: Disponibilidad 99.5%
 
 - **Resultado**: ID asignado
 - **Verificacion**: Prefijo correcto
@@ -176,15 +176,15 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Describir el requisito:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Descripcion:**
-     
-     El sistema DEBE [caracteristica de calidad] para [beneficio].
-     
-     Ejemplo:
-     "El sistema DEBE responder a peticiones API en menos de 500ms
-     para garantizar una experiencia de usuario fluida."
+ **Descripcion:**
+ 
+ El sistema DEBE [caracteristica de calidad] para [beneficio].
+ 
+ Ejemplo:
+ "El sistema DEBE responder a peticiones API en menos de 500ms
+ para garantizar una experiencia de usuario fluida."
 
 - **Resultado**: Descripcion clara
 - **Verificacion**: Caracteristica identificable
@@ -194,13 +194,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Especificar metrica cuantificable:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Metrica:**
-     
-     - Nombre: [Nombre de la metrica]
-     - Unidad: [ms, %, req/s, etc.]
-     - Formula: [Como se calcula]
+ **Metrica:**
+ 
+ - Nombre: [Nombre de la metrica]
+ - Unidad: [ms, %, req/s, etc.]
+ - Formula: [Como se calcula]
 
 - **Resultado**: Metrica definida
 - **Verificacion**: Metrica medible
@@ -210,25 +210,25 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Definir umbrales:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Valores Objetivo:**
-     
-     .. list-table::
-        :header-rows: 1
-     
-        * - Nivel
-          - Valor
-          - Descripcion
-        * - Minimo
-          - [valor]
-          - Limite inferior aceptable
-        * - Objetivo
-          - [valor]
-          - Valor deseado
-        * - Optimo
-          - [valor]
-          - Mejor caso posible
+ **Valores Objetivo:**
+ 
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Nivel
+ - Valor
+ - Descripcion
+ * - Minimo
+ - [valor]
+ - Limite inferior aceptable
+ * - Objetivo
+ - [valor]
+ - Valor deseado
+ * - Optimo
+ - [valor]
+ - Mejor caso posible
 
 - **Resultado**: Umbrales definidos
 - **Verificacion**: 3 niveles especificados
@@ -238,14 +238,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Especificar como medir:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Metodo de Medicion:**
-     
-     - Herramienta: [nombre]
-     - Frecuencia: [cuando medir]
-     - Ambiente: [donde medir]
-     - Procedimiento: [como ejecutar medicion]
+ **Metodo de Medicion:**
+ 
+ - Herramienta: [nombre]
+ - Frecuencia: [cuando medir]
+ - Ambiente: [donde medir]
+ - Procedimiento: [como ejecutar medicion]
 
 - **Resultado**: Metodo definido
 - **Verificacion**: Procedimiento replicable
@@ -255,14 +255,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Definir contexto de medicion:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Condiciones de Medicion:**
-     
-     - Carga: [usuarios concurrentes, transacciones/s]
-     - Ambiente: [produccion, staging]
-     - Datos: [volumen de datos]
-     - Red: [condiciones de red]
+ **Condiciones de Medicion:**
+ 
+ - Carga: [usuarios concurrentes, transacciones/s]
+ - Ambiente: [produccion, staging]
+ - Datos: [volumen de datos]
+ - Red: [condiciones de red]
 
 - **Resultado**: Condiciones especificadas
 - **Verificacion**: Contexto reproducible
@@ -272,13 +272,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Relacionar con arquitectura:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Impacto en Arquitectura:**
-     
-     - Componentes afectados: [lista]
-     - Decisiones de diseno: [ADR relacionados]
-     - Trade-offs: [compromisos]
+ **Impacto en Arquitectura:**
+ 
+ - Componentes afectados: [lista]
+ - Decisiones de diseno: [ADR relacionados]
+ - Trade-offs: [compromisos]
 
 - **Resultado**: Impacto documentado
 - **Verificacion**: Componentes identificados
@@ -288,13 +288,13 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Arquitecto
 - **Accion**: Guardar y validar:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Guardar
-     /tmp/no_funcionales/NFR_PERF_001_Tiempo_Respuesta.rst
-     
-     # Validar
-     sphinx-build -b html -W /tmp/no_funcionales/ /tmp/build/
+ # Guardar
+ /tmp/no_funcionales/NFR_PERF_001_Tiempo_Respuesta.rst
+ 
+ # Validar
+ sphinx-build -b html -W /tmp/no_funcionales/ /tmp/build/
 
 - **Resultado**: NFR guardado y validado
 - **Verificacion**: Sin errores Sphinx
@@ -305,15 +305,15 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - NFR_[CAT]_[NNN].rst
-     - Requisito No Funcional
-     - /tmp/no_funcionales/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - NFR_[CAT]_[NNN].rst
+ - Requisito No Funcional
+ - /tmp/no_funcionales/
 
 ----
 
@@ -355,15 +355,15 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Metrica no medible
-     - Reformular o buscar proxy medible
-   * - Sin herramienta disponible
-     - Documentar medicion manual
+ * - Excepcion
+ - Accion
+ * - Metrica no medible
+ - Reformular o buscar proxy medible
+ * - Sin herramienta disponible
+ - Documentar medicion manual
 
 ----
 
@@ -380,17 +380,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: STD_Profesional_Documentacion
-   :tipo: Estándar
-   :dominio: normativa
-   :subdominio: estandares
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-28
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: STD_Profesional_Documentacion
+ :tipo: Estándar
+ :dominio: normativa
+ :subdominio: estandares
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-28
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _std-profesional-documentacion:
 
@@ -17,8 +17,8 @@ STD: Documentación Profesional
 ============================================================
 
 .. contents:: Contenido
-   :depth: 3
-   :local:
+ :depth: 3
+ :local:
 
 ----
 
@@ -30,9 +30,9 @@ la documentación del proyecto IACT. Garantiza:
 
 - Comunicación técnica clara y directa.
 - Ausencia de coloquialismos, metáforas decorativas y vocabulario
-  no profesional.
+ no profesional.
 - Consistencia de tono y terminología en toda la documentación
-  publicada.
+ publicada.
 
 ----
 
@@ -54,10 +54,10 @@ incluyendo:
 NO aplica a:
 
 - Comentarios dentro del código (rige STD_Naming_Identificadores
-  para nombres + clean code para comentarios).
+ para nombres + clean code para comentarios).
 - Logs operacionales del sistema.
 - Mensajes de commit (rigen los lineamientos de Tim Pope del
-  repositorio, no este STD).
+ repositorio, no este STD).
 
 ----
 
@@ -75,7 +75,7 @@ La documentación usa lenguaje técnico, directo y formal.
 - Directo y claro.
 - Formal pero no rígido.
 - Inglés cuando el documento es en inglés; español cuando es en
-  español. Sin mezclar idiomas sin razón.
+ español. Sin mezclar idiomas sin razón.
 - Terminología consistente.
 
 **No aceptable:**
@@ -94,38 +94,38 @@ del proyecto. La tabla lista cada frase prohibida y su
 alternativa profesional.
 
 .. list-table::
-   :header-rows: 1
-   :widths: 30 35 35
+ :header-rows: 1
+ :widths: 30 35 35
 
-   * - Frase prohibida
-     - Razón
-     - Alternativa profesional
-   * - "Regla de Oro"
-     - Coloquialismo en español.
-     - "Core Principle", "Critical Standard", "Principio
-       fundamental".
-   * - "Principio Unix"
-     - Referencia decorativa a una filosofía externa.
-     - "Core Principle", "Architectural Principle".
-   * - "Los 5 Pilares"
-     - Decorativo, pluraliza arbitrariamente.
-     - "Five Core Principles", "Five Standards".
-   * - "Si tienes que..."
-     - Conversacional en español.
-     - "If code requires explanation, it lacks clarity".
-   * - "Recuerda que..."
-     - Informal.
-     - "Note that...", "Important:".
-   * - "Para recordar:"
-     - Informal.
-     - Estructurar como lista o como sección con heading
-       formal.
-   * - "Recuerda:" / "No olvides:"
-     - Informal.
-     - Sección o lista estructurada.
-   * - "La Magia de X" / "Los Secretos de X"
-     - Headers decorativos.
-     - "Overview of X", "How X Works", "X — Deep Dive".
+ * - Frase prohibida
+ - Razón
+ - Alternativa profesional
+ * - "Regla de Oro"
+ - Coloquialismo en español.
+ - "Core Principle", "Critical Standard", "Principio
+ fundamental".
+ * - "Principio Unix"
+ - Referencia decorativa a una filosofía externa.
+ - "Core Principle", "Architectural Principle".
+ * - "Los 5 Pilares"
+ - Decorativo, pluraliza arbitrariamente.
+ - "Five Core Principles", "Five Standards".
+ * - "Si tienes que..."
+ - Conversacional en español.
+ - "If code requires explanation, it lacks clarity".
+ * - "Recuerda que..."
+ - Informal.
+ - "Note that...", "Important:".
+ * - "Para recordar:"
+ - Informal.
+ - Estructurar como lista o como sección con heading
+ formal.
+ * - "Recuerda:" / "No olvides:"
+ - Informal.
+ - Sección o lista estructurada.
+ * - "La Magia de X" / "Los Secretos de X"
+ - Headers decorativos.
+ - "Overview of X", "How X Works", "X — Deep Dive".
 
 ----
 
@@ -139,15 +139,15 @@ En documentos Markdown:
 
 .. code-block:: text
 
-   # TITLE (all caps)
-   ## SECTION (Title Case)
-   ### SUBSECTION (Title Case)
+ # TITLE (all caps)
+ ## SECTION (Title Case)
+ ### SUBSECTION (Title Case)
 
 En documentos RST (formato del proyecto), los underlines siguen
 la jerarquía estándar. Los **textos** de los headings cumplen:
 
 - Heading principal de archivo: en Title Case o all caps según
-  el estilo del documento, manteniendo profesionalismo.
+ el estilo del documento, manteniendo profesionalismo.
 - Sub-headings: Title Case.
 
 **Anti-patrones de heading prohibidos:**
@@ -166,18 +166,18 @@ directamente, sin frases coloquiales.
 
 .. code-block:: text
 
-   ## Core Principle
+ ## Core Principle
 
-   Software must be clear and maintainable above all else.
+ Software must be clear and maintainable above all else.
 
 **Incorrecto:**
 
 .. code-block:: text
 
-   ## Regla de Oro
+ ## Regla de Oro
 
-   La regla de oro es que el software debe ser claro
-   y mantenible.
+ La regla de oro es que el software debe ser claro
+ y mantenible.
 
 4.3 Listas
 ----------
@@ -186,19 +186,19 @@ directamente, sin frases coloquiales.
 
 .. code-block:: text
 
-   Key standards:
-   - Clarity: code explains itself.
-   - Reliability: fail-fast on errors.
-   - Testability: functions are independent.
+ Key standards:
+ - Clarity: code explains itself.
+ - Reliability: fail-fast on errors.
+ - Testability: functions are independent.
 
 **Incorrecto** — listas con apertura conversacional:
 
 .. code-block:: text
 
-   Recuerda estos 3 pilares:
-   1. La claridad es todo
-   2. Los errores deben fallar rápido
-   3. Las funciones deben ser independientes
+ Recuerda estos 3 pilares:
+ 1. La claridad es todo
+ 2. Los errores deben fallar rápido
+ 3. Las funciones deben ser independientes
 
 4.4 Ejemplos de código
 ----------------------
@@ -211,18 +211,18 @@ identificador.
 
 .. code-block:: python
 
-   # CORRECT — no magic numbers
-   MAX_RETRIES = 3
-   if retry_count > MAX_RETRIES:
-       break
+ # CORRECT — no magic numbers
+ MAX_RETRIES = 3
+ if retry_count > MAX_RETRIES:
+ break
 
 **Incorrecto:**
 
 .. code-block:: python
 
-   # MALO — Números mágicos
-   if retry_count > 3:
-       break
+ # MALO — Números mágicos
+ if retry_count > 3:
+ break
 
 ----
 
@@ -234,15 +234,15 @@ siguientes nombres de sección:
 
 ::
 
-   # TITLE
-   ## Overview / Introducción
-   ## Core Principles / Principios Centrales
-   ## Requirements / Prerrequisitos
-   ## Implementation / Proceso
-   ## Examples / Ejemplos
-   ## Standards / Best Practices
-   ## References / Referencias
-   ## Next Steps / Siguientes Pasos
+ # TITLE
+ ## Overview / Introducción
+ ## Core Principles / Principios Centrales
+ ## Requirements / Prerrequisitos
+ ## Implementation / Proceso
+ ## Examples / Ejemplos
+ ## Standards / Best Practices
+ ## References / Referencias
+ ## Next Steps / Siguientes Pasos
 
 ----
 
@@ -281,10 +281,10 @@ de univocidad".
 ==============
 
 - :ref:`std-001` — Documentación Sin Emojis (complementario:
-  prohibición de emojis en documentación técnica).
+ prohibición de emojis en documentación técnica).
 - :ref:`std-naming-identificadores` — Naming de identificadores
-  técnicos (complementario: aplica a identificadores de código,
-  este STD aplica a narrativa de documentación).
+ técnicos (complementario: aplica a identificadores de código,
+ este STD aplica a narrativa de documentación).
 
 ----
 
@@ -292,16 +292,16 @@ de univocidad".
 ============
 
 .. list-table::
-   :header-rows: 1
-   :widths: 12 15 73
+ :header-rows: 1
+ :widths: 12 15 73
 
-   * - Versión
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-04-28
-     - Versión inicial. Formaliza la convención
-       PROFESSIONAL DOCUMENTATION provista por el ejecutor
-       (texto base 2026-04-21). Define lenguaje obligatorio,
-       lista de frases prohibidas con alternativas, estructura
-       de headings y reglas de cumplimiento.
+ * - Versión
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-04-28
+ - Versión inicial. Formaliza la convención
+ PROFESSIONAL DOCUMENTATION provista por el ejecutor
+ (texto base 2026-04-21). Define lenguaje obligatorio,
+ lista de frases prohibidas con alternativas, estructura
+ de headings y reglas de cumplimiento.

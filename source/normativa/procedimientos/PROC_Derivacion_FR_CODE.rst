@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Derivacion_FR_CODE
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Derivacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Derivacion_FR_CODE
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Derivacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-derivacion-fr-code:
 
@@ -22,18 +22,18 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
+ :widths: 25 75
 
-   * - **ID**
-     - PROC_Derivacion_FR_CODE
-   * - **Nombre**
-     - Derivacion de Requisitos Funcionales a Codigo
-   * - **Categoria**
-     - Derivacion
-   * - **Ratio**
-     - 1 FR -> N archivos/funciones
-   * - **Duracion**
-     - Variable segun complejidad
+ * - **ID**
+ - PROC_Derivacion_FR_CODE
+ * - **Nombre**
+ - Derivacion de Requisitos Funcionales a Codigo
+ * - **Categoria**
+ - Derivacion
+ * - **Ratio**
+ - 1 FR -> N archivos/funciones
+ * - **Duracion**
+ - Variable segun complejidad
 
 ----
 
@@ -59,15 +59,15 @@ codigo que los implementa, permitiendo verificar cobertura de implementacion.
 
 ::
 
-   apps/
-   ├── auth/
-   │   ├── views.py      <- FR de autenticacion
-   │   ├── services.py   <- Logica de negocio
-   │   └── serializers.py
-   ├── users/
-   │   ├── views.py      <- FR de usuarios
-   │   └── ...
-   └── ...
+ apps/
+ ├── auth/
+ │ ├── views.py <- FR de autenticacion
+ │ ├── services.py <- Logica de negocio
+ │ └── serializers.py
+ ├── users/
+ │ ├── views.py <- FR de usuarios
+ │ └── ...
+ └── ...
 
 ----
 
@@ -84,11 +84,11 @@ Mapear FR a componentes de codigo:
 
 .. code-block:: text
 
-   FR_UC001_03: Generar token JWT
-   
-   Componentes:
-   - apps/auth/services.py::JWTService.generate_token()
-   - apps/auth/views.py::LoginView.post()
+ FR_UC001_03: Generar token JWT
+ 
+ Componentes:
+ - apps/auth/services.py::JWTService.generate_token
+ - apps/auth/views.py::LoginView.post
 
 **Paso 3: Implementar Codigo**
 
@@ -100,14 +100,14 @@ En docstring del codigo, referenciar FR:
 
 .. code-block:: python
 
-   def generate_token(self, user):
-                                  
-       Genera token JWT para usuario autenticado.
-       
-       Implements: FR_UC001_03
-       BR: BR_005 (Sesion Unica)
-                                
-       ...
+ def generate_token(self, user):
+ 
+ Genera token JWT para usuario autenticado.
+ 
+ Implements: FR_UC001_03
+ BR: BR_005 (Sesion Unica)
+ 
+ ...
 
 **Paso 5: Actualizar RTM_FR_CODE**
 
@@ -119,20 +119,20 @@ Registrar mapeo en matriz de trazabilidad.
 -------------------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - FR
-     - Archivo
-     - Funcion/Clase
-   * - FR_UC001_01
-     - auth/serializers.py
-     - LoginSerializer.validate_username
-   * - FR_UC001_02
-     - auth/services.py
-     - AuthService.verify_credentials
-   * - FR_UC001_03
-     - auth/services.py
-     - JWTService.generate_token
+ * - FR
+ - Archivo
+ - Funcion/Clase
+ * - FR_UC001_01
+ - auth/serializers.py
+ - LoginSerializer.validate_username
+ * - FR_UC001_02
+ - auth/services.py
+ - AuthService.verify_credentials
+ * - FR_UC001_03
+ - auth/services.py
+ - JWTService.generate_token
 
 ----
 
@@ -167,14 +167,14 @@ Registrar mapeo en matriz de trazabilidad.
 ------------
 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Version inicial
 
 ----
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: UC_PERM_02
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :subdominio: casos_uso/permissions
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-09
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critica
+ :artefacto: UC_PERM_02
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: casos_uso/permissions
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-09
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critica
 
 .. _uc-perm-02:
 
@@ -18,11 +18,11 @@ UC_PERM_02: Revocar Grupo a Usuario
 
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
-   Este UC representa una vista del modelo RBAC. La
-   vista funcional / catalogo cerrado del mismo concepto esta en
-   :doc:`/requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones`
-   (o equivalente). Ambas coexisten per
-   :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
+ Este UC representa una vista del modelo RBAC. La
+ vista funcional / catalogo cerrado del mismo concepto esta en
+ :doc:`/requisitos/casos_uso/access/UC_ACC_02_Revocar_Funciones`
+ (o equivalente). Ambas coexisten per
+ :doc:`/normativa/gobernanza/ADR-GOB-008-rbac-coexistencia-acc-perm`.
 
 
 
@@ -48,21 +48,21 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - ID
-     - Descripción
-   * - PRE-002.1
-     - El administrador está autenticado en el sistema
-   * - PRE-002.2
-     - El administrador tiene la funcion `sistema.administracion.usuarios.editar`
-   * - PRE-002.3
-     - El usuario objetivo existe en el sistema
-   * - PRE-002.4
-     - El usuario tiene al menos un grupo asignado activo
-   * - PRE-002.5
-     - El grupo a revocar está actualmente asignado y activo
+ * - ID
+ - Descripción
+ * - PRE-002.1
+ - El administrador está autenticado en el sistema
+ * - PRE-002.2
+ - El administrador tiene la funcion `sistema.administracion.usuarios.editar`
+ * - PRE-002.3
+ - El usuario objetivo existe en el sistema
+ * - PRE-002.4
+ - El usuario tiene al menos un grupo asignado activo
+ * - PRE-002.5
+ - El grupo a revocar está actualmente asignado y activo
 
 
 
@@ -72,21 +72,21 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - ID
-     - Descripción
-   * - POST-002.1
-     - La asignación del grupo se marca como `activo=False`
-   * - POST-002.2
-     - El usuario pierde acceso a todas las funciones del grupo revocado
-   * - POST-002.3
-     - Se registra un evento de auditoría con la revocación
-   * - POST-002.4
-     - El timestamp `updated_at` se actualiza
-   * - POST-002.5
-     - El usuario recibe notificación de revocación de permisos
+ * - ID
+ - Descripción
+ * - POST-002.1
+ - La asignación del grupo se marca como `activo=False`
+ * - POST-002.2
+ - El usuario pierde acceso a todas las funciones del grupo revocado
+ * - POST-002.3
+ - Se registra un evento de auditoría con la revocación
+ * - POST-002.4
+ - El timestamp `updated_at` se actualiza
+ * - POST-002.5
+ - El usuario recibe notificación de revocación de permisos
 
 
 
@@ -96,57 +96,57 @@ El Administrador de Sistema revoca un grupo de permisos previamente asignado a u
 
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Paso
-     - Actor
-     - Acción
-     - Sistema
-   * - 1
-     - Admin
-     - Accede al módulo de gestión de usuarios
-     - Muestra lista de usuarios
-   * - 2
-     - Admin
-     - Selecciona usuario objetivo
-     - Muestra perfil del usuario con grupos asignados
-   * - 3
-     - Admin
-     - Visualiza grupos activos del usuario
-     - Muestra lista de grupos con estado activo
-   * - 4
-     - Admin
-     - Selecciona grupo a revocar
-     - Muestra confirmación con impacto de revocación
-   * - 5
-     - Admin
-     - Ingresa motivo de revocación
-     - Valida que el motivo no esté vacío
-   * - 6
-     - Admin
-     - Confirma revocación
-     - Verifica permiso `sistema.administracion.usuarios.editar`
-   * - 7
-     - Sistema
-     - Marca asignación como `activo=False`
-     - Actualiza registro en tabla `usuarios_grupos`
-   * - 8
-     - Sistema
-     - Registra evento en auditoría
-     - Inserta en tabla `auditoria_permisos`
-   * - 9
-     - Sistema
-     - Invalida cache de permisos del usuario
-     - Elimina entradas de cache relacionadas
-   * - 10
-     - Sistema
-     - Envía notificación al usuario
-     - Envía email/notificación interna
-   * - 11
-     - Sistema
-     - Muestra confirmación de éxito
-     - Mensaje: "Grupo revocado exitosamente"
+ * - Paso
+ - Actor
+ - Acción
+ - Sistema
+ * - 1
+ - Admin
+ - Accede al módulo de gestión de usuarios
+ - Muestra lista de usuarios
+ * - 2
+ - Admin
+ - Selecciona usuario objetivo
+ - Muestra perfil del usuario con grupos asignados
+ * - 3
+ - Admin
+ - Visualiza grupos activos del usuario
+ - Muestra lista de grupos con estado activo
+ * - 4
+ - Admin
+ - Selecciona grupo a revocar
+ - Muestra confirmación con impacto de revocación
+ * - 5
+ - Admin
+ - Ingresa motivo de revocación
+ - Valida que el motivo no esté vacío
+ * - 6
+ - Admin
+ - Confirma revocación
+ - Verifica permiso `sistema.administracion.usuarios.editar`
+ * - 7
+ - Sistema
+ - Marca asignación como `activo=False`
+ - Actualiza registro en tabla `usuarios_grupos`
+ * - 8
+ - Sistema
+ - Registra evento en auditoría
+ - Inserta en tabla `auditoria_permisos`
+ * - 9
+ - Sistema
+ - Invalida cache de permisos del usuario
+ - Elimina entradas de cache relacionadas
+ * - 10
+ - Sistema
+ - Envía notificación al usuario
+ - Envía email/notificación interna
+ * - 11
+ - Sistema
+ - Muestra confirmación de éxito
+ - Mensaje: "Grupo revocado exitosamente"
 
 
 
@@ -161,17 +161,17 @@ FA-002.1: Usuario no tiene el grupo asignado
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Paso
-     - Descripción
-   * - 4a
-     - Sistema detecta que el usuario no tiene el grupo asignado
-   * - 4b
-     - Sistema muestra error: "El usuario no tiene este grupo asignado"
-   * - 4c
-     - Flujo termina
+ * - Paso
+ - Descripción
+ * - 4a
+ - Sistema detecta que el usuario no tiene el grupo asignado
+ * - 4b
+ - Sistema muestra error: "El usuario no tiene este grupo asignado"
+ * - 4c
+ - Flujo termina
 
 
 
@@ -181,19 +181,19 @@ FA-002.2: Grupo ya está inactivo
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Paso
-     - Descripción
-   * - 6a
-     - Sistema detecta que el grupo ya está marcado como `activo=False`
-   * - 6b
-     - Sistema muestra advertencia: "Este grupo ya está revocado"
-   * - 6c
-     - Admin puede confirmar para actualizar motivo o cancelar
-   * - 6d
-     - Si confirma, continúa en paso 7
+ * - Paso
+ - Descripción
+ * - 6a
+ - Sistema detecta que el grupo ya está marcado como `activo=False`
+ * - 6b
+ - Sistema muestra advertencia: "Este grupo ya está revocado"
+ * - 6c
+ - Admin puede confirmar para actualizar motivo o cancelar
+ * - 6d
+ - Si confirma, continúa en paso 7
 
 
 
@@ -203,17 +203,17 @@ FA-002.3: Usuario es el último administrador
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Paso
-     - Descripción
-   * - 6a
-     - Sistema detecta que el usuario es el único con grupo de administradores
-   * - 6b
-     - Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema"
-   * - 6c
-     - Flujo termina
+ * - Paso
+ - Descripción
+ * - 6a
+ - Sistema detecta que el usuario es el único con grupo de administradores
+ * - 6b
+ - Sistema muestra error crítico: "No se puede revocar. Usuario es el último administrador del sistema"
+ * - 6c
+ - Flujo termina
 
 
 
@@ -228,19 +228,19 @@ FE-002.1: Error de permisos
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Paso
-     - Descripción
-   * - 6a
-     - Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar`
-   * - 6b
-     - Sistema retorna HTTP 403 Forbidden
-   * - 6c
-     - Mensaje: "No tiene permisos para revocar grupos"
-   * - 6d
-     - Flujo termina
+ * - Paso
+ - Descripción
+ * - 6a
+ - Sistema detecta que el administrador no tiene permiso `sistema.administracion.usuarios.editar`
+ * - 6b
+ - Sistema retorna HTTP 403 Forbidden
+ * - 6c
+ - Mensaje: "No tiene permisos para revocar grupos"
+ * - 6d
+ - Flujo termina
 
 
 
@@ -250,23 +250,23 @@ FE-002.2: Error de base de datos
 
 
 .. list-table::
-   :widths: 50 50
-   :header-rows: 1
+ :widths: 50 50
+ :header-rows: 1
 
-   * - Paso
-     - Descripción
-   * - 7a
-     - Error al actualizar registro en base de datos
-   * - 7b
-     - Sistema ejecuta rollback de transacción
-   * - 7c
-     - Sistema retorna HTTP 500 Internal Server Error
-   * - 7d
-     - Sistema registra error en logs
-   * - 7e
-     - Mensaje: "Error al revocar grupo. Intente nuevamente"
-   * - 7f
-     - Flujo termina
+ * - Paso
+ - Descripción
+ * - 7a
+ - Error al actualizar registro en base de datos
+ * - 7b
+ - Sistema ejecuta rollback de transacción
+ * - 7c
+ - Sistema retorna HTTP 500 Internal Server Error
+ * - 7d
+ - Sistema registra error en logs
+ * - 7e
+ - Mensaje: "Error al revocar grupo. Intente nuevamente"
+ * - 7f
+ - Flujo termina
 
 
 
@@ -276,27 +276,27 @@ FE-002.2: Error de base de datos
 
 
 .. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
+ :widths: 33 33 33
+ :header-rows: 1
 
-   * - ID
-     - Regla
-     - Tipo
-   * - RN-002.1
-     - No se puede revocar el último grupo de administradores del sistema
-     - Crítica
-   * - RN-002.2
-     - El motivo de revocación es obligatorio
-     - Alta
-   * - RN-002.3
-     - La revocación no elimina el registro, solo lo marca como inactivo
-     - Alta
-   * - RN-002.4
-     - La revocación es inmediata (no hay período de gracia)
-     - Media
-   * - RN-002.5
-     - Se debe notificar al usuario afectado
-     - Media
+ * - ID
+ - Regla
+ - Tipo
+ * - RN-002.1
+ - No se puede revocar el último grupo de administradores del sistema
+ - Crítica
+ * - RN-002.2
+ - El motivo de revocación es obligatorio
+ - Alta
+ * - RN-002.3
+ - La revocación no elimina el registro, solo lo marca como inactivo
+ - Alta
+ * - RN-002.4
+ - La revocación es inmediata (no hay período de gracia)
+ - Media
+ * - RN-002.5
+ - Se debe notificar al usuario afectado
+ - Media
 
 
 
@@ -306,24 +306,24 @@ FE-002.2: Error de base de datos
 
 
 .. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
+ :widths: 33 33 33
+ :header-rows: 1
 
-   * - ID
-     - Requisito
-     - Valor Objetivo
-   * - RNF-002.1
-     - Tiempo de respuesta
-     - < 500ms
-   * - RNF-002.2
-     - Invalidación de cache
-     - < 100ms
-   * - RNF-002.3
-     - Disponibilidad
-     - 99.9%
-   * - RNF-002.4
-     - Registro de auditoría
-     - 100% de casos
+ * - ID
+ - Requisito
+ - Valor Objetivo
+ * - RNF-002.1
+ - Tiempo de respuesta
+ - < 500ms
+ * - RNF-002.2
+ - Invalidación de cache
+ - < 100ms
+ * - RNF-002.3
+ - Disponibilidad
+ - 99.9%
+ * - RNF-002.4
+ - Registro de auditoría
+ - 100% de casos
 
 
 
@@ -333,12 +333,12 @@ FE-002.2: Error de base de datos
 
 .. code-block:: json
 
-   {
-     "usuario_id": 123,
-     "grupo_id": 5,
-     "motivo": "Cambio de rol en la organización",
-     "revocado_por_id": 1
-   }
+ {
+ "usuario_id": 123,
+ "grupo_id": 5,
+ "motivo": "Cambio de rol en la organización",
+ "revocado_por_id": 1
+ }
 
 
 
@@ -353,20 +353,20 @@ Caso Exitoso (HTTP 200)
 
 .. code-block:: json
 
-   {
-     "success": true,
-     "message": "Grupo revocado exitosamente",
-     "data": {
-       "usuario_id": 123,
-       "usuario_username": "carlos.ruiz",
-       "grupo_id": 5,
-       "grupo_nombre": "Coordinadores",
-       "fecha_revocacion": "2025-01-09T10:30:00Z",
-       "motivo": "Cambio de rol en la organización",
-       "revocado_por": "admin_user",
-       "capacidades_removidas": 15
-     }
-   }
+ {
+ "success": true,
+ "message": "Grupo revocado exitosamente",
+ "data": {
+ "usuario_id": 123,
+ "usuario_username": "carlos.ruiz",
+ "grupo_id": 5,
+ "grupo_nombre": "Coordinadores",
+ "fecha_revocacion": "2025-01-09T10:30:00Z",
+ "motivo": "Cambio de rol en la organización",
+ "revocado_por": "admin_user",
+ "capacidades_removidas": 15
+ }
+ }
 
 
 
@@ -376,11 +376,11 @@ Caso Error (HTTP 403)
 
 .. code-block:: json
 
-   {
-     "error": "No tiene permisos para revocar grupos",
-     "required_permission": "sistema.administracion.usuarios.editar",
-     "code": "PERMISSION_DENIED"
-   }
+ {
+ "error": "No tiene permisos para revocar grupos",
+ "required_permission": "sistema.administracion.usuarios.editar",
+ "code": "PERMISSION_DENIED"
+ }
 
 
 
@@ -395,14 +395,14 @@ API Endpoint
 
 .. code-block:: text
 
-   DELETE /api/permisos/usuarios/{usuario_id}/grupos/{grupo_id}/
-   Authorization: Bearer <token>
-   Content-Type: application/json
-   
-   Body:
-   {
-     "motivo": "Cambio de rol en la organización"
-   }
+ DELETE /api/permisos/usuarios/{usuario_id}/grupos/{grupo_id}/
+ Authorization: Bearer <token>
+ Content-Type: application/json
+ 
+ Body:
+ {
+ "motivo": "Cambio de rol en la organización"
+ }
 
 
 
@@ -412,33 +412,33 @@ SQL Operation
 
 .. code-block:: sql
 
-   -- Revocar grupo (marcar como inactivo)
-   UPDATE usuarios_grupos
-   SET activo = FALSE,
-       motivo_revocacion = 'Cambio de rol en la organización',
-       revocado_por_id = 1,
-       updated_at = NOW()
-   WHERE usuario_id = 123
-     AND grupo_id = 5
-     AND activo = TRUE;
-   
-   -- Registrar en auditoría
-   INSERT INTO auditoria_permisos (
-     usuario_id,
-     accion,
-     detalle,
-     realizado_por_id,
-     timestamp
-   ) VALUES (
-     123,
-     'REVOCAR_GRUPO',
-     '{"grupo_id": 5, "grupo_nombre": "Coordinadores", "motivo": "Cambio de rol"}',
-     1,
-     NOW()
-   );
-   
-   -- Invalidar cache
-   DELETE FROM cache_permisos WHERE usuario_id = 123;
+ -- Revocar grupo (marcar como inactivo)
+ UPDATE usuarios_grupos
+ SET activo = FALSE,
+ motivo_revocacion = 'Cambio de rol en la organización',
+ revocado_por_id = 1,
+ updated_at = NOW
+ WHERE usuario_id = 123
+ AND grupo_id = 5
+ AND activo = TRUE;
+ 
+ -- Registrar en auditoría
+ INSERT INTO auditoria_permisos (
+ usuario_id,
+ accion,
+ detalle,
+ realizado_por_id,
+ timestamp
+ ) VALUES (
+ 123,
+ 'REVOCAR_GRUPO',
+ '{"grupo_id": 5, "grupo_nombre": "Coordinadores", "motivo": "Cambio de rol"}',
+ 1,
+ NOW
+ );
+ 
+ -- Invalidar cache
+ DELETE FROM cache_permisos WHERE usuario_id = 123;
 
 
 
@@ -462,18 +462,18 @@ Caso de Prueba 1: Revocación exitosa
 
 .. code-block:: yaml
 
-   Given:
-     - Usuario 123 existe
-     - Usuario 123 tiene grupo "Coordinadores" activo
-     - Admin tiene permiso "sistema.administracion.usuarios.editar"
-   When:
-     - Admin revoca grupo "Coordinadores" con motivo "Cambio de rol"
-   Then:
-     - Asignación se marca como activo=False
-     - Se registra en auditoría
-     - Cache se invalida
-     - Usuario recibe notificación
-     - HTTP 200 con mensaje de éxito
+ Given:
+ - Usuario 123 existe
+ - Usuario 123 tiene grupo "Coordinadores" activo
+ - Admin tiene permiso "sistema.administracion.usuarios.editar"
+ When:
+ - Admin revoca grupo "Coordinadores" con motivo "Cambio de rol"
+ Then:
+ - Asignación se marca como activo=False
+ - Se registra en auditoría
+ - Cache se invalida
+ - Usuario recibe notificación
+ - HTTP 200 con mensaje de éxito
 
 
 
@@ -483,15 +483,15 @@ Caso de Prueba 2: Usuario no tiene el grupo
 
 .. code-block:: yaml
 
-   Given:
-     - Usuario 123 existe
-     - Usuario 123 NO tiene grupo "Coordinadores" activo
-   When:
-     - Admin intenta revocar grupo "Coordinadores"
-   Then:
-     - HTTP 400 Bad Request
-     - Mensaje: "El usuario no tiene este grupo asignado"
-     - No se modifica base de datos
+ Given:
+ - Usuario 123 existe
+ - Usuario 123 NO tiene grupo "Coordinadores" activo
+ When:
+ - Admin intenta revocar grupo "Coordinadores"
+ Then:
+ - HTTP 400 Bad Request
+ - Mensaje: "El usuario no tiene este grupo asignado"
+ - No se modifica base de datos
 
 
 
@@ -501,14 +501,14 @@ Caso de Prueba 3: Último administrador
 
 .. code-block:: yaml
 
-   Given:
-     - Usuario 123 es el único con grupo "Administradores"
-   When:
-     - Admin intenta revocar grupo "Administradores"
-   Then:
-     - HTTP 400 Bad Request
-     - Mensaje: "No se puede revocar. Usuario es el último administrador"
-     - No se modifica base de datos
+ Given:
+ - Usuario 123 es el único con grupo "Administradores"
+ When:
+ - Admin intenta revocar grupo "Administradores"
+ Then:
+ - HTTP 400 Bad Request
+ - Mensaje: "No se puede revocar. Usuario es el último administrador"
+ - No se modifica base de datos
 
 
 
@@ -518,14 +518,14 @@ Caso de Prueba 4: Sin permisos
 
 .. code-block:: yaml
 
-   Given:
-     - Admin NO tiene permiso "sistema.administracion.usuarios.editar"
-   When:
-     - Admin intenta revocar grupo
-   Then:
-     - HTTP 403 Forbidden
-     - Mensaje: "No tiene permisos para revocar grupos"
-     - No se modifica base de datos
+ Given:
+ - Admin NO tiene permiso "sistema.administracion.usuarios.editar"
+ When:
+ - Admin intenta revocar grupo
+ Then:
+ - HTTP 403 Forbidden
+ - Mensaje: "No tiene permisos para revocar grupos"
+ - No se modifica base de datos
 
 
 
@@ -596,15 +596,15 @@ Changelog
 
 
 .. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
+ :widths: 25 25 25 25
+ :header-rows: 1
 
-   * - Versión
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2025-01-09
-     - Sistema
-     - Creación inicial
+ * - Versión
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2025-01-09
+ - Sistema
+ - Creación inicial
 

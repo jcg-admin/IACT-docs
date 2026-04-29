@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: ADR_GOB_001_organizacion_proyecto_por_dominio
-   :tipo: ADR
-   :dominio: normativa
-   :subdominio: gobernanza
-   :estado: En revision
-   :version: 1.0.0
-   :fecha_creacion: 2025-11-06
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo Desarrollo
-   :clasificacion: Alto
+ :artefacto: ADR_GOB_001_organizacion_proyecto_por_dominio
+ :tipo: ADR
+ :dominio: normativa
+ :subdominio: gobernanza
+ :estado: En revision
+ :version: 1.0.0
+ :fecha_creacion: 2025-11-06
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo Desarrollo
+ :clasificacion: Alto
 
 .. _adr_gob_001_organizacion_proyecto_por_dominio:
 
@@ -18,7 +18,7 @@ ADR-GOB-001: Organizacion del Proyecto por Dominio
 
 .. note:: Nota editorial
 
-   Originalmente aceptada (2025-11-06). Estado actual requiere validacion por cambios en la organizacion implementada.
+ Originalmente aceptada (2025-11-06). Estado actual requiere validacion por cambios en la organizacion implementada.
 
 Contexto
 --------
@@ -35,13 +35,13 @@ Tradicionalmente, los proyectos se organizan por **tipo de archivo**
 (seguir convenciones como src/, tests/, scripts/, docs/), pero esto
 puede generar problemas de cohesión cuando el proyecto crece:
 
--  Archivos relacionados funcionalmente están dispersos en diferentes
-   directorios raíz
--  Dificulta la navegación: para trabajar en infraestructura, hay que
-   tocar scripts/, tests/, docs/, artifacts/
--  Escalabilidad limitada: cuando se agregan nuevos dominios (ui/,
-   api/), la raíz se satura
--  Falta de boundaries claros entre dominios
+- Archivos relacionados funcionalmente están dispersos en diferentes
+ directorios raíz
+- Dificulta la navegación: para trabajar en infraestructura, hay que
+ tocar scripts/, tests/, docs/, artifacts/
+- Escalabilidad limitada: cuando se agregan nuevos dominios (ui/,
+ api/), la raíz se satura
+- Falta de boundaries claros entre dominios
 
 Opciones Evaluadas
 ~~~~~~~~~~~~~~~~~~
@@ -68,43 +68,43 @@ Estructura Resultante
 
 ::
 
-   /IACT---project/
-   ├── api/                      # Dominio: Backend Django
-   │   ├── (código de API)
-   │   ├── tests/               # (futuro: tests de API)
-   │   └── scripts/             # (futuro: scripts específicos de API)
-   │
-   ├── ui/                       # Dominio: Frontend React (futuro)
-   │   ├── (código de UI)
-   │   ├── tests/               # (futuro: tests de UI)
-   │   └── scripts/             # (futuro: scripts de build UI)
-   │
-   ├── infrastructure/           # Dominio: Infraestructura
-   │   ├── cpython/             # Subdomain: CPython (builder, feature, artifacts)
-   │   ├── devcontainer/        # Configuración DevContainer
-   │   ├── artifacts/           # Outputs compartidos (no CPython)
-   │   ├── scripts/             # Scripts de infraestructura no-CPython
-   │   ├── tests/               # Tests de infraestructura no-CPython
-   │   ├── vagrant/             # VMs de infraestructura no-CPython
-   │   └── box/
-   │
-   ├── docs/                     # Dominio: Documentación
-   │   ├── specs/
-   │   ├── adr/
-   │   ├── infraestructura/
-   │   ├── api/
-   │   └── gobernanza/
-   │
-   ├── features/                 # Features de DevContainer (convención)
-   │
-   ├── scripts/                  # Scripts cross-cutting
-   │   ├── dev/                 # Herramientas de desarrollo
-   │   ├── ai/                  # Generación con IA
-   │   └── templates/           # Templates compartidos
-   │
-   ├── .devcontainer/            # Convención VS Code
-   ├── .github/                  # Convención GitHub
-   └── respaldo/                 # Temporal/legacy
+ /IACT---project/
+ ├── api/ # Dominio: Backend Django
+ │ ├── (código de API)
+ │ ├── tests/ # (futuro: tests de API)
+ │ └── scripts/ # (futuro: scripts específicos de API)
+ │
+ ├── ui/ # Dominio: Frontend React (futuro)
+ │ ├── (código de UI)
+ │ ├── tests/ # (futuro: tests de UI)
+ │ └── scripts/ # (futuro: scripts de build UI)
+ │
+ ├── infrastructure/ # Dominio: Infraestructura
+ │ ├── cpython/ # Subdomain: CPython (builder, feature, artifacts)
+ │ ├── devcontainer/ # Configuración DevContainer
+ │ ├── artifacts/ # Outputs compartidos (no CPython)
+ │ ├── scripts/ # Scripts de infraestructura no-CPython
+ │ ├── tests/ # Tests de infraestructura no-CPython
+ │ ├── vagrant/ # VMs de infraestructura no-CPython
+ │ └── box/
+ │
+ ├── docs/ # Dominio: Documentación
+ │ ├── specs/
+ │ ├── adr/
+ │ ├── infraestructura/
+ │ ├── api/
+ │ └── gobernanza/
+ │
+ ├── features/ # Features de DevContainer (convención)
+ │
+ ├── scripts/ # Scripts cross-cutting
+ │ ├── dev/ # Herramientas de desarrollo
+ │ ├── ai/ # Generación con IA
+ │ └── templates/ # Templates compartidos
+ │
+ ├── .devcontainer/ # Convención VS Code
+ ├── .github/ # Convención GitHub
+ └── respaldo/ # Temporal/legacy
 
 --------------
 
@@ -145,19 +145,19 @@ agregar nuevos dominios satura aún más la raíz
 
 ::
 
-   /
-   ├── scripts/
-   │   ├── api/          # Scripts de API
-   │   ├── infra/        # Scripts de infra
-   │   └── ui/           # Scripts de UI
-   ├── tests/
-   │   ├── api/          # Tests de API
-   │   ├── infra/        # Tests de infra
-   │   └── ui/           # Tests de UI
-   └── artifacts/
-       ├── api/          # Artifacts de API
-       ├── infra/        # Artifacts de infra
-       └── ui/           # Artifacts de UI
+ /
+ ├── scripts/
+ │ ├── api/ # Scripts de API
+ │ ├── infra/ # Scripts de infra
+ │ └── ui/ # Scripts de UI
+ ├── tests/
+ │ ├── api/ # Tests de API
+ │ ├── infra/ # Tests de infra
+ │ └── ui/ # Tests de UI
+ └── artifacts/
+ ├── api/ # Artifacts de API
+ ├── infra/ # Artifacts de infra
+ └── ui/ # Artifacts de UI
 
 Resultado: para trabajar en infraestructura hay que tocar 3+ directorios
 raíz.
@@ -176,24 +176,24 @@ Positivas
 4. **Modularización**: Boundaries claros entre dominios
 5. **Onboarding más fácil**: Estructura intuitiva
 6. **Migración futura facilitada**: Cada dominio puede convertirse en
-   repo separado si es necesario
+ repo separado si es necesario
 
 Negativas (mitigadas)
 ~~~~~~~~~~~~~~~~~~~~~
 
 1. **Duplicación de estructura**: Cada dominio tiene tests/, scripts/
 
-   -  **Mitigación**: Scripts cross-cutting en scripts/ raíz
+ - **Mitigación**: Scripts cross-cutting en scripts/ raíz
 
 2. **Convenciones tradicionales**: Difiere de proyectos tipo src/,
-   tests/
+ tests/
 
-   -  **Mitigación**: Es más moderno y escalable (usado por monorepos)
+ - **Mitigación**: Es más moderno y escalable (usado por monorepos)
 
 3. **Descubrimiento inicial**: Desarrolladores nuevos deben aprender
-   estructura
+ estructura
 
-   -  **Mitigación**: Este ADR + README documentan la decisión
+ - **Mitigación**: Este ADR + README documentan la decisión
 
 Neutrales
 ~~~~~~~~~
@@ -211,9 +211,9 @@ La reorganización se aplicó al dominio ``infrastructure/`` moviendo:
 
 .. code:: bash
 
-   artifacts/           → infrastructure/artifacts/
-   tests/integration/   → infrastructure/tests/
-   scripts/infra/       → infrastructure/scripts/
+ artifacts/ → infrastructure/artifacts/
+ tests/integration/ → infrastructure/tests/
+ scripts/infra/ → infrastructure/scripts/
 
 **Archivos actualizados:** 16 - Vagrantfile (synced folders) - Makefile
 (paths de targets) - Scripts wrapper (paths internos) - Tests (variables
@@ -230,12 +230,12 @@ subdomain:
 
 .. code:: bash
 
-   infrastructure/vagrant/cpython-builder/  → infrastructure/cpython/
-   features/cpython-prebuilt/               → infrastructure/cpython/installer/
-   infrastructure/artifacts/cpython/        → infrastructure/cpython/artifacts/
-   infrastructure/scripts/build_cpython.sh  → infrastructure/cpython/scripts/build_cpython.sh
-   infrastructure/scripts/validate-*.sh     → infrastructure/cpython/scripts/validate-*.sh
-   infrastructure/tests/test_cpython_*.py   → infrastructure/cpython/tests/test_cpython_*.py
+ infrastructure/vagrant/cpython-builder/ → infrastructure/cpython/
+ features/cpython-prebuilt/ → infrastructure/cpython/installer/
+ infrastructure/artifacts/cpython/ → infrastructure/cpython/artifacts/
+ infrastructure/scripts/build_cpython.sh → infrastructure/cpython/scripts/build_cpython.sh
+ infrastructure/scripts/validate-*.sh → infrastructure/cpython/scripts/validate-*.sh
+ infrastructure/tests/test_cpython_*.py → infrastructure/cpython/tests/test_cpython_*.py
 
 Fase 3: Consolidación Completa en Builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,10 +245,10 @@ máxima cohesión:
 
 .. code:: bash
 
-   infrastructure/cpython/feature/     → infrastructure/cpython/builder/installer/
-   infrastructure/cpython/artifacts/   → infrastructure/cpython/builder/artifacts/
-   infrastructure/cpython/scripts/     → infrastructure/cpython/builder/scripts/ (renombrados a *-wrapper.sh)
-   infrastructure/cpython/tests/       → infrastructure/cpython/builder/tests/
+ infrastructure/cpython/feature/ → infrastructure/cpython/builder/installer/
+ infrastructure/cpython/artifacts/ → infrastructure/cpython/builder/artifacts/
+ infrastructure/cpython/scripts/ → infrastructure/cpython/builder/scripts/ (renombrados a *-wrapper.sh)
+ infrastructure/cpython/tests/ → infrastructure/cpython/builder/tests/
 
 **Renombramiento semántico**: ``feature/`` → ``installer/`` para
 reflejar mejor su función real (instalador de CPython en Dev Container).
@@ -261,7 +261,7 @@ nivel ``builder/`` innecesario:
 
 .. code:: bash
 
-   infrastructure/cpython/builder/*    → infrastructure/cpython/
+ infrastructure/cpython/builder/* → infrastructure/cpython/
 
 **Razón**: TODO el contenido de cpython/ era parte del “builder”. No
 había ni habrá otros componentes fuera de builder/, por lo tanto el
@@ -288,34 +288,34 @@ Agregar Tests de API
 
 .. code:: bash
 
-   # Antes (tipo de archivo):
-   tests/
-     ├── api/
-     │   └── test_endpoints.py
-     └── infra/
-         └── test_vagrant.py
+ # Antes (tipo de archivo):
+ tests/
+ ├── api/
+ │ └── test_endpoints.py
+ └── infra/
+ └── test_vagrant.py
 
-   # Después (por dominio):
-   api/
-     └── tests/
-         └── test_endpoints.py
+ # Después (por dominio):
+ api/
+ └── tests/
+ └── test_endpoints.py
 
-   infrastructure/
-     └── tests/
-         └── test_vagrant.py
+ infrastructure/
+ └── tests/
+ └── test_vagrant.py
 
 Agregar Scripts de UI
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Después (por dominio):
-   ui/
-     ├── src/
-     ├── scripts/
-     │   ├── build.sh         # Build de producción
-     │   └── analyze.sh       # Análisis de bundle
-     └── tests/
+ # Después (por dominio):
+ ui/
+ ├── src/
+ ├── scripts/
+ │ ├── build.sh # Build de producción
+ │ └── analyze.sh # Análisis de bundle
+ └── tests/
 
 Scripts Cross-Cutting
 ~~~~~~~~~~~~~~~~~~~~~
@@ -324,15 +324,15 @@ Scripts que sirven a TODOS los dominios permanecen en raíz:
 
 .. code:: bash
 
-   scripts/
-     ├── dev/
-     │   ├── check_all.sh        # Valida todo el proyecto
-     │   ├── validate_spec.sh    # Valida specs
-     │   └── generate_plan.sh    # Genera planes
-     ├── ai/
-     │   └── run_test_generation.sh
-     └── templates/
-         └── bash_script_template.sh
+ scripts/
+ ├── dev/
+ │ ├── check_all.sh # Valida todo el proyecto
+ │ ├── validate_spec.sh # Valida specs
+ │ └── generate_plan.sh # Genera planes
+ ├── ai/
+ │ └── run_test_generation.sh
+ └── templates/
+ └── bash_script_template.sh
 
 --------------
 
@@ -381,30 +381,30 @@ Final):
 
 ::
 
-   infrastructure/
-   └── cpython/                    # Subdomain: Todo CPython (sin nivel extra)
-       ├── Vagrantfile             # VM de compilación
-       ├── bootstrap.sh            # Provisioning de VM
-       ├── scripts/                # TODOS los scripts (VM + host wrapper)
-       │   ├── build_cpython.sh          # Script de compilación (VM)
-       │   ├── validate_build.sh         # Validación (VM)
-       │   ├── build_wrapper.sh          # Wrapper host → VM
-       │   ├── validate_wrapper.sh       # Wrapper host → VM
-       │   └── feature_install.sh        # Instalación en DevContainer
-       ├── installer/              # Instalador para Dev Container
-       │   ├── devcontainer_feature.json
-       │   ├── install.sh          # Symlink → ../scripts/feature_install.sh
-       │   └── README.md
-       ├── artifacts/              # Binarios compilados (.tgz)
-       │   ├── ARTIFACTS.md
-       │   └── .gitkeep
-       ├── tests/                  # Tests de integración
-       │   ├── test_cpython_build_system.py
-       │   └── test_cpython_feature.py
-       ├── utils/                  # Utilidades de compilación
-       ├── config/                 # Configuraciones
-       ├── logs/                   # Logs de compilación
-       └── README.md
+ infrastructure/
+ └── cpython/ # Subdomain: Todo CPython (sin nivel extra)
+ ├── Vagrantfile # VM de compilación
+ ├── bootstrap.sh # Provisioning de VM
+ ├── scripts/ # TODOS los scripts (VM + host wrapper)
+ │ ├── build_cpython.sh # Script de compilación (VM)
+ │ ├── validate_build.sh # Validación (VM)
+ │ ├── build_wrapper.sh # Wrapper host → VM
+ │ ├── validate_wrapper.sh # Wrapper host → VM
+ │ └── feature_install.sh # Instalación en DevContainer
+ ├── installer/ # Instalador para Dev Container
+ │ ├── devcontainer_feature.json
+ │ ├── install.sh # Symlink → ../scripts/feature_install.sh
+ │ └── README.md
+ ├── artifacts/ # Binarios compilados (.tgz)
+ │ ├── ARTIFACTS.md
+ │ └── .gitkeep
+ ├── tests/ # Tests de integración
+ │ ├── test_cpython_build_system.py
+ │ └── test_cpython_feature.py
+ ├── utils/ # Utilidades de compilación
+ ├── config/ # Configuraciones
+ ├── logs/ # Logs de compilación
+ └── README.md
 
 **Ventajas del subdomain simplificado (Fase 4)**: 1. **Máxima
 simplicidad**: TODO CPython directamente en ``cpython/`` - sin niveles
@@ -454,10 +454,10 @@ cmd/, pkg/) - Terraform: Organizado por providers (dominios)
 Documentación del Proyecto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Este ADR documenta la decisión y justificación
--  README principal debe incluir mapa de navegación
--  Cada dominio (``api/``, ``ui/``, ``infrastructure/``) debe tener su
-   propio README
+- Este ADR documenta la decisión y justificación
+- README principal debe incluir mapa de navegación
+- Cada dominio (``api/``, ``ui/``, ``infrastructure/``) debe tener su
+ propio README
 
 --------------
 
@@ -497,13 +497,13 @@ que saturar la raíz
 Estado de Implementación
 ------------------------
 
--  COMPLETADO: Migración de ``infrastructure/`` a dominio (2025-11-06)
--  COMPLETADO: Reorganización de CPython como subdomain
-   ``infrastructure/cpython/`` (2025-11-06)
--  PENDIENTE: README principal actualizado con mapa de navegación
--  PENDIENTE: Documentar en guía de desarrollo
--  PENDIENTE: Aplicar a ``api/`` cuando se agreguen tests/scripts
--  PENDIENTE: Aplicar a ``ui/`` cuando se implemente
+- COMPLETADO: Migración de ``infrastructure/`` a dominio (2025-11-06)
+- COMPLETADO: Reorganización de CPython como subdomain
+ ``infrastructure/cpython/`` (2025-11-06)
+- PENDIENTE: README principal actualizado con mapa de navegación
+- PENDIENTE: Documentar en guía de desarrollo
+- PENDIENTE: Aplicar a ``api/`` cuando se agreguen tests/scripts
+- PENDIENTE: Aplicar a ``ui/`` cuando se implemente
 
 --------------
 

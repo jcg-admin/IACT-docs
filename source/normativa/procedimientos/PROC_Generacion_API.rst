@@ -1,15 +1,15 @@
 .. meta::
-   :artefacto: PROC_Generacion_API
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Generacion
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_Generacion_API
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Generacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _proc-generacion-api:
 
@@ -22,21 +22,21 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Generacion_API
-   * - **Nombre**
-     - Generacion de Documentacion de API
-   * - **Categoria**
-     - Generacion de Artefactos
-   * - **Frecuencia**
-     - Por cada API/endpoint a documentar
-   * - **Duracion Estimada**
-     - 30-60 minutos por API
-   * - **Estado**
-     - Vigente
+ * - **ID**
+ - PROC_Generacion_API
+ * - **Nombre**
+ - Generacion de Documentacion de API
+ * - **Categoria**
+ - Generacion de Artefactos
+ * - **Frecuencia**
+ - Por cada API/endpoint a documentar
+ * - **Duracion Estimada**
+ - 30-60 minutos por API
+ * - **Estado**
+ - Vigente
 
 ----
 
@@ -73,18 +73,18 @@ codigos de error y ejemplos curl.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Desarrollador
-     - Genera documentacion de API
-     - Escritura en api/
-   * - Arquitecto
-     - Valida consistencia
-     - Lectura
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Desarrollador
+ - Genera documentacion de API
+ - Escritura en api/
+ * - Arquitecto
+ - Valida consistencia
+ - Lectura
 
 ----
 
@@ -104,21 +104,21 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - TPL_API_Documentacion_API_1_1_0.rst
-     - Template de API
-     - Si
-   * - MOD_[Nombre].rst
-     - Modulo relacionado
-     - Si
-   * - FR relacionados
-     - Requisitos que implementa
-     - No
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - TPL_API_Documentacion_API_1_1_0.rst
+ - Template de API
+ - Si
+ * - MOD_[Nombre].rst
+ - Modulo relacionado
+ - Si
+ * - FR relacionados
+ - Requisitos que implementa
+ - No
 
 ----
 
@@ -146,15 +146,15 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Asignar ID segun recurso:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Formato: API_[Recurso]
-     
-     Ejemplos:
-     - API_Users: Gestion de usuarios
-     - API_Roles: Gestion de roles
-     - API_Sessions: Gestion de sesiones
-     - API_Reports: Generacion de reportes
+ Formato: API_[Recurso]
+ 
+ Ejemplos:
+ - API_Users: Gestion de usuarios
+ - API_Roles: Gestion de roles
+ - API_Sessions: Gestion de sesiones
+ - API_Reports: Generacion de reportes
 
 - **Resultado**: ID asignado
 - **Verificacion**: Recurso identificable
@@ -164,19 +164,19 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Especificar base y autenticacion:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Base URL:**
-     
-     ::
-     
-        https://api.iact.example.com/v1/
-     
-     **Autenticacion:**
-     
-     - Tipo: Bearer Token (JWT)
-     - Header: ``Authorization: Bearer <token>``
-     - Obtencion: POST /auth/token/
+ **Base URL:**
+ 
+ ::
+ 
+ https://api.iact.example.com/v1/
+ 
+ **Autenticacion:**
+ 
+ - Tipo: Bearer Token (JWT)
+ - Header: ``Authorization: Bearer <token>``
+ - Obtencion: POST /auth/token/
 
 - **Resultado**: Info general completa
 - **Verificacion**: URL y auth claros
@@ -186,35 +186,35 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Para cada endpoint, documentar:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     GET /users/
-     ^^^^^^^^^^^
-     
-     Lista usuarios con paginacion.
-     
-     **Request:**
-     
-     - Method: GET
-     - URL: /api/v1/users/
-     - Query params: page, page_size, search, ordering
-     
-     **Response 200:**
-     
-     .. code-block:: json
-     
-        {
-          "count": 150,
-          "next": "http://api/v1/users/?page=2",
-          "previous": null,
-          "results": [
-            {
-              "id": "uuid-001",
-              "username": "jperez",
-              "email": "jperez@example.com"
-            }
-          ]
-        }
+ GET /users/
+ ^^^^^^^^^^^
+ 
+ Lista usuarios con paginacion.
+ 
+ **Request:**
+ 
+ - Method: GET
+ - URL: /api/v1/users/
+ - Query params: page, page_size, search, ordering
+ 
+ **Response 200:**
+ 
+ .. code-block:: json
+ 
+ {
+ "count": 150,
+ "next": "http://api/v1/users/?page=2",
+ "previous": null,
+ "results": [
+ {
+ "id": "uuid-001",
+ "username": "jperez",
+ "email": "jperez@example.com"
+ }
+ ]
+ }
 
 - **Resultado**: Endpoint documentado
 - **Verificacion**: Request y response claros
@@ -224,30 +224,30 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Especificar estructura de entrada:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     POST /users/
-     ^^^^^^^^^^^^
-     
-     Crea nuevo usuario.
-     
-     **Request Body:**
-     
-     .. code-block:: json
-     
-        {
-          "username": "string (requerido, unico)",
-          "email": "string (requerido, formato email)",
-          "password": "string (requerido, min 8 chars)",
-          "first_name": "string (opcional)",
-          "last_name": "string (opcional)"
-        }
-     
-     **Validaciones:**
-     
-     - username: 3-50 caracteres, alfanumerico
-     - email: formato valido RFC 5322
-     - password: minimo 8 caracteres, 1 mayuscula, 1 numero
+ POST /users/
+ ^^^^^^^^^^^^
+ 
+ Crea nuevo usuario.
+ 
+ **Request Body:**
+ 
+ .. code-block:: json
+ 
+ {
+ "username": "string (requerido, unico)",
+ "email": "string (requerido, formato email)",
+ "password": "string (requerido, min 8 chars)",
+ "first_name": "string (opcional)",
+ "last_name": "string (opcional)"
+ }
+ 
+ **Validaciones:**
+ 
+ - username: 3-50 caracteres, alfanumerico
+ - email: formato valido RFC 5322
+ - password: minimo 8 caracteres, 1 mayuscula, 1 numero
 
 - **Resultado**: Request body documentado
 - **Verificacion**: Campos y validaciones claros
@@ -257,37 +257,37 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Listar codigos HTTP:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Codigos de Estado:**
-     
-     .. list-table::
-        :header-rows: 1
-     
-        * - Codigo
-          - Significado
-          - Cuando
-        * - 200
-          - OK
-          - GET exitoso
-        * - 201
-          - Created
-          - POST exitoso
-        * - 400
-          - Bad Request
-          - Validacion fallida
-        * - 401
-          - Unauthorized
-          - Token invalido/ausente
-        * - 403
-          - Forbidden
-          - Sin permisos
-        * - 404
-          - Not Found
-          - Recurso no existe
-        * - 429
-          - Too Many Requests
-          - Rate limit excedido
+ **Codigos de Estado:**
+ 
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Codigo
+ - Significado
+ - Cuando
+ * - 200
+ - OK
+ - GET exitoso
+ * - 201
+ - Created
+ - POST exitoso
+ * - 400
+ - Bad Request
+ - Validacion fallida
+ * - 401
+ - Unauthorized
+ - Token invalido/ausente
+ * - 403
+ - Forbidden
+ - Sin permisos
+ * - 404
+ - Not Found
+ - Recurso no existe
+ * - 429
+ - Too Many Requests
+ - Rate limit excedido
 
 - **Resultado**: Codigos documentados
 - **Verificacion**: Todos los codigos posibles
@@ -297,28 +297,28 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Especificar funciones requeridas:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Permisos Requeridos:**
-     
-     .. list-table::
-        :header-rows: 1
-     
-        * - Endpoint
-          - Metodo
-          - Funcion RBAC
-        * - /users/
-          - GET
-          - FN_USR_VIEW
-        * - /users/
-          - POST
-          - FN_USR_CREATE
-        * - /users/{id}/
-          - PUT
-          - FN_USR_EDIT
-        * - /users/{id}/
-          - DELETE
-          - FN_USR_DELETE
+ **Permisos Requeridos:**
+ 
+ .. list-table::
+ :header-rows: 1
+ 
+ * - Endpoint
+ - Metodo
+ - Funcion RBAC
+ * - /users/
+ - GET
+ - FN_USR_VIEW
+ * - /users/
+ - POST
+ - FN_USR_CREATE
+ * - /users/{id}/
+ - PUT
+ - FN_USR_EDIT
+ * - /users/{id}/
+ - DELETE
+ - FN_USR_DELETE
 
 - **Resultado**: Permisos documentados
 - **Verificacion**: Cada endpoint tiene permiso
@@ -328,24 +328,24 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Incluir ejemplos ejecutables:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     **Ejemplo: Listar usuarios**
-     
-     .. code-block:: bash
-     
-        curl -X GET "https://api.iact.example.com/v1/users/" \
-          -H "Authorization: Bearer eyJ0eXAi..." \
-          -H "Content-Type: application/json"
-     
-     **Ejemplo: Crear usuario**
-     
-     .. code-block:: bash
-     
-        curl -X POST "https://api.iact.example.com/v1/users/" \
-          -H "Authorization: Bearer eyJ0eXAi..." \
-          -H "Content-Type: application/json" \
-          -d '{"username":"nuevo","email":"n@e.com","password":"Pass1234"}'
+ **Ejemplo: Listar usuarios**
+ 
+ .. code-block:: bash
+ 
+ curl -X GET "https://api.iact.example.com/v1/users/" \
+ -H "Authorization: Bearer eyJ0eXAi..." \
+ -H "Content-Type: application/json"
+ 
+ **Ejemplo: Crear usuario**
+ 
+ .. code-block:: bash
+ 
+ curl -X POST "https://api.iact.example.com/v1/users/" \
+ -H "Authorization: Bearer eyJ0eXAi..." \
+ -H "Content-Type: application/json" \
+ -d '{"username":"nuevo","email":"n@e.com","password":"Pass1234"}'
 
 - **Resultado**: Ejemplos incluidos
 - **Verificacion**: Ejemplos ejecutables
@@ -355,13 +355,13 @@ Segun TPL_API v1.1.0:
 - **Responsable**: Desarrollador
 - **Accion**: Guardar y validar:
 
-  .. code-block:: bash
+ .. code-block:: bash
 
-     # Guardar
-     /tmp/api/API_Users_1_0_0.rst
-     
-     # Validar
-     sphinx-build -b html -W /tmp/api/ /tmp/build/
+ # Guardar
+ /tmp/api/API_Users_1_0_0.rst
+ 
+ # Validar
+ sphinx-build -b html -W /tmp/api/ /tmp/build/
 
 - **Resultado**: API doc guardada y validada
 - **Verificacion**: Sin errores Sphinx
@@ -372,15 +372,15 @@ Segun TPL_API v1.1.0:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - API_[Recurso]_X_Y_Z.rst
-     - Documentacion de API
-     - /tmp/api/
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - API_[Recurso]_X_Y_Z.rst
+ - Documentacion de API
+ - /tmp/api/
 
 ----
 
@@ -416,15 +416,15 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - API no implementada
-     - Documentar como "propuesta"
-   * - Endpoint sin RBAC
-     - Marcar como publico o pendiente
+ * - Excepcion
+ - Accion
+ * - API no implementada
+ - Documentar como "propuesta"
+ * - Endpoint sin RBAC
+ - Marcar como publico o pendiente
 
 ----
 
@@ -441,17 +441,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Version inicial
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Version inicial
 
 ----
 

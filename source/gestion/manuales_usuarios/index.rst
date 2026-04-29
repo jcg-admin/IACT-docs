@@ -19,18 +19,18 @@ Contenido
 Los manuales de usuario incluyen:
 
 * **Manual de Usuario Final:** Operación diaria del dashboard
-  
-  * Login y navegación
-  * Visualización de métricas
-  * Generación de reportes
-  * Configuración de alertas
+ 
+ * Login y navegación
+ * Visualización de métricas
+ * Generación de reportes
+ * Configuración de alertas
 
 * **Manual de Administrador:** Gestión del sistema
-  
-  * Gestión de usuarios y roles
-  * Configuración de permisos
-  * Administración de datos
-  * Mantenimiento básico
+ 
+ * Gestión de usuarios y roles
+ * Configuración de permisos
+ * Administración de datos
+ * Mantenimiento básico
 
 * **Manual de Soporte:** Guía para Help Desk nivel 1
 
@@ -53,5 +53,5 @@ Los artefactos de este subdominio usan:
 Ejemplo: ``MAN_UF_01_Dashboard_Operacion.rst``
 
 .. note::
-   Contenido en desarrollo. Los manuales se crearán conforme se implementen 
-   las funcionalidades del sistema.
+ Contenido en desarrollo. Los manuales se crearán conforme se implementen 
+ las funcionalidades del sistema.

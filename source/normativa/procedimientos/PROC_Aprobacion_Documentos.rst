@@ -1,16 +1,16 @@
 .. meta::
-   :artefacto: PROC_Aprobacion_Documentos
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :categoria: Gobernanza
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
-   :clasificacion: Interno
-   :anterior: PROC_003_Aprobacion_Documentos
+ :artefacto: PROC_Aprobacion_Documentos
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :categoria: Gobernanza
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-01-07
+ :autor: Equipo IACT
+ :clasificacion: Interno
+ :anterior: PROC_003_Aprobacion_Documentos
 
 .. _proc-aprobacion-documentos:
 
@@ -23,23 +23,23 @@ Resumen Ejecutivo
 -----------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 0
+ :widths: 25 75
+ :header-rows: 0
 
-   * - **ID**
-     - PROC_Aprobacion_Documentos
-   * - **Nombre**
-     - Aprobacion Formal de Documentos
-   * - **Categoria**
-     - Gobernanza
-   * - **Frecuencia**
-     - Por cada documento revisado
-   * - **Duracion Estimada**
-     - 5-15 minutos
-   * - **Estado**
-     - Vigente
-   * - **Nota**
-     - Renombrado desde PROC_003_Aprobacion_Documentos
+ * - **ID**
+ - PROC_Aprobacion_Documentos
+ * - **Nombre**
+ - Aprobacion Formal de Documentos
+ * - **Categoria**
+ - Gobernanza
+ * - **Frecuencia**
+ - Por cada documento revisado
+ * - **Duracion Estimada**
+ - 5-15 minutos
+ * - **Estado**
+ - Vigente
+ * - **Nota**
+ - Renombrado desde PROC_003_Aprobacion_Documentos
 
 ----
 
@@ -76,21 +76,21 @@ a "Aprobado", habilitandolos para uso oficial.
 ----------------------------
 
 .. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
+ :widths: 20 40 40
+ :header-rows: 1
 
-   * - Rol
-     - Responsabilidad
-     - Permisos Requeridos
-   * - Revisor
-     - Envia documento para aprobacion
-     - Lectura
-   * - Aprobador
-     - Autoriza documento
-     - Aprobacion
-   * - Administrador Doc
-     - Actualiza estado y publica
-     - Escritura
+ * - Rol
+ - Responsabilidad
+ - Permisos Requeridos
+ * - Revisor
+ - Envia documento para aprobacion
+ - Lectura
+ * - Aprobador
+ - Autoriza documento
+ - Aprobacion
+ * - Administrador Doc
+ - Actualiza estado y publica
+ - Escritura
 
 ----
 
@@ -109,18 +109,18 @@ Antes de iniciar este procedimiento, verificar:
 ------------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Obligatorio
-   * - Documento revisado
-     - Artefacto con revision aprobada
-     - Si
-   * - Reporte de revision
-     - Resultado de PROC_Revision_Artefactos
-     - Si
+ * - Artefacto
+ - Descripcion
+ - Obligatorio
+ * - Documento revisado
+ - Artefacto con revision aprobada
+ - Si
+ * - Reporte de revision
+ - Resultado de PROC_Revision_Artefactos
+ - Si
 
 ----
 
@@ -131,39 +131,39 @@ Antes de iniciar este procedimiento, verificar:
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. uml::
-   :caption: Flujo de Aprobacion
-   :align: center
+ :caption: Flujo de Aprobacion
+ :align: center
 
-   @startuml
-   skinparam backgroundColor #FAFAFA
-   skinparam activity {
-       BackgroundColor #E3F2FD
-       BorderColor #1976D2
-   }
+ @startuml
+ skinparam backgroundColor #FAFAFA
+ skinparam activity {
+ BackgroundColor #E3F2FD
+ BorderColor #1976D2
+ }
 
-   start
-   :Recibir documento revisado;
-   :Verificar reporte de revision;
+ start
+ :Recibir documento revisado;
+ :Verificar reporte de revision;
 
-   if (Revision aprobada?) then (si)
-       :Presentar a Aprobador;
-       
-       if (Aprobador autoriza?) then (si)
-           :Actualizar estado a Aprobado;
-           :Actualizar meta tags;
-           :Registrar aprobacion;
-           :Publicar documento;
-           :Notificar stakeholders;
-       else (no)
-           :Documentar motivo rechazo;
-           :Devolver para correccion;
-       endif
-   else (no)
-       :Devolver a revision;
-   endif
+ if (Revision aprobada?) then (si)
+ :Presentar a Aprobador;
+ 
+ if (Aprobador autoriza?) then (si)
+ :Actualizar estado a Aprobado;
+ :Actualizar meta tags;
+ :Registrar aprobacion;
+ :Publicar documento;
+ :Notificar stakeholders;
+ else (no)
+ :Documentar motivo rechazo;
+ :Devolver para correccion;
+ endif
+ else (no)
+ :Devolver a revision;
+ endif
 
-   stop
-   @enduml
+ stop
+ @enduml
 
 6.2 Pasos Detallados
 ^^^^^^^^^^^^^^^^^^^^
@@ -173,12 +173,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Confirmar que revision fue aprobada:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     Verificar:
-     - Reporte de revision existe
-     - Resultado: Aprobado
-     - Sin hallazgos criticos pendientes
+ Verificar:
+ - Reporte de revision existe
+ - Resultado: Aprobado
+ - Sin hallazgos criticos pendientes
 
 - **Resultado**: Revision confirmada
 - **Verificacion**: Documentacion completa
@@ -188,17 +188,17 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Enviar documento para autorizacion:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     SOLICITUD DE APROBACION
-     
-     Documento: [ID]
-     Tipo: [Tipo de artefacto]
-     Autor: [Nombre]
-     Revisor: [Nombre]
-     Fecha revision: [Fecha]
-     
-     Solicita: Aprobacion formal
+ SOLICITUD DE APROBACION
+ 
+ Documento: [ID]
+ Tipo: [Tipo de artefacto]
+ Autor: [Nombre]
+ Revisor: [Nombre]
+ Fecha revision: [Fecha]
+ 
+ Solicita: Aprobacion formal
 
 - **Resultado**: Solicitud enviada
 - **Verificacion**: Aprobador notificado
@@ -208,9 +208,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Aprobador
 - **Accion**: Revisar y decidir:
 
-  - Revisar documento brevemente
-  - Revisar reporte de revision
-  - Autorizar o rechazar
+ - Revisar documento brevemente
+ - Revisar reporte de revision
+ - Autorizar o rechazar
 
 - **Resultado**: Decision tomada
 - **Verificacion**: Autorizacion documentada
@@ -220,12 +220,12 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Cambiar estado en meta tags:
 
-  .. code-block:: rst
+ .. code-block:: rst
 
-     .. meta::
-        :estado: Aprobado           <- Actualizar
-        :fecha_aprobacion: 2026-01-07  <- Agregar
-        :aprobado_por: [Nombre]        <- Agregar
+ .. meta::
+ :estado: Aprobado <- Actualizar
+ :fecha_aprobacion: 2026-01-07 <- Agregar
+ :aprobado_por: [Nombre] <- Agregar
 
 - **Resultado**: Estado actualizado
 - **Verificacion**: Meta tags correctos
@@ -235,21 +235,21 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Agregar al registro:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     REGISTRO DE APROBACIONES
-     
+ REGISTRO DE APROBACIONES
+ 
 .. list-table::
-   :header-rows: 1
+ :header-rows: 1
 
-   * - Documento
-     - Tipo
-     - Fecha
-     - Aprobador
-   * - BR_020
-     - BR
-     - 2026-01-07
-     - Arquitecto
+ * - Documento
+ - Tipo
+ - Fecha
+ - Aprobador
+ * - BR_020
+ - BR
+ - 2026-01-07
+ - Arquitecto
 
 - **Resultado**: Aprobacion registrada
 - **Verificacion**: Entrada agregada
@@ -259,9 +259,9 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Mover a ubicacion oficial:
 
-  - Si estaba en /tmp, copiar a destino final
-  - Actualizar index.rst correspondiente
-  - Regenerar documentacion Sphinx
+ - Si estaba en /tmp, copiar a destino final
+ - Actualizar index.rst correspondiente
+ - Regenerar documentacion Sphinx
 
 - **Resultado**: Documento publicado
 - **Verificacion**: Accesible en ubicacion oficial
@@ -271,14 +271,14 @@ Antes de iniciar este procedimiento, verificar:
 - **Responsable**: Administrador Doc
 - **Accion**: Comunicar aprobacion:
 
-  .. code-block:: text
+ .. code-block:: text
 
-     NOTIFICACION DE APROBACION
-     
-     Documento: [ID] - [Nombre]
-     Estado: APROBADO
-     Fecha: [Fecha]
-     Ubicacion: [Ruta]
+ NOTIFICACION DE APROBACION
+ 
+ Documento: [ID] - [Nombre]
+ Estado: APROBADO
+ Fecha: [Fecha]
+ Ubicacion: [Ruta]
 
 - **Resultado**: Stakeholders notificados
 - **Verificacion**: Comunicacion enviada
@@ -289,18 +289,18 @@ Antes de iniciar este procedimiento, verificar:
 -----------------------
 
 .. list-table::
-   :widths: 30 50 20
-   :header-rows: 1
+ :widths: 30 50 20
+ :header-rows: 1
 
-   * - Artefacto
-     - Descripcion
-     - Ubicacion
-   * - Documento aprobado
-     - Con estado Aprobado
-     - Ubicacion oficial
-   * - Registro de aprobacion
-     - Entrada en registro
-     - Registro central
+ * - Artefacto
+ - Descripcion
+ - Ubicacion
+ * - Documento aprobado
+ - Con estado Aprobado
+ - Ubicacion oficial
+ * - Registro de aprobacion
+ - Entrada en registro
+ - Registro central
 
 ----
 
@@ -333,27 +333,27 @@ Al finalizar este procedimiento:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
-   :widths: 30 30 40
-   :header-rows: 1
+ :widths: 30 30 40
+ :header-rows: 1
 
-   * - Tipo de Documento
-     - Aprobador
-     - Notas
-   * - POL (Politicas)
-     - Director
-     - Maximo nivel
-   * - STD (Estandares)
-     - Arquitecto Doc
-     - Nivel tecnico
-   * - PROC (Procedimientos)
-     - Arquitecto Doc
-     - Nivel tecnico
-   * - BR, UC, FR
-     - QA Lead
-     - Nivel operativo
-   * - TPL (Templates)
-     - Arquitecto Doc
-     - Nivel tecnico
+ * - Tipo de Documento
+ - Aprobador
+ - Notas
+ * - POL (Politicas)
+ - Director
+ - Maximo nivel
+ * - STD (Estandares)
+ - Arquitecto Doc
+ - Nivel tecnico
+ * - PROC (Procedimientos)
+ - Arquitecto Doc
+ - Nivel tecnico
+ * - BR, UC, FR
+ - QA Lead
+ - Nivel operativo
+ * - TPL (Templates)
+ - Arquitecto Doc
+ - Nivel tecnico
 
 ----
 
@@ -361,17 +361,17 @@ Al finalizar este procedimiento:
 -------------------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Excepcion
-     - Accion
-   * - Aprobador no disponible
-     - Aprobador suplente autorizado
-   * - Rechazo sin justificacion
-     - Solicitar motivos especificos
-   * - Urgencia
-     - Aprobacion via email, formalizar despues
+ * - Excepcion
+ - Accion
+ * - Aprobador no disponible
+ - Aprobador suplente autorizado
+ * - Rechazo sin justificacion
+ - Solicitar motivos especificos
+ * - Urgencia
+ - Aprobacion via email, formalizar despues
 
 ----
 
@@ -388,17 +388,17 @@ Al finalizar este procedimiento:
 ------------------------
 
 .. list-table::
-   :widths: 12 12 20 56
-   :header-rows: 1
+ :widths: 12 12 20 56
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Autor
-     - Cambios
-   * - 1.0.0
-     - 2026-01-07
-     - Equipo IACT
-     - Renombrado desde PROC_003, nueva nomenclatura
+ * - Version
+ - Fecha
+ - Autor
+ - Cambios
+ * - 1.0.0
+ - 2026-01-07
+ - Equipo IACT
+ - Renombrado desde PROC_003, nueva nomenclatura
 
 ----
 

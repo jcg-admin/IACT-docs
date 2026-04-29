@@ -9,21 +9,21 @@ ARQ_MOD_002: Gestion de Identidades (USER_IDENTITY)
 ====================================================
 
 .. meta::
-   :artefacto: ARQ_MOD_002
-   :tipo: Modulo Arquitectonico
-   :dominio: arquitectura_tecnica
-   :subdominio: modulos
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2025-12-22
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Critico
+ :artefacto: ARQ_MOD_002
+ :tipo: Modulo Arquitectonico
+ :dominio: arquitectura_tecnica
+ :subdominio: modulos
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2025-12-22
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 
 .. contents:: Contenido
-   :local:
-   :depth: 2
+ :local:
+ :depth: 2
 
 ----
 
@@ -35,7 +35,7 @@ alta, modificacion, baja logica, y datos de perfil.
 
 **Pregunta clave que responde:**
 
-   *"¿Que usuarios existen y con que atributos/relaciones?"*
+ *"¿Que usuarios existen y con que atributos/relaciones?"*
 
 **NO responde:** *"¿Que pueden hacer?"* - Eso es ARQ_MOD_003_RBAC_CORE.
 
@@ -71,69 +71,69 @@ alta, modificacion, baja logica, y datos de perfil.
 ---------------
 
 .. list-table::
-   :widths: 60 20 20
-   :header-rows: 1
+ :widths: 60 20 20
+ :header-rows: 1
 
-   * - Responsabilidad
-     - UC Relacionado
-     - CNST
-   * - Crear cuenta con username autogenerado
-     - UC_006
-     - CNST_005
-   * - Asignar estado inicial PENDIENTE_CONFIGURACION
-     - UC_006
-     - -
-   * - Generar contrasena temporal
-     - UC_006
-     - CNST_001
-   * - Actualizar nombre, apellidos, unidad organizacional
-     - UC_007
-     - -
-   * - Cambiar estado del usuario (ACTIVO, INACTIVO, BLOQUEADO)
-     - UC_007
-     - -
-   * - Ejecutar baja logica (soft delete)
-     - UC_008
-     - CNST_009
-   * - Almacenar deleted_at, deleted_by
-     - UC_008
-     - CNST_009
-   * - Gestionar preguntas de seguridad (min 3)
-     - UC_009
-     - CNST_001
-   * - Mostrar perfil con roles asignados
-     - UC_010
-     - -
-   * - Asociar usuario con roles (relacion M:N)
-     - UC_007
-     - -
+ * - Responsabilidad
+ - UC Relacionado
+ - CNST
+ * - Crear cuenta con username autogenerado
+ - UC_006
+ - CNST_005
+ * - Asignar estado inicial PENDIENTE_CONFIGURACION
+ - UC_006
+ - -
+ * - Generar contrasena temporal
+ - UC_006
+ - CNST_001
+ * - Actualizar nombre, apellidos, unidad organizacional
+ - UC_007
+ - -
+ * - Cambiar estado del usuario (ACTIVO, INACTIVO, BLOQUEADO)
+ - UC_007
+ - -
+ * - Ejecutar baja logica (soft delete)
+ - UC_008
+ - CNST_009
+ * - Almacenar deleted_at, deleted_by
+ - UC_008
+ - CNST_009
+ * - Gestionar preguntas de seguridad (min 3)
+ - UC_009
+ - CNST_001
+ * - Mostrar perfil con roles asignados
+ - UC_010
+ - -
+ * - Asociar usuario con roles (relacion M:N)
+ - UC_007
+ - -
 
 3.2 NO PUEDE Hacer (Violaciones)
 --------------------------------
 
 .. warning::
 
-   Las siguientes acciones **violan la separacion de responsabilidades**:
+ Las siguientes acciones **violan la separacion de responsabilidades**:
 
 - **Calcular permisos efectivos**
-  
-  - Ejemplo: "Si tiene rol X y segmento Y, puede acceder a Z"
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Ejemplo: "Si tiene rol X y segmento Y, puede acceder a Z"
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Validar conflictos de roles (SoD)**
-  
-  - Ejemplo: "No puede tener rol A y rol B simultaneamente"
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Ejemplo: "No puede tener rol A y rol B simultaneamente"
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Definir catalogos de permisos**
-  
-  - Los enums y catalogos de permisos van en RBAC_CORE
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Los enums y catalogos de permisos van en RBAC_CORE
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 - **Implementar logica de precedencia**
-  
-  - Directo > Rol > Segmento
-  - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
+ 
+ - Directo > Rol > Segmento
+ - Eso es responsabilidad de → **ARQ_MOD_003_RBAC_CORE**
 
 ----
 
@@ -144,29 +144,29 @@ alta, modificacion, baja logica, y datos de perfil.
 --------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Modulo
-     - Razon
-   * - ARQ_MOD_003_RBAC_CORE
-     - Para mostrar roles en perfil (solo lectura)
+ * - Modulo
+ - Razon
+ * - ARQ_MOD_003_RBAC_CORE
+ - Para mostrar roles en perfil (solo lectura)
 
 4.2 Es Requerido por
 --------------------
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+ :widths: 25 75
+ :header-rows: 1
 
-   * - Modulo
-     - Razon
-   * - ARQ_MOD_001_AUTH
-     - Valida que usuario existe y esta activo
-   * - ARQ_MOD_003_RBAC_CORE
-     - Calcula permisos sobre el usuario
-   * - ARQ_MOD_007_AUDIT
-     - Registra cambios en usuarios
+ * - Modulo
+ - Razon
+ * - ARQ_MOD_001_AUTH
+ - Valida que usuario existe y esta activo
+ * - ARQ_MOD_003_RBAC_CORE
+ - Calcula permisos sobre el usuario
+ * - ARQ_MOD_007_AUDIT
+ - Registra cambios en usuarios
 
 ----
 
@@ -177,13 +177,13 @@ alta, modificacion, baja logica, y datos de perfil.
 ---------------
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - App
-     - Descripcion
-   * - apps.users
-     - Modelos User, SecurityQuestion, vistas de gestion
+ * - App
+ - Descripcion
+ * - apps.users
+ - Modelos User, SecurityQuestion, vistas de gestion
 
 5.2 Modelos de Datos
 --------------------
@@ -192,21 +192,21 @@ alta, modificacion, baja logica, y datos de perfil.
 
 .. code-block:: python
 
-   class User(AbstractBaseUser):
-       username = models.CharField(max_length=50, unique=True)
-       first_name = models.CharField(max_length=100)
-       last_name = models.CharField(max_length=100)
-       organizational_unit = models.CharField(max_length=100)
-       status = models.CharField(choices=USER_STATUS_CHOICES)
-       created_at = models.DateTimeField(auto_now_add=True)
-       updated_at = models.DateTimeField(auto_now=True)
-       deleted_at = models.DateTimeField(null=True, blank=True)
-       deleted_by = models.ForeignKey('self', null=True)
-       
-   class SecurityQuestion(models.Model):
-       user = models.ForeignKey(User)
-       question = models.CharField(max_length=200)
-       answer_hash = models.CharField(max_length=128)
+ class User(AbstractBaseUser):
+ username = models.CharField(max_length=50, unique=True)
+ first_name = models.CharField(max_length=100)
+ last_name = models.CharField(max_length=100)
+ organizational_unit = models.CharField(max_length=100)
+ status = models.CharField(choices=USER_STATUS_CHOICES)
+ created_at = models.DateTimeField(auto_now_add=True)
+ updated_at = models.DateTimeField(auto_now=True)
+ deleted_at = models.DateTimeField(null=True, blank=True)
+ deleted_by = models.ForeignKey('self', null=True)
+ 
+ class SecurityQuestion(models.Model):
+ user = models.ForeignKey(User)
+ question = models.CharField(max_length=200)
+ answer_hash = models.CharField(max_length=128)
 
 5.3 APIs Expuestas
 ------------------
@@ -214,30 +214,30 @@ alta, modificacion, baja logica, y datos de perfil.
 - **API_002_Users_Endpoints**
 
 .. list-table::
-   :widths: 15 35 50
-   :header-rows: 1
+ :widths: 15 35 50
+ :header-rows: 1
 
-   * - Metodo
-     - Endpoint
-     - Descripcion
-   * - POST
-     - /api/v1/users
-     - Crear usuario
-   * - GET
-     - /api/v1/users/{id}
-     - Obtener usuario
-   * - PUT
-     - /api/v1/users/{id}
-     - Actualizar usuario
-   * - DELETE
-     - /api/v1/users/{id}
-     - Baja logica
-   * - GET
-     - /api/v1/users/{id}/profile
-     - Perfil completo
-   * - PUT
-     - /api/v1/users/{id}/security-questions
-     - Gestionar preguntas
+ * - Metodo
+ - Endpoint
+ - Descripcion
+ * - POST
+ - /api/v1/users
+ - Crear usuario
+ * - GET
+ - /api/v1/users/{id}
+ - Obtener usuario
+ * - PUT
+ - /api/v1/users/{id}
+ - Actualizar usuario
+ * - DELETE
+ - /api/v1/users/{id}
+ - Baja logica
+ * - GET
+ - /api/v1/users/{id}/profile
+ - Perfil completo
+ * - PUT
+ - /api/v1/users/{id}/security-questions
+ - Gestionar preguntas
 
 ----
 
@@ -245,17 +245,17 @@ alta, modificacion, baja logica, y datos de perfil.
 ===========================
 
 .. list-table::
-   :widths: 15 85
-   :header-rows: 1
+ :widths: 15 85
+ :header-rows: 1
 
-   * - CNST
-     - Descripcion y Aplicacion
-   * - CNST_001
-     - **Comunicaciones Prohibidas**: Preguntas de seguridad obligatorias 
-       (no hay email para recuperacion).
-   * - CNST_009
-     - **Logging Auditoria**: Baja logica, nunca eliminacion fisica. 
-       Conservar datos para auditoria.
+ * - CNST
+ - Descripcion y Aplicacion
+ * - CNST_001
+ - **Comunicaciones Prohibidas**: Preguntas de seguridad obligatorias 
+ (no hay email para recuperacion).
+ * - CNST_009
+ - **Logging Auditoria**: Baja logica, nunca eliminacion fisica. 
+ Conservar datos para auditoria.
 
 ----
 
@@ -263,27 +263,27 @@ alta, modificacion, baja logica, y datos de perfil.
 =========================
 
 .. list-table::
-   :widths: 12 40 48
-   :header-rows: 1
+ :widths: 12 40 48
+ :header-rows: 1
 
-   * - UC ID
-     - Nombre
-     - Descripcion
-   * - UC_006
-     - Crear_Cuenta_Usuario
-     - Alta con username autogenerado, estado inicial
-   * - UC_007
-     - Actualizar_Datos_Usuario
-     - Modificar nombre, apellidos, unidad, estado
-   * - UC_008
-     - Baja_Logica_Usuario
-     - Soft delete con deleted_at/by
-   * - UC_009
-     - Gestionar_Preguntas_Seguridad
-     - Alta/cambio de min 3 preguntas
-   * - UC_010
-     - Consultar_Perfil_Usuario
-     - Ver datos basicos y roles asignados
+ * - UC ID
+ - Nombre
+ - Descripcion
+ * - UC_006
+ - Crear_Cuenta_Usuario
+ - Alta con username autogenerado, estado inicial
+ * - UC_007
+ - Actualizar_Datos_Usuario
+ - Modificar nombre, apellidos, unidad, estado
+ * - UC_008
+ - Baja_Logica_Usuario
+ - Soft delete con deleted_at/by
+ * - UC_009
+ - Gestionar_Preguntas_Seguridad
+ - Alta/cambio de min 3 preguntas
+ * - UC_010
+ - Consultar_Perfil_Usuario
+ - Ver datos basicos y roles asignados
 
 ----
 
@@ -291,33 +291,33 @@ alta, modificacion, baja logica, y datos de perfil.
 ===================================
 
 .. list-table::
-   :widths: 12 45 20 23
-   :header-rows: 1
+ :widths: 12 45 20 23
+ :header-rows: 1
 
-   * - FR ID
-     - Nombre
-     - Deriva de
-     - Descripcion
-   * - FR_006
-     - Generar_Username_Automatico
-     - UC_006
-     - Patron: inicial + apellido + numero
-   * - FR_007
-     - Validar_Datos_Usuario
-     - UC_007
-     - Campos obligatorios, formatos
-   * - FR_008
-     - Ejecutar_Baja_Logica
-     - UC_008
-     - Soft delete, no hard delete
-   * - FR_009
-     - Almacenar_Preguntas_Seguridad
-     - UC_009
-     - Hash de respuestas, min 3
-   * - FR_010
-     - Cargar_Perfil_Usuario
-     - UC_010
-     - Incluir roles desde RBAC
+ * - FR ID
+ - Nombre
+ - Deriva de
+ - Descripcion
+ * - FR_006
+ - Generar_Username_Automatico
+ - UC_006
+ - Patron: inicial + apellido + numero
+ * - FR_007
+ - Validar_Datos_Usuario
+ - UC_007
+ - Campos obligatorios, formatos
+ * - FR_008
+ - Ejecutar_Baja_Logica
+ - UC_008
+ - Soft delete, no hard delete
+ * - FR_009
+ - Almacenar_Preguntas_Seguridad
+ - UC_009
+ - Hash de respuestas, min 3
+ * - FR_010
+ - Cargar_Perfil_Usuario
+ - UC_010
+ - Incluir roles desde RBAC
 
 ----
 
@@ -326,29 +326,29 @@ alta, modificacion, baja logica, y datos de perfil.
 
 .. code-block:: text
 
-   +------------------------+
-   |  PENDIENTE_CONFIGURACION|
-   +------------+-----------+
-                |
-                | (completa preguntas seguridad)
-                v
-   +------------+-----------+
-   |         ACTIVO         |
-   +------------+-----------+
-                |
-        +-------+-------+
-        |               |
-        v               v
-   +----+----+    +-----+-----+
-   | INACTIVO|    | BLOQUEADO |
-   +---------+    +-----------+
-        |               |
-        +-------+-------+
-                |
-                v
-   +------------+-----------+
-   |         ACTIVO         | (reactivacion)
-   +------------------------+
+ +------------------------+
+ | PENDIENTE_CONFIGURACION|
+ +------------+-----------+
+ |
+ | (completa preguntas seguridad)
+ v
+ +------------+-----------+
+ | ACTIVO |
+ +------------+-----------+
+ |
+ +-------+-------+
+ | |
+ v v
+ +----+----+ +-----+-----+
+ | INACTIVO| | BLOQUEADO |
+ +---------+ +-----------+
+ | |
+ +-------+-------+
+ |
+ v
+ +------------+-----------+
+ | ACTIVO | (reactivacion)
+ +------------------------+
 
 ----
 
@@ -356,15 +356,15 @@ alta, modificacion, baja logica, y datos de perfil.
 ========================
 
 .. list-table::
-   :widths: 12 15 73
-   :header-rows: 1
+ :widths: 12 15 73
+ :header-rows: 1
 
-   * - Version
-     - Fecha
-     - Cambios
-   * - 1.0.0
-     - 2025-12-22
-     - Version inicial
+ * - Version
+ - Fecha
+ - Cambios
+ * - 1.0.0
+ - 2025-12-22
+ - Version inicial
 
 ----
 

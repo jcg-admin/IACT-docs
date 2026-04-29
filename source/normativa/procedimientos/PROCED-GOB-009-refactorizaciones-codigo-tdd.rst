@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROCED_GOB_009
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROCED_GOB_009
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCED-GOB-009: Procedimiento para Refactorizaciones de Código con TDD
 ======================================================================
@@ -62,23 +62,23 @@ Matriz de Decision
 ~~~~~~~~~~~~~~~~~~
 
 +--------------------+--------------------+----------------------------+
-| Escenario          | Estrategia         | Justificacion              |
+| Escenario | Estrategia | Justificacion |
 +====================+====================+============================+
-| Versiones          | Aplicar solo la    | Evita duplicacion, usa     |
-| identicas (mismo   | mas reciente       | version mas validada       |
-| diff)              |                    |                            |
+| Versiones | Aplicar solo la | Evita duplicacion, usa |
+| identicas (mismo | mas reciente | version mas validada |
+| diff) | | |
 +--------------------+--------------------+----------------------------+
-| Versiones          | Aplicar ambas      | Acumula mejoras, valida    |
-| compatibles (no    | secuencialmente    | cada una con TDD           |
-| conflicto)         |                    |                            |
+| Versiones | Aplicar ambas | Acumula mejoras, valida |
+| compatibles (no | secuencialmente | cada una con TDD |
+| conflicto) | | |
 +--------------------+--------------------+----------------------------+
-| Versiones en       | Analisis manual +  | Requiere juicio tecnico,   |
-| conflicto (mismo   | elegir mejor       | documentar decision        |
-| codigo)            |                    |                            |
+| Versiones en | Analisis manual + | Requiere juicio tecnico, |
+| conflicto (mismo | elegir mejor | documentar decision |
+| codigo) | | |
 +--------------------+--------------------+----------------------------+
-| Versiones          | Aplicar solo       | Eficiencia, version final  |
-| incrementales (v1  | version final      | incluye mejoras previas    |
-| < v2 < v3)         |                    |                            |
+| Versiones | Aplicar solo | Eficiencia, version final |
+| incrementales (v1 | version final | incluye mejoras previas |
+| < v2 < v3) | | |
 +--------------------+--------------------+----------------------------+
 
 Proceso de Resolucion
@@ -88,10 +88,10 @@ Proceso de Resolucion
 
 .. code:: bash
 
-   # Comparar diffs entre commits
-   git show <commit-1> -- archivo.py > /tmp/diff1.txt
-   git show <commit-2> -- archivo.py > /tmp/diff2.txt
-   diff /tmp/diff1.txt /tmp/diff2.txt
+ # Comparar diffs entre commits
+ git show <commit-1> -- archivo.py > /tmp/diff1.txt
+ git show <commit-2> -- archivo.py > /tmp/diff2.txt
+ diff /tmp/diff1.txt /tmp/diff2.txt
 
 **Paso 2: Clasificacion** - Identicos: diff vacio - Compatibles: diff
 muestra cambios en lineas diferentes - Conflicto: diff muestra cambios
@@ -102,17 +102,17 @@ anterior
 
 .. code:: markdown
 
-   ## Decision sobre Versiones Multiples
+ ## Decision sobre Versiones Multiples
 
-   **Commits analizados:**
-   - abc1234: [descripcion]
-   - def5678: [descripcion]
+ **Commits analizados:**
+ - abc1234: [descripcion]
+ - def5678: [descripcion]
 
-   **Clasificacion:** [Identicos|Compatibles|Conflicto|Incrementales]
+ **Clasificacion:** [Identicos|Compatibles|Conflicto|Incrementales]
 
-   **Decision:** Aplicar [commit elegido] porque [justificacion]
+ **Decision:** Aplicar [commit elegido] porque [justificacion]
 
-   **Descartados:** [commits no aplicados] porque [razon]
+ **Descartados:** [commits no aplicados] porque [razon]
 
 **Paso 4: Validacion** - Aplicar commit elegido - Ejecutar TDD completo
 (RED-REFACTOR-GREEN-VALIDATE) - Documentar en analisis por que se
@@ -187,74 +187,74 @@ consistente 5. Crear INDICE.md con resumen de todas las tareas
 
 .. code:: markdown
 
-   ---
-   id: TASK-NNN
-   tipo: [preparacion|red|refactor|green|validate|commit]
-   fase: [1-7]
-   prerequisitos: [TASK-MMM, ...]
-   estimacion: [5-30] minutos
-   prioridad: [alta|media|baja]
-                               
+ ---
+ id: TASK-NNN
+ tipo: [preparacion|red|refactor|green|validate|commit]
+ fase: [1-7]
+ prerequisitos: [TASK-MMM, ...]
+ estimacion: [5-30] minutos
+ prioridad: [alta|media|baja]
+ 
 
-   # TASK-NNN: [Titulo Descriptivo]
+ # TASK-NNN: [Titulo Descriptivo]
 
-   ## 1. Objetivo
+ ## 1. Objetivo
 
-   [Descripcion clara de que se va a lograr]
+ [Descripcion clara de que se va a lograr]
 
-   ## 2. Prerequisitos
+ ## 2. Prerequisitos
 
-   - [ ] TASK-MMM completada exitosamente
-   - [ ] [Otros prerequisitos tecnicos]
+ - [ ] TASK-MMM completada exitosamente
+ - [ ] [Otros prerequisitos tecnicos]
 
-   ## 3. Comandos de Ejecucion
+ ## 3. Comandos de Ejecucion
 
-   ### Paso 1: [Nombre del paso]
+ ### Paso 1: [Nombre del paso]
 
-   bash
-   cd /ruta/absoluta/proyecto
-   comando --flags argumentos
-
-
-   ### Paso 2: [Siguiente paso]
-
-   bash
-   otro-comando --opcion valor
+ bash
+ cd /ruta/absoluta/proyecto
+ comando --flags argumentos
 
 
-   ## 4. Criterios de Exito
+ ### Paso 2: [Siguiente paso]
 
-   - [ ] [Criterio medible 1]
-   - [ ] [Criterio medible 2]
-   - [ ] [Criterio medible 3]
-
-   ## 5. Validaciones
-
-   bash
-   # Validacion 1
-   comando-validacion | grep "expected output"
-
-   # Validacion 2
-   test-command --verify
+ bash
+ otro-comando --opcion valor
 
 
-   ## 6. Evidencias Requeridas
+ ## 4. Criterios de Exito
 
-   - evidencias/nombre-archivo.log (captura de comando X)
-   - evidencias/resultado-validacion.txt (salida de validacion Y)
+ - [ ] [Criterio medible 1]
+ - [ ] [Criterio medible 2]
+ - [ ] [Criterio medible 3]
 
-   ## 7. Rollback en Caso de Fallo
+ ## 5. Validaciones
 
-   bash
-   # Si falla este paso, ejecutar:
-   git reset --hard HEAD
-   # o
-   git revert <commit-hash>
+ bash
+ # Validacion 1
+ comando-validacion | grep "expected output"
+
+ # Validacion 2
+ test-command --verify
 
 
-   ## 8. Notas Adicionales
+ ## 6. Evidencias Requeridas
 
-   [Observaciones importantes, advertencias, contexto adicional]
+ - evidencias/nombre-archivo.log (captura de comando X)
+ - evidencias/resultado-validacion.txt (salida de validacion Y)
+
+ ## 7. Rollback en Caso de Fallo
+
+ bash
+ # Si falla este paso, ejecutar:
+ git reset --hard HEAD
+ # o
+ git revert <commit-hash>
+
+
+ ## 8. Notas Adicionales
+
+ [Observaciones importantes, advertencias, contexto adicional]
 
 **Tiempo estimado:** - Preparacion de agentes: 5-10 min - Ejecucion
 paralela (4 agentes): 40-80 min - Validacion y ajustes: 15-30 min -
@@ -287,33 +287,33 @@ Para CADA refactorización:
 
 .. code:: bash
 
-   pytest <modulo> -v > evidencias/baseline-pre-refactor.log
+ pytest <modulo> -v > evidencias/baseline-pre-refactor.log
 
--  Establecer baseline de tests (cuantos pasan)
--  Documentar estado actual del código
--  Guardar snapshot del archivo si es necesario
+- Establecer baseline de tests (cuantos pasan)
+- Documentar estado actual del código
+- Guardar snapshot del archivo si es necesario
 
 **TASK-NNN+1: [TDD-REFACTOR] Aplicar Refactorizacion**
 
 .. code:: bash
 
-   git cherry-pick <commit-hash>
-   # o aplicacion manual si hay conflictos
+ git cherry-pick <commit-hash>
+ # o aplicacion manual si hay conflictos
 
--  Aplicar cambios de refactorizacion
--  Resolver conflictos si existen
--  Validar sintaxis basica
+- Aplicar cambios de refactorizacion
+- Resolver conflictos si existen
+- Validar sintaxis basica
 
 **TASK-NNN+2: [TDD-GREEN] Validar Tests Post-Refactorizacion**
 
 .. code:: bash
 
-   pytest <modulo> -v > evidencias/tests-post-refactor.log
-   diff evidencias/baseline-pre-refactor.log evidencias/tests-post-refactor.log
+ pytest <modulo> -v > evidencias/tests-post-refactor.log
+ diff evidencias/baseline-pre-refactor.log evidencias/tests-post-refactor.log
 
--  CRITERIO CRITICO: Mismo numero de tests pasando
--  Si tests fallan: ROLLBACK INMEDIATO
--  Comparar con baseline
+- CRITERIO CRITICO: Mismo numero de tests pasando
+- Si tests fallan: ROLLBACK INMEDIATO
+- Comparar con baseline
 
 **TASK-NNN+3: [TDD-VALIDATE] Validaciones Adicionales** - Type checking
 (mypy, pyright, tsc) - Smoke tests funcionales - Import checks -
@@ -345,50 +345,50 @@ FASE 6: COMMIT Y PUSH (5-10 min)
 **Tareas:** 1. TASK-NNN: Commit con mensaje descriptivo \```bash git
 commit -m “refactor:
 
--  Cambio 1 (commit original: abc1234)
--  Cambio 2 (commit original: def5678)
--  Validado con TDD (N tests passing)
--  Zero regresiones funcionales”
+- Cambio 1 (commit original: abc1234)
+- Cambio 2 (commit original: def5678)
+- Validado con TDD (N tests passing)
+- Zero regresiones funcionales”
 
 ::
 
-   2. TASK-NNN+1: Push a rama remota con retry logic
+ 2. TASK-NNN+1: Push a rama remota con retry logic
 
-   **Criterios de exito:**
-   - Commit creado con mensaje convencional
-   - Push exitoso
-   - Rama remota actualizada
+ **Criterios de exito:**
+ - Commit creado con mensaje convencional
+ - Push exitoso
+ - Rama remota actualizada
 
-   ### FASE 7: SINCRONIZACION CON MAIN (5-15 min)
+ ### FASE 7: SINCRONIZACION CON MAIN (5-15 min)
 
-   **Objetivo:** Sincronizar rama de desarrollo con rama principal para evitar conflictos futuros
+ **Objetivo:** Sincronizar rama de desarrollo con rama principal para evitar conflictos futuros
 
-   **Cuándo ejecutar:** Despues de push exitoso, especialmente si el trabajo tomo varios dias
+ **Cuándo ejecutar:** Despues de push exitoso, especialmente si el trabajo tomo varios dias
 
-   **Tareas:**
-   1. TASK-NNN: Fetch y merge de rama principal (develop o main)
-   2. TASK-NNN+1: Resolver conflictos si existen
-   3. TASK-NNN+2: Re-ejecutar suite de tests post-merge
-   4. TASK-NNN+3: Push de rama sincronizada
+ **Tareas:**
+ 1. TASK-NNN: Fetch y merge de rama principal (develop o main)
+ 2. TASK-NNN+1: Resolver conflictos si existen
+ 3. TASK-NNN+2: Re-ejecutar suite de tests post-merge
+ 4. TASK-NNN+3: Push de rama sincronizada
 
-   **Comandos:**
-   ```bash
-   # Paso 1: Fetch rama principal
-   git fetch origin develop
+ **Comandos:**
+ ```bash
+ # Paso 1: Fetch rama principal
+ git fetch origin develop
 
-   # Paso 2: Merge con estrategia
-   git merge origin/develop --no-ff -m "sync: merge develop into feature branch"
+ # Paso 2: Merge con estrategia
+ git merge origin/develop --no-ff -m "sync: merge develop into feature branch"
 
-   # Paso 3: Si hay conflictos, resolverlos manualmente
-   # git status
-   # git add <archivos-resueltos>
-   # git merge --continue
+ # Paso 3: Si hay conflictos, resolverlos manualmente
+ # git status
+ # git add <archivos-resueltos>
+ # git merge --continue
 
-   # Paso 4: Validar tests post-merge
-   pytest tests/ -v
+ # Paso 4: Validar tests post-merge
+ pytest tests/ -v
 
-   # Paso 5: Push sincronizado
-   git push -u origin <rama-feature>
+ # Paso 5: Push sincronizado
+ git push -u origin <rama-feature>
 
 **Criterios de exito:** - Merge exitoso sin conflictos, o conflictos
 resueltos correctamente - Tests: 100% passing post-merge - Rama feature
@@ -403,12 +403,12 @@ desincronizacion) - No hay otros desarrolladores trabajando en paralelo
 
 .. code:: bash
 
-   # Si merge falla o tests fallan post-merge
-   git merge --abort  # Si aun en proceso de merge
+ # Si merge falla o tests fallan post-merge
+ git merge --abort # Si aun en proceso de merge
 
-   # O si ya se commiteo el merge problematico
-   git reset --hard HEAD~1  # Volver a estado pre-merge
-   git push -f origin <rama-feature>  # Force push solo si necesario
+ # O si ya se commiteo el merge problematico
+ git reset --hard HEAD~1 # Volver a estado pre-merge
+ git push -f origin <rama-feature> # Force push solo si necesario
 
 **Notas importantes:** - Esta fase previene “integration hell” al
 sincronizar tempranamente - Si hay conflictos complejos, considerar
@@ -423,29 +423,29 @@ Ciclo TDD para Refactorizaciones:
 
 ::
 
-   1. RED (Baseline)
-      ├── Ejecutar tests existentes
-      ├── Documentar cuantos pasan (N tests)
-      └── Guardar estado actual
+ 1. RED (Baseline)
+ ├── Ejecutar tests existentes
+ ├── Documentar cuantos pasan (N tests)
+ └── Guardar estado actual
 
-   2. REFACTOR (Cambio)
-      ├── Aplicar refactorizacion
-      ├── Resolver conflictos
-      └── Validar sintaxis basica
+ 2. REFACTOR (Cambio)
+ ├── Aplicar refactorizacion
+ ├── Resolver conflictos
+ └── Validar sintaxis basica
 
-   3. GREEN (Validacion)
-      ├── Ejecutar tests nuevamente
-      ├── Comparar con baseline
-      └── MISMO numero de tests pasando (CRITICO)
+ 3. GREEN (Validacion)
+ ├── Ejecutar tests nuevamente
+ ├── Comparar con baseline
+ └── MISMO numero de tests pasando (CRITICO)
 
-   4. VALIDATE (Adicional)
-      ├── Type checking
-      ├── Smoke tests
-      └── Validaciones especificas
+ 4. VALIDATE (Adicional)
+ ├── Type checking
+ ├── Smoke tests
+ └── Validaciones especificas
 
-   5. Decision
-      ├── Si TODO OK → Continuar
-      └── Si FALLO → ROLLBACK INMEDIATO
+ 5. Decision
+ ├── Si TODO OK → Continuar
+ └── Si FALLO → ROLLBACK INMEDIATO
 
 Principios TDD Aplicados:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -469,40 +469,40 @@ Smoke Tests para Refactorizaciones Python
 
 .. code:: bash
 
-   # Test: Todos los imports funcionan
-   python -c "from scripts.coding.ai.mcp.registry import MCPRegistry; print('OK')"
+ # Test: Todos los imports funcionan
+ python -c "from scripts.coding.ai.mcp.registry import MCPRegistry; print('OK')"
 
-   # Test: Modulo se importa sin errores
-   python -m scripts.coding.ai.mcp.registry --help 2>&1 | grep -q "usage" && echo "PASS" || echo "FAIL"
+ # Test: Modulo se importa sin errores
+ python -m scripts.coding.ai.mcp.registry --help 2>&1 | grep -q "usage" && echo "PASS" || echo "FAIL"
 
 **2. Validacion de Sintaxis Basica**
 
 .. code:: bash
 
-   # Compilar modulo para detectar errores sintaxis
-   python -m py_compile scripts/coding/ai/mcp/registry.py
-   echo $?  # Debe ser 0
+ # Compilar modulo para detectar errores sintaxis
+ python -m py_compile scripts/coding/ai/mcp/registry.py
+ echo $? # Debe ser 0
 
 **3. Smoke Test Funcional Basico**
 
 .. code:: bash
 
-   # Test: Funcion principal ejecuta sin crash
-   python -c "
-   from scripts.coding.ai.mcp.registry import MCPRegistry
-   registry = MCPRegistry()
-   assert registry is not None
-   print('Smoke test: PASS')
-                            
+ # Test: Funcion principal ejecuta sin crash
+ python -c "
+ from scripts.coding.ai.mcp.registry import MCPRegistry
+ registry = MCPRegistry
+ assert registry is not None
+ print('Smoke test: PASS')
+ 
 
 **4. Type Checking Incremental**
 
 .. code:: bash
 
-   # Solo archivo modificado, no todo el proyecto
-   mypy scripts/coding/ai/mcp/registry.py --strict
-   # o
-   pyright scripts/coding/ai/mcp/registry.py
+ # Solo archivo modificado, no todo el proyecto
+ mypy scripts/coding/ai/mcp/registry.py --strict
+ # o
+ pyright scripts/coding/ai/mcp/registry.py
 
 Smoke Tests para Refactorizaciones JavaScript/TypeScript
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -511,31 +511,31 @@ Smoke Tests para Refactorizaciones JavaScript/TypeScript
 
 .. code:: bash
 
-   # TypeScript: Compilar sin ejecutar
-   tsc --noEmit src/registry.ts
+ # TypeScript: Compilar sin ejecutar
+ tsc --noEmit src/registry.ts
 
-   # JavaScript: Validar con ESLint
-   eslint src/registry.js --max-warnings 0
+ # JavaScript: Validar con ESLint
+ eslint src/registry.js --max-warnings 0
 
 **2. Smoke Test de Imports**
 
 .. code:: bash
 
-   # Node.js: Cargar modulo sin ejecutar
-   node -e "require('./src/registry'); console.log('PASS')"
+ # Node.js: Cargar modulo sin ejecutar
+ node -e "require('./src/registry'); console.log('PASS')"
 
-   # ES Modules
-   node --input-type=module -e "import './src/registry.js'; console.log('PASS')"
+ # ES Modules
+ node --input-type=module -e "import './src/registry.js'; console.log('PASS')"
 
 **3. Validacion de Build**
 
 .. code:: bash
 
-   # Build del proyecto sin publicar
-   npm run build
+ # Build del proyecto sin publicar
+ npm run build
 
-   # Verificar salida existe
-   test -f dist/registry.js && echo "PASS" || echo "FAIL"
+ # Verificar salida existe
+ test -f dist/registry.js && echo "PASS" || echo "FAIL"
 
 Smoke Tests Generales
 ~~~~~~~~~~~~~~~~~~~~~
@@ -544,31 +544,31 @@ Smoke Tests Generales
 
 .. code:: bash
 
-   # Verificar que solo archivos esperados cambiaron
-   git diff --name-only HEAD~1 HEAD | wc -l
-   # Debe ser numero esperado de archivos (ej: 1)
+ # Verificar que solo archivos esperados cambiaron
+ git diff --name-only HEAD~1 HEAD | wc -l
+ # Debe ser numero esperado de archivos (ej: 1)
 
-   # Verificar que cambios son del tipo esperado
-   git diff HEAD~1 HEAD | grep "^+" | grep -v "^+++" | head -5
+ # Verificar que cambios son del tipo esperado
+ git diff HEAD~1 HEAD | grep "^+" | grep -v "^+++" | head -5
 
 **2. Line Count Validation**
 
 .. code:: bash
 
-   # Verificar que numero de lineas cambio segun esperado
-   # Ejemplo: PEP 585 debe reducir imports
-   wc -l scripts/coding/ai/mcp/registry.py
-   # Comparar con valor esperado
+ # Verificar que numero de lineas cambio segun esperado
+ # Ejemplo: PEP 585 debe reducir imports
+ wc -l scripts/coding/ai/mcp/registry.py
+ # Comparar con valor esperado
 
 **3. Dependency Validation**
 
 .. code:: bash
 
-   # Python: Verificar que no se agregaron dependencias nuevas
-   pip freeze | wc -l  # Debe ser igual que antes
+ # Python: Verificar que no se agregaron dependencias nuevas
+ pip freeze | wc -l # Debe ser igual que antes
 
-   # JavaScript: Verificar package.json sin cambios
-   git diff package.json | wc -l  # Debe ser 0
+ # JavaScript: Verificar package.json sin cambios
+ git diff package.json | wc -l # Debe ser 0
 
 Cuándo Usar Smoke Tests
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -586,21 +586,21 @@ Ejemplo de Secuencia Completa
 
 .. code:: bash
 
-   # Paso 1: Smoke test pre-refactorizacion
-   python -c "from module import Foo; print('Baseline OK')"
+ # Paso 1: Smoke test pre-refactorizacion
+ python -c "from module import Foo; print('Baseline OK')"
 
-   # Paso 2: Aplicar refactorizacion
-   git cherry-pick abc1234
+ # Paso 2: Aplicar refactorizacion
+ git cherry-pick abc1234
 
-   # Paso 3: Smoke tests post-refactorizacion
-   python -m py_compile module.py                    # Sintaxis OK
-   python -c "from module import Foo; print('OK')"   # Imports OK
-   mypy module.py --strict                           # Types OK
+ # Paso 3: Smoke tests post-refactorizacion
+ python -m py_compile module.py # Sintaxis OK
+ python -c "from module import Foo; print('OK')" # Imports OK
+ mypy module.py --strict # Types OK
 
-   # Paso 4: Tests automatizados completos
-   pytest tests/test_module.py -v
+ # Paso 4: Tests automatizados completos
+ pytest tests/test_module.py -v
 
-   # Paso 5: Si todo OK, continuar. Si falla, rollback
+ # Paso 5: Si todo OK, continuar. Si falla, rollback
 
 7. Gestion de Evidencias
 ------------------------
@@ -610,20 +610,20 @@ Estructura de Evidencias:
 
 ::
 
-   QA-REFACTOR-XXX-NNN/
-   ├── ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md
-   ├── PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md
-   ├── INDICE.md
-   ├── TASK-001-nombre/
-   │   ├── TASK-001-nombre.md
-   │   └── evidencias/
-   │       ├── backup-tag-created.log
-   │       └── commit-hash.txt
-   ├── TASK-002-nombre/
-   │   └── evidencias/
-   │       ├── baseline-tests.log
-   │       └── test-count.txt
-   └── ...
+ QA-REFACTOR-XXX-NNN/
+ ├── ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md
+ ├── PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md
+ ├── INDICE.md
+ ├── TASK-001-nombre/
+ │ ├── TASK-001-nombre.md
+ │ └── evidencias/
+ │ ├── backup-tag-created.log
+ │ └── commit-hash.txt
+ ├── TASK-002-nombre/
+ │ └── evidencias/
+ │ ├── baseline-tests.log
+ │ └── test-count.txt
+ └── ...
 
 Evidencias Requeridas por Fase:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -650,87 +650,87 @@ Rollback por Fase:
 
 .. code:: bash
 
-   # Eliminar tag/branch de backup si existe
-   git tag -d backup-refactor-YYYY-MM-DD
-   # o
-   git branch -d backup-refactor-YYYY-MM-DD
+ # Eliminar tag/branch de backup si existe
+ git tag -d backup-refactor-YYYY-MM-DD
+ # o
+ git branch -d backup-refactor-YYYY-MM-DD
 
 **Si falla REFACTORIZACION:**
 
 .. code:: bash
 
-   # Opcion 1: Revert del commit
-   git revert <commit-hash>
+ # Opcion 1: Revert del commit
+ git revert <commit-hash>
 
-   # Opcion 2: Reset hard a backup
-   git reset --hard backup-refactor-YYYY-MM-DD
+ # Opcion 2: Reset hard a backup
+ git reset --hard backup-refactor-YYYY-MM-DD
 
-   # Opcion 3: Cherry-pick inverso
-   git cherry-pick --abort  # si en progreso
+ # Opcion 3: Cherry-pick inverso
+ git cherry-pick --abort # si en progreso
 
 **Si falla VALIDACION FINAL:**
 
 .. code:: bash
 
-   # Reset a backup completo
-   git reset --hard backup-refactor-YYYY-MM-DD
+ # Reset a backup completo
+ git reset --hard backup-refactor-YYYY-MM-DD
 
-   # Limpiar working directory
-   git clean -fd
+ # Limpiar working directory
+ git clean -fd
 
 Criterios para Ejecutar Rollback:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **INMEDIATO:** Tests fallan despues de refactorizacion
--  **INMEDIATO:** Errores de sintaxis o imports
--  **INMEDIATO:** Regresion funcional detectada
--  **EVALUACION:** Type checker reporta nuevos errores (puede ser falso
-   positivo)
+- **INMEDIATO:** Tests fallan despues de refactorizacion
+- **INMEDIATO:** Errores de sintaxis o imports
+- **INMEDIATO:** Regresion funcional detectada
+- **EVALUACION:** Type checker reporta nuevos errores (puede ser falso
+ positivo)
 
 9. Riesgos Comunes y Mitigaciones
 ---------------------------------
 
 +-------+------------+--------+------------------+--------------------+
-| R     | Pr         | I      | Mitigacion       | Mitigacion         |
-| iesgo | obabilidad | mpacto | Primaria         | Secundaria         |
+| R | Pr | I | Mitigacion | Mitigacion |
+| iesgo | obabilidad | mpacto | Primaria | Secundaria |
 +=======+============+========+==================+====================+
-| Tests | MEDIA      | MEDIO  | Crear smoke      | Validacion manual  |
-| no    |            |        | tests basicos    | exhaustiva         |
-| ex    |            |        |                  |                    |
-| isten |            |        |                  |                    |
+| Tests | MEDIA | MEDIO | Crear smoke | Validacion manual |
+| no | | | tests basicos | exhaustiva |
+| ex | | | | |
+| isten | | | | |
 +-------+------------+--------+------------------+--------------------+
-| Ru    | BAJA       | ALTO   | Validar version  | ABORTAR si         |
-| ntime |            |        | temprano         | incompatible       |
-| in    |            |        |                  |                    |
-| compa |            |        |                  |                    |
-| tible |            |        |                  |                    |
+| Ru | BAJA | ALTO | Validar version | ABORTAR si |
+| ntime | | | temprano | incompatible |
+| in | | | | |
+| compa | | | | |
+| tible | | | | |
 +-------+------------+--------+------------------+--------------------+
-| Confl | MEDIA      | MEDIO  | Aplicacion       | Documentar         |
-| ictos |            |        | manual con diff  | resolucion         |
-| c     |            |        |                  |                    |
-| herry |            |        |                  |                    |
-| -pick |            |        |                  |                    |
+| Confl | MEDIA | MEDIO | Aplicacion | Documentar |
+| ictos | | | manual con diff | resolucion |
+| c | | | | |
+| herry | | | | |
+| -pick | | | | |
 +-------+------------+--------+------------------+--------------------+
-| Tests | BAJA       | ALTO   | Rollback         | Analizar causa y   |
-| f     |            |        | inmediato        | reintentar         |
-| allan |            |        |                  |                    |
-| pos   |            |        |                  |                    |
-| t-ref |            |        |                  |                    |
-| actor |            |        |                  |                    |
+| Tests | BAJA | ALTO | Rollback | Analizar causa y |
+| f | | | inmediato | reintentar |
+| allan | | | | |
+| pos | | | | |
+| t-ref | | | | |
+| actor | | | | |
 +-------+------------+--------+------------------+--------------------+
-| Regr  | BAJA       | ALTO   | Suite completa + | Code review        |
-| esion |            |        | smoke tests      | adicional          |
-| no    |            |        |                  |                    |
-| dete  |            |        |                  |                    |
-| ctada |            |        |                  |                    |
+| Regr | BAJA | ALTO | Suite completa + | Code review |
+| esion | | | smoke tests | adicional |
+| no | | | | |
+| dete | | | | |
+| ctada | | | | |
 +-------+------------+--------+------------------+--------------------+
-| Type  | MEDIA      | BAJO   | Validacion       | Actualizar         |
-| ch    |            |        | manual           | configuracion      |
-| ecker |            |        |                  |                    |
-| f     |            |        |                  |                    |
-| alsos |            |        |                  |                    |
-| posi  |            |        |                  |                    |
-| tivos |            |        |                  |                    |
+| Type | MEDIA | BAJO | Validacion | Actualizar |
+| ch | | | manual | configuracion |
+| ecker | | | | |
+| f | | | | |
+| alsos | | | | |
+| posi | | | | |
+| tivos | | | | |
 +-------+------------+--------+------------------+--------------------+
 
 10. Criterios de Exito
@@ -810,11 +810,11 @@ Formato Basico
 
 ::
 
-   <tipo>(<scope>): <descripcion corta>
+ <tipo>(<scope>): <descripcion corta>
 
-   [cuerpo opcional con detalles]
+ [cuerpo opcional con detalles]
 
-   [footer opcional con metadata]
+ [footer opcional con metadata]
 
 Tipos de Commit para Refactorizaciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -823,39 +823,39 @@ Tipos de Commit para Refactorizaciones
 
 .. code:: bash
 
-   git commit -m "refactor(mcp): modernizar type annotations a PEP 585
+ git commit -m "refactor(mcp): modernizar type annotations a PEP 585
 
-   - Cambiar Dict[str, str] a dict[str, str]
-   - Cambiar Mapping[str, Any] a dict[str, Any]
-   - Eliminar imports innecesarios de typing
-   - Validado con TDD (13/13 tests passing)
-   - Zero regresiones funcionales
+ - Cambiar Dict[str, str] a dict[str, str]
+ - Cambiar Mapping[str, Any] a dict[str, Any]
+ - Eliminar imports innecesarios de typing
+ - Validado con TDD (13/13 tests passing)
+ - Zero regresiones funcionales
 
-   Commit original: 2ca3d25
-   Refs: QA-REFACTOR-MCP-002"
+ Commit original: 2ca3d25
+ Refs: QA-REFACTOR-MCP-002"
 
 **style:** Cambios de formato (no afectan codigo ejecutable)
 
 .. code:: bash
 
-   git commit -m "style(registry): aplicar formateo black"
+ git commit -m "style(registry): aplicar formateo black"
 
 **chore:** Cambios de mantenimiento (dependencias, configuracion)
 
 .. code:: bash
 
-   git commit -m "chore(deps): actualizar playwright MCP version
+ git commit -m "chore(deps): actualizar playwright MCP version
 
-   - Extraer version a constante PLAYWRIGHT_MCP_VERSION = 0.0.40
-   - Mejor mantenibilidad y documentacion de pinning
+ - Extraer version a constante PLAYWRIGHT_MCP_VERSION = 0.0.40
+ - Mejor mantenibilidad y documentacion de pinning
 
-   Commit original: 0d1e1f2"
+ Commit original: 0d1e1f2"
 
 **docs:** Solo cambios de documentacion
 
 .. code:: bash
 
-   git commit -m "docs(refactor): documentar procedimiento TDD en PROCED-GOB-009"
+ git commit -m "docs(refactor): documentar procedimiento TDD en PROCED-GOB-009"
 
 Estructura de Mensaje para Refactorizaciones
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -864,24 +864,24 @@ Estructura de Mensaje para Refactorizaciones
 
 ::
 
-   refactor(scope): descripcion imperativa presente
+ refactor(scope): descripcion imperativa presente
 
 **Cuerpo (Body):** Detalles de cambios
 
 ::
 
-   - Lista de cambios aplicados (bullet points)
-   - Resultado de validacion TDD
-   - Zero regresiones funcionales
-   - Metricas relevantes (tests passing, lineas modificadas)
+ - Lista de cambios aplicados (bullet points)
+ - Resultado de validacion TDD
+ - Zero regresiones funcionales
+ - Metricas relevantes (tests passing, lineas modificadas)
 
 **Footer:** Metadata adicional
 
 ::
 
-   Commit original: <hash>
-   Refs: <ID-documento>
-   Co-authored-by: <nombre>
+ Commit original: <hash>
+ Refs: <ID-documento>
+ Co-authored-by: <nombre>
 
 Ejemplos Completos
 ~~~~~~~~~~~~~~~~~~
@@ -890,71 +890,71 @@ Ejemplos Completos
 
 .. code:: bash
 
-   git commit -m "$(cat <<'EOF'
-   refactor(mcp): extraer constante PLAYWRIGHT_MCP_VERSION
+ git commit -m "$(cat <<'EOF'
+ refactor(mcp): extraer constante PLAYWRIGHT_MCP_VERSION
 
-   - Agregar constante PLAYWRIGHT_MCP_VERSION = "0.0.40"
-   - Reemplazar hardcoded version en install command
-   - Mejor mantenibilidad y documentacion de pinning
-   - Validado con TDD (13/13 tests passing)
-   - Zero regresiones funcionales
+ - Agregar constante PLAYWRIGHT_MCP_VERSION = "0.0.40"
+ - Reemplazar hardcoded version en install command
+ - Mejor mantenibilidad y documentacion de pinning
+ - Validado con TDD (13/13 tests passing)
+ - Zero regresiones funcionales
 
-   Commit original: 0d1e1f2
-   Refs: QA-REFACTOR-MCP-002
-   EOF
-   )"
+ Commit original: 0d1e1f2
+ Refs: QA-REFACTOR-MCP-002
+ EOF
+ )"
 
 **Ejemplo 2: Refactorizacion Multiple**
 
 .. code:: bash
 
-   git commit -m "$(cat <<'EOF'
-   refactor(mcp): integrar 2 mejoras de calidad del MCP registry
+ git commit -m "$(cat <<'EOF'
+ refactor(mcp): integrar 2 mejoras de calidad del MCP registry
 
-   - Extraer PLAYWRIGHT_MCP_VERSION constant (commit: 0d1e1f2)
-   - Modernizar type annotations a PEP 585 (commit: 2ca3d25)
-   - 11 lineas modernizadas, 1 import eliminado
-   - Validado con TDD metodologia estricta
-   - Suite completa: 13/13 tests passing (+3 vs baseline)
-   - Zero regresiones funcionales
+ - Extraer PLAYWRIGHT_MCP_VERSION constant (commit: 0d1e1f2)
+ - Modernizar type annotations a PEP 585 (commit: 2ca3d25)
+ - 11 lineas modernizadas, 1 import eliminado
+ - Validado con TDD metodologia estricta
+ - Suite completa: 13/13 tests passing (+3 vs baseline)
+ - Zero regresiones funcionales
 
-   Commits originales:
-   - 0d1e1f2: Playwright constant extraction
-   - 2ca3d25: PEP 585 type annotations
+ Commits originales:
+ - 0d1e1f2: Playwright constant extraction
+ - 2ca3d25: PEP 585 type annotations
 
-   Refs: QA-REFACTOR-MCP-002
-   Tiempo total: 180 minutos (16 tareas TDD)
-   EOF
-   )"
+ Refs: QA-REFACTOR-MCP-002
+ Tiempo total: 180 minutos (16 tareas TDD)
+ EOF
+ )"
 
 **Ejemplo 3: Refactorizacion con Sincronizacion**
 
 .. code:: bash
 
-   git commit -m "$(cat <<'EOF'
-   sync: merge develop into feature branch
+ git commit -m "$(cat <<'EOF'
+ sync: merge develop into feature branch
 
-   Sincronizar refactorizaciones MCP con ultimos cambios de develop.
+ Sincronizar refactorizaciones MCP con ultimos cambios de develop.
 
-   - 0 conflictos
-   - Tests: 13/13 passing post-merge
-   - Rama actualizada para PR
+ - 0 conflictos
+ - Tests: 13/13 passing post-merge
+ - Rama actualizada para PR
 
-   Refs: QA-REFACTOR-MCP-002/TASK-017
-   EOF
-   )"
+ Refs: QA-REFACTOR-MCP-002/TASK-017
+ EOF
+ )"
 
 Scopes Comunes
 ~~~~~~~~~~~~~~
 
--  ``mcp``: Model Context Protocol
--  ``registry``: Registros y catalogos
--  ``api``: APIs y endpoints
--  ``tests``: Suite de tests
--  ``deps``: Dependencias
--  ``config``: Configuracion
--  ``scripts``: Scripts de automatizacion
--  ``docs``: Documentacion
+- ``mcp``: Model Context Protocol
+- ``registry``: Registros y catalogos
+- ``api``: APIs y endpoints
+- ``tests``: Suite de tests
+- ``deps``: Dependencias
+- ``config``: Configuracion
+- ``scripts``: Scripts de automatizacion
+- ``docs``: Documentacion
 
 Validacion de Mensaje
 ~~~~~~~~~~~~~~~~~~~~~
@@ -963,32 +963,32 @@ Validacion de Mensaje
 
 .. code:: bash
 
-   # Instalar commitlint
-   npm install -g @commitlint/cli @commitlint/config-conventional
+ # Instalar commitlint
+ npm install -g @commitlint/cli @commitlint/config-conventional
 
-   # Validar mensaje
-   echo "refactor(mcp): test message" | commitlint
+ # Validar mensaje
+ echo "refactor(mcp): test message" | commitlint
 
 **Validacion manual:**
 
 .. code:: bash
 
-   # Checklist:
-   # - [ ] Tipo valido (refactor, style, chore, docs)
-   # - [ ] Scope presente y descriptivo
-   # - [ ] Descripcion en imperativo presente (max 72 chars)
-   # - [ ] Cuerpo con detalles de cambios
-   # - [ ] Footer con commit original y refs
-   # - [ ] Menciona validacion TDD
-   # - [ ] Menciona zero regresiones
+ # Checklist:
+ # - [ ] Tipo valido (refactor, style, chore, docs)
+ # - [ ] Scope presente y descriptivo
+ # - [ ] Descripcion en imperativo presente (max 72 chars)
+ # - [ ] Cuerpo con detalles de cambios
+ # - [ ] Footer con commit original y refs
+ # - [ ] Menciona validacion TDD
+ # - [ ] Menciona zero regresiones
 
 Referencias
 ~~~~~~~~~~~
 
--  Conventional Commits: https://www.conventionalcommits.org/
--  Angular Convention:
-   https://github.com/angular/angular/blob/main/CONTRIBUTING.md
--  Commitlint: https://commitlint.js.org/
+- Conventional Commits: https://www.conventionalcommits.org/
+- Angular Convention:
+ https://github.com/angular/angular/blob/main/CONTRIBUTING.md
+- Commitlint: https://commitlint.js.org/
 
 14. Plantillas de Referencia
 ----------------------------
@@ -1005,35 +1005,35 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 ------------------------
 
 +------------------------+-------------------+------------------------+
-| Version                | Fecha             | Cambios                |
+| Version | Fecha | Cambios |
 +========================+===================+========================+
-| 1.1.0                  | 2025-11-18        | Actualizacion basada   |
-|                        |                   | en reporte de          |
-|                        |                   | verificacion           |
-|                        |                   | (REPORTE-VERIFICAC     |
-|                        |                   | ION-PROCED-GOB-009.md) |
-|                        |                   | - Correccion de 4 gaps |
-|                        |                   | criticos: (1) Tiempos  |
-|                        |                   | reales FASE 1:         |
-|                        |                   | 60-90min, FASE 2:      |
-|                        |                   | 60-90min, nueva FASE   |
-|                        |                   | 2.5: 60-120min (2)     |
-|                        |                   | Template detallado de  |
-|                        |                   | tareas con metadata    |
-|                        |                   | YAML (3) Estrategia    |
-|                        |                   | para versiones         |
-|                        |                   | multiples con matriz   |
-|                        |                   | de decision (4) Nueva  |
-|                        |                   | FASE 7 para            |
-|                        |                   | sincronizacion con     |
-|                        |                   | main. Ademas: ejemplos |
-|                        |                   | de smoke tests y       |
-|                        |                   | seccion de             |
-|                        |                   | Conventional Commits   |
+| 1.1.0 | 2025-11-18 | Actualizacion basada |
+| | | en reporte de |
+| | | verificacion |
+| | | (REPORTE-VERIFICAC |
+| | | ION-PROCED-GOB-009.md) |
+| | | - Correccion de 4 gaps |
+| | | criticos: (1) Tiempos |
+| | | reales FASE 1: |
+| | | 60-90min, FASE 2: |
+| | | 60-90min, nueva FASE |
+| | | 2.5: 60-120min (2) |
+| | | Template detallado de |
+| | | tareas con metadata |
+| | | YAML (3) Estrategia |
+| | | para versiones |
+| | | multiples con matriz |
+| | | de decision (4) Nueva |
+| | | FASE 7 para |
+| | | sincronizacion con |
+| | | main. Ademas: ejemplos |
+| | | de smoke tests y |
+| | | seccion de |
+| | | Conventional Commits |
 +------------------------+-------------------+------------------------+
-| 1.0.0                  | 2025-11-17        | Creacion inicial       |
-|                        |                   | basada en              |
-|                        |                   | QA-REFACTOR-MCP-002    |
+| 1.0.0 | 2025-11-17 | Creacion inicial |
+| | | basada en |
+| | | QA-REFACTOR-MCP-002 |
 +------------------------+-------------------+------------------------+
 
 .. _referencias-1:
@@ -1041,11 +1041,11 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
 16. Referencias
 ---------------
 
--  **Caso de estudio:** QA-REFACTOR-MCP-002 (2 refactorizaciones, 16
-   tareas, 100% exitoso)
--  **PEP 585:** Type Hinting Generics In Standard Collections
--  **TDD:** Test-Driven Development (Kent Beck)
--  **Conventional Commits:** https://www.conventionalcommits.org/
+- **Caso de estudio:** QA-REFACTOR-MCP-002 (2 refactorizaciones, 16
+ tareas, 100% exitoso)
+- **PEP 585:** Type Hinting Generics In Standard Collections
+- **TDD:** Test-Driven Development (Kent Beck)
+- **Conventional Commits:** https://www.conventionalcommits.org/
 
 --------------
 

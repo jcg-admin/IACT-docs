@@ -1,13 +1,13 @@
 .. meta::
-   :artefacto: ONB_BIENVENIDA
-   :tipo: Guia
-   :dominio: onboarding
-   :estado: Vigente
-   :version: 1.0.0
-   :fecha_creacion: 2026-04-29
-   :ultimo_cambio: 2026-04-29
-   :autor: NestorMonroy
-   :clasificacion: Interno
+ :artefacto: ONB_BIENVENIDA
+ :tipo: Guia
+ :dominio: onboarding
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-29
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Interno
 
 ============
 Bienvenida
@@ -31,28 +31,28 @@ detalle completo.
 =====================
 
 .. list-table::
-   :widths: 30 70
-   :header-rows: 1
+ :widths: 30 70
+ :header-rows: 1
 
-   * - Capa
-     - Tecnologia
-   * - Frontend
-     - React + Webpack
-   * - Backend
-     - Django REST Framework + Python 3.10+
-   * - Infraestructura
-     - Ubuntu Server + Apache + mod_wsgi
-   * - Bases de datos
-     - MySQL (operativa, RO) + PostgreSQL (analitica)
+ * - Capa
+ - Tecnologia
+ * - Frontend
+ - React + Webpack
+ * - Backend
+ - Django REST Framework + Python 3.10+
+ * - Infraestructura
+ - Ubuntu Server + Apache + mod_wsgi
+ * - Bases de datos
+ - MySQL (operativa, RO) + PostgreSQL (analitica)
 
 3. Recursos clave
 =================
 
 - :doc:`/base_cognitiva/index` — vocabulario y fundamentos del
-  proyecto.
+ proyecto.
 - :doc:`/normativa/index` — estandares, plantillas, procedimientos
-  y restricciones del sistema.
+ y restricciones del sistema.
 - :doc:`/requisitos/index` — casos de uso, BRs, FRs, NFRs.
 - :doc:`/arquitectura_tecnica/index` — modelo arquitectonico
-  (RBAC, modulos).
+ (RBAC, modulos).
 - :doc:`/gestion/index` — gestion del proyecto, manuales, evidencias.

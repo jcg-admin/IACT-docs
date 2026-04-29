@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROC_DEV_001
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROC_DEV_001
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCESO: Pipeline de Trabajo IACT
 =================================
@@ -28,20 +28,20 @@ Alcance
 Incluye
 ~~~~~~~
 
--  Flujo completo de desarrollo (feature request → producción)
--  Análisis y diseño de soluciones
--  Implementación de código
--  Testing (unit, integration, E2E)
--  Code review
--  Deployment (staging → producción)
--  Monitoreo post-deployment
+- Flujo completo de desarrollo (feature request → producción)
+- Análisis y diseño de soluciones
+- Implementación de código
+- Testing (unit, integration, E2E)
+- Code review
+- Deployment (staging → producción)
+- Monitoreo post-deployment
 
 NO Incluye
 ~~~~~~~~~~
 
--  Gestión de incidentes en producción (ver PROC-INCIDENT-RESPONSE-001)
--  Onboarding de nuevos desarrolladores (ver PROC-ONBOARDING-001)
--  Gestión de releases (ver PROC-RELEASE-MANAGEMENT-001)
+- Gestión de incidentes en producción (ver PROC-INCIDENT-RESPONSE-001)
+- Onboarding de nuevos desarrolladores (ver PROC-ONBOARDING-001)
+- Gestión de releases (ver PROC-RELEASE-MANAGEMENT-001)
 
 --------------
 
@@ -49,21 +49,21 @@ Roles Involucrados
 ------------------
 
 .. list-table::
-   :header-rows: 1
-   :widths: 25 75
+ :header-rows: 1
+ :widths: 25 75
 
-   * - Rol
-     - Responsabilidades
-   * - **Product Owner**
-     - Define requisitos, prioriza backlog, aprueba features
-   * - **Tech Lead**
-     - Revisa diseño, aprueba PRs críticos, define arquitectura
-   * - **Developer**
-     - Implementa código, escribe tests, hace code reviews
-   * - **QA Engineer**
-     - Define tests E2E, valida en staging, smoke tests
-   * - **DevOps**
-     - Configura pipelines CI/CD, ejecuta deployments, monitorea
+ * - Rol
+ - Responsabilidades
+ * - **Product Owner**
+ - Define requisitos, prioriza backlog, aprueba features
+ * - **Tech Lead**
+ - Revisa diseño, aprueba PRs críticos, define arquitectura
+ * - **Developer**
+ - Implementa código, escribe tests, hace code reviews
+ * - **QA Engineer**
+ - Define tests E2E, valida en staging, smoke tests
+ * - **DevOps**
+ - Configura pipelines CI/CD, ejecuta deployments, monitorea
 
 --------------
 
@@ -72,22 +72,22 @@ Entradas (Inputs)
 
 1. **Issue en GitHub** con:
 
-   -  Descripción del requerimiento
-   -  Criterios de aceptación
-   -  Prioridad asignada
-   -  Labels apropiados
+ - Descripción del requerimiento
+ - Criterios de aceptación
+ - Prioridad asignada
+ - Labels apropiados
 
 2. **Contexto del Proyecto**:
 
-   -  Documentación de arquitectura
-   -  ADRs relevantes
-   -  Restricciones (RNF-002: NO Redis, etc.)
+ - Documentación de arquitectura
+ - ADRs relevantes
+ - Restricciones (RNF-002: NO Redis, etc.)
 
 3. **Recursos**:
 
-   -  Tiempo estimado
-   -  Developer asignado
-   -  Ambiente de desarrollo configurado
+ - Tiempo estimado
+ - Developer asignado
+ - Ambiente de desarrollo configurado
 
 --------------
 
@@ -117,23 +117,23 @@ ETAPA 1: ANÁLISIS Y PLANIFICACIÓN
 
 1. **Analizar Issue**
 
-   -  Leer descripción completa
-   -  Identificar dependencias
-   -  Estimar complejidad (story points)
-   -  Identificar riesgos
+ - Leer descripción completa
+ - Identificar dependencias
+ - Estimar complejidad (story points)
+ - Identificar riesgos
 
 2. **Diseñar Solución**
 
-   -  Revisar ADRs relacionados
-   -  Identificar componentes afectados
-   -  Diseñar modelos/servicios/views necesarios
-   -  Definir estructura de tests
+ - Revisar ADRs relacionados
+ - Identificar componentes afectados
+ - Diseñar modelos/servicios/views necesarios
+ - Definir estructura de tests
 
 3. **Crear Branch**
 
-   -  Nomenclatura: ``feature/ISSUE-123-descripcion-breve``
-   -  Desde: ``main`` o ``develop`` (según estrategia de branching)
-   -  Comando: ``git checkout -b feature/ISSUE-123-descripcion``
+ - Nomenclatura: ``feature/ISSUE-123-descripcion-breve``
+ - Desde: ``main`` o ``develop`` (según estrategia de branching)
+ - Comando: ``git checkout -b feature/ISSUE-123-descripcion``
 
 **Criterios de Salida**: - [ ] Diseño técnico claro - [ ] Branch creado
 - [ ] Componentes identificados - [ ] Estimación de tiempo realista
@@ -154,38 +154,38 @@ ETAPA 2: IMPLEMENTACIÓN
 
 1. **Escribir Tests (TDD - Red Phase)**
 
-   -  Tests unitarios primero
-   -  Tests de integración
-   -  Verificar que tests fallan (RED)
+ - Tests unitarios primero
+ - Tests de integración
+ - Verificar que tests fallan (RED)
 
 2. **Implementar Código (TDD - Green Phase)**
 
-   -  Modelos Django
-   -  Services (lógica de negocio)
-   -  Serializers (DRF)
-   -  Views/ViewSets (endpoints)
-   -  Verificar que tests pasan (GREEN)
+ - Modelos Django
+ - Services (lógica de negocio)
+ - Serializers (DRF)
+ - Views/ViewSets (endpoints)
+ - Verificar que tests pasan (GREEN)
 
 3. **Refactorizar (TDD - Refactor Phase)**
 
-   -  Mejorar legibilidad
-   -  Eliminar duplicación
-   -  Aplicar SOLID principles
-   -  Tests siguen pasando
+ - Mejorar legibilidad
+ - Eliminar duplicación
+ - Aplicar SOLID principles
+ - Tests siguen pasando
 
 4. **Ejecutar Linters**
 
-   .. code:: bash
+ .. code:: bash
 
-      black callcentersite/
-      isort callcentersite/
-      flake8 callcentersite/
+ black callcentersite/
+ isort callcentersite/
+ flake8 callcentersite/
 
 5. **Verificar Coverage**
 
-   .. code:: bash
+ .. code:: bash
 
-      pytest --cov=callcentersite --cov-report=term --cov-fail-under=80
+ pytest --cov=callcentersite --cov-report=term --cov-fail-under=80
 
 **Criterios de Salida**: - [ ] Tests unitarios pasan - [ ] Tests de
 integración pasan - [ ] Coverage >= 80% - [ ] Linters pasan (black,
@@ -207,55 +207,55 @@ ETAPA 3: CODE REVIEW PREPARATION
 
 1. **Commit Changes**
 
-   -  Conventional Commits:
+ - Conventional Commits:
 
-      ::
+ ::
 
-         feat(users): agregar validacion de permisos granulares
+ feat(users): agregar validacion de permisos granulares
 
-         - Implementar servicio de verificacion de capacidades
-         - Agregar tests unitarios para edge cases
-         - Actualizar documentacion de API
+ - Implementar servicio de verificacion de capacidades
+ - Agregar tests unitarios para edge cases
+ - Actualizar documentacion de API
 
-         Closes #123
+ Closes #123
 
 2. **Push to Remote**
 
-   .. code:: bash
+ .. code:: bash
 
-      git push -u origin feature/ISSUE-123-descripcion
+ git push -u origin feature/ISSUE-123-descripcion
 
 3. **Crear Pull Request**
 
-   -  Título: ``feat(users): agregar validacion de permisos granulares``
+ - Título: ``feat(users): agregar validacion de permisos granulares``
 
-   -  Descripción con template:
+ - Descripción con template:
 
-      .. code:: markdown
+ .. code:: markdown
 
-         ## Descripción
-         Breve descripción del cambio.
+ ## Descripción
+ Breve descripción del cambio.
 
-         ## Tipo de cambio
-         - [x] Feature nueva
-         - [ ] Bug fix
-         - [ ] Refactoring
+ ## Tipo de cambio
+ - [x] Feature nueva
+ - [ ] Bug fix
+ - [ ] Refactoring
 
-         ## Checklist
-         - [x] Tests pasan
-         - [x] Coverage >= 80%
-         - [x] Linters pasan
-         - [x] Documentación actualizada
+ ## Checklist
+ - [x] Tests pasan
+ - [x] Coverage >= 80%
+ - [x] Linters pasan
+ - [x] Documentación actualizada
 
-         ## Capturas (si aplica)
-         Screenshots/videos si hay UI.
+ ## Capturas (si aplica)
+ Screenshots/videos si hay UI.
 
-         Closes #123
+ Closes #123
 
 4. **Asignar Reviewers**
 
-   -  Mínimo: 2 reviewers
-   -  Al menos 1 reviewer senior/tech lead
+ - Mínimo: 2 reviewers
+ - Al menos 1 reviewer senior/tech lead
 
 **Criterios de Salida**: - [ ] PR creado con descripción completa - [ ]
 Reviewers asignados - [ ] Labels asignados (feature, priority, etc.) - [
@@ -277,34 +277,34 @@ ETAPA 4: CODE REVIEW
 
 1. **Revisión Automatizada (CI/CD)**
 
-   -  Backend CI (pytest, coverage, linters)
-   -  Frontend CI (Jest, ESLint)
-   -  Security scan (Bandit, npm audit)
-   -  Todos los checks deben pasar
+ - Backend CI (pytest, coverage, linters)
+ - Frontend CI (Jest, ESLint)
+ - Security scan (Bandit, npm audit)
+ - Todos los checks deben pasar
 
 2. **Revisión Manual por Reviewers**
 
-   -  Verificar:
+ - Verificar:
 
-      -  Cumple requisitos del issue
-      -  Código legible y mantenible
-      -  Tests adecuados
-      -  No hay code smells
-      -  Cumple estándares del proyecto
-      -  No viola ADRs
+ - Cumple requisitos del issue
+ - Código legible y mantenible
+ - Tests adecuados
+ - No hay code smells
+ - Cumple estándares del proyecto
+ - No viola ADRs
 
 3. **Feedback y Correcciones**
 
-   -  Reviewers dejan comentarios
-   -  Developer corrige
-   -  Push de correcciones
-   -  Re-review si necesario
+ - Reviewers dejan comentarios
+ - Developer corrige
+ - Push de correcciones
+ - Re-review si necesario
 
 4. **Aprobación**
 
-   -  Mínimo 2 aprobaciones
-   -  Todos los comentarios resueltos
-   -  CI/CD verde
+ - Mínimo 2 aprobaciones
+ - Todos los comentarios resueltos
+ - CI/CD verde
 
 **Criterios de Salida**: - [ ] 2+ aprobaciones recibidas - [ ] Todos los
 checks CI/CD verdes - [ ] Todos los comentarios resueltos - [ ]
@@ -326,28 +326,28 @@ ETAPA 5: MERGE Y DEPLOYMENT A STAGING
 
 1. **Merge to Main/Develop**
 
-   -  Método: Squash and Merge (preferido) o Merge Commit
-   -  Eliminar branch feature después de merge
-   -  Generar tag si es release
+ - Método: Squash and Merge (preferido) o Merge Commit
+ - Eliminar branch feature después de merge
+ - Generar tag si es release
 
 2. **Deployment Automático a Staging**
 
-   -  Trigger: Merge a ``develop`` branch
+ - Trigger: Merge a ``develop`` branch
 
-   -  CI/CD ejecuta:
+ - CI/CD ejecuta:
 
-      .. code:: yaml
+ .. code:: yaml
 
-         - Ejecutar migraciones (staging DB)
-         - Deploy de aplicación (staging server)
-         - Smoke tests automáticos
-         - Notificar en Slack/Discord
+ - Ejecutar migraciones (staging DB)
+ - Deploy de aplicación (staging server)
+ - Smoke tests automáticos
+ - Notificar en Slack/Discord
 
 3. **Verificación Manual en Staging**
 
-   -  QA Engineer valida funcionalidad
-   -  Product Owner valida requisitos
-   -  Smoke tests manuales
+ - QA Engineer valida funcionalidad
+ - Product Owner valida requisitos
+ - Smoke tests manuales
 
 **Criterios de Salida**: - [ ] Código mergeado a main/develop - [ ]
 Deploy a staging exitoso - [ ] Smoke tests pasan - [ ] Feature validada
@@ -373,36 +373,36 @@ completado
 
 1. **Pre-Deployment Checklist**
 
-   -  ☐ Backup de base de datos completado
-   -  ☐ Changelog actualizado
-   -  ☐ Release notes preparadas
-   -  ☐ Rollback plan definido
-   -  ☐ Equipo notificado
+ - ☐ Backup de base de datos completado
+ - ☐ Changelog actualizado
+ - ☐ Release notes preparadas
+ - ☐ Rollback plan definido
+ - ☐ Equipo notificado
 
 2. **Ejecutar Deployment**
 
-   .. code:: bash
+ .. code:: bash
 
-      # Manual trigger o automático desde main
-      - Activar maintenance mode (si necesario)
-      - Ejecutar migraciones en producción
-      - Deploy de aplicación
-      - Smoke tests automáticos
-      - Desactivar maintenance mode
+ # Manual trigger o automático desde main
+ - Activar maintenance mode (si necesario)
+ - Ejecutar migraciones en producción
+ - Deploy de aplicación
+ - Smoke tests automáticos
+ - Desactivar maintenance mode
 
 3. **Validación Post-Deployment**
 
-   -  Smoke tests manuales
-   -  Verificar logs (sin errores)
-   -  Verificar métricas (response time, error rate)
-   -  Validar feature funciona en producción
+ - Smoke tests manuales
+ - Verificar logs (sin errores)
+ - Verificar métricas (response time, error rate)
+ - Validar feature funciona en producción
 
 4. **Monitoreo (primeras 2 horas)**
 
-   -  Observar error rate
-   -  Observar response times
-   -  Revisar logs de aplicación
-   -  Estar listo para rollback si necesario
+ - Observar error rate
+ - Observar response times
+ - Revisar logs de aplicación
+ - Estar listo para rollback si necesario
 
 **Criterios de Salida**: - [ ] Deploy a producción exitoso - [ ] Smoke
 tests pasan - [ ] Métricas normales (error rate, response time) - [ ]
@@ -425,29 +425,29 @@ ETAPA 7: POST-DEPLOYMENT
 
 1. **Actualizar Issue**
 
-   -  Marcar como completado
-   -  Agregar link a PR
-   -  Agregar link a deployment
-   -  Cerrar issue
+ - Marcar como completado
+ - Agregar link a PR
+ - Agregar link a deployment
+ - Cerrar issue
 
 2. **Actualizar Documentación**
 
-   -  Actualizar README si aplica
-   -  Actualizar API docs si aplica
-   -  Crear/actualizar ADR si hay decisión arquitectónica
+ - Actualizar README si aplica
+ - Actualizar API docs si aplica
+ - Crear/actualizar ADR si hay decisión arquitectónica
 
 3. **Registrar Métricas DORA**
 
-   -  Lead Time for Changes
-   -  Deployment Frequency
-   -  Mean Time to Recovery (si hubo incidente)
-   -  Change Failure Rate
+ - Lead Time for Changes
+ - Deployment Frequency
+ - Mean Time to Recovery (si hubo incidente)
+ - Change Failure Rate
 
 4. **Retrospectiva (opcional)**
 
-   -  Qué salió bien
-   -  Qué mejorar
-   -  Lecciones aprendidas
+ - Qué salió bien
+ - Qué mejorar
+ - Lecciones aprendidas
 
 **Criterios de Salida**: - [ ] Issue cerrado - [ ] Documentación
 actualizada - [ ] Métricas DORA registradas - [ ] Retrospectiva
@@ -463,52 +463,52 @@ DIAGRAMA DE FLUJO
 
 ::
 
-   [Issue en GitHub]
-           ↓
-   [ETAPA 1: Análisis]
-     - Analizar requisitos
-     - Diseñar solución
-     - Crear branch
-           ↓
-   [ETAPA 2: Implementación]
-     - TDD: Red → Green → Refactor
-     - Ejecutar linters
-     - Verificar coverage
-           ↓
-   [ETAPA 3: PR Preparation]
-     - Commit con Conventional Commits
-     - Push a remote
-     - Crear Pull Request
-           ↓
-   [ETAPA 4: Code Review]
-     - CI/CD automático
-     - Revisión manual por pares
-     - Correcciones si necesario
-     - Aprobación (2+ reviewers)
-           ↓
-   [ETAPA 5: Merge & Deploy Staging]
-     - Merge a main/develop
-     - Deploy automático a staging
-     - Validación por QA
-           ↓
-       ¿Aprobado?
-       ├─ NO → Corregir en nueva iteración
-       └─ SI ↓
-   [ETAPA 6: Deploy Producción]
-     - Pre-deployment checklist
-     - Ejecutar deployment
-     - Smoke tests
-     - Monitoreo (2 horas)
-           ↓
-       ¿Exitoso?
-       ├─ NO → Rollback (PROCED-ROLLBACK-001)
-       └─ SI ↓
-   [ETAPA 7: Post-Deployment]
-     - Cerrar issue
-     - Actualizar docs
-     - Registrar métricas DORA
-           ↓
-   [Feature en Producción]
+ [Issue en GitHub]
+ ↓
+ [ETAPA 1: Análisis]
+ - Analizar requisitos
+ - Diseñar solución
+ - Crear branch
+ ↓
+ [ETAPA 2: Implementación]
+ - TDD: Red → Green → Refactor
+ - Ejecutar linters
+ - Verificar coverage
+ ↓
+ [ETAPA 3: PR Preparation]
+ - Commit con Conventional Commits
+ - Push a remote
+ - Crear Pull Request
+ ↓
+ [ETAPA 4: Code Review]
+ - CI/CD automático
+ - Revisión manual por pares
+ - Correcciones si necesario
+ - Aprobación (2+ reviewers)
+ ↓
+ [ETAPA 5: Merge & Deploy Staging]
+ - Merge a main/develop
+ - Deploy automático a staging
+ - Validación por QA
+ ↓
+ ¿Aprobado?
+ ├─ NO → Corregir en nueva iteración
+ └─ SI ↓
+ [ETAPA 6: Deploy Producción]
+ - Pre-deployment checklist
+ - Ejecutar deployment
+ - Smoke tests
+ - Monitoreo (2 horas)
+ ↓
+ ¿Exitoso?
+ ├─ NO → Rollback (PROCED-ROLLBACK-001)
+ └─ SI ↓
+ [ETAPA 7: Post-Deployment]
+ - Cerrar issue
+ - Actualizar docs
+ - Registrar métricas DORA
+ ↓
+ [Feature en Producción]
 
 --------------
 
@@ -519,33 +519,33 @@ KPIs Principales
 ~~~~~~~~~~~~~~~~
 
 +-----------------------+--------------------+-------------------------+
-| Métrica               | Target             | Medición                |
+| Métrica | Target | Medición |
 +=======================+====================+=========================+
-| **Lead Time for       | < 3 días           | Desde commit hasta      |
-| Changes**             |                    | producción              |
+| **Lead Time for | < 3 días | Desde commit hasta |
+| Changes** | | producción |
 +-----------------------+--------------------+-------------------------+
-| **Deployment          | 2-3 por semana     | Deployments a           |
-| Frequency**           |                    | producción              |
+| **Deployment | 2-3 por semana | Deployments a |
+| Frequency** | | producción |
 +-----------------------+--------------------+-------------------------+
-| **Change Failure      | < 15%              | % deployments que       |
-| Rate**                |                    | requieren rollback      |
+| **Change Failure | < 15% | % deployments que |
+| Rate** | | requieren rollback |
 +-----------------------+--------------------+-------------------------+
-| **Time to Restore**   | < 2 horas          | Tiempo para recuperar   |
-|                       |                    | de fallo                |
+| **Time to Restore** | < 2 horas | Tiempo para recuperar |
+| | | de fallo |
 +-----------------------+--------------------+-------------------------+
-| **Code Review Time**  | < 24 horas         | Desde PR hasta merge    |
+| **Code Review Time** | < 24 horas | Desde PR hasta merge |
 +-----------------------+--------------------+-------------------------+
-| **Test Coverage**     | >= 80%             | Coverage de tests       |
-|                       |                    | unitarios               |
+| **Test Coverage** | >= 80% | Coverage de tests |
+| | | unitarios |
 +-----------------------+--------------------+-------------------------+
 
 Métricas Secundarias
 ~~~~~~~~~~~~~~~~~~~~
 
--  Tiempo promedio por etapa
--  Número de iteraciones en code review
--  Número de bugs post-deployment
--  Satisfacción del equipo con el proceso
+- Tiempo promedio por etapa
+- Número de iteraciones en code review
+- Número de bugs post-deployment
+- Satisfacción del equipo con el proceso
 
 --------------
 
@@ -588,29 +588,29 @@ HERRAMIENTAS Y TECNOLOGÍAS
 Control de Versiones
 ~~~~~~~~~~~~~~~~~~~~
 
--  **Git**: Control de versiones
--  **GitHub**: Hosting, PRs, Issues, Actions
+- **Git**: Control de versiones
+- **GitHub**: Hosting, PRs, Issues, Actions
 
 CI/CD
 ~~~~~
 
--  **GitHub Actions**: 25 workflows configurados
--  **pytest**: Testing backend
--  **Jest**: Testing frontend
--  **Black/isort/flake8**: Linters Python
+- **GitHub Actions**: 25 workflows configurados
+- **pytest**: Testing backend
+- **Jest**: Testing frontend
+- **Black/isort/flake8**: Linters Python
 
 Deployment
 ~~~~~~~~~~
 
--  **Vagrant**: Ambiente local
--  **DevContainer**: Desarrollo en contenedor
--  (Producción: TBD - definir stack de deployment)
+- **Vagrant**: Ambiente local
+- **DevContainer**: Desarrollo en contenedor
+- (Producción: TBD - definir stack de deployment)
 
 Monitoreo
 ~~~~~~~~~
 
--  **Logs**: python-json-logger
--  **Métricas DORA**: Scripts en ``dora_metrics/``
+- **Logs**: python-json-logger
+- **Métricas DORA**: Scripts en ``dora_metrics/``
 
 --------------
 
@@ -706,7 +706,7 @@ Problema: CI/CD Falla en PR
 **Causa común**: Tests fallan, linters no pasan
 
 **Solución**: 1. Revisar logs de GitHub Actions 2. Ejecutar localmente:
-``bash    pytest    black --check callcentersite/    flake8 callcentersite/``
+``bash pytest black --check callcentersite/ flake8 callcentersite/``
 3. Corregir errores 4. Push de correcciones 5. CI/CD se re-ejecuta
 automáticamente
 
@@ -718,10 +718,10 @@ Problema: Merge Conflicts
 **Causa común**: Branch desactualizado con main
 
 **Solución**: 1. Actualizar branch local:
-``bash    git checkout feature/ISSUE-123    git fetch origin    git merge origin/main``
+``bash git checkout feature/ISSUE-123 git fetch origin git merge origin/main``
 2. Resolver conflicts manualmente 3. Ejecutar tests (asegurar que siguen
 pasando) 4. Push de resolución:
-``bash    git push origin feature/ISSUE-123``
+``bash git push origin feature/ISSUE-123``
 
 --------------
 
@@ -760,14 +760,14 @@ proceso según aprendizajes
 REFERENCIAS
 -----------
 
--  `Guía: Procesos vs
-   Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md>`__
--  `ADR-002: Estrategia de
-   Branching <../adr/ADR-002-branching-strategy.md>`__
--  `ADR-056: Agentic Design
-   Principles <../adr/ADR-056-agentic-design-principles.md>`__
--  `Guía de Estilo <../GUIA_ESTILO.md>`__
--  `Conventional Commits <https://www.conventionalcommits.org/>`__
+- `Guía: Procesos vs
+ Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md>`__
+- `ADR-002: Estrategia de
+ Branching <../adr/ADR-002-branching-strategy.md>`__
+- `ADR-056: Agentic Design
+ Principles <../adr/ADR-056-agentic-design-principles.md>`__
+- `Guía de Estilo <../GUIA_ESTILO.md>`__
+- `Conventional Commits <https://www.conventionalcommits.org/>`__
 
 --------------
 
@@ -777,10 +777,10 @@ CHANGELOG
 v1.0.0 (2025-11-17)
 ~~~~~~~~~~~~~~~~~~~
 
--  Versión inicial del proceso
--  Definición de 7 etapas
--  Métricas DORA incluidas
--  Casos especiales documentados
+- Versión inicial del proceso
+- Definición de 7 etapas
+- Métricas DORA incluidas
+- Casos especiales documentados
 
 --------------
 

@@ -1,14 +1,14 @@
 .. meta::
-   :artefacto: PROCED_GOB_007
-   :tipo: Procedimiento
-   :dominio: normativa
-   :subdominio: procedimientos
-   :estado: Aprobado
-   :version: 1.0.0
-   :fecha_creacion: 2026-01-07
-   :ultimo_cambio: 2026-04-28
-   :autor: Equipo IACT
-   :clasificacion: Interno
+ :artefacto: PROCED_GOB_007
+ :tipo: Procedimiento
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
 PROCED-GOB-007: Consolidacion de Ramas Git
 ==========================================
@@ -31,20 +31,20 @@ actualizado.
 1.2 Problemas que Resuelve
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Acumulacion de ramas obsoletas o completamente integradas
--  Dificultad para identificar el estado real del proyecto
--  Trabajo duplicado en multiples ramas
--  Falta de claridad sobre que cambios estan activos vs integrados
--  Fragmentacion del conocimiento entre ramas
+- Acumulacion de ramas obsoletas o completamente integradas
+- Dificultad para identificar el estado real del proyecto
+- Trabajo duplicado en multiples ramas
+- Falta de claridad sobre que cambios estan activos vs integrados
+- Fragmentacion del conocimiento entre ramas
 
 1.3 Beneficios Esperados
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Repositorio limpio y mantenible
--  Rama consolidada con todo el trabajo actualizado
--  Reduccion minima de 50% en numero de ramas activas
--  Mejor visibilidad del estado del proyecto
--  Facilita onboarding de nuevos desarrolladores
+- Repositorio limpio y mantenible
+- Rama consolidada con todo el trabajo actualizado
+- Reduccion minima de 50% en numero de ramas activas
+- Mejor visibilidad del estado del proyecto
+- Facilita onboarding de nuevos desarrolladores
 
 --------------
 
@@ -54,27 +54,27 @@ actualizado.
 2.1 Incluye
 ~~~~~~~~~~~
 
--  Analisis de todas las ramas feature/, fix/, docs/, claude/, copilot/
--  Identificacion de ramas completamente integradas
--  Identificacion de cambios unicos pendientes de integracion
--  Creacion de plan de consolidacion
--  Ejecucion de integraciones y limpieza
--  Validacion y documentacion de resultados
+- Analisis de todas las ramas feature/, fix/, docs/, claude/, copilot/
+- Identificacion de ramas completamente integradas
+- Identificacion de cambios unicos pendientes de integracion
+- Creacion de plan de consolidacion
+- Ejecucion de integraciones y limpieza
+- Validacion y documentacion de resultados
 
 2.2 Excluye
 ~~~~~~~~~~~
 
--  Ramas protegidas: main, docs
--  Rama principal de desarrollo: develop (se mantiene, no se elimina)
--  Ramas con trabajo en progreso activo (< 7 dias)
--  Ramas bloqueadas por PRs abiertos
+- Ramas protegidas: main, docs
+- Rama principal de desarrollo: develop (se mantiene, no se elimina)
+- Ramas con trabajo en progreso activo (< 7 dias)
+- Ramas bloqueadas por PRs abiertos
 
 2.3 Frecuencia de Ejecucion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Regular:** Cada 3 meses (trimestral)
--  **Ad-hoc:** Cuando numero de ramas activas > 15
--  **Emergencia:** Antes de releases importantes
+- **Regular:** Cada 3 meses (trimestral)
+- **Ad-hoc:** Cuando numero de ramas activas > 15
+- **Emergencia:** Antes de releases importantes
 
 --------------
 
@@ -85,19 +85,19 @@ actualizado.
 ~~~~~~~~~~~~~~~
 
 +---------------------------------+----------+-----------+---------------+------------+
-| Actividad                       | Analista | Tech Lead | Desarrollador | Arquitecto |
+| Actividad | Analista | Tech Lead | Desarrollador | Arquitecto |
 +=================================+==========+===========+===============+============+
-| Ejecutar analisis de ramas      | R        | C         | I             | I          |
+| Ejecutar analisis de ramas | R | C | I | I |
 +---------------------------------+----------+-----------+---------------+------------+
-| Generar plan de consolidacion   | R        | A         | I             | C          |
+| Generar plan de consolidacion | R | A | I | C |
 +---------------------------------+----------+-----------+---------------+------------+
-| Aprobar plan                    | I        | A         | I             | C          |
+| Aprobar plan | I | A | I | C |
 +---------------------------------+----------+-----------+---------------+------------+
-| Ejecutar tareas de integracion  | I        | C         | R             | I          |
+| Ejecutar tareas de integracion | I | C | R | I |
 +---------------------------------+----------+-----------+---------------+------------+
-| Validar resultados              | C        | A         | R             | C          |
+| Validar resultados | C | A | R | C |
 +---------------------------------+----------+-----------+---------------+------------+
-| Documentar lecciones aprendidas | R        | A         | C             | I          |
+| Documentar lecciones aprendidas | R | A | C | I |
 +---------------------------------+----------+-----------+---------------+------------+
 
 **Leyenda:** - R: Responsable de ejecutar - A: Aprobador final - C:
@@ -122,26 +122,26 @@ recuperacion
 4.1 Tecnicos
 ~~~~~~~~~~~~
 
--  ☐ Acceso al repositorio con permisos de escritura
--  ☐ Git 2.x o superior instalado
--  ☐ Conexion estable a repositorio remoto
--  ☐ Bash shell disponible (Linux/Mac/WSL)
+- ☐ Acceso al repositorio con permisos de escritura
+- ☐ Git 2.x o superior instalado
+- ☐ Conexion estable a repositorio remoto
+- ☐ Bash shell disponible (Linux/Mac/WSL)
 
 4.2 Organizacionales
 ~~~~~~~~~~~~~~~~~~~~
 
--  ☐ Bloque de tiempo reservado (3-4 horas)
--  ☐ Notificacion al equipo sobre consolidacion planificada
--  ☐ No hay trabajo critico en progreso en ramas a consolidar
--  ☐ Backlog de PRs revisado y cerrado
+- ☐ Bloque de tiempo reservado (3-4 horas)
+- ☐ Notificacion al equipo sobre consolidacion planificada
+- ☐ No hay trabajo critico en progreso en ramas a consolidar
+- ☐ Backlog de PRs revisado y cerrado
 
 4.3 Conocimientos
 ~~~~~~~~~~~~~~~~~
 
--  ☐ Git: merge, rebase, cherry-pick, reset
--  ☐ Resolucion de conflictos
--  ☐ Estrategias de rollback
--  ☐ Estructura del proyecto IACT
+- ☐ Git: merge, rebase, cherry-pick, reset
+- ☐ Resolucion de conflictos
+- ☐ Estrategias de rollback
+- ☐ Estructura del proyecto IACT
 
 --------------
 
@@ -156,7 +156,7 @@ Paso 1.1: Actualizar Referencias Locales
 
 .. code:: bash
 
-   git fetch --all --prune
+ git fetch --all --prune
 
 **Criterio de Exito:** Referencias remotas actualizadas sin errores
 
@@ -165,8 +165,8 @@ Paso 1.2: Listar Ramas Activas
 
 .. code:: bash
 
-   # Crear script de analisis
-   git branch -r | grep -v 'main\|docs\|HEAD' > /tmp/ramas_activas.txt
+ # Crear script de analisis
+ git branch -r | grep -v 'main\|docs\|HEAD' > /tmp/ramas_activas.txt
 
 **Criterio de Exito:** Lista de ramas generada
 
@@ -177,14 +177,14 @@ Para cada rama en la lista:
 
 .. code:: bash
 
-   # Ver commits unicos
-   git log <rama-base>..<rama-analizar> --oneline
+ # Ver commits unicos
+ git log <rama-base>..<rama-analizar> --oneline
 
-   # Ver archivos modificados
-   git diff --name-status <rama-base>...<rama-analizar>
+ # Ver archivos modificados
+ git diff --name-status <rama-base>...<rama-analizar>
 
-   # Ver estadisticas
-   git diff --stat <rama-base>...<rama-analizar>
+ # Ver estadisticas
+ git diff --stat <rama-base>...<rama-analizar>
 
 **Documentar:** - Commits unicos - Archivos modificados - Lineas
 agregadas/eliminadas - Ultima fecha de modificacion
@@ -205,9 +205,9 @@ Crear documento en estructura:
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/
-   ├── ANALISIS-RAMAS-YYYY-MM-DD.md
-   └── (otros archivos se agregaran en siguientes pasos)
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/
+ ├── ANALISIS-RAMAS-YYYY-MM-DD.md
+ └── (otros archivos se agregaran en siguientes pasos)
 
 **Template:** Usar QA-ANALISIS-RAMAS-001 como referencia
 
@@ -255,7 +255,7 @@ Crear documento:
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
 
 **Contenido minimo:** - Objetivo y justificacion - Fases detalladas -
 Cronograma - Matriz de riesgos - Criterios de validacion - Plan de
@@ -282,29 +282,29 @@ Para cada tarea, crear archivo:
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/TASK-NNN-descripcion.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/TASK-NNN-descripcion.md
 
 **Estructura de cada TASK:**
 
 .. code:: markdown
 
-   ---
-   id: TASK-QA-RAMAS-NNN
-   tipo: tarea
-   fase: FASE_X
-   prioridad: CRITICA|ALTA|MEDIA|BAJA
-   duracion_estimada: Xmin
-   dependencias: [TASK-NNN, ...]
-                                
+ ---
+ id: TASK-QA-RAMAS-NNN
+ tipo: tarea
+ fase: FASE_X
+ prioridad: CRITICA|ALTA|MEDIA|BAJA
+ duracion_estimada: Xmin
+ dependencias: [TASK-NNN, ...]
+ 
 
-   # Objetivo
-   # Prerequisitos
-   # Pasos de Ejecucion (con comandos exactos)
-   # Criterios de Exito
-   # Validacion
-   # Rollback
-   # Evidencias a Capturar
-   # Checklist
+ # Objetivo
+ # Prerequisitos
+ # Pasos de Ejecucion (con comandos exactos)
+ # Criterios de Exito
+ # Validacion
+ # Rollback
+ # Evidencias a Capturar
+ # Checklist
 
 Paso 3.3: Vincular con Agentes (Opcional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -320,7 +320,7 @@ Documentar todas las tareas creadas en:
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/INDICE.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/INDICE.md
 
 **Artefactos:** TASK-001.md a TASK-NNN.md + INDICE.md
 
@@ -332,9 +332,9 @@ ETAPA 4: APROBACION (15 minutos)
 Paso 4.1: Presentar Plan a Tech Lead
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Compartir ANALISIS y PLAN
--  Revisar riesgos identificados
--  Confirmar cronograma
+- Compartir ANALISIS y PLAN
+- Revisar riesgos identificados
+- Confirmar cronograma
 
 Paso 4.2: Obtener Aprobaciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -358,8 +358,8 @@ Paso 5.1: Crear Backup de Seguridad
 
 .. code:: bash
 
-   git tag -a backup-consolidacion-YYYY-MM-DD -m "Backup pre-consolidacion"
-   git push origin backup-consolidacion-YYYY-MM-DD
+ git tag -a backup-consolidacion-YYYY-MM-DD -m "Backup pre-consolidacion"
+ git push origin backup-consolidacion-YYYY-MM-DD
 
 **CRITICO:** No continuar sin backup exitoso
 
@@ -400,35 +400,35 @@ ETAPA 6: VALIDACION FINAL (30 minutos)
 Paso 6.1: Checklist de Validacion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  ☐ Todas las tareas marcadas como completadas
--  ☐ git status muestra working tree clean
--  ☐ Numero de ramas reducido segun objetivo
--  ☐ Rama consolidada tiene commits esperados
--  ☐ Tests base pasan (si aplica)
--  ☐ No hay archivos huerfanos en raiz
+- ☐ Todas las tareas marcadas como completadas
+- ☐ git status muestra working tree clean
+- ☐ Numero de ramas reducido segun objetivo
+- ☐ Rama consolidada tiene commits esperados
+- ☐ Tests base pasan (si aplica)
+- ☐ No hay archivos huerfanos en raiz
 
 Paso 6.2: Validacion Tecnica
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   # Contar ramas antes/despues
-   git branch -r | grep -v 'main\|docs\|HEAD' | wc -l
+ # Contar ramas antes/despues
+ git branch -r | grep -v 'main\|docs\|HEAD' | wc -l
 
-   # Verificar integridad
-   git fsck
+ # Verificar integridad
+ git fsck
 
-   # Ver commits nuevos en rama consolidada
-   git log --since="1 day ago" --oneline
+ # Ver commits nuevos en rama consolidada
+ git log --since="1 day ago" --oneline
 
 Paso 6.3: Sincronizar con develop (si aplica)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
-   git checkout develop
-   git merge <rama-consolidada> --no-ff
-   git push origin develop
+ git checkout develop
+ git merge <rama-consolidada> --no-ff
+ git push origin develop
 
 --------------
 
@@ -440,7 +440,7 @@ Paso 7.1: Crear Reporte de Ejecucion
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/REPORTE-EJECUCION-YYYY-MM-DD.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/REPORTE-EJECUCION-YYYY-MM-DD.md
 
 **Contenido:** - Fecha y hora de ejecucion - Tareas completadas
 (N/total) - Tiempo real vs estimado - Problemas encontrados y soluciones
@@ -471,7 +471,7 @@ consolidacion programada
 
 ::
 
-   docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/
 
 Donde NNN = numero secuencial (001, 002, …)
 
@@ -479,24 +479,24 @@ Donde NNN = numero secuencial (001, 002, …)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 ====================================== ======== ======= ===========
-Archivo                                Tipo     Cuando  Responsable
+Archivo Tipo Cuando Responsable
 ====================================== ======== ======= ===========
-INDICE.md                              Indice   Inicio  Analista
-ANALISIS-RAMAS-YYYY-MM-DD.md           Analisis Etapa 1 Analista
-PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md Plan     Etapa 2 Analista
-TASK-NNN-\*.md                         Tareas   Etapa 3 Analista
-REPORTE-EJECUCION-YYYY-MM-DD.md        Reporte  Etapa 7 Ejecutor
+INDICE.md Indice Inicio Analista
+ANALISIS-RAMAS-YYYY-MM-DD.md Analisis Etapa 1 Analista
+PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md Plan Etapa 2 Analista
+TASK-NNN-\*.md Tareas Etapa 3 Analista
+REPORTE-EJECUCION-YYYY-MM-DD.md Reporte Etapa 7 Ejecutor
 ====================================== ======== ======= ===========
 
 6.3 Artefactos Git
 ~~~~~~~~~~~~~~~~~~
 
 =================================== ========================
-Artefacto                           Proposito
+Artefacto Proposito
 =================================== ========================
 Tag backup-consolidacion-YYYY-MM-DD Punto de restauracion
-Commits de merge                    Integraciones realizadas
-Ramas eliminadas                    Documentadas en reporte
+Commits de merge Integraciones realizadas
+Ramas eliminadas Documentadas en reporte
 =================================== ========================
 
 --------------
@@ -507,26 +507,26 @@ Ramas eliminadas                    Documentadas en reporte
 7.1 Cuantitativos
 ~~~~~~~~~~~~~~~~~
 
--  ☐ Reduccion minima 50% en numero de ramas activas
--  ☐ Todas las tareas del plan completadas (100%)
--  ☐ 0 conflictos de merge sin resolver
--  ☐ Tiempo real dentro de +20% del estimado
+- ☐ Reduccion minima 50% en numero de ramas activas
+- ☐ Todas las tareas del plan completadas (100%)
+- ☐ 0 conflictos de merge sin resolver
+- ☐ Tiempo real dentro de +20% del estimado
 
 7.2 Cualitativos
 ~~~~~~~~~~~~~~~~
 
--  ☐ Rama consolidada funcional y estable
--  ☐ Tests base pasando (si aplica)
--  ☐ Equipo notificado y satisfecho
--  ☐ Documentacion completa y clara
+- ☐ Rama consolidada funcional y estable
+- ☐ Tests base pasando (si aplica)
+- ☐ Equipo notificado y satisfecho
+- ☐ Documentacion completa y clara
 
 7.3 Metricas de Calidad
 ~~~~~~~~~~~~~~~~~~~~~~~
 
--  ☐ Tag de backup creado exitosamente
--  ☐ Working tree limpio (git status)
--  ☐ No archivos huerfanos en raiz
--  ☐ Lecciones aprendidas documentadas
+- ☐ Tag de backup creado exitosamente
+- ☐ Working tree limpio (git status)
+- ☐ No archivos huerfanos en raiz
+- ☐ Lecciones aprendidas documentadas
 
 --------------
 
@@ -537,56 +537,56 @@ Ramas eliminadas                    Documentadas en reporte
 ~~~~~~~~~~~~~~~~~~~~
 
 +--------+--------------+---------+------------+---------------------+
-| Riesgo | Probabilidad | Impacto | Mitigacion | Plan Contingencia   |
+| Riesgo | Probabilidad | Impacto | Mitigacion | Plan Contingencia |
 +========+==============+=========+============+=====================+
-| Conf   | MEDIA        | ALTO    | Analisis   | Resolucion manual + |
-| lictos |              |         | previo de  | backup              |
-| de     |              |         | conflictos |                     |
-| merge  |              |         |            |                     |
-| com    |              |         |            |                     |
-| plejos |              |         |            |                     |
+| Conf | MEDIA | ALTO | Analisis | Resolucion manual + |
+| lictos | | | previo de | backup |
+| de | | | conflictos | |
+| merge | | | | |
+| com | | | | |
+| plejos | | | | |
 +--------+--------------+---------+------------+---------------------+
-| P      | BAJA         | CRITICO | Tag backup | Restaurar desde     |
-| erdida |              |         | o          | backup              |
-| de     |              |         | bligatorio |                     |
-| t      |              |         |            |                     |
-| rabajo |              |         |            |                     |
-| por    |              |         |            |                     |
-| error  |              |         |            |                     |
+| P | BAJA | CRITICO | Tag backup | Restaurar desde |
+| erdida | | | o | backup |
+| de | | | bligatorio | |
+| t | | | | |
+| rabajo | | | | |
+| por | | | | |
+| error | | | | |
 +--------+--------------+---------+------------+---------------------+
-| Tests  | MEDIA        | MEDIO   | Validar    | Revertir            |
-| fallan |              |         | tras cada  | integracion         |
-| post   |              |         | fase       | problematica        |
-| -integ |              |         |            |                     |
-| racion |              |         |            |                     |
+| Tests | MEDIA | MEDIO | Validar | Revertir |
+| fallan | | | tras cada | integracion |
+| post | | | fase | problematica |
+| -integ | | | | |
+| racion | | | | |
 +--------+--------------+---------+------------+---------------------+
-| Falta  | MEDIA        | BAJO    | Buffer 20% | Completar en        |
-| tiempo |              |         | adicional  | siguiente sesion    |
-| es     |              |         |            |                     |
-| timado |              |         |            |                     |
+| Falta | MEDIA | BAJO | Buffer 20% | Completar en |
+| tiempo | | | adicional | siguiente sesion |
+| es | | | | |
+| timado | | | | |
 +--------+--------------+---------+------------+---------------------+
 
 8.2 Riesgos Organizacionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-------------+---------------------+--------------+------------------+
-| Riesgo      | Probabilidad        | Impacto      | Mitigacion       |
+| Riesgo | Probabilidad | Impacto | Mitigacion |
 +=============+=====================+==============+==================+
-| Falta       | BAJA                | ALTO         | Involucrar desde |
-| aprobacion  |                     |              | analisis         |
-| de          |                     |              |                  |
-| s           |                     |              |                  |
-| takeholders |                     |              |                  |
+| Falta | BAJA | ALTO | Involucrar desde |
+| aprobacion | | | analisis |
+| de | | | |
+| s | | | |
+| takeholders | | | |
 +-------------+---------------------+--------------+------------------+
-| Trabajo     | MEDIA               | ALTO         | Validar con      |
-| activo en   |                     |              | equipo antes     |
-| ramas a     |                     |              |                  |
-| eliminar    |                     |              |                  |
+| Trabajo | MEDIA | ALTO | Validar con |
+| activo en | | | equipo antes |
+| ramas a | | | |
+| eliminar | | | |
 +-------------+---------------------+--------------+------------------+
-| I           | BAJA                | MEDIO        | Bloque de tiempo |
-| nterrupcion |                     |              | reservado        |
-| durante     |                     |              |                  |
-| ejecucion   |                     |              |                  |
+| I | BAJA | MEDIO | Bloque de tiempo |
+| nterrupcion | | | reservado |
+| durante | | | |
+| ejecucion | | | |
 +-------------+---------------------+--------------+------------------+
 
 --------------
@@ -626,41 +626,41 @@ Ramas eliminadas                    Documentadas en reporte
 10.1 Herramientas Requeridas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Git 2.x+
--  Bash shell
--  Editor de texto (Markdown)
--  pytest (opcional, para tests)
+- Git 2.x+
+- Bash shell
+- Editor de texto (Markdown)
+- pytest (opcional, para tests)
 
 10.2 Templates de Referencia
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  QA-ANALISIS-RAMAS-001 (ejemplo completo)
--  PLAN-CONSOLIDACION-RAMAS-2025-11-17.md
--  TASK-001-crear-backup-seguridad.md
+- QA-ANALISIS-RAMAS-001 (ejemplo completo)
+- PLAN-CONSOLIDACION-RAMAS-2025-11-17.md
+- TASK-001-crear-backup-seguridad.md
 
 10.3 Documentos Relacionados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  PROCED-GOB-002: Actualizar documentacion
--  PROCED-GOB-005: Analisis de impacto de cambios
--  docs/gobernanza/metodologias/: Metodologias SDLC
+- PROCED-GOB-002: Actualizar documentacion
+- PROCED-GOB-005: Analisis de impacto de cambios
+- docs/gobernanza/metodologias/: Metodologias SDLC
 
 10.4 Comandos Git Utiles
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-   # Ver ramas no mergeadas
-   git branch -r --no-merged main
+ # Ver ramas no mergeadas
+ git branch -r --no-merged main
 
-   # Ver ramas mergeadas
-   git branch -r --merged main
+ # Ver ramas mergeadas
+ git branch -r --merged main
 
-   # Eliminar rama remota
-   git push origin --delete <rama>
+ # Eliminar rama remota
+ git push origin --delete <rama>
 
-   # Restaurar desde backup
-   git reset --hard backup-consolidacion-YYYY-MM-DD
+ # Restaurar desde backup
+ git reset --hard backup-consolidacion-YYYY-MM-DD
 
 --------------
 
@@ -670,17 +670,17 @@ Ramas eliminadas                    Documentadas en reporte
 Version 1.0.0 (2025-11-17)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Creacion inicial del procedimiento
--  Basado en ejecucion exitosa de QA-ANALISIS-RAMAS-001
--  7 etapas definidas
--  14 tareas ejemplo documentadas
+- Creacion inicial del procedimiento
+- Basado en ejecucion exitosa de QA-ANALISIS-RAMAS-001
+- 7 etapas definidas
+- 14 tareas ejemplo documentadas
 
 Proximas Versiones
 ~~~~~~~~~~~~~~~~~~
 
--  v1.1.0: Incorporar lecciones aprendidas de segunda ejecucion
--  v1.2.0: Automatizar pasos repetitivos con scripts
--  v2.0.0: Integracion con CI/CD para validacion automatica
+- v1.1.0: Incorporar lecciones aprendidas de segunda ejecucion
+- v1.2.0: Automatizar pasos repetitivos con scripts
+- v2.0.0: Integracion con CI/CD para validacion automatica
 
 --------------
 
@@ -688,11 +688,11 @@ Proximas Versiones
 ----------------
 
 =============== =========== ================ ==========
-Rol             Nombre      Firma            Fecha
+Rol Nombre Firma Fecha
 =============== =========== ================ ==========
-Autor           Claude Code \_\_\_\_\_\_\_\_ 2025-11-17
+Autor Claude Code \_\_\_\_\_\_\_\_ 2025-11-17
 Revisor Tecnico [Pendiente] \_\_\_\_\_\_\_\_ YYYY-MM-DD
-Aprobador       Tech Lead   \_\_\_\_\_\_\_\_ YYYY-MM-DD
+Aprobador Tech Lead \_\_\_\_\_\_\_\_ YYYY-MM-DD
 =============== =========== ================ ==========
 
 --------------
