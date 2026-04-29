@@ -1,13 +1,14 @@
 .. meta::
  :artefacto: ARQ-MOD-008
- :tipo: Guia
+ :tipo: Modulo Arquitectonico
  :dominio: arquitectura-tecnica
  :subdominio: modulos
  :estado: Aprobado
  :version: 1.0.0
- :fecha_creacion: 2026-04-27
- :autor: Equipo IACT
- :clasificacion: Interno
+ :fecha_creacion: 2025-12-22
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. =============================================================================
 .. ARQ_MOD_008_SYS_LOGS.rst
@@ -18,19 +19,6 @@
 ==========================================
 ARQ_MOD_008: Bitacoras Tecnicas (SYS_LOGS)
 ==========================================
-
-.. meta::
- :artefacto: ARQ_MOD_008
- :tipo: Modulo Arquitectonico
- :dominio: arquitectura_tecnica
- :subdominio: modulos
- :estado: Vigente
- :version: 1.0.0
- :fecha_creacion: 2025-12-22
- :ultimo_cambio: 2026-04-29
- :autor: NestorMonroy
- :clasificacion: Critico
-
 
 .. contents:: Contenido
  :local:

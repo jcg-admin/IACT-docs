@@ -7,6 +7,7 @@
  :version: 1.0.0
  :fecha_creacion: 2026-01-07
  :autor: Equipo IACT
+ :clasificacion: Interno
 
 .. _fr-001-05:
 

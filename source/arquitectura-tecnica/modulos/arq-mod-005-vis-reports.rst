@@ -1,13 +1,14 @@
 .. meta::
  :artefacto: ARQ-MOD-005
- :tipo: Guia
+ :tipo: Modulo Arquitectonico
  :dominio: arquitectura-tecnica
  :subdominio: modulos
  :estado: Aprobado
  :version: 1.0.0
- :fecha_creacion: 2026-04-27
- :autor: Equipo IACT
- :clasificacion: Interno
+ :fecha_creacion: 2025-12-22
+ :ultimo_cambio: 2026-04-29
+ :autor: NestorMonroy
+ :clasificacion: Critico
 
 .. =============================================================================
 .. ARQ_MOD_005_VIS_REPORTS.rst
@@ -18,19 +19,6 @@
 ===================================================
 ARQ_MOD_005: Visualizacion y Reportes (VIS_REPORTS)
 ===================================================
-
-.. meta::
- :artefacto: ARQ_MOD_005
- :tipo: Modulo Arquitectonico
- :dominio: arquitectura_tecnica
- :subdominio: modulos
- :estado: Vigente
- :version: 1.0.0
- :fecha_creacion: 2025-12-22
- :ultimo_cambio: 2026-04-29
- :autor: NestorMonroy
- :clasificacion: Critico
-
 
 .. contents:: Contenido
  :local:

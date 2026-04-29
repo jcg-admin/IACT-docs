@@ -1,7 +1,9 @@
 .. meta::
-   :tipo: Caso de Uso
-   :dominio: requisitos
-   :estado: Validado
+   :artefacto: Ejemplo_Sistema_Completo
+   :tipo: Test/Ejemplo
+   :dominio: plantuml-guide
+   :subdominio: ejemplos
+   :estado: Aprobado
    :version: 1.0.0
    :fecha_creacion: 2026-04-25
    :autor: Equipo IACT
