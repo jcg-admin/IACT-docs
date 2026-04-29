@@ -4,11 +4,13 @@ work_package: 2026-04-28-05-28-46-source-rebuild-arquitectura-tecnica
 parent_wp: 2026-04-28-01-58-08-source-rebuild-strategy
 parent_relationship: child #7 of 16
 created_at: 2026-04-28 05:28:46
-current_phase: Phase 1 — DISCOVER
+current_phase: Phase 11 — TRACK (CERRADO v1 minimal — RBAC migrado)
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: cerrado
 author: NestorMonroy
-status: Borrador (no iniciado)
+status: CERRADO v1 minimal — 2026-04-29 (MODELO_RBAC migrado .md→.rst, otras secciones diferidas a v2)
+opened_at: 2026-04-29 06:30:00
+closed_at: 2026-04-29 06:45:00
 ```
 
 # WP-hijo #7 — Source Rebuild: arquitectura_tecnica

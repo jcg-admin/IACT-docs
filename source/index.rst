@@ -73,6 +73,12 @@ Contenido publicado
 
    requisitos/index
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Arquitectura Tecnica
+
+   arquitectura_tecnica/index
+
 ----
 
 Índices y Búsqueda
