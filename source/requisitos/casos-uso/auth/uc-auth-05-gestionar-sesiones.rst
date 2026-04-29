@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_AUTH_05
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: auth
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Auth
- :uc_id: UC_AUTH_05
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_003, CNST_025
 
 ==============================

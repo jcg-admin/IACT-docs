@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_ACC_09
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: access
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Access
- :uc_id: UC_ACC_09
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_025
 
 =================================

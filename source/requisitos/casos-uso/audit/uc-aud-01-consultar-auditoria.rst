@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_AUD_01
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: audit
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Audit
- :uc_id: UC_AUD_01
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_025, CNST_027
 
 ==============================

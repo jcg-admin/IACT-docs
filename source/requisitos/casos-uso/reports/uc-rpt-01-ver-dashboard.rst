@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_RPT_01
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: reports
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Reports
- :uc_id: UC_RPT_01
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_007, CNST_008
 
 ========================

@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_LOG_03
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: logs
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Logs
- :uc_id: UC_LOG_03
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_024
 
 ======================

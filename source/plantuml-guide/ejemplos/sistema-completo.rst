@@ -1,8 +1,11 @@
 .. meta::
-   :project: IACT - Sistema de Dashboard Analytics
+   :tipo: Caso de Uso
+   :dominio: requisitos
+   :estado: Validado
    :version: 1.0.0
-   :date: 2026-04-25
-   :status: Validado
+   :fecha_creacion: 2026-04-25
+   :autor: Equipo IACT
+   :clasificacion: Interno
    :feature: plantuml-java-integration-impl
 
 =====================================================

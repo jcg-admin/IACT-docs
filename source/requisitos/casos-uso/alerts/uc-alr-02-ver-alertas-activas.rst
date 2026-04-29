@@ -1,10 +1,13 @@
 .. meta::
- :project: IACT - Call Center Analytics
+ :artefacto: UC_ALR_02
+ :tipo: Caso de Uso
+ :dominio: requisitos
+ :subdominio: alerts
+ :estado: Aprobado
  :version: 4.0.0
- :date: 2026-01-06
- :status: Aprobado
- :module: MOD_Alerts
- :uc_id: UC_ALR_02
+ :fecha_creacion: 2026-01-06
+ :autor: Equipo IACT
+ :clasificacion: Interno
  :normativa: CNST_001, CNST_007, CNST_008
 
 ==============================
