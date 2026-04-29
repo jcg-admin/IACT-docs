@@ -1,20 +1,20 @@
 .. meta::
- :artefacto: STD_Profesional_Documentacion
+ :artefacto: STD_009
  :tipo: Estándar
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
-.. _std-profesional-documentacion:
+.. _std-009:
 
-==============================
-STD: Documentación Profesional
-==============================
+=======================================
+STD_009: Documentación Profesional
+=======================================
 
 .. contents:: Contenido
  :depth: 3
@@ -282,7 +282,7 @@ de univocidad".
 
 - :ref:`std-001` — Documentación Sin Emojis (complementario:
   prohibición de emojis en documentación técnica).
-- :ref:`std-naming-identificadores` — Naming de identificadores
+- :ref:`std-008` — Naming de identificadores
   técnicos (complementario: aplica a identificadores de código,
   este STD aplica a narrativa de documentación).
 

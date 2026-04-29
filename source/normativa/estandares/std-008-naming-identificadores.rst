@@ -1,20 +1,20 @@
 .. meta::
- :artefacto: STD_Naming_Identificadores
+ :artefacto: STD_008
  :tipo: Estándar
  :dominio: normativa
  :subdominio: estandares
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-28
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-29
  :autor: Equipo IACT
  :clasificacion: Interno
 
-.. _std-naming-identificadores:
+.. _std-008:
 
-=======================================
-STD: Naming de Identificadores Técnicos
-=======================================
+==============================================
+STD_008: Naming de Identificadores Técnicos
+==============================================
 
 .. contents:: Contenido
  :depth: 3

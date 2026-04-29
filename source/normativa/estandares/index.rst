@@ -61,8 +61,8 @@ Los estándares cubren:
  std-002-nomenclatura-proyecto
  std-006-versionado-semantico
  std-007-convencion-naming
- std-naming-identificadores
- std-profesional-documentacion
+ std-008-naming-identificadores
+ std-009-profesional-documentacion
 
 .. toctree::
  :maxdepth: 2
