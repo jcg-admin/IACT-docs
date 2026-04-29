@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.3
-updated_at: 2026-04-29 06:35:00
+updated_at: 2026-04-29 06:45:26
 cold_boot: false
 current_epic: 12
 epic_name: methodology-recalibration (cerrada)
-current_work: ninguno (todos los WPs activos cerrados)
+current_work: .thyrox/context/work/2026-04-29-06-43-02-stop-hook-loop-investigation
 stage: idle
 stage_number: —
 current_phase: —
@@ -14,7 +14,7 @@ methodology_step: cerrado
 blockers: []
 last_completed_phase: ÉPICA 12 cerrada (methodology-recalibration) — 2026-04-29 06:00
 next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion"
-stage_sync_required: false
+stage_sync_required: true
 ```
 
 # IACT-docs — Estado de Sesión
