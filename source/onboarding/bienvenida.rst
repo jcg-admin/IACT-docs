@@ -24,7 +24,7 @@ de llamadas para call centers. Consume datos del sistema IVR del
 cliente (BD MySQL readonly) via ETL y los expone via dashboards y
 reportes (BD PostgreSQL + frontend React).
 
-Ver :doc:`/base_cognitiva/_metadata/META_04_Contexto_IACT` para
+Ver :doc:`/base-cognitiva/_metadata/meta-04-contexto-iact` para
 detalle completo.
 
 2. Stack del producto
@@ -48,7 +48,7 @@ detalle completo.
 3. Recursos clave
 =================
 
-- :doc:`/base_cognitiva/index` — vocabulario y fundamentos del
+- :doc:`/base-cognitiva/index` — vocabulario y fundamentos del
   proyecto.
 - :doc:`/normativa/index` — estandares, plantillas, procedimientos
   y restricciones del sistema.

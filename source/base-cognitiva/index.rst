@@ -39,7 +39,7 @@ Subdominios
  :maxdepth: 2
  :caption: Fundamentos Conceptuales
 
- _fundamentos_conceptuales/index
+ _fundamentos-conceptuales/index
 
 .. toctree::
  :maxdepth: 2
@@ -51,10 +51,10 @@ Subdominios
  :maxdepth: 2
  :caption: Ontología SBVR
 
- _ontologia_sbvr/index
+ _ontologia-sbvr/index
 
 .. toctree::
  :maxdepth: 2
  :caption: Taxonomías y Metamodelos
 
- _taxonomias_y_metamodelos/index
+ _taxonomias-y-metamodelos/index

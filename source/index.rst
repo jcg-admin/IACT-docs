@@ -45,7 +45,7 @@ Estado de la documentación
 .. note::
 
  La documentación del producto IACT está organizada en tres
- capas ortogonales (ver :doc:`base_cognitiva/_metadata/META_05_Estructura_Documental`):
+ capas ortogonales (ver :doc:`base-cognitiva/_metadata/meta-05-estructura-documental`):
 
  - **Capa 1 — Methodology / Governance:** standards, plantillas,
    procedimientos, restricciones, ADRs internos.
@@ -65,7 +65,7 @@ Contenido publicado
  :maxdepth: 2
  :caption: Base Cognitiva
 
- base_cognitiva/index
+ base-cognitiva/index
 
 .. toctree::
  :maxdepth: 2

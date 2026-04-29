@@ -38,11 +38,11 @@ Artefactos
  :maxdepth: 1
  :caption: Documentos de Metadata
 
- META_01_Identidad_Proyecto
- META_02_Clasificacion_Documental
- META_03_Fases_SDLC
- META_04_Contexto_IACT
- META_05_Estructura_Documental
+ meta-01-identidad-proyecto
+ meta-02-clasificacion-documental
+ meta-03-fases-sdlc
+ meta-04-contexto-iact
+ meta-05-estructura-documental
 
 Uso
 ----

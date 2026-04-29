@@ -172,7 +172,7 @@ v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 
 - Linter custom que valida vocabulario en docstrings y comentarios
 - Code review checklist
-- Glosario canonico (:doc:`/base_cognitiva/glosario` § H)
+- Glosario canonico (:doc:`/base-cognitiva/glosario` § H)
 
 3. Impacto en Sistema
 ---------------------
@@ -285,7 +285,7 @@ ADR-GOB-008. Ver
  * - **ADRs relacionados**
    - ADR-GOB-008 (RBAC Coexistencia, pendiente iteracion correspondiente)
  * - **Glosario canonico**
-   - :doc:`/base_cognitiva/glosario` § H
+   - :doc:`/base-cognitiva/glosario` § H
 
 9. Historial de Cambios
 -----------------------

@@ -252,7 +252,7 @@ Ante divulgación no autorizada de información clasificada:
  * - Documento
    - Referencia
  * - Identidad del Proyecto
-   - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`meta-01-identidad-proyecto`
  * - Política Corporativa de Seguridad
    - (Documento externo al sistema IACT)
  * - Roles y Responsabilidades IACT

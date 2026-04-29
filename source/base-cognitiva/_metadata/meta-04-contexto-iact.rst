@@ -249,9 +249,9 @@ R: Solo excepcionalmente y con aprobación. El formato estándar es .rst.
  * - Documento
    - Referencia
  * - Identidad del Proyecto
-   - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`meta-01-identidad-proyecto`
  * - Estructura Documental
-   - :doc:`META_05_Estructura_Documental`
+   - :doc:`meta-05-estructura-documental`
  * - Definiciones Oficiales
    - Ver seccion de Restricciones (CNST_001-031)
  * - Glosario IACT

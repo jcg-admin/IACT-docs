@@ -28,7 +28,7 @@ SBVR_05: Vocabulario Controlado
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
- y :doc:`/base_cognitiva/glosario` § H.
+ y :doc:`/base-cognitiva/glosario` § H.
 
  Los ejemplos legacy se preservan por valor pedagogico historico —
  ilustran la evolucion del modelo. NO deben citarse como referencia

@@ -29,7 +29,7 @@ SBVR_03 · Vocabulario Controlado
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
- y :doc:`/base_cognitiva/glosario` § H.
+ y :doc:`/base-cognitiva/glosario` § H.
 
  Los ejemplos legacy se preservan por valor pedagogico historico —
  ilustran la evolucion del modelo. NO deben citarse como referencia
@@ -465,9 +465,9 @@ Para agregar un nuevo término al vocabulario controlado:
  * - Documento
    - Referencia
  * - Conceptos Nucleares
-   - :doc:`SBVR_01_Conceptos_Nucleares`
+   - :doc:`sbvr-01-conceptos-nucleares`
  * - Tipos de Regla
-   - :doc:`SBVR_02_Fact_Types`
+   - :doc:`sbvr-02-fact-types`
  * - Modelo RBAC
    - Ver sección de Arquitectura (RBAC Flat NIST)
  * - Glosario IACT
@@ -501,8 +501,8 @@ Evita términos ambiguos o inconsistentes en requisitos/reglas_negocio/.
  :hidden:
  :maxdepth: 1
 
- SBVR_01_Conceptos_Nucleares
- SBVR_02_Fact_Types
- SBVR_03_Reglas_Estructurales
- SBVR_04_Reglas_Operativas
- SBVR_05_Vocabulario_Controlado
+ sbvr-01-conceptos-nucleares
+ sbvr-02-fact-types
+ sbvr-03-reglas-estructurales
+ sbvr-04-reglas-operativas
+ sbvr-05-vocabulario-controlado

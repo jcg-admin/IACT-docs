@@ -325,11 +325,11 @@ principales tipos de artefactos del modelo IACT:
  * - Documento
    - Referencia
  * - Identidad del Proyecto
-   - :doc:`META_01_Identidad_Proyecto`
+   - :doc:`meta-01-identidad-proyecto`
  * - Contexto IACT
-   - :doc:`META_04_Contexto_IACT`
+   - :doc:`meta-04-contexto-iact`
  * - Estructura Documental
-   - :doc:`META_05_Estructura_Documental`
+   - :doc:`meta-05-estructura-documental`
 
 --------------------
 

@@ -28,7 +28,7 @@ SBVR_01: Conceptos Nucleares
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
- y :doc:`/base_cognitiva/glosario` § H.
+ y :doc:`/base-cognitiva/glosario` § H.
 
  Los ejemplos legacy se preservan por valor pedagogico historico —
  ilustran la evolucion del modelo. NO deben citarse como referencia
@@ -729,7 +729,7 @@ Documentos Relacionados
 Fuentes
 ^^^^^^^
 
-- Modelo RBAC del sistema IACT — ver :doc:`/base_cognitiva/_taxonomias_y_metamodelos/metamodelos/MTM_03_Metamodelo_RBAC`.
+- Modelo RBAC del sistema IACT — ver :doc:`/base-cognitiva/_taxonomias-y-metamodelos/metamodelos/mtm-03-metamodelo-rbac`.
 - OMG SBVR 1.5 Specification.
 - Paper IBM: "SBVR Use Cases" (Linehan, 2008).
 

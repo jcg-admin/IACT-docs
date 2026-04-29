@@ -162,9 +162,9 @@ actualizados:
 - :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
   enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
   aplicabilidad a custom groups (D-RBAC-7).
-- :doc:`/base_cognitiva/glosario` § H "Vocabulario RBAC unificado"
+- :doc:`/base-cognitiva/glosario` § H "Vocabulario RBAC unificado"
   agrega los 8 terminos canonicos.
-- :doc:`/base_cognitiva/_taxonomias_y_metamodelos/metamodelos/MTM_03_Metamodelo_RBAC`
+- :doc:`/base-cognitiva/_taxonomias-y-metamodelos/metamodelos/mtm-03-metamodelo-rbac`
   corregido (drift "18 roles" v4.0 legacy → "42 funciones + 10 grupos"
   v5.2.x).
 

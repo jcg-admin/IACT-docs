@@ -40,7 +40,7 @@ Donde:
 ----------------
 
 **Tipo:** Regla de Calculo (categorizada en
-:doc:`/base_cognitiva/_fundamentos_conceptuales/FND_05_Jerarquia_4_Niveles`).
+:doc:`/base-cognitiva/_fundamentos-conceptuales/fnd-05-jerarquia-4-niveles`).
 
 Es una de las 3 BRs de tipo "Calculo" del catalogo IACT (junto con
 BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
@@ -114,6 +114,6 @@ Umbrales``.
 
 - **Fuente:** SLA de negocio del sistema IVR
 - **Documento:** referenciado en
-  :doc:`/base_cognitiva/_fundamentos_conceptuales/FND_05_Jerarquia_4_Niveles`
+  :doc:`/base-cognitiva/_fundamentos-conceptuales/fnd-05-jerarquia-4-niveles`
   como ejemplo canonico de regla de calculo.
 - **Fecha:** 2026-04-29 (creacion formal del archivo tras gap detectado)

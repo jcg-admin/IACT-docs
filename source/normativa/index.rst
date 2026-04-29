@@ -15,7 +15,7 @@ prohibido y por qué.
 
 Pertenece a la **Capa 1 — Methodology / Governance** de la
 arquitectura documental v2.0
-(ver :doc:`/base_cognitiva/_metadata/META_05_Estructura_Documental`).
+(ver :doc:`/base-cognitiva/_metadata/meta-05-estructura-documental`).
 
 Subdominios
 ===========

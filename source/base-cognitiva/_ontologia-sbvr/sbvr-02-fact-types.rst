@@ -28,7 +28,7 @@ SBVR_02: Fact Types (Tipos de Hechos)
 
  **Vocabulario canonico vigente:**
  :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
- y :doc:`/base_cognitiva/glosario` § H.
+ y :doc:`/base-cognitiva/glosario` § H.
 
  Los ejemplos legacy se preservan por valor pedagogico historico —
  ilustran la evolucion del modelo. NO deben citarse como referencia
@@ -788,7 +788,7 @@ Fuentes
 
 - OMG SBVR 1.5 Specification (Fact Types).
 - Modelo RBAC del sistema IACT — ver
-  :doc:`/base_cognitiva/_taxonomias_y_metamodelos/metamodelos/MTM_03_Metamodelo_RBAC`.
+  :doc:`/base-cognitiva/_taxonomias-y-metamodelos/metamodelos/mtm-03-metamodelo-rbac`.
 
 ----
 

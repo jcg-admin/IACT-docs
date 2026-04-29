@@ -214,13 +214,13 @@ con sistemas IVR.
  * - Documento
    - Referencia
  * - Clasificación Documental
-   - :doc:`META_02_Clasificacion_Documental`
+   - :doc:`meta-02-clasificacion-documental`
  * - Fases SDLC
-   - :doc:`META_03_Fases_SDLC`
+   - :doc:`meta-03-fases-sdlc`
  * - Contexto IACT
-   - :doc:`META_04_Contexto_IACT`
+   - :doc:`meta-04-contexto-iact`
  * - Estructura Documental
-   - :doc:`META_05_Estructura_Documental`
+   - :doc:`meta-05-estructura-documental`
 
 --------------------
 

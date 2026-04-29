@@ -198,11 +198,11 @@ Indice de Documentos
  :maxdepth: 1
  :caption: Fundamentos Conceptuales
 
- FND_00_Contexto_y_Jerarquia
- FND_01_Concepto_Requisito
- FND_02_Reglas_de_Negocio
- FND_03_Casos_de_Uso
- FND_04_Trazabilidad
- FND_05_Jerarquia_4_Niveles
- FND_06_Derivacion_vs_Transformacion
- FND_07_Requerimientos_Funcionales
+ fnd-00-contexto-y-jerarquia
+ fnd-01-concepto-requisito
+ fnd-02-reglas-de-negocio
+ fnd-03-casos-de-uso
+ fnd-04-trazabilidad
+ fnd-05-jerarquia-4-niveles
+ fnd-06-derivacion-vs-transformacion
+ fnd-07-requerimientos-funcionales

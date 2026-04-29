@@ -413,7 +413,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  3. Retornar TRUE si no hay conflicto
 
  La función implementa el principio de Separación de Funciones
- (concepto SoD definido en :doc:`/base_cognitiva/glosario`),
+ (concepto SoD definido en :doc:`/base-cognitiva/glosario`),
  pero su nombre describe la operación concreta (verificación
  de conflicto entre roles) en lugar de la abreviatura del
  principio.
