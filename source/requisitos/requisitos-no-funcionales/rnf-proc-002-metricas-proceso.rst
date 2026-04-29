@@ -1,8 +1,20 @@
-RNF-PROC-002_METRICAS_PROCESO.md
-================================
+.. meta::
+ :artefacto: RNF-PROC-002
+ :tipo: Requisito No Funcional
+ :dominio: requisitos
+ :subdominio: requisitos-no-funcionales
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-28
+ :ultimo_cambio: 2026-04-29
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
-Requisito No Funcional: Métricas y Reporting del SDLC (sin DORA)
-----------------------------------------------------------------
+.. _rnf-proc-002:
+
+================================================================
+RNF-PROC-002: Métricas y Reporting del SDLC (sin DORA)
+================================================================
 
 .. list-table::
    :header-rows: 1

@@ -1,8 +1,20 @@
-RNF-PROC-001_PROCESO_SDLC.md
-============================
+.. meta::
+ :artefacto: RNF-PROC-001
+ :tipo: Requisito No Funcional
+ :dominio: requisitos
+ :subdominio: requisitos-no-funcionales
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-28
+ :ultimo_cambio: 2026-04-29
+ :autor: Equipo IACT
+ :clasificacion: Interno
 
-Requisito No Funcional: Gobernanza del Proceso SDLC (sin agentes IA)
---------------------------------------------------------------------
+.. _rnf-proc-001:
+
+==================================================================
+RNF-PROC-001: Gobernanza del Proceso SDLC (sin agentes IA)
+==================================================================
 
 .. list-table::
    :header-rows: 1
