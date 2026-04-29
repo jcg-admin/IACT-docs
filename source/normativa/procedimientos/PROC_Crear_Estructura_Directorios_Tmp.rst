@@ -207,26 +207,26 @@ Antes de iniciar este procedimiento, verificar:
     :header-rows: 1
 
   * - Tipo
-  - Estructura
-  - Ejemplo
+    - Estructura
+    - Ejemplo
   * - FR
-  - Por modulo y UC
-  - /tmp/funcionales/auth/UC_001/
+    - Por modulo y UC
+    - /tmp/funcionales/auth/UC_001/
   * - TST
-  - Por modulo
-  - /tmp/pruebas/auth/
+    - Por modulo
+    - /tmp/pruebas/auth/
   * - UC
-  - Por modulo
-  - /tmp/casos_uso/auth/
+    - Por modulo
+    - /tmp/casos_uso/auth/
   * - BR
-  - Plana
-  - /tmp/reglas_negocio/
+    - Plana
+    - /tmp/reglas_negocio/
   * - PROC
-  - Plana
-  - /tmp/procedimientos/
+    - Plana
+    - /tmp/procedimientos/
   * - TPL
-  - Plana
-  - /tmp/plantillas/
+    - Plana
+    - /tmp/plantillas/
 
 - **Resultado**: Estructura identificada
 - **Verificacion**: Coincide con modelo documental

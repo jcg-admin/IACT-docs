@@ -268,9 +268,9 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   - Item
-   * Alternativa
-   1. Numerado
+      - Item
+      * Alternativa
+      1. Numerado
 
    **NUNCA usar:** ▶, ●, ★, ♦, •
 
@@ -283,16 +283,16 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   -> Flecha simple
-   => Flecha doble
-   <- Flecha izquierda
-   <=> Bidireccional
+      -> Flecha simple
+      => Flecha doble
+      <- Flecha izquierda
+      <=> Bidireccional
 
    **En diagramas técnicos:**
 
    .. code-block:: text
 
-   A -> B -> C
+      A -> B -> C
  
    Usuario -> Sistema -> Base de Datos
  
@@ -311,16 +311,16 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   [OK] En lugar de: ✓ ✔ ☑
-   [PASS] En lugar de: ✅
-   [FAIL] En lugar de: ✗ ✘ ☒
-   [ERROR] En lugar de: ❌
+      [OK] En lugar de: ✓ ✔ ☑
+      [PASS] En lugar de: ✅
+      [FAIL] En lugar de: ✗ ✘ ☒
+      [ERROR] En lugar de: ❌
 
    **Ejemplo de checklist:**
 
    .. code-block:: text
 
-   Validación de Capítulo:
+      Validación de Capítulo:
  
    [OK] Sintaxis RST correcta
    [OK] Referencias cruzadas válidas
@@ -333,8 +333,8 @@ STD_001: Estándar de Documentación Sin Emojis
    ==============================
 
    .. list-table:: Conversión de Símbolos a Texto
-   :widths: 25 25 25 25
-   :header-rows: 1
+      :widths: 25 25 25 25
+      :header-rows: 1
 
    * - Concepto
    - ❌ No Usar
@@ -429,7 +429,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: rst
 
-   .. math::
+      .. math::
  
    E = mc^2
  
@@ -446,7 +446,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   Diagrama de flujo aceptable:
+      Diagrama de flujo aceptable:
  
    .. list-table::
 
@@ -499,8 +499,8 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: python
 
-   #!/usr/bin/env python3
-   """Detecta emojis y símbolos Unicode no permitidos."""
+      #!/usr/bin/env python3
+      """Detecta emojis y símbolos Unicode no permitidos."""
  
    import re
    import sys
@@ -550,7 +550,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: bash
 
-   python detect_emojis.py source/procedimientos/PROC_001.rst
+      python detect_emojis.py source/procedimientos/PROC_001.rst
 
    7.2. Integración con Build
    ---------------------------
@@ -559,9 +559,9 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: makefile
 
-   validate-emojis:
-   @echo "[INFO] Validando cumplimiento STD_001..."
-   @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
+      validate-emojis:
+      @echo "[INFO] Validando cumplimiento STD_001..."
+      @find source -name "*.rst" -exec python scripts/detect_emojis.py {} \;
 
    7.3. Pre-commit Hook
    --------------------
@@ -570,7 +570,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: bash
 
-   #!/bin/bash
+      #!/bin/bash
  
    echo "[INFO] Validando STD_001 (sin emojis)..."
  
@@ -597,7 +597,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   ✅ FASE 6 completada
+      ✅ FASE 6 completada
  
    Archivos procesados:
    📁 PROC_001.rst
@@ -615,7 +615,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: text
 
-   [OK] FASE 6 completada
+      [OK] FASE 6 completada
  
    Archivos procesados:
    - PROC_001.rst
@@ -633,22 +633,22 @@ STD_001: Estándar de Documentación Sin Emojis
 
    .. code-block:: bash
 
-   echo "✅ Traducción completada"
-   echo "📊 Estadísticas:"
-   echo " • 1,234 líneas"
-   echo " • 45 términos"
-   echo "🎉 ¡Éxito!"
+      echo "✅ Traducción completada"
+      echo "📊 Estadísticas:"
+      echo " • 1,234 líneas"
+      echo " • 45 términos"
+      echo "🎉 ¡Éxito!"
 
    8.4. Script Output CORRECTO
    ----------------------------
 
    .. code-block:: bash
 
-   echo "[SUCCESS] Traducción completada"
-   echo "[INFO] Estadísticas:"
-   echo " - 1,234 líneas"
-   echo " - 45 términos"
-   echo "[OK] Proceso finalizado exitosamente"
+      echo "[SUCCESS] Traducción completada"
+      echo "[INFO] Estadísticas:"
+      echo " - 1,234 líneas"
+      echo " - 45 términos"
+      echo "[OK] Proceso finalizado exitosamente"
 
    ----
 

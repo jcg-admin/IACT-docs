@@ -224,13 +224,13 @@ Antes de iniciar este procedimiento, verificar:
  
     .. code-block:: [lenguaje]
  
-    [codigo o texto correcto]
+       [codigo o texto correcto]
  
     **Ejemplo Incorrecto:**
  
     .. code-block:: [lenguaje]
  
-    [codigo o texto incorrecto]
+       [codigo o texto incorrecto]
 
 - **Resultado**: Reglas documentadas
 - **Verificacion**: Ejemplos claros
@@ -243,7 +243,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Regla
     - Descripcion

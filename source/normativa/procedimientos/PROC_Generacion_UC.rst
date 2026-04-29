@@ -299,7 +299,7 @@ Segun TPL_UC v2.0.0, un UC tiene:
  .. code-block:: rst
 
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - BR
     - Nombre

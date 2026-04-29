@@ -173,18 +173,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - VIEW_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo de la vista]
-   * - **Tipo (4+1)**
-   - [Logica|Proceso|Desarrollo|Fisica|Casos de Uso]
-   * - **Stakeholders**
-   - [Roles a quienes esta dirigida]
-   * - **Nivel de Detalle**
-   - [Alto|Medio|Bajo]
-   * - **Estado**
-   - [Vigente|En actualizacion]
+      * - **ID**
+        - VIEW_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo de la vista]
+      * - **Tipo (4+1)**
+        - [Logica|Proceso|Desarrollo|Fisica|Casos de Uso]
+      * - **Stakeholders**
+        - [Roles a quienes esta dirigida]
+      * - **Nivel de Detalle**
+        - [Alto|Medio|Bajo]
+      * - **Estado**
+        - [Vigente|En actualizacion]
 
    ----
 
@@ -205,12 +205,12 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Stakeholder
-   - Interes
-   * - [Rol 1]
-   - [Que busca entender de esta vista]
-   * - [Rol 2]
-   - [Que busca entender de esta vista]
+      * - Stakeholder
+        - Interes
+      * - [Rol 1]
+        - [Que busca entender de esta vista]
+      * - [Rol 2]
+        - [Que busca entender de esta vista]
 
    ----
 
@@ -262,14 +262,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Elemento
-   - Descripcion
-   * - [Nombre elemento 1]
-   - [Descripcion y responsabilidad]
-   * - [Nombre elemento 2]
-   - [Descripcion y responsabilidad]
-   * - [Nombre elemento N]
-   - [Descripcion y responsabilidad]
+      * - Elemento
+        - Descripcion
+      * - [Nombre elemento 1]
+        - [Descripcion y responsabilidad]
+      * - [Nombre elemento 2]
+        - [Descripcion y responsabilidad]
+      * - [Nombre elemento N]
+        - [Descripcion y responsabilidad]
 
    4.2 Conectores/Relaciones
    ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -278,15 +278,15 @@ Plantilla
     :widths: 20 20 60
     :header-rows: 1
 
-   * - Desde
-   - Hacia
-   - Descripcion
-   * - [Elemento A]
-   - [Elemento B]
-   - [Tipo de relacion y protocolo]
-   * - [Elemento B]
-   - [Elemento C]
-   - [Tipo de relacion y protocolo]
+      * - Desde
+        - Hacia
+        - Descripcion
+      * - [Elemento A]
+        - [Elemento B]
+        - [Tipo de relacion y protocolo]
+      * - [Elemento B]
+        - [Elemento C]
+        - [Tipo de relacion y protocolo]
 
    ----
 
@@ -315,12 +315,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - ADR
-   - Impacto en la Vista
-   * - ADR_[NNN]
-   - [Como esta decision afecta lo mostrado]
-   * - ADR_[NNN]
-   - [Como esta decision afecta lo mostrado]
+      * - ADR
+        - Impacto en la Vista
+      * - ADR_[NNN]
+        - [Como esta decision afecta lo mostrado]
+      * - ADR_[NNN]
+        - [Como esta decision afecta lo mostrado]
 
    ----
 
@@ -331,12 +331,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - CNST
-   - Manifestacion en la Vista
-   * - CNST_[NNN]
-   - [Como se ve esta restriccion en el diagrama]
-   * - CNST_[NNN]
-   - [Como se ve esta restriccion en el diagrama]
+      * - CNST
+        - Manifestacion en la Vista
+      * - CNST_[NNN]
+        - [Como se ve esta restriccion en el diagrama]
+      * - CNST_[NNN]
+        - [Como se ve esta restriccion en el diagrama]
 
    ----
 
@@ -385,16 +385,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Tipo de Vista**
-   - [Logica|Proceso|Desarrollo|Fisica]
-   * - **ADR Reflejadas**
-   - ADR_[NNN], ADR_[NNN]
-   * - **CNST Reflejadas**
-   - CNST_[NNN], CNST_[NNN]
-   * - **MOD Mostrados**
-   - MOD_[xxx], MOD_[yyy]
-   * - **UC de Validacion**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **Tipo de Vista**
+        - [Logica|Proceso|Desarrollo|Fisica]
+      * - **ADR Reflejadas**
+        - ADR_[NNN], ADR_[NNN]
+      * - **CNST Reflejadas**
+        - CNST_[NNN], CNST_[NNN]
+      * - **MOD Mostrados**
+        - MOD_[xxx], MOD_[yyy]
+      * - **UC de Validacion**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
 
    ----
 
@@ -405,14 +405,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -426,8 +426,8 @@ Plantilla
    Cada VIEW DEBE incluir minimo estas 11 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

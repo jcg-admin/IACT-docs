@@ -151,20 +151,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **API**
-   - API_[Nombre]
-   * - **Modulo**
-   - MOD_[Nombre]
-   * - **Base URL**
-   - ``/api/[nombre]/``
-   * - **Version**
-   - v1
-   * - **Formato**
-   - JSON
-   * - **Autenticacion**
-   - JWT Bearer Token
-   * - **Total Endpoints**
-   - [N] endpoints
+      * - **API**
+        - API_[Nombre]
+      * - **Modulo**
+        - MOD_[Nombre]
+      * - **Base URL**
+        - ``/api/[nombre]/``
+      * - **Version**
+        - v1
+      * - **Formato**
+        - JSON
+      * - **Autenticacion**
+        - JWT Bearer Token
+      * - **Total Endpoints**
+        - [N] endpoints
 
    ----
 
@@ -223,22 +223,22 @@ Plantilla
     :widths: 20 15 15 50
     :header-rows: 1
 
-   * - Parametro
-   - Tipo
-   - Requerido
-   - Descripcion
-   * - page
-   - integer
-   - No
-   - Numero de pagina (default: 1)
-   * - page_size
-   - integer
-   - No
-   - Resultados por pagina (default: 20, max: 100)
-   * - [filtro]
-   - [tipo]
-   - [Si/No]
-   - [Descripcion]
+      * - Parametro
+        - Tipo
+        - Requerido
+        - Descripcion
+      * - page
+        - integer
+        - No
+        - Numero de pagina (default: 1)
+      * - page_size
+        - integer
+        - No
+        - Resultados por pagina (default: 20, max: 100)
+      * - [filtro]
+        - [tipo]
+        - [Si/No]
+        - [Descripcion]
 
    **Response 200 OK:**
 
@@ -287,12 +287,12 @@ Plantilla
     :widths: 20 15 65
     :header-rows: 1
 
-   * - Parametro
-   - Tipo
-   - Descripcion
-   * - id
-   - integer
-   - ID del recurso
+      * - Parametro
+        - Tipo
+        - Descripcion
+      * - id
+        - integer
+        - ID del recurso
 
    **Response 200 OK:**
 
@@ -347,18 +347,18 @@ Plantilla
     :widths: 20 15 15 50
     :header-rows: 1
 
-   * - Campo
-   - Tipo
-   - Requerido
-   - Descripcion
-   * - campo_1
-   - string
-   - Si
-   - [Descripcion del campo]
-   * - campo_2
-   - string
-   - No
-   - [Descripcion del campo]
+      * - Campo
+        - Tipo
+        - Requerido
+        - Descripcion
+      * - campo_1
+        - string
+        - Si
+        - [Descripcion del campo]
+      * - campo_2
+        - string
+        - No
+        - [Descripcion del campo]
 
    **Response 201 Created:**
 
@@ -497,39 +497,39 @@ Plantilla
     :widths: 15 35 50
     :header-rows: 1
 
-   * - Codigo
-   - Significado
-   - Descripcion
-   * - 200
-   - OK
-   - Solicitud exitosa (GET, PUT, PATCH)
-   * - 201
-   - Created
-   - Recurso creado exitosamente (POST)
-   * - 204
-   - No Content
-   - Eliminacion exitosa (DELETE)
-   * - 400
-   - Bad Request
-   - Error de validacion en datos enviados
-   * - 401
-   - Unauthorized
-   - Token JWT invalido o expirado
-   * - 403
-   - Forbidden
-   - Sin permisos RBAC para la accion
-   * - 404
-   - Not Found
-   - Recurso no encontrado
-   * - 405
-   - Method Not Allowed
-   - Metodo HTTP no permitido
-   * - 429
-   - Too Many Requests
-   - Rate limit excedido
-   * - 500
-   - Internal Server Error
-   - Error interno del servidor
+      * - Codigo
+        - Significado
+        - Descripcion
+      * - 200
+        - OK
+        - Solicitud exitosa (GET, PUT, PATCH)
+      * - 201
+        - Created
+        - Recurso creado exitosamente (POST)
+      * - 204
+        - No Content
+        - Eliminacion exitosa (DELETE)
+      * - 400
+        - Bad Request
+        - Error de validacion en datos enviados
+      * - 401
+        - Unauthorized
+        - Token JWT invalido o expirado
+      * - 403
+        - Forbidden
+        - Sin permisos RBAC para la accion
+      * - 404
+        - Not Found
+        - Recurso no encontrado
+      * - 405
+        - Method Not Allowed
+        - Metodo HTTP no permitido
+      * - 429
+        - Too Many Requests
+        - Rate limit excedido
+      * - 500
+        - Internal Server Error
+        - Error interno del servidor
 
    ----
 
@@ -540,34 +540,34 @@ Plantilla
     :widths: 30 20 25 25
     :header-rows: 1
 
-   * - Endpoint
-   - Metodo
-   - Funcion Requerida
-   - Agrupadores
-   * - /api/[nombre]/
-   - GET
-   - [nombre]_list
-   - AGR-001, AGR-002
-   * - /api/[nombre]/{id}/
-   - GET
-   - [nombre]_view
-   - AGR-001, AGR-002
-   * - /api/[nombre]/
-   - POST
-   - [nombre]_create
-   - AGR-001
-   * - /api/[nombre]/{id}/
-   - PUT
-   - [nombre]_update
-   - AGR-001
-   * - /api/[nombre]/{id}/
-   - PATCH
-   - [nombre]_update
-   - AGR-001
-   * - /api/[nombre]/{id}/
-   - DELETE
-   - [nombre]_delete
-   - AGR-001
+      * - Endpoint
+        - Metodo
+        - Funcion Requerida
+        - Agrupadores
+      * - /api/[nombre]/
+        - GET
+        - [nombre]_list
+        - AGR-001, AGR-002
+      * - /api/[nombre]/{id}/
+        - GET
+        - [nombre]_view
+        - AGR-001, AGR-002
+      * - /api/[nombre]/
+        - POST
+        - [nombre]_create
+        - AGR-001
+      * - /api/[nombre]/{id}/
+        - PUT
+        - [nombre]_update
+        - AGR-001
+      * - /api/[nombre]/{id}/
+        - PATCH
+        - [nombre]_update
+        - AGR-001
+      * - /api/[nombre]/{id}/
+        - DELETE
+        - [nombre]_delete
+        - AGR-001
 
    ----
 
@@ -593,15 +593,15 @@ Plantilla
     :widths: 20 20 60
     :header-rows: 1
 
-   * - Parametro
-   - Default
-   - Descripcion
-   * - page
-   - 1
-   - Numero de pagina
-   * - page_size
-   - 20
-   - Resultados por pagina (max: 100)
+      * - Parametro
+        - Default
+        - Descripcion
+      * - page
+        - 1
+        - Numero de pagina
+      * - page_size
+        - 20
+        - Resultados por pagina (max: 100)
 
    **Ejemplo:**
 
@@ -621,30 +621,30 @@ Plantilla
     :widths: 25 25 50
     :header-rows: 1
 
-   * - Filtro
-   - Tipo
-   - Ejemplo
-   * - [campo]
-   - exact
-   - ``?campo=valor``
-   * - [campo]__contains
-   - contains
-   - ``?campo__contains=texto``
-   * - [campo]__icontains
-   - icontains
-   - ``?campo__icontains=texto`` (case insensitive)
-   * - [fecha]__gte
-   - greater than or equal
-   - ``?fecha__gte=2026-01-01``
-   * - [fecha]__lte
-   - less than or equal
-   - ``?fecha__lte=2026-12-31``
-   * - [campo]__in
-   - in list
-   - ``?campo__in=val1,val2,val3``
-   * - is_active
-   - boolean
-   - ``?is_active=true``
+      * - Filtro
+        - Tipo
+        - Ejemplo
+      * - [campo]
+        - exact
+        - ``?campo=valor``
+      * - [campo]__contains
+        - contains
+        - ``?campo__contains=texto``
+      * - [campo]__icontains
+        - icontains
+        - ``?campo__icontains=texto`` (case insensitive)
+      * - [fecha]__gte
+        - greater than or equal
+        - ``?fecha__gte=2026-01-01``
+      * - [fecha]__lte
+        - less than or equal
+        - ``?fecha__lte=2026-12-31``
+      * - [campo]__in
+        - in list
+        - ``?campo__in=val1,val2,val3``
+      * - is_active
+        - boolean
+        - ``?is_active=true``
 
    7.2 Ordenamiento
    ^^^^^^^^^^^^^^^^
@@ -670,14 +670,14 @@ Plantilla
     :widths: 30 70
     :header-rows: 0
 
-   * - **Limite anonimo**
-   - 100 requests/hora
-   * - **Limite autenticado**
-   - 1000 requests/hora
-   * - **Header de estado**
-   - ``X-RateLimit-Remaining``
-   * - **Header de reset**
-   - ``X-RateLimit-Reset``
+      * - **Limite anonimo**
+        - 100 requests/hora
+      * - **Limite autenticado**
+        - 1000 requests/hora
+      * - **Header de estado**
+        - ``X-RateLimit-Remaining``
+      * - **Header de reset**
+        - ``X-RateLimit-Reset``
 
    **Response 429 Too Many Requests:**
 
@@ -741,16 +741,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Modulo**
-   - MOD_[Nombre]
-   * - **UC Relacionados**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **CNST Aplicables**
-   - CNST_[NNN]
-   * - **FD Relacionados**
-   - FD_[NN]
+      * - **Modulo**
+        - MOD_[Nombre]
+      * - **UC Relacionados**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **CNST Aplicables**
+        - CNST_[NNN]
+      * - **FD Relacionados**
+        - FD_[NN]
 
    ----
 
@@ -761,14 +761,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -782,8 +782,8 @@ Plantilla
    Cada API DEBE incluir minimo estas 11 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

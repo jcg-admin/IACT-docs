@@ -215,7 +215,7 @@ Antes de iniciar este procedimiento, verificar:
     **Valores Objetivo:**
  
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Nivel
     - Valor

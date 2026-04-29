@@ -186,20 +186,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - NFR_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo del requisito]
-   * - **Categoría**
-   - [Rendimiento|Seguridad|Usabilidad|Confiabilidad|Mantenibilidad|Portabilidad]
-   * - **Subcategoría**
-   - [Subcategoría específica]
-   * - **Prioridad**
-   - [Crítica|Alta|Media|Baja]
-   * - **Alcance**
-   - [Sistema completo|Módulo específico]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - NFR_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo del requisito]
+      * - **Categoría**
+        - [Rendimiento|Seguridad|Usabilidad|Confiabilidad|Mantenibilidad|Portabilidad]
+      * - **Subcategoría**
+        - [Subcategoría específica]
+      * - **Prioridad**
+        - [Crítica|Alta|Media|Baja]
+      * - **Alcance**
+        - [Sistema completo|Módulo específico]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -232,12 +232,12 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Nombre**
-   - [Nombre de la métrica]
-   * - **Unidad**
-   - [segundos|porcentaje|número|etc.]
-   * - **Fórmula**
-   - [Cómo se calcula la métrica]
+      * - **Nombre**
+        - [Nombre de la métrica]
+      * - **Unidad**
+        - [segundos|porcentaje|número|etc.]
+      * - **Fórmula**
+        - [Cómo se calcula la métrica]
 
    2.2 Umbrales de Aceptación
    ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -246,18 +246,18 @@ Plantilla
     :widths: 20 30 50
     :header-rows: 1
 
-   * - Nivel
-   - Umbral
-   - Descripción
-   * - **Mínimo**
-   - [valor]
-   - Nivel mínimo aceptable
-   * - **Objetivo**
-   - [valor]
-   - Nivel deseado
-   * - **Óptimo**
-   - [valor]
-   - Nivel ideal
+      * - Nivel
+        - Umbral
+        - Descripción
+      * - **Mínimo**
+        - [valor]
+        - Nivel mínimo aceptable
+      * - **Objetivo**
+        - [valor]
+        - Nivel deseado
+      * - **Óptimo**
+        - [valor]
+        - Nivel ideal
 
    2.3 Condiciones de Medición
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -328,14 +328,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Componente
-   - Impacto
-   * - [MOD_xxx]
-   - [Cómo aplica este NFR al módulo]
-   * - [API_xxx]
-   - [Cómo aplica este NFR a la API]
-   * - [Infraestructura]
-   - [Cómo aplica a infraestructura]
+      * - Componente
+        - Impacto
+      * - [MOD_xxx]
+        - [Cómo aplica este NFR al módulo]
+      * - [API_xxx]
+        - [Cómo aplica este NFR a la API]
+      * - [Infraestructura]
+        - [Cómo aplica a infraestructura]
 
    5.2 Excepciones
    ^^^^^^^^^^^^^^^
@@ -351,12 +351,12 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - CNST
-   - Nombre
-   - Relación
-   * - CNST_[NNN]
-   - [Nombre de la restricción]
-   - [Cómo se relaciona con este NFR]
+      * - CNST
+        - Nombre
+        - Relación
+      * - CNST_[NNN]
+        - [Nombre de la restricción]
+        - [Cómo se relaciona con este NFR]
 
    ----
 
@@ -386,15 +386,15 @@ Plantilla
     :widths: 30 30 40
     :header-rows: 1
 
-   * - Indicador
-   - Umbral de Alerta
-   - Acción
-   * - [Indicador 1]
-   - [Valor de alerta]
-   - [Qué hacer si se supera]
-   * - [Indicador 2]
-   - [Valor de alerta]
-   - [Qué hacer si se supera]
+      * - Indicador
+        - Umbral de Alerta
+        - Acción
+      * - [Indicador 1]
+        - [Valor de alerta]
+        - [Qué hacer si se supera]
+      * - [Indicador 2]
+        - [Valor de alerta]
+        - [Qué hacer si se supera]
 
    8.2 Dashboard/Herramienta
    ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -411,14 +411,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Categoría ISO 25010**
-   - [Categoría]
-   * - **CNST Relacionadas**
-   - CNST_[NNN], CNST_[NNN]
-   * - **ADR Relacionadas**
-   - ADR_[NNN]
-   * - **Módulos Afectados**
-   - MOD_[xxx], MOD_[yyy]
+      * - **Categoría ISO 25010**
+        - [Categoría]
+      * - **CNST Relacionadas**
+        - CNST_[NNN], CNST_[NNN]
+      * - **ADR Relacionadas**
+        - ADR_[NNN]
+      * - **Módulos Afectados**
+        - MOD_[xxx], MOD_[yyy]
 
    ----
 
@@ -429,14 +429,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Versión inicial
 
    ----
 
@@ -450,8 +450,8 @@ Plantilla
    Cada NFR DEBE incluir mínimo estas 10 secciones:
 
    .. list-table::
-   :widths: 5 30 65
-   :header-rows: 1
+      :widths: 5 30 65
+      :header-rows: 1
 
    * - #
    - Sección

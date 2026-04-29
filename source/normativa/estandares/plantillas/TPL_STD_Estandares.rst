@@ -154,18 +154,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - STD_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo del estandar]
-   * - **Categoria**
-   - [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
-   * - **Obligatoriedad**
-   - [Obligatorio|Recomendado]
-   * - **Aplica a**
-   - [Artefactos o procesos donde aplica]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - STD_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo del estandar]
+      * - **Categoria**
+        - [Documentacion|Codigo|Arquitectura|Pruebas|Operaciones]
+      * - **Obligatoriedad**
+        - [Obligatorio|Recomendado]
+      * - **Aplica a**
+        - [Artefactos o procesos donde aplica]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -200,12 +200,12 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Termino
-   - Definicion
-   * - [Termino 1]
-   - [Definicion del termino]
-   * - [Termino 2]
-   - [Definicion del termino]
+      * - Termino
+        - Definicion
+      * - [Termino 1]
+        - [Definicion del termino]
+      * - [Termino 2]
+        - [Definicion del termino]
 
    ----
 
@@ -273,22 +273,22 @@ Plantilla
     :widths: 10 40 25 25
     :header-rows: 1
 
-   * - #
-   - Regla
-   - Obligatoriedad
-   - Verificacion
-   * - 1
-   - [Nombre regla 1]
-   - Obligatorio
-   - [Automatica|Manual]
-   * - 2
-   - [Nombre regla 2]
-   - Obligatorio
-   - [Automatica|Manual]
-   * - N
-   - [Nombre regla N]
-   - Recomendado
-   - [Automatica|Manual]
+      * - #
+        - Regla
+        - Obligatoriedad
+        - Verificacion
+      * - 1
+        - [Nombre regla 1]
+        - Obligatorio
+        - [Automatica|Manual]
+      * - 2
+        - [Nombre regla 2]
+        - Obligatorio
+        - [Automatica|Manual]
+      * - N
+        - [Nombre regla N]
+        - Recomendado
+        - [Automatica|Manual]
 
    ----
 
@@ -355,12 +355,12 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **PROC Relacionados**
-   - PROC_[NNN]: [Nombre]
-   * - **TPL Relacionados**
-   - TPL_[XXX]: [Nombre]
-   * - **Artefactos Afectados**
-   - [Lista de tipos de artefactos]
+      * - **PROC Relacionados**
+        - PROC_[NNN]: [Nombre]
+      * - **TPL Relacionados**
+        - TPL_[XXX]: [Nombre]
+      * - **Artefactos Afectados**
+        - [Lista de tipos de artefactos]
 
    ----
 
@@ -379,14 +379,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -400,8 +400,8 @@ Plantilla
    Cada STD DEBE incluir minimo estas 11 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

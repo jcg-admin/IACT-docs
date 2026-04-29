@@ -228,7 +228,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Version
     - Fecha

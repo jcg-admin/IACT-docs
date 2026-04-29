@@ -209,41 +209,41 @@ genera al menos un FR.
     :header-rows: 1
 
   * - Modulo
-  - UC
-  - FR Estimados
-  - Prioridad
+    - UC
+    - FR Estimados
+    - Prioridad
   * - MOD_Auth
-  - 5
-  - ~21
-  - Alta
+    - 5
+    - ~21
+    - Alta
   * - MOD_Users
-  - 4
-  - ~17
-  - Alta
+    - 4
+    - ~17
+    - Alta
   * - MOD_Access
-  - 9
-  - ~30
-  - Alta
+    - 9
+    - ~30
+    - Alta
   * - MOD_Reports
-  - 14
-  - ~41
-  - Media
+    - 14
+    - ~41
+    - Media
   * - MOD_Pipeline
-  - 4
-  - ~11
-  - Media
+    - 4
+    - ~11
+    - Media
   * - MOD_Alerts
-  - 5
-  - ~16
-  - Media
+    - 5
+    - ~16
+    - Media
   * - MOD_Audit
-  - 4
-  - ~12
-  - Baja
+    - 4
+    - ~12
+    - Baja
   * - MOD_Logs
-  - 4
-  - ~10
-  - Baja
+    - 4
+    - ~10
+    - Baja
 
 - **Resultado**: Modulo seleccionado
 - **Verificacion**: UC del modulo disponibles

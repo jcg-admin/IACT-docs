@@ -56,42 +56,42 @@ FR-006.04: Crear registro de usuario en BD
     :widths: 25 20 55
     :header-rows: 1
  
- * - Campo
- - Tipo
- - Valor
- * - id
- - UUID
- - Generado automáticamente
- * - username
- - VARCHAR(50)
- - Normalizado (lowercase)
- * - full_name
- - VARCHAR(100)
- - Como fue ingresado
- * - email
- - VARCHAR(100)
- - Normalizado (lowercase)
- * - password_hash
- - VARCHAR(255)
- - Hash bcrypt del temporal
- * - security_question
- - VARCHAR(200)
- - Pregunta seleccionada
- * - security_answer_hash
- - VARCHAR(255)
- - Hash de respuesta
- * - status
- - ENUM
- - 'ACTIVE'
- * - must_change_password
- - BOOLEAN
- - true
- * - created_at
- - TIMESTAMP
- - NOW
- * - created_by
- - UUID
- - ID del admin creador
+    * - Campo
+      - Tipo
+      - Valor
+    * - id
+      - UUID
+      - Generado automáticamente
+    * - username
+      - VARCHAR(50)
+      - Normalizado (lowercase)
+    * - full_name
+      - VARCHAR(100)
+      - Como fue ingresado
+    * - email
+      - VARCHAR(100)
+      - Normalizado (lowercase)
+    * - password_hash
+      - VARCHAR(255)
+      - Hash bcrypt del temporal
+    * - security_question
+      - VARCHAR(200)
+      - Pregunta seleccionada
+    * - security_answer_hash
+      - VARCHAR(255)
+      - Hash de respuesta
+    * - status
+      - ENUM
+      - 'ACTIVE'
+    * - must_change_password
+      - BOOLEAN
+      - true
+    * - created_at
+      - TIMESTAMP
+      - NOW
+    * - created_by
+      - UUID
+      - ID del admin creador
 
 ----
 

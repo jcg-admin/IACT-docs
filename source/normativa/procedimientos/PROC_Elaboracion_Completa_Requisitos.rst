@@ -660,16 +660,16 @@ Segun FND_03:
    .. list-table::
     :widths: 25 75
 
-   * - ID
-   - UC_NNN
-   * - Nombre
-   - [Verbo + Objeto]
-   * - Actor Primario
-   - [Rol que inicia]
-   * - Actores Secundarios
-   - [Otros roles o "Ninguno"]
-   * - Prioridad
-   - [Critica|Alta|Media|Baja]
+      * - ID
+        - UC_NNN
+      * - Nombre
+        - [Verbo + Objeto]
+      * - Actor Primario
+        - [Rol que inicia]
+      * - Actores Secundarios
+        - [Otros roles o "Ninguno"]
+      * - Prioridad
+        - [Critica|Alta|Media|Baja]
 
    2. Contexto
    -----------
@@ -744,14 +744,14 @@ Segun FND_03:
 
    .. code-block:: text
 
-   OPCION A: ESTRUCTURA PLANA (por defecto)
-   ─────────────────────────────────────────
-   casos_uso/
-   ├── index.rst
-   ├── UC_001_Iniciar_Sesion.rst
-   ├── UC_002_Cerrar_Sesion.rst
-   ├── ...
-   └── UC_042_Gestionar_Permisos.rst
+      OPCION A: ESTRUCTURA PLANA (por defecto)
+      ─────────────────────────────────────────
+      casos_uso/
+      ├── index.rst
+      ├── UC_001_Iniciar_Sesion.rst
+      ├── UC_002_Cerrar_Sesion.rst
+      ├── ...
+      └── UC_042_Gestionar_Permisos.rst
  
    Usar cuando: <30 UC
 
@@ -957,7 +957,7 @@ Segun FND_07:
 
    .. code-block:: text
 
-   RATIO UC:FR TIPICO
+      RATIO UC:FR TIPICO
  
    UC simple (CRUD): 1 UC → 8-15 FR
    UC medio (workflow): 1 UC → 15-30 FR

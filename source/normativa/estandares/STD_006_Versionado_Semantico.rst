@@ -212,12 +212,12 @@ Todo artefacto debe incluir una sección de historial con:
     :widths: 15 15 70
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Descripción del Cambio
-   * - 1.0.0
-   - 2026-01-07
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Descripción del Cambio
+      * - 1.0.0
+        - 2026-01-07
+        - Versión inicial
 
    ----
 
@@ -228,8 +228,8 @@ Todo artefacto debe incluir una sección de historial con:
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    .. list-table::
-   :widths: 15 20 65
-   :header-rows: 1
+      :widths: 15 20 65
+      :header-rows: 1
 
    * - Versión
    - Tipo Cambio
@@ -269,8 +269,8 @@ Todo artefacto debe incluir una sección de historial con:
 
    .. code-block:: text
 
-   Opción A: v2.0.10 (corrección del error)
-   └── Solo si fuera corrección sin contenido nuevo
+      Opción A: v2.0.10 (corrección del error)
+      └── Solo si fuera corrección sin contenido nuevo
  
    Opción B: v2.1.0 (nueva funcionalidad) ✅
    └── Correcto porque añade 55 FR nuevos
@@ -290,11 +290,11 @@ Todo artefacto debe incluir una sección de historial con:
 
    .. code-block:: text
 
-   [ ] Formato MAJOR.MINOR.PATCH correcto
-   [ ] No hay saltos de versión injustificados
-   [ ] Historial de cambios actualizado
-   [ ] Tipo de incremento corresponde al cambio realizado
-   [ ] Artefactos dependientes evaluados (si aplica)
+      [ ] Formato MAJOR.MINOR.PATCH correcto
+      [ ] No hay saltos de versión injustificados
+      [ ] Historial de cambios actualizado
+      [ ] Tipo de incremento corresponde al cambio realizado
+      [ ] Artefactos dependientes evaluados (si aplica)
 
    ----
 

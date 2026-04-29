@@ -167,20 +167,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - TST_[MOD]_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo del caso de prueba]
-   * - **Tipo**
-   - [Unitaria|Integración|Funcional|Regresión|Seguridad|Rendimiento]
-   * - **FR Verificado**
-   - FR_UC[MOD]_[NN]_[NN]: [Nombre del FR]
-   * - **Prioridad**
-   - [Alta|Media|Baja]
-   * - **Automatizado**
-   - [Sí|No|Parcial]
-   * - **Estado**
-   - [Diseñado|Implementado|Ejecutado|Aprobado]
+      * - **ID**
+        - TST_[MOD]_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo del caso de prueba]
+      * - **Tipo**
+        - [Unitaria|Integración|Funcional|Regresión|Seguridad|Rendimiento]
+      * - **FR Verificado**
+        - FR_UC[MOD]_[NN]_[NN]: [Nombre del FR]
+      * - **Prioridad**
+        - [Alta|Media|Baja]
+      * - **Automatizado**
+        - [Sí|No|Parcial]
+      * - **Estado**
+        - [Diseñado|Implementado|Ejecutado|Aprobado]
 
    ----
 
@@ -214,18 +214,18 @@ Plantilla
     :widths: 25 35 40
     :header-rows: 1
 
-   * - Campo
-   - Valor
-   - Descripción
-   * - [campo_1]
-   - [valor_1]
-   - [Descripción del dato]
-   * - [campo_2]
-   - [valor_2]
-   - [Descripción del dato]
-   * - [campo_n]
-   - [valor_n]
-   - [Descripción del dato]
+      * - Campo
+        - Valor
+        - Descripción
+      * - [campo_1]
+        - [valor_1]
+        - [Descripción del dato]
+      * - [campo_2]
+        - [valor_2]
+        - [Descripción del dato]
+      * - [campo_n]
+        - [valor_n]
+        - [Descripción del dato]
 
    3.2 Datos de Contexto
    ^^^^^^^^^^^^^^^^^^^^^
@@ -234,16 +234,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Elemento
-   - Valor/Estado
-   * - Usuario de prueba
-   - [username_test]
-   * - Rol asignado
-   - [agr_xxx]
-   * - Centro/Segmento
-   - [Centro de prueba]
-   * - Fecha/Hora sistema
-   - [Si es relevante]
+      * - Elemento
+        - Valor/Estado
+      * - Usuario de prueba
+        - [username_test]
+      * - Rol asignado
+        - [agr_xxx]
+      * - Centro/Segmento
+        - [Centro de prueba]
+      * - Fecha/Hora sistema
+        - [Si es relevante]
 
    ----
 
@@ -254,21 +254,21 @@ Plantilla
     :widths: 8 50 42
     :header-rows: 1
 
-   * - Paso
-   - Acción
-   - Resultado Esperado
-   * - 1
-   - [Acción a realizar]
-   - [Qué debe ocurrir]
-   * - 2
-   - [Siguiente acción]
-   - [Qué debe ocurrir]
-   * - 3
-   - [Siguiente acción]
-   - [Qué debe ocurrir]
-   * - N
-   - [Acción final]
-   - [Resultado final esperado]
+      * - Paso
+        - Acción
+        - Resultado Esperado
+      * - 1
+        - [Acción a realizar]
+        - [Qué debe ocurrir]
+      * - 2
+        - [Siguiente acción]
+        - [Qué debe ocurrir]
+      * - 3
+        - [Siguiente acción]
+        - [Qué debe ocurrir]
+      * - N
+        - [Acción final]
+        - [Resultado final esperado]
 
    ----
 
@@ -299,15 +299,15 @@ Plantilla
     :widths: 25 35 40
     :header-rows: 1
 
-   * - Campo
-   - Valor Esperado
-   - Validación
-   * - [campo_salida_1]
-   - [valor_esperado_1]
-   - [Cómo validar]
-   * - [campo_salida_2]
-   - [valor_esperado_2]
-   - [Cómo validar]
+      * - Campo
+        - Valor Esperado
+        - Validación
+      * - [campo_salida_1]
+        - [valor_esperado_1]
+        - [Cómo validar]
+      * - [campo_salida_2]
+        - [valor_esperado_2]
+        - [Cómo validar]
 
    ----
 
@@ -378,14 +378,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **FR Verificado**
-   - FR_UC[MOD]_[NN]_[NN]: [Nombre]
-   * - **UC Relacionado**
-   - UC_[MOD]_[NN]: [Nombre]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **CNST Verificadas**
-   - CNST_[NNN], CNST_[NNN]
+      * - **FR Verificado**
+        - FR_UC[MOD]_[NN]_[NN]: [Nombre]
+      * - **UC Relacionado**
+        - UC_[MOD]_[NN]: [Nombre]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **CNST Verificadas**
+        - CNST_[NNN], CNST_[NNN]
 
    ----
 
@@ -396,16 +396,16 @@ Plantilla
     :widths: 12 12 15 15 46
     :header-rows: 1
 
-   * - Fecha
-   - Ejecutor
-   - Resultado
-   - Build
-   - Observaciones
-   * - [YYYY-MM-DD]
-   - [Nombre]
-   - [PASS|FAIL]
-   - [#build]
-   - [Notas de la ejecución]
+      * - Fecha
+        - Ejecutor
+        - Resultado
+        - Build
+        - Observaciones
+      * - [YYYY-MM-DD]
+        - [Nombre]
+        - [PASS|FAIL]
+        - [#build]
+        - [Notas de la ejecución]
 
    ----
 
@@ -416,14 +416,14 @@ Plantilla
     :widths: 15 50 20 15
     :header-rows: 1
 
-   * - ID Defecto
-   - Descripción
-   - Estado
-   - Severidad
-   * - [DEF-NNN]
-   - [Descripción del defecto encontrado]
-   - [Abierto|Cerrado]
-   - [Alta|Media|Baja]
+      * - ID Defecto
+        - Descripción
+        - Estado
+        - Severidad
+      * - [DEF-NNN]
+        - [Descripción del defecto encontrado]
+        - [Abierto|Cerrado]
+        - [Alta|Media|Baja]
 
    ----
 
@@ -434,14 +434,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Versión inicial
 
    ----
 
@@ -455,8 +455,8 @@ Plantilla
    Cada TST DEBE incluir mínimo estas 10 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Sección

@@ -159,20 +159,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - POL_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo de la politica]
-   * - **Categoria**
-   - [Seguridad|Calidad|Cambios|Datos|Operaciones]
-   * - **Aprobado por**
-   - [Nombre y rol del aprobador]
-   * - **Fecha Aprobacion**
-   - [YYYY-MM-DD]
-   * - **Proxima Revision**
-   - [YYYY-MM-DD]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - POL_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo de la politica]
+      * - **Categoria**
+        - [Seguridad|Calidad|Cambios|Datos|Operaciones]
+      * - **Aprobado por**
+        - [Nombre y rol del aprobador]
+      * - **Fecha Aprobacion**
+        - [YYYY-MM-DD]
+      * - **Proxima Revision**
+        - [YYYY-MM-DD]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -261,16 +261,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Rol
-   - Responsabilidad
-   * - [Rol 1]
-   - [Responsabilidades respecto a esta politica]
-   * - [Rol 2]
-   - [Responsabilidades respecto a esta politica]
-   * - [Rol N]
-   - [Responsabilidades respecto a esta politica]
-   * - Todos
-   - Conocer y cumplir esta politica
+      * - Rol
+        - Responsabilidad
+      * - [Rol 1]
+        - [Responsabilidades respecto a esta politica]
+      * - [Rol 2]
+        - [Responsabilidades respecto a esta politica]
+      * - [Rol N]
+        - [Responsabilidades respecto a esta politica]
+      * - Todos
+        - Conocer y cumplir esta politica
 
    ----
 
@@ -284,12 +284,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - STD
-   - Como implementa la politica
-   * - STD_[NNN]
-   - [Descripcion de como el estandar implementa la politica]
-   * - STD_[NNN]
-   - [Descripcion de como el estandar implementa la politica]
+      * - STD
+        - Como implementa la politica
+      * - STD_[NNN]
+        - [Descripcion de como el estandar implementa la politica]
+      * - STD_[NNN]
+        - [Descripcion de como el estandar implementa la politica]
 
    7.2 Procedimientos Asociados
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -298,12 +298,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - PROC
-   - Como operacionaliza la politica
-   * - PROC_[NNN]
-   - [Descripcion de como el procedimiento operacionaliza la politica]
-   * - PROC_[NNN]
-   - [Descripcion de como el procedimiento operacionaliza la politica]
+      * - PROC
+        - Como operacionaliza la politica
+      * - PROC_[NNN]
+        - [Descripcion de como el procedimiento operacionaliza la politica]
+      * - PROC_[NNN]
+        - [Descripcion de como el procedimiento operacionaliza la politica]
 
    ----
 
@@ -324,15 +324,15 @@ Plantilla
     :widths: 40 30 30
     :header-rows: 1
 
-   * - Metrica
-   - Objetivo
-   - Frecuencia
-   * - [Metrica 1]
-   - [Valor objetivo]
-   - [Frecuencia medicion]
-   * - [Metrica 2]
-   - [Valor objetivo]
-   - [Frecuencia medicion]
+      * - Metrica
+        - Objetivo
+        - Frecuencia
+      * - [Metrica 1]
+        - [Valor objetivo]
+        - [Frecuencia medicion]
+      * - [Metrica 2]
+        - [Valor objetivo]
+        - [Frecuencia medicion]
 
    8.3 Incumplimiento
    ^^^^^^^^^^^^^^^^^^
@@ -366,14 +366,14 @@ Plantilla
     :widths: 20 40 20 20
     :header-rows: 1
 
-   * - ID
-   - Descripcion
-   - Aprobador
-   - Vigencia
-   * - EXC-001
-   - [Descripcion de la excepcion]
-   - [Quien aprobo]
-   - [Hasta cuando]
+      * - ID
+        - Descripcion
+        - Aprobador
+        - Vigencia
+      * - EXC-001
+        - [Descripcion de la excepcion]
+        - [Quien aprobo]
+        - [Hasta cuando]
 
    ----
 
@@ -398,14 +398,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **STD Asociados**
-   - STD_[NNN], STD_[NNN]
-   * - **PROC Asociados**
-   - PROC_[NNN], PROC_[NNN]
-   * - **BR Relacionadas**
-   - BR_[NNN], BR_[NNN]
-   * - **CNST Relacionadas**
-   - CNST_[NNN]
+      * - **STD Asociados**
+        - STD_[NNN], STD_[NNN]
+      * - **PROC Asociados**
+        - PROC_[NNN], PROC_[NNN]
+      * - **BR Relacionadas**
+        - BR_[NNN], BR_[NNN]
+      * - **CNST Relacionadas**
+        - CNST_[NNN]
 
    ----
 
@@ -424,14 +424,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial aprobada
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial aprobada
 
    ----
 
@@ -445,8 +445,8 @@ Plantilla
    Cada POL DEBE incluir minimo estas 13 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

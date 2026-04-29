@@ -169,25 +169,25 @@ Antes de iniciar este procedimiento, verificar:
     :header-rows: 1
 
   * - Artefacto
-  - TPL
+    - TPL
   * - BR
-  - TPL_BR_Business_Rules_1_0_0.rst
+    - TPL_BR_Business_Rules_1_0_0.rst
   * - UC
-  - TPL_UC_Casos_de_Uso_2_0_0.rst
+    - TPL_UC_Casos_de_Uso_2_0_0.rst
   * - FR
-  - TPL_FR_Requisitos_Funcionales_1_0_0.rst
+    - TPL_FR_Requisitos_Funcionales_1_0_0.rst
   * - TST
-  - TPL_TST_Pruebas_1_0_0.rst
+    - TPL_TST_Pruebas_1_0_0.rst
   * - CNST
-  - TPL_CNST_Restricciones_1_0_0.rst
+    - TPL_CNST_Restricciones_1_0_0.rst
   * - MOD
-  - TPL_MOD_Modulos_1_0_0.rst
+    - TPL_MOD_Modulos_1_0_0.rst
   * - ADR
-  - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
+    - TPL_ADR_Decisiones_Arquitectonicas_1_0_0.rst
   * - STD
-  - TPL_STD_Estandares_1_0_0.rst
+    - TPL_STD_Estandares_1_0_0.rst
   * - PROC
-  - TPL_PROC_Procedimientos_1_0_0.rst
+    - TPL_PROC_Procedimientos_1_0_0.rst
 
 - **Resultado**: TPL identificado
 - **Verificacion**: TPL existe en carpeta plantillas/
@@ -235,9 +235,9 @@ Antes de iniciar este procedimiento, verificar:
 
     .. code-block:: rst
 
-    .. meta::
-    :artefacto: [ID]
-    ...
+       .. meta::
+       :artefacto: [ID]
+       ...
 
 - **Resultado**: Codigo RST base localizado
 - **Verificacion**: Seccion contiene code-block rst

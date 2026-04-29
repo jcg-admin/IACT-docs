@@ -162,18 +162,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - BR_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo de la regla]
-   * - **Tipo**
-   - [Restricción|Desencadenador|Hecho|Inferencia|Cálculo]
-   * - **Categoría**
-   - [Seguridad|Datos|Operacional|Auditoría|KPI]
-   * - **Criticidad**
-   - [Crítica|Alta|Media|Baja]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - BR_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo de la regla]
+      * - **Tipo**
+        - [Restricción|Desencadenador|Hecho|Inferencia|Cálculo]
+      * - **Categoría**
+        - [Seguridad|Datos|Operacional|Auditoría|KPI]
+      * - **Criticidad**
+        - [Crítica|Alta|Media|Baja]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -224,18 +224,18 @@ Plantilla
     :widths: 20 80
     :header-rows: 0
 
-   * - **Tipo**
-   - **[Tipo seleccionado]**
-   * - 
-   - [ ] Restricción: Limita valores o acciones
-   * - 
-   - [ ] Desencadenador: SI/ENTONCES automático
-   * - 
-   - [ ] Hecho: Verdad estructural
-   * - 
-   - [ ] Inferencia: Deriva hechos
-   * - 
-   - [X] **[Tipo]**: [Descripción específica]
+      * - **Tipo**
+        - **[Tipo seleccionado]**
+      * - 
+        - [ ] Restricción: Limita valores o acciones
+      * - 
+        - [ ] Desencadenador: SI/ENTONCES automático
+      * - 
+        - [ ] Hecho: Verdad estructural
+      * - 
+        - [ ] Inferencia: Deriva hechos
+      * - 
+        - [X] **[Tipo]**: [Descripción específica]
 
    2.2 Naturaleza
    ^^^^^^^^^^^^^^
@@ -256,14 +256,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Documento**
-   - [CNST_NNN_Nombre.rst | Normativa externa | Decisión de diseño]
-   * - **Sección**
-   - [Sección específica del documento origen]
-   * - **Versión**
-   - [X.Y.Z]
-   * - **Tipo Fuente**
-   - [CNST|Normativa|Stakeholder|Técnica]
+      * - **Documento**
+        - [CNST_NNN_Nombre.rst | Normativa externa | Decisión de diseño]
+      * - **Sección**
+        - [Sección específica del documento origen]
+      * - **Versión**
+        - [X.Y.Z]
+      * - **Tipo Fuente**
+        - [CNST|Normativa|Stakeholder|Técnica]
 
    3.2 Autoridad de Modificación
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -284,12 +284,12 @@ Plantilla
     :widths: 30 70
     :header-rows: 1
 
-   * - Componente
-   - Descripción de Aplicación
-   * - UC_[MOD]_[NN]
-   - [Cómo se aplica en este UC]
-   * - UC_[MOD]_[NN]
-   - [Cómo se aplica en este UC]
+      * - Componente
+        - Descripción de Aplicación
+      * - UC_[MOD]_[NN]
+        - [Cómo se aplica en este UC]
+      * - UC_[MOD]_[NN]
+        - [Cómo se aplica en este UC]
 
    4.2 Donde NO Aplica
    ^^^^^^^^^^^^^^^^^^^
@@ -306,14 +306,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **CNST Origen**
-   - CNST_[NNN]: [Nombre] (si aplica)
-   * - **BReq Relacionado**
-   - BReq_[MOD]: [Nombre]
-   * - **UC que Implementan**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
-   * - **BR Relacionadas**
-   - BR_[NNN], BR_[NNN] (si hay dependencias)
+      * - **CNST Origen**
+        - CNST_[NNN]: [Nombre] (si aplica)
+      * - **BReq Relacionado**
+        - BReq_[MOD]: [Nombre]
+      * - **UC que Implementan**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **BR Relacionadas**
+        - BR_[NNN], BR_[NNN] (si hay dependencias)
 
    ----
 
@@ -369,12 +369,12 @@ Plantilla
     :widths: 15 15 70
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Descripción del Cambio
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Descripción del Cambio
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Versión inicial
 
    ----
 
@@ -388,8 +388,8 @@ Plantilla
    Cada BR DEBE incluir mínimo estas 8 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Sección
@@ -431,8 +431,8 @@ Plantilla
 
    .. code-block:: text
 
-   Es OBLIGATORIO que [sujeto] [no] [verbo] [objeto].
-   Es PROHIBIDO que [sujeto] [verbo] [objeto].
+      Es OBLIGATORIO que [sujeto] [no] [verbo] [objeto].
+      Es PROHIBIDO que [sujeto] [verbo] [objeto].
  
    Ejemplo:
    Es OBLIGATORIO que el sistema NO modifique datos en la base IVR.
@@ -441,7 +441,7 @@ Plantilla
 
    .. code-block:: text
 
-   SI [condición] ENTONCES [acción].
+      SI [condición] ENTONCES [acción].
  
    Ejemplo:
    SI son las 2:00 AM ENTONCES el sistema ejecuta proceso ETL.
@@ -450,7 +450,7 @@ Plantilla
 
    .. code-block:: text
 
-   [Sujeto] [es/tiene/usa] [predicado].
+      [Sujeto] [es/tiene/usa] [predicado].
  
    Ejemplo:
    El sistema IACT usa modelo RBAC flat sin jerarquía.
@@ -459,7 +459,7 @@ Plantilla
 
    .. code-block:: text
 
-   SI [hecho_existente] ENTONCES [hecho_derivado].
+      SI [hecho_existente] ENTONCES [hecho_derivado].
  
    Ejemplo:
    SI usuario no tiene login en 90 días ENTONCES usuario es inactivo.
@@ -468,7 +468,7 @@ Plantilla
 
    .. code-block:: text
 
-   [Variable] ES IGUAL A [fórmula].
+      [Variable] ES IGUAL A [fórmula].
  
    Ejemplo:
    Tasa_Abandono ES IGUAL A (Llamadas_Abandonadas / Total_Llamadas) × 100.

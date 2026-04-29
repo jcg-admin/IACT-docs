@@ -203,18 +203,18 @@ Segun TPL_API v1.1.0:
  
     .. code-block:: json
  
-    {
-    "count": 150,
-    "next": "http://api/v1/users/?page=2",
-    "previous": null,
-    "results": [
-    {
-    "id": "uuid-001",
-    "username": "jperez",
-    "email": "jperez@example.com"
-    }
-    ]
-    }
+       {
+       "count": 150,
+       "next": "http://api/v1/users/?page=2",
+       "previous": null,
+       "results": [
+       {
+       "id": "uuid-001",
+       "username": "jperez",
+       "email": "jperez@example.com"
+       }
+       ]
+       }
 
 - **Resultado**: Endpoint documentado
 - **Verificacion**: Request y response claros
@@ -235,13 +235,13 @@ Segun TPL_API v1.1.0:
  
     .. code-block:: json
  
-    {
-    "username": "string (requerido, unico)",
-    "email": "string (requerido, formato email)",
-    "password": "string (requerido, min 8 chars)",
-    "first_name": "string (opcional)",
-    "last_name": "string (opcional)"
-    }
+       {
+       "username": "string (requerido, unico)",
+       "email": "string (requerido, formato email)",
+       "password": "string (requerido, min 8 chars)",
+       "first_name": "string (opcional)",
+       "last_name": "string (opcional)"
+       }
  
     **Validaciones:**
  
@@ -262,7 +262,7 @@ Segun TPL_API v1.1.0:
     **Codigos de Estado:**
  
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Codigo
     - Significado
@@ -302,7 +302,7 @@ Segun TPL_API v1.1.0:
     **Permisos Requeridos:**
  
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Endpoint
     - Metodo
@@ -334,18 +334,18 @@ Segun TPL_API v1.1.0:
  
     .. code-block:: bash
  
-    curl -X GET "https://api.iact.example.com/v1/users/" \
-    -H "Authorization: Bearer eyJ0eXAi..." \
-    -H "Content-Type: application/json"
+       curl -X GET "https://api.iact.example.com/v1/users/" \
+       -H "Authorization: Bearer eyJ0eXAi..." \
+       -H "Content-Type: application/json"
  
     **Ejemplo: Crear usuario**
  
     .. code-block:: bash
  
-    curl -X POST "https://api.iact.example.com/v1/users/" \
-    -H "Authorization: Bearer eyJ0eXAi..." \
-    -H "Content-Type: application/json" \
-    -d '{"username":"nuevo","email":"n@e.com","password":"Pass1234"}'
+       curl -X POST "https://api.iact.example.com/v1/users/" \
+       -H "Authorization: Bearer eyJ0eXAi..." \
+       -H "Content-Type: application/json" \
+       -d '{"username":"nuevo","email":"n@e.com","password":"Pass1234"}'
 
 - **Resultado**: Ejemplos incluidos
 - **Verificacion**: Ejemplos ejecutables

@@ -241,15 +241,15 @@ Antes de iniciar este procedimiento, verificar:
 
     .. code-block:: rst
 
-    - [ ] Usuario de prueba existe en BD
-    - [ ] Credenciales verificadas (mock o fixture)
-    - [ ] SECRET_KEY configurada
+       - [ ] Usuario de prueba existe en BD
+       - [ ] Credenciales verificadas (mock o fixture)
+       - [ ] SECRET_KEY configurada
 
     **3.3 Seccion Datos de Prueba:**
 
     .. code-block:: rst
 
-    **Datos de Entrada:**
+       **Datos de Entrada:**
  
     - user_id: "uuid-test-001"
     - username: "test_user"
@@ -271,8 +271,8 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
     .. list-table::
-    :widths: 10 50 40
-    :header-rows: 1
+       :widths: 10 50 40
+       :header-rows: 1
  
     * - Paso
     - Accion

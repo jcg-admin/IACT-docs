@@ -208,8 +208,8 @@ Antes de iniciar este procedimiento, verificar:
  
     .. note:: **Estado: CONGELADO**
  
-    Este subdominio fue congelado el 2026-01-07.
-    Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
+       Este subdominio fue congelado el 2026-01-07.
+       Para modificaciones, ejecutar PROC_Descongelamiento_Subdominio.
 
 - **Resultado**: Index marcado
 - **Verificacion**: Nota visible

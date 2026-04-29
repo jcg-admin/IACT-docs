@@ -62,33 +62,33 @@ FR-010.03: Crear asignación usuario-función
     :widths: 25 20 55
     :header-rows: 1
  
- * - Campo
- - Tipo
- - Valor
- * - id
- - UUID
- - Generado
- * - user_id
- - UUID
- - ID del usuario destino
- * - function_code
- - VARCHAR(20)
- - Código de función (AUT-xxx)
- * - grouper_code
- - VARCHAR(20)
- - Código de agrupador (si aplica)
- * - assigned_at
- - TIMESTAMP
- - NOW
- * - assigned_by
- - UUID
- - ID del admin que asigna
- * - valid_from
- - DATE
- - Fecha inicio vigencia
- * - valid_until
- - DATE
- - Fecha fin (NULL = indefinido)
+    * - Campo
+      - Tipo
+      - Valor
+    * - id
+      - UUID
+      - Generado
+    * - user_id
+      - UUID
+      - ID del usuario destino
+    * - function_code
+      - VARCHAR(20)
+      - Código de función (AUT-xxx)
+    * - grouper_code
+      - VARCHAR(20)
+      - Código de agrupador (si aplica)
+    * - assigned_at
+      - TIMESTAMP
+      - NOW
+    * - assigned_by
+      - UUID
+      - ID del admin que asigna
+    * - valid_from
+      - DATE
+      - Fecha inicio vigencia
+    * - valid_until
+      - DATE
+      - Fecha fin (NULL = indefinido)
 
 ----
 

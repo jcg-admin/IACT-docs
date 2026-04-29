@@ -150,20 +150,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - MOD_[Nombre]
-   * - **Nombre**
-   - [Nombre descriptivo del modulo]
-   * - **Django App**
-   - apps.[nombre]
-   * - **Prefijo UC**
-   - UC_[MOD]_
-   * - **Total UC**
-   - [N] casos de uso
-   * - **BReq Asociado**
-   - BReq_[MOD]
-   * - **Estado**
-   - [Activo|En desarrollo|Congelado]
+      * - **ID**
+        - MOD_[Nombre]
+      * - **Nombre**
+        - [Nombre descriptivo del modulo]
+      * - **Django App**
+        - apps.[nombre]
+      * - **Prefijo UC**
+        - UC_[MOD]_
+      * - **Total UC**
+        - [N] casos de uso
+      * - **BReq Asociado**
+        - BReq_[MOD]
+      * - **Estado**
+        - [Activo|En desarrollo|Congelado]
 
    ----
 
@@ -205,18 +205,18 @@ Plantilla
     :widths: 20 50 30
     :header-rows: 1
 
-   * - UC
-   - Nombre
-   - Estado
-   * - UC_[MOD]_01
-   - [Nombre del UC]
-   - [Aprobado|En revision]
-   * - UC_[MOD]_02
-   - [Nombre del UC]
-   - [Aprobado|En revision]
-   * - UC_[MOD]_NN
-   - [Nombre del UC]
-   - [Aprobado|En revision]
+      * - UC
+        - Nombre
+        - Estado
+      * - UC_[MOD]_01
+        - [Nombre del UC]
+        - [Aprobado|En revision]
+      * - UC_[MOD]_02
+        - [Nombre del UC]
+        - [Aprobado|En revision]
+      * - UC_[MOD]_NN
+        - [Nombre del UC]
+        - [Aprobado|En revision]
 
    ----
 
@@ -227,15 +227,15 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - CNST
-   - Nombre
-   - Aplicacion en MOD
-   * - CNST_[NNN]
-   - [Nombre de la restriccion]
-   - [Como aplica al modulo]
-   * - CNST_[NNN]
-   - [Nombre de la restriccion]
-   - [Como aplica al modulo]
+      * - CNST
+        - Nombre
+        - Aplicacion en MOD
+      * - CNST_[NNN]
+        - [Nombre de la restriccion]
+        - [Como aplica al modulo]
+      * - CNST_[NNN]
+        - [Nombre de la restriccion]
+        - [Como aplica al modulo]
 
    ----
 
@@ -246,15 +246,15 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - BR
-   - Nombre
-   - Aplicacion en MOD
-   * - BR_[NNN]
-   - [Nombre de la regla]
-   - [Como aplica al modulo]
-   * - BR_[NNN]
-   - [Nombre de la regla]
-   - [Como aplica al modulo]
+      * - BR
+        - Nombre
+        - Aplicacion en MOD
+      * - BR_[NNN]
+        - [Nombre de la regla]
+        - [Como aplica al modulo]
+      * - BR_[NNN]
+        - [Nombre de la regla]
+        - [Como aplica al modulo]
 
    ----
 
@@ -268,12 +268,12 @@ Plantilla
     :widths: 20 40 40
     :header-rows: 1
 
-   * - Modulo
-   - Tipo Dependencia
-   - Descripcion
-   * - MOD_[xxx]
-   - [Obligatoria|Opcional]
-   - [Para que necesita este modulo]
+      * - Modulo
+        - Tipo Dependencia
+        - Descripcion
+      * - MOD_[xxx]
+        - [Obligatoria|Opcional]
+        - [Para que necesita este modulo]
 
    7.2 Dependido por
    ^^^^^^^^^^^^^^^^^
@@ -282,12 +282,12 @@ Plantilla
     :widths: 20 40 40
     :header-rows: 1
 
-   * - Modulo
-   - Tipo Dependencia
-   - Descripcion
-   * - MOD_[yyy]
-   - [Obligatoria|Opcional]
-   - [Por que depende de este modulo]
+      * - Modulo
+        - Tipo Dependencia
+        - Descripcion
+      * - MOD_[yyy]
+        - [Obligatoria|Opcional]
+        - [Por que depende de este modulo]
 
    ----
 
@@ -322,12 +322,12 @@ Plantilla
     :widths: 25 75
     :header-rows: 1
 
-   * - Modelo
-   - Descripcion
-   * - [NombreModelo]
-   - [Descripcion del modelo y su proposito]
-   * - [NombreModelo]
-   - [Descripcion del modelo y su proposito]
+      * - Modelo
+        - Descripcion
+      * - [NombreModelo]
+        - [Descripcion del modelo y su proposito]
+      * - [NombreModelo]
+        - [Descripcion del modelo y su proposito]
 
    8.3 Servicios
    ^^^^^^^^^^^^^
@@ -336,12 +336,12 @@ Plantilla
     :widths: 30 70
     :header-rows: 1
 
-   * - Servicio
-   - Responsabilidad
-   * - [NombreService]
-   - [Que hace este servicio]
-   * - [NombreService]
-   - [Que hace este servicio]
+      * - Servicio
+        - Responsabilidad
+      * - [NombreService]
+        - [Que hace este servicio]
+      * - [NombreService]
+        - [Que hace este servicio]
 
    ----
 
@@ -393,18 +393,18 @@ Plantilla
     :widths: 15 35 25 25
     :header-rows: 1
 
-   * - Metodo
-   - Endpoint
-   - Descripcion
-   - Permiso
-   * - GET
-   - /api/[modulo]/
-   - [Descripcion]
-   - [funcion_requerida]
-   * - POST
-   - /api/[modulo]/
-   - [Descripcion]
-   - [funcion_requerida]
+      * - Metodo
+        - Endpoint
+        - Descripcion
+        - Permiso
+      * - GET
+        - /api/[modulo]/
+        - [Descripcion]
+        - [funcion_requerida]
+      * - POST
+        - /api/[modulo]/
+        - [Descripcion]
+        - [funcion_requerida]
 
    10.2 Eventos Emitidos
    ^^^^^^^^^^^^^^^^^^^^^
@@ -421,16 +421,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **BReq Origen**
-   - BReq_[MOD]: [Nombre]
-   * - **UC Asociados**
-   - UC_[MOD]_01, UC_[MOD]_02, ... UC_[MOD]_NN
-   * - **CNST Aplicables**
-   - CNST_[NNN], CNST_[NNN]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **API Documento**
-   - API_[Nombre].rst
+      * - **BReq Origen**
+        - BReq_[MOD]: [Nombre]
+      * - **UC Asociados**
+        - UC_[MOD]_01, UC_[MOD]_02, ... UC_[MOD]_NN
+      * - **CNST Aplicables**
+        - CNST_[NNN], CNST_[NNN]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **API Documento**
+        - API_[Nombre].rst
 
    ----
 
@@ -441,14 +441,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -462,8 +462,8 @@ Plantilla
    Cada MOD DEBE incluir minimo estas 12 secciones:
 
    .. list-table::
-   :widths: 5 30 65
-   :header-rows: 1
+      :widths: 5 30 65
+      :header-rows: 1
 
    * - #
    - Seccion

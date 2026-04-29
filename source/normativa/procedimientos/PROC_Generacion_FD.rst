@@ -73,18 +73,18 @@ Seleccionar entidad del modelo de dominio.
    .. list-table::
     :header-rows: 1
  
-   * - Atributo
-   - Tipo
-   - Obligatorio
-   - Descripcion
-   * - id
-   - UUID
-   - Si
-   - Identificador unico
-   * - username
-   - String(50)
-   - Si
-   - Nombre de usuario
+      * - Atributo
+        - Tipo
+        - Obligatorio
+        - Descripcion
+      * - id
+        - UUID
+        - Si
+        - Identificador unico
+      * - username
+        - String(50)
+        - Si
+        - Nombre de usuario
 
    **Paso 4: Documentar Relaciones**
 

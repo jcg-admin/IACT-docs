@@ -174,17 +174,17 @@ Antes de iniciar este procedimiento, verificar:
     :header-rows: 1
 
   * - Tipo
-  - Descripcion
-  - Incremento
+    - Descripcion
+    - Incremento
   * - MAJOR
-  - Cambio incompatible, reestructuracion
-  - X.0.0
+    - Cambio incompatible, reestructuracion
+    - X.0.0
   * - MINOR
-  - Nueva funcionalidad, nuevos artefactos
-  - x.Y.0
+    - Nueva funcionalidad, nuevos artefactos
+    - x.Y.0
   * - PATCH
-  - Correccion, actualizacion metricas
-  - x.y.Z
+    - Correccion, actualizacion metricas
+    - x.y.Z
 
 - **Resultado**: Tipo de cambio identificado
 - **Verificacion**: Clasificacion correcta

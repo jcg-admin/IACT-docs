@@ -117,10 +117,10 @@ Plantilla Basica
     :widths: 50 50
     :header-rows: 0
 
-   * - **Total Artefactos**
-   - [N]
-   * - **Ultimo Actualizado**
-   - [YYYY-MM-DD]
+      * - **Total Artefactos**
+        - [N]
+      * - **Ultimo Actualizado**
+        - [YYYY-MM-DD]
 
    ----
 
@@ -146,16 +146,16 @@ Plantilla Basica
 
    .. code-block:: rst
 
-   .. meta::
-   :artefacto: INDEX_[subdominio]
-   :tipo: Indice
-   :dominio: [dominio]
-   :subdominio: [subdominio]
-   :estado: Activo
-   :version: 1.0.0
-   :fecha_creacion: [YYYY-MM-DD]
-   :ultimo_cambio: [YYYY-MM-DD]
-   :autor: Equipo IACT
+      .. meta::
+      :artefacto: INDEX_[subdominio]
+      :tipo: Indice
+      :dominio: [dominio]
+      :subdominio: [subdominio]
+      :estado: Activo
+      :version: 1.0.0
+      :fecha_creacion: [YYYY-MM-DD]
+      :ultimo_cambio: [YYYY-MM-DD]
+      :autor: Equipo IACT
 
    .. _index-[subdominio]:
 
@@ -183,18 +183,18 @@ Plantilla Basica
     :widths: 40 30 30
     :header-rows: 1
 
-   * - Categoria
-   - Cantidad
-   - Estado
-   * - [Categoria 1]
-   - [N1]
-   - [Completo|En progreso]
-   * - [Categoria 2]
-   - [N2]
-   - [Completo|En progreso]
-   * - **Total**
-   - **[N]**
-   - -
+      * - Categoria
+        - Cantidad
+        - Estado
+      * - [Categoria 1]
+        - [N1]
+        - [Completo|En progreso]
+      * - [Categoria 2]
+        - [N2]
+        - [Completo|En progreso]
+      * - **Total**
+        - **[N]**
+        - -
 
    ----
 
@@ -229,14 +229,14 @@ Plantilla Basica
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -249,17 +249,17 @@ Plantilla Basica
 
    .. code-block:: rst
 
-   .. meta::
-   :artefacto: INDEX_[modulo]
-   :tipo: Indice de Modulo
-   :dominio: [dominio]
-   :subdominio: [subdominio]/[modulo]
-   :modulo: MOD_[Modulo]
-   :estado: Activo
-   :version: 1.0.0
-   :fecha_creacion: [YYYY-MM-DD]
-   :ultimo_cambio: [YYYY-MM-DD]
-   :autor: Equipo IACT
+      .. meta::
+      :artefacto: INDEX_[modulo]
+      :tipo: Indice de Modulo
+      :dominio: [dominio]
+      :subdominio: [subdominio]/[modulo]
+      :modulo: MOD_[Modulo]
+      :estado: Activo
+      :version: 1.0.0
+      :fecha_creacion: [YYYY-MM-DD]
+      :ultimo_cambio: [YYYY-MM-DD]
+      :autor: Equipo IACT
 
    .. _index-[subdominio]-[modulo]:
 
@@ -287,14 +287,14 @@ Plantilla Basica
     :widths: 50 50
     :header-rows: 0
 
-   * - **Modulo**
-   - MOD_[Modulo]
-   * - **Total [Tipo]**
-   - [N]
-   * - **Estado**
-   - [Completo|En progreso] ([X]%)
-   * - **Ultimo Actualizado**
-   - [YYYY-MM-DD]
+      * - **Modulo**
+        - MOD_[Modulo]
+      * - **Total [Tipo]**
+        - [N]
+      * - **Estado**
+        - [Completo|En progreso] ([X]%)
+      * - **Ultimo Actualizado**
+        - [YYYY-MM-DD]
 
    ----
 
@@ -318,14 +318,14 @@ Plantilla Basica
     :widths: 25 75
     :header-rows: 0
 
-   * - **BReq**
-   - BReq_[MOD]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **[Nivel Superior]**
-   - [Enlaces al nivel superior]
-   * - **[Nivel Inferior]**
-   - [Enlaces al nivel inferior]
+      * - **BReq**
+        - BReq_[MOD]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **[Nivel Superior]**
+        - [Enlaces al nivel superior]
+      * - **[Nivel Inferior]**
+        - [Enlaces al nivel inferior]
 
    ----
 
@@ -341,16 +341,16 @@ Plantilla Basica
 
    .. code-block:: rst
 
-   .. meta::
-   :artefacto: INDEX_reglas_negocio
-   :tipo: Indice
-   :dominio: requisitos
-   :subdominio: reglas_negocio
-   :estado: Activo
-   :version: 2.0.0
-   :fecha_creacion: 2026-01-06
-   :ultimo_cambio: 2026-01-07
-   :autor: Equipo IACT
+      .. meta::
+      :artefacto: INDEX_reglas_negocio
+      :tipo: Indice
+      :dominio: requisitos
+      :subdominio: reglas_negocio
+      :estado: Activo
+      :version: 2.0.0
+      :fecha_creacion: 2026-01-06
+      :ultimo_cambio: 2026-01-07
+      :autor: Equipo IACT
 
  
    Reglas de Negocio (BR)
@@ -363,27 +363,27 @@ Plantilla Basica
     :widths: 40 30 30
     :header-rows: 1
 
-   * - Tipo (TXM_03)
-   - Cantidad
-   - Estado
-   * - Restriccion
-   - 10
-   - Completo
-   * - Desencadenador
-   - 3
-   - Completo
-   * - Hecho
-   - 3
-   - Completo
-   * - Inferencia
-   - 1
-   - Completo
-   * - Calculo
-   - 3
-   - Completo
-   * - **Total**
-   - **20**
-   - **Completo**
+      * - Tipo (TXM_03)
+        - Cantidad
+        - Estado
+      * - Restriccion
+        - 10
+        - Completo
+      * - Desencadenador
+        - 3
+        - Completo
+      * - Hecho
+        - 3
+        - Completo
+      * - Inferencia
+        - 1
+        - Completo
+      * - Calculo
+        - 3
+        - Completo
+      * - **Total**
+        - **20**
+        - **Completo**
 
    Contenido
    ---------
@@ -405,14 +405,14 @@ Plantilla Basica
 
    .. code-block:: rst
 
-   .. meta::
-   :artefacto: INDEX_casos_uso_auth
-   :tipo: Indice de Modulo
-   :dominio: requisitos
-   :subdominio: casos_uso/auth
-   :modulo: MOD_Auth
-   :estado: Activo
-   :version: 1.0.0
+      .. meta::
+      :artefacto: INDEX_casos_uso_auth
+      :tipo: Indice de Modulo
+      :dominio: requisitos
+      :subdominio: casos_uso/auth
+      :modulo: MOD_Auth
+      :estado: Activo
+      :version: 1.0.0
 
  
    Casos de Uso - MOD_Auth
@@ -425,14 +425,14 @@ Plantilla Basica
     :widths: 50 50
     :header-rows: 0
 
-   * - **Modulo**
-   - MOD_Auth
-   * - **Total UC**
-   - 5
-   * - **FR Derivados**
-   - 21
-   * - **Estado**
-   - Completo (100%)
+      * - **Modulo**
+        - MOD_Auth
+      * - **Total UC**
+        - 5
+      * - **FR Derivados**
+        - 21
+      * - **Estado**
+        - Completo (100%)
 
    Casos de Uso
    ------------
@@ -455,8 +455,8 @@ Plantilla Basica
    Cada index.rst DEBE incluir minimo:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

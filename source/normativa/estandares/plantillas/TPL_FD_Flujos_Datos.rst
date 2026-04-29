@@ -152,18 +152,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - FD_[NN]
-   * - **Nombre**
-   - [Nombre descriptivo del flujo]
-   * - **Tipo**
-   - [Sincronico|Asincronico|Batch|Streaming]
-   * - **Frecuencia**
-   - [Tiempo real|Por evento|Programado|Bajo demanda]
-   * - **Modulos Involucrados**
-   - MOD_[xxx], MOD_[yyy]
-   * - **Estado**
-   - [Activo|En desarrollo]
+      * - **ID**
+        - FD_[NN]
+      * - **Nombre**
+        - [Nombre descriptivo del flujo]
+      * - **Tipo**
+        - [Sincronico|Asincronico|Batch|Streaming]
+      * - **Frecuencia**
+        - [Tiempo real|Por evento|Programado|Bajo demanda]
+      * - **Modulos Involucrados**
+        - MOD_[xxx], MOD_[yyy]
+      * - **Estado**
+        - [Activo|En desarrollo]
 
    ----
 
@@ -219,15 +219,15 @@ Plantilla
     :widths: 25 25 50
     :header-rows: 1
 
-   * - Fuente
-   - Tipo
-   - Descripcion
-   * - [Nombre fuente 1]
-   - [BD|API|Archivo|Usuario]
-   - [Descripcion de la fuente]
-   * - [Nombre fuente 2]
-   - [BD|API|Archivo|Usuario]
-   - [Descripcion de la fuente]
+      * - Fuente
+        - Tipo
+        - Descripcion
+      * - [Nombre fuente 1]
+        - [BD|API|Archivo|Usuario]
+        - [Descripcion de la fuente]
+      * - [Nombre fuente 2]
+        - [BD|API|Archivo|Usuario]
+        - [Descripcion de la fuente]
 
    ----
 
@@ -238,15 +238,15 @@ Plantilla
     :widths: 25 25 50
     :header-rows: 1
 
-   * - Destino
-   - Tipo
-   - Descripcion
-   * - [Nombre destino 1]
-   - [BD|API|Archivo|UI]
-   - [Descripcion del destino]
-   * - [Nombre destino 2]
-   - [BD|API|Archivo|UI]
-   - [Descripcion del destino]
+      * - Destino
+        - Tipo
+        - Descripcion
+      * - [Nombre destino 1]
+        - [BD|API|Archivo|UI]
+        - [Descripcion del destino]
+      * - [Nombre destino 2]
+        - [BD|API|Archivo|UI]
+        - [Descripcion del destino]
 
    ----
 
@@ -260,18 +260,18 @@ Plantilla
     :widths: 10 30 60
     :header-rows: 1
 
-   * - Paso
-   - Transformacion
-   - Descripcion
-   * - 1
-   - [Nombre transformacion]
-   - [Que hace esta transformacion]
-   * - 2
-   - [Nombre transformacion]
-   - [Que hace esta transformacion]
-   * - N
-   - [Nombre transformacion]
-   - [Que hace esta transformacion]
+      * - Paso
+        - Transformacion
+        - Descripcion
+      * - 1
+        - [Nombre transformacion]
+        - [Que hace esta transformacion]
+      * - 2
+        - [Nombre transformacion]
+        - [Que hace esta transformacion]
+      * - N
+        - [Nombre transformacion]
+        - [Que hace esta transformacion]
 
    5.2 Validaciones
    ^^^^^^^^^^^^^^^^
@@ -321,15 +321,15 @@ Plantilla
     :widths: 25 25 50
     :header-rows: 1
 
-   * - Componente
-   - Modulo
-   - Rol en el Flujo
-   * - [NombreClase/Servicio]
-   - MOD_[xxx]
-   - [Que hace en este flujo]
-   * - [NombreClase/Servicio]
-   - MOD_[yyy]
-   - [Que hace en este flujo]
+      * - Componente
+        - Modulo
+        - Rol en el Flujo
+      * - [NombreClase/Servicio]
+        - MOD_[xxx]
+        - [Que hace en este flujo]
+      * - [NombreClase/Servicio]
+        - MOD_[yyy]
+        - [Que hace en este flujo]
 
    ----
 
@@ -343,15 +343,15 @@ Plantilla
     :widths: 30 30 40
     :header-rows: 1
 
-   * - Error
-   - Causa
-   - Accion
-   * - [Codigo/Nombre error]
-   - [Causa del error]
-   - [Que hacer cuando ocurre]
-   * - [Codigo/Nombre error]
-   - [Causa del error]
-   - [Que hacer cuando ocurre]
+      * - Error
+        - Causa
+        - Accion
+      * - [Codigo/Nombre error]
+        - [Causa del error]
+        - [Que hacer cuando ocurre]
+      * - [Codigo/Nombre error]
+        - [Causa del error]
+        - [Que hacer cuando ocurre]
 
    8.2 Estrategia de Retry
    ^^^^^^^^^^^^^^^^^^^^^^^
@@ -372,18 +372,18 @@ Plantilla
     :widths: 40 30 30
     :header-rows: 1
 
-   * - Metrica
-   - Valor Esperado
-   - Limite
-   * - Tiempo de ejecucion
-   - [X segundos]
-   - [Y segundos max]
-   * - Volumen de datos
-   - [N registros]
-   - [M registros max]
-   * - Frecuencia
-   - [Cada X minutos/horas]
-   - -
+      * - Metrica
+        - Valor Esperado
+        - Limite
+      * - Tiempo de ejecucion
+        - [X segundos]
+        - [Y segundos max]
+      * - Volumen de datos
+        - [N registros]
+        - [M registros max]
+      * - Frecuencia
+        - [Cada X minutos/horas]
+        - -
 
    9.2 Optimizaciones
    ^^^^^^^^^^^^^^^^^^
@@ -417,14 +417,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **UC Relacionados**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
-   * - **MOD Involucrados**
-   - MOD_[xxx], MOD_[yyy]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **CNST Aplicables**
-   - CNST_[NNN]
+      * - **UC Relacionados**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **MOD Involucrados**
+        - MOD_[xxx], MOD_[yyy]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **CNST Aplicables**
+        - CNST_[NNN]
 
    ----
 
@@ -435,14 +435,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -456,8 +456,8 @@ Plantilla
    Cada FD DEBE incluir minimo estas 12 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

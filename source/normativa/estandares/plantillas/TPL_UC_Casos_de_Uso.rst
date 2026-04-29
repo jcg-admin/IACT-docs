@@ -126,22 +126,22 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - UC-[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo del caso de uso]
-   * - **Actor Primario**
-   - [Actor principal que inicia el UC]
-   * - **Actores Secundarios**
-   - [Otros actores involucrados, o "Ninguno"]
-   * - **Modulo**
-   - MOD_[Modulo]
-   * - **Complejidad**
-   - [Baja|Media|Alta]
-   * - **Prioridad**
-   - [Alta|Media|Baja]
-   * - **BReq Origen**
-   - BReq-[NNN]: [Nombre del Business Requirement]
+      * - **ID**
+        - UC-[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo del caso de uso]
+      * - **Actor Primario**
+        - [Actor principal que inicia el UC]
+      * - **Actores Secundarios**
+        - [Otros actores involucrados, o "Ninguno"]
+      * - **Modulo**
+        - MOD_[Modulo]
+      * - **Complejidad**
+        - [Baja|Media|Alta]
+      * - **Prioridad**
+        - [Alta|Media|Baja]
+      * - **BReq Origen**
+        - BReq-[NNN]: [Nombre del Business Requirement]
 
    ----
 
@@ -215,11 +215,11 @@ Plantilla
     :widths: 8 46 46
     :header-rows: 1
 
-   * - Paso
-   - Actor
-   - Sistema
-   * - 1
-   - [Accion del actor]
+      * - Paso
+        - Actor
+        - Sistema
+      * - 1
+        - [Accion del actor]
  
    * - 2
  
@@ -296,12 +296,12 @@ Plantilla
     :widths: 10 90
     :header-rows: 1
 
-   * - Paso
-   - Descripcion
-   * - [N].1
-   - [Primera accion del flujo alterno]
-   * - [N].2
-   - [Segunda accion]
+      * - Paso
+        - Descripcion
+      * - [N].1
+        - [Primera accion del flujo alterno]
+      * - [N].2
+        - [Segunda accion]
 
    **Retorno:** [Paso M del flujo normal | Fin del UC]
 
@@ -361,12 +361,12 @@ Plantilla
     :widths: 12 30 58
     :header-rows: 1
 
-   * - BR
-   - Nombre
-   - Aplicacion en este UC
-   * - BR_[NNN]
-   - [Nombre de la regla]
-   - [Como y en que paso se aplica esta regla]
+      * - BR
+        - Nombre
+        - Aplicacion en este UC
+      * - BR_[NNN]
+        - [Nombre de la regla]
+        - [Como y en que paso se aplica esta regla]
 
    ----
 
@@ -377,12 +377,12 @@ Plantilla
     :widths: 15 85
     :header-rows: 1
 
-   * - FR
-   - Descripcion
-   * - FR-[NNN].01
-   - [Descripcion breve del requerimiento funcional]
-   * - FR-[NNN].02
-   - [Descripcion breve]
+      * - FR
+        - Descripcion
+      * - FR-[NNN].01
+        - [Descripcion breve del requerimiento funcional]
+      * - FR-[NNN].02
+        - [Descripcion breve]
 
    ----
 
@@ -393,16 +393,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Origen (BReq)**
-   - BReq-[NNN]: [Nombre]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **FR Derivados**
-   - FR-[NNN].01 a FR-[NNN].[NN]
-   * - **Actores RBAC**
-   - AGR-[NNN]: [nombre_agrupador]
-   * - **Funciones RBAC**
-   - [XXX]-[NNN]: [nombre_funcion]
+      * - **Origen (BReq)**
+        - BReq-[NNN]: [Nombre]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **FR Derivados**
+        - FR-[NNN].01 a FR-[NNN].[NN]
+      * - **Actores RBAC**
+        - AGR-[NNN]: [nombre_agrupador]
+      * - **Funciones RBAC**
+        - [XXX]-[NNN]: [nombre_funcion]
 
    ----
 
@@ -413,14 +413,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 2.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial con PlantUML embebido
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 2.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial con PlantUML embebido
 
    ----
 
@@ -452,8 +452,8 @@ Plantilla
 
    .. code-block:: bash
 
-   # Validar sintaxis RST y PlantUML
-   sphinx-build -b html -W docs/ docs/_build/
+      # Validar sintaxis RST y PlantUML
+      sphinx-build -b html -W docs/ docs/_build/
 
    # Si hay errores PlantUML, se mostraran en consola
 

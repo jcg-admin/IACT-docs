@@ -168,18 +168,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - CNST_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo de la restriccion]
-   * - **Categoria**
-   - [Comunicaciones|Datos|Seguridad|Infraestructura|Integracion|Rendimiento]
-   * - **Criticidad**
-   - [Critica|Alta|Media|Baja]
-   * - **Negociable**
-   - No
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - CNST_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo de la restriccion]
+      * - **Categoria**
+        - [Comunicaciones|Datos|Seguridad|Infraestructura|Integracion|Rendimiento]
+      * - **Criticidad**
+        - [Critica|Alta|Media|Baja]
+      * - **Negociable**
+        - No
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -226,15 +226,15 @@ Plantilla
     :widths: 30 30 40
     :header-rows: 1
 
-   * - Parametro
-   - Valor
-   - Descripcion
-   * - [parametro_1]
-   - [valor_1]
-   - [Descripcion del parametro]
-   * - [parametro_2]
-   - [valor_2]
-   - [Descripcion del parametro]
+      * - Parametro
+        - Valor
+        - Descripcion
+      * - [parametro_1]
+        - [valor_1]
+        - [Descripcion del parametro]
+      * - [parametro_2]
+        - [valor_2]
+        - [Descripcion del parametro]
 
    2.3 Tecnologias Involucradas
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,12 +254,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - Modulo
-   - Impacto
-   * - MOD_[xxx]
-   - [Como afecta esta CNST al modulo]
-   * - MOD_[yyy]
-   - [Como afecta esta CNST al modulo]
+      * - Modulo
+        - Impacto
+      * - MOD_[xxx]
+        - [Como afecta esta CNST al modulo]
+      * - MOD_[yyy]
+        - [Como afecta esta CNST al modulo]
 
    3.2 Casos de Uso Afectados
    ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -268,12 +268,12 @@ Plantilla
     :widths: 20 80
     :header-rows: 1
 
-   * - UC
-   - Impacto
-   * - UC_[MOD]_[NN]
-   - [Como afecta esta CNST al UC]
-   * - UC_[MOD]_[NN]
-   - [Como afecta esta CNST al UC]
+      * - UC
+        - Impacto
+      * - UC_[MOD]_[NN]
+        - [Como afecta esta CNST al UC]
+      * - UC_[MOD]_[NN]
+        - [Como afecta esta CNST al UC]
 
    3.3 Lo que NO se puede hacer
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -290,15 +290,15 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - BR
-   - Nombre
-   - Relacion
-   * - BR_[NNN]
-   - [Nombre de la BR]
-   - [Como esta BR implementa la CNST]
-   * - BR_[NNN]
-   - [Nombre de la BR]
-   - [Como esta BR implementa la CNST]
+      * - BR
+        - Nombre
+        - Relacion
+      * - BR_[NNN]
+        - [Nombre de la BR]
+        - [Como esta BR implementa la CNST]
+      * - BR_[NNN]
+        - [Nombre de la BR]
+        - [Como esta BR implementa la CNST]
 
    ----
 
@@ -380,16 +380,16 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ADR Relacionadas**
-   - ADR_[NNN]: [Nombre]
-   * - **BR Derivadas**
-   - BR_[NNN], BR_[NNN]
-   * - **UC Afectados**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
-   * - **MOD Afectados**
-   - MOD_[xxx], MOD_[yyy]
-   * - **NFR Relacionados**
-   - NFR_[NNN]
+      * - **ADR Relacionadas**
+        - ADR_[NNN]: [Nombre]
+      * - **BR Derivadas**
+        - BR_[NNN], BR_[NNN]
+      * - **UC Afectados**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **MOD Afectados**
+        - MOD_[xxx], MOD_[yyy]
+      * - **NFR Relacionados**
+        - NFR_[NNN]
 
    ----
 
@@ -400,14 +400,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Version inicial
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Version inicial
 
    ----
 
@@ -421,8 +421,8 @@ Plantilla
    Cada CNST DEBE incluir minimo estas 9 secciones:
 
    .. list-table::
-   :widths: 5 30 65
-   :header-rows: 1
+      :widths: 5 30 65
+      :header-rows: 1
 
    * - #
    - Seccion
@@ -464,8 +464,8 @@ Plantilla
    ------------------
 
    .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+      :widths: 25 75
+      :header-rows: 1
 
    * - Categoria
    - Descripcion

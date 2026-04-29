@@ -208,9 +208,9 @@ Antes de iniciar este procedimiento, verificar:
  
     .. warning:: **Estado: DESCONGELADO**
  
-    Este subdominio fue descongelado el 2026-01-07.
-    Razon: Agregar BR_021 por nuevo requisito de seguridad.
-    Recongelar al completar cambios.
+       Este subdominio fue descongelado el 2026-01-07.
+       Razon: Agregar BR_021 por nuevo requisito de seguridad.
+       Recongelar al completar cambios.
 
 - **Resultado**: Index actualizado
 - **Verificacion**: Estado cambiado

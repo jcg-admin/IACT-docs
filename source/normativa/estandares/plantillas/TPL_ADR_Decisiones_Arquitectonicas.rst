@@ -167,18 +167,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - ADR_[NNN]
-   * - **Titulo**
-   - [Titulo descriptivo de la decision]
-   * - **Estado**
-   - [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
-   * - **Fecha Decision**
-   - [YYYY-MM-DD]
-   * - **Decisores**
-   - [Nombres o roles de quienes tomaron la decision]
-   * - **Categoria**
-   - [Tecnologia|Arquitectura|Seguridad|Datos|Infraestructura]
+      * - **ID**
+        - ADR_[NNN]
+      * - **Titulo**
+        - [Titulo descriptivo de la decision]
+      * - **Estado**
+        - [Propuesto|Aceptado|Deprecado|Supersedido|Rechazado]
+      * - **Fecha Decision**
+        - [YYYY-MM-DD]
+      * - **Decisores**
+        - [Nombres o roles de quienes tomaron la decision]
+      * - **Categoria**
+        - [Tecnologia|Arquitectura|Seguridad|Datos|Infraestructura]
 
    ----
 
@@ -297,12 +297,12 @@ Plantilla
     :widths: 40 20 40
     :header-rows: 1
 
-   * - Riesgo
-   - Probabilidad
-   - Mitigacion
-   * - [Descripcion del riesgo]
-   - [Alta|Media|Baja]
-   - [Estrategia de mitigacion]
+      * - Riesgo
+        - Probabilidad
+        - Mitigacion
+      * - [Descripcion del riesgo]
+        - [Alta|Media|Baja]
+        - [Estrategia de mitigacion]
 
    ----
 
@@ -365,14 +365,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **CNST Generadas**
-   - CNST_[NNN], CNST_[NNN]
-   * - **BR Afectadas**
-   - BR_[NNN], BR_[NNN]
-   * - **MOD Afectados**
-   - MOD_[xxx], MOD_[yyy]
-   * - **NFR Relacionados**
-   - NFR_[NNN]
+      * - **CNST Generadas**
+        - CNST_[NNN], CNST_[NNN]
+      * - **BR Afectadas**
+        - BR_[NNN], BR_[NNN]
+      * - **MOD Afectados**
+        - MOD_[xxx], MOD_[yyy]
+      * - **NFR Relacionados**
+        - NFR_[NNN]
 
    ----
 
@@ -392,14 +392,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Version
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Decision inicial documentada
+      * - Version
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Decision inicial documentada
 
    ----
 
@@ -413,8 +413,8 @@ Plantilla
    Cada ADR DEBE incluir minimo estas 10 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Seccion

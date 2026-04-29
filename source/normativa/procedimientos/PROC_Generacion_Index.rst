@@ -245,7 +245,7 @@ Antes de iniciar este procedimiento, verificar:
     --------
  
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - Metrica
     - Valor

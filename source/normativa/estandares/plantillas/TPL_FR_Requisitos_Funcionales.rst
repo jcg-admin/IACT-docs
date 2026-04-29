@@ -134,20 +134,20 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - FR_UC[MOD]_[NN]_[NN]
-   * - **Nombre**
-   - [Nombre descriptivo del requisito funcional]
-   * - **UC Padre**
-   - UC_[MOD]_[NN]: [Nombre del UC]
-   * - **Módulo**
-   - MOD_[Modulo]
-   * - **Tipo**
-   - [Validación|Proceso|Interfaz|Datos|Auditoría|Seguridad]
-   * - **Prioridad**
-   - [Alta|Media|Baja]
-   * - **Complejidad**
-   - [Alta|Media|Baja]
+      * - **ID**
+        - FR_UC[MOD]_[NN]_[NN]
+      * - **Nombre**
+        - [Nombre descriptivo del requisito funcional]
+      * - **UC Padre**
+        - UC_[MOD]_[NN]: [Nombre del UC]
+      * - **Módulo**
+        - MOD_[Modulo]
+      * - **Tipo**
+        - [Validación|Proceso|Interfaz|Datos|Auditoría|Seguridad]
+      * - **Prioridad**
+        - [Alta|Media|Baja]
+      * - **Complejidad**
+        - [Alta|Media|Baja]
 
    ----
 
@@ -197,12 +197,12 @@ Plantilla
     :widths: 15 35 50
     :header-rows: 1
 
-   * - BR
-   - Nombre
-   - Aplicación en este FR
-   * - BR_[NNN]
-   - [Nombre de la regla]
-   - [Cómo aplica esta BR al FR]
+      * - BR
+        - Nombre
+        - Aplicación en este FR
+      * - BR_[NNN]
+        - [Nombre de la regla]
+        - [Cómo aplica esta BR al FR]
 
    4.2 Restricciones Arquitectónicas
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,12 +211,12 @@ Plantilla
     :widths: 15 35 50
     :header-rows: 1
 
-   * - CNST
-   - Nombre
-   - Aplicación en este FR
-   * - CNST_[NNN]
-   - [Nombre de la restricción]
-   - [Cómo aplica esta CNST al FR]
+      * - CNST
+        - Nombre
+        - Aplicación en este FR
+      * - CNST_[NNN]
+        - [Nombre de la restricción]
+        - [Cómo aplica esta CNST al FR]
 
    ----
 
@@ -227,18 +227,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **UC Padre**
-   - UC_[MOD]_[NN]: [Nombre del UC]
-   * - **Paso del Flujo**
-   - Paso [N] del flujo [normal|alterno|excepción]
-   * - **BReq Origen**
-   - BReq_[MOD]: [Nombre]
-   * - **BR Aplicables**
-   - BR_[NNN], BR_[NNN]
-   * - **CNST Aplicables**
-   - CNST_[NNN], CNST_[NNN]
-   * - **Función RBAC**
-   - [xxx]_[nnn]: [nombre_funcion]
+      * - **UC Padre**
+        - UC_[MOD]_[NN]: [Nombre del UC]
+      * - **Paso del Flujo**
+        - Paso [N] del flujo [normal|alterno|excepción]
+      * - **BReq Origen**
+        - BReq_[MOD]: [Nombre]
+      * - **BR Aplicables**
+        - BR_[NNN], BR_[NNN]
+      * - **CNST Aplicables**
+        - CNST_[NNN], CNST_[NNN]
+      * - **Función RBAC**
+        - [xxx]_[nnn]: [nombre_funcion]
 
    ----
 
@@ -249,14 +249,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Versión inicial
 
    ----
 
@@ -266,8 +266,8 @@ Plantilla
    Cada FR DEBE incluir mínimo estas 6 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Sección
@@ -299,8 +299,8 @@ Plantilla
    Clasificación según TXM_01:
 
    .. list-table::
-   :widths: 20 80
-   :header-rows: 1
+      :widths: 20 80
+      :header-rows: 1
 
    * - Tipo
    - Descripción

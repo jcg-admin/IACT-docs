@@ -239,7 +239,7 @@ Antes de iniciar este procedimiento, verificar:
 
     .. code-block:: rst
 
-    **Descripcion:**
+       **Descripcion:**
  
     El sistema DEBE [accion] CUANDO [condicion] PARA [proposito].
 
@@ -247,7 +247,7 @@ Antes de iniciar este procedimiento, verificar:
 
     .. code-block:: rst
 
-    ::
+       ::
  
     DADO [contexto inicial]
     CUANDO [accion del usuario o sistema]

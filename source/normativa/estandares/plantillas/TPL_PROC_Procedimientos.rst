@@ -145,18 +145,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - PROC_[NNN]
-   * - **Nombre**
-   - [Nombre descriptivo del procedimiento]
-   * - **Categoría**
-   - [Cambio|Generación|Derivación|Gobernanza|Trazabilidad|Verificación]
-   * - **Frecuencia**
-   - [Por evento|Diario|Semanal|Por release]
-   * - **Duración Estimada**
-   - [Tiempo estimado de ejecución]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - PROC_[NNN]
+      * - **Nombre**
+        - [Nombre descriptivo del procedimiento]
+      * - **Categoría**
+        - [Cambio|Generación|Derivación|Gobernanza|Trazabilidad|Verificación]
+      * - **Frecuencia**
+        - [Por evento|Diario|Semanal|Por release]
+      * - **Duración Estimada**
+        - [Tiempo estimado de ejecución]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -191,18 +191,18 @@ Plantilla
     :widths: 20 30 50
     :header-rows: 1
 
-   * - Rol
-   - Responsabilidad
-   - Permisos Requeridos
-   * - [Rol_Ejecutor]
-   - Ejecuta los pasos del procedimiento
-   - [Función RBAC requerida]
-   * - [Rol_Revisor]
-   - Revisa y aprueba resultados
-   - [Función RBAC requerida]
-   * - [Rol_Aprobador]
-   - Aprobación final
-   - [Función RBAC requerida]
+      * - Rol
+        - Responsabilidad
+        - Permisos Requeridos
+      * - [Rol_Ejecutor]
+        - Ejecuta los pasos del procedimiento
+        - [Función RBAC requerida]
+      * - [Rol_Revisor]
+        - Revisa y aprueba resultados
+        - [Función RBAC requerida]
+      * - [Rol_Aprobador]
+        - Aprobación final
+        - [Función RBAC requerida]
 
    ----
 
@@ -225,18 +225,18 @@ Plantilla
     :widths: 30 50 20
     :header-rows: 1
 
-   * - Artefacto
-   - Descripción
-   - Obligatorio
-   * - [TPL_xxx]
-   - Plantilla a utilizar
-   - Sí
-   * - [Artefacto_Fuente]
-   - Documento origen de información
-   - Sí
-   * - [Artefacto_Referencia]
-   - Documento de consulta
-   - No
+      * - Artefacto
+        - Descripción
+        - Obligatorio
+      * - [TPL_xxx]
+        - Plantilla a utilizar
+        - Sí
+      * - [Artefacto_Fuente]
+        - Documento origen de información
+        - Sí
+      * - [Artefacto_Referencia]
+        - Documento de consulta
+        - No
 
    ----
 
@@ -314,15 +314,15 @@ Plantilla
     :widths: 30 50 20
     :header-rows: 1
 
-   * - Artefacto
-   - Descripción
-   - Ubicación
-   * - [Artefacto_Generado]
-   - [Descripción del artefacto producido]
-   - [Ruta en el proyecto]
-   * - [Registro_Actualizado]
-   - [Documento actualizado como resultado]
-   - [Ruta en el proyecto]
+      * - Artefacto
+        - Descripción
+        - Ubicación
+      * - [Artefacto_Generado]
+        - [Descripción del artefacto producido]
+        - [Ruta en el proyecto]
+      * - [Registro_Actualizado]
+        - [Documento actualizado como resultado]
+        - [Ruta en el proyecto]
 
    ----
 
@@ -365,12 +365,12 @@ Plantilla
     :widths: 30 70
     :header-rows: 1
 
-   * - Excepción
-   - Acción Correctiva
-   * - [Excepción 1]
-   - [Qué hacer si ocurre esta excepción]
-   * - [Excepción 2]
-   - [Qué hacer si ocurre esta excepción]
+      * - Excepción
+        - Acción Correctiva
+      * - [Excepción 1]
+        - [Qué hacer si ocurre esta excepción]
+      * - [Excepción 2]
+        - [Qué hacer si ocurre esta excepción]
 
    ----
 
@@ -390,14 +390,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Versión inicial
 
    ----
 
@@ -411,8 +411,8 @@ Plantilla
    Cada PROC DEBE incluir mínimo estas 12 secciones:
 
    .. list-table::
-   :widths: 5 25 70
-   :header-rows: 1
+      :widths: 5 25 70
+      :header-rows: 1
 
    * - #
    - Sección
@@ -463,8 +463,8 @@ Plantilla
    ----------------------------
 
    .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+      :widths: 25 75
+      :header-rows: 1
 
    * - Categoría
    - Descripción

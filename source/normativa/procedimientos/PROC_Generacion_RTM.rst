@@ -211,7 +211,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - UC Origen
     - FR Derivados
@@ -237,7 +237,7 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: rst
 
     .. list-table::
-    :header-rows: 1
+       :header-rows: 1
  
     * - FR
     - UC Origen

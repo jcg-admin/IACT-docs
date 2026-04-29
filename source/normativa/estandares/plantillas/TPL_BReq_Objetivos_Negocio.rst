@@ -179,18 +179,18 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **ID**
-   - BReq_[MOD]
-   * - **Nombre**
-   - [Nombre descriptivo del objetivo]
-   * - **Módulo**
-   - MOD_[Modulo]
-   * - **Stakeholder**
-   - [Stakeholder principal interesado]
-   * - **Prioridad**
-   - [Crítica|Alta|Media|Baja]
-   * - **Estado**
-   - Vigente
+      * - **ID**
+        - BReq_[MOD]
+      * - **Nombre**
+        - [Nombre descriptivo del objetivo]
+      * - **Módulo**
+        - MOD_[Modulo]
+      * - **Stakeholder**
+        - [Stakeholder principal interesado]
+      * - **Prioridad**
+        - [Crítica|Alta|Media|Baja]
+      * - **Estado**
+        - Vigente
 
    ----
 
@@ -246,15 +246,15 @@ Plantilla
     :widths: 25 35 40
     :header-rows: 1
 
-   * - Stakeholder
-   - Rol
-   - Interés
-   * - [Stakeholder 1]
-   - [Rol en el proyecto]
-   - [Qué espera de este objetivo]
-   * - [Stakeholder 2]
-   - [Rol en el proyecto]
-   - [Qué espera de este objetivo]
+      * - Stakeholder
+        - Rol
+        - Interés
+      * - [Stakeholder 1]
+        - [Rol en el proyecto]
+        - [Qué espera de este objetivo]
+      * - [Stakeholder 2]
+        - [Rol en el proyecto]
+        - [Qué espera de este objetivo]
 
    ----
 
@@ -279,15 +279,15 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - BR
-   - Nombre
-   - Relación con BReq
-   * - BR_[NNN]
-   - [Nombre de la BR]
-   - [Cómo esta BR implementa el objetivo]
-   * - BR_[NNN]
-   - [Nombre de la BR]
-   - [Cómo esta BR implementa el objetivo]
+      * - BR
+        - Nombre
+        - Relación con BReq
+      * - BR_[NNN]
+        - [Nombre de la BR]
+        - [Cómo esta BR implementa el objetivo]
+      * - BR_[NNN]
+        - [Nombre de la BR]
+        - [Cómo esta BR implementa el objetivo]
 
    5.2 Casos de Uso (UC)
    ^^^^^^^^^^^^^^^^^^^^^
@@ -296,15 +296,15 @@ Plantilla
     :widths: 20 50 30
     :header-rows: 1
 
-   * - UC
-   - Nombre
-   - Cobertura
-   * - UC_[MOD]_[NN]
-   - [Nombre del UC]
-   - [Qué parte del objetivo cubre]
-   * - UC_[MOD]_[NN]
-   - [Nombre del UC]
-   - [Qué parte del objetivo cubre]
+      * - UC
+        - Nombre
+        - Cobertura
+      * - UC_[MOD]_[NN]
+        - [Nombre del UC]
+        - [Qué parte del objetivo cubre]
+      * - UC_[MOD]_[NN]
+        - [Nombre del UC]
+        - [Qué parte del objetivo cubre]
 
    ----
 
@@ -324,12 +324,12 @@ Plantilla
     :widths: 15 45 40
     :header-rows: 1
 
-   * - CNST
-   - Nombre
-   - Impacto en BReq
-   * - CNST_[NNN]
-   - [Nombre de la restricción]
-   - [Cómo afecta al objetivo]
+      * - CNST
+        - Nombre
+        - Impacto en BReq
+      * - CNST_[NNN]
+        - [Nombre de la restricción]
+        - [Cómo afecta al objetivo]
 
    ----
 
@@ -356,12 +356,12 @@ Plantilla
     :widths: 30 20 50
     :header-rows: 1
 
-   * - Riesgo
-   - Probabilidad
-   - Mitigación
-   * - [Descripción del riesgo]
-   - [Alta|Media|Baja]
-   - [Estrategia de mitigación]
+      * - Riesgo
+        - Probabilidad
+        - Mitigación
+      * - [Descripción del riesgo]
+        - [Alta|Media|Baja]
+        - [Estrategia de mitigación]
 
    ----
 
@@ -372,14 +372,14 @@ Plantilla
     :widths: 25 75
     :header-rows: 0
 
-   * - **Módulo**
-   - MOD_[Modulo]
-   * - **BR Derivadas**
-   - BR_[NNN], BR_[NNN], BR_[NNN]
-   * - **UC Derivados**
-   - UC_[MOD]_[NN], UC_[MOD]_[NN]
-   * - **CNST Aplicables**
-   - CNST_[NNN], CNST_[NNN]
+      * - **Módulo**
+        - MOD_[Modulo]
+      * - **BR Derivadas**
+        - BR_[NNN], BR_[NNN], BR_[NNN]
+      * - **UC Derivados**
+        - UC_[MOD]_[NN], UC_[MOD]_[NN]
+      * - **CNST Aplicables**
+        - CNST_[NNN], CNST_[NNN]
 
    ----
 
@@ -390,14 +390,14 @@ Plantilla
     :widths: 12 12 20 56
     :header-rows: 1
 
-   * - Versión
-   - Fecha
-   - Autor
-   - Cambios
-   * - 1.0.0
-   - [YYYY-MM-DD]
-   - Equipo IACT
-   - Versión inicial
+      * - Versión
+        - Fecha
+        - Autor
+        - Cambios
+      * - 1.0.0
+        - [YYYY-MM-DD]
+        - Equipo IACT
+        - Versión inicial
 
    ----
 
@@ -411,8 +411,8 @@ Plantilla
    Cada BReq DEBE incluir mínimo estas 10 secciones:
 
    .. list-table::
-   :widths: 5 30 65
-   :header-rows: 1
+      :widths: 5 30 65
+      :header-rows: 1
 
    * - #
    - Sección
