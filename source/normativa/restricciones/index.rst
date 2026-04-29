@@ -38,84 +38,84 @@ Catalogo
  :maxdepth: 1
  :caption: Comunicaciones
 
- CNST_001_Prohibicion_de_Email_y_SMTP
- CNST_002_Buzon_Interno_Obligatorio
+ cnst-001-prohibicion-de-email-y-smtp
+ cnst-002-buzon-interno-obligatorio
 
 .. toctree::
  :maxdepth: 1
  :caption: Sesiones
 
- CNST_003_Sesiones_Persistidas_en_Base_de_Datos
- CNST_004_Sesion_Unica_por_Usuario
- CNST_005_Timeout_de_Sesion_de_15_Minutos
+ cnst-003-sesiones-persistidas-en-base-de-datos
+ cnst-004-sesion-unica-por-usuario
+ cnst-005-timeout-de-sesion-de-15-minutos
 
 .. toctree::
  :maxdepth: 1
  :caption: Base de datos
 
- CNST_006_Arquitectura_de_Base_de_Datos_Dual
- CNST_007_Base_de_Datos_IVR_es_Solo_Lectura
- CNST_008_Sincronizacion_ETL_en_Ventana_de_6_a_12_Horas
+ cnst-006-arquitectura-de-base-de-datos-dual
+ cnst-007-base-de-datos-ivr-es-solo-lectura
+ cnst-008-sincronizacion-etl-en-ventana-de-6-a-12-horas
 
 .. toctree::
  :maxdepth: 1
  :caption: Seguridad DRF
 
- CNST_009_Autenticacion_DRF_Obligatoria
- CNST_010_Permission_Class_Explicita_en_Vistas_DRF
- CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos
- CNST_012_Validacion_de_Input_via_Serializer
- CNST_013_Manejo_Estandarizado_de_Excepciones_DRF
- CNST_014_Paginacion_Obligatoria_en_Listados
+ cnst-009-autenticacion-drf-obligatoria
+ cnst-010-permission-class-explicita-en-vistas-drf
+ cnst-011-throttling-obligatorio-en-endpoints-publicos
+ cnst-012-validacion-de-input-via-serializer
+ cnst-013-manejo-estandarizado-de-excepciones-drf
+ cnst-014-paginacion-obligatoria-en-listados
 
 .. toctree::
  :maxdepth: 1
  :caption: Arquitectura
 
- CNST_015_Antipatrones_de_Arquitectura_Prohibidos
- CNST_016_Principios_SOLID_Obligatorios
+ cnst-015-antipatrones-de-arquitectura-prohibidos
+ cnst-016-principios-solid-obligatorios
 
 .. toctree::
  :maxdepth: 1
  :caption: Performance y exportaciones
 
- CNST_017_SLA_de_Tiempos_de_Respuesta
- CNST_018_Rango_Maximo_de_Consulta_de_2_Anos
- CNST_019_Exportaciones_Asincronas_Sobre_10k_Registros
- CNST_020_Throttling_de_Exportaciones_por_Formato
+ cnst-017-sla-de-tiempos-de-respuesta
+ cnst-018-rango-maximo-de-consulta-de-2-anos
+ cnst-019-exportaciones-asincronas-sobre-10k-registros
+ cnst-020-throttling-de-exportaciones-por-formato
 
 .. toctree::
  :maxdepth: 1
  :caption: Infraestructura
 
- CNST_021_Stack_Obligatorio_Ubuntu_Apache_mod_wsgi
- CNST_022_Estructura_de_Directorios_en_Servidor
- CNST_023_Rollback_Obligatorio_en_Cada_Deployment
+ cnst-021-stack-obligatorio-ubuntu-apache-mod-wsgi
+ cnst-022-estructura-de-directorios-en-servidor
+ cnst-023-rollback-obligatorio-en-cada-deployment
 
 .. toctree::
  :maxdepth: 1
  :caption: Logging y auditoria
 
- CNST_024_Logs_Estructurados_en_Formato_JSON
- CNST_025_Auditoria_Inmutable_Append_Only
- CNST_026_PII_Prohibida_en_Logs_y_Auditoria
+ cnst-024-logs-estructurados-en-formato-json
+ cnst-025-auditoria-inmutable-append-only
+ cnst-026-pii-prohibida-en-logs-y-auditoria
 
 .. toctree::
  :maxdepth: 1
  :caption: Datos
 
- CNST_027_Clasificacion_Obligatoria_de_Datos_en_4_Niveles
- CNST_028_Cifrado_Obligatorio_de_Datos_Confidenciales
+ cnst-027-clasificacion-obligatoria-de-datos-en-4-niveles
+ cnst-028-cifrado-obligatorio-de-datos-confidenciales
 
 .. toctree::
  :maxdepth: 1
  :caption: RBAC
 
- CNST_029_RBAC_Modelo_Plano
- CNST_030_Reglas_de_Separacion_de_Funciones_SoD
- CNST_031_Permisos_Temporales_Maximo_6_Meses
- CNST_032_Menu_Dinamico_Obligatorio
- CNST_033_Vocabulario_Unificado_RBAC
+ cnst-029-rbac-modelo-plano
+ cnst-030-reglas-de-separacion-de-funciones-sod
+ cnst-031-permisos-temporales-maximo-6-meses
+ cnst-032-menu-dinamico-obligatorio
+ cnst-033-vocabulario-unificado-rbac
 
 Convenciones
 ------------

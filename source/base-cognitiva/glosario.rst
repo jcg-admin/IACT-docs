@@ -332,7 +332,7 @@ Tras la decisión arquitectónica documentada en el ADR-GOB-008 (RBAC
 Coexistencia ACC ↔ PERM), estos son los términos canónicos del modelo
 RBAC del sistema IACT. **El uso de estos términos es obligatorio** en
 toda documentación nueva del proyecto (formalizado en
-:doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`).
+:doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`).
 
 .. list-table::
  :header-rows: 1
@@ -358,14 +358,14 @@ toda documentación nueva del proyecto (formalizado en
    - Asignación directa de funciones a un usuario fuera de grupos,
      con justificación obligatoria mínimo 20 caracteres y
      vencimiento máximo 6 meses (ver
-     :doc:`/normativa/restricciones/CNST_031_Permisos_Temporales_Maximo_6_Meses`).
+     :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`).
  * - **Regla SoD**
    - Restricción de mutual exclusion entre dos grupos
      (Separation of Duties). El sistema declara 3 reglas:
      SOD-001 (pipeline ⊕ audit), SOD-002 (users ⊕ audit),
      SOD-003 (access ⊕ audit). Aplican tanto a system como a
      custom groups (ver
-     :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`).
+     :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
  * - **Verificación de Permiso**
    - Función SQL nativa que evalúa en tiempo real si un usuario
      tiene una función específica. Implementación PostgreSQL:

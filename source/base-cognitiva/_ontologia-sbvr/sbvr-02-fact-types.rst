@@ -27,7 +27,7 @@ SBVR_02: Fact Types (Tipos de Hechos)
  atomicas + 10 grupos predefinidos AGR-001..AGR-010 + 3 reglas SoD.
 
  **Vocabulario canonico vigente:**
- :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+ :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
  y :doc:`/base-cognitiva/glosario` § H.
 
  Los ejemplos legacy se preservan por valor pedagogico historico —

@@ -98,9 +98,9 @@ Umbrales``.
 6. CNSTs aplicables
 -------------------
 
-- :doc:`/normativa/restricciones/CNST_017_SLA_de_Tiempos_de_Respuesta`
+- :doc:`/normativa/restricciones/cnst-017-sla-de-tiempos-de-respuesta`
   — calculo en runtime debe responder en SLA p95 <= 2 s.
-- :doc:`/normativa/restricciones/CNST_018_Rango_Maximo_de_Consulta_de_2_Anos`
+- :doc:`/normativa/restricciones/cnst-018-rango-maximo-de-consulta-de-2-anos`
   — limite de ventana de medicion historica.
 
 7. BRs relacionadas

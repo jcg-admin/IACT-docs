@@ -25,6 +25,6 @@ readonly + PostgreSQL Analytics) y del pipeline ETL.
 .. note::
 
  Las restricciones del modelo de datos viven en
- :doc:`/normativa/restricciones/CNST_006_Arquitectura_de_Base_de_Datos_Dual`,
- :doc:`/normativa/restricciones/CNST_007_Base_de_Datos_IVR_es_Solo_Lectura`,
- :doc:`/normativa/restricciones/CNST_008_Sincronizacion_ETL_en_Ventana_de_6_a_12_Horas`.
+ :doc:`/normativa/restricciones/cnst-006-arquitectura-de-base-de-datos-dual`,
+ :doc:`/normativa/restricciones/cnst-007-base-de-datos-ivr-es-solo-lectura`,
+ :doc:`/normativa/restricciones/cnst-008-sincronizacion-etl-en-ventana-de-6-a-12-horas`.

@@ -198,7 +198,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  La materializacion concreta de este metamodelo (las 42 funciones,
  los 10 grupos, las 3 reglas SoD, la politica de permisos
  temporales) esta documentada en la restriccion
- :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` (cuyo
+ :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` (cuyo
  detalle pendiente de enriquecer en iteracion v3 del WP #4).
 
 3.3 Permiso
@@ -309,7 +309,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
       - Quien opera ETL no debe auditarlo Quien gestiona users no debe auditar Quien gestiona acceso no debe auditar
 
  Detalle SOD-001/SOD-002/SOD-003:
- :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
+ :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
 
  PROPIEDAD:
  La relacion es SIMETRICA: si (A,B) existe, (B,A) esta implicito.
@@ -599,7 +599,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
    - Sysadmin
 
 Detalle completo de los 10 grupos: ver
-:doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano` § 2.1.
+:doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` § 2.1.
 
 ----
 
@@ -649,7 +649,7 @@ de usuarios (UC-005 a UC-011).
 **Catalogo poblado:** la materializacion concreta de este metamodelo
 (las 42 funciones, los 10 grupos, las 3 reglas SoD, la politica de
 permisos temporales) esta documentada como restricción
-:doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano`.
+:doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 
 **Regla de negocio asociada:** **BR_006** en
 ``normativa/restricciones/`` o ``requisitos/`` según convención

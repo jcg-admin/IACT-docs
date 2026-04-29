@@ -46,10 +46,10 @@ Resumen:
 
 Antes de codificar, revisa:
 
-- :doc:`/normativa/restricciones/CNST_001_Prohibicion_de_Email_y_SMTP`
-- :doc:`/normativa/restricciones/CNST_009_Autenticacion_DRF_Obligatoria`
-- :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano`
-- :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+- :doc:`/normativa/restricciones/cnst-001-prohibicion-de-email-y-smtp`
+- :doc:`/normativa/restricciones/cnst-009-autenticacion-drf-obligatoria`
+- :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
+- :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 
 4. Code review
 ==============

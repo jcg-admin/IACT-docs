@@ -174,9 +174,9 @@ Los tres son inmutables (CNST_025 Auditoría Inmutable).
 --------------
 
 - :doc:`/normativa/restricciones/index` — catálogo de CNST canónicos
-- :doc:`/normativa/restricciones/CNST_025_Auditoria_Inmutable_Append_Only`
-- :doc:`/normativa/restricciones/CNST_032_Menu_Dinamico_Obligatorio`
-- :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+- :doc:`/normativa/restricciones/cnst-025-auditoria-inmutable-append-only`
+- :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
+- :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
 
 8. Historial de Cambios

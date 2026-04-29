@@ -68,13 +68,13 @@ Pipeline de validacion automatizada del sistema IACT.
 El framework de calidad verifica automaticamente cumplimiento de
 restricciones canonicas:
 
-- :doc:`/normativa/restricciones/CNST_009_Autenticacion_DRF_Obligatoria`
+- :doc:`/normativa/restricciones/cnst-009-autenticacion-drf-obligatoria`
   → tests verifican ``permission_classes`` declaradas
-- :doc:`/normativa/restricciones/CNST_011_Throttling_Obligatorio_en_Endpoints_Publicos`
+- :doc:`/normativa/restricciones/cnst-011-throttling-obligatorio-en-endpoints-publicos`
   → tests verifican rate limits
-- :doc:`/normativa/restricciones/CNST_026_PII_Prohibida_en_Logs_y_Auditoria`
+- :doc:`/normativa/restricciones/cnst-026-pii-prohibida-en-logs-y-auditoria`
   → linter de logs sanitiza PII
-- :doc:`/normativa/restricciones/CNST_032_Menu_Dinamico_Obligatorio`
+- :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
   → E2E test verifica `obtener_menu_usuario`
-- :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+- :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
   → linter custom rechaza "Capacidad" en codigo nuevo

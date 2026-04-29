@@ -152,14 +152,14 @@ Mitigaciones Aplicadas
 Tras esta decision, los siguientes artefactos fueron creados o
 actualizados:
 
-- :doc:`/normativa/restricciones/CNST_032_Menu_Dinamico_Obligatorio`
+- :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
   — formaliza requisito CORE de PERM (D-RBAC-5).
-- :doc:`/normativa/restricciones/CNST_033_Vocabulario_Unificado_RBAC`
+- :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
   — fija vocabulario canonico "Funcion" (D-RBAC-1, D-RBAC-6).
-- :doc:`/normativa/restricciones/CNST_029_RBAC_Modelo_Plano`
+- :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`
   enriquecido con catalogo de los 10 grupos AGR-001..010 +
   distincion system vs custom (D-RBAC-4).
-- :doc:`/normativa/restricciones/CNST_030_Reglas_de_Separacion_de_Funciones_SoD`
+- :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
   enriquecido con las 3 reglas SoD declaradas (SOD-001/002/003) y
   aplicabilidad a custom groups (D-RBAC-7).
 - :doc:`/base-cognitiva/glosario` § H "Vocabulario RBAC unificado"
