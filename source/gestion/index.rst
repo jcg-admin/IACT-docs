@@ -41,7 +41,7 @@ Subdominios
 .. toctree::
  :maxdepth: 2
 
- manuales_usuarios/index
+ manuales-usuarios/index
  pm/index
  evidencia/index
 
@@ -55,4 +55,4 @@ Subdominios
  :maxdepth: 1
 
  git-workflow
- plantilla_adr
+ plantilla-adr

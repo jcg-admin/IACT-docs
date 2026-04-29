@@ -54,4 +54,4 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
 
  checklists/index
  planificacion-releases-frontend
- deployment_plan
+ deployment-plan
