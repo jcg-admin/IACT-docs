@@ -1691,6 +1691,374 @@ contratos).
 
 ----
 
+14. Vista Component (C4 nivel 3)
+================================
+
+Tras el Context (§ 13) y el Container
+(:doc:`diagramas-distribucion`), el tercer nivel del
+modelo C4 es la vista **Component**: una mirada
+**hacia adentro** de cada container para identificar
+sus **componentes principales** y cómo se relacionan
+con los demás containers y sistemas externos.
+
+Qué es un componente en C4
+--------------------------
+
+El término "componente" está sobrecargado en la
+industria, pero dentro de C4 significa algo
+específico: un **agrupamiento de alto nivel** dentro
+de un container. En la práctica:
+
+- Un namespace o módulo con responsabilidad propia.
+- Una librería o paquete distribuible.
+- Una sub-aplicación dentro de un servidor web.
+
+No se modelan **todas** las clases o paquetes — solo
+los **bloques de construcción mayores** que el lector
+necesita conocer para entender la estructura interna
+del container.
+
+Cuándo el Component view aporta valor
+-------------------------------------
+
+La guía oficial de C4 lista esta vista como
+**opcional**, porque puede quedar **desactualizada
+rápidamente** conforme el código evoluciona. La
+recomendación práctica:
+
+- **Sí** — para sistemas grandes (monolitos
+  modulares) donde los componentes mayores mapean a
+  subdominios.
+- **Sí** — cuando un container concentra suficiente
+  complejidad como para que el lector necesite ver
+  sus piezas.
+- **No** — para microservicios granulares, donde el
+  Container view ya transmite la información útil y
+  el servicio interno tiene pocos componentes
+  significativos.
+- **No** — para componentes de terceros (Redis,
+  MySQL, LDAP) que son cajas negras.
+
+Decisión IACT
+~~~~~~~~~~~~~
+
+IACT es esencialmente un **monolito modular** Django
+desplegado bajo Apache + ``mod_wsgi``: el container
+``iact.wsgi`` aglutina varias apps Django (``auth_app``,
+``perm_app``, ``rpt_app``, ``alr_app``, ``pip_app``,
+``aud_app``, ``log_app``) — cada una con
+responsabilidad propia.
+
+Por esa estructura, **el Component view sí aporta
+valor**. La realidad es que **§§ 1-9 de este
+documento ya constituyen el Component view de IACT**:
+
+- § 3 — vista física global con las apps Django como
+  componentes dentro del container ``vm-iact``.
+- § 4 — vista detallada con interfaces lollipop
+  (``ISecurity``, ``IAuditLog``, ``IReporte``,
+  ``IAlerta``, ``INotificacion``,
+  ``IDatosOperativos``, ``IDatosAnalytics``,
+  ``IETL``).
+- §§ 5-8 — clasificación de tipos de componentes,
+  sustitución, reutilización y mapeo a UCs.
+
+14.1 Cómo se construye un Component view
+----------------------------------------
+
+Las técnicas son las mismas que en el Context y el
+Container:
+
+- **Frontera** del container (``package "iact.wsgi"``).
+- **Componentes internos** (apps Django,
+  estereotipo ``<<c4_component>>``).
+- **Containers / sistemas externos** que invocan o
+  son invocados por los componentes — quedan **fuera**
+  de la frontera.
+- **Interacciones etiquetadas** con el propósito.
+- **Consistencia de paleta** con los niveles
+  anteriores.
+
+Convención de paleta IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Siguiendo la línea de Brown (azul para sistemas en
+foco, gris para externos, verde-azulado para
+componentes internos):
+
+.. code-block:: text
+
+   ' En plantuml-styles.puml — sección C4 components
+   skinparam rectangleBackgroundColor<<c4_component>> #85bbf0
+   skinparam rectangleFontColor<<c4_component>> #000000
+   skinparam rectangleBorderColor<<c4_component>> #5d82a8
+
+Los componentes internos quedan en un **azul más
+claro** que los containers, para diferenciarlos
+visualmente sin cambiar la familia cromática.
+
+14.2 Ejemplo IACT — Component view de iact.wsgi
+-----------------------------------------------
+
+El equivalente IACT del ejemplo del libro (componentes
+del Web Application container) es la descomposición
+de ``iact.wsgi`` en sus apps Django:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Component view (iact.wsgi)
+
+   actor "Supervisor\n[Person]" as Supervisor
+   rectangle "Browser\n[Container]" as B <<c4_container>>
+
+   package "iact.wsgi" {
+     rectangle "auth_app\n[Django app]\nIdentificacion + sesion" as Auth <<c4_component>>
+     rectangle "perm_app\n[Django app]\nPermisos + SoD" as Perm <<c4_component>>
+     rectangle "rpt_app\n[Django app]\nReportes" as Rpt <<c4_component>>
+     rectangle "alr_app\n[Django app]\nAlertas" as Alr <<c4_component>>
+     rectangle "pip_app\n[Django app]\nETL coordinator" as Pip <<c4_component>>
+     rectangle "aud_app\n[Django app]\nAuditoria CNST_025" as Aud <<c4_component>>
+     rectangle "log_app\n[Django app]\nBuzon CNST_001" as Log <<c4_component>>
+   }
+
+   database "Redis\n[Container]" as Redis <<c4_container>>
+   database "bd_analytics\n[Container]" as BDA <<c4_container>>
+   database "audit_log\n[Container]" as Audit <<c4_container>>
+   rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
+
+   Supervisor --> B
+   B --> Auth : POST /login\n[HTTPS]
+   B --> Rpt : consultas de reporte\n[HTTPS]
+   B --> Alr : reconocer alerta\n[HTTPS]
+
+   Auth --> LDAP : autentica\n[LDAPS]
+   Auth --> Redis : sesion (CNST_002)
+   Auth ..> Aud : registra acceso
+
+   Rpt --> Perm : verifica permiso
+   Rpt --> BDA : lee agregados
+   Rpt ..> Log : notifica buzon
+   Rpt ..> Aud : registra evento
+
+   Alr --> Perm : verifica permiso
+   Alr --> BDA : evalua umbrales
+   Alr ..> Aud : registra reconocimiento
+
+   Pip --> BDA : escribe agregados
+   Pip ..> Aud : registra ejecucion ETL
+
+   Perm ..> Aud : registra denegado / SoD
+   @enduml
+
+Lectura del diagrama
+~~~~~~~~~~~~~~~~~~~~
+
+- **Frontera ``iact.wsgi``** agrupa las siete apps
+  Django.
+- **Componentes** en azul claro
+  (``<<c4_component>>``) — siete apps.
+- **Containers IACT** fuera (Browser, Redis,
+  bd_analytics, audit_log) en azul oscuro
+  (``<<c4_container>>``).
+- **Sistemas externos** (LDAP) en gris
+  (``<<c4_externo>>``).
+- **Sync** (``-->``) para llamadas que esperan
+  respuesta.
+- **Async** (``..>``) para registro de auditoría y
+  notificaciones — fire-and-forget vía bus
+  Observer.
+
+14.3 Cuándo crear un Component view específico
+----------------------------------------------
+
+En IACT, los componentes principales ya están
+documentados en §§ 1-9. Crear Component views
+adicionales solo cuando:
+
+- Se introduce una **nueva app Django** y se quiere
+  documentar su lugar en la arquitectura.
+- Una app crece tanto que **internamente** merece
+  descomposición — entonces el Component view de
+  ese container muestra los sub-componentes.
+- Una iniciativa explora **alternativas
+  arquitectónicas** (extraer una app a un proceso
+  separado, reagrupar funciones).
+
+Para apps de terceros (Redis, MySQL, LDAP, IVR) **no**
+se modelan componentes internos — son cajas negras.
+
+14.4 Riesgos y disciplina
+-------------------------
+
+El Component view tiene un **riesgo conocido**:
+desactualizarse cuando el código evoluciona. Para
+controlarlo:
+
+1. **Mantenerlo automático cuando sea posible** —
+   parte de los componentes se pueden enumerar desde
+   ``INSTALLED_APPS`` de Django.
+2. **Atar las actualizaciones a los WPs** que
+   cambien el código — un PR que agrega una app
+   Django actualiza también este diagrama.
+3. **Aceptar la deuda controlada** — si un
+   Component view queda 1-2 versiones detrás del
+   código, marcarlo con ``status: Borrador`` o
+   ``Pendiente de re-validar`` en el frontmatter.
+4. **No modelar más detalle del que se mantendrá** —
+   un diagrama Component que el equipo no puede
+   actualizar es peor que no tenerlo.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **§§ 1-9 de este documento** son el Component
+   view canónico de IACT — actualizarlas cuando
+   cambien las apps Django o sus interfaces.
+2. **Estereotipo ``<<c4_component>>``** para apps
+   Django dentro del container.
+3. **Coherencia con el Container view** —
+   los containers que cita el Component son los
+   mismos que en :doc:`diagramas-distribucion`.
+4. **Sin modelar componentes de terceros** —
+   Redis, MySQL, LDAP no se descomponen.
+5. **Cada cambio en el modelo se acompaña de un PR
+   que actualiza este diagrama** — evitar deuda
+   estructural.
+
+14.5 Vista Code (C4 nivel 4) — por qué se omite
+-----------------------------------------------
+
+El cuarto y último nivel del modelo C4 es la vista
+**Code**: un acercamiento aún mayor que muestra las
+**clases dentro de cada componente**.
+
+Razón principal para omitirlo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La recomendación general de la comunidad C4 — y la
+adoptada por IACT — es **no crearlo manualmente**.
+Las razones operan en el mismo eje que las del
+Component view, pero con magnitud mucho mayor:
+
+- **Velocidad de cambio** — el código cambia con
+  cada commit; un diagrama Code escrito a mano
+  queda obsoleto en horas o días.
+- **Costo de mantenimiento** — actualizar el
+  diagrama tras cada PR consume tanto tiempo como
+  mantener el código mismo.
+- **Valor decreciente** — el lector que necesita
+  ese nivel de detalle puede leer el código
+  directamente; el IDE muestra estructura, jerarquía
+  y dependencias mejor que un diagrama estático.
+- **Riesgo de divergencia** — un diagrama Code
+  desactualizado es **peor** que la ausencia de
+  diagrama: induce a error.
+
+Alternativa recomendada — generación automática
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Si el proyecto necesita publicar información a
+nivel de clases, la práctica recomendada es
+**generarla automáticamente** a partir del código
+fuente como parte del pipeline de build:
+
+- Herramientas de análisis estático que extraen el
+  grafo de clases.
+- Plugins Sphinx (``sphinx.ext.inheritance_diagram``,
+  ``sphinx-autodoc``) que producen diagramas de
+  clases / herencia desde el código Python.
+- Plugins PlantUML que aceptan código como entrada
+  y generan diagramas (``plantuml-stdlib``).
+
+Estos diagramas **se regeneran** en cada build y por
+tanto **no envejecen**. Si IACT alguna vez necesita
+publicar un Code view, esa es la ruta correcta —
+no escribir PlantUML a mano.
+
+Cómo se cubre el nivel Code en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el cajón el conocimiento a nivel de clases vive
+en sitios donde tiene **valor pedagógico**, no como
+documentación arquitectónica de referencia
+permanente:
+
+- :doc:`relaciones-uml` — relaciones entre clases
+  canónicas del dominio (asociación, agregación,
+  composición, herencia).
+- :doc:`agregacion-interfaces` — descomposición
+  todo-parte y realización de interfaces.
+- :doc:`/base-cognitiva/_uml/index` — teoría UML
+  general.
+- :doc:`patrones-diseno` — clases que materializan
+  patrones GoF / GRASP.
+
+Estos documentos **modelan clases** pero con foco
+**didáctico** (cómo se modela, qué decisiones se
+toman) o **canónico** (cómo se aplican los patrones
+al dominio IACT). No pretenden reflejar el estado
+exacto del código en cada momento.
+
+Política IACT — vista Code
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **No crear vistas Code manuales** como artefactos
+   de referencia permanente.
+2. **Si se necesita**, generar automáticamente
+   desde el código (``sphinx.ext.inheritance_diagram``
+   o equivalente) y dejar la generación en el
+   pipeline de build.
+3. **Los diagramas pedagógicos** de clases (en
+   :doc:`relaciones-uml`,
+   :doc:`agregacion-interfaces`,
+   :doc:`patrones-diseno`) no son Code views — son
+   documentación didáctica del dominio y los
+   patrones.
+4. **Para entender un componente al detalle**, leer
+   el código del repositorio. Los IDEs ofrecen
+   navegación, refactor y diagrama de clases
+   automático.
+5. **Cualquier excepción** a estas reglas requiere
+   un ADR con justificación clara — el costo de
+   mantenimiento de un Code view manual es alto y
+   deteriora el resto de la documentación si no se
+   mantiene.
+
+Cierre del modelo C4 en IACT
+----------------------------
+
+Con esto el cuadro queda completo:
+
+.. list-table::
+ :widths: 22 30 48
+ :header-rows: 1
+
+ * - Nivel C4
+   - Cobertura en IACT
+   - Estado
+ * - **1 Context**
+   - § 13 de este documento
+   - Cubierto.
+ * - **2 Container**
+   - :doc:`diagramas-distribucion`
+   - Cubierto.
+ * - **3 Component**
+   - §§ 1-9 + § 14 de este documento
+   - Cubierto.
+ * - **4 Code**
+   - Omitido — generación automática si se necesita
+   - Decisión deliberada (ADR).
+
+El proyecto puede comunicar su arquitectura completa
+con los tres niveles cubiertos. El nivel Code queda
+disponible para el lector que abre el código —
+donde la verdad **siempre está sincronizada**, por
+construcción.
+
+----
+
 Trazabilidad
 ============
 

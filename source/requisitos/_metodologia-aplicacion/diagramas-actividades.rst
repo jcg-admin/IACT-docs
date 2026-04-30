@@ -339,6 +339,150 @@ Recomendación IACT:
 7. **Vincular** cada actividad relevante a su BR/CNST/UC en
    el texto adyacente, no dentro del diagrama.
 
+11. Cuándo usar diagramas de actividades vs secuencias
+======================================================
+
+El diagrama de actividades es la herramienta natural
+de IACT para **flujos complejos con bifurcaciones**;
+el diagrama de secuencias
+(:doc:`diagramas-secuencias`) es mejor para
+**interacciones entre objetos o sistemas**. Las dos
+herramientas se complementan; conviene saber **cuál
+elegir** en cada caso.
+
+11.1 Fortalezas de cada uno
+---------------------------
+
+.. list-table::
+ :widths: 32 34 34
+ :header-rows: 1
+
+ * - Aspecto
+   - Diagrama de actividades
+   - Diagrama de secuencias
+ * - Bifurcaciones (``alt``,
+     decisiones condicionales)
+   - Excelente — diamantes con guardas,
+     fork/join nativos.
+   - Aceptable con ``alt``/``else``, pero
+     pierde claridad si hay >3 ramas.
+ * - Subrutinas / actividades reutilizables
+   - Excelente — actividades pueden
+     referenciar sub-actividades.
+   - Limitado — la secuencia se vuelve
+     larga si se inlinen pasos repetidos.
+ * - Interacción entre sistemas / clases
+   - Aceptable — los swimlanes ayudan.
+   - Excelente — eje temporal explícito,
+     activaciones, mensajes etiquetados.
+ * - Comunicación con stakeholders no
+     técnicos
+   - Excelente — flujos de proceso son
+     intuitivos.
+   - Aceptable — requiere familiaridad con
+     UML.
+ * - Concisión
+   - Tiende a expandirse con cada rama.
+   - Compacto cuando el flujo es lineal.
+ * - Captura del orden temporal exacto
+   - Bueno pero menos preciso.
+   - Excelente — el eje vertical es
+     tiempo.
+
+11.2 Cuándo usar diagrama de actividades
+----------------------------------------
+
+- **Lógica de negocio compleja con muchas
+  decisiones** — políticas, reglas de aprobación,
+  cálculos condicionales (en IACT: SoD CNST_030,
+  validación de export CNST_031, evaluación de
+  alertas BR_016/017/018).
+- **Flujos largos con responsabilidades repartidas**
+  entre actores y subsistemas — los swimlanes los
+  hacen visibles (en IACT: UC_RPT_04 export
+  asincrónico con worker, UC_PIP_01 carga ETL).
+- **Documentación de requisitos para stakeholders**
+  no técnicos — un diagrama de actividades es más
+  legible que una secuencia para discutir con un
+  PM o un auditor.
+- **Cuando una secuencia se vuelve inmanejable**
+  por la cantidad de ramas: convertirla a
+  actividades suele clarificar.
+
+Ejemplo IACT donde aplica
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un motor de decisión análogo al ejemplo de un
+loan-decision-engine sería en IACT el
+**evaluador de SoD** (CNST_030):
+
+- Reglas con múltiples ramas (función A vs
+  función B en mismo grupo, exenciones por rol,
+  escalamiento a comité).
+- Stakeholders no técnicos (auditores, equipo de
+  compliance) que necesitan entender la decisión.
+- El detalle pertenece a un diagrama de
+  actividades — no a una secuencia.
+
+11.3 Cuándo usar diagrama de secuencias
+---------------------------------------
+
+- **Interacción entre objetos o sistemas** con orden
+  temporal explícito (en IACT: UC_AUTH_01 con LDAP
+  + Redis + audit_log).
+- **Flujos lineales** con pocas ramas, donde el
+  ``alt`` no satura el diagrama.
+- **Cuando importa mostrar duración** y
+  activaciones (SLA CNST_017).
+- **Comunicación con ingenieros y SRE** — la
+  semántica de mensajes y respuestas es directa.
+
+11.4 Cuándo combinar ambos
+--------------------------
+
+Para UCs críticos, **ambos** vistos lado a lado
+pueden valer la pena:
+
+- **Secuencia** para la interacción detallada con
+  protocolos y activaciones.
+- **Actividades** para visualizar la lógica de
+  negocio y las bifurcaciones.
+
+En IACT esto aplica a UC_RPT_04 export y
+UC_AUTH_01 login — los dos diagramas conviven en
+sus respectivos cajones.
+
+11.5 Heurística IACT
+--------------------
+
+Pregunta operativa al modelar un flujo:
+
+1. **¿Cuántas ramas condicionales tiene el
+   flujo?** Más de 3 → preferir actividades.
+2. **¿Importa más el "qué hace" o el "cómo lo
+   hacen los actores"?** Lo primero → actividades.
+   Lo segundo → secuencias.
+3. **¿La audiencia incluye no técnicos?** Sí →
+   actividades.
+4. **¿Hay un SLA o ventana temporal explícita?** Sí
+   → secuencias (con activaciones).
+5. **¿La secuencia ya escrita supera 30 mensajes?**
+   Sí → considerar reformular como actividades.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **No duplicar diagramas** — para cada UC,
+   elegir el formato que mejor cuente la historia.
+2. **Si se duplica intencionalmente** (un UC
+   crítico con ambos), mantenerlos sincronizados;
+   un cambio en uno se refleja en el otro.
+3. **Diagramas de actividades como insumo de
+   discusión** con stakeholders; diagramas de
+   secuencias como insumo de implementación.
+
+----
+
 Trazabilidad
 ============
 
