@@ -30,7 +30,7 @@ UC_LOG_02: Consultar Logs ETL
  * - **Modulo**
    - MOD_Logs
  * - **Funcion RBAC**
-   - LOG-001: ``view_technical_logs`` (instancia: filtrar por origen=ETL)
+   - LOG-004: ``view_etl_logs`` (NUEVA v5.4.0 — función dedicada, ya no instancia de LOG-001)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -452,7 +452,7 @@ El operador accede al visor de logs ETL.
  * - **UC Relacionados**
    - UC_LOG_01, UC_PIP_01 (Monitorear ETL)
  * - **Funcion RBAC**
-   - LOG-001: ``view_technical_logs`` (instancia: filtrar por origen=ETL)
+   - LOG-004: ``view_etl_logs`` (NUEVA v5.4.0 — función dedicada, ya no instancia de LOG-001)
 
 14. Historial de Cambios
 ------------------------

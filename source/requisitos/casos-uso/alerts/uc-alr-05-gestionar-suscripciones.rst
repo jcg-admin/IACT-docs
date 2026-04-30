@@ -30,7 +30,7 @@ UC_ALR_05: Gestionar Suscripciones
  * - **Modulo**
    - MOD_Alerts
  * - **Funcion RBAC**
-   - ALR-005: gestiona_suscripciones
+   - ALR-008 ``subscribe_to_alert`` (FA-Subscribe) | ALR-009 ``unsubscribe_from_alert`` (FA-Unsubscribe) | ALR-010 ``configure_subscription_severity`` (FA-Configure-Severity) — el sistema valida la función correspondiente al flujo seleccionado (Larman)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -98,7 +98,7 @@ Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
  * - ID
    - Precondicion
  * - PRE-01
-   - El usuario tiene sesion activa con funcion ALR-005
+   - El usuario tiene sesion activa con una de las funciones ALR-008/009/010 (según flujo)
  * - PRE-02
    - El usuario destino existe y esta activo
  * - PRE-03
@@ -140,7 +140,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Accede a gestion de suscripciones
  * - 2
    - Sistema
-   - Valida funcion ALR-005
+   - Valida una de las funciones ALR-008/009/010 (según flujo)
  * - 3
    - Sistema
    - Muestra usuarios y sus suscripciones actuales
@@ -188,7 +188,7 @@ El gestor de alertas accede a la gestion de suscripciones.
 
  G -> FE: Accede a Suscripciones
  FE -> AC: GET /api/alerts/subscriptions
- AC -> AC: verify_function(ALR-005)
+ AC -> AC: verify_function(ALR-008/009/010 según flujo)
  AC -> SS: get_subscriptions(segmento)
  SS -> DB: SELECT * FROM alert_subscriptions\nJOIN users ON user_id\nWHERE segmento_id = ?
  DB --> SS: subscriptions
@@ -370,7 +370,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  start
  :Gestor accede a Gestion de Suscripciones;
 
- if (Tiene funcion ALR-005?) then (no)
+ if (Tiene una de las funciones ALR-008/009/010 (según flujo)?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -556,7 +556,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  * - **Actor Principal**
    - AGR-005: agr_gestor_alertas
  * - **Funcion RBAC**
-   - ALR-005: gestiona_suscripciones
+   - ALR-008 ``subscribe_to_alert`` (FA-Subscribe) | ALR-009 ``unsubscribe_from_alert`` (FA-Unsubscribe) | ALR-010 ``configure_subscription_severity`` (FA-Configure-Severity) — el sistema valida la función correspondiente al flujo seleccionado (Larman)
 
 14. Historial de Cambios
 ------------------------

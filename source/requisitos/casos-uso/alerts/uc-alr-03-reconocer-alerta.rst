@@ -30,7 +30,7 @@ UC_ALR_03: Reconocer Alerta
  * - **Modulo**
    - MOD_Alerts
  * - **Funcion RBAC**
-   - ALR-003: reconoce_alertas
+   - ALR-007: ``acknowledge_alert`` (NUEVA v5.4.0)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -96,7 +96,7 @@ al equipo via InternalMessage (CNST_001).
  * - ID
    - Precondicion
  * - PRE-01
-   - El usuario tiene sesion activa con funcion ALR-003
+   - El usuario tiene sesion activa con funcion ALR-007
  * - PRE-02
    - La alerta existe y esta en estado ACTIVE
  * - PRE-03
@@ -143,7 +143,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - Hace clic en boton Reconocer
  * - 3
    - Sistema
-   - Valida funcion ALR-003
+   - Valida funcion ALR-007
  * - 4
    - Sistema
    - Muestra dialogo de reconocimiento
@@ -190,7 +190,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  S -> FE: Confirmar
 
  FE -> AC: POST /api/alerts/{id}/acknowledge
- AC -> AC: verify_function(ALR-003)
+ AC -> AC: verify_function(ALR-007)
 
  AC -> AS: acknowledge_alert(alert_id, user, comment)
 
@@ -306,7 +306,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  * - **Codigo Error**
    - ALR-021
 
-8.3 EX-03: Sin Permiso ALR-003
+8.3 EX-03: Sin Permiso ALR-007
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -316,7 +316,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  * - **Paso de Origen**
    - 3
  * - **Condicion**
-   - Usuario no tiene funcion ALR-003
+   - Usuario no tiene funcion ALR-007
  * - **Accion Sistema**
    - Rechaza operacion
  * - **Mensaje Usuario**
@@ -335,7 +335,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  :Supervisor selecciona alerta activa;
  :Click en Reconocer;
 
- if (Tiene funcion ALR-003?) then (no)
+ if (Tiene funcion ALR-007?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -460,7 +460,7 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - ALR-003: reconoce_alertas
+   - ALR-007: ``acknowledge_alert`` (NUEVA v5.4.0)
 
 14. Historial de Cambios
 ------------------------

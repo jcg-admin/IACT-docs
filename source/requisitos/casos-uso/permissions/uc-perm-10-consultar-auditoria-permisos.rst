@@ -235,8 +235,8 @@ Caso 3: Compliance Report
    - 100-200ms
  * - Consulta compleja con múltiples filtros
    - 300-500ms
- * - Exportación a Excel (< 10,000 registros)
-   - 2-5s
+ * - Exportación a Excel (volumen variable; ver CNST-019/020)
+   - 2-5s sync; async sobre umbral CNST-019
 
 
 
@@ -284,7 +284,7 @@ Caso 3: Compliance Report
  * - RN-010.3
    - Máximo 1000 registros por página
  * - RN-010.4
-   - Exportaciones limitadas a 10,000 registros
+   - Exportaciones respetan CNST-019 (async sobre umbral) y CNST-020 (throttling por recursos)
  * - RN-010.5
    - Auditoría de TODAS las consultas a auditoría (meta-auditoría)
 
