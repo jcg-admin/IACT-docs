@@ -18,6 +18,12 @@ negocio, requisitos funcionales y no-funcionales.
 
 .. toctree::
  :maxdepth: 2
+ :caption: Business Requirements
+
+ business-requirements/index
+
+.. toctree::
+ :maxdepth: 2
  :caption: Casos de Uso
 
  casos-uso/index

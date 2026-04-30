@@ -241,5 +241,5 @@ explícito en skill ``workflow-track``.
  * - **Migrado a source**
    - 2026-04-30 (sub-WP md-references-audit)
  * - **Deep-reviews relacionados**
-   - :doc:`/gestion/pm/lecciones-aprendidas/deep-review-rbac-coherencia-artefactos-canonicos`
-   - :doc:`/gestion/pm/lecciones-aprendidas/deep-review-rbac-drift-residual-base-cognitiva`
+   - | :doc:`/gestion/pm/lecciones-aprendidas/deep-review-rbac-coherencia-artefactos-canonicos`
+     | :doc:`/gestion/pm/lecciones-aprendidas/deep-review-rbac-drift-residual-base-cognitiva`

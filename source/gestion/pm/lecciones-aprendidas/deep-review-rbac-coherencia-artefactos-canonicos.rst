@@ -114,7 +114,7 @@ Toctree (``source/requisitos/reglas-negocio/index.rst:28-46``) lista
 BR_001..BR_015, luego BR_017..BR_020. Falta BR_016 sin nota
 explicativa.
 
-Verificación: 19 archivos br-*.rst en disco coinciden con el
+Verificación: 19 archivos ``br-*.rst`` en disco coinciden con el
 toctree, pero el gap numérico es incoherente con la convención
 sequential implícita y con MTM_03:725 que referencia "BR_006".
 

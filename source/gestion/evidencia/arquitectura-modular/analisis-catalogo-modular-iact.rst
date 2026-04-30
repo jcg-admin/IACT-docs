@@ -470,13 +470,13 @@ de arquitectura.
  * - **Migrado a source**
    - 2026-04-30 (sub-WP md-references-audit)
  * - **Decisiones derivadas**
-   - :doc:`/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm`
-   - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
+   - | :doc:`/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm`
+     | :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo conceptual vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
  * - **Origen documental**
-   - § 1, § 2: REF-GLOBAL líneas 11–658
-   - § 3: ANL-RBAC § 6 líneas 421–502
-   - § 4.1: GAP-PERM § 1 líneas 18–130 + § 6 líneas 656–664
-   - § 4.2: GAP-PERM líneas 34, 81, 146, 389–404 (PROVEN)
-   - § 4.3, § 5: INFERRED — razonamiento explícito documentado
+   - | § 1, § 2: REF-GLOBAL líneas 11–658
+     | § 3: ANL-RBAC § 6 líneas 421–502
+     | § 4.1: GAP-PERM § 1 líneas 18–130 + § 6 líneas 656–664
+     | § 4.2: GAP-PERM líneas 34, 81, 146, 389–404 (PROVEN)
+     | § 4.3, § 5: INFERRED — razonamiento explícito documentado
