@@ -95,6 +95,33 @@ Plantillas por categoría
 
 .. toctree::
  :maxdepth: 1
+ :caption: Project Management (PMBOK)
+
+ tpl-bc-business-case
+ tpl-pc-project-charter
+ tpl-pmp-project-management-plan
+ tpl-stk-stakeholder-analysis
+ tpl-rs-requisito-stakeholder
+ tpl-changelog-changelog
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Setup y entornos
+
+ tpl-setup-entorno-setup
+ tpl-setup-qa-setup
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Implementación técnica
+
+ tpl-django-app-django-app
+ tpl-etl-job-etl-job
+ tpl-ui-ux-ui-ux
+ tpl-mu-manual-usuario
+
+.. toctree::
+ :maxdepth: 1
  :caption: Diseño de software (HLD/LLD)
 
  tpl-sad-arquitectura-software
