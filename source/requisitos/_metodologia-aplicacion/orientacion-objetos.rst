@@ -33,6 +33,137 @@ Principios OOP aplicados al dominio IACT (PlantUML)
 
 ----
 
+Preludio — ¿qué es OO y cómo se mide?
+=====================================
+
+Antes de los seis principios y de SOLID, conviene
+plantear las preguntas que abren el debate:
+
+   *¿Es OO usar objetos? ¿Es usar C++, Java, C#,
+   Smalltalk? ¿Es usar UML? ¿Qué hace que un programa sea
+   OO? ¿Cómo se mide un buen diseño?*
+
+La respuesta corta: **OO no se reduce a la sintaxis del
+lenguaje ni a las herramientas**. Un programa puede usar
+clases sin ser OO en sentido fuerte; un diseño puede
+materializarse en UML y no ser OO. OO es un paradigma
+sobre **encapsulamiento**, **abstracción**, **herencia**
+y **polimorfismo** combinados con disciplina de cohesión
+y acoplamiento — el resto de este documento desarrolla
+cada pieza en el contexto IACT.
+
+Conceptos clave del paradigma
+-----------------------------
+
+- **Objetos** — instancias de clases que contienen datos
+  (propiedades) y comportamiento (métodos). Unidad básica
+  del paradigma.
+- **Clases** — planos o moldes que definen estructura y
+  comportamiento de los objetos.
+- **Herencia** — mecanismo para reutilizar y especializar
+  comportamiento; jerarquías de tipo "es-un".
+- **Polimorfismo** — capacidad de tratar objetos de
+  distintas clases de forma uniforme; despacho dinámico
+  por tipo, sobrescritura y sobrecarga.
+
+Cómo se mide la calidad de un diseño OO
+---------------------------------------
+
+Cuatro factores se combinan para evaluar un diseño:
+
+1. **Cohesión** — qué tan fuertemente relacionados están
+   los datos y los métodos dentro de una clase.
+2. **Acoplamiento** — qué tan independientes son las
+   clases entre sí.
+3. **Principios SOLID** — guías para código modular,
+   flexible y mantenible (ver §§ 16-20).
+4. **Patrones de diseño** — soluciones probadas a
+   problemas comunes (ver :doc:`patrones-diseno`).
+
+El diseño de clases y objetos es un **proceso incremental
+e iterativo**: es muy difícil hacerlo bien desde la
+primera vez (ver § 14 Ciclo de prototipos y
+§ 15 Ciclo iterativo).
+
+Métricas para el diseño de clases
+---------------------------------
+
+**Acoplamiento**
+
+- Herencia es una forma de acoplamiento. Acoplamiento
+  fuerte complica el sistema.
+- **Diseñar para el acoplamiento más débil posible** —
+  una de las decisiones recurrentes del documento.
+
+**Cohesión** — taxonomía clásica (de mejor a peor):
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Tipo de cohesión
+   - Significado
+   - Calidad
+ * - **Funcional**
+   - Todos los elementos trabajan juntos para
+     proporcionar **un comportamiento bien definido**.
+   - **Mejor** — meta del diseño OO.
+ * - **Secuencial**
+   - La salida de una operación es la entrada de la
+     siguiente (cadena de procesamiento).
+   - Buena.
+ * - **Comunicacional**
+   - Los elementos operan sobre los **mismos datos**.
+   - Aceptable.
+ * - **Procedimental**
+   - Los elementos siguen un orden de ejecución
+     compartido.
+   - Mediocre.
+ * - **Temporal**
+   - Los elementos se ejecutan en el mismo momento
+     (e.g., inicialización).
+   - Pobre.
+ * - **Lógica**
+   - Los elementos pertenecen a la misma "categoría"
+     pero hacen cosas distintas.
+   - Mala.
+ * - **Casual**
+   - Todos los elementos están relacionados de manera
+     **indeseable** — ningún criterio real los une.
+   - **Peor.**
+
+La meta es **cohesión funcional**. La señal de
+cohesión casual es una clase llamada ``Utils``,
+``Helper`` o ``Manager`` con métodos sin relación
+conceptual — refactorizar en clases con propósito claro
+del dominio.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+- ``Reporte`` con ``generar``, ``exportar``,
+  ``aplicar_filtros_segmento`` (BR_012) → cohesión
+  **funcional**: todo concurre a producir un reporte
+  válido.
+- Una hipotética ``UtilsCallCenter`` con
+  ``formatear_telefono``, ``parsear_csv``,
+  ``calcular_tasa`` y ``enviar_email`` → cohesión
+  **casual**: nada las une excepto que "son utilidades".
+  Refactorizar en clases con responsabilidad real.
+
+Conexión con el resto del documento
+-----------------------------------
+
+Los seis principios OOP de las §§ 1-10 son la base
+conceptual; las §§ 11-15 introducen la disciplina de
+acoplamiento, antipatrones y ciclos de vida; las
+§§ 16-21 completan el cuadro con SOLID y temas
+avanzados. La aplicación correcta de todo el conjunto en
+IACT exige los criterios introducidos aquí: maximizar
+cohesión funcional y minimizar acoplamiento.
+
+----
+
 1. Dominio IACT — vocabulario base
 ==================================
 
@@ -2083,6 +2214,77 @@ controlador (viola OCP) y el reloj acumula
 responsabilidades (viola SRP). Solución: introducir
 ``IAlarm`` y hacer que **ambos** dependan de ella.
 
+Diseño deficiente — dependencia directa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Mal diseno — dependencia directa concreta
+
+   class Controlador {
+     - reloj : RelojDespertador
+     + iniciar()
+   }
+
+   class RelojDespertador {
+     + horaActual()
+     + sonarAlarma()
+   }
+
+   Controlador --> RelojDespertador
+   note right of Controlador
+     - Cambios en RelojDespertador
+       afectan al Controlador.
+     - Difícil sustituir por otra
+       alarma (viola OCP).
+     - Reloj acumula responsabilidades
+       (viola SRP).
+   end note
+   @enduml
+
+Diseño correcto — dependencia invertida sobre IAlarm
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Buen diseno — dependencia invertida via abstraccion
+
+   interface IAlarm {
+     + sonar()
+   }
+
+   class Controlador {
+     - alarma : IAlarm
+     + iniciar()
+   }
+
+   class RelojDespertador {
+     + horaActual()
+     + sonar()
+   }
+
+   class TemporizadorWeb {
+     + sonar()
+   }
+
+   Controlador --> IAlarm : depende de
+   IAlarm <|.. RelojDespertador
+   IAlarm <|.. TemporizadorWeb
+   note right of IAlarm
+     Tanto Controlador como
+     RelojDespertador dependen
+     de la abstraccion IAlarm.
+     Reemplazar el reloj por
+     TemporizadorWeb no toca
+     el Controlador (cumple OCP
+     y mejora reutilizacion).
+   end note
+   @enduml
+
 20.2 Beneficios
 ---------------
 
@@ -2216,6 +2418,48 @@ Aplicación IACT: ``EstadoAlerta`` (publicada / reconocida
 ``aud_app`` declara la invariante "todo registro queda
 en ``audit_log``" (CNST_025) — invariante que **ningún
 subtipo** puede romper.
+
+Comportamiento anunciado — Stack y eStack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El **comportamiento anunciado** de un objeto se refiere a
+los servicios públicos que la clase declara, junto con sus
+pre y post-condiciones. Es el **contrato** que el cliente
+puede invocar.
+
+Ejemplo canónico — pila ``Stack`` con métodos ``push``,
+``pop`` y ``top``, cada uno con su pre y post-condición:
+
+- ``push(x)`` — pre: ninguna; post: ``top() == x``,
+  ``size`` aumenta en 1.
+- ``pop()`` — pre: ``size > 0``; post: ``size`` disminuye
+  en 1; devuelve el elemento que era ``top``.
+- ``top()`` — pre: ``size > 0``; post: devuelve el
+  último ``push``-eado, no modifica la pila.
+
+Una pila extendida ``eStack`` que herede de ``Stack``
+puede **agregar** nuevos métodos (``contains``,
+``snapshot``) y debe **mantener intacto** el
+comportamiento anunciado de ``Stack`` — mismas pre y
+post-condiciones. Si ``eStack`` cambia el efecto de
+``pop()`` (e.g., no decrementa ``size``), rompe el
+contrato y el polimorfismo deja de ser seguro.
+
+Aplicación IACT
+~~~~~~~~~~~~~~~
+
+- ``ColaIngestaETL`` (base) y ``ColaIngestaPriorizada``
+  (subtipo) — la subclase agrega criterios de
+  priorización pero las pre/post-condiciones de
+  ``encolar`` y ``desencolar`` se mantienen.
+- ``EventoAuditoria`` (base) y subtipos
+  (``AuditoriaAcceso``, ``AuditoriaCambio``) —
+  todos respetan la invariante de inmutabilidad
+  (CNST_025); ningún subtipo puede ofrecer ``borrar()``.
+- ``Sesion`` y ``SesionDelegada`` — la subclase no puede
+  prometer **menos** sobre la caducidad (CNST_002);
+  cualquier subtipo que extienda la duración rompe el
+  contrato.
 
 LSP en Java
 ~~~~~~~~~~~

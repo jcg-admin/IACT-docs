@@ -749,6 +749,66 @@ D lejano de 0 → componente mal balanceado:
 
 Estos dos extremos son los **dolorosos**.
 
+Cuadrante I/A — interpretación canónica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Visualizando el plano (eje horizontal = ``I``, eje
+vertical = ``A``), las cuatro esquinas tienen lectura
+distinta:
+
+.. list-table::
+ :widths: 18 18 32 32
+ :header-rows: 1
+
+ * - Esquina
+   - (I, A)
+   - Significado
+   - Diagnóstico
+ * - **Inferior-izquierda**
+   - (0, 0)
+   - Máximamente estable y concreto.
+   - **Zona de dolor — rígido.** Muchos clientes
+     dependen de implementaciones concretas; cualquier
+     cambio rompe a todos. Refactorizar a interfaces.
+ * - **Superior-izquierda**
+   - (0, 1)
+   - Máximamente estable y abstracto.
+   - **Ideal.** Es lo que queremos para los
+     componentes núcleo (``aud_app``, ``perm_app`` con
+     sus interfaces ``IAuditLog`` / ``ISecurity``).
+ * - **Superior-derecha**
+   - (1, 1)
+   - Máximamente inestable y abstracto.
+   - **Zona de dolor — inutilidad.** Abstracciones
+     sin implementación concreta o sin consumidores.
+     Borrar o consolidar.
+ * - **Inferior-derecha**
+   - (1, 0)
+   - Máximamente inestable y concreto.
+   - Aceptable si es un **componente cliente final**
+     (vistas Django, plantillas RST). No debería
+     servir de base a otros.
+
+La **secuencia principal** es la diagonal que conecta
+(0, 1) con (1, 0): los componentes en esa línea están
+balanceados — los estables son abstractos (servir de
+base), los inestables son concretos (uso final).
+
+Implicaciones IACT
+~~~~~~~~~~~~~~~~~~
+
+- ``aud_app``, ``perm_app`` → meta: cerca de (0, 1).
+  Bajo I (todos dependen de ellos), alto A (interfaces
+  estables).
+- ``rpt_app``, ``alr_app``, ``pip_app`` → meta:
+  intermedio. Algunos consumidores, dependen de varias
+  interfaces, mezclan abstracto y concreto.
+- Vistas Django, templates, plantillas RST → meta:
+  cerca de (1, 0). Inestables (cambian con la UI),
+  concretas (no son base de nada).
+- Cualquier componente que aparezca cerca de (0, 0) o
+  (1, 1) durante una medición es candidato a refactor.
+
 Aplicación IACT
 ~~~~~~~~~~~~~~~
 
