@@ -52,7 +52,9 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  :hidden:
  :maxdepth: 1
 
+ audits/index
  checklists/index
+ lecciones-aprendidas/index
  matrices/index
  planificacion-releases-frontend
  deployment-plan

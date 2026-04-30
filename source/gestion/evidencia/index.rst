@@ -67,4 +67,5 @@ Sub-dominios de evidencia
  :maxdepth: 2
  :caption: Historicos / Project Archives
 
+ arquitectura-modular/index
  rbac-historia/index

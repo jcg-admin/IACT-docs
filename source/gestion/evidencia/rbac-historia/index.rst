@@ -79,6 +79,8 @@ Catalogo
  gap-analysis-sistema-permisos-nov-2025
  analisis-errores-modelo-rbac-v5-2-0
  diseno-referencia-implementacion-permisos-legacy
+ decision-coexistencia-acc-perm
+ formalizacion-modelo-rbac
 
 ----
 
