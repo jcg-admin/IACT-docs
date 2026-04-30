@@ -2716,7 +2716,184 @@ Anti-patrones IACT específicos
 
 ----
 
-23. Trazabilidad
+23. Formato del código
+======================
+
+El **formateo de código** es un mecanismo esencial de
+comunicación entre desarrolladores — trasciende
+preferencias estéticas. Como enfatiza Robert C. Martin,
+un equipo debe establecer y adherir a un **único estilo**
+de formato. La estandarización no solo facilita la
+comunicación visual: establece un **contrato social** en
+el que las preferencias individuales se subordinan al
+beneficio colectivo de un código consistente y uniforme.
+
+23.1 Estructura y organización visual
+-------------------------------------
+
+La organización del código trasciende lo estético y se
+convierte en una herramienta para comunicar la
+**estructura lógica** y las **relaciones** entre
+elementos. Cada decisión sobre el espaciado responde a un
+propósito específico que potencia la claridad y facilita
+el mantenimiento.
+
+El código fuente refleja su jerarquía interna a través de
+niveles progresivos:
+
+- archivo
+- clases / módulos
+- métodos / funciones
+- bloques anidados
+
+La **indentación** es la guía visual de esa organización
+y permite captar de un vistazo las relaciones
+estructurales.
+
+23.2 Manejo del espacio — horizontal y vertical
+-----------------------------------------------
+
+El espacio cumple una **función dual**:
+
+Espacio horizontal
+~~~~~~~~~~~~~~~~~~
+
+Funciona como herramienta **semántica**: la proximidad
+visual comunica la **fortaleza de las relaciones** entre
+elementos.
+
+- Indica precedencia de operadores
+  (``a*b + c`` vs ``a * b + c``).
+- Agrupa parámetros estrechamente relacionados.
+- Separa cláusulas lógicas en una expresión.
+
+Espacio vertical
+~~~~~~~~~~~~~~~~
+
+Establece la organización **macro** del código:
+
+- **Líneas en blanco** demarcan grupos lógicos distintos.
+- **Atributos al inicio de la clase**, antes que
+  métodos.
+- Las **funciones relacionadas** se mantienen próximas,
+  con un orden que respeta la secuencia
+  *llamante → llamada* (lectura top-down).
+- Las funciones con **operaciones similares** se
+  agrupan para mantener cohesión lógica.
+
+23.3 Principios organizativos
+-----------------------------
+
+Gestión del código
+~~~~~~~~~~~~~~~~~~
+
+- **Variables cerca de su uso** — minimiza el ciclo de
+  vida visible y facilita seguir el flujo de datos.
+- **Funciones ordenadas por dependencias** — la
+  secuencia refleja la lógica del programa: lo que se
+  invoca cerca de lo que se llama.
+- **Cohesión vertical** — agrupar lo que cambia junto
+  (CCP a nivel de archivo; ver § 12 de
+  :doc:`diagramas-componentes`).
+
+Legibilidad
+~~~~~~~~~~~
+
+- **Longitud de línea limitada** estratégicamente —
+  típicamente entre **40 y 80 caracteres** (algunos
+  estilos toleran hasta 120). La restricción no es
+  arbitraria: optimiza la capacidad cognitiva del
+  lector y permite *side-by-side diffs* en pantallas
+  estándar.
+
+23.4 Prácticas incorrectas
+--------------------------
+
+Dos prácticas comprometen la integridad del código aun
+cuando "parezcan" ordenadas:
+
+- **Alinear tipos y variables en columnas con
+  tabuladores**. Visualmente parece prolijo, pero
+  introduce **fragilidad**: cualquier cambio de longitud
+  rompe la alineación y obliga a re-formatear bloques
+  enteros.
+- **No respetar la indentación**, incluso en líneas
+  cortas o "atajos" inline. Daña la consistencia visual
+  y rompe la jerarquía establecida.
+
+23.5 Aplicación a IACT
+----------------------
+
+Reglas concretas para este proyecto (alineadas con
+``.claude/rules/`` y la convención del repositorio):
+
+- **Python (Django apps)**: ``black`` con línea de 79-88
+  caracteres; ``ruff`` para detección de violaciones.
+  Sin alineación manual con tabuladores.
+- **JavaScript/React**: ``prettier`` con configuración
+  fijada en el repositorio.
+- **RST (esta documentación)**: indentación con espacios
+  consistente; no mezclar tabs y espacios en directivas
+  ``.. uml::`` o ``.. code-block::``.
+- **PlantUML embebido**: línea ≤ 80 caracteres;
+  alineación de operadores ``-->`` ``..>`` por
+  legibilidad sin recurrir a tabuladores manuales.
+- **Importaciones Python ordenadas** (``isort``):
+  estándar → terceros → locales, con línea en blanco
+  entre grupos.
+- **Atributos antes que métodos** en cada modelo Django
+  o servicio.
+
+Anti-patrones IACT específicos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Funciones de ``services.py`` ordenadas alfabéticamente
+  en lugar de por dependencias — dificulta la lectura
+  top-down. Reordenar.
+- Líneas largas con encadenamientos del estilo train
+  wreck (ver § 21.2): además de violar Demeter, suelen
+  forzar líneas > 100 caracteres.
+- Variables declaradas al inicio del método y usadas 50
+  líneas después — dispersa el contexto y dificulta el
+  seguimiento.
+- Tabuladores para alinear ``=`` en bloques de
+  asignación — fragilidad ante refactor.
+
+23.6 Por qué este capítulo importa para IACT
+--------------------------------------------
+
+Esta documentación se mantendrá durante años. La
+disciplina de formato:
+
+- Reduce la **fricción cognitiva** entre quien escribió
+  el código y quien debe mantenerlo (que pueden ser la
+  misma persona meses después).
+- Facilita **revisiones automáticas** (CI/CD, code
+  review).
+- Hace que las **diferencias en git** sean significativas
+  en lugar de ruido de re-formato.
+- Reduce la probabilidad de bugs por estructura visual
+  engañosa (e.g., bloques que parecen anidados pero no
+  lo están).
+
+23.7 Relación con otros principios
+----------------------------------
+
+- **Software autoexplicativo** (§ 22) — el formato es la
+  segunda capa de claridad después del nombramiento; un
+  buen formato hace que el código autoexplicativo se
+  lea como prosa.
+- **DRY** (§ 13) — un estilo unificado evita la
+  duplicación de "decisiones de formato" caso por caso.
+- **SRP** (§ 17) — agrupar funciones por
+  responsabilidad refuerza la cohesión vertical.
+- **CCP** (§ 12 de :doc:`diagramas-componentes`) — la
+  proximidad vertical de funciones que cambian juntas
+  es CCP aplicado al archivo.
+
+----
+
+24. Trazabilidad
 ================
 
 .. list-table::
