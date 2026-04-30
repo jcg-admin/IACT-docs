@@ -3258,6 +3258,103 @@ operativa del dominio IACT, lista para guiar
 implementación, validación, evolución y onboarding
 (ver § 15.5 Evolución y § 15.12 Ejercicio).
 
+16.9 Ejercicio: enriquecer tu modelo de dominio
+-----------------------------------------------
+
+La obra citada cierra este capítulo con un ejercicio:
+**enriquecer el modelo embrionario** del capítulo
+anterior agregando los cinco enriquecimientos cubiertos.
+
+Lista del ejercicio
+~~~~~~~~~~~~~~~~~~~
+
+1. Si aplica al dominio, agregar **generalizaciones**
+   (herencia / subtipos). Aunque no sea perfecto en el
+   dominio, hacerlo brevemente para fijar la sintaxis.
+2. Agregar **descripciones** a todas las relaciones.
+3. Definir **multiplicidad** en todas las relaciones.
+4. Probar **ajustes de layout** según lo aprendido en
+   "Mejorar la legibilidad".
+5. **Vincular** un nodo a una página externa y probar
+   el enlace.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Como en § 15.12, en IACT el ejercicio **ya está
+realizado** y mantenido vivo en este cajón:
+
+.. list-table::
+ :widths: 30 70
+ :header-rows: 1
+
+ * - Punto del ejercicio
+   - Cómo está cubierto en IACT
+ * - Generalizaciones
+   - § 7 de este documento (jerarquía ``Reporte`` con
+     subclases) + §§ 14.1-14.4 de
+     :doc:`relaciones-uml` (cuatro tipos de herencia)
+     + § 16 de :doc:`relaciones-uml` (guía de
+     decisión).
+ * - Descripciones
+   - § 16.4 de este documento — todas las relaciones
+     IACT documentadas con verbos del **ubiquitous
+     language** (``pertenece a``, ``carga``,
+     ``produce``, ``agrega``, ``aplica``,
+     ``es reconocida por``, ``genera``).
+ * - Multiplicidad
+   - § 16.5 de este documento + § 3 de
+     :doc:`relaciones-uml` (tabla canónica de
+     multiplicidades IACT con anclaje a BR/CNST).
+ * - Layout
+   - § 16.7 de este documento — política
+     ``hide empty members``, ``package``, estilos
+     centralizados en
+     ``source/_static/plantuml-styles.puml``.
+ * - Enlaces
+   - § 16.8 de este documento — preferencia por
+     ``:doc:`` y ``:ref:`` Sphinx sobre ``url``
+     PlantUML inline; uso de ``url`` PlantUML
+     reservado a referencias externas persistentes.
+
+Versión operativa del ejercicio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para nuevos contribuidores o nuevas iniciativas
+(WPs) que necesiten extender el modelo:
+
+1. **Identificar la entidad nueva** y su cluster (§ 11
+   de :doc:`agregacion-interfaces`).
+2. **Documentarla** en este archivo
+   (``analisis-dominio.rst``) — sustantivos en § 3,
+   verbos en § 4, atributos en § 5.
+3. **Decidir el tipo de relación** con las entidades
+   existentes aplicando la receta progresiva de tres
+   preguntas (§ 15.11).
+4. **Agregar descripción** con verbo del **ubiquitous
+   language**; evitar ``has`` genérico.
+5. **Anclar la multiplicidad** a un BR o CNST cuando
+   exista; documentar la elección si es discrecional.
+6. **Si crece**, refactorizar el diagrama en clusters
+   con ``package`` o ``together``.
+7. **Si la entidad merece referencias múltiples**,
+   incluirlas en el texto adyacente con ``:doc:`` /
+   ``:ref:``, no como ``url`` PlantUML.
+
+Cierre del capítulo de enriquecimiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con § 15 (DDD básico) + § 16 (enriquecimiento), el
+modelo IACT cubre **todas las dimensiones** del
+modelado de dominio que la literatura propone:
+entidades + relaciones + multiplicidad + descripciones
++ subtipos + layout + enlaces, todo en PlantUML
+sostenible y trazable a UCs / BR / CNST / ADRs.
+
+El siguiente paso operativo no es agregar más
+enriquecimientos al modelo: es **mantenerlo vivo**
+conforme el proyecto evoluciona (§ 15.5).
+
 ----
 
 17. Trazabilidad
