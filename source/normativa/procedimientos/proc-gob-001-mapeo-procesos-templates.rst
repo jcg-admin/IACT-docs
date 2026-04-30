@@ -665,6 +665,25 @@ github_copilot_codespaces.md
 5.1 Flujo Completo: Nueva Feature (Dark Mode)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. note::
+
+   **Saga pedagógica completa disponible.** Los artefactos
+   listados en este flujo (BN-001, RN-001, RF-001/002, UC-001,
+   HLD, LLD, DB schema, API, test plan, TC-001, release plan,
+   deployment guide) existen como ejemplos navegables en
+   :doc:`/base-cognitiva/_ejemplos-pedagogicos/ejemplo-dark-mode/index`.
+
+   Cada artefacto declara en su metadata la skill aplicada
+   (``ba-elicitation``, ``rm-specification``, ``bpa-design``,
+   ``db-postgresql``, ``backend-nodejs``, ``dmaic-control``,
+   ``pm-executing``, ``bpa-implement``) y la fase SDLC
+   correspondiente, permitiendo recorrer el proceso end-to-end.
+
+   Los nombres listados abajo (formato ``.md``) son la
+   nomenclatura conceptual del flujo. Los archivos reales del
+   ejemplo siguen STD-007 v2.0.2 (kebab-lowercase) y viven en
+   ``source/base-cognitiva/_ejemplos-pedagogicos/ejemplo-dark-mode/``.
+
 **Fase 1: Planning (BA)**
 
 ::

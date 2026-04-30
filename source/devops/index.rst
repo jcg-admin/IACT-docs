@@ -3,9 +3,9 @@
  :tipo: Indice
  :dominio: devops
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -27,3 +27,9 @@ procedimientos operativos (deployment, setup) viven en
 
  adr-devops-001-vagrant-mod-wsgi-importante-produc
  adr-devops-003-wasi-style-virtualization-importante-db
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Runbooks Operativos
+
+ runbooks/index
