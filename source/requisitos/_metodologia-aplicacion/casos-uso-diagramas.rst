@@ -565,7 +565,317 @@ casos de prueba.
 
 ----
 
-13. Trazabilidad
+13. Identificar casos de uso es un acto de descubrimiento
+=========================================================
+
+Una observación recurrente en la literatura UML:
+**identificar casos de uso no es traducir** el
+problem statement de manera mecánica — es **descubrir**
+lo que el sistema realmente debe hacer. La diferencia
+no es semántica: marca cómo se aborda la fase
+DISCOVER de un WP.
+
+Por qué importa el encuadre como descubrimiento
+-----------------------------------------------
+
+Si los UCs se "leen" del enunciado del problema, dos
+riesgos aparecen:
+
+- **Sesgo del autor del enunciado** — los UCs heredan
+  los huecos del texto sin cuestionarlos.
+- **UCs faltantes** — funcionalidades que el cliente
+  da por obvias (y por tanto no escribe) quedan fuera
+  del modelo.
+
+Si en cambio se trata como **descubrimiento**, el
+equipo:
+
+- **Pregunta** a múltiples actores en lugar de
+  parafrasear un único documento.
+- **Detecta** UCs que el cliente no había
+  enunciado pero claramente necesita.
+- **Confronta** supuestos antes de fijarlos en el
+  modelo.
+
+Conexión con el flujo THYROX
+----------------------------
+
+Este encuadre coincide con **Phase 1 DISCOVER** del
+WP: el output canónico no es un resumen del problema,
+es una **lista de UCs descubiertos** con su nivel de
+confianza marcado (OBSERVABLE / INFERRED / SPECULATIVE,
+ver guidelines del cajón).
+
+Los UCs SPECULATIVE no avanzan al gate de
+DISCOVER → ANALYZE: hay que **bajarlos** a OBSERVABLE
+o INFERRED mediante elicitation adicional, o
+descartarlos.
+
+Conexión con el skill ``rm-elicitation``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El skill ``rm-elicitation`` cubre las técnicas
+canónicas de descubrimiento — entrevistas,
+observación, análisis de documentos, workshops. Cada
+una produce UCs candidatos que luego se consolidan en
+``rm-analysis``.
+
+La tabla de equivalencia es directa:
+
+.. list-table::
+ :widths: 32 32 36
+ :header-rows: 1
+
+ * - Técnica
+   - Genera
+   - Riesgo si se omite
+ * - Entrevista a operadores /
+     supervisores
+   - UCs operativos cotidianos.
+   - Faltan UCs que el cliente "no
+     enuncia porque son obvios".
+ * - Observación de uso real
+   - UCs implícitos en el flujo
+     diario.
+   - Faltan workarounds y
+     excepciones reales.
+ * - Análisis de documentos
+   - UCs formales y regulatorios.
+   - Falta el contraste con la
+     práctica.
+ * - Workshop con stakeholders
+   - UCs en disputa o ambiguos.
+   - Avanza con supuestos
+     contradictorios.
+
+Tres niveles de descubrimiento útiles
+-------------------------------------
+
+1. **UCs explícitos** — están en el problem
+   statement; se transcriben al modelo.
+2. **UCs inferidos** — se deducen de la
+   estructura del negocio (todo sistema con login
+   requiere logout, todo sistema con audit
+   requiere consulta de audit, etc.).
+3. **UCs descubiertos** — emergen de
+   conversaciones con actores; el cliente no los
+   había enunciado, pero los reconoce como
+   necesarios al verlos.
+
+Un modelo de UCs maduro contiene **los tres
+tipos**. La proporción varía según la madurez del
+problem statement: documentos extensos
+generalmente sobrerrepresentan los explícitos y
+omiten los descubiertos.
+
+Política IACT — descubrimiento de UCs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **No tratar el problem statement como verdad
+   completa**. Es un punto de partida.
+2. **Validar cada UC con al menos un actor real**
+   antes de pasarlo a ``rm-specification``.
+3. **Marcar el nivel de confianza** del UC
+   (OBSERVABLE / INFERRED / SPECULATIVE) en su
+   metadata.
+4. **Bloquear el gate** DISCOVER → ANALYZE si hay
+   UCs SPECULATIVE en la lista de candidatos
+   principales.
+5. **Documentar el descubrimiento** —
+   ``analyze/`` del WP guarda la evidencia de
+   cómo cada UC apareció.
+
+----
+
+14. Dependency entre casos de uso
+=================================
+
+Las relaciones de UC más comunes
+(``<<include>>``, ``<<extend>>``, generalización)
+ya quedaron cubiertas en §§ 5-8. Falta una más en
+el catálogo UML: la **dependencia genérica** entre
+dos UCs.
+
+Cuándo aparece
+--------------
+
+Una **dependencia** es una flecha **punteada sin
+estereotipo** entre dos UCs. Indica que la
+**existencia o evolución** de un UC depende de la
+existencia del otro, **sin** ser una de las
+relaciones más fuertes:
+
+- No es ``<<include>>`` — el UC dependiente no
+  invoca al otro como subrutina obligatoria.
+- No es ``<<extend>>`` — el UC dependiente no
+  extiende condicionalmente al otro.
+- No es generalización — no comparten estructura
+  jerárquica.
+
+Es la relación **más laxa** del catálogo,
+equivalente conceptual a la dependencia entre
+clases (§ 10 de :doc:`relaciones-uml`).
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: plantuml
+
+   UC1 ..> UC2 : depende de
+
+Misma sintaxis que para dependencias entre clases
+(``..>``); la diferencia es solo el contexto
+(diagrama de UCs vs diagrama de clases).
+
+Cuándo usarla en IACT
+~~~~~~~~~~~~~~~~~~~~~
+
+Casos donde un UC depende de otro sin que la
+relación sea include / extend / generalización:
+
+- **UC_AUD_03** (consultar audit) **depende** de
+  ``UC_AUTH_01`` (login) — no lo invoca, pero la
+  ausencia de login deja a UC_AUD_03 sin actor
+  válido.
+- **UC_RPT_07** (reporte programado) **depende**
+  de ``UC_PIP_01`` (carga ETL) — el reporte no
+  llama explícitamente al ETL, pero su utilidad
+  depende de que ETL haya completado la ventana
+  CNST_006/008.
+- **UC_ALR_03** (reconocer alerta) **depende** de
+  ``UC_ALR_01`` (publicar alerta) — no se puede
+  reconocer una alerta inexistente.
+
+Ejemplo IACT
+~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — dependency entre UCs (snapshot)
+
+   left to right direction
+
+   actor Supervisor
+   actor "Operador ETL" as OETL
+
+   rectangle IACT {
+     usecase "UC_PIP_01\nCarga ETL" as PIP01
+     usecase "UC_RPT_07\nReporte programado" as RPT07
+     usecase "UC_AUTH_01\nLogin" as AUTH01
+     usecase "UC_AUD_03\nConsultar audit" as AUD03
+   }
+
+   OETL --> PIP01
+   Supervisor --> RPT07
+   Supervisor --> AUD03
+
+   RPT07 ..> PIP01 : depende de
+   AUD03 ..> AUTH01 : depende de
+   @enduml
+
+Lectura del diagrama:
+
+- Las flechas continuas representan asociación
+  actor → UC.
+- Las flechas punteadas (``..>``) sin
+  estereotipo representan dependencia entre UCs.
+- ``UC_AUD_03 ..> UC_AUTH_01`` se lee:
+  "consultar audit depende de login".
+
+Distinción con include
+~~~~~~~~~~~~~~~~~~~~~~
+
+La diferencia operativa con ``<<include>>``:
+
+- ``<<include>>`` — el UC base **siempre invoca**
+  al UC incluido como parte del flujo nominal.
+- Dependencia simple — el UC dependiente
+  **necesita que exista** el otro, pero no lo
+  invoca paso a paso.
+
+En la práctica IACT: ``UC_RPT_04`` ``<<include>>``
+``UC_PERM_07`` (verificar permiso es parte del
+flujo de exportar). Pero ``UC_RPT_04 ..>
+UC_AUTH_01`` (depende de login porque sin sesión
+activa no hay user para verificar).
+
+Cuándo no abusar
+~~~~~~~~~~~~~~~~
+
+La dependencia es **la relación más débil**.
+Si hay duda entre dependencia simple e
+``<<include>>``, casi siempre es ``<<include>>``.
+La dependencia genérica es útil para indicar
+relaciones **estructurales** que el flujo no
+captura, no para sustituir relaciones más
+informativas.
+
+Política IACT — dependency entre UCs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Usar dependencia solo cuando ni include
+   ni extend ni generalización aplican**.
+2. **Etiquetar la flecha** — ``depende de``,
+   ``requiere``, ``presupone``. Sin etiqueta
+   queda ambigua.
+3. **Documentar la naturaleza** de la
+   dependencia en el texto adyacente al diagrama,
+   especialmente si es temporal (CNST_006/008
+   ventana ETL antes de reportes programados) o
+   estructural (sesión activa antes de cualquier
+   UC autenticado).
+4. **No abusar** — si todos los UCs autenticados
+   tienen una flecha de dependencia hacia
+   ``UC_AUTH_01``, el diagrama satura. Mejor
+   declarar la regla globalmente y modelar solo
+   las dependencias menos obvias.
+5. **Coherencia con § 10 de
+   :doc:`relaciones-uml`** — la sintaxis y la
+   semántica son las mismas que para dependencia
+   entre clases.
+
+Resumen del catálogo de relaciones UC
+-------------------------------------
+
+Con § 14 queda cubierto el catálogo completo de
+relaciones de casos de uso reconocido en UML:
+
+.. list-table::
+ :widths: 28 28 44
+ :header-rows: 1
+
+ * - Relación
+   - Sintaxis PlantUML
+   - Cuándo usar
+ * - Asociación actor → UC
+   - ``Actor -- UC``
+   - Vínculo entre actor y UC.
+ * - Asociación dirigida actor → UC
+   - ``Actor --> UC``
+   - El actor inicia el UC; el UC no inicia al
+     actor.
+ * - ``<<include>>``
+   - ``UC1 ..> UC2 : <<include>>``
+   - UC1 invoca a UC2 como parte de su flujo
+     nominal.
+ * - ``<<extend>>``
+   - ``UC1 <.. UC2 : <<extend>>``
+   - UC2 extiende condicionalmente a UC1 en
+     puntos de extensión.
+ * - Generalización
+   - ``UC2 --|> UC1``
+   - UC2 es una variante / especialización de
+     UC1.
+ * - Dependencia simple
+   - ``UC1 ..> UC2 : depende de``
+   - UC1 requiere la existencia de UC2 sin
+     invocarlo paso a paso.
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::
