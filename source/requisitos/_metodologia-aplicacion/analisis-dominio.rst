@@ -3357,7 +3357,440 @@ conforme el proyecto evoluciona (§ 15.5).
 
 ----
 
-17. Trazabilidad
+17. Schemas de base de datos — separar dominio y persistencia
+=============================================================
+
+Tras modelar el dominio (§§ 1-15) y enriquecerlo
+(§ 16), llega un punto en el que los datos del
+sistema necesitan **persistirse**. Hoy las opciones
+son varias — relacional, documental, columnar — pero
+en todas hay que **diseñar el schema** que estructura
+los datos.
+
+En IACT la decisión está fijada por ADR_DEVOPS_001:
+**MySQL** para todo lo que persiste
+(``bd_analytics``, ``audit_log`` y la réplica
+read-only ``bd-operativa``).
+
+Principio operativo: dominio ≠ persistencia
+-------------------------------------------
+
+Una idea **central** que conviene fijar antes de
+trabajar el schema:
+
+   *Las entidades del modelo de dominio NO siempre se
+   mapean uno-a-uno con las entidades del schema de
+   base de datos.*
+
+Cuando se modela el dominio (§§ 3-7), no debe pensarse
+en términos de cómo se almacenarán los datos. Es una
+aplicación directa de **separación de
+responsabilidades**:
+
+- **El modelo de dominio** representa los conceptos
+  del negocio, las entidades y la lógica que las
+  rige. Su preocupación es **expresar correctamente
+  el dominio**.
+- **La capa de persistencia** se encarga de
+  **almacenar el estado** de manera robusta y
+  performante. Su preocupación es la **eficiencia y
+  durabilidad**.
+
+Una clase ``Reporte`` no necesita saber cómo se
+indexa en MySQL; el schema MySQL no necesita saber
+si ``Reporte`` aplica BR_012 o no.
+
+Por qué difieren — roles distintos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Granularidad**: una entidad de dominio puede
+  vivir en una sola tabla, en varias, o como
+  campo serializado dentro de otra entidad.
+- **Foco**: el dominio prioriza **expresividad**;
+  la persistencia prioriza **rendimiento de
+  lectura/escritura**.
+- **Evolución**: el schema cambia cuando aparecen
+  problemas de performance o consultas nuevas;
+  el dominio cambia cuando cambia el negocio.
+
+Ejemplo — IACT
+~~~~~~~~~~~~~~
+
+Un par representativo:
+
+- **Modelo de dominio** (§ 3): ``Reporte`` y
+  ``Filtro`` con relación de uso (el reporte **usa**
+  filtros durante una consulta).
+- **Persistencia posible — opción A**: tabla
+  ``reporte`` y tabla ``filtro``, con FK desde
+  ``filtro_aplicado`` hacia ``reporte``.
+- **Persistencia posible — opción B**: tabla
+  ``reporte`` con un campo JSON que contiene los
+  filtros aplicados.
+
+Ambas opciones son **válidas**; la elección depende
+de si los filtros se consultan independientemente o
+solo en el contexto de su reporte. **El modelo de
+dominio no cambia** entre las dos opciones — sigue
+existiendo ``Reporte`` y ``Filtro`` como conceptos.
+
+Esa libertad es **el beneficio** de separar las
+preocupaciones: la persistencia evoluciona sin
+forzar al dominio a evolucionar con ella.
+
+Una nota sobre vocabulario — entidad
+------------------------------------
+
+El término "entidad" se usa en dos sentidos
+distintos en este cajón:
+
+- **Entidad del dominio** — concepto del negocio
+  modelado en §§ 3-15 (``Llamada``, ``Reporte``,
+  ``Sesion``, etc.).
+- **Entidad de la base de datos** — algo que se
+  persiste (en MySQL, una **tabla**; en MongoDB,
+  una colección).
+
+Cuando el contexto sea de schema MySQL, "entidad"
+significa **tabla**. Cuando sea modelado del
+dominio, significa **clase del dominio**. Si la
+distinción no es obvia por el contexto, especificar
+("entidad del dominio" / "entidad de la base de
+datos").
+
+Aplicación a IACT — qué se persiste y qué no
+--------------------------------------------
+
+No todas las entidades del dominio IACT requieren
+persistencia. Tabla orientativa:
+
+.. list-table::
+ :widths: 28 22 50
+ :header-rows: 1
+
+ * - Entidad del dominio
+   - ¿Se persiste?
+   - Cómo
+ * - ``Llamada``
+   - Sí (read-only)
+   - Vive en ``bd-operativa`` externa
+     (CNST_007). IACT solo lee.
+ * - ``EjecucionETL``
+   - Sí
+   - Tabla en ``bd_analytics``; relacionada con
+     ``ErrorETL`` por composición fuerte.
+ * - ``Reporte``
+   - Parcialmente
+   - Configuración persiste; el resultado
+     calculado puede no persistirse si se genera
+     bajo demanda.
+ * - ``Sesion``
+   - Sí (efímera)
+   - Vive en Redis, no en MySQL — no es la
+     fuente de verdad histórica.
+ * - ``EventoAuditoria``
+   - Sí (immutable)
+   - Tabla append-only en ``audit_log``
+     (CNST_025).
+ * - ``Alerta``
+   - Sí
+   - Tabla en ``bd_analytics`` con su estado
+     (publicada / reconocida / cerrada).
+ * - ``Funcion`` / ``Grupo``
+   - Sí
+   - Catálogo RBAC; tablas en ``bd_analytics``
+     (o en una BD dedicada según ADR de
+     subdominio).
+ * - ``ConfiguracionExport``
+   - No (efímera)
+   - Existe solo durante la tarea; al terminar
+     se descarta.
+
+Política IACT — diseño de schemas
+---------------------------------
+
+1. **No mapear ciegamente** dominio → tablas. Cada
+   entidad del dominio se evalúa: granularidad,
+   patrones de acceso, vida útil.
+2. **El dominio no conoce su persistencia**. Las
+   clases ``services.py`` orquestan; los modelos
+   Django son la frontera; el dominio puro
+   (``Reporte.calcular()``,
+   ``Sesion.ha_caducado()``) no debe importar
+   ORMs.
+3. **Una entidad de dominio puede vivir en varias
+   tablas** — composición fuerte (``EventoAuditoria``
+   + ``DetalleAuditoria``) usualmente sí, agregación
+   débil con FKs explícitas.
+4. **No persistir lo efímero** — sesiones en Redis,
+   configuraciones de export en memoria, tokens
+   transitorios.
+5. **CNST_025 (audit immutable)** dicta el schema de
+   ``audit_log``: append-only, sin updates, sin
+   deletes. Usar tablas con triggers que rechacen
+   modificaciones.
+6. **CNST_007 (BD operativa read-only)** dicta que
+   IACT **no escribe** en ``bd-operativa``;
+   cualquier dato derivado vive en
+   ``bd_analytics``.
+
+Próximos pasos
+--------------
+
+Las subsecciones siguientes (§§ 17.1+) cubrirán:
+
+- Modelo entidad-relación (ER) — notación
+  PlantUML para schemas.
+- Tipos de relación (1:1, 1:N, N:M) en BD vs en
+  el dominio.
+- Schemas IACT canónicos para
+  ``audit_log``, ``bd_analytics`` y el catálogo
+  RBAC.
+- Restricciones físicas (PK, FK, índices,
+  constraints) y cómo se documentan.
+
+17.1 Entity-Relationship Diagrams (ERD) — naturaleza y ciclo de vida
+--------------------------------------------------------------------
+
+Para diseñar schemas de base de datos, la herramienta
+canónica es el **Entity-Relationship Diagram (ERD)**.
+Define las entidades de la base — sus campos, tipos
+de dato — y las **relaciones** entre ellas.
+
+Los ERD se asocian sobre todo a bases relacionales
+(MySQL, PostgreSQL), pero el concepto se aplica
+igual a bases documentales (las "entidades"
+equivaldrían a colecciones).
+
+Cuándo conviene diseñar el ERD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La recomendación operativa: **diseñar el ERD
+después de la arquitectura**, no antes. Las razones:
+
+- El ERD anterior a la arquitectura tiende a
+  **dictar** la estructura de servicios — el
+  modelo de datos termina conduciendo la
+  arquitectura, lo que invierte la causalidad
+  natural.
+- Conociendo la arquitectura (containers,
+  componentes), ya se sabe **qué entidades viven
+  en qué base** y se diseña con foco.
+
+Aun así, el diseño es **iterativo**: si al modelar
+el ERD aparece que dos servicios necesitan
+constantemente los mismos datos, puede ser señal
+para revisar la separación de containers. Nunca
+hay que temer volver atrás y cuestionar decisiones
+— los diagramas sirven precisamente para validar.
+
+Ciclo de vida — diagramas snapshot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A diferencia del modelo del dominio o del C4 —
+artefactos vivos que se actualizan continuamente —
+los ERD funcionan mejor como **snapshots**:
+fotografías del schema en un punto del tiempo.
+
+Tres escenarios canónicos en IACT donde el ERD
+aporta valor:
+
+1. **ADR de un servicio nuevo** — al proponer la
+   creación de una nueva app Django o un nuevo
+   schema, incluir el ERD inicial documenta la
+   intención al momento de la decisión.
+2. **Cambios significativos al schema** — al
+   reorganizar tablas, agregar índices clave o
+   romper una entidad en varias, el ERD acompaña
+   el ADR o el PR para explicar la razón del
+   cambio.
+3. **Cambios pequeños conversacionales** — un
+   ERD rápido en un PR o en una discusión
+   técnica permite ver en segundos si el cambio
+   tiene sentido.
+
+Por qué snapshot — el código manda
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El schema **real** vive en el código (migraciones
+Django, archivos ``.sql``). Eso es la fuente de
+verdad — no el diagrama. Los ERD se desactualizan
+naturalmente conforme el schema evoluciona, y
+mantener cada uno sincronizado con el código es
+costoso. La política IACT:
+
+- **No actualizar todos los ERD** cada vez que
+  cambia el schema. La fuente de verdad son las
+  migraciones.
+- **Marcar siempre** un ERD como **snapshot** con
+  fecha en el frontmatter del documento /
+  ADR / PR donde aparece.
+- **Usar el ERD como documentación contextual**
+  de la decisión, no como referencia operativa.
+
+ERD vs diagrama de clases
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La funcionalidad del ERD se parece al diagrama de
+clases (§§ 3-7 de este documento), pero hay
+diferencias claves:
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Aspecto
+   - Diagrama de clases (dominio)
+   - ERD (persistencia)
+ * - Foco
+   - Conceptos del negocio.
+   - Estructura de almacenamiento.
+ * - Métodos / lógica
+   - Sí — operaciones de la clase.
+   - No — solo datos.
+ * - Tipos de dato
+   - Conceptuales (``Decimal``,
+     ``String``).
+   - Concretos del motor
+     (``VARCHAR(50)``, ``INT(11)``).
+ * - Relaciones
+   - Asociación, agregación,
+     composición, herencia.
+   - 1:1, 1:N, N:M con cardinalidad
+     y opcionalidad explícita.
+ * - Granularidad
+   - Una clase = un concepto.
+   - Una tabla puede ser N entidades del
+     dominio, o viceversa.
+
+En IACT el modelo de dominio (§§ 3-7) es el
+artefacto vivo; los ERD son snapshots por servicio
+o por cambio de schema.
+
+17.2 Sintaxis PlantUML para ERD
+-------------------------------
+
+PlantUML soporta ERD con la palabra clave
+``entity`` (o ``class`` con estereotipo
+``<<table>>``). La sintaxis básica:
+
+.. code-block:: plantuml
+
+   @startuml
+   entity Title {
+     * title_id : int <<PK>>
+     --
+     name : varchar(200)
+     release_date : datetime
+   }
+   @enduml
+
+- ``entity`` declara la entidad de la BD.
+- ``*`` indica un campo **obligatorio** (NOT NULL).
+- ``<<PK>>`` etiqueta la clave primaria; ``<<FK>>``
+  para foráneas.
+- La línea ``--`` separa la PK del resto de los
+  campos (convención visual).
+
+PlantUML también soporta sintaxis más rica con
+``!define`` macros para diagramas ER complejos
+(``c4plantuml``, ``crows-foot`` para cardinalidad).
+Para snapshots IACT alcanza con la sintaxis
+básica.
+
+Equivalencia con Mermaid del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Notas
+ * - ``erDiagram``
+   - ``@startuml`` con ``entity``
+   - PlantUML decide tipo por keyword.
+ * - ``TITLE { int title_id ... }``
+   - ``entity Title { title_id : int ... }``
+   - PlantUML acepta mayúsculas o
+     minúsculas; convención IACT: PascalCase
+     o snake_case según el dominio.
+ * - Tipos primero, nombre después
+   - Nombre primero, tipo después
+   - Convención inversa entre los dos
+     motores.
+
+Primer ERD IACT — entidad ``EventoAuditoria``
+---------------------------------------------
+
+Como ejemplo introductorio, la primera entidad
+canónica de IACT que merece un ERD es
+``EventoAuditoria`` (CNST_025 — append-only).
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: EventoAuditoria
+
+   entity EventoAuditoria {
+     * evento_id : bigint <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * timestamp : datetime
+     * tipo_evento : varchar(50)
+     * funcion_id : varchar(100)
+     payload_json : text
+     ip_origen : varchar(45)
+   }
+   @enduml
+
+Lectura del ERD:
+
+- ``evento_id`` es la PK — autoincremental, no
+  reusable (CNST_025 immutable).
+- ``usuario_id`` es FK al catálogo RBAC.
+- Campos obligatorios marcados con ``*``.
+- ``payload_json`` es opcional — solo aparece
+  cuando el evento lo amerita.
+
+En las subsecciones siguientes se agregarán
+relaciones, claves foráneas y un schema más
+completo del cluster RBAC.
+
+Política IACT — ERD
+~~~~~~~~~~~~~~~~~~~
+
+1. **ERD como snapshot, no como referencia
+   permanente** — la fuente de verdad son las
+   migraciones Django.
+2. **Marcar fecha y contexto** del snapshot
+   (``status: Snapshot YYYY-MM-DD`` en el
+   frontmatter del documento o el ADR).
+3. **Diseñar el ERD después de la arquitectura**,
+   no antes — la arquitectura define qué entidades
+   viven dónde.
+4. **Iterar** — si el ERD revela un problema
+   estructural en la arquitectura, volver al
+   Container view y revisar.
+5. **No mantener un ERD del enterprise** —
+   herramientas como MySQL Workbench pueden
+   generar uno automático desde el schema vivo
+   cuando se necesite.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- Relaciones entre entidades (1:1, 1:N, N:M).
+- Cardinalidad y opcionalidad en notación
+  PlantUML.
+- Schemas IACT canónicos:
+  ``audit_log``, catálogo RBAC, ``bd_analytics``.
+
+----
+
+18. Trazabilidad
 ================
 
 .. list-table::
