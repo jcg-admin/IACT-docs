@@ -64,3 +64,9 @@ Subdominios
  :caption: Ejemplos Pedagógicos
 
  _ejemplos-pedagogicos/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Guía PlantUML
+
+ plantuml-guide/index

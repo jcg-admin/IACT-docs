@@ -26,7 +26,7 @@ Arquitectura
    :caption: IACT - Arquitectura de Sistema Completo
 
    @startuml IACT-Architecture
-   !include ../../_static/plantuml-styles.puml
+   !include ../../../_static/plantuml-styles.puml
 
    ' @IACT-DIAGRAM
    ' module: plantuml-guide

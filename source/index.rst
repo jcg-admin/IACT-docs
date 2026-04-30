@@ -123,12 +123,6 @@ Contenido publicado
 
 .. toctree::
  :maxdepth: 2
- :caption: Guia PlantUML
-
- plantuml-guide/index
-
-.. toctree::
- :maxdepth: 2
  :caption: Onboarding
 
  onboarding/index
