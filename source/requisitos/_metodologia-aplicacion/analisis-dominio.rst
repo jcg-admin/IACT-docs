@@ -1477,7 +1477,154 @@ las entidades en código Django siguiendo las guidelines
 del proyecto (ver § 13 ``backend-django`` /
 ``backend-python`` en ``.thyrox/guidelines/``).
 
-15.8 Relación con el resto del documento
+15.8 Documentar la primera relación
+-----------------------------------
+
+Una vez identificadas dos o más entidades importantes
+(§ 15.7), el siguiente paso es **documentar su primera
+relación**. En un modelo de dominio cada línea posterior
+a la declaración del diagrama documenta una relación
+entre dos entidades.
+
+El equivalente IACT
+~~~~~~~~~~~~~~~~~~~
+
+El ejemplo del libro citado usa ``Title -- Genre`` como
+primera relación de un dominio de streaming. El
+equivalente IACT más natural es ``Llamada`` ↔
+``Segmento``: cada llamada pertenece a un segmento, y
+cada segmento agrupa muchas llamadas (BR_012). Es la
+relación de **asociación** más fundamental del dominio.
+
+Sintaxis PlantUML mínima
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+En PlantUML, declarar dos entidades y una asociación es
+casi tan simple como en Mermaid:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class Llamada
+   class Segmento
+   Llamada -- Segmento
+   @enduml
+
+Análisis del fragmento:
+
+- ``@startuml`` / ``@enduml`` — delimitan el bloque
+  PlantUML (equivalente al ``classDiagram`` de Mermaid
+  como declaración de tipo).
+- ``class Llamada`` y ``class Segmento`` — declaran las
+  dos entidades.
+- ``Llamada -- Segmento`` — el ``--`` indica una
+  **asociación** simple (sin dirección, sin
+  multiplicidad explícita).
+
+Cuando cada entidad mantiene una referencia a la otra y
+ninguna es parte estructural de la otra, la relación
+correcta es **asociación** — la misma noción del libro
+("each entity is going to hold a reference to the
+other"). El detalle completo de la asociación está en
+§ 2 de :doc:`relaciones-uml`.
+
+Multiplicidad mínima del primer modelo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aunque este es un primer paso, conviene incorporar
+multiplicidad desde el inicio. La forma del par
+Llamada-Segmento en IACT:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class Llamada {
+     - id : Integer
+     - duracion_seg : Integer
+     - fecha : DateTime
+   }
+   class Segmento {
+     - id : Integer
+     - nombre : String
+   }
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   @enduml
+
+Lectura: cada ``Llamada`` pertenece a un único
+``Segmento`` (un segmento por llamada — BR_012); cada
+``Segmento`` puede tener muchas llamadas (1 a varias).
+Esa precisión es lo que diferencia un modelo embrionario
+de uno operativo.
+
+Crecimiento del modelo a partir de la primera relación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una vez documentada la primera relación, el modelo crece
+agregando entidades vecinas y sus relaciones — siempre
+una línea por relación:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class Llamada
+   class Segmento
+   class EjecucionETL
+   class Reporte
+   class Usuario
+
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   EjecucionETL "1" -- "*" Llamada : carga
+   Reporte "*" -- "*" Llamada : agrega
+   Usuario "*" -- "*" Reporte : consulta
+   @enduml
+
+En cinco líneas, el modelo embrionario ya captura el
+flujo central de IACT: el supervisor consulta reportes
+que agregan llamadas que pertenecen a segmentos y se
+cargaron por ejecuciones ETL.
+
+Iteración recomendada
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Empezar con **una** relación entre dos entidades
+   ancla.
+2. Agregar **una entidad nueva** por iteración.
+3. Para cada nueva entidad, declarar **al menos una
+   relación** con las existentes.
+4. Cuando el embrión tenga 5-7 entidades, evaluar si
+   hace sentido modelar tipos de relaciones más fuertes
+   (composición, agregación, herencia) en lugar de
+   asociación pura — ver :doc:`relaciones-uml` y
+   :doc:`agregacion-interfaces`.
+
+Esta progresión convierte el modelo embrionario en el
+diagrama consolidado de § 7 de este documento sin saltos
+abruptos. Ningún diagrama de clases de IACT debe
+construirse "de golpe" — todos parten de una primera
+relación clara y crecen iterativamente.
+
+Por qué la asociación es el punto natural de partida
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La asociación es el tipo de relación con menos
+compromisos:
+
+- No impone composición fuerte (no obliga a que la
+  parte muera con el todo).
+- No impone agregación (no obliga a un sentido todo-parte).
+- No impone herencia (no exige "es-un").
+
+Empezar por asociaciones permite explorar el modelo sin
+fijar prematuramente decisiones que luego cuesta
+revertir. Las relaciones más fuertes (composición,
+agregación, herencia) **se ganan** cuando el dominio lo
+exige — ver § 13 de :doc:`relaciones-uml` "Comparativa
+por contexto" y la advertencia de Rumbaugh.
+
+15.9 Relación con el resto del documento
 ----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
