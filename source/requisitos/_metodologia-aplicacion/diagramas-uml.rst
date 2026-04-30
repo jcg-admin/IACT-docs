@@ -259,6 +259,90 @@ explicativo** cuando la audiencia lo justifique
 (stakeholders, comités, onboarding rápido). Decisión
 final del SAD futuro.
 
+Historia de la diagramación y por qué IACT eligió PlantUML
+----------------------------------------------------------
+
+Diagramar software ha pasado por tres etapas:
+
+1. **Dibujo manual** — había que encontrar un programa
+   (Visio, Dia, etc.), instalarlo y dibujar
+   meticulosamente cajas y líneas asegurando
+   alineación. Crear diagramas complejos podía llevar
+   horas.
+2. **Herramientas web visuales** — eliminaron parte del
+   dolor pero aún exigían arrastrar formas y trazar
+   conexiones a mano.
+3. **Diagramas como código** — herramientas como
+   PlantUML y Mermaid permiten describir diagramas en
+   sintaxis textual (similar a Markdown) y dejar el
+   layout al renderer. Lo que antes tomaba horas hoy
+   toma diez o quince minutos.
+
+Esta evolución es lo que muchos llaman una **revolución
+de diagramación**: la barrera de entrada bajó tanto que
+diagramar dejó de ser una actividad costosa y se volvió
+parte natural del flujo de trabajo del desarrollador.
+
+Mermaid vs PlantUML — el debate moderno
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Mermaid** ha ganado tracción rápidamente: **GitHub** y
+**GitLab** soportan renderizado nativo en Markdown sin
+herramientas adicionales. Eso lo hace particularmente
+atractivo para README, issues y PRs.
+
+**PlantUML** es más antiguo, más expresivo y soporta más
+tipos de diagrama UML (incluyendo diagramas de tiempo,
+estados complejos, despliegue con notación rica), pero
+requiere una toolchain (servidor PlantUML o plugin
+Sphinx ``sphinxcontrib-plantuml``) para renderizar.
+
+Por qué IACT eligió PlantUML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A pesar de la popularidad creciente de Mermaid, el
+proyecto IACT eligió **PlantUML** por razones
+documentadas en
+:doc:`/base-cognitiva/plantuml-guide/guidelines`. Las
+razones operativas:
+
+1. **Cobertura UML completa** — los diagramas que este
+   cajón necesita (estados con sub-estados, secuencias
+   con activaciones complejas, despliegue con
+   ``mod_wsgi`` + Apache + bases de datos físicas,
+   colaboraciones con numeración jerárquica de
+   mensajes) tienen mejor soporte en PlantUML que en
+   Mermaid.
+2. **Sphinx como motor único** — la documentación IACT
+   se publica con Sphinx; ``sphinxcontrib-plantuml`` ya
+   está integrado al pipeline. Mermaid requeriría
+   tooling adicional.
+3. **Estilos centralizados** — los diagramas
+   referencian ``source/_static/plantuml-styles.puml``
+   para uniformidad visual; ese mecanismo no existe en
+   Mermaid.
+4. **Política del proyecto** — registrada y aplicada
+   sistemáticamente por ``.claude/rules/`` y revisada
+   en cada commit. Los diagramas Mermaid no pasan la
+   guideline.
+
+Esta decisión es deliberada y consistente con
+ADR_DEVOPS_001 (un solo stack canónico) y con I-002
+(una sola fuente de verdad). Las nuevas guías y UCs del
+proyecto **deben usar PlantUML** — convertir diagramas
+Mermaid existentes a PlantUML antes de integrarlos.
+
+Reconocimiento de la limitación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML tiene un costo: la toolchain. Si en el futuro
+el proyecto necesita diagramas embebidos en GitHub
+issues / discussions / READMEs públicos sin el pipeline
+Sphinx, el equipo puede evaluar Mermaid **solo en esos
+contextos** (documentación pública del repositorio en
+GitHub) sin alterar las guías internas, que seguirán en
+PlantUML. Esa decisión exigiría un ADR explícito.
+
 ----
 
 1. Diagrama de clases — entidad ``Llamada`` (UC_RPT)
