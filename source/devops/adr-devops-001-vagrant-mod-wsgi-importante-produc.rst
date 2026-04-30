@@ -254,7 +254,7 @@ Referencias
 -  `Script de aprovisionamiento <../../../provisioning/bootstrap.sh>`__
 -  `Script de verificación <../../../scripts/verificar_servicios.sh>`__
 -  `Guía de
-   verificación <../../devops/runbooks/verificar_servicios.md>`__
+   verificación <../../devops/runbooks/verificar_servicios.rst>`__
 -  `README principal del repo IACT-docs <https://github.com/jcg-admin/iact-docs>`__
 
 Notas Adicionales

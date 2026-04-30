@@ -121,7 +121,7 @@ estructurado
  }
 
 **Artefactos Generados**: -
-``docs/sdlc_outputs/planning/ISSUE_YYYYMMDD_HHMMSS.md``
+``docs/sdlc_outputs/planning/ISSUE_YYYYMMDD_HHMMSS.rst``
 
 **Ejemplo Uso**:
 
@@ -187,7 +187,7 @@ duplicados - Formato GitHub issue completo
  }
 
 **Artefactos Generados**: -
-``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_YYYYMMDD_HHMMSS.md``
+``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_YYYYMMDD_HHMMSS.rst``
 
 **Go/No-Go Criteria**: - **NO-GO** si: - Viola RNF-002 (Redis, Email) -
 Blockers criticos sin mitigacion - Esfuerzo > 3x estimado - **REVIEW**
@@ -201,7 +201,7 @@ budget/timeline
 
  python scripts/sdlc_agent.py \
  --phase feasibility \
- --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.rst
 
 **Caracteristicas**: - Risk assessment matrix (Severity x Probability) -
 Validacion restricciones IACT automatica - Conversion story points →
@@ -249,11 +249,11 @@ horas/dias - Analisis de dependencias
  "phase_result": SDLCPhaseResult
  }
 
-**Artefactos Generados**: - ``HLD_YYYYMMDD_HHMMSS.md`` - High-Level
-Design - ``LLD_YYYYMMDD_HHMMSS.md`` - Low-Level Design -
-``ADR_YYYYMMDD_HHMMSS_001.md`` - ADRs individuales -
-``DIAGRAMS_YYYYMMDD_HHMMSS.md`` - Todos los diagramas Mermaid -
-``DESIGN_REVIEW_CHECKLIST_YYYYMMDD_HHMMSS.md``
+**Artefactos Generados**: - ``HLD_YYYYMMDD_HHMMSS.rst`` - High-Level
+Design - ``LLD_YYYYMMDD_HHMMSS.rst`` - Low-Level Design -
+``ADR_YYYYMMDD_HHMMSS_001.rst`` - ADRs individuales -
+``DIAGRAMS_YYYYMMDD_HHMMSS.rst`` - Todos los diagramas Mermaid -
+``DESIGN_REVIEW_CHECKLIST_YYYYMMDD_HHMMSS.rst``
 
 **HLD Incluye**: - Executive Summary - System Context - High-Level
 Architecture - Technology Stack - Critical Constraints (IACT) -
@@ -279,7 +279,7 @@ flows) - Components (module relationships) - Database ER
 
  python scripts/sdlc_agent.py \
  --phase design \
- --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+ --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.rst
 
 **Caracteristicas**: - Genera codigo de ejemplo (models, views,
 services) - Diagramas Mermaid auto-generados - ADRs para decisiones
@@ -350,9 +350,9 @@ strategy
  "phase_result": SDLCPhaseResult
  }
 
-**Artefactos Generados**: - ``TEST_PLAN_YYYYMMDD_HHMMSS.md`` -
-``TEST_CASES_YYYYMMDD_HHMMSS.md`` - ``TEST_PYRAMID_YYYYMMDD_HHMMSS.md``
-- ``TEST_CHECKLIST_YYYYMMDD_HHMMSS.md``
+**Artefactos Generados**: - ``TEST_PLAN_YYYYMMDD_HHMMSS.rst`` -
+``TEST_CASES_YYYYMMDD_HHMMSS.rst`` - ``TEST_PYRAMID_YYYYMMDD_HHMMSS.rst``
+- ``TEST_CHECKLIST_YYYYMMDD_HHMMSS.rst``
 
 **Test Plan Incluye**: - Testing Goals & Success Criteria - Scope
 (In/Out) - Test Strategy (Test Pyramid) - Test Environment - Entry/Exit
@@ -371,7 +371,7 @@ Critical user flows
 
  python scripts/sdlc_agent.py \
  --phase testing \
- --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
+ --input-file docs/sdlc_outputs/design/HLD_20251106_151530.rst
 
 **Caracteristicas**: - Genera test cases concretos con steps -
 Validacion test pyramid automatica - Coverage requirements por
@@ -417,11 +417,11 @@ componente - Testing checklist ejecutable
  "phase_result": SDLCPhaseResult
  }
 
-**Artefactos Generados**: - ``DEPLOYMENT_PLAN_{env}_YYYYMMDD_HHMMSS.md``
-- ``ROLLBACK_PLAN_{env}_YYYYMMDD_HHMMSS.md`` -
-``PRE_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.md`` -
-``POST_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.md`` -
-``MONITORING_PLAN_YYYYMMDD_HHMMSS.md``
+**Artefactos Generados**: - ``DEPLOYMENT_PLAN_{env}_YYYYMMDD_HHMMSS.rst``
+- ``ROLLBACK_PLAN_{env}_YYYYMMDD_HHMMSS.rst`` -
+``PRE_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.rst`` -
+``POST_DEPLOYMENT_CHECKLIST_YYYYMMDD_HHMMSS.rst`` -
+``MONITORING_PLAN_YYYYMMDD_HHMMSS.rst``
 
 **Deployment Plan Incluye**: - Executive Summary (objective, window,
 stakeholders) - Prerequisites (code ready, infrastructure ready, team
@@ -452,13 +452,13 @@ Response
  python scripts/sdlc_agent.py \
  --phase deployment \
  --environment staging \
- --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.rst
 
  # Production
  python scripts/sdlc_agent.py \
  --phase deployment \
  --environment production \
- --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.rst
 
 **Caracteristicas**: - Blue-green deployment strategy - Database backup
 automatico - Health checks en cada paso - Rollback plan ejecutable -
@@ -511,7 +511,7 @@ Post-deployment monitoring (5 min, 24h, 1 week)
  "report_path": str
  }
 
-**Artefactos Generados**: - ``SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md``
+**Artefactos Generados**: - ``SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.rst``
 - Reporte consolidado - Todos los artefactos de cada fase
 
 **Ejemplo Uso**:
@@ -561,7 +561,7 @@ CLI: scripts/sdlc_agent.py
  # Ejecutar con archivo
  python scripts/sdlc_agent.py \
  --phase feasibility \
- --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.rst
 
  # Output en JSON
  python scripts/sdlc_agent.py \
@@ -593,7 +593,7 @@ Step 1: Planning
  --phase planning \
  --input "Implementar dark mode toggle en settings para mejorar UX"
 
-Output: - Issue: ``docs/sdlc_outputs/planning/ISSUE_20251106_150610.md``
+Output: - Issue: ``docs/sdlc_outputs/planning/ISSUE_20251106_150610.rst``
 - Story points: 5 - Priority: P2
 
 Step 2: Feasibility
@@ -603,10 +603,10 @@ Step 2: Feasibility
 
  python scripts/sdlc_agent.py \
  --phase feasibility \
- --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.md
+ --input-file docs/sdlc_outputs/planning/ISSUE_20251106_150610.rst
 
 Output: - Feasibility Report:
-``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md``
+``docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.rst``
 - Decision: GO - Confidence: 0.85 - Risks: 2 (LOW severity)
 
 Step 3: Design
@@ -616,11 +616,11 @@ Step 3: Design
 
  python scripts/sdlc_agent.py \
  --phase design \
- --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.md
+ --input-file docs/sdlc_outputs/feasibility/FEASIBILITY_REPORT_20251106_151030.rst
 
-Output: - HLD: ``docs/sdlc_outputs/design/HLD_20251106_151530.md`` -
-LLD: ``docs/sdlc_outputs/design/LLD_20251106_151530.md`` - Diagrams:
-``docs/sdlc_outputs/design/DIAGRAMS_20251106_151530.md`` - ADRs: 1
+Output: - HLD: ``docs/sdlc_outputs/design/HLD_20251106_151530.rst`` -
+LLD: ``docs/sdlc_outputs/design/LLD_20251106_151530.rst`` - Diagrams:
+``docs/sdlc_outputs/design/DIAGRAMS_20251106_151530.rst`` - ADRs: 1
 (Store theme preference in user settings)
 
 Step 4: Implementation
@@ -635,10 +635,10 @@ Step 5: Testing
 
  python scripts/sdlc_agent.py \
  --phase testing \
- --input-file docs/sdlc_outputs/design/HLD_20251106_151530.md
+ --input-file docs/sdlc_outputs/design/HLD_20251106_151530.rst
 
 Output: - Test Plan:
-``docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md`` - Test Cases:
+``docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.rst`` - Test Cases:
 15 total (9 unit, 4 integration, 2 E2E) - Coverage requirement: 80%
 
 Step 6: Deployment
@@ -649,12 +649,12 @@ Step 6: Deployment
  python scripts/sdlc_agent.py \
  --phase deployment \
  --environment staging \
- --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.md
+ --input-file docs/sdlc_outputs/testing/TEST_PLAN_20251106_152030.rst
 
 Output: - Deployment Plan:
-``docs/sdlc_outputs/deployment/DEPLOYMENT_PLAN_staging_20251106_152530.md``
+``docs/sdlc_outputs/deployment/DEPLOYMENT_PLAN_staging_20251106_152530.rst``
 - Rollback Plan:
-``docs/sdlc_outputs/deployment/ROLLBACK_PLAN_staging_20251106_152530.md``
+``docs/sdlc_outputs/deployment/ROLLBACK_PLAN_staging_20251106_152530.rst``
 
 --------------
 
@@ -671,7 +671,7 @@ Pipeline Automatico
  --input "Feature request" \
  --environment staging
 
-Output: - SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.md - Todos los artefactos
+Output: - SDLC_PIPELINE_REPORT_YYYYMMDD_HHMMSS.rst - Todos los artefactos
 de todas las fases
 
 Early Stop Example
@@ -755,11 +755,11 @@ Todos los artefactos generados son texto ASCII puro.
 Referencias
 -----------
 
-- SDLC Process: docs/gobernanza/procesos/SDLC_PROCESS.md
-- DevOps Automation: docs/gobernanza/procesos/DEVOPS_AUTOMATION.md
+- SDLC Process: docs/gobernanza/procesos/SDLC_PROCESS.rst
+- DevOps Automation: docs/gobernanza/procesos/DEVOPS_AUTOMATION.rst
 - Base Classes: scripts/ai/agents/sdlc_base.py
 - CLI: scripts/sdlc_agent.py
-- RNF-002: docs/backend/requisitos/restricciones_y_lineamientos.md
+- RNF-002: docs/backend/requisitos/restricciones_y_lineamientos.rst
 
 --------------
 

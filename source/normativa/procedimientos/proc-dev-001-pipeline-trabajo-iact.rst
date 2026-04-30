@@ -624,7 +624,7 @@ Caso 1: Feature Requiere ADR
 
 **Trigger**: Decisión arquitectónica significativa
 
-**Acción**: 1. Crear ADR en ``docs/gobernanza/adr/ADR-XXX-titulo.md`` 2.
+**Acción**: 1. Crear ADR en ``docs/gobernanza/adr/ADR-XXX-titulo.rst`` 2.
 Agregar ADR al PR description 3. Requiere aprobación de Tech Lead o
 Arquitecto 4. Documentar decisión ANTES de implementar
 
@@ -763,12 +763,12 @@ REFERENCIAS
 -----------
 
 - `Guía: Procesos vs
-  Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.md>`__
+  Procedimientos <../guias/DIFERENCIA_PROCESOS_PROCEDIMIENTOS.rst>`__
 - `ADR-002: Estrategia de
-  Branching <../adr/ADR-002-branching-strategy.md>`__
+  Branching <../adr/ADR-002-branching-strategy.rst>`__
 - `ADR-056: Agentic Design
-  Principles <../adr/ADR-056-agentic-design-principles.md>`__
-- ``GUIA_ESTILO.md`` (guía histórica, no migrada)
+  Principles <../adr/ADR-056-agentic-design-principles.rst>`__
+- ``GUIA_ESTILO.rst`` (guía histórica, no migrada)
 - `Conventional Commits <https://www.conventionalcommits.org/>`__
 
 --------------

@@ -19,7 +19,7 @@ y casos de uso se apliquen de forma consistente en todo el repositorio.
 Página padre
 ------------
 
-- ```readme.md`` <readme.md>`__
+- ```readme.rst`` <readme>`__
 
 Objetivos
 ---------
@@ -38,7 +38,7 @@ Actividades recurrentes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Ejecutar el checklist corporativo descrito en
-  ```../documentacion_corporativa.md`` <../documentacion_corporativa.md>`__
+  ```../documentacion_corporativa.rst`` <../documentacion_corporativa.rst>`__
   antes de aprobar un cambio.
 - Validar que los documentos incluyan secciones de limitaciones y
   distinción explícita entre QUÉ y CÓMO.
@@ -59,7 +59,7 @@ Actividades recurrentes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Actualizar
-  ```../requisitos/trazabilidad.md`` <../requisitos/trazabilidad.md>`__
+  ```../requisitos/trazabilidad.rst`` <../requisitos/trazabilidad.rst>`__
   con cualquier relación nueva entre reglas, requisitos, casos de uso y
   pruebas.
 - Verificar que la cadena RN → N → RB → RS → UC → RF → TEST esté
@@ -88,7 +88,7 @@ Actividades por entrega
    * - Pre-cierre
      - QA + Arquitectura
      - Ejecutar auditoría de trazabilidad y documentar ajustes.
-     - Actualización firmada en ``tra zabilidad.md``.
+     - Actualización firmada en ``tra zabilidad.rst``.
    * - Post-cierre
      - QA
      - Publicar resumen de hallazgos y acciones correctivas.
@@ -111,7 +111,7 @@ Métricas de seguimiento
      - Auditoría mensual del repositorio.
    * - Cadena de trazabilidad completa
      - 100 % de iniciativas activas
-     - ```../r equisitos/trazabilida d.md`` <../requisitos /trazabilidad.md>`__.
+     - ```../r equisitos/trazabilida d.rst`` <../requisitos /trazabilidad.rst>`__.
 
 Procedimiento de escalamiento
 -----------------------------

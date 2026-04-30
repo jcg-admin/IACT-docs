@@ -58,7 +58,7 @@ sin autenticacion son superficie de ataque inaceptable.
 ^^^^^^^^^^
 
 - **Fuente:** Politica de seguridad
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:213-216
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:213-216
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

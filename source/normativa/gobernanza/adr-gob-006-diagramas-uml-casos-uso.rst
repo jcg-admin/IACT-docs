@@ -411,8 +411,8 @@ Ubicación en Proyecto
 
  docs/gobernanza/requisitos/requerimientos_usuario/
  ├── casos_uso/
- │ ├── UC-BACK-001-iniciar-sesion.md
- │ ├── UC-BACK-004-solicitar-producto-quimico.md
+ │ ├── UC-BACK-001-iniciar-sesion.rst
+ │ ├── UC-BACK-004-solicitar-producto-quimico.rst
  │ └── ...
  └── diagramas/
  ├── casos_uso/
@@ -501,7 +501,7 @@ Integración con Especificación Textual
 Los diagramas UML deben **referenciarse** en las especificaciones
 textuales de casos de uso:
 
-**En UC-BACK-004-solicitar-producto-quimico.md**:
+**En UC-BACK-004-solicitar-producto-quimico.rst**:
 
 .. code:: markdown
 
@@ -745,9 +745,9 @@ Referencias
 - `PlantUML Activity Diagram
   Documentation <https://plantuml.com/activity-diagram-beta>`__
 - `ADR-GOB-004: PlantUML para
-  Diagramas <ADR-GOB-004-plantuml-para-diagramas.md>`__
+  Diagramas <ADR-GOB-004-plantuml-para-diagramas.rst>`__
 - `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
 
 Historial de Cambios
 --------------------

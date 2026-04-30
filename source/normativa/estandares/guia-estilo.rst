@@ -24,7 +24,7 @@ IACT, incluyendo código, documentación, commits, y comunicación.
 Alcance
 -------
 
-Esta guía aplica a: - Documentación (archivos .md) - Código fuente
+Esta guía aplica a: - Documentación (archivos .rst) - Código fuente
 (Python, JavaScript, etc.) - Mensajes de commit - Pull Requests - Issues
 - Comentarios en código
 
@@ -522,9 +522,9 @@ Convenciones
  test_user_auth.py
 
  # Documentación: snake_case o kebab-case
- guia_desarrollo.md
- proc-qa-004-qa.md
- README.md
+ guia_desarrollo.rst
+ proc-qa-004-qa.rst
+ README
 
  # Configuración: lowercase con guiones
  .pre-commit-config.yaml

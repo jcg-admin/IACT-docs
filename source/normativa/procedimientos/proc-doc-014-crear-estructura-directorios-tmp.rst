@@ -67,7 +67,7 @@ correcta de carpetas para generar artefactos de forma organizada.
 
 - Generacion de archivo unico (se puede crear directo en /tmp)
 - Edicion de artefactos existentes en outputs
-- Documentos de analisis (.md)
+- Documentos de analisis (.rst)
 
 ----
 

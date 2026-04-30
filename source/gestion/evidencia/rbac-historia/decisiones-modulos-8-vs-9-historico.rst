@@ -224,7 +224,7 @@ Mapeo aproximado para SEC_RULES enforcers:
 ========================
 
 **Documento original:**
-``temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/ANALISIS_PROFUNDO_DECISIONES_MODULOS_IACT_v2.md``
+``temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/ANALISIS_PROFUNDO_DECISIONES_MODULOS_IACT_v2.rst``
 (no publicado).
 
 **Materializacion vigente de la decision (8 modulos ARQ_MOD_001..008):**

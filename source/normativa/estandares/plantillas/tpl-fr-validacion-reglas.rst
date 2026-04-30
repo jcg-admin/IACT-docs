@@ -1001,7 +1001,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_4_Functional_Requirements_IACT_1_0_0.md
+- PARTE_4_Functional_Requirements_IACT_1_0_0.rst
 
 **Documentos Relacionados:**
 

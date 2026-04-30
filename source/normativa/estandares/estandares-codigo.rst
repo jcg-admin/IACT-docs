@@ -22,7 +22,7 @@ profesionalismo.
 Página padre
 ------------
 
-- ``readme.md`` (índice de gobernanza, ver source/normativa/index)
+- ``readme.rst`` (índice de gobernanza, ver source/normativa/index)
 
 Alcance
 -------
@@ -36,9 +36,9 @@ Documentación Relacionada
 -------------------------
 
 **Para scripts de shell**, consultar también: - `Shell Scripting Guide
-Completa <shell_scripting_guide.md>`__ - Guía exhaustiva de shell
+Completa <shell_scripting_guide.rst>`__ - Guía exhaustiva de shell
 scripting - `Plantillas de
-Scripts <../../scripts/templates/README.md>`__ - Templates
+Scripts <../../scripts/templates/README>`__ - Templates
 estandarizados
 
 Tabla de Contenidos
@@ -301,7 +301,7 @@ Excepciones
 
 La única excepción a esta regla es:
 
-- **Documentación de usuario final** (README.md, guías de usuario)
+- **Documentación de usuario final** (README, guías de usuario)
 - **Comentarios de código** (pueden usar emojis para claridad durante
   desarrollo)
 - **Commits de git** (permitido pero no recomendado)
@@ -399,7 +399,7 @@ complejos con características bash - ``posix-script-template.sh`` - Para
 máxima portabilidad - ``library-template.sh`` - Para bibliotecas de
 funciones reutilizables
 
-Ver: ``scripts/templates/README.md`` (vive en scripts/, no en source)
+Ver: ``scripts/templates/README.rst`` (vive en scripts/, no en source)
 
 Ejemplo Mínimo (Bash)
 ~~~~~~~~~~~~~~~~~~~~~
@@ -566,7 +566,7 @@ Script de Validación
 
  for file in $files; do
  # Saltar archivos de documentación
- if [[ "$file" == *README.md ]] || [[ "$file" == docs/* ]]; then
+ if [[ "$file" == *README ]] || [[ "$file" == docs/* ]]; then
  continue
  fi
 
@@ -581,7 +581,7 @@ Script de Validación
  echo ""
  echo "[FAIL] Emoji validation failed"
  echo "Remove emojis from production scripts"
- echo "See: docs/gobernanza/estandares_codigo.md"
+ echo "See: docs/gobernanza/estandares_codigo.rst"
  exit 1
  fi
 

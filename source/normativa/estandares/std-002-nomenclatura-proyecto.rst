@@ -69,7 +69,7 @@ documentación del proyecto.
 - **Prefijos:** MAYÚSCULAS (UC, BR, FR, TPL, etc.)
 - **Códigos módulo:** MAYÚSCULAS (AUTH, USR, ACC, etc.)
 - **Nombres descriptivos:** PascalCase (Iniciar_Sesion, Crear_Usuario)
-- **Extensión archivo:** minúsculas (.rst, .md, .py)
+- **Extensión archivo:** minúsculas (.rst, .rst, .py)
 
 2.3 Idioma
 ----------

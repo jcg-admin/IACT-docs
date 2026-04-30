@@ -1220,7 +1220,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.md
+- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.rst
   - Seccion 2: 11 Componentes de UC
   - Seccion 3: Flujos Alternos vs Excepciones
   - Seccion 4: Derivacion UC → FR

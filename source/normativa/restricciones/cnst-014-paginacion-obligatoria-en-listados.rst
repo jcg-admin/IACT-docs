@@ -58,7 +58,7 @@ previene exfiltracion masiva por endpoints de lectura.
 ^^^^^^^^^^
 
 - **Fuente:** Performance + control de exposicion
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:750-751
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:750-751
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

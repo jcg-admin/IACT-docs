@@ -729,7 +729,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_5_Trazabilidad_IACT_1_0_0.md (si existe)
+- PARTE_5_Trazabilidad_IACT_1_0_0.rst (si existe)
 
 **Documentos Relacionados:**
 

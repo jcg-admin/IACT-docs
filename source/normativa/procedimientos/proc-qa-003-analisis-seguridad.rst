@@ -33,8 +33,8 @@ internet
 Página padre
 ------------
 
-- ``readme.md`` (índice de procesos de gobernanza, no migrado)
-- ``../readme.md`` (índice gobernanza, no migrado)
+- ``readme.rst`` (índice de procesos de gobernanza, no migrado)
+- ``../readme.rst`` (índice gobernanza, no migrado)
 
 --------------
 
@@ -107,7 +107,7 @@ FASE 1: Definición de Contexto y Alcance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Entrada:** - Documento de diseño técnico
-(``DISENO_TECNICO_{COMPONENTE}.md``) - Requisitos de seguridad (RNF-XXX
+(``DISENO_TECNICO_{COMPONENTE}.rst``) - Requisitos de seguridad (RNF-XXX
 tipo seguridad) - Restricciones regulatorias
 
 **Acción:**
@@ -990,7 +990,7 @@ Ejemplo Real: Sistema de Autenticación y RBAC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Ubicación:**
-``docs/implementacion/backend/seguridad/ANALISIS_SEGURIDAD_AMENAZAS.md``
+``docs/implementacion/backend/seguridad/ANALISIS_SEGURIDAD_AMENAZAS.rst``
 
 **Características destacadas:** - Análisis STRIDE completo con 6
 categorías - Catálogo de 20+ amenazas con IDs únicos - Matriz de riesgos

@@ -141,7 +141,7 @@ Consecuencias
   linter en CI + code review checklist.
 - **R-2:** Lectores nuevos confusos sobre cuando usar ACC vs PERM.
   Mitigacion: este ADR + glosario canonico § H +
-  ``rbac-formalization.md`` .
+  ``rbac-formalization.rst`` .
 - **R-3:** Triple auditoria duplica datos. Mitigacion: cada UC
   declara su FUENTE DE VERDAD para el evento auditado, sin
   duplicacion.
@@ -213,11 +213,11 @@ Decisiones Relacionadas
 Trazabilidad
 ------------
 
-- WP #6 ``analyze/rbac-formalization.md`` — modelo formal completo.
-- WP #6 ``analyze/hipotesis-1-coexistencia.md`` — hipotesis aprobada.
-- WP #6 ``analyze/uc-modular-architecture-final.md`` — comparacion
+- WP #6 ``analyze/rbac-formalization.rst`` — modelo formal completo.
+- WP #6 ``analyze/hipotesis-1-coexistencia.rst`` — hipotesis aprobada.
+- WP #6 ``analyze/uc-modular-architecture-final.rst`` — comparacion
   de las 3 hipotesis.
-- WP padre ``track/cross-wp-deep-audit-2026-04-29.md`` — audit que
+- WP padre ``track/cross-wp-deep-audit-2026-04-29.rst`` — audit que
   detecto la falta de este ADR (G-1).
 
 Historial

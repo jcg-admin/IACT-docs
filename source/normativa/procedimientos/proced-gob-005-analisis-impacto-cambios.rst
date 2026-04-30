@@ -119,7 +119,7 @@ Plantilla de Documentación
 
  **ID**: [RN-BACK-001]
  **Tipo**: [Regla de Negocio - Restricción]
- **Archivo**: [/ruta/completa/al/archivo.md]
+ **Archivo**: [/ruta/completa/al/archivo.rst]
 
  ## Tipo de Cambio
 
@@ -164,7 +164,7 @@ Ejemplo Completo
 
  **ID**: RN-BACK-001
  **Tipo**: Regla de Negocio - Restricción
- **Archivo**: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
+ **Archivo**: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.rst
 
  ## Tipo de Cambio
 
@@ -280,7 +280,7 @@ Método 3: Consultar Matriz de Trazabilidad
 .. code:: bash
 
  # Si existe matriz de trazabilidad
- cat docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md | grep "RN-BACK-001"
+ cat docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.rst | grep "RN-BACK-001"
 
 Ejemplo: RN-BACK-001
 ~~~~~~~~~~~~~~~~~~~~
@@ -291,12 +291,12 @@ Ejemplo: RN-BACK-001
  grep -r "RN-BACK-001" docs/gobernanza/requisitos/
 
  # Resultados:
- # docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
- # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
- # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
- # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-010-validar-credenciales.md
- # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
- # docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-005-contrasena-minimo-8-caracteres.md
+ # docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.rst
+ # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
+ # docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.rst
+ # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-010-validar-credenciales.rst
+ # docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.rst
+ # docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-005-contrasena-minimo-8-caracteres.rst
 
 Documentar Resultados
 ~~~~~~~~~~~~~~~~~~~~~
@@ -549,7 +549,7 @@ Ejemplo: Nuevo Artefacto Necesario
 
  **Cambio Específico**:
 
-Crear nuevo archivo: RF-BACK-065-generar-codigo-totp.md
+Crear nuevo archivo: RF-BACK-065-generar-codigo-totp.rst
 
 Contenido: - El sistema debe generar código TOTP de 6 dígitos -
 Algoritmo: HMAC-SHA1 - Período de validez: 30 segundos - Basado en RFC
@@ -691,7 +691,7 @@ Formato de Checklist
  - [ ] CHANGELOG: Documentar cambio breaking
 
  ### Matrices de Trazabilidad
- - [ ] MATRIZ-BACK-autenticacion.md: Agregar nuevos RF y RNF
+ - [ ] MATRIZ-BACK-autenticacion.rst: Agregar nuevos RF y RNF
 
 .. _proced-gob-005-analisis-impacto-cambios-validación-4:
 
@@ -743,7 +743,7 @@ Ejemplo: Actualizar UC-BACK-001
 .. code:: bash
 
  # 1. Abrir archivo
- vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
 
  # 2. Actualizar frontmatter
  version: 1.0.0 → 1.1.0
@@ -773,7 +773,7 @@ Ejemplo: Crear RF-BACK-065
  # Usar procedimiento PROCED-GOB-003 para crear nuevo RF
  # O crear manualmente siguiendo template
 
- cat > docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md <<'EOF'
+ cat > docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.rst <<'EOF'
  
  id: RF-BACK-065
  tipo: requisito_funcional
@@ -880,19 +880,19 @@ Scripts de Validación
  grep -r "RF-BACK-065" docs/gobernanza/requisitos/ > /tmp/rf065-refs.txt
 
  # El archivo RF-BACK-065 debe existir
- if [ ! -f "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md" ]; then
+ if [ ! -f "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.rst" ]; then
  echo "ERROR: RF-BACK-065 es referenciado pero no existe"
  exit 1
  fi
 
  # Validar que UC-BACK-001 menciona RF-BACK-065
- if ! grep -q "RF-BACK-065" "docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md"; then
+ if ! grep -q "RF-BACK-065" "docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst"; then
  echo "ERROR: UC-BACK-001 no menciona RF-BACK-065 pero debería"
  exit 1
  fi
 
  # Validar que RF-BACK-065 menciona UC-BACK-001
- if ! grep -q "UC-BACK-001" "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md"; then
+ if ! grep -q "UC-BACK-001" "docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.rst"; then
  echo "ERROR: RF-BACK-065 no menciona UC-BACK-001 pero debería"
  exit 1
  fi
@@ -937,8 +937,8 @@ Matrices a Actualizar
 2. Matriz horizontal (por caso de uso)
 3. Matriz de módulo específico
 
-Ejemplo: Actualizar MATRIZ-BACK-autenticacion.md
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ejemplo: Actualizar MATRIZ-BACK-autenticacion.rst
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: markdown
 
@@ -1100,18 +1100,18 @@ Verificar Archivos Modificados
  git status
 
  # Salida esperada:
- # modified: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.md
- # modified: docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
- # modified: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.md
- # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.md
- # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-066-validar-codigo-totp.md
- # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-067-registrar-dispositivo-2fa.md
- # new file: docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-020-codigo-totp-expira-30s.md
+ # modified: docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-001-autenticacion-obligatoria.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_negocio/RNEG-BACK-001-sistema-autenticacion-seguro.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-011-generar-token-jwt.rst
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-065-generar-codigo-totp.rst
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-066-validar-codigo-totp.rst
+ # new file: docs/gobernanza/requisitos/requerimientos_funcionales/RF-BACK-067-registrar-dispositivo-2fa.rst
+ # new file: docs/gobernanza/requisitos/atributos_calidad/RNF-BACK-020-codigo-totp-expira-30s.rst
  # modified: docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
- # modified: docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.md
+ # modified: docs/gobernanza/trazabilidad/matrices/MATRIZ-BACK-autenticacion.rst
 
 Agregar Todos los Archivos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1154,7 +1154,7 @@ Crear Mensaje de Commit Descriptivo
  - UCD-BACK-001: Agregar paso de validación 2FA
 
  Matrices actualizadas:
- - MATRIZ-BACK-autenticacion.md
+ - MATRIZ-BACK-autenticacion.rst
 
  Fecha de análisis: 2025-11-17
  Analista: Claude Code
@@ -1239,7 +1239,7 @@ Crear Documento de Análisis
 
  mkdir -p docs/gobernanza/analisis_impacto/
 
- cat > docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md <<'EOF'
+ cat > docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.rst <<'EOF'
  [Contenido completo del análisis de los PASOS 1-9]
  EOF
 
@@ -1248,7 +1248,7 @@ Commitar Documento de Análisis
 
 .. code:: bash
 
- git add docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.md
+ git add docs/gobernanza/analisis_impacto/ANALISIS-2025-11-17-RN-BACK-001-2FA.rst
 
  git commit -m "docs(analisis): documentar análisis de impacto RN-BACK-001 (2FA)
 
@@ -1290,7 +1290,7 @@ PASO 2: Consultar Trazabilidad
  grep -r "RN-BACK-015" docs/gobernanza/requisitos/
 
  # Resultados:
- # UC-BACK-020-generar-reporte-auditoria.md
+ # UC-BACK-020-generar-reporte-auditoria.rst
 
 PASO 3: Artefactos Afectados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1326,7 +1326,7 @@ PASO 6-7: Actualizar y Validar
 .. code:: bash
 
  # Solo actualizar RN-BACK-015
- vim docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+ vim docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.rst
 
  # Cambiar "puede" por "pueden"
  # Actualizar fecha (no versión, es cambio menor)
@@ -1343,7 +1343,7 @@ PASO 9: Commit
 
 .. code:: bash
 
- git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.md
+ git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-015-restriccion-acceso-auditores.rst
 
  git commit -m "fix(requisitos): corregir typo en RN-BACK-015
 
@@ -1386,7 +1386,7 @@ Problema 3: No encuentro todas las referencias
 
  # Búsqueda exhaustiva con grep
  grep -r "RN-BACK-001" docs/
- grep -r "RN-BACK-001" --include="*.md" .
+ grep -r "RN-BACK-001" --include="*.rst" .
 
  # Búsqueda por palabra clave
  grep -r "autenticación" docs/gobernanza/requisitos/
@@ -1409,13 +1409,13 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 - `PROCED-GOB-003: Documentar Regla de
-  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.rst>`__
 - `PROCED-GOB-004: Crear Caso de
-  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.rst>`__
 
 Historial de Cambios
 --------------------

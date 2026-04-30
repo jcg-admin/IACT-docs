@@ -49,7 +49,7 @@ Procedimiento de Release
 - [ ] Cobertura >= 80%
 - [ ] No hay issues críticos abiertos
 - [ ] Documentación actualizada
-- [ ] CHANGELOG.md preparado
+- [ ] CHANGELOG preparado
 
 1.2 Crear Release Branch
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,8 +73,8 @@ Procedimiento de Release
  # pyproject.toml
  # package.json (si hay frontend)
 
- # Actualizar CHANGELOG.md
- cat >> CHANGELOG.md << 'EOF'
+ # Actualizar CHANGELOG
+ cat >> CHANGELOG << 'EOF'
  ## [1.2.0] - 2025-11-04
 
  ### Added
@@ -133,7 +133,7 @@ Procedimiento de Release
  - Rollback de migraciones con migration 0042
 
  ### Changelog
- Ver CHANGELOG.md para detalles completos.
+ Ver CHANGELOG para detalles completos.
  EOF
  )" \
  --base main \
@@ -303,7 +303,7 @@ Checklist de Release
 
 - [ ] Código mergeado a main
 - [ ] Tests pasan
-- [ ] CHANGELOG.md actualizado
+- [ ] CHANGELOG actualizado
 - [ ] Versión bumpeada
 - [ ] Tag creado
 - [ ] Deploy a staging exitoso
@@ -326,7 +326,7 @@ Recursos Relacionados
 
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - `Procedimiento: Gestión de
-  Cambios <procedimiento_gestion_cambios.md>`__
+  Cambios <procedimiento_gestion_cambios.rst>`__
 - `Runbooks DevOps <../devops/runbooks/>`__
 
 Changelog

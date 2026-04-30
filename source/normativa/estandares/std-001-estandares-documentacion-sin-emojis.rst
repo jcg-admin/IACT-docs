@@ -245,7 +245,7 @@ STD_001: Estándar de Documentación Sin Emojis
 
 **Según tipo de archivo:**
 
-**En Markdown (.md):**
+**En Markdown (.rst):**
 
 .. code-block:: markdown
 

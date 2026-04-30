@@ -1046,10 +1046,10 @@ Before creating a release PR, complete this checklist to ensure quality:
 
 **Step 1: Update documentation**
 
-- [ ] Update CHANGELOG.md with release notes (features, fixes, breaking changes)
+- [ ] Update CHANGELOG with release notes (features, fixes, breaking changes)
 - [ ] Update version number in pyproject.toml or setup.py
 - [ ] Update README.rst with any new features or changes
-- [ ] Update CONTRIBUTING.md if process changed
+- [ ] Update CONTRIBUTING.rst if process changed
 - [ ] Verify all documentation links are correct
 
 **Step 2: Run local build**
@@ -1176,7 +1176,7 @@ Use a temporary branch for the release PR (optional but recommended):
    - Build: OK make html successful
    - Tests: OK all tests pass
    - Quality: OK no lint/type errors
-   - Documentation: OK CHANGELOG.md updated
+   - Documentation: OK CHANGELOG updated
 
  ### Deployment
 
@@ -1193,7 +1193,7 @@ The release PR requires **2 approvals** (enforced by branch protection) before m
 
 Provide context in PR comments:
 - Link to build artifacts
-- Link to release notes (CHANGELOG.md)
+- Link to release notes (CHANGELOG)
 - Any special deployment instructions
 
 **Step 5: Merge the Release PR**
@@ -1360,7 +1360,7 @@ For each commit type, list the relevant commits:
 
  - chore(deps): upgrade sphinx to 5.0 (#189)
 
-**Add release notes to the CHANGELOG.md:**
+**Add release notes to the CHANGELOG:**
 
 .. code-block:: markdown
 
@@ -2336,7 +2336,7 @@ A complete audit trail from commit to production consists of:
    - Link: ``https://github.com/jcg-admin/IACT-docs/releases/tag/v1.2.3``
 
 7. **Release Notes** (features, fixes, breaking changes)
-   - File: ``CHANGELOG.md``
+   - File: ``CHANGELOG.rst``
 
 **To generate a complete audit report:**
 
@@ -2354,7 +2354,7 @@ A complete audit trail from commit to production consists of:
  git log v1.1.0..v1.2.3 --oneline | grep "Merge pull request"
  echo ""
  echo "## Release Notes:"
- sed -n '/## \[1.2.3\]/,/## \[1.1.0\]/p' CHANGELOG.md
+ sed -n '/## \[1.2.3\]/,/## \[1.1.0\]/p' CHANGELOG
 
 This provides complete traceability from commit through release for compliance purposes.
 

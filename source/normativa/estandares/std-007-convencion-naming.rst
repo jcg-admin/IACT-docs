@@ -54,7 +54,7 @@ NO aplica a:
   ``pyproject.toml``, etc.).
 - Archivos fuera de ``source/`` (configuración del entorno,
   tooling interno, scripts del repositorio).
-- ``LICENSE``, ``CHANGELOG.md``, ``ROADMAP.md``, ``readme.rst`` en raíz.
+- ``LICENSE``, ``CHANGELOG.rst``, ``ROADMAP.rst``, ``readme.rst`` en raíz.
 - **Campos de metadata YAML** dentro de archivos (``:artefacto:``,
   ``:tipo:``, ``:dominio:``, etc.). Son **códigos semánticos del
   artefacto**, no filenames — siguen su schema canónico documentado
@@ -645,7 +645,7 @@ Origen: ``modelo-rbac-iact.rst`` § "ESTÁNDAR DE NOMENCLATURA v5.2.1"
  * - help_text de campos Django
    - Español
    - ``help_text="Identificador único del grupo (AGR-001)"``
- * - Documentación técnica (.rst, .md)
+ * - Documentación técnica (.rst)
    - Español
    - "El sistema permite..."
  * - Mensajes de UI / errores al usuario final
@@ -714,7 +714,7 @@ normas más rápido de lo que el sistema puede asimilarlas. Si en
 abrirse WP propio con deep-review previo.
 
 Decisión registrada en
-``adr-naming-conventions-kebab-correction.md``.
+``adr-naming-conventions-kebab-correction.rst``.
 
 9.3 Excepciones permitidas al patrón
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -767,9 +767,9 @@ del merge.
 
 - :ref:`std-006` — STD_006: Versionado Semántico (versiones van en
   metadata, no en filename).
-- ``adr-naming-conventions-heterogeneity-accepted.md`` — ADR original
+- ``adr-naming-conventions-heterogeneity-accepted.rst`` — ADR original
   v1.0.0 que aceptaba 5 dialectos (corregido por v2.0.0).
-- ``adr-naming-conventions-kebab-correction.md`` — ADR de corrección
+- ``adr-naming-conventions-kebab-correction.rst`` — ADR de corrección
   que motiva v2.0.0.
 
 ----
@@ -807,7 +807,7 @@ del merge.
      (b) costo de migración crece exponencial por refs cruzadas,
      (c) forward-only institucionalizaba dos convenciones en lugar
      de mitigarlas. Ver ADR
-     ``adr-naming-conventions-kebab-correction.md``. Incluye
+     ``adr-naming-conventions-kebab-correction.rst``. Incluye
      commitment de 30 días sin modificaciones (§8.2) como
      salvaguarda anti norm-churn.
  * - 2.0.1
@@ -821,7 +821,7 @@ del merge.
      re-clasificados. NO modifica el patrón universal §3 — la
      clarificación es compatible y no rompe el commitment de
      estabilidad de v2.0.0. Ver ADR
-     ``adr-procedimientos-modulos-req-doc.md``.
+     ``adr-procedimientos-modulos-req-doc.rst``.
  * - 2.0.2
    - 2026-04-29
    - **PATCH — spec gaps.** Cierra 7 huecos detectados por
@@ -837,4 +837,4 @@ del merge.
      (6) §6 nueva sección define schema canónico de metadata YAML
      y deprecación del schema legacy UC. Compatible con v2.0.0/v2.0.1.
      Commitment de 30 días NO se reinicia. Ver ADR
-     ``adr-std007-spec-gaps-fix.md``.
+     ``adr-std007-spec-gaps-fix.rst``.

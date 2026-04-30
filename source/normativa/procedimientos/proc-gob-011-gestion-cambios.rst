@@ -93,11 +93,11 @@ O crear en GitHub: - Título descriptivo - Descripción clara del problema
 ^^^^^^^^^^^^^^^^^^^^^^
 
 - [ ] Seguir `Lineamientos de
-  Código <../arquitectura/lineamientos_codigo.md>`__
+  Código <../arquitectura/lineamientos_codigo.rst>`__
 - [ ] Escribir tests (TDD cuando sea posible)
 - [ ] Actualizar documentación relevante
 - [ ] Seguir `Checklist de
-  Desarrollo <../checklists/checklist_desarrollo.md>`__
+  Desarrollo <../checklists/checklist_desarrollo.rst>`__
 
 2.3 Commits
 ^^^^^^^^^^^
@@ -240,7 +240,7 @@ Migraciones de DB - Cambios de configuración
 ^^^^^^^^^^^^^^^^^
 
 Verificar (ver `Checklist de
-Review <../checklists/readme.md#checklist-de-code-review>`__):
+Review <../checklists/readme#checklist-de-code-review>`__):
 
 **Funcionalidad:** - [ ] El código hace lo que dice - [ ] Edge cases
 considerados - [ ] Manejo de errores apropiado
@@ -326,7 +326,7 @@ Para cambios solo de documentación:
 Para reestructuraciones o ADRs, seguir flujo completo con review.
 
 Ver: `Procedimiento de Revisión
-Documental <procedimiento_revision_documental.md>`__
+Documental <procedimiento_revision_documental.rst>`__
 
 Cambios de Emergencia (Hotfix)
 ------------------------------
@@ -400,7 +400,7 @@ Recursos Relacionados
 
 - :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
 - :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
-- ``lineamientos_codigo.md`` (no migrado a source)
+- ``lineamientos_codigo.rst`` (no migrado a source)
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>`
 

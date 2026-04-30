@@ -399,7 +399,7 @@ Crear scripts que validen trazabilidad:
  done
 
  # Verificar que UC tienen al menos 1 RF relacionado
- find docs/gobernanza/requisitos/requerimientos_usuario/casos_uso -name "UC-*.md" | \
+ find docs/gobernanza/requisitos/requerimientos_usuario/casos_uso -name "UC-*.rst" | \
  while read uc; do
  if ! grep -q "RF-" "$uc"; then
  echo "WARNING: $uc no tiene RF relacionados"
@@ -440,7 +440,7 @@ Generación Automática de Matrices
  # Procesar cada tipo de artefacto
  for tipo_dir in requisitos_dir.iterdir:
  if tipo_dir.is_dir:
- for md_file in tipo_dir.rglob("*.md"):
+ for md_file in tipo_dir.rglob("*.rst"):
  # Extraer ID del archivo
  file_id = extract_id_from_filename(md_file.name)
  if file_id and domain in file_id:
@@ -517,14 +517,14 @@ Ubicación de Matrices
 
  docs/gobernanza/trazabilidad/
  ├── matrices/
- │ ├── MATRIZ-BACK-autenticacion.md
- │ ├── MATRIZ-BACK-permisos.md
- │ ├── MATRIZ-FRONT-ui.md
+ │ ├── MATRIZ-BACK-autenticacion.rst
+ │ ├── MATRIZ-BACK-permisos.rst
+ │ ├── MATRIZ-FRONT-ui.rst
  │ └── ...
  ├── scripts/
  │ ├── validar-trazabilidad.sh
  │ └── generar-matriz-trazabilidad.py
- └── README.md
+ └── README
 
 Alternativas Consideradas
 -------------------------
@@ -714,11 +714,11 @@ Referencias
 - `IEEE 29148-2018: Requirements
   Traceability <https://standards.ieee.org/standard/29148-2018.html>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-006: Clasificación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
 - `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
 
 Historial de Cambios
 --------------------

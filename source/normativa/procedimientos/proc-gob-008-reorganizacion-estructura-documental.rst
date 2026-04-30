@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: procedimientos
  :estado: Aprobado
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-01-07
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-30
  :autor: Equipo IACT
  :clasificacion: Interno
 
@@ -123,14 +123,14 @@ FASE 0: Preparación y Análisis Inicial
    - Comparar ``docs/{dominio}/`` vs ``docs/gobernanza/``
    - Identificar gaps estructurales
    - Documentar problemas actuales
-   - **Output:** ``README.md`` en carpeta QA
+   - **Output:** ``README.rst`` en carpeta QA
 
 3. **Crear índice maestro**
 
    - Documentar propósito del análisis
    - Listar documentos a generar
    - Definir métricas clave
-   - **Output:** ``INDICE.md``
+   - **Output:** ``INDICE.rst``
 
 4. **Elaborar plan de reorganización**
 
@@ -139,14 +139,14 @@ FASE 0: Preparación y Análisis Inicial
    - 60-70 tareas estimadas
    - Timeline y recursos
    - **Output:**
-     ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.md``
+     ``PLAN-REORGANIZACION-ESTRUCTURA-{DOMINIO}-YYYY-MM-DD.rst``
 
 5. **Listar todas las tareas**
 
    - Desglose completo por fase
    - Duraciones estimadas
    - Dependencias entre tareas
-   - **Output:** ``LISTADO-COMPLETO-TAREAS.md``
+   - **Output:** ``LISTADO-COMPLETO-TAREAS.rst``
 
 FASE 1: Preparación (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -175,7 +175,7 @@ Carpeta ``sesiones/`` reorganizada - [ ] Carpeta ``qa/`` expandida
 
 **Actividades clave:** 1. **Crear ADRs formales (TASK-006 a TASK-010)**
 - Identificar decisiones arquitectónicas documentadas - Crear ADRs con
-formato estándar - Agregar metadatos YAML - Crear INDICE_ADRs.md -
+formato estándar - Agregar metadatos YAML - Crear INDICE_ADRs -
 Validar ADRs creados
 
 2. **Consolidar diseño (TASK-011 a TASK-024)**
@@ -204,7 +204,7 @@ FASE 3: Contenido Nuevo (Semanas 4-5)
 (PROC-{DOMINIO}-XXX) creados - [ ] 4-6 procedimientos
 (PROCED-{DOMINIO}-XXX) creados - [ ] 5+ matrices de trazabilidad creadas
 - [ ] Plantillas creadas (ADR, procedimiento, requisito) - [ ]
-VISION-{DOMINIO}-2025.md creado - [ ] ROADMAP-{DOMINIO}-2025.md creado -
+VISION-{DOMINIO}-2025.rst creado - [ ] ROADMAP-{DOMINIO}-2025.rst creado -
 [ ] Metodologías documentadas - [ ] Referencias técnicas creadas - [ ]
 CI/CD documentado
 
@@ -212,39 +212,39 @@ CI/CD documentado
 
 1. **Catalogos (TASK-031 a TASK-034)**
 
-   - CATALOGO-APIs.md
-   - CATALOGO-SERVICIOS.md
-   - CATALOGO-MODELOS.md
-   - CATALOGO-ENDPOINTS.md
+   - CATALOGO-APIs.rst
+   - CATALOGO-SERVICIOS.rst
+   - CATALOGO-MODELOS.rst
+   - CATALOGO-ENDPOINTS.rst
 
 2. **Procesos (TASK-035 a TASK-038)**
 
    - PROC-{DOMINIO}-001: Desarrollo de features
    - PROC-{DOMINIO}-002: Gestión de dependencias
    - PROC-{DOMINIO}-003+: Procesos específicos del dominio
-   - INDICE_PROCESOS.md
+   - INDICE_PROCESOS.rst
 
 3. **Trazabilidad (TASK-039 a TASK-042)**
 
-   - MATRIZ-requisitos-tests.md
-   - MATRIZ-requisitos-codigo.md
+   - MATRIZ-requisitos-tests.rst
+   - MATRIZ-requisitos-codigo.rst
    - Matrices específicas del dominio
 
 4. **Plantillas (TASK-044 a TASK-045)**
 
-   - plantilla-adr-{dominio}.md
-   - plantilla-procedimiento-{dominio}.md
-   - plantilla-requisito-funcional.md
+   - plantilla-adr-{dominio}.rst
+   - plantilla-procedimiento-{dominio}.rst
+   - plantilla-requisito-funcional.rst
 
 5. **Visión y Estrategia (TASK-046 a TASK-047)**
 
-   - VISION-{DOMINIO}-2025.md
-   - ROADMAP-{DOMINIO}-2025.md
+   - VISION-{DOMINIO}-2025.rst
+   - ROADMAP-{DOMINIO}-2025.rst
 
 6. **Metodologías (TASK-048 a TASK-050)**
 
    - Metodologías aplicadas (TDD, Clean Architecture, etc.)
-   - README.md metodologías
+   - README.rst metodologías
 
 7. **Referencias (TASK-051 a TASK-053)**
 
@@ -271,8 +271,8 @@ FASE 4: Validación y Limpieza (Semana 6)
 [ ] Validación de READMEs (TASK-056) - [ ] Validación de metadatos YAML
 (TASK-057) - [ ] Validación de nomenclatura (TASK-058) - [ ] Limpieza
 completa de emojis/iconos - [ ] Carpetas legacy eliminadas (TASK-059) -
-[ ] README principal actualizado (TASK-060) - [ ] INDEX.md actualizado
-(TASK-061) - [ ] CHANGELOG.md creado (TASK-062) - [ ] GUIA_NAVEGACION
+[ ] README principal actualizado (TASK-060) - [ ] INDEX actualizado
+(TASK-061) - [ ] CHANGELOG creado (TASK-062) - [ ] GUIA_NAVEGACION
 creada (TASK-063) - [ ] Gobernanza actualizada (TASK-064) - [ ]
 Lecciones aprendidas documentadas (TASK-065)
 
@@ -297,7 +297,7 @@ Lecciones aprendidas documentadas (TASK-065)
 
  .. code:: bash
 
-    # Validar frontmatter YAML en .md
+    # Validar frontmatter YAML en .rst
     # Target: 90%+ archivos con YAML válido
 
 4. **TASK-058: Nomenclatura**
@@ -311,10 +311,10 @@ Lecciones aprendidas documentadas (TASK-065)
 
  .. code:: bash
 
-    # Procesar TODOS los .md
+    # Procesar TODOS los .rst
     # Reemplazar: OK→OK, [OK]→[OK], [NO]→[ERROR], [ALERTA]️→[WARNING]
     # Eliminar emojis decorativos
-    # Output: REPORTE-LIMPIEZA-EMOJIS.md
+    # Output: REPORTE-LIMPIEZA-EMOJIS.rst
 
 **Criterios de salida:** - 90%+ enlaces válidos - 100% directorios con
 README - 90%+ metadatos YAML válidos - 98%+ nomenclatura correcta - 0
@@ -356,7 +356,7 @@ Outputs
      - docs/{dominio }/qa/QA-ANALISIS-ESTR UCTURA-{DOMINIO}-001/
    * - Plan de reorganización
      - Plan ejecutable detallado
-     - doc s/{dominio}/qa/…/PLAN -REORGANIZACION-\*.md
+     - doc s/{dominio}/qa/…/PLAN-REORGANIZACION-\*.rst
    * - 60-70 tareas
      - Tareas individuales con evidencias
      - docs/{do minio}/qa/…/TASK-XXX/
@@ -368,7 +368,7 @@ Outputs
      - Diversas ubicaciones
    * - Reportes de validación
      - Resultados FASE 4
-     - docs/{domini o}/qa/…/REPORTE-\*.md
+     - docs/{domini o}/qa/…/REPORTE-\*.rst
    * - Commit final
      - Commit comprehensivo documentando todo
      - Git
@@ -577,11 +577,11 @@ Infraestructura
 .. code:: yaml
 
  Contenido específico:
- - CATALOGO-SERVIDORES.md
- - CATALOGO-SERVICIOS-CLOUD.md
- - PROC-INFRA-001-gestion-servidores.md
- - PROCED-INFRA-001-configurar-servidor-web.md
- - ADR-INFRA-001-kubernetes-vs-docker-swarm.md
+ - CATALOGO-SERVIDORES.rst
+ - CATALOGO-SERVICIOS-CLOUD.rst
+ - PROC-INFRA-001-gestion-servidores.rst
+ - PROCED-INFRA-001-configurar-servidor-web.rst
+ - ADR-INFRA-001-kubernetes-vs-docker-swarm.rst
 
  Restricciones:
  - NO exposición de credenciales
@@ -593,11 +593,11 @@ Frontend
 .. code:: yaml
 
  Contenido específico:
- - CATALOGO-COMPONENTES.md
- - CATALOGO-RUTAS.md
- - PROC-FRONT-001-desarrollo-componentes.md
- - PROCED-FRONT-001-build-produccion.md
- - ADR-FRONT-001-react-vs-vue.md
+ - CATALOGO-COMPONENTES.rst
+ - CATALOGO-RUTAS.rst
+ - PROC-FRONT-001-desarrollo-componentes.rst
+ - PROCED-FRONT-001-build-produccion.rst
+ - ADR-FRONT-001-react-vs-vue.rst
 
  Restricciones:
  - NO secretos en código cliente
@@ -609,11 +609,11 @@ DevOps
 .. code:: yaml
 
  Contenido específico:
- - CATALOGO-PIPELINES.md
- - CATALOGO-HERRAMIENTAS.md
- - PROC-DEVOPS-001-pipeline-ci-cd.md
- - PROCED-DEVOPS-001-deployment-kubernetes.md
- - ADR-DEVOPS-001-jenkins-vs-gitlab-ci.md
+ - CATALOGO-PIPELINES.rst
+ - CATALOGO-HERRAMIENTAS.rst
+ - PROC-DEVOPS-001-pipeline-ci-cd.rst
+ - PROCED-DEVOPS-001-deployment-kubernetes.rst
+ - ADR-DEVOPS-001-jenkins-vs-gitlab-ci.rst
 
  Restricciones:
  - NO secretos en repositorio
@@ -626,7 +626,7 @@ Documentos Modelo
 ~~~~~~~~~~~~~~~~~
 
 - ``docs/gobernanza/`` - Estructura de referencia
-- ``docs/gobernanza/procedimientos/PROCED-GOB-007-consolidacion-ramas-git.md``
+- ``docs/gobernanza/procedimientos/PROCED-GOB-007-consolidacion-ramas-git.rst``
   - Metodología
 - ``docs/backend/qa/QA-ANALISIS-ESTRUCTURA-BACKEND-001/`` - Ejemplo
    exitoso
@@ -634,7 +634,7 @@ Documentos Modelo
 Plantillas
 ~~~~~~~~~~
 
-- Plantilla de ADR: ``docs/gobernanza/adr/plantilla-adr.md``
+- Plantilla de ADR: ``docs/gobernanza/adr/plantilla-adr.rst``
 - Plantilla de procedimiento: ver PROCED-GOB-007
 - Plantilla de proceso: este documento
 

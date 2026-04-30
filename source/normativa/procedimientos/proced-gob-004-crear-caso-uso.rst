@@ -220,7 +220,7 @@ Patrón de Nomenclatura de Archivo
 
 ::
 
- UC-DOMINIO-###-verbo-objeto.md
+ UC-DOMINIO-###-verbo-objeto.rst
 
 Donde: - **UC**: Use Case - **DOMINIO**: BACK \| FRONT \| DEVOPS \| QA
 \| AI \| GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
@@ -233,8 +233,8 @@ Acciones
 
 .. code:: bash
 
- ls docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-*.md | sort | tail -1
- # Ejemplo salida: UC-BACK-009-cambiar-contrasena.md
+ ls docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-*.rst | sort | tail -1
+ # Ejemplo salida: UC-BACK-009-cambiar-contrasena.rst
  # Siguiente número: 010
 
 2. Convertir nombre VERBO+OBJETO a snake_case:
@@ -251,11 +251,11 @@ Ejemplos de IDs Correctos
 
 ::
 
- UC-BACK-001-iniciar-sesion.md
- UC-BACK-010-gestionar-permisos.md
- UC-BACK-015-solicitar-producto-quimico.md
- UC-FRONT-001-registrar-vuelo.md
- UC-BACK-020-generar-reporte-auditoria.md
+ UC-BACK-001-iniciar-sesion.rst
+ UC-BACK-010-gestionar-permisos.rst
+ UC-BACK-015-solicitar-producto-quimico.rst
+ UC-FRONT-001-registrar-vuelo.rst
+ UC-BACK-020-generar-reporte-auditoria.rst
 
 .. _proced-gob-004-crear-caso-uso-validación-2:
 
@@ -265,7 +265,7 @@ Validación
 - [ ] ID no existe previamente
 - [ ] Número es consecutivo al último del dominio
 - [ ] verbo-objeto en snake_case (minúsculas, guiones)
-- [ ] Formato correcto: UC-DOMINIO-###-verbo-objeto.md
+- [ ] Formato correcto: UC-DOMINIO-###-verbo-objeto.rst
 
 PASO 4: Identificar Precondiciones
 ----------------------------------
@@ -981,7 +981,7 @@ Ubicación de Archivos
 
  docs/gobernanza/requisitos/requerimientos_usuario/
  ├── casos_uso/
- │ └── UC-BACK-020-generar-reporte-auditoria.md
+ │ └── UC-BACK-020-generar-reporte-auditoria.rst
  └── diagramas/
  └── casos_uso/
  ├── UCD-BACK-003-modulo-auditoria.puml
@@ -1035,14 +1035,14 @@ Acciones
 
 .. code:: bash
 
- ls -la docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-020-generar-reporte-auditoria.md
+ ls -la docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-020-generar-reporte-auditoria.rst
  ls -la docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.*
 
 2. **Agregar al staging**:
 
 .. code:: bash
 
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-020-generar-reporte-auditoria.md
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-020-generar-reporte-auditoria.rst
  git add docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.puml
  git add docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-003-modulo-auditoria.svg
 
@@ -1132,7 +1132,7 @@ PASO 3: ID Asignado
 
 ::
 
- UC-BACK-010-registrar-usuario-sistema.md
+ UC-BACK-010-registrar-usuario-sistema.rst
 
 PASO 4: Precondiciones
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -1314,7 +1314,7 @@ PASO 11: Commit
 
 .. code:: bash
 
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-010-registrar-usuario-sistema.md
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-010-registrar-usuario-sistema.rst
  git add docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-002-gestion-usuarios.puml
  git add docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-002-gestion-usuarios.svg
 
@@ -1397,15 +1397,15 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-007: Especificación de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.rst>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 - `PROCED-GOB-003: Documentar Regla de
-  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-003-documentar-regla-negocio.rst>`__
 
 Historial de Cambios
 --------------------

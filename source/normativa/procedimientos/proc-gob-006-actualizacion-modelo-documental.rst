@@ -110,7 +110,7 @@ Antes de iniciar este procedimiento, verificar:
  * - Artefacto
    - Descripcion
    - Obligatorio
- * - MODELO_DOCUMENTAL_IACT_vX.Y.Z.md
+ * - MODELO_DOCUMENTAL_IACT_vX.Y.Z.rst
    - Version actual del modelo
    - Si
  * - Lista de cambios
@@ -273,10 +273,10 @@ Antes de iniciar este procedimiento, verificar:
  .. code-block:: bash
 
     # Nombre del archivo
-    MODELO_DOCUMENTAL_IACT_v2_1_2.md
+    MODELO_DOCUMENTAL_IACT_v2_1_2.rst
  
  # Guardar en /tmp primero
- /tmp/MODELO_DOCUMENTAL_IACT_v2_1_2.md
+ /tmp/MODELO_DOCUMENTAL_IACT_v2_1_2.rst
 
 - **Resultado**: Archivo generado
 - **Verificacion**: Archivo existe
@@ -306,7 +306,7 @@ Antes de iniciar este procedimiento, verificar:
  * - Artefacto
    - Descripcion
    - Ubicacion
- * - MODELO_DOCUMENTAL_IACT_vX_Y_Z.md
+ * - MODELO_DOCUMENTAL_IACT_vX_Y_Z.rst
    - Modelo actualizado
    - /mnt/user-data/outputs/
 

@@ -126,7 +126,7 @@ Ejemplo Real (QA-REFACTOR-MCP-002)
 
 **Decision:** Aplicar 0d1e1f2 porque es version mas reciente y validada
 
-**Documentacion:** En ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md seccion
+**Documentacion:** En ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.rst seccion
 “Refactorizaciones Pendientes”
 
 5. Fases del Procedimiento
@@ -140,7 +140,7 @@ FASE 1: ANALISIS (60-90 min)
 **Pasos:** 1. Identificar commits con refactorizaciones deseadas 2.
 Analizar impacto: - Archivos afectados - Líneas modificadas - Tipo de
 cambios (imports, tipos, valores) - Riesgos potenciales 3. Crear
-documento ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md con: - Estado actual
+documento ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.rst con: - Estado actual
 del código - Refactorizaciones pendientes (detalle por commit) -
 Analisis de compatibilidad - Matriz de riesgos - Métricas (lineas,
 archivos, tiempo estimado) 4. Ubicar en:
@@ -156,7 +156,7 @@ FASE 2: PLANIFICACION (60-90 min)
 
 **Pasos:** 1. Definir fases del plan (tipicamente 5): - Preparacion -
 Refactorizacion(es) con TDD - Validacion final - Commit y push 2. Crear
-PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md con: - Metodologia TDD
+PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.rst con: - Metodologia TDD
 explicita - Fases y tareas detalladas - Matriz RACI - Dependencias entre
 tareas - Estrategia de rollback - Criterios de exito 3. Desglosar en
 tareas individuales (formato TASK-NNN) 4. Cada tarea debe incluir: -
@@ -180,9 +180,9 @@ simultaneos)
 **Pasos:** 1. Dividir tareas en 4 grupos balanceados 2. Lanzar 4 agentes
 en paralelo usando Task tool 3. Cada agente crea 3-5 tareas con
 estructura completa 4. Validar que todas las tareas tengan estructura
-consistente 5. Crear INDICE.md con resumen de todas las tareas
+consistente 5. Crear INDICE con resumen de todas las tareas
 
-**Estructura por tarea (README.md de 200-400 lineas):**
+**Estructura por tarea (README de 200-400 lineas):**
 
 .. code:: markdown
 
@@ -259,8 +259,8 @@ consistente 5. Crear INDICE.md con resumen de todas las tareas
 paralela (4 agentes): 40-80 min - Validacion y ajustes: 15-30 min -
 Total: 60-120 min
 
-**Salidas:** - 10-20 carpetas TASK-NNN-nombre/ con README.md completo -
-Cada tarea lista para ejecutar sin ambiguedad - INDICE.md con navegacion
+**Salidas:** - 10-20 carpetas TASK-NNN-nombre/ con README completo -
+Cada tarea lista para ejecutar sin ambiguedad - INDICE con navegacion
 rapida
 
 FASE 3: PREPARACION (10-20 min)
@@ -412,7 +412,7 @@ desincronizacion) - No hay otros desarrolladores trabajando en paralelo
 **Notas importantes:** - Esta fase previene “integration hell” al
 sincronizar tempranamente - Si hay conflictos complejos, considerar
 re-aplicar refactorizaciones sobre develop actualizado - Documentar
-resolucion de conflictos en evidencias/sync-conflicts-resolution.md
+resolucion de conflictos en evidencias/sync-conflicts-resolution.rst
 
 6. Metodologia TDD
 ------------------
@@ -610,11 +610,11 @@ Estructura de Evidencias:
 ::
 
  QA-REFACTOR-XXX-NNN/
- ├── ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.md
- ├── PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.md
- ├── INDICE.md
+ ├── ANALISIS-REFACTORIZACIONES-YYYY-MM-DD.rst
+ ├── PLAN-INTEGRACION-REFACTORIZACIONES-YYYY-MM-DD.rst
+ ├── INDICE
  ├── TASK-001-nombre/
- │ ├── TASK-001-nombre.md
+ │ ├── TASK-001-nombre.rst
  │ └── evidencias/
  │ ├── backup-tag-created.log
  │ └── commit-hash.txt
@@ -634,7 +634,7 @@ python-version.txt
 refactor-applied.log - tests-post-refactor.log - validation-results.log
 
 **Validacion Final:** - suite-completa-tests.log - import-validation.log
-- CONSOLIDADO-EVIDENCIAS.md
+- CONSOLIDADO-EVIDENCIAS.rst
 
 **Commit/Push:** - commit-message.txt - commit-hash.txt -
 push-result.log
@@ -766,7 +766,7 @@ Rollbacks ejecutados
 Documento de Cierre:
 ~~~~~~~~~~~~~~~~~~~~
 
-Al finalizar, crear CONSOLIDADO-EVIDENCIAS.md con: - Resumen ejecutivo -
+Al finalizar, crear CONSOLIDADO-EVIDENCIAS.rst con: - Resumen ejecutivo -
 Refactorizaciones aplicadas - Estado final de tests - Problemas
 encontrados y resoluciones - Métricas completas - Lecciones aprendidas
 
@@ -982,17 +982,17 @@ Referencias
 
 - Conventional Commits: https://www.conventionalcommits.org/
 - Angular Convention:
-  https://github.com/angular/angular/blob/main/CONTRIBUTING.md
+  https://github.com/angular/angular/blob/main/CONTRIBUTING
 - Commitlint: https://commitlint.js.org/
 
 14. Plantillas de Referencia
 ----------------------------
 
 **Analisis:**
-docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/ANALISIS-REFACTORIZACIONES-2025-11-17.md
+docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/ANALISIS-REFACTORIZACIONES-2025-11-17.rst
 
 **Plan:**
-docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES-2025-11-17.md
+docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES-2025-11-17.rst
 
 **Tareas:** docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/TASK-NNN-\*/
 
@@ -1007,7 +1007,7 @@ docs/ai/refactorizaciones/QA-REFACTOR-MCP-002/PLAN-INTEGRACION-REFACTORIZACIONES
      - Cambios
    * - 1.1.0
      - 2025-11-18
-     - Actualizacion basada en reporte de verificacion (REPORTE-VERIFICAC ION-PROCED-GOB-009.md) - Correccion de 4 gaps criticos: (1) Tiempos reales FASE 1: 60-90min, FASE 2: 60-90min, nueva FASE 2.5: 60-120min (2) Template detallado de tareas con metadata YAML (3) Estrategia para versiones multiples con matriz de decision (4) Nueva FASE 7 para sincronizacion con main. Ademas: ejemplos de smoke tests y seccion de Conventional Commits
+     - Actualizacion basada en reporte de verificacion (REPORTE-VERIFICAC ION-PROCED-GOB-009.rst) - Correccion de 4 gaps criticos: (1) Tiempos reales FASE 1: 60-90min, FASE 2: 60-90min, nueva FASE 2.5: 60-120min (2) Template detallado de tareas con metadata YAML (3) Estrategia para versiones multiples con matriz de decision (4) Nueva FASE 7 para sincronizacion con main. Ademas: ejemplos de smoke tests y seccion de Conventional Commits
    * - 1.0.0
      - 2025-11-17
      - Creacion inicial basada en QA-REFACTOR-MCP-002

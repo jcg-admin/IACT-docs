@@ -31,8 +31,8 @@ significativas del proyecto IACT que deriven de requisitos funcionales
 Página padre
 ------------
 
-- ``readme.md`` (índice de procesos de gobernanza, no migrado)
-- ``../readme.md`` (índice gobernanza, no migrado)
+- ``readme.rst`` (índice de procesos de gobernanza, no migrado)
+- ``../readme.rst`` (índice gobernanza, no migrado)
 
 --------------
 
@@ -54,7 +54,7 @@ NO No usar para:
 
 - Cambios triviales o refactoring sin impacto arquitectónico
 - Documentación de APIs (usar :doc:`plantilla_api_reference </normativa/estandares/plantillas/tpl-api-documentacion-api>`)
-- Documentación de apps Django (usar ``plantilla_django_app.md``)
+- Documentación de apps Django (usar ``plantilla_django_app.rst``)
 - Bug fixes sin cambios de diseño
 
 --------------
@@ -112,7 +112,7 @@ Product Owner
 **Checklist:** - [ ] Todos los RF-XXX tienen trazabilidad a RN-XXX o
 N-XXX - [ ] Se identificaron dependencias con otros componentes - [ ]
 Restricciones técnicas documentadas (ver
-``restricciones_y_lineamientos.md``)
+``restricciones_y_lineamientos.rst``)
 
 --------------
 
@@ -123,8 +123,8 @@ Restricciones técnicas documentadas (ver
 
 1. Crear archivo en ``docs/implementacion/{dominio}/diseno/``
 
-   - Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.md``
-   - Ejemplo: ``DISENO_TECNICO_AUTENTICACION.md``
+   - Nomenclatura: ``DISENO_TECNICO_{COMPONENTE}.rst``
+   - Ejemplo: ``DISENO_TECNICO_AUTENTICACION.rst``
 
 2. Incluir header estándar:
 
@@ -150,7 +150,7 @@ Restricciones técnicas documentadas (ver
  7. [Trazabilidad a Requisitos](#7-trazabilidad-a-requisitos)
 
 **Checklist:** - [ ] Nombre de archivo sigue convención
-``DISENO_TECNICO_{COMPONENTE}.md`` - [ ] Header incluye versión, fecha,
+``DISENO_TECNICO_{COMPONENTE}.rst`` - [ ] Header incluye versión, fecha,
 componente, estado - [ ] Tabla de contenidos completa con links
 funcionales
 
@@ -596,7 +596,7 @@ Una vez aprobado:
 2. Crear ADR si hay decisiones arquitectónicas importantes:
 
    - Ubicación: ``docs/arquitectura/adr/``
-   - Ver plantilla: ``plantilla_adr.md``
+   - Ver plantilla: ``plantilla_adr.rst``
 
 3. Notificar al equipo de desarrollo para inicio de implementación
 
@@ -623,9 +623,9 @@ Herramientas Obligatorias
 Plantillas Relacionadas
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``plantillas/plantilla_sad.md`` - Software Architecture Document
-- ``plantillas/plantilla_tdd.md`` - Technical Design Document
-- ``plantillas/plantilla_api_reference.md`` - Para endpoints REST
+- ``plantillas/plantilla_sad.rst`` - Software Architecture Document
+- ``plantillas/plantilla_tdd.rst`` - Technical Design Document
+- ``plantillas/plantilla_api_reference.rst`` - Para endpoints REST
 
 Referencias Externas
 ~~~~~~~~~~~~~~~~~~~~
@@ -645,7 +645,7 @@ Ejemplo Real: Sistema de Autenticación
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Ubicación:**
-``docs/implementacion/backend/diseno/DISENO_TECNICO_AUTENTICACION.md``
+``docs/implementacion/backend/diseno/DISENO_TECNICO_AUTENTICACION.rst``
 
 **Características destacadas:** - 6 secciones completas con diagramas
 Mermaid - Trazabilidad a RF-005, RF-006, RF-007 - 3 diagramas de
@@ -725,8 +725,8 @@ de 3 niveles), crear 1 diagrama por escenario.
 con sección específica de frontend
 
 **Opción B:** Documentos separados con referencias cruzadas: -
-``backend/diseno/DISENO_TECNICO_AUTH_BACKEND.md`` -
-``frontend/diseno/DISENO_TECNICO_AUTH_FRONTEND.md``
+``backend/diseno/DISENO_TECNICO_AUTH_BACKEND.rst`` -
+``frontend/diseno/DISENO_TECNICO_AUTH_FRONTEND.rst``
 
 Incluir enlaces bidireccionales en ambos documentos.
 

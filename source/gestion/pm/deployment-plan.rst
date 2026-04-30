@@ -186,10 +186,10 @@ Documentation
 Files to Update
 ~~~~~~~~~~~~~~~
 
-1. ``README.md`` - Add testing section
-2. ``CONTRIBUTING.md`` - Add test guidelines
-3. ``.github/agents/techniques/README.md`` - Link to tests
-4. ``docs/agent/SDLC_COMPLETE_RUN.md`` - Document this process
+1. ``README.rst`` - Add testing section
+2. ``CONTRIBUTING.rst`` - Add test guidelines
+3. ``.github/agents/techniques/README.rst`` - Link to tests
+4. ``docs/agent/SDLC_COMPLETE_RUN.rst`` - Document this process
 
 --------------
 

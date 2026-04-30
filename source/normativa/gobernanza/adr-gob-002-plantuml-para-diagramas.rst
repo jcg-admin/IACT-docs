@@ -433,9 +433,9 @@ Referencias
 - `C4 Model with
   PlantUML <https://github.com/plantuml-stdlib/C4-PlantUML>`__
 - `PROCED-GOB-002: Actualizar
-  Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.md>`__
+  Documentación <../procedimientos/PROCED-GOB-002-actualizar_documentacion.rst>`__
 - `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 
 Ejemplos de Uso
 ---------------

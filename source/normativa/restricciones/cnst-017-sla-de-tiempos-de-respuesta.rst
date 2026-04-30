@@ -57,7 +57,7 @@ Tiempos de respuesta predecibles son requisito para la usabilidad y la confianza
 ^^^^^^^^^^
 
 - **Fuente:** SLA del cliente
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:715-742
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:715-742
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

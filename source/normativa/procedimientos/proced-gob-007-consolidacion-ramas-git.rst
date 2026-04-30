@@ -229,7 +229,7 @@ Crear documento en estructura:
 ::
 
  docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/
- ├── ANALISIS-RAMAS-YYYY-MM-DD.md
+ ├── ANALISIS-RAMAS-YYYY-MM-DD.rst
  └── (otros archivos se agregaran en siguientes pasos)
 
 **Template:** Usar QA-ANALISIS-RAMAS-001 como referencia
@@ -238,7 +238,7 @@ Crear documento en estructura:
 estado - Metricas (commits unicos, archivos, lineas) - Recomendaciones
 de consolidacion
 
-**Artefacto:** ANALISIS-RAMAS-YYYY-MM-DD.md
+**Artefacto:** ANALISIS-RAMAS-YYYY-MM-DD.rst
 
 --------------
 
@@ -278,13 +278,13 @@ Crear documento:
 
 ::
 
- docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.rst
 
 **Contenido minimo:** - Objetivo y justificacion - Fases detalladas -
 Cronograma - Matriz de riesgos - Criterios de validacion - Plan de
 rollback
 
-**Artefacto:** PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
+**Artefacto:** PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.rst
 
 --------------
 
@@ -305,7 +305,7 @@ Para cada tarea, crear archivo:
 
 ::
 
- docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/TASK-NNN-descripcion.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/TASK-NNN-descripcion.rst
 
 **Estructura de cada TASK:**
 
@@ -336,16 +336,16 @@ Si aplica, referenciar agentes del proyecto: -
 automation_coherence_analyzer_agent - automation_schema_validator_agent
 - documentation_consistency_verifier_agent
 
-Paso 3.4: Actualizar INDICE.md
+Paso 3.4: Actualizar INDICE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Documentar todas las tareas creadas en:
 
 ::
 
- docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/INDICE.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/INDICE
 
-**Artefactos:** TASK-001.md a TASK-NNN.md + INDICE.md
+**Artefactos:** TASK-001.rst a TASK-NNN.rst + INDICE
 
 --------------
 
@@ -389,7 +389,7 @@ Paso 5.1: Crear Backup de Seguridad
 Paso 5.2: Ejecutar Tareas Secuencialmente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para cada TASK-NNN.md:
+Para cada TASK-NNN.rst:
 
 1. Leer tarea completa
 2. Verificar prerequisitos
@@ -463,7 +463,7 @@ Paso 7.1: Crear Reporte de Ejecucion
 
 ::
 
- docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/REPORTE-EJECUCION-YYYY-MM-DD.md
+ docs/gobernanza/qa/QA-ANALISIS-RAMAS-NNN/REPORTE-EJECUCION-YYYY-MM-DD.rst
 
 **Contenido:** - Fecha y hora de ejecucion - Tareas completadas
 (N/total) - Tiempo real vs estimado - Problemas encontrados y soluciones
@@ -473,7 +473,7 @@ aprendidas
 Paso 7.2: Actualizar Lecciones Aprendidas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md: - Seccion 9: Completar con
+En PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.rst: - Seccion 9: Completar con
 experiencias reales - Que funciono bien - Que no funciono - Mejoras para
 proxima vez
 
@@ -508,23 +508,23 @@ Donde NNN = numero secuencial (001, 002, …)
      - \ 
      - \ 
      - \ 
-   * - INDICE.md Indice Inicio Analista
+   * - INDICE Indice Inicio Analista
      - \ 
      - \ 
      - \ 
-   * - ANALISIS-RAMAS-YYYY-MM-DD.md Analisis E
+   * - ANALISIS-RAMAS-YYYY-MM-DD.rst Analisis E
      - tapa 1 An
      - alista
      - \ 
-   * - PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.md
+   * - PLAN-CONSOLIDACION-RAMAS-YYYY-MM-DD.rst
      - Plan Etap
      - a 2 Anal
      - ista
-   * - TASK-NNN-\*.md Tareas Etapa 3 Analista
+   * - TASK-NNN-\*.rst Tareas Etapa 3 Analista
      - \ 
      - \ 
      - \ 
-   * - REPORTE-EJECUCION-YYYY-MM-DD.md Reporte
+   * - REPORTE-EJECUCION-YYYY-MM-DD.rst Reporte
      - Etapa 7
      - Ejecutor
      - \ 
@@ -679,8 +679,8 @@ Donde NNN = numero secuencial (001, 002, …)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - QA-ANALISIS-RAMAS-001 (ejemplo completo)
-- PLAN-CONSOLIDACION-RAMAS-2025-11-17.md
-- TASK-001-crear-backup-seguridad.md
+- PLAN-CONSOLIDACION-RAMAS-2025-11-17.rst
+- TASK-001-crear-backup-seguridad.rst
 
 10.3 Documentos Relacionados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

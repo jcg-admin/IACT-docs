@@ -115,7 +115,7 @@ nitpicky = os.environ.get('SPHINX_NITPICKY', '0') == '1'
 # Politica 0/0: NO suprimir warnings de lexers desconocidos.
 # Si plantuml/mermaid/cql u otro lexer falla, debe ser visible.
 # Si el lexer es legitimo pero no instalado, registrar la deuda en
-# technical-debt.md y resolver instalando el extension correspondiente.
+# technical-debt y resolver instalando el extension correspondiente.
 # Removida la directiva `suppress_warnings = ['misc.highlighting_failure']`
 # tras deep-review 2026-04-29 que la identifico como instancia del
 # anti-patron "calibracion del instrumento para que cumpla la metrica".

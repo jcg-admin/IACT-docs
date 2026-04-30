@@ -58,7 +58,7 @@ Previene ataques de fuerza bruta, scraping y abuso de recursos.
 ^^^^^^^^^^
 
 - **Fuente:** Mitigacion de fuerza bruta + scraping
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:225-228
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:225-228
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

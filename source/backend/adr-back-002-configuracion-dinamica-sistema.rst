@@ -236,7 +236,7 @@ Plan de Implementación
 
    -  Tests unitarios de service layer
    -  Tests de API
-   -  Documentación en ``docs/backend/diseno/arquitectura/configuration.md``
+   -  Documentación en ``docs/backend/diseno/arquitectura/configuration.rst``
    -  Timeframe: 1 día
 
 Validación y Métricas
@@ -273,11 +273,11 @@ Referencias
 -----------
 
 -  `Documentación app
-   configuration <../../backend/arquitectura/configuration.md>`__
--  ``PLAN_MAESTRO_PRIORIDAD_02.md`` (documento histórico, ver temp-holding)
+   configuration <../../backend/arquitectura/configuration.rst>`__
+-  ``PLAN_MAESTRO_PRIORIDAD_02.rst`` (documento histórico, ver temp-holding)
    (Tareas 33-41)
 -  `ADR-005: Grupos Funcionales Sin
-   Jerarquía <ADR-005-grupos-funcionales-sin-jerarquia.md>`__
+   Jerarquía <ADR-005-grupos-funcionales-sin-jerarquia.rst>`__
 -  `ISO 27001 Audit Trail
    Requirements <https://www.iso.org/standard/27001>`__
 -  `Django Best Practices for

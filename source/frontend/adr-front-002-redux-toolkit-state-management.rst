@@ -324,7 +324,7 @@ Plan de Capacitación
 1. **Sesión 1 (2 horas)**: Fundamentos Redux (actions, reducers, store)
 2. **Sesión 2 (2 horas)**: Redux Toolkit (slices, createAsyncThunk)
 3. **Hands-on**: Crear slice nuevo para módulo de prueba
-4. **Documentación**: README.md interno con ejemplos IACT
+4. **Documentación**: README interno con ejemplos IACT
 
 Notas
 -----

@@ -1292,8 +1292,8 @@ REFERENCIAS
 
 **Material Pedagógico:**
 
-- PARTE_3A_CRUD_Patterns_IACT_1_0_0.md
-- PARTE_4_Requisitos_Funcionales_IACT_1_0_0.md
+- PARTE_3A_CRUD_Patterns_IACT_1_0_0.rst
+- PARTE_4_Requisitos_Funcionales_IACT_1_0_0.rst
 
 ----------------------------------------------------------------------
 

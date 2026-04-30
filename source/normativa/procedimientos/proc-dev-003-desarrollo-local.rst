@@ -30,7 +30,7 @@ Pre-requisitos
 --------------
 
 - [ ] Vagrant instalado (ver
-  ``procedimiento_instalacion_entorno.md`` (no migrado a source))
+  ``procedimiento_instalacion_entorno.rst`` (no migrado a source))
 - [ ] Git configurado
 - [ ] IDE/Editor de código (VS Code recomendado)
 - [ ] Acceso al repositorio GitHub
@@ -117,7 +117,7 @@ Verificar instalación:
  ./scripts/install-hooks.sh --verify
 
 Para más información sobre hooks: `Git Hooks
-README <../.github/hooks/README.md>`__
+README <../.github/hooks/README>`__
 
 5. Ejecutar Servidor de Desarrollo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ Ver: :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (
  gh pr create --title "feat: título del PR" --body "Descripción"
 
 Ver: `Procedimiento de Gestión de
-Cambios <procedimiento_gestion_cambios.md>`__
+Cambios <procedimiento_gestion_cambios.rst>`__
 
 Tareas Comunes
 --------------
@@ -321,12 +321,12 @@ Recursos Relacionados
 ---------------------
 
 - `Procedimiento: Instalación de
-  Entorno <procedimiento_instalacion_entorno.md>`__
+  Entorno <procedimiento_instalacion_entorno.rst>`__
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - `Procedimiento: Gestión de
-  Cambios <procedimiento_gestion_cambios.md>`__
+  Cambios <procedimiento_gestion_cambios.rst>`__
 - :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
-- ``lineamientos_codigo.md`` (no migrado a source)
+- ``lineamientos_codigo.rst`` (no migrado a source)
 - `Runbooks DevOps <../devops/runbooks/>`__
 
 Notas

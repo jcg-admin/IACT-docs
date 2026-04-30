@@ -28,7 +28,7 @@ RNF-PROC-002: Métricas y Reporting del SDLC (sin DORA)
    * - **Alcance**
      - Recolección y publicación de métricas internas de despliegue, incidentes y tiempo de ciclo del proyecto (sin esquema DORA).
    * - **Implementación**
-     - Procedimiento descrito en ``docs/s cripts/metrics_and_reporting.md`` y archivos JSON en ``logs_data/``.
+     - Procedimiento descrito en ``docs/s cripts/metrics_and_reporting.rst`` y archivos JSON en ``logs_data/``.
 
 --------------
 

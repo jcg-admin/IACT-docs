@@ -1326,7 +1326,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_4_Functional_Requirements_IACT_1_0_0.md
+- PARTE_4_Functional_Requirements_IACT_1_0_0.rst
   - Seccion 2: Los 10 Componentes Obligatorios
   - Seccion 3: Derivacion UC → FR
   - Seccion 4: Testing de FR

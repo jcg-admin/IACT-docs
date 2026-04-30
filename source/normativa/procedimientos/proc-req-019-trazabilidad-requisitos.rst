@@ -35,8 +35,8 @@ jerarquía BABOK v3: - **Necesidades de Negocio (N-XXX)**: Business Needs
 Página padre
 ------------
 
-- ``readme.md`` (índice de procesos de gobernanza, no migrado)
-- ``../readme.md`` (índice gobernanza, no migrado)
+- ``readme.rst`` (índice de procesos de gobernanza, no migrado)
+- ``../readme.rst`` (índice gobernanza, no migrado)
 
 --------------
 
@@ -151,7 +151,7 @@ FASE 1: Clasificación y Frontmatter YAML
  style RF fill:#E6FFE6
  style RNF fill:#E6F3FF
 
-**Ubicaciones según PROPUESTA_FINAL_REESTRUCTURACION.md:**
+**Ubicaciones según PROPUESTA_FINAL_REESTRUCTURACION.rst:**
 
 .. list-table::
    :header-rows: 1
@@ -210,7 +210,7 @@ Ubicación de archivo validada según propuesta
 
  # Trazabilidad Downward (ISO 29148 - 5.2.8)
  trazabilidad_downward:
- - DESIGN-001 # Diseño: docs/implementacion/backend/diseno/DISENO_TECNICO_STOCK.md
+ - DESIGN-001 # Diseño: docs/implementacion/backend/diseno/DISENO_TECNICO_STOCK.rst
  - TEST-001 # Test: backend/tests/test_stock_calculation.py
  - TEST-002 # Test: backend/tests/test_stock_api.py
 
@@ -372,7 +372,7 @@ FASE 3: Trazabilidad Downward (Verificación)
  id: RF-001
  # ...
  trazabilidad_downward:
- - DESIGN-STOCK-001 # docs/implementacion/backend/diseno/DISENO_TECNICO_STOCK.md#2.1
+ - DESIGN-STOCK-001 # docs/implementacion/backend/diseno/DISENO_TECNICO_STOCK.rst#2.1
  - CODE-001 # api/callcentersite/callcentersite/apps/inventory/services.py#calculate_min_stock
  - TEST-001 # api/callcentersite/backend/tests/test_stock_calculation.py::test_calculate_min_stock_happy_path
  - TEST-002 # api/callcentersite/backend/tests/test_stock_api.py::test_api_response_time
@@ -382,7 +382,7 @@ FASE 3: Trazabilidad Downward (Verificación)
 
 .. code:: markdown
 
- # DISENO_TECNICO_STOCK.md
+ # DISENO_TECNICO_STOCK.rst
 
  ## 7. Trazabilidad a Requisitos
 
@@ -459,7 +459,7 @@ FASE 4: Generación Automática de Índices ISO 29148
 **Archivo:** ``.github/workflows/requirements-index.yml``
 
 **Trigger:** - Push a
-``implementaci../gobernanza/marco_integrado/**/*.md`` - Pull request
+``implementaci../gobernanza/marco_integrado/**/*.rst`` - Pull request
 modificando requisitos - Manual dispatch
 
 **Proceso:**
@@ -471,10 +471,10 @@ modificando requisitos - Manual dispatch
  on:
  push:
  paths:
- - 'implementaci../gobernanza/marco_integrado/**/*.md'
+ - 'implementaci../gobernanza/marco_integrado/**/*.rst'
  pull_request:
  paths:
- - 'implementaci../gobernanza/marco_integrado/**/*.md'
+ - 'implementaci../gobernanza/marco_integrado/**/*.rst'
  workflow_dispatch:
 
  jobs:
@@ -498,7 +498,7 @@ modificando requisitos - Manual dispatch
    run: |
    git config user.name "GitHub Actions"
    git config user.email "actions@github.com"
-   git add docs/requisitos/*.md
+   git add docs/requisitos/*.rst
    git commit -m "chore(requisitos): regenerar índices ISO 29148 [skip ci]" || echo "No changes"
    git push
 
@@ -524,23 +524,23 @@ El workflow genera 5 documentos automáticamente:
    * - **BRS**
      - 9.3
      - Business Requirements Specification
-     - ``docs/re quisitos/brs_ business_requ irements.md``
+     - ``docs/re quisitos/brs_ business_requ irements.rst``
    * - **StRS**
      - 9.4
      - Stakeholder Requirements Specification
-     - ``docs/requis itos/strs_sta keholder_requ irements.md``
+     - ``docs/requis itos/strs_sta keholder_requ irements.rst``
    * - **SyRS**
      - 9.5
      - System Requirements Specification
-     - ``docs/r equisitos/syr s_system_requ irements.md``
+     - ``docs/r equisitos/syr s_system_requ irements.rst``
    * - **SRS**
      - 9.6
      - Software Requirements Specification
-     - ``docs/re quisitos/srs_ software_requ irements.md``
+     - ``docs/re quisitos/srs_ software_requ irements.rst``
    * - **RTM**
      - 5.2.8
      - Requirements Traceability Matrix
-     - ``docs/ requisitos/ma triz_trazabil idad_rtm.md``
+     - ``docs/ requisitos/ma triz_trazabil idad_rtm.rst``
 
 **Ejemplo de BRS generado:**
 
@@ -550,7 +550,7 @@ El workflow genera 5 documentos automáticamente:
 
  **Conforme a:** ISO/IEC/IEEE 29148:2018 - Clause 9.3
  **Generado:** 2025-11-04 10:30:00 UTC
- **Fuente:** Escaneo automático de `implementaci../gobernanza/marco_integrado/necesidades/*.md` y `**/negocio/*.md`
+ **Fuente:** Escaneo automático de `implementaci../gobernanza/marco_integrado/necesidades/*.rst` y `**/negocio/*.rst`
 
  ---
 
@@ -636,7 +636,7 @@ FASE 5: Validación y Auditoría
  errors = []
 
  # 1. Validar que todos los IDs en upward existen
- for req_file in Path("implementacion").rglob("requisitos/**/*.md"):
+ for req_file in Path("implementacion").rglob("requisitos/**/*.rst"):
  frontmatter = parse_frontmatter(req_file)
  for upward_id in frontmatter.get("trazabilidad_upward", []):
  if not requirement_exists(upward_id):
@@ -723,14 +723,14 @@ Herramientas Obligatorias
 Plantillas Relacionadas
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``plantillas/template_necesidad.md`` - Necesidades de negocio (N-XXX)
-- ``plantillas/template_requisito_negocio.md`` - Requisitos de negocio
+- ``plantillas/template_necesidad.rst`` - Necesidades de negocio (N-XXX)
+- ``plantillas/template_requisito_negocio.rst`` - Requisitos de negocio
   (RN-XXX)
-- ``plantillas/template_requisito_stakeholder.md`` - Requisitos de
+- ``plantillas/template_requisito_stakeholder.rst`` - Requisitos de
   stakeholders (RS-XXX)
-- ``plantillas/template_requisito_funcional.md`` - Requisitos
+- ``plantillas/template_requisito_funcional.rst`` - Requisitos
   funcionales (RF-XXX)
-- ``plantillas/template_requisito_no_funcional.md`` - Requisitos no
+- ``plantillas/template_requisito_no_funcional.rst`` - Requisitos no
   funcionales (RNF-XXX)
 
 Referencias Externas
@@ -761,12 +761,12 @@ Ejemplo 1: Trazabilidad de Autenticación
  └─ RN-001: Login con credenciales locales
  ├─ RS-001: Usuario gerente necesita acceso 24/7
  │ └─ RF-005: Login con username/password
- │ ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.md#2.1
+ │ ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.rst#2.1
  │ ├─ CODE: apps/authentication/views.py#LoginView
  │ └─ TEST: tests/test_auth_login.py::test_login_success
  │
  └─ RNF-001: Tiempo de autenticación < 500ms
- ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.md#5.1 (Índices DB)
+ ├─ DESIGN: DISENO_TECNICO_AUTENTICACION.rst#5.1 (Índices DB)
  └─ TEST: tests/test_auth_performance.py::test_login_response_time
 
 **Ubicación:** ``docs/implementacion/backend/requisitos/``
@@ -776,7 +776,7 @@ Ejemplo 1: Trazabilidad de Autenticación
 Ejemplo 2: Matriz RTM Generada
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Ubicación:** ``docs/requisitos/matriz_trazabilidad_rtm.md``
+**Ubicación:** ``docs/requisitos/matriz_trazabilidad_rtm.rst``
 (auto-generado)
 
 .. code:: markdown
@@ -879,7 +879,7 @@ Agregar campo ``obsoleto_por``:
 ::
 
  NO ERRORES DE TRAZABILIDAD:
- - implementacion/backend/requisitos/funcionales/rf005.md: Upward ID 'RN-999' no existe
+ - implementacion/backend/requisitos/funcionales/rf005.rst: Upward ID 'RN-999' no existe
  - RF-010: Requisito funcional sin tests
 
 **Acciones correctivas:** 1. Revisar el requisito indicado 2. Corregir

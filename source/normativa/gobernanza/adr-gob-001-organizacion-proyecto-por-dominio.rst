@@ -394,9 +394,9 @@ Final):
  ├── installer/ # Instalador para Dev Container
  │ ├── devcontainer_feature.json
  │ ├── install.sh # Symlink → ../scripts/feature_install.sh
- │ └── README.md
+ │ └── README
  ├── artifacts/ # Binarios compilados (.tgz)
- │ ├── ARTIFACTS.md
+ │ ├── ARTIFACTS.rst
  │ └── .gitkeep
  ├── tests/ # Tests de integración
  │ ├── test_cpython_build_system.py
@@ -404,7 +404,7 @@ Final):
  ├── utils/ # Utilidades de compilación
  ├── config/ # Configuraciones
  ├── logs/ # Logs de compilación
- └── README.md
+ └── README
 
 **Ventajas del subdomain simplificado (Fase 4)**: 1. **Máxima
 simplicidad**: TODO CPython directamente en ``cpython/`` - sin niveles
@@ -430,7 +430,7 @@ actualizadas en 40+ archivos: - Makefile (todos los targets cpython) -
 devcontainer.json (feature path, artifact URL) - Vagrantfile
 (comentarios, paths) - Scripts wrapper (PROJECT_ROOT: 4→3 niveles,
 VAGRANT_DIR) - Tests (VAGRANT_DIR, INSTALLER_DIR paths) - 15+ archivos
-de documentación (\*.md)
+de documentación (\*.rst)
 
 --------------
 

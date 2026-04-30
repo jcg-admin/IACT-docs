@@ -59,7 +59,7 @@ saturacion del buzon, fatiga de alertas y abuso del canal.
 ^^^^^^^^^^
 
 - **Fuente:** Restriccion de negocio (cliente) + complemento operativo
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:701-704
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:701-704
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

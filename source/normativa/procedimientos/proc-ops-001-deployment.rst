@@ -142,7 +142,7 @@ Debe contener:
 - ``html/`` (con ``index.html`` y assets)
 - ``LICENSE.rst``
 - ``readme.rst``
-- ``CHANGELOG.md``
+- ``CHANGELOG.rst``
 
 Verificar que ``html/index.html`` existe y abre correctamente:
 

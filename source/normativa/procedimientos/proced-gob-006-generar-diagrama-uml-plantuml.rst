@@ -1108,7 +1108,7 @@ caso de uso.
 ::
 
  Ubicación del UC:
- docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
 
  Ubicación del diagrama:
  docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
@@ -1179,13 +1179,13 @@ Actualizar Varios Archivos
 .. code:: bash
 
  # Agregar diagrama a UC-BACK-001
- vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
+ vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
 
  # Agregar diagrama a UC-BACK-002
- vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md
+ vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.rst
 
  # Agregar diagrama a UC-BACK-003
- vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
+ vim docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.rst
 
 .. _proced-gob-006-generar-diagrama-uml-plantuml-validación-7:
 
@@ -1227,11 +1227,11 @@ Verificar Archivos
  # Salida esperada:
  # new file: docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.puml
  # new file: docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
- # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.md
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.rst
+ # modified: docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.rst
 
 Agregar Archivos
 ~~~~~~~~~~~~~~~~
@@ -1243,11 +1243,11 @@ Agregar Archivos
  git add docs/gobernanza/requisitos/requerimientos_usuario/diagramas/casos_uso/UCD-BACK-001-autenticacion.svg
 
  # Agregar casos de uso actualizados
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.md
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.md
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.md
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.md
- git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.md
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-001-iniciar-sesion.rst
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-002-cerrar-sesion.rst
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-003-cambiar-contrasena.rst
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-004-recuperar-contrasena.rst
+ git add docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/UC-BACK-005-configurar-2fa.rst
 
 Crear Commit
 ~~~~~~~~~~~~
@@ -1657,13 +1657,13 @@ Referencias
 -----------
 
 - `ADR-GOB-004: PlantUML para
-  Diagramas </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.md>`__
+  Diagramas </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-004-plantuml-para-diagramas.rst>`__
 - `ADR-GOB-007: Especificación de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-007-especificacion-casos-uso.rst>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
-  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
 - `PROCED-GOB-004: Crear Caso de
-  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.md>`__
+  Uso </home/user/IACT---project/docs/gobernanza/procedimientos/PROCED-GOB-004-crear-caso-uso.rst>`__
 - `PlantUML Use Case Diagram
   Documentation <https://plantuml.com/use-case-diagram>`__
 

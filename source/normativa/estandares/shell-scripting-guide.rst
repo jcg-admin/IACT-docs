@@ -22,7 +22,7 @@ Página padre
 ------------
 
 - :doc:`Estándares de Código </normativa/estandares/estandares-codigo>`
-- ``readme.md`` (índice de gobernanza, ver source/normativa/index)
+- ``readme.rst`` (índice de gobernanza, ver source/normativa/index)
 
 Alcance
 -------
@@ -326,7 +326,7 @@ Estándares de Salida
 
 **IMPORTANTE**: Esta sección implementa la “Regla Fundamental” definida
 en `Estándares de
-Código <estandares_codigo.md#regla-fundamental-output-profesional>`__.
+Código <estandares_codigo.rst#regla-fundamental-output-profesional>`__.
 
 Regla Fundamental
 ~~~~~~~~~~~~~~~~~
@@ -368,7 +368,7 @@ Tabla de Referencia Completa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ver `Estándares de Código - Tabla de Referencia
-Rápida <estandares_codigo.md#tabla-de-referencia-rápida>`__ para mapeo
+Rápida <estandares_codigo.rst#tabla-de-referencia-rápida>`__ para mapeo
 completo de símbolos prohibidos a alternativas permitidas.
 
 --------------
@@ -1007,10 +1007,10 @@ Documentos Relacionados
 -----------------------
 
 - `Estándares de Código - Regla
-  Fundamental <estandares_codigo.md#regla-fundamental-output-profesional>`__
+  Fundamental <estandares_codigo.rst#regla-fundamental-output-profesional>`__
 - `Scripts de Requisitos -
-  README <../../scripts/requisitos/README.md>`__
-- ``scripts/README.md`` (vive en scripts/, no en source)
+  README <../../scripts/requisitos/README>`__
+- ``scripts/README.rst`` (vive en scripts/, no en source)
 
 --------------
 

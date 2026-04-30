@@ -35,7 +35,7 @@ Analisis de Errores — Modelo RBAC IACT v5.2.0 (Change Impact)
 
 **Fecha original:** 2026-01-13.
 
-**Documento analizado:** ``MODELO_RBAC_IACT_v5_2_0.md`` (legacy
+**Documento analizado:** ``MODELO_RBAC_IACT_v5_2_0.rst`` (legacy
 en ``temp-holding/RBAC/``).
 
 **Metodologia:** Clean Code v2.0.0.
@@ -766,7 +766,7 @@ Accion materializada:
 14. Cierre y Trazabilidad
 =========================
 
-**Documento original:** ``temp-holding/RBAC/ANALISIS_ERRORES_MODELO_RBAC_v5_2_0.md``
+**Documento original:** ``temp-holding/RBAC/ANALISIS_ERRORES_MODELO_RBAC_v5_2_0.rst``
 (no publicado).
 
 **Documento de respuesta vigente:**

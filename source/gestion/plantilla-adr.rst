@@ -218,7 +218,7 @@ Instrucciones de Uso
 --------------------
 
 1. **Copiar esta plantilla** para crear un nuevo ADR
-2. **Nombrar el archivo**: ``adr_YYYY_NNN_titulo_corto.md``
+2. **Nombrar el archivo**: ``adr_YYYY_NNN_titulo_corto.rst``
 
    - YYYY: Año (ej: 2025)
    - NNN: Número secuencial (001, 002, etc.)
@@ -234,14 +234,14 @@ Ejemplo de Nomenclatura
 
 ::
 
- adr_2025_001_vagrant_mod_wsgi.md
- adr_2025_002_django_rest_framework.md
- adr_2025_003_postgresql_partitioning.md
+ adr_2025_001_vagrant_mod_wsgi.rst
+ adr_2025_002_django_rest_framework.rst
+ adr_2025_003_postgresql_partitioning.rst
 
 Enlaces Relacionados
 --------------------
 
-- ``arquitectura/README.md`` (índice del repo, no migrado a source)
+- ``arquitectura/README.rst`` (índice del repo, no migrado a source)
 - :doc:`ADR-DEVOPS-001: Vagrant + mod_wsgi </devops/adr-devops-001-vagrant-mod-wsgi-importante-produc>`
   (ejemplo existente)
-- ``gobernanza/README.md`` (índice del repo, no migrado a source)
+- ``gobernanza/README.rst`` (índice del repo, no migrado a source)

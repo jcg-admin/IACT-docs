@@ -115,7 +115,7 @@ del equipo (velocity) considerada
 
 **Para features P0/P1**: Crear documento de requisitos formal.
 
-**Template**: ``docs/requisitos/funcionales/rfXXX_nombre_feature.md``
+**Template**: ``docs/requisitos/funcionales/rfXXX_nombre_feature.rst``
 
 **Contenido**:
 
@@ -286,7 +286,7 @@ principales - Interacciones entre componentes - Tecnolog?as a utilizar -
 Decisiones de arquitectura (ADRs)
 
 **Output**: Documento HLD en
-``docs/arquitectura/diseno/HLD_feature_name.md``
+``docs/arquitectura/diseno/HLD_feature_name.rst``
 
 3.2 Low-Level Design (LLD)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -297,14 +297,14 @@ responses) - Algoritmos cr?ticos - Diagramas de flujo - Diagramas de
 secuencia
 
 **Output**: Documento LLD en
-``docs/arquitectura/diseno/LLD_feature_name.md``
+``docs/arquitectura/diseno/LLD_feature_name.rst``
 
 3.3 Architecture Decision Records (ADRs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para decisiones significativas, crear ADR:
 
-**Template**: ``docs/adr/ADR_XXX_decision_title.md``
+**Template**: ``docs/adr/ADR_XXX_decision_title.rst``
 
 .. code:: markdown
 
@@ -1074,12 +1074,12 @@ Templates y Recursos
 Templates Disponibles
 ~~~~~~~~~~~~~~~~~~~~~
 
-- ``docs/plantillas/issue_template.md``
-- ``docs/plantillas/pr_template.md``
-- ``docs/plantillas/hld_template.md``
-- ``docs/plantillas/lld_template.md``
-- ``docs/plantillas/adr_template.md``
-- ``docs/plantillas/postmortem_template.md``
+- ``docs/plantillas/issue_template.rst``
+- ``docs/plantillas/pr_template.rst``
+- ``docs/plantillas/hld_template.rst``
+- ``docs/plantillas/lld_template.rst``
+- ``docs/plantillas/adr_template.rst``
+- ``docs/plantillas/postmortem_template.rst``
 
 Scripts de Automatizaci?n
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1093,9 +1093,9 @@ Scripts de Automatizaci?n
 Runbooks
 ~~~~~~~~
 
-- ``docs/infraestructura/devops/runbooks/deployment.md``
-- ``docs/infraestructura/devops/runbooks/incident_response.md``
-- ``docs/infraestructura/devops/runbooks/rollback.md``
+- ``docs/infraestructura/devops/runbooks/deployment.rst``
+- ``docs/infraestructura/devops/runbooks/incident_response.rst``
+- ``docs/infraestructura/devops/runbooks/rollback.rst``
 
 --------------
 

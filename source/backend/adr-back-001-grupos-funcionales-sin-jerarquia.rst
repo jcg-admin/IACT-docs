@@ -389,9 +389,9 @@ Referencias
 -  `Django Permission
    System <https://docs.djangoproject.com/en/stable/topics/auth/default/>`__
 -  Documento:
-   ``docs/backend/requisitos/INDICE_MAESTRO_PERMISOS_GRANULAR.md``
+   ``docs/backend/requisitos/INDICE_MAESTRO_PERMISOS_GRANULAR.rst``
 -  Documento:
-   ``docs/backend/requisitos/prioridad_01_estructura_base_datos.md``
+   ``docs/backend/requisitos/prioridad_01_estructura_base_datos.rst``
 
 --------------
 

@@ -21,7 +21,7 @@ UC_RPT_17: Ver Reporte de Clientes Únicos
  recurrencia de clientes en el servicio IACT. Decisión D-10
  (WP rbac-modelo-conceptual-cleanup).
 
- Trazabilidad: mencionado en frontend/analisis_api_frontend.md
+ Trazabilidad: mencionado en frontend/analisis_api_frontend.rst
  como métrica de cliente.
 
 1. Resumen

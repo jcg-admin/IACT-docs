@@ -1038,7 +1038,7 @@ REFERENCIAS
 
 **Material Pedagógico:**
 
-- PARTE_3B_Tecnica_Larman_IACT_1_0_0.md
+- PARTE_3B_Tecnica_Larman_IACT_1_0_0.rst
 
 ----------------------------------------------------------------------
 

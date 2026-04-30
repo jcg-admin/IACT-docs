@@ -27,9 +27,9 @@ duplicar esfuerzos por equipo.
 
    **Nota de estado (2025-11-09):** la evaluación se realizó, pero tras
    contrastar con
-   ``ADR-015-frontend-modular-monolith.md`` (documento histórico)
+   ``ADR-015-frontend-modular-monolith.rst`` (documento histórico)
    y
-   ``ADR-009-frontend-postponement.md`` (documento histórico)
+   ``ADR-009-frontend-postponement.rst`` (documento histórico)
    se determinó que la propuesta no se adoptará en esta etapa. El
    documento se conserva como análisis de opciones para un futuro
    posible.
@@ -63,7 +63,7 @@ Consecuencias si se reactivara
    para evitar fugas de memoria.
 -  Sería necesario documentar prefijos de URL, catálogos de rutas y
    eventos compartidos en la guía de arquitectura, además de sincronizar
-   el backlog (``TODO.md``) con hitos de adopción de shell y SSR.
+   el backlog (``TODO.rst``) con hitos de adopción de shell y SSR.
 -  SSR solo se habilitaría en microfrontends con métricas de SEO o LCP
    exigentes; requiere coordinación con infraestructura para plantillas
    ESI/SSI.

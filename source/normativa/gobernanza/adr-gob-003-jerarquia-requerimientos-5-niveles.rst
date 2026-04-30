@@ -103,8 +103,8 @@ casos de uso 2. Dictan qué funcionalidad debe continuar el sistema
 **Ubicación en proyecto**:
 ``docs/gobernanza/requisitos/reglas_negocio/``
 
-**Nomenclatura**: ``RN-DOMINIO-###-descripcion.md`` o
-``BR-DOMINIO-###-descripcion.md``
+**Nomenclatura**: ``RN-DOMINIO-###-descripcion.rst`` o
+``BR-DOMINIO-###-descripcion.rst``
 
 **Ejemplos**: - RN-BACK-001: Todos los usuarios deben estar autenticados
 para acceder al sistema - RN-BACK-002: Los datos personales deben
@@ -127,7 +127,7 @@ conducir a objetivos de negocio necesarios para un proyecto.
 **Ubicación en proyecto**:
 ``docs/gobernanza/requisitos/requerimientos_negocio/``
 
-**Nomenclatura**: ``RNEG-DOMINIO-###-descripcion.md``
+**Nomenclatura**: ``RNEG-DOMINIO-###-descripcion.rst``
 
 **Ejemplos**: - RNEG-BACK-001: El sistema de seguimiento de químicos
 debe permitir el cumplimiento de todas las regulaciones federales y
@@ -152,7 +152,7 @@ usuarios pueden y no pueden realizar ciertas tareas con el sistema.
 **Ubicación en proyecto**:
 ``docs/gobernanza/requisitos/requerimientos_usuario/``
 
-**Nomenclatura casos de uso**: ``UC-DOMINIO-###-verbo-objeto.md``
+**Nomenclatura casos de uso**: ``UC-DOMINIO-###-verbo-objeto.rst``
 
 **Ejemplos**: - UC-BACK-001: Iniciar Sesión - UC-BACK-010: Gestionar
 Permisos - Los gerentes de laboratorio están autorizados a generar
@@ -175,7 +175,7 @@ procesos específicos que el sistema debe implementar.
 **Ubicación en proyecto**:
 ``docs/gobernanza/requisitos/requerimientos_funcionales/``
 
-**Nomenclatura**: ``RF-DOMINIO-###-descripcion.md``
+**Nomenclatura**: ``RF-DOMINIO-###-descripcion.rst``
 
 **Ejemplos**: - RF-BACK-005: Cuando una factura es recibida por un
 proveedor no registrado, el sistema enviará un email al proveedor con un
@@ -201,8 +201,8 @@ través de la funcionalidad del sistema.
 **Ubicación en proyecto**:
 ``docs/gobernanza/requisitos/atributos_calidad/``
 
-**Nomenclatura**: ``RNF-DOMINIO-###-descripcion.md`` o
-``AC-DOMINIO-###-descripcion.md``
+**Nomenclatura**: ``RNF-DOMINIO-###-descripcion.rst`` o
+``AC-DOMINIO-###-descripcion.rst``
 
 **Ejemplos**: - RNF-BACK-005: El sistema debe mantener registros de
 entrenamiento de seguridad que se deben verificar para garantizar que
@@ -243,29 +243,29 @@ Estructura de Directorios
 
  docs/gobernanza/requisitos/
  ├── reglas_negocio/
- │ ├── RN-BACK-001-autenticacion-obligatoria.md
- │ ├── RN-BACK-002-cumplimiento-lfpdppp.md
+ │ ├── RN-BACK-001-autenticacion-obligatoria.rst
+ │ ├── RN-BACK-002-cumplimiento-lfpdppp.rst
  │ └── ...
  ├── requerimientos_negocio/
- │ ├── RNEG-BACK-001-cumplimiento-regulatorio-quimicos.md
+ │ ├── RNEG-BACK-001-cumplimiento-regulatorio-quimicos.rst
  │ └── ...
  ├── requerimientos_usuario/
  │ ├── casos_uso/
- │ │ ├── UC-BACK-001-iniciar-sesion.md
- │ │ ├── UC-BACK-010-gestionar-permisos.md
+ │ │ ├── UC-BACK-001-iniciar-sesion.rst
+ │ │ ├── UC-BACK-010-gestionar-permisos.rst
  │ │ └── ...
  │ ├── historias_usuario/
  │ └── user_journeys/
  ├── requerimientos_funcionales/
- │ ├── RF-BACK-005-registro-proveedor-automatico.md
- │ ├── RF-BACK-006-validacion-email.md
+ │ ├── RF-BACK-005-registro-proveedor-automatico.rst
+ │ ├── RF-BACK-006-validacion-email.rst
  │ └── ...
  ├── atributos_calidad/
- │ ├── RNF-BACK-005-registro-capacitacion-seguridad.md
- │ ├── RNF-DEVOPS-001-tiempo-respuesta.md
+ │ ├── RNF-BACK-005-registro-capacitacion-seguridad.rst
+ │ ├── RNF-DEVOPS-001-tiempo-respuesta.rst
  │ └── ...
  └── stakeholders/
- └── STAKE-001-identificacion-stakeholders.md
+ └── STAKE-001-identificacion-stakeholders.rst
 
 Principios de Uso
 -----------------
@@ -520,9 +520,9 @@ Fase 1: Reorganización de Estructura Actual (Semana 1)
 Fase 2: Creación de Templates (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Crear templates para cada nivel: - ``templates/RN-template.md`` -
-``templates/RNEG-template.md`` - ``templates/UC-template.md`` -
-``templates/RF-template.md`` - ``templates/RNF-template.md``
+Crear templates para cada nivel: - ``templates/RN-template.rst`` -
+``templates/RNEG-template.rst`` - ``templates/UC-template.rst`` -
+``templates/RF-template.rst`` - ``templates/RNF-template.rst``
 
 Fase 3: Capacitación del Equipo (Semana 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -581,11 +581,11 @@ Referencias
 - `IIBA BABOK v3: Business Analysis Body of
   Knowledge <https://www.iiba.org/business-analysis-certifications/babok/>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
 - `ADR-GOB-007: Especificación de Casos de
-  Uso <ADR-GOB-007-especificacion-casos-uso.md>`__
+  Uso <ADR-GOB-007-especificacion-casos-uso.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 
 Historial de Cambios
 --------------------

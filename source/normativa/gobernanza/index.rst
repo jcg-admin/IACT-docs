@@ -72,7 +72,7 @@ Convenciones
 - Cada ADR tiene clasificacion ``Critico``, ``Alto`` o ``Medio`` segun
   el impacto de revertirlo o ignorarlo.
 - ADRs tecnicos (BACK/FRONT/DEVOPS/QA) viven en sus cajones
-  respectivos, no aqui (ver `discover/handoff-to-tech-wps.md` del
+  respectivos, no aqui (ver `discover/handoff-to-tech-wps.rst` del
   WP gobernanza para el detalle de transferencias).
 - El formato sigue
   :doc:`/normativa/estandares/std-007-convencion-naming` y

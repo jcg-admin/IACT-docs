@@ -21,7 +21,7 @@ UC_RPT_16: Ver Reporte de Menús IVR
  y problemas de los menús IVR del sistema. Decisión D-10
  (WP rbac-modelo-conceptual-cleanup).
 
- Trazabilidad: mencionado en frontend/analisis_api_frontend.md
+ Trazabilidad: mencionado en frontend/analisis_api_frontend.rst
  como "menús problemáticos" — análisis de UX del IVR.
 
 1. Resumen

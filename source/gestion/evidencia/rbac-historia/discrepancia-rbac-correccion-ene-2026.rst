@@ -165,7 +165,7 @@ version vigente del corpus IACT-docs:
 ========================
 
 **Documento original:**
-``temp-holding/FASE 01/MODELO DOCUMENTAL IACT/MODELO DOCUMENTAL IACT v2.0.x/MODELO DOCUMENTAL IACT v2.0.3/DISCREPANCIA_RBAC_Y_PROPUESTA_CORRECCION.md``
+``temp-holding/FASE 01/MODELO DOCUMENTAL IACT/MODELO DOCUMENTAL IACT v2.0.x/MODELO DOCUMENTAL IACT v2.0.3/DISCREPANCIA_RBAC_Y_PROPUESTA_CORRECCION.rst``
 (no publicado).
 
 **Materializacion vigente:**

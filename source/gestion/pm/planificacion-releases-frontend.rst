@@ -18,7 +18,7 @@ frontend.
 Página padre
 ------------
 
-- ```../README.md`` <../README.md>`__
+- ```../README.rst`` <../README>`__
 
 Páginas hijas
 -------------

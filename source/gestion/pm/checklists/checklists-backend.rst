@@ -19,14 +19,14 @@ actualizarse conforme evolucione el proceso.
 Página padre
 ------------
 
-- ```../README.md`` <../README.md>`__
+- ```../README.rst`` <../README>`__
 
 Páginas hijas
 -------------
 
-- `:doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` <checklist_desarrollo.md>`__
-- `:doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` <checklist_testing.md>`__
-- `:doc:`checklist_trazabilidad_requisitos </gestion/pm/checklists/checklist-trazabilidad-requisitos>` <checklist_trazabilidad_requisitos.md>`__
+- `:doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` <checklist_desarrollo.rst>`__
+- `:doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` <checklist_testing.rst>`__
+- `:doc:`checklist_trazabilidad_requisitos </gestion/pm/checklists/checklist-trazabilidad-requisitos>` <checklist_trazabilidad_requisitos.rst>`__
 
 Información clave
 -----------------
@@ -44,10 +44,10 @@ Recomendaciones
 - Mantener responsables y fechas de revisión en el front matter de cada
   checklist.
 - Referenciar estos artefactos desde
-  ```../gobernanza/README.md`` <../gobernanza/README.md>`__ al preparar
+  ```../gobernanza/README.rst`` <../gobernanza/README>`__ al preparar
   ceremonias del backend.
 - Registrar el control documental transversal en
-  ```../../infrastructure/checklists/checklist_cambios_documentales.md`` <../../infrastructure/checklists/checklist_cambios_documentales.md>`__.
+  ```../../infrastructure/checklists/checklist_cambios_documentales.rst`` <../../infrastructure/checklists/checklist_cambios_documentales.rst>`__.
 
 Estado de cumplimiento
 ----------------------
@@ -63,13 +63,13 @@ Estado de cumplimiento
      - Este archivo mantiene la jerarquía y metadatos requeridos.
    * - Checklist de desarrollo
      - Sí
-     - Disponible en ```checklist_des arrollo.md`` <checkli st_desarrollo.md>`__.
+     - Disponible en ```checklist_des arrollo.rst`` <checkli st_desarrollo.rst>`__.
    * - Checklist de pruebas
      - Sí
-     - Registrado en ```checkli st_testing.md`` <chec klist_testing.md>`__.
+     - Registrado en ```checkli st_testing.rst`` <chec klist_testing.rst>`__.
    * - Checklist de trazabilidad de requisitos
      - Sí
-     - Disponible en ```checklist_trazabil idad_requisitos.md`` <checklist_trazabilid ad_requisitos.md>`__.
+     - Disponible en ```checklist_trazabil idad_requisitos.rst`` <checklist_trazabilid ad_requisitos.rst>`__.
    * - Registro de owners y fechas de vigencia
      - No
      - Falta consolidar inventario con responsables y última revisión.

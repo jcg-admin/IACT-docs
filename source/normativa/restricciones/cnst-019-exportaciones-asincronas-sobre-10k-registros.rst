@@ -59,7 +59,7 @@ usuarios.
 ^^^^^^^^^^
 
 - **Fuente:** Performance + disponibilidad
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:755-757
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:755-757
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

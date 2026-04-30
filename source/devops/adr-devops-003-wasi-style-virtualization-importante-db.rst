@@ -18,7 +18,7 @@ Development Team **Tags**: #infrastructure #virtualization #wasi
 
 --------------
 
-VA DE LA MANO CON ADR-DEVOPS-001-vagrant-mod-wsgi-IMPORTANTE-PRODUC.md
+VA DE LA MANO CON ADR-DEVOPS-001-vagrant-mod-wsgi-IMPORTANTE-PRODUC.rst
 
 SE TIENE QUE CONSIDERAR EN UN REPOSITORIO APARTE DE VAGRANT PARA LA
 SIMULACION DE LAS API DE LAS BD
@@ -370,7 +370,7 @@ Fase 1: Core Scripts (DONE)
 -  [x] lightweight_venv.sh (Bash-only)
 -  [x] wasm_style_sandbox.sh (WASI-style)
 -  [x] demo.sh (Demo interactivo)
--  [x] README.md (Documentacion)
+-  [x] README (Documentacion)
 
 Fase 2: Integration
 ~~~~~~~~~~~~~~~~~~~
@@ -406,7 +406,7 @@ WASI Specification
 -  https://github.com/WebAssembly/WASI
 -  https://wasi.dev/
 -  WASI Capabilities:
-   https://github.com/WebAssembly/WASI/blob/main/phases/snapshot/docs.md
+   https://wasi.dev/
 
 Linux Namespaces
 ~~~~~~~~~~~~~~~~
@@ -427,9 +427,9 @@ Similar Projects
 Internal Docs
 ~~~~~~~~~~~~~
 
--  docs/infraestructura/AMBIENTES_VIRTUALIZADOS.md
--  scripts/infrastructure/wasi/README.md
--  docs/ai/CONFIGURACION_AMBIENTES.md
+-  docs/infraestructura/AMBIENTES_VIRTUALIZADOS.rst
+-  scripts/infrastructure/wasi/README
+-  docs/ai/CONFIGURACION_AMBIENTES.rst
 
 --------------
 

@@ -65,7 +65,7 @@ el tipo de cambio realizado.
 ^^^^^^^^^^^^^^^
 
 - Artefactos de contenido (BR, UC, FR) que usan version simple
-- Archivos de analisis temporales (.md)
+- Archivos de analisis temporales (.rst)
 
 ----
 

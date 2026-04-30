@@ -336,7 +336,7 @@ El proyecto IACT gestiona requests de an?lisis de m?tricas IVR mediante:
  echo "Configurando Analytics Service Portal..."
 
  # Crear templates de solicitudes comunes
- cat > api/callcentersite/templates/analytics_requests.md <<EOF
+ cat > api/callcentersite/templates/analytics_requests.rst <<EOF
  # Analytics Request Types
 
  ## 1. Dashboard Metrics (N-001)
@@ -447,7 +447,7 @@ El proyecto IACT gestiona requests de an?lisis de m?tricas IVR mediante:
  fi
 
  # 3. Metadata completo en archivos
- find docs/ -name "*.md" -type f | while read file; do
+ find docs/ -name "*.rst" -type f | while read file; do
  if ! head -20 "$file" | grep -q "^---$"; then
  echo "WARNING: $file sin metadata YAML frontmatter"
  fi
@@ -606,9 +606,9 @@ Checklist de Deployment
 Referencias
 -----------
 
-- **Proceso SDLC**: ``docs/gobernanza/procesos/SDLC_PROCESS.md``
+- **Proceso SDLC**: ``docs/gobernanza/procesos/SDLC_PROCESS.rst``
 - **Restricciones**:
-  ``docs/backend/requisitos/restricciones_y_lineamientos.md``
+  ``docs/backend/requisitos/restricciones_y_lineamientos.rst``
 - **RNF-002**: NO Redis - Sesiones en MySQL
 - **Scripts**: ``scripts/*.sh``
 - **DORA Calculator**: ``scripts/dora_metrics.py``

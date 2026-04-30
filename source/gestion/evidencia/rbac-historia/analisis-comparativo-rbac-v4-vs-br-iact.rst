@@ -257,7 +257,7 @@ explicitamente para evitar regresion.
 =========================
 
 **Documento original:**
-``temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/ANALISIS_COMPARATIVO_RBAC_v4_vs_BR_IACT.md``
+``temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/ANALISIS_COMPARATIVO_RBAC_v4_vs_BR_IACT.rst``
 (no publicado).
 
 **Genealogia documentada en el corpus vigente:**

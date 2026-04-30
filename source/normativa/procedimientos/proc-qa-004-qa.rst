@@ -439,7 +439,7 @@ Recursos Relacionados
 - :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
 - :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 - `Procedimiento: Desarrollo
-  Local <procedimiento_desarrollo_local.md>`__
+  Local <procedimiento_desarrollo_local.rst>`__
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>`
 
 Referencias

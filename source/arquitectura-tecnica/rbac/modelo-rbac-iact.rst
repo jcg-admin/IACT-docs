@@ -2932,4 +2932,4 @@ Una función puede asignarse **temporalmente** con:
 - Nombres grupos: español + ``agr_`` → inglés sin prefijo
 - Nombres reglas SoD: español + ``sod_`` → inglés sin prefijo
 - Campos: ``assigned_date`` → ``assigned_at``, ``separation_group`` → ``rule_group``
-- Base: Clean Code v2.0.0 + MODELO_RBAC_IACT_v5_1_1.md
+- Base: Clean Code v2.0.0 + MODELO_RBAC_IACT_v5_1_1.rst

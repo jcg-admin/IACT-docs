@@ -50,7 +50,7 @@ requerida por Sphinx y pueden compilarse sin errores.
 
 **Aplica A:** Todos los archivos .rst del proyecto.
 
-**No Aplica A:** Archivos .md, configuracion.
+**No Aplica A:** Archivos .rst, configuracion.
 
 ----
 

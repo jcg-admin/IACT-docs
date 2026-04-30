@@ -172,7 +172,7 @@ Entrevista presencial en oficina de Maria, formato semi-estructurado.
 **Referencia Documental:**
 
 - Acta: ACTA_REUNION_OPS_2024_11_15.docx
-- Notas: Notas_Entrevista_Maria_RPT.md
+- Notas: Notas_Entrevista_Maria_RPT.rst
 - Email confirmacion: "RE: Requerimientos Performance Reportes"
   enviado 2024-11-16
 
@@ -734,13 +734,13 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.md
-- PARTE_0_Elicitacion_Requisitos_1_0_0.md (si existe)
+- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.rst
+- PARTE_0_Elicitacion_Requisitos_1_0_0.rst (si existe)
 
 **Documentos Relacionados:**
 
 - ACTA_REUNION_OPS_2024_11_15.docx
-- Notas_Entrevista_Maria_RPT.md
+- Notas_Entrevista_Maria_RPT.rst
 - UC-IACT-RPT-01-Consultar-Reporte-Trimestral-4-0-0.rst (UC formal)
 
 ----------------------------------------------------------------------

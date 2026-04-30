@@ -43,7 +43,7 @@ Resumen Ejecutivo
 ^^^^^^^^^^^^^
 
 En toda la documentacion del proyecto IACT (archivos ``.rst``,
-``.md``, glosarios, comentarios) se DEBE usar el termino canonico
+``.rst``, glosarios, comentarios) se DEBE usar el termino canonico
 **"Funcion"** para referirse a la unidad atomica del sistema RBAC.
 En todo el codigo (modelos Django, funciones SQL, variables, metodos,
 clases) se DEBE usar el termino **"Function"** (en ingles).
@@ -74,7 +74,7 @@ La eleccion de "Funcion" como canonico se basa en:
 ^^^^^^^^^^
 
 - **Fuente:** Decision arquitectonica (D-RBAC-1, D-RBAC-6)
-- **Documento:** rbac-formalization.md § 2 (WP #6 requisitos)
+- **Documento:** rbac-formalization.rst § 2 (WP #6 requisitos)
 - **Fecha:** 2026-04-29
 
 2. Especificacion Tecnica
@@ -160,7 +160,7 @@ el de la columna izquierda**.
  * - Comentarios, docstrings, help_text
    - Espanol
    - ``"""Grupo de funciones que se asignan juntas."""``
- * - Documentacion (.rst, .md)
+ * - Documentacion (.rst)
    - Espanol
    - "El sistema permite..."
 

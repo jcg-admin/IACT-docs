@@ -38,7 +38,7 @@ Resumen Ejecutivo
 1. Proposito
 ------------
 
-Crear documentos de analisis (.md) para planificar sesiones de generacion.
+Crear documentos de analisis (.rst) para planificar sesiones de generacion.
 
 ----
 
@@ -61,13 +61,13 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
    - Nomenclatura
    - Uso
  * - Plan
-   - PLAN_[Tema]_vX_Y_Z.md
+   - PLAN_[Tema]_vX_Y_Z.rst
    - Planificar actividades
  * - Analisis
-   - ANALISIS_[Tema]_vX_Y_Z.md
+   - ANALISIS_[Tema]_vX_Y_Z.rst
    - Documentar hallazgos
  * - Reporte
-   - REPORTE_[Tema].md
+   - REPORTE_[Tema].rst
    - Resumir resultados
 
 ----
@@ -77,7 +77,7 @@ Crear documentos de analisis (.md) para planificar sesiones de generacion.
 
 **Paso 1: Definir Nomenclatura**
 
-Formato: ``[TIPO]_[Tema]_v[X]_[Y]_[Z].md``
+Formato: ``[TIPO]_[Tema]_v[X]_[Y]_[Z].rst``
 
 **Paso 2: Crear Estructura**
 
@@ -91,7 +91,7 @@ Tablas con datos cuantitativos y tracking de progreso.
 
 .. code-block:: bash
 
- /tmp/PLAN_FR_GENERACION_v1_0_0.md
+ /tmp/PLAN_FR_GENERACION_v1_0_0.rst
 
 **Paso 5: Copiar a outputs**
 
@@ -107,7 +107,7 @@ Ejecutar PROC_Copiar_Tmp_Outputs.
 
  * - Artefacto
    - Ubicacion
- * - [TIPO]_[Tema]_vX_Y_Z.md
+ * - [TIPO]_[Tema]_vX_Y_Z.rst
    - /tmp/ -> /outputs/
 
 ----

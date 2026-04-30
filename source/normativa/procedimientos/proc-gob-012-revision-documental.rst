@@ -75,7 +75,7 @@ Procedimiento de Revisión
 ^^^^^^^^^^^^^^^^^
 
 - [ ] Seguir `Estándares de
-  Documentación <../gobernanza/documentacion_corporativa.md>`__
+  Documentación <../gobernanza/documentacion_corporativa.rst>`__
 
 - [ ] Mantener formato markdown consistente
 
@@ -100,17 +100,17 @@ Procedimiento de Revisión
  mkdocs serve
 
  # Verificar links
- find docs -name "*.md" -exec grep -l "](.*)" {} \; | \
+ find docs -name "*.rst" -exec grep -l "](.*)" {} \; | \
  xargs -I {} bash -c 'echo "Checking {}"; grep -o "](.*)" {}'
 
  # Spell check (opcional)
- aspell check docs/gobernanza/procesos/procedimiento_qa.md
+ aspell check docs/gobernanza/procesos/procedimiento_qa.rst
 
 2. Checklist de Auto-Revisión
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ver: `Checklist de Cambios
-Documentales <../checklists/checklist_cambios_documentales.md>`__
+Documentales <../checklists/checklist_cambios_documentales.rst>`__
 
 Contenido
 ^^^^^^^^^
@@ -182,7 +182,7 @@ Calidad
  ## Impacto
  - **Quién lo usa**: Equipo QA, desarrolladores
  - **Breaking changes**: No
- - **Documentos relacionados**: procedimiento_desarrollo_local.md
+ - **Documentos relacionados**: procedimiento_desarrollo_local.rst
 
  ## Checklist
  - [x] Front matter actualizado
@@ -269,8 +269,8 @@ Crear ADR
 .. code:: bash
 
  # Usar plantilla
- cp docs/arquitectura/adr/plantilla_adr.md \
- docs/arquitectura/adr/adr_2025_002_nombre_decision.md
+ cp docs/arquitectura/adr/plantilla_adr.rst \
+ docs/arquitectura/adr/adr_2025_002_nombre_decision.rst
 
  # Completar todas las secciones
  # Status: Proposed
@@ -315,9 +315,9 @@ Recursos Relacionados
 ---------------------
 
 - `Documentación
-  Corporativa <../gobernanza/documentacion_corporativa.md>`__
+  Corporativa <../gobernanza/documentacion_corporativa.rst>`__
 - `Checklist de Cambios
-  Documentales <../checklists/checklist_cambios_documentales.md>`__
+  Documentales <../checklists/checklist_cambios_documentales.rst>`__
 - :doc:`Plantilla de ADR </gestion/plantilla-adr>`
 
 Changelog

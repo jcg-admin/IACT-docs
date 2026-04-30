@@ -20,7 +20,7 @@ arquitectura y DevOps.
 Página padre
 ------------
 
-- ```readme.md`` <readme.md>`__
+- ```readme.rst`` <readme>`__
 
 Línea base de QA
 ----------------
@@ -49,13 +49,13 @@ Métricas esperadas
      - Bitácora en ``registros/``.
    * - Actividades de control documental completadas
      - 100 % por release
-     - ``actividades_garan tia_documental.md``
+     - ``actividades_garan tia_documental.rst``
 
 Actividades coordinadas
 -----------------------
 
 - Seguir las tareas definidas en
-  ```actividades_garantia_documental.md`` <actividades_garantia_documental.md>`__
+  ```actividades_garantia_documental.rst`` <actividades_garantia_documental.rst>`__
   para revisar plantillas y trazabilidad.
 - Levantar hallazgos en ``qa/registros/`` cuando se detecten
   incumplimientos de documentación.

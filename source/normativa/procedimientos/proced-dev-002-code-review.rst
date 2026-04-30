@@ -426,9 +426,9 @@ Referencias
 - `Google Engineering Practices - Code
   Review <https://google.github.io/eng-practices/review/>`__
 - `PROC-QA-001: Actividades de Garantía
-  Documental <../procesos/PROC-QA-001-actividades_garantia_documental.md>`__
+  Documental <../procesos/PROC-QA-001-actividades_garantia_documental.rst>`__
 - `PROC-QA-002: Estrategia
-  QA <../procesos/PROC-QA-002-estrategia_qa.md>`__
+  QA <../procesos/PROC-QA-002-estrategia_qa.rst>`__
 
 Historial de Cambios
 --------------------

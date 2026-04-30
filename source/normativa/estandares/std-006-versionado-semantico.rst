@@ -34,7 +34,7 @@ adaptándolo a las necesidades específicas de documentación técnica.
 
 Este estándar aplica a:
 
-- Modelo Documental IACT (MODELO_DOCUMENTAL_IACT_vX.Y.Z.md)
+- Modelo Documental IACT (MODELO_DOCUMENTAL_IACT_vX.Y.Z.rst)
 - Documentos fundacionales (FND_xx)
 - Casos de uso (UC_xxx_xx)
 - Requisitos funcionales (FR_UCxxx_xx_xx)

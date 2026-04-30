@@ -725,13 +725,13 @@ Patrón de IDs
 
 ::
 
- RN-DOMINIO-###-descripcion.md
+ RN-DOMINIO-###-descripcion.rst
 
 O alternativamente:
 
 ::
 
- BR-DOMINIO-###-descripcion.md
+ BR-DOMINIO-###-descripcion.rst
 
 Donde: - **RN** o **BR**: Regla de Negocio (Business Rule) -
 **DOMINIO**: BACK, FRONT, DEVOPS, QA, AI, GOB - **###**: Número
@@ -742,11 +742,11 @@ Ejemplos de Nomenclatura
 
 ::
 
- RN-BACK-001-autenticacion-obligatoria.md
- RN-BACK-028-restriccion-acceso-gerentes.md
- RN-BACK-031-notificacion-caducidad-producto.md
- RN-GOB-042-elegibilidad-graduacion.md
- RN-BACK-050-calculo-envio-terrestre.md
+ RN-BACK-001-autenticacion-obligatoria.rst
+ RN-BACK-028-restriccion-acceso-gerentes.rst
+ RN-BACK-031-notificacion-caducidad-producto.rst
+ RN-GOB-042-elegibilidad-graduacion.rst
+ RN-BACK-050-calculo-envio-terrestre.rst
 
 Ubicación en Proyecto
 ---------------------
@@ -755,28 +755,28 @@ Ubicación en Proyecto
 
  docs/gobernanza/requisitos/reglas_negocio/
  ├── hechos/
- │ ├── RN-BACK-001-identificador-unico-contenedor.md
- │ ├── RN-BACK-002-orden-requiere-costo-envio.md
- │ └── RN-GOB-010-matricula-obligatoria-estudiantes.md
+ │ ├── RN-BACK-001-identificador-unico-contenedor.rst
+ │ ├── RN-BACK-002-orden-requiere-costo-envio.rst
+ │ └── RN-GOB-010-matricula-obligatoria-estudiantes.rst
  ├── restricciones/
- │ ├── RN-BACK-020-cosignatario-prestamo-menores.md
- │ ├── RN-BACK-022-ocultacion-numeros-sensibles.md
+ │ ├── RN-BACK-020-cosignatario-prestamo-menores.rst
+ │ ├── RN-BACK-022-ocultacion-numeros-sensibles.rst
  │ └── matrices/
- │ └── MATRIZ-BACK-001-permisos-sistema-principal.md
+ │ └── MATRIZ-BACK-001-permisos-sistema-principal.rst
  ├── desencadenadores/
- │ ├── RN-BACK-030-oferta-productos-stock.md
- │ ├── RN-BACK-031-notificacion-caducidad.md
- │ └── RN-BACK-032-bloqueo-intentos-login.md
+ │ ├── RN-BACK-030-oferta-productos-stock.rst
+ │ ├── RN-BACK-031-notificacion-caducidad.rst
+ │ └── RN-BACK-032-bloqueo-intentos-login.rst
  ├── inferencias/
- │ ├── RN-BACK-040-cuenta-marcada-deudora.md
- │ ├── RN-BACK-041-orden-marcada-cancelada.md
- │ └── RN-GOB-042-estudiante-elegible-graduacion.md
+ │ ├── RN-BACK-040-cuenta-marcada-deudora.rst
+ │ ├── RN-BACK-041-orden-marcada-cancelada.rst
+ │ └── RN-GOB-042-estudiante-elegible-graduacion.rst
  └── calculos/
- ├── RN-BACK-050-calculo-envio-terrestre.md
- ├── RN-BACK-051-precio-total-orden.md
- ├── RN-BACK-052-tabla-descuentos-volumen.md
+ ├── RN-BACK-050-calculo-envio-terrestre.rst
+ ├── RN-BACK-051-precio-total-orden.rst
+ ├── RN-BACK-052-tabla-descuentos-volumen.rst
  └── tablas/
- └── TABLA-BACK-001-descuentos-volumen.md
+ └── TABLA-BACK-001-descuentos-volumen.rst
 
 Alternativas Consideradas
 -------------------------
@@ -926,11 +926,11 @@ Fase 1: Capacitación (Semana 1)
 Fase 2: Templates (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Crear templates para cada tipo: - ``templates/RN-hecho-template.md`` -
-``templates/RN-restriccion-template.md`` -
-``templates/RN-desencadenador-template.md`` -
-``templates/RN-inferencia-template.md`` -
-``templates/RN-calculo-template.md``
+Crear templates para cada tipo: - ``templates/RN-hecho-template.rst`` -
+``templates/RN-restriccion-template.rst`` -
+``templates/RN-desencadenador-template.rst`` -
+``templates/RN-inferencia-template.rst`` -
+``templates/RN-calculo-template.rst``
 
 Fase 3: Identificación de Reglas Existentes (Semana 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -971,9 +971,9 @@ Referencias
 - `OMG Business Motivation Model
   (BMM) <https://www.omg.org/spec/BMM/>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 
 Historial de Cambios
 --------------------

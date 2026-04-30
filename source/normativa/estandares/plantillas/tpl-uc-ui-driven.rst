@@ -886,7 +886,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.md
+- PARTE_2_Documentar_Use_Cases_IACT_1_0_0.rst
 
 **Librerias UI:**
 

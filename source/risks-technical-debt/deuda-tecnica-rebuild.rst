@@ -55,13 +55,13 @@ Catalogo de deuda activa
    - Pendiente decision
  * - DEBT-007
    - WP #7 v1 audit
-   - ANALISIS_PROFUNDO_RBAC_MODULOS_IACT.md no migrado. Profundiza el analisis de los 8 modulos arquitectonicos.
+   - ANALISIS_PROFUNDO_RBAC_MODULOS_IACT.rst no migrado. Profundiza el analisis de los 8 modulos arquitectonicos.
    - Pendiente iteracion correspondiente
 
 Trazabilidad
 ============
 
-- ``cross-wp-deep-audit-2026-04-29.md`` (WP padre track/) — audit master
-- ``deep-review-fases-1-2-2026-04-29.md`` (WP padre track/) — review independiente 1
-- ``deep-review-fase-3-2026-04-29.md`` (WP padre track/) — review independiente 2
-- ``v1-omisiones-temp-holding.md`` (WP #7 track/) — audit omisiones
+- ``cross-wp-deep-audit-2026-04-29.rst`` (WP padre track/) — audit master
+- ``deep-review-fases-1-2-2026-04-29.rst`` (WP padre track/) — review independiente 1
+- ``deep-review-fase-3-2026-04-29.rst`` (WP padre track/) — review independiente 2
+- ``v1-omisiones-temp-holding.rst`` (WP #7 track/) — audit omisiones

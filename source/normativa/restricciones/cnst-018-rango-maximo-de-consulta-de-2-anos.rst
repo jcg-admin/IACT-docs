@@ -60,7 +60,7 @@ vez son utiles desde el punto de vista de negocio.
 ^^^^^^^^^^
 
 - **Fuente:** Performance + utilidad de negocio
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:761
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:761
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

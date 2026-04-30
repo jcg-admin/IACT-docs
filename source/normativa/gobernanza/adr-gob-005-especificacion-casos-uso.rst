@@ -178,7 +178,7 @@ Nomenclatura de Archivos
 
 ::
 
- UC-DOMINIO-###-verbo-objeto.md
+ UC-DOMINIO-###-verbo-objeto.rst
 
 Donde: - **UC**: Use Case - **DOMINIO**: BACK, FRONT, DEVOPS, QA, AI,
 GOB - **###**: Número secuencial 001-999 - **verbo-objeto**: En
@@ -188,10 +188,10 @@ snake_case (minúsculas con guiones)
 
 ::
 
- UC-BACK-001-iniciar-sesion.md
- UC-BACK-004-solicitar-producto-quimico.md
- UC-FRONT-001-registrar-vuelo.md
- UC-BACK-010-gestionar-permisos.md
+ UC-BACK-001-iniciar-sesion.rst
+ UC-BACK-004-solicitar-producto-quimico.rst
+ UC-FRONT-001-registrar-vuelo.rst
+ UC-BACK-010-gestionar-permisos.rst
 
 Grado de Formalidad: Completo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -548,13 +548,13 @@ Ubicación en Proyecto
 ::
 
  docs/gobernanza/requisitos/requerimientos_usuario/casos_uso/
- ├── UC-BACK-001-iniciar-sesion.md
- ├── UC-BACK-002-gestionar-permisos.md
- ├── UC-BACK-003-cambiar-contrasena.md
- ├── UC-BACK-004-solicitar-producto-quimico.md
- ├── UC-BACK-005-generar-reporte-auditoria.md
- ├── UC-FRONT-001-registrar-vuelo.md
- ├── UC-FRONT-002-imprimir-pases-abordar.md
+ ├── UC-BACK-001-iniciar-sesion.rst
+ ├── UC-BACK-002-gestionar-permisos.rst
+ ├── UC-BACK-003-cambiar-contrasena.rst
+ ├── UC-BACK-004-solicitar-producto-quimico.rst
+ ├── UC-BACK-005-generar-reporte-auditoria.rst
+ ├── UC-FRONT-001-registrar-vuelo.rst
+ ├── UC-FRONT-002-imprimir-pases-abordar.rst
  └── ...
 
 Alternativas Consideradas
@@ -753,8 +753,8 @@ Fase 1: Reorganización (Semana 1)
 Fase 2: Templates (Semana 1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Crear: - ``templates/UC-template-completo.md``: Plantilla con todas las
-secciones - ``templates/UC-ejemplo-procesar-venta.md``: Ejemplo completo
+Crear: - ``templates/UC-template-completo.rst``: Plantilla con todas las
+secciones - ``templates/UC-ejemplo-procesar-venta.rst``: Ejemplo completo
 como referencia
 
 Fase 3: Capacitación (Semana 2)
@@ -786,7 +786,7 @@ Fase 5: Creación de Nuevos Casos (Ongoing)
 
 Derivar casos de uso desde: - Requerimientos de negocio documentados -
 Análisis del marco integrado (ver
-REPORTE_ANALISIS_MARCO_INTEGRADO_20251117_083500.md) - Entrevistas con
+REPORTE_ANALISIS_MARCO_INTEGRADO_20251117_083500.rst) - Entrevistas con
 stakeholders
 
 Validación
@@ -819,13 +819,13 @@ Referencias
 - `Alistair Cockburn: Writing Effective Use Cases
   (2000) <https://www.amazon.com/Writing-Effective-Use-Cases-Cockburn/dp/0201702258>`__
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles <ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio <ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
 - `ADR-GOB-008: Diagramas UML de Casos de
-  Uso <ADR-GOB-008-diagramas-uml-casos-uso.md>`__
+  Uso <ADR-GOB-008-diagramas-uml-casos-uso.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos <ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 
 Historial de Cambios
 --------------------

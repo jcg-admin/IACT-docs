@@ -196,7 +196,7 @@ Patrón de Nomenclatura
 
 ::
 
- RN-DOMINIO-###-descripcion.md
+ RN-DOMINIO-###-descripcion.rst
 
 Donde: - **RN**: Regla de Negocio (o BR: Business Rule) - **DOMINIO**:
 BACK \| FRONT \| DEVOPS \| QA \| AI \| GOB - **###**: Número secuencial
@@ -211,8 +211,8 @@ Acciones
 
 .. code:: bash
 
- ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md | sort | tail -1
- # Ejemplo salida: RN-BACK-028-restriccion-acceso.md
+ ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.rst | sort | tail -1
+ # Ejemplo salida: RN-BACK-028-restriccion-acceso.rst
  # Siguiente número: 029
 
 2. Generar descripción breve en snake_case:
@@ -228,11 +228,11 @@ Ejemplos de IDs Correctos
 
 ::
 
- RN-BACK-001-autenticacion-obligatoria.md
- RN-BACK-028-restriccion-acceso-gerentes.md
- RN-BACK-031-notificacion-caducidad-producto.md
- RN-GOB-042-elegibilidad-graduacion.md
- RN-BACK-050-calculo-envio-terrestre.md
+ RN-BACK-001-autenticacion-obligatoria.rst
+ RN-BACK-028-restriccion-acceso-gerentes.rst
+ RN-BACK-031-notificacion-caducidad-producto.rst
+ RN-GOB-042-elegibilidad-graduacion.rst
+ RN-BACK-050-calculo-envio-terrestre.rst
 
 .. _proced-gob-003-documentar-regla-negocio-validación-2:
 
@@ -242,7 +242,7 @@ Validación
 - [ ] ID no existe previamente
 - [ ] Número es consecutivo al último del dominio
 - [ ] Descripción en snake_case
-- [ ] Formato correcto: RN-DOMINIO-###-descripcion.md
+- [ ] Formato correcto: RN-DOMINIO-###-descripcion.rst
 
 PASO 4: Completar Template Apropiado según Tipo
 -----------------------------------------------
@@ -734,13 +734,13 @@ Acciones
 .. code:: bash
 
  # Ejemplo para restricción
- ls -la docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.md
+ ls -la docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.rst
 
 2. **Agregar al staging**:
 
 .. code:: bash
 
- git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.md
+ git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-ejemplo.rst
 
 3. **Verificar status**:
 
@@ -821,7 +821,7 @@ PASO 3: ID Asignado
 
 ::
 
- RN-BACK-029-restriccion-acceso-configuracion.md
+ RN-BACK-029-restriccion-acceso-configuracion.rst
 
 PASO 4: Template Completado
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -935,7 +935,7 @@ PASO 7: Commit
 
 .. code:: bash
 
- git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-acceso-configuracion.md
+ git add docs/gobernanza/requisitos/reglas_negocio/restricciones/RN-BACK-029-restriccion-acceso-configuracion.rst
 
  git commit -m "$(cat <<'EOF'
  docs(requisitos): agregar RN-BACK-029 restricción de acceso a configuración
@@ -982,10 +982,10 @@ Problema 2: No encuentro el último número de secuencia
 .. code:: bash
 
  # Ver todos los archivos del dominio ordenados
- ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md | sort
+ ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.rst | sort
 
  # Obtener el último
- ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.md | sort | tail -1
+ ls docs/gobernanza/requisitos/reglas_negocio/**/*BACK*.rst | sort | tail -1
 
 Problema 3: No sé qué poner en “Impacto en Requisitos”
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1021,11 +1021,11 @@ Referencias
 -----------
 
 - `ADR-GOB-005: Jerarquía de Requerimientos en 5
-  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.md>`__
+  Niveles </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-005-jerarquia-requerimientos-5-niveles.rst>`__
 - `ADR-GOB-006: Clasificación y Documentación de Reglas de
-  Negocio </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.md>`__
+  Negocio </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-006-clasificacion-reglas-negocio.rst>`__
 - `ADR-GOB-009: Trazabilidad entre Artefactos de
-  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.md>`__
+  Requisitos </home/user/IACT---project/docs/gobernanza/adr/ADR-GOB-009-trazabilidad-artefactos-requisitos.rst>`__
 
 Historial de Cambios
 --------------------

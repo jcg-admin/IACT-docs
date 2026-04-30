@@ -62,7 +62,7 @@ items que el usuario realmente puede ejecutar.
 ^^^^^^^^^^
 
 - **Fuente:** Decision arquitectonica (D-RBAC-5)
-- **Documento:** rbac-formalization.md § 8 (WP #6 requisitos)
+- **Documento:** rbac-formalization.rst § 8 (WP #6 requisitos)
 - **Fecha:** 2026-04-29
 
 2. Especificacion Tecnica

@@ -2207,7 +2207,7 @@ REFERENCIAS
 
 **Material Pedagogico:**
 
-- PARTE_1_Identificar_Reglas_Negocio_IACT_1_0_0.md
+- PARTE_1_Identificar_Reglas_Negocio_IACT_1_0_0.rst
  
   - Seccion 2: Taxonomia de Business Rules, 5 tipos
   - Seccion 3: Desencadenadores vs Inferencias, TEST CRITICO

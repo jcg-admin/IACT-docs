@@ -431,7 +431,7 @@ Code Review Checklist
 - OK POSIX _prefix convention está bien explicado para documentadores no-técnicos
 
   - Section 2 explains private vs. public with clear examples
-  - Reference to ADR-plantuml-naming-conventions.md included
+  - Reference to ADR-plantuml-naming-conventions.rst included
 
 - OK Ejemplos compilan y funcionan (PlantUML syntax correcto)
 
@@ -441,7 +441,7 @@ Code Review Checklist
 - OK Referencias a ADR incluidas y validadas en POSIX section
 
   - ADR reference in POSIX _prefix Convention section
-  - Link to adr-plantuml-naming-conventions.md correctly formatted
+  - Link to adr-plantuml-naming-conventions.rst correctly formatted
 
 - OK Terminología consistente con rest del proyecto
 

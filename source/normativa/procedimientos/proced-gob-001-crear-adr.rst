@@ -125,12 +125,12 @@ Según el área técnica afectada:
  cd docs/gobernanza/adr
 
  # Listar ADRs del dominio específico
- ls -1 ADR-BACK-*.md | tail -1
- # Output: ADR-BACK-005-servicios-resilientes.md
+ ls -1 ADR-BACK-*.rst | tail -1
+ # Output: ADR-BACK-005-servicios-resilientes.rst
 
  # Siguiente número: ADR-BACK-006
 
-**Patrón**: ``ADR-{DOMINIO}-{###}-{titulo-descriptivo}.md``
+**Patrón**: ``ADR-{DOMINIO}-{###}-{titulo-descriptivo}.rst``
 
 --------------
 
@@ -143,7 +143,7 @@ PASO 3: Crear Archivo ADR
 .. code:: bash
 
  # Ejemplo: ADR para elegir ORM en backend
- touch docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+ touch docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.rst
 
 3.2 Agregar estructura base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -513,7 +513,7 @@ Revisar checklist:
  git checkout -b docs/adr-back-006-django-orm
 
  # Agregar ADR
- git add docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+ git add docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.rst
 
  # Commit
  git commit -m "docs(adr): ADR-BACK-006 selección de Django ORM
@@ -609,7 +609,7 @@ PASO 7: Comunicar la Decisión
 
  Hemos decidido usar Django ORM como capa de abstracción de BD.
 
- Link: https://github.com/org/repo/blob/main/docs/gobernanza/adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md
+ Link: https://github.com/{org}/{repo}/blob/main/docs/{path}/adr/{filename}
 
  Implementación comienza próxima semana. Preguntas/comentarios bienvenidos.
 
@@ -618,15 +618,15 @@ PASO 7: Comunicar la Decisión
 7.2 Actualizar índice de ADRs (si existe)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Si hay un README en ``/docs/gobernanza/adr/README.md``, agregar entrada:
+Si hay un README en ``/docs/gobernanza/adr/README.rst``, agregar entrada:
 
 .. code:: markdown
 
  ## Backend (BACK)
 
- - [ADR-BACK-001: Grupos Funcionales Sin Jerarquía](ADR-BACK-001-grupos-funcionales-sin-jerarquia.md)
+ - [ADR-BACK-001: Grupos Funcionales Sin Jerarquía](ADR-BACK-001-grupos-funcionales-sin-jerarquia.rst)
  - ...
- - [ADR-BACK-006: Django ORM vs SQLAlchemy](ADR-BACK-006-django-orm-vs-sqlalchemy.md) [IMPORTANTE] NEW
+ - [ADR-BACK-006: Django ORM vs SQLAlchemy](ADR-BACK-006-django-orm-vs-sqlalchemy.rst) [IMPORTANTE] NEW
 
 --------------
 
@@ -664,7 +664,7 @@ Checklist Final
 
 Antes de marcar ADR como completo:
 
-- [ ] Archivo nombrado correctamente: ``ADR-{DOMINIO}-{###}-{titulo}.md``
+- [ ] Archivo nombrado correctamente: ``ADR-{DOMINIO}-{###}-{titulo}.rst``
 - [ ] Frontmatter completo y correcto
 - [ ] Contexto claro y conciso
 - [ ] Decisión inequívoca
@@ -683,9 +683,9 @@ Referencias
 -----------
 
 - `ADR-GOB-002: Organización de Proyecto por
-  Dominio <../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.md>`__
+  Dominio <../adr/ADR-GOB-002-organizacion-proyecto-por-dominio.rst>`__
 - `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 - `Architecture Decision Records - Michael
   Nygard <https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions>`__
 

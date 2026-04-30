@@ -60,7 +60,7 @@ analisis historico, no para operacion en tiempo real.
 ^^^^^^^^^^
 
 - **Fuente:** Limitacion tecnica + carga predecible sobre cliente
-- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:154-155
+- **Documento:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:154-155
 - **Fecha:** 2025-01-01
 
 2. Especificacion Tecnica

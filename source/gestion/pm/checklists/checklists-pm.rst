@@ -18,7 +18,7 @@ consistencia en procesos repetitivos del proyecto IACT.
 Página padre
 ------------
 
-- ``index.md`` (índice histórico, ahora en source/index.rst)
+- ``index.rst`` (índice histórico, ahora en source/index.rst)
 
 Información clave
 -----------------
@@ -109,7 +109,7 @@ Checklists Disponibles
 - [ ] Todos los tests pasan localmente
 - [ ] Cobertura cumple mínimo 80%
 - [ ] Documentación actualizada (si aplica)
-- [ ] CHANGELOG.md actualizado (si es release)
+- [ ] CHANGELOG actualizado (si es release)
 - [ ] Screenshots incluidos (si es cambio visual)
 - [ ] Migraciones generadas (si cambió modelos)
 
@@ -202,7 +202,7 @@ creado (si decisión arquitectónica)
 - [ ] Code review aprobado
 - [ ] Merge a rama develop/main
 - [ ] Tag de versión creado (``v1.2.3``)
-- [ ] CHANGELOG.md actualizado
+- [ ] CHANGELOG actualizado
 - [ ] Migraciones revisadas
 - [ ] Backup de DB realizado
 - [ ] Ventana de mantenimiento comunicada
@@ -235,9 +235,9 @@ creado (si decisión arquitectónica)
 - [ ] Acceso a GitHub configurado
 - [ ] Agregado a organización 2-Coatl
 - [ ] Acceso a Slack/Teams
-- [ ] Lectura de README.md
+- [ ] Lectura de README
 - [ ] Lectura de
-  ``claude-code-conventions.md`` (vive en .github/, no en source)
+  ``claude-code-conventions.rst`` (vive en .github/, no en source)
 
 **Primera Semana:**
 
@@ -246,9 +246,9 @@ creado (si decisión arquitectónica)
 - [ ] Tests corriendo localmente
 - [ ] Primer commit realizado
 - [ ] Primer PR creado (pequeño cambio)
-- [ ] Lectura de ``arquitectura/readme.md`` (índice no migrado)
+- [ ] Lectura de ``arquitectura/readme.rst`` (índice no migrado)
 - [ ] Lectura de `Lineamientos de
-  Código <../arquitectura/lineamientos_codigo.md>`__
+  Código <../arquitectura/lineamientos_codigo.rst>`__
 
 **Primer Mes:**
 
@@ -350,7 +350,7 @@ Incluir checklist relevante en descripción:
  - [x] Tests pasan
  - [x] Cobertura >= 80%
  - [x] Documentación actualizada
- - [ ] CHANGELOG.md actualizado (N/A - no es release)
+ - [ ] CHANGELOG actualizado (N/A - no es release)
 
 En Issues
 ~~~~~~~~~
@@ -442,10 +442,10 @@ Acciones prioritarias
 Recursos relacionados
 ---------------------
 
-- ``gobernanza/readme.md`` (índice no migrado)
+- ``gobernanza/readme.rst`` (índice no migrado)
 - :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
-- ``lineamientos_codigo.md`` (no migrado a source)
+- ``lineamientos_codigo.rst`` (no migrado a source)
 - `Convenciones de Claude
-  Code <../../.github/claude-code-conventions.md>`__
-- ``backend/checklists/readme.md`` (no migrado a source)
-- ``frontend/checklists/readme.md`` (no migrado a source)
+  Code <../../.github/claude-code-conventions.rst>`__
+- ``backend/checklists/readme.rst`` (no migrado a source)
+- ``frontend/checklists/readme.rst`` (no migrado a source)

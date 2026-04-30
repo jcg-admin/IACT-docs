@@ -74,7 +74,7 @@ según observación empírica de uso real.
 ^^^^^^^^^^
 
 - **Fuente:** Aislamiento de recursos + control anti-abuse
-- **Documento original:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.md:621-640 (v1.0)
+- **Documento original:** RESTRICCIONES_COMPLETAS_DEL_SISTEMA_IACT.rst:621-640 (v1.0)
 - **Revisión v3.0.0:** WP rbac-modelo-conceptual-cleanup, decision D-08
 - **Fecha:** 2026-04-30
 

@@ -45,8 +45,8 @@ Vista Rápida del Flujo
 
 **Nota**: Para features complejas, el paso 2 incluye crear
 especificación formal (spec) usando
-``docs/plantillas/desarrollo/plantilla_spec.md`` y plan de
-implementación usando ``docs/plantillas/desarrollo/plantilla_plan.md``.
+``docs/plantillas/desarrollo/plantilla_spec.rst`` y plan de
+implementación usando ``docs/plantillas/desarrollo/plantilla_plan.rst``.
 
 --------------
 
@@ -232,7 +232,7 @@ Antes de crear una feature, define claramente:
 Para features complejas o significativas, crear una especificación
 formal usando la plantilla:
 
-**Plantilla**: ``docs/plantillas/desarrollo/plantilla_spec.md``
+**Plantilla**: ``docs/plantillas/desarrollo/plantilla_spec.rst``
 
 **Cuándo crear una spec**: - Features que afectan múltiples componentes
 - Cambios en modelos de datos o arquitectura - Features con requisitos
@@ -244,14 +244,14 @@ antes de implementar
 .. code:: bash
 
  # 1. Copiar plantilla
- cp docs/plantillas/desarrollo/plantilla_spec.md \
- docs/specs/nombre-feature.md
+ cp docs/plantillas/desarrollo/plantilla_spec.rst \
+ docs/specs/nombre-feature.rst
 
  # 2. Completar todas las secciones requeridas
- # Editar docs/specs/nombre-feature.md con tu editor
+ # Editar docs/specs/nombre-feature.rst con tu editor
 
  # 3. Commit de spec
- git add docs/specs/nombre-feature.md
+ git add docs/specs/nombre-feature.rst
  git commit -m "docs: agregar especificación de nombre-feature"
 
 **Secciones clave a completar**: - Metadata y trazabilidad (requisitos,
@@ -260,7 +260,7 @@ Requisitos no funcionales (performance, seguridad) - Diseño de solución
 (arquitectura, modelos, APIs) - Plan de testing y despliegue - Riesgos e
 impacto
 
-**Referencia**: Ver ``docs/plantillas/desarrollo/plantilla_spec.md``
+**Referencia**: Ver ``docs/plantillas/desarrollo/plantilla_spec.rst``
 para estructura completa.
 
 2.1.2 Crear Plan de Implementación (Plan)
@@ -268,7 +268,7 @@ para estructura completa.
 
 Una vez aprobada la spec, crear un plan detallado de implementación:
 
-**Plantilla**: ``docs/plantillas/desarrollo/plantilla_plan.md``
+**Plantilla**: ``docs/plantillas/desarrollo/plantilla_plan.rst``
 
 **Cuándo crear un plan**: - Siempre que exista una spec - Features que
 tomen más de 2 días de desarrollo - Cuando múltiples desarrolladores
@@ -280,14 +280,14 @@ equipos
 .. code:: bash
 
  # 1. Copiar plantilla
- cp docs/plantillas/desarrollo/plantilla_plan.md \
- docs/plans/nombre-feature.md
+ cp docs/plantillas/desarrollo/plantilla_plan.rst \
+ docs/plans/nombre-feature.rst
 
  # 2. Completar plan de tareas
- # Editar docs/plans/nombre-feature.md con tu editor
+ # Editar docs/plans/nombre-feature.rst con tu editor
 
  # 3. Commit de plan
- git add docs/plans/nombre-feature.md
+ git add docs/plans/nombre-feature.rst
  git commit -m "docs: agregar plan de implementación de nombre-feature"
 
 **Secciones clave a completar**: - Pre-requisitos (conocimientos, setup,
@@ -295,7 +295,7 @@ documentación) - Arquitectura de la solución - Plan de tareas detallado
 por fases - Estimaciones de tiempo por tarea - Plan de testing y deploy
 - Riesgos y mitigaciones - Checklist final de completitud
 
-**Referencia**: Ver ``docs/plantillas/desarrollo/plantilla_plan.md``
+**Referencia**: Ver ``docs/plantillas/desarrollo/plantilla_plan.rst``
 para estructura completa.
 
 **Nota**: El plan es un documento vivo. Actualízalo a medida que avanzas
@@ -1965,13 +1965,13 @@ Documentación Interna
 ~~~~~~~~~~~~~~~~~~~~~
 
 - `Procedimiento de Gestión de
-  Cambios <procedimiento_gestion_cambios.md>`__ - Proceso formal
+  Cambios <procedimiento_gestion_cambios.rst>`__ - Proceso formal
 - `Procedimiento de Desarrollo
-  Local <procedimiento_desarrollo_local.md>`__ - Setup entorno
+  Local <procedimiento_desarrollo_local.rst>`__ - Setup entorno
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>` - Testing y calidad
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>` - Releases y
   deployment
-- ``lineamientos_codigo.md`` (no migrado a source) -
+- ``lineamientos_codigo.rst`` (no migrado a source) -
   Estándares de código
 - :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source) -
   Checklist completo

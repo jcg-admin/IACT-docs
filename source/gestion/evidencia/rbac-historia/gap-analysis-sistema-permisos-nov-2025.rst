@@ -212,7 +212,7 @@ documentacion en spec-only (sin implementacion).
 ========================
 
 **Documento original:**
-``temp-holding/FASE 01/docs/gobernanza/sesiones/analisis_nov_2025/GAP_ANALYSIS_SISTEMA_PERMISOS.md``
+``temp-holding/FASE 01/docs/gobernanza/sesiones/analisis_nov_2025/GAP_ANALYSIS_SISTEMA_PERMISOS.rst``
 (no publicado).
 
 **Estado actual del proyecto:** spec abstracta sin

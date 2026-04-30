@@ -29,7 +29,7 @@ TPL_UI_UX: Plantilla de Diseño UI/UX
  * - **Pantalla / Feature**
    - {nombre}
  * - **UC asociado**
-   - :doc:`/requisitos/casos-uso/{módulo}/{uc}`
+   - ``/requisitos/casos-uso/{módulo}/{uc}`` (ruta del UC parent)
  * - **Designer**
    - {nombre}
 

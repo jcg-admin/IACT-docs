@@ -24,7 +24,7 @@ UC_RPT_15: Ver Reporte de Transferencias por Centro
 
  Trazabilidad histórica: corresponde al UC-019 declarado en
  modelo RBAC v5.0/v5.1 (temp-holding) y mencionado en
- frontend/analisis_api_frontend.md.
+ frontend/analisis_api_frontend.rst.
 
 1. Resumen
 ----------

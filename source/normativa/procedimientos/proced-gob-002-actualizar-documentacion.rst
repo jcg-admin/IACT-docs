@@ -72,7 +72,7 @@ Realizar audit trimestral:
 .. code:: bash
 
  # Listar docs modificadas hace > 6 meses
- find docs/ -name "*.md" -mtime +180
+ find docs/ -name "*.rst" -mtime +180
 
  # Revisar cada una y determinar si requiere update
 
@@ -134,7 +134,7 @@ PASO 4: Actualizar el Documento
  find docs/ -name "*autenticacion*"
 
  # Abrir en editor
- code docs/guias/GUIA-BACK-003-authentication-guide.md
+ code docs/guias/GUIA-BACK-003-authentication-guide.rst
 
 --------------
 
@@ -323,7 +323,7 @@ Si hay código de ejemplo, ejecutarlo:
 .. code:: bash
 
  # Python
- python -m doctest docs/guias/GUIA-BACK-003-authentication-guide.md
+ python -m doctest docs/guias/GUIA-BACK-003-authentication-guide.rst
 
  # O manualmente copiar y ejecutar ejemplos
 
@@ -335,7 +335,7 @@ Si hay código de ejemplo, ejecutarlo:
 .. code:: bash
 
  # Herramienta para verificar links rotos
- npx markdown-link-check docs/guias/GUIA-BACK-003-authentication-guide.md
+ npx markdown-link-check docs/guias/GUIA-BACK-003-authentication-guide.rst
 
  # O manualmente verificar cada link
 
@@ -347,7 +347,7 @@ Si hay código de ejemplo, ejecutarlo:
 .. code:: bash
 
  # Linter de Markdown
- npx markdownlint docs/guias/GUIA-BACK-003-authentication-guide.md
+ npx markdownlint docs/guias/GUIA-BACK-003-authentication-guide.rst
 
  # Corregir issues reportados
 
@@ -376,17 +376,17 @@ Si otros docs referencian contenido que cambió, actualizarlos también.
 
 **Ejemplo**:
 
-Si ``README.md`` dice:
+Si ``README.rst`` dice:
 
 .. code:: markdown
 
- Para autenticación ver [Guía de Auth](docs/guias/GUIA-BACK-003-authentication-guide.md#basic-auth)
+ Para autenticación ver [Guía de Auth](docs/guias/GUIA-BACK-003-authentication-guide.rst#basic-auth)
 
 Actualizar a:
 
 .. code:: markdown
 
- Para autenticación ver [Guía de Auth](docs/guias/GUIA-BACK-003-authentication-guide.md#login-con-jwt)
+ Para autenticación ver [Guía de Auth](docs/guias/GUIA-BACK-003-authentication-guide.rst#login-con-jwt)
 
 --------------
 
@@ -399,7 +399,7 @@ PASO 7: Commit y PR
 .. code:: bash
 
  # Stage cambios
- git add docs/guias/GUIA-BACK-003-authentication-guide.md
+ git add docs/guias/GUIA-BACK-003-authentication-guide.rst
 
  # Commit
  git commit -m "$(cat <<'EOF'
@@ -496,10 +496,10 @@ Si reviewers solicitan cambios:
 .. code:: bash
 
  # Hacer cambios solicitados
- vim docs/guias/GUIA-BACK-003-authentication-guide.md
+ vim docs/guias/GUIA-BACK-003-authentication-guide.rst
 
  # Commit adicional
- git add docs/guias/GUIA-BACK-003-authentication-guide.md
+ git add docs/guias/GUIA-BACK-003-authentication-guide.rst
  git commit -m "docs(auth): incorporar feedback de review
 
  - Aclarar sección de token expiration
@@ -587,7 +587,7 @@ DO [OK]
 
 5. **Links relativos**
 
-   - ``[ADR](../adr/ADR-BACK-001.md)`` no
+   - ``[ADR](../adr/ADR-BACK-001.rst)`` no
      ``[ADR](https://github.com/...)``
    - Funciona en cualquier entorno
 
@@ -679,10 +679,10 @@ Problema 2: Links rotos después de renombrar archivos
 .. code:: bash
 
  # Encontrar todos los refs al archivo viejo
- grep -r "old-filename.md" docs/
+ grep -r "old-filename.rst" docs/
 
  # Actualizar cada uno manualmente o con sed
- find docs/ -name "*.md" -exec sed -i 's/old-filename.md/new-filename.md/g' {} +
+ find docs/ -name "*.rst" -exec sed -i 's/old-filename.rst/new-filename.rst/g' {} +
 
 --------------
 
@@ -713,9 +713,9 @@ Referencias
 -----------
 
 - `PROC-GOB-001: Mapeo de Procesos y
-  Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.md>`__
+  Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.rst>`__
 - `GUIA-GOB-002: Convenciones de
-  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
+  Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.rst>`__
 - :doc:`PROC_Generacion_ADR: Generación de Decisiones Arquitectónicas </normativa/procedimientos/proc-doc-002-generacion-adr>`
 - `Write the Docs - Documentation
   Guide <https://www.writethedocs.org/guide/>`__
