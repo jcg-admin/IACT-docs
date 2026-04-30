@@ -1296,6 +1296,160 @@ Política IACT para nodos del Context
    PlantUML y se alinea con la convención del
    capítulo.
 
+13.2 Conectar los nodos
+-----------------------
+
+Una vez declarados los nodos (§ 13.1), el siguiente
+paso es **conectarlos** con flechas etiquetadas que
+indiquen la dependencia o interacción entre ellos.
+
+Sintaxis PlantUML para flechas etiquetadas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML usa ``-->`` con la etiqueta separada por
+``:``:
+
+.. code-block:: plantuml
+
+   Supervisor --> IACT : consulta dashboards,\nreconoce alertas
+
+La sintaxis admite también:
+
+- **Flecha derecha-izquierda**: ``A <-- B``.
+- **Línea sin flecha**: ``A -- B``.
+- **Línea punteada**: ``A ..> B`` (útil para
+  dependencias suaves).
+- **Forzar dirección**: ``A -down-> B``,
+  ``A -right-> B`` para dirigir el layout.
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Notas
+ * - ``A-- "etiqueta" -->B``
+   - ``A --> B : etiqueta``
+   - PlantUML usa ``:`` en lugar de comillas.
+ * - ``A-->|"etiqueta"|B``
+   - ``A --> B : etiqueta``
+   - Equivalente directo.
+
+Convención IACT — etiquetas como dependencias
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como recomienda el libro, en un Context las flechas
+modelan **dependencias**: el nodo padre depende de
+algo del nodo hijo. La etiqueta describe **qué**
+necesita el padre del hijo, no el protocolo ni los
+detalles técnicos.
+
+Buenas etiquetas IACT:
+
+- ``consulta dashboards``
+- ``autentica usuarios``
+- ``lee datos del call center``
+- ``recibe eventos del IVR``
+
+Etiquetas a evitar en Context:
+
+- ``HTTPS GET /reportes/04`` (protocolo, no
+  Context).
+- ``ldap://...`` (URL, no Context).
+- ``query analytics_db.sql`` (detalle de
+  implementación).
+
+Construcción incremental — IACT (continuación)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Paso 4**: conectar el actor con el sistema en
+diseño.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — paso 4: actor conectado al sistema
+
+   actor "Supervisor\n[Person]" as Supervisor
+   rectangle "IACT\n[Software System]" as IACT
+
+   Supervisor --> IACT : consulta dashboards,\nreconoce alertas
+   @enduml
+
+**Paso 5**: agregar las dependencias del sistema en
+diseño hacia los sistemas externos.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — paso 5: con sistemas externos conectados
+
+   actor "Supervisor\n[Person]" as Supervisor
+   actor "Auditor\n[Person]" as Auditor
+   actor "Operador ETL\n[Person]" as OETL
+
+   rectangle "IACT\n[Software System]\n\nPlataforma de analitica\nde call center" as IACT
+
+   rectangle "LDAP corporativo\n[External System]" as LDAP
+   rectangle "BD operativa\n[External System]" as BDO
+   rectangle "IVR-host\n[External System]" as IVR
+
+   Supervisor --> IACT : consulta dashboards,\nreconoce alertas
+   Auditor --> IACT : consulta auditoria,\nverifica SoD
+   OETL --> IACT : monitorea ventana ETL
+
+   IACT --> LDAP : autentica usuarios
+   IACT --> BDO : lee datos del call center\n(read-only)
+   IACT --> IVR : recibe eventos del IVR\n(read-only)
+   @enduml
+
+Resultado: el Context diagram completo, equivalente a
+la imagen final de la sección "Vista Context de IACT"
+de § 13. Cualquier colega técnico o no técnico puede
+leerlo y entender quién usa IACT, qué hace y con qué
+sistemas dialoga.
+
+Enlaces en nodos del flowchart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como en los diagramas de clases (§ 16.8 de
+:doc:`analisis-dominio`), los nodos del Context pueden
+llevar enlaces externos. PlantUML usa ``[[url]]``:
+
+.. code-block:: plantuml
+
+   rectangle "LDAP corporativo\n[External System]" as LDAP [[https://corp.example/ldap-docs]]
+
+Pero la política IACT (§ 16.8 de
+:doc:`analisis-dominio`) prefiere mantener las
+referencias en el **texto RST adyacente** con
+``:doc:`` / ``:ref:``, donde Sphinx valida los
+destinos. ``[[url]]`` se reserva para URLs externas
+persistentes (RFCs, especificaciones oficiales).
+
+Política IACT para conexiones del Context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Toda conexión etiquetada** — sin etiqueta el
+   diagrama miente sobre la naturaleza de la
+   dependencia.
+2. **Etiqueta en lenguaje del dominio** — verbos del
+   ubiquitous language (consulta, autentica, lee,
+   recibe).
+3. **Conexiones desde el padre al hijo** — el padre
+   depende del hijo. Si la dependencia es mutua,
+   modelar dos flechas o usar ``--`` (sin dirección)
+   con justificación.
+4. **Sin protocolos** en este nivel — pertenecen a
+   Container.
+5. **Forzar dirección** (``-down->``, ``-right->``)
+   solo cuando el layout automático produce cruces.
+
 ----
 
 Trazabilidad
