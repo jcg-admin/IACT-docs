@@ -288,6 +288,201 @@ Política IACT para containers
    container; centralizar paleta en
    ``plantuml-styles.puml``.
 
+Crear fronteras con boundary / package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando varios containers pertenecen al **mismo sistema**
+en diseño, conviene **agruparlos visualmente** dentro
+de una frontera. Ayuda a separar lo que está "dentro"
+del sistema de lo que está fuera, especialmente cuando
+los colores no bastan.
+
+En la convención de Simon Brown se llama
+**system boundary**. PlantUML lo expresa con
+``package`` o ``rectangle`` con borde discontinuo.
+
+Sintaxis PlantUML
+^^^^^^^^^^^^^^^^^
+
+.. code-block:: plantuml
+
+   package "IACT" {
+     rectangle "iact.wsgi\n[Django + mod_wsgi]" as WSGI <<c4_container>>
+     database "Redis\n[cache + sesiones]" as Redis <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+   }
+
+PlantUML acepta varios "wrappers" según el énfasis:
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Forma
+   - Cuándo usarla
+   - Render
+ * - ``package "X" { }``
+   - Frontera estándar de sistema.
+   - Caja con etiqueta arriba.
+ * - ``rectangle "X" { }``
+   - Equivalente a package; útil si ya se usan
+     muchos packages.
+   - Caja con etiqueta arriba.
+ * - ``frame "X" { }``
+   - Frontera con esquinas redondeadas — útil para
+     sub-sistemas internos.
+   - Caja con esquinas redondeadas.
+ * - ``cloud "X" { }``
+   - Sistemas externos en la "nube" (raro en
+     IACT por intranet only).
+   - Forma de nube.
+
+Equivalencia con Mermaid del libro
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Notas
+ * - ``subgraph id[Title] ... end``
+   - ``package "Title" { ... }``
+   - PlantUML no requiere ID separado.
+ * - ``style id fill:none,stroke-dasharray:5 5``
+   - ``skinparam packageBorderColor`` +
+     ``skinparam packageBorderThickness`` o
+     estereotipo
+   - PlantUML configura por estereotipo o
+     skinparam global.
+
+Forma de cilindro para datastores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PlantUML soporta nativamente la forma de cilindro
+con la palabra ``database``:
+
+.. code-block:: plantuml
+
+   database "bd_analytics\n[MySQL]" as BDA
+
+Es el equivalente al ``id[(label)]`` de Mermaid del
+libro. PlantUML también ofrece otras formas
+especializadas para nodos:
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Palabra clave
+   - Forma
+   - Uso típico en IACT
+ * - ``rectangle``
+   - Caja
+   - Container genérico (apps, servicios).
+ * - ``database``
+   - Cilindro
+   - Bases de datos persistentes (``bd_analytics``,
+     ``audit_log``, ``bd-operativa``).
+ * - ``queue``
+   - Cola
+   - Colas internas (raro — IACT no usa Kafka).
+ * - ``cloud``
+   - Nube
+   - Sistemas externos.
+ * - ``actor``
+   - Figura humanoide
+   - Personas (``Supervisor``, ``Auditor``).
+
+Aplicación a IACT — Container view con frontera
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Container view con frontera
+
+   actor "Supervisor\n[Person]" as Supervisor
+
+   package "IACT" {
+     rectangle "Browser\n[Navegador del supervisor]" as B <<c4_container>>
+     rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as WSGI <<c4_container>>
+     database "Redis\n[Sesiones + throttling]" as Redis <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+     database "audit_log\n[MySQL immutable]" as Audit <<c4_container>>
+   }
+
+   rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
+   database "bd-operativa\n[External, read-only]" as BDO <<c4_externo>>
+   rectangle "ivr-host\n[External]" as IVR <<c4_externo>>
+
+   Supervisor --> B : opera el panel
+   B --> WSGI : consulta dashboards\n[HTTPS intranet]
+   WSGI --> Redis : sesiones y throttling\n[Redis Protocol]
+   WSGI --> BDA : lee/escribe analytics\n[MySQL TCP]
+   WSGI --> Audit : registra eventos\n[MySQL TCP append-only]
+   WSGI --> LDAP : autentica\n[LDAPS]
+   WSGI --> BDO : lee llamadas\n[SQL read-only]
+   WSGI --> IVR : recibe eventos\n[protocolo IVR]
+   @enduml
+
+Lectura del diagrama
+^^^^^^^^^^^^^^^^^^^^
+
+- **Frontera ``package "IACT"``** agrupa los
+  containers internos. Los sistemas externos quedan
+  fuera de la frontera.
+- **Cinco containers internos** — Browser,
+  ``iact.wsgi``, Redis, ``bd_analytics``,
+  ``audit_log``. Las apps Django dentro de
+  ``iact.wsgi`` son Components (nivel 3, no aparecen
+  aquí).
+- **Tres sistemas externos** — LDAP, bd-operativa,
+  ivr-host — fuera de la frontera, con paleta gris.
+- **Protocolos explícitos** — HTTPS, Redis Protocol,
+  MySQL TCP, LDAPS, SQL read-only, protocolo IVR.
+
+Regla operativa: **dentro del package solo van
+containers que pertenecen al sistema en diseño**. Si
+una flecha cruza la frontera, debe ser obvia
+visualmente.
+
+Otras formas (rombo, círculo) en C4
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PlantUML soporta más formas que el libro menciona
+para flowcharts (rombo para decisiones, círculo para
+estado). En diagramas C4 estas formas **no son
+canónicas** — la convención de Brown se mantiene en
+rectángulo, cilindro y nube. Si un diagrama necesita
+representar lógica de decisión, conviene mover esa
+representación a un diagrama de actividades
+(:doc:`diagramas-actividades`).
+
+Política IACT para fronteras
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Una frontera por sistema en foco** — todo lo
+   "dentro" de IACT va dentro del ``package "IACT"``.
+2. **Sistemas externos fuera de la frontera** — y con
+   estereotipo ``<<c4_externo>>``.
+3. **Datastores como ``database``** — usar la forma
+   de cilindro nativa para todo lo que persiste
+   datos (bases de datos, colas con persistencia,
+   archivos).
+4. **Sin formas no canónicas** en C4 (rombos,
+   círculos): la lógica condicional pertenece a
+   diagramas de actividad.
+5. **Flechas que cruzan la frontera** deben ser
+   visibles — no esconderlas detrás del package.
+
+----
+
+1. Nodo, dispositivo y conexión
+===============================
+
 ----
 
 1. Nodo, dispositivo y conexión
