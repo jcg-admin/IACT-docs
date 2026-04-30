@@ -27,6 +27,94 @@ Diagramas de secuencias — interacciones temporales aplicadas a IACT
 
 ----
 
+Preludio — visualizar flujos de aplicación y usuario
+====================================================
+
+Una vez **modelado el dominio** (ver :doc:`analisis-dominio`),
+el siguiente artefacto natural es **visualizar los flujos**
+entre los sistemas y entre el usuario y la aplicación.
+
+El diagrama de secuencias es la herramienta canónica para
+este caso de uso: muestra **interacciones de alto nivel**
+antes de bajar al detalle de implementación.
+
+Por qué visualizar flujos antes de implementar
+----------------------------------------------
+
+- **Discusión con colegas no técnicos**: los flujos son
+  el puente más cercano que tiene un ingeniero con un
+  PM, un auditor, un supervisor. Confirman si lo que se
+  va a construir cumple los criterios del proyecto.
+- **Aprobaciones arquitectónicas**: cuando un nuevo
+  sistema o un cambio mayor necesita autorización de
+  un arquitecto o comité, presentar **diagramas de
+  secuencia** suele ser más efectivo que muros de
+  texto. La experiencia recurrente de quienes han
+  presentado propuestas: el documento puede acompañar
+  con secuencias claras, y la mayor parte de la
+  presentación se vuelve "leer el diagrama" — la
+  aprobación llega más rápido.
+- **Comunicación entre ingenieros**: cuando un
+  desarrollador junior se incorpora, una secuencia
+  responde "¿cómo funciona X?" en segundos.
+- **Detección temprana de inconsistencias**: dibujar
+  el flujo expone supuestos no validados (orden de
+  llamadas, mensajes faltantes, dependencias no
+  declaradas).
+
+Cuándo usar secuencias en el ciclo de vida del WP
+-------------------------------------------------
+
+En el flujo THYROX del proyecto:
+
+- **Phase 1 DISCOVER**: bocetos rápidos para entender
+  el flujo del problema reportado.
+- **Phase 5 STRATEGY**: comparar alternativas
+  presentándolas como dos secuencias paralelas.
+- **Phase 7 DESIGN/SPECIFY**: secuencias formales
+  como parte del entregable.
+- **Phase 9 PILOT**: validar la secuencia diseñada
+  antes de construir.
+- **Phase 10 EXECUTE**: la secuencia es referencia
+  para implementar y revisar PRs.
+
+Equivalente IACT del ejemplo Streamy del libro
+----------------------------------------------
+
+El libro citado modela el flujo de **registro
+(``sign-up``)** de un usuario en Streamy. En IACT no
+hay registro público — los usuarios provienen del
+**LDAP corporativo** y el flujo equivalente más
+cercano es **UC_AUTH_01: Login del supervisor**.
+Ese flujo ya está modelado en § 1 de este documento
+y en § 2 de :doc:`diagramas-actividades`.
+
+Otros flujos IACT canónicos para diagramar como
+secuencia:
+
+- **UC_RPT_01** — supervisor consulta dashboard (vs
+  SLA CNST_017).
+- **UC_RPT_04** — exportar reporte async (CNST_019).
+- **UC_PIP_01** — carga ETL (ventana CNST_006/008).
+- **UC_ALR_03** — reconocer alerta crítica con
+  sincronización audit + notify.
+- **UC_PERM_07** — verificar permiso con SoD
+  (CNST_030).
+
+Política general
+----------------
+
+**Casi cualquier presentación se beneficia de un
+diagrama**. Antes de redactar un documento extenso o
+defenderlo en reunión, evaluar si una secuencia
+explicaría más rápido lo que se quiere comunicar — la
+respuesta es "sí" más a menudo de lo que parece.
+
+Las secciones siguientes detallan la sintaxis y los
+ejemplos IACT.
+
+----
+
 1. Comunicación entre objetos en el tiempo
 ==========================================
 
