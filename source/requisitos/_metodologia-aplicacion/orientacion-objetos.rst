@@ -1009,7 +1009,119 @@ iterativa del análisis basado en escenarios).
 
 ----
 
-14. Trazabilidad
+14. Ciclo de vida iterativo e incremental
+=========================================
+
+Cuando el prototipado (§ 13) se sostiene en el tiempo,
+desemboca naturalmente en un **ciclo de vida iterativo e
+incremental**. Para software orientado a objetos, el modelo
+que mejor refleja esta dinámica es el **modelo de fuente
+(*fountain model*) de Henderson-Sellers**.
+
+Características del modelo
+--------------------------
+
+- **Arraigado en el mundo real** — modela los sistemas tal
+  como evolucionan, no como diagramas idealizados.
+- **Alto nivel de iteración** — las etapas no son
+  estancos: análisis, diseño y construcción se solapan.
+- **Fusión de etapas** del modelo clásico — la separación
+  rígida entre "análisis terminado", "diseño terminado" y
+  "construcción terminada" se relaja.
+- **Lema operativo** (Gilb): *"un poco de análisis, un
+  poco de diseño, un poco de programación y
+  ¡repitámoslo!"*
+
+Estructura típica de iteraciones
+--------------------------------
+
+La variante más frecuente del modelo:
+
+1. **Primera iteración** — más larga (3 a 4 meses según el
+   tipo de aplicación). En ella se analiza la aplicación y
+   se elige el **núcleo significativo de negocio**: lo que
+   representa la actividad básica y los objetos que tienen
+   relación con la mayor parte del sistema.
+2. **Iteraciones siguientes** — más cortas (~1 mes cada
+   una). Cada iteración entrega un **incremento** sobre lo
+   anterior; el usuario sigue utilizando la versión previa
+   en producción mientras se construye la siguiente.
+
+Los cambios sobre lo entregado son habituales y no
+problemáticos: la herencia permite introducirlos sin
+"desmontar" la base. La crítica del usuario sobre lo que ya
+usa **alimenta** la siguiente iteración en lugar de
+bloquearla.
+
+Un beneficio implícito: al final del desarrollo, no hace
+falta puesta en producción de pruebas ni formación masiva
+de usuarios — ambas tareas se han realizado **gradualmente**
+durante todo el ciclo.
+
+Aplicación a IACT
+-----------------
+
+Núcleo significativo del proyecto IACT (primera iteración):
+
+- ``Sesion``, ``Usuario`` y ``Permiso`` (auth + RBAC) —
+  base sobre la que se apoyan todos los demás UCs.
+- ``Llamada`` y ``EjecucionETL`` — entidades centrales del
+  flujo de datos operativos hacia analytics.
+- ``Reporte`` (clase base) y un par de subclases
+  representativas (``ReporteVolumen``,
+  ``ReporteAbandono``) — suficientes para validar el
+  patrón polimórfico de UC_RPT_*.
+- ``EventoAuditoria`` — sin auditoría no se puede entregar
+  nada (CNST_025).
+
+Incrementos posteriores típicos:
+
+- Reportes adicionales (UC_RPT_*) y exportación async
+  (UC_RPT_04).
+- Familia de alertas (UC_ALR_*) con sincronización
+  auditoría/notificación.
+- Endurecimiento del modelo SoD (CNST_030) y reglas BR
+  adicionales.
+- Optimización de la ventana ETL (CNST_006/008).
+
+Cada incremento se entrega al supervisor y al equipo de
+calidad, que lo prueban en condiciones reales mientras el
+siguiente incremento está en construcción.
+
+Riesgos a controlar
+-------------------
+
+El modelo iterativo no es licencia para descuidar
+disciplinas:
+
+- Cada iteración debe respetar las restricciones del
+  proyecto (CNST_*) y reglas de negocio (BR_*).
+- Cada cambio sobre lo entregado debe pasar por
+  ``rm-validation`` antes de re-publicarse — el hecho de
+  que la herencia simplifique el cambio técnico no
+  exime de re-validación funcional y de auditoría.
+- Cada incremento mantiene los ADRs vigentes
+  (especialmente ADR_DEVOPS_001) — un incremento que
+  cambie el stack es, por definición, un cambio
+  arquitectónico, no un incremento.
+
+Relación con prototipos y escuelas de análisis
+----------------------------------------------
+
+- El **prototipo** (§ 13) es el punto de partida de la
+  primera iteración del modelo de fuente.
+- El **análisis del dominio** y las **escuelas de
+  identificación de clases** (ver
+  :doc:`analisis-dominio` § 12) se aplican en cada
+  iteración, no solo al inicio.
+- Los **patrones de diseño** (ver
+  :doc:`patrones-diseno`) se incorporan progresivamente,
+  conforme las iteraciones revelan los puntos donde
+  realmente se necesitan.
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::
