@@ -32,6 +32,131 @@ Ejemplos UML aplicados al dominio IACT (PlantUML)
 
 ----
 
+Clasificación de los diagramas UML
+==================================
+
+Antes de entrar en los ejemplos del dominio IACT conviene
+fijar el mapa: UML organiza sus diagramas en dos grandes
+familias según representen estructura estática o
+comportamiento dinámico.
+
+1. Diagramas estructurales
+--------------------------
+
+Representan la **organización estática** del sistema: qué
+piezas existen y cómo están conectadas.
+
+- **Diagrama de clases** — estructura estática del
+  sistema (entidades, atributos, operaciones,
+  asociaciones).
+- **Diagrama de objetos** — instancias concretas de
+  clases en un momento específico (snapshot).
+- **Diagrama de componentes** — organización y
+  dependencias entre componentes desplegables.
+- **Diagrama de despliegue** — distribución física del
+  sistema en nodos y conexiones.
+- **Diagrama de paquetes** — organización en
+  agrupaciones lógicas y dependencias entre ellas.
+
+2. Diagramas de comportamiento
+------------------------------
+
+Muestran **cómo el sistema actúa y cambia dinámicamente**.
+Se subdividen en dos sub-familias.
+
+2.A Diagramas generales de comportamiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Diagrama de casos de uso** — interacciones
+  usuario-sistema (qué hace el sistema, no cómo).
+- **Diagrama de actividades** — flujo de trabajo y
+  procesos: pasos, decisiones, paralelismo,
+  responsabilidades.
+- **Diagrama de estados** — ciclo de vida de un objeto:
+  estados y transiciones disparadas por eventos.
+
+2.B Diagramas de interacción
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Subconjunto de los diagramas de comportamiento, centrados
+en cómo los elementos colaboran:
+
+- **Diagrama de secuencia** — interacción entre objetos
+  ordenada en el **tiempo** (eje vertical).
+- **Diagrama de colaboración/comunicación** — relaciones
+  y colaboración entre objetos en el **espacio** (énfasis
+  en los enlaces).
+- **Diagrama de tiempo (*timing*)** — comportamiento de
+  uno o más objetos en períodos específicos, con foco en
+  duraciones y restricciones temporales.
+
+Naturaleza de cada familia
+--------------------------
+
+- **Estructurales** → organización estática del sistema.
+- **Comportamiento** → cómo el sistema actúa y cambia.
+- **Interacción** (sub-familia) → cómo los elementos
+  colaboran entre sí.
+
+Cobertura de esta guía aplicada a IACT
+--------------------------------------
+
+.. list-table::
+ :widths: 30 25 45
+ :header-rows: 1
+
+ * - Diagrama UML
+   - Familia
+   - Documento que lo aplica a IACT
+ * - Clases
+   - Estructural
+   - § 1 de este documento;
+     :doc:`relaciones-uml`,
+     :doc:`agregacion-interfaces`
+ * - Objetos
+   - Estructural
+   - § 2 de este documento;
+     :doc:`diagramas-colaboraciones`
+ * - Componentes
+   - Estructural
+   - :doc:`diagramas-componentes` (H12)
+ * - Despliegue
+   - Estructural
+   - :doc:`diagramas-distribucion` (H13)
+ * - Paquetes
+   - Estructural
+   - Cubierto implícitamente por la jerarquía de apps
+     Django (ver :doc:`diagramas-componentes`).
+ * - Casos de uso
+   - Comportamiento (general)
+   - :doc:`casos-uso-especificacion`,
+     :doc:`casos-uso-diagramas`
+ * - Actividades
+   - Comportamiento (general)
+   - :doc:`diagramas-actividades` (H11)
+ * - Estados
+   - Comportamiento (general)
+   - :doc:`diagramas-estados` (H8)
+ * - Secuencias
+   - Interacción
+   - :doc:`diagramas-secuencias` (H9)
+ * - Colaboración/Comunicación
+   - Interacción
+   - :doc:`diagramas-colaboraciones` (H10)
+ * - Tiempo (*timing*)
+   - Interacción
+   - No cubierto en esta guía. Aplicar solo si un UC IACT
+     requiere razonamiento sobre duraciones de estado o
+     restricciones temporales (ej. SLA CNST_017,
+     ventana ETL CNST_006/008).
+
+Las secciones que siguen muestran cada diagrama relevante
+aplicado al dominio IACT, en el orden histórico (Schmuller
+H1-H13). Para localizar un diagrama por familia, usar la
+tabla anterior.
+
+----
+
 1. Diagrama de clases — entidad ``Llamada`` (UC_RPT)
 ====================================================
 
