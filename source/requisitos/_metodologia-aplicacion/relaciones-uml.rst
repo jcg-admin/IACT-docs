@@ -2923,7 +2923,181 @@ inequívoco y la sustituibilidad LSP esté asegurada**.
 
 ----
 
-17. Trazabilidad
+17. Diagramas de clases para refactor y diseño de código
+========================================================
+
+§§ 1-16 cubrieron las relaciones de UML aplicadas al
+**modelado de dominio** y al **análisis arquitectónico**.
+Las mismas técnicas sirven para un caso operacional
+distinto: **diseñar y refactorizar código existente**.
+
+La diferencia con el modelo de dominio
+--------------------------------------
+
+El modelo de dominio (§§ 3-7 de
+:doc:`analisis-dominio`) responde "qué entidades y
+relaciones existen en el negocio". El diagrama de
+clases para refactor responde **algo distinto**:
+
+   *¿De qué depende cada clase y qué expone hacia los
+   demás?*
+
+Para esa pregunta importan elementos que el dominio
+no necesita exponer:
+
+- **Atributos privados** y públicos con sus tipos.
+- **Métodos privados** además de los públicos.
+- **Tipos de retorno y parámetros** explícitos.
+- **Dependencias hacia otras clases** (composición,
+  inyección, herencia).
+- **Direccionalidad de las relaciones** (quién
+  conoce a quién).
+
+Por qué un diagrama y no solo el editor
+---------------------------------------
+
+Un IDE muestra el código en una "ventana" por archivo,
+con saltos entre símbolos. Para una clase pequeña
+basta. Para entender una **red de dependencias** entre
+varias clases — típica al refactorizar un cluster —
+el editor obliga a saltar entre archivos hasta
+perder el hilo.
+
+Un diagrama de clases bien hecho exhibe **toda la red
+en una imagen**. No reemplaza al editor; lo
+**complementa** cuando la pregunta es estructural,
+no de detalle de implementación.
+
+Cuándo conviene diagramar para refactor en IACT
+-----------------------------------------------
+
+Casos típicos:
+
+- **Refactor mayor** — al rediseñar un
+  ``services.py`` que ha crecido sin orden, una
+  vista de clases revela ciclos, cohesión baja,
+  acoplamiento elevado.
+- **Feature nueva sobre código existente** —
+  modelar la estructura actual antes de añadir; el
+  diagrama dice qué clases tocar y dónde
+  introducir un nuevo punto de extensión.
+- **Onboarding al cluster** — un colega que entra
+  a ``rpt_app`` o ``alr_app`` aprende más rápido
+  con un diagrama que con grep.
+- **PR con impacto en varias apps** — el diagrama
+  acompaña al PR para discutir la estructura, no
+  línea por línea.
+- **Pago de deuda técnica** — junto con el
+  snapshot de secuencia (§ Preludio II de
+  :doc:`diagramas-secuencias`), forman el par
+  diagnóstico antes de tocar código.
+
+Cuándo NO vale la pena
+~~~~~~~~~~~~~~~~~~~~~~
+
+- Refactor pequeño localizado (extraer un método,
+  renombrar una variable).
+- Cambio de una sola clase sin tocar
+  dependencias.
+- Bugfix puntual.
+
+El umbral operativo: si el cambio toca **más de
+una clase** y la decisión sobre cómo reorganizar
+no es obvia, vale la pena un diagrama snapshot.
+
+Diferencia con la sequence diagram
+----------------------------------
+
+Las dos vistas son complementarias y resuelven
+preguntas distintas:
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Aspecto
+   - Sequence diagram
+   - Class diagram
+ * - Pregunta principal
+   - ¿Cómo interactúan las clases en este flujo?
+   - ¿Qué depende de qué?
+ * - Eje
+   - Tiempo (vertical).
+   - Estructura estática.
+ * - Métodos visibles
+   - Solo los invocados en el flujo.
+   - Todos los públicos y privados que se quiera
+     mostrar.
+ * - Atributos
+   - No se muestran.
+   - Sí, con tipo y visibilidad.
+ * - Tipos de dato
+   - Implícitos en los mensajes.
+   - Explícitos en firmas.
+ * - Granularidad típica
+   - Por flujo / UC.
+   - Por cluster / app.
+
+Una sequence diagram puede sugerir una dependencia
+que en realidad no existe a nivel estructural (el
+caller pasa por un facade que oculta la
+dependencia real). El class diagram captura esa
+realidad.
+
+Lo que se viene
+---------------
+
+Las subsecciones siguientes (§ 17.1+) cubren la
+sintaxis PlantUML para enriquecer un diagrama de
+clases más allá del modelado de dominio:
+
+- Atributos y métodos con tipo y visibilidad
+  (público / privado / protegido).
+- Métodos estáticos y abstractos.
+- Inyección de dependencias visible en el
+  diagrama.
+- Ejemplos IACT de snapshot pre-refactor para
+  apps Django con deuda técnica.
+
+Generación automática
+---------------------
+
+En lenguajes con tipado fuerte, varias
+herramientas exportan diagramas de clases
+**automáticamente** desde el código (
+``pyreverse`` para Python,
+``sphinx.ext.inheritance_diagram`` para Sphinx,
+plugins de IDE para Java / C#). Para IACT esa
+ruta es válida pero produce **imágenes
+no editables**: útiles para snapshots
+documentales pero no para discutir un rediseño,
+donde se necesita poder mover, agregar y quitar
+clases en un boceto.
+
+Política IACT — diagramas de clases para refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Snapshot, no documentación viva** — un
+   diagrama de clases para refactor refleja el
+   estado al momento del análisis; el código es
+   la fuente de verdad operativa.
+2. **Marcar el snapshot con fecha** y el contexto
+   (WP, ADR, PR donde se usa).
+3. **Pares snapshot pre / post** cuando se
+   discute un refactor — antes y después como
+   evidencia del cambio.
+4. **Generación automática** (``pyreverse``)
+   acepta para snapshots documentales; **edición
+   manual** para diseño y discusión.
+5. **No mantener** todos los diagramas
+   sincronizados — solo los que tengan un rol
+   pedagógico estable
+   (:doc:`agregacion-interfaces`,
+   :doc:`patrones-diseno`).
+
+----
+
+18. Trazabilidad
 ================
 
 .. list-table::
