@@ -67,6 +67,12 @@ Subdominios
 
 .. toctree::
  :maxdepth: 2
+ :caption: UML — Notación y Diagramas
+
+ _uml/index
+
+.. toctree::
+ :maxdepth: 2
  :caption: Guía PlantUML
 
  plantuml-guide/index
