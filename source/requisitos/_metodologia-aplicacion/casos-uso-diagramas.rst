@@ -52,33 +52,48 @@ visual y clara.
 2.1 Símbolos básicos
 --------------------
 
-::
+Cuatro elementos canónicos: **límite del sistema**
+(rectángulo), **caso de uso** (elipse), **actor** (figura
+de palo) y **línea asociativa**.
 
- ┌─────────────────────────────────────────┐
- │  LÍMITE DEL SISTEMA (rectángulo)        │
- │                                         │
- │     ◯◯◯◯◯◯                              │
- │    (Caso de uso — elipse)               │
- │        │                                │
- │        │ línea asociativa               │
- │        │                                │
- │     ╱─┼─╲                               │
- │    │     │                              │
- │    └─────┘                              │
- │  ACTOR                                  │
- │  (figura de palo)                       │
- └─────────────────────────────────────────┘
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   left to right direction
+   actor "Actor\n(figura de palo)" as A
+
+   rectangle "Límite del sistema (rectángulo)" {
+     usecase "Caso de uso\n(elipse)" as UC
+   }
+
+   A --> UC : línea asociativa
+   @enduml
 
 2.2 Posicionamiento
 -------------------
 
-::
+El **actor que inicia** se ubica a la izquierda; el **caso
+de uso** en el centro o a la derecha; el **actor que se
+beneficia** a la derecha (puede ser el mismo).
 
- ACTOR INICIADOR        CASO DE USO        ACTOR BENEFICIARIO
- (izquierda)            (centro)           (derecha)
-        │                  │                      │
-        └──────────────────●─────────────────────→│
-                  (puede ser el mismo)
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   left to right direction
+   actor "Actor\niniciador" as A1
+   actor "Actor\nbeneficiario" as A2
+
+   rectangle "Sistema" {
+     usecase "Caso de uso" as UC
+   }
+
+   A1 --> UC : inicia
+   UC --> A2 : se beneficia
+   @enduml
 
 ----
 
