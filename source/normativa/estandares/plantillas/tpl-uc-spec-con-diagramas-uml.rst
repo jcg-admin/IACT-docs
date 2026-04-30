@@ -144,6 +144,47 @@ placeholders ``[…]`` con valores reales.
 
  [Párrafo descriptivo del UC: qué problema resuelve y cómo.]
 
+3.4.1 Sección 3-bis — Análisis OOP (obligatorio)
+------------------------------------------------
+
+Per :doc:`/normativa/estandares/metodologia-oop-para-ucs`, todo
+UC debe documentar las **seis dimensiones OOP**.
+
+.. code-block:: rst
+
+ 3-bis. Análisis OOP
+ ===================
+
+ **Abstracción** — niveles de detalle:
+
+ - Nivel 0 (USUARIO): "[lo que el usuario quiere lograr]"
+ - Nivel 1 (PRODUCTO): [flujo abstracto en 3-5 pasos]
+ - Nivel 2 (DESARROLLO): [pasos técnicos sólo si la
+   implementación no es trivial]
+
+ **Encapsulamiento** — qué se expone vs qué se oculta:
+
+ - Interfaz pública: [endpoints / métodos visibles]
+ - Lógica privada: [validación, cálculos, persistencia,
+   auditoría]
+
+ **Herencia** — UCs que reutiliza este UC:
+
+ - [UC del que reutiliza pasos / clases / interfaces]
+ - (escribir "ninguno" si aplica)
+
+ **Polimorfismo** — variaciones de comportamiento:
+
+ - [Variante 1] → [comportamiento]
+ - [Variante 2] → [comportamiento]
+ - (escribir "no aplica" si el UC tiene un solo comportamiento)
+
+ **Envío de mensajes** — secuencia documentada en § 7
+ (Diagrama de secuencias).
+
+ **Asociaciones** — documentadas en § 2 (Relaciones UML):
+ ``<<include>>``, ``<<extend>>``, generalización.
+
 3.5 Sección 4 — Diagrama de casos de uso (PlantUML)
 ---------------------------------------------------
 
@@ -407,5 +448,7 @@ convierta antes de aplicar esta plantilla. Mapeo directo:
    - :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
  * - **Plantilla hermana (UC simple)**
    - :doc:`tpl-uc-stakeholder-driven`
+ * - **Metodología OOP**
+   - :doc:`/normativa/estandares/metodologia-oop-para-ucs`
  * - **Estándar de naming**
    - :doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`

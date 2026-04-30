@@ -74,6 +74,12 @@ Los estándares cubren:
  adr-std-007-spec-gaps-fix
 
 .. toctree::
+ :maxdepth: 1
+ :caption: Metodologías
+
+ metodologia-oop-para-ucs
+
+.. toctree::
  :maxdepth: 2
  :caption: Plantillas
 

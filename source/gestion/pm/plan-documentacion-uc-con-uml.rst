@@ -273,6 +273,11 @@ Cada UC documentado debe cumplir:
 5. ✓ Trazabilidad bidireccional: BReq origen, BR aplicables,
    FRs derivados.
 6. ✓ Build Sphinx limpio (0 warnings) tras agregar el archivo.
+7. ✓ **Análisis OOP completo** per
+   :doc:`/normativa/estandares/metodologia-oop-para-ucs` —
+   documentar las seis dimensiones (abstracción,
+   encapsulamiento, herencia, polimorfismo, envío de mensajes,
+   asociaciones) y aprobar el checklist § 6 de la metodología.
 
 ----
 
@@ -321,6 +326,8 @@ Cada UC documentado debe cumplir:
      del proyecto.
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
+ * - **Metodología OOP aplicable**
+   - :doc:`/normativa/estandares/metodologia-oop-para-ucs`
  * - **Política de diagramación**
    - :doc:`/base-cognitiva/plantuml-guide/guidelines`
  * - **Catálogo PlantUML del proyecto**
