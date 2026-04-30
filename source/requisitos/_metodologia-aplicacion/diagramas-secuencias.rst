@@ -960,6 +960,157 @@ Reglas IACT adicionales
 
 ----
 
+2.1.septies Agregar contexto con notas
+--------------------------------------
+
+Las **etiquetas** de los mensajes deben mantenerse
+breves (§ 2.1.ter). Cuando se necesita **contexto
+adicional** —un detalle que el lector debe ver pero
+que satura la etiqueta— el mecanismo correcto es la
+**nota**.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML soporta tres formas de nota:
+
+.. code-block:: plantuml
+
+   note left of Auth : detalle a la izquierda
+   note right of Auth : detalle a la derecha
+   note over Auth : detalle sobre el participante
+   note over Auth, Audit : abarca dos participantes
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid (libro)
+   - PlantUML (IACT)
+   - Posición
+ * - ``Note left of X``
+   - ``note left of X``
+   - Pegada al lado izquierdo de X.
+ * - ``Note right of X``
+   - ``note right of X``
+   - Pegada al lado derecho de X.
+ * - ``Note over X``
+   - ``note over X``
+   - Centrada sobre X.
+ * - ``Note over X, Y``
+   - ``note over X, Y``
+   - Atraviesa de X a Y.
+
+PlantUML también admite notas multilínea con
+``note ... end note`` y formato:
+
+.. code-block:: plantuml
+
+   note right of Auth
+     Detalle de la operación.
+     Multiple líneas posibles.
+   end note
+
+Cuándo usar notas
+~~~~~~~~~~~~~~~~~
+
+- Resaltar una **restricción del proyecto** que aplica
+  al mensaje (CNST_*, BR_*).
+- Documentar un **detalle de seguridad o autenticación**
+  que no cabe en la etiqueta (e.g. paso de token,
+  encriptación).
+- Indicar que un **evento publicado** será consumido
+  por otros servicios o componentes.
+- Marcar **deuda técnica**, **TODO crítico** o
+  **WORKAROUND** localizados — anclados a un ADR si
+  son permanentes.
+
+Equivalente IACT del ejemplo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro agrega ``Note left of Kafka: other services
+take action based on this event`` para señalar el
+fan-out del evento. En IACT el fan-out equivalente es
+el bus interno de auditoría: un evento auditable
+disparado desde una app es consumido por
+``aud_app`` y, en algunos UCs, también por
+``log_app`` para notificar al supervisor.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — fan-out auditable
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   participant "log_app" as Log
+   database "audit_log" as Audit
+
+   Supervisor -> B : envia credenciales
+   B -> Auth : POST /login
+
+   Auth ->> Audit : registrar evento (CNST_025)
+   note right of Audit
+     audit_log es immutable;
+     no se reasigna ni borra
+   end note
+
+   Auth ->> Log : notificar buzon supervisor
+   note over Log : entrega via buzon interno (CNST_001)
+
+   Auth --> B : 302 Redirect (panel)
+   B --> Supervisor : muestra panel
+   @enduml
+
+Análisis:
+
+- **``note right of Audit``** — recuerda al lector la
+  invariante CNST_025 sin saturar la etiqueta del
+  mensaje. La nota se queda al lado del destino
+  relevante.
+- **``note over Log``** — ubica el comentario sobre el
+  participante; útil cuando el detalle es **del
+  participante**, no del mensaje específico.
+- **Notas atravesando dos lifelines** son útiles para
+  describir un **acuerdo entre componentes** (ej. un
+  contrato de retry, una garantía de orden).
+
+Política IACT — uso de notas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Notas para CNST/BR** que aplican al mensaje pero
+   no caben en la etiqueta. Citar la sigla
+   (``CNST_025``, ``BR_012``) explícitamente.
+2. **Notas para fan-out** cuando un mensaje async
+   detona múltiples consumidores; describir
+   brevemente quiénes consumen.
+3. **Notas para autenticación / seguridad** —
+   resaltar que un endpoint requiere un token, una
+   firma o un canal específico (LDAPS, mTLS).
+4. **Notas para SLA** — referenciar CNST_017 cerca
+   del rectángulo de activación que cubre el flujo
+   crítico.
+5. **No saturar** — un diagrama con más de 3-4 notas
+   probablemente está mezclando varios niveles de
+   detalle. Considerar separar en varios diagramas o
+   mover detalles al texto RST adyacente.
+
+Notas vs documentación adyacente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para detalles **largos** (más de dos líneas) preferir
+el **texto RST circundante**. Las notas dentro del
+diagrama PlantUML deben ser **comentarios cortos** que
+se leen junto a la línea relevante. Si la explicación
+necesita un párrafo, no es una nota — es texto del
+documento.
+
+----
+
 2.2 Convenciones
 ----------------
 
