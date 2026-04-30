@@ -29,6 +29,11 @@ Metodología de Análisis de Dominio para UCs
 
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
+ **Ejemplos canónicos aplicados al dominio IACT:** ver
+ :doc:`/gestion/pm/ejemplos-analisis-dominio-aplicados-iact`
+ para la técnica aplicada al dominio real (sustantivos del
+ ecosistema call center IVR / RBAC / ETL).
+
 ----
 
 1. La técnica — sustantivos, verbos, adjetivos

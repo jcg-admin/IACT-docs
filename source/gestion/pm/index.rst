@@ -58,5 +58,7 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  matrices/index
  planificacion-releases-frontend
  plan-documentacion-uc-con-uml
- ejemplos-uml-aplicados-ecommerce
+ ejemplos-uml-aplicados-iact
+ ejemplos-oop-aplicados-iact
+ ejemplos-analisis-dominio-aplicados-iact
  deployment-plan

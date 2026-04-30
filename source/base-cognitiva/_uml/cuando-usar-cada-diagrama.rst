@@ -27,10 +27,10 @@ Guía rápida — Cuándo usar cada diagrama UML
  lección en cada sección.
 
  Para **ejemplos de cada uno de los 9 diagramas aplicados al
- dominio del proyecto IACT** (UC_CAT, UC_ORD, stack
- React + Django + MySQL, integraciones Stripe/Logística),
+ dominio real del proyecto IACT** (UC_RPT, UC_PIP, UC_ALR,
+ UC_PERM, stack React + Django + MySQL + IVR + APScheduler),
  consultar
- :doc:`/gestion/pm/ejemplos-uml-aplicados-ecommerce`.
+ :doc:`/gestion/pm/ejemplos-uml-aplicados-iact`.
 
  **Atribución:** material basado en *Aprendiendo UML en 24
  horas* — Hora 1 (Schmuller, 2000). UML es resultado del

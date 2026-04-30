@@ -330,8 +330,12 @@ Cada UC documentado debe cumplir:
    - Adaptado de "GUÍA DE INTEGRACIÓN UML v2.0.0" (propuesta
      interna en Mermaid), reescrito para PlantUML por política
      del proyecto.
- * - **Ejemplos aplicados al dominio (precedente visual)**
-   - :doc:`ejemplos-uml-aplicados-ecommerce`
+ * - **Ejemplos UML aplicados al dominio IACT**
+   - :doc:`ejemplos-uml-aplicados-iact`
+ * - **Ejemplos OOP aplicados al dominio IACT**
+   - :doc:`ejemplos-oop-aplicados-iact`
+ * - **Ejemplos análisis de dominio aplicados al dominio IACT**
+   - :doc:`ejemplos-analisis-dominio-aplicados-iact`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Metodología de análisis de dominio aplicable**

@@ -33,6 +33,13 @@ Metodología OOP para Casos de Uso (UCs)
 
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
+ **Ejemplos canónicos aplicados al dominio IACT:** ver
+ :doc:`/gestion/pm/ejemplos-oop-aplicados-iact` para los
+ 6 principios aplicados al dominio real (jerarquía de usuarios
+ IACT — Operador, Supervisor, Admin, Auditor; polimorfismo
+ sobre métricas BR_016/017/018; encapsulamiento de Reporte con
+ segmentación CNST_008; etc.).
+
 ----
 
 1. Propósito
