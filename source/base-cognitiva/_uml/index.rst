@@ -58,6 +58,13 @@ Catálogo
  uml-04-uso-relaciones
  uml-05-agregacion-composicion-interfaces
  uml-06-introduccion-casos-uso
+ uml-07-diagramas-casos-uso
+ uml-08-diagramas-estados
+ uml-09-diagramas-secuencias
+ uml-10-diagramas-colaboraciones
+ uml-11-diagramas-actividades
+ uml-12-diagramas-componentes
+ uml-13-diagramas-distribucion
 
 Convención
 ==========
