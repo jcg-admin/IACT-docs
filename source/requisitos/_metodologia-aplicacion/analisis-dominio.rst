@@ -3788,6 +3788,212 @@ Próximas subsecciones
 - Schemas IACT canónicos:
   ``audit_log``, catálogo RBAC, ``bd_analytics``.
 
+17.3 Relacionar entidades — cardinalidad y crow's feet
+------------------------------------------------------
+
+Una entidad sola no aporta más que un esquema de
+tabla. El valor del ERD aparece al **conectar
+entidades** mediante claves foráneas y describir
+explícitamente la **cardinalidad** de cada
+relación.
+
+Notación crow's foot
+~~~~~~~~~~~~~~~~~~~~
+
+Los ERD tradicionalmente usan **crow's foot
+notation**: marcas en cada extremo de la línea que
+indican la cardinalidad y la opcionalidad. Las
+cuatro combinaciones canónicas:
+
+.. list-table::
+ :widths: 25 30 45
+ :header-rows: 1
+
+ * - Significado
+   - Símbolo en el extremo
+   - Lectura
+ * - Exactamente uno
+   - Dos rayas paralelas (``||``)
+   - Obligatorio y único.
+ * - Cero o uno
+   - Raya + círculo (``|o`` u ``o|``)
+   - Opcional y único.
+ * - Uno o varios
+   - "Pata de cuervo" + raya (``}|`` o ``|{``)
+   - Obligatorio, al menos uno.
+ * - Cero o varios
+   - "Pata de cuervo" + círculo (``}o``
+     u ``o{``)
+   - Opcional, sin tope.
+
+Como se nota en la literatura, **la cardinalidad
+de una entidad se lee del lado opuesto de la
+relación** — igual que en los diagramas de clases
+UML (§ 16.5). El motivo de no usar ERD para el
+modelo de dominio en IACT es exactamente este: la
+notación numérica UML (``1``, ``0..1``, ``1..*``,
+``0..*``) es más intuitiva para audiencias mixtas
+que los crow's feet.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML soporta crow's foot en ERD con la siguiente
+sintaxis:
+
+.. code-block:: plantuml
+
+   EntidadA ||--o{ EntidadB : etiqueta
+
+- ``||`` — exactamente uno (en el lado de
+  ``EntidadA``).
+- ``o{`` — cero o varios (en el lado de
+  ``EntidadB``).
+- La etiqueta describe el sentido de la relación.
+
+Combinaciones útiles:
+
+.. list-table::
+ :widths: 36 32 32
+ :header-rows: 1
+
+ * - Sintaxis PlantUML
+   - Cardinalidad
+   - Lectura
+ * - ``A ||--|| B``
+   - 1 a 1 obligatorio
+   - Cada A tiene exactamente un B y
+     viceversa.
+ * - ``A ||--o| B``
+   - 1 a 0..1
+   - Cada A puede tener un B opcional.
+ * - ``A ||--|{ B``
+   - 1 a 1..*
+   - Cada A tiene al menos un B.
+ * - ``A ||--o{ B``
+   - 1 a 0..*
+   - Cada A puede tener varios B (o ninguno).
+ * - ``A }o--o{ B``
+   - N:M opcional
+   - Asociación muchos a muchos sin
+     obligatoriedad.
+ * - ``A }|--|{ B``
+   - N:M obligatorio
+   - Cada lado debe tener al menos uno del otro.
+
+Equivalencia con Mermaid
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las marcas de cardinalidad son **idénticas** entre
+PlantUML y la sintaxis Mermaid del libro:
+
+.. list-table::
+ :widths: 36 32 32
+ :header-rows: 1
+
+ * - Concepto
+   - Mermaid
+   - PlantUML
+ * - Exactamente uno
+   - ``||``
+   - ``||``
+ * - Uno a varios
+   - ``}|`` / ``|{``
+   - ``}|`` / ``|{``
+ * - Cero o uno
+   - ``|o`` / ``o|``
+   - ``|o`` / ``o|``
+ * - Cero o varios
+   - ``}o`` / ``o{``
+   - ``}o`` / ``o{``
+
+La diferencia es solo el wrapper del diagrama
+(``erDiagram`` vs ``@startuml``).
+
+Ejemplo IACT — ``EventoAuditoria`` y ``TipoEvento``
+---------------------------------------------------
+
+Aplicado al cluster de auditoría de IACT
+(CNST_025): cada ``EventoAuditoria`` pertenece a
+exactamente un ``TipoEvento`` (acceso, cambio
+RBAC, ejecución ETL, denegado SoD, etc.); un mismo
+``TipoEvento`` puede aparecer en muchos eventos.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: EventoAuditoria + TipoEvento
+
+   entity TipoEvento {
+     * tipo_id : int <<PK>>
+     --
+     * nombre : varchar(50)
+     descripcion : varchar(200)
+   }
+
+   entity EventoAuditoria {
+     * evento_id : bigint <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * tipo_id : int <<FK>>
+     * timestamp : datetime
+     * funcion_id : varchar(100)
+     payload_json : text
+     ip_origen : varchar(45)
+   }
+
+   TipoEvento ||--o{ EventoAuditoria : clasifica
+   @enduml
+
+Lectura: cada evento tiene **exactamente un**
+tipo (``||`` del lado de ``TipoEvento``); cada
+tipo puede aparecer en **cero o más** eventos
+(``o{`` del lado de ``EventoAuditoria``).
+
+Cardinalidad bidireccional
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La sintaxis se puede invertir sin cambiar el
+significado:
+
+.. code-block:: plantuml
+
+   ' Equivalentes:
+   TipoEvento ||--o{ EventoAuditoria : clasifica
+   EventoAuditoria }o--|| TipoEvento : pertenece a
+
+La preferencia IACT: **leer de izquierda a
+derecha** con la entidad "padre" o "lookup" a la
+izquierda. Resulta más natural en español:
+``TipoEvento clasifica eventos``.
+
+Política IACT para relaciones en ERD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Toda relación tiene cardinalidad explícita** —
+   ningún ``--`` sin marcas.
+2. **Toda relación tiene etiqueta** que describe
+   el sentido (``clasifica``, ``pertenece a``,
+   ``audita``, ``contiene``).
+3. **Padre / lookup a la izquierda** — facilita la
+   lectura.
+4. **No usar ERD para modelar dominio** — para
+   eso, diagrama de clases UML con notación
+   numérica (§ 16.5).
+5. **Snapshot con fecha** en el frontmatter del
+   documento que contiene el ERD.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- Tipos de dato y restricciones de columna
+  (NOT NULL, UNIQUE, DEFAULT).
+- Atributos de identificación (PK, FK, índices).
+- Schemas canónicos IACT consolidados:
+  cluster RBAC, ``audit_log``, agregados de
+  ``bd_analytics``.
+
 ----
 
 18. Trazabilidad
