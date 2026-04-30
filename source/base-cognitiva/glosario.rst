@@ -384,6 +384,23 @@ toda documentación nueva del proyecto (formalizado en
      de ``AuditLog`` (auditoría general del sistema) — coexisten
      como tablas separadas con misma política inmutable
      (decisión D-RBAC-3).
+ * - **Segmento de Datos** (descartado en v5.2.0)
+   - Concepto histórico (v5.1.x): partición lógica del dataset
+     operativo que limitaba la visibilidad de un usuario via
+     filtro automático ``WHERE segment_id = @user_segment``.
+     Catálogo histórico de 5 segmentos: OP (operativos), FI
+     (financieros), TE (técnicos), SU (supervisión), CA
+     (calidad). **DESCARTADO en v5.2.0** porque la
+     segmentación a nivel datos no aplica al contexto IACT:
+     (a) el ETL ya entrega datos limpios y separados por
+     dominio (CNST-007 BD IVR Solo Lectura + CNST-008 Ventana
+     ETL); (b) la visibilidad funcional ya queda cubierta por
+     la combinación **AGR (perfil operativo) + MOD (categoría
+     de información) + Función (acción específica)**. Las dos
+     funciones que operaban sobre segmentos (USR-010
+     ``asigna_segmento`` y ACC-006 ``gestiona_segmentos``) se
+     eliminaron en la transición v5.1.1 → v5.2.0 (44 → 42
+     funciones). NO usar este término en docs nuevas.
 
 ----
 

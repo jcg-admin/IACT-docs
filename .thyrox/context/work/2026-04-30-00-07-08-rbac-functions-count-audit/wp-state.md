@@ -5,11 +5,12 @@ sub_wp_of: 2026-04-29-17-52-15-modelo-rbac-improvement
 program_id: Z.1.C
 created_at: 2026-04-30 00:07:08
 reopened_at: 2026-04-30 01:15:00
-current_phase: Phase 1 — DISCOVER (deep analysis ampliado)
+closed_at: 2026-04-30 02:00:00
+current_phase: Phase 11 — TRACK
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: cerrado
 author: NestorMonroy
-status: REABIERTO — drift estructural CRITICO, decision pendiente (Camino A/B/C)
+status: Cerrado v2.0.0 — Camino C aplicado, segmento descartado, 3 archivos eliminados
 ```
 
 # Z.1.C — RBAC Functions Count Audit

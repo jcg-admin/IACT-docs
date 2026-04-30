@@ -54,7 +54,7 @@ y notificacion al usuario via buzon interno (CNST_001).
 - Contrasena temporal generada por el sistema
 - Estado inicial: PENDIENTE_CONFIGURACION (CNST_029)
 - Notificacion SOLO via buzon interno (CNST_001)
-- Asignacion obligatoria de segmento
+- Asignacion obligatoria de grupo predefinido (AGR-001..010)
 - Registro completo en auditoria (CNST_025)
 
 **Restriccion critica CNST_001:**
@@ -123,7 +123,7 @@ y notificacion al usuario via buzon interno (CNST_001).
  * - PRE-02
    - El correo electronico proporcionado no existe en el sistema
  * - PRE-03
-   - Existe al menos un segmento activo para asignar
+   - Existe al menos un grupo predefinido (AGR) activo para asignar
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -181,7 +181,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Ingresa datos: nombre, apellido, email corporativo
  * - 6
    - Admin
-   - Selecciona segmento de datos (obligatorio)
+   - Selecciona grupo predefinido AGR (obligatorio)
  * - 7
    - Admin
    - Opcionalmente selecciona agrupador inicial
@@ -208,7 +208,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Crea registro en tabla users con estado PENDIENTE_CONFIGURACION
  * - 15
    - Sistema
-   - Asigna segmento seleccionado al usuario
+   - Asigna grupo predefinido seleccionado al usuario
  * - 16
    - Sistema
    - Si se selecciono agrupador, asigna funciones del agrupador

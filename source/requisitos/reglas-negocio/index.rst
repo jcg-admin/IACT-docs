@@ -36,7 +36,6 @@ Catálogo
  br-009-bajas-logicas
  br-010-auditoria-inmutable
  br-011-limites-exportacion
- br-012-usuario-segmento-unico
  br-013-username-unico
  br-014-alerta-por-umbral
  br-015-bloqueo-intentos-fallidos

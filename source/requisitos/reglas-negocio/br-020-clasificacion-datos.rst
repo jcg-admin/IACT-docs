@@ -191,7 +191,7 @@ La clasificación de datos garantiza:
 **INTERNO:**
 
 - Requiere autenticación JWT válida
-- Filtrado por segmento (BR_012)
+- Filtrado funcional via grupos AGR + módulos MOD (concepto "Segmento" descartado en v5.2.0; ver glosario § H)
 
 **CONFIDENCIAL:**
 
@@ -307,7 +307,7 @@ La clasificación de datos garantiza:
 
 - **Origen**: CNST_010 (Clasificación y Protección de Datos)
 - **UC Relacionados**: Todos (aplica transversalmente)
-- **BR Relacionadas**: BR_010 (Auditoría), BR_012 (Segmentación)
+- **BR Relacionadas**: BR_010 (Auditoría)
 - **CNST**: CNST_010
 
 ----
