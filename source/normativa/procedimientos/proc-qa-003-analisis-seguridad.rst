@@ -33,8 +33,8 @@ internet
 Página padre
 ------------
 
-- `Procesos de Gobernanza <readme.md>`__
-- `Gobernanza <../readme.md>`__
+- ``readme.md`` (índice de procesos de gobernanza, no migrado)
+- ``../readme.md`` (índice gobernanza, no migrado)
 
 --------------
 

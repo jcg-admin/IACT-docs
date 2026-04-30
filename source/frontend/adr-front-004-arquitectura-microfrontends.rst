@@ -27,9 +27,9 @@ duplicar esfuerzos por equipo.
 
    **Nota de estado (2025-11-09):** la evaluación se realizó, pero tras
    contrastar con
-   `ADR-015-frontend-modular-monolith <./ADR-015-frontend-modular-monolith.md>`__
+   ``ADR-015-frontend-modular-monolith.md`` (documento histórico)
    y
-   `ADR-009-frontend-postponement <./ADR-009-frontend-postponement.md>`__
+   ``ADR-009-frontend-postponement.md`` (documento histórico)
    se determinó que la propuesta no se adoptará en esta etapa. El
    documento se conserva como análisis de opciones para un futuro
    posible.

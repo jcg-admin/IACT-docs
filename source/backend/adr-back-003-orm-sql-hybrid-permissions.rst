@@ -455,8 +455,8 @@ Documentación Interna
 
 -  `Sistema de Permisos
    Granular <../../backend/arquitectura/permisos-granular.md>`__
--  `PRIORIDAD_01 <../../backend/requisitos/prioridad_01_estructura_base_datos.md>`__
--  `RNF-002 <../../backend/requisitos/no-funcionales/rnf002_almacenamiento_sesiones.md>`__
+-  ``prioridad_01_estructura_base_datos.md`` (documento histórico)
+-  ``rnf002_almacenamiento_sesiones.md`` (documento histórico)
 
 Código Fuente
 ~~~~~~~~~~~~~

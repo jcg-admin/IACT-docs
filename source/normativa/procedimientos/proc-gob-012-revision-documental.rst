@@ -318,7 +318,7 @@ Recursos Relacionados
   Corporativa <../gobernanza/documentacion_corporativa.md>`__
 - `Checklist de Cambios
   Documentales <../checklists/checklist_cambios_documentales.md>`__
-- `Plantilla de ADR <../arquitectura/adr/plantilla_adr.md>`__
+- :doc:`Plantilla de ADR </gestion/plantilla-adr>`
 
 Changelog
 ---------

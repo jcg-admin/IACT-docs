@@ -22,7 +22,7 @@ profesionalismo.
 Página padre
 ------------
 
-- `Gobernanza <readme.md>`__
+- ``readme.md`` (índice de gobernanza, ver source/normativa/index)
 
 Alcance
 -------
@@ -384,7 +384,7 @@ Estándares de Scripts de Shell
 ------------------------------
 
 **IMPORTANTE**: Para desarrollo avanzado de shell scripts, consultar la
-`Shell Scripting Guide Completa <shell_scripting_guide.md>`__ que
+:doc:`Guía de Shell Scripting </normativa/estandares/shell-scripting-guide>` que
 incluye: - Criterios de decisión para ubicación de scripts - Selección
 de shell (POSIX vs bash) - Manejo avanzado de errores y seguridad -
 Organización de código modular - Requerimientos de testing - Plantillas
@@ -399,7 +399,7 @@ complejos con características bash - ``posix-script-template.sh`` - Para
 máxima portabilidad - ``library-template.sh`` - Para bibliotecas de
 funciones reutilizables
 
-Ver: `Scripts Templates README <../../scripts/templates/README.md>`__
+Ver: ``scripts/templates/README.md`` (vive en scripts/, no en source)
 
 Ejemplo Mínimo (Bash)
 ~~~~~~~~~~~~~~~~~~~~~

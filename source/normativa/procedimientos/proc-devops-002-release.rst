@@ -324,7 +324,7 @@ usage - Database performance - Logs de errores
 Recursos Relacionados
 ---------------------
 
-- `Procedimiento: QA <procedimiento_qa.md>`__
+- :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - `Procedimiento: Gestión de
   Cambios <procedimiento_gestion_cambios.md>`__
 - `Runbooks DevOps <../devops/runbooks/>`__

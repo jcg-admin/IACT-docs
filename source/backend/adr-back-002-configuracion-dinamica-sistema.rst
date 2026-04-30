@@ -274,7 +274,7 @@ Referencias
 
 -  `Documentación app
    configuration <../../backend/arquitectura/configuration.md>`__
--  `PLAN_MAESTRO_PRIORIDAD_02.md <../../PLAN_MAESTRO_PRIORIDAD_02.md>`__
+-  ``PLAN_MAESTRO_PRIORIDAD_02.md`` (documento histórico, ver temp-holding)
    (Tareas 33-41)
 -  `ADR-005: Grupos Funcionales Sin
    Jerarquía <ADR-005-grupos-funcionales-sin-jerarquia.md>`__

@@ -768,7 +768,7 @@ REFERENCIAS
   Branching <../adr/ADR-002-branching-strategy.md>`__
 - `ADR-056: Agentic Design
   Principles <../adr/ADR-056-agentic-design-principles.md>`__
-- `Guía de Estilo <../GUIA_ESTILO.md>`__
+- ``GUIA_ESTILO.md`` (guía histórica, no migrada)
 - `Conventional Commits <https://www.conventionalcommits.org/>`__
 
 --------------

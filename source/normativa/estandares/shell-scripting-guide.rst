@@ -21,8 +21,8 @@ Unix/Linux.
 Página padre
 ------------
 
-- `Estándares de Código <estandares_codigo.md>`__
-- `Gobernanza <readme.md>`__
+- :doc:`Estándares de Código </normativa/estandares/estandares-codigo>`
+- ``readme.md`` (índice de gobernanza, ver source/normativa/index)
 
 Alcance
 -------
@@ -1010,7 +1010,7 @@ Documentos Relacionados
   Fundamental <estandares_codigo.md#regla-fundamental-output-profesional>`__
 - `Scripts de Requisitos -
   README <../../scripts/requisitos/README.md>`__
-- `Scripts del Proyecto - Índice <../../scripts/README.md>`__
+- ``scripts/README.md`` (vive en scripts/, no en source)
 
 --------------
 

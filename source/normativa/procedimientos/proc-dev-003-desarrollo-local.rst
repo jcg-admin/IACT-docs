@@ -30,7 +30,7 @@ Pre-requisitos
 --------------
 
 - [ ] Vagrant instalado (ver
-  `procedimiento_instalacion_entorno.md <procedimiento_instalacion_entorno.md>`__)
+  ``procedimiento_instalacion_entorno.md`` (no migrado a source))
 - [ ] Git configurado
 - [ ] IDE/Editor de código (VS Code recomendado)
 - [ ] Acceso al repositorio GitHub
@@ -183,7 +183,7 @@ Ejecutar checklist:
  git status
  git diff
 
-Ver: `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
+Ver: ``checklist_desarrollo.md`` (no migrado a source)
 
 8. Crear Pull Request
 ~~~~~~~~~~~~~~~~~~~~~
@@ -322,11 +322,11 @@ Recursos Relacionados
 
 - `Procedimiento: Instalación de
   Entorno <procedimiento_instalacion_entorno.md>`__
-- `Procedimiento: QA <procedimiento_qa.md>`__
+- :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - `Procedimiento: Gestión de
   Cambios <procedimiento_gestion_cambios.md>`__
-- `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
-- `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
+- ``checklist_desarrollo.md`` (no migrado a source)
+- ``lineamientos_codigo.md`` (no migrado a source)
 - `Runbooks DevOps <../devops/runbooks/>`__
 
 Notas

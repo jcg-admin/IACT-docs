@@ -397,7 +397,7 @@ Recursos Relacionados
   mod_wsgi <../arquitectura/adr/ADR_2025_001-vagrant-mod-wsgi.md>`__
 - `Procedimiento: Desarrollo
   Local <procedimiento_desarrollo_local.md>`__
-- `DevContainers (futuro) <../devops/contenedores_devcontainer.md>`__
+- ``contenedores_devcontainer.md`` (DevContainers — documento futuro, no migrado)
 
 Tiempo Estimado
 ---------------

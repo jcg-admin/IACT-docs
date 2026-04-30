@@ -241,7 +241,7 @@ Ejemplo de Nomenclatura
 Enlaces Relacionados
 --------------------
 
-- `Índice de Arquitectura <../README.md>`__
-- `ADR-001: Vagrant + mod_wsgi <ADR-001-vagrant-mod-wsgi.md>`__
+- ``arquitectura/README.md`` (índice del repo, no migrado a source)
+- :doc:`ADR-DEVOPS-001: Vagrant + mod_wsgi </devops/adr-devops-001-vagrant-mod-wsgi-importante-produc>`
   (ejemplo existente)
-- `Gobernanza <../../gobernanza/README.md>`__
+- ``gobernanza/README.md`` (índice del repo, no migrado a source)

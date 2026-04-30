@@ -377,7 +377,7 @@ Procedimiento Acelerado
  git tag -a v1.2.1 -m "Hotfix: login validation"
  git push origin v1.2.1
 
-Ver: `Procedimiento de Release <procedimiento_release.md>`__ para
+Ver: :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>` para
 deployment urgente.
 
 Métricas
@@ -398,11 +398,11 @@ Herramientas
 Recursos Relacionados
 ---------------------
 
-- `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__
-- `Checklist de Testing <../checklists/checklist_testing.md>`__
-- `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
-- `Procedimiento de QA <procedimiento_qa.md>`__
-- `Procedimiento de Release <procedimiento_release.md>`__
+- ``checklist_desarrollo.md`` (no migrado a source)
+- ``checklist_testing.md`` (no migrado a source)
+- ``lineamientos_codigo.md`` (no migrado a source)
+- :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
+- :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>`
 
 Referencias
 -----------

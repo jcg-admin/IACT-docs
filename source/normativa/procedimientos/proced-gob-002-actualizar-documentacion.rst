@@ -181,7 +181,7 @@ Ejemplos de Cambios Comunes:
  refresh_token = data['refresh_token']
 
 **Nota**: Desde v1.2.0, el sistema usa JWT con refresh tokens. Ver
-`ADR-BACK-006 <../adr/ADR-BACK-006-django-orm-vs-sqlalchemy.md>`__.
+:doc:`ADR-BACK-006 </backend/adr-back-006-rbac-estrategia-implementacion>`.
 
 ::
 
@@ -716,7 +716,7 @@ Referencias
   Templates <../procesos/PROC-GOB-001-mapeo_procesos_templates.md>`__
 - `GUIA-GOB-002: Convenciones de
   Nomenclatura <../guias/GUIA-GOB-002-convenciones_nomenclatura.md>`__
-- `PROCED-GOB-001: Crear ADR <PROCED-GOB-001-crear_adr.md>`__
+- :doc:`PROC_Generacion_ADR: Generación de Decisiones Arquitectónicas </normativa/procedimientos/proc-doc-002-generacion-adr>`
 - `Write the Docs - Documentation
   Guide <https://www.writethedocs.org/guide/>`__
 

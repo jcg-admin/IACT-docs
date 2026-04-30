@@ -35,8 +35,8 @@ jerarquía BABOK v3: - **Necesidades de Negocio (N-XXX)**: Business Needs
 Página padre
 ------------
 
-- `Procesos de Gobernanza <readme.md>`__
-- `Gobernanza <../readme.md>`__
+- ``readme.md`` (índice de procesos de gobernanza, no migrado)
+- ``../readme.md`` (índice gobernanza, no migrado)
 
 --------------
 

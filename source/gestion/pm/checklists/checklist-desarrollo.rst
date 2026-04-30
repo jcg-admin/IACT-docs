@@ -40,4 +40,4 @@ Documentación
 Recursos
 --------
 
-- Ver: `Estándares de Código <../gobernanza/estandares_codigo.md>`__
+- Ver: :doc:`Estándares de Código </normativa/estandares/estandares-codigo>`

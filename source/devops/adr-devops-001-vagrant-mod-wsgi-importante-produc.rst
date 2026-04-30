@@ -255,7 +255,7 @@ Referencias
 -  `Script de verificación <../../../scripts/verificar_servicios.sh>`__
 -  `Guía de
    verificación <../../devops/runbooks/verificar_servicios.md>`__
--  `README principal <../../../README.md>`__
+-  `README principal del repo IACT-docs <https://github.com/jcg-admin/iact-docs>`__
 
 Notas Adicionales
 -----------------

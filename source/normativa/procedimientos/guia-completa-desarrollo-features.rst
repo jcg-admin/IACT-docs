@@ -1968,12 +1968,12 @@ Documentación Interna
   Cambios <procedimiento_gestion_cambios.md>`__ - Proceso formal
 - `Procedimiento de Desarrollo
   Local <procedimiento_desarrollo_local.md>`__ - Setup entorno
-- `Procedimiento de QA <procedimiento_qa.md>`__ - Testing y calidad
-- `Procedimiento de Release <procedimiento_release.md>`__ - Releases y
+- :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>` - Testing y calidad
+- :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>` - Releases y
   deployment
-- `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__ -
+- ``lineamientos_codigo.md`` (no migrado a source) -
   Estándares de código
-- `Checklist de Desarrollo <../checklists/checklist_desarrollo.md>`__ -
+- ``checklist_desarrollo.md`` (no migrado a source) -
   Checklist completo
 
 Referencias Externas

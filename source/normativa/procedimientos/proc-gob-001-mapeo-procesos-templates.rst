@@ -1351,13 +1351,13 @@ Validar mapeos y referencias cruzadas 3. Actualizar version en metadata
 9. Recursos Adicionales
 -----------------------
 
-**Documentos Relacionados:** - `INDICE.md <../../INDICE.md>`__ - Indice
-general de documentacion - `AGENTES_SDLC.md <AGENTES_SDLC.md>`__ -
+**Documentos Relacionados:** - ``INDICE.md`` (índice general histórico, ver source/index.rst) - Indice
+general de documentacion - ``AGENTES_SDLC.md`` (documento histórico de agentes SDLC) -
 Documentacion completa de agentes -
-`procedimientos/README.md <procedimientos/README.md>`__ - Indice de
-procedimientos - `../ci_cd/INDICE.md <../ci_cd/INDICE.md>`__ - Indice de
+:doc:`Índice de Procedimientos </normativa/procedimientos/index>` - Indice de
+procedimientos - ``ci_cd/INDICE.md`` (índice histórico de CI/CD) - Indice de
 workflows CI/CD -
-`../../plantillas/README.md <../../plantillas/README.md>`__ - Indice de
+``plantillas/README.md`` (índice histórico de plantillas) - Indice de
 plantillas
 
 **Workflows CI/CD:** - ``.github/workflows/backend-ci.yml`` -

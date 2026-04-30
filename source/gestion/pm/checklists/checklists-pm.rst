@@ -18,7 +18,7 @@ consistencia en procesos repetitivos del proyecto IACT.
 Página padre
 ------------
 
-- `Índice de espacios documentales <../index.md>`__
+- ``index.md`` (índice histórico, ahora en source/index.rst)
 
 Información clave
 -----------------
@@ -237,7 +237,7 @@ creado (si decisión arquitectónica)
 - [ ] Acceso a Slack/Teams
 - [ ] Lectura de README.md
 - [ ] Lectura de
-  `Convenciones <../../.github/claude-code-conventions.md>`__
+  ``claude-code-conventions.md`` (vive en .github/, no en source)
 
 **Primera Semana:**
 
@@ -246,7 +246,7 @@ creado (si decisión arquitectónica)
 - [ ] Tests corriendo localmente
 - [ ] Primer commit realizado
 - [ ] Primer PR creado (pequeño cambio)
-- [ ] Lectura de `Arquitectura <../arquitectura/readme.md>`__
+- [ ] Lectura de ``arquitectura/readme.md`` (índice no migrado)
 - [ ] Lectura de `Lineamientos de
   Código <../arquitectura/lineamientos_codigo.md>`__
 
@@ -442,10 +442,10 @@ Acciones prioritarias
 Recursos relacionados
 ---------------------
 
-- `Gobernanza <../gobernanza/readme.md>`__
-- `QA - Estrategia <../qa/estrategia_qa.md>`__
-- `Lineamientos de Código <../arquitectura/lineamientos_codigo.md>`__
+- ``gobernanza/readme.md`` (índice no migrado)
+- :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
+- ``lineamientos_codigo.md`` (no migrado a source)
 - `Convenciones de Claude
   Code <../../.github/claude-code-conventions.md>`__
-- `Backend - Checklists <../backend/checklists/readme.md>`__
-- `Frontend - Checklists <../frontend/checklists/readme.md>`__
+- ``backend/checklists/readme.md`` (no migrado a source)
+- ``frontend/checklists/readme.md`` (no migrado a source)
