@@ -4,9 +4,9 @@
  :dominio: requisitos
  :subdominio: casos_uso/reports
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -25,9 +25,7 @@ Casos de Uso
  uc-rpt-01-ver-dashboard
  uc-rpt-02-ver-metricas-tiempo-real
  uc-rpt-03-ver-reportes-historicos
- uc-rpt-04-exportar-csv
- uc-rpt-05-exportar-excel
- uc-rpt-06-exportar-pdf
+ uc-rpt-04-exportar-reporte
  uc-rpt-07-programar-reporte
  uc-rpt-08-ver-reportes-programados
  uc-rpt-09-configurar-filtros
