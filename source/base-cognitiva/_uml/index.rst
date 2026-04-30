@@ -51,6 +51,13 @@ Catálogo
 
 .. toctree::
  :maxdepth: 1
+ :caption: Guía rápida
+
+ cuando-usar-cada-diagrama
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Lecciones (Schmuller adaptado)
 
  uml-01-introduccion
  uml-02-orientacion-objetos
