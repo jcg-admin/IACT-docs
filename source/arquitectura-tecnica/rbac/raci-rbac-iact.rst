@@ -4,7 +4,7 @@
  :dominio: arquitectura-tecnica
  :subdominio: rbac
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-04-29
  :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
@@ -13,14 +13,14 @@
 .. _raci-rbac-iact:
 
 ==============================================================
-Matriz RACI — RBAC IACT (51 Funciones x Stakeholders)
+Matriz RACI — RBAC IACT (61 Funciones x Stakeholders)
 ==============================================================
 
 .. note::
 
- Matriz RACI sobre el catalogo de **51 funciones** + **10 grupos
+ Matriz RACI sobre el catalogo de **61 funciones** + **10 grupos
  AGR-001..010** + **3 reglas SOD-001..003** del modelo RBAC IACT
- v5.3.0. Resuelve la nota in-text de ADR-BACK-004 legacy y
+ v5.4.0. Resuelve la nota in-text de ADR-BACK-004 legacy y
  cierra la deuda DEBT-RBAC-RACI sin diferir.
 
  Per :doc:`/normativa/gobernanza/adr-gob-009-rbac-modelo-conceptual`
@@ -125,7 +125,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - Aud
    - Comp
  * - AUTH-001
-   - ``manage_sessions``
+   - ``view_own_sessions``
    - I
    - C
    - R
@@ -149,7 +149,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - I
  * - AUTH-004
-   - ``view_active_sessions``
+   - ``view_all_active_sessions``
    - I
    - C
    - —
@@ -189,7 +189,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - —
  * - USR-003
-   - ``delete_users``
+   - ``deactivate_users``
    - C
    - R
    - —
@@ -245,7 +245,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - R
    - —
 
-3.3 MOD_Access (10 funciones — RBAC vista funcional + admin)
+3.3 MOD_Access (12 funciones — RBAC vista funcional + admin)
 ------------------------------------------------------------
 
 .. list-table::
@@ -293,7 +293,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - I
  * - ACC-005
-   - ``manage_separation_rules``
+   - ``view_separation_rules``
    - C
    - R
    - —
@@ -339,6 +339,22 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - —
    - A
    - I
+   - I
+ * - ACC-011
+   - ``update_separation_rule`` (NUEVA v5.4.0)
+   - I
+   - R
+   - —
+   - A
+   - C
+   - I
+ * - ACC-012
+   - ``disable_separation_rule`` (NUEVA v5.4.0)
+   - I
+   - R
+   - —
+   - A
+   - C
    - I
 
 3.4 MOD_Pipeline (4 funciones — supervision ETL)
@@ -493,7 +509,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - I
 
-3.6 MOD_Alerts (6 funciones — alertas y notificaciones)
+3.6 MOD_Alerts (10 funciones — alertas y notificaciones)
 -------------------------------------------------------
 
 .. list-table::
@@ -541,7 +557,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - —
  * - ALR-005
-   - ``delete_alerts``
+   - ``disable_alerts``
    - R
    - C
    - —
@@ -555,6 +571,38 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - R
    - A
    - R
+   - —
+ * - ALR-007
+   - ``acknowledge_alert`` (NUEVA v5.4.0)
+   - R
+   - C
+   - R
+   - A
+   - I
+   - I
+ * - ALR-008
+   - ``subscribe_to_alert`` (NUEVA v5.4.0)
+   - R
+   - C
+   - R
+   - A
+   - I
+   - —
+ * - ALR-009
+   - ``unsubscribe_from_alert`` (NUEVA v5.4.0)
+   - R
+   - C
+   - R
+   - A
+   - I
+   - —
+ * - ALR-010
+   - ``configure_subscription_severity`` (NUEVA v5.4.0)
+   - R
+   - C
+   - —
+   - A
+   - I
    - —
 
 3.7 MOD_Audit (4 funciones — auditoria funcional)
@@ -605,7 +653,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - R
    - C
 
-3.8 MOD_Logs (3 funciones — bitacoras tecnicas)
+3.8 MOD_Logs (7 funciones — bitacoras tecnicas + health + métricas)
 -----------------------------------------------
 
 .. list-table::
@@ -621,7 +669,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - Aud
    - Comp
  * - LOG-001
-   - ``view_technical_logs``
+   - ``view_application_logs``
    - —
    - R
    - —
@@ -643,6 +691,38 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - —
    - A
    - C
+   - —
+ * - LOG-004
+   - ``view_etl_logs`` (NUEVA v5.4.0)
+   - —
+   - R
+   - —
+   - A
+   - C
+   - —
+ * - LOG-005
+   - ``view_infrastructure_logs`` (NUEVA v5.4.0)
+   - —
+   - R
+   - —
+   - A
+   - C
+   - —
+ * - LOG-006
+   - ``view_system_health`` (NUEVA v5.4.0)
+   - —
+   - R
+   - —
+   - A
+   - I
+   - —
+ * - LOG-007
+   - ``view_technical_metrics`` (NUEVA v5.4.0)
+   - —
+   - R
+   - —
+   - A
+   - I
    - —
 
 ----
@@ -980,7 +1060,7 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
   - ``view_audit_log`` (AUD-001): R = Aud unico porque AGR-008
     tiene SoD declarado contra otros admin groups
     (per :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`).
-  - ``manage_separation_rules`` (ACC-005): R = AdmT, C = AdmNT/Aud
+  - ``view_separation_rules`` (ACC-005): R = AdmT, C = AdmNT/Aud
     porque modificar reglas SoD afecta directamente la
     administracion no-tech (y es auditable).
 

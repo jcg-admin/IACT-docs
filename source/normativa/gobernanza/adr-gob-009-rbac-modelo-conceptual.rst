@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: gobernanza
  :estado: Aprobado
- :version: 1.1.0
+ :version: 1.2.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -35,7 +35,7 @@ ADR-GOB-009: RBAC Modelo Conceptual (Supersede BACK-001/004)
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo v5.3.0)
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo v5.4.0)
 
 ----
 
@@ -51,7 +51,7 @@ normativo vigente:
 
 - ``ADR-BACK-001`` cita "**19 funciones**" y "**130+
   capacidades**" — cifras divergentes del modelo vigente
-  (51 funciones v5.3.0 + 10 grupos AGR-001..AGR-010).
+  (61 funciones v5.4.0 + 10 grupos AGR-001..AGR-010).
 - ``ADR-BACK-001/004`` usan vocabulario "**Capacidad**" que
   CNST-033 vigente PROHIBE explicitamente.
 - ``ADR-BACK-001 + ADR-BACK-004`` documentan **la misma
@@ -79,10 +79,10 @@ El modelo RBAC del proyecto IACT es:
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
-3. **Catalogo cerrado** — **51 funciones atomicas** (modelo v5.3.0)
+3. **Catalogo cerrado** — **61 funciones atomicas** (modelo v5.4.0)
    distribuidas en **8 modulos** funcionales (MOD_Auth,
    MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
-   MOD_Audit, MOD_Logs). Bump v5.2.1 → v5.3.0 (ver §6
+   MOD_Audit, MOD_Logs). Bumps v5.2.1 → v5.3.0 → v5.4.0 (ver §6
    Trazabilidad version del modelo).
 4. **10 grupos predefinidos** AGR-001..AGR-010 que agrupan
    funciones tipicas para perfiles operativos.
@@ -147,21 +147,43 @@ los adr-gob-* viven en gobernanza. Este ADR usa el modulo
 ``gob`` (gobernanza) en lugar de ``back`` para reflejar su
 naturaleza transversal.
 
-3.3 Por que cifras 51/10/3 (no 19/130+/0 ni 42/10/3)
-----------------------------------------------------
+3.3 Por que cifras 61/10/3 (no 19/130+/0 ni 42/10/3 ni 51/10/3)
+---------------------------------------------------------------
 
-El modelo v5.3.0 (vigente, en
+El modelo v5.4.0 (vigente, en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`) declara:
 
-- **51 funciones** distribuidas en 8 modulos:
-  Auth=4, Users=9, Access=10, Pipeline=4, Reports=11, Alerts=6,
-  Audit=4, Logs=3.
+- **61 funciones** distribuidas en 8 modulos:
+  Auth=4, Users=9, Access=12, Pipeline=4, Reports=11, Alerts=10,
+  Audit=4, Logs=7.
 - **10 grupos** AGR-001..AGR-010.
 - **3 reglas SoD** SOD-001/002/003.
 
-Nota historica: el modelo v5.2.1 declaraba 42 funciones
-(Access=5, Reports=8, Logs=2). El bump v5.3.0 agrega +9
-funciones — 2 restauradas (``schedule_report``, ``share_report``,
+Nota historica del bump v5.3.0 → v5.4.0:
+
+- **6 renames preservando IDs:** ``delete_users`` → ``deactivate_users``
+  (USR-003), ``manage_sessions`` → ``view_own_sessions`` (AUTH-001),
+  ``view_active_sessions`` → ``view_all_active_sessions`` (AUTH-004),
+  ``manage_separation_rules`` → ``view_separation_rules`` (ACC-005),
+  ``delete_alerts`` → ``disable_alerts`` (ALR-005),
+  ``view_technical_logs`` → ``view_application_logs`` (LOG-001).
+- **10 funciones nuevas:** ACC-011/012 (split SRP de SoD admin),
+  ALR-007 (acknowledge), ALR-008/009/010 (split SRP suscripciones),
+  LOG-004/005/006/007 (split SRP logs ETL/infra + gaps health/metrics).
+- **0 eliminaciones:** principio "no eliminar nada" (BR-009 global).
+
+Drivers del bump v5.4.0:
+
+1. Auditoría SRP detectó violaciones en funciones con verbo ``manage_*``.
+2. Aplicación global de BR-009 (no eliminar) requirió renames de
+   funciones con verbo ``delete_*``.
+3. ARQ-MOD-008 declara conceptos (health, métricas técnicas) sin
+   función backing — gaps cubiertos.
+4. Anti-patrón Larman en MOD_Reports consolidado (uc-rpt-04/05/06 → uc-rpt-04).
+
+Nota historica del bump v5.2.1 → v5.3.0: el modelo v5.2.1 declaraba
+42 funciones (Access=5, Reports=8, Logs=2). El bump v5.3.0 agrega
++9 funciones — 2 restauradas (``schedule_report``, ``share_report``,
 existentes en v5.0_1/v5.1 y eliminadas erroneamente en v5.1.1) y
 7 nuevas (``save_view``, ``search_logs``, ``create_function_group``,
 ``assign_functions_to_group``, ``grant_exceptional_permission``,
@@ -230,7 +252,7 @@ La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 
 La matriz RACI:
 
-- Cubre las 51 funciones por modulo (MOD_Auth, MOD_Users,
+- Cubre las 61 funciones por modulo (MOD_Auth, MOD_Users,
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
 - Cubre los 10 grupos predefinidos AGR-001..AGR-010.
@@ -274,7 +296,7 @@ Documentos historicos del subsistema RBAC en
 7. Spec vigente y normativa relacionada
 =======================================
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.3.0).
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.4.0).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.

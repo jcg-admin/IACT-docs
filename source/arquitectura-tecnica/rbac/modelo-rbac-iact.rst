@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: rbac
  :estado: Vigente
- :version: 5.3.0
+ :version: 5.4.0
  :fecha_creacion: 2026-01-13
  :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
@@ -78,12 +78,133 @@ CONTROL DE CAMBIOS
    - 13 Ene 2026
    - Corrección: nombres funciones/grupos en INGLÉS
    - Equipo
- * - **5.3.0**
+ * - 5.3.0
+   - 30 Abr 2026
+   - Corrección error v5.1.1 + funciones nuevas (42 → 51 funciones)
+   - NestorMonroy
+ * - **5.4.0**
    - **30 Abr 2026**
-   - **Corrección error v5.1.1 + funciones nuevas (42 → 51 funciones)**
+   - **SRP audit + principio "no eliminar nada" + Larman + L4-SRP Logs (51 → 61 funciones)**
    - **NestorMonroy**
 
 
+
+Cambios v5.3.0 → v5.4.0
+-----------------------
+
+Bump MAJOR motivado por hallazgos del programa
+``rbac-modelo-conceptual-cleanup`` (Z.2):
+
+1. **Auditoría SRP global** detectó violaciones de Single
+   Responsibility Principle en funciones con verbo ``manage_*``
+   (AUTH-001, ACC-005, ALR-008 propuesta). Resolución: split
+   semántico preservando IDs cuando posible.
+2. **Principio "no eliminar nada"** (BR-009 ampliada a alcance
+   global) requirió rename de funciones con verbo ``delete_*``
+   que en realidad implementan soft delete (``USR-003``,
+   ``ALR-005``).
+3. **L4-SRP MOD_Logs:** una sola función ``view_technical_logs``
+   cubría 3 conceptos distintos (app + ETL + infra) violando
+   SRP. Split en funciones específicas + 2 nuevas para gaps
+   (health, métricas técnicas).
+4. **Anti-patrón Larman** en MOD_Reports (uc-rpt-04/05/06 por
+   formato) consolidado en uc-rpt-04 con flujos alternativos.
+   Funciones RBAC RPT-004/005/006 preservadas para SoD por formato.
+5. **Cat E suscripciones de alertas:** uc-alr-03 reconocer y
+   uc-alr-05 suscripciones no tenían función backing canónica.
+   Resolución: agregar ``acknowledge_alert`` + split de
+   ``manage_alert_subscriptions`` en 3 funciones SRP-compliant.
+
+.. list-table::
+ :widths: 30 18 18 34
+ :header-rows: 1
+
+ * - Función v5.4.0
+   - ID
+   - Tipo
+   - Origen
+ * - ``deactivate_users``
+   - USR-003
+   - **RENAME**
+   - era ``delete_users`` (soft delete; BR-009 global)
+ * - ``view_own_sessions``
+   - AUTH-001
+   - **RENAME**
+   - era ``manage_sessions`` (SRP — scope propio)
+ * - ``view_all_active_sessions``
+   - AUTH-004
+   - **RENAME**
+   - era ``view_active_sessions`` (SRP — scope sistema, distinción con AUTH-001)
+ * - ``view_separation_rules``
+   - ACC-005
+   - **RENAME + SPLIT**
+   - era ``manage_separation_rules`` (SRP)
+ * - ``update_separation_rule``
+   - ACC-011
+   - NUEVA
+   - SoD admin (split SRP de ACC-005)
+ * - ``disable_separation_rule``
+   - ACC-012
+   - NUEVA
+   - SoD admin toggle (split SRP de ACC-005)
+ * - ``disable_alerts``
+   - ALR-005
+   - **RENAME**
+   - era ``delete_alerts`` (toggle on/off; no eliminar)
+ * - ``acknowledge_alert``
+   - ALR-007
+   - NUEVA
+   - closed-loop alerts (uc-alr-03)
+ * - ``subscribe_to_alert``
+   - ALR-008
+   - NUEVA
+   - gestión suscripciones (uc-alr-05 FA-Subscribe)
+ * - ``unsubscribe_from_alert``
+   - ALR-009
+   - NUEVA
+   - gestión suscripciones (uc-alr-05 FA-Unsubscribe)
+ * - ``configure_subscription_severity``
+   - ALR-010
+   - NUEVA
+   - gestión suscripciones (uc-alr-05 FA-Configure)
+ * - ``view_application_logs``
+   - LOG-001
+   - **RENAME**
+   - era ``view_technical_logs`` (SRP — solo app logs)
+ * - ``view_etl_logs``
+   - LOG-004
+   - NUEVA
+   - SRP — logs ETL (uc-log-02 re-mapeo)
+ * - ``view_infrastructure_logs``
+   - LOG-005
+   - NUEVA
+   - SRP — logs infraestructura (uc-log-05 nuevo)
+ * - ``view_system_health``
+   - LOG-006
+   - NUEVA
+   - gap UC_081 ARQ-MOD-008 (uc-log-06 nuevo)
+ * - ``view_technical_metrics``
+   - LOG-007
+   - NUEVA
+   - gap UC_083 ARQ-MOD-008 (uc-log-07 nuevo)
+
+**Total catálogo v5.4.0:** 61 funciones (+10 nuevas vs v5.3.0;
+0 eliminadas; 6 renames preservando IDs).
+
+Distribución actualizada por módulo:
+
+::
+
+   MOD_Auth         4 funciones (sin cambio numérico, 2 renames)
+   MOD_Users        9 funciones (sin cambio numérico, 1 rename)
+   MOD_Access      12 funciones (10 + 2 nuevas, 1 rename)
+   MOD_Pipeline     4 funciones (sin cambio)
+   MOD_Reports     11 funciones (sin cambio)
+   MOD_Alerts      10 funciones (6 + 4 nuevas, 1 rename)
+   MOD_Audit        4 funciones (sin cambio)
+   MOD_Logs         7 funciones (3 + 4 nuevas, 1 rename)
+   ────────────────────────────────────
+   TOTAL          61 funciones
 
 Cambios v5.2.1 → v5.3.0
 -----------------------
@@ -269,8 +390,8 @@ TABLA DE CONTENIDO
 
 
 
-2.1 Distribución de 42 Funciones
---------------------------------
+2.1 Distribución de 61 Funciones (v5.4.0)
+-----------------------------------------
 
 
 
@@ -286,46 +407,46 @@ TABLA DE CONTENIDO
  * - MOD_Auth
    - AUTH
    - 4
-   - 9.5%
+   - 6.6%
    - Sesiones y autenticación
  * - MOD_Users
    - USR
    - 9
-   - 21.4%
+   - 14.8%
    - Gestión de identidades
  * - MOD_Access
    - ACC
-   - 5
-   - 11.9%
+   - 12
+   - 19.7%
    - RBAC core + SEC_RULES
  * - MOD_Pipeline
    - PIP
    - 4
-   - 9.5%
+   - 6.6%
    - Supervisión ETL
  * - **MOD_Reports**
    - **RPT**
-   - **8**
-   - **19.0%**
+   - **11**
+   - **18.0%**
    - **Reportes/Dashboards**
  * - MOD_Alerts
    - ALR
-   - 6
-   - 14.3%
+   - 10
+   - 16.4%
    - Alertas internas
  * - MOD_Audit
    - AUD
    - 4
-   - 9.5%
+   - 6.6%
    - Auditoría funcional
  * - MOD_Logs
    - LOG
-   - 2
-   - 4.8%
-   - Logs técnicos
+   - 7
+   - 11.5%
+   - Logs técnicos + health + métricas
  * - **TOTAL**
    - -
-   - **42**
+   - **61**
    - **100%**
    - -
 
@@ -333,7 +454,7 @@ TABLA DE CONTENIDO
 ----
 
 
-3. CATÁLOGO DE 42 FUNCIONES
+3. CATÁLOGO DE 61 FUNCIONES
 ===========================
 
 
@@ -353,10 +474,10 @@ TABLA DE CONTENIDO
    - UC
    - Descripción
  * - AUTH-001
-   - `manage_sessions`
-   - auth:sessions
+   - `view_own_sessions`
+   - auth:view_own_sessions
    - UC-005
-   - Gestiona sesiones activas del sistema
+   - Ve sesiones activas propias del usuario (RENAME v5.4.0 desde ``manage_sessions`` — SRP scope propio)
  * - AUTH-002
    - `close_user_session`
    - auth:close_session
@@ -368,10 +489,10 @@ TABLA DE CONTENIDO
    - UC-003
    - Genera contraseña temporal
  * - AUTH-004
-   - `view_active_sessions`
-   - auth:view_sessions
+   - `view_all_active_sessions`
+   - auth:view_all_sessions
    - UC-005
-   - Ve sesiones activas del sistema
+   - Ve TODAS las sesiones activas del sistema (RENAME v5.4.0 desde ``view_active_sessions`` — SRP scope sistema; admin)
 
 
 **CNST aplicables:**
@@ -384,9 +505,9 @@ TABLA DE CONTENIDO
 
  from apps.access.decorators import require_function
  
- @require_function('AUTH-001') # manage_sessions
- def manage_sessions_view(request):
- """Gestión de sesiones activas."""
+ @require_function('AUTH-001') # view_own_sessions
+ def view_own_sessions_view(request):
+ """Sesiones activas propias del usuario."""
  pass
 
 
@@ -417,10 +538,10 @@ TABLA DE CONTENIDO
    - UC-007
    - Modifica datos de usuarios
  * - USR-003
-   - `delete_users`
-   - users:delete
+   - `deactivate_users`
+   - users:deactivate
    - UC-008
-   - Baja lógica de usuarios
+   - Baja lógica de usuarios (RENAME v5.4.0 desde ``delete_users`` — semántica soft delete; BR-009 global)
  * - USR-004
    - `list_users`
    - users:list
@@ -475,7 +596,7 @@ TABLA DE CONTENIDO
 
 ----
 
-3.3 MOD_Access (10 funciones)
+3.3 MOD_Access (12 funciones)
 -----------------------------
 
 
@@ -510,10 +631,10 @@ TABLA DE CONTENIDO
    - UC-010
    - Asigna grupos de funciones
  * - ACC-005
-   - `manage_separation_rules`
-   - access:sod
+   - `view_separation_rules`
+   - access:view_sod
    - UC-043
-   - Configura reglas SoD
+   - Ve reglas SoD configuradas (RENAME v5.4.0 desde ``manage_separation_rules`` — split SRP B2)
  * - ACC-006
    - `create_function_group`
    - access:create_group
@@ -539,11 +660,24 @@ TABLA DE CONTENIDO
    - access:revoke_group
    - UC_PERM_02
    - Revoca grupo asignado a usuario (NUEVA v5.3.0)
+ * - ACC-011
+   - `update_separation_rule`
+   - access:update_sod
+   - UC-043
+   - Actualiza parámetros de regla SoD existente (NUEVA v5.4.0 — split SRP de ACC-005)
+ * - ACC-012
+   - `disable_separation_rule`
+   - access:disable_sod
+   - UC-043
+   - Desactiva regla SoD temporalmente (toggle on/off; BR-009 global) (NUEVA v5.4.0 — split SRP de ACC-005)
 
+
+**CAMBIO v5.4.0:**
+- ACC-005 RENAME ``manage_separation_rules`` → ``view_separation_rules``
+- ACC-011/012 NUEVAS (split SRP B2; gestión SoD ahora granular)
 
 **CAMBIO v5.2.1:**
 - ``assign_function_groups`` (completo, NO "assign_groupers")
-- ``manage_separation_rules`` (descriptivo, NO "gestiona_sod")
 - Sin función ACC-006 (eliminada en v5.2.0)
 
 **Componente SEC_RULES:**
@@ -721,8 +855,8 @@ TABLA DE CONTENIDO
 
 ----
 
-3.6 MOD_Alerts (6 funciones)
-----------------------------
+3.6 MOD_Alerts (10 funciones)
+-----------------------------
 
 
 
@@ -756,16 +890,41 @@ TABLA DE CONTENIDO
    - UC-038
    - Pausa alertas temporalmente
  * - ALR-005
-   - `delete_alerts`
-   - alerts:delete
+   - `disable_alerts`
+   - alerts:disable
    - UC-038
-   - Elimina alertas
+   - Desactiva alerta (toggle on/off; BR-009 global) (RENAME v5.4.0 desde ``delete_alerts`` — no eliminar)
  * - ALR-006
    - `view_alert_history`
    - alerts:history
    - UC-039
    - Ve historial de alertas
+ * - ALR-007
+   - `acknowledge_alert`
+   - alerts:acknowledge
+   - uc-alr-03
+   - Reconoce alerta (state transition ACTIVE → ACKNOWLEDGED) (NUEVA v5.4.0 — closed-loop alerts)
+ * - ALR-008
+   - `subscribe_to_alert`
+   - alerts:subscribe
+   - uc-alr-05
+   - Suscribe usuario a tipo de alerta (NUEVA v5.4.0 — split SRP suscripciones)
+ * - ALR-009
+   - `unsubscribe_from_alert`
+   - alerts:unsubscribe
+   - uc-alr-05
+   - Desuscribe usuario de tipo de alerta (NUEVA v5.4.0 — split SRP suscripciones)
+ * - ALR-010
+   - `configure_subscription_severity`
+   - alerts:config_severity
+   - uc-alr-05
+   - Configura nivel mínimo de severidad para notificación (NUEVA v5.4.0 — split SRP suscripciones)
 
+
+**CAMBIO v5.4.0:**
+- ALR-005 RENAME ``delete_alerts`` → ``disable_alerts`` (BR-009 no eliminar)
+- ALR-007 NUEVA acknowledge_alert (closed-loop)
+- ALR-008/009/010 NUEVAS (split SRP de ``manage_alert_subscriptions`` propuesta)
 
 **CAMBIO v5.2.1:**
 - ``configure_team_alerts`` (NO "configura_alertas_equipo")
@@ -826,7 +985,7 @@ TABLA DE CONTENIDO
 
 ----
 
-3.8 MOD_Logs (3 funciones)
+3.8 MOD_Logs (7 funciones)
 --------------------------
 
 
@@ -841,28 +1000,56 @@ TABLA DE CONTENIDO
    - UC
    - Descripción
  * - LOG-001
-   - `view_technical_logs`
-   - logs:view
-   - UC_LOG_01, UC_LOG_02
-   - Ve logs técnicos del sistema (incluye logs ETL filtrados)
+   - `view_application_logs`
+   - logs:view_app
+   - uc-log-01
+   - Ve logs de aplicación (errores 500, INFO/WARN/ERROR, tracebacks) (RENAME v5.4.0 desde ``view_technical_logs`` — SRP, ya no genérico)
  * - LOG-002
    - `export_logs`
    - logs:export
-   - UC_LOG_04
-   - Exporta logs técnicos a CSV/JSON
+   - uc-log-04
+   - Exporta paquete de logs a CSV/JSON
  * - LOG-003
    - `search_logs`
    - logs:search
-   - UC_LOG_03
+   - uc-log-03
    - Busca logs por criterios (timestamp, severity, source) (NUEVA v5.3.0)
+ * - LOG-004
+   - `view_etl_logs`
+   - logs:view_etl
+   - uc-log-02
+   - Ve logs específicos del proceso ETL (sync IVR→Analytics, métricas carga) (NUEVA v5.4.0 — SRP)
+ * - LOG-005
+   - `view_infrastructure_logs`
+   - logs:view_infra
+   - uc-log-05
+   - Ve logs de infraestructura (timeouts, up/down, conectividad DB) (NUEVA v5.4.0 — SRP)
+ * - LOG-006
+   - `view_system_health`
+   - logs:view_health
+   - uc-log-06
+   - Ve estado de salud del sistema y servicios externos (UP/DOWN/DEGRADED) (NUEVA v5.4.0 — gap UC_081)
+ * - LOG-007
+   - `view_technical_metrics`
+   - logs:view_metrics
+   - uc-log-07
+   - Ve métricas técnicas agregadas (CPU, memoria, latencia P95) (NUEVA v5.4.0 — gap UC_083)
 
+
+**CAMBIO v5.4.0:**
+- LOG-001 RENAME ``view_technical_logs`` → ``view_application_logs``
+  (SRP: ya no cubre ETL ni infra)
+- LOG-004 NUEVA ``view_etl_logs`` (uc-log-02 deja de ser instancia)
+- LOG-005 NUEVA ``view_infrastructure_logs`` (uc-log-05 nuevo)
+- LOG-006 NUEVA ``view_system_health`` (gap UC_081 ARQ-MOD-008)
+- LOG-007 NUEVA ``view_technical_metrics`` (gap UC_083 ARQ-MOD-008)
 
 **CAMBIO v5.3.0:**
 - Agregada ``search_logs`` (LOG-003) para sustentar UC_LOG_03 que
   citaba función inexistente.
 
 **CAMBIO v5.2.1:**
-- ``view_technical_logs`` (NO "ve_logs_tecnicos")
+- Nombres en inglés (NO "ve_logs_tecnicos")
 
 **CNST aplicables:**
 - CNST-008: Sin PII (contraseñas, tokens enmascarados)
@@ -1512,8 +1699,8 @@ Una función puede asignarse **temporalmente** con:
 **CAMBIO v5.2.1:** ``rule_group`` (NO ``separation_group``, más conciso)
 
 
-8.8 Datos Iniciales - 42 Funciones
-----------------------------------
+8.8 Datos Iniciales - 61 Funciones (v5.4.0)
+-------------------------------------------
 
 
 
@@ -1521,69 +1708,88 @@ Una función puede asignarse **temporalmente** con:
 
  -- MOD_Auth (4 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
- ('AUTH-001', 'manage_sessions', 'Gestiona sesiones activas del sistema', 'auth'),
+ ('AUTH-001', 'view_own_sessions', 'Ve sesiones activas propias del usuario', 'auth'),
  ('AUTH-002', 'close_user_session', 'Cierra sesión de otro usuario', 'auth'),
  ('AUTH-003', 'reset_password', 'Genera contraseña temporal', 'auth'),
- ('AUTH-004', 'view_active_sessions', 'Ve sesiones activas del sistema', 'auth');
- 
+ ('AUTH-004', 'view_all_active_sessions', 'Ve TODAS las sesiones activas del sistema (admin)', 'auth');
+
  -- MOD_Users (9 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('USR-001', 'create_users', 'Crea nuevos usuarios', 'users'),
  ('USR-002', 'update_users', 'Modifica datos de usuarios', 'users'),
- ('USR-003', 'delete_users', 'Baja lógica de usuarios', 'users'),
+ ('USR-003', 'deactivate_users', 'Baja lógica de usuarios (BR-009)', 'users'),
  ('USR-004', 'list_users', 'Lista usuarios con filtros', 'users'),
  ('USR-005', 'search_users', 'Busca usuarios por criterios', 'users'),
  ('USR-006', 'block_users', 'Bloquea acceso de usuario', 'users'),
  ('USR-007', 'unblock_users', 'Desbloquea usuario', 'users'),
  ('USR-008', 'reactivate_users', 'Reactiva usuario inactivo', 'users'),
  ('USR-009', 'view_users', 'Consulta información de usuarios', 'users');
- 
- -- MOD_Access (5 funciones)
+
+ -- MOD_Access (12 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('ACC-001', 'assign_functions', 'Asigna funciones a usuarios', 'access'),
  ('ACC-002', 'revoke_functions', 'Revoca funciones de usuarios', 'access'),
  ('ACC-003', 'view_assignments', 'Ve asignaciones de funciones', 'access'),
  ('ACC-004', 'assign_function_groups', 'Asigna grupos de funciones', 'access'),
- ('ACC-005', 'manage_separation_rules', 'Configura reglas SoD', 'access');
- 
+ ('ACC-005', 'view_separation_rules', 'Ve reglas SoD configuradas', 'access'),
+ ('ACC-006', 'create_function_group', 'Crea grupo de funciones custom', 'access'),
+ ('ACC-007', 'assign_functions_to_group', 'Asigna funciones a un grupo', 'access'),
+ ('ACC-008', 'grant_exceptional_permission', 'Otorga permiso temporal excepcional (CNST-031)', 'access'),
+ ('ACC-009', 'revoke_exceptional_permission', 'Revoca permiso excepcional', 'access'),
+ ('ACC-010', 'revoke_function_group', 'Revoca grupo asignado', 'access'),
+ ('ACC-011', 'update_separation_rule', 'Actualiza parámetros de regla SoD', 'access'),
+ ('ACC-012', 'disable_separation_rule', 'Desactiva regla SoD (toggle on/off; BR-009)', 'access');
+
  -- MOD_Pipeline (4 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('PIP-001', 'view_pipeline_status', 'Ve estado actual del ETL', 'pipeline'),
  ('PIP-002', 'view_pipeline_errors', 'Consulta errores del ETL', 'pipeline'),
  ('PIP-003', 'view_data_availability', 'Ve disponibilidad de datos', 'pipeline'),
  ('PIP-004', 'request_pipeline_retry', 'Solicita reintento de ETL', 'pipeline');
- 
- -- MOD_Reports (8 funciones)
+
+ -- MOD_Reports (11 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('RPT-001', 'view_reports', 'Ve reportes tabulares', 'reports'),
  ('RPT-002', 'view_dashboard', 'Ve dashboard principal', 'reports'),
  ('RPT-003', 'filter_reports', 'Aplica filtros a reportes', 'reports'),
- ('RPT-004', 'export_csv', 'Exporta a CSV (límite: 100K)', 'reports'),
- ('RPT-005', 'export_excel', 'Exporta a Excel (límite: 50K)', 'reports'),
- ('RPT-006', 'export_pdf', 'Exporta a PDF (límite: 10K)', 'reports'),
+ ('RPT-004', 'export_csv', 'Exporta a CSV', 'reports'),
+ ('RPT-005', 'export_excel', 'Exporta a Excel', 'reports'),
+ ('RPT-006', 'export_pdf', 'Exporta a PDF', 'reports'),
  ('RPT-007', 'view_kpis', 'Ve KPIs estáticos', 'reports'),
- ('RPT-008', 'view_charts', 'Ve gráficos predefinidos', 'reports');
- 
- -- MOD_Alerts (6 funciones)
+ ('RPT-008', 'view_charts', 'Ve gráficos predefinidos', 'reports'),
+ ('RPT-009', 'schedule_report', 'Programa generación automática de reportes', 'reports'),
+ ('RPT-010', 'save_view', 'Persiste configuración de filtros como vista', 'reports'),
+ ('RPT-011', 'share_report', 'Comparte reporte vía URL/buzón interno', 'reports');
+
+ -- MOD_Alerts (10 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('ALR-001', 'view_alerts', 'Ve alertas propias', 'alerts'),
  ('ALR-002', 'configure_alerts', 'Configura alertas personales', 'alerts'),
  ('ALR-003', 'configure_team_alerts', 'Configura alertas de equipo', 'alerts'),
  ('ALR-004', 'pause_alerts', 'Pausa alertas temporalmente', 'alerts'),
- ('ALR-005', 'delete_alerts', 'Elimina alertas', 'alerts'),
- ('ALR-006', 'view_alert_history', 'Ve historial de alertas', 'alerts');
- 
+ ('ALR-005', 'disable_alerts', 'Desactiva alerta (toggle on/off; BR-009)', 'alerts'),
+ ('ALR-006', 'view_alert_history', 'Ve historial de alertas', 'alerts'),
+ ('ALR-007', 'acknowledge_alert', 'Reconoce alerta (state transition)', 'alerts'),
+ ('ALR-008', 'subscribe_to_alert', 'Suscribe usuario a tipo de alerta', 'alerts'),
+ ('ALR-009', 'unsubscribe_from_alert', 'Desuscribe usuario de tipo de alerta', 'alerts'),
+ ('ALR-010', 'configure_subscription_severity', 'Configura severidad mínima', 'alerts');
+
  -- MOD_Audit (4 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('AUD-001', 'view_audit_log', 'Ve registros de auditoría', 'audit'),
  ('AUD-002', 'search_audit_log', 'Busca en auditoría', 'audit'),
  ('AUD-003', 'export_audit_log', 'Exporta registros de auditoría', 'audit'),
  ('AUD-004', 'generate_compliance_report', 'Genera reporte de cumplimiento', 'audit');
- 
- -- MOD_Logs (2 funciones)
+
+ -- MOD_Logs (7 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
- ('LOG-001', 'view_technical_logs', 'Ve logs técnicos del sistema', 'logs'),
- ('LOG-002', 'export_logs', 'Exporta logs técnicos', 'logs');
+ ('LOG-001', 'view_application_logs', 'Ve logs de aplicación (errores 500, INFO/WARN/ERROR)', 'logs'),
+ ('LOG-002', 'export_logs', 'Exporta paquete de logs', 'logs'),
+ ('LOG-003', 'search_logs', 'Busca logs por criterios', 'logs'),
+ ('LOG-004', 'view_etl_logs', 'Ve logs del proceso ETL (sync IVR→Analytics)', 'logs'),
+ ('LOG-005', 'view_infrastructure_logs', 'Ve logs de infraestructura (timeouts, up/down)', 'logs'),
+ ('LOG-006', 'view_system_health', 'Ve estado de salud del sistema y servicios', 'logs'),
+ ('LOG-007', 'view_technical_metrics', 'Ve métricas técnicas agregadas (CPU, memoria)', 'logs');
 
 
 
@@ -2354,7 +2560,7 @@ Una función puede asignarse **temporalmente** con:
  * - Función
    - Casos de Uso
    - Módulo
- * - manage_sessions
+ * - view_own_sessions
    - UC-005
    - Auth
  * - close_user_session
@@ -2363,7 +2569,7 @@ Una función puede asignarse **temporalmente** con:
  * - reset_password
    - UC-003
    - Auth
- * - view_active_sessions
+ * - view_all_active_sessions
    - UC-005
    - Auth
  * - create_users
@@ -2372,7 +2578,7 @@ Una función puede asignarse **temporalmente** con:
  * - update_users
    - UC-007
    - Users
- * - delete_users
+ * - deactivate_users
    - UC-008
    - Users
  * - list_users
@@ -2405,7 +2611,13 @@ Una función puede asignarse **temporalmente** con:
  * - assign_function_groups
    - UC-010
    - Access
- * - manage_separation_rules
+ * - view_separation_rules
+   - UC-043
+   - Access
+ * - update_separation_rule
+   - UC-043
+   - Access
+ * - disable_separation_rule
    - UC-043
    - Access
  * - view_pipeline_status
@@ -2456,11 +2668,23 @@ Una función puede asignarse **temporalmente** con:
  * - pause_alerts
    - UC-038
    - Alerts
- * - delete_alerts
+ * - disable_alerts
    - UC-038
    - Alerts
  * - view_alert_history
    - UC-039
+   - Alerts
+ * - acknowledge_alert
+   - uc-alr-03
+   - Alerts
+ * - subscribe_to_alert
+   - uc-alr-05
+   - Alerts
+ * - unsubscribe_from_alert
+   - uc-alr-05
+   - Alerts
+ * - configure_subscription_severity
+   - uc-alr-05
    - Alerts
  * - view_audit_log
    - UC-061
@@ -2474,11 +2698,26 @@ Una función puede asignarse **temporalmente** con:
  * - generate_compliance_report
    - UC-062
    - Audit
- * - view_technical_logs
-   - UC-070, UC-071
+ * - view_application_logs
+   - uc-log-01
    - Logs
  * - export_logs
-   - UC-072
+   - uc-log-04
+   - Logs
+ * - search_logs
+   - uc-log-03
+   - Logs
+ * - view_etl_logs
+   - uc-log-02
+   - Logs
+ * - view_infrastructure_logs
+   - uc-log-05
+   - Logs
+ * - view_system_health
+   - uc-log-06
+   - Logs
+ * - view_technical_metrics
+   - uc-log-07
    - Logs
 
 
