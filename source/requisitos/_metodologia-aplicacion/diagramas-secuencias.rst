@@ -2778,7 +2778,239 @@ Ese es el siguiente capítulo conceptual del proyecto.
 
 ----
 
-16. Trazabilidad
+16. Catálogo consolidado de notaciones
+======================================
+
+Tabla índice del documento — lista todos los
+componentes del diagrama de secuencias cubiertos en
+el cajón con su sintaxis PlantUML, sección del
+documento donde se desarrolla y el caso IACT
+canónico donde aparece.
+
+16.1 Lifelines y participantes
+------------------------------
+
+.. list-table::
+ :widths: 22 25 18 35
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Actor (humano)
+   - ``actor "Nombre" as A``
+   - § 2.1.bis
+   - ``Supervisor``, ``Auditor``,
+     ``Operador ETL``.
+ * - Participante (servicio /
+     componente)
+   - ``participant "Nombre" as P``
+   - § 2.1.bis
+   - ``auth_app``, ``perm_app``,
+     ``rpt_app``.
+ * - Database (persistencia)
+   - ``database "Nombre" as DB``
+   - § 2.1.bis
+   - ``bd_analytics``, ``audit_log``,
+     ``Redis``.
+ * - Boundary (frontera /
+     integración externa)
+   - ``boundary "Nombre" as B``
+   - § 2.1.bis
+   - ``ldap-corporativo``, ``ivr-host``.
+ * - Control (orquestador)
+   - ``control "Nombre" as C``
+   - § 2.1.bis
+   - ``ExportarReporteFacade``.
+ * - Entity (entidad de dominio)
+   - ``entity "Nombre" as E``
+   - § 2.1.bis
+   - ``Reporte``, ``Sesion``,
+     ``Alerta``.
+ * - Lifeline + activación
+   - ``activate``/``deactivate`` o
+     ``++`` / ``--`` inline
+   - § 2.1.sexies
+   - UC_AUTH_01 con
+     ``auth_app`` activo durante el
+     login.
+
+16.2 Mensajes
+-------------
+
+.. list-table::
+ :widths: 22 25 18 35
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Mensaje síncrono
+   - ``A -> B : etiqueta``
+   - § 2.1.ter
+   - ``Browser -> auth_app : POST /login``
+ * - Mensaje de respuesta
+   - ``A --> B : etiqueta``
+   - § 2.1.ter
+   - ``auth_app --> Browser : 200 OK``
+ * - Mensaje asíncrono
+     (fire-and-forget)
+   - ``A ->> B : etiqueta``
+   - § 2.1.quinquies
+   - ``auth_app ->> audit_log :
+     registrar evento`` (CNST_025).
+ * - Self-message
+   - ``A -> A : op interna``
+   - § 10.1
+   - ``Facade -> Facade :
+     validar(filtro)``.
+ * - Numeración automática
+   - ``autonumber`` (con offset y
+     formato opcionales)
+   - § 2.1.octies
+   - UCs con > 5 mensajes que se
+     revisan en PR.
+
+16.3 Fragments
+--------------
+
+.. list-table::
+ :widths: 18 30 18 34
+ :header-rows: 1
+
+ * - Fragment
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - ``alt`` / ``else``
+   - ``alt [guarda]`` ... ``else
+     [guarda]`` ... ``end``
+   - § 2.1.quater
+   - UC_AUTH_01: credenciales válidas
+     vs inválidas.
+ * - ``opt``
+   - ``opt [guarda]`` ... ``end``
+   - § 2.1.quater.bis
+   - UC_RPT_04: notificar buzón solo
+     si la preferencia CNST_001 está
+     activa.
+ * - ``loop``
+   - ``loop [condición]`` ... ``end``
+   - § 10.1
+   - UC_PIP_01: leer lotes hasta fin
+     de ventana CNST_006/008.
+ * - ``par`` / ``else``
+   - ``par`` ... ``else`` ... ``end``
+   - § 10.2.bis
+   - UC_RPT_04: audit + notify
+     simultáneos tras encolado.
+ * - ``break``
+   - ``break [guarda]`` ...
+   - § 10.1 (mencionado)
+   - Salida temprana en bucle ETL
+     ante ventana agotada.
+
+16.4 Notas y anotaciones
+------------------------
+
+.. list-table::
+ :widths: 22 28 18 32
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Nota a un participante
+   - ``note left of P : ...``,
+     ``note right of P : ...``
+   - § 2.1.septies
+   - Nota CNST_002 al lado de
+     ``Sesion``.
+ * - Nota sobre dos participantes
+   - ``note over P, Q : ...``
+   - § 2.1.septies
+   - Nota CNST_011 abarcando
+     ``Browser`` y ``auth_app``.
+ * - Nota multilínea
+   - ``note right of P``
+     ... ``end note``
+   - § 2.1.septies
+   - Aclaraciones de fan-out
+     auditable.
+
+16.5 Ciclo de vida de objetos
+-----------------------------
+
+.. list-table::
+ :widths: 22 28 18 32
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Creación de objeto
+   - ``create participant ":Obj"
+     as O`` + flecha
+     ``A -> O : <<create>>``
+   - § 7
+   - ``Sesion`` creada en
+     UC_AUTH_01.
+ * - Destrucción de objeto
+   - ``destroy O`` o X al final
+     de la lifeline
+   - § 8
+   - ``Sesion`` destruida en
+     logout.
+
+16.6 Enlaces y dirección
+------------------------
+
+.. list-table::
+ :widths: 25 28 18 29
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Link en participante
+   - ``participant ... [[url]]``
+   - § 2.1.nonies
+   - Enlace a docs externas
+     persistentes (RFC, etc.).
+ * - Forzar dirección
+   - ``-down->``, ``-right->``
+   - § 2.1.quinquies
+   - Cuando el layout automático
+     produce cruces.
+
+16.7 Cómo usar la tabla
+-----------------------
+
+- **Buscar un componente** — Ctrl+F sobre la
+  tabla por sintaxis o por nombre.
+- **Ver el detalle** — saltar a la sección
+  citada para encontrar el ejemplo IACT
+  completo, las reglas y los antipatrones.
+- **Reutilizar el snippet** — copiar la sintaxis
+  de la columna PlantUML y adaptarla al UC en
+  modelado.
+- **Validar coherencia con políticas** — cada
+  sección citada incluye sus 5 reglas IACT;
+  consultar antes de cerrar el diagrama.
+
+Esta tabla **se mantiene** sincronizada con las
+secciones del documento. Cada vez que se agregue
+una notación nueva o se mueva una existente,
+actualizar esta tabla.
+
+----
+
+17. Trazabilidad
 ================
 
 .. list-table::
