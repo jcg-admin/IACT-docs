@@ -58,4 +58,5 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  matrices/index
  planificacion-releases-frontend
  plan-documentacion-uc-con-uml
+ ejemplos-uml-aplicados-ecommerce
  deployment-plan

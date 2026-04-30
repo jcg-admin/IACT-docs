@@ -26,6 +26,12 @@ Guía rápida — Cuándo usar cada diagrama UML
  detalle conceptual de cada diagrama, seguir el enlace a la
  lección en cada sección.
 
+ Para **ejemplos de cada uno de los 9 diagramas aplicados al
+ dominio del proyecto IACT** (UC_CAT, UC_ORD, stack
+ React + Django + MySQL, integraciones Stripe/Logística),
+ consultar
+ :doc:`/gestion/pm/ejemplos-uml-aplicados-ecommerce`.
+
  **Atribución:** material basado en *Aprendiendo UML en 24
  horas* — Hora 1 (Schmuller, 2000). UML es resultado del
  trabajo de **Grady Booch**, **James Rumbaugh** e
