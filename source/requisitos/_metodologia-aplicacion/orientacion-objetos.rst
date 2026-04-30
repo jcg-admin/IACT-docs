@@ -1631,7 +1631,654 @@ Antipatrones IACT contra OCP
 
 ----
 
-17. Trazabilidad
+17. Principio de Responsabilidad Única (SRP)
+============================================
+
+El **Single Responsibility Principle** (SRP), formulado por
+Robert C. Martin a partir de las ideas de Tom DeMarco y
+Meilir Page-Jones, es la "S" de SOLID:
+
+   *Una clase debe tener solo una razón para cambiar.*
+
+Una clase debe tener **una sola responsabilidad o
+funcionalidad bien definida**. Si más de un actor del
+negocio puede provocar cambios en la misma clase, hay más
+de una responsabilidad.
+
+17.1 Por qué importa
+--------------------
+
+Problemas que aparecen cuando una clase agrupa múltiples
+responsabilidades:
+
+1. **Sobrecarga de responsabilidades** — cada cambio en
+   una responsabilidad puede afectar a las demás,
+   complicando el mantenimiento.
+2. **Acoplamiento excesivo** — clases con varias
+   responsabilidades suelen estar más acopladas entre sí,
+   reduciendo la modularidad y la flexibilidad.
+3. **Falta de claridad** — es más difícil entender el
+   propósito y el comportamiento de una clase que hace
+   varias cosas a la vez.
+
+Ejemplo histórico — sobrecarga de I/O en C++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Algunos libros clásicos de C++ promovieron un mal diseño:
+sobrecargar los operadores ``<<`` y ``>>`` de
+**entrada/salida** dentro de la propia clase de dominio.
+Esto mezcla la lógica de negocio con la presentación —
+si más adelante se quiere cambiar de terminal a GUI o
+web, la clase se tiene que tocar **por una razón distinta
+a su propósito de dominio**.
+
+Síntomas: cambios más frecuentes, mayor dependencia con
+elementos de UI, dificultad para reutilizar la clase fuera
+del contexto original.
+
+Relación con MVC: los estereotipos de análisis
+**Control / Entidad / Límite** (boundary) son una
+materialización del SRP — separan **lógica de
+coordinación**, **modelo de dominio** y **frontera con el
+exterior** en clases distintas.
+
+17.2 SRP a nivel de módulo
+--------------------------
+
+SRP se extiende del nivel de clase al **nivel de módulo o
+componente**. Si un framework de GUI v1.1 incorpora en su
+v1.2 una funcionalidad que **no está relacionada** con su
+responsabilidad principal, el usuario se ve obligado a
+aceptar un cambio irrelevante para su caso de uso.
+
+En IACT esto se traduce en una regla operativa: cada app
+Django tiene **una sola responsabilidad de dominio**:
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - App
+   - Responsabilidad única
+   - Razones legítimas para cambiar
+ * - ``auth_app``
+   - Identificación contra LDAP, sesión.
+   - Cambio de protocolo LDAP, cambio en política
+     CNST_002.
+ * - ``perm_app``
+   - Decisiones de seguridad (permisos, SoD).
+   - Nueva función en catálogo, cambio en regla
+     CNST_030.
+ * - ``rpt_app``
+   - Generar y exportar reportes.
+   - Nueva métrica, nuevo formato, nuevo rango
+     CNST_031.
+ * - ``alr_app``
+   - Evaluar y publicar alertas.
+   - Nueva regla de alerta (BR_016/017/018), nuevo
+     mecanismo de reconocimiento.
+ * - ``pip_app``
+   - Carga ETL desde fuentes operativas.
+   - Cambio en bd-operativa, ivr-host o ventana
+     CNST_006/008.
+ * - ``aud_app``
+   - Audit immutable.
+   - Cambio en requisito CNST_025 o en consultas
+     legales.
+ * - ``log_app``
+   - Notificación al buzón interno.
+   - Cambio en política CNST_001.
+
+Si un cambio toca **más de una app**, probablemente hay
+una responsabilidad repartida o un cluster mal definido
+(ver § 11 de :doc:`agregacion-interfaces`).
+
+17.3 SRP y reutilización
+------------------------
+
+Una menor cohesión produce **pobre reutilización**.
+Analogía clásica: si una persona ofrece regalar un VCR
+combinado con un televisor, alguien que solo necesita un
+VCR no puede aceptarlo — el aparato combinado obliga a
+recibir cosas no deseadas.
+
+En código pasa lo mismo: una clase ``Reporte`` que también
+serializa, también persiste, también notifica y también
+audita es como ese aparato combinado — no se puede
+reutilizar la lógica de cálculo sin arrastrar
+serialización, persistencia, notificación y audit.
+
+Acoplamiento estrecho + cohesión pobre = mala
+reutilización. SRP es la herramienta para evitarlo.
+
+17.4 Aplicación a IACT
+----------------------
+
+Antipatrones SRP en este proyecto:
+
+- ``Reporte`` que conoce su formato de export
+  (CSV/XLSX/JSON) **y** decide cómo mandarlo al buzón.
+  Dos responsabilidades: cálculo + entrega. Separar:
+  ``Reporte`` (cálculo) + ``ExportadorReporte`` (formato,
+  Strategy) + ``log_app`` (entrega).
+- ``Alerta`` que evalúa la regla de umbral, registra el
+  evento y publica al supervisor. Tres responsabilidades.
+  Separar: ``EvaluadorAlertas`` (regla, Strategy) +
+  ``Alerta`` (estado del incidente) + ``log_app``
+  (notificación) + ``aud_app`` (registro CNST_025).
+- ``Sesion`` que gestiona la caducidad **y** registra
+  cada acceso al backend para auditoría. Separar:
+  ``Sesion`` (ciclo de vida) + ``aud_app`` (audit).
+- Una vista Django que valida permiso, ejecuta lógica,
+  serializa la respuesta y registra audit. Cuatro
+  responsabilidades. Decoradores
+  (``@requiere_permiso``), modelo del dominio,
+  serializador y observer de audit cubren cada una con
+  su propia clase.
+
+17.5 Cómo detectar violaciones de SRP
+-------------------------------------
+
+Heurísticas operativas para IACT:
+
+- La clase tiene **más de cinco** métodos públicos no
+  relacionados entre sí.
+- En el último mes, la clase ha cambiado por **dos o más
+  motivos distintos** (mirar git log).
+- El nombre de la clase incluye conjunciones ("y",
+  "Manager", "Helper", "Service" sin sufijo de dominio)
+  que delatan responsabilidades agrupadas.
+- Los tests de la clase necesitan **mocks de áreas
+  distintas** (BD, red, audit) para cubrir todos los
+  caminos.
+- Cambiar la firma de un método obliga a tocar tests de
+  más de un dominio.
+
+Cuando varias heurísticas se cumplen a la vez, separar.
+
+17.6 Relación con otros principios
+----------------------------------
+
+- **OCP** (§ 16) — SRP es prerrequisito de OCP: si una
+  clase tiene varias responsabilidades, cerrarla contra
+  modificaciones es imposible porque cada
+  responsabilidad pide cambios distintos.
+- **Information Expert / RDD** (§ 13 de
+  :doc:`patrones-diseno`; § 13.3 de
+  :doc:`analisis-dominio`) — SRP guía **a quién**
+  asignar la responsabilidad: al experto, no a un
+  multi-responsable.
+- **Cohesión** (§ 11) — SRP maximiza cohesión: una sola
+  responsabilidad implica que todos los miembros de la
+  clase concurren al mismo propósito.
+- **DRY** (§ 13) — separar responsabilidades elimina la
+  duplicación que aparece cuando una clase replica
+  fragmentos de otras.
+
+Regla integradora
+~~~~~~~~~~~~~~~~~
+
+SRP es el principio más simple de SOLID y, paradójicamente,
+el más difícil de aplicar consistentemente. La pregunta
+operativa que ayuda en cada revisión: **¿quién (qué actor
+del negocio) puede pedir un cambio en esta clase?** Si la
+respuesta enumera más de un actor, hay más de una
+responsabilidad.
+
+----
+
+18. Principio de Sustitución de Liskov (LSP)
+============================================
+
+El **Liskov Substitution Principle** (LSP) fue introducido
+por **Barbara Liskov** en 1987 y formalizado posteriormente
+con Jeannette Wing. Es la "L" de SOLID:
+
+   *Los objetos de una superclase deben poder ser
+   reemplazados por objetos de sus subclases sin afectar
+   la corrección del programa.*
+
+LSP convierte la herencia en un instrumento de
+**sustituibilidad segura**: si ``B`` hereda de ``A``,
+cualquier código que opere sobre instancias de ``A`` debe
+funcionar correctamente al recibir una instancia de ``B``,
+sin necesidad de saber que es ``B``.
+
+18.1 Reglas formales del contrato
+---------------------------------
+
+Las subclases deben **respetar los contratos** establecidos
+por la clase base. Si la clase padre garantiza cierto
+comportamiento, la hija debe mantener esas garantías.
+
+Los métodos de la subclase que **sobrescriben** métodos de
+la superclase deben:
+
+- **Parámetros**: aceptar los **mismos tipos** o tipos
+  **más generales** (contravariancia en argumentos).
+- **Retorno**: devolver el **mismo tipo** o un
+  **subtipo** (covariancia en resultados).
+- **Excepciones**: no lanzar nuevas excepciones, salvo
+  que sean **subtipos** de las excepciones ya declaradas
+  en el padre.
+
+Adicionalmente, según Bertrand Meyer (Design by Contract):
+
+- **Precondiciones** del método sobrescrito **no se
+  fortalecen** — la subclase no puede exigir más al
+  llamador.
+- **Postcondiciones** **no se debilitan** — la subclase
+  no puede prometer menos.
+- **Invariantes** del padre se preservan en la hija.
+
+18.2 Por qué importa
+--------------------
+
+LSP es la condición que **habilita el polimorfismo
+seguro**. Sin LSP, el código consumidor de ``A`` debe
+revisar (con ``isinstance`` o equivalente) qué subtipo le
+está llegando y aplicar excepciones especiales — lo cual
+viola OCP (§ 16).
+
+En IACT esto importa especialmente en:
+
+- ``Reporte`` y sus subclases — un consumidor de
+  ``IReporte`` debe poder llamar ``generar()`` y
+  ``exportar()`` en cualquier subtipo sin reglas
+  especiales.
+- ``Alerta`` y sus variantes — el supervisor reconoce
+  alertas sin saber si es por umbral, tendencia o
+  agregado.
+- ``EventoAuditoria`` y subtipos — ``aud_app`` registra
+  cualquier subtipo sin distinguir.
+
+18.3 Violaciones típicas
+------------------------
+
+- Subclase que lanza ``NotImplementedError`` para
+  desactivar un método del padre — herencia por
+  limitación (ver § 14.4 de :doc:`relaciones-uml`).
+  Ejemplo canónico: ``Ave`` con ``volar()`` y
+  ``Pinguino`` que lo desactiva.
+- Subclase que **fortalece** una precondición — exige
+  argumentos no nulos cuando el padre permitía nulos.
+  Cualquier consumidor del padre se rompe al recibir la
+  hija.
+- Subclase que **debilita** una postcondición — el padre
+  promete devolver una lista no vacía y la hija puede
+  devolver vacía. El consumidor que itera asume no-vacía
+  y falla.
+- Subclase que lanza una excepción **nueva, no subtipo**
+  de las del padre. El consumidor que no la captura
+  termina abortando.
+- Subclase que **rompe invariantes** del padre — por
+  ejemplo, una ``CuentaBancariaCredito`` heredando de
+  ``CuentaBancaria`` y permitiendo saldo negativo
+  cuando el padre lo prohibía.
+
+18.4 Aplicación a IACT
+----------------------
+
+Antipatrones LSP que aparecen o aparecerían en este
+proyecto:
+
+- ``ReporteSoloLectura`` heredando de ``Reporte`` y
+  lanzando excepción en ``exportar()``. Modelar como
+  interfaces separadas (ver § 14.4 de
+  :doc:`relaciones-uml` para el rediseño con
+  ``IExportable`` e ``IConsultable``).
+- ``UsuarioInactivo`` heredando de ``Usuario`` y
+  desactivando ``iniciar_sesion()``. Reemplazar por
+  estado del propio ``Usuario`` (composición + State).
+- ``EjecucionETLDryRun`` heredando de ``EjecucionETL`` y
+  saltando la persistencia: rompe la postcondición
+  "tras ``commit()`` el resultado está en
+  ``bd_analytics``". Modelar como modo de ejecución
+  pasado por argumento, no como subtipo.
+
+LSP correcto en IACT
+~~~~~~~~~~~~~~~~~~~~
+
+- ``ReporteVolumen``, ``ReporteAbandono``,
+  ``ReporteSoDCompliance`` heredan de ``Reporte`` y
+  cumplen LSP: cualquiera de las tres puede sustituir a
+  ``Reporte`` en cualquier consumidor (ver
+  :doc:`patrones-diseno` § 3 Factory; § 14.1 de
+  :doc:`relaciones-uml`).
+- ``EventoAuditoriaAcceso``, ``EventoAuditoriaCambio``
+  heredan de ``EventoAuditoria`` con la misma
+  semántica de inmutabilidad (CNST_025).
+- ``EstadoAlerta`` con ``AlertaPublicada``,
+  ``AlertaReconocida``, ``AlertaCerrada``: cada subtipo
+  responde a las mismas operaciones (``reconocer``,
+  ``cerrar``) — algunas con ``TransicionInvalida``,
+  pero esa excepción es parte del **contrato del padre**
+  (no una excepción nueva de la hija). Por eso no viola
+  LSP — el padre ya declara que ciertas transiciones
+  son inválidas.
+
+18.5 Cómo detectar violaciones
+------------------------------
+
+Heurísticas operativas:
+
+- Métodos heredados que lanzan ``NotImplementedError`` o
+  excepciones nuevas no documentadas en el padre.
+- ``isinstance`` en código consumidor para discriminar
+  subtipos — síntoma de que el polimorfismo no es
+  seguro.
+- Tests del padre que **fallan** cuando la hija se
+  inyecta como sustituto.
+- Comentarios "no aplica para este subtipo" o "este
+  subtipo se comporta diferente".
+
+Cuando estos síntomas aparecen, reemplazar la herencia
+por **interfaces más específicas** o **composición**
+(ver § 15 de :doc:`relaciones-uml`).
+
+18.6 Relación con otros principios
+----------------------------------
+
+- **OCP** (§ 16) — LSP es la condición previa: solo se
+  puede extender por nuevas subclases si esas subclases
+  son sustituibles.
+- **SRP** (§ 17) — una subclase con varias
+  responsabilidades es más propensa a violar LSP en
+  alguna de ellas.
+- **Information Expert** (§ 13 de
+  :doc:`patrones-diseno`) — el experto natural cumple
+  LSP por construcción cuando sus subtipos comparten el
+  mismo conocimiento base.
+- **Especialización** (§ 14.1 de
+  :doc:`relaciones-uml`) — la única forma de herencia
+  que cumple LSP por diseño.
+
+----
+
+19. Principio de Segregación de Interfaces (ISP)
+================================================
+
+   *Los clientes no deben ser obligados a depender de
+   métodos que no usan.*
+
+19.1 Problema — interfaces sobrecargadas (*fat interfaces*)
+-----------------------------------------------------------
+
+Cuando una clase acumula demasiados métodos a lo largo
+del tiempo, se convierte en una **interfaz monolítica y
+poco cohesiva**. Síntomas:
+
+- Falta de cohesión (viola SRP).
+- Clientes obligados a conocer detalles que no les
+  importan.
+- Implementaciones cargan con métodos no relevantes
+  para todos los consumidores.
+
+Ejemplo del crecimiento descontrolado: un componente
+``Microondas`` al que el cliente C1 le pide *notificar* y
+el cliente C2 le pide *sonar campana*. C1 ahora carga con
+métodos que no usa; toda implementación de la interfaz
+debe soportar ambas funcionalidades.
+
+19.2 Solución
+-------------
+
+Diseñar **interfaces más pequeñas y específicas**, cada
+una con un conjunto de métodos coherente. La interfaz
+"no significa todos los métodos en una clase" — una clase
+puede implementar varias interfaces específicas en lugar
+de una única interfaz inflada.
+
+Beneficios:
+
+- **Desacoplamiento** — clientes no acoplados a métodos
+  irrelevantes.
+- **Simplicidad** — cada cliente trabaja con lo que
+  necesita.
+- **Mantenibilidad** — cambios localizados.
+- **Reutilización** — interfaces pequeñas son más
+  fáciles de reutilizar.
+
+19.3 Aplicación a IACT
+----------------------
+
+- Separar ``IReporte`` (genera) de ``IExportable``
+  (exporta) — un consumidor que solo necesita visualizar
+  no carga con la lógica de export.
+- Separar ``ISecurity`` (verificar permiso) de
+  ``IAuditConsulta`` (consultar audit) — el cliente que
+  evalúa permisos no carga con el contrato de
+  consulta de auditoría.
+- Separar ``IETLLectura`` (leer fuentes) de
+  ``IETLEscritura`` (insertar en analytics) — el monitor
+  ETL no necesita capacidad de escritura.
+- En :doc:`diagramas-componentes` cada interfaz canónica
+  (``ISecurity``, ``IAuditLog``, ``IReporte``,
+  ``IAlerta``, etc.) se mantiene **estrecha**
+  precisamente para cumplir ISP.
+
+----
+
+20. Principio de Inversión de Dependencias (DIP)
+================================================
+
+   *Los módulos de alto nivel no deben depender de los
+   módulos de bajo nivel. Ambos deben depender de
+   abstracciones. Las abstracciones no deben depender de
+   detalles. Los detalles deben depender de abstracciones.*
+
+20.1 Idea central
+-----------------
+
+Las dependencias se invierten respecto al flujo de
+control: en vez de que un módulo de alto nivel use
+directamente un módulo de bajo nivel concreto, ambos
+**dependen de una abstracción** (interfaz, clase
+abstracta).
+
+Ejemplo clásico: un ``Controlador`` depende de un
+``RelojDespertador`` concreto solo para acceder a su
+alarma. Cualquier cambio en el reloj toca el
+controlador (viola OCP) y el reloj acumula
+responsabilidades (viola SRP). Solución: introducir
+``IAlarm`` y hacer que **ambos** dependan de ella.
+
+20.2 Beneficios
+---------------
+
+- **Desacoplamiento** entre niveles.
+- **Flexibilidad** — cambiar la implementación concreta
+  no toca a los consumidores.
+- **Testabilidad** — sustituir dependencias por dobles
+  de prueba se vuelve trivial.
+- **Mantenibilidad** a largo plazo.
+
+20.3 Aplicación a IACT
+----------------------
+
+- ``rpt_app`` no depende de ``MySQLClient``; depende de
+  ``IDatosAnalytics``. La implementación concreta
+  (``MySQLAdapter``) implementa la abstracción.
+- ``auth_app`` no depende del cliente LDAP concreto;
+  depende de un protocolo ``IDirectoryService`` con
+  ``LDAPAdapter`` como detalle.
+- ``alr_app`` no depende del bus concreto de
+  notificación; depende de ``INotificacion`` con
+  ``log_app`` como implementación (CNST_001).
+
+DIP es la base de los patrones Adapter (§ 5 de
+:doc:`patrones-diseno`) y Strategy (§ 9), y la condición
+para hacer testable cada app Django sin levantar todo el
+stack.
+
+20.4 Los tres principios fundamentales — LSP, OCP, DIP
+------------------------------------------------------
+
+LSP, OCP y DIP están **estrechamente relacionados**:
+
+- Violar **LSP** (§ 18) o **DIP** invariablemente
+  resulta en violar **OCP** (§ 16).
+- DIP requiere abstracciones; LSP garantiza que las
+  implementaciones de esas abstracciones son
+  intercambiables; OCP cosecha el beneficio de extender
+  sin modificar.
+
+Tener los tres en mente es la diferencia entre código OO
+"que funciona" y código OO **flexible y mantenible**.
+
+----
+
+21. Síntomas de mal diseño y temas relacionados
+===============================================
+
+21.1 Siete síntomas canónicos
+-----------------------------
+
+Robert C. Martin enumera siete síntomas de un diseño OO
+deficiente:
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 1
+
+ * - Síntoma
+   - Descripción
+ * - **Rigidez**
+   - Cambios en una parte del sistema disparan cascadas
+     de cambios en otras. Síntoma de alto acoplamiento.
+ * - **Fragilidad**
+   - El sistema se rompe en lugares **inesperados** ante
+     un cambio.
+ * - **Inmovilidad**
+   - Difícil reutilizar partes del código en otro
+     contexto por el acoplamiento excesivo.
+ * - **Viscosidad**
+   - Es **fácil hacer las cosas mal** y difícil hacerlas
+     bien — la "ruta correcta" exige más esfuerzo que
+     la incorrecta.
+ * - **Complejidad innecesaria**
+   - Diseño de clases sobre-generalizado o demasiado
+     complicado para el problema real (sobre-ingeniería).
+ * - **Repetición innecesaria**
+   - Copiar y pegar (viola DRY, ver § 13).
+ * - **Opacidad**
+   - Difícil de entender; el código no comunica su
+     intención.
+
+Cuando varios síntomas aparecen juntos, hay deuda técnica
+real. Las causas suelen ser violación de **SRP, OCP, LSP
+o DIP**.
+
+21.2 Train wreck coding
+-----------------------
+
+El **código de desastre ferroviario** (*train wreck
+coding*) es la cadena de llamadas
+``cliente.getDireccion().getCiudad().getCondado()…`` —
+caso particular de violación de la Ley de Demeter
+(§ 11). Síntomas: difícil de entender, difícil de depurar,
+falta de cohesión. Refactorizar siguiendo
+**Tell, Don't Ask** (§ 11).
+
+21.3 Naturaleza del cambio en software
+--------------------------------------
+
+   *Los sistemas de software cambian durante su tiempo
+   de vida. Tanto los diseños mejores como los
+   deficientes tienen que enfrentar los cambios; los
+   buenos diseños son estables.*
+
+El cambio es **inevitable**. La diferencia entre un buen
+diseño y uno malo no es si soporta cambios — los dos los
+soportan — sino **a qué costo** los soporta. Los buenos
+diseños permiten cambios localizados, los malos exigen
+modificaciones en cascada (§ 21.1 rigidez).
+
+21.4 Diseño por contrato (DbC)
+------------------------------
+
+Bertrand Meyer formalizó el contrato entre clases con
+tres elementos:
+
+- **Pre-condiciones** — lo que el cliente debe
+  garantizar antes de invocar.
+- **Post-condiciones** — lo que el servicio promete
+  después de ejecutar.
+- **Invariantes** — lo que se mantiene cierto siempre.
+
+LSP se apoya en DbC: una subclase es sustituible si
+**no fortalece pre-condiciones**, **no debilita
+post-condiciones** y **preserva invariantes** del padre
+(ver § 18.1).
+
+Aplicación IACT: ``EstadoAlerta`` (publicada / reconocida
+/ cerrada) declara pre/post-condiciones por transición.
+``aud_app`` declara la invariante "todo registro queda
+en ``audit_log``" (CNST_025) — invariante que **ningún
+subtipo** puede romper.
+
+LSP en Java
+~~~~~~~~~~~
+
+Java materializa LSP en al menos dos restricciones de la
+sobrescritura:
+
+1. Los métodos sobrescritos **no pueden lanzar nuevas
+   excepciones** no relacionadas con las del padre
+   (la firma ``throws`` no puede agregar excepciones
+   *checked* nuevas).
+2. El nivel de acceso del método sobrescrito **no puede
+   ser más restrictivo** que el del padre (un método
+   ``public`` no se puede sobrescribir como
+   ``protected`` o ``private``).
+
+En Python no hay esa garantía sintáctica, pero el espíritu
+es el mismo — la responsabilidad recae en el desarrollador.
+
+21.5 Herencia vs delegación
+---------------------------
+
+Regla operativa, complementaria a § 15 de
+:doc:`relaciones-uml` (composición vs herencia):
+
+- Si un objeto de ``B`` puede **usarse en lugar de** un
+  objeto de ``A`` → usar **herencia**.
+- Si un objeto de ``B`` puede **usar un** objeto de
+  ``A`` → usar **delegación / composición**.
+
+La delegación es a menudo preferible a la herencia
+porque evita acoplamiento excesivo, rigidez y fragilidad.
+La herencia es uno de los conceptos más abusados de OOP
+(ver § 14 de :doc:`relaciones-uml` para la taxonomía
+completa).
+
+21.6 Aplicación de los principios — agilidad
+--------------------------------------------
+
+Los principios SOLID son herramientas de **diseño
+iterativo**, no decretos:
+
+- Aplicarlos **solo donde aplican** y donde se
+  reconozcan los síntomas.
+- Aplicarlos arbitrariamente produce **complejidad
+  innecesaria** (§ 21.1).
+- Son más relevantes durante el desarrollo **iterativo y
+  la refactorización** (§ 15) que en el diseño inicial.
+- A medida que los requisitos se aclaran, se vuelven
+  más claras las fuerzas que impulsan cada principio.
+
+YAGNI vs principios
+~~~~~~~~~~~~~~~~~~~
+
+Aplicar un principio "por si acaso" antes de tener un
+síntoma viola **YAGNI** (ver § 12.1 de
+:doc:`plan-documentacion-uc`) y produce abstracciones
+innecesarias. La regla: **ver el síntoma, aplicar el
+principio**. No al revés.
+
+----
+
+22. Trazabilidad
 ================
 
 .. list-table::

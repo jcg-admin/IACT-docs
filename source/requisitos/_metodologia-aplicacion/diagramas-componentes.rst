@@ -562,6 +562,246 @@ Documentar la elección en un ADR.
 
 ----
 
+12. Principios de cohesión y acoplamiento entre componentes
+===========================================================
+
+Los principios SOLID (ver §§ 16-20 de
+:doc:`orientacion-objetos`) aplican a **clases**. Existe
+un conjunto complementario de principios para
+**componentes / paquetes**, formulado por Robert C.
+Martin. Tres son **principios de cohesión** (qué clases
+agrupar dentro de un componente) y tres son **principios
+de acoplamiento** (cómo deben relacionarse los
+componentes entre sí).
+
+12.1 Principios de cohesión de paquete
+--------------------------------------
+
+REP — Reuse / Release Equivalence Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *La granularidad de la reutilización es la misma que
+   la granularidad de la liberación. Solo se pueden
+   reutilizar efectivamente los componentes que se
+   liberan a través de un sistema de seguimiento.*
+
+Implicaciones:
+
+- Una clase rara vez se reutiliza sola; necesita sus
+  colaboradoras → liberar el conjunto como **componente**.
+- El componente debe tener **número de versión** para
+  que los reutilizadores puedan decidir cuándo adoptar
+  versiones nuevas.
+- Copiar código no es reutilización efectiva; viola DRY
+  (§ 13 de :doc:`orientacion-objetos`).
+
+En IACT: cada app Django se libera con su versión
+SemVer (ver `metadata-standards.md`); reutilizar
+``perm_app`` exige tomar también su catálogo de
+funciones, sus modelos y sus servicios — no solo una
+clase suelta.
+
+CCP — Common Closure Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *Las clases dentro de un componente liberado deben
+   compartir un cierre común. Si una necesita ser
+   cambiada, es probable que todas necesiten ser
+   cambiadas.*
+
+Es **SRP a nivel de componente**: un cambio típico debe
+afectar a **un solo componente**, no a varios.
+
+En IACT: un cambio en CNST_030 (SoD) toca solo
+``perm_app``; un cambio en CNST_031 (rango export) toca
+solo ``rpt_app``. Si un cambio toca tres apps, hay
+agrupación incorrecta.
+
+CRP — Common Reuse Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *Las clases dentro de un componente liberado deben
+   reutilizarse juntas. Debe ser imposible separar el
+   componente para reutilizar menos que el total.*
+
+Es **ISP a nivel de componente**: si un componente
+contiene clases que **no se reutilizan juntas**, sus
+consumidores se ven obligados a aceptar versiones
+nuevas debido a cambios que no les afectan.
+
+En IACT: ``rpt_app`` solo expone clases que conviven en
+todos los reportes; clases que solo aplican a un caso
+específico se mueven a un sub-paquete o app distinta.
+
+Tensión entre los tres
+~~~~~~~~~~~~~~~~~~~~~~
+
+REP, CCP y CRP **tensionan**:
+
+- REP y CCP empujan a componentes **grandes**
+  (todo lo que se reutiliza junto y cambia junto).
+- CRP empuja a componentes **pequeños**
+  (no obligar a aceptar lo que no se usa).
+
+El equilibrio se ajusta con la madurez del proyecto:
+en IACT (proyecto en construcción) **CCP domina** —
+agrupar por cierre de cambio. Cuando una app madure y
+sea reutilizada externamente, CRP tomará protagonismo.
+
+12.2 Principios de acoplamiento entre paquetes
+----------------------------------------------
+
+ADP — Acyclic Dependency Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *La estructura de dependencia entre componentes debe
+   ser un Grafo Dirigido Acíclico (DAG). No puede haber
+   ciclos.*
+
+Los ciclos son problemáticos:
+
+- Mantenimiento difícil — los cambios se propagan a
+  través del ciclo.
+- Imposibilidad de liberar componentes en pequeños
+  incrementos.
+
+En IACT, las dependencias canónicas forman un DAG:
+
+::
+
+   log_app ←  alr_app  ← rpt_app  ←  ...
+                ↓
+              aud_app  ← perm_app ← auth_app
+                ↑
+              pip_app
+
+(El sentido exacto puede consultarse en § 3 de este
+documento). Cualquier ciclo entre apps es un defecto a
+corregir; típicamente se rompe extrayendo la dependencia
+común a una nueva app o invirtiendo con DIP (§ 20 de
+:doc:`orientacion-objetos`).
+
+SDP — Stable Dependency Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *Las dependencias deben ir en la dirección de la
+   estabilidad. Un componente nunca debe ser más estable
+   que aquel del que depende.*
+
+**Métrica de inestabilidad** I:
+
+::
+
+   I = Ce / (Ca + Ce)
+
+donde:
+
+- ``Ca`` = clases externas que **dependen del** componente
+  (afferent coupling).
+- ``Ce`` = clases externas **de las que el componente
+  depende** (efferent coupling).
+
+``I = 0`` → componente máximamente estable; ``I = 1`` →
+máximamente inestable.
+
+Las dependencias deben ir de **alto I** a **bajo I**. En
+IACT, ``aud_app`` debe ser uno de los componentes con I
+más bajo (todos dependen de él, él depende de pocos);
+violar esto rompe CNST_025.
+
+SAP — Stable Abstraction Principle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *Mientras más estable sea un componente, más debe estar
+   compuesto por clases abstractas.*
+
+**Métrica de abstracción** A:
+
+::
+
+   A = (clases abstractas + interfaces) / (total de clases)
+
+``A = 0`` → todo concreto; ``A = 1`` → todo abstracto.
+
+Un componente máximamente estable y máximamente concreto
+es **rígido** (cambios duros). Un componente máximamente
+abstracto e inestable es **inutilizable**.
+
+Distancia a la secuencia principal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La métrica que combina I y A:
+
+::
+
+   D = | A + I − 1 |
+   (rango 0 ≤ D ≤ 1; deseable D ≈ 0)
+
+D ≈ 0 → el componente está en la **secuencia principal**:
+estable y abstracto, o inestable y concreto, en
+equilibrio.
+
+D lejano de 0 → componente mal balanceado:
+
+- A=0, I=0 (estable y concreto): rígido.
+- A=1, I=1 (abstracto e inestable): inútil — abstracción
+  sin clientes.
+
+Estos dos extremos son los **dolorosos**.
+
+Aplicación IACT
+~~~~~~~~~~~~~~~
+
+Aplicación recomendada (sin medirla todavía formalmente):
+
+- ``aud_app`` y ``perm_app`` → bajo I (todos los demás
+  dependen de ellos), alto A (interfaces ``IAuditLog``,
+  ``ISecurity``). D cercano a 0.
+- ``rpt_app`` y ``alr_app`` → I medio, A medio. Razonable.
+- Vistas Django y plantillas → alto I (dependen de todo),
+  A bajo (concretas). D ≈ 0 esperado.
+
+Si en algún momento se mide D y aparece un componente
+con D > 0.5, abrir un WP de refactor.
+
+12.3 Resumen
+------------
+
+.. list-table::
+ :widths: 15 25 60
+ :header-rows: 1
+
+ * - Sigla
+   - Nombre
+   - En una línea
+ * - REP
+   - Reuse/Release Equivalence
+   - Liberar lo que se reutiliza junto.
+ * - CCP
+   - Common Closure
+   - Agrupar lo que cambia por las mismas razones (SRP
+     a nivel de componente).
+ * - CRP
+   - Common Reuse
+   - Agrupar lo que se reutiliza junto (ISP a nivel de
+     componente).
+ * - ADP
+   - Acyclic Dependency
+   - Sin ciclos entre componentes.
+ * - SDP
+   - Stable Dependency
+   - Las dependencias van hacia los más estables.
+ * - SAP
+   - Stable Abstraction
+   - Los más estables son los más abstractos.
+
+Estos seis principios complementan SOLID a nivel de
+arquitectura. Aplicarlos en IACT es la diferencia entre
+un conjunto de apps Django **sueltas** y una arquitectura
+**modular y mantenible**.
+
+----
+
 Trazabilidad
 ============
 
