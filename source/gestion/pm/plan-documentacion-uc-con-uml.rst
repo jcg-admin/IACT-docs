@@ -340,6 +340,8 @@ Cada UC documentado debe cumplir:
    - :doc:`ejemplos-relaciones-uml-aplicados-iact`
  * - **Ejemplos agregación / interfaces / visibilidad — IACT**
    - :doc:`ejemplos-agregacion-interfaces-aplicados-iact`
+ * - **Ejemplos análisis y especificación de UCs — IACT**
+   - :doc:`ejemplos-casos-uso-aplicados-iact`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Metodología de análisis de dominio aplicable**

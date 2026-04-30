@@ -63,4 +63,5 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  ejemplos-analisis-dominio-aplicados-iact
  ejemplos-relaciones-uml-aplicados-iact
  ejemplos-agregacion-interfaces-aplicados-iact
+ ejemplos-casos-uso-aplicados-iact
  deployment-plan
