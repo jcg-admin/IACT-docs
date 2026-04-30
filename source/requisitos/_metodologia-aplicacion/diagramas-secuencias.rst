@@ -1239,6 +1239,119 @@ diagramas listos para revisión y onboarding.
 
 ----
 
+2.1.nonies Enlaces y menús en participantes
+-------------------------------------------
+
+Mermaid soporta **menús desplegables** (drop-down) en
+actores y participantes con un formato tipo JSON que
+asocia varias claves-valor (por ejemplo, "Repository",
+"Domain Model", "ADR"). Al renderizar y pasar el mouse
+sobre el participante, aparece el menú con los enlaces.
+
+PlantUML no ofrece menús desplegables nativos, pero sí
+permite **enlazar un participante a una URL única** con
+``[[url]]``, lo cual cubre el 80% del caso de uso.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+Enlace simple en un participante:
+
+.. code-block:: plantuml
+
+   participant "auth_app" as Auth [[https://repo.iact.local/auth_app]]
+
+Con tooltip:
+
+.. code-block:: plantuml
+
+   participant "auth_app" as Auth [[https://repo.iact.local/auth_app{repositorio}]]
+
+Equivalencia funcional con Mermaid del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid (libro)
+   - PlantUML (IACT)
+   - Diferencia
+ * - ``links X: {"Repo": "...", "Doc": "..."}``
+   - ``participant X [[url]]``
+   - PlantUML solo admite **una URL** por
+     participante.
+ * - Menú con varios enlaces al hover.
+   - Tooltip simple al hover; click abre la URL.
+   - Menú multilink solo en Mermaid.
+
+Cuando el participante necesita **varios enlaces**
+(repositorio + ADR + documentación), la solución
+PlantUML / Sphinx es **mantenerlos en el texto RST
+adyacente** al diagrama, donde Sphinx puede gestionar
+referencias cruzadas internas (``:doc:``, ``:ref:``).
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Preferir referencias en el texto RST** al
+   diagrama, no inline en PlantUML. Sphinx valida los
+   destinos y los renderiza con la apariencia
+   estándar del proyecto.
+2. **Reservar ``[[url]]`` PlantUML** para casos donde
+   tenga sentido convertir un participante en
+   clickeable directo a documentación externa
+   persistente (RFC, especificación oficial,
+   documentación de un servicio externo).
+3. **No enlazar a recursos efímeros** —
+   issues, branches, borradores. La URL puede morir;
+   el diagrama sobrevive.
+4. **Si un participante merece varios enlaces**,
+   listarlos en el párrafo introductorio del
+   diagrama:
+
+   .. code-block:: rst
+
+      El siguiente diagrama modela UC_AUTH_01.
+
+      Componentes referenciados:
+
+      - :doc:`auth_app — modelo de dominio </requisitos/_metodologia-aplicacion/analisis-dominio>`
+      - :doc:`Decisión de stack — ADR_DEVOPS_001 </normativa/...>`
+      - :doc:`Restricciones aplicables — CNST_002, CNST_011, CNST_025 </requisitos/...>`
+
+Limitaciones del enfoque PlantUML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **No hay menú multilink** en el render PlantUML de
+  Sphinx. Si esa funcionalidad fuera crítica para un
+  caso específico, se podría considerar Mermaid solo
+  para ese contexto (issue/discussion en GitHub) sin
+  alterar la política general — pero esa decisión
+  requeriría ADR (ver § "Reconocimiento de la
+  limitación" en :doc:`diagramas-uml`).
+- Los **menús/links no aparecen en PDF, presentaciones
+  exportadas ni capturas de pantalla**. Como bien
+  señala el autor citado, esto vale tanto para
+  Mermaid como para PlantUML — los enlaces solo
+  funcionan en HTML interactivo.
+
+Recomendación práctica
+~~~~~~~~~~~~~~~~~~~~~~
+
+Para IACT, la combinación más robusta es:
+
+- **Diagrama PlantUML autocontenido** sin enlaces
+  inline.
+- **Texto RST adyacente** con la lista de referencias
+  cruzadas (UCs, ADRs, BRs, CNSTs, modelos de dominio).
+- **El lector** que necesite "saltar al repositorio
+  de auth_app" sigue las referencias del párrafo —
+  la experiencia es similar al menú desplegable, pero
+  más predecible y validable por Sphinx.
+
+----
+
 2.2 Convenciones
 ----------------
 
