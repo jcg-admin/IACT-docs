@@ -641,6 +641,155 @@ en blanco antes de ``alt`` y después de ``end``.
 
 ----
 
+2.1.quinquies Mostrar mensajes asíncronos
+-----------------------------------------
+
+Hasta aquí los mensajes han sido **síncronos** (request
+con respuesta esperada). En arquitecturas modernas es
+común el **mensaje asíncrono** *fire-and-forget*: el
+emisor publica un evento y continúa sin esperar
+respuesta.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML usa ``->>`` para mensajes asíncronos
+(equivalente a ``--)`` en Mermaid del libro citado).
+
+.. list-table::
+ :widths: 30 30 40
+ :header-rows: 1
+
+ * - Mermaid (libro)
+   - PlantUML (IACT)
+   - Render
+ * - ``->>``
+   - ``->``
+   - Línea continua, flecha rellena (sync request).
+ * - ``-->>``
+   - ``-->``
+   - Línea punteada, flecha rellena (sync response).
+ * - ``--)``
+   - ``->>``
+   - Línea punteada, flecha abierta (async).
+
+Importante: la flecha ``->>`` significa **distinto** en
+Mermaid (sync) y en PlantUML (async). La política IACT
+usa la convención PlantUML.
+
+Cuándo usar mensajes asíncronos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Eventos del dominio que no requieren respuesta
+  inmediata.
+- Notificaciones a buzón interno (CNST_001).
+- Encolado de tareas async (CNST_019 export).
+- Triggers de auditoría — el caller no espera el
+  ack del registro (CNST_025).
+- Publicación de alertas — el evaluador no espera
+  acuse del supervisor.
+
+Stack IACT y mensajes asíncronos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Por **ADR_DEVOPS_001**, el stack canónico no incluye
+Kafka. Los mecanismos asíncronos disponibles en IACT
+son más simples:
+
+- **Apache + mod_wsgi worker pool** — concurrencia de
+  requests.
+- **Tareas async vía cron** o **Django management
+  commands** — para batches.
+- **Buzón interno** (``log_app``) — publicación a un
+  destinatario.
+- **Bus de eventos in-process** (Observer pattern,
+  ver § 8 de :doc:`patrones-diseno`) — propagación de
+  eventos auditables sin red.
+
+Cualquier uso futuro de un broker externo (Kafka,
+RabbitMQ, Redis Streams) requiere un ADR explícito —
+no es la posición por defecto del proyecto.
+
+Equivalente IACT del ejemplo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro publica un evento ``User Created`` en Kafka
+desde ``User Service``. En IACT el evento equivalente
+es un **registro de auditoría** disparado desde
+``aud_app`` cuando una sesión se crea, sin que el
+flujo principal espere acuse:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — registro auditable async (CNST_025)
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   participant "log_app" as Log
+   database "Redis" as Redis
+   database "audit_log" as Audit
+
+   Supervisor -> B : envia credenciales
+   B -> Auth : POST /login
+   Auth -> Redis : crear sesion (CNST_002)
+   Auth ->> Audit : registrar evento (async)
+   Auth ->> Log : notificar buzon supervisor (async, CNST_001)
+   Auth --> B : 302 Redirect (panel)
+   B --> Supervisor : muestra panel
+   @enduml
+
+Análisis:
+
+- ``Auth ->> Audit`` — flecha asíncrona; el flujo
+  principal no espera la confirmación de
+  ``audit_log``. La invariante CNST_025 (audit
+  inmutable) se preserva por construcción del bus de
+  eventos: si la persistencia falla, se reintenta sin
+  detener el login.
+- ``Auth ->> Log`` — la notificación al buzón interno
+  no bloquea la respuesta al supervisor.
+- ``Auth --> B`` — síncrono (línea punteada con flecha
+  rellena) porque el navegador sí espera la
+  redirección.
+
+Cambiar el orden de los participantes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como menciona el autor citado, el orden de declaración
+de los participantes determina el orden visual de
+izquierda a derecha. Esa es la **tercera razón**
+(complementando § 2.1.bis) para declararlos
+explícitamente al inicio.
+
+En IACT esto se aprovecha para dar protagonismo al
+componente más relevante del flujo. Para UC_AUTH_01
+ponemos ``auth_app`` cerca del actor; para UC_RPT_04
+ponemos ``rpt_app`` central; para UC_PIP_01 ponemos
+``etl_runner`` al frente. La regla informal:
+**componentes más relevantes a la izquierda**, después
+del actor.
+
+Reglas IACT para mensajes asíncronos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Asíncrono solo cuando realmente lo es** — si el
+   caller usa el resultado, es síncrono.
+2. **Audit típicamente async** — el bus
+   ``aud_app`` no debe bloquear el flujo del UC.
+3. **Notificaciones al buzón interno (CNST_001) async**
+   — el supervisor revisa cuando puede.
+4. **Sin Kafka / RabbitMQ por defecto** — cualquier
+   broker externo requiere ADR.
+5. **Etiquetar cada mensaje async** con su naturaleza:
+   "registrar evento (async)", "notificar buzón
+   (async)" — quien lee el diagrama no debe inferir
+   solo de la flecha.
+
+----
+
 2.2 Convenciones
 ----------------
 
