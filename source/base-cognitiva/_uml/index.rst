@@ -55,6 +55,7 @@ Catálogo
  uml-01-introduccion
  uml-02-orientacion-objetos
  uml-03-uso-orientacion-objetos
+ uml-04-uso-relaciones
 
 Convención
 ==========
