@@ -1450,6 +1450,245 @@ Política IACT para conexiones del Context
 5. **Forzar dirección** (``-down->``, ``-right->``)
    solo cuando el layout automático produce cruces.
 
+13.3 Agregar estilo al diagrama Context
+---------------------------------------
+
+El estilo no debe agregarse "porque sí", pero en
+diagramas C4 el **color es poderoso** para distinguir
+visualmente qué representa cada nodo. La paleta de
+Simon Brown propone:
+
+- **Personas** — azul oscuro saturado.
+- **Sistema en diseño** — azul medio destacado.
+- **Sistemas de apoyo / externos** — gris.
+
+Sintaxis PlantUML — estereotipos + skinparam
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML aplica estilos por **estereotipo**
+(``<<stereotype>>`` después del nombre) y los
+``skinparam`` configuran apariencia por estereotipo.
+Esto es el equivalente directo del ``classDef`` +
+``class`` de Mermaid descritos en el libro.
+
+.. code-block:: plantuml
+
+   skinparam rectangleBackgroundColor<<sistema>> #1168bd
+   skinparam rectangleFontColor<<sistema>> #ffffff
+   skinparam rectangleBorderColor<<sistema>> #0b4884
+
+   skinparam rectangleBackgroundColor<<externo>> #666666
+   skinparam rectangleFontColor<<externo>> #ffffff
+   skinparam rectangleBorderColor<<externo>> #0b4884
+
+   skinparam actorBackgroundColor #08427b
+   skinparam actorFontColor #ffffff
+   skinparam actorBorderColor #052e56
+
+   rectangle "IACT" as IACT <<sistema>>
+   rectangle "LDAP corporativo" as LDAP <<externo>>
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Diferencia
+ * - ``classDef foo fill:#1168bd,...``
+   - ``skinparam rectangleBackgroundColor<<foo>> #1168bd``
+   - PlantUML separa color, fuente y borde en
+     keys distintas.
+ * - ``class node1,node2 foo``
+   - ``rectangle ... <<foo>>``
+     en cada nodo
+   - PlantUML aplica el estereotipo en la
+     declaración del nodo.
+
+Centralización en plantuml-styles.puml
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La política IACT (§ 16.7 de :doc:`analisis-dominio` y
+§ "Política IACT" en
+:doc:`/base-cognitiva/plantuml-guide/guidelines`)
+exige que **los skinparam vivan en
+`source/_static/plantuml-styles.puml`**, no en cada
+diagrama. Eso permite:
+
+- **DRY** — un solo archivo gobierna toda la paleta.
+- **Cambios globales** — actualizar la paleta de
+  todo el proyecto editando un solo archivo.
+- **Diagramas limpios** — el diagrama solo declara
+  estereotipos, no skinparam ad-hoc.
+
+Esquema sugerido para C4 en plantuml-styles.puml
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando el proyecto adopte C4 sistemáticamente, la
+paleta canónica IACT puede vivir en una sección
+dedicada del archivo de estilos:
+
+.. code-block:: text
+
+   ' Sección C4 — Simon Brown adaptado a IACT
+   skinparam rectangleBackgroundColor<<c4_sistema>> #1168bd
+   skinparam rectangleFontColor<<c4_sistema>> #ffffff
+   skinparam rectangleBorderColor<<c4_sistema>> #0b4884
+
+   skinparam rectangleBackgroundColor<<c4_externo>> #666666
+   skinparam rectangleFontColor<<c4_externo>> #ffffff
+   skinparam rectangleBorderColor<<c4_externo>> #0b4884
+
+   skinparam actorBackgroundColor #08427b
+   skinparam actorFontColor #ffffff
+   skinparam actorBorderColor #052e56
+
+Una vez centralizado, los diagramas Context solo
+necesitan declarar los estereotipos:
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — System Context
+
+   actor "Supervisor\n[Person]" as Supervisor
+   rectangle "IACT\n[Software System]" as IACT <<c4_sistema>>
+   rectangle "LDAP corporativo\n[External System]" as LDAP <<c4_externo>>
+
+   Supervisor --> IACT : consulta dashboards
+   IACT --> LDAP : autentica usuarios
+   @enduml
+
+Reglas IACT para estilo en diagramas C4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Color complementa**, nunca **sustituye** la
+   etiqueta. Un diagrama debe leerse correctamente en
+   blanco y negro o impreso.
+2. **Estilos centralizados** en
+   ``plantuml-styles.puml`` — no skinparam ad-hoc en
+   cada diagrama.
+3. **Adoptar la paleta de Simon Brown** como base.
+   Cualquier desviación se documenta en un ADR.
+4. **Estereotipos en cada nodo C4** — ``<<c4_sistema>>``,
+   ``<<c4_externo>>`` para fijar el rol visualmente.
+5. **Coherencia entre niveles** — la misma paleta
+   aplica en Context (este § 13), Container
+   (:doc:`diagramas-distribucion`) y Component
+   (§§ 1-9 de este documento).
+
+Cuándo añadir un título al diagrama
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como en § 16.6 de :doc:`analisis-dominio`, todo
+diagrama Context publicado lleva título. Para C4 la
+convención IACT es:
+
+::
+
+   IACT C4 — System Context
+   IACT C4 — Container view
+   IACT C4 — Component view (vm-iact)
+
+El prefijo ``IACT C4 —`` lo identifica como vista
+arquitectónica; el resto del título indica el nivel
+y el alcance.
+
+Recordatorio
+~~~~~~~~~~~~
+
+El estilo es **complemento**, no esencia. Un Context
+diagram bien construido es legible incluso sin paleta
+de colores — los rectángulos, las etiquetas y la
+disposición ya cuentan la historia. El color refuerza
+el mensaje y facilita la lectura rápida, pero el
+diagrama no debe **depender** de él.
+
+13.4 Ejercicio: crear tu propio Context diagram
+-----------------------------------------------
+
+La obra citada cierra este capítulo con un ejercicio:
+**dibujar un diagrama Context** del proyecto elegido,
+para un sistema que se necesite construir o uno con el
+que se haya trabajado.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Como en los ejercicios anteriores
+(§§ 15.12 y 16.9 de :doc:`analisis-dominio`,
+§ 14 de :doc:`diagramas-secuencias`), en IACT el
+ejercicio **ya está realizado**: el diagrama Context
+del sistema completo aparece en § 13 (Vista Context
+de IACT).
+
+Variantes para nuevos contribuidores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Quien quiere ejercitar la técnica antes de aplicarla
+en un cambio real al proyecto puede:
+
+1. **Reproducir el Context existente** desde cero,
+   sin mirar el código fuente PlantUML, validando que
+   se entiende cada decisión.
+2. **Modelar un Context alternativo** — qué pasaría
+   si IACT integrara una nueva fuente operativa
+   (e.g., un segundo IVR, un CRM externo). Comparar
+   con el actual.
+3. **Modelar un sub-sistema** — el cluster de RBAC
+   visto como sistema Context propio, con sus
+   actores específicos (administrador RBAC,
+   auditor SoD) y sus dependencias internas.
+4. **Modelar el flujo ETL como sistema** — Context
+   con foco en ``etl_runner`` como caja única,
+   actores ``Operador ETL`` y ``Supervisor`` (que
+   monitorea), sistemas externos ``bd-operativa`` e
+   ``ivr-host``.
+
+Variantes para extender el modelo real
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando aparezca una iniciativa que **modifique el
+contorno del sistema** (nuevos actores, nuevas
+integraciones externas, sustitución de un sistema
+existente):
+
+1. Abrir un WP en ``.thyrox/context/work/``.
+2. **Bocetar** el nuevo Context en ``planttext.com`` o
+   en un editor con preview.
+3. Discutirlo con stakeholders y refinar.
+4. **Actualizar este documento** (§ 13) con el
+   nuevo diagrama final.
+5. Registrar la decisión en un ADR del subdominio
+   afectado.
+
+Plan recomendado para nuevos contribuidores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Leer §§ 13-13.3 de este documento.
+2. Reproducir el Context de IACT desde cero
+   (variante 1).
+3. Probar la variante 3 (sub-sistema RBAC).
+4. Comparar resultado con el equipo.
+5. Avanzar al **Container view**
+   (:doc:`diagramas-distribucion`) cuando el Context
+   esté internalizado.
+
+Próximo capítulo
+~~~~~~~~~~~~~~~~
+
+El siguiente nivel del modelo C4 es la **vista
+Container**, mucho más detallada que el Context.
+Cubre los containers (apps, servicios, bases de
+datos, colas) que componen el sistema y los
+protocolos entre ellos. En IACT el equivalente vive
+en :doc:`diagramas-distribucion` (despliegue) y en
+las §§ 1-9 de este documento (componentes y sus
+contratos).
+
 ----
 
 Trazabilidad
