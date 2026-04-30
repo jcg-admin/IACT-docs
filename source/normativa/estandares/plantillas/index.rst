@@ -65,6 +65,7 @@ Plantillas por categoría
  tpl-uc-stakeholder-driven
  tpl-uc-temporal-schedulers
  tpl-uc-ui-driven
+ tpl-uc-spec-con-diagramas-uml
 
 .. toctree::
  :maxdepth: 1

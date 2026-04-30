@@ -57,4 +57,5 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  lecciones-aprendidas/index
  matrices/index
  planificacion-releases-frontend
+ plan-documentacion-uc-con-uml
  deployment-plan
