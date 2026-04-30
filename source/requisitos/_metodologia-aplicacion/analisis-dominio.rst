@@ -4413,6 +4413,242 @@ Próximas subsecciones
 - Schemas canónicos del cluster ETL y de
   ``audit_log``.
 
+17.6 Relaciones cero-o-uno y semántica de cardinalidad
+------------------------------------------------------
+
+§ 17.3 cubrió "exactamente uno" y "uno o varios";
+§ 17.4 cubrió "cero o varios". Falta el caso
+**cero-o-uno**: la relación existe **a lo sumo
+una vez**, pero puede no existir en absoluto. En
+términos de schema relacional, equivale a una
+**clave foránea nullable**.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML usa ``o|`` (o ``|o``) para denotar
+"cero o uno":
+
+.. code-block:: plantuml
+
+   A ||--o| B : etiqueta
+
+Lectura: cada ``A`` puede tener **a lo sumo un**
+``B``; cada ``B`` está obligatoriamente vinculado a
+un ``A``. La FK ``a_id`` en la tabla ``B`` puede
+ser ``NULL`` o señalar a una fila válida — nunca
+señala a más de una.
+
+Tres caracteres para todas las cardinalidades
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las relaciones ERD se construyen combinando solo
+**tres caracteres** en cada extremo:
+
+- ``o`` — **cero**.
+- ``|`` — **uno**.
+- ``{`` (o ``}``) — **muchos**.
+
+Cada extremo tiene **dos marcas**: una para el
+mínimo (más alejada del nombre de la entidad) y
+otra para el máximo (más cercana). Tabla
+resumen:
+
+.. list-table::
+ :widths: 22 30 48
+ :header-rows: 1
+
+ * - Símbolo
+   - Min — Max
+   - Significado
+ * - ``||``
+   - 1 — 1
+   - Exactamente uno (obligatorio).
+ * - ``|o``
+   - 0 — 1
+   - Cero o uno (opcional, único).
+ * - ``|{``
+   - 1 — *
+   - Uno o varios (obligatorio, sin tope).
+ * - ``o{``
+   - 0 — *
+   - Cero o varios (opcional, sin tope).
+
+La marca **más cercana al nombre** de la entidad
+es el **máximo**; la **más lejana**, el **mínimo**.
+Ejemplo: en ``A ||--o{ B``, el lado de ``B`` lee
+"de cero (mínimo) a muchos (máximo)".
+
+Cuándo aparece cero-o-uno en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Casos típicos donde la opcionalidad es **a lo
+sumo uno**:
+
+- Un ``EventoAuditoria`` puede haber sido
+  **generado por** una ``EjecucionETL``, un
+  ``Reporte`` o una ``Alerta`` — pero no todos los
+  eventos tienen origen rastreable en uno de
+  esos. Cada FK opcional es 0..1.
+- Una ``Sesion`` puede tener **un token de
+  refresh** asociado o ninguno — depende de la
+  política de renovación.
+- Una ``EjecucionETL`` puede haber sido
+  **disparada manualmente** por un ``Usuario`` (en
+  modo dry-run) o automáticamente por cron — en
+  el primer caso hay un ``usuario_id`` 0..1 que
+  registra quién lo ejecutó.
+- Una ``Alerta`` puede haber sido
+  **reconocida por** un ``Supervisor`` — o no,
+  si está en estado ``publicada``.
+
+En todos estos casos, la FK correspondiente en la
+tabla persistida es **NULL-able**.
+
+Ejemplo IACT — ``EventoAuditoria`` con FK opcionales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un evento puede originarse en un reporte, en una
+alerta o en una ejecución ETL — pero no
+necesariamente en ninguno (eventos de
+autenticación pura, por ejemplo).
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: EventoAuditoria con origenes opcionales
+
+   entity EventoAuditoria {
+     * evento_id : bigint <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * tipo_id : int <<FK>>
+     * timestamp : datetime <<IDX>>
+     reporte_id : int <<FK>>
+     alerta_id : int <<FK>>
+     ejecucion_etl_id : int <<FK>>
+     payload : text
+   }
+
+   entity Reporte {
+     * reporte_id : int <<PK>>
+     --
+     nombre : varchar(150)
+   }
+
+   entity Alerta {
+     * alerta_id : int <<PK>>
+     --
+     estado : varchar(20)
+   }
+
+   entity EjecucionETL {
+     * ejecucion_etl_id : int <<PK>>
+     --
+     * inicio : datetime
+     fin : datetime
+   }
+
+   Reporte ||--o{ EventoAuditoria : "origina (opcional)"
+   Alerta ||--o{ EventoAuditoria : "origina (opcional)"
+   EjecucionETL ||--o{ EventoAuditoria : "origina (opcional)"
+   @enduml
+
+Lectura: un mismo evento de auditoría puede tener
+**ningún origen específico** (todas las FK NULL),
+o tener **uno** de los tres origenes posibles. El
+schema lo permite con FKs nullable.
+
+Cuándo NO usar 0..1
+~~~~~~~~~~~~~~~~~~~
+
+Si un valor "no aplica" en muchas filas, el schema
+puede estar **mezclando dos entidades distintas**.
+Señales:
+
+- Hay tres FK nullable y solo una se llena en
+  cada fila. ¿Sería más limpio modelar tres
+  tablas separadas?
+- Una FK nullable se llena en el 99% de las
+  filas. ¿Es realmente opcional o falta marcarla
+  obligatoria?
+- Una columna nullable se rellena con "valores
+  de placeholder" en lugar de NULL.
+
+En IACT estas señales son **bandera roja** para
+revisar la decisión arquitectónica antes de
+materializar el schema. La regla operativa: **NULL
+solo cuando la ausencia tiene significado real
+en el dominio**.
+
+Política IACT — relaciones 0..1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Usar 0..1 cuando la ausencia es válida y
+   significativa** — no como mecanismo para
+   "datos pendientes".
+2. **FKs múltiples opcionales** que se excluyen
+   mutuamente — considerar si conviene tablas
+   separadas o un schema con discriminador.
+3. **Documentar el significado de NULL** en un
+   comentario PlantUML cuando no es obvio.
+4. **Validación a nivel de aplicación** (Django
+   model validators) cuando la BD permite estados
+   que el dominio rechaza.
+5. **Snapshot ERD por servicio** — si las
+   relaciones 0..1 cruzan apps Django, considerar
+   un ERD por app y referencias cross-cluster
+   etiquetadas.
+
+Cierre del módulo de cardinalidades
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con §§ 17.3-17.6 quedaron cubiertas las cuatro
+cardinalidades canónicas del ERD:
+
+.. list-table::
+ :widths: 25 25 25 25
+ :header-rows: 1
+
+ * - Cardinalidad
+   - Símbolo PlantUML
+   - Equivalente UML
+   - Sección
+ * - Exactamente uno
+   - ``||``
+   - ``1``
+   - § 17.3
+ * - Uno o varios
+   - ``|{``
+   - ``1..*``
+   - § 17.3
+ * - Cero o varios
+   - ``o{``
+   - ``0..*``
+   - § 17.4
+ * - Cero o uno
+   - ``o|``
+   - ``0..1``
+   - § 17.6
+
+Combinando estas cuatro en cada extremo de una
+relación se cubren los casos prácticos. Las
+combinaciones N:M (``}o--o{``, ``}|--|{``) son la
+suma de dos cardinalidades 1:N hacia una tabla
+de unión, como se vio en § 17.4.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- Tipos de dato canónicos para MySQL en IACT
+  (longitudes, charset, encoding).
+- Constraints adicionales (CHECK, DEFAULT,
+  triggers para append-only).
+- Índices y patrones de consulta.
+- Schemas canónicos consolidados:
+  ``audit_log``, ``bd_analytics``, RBAC.
+
 ----
 
 18. Trazabilidad
