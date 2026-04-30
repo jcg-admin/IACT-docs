@@ -478,6 +478,152 @@ Política IACT para fronteras
 5. **Flechas que cruzan la frontera** deben ser
    visibles — no esconderlas detrás del package.
 
+Agregar sistemas de apoyo
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El Container view se cierra agregando los **sistemas
+de apoyo** identificados en el Context (§ 13 de
+:doc:`diagramas-componentes`) — los sistemas externos
+con los que el sistema en diseño dialoga.
+
+Reglas de ubicación
+^^^^^^^^^^^^^^^^^^^
+
+- **Internos (containers)**: dentro del
+  ``package "IACT"``.
+- **Externos (sistemas de apoyo)**: **fuera** del
+  package, con estereotipo ``<<c4_externo>>``.
+- **Flechas desde un container interno hacia un
+  sistema externo** atraviesan la frontera del
+  package.
+
+En IACT no hay equivalente a un broker de mensajes
+(Kafka) porque ADR_DEVOPS_001 no lo contempla. Los
+sistemas de apoyo de IACT son los tres ya
+identificados en el Context:
+``ldap-corporativo``, ``bd-operativa``, ``ivr-host``.
+
+Layout — el problema y cómo controlarlo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cuando se agregan varios sistemas de apoyo, el
+renderer puede colocarlos a la derecha de la
+frontera, generando un diagrama **demasiado ancho**
+con flechas largas que cruzan visualmente otros
+elementos.
+
+PlantUML ofrece **más control de layout** que
+Mermaid:
+
+.. list-table::
+ :widths: 28 32 40
+ :header-rows: 1
+
+ * - Mecanismo
+   - Efecto
+   - Cuándo usarlo
+ * - ``-down->``, ``-right->``,
+     ``-up->``, ``-left->``
+   - Fuerza la dirección de la flecha; el
+     renderer respeta la pista.
+   - Cuando una conexión específica se quiere
+     dirigir.
+ * - ``together { A B C }``
+   - Agrupa varios elementos para que el
+     renderer los coloque cerca.
+   - Cluster que debe permanecer unido visualmente.
+ * - ``left to right direction``
+   - Cambia el flujo principal del diagrama
+     (default es top-to-bottom).
+   - Para diagramas con muchos sistemas externos
+     que conviene leer horizontalmente.
+ * - ``skinparam ranksep`` /
+     ``skinparam nodesep``
+   - Ajusta el espaciado entre filas y nodos.
+   - Diagramas densos.
+
+Aplicación a IACT — Container view final
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El equivalente IACT de la vista final del libro
+(con todos los sistemas de apoyo agregados):
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Container view (final)
+
+   actor "Supervisor\n[Person]" as Supervisor
+
+   package "IACT" {
+     rectangle "Browser\n[Navegador del supervisor]" as B <<c4_container>>
+     rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]" as WSGI <<c4_container>>
+     database "Redis\n[Sesiones + throttling]" as Redis <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+     database "audit_log\n[MySQL immutable]" as Audit <<c4_container>>
+   }
+
+   together {
+     rectangle "ldap-corporativo\n[External]" as LDAP <<c4_externo>>
+     database "bd-operativa\n[External, read-only]" as BDO <<c4_externo>>
+     rectangle "ivr-host\n[External]" as IVR <<c4_externo>>
+   }
+
+   Supervisor -down-> B : opera el panel
+   B -down-> WSGI : consulta dashboards\n[HTTPS intranet]
+   WSGI -down-> Redis : sesiones y throttling\n[Redis Protocol]
+   WSGI -down-> BDA : lee/escribe analytics\n[MySQL TCP]
+   WSGI -down-> Audit : registra eventos\n[MySQL TCP append-only]
+
+   WSGI -right-> LDAP : autentica\n[LDAPS]
+   WSGI -right-> BDO : lee llamadas\n[SQL read-only]
+   WSGI -right-> IVR : recibe eventos\n[protocolo IVR]
+   @enduml
+
+Decisiones de layout aplicadas:
+
+- **``together { ... }``** agrupa los tres sistemas
+  externos para que aparezcan juntos.
+- **``-down->``** para flechas internas verticales.
+- **``-right->``** para flechas hacia los sistemas
+  externos — los empuja a la derecha sin que se
+  dispersen.
+
+Si el renderer aún produce un diagrama demasiado
+ancho, alternativa: usar ``left to right direction``
+al inicio para reorganizar todo el diagrama
+horizontalmente.
+
+Cuándo es válido tener un diagrama "ancho"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A veces el ancho **es legítimo** — cuando el sistema
+realmente tiene 6+ sistemas externos en juego.
+Reglas para casos así:
+
+1. Si caben en una pantalla 16:9, dejarlo ancho.
+2. Si no caben, **dividir** en sub-diagramas: uno por
+   cluster de externos relacionados (autenticación,
+   datos operativos, telefonía).
+3. Documentar la decisión en una nota del diagrama
+   ("Vista parcial — ver también
+   :doc:`diagramas-distribucion` § X").
+
+Política IACT para sistemas de apoyo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Externos siempre fuera del package** del sistema
+   en foco.
+2. **Estereotipo ``<<c4_externo>>``** para color y
+   diferenciación visual.
+3. **Protocolo en cada flecha** — sin excepción.
+4. **``together``** para agrupar externos del mismo
+   subdominio.
+5. **Direcciones forzadas** (``-right->``,
+   ``-down->``) si el layout automático produce
+   diagramas ilegibles.
+
 ----
 
 1. Nodo, dispositivo y conexión
