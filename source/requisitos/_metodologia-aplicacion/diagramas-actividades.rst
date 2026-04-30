@@ -483,8 +483,228 @@ Política IACT
 
 ----
 
-Trazabilidad
-============
+12. Notaciones complementarias del diagrama de actividades
+==========================================================
+
+Las §§ 1-9 cubrieron las notaciones más usadas
+(start, stop, actividades, decisiones, fork/join,
+swimlanes, ciclos, señales). Esta sección agrupa
+las **notaciones complementarias** del estándar UML
+que el catálogo del cajón aún no detalla, con su
+sintaxis PlantUML y el caso IACT donde aparecen.
+
+12.1 Merge node (rombo de unión)
+--------------------------------
+
+A diferencia del **join** (barra horizontal que
+sincroniza ramas paralelas), un **merge node** es
+un rombo que **une rutas alternativas** sin
+sincronizar — la primera rama que llegue continúa
+el flujo.
+
+PlantUML lo expresa con la sintaxis
+``if`` / ``elseif`` / ``else`` / ``endif``: el
+``endif`` actúa como merge implícito. También
+admite merge explícito con ``repeat`` o construcciones
+manuales.
+
+Diferencia clave:
+
+- **Join** — espera a **todas** las ramas paralelas.
+- **Merge** — toma la **primera** rama que llega.
+
+En IACT aparece cuando un flujo tiene varias
+posibles entradas que confluyen sin necesidad de
+esperarse mutuamente. Ejemplo: un dashboard que
+puede actualizarse por refresh manual del
+supervisor o por trigger automático del scheduler;
+ambos caminos terminan en "renderizar dashboard".
+
+12.2 Flow Final
+---------------
+
+El nodo de **flow final** representa el final
+**anormal** de una rama del flujo — distinto del
+final del sistema completo. Se dibuja como un
+círculo con una X (en PlantUML: ``end`` dentro de
+una rama).
+
+Cuándo usarlo en IACT:
+
+- Una rama de error que **termina** sin completar
+  el flujo principal pero **no detiene** otras
+  ramas paralelas.
+- Un fallback que abandona la operación sin
+  considerar que el sistema haya fallado
+  globalmente.
+
+Diferencia con el ``stop`` final de UML
+(``end``):
+
+- **Stop / Final state** — el sistema entero
+  termina.
+- **Flow Final** — solo termina **esa rama**
+  específica.
+
+12.3 Transition y self-transition
+---------------------------------
+
+Una **transition** es la flecha base del diagrama
+de actividades: une una actividad **fuente** con
+una actividad **objetivo**, y se dispara
+automáticamente cuando la fuente termina su
+trabajo. PlantUML las dibuja con ``-->`` o como
+secuencia implícita entre dos ``:actividad;``
+consecutivas.
+
+Una **self-transition** es un caso particular:
+la transición sale de una actividad y vuelve a la
+**misma actividad**. Representa una iteración
+interna o re-evaluación sin pasar por otra
+actividad — es la cara "actividad" de los
+self-messages que aparecen en diagramas de
+secuencia (§ 10.1 de :doc:`diagramas-secuencias`).
+
+PlantUML soporta self-transitions naturalmente
+con ``while`` interno o transiciones explícitas
+en activity diagrams. En IACT aparece típicamente
+en estados de espera donde el actor revisa un
+estado periódicamente sin avanzar.
+
+12.4 Signal Send / Signal Accept
+--------------------------------
+
+UML diferencia dos pentágonos para señales:
+
+- **Signal Send** (pentágono convexo, "punta
+  saliendo") — el flujo **envía** una señal y
+  continúa sin esperar respuesta.
+- **Signal Accept** (pentágono cóncavo, "punta
+  entrando") — el flujo **espera** una señal
+  para continuar; sin la señal, queda
+  bloqueado.
+
+PlantUML usa la sintaxis ``->`` con
+``send signal`` y ``receive signal`` para
+diferenciarlos:
+
+.. code-block:: plantuml
+
+   :tarea pre-señal;
+   ->[señal X]
+   :tarea post-señal;
+
+O con notación explícita:
+
+.. code-block:: plantuml
+
+   :emitir señal "AlertaCritica"; <<sdsend>>
+   :recibir señal "AlertaCritica"; <<sdreceive>>
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+- **Send** — ``alr_app`` emite la señal
+  ``AlertaCritica`` y continúa registrando
+  audit; no espera al supervisor.
+- **Accept** — el panel del supervisor espera la
+  señal ``AlertaCritica`` para refrescar la lista
+  visible; sin alertas pendientes, queda en
+  estado de espera.
+
+El par send/accept materializa el patrón
+**Observer** (§ 8 de :doc:`patrones-diseno`) en
+forma de diagrama de actividades.
+
+12.5 Subactivity
+----------------
+
+Una **subactivity** es una actividad que
+**referencia** otra actividad principal, modelada
+en un diagrama propio. Sirve para descomponer un
+flujo grande en piezas más pequeñas, manteniendo
+cada nivel legible.
+
+PlantUML lo expresa como una actividad simple en
+el diagrama padre, con un comentario o nota que
+remite al diagrama detallado:
+
+.. code-block:: plantuml
+
+   :Validar export;
+   note right
+     Detalle: ver UC_RPT_04 sub-flujo
+     "validar parametros" en
+     diagrama X
+   end note
+
+En IACT esto aplica cuando un UC complejo
+(UC_RPT_04 export con muchas validaciones) se
+divide en sub-diagramas:
+
+- Diagrama padre: flujo de alto nivel del UC.
+- Sub-diagramas: detalle de cada actividad
+  compleja (validar cuota, validar SoD,
+  serializar formato).
+
+Ventaja: cada sub-diagrama queda autocontenido
+y reutilizable; el padre permanece legible.
+
+12.6 Object node
+----------------
+
+Un **object node** representa una entidad de
+datos que **viaja entre dos actividades**. Se
+dibuja como un rectángulo etiquetado entre las
+dos actividades involucradas.
+
+PlantUML lo soporta con la sintaxis:
+
+.. code-block:: plantuml
+
+   :Generar reporte;
+   :[Reporte serializado];
+   :Encolar export;
+
+El paso intermedio entre corchetes representa el
+objeto de datos que la primera actividad produce
+y la segunda consume.
+
+En IACT aparece para hacer explícito el flujo de
+datos entre apps Django:
+
+- ``rpt_app.generar`` produce ``[Reporte
+  serializado]`` que ``rpt_app.exportar``
+  consume.
+- ``etl_runner.cargar`` produce ``[RegistroIngesta]``
+  que ``aud_app.registrar`` consume.
+
+Política IACT — uso de notaciones avanzadas
+-------------------------------------------
+
+1. **Merge, flow final, signal send/accept y
+   object nodes** son notaciones legítimas de
+   UML. Usar cuando el flujo lo requiere; no
+   forzarlas decorativamente.
+2. **Subactivity es la mejor herramienta para
+   diagramas grandes** — descomponer en lugar
+   de saturar.
+3. **Self-transition con guarda explícita**
+   ``[condición]`` siempre — un self-loop sin
+   condición miente sobre el flujo.
+4. **Signal send/accept** en IACT
+   típicamente coincide con el patrón Observer;
+   referenciar :doc:`patrones-diseno` § 8 cuando
+   aplique.
+5. **Si el diagrama necesita más de tres
+   notaciones avanzadas**, considerar dividirlo
+   — la legibilidad para audiencias mixtas se
+   pierde rápido.
+
+----
+
+13. Trazabilidad
+================
 
 .. list-table::
  :widths: 25 75
