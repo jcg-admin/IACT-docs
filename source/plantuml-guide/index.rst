@@ -24,6 +24,7 @@ PlantUML Centralized Styling (Phase 1 Setup)
 
    guidelines
    metadata-standard
+   diagramas-de-referencia
 
 .. toctree::
    :maxdepth: 2
