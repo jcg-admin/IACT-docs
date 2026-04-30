@@ -2088,7 +2088,171 @@ modelado aquí.
 
 ----
 
-15. Trazabilidad
+15. Recapitulación del capítulo
+===============================
+
+Antes de continuar con los siguientes diagramas
+(:doc:`diagramas-colaboraciones`,
+:doc:`diagramas-actividades`,
+:doc:`diagramas-componentes`,
+:doc:`diagramas-distribucion`), conviene fijar lo que
+este documento ha cubierto.
+
+Lo aprendido
+------------
+
+1. **Qué es un diagrama de secuencia y para qué
+   sirve** — modelar interacciones entre actores y
+   participantes a lo largo del tiempo (Preludio + § 1).
+2. **Definir actores y participantes** —
+   ``actor``, ``participant``, ``database``,
+   ``boundary``, ``control``, ``entity``, ``queue``
+   (§ 2.1.bis), con la regla de declararlos
+   explícitamente para fijar orden e iconos.
+3. **Agregar interacciones** — mensajes síncronos
+   con ``->`` y respuestas con ``-->`` (§ 2.1.ter).
+4. **Mostrar lógica de bifurcación** — bloques
+   ``alt`` / ``else`` / ``end`` (§ 2.1.quater) con la
+   regla IACT de auditar en cada rama.
+5. **Mensajes asíncronos** — ``->>`` para
+   *fire-and-forget* (§ 2.1.quinquies), distinguiendo
+   sync vs async vs response.
+6. **Activaciones para mostrar duración** — formas
+   explícita (``activate``/``deactivate``) e inline
+   (``++``/``--``) (§ 2.1.sexies).
+7. **Notas para contexto adicional** —
+   ``note left of`` / ``note right of`` /
+   ``note over X`` / ``note over X, Y``
+   (§ 2.1.septies).
+8. **Numeración automática** con ``autonumber``,
+   incluyendo offset, incremento, formato y
+   stop/resume (§ 2.1.octies).
+9. **Enlaces y menús en participantes** —
+   ``[[url]]`` PlantUML como equivalente (más
+   limitado) de los drop-down menus de Mermaid
+   (§ 2.1.nonies).
+10. **Que las secuencias sirven también para
+    modelar interacciones entre clases**, no solo
+    entre sistemas (§§ 2-13 de detalles canónicos
+    IACT).
+
+Síntesis sintáctica
+-------------------
+
+Un diagrama de secuencia se construye con piezas que
+se combinan:
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title <título>
+   autonumber
+
+   actor <Actor>
+   participant "<Largo>" as <alias>
+   database <BD>
+
+   <emisor> -> <receptor> ++ : <etiqueta sync>
+   <emisor> --> <receptor> -- : <etiqueta respuesta>
+   <emisor> ->> <receptor> : <etiqueta async>
+
+   alt [guarda]
+     ...
+   else [otra guarda]
+     ...
+   end
+
+   note over <participante> : <comentario>
+   @enduml
+
+Esa plantilla cubre el 90% de los casos IACT. Los
+recursos avanzados (creación de objetos § 7,
+destrucción § 8, recursividad § 9, ciclos § 10) se
+agregan cuando el flujo lo justifica.
+
+Resultado consolidado del capítulo
+----------------------------------
+
+El equivalente IACT del flujo cerrado del libro
+(``Sign Up Flow`` con todos los enriquecimientos) es
+**UC_AUTH_01 con todos los recursos aplicados**:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — flujo final con todos los recursos
+
+   autonumber
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   database "ldap-corporativo" as LDAP
+   database "Redis" as Redis
+   database "audit_log" as Audit
+   participant "log_app" as Log
+
+   Supervisor -> B : abre URL del panel
+   B -> Auth ++ : GET /login
+   Auth --> B -- : 200 OK (formulario)
+   B --> Supervisor : muestra formulario
+
+   Supervisor -> B : envia credenciales
+   B -> Auth ++ : POST /login (user, pass)
+   Auth -> Auth : validar formato
+
+   alt [credenciales invalidas]
+     Auth ->> Audit : registrar intento fallido
+     note right of Audit
+       CNST_011 throttling:
+       max 5 intentos / 5 min
+     end note
+     Auth --> B -- : 401 Unauthorized
+     B --> Supervisor : muestra error
+   else [credenciales validas]
+     Auth -> LDAP ++ : authenticate(user, pass)
+     LDAP --> Auth -- : OK + atributos
+     Auth -> Redis : crear sesion
+     note right of Redis
+       CNST_002: sesion unica
+     end note
+     Auth ->> Audit : registrar acceso (CNST_025)
+     Auth ->> Log : notificar buzon (CNST_001)
+     Auth --> B -- : 302 Redirect (panel)
+     B --> Supervisor : muestra panel
+   end
+   @enduml
+
+Este diagrama combina **todos los recursos del
+capítulo** — actores y participantes con tipos
+específicos, sync + async + response, alt con dos
+ramas, activaciones inline, notas anclando CNST_*,
+numeración automática.
+
+Siguiente paso
+--------------
+
+Tras visualizar los flujos, el siguiente nivel del
+diseño es **modelar la arquitectura completa** del
+sistema: cómo los componentes y nodos físicos se
+organizan más allá del flujo puntual de un UC. Eso
+está cubierto en:
+
+- :doc:`diagramas-componentes` — componentes
+  desplegables y sus contratos.
+- :doc:`diagramas-distribucion` — nodos físicos y
+  redes.
+- :doc:`/base-cognitiva/c4-model` (cuando se
+  redacte) — vistas Context / Container / Component /
+  Code complementarias.
+
+Ese es el siguiente capítulo conceptual del proyecto.
+
+----
+
+16. Trazabilidad
 ================
 
 .. list-table::
