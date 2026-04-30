@@ -1773,7 +1773,186 @@ canónicos IACT son ``Grupo`` ◇ ``Funcion`` y
 relaciones de colaboración (las cuatro) está en § 1 de
 :doc:`relaciones-uml`.
 
-15.10 Relación con el resto del documento
+15.10 Definir agregaciones
+--------------------------
+
+Tras asociación (§ 15.8) y composición (§ 15.9), el
+modelo aún puede crecer con un tipo intermedio: la
+**agregación**. Es el "punto medio" entre las dos: hay
+un padre identificable, pero la parte **sí puede existir
+sin él**.
+
+Ejemplo del libro citado
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para el modelo Streamy, la entidad ``Actor`` no encaja
+ni en asociación pura ni en composición:
+
+- No es composición porque ``Actor`` puede existir sin
+  un ``Title`` (puede pertenecer a varios títulos; si
+  uno se elimina, el actor sigue presente en los
+  otros).
+- Tampoco es asociación pura: hay un ownership
+  conceptual del lado de ``Title`` (el título "tiene"
+  sus actores).
+
+Esa relación se modela como **agregación**: diamante
+**vacío** del lado del padre. En PlantUML se escribe
+``o--`` (la letra ``o`` seguida de dos guiones).
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: plantuml
+
+   Title o-- Actor
+
+Diferencias visuales con composición:
+
+- Composición — diamante **relleno** (``*--``).
+- Agregación — diamante **vacío** (``o--``).
+
+Aplicado al ejemplo Streamy completo:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class Title
+   class Genre
+   class Season
+   class Episode
+   class Review
+   class Actor
+
+   Title -- Genre
+   Title *-- Season
+   Title *-- Review
+   Title o-- Actor
+   Season *-- Episode
+   @enduml
+
+El equivalente IACT — RBAC y agregaciones canónicas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El cluster RBAC de IACT (ver § 11 de
+:doc:`agregacion-interfaces`) está construido sobre
+agregaciones, no composiciones:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class Grupo
+   class Funcion
+   class Usuario
+   class Permiso
+   class ReglaSoD
+
+   Grupo "1" o-- "*" Funcion : agrupa
+   Grupo "1" o-- "*" Usuario : asigna
+   ReglaSoD "1" -- "2..*" Funcion : restringe
+   Permiso ..> Grupo : pertenece
+   @enduml
+
+Lectura:
+
+- ``Grupo`` ◇ ``Funcion`` — **agregación**. Las
+  funciones del catálogo RBAC existen
+  independientemente de cualquier grupo. Eliminar un
+  grupo no elimina las funciones (CNST_030 SoD se
+  conserva a nivel de catálogo).
+- ``Grupo`` ◇ ``Usuario`` — **agregación**. Los
+  usuarios existen sin grupos; pueden pertenecer a
+  varios; eliminar un grupo no elimina los usuarios.
+- ``ReglaSoD`` ↔ ``Funcion`` — asociación: la regla
+  referencia funciones del catálogo; ambas existen
+  independientemente.
+
+Otros ejemplos IACT de agregación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``Reporte`` ◇ ``Filtro`` — los filtros pueden
+  reutilizarse entre reportes; el reporte no destruye
+  los filtros al cerrarse.
+- ``Supervisor`` ◇ ``AlertaReconocida`` — el
+  supervisor mantiene historial de alertas reconocidas;
+  las alertas sobreviven aunque el supervisor cambie de
+  rol.
+- ``VentanaETL`` ◇ ``EjecucionETL`` — una ventana
+  contiene varias ejecuciones; las ejecuciones quedan
+  como evidencia auditable aunque la ventana se
+  invalide (CNST_025 + CNST_006/008).
+
+Tres tipos de relación de colaboración — resumen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con asociación, agregación y composición ya están
+cubiertas las tres relaciones principales para modelar
+**dominios**:
+
+.. list-table::
+ :widths: 22 22 28 28
+ :header-rows: 1
+
+ * - Tipo
+   - Sintaxis PlantUML
+   - Bond
+   - Cuándo usarla
+ * - **Asociación**
+   - ``--``
+   - Loose; sin owner.
+   - Entidades sueltas conectadas por uso.
+ * - **Agregación**
+   - ``o--``
+   - Medio; padre claro, hijo sobrevive.
+   - Padre conceptual, partes reutilizables.
+ * - **Composición**
+   - ``*--``
+   - Strong; hijo no existe sin padre.
+   - Partes que mueren con el contenedor.
+
+Cómo elegir entre los tres
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La pregunta progresiva de tres pasos:
+
+1. ¿Las dos entidades existen totalmente
+   independientes? → **asociación**.
+2. Si no, ¿la "parte" puede vivir aunque desaparezca
+   el "todo"? → **agregación**.
+3. Si tampoco, ¿la parte muere con el todo? →
+   **composición**.
+
+Variabilidad de modelado
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las decisiones de modelado **varían entre equipos** y
+ambas pueden ser válidas. El autor citado lo ilustra
+con el caso ``Actor``/``Cast``: si modelamos un
+``Cast`` que agrupa a los actores específicos de un
+``Title``, esa relación pasaría a **composición**
+(cuando el título desaparece, el cast deja de tener
+sentido), aunque ``Actor`` por sí mismo siga siendo
+agregación.
+
+En IACT esto se observa en
+``EjecucionETL`` ↔ ``Llamada``:
+
+- En § 15.9 lo modelamos como **asociación** — las
+  llamadas existen independientemente de la ejecución
+  que las cargó.
+- Si introdujéramos un ``LoteIngestaETL`` que agrupe
+  específicamente las llamadas cargadas en una
+  ejecución particular, esa relación sería
+  **composición** (el lote no tiene sentido sin la
+  ejecución).
+
+Ambas lecturas son legítimas. La elección depende del
+**contexto del UC** (ver § 13 "Comparativa por
+contexto" en :doc:`relaciones-uml`).
+
+15.11 Relación con el resto del documento
 -----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
