@@ -953,19 +953,62 @@ IACT.
 14.1 Herencia por especialización (recomendada)
 -----------------------------------------------
 
-Relación **"es-un" verdadera** con expansión de
-comportamiento.
+La **herencia por especialización** (*inheritance by
+specialization*) representa una relación **"es un tipo
+de"** donde una clase descendiente hereda el comportamiento
+**completo** de su clase base pero lo **expande o
+modifica** para un propósito más específico.
+
+En esta relación, la clase descendiente debe implementar
+**absolutamente todas** las operaciones definidas en la
+clase base — no puede omitir ninguna — y la complementa
+con características adicionales o modificaciones
+especializadas.
+
+Tres principios esenciales
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Implementación obligatoria de todas las operaciones**
+   de la clase base, asegurando que no se omita ninguna
+   funcionalidad.
+2. **Capacidad de añadir nuevas características** que
+   enriquecen la funcionalidad básica sin alterar el
+   contrato.
+3. **Posibilidad de redefinir ciertos comportamientos**
+   para adaptarlos a necesidades más específicas, siempre
+   respetando la sustitución de Liskov.
+
+Características que la distinguen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Mantiene el comportamiento base del padre.
 - Añade características específicas.
-- No elimina funcionalidades.
+- No elimina ni restringe funcionalidades.
 - Respeta el contrato original (LSP).
 
 Beneficios: jerarquías naturales, mantenimiento más
 sencillo, reusabilidad, extensiones seguras.
 
+Obligaciones del subtipo
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Implementar **todas** las operaciones base.
+- No puede omitir comportamientos.
+- Mantiene la **coherencia** del modelo.
+- Preserva la **sustitución de Liskov**.
+
+Aspectos clave del diseño
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- La especialización debe **tener sentido en el dominio**.
+- Los cambios son **incrementales y compatibles**.
+- Se mantiene la **cohesión** del modelo.
+- Las modificaciones respetan el **propósito original**.
+
 **Cuándo usarla**: cuando exista relación clara de
-subtipo, la especialización sea natural y no viole LSP.
+subtipo, la especialización sea natural en el contexto, se
+necesite comportamiento adicional específico y no se viole
+LSP.
 
 **Mejores prácticas**: implementar todas las operaciones,
 mantener cohesión, respetar propósito original, seguir
@@ -975,7 +1018,58 @@ principios SOLID.
 completamente con el contrato de su padre, la herencia
 no es apropiada.
 
-Ejemplo IACT correcto:
+Ejemplo canónico — figuras geométricas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   abstract class Figura {
+     - color : String
+     - posicionX : int
+     - posicionY : int
+     + calcularArea()
+     + calcularPerimetro()
+     + dibujar()
+     + mover()
+   }
+
+   class Circulo {
+     - radio : double
+     + calcularArea()
+     + calcularPerimetro()
+     + dibujar()
+     + mover()
+   }
+
+   class Rectangulo {
+     - base : double
+     - altura : double
+     + calcularArea()
+     + calcularPerimetro()
+     + dibujar()
+     + mover()
+   }
+
+   Figura <|-- Circulo
+   Figura <|-- Rectangulo
+
+   note left of Figura : Clase base
+   note right of Circulo : Especializacion completa
+   note right of Rectangulo : Especializacion completa
+   @enduml
+
+``Circulo`` y ``Rectangulo`` **implementan todas** las
+operaciones de ``Figura`` (``calcularArea``,
+``calcularPerimetro``, ``dibujar``, ``mover``); ninguna
+queda sin implementar ni se desactiva. La especialización
+añade los atributos propios (``radio``; ``base``,
+``altura``) sin romper el contrato.
+
+Ejemplo aplicado a IACT
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. uml::
 
@@ -993,62 +1087,310 @@ Ejemplo IACT correcto:
    Reporte <|-- ReporteSoDCompliance
    @enduml
 
-Cada subclase **mantiene** ``generar()`` y ``exportar()`` y
-**añade** su lógica específica de cálculo. Ningún subtipo
-rompe el contrato del padre.
+Cada subclase **mantiene** ``generar()`` y ``exportar()``
+y **añade** su lógica específica de cálculo. Ningún
+subtipo rompe el contrato del padre.
+
+Por qué es buena práctica
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La herencia por especialización es uno de los usos más
+correctos y naturales de la herencia porque:
+
+- Mantiene la **integridad del modelo**.
+- Es **intuitiva y fácil de entender**.
+- Sigue los principios **SOLID**.
+- Facilita el **polimorfismo seguro** — cualquier
+  consumidor de ``Figura`` o ``Reporte`` puede operar
+  sobre cualquier subtipo sin saber cuál es.
 
 14.2 Herencia por extensión con transformación (con cuidado)
 ------------------------------------------------------------
 
-Modifica el concepto fundamental mientras mantiene la
-estructura técnica.
+La **herencia por extensión con transformación
+conceptual** (*inheritance by extension with conceptual
+transformation*) representa un caso donde la clase
+derivada **no solo hereda** atributos y comportamientos de
+su clase base, sino que **modifica el concepto fundamental**
+que representa.
 
-- Va más allá de "es-un": transforma el concepto.
-- Mantiene estructura técnica del padre.
-- Puede confundir a desarrolladores que esperan
-  comportamiento heredado intacto.
-- Complica el modelo de dominio si no se justifica.
+La relación deja de ser "es un tipo de" y pasa a ser
+**"se transforma en"**: la clase derivada introduce un
+cambio significativo en el propósito o la interpretación
+del objeto, mientras mantiene la estructura heredada.
 
-**Usar con precaución**: solo cuando la transformación es
-natural y tiene sentido en el dominio.
+Naturaleza transformativa
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Mejores prácticas**: documentar el cambio conceptual,
-asegurar coherencia, justificar la necesidad
-explícitamente en un ADR.
+- Va **más allá** de "es-un".
+- Representa una **evolución o transformación** del
+  concepto original.
+- **Mantiene estructura** técnica heredada pero **cambia
+  el significado** fundamental.
 
-Ejemplo IACT donde puede aparecer:
+Aspectos clave
+~~~~~~~~~~~~~~
 
-- ``ReporteAuditoria`` que hereda de ``Reporte`` pero
-  cambia la semántica de "exportar" para producir un
-  paquete firmado en lugar de un archivo plano. La forma
-  técnica es la misma; el concepto cambia. Justificarlo
-  en ADR del subdominio antes de adoptarlo.
+- La clase hija modifica la **interpretación conceptual**.
+- **Conserva la estructura técnica** heredada.
+- Introduce nuevos comportamientos que **alteran el
+  propósito**.
+- Representa una **metamorfosis** del concepto original.
+
+Riesgos asociados
+~~~~~~~~~~~~~~~~~
+
+- Puede **confundir** a otros desarrolladores.
+- Dificulta el **mantenimiento** del código.
+- Puede **violar expectativas** del sistema.
+- **Complica** la comprensión del modelo de dominio.
+
+Ejemplo canónico — ``Documento`` → ``ContratoCorporativo``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una clase base ``Documento`` que se transforma en
+``ContratoCorporativo``: ya no solo es un documento que
+**almacena información**, sino que se convierte en un
+**instrumento legal** que ejecuta y valida acciones
+corporativas. El concepto fundamental cambia de
+"almacenamiento de información" a "instrumento legal
+ejecutable".
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Documento {
+     - contenido : String
+     - titulo : String
+     + editar()
+     + mostrar()
+   }
+
+   class ContratoCorporativo {
+     - firmantes : List
+     - estado_legal : String
+     + ejecutar()
+     + validar()
+     + revocar()
+   }
+
+   Documento <|-- ContratoCorporativo
+   note right of ContratoCorporativo
+     Mantiene estructura de Documento,
+     pero el concepto se transforma:
+     "almacena informacion" se convierte
+     en "instrumento legal ejecutable".
+     Requiere ADR explicito.
+   end note
+   @enduml
+
+Cuándo es apropiada
+~~~~~~~~~~~~~~~~~~~
+
+- El cambio conceptual es parte **natural** del dominio.
+- La transformación mantiene cierta **coherencia** con el
+  concepto original.
+- Existe una **justificación clara** del negocio.
+- La relación transformativa es **intuitiva** para el
+  experto del dominio.
+
+Consideraciones de diseño
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Evaluar si la transformación es realmente necesaria**.
+- **Documentar claramente** el cambio conceptual en un ADR.
+- Asegurar que la transformación tiene sentido en el
+  dominio.
+- Mantener la **coherencia** del sistema.
+
+Cuándo aparece en IACT
+~~~~~~~~~~~~~~~~~~~~~~
+
+Casos posibles, todos requieren ADR del subdominio antes
+de adoptarlos:
+
+- ``Reporte`` → ``ReporteAuditoria`` con paquete firmado.
+  Mantiene la estructura de un ``Reporte`` (genera,
+  exporta) pero el concepto se transforma: pasa de
+  "consulta operativa" a "evidencia auditable
+  certificada".
+- ``EventoAuditoria`` → ``EventoLegal`` para auditorías
+  externas regulatorias. Mantiene la estructura del
+  evento pero gana semántica de prueba legal — el cambio
+  obliga a revisar CNST_025 (immutable) en términos
+  legales, no solo operativos.
+- ``Sesion`` → ``SesionDelegada``. Estructura de sesión
+  preservada, pero el concepto se transforma: pasa de
+  "usuario autenticado" a "usuario actuando en nombre de
+  otro" (raro en IACT por CNST_002, pero documentado
+  aquí como ejemplo de transformación discutible).
+
+Advertencia
+~~~~~~~~~~~
+
+Debe utilizarse con **precaución**: una transformación
+conceptual demasiado radical podría indicar que la
+herencia **no es la mejor estrategia** para ese caso. La
+clave es asegurar que la transformación es una **evolución
+natural y lógica** del concepto base, no una desviación
+arbitraria que comprometa la integridad del diseño. Ante
+duda, **componer** (ver § 15) o aplicar un patrón
+(:doc:`patrones-diseno`).
 
 14.3 Herencia por construcción (evitar)
 ---------------------------------------
 
-Uso **incorrecto** de herencia solo para reutilizar código,
-sin relación jerárquica verdadera.
+La **herencia por construcción** (*inheritance by
+construction*) es un error de diseño que ocurre cuando se
+usa la herencia entre clases **únicamente para reutilizar
+código y funcionalidad**, sin que exista una relación
+jerárquica verdadera entre ellas.
 
-- Se usa solo para reutilizar código.
-- No existe relación "es-un".
-- Busca atajos para acceder a funcionalidad.
+Las dos relaciones legítimas en OOP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Consecuencias: relaciones artificiales, acoplamiento
-innecesario, violación de LSP, mantenimiento difícil.
+- **"Es-un" (IS-A)** — justifica la herencia. Un
+  ``ReporteVolumen`` *es-un* ``Reporte``.
+- **"Tiene-un" (HAS-A)** — indica composición. Un
+  ``Reporte`` *tiene-un* ``EscritorCSV``.
 
-**Evitar siempre.**
+La herencia por construcción **viola estos principios** al
+crear una relación "es-un" artificial solo para acceder a
+cierta funcionalidad. El resultado es lo que en diseño se
+llama **acoplamiento impropio** (*improper coupling*).
 
-Ejemplo incorrecto en IACT:
+Por qué es incorrecta
+~~~~~~~~~~~~~~~~~~~~~
 
-- ``Reporte`` que hereda de ``UtilsArchivo`` solo para
-  reutilizar ``escribir_csv``. Un reporte **no es** una
-  utilidad de archivo: la herencia miente sobre el
-  dominio.
+1. **Motivo erróneo**: se usa herencia solo para reutilizar
+   código; no existe verdadera relación jerárquica; se
+   busca un "atajo" para acceder a funcionalidad existente.
+2. **Consecuencias negativas**: relaciones artificiales
+   entre clases, acoplamiento innecesariamente alto,
+   violación del **Liskov Substitution Principle**,
+   mantenimiento más difícil.
 
-**Solución**: composición o inyección. Pasar un
-``EscritorCSV`` al ``Reporte`` como dependencia, o
-delegar la operación a un servicio.
+Excepción parcial — C++
+~~~~~~~~~~~~~~~~~~~~~~~
+
+La única excepción parcial existe en C++ a través de la
+**herencia privada**, que puede usarse como una forma de
+implementación de composición. Aún así, la composición
+directa suele ser una mejor opción. En lenguajes que no
+tienen ese mecanismo (Python, Java, JavaScript, TypeScript,
+C#, etc.), la herencia por construcción debe **evitarse
+completamente**.
+
+IACT usa Python/Django (ver ADR_DEVOPS_001) — la excepción
+**no aplica**. Toda aparición de herencia por construcción
+en este proyecto es un defecto.
+
+Ejemplo canónico — ``Documento`` y ``BaseDeDatos``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando una clase ``Documento`` hereda de ``BaseDeDatos``
+solo para obtener métodos de persistencia, hay herencia por
+construcción. Un documento **no es-una** base de datos —
+es una violación semántica clara.
+
+Diseño incorrecto (herencia por construcción):
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Diseno incorrecto — herencia por construccion
+
+   class BaseDeDatos {
+     + guardar()
+     + cargar()
+     + eliminar()
+   }
+
+   class Documento {
+     - contenido : String
+     - titulo : String
+     + editarContenido()
+     + mostrarDocumento()
+   }
+
+   Documento --|> BaseDeDatos
+   note right of Documento
+     Documento NO es-una BaseDeDatos.
+     La herencia miente sobre el dominio.
+   end note
+   @enduml
+
+Diseño correcto (composición):
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Diseno correcto — composicion
+
+   class BaseDeDatos {
+     + guardar()
+     + cargar()
+     + eliminar()
+   }
+
+   class DocumentoCorrecto {
+     - contenido : String
+     - titulo : String
+     - persistencia : BaseDeDatos
+     + editarContenido()
+     + mostrarDocumento()
+     + guardarDocumento()
+   }
+
+   DocumentoCorrecto o-- BaseDeDatos : tiene-un
+   note right of DocumentoCorrecto
+     DocumentoCorrecto tiene-un
+     BaseDeDatos como componente
+     (composicion).
+   end note
+   @enduml
+
+Ejemplo aplicado a IACT
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Incorrecto**: ``Reporte`` heredando de ``UtilsArchivo``
+  solo para reutilizar ``escribir_csv``. Un ``Reporte``
+  **no es-una** utilidad de archivo.
+- **Correcto**: ``Reporte`` componiendo un
+  ``EscritorCSV`` (Strategy, ver
+  :doc:`patrones-diseno`) — el reporte *tiene-un*
+  escritor que puede intercambiarse en runtime.
+
+Otros casos típicos en IACT donde aparecería el
+antipatrón:
+
+- ``EjecucionETL`` heredando de ``LoggerBase`` para usar
+  ``log_info``/``log_error``. Una ejecución no es un
+  logger; el logger se inyecta.
+- ``Reporte`` heredando de ``HttpResponseHelper`` para
+  servir el archivo. Un reporte no es una respuesta HTTP;
+  la vista compone ambas.
+- ``EvaluadorAlertas`` heredando de ``CronJobBase``
+  porque el scheduler invoca ``run()``. La cron task se
+  modela como composición o adapter, no por herencia.
+
+Solución
+~~~~~~~~
+
+1. Usar **composición** en lugar de herencia.
+2. **Inyectar** la dependencia (constructor o factory).
+3. **Delegar** la funcionalidad requerida al objeto
+   compuesto.
+
+Regla principal
+~~~~~~~~~~~~~~~
+
+Usa herencia **solo cuando existe una verdadera relación
+"es-un"**; en cualquier otro caso, composición.
 
 14.4 Herencia por limitación (evitar)
 -------------------------------------
