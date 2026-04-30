@@ -130,6 +130,338 @@ CNST_001):
    CanalPrioritario .. N
    @enduml
 
+2.4 Características fundamentales de la agregación
+--------------------------------------------------
+
+La agregación representa una relación **todo-parte** con
+una asociación **más flexible** que la composición. Su
+principio rector es **"tiene un"**, pero con una
+**dependencia más débil** entre los objetos participantes.
+
+La relación no se limita a vínculos físicos; admite
+varios matices:
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 1
+
+ * - Matiz semántico
+   - Ejemplos
+ * - "tiene un"
+   - Una universidad **tiene** estudiantes; un curso
+     **tiene** participantes; en IACT, un grupo
+     ``Grupo`` **tiene** funciones ``Funcion``.
+ * - "contiene un"
+   - Una biblioteca **contiene** libros; un departamento
+     **contiene** empleados; en IACT, ``Reporte``
+     **contiene** filtros aplicados.
+ * - "posee un"
+   - Un equipo **posee** jugadores; una empresa
+     **posee** contratos; en IACT, un supervisor
+     **posee** alertas activas que reconoce.
+
+Cuatro características distintivas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Característica
+   - Significado
+   - Ejemplo IACT
+ * - **Ciclo de vida independiente**
+   - El contenedor (todo) y los componentes (partes)
+     tienen vidas independientes. Los componentes
+     pueden existir antes, durante y después de
+     pertenecer al contenedor.
+   - Una ``Funcion`` del catálogo RBAC existe antes y
+     después de que un ``Grupo`` la incluya. Los
+     ``Usuario`` existen sin tener sesión activa.
+ * - **Independencia de componentes**
+   - Los componentes son opcionales para el contenedor
+     y pueden existir por sí mismos; no son esenciales
+     para que el contenedor exista.
+   - Un ``Grupo`` puede crearse vacío; los segmentos
+     atendidos (BR_012) pueden definirse sin
+     ``Llamada`` previa.
+ * - **Supervivencia de componentes**
+   - La destrucción del compuesto **no destruye** a los
+     componentes — siguen existiendo.
+   - Si se elimina un ``Grupo``, las ``Funcion``
+     individuales del catálogo permanecen disponibles
+     para otros grupos.
+ * - **Compartición de componentes**
+   - Un componente puede pertenecer a varios
+     compuestos simultáneamente.
+   - Una ``Funcion`` puede asignarse a varios
+     ``Grupo`` distintos; un ``Usuario`` puede
+     pertenecer a varios grupos a la vez.
+
+2.5 Características técnicas
+----------------------------
+
+.. list-table::
+ :widths: 25 25 50
+ :header-rows: 1
+
+ * - Característica
+   - Valor
+   - Implicación
+ * - **Visibilidad**
+   - Pública.
+   - Los componentes son accesibles y compartidos
+     entre diferentes contenedores.
+ * - **Temporalidad**
+   - Alta o media.
+   - La relación puede durar mucho tiempo, pero no
+     necesariamente toda la vida del contenedor o del
+     componente.
+ * - **Versatilidad**
+   - Baja o media.
+   - Limitada en cuanto a la naturaleza de los
+     componentes, pero alta en cuanto a su
+     compartición entre contenedores.
+
+2.6 Implementación en el diseño
+-------------------------------
+
+La agregación se materializa típicamente con cinco
+mecanismos:
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Aspecto
+   - Descripción
+   - Ejemplo IACT
+ * - **Atributos modificables**
+   - Los atributos de la relación pueden cambiar de
+     estado o valor durante el ciclo de vida.
+   - El estado de pertenencia de un ``Usuario`` a un
+     ``Grupo`` puede cambiar (alta / baja / suspendido).
+ * - **Métodos de gestión**
+   - Métodos específicos para insertar y eliminar
+     componentes.
+   - ``perm_app.SecRules`` expone
+     ``agregar_funcion(grupo, funcion)`` y
+     ``remover_funcion(grupo, funcion)``.
+ * - **Referencias actualizables**
+   - Las referencias pueden reasignarse a diferentes
+     objetos durante el ciclo de vida.
+   - Un ``Usuario`` puede transferirse de un ``Grupo``
+     a otro sin recrearse.
+ * - **Referencias privadas**
+   - El contenedor mantiene referencias privadas; los
+     objetos referenciados existen independientemente.
+   - ``Grupo`` tiene una lista privada de
+     ``Funcion`` y un cambio en la lista no destruye
+     las funciones.
+ * - **Pertenencia múltiple**
+   - Mecanismos para gestionar componentes que
+     pertenecen a varios contenedores.
+   - Una ``Funcion`` puede aparecer en varios
+     ``Grupo``; un ``Usuario`` puede pertenecer a
+     varios grupos (asignación N:M).
+
+2.7 Ejemplo canónico — Universidad y Estudiantes
+------------------------------------------------
+
+Modelo arquetípico de la literatura, útil para fijar el
+patrón antes de aplicarlo a IACT.
+
+Aspectos representados
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Aspecto
+   - Características
+   - Implementación
+ * - Visibilidad pública
+   - La universidad permite acceso controlado a la
+     lista de estudiantes; los estudiantes son
+     accesibles por diferentes partes del sistema.
+   - Métodos públicos que interactúan con la lista
+     manteniendo encapsulamiento.
+ * - Temporalidad alta/media
+   - Los estudiantes se agregan o remueven en
+     cualquier momento; la relación dura mientras el
+     estudiante esté inscrito.
+   - Estudiantes pueden entrar y salir sin afectar su
+     existencia.
+ * - Versatilidad por compartición
+   - Un estudiante puede pertenecer a varios
+     grupos / facultades; la universidad gestiona
+     múltiples estudiantes.
+   - Referencias compartidas entre múltiples
+     contenedores simultáneamente.
+ * - Implementación
+   - Atributos modificables; métodos de gestión
+     (alta / baja); referencias actualizables;
+     referencias privadas con independencia.
+   - Lista privada de referencias; métodos públicos
+     para gestión; capacidad de transferir.
+
+Diagrama UML
+~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Universidad {
+     - estudiantes : List<Estudiante>
+     - nombre : String
+     + agregarEstudiante(e : Estudiante)
+     + removerEstudiante(e : Estudiante)
+     + transferirEstudiante(e, otra)
+     + tieneEstudiante(e) : boolean
+     + cantidadEstudiantes() : int
+   }
+
+   class Estudiante {
+     - id : String
+     - nombre : String
+     - estado : String
+     + cambiarEstado(nuevo : String)
+   }
+
+   Universidad o-- "0..*" Estudiante
+   note bottom of Estudiante
+     Existe independientemente
+     de la Universidad
+   end note
+   @enduml
+
+Implementación Java de referencia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: java
+
+   class Estudiante {
+       private String id;
+       private String nombre;
+       private String estado;  // activo, graduado, etc.
+
+       public Estudiante(String id, String nombre) {
+           this.id = id;
+           this.nombre = nombre;
+           this.estado = "activo";
+       }
+
+       public void cambiarEstado(String nuevoEstado) {
+           this.estado = nuevoEstado;
+       }
+   }
+
+   class Universidad {
+       private List<Estudiante> estudiantes;
+       private String nombre;
+
+       public Universidad(String nombre) {
+           this.nombre = nombre;
+           this.estudiantes = new ArrayList<>();
+       }
+
+       public void agregarEstudiante(Estudiante estudiante) {
+           if (estudiante != null
+                   && !estudiantes.contains(estudiante)) {
+               estudiantes.add(estudiante);
+           }
+       }
+
+       public void removerEstudiante(Estudiante estudiante) {
+           estudiantes.remove(estudiante);
+           // El estudiante sigue existiendo
+       }
+
+       public void transferirEstudiante(
+               Estudiante estudiante,
+               Universidad otraUniversidad) {
+           if (estudiantes.contains(estudiante)) {
+               removerEstudiante(estudiante);
+               otraUniversidad.agregarEstudiante(estudiante);
+           }
+       }
+
+       public boolean tieneEstudiante(Estudiante estudiante) {
+           return estudiantes.contains(estudiante);
+       }
+
+       public int cantidadEstudiantes() {
+           return estudiantes.size();
+       }
+   }
+
+Características clave
+~~~~~~~~~~~~~~~~~~~~~
+
+1. **Independencia de objetos** — los estudiantes existen
+   sin la universidad; eliminar la universidad no afecta
+   su existencia.
+2. **Gestión dinámica** — alta, baja y transferencia de
+   estudiantes durante el ciclo de vida.
+3. **Control de acceso** — lista privada de referencias,
+   métodos públicos de gestión.
+4. **Flexibilidad** — un estudiante puede pertenecer a
+   varios grupos; la universidad puede modificar su lista
+   en cualquier momento.
+
+2.8 Mapeo a IACT
+----------------
+
+El patrón Universidad/Estudiantes se materializa en IACT
+en al menos cinco pares ``Contenedor``↔``Componente``:
+
+.. list-table::
+ :widths: 28 30 42
+ :header-rows: 1
+
+ * - Contenedor
+   - Componente
+   - Notas IACT
+ * - ``Grupo``
+   - ``Funcion`` (catálogo RBAC)
+   - Una función pertenece a varios grupos; eliminar un
+     grupo no elimina las funciones (CNST_030 SoD se
+     mantiene a nivel de catálogo).
+ * - ``Grupo``
+   - ``Usuario``
+   - Asignación N:M con clase intermedia
+     ``Asignacion``; usuarios sobreviven a la
+     disolución de grupos.
+ * - ``Reporte``
+   - ``Filtro``
+   - Filtros se aplican a varios reportes; el reporte
+     no destruye los filtros al cerrarse.
+ * - ``Supervisor``
+   - ``AlertaReconocida``
+   - El supervisor mantiene una lista de alertas
+     reconocidas; la alerta sobrevive aunque el
+     supervisor cambie de rol.
+ * - ``VentanaETL``
+   - ``EjecucionETL``
+   - Una ventana puede contener varias ejecuciones;
+     ejecuciones permanecen como evidencia auditable
+     incluso si la ventana se invalida (CNST_025 +
+     CNST_006/008).
+
+Anti-patrones IACT
+~~~~~~~~~~~~~~~~~~
+
+- Implementar ``Grupo`` con composición fuerte sobre
+  ``Funcion`` (rombo relleno) — destruir un grupo no
+  debe eliminar funciones del catálogo. Usar agregación.
+- ``EventoAuditoria`` agregado a un ``Reporte``
+  contenedor — incorrecto; el evento es **inmutable**
+  y debe mantenerse en ``aud_app``, no como parte
+  modificable del reporte.
+
 ----
 
 3. Composición (rombo relleno)

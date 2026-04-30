@@ -145,6 +145,361 @@ A veces la relación funciona en ambas direcciones:
  Alerta        → notifica  → Usuario          (* : 0..*)
  Usuario       → genera    → EventoAuditoria  (1 : 0..*)
 
+2.5 Características fundamentales y técnicas
+--------------------------------------------
+
+La asociación representa una **conexión estructural y
+duradera** entre dos clases, donde una actúa como
+**cliente** y otra como **servidor**. Los objetos mantienen
+una **comunicación persistente** durante su ciclo de vida.
+
+La asociación se establece cuando un objeto cliente
+**requiere sistemáticamente** los servicios o
+funcionalidades de un objeto servidor específico — la
+dependencia no es temporal, persiste durante la
+existencia del cliente.
+
+Ocho características fundamentales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Característica
+   - Descripción
+   - Ejemplo IACT
+ * - **Persistencia temporal**
+   - Relación que perdura entre cliente y servidor.
+   - Un ``Usuario`` mantiene relación continua con
+     ``perm_app`` durante toda su sesión y más allá.
+ * - **Dependencia funcional**
+   - El cliente depende de servicios específicos del
+     servidor.
+   - Una vista Django (cliente) depende de
+     ``aud_app`` (servidor) para registrar eventos.
+ * - **Servicios específicos**
+   - El servidor proporciona funcionalidades concretas
+     que el cliente necesita.
+   - ``rpt_app`` necesita ``IDatosAnalytics`` para
+     generar reportes.
+ * - **Relaciones tangibles**
+   - Conexiones físicas u observables entre objetos.
+   - ``etl_runner`` y ``bd_operativa`` mantienen
+     conexión SQL read-only (CNST_007).
+ * - **Relaciones lógicas**
+   - Conexiones conceptuales no físicas.
+   - Una ``Funcion`` mantiene relación lógica con la
+     regla de SoD (CNST_030) que la rige.
+ * - **Bidireccionalidad**
+   - La comunicación puede ir en ambas direcciones.
+   - ``Supervisor`` y ``AlertaCritica`` se referencian
+     mutuamente: el supervisor reconoce, la alerta
+     informa quién la reconoció.
+ * - **Especificidad**
+   - La relación se establece con un servidor concreto;
+     no es intercambiable arbitrariamente.
+   - Un ``Reporte`` está vinculado a un
+     ``Segmento`` específico (BR_012); cambiar el
+     segmento implica generar otro reporte.
+ * - **Responsabilidad compartida**
+   - Ambas partes tienen roles definidos.
+   - Un ``Usuario`` y ``audit_log`` comparten la
+     responsabilidad de mantener trazabilidad
+     (CNST_025).
+
+Tres características técnicas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 22 22 56
+ :header-rows: 1
+
+ * - Característica
+   - Valor
+   - Implicación
+ * - **Visibilidad**
+   - Pública.
+   - Las clases asociadas son conscientes de su
+     relación y pueden interactuar según el diseño.
+ * - **Temporalidad**
+   - Alta o media.
+   - Las clases conservan su conexión estructural de
+     manera estable, garantizando integridad y
+     consistencia.
+ * - **Versatilidad**
+   - Baja.
+   - La estructura de la asociación tiende a
+     mantenerse constante una vez definida —
+     proporciona un diseño confiable y predecible.
+
+2.6 Implementación en el diseño
+-------------------------------
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Mecanismo
+   - Descripción
+   - Ejemplo IACT
+ * - **Atributos y constructores**
+   - La asociación se implementa mediante atributos
+     que establecen la conexión estructural desde la
+     creación; inicialización controlada y relación
+     explícita.
+   - ``Reporte`` recibe en su constructor el
+     ``Segmento`` aplicable; ``Sesion`` se construye
+     con su ``Usuario``.
+ * - **Métodos de asociación**
+   - Métodos que establecen y mantienen la conexión
+     estructural; control de la relación y operaciones
+     definidas.
+   - ``perm_app.SecRules`` provee
+     ``asignar_funcion(usuario, funcion)`` y
+     ``revocar_funcion(usuario, funcion)``.
+ * - **Referencias privadas**
+   - Mantienen integridad y visibilidad de la
+     conexión; encapsulamiento, protección estructural
+     y acceso controlado.
+   - ``Reporte`` mantiene una referencia privada a su
+     ``ConfiguracionExport``; los consumidores
+     interactúan vía métodos públicos.
+
+2.7 Ejemplo canónico — Aerolínea y Rutas
+----------------------------------------
+
+Modelo arquetípico que combina **multiplicidad N:M** con
+**bidireccionalidad** y **roles explícitos**.
+
+Aspectos representados
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Aspecto
+   - Descripción
+   - Característica UML
+ * - Estructura base
+   - Relación estructural entre ``Aerolinea`` y
+     ``Ruta`` con conexión duradera.
+   - Asociación bidireccional con navegabilidad en
+     ambos sentidos.
+ * - Naturaleza
+   - Relación muchos a muchos; cada clase consciente
+     de su relación con la otra.
+   - Multiplicidad ``*..*`` en ambos extremos.
+ * - Visibilidad
+   - Relación visible y accesible dentro del sistema.
+   - Visibilidad pública con interfaces definidas.
+ * - Temporalidad
+   - La asociación persiste durante la existencia de
+     ambas clases.
+   - Relación estable y duradera.
+
+Diagrama UML
+~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Aerolinea {
+     - nombre : String
+     - codigo : String
+     - rutasAsociadas : Set<Ruta>
+     + agregarRuta(r : Ruta)
+     + removerRuta(r : Ruta)
+     + obtenerRutas() : Set<Ruta>
+   }
+
+   class Ruta {
+     - codigo : String
+     - origen : String
+     - destino : String
+     - estado : EstadoRuta
+     - aerolineasAsociadas : Set<Aerolinea>
+     + obtenerDetalles() : String
+     + actualizarEstado(e : EstadoRuta)
+     + agregarAerolinea(a : Aerolinea)
+     + removerAerolinea(a : Aerolinea)
+   }
+
+   enum EstadoRuta {
+     ACTIVA
+     SUSPENDIDA
+     CANCELADA
+   }
+
+   Aerolinea "*" -- "*" Ruta : administra / pertenece
+   Ruta -- EstadoRuta
+   @enduml
+
+**Elementos UML clave:**
+
+- **Multiplicidad**: ``*..*`` — una aerolínea tiene
+  varias rutas, una ruta puede pertenecer a varias
+  aerolíneas.
+- **Navegabilidad**: bidireccional — ambas clases son
+  conscientes de la relación.
+- **Roles**: ``administra`` (Aerolínea→Ruta) y
+  ``pertenece`` (Ruta→Aerolínea).
+
+Implementación Java de referencia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: java
+
+   enum EstadoRuta { ACTIVA, SUSPENDIDA, CANCELADA }
+
+   class Ruta {
+       private String codigo;
+       private String origen;
+       private String destino;
+       private EstadoRuta estado;
+       private Set<Aerolinea> aerolineasAsociadas;
+
+       public Ruta(String codigo, String origen,
+                   String destino) {
+           this.codigo = codigo;
+           this.origen = origen;
+           this.destino = destino;
+           this.estado = EstadoRuta.ACTIVA;
+           this.aerolineasAsociadas = new HashSet<>();
+       }
+
+       public String obtenerDetalles() {
+           return String.format(
+               "Ruta %s: %s -> %s, Estado: %s",
+               codigo, origen, destino, estado);
+       }
+
+       public void agregarAerolinea(Aerolinea a) {
+           aerolineasAsociadas.add(a);
+       }
+
+       public void removerAerolinea(Aerolinea a) {
+           aerolineasAsociadas.remove(a);
+       }
+
+       public Set<Aerolinea> getAerolineasAsociadas() {
+           return new HashSet<>(aerolineasAsociadas);
+       }
+   }
+
+   class Aerolinea {
+       private String nombre;
+       private String codigo;
+       private Set<Ruta> rutasAsociadas;
+
+       public Aerolinea(String nombre, String codigo) {
+           this.nombre = nombre;
+           this.codigo = codigo;
+           this.rutasAsociadas = new HashSet<>();
+       }
+
+       // Bidireccionalidad — actualiza ambos lados
+       public void agregarRuta(Ruta ruta) {
+           if (rutasAsociadas.add(ruta)) {
+               ruta.agregarAerolinea(this);
+           }
+       }
+
+       public void removerRuta(Ruta ruta) {
+           if (rutasAsociadas.remove(ruta)) {
+               ruta.removerAerolinea(this);
+           }
+       }
+
+       public Set<Ruta> obtenerRutas() {
+           return new HashSet<>(rutasAsociadas);
+       }
+   }
+
+Aspectos clave de la implementación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Aspecto
+   - Características
+   - Mecanismo
+ * - Conexión estructural
+   - Referencias mutuas; relación desde la creación;
+     integridad asegurada.
+   - Atributos privados ``Set`` en ambas clases;
+     constructores que inicializan colecciones.
+ * - Durabilidad
+   - Persistencia durante el ciclo de vida.
+   - Referencias mantenidas durante toda la vida del
+     objeto.
+ * - Visibilidad
+   - Métodos públicos de gestión + encapsulamiento
+     protector.
+   - Atributos ``private`` + getters que retornan
+     copias defensivas (``new HashSet<>(...)``).
+ * - Bidireccionalidad
+   - Mantenimiento mutuo en ambas direcciones.
+   - Métodos ``agregar/remover`` actualizan ambos lados
+     atómicamente.
+ * - Multiplicidad
+   - Muchos a muchos con unicidad garantizada.
+   - Uso de ``Set`` (``HashSet``); control de
+     duplicados implícito.
+
+2.8 Mapeo a IACT
+----------------
+
+Asociaciones N:M canónicas en este proyecto:
+
+.. list-table::
+ :widths: 30 30 40
+ :header-rows: 1
+
+ * - Asociación
+   - Multiplicidad
+   - Notas IACT
+ * - ``Usuario`` ↔ ``Grupo``
+   - ``*..*``
+   - Asignación N:M con clase intermedia
+     ``Asignacion`` (ver § 9 *clases de asociación*).
+ * - ``Funcion`` ↔ ``Grupo``
+   - ``*..*``
+   - Catálogo RBAC; CNST_030 SoD se valida sobre
+     pares.
+ * - ``Reporte`` ↔ ``Filtro``
+   - ``*..*``
+   - Filtros se reutilizan entre reportes; el reporte
+     mantiene referencia, el filtro existe
+     independientemente.
+ * - ``Supervisor`` ↔ ``AlertaCritica``
+   - ``*..*`` con rol ``reconoce / fue reconocida por``
+   - Bidireccional para auditoría (CNST_025).
+ * - ``EjecucionETL`` ↔ ``Llamada``
+   - ``*..*``
+   - Una ejecución carga muchas llamadas; una llamada
+     puede estar en varias ejecuciones (e.g.,
+     reproceso).
+
+Reglas IACT para implementar asociaciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Toda asociación N:M con atributos propios usa **clase
+   de asociación** (ver § 9), no atributos sueltos en
+   uno de los extremos.
+2. La bidireccionalidad se mantiene **atómicamente** —
+   nunca actualizar un lado sin el otro.
+3. Los getters retornan **copias defensivas** para
+   preservar encapsulamiento.
+4. Cualquier mutación de la asociación que afecte
+   permisos o reglas (CNST_030) debe registrarse en
+   ``aud_app`` (CNST_025).
+
 ----
 
 3. Multiplicidad
