@@ -1952,7 +1952,156 @@ Ambas lecturas son legítimas. La elección depende del
 **contexto del UC** (ver § 13 "Comparativa por
 contexto" en :doc:`relaciones-uml`).
 
-15.11 Relación con el resto del documento
+15.11 Decidir entre asociación, agregación y composición
+--------------------------------------------------------
+
+Tras los §§ 15.8-15.10 ya conocemos los **tres tipos**
+de relación principales para modelado de dominio. La
+pregunta operativa final: **¿cuál usar en cada caso?**
+
+A veces es difícil decidir cuál refleja mejor la
+interacción del mundo real, y los criterios **varían
+entre colegas**. Si dos equipos modelan el mismo dominio,
+casi seguro proponen no solo nombres distintos para las
+entidades sino también **relaciones distintas**. Uno de
+los beneficios principales del modelado de dominio es
+**alinear a todos en los mismos constructos**: como todos
+trabajan para la misma empresa, no hay un "correcto" y
+un "incorrecto" absolutos — hay **entendimiento mutuo**.
+
+Guía operativa
+~~~~~~~~~~~~~~
+
+**Asociación.** Hay relación entre las entidades; al
+menos una mantiene una referencia a la otra. **Sin
+dueño**. Ambas pueden existir totalmente independientes.
+
+   Ejemplo educativo: ``Profesor`` ↔ ``Estudiante``.
+   Ambos existen por su cuenta y se relacionan en
+   contextos puntuales (clase concreta, tutoría).
+
+**Agregación.** Relación más directa que una asociación,
+pero las entidades **siguen pudiendo existir
+independientemente**. Hay **un dueño**; si se elimina el
+padre, el hijo permanece y mantiene sentido.
+
+   Ejemplo educativo: ``Profesor`` ↔ ``Clase``. La
+   clase tiene un profesor titular (owner), pero si el
+   profesor deja la institución la clase puede seguir
+   existiendo (con otro profesor).
+
+**Composición.** La relación más estrecha. Hay **un
+dueño**, pero a diferencia de la agregación, **eliminar
+el padre obliga a eliminar al hijo**: el hijo no tiene
+sentido sin el padre.
+
+   Ejemplo educativo: ``Clase`` ↔ ``Calificación``. La
+   calificación pertenece a una clase específica; sin
+   esa clase, la calificación pierde sentido.
+
+Aplicación al dominio IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El mismo trío analógico al ámbito educativo, traducido
+al dominio IACT:
+
+.. list-table::
+ :widths: 22 30 28 20
+ :header-rows: 1
+
+ * - Tipo
+   - Pregunta clave
+   - Ejemplo IACT
+   - PlantUML
+ * - **Asociación**
+   - ¿Existen ambas independientes y se vinculan por
+     uso?
+   - ``ReglaSoD`` ↔ ``Funcion`` (la regla referencia
+     funciones del catálogo).
+   - ``--``
+ * - **Agregación**
+   - ¿Hay un dueño, pero el hijo sobrevive si se
+     elimina el padre?
+   - ``Grupo`` ◇ ``Funcion`` — eliminar un grupo no
+     elimina las funciones del catálogo.
+   - ``o--``
+ * - **Composición**
+   - ¿El hijo no tiene sentido sin el padre?
+   - ``EjecucionETL`` ● ``ErrorETL`` — el error
+     pertenece a la ejecución y desaparece como
+     entidad de dominio si la ejecución se invalida.
+   - ``*--``
+
+Receta de tres preguntas progresivas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **¿Las entidades existen totalmente independientes,
+   sin owner?** → asociación.
+2. Si no: **¿el "hijo" sobrevive si desaparece el
+   "padre"?** → agregación.
+3. Si tampoco: **¿el hijo muere con el padre?** →
+   composición.
+
+La progresión va de menos a más fuerte. La regla
+operativa de IACT (alineada con § 13 de
+:doc:`relaciones-uml` y § 15-16 sobre composición vs
+herencia): **componer salvo razón clara para
+composición fuerte**, y dentro de la composición
+preferir agregación si la parte tiene vida propia.
+
+Sobre la subjetividad del modelado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una decisión razonable de un equipo puede ser razonable
+de otra forma para otro equipo. Lo importante:
+
+- **Aplicar el criterio consistentemente** dentro del
+  mismo proyecto.
+- **Documentar la elección** cuando hay duda razonable
+  (ADR del subdominio).
+- **Revisitar el modelo** si las premisas cambian (ver
+  § 15.5 Evolución del modelo).
+
+En IACT, el lenguaje compartido (``Llamada``,
+``Segmento``, ``Reporte``, ``Alerta``, ``Sesion``,
+``EventoAuditoria``) es **el contrato**. Cada relación
+documentada es vinculante hasta que se modifique
+explícitamente — eso es lo que mantiene el modelo vivo
+y útil a lo largo del proyecto.
+
+Cierre del módulo de relaciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con asociación + agregación + composición ya están
+cubiertos los tres tipos canónicos para modelar
+**relaciones de colaboración**. Los siguientes ejes que
+pueden enriquecer el modelo son:
+
+- **Dependencia / uso** (§ 10 de :doc:`relaciones-uml`)
+  — relación temporal, cuando dos entidades interactúan
+  brevemente.
+- **Generalización / herencia** (§§ 14-16 de
+  :doc:`relaciones-uml`) — para jerarquías "es-un".
+- **Realización** (§ 5 de
+  :doc:`agregacion-interfaces`) — para
+  implementación de interfaces.
+
+Para crear un diagrama de dominio nuevo en IACT, basta
+con seguir el flujo recorrido por §§ 15.7-15.11:
+
+1. Identificar entidades importantes (anchor first).
+2. Documentar la primera relación con asociación.
+3. Identificar composiciones para partes inseparables.
+4. Identificar agregaciones para partes que sobreviven.
+5. Iterar agregando entidades vecinas.
+6. Aplicar el criterio progresivo de tres preguntas
+   para cada nueva relación.
+
+Cuando el embrión esté estable y validado con
+stakeholders, integrarlo al diagrama consolidado de
+§ 7 de este documento.
+
+15.12 Relación con el resto del documento
 -----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
