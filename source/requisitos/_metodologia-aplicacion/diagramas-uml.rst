@@ -185,6 +185,27 @@ UML no es la única técnica de diagramación arquitectónica
 manera **simple y legible** de modelar la arquitectura
 del software, complementaria a UML.
 
+Origen y propósito (Simon Brown)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   *El modelo C4 fue inspirado en UML y en el modelo
+   4+1 para arquitectura de software. En resumen, se
+   puede pensar en C4 como una versión simplificada
+   de los conceptos subyacentes, diseñada para (1)
+   facilitar a los desarrolladores describir y
+   entender cómo funciona un sistema de software, y
+   (2) minimizar la brecha entre el modelo / la
+   descripción de arquitectura y el código fuente.*
+   — Simon Brown
+
+C4 fue creado como un **mecanismo consistente** para
+que los equipos modelen arquitectura. La motivación
+explícita: muchas representaciones arquitectónicas
+divergen del código real, y C4 reduce esa brecha al
+descender por niveles de detalle creciente — desde la
+vista a 50 000 pies (Context) hasta la vista
+microscópica (Code).
+
 C4 organiza los diagramas en **cuatro niveles de
 abstracción**, cada uno respondiendo a una pregunta
 distinta:
@@ -252,6 +273,42 @@ El uso conjunto de UML y C4 no exige reescribir nada:
 los diagramas de :doc:`diagramas-componentes` y
 :doc:`diagramas-distribucion` ya producen niveles 2 y 3
 de C4 con notación PlantUML estándar.
+
+C4 no impone una notación específica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A diferencia de UML, **C4 no define una notación
+canónica**: no establece "líneas continuas para X,
+punteadas para Y" ni colores fijos. C4 solo define
+**qué tipo de detalle se captura en cada nivel** (1
+Context, 2 Container, 3 Component, 4 Code).
+
+Esto permite ajustar la notación al gusto del equipo
+— pero exige una regla operativa: **mantener la
+notación consistente** entre los cuatro niveles del
+mismo proyecto. Cambiar el significado de una flecha
+entre el diagrama Context y el Container rompe la
+legibilidad.
+
+Política IACT
+~~~~~~~~~~~~~
+
+Si en algún momento se construyen diagramas C4 puros
+en este proyecto, la regla es:
+
+1. **Notación basada en la convención de Simon Brown**
+   — cajas con código de color por tipo (sistema,
+   container, componente), flechas etiquetadas con
+   el protocolo / propósito.
+2. **Estilos centralizados** en
+   ``source/_static/plantuml-styles.puml`` para
+   consistencia con el resto de los diagramas.
+3. **Sin reinventar la notación** — adoptar la
+   convención de Brown y mantenerla. Cualquier
+   desviación se documenta en un ADR.
+4. **Alcance C4 en este proyecto**: niveles 1-3.
+   El **nivel 4 Code** se omite — los diagramas de
+   clases UML del cajón ya cumplen ese rol.
 
 Recomendación IACT: **mantener UML como técnica
 principal** del proyecto; usar C4 como **lente
