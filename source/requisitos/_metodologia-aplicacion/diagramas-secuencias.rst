@@ -1111,6 +1111,134 @@ documento.
 
 ----
 
+2.1.octies Anotar el diagrama con números de secuencia
+------------------------------------------------------
+
+Anotar cada mensaje con un **número** facilita
+discutir el diagrama: en lugar de describir un
+mensaje, basta con citarlo por su número (*"el paso
+3 es donde validamos throttling"*).
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML usa la directiva ``autonumber`` igual que
+Mermaid:
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   autonumber
+   B -> Auth : POST /login
+   Auth -> LDAP : authenticate
+   LDAP --> Auth : OK
+   Auth --> B : 302 Redirect
+   @enduml
+
+El render agrega ``1``, ``2``, ``3``, ``4`` al inicio
+de cada mensaje. PlantUML extiende lo básico:
+
+.. list-table::
+ :widths: 32 68
+ :header-rows: 1
+
+ * - Forma
+   - Efecto
+ * - ``autonumber``
+   - Numeración 1, 2, 3, …
+ * - ``autonumber 10``
+   - Empieza en 10.
+ * - ``autonumber 10 5``
+   - Empieza en 10, incremento 5 (10, 15, 20, …).
+ * - ``autonumber "<b>[000]"``
+   - Formato con padding y estilo (negrita, ceros).
+ * - ``autonumber stop``
+   - Detiene la numeración.
+ * - ``autonumber resume``
+   - Reanuda la numeración previa.
+
+Equivalente IACT del ejemplo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicado a UC_AUTH_01 con ``autonumber``:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — login con numeracion automatica
+
+   autonumber
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   database "ldap-corporativo" as LDAP
+   database "Redis" as Redis
+   database "audit_log" as Audit
+
+   Supervisor -> B : envia credenciales
+   B -> Auth : POST /login
+   Auth -> Auth : validar formato
+   Auth -> LDAP : authenticate(user, pass)
+   LDAP --> Auth : OK + atributos
+   Auth -> Redis : crear sesion (CNST_002)
+   Auth ->> Audit : registrar acceso (CNST_025)
+   Auth --> B : 302 Redirect (panel)
+   B --> Supervisor : muestra panel
+   @enduml
+
+Referirse al diagrama es directo: *"el paso 4 es la
+autenticación contra LDAP"*, *"el paso 7 es donde
+disparamos audit"*. Esa precisión vale especialmente
+en revisiones de PR, en sesiones de design review y
+en aprobaciones arquitectónicas.
+
+Política IACT — cuándo numerar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Diagramas con más de 5 mensajes**: numerar
+   ayuda a la discusión.
+2. **Diagramas para revisión / aprobación**:
+   numerar siempre — facilita las actas y los
+   feedback comments.
+3. **Diagramas pedagógicos cortos** (3-4
+   mensajes): no numerar; las flechas hablan por sí
+   solas.
+4. **Diagramas con bifurcación**: la numeración
+   continúa **a través** de las ramas — los pasos
+   3a, 3b, etc. no son nativos. Si el lector
+   necesita distinguir ramas, agregar una **nota**
+   con la guarda.
+5. **No reutilizar números entre diagramas**: cada
+   diagrama tiene su propia numeración local. Las
+   referencias cruzadas usan el ID del diagrama o
+   el UC, no el número de paso.
+
+Combinación con activaciones y notas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La numeración se combina sin conflicto con las
+demás técnicas:
+
+- **Activaciones** (§ 2.1.sexies) — los rectángulos
+  de activación coexisten con los números.
+- **Notas** (§ 2.1.septies) — las notas pueden
+  referenciar números de paso ("ver paso 3").
+- **alt / else** (§ 2.1.quater) — los bloques
+  alternativos siguen numerando dentro de cada rama.
+
+Para diagramas críticos del proyecto (UC_RPT_04
+export, UC_PIP_01 ETL, UC_AUTH_01 login,
+UC_ALR_03 reconocimiento), aplicar **todos los
+enriquecimientos**: actores y participantes
+explícitos + activaciones + alt + notas para
+CNST/BR + ``autonumber``. Esa combinación produce
+diagramas listos para revisión y onboarding.
+
+----
+
 2.2 Convenciones
 ----------------
 
