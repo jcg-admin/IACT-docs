@@ -503,6 +503,144 @@ temporal sin saturar la etiqueta del mensaje. Este
 patrón (mensaje + nota explicativa) se repite a lo
 largo de la documentación IACT.
 
+2.1.quater Mostrar lógica de bifurcación
+----------------------------------------
+
+La mayoría de los flujos tiene al menos un **happy
+path** (todo sale bien) y uno o más **unhappy paths**
+(algo falla). Modelar al menos un unhappy path crítico
+en la misma secuencia ayuda a identificar dónde
+concentrar el manejo de errores.
+
+Sin embargo: **no detallar todo lo que puede salir
+mal** en una sola secuencia — se vuelve ilegible. Si
+hay varios unhappy paths importantes, hacer **diagramas
+separados** para cada uno.
+
+Sintaxis PlantUML — alt / else / end
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML usa **exactamente la misma sintaxis** que
+Mermaid para alternativas:
+
+.. code-block:: plantuml
+
+   alt invalid input
+       Sign_Up_Service --> Browser : Error
+   else valid input
+       Sign_Up_Service -> User_Service : POST /users
+       User_Service --> Sign_Up_Service : 201 Created
+       Sign_Up_Service --> Browser : 301 Redirect
+   end
+
+Lectura: ``alt`` abre la primera rama con su guarda
+``[invalid input]``; ``else`` abre la rama alternativa;
+``end`` cierra el bloque. Se admiten múltiples ``else``
+para más de dos ramas, pero conviene mantenerlo bajo.
+
+Equivalente IACT del flujo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro modela ``Sign Up Service`` validando input,
+con rama ``invalid → Error`` y rama ``valid → POST
+/users → 201 Created → 301 Redirect``. En IACT el
+flujo análogo es **UC_AUTH_01 Login** con validación
+de credenciales:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — Login con bifurcacion happy/unhappy
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   database "ldap-corporativo" as LDAP
+   database "Redis" as Redis
+   database "audit_log" as Audit
+
+   Supervisor -> B : envia credenciales
+   B -> Auth : POST /login (user, pass)
+   Auth -> Auth : validar formato
+
+   alt [credenciales invalidas]
+     Auth -> Audit : registrar intento fallido (CNST_011)
+     Auth --> B : 401 Unauthorized
+     B --> Supervisor : muestra error
+   else [credenciales validas]
+     Auth -> LDAP : authenticate(user, pass)
+     LDAP --> Auth : OK + atributos
+     Auth -> Redis : crear sesion (CNST_002)
+     Auth -> Audit : registrar acceso exitoso
+     Auth --> B : 302 Redirect (panel)
+     B --> Supervisor : muestra panel
+   end
+   @enduml
+
+Análisis del diagrama
+~~~~~~~~~~~~~~~~~~~~~
+
+- **Happy path** = `[credenciales válidas]`: validación
+  → autenticación LDAP → creación de sesión en Redis
+  (CNST_002) → registro en ``audit_log`` (CNST_025) →
+  redirect al panel.
+- **Unhappy path** = `[credenciales inválidas]`:
+  registro del intento fallido (CNST_011 throttling) +
+  401 al navegador.
+- **Audit en ambas ramas**: cada rama dispara un
+  registro en ``aud_app``. Ningún flujo IACT debe
+  tener un alt sin auditoría asociada.
+
+Múltiples alternativas
+~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML soporta varios ``else`` para flujos con más
+de dos ramas:
+
+.. code-block:: plantuml
+
+   alt [caso 1]
+     A -> B : caso 1
+   else [caso 2]
+     A -> C : caso 2
+   else [caso 3]
+     A -> D : caso 3
+   end
+
+En IACT esto puede aparecer en UC_RPT_04 export con
+tres caminos: cuota agotada, throttling, OK.
+
+Reglas IACT para bifurcaciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Modelar al menos un unhappy path crítico** en la
+   secuencia principal — refuerza la disciplina de
+   manejo de errores.
+2. **Si hay más de dos unhappy paths importantes**,
+   crear **diagramas separados** uno por escenario,
+   no anidar.
+3. **Cada rama debe registrar audit** cuando aplique
+   (CNST_025) — no esconder eventos auditables en el
+   "if no falla".
+4. **Etiquetar las guardas** entre corchetes
+   (``[credenciales válidas]``) o con el texto entre
+   ``alt``/``else`` directamente. Sin guarda, el
+   diagrama miente sobre qué rama se ejecuta.
+5. **Mantener máximo 3-4 ramas** — más de eso es
+   señal de descomponer en flujos separados.
+
+Política de espaciado
+~~~~~~~~~~~~~~~~~~~~~
+
+Como recomienda el autor citado, separar visualmente
+**bloques de mensajes distintos** con líneas en blanco
+en el código fuente PlantUML. No afecta el render pero
+facilita el mantenimiento. Aplicar al alt: dejar línea
+en blanco antes de ``alt`` y después de ``end``.
+
+----
+
 2.2 Convenciones
 ----------------
 
