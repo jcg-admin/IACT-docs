@@ -3010,7 +3010,419 @@ actualizar esta tabla.
 
 ----
 
-17. Trazabilidad
+17. Galería de ejemplos canónicos IACT
+======================================
+
+Catálogo de **mini-diagramas reutilizables** —
+uno por componente del catálogo (§ 16). Cada
+ejemplo:
+
+- Está dibujado en PlantUML, listo para
+  copiar.
+- Usa nombres del dominio IACT
+  (``Supervisor``, ``auth_app``,
+  ``audit_log``, etc.) o nodos genéricos
+  cuando la notación es puramente sintáctica.
+- Sirve de **plantilla** para crear el
+  diagrama completo de un UC nuevo.
+
+Cuando un nuevo contribuidor necesita modelar
+una notación, **copia el snippet** de esta
+galería, lo personaliza al UC y lo integra en
+el documento que corresponda.
+
+17.1 Actor humano
+-----------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   actor "Supervisor" as S
+   participant "auth_app" as Auth
+   S -> Auth : envia credenciales
+   @enduml
+
+17.2 Participante (servicio Django)
+-----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "rpt_app" as Rpt
+   participant "perm_app" as Perm
+   Rpt -> Perm : verificar(user, "exportar")
+   Perm --> Rpt : ok
+   @enduml
+
+17.3 Database (BD persistente)
+------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "rpt_app" as Rpt
+   database "bd_analytics" as BDA
+   Rpt -> BDA : SELECT agregados
+   BDA --> Rpt : filas
+   @enduml
+
+17.4 Boundary (integración externa read-only)
+---------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "etl_runner" as ETL
+   boundary "ivr-host" as IVR
+   ETL -> IVR : leer eventos del IVR
+   IVR --> ETL : payload
+   note right of IVR
+     CNST_006: read-only;
+     ventana 6-12h
+   end note
+   @enduml
+
+17.5 Control (orquestador)
+--------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   actor Supervisor
+   control "ExportarReporteFacade" as Facade
+   participant "perm_app" as Perm
+   participant "rpt_app" as Rpt
+
+   Supervisor -> Facade : ejecutar(user, cfg)
+   Facade -> Perm : verificar
+   Facade -> Rpt : encolar
+   @enduml
+
+17.6 Entity (entidad de dominio)
+--------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "alr_app" as Alr
+   entity "Alerta" as A
+   Alr -> A : reconocer(supervisor)
+   A --> Alr : nuevo estado
+   @enduml
+
+17.7 Activación inline
+----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   actor S as Supervisor
+   participant "auth_app" as Auth
+   database "Redis" as R
+
+   S -> Auth ++ : POST /login
+   Auth -> R : crear sesion (CNST_002)
+   R --> Auth : ok
+   Auth --> S -- : 302 panel
+   @enduml
+
+17.8 Mensaje síncrono y respuesta
+---------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "Browser" as B
+   participant "rpt_app" as Rpt
+
+   B -> Rpt : GET /dashboard
+   Rpt --> B : 200 OK (HTML + datos)
+   @enduml
+
+17.9 Mensaje asíncrono — fire-and-forget
+----------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "rpt_app" as Rpt
+   database "audit_log" as Audit
+   participant "log_app" as Log
+
+   Rpt ->> Audit : registrar export iniciado
+   Rpt ->> Log : notificar buzon (CNST_001)
+   @enduml
+
+17.10 Self-message (iteración interna)
+--------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "ExportarReporteFacade" as Facade
+
+   loop por cada filtro
+     Facade -> Facade : validar(filtro)
+   end
+   @enduml
+
+17.11 Autonumber con offset
+---------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   autonumber
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+
+   Supervisor -> B : envia credenciales
+   B -> Auth : POST /login
+   Auth --> B : 302 Redirect
+   @enduml
+
+17.12 Bifurcación ``alt`` / ``else``
+------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "auth_app" as Auth
+   database "ldap-corporativo" as LDAP
+   database "audit_log" as Audit
+
+   Auth -> Auth : validar formato
+
+   alt [credenciales validas]
+     Auth -> LDAP : authenticate
+     LDAP --> Auth : OK
+   else [credenciales invalidas]
+     Auth ->> Audit : registrar intento (CNST_011)
+   end
+   @enduml
+
+17.13 Bifurcación opcional ``opt``
+----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "rpt_app" as Rpt
+   participant "log_app" as Log
+
+   Rpt -> Rpt : encolar export
+
+   opt [supervisor.notif_buzon == true]
+     Rpt ->> Log : notificar (CNST_001)
+   end
+   @enduml
+
+17.14 Ciclo ``loop`` con guarda
+-------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "etl_runner" as ETL
+   database "bd_operativa" as BDO
+   database "bd_analytics" as BDA
+
+   loop hasta fin de ventana CNST_006/008
+     ETL -> BDO : leer lote (read-only)
+     BDO --> ETL : filas
+     ETL -> BDA : insertar agregados
+   end
+   @enduml
+
+17.15 Paralelismo ``par``
+-------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "ExportarReporteFacade" as Facade
+   database "audit_log" as Audit
+   participant "log_app" as Log
+
+   Facade -> Facade : encolar tarea
+
+   par
+     Facade ->> Audit : registrar evento
+   else
+     Facade ->> Log : notificar buzon
+   end
+   @enduml
+
+17.16 Salida temprana ``break``
+-------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "etl_runner" as ETL
+   database "bd_operativa" as BDO
+
+   loop hasta fin de ventana
+     ETL -> BDO : leer lote
+     break [ventana agotada]
+       ETL -> ETL : marcar carga incompleta
+     end
+   end
+   @enduml
+
+17.17 Nota ``note left of``
+---------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "auth_app" as Auth
+   database "Redis" as R
+
+   Auth -> R : crear sesion
+   note left of R
+     CNST_002:
+     una sola sesion activa
+     por usuario
+   end note
+   @enduml
+
+17.18 Nota sobre dos participantes
+----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "Browser" as B
+   participant "auth_app" as Auth
+
+   B -> Auth : POST /login
+
+   note over B, Auth
+     CNST_011 throttling:
+     max 5 intentos / 5 min
+   end note
+   @enduml
+
+17.19 Creación de objeto
+------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "auth_app" as Auth
+
+   create participant ":Sesion" as S
+   Auth -> S : <<create>> nueva(user_id)
+   @enduml
+
+17.20 Destrucción de objeto
+---------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   participant "auth_app" as Auth
+   participant ":Sesion" as S
+
+   Auth -> S : caducar()
+   destroy S
+   @enduml
+
+17.21 Plantilla completa para nuevo UC
+--------------------------------------
+
+Punto de partida combinando los recursos más
+frecuentes. Reemplazar nombres y mensajes según
+el UC objetivo:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_XXX_NN — descripcion breve
+
+   autonumber
+
+   actor "Actor" as ActorRol
+   participant "App emisora" as Emisor
+   participant "App receptora" as Receptor
+   database "BD destino" as BD
+   database "audit_log" as Audit
+
+   ActorRol -> Emisor ++ : disparador
+
+   alt [precondicion ok]
+     Emisor -> Receptor : operacion principal
+     Receptor -> BD : persistir resultado
+     BD --> Receptor : ack
+     Receptor --> Emisor : ok
+     Emisor ->> Audit : registrar evento (CNST_025)
+     Emisor --> ActorRol -- : exito
+   else [precondicion no cumplida]
+     Emisor ->> Audit : registrar denegado
+     Emisor --> ActorRol -- : error
+   end
+   @enduml
+
+17.22 Cómo usar esta galería
+----------------------------
+
+1. **Identificar el componente** que se necesita
+   en el catálogo de § 16.
+2. **Localizar el snippet** correspondiente en
+   esta galería (§§ 17.1-17.20) o usar la
+   plantilla completa (§ 17.21).
+3. **Copiar el código fuente PlantUML** —
+   click derecho sobre el bloque renderizado o
+   abrir el ``.rst`` directamente.
+4. **Adaptar al UC**: reemplazar nombres de
+   participantes, ajustar protocolos y
+   mensajes, anclar a las CNST/BR pertinentes.
+5. **Integrar al documento del UC** (la
+   plantilla canónica es
+   :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`).
+
+Mantenimiento de la galería
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Cuando se agregue una **notación nueva** al
+  catálogo de § 16, agregar también un mini-
+  diagrama aquí.
+- Cuando se descubra una **plantilla mejor**
+  para un componente específico, sustituir el
+  ejemplo y registrar en el commit el cambio.
+- Mantener los ejemplos **cortos** — su valor
+  está en ser legibles de un vistazo. Si una
+  plantilla crece más allá de ~10 mensajes,
+  pertenece a un documento de UC, no a la
+  galería.
+
+----
+
+18. Trazabilidad
 ================
 
 .. list-table::
