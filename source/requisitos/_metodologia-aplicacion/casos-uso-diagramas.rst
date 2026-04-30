@@ -875,7 +875,255 @@ relaciones de casos de uso reconocido en UML:
 
 ----
 
-15. Trazabilidad
+15. Architecture flow — del problem statement a los casos de uso
+================================================================
+
+Antes de modelar UCs uno por uno, conviene tener
+una **vista navegacional del sistema completo**:
+qué funcionalidades existen, cómo se entra al
+sistema, cómo se sale, y qué caminos puede tomar
+el usuario entre medio.
+
+Esa vista no es un diagrama de casos de uso
+formal — es un **flujo arquitectónico** que actúa
+como puente entre el problem statement y el
+catálogo de UCs.
+
+15.1 Para qué sirve este flujo
+------------------------------
+
+- **Acordar el alcance** con stakeholders no
+  técnicos antes de detallar UCs.
+- **Identificar UCs faltantes** — un nodo del
+  flujo sin UC asociado es señal de huecos en el
+  catálogo.
+- **Onboarding rápido** — un colaborador nuevo
+  entiende qué hace IACT en una imagen.
+- **Material para README** y presentaciones de
+  alto nivel.
+
+15.2 Anatomía del flujo
+-----------------------
+
+Tres bloques canónicos:
+
+1. **Punto de entrada** — cómo un usuario
+   accede al sistema (en IACT: ``Login``
+   contra LDAP corporativo, ya que no hay
+   registro público).
+2. **Funcionalidades principales** — los
+   grupos de UCs disponibles tras autenticarse,
+   uno por cluster del dominio.
+3. **Punto de salida** — cómo termina la sesión
+   (en IACT: ``Logout`` con caducidad CNST_002 o
+   timeout).
+
+15.3 Problem statement IACT — referencia
+----------------------------------------
+
+Versión condensada del problem statement de
+IACT, útil como referencia cuando un WP necesite
+documentar el contexto de alto nivel:
+
+   El sistema IACT ofrece a los **supervisores
+   del centro de contacto** una plataforma para
+   monitorear la operación, evaluar métricas
+   agregadas y reconocer alertas críticas con
+   trazabilidad completa.
+
+   Los datos provienen de la **BD operativa** del
+   call center (read-only, CNST_007) y de los
+   **eventos del IVR** consumidos durante la
+   ventana ETL nocturna (CNST_006/008). El sistema
+   no escribe en las fuentes operativas; solo
+   las consume para construir agregados en
+   ``bd_analytics``.
+
+   El acceso se restringe vía **LDAP corporativo**
+   (autenticación) y un **catálogo RBAC** propio
+   con reglas de **separación de funciones**
+   (CNST_030 SoD). Toda acción auditable queda
+   registrada **inmutable** en ``audit_log``
+   (CNST_025).
+
+   Las notificaciones a los supervisores se
+   entregan exclusivamente vía **buzón interno**
+   (CNST_001 — sin email, sin canal externo).
+
+Las funciones principales se organizan en siete
+clusters: **autenticación**, **gestión RBAC**,
+**reportería operativa**, **alertas**,
+**monitoreo ETL**, **auditoría** y **buzón
+interno**.
+
+15.4 Architecture flow IACT
+---------------------------
+
+Vista navegacional condensada — desde la entrada
+hasta la salida del sistema, mostrando los
+clusters de UCs accesibles:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — Architecture flow (vista navegacional)
+
+   start
+
+   :Login;
+   note right
+     UC_AUTH_01
+     LDAP + sesion unica (CNST_002)
+   end note
+
+   if (autenticado?) then ([si])
+     :Panel del supervisor;
+     note right
+       Punto de entrada autenticado.
+       Acceso filtrado por RBAC
+       (CNST_030 SoD).
+     end note
+
+     fork
+       :Consultar dashboards
+       (UC_RPT_*);
+     fork again
+       :Reconocer alertas
+       (UC_ALR_*);
+     fork again
+       :Monitorear ETL
+       (UC_PIP_*);
+     fork again
+       :Consultar auditoria
+       (UC_AUD_*);
+     fork again
+       :Gestionar RBAC
+       (UC_PERM_*);
+     fork again
+       :Consultar buzon
+       (UC_LOG_*);
+     end fork
+
+     :Logout;
+     note right
+       UC_AUTH_02 o
+       caducidad CNST_002
+     end note
+   else ([no])
+     :Registrar intento fallido;
+     note right
+       Audit (CNST_025) +
+       throttling (CNST_011)
+     end note
+   endif
+
+   stop
+   @enduml
+
+Lectura del flujo
+~~~~~~~~~~~~~~~~~
+
+- **Una sola entrada** — Login. No hay registro
+  público porque los usuarios provienen del
+  LDAP corporativo (decisión arquitectónica).
+- **Bifurcación tras autenticarse** — el
+  supervisor puede operar cualquiera de los seis
+  clusters principales. Cada nodo del fork
+  agrupa varios UCs del catálogo.
+- **Audit transversal** — cualquier rama puede
+  generar eventos en ``audit_log``; está
+  implícito por CNST_025 y no aparece como nodo
+  separado.
+- **Salida única** — Logout o caducidad
+  automática.
+
+15.5 Cómo usar este patrón en un WP nuevo
+-----------------------------------------
+
+Cuando un WP introduce un sub-sistema o
+extensión que tiene **vida navegacional propia**
+(varios UCs encadenados en un flujo de usuario),
+conviene producir un architecture flow propio
+antes de los UCs detallados:
+
+1. **Identificar la entrada** al sub-sistema
+   (de dónde viene el usuario).
+2. **Listar las funcionalidades principales**
+   sin entrar en sub-pasos.
+3. **Identificar la salida** (terminación
+   normal y anormal).
+4. **Diagramar el flujo** con un diagrama de
+   actividades simple (start → forks → stop).
+5. **Mapear cada nodo a su UC** del catálogo —
+   nodos sin UC son hallazgos para discutir.
+
+Antipatrones
+~~~~~~~~~~~~
+
+- **Diagramas demasiado detallados** — el
+  architecture flow no debe tener pasos
+  internos de cada UC. Esa profundidad
+  pertenece al diagrama de actividades del UC
+  individual.
+- **Funcionalidades sin nodo de entrada
+  claro** — si el flujo no muestra cómo se llega
+  a una funcionalidad, hay un hueco
+  arquitectónico.
+- **Audit como nodo explícito** — el audit es
+  transversal en IACT (CNST_025); marcarlo
+  como nodo separado satura el flujo.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Un architecture flow global por sistema**
+   — el de § 15.4 cubre IACT completo.
+2. **Architecture flows por sub-sistema**
+   solo cuando un sub-cluster tiene navegación
+   propia (e.g. flujo de gestión RBAC con su
+   wizard de aprobaciones SoD).
+3. **El architecture flow se actualiza** cuando
+   se agrega un cluster nuevo de UCs o se
+   reorganiza el catálogo.
+4. **Cada nodo del flujo** debe mapear a uno o
+   varios UCs documentados; nodos sin UC son
+   deuda.
+5. **No reemplaza al diagrama de casos de uso
+   formal** — son complementarios. El UC
+   diagram describe relaciones entre actor y
+   UCs; el architecture flow describe la
+   navegación temporal del usuario.
+
+15.6 Relación con otros artefactos del cajón
+--------------------------------------------
+
+.. list-table::
+ :widths: 30 70
+ :header-rows: 1
+
+ * - Artefacto
+   - Qué aporta vs el architecture flow
+ * - Diagrama de casos de uso
+     (:doc:`casos-uso-diagramas`)
+   - Quién usa qué; relaciones include /
+     extend / generalización entre UCs.
+ * - Diagrama de actividades por UC
+     (:doc:`diagramas-actividades`)
+   - Detalle interno de cada nodo del
+     architecture flow.
+ * - Modelo de dominio
+     (:doc:`analisis-dominio`)
+   - Qué entidades manipula cada
+     funcionalidad.
+ * - C4 Context view
+     (§ 13 de :doc:`diagramas-componentes`)
+   - Sistemas externos con los que IACT
+     dialoga durante el flujo.
+
+----
+
+16. Trazabilidad
 ================
 
 .. list-table::
