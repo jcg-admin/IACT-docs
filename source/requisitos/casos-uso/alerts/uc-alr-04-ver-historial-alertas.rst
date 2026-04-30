@@ -30,13 +30,13 @@ UC_ALR_04: Ver Historial Alertas
  * - **Modulo**
    - MOD_Alerts
  * - **Funcion RBAC**
-   - ALR-004: ve_historial_alertas
+   - ALR-006: ``view_alert_history``
  * - **Prioridad**
    - Media
  * - **Complejidad**
    - Baja
  * - **BReq Origen**
-   - BRQ-ALR-004
+   - BRQ-ALR-006
 
 2. Descripcion
 --------------
@@ -90,7 +90,7 @@ tendencias y patrones de problemas operativos.
  * - ID
    - Precondicion
  * - PRE-01
-   - El usuario tiene sesion activa con funcion ALR-004
+   - El usuario tiene sesion activa con funcion ALR-006
  * - PRE-02
    - Existen alertas historicas en el sistema
  * - PRE-03
@@ -130,7 +130,7 @@ El supervisor accede a la seccion de historial de alertas.
    - Accede a historial de alertas
  * - 2
    - Sistema
-   - Valida funcion ALR-004
+   - Valida funcion ALR-006
  * - 3
    - Sistema
    - Muestra alertas de ultimos 30 dias por defecto
@@ -165,7 +165,7 @@ El supervisor accede a la seccion de historial de alertas.
 
  S -> FE: Accede a Historial de Alertas
  FE -> AC: GET /api/alerts/history?days=30
- AC -> AC: verify_function(ALR-004)
+ AC -> AC: verify_function(ALR-006)
  AC -> AC: get_user_segment
 
  AC -> AHS: get_history(filters, segmento)
@@ -311,7 +311,7 @@ El supervisor accede a la seccion de historial de alertas.
  start
  :Supervisor accede a Historial de Alertas;
 
- if (Tiene funcion ALR-004?) then (no)
+ if (Tiene funcion ALR-006?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -439,7 +439,7 @@ El supervisor accede a la seccion de historial de alertas.
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-ALR-004: Consultar historial de alertas
+   - BRQ-ALR-006: Consultar historial de alertas
  * - **Reglas de Negocio**
    - BR-ALR-30 a BR-ALR-33
  * - **Restricciones**
@@ -449,7 +449,7 @@ El supervisor accede a la seccion de historial de alertas.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - ALR-004: ve_historial_alertas
+   - ALR-006: ``view_alert_history``
 
 14. Historial de Cambios
 ------------------------

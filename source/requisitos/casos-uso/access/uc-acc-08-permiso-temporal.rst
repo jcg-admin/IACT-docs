@@ -39,7 +39,7 @@ UC_ACC_08: Permiso Temporal
  * - **Modulo**
    - MOD_Access
  * - **Funcion RBAC**
-   - ACC-001: asigna_funciones
+   - ACC-008: ``grant_exceptional_permission``
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -99,7 +99,7 @@ proyectos especiales o accesos limitados en tiempo.
  * - ID
    - Precondicion
  * - PRE-01
-   - El administrador tiene sesion activa con funcion ACC-001
+   - El administrador tiene sesion activa con funcion ACC-008
  * - PRE-02
    - El usuario destino existe y esta ACTIVO
  * - PRE-03
@@ -141,7 +141,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - Accede a asignar permiso temporal
  * - 2
    - Sistema
-   - Valida funcion ACC-001
+   - Valida funcion ACC-008
  * - 3
    - Admin
    - Selecciona usuario destino
@@ -197,7 +197,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
  A -> FE: Confirma
 
  FE -> AC: POST /api/users/{id}/temp-permissions
- AC -> AC: verify_function(ACC-001)
+ AC -> AC: verify_function(ACC-008)
  AC -> TPS: grant_temp_permission(data)
 
  TPS -> TPS: validate_duration(inicio, fin)
@@ -327,7 +327,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
  @startuml
  start
  :Admin accede a permisos temporales;
- if (Tiene ACC-001?) then (no)
+ if (Tiene ACC-008?) then (no)
  :Error permisos;
  stop
  else (si)
@@ -438,7 +438,7 @@ El administrador selecciona asignar permiso temporal a un usuario.
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
-   - ACC-001: asigna_funciones
+   - ACC-008: ``grant_exceptional_permission``
 
 14. Historial de Cambios
 ------------------------

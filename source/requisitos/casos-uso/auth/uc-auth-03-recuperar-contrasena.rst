@@ -32,7 +32,7 @@ UC_AUTH_03: Recuperar Contrasena
  * - **Modulo**
    - MOD_Auth
  * - **Funcion RBAC**
-   - AUT-003: resetea_password
+   - AUTH-003: ``reset_password``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -50,7 +50,7 @@ interno del sistema (CNST_001).
 
 **Caracteristicas principales:**
 
-- Solo administradores pueden resetear contrasenas (AUT-003)
+- Solo administradores pueden resetear contrasenas (AUTH-003)
 - Generacion de contrasena temporal segura
 - Notificacion SOLO via buzon interno (InternalMessage)
 - El usuario debe cambiar la contrasena en su primer login
@@ -111,7 +111,7 @@ interno del sistema (CNST_001).
  * - ID
    - Precondicion
  * - PRE-01
-   - El administrador tiene sesion activa con funcion AUT-003
+   - El administrador tiene sesion activa con funcion AUTH-003
  * - PRE-02
    - El usuario destino existe en el sistema
  * - PRE-03
@@ -164,7 +164,7 @@ para un usuario especifico.
    - Accede al modulo de gestion de usuarios
  * - 2
    - Sistema
-   - Valida que el admin tenga funcion AUT-003 (resetea_password)
+   - Valida que el admin tenga funcion AUTH-003 (``reset_password``)
  * - 3
    - Admin
    - Busca y selecciona el usuario afectado
@@ -239,13 +239,13 @@ para un usuario especifico.
  activate UC
 
  == Validar Permisos ==
- UC -> UC: verify_function(AUT-003)
+ UC -> UC: verify_function(AUTH-003)
  note right
  Requiere funcion
- AUT-003: resetea_password
+ AUTH-003: ``reset_password``
  end note
 
- alt sin permiso AUT-003
+ alt sin permiso AUTH-003
  UC --> FE: 403 Forbidden
  FE --> A: Error: Sin permisos
  end
@@ -370,7 +370,7 @@ para un usuario especifico.
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Permiso AUT-003
+8.1 EX-01: Sin Permiso AUTH-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -380,7 +380,7 @@ para un usuario especifico.
  * - **Paso de Origen**
    - 2
  * - **Condicion**
-   - Administrador no tiene funcion AUT-003 asignada
+   - Administrador no tiene funcion AUTH-003 asignada
  * - **Accion Sistema**
    - Rechaza peticion, registra intento no autorizado
  * - **Mensaje Usuario**
@@ -456,7 +456,7 @@ para un usuario especifico.
 
  :Admin hace clic en "Resetear Contrasena";
 
- if (Tiene funcion AUT-003?) then (no)
+ if (Tiene funcion AUTH-003?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -528,7 +528,7 @@ para un usuario especifico.
    - Descripcion
  * - BR-AUTH-20
    - Solo Admin Reset
-   - Solo usuarios con funcion AUT-003 pueden resetear contrasenas de otros usuarios.
+   - Solo usuarios con funcion AUTH-003 pueden resetear contrasenas de otros usuarios.
  * - BR-AUTH-21
    - Password Temporal
    - La contrasena generada debe tener minimo 12 caracteres con mayusculas, minusculas, numeros y simbolos.
@@ -617,7 +617,7 @@ para un usuario especifico.
    - Requisito
    - Criterio de Aceptacion
  * - FR-AUTH-020
-   - El sistema debe validar funcion AUT-003 antes de permitir reset
+   - El sistema debe validar funcion AUTH-003 antes de permitir reset
    - Error 403 si no tiene la funcion asignada
  * - FR-AUTH-021
    - El sistema debe generar contrasenas temporales seguras
@@ -652,7 +652,7 @@ para un usuario especifico.
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - AUT-003: resetea_password
+   - AUTH-003: ``reset_password``
 
 14. Historial de Cambios
 ------------------------

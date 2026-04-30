@@ -32,13 +32,13 @@ UC_USR_04: Eliminar Usuario
  * - **Modulo**
    - MOD_Users
  * - **Funcion RBAC**
-   - USR-004: elimina_usuarios
+   - USR-003: ``delete_users``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
    - Media
  * - **BReq Origen**
-   - BRQ-USR-004
+   - BRQ-USR-003
 
 2. Descripcion
 --------------
@@ -113,7 +113,7 @@ auditoria.
  * - ID
    - Precondicion
  * - PRE-01
-   - El administrador tiene sesion activa con funcion USR-004
+   - El administrador tiene sesion activa con funcion USR-003
  * - PRE-02
    - El usuario a eliminar existe en el sistema
  * - PRE-03
@@ -168,7 +168,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Hace clic en "Eliminar Usuario"
  * - 3
    - Sistema
-   - Valida funcion USR-004 (elimina_usuarios)
+   - Valida funcion USR-003 (``delete_users``)
  * - 4
    - Sistema
    - Verifica que no sea auto-eliminacion
@@ -235,13 +235,13 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  activate UC
 
  == Validar Permisos ==
- UC -> UC: verify_function(USR-004)
+ UC -> UC: verify_function(USR-003)
  note right
  Requiere funcion
- USR-004: elimina_usuarios
+ USR-003: ``delete_users``
  end note
 
- alt sin permiso USR-004
+ alt sin permiso USR-003
  UC --> FE: 403 Forbidden
  FE --> A: Error: Sin permisos
  end
@@ -364,7 +364,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Permiso USR-004
+8.1 EX-01: Sin Permiso USR-003
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -374,7 +374,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  * - **Paso de Origen**
    - 3
  * - **Condicion**
-   - Administrador no tiene funcion USR-004
+   - Administrador no tiene funcion USR-003
  * - **Accion Sistema**
    - Rechaza eliminacion
  * - **Mensaje Usuario**
@@ -450,7 +450,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
 
  :Admin hace clic en "Eliminar";
 
- if (Tiene funcion USR-004?) then (no)
+ if (Tiene funcion USR-003?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -609,7 +609,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-USR-004: Permitir eliminacion de usuarios del sistema
+   - BRQ-USR-003: Permitir eliminacion de usuarios del sistema
  * - **Reglas de Negocio**
    - BR-USR-30 a BR-USR-35
  * - **Restricciones**
@@ -621,7 +621,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - USR-004: elimina_usuarios
+   - USR-003: ``delete_users``
 
 14. Historial de Cambios
 ------------------------

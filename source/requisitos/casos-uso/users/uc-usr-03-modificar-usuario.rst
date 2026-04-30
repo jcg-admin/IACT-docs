@@ -32,13 +32,13 @@ UC_USR_03: Modificar Usuario
  * - **Modulo**
    - MOD_Users
  * - **Funcion RBAC**
-   - USR-003: modifica_usuarios, USR-007: bloquea_usuarios, USR-008: desbloquea_usuarios, USR-009: reactiva_usuarios
+   - USR-002: ``update_users``, USR-006: ``block_users``, USR-007: ``unblock_users``, USR-008: ``reactivate_users``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
    - Media
  * - **BReq Origen**
-   - BRQ-USR-003
+   - BRQ-USR-002
 
 2. Descripcion
 --------------
@@ -51,9 +51,9 @@ de estado criticos se notifican via buzon interno (CNST_001).
 
 - Modificar datos basicos (nombre, apellido, email)
 - Cambiar segmento asignado
-- Bloquear usuario (USR-007)
-- Desbloquear usuario (USR-008)
-- Reactivar usuario inactivo (USR-009)
+- Bloquear usuario (USR-006)
+- Desbloquear usuario (USR-007)
+- Reactivar usuario inactivo (USR-008)
 - El username NO es modificable (CNST_029)
 - Notificaciones via buzon interno (CNST_001)
 - Registro completo en auditoria (CNST_025)
@@ -112,7 +112,7 @@ de estado criticos se notifican via buzon interno (CNST_001).
  * - ID
    - Precondicion
  * - PRE-01
-   - El administrador tiene sesion activa con funcion USR-003
+   - El administrador tiene sesion activa con funcion USR-002
  * - PRE-02
    - El usuario a modificar existe en el sistema
  * - PRE-03
@@ -162,7 +162,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Hace clic en "Editar Usuario"
  * - 3
    - Sistema
-   - Valida funcion USR-003 (modifica_usuarios)
+   - Valida funcion USR-002 (``update_users``)
  * - 4
    - Sistema
    - Presenta formulario con datos actuales
@@ -222,7 +222,7 @@ especifica (bloquear, desbloquear, reactivar).
  activate UC
 
  == Validar Permisos ==
- UC -> UC: verify_function(USR-003)
+ UC -> UC: verify_function(USR-002)
 
  UC -> US: update_user(id, data, admin)
  activate US
@@ -287,7 +287,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Hace clic en "Bloquear Usuario"
  * - 3a
    - Sistema
-   - Valida funcion USR-007 (bloquea_usuarios)
+   - Valida funcion USR-006 (``block_users``)
  * - 4a
    - Sistema
    - Muestra dialogo: motivo del bloqueo (obligatorio)
@@ -322,7 +322,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Hace clic en "Desbloquear Usuario"
  * - 3a
    - Sistema
-   - Valida funcion USR-008 (desbloquea_usuarios)
+   - Valida funcion USR-007 (``unblock_users``)
  * - 4a
    - Sistema
    - Valida que estado actual sea BLOQUEADO
@@ -351,7 +351,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Hace clic en "Reactivar Usuario"
  * - 3a
    - Sistema
-   - Valida funcion USR-009 (reactiva_usuarios)
+   - Valida funcion USR-008 (``reactivate_users``)
  * - 4a
    - Sistema
    - Valida que estado actual sea INACTIVO
@@ -368,7 +368,7 @@ especifica (bloquear, desbloquear, reactivar).
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Permiso USR-003
+8.1 EX-01: Sin Permiso USR-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -378,7 +378,7 @@ especifica (bloquear, desbloquear, reactivar).
  * - **Paso de Origen**
    - 3
  * - **Condicion**
-   - Administrador no tiene funcion USR-003
+   - Administrador no tiene funcion USR-002
  * - **Accion Sistema**
    - Rechaza modificacion
  * - **Mensaje Usuario**
@@ -454,7 +454,7 @@ especifica (bloquear, desbloquear, reactivar).
 
  switch (Accion?)
  case (Editar datos)
- if (Tiene USR-003?) then (no)
+ if (Tiene USR-002?) then (no)
  :Error permisos;
  stop
  else (si)
@@ -465,7 +465,7 @@ especifica (bloquear, desbloquear, reactivar).
  :Actualizar registro;
 
  case (Bloquear)
- if (Tiene USR-007?) then (no)
+ if (Tiene USR-006?) then (no)
  :Error permisos;
  stop
  else (si)
@@ -482,7 +482,7 @@ especifica (bloquear, desbloquear, reactivar).
  note right: CNST_001
 
  case (Desbloquear)
- if (Tiene USR-008?) then (no)
+ if (Tiene USR-007?) then (no)
  :Error permisos;
  stop
  else (si)
@@ -491,7 +491,7 @@ especifica (bloquear, desbloquear, reactivar).
  :Notificar via buzon;
 
  case (Reactivar)
- if (Tiene USR-009?) then (no)
+ if (Tiene USR-008?) then (no)
  :Error permisos;
  stop
  else (si)
@@ -624,7 +624,7 @@ especifica (bloquear, desbloquear, reactivar).
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-USR-003: Permitir modificacion de usuarios existentes
+   - BRQ-USR-002: Permitir modificacion de usuarios existentes
  * - **Reglas de Negocio**
    - BR-USR-20 a BR-USR-25
  * - **Restricciones**
@@ -636,7 +636,7 @@ especifica (bloquear, desbloquear, reactivar).
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - USR-003, USR-007, USR-008, USR-009
+   - USR-002, USR-006, USR-007, USR-008
 
 14. Historial de Cambios
 ------------------------

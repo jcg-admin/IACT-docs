@@ -30,13 +30,13 @@ UC_ALR_02: Ver Alertas Activas
  * - **Modulo**
    - MOD_Alerts
  * - **Funcion RBAC**
-   - ALR-002: ve_alertas
+   - ALR-001: ``view_alerts``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
    - Baja
  * - **BReq Origen**
-   - BRQ-ALR-002
+   - BRQ-ALR-001
 
 2. Descripcion
 --------------
@@ -97,7 +97,7 @@ se envian via InternalMessage (CNST_001).
  * - ID
    - Precondicion
  * - PRE-01
-   - El usuario tiene sesion activa con funcion ALR-002
+   - El usuario tiene sesion activa con funcion ALR-001
  * - PRE-02
    - El usuario tiene un segmento asignado
  * - PRE-03
@@ -137,7 +137,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Accede al panel de alertas
  * - 2
    - Sistema
-   - Valida funcion ALR-002
+   - Valida funcion ALR-001
  * - 3
    - Sistema
    - Obtiene segmento del usuario
@@ -173,7 +173,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
 
  U -> FE: Accede a Panel de Alertas
  FE -> AC: GET /api/alerts/active
- AC -> AC: verify_function(ALR-002)
+ AC -> AC: verify_function(ALR-001)
  AC -> AC: get_user_segment
 
  AC -> AS: get_active_alerts(segmento)
@@ -267,7 +267,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Permiso ALR-002
+8.1 EX-01: Sin Permiso ALR-001
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -277,7 +277,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - **Paso de Origen**
    - 2
  * - **Condicion**
-   - Usuario no tiene funcion ALR-002 asignada
+   - Usuario no tiene funcion ALR-001 asignada
  * - **Accion Sistema**
    - Rechaza acceso al panel de alertas
  * - **Mensaje Usuario**
@@ -313,7 +313,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  start
  :Usuario accede a Panel de Alertas;
 
- if (Tiene funcion ALR-002?) then (no)
+ if (Tiene funcion ALR-001?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -466,7 +466,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-ALR-002: Visualizar alertas activas del sistema
+   - BRQ-ALR-001: Visualizar alertas activas del sistema
  * - **Reglas de Negocio**
    - BR-ALR-10 a BR-ALR-13
  * - **Restricciones**
@@ -476,7 +476,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - **Actor Principal**
    - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
-   - ALR-002: ve_alertas
+   - ALR-001: ``view_alerts``
 
 14. Historial de Cambios
 ------------------------

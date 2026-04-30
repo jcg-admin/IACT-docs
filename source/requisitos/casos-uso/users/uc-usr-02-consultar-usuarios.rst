@@ -32,13 +32,13 @@ UC_USR_02: Consultar Usuarios
  * - **Modulo**
    - MOD_Users
  * - **Funcion RBAC**
-   - USR-002: ve_usuarios, USR-005: lista_usuarios, USR-006: busca_usuarios
+   - USR-009: ``view_users``, USR-004: ``list_users``, USR-005: ``search_users``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
    - Baja
  * - **BReq Origen**
-   - BRQ-USR-002
+   - BRQ-USR-009
 
 2. Descripcion
 --------------
@@ -100,7 +100,7 @@ estado, segmento, agrupador y busqueda por texto.
  * - PRE-01
    - El administrador tiene sesion activa valida
  * - PRE-02
-   - El administrador tiene al menos una de las funciones: USR-002, USR-005, USR-006
+   - El administrador tiene al menos una de las funciones: USR-009, USR-004, USR-005
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -136,7 +136,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Accede al modulo de gestion de usuarios
  * - 2
    - Sistema
-   - Valida funcion USR-005 (lista_usuarios)
+   - Valida funcion USR-004 (``list_users``)
  * - 3
    - Sistema
    - Consulta usuarios con paginacion (pagina 1, 20 por pagina)
@@ -157,7 +157,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Hace clic en un usuario para ver detalle
  * - 9
    - Sistema
-   - Valida funcion USR-002 (ve_usuarios)
+   - Valida funcion USR-009 (``view_users``)
  * - 10
    - Sistema
    - Muestra panel de detalle con toda la informacion del usuario
@@ -183,7 +183,7 @@ El administrador accede al modulo de gestion de usuarios.
  FE -> UC: GET /api/users?page=1&size=20
  activate UC
 
- UC -> UC: verify_function(USR-005)
+ UC -> UC: verify_function(USR-004)
 
  UC -> US: list_users(page, size, filters)
  activate US
@@ -208,7 +208,7 @@ El administrador accede al modulo de gestion de usuarios.
  FE -> UC: GET /api/users?search=texto&page=1
  activate UC
 
- UC -> UC: verify_function(USR-006)
+ UC -> UC: verify_function(USR-005)
 
  UC -> US: search_users(texto)
  activate US
@@ -230,7 +230,7 @@ El administrador accede al modulo de gestion de usuarios.
  FE -> UC: GET /api/users/{id}
  activate UC
 
- UC -> UC: verify_function(USR-002)
+ UC -> UC: verify_function(USR-009)
 
  UC -> US: get_user_detail(id)
  activate US
@@ -345,7 +345,7 @@ El administrador accede al modulo de gestion de usuarios.
  * - **Paso de Origen**
    - 2
  * - **Condicion**
-   - Administrador no tiene funcion USR-005
+   - Administrador no tiene funcion USR-004
  * - **Accion Sistema**
    - Rechaza acceso al modulo
  * - **Mensaje Usuario**
@@ -363,7 +363,7 @@ El administrador accede al modulo de gestion de usuarios.
  * - **Paso de Origen**
    - 9
  * - **Condicion**
-   - Administrador no tiene funcion USR-002
+   - Administrador no tiene funcion USR-009
  * - **Accion Sistema**
    - Permite listar pero no ver detalle
  * - **Mensaje Usuario**
@@ -401,7 +401,7 @@ El administrador accede al modulo de gestion de usuarios.
 
  :Admin accede a Gestion de Usuarios;
 
- if (Tiene funcion USR-005?) then (no)
+ if (Tiene funcion USR-004?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -416,7 +416,7 @@ El administrador accede al modulo de gestion de usuarios.
  :Actualizar lista;
  fork again
  :Buscar por texto;
- if (Tiene funcion USR-006?) then (no)
+ if (Tiene funcion USR-005?) then (no)
  :Busqueda deshabilitada;
  else (si)
  :Ejecutar busqueda;
@@ -432,7 +432,7 @@ El administrador accede al modulo de gestion de usuarios.
 
  :Admin selecciona usuario;
 
- if (Tiene funcion USR-002?) then (no)
+ if (Tiene funcion USR-009?) then (no)
  :Detalle no disponible;
  stop
  else (si)
@@ -461,7 +461,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Las consultas de usuarios siempre usan paginacion (max 100 por pagina) para evitar sobrecarga.
  * - BR-USR-11
    - Funciones Separadas
-   - Listar (USR-005), buscar (USR-006) y ver detalle (USR-002) son funciones independientes.
+   - Listar (USR-004), buscar (USR-005) y ver detalle (USR-009) son funciones independientes.
  * - BR-USR-12
    - Sin Datos Sensibles
    - La lista nunca muestra passwords, tokens ni datos sensibles.
@@ -520,7 +520,7 @@ de acceso si se requiere por compliance.
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-USR-002: Permitir consulta de usuarios existentes
+   - BRQ-USR-009: Permitir consulta de usuarios existentes
  * - **Reglas de Negocio**
    - BR-USR-10 a BR-USR-13
  * - **Restricciones**
@@ -532,7 +532,7 @@ de acceso si se requiere por compliance.
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - USR-002, USR-005, USR-006
+   - USR-009, USR-004, USR-005
 
 14. Historial de Cambios
 ------------------------

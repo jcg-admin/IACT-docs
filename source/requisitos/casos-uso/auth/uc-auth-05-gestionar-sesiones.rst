@@ -32,7 +32,7 @@ UC_AUTH_05: Gestionar Sesiones
  * - **Modulo**
    - MOD_Auth
  * - **Funcion RBAC**
-   - AUT-001: gestiona_sesiones, AUT-002: cierra_sesion_usuario, AUT-004: ve_sesiones_activas
+   - AUTH-001: ``manage_sessions``, AUTH-002: ``close_user_session``, AUTH-004: ``view_active_sessions``
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -108,9 +108,9 @@ cerrar todas las sesiones de un usuario especifico.
  * - PRE-01
    - El administrador tiene sesion activa valida
  * - PRE-02
-   - El administrador tiene funcion AUT-004 (ve_sesiones_activas)
+   - El administrador tiene funcion AUTH-004 (``view_active_sessions``)
  * - PRE-03
-   - Para cerrar sesiones, requiere AUT-001 o AUT-002
+   - Para cerrar sesiones, requiere AUTH-001 o AUTH-002
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -162,7 +162,7 @@ administracion.
    - Accede al modulo "Gestion de Sesiones"
  * - 2
    - Sistema
-   - Valida funcion AUT-004 (ve_sesiones_activas)
+   - Valida funcion AUTH-004 (``view_active_sessions``)
  * - 3
    - Sistema
    - Consulta sesiones activas en base de datos
@@ -186,7 +186,7 @@ administracion.
    - Hace clic en "Cerrar Sesion"
  * - 10
    - Sistema
-   - Valida funcion AUT-002 (cierra_sesion_usuario)
+   - Valida funcion AUTH-002 (``close_user_session``)
  * - 11
    - Sistema
    - Muestra dialogo de confirmacion
@@ -232,7 +232,7 @@ administracion.
  FE -> SC: GET /api/admin/sessions\nAuthorization: Bearer {token}
  activate SC
 
- SC -> SC: verify_function(AUT-004)
+ SC -> SC: verify_function(AUTH-004)
 
  SC -> SS: get_active_sessions(filters)
  activate SS
@@ -258,10 +258,10 @@ administracion.
  FE -> SC: DELETE /api/admin/sessions/{id}
  activate SC
 
- SC -> SC: verify_function(AUT-002)
+ SC -> SC: verify_function(AUTH-002)
  note right
- Requiere AUT-002:
- cierra_sesion_usuario
+ Requiere AUTH-002:
+ ``close_user_session``
  end note
 
  SC -> SS: close_session(session_id, admin)
@@ -324,7 +324,7 @@ administracion.
    - Selecciona "Cerrar todas las sesiones" de un usuario
  * - 10a
    - Sistema
-   - Valida funcion AUT-001 (gestiona_sesiones)
+   - Valida funcion AUTH-001 (``manage_sessions``)
  * - 11a
    - Sistema
    - Muestra advertencia: "Cerrara N sesiones activas"
@@ -394,7 +394,7 @@ administracion.
  * - **Paso de Origen**
    - 2
  * - **Condicion**
-   - Administrador no tiene funcion AUT-004
+   - Administrador no tiene funcion AUTH-004
  * - **Accion Sistema**
    - Rechaza acceso al modulo
  * - **Mensaje Usuario**
@@ -412,7 +412,7 @@ administracion.
  * - **Paso de Origen**
    - 10
  * - **Condicion**
-   - Administrador no tiene funcion AUT-002
+   - Administrador no tiene funcion AUTH-002
  * - **Accion Sistema**
    - Permite ver pero no cerrar
  * - **Mensaje Usuario**
@@ -450,7 +450,7 @@ administracion.
 
  :Admin accede a Gestion de Sesiones;
 
- if (Tiene funcion AUT-004?) then (no)
+ if (Tiene funcion AUTH-004?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -474,7 +474,7 @@ administracion.
  else (si)
  endif
 
- if (Tiene funcion AUT-002?) then (no)
+ if (Tiene funcion AUTH-002?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -517,7 +517,7 @@ administracion.
    - Descripcion
  * - BR-AUTH-40
    - Separacion de Funciones
-   - Ver sesiones (AUT-004) y cerrar sesiones (AUT-002) son funciones separadas que pueden asignarse independientemente.
+   - Ver sesiones (AUTH-004) y cerrar sesiones (AUTH-002) son funciones separadas que pueden asignarse independientemente.
  * - BR-AUTH-41
    - Cierre Propio
    - Un admin puede cerrar su propia sesion, resultando en desconexion inmediata.
@@ -603,7 +603,7 @@ administracion.
    - Todas las sesiones del usuario cerradas en una accion
  * - FR-AUTH-043
    - El sistema debe validar funciones antes de cada accion
-   - AUT-004 para ver, AUT-002 para cerrar
+   - AUTH-004 para ver, AUTH-002 para cerrar
  * - FR-AUTH-044
    - El sistema debe registrar cierres en auditoria
    - Evento SESSION_CLOSED con admin y usuario afectado
@@ -628,7 +628,7 @@ administracion.
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - AUT-001, AUT-002, AUT-004
+   - AUTH-001, AUTH-002, AUTH-004
 
 14. Historial de Cambios
 ------------------------

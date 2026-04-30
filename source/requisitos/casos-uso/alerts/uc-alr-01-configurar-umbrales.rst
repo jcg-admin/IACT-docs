@@ -30,13 +30,13 @@ UC_ALR_01: Configurar Umbrales
  * - **Modulo**
    - MOD_Alerts
  * - **Funcion RBAC**
-   - ALR-001: configura_umbrales
+   - ALR-002: ``configure_alerts``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
    - Media
  * - **BReq Origen**
-   - BRQ-ALR-001
+   - BRQ-ALR-002
 
 2. Descripcion
 --------------
@@ -100,7 +100,7 @@ se registran en auditoria (CNST_025).
  * - ID
    - Precondicion
  * - PRE-01
-   - El usuario tiene sesion activa con funcion ALR-001
+   - El usuario tiene sesion activa con funcion ALR-002
  * - PRE-02
    - Existen metricas definidas en el sistema
  * - PRE-03
@@ -144,7 +144,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Accede a configuracion de umbrales
  * - 2
    - Sistema
-   - Valida funcion ALR-001
+   - Valida funcion ALR-002
  * - 3
    - Sistema
    - Muestra umbrales existentes del segmento
@@ -195,7 +195,7 @@ El gestor de alertas accede a la configuracion de umbrales.
 
  G -> FE: Accede a Umbrales
  FE -> AC: GET /api/alerts/thresholds
- AC -> AC: verify_function(ALR-001)
+ AC -> AC: verify_function(ALR-002)
  AC -> TS: get_thresholds(segmento)
  TS -> DB: SELECT * FROM alert_thresholds\nWHERE segmento_id = ?
  DB --> TS: thresholds
@@ -313,9 +313,9 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - **Mensaje Usuario**
    - El valor critico debe ser mayor que el valor de advertencia
  * - **Codigo Error**
-   - ALR-001
+   - ALR-002
 
-8.2 EX-02: Sin Permiso ALR-001
+8.2 EX-02: Sin Permiso ALR-002
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -325,7 +325,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - **Paso de Origen**
    - 2
  * - **Condicion**
-   - Usuario no tiene funcion ALR-001 asignada
+   - Usuario no tiene funcion ALR-002 asignada
  * - **Accion Sistema**
    - Rechaza acceso al modulo
  * - **Mensaje Usuario**
@@ -361,7 +361,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  start
  :Gestor accede a Configuracion de Umbrales;
 
- if (Tiene funcion ALR-001?) then (no)
+ if (Tiene funcion ALR-002?) then (no)
  :Mostrar error de permisos;
  stop
  else (si)
@@ -493,7 +493,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - ID
    - Requisito
    - Criterio de Aceptacion
- * - FR-ALR-001
+ * - FR-ALR-002
    - El sistema debe permitir configurar umbrales por metrica
    - Formulario funcional con validacion de valores
  * - FR-ALR-002
@@ -514,7 +514,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  :header-rows: 0
 
  * - **BReq Origen**
-   - BRQ-ALR-001: Configurar umbrales de alertas por metrica
+   - BRQ-ALR-002: Configurar umbrales de alertas por metrica
  * - **Reglas de Negocio**
    - BR-ALR-01 a BR-ALR-04
  * - **Restricciones**
@@ -524,7 +524,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - **Actor Principal**
    - AGR-005: agr_gestor_alertas
  * - **Funcion RBAC**
-   - ALR-001: configura_umbrales
+   - ALR-002: ``configure_alerts``
 
 14. Historial de Cambios
 ------------------------
