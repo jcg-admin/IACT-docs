@@ -1148,6 +1148,154 @@ Próximos niveles
 - **C4 nivel 4 Code** → omitido en IACT (los
   diagramas de clases UML lo cubren naturalmente).
 
+13.1 Construir el diagrama paso a paso — agregar nodos
+------------------------------------------------------
+
+La obra citada construye el Context incrementalmente:
+primero un nodo (el actor humano), luego el sistema en
+diseño, luego los sistemas de apoyo. PlantUML permite
+seguir esa misma metodología, con la ventaja de que las
+piezas se agregan en pocas líneas.
+
+Convención de Simon Brown — tres líneas por nodo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cada nodo del diagrama Context contiene **tres
+elementos** según la convención de Brown:
+
+1. **Título** — nombre claro del nodo.
+2. **Etiqueta** — el **tipo** del nodo entre corchetes
+   (``[Person]``, ``[Software System]``, ``[External
+   System]``).
+3. **Descripción** — frase breve que describe qué
+   representa el nodo.
+
+A nivel Context la etiqueta ``[Software System]`` puede
+parecer redundante, pero **mantenerla** asegura
+**consistencia** entre los cuatro niveles del modelo
+(en el nivel Component aparecen también ``[Container]``,
+``[Component]``).
+
+Sintaxis PlantUML para nodos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML soporta texto multilínea con ``\n`` o con
+bloques explícitos. Para mantener legibilidad del
+código fuente, preferir ``\n``:
+
+.. code-block:: plantuml
+
+   actor "Supervisor\n[Person]\n\nUsuario que monitorea\nllamadas y reportes" as Supervisor
+
+O con sintaxis multilínea de PlantUML:
+
+.. code-block:: plantuml
+
+   rectangle "IACT\n[Software System]\n\nPlataforma de analitica\nde call center" as IACT
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Notas
+ * - ``id["título\nlabel\ndescripción"]``
+   - ``rectangle "título\n[label]\n\ndescripción" as id``
+   - PlantUML separa con ``\n`` igual que Mermaid.
+ * - ``flowchart TD``
+   - Sin equivalente directo
+     (PlantUML decide layout)
+   - PlantUML respeta el orden de declaración y la
+     dirección de las flechas.
+
+Construcción incremental — IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Paso 1**: declarar el primer actor.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — paso 1: actor
+
+   actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
+   @enduml
+
+**Paso 2**: agregar el sistema en diseño.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — paso 2: actor + sistema
+
+   actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
+
+   rectangle "IACT\n[Software System]\n\nPlataforma de analitica\nde call center" as IACT
+   @enduml
+
+**Paso 3**: agregar sistemas externos.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — paso 3: con sistemas externos
+
+   actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
+
+   rectangle "IACT\n[Software System]\n\nPlataforma de analitica\nde call center" as IACT
+
+   rectangle "LDAP corporativo\n[External System]\n\nDirectorio de usuarios" as LDAP
+   rectangle "BD operativa\n[External System]\n\nDatos del call center\n(read-only)" as BDO
+   rectangle "IVR-host\n[External System]\n\nEventos de telefonia\n(read-only)" as IVR
+   @enduml
+
+En este punto los nodos están aislados; el siguiente
+paso (subsección siguiente) es **conectarlos** con
+flechas etiquetadas.
+
+ID corto vs título completo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como en Mermaid, conviene usar un **ID corto** (alias
+PlantUML con ``as``) y reservar el texto largo para el
+contenido visible. Esto evita repetir frases largas al
+declarar las relaciones:
+
+.. code-block:: plantuml
+
+   ' Mejor:
+   rectangle "Servicio de listados\n[Software System]" as LS
+   Supervisor --> LS : consulta titulos
+
+   ' Peor:
+   "Servicio de listados\n[Software System]" --> ...
+
+Política IACT para nodos del Context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Tres elementos por nodo** — título + etiqueta
+   ``[Person]`` / ``[Software System]`` /
+   ``[External System]`` + descripción breve.
+2. **Alias cortos con ``as``** — ``LDAP``, ``BDO``,
+   ``IVR``, ``IACT``. Evita repetir el texto largo.
+3. **Descripción de máximo 2-3 líneas** — el
+   diagrama es Context, no documentación.
+4. **Coherencia con el dominio** — los actores y
+   nombres deben coincidir con :doc:`analisis-dominio`
+   y los UCs (``Supervisor``, no
+   ``UsuarioFinal``).
+5. **Construcción incremental** — declarar los
+   actores primero, el sistema después, los externos
+   al final. Facilita la lectura del código fuente
+   PlantUML y se alinea con la convención del
+   capítulo.
+
 ----
 
 Trazabilidad
