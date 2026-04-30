@@ -4070,6 +4070,142 @@ hecho sí. El simple acto de dibujar una clase y
 sus dependencias suele revelar más mejoras que
 horas de "leer el código a ver qué pasa".
 
+17.6 Ejercicio: crear tu propio class diagram para refactor
+-----------------------------------------------------------
+
+Como en los ejercicios de cierre de los capítulos
+anteriores
+(§§ 15.12, 16.9, 17.9 de :doc:`analisis-dominio`,
+§ 14 de :doc:`diagramas-secuencias`,
+§§ 13.4 y exercise de
+:doc:`diagramas-componentes`,
+ejercicio Container de
+:doc:`diagramas-distribucion`), cerrar este
+módulo con la práctica refuerza la técnica.
+
+Recomendación general
+~~~~~~~~~~~~~~~~~~~~~
+
+Elegir un cluster de código real y diagramarlo:
+
+- **Mínimo 5 clases** participantes.
+- **Atributos, métodos y relaciones** visibles
+  (no solo nombres como en el modelo de
+  dominio).
+- **Snapshot fechado** con contexto.
+
+Bonus: tras dibujarlo, **buscar mejoras**.
+Si aparecen, modelar el snapshot post-refactor.
+Si el cambio es viable, llevarlo al código y
+cerrar el ciclo end-to-end documentado.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Variantes para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Reproducir el snapshot** del facade
+   ``ExportarReporteFacade`` de §§ 17.1-17.5
+   desde cero. Validar que se entiende cada
+   decisión visual: visibilidad, inyección,
+   interfaces.
+2. **Diagramar un cluster diferente** del cajón
+   IACT — por ejemplo, ``alr_app`` con
+   ``EvaluadorAlertas``, ``UmbralAlerta``,
+   ``Alerta``, ``EstadoAlerta``,
+   ``HistorialReconocimiento``. Aplicar las
+   reglas de § 17.1-17.5 al diagramarlo.
+3. **Tomar un cluster con deuda técnica**
+   conocida (registrada en
+   ``technical-debt.md`` o en un WP en hold) y
+   modelar el estado actual + propuesta de
+   refactor.
+4. **Modelar un patrón GoF** en su forma
+   pedagógica — un diagrama que se entrega como
+   material de onboarding al equipo.
+
+Variantes para extender el cajón
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cuando aparezca una iniciativa de refactor en
+un WP:
+
+1. Abrir el WP correspondiente en
+   ``.thyrox/context/work/``.
+2. **Diagramar el snapshot pre-refactor** del
+   código actual.
+3. **Listar hallazgos** (§ 17.3) — lo que el
+   diagrama hace explícito.
+4. **Diagramar el snapshot post-refactor**
+   propuesto.
+5. **Discutirlo con el equipo** (DBA, SRE,
+   desarrolladores afectados).
+6. **Convertir el delta en task plan T-NNN** del
+   WP.
+7. **Implementar y revisar** — el snapshot
+   post-refactor es el contrato de la revisión.
+8. **Cerrar el WP** con los dos snapshots como
+   evidencia.
+
+Plan recomendado para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Leer §§ 17-17.5 de este documento.
+2. Reproducir el snapshot del facade (variante
+   1).
+3. Probar la variante 2 con un cluster
+   distinto.
+4. Cuando aparezca un refactor real, aplicar el
+   patrón completo (variante de extensión).
+
+Bonus — ciclo end-to-end documentado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El ejercicio bonus que el autor citado sugiere
+es **llevar el refactor al código**. En IACT eso
+se materializa en un WP con esta estructura:
+
+- ``analyze/`` — snapshot pre-refactor + lista
+  de hallazgos.
+- ``plan-execution/`` — snapshot post-refactor +
+  task plan T-NNN.
+- ``execute/`` — implementación tarea por
+  tarea.
+- ``track/`` — comparación pre/post + lecciones
+  aprendidas.
+
+Esa estructura convierte un "deberíamos
+refactorizar esto" informal en un **artefacto
+trazable** y revisable, alineado con la
+metodología THYROX.
+
+Cierre del capítulo de refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con §§ 17-17.6 el lector tiene los recursos
+para usar class diagrams como herramienta
+operativa de refactor en IACT:
+
+- Entender la diferencia con modelado de dominio
+  (§ 17).
+- Modelar atributos y métodos a nivel de código
+  (§ 17.1).
+- Documentar dependencias explícitas (§ 17.2).
+- Aplicar el patrón de refactor desde el
+  diagrama (§ 17.3).
+- Resolver code smells frecuentes — parameter
+  object (§ 17.4) y desacoplamiento por interfaz
+  (§ 17.5).
+- Practicar con ejercicios escalonados (§ 17.6).
+
+El siguiente paso natural cuando el cajón
+absorba más capítulos del libro citado: aplicar
+el mismo patrón snapshot pre/post a otros tipos
+de refactor (extracción de Strategy, partido de
+clases por SRP, eliminación de ciclos entre
+apps).
+
 Próximas subsecciones potenciales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
