@@ -44,6 +44,138 @@ Marco metodológico
 - Política de diagramación:
   :doc:`/base-cognitiva/plantuml-guide/guidelines`
 
+Preludio — vista Container (C4 nivel 2)
+=======================================
+
+El Context (§ 13 de :doc:`diagramas-componentes`) cubre
+la vista a 50 000 pies para audiencias no técnicas.
+Pero la mayoría de los ingenieros necesita **más
+detalle**: qué partes componen el sistema y cómo se
+comunican entre sí. Ese nivel de detalle es la **vista
+Container** del modelo C4.
+
+Qué es un container en C4
+-------------------------
+
+En C4, **container no es contenedor Docker**: significa
+una **unidad desplegable individual**. Ejemplos
+canónicos:
+
+- Una aplicación Java empaquetada.
+- Una base de datos PostgreSQL.
+- Un servidor web Apache + módulos.
+- Una instancia Redis.
+- Un broker de mensajes (Kafka, RabbitMQ).
+
+Cada container es algo que se despliega como pieza
+independiente, con su propio ciclo de vida operativo.
+
+Qué muestra el Container — y qué no
+-----------------------------------
+
+- **Sí**: containers, sus tecnologías principales y
+  los protocolos entre ellos.
+- **Sí**: actores humanos (los mismos del Context) y
+  sistemas externos.
+- **No**: detalle del código dentro de cada container
+  — eso es nivel 3 Component.
+- **No**: clases, servicios internos, módulos.
+
+La metáfora del zoom: si el Context era la vista al
+sistema completo como una caja, el Container es lo
+que se ve al **hacer click** sobre esa caja.
+
+Equivalencia C4 ↔ documentos IACT
+---------------------------------
+
+En IACT la vista Container del modelo C4 vive en este
+documento (``diagramas-distribucion.rst``):
+
+- Los **nodos físicos** (``vm-iact``,
+  ``ldap-corporativo``, ``bd-operativa``,
+  ``ivr-host``) son el aspecto **deployment** del
+  Container view.
+- Los **artefactos dentro de cada nodo**
+  (``iact.wsgi``, apps Django, Redis, MySQL,
+  ``audit_log``) son los **containers** propiamente
+  dichos en lenguaje C4.
+- Los **protocolos** (HTTPS intranet, LDAPS, SQL
+  read-only, SMB, etc.) corresponden a las flechas
+  etiquetadas del Container view.
+
+Containers IACT canónicos
+-------------------------
+
+.. list-table::
+ :widths: 25 30 45
+ :header-rows: 1
+
+ * - Container
+   - Tecnología
+   - Rol
+ * - ``Browser`` del supervisor
+   - HTML + JS bundle
+   - Cliente de la UI.
+ * - ``iact-admin.bundle.js``
+   - React (servido por Apache)
+   - SPA del panel del supervisor.
+ * - ``iact.wsgi``
+   - Django + mod_wsgi sobre Apache
+   - Backend de aplicación.
+ * - ``Redis``
+   - Redis local
+   - Sesiones (CNST_002), throttling
+     (CNST_011).
+ * - ``bd_analytics``
+   - MySQL local
+   - Datos derivados de ETL.
+ * - ``audit_log``
+   - MySQL local (immutable)
+   - Auditoría (CNST_025).
+ * - ``etl_runner.py``
+   - Python script (cron)
+   - ETL nocturno (ventana
+     CNST_006/008).
+ * - ``ldap-corporativo``
+   - LDAP externo
+   - Directorio corporativo (read-only).
+ * - ``bd-operativa``
+   - MySQL externo
+   - Origen de datos del call center
+     (read-only, CNST_007).
+ * - ``ivr-host``
+   - IVR externo
+   - Eventos de telefonía (read-only,
+     CNST_006).
+
+A diferencia del ejemplo del libro (que incluye un
+broker de mensajes), IACT **no usa Kafka ni
+RabbitMQ** por ADR_DEVOPS_001. La razón por la que
+el libro nota que el broker no aparecía en el
+Context aplica igual a IACT: es un detalle técnico
+que pertenece al Container, no al Context.
+
+Para qué sirve el Container view
+--------------------------------
+
+- **Ingenieros que entran al proyecto** — entender en
+  10 minutos cómo se despliega IACT antes de tocar
+  código.
+- **Operaciones / SRE** — saber qué procesos viven en
+  cada nodo y qué protocolos atraviesa cada
+  llamada.
+- **Diseño de cambios de infraestructura** — discutir
+  el reemplazo de un container o la adición de uno
+  nuevo.
+- **Aprobaciones arquitectónicas** — material de
+  soporte para presentaciones técnicas.
+
+Las secciones siguientes (§§ 1-9 de este documento)
+detallan cada container IACT con sus protocolos, su
+configuración canónica y sus restricciones.
+
+----
+
 1. Nodo, dispositivo y conexión
 ===============================
 
