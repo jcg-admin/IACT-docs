@@ -343,6 +343,146 @@ contextos** (documentación pública del repositorio en
 GitHub) sin alterar las guías internas, que seguirán en
 PlantUML. Esa decisión exigiría un ADR explícito.
 
+Cómo crear diagramas — flujo de trabajo PlantUML en IACT
+--------------------------------------------------------
+
+El equivalente al ecosistema "Mermaid Live + VS Code
+plugin" en PlantUML cubre las mismas necesidades:
+**bocetos rápidos**, **edición con preview** y
+**publicación final integrada al pipeline**.
+
+Tres rutas según el caso de uso
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Ruta
+   - Cuándo usarla
+   - Herramienta recomendada
+ * - **Online (boceto rápido)**
+   - Esbozo de un diagrama nuevo, explicación rápida a
+     un colega, prototipo antes de pulir.
+   - **PlantText** (``planttext.com``) o el servidor
+     público ``plantuml.com``. Render en el navegador
+     mientras se escribe el código.
+ * - **Editor con preview en vivo**
+   - Trabajo cotidiano sobre los archivos ``.rst`` del
+     repositorio.
+   - **VS Code** + extensión "PlantUML" (de jebbs)
+     con preview en split panel; o
+     **IntelliJ** + plugin "PlantUML Integration".
+ * - **Pipeline Sphinx (publicación)**
+   - Diagrama final integrado al sitio
+     publicado.
+   - ``sphinxcontrib-plantuml`` ya configurado en
+     ``conf.py``. Render automático en
+     ``make html``.
+
+Bocetos rápidos
+~~~~~~~~~~~~~~~
+
+Para bocetos descartables ("explicar un flujo a un
+colega", "discutir un cambio en una llamada"), abrir
+``planttext.com`` y pegar el siguiente esqueleto:
+
+.. code-block:: plantuml
+
+   @startuml
+   skinparam shadowing false
+   skinparam roundCorner 8
+
+   rectangle a
+   rectangle b
+   rectangle c
+   rectangle d
+
+   a --> b
+   a --> c
+   b --> d
+   c --> d
+   @enduml
+
+Render inmediato en el navegador, exportable a PNG / SVG
+con un clic. Equivalente al ejemplo "flowchart LR
+a --> b & c --> d" de la literatura Mermaid: el mismo
+grafo de cuatro nodos diamante (a → b/c → d), expresado
+en sintaxis PlantUML.
+
+Edición con preview en VS Code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para diagramas que terminarán en el repositorio:
+
+1. Abrir el archivo ``.rst`` en VS Code.
+2. Instalar la extensión **"PlantUML" by jebbs**.
+3. Posicionar el cursor sobre un bloque ``.. uml::``.
+4. ``Alt+D`` (o ``Cmd+D`` en macOS) → preview en
+   split panel.
+5. El preview se actualiza al guardar.
+
+Esta ruta cubre el caso de uso del autor de la obra
+("Markdown Preview Mermaid Support para VS Code" —
+preview en tiempo real) con un equivalente directo para
+PlantUML.
+
+Publicación con Sphinx
+~~~~~~~~~~~~~~~~~~~~~~
+
+El pipeline canónico del proyecto:
+
+1. Diagrama embebido en ``.rst`` con
+   ``.. uml::`` (Sphinx directive).
+2. Estilos compartidos vía
+   ``!include ../../_static/plantuml-styles.puml``.
+3. ``make html`` invoca ``sphinxcontrib-plantuml`` →
+   genera SVG/PNG → embebe en el sitio.
+
+Ver :doc:`/base-cognitiva/plantuml-guide/guidelines`
+para detalles de configuración.
+
+CLI para automatización
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Si se necesita generación batch o pre-render fuera de
+Sphinx:
+
+.. code-block:: bash
+
+   # render una vez
+   plantuml diagrama.puml
+
+   # watch mode (re-renderiza al cambiar)
+   plantuml -gui diagrama.puml
+
+El JAR se descarga desde el sitio oficial
+(``plantuml.com``) y requiere Java 8+.
+
+Recomendación operativa para IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Boceto** → ``planttext.com``.
+- **Diseño iterativo** → VS Code + plugin jebbs.
+- **Publicación** → ``make html`` (Sphinx).
+- **Compartir un diagrama suelto con alguien sin acceso
+  al repo** → exportar SVG desde VS Code o
+  ``planttext.com``; **no** pegar PNG sin el código
+  fuente al lado (rompe DRY: la imagen y el código son
+  la misma información).
+
+Historia de la diagramación, en perspectiva
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La observación del autor citado en la sección anterior
+("lo que antes tomaba horas hoy toma diez o quince
+minutos") aplica idénticamente a PlantUML: la
+combinación **online editor + plugin de IDE + pipeline
+Sphinx** elimina la fricción de la diagramación manual
+y vuelve viable mantener los diagramas **sincronizados
+con el código**, no como artefactos puntuales que
+envejecen.
+
 ----
 
 1. Diagrama de clases — entidad ``Llamada`` (UC_RPT)
