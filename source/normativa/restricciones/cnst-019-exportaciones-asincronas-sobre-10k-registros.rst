@@ -4,9 +4,9 @@
  :dominio: normativa
  :subdominio: restricciones
  :estado: Vigente
- :version: 2.0.0
+ :version: 3.0.0
  :fecha_creacion: 2025-12-17
- :ultimo_cambio: 2026-04-28
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Alto
 
@@ -70,21 +70,39 @@ usuarios.
 
 
 - Umbral: 10 000 registros.
-- Mecanismo: ``Celery`` o equivalente con cola dedicada ``exports``.
-- Respuesta sincrona: ``202 Accepted`` + ``{"job_id": ...}``.
-- Notificacion al completar: mensaje en buzon interno (CNST_002).
+- Mecanismo: cola asíncrona dedicada con worker pool aislado del
+  pool que sirve UI/API. La tecnología concreta (broker, runtime
+  de tareas) se declara en ADR de implementación — esta CNST no
+  prescribe stack específico.
+- Respuesta sincrona inicial: ``202 Accepted`` + ``{"job_id": ...}``.
+- Trazabilidad del job: el ``job_id`` debe ser consultable hasta
+  finalización del job.
+- Notificacion al completar: mensaje en buzon interno (CNST_002),
+  independiente del canal originador del request.
 
 2.2 Parametros
 ^^^^^^^^^^^^^^
 
 Ver subseccion 2.1.
 
-2.3 Tecnologias Involucradas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2.3 Capacidades requeridas (independientes de tecnología)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Celery + Redis broker
-- Cola dedicada 'exports'
-- InternalMessage (CNST_002)
+- Cola dedicada para exports (no compartida con UI/API).
+- Worker pool aislado para evitar bloqueo recíproco.
+- Buzón interno de notificación (CNST_002).
+- Mecanismo de identificación de job (``job_id`` único, consultable).
+
+Alternativas viables documentadas en ADR de implementación
+(cualquiera que cumpla las capacidades anteriores):
+broker + worker (Celery, RQ, Dramatiq), background tasks nativos
+del framework (django-background-tasks), runtime asyncio + worker
+pool, cola gestionada por la BD (PostgreSQL LISTEN/NOTIFY), o
+servicios cloud-native (SQS + Lambda).
+
+**Prohibición:** acoplar esta CNST a una tecnología específica
+viola la separación entre "qué proteger" (CNST normativa) y
+"cómo implementarlo" (ADR técnico).
 
 3. Impacto en Sistema
 ---------------------
@@ -220,4 +238,8 @@ El cumplimiento se verifica via los snippets de la seccion 5.
    - 2026-04-28
    - NestorMonroy
    - Descomposicion SRP (un concern por archivo) + enriquecimiento estructura completa TPL_CNST (9 secciones)
+ * - 3.0.0
+   - 2026-04-30
+   - NestorMonroy
+   - Desacoplar tecnología (Celery → "cola asíncrona dedicada"); agregar capacidades requeridas y alternativas viables; mover prescripción de stack a ADR de implementación
 
