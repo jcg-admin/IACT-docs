@@ -44,6 +44,111 @@ Marco metodológico
 - Política de diagramación:
   :doc:`/base-cognitiva/plantuml-guide/guidelines`
 
+Preludio — modelar la arquitectura
+==================================
+
+Tras documentar el dominio (:doc:`analisis-dominio`) y
+visualizar los flujos de aplicación
+(:doc:`diagramas-secuencias`), el siguiente paso natural
+es **modelar la arquitectura**: cómo los componentes y
+nodos físicos se organizan más allá del flujo puntual de
+un UC.
+
+La regla operativa, alineada con § 12 de
+:doc:`plan-documentacion-uc` (JEDUF):
+
+   *Hacer suficiente diseño inicial para validar el
+   enfoque, pero no tanto que no quede espacio para que
+   el diseño evolucione.*
+
+Cuando se diseña un sistema, el objetivo no es producir
+un plano completo y entregárselo a los implementadores
+para que lo "ejecuten". Es **embeberse en el equipo que
+lo construye**, buscar feedback regular, evolucionar el
+diseño colaborativamente.
+
+Por qué los diagramas-como-código importan aquí
+-----------------------------------------------
+
+Antes de PlantUML / Mermaid, cambiar un diagrama
+arquitectónico era doloroso: mover cajas, redibujar
+líneas, recolocar etiquetas — horas de trabajo manual
+para un cambio significativo.
+
+Con **PlantUML + Sphinx** (la combinación IACT) los
+diagramas son texto: editarlos en una reunión es
+factible, probar una idea toma minutos y, si no aporta,
+se descarta sin gran inversión. Esa **agilidad
+arquitectónica** es uno de los argumentos más fuertes
+para diagramas-como-código (ver "Historia de la
+diagramación" en :doc:`diagramas-uml`).
+
+Cuándo usar diagramas de arquitectura
+-------------------------------------
+
+Tres usos canónicos en IACT:
+
+1. **README del proyecto / submódulo** — cuando alguien
+   llega nuevo o un equipo distinto recibe el sistema,
+   un diagrama arquitectónico claro reemplaza páginas
+   de documentación textual.
+2. **ADRs del proyecto**
+   (``.thyrox/context/decisions/``) — al proponer un
+   diseño o un cambio mayor, el diagrama itera junto
+   con la decisión. Crear un ADR es esencialmente
+   proponer una arquitectura.
+3. **Onboarding / handoff** — cuando un servicio se
+   reasigna entre equipos o ingresa un nuevo
+   colaborador, el diagrama de componentes y
+   despliegue cuenta la historia que un walkthrough
+   verbal tardaría días en transmitir.
+
+Cómo este cajón cubre la arquitectura
+-------------------------------------
+
+Tres documentos del cajón colaboran en este nivel:
+
+.. list-table::
+ :widths: 28 35 37
+ :header-rows: 1
+
+ * - Documento
+   - Aspecto
+   - Equivale en C4 a…
+ * - **Este documento**
+     (:doc:`diagramas-componentes`)
+   - Apps Django como componentes desplegables y sus
+     interfaces.
+   - **Component view** (nivel 3 de C4).
+ * - :doc:`diagramas-distribucion`
+   - Nodos físicos (vm-iact, ldap, bd-operativa,
+     ivr-host) y protocolos.
+   - **Container / Deployment view** (niveles 2 y
+     físico de C4).
+ * - El SAD futuro
+     (:doc:`plan-documentacion-uc` § 11)
+   - Vista holística que integra dominio + flujos +
+     componentes + distribución.
+   - **Context** + síntesis (nivel 1 + integración).
+
+El **modelo C4** se trata como técnica complementaria
+en la sección "Técnica complementaria: el modelo C4"
+de :doc:`diagramas-uml`. La política IACT mantiene UML
+como técnica principal con C4 como lente para audiencias
+no técnicas o material de aprobación.
+
+Mensaje del capítulo
+--------------------
+
+A partir de aquí el cajón se centra en la **vista
+arquitectónica**. Las secciones siguientes (§§ 1-12 de
+este documento + las secciones de
+:doc:`diagramas-distribucion`) construyen ese cuadro:
+qué componentes existen, qué contratos los unen, dónde
+viven y cómo se comunican.
+
+----
+
 1. Qué es un componente en IACT
 ===============================
 
