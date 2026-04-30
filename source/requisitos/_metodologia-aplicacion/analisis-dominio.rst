@@ -1165,7 +1165,186 @@ claras y validadas con el experto del dominio.
 
 ----
 
-15. Trazabilidad
+15. Documentar el dominio — Domain-Driven Design (DDD)
+======================================================
+
+Antes de escribir código de aplicación, **modelar el
+dominio**. El modelado de dominio es la forma principal
+de determinar los **aspectos importantes** del negocio y
+se construye **colaborativamente** entre ingeniería,
+producto y stakeholders del negocio para asegurar que
+todas las partes están alineadas sobre cómo luce el
+modelo del dominio.
+
+Esa naturaleza colaborativa lo convierte en un excelente
+candidato para **diagramar**: documentar el modelo del
+dominio con un diagrama lo hace cobrar vida y aumenta la
+probabilidad de que se use realmente.
+
+15.1 Domain-Driven Design — referencia canónica
+-----------------------------------------------
+
+   *Domain-Driven Design: Tackling Complexity in the
+   Heart of Software* — Eric Evans, 2003.
+
+DDD propone que el **modelo del dominio** sea el centro
+del diseño: el código refleja el dominio, los nombres
+del dominio se usan en el código, y la conversación
+entre técnicos y negocio sucede en el mismo vocabulario
+(*ubiquitous language*).
+
+15.2 Beneficios observados de DDD
+---------------------------------
+
+Cuando el modelado de dominio funciona, se observan
+patrones consistentes:
+
+- **Momento de claridad colectiva** — durante varias
+  sesiones se prueban distintas ideas y aproximaciones;
+  llega un punto en que todo encaja, todos comparten la
+  misma comprensión del paisaje y hablan el mismo
+  idioma.
+- **Translación directa a código** — un modelo de
+  dominio sólido se traduce con facilidad a clases del
+  proyecto. La § 7 de este documento muestra cómo el
+  análisis IACT desemboca en un diagrama de clases
+  consolidado.
+- **Lenguaje compartido** — al final de un proyecto
+  bien modelado, los stakeholders no técnicos usan la
+  misma terminología que los desarrolladores. En IACT,
+  términos como ``segmento``, ``ventana ETL``, ``SoD``
+  y ``buzón interno`` ya forman parte del vocabulario
+  común.
+- **Evolución sostenida** — al estar el modelo
+  documentado, puede consultarse cuando aparecen
+  nuevos requisitos. Si el modelo encaja, se reutiliza;
+  si no, evoluciona puntualmente sin romper lo
+  existente.
+
+Caso ilustrativo (citado por Eric Evans y otros autores
+DDD): una compañía de seguros que necesitaba determinar
+**cómo se vendían sus productos y a quién**. La data
+estaba dispersa, los canales eran múltiples y los datos
+disponibles variaban por canal. El equipo no sabía cómo
+representar el dominio en código; tras varios días de
+modelado conjunto llegaron a una síntesis que se tradujo
+fácilmente en código. Años después, el núcleo del modelo
+seguía intacto — solo se agregaron entidades nuevas.
+
+15.3 Diagrama de clases UML como vehículo del modelo
+----------------------------------------------------
+
+Dentro de UML, el **diagrama de clases** es el vehículo
+natural del modelo de dominio. Aunque puede usarse para
+modelar clases en sentido implementativo, es igualmente
+válido para modelar **conceptos del dominio** — y tiene
+sentido: el modelo del dominio se materializa en código
+mediante clases.
+
+El **poder real** del diagrama se libera cuando se
+modelan las **relaciones entre entidades**: asociaciones,
+agregaciones, composiciones, generalización (ver
+:doc:`relaciones-uml`,
+:doc:`agregacion-interfaces`).
+
+15.4 Aplicación al proyecto IACT
+--------------------------------
+
+Este documento (``analisis-dominio.rst``) y sus
+hermanos forman el **modelo de dominio canónico de
+IACT**:
+
+- **§§ 1-7** — extracción del modelo desde el lenguaje
+  natural (sustantivos→clases / verbos→operaciones /
+  adjetivos→atributos).
+- **§ 7** — diagrama de clases consolidado del dominio.
+- **§ 8** — responsabilidades canónicas (RDD).
+- **§§ 12-14** — métodos complementarios para
+  identificar clases (Abbott, escuelas clásica /
+  escenarios / RDD, tarjetas CRC).
+- **Documentos hermanos** — :doc:`orientacion-objetos`
+  desarrolla los seis principios OOP aplicados,
+  :doc:`relaciones-uml` y
+  :doc:`agregacion-interfaces` profundizan las
+  relaciones del modelo, :doc:`patrones-diseno` aplica
+  GoF y GRASP.
+
+Ubiquitous language IACT
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+El vocabulario común del proyecto, capturado en este
+modelo, incluye:
+
+- **Llamada / IVR** — interacción telefónica capturada
+  por el conmutador.
+- **Segmento** (BR_012) — agrupación de campañas
+  atendidas.
+- **Ventana ETL** (CNST_006/008) — periodo nocturno de
+  carga read-only.
+- **SoD** (CNST_030) — separación de responsabilidades
+  en el modelo RBAC.
+- **Buzón interno** (CNST_001) — único canal de
+  notificación; no email.
+- **Audit** (CNST_025) — registro inmutable de eventos.
+
+Cualquier conversación, ADR, UC o diagrama del proyecto
+**debe usar este vocabulario** — no sus equivalentes
+genéricos. Cuando un nuevo término entra al dominio,
+agregarlo aquí.
+
+15.5 Evolución del modelo
+-------------------------
+
+DDD enfatiza que el dominio y el código **evolucionan
+juntos**. La regla operativa para IACT:
+
+1. Cuando aparece un requisito nuevo, **consultar este
+   documento**.
+2. Si el modelo encaja, **reutilizar las entidades
+   existentes**.
+3. Si no encaja, **evolucionar el modelo
+   explícitamente**: agregar la entidad / la relación /
+   la responsabilidad nueva en este documento, registrar
+   la decisión en un ADR del subdominio si es central.
+4. **No bifurcar** modelos paralelos. Un solo modelo de
+   dominio canónico para IACT.
+
+15.6 Diagrama colaborativo en tiempo real
+-----------------------------------------
+
+Una ventaja del enfoque diagramas-como-código (ver
+:doc:`diagramas-uml` "Historia de la diagramación"):
+durante una sesión con stakeholders, el equipo puede
+**dibujar el modelo en vivo** a medida que se discuten
+los conceptos. Con PlantUML + ``planttext.com`` o un
+editor con preview, el ciclo "discusión → boceto →
+revisión" toma minutos en vez de días.
+
+Esa práctica es lo que materializa el "momento de
+claridad colectiva" — todos viendo el mismo diagrama
+mientras se construye.
+
+15.7 Relación con el resto del documento
+----------------------------------------
+
+DDD no es una metodología aislada — se combina con las
+escuelas de § 13:
+
+- **Análisis clásico** (§ 13.1) provee la
+  categorización sistemática de conceptos del dominio
+  (cosas tangibles, eventos, organizaciones).
+- **Análisis basado en escenarios** (§ 13.2) refina el
+  modelo con casos concretos.
+- **RDD** (§ 13.3) asigna responsabilidades a las
+  entidades del dominio identificadas.
+
+Las **tarjetas CRC** (§ 14) son la herramienta operativa
+para sesiones colaborativas DDD; los **diagramas de
+clases UML** son el artefacto persistente del modelo.
+
+----
+
+16. Trazabilidad
 ================
 
 .. list-table::
