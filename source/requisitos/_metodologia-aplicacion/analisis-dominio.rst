@@ -2101,7 +2101,129 @@ Cuando el embrión esté estable y validado con
 stakeholders, integrarlo al diagrama consolidado de
 § 7 de este documento.
 
-15.12 Relación con el resto del documento
+15.12 Ejercicio: documentar tu propio dominio
+---------------------------------------------
+
+La obra citada cierra el capítulo de modelado con un
+ejercicio: **construir tu propio modelo de dominio**.
+Recomienda elegir entre cuatro opciones: una empresa
+ficticia (como Streamy), una empresa conocida real, una
+empresa donde se haya trabajado y que no tuviera modelo
+documentado, o un proyecto personal. Sugerencia: empezar
+con al menos **siete entidades** y mantener la elección
+a lo largo de los capítulos siguientes.
+
+El equivalente en IACT
+~~~~~~~~~~~~~~~~~~~~~~
+
+En este proyecto el ejercicio **ya está realizado** — el
+dominio elegido es **IACT** (call center IVR + analytics
++ supervisión ETL + RBAC granular). El modelo de dominio
+canónico vive en este cajón
+``_metodologia-aplicacion/`` y se materializa
+principalmente en este documento (``analisis-dominio.rst``)
+y en sus hermanos.
+
+Las **siete entidades mínimas** que el libro recomienda
+para empezar están desbordadamente cubiertas — el modelo
+IACT inventaría más de quince entidades canónicas
+distribuidas por el cluster del dominio (§ 11 de
+:doc:`agregacion-interfaces`):
+
+.. list-table::
+ :widths: 30 70
+ :header-rows: 1
+
+ * - Cluster
+   - Entidades canónicas
+ * - Auth + sesión
+   - ``Usuario``, ``Sesion``, ``IntentoLogin``,
+     ``ContadorThrottling``.
+ * - RBAC + SoD
+   - ``Funcion``, ``Grupo``, ``Permiso``, ``ReglaSoD``.
+ * - Reportería
+   - ``Reporte``, ``ReporteVolumen``,
+     ``ReporteAbandono``, ``ConfiguracionExport``,
+     ``TareaExport``, ``Filtro``.
+ * - Alertas
+   - ``Alerta``, ``UmbralAlerta``,
+     ``EvaluadorAlertas``, ``EstadoAlerta``.
+ * - ETL
+   - ``EjecucionETL``, ``VentanaETL``, ``ErrorETL``,
+     ``RegistroIngesta``.
+ * - Auditoría
+   - ``EventoAuditoria``, ``DetalleAuditoria``,
+     ``ConsultaAudit``.
+ * - Operacional
+   - ``Llamada``, ``Segmento``, ``Supervisor``.
+
+Cómo aplicar el ejercicio en este proyecto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El "ejercicio" en IACT no es construir un modelo desde
+cero — eso está hecho. La aplicación es **mantener y
+evolucionar** el modelo:
+
+1. Cuando aparezca un UC nuevo, **revisar** las
+   entidades de la tabla anterior antes de crear
+   nuevas.
+2. Si el UC introduce un concepto realmente nuevo,
+   **agregarlo** a este documento (§ 3 sustantivos →
+   clases, § 7 diagrama consolidado, § 8
+   responsabilidades).
+3. Si el cambio es central, registrar la decisión en
+   un **ADR del subdominio** correspondiente
+   (``.thyrox/context/decisions/``).
+4. Si una nueva relación entre entidades emerge,
+   aplicar la **receta progresiva de tres preguntas**
+   (§ 15.11) para clasificarla.
+5. Mantener el ``ubiquitous language`` (§ 15.4) — usar
+   el vocabulario del modelo en UCs, ADRs y commits.
+
+Para nuevos contribuidores
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Quien se incorpora al proyecto puede usar este cajón
+como **introducción al dominio**. La ruta recomendada:
+
+1. Leer la sección "Concepto: análisis del dominio" al
+   inicio de este documento.
+2. Recorrer §§ 3-7 para captar el modelo desde el
+   lenguaje natural.
+3. Pasar a §§ 15.7-15.11 para entender la metodología
+   DDD aplicada.
+4. Consultar :doc:`orientacion-objetos` para los seis
+   principios OOP en este dominio.
+5. Para detalles de relaciones, ver
+   :doc:`relaciones-uml` y
+   :doc:`agregacion-interfaces`.
+
+Continuidad con el resto de la documentación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro citado anuncia que cada capítulo siguiente
+**construye sobre el modelo de dominio** del primero.
+Para IACT, esa misma continuidad ya está materializada:
+
+- :doc:`casos-uso-especificacion` y
+  :doc:`casos-uso-diagramas` — UCs construidos sobre
+  las entidades del modelo.
+- :doc:`diagramas-secuencias` y
+  :doc:`diagramas-colaboraciones` — interacciones entre
+  esas mismas entidades.
+- :doc:`diagramas-estados` — ciclos de vida de
+  entidades como ``Sesion`` y ``Alerta``.
+- :doc:`diagramas-actividades` — flujos que recorren
+  varias entidades del modelo.
+- :doc:`diagramas-componentes` y
+  :doc:`diagramas-distribucion` — proyección física del
+  modelo en apps Django y nodos.
+
+El modelo del dominio es el **eje** sobre el que gira
+toda la documentación del cajón. Cualquier nuevo
+diagrama o UC debe **anclarse** en él.
+
+15.13 Relación con el resto del documento
 -----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
