@@ -1973,7 +1973,7 @@ Documentación Interna
   deployment
 - ``lineamientos_codigo.md`` (no migrado a source) -
   Estándares de código
-- ``checklist_desarrollo.md`` (no migrado a source) -
+- :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source) -
   Checklist completo
 
 Referencias Externas

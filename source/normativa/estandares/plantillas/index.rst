@@ -93,6 +93,21 @@ Plantillas por categoría
  tpl-std-estandares
  tpl-tst-pruebas
 
+.. toctree::
+ :maxdepth: 1
+ :caption: Diseño de software (HLD/LLD)
+
+ tpl-sad-arquitectura-software
+ tpl-srs-software-requirements-spec
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Release y Operaciones
+
+ tpl-release-plan-release-management
+ tpl-deployment-guide-deployment
+ tpl-troubleshooting-runbook
+
 ----
 
 Uso de plantillas

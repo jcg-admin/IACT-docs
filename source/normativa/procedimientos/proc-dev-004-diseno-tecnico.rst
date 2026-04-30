@@ -53,7 +53,7 @@ NO No usar para:
 ~~~~~~~~~~~~~~~~
 
 - Cambios triviales o refactoring sin impacto arquitectónico
-- Documentación de APIs (usar ``plantilla_api_reference.md``)
+- Documentación de APIs (usar :doc:`plantilla_api_reference </normativa/estandares/plantillas/tpl-api-documentacion-api>`)
 - Documentación de apps Django (usar ``plantilla_django_app.md``)
 - Bug fixes sin cambios de diseño
 

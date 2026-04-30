@@ -237,7 +237,7 @@ Usar checklist de QA:
      - Error 401
      - OK PASS
 
-Ver: ``checklist_testing.md`` (no migrado a source)
+Ver: :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
 
 3.3 Reportar Bugs
 ^^^^^^^^^^^^^^^^^
@@ -436,7 +436,7 @@ Medir y reportar:
 Recursos Relacionados
 ---------------------
 
-- ``checklist_testing.md`` (no migrado a source)
+- :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
 - :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 - `Procedimiento: Desarrollo
   Local <procedimiento_desarrollo_local.md>`__

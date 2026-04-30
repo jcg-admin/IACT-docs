@@ -24,9 +24,9 @@ Página padre
 Páginas hijas
 -------------
 
-- ```checklist_desarrollo.md`` <checklist_desarrollo.md>`__
-- ```checklist_testing.md`` <checklist_testing.md>`__
-- ```checklist_trazabilidad_requisitos.md`` <checklist_trazabilidad_requisitos.md>`__
+- `:doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` <checklist_desarrollo.md>`__
+- `:doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` <checklist_testing.md>`__
+- `:doc:`checklist_trazabilidad_requisitos </gestion/pm/checklists/checklist-trazabilidad-requisitos>` <checklist_trazabilidad_requisitos.md>`__
 
 Información clave
 -----------------
@@ -34,9 +34,9 @@ Información clave
 Recursos disponibles
 ~~~~~~~~~~~~~~~~~~~~
 
-- ``checklist_desarrollo.md``
-- ``checklist_testing.md``
-- ``checklist_trazabilidad_requisitos.md``
+- :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>`
+- :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>`
+- :doc:`checklist_trazabilidad_requisitos </gestion/pm/checklists/checklist-trazabilidad-requisitos>`
 
 Recomendaciones
 ~~~~~~~~~~~~~~~

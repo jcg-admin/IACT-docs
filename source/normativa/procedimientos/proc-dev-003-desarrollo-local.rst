@@ -183,7 +183,7 @@ Ejecutar checklist:
  git status
  git diff
 
-Ver: ``checklist_desarrollo.md`` (no migrado a source)
+Ver: :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
 
 8. Crear Pull Request
 ~~~~~~~~~~~~~~~~~~~~~
@@ -325,7 +325,7 @@ Recursos Relacionados
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - `Procedimiento: Gestión de
   Cambios <procedimiento_gestion_cambios.md>`__
-- ``checklist_desarrollo.md`` (no migrado a source)
+- :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
 - ``lineamientos_codigo.md`` (no migrado a source)
 - `Runbooks DevOps <../devops/runbooks/>`__
 

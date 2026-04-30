@@ -53,5 +53,6 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  :maxdepth: 1
 
  checklists/index
+ matrices/index
  planificacion-releases-frontend
  deployment-plan

@@ -398,8 +398,8 @@ Herramientas
 Recursos Relacionados
 ---------------------
 
-- ``checklist_desarrollo.md`` (no migrado a source)
-- ``checklist_testing.md`` (no migrado a source)
+- :doc:`checklist_desarrollo </gestion/pm/checklists/checklist-desarrollo>` (no migrado a source)
+- :doc:`checklist_testing </gestion/pm/checklists/checklist-testing>` (no migrado a source)
 - ``lineamientos_codigo.md`` (no migrado a source)
 - :doc:`Procedimiento: Aseguramiento de Calidad (QA) </normativa/procedimientos/proc-qa-004-qa>`
 - :doc:`Procedimiento: Release y Deployment </normativa/procedimientos/proc-devops-002-release>`
