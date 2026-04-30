@@ -115,6 +115,158 @@ ejemplos IACT.
 
 ----
 
+Preludio II — visualizar flujos de código
+=========================================
+
+El Preludio anterior planteó las secuencias como
+herramienta para **flujos de aplicación / usuario**.
+Las secuencias también sirven para un caso distinto:
+**entender flujos de código** entre clases o módulos.
+
+Aquí el lifeline ya no es un sistema o un componente
+físico — es una **clase** o un **objeto** del dominio.
+La pregunta que el diagrama responde cambia: en lugar
+de "cómo el navegador habla con el backend", el
+diagrama explica "cómo varias clases colaboran para
+ejecutar una operación concreta".
+
+Por qué importa diagramar a nivel de código
+-------------------------------------------
+
+El IDE muestra el código, sí, pero presenta dos
+limitaciones cuando se quiere entender una
+**colaboración** entre clases:
+
+- **Ruido contextual**: archivos abiertos, imports,
+  navegación entre símbolos. Un colega que aterriza
+  en un cluster desconocido se distrae con detalles
+  irrelevantes para la pregunta.
+- **No comunica intención**: el código muestra
+  *qué* se hace; el diagrama muestra *por qué* y
+  *en qué orden*.
+
+Para responder "cómo interactúan estas clases",
+una secuencia condensa la conversación en una imagen.
+Para responder "qué depende de qué", un diagrama de
+clases lo muestra mejor (ver :doc:`relaciones-uml`).
+
+Cuándo es buen momento para diagramar código en IACT
+----------------------------------------------------
+
+Casos típicos:
+
+- **Onboarding** a un cluster (RBAC, ETL,
+  alertería) donde el código tiene varios
+  niveles de indirección.
+- **Refactor planificado** — antes de tocar el
+  código, modelar el flujo actual para acordar el
+  flujo objetivo.
+- **Explicar a un colega** un comportamiento
+  particular en una sesión corta.
+- **PR review** cuando un cambio toca tres apps
+  Django y revisar el código línea a línea no
+  basta.
+- **Pago de deuda técnica** — al rediseñar
+  ``services.py`` que crece sin orden, una
+  secuencia exhibe los puntos donde el patrón
+  Facade o Strategy tiene sentido.
+
+En IACT esto se ve cuando un UC crece más allá de
+su intención original y los tests empiezan a
+necesitar fixtures complejos — señal de que el
+flujo del código merece un diagrama, primero como
+diagnóstico y luego como guía del refactor.
+
+Diferencias con el preludio anterior
+------------------------------------
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Aspecto
+   - Flujo de aplicación
+   - Flujo de código
+ * - Lifeline típico
+   - Sistema, container, app Django.
+   - Clase, módulo, objeto puntual.
+ * - Audiencia
+   - Mixta (PM, SRE, ingenieros).
+   - Ingenieros del dominio.
+ * - Granularidad
+   - Alta — pocos pasos por mensaje.
+   - Más fina — un mensaje puede ser una
+     llamada a un método.
+ * - Uso del autonumber
+   - Recomendable.
+   - Casi obligatorio — los pasos sirven
+     de referencia en revisiones.
+ * - Permanencia
+   - Documentación viva del UC.
+   - A menudo **snapshot** efímero del
+     análisis o del refactor.
+
+Diagramas de clases — el complemento natural
+--------------------------------------------
+
+Las secuencias responden "cómo interactúan"; los
+**diagramas de clases** responden "qué depende de
+qué". Para flujos de código las dos vistas
+trabajan juntas:
+
+- **Secuencia** — orden temporal de mensajes,
+  activaciones, bifurcaciones.
+- **Diagrama de clases** — atributos, métodos,
+  relaciones de herencia / composición /
+  asociación, dependencias.
+
+El cajón ya cubre los diagramas de clases en
+profundidad — ver :doc:`relaciones-uml` (taxonomía
+de relaciones, herencia con sus cuatro tipos,
+comparativas) y :doc:`agregacion-interfaces`
+(composición, agregación e interfaces).
+
+Para refactor / pago de deuda técnica IACT
+------------------------------------------
+
+Patrón operativo recomendado cuando se va a
+refactorizar código de una app Django:
+
+1. **Modelar el flujo actual** con una secuencia —
+   un snapshot del estado pre-refactor.
+2. **Modelar el diagrama de clases actual** del
+   cluster afectado — un snapshot de la
+   estructura.
+3. **Diseñar el flujo objetivo** y la estructura
+   objetivo en versiones nuevas de los dos
+   diagramas.
+4. **Comparar** los dos pares: lo que cambia, lo
+   que sobrevive, lo que se elimina.
+5. **Convertir el delta en task plan** en el WP
+   correspondiente.
+
+Esa práctica reemplaza la conversación
+"refactoremos esto" por una propuesta concreta y
+discutible. El delta entre los dos snapshots es
+también la justificación del WP en revisiones
+posteriores.
+
+Cierre
+------
+
+Las secciones siguientes ya cubren la sintaxis
+detallada que sirve tanto para flujos de
+aplicación como para flujos de código.
+Cuando el lifeline sea una clase, valen las
+mismas reglas: declarar participantes
+explícitamente, etiquetar mensajes con la
+operación, separar sync y async, agrupar
+bifurcaciones con ``alt``, anotar restricciones
+con ``note``, y usar ``autonumber`` para
+referenciar pasos en revisiones.
+
+----
+
 1. Comunicación entre objetos en el tiempo
 ==========================================
 
