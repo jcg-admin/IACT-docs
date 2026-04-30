@@ -1624,8 +1624,157 @@ agregación, herencia) **se ganan** cuando el dominio lo
 exige — ver § 13 de :doc:`relaciones-uml` "Comparativa
 por contexto" y la advertencia de Rumbaugh.
 
-15.9 Relación con el resto del documento
-----------------------------------------
+15.9 Pasar de asociación a composición
+--------------------------------------
+
+Una vez documentada la primera relación (§ 15.8) en
+forma de asociación, el siguiente paso es identificar
+**otras entidades relacionadas con la entidad ancla** y
+preguntarse: *¿podrían existir sin ella?*
+
+Si la respuesta es **no**, la relación es **composición**,
+no asociación.
+
+Ejemplo del libro citado
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para la entidad ``Title`` del dominio Streamy:
+
+- ``Title`` ↔ ``Genre`` — **asociación** (un género
+  existe aunque no tenga títulos asignados todavía).
+- ``Title`` ↔ ``Season`` — **composición** (no tiene
+  sentido tener una temporada sin el título al que
+  pertenece).
+- ``Title`` ↔ ``Review`` — **composición** (la reseña
+  pertenece al título; eliminado el título, las reseñas
+  ya no tienen referencia).
+
+Y un nivel más:
+
+- ``Season`` ↔ ``Episode`` — **composición** (un episodio
+  no tiene sentido sin pertenecer a una temporada).
+
+Lectura: el diamante (``*--`` en Mermaid, equivalente a
+``*--`` en PlantUML) indica composición. El lado del
+diamante señala al **padre** (poseedor); el otro extremo
+es el **hijo** que no puede existir sin él.
+
+Equivalente IACT — ``EjecucionETL`` y sus partes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicada al dominio IACT, la entidad ``EjecucionETL``
+juega el rol de ``Title``: tiene relaciones de distinto
+tipo con sus vecinas.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   class EjecucionETL
+   class VentanaETL
+   class Llamada
+   class ErrorETL
+   class RegistroIngesta
+   class DetalleError
+
+   VentanaETL "1" -- "*" EjecucionETL : contiene
+   EjecucionETL "1" *-- "*" ErrorETL : produce
+   EjecucionETL "1" *-- "*" RegistroIngesta : produce
+   EjecucionETL "*" -- "*" Llamada : carga
+   ErrorETL "1" *-- "*" DetalleError : detalla
+   @enduml
+
+Lectura del diagrama:
+
+- ``VentanaETL`` ↔ ``EjecucionETL`` — **asociación**.
+  Las ventanas existen como conceptos del calendario
+  aunque no haya ejecuciones aún.
+- ``EjecucionETL`` ↔ ``Llamada`` — **asociación**. Las
+  llamadas existen independientemente; una ejecución
+  las **carga**, no las posee. Eliminada la ejecución
+  (en el sentido del dominio), las llamadas siguen.
+- ``EjecucionETL`` ↔ ``ErrorETL`` — **composición**. Un
+  error solo tiene sentido si pertenece a una ejecución;
+  invalidada la ejecución, el error como entidad de
+  dominio desaparece (su rastro en ``audit_log``
+  permanece, pero el objeto del dominio no).
+- ``EjecucionETL`` ↔ ``RegistroIngesta`` — **composición**.
+  Idéntica lógica: los registros de ingesta son partes
+  internas de la ejecución.
+- ``ErrorETL`` ↔ ``DetalleError`` — **composición** en
+  segundo nivel. Análogo al ``Season`` ↔ ``Episode``
+  del libro: el detalle no existe sin el error.
+
+Sintaxis PlantUML para composición
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML usa ``*--`` con el diamante del lado del padre,
+exactamente igual que la convención Mermaid presentada
+en el libro:
+
+.. code-block:: plantuml
+
+   EjecucionETL "1" *-- "*" ErrorETL : produce
+
+- ``"1"`` y ``"*"`` — multiplicidad (una ejecución
+  produce muchos errores potenciales).
+- ``*--`` — composición; el diamante se dibuja del lado
+  del padre (``EjecucionETL``).
+- ``: produce`` — etiqueta opcional de la relación.
+
+Convención de dirección
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Aunque PlantUML acepta ``*--`` y ``--*``, conviene
+escribir **siempre el padre a la izquierda** y leer de
+izquierda a derecha. Reduce carga cognitiva y hace los
+diagramas comparables. Esta es la misma recomendación
+del autor citado para Mermaid.
+
+DDD es opinionable
+~~~~~~~~~~~~~~~~~~
+
+DDD es **opinable**: el modelo presentado aquí refleja
+una lectura razonable del dominio IACT, pero otro equipo
+podría modelarlo distinto y seguir siendo válido. Lo
+importante no es la "respuesta única" — es aplicar
+**consistentemente** los criterios:
+
+1. ¿Existe la parte sin el todo? Sí → asociación. No →
+   composición.
+2. ¿La eliminación del todo destruye la parte como
+   entidad del dominio? Sí → composición. No →
+   asociación.
+3. ¿Hay un ownership claro? Sí → composición. No →
+   asociación.
+
+Para IACT, la pregunta operativa adicional es:
+*¿la parte tiene huella propia en* ``audit_log`` *que
+sobrevive al todo?* Si sí, considerar agregación
+(:doc:`agregacion-interfaces` § 2). Si no, composición
+(§ 3 del mismo documento).
+
+Resumen del progreso del modelo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tras § 15.7 (entidades importantes), § 15.8 (primera
+relación / asociación) y § 15.9 (composiciones), el
+modelo de dominio IACT cubre dos de los tres tipos de
+relaciones de colaboración:
+
+- **Asociación** — entidades sueltas conectadas por uso.
+- **Composición** — entidades fuertemente atadas a un
+  contenedor.
+
+Falta el tipo intermedio: **agregación**. La introduce
+:doc:`agregacion-interfaces` § 2 y los ejemplos
+canónicos IACT son ``Grupo`` ◇ ``Funcion`` y
+``Grupo`` ◇ ``Usuario``. La progresión completa de
+relaciones de colaboración (las cuatro) está en § 1 de
+:doc:`relaciones-uml`.
+
+15.10 Relación con el resto del documento
+-----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
 escuelas de § 13:
