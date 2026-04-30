@@ -523,7 +523,229 @@ trabajo futuro recomendado tras el cierre de los 97 UCs.
 
 ----
 
-12. Trazabilidad
+12. JEDUF — Just Enough Design Up Front
+=======================================
+
+Cuánto diseño completar **antes** de empezar a codificar
+es una pregunta operativa para este plan: 97 UCs es un
+alcance grande y el riesgo de planificar de más (BDUF) o
+de menos ("desarrollo de vaqueros") es real.
+
+12.1 Las dos posiciones extremas
+--------------------------------
+
+Tres factores empujan hacia **diseñar todo antes**:
+
+1. Los cambios de diseño son más difíciles y costosos
+   una vez que se ha escrito código.
+2. Arquitectos y diseñadores suelen estar más calificados
+   para tomar decisiones; concentrar el trabajo de
+   diseño en pocas personas evita retrabajo masivo.
+3. Algunas decisiones de diseño generales son requisito
+   previo para cualquier desarrollo paralelo.
+
+Si solo se consideran estos tres factores, se llega a
+**Big Design Up Front (BDUF)**: todo el diseño en
+modelos y documentos antes de escribir una línea de
+código.
+
+Siete factores empujan hacia **diseñar a medida que se
+codifica**:
+
+4. La sabiduría de un diseño solo se valida con software
+   funcionando.
+5. Trabajo posterior se beneficia de la experiencia y
+   habilidades del equipo más amplio.
+6. El equipo aprende sobre el problema mientras avanza —
+   decisiones postergadas aprovechan ese aprendizaje.
+7. Las decisiones tempranas se basan en supuestos
+   erróneos o condiciones que cambian.
+8. El diseño temprano tiende a agregar funcionalidades
+   que luego resultan innecesarias (de ahí el principio
+   ágil **YAGNI** — *You Aren't Gonna Need It*).
+9. Los desarrolladores se involucran más cuando tienen
+   autonomía para tomar algunas decisiones de diseño.
+10. Si el diseño crece sin que ningún elemento se valide
+    en código, la cantidad de elementos no válidos
+    incorporados puede ser demasiado para corregir.
+
+Si solo se consideran los siete últimos, se cae en
+**desarrollo de vaqueros**: disparar desde la cadera sin
+arquitectura inicial.
+
+12.2 La síntesis: JEDUF
+-----------------------
+
+**JEDUF (Just Enough Design Up Front)** equilibra ambos
+extremos: hacer **el suficiente** trabajo de diseño
+temprano para empezar bien, pero permitir que el diseño
+completo emerja a medida que el trabajo avanza.
+
+Este equilibrio se basa en la observación de que algunos
+aspectos emergerán naturalmente y la capacidad de
+respuesta al cambio es más valiosa que un plan detallado.
+
+12.3 Cinco áreas de arquitectura inicial
+----------------------------------------
+
+Las primeras etapas del diseño se llaman *arquitectura*.
+Cuando se aborda la arquitectura de un sistema hay al
+menos cinco áreas relacionadas que tratar — **al
+mínimo necesario para empezar**, sin caer en exceso de
+detalle:
+
+1. **Información** — ¿qué entidades/objetos principales
+   debe gestionar el sistema y cómo se identifican?
+
+   En IACT: ``Usuario``, ``Sesion``, ``Permiso``,
+   ``Llamada``, ``EjecucionETL``, ``Reporte``,
+   ``Alerta``, ``EventoAuditoria`` (ver
+   :doc:`analisis-dominio`).
+2. **Funcional** — ¿qué funciones de negocio realiza el
+   sistema, cómo se relacionan entre sí y cómo conectan
+   con funciones externas al alcance?
+
+   En IACT: 9 módulos UC (AUTH, USR, ACC, PERM, RPT,
+   ALR, PIP, AUD, LOG) con sus 42 funciones atómicas y
+   los enganches con LDAP, BD operativa e IVR.
+3. **Interfaz de usuario** — ¿cómo navegará el usuario,
+   cómo se verá el sistema, qué controles especiales
+   pueden ser necesarios?
+
+   En IACT: panel del supervisor en intranet sobre
+   Apache + bundle React; sin canal email
+   (CNST_001 — buzón interno).
+4. **Tecnología / Infraestructura** — ¿qué tecnologías
+   utilizará el proyecto, qué función desempeña cada
+   una, sobre qué infraestructura corre, qué
+   herramientas de desarrollo se usan?
+
+   En IACT: Vagrant + Apache + ``mod_wsgi`` + Django +
+   MySQL + Redis (ADR_DEVOPS_001). **Sin** Docker, K8s,
+   Nginx, Gunicorn, CDN, multi-región.
+5. **Software** — ¿qué módulos se escribirán y cómo se
+   relacionan?
+
+   En IACT: las apps Django ``auth_app``, ``perm_app``,
+   ``rpt_app``, ``alr_app``, ``pip_app``, ``aud_app``,
+   ``log_app`` y los contratos entre ellas
+   (:doc:`diagramas-componentes`).
+
+Cada área se aborda **al nivel suficiente para arrancar**,
+no al nivel definitivo.
+
+12.4 Pista arquitectónica
+-------------------------
+
+Aun con arquitectura inicial, el equipo puede necesitar
+**períodos de trabajo arquitectónico concentrado** durante
+el desarrollo — práctica conocida como *extender la pista
+arquitectónica*. La idea: la arquitectura sostiene la
+funcionalidad; conforme la funcionalidad se acerca al
+final de la pista existente, hay que dedicar recursos a
+construir más pista para que el trabajo siga fluyendo.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+- **UI crítica para el éxito** → dedicar más diseño
+  inicial a la vista del supervisor (UC_RPT,
+  UC_ALR).
+- **Módulos que pueden evolucionar** → responder
+  inicialmente de forma general (apps Django con
+  ``services.py`` mínimo); refinar al construir cada
+  UC.
+- **Restricciones inviolables** (CNST_001, CNST_002,
+  CNST_006/007/008, CNST_025, CNST_030) → tratarlas
+  como pista arquitectónica fija desde el inicio; no se
+  postergan ni se "descubrirán mejor".
+
+Cuándo extender la pista
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Señales en este proyecto:
+
+- Un nuevo cluster de UCs (ver § 11 de
+  :doc:`agregacion-interfaces`) requiere una interfaz
+  que no existe → trabajo arquitectónico antes de
+  redactar los UCs.
+- Una restricción nueva entra en el alcance (regulación,
+  política interna) → revisar las cinco áreas para ver
+  qué cambia.
+- El task plan empieza a generar PRs que tocan ≥ 3 apps
+  Django simultáneamente → señal de acoplamiento alto;
+  pausar y refactorizar.
+
+12.5 Citas de referencia
+------------------------
+
+Tres citas que enmarcan el equilibrio:
+
+   *Necesitamos adoptar la actitud de que la estructura
+   interna de un sistema requerirá una mejora continua a
+   medida que el sistema evoluciona. La refactorización,
+   es decir, mejorar el diseño a medida que se desarrolla
+   el sistema, no es solo para el software comercial. Sin
+   una mejora continua, cualquier sistema de software se
+   verá afectado.*
+   — Mary y Tom Poppendieck,
+   *Lean Software Development: An Agile Toolkit*, 2003.
+
+   *Los prototipos y la creación de prototipos no son
+   sustitutos del análisis y el diseño, ni excusas para
+   el pensamiento descuidado.*
+   — Larry Constantine y Lucy Lockwood,
+   *Software for Use*, 1999.
+
+   *Invariablemente se descubre que un sistema complejo
+   que funciona ha evolucionado a partir de un sistema
+   simple que funcionaba. Un sistema complejo diseñado
+   desde cero nunca funciona y no se puede reparar para
+   que funcione. Hay que empezar de nuevo, empezando por
+   un sistema sencillo que funcione.*
+   — John Gall, *Systemantics*, 1975 (Ley de Gall).
+
+12.6 Aplicación a este plan
+---------------------------
+
+JEDUF aplicado al plan de los 97 UCs:
+
+- **Arranque (BDUF mínimo)** — núcleo de auth + sesión +
+  audit + reportería base. Aprox. 4 áreas resueltas a
+  nivel arquitectónico antes del primer UC.
+- **Iteración (diseño emergente)** — cada UC introduce
+  responsabilidades nuevas que pueden requerir extender
+  la pista (refactorizar interfaces, ajustar cluster).
+- **Cierre (consolidación)** — DOC-24/25/26 (clases
+  consolidadas, secuencias críticas, componentes y
+  distribución) absorben el aprendizaje acumulado y
+  alimentan el SAD futuro (§ 11).
+
+Este plan **no es BDUF**: las plantillas y diagramas de
+:doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
+fijan estructura mínima común sin pretender prediseñar
+cada UC.
+
+Nota sobre documentación final
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Jack W. Reeves, en *What is Software Design?* (1992),
+argumentó que la única documentación que realmente
+satisface los criterios de un diseño de ingeniería son
+**los listados de código fuente**: el conjunto completo
+de archivos que hacen funcionar el programa, incluyendo
+estructura de carpetas, dependencias, nombres
+auto-documentados y patrones implementados. Este plan no
+adopta esa postura como exclusiva — los UCs y diagramas
+son documentación de diseño valiosa por sí mismos — pero
+la observación es relevante: la documentación que **no se
+mantiene en sincronía con el código** pierde valor con
+el tiempo y se convierte en lava (ver § 13 de
+:doc:`orientacion-objetos`).
+
+----
+
+13. Trazabilidad
 ================
 
 .. list-table::
