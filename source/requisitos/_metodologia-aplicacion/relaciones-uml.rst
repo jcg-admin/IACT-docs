@@ -3095,6 +3095,556 @@ Política IACT — diagramas de clases para refactor
    (:doc:`agregacion-interfaces`,
    :doc:`patrones-diseno`).
 
+17.1 Atributos y métodos — sintaxis para code-level
+---------------------------------------------------
+
+El modelado de dominio (§§ 3-7 de
+:doc:`analisis-dominio`) describe clases por
+**nombre y relación** — los atributos y métodos no
+suelen exponerse en detalle. En cambio, para
+refactor o diseño de código, **necesitamos
+mostrarlos** con su tipo y visibilidad.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML usa una sintaxis declarativa para clases,
+con marcadores de visibilidad estándar UML:
+
+.. code-block:: plantuml
+
+   class NombreClase {
+     - atributo_privado : Tipo
+     # atributo_protegido : Tipo
+     + atributo_publico : Tipo
+     ~ atributo_paquete : Tipo
+     --
+     + metodo_publico(param : Tipo) : Retorno
+     - metodo_privado() : Retorno
+     {static} + metodo_estatico() : Retorno
+     {abstract} + metodo_abstracto() : Retorno
+   }
+
+Marcadores de visibilidad:
+
+.. list-table::
+ :widths: 20 25 55
+ :header-rows: 1
+
+ * - Símbolo
+   - Visibilidad
+   - Significado
+ * - ``-``
+   - Privada
+   - Solo accesible dentro de la propia
+     clase.
+ * - ``+``
+   - Pública
+   - Accesible desde cualquier consumidor.
+ * - ``#``
+   - Protegida
+   - Accesible desde subclases.
+ * - ``~``
+   - Paquete / package-private
+   - Accesible desde el mismo paquete o
+     módulo.
+
+Marcadores adicionales:
+
+- **``{static}``** — atributo o método de clase
+  (no de instancia).
+- **``{abstract}``** — método sin implementación;
+  obliga a las subclases a definirlo.
+- **``--``** dentro del bloque ``{ }`` separa el
+  bloque de atributos del bloque de métodos.
+
+Equivalencia con la sintaxis Mermaid del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML y Mermaid usan los mismos símbolos para
+visibilidad (``-``, ``+``, ``#``, ``~``). La
+diferencia principal está en cómo se declara el
+diagrama (``classDiagram`` vs
+``@startuml``...``@enduml``) y en algunos
+detalles de sintaxis (PlantUML usa ``:`` para
+separar nombre de tipo; Mermaid los pone juntos
+sin separador o con espacio).
+
+Convención IACT para code-level
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Atributos primero, métodos después** —
+   ``--`` separa los dos bloques.
+2. **Constructor primero** entre los métodos,
+   seguido por métodos públicos, finalmente
+   privados.
+3. **Tipos explícitos** en parámetros y
+   retornos. ``Tipo`` para Python ya no es
+   opcional al diagramar — el lector debe poder
+   inferir contratos.
+4. **Visibilidad explícita** — en Python no hay
+   ``private`` real, pero la convención
+   ``_atributo`` indica privado y debe marcarse
+   con ``-`` en el diagrama.
+5. **Generics** se expresan con ``<...>`` en
+   PlantUML: ``List<Reporte>``, ``Dict<str, int>``.
+
+Ejemplo IACT — snapshot pre-refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Snapshot de ``ExportarReporteFacade`` y sus
+dependencias antes de un hipotético refactor:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Snapshot pre-refactor — ExportarReporteFacade
+
+   class ExportarReporteFacade {
+     - _perm : SecRules
+     - _rpt : Reporte
+     - _worker : Worker
+     - _audit : Bus
+     - _notify : Buzon
+     --
+     + __init__(perm : SecRules, rpt : Reporte, \
+       worker : Worker, audit : Bus, notify : Buzon)
+     + ejecutar(user : Usuario, cfg : ConfigExport) : TareaId
+     - _validar_filtros(cfg : ConfigExport) : bool
+     - _disparar_audit(user : Usuario, tarea : TareaId)
+     - _disparar_notify(cfg : ConfigExport, tarea : TareaId)
+   }
+
+   class SecRules {
+     + verificar(user : Usuario, fn_id : str) : bool
+   }
+
+   class Reporte {
+     - _filtros : List<Filtro>
+     --
+     + cuota_disponible(user : Usuario) : bool
+     + validar_filtro(f : Filtro) : bool
+   }
+
+   class Worker {
+     + encolar_tarea(cfg : ConfigExport) : TareaId
+   }
+
+   class Bus {
+     {static} + publicar(evento : Evento)
+   }
+
+   class Buzon {
+     + notificar_buzon(destinatarios : List<UserId>, \
+       mensaje : str)
+   }
+
+   ExportarReporteFacade --> SecRules
+   ExportarReporteFacade --> Reporte
+   ExportarReporteFacade --> Worker
+   ExportarReporteFacade --> Bus
+   ExportarReporteFacade --> Buzon
+   @enduml
+
+Lectura del snapshot
+~~~~~~~~~~~~~~~~~~~~
+
+- **Cinco dependencias** del facade — todas
+  inyectadas por constructor (``__init__``).
+- **Atributos privados** con prefijo ``_`` y
+  marcador ``-``.
+- **Constructor expone los tipos** de cada
+  inyección — los lectores y los tests pueden
+  inferir el contrato.
+- **Métodos privados** (``_validar_filtros``,
+  ``_disparar_audit``, ``_disparar_notify``)
+  marcados con ``-``: son helpers internos del
+  facade.
+- **``Bus.publicar``** marcado como
+  ``{static}`` — el bus se invoca como singleton.
+- **``ExportarReporteFacade --> X``** indica
+  dependencia (asociación dirigida) hacia cada
+  colaborador.
+
+Lo que el snapshot exhibe para el refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A simple vista, el diagrama muestra puntos
+discutibles:
+
+- **Cinco dependencias inyectadas** en una sola
+  clase — alta superficie de testing. Posible
+  refactor: separar la responsabilidad de audit
+  + notify (composición lateral) del flujo
+  principal.
+- **``_disparar_audit`` y ``_disparar_notify``**
+  como métodos privados — candidatos a
+  extraerse a un Decorator que envuelva el
+  ``ejecutar`` (ver § 7 de
+  :doc:`patrones-diseno`).
+- **``Bus`` estático** — acoplamiento al
+  singleton; podría inyectarse como abstracción
+  ``IBus`` para testabilidad.
+
+Estos hallazgos son **diagnóstico**; cada uno se
+discute con el equipo antes de actuar. El
+diagrama es la base de la conversación, no la
+decisión.
+
+Política IACT — atributos y métodos en class diagrams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Visibilidad explícita** en cada miembro —
+   no asumir defaults.
+2. **Tipos explícitos** en parámetros y
+   retornos; el diagrama es un contrato
+   visual.
+3. **Constructor primero** entre los métodos
+   públicos, seguido por API pública en orden
+   lógico, finalmente privados.
+4. **Solo los miembros relevantes** al objetivo
+   del diagrama — no necesariamente todos.
+   Mostrar ``__str__`` y ``__hash__`` satura;
+   omitirlos salvo que el refactor los toque.
+5. **Marcar ``{static}`` y ``{abstract}``** cuando
+   apliquen — la naturaleza del miembro afecta
+   el diseño.
+6. **Generics con ``<...>``** — ``List<Reporte>``,
+   ``Dict<str, int>``.
+
+17.2 Dependencias entre clases — relación ``depende de``
+--------------------------------------------------------
+
+Las relaciones del modelado de dominio
+(asociación, agregación, composición, herencia)
+son útiles para describir el dominio, pero al
+**nivel de código** la relación más común es
+distinta: una clase **depende de** otra para
+funcionar.
+
+A nivel de implementación, "dependencia" significa
+una de tres cosas:
+
+- La clase **recibe** la dependencia por
+  constructor (inyección).
+- La clase **importa** y referencia la clase
+  dependida.
+- La clase **invoca** métodos estáticos de la
+  clase dependida.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML expresa la dependencia con flecha
+**punteada** y cabeza abierta:
+
+.. code-block:: plantuml
+
+   ClaseA ..> ClaseB : depende de
+
+- ``..>`` — línea punteada con cabeza simple
+  (dependencia / uso).
+- La flecha **apunta** al dependido (de quien se
+  depende).
+- La etiqueta describe la naturaleza
+  (``depende de``, ``hereda de``, ``usa``,
+  ``implementa``).
+
+Etiquetar siempre — incluso si la flecha lo
+sugiere
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aunque las flechas UML son "auto-explicativas"
+para quien conoce la notación, **no todos en una
+revisión de PR la conocen**. Etiquetar la flecha
+con texto en lenguaje del dominio cierra la
+ambigüedad para audiencias mixtas.
+
+Convenciones de etiqueta IACT:
+
+- ``depende de`` — caso general.
+- ``hereda de`` — herencia (preferida sobre
+  ``--|>`` cuando se quiere reforzar).
+- ``implementa`` — realización de interfaz.
+- ``usa`` — dependencia transitoria (parámetro
+  o variable local).
+- ``inyecta`` — dependencia recibida por
+  constructor.
+
+Aplicación a IACT — snapshot de dependencias
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Snapshot del facade y sus dependencias
+inyectadas, complementando § 17.1:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Snapshot dependencias — ExportarReporteFacade
+
+   class ExportarReporteFacade
+   class SecRules
+   class Reporte
+   class Worker
+   class Bus
+   class Buzon
+
+   ExportarReporteFacade ..> SecRules : inyecta
+   ExportarReporteFacade ..> Reporte : inyecta
+   ExportarReporteFacade ..> Worker : inyecta
+   ExportarReporteFacade ..> Bus : usa (singleton)
+   ExportarReporteFacade ..> Buzon : inyecta
+   @enduml
+
+Lectura del snapshot:
+
+- **Cuatro dependencias inyectadas** y una
+  **acoplada al singleton** (``Bus``).
+- La asimetría entre etiquetas (``inyecta`` vs
+  ``usa singleton``) **resalta** un punto
+  discutible: ¿deberíamos inyectar el bus también
+  para mejorar testabilidad?
+- El diagrama **no necesita atributos ni
+  métodos** para esta pregunta — solo la red de
+  dependencias.
+
+Combinar snapshots — clases + dependencias
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El diagrama de clases más útil para refactor
+**combina** el detalle de § 17.1 (atributos y
+métodos) con las dependencias de § 17.2 en una
+sola vista. Esa combinación responde de un
+vistazo:
+
+- ¿Qué hace cada clase?
+  (atributos + métodos)
+- ¿Quién depende de quién?
+  (flechas)
+- ¿La inyección está ordenada?
+  (constructor visible + flechas)
+- ¿Hay puntos discutibles?
+  (mezcla de inyectado vs estático,
+  acoplamiento alto, métodos privados que
+  podrían extraerse)
+
+Un único diagrama bien construido sirve para
+discutir todo el cluster en una reunión.
+
+Sequence diagram + class diagram — par
+diagnóstico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando se planifica un refactor importante, el
+**par** sequence + class trabaja mejor que
+cualquiera de los dos por separado:
+
+- **Sequence diagram** (ver Preludio II de
+  :doc:`diagramas-secuencias`) — exhibe el
+  **flujo temporal** y las **interacciones**.
+- **Class diagram** (esta sección) — exhibe la
+  **estructura** y las **dependencias**.
+
+Ambos como **snapshots fechados** del estado
+pre-refactor; la propuesta del refactor se
+discute frente a ese par. Tras implementar, el
+par snapshot post-refactor cierra la
+trazabilidad — el delta entre los pares es la
+evidencia del cambio.
+
+Política IACT — dependencias en class diagrams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Etiquetar siempre** la dependencia, aunque
+   la flecha la sugiera.
+2. **``..>``** (línea punteada) para dependencia
+   / uso; ``-->`` (línea continua) reservada para
+   asociaciones estructurales.
+3. **Distinguir inyectado vs estático** en las
+   etiquetas (``inyecta``, ``usa singleton``);
+   la asimetría revela puntos de refactor.
+4. **Acompañar con sequence diagram** cuando se
+   discuta un refactor de mayor alcance.
+5. **Pares pre/post** como evidencia de cambio
+   en el WP correspondiente.
+
+17.3 Refactorizar a partir del diagrama
+---------------------------------------
+
+Una observación recurrente en la práctica: al
+**dibujar** un cluster con detalle de atributos,
+métodos y dependencias (§§ 17.1 + 17.2), aparecen
+**puntos de mejora** que no se notaban leyendo el
+código. El diagrama actúa como **lente
+diagnóstico** porque obliga a hacer explícito lo
+que el código mantenía implícito.
+
+Esto pasa incluso en clusters pequeños — el
+ejercicio rara vez es estéril. Cuanto más se
+practica, más rápido aparecen los hallazgos.
+
+Cómo encarar el refactor desde el diagrama
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Recomendación operativa, alineada con el patrón
+de § Preludio II de :doc:`diagramas-secuencias`:
+
+1. **Dibujar el snapshot pre-refactor** con
+   atributos, métodos y dependencias visibles.
+2. **Hacer una pasada de inspección** —
+   mirar el diagrama y anotar lo que parece
+   discutible (no actuar todavía).
+3. **Listar los hallazgos** — uno por línea, sin
+   juzgar.
+4. **Priorizar** por impacto vs costo de cambio.
+5. **Diseñar el snapshot post-refactor** con los
+   hallazgos prioritarios aplicados.
+6. **Comparar el par** y convertir el delta en
+   un task plan dentro del WP.
+
+Tipos de hallazgo frecuentes en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Lo que un diagrama típicamente revela:
+
+.. list-table::
+ :widths: 32 36 32
+ :header-rows: 1
+
+ * - Hallazgo
+   - Síntoma visual
+   - Refactor candidato
+ * - Acoplamiento alto
+   - Una clase con muchas flechas
+     ``..>`` saliendo.
+   - Extraer un Facade que orquesta
+     subgrupos; ver § 6 de
+     :doc:`patrones-diseno`.
+ * - Singleton acoplado
+   - Flecha etiquetada
+     ``usa singleton``.
+   - Inyectar como abstracción
+     ``IBus``, ``ILogger``; ver § 20 de
+     :doc:`orientacion-objetos` (DIP).
+ * - Métodos privados extensos
+   - Bloque privado más grande que
+     el público.
+   - Extraer a clase auxiliar o
+     Strategy; § 9 de :doc:`patrones-diseno`.
+ * - Atributos heterogéneos
+   - Atributos que no comparten
+     dominio temático.
+   - Violación SRP; partir la
+     clase por responsabilidad
+     (§ 17 de :doc:`orientacion-objetos`).
+ * - Dependencias cíclicas
+   - Dos clases con flechas
+     mutuas (``..>`` ida y vuelta).
+   - Romper el ciclo con
+     interfaz intermedia (DIP).
+ * - Constructor con muchos
+     parámetros
+   - Lista de constructor que
+     crece más allá de 4-5.
+   - Object Builder o agrupación
+     en value objects; ver § 4 de
+     :doc:`patrones-diseno`.
+ * - Métodos públicos expuestos
+     sin uso externo
+   - Método ``+`` que solo se
+     invoca internamente.
+   - Bajar visibilidad a ``-`` o
+     ``#``.
+
+Disciplina al refactorizar
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **No actuar al primer hallazgo** — primero
+  inventario, luego prioridad, luego diseño.
+- **No mezclar muchos refactors** en un solo PR
+  — uno por intención, salvo que estén
+  íntimamente relacionados.
+- **El diagrama post-refactor sirve como
+  contrato** del PR; la revisión compara
+  pre/post.
+- **Tests primero** cuando se cambie estructura
+  — el diagrama no garantiza correctitud, los
+  tests sí.
+
+Casos típicos en IACT
+~~~~~~~~~~~~~~~~~~~~~
+
+Refactors recurrentes que han aparecido en este
+cajón:
+
+- **Facade que crece** → descomponer en
+  Composite + Decorator (§ 6 + § 7 de
+  :doc:`patrones-diseno`).
+- **Singleton ``Bus`` acoplado** → introducir
+  abstracción y mover a inyección (DIP).
+- **Vistas Django con lógica de negocio** →
+  delegar a ``services.py`` y dejar la vista
+  como controller delgado (§ 17 de
+  :doc:`orientacion-objetos`).
+- **Métodos polimórficos disfrazados de
+  if-elseif** → reemplazar por Strategy
+  (§ 9 de :doc:`patrones-diseno`).
+- **Dependencias cíclicas entre apps Django**
+  → extraer interfaz a un módulo común
+  (DIP + ADP).
+
+Cada uno parte de un diagrama snapshot, se
+discute con el equipo, y termina en un WP con
+delta documentado.
+
+Lo que el diagrama no resuelve
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Importante para mantener expectativas
+calibradas:
+
+- **El diagrama no decide por sí solo** qué
+  refactorizar. Sugiere puntos discutibles; la
+  decisión es del equipo.
+- **El diagrama no garantiza correctitud** del
+  refactor. Tests + revisión humana son los que
+  certifican el cambio.
+- **El diagrama envejece rápido** al ritmo del
+  refactor. Un diagrama post-refactor de hoy
+  puede ser pre-refactor del próximo. Por eso la
+  política IACT lo trata como **snapshot** con
+  fecha y contexto.
+
+Política IACT para refactor desde diagramas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Diagrama snapshot pre y post** son
+   artefactos del WP de refactor — viven con el
+   WP, no en el cajón principal.
+2. **Hallazgos listados explícitamente** antes
+   de actuar — evita actuar por intuición.
+3. **Un refactor por PR** salvo correlación
+   directa entre cambios.
+4. **Tests existentes deben pasar** antes y
+   después; cambios al test plan son parte del
+   WP.
+5. **El delta del par snapshot** se convierte en
+   task plan T-NNN del WP — trazabilidad clara
+   desde diagnóstico hasta tareas atómicas.
+
+Próximas subsecciones potenciales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Composición e inyección de dependencias
+  visualizadas como diagrama de clases.
+- Detección de antipatrones desde el diagrama
+  (acoplamiento estático, dependencias
+  cíclicas).
+- Casos resueltos: ejemplos pre/post de
+  refactors completados en IACT.
+
 ----
 
 18. Trazabilidad
