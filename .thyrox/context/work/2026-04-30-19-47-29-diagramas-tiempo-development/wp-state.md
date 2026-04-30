@@ -2,14 +2,27 @@
 project: IACT-docs
 work_package: 2026-04-30-19-47-29-diagramas-tiempo-development
 created_at: 2026-04-30 19:47:29
-current_phase: Phase 1 — DISCOVER
-status: En espera (hold)
+closed_at: 2026-04-30 22:45:55
+current_phase: Phase 1 — DISCOVER (no completada)
+status: Cerrado sin ejecución
 author: NestorMonroy
 ```
 
 # WP — Desarrollo de diagramas de tiempo (timing) en IACT
 
-## Estado
+## Estado — Cerrado 2026-04-30 22:45:55
+
+**CERRADO sin ejecución** por orden del ejecutor — el
+proyecto cambia de scope hacia análisis RM real
+(WP ``2026-04-30-22-45-55-rm-uc-relationships-analysis``).
+
+El documento preliminar ``diagramas-tiempo.rst``
+(v0.1.0 Borrador) **queda en su lugar** como referencia
+en el cajón ``_metodologia-aplicacion/``. Si en el
+futuro se necesita timing diagram canónico, este WP
+se reabre o se crea uno nuevo.
+
+## Estado original (preservado para historia)
 
 **HOLD.** WP abierto sin ejecución hasta orden explícita
 (I-011). Permanece dormido para no salirnos del scope
