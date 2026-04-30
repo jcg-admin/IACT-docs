@@ -145,10 +145,11 @@ Cobertura de esta guía aplicada a IACT
    - :doc:`diagramas-colaboraciones` (H10)
  * - Tiempo (*timing*)
    - Interacción
-   - No cubierto en esta guía. Aplicar solo si un UC IACT
-     requiere razonamiento sobre duraciones de estado o
-     restricciones temporales (ej. SLA CNST_017,
-     ventana ETL CNST_006/008).
+   - :doc:`diagramas-tiempo` (preliminar, v0.1.0).
+     Desarrollo definitivo abierto en WP — usar solo
+     cuando un UC requiere razonamiento sobre duraciones
+     o restricciones temporales (SLA CNST_017, ventana
+     ETL CNST_006/008, throttling CNST_011).
 
 Las secciones que siguen muestran cada diagrama relevante
 aplicado al dominio IACT, en el orden histórico (Schmuller

@@ -767,7 +767,91 @@ El **ámbito** determina si un atributo o operación es:
 
 ----
 
-11. Trazabilidad
+11. Cluster de clases — agrupación por problemática
+===================================================
+
+Un **cluster de clases** es un conjunto de clases muy
+interrelacionadas que **resuelven una problemática
+específica**. Se distingue de los mecanismos formales
+(agregación, composición, paquete UML) por su criterio:
+no es estructural ni de propiedad, es **funcional** —
+"estas clases están aquí porque juntas resuelven X".
+
+Cómo identificar un cluster en IACT
+-----------------------------------
+
+Un cluster suele aparecer cuando varias clases:
+
+- Comparten vocabulario del dominio (ej. todas hablan de
+  "alerta", "umbral", "reconocimiento").
+- Co-evolucionan: un cambio en una típicamente requiere
+  cambios coordinados en las demás.
+- Atraviesan los mismos contratos hacia fuera (la misma
+  interfaz exportada en :doc:`diagramas-componentes`).
+
+Clusters canónicos del dominio IACT
+-----------------------------------
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Cluster
+   - Problemática que resuelve
+   - Clases típicas
+ * - **Auth + sesión**
+   - Identificación, sesión única (CNST_002), throttling
+     (CNST_011).
+   - ``Usuario``, ``Sesion``, ``IntentoLogin``,
+     ``ContadorThrottling``.
+ * - **RBAC + SoD**
+   - Catálogo de funciones, asignación de grupos, SoD
+     (CNST_030).
+   - ``Funcion``, ``Grupo``, ``Permiso``, ``ReglaSoD``.
+ * - **Reportería**
+   - Generación, agregación, exportación async
+     (CNST_019/020), rango ≤ 6 meses (CNST_031).
+   - ``Reporte``, ``ReporteVolumen``, ``ReporteAbandono``,
+     ``ConfiguracionExport``, ``TareaExport``.
+ * - **Alertas**
+   - Evaluación de umbrales (BR_016/017/018),
+     reconocimiento, sincronización con auditoría.
+   - ``Alerta``, ``UmbralAlerta``, ``EvaluadorAlertas``,
+     ``EstadoAlerta``.
+ * - **ETL**
+   - Carga read-only desde BD operativa e IVR
+     (CNST_006/007/008).
+   - ``EjecucionETL``, ``VentanaETL``, ``ErrorETL``,
+     ``RegistroIngesta``.
+ * - **Auditoría**
+   - Registro inmutable (CNST_025), consulta read-only.
+   - ``EventoAuditoria``, ``DetalleAuditoria``,
+     ``ConsultaAudit``.
+
+Relación con apps Django
+------------------------
+
+Cada cluster del dominio se materializa como una **app
+Django** del proyecto (ver :doc:`diagramas-componentes`):
+``auth_app``, ``perm_app``, ``rpt_app``, ``alr_app``,
+``pip_app``, ``aud_app``. Esta correspondencia no es
+casual: la frontera de un cluster bien identificado es
+una buena candidata a frontera de app, porque minimiza el
+acoplamiento cruzado (ver § 11 de :doc:`orientacion-objetos`).
+
+Cuándo refactorizar por clusters
+--------------------------------
+
+Si dos clases están en apps distintas pero co-evolucionan
+constantemente, probablemente están en el cluster
+equivocado. Si una clase pertenece a una app pero apenas
+interactúa con sus vecinas, probablemente debería
+moverse al cluster donde realmente tributa. La decisión
+debe quedar registrada en un ADR del subdominio afectado.
+
+----
+
+12. Trazabilidad
 ================
 
 .. list-table::

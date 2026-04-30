@@ -918,7 +918,129 @@ fingida.
 
 ----
 
-13. Ciclo de vida basado en prototipos
+13. Antipatrón: Flujo de lava (*lava flow*)
+===========================================
+
+El **flujo de lava** describe la acumulación progresiva de
+código muerto, obsoleto o poco mantenible que se
+"solidifica" en el sistema, similar a cómo la lava
+volcánica se endurece al enfriarse. Este código se vuelve
+cada vez más difícil de modificar o eliminar con el tiempo.
+
+El fenómeno aparece cuando código que ya no cumple función
+útil permanece en el sistema. Los desarrolladores
+posteriores, por presión de tiempo o por temor a romper
+funcionalidades existentes, evitan modificarlo y prefieren
+crear **implementaciones paralelas** — generando más
+"flujos" de código problemático.
+
+Manifestaciones concretas
+-------------------------
+
+- Interfaces abandonadas.
+- Clases sin uso aparente.
+- Funciones obsoletas.
+- Fragmentos de código comentado sin documentación clara.
+- Comentarios ``TODO`` o ``"a reemplazar"`` que nunca se
+  abordan.
+
+Tres dinámicas que se retroalimentan
+------------------------------------
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Dinámica
+   - Qué es
+   - Cómo aparece
+ * - Acumulación progresiva
+   - El código obsoleto o innecesario se va acumulando
+     gradualmente.
+   - Características a medio desarrollar; fragmentos
+     dejados tras cambios de requisitos; código "por si
+     acaso"; múltiples versiones de la misma
+     funcionalidad.
+ * - Solidificación irreversible
+   - El código se vuelve cada vez más difícil de
+     modificar o eliminar.
+   - Pérdida de conocimiento sobre el propósito
+     original; dependencias no documentadas; rotación
+     de desarrolladores; documentación obsoleta; miedo
+     a "romper algo".
+ * - Proliferación exponencial
+   - El problema se multiplica de manera acelerada.
+   - Para evitar tocar lo "solidificado" se crean
+     nuevas implementaciones; cada una puede generar su
+     propio flujo; el código duplicado se multiplica;
+     soluciones temporales se vuelven permanentes.
+
+Cómo aparece típicamente en IACT
+--------------------------------
+
+- **Cálculo de métricas BR_016/017/018** implementado
+  varias veces (vista, ``services.py``, helper antiguo)
+  sin que nadie sepa cuál es la fuente de verdad.
+- **Endpoints de export** que quedaron abandonados al
+  migrar a la versión async (CNST_019/020) pero siguen
+  expuestos.
+- **Versiones antiguas de migraciones Django** dejadas
+  como referencia; modelos con campos en desuso porque
+  alguien temió tocarlos.
+- **Reglas de alerta** comentadas dentro de
+  ``alr_app`` con TODO de hace meses, mientras la lógica
+  vigente vive en otro archivo.
+- **ADRs supuestamente reemplazados** sin marcar como
+  *Superseded* — el lector no sabe cuál vale.
+
+Por qué es especialmente grave en IACT
+--------------------------------------
+
+- Rompe la **trazabilidad UC ↔ código**: si hay tres
+  funciones que dicen calcular abandono, ningún auditor
+  puede certificar cuál se ejecutó.
+- Compromete **CNST_025** (auditoría inmutable): si la
+  lógica vive en código muerto que ocasionalmente todavía
+  se invoca, los eventos auditados pueden no reflejar la
+  realidad.
+- Aumenta el riesgo en cada **iteración del modelo de
+  fuente** (§ 14): cada incremento se construye sobre
+  capas opacas previas.
+
+Prevención y mitigación
+-----------------------
+
+- **Revisiones de código regulares** con foco explícito
+  en código muerto.
+- **Análisis estático** (flake8/ruff/coverage en Python;
+  herramientas equivalentes en JS) que reporte
+  funciones/clases sin uso o sin tests.
+- **Política de refactorización**: eliminar código
+  obsoleto antes de que se solidifique. Una limpieza
+  pequeña en cada iteración rinde más que una
+  "modernización" diferida.
+- **Documentación viva**: mantener ADRs y guías
+  actualizadas; marcar como *Superseded* o eliminar lo
+  que ya no aplica.
+- **Eliminar, no comentar**: el git history (I-002) ya
+  preserva la versión anterior. Comentar código
+  "por si acaso" es producir lava deliberadamente.
+- **TODO con dueño y fecha**: un ``TODO`` sin nombre y
+  sin fecha es deuda anónima — convertirlo en issue del
+  WP correspondiente o eliminarlo.
+
+Heurística IACT
+---------------
+
+Si en un *grep* del repositorio aparecen ≥ 2 funciones que
+hacen lo mismo (mismo nombre con sufijos *_old*, *_v2*, o
+duplicado entre apps), el cluster está acumulando lava.
+Abrir un WP de limpieza antes de añadir más código
+encima.
+
+----
+
+14. Ciclo de vida basado en prototipos
 ======================================
 
 El enfoque sustantivos→clases del documento
@@ -1009,7 +1131,7 @@ iterativa del análisis basado en escenarios).
 
 ----
 
-14. Ciclo de vida iterativo e incremental
+15. Ciclo de vida iterativo e incremental
 =========================================
 
 Cuando el prototipado (§ 13) se sostiene en el tiempo,
@@ -1121,7 +1243,7 @@ Relación con prototipos y escuelas de análisis
 
 ----
 
-15. Trazabilidad
+16. Trazabilidad
 ================
 
 .. list-table::

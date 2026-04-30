@@ -821,7 +821,325 @@ discontinua con flecha hacia la clase usada.
 
 ----
 
-13. Trazabilidad
+13. Comparativa por contexto — el contexto manda
+=================================================
+
+La distinción entre tipos de relaciones (asociación,
+agregación, composición, dependencia) **no siempre es
+clara**. El factor más determinante es el **contexto** en
+el que viven los objetos: el contexto define visibilidad,
+temporalidad y versatilidad de la colaboración. Un análisis
+cuidadoso y consistente evita problemas en la práctica.
+
+Ejemplo Paciente–Médico
+-----------------------
+
+- **Contexto urgencias**: la interacción es temporal y
+  específica → **dependencia / uso** es suficiente. Un
+  médico atiende a un paciente en un episodio puntual y
+  no mantiene seguimiento.
+- **Contexto atención primaria**: hay seguimiento
+  continuo y acceso al historial → **asociación**
+  refleja mejor la realidad: la relación persiste, el
+  médico tiene un vínculo durable con el paciente.
+
+El mismo par de clases admite **dos relaciones
+diferentes** según el contexto. Modelar las dos a la vez
+casi siempre indica que hay realmente dos sistemas
+distintos.
+
+Ejemplo Motor–Coche
+-------------------
+
+- **Contexto taller mecánico**: el motor puede ser
+  reemplazado o modificado de forma independiente →
+  **asociación** o **agregación** (el motor existe sin
+  el coche, se intercambia entre coches).
+- **Contexto gestión administrativa vehicular**: el
+  motor es parte integral del vehículo y determina
+  características fiscales → **composición** (vida
+  ligada al coche, no se "reemplaza" en sentido
+  administrativo).
+
+Aplicación a IACT
+-----------------
+
+.. list-table::
+ :widths: 22 35 43
+ :header-rows: 1
+
+ * - Par de clases
+   - Contexto
+   - Relación recomendada
+ * - ``Reporte`` ↔ ``Filtro``
+   - El filtro se compone para una consulta puntual.
+   - Dependencia / uso (no se persiste el filtro).
+ * - ``Reporte`` ↔ ``ConfiguracionExport``
+   - La configuración pertenece a la tarea de export.
+   - Composición (vive y muere con la tarea).
+ * - ``EjecucionETL`` ↔ ``ErrorETL``
+   - Errores son parte indivisible de la ejecución.
+   - Composición.
+ * - ``EjecucionETL`` ↔ ``VentanaETL``
+   - Una ventana puede contener varias ejecuciones; la
+     ventana sigue existiendo si la ejecución falla.
+   - Asociación.
+ * - ``Usuario`` ↔ ``Grupo``
+   - Asignación cambiante; un usuario puede pertenecer
+     a varios grupos.
+   - Asociación N:M con clase intermedia
+     ``Asignacion``.
+ * - ``Sesion`` ↔ ``Usuario``
+   - La sesión existe por el usuario y caduca con él
+     (CNST_002).
+   - Composición o agregación fuerte según se permita
+     reabrir la sesión sin recrear el ``Usuario``.
+
+Cita canónica — Rumbaugh
+------------------------
+
+   *La decisión de utilizar una agregación es discutible
+   y suele ser arbitraria. Con frecuencia, no resulta
+   evidente que una asociación deba ser modelada en
+   forma de agregación. En gran parte, este tipo de
+   incertidumbre es típico del modelado; este requiere
+   un juicio bien formado y hay pocas reglas
+   inamovibles. La experiencia demuestra que si uno
+   piensa cuidadosamente e intenta ser congruente, la
+   distinción imprecisa entre asociación ordinaria y
+   agregación no da lugar a problemas en la práctica.*
+   — Rumbaugh, 1991.
+
+No hay solución única — hay trade-offs
+--------------------------------------
+
+Cuando se decide cómo relacionar diferentes partes del
+sistema, no existe una respuesta universalmente
+"perfecta". Cada elección compromete factores que
+compiten entre sí:
+
+- **Costo** de desarrollo y mantenimiento.
+- **Legibilidad** del código.
+- **Eficiencia** de la solución.
+- **Modularidad** del diseño.
+
+Reglas IACT para decidir
+------------------------
+
+1. Empezar por el **contexto del UC**, no por la
+   intuición sobre la pareja de clases.
+2. Si el mismo par admite **dos relaciones distintas**
+   en dos UCs, modelar separadamente — probablemente son
+   dos clases diferentes con el mismo nombre.
+3. **Ser consistente** dentro del mismo cluster (ver § 11
+   de :doc:`agregacion-interfaces`).
+4. En caso de duda **agregación vs asociación**, elegir
+   asociación: es más laxa y se puede endurecer después
+   sin romper consumidores.
+5. Documentar la decisión en un ADR del subdominio si la
+   relación es central al cluster.
+
+----
+
+14. Comparativa de tipos de herencia
+====================================
+
+No toda herencia es válida. Existen al menos cuatro
+formas conceptuales de aplicarla, dos legítimas y dos a
+evitar. Esta sección las clasifica con criterio LSP
+(Liskov Substitution Principle) y aplica el contraste a
+IACT.
+
+14.1 Herencia por especialización (recomendada)
+-----------------------------------------------
+
+Relación **"es-un" verdadera** con expansión de
+comportamiento.
+
+- Mantiene el comportamiento base del padre.
+- Añade características específicas.
+- No elimina funcionalidades.
+- Respeta el contrato original (LSP).
+
+Beneficios: jerarquías naturales, mantenimiento más
+sencillo, reusabilidad, extensiones seguras.
+
+**Cuándo usarla**: cuando exista relación clara de
+subtipo, la especialización sea natural y no viole LSP.
+
+**Mejores prácticas**: implementar todas las operaciones,
+mantener cohesión, respetar propósito original, seguir
+principios SOLID.
+
+**Regla principal**: si una clase hija no puede cumplir
+completamente con el contrato de su padre, la herencia
+no es apropiada.
+
+Ejemplo IACT correcto:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   abstract class Reporte {
+     + generar()
+     + exportar(formato)
+   }
+   class ReporteVolumen
+   class ReporteAbandono
+   class ReporteSoDCompliance
+   Reporte <|-- ReporteVolumen
+   Reporte <|-- ReporteAbandono
+   Reporte <|-- ReporteSoDCompliance
+   @enduml
+
+Cada subclase **mantiene** ``generar()`` y ``exportar()`` y
+**añade** su lógica específica de cálculo. Ningún subtipo
+rompe el contrato del padre.
+
+14.2 Herencia por extensión con transformación (con cuidado)
+------------------------------------------------------------
+
+Modifica el concepto fundamental mientras mantiene la
+estructura técnica.
+
+- Va más allá de "es-un": transforma el concepto.
+- Mantiene estructura técnica del padre.
+- Puede confundir a desarrolladores que esperan
+  comportamiento heredado intacto.
+- Complica el modelo de dominio si no se justifica.
+
+**Usar con precaución**: solo cuando la transformación es
+natural y tiene sentido en el dominio.
+
+**Mejores prácticas**: documentar el cambio conceptual,
+asegurar coherencia, justificar la necesidad
+explícitamente en un ADR.
+
+Ejemplo IACT donde puede aparecer:
+
+- ``ReporteAuditoria`` que hereda de ``Reporte`` pero
+  cambia la semántica de "exportar" para producir un
+  paquete firmado en lugar de un archivo plano. La forma
+  técnica es la misma; el concepto cambia. Justificarlo
+  en ADR del subdominio antes de adoptarlo.
+
+14.3 Herencia por construcción (evitar)
+---------------------------------------
+
+Uso **incorrecto** de herencia solo para reutilizar código,
+sin relación jerárquica verdadera.
+
+- Se usa solo para reutilizar código.
+- No existe relación "es-un".
+- Busca atajos para acceder a funcionalidad.
+
+Consecuencias: relaciones artificiales, acoplamiento
+innecesario, violación de LSP, mantenimiento difícil.
+
+**Evitar siempre.**
+
+Ejemplo incorrecto en IACT:
+
+- ``Reporte`` que hereda de ``UtilsArchivo`` solo para
+  reutilizar ``escribir_csv``. Un reporte **no es** una
+  utilidad de archivo: la herencia miente sobre el
+  dominio.
+
+**Solución**: composición o inyección. Pasar un
+``EscritorCSV`` al ``Reporte`` como dependencia, o
+delegar la operación a un servicio.
+
+14.4 Herencia por limitación (evitar)
+-------------------------------------
+
+La clase hija **no implementa o restringe** operaciones
+heredadas.
+
+- No cumple el contrato del padre.
+- Restringe operaciones heredadas.
+- Rompe expectativas de comportamiento.
+
+Consecuencias: violación de LSP, inconsistencias, código
+frágil, reusabilidad reducida.
+
+Señales de advertencia:
+
+- Métodos que lanzan ``NotImplementedError`` para
+  desactivar operaciones del padre.
+- Implementaciones vacías (``pass``) en métodos heredados.
+- Comentarios "esto no aplica para este subtipo".
+
+**Evitar.** Indica que la jerarquía está mal modelada.
+
+Ejemplo incorrecto en IACT:
+
+- ``ReporteSoloLectura`` heredando de ``Reporte`` y
+  lanzando excepción en ``exportar()``. Si no se puede
+  exportar, no es un ``Reporte`` en el sentido del
+  contrato — modelar como interfaz separada
+  ``ReporteVisualizable`` y dejar ``Reporte`` solo para
+  los que sí soportan ``exportar()``.
+
+**Solución**: reevaluar jerarquía, usar **interfaces
+específicas** o **composición**, crear abstracciones
+mejor delimitadas.
+
+14.5 Tabla resumen
+------------------
+
+.. list-table::
+ :widths: 22 22 22 17 17
+ :header-rows: 1
+
+ * - Tipo
+   - Naturaleza
+   - LSP
+   - Recomendación
+   - En IACT
+ * - Especialización
+   - "es-un" verdadero, expande.
+   - Cumple
+   - Recomendada
+   - ``Reporte`` → familia ``Reporte*``
+ * - Extensión con transformación
+   - Cambia el concepto, mantiene estructura.
+   - Frágil
+   - Solo con ADR
+   - ``Reporte`` → ``ReporteAuditoria`` con paquete
+     firmado
+ * - Construcción
+   - Reutilización sin "es-un".
+   - No cumple
+   - Evitar
+   - ``Reporte`` ← ``UtilsArchivo`` (incorrecto)
+ * - Limitación
+   - Restringe / desactiva.
+   - No cumple
+   - Evitar
+   - ``Reporte`` con subclases que rompen ``exportar()``
+
+Regla integradora IACT
+----------------------
+
+Antes de definir una herencia, responder:
+
+1. ¿La hija **es realmente** una variante del padre, o
+   solo necesita su código?
+2. ¿La hija puede sustituir al padre en cualquier
+   contrato del padre (LSP)?
+3. Si la respuesta a 1 o 2 es "no", reemplazar la
+   herencia por **composición** o **interfaces**.
+
+Esta regla es coherente con § 12 de
+:doc:`orientacion-objetos` (antipatrón Descomposición
+Funcional) y con la sección de patrones
+:doc:`patrones-diseno` (Adapter, Strategy, Decorator
+suelen ser la respuesta cuando la herencia no encaja).
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::

@@ -57,6 +57,7 @@ Catálogo
  diagramas-actividades
  diagramas-componentes
  diagramas-distribucion
+ diagramas-tiempo
  patrones-diseno
 
 Mapeo a skills RM
@@ -111,6 +112,9 @@ Mapeo a skills RM
  * - :doc:`diagramas-distribucion`
    - ``rm-specification`` + ``rm-analysis``
    - Despliegue, nodos y protocolos en intranet (Hora 13)
+ * - :doc:`diagramas-tiempo`
+   - ``rm-specification``
+   - Timing diagram preliminar (WP abierto en HOLD)
  * - :doc:`patrones-diseno`
    - ``rm-specification`` + ``rm-analysis``
    - Patrones GoF aplicados a Django/Python en IACT
