@@ -188,15 +188,197 @@ composición, dependencia o realización.
 Las clases por sí solas son incompletas. El poder de UML está
 en cómo se conectan.
 
-**6 tipos de relaciones UML:**
+   *Un objeto en sí mismo no es interesante. Los objetos
+   contribuyen al comportamiento de un sistema colaborando
+   con otros objetos.*
+   — Grady Booch, *Análisis y Diseño Orientado a Objetos*,
+   1996.
 
-1. **Asociación** — conexión conceptual (tiene, usa, relaciona).
-2. **Herencia** — especialización (*es un tipo de*).
-3. **Composición** — parte fuerte (el todo contiene las
-   partes).
-4. **Agregación** — parte débil (el todo agrupa partes).
-5. **Dependencia** — uso (una clase usa otra).
-6. **Realización** — implementación de interfaz.
+Si dos objetos colaboran a través del paso de mensajes,
+sus respectivas clases están **relacionadas**. Esa es la
+regla fundamental: cuando dos objetos necesitan
+comunicarse, debe existir una relación entre sus clases —
+las clases son los "planos" que definen el comportamiento;
+si un objeto invoca métodos o accede a propiedades de otro,
+sus clases deben estar "conscientes" una de la otra.
+
+Nota terminológica: en la literatura moderna,
+**dependencia** se usa cada vez más como término general
+para referirse a cualquier relación entre clases. El
+catálogo concreto de UML mantiene las cinco formas
+detalladas en este documento.
+
+1.1 Dos grandes familias de relaciones
+--------------------------------------
+
+Las relaciones UML entre clases se agrupan en dos
+familias conceptuales:
+
+**A. Relaciones por colaboración** — los objetos colaboran
+intercambiando mensajes durante la ejecución. Cada
+relación se distingue por su fuerza, duración y
+acoplamiento:
+
+- **Composición** (§ 3 de :doc:`agregacion-interfaces`) —
+  parte fuerte; el todo contiene partes que no existen
+  sin él.
+- **Agregación** (§ 2 de :doc:`agregacion-interfaces`) —
+  parte débil; el todo agrupa partes que sobreviven.
+- **Asociación** (§ 2 de este documento) — conexión
+  estructural y duradera entre clases.
+- **Dependencia / Uso** (§ 10 de este documento) —
+  conexión transitoria, cliente usa servidor por un
+  período limitado.
+
+**B. Relaciones por transmisión** — una clase **transmite**
+sus miembros (atributos, métodos, comportamientos) a otra,
+estableciendo una jerarquía. La forma canónica es la
+**herencia** (§§ 7, 14-16 de este documento).
+
+La herencia mantiene la **independencia operativa** de
+cada clase mientras establece una relación permanente: la
+hija reutiliza el contenido del padre sin verse obligada a
+colaborar con él en cada operación. Las jerarquías
+"Animal → Mamífero → Perro → Labrador" ilustran la
+clasificación de lo general a lo específico — relaciones
+**"ES-UN"**.
+
+1.2 Trade-offs entre relaciones de colaboración
+-----------------------------------------------
+
+Cada tipo de relación de colaboración tiene compensaciones
+explícitas. Esta tabla resume las diferencias antes de
+entrar al detalle por sección.
+
+.. list-table::
+ :widths: 18 30 26 26
+ :header-rows: 1
+
+ * - Tipo
+   - Características
+   - Ventajas
+   - Desventajas
+ * - **Composición**
+   - "es parte de" fuerte. La parte depende de la vida
+     del contenedor.
+   - Mayor encapsulamiento; control total sobre el
+     contenido; código robusto.
+   - Menor flexibilidad; mayor acoplamiento;
+     reutilización difícil.
+ * - **Agregación**
+   - "tiene un" débil. Los componentes existen
+     independientemente.
+   - Mayor flexibilidad; objetos reutilizables; menor
+     acoplamiento.
+   - Menor control sobre los objetos; posibles
+     problemas de consistencia.
+ * - **Asociación**
+   - Uso mutuo; objetos independientes con conexión
+     estructural duradera.
+   - Alta flexibilidad; bajo acoplamiento; fácil de
+     modificar.
+   - Puede ser difícil de rastrear; complejidad en el
+     mantenimiento.
+ * - **Dependencia / Uso**
+   - Temporal. Un objeto usa otro brevemente.
+   - Muy flexible; mínimo acoplamiento; fácil de
+     cambiar.
+   - Difícil de seguir; código disperso; debugging
+     más complejo.
+
+La elección depende del eje **control vs flexibilidad** y
+del eje **reusabilidad vs robustez** (ver Preludio:
+**visibilidad / temporalidad / versatilidad**). Para IACT
+el sesgo recurrente: **componer salvo "es-un" inequívoco**
+(ver § 16 sobre principios fundamentales de la herencia).
+
+1.3 Trade-offs entre tipos de herencia
+--------------------------------------
+
+Las cuatro variantes de herencia (§§ 14.1-14.4) tienen
+**señales de advertencia**, **problemas** y **soluciones**
+que conviene tener presentes desde el inicio:
+
+.. list-table::
+ :widths: 22 22 24 16 16
+ :header-rows: 1
+
+ * - Tipo
+   - Descripción breve
+   - Señales de advertencia
+   - Problemas
+   - Solución
+ * - **Especialización** (§ 14.1)
+   - "es-un" verdadera; expande comportamiento.
+   - Características nuevas no relacionadas; pérdida
+     de cohesión; contrato difícil de mantener.
+   - Jerarquías profundas; rigidez.
+   - Mantener jerarquías planas; usar interfaces;
+     documentar el propósito.
+ * - **Extensión con transformación** (§ 14.2)
+   - Cambia el concepto, mantiene estructura.
+   - Confusión en el equipo; comportamientos
+     inesperados.
+   - Viola intuición del dominio; complejidad
+     cognitiva.
+   - Documentar exhaustivamente; justificar con ADR;
+     rediseñar si genera dudas.
+ * - **Construcción** (§ 14.3, antipatrón)
+   - Herencia solo para reutilizar código.
+   - Métodos heredados sin sentido semántico; uso
+     frecuente de ``super``; acceso directo a
+     implementación del padre.
+   - Alto acoplamiento; viola LSP; código frágil.
+   - **Composición / interfaces / delegación.**
+ * - **Limitación** (§ 14.4, antipatrón)
+   - La hija restringe o no implementa operaciones
+     heredadas.
+   - Métodos que lanzan excepciones; implementaciones
+     vacías; restricciones artificiales.
+   - Viola LSP; rompe expectativas; reduce
+     reusabilidad.
+   - Rediseñar jerarquía; usar interfaces específicas;
+     componer.
+
+Mensaje integrador
+~~~~~~~~~~~~~~~~~~
+
+Las dos primeras formas de herencia son **legítimas** con
+matices (especialización siempre, extensión con
+transformación solo con ADR). Las dos últimas son
+**antipatrones** — convertirlas en composición o
+interfaces es siempre el camino correcto.
+
+1.4 Las seis relaciones UML del documento
+-----------------------------------------
+
+Resumen tabular de las seis formas que el resto de las
+secciones desarrolla:
+
+.. list-table::
+ :widths: 30 70
+ :header-rows: 1
+
+ * - Relación
+   - Sentido en una línea
+ * - **Asociación** (§ 2)
+   - Conexión conceptual (*tiene, usa, relaciona*).
+ * - **Herencia** (§§ 7, 14-16)
+   - Especialización ("**es un tipo de**").
+ * - **Composición**
+     (:doc:`agregacion-interfaces` § 3)
+   - Parte fuerte; el todo contiene partes que no
+     existen sin él.
+ * - **Agregación**
+     (:doc:`agregacion-interfaces` § 2)
+   - Parte débil; el todo agrupa partes que
+     sobreviven.
+ * - **Dependencia / Uso** (§ 10)
+   - Una clase **usa** otra de manera transitoria.
+ * - **Realización**
+     (:doc:`agregacion-interfaces` § 5)
+   - Una clase **implementa** una interfaz declarada
+     en otra.
 
 ----
 
