@@ -161,6 +161,171 @@ etiquetada), **tiempo** (eje vertical, arriba → abajo).
    deactivate Objeto2
    @enduml
 
+2.1.bis Definir actores y participantes
+---------------------------------------
+
+Todo diagrama de secuencia debe tener **actores** y
+**participantes**:
+
+- **Actor** — representa un **humano** que interactúa
+  con el sistema (supervisor, auditor, agente).
+- **Participante** — representa un **proceso** o
+  componente del sistema (servicio, base de datos,
+  cola de mensajes, integración externa).
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML diferencia los dos tipos con palabras clave
+explícitas:
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title User Sign Up Flow
+
+   actor Browser
+   participant "Sign Up Service" as SUS
+   participant "User Service" as US
+   queue Kafka
+   @enduml
+
+Lectura del fragmento:
+
+- ``actor Browser`` — figura humanoide (stick figure).
+- ``participant "Sign Up Service" as SUS`` — caja
+  rectangular con alias corto ``SUS`` para mensajes.
+- ``queue Kafka`` — PlantUML ofrece tipos
+  especializados (``database``, ``queue``, ``boundary``,
+  ``control``, ``entity``, ``collections``) que cambian
+  el icono.
+
+Esto es **más rico** que Mermaid, donde solo existen
+``actor`` y ``participant``. Para IACT esa expresividad
+ayuda a comunicar la naturaleza del componente sin
+explicarlo en una nota.
+
+Equivalente IACT del flujo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro modela un flujo de registro genérico con
+``Browser`` → ``Sign Up Service`` → ``User Service`` →
+``Kafka``. En IACT no hay registro público (los
+usuarios provienen del LDAP corporativo, ver § 16.7 de
+:doc:`analisis-dominio`). El flujo análogo más cercano
+es **UC_AUTH_01** (login del supervisor):
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — Login del supervisor
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   participant "perm_app" as Perm
+   database "ldap-corporativo" as LDAP
+   database "Redis (sesiones)" as Redis
+   database "audit_log" as Audit
+   @enduml
+
+Esto declara los **lifelines** sin mensajes — solo el
+elenco. El renderizado muestra los participantes
+alineados horizontalmente con sus líneas de vida
+descendiendo, listas para recibir mensajes en las
+secciones siguientes.
+
+Tipos de participante en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 22 30 48
+ :header-rows: 1
+
+ * - PlantUML keyword
+   - Cuándo usarlo
+   - Ejemplo IACT
+ * - ``actor``
+   - Persona física que opera la UI.
+   - ``Supervisor``, ``Auditor``,
+     ``OperadorETL``, ``AdministradorRBAC``.
+ * - ``participant``
+   - App Django, servicio, vista.
+   - ``auth_app``, ``perm_app``, ``rpt_app``,
+     ``alr_app``.
+ * - ``database``
+   - Base de datos o almacén persistente.
+   - ``bd_operativa``, ``bd_analytics``,
+     ``audit_log``, ``Redis``.
+ * - ``queue``
+   - Cola de mensajes (raro en IACT por
+     ADR_DEVOPS_001).
+   - Solo si se introduce alguna cola futura;
+     requiere ADR.
+ * - ``entity``
+   - Entidad del dominio (modelo Django).
+   - ``Reporte``, ``Sesion``, ``Alerta`` cuando
+     son objetos del dominio que reciben mensajes.
+ * - ``boundary``
+   - Frontera del sistema, integración externa.
+   - ``ldap-corporativo``, ``ivr-host``.
+ * - ``control``
+   - Componente coordinador / orquestador.
+   - ``ExportarReporteFacade`` (ver § 6 de
+     :doc:`patrones-diseno`).
+
+Aliases para legibilidad
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML soporta alias con la sintaxis ``as``, igual
+que Mermaid:
+
+.. code-block:: plantuml
+
+   participant "ExportarReporteFacade" as Facade
+
+En el resto del diagrama se puede usar ``Facade`` para
+mensajes; el render mostrará el nombre completo.
+
+¿Es obligatoria la declaración explícita?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. PlantUML acepta usar el nombre del participante
+directamente en un mensaje sin declararlo antes — lo
+crea como ``participant`` por defecto. Pero hay tres
+razones para declararlo explícitamente:
+
+1. **Forzar el icono correcto** — para tener un actor
+   con figura humanoide hay que declararlo como
+   ``actor``.
+2. **Controlar el orden** de izquierda a derecha — el
+   orden de declaración determina el orden visual.
+3. **Definir aliases** que se reutilizan en todos los
+   mensajes.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Siempre declarar explícitamente** los lifelines en
+   las primeras líneas del diagrama. Fija orden e
+   iconos sin ambigüedad.
+2. **Usar el tipo más específico** disponible: prefiere
+   ``database`` para BD, ``actor`` para humanos,
+   ``boundary`` para integraciones externas.
+3. **Aliases para nombres largos** — ``auth_app`` se
+   queda corto pero ``ExportarReporteFacade`` se
+   abrevia con ``as Facade`` para que los mensajes
+   queden legibles.
+4. **No abusar de tipos exóticos** — si el equipo no
+   conoce ``boundary`` / ``control``, usar
+   ``participant`` con una nota explicativa.
+5. **Coherencia con el modelo de dominio** — los
+   participantes deben coincidir con entidades de
+   :doc:`analisis-dominio` o componentes de
+   :doc:`diagramas-componentes`.
+
 2.2 Convenciones
 ----------------
 
