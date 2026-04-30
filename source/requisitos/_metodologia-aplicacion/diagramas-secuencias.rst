@@ -1943,7 +1943,152 @@ loop + asincrónico + auditoría inmutable.
 
 ----
 
-14. Trazabilidad
+14. Ejercicio: visualizar tu propio flujo
+=========================================
+
+La obra citada cierra el capítulo de secuencias con un
+ejercicio: **modelar un flujo del proyecto elegido** y,
+como actividad opcional, **diagramar un fragmento de
+código complejo** la próxima vez que aparezca, para
+verificar si la secuencia ayuda a entenderlo.
+
+Recomendación general
+~~~~~~~~~~~~~~~~~~~~~
+
+- Elegir un flujo con **elementos complejos**:
+  bifurcaciones, mensajes asíncronos, varios
+  componentes participantes — para ejercitar todos
+  los recursos del capítulo.
+- Mantener el **mismo dominio** para los diagramas
+  sucesivos del proyecto, evitando *context
+  switching* entre empresas / dominios distintos.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+En este proyecto, como en los ejercicios de
+:doc:`analisis-dominio` (§§ 15.12 y 16.9), el
+ejercicio **ya está realizado y documentado** para
+los UCs principales. La sección § 13 lista los UCs
+que requieren secuencias detalladas.
+
+Cinco flujos canónicos IACT (en orden recomendado de
+modelado para nuevos contribuidores):
+
+.. list-table::
+ :widths: 22 35 43
+ :header-rows: 1
+
+ * - UC
+   - Por qué es buen ejercicio
+   - Recursos del capítulo que ejercita
+ * - **UC_AUTH_01** Login
+   - Flujo lineal con bifurcación clara (credenciales
+     válidas / inválidas) e integración con LDAP
+     externo. Ideal como **primer flujo** para fijar
+     la sintaxis.
+   - Actores + participantes, sync request/response,
+     alt/else, audit async, notas para CNST.
+ * - **UC_RPT_01** Dashboard
+   - Flujo síncrono con SLA CNST_017 — perfecto para
+     practicar **activaciones** y notas de SLA.
+   - Activaciones, ``autonumber``, nota sobre el
+     SLA.
+ * - **UC_RPT_04** Export
+   - Combina sync + async (encolado) + bifurcación
+     por cuota / throttling / OK. **Ejemplo
+     completo** del capítulo; reproduce todos los
+     enriquecimientos.
+   - Todo lo anterior + alt con tres ramas + async
+     fan-out a worker + nota sobre CNST_019.
+ * - **UC_PIP_01** ETL
+   - Flujo cíclico con ventana CNST_006/008 y
+     reintentos. Ejercita ``loop``, recursividad y
+     condiciones por estado.
+   - Ciclos (§ 10), creación de objetos (§ 7), notas
+     sobre CNST_006/008.
+ * - **UC_ALR_03** Reconocer alerta
+   - Sincronización entre evaluador, audit y
+     notificación al supervisor. Ejercita la
+     **simultaneidad** y el fan-out auditable.
+   - Async + sync + notas, dos consumidores en fan-out
+     desde ``aud_app``.
+
+Plan recomendado para nuevos contribuidores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Leer este documento de principio a fin (§§ 1-13).
+2. Elegir **UC_AUTH_01** como primer ejercicio:
+   reproducir el diagrama existente, asegurando que
+   se entiende cada elemento.
+3. Modificarlo: cambiar el orden de participantes,
+   convertir un mensaje sync en async (y validar que
+   ya no aplica), agregar/quitar notas — para
+   internalizar la sintaxis.
+4. Pasar a **UC_RPT_04** como ejercicio avanzado:
+   combina todos los recursos.
+5. Para flujos nuevos del proyecto, partir de la
+   plantilla canónica
+   (:doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`)
+   y aplicar las § 2.1.bis-octies de este documento.
+
+Actividad bonus — diagramar código complejo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando aparezca una porción de código IACT que cuesta
+entender (típicamente: orquestaciones cross-app, hooks
+de audit, manejo de errores en ETL), abrir un boceto
+PlantUML antes de modificar nada. Beneficios
+observados:
+
+- Detectar **mensajes implícitos** (auditoría que se
+  esconde dentro de una llamada).
+- Identificar **acoplamiento accidental** (una vista
+  que toca tres apps directas en lugar de pasar por
+  el facade).
+- Validar **respeto a Demeter** (§ 11 de
+  :doc:`orientacion-objetos`): si la secuencia obliga
+  a anidar referencias, hay olor a violación.
+- Revelar **flujos que no respetan SRP** (§ 17 de
+  :doc:`orientacion-objetos`).
+
+El boceto puede ser efímero — si después de
+diagramarlo el código se entiende, no hace falta
+publicarlo. Si revela un problema arquitectónico,
+abrir un WP para refactorizar y conservar el diagrama
+como evidencia.
+
+Cuándo el ejercicio es solo personal vs cuándo
+publicarlo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Personal** — boceto efímero para entender un
+  flujo. No se publica; sirve solo al autor.
+- **Equipo** — diagrama en un PR o issue para
+  facilitar la revisión. Vive con el PR.
+- **Proyecto** — diagrama del UC integrado al cajón
+  ``_metodologia-aplicacion/``. Pasa por la plantilla
+  canónica, respeta la política PlantUML (§ del
+  :doc:`/base-cognitiva/plantuml-guide/guidelines`)
+  y se mantiene actualizado conforme el UC evoluciona.
+
+Cierre del capítulo
+~~~~~~~~~~~~~~~~~~~
+
+Con §§ 1-14, el lector tiene los recursos para crear
+**cualquier diagrama de secuencia** relevante a IACT:
+desde un boceto rápido para discutir con un colega
+hasta un diagrama formal de aprobación
+arquitectónica. Las secciones siguientes
+(:doc:`diagramas-colaboraciones`,
+:doc:`diagramas-actividades`,
+:doc:`diagramas-componentes`) cubren tipos de
+diagrama complementarios que enriquecen lo
+modelado aquí.
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::
