@@ -587,7 +587,462 @@ Cualquier entidad que tenga ciclo de vida observable
 
 ----
 
-12. Trazabilidad
+12. Catálogo consolidado de notaciones
+======================================
+
+Tabla índice del documento. Cada componente del
+diagrama de estados con su sintaxis PlantUML,
+sección donde se desarrolla y caso IACT.
+
+.. list-table::
+ :widths: 22 32 16 30
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Estado inicial
+   - ``[*] --> ...``
+   - § 2.1
+   - Punto de entrada del ciclo de
+     ``Sesion``.
+ * - Estado final
+   - ``... --> [*]``
+   - § 2.1
+   - Cierre de ``EjecucionETL``.
+ * - Estado simple
+   - ``state Activa``
+   - § 3
+   - ``Sesion`` activa.
+ * - Estado con entry/do/exit
+   - ``X : entry / accion``
+   - § 3.2
+   - ``EjecucionETL`` con acciones
+     por compartimento.
+ * - Transición simple
+   - ``A --> B : evento``
+   - § 4.2
+   - ``Sesion``: activa → caducada.
+ * - Self-transition
+   - ``A --> A : evento``
+   - § 12.4
+   - ``Procesando`` itera lote sin
+     cambiar de estado.
+ * - Junction point
+   - ``state j <<choice>>``
+     (convergencia)
+   - § 12.4
+   - Tres caminos confluyen al
+     estado ``Procesando``.
+ * - Choice point
+   - ``state c <<choice>>``
+     (divergencia con guardas)
+   - § 12.4
+   - Decidir entre ``Reconocida``
+     o ``Escalada``.
+ * - Estado compuesto
+   - ``state X { ... }``
+   - § 6
+   - ``Procesando`` con subestados
+     ETL.
+ * - Shallow history
+   - ``state H <<history>>``
+   - § 7
+   - Pausa que vuelve al subestado
+     más reciente.
+ * - Deep history
+   - ``state H <<historyDeep>>``
+   - § 12.5
+   - Reanudar ETL en subestado
+     más profundo.
+ * - Submachine state
+   - Estado compuesto +
+     nota referencia
+   - § 12.6
+   - Sub-diagrama de
+     ``EjecucionETL``.
+ * - Flow final (anormal)
+   - Estado etiquetado
+     ``state X #FFAAAA``
+   - § 12.2
+   - Abort de ETL por error
+     catastrófico.
+ * - Guarda en transición
+   - ``A --> B : evento [cond]``
+   - § 4.1
+   - ``[credenciales válidas]``.
+
+----
+
+12.1 Notaciones complementarias
+-------------------------------
+
+Componentes que el catálogo UML estándar incluye
+y que el cuerpo del documento aún no detallaba:
+flow final, junction point, choice point, deep
+history y submachine state.
+
+12.2 Flow final
+~~~~~~~~~~~~~~~
+
+Estado de **terminación anormal** — distinto del
+estado final regular. Indica que la rama del
+ciclo se aborta por una condición excepcional.
+Otras ramas pueden continuar.
+
+PlantUML lo expresa con un estado coloreado
+distintivamente:
+
+.. code-block:: plantuml
+
+   state "AbortadoEtl" as ABT #FFAAAA
+   ABT : entry / registrar abort en audit_log
+
+En IACT aparece en ``EjecucionETL`` cuando un
+error catastrófico fuerza el abort. El sistema y
+la próxima ventana ETL siguen.
+
+Diferencia con estado final regular:
+
+- Estado final ``[*]`` — terminación esperada.
+- Flow final — terminación **no esperada**;
+  candidato a alerta o investigación.
+
+12.3 Junction point
+~~~~~~~~~~~~~~~~~~~
+
+Pseudo-estado donde **convergen** varias
+transiciones a un punto único antes de continuar
+al siguiente estado. Útil cuando varias rutas
+distintas terminan en el mismo destino sin
+sincronización.
+
+.. code-block:: plantuml
+
+   state j <<choice>>
+   A --> j
+   B --> j
+   C --> j
+   j --> Destino
+
+12.4 Choice point y self-transition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pseudo-estado de **decisión** que divide una
+transición de entrada en varias salidas según
+guardas:
+
+.. code-block:: plantuml
+
+   state c <<choice>>
+   Origen --> c
+   c --> Caso1 : [cond1]
+   c --> Caso2 : [cond2]
+   c --> Caso3 : [else]
+
+Junction **converge**, choice **diverge** —
+misma sintaxis ``<<choice>>``, semántica opuesta
+según las flechas.
+
+**Self-transition** es la flecha que sale y
+vuelve al mismo estado:
+
+.. code-block:: plantuml
+
+   Procesando --> Procesando : siguiente lote
+
+12.5 Shallow vs deep history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Shallow history** (``H``) — al volver al
+  estado compuesto, retoma el subestado más
+  reciente del **mismo nivel jerárquico**.
+- **Deep history** (``H*``) — retoma el
+  subestado **más profundo** que estaba activo,
+  incluso varios niveles abajo.
+
+.. code-block:: plantuml
+
+   state Procesando {
+     state H <<history>>
+     state H_deep <<historyDeep>>
+   }
+
+En IACT aparece en flujos de ETL pausables: si
+el supervisor pausa ``EjecucionETL`` en un
+subestado anidado y luego reanuda,
+``historyDeep`` lleva al subestado exacto donde
+quedó.
+
+12.6 Submachine state
+~~~~~~~~~~~~~~~~~~~~~
+
+Un estado que **referencia otro diagrama de
+estados** completo, modelado en su propio
+documento. Permite descomponer máquinas
+complejas en sub-máquinas.
+
+.. code-block:: plantuml
+
+   state Procesando {
+     ' Detalles en sub-diagrama
+   }
+   note right of Procesando
+     Sub-maquina: ver
+     diagramas-estados § 6.1
+   end note
+
+----
+
+13. Galería de ejemplos canónicos IACT
+======================================
+
+Mini-diagramas reutilizables, vocabulario IACT
+real. Copiar y adaptar al UC objetivo.
+
+13.1 Ciclo simple — Sesion
+--------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   [*] --> Activa : login (CNST_002)
+   Activa --> Caducada : timeout
+   Activa --> Cerrada : logout
+   Caducada --> [*]
+   Cerrada --> [*]
+   @enduml
+
+13.2 Estado con entry/do/exit
+-----------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state Procesando {
+     Procesando : entry / inicializar contador
+     Procesando : do / leer y agregar lote
+     Procesando : exit / consolidar batch
+   }
+
+   [*] --> Procesando
+   Procesando --> [*]
+   @enduml
+
+13.3 Self-transition
+--------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state Procesando
+
+   Procesando --> Procesando : siguiente lote
+   @enduml
+
+13.4 Junction point
+-------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state j <<choice>>
+
+   Inicializada --> j
+   PreCargada --> j
+   Reanudada --> j
+   j --> Procesando : empezar batch
+   @enduml
+
+13.5 Choice point con guardas
+-----------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state c <<choice>>
+
+   Publicada --> c : evaluacion completa
+   c --> Reconocida : [auto-reconocible]
+   c --> Escalada : [umbral critico]
+   c --> Pendiente : [else]
+   @enduml
+
+13.6 Estado compuesto con subestados
+------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state EjecucionETL {
+     [*] --> Inicializada
+     Inicializada --> Cargando : start
+     Cargando --> Validando : datos cargados
+     Validando --> Completada : ok
+     Completada --> [*]
+   }
+
+   [*] --> EjecucionETL
+   EjecucionETL --> [*]
+   @enduml
+
+13.7 Shallow history
+--------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state Procesando {
+     state H <<history>>
+     [*] --> H
+
+     state Cargando
+     state Validando
+     state Insertando
+
+     Cargando --> Validando : ok
+     Validando --> Insertando : valido
+   }
+
+   Procesando --> Pausada : pausar
+   Pausada --> Procesando : reanudar
+   @enduml
+
+13.8 Deep history
+-----------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   state Procesando {
+     state H_deep <<historyDeep>>
+     [*] --> H_deep
+
+     state Cargando {
+       [*] --> LeyendoLote
+       LeyendoLote --> Transformando : leido
+       Transformando --> Insertando : transformado
+     }
+   }
+
+   Procesando --> Pausada : pausar
+   Pausada --> Procesando : reanudar (deep)
+   @enduml
+
+13.9 Flow final — abort anormal
+-------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   [*] --> Inicializada
+
+   Inicializada --> Procesando : start
+   Procesando --> Completada : ok
+
+   state "AbortadaPorError" as ABT #FFAAAA
+   Procesando --> ABT : error catastrofico
+   ABT : entry / registrar en audit_log
+   ABT --> [*]
+   @enduml
+
+13.10 Submachine state
+----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   [*] --> Inicializada
+
+   state Procesando {
+     ' Detalles modelados en sub-diagrama
+   }
+
+   note right of Procesando
+     Sub-maquina:
+     ver diagramas-estados § 6.1
+   end note
+
+   Inicializada --> Procesando : start
+   Procesando --> Completada : ok
+   Completada --> [*]
+   @enduml
+
+13.11 Plantilla — ciclo de vida de un objeto IACT
+-------------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Ciclo de vida — <Objeto IACT>
+
+   [*] --> EstadoInicial : crear
+
+   EstadoInicial : entry / inicializar
+   EstadoInicial : do / esperar evento
+
+   state c <<choice>>
+
+   EstadoInicial --> c : evento_decision
+
+   c --> EstadoCasoA : [cond_a]
+   c --> EstadoCasoB : [cond_b]
+   c --> [*] : [else]
+
+   EstadoCasoA --> Final : completar
+   EstadoCasoB --> Final : completar
+
+   state "AbortadoFlowFinal" as ABT #FFAAAA
+   EstadoInicial --> ABT : error
+   EstadoCasoA --> ABT : error
+   EstadoCasoB --> ABT : error
+   ABT : entry / registrar abort en audit_log
+   ABT --> [*]
+
+   Final --> [*]
+   @enduml
+
+13.12 Cómo usar la galería
+--------------------------
+
+1. Localizar el componente en § 12.
+2. Copiar el snippet de §§ 13.1-13.10 o usar la
+   plantilla (§ 13.11).
+3. Adaptar nombres de estados, eventos, guardas
+   y acciones al objeto del dominio.
+4. Anclar las acciones a CNST/BR relevantes.
+5. Integrar al documento del UC o al modelado
+   del cluster.
+
+Mantenimiento: al introducir un componente
+nuevo en § 12, agregar su mini-diagrama en § 13.
+Mantener cada snippet ≤ 6-8 estados.
+
+----
+
+14. Trazabilidad
 ================
 
 .. list-table::
