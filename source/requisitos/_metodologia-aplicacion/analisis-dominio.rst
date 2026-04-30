@@ -1324,7 +1324,160 @@ Esa práctica es lo que materializa el "momento de
 claridad colectiva" — todos viendo el mismo diagrama
 mientras se construye.
 
-15.7 Relación con el resto del documento
+15.7 Determinar las entidades importantes
+-----------------------------------------
+
+Al construir el modelo del dominio, el primer paso es
+**pensar en todas las entidades importantes del negocio**.
+Una **entidad** es un concepto central del negocio —
+típicamente las frases que más se usan en reuniones y en
+el código. En la jerga de modelado, las entidades
+**contienen datos** y **lógica de negocio**.
+
+Ejemplo del libro citado — una editorial podría tener
+entidades como ``Libro``, ``Capítulo`` y ``Autor``. Un
+``Libro`` tiene un atributo ``título`` (dato) y una
+operación ``calcularConteoPalabras()`` (lógica). Las
+entidades capturan tanto **qué sabe** la aplicación como
+**qué puede hacer**.
+
+Otro ejemplo — una empresa ficticia *Streamy* del sector
+de video streaming. Su entidad más importante sería
+``Title`` (representa los videos que se ofrecen). Cada
+``Title`` pertenece a un ``Genre``, y cada ``Genre`` tiene
+una lista de ``Title`` asociados. Con dos entidades y una
+relación ya hay un modelo de dominio embrionario.
+
+Cómo identificar entidades importantes en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tres preguntas operativas, alineadas con § 13.3 RDD y
+con § 12 Método de Abbott:
+
+1. **¿Qué frases aparecen repetidamente** en
+   conversaciones con supervisores, auditores, área de
+   calidad?
+2. **¿Qué sustantivos** dominan los UCs documentados?
+3. **¿Qué objetos** sobreviven más allá de un caso de
+   uso puntual y se referencian desde varios?
+
+Aplicada al dominio IACT, la pregunta "¿cuál es la
+entidad más importante?" tiene una respuesta clara:
+**``Llamada``** (la interacción del IVR es la fuente
+operacional de toda la analítica). A partir de ahí, las
+entidades relacionadas emergen:
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Entidad ancla
+   - Entidades relacionadas inmediatas
+   - Naturaleza de la relación
+ * - ``Llamada``
+   - ``Segmento``, ``EjecucionETL``, ``Reporte``,
+     ``Alerta``
+   - Una llamada pertenece a un segmento; es cargada
+     por una ejecución ETL; alimenta reportes y
+     alertas.
+ * - ``Usuario``
+   - ``Sesion``, ``Grupo``, ``Permiso``,
+     ``EventoAuditoria``
+   - El usuario tiene sesión, pertenece a grupos,
+     ejerce permisos, genera eventos de auditoría.
+ * - ``Reporte``
+   - ``Filtro``, ``ConfiguracionExport``,
+     ``Llamada``, ``BDAnalytics``
+   - El reporte aplica filtros, configura su export y
+     consume datos derivados de llamadas.
+ * - ``Alerta``
+   - ``UmbralAlerta``, ``EvaluadorAlertas``,
+     ``Supervisor``
+   - La alerta se evalúa contra umbrales y se
+     reconoce por un supervisor.
+ * - ``EjecucionETL``
+   - ``VentanaETL``, ``ErrorETL``, ``Llamada``,
+     ``BDAnalytics``
+   - La ejecución corre dentro de una ventana,
+     produce errores potenciales, lee llamadas y
+     escribe agregados.
+
+Datos vs lógica en las entidades IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cada entidad importante de IACT combina datos y lógica
+canónica:
+
+.. list-table::
+ :widths: 22 38 40
+ :header-rows: 1
+
+ * - Entidad
+   - Datos típicos
+   - Lógica de negocio típica
+ * - ``Llamada``
+   - duración, espera, abandono, segmento.
+   - ``esAbandonada()``, ``getDuracion()``,
+     ``perteneceASegmento()``.
+ * - ``Reporte``
+   - tipo, rango, filtros aplicados.
+   - ``generar()``, ``exportar(formato)``,
+     ``aplicarFiltros()``, ``validarRango()``
+     (CNST_031).
+ * - ``Alerta``
+   - umbral, estado, momento de evaluación.
+   - ``evaluar()``, ``reconocer()``, ``cerrar()``,
+     ``estaActiva()``.
+ * - ``Sesion``
+   - usuario, momento de inicio, último acceso.
+   - ``estaActiva()``, ``renovar()``, ``cerrar()``,
+     ``haCaducado()`` (CNST_002).
+ * - ``EjecucionETL``
+   - ventana, hora de inicio/fin, estado, errores.
+   - ``ejecutar()``, ``registrarError()``,
+     ``estaCompleta()``, ``perteneceAVentana()``.
+
+Esta lectura es el contrato RDD (§ 13.3): cada entidad
+**conoce** sus datos (knowing) y **hace** sus
+operaciones (doing).
+
+Embrión y crecimiento del modelo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El proceso recomendado, aplicable a IACT y a cualquier
+dominio nuevo:
+
+1. **Identificar la entidad ancla** (la que más se
+   menciona).
+2. **Listar 3-5 entidades relacionadas inmediatas** y la
+   naturaleza de la relación.
+3. **Para cada entidad**, anotar sus datos típicos y su
+   lógica de negocio mínima (aunque sea en pseudocódigo).
+4. **Diagramar** (PlantUML class diagram) el embrión
+   resultante — cinco entidades, relaciones, atributos
+   y métodos básicos.
+5. **Iterar** con stakeholders hasta que el embrión
+   capture el lenguaje compartido.
+
+Ese embrión es el punto de partida del modelo
+documentado en §§ 3-7 de este documento. La diferencia
+entre un dominio "viable" y uno "estancado" suele ser
+si el equipo llegó al paso 5 con disciplina o si se
+quedó en el paso 1 con una sola entidad.
+
+Nota sobre profundidad
+~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando un autor introduce DDD, no siempre baja al nivel
+de implementación detallada — el objetivo es **identificar
+el modelo**, no escribir todo el código. Para IACT, el
+modelo aquí descrito y los UCs documentados son
+suficientes para que el equipo de desarrollo materialice
+las entidades en código Django siguiendo las guidelines
+del proyecto (ver § 13 ``backend-django`` /
+``backend-python`` en ``.thyrox/guidelines/``).
+
+15.8 Relación con el resto del documento
 ----------------------------------------
 
 DDD no es una metodología aislada — se combina con las
