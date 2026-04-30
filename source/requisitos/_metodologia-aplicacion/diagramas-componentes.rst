@@ -967,6 +967,189 @@ un conjunto de apps Django **sueltas** y una arquitectura
 
 ----
 
+13. Vista Context (C4 nivel 1) aplicada a IACT
+==============================================
+
+El **diagrama de contexto del sistema** es la vista a
+50 000 pies: contiene el **mínimo nivel de detalle** y
+es deliberadamente **no técnico**. Su función es
+modelar las interacciones entre los usuarios del
+sistema y los demás sistemas externos involucrados.
+
+Test de validación
+~~~~~~~~~~~~~~~~~~
+
+Una prueba operativa para saber si el nivel de detalle
+es el correcto: **mostrarlo a un PM o a alguien no
+técnico**. Si pueden entender qué quiere comunicar el
+diagrama, está bien. Si necesitan que se les explique
+con jerga técnica, hay demasiado detalle — pertenece a
+los niveles 2 o 3.
+
+El diagrama Context responde de un vistazo:
+
+- **Quién** usa el sistema (actores).
+- **Qué hace** el sistema en el contexto del negocio.
+- **Con qué otros sistemas** interactúa para cumplir
+  sus responsabilidades.
+
+Tres elementos canónicos
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Personas** (actores humanos) — quien interactúa
+   con el sistema.
+2. **El software del sistema** que se está
+   diseñando — caja única, sin descomponer.
+3. **Software de apoyo** — sistemas externos con los
+   que interactúa.
+
+Notación libre — convención IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+C4 no impone notación canónica (ver § "C4 no impone
+una notación específica" en :doc:`diagramas-uml`). La
+convención IACT, alineada con la propuesta de Simon
+Brown:
+
+- **Personas** — actor con figura humanoide
+  (``actor`` en PlantUML).
+- **Sistema en diseño** — caja con borde más grueso o
+  color destacado.
+- **Sistemas externos** — cajas con color distinto,
+  para diferenciarlos visualmente.
+- **Flechas** etiquetadas con el **propósito** de la
+  interacción, en términos de negocio (no
+  protocolo).
+
+Vista Context de IACT
+~~~~~~~~~~~~~~~~~~~~~
+
+Aplicada al sistema completo de IACT, la vista
+Context muestra el sistema como una sola caja que
+interactúa con sus actores humanos y los sistemas
+corporativos externos:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — Vista Context (C4 nivel 1)
+
+   skinparam actorBackgroundColor #E0E7FF
+   skinparam rectangleBackgroundColor<<sistema>> #C7D2FE
+   skinparam rectangleBorderColor<<sistema>> #1E40AF
+   skinparam rectangleBackgroundColor<<externo>> #E0F2F1
+
+   actor Supervisor as S
+   actor Auditor as Aud
+   actor "Operador ETL" as OETL
+
+   rectangle "IACT\n(Plataforma de analitica\nde call center)" as IACT <<sistema>>
+
+   rectangle "LDAP corporativo" as LDAP <<externo>>
+   rectangle "BD operativa\n(call center)" as BDO <<externo>>
+   rectangle "IVR-host" as IVR <<externo>>
+
+   S --> IACT : consulta dashboards,\nreconoce alertas
+   Aud --> IACT : consulta auditoria,\nverifica SoD
+   OETL --> IACT : monitorea ventana ETL
+
+   IACT --> LDAP : autentica usuarios
+   IACT --> BDO : lee datos de llamadas\n(read-only)
+   IACT --> IVR : lee eventos del IVR\n(read-only)
+   @enduml
+
+Lectura del diagrama
+~~~~~~~~~~~~~~~~~~~~
+
+- **Tres tipos de actor humano** — Supervisor (uso
+  cotidiano), Auditor (revisión periódica), Operador
+  ETL (monitoreo).
+- **Una caja IACT** — el sistema completo, sin
+  detallar internamente.
+- **Tres sistemas externos**: LDAP corporativo
+  (autenticación), BD operativa (origen de datos),
+  IVR-host (eventos de telefonía).
+- **Flechas etiquetadas en términos de negocio** —
+  "consulta dashboards", "lee datos de llamadas",
+  no "HTTP GET" ni "SQL SELECT". Esos detalles
+  pertenecen al nivel Container.
+
+Lo que el diagrama Context **no** muestra
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Apps Django internas (eso es nivel 3 Component).
+- Stack canónico (mod_wsgi, MySQL, Redis) (nivel 2
+  Container y físico).
+- Protocolos exactos (HTTPS, LDAPS, SQL TCP) (nivel 2
+  Container).
+- Ciclo de vida de UCs específicos (eso son
+  diagramas de secuencia / actividades).
+- Restricciones técnicas detalladas (CNST_002 sesión
+  única, CNST_006/008 ventana ETL) — solo aparecen
+  como notas si son **vinculantes para entender el
+  contexto** y a un PM le dicen algo.
+
+Usos del Context en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **README del repositorio** — primera imagen para
+   quien aterriza en el proyecto.
+2. **Onboarding** de nuevos miembros (técnicos y no
+   técnicos) — entender en 30 segundos qué es IACT y
+   con quién dialoga.
+3. **Presentaciones a comités** — replicar el sistema
+   ante stakeholders sin entrar en stack ni
+   topología.
+4. **ADRs** que afectan integraciones externas
+   (cambiar LDAP, agregar nueva fuente operativa) —
+   discutir el cambio en su contexto antes de tocar
+   niveles inferiores.
+
+Cuándo crear o actualizar el diagrama Context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Al inicio del proyecto (ya hecho).
+- Cuando aparece o desaparece un **actor humano**
+  (e.g., un nuevo rol de auditor externo).
+- Cuando aparece o desaparece un **sistema
+  externo** (e.g., reemplazo de LDAP por SSO
+  corporativo, integración con un nuevo IVR).
+- Cuando cambia la **misión del sistema** — raro,
+  pero posible si el alcance del producto se
+  redefine.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Una sola caja** para IACT — no descomponer en
+   este nivel. Si la audiencia necesita ver apps
+   Django, pasar al nivel Component
+   (§§ 1-9 de este documento).
+2. **Etiquetas en lenguaje del dominio** — sin
+   protocolos ni código.
+3. **Mantener < 7 elementos** en total (actores +
+   sistemas) — más de eso satura la vista a alto
+   nivel.
+4. **Coherencia con el modelo de dominio**
+   (:doc:`analisis-dominio`) — los actores aquí son
+   los mismos que aparecen en los UCs.
+5. **Actualizar al README** del proyecto cuando
+   cambie.
+
+Próximos niveles
+~~~~~~~~~~~~~~~~
+
+- **C4 nivel 2 Container** → :doc:`diagramas-distribucion`
+  detalla los nodos físicos y los protocolos.
+- **C4 nivel 3 Component** → §§ 1-9 de este
+  documento detallan las apps Django internas y sus
+  interfaces.
+- **C4 nivel 4 Code** → omitido en IACT (los
+  diagramas de clases UML lo cubren naturalmente).
+
+----
+
 Trazabilidad
 ============
 
