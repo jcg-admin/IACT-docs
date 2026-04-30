@@ -174,6 +174,120 @@ Las secciones siguientes (§§ 1-9 de este documento)
 detallan cada container IACT con sus protocolos, su
 configuración canónica y sus restricciones.
 
+Construir el Container view paso a paso
+---------------------------------------
+
+Como en el Context (§ 13 de :doc:`diagramas-componentes`),
+el Container se construye incrementalmente: actor → primeros
+containers → resto.
+
+Tres novedades respecto al Context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Tecnología visible** — cada container declara la
+   tecnología que lo implementa entre corchetes
+   (``[Django + mod_wsgi]``, ``[React SPA]``,
+   ``[MySQL]``, ``[Redis]``).
+2. **Protocolo en cada flecha** — la etiqueta de la
+   relación incluye el protocolo entre corchetes
+   (``[HTTPS]``, ``[LDAPS]``, ``[SQL read-only]``).
+3. **Color consistente con el sistema en foco** — los
+   containers comparten la paleta del sistema en
+   diseño del Context (azul del sistema), porque
+   están "dentro" de él.
+
+Sintaxis PlantUML para containers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Igual que para el Context, con tres líneas de texto
+por nodo (título + tecnología en corchetes +
+descripción) más estereotipo de estilo:
+
+.. code-block:: plantuml
+
+   rectangle "Browser\n[Navegador del supervisor]\n\nCliente HTML+JS de la SPA" as B <<c4_container>>
+   rectangle "iact.wsgi\n[Django + mod_wsgi]\n\nBackend de aplicacion" as WSGI <<c4_container>>
+
+Las flechas incluyen el protocolo:
+
+.. code-block:: plantuml
+
+   B --> WSGI : Renderiza UI y llama API\n[HTTPS intranet]
+
+Primer paso del Container IACT — actor y los dos primeros containers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El equivalente IACT del ejemplo del libro (Web App +
+Mobile App). En IACT no hay app móvil — el supervisor
+opera desde un navegador en intranet. Los dos primeros
+containers son entonces el **Browser** del supervisor
+y el ``iact.wsgi`` que sirve la SPA.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Container view (paso 1)
+
+   actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
+
+   rectangle "Browser\n[Navegador del supervisor]\n\nCliente de la SPA en intranet" as B <<c4_container>>
+
+   rectangle "iact.wsgi\n[Django + mod_wsgi sobre Apache]\n\nServe la SPA y expone\nla API REST del backend" as WSGI <<c4_container>>
+
+   Supervisor --> B : opera el panel\n[uso directo]
+   B --> WSGI : consulta dashboards,\nreconoce alertas\n[HTTPS intranet]
+   @enduml
+
+Diferencias con el ejemplo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Sin Mobile App** — IACT solo se usa desde
+  intranet en navegador. Una app móvil futura
+  requeriría ADR.
+- **Tecnología canónica IACT** — Django + mod_wsgi
+  sobre Apache (ADR_DEVOPS_001), no .NET Core MVC.
+- **HTTPS sobre intranet** — sin exposición pública.
+- **Una sola caja Backend** — ``iact.wsgi`` es el
+  punto único; las apps Django internas
+  (``auth_app``, ``perm_app``, ...) son **Components**
+  dentro de él (nivel 3, ver §§ 1-9 de
+  :doc:`diagramas-componentes`).
+
+Estilo y color
+~~~~~~~~~~~~~~
+
+Como en el Context, el estilo se aplica vía
+estereotipos (``<<c4_container>>``) cuyos
+``skinparam`` viven en
+``source/_static/plantuml-styles.puml``. Política
+detallada en § 13.3 de :doc:`diagramas-componentes`.
+
+La regla relevante para Container: **mismos colores
+que el sistema en foco** del Context. Los containers
+están "dentro" del sistema en diseño, así que
+comparten la paleta. Los actores y sistemas externos
+mantienen su paleta del Context (azul oscuro y gris
+respectivamente).
+
+Política IACT para containers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Tecnología visible** — cada container declara su
+   stack canónico entre corchetes. Si el stack se
+   desvía de ADR_DEVOPS_001, registrar ADR.
+2. **Protocolo en cada flecha** — sin protocolo, la
+   flecha miente sobre la integración real.
+3. **Sin Docker / K8s / Nginx / Gunicorn** — el
+   stack es Vagrant + Apache + mod_wsgi + Django +
+   MySQL + Redis (ADR_DEVOPS_001).
+4. **Construcción incremental** — actor primero,
+   containers visibles desde el actor después,
+   containers internos al final.
+5. **Estereotipo `<<c4_container>>`** en cada
+   container; centralizar paleta en
+   ``plantuml-styles.puml``.
+
 ----
 
 1. Nodo, dispositivo y conexión
