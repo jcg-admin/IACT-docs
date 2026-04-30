@@ -32,7 +32,7 @@ ADR-BACK-006: RBAC Estrategia de Implementacion (Supersede 003)
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
   (coexistencia ACC + PERM)
 - :doc:`/normativa/restricciones/cnst-032-menu-dinamico-obligatorio`
-  (funcion SQL ``obtener_menu_usuario`` obligatoria)
+  (funcion SQL ``get_user_menu`` obligatoria)
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - :doc:`/normativa/restricciones/cnst-010-permission-class-explicita-en-vistas-drf`
 - :doc:`/backend/adr-back-005-middleware-decoradores-permisos`
@@ -54,7 +54,7 @@ quedo desalineada con el corpus normativo vigente:
   recalibracion v5.2.1.
 - Nota in-text "VALIDAR ESTA ESTRATEGIA" inadecuada para un
   ADR aceptado (ver Resolucion).
-- Funcion SQL ``obtener_menu_usuario()`` no documentada como
+- Funcion SQL ``get_user_menu()`` no documentada como
   parte del enforcement obligatorio (CNST-032 vigente lo exige).
 
 Este ADR consolida la estrategia tecnica de implementacion
@@ -87,10 +87,10 @@ Esta estrategia equilibra:
 **La verificacion final de "usuario X tiene Funcion Y?" SIEMPRE
 debe pasar por la funcion SQL canonica.**
 
-::
+.. code-block:: sql
 
-   usuario_tiene_funcion(p_usuario_id INTEGER,
-                         p_funcion_codigo VARCHAR)
+   user_has_function(p_user_id INTEGER,
+                     p_function_code VARCHAR)
    RETURNS BOOLEAN
 
 Reglas inviolables:
@@ -101,7 +101,7 @@ Reglas inviolables:
    fuente de verdad para autorizacion.
 3. **La funcion SQL es la unica fuente de verdad** para "tiene
    permiso?".
-4. **Auditoria de todos los accesos** via ``verificar_funcion_y_auditar()``
+4. **Auditoria de todos los accesos** via ``check_function_and_audit()``
    (variante atomica con write a tabla audit).
 
 Esto resuelve la nota in-text del ADR-BACK-003 legacy:
@@ -116,47 +116,91 @@ La inquietud era trazabilidad unica — resuelta por el principio
 la misma funcion SQL; la diferencia es solo el nivel de mocking
 en tests unitarios (donde se mockea la funcion entera).
 
-2.3 Funciones SQL canonicas (vocabulario CNST-033)
---------------------------------------------------
+2.3 Funciones SQL canonicas (vocabulario CNST-033, codigo en ingles)
+--------------------------------------------------------------------
 
-Renombradas del legacy para cumplir vocabulario:
+Per CNST-033 ("CODIGO en ingles") y Clean Code (nombres
+pronunciables, buscables, scope-appropriate). El **codigo** SQL
+y los identificadores Python usan ingles; los **comentarios**
+y docstrings van en espanol.
 
 .. list-table::
  :header-rows: 1
- :widths: 40 30 30
+ :widths: 38 32 30
 
- * - Funcion legacy (vocabulario "Capacidad")
-   - Funcion canonica vigente
+ * - Funcion legacy (espanol, deprecada)
+   - Funcion canonica vigente (ingles)
    - Proposito
  * - ``usuario_tiene_permiso(p_usuario_id, p_capacidad_codigo)``
-   - ``usuario_tiene_funcion(p_usuario_id, p_funcion_codigo)``
+   - ``user_has_function(p_user_id, p_function_code)``
    - Verificacion booleana O(log n)
  * - ``obtener_capacidades_usuario(p_usuario_id)``
-   - ``obtener_funciones_usuario(p_usuario_id)``
+   - ``get_user_functions(p_user_id)``
    - Array de funciones efectivas
  * - ``obtener_grupos_usuario(p_usuario_id)``
-   - ``obtener_grupos_usuario(p_usuario_id)``
-   - Sin cambio (vocabulario "Grupo" sigue valido)
+   - ``get_user_groups(p_user_id)``
+   - JSONB de grupos del usuario
  * - ``verificar_permiso_y_auditar(p_usuario_id, p_capacidad)``
-   - ``verificar_funcion_y_auditar(p_usuario_id, p_funcion)``
+   - ``check_function_and_audit(p_user_id, p_function_code)``
    - Atomico: check + write audit
- * - ``obtener_menu_usuario(p_usuario_id)``
-   - ``obtener_menu_usuario(p_usuario_id)``
-   - Sin cambio (CNST-032 vigente)
+ * - ``get_user_menu(p_usuario_id)``
+   - ``get_user_menu(p_user_id)``
+   - Genera menu dinamico (CNST-032)
 
-2.4 Modelos Django (vocabulario CNST-033)
------------------------------------------
+**Convencion de naming SQL adoptada:**
 
-Los modelos Django se nombran con vocabulario canonico:
+- ``user_has_function`` (verbo + sustantivo, no
+  ``user_has_function_predicate`` que seria verboso).
+- ``get_*`` para retrievers (no ``obtener_*`` espanol).
+- ``check_*_and_*`` para operaciones compuestas atomicas
+  (no ``verify_*_and_*`` — "check" es mas corto y semanticamente
+  equivalente).
+- Parametros con prefijo ``p_`` (PostgreSQL convention).
+- Sufijo ``_code`` para identifier strings (no ``_codigo``).
 
-- ``Function`` (era ``Capacidad``).
-- ``FunctionGroup`` (era ``GrupoPermiso``).
-- ``FunctionGroupMembership`` (era ``CapacidadGrupo``).
-- ``UserFunctionAssignment`` (era ``UsuarioFuncion`` directo).
-- ``UserFunctionGroupAssignment`` (era ``UsuarioGrupo``).
-- ``ExceptionalFunctionGrant`` (era ``PermisoExcepcional``).
-- ``FunctionAuditLog`` (era ``AuditoriaPermiso``).
-- ``FunctionSeparationRule`` (era ``ReglaSoD``).
+2.4 Modelos Django (vocabulario CNST-033, ingles)
+-------------------------------------------------
+
+Los modelos Django se nombran con vocabulario canonico ingles
++ Clean Code (clases sustantivas PascalCase, scope-appropriate
+length):
+
+.. list-table::
+ :header-rows: 1
+ :widths: 35 30 35
+
+ * - Modelo legacy (espanol, deprecado)
+   - Modelo canonico (ingles)
+   - Notas
+ * - ``Capacidad``
+   - ``Function``
+   - Sustantivo simple, scope core
+ * - ``GrupoPermiso``
+   - ``FunctionGroup``
+   - Compound, scope core
+ * - ``CapacidadGrupo``
+   - ``FunctionGroupMembership``
+   - Compound, scope assoc table
+ * - ``UsuarioFuncion`` (directa)
+   - ``UserFunctionGrant``
+   - "Grant" mas claro que "Assignment" para directas
+ * - ``UsuarioGrupo``
+   - ``UserGroupMembership``
+   - Sigue convencion ``*Membership`` para join tables
+ * - ``PermisoExcepcional``
+   - ``ExceptionalGrant``
+   - Sustantivo apropiado al scope
+ * - ``AuditoriaPermiso``
+   - ``FunctionAccessAudit``
+   - Especifico (audit de access, no audit generico)
+ * - ``ReglaSoD``
+   - ``SeparationRule``
+   - Drop "SoD" prefix (es contexto del modelo, no nombre)
+
+**Atributos en codigo:** todos en ingles snake_case
+(``user_id``, ``function_code``, ``granted_at``, ``expires_at``).
+
+**Comentarios y docstrings:** en espanol per CNST-033.
 
 ----
 
@@ -172,7 +216,7 @@ Los modelos Django se nombran con vocabulario canonico:
 - Performance preservada (SQL para hot-path).
 - Mantenibilidad preservada (ORM para CRUD/admin).
 - Auditoria atomica con la verificacion (no race condition).
-- ``obtener_menu_usuario()`` parte del enforcement obligatorio
+- ``get_user_menu()`` parte del enforcement obligatorio
   (CNST-032).
 
 3.2 Negativas mitigadas
@@ -205,8 +249,8 @@ Los modelos Django se nombran con vocabulario canonico:
 
 Criterios de exito:
 
-- Verificacion ``usuario_tiene_funcion()``: < 10ms (p95).
-- Generacion de menu ``obtener_menu_usuario()``: < 50ms (p95).
+- Verificacion ``user_has_function()``: < 10ms (p95).
+- Generacion de menu ``get_user_menu()``: < 50ms (p95).
 - Cobertura de tests: > 90%.
 - 100% de endpoints con ``permission_classes`` explicito
   (CNST-010 vigente).
@@ -221,10 +265,10 @@ ADR-BACK-005 (middleware/decoradores) preservado como referencia
 tecnica de la **integracion Django/DRF** con el sistema de
 permisos. Cuando el codigo se materialice:
 
-- Decoradores ``@verificar_permiso`` -> ``@verificar_funcion``
-  (vocabulario CNST-033).
+- Decoradores ``@verificar_permiso`` (legacy espanol) ->
+  ``@require_function`` (canonico ingles, scope-appropriate).
 - ``GranularPermission`` DRF class -> usar la funcion SQL
-  ``usuario_tiene_funcion()`` internamente.
+  ``user_has_function()`` internamente.
 
 Ver :doc:`/backend/adr-back-005-middleware-decoradores-permisos`
 para detalles tecnicos.

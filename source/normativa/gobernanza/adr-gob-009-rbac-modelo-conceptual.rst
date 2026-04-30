@@ -211,19 +211,29 @@ para el analisis comparativo completo.
 
 ----
 
-5. Diferido (out-of-scope)
-==========================
+5. Matriz RACI (resuelve nota in-text de ADR-BACK-004 legacy)
+=============================================================
 
-5.1 DEBT-RBAC-RACI
-------------------
+La nota in-text de ADR-BACK-004 legacy sugeria documentar una
+**matriz RACI** sobre las funciones del sistema. Esa propuesta
+**se materializo** en este WP — ver
+:doc:`/arquitectura-tecnica/rbac/raci-rbac-iact`.
 
-La nota in-text de ADR-BACK-004 sugeria documentar una **matriz
-RACI** sobre las funciones del sistema. Esta es una propuesta
-legitima pero excede el scope de este ADR conceptual.
+La matriz RACI:
 
-**Diferido como DEBT-RBAC-RACI** en
-:doc:`/risks-technical-debt/deuda-tecnica-rebuild` para abordar
-en un WP propio cuando se priorice.
+- Cubre las 42 funciones por modulo (MOD_Auth, MOD_Users,
+  MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
+  MOD_Audit, MOD_Logs).
+- Cubre los 10 grupos predefinidos AGR-001..AGR-010.
+- Cubre las 3 reglas SoD SOD-001..003.
+- Cubre las operaciones de gobernanza del modelo
+  (agregar/eliminar funcion, crear grupo custom, etc.).
+- Identifica 6 stakeholders: Admin no-tech, Admin tecnico,
+  Operador, Tech Lead Backend (Accountable global), Equipo
+  Auditoria, Equipo Compliance.
+
+**Consecuencia:** la deuda DEBT-RBAC-RACI propuesta inicialmente
+queda **cerrada** sin diferir.
 
 ----
 
