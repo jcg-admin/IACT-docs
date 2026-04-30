@@ -32,6 +32,156 @@ Relaciones UML aplicadas al dominio IACT (PlantUML)
 
 ----
 
+Preludio — Tres dimensiones de la colaboración
+==============================================
+
+Las **relaciones entre clases por colaboración** describen
+cómo los objetos interactúan y se relacionan entre sí en
+un sistema. Toda relación UML — asociación, agregación,
+composición, dependencia, realización — admite un análisis
+en **tres dimensiones**: visibilidad, temporalidad y
+versatilidad.
+
+Cada dimensión define una pregunta distinta sobre la
+colaboración. Las cuatro relaciones canónicas tratadas en
+este documento (§§ 2-3, 5, 10) y la herencia (§§ 7,
+14-15) toman valores específicos en cada dimensión —
+las tablas técnicas de cada sección reutilizan este
+marco. Verlo desde el inicio facilita comparar y elegir.
+
+Visibilidad — ¿quién puede colaborar?
+-------------------------------------
+
+Determina el **nivel de acceso** en la colaboración: si
+otros objetos pueden o no participar.
+
+.. list-table::
+ :widths: 22 30 48
+ :header-rows: 1
+
+ * - Tipo
+   - Significado
+   - Ejemplo IACT
+ * - **Pública**
+   - Cualquier objeto del sistema puede colaborar.
+   - El catálogo de funciones (``Funcion``) en
+     ``perm_app`` es público; cualquier consumidor con
+     permiso lo lee.
+ * - **Privada**
+   - Limita la colaboración al objeto propietario.
+   - Los tokens internos de una ``Sesion`` en Redis no
+     son accesibles fuera de ``auth_app``
+     (CNST_002).
+ * - **Protegida**
+   - Permite colaboración solo entre clases de la
+     misma jerarquía o paquete.
+   - Los métodos internos de ``Reporte`` que las
+     subclases (``ReporteVolumen``,
+     ``ReporteAbandono``) sobrescriben para calcular
+     agregados específicos del subtipo.
+
+Temporalidad — ¿cuánto dura la colaboración?
+--------------------------------------------
+
+Describe la **duración** de la interacción entre objetos.
+
+.. list-table::
+ :widths: 25 30 45
+ :header-rows: 1
+
+ * - Tipo
+   - Significado
+   - Ejemplo IACT
+ * - **Temporal** (corta duración)
+   - Colaboraciones que ocurren por un período
+     limitado.
+   - Una vista Django pasa un ``Filtro`` a
+     ``Reporte.generar()`` durante una consulta
+     puntual (dependencia, § 10).
+ * - **Permanente** (larga / indefinida)
+   - Colaboraciones que persisten por tiempo
+     indefinido.
+   - La asociación ``Sesion`` ↔ ``Usuario`` dura
+     toda la vida de la sesión (asociación, § 2).
+
+Versatilidad — ¿la instancia es intercambiable?
+-----------------------------------------------
+
+Indica el **grado de intercambiabilidad** de los objetos:
+si un cliente puede colaborar con diferentes instancias
+del servidor o si está atado a una específica.
+
+.. list-table::
+ :widths: 25 30 45
+ :header-rows: 1
+
+ * - Tipo
+   - Significado
+   - Ejemplo IACT
+ * - **Alta versatilidad**
+   - Permite colaborar con diferentes instancias del
+     mismo tipo.
+   - ``rpt_app`` puede usar **cualquier**
+     implementación de ``IDatosAnalytics`` (Adapter,
+     ver :doc:`patrones-diseno`).
+ * - **Baja versatilidad**
+   - Requiere una instancia específica.
+   - ``EventoAuditoria`` está atado a su propia
+     ``DetalleAuditoria`` (composición, no se
+     reasigna; ver § 3 de
+     :doc:`agregacion-interfaces`).
+
+Cómo se posiciona cada relación en las tres dimensiones
+-------------------------------------------------------
+
+Tabla de referencia rápida (los detalles por relación
+están en la sección correspondiente):
+
+.. list-table::
+ :widths: 22 22 22 34
+ :header-rows: 1
+
+ * - Relación
+   - Visibilidad
+   - Temporalidad
+   - Versatilidad
+ * - Asociación (§ 2)
+   - Pública
+   - Alta / Media
+   - Baja
+ * - Agregación
+     (:doc:`agregacion-interfaces` § 2)
+   - Pública
+   - Alta / Media
+   - Baja / Media (componentes compartibles)
+ * - Composición
+     (:doc:`agregacion-interfaces` § 3)
+   - Privada
+   - Alta
+   - Baja
+ * - Dependencia / uso (§ 10)
+   - Pública
+   - Alta / Media (transitoria)
+   - Baja (propósito específico)
+ * - Realización (interfaz)
+     (:doc:`agregacion-interfaces` § 5)
+   - Pública
+   - Permanente
+   - Alta (intercambiable por cualquier
+     implementador)
+
+Las secciones siguientes desarrollan cada relación con sus
+ejemplos IACT. La pregunta operativa al modelar:
+
+   *¿Quién puede colaborar (visibilidad), cuánto tiempo
+   (temporalidad), y con qué instancias (versatilidad)?*
+
+La respuesta posiciona cada relación en la tabla anterior
+y guía la elección entre asociación, agregación,
+composición, dependencia o realización.
+
+----
+
 1. Por qué necesitamos relaciones
 =================================
 
