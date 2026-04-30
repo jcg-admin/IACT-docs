@@ -1395,37 +1395,215 @@ Usa herencia **solo cuando existe una verdadera relación
 14.4 Herencia por limitación (evitar)
 -------------------------------------
 
-La clase hija **no implementa o restringe** operaciones
-heredadas.
+La **herencia por limitación** (*restriction inheritance*)
+ocurre cuando una clase hija hereda de una clase padre
+pero **no implementa o restringe** algunas de las
+operaciones heredadas. Es una **violación grave** del
+*Liskov Substitution Principle* (LSP): los objetos de la
+clase base deben poder ser reemplazados por objetos de
+sus clases derivadas sin afectar la corrección del
+programa.
 
-- No cumple el contrato del padre.
-- Restringe operaciones heredadas.
-- Rompe expectativas de comportamiento.
+Cuando una hija limita o no implementa funcionalidades del
+padre, este principio se rompe.
 
-Consecuencias: violación de LSP, inconsistencias, código
-frágil, reusabilidad reducida.
+Violación del contrato
+~~~~~~~~~~~~~~~~~~~~~~
 
-Señales de advertencia:
+- La clase hija **no cumple el contrato completo** del
+  padre.
+- Restringe o no implementa ciertas operaciones
+  heredadas.
+- Rompe las expectativas de comportamiento.
 
-- Métodos que lanzan ``NotImplementedError`` para
-  desactivar operaciones del padre.
-- Implementaciones vacías (``pass``) en métodos heredados.
-- Comentarios "esto no aplica para este subtipo".
+Consecuencias técnicas
+~~~~~~~~~~~~~~~~~~~~~~
 
-**Evitar.** Indica que la jerarquía está mal modelada.
+1. **Imposibilidad de sustituir** objetos de la clase base
+   por objetos de la derivada de manera segura.
+2. **Violación de Design by Contract**: precondiciones,
+   postcondiciones e invariantes del padre dejan de ser
+   confiables en la hija.
+3. **Jerarquías frágiles** y propensas a errores.
+4. **Reducción significativa de la reusabilidad** del
+   código.
 
-Ejemplo incorrecto en IACT:
+Por qué imposibilita el polimorfismo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El polimorfismo requiere poder tratar **cualquier objeto
+de una clase derivada como si fuera de su clase base**.
+Cuando se limitan operaciones en la hija, esto deja de
+ser cierto: el código cliente debe **conocer las
+limitaciones específicas** de cada subtipo, perdiendo el
+beneficio del despacho dinámico.
+
+Síntomas comunes
+~~~~~~~~~~~~~~~~
+
+- Métodos heredados que lanzan ``NotImplementedError`` o
+  excepciones para desactivar operaciones del padre.
+- Implementaciones vacías (``pass``).
+- Comentarios "no soportado", "no implementado", "esto
+  no aplica para este subtipo".
+- Comportamientos inesperados o silenciosos en la clase
+  hija.
+
+Ejemplo canónico — ``Ave`` con ``Pinguino``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una clase base ``Ave`` con el método ``volar()``. Si
+``Pinguino`` hereda de ``Ave`` pero no puede implementar
+``volar()`` apropiadamente, hay herencia por limitación —
+el pingüino limita una capacidad que se supone debería
+tener por ser un ``Ave``.
+
+Diseño incorrecto:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Diseno incorrecto — herencia por limitacion
+
+   class Ave {
+     # nombre : String
+     # peso : Double
+     + volar()
+     + comer()
+     + getNombre()
+     + getPeso()
+   }
+
+   class Pinguino {
+     - velocidadNado : Double
+     + volar()
+     + nadar()
+     + getVelocidadNado()
+   }
+
+   Ave <|-- Pinguino
+   note right of Pinguino
+     volar() no puede
+     implementarse correctamente.
+     Viola el principio LSP.
+   end note
+   @enduml
+
+Diseño correcto — interfaces para separar comportamientos:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Diseno correcto — interfaces
+
+   class Ave {
+     # nombre : String
+     # peso : Double
+     + comer()
+     + getNombre()
+     + getPeso()
+   }
+
+   interface IAveVoladora {
+     + volar()
+   }
+
+   interface IAveNadadora {
+     + nadar()
+   }
+
+   class Aguila {
+     - altitudMaxima : Double
+     + volar()
+     + getAltitudMaxima()
+   }
+
+   class Pinguino {
+     - velocidadNado : Double
+     + nadar()
+     + getVelocidadNado()
+   }
+
+   Ave <|-- Aguila
+   Ave <|-- Pinguino
+   IAveVoladora <|.. Aguila
+   IAveNadadora <|.. Pinguino
+
+   note left of Ave : Comportamientos comunes
+   note right of IAveVoladora : Define vuelo
+   note right of IAveNadadora : Define nado
+   @enduml
+
+Lectura del diseño correcto:
+
+- ``Ave`` queda con los comportamientos **comunes a todas
+  las aves** (``comer``, atributos, getters).
+- Las interfaces ``IAveVoladora`` e ``IAveNadadora``
+  declaran capacidades específicas.
+- ``Aguila`` hereda ``Ave`` **e implementa**
+  ``IAveVoladora``.
+- ``Pinguino`` hereda ``Ave`` **e implementa**
+  ``IAveNadadora``.
+- Cada clase implementa **solo las interfaces que tienen
+  sentido** para su comportamiento natural.
+
+Ventajas:
+
+- Respeta LSP — ninguna clase oculta operaciones
+  heredadas.
+- Más flexible — agregar nuevas capacidades mediante
+  interfaces.
+- Más mantenible — cambios en "volar" solo afectan a
+  quienes realmente lo implementan.
+- Más extensible — fácil agregar aves con diferentes
+  combinaciones de capacidades.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Casos típicos donde aparecería el antipatrón:
 
 - ``ReporteSoloLectura`` heredando de ``Reporte`` y
   lanzando excepción en ``exportar()``. Si no se puede
-  exportar, no es un ``Reporte`` en el sentido del
-  contrato — modelar como interfaz separada
-  ``ReporteVisualizable`` y dejar ``Reporte`` solo para
-  los que sí soportan ``exportar()``.
+  exportar, **no es** un ``Reporte`` en el sentido del
+  contrato. Modelar como interfaces separadas:
 
-**Solución**: reevaluar jerarquía, usar **interfaces
-específicas** o **composición**, crear abstracciones
-mejor delimitadas.
+  - ``Reporte`` (base con ``generar()``).
+  - ``IExportable`` (con ``exportar(formato)``).
+  - ``IConsultable`` (con ``consultar()``).
+
+  Y dejar que ``ReporteVolumen`` implemente ambas y
+  ``ReporteSoloLectura`` implemente solo ``IConsultable``.
+- ``EventoAuditoriaInterno`` heredando de
+  ``EventoAuditoria`` y bloqueando ``exportar_legal()``.
+  Mejor: dos interfaces ``IExportableInterno`` e
+  ``IExportableLegal``.
+- ``UsuarioInactivo`` heredando de ``Usuario`` y
+  desactivando ``iniciar_sesion()`` lanzando excepción.
+  Modelarlo con un atributo de estado y composición —
+  el usuario *tiene un* estado, no *es* un tipo distinto.
+
+Soluciones generales
+~~~~~~~~~~~~~~~~~~~~
+
+- **Reevaluar la jerarquía** — probable señal de que la
+  abstracción está mal trazada.
+- Usar **interfaces más específicas** que separen
+  capacidades.
+- Usar **composición** en lugar de herencia.
+- Crear **abstracciones más apropiadas** —
+  frecuentemente, una jerarquía con limitación oculta dos
+  conceptos que merecen abstracciones separadas.
+
+Regla clave
+~~~~~~~~~~~
+
+**Si una clase hija no puede cumplir completamente con el
+contrato de su padre, la relación de herencia no es
+apropiada.** Reemplazarla por interfaces o composición
+(ver § 15).
 
 14.5 Tabla resumen
 ------------------

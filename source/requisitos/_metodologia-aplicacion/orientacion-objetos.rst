@@ -828,7 +828,32 @@ Ley de Demeter y "Tell, Don't Ask"
 
 La **Ley de Demeter** (LoD) — también conocida como *law
 of least knowledge* — concreta el principio de bajo
-acoplamiento: un método solo debe enviar mensajes a:
+acoplamiento. Su formulación canónica
+(`Northeastern University, K. Lieberherr et al.
+<https://www.khoury.northeastern.edu/home/lieber/LoD.html>`_):
+
+   *Los métodos de una clase no deben depender de ninguna
+   manera de la estructura de ninguna otra clase, excepto
+   de la estructura inmediata de su propia clase. Además,
+   cada método debe enviar mensajes solo a objetos
+   pertenecientes a un conjunto muy limitado de clases.*
+
+La cita encapsula dos principios:
+
+- **Encapsulación y cohesión** (primera parte): los
+  métodos de una clase no deben depender de la estructura
+  de ninguna otra clase salvo de la suya propia. Esto
+  promueve encapsulación restringiendo el acceso a
+  elementos externos y mejora la cohesión asegurando que
+  los métodos están fuertemente relacionados con los
+  datos y comportamientos de su propia clase.
+- **Acoplamiento bajo** (segunda parte): cada método debe
+  enviar mensajes solo a objetos pertenecientes a un
+  conjunto **muy limitado** de clases. Esto reduce el
+  acoplamiento entre clases, simplifica el diseño y
+  facilita el mantenimiento.
+
+Operacionalmente, un método solo debe enviar mensajes a:
 
 1. el propio objeto (``self``),
 2. los parámetros recibidos,
