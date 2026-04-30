@@ -600,7 +600,113 @@ Para cada UC, ejecutar la metodología:
 
 ----
 
-12. Tres escuelas para identificar clases
+12. Método de Abbott — descripción informal
+===========================================
+
+La técnica que las secciones 1-11 aplican (sustantivos →
+clases, verbos → operaciones, adjetivos → atributos)
+proviene del **método de Abbott**: escribir una descripción
+del problema en lenguaje natural y analizar su estructura
+gramatical.
+
+Reglas básicas del método
+-------------------------
+
+- Los **sustantivos** se convierten en objetos candidatos.
+- Los **verbos** se transforman en operaciones candidatas
+  sobre esos objetos.
+- Los **adjetivos** y modificadores aportan atributos y
+  contexto.
+
+Virtudes del enfoque
+--------------------
+
+- **Obliga a usar el vocabulario propio del dominio** —
+  la terminología viene del experto, no del desarrollador.
+- **Facilita la comunicación** entre desarrolladores y
+  expertos del dominio: ambos pueden leer el mismo texto.
+- Proporciona un **punto de partida accesible** para el
+  análisis.
+- **Ayuda a mantener el modelo cercano a la realidad del
+  negocio**.
+
+Limitaciones — por qué no basta por sí solo
+-------------------------------------------
+
+**Falta de rigor.** El método no es suficientemente
+riguroso para problemas complejos. La transición de
+lenguaje natural a conceptos de diseño puede ser ambigua y
+subjetiva. Ejemplo:
+
+   *"El sistema realiza la gestión de inventario."*
+
+¿``Gestión`` debe ser clase u operación? Sin contexto
+adicional el método no responde. En IACT esto aparece con
+"reporte" (clase u operación), "alerta" (clase o evento),
+"export" (operación o entidad ``TareaExport``).
+
+**Imprecisión del lenguaje humano.** Tres patrones
+problemáticos:
+
+- **Sinónimos**: distintas palabras para el mismo
+  concepto. En IACT: "supervisor" / "operador de
+  monitoreo" / "responsable de turno".
+- **Anáforas**: referencias indirectas a conceptos ya
+  mencionados ("la alerta crítica recibida... esta luego
+  se reconoce"). El "esta" puede inducir confusión sobre
+  qué entidad opera el método.
+- **Metáforas**: uso figurativo que confunde el análisis
+  ("el sistema **levanta** la alerta", "**caen** los
+  permisos del grupo").
+
+**Ambigüedad gramatical — cosificación.** El proceso de
+convertir verbos en sustantivos y viceversa complica el
+análisis:
+
+- "Gestionar" vs "gestión".
+- "Oxigenar" vs "oxígeno".
+- "Pulsar" vs "pulso".
+
+En IACT: "auditar" vs "auditoría", "exportar" vs
+"exportación", "alertar" vs "alerta". Cada par admite
+modelado como clase **o** como operación, dependiendo del
+nivel de granularidad — la decisión debe ser explícita,
+no implícita.
+
+Impacto si se usa Abbott aisladamente
+-------------------------------------
+
+- Modelos inconsistentes entre UCs documentados por
+  distintos autores.
+- Clases mal identificadas (operaciones disfrazadas de
+  clase).
+- Operaciones incorrectamente asignadas a la clase
+  equivocada.
+- Relaciones poco claras entre objetos.
+
+Recomendación — uso de Abbott en IACT
+-------------------------------------
+
+Por estas razones, el método de Abbott debe considerarse:
+
+- Un **punto de partida útil** para problemas pequeños o
+  el primer borrador de un UC.
+- Una **herramienta complementaria** dentro del proceso
+  de análisis.
+- Un **medio para iniciar discusiones** sobre el modelo
+  del dominio con el experto.
+- **No** como la única estrategia de identificación de
+  clases y operaciones.
+
+La sección siguiente presenta tres escuelas que
+complementan el método de Abbott reduciendo sus
+limitaciones: el análisis clásico (categorización
+sistemática), el análisis basado en escenarios y el
+análisis dirigido por responsabilidades (RDD).
+
+----
+
+13. Tres escuelas para identificar clases
 =========================================
 
 Las secciones 1-11 aplican una técnica concreta
@@ -610,7 +716,7 @@ las escuelas reconocidas de análisis OOP. A continuación se
 contrastan las tres escuelas más relevantes y cómo se
 combinan en IACT.
 
-12.1 Análisis clásico — categorías de fuentes
+13.1 Análisis clásico — categorías de fuentes
 ---------------------------------------------
 
 El análisis clásico es una estrategia más estructurada y
@@ -678,7 +784,7 @@ después del análisis sustantivos→clases. Una clase nueva
 identificada por la categoría "Eventos" típicamente queda
 fuera si solo se mira el lenguaje narrativo del UC.
 
-12.2 Análisis de casos de uso — diseño basado en escenarios
+13.2 Análisis de casos de uso — diseño basado en escenarios
 -----------------------------------------------------------
 
 El análisis de casos de uso (*scenario-based design*)
@@ -723,14 +829,17 @@ escenarios alimentan tanto los diagramas de secuencia
 (:doc:`diagramas-secuencias`) como las pruebas de
 aceptación derivadas en ``rm-validation``.
 
-12.3 Análisis del comportamiento — RDD
+13.3 Análisis del comportamiento — RDD
 --------------------------------------
 
-Mientras las dos escuelas anteriores se centran en cosas
-tangibles y escenarios, una tercera —
-*Responsibility-Driven Design (RDD)* de Wirfs-Brock,
-Wilkerson y Wiener — pone el foco en el **comportamiento
-dinámico** como fuente primaria de clases y objetos.
+La tercera escuela — **Responsibility-Driven Design (RDD)**
+de Wirfs-Brock, Wilkerson y Wiener — propone que la
+identificación y asignación de **responsabilidades** debe
+ser el punto de partida del diseño OOP, antes que la
+estructura de datos o las entidades del dominio.
+
+Cita canónica
+~~~~~~~~~~~~~
 
    *El conocimiento que un objeto mantiene y las acciones
    que un objeto puede realizar. Las responsabilidades
@@ -740,23 +849,142 @@ dinámico** como fuente primaria de clases y objetos.
    que presta a todos los contratos que apoya.*
    — Rebecca Wirfs-Brock
 
-Aplicación a IACT
-~~~~~~~~~~~~~~~~~
+Tipos de responsabilidades
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-RDD es la base de la sección 8 (responsabilidades canónicas)
-y de las interfaces declaradas en
+RDD distingue dos categorías:
+
+- **Knowing responsibilities** — el conocimiento que el
+  objeto debe **mantener**. En IACT, ``Sesion`` conoce su
+  ``user_id`` y su instante de creación; ``Reporte``
+  conoce su tipo y configuración.
+- **Doing responsibilities** — las acciones que el objeto
+  puede **realizar**. En IACT, ``Reporte`` calcula y
+  exporta; ``Sesion`` se renueva o caduca; ``EvaluadorAlertas``
+  evalúa umbrales y publica alertas.
+
+Las responsabilidades no son simplemente una lista de
+métodos o atributos: representan el **rol** que el objeto
+desempeña en la solución. Definir responsabilidades es
+establecer **contratos** que el objeto debe cumplir con
+los demás, formando una red de colaboraciones.
+
+Cambio de pregunta
+~~~~~~~~~~~~~~~~~~
+
+RDD desplaza la pregunta inicial:
+
+- Enfoque clásico: *"¿Qué objetos necesitamos?"*
+- Enfoque RDD: *"¿Qué comportamientos necesitamos? ¿Quién
+  debería ser responsable de cada comportamiento?"*
+
+Beneficios en este proyecto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Cohesión** — cada objeto IACT tiene un propósito claro;
+  ``aud_app`` solo hace audit, ``perm_app`` solo decide
+  permisos.
+- **Encapsulamiento** — las responsabilidades determinan
+  qué información debe ser privada y cuál pública.
+- **Bajo acoplamiento** — responsabilidades bien definidas
+  habilitan interfaces claras (ver
+  :doc:`diagramas-componentes`).
+- **Evolución localizada** — los cambios se concentran en
+  las responsabilidades específicas afectadas, no se
+  propagan a través de la jerarquía.
+
+Integración con análisis del comportamiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+RDD y el análisis del comportamiento se integran de forma
+natural en tres niveles:
+
+**Colaboraciones.** Las responsabilidades identificadas se
+traducen en patrones de interacción entre objetos. En IACT
+la responsabilidad de ``Reporte`` *generar agregados*
+exige analizar la secuencia de interacciones entre
+``Reporte``, ``BDAnalytics`` y ``aud_app`` para registrar
+el evento de ejecución (ver
+:doc:`diagramas-secuencias` y
+:doc:`diagramas-colaboraciones`).
+
+**Estados y transiciones.** Las responsabilidades
+identifican los estados por los que pasa un objeto y las
+transiciones válidas. Una ``Alerta`` IACT tiene la
+responsabilidad de gestionar su ciclo de vida —
+``publicada → reconocida → cerrada`` (ver
+:doc:`diagramas-estados`). Las transiciones inválidas no
+existen porque ningún método del objeto las permite.
+
+**Flujos de trabajo.** Las responsabilidades guían cómo se
+coordinan múltiples objetos en procesos amplios. La
+responsabilidad de cada objeto en el flujo debe estar
+claramente definida y el análisis del comportamiento
+verifica que las responsabilidades se cumplen
+coordinadamente (ver :doc:`diagramas-actividades`).
+
+Cómo se modela RDD con UML en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Diagramas de secuencia** — cada mensaje materializa
+  una responsabilidad previamente identificada. Si un
+  mensaje no corresponde a una responsabilidad declarada,
+  la responsabilidad falta o el mensaje sobra.
+- **Diagramas de estado** — las transiciones se justifican
+  por las responsabilidades del objeto, no por
+  conveniencia técnica.
+- **Diagramas de actividad** — verifican que cada actividad
+  está asignada a un objeto **responsable**, evitando
+  responsabilidades huérfanas o duplicadas.
+
+Aplicación canónica IACT
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+RDD es la base de la § 8 (responsabilidades canónicas) y
+de las interfaces declaradas en
 :doc:`diagramas-componentes` (``ISecurity``, ``IAuditLog``,
 ``IReporte``, ``IAlerta``, ``INotificacion``,
-``IDatosOperativos``, ``IDatosAnalytics``, ``IETL``).
+``IDatosOperativos``, ``IDatosAnalytics``, ``IETL``). Cada
+interfaz es un **contrato** en sentido RDD: define los
+servicios que el componente promete prestar.
 
-Cada interfaz IACT es un **contrato** en sentido RDD: define
-los servicios que el componente promete prestar. La
-disciplina del proyecto exige que toda comunicación entre
-apps Django pase por su contrato declarado, nunca por
-acceso directo a modelos ajenos
-(ver § 11 de :doc:`orientacion-objetos`).
+Ejemplo IACT — ``Cita``-equivalente: ``UC_RPT_07`` reporte
+programado:
 
-12.4 Combinación de las tres escuelas en IACT
+1. Identificar interacciones necesarias con
+   ``Scheduler``, ``rpt_app``, ``BDAnalytics``,
+   ``log_app``, ``aud_app``.
+2. Definir estados por los que pasa la tarea programada
+   (``planificada``, ``en_ejecucion``, ``completada``,
+   ``fallida``).
+3. Analizar el flujo completo de programación, ejecución y
+   notificación al buzón interno (CNST_001).
+
+La disciplina del proyecto exige que toda comunicación
+entre apps Django pase por su contrato declarado, nunca
+por acceso directo a modelos ajenos (ver § 11 de
+:doc:`orientacion-objetos`).
+
+Validaciones que aporta RDD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ¿Las responsabilidades asignadas son **coherentes** con
+  el comportamiento requerido?
+- ¿Faltan responsabilidades, o hay redundancias entre
+  objetos?
+- ¿La distribución actual produce **patrones eficientes y
+  mantenibles**?
+- ¿Hay problemas detectables **antes** de implementar?
+
+Influencia
+~~~~~~~~~~
+
+RDD ha influido en prácticas como **Domain-Driven Design**
+y en la OOP en general: un buen diseño OOP equilibra
+aspectos estructurales (qué objetos hay, cómo se relacionan)
+y comportamentales (qué hacen, qué prometen).
+
+13.4 Combinación de las tres escuelas en IACT
 ---------------------------------------------
 
 Las tres escuelas no son alternativas excluyentes; son

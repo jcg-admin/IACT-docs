@@ -823,6 +823,102 @@ Reglas IACT derivadas
   deben reutilizar la mayor parte del padre. Si no lo
   hacen, romper la jerarquía y modelar con composición.
 
+Ley de Demeter y "Tell, Don't Ask"
+----------------------------------
+
+La **Ley de Demeter** (LoD) — también conocida como *law
+of least knowledge* — concreta el principio de bajo
+acoplamiento: un método solo debe enviar mensajes a:
+
+1. el propio objeto (``self``),
+2. los parámetros recibidos,
+3. los objetos creados localmente,
+4. los atributos directos de ``self``.
+
+Cualquier "salto" más allá (``a.b.c.d.do_something()``) es
+una violación: el llamador conoce la **estructura interna**
+de ``a``, no solo su contrato. Cambios en ``b`` o ``c``
+romperán el llamador aunque la intención del UC no haya
+cambiado.
+
+Ejemplo canónico de David Bocks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+David Bocks ilustra la LoD con *El repartidor de periódicos,
+la billetera y la ley de Demeter*. Dos formas de cobrar al
+cliente:
+
+- **Incumple LoD**: ``customer.wallet.totalMoney`` —
+  el repartidor depende de que el cliente tenga un
+  atributo ``wallet`` y de su estructura interna.
+- **Cumple LoD**: ``customer.getPayment(amount)`` — el
+  repartidor le dice al cliente "págame esto". El
+  cliente decide internamente si saca de la billetera,
+  de un sobre, de una tarjeta… El repartidor solo conoce
+  el contrato.
+
+Esto materializa el principio **Tell, Don't Ask**: en lugar
+de **preguntar** datos al objeto y operar sobre ellos
+externamente, **decirle** al objeto que realice la acción.
+La diferencia es estructural: el primer estilo expone la
+forma interna; el segundo, solo el comportamiento.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Casos típicos donde la LoD se viola en este proyecto y la
+forma correcta de evitarlo:
+
+.. list-table::
+ :widths: 50 50
+ :header-rows: 1
+
+ * - Incumple LoD (evitar)
+   - Cumple LoD (preferido)
+ * - ``view.user.session.is_active``
+   - ``view.user.is_session_active()``
+ * - ``reporte.config.exportar.formato.serializar(data)``
+   - ``reporte.exportar(data)``
+ * - ``alerta.regla.umbral.valor > x``
+   - ``alerta.regla.excede(x)``
+ * - ``request.user.grupos.all().filter(...).first().permisos``
+   - ``perm_app.verificar(request.user, "fn_id")``
+ * - ``ejecucion.errores.first().detalle.causa``
+   - ``ejecucion.causa_primer_error()``
+
+Reglas IACT
+~~~~~~~~~~~
+
+1. **Una clase no atraviesa la estructura interna de
+   otra**. Si necesita un dato de un objeto vecino, lo
+   pide vía método del vecino, no por propiedad
+   encadenada.
+2. ``services.py`` de cada app expone métodos en imperativo
+   (``verificar(...)``, ``exportar(...)``,
+   ``reconocer(...)``), no getters de estructura interna.
+3. Encadenar atributos a través de tres puntos
+   (``a.b.c.d``) en una vista o test es **señal** de
+   violación: refactorizar a un método del primer
+   objeto.
+4. La LoD también aplica a las plantillas RST/HTML — si
+   un template hace ``{{ user.session.tokens|length }}``
+   está espiando estructura interna; mejor exponer
+   ``{{ user.tokens_count }}``.
+
+Beneficios en este proyecto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Cumplimiento de **CNST_025** (auditoría inmutable):
+  cuando los cambios pasan por métodos en lugar de
+  asignaciones encadenadas, los hooks de audit pueden
+  registrar el evento de forma fiable.
+- Refactorización segura del **modelo RBAC** (CNST_030):
+  reemplazar la fuente de los permisos no rompe
+  consumidores que solo invocan
+  ``perm_app.verificar(...)``.
+- Test más estables: los tests no fixturean cadenas
+  internas, solo verifican el contrato.
+
 ----
 
 12. Antipatrón: Descomposición funcional
@@ -1037,6 +1133,96 @@ hacen lo mismo (mismo nombre con sufijos *_old*, *_v2*, o
 duplicado entre apps), el cluster está acumulando lava.
 Abrir un WP de limpieza antes de añadir más código
 encima.
+
+DRY — Don't Repeat Yourself
+---------------------------
+
+DRY es el principio inverso al flujo de lava. Su
+formulación canónica:
+
+   *Cada pieza de conocimiento debe tener una representación
+   única, inequívoca y autorizada dentro de un sistema.*
+
+Es uno de los principios más difíciles de aplicar y, a la
+vez, más comunes de violar — precisamente porque copiar y
+modificar código es **más rápido a corto plazo** que
+descubrir y reutilizar la pieza correcta.
+
+Caso ilustrativo
+~~~~~~~~~~~~~~~~
+
+El ejemplo clásico: un motor de aplicación que falla con
+ciertos nombres de objeto, y una interfaz de usuario que
+duplica las **validaciones de negocio** del backend para
+"compensar". Cuando el fallo del motor se corrige, la
+interfaz sigue ejecutando validaciones obsoletas; reparar
+la duplicación toma semanas. La copia ganó días iniciales
+y costó meses.
+
+Consecuencias de violar DRY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Mantenibilidad deficiente** — un cambio o corrección
+   debe replicarse en todas las copias; aumenta la
+   complejidad y el riesgo de errores.
+2. **Costo elevado** — corregir un defecto exige tocar
+   cada instancia, multiplicando el esfuerzo.
+3. **Dificultad para evolucionar** — mantener todas las
+   copias sincronizadas se vuelve una tarea ardua.
+
+Casos típicos donde DRY se viola en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Validaciones de negocio** (CNST_*, BR_*) duplicadas
+  entre el frontend y ``services.py`` del backend. La
+  fuente de verdad debe vivir en el backend; el frontend
+  solo decora la experiencia, no decide.
+- **Cálculo de métricas** (BR_016/017/018) replicado en
+  ``rpt_app.services``, en una vista helper y en un
+  notebook de análisis. Una sola implementación canónica
+  con tests.
+- **Listas de funciones / permisos** (catálogo RBAC)
+  hardcodeadas en código y reproducidas en JSON de
+  fixtures, plantillas de migración y documentación
+  auto-generada. Una única fuente de verdad —
+  típicamente la BD — y todo lo demás se genera.
+- **Reglas de SoD** (CNST_030) escritas en código y
+  repetidas en checklists humanos. La regla canónica
+  debe ser ejecutable; los checklists humanos se
+  derivan, no se mantienen en paralelo.
+- **Consultas SQL idénticas** copiadas en distintas
+  vistas. Refactorizar a managers de Django o a
+  ``services.py``.
+
+Reglas IACT
+~~~~~~~~~~~
+
+1. Antes de copiar una función, **buscar primero**
+   (``grep``, IDE) si ya existe.
+2. Si dos lugares contienen el **mismo conocimiento**
+   (regla, validación, cálculo), refactorizar a una
+   única ubicación canónica antes de seguir.
+3. Cuando aparezca duplicación inevitable, documentar la
+   excepción en un ADR y enlazar las copias entre sí en
+   comentarios — para que la próxima persona sepa que
+   son **deliberadamente** redundantes.
+4. Las plantillas RST y los tests no escapan de DRY: si
+   un fragmento aparece en cinco archivos, conviértelo
+   en un ``include`` o helper.
+5. La eliminación de código duplicado no se posterga;
+   crea lava (§ 13).
+
+Tensión con prematuras abstracciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+DRY no significa abstraer cualquier coincidencia. Dos
+fragmentos similares que **representan conocimientos
+distintos** deben permanecer separados — su evolución
+divergerá. La regla de Hunt y Thomas: evitar duplicar
+**conocimiento**, no caracteres. En IACT esto aparece
+cuando dos UCs tienen estructura idéntica al inicio pero
+divergen en los flujos alternativos: extraer la base
+común sería forzar acoplamiento entre dominios distintos.
 
 ----
 

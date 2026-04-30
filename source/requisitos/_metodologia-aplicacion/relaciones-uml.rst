@@ -1139,7 +1139,154 @@ suelen ser la respuesta cuando la herencia no encaja).
 
 ----
 
-15. Trazabilidad
+15. Comparativa herencia vs composición
+=======================================
+
+La § 14 fija criterios sobre **cuándo** la herencia es
+válida. Esta sección plantea la pregunta complementaria:
+**herencia o composición** cuando ambas son técnicamente
+posibles. La respuesta corta — y la que adopta IACT por
+defecto — es: **componer salvo que el "es-un" sea
+inequívoco**.
+
+15.1 Tabla comparativa
+----------------------
+
+.. list-table::
+ :widths: 22 39 39
+ :header-rows: 1
+
+ * - Aspecto
+   - Composición (HAS-A)
+   - Herencia (IS-A)
+ * - Tipo de relación
+   - "tiene un" (contiene una parte).
+   - "es un" (es una variante de).
+ * - Definición básica
+   - Un objeto contiene otros objetos.
+   - Una clase deriva o extiende de otra.
+ * - Naturaleza del vínculo
+   - Propiedad / contenencia.
+   - Especialización.
+ * - Ejemplo práctico
+   - Un propietario tiene un coche.
+   - Un ingeniero de software es un ingeniero.
+ * - Acoplamiento
+   - Bajo entre componentes.
+   - Alto entre clases.
+ * - Flexibilidad
+   - Alta: permite cambios en runtime.
+   - Baja: estructura rígida y estática.
+ * - Reutilización
+   - Horizontal (a través de componentes).
+   - Vertical (a través de la jerarquía).
+ * - Cardinalidad
+   - Puede contener múltiples instancias (>1).
+   - Típicamente herencia simple (1 padre).
+ * - Modificabilidad
+   - Fácil de modificar y adaptar.
+   - Cambios pueden afectar toda la jerarquía.
+ * - Mantenimiento
+   - Más sencillo: componentes independientes.
+   - Más complejo: dependencias jerárquicas.
+ * - Caso de uso ideal
+   - Flexibilidad y bajo acoplamiento.
+   - Relación "es-un" clara y estable.
+ * - Recomendación
+   - **Preferida en caso de duda.**
+   - Solo cuando la relación "es-un" es inequívoca.
+
+15.2 Aplicación a IACT
+----------------------
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Caso
+   - Decisión
+   - Por qué
+ * - ``Reporte`` y los formatos de export
+   - Composición — ``Reporte`` *tiene un*
+     ``FormatoExport`` (Strategy, ver
+     :doc:`patrones-diseno`).
+   - Cambiar de CSV a XLSX no debe alterar el árbol
+     de clases del reporte. Composición permite
+     intercambio en runtime.
+ * - ``Reporte`` y sus variantes
+     (``ReporteVolumen``, ``ReporteAbandono``)
+   - Herencia — *son* reportes.
+   - LSP se cumple: cualquier subclase puede
+     responder al contrato común
+     (``generar()``, ``exportar()``).
+ * - ``Sesion`` y ``Usuario``
+   - Composición — la sesión *tiene un* usuario.
+   - Una sesión no es una variante de usuario;
+     contiene una referencia. Permite caducar
+     sesión sin tocar usuario (CNST_002).
+ * - ``Alerta`` y ``EvaluadorAlertas``
+   - Composición — la alerta *tiene un*
+     evaluador (Strategy).
+   - Cambiar la regla de evaluación (umbral,
+     tendencia) no debe forzar nuevas subclases de
+     ``Alerta``.
+ * - ``ReporteAuditoria`` con paquete firmado
+   - Herencia con transformación (§ 14.2) — solo
+     si hay ADR.
+   - El "es-un" se sostiene en estructura técnica
+     pero el concepto se transforma; evaluar si
+     composición + decorador firma sería más
+     claro.
+ * - ``Reporte`` y utilidades de archivo
+   - Composición — el reporte *usa* un escritor;
+     **nunca hereda** de él.
+   - Heredar de ``UtilsArchivo`` sería herencia
+     por construcción (§ 14.3, evitar).
+ * - ``EjecucionETL`` y ``ErrorETL``
+   - Composición — la ejecución *tiene*
+     errores como partes (composición fuerte).
+   - Los errores no existen sin la ejecución
+     (CNST_006/008); su vida está ligada.
+
+15.3 Reglas IACT por defecto
+----------------------------
+
+1. **Composición salvo "es-un" inequívoco.** Ante duda,
+   componer.
+2. **Si hay duda LSP, no heredar.** Si en algún
+   subtipo previsible el contrato del padre se rompe,
+   pasar a composición + interfaz.
+3. **Una sola jerarquía por cluster** (ver § 11 de
+   :doc:`agregacion-interfaces`). Si dos jerarquías
+   compiten por el mismo concepto, casi siempre conviene
+   convertir una en interfaz y componer.
+4. **Ningún reporte/alerta/permiso hereda de
+   utilidades.** La utilidad se inyecta o se compone.
+5. **La herencia se documenta en el ADR del cluster**
+   cuando es central; la composición típicamente no
+   requiere ADR salvo que cambie un contrato público.
+
+15.4 Relación con patrones GoF
+------------------------------
+
+Cuando la herencia no encaja, los patrones de
+:doc:`patrones-diseno` resuelven la mayoría de los casos
+con composición:
+
+- **Strategy** sustituye una jerarquía de "variantes que
+  cambian un algoritmo" por composición con interfaz
+  (export CSV/XLSX/JSON).
+- **Decorator** evita una jerarquía explosiva de
+  combinaciones (firma + cifrado + compresión) por
+  composición encadenada.
+- **Adapter** evita herencia "para cuadrar contratos" de
+  fuentes externas (LDAP) componiendo el origen.
+- **Composite** modela jerarquías de partes con
+  composición + recursión, no con herencia.
+
+----
+
+16. Trazabilidad
 ================
 
 .. list-table::

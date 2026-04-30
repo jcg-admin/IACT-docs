@@ -317,7 +317,103 @@ Cada UC documentado debe cumplir:
 
 ----
 
-11. Trazabilidad
+11. SAD — Software Architecture Document (complemento al SRS)
+=============================================================
+
+El plan de documentación cubre los **requisitos** (qué debe
+hacer el sistema). Pero los **97 UCs documentados forman el
+SRS** (*Software Requirements Specification*); ese SRS no
+captura todas las decisiones arquitectónicas del proyecto.
+El complemento natural es un **SAD** (*Software
+Architecture Document*).
+
+Por qué un SAD además del SRS
+-----------------------------
+
+1. **Propósito específico** — el SAD captura decisiones
+   arquitectónicas, patrones de diseño y detalles de
+   implementación que no corresponden al SRS pero son
+   esenciales para el desarrollo.
+2. **Complemento natural al SRS** — el SRS define **qué**
+   hace el sistema; el SAD define **cómo** se construye.
+   Es el puente entre requisitos e implementación.
+3. **Audiencia técnica** — el SAD se orienta al equipo de
+   desarrollo; usa terminología técnica y profundiza en
+   aspectos de implementación que serían excesivos en un
+   SRS dirigido a stakeholders.
+4. **Valor a largo plazo** — sirve como referencia durante
+   todo el ciclo de vida: mantenimiento, extensiones,
+   onboarding de nuevos desarrolladores.
+5. **Estándar reconocido** — existen plantillas
+   establecidas (IEEE 1471, enfoque **4+1** de Kruchten)
+   que estructuran la documentación de arquitectura.
+
+Qué cubre el SAD que el SRS no cubre
+------------------------------------
+
+En IACT el SAD es el lugar adecuado para detallar:
+
+- **Patrones de diseño específicos** — Factory, Strategy,
+  Adapter, Decorator, Observer, Facade aplicados a las
+  apps Django (ver :doc:`patrones-diseno`).
+- **Mecanismos internos** — bus de eventos para audit,
+  política de sesiones en Redis, throttling con ventana
+  deslizante, ventana ETL.
+- **Diagramas de secuencia y flujos de interacción** —
+  ver :doc:`diagramas-secuencias`,
+  :doc:`diagramas-colaboraciones`,
+  :doc:`diagramas-actividades`.
+- **Decisiones técnicas específicas** — registradas como
+  ADRs en ``.thyrox/context/decisions/`` y agrupadas en
+  el SAD.
+- **Vista física** — :doc:`diagramas-componentes`,
+  :doc:`diagramas-distribucion`.
+- **Restricciones técnicas y de negocio** — CNST_* / BR_*
+  y su impacto arquitectónico.
+
+Diferencia con un documento de diseño detallado
+-----------------------------------------------
+
+Un **diseño detallado** se enfoca a nivel de componente
+específico (qué clases tiene, qué atributos, qué métodos);
+un **SAD** ofrece visión holística de la arquitectura. En
+IACT, el diseño detallado se distribuye en cada UC y en los
+documentos OOP/relaciones del cajón
+``_metodologia-aplicacion/``; el SAD agrupa, integra y
+contextualiza esas piezas a nivel de sistema.
+
+Recomendación para IACT
+-----------------------
+
+Cuando los 97 UCs estén documentados, abrir un WP para
+construir el SAD usando como base:
+
+- ``_metodologia-aplicacion/`` (este cajón) — todo el
+  modelado UML aplicado a IACT.
+- ``.thyrox/context/decisions/`` — ADRs vivos del
+  proyecto.
+- Las restricciones canónicas (CNST_*) y reglas de
+  negocio (BR_*).
+
+Estructura sugerida (4+1 Kruchten):
+
+- **Vista lógica** — clases, OOP, relaciones (ya cubierto
+  parcialmente en este cajón).
+- **Vista de procesos** — concurrencia, ETL, alertas,
+  exports async (CNST_019/020).
+- **Vista de desarrollo** — apps Django, packaging,
+  versionado.
+- **Vista física** — :doc:`diagramas-componentes` +
+  :doc:`diagramas-distribucion`.
+- **Escenarios** — UCs críticos que ejercitan las cuatro
+  vistas (UC_AUTH_01, UC_RPT_04, UC_PIP_01, UC_ALR_03).
+
+Este SAD no es objeto de este plan; queda registrado como
+trabajo futuro recomendado tras el cierre de los 97 UCs.
+
+----
+
+12. Trazabilidad
 ================
 
 .. list-table::
