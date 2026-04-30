@@ -2348,6 +2348,221 @@ mensaje del autor lo amerite.
 
 ----
 
+16.4 Describir las relaciones
+-----------------------------
+
+Una característica clave de los modelos de dominio en
+UML es que **se puede y se debe** describir **cómo
+interactúan las entidades** en cada relación. Sin
+descripciones, las relaciones quedan en cajas y líneas
+ambiguas.
+
+Por defecto, muchas relaciones se pueden describir como
+``has`` (tiene). El consejo del libro citado: ser tan
+**descriptivo como sea posible** y **evitar** usar
+``has`` para todo cuando exista una etiqueta más
+precisa.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML acepta la etiqueta de la relación con dos
+puntos al final de la línea, igual que Mermaid:
+
+.. code-block:: plantuml
+
+   Title --  Genre   : is associated with
+   Title *-- Season  : has
+   Title *-- Review  : has
+   Title o-- Actor   : features
+   Season *-- Episode : contains
+   Viewer --> Title  : watches
+
+Lectura del modelo enriquecido del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El ejemplo Streamy completo con descripciones e
+inheritance + Viewer:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Title
+   class Genre
+   class Season
+   class Episode
+   class Review
+   class Actor
+   class Viewer
+   class TVShow
+   class Short
+   class Film
+
+   Title -- Genre : is associated with
+   Title *-- Season : has
+   Title *-- Review : has
+   Title o-- Actor : features
+   Season *-- Review : has
+   Season *-- Episode : contains
+   Episode *-- Review : has
+   Viewer --> Title : watches
+
+   TVShow --|> Title : implements
+   Short --|> Title : implements
+   Film --|> Title : implements
+   @enduml
+
+Análisis de las decisiones del modelo:
+
+- **``Title -- Genre : is associated with``** —
+  asociación bidireccional. La descripción debe ser
+  válida en ambos sentidos: un título *está asociado
+  con* un género y un género *está asociado con*
+  títulos.
+- **``Viewer --> Title : watches``** —
+  asociación **direccional**. ``Viewer`` mantiene
+  referencia a ``Title``; ``Title`` no necesita
+  referencia inversa al espectador. Por eso el
+  ``-->`` en lugar del ``--`` bidireccional.
+- **``Title *-- Season : has``**,
+  **``Title *-- Review : has``**,
+  **``Season *-- Episode : contains``** — composición
+  con etiqueta descriptiva desde el padre. ``contains``
+  es más preciso que ``has`` en este caso.
+- **``Title o-- Actor : features``** — agregación con
+  etiqueta más rica que ``has``: un título no
+  simplemente "tiene" actores; los **presenta**.
+- **``TVShow --|> Title : implements``** — generalización
+  con etiqueta. ``implements`` o ``extends`` clarifican
+  para lectores no familiarizados con la flecha de
+  herencia que se trata de una jerarquía.
+
+Reglas para escribir descripciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Verbos precisos** — preferir ``contains``,
+   ``features``, ``watches``, ``implements`` antes que
+   un ``has`` genérico.
+2. **Bidireccional debe leerse en ambos sentidos** —
+   ``is associated with`` cumple; ``has`` aplicado a
+   ``Title -- Genre`` no funcionaría en sentido
+   inverso ("Genre has Title" suena raro).
+3. **Direccional desde el padre** — para
+   composición/agregación, el verbo se lee del padre
+   hacia la parte (``Season contains Episode``, no
+   "Episode is contained in Season").
+4. **``-->`` para una sola dirección** — cuando solo un
+   lado mantiene referencia. ``Viewer --> Title``: la
+   vista del catálogo que el espectador navega.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Aplicado al diagrama del modelo IACT consolidado (§ 7),
+las descripciones precisas refuerzan la legibilidad:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Llamada
+   class Segmento
+   class EjecucionETL
+   class VentanaETL
+   class ErrorETL
+   class Reporte
+   class Filtro
+   class Alerta
+   class Supervisor
+   class Usuario
+   class Sesion
+   class Grupo
+   class Funcion
+   class EventoAuditoria
+
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   VentanaETL "1" -- "*" EjecucionETL : contiene
+   EjecucionETL "*" -- "*" Llamada : carga
+   EjecucionETL "1" *-- "*" ErrorETL : produce
+   Reporte "*" -- "*" Llamada : agrega
+   Reporte "1" o-- "*" Filtro : aplica
+   Alerta "*" -- "1" Supervisor : es reconocida por
+   Sesion "1" *-- "1" Usuario : pertenece a
+   Usuario "*" o-- "*" Grupo : asignado a
+   Grupo "*" o-- "*" Funcion : agrupa
+   Usuario "1" --> "*" EventoAuditoria : genera
+   @enduml
+
+Notar:
+
+- **``pertenece a``**, **``contiene``**, **``carga``**,
+  **``agrega``**, **``aplica``**, **``es reconocida por``**
+  — verbos precisos del dominio en lugar de ``has``
+  genérico.
+- **``Usuario --> EventoAuditoria : genera``** —
+  asociación direccional. El ``EventoAuditoria`` no
+  mantiene referencia bidireccional al usuario en
+  sentido funcional; el flujo es solo "usuario genera
+  evento" (CNST_025: el evento es inmutable y no se
+  reasigna).
+- **``Alerta -- Supervisor : es reconocida por``** —
+  bidireccional, descripción válida en ambos sentidos
+  con la misma frase desde el lado de la alerta.
+
+Subtipos con etiqueta ``implements``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicado al cluster de reportes IACT
+(:doc:`relaciones-uml` § 14.1):
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   abstract class Reporte
+   class ReporteVolumen
+   class ReporteAbandono
+   class ReporteSoDCompliance
+
+   ReporteVolumen --|> Reporte : implements
+   ReporteAbandono --|> Reporte : implements
+   ReporteSoDCompliance --|> Reporte : implements
+   @enduml
+
+La etiqueta ``implements`` (o ``extends``) hace
+explícito para lectores no familiarizados con la
+flecha que estamos ante una jerarquía donde ``Reporte``
+es el tipo abstracto y los demás son variantes
+concretas.
+
+Reglas IACT para descripciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Vocabulario del ubiquitous language** (§ 15.4) —
+   usar verbos del dominio: ``carga`` (ETL),
+   ``reconoce`` (alerta), ``aplica`` (filtro),
+   ``audita`` (CNST_025).
+2. **Evitar ``has`` cuando exista verbo más preciso**.
+3. **``-->`` para asimetrías reales** — cuando solo un
+   lado conoce al otro.
+4. **Bidireccional debe leerse simétricamente** — si la
+   descripción no funciona en ambos sentidos, no es
+   bidireccional.
+5. **No omitir descripciones** en relaciones críticas
+   (audit, SoD, ETL) — la ambigüedad invita a
+   malinterpretaciones.
+
+Cuando un equipo tiene dudas sobre la etiqueta correcta,
+mirar el **UC** que ejercita la relación: la descripción
+del flujo principal del UC suele contener el verbo
+adecuado.
+
+----
+
 17. Trazabilidad
 ================
 
