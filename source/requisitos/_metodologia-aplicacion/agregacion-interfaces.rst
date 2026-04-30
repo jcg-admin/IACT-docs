@@ -552,6 +552,377 @@ todo** (relación de pertenencia exclusiva).
   - Sí → agregación.
   - No → composición.
 
+3.4 Características fundamentales de la composición
+---------------------------------------------------
+
+La composición es un tipo **especial de asociación** que
+representa la relación **"tiene un"** entre clases, donde
+una representa el **todo (contenedor)** y otra la **parte
+(componente)**. La diferencia con la agregación es la
+**fuerza** del vínculo: en composición la parte **no
+puede existir sin el todo**.
+
+Como la agregación, la composición no se limita a
+relaciones físicas:
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 1
+
+ * - Matiz semántico
+   - Ejemplos
+ * - "tiene un"
+   - Un coche tiene un motor; un usuario tiene un
+     perfil; en IACT, un ``Reporte`` tiene una
+     ``ConfiguracionExport``.
+ * - "contiene un"
+   - Un libro contiene páginas; en IACT, una
+     ``EjecucionETL`` contiene ``ErrorETL`` y
+     ``RegistroIngesta``.
+ * - "posee un"
+   - Una casa posee habitaciones; en IACT, una
+     ``Sesion`` posee tokens internos que caducan con
+     ella (CNST_002).
+
+Físicas vs lógicas
+~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 1
+
+ * - Tipo
+   - Ejemplos IACT
+ * - Físicas
+   - ``Reporte`` y sus archivos temporales de export
+     (CNST_019); ``Sesion`` y sus tokens en Redis.
+ * - Lógicas
+   - ``EventoAuditoria`` y sus ``DetalleAuditoria``
+     (CNST_025); una ``EjecucionETL`` y los
+     ``RegistroIngesta`` que produjo.
+
+Tres características distintivas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Característica
+   - Significado
+   - Ejemplo IACT
+ * - **Ciclo de vida compartido**
+   - El componente existe **solo** mientras existe su
+     contenedor. Destruir el contenedor destruye los
+     componentes.
+   - Si una ``EjecucionETL`` se invalida, sus
+     ``ErrorETL`` asociados desaparecen como
+     entidades vivas (sus huellas en
+     ``audit_log`` permanecen, pero los objetos del
+     dominio ya no).
+ * - **Pertenencia exclusiva**
+   - Un componente solo puede pertenecer a **un único**
+     contenedor en un momento dado. No se comparte.
+   - Un ``ErrorETL`` pertenece a **una** sola
+     ``EjecucionETL``; no se reutiliza en otra.
+ * - **Dependencia existencial**
+   - Los componentes **no tienen sentido** fuera de su
+     contenedor.
+   - Los detalles de auditoría (``DetalleAuditoria``)
+     no tienen sentido sin su ``EventoAuditoria``
+     padre.
+
+3.5 Características técnicas
+----------------------------
+
+.. list-table::
+ :widths: 25 25 50
+ :header-rows: 1
+
+ * - Característica
+   - Valor
+   - Implicación
+ * - **Visibilidad**
+   - Privada.
+   - Los componentes son parte integral del contenedor
+     y no deberían ser accesibles desde fuera salvo
+     vía métodos del contenedor.
+ * - **Temporalidad**
+   - Alta.
+   - La relación persiste durante toda la vida del
+     contenedor.
+ * - **Versatilidad**
+   - Baja.
+   - Los componentes son específicos al contenedor y
+     no se intercambian entre contenedores.
+
+3.6 Implementación en el diseño
+-------------------------------
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Aspecto
+   - Descripción
+   - Ejemplo IACT
+ * - **Creación en constructor**
+   - Los componentes se crean y se vinculan cuando se
+     construye el contenedor; inicialización
+     obligatoria.
+   - ``Reporte`` instancia su
+     ``ConfiguracionExport`` en el constructor; no
+     se permite crearlo y luego asignársela.
+ * - **Referencias con ciclo de vida compartido**
+   - Las referencias privadas viven y mueren con el
+     contenedor; sincronizadas; sin existencia
+     separada.
+   - ``EjecucionETL.errores`` es una lista privada
+     cuyo ciclo está atado al de la ejecución.
+ * - **Encapsulamiento**
+   - Asegura la integridad de la relación; protección
+     de componentes internos.
+   - ``Sesion`` no expone sus tokens; los administra
+     internamente.
+ * - **Control de acceso**
+   - Mecanismos para regular el acceso y modificación
+     de los componentes; sin exposición externa.
+   - ``EventoAuditoria`` no permite modificar sus
+     ``DetalleAuditoria`` directamente — la
+     inmutabilidad CNST_025 es una invariante.
+ * - **Gestión de dependencias**
+   - Manejo de la relación todo-parte; dependencia
+     fuerte; sin compartición; **destrucción en
+     cascada**.
+   - Eliminar un ``Reporte`` (en sentido de dominio)
+     elimina su ``ConfiguracionExport`` asociada.
+
+3.7 Ejemplo canónico — Documento y Párrafos
+-------------------------------------------
+
+Modelo arquetípico que ilustra los cinco mecanismos de
+composición simultáneamente.
+
+Aspectos representados
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Aspecto
+   - Características
+   - Materialización
+ * - Creación en constructor
+   - Creación conjunta; existencia dependiente.
+   - El ``Documento`` crea sus ``Parrafo`` al
+     construirse; los párrafos no pueden existir
+     antes.
+ * - Ciclo de vida compartido
+   - Vidas sincronizadas; sin transferencia.
+   - Los párrafos viven y mueren con el documento; no
+     pueden transferirse a otro.
+ * - Encapsulamiento
+   - Protección y mantenimiento de integridad.
+   - Los párrafos están protegidos dentro del
+     documento; la integridad del contenido se
+     mantiene a nivel de documento.
+ * - Control de acceso
+   - Modificación controlada; acceso regulado.
+   - Solo el documento modifica directamente sus
+     párrafos; el acceso externo pasa por métodos
+     del documento.
+ * - Gestión de dependencias
+   - Relación fuerte; destrucción en cascada.
+   - Eliminar el documento elimina todos los párrafos
+     atómicamente.
+
+Diagrama UML
+~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Documento {
+     - parrafos : List<Parrafo>
+     - titulo : String
+     + modificarParrafo(pos, contenido)
+     + agregarParrafo(contenido)
+     + getContenidoParrafo(pos) : String
+     + getNumeroParrafos() : int
+   }
+
+   class Parrafo {
+     - contenido : String
+     - posicion : int
+     ~ getContenido() : String
+     ~ modificarContenido(nuevo : String)
+   }
+
+   Documento *-- "1..*" Parrafo
+   note right of Parrafo
+     No existe independientemente.
+     Pertenece a un unico Documento.
+     Se destruye con el Documento.
+   end note
+   @enduml
+
+Implementación Java de referencia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: java
+
+   // Clase parte (no puede existir independientemente)
+   class Parrafo {
+       private String contenido;
+       private int posicion;
+
+       // Constructor solo accesible dentro del paquete
+       Parrafo(String contenido, int posicion) {
+           this.contenido = contenido;
+           this.posicion = posicion;
+       }
+
+       String getContenido() {
+           return contenido;
+       }
+
+       void modificarContenido(String nuevoContenido) {
+           this.contenido = nuevoContenido;
+       }
+   }
+
+   // Clase todo (contenedor)
+   class Documento {
+       private List<Parrafo> parrafos;  // privado
+       private String titulo;
+
+       // Creación en constructor — párrafos se crean
+       // junto con el documento
+       public Documento(String titulo,
+                        String... contenidosIniciales) {
+           this.titulo = titulo;
+           this.parrafos = new ArrayList<>();
+           for (int i = 0;
+                i < contenidosIniciales.length;
+                i++) {
+               this.parrafos.add(
+                   new Parrafo(contenidosIniciales[i], i));
+           }
+       }
+
+       public void modificarParrafo(int posicion,
+                                    String nuevoContenido) {
+           if (posicion >= 0
+                   && posicion < parrafos.size()) {
+               parrafos.get(posicion)
+                   .modificarContenido(nuevoContenido);
+           }
+       }
+
+       public void agregarParrafo(String contenido) {
+           parrafos.add(
+               new Parrafo(contenido, parrafos.size()));
+       }
+
+       public String getContenidoParrafo(int posicion) {
+           if (posicion >= 0
+                   && posicion < parrafos.size()) {
+               return parrafos.get(posicion)
+                   .getContenido();
+           }
+           return null;
+       }
+
+       public int getNumeroParrafos() {
+           return parrafos.size();
+       }
+
+       // Sin métodos para extraer o transferir parrafos:
+       // van en contra de la composición.
+   }
+
+Características clave
+~~~~~~~~~~~~~~~~~~~~~
+
+1. **Dependencia total** — los párrafos no pueden existir
+   sin el documento; no hay creación independiente.
+2. **Gestión interna** — el documento controla
+   completamente sus párrafos; no hay acceso directo
+   externo.
+3. **Control de acceso** — referencias privadas a los
+   párrafos; métodos controlados para modificación.
+4. **Ciclo de vida** — creación simultánea; destrucción
+   en cascada.
+
+3.8 Mapeo a IACT
+----------------
+
+Composiciones canónicas en este proyecto:
+
+.. list-table::
+ :widths: 28 30 42
+ :header-rows: 1
+
+ * - Contenedor
+   - Componente
+   - Nota IACT
+ * - ``EjecucionETL``
+   - ``ErrorETL``
+   - Errores son parte indivisible de la ejecución;
+     viven y mueren con ella (CNST_006/008).
+ * - ``EjecucionETL``
+   - ``RegistroIngesta``
+   - Registros de qué cargó la ejecución; sin sentido
+     fuera de ella.
+ * - ``Reporte``
+   - ``ConfiguracionExport``
+   - La configuración del export pertenece a la tarea
+     puntual; no se reutiliza (ver patrones-diseno § 4
+     Builder).
+ * - ``EventoAuditoria``
+   - ``DetalleAuditoria``
+   - Detalles del evento son inmutables como el evento
+     (CNST_025); composición fuerte.
+ * - ``Sesion``
+   - Tokens internos en Redis
+   - Tokens caducan con la sesión (CNST_002);
+     pertenencia exclusiva.
+ * - ``AlertaCritica``
+   - ``HistorialReconocimiento``
+   - El historial de quién y cuándo reconoció la
+     alerta es parte de la propia alerta.
+
+Anti-patrones IACT
+~~~~~~~~~~~~~~~~~~
+
+- Modelar ``Funcion`` como composición de ``Grupo``
+  (rombo relleno) — incorrecto: las funciones del
+  catálogo RBAC sobreviven a la disolución de un grupo.
+  Usar **agregación** (§ 2).
+- Compartir un ``ErrorETL`` entre dos
+  ``EjecucionETL`` — viola pertenencia exclusiva.
+  Si el mismo error semántico aparece en dos
+  ejecuciones, son **dos instancias** distintas.
+- Permitir extraer un ``DetalleAuditoria`` de su
+  ``EventoAuditoria`` y reasignarlo — viola CNST_025
+  y rompe la composición.
+
+3.9 Pregunta decisiva agregación vs composición
+-----------------------------------------------
+
+   *Si el todo desaparece, ¿la parte sigue teniendo
+   sentido?*
+
+- **Sí** → agregación (rombo vacío, § 2).
+- **No** → composición (rombo relleno, § 3).
+
+Aplicada a IACT: ``Funcion`` ◇ ``Grupo`` → agregación
+(funciones siguen). ``ErrorETL`` ● ``EjecucionETL`` →
+composición (errores no tienen sentido sin la ejecución).
+
 ----
 
 4. Diagramas de contexto
