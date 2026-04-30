@@ -1086,7 +1086,245 @@ CNST_001.
 
 ----
 
-11. Trazabilidad
+11. UML en el ciclo de vida del software
+========================================
+
+Los diagramas UML no se producen "todos a la vez": se
+agregan **conforme avanza el ciclo de vida** del
+proyecto, cada uno en la fase donde más aporta. Esta
+sección encuadra ese mapeo y lo conecta con las
+metodologías que IACT soporta.
+
+11.1 Procesos iterativos como contexto
+--------------------------------------
+
+UML fue concebido para acompañar **procesos
+iterativos** — del lado de Booch / Jacobson /
+Rumbaugh, integrados en el **Unified Process** (UP)
+y su variante más conocida, RUP (Rational Unified
+Process).
+
+La estructura clásica del UP define cuatro fases:
+
+- **Inception** — establecer la visión del producto,
+  evaluar viabilidad, definir alcance inicial.
+- **Elaboration** — fijar la arquitectura central,
+  validar riesgos técnicos, planificar.
+- **Construction** — implementar y probar el grueso
+  de la funcionalidad.
+- **Transition** — desplegar a usuarios reales,
+  ajustar con feedback.
+
+En IACT, la metodología ``rup-*`` (skills
+``rup-inception``, ``rup-elaboration``,
+``rup-construction``, ``rup-transition``) es uno de
+los flujos disponibles cuando un WP adopta este
+encuadre. La metodología propia de THYROX (12 stages
+DISCOVER → STANDARDIZE) cubre territorio análogo
+con vocabulario propio.
+
+11.2 Qué diagramas se producen en cada fase
+-------------------------------------------
+
+Mapa orientativo de qué diagramas tienden a aparecer
+en cada fase del UP. La tabla es una **guía**, no
+una receta — cada proyecto ajusta según necesidad.
+
+.. list-table::
+ :widths: 22 38 40
+ :header-rows: 1
+
+ * - Fase
+   - Diagramas UML típicos
+   - Documentos IACT relacionados
+ * - **Inception**
+   - Casos de uso (alto nivel), diagrama de
+     contexto.
+   - :doc:`casos-uso-diagramas`,
+     § 13 de :doc:`diagramas-componentes`
+     (Context view C4).
+ * - **Elaboration**
+   - Clases (modelo de dominio), casos de uso
+     refinados, secuencias críticas, componentes,
+     despliegue.
+   - :doc:`analisis-dominio`,
+     :doc:`relaciones-uml`,
+     :doc:`diagramas-secuencias`,
+     :doc:`diagramas-componentes`,
+     :doc:`diagramas-distribucion`.
+ * - **Construction**
+   - Secuencias detalladas, estados, actividades,
+     clases enriquecidas para refactor.
+   - :doc:`diagramas-secuencias`,
+     :doc:`diagramas-estados`,
+     :doc:`diagramas-actividades`,
+     § 17 de :doc:`relaciones-uml`.
+ * - **Transition**
+   - Despliegue actualizado con la realidad de
+     producción, secuencias para troubleshooting.
+   - :doc:`diagramas-distribucion`,
+     :doc:`diagramas-secuencias` para diagnóstico.
+
+Construction como momento de refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Durante Construction, los class diagrams al estilo
+"snapshot pre/post" (§§ 17-17.5 de
+:doc:`relaciones-uml`) son la herramienta natural
+para discutir refactors antes de tocar código —
+particularmente cuando Construction descubre que
+parte del modelo de Elaboration era optimista.
+
+Transition y feedback
+~~~~~~~~~~~~~~~~~~~~~
+
+En Transition aparece feedback real de usuarios.
+Ese feedback puede invalidar supuestos del modelo
+de dominio o exigir cambios al despliegue. Los
+diagramas se **actualizan**, no se descartan —
+forman parte del aprendizaje.
+
+11.3 Inception — preguntas clave del problem statement
+------------------------------------------------------
+
+La literatura de UP enmarca Inception como una fase
+de **clarificación del problema** antes de
+comprometer recursos a construirlo. Las preguntas
+canónicas que conviene responder al final de
+Inception (no necesariamente con un solo diagrama,
+pero sí con documentación visible):
+
+- ¿Cuál es la **visión** del producto?
+- ¿Es **factible** construirlo con los recursos
+  disponibles?
+- ¿Qué **beneficios** aporta?
+- ¿Cuál es el **costo** estimado?
+- ¿Qué **calendario** lo sostiene?
+- ¿Por qué **la organización** debería invertir?
+- ¿Qué **riesgos** asumimos?
+
+Estas preguntas no son específicas de UP — aparecen
+en variantes en todas las metodologías serias
+(PMBOK, BABOK, SP).
+
+Equivalente en THYROX
+~~~~~~~~~~~~~~~~~~~~~
+
+THYROX cubre las mismas preguntas en **Phase 1
+DISCOVER** del WP, mediante:
+
+- ``risk-register.md`` (riesgos).
+- ``exit-conditions.md`` (criterios de éxito,
+  factibilidad).
+- El propio ``wp-state.md`` (visión, alcance).
+- Phase 2 MEASURE (baseline de costo / tiempo).
+
+Ningún WP avanza más allá de DISCOVER sin estas
+respuestas — es lo que evita que el proyecto se
+construya sobre supuestos no verificados.
+
+11.4 Pirámide UML — orden de profundización
+-------------------------------------------
+
+Una representación frecuente en la literatura UML
+acomoda los diagramas como una **pirámide
+invertida**: en la cima, el problem statement (el
+problema en lenguaje natural); en la base, los
+diagramas más cercanos al despliegue físico.
+
+Lectura intuitiva del orden:
+
+1. Problem statement (texto, no UML aún).
+2. Casos de uso (qué hace el sistema).
+3. Actividades (cómo fluyen los procesos).
+4. Clases (estructura del dominio).
+5. Secuencias (interacciones temporales).
+6. Colaboraciones / Comunicación (interacciones
+   espaciales).
+7. Estados (ciclo de vida de un objeto).
+8. Componentes (estructura física).
+9. Despliegue (mapa físico final).
+
+Cada nivel de la pirámide **profundiza** el
+anterior. En IACT esto se materializa en el orden
+del cajón ``_metodologia-aplicacion/`` — los
+documentos están organizados precisamente en esa
+progresión.
+
+11.5 Tabla resumen de diagramas y propósito
+-------------------------------------------
+
+Recapitulación tabular cruzando los diagramas UML
+con su propósito principal y el documento IACT que
+los desarrolla:
+
+.. list-table::
+ :widths: 28 42 30
+ :header-rows: 1
+
+ * - Diagrama UML
+   - Propósito principal
+   - Documento IACT
+ * - Casos de uso
+   - Identificar requisitos funcionales y actores.
+   - :doc:`casos-uso-especificacion`,
+     :doc:`casos-uso-diagramas`
+ * - Actividades
+   - Mostrar flujos secuenciales y paralelos del
+     proceso.
+   - :doc:`diagramas-actividades`
+ * - Clases
+   - Describir estructura estática (clases,
+     atributos, relaciones).
+   - § 7 de :doc:`analisis-dominio`,
+     :doc:`relaciones-uml`,
+     :doc:`agregacion-interfaces`
+ * - Secuencia
+   - Ordenar mensajes entre objetos en el tiempo.
+   - :doc:`diagramas-secuencias`
+ * - Colaboración / Comunicación
+   - Mostrar interacciones en el espacio
+     (vinculadas a la red de relaciones).
+   - :doc:`diagramas-colaboraciones`
+ * - Estados
+   - Describir el ciclo de vida de un objeto y sus
+     transiciones.
+   - :doc:`diagramas-estados`
+ * - Componentes
+   - Mostrar componentes desplegables y sus
+     contratos.
+   - :doc:`diagramas-componentes`
+ * - Despliegue
+   - Visualizar la topología hardware donde corre
+     el sistema.
+   - :doc:`diagramas-distribucion`
+
+Política IACT — UML por fase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **No producir todos los diagramas en una sola
+   fase**. Cada fase del WP genera lo que la
+   pregunta del momento exige.
+2. **Iterar** — un diagrama de Inception puede
+   reescribirse en Elaboration cuando la
+   arquitectura concrete decisiones.
+3. **Snapshot vs vivo** — los diagramas de
+   refactor (§ 17 de :doc:`relaciones-uml`) son
+   snapshots; los de dominio
+   (:doc:`analisis-dominio`) y arquitectura
+   (:doc:`diagramas-componentes`,
+   :doc:`diagramas-distribucion`) son vivos.
+4. **Coherencia entre fases** — el diagrama de
+   Construction debe encajar con el de
+   Elaboration; si difiere, registrar la decisión
+   en un ADR.
+5. **Si el feedback de Transition invalida un
+   diagrama anterior**, actualizar el diagrama, no
+   el feedback.
+
+----
+
+12. Trazabilidad
 ================
 
 .. list-table::
