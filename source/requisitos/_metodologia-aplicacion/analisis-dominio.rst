@@ -2920,6 +2920,344 @@ adyacente. La regla aplica a **diagramas que pueden
 extraerse y leerse aisladamente** — esos sí requieren
 título.
 
+16.7 Mejorar la legibilidad
+---------------------------
+
+A medida que un modelo de dominio crece (entidades,
+relaciones, multiplicidad, herencia, descripciones), el
+**layout** del diagrama puede volverse confuso si se
+deja al renderer decidir todo. La obra citada describe
+el problema en Mermaid: control limitado, *workarounds*
+con líneas en blanco para "agrandar" cajas y depender
+de CSS solo si se renderiza el sitio propio.
+
+PlantUML ofrece **más control nativo**. Esta sección
+documenta los mecanismos disponibles y la política IACT
+para usarlos.
+
+Mecanismos PlantUML para layout y legibilidad
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 28 38 34
+ :header-rows: 1
+
+ * - Mecanismo
+   - Qué hace
+   - Cuándo usarlo
+ * - **``skinparam``**
+   - Configura estilos globales: padding, tamaño de
+     fuente, color, sombras, esquinas redondeadas.
+   - Centralizar en
+     ``source/_static/plantuml-styles.puml`` y
+     reutilizar con ``!include``.
+ * - **Dirección de la flecha**
+     (``-down->``, ``-up->``, ``-left->``,
+     ``-right->``)
+   - Fuerza la dirección del enlace; el renderer
+     respeta la pista.
+   - Cuando el layout automático genera líneas
+     cruzadas o entidades importantes apretadas.
+ * - **``together { }``**
+   - Agrupa varias clases para que el renderer las
+     coloque cerca.
+   - Cluster con varias clases que pertenecen al
+     mismo subdominio.
+ * - **``hide ...``** / **``show ...``**
+   - Oculta o muestra compartimentos (atributos,
+     métodos, encabezados de tipo).
+   - En diagramas de dominio, ocultar compartimentos
+     vacíos para un look limpio.
+ * - **Notas (``note``)**
+   - Agrega anotaciones con flecha al elemento que
+     describen.
+   - Restricciones, justificaciones, referencias a
+     CNST/BR.
+ * - **``package "Nombre" { }``**
+   - Encierra clases en un paquete con caja
+     etiquetada.
+   - Visualizar clusters del modelo.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Usar siempre** ``!include
+   ../../_static/plantuml-styles.puml`` al inicio del
+   bloque. Concentra todos los ``skinparam`` en un
+   archivo único — DRY (§ 13 de
+   :doc:`orientacion-objetos`).
+2. **No** repetir ``skinparam`` dentro de un diagrama
+   individual. Si un diagrama necesita ajustes
+   particulares, evaluar si es mejor extender
+   ``plantuml-styles.puml`` o si la necesidad es
+   excepcional.
+3. **Evitar el truco Mermaid** de agregar líneas en
+   blanco al cuerpo de la clase para "agrandarla". En
+   PlantUML el padding y el tamaño de fuente se
+   controlan con ``skinparam`` — usar la herramienta
+   correcta.
+4. **Ocultar compartimentos vacíos** en diagramas de
+   dominio puro:
+
+   .. code-block:: plantuml
+
+      hide empty members
+
+   Esto evita las dos cajas vacías que aparecen bajo
+   el nombre cuando la clase no declara atributos ni
+   métodos.
+5. **Forzar dirección** solo cuando el layout
+   automático genera cruces. Por defecto dejar que el
+   renderer decida.
+6. **Agrupar** clases del mismo cluster con
+   ``package`` o ``together`` cuando el diagrama supere
+   las 8 entidades.
+
+Ejemplo IACT — diagrama limpio sin compartimentos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicando ``hide empty members``:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Modelo de dominio IACT — vista compacta
+
+   hide empty members
+
+   class Llamada
+   class Segmento
+   class EjecucionETL
+   class Reporte
+   class Usuario
+   class Sesion
+   class EventoAuditoria
+
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   EjecucionETL "1..*" -- "0..*" Llamada : carga
+   Reporte "1..*" -- "0..*" Llamada : agrega
+   Sesion "1" *-- "1" Usuario : pertenece a
+   Usuario "1" --> "0..*" EventoAuditoria : genera
+   @enduml
+
+Las cajas son más compactas: solo aparece el nombre de
+la entidad, sin compartimentos vacíos.
+
+Ejemplo IACT — agrupación con ``package``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando el diagrama crece, agrupar clusters facilita la
+lectura:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Modelo de dominio IACT — clusters
+
+   hide empty members
+
+   package "Auth + Sesion" {
+     class Usuario
+     class Sesion
+   }
+
+   package "RBAC" {
+     class Grupo
+     class Funcion
+   }
+
+   package "Operacional" {
+     class Llamada
+     class Segmento
+   }
+
+   package "Auditoria" {
+     class EventoAuditoria
+   }
+
+   Sesion "1" *-- "1" Usuario : pertenece a
+   Usuario "0..*" o-- "0..*" Grupo : asignado a
+   Grupo "1..*" o-- "0..*" Funcion : agrupa
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   Usuario "1" --> "0..*" EventoAuditoria : genera
+   @enduml
+
+Los clusters se ven inmediatamente como cajas, sin
+necesidad de inferirlos del nombre o la posición.
+
+Trade-off legibilidad vs mantenibilidad
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La obra citada lo nota: a veces hay que **sacrificar
+estilo a cambio de un diagrama mantenible y
+actualizable**. La política IACT extiende esa premisa:
+
+- Preferir un diagrama **menos pulido pero
+  text-as-code** antes que un diagrama "perfecto"
+  hecho a mano que diverge del modelo.
+- La consistencia entre diagramas (mismo
+  ``plantuml-styles.puml``) vale más que la
+  optimización individual.
+- Si un diagrama es difícil de leer, **dividirlo** en
+  varios — uno por cluster, vista, UC — antes que
+  comprimir todo en uno solo.
+
+Anti-patrones IACT
+~~~~~~~~~~~~~~~~~~
+
+- ``skinparam`` repetidos en cada diagrama (en lugar
+  de en el archivo central).
+- Líneas en blanco "fantasma" copiando el truco
+  Mermaid.
+- ``-down->``, ``-up->`` aplicados a todas las
+  flechas: rigidiza el layout sin necesidad y
+  dificulta el mantenimiento.
+- Diagramas con 20+ entidades sin ``package`` ni
+  ``together``: ilegibles.
+- Mezclar ``hide empty members`` con clases que sí
+  declaran atributos: produce diagramas inconsistentes.
+
+16.8 Enriquecer los nodos con enlaces
+-------------------------------------
+
+Cada nodo de un diagrama puede convertirse en un
+**enlace clickable** hacia documentación externa o
+hacia otra parte del cajón. La obra citada destaca este
+"toque mágico" para vincular cada entidad con su
+documentación correspondiente.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML soporta enlaces con la directiva ``url``:
+
+.. code-block:: plantuml
+
+   class Reporte [[https://example.com/reporte]]
+
+O con etiqueta y target:
+
+.. code-block:: plantuml
+
+   class Reporte [[https://example.com/reporte Doc]]
+   url of Reporte is [[https://example.com/reporte{tooltip} target]]
+
+Sintaxis equivalente en Mermaid (para referencia,
+**no para uso en el proyecto**):
+
+.. code-block:: text
+
+   link Reporte "https://example.com/reporte" _blank
+
+Aplicación a IACT — vincular al UC y al ADR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En IACT el patrón natural es vincular cada entidad del
+modelo a:
+
+1. **El UC** que ejercita la entidad como protagonista
+   (por ejemplo ``Reporte`` → UC_RPT_*).
+2. **El ADR** que decidió aspectos centrales de su
+   modelado (por ejemplo ``EventoAuditoria`` → ADR
+   sobre CNST_025).
+3. **La sección** del cajón que la trata en
+   profundidad.
+
+Sin embargo, **Sphinx ya provee mecanismos nativos**
+mejores que el ``url`` de PlantUML:
+
+- **``:doc:```** — links a otros archivos RST.
+- **``:ref:```** — links a etiquetas ``.. _label:``
+  internas.
+- **``:py:class:```** — links a clases Python
+  documentadas.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Preferir links Sphinx en el texto adyacente al
+   diagrama** antes que ``url`` dentro del PlantUML.
+   El texto RST captura mejor la intención y participa
+   del sistema de referencias cruzadas del proyecto.
+2. **Usar ``url`` PlantUML** solo cuando el destino
+   sea **externo** y persistente (RFC, IETF, ISO,
+   documentación oficial de la organización).
+3. **No** apuntar a recursos efímeros (issues,
+   borradores, branches) — el diagrama vive más que la
+   URL.
+4. Si un nodo del diagrama merece varios enlaces
+   (UC, ADR, BR, CNST), **dejar la lista en el texto
+   adyacente** y mantener el diagrama limpio.
+
+Ejemplo IACT — vinculación textual recomendada
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Modelo de dominio IACT — entidades de auditoria
+   hide empty members
+   class EventoAuditoria
+   class DetalleAuditoria
+   EventoAuditoria "1" *-- "1..*" DetalleAuditoria : detalla
+   @enduml
+
+**Referencias** asociadas a cada entidad (en el texto,
+no en el diagrama):
+
+- ``EventoAuditoria`` — definida en § 3 de este
+  documento, restricción CNST_025 (auditoría
+  inmutable), UCs que la generan: todos los UCs del
+  catálogo (audit transversal).
+- ``DetalleAuditoria`` — composición fuerte (§ 3 de
+  :doc:`agregacion-interfaces`). Usada en
+  :doc:`patrones-diseno` § 8 (Observer +
+  ``AuditObserver``).
+
+Cuándo sí usar ``url`` PlantUML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Casos legítimos en IACT:
+
+- Apuntar al **estándar UML** original (``omg.org/uml``)
+  desde un diagrama pedagógico introductorio.
+- Apuntar a la **documentación oficial Django** desde
+  un diagrama de despliegue.
+- Apuntar a **RFC** relevantes (LDAP, TLS) desde un
+  diagrama de integración.
+
+En todos los demás casos, mantener el diagrama
+**autocontenido** y dejar las referencias en el texto
+RST circundante donde Sphinx puede gestionarlas.
+
+Cierre del módulo de enriquecimiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con descripciones (§ 16.4), multiplicidad (§ 16.5),
+título (§ 16.6), legibilidad (§ 16.7) y enlaces
+(§ 16.8), el modelo de dominio queda **completo** desde
+la perspectiva de visualización. Los seis enriquecimientos
+trabajan juntos:
+
+- **Subtipos / herencia** — para variantes de una
+  entidad genérica.
+- **Descripciones** — verbos del dominio en cada
+  relación.
+- **Multiplicidad** — cardinalidad anclada a BR/CNST.
+- **Título** — contexto inmediato.
+- **Layout limpio** — packages, hide empty members,
+  estilos centralizados.
+- **Enlaces** (selectivos) — para conectar el diagrama
+  al resto de la documentación.
+
+A partir de aquí el modelo es la **fuente de verdad**
+operativa del dominio IACT, lista para guiar
+implementación, validación, evolución y onboarding
+(ver § 15.5 Evolución y § 15.12 Ejercicio).
+
 ----
 
 17. Trazabilidad
