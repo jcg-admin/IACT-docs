@@ -1902,6 +1902,172 @@ expandir cada función hasta llegar a las atómicas.
    ... mensajes que se repiten ...
  end
 
+10.2.bis Ejecución paralela — bloque ``par``
+--------------------------------------------
+
+Cuando varios mensajes ocurren **al mismo tiempo**
+(no se esperan entre sí), no alcanza con `loop` ni
+con `alt`. PlantUML provee el bloque ``par`` para
+modelar **paralelismo explícito**:
+
+.. code-block:: plantuml
+
+   par
+     A -> B : tarea 1
+   else
+     A -> C : tarea 2
+   else
+     A -> D : tarea 3
+   end
+
+Lectura: ``A`` dispara las tres tareas
+**simultáneamente**; el flujo continúa cuando todas
+terminan (o cuando la operación lo defina).
+
+Caso de uso típico — flujos de código
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el nivel de código, ``par`` aparece cuando un
+servicio dispara varias acciones colaterales que
+no dependen entre sí:
+
+- Audit + notificación al buzón.
+- Persistencia + cache update + métricas.
+- Encolado de tareas async hacia varios
+  destinos.
+
+Aplicación a IACT — ``ExportarReporteFacade``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Diagrama de flujo de código (no UC) del facade
+``ExportarReporteFacade`` (ver § 6 de
+:doc:`patrones-diseno`) procesando un export:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Code flow — ExportarReporteFacade.ejecutar (snapshot)
+
+   autonumber
+
+   participant "ExportarReporteFacade" as Facade
+   participant "perm_app.SecRules" as Sec
+   participant "rpt_app.Reporte" as Rpt
+   participant "rpt_app.Worker" as Worker
+   participant "aud_app.Bus" as Audit
+   participant "log_app.Buzon" as Notify
+
+   Facade -> Sec ++ : verificar(user, "exportar")
+   Sec --> Facade -- : ok
+
+   loop por cada filtro
+     Facade -> Rpt : validar_filtro(f)
+   end
+
+   Facade -> Worker ++ : encolar_tarea(cfg)
+   Worker --> Facade -- : tarea_id
+
+   par
+     Facade ->> Audit : registrar_evento(\
+"export_iniciado", tarea_id)
+   else
+     Facade ->> Notify : notificar(\
+destinatarios, tarea_id)
+   end
+
+   Facade --> Facade : return tarea_id
+   @enduml
+
+Lectura del flujo:
+
+- **Verificación** sync de permiso (``perm_app``).
+- **Loop** sobre los filtros del request, cada uno
+  validado por ``Reporte``.
+- **Encolado** sync hacia el worker que procesa
+  el export.
+- **``par``** dispara simultáneamente el registro
+  de auditoría (CNST_025) y la notificación al
+  buzón interno (CNST_001) — ninguno bloquea al
+  otro ni bloquea el retorno al caller.
+- **``autonumber``** facilita referenciar pasos
+  específicos en revisiones de PR.
+
+Lo que captura el diagrama
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El diagrama explica algo que el código no
+comunica de un vistazo: que el facade tiene
+**responsabilidad orquestadora** clara y delega
+a los expertos (``perm_app`` para permisos,
+``Reporte`` para validación de filtros,
+``Worker`` para procesamiento, ``aud_app`` y
+``log_app`` para registros laterales). Cada
+mensaje en el diagrama corresponde a una
+responsabilidad del experto en información
+(§ 13 de :doc:`patrones-diseno`).
+
+Cuándo usar ``par`` vs ``loop`` vs ``alt``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 22 36 42
+ :header-rows: 1
+
+ * - Bloque
+   - Cuándo
+   - Ejemplo IACT
+ * - ``loop``
+   - Repetir N veces sobre una colección o hasta
+     una condición.
+   - Validar cada filtro de un export, reintentar
+     ETL hasta éxito.
+ * - ``alt`` / ``else``
+   - Una sola rama se ejecuta según una guarda.
+   - Credenciales válidas vs inválidas en
+     UC_AUTH_01.
+ * - ``par`` / ``else``
+   - Varias ramas se ejecutan simultáneamente.
+   - Audit + notificación tras un export exitoso.
+
+Atención al ``else`` confuso
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tanto ``alt`` como ``par`` usan ``else`` como
+separador de ramas, pero el significado es
+distinto:
+
+- ``alt`` ... ``else`` ... — **una sola** rama se
+  ejecuta.
+- ``par`` ... ``else`` ... — **todas** las ramas
+  se ejecutan simultáneamente.
+
+El bloque ``par`` se renombra a veces ``parallel``
+en variantes UML para evitar la ambigüedad.
+PlantUML acepta ``par``; al leer un diagrama
+ajeno conviene mirar la palabra clave del
+encabezado, no asumir.
+
+Política IACT para ``par``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Usar ``par`` solo cuando las ramas son
+   genuinamente paralelas** — sin dependencias
+   entre ellas.
+2. **Marcar las ramas como asíncronas**
+   (``->>``) cuando aplique — el bloque ``par``
+   no implica async por sí mismo.
+3. **Audit y notificación** son los casos típicos
+   de ``par`` en IACT por CNST_025 + CNST_001 —
+   ninguno bloquea al otro.
+4. **Limitar a 3-4 ramas** — más de eso satura
+   visualmente. Si hay más, considerar
+   sub-diagramas.
+5. **No abusar** — si un código real es secuencial
+   pero rápido, no marcarlo como ``par`` solo
+   porque "parece concurrente". El diagrama
+   debe reflejar lo que el código hace.
+
 10.2 Ejemplo IACT — UC_PIP_04 reintento ETL
 -------------------------------------------
 
