@@ -16,7 +16,7 @@ Relaciones UML aplicadas al dominio IACT (PlantUML)
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`.
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`.
  Muestra los **6 tipos de relaciones UML + multiplicidad**
  aplicados al **dominio real del proyecto IACT** — call center
  IVR + analytics + supervisión ETL + RBAC granular.
@@ -845,11 +845,11 @@ discontinua con flecha hacia la clase usada.
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **Ejemplos hermanos aplicados a IACT**
-   - :doc:`ejemplos-uml-aplicados-iact`,
-     :doc:`ejemplos-oop-aplicados-iact`,
-     :doc:`ejemplos-analisis-dominio-aplicados-iact`
+   - :doc:`diagramas-uml`,
+     :doc:`orientacion-objetos`,
+     :doc:`analisis-dominio`
  * - **Plan de documentación**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Restricciones citadas**

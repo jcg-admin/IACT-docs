@@ -16,7 +16,7 @@ Análisis y especificación de casos de uso — IACT
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`.
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`.
  Adapta los conceptos de **Hora 6 de Schmuller**
  (componentes de un UC, precondiciones, flujos, alternativas,
  inclusión, extensión) al **dominio real del proyecto IACT** —
@@ -746,15 +746,15 @@ Para cada uno de los 97 UCs:
  * - **Cheat-sheet de los 9 diagramas**
    - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
  * - **Ejemplos hermanos aplicados a IACT**
-   - :doc:`ejemplos-uml-aplicados-iact`,
-     :doc:`ejemplos-oop-aplicados-iact`,
-     :doc:`ejemplos-analisis-dominio-aplicados-iact`,
-     :doc:`ejemplos-relaciones-uml-aplicados-iact`,
-     :doc:`ejemplos-agregacion-interfaces-aplicados-iact`
+   - :doc:`diagramas-uml`,
+     :doc:`orientacion-objetos`,
+     :doc:`analisis-dominio`,
+     :doc:`relaciones-uml`,
+     :doc:`agregacion-interfaces`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Plan de documentación**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **BReq motor**

@@ -45,3 +45,9 @@ negocio, requisitos funcionales y no-funcionales.
  :caption: Requisitos No Funcionales
 
  requisitos-no-funcionales/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Metodología aplicada (cómo documentar)
+
+ _metodologia-aplicacion/index

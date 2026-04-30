@@ -57,11 +57,4 @@ Ejemplo: ``PM_001_Plan_Proyecto.rst``
  lecciones-aprendidas/index
  matrices/index
  planificacion-releases-frontend
- plan-documentacion-uc-con-uml
- ejemplos-uml-aplicados-iact
- ejemplos-oop-aplicados-iact
- ejemplos-analisis-dominio-aplicados-iact
- ejemplos-relaciones-uml-aplicados-iact
- ejemplos-agregacion-interfaces-aplicados-iact
- ejemplos-casos-uso-aplicados-iact
  deployment-plan

@@ -21,7 +21,7 @@ Metodología OOP para Casos de Uso (UCs)
  polimorfismo, encapsulamiento, envío de mensajes, asociaciones).
 
  Aplica al documentar los **97 UCs** del proyecto IACT per
- :doc:`/gestion/pm/plan-documentacion-uc-con-uml`, y se utiliza
+ :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`, y se utiliza
  con la plantilla canónica
  :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`.
 
@@ -34,7 +34,7 @@ Metodología OOP para Casos de Uso (UCs)
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  **Ejemplos canónicos aplicados al dominio IACT:** ver
- :doc:`/gestion/pm/ejemplos-oop-aplicados-iact` para los
+ :doc:`/requisitos/_metodologia-aplicacion/orientacion-objetos` para los
  6 principios aplicados al dominio real (jerarquía de usuarios
  IACT — Operador, Supervisor, Admin, Auditor; polimorfismo
  sobre métricas BR_016/017/018; encapsulamiento de Reporte con
@@ -518,7 +518,7 @@ Mismo método, comportamiento diferente:
 ==========================================
 
 Cada UC documentado per
-:doc:`/gestion/pm/plan-documentacion-uc-con-uml` debe incluir:
+:doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc` debe incluir:
 
 - ✓ **Abstracción** — niveles de detalle (mínimo: usuario,
   producto; añadir desarrollo si es complejo).
@@ -611,6 +611,6 @@ Para cada UC documentado, validar las **seis dimensiones**:
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Plan de aplicación**
-   - :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
+   - :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`
  * - **Política de diagramación**
    - :doc:`/base-cognitiva/plantuml-guide/guidelines`

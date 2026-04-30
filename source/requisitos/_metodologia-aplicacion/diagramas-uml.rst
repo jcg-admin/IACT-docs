@@ -16,7 +16,7 @@ Ejemplos UML aplicados al dominio IACT (PlantUML)
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`.
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`.
  Muestra cómo lucen los **9 diagramas UML** cuando se aplican al
  **dominio real del proyecto IACT** — call center IVR +
  analytics + supervisión ETL + RBAC granular.
@@ -467,9 +467,9 @@ CNST_001.
  * - **Lecciones completas (Schmuller)**
    - :doc:`/base-cognitiva/_uml/index`
  * - **Plan de documentación que aplica estos ejemplos**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Ejemplos OOP aplicados al dominio (compañero)**
-   - :doc:`ejemplos-oop-aplicados-iact`
+   - :doc:`orientacion-objetos`
  * - **Modelo RBAC vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
  * - **Restricciones citadas**

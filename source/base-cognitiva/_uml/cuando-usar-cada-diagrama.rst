@@ -30,7 +30,7 @@ Guía rápida — Cuándo usar cada diagrama UML
  dominio real del proyecto IACT** (UC_RPT, UC_PIP, UC_ALR,
  UC_PERM, stack React + Django + MySQL + IVR + APScheduler),
  consultar
- :doc:`/gestion/pm/ejemplos-uml-aplicados-iact`.
+ :doc:`/requisitos/_metodologia-aplicacion/diagramas-uml`.
 
  **Atribución:** material basado en *Aprendiendo UML en 24
  horas* — Hora 1 (Schmuller, 2000). UML es resultado del

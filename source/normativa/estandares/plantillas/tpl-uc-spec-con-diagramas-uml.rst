@@ -22,7 +22,7 @@ TPL — Especificación de UC con diagramas UML (PlantUML)
  :doc:`/base-cognitiva/plantuml-guide/guidelines`).
 
  Esta plantilla acompaña al
- :doc:`/gestion/pm/plan-documentacion-uc-con-uml` que define
+ :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc` que define
  cómo aplicar esta plantilla a los 97 UCs del proyecto.
 
 ----
@@ -486,7 +486,7 @@ convierta antes de aplicar esta plantilla. Mapeo directo:
  * - **Estilos centralizados**
    - ``source/_static/plantuml-styles.puml``
  * - **Plan de aplicación**
-   - :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
+   - :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`
  * - **Plantilla hermana (UC simple)**
    - :doc:`tpl-uc-stakeholder-driven`
  * - **Metodología de análisis de dominio**

@@ -21,6 +21,35 @@ mejor orientación.
 
 ## Hallazgos
 
+### F-0 — Marco más relevante: RM (Requirements Management)
+
+Tras review del catálogo completo de skills, los `rm-*` son el
+framework **más directo** para estos docs (más que PMBOK o
+BABOK):
+
+| Skill RM | Descriptor literal | Encaja con |
+|----------|--------------------|------------|
+| `rm-elicitation` | *"plan and conduct requirements elicitation using structured techniques"* | `ejemplos-analisis-dominio-aplicados-iact` (sustantivos→clases es elicitation), `ejemplos-casos-uso-aplicados-iact` (UC desde POV usuario) |
+| `rm-analysis` | *"analyze completeness, consistency and priority of requirements"* | `ejemplos-oop-aplicados-iact`, `ejemplos-relaciones-uml-aplicados-iact`, `ejemplos-agregacion-interfaces-aplicados-iact` |
+| `rm-specification` | *"formalize analyzed requirements into a specification document with SRS/BRD format and acceptance criteria"* | `ejemplos-uml-aplicados-iact`, `ejemplos-casos-uso-aplicados-iact` (template + ejemplo completo) |
+| `rm-management` | *"manage requirements baseline, changes and traceability over the project lifecycle"* | `plan-documentacion-uc-con-uml` (plan establece baseline de 97 UCs en 13 docs + trazabilidad) |
+| `rm-validation` | *"verify that requirements meet quality standards"* | (criterios de aceptación del plan) |
+
+BABOK (`ba-*`) e ISO 29148 / IEEE (`rm-*`) son frameworks
+**paralelos** que cubren lo mismo con vocabulario distinto. El
+proyecto tiene ambos disponibles. **`rm-*` es la elección más
+clara para artefactos de requisitos** porque:
+
+1. Los nombres `rm-elicitation/analysis/specification/validation/
+   management` siguen el ciclo IEEE / ISO 29148 que es el
+   estándar industria para documentación de requisitos.
+2. El cajón existente `source/requisitos/` mapea directamente a
+   los outputs de `rm-*`.
+3. Las metodologías ya existentes
+   (`metodologia-analisis-dominio-ucs`,
+   `metodologia-oop-para-ucs`) son aplicaciones de RM, no
+   de gestión de proyectos.
+
 ### F-1 — Mismatch PMBOK vs BABOK
 
 Los 7 docs son artefactos **BABOK**, no **PMBOK**.
@@ -146,25 +175,89 @@ normativa/estandares/
 | Ejemplos compañeros directos de metodologías | `estandares/` es para reglas normativas, no precedentes ni planes |
 | Sin nuevos cajones | Diluye el propósito del cajón |
 
-## Recomendación
+## Opción 4 — agregada tras incluir `rm-*`
 
-**Opción 1 (SPLIT)**:
+```
+source/requisitos/_metodologia-aplicacion/   ← NUEVO sub-cajón
+├── index.rst
+├── plan-documentacion-uc.rst                ← rm-management
+├── diagramas-uml.rst                        ← rm-specification
+├── orientacion-objetos.rst                  ← rm-analysis
+├── analisis-dominio.rst                     ← rm-elicitation
+├── relaciones-uml.rst                       ← rm-specification
+├── agregacion-interfaces.rst                ← rm-specification
+└── casos-uso-especificacion.rst             ← rm-elicitation +
+                                                rm-analysis +
+                                                rm-specification
+```
 
-- Plan → `gestion/ba/` (BA Plan = gestión BABOK, paralelo a PM).
-- 6 ejemplos → `base-cognitiva/_aplicaciones-iact/` (aplicaciones
-  de técnicas de modelado al dominio).
+| Pros | Cons |
+|------|------|
+| Adyacente a los artefactos que describe (`requisitos/business-requirements/`, `casos-uso/`, etc.) | Sub-cajón con prefijo `_` rompe levemente el patrón (otros sub-cajones internos sí usan `_` — sbvr, taxonomias, etc., pero todos en `base-cognitiva/`) |
+| Mapea directo al ciclo `rm-elicitation → rm-analysis → rm-specification → rm-validation → rm-management` | |
+| Un solo lugar — plan + 6 ejemplos juntos como cuerpo coherente | |
+| Permite nombres simplificados sin redundancia `-aplicados-iact` | |
+| No requiere crear nuevos top-level cajones (`gestion/ba/`) ni fragmentar (split entre `gestion/ba/` + `base-cognitiva/`) | |
+| El cajón `requisitos/` ya tiene index propio que puede listar el sub-cajón sin tocar otros | |
+
+### Argumento adicional — `knowledge/` ya cubierto
+
+El argumento de mover ejemplos a `base-cognitiva/_aplicaciones-iact/`
+descansaba en que son "conocimiento cognitivo aplicado". Pero
+**`base-cognitiva/` ya tiene** lo equivalente al `knowledge/`
+del proyecto:
+
+- `_uml/` — lecciones genéricas de UML
+- `_uml/cuando-usar-cada-diagrama.rst` — cheat-sheet
+- `_taxonomias-y-metamodelos/` — metamodelos formales
+- `_ontologia-sbvr/` — ontología
+- `_ejemplos-pedagogicos/` — sagas end-to-end
+- `_fundamentos-conceptuales/` — fundamentos
+- `glosario.rst` — glosario
+- `plantuml-guide/` — guía de la herramienta
+- `_metadata/` — metadata del proyecto
+
+→ Agregar `_aplicaciones-iact/` ahí sería redundante. Esos
+ejemplos no son **base** cognitiva (vocabulario, ontología,
+fundamentos); son **aplicación específica** del marco RM al
+dominio del proyecto. Pertenecen junto a los artefactos de
+requisitos, no junto a la base ontológica.
+
+## Recomendación actualizada
+
+**Opción 4 (CONSOLIDADA en `source/requisitos/_metodologia-aplicacion/`)**:
+
+- Plan + 6 ejemplos → un solo sub-cajón en `requisitos/`.
+- Skill aplicada por archivo: `rm-management` (plan),
+  `rm-elicitation` / `rm-analysis` / `rm-specification`
+  (ejemplos según corresponda).
+- Cross-link bidireccional con metodologías ya existentes en
+  `normativa/estandares/metodologia-*`.
 
 Razones:
 
-1. Cumple los descriptores literales de los skills disponibles.
-2. Respeta el propósito de cada cajón.
-3. No mezcla naturalezas distintas en un solo lugar.
-4. Permite nombres simplificados en los ejemplos.
-5. Crea pareja `pm/` (PMBOK) ↔ `ba/` (BABOK) en gestión.
+1. **Marco correcto**: `rm-*` (Requirements Management ISO
+   29148) es más directo que BABOK o PMBOK para estos docs.
+2. **Adyacencia semántica**: viven junto a los artefactos que
+   describen (BReq, BR, UC, FR, NFR).
+3. **No fragmenta**: plan y ejemplos juntos como cuerpo
+   coherente.
+4. **No agrega top-level cajones** (descartada la idea de
+   `gestion/ba/`).
+5. **Respeta `base-cognitiva/`** como base ontológica pura
+   (no la mezclamos con material project-specific).
+6. **Nombres simplificados**: sin sufijos `-aplicados-iact`
+   redundantes (el cajón ya marca el contexto).
 
 ## Pendiente de aprobación del ejecutor
 
-Confirmación de la opción a aplicar (1 / 2 / 3).
+Confirmación de la opción a aplicar:
+
+- Opción 1 (split: `gestion/ba/` + `base-cognitiva/`)
+- Opción 2 (todo en `gestion/ba/`)
+- Opción 3 (todo en `normativa/estandares/`)
+- **Opción 4 (NUEVA, recomendada): todo en
+  `source/requisitos/_metodologia-aplicacion/`**
 
 ## Trazabilidad
 

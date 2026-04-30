@@ -16,7 +16,7 @@ Agregación, composición, interfaces y realización — IACT
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`.
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`.
  Muestra los 5 conceptos de **Hora 5 de Schmuller**
  (agregación, composición, interfaces, realización,
  visibilidad y ámbito) aplicados al **dominio real del
@@ -790,12 +790,12 @@ El **ámbito** determina si un atributo o operación es:
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **Ejemplos hermanos aplicados a IACT**
-   - :doc:`ejemplos-uml-aplicados-iact`,
-     :doc:`ejemplos-oop-aplicados-iact`,
-     :doc:`ejemplos-analisis-dominio-aplicados-iact`,
-     :doc:`ejemplos-relaciones-uml-aplicados-iact`
+   - :doc:`diagramas-uml`,
+     :doc:`orientacion-objetos`,
+     :doc:`analisis-dominio`,
+     :doc:`relaciones-uml`
  * - **Plan de documentación**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Restricciones citadas**

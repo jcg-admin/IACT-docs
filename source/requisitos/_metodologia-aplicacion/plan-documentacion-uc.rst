@@ -331,17 +331,17 @@ Cada UC documentado debe cumplir:
      interna en Mermaid), reescrito para PlantUML por política
      del proyecto.
  * - **Ejemplos UML aplicados al dominio IACT**
-   - :doc:`ejemplos-uml-aplicados-iact`
+   - :doc:`diagramas-uml`
  * - **Ejemplos OOP aplicados al dominio IACT**
-   - :doc:`ejemplos-oop-aplicados-iact`
+   - :doc:`orientacion-objetos`
  * - **Ejemplos análisis de dominio aplicados al dominio IACT**
-   - :doc:`ejemplos-analisis-dominio-aplicados-iact`
+   - :doc:`analisis-dominio`
  * - **Ejemplos relaciones UML aplicadas al dominio IACT**
-   - :doc:`ejemplos-relaciones-uml-aplicados-iact`
+   - :doc:`relaciones-uml`
  * - **Ejemplos agregación / interfaces / visibilidad — IACT**
-   - :doc:`ejemplos-agregacion-interfaces-aplicados-iact`
+   - :doc:`agregacion-interfaces`
  * - **Ejemplos análisis y especificación de UCs — IACT**
-   - :doc:`ejemplos-casos-uso-aplicados-iact`
+   - :doc:`casos-uso-especificacion`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Metodología de análisis de dominio aplicable**

@@ -16,7 +16,7 @@ Análisis de dominio aplicado al ecosistema IACT (PlantUML)
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`
  y de
  :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`.
 
@@ -541,10 +541,10 @@ Para cada UC, ejecutar la metodología:
  * - **Modelo RBAC vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
  * - **Ejemplos hermanos aplicados a IACT**
-   - :doc:`ejemplos-uml-aplicados-iact`,
-     :doc:`ejemplos-oop-aplicados-iact`
+   - :doc:`diagramas-uml`,
+     :doc:`orientacion-objetos`
  * - **Plan de documentación**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **BRs aplicables citadas**

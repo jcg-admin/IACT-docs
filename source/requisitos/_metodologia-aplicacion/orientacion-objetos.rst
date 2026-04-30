@@ -16,7 +16,7 @@ Principios OOP aplicados al dominio IACT (PlantUML)
 
 .. note::
 
- Compañero del :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
+ Compañero del :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`
  y de :doc:`/normativa/estandares/metodologia-oop-para-ucs`.
 
  Muestra los **6 principios OOP** aplicados al **dominio real
@@ -748,7 +748,7 @@ preguntarse:
  * - **Modelo RBAC vigente**
    - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
  * - **Plan de documentación**
-   - :doc:`plan-documentacion-uc-con-uml`
+   - :doc:`plan-documentacion-uc`
  * - **Plantilla canónica de UC**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **BRs aplicables citadas**

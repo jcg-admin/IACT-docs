@@ -21,7 +21,7 @@ Metodología de Análisis de Dominio para UCs
  (entrevistas con clientes y descripciones de casos de uso).
 
  Aplica al documentar los **97 UCs** del proyecto IACT per
- :doc:`/gestion/pm/plan-documentacion-uc-con-uml`. Es paso
+ :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`. Es paso
  **upstream** de
  :doc:`/normativa/estandares/metodologia-oop-para-ucs` —
  primero se descubren las clases, luego se aplican las seis
@@ -30,7 +30,7 @@ Metodología de Análisis de Dominio para UCs
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
  **Ejemplos canónicos aplicados al dominio IACT:** ver
- :doc:`/gestion/pm/ejemplos-analisis-dominio-aplicados-iact`
+ :doc:`/requisitos/_metodologia-aplicacion/analisis-dominio`
  para la técnica aplicada al dominio real (sustantivos del
  ecosistema call center IVR / RBAC / ETL).
 
@@ -511,7 +511,7 @@ devolución, Descargar factura, Rastrear.
 
   El descubrimiento detallado de cada uno de los 13 temas vive
   en cada uno de los documentos de
-  :doc:`/gestion/pm/plan-documentacion-uc-con-uml` (DOC-14..26).
+  :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc` (DOC-14..26).
 
 ----
 
@@ -718,7 +718,7 @@ Cada sustantivo es una clase candidata.
 ===============================
 
 Cada documento generado per
-:doc:`/gestion/pm/plan-documentacion-uc-con-uml` debe contener:
+:doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc` debe contener:
 
 ::
 
@@ -826,6 +826,6 @@ Cada documento generado per
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Plan de aplicación**
-   - :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
+   - :doc:`/requisitos/_metodologia-aplicacion/plan-documentacion-uc`
  * - **Política de diagramación**
    - :doc:`/base-cognitiva/plantuml-guide/guidelines`

@@ -1,0 +1,114 @@
+.. meta::
+ :artefacto: INDEX_METODOLOGIA_APLICACION
+ :tipo: Indice
+ :dominio: requisitos
+ :subdominio: _metodologia-aplicacion
+ :estado: Vigente
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-30
+ :ultimo_cambio: 2026-04-30
+ :autor: NestorMonroy
+ :clasificacion: Interno
+
+==========================================================
+Metodología aplicada — cómo documentar requisitos en IACT
+==========================================================
+
+Propósito
+=========
+
+Sub-cajón con el **plan operativo** y los **ejemplos
+aplicados al dominio IACT** que guían la generación de los
+artefactos de requisitos (BReq, BR, UC, FR, NFR).
+
+Marco aplicado
+==============
+
+**Requirements Management** (ISO 29148 / IEEE) — los skills
+``rm-elicitation``, ``rm-analysis``, ``rm-specification``,
+``rm-validation``, ``rm-management``.
+
+Los documentos aquí cubren las cinco fases del ciclo RM
+aplicadas al dominio IACT.
+
+Catálogo
+========
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Plan operativo
+
+ plan-documentacion-uc
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Aplicaciones de técnicas al dominio
+
+ diagramas-uml
+ orientacion-objetos
+ analisis-dominio
+ relaciones-uml
+ agregacion-interfaces
+ casos-uso-especificacion
+
+Mapeo a skills RM
+=================
+
+.. list-table::
+ :widths: 38 32 30
+ :header-rows: 1
+
+ * - Documento
+   - Skill principal
+   - Fase RM
+ * - :doc:`plan-documentacion-uc`
+   - ``rm-management``
+   - Gestión de baseline + trazabilidad
+ * - :doc:`diagramas-uml`
+   - ``rm-specification``
+   - Formalizar requisitos con UML
+ * - :doc:`orientacion-objetos`
+   - ``rm-analysis``
+   - Análisis OOP de requisitos
+ * - :doc:`analisis-dominio`
+   - ``rm-elicitation`` + ``rm-analysis``
+   - Sustantivos→clases / verbos→operaciones
+ * - :doc:`relaciones-uml`
+   - ``rm-specification``
+   - Modelado de relaciones entre entidades
+ * - :doc:`agregacion-interfaces`
+   - ``rm-specification``
+   - Modelado de aggregation/composition/interfaces
+ * - :doc:`casos-uso-especificacion`
+   - ``rm-elicitation`` + ``rm-analysis`` + ``rm-specification``
+   - Especificación completa de UCs
+
+Convención
+==========
+
+- Naming kebab-lowercase per
+  :doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`.
+- Diagramas en **PlantUML** (no Mermaid) per
+  :doc:`/base-cognitiva/plantuml-guide/guidelines`.
+- Ejemplos del dominio IACT (call center IVR + analytics +
+  RBAC + ETL), no genéricos.
+
+Trazabilidad
+============
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Skills aplicados**
+   - ``rm-elicitation`` / ``rm-analysis`` /
+     ``rm-specification`` / ``rm-management``
+ * - **Metodologías hermanas (en normativa)**
+   - :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`,
+     :doc:`/normativa/estandares/metodologia-oop-para-ucs`
+ * - **Plantilla canónica de UC**
+   - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
+ * - **Teoría UML genérica**
+   - :doc:`/base-cognitiva/_uml/index`
+ * - **Política de diagramación**
+   - :doc:`/base-cognitiva/plantuml-guide/guidelines`
