@@ -1087,6 +1087,225 @@ discontinua con flecha hacia la clase usada.
    end note
    @enduml
 
+10.3 Características fundamentales de la dependencia/uso
+--------------------------------------------------------
+
+La dependencia/uso representa una **conexión temporal**
+entre dos elementos donde el cliente requiere del servidor
+para realizar una **tarea específica**. Se caracteriza por
+su **naturaleza transitoria** y se representa en UML con
+una flecha discontinua ``- - ->`` que apunta del cliente
+al servidor.
+
+A diferencia de la asociación (§ 2) y la composición
+(en :doc:`agregacion-interfaces`), la dependencia existe
+**solo durante el momento** en que se necesita el servicio.
+Cuando una persona aborda un taxi, la relación existe
+únicamente durante el trayecto.
+
+Cómo se manifiesta en código
+----------------------------
+
+- Una clase recibe a otra como **parámetro** de método.
+- Una **variable local** dentro de un método.
+- Invocación de **métodos estáticos** de otra clase.
+- **No** implica que el cliente mantenga referencia
+  permanente al servidor.
+
+Ocho características fundamentales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 26 36 38
+ :header-rows: 1
+
+ * - Característica
+   - Descripción
+   - Ejemplo IACT
+ * - **Temporalidad transitoria**
+   - La relación dura solo el tiempo necesario para
+     usar el servicio; se disuelve al completarla.
+   - Una vista Django pasa un ``Filtro`` a un método
+     de ``Reporte`` y la relación termina cuando
+     retorna.
+ * - **Interacción tangible**
+   - Relación física observable con elementos
+     concretos y resultados visibles.
+   - ``etl_runner`` consume archivos físicos de
+     ``bd-operativa`` durante una ejecución y libera
+     handles al terminar.
+ * - **Interacción lógica**
+   - Relación basada en experiencias o resultados
+     intangibles.
+   - Una vista usa ``aud_app.consultar()`` para
+     mostrar histórico — la "consulta" es lógica,
+     no deja huella en el cliente.
+ * - **Direccionalidad unilateral**
+   - Flujo único cliente → servidor; la flecha UML
+     siempre apunta al servidor. Cambios en el
+     servidor pueden afectar al cliente, no al revés.
+   - ``rpt_app`` conoce ``IDatosAnalytics``;
+     ``IDatosAnalytics`` no conoce a sus
+     consumidores.
+ * - **Acoplamiento débil**
+   - El cliente no mantiene referencia permanente; la
+     interacción se limita a servicios específicos.
+   - ``log_app.notificar`` se invoca puntualmente
+     desde varias apps sin que ninguna mantenga
+     referencia perdurable.
+ * - **Visibilidad controlada**
+   - Acceso regulado a los servicios; solo lo
+     necesario es visible.
+   - ``perm_app.SecRules.verificar_permiso`` está
+     expuesto; los modelos internos de
+     ``perm_app`` no.
+ * - **Naturaleza funcional**
+   - Centrada en comportamiento, no estructura;
+     orientada a tareas concretas.
+   - Una vista Django solo invoca
+     ``aud_app.registrar_evento(payload)``; no le
+     importa cómo aud_app lo persiste.
+ * - **Independencia de ciclo de vida**
+   - Cliente y servidor tienen ciclos separados; sin
+     responsabilidad mutua de gestión.
+   - ``etl_runner`` y ``aud_app`` se crean / destruyen
+     independientemente; cada uno mantiene su
+     autonomía.
+
+10.4 Características técnicas
+-----------------------------
+
+.. list-table::
+ :widths: 22 22 56
+ :header-rows: 1
+
+ * - Característica
+   - Valor
+   - Implicación
+ * - **Visibilidad**
+   - Pública.
+   - Servicios del servidor accesibles para cualquier
+     cliente del sistema; facilita reutilización y
+     modularidad.
+ * - **Temporalidad**
+   - Alta / Media.
+   - Interacciones limitadas a la duración de la
+     operación; sin persistencia tras el uso.
+ * - **Versatilidad**
+   - Baja.
+   - Relación orientada a un propósito específico y
+     limitado; alcance controlado.
+
+10.5 Implementación en el diseño
+--------------------------------
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Aspecto
+   - Descripción
+   - Ejemplo IACT
+ * - **Paso por parámetros**
+   - Objetos pasados como argumentos; sin
+     inicialización en constructor; permite existencia
+     independiente.
+   - ``rpt_app.generar(filtro: Filtro)`` recibe el
+     filtro solo durante la llamada.
+ * - **Variables locales**
+   - Referencias creadas dentro del alcance del
+     método; ciclo de vida limitado a la ejecución;
+     memoria liberada al finalizar.
+   - ``EvaluadorAlertas`` instancia un parser de
+     reglas dentro de ``evaluar()``; al retornar se
+     libera.
+ * - **Acoplamiento débil**
+   - Relación temporal que no afecta la estructura
+     fundamental; flexibilidad y testabilidad.
+   - ``aud_app.registrar`` se mockea trivialmente en
+     tests sin tocar a sus consumidores.
+ * - **Referencia temporal**
+   - El objeto referenciado existe
+     independientemente; sin control de ciclo de
+     vida; relación transitoria.
+   - Una ``ConfiguracionAlertas`` (singleton) se usa
+     puntualmente en ``alr_app.evaluar()`` sin que
+     ``alr_app`` la posea.
+ * - **Gestión de recursos**
+   - Manejo eficiente de objetos temporales;
+     liberación automática; sin retención.
+   - Un cliente HTTP usado por ``etl_runner`` para
+     consultar IVR se crea y libera por ejecución.
+
+10.6 Cuándo usar dependencia vs asociación
+------------------------------------------
+
+   *¿El cliente mantendrá una referencia al servidor más
+   allá de esta operación?*
+
+- **No** → dependencia / uso (§ 10).
+- **Sí** → asociación (§ 2).
+
+Ejemplos IACT contrastantes:
+
+- ``Reporte`` ``..>`` ``Filtro`` (UC_RPT_09) —
+  dependencia: el filtro se aplica durante una consulta y
+  se descarta. La consulta siguiente puede usar otro.
+- ``Sesion`` ``--`` ``Usuario`` — asociación: la sesión
+  conoce a su usuario durante toda su vida.
+- ``perm_app.SecRules`` ``..>`` ``Funcion`` (UC_PERM_07) —
+  dependencia: la regla consulta el catálogo
+  puntualmente; no almacena referencia.
+- ``Grupo`` ``--`` ``Funcion`` — agregación
+  (:doc:`agregacion-interfaces` § 2): el grupo mantiene
+  la lista de funciones asignadas durante toda su vida.
+
+10.7 Mapeo a IACT
+-----------------
+
+Dependencias canónicas en este proyecto:
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Cliente
+   - Servidor
+   - Naturaleza
+ * - Vista Django
+   - ``aud_app.registrar``
+   - Llamada puntual con payload; sin retención.
+ * - ``rpt_app.generar``
+   - ``IDatosAnalytics``
+   - Consulta durante la generación; conexión liberada.
+ * - ``perm_app.SecRules.verificar_permiso``
+   - ``Funcion`` (catálogo)
+   - Lookup puntual del catálogo.
+ * - ``EvaluadorAlertas.evaluar``
+   - ``ConfiguracionAlertas``
+   - Lectura del singleton para conocer umbrales.
+ * - ``etl_runner``
+   - ``IVR-host``
+   - Conexión read-only durante la ventana CNST_006/008.
+ * - Cualquier app
+   - ``log_app.notificar_buzon``
+   - Invocación puntual; sin estado persistente.
+
+Antipatrones IACT
+~~~~~~~~~~~~~~~~~
+
+- Mantener referencia perdurable a un servidor que
+  debería usarse vía dependencia (e.g., un atributo
+  ``self.audit = aud_app`` cuando ``aud_app`` se invoca
+  esporádicamente). Inflar el grafo de dependencias
+  estructural sin necesidad.
+- Convertir una dependencia en herencia "para tener el
+  método siempre disponible" — antipatrón de herencia
+  por construcción (ver § 14.3).
+- Mantener un cliente HTTP "global" en una app por
+  conveniencia — viola la independencia de ciclo de
+  vida y dificulta tests.
+
 ----
 
 11. Resumen — tabla de relaciones
