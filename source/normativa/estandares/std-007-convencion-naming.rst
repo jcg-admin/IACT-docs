@@ -198,7 +198,7 @@ Los prefijos identifican la categoría sin cambiar la convención.
    - ``breq-001-visibilidad-metricas.rst``
  * - ``cnst``
    - Restricción arquitectónica
-   - ``cnst-001-comunicaciones-prohibidas.rst``
+   - ``cnst-001-prohibicion-de-email-y-smtp.rst``
  * - ``meta``
    - Metadata del proyecto
    - ``meta-01-identidad-proyecto.rst``
@@ -568,10 +568,10 @@ Nuevos archivos NO deben usar el schema legacy.
    - ``br-001-fuente-operacional-inmutable.rst``
  * - Restricción
    - ``cnst-<nnn>-<desc>.rst``
-   - ``cnst-001-comunicaciones-prohibidas.rst``
+   - ``cnst-001-prohibicion-de-email-y-smtp.rst``
  * - ADR
    - ``adr-<mod>-<nnn>-<desc>.rst``
-   - ``adr-back-001-grupos-funcionales.rst``
+   - ``adr-back-001-grupos-funcionales-sin-jerarquia.rst``
  * - Procedimiento gobernanza
    - ``proced-<mod>-<nnn>-<desc>.rst``
    - ``proced-gob-003-documentar-regla-negocio.rst``
@@ -586,7 +586,7 @@ Nuevos archivos NO deben usar el schema legacy.
    - ``tpl-adr-decisiones-arquitectonicas.rst``
  * - Requisito funcional
    - ``fr-<nnn>-<nn>-<desc>.rst``
-   - ``fr-010-01-listar-funciones.rst``
+   - ``fr-010-01-listar-funciones-disponibles.rst``
  * - Guía sin prefijo
    - ``<desc-kebab>.rst``
    - ``git-workflow.rst``

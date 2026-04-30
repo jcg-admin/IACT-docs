@@ -237,7 +237,7 @@ creado (si decisión arquitectónica)
 - [ ] Acceso a Slack/Teams
 - [ ] Lectura de README
 - [ ] Lectura de
-  ``claude-code-conventions.rst`` (vive en .github/, no en source)
+  :doc:`/normativa/estandares/std-007-convencion-naming`
 
 **Primera Semana:**
 
@@ -445,7 +445,6 @@ Recursos relacionados
 - ``gobernanza/readme.rst`` (índice no migrado)
 - :doc:`Estrategia de QA </normativa/procedimientos/proc-qa-002-estrategia-qa>`
 - ``lineamientos_codigo.rst`` (no migrado a source)
-- `Convenciones de Claude
-  Code <../../.github/claude-code-conventions.rst>`__
+- :doc:`/normativa/estandares/std-007-convencion-naming`
 - ``backend/checklists/readme.rst`` (no migrado a source)
 - ``frontend/checklists/readme.rst`` (no migrado a source)
