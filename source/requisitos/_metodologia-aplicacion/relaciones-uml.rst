@@ -3634,11 +3634,192 @@ Política IACT para refactor desde diagramas
    task plan T-NNN del WP — trazabilidad clara
    desde diagnóstico hasta tareas atómicas.
 
+17.4 Refactor concreto — introducir un value object
+---------------------------------------------------
+
+Uno de los hallazgos más frecuentes que un
+diagrama de clases revela: **parámetros que viajan
+en grupo** entre varios métodos. Cuando dos o más
+parámetros aparecen siempre juntos en distintas
+firmas (mismo orden, mismos tipos primitivos), es
+señal de que **conforman un concepto** que merece
+una clase propia.
+
+El code smell — *data clump*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En la literatura clásica de refactor, este olor
+tiene dos formas relacionadas:
+
+- **Long parameter list** — un método con
+  demasiados parámetros separados.
+- **Data clump** — el mismo grupo de
+  parámetros aparece en múltiples métodos
+  separados.
+
+Ambos se resuelven con la misma técnica:
+**agrupar los parámetros en una clase** (a
+menudo llamada *value object*, *request object*,
+o simplemente *parameter object*).
+
+Cómo el diagrama lo expone
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El diagrama de clases (§§ 17.1 + 17.2) lo hace
+**visible** en una pasada:
+
+- Varias firmas con los mismos primeros
+  parámetros (``email : str``, ``username : str``
+  / ``user_id : int``, ``segmento_id : int``,
+  ``fecha : date``).
+- Métodos que reciben varios parámetros
+  primitivos en lugar de un objeto del dominio.
+- Validaciones repetidas en cada método receptor.
+
+Una vez identificado en el diagrama, el refactor
+se ejecuta en tres pasos:
+
+1. Crear una clase que agrupe los datos.
+2. Cambiar las firmas de los métodos que los
+   reciben.
+3. Verificar que ningún caller pasa datos
+   sueltos.
+
+Aplicación a IACT — ``ConsultaReporteRequest``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Caso concreto: en ``rpt_app`` muchos métodos
+reciben ``user_id``, ``segmento_id``,
+``fecha_desde``, ``fecha_hasta`` como parámetros
+sueltos:
+
+- ``Reporte.generar(user_id, segmento_id,
+  fecha_desde, fecha_hasta)``
+- ``Reporte.exportar(user_id, segmento_id,
+  fecha_desde, fecha_hasta, formato)``
+- ``Reporte.contar_filas(user_id, segmento_id,
+  fecha_desde, fecha_hasta)``
+
+Snapshot post-refactor: extraer un
+``ConsultaReporteRequest`` que agrupa esos cuatro
+campos y aporta su validación canónica
+(CNST_031: rango ≤ 6 meses).
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Snapshot post-refactor — ConsultaReporteRequest
+
+   class ConsultaReporteRequest {
+     + user_id : int
+     + segmento_id : int
+     + fecha_desde : date
+     + fecha_hasta : date
+     --
+     + validar() : bool
+     - _verificar_rango_max() : bool
+   }
+
+   class Reporte {
+     - _filtros : List<Filtro>
+     --
+     + generar(req : ConsultaReporteRequest) : Resultado
+     + exportar(req : ConsultaReporteRequest, formato : str) : TareaId
+     + contar_filas(req : ConsultaReporteRequest) : int
+     - _aplicar_filtros(req : ConsultaReporteRequest) : Query
+   }
+
+   class ExportarReporteFacade
+
+   ExportarReporteFacade ..> ConsultaReporteRequest : usa
+   ExportarReporteFacade ..> Reporte : inyecta
+   Reporte ..> ConsultaReporteRequest : recibe
+   @enduml
+
+Lectura del diagrama post-refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **``ConsultaReporteRequest``** captura los
+  cuatro datos que antes viajaban juntos.
+- **``validar()`` centralizada** — la
+  comprobación CNST_031 (rango máximo 6 meses)
+  vive en una sola implementación.
+- **``_verificar_rango_max()``** privado —
+  helper interno; el caller solo invoca
+  ``validar()``.
+- **Las tres firmas de ``Reporte``** aceptan
+  ahora ``req`` como un único parámetro.
+- ``ExportarReporteFacade`` y ``Reporte`` ambos
+  dependen del nuevo value object — la
+  dependencia se documenta explícitamente.
+
+Beneficios visibles desde el diagrama
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Validación única** — antes, cada método
+  receptor tenía que validar el rango. Ahora
+  ``ConsultaReporteRequest.validar()`` cubre el
+  contrato de entrada.
+- **Firmas más cortas** — los métodos de
+  ``Reporte`` pasan de cuatro a uno o dos
+  parámetros.
+- **Trazabilidad CNST_031** en una sola clase
+  — un cambio en la regla del rango toca solo
+  ``ConsultaReporteRequest``.
+- **Tests más limpios** — un solo objeto a
+  fixture en lugar de cuatro variables sueltas
+  por test.
+
+Variantes del patrón
+~~~~~~~~~~~~~~~~~~~~
+
+El mismo refactor (parameter object) admite
+varias variantes según el caso:
+
+.. list-table::
+ :widths: 28 40 32
+ :header-rows: 1
+
+ * - Variante
+   - Cuándo
+   - Ejemplo IACT
+ * - **Request object**
+   - Datos de entrada de una operación.
+   - ``ConsultaReporteRequest``,
+     ``ExportarRequest``.
+ * - **Response object**
+   - Datos de salida estructurados.
+   - ``AlertaPublicada`` con metadata.
+ * - **Domain entity**
+   - Datos con identidad propia (PK).
+   - ``Sesion``, ``EjecucionETL``.
+ * - **Value object**
+   - Datos inmutables sin identidad.
+   - ``Rango`` (par de fechas validado),
+     ``Segmento``.
+
+Política IACT para parameter objects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Diagramar primero** — el refactor parte de
+   un snapshot que muestra el clump.
+2. **Validación dentro del request object** —
+   cuando aplica una restricción del proyecto
+   (CNST_*, BR_*), centralizarla.
+3. **Inmutables si pueden serlo** — los value
+   objects deben ser inmutables salvo razón
+   clara.
+4. **Tests con fixture del request object** —
+   no fixturear datos sueltos por convención.
+5. **Documentar el refactor** en el WP — el par
+   pre/post snapshot es la evidencia.
+
 Próximas subsecciones potenciales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Composición e inyección de dependencias
-  visualizadas como diagrama de clases.
+- Refactor estructural mayor (introducir
+  Strategy / Decorator desde el diagrama).
 - Detección de antipatrones desde el diagrama
   (acoplamiento estático, dependencias
   cíclicas).
