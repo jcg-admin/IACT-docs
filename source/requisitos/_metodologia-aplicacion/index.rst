@@ -56,6 +56,7 @@ Catálogo
  diagramas-colaboraciones
  diagramas-actividades
  diagramas-componentes
+ diagramas-distribucion
 
 Mapeo a skills RM
 =================
@@ -106,6 +107,9 @@ Mapeo a skills RM
  * - :doc:`diagramas-componentes`
    - ``rm-specification`` + ``rm-analysis``
    - Arquitectura física y contratos entre apps (Hora 12)
+ * - :doc:`diagramas-distribucion`
+   - ``rm-specification`` + ``rm-analysis``
+   - Despliegue, nodos y protocolos en intranet (Hora 13)
 
 Convención
 ==========
