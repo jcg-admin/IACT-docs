@@ -51,6 +51,7 @@ Catálogo
  agregacion-interfaces
  casos-uso-especificacion
  casos-uso-diagramas
+ diagramas-estados
 
 Mapeo a skills RM
 =================
@@ -86,6 +87,9 @@ Mapeo a skills RM
  * - :doc:`casos-uso-diagramas`
    - ``rm-elicitation`` + ``rm-specification``
    - Modelado visual de UCs con PlantUML (Hora 7)
+ * - :doc:`diagramas-estados`
+   - ``rm-specification`` + ``rm-analysis``
+   - Comportamiento temporal de objetos (Hora 8)
 
 Convención
 ==========
