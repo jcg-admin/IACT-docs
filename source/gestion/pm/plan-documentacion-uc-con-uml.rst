@@ -336,6 +336,8 @@ Cada UC documentado debe cumplir:
    - :doc:`ejemplos-oop-aplicados-iact`
  * - **Ejemplos análisis de dominio aplicados al dominio IACT**
    - :doc:`ejemplos-analisis-dominio-aplicados-iact`
+ * - **Ejemplos relaciones UML aplicadas al dominio IACT**
+   - :doc:`ejemplos-relaciones-uml-aplicados-iact`
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
  * - **Metodología de análisis de dominio aplicable**
