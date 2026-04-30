@@ -4649,6 +4649,782 @@ Próximas subsecciones
 - Schemas canónicos consolidados:
   ``audit_log``, ``bd_analytics``, RBAC.
 
+17.7 Relaciones identificantes vs no-identificantes
+---------------------------------------------------
+
+Toda relación ERD puede ser **identificante**
+(*identifying*) o **no-identificante**
+(*non-identifying*). La distinción captura si
+las dos entidades pueden existir independientemente
+o si una depende de la otra para identificarse.
+
+Definición precisa
+~~~~~~~~~~~~~~~~~~
+
+La regla operativa, en términos de claves:
+
+- **Identificante** — la PK de la entidad padre
+  forma **parte de la PK** de la entidad hija
+  (PK compuesta que incluye la FK).
+- **No-identificante** — la PK del padre aparece
+  como FK en el hijo pero **no forma parte** de
+  su PK.
+
+Implicación: en una relación identificante, el
+hijo **no puede existir sin un padre concreto**
+porque su propia identidad lo requiere. En una
+relación no-identificante, el hijo tiene una PK
+propia y la relación con el padre es solo
+referencial.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML representa la diferencia con el tipo de
+línea:
+
+- **Línea continua** (``--``) — relación
+  identificante.
+- **Línea punteada** (``..``) — relación
+  no-identificante.
+
+.. code-block:: plantuml
+
+   ' Identificante (linea continua):
+   Padre ||--o{ Hijo : etiqueta
+
+   ' No-identificante (linea punteada):
+   Padre ||..o{ Hijo : etiqueta
+
+Las marcas de cardinalidad (``||``, ``o{``, etc.)
+son las mismas; solo cambia el tipo de línea.
+
+Cuándo aparece cada tipo en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Identificante (línea continua)** — la mayoría
+de las relaciones de composición fuerte:
+
+- ``EventoAuditoria`` ↔ ``DetalleAuditoria`` —
+  el detalle no existe sin su evento padre; su PK
+  típicamente es ``(evento_id, detalle_seq)`` —
+  identificante.
+- ``EjecucionETL`` ↔ ``ErrorETL`` — un error
+  pertenece exclusivamente a una ejecución; PK
+  ``(ejecucion_etl_id, error_seq)``.
+- ``Reporte`` ↔ ``ConfiguracionExport`` —
+  identificante si la configuración persiste
+  ligada al reporte y se descarta con él.
+
+**No-identificante (línea punteada)** — la
+mayoría de las relaciones donde el hijo tiene
+identidad propia:
+
+- ``Usuario`` ↔ ``Asignacion`` —
+  ``Asignacion`` tiene su propia PK
+  (``asignacion_id``); el ``usuario_id`` es solo
+  FK. Si se elimina al usuario, la asignación
+  queda huérfana pero conserva su identidad.
+- ``Grupo`` ↔ ``Funcion`` (vía ``GrupoFuncion``)
+  — la tabla de unión usa ambas FKs como PK
+  compuesta, por lo que **es identificante**
+  hacia ambos padres. Caso interesante: una
+  tabla puede ser identificante hacia varios
+  padres simultáneamente.
+- ``EventoAuditoria`` ↔ ``Reporte`` (cuando
+  ``reporte_id`` es nullable, § 17.6) —
+  no-identificante: el evento tiene identidad
+  propia; la FK al reporte es referencial.
+
+Correspondencia con UML — composición vs agregación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hay un paralelismo natural con § 16.4 de
+:doc:`relaciones-uml`:
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Concepto UML (dominio)
+   - Mapeo natural en ERD
+   - Línea PlantUML
+ * - **Composición**
+     (parte muere con el todo)
+   - Identificante (la parte usa la PK del
+     todo).
+   - Continua (``--``).
+ * - **Agregación**
+     (parte sobrevive al todo)
+   - No-identificante (la parte tiene PK
+     propia).
+   - Punteada (``..``).
+ * - **Asociación**
+     (uso mutuo)
+   - No-identificante.
+   - Punteada (``..``).
+ * - **Dependencia**
+     (referencia transitoria)
+   - Sin FK persistente; rara vez se modela
+     en ERD.
+   - —
+
+Esto **no** es una equivalencia rígida — el dominio
+y la persistencia pueden diferir (§ 17 principio
+central) — pero sirve como guía operativa.
+
+Ejemplo IACT — schema mixto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ERD del cluster ETL combinando relaciones
+identificantes y no-identificantes:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: cluster ETL (mixto)
+
+   entity VentanaETL {
+     * ventana_id : int <<PK>>
+     --
+     * inicio : datetime
+     * fin : datetime
+   }
+
+   entity EjecucionETL {
+     * ejecucion_etl_id : int <<PK>>
+     --
+     * ventana_id : int <<FK>>
+     * estado : varchar(20)
+     * inicio : datetime
+     fin : datetime
+   }
+
+   entity ErrorETL {
+     * ejecucion_etl_id : int <<PK>> <<FK>>
+     * error_seq : int <<PK>>
+     --
+     * tipo_error : varchar(50)
+     mensaje : text
+     timestamp : datetime
+   }
+
+   entity RegistroIngesta {
+     * ejecucion_etl_id : int <<PK>> <<FK>>
+     * ingesta_seq : int <<PK>>
+     --
+     * tabla_destino : varchar(100)
+     filas_insertadas : int
+   }
+
+   ' No-identificante: la ejecucion sobrevive al
+   ' cierre de la ventana
+   VentanaETL ||..o{ EjecucionETL : "contiene (no-id)"
+
+   ' Identificante: errores y registros mueren con
+   ' la ejecucion
+   EjecucionETL ||--o{ ErrorETL : "produce (id)"
+   EjecucionETL ||--o{ RegistroIngesta : "produce (id)"
+   @enduml
+
+Lectura del schema:
+
+- **``VentanaETL`` ↔ ``EjecucionETL``** — línea
+  punteada: la ejecución tiene identidad propia
+  (``ejecucion_etl_id``), aunque referencie su
+  ventana. Si la ventana se invalida, las
+  ejecuciones permanecen en ``audit_log``.
+- **``EjecucionETL`` ↔ ``ErrorETL``** — línea
+  continua: el error usa ``ejecucion_etl_id`` como
+  parte de su PK (``(ejecucion_etl_id,
+  error_seq)``). No hay error sin ejecución.
+- **``EjecucionETL`` ↔ ``RegistroIngesta``** —
+  igual: PK compuesta. Ingesta no existe sin
+  ejecución que la produjo.
+
+Cuándo conviene cada tipo
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Preferir identificante** cuando:
+
+- La parte **no tiene sentido** sin el todo.
+- Las consultas de la parte casi siempre filtran
+  por el padre (``WHERE ejecucion_etl_id = X``).
+- El borrado en cascada es la política natural.
+
+**Preferir no-identificante** cuando:
+
+- La parte **tiene identidad propia** y se
+  consulta por su PK independiente.
+- La FK al padre puede ser ``NULL`` o cambiar.
+- Conviene poder reasignar la fila a otro padre
+  sin recrear la PK.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Composición fuerte del dominio = identificante
+   en ERD** — las partes mueren con el todo,
+   reflejado en PK compuesta.
+2. **Agregación o asociación del dominio =
+   no-identificante en ERD** — las partes
+   conservan identidad propia.
+3. **Documentar la decisión** en el comentario de
+   la relación (``"contiene (id)"`` /
+   ``"contiene (no-id)"``) cuando la elección no
+   sea obvia por el contexto.
+4. **Coherencia con CNST_025** — entidades de
+   ``audit_log`` típicamente identificantes hacia
+   sus detalles, porque la auditoría no permite
+   reasignar componentes entre eventos.
+5. **Revisar al refactorizar** — si una tabla
+   identificante adquiere usos cross-padre,
+   considerar promoverla a no-identificante con PK
+   propia.
+
+Beneficio del breakdown — entidades partidas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un caso clásico de relaciones identificantes: una
+entidad de dominio crece tanto que el schema sufre
+(añadir columnas tarda horas en tablas de millones
+de filas). La técnica habitual: dividir la tabla
+en varias entidades unidas por la PK del padre.
+En IACT esto podría aplicar a ``Usuario`` si en
+algún momento se necesita persistir muchos
+atributos opcionales — divididos en
+``UsuarioPerfil``, ``UsuarioPreferencias``,
+``UsuarioCredenciales`` con relación identificante
+hacia ``Usuario``.
+
+Por ahora la tabla ``Usuario`` de IACT es lo
+suficientemente compacta como para no requerir
+ese breakdown. Si crece, la técnica está
+documentada.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- ERD final consolidado del dominio IACT.
+- Tipos de dato canónicos MySQL para IACT.
+- Constraints adicionales y triggers
+  (especialmente para CNST_025).
+- Índices y patrones de consulta.
+
+17.8 ERD final consolidado — snapshot IACT
+------------------------------------------
+
+Las §§ 17.1-17.7 introdujeron pieza por pieza la
+sintaxis del ERD: entidades, relaciones,
+cardinalidades (1, 1..*, 0..*, 0..1), claves,
+comentarios, identificantes vs no-identificantes.
+Esta subsección consolida un **ERD snapshot del
+dominio IACT** que combina todas esas técnicas en
+un solo diagrama, equivalente al cierre del
+capítulo de la obra citada.
+
+.. note::
+
+   Snapshot del schema al **2026-04-30**. La
+   fuente de verdad operativa son las migraciones
+   Django en cada app. Si difiere del código
+   actual, vale el código.
+
+Alcance del snapshot
+~~~~~~~~~~~~~~~~~~~~
+
+El ERD cubre cuatro clusters del dominio IACT:
+
+- **RBAC** — ``Usuario``, ``Grupo``, ``Funcion``,
+  ``Asignacion``, ``GrupoFuncion``,
+  ``ReglaSoD``.
+- **ETL** — ``VentanaETL``, ``EjecucionETL``,
+  ``ErrorETL``, ``RegistroIngesta``.
+- **Reportería** — ``Reporte``, ``TareaExport``.
+- **Auditoría** — ``EventoAuditoria``,
+  ``DetalleAuditoria``, ``TipoEvento``.
+
+Quedan **fuera** (no se persisten en el schema):
+``Sesion`` (vive en Redis), ``ConfiguracionExport``
+(efímera), ``Llamada`` (vive en
+``bd-operativa`` externa, read-only).
+
+ERD consolidado
+~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot consolidado (2026-04-30)
+
+   ' === RBAC ===
+   entity Usuario {
+     * usuario_id : int <<PK>>
+     --
+     * username : varchar(100) <<UQ>>
+     * email : varchar(150) <<UQ>>
+     activo : boolean
+     creado_en : datetime
+   }
+
+   entity Grupo {
+     * grupo_id : int <<PK>>
+     --
+     * nombre : varchar(50) <<UQ>>
+     descripcion : varchar(200)
+     creado_en : datetime
+   }
+
+   entity Funcion {
+     * funcion_id : varchar(100) <<PK>>
+     --
+     * nombre : varchar(150)
+     categoria : varchar(50) <<IDX>>
+   }
+
+   entity Asignacion {
+     * asignacion_id : int <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * grupo_id : int <<FK>>
+     * fecha_alta : datetime <<IDX>>
+     fecha_baja : datetime
+     asignado_por : int <<FK>>
+   }
+
+   entity GrupoFuncion {
+     * grupo_id : int <<PK>> <<FK>>
+     * funcion_id : varchar(100) <<PK>> <<FK>>
+     --
+     fecha_asignacion : datetime
+     adr_aprobacion : varchar(100)
+   }
+
+   entity ReglaSoD {
+     * regla_id : int <<PK>>
+     --
+     * nombre : varchar(100) <<UQ>>
+     descripcion : varchar(300)
+   }
+
+   entity ReglaSoDFuncion {
+     * regla_id : int <<PK>> <<FK>>
+     * funcion_id : varchar(100) <<PK>> <<FK>>
+   }
+
+   ' === ETL ===
+   entity VentanaETL {
+     * ventana_id : int <<PK>>
+     --
+     * inicio : datetime
+     * fin : datetime
+     estado : varchar(20)
+   }
+
+   entity EjecucionETL {
+     * ejecucion_etl_id : int <<PK>>
+     --
+     * ventana_id : int <<FK>>
+     usuario_id : int <<FK>>
+     * estado : varchar(20)
+     * inicio : datetime
+     fin : datetime
+   }
+
+   entity ErrorETL {
+     * ejecucion_etl_id : int <<PK>> <<FK>>
+     * error_seq : int <<PK>>
+     --
+     * tipo_error : varchar(50)
+     mensaje : text
+   }
+
+   entity RegistroIngesta {
+     * ejecucion_etl_id : int <<PK>> <<FK>>
+     * ingesta_seq : int <<PK>>
+     --
+     * tabla_destino : varchar(100)
+     filas_insertadas : int
+   }
+
+   ' === Reportería ===
+   entity Reporte {
+     * reporte_id : int <<PK>>
+     --
+     * tipo : varchar(50)
+     * nombre : varchar(150)
+     creado_por : int <<FK>>
+     creado_en : datetime
+   }
+
+   entity TareaExport {
+     * tarea_id : int <<PK>>
+     --
+     * reporte_id : int <<FK>>
+     * solicitado_por : int <<FK>>
+     * estado : varchar(20)
+     formato : varchar(10)
+     solicitado_en : datetime
+     completado_en : datetime
+   }
+
+   ' === Auditoría ===
+   entity TipoEvento {
+     * tipo_id : int <<PK>>
+     --
+     * nombre : varchar(50) <<UQ>>
+   }
+
+   entity EventoAuditoria {
+     * evento_id : bigint <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * tipo_id : int <<FK>>
+     * timestamp : datetime <<IDX>>
+     reporte_id : int <<FK>>
+     ejecucion_etl_id : int <<FK>>
+     payload : text
+     ip_origen : varchar(45)
+   }
+
+   entity DetalleAuditoria {
+     * evento_id : bigint <<PK>> <<FK>>
+     * detalle_seq : int <<PK>>
+     --
+     * campo : varchar(100)
+     valor_anterior : text
+     valor_nuevo : text
+   }
+
+   ' === Relaciones RBAC ===
+   Usuario ||..o{ Asignacion : "es asignado en"
+   Grupo ||..o{ Asignacion : contiene
+   Grupo ||--o{ GrupoFuncion : agrupa
+   Funcion ||--o{ GrupoFuncion : "esta en"
+   ReglaSoD ||--|{ ReglaSoDFuncion : restringe
+   Funcion ||--o{ ReglaSoDFuncion : "aparece en"
+
+   ' === Relaciones ETL ===
+   VentanaETL ||..o{ EjecucionETL : "contiene (no-id)"
+   EjecucionETL ||--o{ ErrorETL : "produce (id)"
+   EjecucionETL ||--o{ RegistroIngesta : "produce (id)"
+   Usuario ||..o{ EjecucionETL : "dispara (manual)"
+
+   ' === Relaciones Reportería ===
+   Usuario ||..o{ Reporte : crea
+   Reporte ||..o{ TareaExport : "se exporta como"
+   Usuario ||..o{ TareaExport : solicita
+
+   ' === Relaciones Auditoría ===
+   TipoEvento ||--o{ EventoAuditoria : clasifica
+   Usuario ||..o{ EventoAuditoria : genera
+   EventoAuditoria ||--o{ DetalleAuditoria : detalla
+   Reporte ||..o{ EventoAuditoria : "origina (opcional)"
+   EjecucionETL ||..o{ EventoAuditoria : "origina (opcional)"
+   @enduml
+
+Lectura del schema consolidado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las técnicas aplicadas:
+
+- **PKs simples** (``usuario_id``, ``grupo_id``)
+  para entidades principales.
+- **PKs compuestas** (``GrupoFuncion``,
+  ``ReglaSoDFuncion``, ``ErrorETL``,
+  ``RegistroIngesta``, ``DetalleAuditoria``) para
+  tablas de unión y composiciones identificantes.
+- **PK + FK simultáneas** en columnas que
+  participan en ambas (``<<PK>> <<FK>>``).
+- **UQ** en campos como ``username``, ``email``,
+  ``nombre`` de grupo o tipo de evento.
+- **IDX** en campos de filtrado frecuente
+  (``categoria``, ``timestamp``, ``fecha_alta``).
+- **FKs nullable** (``usuario_id`` en
+  ``EjecucionETL`` para dry-run manual,
+  ``reporte_id`` y ``ejecucion_etl_id`` en
+  ``EventoAuditoria``).
+- **Identificantes** (línea continua) en
+  ``GrupoFuncion``, ``ErrorETL``,
+  ``RegistroIngesta``, ``DetalleAuditoria``,
+  ``ReglaSoDFuncion`` — la parte usa la PK del
+  padre.
+- **No-identificantes** (línea punteada) en el
+  resto — el hijo tiene PK propia.
+- **Etiquetas claras** que indican el sentido y
+  marcan ``(id)`` o ``(no-id)`` cuando vale la
+  pena destacar.
+
+Cómo se relaciona con el modelo de dominio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Comparando el ERD con el modelo de dominio
+(§§ 3-7):
+
+.. list-table::
+ :widths: 32 32 36
+ :header-rows: 1
+
+ * - Modelo de dominio
+   - ERD persistencia
+   - Diferencia
+ * - ``Sesion``
+   - Sin entidad propia
+   - Vive en Redis (efímera).
+ * - ``Llamada``
+   - Sin entidad propia
+   - Vive en ``bd-operativa`` externa
+     (CNST_007).
+ * - Asociación N:M ``Usuario`` ↔ ``Grupo``
+   - Tabla ``Asignacion``
+   - El ERD requiere la tabla intermedia con
+     datos auditables.
+ * - Composición ``EventoAuditoria`` ↔
+     ``DetalleAuditoria``
+   - Misma estructura, identificante
+   - Mapeo directo, ``DetalleAuditoria`` con
+     PK compuesta.
+ * - ``ConfiguracionExport``
+   - Sin entidad
+   - Efímera; vive en memoria de la tarea.
+
+El principio de § 17 se materializa: el modelo
+de dominio y el ERD coinciden donde tiene sentido
+y divergen donde la persistencia tiene
+preocupaciones distintas.
+
+Lo que el ERD aporta
+~~~~~~~~~~~~~~~~~~~~
+
+- **Vista única de los schemas** que un
+  ingeniero o DBA puede consultar al diseñar una
+  query, un index o un cambio.
+- **Trazabilidad** entre el dominio y el
+  almacenamiento para revisar coherencia.
+- **Material para ADRs** cuando se proponen
+  cambios al schema.
+- **Onboarding** para quien ingresa al proyecto
+  y necesita entender qué se persiste y dónde.
+
+Política — actualización del ERD consolidado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como todo ERD en IACT, este es un **snapshot**.
+La actualización se rige por:
+
+1. **No se actualiza con cada migración**. Las
+   migraciones Django son la fuente de verdad.
+2. **Sí se actualiza** ante cambios estructurales
+   significativos (nueva entidad principal,
+   reorganización de tablas, cambio de cluster).
+3. **Cada actualización lleva fecha** en el
+   ``title`` del diagrama y en el comentario de
+   apertura del bloque PlantUML.
+4. **Las desviaciones entre el snapshot y el
+   código real** se registran como deuda en
+   ``technical-debt.md`` si la divergencia es
+   crítica.
+5. **El ERD vive con el documento**, no se
+   bifurca a un archivo aparte.
+
+Cierre del capítulo de schemas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con §§ 17-17.8 queda cubierto el ciclo completo
+de diseño de schemas para IACT:
+
+- Principio de separación dominio / persistencia
+  (§ 17).
+- ERD como snapshot, no como artefacto vivo
+  (§ 17.1).
+- Sintaxis y entidades (§ 17.2).
+- Cardinalidades (§§ 17.3, 17.4, 17.6).
+- Tablas de unión (§ 17.4).
+- Claves y comentarios (§ 17.5).
+- Identificante vs no-identificante (§ 17.7).
+- ERD consolidado (§ 17.8).
+
+Para crear un ERD nuevo de un cambio puntual,
+seguir el flujo: identificar entidades →
+relaciones → cardinalidad → claves → tipo de
+relación (identificante o no) → marcar como
+snapshot → publicar.
+
+Próximas extensiones potenciales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(Cuando se necesiten — no se planifican
+proactivamente):
+
+- Tipos de dato canónicos MySQL para IACT.
+- Constraints físicas adicionales (CHECK,
+  triggers append-only para ``audit_log``).
+- Patrones de índices y consultas frecuentes.
+- ERDs por cluster individual cuando un
+  servicio crezca lo suficiente como para
+  justificar uno propio.
+
+17.9 Ejercicio: diseñar tu propio ERD
+-------------------------------------
+
+Como en los ejercicios de cierre de los capítulos
+anteriores
+(§§ 15.12 / 16.9 de este documento,
+§ 14 de :doc:`diagramas-secuencias`,
+§§ 13.4 de :doc:`diagramas-componentes`,
+ejercicio Container de
+:doc:`diagramas-distribucion`), el ERD también
+admite un ejercicio de cierre para internalizar la
+técnica.
+
+Recomendación general
+~~~~~~~~~~~~~~~~~~~~~
+
+Construir un ERD que **incluya todas las
+técnicas** del capítulo:
+
+- Múltiples cardinalidades (1, 1..*, 0..*, 0..1).
+- Al menos una **tabla de unión** para una
+  relación N:M.
+- Al menos una **relación identificante** (PK
+  compuesta que incluye FK del padre).
+- Al menos una **relación no-identificante**
+  (FK referencial sin formar parte de la PK).
+- **Claves primarias y foráneas** explícitas en
+  cada entidad.
+- **UQ / IDX** donde aplique.
+- **Comentarios** o etiquetas que aporten
+  contexto.
+
+No es necesario que el ERD sea grande — alcance
+con **5-7 entidades** que ejerciten estas
+técnicas.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+El ERD consolidado de § 17.8 ya cumple el
+ejercicio: combina las técnicas en un snapshot
+realista del proyecto.
+
+Variantes para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quien quiere ejercitar la técnica antes de
+aplicarla a un cambio real puede:
+
+1. **Reproducir el ERD de § 17.8** desde cero, sin
+   mirar el código fuente PlantUML, validando
+   que entiende cada decisión de cardinalidad y
+   cada elección entre identificante y
+   no-identificante.
+2. **Modelar un cluster aislado** del proyecto
+   (ej. solo RBAC, o solo ETL, o solo
+   auditoría). Útil para entender cómo cada
+   pieza encaja por sí misma.
+3. **Modelar un sistema fuera de IACT** que se
+   conozca bien — un sistema interno previo, un
+   side project, o un sitio web público familiar
+   (catálogo de pedidos, biblioteca personal,
+   gestión de tareas). Buena práctica si el
+   contribuidor no tiene experiencia previa con
+   ERDs.
+4. **Proponer un cambio hipotético** al schema
+   IACT y modelarlo: por ejemplo, agregar una
+   tabla de "preferencias de usuario" o "logs de
+   acceso a reportes". Discutir el diseño con el
+   equipo.
+
+Variantes para extender el modelo real
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cuando aparezca una iniciativa que **modifique el
+schema IACT** (nueva tabla, reorganización,
+índices nuevos):
+
+1. Abrir un WP en ``.thyrox/context/work/``.
+2. **Bocetar** el cambio en el ERD usando
+   PlantUML (``planttext.com`` o editor con
+   preview).
+3. Discutirlo con el equipo (DBA, SRE,
+   desarrolladores afectados).
+4. **Registrar la decisión en un ADR** del
+   subdominio si el cambio es estructural.
+5. **Implementar la migración Django**
+   correspondiente.
+6. Actualizar § 17.8 si el cambio es de
+   alcance global; si es local de un cluster,
+   crear un ERD por cluster.
+
+Plan recomendado para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Leer §§ 17-17.8 de este documento.
+2. **Reproducir el ERD del cluster RBAC** (solo
+   esa parte de § 17.8) desde cero — ejercicio
+   inicial enfocado.
+3. **Probar variante 4**: proponer un cambio al
+   schema (e.g. tabla ``HistorialAsignacion``
+   para guardar versiones de asignaciones SoD).
+4. **Avanzar al schema cluster ETL**, donde
+   aparecen relaciones identificantes con PKs
+   compuestas (``ErrorETL``, ``RegistroIngesta``).
+5. **Aplicar a un cambio real** en un WP del
+   proyecto cuando se presente la oportunidad.
+
+Bonus — diagrama de un sistema externo conocido
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Como ejercicio introductorio a ERDs, modelar el
+schema imaginario de un sitio que se use a
+diario:
+
+- Una plataforma de notas / gestión de tareas:
+  usuarios, listas, tareas, etiquetas, etiquetas
+  por tarea (N:M), fechas de recordatorio.
+- Un catálogo personal de libros: libros,
+  autores (N:M con tabla de unión), géneros,
+  préstamos, reseñas.
+- Un sistema de seguimiento de hábitos: hábitos,
+  sesiones de hábito, categorías, racha
+  (calculada o persistida).
+
+El objetivo es **practicar la técnica** con un
+dominio familiar antes de modelar uno crítico
+del proyecto.
+
+Cierre del capítulo de schemas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con §§ 17-17.9, el lector tiene los recursos
+para diseñar **cualquier ERD** relevante a IACT
+o a otro proyecto: identificar entidades, elegir
+cardinalidad, decidir entre identificante y
+no-identificante, marcar claves, agregar
+comentarios y publicar el resultado como
+**snapshot fechado**.
+
+El siguiente capítulo del libro citado avanza
+hacia diagramas dirigidos al código en sí mismo
+(visualización de flujos de código, refactor,
+análisis estático). En IACT esa zona ya queda
+cubierta por:
+
+- :doc:`diagramas-actividades` (flujos de
+  proceso).
+- :doc:`diagramas-secuencias` (interacciones
+  entre objetos).
+- :doc:`diagramas-estados` (ciclos de vida).
+- :doc:`patrones-diseno` (estructuras de código
+  recurrentes).
+
+Cuando el libro introduzca conceptos nuevos en
+ese capítulo, se integrarán al cajón siguiendo
+el mismo patrón que los anteriores: PlantUML,
+adaptado a IACT, con cross-references.
+
 ----
 
 18. Trazabilidad
