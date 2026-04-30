@@ -530,6 +530,170 @@ Los patrones **aplican** los principios; no son sustitutos.
 Ante la duda: **no aplicar**. Documentar la decisión en un
 ADR del subdominio afectado.
 
+13. GRASP — Patrón Experto en la Información
+============================================
+
+Hasta aquí los patrones presentados son los **GoF**
+(Gang of Four). Existe una familia complementaria —
+**GRASP** (*General Responsibility Assignment Software
+Patterns*) de Craig Larman — orientada a la **asignación
+de responsabilidades** entre clases. El más fundamental
+es el **Patrón Experto en la Información**
+(*Information Expert*).
+
+13.1 Definición
+---------------
+
+El **Patrón Experto en la Información** establece que una
+responsabilidad debe asignarse a la clase que **tiene la
+información necesaria** para cumplirla.
+
+La idea central: cada objeto debe ser responsable de
+manipular **su propia información**, igual que en el
+mundo real cada experto maneja su área de
+especialización, considerando tanto su conocimiento como
+sus acciones.
+
+Es la materialización operativa de RDD
+(:doc:`analisis-dominio` § 13.3) — RDD propone partir de
+responsabilidades; Information Expert dice **a quién
+asignárselas**.
+
+13.2 Dos tipos de responsabilidades
+-----------------------------------
+
+**Responsabilidad de conocer** (*knowing*) — todo lo
+relacionado con la información que el objeto maneja:
+
+- Datos privados encapsulados (atributos, propiedades).
+- Información sobre objetos relacionados (referencias).
+- Capacidad de obtener o calcular información derivada.
+
+**Responsabilidad de hacer** (*doing*) — todas las
+acciones que el objeto puede realizar:
+
+- Acciones por sí mismo (cálculos internos, creación
+  de instancias).
+- Iniciar acciones en otros objetos.
+- Controlar y coordinar actividades entre múltiples
+  objetos.
+
+Ambas categorías se materializan a través de **métodos**.
+Importante: una **responsabilidad no es equivalente a un
+método** — es un concepto más amplio que puede requerir
+uno o varios métodos para implementarse.
+
+13.3 Granularidad de responsabilidades
+--------------------------------------
+
+La granularidad varía mucho:
+
+- **Compleja**: acceso a bases de datos relacionales →
+  decenas de clases y cientos de métodos en un
+  subsistema coherente.
+- **Simple**: "crear una venta" → uno o pocos métodos
+  en una sola clase.
+
+Aplicar el patrón es preguntarse, para cada
+responsabilidad: *¿qué clase tiene los datos para
+cumplirla?*
+
+13.4 Aplicación a IACT
+----------------------
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Responsabilidad
+   - Información requerida
+   - Experto en la información
+ * - Calcular tasa de abandono (BR_016)
+   - Llamadas del periodo, criterio de abandono.
+   - ``Reporte`` (con acceso a ``BDAnalytics``).
+ * - Verificar permiso de un usuario
+   - Catálogo de funciones, asignaciones,
+     reglas SoD.
+   - ``perm_app.SecRules``.
+ * - Validar que un export no excede 6 meses
+     (CNST_031)
+   - Rango solicitado, fecha actual.
+   - ``ConfiguracionExport`` (no la vista, no el
+     facade).
+ * - Decidir si una alerta puede cerrarse
+   - Estado actual, historial de
+     reconocimiento.
+   - ``Alerta`` con su State (ver § 10).
+ * - Registrar evento de auditoría
+   - Datos del evento, usuario, contexto
+     temporal.
+   - ``aud_app`` exclusivamente (CNST_025
+     immutable).
+ * - Invalidar sesión por inactividad
+   - Última actividad, política de timeout.
+   - ``Sesion``.
+
+Antipatrón frecuente en IACT: las **vistas Django**
+asumen responsabilidades que pertenecen a las entidades
+(calculan, deciden, validan) en lugar de delegar a la
+clase experta. Resultado: lógica dispersa, dificultad
+para auditar, violación de Demeter
+(ver § 11 de :doc:`orientacion-objetos`).
+
+13.5 Cuándo el experto está distribuido
+---------------------------------------
+
+A veces ningún objeto único tiene **toda** la información
+necesaria. En IACT esto aparece típicamente en
+operaciones cross-app: por ejemplo, "decidir si un
+supervisor puede exportar un reporte de un segmento" toca
+``perm_app`` (permiso), ``rpt_app`` (reporte y filtros),
+``aud_app`` (registro previo). En esos casos:
+
+1. **Coordinar** desde un facade
+   (ver § 6 de este documento).
+2. Cada experto cumple **su parte** —
+   ``perm_app.verificar()`` no calcula métricas;
+   ``rpt_app.generar()`` no audita; etc.
+3. El facade **no agrega lógica de dominio** — solo
+   orquesta llamadas a los expertos.
+
+Esta disciplina alinea Information Expert con la
+**Ley de Demeter** (ver § 11 de
+:doc:`orientacion-objetos`) y con los contratos de
+:doc:`diagramas-componentes`.
+
+13.6 Beneficios
+---------------
+
+- **Alta cohesión** — cada clase agrupa responsabilidades
+  íntimamente relacionadas con su información.
+- **Bajo acoplamiento** — los demás objetos no necesitan
+  conocer estructura interna; piden al experto.
+- **Mantenibilidad** — cambios en cómo se calcula una
+  métrica solo tocan al experto, no a sus consumidores.
+- **Escalabilidad** — modificar una responsabilidad
+  específica no afecta el sistema completo.
+- **Encapsulación efectiva** — los datos siguen al
+  comportamiento que los necesita.
+
+13.7 Relación con otros principios
+----------------------------------
+
+- **RDD** (:doc:`analisis-dominio` § 13.3) — IE es la
+  regla operativa para asignar las responsabilidades que
+  RDD identifica.
+- **Demeter** (§ 11 de :doc:`orientacion-objetos`) — IE
+  evita la pregunta encadenada
+  (``a.b.c.do_x()``) porque cada nodo del camino sería
+  el experto natural de su parte.
+- **GoF Strategy / Facade** (este documento) — Strategy
+  asigna a un experto específico el algoritmo (formato
+  de export); Facade orquesta varios expertos sin
+  apropiarse de su lógica.
+
+----
+
 Trazabilidad
 ============
 
