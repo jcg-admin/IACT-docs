@@ -38,6 +38,89 @@ Análisis de dominio aplicado al ecosistema IACT (PlantUML)
 
 ----
 
+Concepto: análisis del dominio
+==============================
+
+El **análisis del dominio** es el enfoque que se centra en
+comprender un área de negocio a través de las personas que
+trabajan directamente en ella, identificando los elementos
+clave desde su perspectiva práctica y experiencia real. Su
+valor no está en la sofisticación técnica sino en
+**capturar la realidad operativa** antes de modelarla.
+
+El experto del dominio
+----------------------
+
+Es la figura central del proceso. Una persona con
+conocimiento profundo del área de negocio que **no
+necesariamente tiene formación en desarrollo de software**.
+Su valor radica en la experiencia directa y cotidiana con
+los procesos, reglas y necesidades del dominio.
+
+En IACT los expertos del dominio típicos son: supervisores
+del centro de contacto, responsables de calidad, operadores
+ETL, administradores RBAC y auditores. Ellos manejan
+naturalmente el vocabulario que aparece en este documento
+(segmento, ventana ETL, alerta, SoD, throttling), aunque
+no lo conozcan en términos UML.
+
+Tres elementos fundamentales
+----------------------------
+
+Los expertos ayudan a identificar:
+
+1. **Objetos relevantes del dominio** — entidades sobre las
+   que se trabaja: ``Llamada``, ``Reporte``, ``Alerta``,
+   ``Sesion``, ``Usuario``, ``Permiso``,
+   ``EjecucionETL``.
+2. **Operaciones cotidianas** — acciones y procesos que
+   transforman o interactúan con esos objetos: generar un
+   reporte, reconocer una alerta crítica, ejecutar la
+   ventana ETL, verificar un permiso.
+3. **Relaciones entre elementos** — cómo los componentes
+   del sistema se conectan y dependen entre sí, formando
+   la red de interacciones que refleja la realidad del
+   negocio (un ``Reporte`` consume datos de
+   ``EjecucionETL``; un ``Permiso`` controla qué
+   ``Funcion`` puede invocar un ``Usuario``).
+
+Características clave del enfoque
+---------------------------------
+
+- **Conocimiento tácito**: además del explícito en
+  manuales, captura el que solo se adquiere con la
+  experiencia (qué pasa cuando la ventana ETL no cierra,
+  cuándo un supervisor sabe que una alerta es falsa, qué
+  excepciones aplica el área de calidad).
+- **Vocabulario natural**: usar los términos del dominio
+  evita malentendidos por traducción prematura a términos
+  técnicos. En IACT esto significa que ``Alerta``,
+  ``Segmento`` o ``Throttling`` aparecen con su semántica
+  operativa, no como abstracciones genéricas.
+- **Necesidades reales**: el sistema se diseña para
+  resolver problemas concretos del centro de contacto, no
+  problemas teóricos.
+
+Importancia para IACT
+---------------------
+
+- Los sistemas que reflejan fielmente el dominio son
+  inherentemente más útiles y usables.
+- La participación temprana de los expertos del dominio
+  conduce a mayor aceptación una vez implementado.
+- Los modelos generados sirven como base para
+  mantenimiento y evolución futura.
+- Reduce el riesgo de desarrollar funcionalidades
+  técnicamente correctas pero sin valor para el negocio
+  (un riesgo recurrente cuando los UCs se escriben sin
+  contraste con un experto operativo).
+
+Las secciones siguientes aplican este enfoque al ecosistema
+IACT: traducen el lenguaje natural del experto a un modelo
+UML manejable.
+
+----
+
 1. Del lenguaje natural al modelo UML
 =====================================
 
@@ -517,7 +600,193 @@ Para cada UC, ejecutar la metodología:
 
 ----
 
-12. Trazabilidad
+12. Tres escuelas para identificar clases
+=========================================
+
+Las secciones 1-11 aplican una técnica concreta
+(sustantivos→clases / verbos→operaciones) para extraer un
+modelo del lenguaje natural. Esa técnica es solo **una** de
+las escuelas reconocidas de análisis OOP. A continuación se
+contrastan las tres escuelas más relevantes y cómo se
+combinan en IACT.
+
+12.1 Análisis clásico — categorías de fuentes
+---------------------------------------------
+
+El análisis clásico es una estrategia más estructurada y
+formal que la descripción informal. Categoriza
+sistemáticamente los conceptos del dominio según su
+naturaleza. Su valor en IACT:
+
+- Proporciona una **base sistemática** para identificar
+  clases que sustantivos→clases puede pasar por alto.
+- Ayuda a garantizar la **completitud** del modelo.
+- Facilita la identificación de **relaciones** entre
+  elementos.
+- Permite definir **interfaces** apropiadas y **límites**
+  del sistema.
+
+Categorías clásicas y su lectura en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 25 35 40
+ :header-rows: 1
+
+ * - Categoría
+   - Definición
+   - Ejemplo IACT
+ * - Cosas tangibles
+   - Objetos físicos concretos o grupos de ellos.
+   - Equipo del supervisor, servidor ``vm-iact``,
+     teléfono físico del agente.
+ * - Conceptos abstractos
+   - Ideas no tangibles que organizan o rastrean
+     actividades; principios o reglas.
+   - ``Permiso``, ``Sesion``, ``EventoAuditoria``,
+     ``RegistroExportacion``.
+ * - Personas y roles
+   - Seres humanos con responsabilidades y permisos
+     definidos.
+   - ``Supervisor``, ``Auditor``, ``OperadorETL``,
+     ``AdministradorRBAC``.
+ * - Organizaciones
+   - Agrupaciones formales con misión y estructura.
+   - Centro de contacto, área de calidad, comité SoD.
+ * - Lugares
+   - Ubicaciones físicas relevantes con propósitos
+     específicos.
+   - Sala de operaciones, segmento atendido (BR_012).
+ * - Dispositivos
+   - Hardware con capacidades, protocolos y
+     restricciones.
+   - IVR (read-only, CNST_006), terminal del agente.
+ * - Sistemas externos
+   - Otros sistemas con contratos e interfaces propios.
+   - LDAP corporativo, BD operativa, IVR-host.
+ * - Eventos
+   - Sucesos en momentos específicos que provocan
+     cambios de estado.
+   - ``LlamadaEntrante``, ``UmbralExcedido``,
+     ``VentanaETLCerrada``, ``ReconocerAlerta``.
+
+Uso recomendado
+~~~~~~~~~~~~~~~
+
+Pasar el dominio IACT por **cada** categoría como checklist
+después del análisis sustantivos→clases. Una clase nueva
+identificada por la categoría "Eventos" típicamente queda
+fuera si solo se mira el lenguaje narrativo del UC.
+
+12.2 Análisis de casos de uso — diseño basado en escenarios
+-----------------------------------------------------------
+
+El análisis de casos de uso (*scenario-based design*)
+identifica clases a partir de **escenarios concretos**, no
+del lenguaje narrativo del dominio. La analogía con la
+producción cinematográfica: cada escenario es un
+*storyboard* — secuencia de eventos que el equipo recorre
+para identificar:
+
+1. **Objetos participantes** — actores, entidades del
+   sistema, interfaces, controladores.
+2. **Responsabilidades específicas** — qué hace y qué
+   información mantiene cada objeto.
+3. **Patrones de colaboración** — cómo interactúan los
+   objetos para cumplir el objetivo del escenario.
+
+Naturaleza iterativa
+~~~~~~~~~~~~~~~~~~~~
+
+El proceso comienza con escenarios básicos (flujo nominal)
+y se expande gradualmente para incluir:
+
+- Condiciones excepcionales (errores, situaciones
+  inesperadas).
+- Comportamientos secundarios.
+- Nuevas abstracciones que **emergen** del análisis.
+- Modificaciones a responsabilidades existentes.
+- Reasignación de responsabilidades entre objetos.
+
+En IACT esto se materializa en los UCs con flujo nominal +
+flujos alternativos + flujos de excepción
+(ver :doc:`casos-uso-especificacion`).
+
+Escenarios como base de pruebas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cada escenario documentado se convierte en **caso de prueba
+potencial**. Esto alinea naturalmente análisis y
+verificación: un escenario sin caso de prueba asociado es
+una señal de que el análisis está incompleto. En IACT los
+escenarios alimentan tanto los diagramas de secuencia
+(:doc:`diagramas-secuencias`) como las pruebas de
+aceptación derivadas en ``rm-validation``.
+
+12.3 Análisis del comportamiento — RDD
+--------------------------------------
+
+Mientras las dos escuelas anteriores se centran en cosas
+tangibles y escenarios, una tercera —
+*Responsibility-Driven Design (RDD)* de Wirfs-Brock,
+Wilkerson y Wiener — pone el foco en el **comportamiento
+dinámico** como fuente primaria de clases y objetos.
+
+   *El conocimiento que un objeto mantiene y las acciones
+   que un objeto puede realizar. Las responsabilidades
+   tienen el propósito de transmitir un sentido de la
+   finalidad de un objeto y su lugar en el sistema. Las
+   responsabilidades de un objeto son todos los servicios
+   que presta a todos los contratos que apoya.*
+   — Rebecca Wirfs-Brock
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+RDD es la base de la sección 8 (responsabilidades canónicas)
+y de las interfaces declaradas en
+:doc:`diagramas-componentes` (``ISecurity``, ``IAuditLog``,
+``IReporte``, ``IAlerta``, ``INotificacion``,
+``IDatosOperativos``, ``IDatosAnalytics``, ``IETL``).
+
+Cada interfaz IACT es un **contrato** en sentido RDD: define
+los servicios que el componente promete prestar. La
+disciplina del proyecto exige que toda comunicación entre
+apps Django pase por su contrato declarado, nunca por
+acceso directo a modelos ajenos
+(ver § 11 de :doc:`orientacion-objetos`).
+
+12.4 Combinación de las tres escuelas en IACT
+---------------------------------------------
+
+Las tres escuelas no son alternativas excluyentes; son
+**lentes complementarios**:
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Lente
+   - Aporta
+   - Riesgo si se usa sola
+ * - Sustantivos→clases (clásico)
+   - Cobertura del lenguaje del dominio.
+   - Pierde clases que no aparecen en la narrativa.
+ * - Casos de uso (escenarios)
+   - Responsabilidades dinámicas, casos límite.
+   - Sesgo hacia el flujo nominal del momento.
+ * - RDD (comportamiento)
+   - Contratos limpios entre componentes.
+   - Modela en abstracto sin anclar al dominio real.
+
+Recomendación: aplicar las tres en cada UC IACT —
+sustantivos→clases primero, escenarios para validar y
+descubrir clases emergentes, RDD para depurar contratos
+antes de fijar las interfaces.
+
+----
+
+13. Trazabilidad
 ================
 
 .. list-table::

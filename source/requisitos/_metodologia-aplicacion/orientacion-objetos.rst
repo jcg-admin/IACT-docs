@@ -724,7 +724,292 @@ preguntarse:
 
 ----
 
-11. Trazabilidad
+11. Acoplamiento — interdependencia entre clases
+================================================
+
+El **acoplamiento** mide el grado de interdependencia entre
+objetos y clases. Es el complemento de la cohesión: una OOP
+sana en IACT busca **alta cohesión dentro** de cada clase
+y **bajo acoplamiento entre** clases.
+
+Criterios canónicos
+-------------------
+
+1. **Mínimo acoplamiento posible por interacción**
+   (uso o paso de mensajes). Si una clase está conectada con
+   muchas otras, aunque internamente esté bien aislada, se
+   produce el efecto *rippling*: una modificación en esa
+   clase resuena en todo el sistema. En IACT esto aparece
+   típicamente cuando ``rpt_app`` consume directamente
+   modelos internos de ``perm_app`` o ``aud_app`` saltándose
+   ``services.py``; lo correcto es comunicarse vía las
+   interfaces ``ISecurity`` y ``IAuditLog``
+   (ver :doc:`diagramas-componentes`).
+
+2. **Máximo acoplamiento por herencia**. Cuando una clase
+   hereda, debe aprovechar **todo** lo del padre y extenderlo
+   tanto como sea necesario. Una herencia que solo reutiliza
+   una porción mínima del padre es señal de que la jerarquía
+   está mal modelada — frecuentemente conviene reemplazarla
+   por composición. En IACT: ``ReporteVolumen`` y
+   ``ReporteAbandono`` heredan de ``Reporte`` y reutilizan
+   ``generar()``, ``exportar()``, ``aplicar_filtros_segmento()``
+   (BR_012) — no solo uno de ellos.
+
+3. **Evitar el acoplamiento *pass-through***. Si un objeto
+   intermediario solo reenvía mensajes sin agregar lógica,
+   un cambio de firma obliga a modificar **tres** clases
+   (origen, intermediario y destino). La regla: pedir
+   directamente al objeto que tiene la información.
+
+   En IACT este antipatrón aparece cuando una vista llama a
+   ``rpt_app`` que llama a ``aud_app`` solo para obtener un
+   evento previamente registrado. Lo correcto: la vista
+   consulta ``aud_app`` directamente cuando el dato es de
+   auditoría — sin intermediario.
+
+Contraste *pass-through* vs acceso directo
+-------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Antipatron pass-through (evitar)
+   class Vista
+   class RptApp {
+     + ultimo_evento_aud(user)
+   }
+   class AudApp {
+     + ultimo_evento(user)
+   }
+   Vista --> RptApp : ultimo_evento_aud(user)
+   RptApp --> AudApp : ultimo_evento(user)
+   note right of RptApp
+     RptApp no agrega logica:
+     solo reenvia. Cambio de
+     firma obliga a tocar
+     Vista, RptApp y AudApp.
+   end note
+   @enduml
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Acceso directo (correcto)
+   class Vista
+   class AudApp {
+     + ultimo_evento(user)
+   }
+   Vista --> AudApp : ultimo_evento(user)
+   note right of Vista
+     Cambio de firma solo
+     obliga a tocar Vista y
+     AudApp. RptApp queda
+     fuera del cambio.
+   end note
+   @enduml
+
+Reglas IACT derivadas
+---------------------
+
+- Cada app Django expone su contrato vía ``services.py``;
+  el resto del sistema **no consume modelos cruzados** de
+  otra app directamente.
+- Cualquier intermediario que solo redirija debe ser
+  refactorizado o justificarse en un ADR.
+- Las herencias de ``Reporte`` / ``Alerta`` / ``EventoAud``
+  deben reutilizar la mayor parte del padre. Si no lo
+  hacen, romper la jerarquía y modelar con composición.
+
+----
+
+12. Antipatrón: Descomposición funcional
+========================================
+
+William Brown, en *AntiPatterns*, describe la
+**descomposición funcional** como el antipatrón en el que
+el desarrollador estructura un sistema OOP como si fuera un
+programa procedural tradicional, ignorando los beneficios y
+principios fundamentales de la orientación a objetos.
+
+Síntomas
+--------
+
+- **Nombres de clase que reflejan funciones, no entidades**.
+  En IACT este síntoma aparece cuando, en lugar de
+  ``Reporte`` y ``Permiso`` (entidades del dominio), se
+  proponen clases como ``CalcularReporte``,
+  ``ProcesarExportacion``, ``ValidarPermiso``.
+- **Clases con un único método**, generalmente llamado
+  ``ejecutar``, ``procesar`` o ``correr``. Indica que la
+  clase es realmente una función disfrazada.
+- **Uso excesivo de miembros estáticos** — la clase se
+  convierte en un namespace de funciones en lugar de una
+  plantilla para crear objetos. En Django esto aparece
+  cuando ``services.py`` solo expone ``staticmethod`` sin
+  estado, mientras la lógica del dominio (estados,
+  invariantes, contratos) queda fuera del modelo.
+- **Ausencia de principios OOP**: sin herencia para
+  jerarquías "es-un", sin polimorfismo para variantes de
+  comportamiento, sin encapsulamiento para proteger
+  invariantes.
+
+Consecuencias
+-------------
+
+Brown señala que el código en este antipatrón se vuelve:
+
+- **Imposible de comprender** — la lógica está dispersa y
+  no refleja el modelo del dominio. En IACT esto rompe la
+  trazabilidad UC ↔ código.
+- **Difícil de reutilizar** — funcionalidades fuertemente
+  acopladas que no encajan en otra app Django sin
+  reescritura.
+- **Complicado de probar** — sin encapsulamiento y con
+  alta dependencia entre componentes, los tests requieren
+  fixtures gigantes para cada caso.
+
+En IACT, además, el antipatrón **rompe el contrato del
+audit**: si la lógica de negocio vive en funciones sueltas
+sin estado, los eventos auditables (CNST_025) se registran
+desde múltiples puntos no canónicos y se vuelven
+incompletos.
+
+Solución — Modelo del dominio orientado a objetos
+-------------------------------------------------
+
+1. Identificar las **entidades reales** del dominio del
+   problema (sustantivos del experto del dominio — ver
+   :doc:`analisis-dominio`).
+2. Modelar esas entidades como clases con
+   **responsabilidades bien definidas** (RDD,
+   :doc:`analisis-dominio` § 12.3).
+3. Establecer **relaciones naturales** entre las clases
+   reflejando las relaciones del mundo real
+   (asociaciones, agregación, composición — ver
+   :doc:`relaciones-uml`,
+   :doc:`agregacion-interfaces`).
+4. Aplicar **patrones de diseño** apropiados para
+   resolver problemas comunes — ver
+   :doc:`patrones-diseno`.
+
+Cuándo aparece típicamente en IACT
+-----------------------------------
+
+- Migraciones de scripts ETL legados a ``pip_app`` —
+  tendencia a copiar el flujo procedural sin modelar
+  ``EjecucionETL`` y ``VentanaETL`` como entidades.
+- Vistas Django con lógica de negocio inline en lugar
+  de delegar al modelo o a ``services.py``.
+- Cálculo de métricas BR_016/017/018 implementado como
+  funciones sueltas en lugar de en ``Reporte`` y sus
+  subclases polimórficas.
+
+Heurística rápida para detectarlo
+---------------------------------
+
+Si una clase IACT no tiene atributos de estado y solo
+expone un método ``run``/``ejecutar``/``procesar``, casi
+seguro es una función disfrazada. Refactorizar a entidad
+del dominio o a función pura — pero no dejarla como clase
+fingida.
+
+----
+
+13. Ciclo de vida basado en prototipos
+======================================
+
+El enfoque sustantivos→clases del documento
+:doc:`analisis-dominio` se complementa naturalmente con un
+**ciclo de vida basado en prototipos**: construir desde el
+inicio un prototipo que se enriquece progresivamente por
+herencia y especialización, en vez de redactar
+especificaciones extensas antes de cualquier ejecución.
+
+Por qué tiene sentido en IACT
+-----------------------------
+
+La especificación textual pura, aplicada por sí sola,
+plantea dos problemas:
+
+1. **Es poco precisa**. Dos personas pueden entender un
+   concepto aparentemente claro de manera diferente. En
+   IACT, "tasa de abandono" puede interpretarse como
+   abandono **antes** de cola, **dentro** de cola, o por
+   timeout sistémico — la diferencia se vuelve evidente
+   solo cuando alguien la implementa.
+2. **Los objetivos no son siempre claros**. IACT no es un
+   sistema que mecaniza tareas manuales por primera vez;
+   es una segunda generación que pretende **mejorar** un
+   proceso ya existente. Cuando un stakeholder pide
+   "mejor visibilidad de los segmentos" o "alertas más
+   accionables", traducir esas peticiones a
+   funcionalidades concretas es difícil, y el mejor
+   enfoque suele ser la **experimentación**.
+
+Por qué OOP hace viable el prototipado
+--------------------------------------
+
+Históricamente, los prototipos se construían en lenguajes
+de muy alto nivel y, una vez validados, debían
+**desecharse** para reescribir la aplicación en un lenguaje
+de producción — un coste que solo se asumía en proyectos
+excepcionales.
+
+OOP cambia el balance: con **herencia**, **librerías de
+clases** y **refinamiento por especialización**, un
+prototipo válido **no tiene que tirarse**. Lo que se valida
+en el prototipo se conserva como base; las clases se
+extienden o sustituyen sin reescribir el sistema entero.
+
+Aplicación en IACT
+------------------
+
+- En cada UC nuevo, antes de invertir en una
+  especificación de 13 secciones (ver
+  :doc:`casos-uso-especificacion`), conviene un prototipo
+  ejecutable mínimo del flujo nominal — incluso si solo
+  cubre el escenario feliz.
+- El prototipo se construye sobre las clases del dominio
+  IACT (``Reporte``, ``Alerta``, ``Sesion``, etc.) y se
+  refina por herencia (``ReporteVolumen`` ←
+  ``Reporte``).
+- Los aprendizajes del prototipo se incorporan a la
+  especificación; la especificación deja de ser un acto
+  de fe y pasa a documentar comportamiento ya observado.
+- El prototipo **no es desechable**: las clases probadas
+  pasan a producción tras revisión y ajuste, no tras
+  reescritura.
+
+Restricciones
+-------------
+
+El prototipado no exime al equipo de:
+
+- Validar contra restricciones del proyecto (CNST_*) y
+  reglas de negocio (BR_*).
+- Cumplir el stack canónico ADR_DEVOPS_001 — un prototipo
+  que solo funciona en Docker o con Nginx no es un
+  prototipo válido para IACT.
+- Auditar cada iteración (CNST_025) cuando el prototipo
+  toca datos reales o réplicas operativas.
+
+Relación con las escuelas de análisis
+-------------------------------------
+
+Prototipado y análisis no compiten: el análisis
+sustantivos→clases / RDD identifica las entidades y
+contratos que el prototipo materializa. El prototipo, a su
+vez, **revela clases emergentes** que el análisis no había
+previsto — alimentando la siguiente iteración del modelo
+(ver :doc:`analisis-dominio` § 12.2 sobre la naturaleza
+iterativa del análisis basado en escenarios).
+
+----
+
+14. Trazabilidad
 ================
 
 .. list-table::
