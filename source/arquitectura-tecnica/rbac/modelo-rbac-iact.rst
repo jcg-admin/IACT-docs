@@ -4,9 +4,9 @@
  :dominio: arquitectura_tecnica
  :subdominio: rbac
  :estado: Vigente
- :version: 5.2.1
+ :version: 5.3.0
  :fecha_creacion: 2026-01-13
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Critico
 
@@ -74,15 +74,93 @@ CONTROL DE CAMBIOS
    - 13 Ene 2026
    - Clean Code + 42 funciones + Sin segmentos
    - Equipo
- * - **5.2.1**
-   - **13 Ene 2026**
-   - **Corrección: nombres funciones/grupos en INGLÉS**
-   - **Equipo**
+ * - 5.2.1
+   - 13 Ene 2026
+   - Corrección: nombres funciones/grupos en INGLÉS
+   - Equipo
+ * - **5.3.0**
+   - **30 Abr 2026**
+   - **Corrección error v5.1.1 + funciones nuevas (42 → 51 funciones)**
+   - **NestorMonroy**
 
 
 
-Cambios v5.2.0 → v5.2.1
+Cambios v5.2.1 → v5.3.0
 -----------------------
+
+Bump MAJOR motivado por dos hallazgos del programa
+``modelo-rbac-improvement`` (Z.2.A deep review):
+
+1. **Corrección de error heredado de v5.1.1:** la consolidación
+   v5.1 → v5.1.1 eliminó funciones legítimas (``programa_reportes``,
+   ``comparte_reportes``) sin actualizar UCs. Drift de 4 meses.
+2. **Funciones nuevas** requeridas para sustentar UCs vivos del
+   corpus (UC_PERM admin + features Reports/Logs).
+
+.. list-table::
+ :widths: 30 18 18 34
+ :header-rows: 1
+
+ * - Función
+   - ID
+   - Tipo
+   - Origen
+ * - ``schedule_report``
+   - RPT-009
+   - **RESTAURACIÓN**
+   - era ``programa_reportes`` v5.0_1/v5.1
+ * - ``save_view``
+   - RPT-010
+   - NUEVA
+   - feature UI/UX (uc-rpt-10)
+ * - ``share_report``
+   - RPT-011
+   - **RESTAURACIÓN**
+   - era ``comparte_reportes`` v5.0_1/v5.1
+ * - ``search_logs``
+   - LOG-003
+   - NUEVA
+   - análogo a ``search_users`` (uc-log-03)
+ * - ``create_function_group``
+   - ACC-006
+   - NUEVA
+   - admin UC_PERM-05 (slot libre post-Z.1.C)
+ * - ``assign_functions_to_group``
+   - ACC-007
+   - NUEVA
+   - admin UC_PERM-06
+ * - ``grant_exceptional_permission``
+   - ACC-008
+   - NUEVA
+   - admin UC_PERM-03 (CNST-031)
+ * - ``revoke_exceptional_permission``
+   - ACC-009
+   - NUEVA
+   - admin UC_PERM-04
+ * - ``revoke_function_group``
+   - ACC-010
+   - NUEVA
+   - admin UC_PERM-02
+
+**Total catálogo v5.3.0:** 51 funciones (+9 vs v5.2.1).
+
+Distribución actualizada por módulo:
+
+::
+
+   MOD_Auth         4 funciones (sin cambio)
+   MOD_Users        9 funciones (sin cambio)
+   MOD_Access      10 funciones (5 + 5 admin nuevas)
+   MOD_Pipeline     4 funciones (sin cambio)
+   MOD_Reports     11 funciones (8 + 3 nuevas)
+   MOD_Alerts       6 funciones (sin cambio)
+   MOD_Audit        4 funciones (sin cambio)
+   MOD_Logs         3 funciones (2 + 1 nueva)
+   ────────────────────────────────────
+   TOTAL          51 funciones
+
+Cambios v5.2.0 → v5.2.1 (preservado por trazabilidad)
+-----------------------------------------------------
 
 
 
@@ -397,8 +475,8 @@ TABLA DE CONTENIDO
 
 ----
 
-3.3 MOD_Access (5 funciones)
-----------------------------
+3.3 MOD_Access (10 funciones)
+-----------------------------
 
 
 
@@ -436,6 +514,31 @@ TABLA DE CONTENIDO
    - access:sod
    - UC-043
    - Configura reglas SoD
+ * - ACC-006
+   - `create_function_group`
+   - access:create_group
+   - UC_PERM_05
+   - Crea grupo de funciones custom (admin tech) (NUEVA v5.3.0)
+ * - ACC-007
+   - `assign_functions_to_group`
+   - access:assign_to_group
+   - UC_PERM_06
+   - Asigna funciones a un grupo (custom o predefinido) (NUEVA v5.3.0)
+ * - ACC-008
+   - `grant_exceptional_permission`
+   - access:grant_exceptional
+   - UC_PERM_03
+   - Otorga permiso temporal excepcional con justificación (CNST-031) (NUEVA v5.3.0)
+ * - ACC-009
+   - `revoke_exceptional_permission`
+   - access:revoke_exceptional
+   - UC_PERM_04
+   - Revoca permiso excepcional antes del vencimiento (NUEVA v5.3.0)
+ * - ACC-010
+   - `revoke_function_group`
+   - access:revoke_group
+   - UC_PERM_02
+   - Revoca grupo asignado a usuario (NUEVA v5.3.0)
 
 
 **CAMBIO v5.2.1:**
@@ -503,7 +606,7 @@ TABLA DE CONTENIDO
 
 ------------------------------------------
 
-3.5 MOD_Reports (8 funciones) CORE NEGOCIO
+3.5 MOD_Reports (11 funciones) CORE NEGOCIO
 ------------------------------------------
 
 
@@ -557,7 +660,29 @@ TABLA DE CONTENIDO
    - reports:charts
    - UC-027, UC-028, UC-029
    - Ve gráficos predefinidos
+ * - RPT-009
+   - `schedule_report`
+   - reports:schedule
+   - UC_RPT_07
+   - Programa generación automática de reportes (NUEVA v5.3.0 — restaura ``programa_reportes`` v5.0_1/v5.1)
+ * - RPT-010
+   - `save_view`
+   - reports:save_view
+   - UC_RPT_10
+   - Persiste configuración de filtros como vista personalizada (NUEVA v5.3.0)
+ * - RPT-011
+   - `share_report`
+   - reports:share
+   - UC_RPT_11
+   - Comparte reporte con otros usuarios via URL/buzón interno (NUEVA v5.3.0 — restaura ``comparte_reportes`` v5.0_1/v5.1)
 
+
+**CAMBIO v5.3.0:**
+- Agregadas 3 funciones nuevas (RPT-009..011): ``schedule_report``,
+  ``save_view``, ``share_report``.
+- ``schedule_report`` y ``share_report`` son **restauraciones** del
+  catálogo v5.0_1/v5.1 (eliminadas erróneamente en v5.1.1).
+- ``save_view`` es feature nueva (no existía en versiones previas).
 
 **CAMBIO v5.2.1:**
 - ``view_charts`` (NO "ve_graficos", "charts" es estándar para gráficos de datos)
@@ -701,7 +826,7 @@ TABLA DE CONTENIDO
 
 ----
 
-3.8 MOD_Logs (2 funciones)
+3.8 MOD_Logs (3 funciones)
 --------------------------
 
 
@@ -718,14 +843,23 @@ TABLA DE CONTENIDO
  * - LOG-001
    - `view_technical_logs`
    - logs:view
-   - UC-070, UC-071
-   - Ve logs técnicos del sistema
+   - UC_LOG_01, UC_LOG_02
+   - Ve logs técnicos del sistema (incluye logs ETL filtrados)
  * - LOG-002
    - `export_logs`
    - logs:export
-   - UC-072
-   - Exporta logs técnicos
+   - UC_LOG_04
+   - Exporta logs técnicos a CSV/JSON
+ * - LOG-003
+   - `search_logs`
+   - logs:search
+   - UC_LOG_03
+   - Busca logs por criterios (timestamp, severity, source) (NUEVA v5.3.0)
 
+
+**CAMBIO v5.3.0:**
+- Agregada ``search_logs`` (LOG-003) para sustentar UC_LOG_03 que
+  citaba función inexistente.
 
 **CAMBIO v5.2.1:**
 - ``view_technical_logs`` (NO "ve_logs_tecnicos")

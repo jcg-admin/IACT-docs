@@ -30,7 +30,7 @@ UC_RPT_13: Ver Reporte Colas
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-013: ve_colas
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=colas)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -310,7 +310,7 @@ Usuario accede a reporte de colas.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-013: ve_colas
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=colas)
 
 14. Historial de Cambios
 ------------------------

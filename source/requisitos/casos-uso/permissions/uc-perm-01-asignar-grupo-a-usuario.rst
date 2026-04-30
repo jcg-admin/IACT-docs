@@ -16,6 +16,8 @@
 UC_PERM_01: Asignar Grupo a Usuario
 ===================================
 
+**Funcion RBAC backing:** ACC-004 ``assign_function_groups``
+
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
  Este UC representa una vista del modelo RBAC. La

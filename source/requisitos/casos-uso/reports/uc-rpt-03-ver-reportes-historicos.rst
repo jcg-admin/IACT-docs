@@ -30,7 +30,7 @@ UC_RPT_03: Ver Reportes Historicos
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-003: ve_historicos
+   - RPT-003: ``filter_reports`` (instancia: aplicar filtro fecha=histórico)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -419,7 +419,7 @@ El usuario accede a reportes historicos desde el menu.
  * - **Actor Principal**
    - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**
-   - RPT-003: ve_historicos
+   - RPT-003: ``filter_reports`` (instancia: aplicar filtro fecha=histórico)
 
 14. Historial de Cambios
 ------------------------

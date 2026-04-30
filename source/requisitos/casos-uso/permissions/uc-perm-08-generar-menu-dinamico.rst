@@ -16,6 +16,8 @@
 UC_PERM_08: Generar Menu Dinamico
 =================================
 
+**Funcion RBAC backing:** CNST-032 — funcion SQL ``get_user_menu`` (NO funcion RBAC, es enforcement automatico)
+
 
 
 1. Resumen

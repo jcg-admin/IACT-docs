@@ -4,23 +4,23 @@
  :dominio: arquitectura-tecnica
  :subdominio: rbac
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Critico
 
 .. _raci-rbac-iact:
 
 ==============================================================
-Matriz RACI — RBAC IACT (42 Funciones x Stakeholders)
+Matriz RACI — RBAC IACT (51 Funciones x Stakeholders)
 ==============================================================
 
 .. note::
 
- Matriz RACI sobre el catalogo de **42 funciones** + **10 grupos
+ Matriz RACI sobre el catalogo de **51 funciones** + **10 grupos
  AGR-001..010** + **3 reglas SOD-001..003** del modelo RBAC IACT
- v5.2.1. Resuelve la nota in-text de ADR-BACK-004 legacy y
+ v5.3.0. Resuelve la nota in-text de ADR-BACK-004 legacy y
  cierra la deuda DEBT-RBAC-RACI sin diferir.
 
  Per :doc:`/normativa/gobernanza/adr-gob-009-rbac-modelo-conceptual`
@@ -245,8 +245,8 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - R
    - —
 
-3.3 MOD_Access (5 funciones — RBAC vista funcional)
----------------------------------------------------
+3.3 MOD_Access (10 funciones — RBAC vista funcional + admin)
+------------------------------------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -300,6 +300,46 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - A
    - C
    - I
+ * - ACC-006
+   - ``create_function_group`` (NUEVA v5.3.0)
+   - I
+   - R
+   - —
+   - A
+   - C
+   - I
+ * - ACC-007
+   - ``assign_functions_to_group`` (NUEVA v5.3.0)
+   - I
+   - R
+   - —
+   - A
+   - C
+   - I
+ * - ACC-008
+   - ``grant_exceptional_permission`` (NUEVA v5.3.0)
+   - C
+   - R
+   - —
+   - A
+   - C
+   - I
+ * - ACC-009
+   - ``revoke_exceptional_permission`` (NUEVA v5.3.0)
+   - C
+   - R
+   - —
+   - A
+   - C
+   - I
+ * - ACC-010
+   - ``revoke_function_group`` (NUEVA v5.3.0)
+   - R
+   - C
+   - —
+   - A
+   - I
+   - I
 
 3.4 MOD_Pipeline (4 funciones — supervision ETL)
 ------------------------------------------------
@@ -349,7 +389,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
    - —
 
-3.5 MOD_Reports (8 funciones — visualizacion y reportes)
+3.5 MOD_Reports (11 funciones — visualizacion y reportes)
 --------------------------------------------------------
 
 .. list-table::
@@ -424,6 +464,30 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - ``view_charts``
    - R
    - —
+   - R
+   - A
+   - I
+   - I
+ * - RPT-009
+   - ``schedule_report`` (NUEVA v5.3.0 — restaura ``programa_reportes`` v5.0_1/v5.1)
+   - R
+   - C
+   - —
+   - A
+   - I
+   - I
+ * - RPT-010
+   - ``save_view`` (NUEVA v5.3.0)
+   - R
+   - —
+   - R
+   - A
+   - I
+   - —
+ * - RPT-011
+   - ``share_report`` (NUEVA v5.3.0 — restaura ``comparte_reportes`` v5.0_1/v5.1)
+   - R
+   - C
    - R
    - A
    - I
@@ -541,7 +605,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - R
    - C
 
-3.8 MOD_Logs (2 funciones — bitacoras tecnicas)
+3.8 MOD_Logs (3 funciones — bitacoras tecnicas)
 -----------------------------------------------
 
 .. list-table::
@@ -572,6 +636,14 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - A
    - C
    - I
+ * - LOG-003
+   - ``search_logs`` (NUEVA v5.3.0)
+   - —
+   - R
+   - —
+   - A
+   - C
+   - —
 
 ----
 
@@ -816,7 +888,7 @@ aprobacion **AdmT** + **TLB** + auditoria.
 ===============
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` — modelo
-  conceptual v5.2.1 (catalogo de 42 funciones + 10 AGR + 3 SoD).
+  conceptual v5.3.0 (catalogo de 51 funciones + 10 AGR + 3 SoD).
 - :doc:`/normativa/gobernanza/adr-gob-009-rbac-modelo-conceptual` —
   ADR canonico que motivo la generacion de esta matriz (resuelve
   nota in-text de ADR-BACK-004 legacy).

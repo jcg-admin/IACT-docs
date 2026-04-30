@@ -16,6 +16,8 @@
 UC_PERM_02: Revocar Grupo a Usuario
 ===================================
 
+**Funcion RBAC backing:** ACC-010 ``revoke_function_group`` (NUEVA v5.3.0)
+
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
  Este UC representa una vista del modelo RBAC. La

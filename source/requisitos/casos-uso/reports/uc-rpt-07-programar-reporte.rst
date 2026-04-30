@@ -30,7 +30,7 @@ UC_RPT_07: Programar Reporte
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-007: programa_reportes
+   - RPT-009: ``schedule_report`` (RESTAURADA en modelo v5.3.0)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -353,7 +353,7 @@ El usuario accede a programacion de reportes.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-007: programa_reportes
+   - RPT-009: ``schedule_report`` (RESTAURADA en modelo v5.3.0)
 
 14. Historial de Cambios
 ------------------------

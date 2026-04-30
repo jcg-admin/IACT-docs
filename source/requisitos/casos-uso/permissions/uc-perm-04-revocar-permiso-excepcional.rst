@@ -16,6 +16,8 @@
 UC_PERM_04: Revocar Permiso Excepcional
 =======================================
 
+**Funcion RBAC backing:** ACC-009 ``revoke_exceptional_permission`` (NUEVA v5.3.0)
+
 
 
 1. Resumen

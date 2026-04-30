@@ -16,6 +16,8 @@
 UC_PERM_05: Crear Grupo de Permisos
 ===================================
 
+**Funcion RBAC backing:** ACC-006 ``create_function_group`` (NUEVA v5.3.0)
+
 
 
 1. Resumen

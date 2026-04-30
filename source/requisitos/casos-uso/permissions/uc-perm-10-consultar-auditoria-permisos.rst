@@ -16,6 +16,8 @@
 UC_PERM_10: Consultar Auditoria de Permisos
 ===========================================
 
+**Funcion RBAC backing:** AUD-002 ``search_audit_log``
+
 
 
 1. Resumen

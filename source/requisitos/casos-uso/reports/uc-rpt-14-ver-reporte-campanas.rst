@@ -30,7 +30,7 @@ UC_RPT_14: Ver Reporte Campanas
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-014: ve_campanas
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=campañas)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -310,7 +310,7 @@ Usuario accede a reporte de campanas.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-014: ve_campanas
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=campañas)
 
 14. Historial de Cambios
 ------------------------

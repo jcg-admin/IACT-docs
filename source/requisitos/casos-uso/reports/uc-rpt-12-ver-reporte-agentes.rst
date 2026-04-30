@@ -30,7 +30,7 @@ UC_RPT_12: Ver Reporte Agentes
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-012: ve_agentes
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=agentes)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -311,7 +311,7 @@ Usuario accede a reporte de agentes.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-012: ve_agentes
+   - RPT-001: ``view_reports`` (instancia: filtrar por scope=agentes)
 
 14. Historial de Cambios
 ------------------------

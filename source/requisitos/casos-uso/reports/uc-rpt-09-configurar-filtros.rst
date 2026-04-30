@@ -30,7 +30,7 @@ UC_RPT_09: Configurar Filtros
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-009: configura_filtros
+   - RPT-003: ``filter_reports`` (instancia: configurar filtros como preset reutilizable)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -322,7 +322,7 @@ Usuario accede a configuracion de filtros.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-009: configura_filtros
+   - RPT-003: ``filter_reports`` (instancia: configurar filtros como preset reutilizable)
 
 14. Historial de Cambios
 ------------------------

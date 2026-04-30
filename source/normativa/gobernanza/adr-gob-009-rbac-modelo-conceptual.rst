@@ -4,7 +4,7 @@
  :dominio: normativa
  :subdominio: gobernanza
  :estado: Aprobado
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
  :ultimo_cambio: 2026-04-29
  :autor: NestorMonroy
@@ -35,7 +35,7 @@ ADR-GOB-009: RBAC Modelo Conceptual (Supersede BACK-001/004)
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo v5.2.1)
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo v5.3.0)
 
 ----
 
@@ -50,8 +50,8 @@ jerarquicos) presentaban inconsistencias materiales con el corpus
 normativo vigente:
 
 - ``ADR-BACK-001`` cita "**19 funciones**" y "**130+
-  capacidades**" — cifras divergentes del modelo v5.2.1 vigente
-  (42 funciones + 10 grupos AGR-001..AGR-010).
+  capacidades**" — cifras divergentes del modelo vigente
+  (51 funciones v5.3.0 + 10 grupos AGR-001..AGR-010).
 - ``ADR-BACK-001/004`` usan vocabulario "**Capacidad**" que
   CNST-033 vigente PROHIBE explicitamente.
 - ``ADR-BACK-001 + ADR-BACK-004`` documentan **la misma
@@ -79,10 +79,11 @@ El modelo RBAC del proyecto IACT es:
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
-3. **Catalogo cerrado** — **42 funciones atomicas** distribuidas
-   en **8 modulos** funcionales (MOD_Auth, MOD_Users,
-   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
-   MOD_Audit, MOD_Logs).
+3. **Catalogo cerrado** — **51 funciones atomicas** (modelo v5.3.0)
+   distribuidas en **8 modulos** funcionales (MOD_Auth,
+   MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
+   MOD_Audit, MOD_Logs). Bump v5.2.1 → v5.3.0 (ver §6
+   Trazabilidad version del modelo).
 4. **10 grupos predefinidos** AGR-001..AGR-010 que agrupan
    funciones tipicas para perfiles operativos.
 5. **Custom groups** creables por administradores tecnicos
@@ -146,17 +147,25 @@ los adr-gob-* viven en gobernanza. Este ADR usa el modulo
 ``gob`` (gobernanza) en lugar de ``back`` para reflejar su
 naturaleza transversal.
 
-3.3 Por que cifras 42/10/3 (no 19/130+/0)
------------------------------------------
+3.3 Por que cifras 51/10/3 (no 19/130+/0 ni 42/10/3)
+----------------------------------------------------
 
-El modelo v5.2.1 (vigente, en
+El modelo v5.3.0 (vigente, en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`) declara:
 
-- **42 funciones** distribuidas en 8 modulos:
-  Auth=4, Users=9, Access=5, Pipeline=4, Reports=8, Alerts=6,
-  Audit=4, Logs=2.
+- **51 funciones** distribuidas en 8 modulos:
+  Auth=4, Users=9, Access=10, Pipeline=4, Reports=11, Alerts=6,
+  Audit=4, Logs=3.
 - **10 grupos** AGR-001..AGR-010.
 - **3 reglas SoD** SOD-001/002/003.
+
+Nota historica: el modelo v5.2.1 declaraba 42 funciones
+(Access=5, Reports=8, Logs=2). El bump v5.3.0 agrega +9
+funciones — 2 restauradas (``schedule_report``, ``share_report``,
+existentes en v5.0_1/v5.1 y eliminadas erroneamente en v5.1.1) y
+7 nuevas (``save_view``, ``search_logs``, ``create_function_group``,
+``assign_functions_to_group``, ``grant_exceptional_permission``,
+``revoke_exceptional_permission``, ``revoke_function_group``).
 
 Las cifras "19/130+" del legacy ADR-BACK-001 corresponden a un
 estado anterior de diseno (octubre-noviembre 2025) que evoluciono
@@ -221,7 +230,7 @@ La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 
 La matriz RACI:
 
-- Cubre las 42 funciones por modulo (MOD_Auth, MOD_Users,
+- Cubre las 51 funciones por modulo (MOD_Auth, MOD_Users,
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
 - Cubre los 10 grupos predefinidos AGR-001..AGR-010.
@@ -265,7 +274,7 @@ Documentos historicos del subsistema RBAC en
 7. Spec vigente y normativa relacionada
 =======================================
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.3.0).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.

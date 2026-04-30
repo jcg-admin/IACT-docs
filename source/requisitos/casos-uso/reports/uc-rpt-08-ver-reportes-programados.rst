@@ -30,7 +30,7 @@ UC_RPT_08: Ver Reportes Programados
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-008: ve_programados
+   - RPT-001: ``view_reports`` (instancia: filtrar por scheduled=true)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -298,7 +298,7 @@ Usuario accede a reportes programados.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-008: ve_programados
+   - RPT-001: ``view_reports`` (instancia: filtrar por scheduled=true)
 
 14. Historial de Cambios
 ------------------------

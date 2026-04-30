@@ -16,6 +16,8 @@
 UC_PERM_09: Auditar Acceso
 ==========================
 
+**Funcion RBAC backing:** AUD-001 ``view_audit_log``
+
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
  Este UC representa una vista del modelo RBAC. La

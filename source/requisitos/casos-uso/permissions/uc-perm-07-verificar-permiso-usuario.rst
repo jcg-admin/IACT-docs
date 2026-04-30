@@ -16,6 +16,8 @@
 UC_PERM_07: Verificar Permiso de Usuario
 ========================================
 
+**Funcion RBAC backing:** ACC-003 ``view_assignments``
+
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
  Este UC representa una vista del modelo RBAC. La

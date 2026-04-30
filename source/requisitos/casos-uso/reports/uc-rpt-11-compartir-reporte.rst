@@ -30,7 +30,7 @@ UC_RPT_11: Compartir Reporte
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-011: comparte_reportes
+   - RPT-011: ``share_report`` (RESTAURADA en modelo v5.3.0)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -296,7 +296,7 @@ Usuario hace clic en Compartir desde un reporte.
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-011: comparte_reportes
+   - RPT-011: ``share_report`` (RESTAURADA en modelo v5.3.0)
 
 14. Historial de Cambios
 ------------------------

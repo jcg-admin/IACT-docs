@@ -30,7 +30,7 @@ UC_RPT_10: Guardar Vista
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-010: guarda_vistas
+   - RPT-010: ``save_view`` (NUEVA en modelo v5.3.0)
  * - **Prioridad**
    - Baja
  * - **Complejidad**
@@ -305,7 +305,7 @@ Usuario hace clic en Guardar Vista.
  * - **Actor Principal**
    - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**
-   - RPT-010: guarda_vistas
+   - RPT-010: ``save_view`` (NUEVA en modelo v5.3.0)
 
 14. Historial de Cambios
 ------------------------

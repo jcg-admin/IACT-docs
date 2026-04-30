@@ -16,6 +16,8 @@
 UC_PERM_03: Conceder Permiso Excepcional
 ========================================
 
+**Funcion RBAC backing:** ACC-008 ``grant_exceptional_permission`` (NUEVA v5.3.0, CNST-031)
+
 .. note:: Vista alternativa (coexistencia ACC ↔ PERM)
 
  Este UC representa una vista del modelo RBAC. La

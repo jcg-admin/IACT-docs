@@ -30,7 +30,7 @@ UC_RPT_02: Ver Metricas Tiempo Real
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-002: ve_dashboard
+   - RPT-002: ``view_dashboard`` (instancia: dashboard configurado para métricas tiempo real)
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -436,7 +436,7 @@ El usuario accede a la vista de metricas en tiempo real.
  * - **Actor Principal**
    - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
-   - RPT-002: ve_dashboard
+   - RPT-002: ``view_dashboard`` (instancia: dashboard configurado para métricas tiempo real)
 
 14. Historial de Cambios
 ------------------------

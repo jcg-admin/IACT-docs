@@ -30,7 +30,7 @@ UC_LOG_04: Exportar Logs
  * - **Modulo**
    - MOD_Logs
  * - **Funcion RBAC**
-   - LOG-004: exporta_logs
+   - LOG-002: ``export_logs`` (mapping correcto post-v5.3.0)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -457,7 +457,7 @@ El operador hace clic en Exportar desde la vista de logs.
  * - **UC Relacionados**
    - UC_LOG_01, UC_LOG_03
  * - **Funcion RBAC**
-   - LOG-004: exporta_logs
+   - LOG-002: ``export_logs`` (mapping correcto post-v5.3.0)
 
 14. Historial de Cambios
 ------------------------

@@ -30,7 +30,7 @@ UC_LOG_03: Buscar Logs
  * - **Modulo**
    - MOD_Logs
  * - **Funcion RBAC**
-   - LOG-003: busca_logs
+   - LOG-003: ``search_logs`` (NUEVA en modelo v5.3.0)
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -416,7 +416,7 @@ El operador accede a la busqueda de logs.
  * - **UC Relacionados**
    - UC_LOG_01, UC_LOG_04
  * - **Funcion RBAC**
-   - LOG-003: busca_logs
+   - LOG-003: ``search_logs`` (NUEVA en modelo v5.3.0)
 
 14. Historial de Cambios
 ------------------------
