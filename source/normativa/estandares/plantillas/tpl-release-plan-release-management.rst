@@ -163,7 +163,7 @@ como ejemplo concreto aplicado a la feature Dark Mode.
 - Archivo: ``release-plan-{version-semver}.rst`` (kebab-lowercase
   per :doc:`/normativa/estandares/std-007-convencion-naming`).
 - Ubicación: artefacto vivo del proyecto, en branch correspondiente
-  o en `.thyrox/context/work/{wp}/`.
+  o en el WP de trabajo asociado.
 
 6. Trazabilidad
 ===============

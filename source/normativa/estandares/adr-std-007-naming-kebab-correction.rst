@@ -16,8 +16,8 @@ ADR STD-007: Naming Kebab Correction (corrige heterogeneidad)
 
 .. note::
 
- Migrado a source/ desde ADR histórico de
- ``.thyrox/context/decisions/``. Aplica skill ``cp-recommend``.
+ Migrado a source/ desde ADR histórico del WP origen.
+ Aplica skill ``cp-recommend``.
  **Corrige (parcialmente)** a
  :doc:`adr-std-007-naming-heterogeneity-accepted`.
 

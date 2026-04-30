@@ -179,8 +179,8 @@ Estado real de v1 (post-fix):
    cajón original — F-04 declarado en wp-state original)
 3. **etl-pipeline.rst** y **sistema-completo.rst** (vistas del
    sistema)
-4. **ANALISIS_PROFUNDO_RBAC_MODULOS_IACT.md** convertido a ``.rst``
-5. **ANALISIS_PROFUNDO_TAXONOMIAS_METAMODELOS_IACT.md** → migrar
+4. ``ANALISIS_PROFUNDO_RBAC_MODULOS_IACT.md`` convertido a ``.rst``
+5. ``ANALISIS_PROFUNDO_TAXONOMIAS_METAMODELOS_IACT.md`` → migrar
    a ``base-cognitiva`` (no a ``arquitectura-tecnica``)
 
 4.2 Media prioridad

@@ -16,9 +16,9 @@ ADR STD-007: Spec Gaps Fix (v2.0.2)
 
 .. note::
 
- Migrado a source/ desde ADR histórico de
- ``.thyrox/context/decisions/``. Aplica skill ``cp-recommend``.
- Origen del bump STD-007 v2.0.1 → v2.0.2.
+ Migrado a source/ desde ADR histórico del WP origen.
+ Aplica skill ``cp-recommend``. Origen del bump STD-007
+ v2.0.1 → v2.0.2.
 
 1. Contexto
 ===========
