@@ -790,6 +790,176 @@ Reglas IACT para mensajes asíncronos
 
 ----
 
+2.1.sexies Mostrar duración con activaciones
+--------------------------------------------
+
+Las **activaciones** son rectángulos angostos sobre la
+línea de vida que indican **desde cuándo** un
+participante está procesando un mensaje hasta **cuándo**
+devuelve la respuesta. No representan tiempo absoluto,
+pero comunican visualmente:
+
+- Dónde **empieza y termina** cada interacción.
+- Qué participante tiene la **complejidad mayor**
+  (activaciones más largas).
+- Cuándo un mensaje **anida** dentro de otro
+  (activaciones encajadas).
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML soporta dos formas, igual que Mermaid:
+
+**Forma explícita** — ``activate`` / ``deactivate``:
+
+.. code-block:: plantuml
+
+   Browser -> Auth : GET /login
+   activate Auth
+   Auth --> Browser : 200 OK
+   deactivate Auth
+
+**Forma inline** — sufijo ``++`` para activar y
+``--`` para desactivar:
+
+.. code-block:: plantuml
+
+   Browser -> Auth ++ : GET /login
+   Auth --> Browser -- : 200 OK
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 32 32 36
+ :header-rows: 1
+
+ * - Mermaid (libro)
+   - PlantUML (IACT)
+   - Significado
+ * - ``activate X`` / ``deactivate X``
+   - ``activate X`` / ``deactivate X``
+   - Forma explícita en líneas separadas.
+ * - ``->>+`` / ``-->>-``
+   - ``->>++`` / ``-->>--`` o
+     ``-> X ++`` / ``-->`` con ``--``
+   - Forma inline (sufijo en la flecha).
+
+PlantUML acepta ambas; el render genera rectángulos
+sobre la línea de vida del participante activo.
+
+Cuándo usar cada forma
+~~~~~~~~~~~~~~~~~~~~~~
+
+- **Explícita** (``activate``/``deactivate`` en líneas
+  propias): más legible cuando hay activaciones
+  encajadas o cuando el flujo es complejo. El
+  ``activate`` aparece como una línea distinta y es
+  más fácil de localizar al editar.
+- **Inline** (``++`` / ``--``): más conciso, mejor
+  para flujos simples o cuando se quiere reducir el
+  ruido del código fuente.
+
+Equivalente IACT del flujo del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro muestra activaciones encajadas en el flujo
+sign-up con tres niveles: ``Sign Up Service`` activo
+durante el POST, dentro del cual ``User Service`` se
+activa para el ``POST /users``. Aplicado a UC_AUTH_01
+con activaciones encajadas:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — activaciones encajadas
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+   database "ldap-corporativo" as LDAP
+   database "Redis" as Redis
+   database "audit_log" as Audit
+
+   Supervisor -> B : envia credenciales
+   B -> Auth ++ : POST /login
+
+   Auth -> Auth : validar formato
+
+   alt [credenciales invalidas]
+     Auth ->> Audit : registrar intento (CNST_011)
+     Auth --> B -- : 401 Unauthorized
+   else [credenciales validas]
+     Auth -> LDAP ++ : authenticate(user, pass)
+     LDAP --> Auth -- : OK + atributos
+     Auth -> Redis : crear sesion (CNST_002)
+     Auth ->> Audit : registrar acceso
+     Auth --> B -- : 302 Redirect (panel)
+   end
+   B --> Supervisor : muestra panel
+   @enduml
+
+Lectura del diagrama
+~~~~~~~~~~~~~~~~~~~~
+
+- ``B -> Auth ++`` — activa ``auth_app`` desde el
+  POST hasta su respuesta.
+- ``Auth -> LDAP ++`` — activa ``LDAP`` solo durante
+  ``authenticate``.
+- ``LDAP --> Auth --`` — desactiva ``LDAP`` al
+  retornar.
+- ``Auth --> B --`` — desactiva ``auth_app`` al
+  responder al navegador (cierra la activación
+  exterior).
+- Mensajes asíncronos (``->> Audit``) **no activan**
+  al destinatario en este modelo simple — el bus de
+  audit es fire-and-forget.
+
+A simple vista, el rectángulo de ``auth_app`` cubre
+todo el procesamiento del login, y el rectángulo
+interno de ``LDAP`` muestra que la autenticación es la
+operación de mayor latencia dentro del flujo. Eso es
+lo que las activaciones comunican.
+
+Política IACT — cuándo usar activaciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Diagramas pedagógicos cortos**: opcional. Si el
+   flujo tiene 3-5 mensajes lineales, las activaciones
+   añaden más ruido que valor.
+2. **Diagramas con bifurcación o anidamiento**:
+   recomendado. Las activaciones hacen visible el
+   **scope** de cada llamada y dónde anida una dentro
+   de otra.
+3. **Diagramas para revisión arquitectónica o
+   aprobación**: obligatorio. Comunican la
+   complejidad relativa y el alcance temporal.
+4. **Mezcla síncrono / asíncrono**: las activaciones
+   refuerzan la diferencia visual — un async no
+   genera rectángulo del receptor.
+5. **Forma elegida**: si todas las activaciones del
+   diagrama son encajadas, preferir la **inline**
+   (más conciso). Si solo unas pocas activaciones son
+   relevantes, la **explícita** facilita destacar
+   esas ubicaciones.
+
+Reglas IACT adicionales
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- Toda **bifurcación crítica** debe cerrar todas sus
+  activaciones — un ``alt`` con ``activate`` sin su
+  ``deactivate`` correspondiente produce diagramas
+  defectuosos.
+- En flujos con **SLA** (CNST_017) el rectángulo de
+  activación visualiza dónde puede estar el cuello de
+  botella; complementar con una nota que cite el SLA.
+- Para flujos con **export async** (CNST_019), no
+  activar al worker de export más allá del momento
+  del encolado — el procesamiento posterior pertenece
+  a un diagrama de secuencia separado.
+
+----
+
 2.2 Convenciones
 ----------------
 
