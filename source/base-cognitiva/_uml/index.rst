@@ -56,6 +56,8 @@ Catálogo
  uml-02-orientacion-objetos
  uml-03-uso-orientacion-objetos
  uml-04-uso-relaciones
+ uml-05-agregacion-composicion-interfaces
+ uml-06-introduccion-casos-uso
 
 Convención
 ==========
