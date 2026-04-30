@@ -3815,11 +3815,264 @@ Política IACT para parameter objects
 5. **Documentar el refactor** en el WP — el par
    pre/post snapshot es la evidencia.
 
+17.5 Interfaces para romper acoplamiento
+----------------------------------------
+
+Otro hallazgo recurrente al diagramar código:
+**dependencias hacia clases concretas**.
+Cuando una clase ``A`` depende directamente de
+una clase ``B``, cualquier cambio en ``B`` puede
+forzar cambios en ``A``. La técnica clásica para
+desacoplarlas es introducir una **interfaz** entre
+las dos.
+
+Por qué importa
+~~~~~~~~~~~~~~~
+
+Una interfaz declara un **contrato** sin
+implementación. La clase consumidora depende del
+**contrato**, no del implementador concreto.
+Beneficios:
+
+- **Sustitución libre** del implementador
+  (Adapter, Strategy, mocks de test).
+- **DIP cumplido** (§ 20 de
+  :doc:`orientacion-objetos`) — los módulos de
+  alto nivel no dependen de los de bajo nivel.
+- **Tests más simples** — inyectar un doble que
+  implemente la interfaz.
+- **Cambios localizados** — la implementación
+  cambia sin tocar a los consumidores.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML acepta la palabra clave ``interface``
+nativamente, además de la posibilidad de marcar
+con estereotipos:
+
+.. code-block:: plantuml
+
+   interface IBus {
+     + publicar(evento : Evento)
+     + suscribir(observer : Observer)
+   }
+
+   class BusEnMemoria {
+     + publicar(evento : Evento)
+     + suscribir(observer : Observer)
+   }
+
+   BusEnMemoria ..|> IBus : implementa
+
+- ``interface`` declara la interfaz como tipo
+  primario; PlantUML lo dibuja con marca visual
+  distinta de una clase.
+- ``..|>`` (línea punteada con triángulo abierto)
+  es la **realización** — A implementa B.
+- ``-->`` o ``..>`` desde la clase consumidora
+  hacia la interfaz cierra el desacoplamiento.
+
+Estereotipos como anotación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PlantUML también acepta estereotipos al estilo
+``<<Interface>>``, ``<<Class>>``,
+``<<Abstract>>``, ``<<Service>>``. Útiles cuando
+la convención del equipo prefiere marcar el rol
+explícitamente:
+
+.. code-block:: plantuml
+
+   class IBus <<Interface>> {
+     + publicar(evento : Evento)
+   }
+
+Política IACT: usar ``interface`` cuando sea una
+interfaz; usar ``class ... <<Stereotype>>`` cuando
+el rol semántico (Service, Repository, Facade) sea
+relevante para la lectura.
+
+Aplicación a IACT — abstracción del bus
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el snapshot pre-refactor de § 17.1,
+``ExportarReporteFacade`` dependía del ``Bus``
+singleton concreto. Eso producía:
+
+- Acoplamiento al singleton — testing requería
+  mockear el state global.
+- Imposibilidad de cambiar el bus sin tocar el
+  facade.
+- Violación de DIP.
+
+Refactor: introducir ``IBus`` y mover el
+``Bus`` concreto a un implementador.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Snapshot post-refactor — IBus
+
+   interface IBus {
+     + publicar(evento : Evento)
+     + suscribir(observer : Observer)
+   }
+
+   class BusEnMemoria {
+     - _observers : List<Observer>
+     --
+     + publicar(evento : Evento)
+     + suscribir(observer : Observer)
+   }
+
+   class ExportarReporteFacade {
+     - _bus : IBus
+     --
+     + ejecutar(user : Usuario, cfg : ConfigExport) : TareaId
+   }
+
+   BusEnMemoria ..|> IBus : implementa
+   ExportarReporteFacade ..> IBus : depende de
+   @enduml
+
+Lectura del snapshot post-refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``ExportarReporteFacade`` ya **no conoce** a
+  ``BusEnMemoria``. Solo conoce ``IBus``.
+- ``BusEnMemoria`` realiza ``IBus`` — cualquier
+  otro implementador (e.g.
+  ``BusPersistenteRedis``) puede sustituirlo
+  sin que el facade se entere.
+- Los tests del facade pueden inyectar un
+  ``BusFalso`` que implementa ``IBus`` con
+  comportamiento controlado.
+- La flecha de dependencia del facade ahora
+  apunta a la **abstracción**, no a la
+  **implementación** — DIP cumplido.
+
+El "antes y después" en una imagen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una de las virtudes de diagramar el refactor es
+que el cambio es **visible**:
+
+- Antes: una flecha sólida directa
+  (``Facade ..> Bus``).
+- Después: dos flechas — una hacia la interfaz
+  (``Facade ..> IBus``) y una de realización
+  (``BusEnMemoria ..|> IBus``).
+
+Para audiencias técnicas que ya entienden DIP
+pero no lo han visualizado, el cambio en las
+flechas es **explicación más rápida** que
+cualquier párrafo. Para audiencias técnicas
+recientes, el diagrama es una forma de **enseñar
+el principio** sin pizarrón.
+
+Otros candidatos a interfaz en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicando el mismo patrón al cluster IACT:
+
+.. list-table::
+ :widths: 32 30 38
+ :header-rows: 1
+
+ * - Dependencia concreta
+   - Interfaz candidata
+   - Razón
+ * - ``MySQLClient``
+   - ``IDatosAnalytics``
+   - Cambiar el motor sin tocar
+     ``rpt_app``.
+ * - ``LDAPClient``
+   - ``IDirectoryService``
+   - Cambiar a SSO sin tocar
+     ``auth_app``.
+ * - ``AuditLogger`` directo
+   - ``IAuditLog``
+   - Mover audit a tabla distinta sin
+     tocar callers.
+ * - Cliente IVR concreto
+   - ``IIVREvents``
+   - Reemplazar el origen de eventos
+     con un mock o réplica.
+ * - ``RedisSessions``
+   - ``ISessionStore``
+   - Migrar sesiones a otro store
+     (memcached, BD) sin tocar
+     ``auth_app``.
+
+Cada caso requiere su ADR y su WP. La regla:
+**no introducir interfaces preventivamente**;
+introducirlas cuando el diagrama (o un cambio
+real) lo justifica.
+
+Cuándo NO crear una interfaz
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como advierte la literatura clásica, las
+interfaces tienen costo:
+
+- **Más archivos** y más navegación.
+- **Indirection** — el lector debe seguir el
+  camino interfaz → implementación.
+- **YAGNI** — si no hay alternativas previsibles
+  ni necesidad de tests independientes, una
+  interfaz "por si acaso" es ruido.
+
+Política IACT: introducir interfaz cuando hay
+**razón concreta** documentable (test, swap de
+implementación, ADR pendiente). No por moda.
+
+Política IACT — interfaces en class diagrams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **``interface`` PlantUML** para tipos que solo
+   declaran contrato.
+2. **``<<Stereotype>>``** cuando convenga marcar
+   el rol semántico del componente
+   (``<<Service>>``, ``<<Repository>>``).
+3. **``..|>``** para realización (clase
+   implementa interfaz).
+4. **``..>`` hacia interfaz** desde el consumidor
+   — DIP cumplido.
+5. **Justificar la interfaz** en el WP — no
+   introducir por convención.
+6. **Snapshot pre/post** documenta el cambio en
+   las flechas — material pedagógico para
+   discutir DIP con el equipo.
+
+Cierre del módulo de refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con §§ 17-17.5 queda cubierto el ciclo de uso de
+class diagrams para diseño y refactor de código:
+
+- § 17 — encuadre y diferencia con el modelado
+  de dominio.
+- § 17.1 — atributos y métodos con visibilidad y
+  tipos.
+- § 17.2 — dependencias entre clases.
+- § 17.3 — proceso de refactor desde el
+  diagrama.
+- § 17.4 — refactor concreto: parameter object.
+- § 17.5 — interfaces para romper acoplamiento.
+
+Más allá del refactor mecánico, el mensaje
+operativo: **diagramar es aprender**. El
+diagrama hace explícito lo implícito; lo
+implícito mal hecho no se ve, lo explícito mal
+hecho sí. El simple acto de dibujar una clase y
+sus dependencias suele revelar más mejoras que
+horas de "leer el código a ver qué pasa".
+
 Próximas subsecciones potenciales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Refactor estructural mayor (introducir
-  Strategy / Decorator desde el diagrama).
 - Detección de antipatrones desde el diagrama
   (acoplamiento estático, dependencias
   cíclicas).
