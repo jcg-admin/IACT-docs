@@ -326,6 +326,183 @@ Política IACT
    :doc:`analisis-dominio` o componentes de
    :doc:`diagramas-componentes`.
 
+2.1.ter Agregar la primera interacción
+--------------------------------------
+
+Una vez declarados actores y participantes (§ 2.1.bis),
+el siguiente paso es agregar **la primera interacción**
+del flujo. Las interacciones se modelan como **mensajes**
+entre lifelines.
+
+Sintaxis PlantUML para mensajes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML diferencia entre síncronos y asíncronos /
+respuestas con tres flechas básicas:
+
+.. list-table::
+ :widths: 22 28 50
+ :header-rows: 1
+
+ * - Sintaxis
+   - Tipo
+   - Cuándo usarla
+ * - ``->``
+   - Síncrono (request).
+   - Llamada que espera respuesta.
+ * - ``-->``
+   - Respuesta o asíncrono.
+   - Línea punteada para retorno o callback.
+ * - ``->>``
+   - Asíncrono explícito (sin retorno
+     inmediato).
+   - Eventos, fire-and-forget, mensajes en cola.
+
+Equivalencia con Mermaid del libro:
+
+.. list-table::
+ :widths: 30 30 40
+ :header-rows: 1
+
+ * - Mermaid (libro)
+   - PlantUML (IACT)
+   - Significado
+ * - ``->>``
+   - ``->``
+   - Llamada síncrona request.
+ * - ``-->>``
+   - ``-->``
+   - Respuesta (línea punteada).
+
+Estructura de un mensaje
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   <emisor> <flecha> <receptor> : <descripción breve>
+
+- **Emisor** a la izquierda; **receptor** a la derecha.
+- **Descripción breve** después de los dos puntos.
+- El **tiempo avanza hacia abajo** — el orden de las
+  líneas en el código es el orden cronológico.
+
+Equivalente IACT del primer mensaje del libro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro abre con ``Browser`` → ``Sign Up Service``
+pidiendo la página de registro y la respuesta 200 OK
+con el HTML. En IACT, el flujo análogo de primera
+interacción para UC_AUTH_01 es la solicitud de la
+página de login:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_AUTH_01 — primer intercambio
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "auth_app" as Auth
+
+   Supervisor -> B : abre URL del panel
+   B -> Auth : GET /login
+   Auth --> B : 200 OK (formulario login)
+   B --> Supervisor : muestra formulario
+   @enduml
+
+Lectura:
+
+- **Mensaje síncrono** (``->``) — el navegador hace
+  ``GET /login`` y espera respuesta.
+- **Respuesta** (``-->``) — ``auth_app`` retorna el
+  HTML; línea punteada para distinguir del request.
+- **Mensaje del actor al sistema** y **del sistema al
+  actor** — capturados con sintaxis idéntica.
+
+El render muestra mensajes con flechas distintas
+(continua para síncronos, punteada para respuestas) que
+permiten al lector distinguir requests de responses sin
+leer las etiquetas.
+
+Etiquetas — alto nivel siempre
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El libro lo enfatiza: los diagramas de secuencia son
+**vistas de alto nivel** del proceso. Las etiquetas
+deben mantenerse al mismo nivel.
+
+Buenas etiquetas IACT:
+
+- ``GET /reportes/04/exportar`` — claro, identifica el
+  endpoint.
+- ``verificar_permiso(user, "exportar")`` — operación
+  del dominio.
+- ``encolar tarea async`` — descripción funcional.
+- ``200 OK (JSON)`` o ``403 Forbidden`` — respuesta
+  con código.
+
+Etiquetas que **deberían evitarse**:
+
+- ``serializer = ReporteSerializer(context={...}); ...
+  return Response(serializer.data, ...)`` — código
+  detallado, pertenece a la implementación, no al
+  diagrama.
+- ``hacer cosas con la BD`` — vago, no comunica nada.
+- ``proceso interno`` — opaco; mejor descomponer en
+  varios mensajes específicos.
+
+Reglas IACT para mensajes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Síncrono** (``->``) por defecto; **respuesta**
+   (``-->``) siempre que el receptor responde.
+2. **Asíncrono explícito** (``->>``) solo cuando hay
+   un evento sin respuesta inmediata (e.g.
+   ``log_app.notificar`` puesta en cola).
+3. **Etiqueta breve** y de alto nivel — máximo una
+   línea, idealmente verbo + objeto.
+4. **Mensajes a un actor** (``Auth -> Supervisor : ...``)
+   son legítimos cuando el sistema **muestra** o
+   **notifica** algo al humano.
+5. **No esconder mensajes implícitos** críticos —
+   especialmente la auditoría: si una operación
+   dispara un evento de ``aud_app``, ese mensaje
+   **debe** aparecer (CNST_025).
+6. **Orden cronológico estricto** — leer de arriba
+   hacia abajo debe contar la historia del flujo
+   completo.
+
+Ejemplo IACT — primer intercambio UC_RPT_01
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicado al UC_RPT_01 (consultar dashboard) con SLA
+CNST_017:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_RPT_01 — primer intercambio dashboard
+
+   actor Supervisor
+   participant "Browser" as B
+   participant "rpt_app" as Rpt
+
+   Supervisor -> B : selecciona dashboard
+   B -> Rpt : GET /dashboard?segmento=N
+   Rpt --> B : 200 OK (HTML + datos)
+   B --> Supervisor : renderiza dashboard
+   note right of Rpt
+     SLA CNST_017: respuesta <= 10s
+   end note
+   @enduml
+
+La nota referencia explícitamente la restricción
+temporal sin saturar la etiqueta del mensaje. Este
+patrón (mensaje + nota explicativa) se repite a lo
+largo de la documentación IACT.
+
 2.2 Convenciones
 ----------------
 
