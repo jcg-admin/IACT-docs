@@ -55,6 +55,7 @@ Catálogo
  diagramas-secuencias
  diagramas-colaboraciones
  diagramas-actividades
+ diagramas-componentes
 
 Mapeo a skills RM
 =================
@@ -102,6 +103,9 @@ Mapeo a skills RM
  * - :doc:`diagramas-actividades`
    - ``rm-specification`` + ``rm-analysis``
    - Flujos, decisiones y paralelismo en procesos (Hora 11)
+ * - :doc:`diagramas-componentes`
+   - ``rm-specification`` + ``rm-analysis``
+   - Arquitectura física y contratos entre apps (Hora 12)
 
 Convención
 ==========
