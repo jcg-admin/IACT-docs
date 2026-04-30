@@ -973,6 +973,161 @@ Política IACT — sync vs async en Container view
    requiere ADR — no es la posición por defecto del
    proyecto.
 
+Catálogo de tipos de flecha en PlantUML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las subsecciones anteriores cubrieron los tipos más
+usados (sólida, punteada, alargada). El libro citado
+incluye un catálogo completo de flechas para
+flowcharts en Mermaid; PlantUML ofrece un set
+equivalente y, en algunos casos, más expresivo. Esta
+subsección sirve de **referencia** para encontrar el
+tipo de flecha adecuado.
+
+Catálogo PlantUML
+^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 28 32 40
+ :header-rows: 1
+
+ * - Sintaxis PlantUML
+   - Render
+   - Cuándo usarla
+ * - ``A --> B``
+   - Línea continua con cabeza de flecha
+     rellena.
+   - Dependencia / interacción síncrona
+     estándar.
+ * - ``A -->> B``
+   - Línea continua con cabeza abierta.
+   - Mensaje asíncrono explícito en
+     diagramas de secuencia (no aplica a C4).
+ * - ``A -- B``
+   - Línea continua sin cabeza de flecha.
+   - Asociación bidireccional sin sentido de
+     dependencia.
+ * - ``A --> B : etiqueta``
+   - Flecha continua con etiqueta en el medio.
+   - Documentar el propósito o protocolo.
+ * - ``A ..> B``
+   - Línea punteada con cabeza rellena.
+   - Asíncrono en C4, dependencia débil en
+     diagramas de clases.
+ * - ``A ..> B : etiqueta``
+   - Punteada con etiqueta.
+   - Async etiquetado en C4.
+ * - ``A -[#color]-> B``
+   - Flecha con color personalizado.
+   - Distinguir tipos de comunicación (uso
+     reservado, ver política).
+ * - ``A -[bold]-> B``
+   - Flecha gruesa / negrita.
+   - Resaltar caminos críticos
+     (uso parsimonioso).
+ * - ``A ---> B``
+     (con guiones extra)
+   - Flecha continua **más larga**.
+   - Empujar al destino al siguiente rango.
+ * - ``A ...> B``
+     (con puntos extra)
+   - Punteada **más larga**.
+   - Empujar al destino al siguiente rango
+     con flecha punteada.
+ * - ``A -down-> B``,
+     ``A -right-> B``,
+     ``A -up-> B``,
+     ``A -left-> B``
+   - Flecha forzada en dirección.
+   - Cuando el layout automático produce
+     cruces.
+
+Equivalencia con Mermaid del libro
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 28 36 36
+ :header-rows: 1
+
+ * - Concepto
+   - Mermaid (libro)
+   - PlantUML (IACT)
+ * - Flecha con cabeza
+   - ``A-->B``
+   - ``A --> B``
+ * - Flecha con cabeza + texto
+   - ``A-- texto -->B`` o
+     ``A-->|texto|B``
+   - ``A --> B : texto``
+ * - Línea sin cabeza
+   - ``A---B``
+   - ``A -- B``
+ * - Línea sin cabeza + texto
+   - ``A-- texto ---B``
+   - ``A -- B : texto``
+ * - Flecha punteada
+   - ``A-.->B``
+   - ``A ..> B``
+ * - Flecha punteada + texto
+   - ``A-. texto .-> B``
+   - ``A ..> B : texto``
+ * - Flecha gruesa
+   - ``A ==> B``
+   - ``A -[bold]-> B`` o estereotipo de estilo
+ * - Flecha gruesa + texto
+   - ``A == texto ==> B``
+   - ``A -[bold]-> B : texto``
+ * - Flechas múltiples desde un nodo
+   - ``A --> B & C --> D``
+   - ``A --> B`` + ``A --> C`` + ``C --> D``
+     (PlantUML no soporta el ``&`` en una línea;
+     es más explícito).
+ * - Cadena
+   - ``A -- t1 --> B -- t2 --> C``
+   - ``A --> B : t1`` + ``B --> C : t2``
+
+Política IACT para tipos de flecha
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Las subsecciones anteriores fijan la convención
+canónica del proyecto:
+
+1. **Sólida (``-->``)** para sync — el caso por
+   defecto.
+2. **Punteada (``..>``)** para async — registro de
+   audit, encolado, notificación.
+3. **Sin cabeza (``--``)** para asociaciones
+   bidireccionales en diagramas de clases.
+4. **Alargada (``--->``, ``...>``)** para controlar
+   rango.
+5. **Direccional (``-down->``, ``-right->``)** para
+   controlar layout cuando el automático no basta.
+
+Y dos formas que **no** se usan habitualmente en
+IACT:
+
+- **Gruesa (``-[bold]->``)** — solo para resaltar
+  un camino crítico de un análisis específico
+  (e.g., una secuencia que viola SLA). No usar como
+  estilo decorativo.
+- **Coloreada (``-[#color]->``)** — solo cuando un
+  ADR del subdominio justifica el uso del color.
+  La paleta principal vive en
+  ``plantuml-styles.puml`` por estereotipo.
+
+Referencia rápida en pantalla
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cuando se duda sobre qué flecha usar:
+
+1. ¿Es sync? → ``-->``
+2. ¿Es async? → ``..>``
+3. ¿Necesita más espacio? → agregar guiones / puntos.
+4. ¿El layout automático cruza líneas? → forzar
+   dirección.
+5. ¿Caso especial que justifica color o grosor? →
+   ADR primero.
+
 ----
 
 1. Nodo, dispositivo y conexión
