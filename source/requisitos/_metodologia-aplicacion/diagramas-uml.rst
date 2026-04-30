@@ -156,6 +156,109 @@ aplicado al dominio IACT, en el orden histórico (Schmuller
 H1-H13). Para localizar un diagrama por familia, usar la
 tabla anterior.
 
+Reformulación canónica de las tres familias
+-------------------------------------------
+
+Una formulación más concisa (común en literatura
+moderna):
+
+- **Diagramas de estructura** representan la
+  composición de los sistemas y se usan para
+  **visualizar clases y componentes**.
+- **Diagramas de comportamiento** modelan los aspectos
+  más dinámicos del sistema; útiles para **entender qué
+  comportamiento debe manejar el sistema**, en
+  particular durante el diseño.
+- **Diagramas de interacción** muestran **flujos
+  específicos entre procesos** (por ejemplo, sistemas),
+  componentes o clases.
+
+Cada familia tiene casos de uso específicos: la decisión
+de qué diagrama elegir se guía por la pregunta de qué
+aspecto del sistema se quiere comunicar.
+
+Técnica complementaria: el modelo C4
+------------------------------------
+
+UML no es la única técnica de diagramación arquitectónica
+útil. El **modelo C4** (de Simon Brown) propone una
+manera **simple y legible** de modelar la arquitectura
+del software, complementaria a UML.
+
+C4 organiza los diagramas en **cuatro niveles de
+abstracción**, cada uno respondiendo a una pregunta
+distinta:
+
+.. list-table::
+ :widths: 18 28 30 24
+ :header-rows: 1
+
+ * - Nivel C4
+   - Pregunta que responde
+   - Audiencia
+   - Equivalente UML
+ * - **1. Context**
+   - ¿Qué es el sistema y cómo encaja en su entorno?
+   - Stakeholders no técnicos.
+   - Diagrama de casos de uso a alto nivel.
+ * - **2. Container**
+   - ¿Qué aplicaciones / servicios / bases de datos
+     existen y cómo se comunican?
+   - Equipo técnico, ops.
+   - Diagrama de despliegue (cap. 13) +
+     componentes (cap. 12).
+ * - **3. Component**
+   - ¿Qué componentes hay dentro de cada container y
+     cómo interactúan?
+   - Desarrolladores.
+   - Diagrama de componentes (cap. 12).
+ * - **4. Code**
+   - ¿Cómo se materializa cada componente en clases /
+     módulos?
+   - Desarrolladores en mantenimiento.
+   - Diagrama de clases (cap. 1) — opcional, suele
+     auto-generarse.
+
+Por qué C4 puede complementar a UML en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+UML es **rico en notación** pero puede ser exhaustivo
+para audiencias no técnicas. C4 sacrifica notación a
+cambio de **legibilidad** y un **mapeo claro de
+audiencias** (de stakeholder a desarrollador conforme se
+desciende de nivel 1 a 4).
+
+Para un SAD futuro de IACT (ver § 11 de
+:doc:`plan-documentacion-uc`), una combinación viable:
+
+- **C4 nivel 1 (Context)** — para presentar IACT a
+  comités no técnicos: el sistema como caja única con
+  sus actores (supervisores, auditores) y sistemas
+  externos (LDAP, IVR, BD operativa).
+- **C4 nivel 2 (Container)** — para discutir
+  arquitectura: ``vm-iact``, ``ldap-corporativo``,
+  ``bd-operativa``, ``ivr-host`` y los protocolos entre
+  ellos. Ya cubierto en
+  :doc:`diagramas-distribucion`.
+- **C4 nivel 3 (Component)** — para entender la
+  estructura interna de ``vm-iact``: las apps Django y
+  sus interfaces. Ya cubierto en
+  :doc:`diagramas-componentes`.
+- **C4 nivel 4 (Code)** — opcional; los diagramas de
+  clases UML (este documento, § 1) suelen ser
+  suficientes.
+
+El uso conjunto de UML y C4 no exige reescribir nada:
+los diagramas de :doc:`diagramas-componentes` y
+:doc:`diagramas-distribucion` ya producen niveles 2 y 3
+de C4 con notación PlantUML estándar.
+
+Recomendación IACT: **mantener UML como técnica
+principal** del proyecto; usar C4 como **lente
+explicativo** cuando la audiencia lo justifique
+(stakeholders, comités, onboarding rápido). Decisión
+final del SAD futuro.
+
 ----
 
 1. Diagrama de clases — entidad ``Llamada`` (UC_RPT)
