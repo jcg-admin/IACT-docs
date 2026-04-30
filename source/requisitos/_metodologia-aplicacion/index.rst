@@ -53,6 +53,8 @@ Catálogo
  casos-uso-diagramas
  diagramas-estados
  diagramas-secuencias
+ diagramas-colaboraciones
+ diagramas-actividades
 
 Mapeo a skills RM
 =================
@@ -94,6 +96,12 @@ Mapeo a skills RM
  * - :doc:`diagramas-secuencias`
    - ``rm-specification`` + ``rm-analysis``
    - Interacciones entre objetos en el tiempo (Hora 9)
+ * - :doc:`diagramas-colaboraciones`
+   - ``rm-specification`` + ``rm-analysis``
+   - Contexto espacial e interacciones (Hora 10)
+ * - :doc:`diagramas-actividades`
+   - ``rm-specification`` + ``rm-analysis``
+   - Flujos, decisiones y paralelismo en procesos (Hora 11)
 
 Convención
 ==========
