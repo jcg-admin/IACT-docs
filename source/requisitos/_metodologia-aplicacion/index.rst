@@ -50,6 +50,7 @@ Catálogo
  relaciones-uml
  agregacion-interfaces
  casos-uso-especificacion
+ casos-uso-diagramas
 
 Mapeo a skills RM
 =================
@@ -81,7 +82,10 @@ Mapeo a skills RM
    - Modelado de aggregation/composition/interfaces
  * - :doc:`casos-uso-especificacion`
    - ``rm-elicitation`` + ``rm-analysis`` + ``rm-specification``
-   - Especificación completa de UCs
+   - Especificación textual completa de UCs (Hora 6)
+ * - :doc:`casos-uso-diagramas`
+   - ``rm-elicitation`` + ``rm-specification``
+   - Modelado visual de UCs con PlantUML (Hora 7)
 
 Convención
 ==========
