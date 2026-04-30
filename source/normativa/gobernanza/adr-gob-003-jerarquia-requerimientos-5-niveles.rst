@@ -101,15 +101,18 @@ de leyes/regulaciones - Restricción y control de funcionalidad
 casos de uso 2. Dictan qué funcionalidad debe continuar el sistema
 
 **Ubicación en proyecto**:
-``docs/gobernanza/requisitos/reglas_negocio/``
+``source/requisitos/reglas-negocio/``
 
-**Nomenclatura**: ``RN-DOMINIO-###-descripcion.rst`` o
-``BR-DOMINIO-###-descripcion.rst``
+**Nomenclatura** (per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`):
+``br-<NNN>-<descripcion-kebab>.rst``. ID semántico en metadata:
+``BR_NNN``.
 
-**Ejemplos**: - RN-BACK-001: Todos los usuarios deben estar autenticados
-para acceder al sistema - RN-BACK-002: Los datos personales deben
-cumplir con LFPDPPP - RN-QA-001: Todos los componentes médicos requieren
-certificación sanitaria
+**Ejemplos**:
+
+- ``br-001-fuente-operacional-inmutable.rst``
+- ``br-006-rbac-flat-nist.rst``
+- ``br-016-tasa-abandono.rst``
 
 Nivel 2: Requerimientos de Negocio
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,15 +128,17 @@ existencia del proyecto
 conducir a objetivos de negocio necesarios para un proyecto.
 
 **Ubicación en proyecto**:
-``docs/gobernanza/requisitos/requerimientos_negocio/``
+``source/requisitos/business-requirements/``
 
-**Nomenclatura**: ``RNEG-DOMINIO-###-descripcion.rst``
+**Nomenclatura** (per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`):
+``breq-<NNN>-<descripcion-kebab>.rst``. ID semántico en metadata:
+``BReq_NNN``.
 
-**Ejemplos**: - RNEG-BACK-001: El sistema de seguimiento de químicos
-debe permitir el cumplimiento de todas las regulaciones federales y
-estatales sobre el uso de químicos y su eliminación en un período de 5
-meses - RNEG-DEVOPS-001: Reducir tiempo de deployment a menos de 10
-minutos para cumplir con SLA de disponibilidad 99.9%
+**Ejemplos**:
+
+- ``breq-001-visibilidad-metricas.rst``
+- (futuro) ``breq-002-cumplimiento-regulatorio.rst``
 
 Nivel 3: Requerimientos de Usuario
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,13 +155,21 @@ usuario
 usuarios pueden y no pueden realizar ciertas tareas con el sistema.
 
 **Ubicación en proyecto**:
-``docs/gobernanza/requisitos/requerimientos_usuario/``
+``source/requisitos/casos-uso/<modulo>/``
 
-**Nomenclatura casos de uso**: ``UC-DOMINIO-###-verbo-objeto.rst``
+**Nomenclatura casos de uso** (per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`):
+``uc-<mod>-<NN>-<verbo-objeto>.rst``. ID semántico en metadata:
+``UC_{MOD}_NN`` (ej: ``UC_AUTH_01``).
 
-**Ejemplos**: - UC-BACK-001: Iniciar Sesión - UC-BACK-010: Gestionar
-Permisos - Los gerentes de laboratorio están autorizados a generar
-informes de exposición química para cualquier persona
+Módulos válidos: ``auth, users, access, permissions, reports,
+alerts, pipeline, audit, logs``.
+
+**Ejemplos**:
+
+- ``casos-uso/auth/uc-auth-01-iniciar-sesion.rst``
+- ``casos-uso/access/uc-acc-01-asignar-funciones.rst``
+- ``casos-uso/reports/uc-rpt-01-ver-dashboard.rst``
 
 Nivel 4: Requerimientos Funcionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,15 +186,19 @@ directamente por desarrolladores
 procesos específicos que el sistema debe implementar.
 
 **Ubicación en proyecto**:
-``docs/gobernanza/requisitos/requerimientos_funcionales/``
+``source/requisitos/requisitos-funcionales/<modulo>/<uc-padre>/``
 
-**Nomenclatura**: ``RF-DOMINIO-###-descripcion.rst``
+**Nomenclatura** (per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`):
+``fr-<NNN>-<NN>-<descripcion-kebab>.rst``. El primer NNN refiere
+al UC padre; el segundo NN es secuencial dentro del UC. ID
+semántico en metadata: ``FR_NNN_NN``.
 
-**Ejemplos**: - RF-BACK-005: Cuando una factura es recibida por un
-proveedor no registrado, el sistema enviará un email al proveedor con un
-PDF editable para darse de alta - RF-BACK-006: El sistema debe validar
-formato de email según RFC 5322 - RF-BACK-010: El sistema debe generar
-token JWT con expiración de 15 minutos
+**Ejemplos**:
+
+- ``requisitos-funcionales/auth/uc-001-iniciar-sesion/fr-001-01-validar-credenciales.rst``
+- ``requisitos-funcionales/users/uc-006-crear-usuario/fr-006-01-validar-username-unico.rst``
+- ``requisitos-funcionales/access/uc-010-asignar-funciones/fr-010-01-listar-funciones-disponibles.rst``
 
 Nivel 5: Atributos de Calidad (Requerimientos No Funcionales)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,18 +216,24 @@ pueden dictar ciertos requisitos de seguridad que deben aplicarse a
 través de la funcionalidad del sistema.
 
 **Ubicación en proyecto**:
-``docs/gobernanza/requisitos/atributos_calidad/``
+``source/requisitos/requisitos-no-funcionales/``
 
-**Nomenclatura**: ``RNF-DOMINIO-###-descripcion.rst`` o
-``AC-DOMINIO-###-descripcion.rst``
+**Nomenclatura** (per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`
++ :doc:`/normativa/estandares/adr-std-007-spec-gaps-fix` § 4):
+``rnf-<mod>-<NNN>-<descripcion-kebab>.rst``. ID semántico en
+metadata: ``RNF_{MOD}_NNN`` (ej: ``RNF_PROC_001``).
 
-**Ejemplos**: - RNF-BACK-005: El sistema debe mantener registros de
-entrenamiento de seguridad que se deben verificar para garantizar que
-los usuarios están debidamente capacitados antes de poder solicitar un
-producto químico peligroso - RNF-DEVOPS-001: El sistema debe responder a
-solicitudes HTTP en menos de 2 segundos bajo carga de 1000 usuarios
-concurrentes - RNF-QA-001: El código debe tener cobertura de tests
-superior a 80%
+Módulos válidos: ``proc`` (procesos del sistema/SDLC).
+Reservados futuros: ``sec`` (seguridad), ``perf`` (performance),
+``avail`` (disponibilidad).
+
+**Ejemplos**:
+
+- ``rnf-proc-001-proceso-sdlc.rst``
+- ``rnf-proc-002-metricas-proceso.rst``
+- (futuro) ``rnf-perf-001-tiempo-respuesta.rst``
+- (futuro) ``rnf-sec-001-cifrado-en-transito.rst``
 
 Tabla de Influencia entre Niveles
 ---------------------------------
@@ -241,31 +264,37 @@ Estructura de Directorios
 
 ::
 
- docs/gobernanza/requisitos/
- ├── reglas_negocio/
- │ ├── RN-BACK-001-autenticacion-obligatoria.rst
- │ ├── RN-BACK-002-cumplimiento-lfpdppp.rst
- │ └── ...
- ├── requerimientos_negocio/
- │ ├── RNEG-BACK-001-cumplimiento-regulatorio-quimicos.rst
- │ └── ...
- ├── requerimientos_usuario/
- │ ├── casos_uso/
- │ │ ├── UC-BACK-001-iniciar-sesion.rst
- │ │ ├── UC-BACK-010-gestionar-permisos.rst
- │ │ └── ...
- │ ├── historias_usuario/
- │ └── user_journeys/
- ├── requerimientos_funcionales/
- │ ├── RF-BACK-005-registro-proveedor-automatico.rst
- │ ├── RF-BACK-006-validacion-email.rst
- │ └── ...
- ├── atributos_calidad/
- │ ├── RNF-BACK-005-registro-capacitacion-seguridad.rst
- │ ├── RNF-DEVOPS-001-tiempo-respuesta.rst
- │ └── ...
- └── stakeholders/
- └── STAKE-001-identificacion-stakeholders.rst
+ source/requisitos/
+ ├── reglas-negocio/                          (Nivel 1: BR)
+ │   ├── br-001-fuente-operacional-inmutable.rst
+ │   ├── br-006-rbac-flat-nist.rst
+ │   └── ...
+ ├── business-requirements/                   (Nivel 2: BReq)
+ │   └── breq-001-visibilidad-metricas.rst
+ ├── casos-uso/                               (Nivel 3: UC)
+ │   ├── auth/
+ │   │   ├── uc-auth-01-iniciar-sesion.rst
+ │   │   └── ...
+ │   ├── access/
+ │   ├── reports/
+ │   └── ...
+ ├── requisitos-funcionales/                  (Nivel 4: FR)
+ │   ├── auth/uc-001-iniciar-sesion/
+ │   │   ├── fr-001-01-validar-credenciales.rst
+ │   │   └── ...
+ │   └── ...
+ └── requisitos-no-funcionales/               (Nivel 5: RNF)
+     ├── rnf-proc-001-proceso-sdlc.rst
+     └── rnf-proc-002-metricas-proceso.rst
+
+.. note::
+
+ Cajones de niveles BABOK adicionales (``OE`` Strategic
+ Objectives, ``N`` Business Needs, ``RS`` Stakeholder Reqs,
+ ``RSi`` System Reqs, ``RTM`` Traceability Matrix) están
+ declarados en :doc:`/base-cognitiva/glosario` § E pero no han
+ sido implementados aún. Su creación es decisión pendiente del
+ WP de actualización de requisitos.
 
 Principios de Uso
 -----------------
@@ -277,15 +306,15 @@ Los requerimientos de cada nivel deben derivarse del nivel superior:
 
 ::
 
- RN-BACK-001: Usuario debe estar autenticado
- ↓
- RNEG-BACK-001: Sistema seguro que previene accesos no autorizados
- ↓
- UC-BACK-001: Iniciar Sesión
- ↓
- RF-BACK-010: Sistema valida credenciales contra base de datos
- ↓
- RNF-BACK-005: Contraseña debe tener mínimo 8 caracteres
+ BR_006 (Nivel 1): RBAC Flat NIST — usuarios autenticados con función válida
+ ↓ influye
+ BReq_001 (Nivel 2): Visibilidad de métricas operativas con seguridad
+ ↓ se convierte en
+ UC_AUTH_01 (Nivel 3): Iniciar Sesión
+ ↓ se implementa mediante
+ FR_001_01 (Nivel 4): Validar credenciales contra base de datos
+ ↓ debe cumplir
+ RNF_PROC_001 (Nivel 5): Proceso SDLC define ciclo de validación
 
 Principio 2: Trazabilidad Bidireccional
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -506,23 +535,31 @@ Negativas
 Implementación
 --------------
 
-Fase 1: Reorganización de Estructura Actual (Semana 1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fase 1: Reorganización de Estructura Actual (completada)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Estructura canónica resultante en ``source/requisitos/``:
 
 .. code:: bash
 
- # Mover casos_de_uso a ubicación correcta en jerarquía
- git mv docs/gobernanza/casos_de_uso docs/gobernanza/requisitos/requerimientos_usuario/casos_uso
+ tree source/requisitos/
+ # ├── reglas-negocio/
+ # ├── business-requirements/
+ # ├── casos-uso/{auth,users,access,permissions,...}/
+ # ├── requisitos-funcionales/
+ # └── requisitos-no-funcionales/
 
- # Verificar estructura completa
- tree docs/gobernanza/requisitos/
+Fase 2: Creación de Templates (completada)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Fase 2: Creación de Templates (Semana 1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Templates por nivel disponibles en
+``source/normativa/estandares/plantillas/``:
 
-Crear templates para cada nivel: - ``templates/RN-template.rst`` -
-``templates/RNEG-template.rst`` - ``templates/UC-template.rst`` -
-``templates/RF-template.rst`` - ``templates/RNF-template.rst``
+- ``tpl-br-business-rule.rst``
+- ``tpl-breq-objetivos-negocio.rst``
+- ``tpl-uc-stakeholder-driven.rst`` (UC)
+- ``tpl-fr-documentacion-10-componentes.rst`` (FR)
+- (futuro) ``tpl-rnf-atributo-calidad.rst``
 
 Fase 3: Capacitación del Equipo (Semana 2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -547,7 +584,7 @@ Crear matriz que muestre relaciones:
 
 ::
 
- RN-BACK-001 → RNEG-BACK-001 → UC-BACK-001 → RF-BACK-010, RF-BACK-011 → RNF-BACK-005
+ BR_006 → BReq_001 → UC_AUTH_01 → FR_001_01, FR_001_02 → RNF_PROC_001
 
 Validación
 ----------

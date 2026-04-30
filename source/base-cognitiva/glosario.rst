@@ -244,29 +244,95 @@ cycle processes — Requirements engineering*.
 E. Jerarquía integrada de requisitos
 ====================================
 
-Combina BABOK + ISO 29148 con la convención de IDs de IACT::
+Mapeo entre **BABOK v3 + ISO 29148** y la convención IACT
+implementada en ``source/requisitos/`` per
+:doc:`/normativa/estandares/adr-std-007-naming-kebab-correction`
+(STD-007 v2.0.0+).
 
- Objetivos Estratégicos (OE-XXX)
- ↓
- Necesidades de Negocio (N-XXX)
- — BABOK: Business Need
- ↓
- Requisitos de Negocio (RN-XXX)
- — BABOK: BR / ISO 29148: BRS (Clause 9.3)
- ↓
- Requisitos de Stakeholders (RS-XXX)
- — BABOK: SR / ISO 29148: StRS (Clause 9.4)
- ↓
- ├─ Requisitos de Sistema (RSi-XXX)
- │ — ISO 29148: SyRS (Clause 9.5)
- │ ↓
- │ Requisitos Funcionales (RF-XXX)
- │ — BABOK: FR / ISO 29148: SRS (Clause 9.6)
- │ ↓
- └─ Requisitos No Funcionales (RNF-XXX)
- — BABOK: NFR / ISO 25010
- ↓
- Tests / Casos de Prueba (TC-XXX)
+.. list-table::
+ :header-rows: 1
+ :widths: 28 12 22 30 8
+
+ * - Concepto BABOK / ISO 29148
+   - ID conceptual (BABOK)
+   - ID semántico (metadata IACT)
+   - Filename pattern (STD-007)
+   - Estado
+ * - Strategic Objective
+   - ``OE-XXX``
+   - ``OE_NNN`` *(reservado)*
+   - ``oe-<NNN>-<desc>.rst``
+   - GAP
+ * - Business Need (BABOK)
+   - ``N-XXX``
+   - ``N_NNN`` *(reservado)*
+   - ``n-<NNN>-<desc>.rst``
+   - GAP
+ * - Business Requirement
+     (BABOK BR / ISO BRS 9.3)
+   - ``RN-XXX``
+   - ``BReq_NNN``
+   - ``breq-<NNN>-<desc>.rst``
+   - Implementado
+ * - Business Rule
+     (BABOK secundario)
+   - (sin ID propio en BABOK)
+   - ``BR_NNN``
+   - ``br-<NNN>-<desc>.rst``
+   - Implementado
+ * - Stakeholder Requirement
+     (BABOK SR / ISO StRS 9.4)
+   - ``RS-XXX``
+   - ``RS_NNN`` *(reservado)*
+   - ``rs-<NNN>-<desc>.rst``
+   - GAP (existen ``tpl-rs-*`` y ``tpl-stk-*``)
+ * - System Requirement
+     (ISO SyRS 9.5)
+   - ``RSi-XXX``
+   - ``RSi_NNN`` *(reservado)*
+   - ``rsi-<NNN>-<desc>.rst``
+   - GAP
+ * - Use Case
+   - (sin ID propio)
+   - ``UC_{MOD}_NN``
+   - ``uc-<mod>-<NN>-<desc>.rst``
+   - Implementado
+ * - Functional Requirement
+     (BABOK FR / ISO SRS 9.6)
+   - ``RF-XXX``
+   - ``FR_NNN_NN``
+   - ``fr-<NNN>-<NN>-<desc>.rst``
+   - Implementado
+ * - Non-Functional Requirement
+     (BABOK NFR / ISO 25010)
+   - ``RNF-XXX``
+   - ``RNF_{MOD}_NNN``
+   - ``rnf-<mod>-<NNN>-<desc>.rst``
+   - Implementado
+ * - Test Case
+   - ``TC-XXX``
+   - ``EV_CP_NNN``
+   - (cajón ``gestion/evidencia/``)
+   - Otro cajón
+
+**Reglas del mapeo:**
+
+- **Filename pattern** (4ª columna): aplica STD-007 v2.0.0+ —
+  todo en kebab-lowercase con prefijo + numeración.
+- **ID semántico** (3ª columna): usa PascalCase/UPPER per
+  STD-007 v2.0.2 § 6 (metadata field ``:artefacto:``).
+- **ID conceptual BABOK** (2ª columna): nomenclatura del
+  estándar; usar sólo cuando se cite BABOK/ISO directamente.
+
+**Flujo de derivación canónico** (los GAP son saltables si no
+aplican al alcance del proyecto)::
+
+ OE → N → BReq → RS → RSi → UC → FR → TC
+              ↓
+              BR (regla del dominio, ortogonal — influye en UC y FR)
+
+              RNF (atributo de calidad, ortogonal — debe cumplirse
+                   en UC y FR)
 
 ----
 

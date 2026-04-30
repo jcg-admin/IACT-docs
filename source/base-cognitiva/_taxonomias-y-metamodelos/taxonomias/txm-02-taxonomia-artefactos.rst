@@ -34,7 +34,7 @@ ubicaciones y relaciones entre artefactos.
 
  ARTEFACTO DOCUMENTAL
  │
- ├── ARTEFACTO COGNITIVO (base_cognitiva/)
+ ├── ARTEFACTO COGNITIVO (base-cognitiva/)
  │ ├── Metadata (META\_)
  │ ├── Glosario (GLOS\_)
  │ ├── Fundamento Conceptual (FND\_)
@@ -69,7 +69,7 @@ ubicaciones y relaciones entre artefactos.
 2.1 Metadata (META\_)
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_metadata/
+**Ubicacion:** base-cognitiva/_metadata/
 
 **Proposito:** Identidad, clasificacion y contexto del proyecto.
 
@@ -93,7 +93,7 @@ ubicaciones y relaciones entre artefactos.
 2.2 Glosario (GLOS\_)
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/glosario/
+**Ubicacion:** base-cognitiva/glosario.rst
 
 **Proposito:** Definiciones de terminos del dominio.
 
@@ -102,7 +102,7 @@ ubicaciones y relaciones entre artefactos.
 2.3 Fundamento Conceptual (FND\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_fundamentos_conceptuales/
+**Ubicacion:** base-cognitiva/_fundamentos-conceptuales/
 
 **Proposito:** Marco teorico que fundamenta el modelo de analisis.
 
@@ -130,7 +130,7 @@ ubicaciones y relaciones entre artefactos.
 2.4 Ontologia SBVR (SBVR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_ontologia_sbvr/
+**Ubicacion:** base-cognitiva/_ontologia-sbvr/
 
 **Proposito:** Semantica formal de conceptos segun estandar SBVR.
 
@@ -154,7 +154,7 @@ ubicaciones y relaciones entre artefactos.
 2.5 Taxonomia (TXM\_)
 ^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_taxonomias_y_metamodelos/taxonomias/
+**Ubicacion:** base-cognitiva/_taxonomias-y-metamodelos/taxonomias/
 
 **Proposito:** Clasificaciones jerarquicas de conceptos.
 
@@ -174,7 +174,7 @@ ubicaciones y relaciones entre artefactos.
 2.6 Metamodelo (MTM\_)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_taxonomias_y_metamodelos/metamodelos/
+**Ubicacion:** base-cognitiva/_taxonomias-y-metamodelos/metamodelos/
 
 **Proposito:** Estructuras formales (diagramas UML/ER).
 
@@ -194,7 +194,7 @@ ubicaciones y relaciones entre artefactos.
 2.7 Metodologia (METH\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** base_cognitiva/_metodologias_analiticas/
+**Ubicacion:** base-cognitiva/_metodologias-analiticas/ (cajón aspiracional, no creado)
 
 **Proposito:** Procedimientos de analisis y derivacion.
 
@@ -279,7 +279,7 @@ ubicaciones y relaciones entre artefactos.
 4.1 Regla de Negocio (BR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** requisitos/reglas_negocio/
+**Ubicacion:** requisitos/reglas-negocio/
 
 **Proposito:** Politicas y restricciones del dominio.
 
@@ -310,29 +310,29 @@ ubicaciones y relaciones entre artefactos.
 4.2 Caso de Uso (UC\_)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** requisitos/casos_uso/
+**Ubicacion:** requisitos/casos-uso/
 
 **Proposito:** Narrativas de interaccion actor-sistema.
 
 **Formato:** Actor + Objetivo + Precondiciones + Flujos + Postcondiciones
 
-**Cantidad IACT:** 38 casos de uso identificados
+**Cantidad IACT:** 61 casos de uso identificados (post-rebuild 2026-04, ver inventory en sub-WP md-references-audit)
 
 4.3 Requisito Funcional (FR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** requisitos/funcionales/
+**Ubicacion:** requisitos/requisitos-funcionales/
 
 **Proposito:** Especificaciones atomicas de capacidades.
 
 **Formato:** FR-UC.SEQ: Enunciado + Criterio + Origen
 
-**Cantidad IACT:** ~300 estimados
+**Cantidad IACT:** 45 FRs derivados al 2026-04-30 (cobertura parcial — sólo 11 de 61 UCs tienen FRs derivados)
 
 4.4 Requisito No Funcional (NFR\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubicacion:** requisitos/no_funcionales/
+**Ubicacion:** requisitos/requisitos-no-funcionales/
 
 **Proposito:** Atributos de calidad del sistema.
 
@@ -399,7 +399,7 @@ ubicaciones y relaciones entre artefactos.
 
 **Artefacto Principal:**
 
-- RTM_IACT_v1_0_0.rst: Matriz de trazabilidad completa
+- rtm-iact.rst (cajón aspiracional, no creado): Matriz de trazabilidad completa
 
 6.2 Reporte de Cobertura (COV\_)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
