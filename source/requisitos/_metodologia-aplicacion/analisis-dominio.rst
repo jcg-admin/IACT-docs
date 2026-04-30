@@ -1014,7 +1014,158 @@ antes de fijar las interfaces.
 
 ----
 
-13. Trazabilidad
+14. Tarjetas CRC — herramienta operacional
+==========================================
+
+Las **tarjetas CRC (Clase-Responsabilidad-Colaboración)**
+son la herramienta operativa más conocida para aplicar RDD
+(§ 13.3). Tradicionalmente se usaban tarjetas físicas de
+**7 × 12,5 cm** divididas en tres secciones:
+
+- **Parte superior** — nombre de la clase.
+- **Mitad izquierda** — responsabilidades de la clase.
+- **Mitad derecha** — colaboradores necesarios.
+
+Su valor en este proyecto:
+
+- Visualización rápida de las relaciones entre clases.
+- Identificación de **responsabilidades redundantes o
+  faltantes** antes de que se materialicen en código.
+- Discusiones productivas en sesiones con stakeholders y
+  expertos del dominio.
+- Evolución natural del diseño: las tarjetas son baratas
+  de descartar y rehacer.
+
+14.1 Estructura de una tarjeta CRC en IACT
+------------------------------------------
+
+::
+
+   +-----------------------------------------------+
+   |  Reporte                                      |
+   +----------------------+------------------------+
+   |  Responsabilidades   |  Colaboradores         |
+   |                      |                        |
+   |  - generar agregados |  - BDAnalytics         |
+   |  - exportar          |  - aud_app             |
+   |    (CSV/XLSX/JSON)   |  - log_app             |
+   |  - validar rango     |  - perm_app            |
+   |    (CNST_031)        |                        |
+   |  - aplicar segmento  |                        |
+   |    (BR_012)          |                        |
+   +----------------------+------------------------+
+
+Cada tarjeta IACT debe respetar dos reglas:
+
+1. **No más de 3-5 responsabilidades** por clase. Si la
+   lista crece, la clase está absorbiendo trabajo de
+   otra — refactorizar.
+2. Cada **colaborador** corresponde a una clase con su
+   propia tarjeta. Si un colaborador no tiene tarjeta,
+   probablemente falta una clase en el modelo.
+
+14.2 Evolución hacia herramientas CASE y UML
+--------------------------------------------
+
+Las CRC han evolucionado e integrado con herramientas
+CASE (*Computer-Aided Software Engineering*) que usan
+UML, transformando la representación física en digital y
+formal:
+
+- Las clases y sus responsabilidades se traducen a
+  **nodos** del grafo (clases UML con sus operaciones).
+- Las colaboraciones se transforman en **arcos** que
+  conectan los nodos (asociaciones, dependencias).
+- Las relaciones y dependencias se expresan mediante la
+  **notación estándar de UML**.
+
+Ventajas de la evolución:
+
+- Mayor **precisión** en la documentación.
+- Facilidad para **mantener y actualizar** el diseño.
+- Capacidad para **manejar sistemas más complejos**.
+- Mejor **integración** con otras herramientas de
+  desarrollo.
+- **Estandarización** de la notación.
+
+14.3 Aplicación en IACT
+-----------------------
+
+En este proyecto las CRC físicas o digitales se usan en
+fase temprana — antes de comprometer un diagrama UML
+completo.
+
+Flujo recomendado:
+
+1. **Sesión con experto del dominio** — captura inicial
+   en CRC (físicas o en una pizarra digital).
+2. **Iteración de equipo** — el equipo redistribuye
+   responsabilidades hasta que las tarjetas sean
+   coherentes y respeten el principio "≤ 5
+   responsabilidades por clase".
+3. **Traducción a UML** — las tarjetas se materializan en
+   diagramas de clases (:doc:`diagramas-uml`) y de
+   componentes (:doc:`diagramas-componentes`).
+4. **Verificación cruzada** — las responsabilidades
+   declaradas se ejercitan en diagramas de secuencia
+   (:doc:`diagramas-secuencias`) y actividades
+   (:doc:`diagramas-actividades`); cada mensaje del
+   diagrama debe corresponder a una responsabilidad
+   declarada en una tarjeta.
+
+Las CRC quedan como artefacto de discovery; el repositorio
+guarda los **UML resultantes** como fuente de verdad.
+
+14.4 Mapeo CRC ↔ documentos del proyecto
+----------------------------------------
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Elemento CRC
+   - Documento donde se materializa
+   - Verificación
+ * - Nombre de clase
+   - § 7 de este documento;
+     :doc:`diagramas-uml` § 1
+   - Coherencia con sustantivos del dominio (§ 3).
+ * - Responsabilidades
+   - § 8 de este documento;
+     :doc:`agregacion-interfaces` (interfaces)
+   - Cada responsabilidad debe poder ejecutarse en al
+     menos un UC del catálogo.
+ * - Colaboradores
+   - :doc:`relaciones-uml`,
+     :doc:`diagramas-colaboraciones`,
+     :doc:`diagramas-componentes`
+   - Cada colaborador debe ser una clase declarada o un
+     componente del sistema (no inventado).
+
+14.5 Por qué CRC sigue siendo útil
+----------------------------------
+
+A pesar de las herramientas digitales, los principios
+fundamentales de CRC siguen vigentes:
+
+- Obligan a pensar en **responsabilidades** (RDD) antes
+  que en estructura de datos.
+- Son un instrumento de **comunicación** con stakeholders
+  no técnicos.
+- Permiten **descartar diseños malos** rápidamente
+  (rehacer una tarjeta cuesta segundos).
+- Mantienen la **trazabilidad** entre el diseño
+  conceptual y la implementación si se transcriben
+  fielmente al UML resultante.
+
+Recomendación operativa: usar CRC en cada nueva entidad
+IACT donde el dominio aún no es estable; saltar al UML
+directamente solo cuando las responsabilidades ya están
+claras y validadas con el experto del dominio.
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::

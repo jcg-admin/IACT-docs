@@ -395,18 +395,61 @@ construir el SAD usando como base:
 - Las restricciones canónicas (CNST_*) y reglas de
   negocio (BR_*).
 
-Estructura sugerida (4+1 Kruchten):
+Estructura sugerida — modelo 4+1 de Kruchten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Vista lógica** — clases, OOP, relaciones (ya cubierto
-  parcialmente en este cajón).
-- **Vista de procesos** — concurrencia, ETL, alertas,
-  exports async (CNST_019/020).
-- **Vista de desarrollo** — apps Django, packaging,
-  versionado.
-- **Vista física** — :doc:`diagramas-componentes` +
+El modelo original **4+1** de Philippe Kruchten (1995):
+
+- **Vista lógica** *(logical view)* — clases, OOP,
+  relaciones (ya cubierto parcialmente en este cajón).
+- **Vista de procesos** *(process view)* — concurrencia,
+  ETL, alertas, exports async (CNST_019/020).
+- **Vista de desarrollo** *(development view)* — apps
+  Django, packaging, versionado.
+- **Vista física** *(physical view)* —
+  :doc:`diagramas-componentes` +
   :doc:`diagramas-distribucion`.
-- **Escenarios** — UCs críticos que ejercitan las cuatro
-  vistas (UC_AUTH_01, UC_RPT_04, UC_PIP_01, UC_ALR_03).
+- **+1: Escenarios / Casos de uso** — UCs críticos que
+  ejercitan las cuatro vistas (UC_AUTH_01, UC_RPT_04,
+  UC_PIP_01, UC_ALR_03).
+
+Variante 5+1 — añade Modelo de Dominio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una variante práctica posterior, **5+1**, agrega
+explícitamente la **Vista de Dominio** (*domain model*) a
+las cinco vistas anteriores. No tiene autor único
+reconocido; surgió en entornos que enfatizan
+*Domain-Driven Design* y métodos OOP, donde la vista de
+dominio adquiere relevancia propia. Su estructura típica:
+
+1. **Modelo de Dominio** — entidades, relaciones,
+   reglas de negocio del dominio.
+2. **Vista de Diseño** — clases y relaciones lógicas.
+3. **Vista de Implementación** — paquetes, módulos,
+   estructura de código.
+4. **Vista de Casos de Uso** — escenarios funcionales.
+5. **Vista de Procesos** — concurrencia y ejecución.
+6. **Vista de Despliegue** — nodos físicos y
+   protocolos.
+
+Cuándo usar 5+1 en vez de 4+1 en IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Adoptar **5+1** si el SAD necesita aislar explícitamente:
+
+- Vocabulario y reglas del dominio del centro de
+  contacto (segmento BR_012, ventana ETL CNST_006/008,
+  SoD CNST_030).
+- Aprendizajes consolidados de
+  :doc:`analisis-dominio` (sustantivos→clases, RDD,
+  CRC) que justifiquen una vista propia.
+
+En la práctica, este cajón ``_metodologia-aplicacion/``
+ya provee buena parte del material para la **vista de
+dominio** del modelo 5+1. El SAD definitivo decidirá
+entre 4+1 (más liviano) y 5+1 (con vista de dominio
+explícita) según el alcance final.
 
 Este SAD no es objeto de este plan; queda registrado como
 trabajo futuro recomendado tras el cierre de los 97 UCs.
