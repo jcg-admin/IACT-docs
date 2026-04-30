@@ -332,6 +332,236 @@ Reglas que aplican a este proyecto:
 6. Cuando aparezca un componente externo (LDAP, IVR),
    marcarlo claramente y declarar si es read-only.
 
+11. Patrones de backup desde la perspectiva cohesión/acoplamiento
+=================================================================
+
+El backup de datos en IACT (especialmente ``audit_log``,
+``bd_analytics`` y configuración del catálogo RBAC) admite
+distintos patrones arquitectónicos. Cada uno tiene un perfil
+distinto en términos de **cohesión** y **acoplamiento** —
+los principios que el documento §§ 10-11 de
+:doc:`orientacion-objetos` aplica a clases también valen
+para componentes.
+
+11.1 Backup distribuido / descentralizado
+-----------------------------------------
+
+Cada componente IACT realiza su propio backup según sus
+necesidades. ``aud_app`` exporta ``audit_log``,
+``rpt_app`` snapshots agregados, ``pip_app`` registros de
+ventana ETL, ``perm_app`` exporta el catálogo RBAC.
+
+Cohesión
+~~~~~~~~
+
+Alta cohesión funcional: cada módulo encapsula su lógica
+de backup, principio de responsabilidad única por
+operación, fácil testing aislado.
+
+Acoplamiento
+~~~~~~~~~~~~
+
+Bajo: módulos autónomos, interfaces minimalistas, cambios
+localizados, fallos aislados.
+
+Ventajas
+~~~~~~~~
+
+- **Inmediatez** — backup disponible justo antes de cada
+  cambio, rollback granular, contexto claro.
+- **Simplicidad** — directo, autocontenido, pocas
+  dependencias.
+- **Granularidad** — control preciso por operación,
+  trazabilidad de cambios, debugging directo.
+- **Resiliencia local** — fallo de un componente no
+  afecta backups de otros.
+
+Desventajas
+~~~~~~~~~~~
+
+- **Desorganización** — backups dispersos, inventario
+  difícil, posible duplicación.
+- **Inconsistencia** — formatos y ubicaciones distintos,
+  política única difícil de aplicar.
+- **Recursos** — espacio fragmentado, overhead por
+  múltiples backups, limpieza compleja.
+- **Vista global limitada** — recuperar un punto en el
+  tiempo del **sistema completo** exige coordinar
+  recuperaciones independientes.
+
+11.2 Backup centralizado / monolítico
+-------------------------------------
+
+Un único subsistema toma snapshots completos del estado
+de IACT (volúmenes MySQL, dumps de Redis, configuración).
+Una sola política, una sola programación, una sola fuente
+de verdad para restauración.
+
+Cohesión
+~~~~~~~~
+
+Alta **cohesión de control** pero responsabilidades
+mezcladas: el subsistema toca audit, analytics, RBAC y
+sesiones a la vez. Boundaries poco definidos entre lo
+que respalda.
+
+Acoplamiento
+~~~~~~~~~~~~
+
+Alto: dependencias fuertes con todas las apps Django,
+testing extensivo, cambios en el subsistema afectan al
+resto.
+
+Ventajas
+~~~~~~~~
+
+- **Organización** — estructura clara, política unificada,
+  control centralizado.
+- **Consistencia** — un único formato, política única.
+- **Eficiencia de recursos** — optimización global,
+  menos overhead, gestión unificada.
+- **Auditoría** — fácil demostrar conformidad con
+  CNST_025 / regulaciones — un solo punto de evidencia.
+
+Desventajas
+~~~~~~~~~~~
+
+- **Complejidad inicial** — diseño y configuración del
+  subsistema más laboriosa.
+- **Rigidez** — cambios parciales difíciles, actualización
+  global.
+- **Punto único de fallo** — si el subsistema cae, ningún
+  backup nuevo se hace; requiere redundancia.
+- **Escalabilidad limitada** — crecimiento de un
+  componente puede saturar el sistema central.
+
+11.3 Backup híbrido
+-------------------
+
+Combina distribuido + centralizado: cada app mantiene su
+backup local granular para rollback inmediato, y un
+subsistema central toma snapshots periódicos consolidados
+para política y recuperación de sistema.
+
+Cohesión
+~~~~~~~~
+
+**Multinivel**: cohesión modular en cada app + cohesión
+de sistema en el orquestador. Separación clara de
+concerns; jerarquía de responsabilidades.
+
+Acoplamiento
+~~~~~~~~~~~~
+
+**Controlado**: *loose coupling* temporal con
+sincronización asíncrona, interfaces bien definidas entre
+los dos niveles.
+
+Ventajas
+~~~~~~~~
+
+- **Balance** entre inmediatez (local) y orden (central).
+- **Resiliencia** — redundancia selectiva, fallback entre
+  niveles.
+- **Escalabilidad controlada** — cada nivel evoluciona
+  según su carga.
+
+Desventajas
+~~~~~~~~~~~
+
+- **Complejidad arquitectónica** — diseño inicial más
+  elaborado, planificación detallada.
+- **Sincronización** — coordinar dos niveles introduce
+  estados distribuidos.
+- **Costos** — inversión inicial mayor, expertise
+  variado, mantenimiento más sofisticado.
+
+11.4 Comparativa
+----------------
+
+.. list-table::
+ :widths: 22 26 26 26
+ :header-rows: 1
+
+ * - Aspecto
+   - Distribuido
+   - Centralizado
+   - Híbrido
+ * - Cohesión
+   - Alta funcional, por app.
+   - Alta de control, mezclada.
+   - Multinivel.
+ * - Acoplamiento
+   - Bajo.
+   - Alto.
+   - Controlado.
+ * - Inmediatez
+   - Excelente.
+   - Limitada.
+   - Buena (capa local).
+ * - Política única
+   - Difícil.
+   - Natural.
+   - Por orquestador.
+ * - Punto único de fallo
+   - No.
+   - Sí (mitigable).
+   - No (con fallback).
+ * - Inversión inicial
+   - Baja.
+   - Media.
+   - Alta.
+ * - Adherencia a principios
+   - Óptima.
+   - Comprometida.
+   - Pragmática.
+
+11.5 Recomendación para IACT
+----------------------------
+
+- **``audit_log`` (CNST_025 immutable)** — exigir un
+  componente de backup **dedicado** y consistente
+  (centralizado o capa central del híbrido). El audit
+  debe poder restaurarse íntegro y verificarse contra
+  hash; la dispersión distribuida lo dificulta.
+- **``bd_analytics``** — admite distribuido si cada
+  ventana ETL persiste su backup; conviene una capa
+  central periódica para recuperación a un punto en el
+  tiempo.
+- **Catálogo RBAC y reglas SoD (CNST_030)** — backup
+  versionado **distribuido** dentro de ``perm_app`` con
+  inclusión periódica en el snapshot central; cualquier
+  cambio en el catálogo es un evento que debe auditarse.
+- **Configuración runtime** (umbrales de alerta,
+  parámetros de export) — distribuido, dentro del
+  componente que lo posee.
+
+Recomendación general: **híbrido con sesgo distribuido**.
+Esto combina la inmediatez y bajo acoplamiento del
+distribuido con la consistencia y trazabilidad que
+exigen las restricciones del proyecto. Cualquier
+desviación (e.g. centralizado puro) debe registrarse en
+un ADR de subdominio.
+
+Conclusión de diseño
+~~~~~~~~~~~~~~~~~~~~
+
+Desde la perspectiva pura de diseño:
+
+1. **Distribuido** — mejor alineación con cohesión y
+   acoplamiento bajo.
+2. **Centralizado** — desviación significativa, pero a
+   veces inevitable por necesidades operativas.
+3. **Híbrido** — balance pragmático para requerimientos
+   complejos.
+
+Como con todo patrón, la elección debe considerar no
+solo los principios de diseño sino los **requisitos
+específicos** del sistema, los recursos y el contexto.
+Documentar la elección en un ADR.
+
+----
+
 Trazabilidad
 ============
 

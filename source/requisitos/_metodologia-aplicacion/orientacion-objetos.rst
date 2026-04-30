@@ -1454,7 +1454,184 @@ Relación con prototipos y escuelas de análisis
 
 ----
 
-16. Trazabilidad
+16. Principio Abierto-Cerrado (OCP)
+===================================
+
+Bertrand Meyer formuló el **Principio Abierto-Cerrado**
+(*Open-Closed Principle, OCP*):
+
+   *Las entidades de software (clases, módulos, funciones,
+   etc.) deben estar abiertas a la extensión, pero
+   cerradas a la modificación.*
+
+Esto significa que debe poder **agregarse nueva
+funcionalidad sin alterar el código existente**. Es uno
+de los principios SOLID y subyace a varios patrones GoF
+(Strategy, Decorator, Template Method, Adapter — ver
+:doc:`patrones-diseno`).
+
+16.1 Diseño deficiente vs buen diseño
+-------------------------------------
+
+.. list-table::
+ :widths: 50 50
+ :header-rows: 1
+
+ * - Diseño deficiente (viola OCP)
+   - Buen diseño (cumple OCP)
+ * - Un solo cambio dispara cascada de
+     modificaciones.
+   - Los módulos nunca cambian.
+ * - El programa es frágil, rígido e
+     impredecible.
+   - El comportamiento del módulo se extiende
+     **agregando nuevo código**, sin tocar el
+     existente.
+
+Los módulos de software deben:
+
+- **Estar abiertos a la extensión** — su comportamiento
+  se puede ampliar.
+- **Estar cerrados a la modificación** — su código
+  fuente **no se cambia** para extenderlo.
+
+16.2 Abstracción y polimorfismo son la clave
+--------------------------------------------
+
+OCP se materializa con **abstracción** y **polimorfismo**:
+una clase no debe depender de una clase concreta, debe
+depender de una **clase abstracta o interfaz**. Cuando
+aparece una variante nueva, se introduce una clase nueva
+que implementa la abstracción — y los consumidores
+existentes ni se enteran.
+
+Esta es exactamente la base de los patrones Strategy y
+Adapter en :doc:`patrones-diseno`.
+
+16.3 Cierre estratégico
+-----------------------
+
+Ningún programa puede estar **100% cerrado**: siempre
+habrá cambios contra los cuales algún módulo **no esté
+cerrado**. El cierre no es completo — es **estratégico**.
+
+El diseñador decide **para qué tipos de cambios cerrar el
+diseño** según experiencia y conocimiento del dominio.
+
+En IACT esto se traduce en preguntas como:
+
+- ¿Para nuevos formatos de export estamos cerrados?
+  Sí — Strategy con ``FormatoExport`` permite añadir CSV,
+  XLSX, JSON, PDF sin tocar el flujo (ver
+  § 9 de :doc:`patrones-diseno`).
+- ¿Para nuevos tipos de reporte? Sí — Factory +
+  herencia por especialización
+  (§ 14.1 de :doc:`relaciones-uml`).
+- ¿Para una nueva fuente de datos operativos
+  (sustituir bd_operativa)? Sí — Adapter con
+  ``IDatosOperativos`` (ver
+  :doc:`diagramas-componentes`).
+- ¿Para reemplazar el stack canónico
+  (ADR_DEVOPS_001)? **No** — eso es una decisión
+  arquitectónica, no una extensión de comportamiento.
+
+Cerrar el diseño contra **todo** es imposible. Cerrar
+contra los cambios **probables** del dominio es la regla.
+
+16.4 Heurísticas que se derivan
+-------------------------------
+
+OCP sugiere varias prácticas concretas — heurísticas, no
+reglas absolutas:
+
+- **Variables miembro privadas**. Protege la
+  encapsulación: los consumidores quedan cerrados ante
+  cambios de nombres de variables o de implementación
+  interna. Si fueran públicas, **nadie** estaría
+  cerrado contra modificaciones impropias.
+- **No usar variables globales**. El estado global
+  rompe el cierre por construcción: cualquier código
+  puede mutar lo que otro lee.
+- **Evitar RTTI (*runtime type identification*) y
+  *isinstance* en chains de tipos derivados**. Si un
+  módulo hace cast dinámico para distinguir subtipos,
+  cada vez que se añade una subclase hay que modificar
+  ese módulo — exactamente lo que OCP intenta evitar.
+  La alternativa es **polimorfismo** (despacho dinámico
+  por método) en lugar de discriminar por tipo.
+
+Ninguna de estas heurísticas viola OCP siempre — son
+**guías**.
+
+16.5 Aplicación a IACT
+----------------------
+
+Casos donde OCP es crítico en este proyecto:
+
+.. list-table::
+ :widths: 35 35 30
+ :header-rows: 1
+
+ * - Punto de extensión
+   - Cómo cumple OCP
+   - Patrón implicado
+ * - Nuevos formatos de export
+   - Strategy con ``FormatoExport`` (CSV/XLSX/JSON).
+   - Strategy
+ * - Nuevos tipos de reporte
+   - Herencia por especialización + Factory.
+   - Factory + Especialización
+ * - Nuevas reglas de alerta
+   - Strategy ``EvaluadorAlertas``.
+   - Strategy
+ * - Nuevos formatos de export con firma
+   - Decorator (firma + cifrado encadenados).
+   - Decorator
+ * - Nueva fuente de datos operativos
+   - Adapter sobre ``IDatosOperativos``.
+   - Adapter
+ * - Nuevas vistas auditadas
+   - Decorator ``@requiere_permiso``.
+   - Decorator
+ * - Nuevos suscriptores a eventos de dominio
+   - Observer con ``Bus``.
+   - Observer
+
+Antipatrones IACT contra OCP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``isinstance`` chain en una vista para decidir cómo
+  serializar diferentes ``Reporte``: cada nuevo tipo
+  obliga a tocar la vista. Refactorizar a polimorfismo.
+- ``services.py`` con ``if formato == "csv": ... elif
+  formato == "xlsx": ...`` repetido en N lugares: cada
+  formato nuevo se duplica. Strategy.
+- Lógica de SoD (CNST_030) hardcodeada por rol en
+  varias vistas: cada rol nuevo obliga a tocar todas
+  las vistas. Centralizar en ``perm_app.SecRules`` con
+  reglas declarativas.
+
+16.6 Relación con otros principios
+----------------------------------
+
+- **DRY** (§ 13) — OCP suele eliminar duplicación
+  natural: extender por nueva clase en lugar de copiar
+  e if-elseificar.
+- **LSP** (§ 14 de :doc:`relaciones-uml`) — OCP solo
+  funciona si las subclases respetan el contrato; LSP
+  es la **garantía** de que el polimorfismo se puede
+  usar.
+- **Information Expert** (§ 13 de
+  :doc:`patrones-diseno`) — el experto natural de un
+  comportamiento es el punto de extensión cerrado al
+  resto.
+- **Demeter** — OCP refuerza Demeter: si los módulos no
+  espían estructura interna, agregar una nueva
+  variante no rompe a sus consumidores.
+
+----
+
+17. Trazabilidad
 ================
 
 .. list-table::
