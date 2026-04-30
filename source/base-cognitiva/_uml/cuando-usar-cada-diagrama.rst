@@ -26,6 +26,11 @@ Guía rápida — Cuándo usar cada diagrama UML
  detalle conceptual de cada diagrama, seguir el enlace a la
  lección en cada sección.
 
+ **Atribución:** material basado en *Aprendiendo UML en 24
+ horas* — Hora 1 (Schmuller, 2000). UML es resultado del
+ trabajo de **Grady Booch**, **James Rumbaugh** e
+ **Ivar Jacobson**.
+
 ----
 
 Concepto clave
@@ -38,6 +43,36 @@ Concepto clave
   Un modelo UML indica **qué** hace el sistema, **no cómo** lo
   hace. El *qué* es el diseño (los diagramas UML); el *cómo* es
   la implementación (el código).
+
+----
+
+¿Por qué tantos diagramas?
+==========================
+
+Un sistema cuenta con **diversas personas implicadas** que
+tienen **enfoques particulares** en diversos aspectos.
+
+**Ejemplo — sistema de lavadora:**
+
+.. list-table::
+ :widths: 35 65
+ :header-rows: 1
+
+ * - Persona implicada
+   - Perspectiva del sistema
+ * - Ingeniero de motor
+   - Perspectiva mecánica (eje, RPM, transmisión)
+ * - Escritor de instrucciones
+   - Perspectiva de usabilidad (cómo explicar el manual)
+ * - Diseñador industrial
+   - Perspectiva de forma (proporciones, materiales)
+ * - Usuario
+   - Experiencia (sólo quiere lavar su ropa)
+
+  El escrupuloso diseño de un sistema involucra **todas las
+  posibles perspectivas**, y cada diagrama UML le da una forma
+  de incorporar una perspectiva en particular. El objetivo es
+  satisfacer a cada persona implicada.
 
 ----
 
@@ -441,6 +476,34 @@ Perspectivas estáticas vs dinámicas
 - **Diagrama de secuencias** — cómo interactúan en el tiempo.
 - **Diagrama de actividades** — flujos de trabajo.
 - **Diagrama de colaboraciones** — cómo trabajan juntos.
+
+----
+
+Principios fundamentales
+========================
+
+**1. No es necesario usar todos los diagramas.**
+
+  *"En un modelo UML no es necesario que aparezcan todos los
+  diagramas. De hecho, la mayoría de los modelos UML contienen
+  un subconjunto de los diagramas."*
+
+  Decisión: usá los que tu equipo necesita para comunicar la
+  visión del sistema.
+
+**2. UML indica QUÉ, no CÓMO.**
+
+  *"Un modelo UML indica QUÉ supuestamente hará el sistema, mas
+  NO CÓMO lo hará."*
+
+  - El **QUÉ** = diseño (diagramas UML).
+  - El **CÓMO** = implementación (el código).
+
+**3. Satisfacer a todas las perspectivas.**
+
+  *"El escrupuloso diseño de un sistema involucra todas las
+  posibles perspectivas, y el diagrama UML le da una forma de
+  incorporar una perspectiva en particular."*
 
 ----
 
