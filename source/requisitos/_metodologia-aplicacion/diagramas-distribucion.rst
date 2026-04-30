@@ -809,6 +809,170 @@ publicado lleva título. Para C4 la convención IACT:
 Agregar el título es como **firmar el diagrama** —
 indica que se considera completo.
 
+Distinguir interacciones síncronas y asíncronas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En un Container view es útil **diferenciar
+visualmente** las comunicaciones síncronas de las
+asíncronas. La convención canónica:
+
+- **Línea continua** — interacción síncrona.
+- **Línea punteada** — interacción asíncrona.
+
+Sintaxis PlantUML
+^^^^^^^^^^^^^^^^^
+
+PlantUML usa puntos en lugar de guiones para flechas
+punteadas:
+
+.. code-block:: plantuml
+
+   A --> B    : sincrono
+   A ..> B    : asincrono (linea punteada corta)
+   A ...> B   : asincrono (linea punteada larga)
+
+Igual que con las flechas continuas, **más puntos**
+producen flechas más largas — el mecanismo de control
+de rango (subsección anterior) aplica también a las
+flechas punteadas.
+
+Equivalencia con Mermaid
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Notas
+ * - ``A-. "label" .->B``
+   - ``A ..> B : label``
+   - PlantUML: punto en lugar de guión.
+ * - ``A-. "label" ..->B``
+     (más puntos para alargar)
+   - ``A ...> B : label``
+     (más puntos = más largo)
+   - Mismo mecanismo de rango.
+
+Aplicación a IACT
+^^^^^^^^^^^^^^^^^
+
+Como se discutió en § 2.1.quinquies de
+:doc:`diagramas-secuencias`, IACT no usa Kafka /
+RabbitMQ por ADR_DEVOPS_001. Los mecanismos
+asíncronos disponibles son:
+
+- **Audit append** desde una app Django hacia
+  ``audit_log`` (vía bus Observer in-process).
+- **Notificaciones al buzón interno** (CNST_001)
+  desde una app hacia ``log_app``.
+- **Encolado de tareas async** (CNST_019 export)
+  hacia un worker que procesa fuera de la ventana
+  del request.
+- **Trigger del cron** que dispara
+  ``etl_runner.py`` en ventana CNST_006/008.
+
+Container view IACT con sync vs async
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Container view (sync vs async)
+
+   actor "Supervisor\n[Person]" as Supervisor
+
+   package "IACT" {
+     rectangle "Browser" as B <<c4_container>>
+     rectangle "iact.wsgi\n[Django + mod_wsgi]" as WSGI <<c4_container>>
+     database "Redis" as Redis <<c4_container>>
+     database "bd_analytics\n[MySQL]" as BDA <<c4_container>>
+     database "audit_log\n[MySQL immutable]" as Audit <<c4_container>>
+     rectangle "Worker Export\n[Django mgmt cmd]" as Worker <<c4_container>>
+   }
+
+   rectangle "ldap-corporativo" as LDAP <<c4_externo>>
+   database "bd-operativa" as BDO <<c4_externo>>
+
+   ' Sync (linea continua)
+   Supervisor --> B
+   B --> WSGI : consulta dashboards\n[HTTPS intranet]
+   WSGI --> Redis : sesion / throttling\n[Redis Protocol]
+   WSGI --> BDA : lee/escribe analytics\n[MySQL TCP]
+   WSGI ---> LDAP : autentica\n[LDAPS]
+   WSGI ---> BDO : lee llamadas\n[SQL read-only]
+
+   ' Async (linea punteada)
+   WSGI ..> Audit : registra evento\n[in-process bus]
+   WSGI ..> Worker : encola export\n[CNST_019]
+   Worker ..> BDA : lee agregados
+   @enduml
+
+Lectura del diagrama:
+
+- **Sync** (``-->``): operaciones donde el
+  ``iact.wsgi`` espera respuesta — render de UI,
+  query de Redis, autenticación LDAP.
+- **Async** (``..>``): operaciones donde el
+  ``iact.wsgi`` no bloquea — registro de audit
+  (CNST_025), encolado de export (CNST_019). El
+  ``Worker Export`` luego procesa async leyendo
+  ``bd_analytics``.
+- La distinción visual ayuda a ingenieros y SRE a
+  identificar **dónde puede haber latencia** y
+  **dónde NO se debe esperar**.
+
+Casos asíncronos canónicos en IACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Caller
+   - Destino
+   - Razón
+ * - Cualquier app
+   - ``audit_log``
+   - Bus Observer in-process; CNST_025
+     impone audit pero no bloqueante.
+ * - Cualquier app
+   - ``log_app``
+   - Notificación al buzón interno (CNST_001).
+ * - ``rpt_app``
+   - ``Worker Export``
+   - Export async (CNST_019/020).
+ * - ``cron``
+   - ``etl_runner``
+   - Disparo programado (ventana
+     CNST_006/008).
+ * - ``alr_app``
+   - ``log_app``
+   - Notificación de alerta crítica al
+     supervisor.
+
+Política IACT — sync vs async en Container view
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Línea punteada (``..>``)** para toda
+   interacción asíncrona; **continua (``-->``)**
+   para síncrona.
+2. **Etiqueta el protocolo o mecanismo** del
+   asíncrono ("in-process bus", "cron",
+   "encola tarea async"), no solo "asíncrono".
+3. **No mezclar sync y async** sobre la misma
+   conexión sin separarlas en flechas distintas — un
+   solo elemento del diagrama no puede ser ambas.
+4. **Audit típicamente async** — la inmutabilidad de
+   ``audit_log`` se apoya en el bus Observer, que es
+   fire-and-forget.
+5. **Cualquier broker externo** (Kafka, RabbitMQ,
+   Redis Streams) que se introduzca en el futuro
+   requiere ADR — no es la posición por defecto del
+   proyecto.
+
 ----
 
 1. Nodo, dispositivo y conexión
