@@ -793,6 +793,133 @@ en blanco antes de ``alt`` y después de ``end``.
 
 ----
 
+2.1.quater.bis Bifurcación opcional — bloque ``opt``
+----------------------------------------------------
+
+El bloque ``alt`` modela una bifurcación con **dos
+o más ramas exclusivas**. Cuando solo hay **una
+rama condicional** — un IF sin else — el fragmento
+canónico es ``opt`` (de "optional"). PlantUML lo
+soporta nativamente:
+
+.. code-block:: plantuml
+
+   opt [guarda]
+     A -> B : mensaje condicional
+   end
+
+Lectura: si la guarda se cumple, los mensajes
+dentro del bloque se ejecutan; si no, el flujo
+salta al final del bloque sin recorrer ninguna
+rama alternativa.
+
+Diferencia con ``alt``
+~~~~~~~~~~~~~~~~~~~~~~
+
+- ``alt`` — múltiples ramas; **una sola se
+  ejecuta**.
+- ``opt`` — una sola rama; **se ejecuta o se
+  salta**.
+
+Si el modelado solo necesita "esto pasa cuando se
+cumple X, si no, nada", ``opt`` es más conciso
+que ``alt`` con un ``else`` vacío.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Casos típicos donde ``opt`` aplica:
+
+- **Notificación opcional** — si el usuario tiene
+  preferencia de buzón habilitada (CNST_001),
+  enviar notificación; si no, omitir el paso.
+- **Audit detallado opcional** — para eventos no
+  críticos, registrar payload extendido solo si
+  el flag de auditoría granular está activo.
+- **Validación adicional** — cuando un flag
+  específico exige una verificación extra antes
+  de continuar.
+
+Ejemplo IACT
+~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_RPT_04 — paso opcional de notificacion
+
+   participant "rpt_app" as Rpt
+   participant "log_app" as Log
+   actor Supervisor
+
+   Rpt -> Rpt : encolar export
+
+   opt [supervisor.notif_buzon == true]
+     Rpt ->> Log : notificar buzon (CNST_001)
+     Log --> Supervisor : entrega mensaje
+   end
+
+   Rpt --> Rpt : retornar tarea_id
+   @enduml
+
+Lectura: la notificación al buzón solo se dispara
+cuando el supervisor tiene la preferencia
+activada; si no, el flujo continúa sin tocar
+``log_app``.
+
+Política IACT — uso de ``opt``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Etiquetar la guarda** ``[condicion]``
+   siempre — sin etiqueta, ``opt`` queda
+   ambiguo.
+2. **Preferir ``opt`` sobre ``alt`` con else
+   vacío** — mejor expresividad, menos ruido
+   visual.
+3. **No anidar más de dos opt** — si hay tres
+   condiciones encadenadas, evaluar
+   reestructurar como ``alt`` con varias ramas.
+4. **Audit dentro de ``opt``** sigue las reglas
+   generales (§ 2.1.quater): si una rama
+   condicional dispara un evento auditable
+   (CNST_025), debe quedar visible.
+5. **Si la guarda evalúa una restricción del
+   proyecto** (CNST_*, BR_*), citarla en la
+   etiqueta o en una nota adyacente.
+
+Resumen — fragmentos disponibles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con ``opt`` queda completo el catálogo de
+fragmentos canónicos para flujos en IACT:
+
+.. list-table::
+ :widths: 22 38 40
+ :header-rows: 1
+
+ * - Fragmento
+   - Significado
+   - Sección
+ * - ``alt``
+   - Una de varias ramas (IF/ELSE).
+   - § 2.1.quater
+ * - ``opt``
+   - IF simple — se ejecuta o se salta.
+   - § 2.1.quater.bis
+ * - ``loop``
+   - Iteración hasta condición.
+   - § 10.1
+ * - ``par``
+   - Ramas paralelas — todas se ejecutan.
+   - § 10.2.bis
+ * - ``break``
+   - Salida temprana del enclosing fragment.
+   - PlantUML lo soporta; usarlo solo cuando
+     el flujo lo justifique.
+
+----
+
 2.1.quinquies Mostrar mensajes asíncronos
 -----------------------------------------
 
