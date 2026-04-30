@@ -1902,6 +1902,87 @@ expandir cada función hasta llegar a las atómicas.
    ... mensajes que se repiten ...
  end
 
+Composición de ``loop`` con otras construcciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Dentro del cuerpo de un ``loop`` puede aparecer
+**cualquier construcción válida** del diagrama:
+mensajes, ``alt`` para bifurcaciones por iteración,
+``par`` para tareas paralelas dentro del ciclo,
+notas, e incluso ``loop`` anidado.
+
+Patrón self-message en ``loop``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un patrón frecuente: el cuerpo del loop contiene un
+**mensaje de un participante hacia sí mismo**, que
+representa una iteración interna sin desbordar a
+otros participantes. Sintaxis PlantUML:
+
+.. code-block:: plantuml
+
+   loop por cada filtro
+     Facade -> Facade : validar(f)
+   end
+
+El bucle interno queda confinado a la lifeline del
+participante; el diagrama no se ensucia con flechas
+hacia otros componentes que en realidad no
+participan.
+
+Aplicación a IACT
+~~~~~~~~~~~~~~~~~
+
+Casos canónicos donde el self-loop aplica:
+
+- ``ExportarReporteFacade`` validando filtros en
+  el ejemplo de § 10.2.bis (cada filtro
+  inspeccionado contra el reporte sin mensaje
+  externo).
+- ``EvaluadorAlertas`` recorriendo umbrales
+  configurados antes de decidir si publicar la
+  alerta.
+- ``ReglaSoD`` chequeando funciones miembro al
+  evaluar la regla.
+
+Cuándo usar ``loop`` con guardia explícita
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML acepta una etiqueta tras ``loop`` que
+documenta la condición o el conjunto iterado:
+
+.. code-block:: plantuml
+
+   loop hasta exito o n=3 reintentos
+     ...
+   end
+
+   loop por cada llamada en lote
+     ...
+   end
+
+La etiqueta hace explícita la **forma del bucle**
+sin abrir la implementación. El lector entiende qué
+condiciona la iteración sin consultar el código.
+
+Política IACT
+~~~~~~~~~~~~~
+
+1. **Siempre etiquetar la condición** del loop —
+   un bucle sin guardia oculta la intención.
+2. **Self-message dentro de loop** cuando la
+   iteración es interna del participante.
+3. **No anidar más de dos loops** — si el flujo
+   real lo requiere, considerar dividirlo en
+   sub-diagramas o pasar a un diagrama de
+   actividades (ver § 11 de
+   :doc:`diagramas-actividades`).
+4. **Los mensajes dentro del loop pueden mezclar
+   sync, async, alt y par** — pero sin saturar.
+5. **Auditar dentro del loop** solo si cada
+   iteración merece registro propio; típicamente
+   se audita el loop completo desde fuera.
+
 10.2.bis Ejecución paralela — bloque ``par``
 --------------------------------------------
 
