@@ -52,6 +52,7 @@ Catálogo
  casos-uso-especificacion
  casos-uso-diagramas
  diagramas-estados
+ diagramas-secuencias
 
 Mapeo a skills RM
 =================
@@ -90,6 +91,9 @@ Mapeo a skills RM
  * - :doc:`diagramas-estados`
    - ``rm-specification`` + ``rm-analysis``
    - Comportamiento temporal de objetos (Hora 8)
+ * - :doc:`diagramas-secuencias`
+   - ``rm-specification`` + ``rm-analysis``
+   - Interacciones entre objetos en el tiempo (Hora 9)
 
 Convención
 ==========

@@ -1,0 +1,711 @@
+.. meta::
+ :artefacto: METODOLOGIA_DIAG_SECUENCIAS_IACT
+ :tipo: Guia
+ :dominio: requisitos
+ :subdominio: _metodologia-aplicacion
+ :estado: Aprobado
+ :version: 1.0.0
+ :fecha_creacion: 2026-04-30
+ :ultimo_cambio: 2026-04-30
+ :autor: NestorMonroy
+ :clasificacion: Interno
+
+==================================================================
+Diagramas de secuencias — interacciones temporales aplicadas a IACT
+==================================================================
+
+.. note::
+
+ Adapta la **Hora 9 de Schmuller** ("Diagramas de
+ secuencias") al dominio real del proyecto IACT (call
+ center IVR + analytics + RBAC + ETL).
+
+ Diagramas en **PlantUML** (política del proyecto, no Mermaid).
+
+ Para la teoría genérica ver
+ :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias`.
+
+----
+
+1. Comunicación entre objetos en el tiempo
+==========================================
+
+  El diagrama de secuencias muestra cómo los objetos se
+  comunican entre sí al transcurrir el tiempo.
+
+::
+
+ Diagrama de ESTADOS:    cómo CAMBIA UN OBJETO
+ Diagrama de SECUENCIAS: cómo SE COMUNICAN VARIOS OBJETOS
+
+**Pregunta clave:** ¿qué mensajes se intercambian los objetos
+y en qué orden?
+
+----
+
+2. Componentes básicos
+======================
+
+2.1 Elementos del diagrama
+--------------------------
+
+Cinco elementos canónicos: **participantes** (rectángulos
+arriba), **línea de vida** (punteada vertical), **activación**
+(rectángulo en línea de vida), **mensaje** (flecha horizontal
+etiquetada), **tiempo** (eje vertical, arriba → abajo).
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   participant Objeto1
+   participant Objeto2
+   participant Objeto3
+
+   Objeto1 -> Objeto2 : mensaje 1
+   activate Objeto2
+   Objeto2 -> Objeto3 : mensaje 2
+   activate Objeto3
+   Objeto3 --> Objeto2 : retorno
+   deactivate Objeto3
+   Objeto2 --> Objeto1 : retorno
+   deactivate Objeto2
+   @enduml
+
+2.2 Convenciones
+----------------
+
+::
+
+ Participante:    rectángulo en la parte superior
+ Línea de vida:   línea vertical descendente desde el
+                  participante (punteada)
+ Activación:      rectángulo angosto sobrepuesto a la
+                  línea de vida (representa ejecución)
+ Mensaje:         flecha horizontal entre líneas de vida
+ Auto-mensaje:    flecha que sale y vuelve al mismo
+                  participante
+ Tiempo:          progresa de arriba hacia abajo
+
+----
+
+3. Tipos de mensajes
+====================
+
+3.1 Mensaje simple (transferencia de control)
+---------------------------------------------
+
+::
+
+ Objeto1 → Objeto2
+   - Transferencia de control
+   - No espera respuesta explícita
+   - Flecha abierta
+
+3.2 Mensaje sincrónico (bloqueante)
+-----------------------------------
+
+::
+
+ Objeto1 ⇒ Objeto2
+   - Espera respuesta antes de continuar
+   - Llamada a función bloqueante
+   - Flecha rellena
+   - El más común en programación
+
+3.3 Mensaje asincrónico (no bloqueante)
+---------------------------------------
+
+::
+
+ Objeto1 ⇢ Objeto2
+   - NO espera respuesta
+   - El emisor continúa inmediatamente
+   - Cola de mensajes / event bus
+   - Flecha abierta de medio trazo
+
+3.4 Ejemplo IACT — los tres tipos en UC_RPT_01
+----------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor Operador
+   participant ":Frontend"   as F
+   participant ":Backend"    as B
+   participant ":SecRules"   as SR
+   participant ":BDAnalytics" as BD
+   participant ":AuditLog"   as AL
+
+   Operador -> F   : 1. clic "Ver Dashboard"        (simple)
+   F -> B          : 2. GET /api/dashboard          (sincrónico)
+   activate B
+   B -> SR         : 3. verificarPermiso(view_dashboard)\n  (sincrónico)
+   activate SR
+   SR --> B        : 4. autorizado + segmento
+   deactivate SR
+   B -> BD         : 5. SELECT con filtro segmento  (sincrónico)
+   activate BD
+   BD --> B        : 6. filas
+   deactivate BD
+   B ->> AL        : 7. registrar(VIEW_DASHBOARD)   (asincrónico,\n     CNST_025)
+   B --> F         : 8. {datos, métricas, ts}
+   deactivate B
+   F --> Operador  : 9. dashboard renderizado
+   @enduml
+
+----
+
+4. Diagrama de instancia — escenario feliz
+==========================================
+
+Una **instancia** es un escenario específico de un UC sin
+condiciones alternativas.
+
+4.1 Ejemplo IACT — UC_PIP_01 (Supervisar ETL, escenario OK)
+-----------------------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor "Admin\nPipeline" as AP
+   participant ":SupervisorETL" as Sup
+   participant ":SchedulerETL"  as Sch
+   participant ":BDAnalytics"   as BD
+   participant ":AuditLog"      as AL
+
+   AP -> Sup  : abrirSupervision()
+   activate Sup
+
+   Sup -> Sch : ultimoRun()
+   activate Sch
+   Sch --> Sup : run_id, fecha_inicio, estado
+   deactivate Sch
+
+   Sup -> BD  : SELECT errores WHERE run_id=?
+   activate BD
+   BD --> Sup : []  (sin errores)
+   deactivate BD
+
+   Sup -> AL  : registrar(VIEW_ETL_STATUS)
+   activate AL
+   AL --> Sup : ok
+   deactivate AL
+
+   Sup --> AP : panel ETL: estado OK,\nprox_ejecucion=02:00 AM
+   deactivate Sup
+
+   note over AP,AL
+     Escenario feliz:
+     última ejecución exitosa,
+     CNST_008 ventana 6-12h
+     respetada.
+   end note
+   @enduml
+
+----
+
+5. Diagrama genérico — múltiples escenarios
+===========================================
+
+Un diagrama **genérico** muestra varios escenarios alternos
+en uno solo, usando ``alt`` / ``else`` (condiciones) y
+``loop`` (ciclos).
+
+5.1 Ejemplo IACT — UC_AUTH_01 (Iniciar sesión, todos los caminos)
+-----------------------------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor Usuario
+   participant ":Frontend"     as F
+   participant ":AuthService"  as A
+   participant ":SecRules"     as SR
+   participant ":SessionStore" as SS
+   participant ":AuditLog"     as AL
+
+   Usuario -> F : 1. submit (email, password)
+   F -> A       : 2. POST /api/auth/login
+   activate A
+
+   A -> SR : 3. verificarThrottling(IP)\n   (CNST_011: 5 / 5min)
+
+   alt [throttling alcanzado]
+     SR --> A : 4a. denegado
+     A ->> AL : 5a. registrar(LOGIN_BLOCKED_IP)
+     A --> F  : 6a. {error: "IP bloqueada"}
+     F --> Usuario : 7a. ✗ "Intentos máximos"
+   else [throttling ok]
+     SR --> A : 4b. autorizado
+
+     A -> SS  : 5b. validarCredenciales(email, hash)
+
+     alt [credenciales válidas]
+       SS --> A : 6b1. user_record (is_active=true)
+
+       alt [sesión existente — CNST_002]
+         A -> SS : 7b1. invalidarSesionAnterior()
+         SS --> A : 7b2. ok
+       end
+
+       A -> SS  : 8b. crearSesion(user_id, segmento)
+       SS --> A : 9b. session_id, jwt
+       A ->> AL : 10b. registrar(LOGIN_SUCCESS)
+       A --> F  : 11b. {jwt, refresh_token, user}
+       F --> Usuario : 12b. ✓ Redirect /dashboard
+     else [credenciales inválidas]
+       SS --> A : 6c. user_not_found
+       A -> SS  : 7c. incrementarIntentos(IP)
+       A ->> AL : 8c. registrar(LOGIN_FAILED)
+       A --> F  : 9c. {error: "Credenciales"}
+       F --> Usuario : 10c. ✗ Mostrar error
+     end
+   end
+   deactivate A
+   @enduml
+
+----
+
+6. Activaciones y duración — SLA CNST_017
+=========================================
+
+La **altura** de la activación representa la **duración**.
+Útil para visualizar SLAs (CNST_017 — latencia ≤ 10 s).
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   participant ":Backend" as B
+   participant ":CacheRedis" as C
+   participant ":BDAnalytics" as BD
+
+   B -> C : GET reporte:dash:user_42
+   activate C
+   note left of C
+     Cache lookup
+     ~5 ms
+   end note
+   C --> B : MISS
+   deactivate C
+
+   B -> BD : SELECT métricas WHERE segmento=?
+   activate BD
+   note right of BD
+     Query con filtro
+     CNST_008 ~ 800 ms
+   end note
+   BD --> B : filas
+   deactivate BD
+
+   B -> C : SET reporte:dash:user_42 TTL=300
+   activate C
+   C --> B : ok
+   deactivate C
+
+   note over B
+     Total ≈ 850 ms
+     ≤ CNST_017 (10 s) ✓
+   end note
+   @enduml
+
+----
+
+7. Creación de objetos
+======================
+
+Los objetos pueden ser **creados durante la secuencia**.
+Notación: mensaje ``<<create>>``. La posición en el eje
+vertical indica el momento de creación.
+
+7.1 Ejemplo IACT — Sesion creada en login
+-----------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor Usuario
+   participant ":AuthService" as A
+   participant ":SessionStore" as SS
+
+   Usuario -> A : login(email, password)
+   activate A
+   A -> A : validarCredenciales()
+
+   create participant ":Sesion" as S
+   A -> S : <<create>> nueva(user_id, segmento)
+   activate S
+   S -> S : generarTokenJWT()
+   S -> S : generarTokenRefresh()
+   S --> A : token + session_id
+
+   A -> SS : guardar(session)
+   activate SS
+   SS --> A : ok
+   deactivate SS
+
+   A --> Usuario : {jwt, refresh}
+   deactivate A
+
+   note right of S
+     Objeto Sesion creado
+     en este punto del tiempo.
+     Vive hasta logout o
+     timeout 15 min (CNST_002).
+   end note
+   @enduml
+
+----
+
+8. Destrucción de objetos
+=========================
+
+Los objetos pueden ser **destruidos** durante la secuencia.
+Notación: ``destroy`` o una **X** al final de la línea de
+vida.
+
+8.1 Ejemplo IACT — Sesion destruida en logout
+---------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor Usuario
+   participant ":Frontend"     as F
+   participant ":AuthService"  as A
+   participant ":Sesion"       as S
+   participant ":AuditLog"     as AL
+
+   Usuario -> F : clic "Cerrar sesión"
+   F -> A       : POST /api/auth/logout
+   activate A
+
+   A -> S : invalidar()
+   activate S
+   S -> S : marcarRevocada()
+   S --> A : ok
+   deactivate S
+
+   A ->> AL : registrar(LOGOUT)
+
+   destroy S
+   note over S
+     Objeto Sesion destruido —
+     tokens marcados revocados,
+     entrada eliminada del
+     SessionStore.
+   end note
+
+   A --> F : {ok}
+   deactivate A
+   F --> Usuario : redirigir a /login
+   @enduml
+
+----
+
+9. Recursividad
+===============
+
+Un objeto puede **enviarse un mensaje a sí mismo**. Útil
+cuando una operación se invoca recursivamente.
+
+9.1 Ejemplo IACT — verificación de permiso heredado
+---------------------------------------------------
+
+UC_PERM_07: una macro-función puede implicar otras (catálogo
+con relaciones reflexivas, ver
+:doc:`relaciones-uml` § 5.2). El verificador recursivo debe
+expandir cada función hasta llegar a las atómicas.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   participant ":SecRules"  as SR
+   participant ":BDAnalytics" as BD
+
+   [-> SR : verificarPermiso(usuario, "manage_users")
+   activate SR
+
+   SR -> BD : SELECT funciones_implicadas("manage_users")
+   activate BD
+   BD --> SR : [view_users, create_users, modify_users, delete_users]
+   deactivate BD
+
+   loop para cada función implicada
+     SR -> SR : verificarPermiso(usuario, sub_funcion)
+     activate SR
+     SR --> SR : true | false
+     deactivate SR
+   end
+
+   SR --> [ : true (todas las atómicas\nestán autorizadas)
+   deactivate SR
+   @enduml
+
+----
+
+10. Ciclos y condicionales
+==========================
+
+10.1 Ciclo ``loop``
+-------------------
+
+::
+
+ loop [condición]
+   ... mensajes que se repiten ...
+ end
+
+10.2 Ejemplo IACT — UC_PIP_04 reintento ETL
+-------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor "Admin\nPipeline" as AP
+   participant ":SupervisorETL" as Sup
+   participant ":SchedulerETL" as Sch
+   participant ":BDAnalytics" as BD
+   participant ":AuditLog" as AL
+
+   AP -> Sup : solicitarReintento(run_id)
+   activate Sup
+
+   loop [intentos < 3 AND estado != EXITOSA]
+     Sup -> Sch : enqueueReintento(run_id, intentos)
+     activate Sch
+     Sch -> BD : ejecutarCarga()
+     activate BD
+
+     alt [carga exitosa]
+       BD --> Sch : commit_ok
+       Sch --> Sup : EXITOSA
+       Sup ->> AL : registrar(ETL_RETRY_SUCCESS)
+     else [error temporal — timeout IVR]
+       BD --> Sch : timeout
+       Sch --> Sup : CON_ERRORES (temporal)
+       Sup ->> AL : registrar(ETL_RETRY_FAILED_TEMP)
+     else [error permanente]
+       BD --> Sch : ERROR_PERM
+       Sch --> Sup : ERROR_PERMANENTE
+       Sup ->> AL : registrar(ETL_RETRY_FAILED_PERM)
+     end
+     deactivate BD
+     deactivate Sch
+   end
+
+   alt [estado == EXITOSA]
+     Sup --> AP : ✓ ETL recuperado
+   else [3 intentos fallidos]
+     Sup ->> AL : registrar(ETL_RETRY_GAVE_UP)
+     Sup --> AP : ✗ Requiere intervención manual
+   end
+   deactivate Sup
+   @enduml
+
+----
+
+11. Ejemplo completo crítico — UC_RPT_04 (Exportar reporte)
+===========================================================
+
+Combina todo: instancia + alternativas + creación de objeto +
+loop + asincrónico + auditoría inmutable.
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   actor Supervisor
+   participant ":Frontend"      as F
+   participant ":Backend"       as B
+   participant ":SecRules"      as SR
+   participant ":Reporte"       as R
+   participant ":BDAnalytics"   as BD
+   participant ":ExportQueue"   as EQ
+   participant ":BuzonInterno"  as BI
+   participant ":AuditLog"      as AL
+
+   == UC_RPT_04: Exportar reporte ==
+
+   Supervisor -> F : clic "Exportar (Excel)"
+   F -> B          : POST /api/reports/{id}/export?fmt=xlsx
+   activate B
+
+   B -> SR : verificarPermiso(export_excel)\n           + throttling CNST_020
+   alt [permiso denegado o throttling]
+     SR --> B : denegado
+     B ->> AL : registrar(EXPORT_DENIED)
+     B --> F  : 403
+     F --> Supervisor : ✗ "Sin permiso o límite del día"
+     deactivate B
+   else [autorizado]
+     SR --> B : ok + segmento
+
+     B -> R : aplicarFiltrosSegmento(BR_012, CNST_008)
+     activate R
+     R -> BD : SELECT con filtro
+     activate BD
+     BD --> R : filas
+     deactivate BD
+
+     alt [filas ≤ 10k → síncrono]
+       create participant ":Archivo" as A
+       R -> A : <<create>> generarXLSX(filas)
+       activate A
+       A --> R : archivo
+       deactivate A
+       R ->> AL : registrar(EXPORT_OK)
+       R --> B  : url_descarga
+       B --> F  : url
+       F --> Supervisor : descarga directa
+       deactivate R
+     else [filas > 10k → asincrónico CNST_019]
+       R -> EQ : encolar(filtros, fmt, supervisor_id)
+       activate EQ
+       EQ --> R : job_id
+       deactivate EQ
+       R ->> AL : registrar(EXPORT_QUEUED)
+       R --> B  : job_id
+       B --> F  : "Procesando, te avisaremos"
+       F --> Supervisor : aviso
+
+       deactivate R
+
+       loop [hasta job listo]
+         EQ -> EQ : procesar(job)
+         activate EQ
+       end
+       deactivate EQ
+
+       EQ ->> BI : entregar(supervisor_id,\n            "Tu export está listo")
+       BI ->> Supervisor : aviso al buzón\n(CNST_001)
+     end
+   end
+   deactivate B
+   @enduml
+
+----
+
+12. Relación con casos de uso
+=============================
+
+::
+
+ Cada UC contiene UNO O MÁS diagramas de secuencias —
+ uno por escenario relevante (principal + alternativas
+ críticas).
+
+ Ejemplo: UC_RPT_04 (Exportar reporte)
+   ├─ Diagrama secuencia: escenario principal
+   │  (≤ 10k filas, descarga directa)
+   ├─ Diagrama secuencia: > 10k filas
+   │  (export asíncrono via cola)
+   ├─ Diagrama secuencia: throttling CNST_020 alcanzado
+   └─ Diagrama secuencia: BD analytics no disponible
+
+----
+
+13. En el proyecto IACT — qué UCs requieren secuencias
+======================================================
+
+**Obligatorio (secuencias detalladas + alternativas):**
+
+- ``UC_AUTH_01`` — Iniciar sesión (principal + 3
+  alternativas: throttling, inválidas, sesión existente).
+- ``UC_RPT_04`` — Exportar reporte (principal + async +
+  throttling + sin BD).
+- ``UC_PIP_04`` — Solicitar reintento ETL (principal +
+  loop reintentos + agotamiento).
+- ``UC_PERM_07`` — Verificar permiso (principal +
+  recursividad para macro-funciones).
+
+**Importante (secuencias medias):**
+
+- ``UC_RPT_01`` — Ver dashboard (principal con CNST_017
+  SLA).
+- ``UC_ALR_03`` — Reconocer alerta (principal +
+  notificación buzón CNST_001).
+- ``UC_ACC_01`` — Asignar funciones (principal + SoD
+  CNST_030).
+- ``UC_AUD_01`` — Consultar auditoría (principal con
+  filtros).
+
+**Recomendado (secuencias básicas):**
+
+- ``UC_USR_01`` / ``UC_USR_03`` / ``UC_USR_04`` — CRUD
+  usuarios.
+- ``UC_LOG_01..07`` — consulta de logs.
+- ``UC_PIP_01`` / ``UC_PIP_02`` / ``UC_PIP_03`` —
+  supervisión ETL.
+
+  Cada UC incluye su(s) diagrama(s) de secuencia en la
+  sección 7 del archivo
+  ``casos-uso/<modulo>/uc-<mod>-<NN>-<desc>.rst`` per la
+  plantilla
+  :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`.
+
+----
+
+14. Trazabilidad
+================
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Skills aplicadas**
+   - ``rm-specification`` (modelado de la interacción
+     entre objetos), ``rm-analysis`` (verificar
+     consistencia con UCs)
+ * - **Origen del documento**
+   - Reescrito de "GUÍA-DIAGRAMAS-SECUENCIAS-INTERACCIONES-
+     TEMPORAL" (Hora 9 de Schmuller, cheat-sheet aplicado
+     interno con dominio ecommerce), reorientado al
+     dominio real IACT.
+ * - **Lección teórica**
+   - :doc:`/base-cognitiva/_uml/uml-09-diagramas-secuencias`
+ * - **Cheat-sheet UML**
+   - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
+ * - **Plantilla canónica de UC**
+   - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
+ * - **Ejemplos hermanos**
+   - :doc:`diagramas-uml`,
+     :doc:`orientacion-objetos`,
+     :doc:`analisis-dominio`,
+     :doc:`relaciones-uml`,
+     :doc:`agregacion-interfaces`,
+     :doc:`casos-uso-especificacion`,
+     :doc:`casos-uso-diagramas`,
+     :doc:`diagramas-estados`
+ * - **Catálogo modular del dominio**
+   - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
+ * - **Restricciones citadas**
+   - CNST_001 (no email — sólo buzón interno),
+     CNST_002 (sesión única + timeout 15 min),
+     CNST_008 (filtro segmento en SQL),
+     CNST_011 (throttling 5 / 5 min),
+     CNST_017 (SLA ≤ 10 s),
+     CNST_019 / 020 (export async + throttling diario),
+     CNST_025 (auditoría inmutable),
+     CNST_030 (SoD),
+     BR_012 (segmento único).
+ * - **Política de diagramación**
+   - :doc:`/base-cognitiva/plantuml-guide/guidelines`
