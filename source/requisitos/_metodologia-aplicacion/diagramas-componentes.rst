@@ -2059,6 +2059,283 @@ construcción.
 
 ----
 
+15. Catálogo consolidado de notaciones
+======================================
+
+Tabla índice del documento. Cada componente del
+diagrama de componentes con su sintaxis PlantUML,
+sección donde se desarrolla y caso IACT.
+
+.. list-table::
+ :widths: 22 32 16 30
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Componente
+   - ``component "X" as C``
+   - § 1
+   - ``auth_app``, ``rpt_app``,
+     ``aud_app``.
+ * - Interfaz proveedora
+     (lollipop)
+   - ``C -( ISecurity``
+   - § 2
+   - ``perm_app`` realiza
+     ``ISecurity``.
+ * - Interfaz requerida
+     (socket)
+   - ``C ..> ISecurity : usa``
+   - § 4
+   - ``rpt_app`` consume
+     ``ISecurity``.
+ * - Puerto
+   - ``port`` o atributo
+     declarado en la pared
+     del componente
+   - § 15.2
+   - Punto de conexión
+     ``rpt_app`` ↔ ``aud_app``.
+ * - Artifact (artefacto)
+   - ``artifact "Nombre"``
+   - § 5
+   - ``iact.wsgi``,
+     ``etl_runner.py``,
+     ``iact-admin.bundle.js``.
+ * - Asociación
+   - ``A -- B`` o ``A --> B``
+   - § 1
+   - ``Apache`` -- ``mod_wsgi``.
+ * - Realización (clase
+     implementa interfaz)
+   - ``C ..|> IFace``
+   - § 4
+   - ``perm_app`` ``..|>``
+     ``ISecurity``.
+ * - Dependencia
+   - ``A ..> B``
+   - § 4
+   - ``rpt_app ..> aud_app``.
+ * - Estereotipo C4
+   - ``<<c4_container>>``,
+     ``<<c4_component>>``,
+     ``<<c4_externo>>``
+   - §§ 13-14
+   - Notación canónica de
+     niveles 1-3 de C4.
+
+15.2 Notaciones complementarias — puerto
+----------------------------------------
+
+Un **puerto** es un punto de comunicación
+explícito en la frontera de un componente. En la
+notación UML clásica se dibuja como un pequeño
+cuadrado en el borde, identificado con un nombre.
+
+PlantUML acepta puertos con la palabra clave
+``port`` dentro de un componente, o como
+elementos al borde:
+
+.. code-block:: plantuml
+
+   component RptApp {
+     port p_audit
+     port p_perm
+   }
+   component AudApp
+   component PermApp
+
+   p_audit -- AudApp
+   p_perm -- PermApp
+
+En IACT los puertos se materializan en la práctica
+como **endpoints HTTP internos** o como
+**funciones públicas de ``services.py``** —
+PlantUML los hace explícitos cuando conviene
+mostrar el punto de conexión exacto.
+
+----
+
+16. Galería de ejemplos canónicos IACT — Component Diagram
+==========================================================
+
+16.1 Componente simple
+----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   component "auth_app" as Auth
+   @enduml
+
+16.2 Componente con interfaz proveedora (lollipop)
+--------------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "perm_app" as Perm
+   Perm -( ISecurity
+   @enduml
+
+16.3 Interfaz requerida (socket)
+--------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "rpt_app" as Rpt
+   interface ISecurity
+
+   Rpt ..> ISecurity : usa
+   @enduml
+
+16.4 Componente con puertos
+---------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "rpt_app" as Rpt {
+     port p_audit
+     port p_perm
+   }
+   component "aud_app" as Aud
+   component "perm_app" as Perm
+
+   p_audit -- Aud
+   p_perm -- Perm
+   @enduml
+
+16.5 Artifact dentro de un componente
+-------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "iact.wsgi" {
+     artifact "auth_app" as Auth
+     artifact "perm_app" as Perm
+     artifact "rpt_app" as Rpt
+   }
+   @enduml
+
+16.6 Asociación bidireccional entre componentes
+-----------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "Apache" as A
+   component "mod_wsgi" as W
+
+   A -- W : carga / ejecuta
+   @enduml
+
+16.7 Realización de interfaz
+----------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   interface ISecurity
+   component "perm_app" as Perm
+
+   Perm ..|> ISecurity : implementa
+   @enduml
+
+16.8 Dependencia entre componentes
+----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "rpt_app" as Rpt
+   component "aud_app" as Aud
+
+   Rpt ..> Aud : registra eventos\n(CNST_025)
+   @enduml
+
+16.9 Vista combinada — proveedor + consumidor
+---------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   component "perm_app" as Perm
+   component "rpt_app" as Rpt
+   interface ISecurity
+
+   Perm ..|> ISecurity : implementa
+   Rpt ..> ISecurity : usa
+   @enduml
+
+16.10 Plantilla — vista de componentes IACT
+-------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Vista de componentes — <subdominio>
+
+   package "iact.wsgi" {
+     component "<app principal>" as Main
+     component "<app dependencia>" as Dep
+     interface IContrato
+   }
+
+   component "<sistema externo>" as Ext
+
+   Dep ..|> IContrato : implementa
+   Main ..> IContrato : usa
+   Main ..> Ext : <protocolo>
+   @enduml
+
+16.11 Cómo usar la galería
+--------------------------
+
+1. Localizar el componente en § 15.
+2. Copiar el snippet (§§ 16.1-16.9) o usar la
+   plantilla (§ 16.10).
+3. Adaptar nombres, interfaces y protocolos al
+   subdominio.
+4. Anclar dependencias a CNST/BR cuando aplique
+   (CNST_025 audit, CNST_001 buzón, CNST_030 SoD).
+5. Integrar al documento del cluster o del UC.
+
+Mantenimiento
+~~~~~~~~~~~~~
+
+- Cada notación nueva en § 15 requiere su mini-
+  diagrama en § 16.
+- Mantener cada snippet ≤ 5 componentes.
+- Si la vista necesita más componentes, modelar
+  una vista por subdominio (RBAC, ETL,
+  Reportería, Auditoría) y combinar con
+  ``package`` (§ 5).
+
+----
+
 Trazabilidad
 ============
 

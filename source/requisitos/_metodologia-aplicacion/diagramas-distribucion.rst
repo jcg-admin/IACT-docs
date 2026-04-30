@@ -1640,6 +1640,369 @@ contiene y a qué interfaz corresponden (cruce con H12).
    - :doc:`diagramas-componentes` (H12),
      :doc:`diagramas-distribucion` (H13)
 
+10. Catálogo consolidado de notaciones
+======================================
+
+Tabla índice del documento. Cada componente del
+diagrama de despliegue con su sintaxis PlantUML,
+sección donde se desarrolla y caso IACT.
+
+.. list-table::
+ :widths: 22 32 16 30
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Device node
+     (hardware / VM)
+   - ``node "X" as N``
+   - § 1
+   - ``vm-iact``,
+     ``puesto-supervisor``.
+ * - Execution Environment
+     node (software de
+     ejecución)
+   - ``node "X" as N``
+     anidado dentro de un
+     device node
+   - § 1
+   - ``Apache + mod_wsgi``
+     dentro de ``vm-iact``.
+ * - Database (BD persistente)
+   - ``database "X" as DB``
+   - § 1
+   - ``bd_analytics``,
+     ``audit_log``,
+     ``Redis``.
+ * - Artifact (binario o
+     archivo desplegado)
+   - ``artifact "X" as A``
+   - § 5
+   - ``iact.wsgi``,
+     ``etl_runner.py``,
+     ``iact-admin.bundle.js``.
+ * - Asociación
+     (bidireccional)
+   - ``A -- B``
+   - § 3
+   - Conexión local entre
+     apps y Redis.
+ * - Asociación dirigida
+   - ``A --> B``
+   - § 3
+   - ``vm-iact`` →
+     ``ldap-corporativo``.
+ * - Dependencia
+   - ``A ..> B``
+   - § 10.2
+   - ``etl_runner ..>
+     bd-operativa``.
+ * - Puerto en frontera
+   - ``port`` declarado
+     dentro del nodo
+   - § 10.2
+   - HTTPS de entrada en
+     ``vm-iact``.
+ * - Estereotipo C4
+   - ``<<c4_container>>``,
+     ``<<c4_externo>>``
+   - Preludio Container
+   - Coherente con vista
+     Container.
+ * - Frontera del sistema
+   - ``package "IACT" { ... }``
+   - Preludio Container
+   - Agrupación visual de
+     containers internos.
+
+10.1 Tipos de nodo en la convención UML
+---------------------------------------
+
+UML estándar distingue dos tipos de nodo:
+
+- **Device node** — recurso de hardware con
+  capacidad de cómputo (servidor físico, VM,
+  laptop, mobile).
+- **Execution Environment node** — entorno de
+  ejecución que corre **dentro** de un device
+  node (sistema operativo, servidor web,
+  motor de BD, contenedor).
+
+PlantUML usa la misma palabra clave ``node``
+para ambos; la **distinción** se hace por
+**anidamiento** (un nodo dentro de otro indica
+que el interno es execution environment del
+externo) y por la **etiqueta** (texto entre
+corchetes que aclara el rol).
+
+Aplicación a IACT:
+
+- Device: ``vm-iact`` (VM Vagrant o servidor
+  corporativo), ``puesto-supervisor``,
+  ``ldap-corporativo``, ``ivr-host``.
+- Execution environment dentro de ``vm-iact``:
+  ``Apache + mod_wsgi``, ``Redis daemon``,
+  ``MySQL daemon``.
+
+10.2 Notaciones complementarias
+-------------------------------
+
+Componentes adicionales del catálogo UML
+estándar que conviene tener visibles:
+
+Puerto en frontera de nodo
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Igual que en el diagrama de componentes (§ 15.2
+de :doc:`diagramas-componentes`), un **puerto**
+es un punto explícito de comunicación. En
+deployment, los puertos típicos son:
+
+- Punto de entrada externo del nodo (HTTPS de
+  intranet hacia ``vm-iact``).
+- Punto de comunicación entre nodos (LDAPS hacia
+  ``ldap-corporativo``).
+
+Sintaxis PlantUML:
+
+.. code-block:: plantuml
+
+   node "vm-iact" {
+     port p_https
+     port p_ldap
+   }
+
+Dependencia entre nodos
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Diferencia con asociación: la dependencia
+(``..>``) indica que el funcionamiento de un
+nodo **requiere** la existencia del otro, sin
+implicar comunicación bidireccional permanente.
+
+En IACT:
+
+- ``etl_runner ..> bd-operativa`` —
+  dependencia: el ETL no funciona si la BD
+  operativa no está disponible.
+- ``vm-iact ..> ldap-corporativo`` — dependencia
+  para autenticación; sin LDAP el login falla.
+
+----
+
+11. Galería de ejemplos canónicos IACT — Deployment
+====================================================
+
+11.1 Device node simple
+-----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" as VM
+   @enduml
+
+11.2 Device node con execution environment anidado
+--------------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" as VM {
+     node "Apache + mod_wsgi" as Apache
+   }
+   @enduml
+
+11.3 Artifact dentro de execution environment
+---------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" {
+     node "Apache + mod_wsgi" {
+       artifact "iact.wsgi"
+     }
+   }
+   @enduml
+
+11.4 Database dentro de un nodo
+-------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" {
+     database "bd_analytics" as BDA
+     database "audit_log" as Audit
+     database "Redis" as R
+   }
+   @enduml
+
+11.5 Asociación bidireccional entre nodos
+-----------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "puesto-supervisor" as PS
+   node "vm-iact" as VM
+
+   PS -- VM : HTTPS (intranet)
+   @enduml
+
+11.6 Asociación dirigida
+------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" as VM
+   node "ldap-corporativo" as LDAP
+
+   VM --> LDAP : LDAPS\n(autenticacion)
+   @enduml
+
+11.7 Dependencia entre nodos
+----------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" as VM
+   database "bd-operativa\n(read-only)" as BDO
+
+   VM ..> BDO : depende de\n(CNST_007)
+   @enduml
+
+11.8 Puertos en frontera
+------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   node "vm-iact" as VM {
+     port p_https
+     port p_ldap
+   }
+   node "puesto-supervisor" as PS
+   node "ldap-corporativo" as LDAP
+
+   PS -- p_https
+   p_ldap -- LDAP
+   @enduml
+
+11.9 Vista combinada — IACT minimalista
+---------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — Deployment minimalista
+
+   actor Supervisor
+
+   node "puesto-supervisor" as PS {
+     artifact "Browser"
+   }
+
+   node "vm-iact" as VM {
+     node "Apache + mod_wsgi" {
+       artifact "iact.wsgi"
+     }
+     database "Redis" as Redis
+     database "bd_analytics" as BDA
+     database "audit_log" as Audit
+   }
+
+   node "ldap-corporativo" as LDAP
+   database "bd-operativa\n(read-only)" as BDO
+
+   Supervisor -- PS
+   PS --> VM : HTTPS (intranet)
+   VM --> LDAP : LDAPS
+   VM ..> BDO : SQL read-only\n(CNST_007)
+   @enduml
+
+11.10 Plantilla — vista de despliegue IACT
+------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Deployment — <ambito>
+
+   actor "<Actor>" as A
+
+   node "<device cliente>" as Cliente {
+     artifact "<bundle / cliente>"
+   }
+
+   node "vm-iact" as VM {
+     node "<execution environment>" as EE {
+       artifact "<artifact 1>"
+       artifact "<artifact 2>"
+     }
+     database "<BD interna>" as DB
+   }
+
+   node "<sistema externo>" as Ext
+
+   A -- Cliente
+   Cliente --> VM : <protocolo>
+   VM --> Ext : <protocolo>
+   VM ..> Ext : <dependencia opcional>
+   @enduml
+
+11.11 Cómo usar la galería
+--------------------------
+
+1. Localizar el componente en § 10.
+2. Copiar el snippet (§§ 11.1-11.9) o usar la
+   plantilla (§ 11.10).
+3. Adaptar nombres de nodos, environments y
+   artifacts al ámbito a documentar.
+4. Etiquetar los protocolos en cada conexión
+   (HTTPS, LDAPS, SQL read-only, protocolo IVR,
+   Redis Protocol).
+5. Marcar las fronteras read-only (CNST_007) y
+   las restricciones de ventana (CNST_006/008)
+   como notas adyacentes cuando apliquen.
+6. Integrar al WP correspondiente o al SAD
+   futuro.
+
+Mantenimiento
+~~~~~~~~~~~~~
+
+- Cada nodo nuevo en producción requiere ADR
+  per la regla 5 de § 8.
+- Si se agrega un componente nuevo al catálogo
+  § 10, agregar también su snippet en § 11.
+- Mantener cada snippet ≤ 5 nodos. Si la vista
+  necesita más, dividir por subdominio.
+
+----
+
 Trazabilidad
 ============
 
