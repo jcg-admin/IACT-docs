@@ -388,6 +388,34 @@ secciones desarrolla:
 **Definición:** conexión conceptual entre dos clases. Elementos:
 línea + nombre + dirección + roles + multiplicidad.
 
+La asociación es el tipo de relación **más laxo** del
+diagrama de clases UML. Para que una relación se clasifique
+como asociación normalmente las entidades deben poder
+**existir independientemente** una de la otra, con
+**ciclos de vida propios**. Generalmente **no hay un
+"dueño"** de la relación: las entidades simplemente están
+**vinculadas**. En ese sentido la relación se entiende
+como **"usar"** mutuamente, no como una poseyendo a la
+otra.
+
+Aplicado al ejemplo IACT ``Llamada`` ↔ ``Segmento`` (ver
+§ 15.8 de :doc:`analisis-dominio`):
+
+- La aplicación puede mostrar una **lista de segmentos**
+  sin entrar en sus llamadas.
+- También debe poder listar las **llamadas dentro de un
+  segmento** y mostrar el **segmento de una llamada**
+  específica.
+- Necesitan estar **vinculadas** — toda relación
+  relevante del dominio debe quedar documentada en el
+  modelo (DDD § 15 de :doc:`analisis-dominio`).
+
+Cuando el vínculo entre dos entidades es **más fuerte**
+que esto (la parte no puede vivir sin el todo, o el todo
+agrupa partes con cierto ownership), la asociación se
+queda corta — entonces se pasa a **agregación** o
+**composición** (ver :doc:`agregacion-interfaces`).
+
 2.1 Usuario consulta Reporte (UC_RPT)
 -------------------------------------
 
