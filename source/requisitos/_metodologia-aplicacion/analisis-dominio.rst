@@ -2561,6 +2561,365 @@ mirar el **UC** que ejercita la relación: la descripción
 del flujo principal del UC suele contener el verbo
 adecuado.
 
+16.5 Agregar multiplicidad
+--------------------------
+
+El último enriquecimiento del modelo de dominio es la
+**multiplicidad**: cuántas instancias de cada entidad
+intervienen en una relación. El término suena complejo
+pero la idea es la familiar de las bases de datos
+relacionales: 1:1, 1:N, N:M, etc.
+
+Por qué importa
+~~~~~~~~~~~~~~~
+
+En el modelo escribimos las entidades en **singular**
+(``Title``, ``Season``, ``Llamada``, ``Reporte``)
+porque el código usará nombres singulares para las
+clases. Pero la realidad puede ser plural — un
+``Title`` puede tener varias ``Season``, una
+``EjecucionETL`` carga varias ``Llamada``. Sin
+multiplicidad explícita, el lector tiene que **adivinar**
+si la relación es 1:1, 1:N o N:M.
+
+Si escribimos las entidades en plural para "compensar",
+caemos en el error opuesto: el lector asume que siempre
+hay varias, incluso cuando puede haber una sola.
+
+La multiplicidad resuelve la ambigüedad: deja todas las
+entidades en singular y **anota la cardinalidad** del
+lado de la relación.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+Idéntica a Mermaid: cardinalidad entre comillas a cada
+lado del operador.
+
+.. code-block:: plantuml
+
+   Title "1" *-- "0..*" Season : has
+   Title "1..*" -- "1..*" Genre : is associated with
+   Viewer "0..*" --> "0..*" Title : watches
+
+Cardinalidades canónicas:
+
+.. list-table::
+ :widths: 18 32 50
+ :header-rows: 1
+
+ * - Notación
+   - Significado
+   - Ejemplo
+ * - ``"1"``
+   - Exactamente uno.
+   - Una ``Llamada`` pertenece a **un**
+     ``Segmento``.
+ * - ``"0..1"``
+   - Cero o uno (opcional).
+   - Una ``Sesion`` puede tener cero o un
+     ``TokenRefresh``.
+ * - ``"1..*"``
+   - Uno o varios (al menos uno).
+   - Un ``Segmento`` tiene **al menos una**
+     ``Llamada`` (si lo modelamos como obligatorio).
+ * - ``"0..*"`` o ``"*"``
+   - Ninguno o varios.
+   - Un ``Reporte`` puede tener cero o más
+     ``Filtro`` aplicados.
+ * - ``"n..m"``
+   - Rango específico (raro).
+   - Una ``ReglaSoD`` involucra exactamente 2 a 3
+     ``Funcion``.
+
+Cómo leer una relación con multiplicidad
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La cardinalidad de una entidad se escribe **en el lado
+opuesto** de la relación. Esto puede confundir al
+principio porque la primera cardinalidad que se ve al
+leer de izquierda a derecha **no es** la del primer
+elemento.
+
+Para el ejemplo del libro:
+
+.. code-block:: plantuml
+
+   Title "1" *-- "0..*" Season : has
+
+Lectura correcta:
+
+- ``Title`` tiene **0 o más** ``Season``.
+- ``Season`` pertenece a **1** ``Title``.
+
+Truco mnemotécnico (del libro citado): al leer una
+relación, **ignorar la primera cardinalidad** y tomar la
+**segunda** como la del primer elemento. Funciona en
+ambas direcciones.
+
+Decisión 0..* vs 1..*
+~~~~~~~~~~~~~~~~~~~~~
+
+La elección depende del dominio:
+
+- **0..*** — admite la entidad sin esa parte. En el
+  ejemplo Streamy, un ``Title`` puede tener cero
+  ``Season`` (solo tráiler con "próximamente").
+- **1..*** — la parte es obligatoria. Una temporada
+  con cero episodios no tiene sentido (por eso el libro
+  modela ``Season`` ↔ ``Episode`` como ``1..*``).
+
+En IACT esta decisión se toma a la luz de las reglas de
+negocio (BR_*) y restricciones (CNST_*).
+
+Ejemplo Streamy completo con multiplicidad
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Reproducción del modelo cerrado del libro:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Title
+   class Genre
+   class Season
+   class Episode
+   class Review
+   class Actor
+   class Viewer
+   class TVShow
+   class Short
+   class Film
+
+   Title "1..*" -- "1..*" Genre : is associated with
+   Title "1" *-- "0..*" Season : has
+   Title "1" *-- "0..*" Review : has
+   Title "1..*" o-- "0..*" Actor : has
+   Season "1" *-- "0..*" Review : has
+   Season "1" *-- "1..*" Episode : has
+   Episode "1" *-- "0..*" Review : has
+   Viewer "0..*" --> "0..*" Title : watches
+
+   TVShow --|> Title : implements
+   Short --|> Title : implements
+   Film --|> Title : implements
+   @enduml
+
+Cada cardinalidad refleja una decisión de modelado
+explícita: un título tiene **al menos un** género, puede
+tener **0 a muchas** temporadas, **al menos un** actor;
+una temporada tiene **al menos un** episodio (no existe
+temporada vacía); los espectadores y títulos se
+relacionan **muchos a muchos**.
+
+Aplicación al modelo IACT
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Modelo IACT consolidado con multiplicidad anclada a las
+reglas del dominio:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   class Llamada
+   class Segmento
+   class EjecucionETL
+   class VentanaETL
+   class ErrorETL
+   class Reporte
+   class Filtro
+   class Alerta
+   class Supervisor
+   class Usuario
+   class Sesion
+   class Grupo
+   class Funcion
+   class EventoAuditoria
+   class ReglaSoD
+
+   Llamada "1..*" -- "1" Segmento : pertenece a
+   VentanaETL "1" -- "0..*" EjecucionETL : contiene
+   EjecucionETL "1..*" -- "0..*" Llamada : carga
+   EjecucionETL "1" *-- "0..*" ErrorETL : produce
+   Reporte "1..*" -- "0..*" Llamada : agrega
+   Reporte "1" o-- "0..*" Filtro : aplica
+   Alerta "0..*" -- "0..1" Supervisor : es reconocida por
+   Sesion "1" *-- "1" Usuario : pertenece a
+   Usuario "0..*" o-- "0..*" Grupo : asignado a
+   Grupo "1..*" o-- "0..*" Funcion : agrupa
+   Usuario "1" --> "0..*" EventoAuditoria : genera
+   ReglaSoD "0..*" -- "2..3" Funcion : restringe
+   @enduml
+
+Decisiones IACT explicadas
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+ :widths: 35 25 40
+ :header-rows: 1
+
+ * - Relación
+   - Multiplicidad elegida
+   - Razón del dominio
+ * - ``Llamada → Segmento``
+   - ``"1..*" : "1"``
+   - BR_012: cada llamada pertenece a **un** único
+     segmento; un segmento puede tener muchas
+     llamadas.
+ * - ``EjecucionETL → ErrorETL``
+   - ``"1" : "0..*"``
+   - Una ejecución produce **0 o más** errores. El
+     caso ideal es 0; con errores la composición se
+     materializa.
+ * - ``Alerta → Supervisor``
+   - ``"0..*" : "0..1"``
+   - Una alerta puede no haber sido reconocida (0)
+     o haberlo sido por un único supervisor (1). Un
+     supervisor reconoce muchas alertas.
+ * - ``Sesion → Usuario``
+   - ``"1" : "1"``
+   - CNST_002: una sesión pertenece a un **único**
+     usuario; el usuario puede tener una **única**
+     sesión activa.
+ * - ``Usuario → Grupo``
+   - ``"0..*" : "0..*"``
+   - Asignación N:M; un usuario puede pertenecer a
+     varios grupos y un grupo puede tener varios
+     usuarios.
+ * - ``ReglaSoD → Funcion``
+   - ``"0..*" : "2..3"``
+   - CNST_030: una regla de SoD relaciona típicamente
+     entre 2 y 3 funciones que no pueden coexistir
+     en el mismo grupo.
+
+Reglas IACT para multiplicidad
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Toda relación documentada debe tener
+   multiplicidad** — su omisión es ambigüedad.
+2. **Anclar al BR/CNST cuando aplique** — el "1" del
+   segmento por llamada viene de BR_012; el "1" en
+   ``Sesion → Usuario`` viene de CNST_002.
+3. **Preferir 0..* a 1..* cuando la realidad lo
+   admita** — el modelo debe permitir el estado
+   inicial vacío (un grupo recién creado sin
+   funciones asignadas, una ventana ETL sin
+   ejecuciones aún).
+4. **Documentar rangos específicos** (``2..3``) cuando
+   un BR/CNST lo establezca explícitamente.
+5. **Diferenciar 0..1 de 1** — opcional vs obligatorio.
+   Una ``Alerta`` puede no estar reconocida; una
+   ``Sesion`` siempre pertenece a un usuario.
+
+Cierre del módulo de enriquecimiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con descripciones (§ 16.4) y multiplicidad (§ 16.5), un
+modelo de dominio pasa de **embrionario** a
+**operativo**. Combinado con la herencia (§ 7 y § 14.1
+de :doc:`relaciones-uml`) y los atributos/operaciones
+(§§ 3-6 de este documento), el modelo está listo para:
+
+- Servir como contrato compartido con stakeholders
+  (DDD § 15.2).
+- Guiar la implementación en clases Django.
+- Detectar inconsistencias antes de que se materialicen
+  en código.
+- Evolucionar de manera disciplinada (§ 15.5).
+
+Para más detalle sobre multiplicidad, ver el
+tratamiento canónico en :doc:`relaciones-uml` § 3 con la
+tabla completa de notaciones y los casos canónicos del
+proyecto.
+
+16.6 Agregar un título al diagrama
+----------------------------------
+
+Una de las primeras buenas prácticas al diagramar es
+**siempre poner un título**. La idea viene de los
+gráficos: un gráfico sin título tiende a malinterpretarse;
+un diagrama UML, igual.
+
+Sintaxis PlantUML
+~~~~~~~~~~~~~~~~~
+
+PlantUML acepta títulos directamente con la directiva
+``title``, sin necesidad de bloque YAML como Mermaid:
+
+.. code-block:: plantuml
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Modelo de dominio IACT
+   ...
+   @enduml
+
+También admite títulos con varias líneas y formato
+básico:
+
+.. code-block:: plantuml
+
+   title Modelo de dominio IACT\nv1.0 — abril 2026
+
+Cómo se ve aplicado
+~~~~~~~~~~~~~~~~~~~
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title Modelo de dominio IACT — cluster RBAC
+   class Usuario
+   class Grupo
+   class Funcion
+   Usuario "0..*" o-- "0..*" Grupo : asignado a
+   Grupo "1..*" o-- "0..*" Funcion : agrupa
+   @enduml
+
+El título aparece centrado en la parte superior del
+diagrama, ofreciendo contexto inmediato sin que el
+lector tenga que leer el cuerpo para entender de qué
+trata.
+
+Reglas IACT para títulos
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Todo diagrama publicado** en este cajón debe
+   tener título — un diagrama sin título es ambiguo
+   fuera del contexto inmediato del párrafo que lo
+   introduce.
+2. **El título debe ser informativo del alcance**:
+   "Modelo de dominio IACT" es genérico; "Modelo de
+   dominio IACT — cluster RBAC" es específico.
+3. **Convención de nombre**: ``[propósito] — [alcance]``.
+   Ejemplos:
+
+   - ``Diagrama de clases — entidad Llamada``
+   - ``Diagrama de secuencias — UC_RPT_04 export``
+   - ``Diagrama de despliegue — vm-iact``
+4. **Sin emojis**, sin caracteres decorativos —
+   coherencia con la convención general del repositorio.
+5. **Coincidencia con el caption del bloque RST** — si
+   el bloque ``.. uml::`` está bajo un encabezado
+   "Ejemplo IACT — UC_RPT_04", el título del diagrama
+   debe ser coherente con ese encabezado.
+
+Excepciones permitidas
+~~~~~~~~~~~~~~~~~~~~~~
+
+Los **fragmentos pequeños embebidos en explicaciones de
+sintaxis** (como las ilustraciones de "asociación",
+"composición", "agregación" usadas en este documento
+para mostrar la diferencia visual) pueden omitir el
+título: están claramente subordinados al texto
+adyacente. La regla aplica a **diagramas que pueden
+extraerse y leerse aisladamente** — esos sí requieren
+título.
+
 ----
 
 17. Trazabilidad
