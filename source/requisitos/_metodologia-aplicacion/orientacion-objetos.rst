@@ -2522,7 +2522,201 @@ principio**. No al revés.
 
 ----
 
-22. Trazabilidad
+22. Software autoexplicativo y uso de comentarios
+=================================================
+
+El código debe ser **lo suficientemente claro y expresivo
+por sí mismo**, minimizando la necesidad de comentarios
+explicativos. Los comentarios deben ser un **complemento**
+que enriquezca la comprensión, **no un sustituto** de un
+buen diseño ni un parche para compensar código mal
+estructurado.
+
+22.1 Regla operativa
+--------------------
+
+Cuando aparezca la tentación de escribir un comentario,
+primero responder:
+
+- ¿Puedo expresar esta misma información mediante una
+  **mejor estructura del código**?
+- ¿Un **nombre más descriptivo** lo haría innecesario?
+- ¿Una **mejor organización** del módulo lo elimina?
+
+Si la respuesta es sí, refactorizar antes de comentar. El
+comentario solo se justifica si **añade valor real** que
+el código no puede expresar.
+
+22.2 Dos riesgos significativos
+-------------------------------
+
+Los comentarios bien intencionados pueden volverse
+problemáticos por dos vías:
+
+- **Quedarse desactualizados** cuando el código cambia.
+  Un comentario que ya no refleja la realidad del código
+  es **más perjudicial** que la ausencia total de
+  comentarios — guía al lector por caminos equivocados.
+- **Ser superfluos** cuando se añaden por cumplir
+  normativas (Javadoc obligatorio para todo) sin aportar
+  valor. Esta práctica es contraproducente fuera del
+  contexto de bibliotecas públicas con consumidores
+  externos.
+
+22.3 Comentarios con valor real
+-------------------------------
+
+Solo dos categorías justifican comentarios de forma
+sistemática:
+
+.. list-table::
+ :widths: 22 38 40
+ :header-rows: 1
+
+ * - Tipo
+   - Descripción
+   - Ejemplo IACT
+ * - **Legales**
+   - Documentan aspectos jurídicos del código.
+     Forman parte de la documentación formal.
+   - Cabecera de copyright, licencia y clasificación
+     interna en archivos de ``perm_app`` que
+     materializan reglas SoD (CNST_030) regulables.
+ * - **Aclarativos**
+   - Explican conceptos que el código por sí solo no
+     puede expresar — el **porqué**, no el qué.
+   - Por qué la ventana ETL exige bloqueo exclusivo
+     entre ``00:00`` y ``06:00`` (CNST_006/008); por
+     qué un cálculo se redondea hacia abajo en
+     reportes de abandono (BR_016).
+
+Una buena heurística: si el comentario explica **el
+qué**, probablemente sobra. Si explica **el porqué**,
+puede valer la pena.
+
+22.4 Violaciones del uso de comentarios
+---------------------------------------
+
+Antipatrones recurrentes en código y su solución:
+
+.. list-table::
+ :widths: 24 30 26 20
+ :header-rows: 1
+
+ * - Tipo
+   - Descripción
+   - Ejemplo
+   - Solución
+ * - **Redundantes**
+   - Repiten lo que el código ya expresa.
+   - ``int dayOfMonth; // the day of the month``
+   - Nombres autoexplicativos; eliminar el
+     comentario.
+ * - **De sección**
+   - Separadores visuales para "organizar" el
+     código.
+   - ``// === Actions ===``
+   - Mejorar la estructura: clases y métodos con
+     nombres claros eliminan la necesidad.
+ * - **No mantenidos**
+   - Información desactualizada o irrelevante.
+   - ``// port is 7077`` cuando ya no aplica.
+   - Eliminar; usar git history y ADRs
+     (``.thyrox/context/decisions/``) para
+     trazabilidad histórica.
+ * - **Excesivos**
+   - Información que debería estar en documentación
+     externa.
+   - Historiales de discusión de diseño en el
+     archivo de código.
+   - Mover a documentos del proyecto
+     (``source/``, work packages, ADRs).
+ * - **Confusos**
+   - Requieren revisar otras partes del código para
+     entenderlos.
+   - Referencias a código externo sin contexto.
+   - Proporcionar el contexto donde se necesita o
+     mejorar la estructura.
+ * - **Inexactos**
+   - Información imprecisa o errónea sobre el
+     funcionamiento.
+   - Descripciones que ya no coinciden con el
+     comportamiento.
+   - Actualizar al comportamiento real o eliminar.
+ * - **De atribución**
+   - Duplican información del control de versiones.
+   - ``// Added by Luis``
+   - Confiar en ``git blame`` y ``git log``.
+ * - **Código comentado**
+   - Bloques deshabilitados que permanecen en el
+     archivo.
+   - ``// def vieja_implementacion(): ...``
+   - Eliminar; git history (I-002 — git como única
+     persistencia) recupera versiones anteriores.
+
+22.5 Aplicación a IACT
+----------------------
+
+Reglas para este proyecto:
+
+1. **Nombres del dominio antes que comentarios**. Una
+   variable ``tasa_abandono`` no necesita ``# tasa de
+   abandono``; una función ``verificar_sod(actor,
+   funcion)`` no necesita ``# verifica SoD``. El
+   vocabulario IACT (BR_*, CNST_*, UC_*) ya nombra
+   con precisión.
+2. **Comentarios solo cuando explican el porqué**, no
+   el qué. Ejemplo válido: ``# CNST_031: rango limitado
+   a 6 meses para evitar export gigantes``. Ejemplo
+   inválido: ``# valida que sea menor a 6 meses``.
+3. **Sin código comentado en el repositorio**. Si la
+   versión anterior es valiosa, vive en git history.
+4. **Sin atribución en comentarios**. ``git blame`` es
+   la fuente de verdad.
+5. **Discusiones de diseño en ADRs**, no en
+   comentarios. ``.thyrox/context/decisions/`` y los
+   work packages de
+   ``.thyrox/context/work/`` son el lugar para
+   conservar el porqué de decisiones complejas.
+6. **Docstrings de servicios públicos sí son útiles**
+   cuando documentan contratos (pre/post-condiciones,
+   excepciones esperadas) — ver § 21.4 Diseño por
+   Contrato.
+
+Anti-patrones IACT específicos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``# TODO arreglar`` sin issue ni dueño →
+  convertir en deuda técnica registrada en
+  ``.thyrox/context/technical-debt.md`` o eliminar.
+- ``# WORKAROUND: por bug de Apache`` sin
+  referencia a un issue → vincular o documentar en
+  ADR.
+- Bloques Javadoc/docstring autogenerados con
+  texto vacío (``"""TODO documentation"""``) →
+  eliminar; añadir solo cuando haya contenido real.
+- Comentarios que repiten una guideline ya capturada
+  en ``.claude/rules/`` → redundancia con
+  documentación viva.
+
+22.6 Relación con otros principios del documento
+------------------------------------------------
+
+- **DRY** (§ 13) — comentarios redundantes son
+  duplicación de información: el código y el
+  comentario dicen lo mismo. DRY pide eliminarlos.
+- **Naming claro** — la primera línea de defensa contra
+  la necesidad de comentarios.
+- **Cohesión / SRP** (§ 17) — clases con
+  responsabilidad única no necesitan explicar "qué
+  hacen"; el nombre lo dice.
+- **Evidence-classification THYROX** — los claims
+  importantes (los "porqué") deben quedar como ADR o
+  análisis WP, no como comentarios sueltos.
+
+----
+
+23. Trazabilidad
 ================
 
 .. list-table::
