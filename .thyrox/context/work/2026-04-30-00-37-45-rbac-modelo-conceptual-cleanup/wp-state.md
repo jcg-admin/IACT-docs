@@ -4,14 +4,33 @@ work_package: 2026-04-30-00-37-45-rbac-modelo-conceptual-cleanup
 sub_wp_of: 2026-04-29-17-52-15-modelo-rbac-improvement
 program_id: Z.2
 created_at: 2026-04-30 00:37:45
-current_phase: Phase 1 — DISCOVER
+closed_at: 2026-04-30 04:30:00
+current_phase: Phase 11 — TRACK (closed)
 flow: thyrox
-methodology_step: workflow-discover
+methodology_step: workflow-track
 author: NestorMonroy
-status: Activo
+status: Closed
 ```
 
-# Z.2 — RBAC Modelo Conceptual Cleanup
+# Z.2 — RBAC Modelo Conceptual Cleanup (CLOSED)
+
+## Resumen de cierre
+
+WP cerrado tras ejecutar plan v5.4.0-implementation-plan.md
+en 6 bloques. Modelo RBAC bumpeado de v5.3.0 a v5.4.0
+(51 → 61 funciones; +10 nuevas; 6 renames preservando IDs;
+0 eliminadas). 6 UCs nuevos, 2 consolidados, 4 re-mapeados,
+4 constraints reescritos.
+
+**Hallazgos derivados:** WP hijo
+`2026-04-30-04-11-28-md-references-audit` abierto para
+auditar 832 referencias `.md` en source/ que Sphinx no valida.
+
+**Build final:** 1 warning preexistente (br-012 en archivo
+histórico, fuera del scope), 0 errores.
+
+**Trazabilidad completa:** ver
+`track/wp-modelo-conceptual-cleanup-changelog.md`.
 
 ## Origen
 

@@ -812,6 +812,7 @@ TABLA DE CONTENIDO
 
 
 **CAMBIO v5.3.0:**
+
 - Agregadas 3 funciones nuevas (RPT-009..011): ``schedule_report``,
   ``save_view``, ``share_report``.
 - ``schedule_report`` y ``share_report`` son **restauraciones** del
@@ -819,6 +820,7 @@ TABLA DE CONTENIDO
 - ``save_view`` es feature nueva (no existía en versiones previas).
 
 **CAMBIO v5.2.1:**
+
 - ``view_charts`` (NO "ve_graficos", "charts" es estándar para gráficos de datos)
 - ``filter_reports`` (NO "filtra_reportes")
 
@@ -1037,6 +1039,7 @@ TABLA DE CONTENIDO
 
 
 **CAMBIO v5.4.0:**
+
 - LOG-001 RENAME ``view_technical_logs`` → ``view_application_logs``
   (SRP: ya no cubre ETL ni infra)
 - LOG-004 NUEVA ``view_etl_logs`` (uc-log-02 deja de ser instancia)
@@ -1045,6 +1048,7 @@ TABLA DE CONTENIDO
 - LOG-007 NUEVA ``view_technical_metrics`` (gap UC_083 ARQ-MOD-008)
 
 **CAMBIO v5.3.0:**
+
 - Agregada ``search_logs`` (LOG-003) para sustentar UC_LOG_03 que
   citaba función inexistente.
 
