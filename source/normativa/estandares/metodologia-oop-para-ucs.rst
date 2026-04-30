@@ -25,6 +25,12 @@ Metodología OOP para Casos de Uso (UCs)
  con la plantilla canónica
  :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`.
 
+ **Es paso downstream** de
+ :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs` —
+ primero se descubren las clases (sustantivos→clases,
+ verbos→operaciones), luego se aplican las seis dimensiones
+ OOP que define este estándar.
+
  Diagramas en **PlantUML** (política del proyecto, no Mermaid).
 
 ----

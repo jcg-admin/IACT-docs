@@ -278,6 +278,12 @@ Cada UC documentado debe cumplir:
    documentar las seis dimensiones (abstracción,
    encapsulamiento, herencia, polimorfismo, envío de mensajes,
    asociaciones) y aprobar el checklist § 6 de la metodología.
+8. ✓ **Análisis de dominio completo** per
+   :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`
+   — extracción de sustantivos→clases, verbos→operaciones,
+   adjetivos→atributos; clases asignadas a un paquete UML;
+   restricciones documentadas. Aprobar el checklist § 8 de la
+   metodología.
 
 ----
 
@@ -326,6 +332,8 @@ Cada UC documentado debe cumplir:
      del proyecto.
  * - **Plantilla aplicable**
    - :doc:`/normativa/estandares/plantillas/tpl-uc-spec-con-diagramas-uml`
+ * - **Metodología de análisis de dominio aplicable**
+   - :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`
  * - **Metodología OOP aplicable**
    - :doc:`/normativa/estandares/metodologia-oop-para-ucs`
  * - **Política de diagramación**

@@ -144,11 +144,52 @@ placeholders ``[…]`` con valores reales.
 
  [Párrafo descriptivo del UC: qué problema resuelve y cómo.]
 
+3.4.0 Sección 3-pre — Análisis de dominio (obligatorio)
+-------------------------------------------------------
+
+Per :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`,
+todo UC debe documentar **antes del análisis OOP** la extracción
+de clases, operaciones y atributos a partir del lenguaje del
+dominio.
+
+.. code-block:: rst
+
+ 3-pre. Análisis de dominio
+ ==========================
+
+ **Sustantivos identificados** → Clases candidatas:
+
+ - [Sustantivo 1] → ``[ClaseCandidata1]``
+ - [Sustantivo 2] → ``[ClaseCandidata2]``
+ - [Sustantivo N] → ``[ClaseCandidataN]``
+
+ **Verbos identificados** → Operaciones:
+
+ - [Verbo 1] → ``[Clase].[metodo1]()``
+ - [Verbo 2] → ``[Clase].[metodo2]()``
+
+ **Adjetivos identificados** → Atributos:
+
+ - [Adjetivo 1] → ``[atributo1] : Boolean``
+ - [Adjetivo 2] → ``[atributo2] : Boolean``
+
+ **Paquete UML asignado:** ``[Authentication | Catalog |
+ Orders | Payments | Notifications | …]``
+
+ **Nombres de ruta** (FQN): ``Paquete::Clase``
+
+ **Restricciones derivadas** (notación informal entre llaves):
+
+ - ``{atributo: regla}``
+ - ``{operación: precondición}``
+
 3.4.1 Sección 3-bis — Análisis OOP (obligatorio)
 ------------------------------------------------
 
 Per :doc:`/normativa/estandares/metodologia-oop-para-ucs`, todo
-UC debe documentar las **seis dimensiones OOP**.
+UC debe documentar las **seis dimensiones OOP**. Esta sección
+**asume** que el análisis de dominio (§ 3-pre) ya identificó
+las clases involucradas.
 
 .. code-block:: rst
 
@@ -448,6 +489,8 @@ convierta antes de aplicar esta plantilla. Mapeo directo:
    - :doc:`/gestion/pm/plan-documentacion-uc-con-uml`
  * - **Plantilla hermana (UC simple)**
    - :doc:`tpl-uc-stakeholder-driven`
+ * - **Metodología de análisis de dominio**
+   - :doc:`/normativa/estandares/metodologia-analisis-dominio-ucs`
  * - **Metodología OOP**
    - :doc:`/normativa/estandares/metodologia-oop-para-ucs`
  * - **Estándar de naming**
