@@ -1806,7 +1806,190 @@ con composición:
 
 ----
 
-16. Trazabilidad
+16. Principios fundamentales de la herencia y guía de decisión
+==============================================================
+
+Las §§ 14-15 detallan los **cuatro tipos de herencia** y la
+**comparativa con composición**. Esta sección consolida los
+**principios fundamentales** que rigen cualquier decisión
+sobre herencia y ofrece una **guía de decisión** operativa
+para cada nueva clase del proyecto IACT.
+
+16.1 Tres principios fundamentales
+----------------------------------
+
+Relación natural ("es-un")
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- La herencia debe utilizarse **exclusivamente** cuando
+  existe una verdadera relación **"es-un" (is-a)**.
+- La relación debe reflejar una **jerarquía natural del
+  dominio del problema** — no una conveniencia técnica.
+- Si la relación no es clara o natural, considerar la
+  **composición** como alternativa (§ 15).
+
+En IACT: ``ReporteVolumen`` *es-un* ``Reporte``,
+``EventoAuditoriaAcceso`` *es-un* ``EventoAuditoria``,
+``AlertaPublicada`` *es-un* ``EstadoAlerta``. Cualquier
+relación que no encaje naturalmente en este molde —
+"el reporte es-un escritor de archivos" — es una señal
+para componer.
+
+Principio de Sustitución de Liskov
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Comportamiento consistente.** La clase hija debe poder
+**sustituir** a la clase padre en cualquier contexto sin
+afectar la corrección del programa. El comportamiento de
+la hija debe mantener las expectativas establecidas por el
+padre. Ver detalles formales en § 18 de
+:doc:`orientacion-objetos`.
+
+**Contrato de interfaz.** La clase hija debe **respetar
+todas las precondiciones y postcondiciones** definidas por
+el padre (Design by Contract; ver § 21.4 de
+:doc:`orientacion-objetos`). Si una hija no puede cumplir
+completamente con el contrato del padre, la herencia
+**no es apropiada**.
+
+Documentación y contexto
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- La transformación conceptual entre padre e hija debe
+  **tener sentido en el contexto específico** del
+  problema.
+- Las decisiones de diseño y las relaciones de herencia
+  deben estar **claramente documentadas** — preferiblemente
+  en un ADR del subdominio cuando la herencia es central
+  al cluster (ver § 11 de :doc:`agregacion-interfaces`).
+- El **propósito y las responsabilidades** de cada nivel
+  de la jerarquía deben ser **explícitos**.
+
+16.2 Síntesis de los cuatro tipos de herencia
+---------------------------------------------
+
+Tabla recapitulativa que enlaza con las §§ 14.1-14.4:
+
+.. list-table::
+ :widths: 22 22 26 30
+ :header-rows: 1
+
+ * - Tipo
+   - Naturaleza
+   - Cumple LSP
+   - Recomendación IACT
+ * - **Especialización** (§ 14.1)
+   - "es-un" verdadera con expansión.
+   - Sí.
+   - **Recomendada** — el patrón canónico.
+ * - **Extensión con transformación** (§ 14.2)
+   - "se transforma en" — cambia concepto, mantiene
+     estructura.
+   - Frágil — depende del caso.
+   - Solo con **ADR explícito** del subdominio.
+ * - **Construcción** (§ 14.3)
+   - Reutilizar código sin "es-un".
+   - **No.**
+   - **Evitar** — usar composición / inyección.
+ * - **Limitación** (§ 14.4)
+   - Restringe o desactiva operaciones heredadas.
+   - **No.**
+   - **Evitar** — separar interfaces o componer.
+
+16.3 Guía de decisión operativa
+-------------------------------
+
+Antes de implementar una herencia, **responder estas tres
+preguntas**:
+
+1. ¿Existe una **verdadera relación "es-un"**?
+2. ¿La clase hija **puede cumplir completamente** con el
+   contrato del padre (LSP)?
+3. ¿La sustitución **tiene sentido en todos los contextos
+   de uso** previstos?
+
+Si la respuesta es "**no**" a **cualquiera** de las tres:
+
+- **Considerar composición** en lugar de herencia
+  (§ 15).
+- **Evaluar si la abstracción necesita rediseño** —
+  posiblemente la jerarquía está mal modelada.
+- **Verificar la distribución de responsabilidades** —
+  posiblemente SRP se está violando (ver § 17 de
+  :doc:`orientacion-objetos`).
+
+Diagrama de decisión (texto)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   ¿La relación es "es-un" verdadera?
+   ├── No  → Composición (§ 15) o interfaces (ISP)
+   └── Sí
+       ↓
+   ¿La hija cumple LSP completamente?
+   ├── No  → Composición o interfaces específicas (§ 14.4)
+   └── Sí
+       ↓
+   ¿La sustitución tiene sentido en todos los contextos?
+   ├── No  → Reevaluar abstracción + responsabilidades
+   └── Sí
+       ↓
+   ¿El concepto de la hija difiere fundamentalmente
+   del padre (transformación)?
+   ├── Sí  → Herencia por extensión (§ 14.2) — requiere ADR
+   └── No  → Herencia por especialización (§ 14.1) ✓ recomendada
+
+16.4 Aplicación al proyecto IACT
+--------------------------------
+
+Validación rápida para cada herencia que se proponga en
+una app Django:
+
+.. list-table::
+ :widths: 30 35 35
+ :header-rows: 1
+
+ * - Pregunta
+   - Decisión correcta
+   - Decisión incorrecta
+ * - ``Reporte`` ← ``ReporteVolumen``
+   - Especialización (§ 14.1) — es-un, cumple LSP.
+   - —
+ * - ``Reporte`` ← ``ReporteAuditoria`` (paquete firmado)
+   - Extensión con transformación + ADR (§ 14.2).
+   - Especialización implícita sin documentar el
+     cambio conceptual.
+ * - ``Reporte`` ← ``UtilsArchivo``
+   - **Evitar** — composición ``EscritorCSV``
+     (§ 14.3).
+   - Herencia por construcción.
+ * - ``Ave`` ← ``Pinguino`` con ``volar()`` desactivado
+   - **Evitar** — separar ``IAveVoladora``,
+     ``IAveNadadora`` (§ 14.4).
+   - Herencia por limitación.
+ * - ``Sesion`` ↔ ``Usuario``
+   - **Composición** — la sesión *tiene un* usuario.
+   - Heredar de ``Usuario`` para reutilizar campos.
+
+16.5 Cierre
+-----------
+
+La herencia es la **herramienta más poderosa y más abusada**
+de OOP. Aplicada con disciplina (LSP + "es-un" + contexto)
+es la base del polimorfismo seguro y de patrones GoF como
+Strategy, Template Method y Composite (ver
+:doc:`patrones-diseno`). Aplicada por inercia o conveniencia
+produce los antipatrones de § 14.3 y § 14.4 — y deuda
+técnica que se solidifica como flujo de lava (§ 13 de
+:doc:`orientacion-objetos`).
+
+La regla integradora: **componer salvo que el "es-un" sea
+inequívoco y la sustituibilidad LSP esté asegurada**.
+
+----
+
+17. Trazabilidad
 ================
 
 .. list-table::
