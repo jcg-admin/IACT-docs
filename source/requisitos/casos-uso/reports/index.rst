@@ -34,3 +34,6 @@ Casos de Uso
  uc-rpt-12-ver-reporte-agentes
  uc-rpt-13-ver-reporte-colas
  uc-rpt-14-ver-reporte-campanas
+ uc-rpt-15-reporte-transferencias-centro
+ uc-rpt-16-reporte-menus-ivr
+ uc-rpt-17-reporte-clientes-unicos

@@ -4,9 +4,9 @@
  :dominio: requisitos
  :subdominio: casos_uso/logs
  :estado: Vigente
- :version: 1.0.0
+ :version: 1.1.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-04-30
  :autor: NestorMonroy
  :clasificacion: Interno
 
@@ -26,3 +26,6 @@ Casos de Uso
  uc-log-02-consultar-logs-etl
  uc-log-03-buscar-logs
  uc-log-04-exportar-logs
+ uc-log-05-ver-logs-infraestructura
+ uc-log-06-ver-estado-sistema
+ uc-log-07-ver-metricas-tecnicas

@@ -406,7 +406,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - —
 
 3.5 MOD_Reports (11 funciones — visualizacion y reportes)
---------------------------------------------------------
+---------------------------------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -510,7 +510,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - I
 
 3.6 MOD_Alerts (10 funciones — alertas y notificaciones)
--------------------------------------------------------
+--------------------------------------------------------
 
 .. list-table::
  :header-rows: 1
@@ -654,7 +654,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
    - C
 
 3.8 MOD_Logs (7 funciones — bitacoras tecnicas + health + métricas)
------------------------------------------------
+-------------------------------------------------------------------
 
 .. list-table::
  :header-rows: 1

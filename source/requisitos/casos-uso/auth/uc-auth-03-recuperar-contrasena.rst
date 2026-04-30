@@ -371,7 +371,7 @@ para un usuario especifico.
 --------------
 
 8.1 EX-01: Sin Permiso AUTH-003
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
  :widths: 25 75
