@@ -624,6 +624,191 @@ Política IACT para sistemas de apoyo
    ``-down->``) si el layout automático produce
    diagramas ilegibles.
 
+Mejorar la legibilidad — controlar los rangos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando el renderer coloca los sistemas externos en
+posiciones poco amigables, hay un mecanismo más fino
+que las direcciones forzadas: **alargar la flecha**
+para empujar al destino al siguiente "rank" visual.
+
+El concepto de rank
+^^^^^^^^^^^^^^^^^^^
+
+Tanto Mermaid como PlantUML organizan el layout en
+**rangos** (filas o columnas según la dirección
+principal). Un nodo padre vive en un rango; sus hijos
+visualmente conectados viven en el siguiente. Por
+defecto, todos los nodos hijos del mismo padre suelen
+quedar en el mismo rango.
+
+Sintaxis PlantUML — flechas más largas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PlantUML ofrece el mismo recurso que Mermaid: **más
+guiones = flecha más larga = más distancia visual**.
+
+.. code-block:: plantuml
+
+   A --> B    : flecha corta (rango siguiente)
+   A ---> B   : flecha media
+   A ----> B  : flecha larga (salta un rango)
+   A -----> B : flecha muy larga (salta dos rangos)
+
+Cada guión adicional **incrementa la longitud** de la
+flecha, lo que empuja al destino más lejos en el
+layout. Equivale al mecanismo descrito en el libro
+para Mermaid.
+
+Equivalencia
+^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 36 36 28
+ :header-rows: 1
+
+ * - Mermaid
+   - PlantUML
+   - Efecto
+ * - ``-->``
+   - ``-->``
+   - Flecha estándar.
+ * - ``--->`` (un guión extra)
+   - ``--->`` (un guión extra)
+   - Empuja al destino un rango más allá.
+ * - ``---->``
+   - ``---->``
+   - Empuja dos rangos más allá.
+
+Aplicación a IACT — ajuste de rangos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para que los tres sistemas externos
+(``ldap-corporativo``, ``bd-operativa``,
+``ivr-host``) queden **debajo** de la frontera del
+sistema en lugar de a la derecha, alargar las
+flechas que cruzan la frontera:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT C4 — Container view (rangos ajustados)
+
+   actor "Supervisor\n[Person]" as Supervisor
+
+   package "IACT" {
+     rectangle "Browser" as B <<c4_container>>
+     rectangle "iact.wsgi" as WSGI <<c4_container>>
+     database "Redis" as Redis <<c4_container>>
+     database "bd_analytics" as BDA <<c4_container>>
+     database "audit_log" as Audit <<c4_container>>
+   }
+
+   rectangle "ldap-corporativo" as LDAP <<c4_externo>>
+   database "bd-operativa" as BDO <<c4_externo>>
+   rectangle "ivr-host" as IVR <<c4_externo>>
+
+   Supervisor --> B
+   B --> WSGI
+   WSGI --> Redis
+   WSGI --> BDA
+   WSGI --> Audit
+
+   ' Flechas alargadas hacia externos: las empujan al
+   ' siguiente rango (debajo del package).
+   WSGI ---> LDAP : autentica\n[LDAPS]
+   WSGI ---> BDO : lee llamadas\n[SQL read-only]
+   WSGI ---> IVR : recibe eventos\n[protocolo IVR]
+   @enduml
+
+Lectura: las flechas con tres guiones (``--->``)
+empujan a los sistemas externos un rango más abajo
+que las flechas internas con dos guiones (``-->``).
+Esto produce una vista más compacta donde los
+externos quedan debajo de la frontera.
+
+Cuándo es útil ajustar rangos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- El renderer pone los sistemas externos a la
+  derecha y la vista se vuelve **demasiado ancha**.
+- Las **etiquetas de las flechas** se aglomeran y
+  se hacen ilegibles — alargar las flechas crea
+  espacio vertical adicional.
+- Hay **muchos hijos** del mismo padre y conviene
+  separarlos en grupos verticales distintos.
+
+Es una **petición** al renderer, no una orden
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como nota el libro citado, alargar la flecha es una
+**sugerencia** para el renderer, no una garantía.
+PlantUML puede ignorar el largo si comprometería la
+legibilidad global. Cuando eso ocurre, la opción de
+respaldo es:
+
+- Cambiar la **dirección global** (``left to right
+  direction`` al inicio).
+- Forzar **direcciones específicas** con
+  ``-down->``, ``-right->``.
+- **Dividir** el diagrama en sub-diagramas si
+  ningún ajuste de layout lo hace legible.
+
+Crear espacio entre nodos
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Si todas las flechas en un mismo rango se sienten
+"apretadas", **alargar todas** las flechas de ese
+rango simultáneamente le indica al renderer que
+"salte" un rango y deje espacio adicional.
+
+::
+
+   ' Antes (apretado):
+   A --> B
+   A --> C
+   A --> D
+
+   ' Después (con más espacio vertical):
+   A ---> B
+   A ---> C
+   A ---> D
+
+Política IACT para ajuste de rangos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. **Empezar sin ajustar** — confiar en el layout
+   automático en el primer borrador.
+2. **Alargar flechas selectivamente** cuando el
+   layout produzca diagramas demasiado anchos.
+3. **No abusar** — más de tres niveles de
+   alargamiento es señal de que el diagrama necesita
+   reestructurarse o dividirse.
+4. **Documentar el ajuste** en el código fuente con
+   un comentario PlantUML (``' alargado para empujar
+   externos al siguiente rango``) — el siguiente que
+   edite el archivo entenderá la decisión.
+5. **Combinar con direcciones forzadas** si alargar
+   solo no basta; pero no aplicar ambas a la misma
+   flecha (sería redundante).
+
+Título del diagrama
+^^^^^^^^^^^^^^^^^^^
+
+Como recordatorio (§ 16.6 de
+:doc:`analisis-dominio`), todo diagrama Container
+publicado lleva título. Para C4 la convención IACT:
+
+::
+
+   IACT C4 — Container view
+   IACT C4 — Container view (vm-iact)
+   IACT C4 — Container view (cluster RBAC)
+
+Agregar el título es como **firmar el diagrama** —
+indica que se considera completo.
+
 ----
 
 1. Nodo, dispositivo y conexión
