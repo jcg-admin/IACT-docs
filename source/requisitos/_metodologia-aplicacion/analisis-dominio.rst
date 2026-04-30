@@ -3994,6 +3994,425 @@ Próximas subsecciones
   cluster RBAC, ``audit_log``, agregados de
   ``bd_analytics``.
 
+17.4 Relaciones cero-a-varios y entidades de unión
+--------------------------------------------------
+
+§ 17.3 cubrió las cardinalidades obligatorias.
+Cuando el lado "muchos" puede ser **cero o más** —
+es decir, los registros relacionados son
+**opcionales** — se usa la notación ``o{`` /
+``}o`` (círculo en vez de raya).
+
+PlantUML:
+
+.. code-block:: plantuml
+
+   A ||--o{ B : etiqueta
+
+Lectura: cada ``A`` puede tener cero o más ``B``;
+cada ``B`` está obligatoriamente vinculado a
+exactamente un ``A``. Es la cardinalidad típica
+**1 a 0..*** en notación numérica UML (§ 16.5).
+
+Cuándo aparece en IACT
+~~~~~~~~~~~~~~~~~~~~~~
+
+Casos típicos donde la opcionalidad cero importa:
+
+- Un ``Reporte`` puede no haber sido **exportado
+  todavía** (cero o más ``TareaExport``
+  asociadas).
+- Un ``Usuario`` puede no haber generado
+  **ningún** evento auditable aún (cero o más
+  ``EventoAuditoria``).
+- Una ``EjecucionETL`` puede haber corrido sin
+  errores (cero o más ``ErrorETL``).
+- Un ``Grupo`` recién creado puede no tener
+  asignados aún usuarios ni funciones.
+
+Forzar el lado "obligatorio" cuando la realidad
+admite cero produce schemas que **rechazan estados
+válidos** del sistema.
+
+Entidades de unión (*join tables*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una de las divergencias claras entre el modelo de
+dominio y el ERD: las **relaciones N:M del dominio
+suelen requerir una entidad adicional** en la base
+de datos que no existe en el modelo conceptual.
+Esa entidad se llama **tabla de unión** o
+**join entity**.
+
+Ejemplo IACT — ``Usuario`` ↔ ``Grupo``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+En el modelo de dominio (§ 11 de
+:doc:`agregacion-interfaces`):
+
+- Un ``Usuario`` puede pertenecer a varios
+  ``Grupo``.
+- Un ``Grupo`` puede tener varios ``Usuario``.
+
+Es una **agregación N:M**. En el dominio se
+modela con una asociación bidireccional. En la
+base relacional se requiere una **tabla
+intermedia** ``Asignacion`` que materializa la
+relación con la información adicional que el
+dominio no captura (timestamp, quién hizo la
+asignación, fecha de revisión SoD).
+
+Schema correspondiente:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: Usuario, Grupo y Asignacion
+
+   entity Usuario {
+     * usuario_id : int <<PK>>
+     --
+     * username : varchar(100)
+     * email : varchar(150)
+     activo : boolean
+   }
+
+   entity Grupo {
+     * grupo_id : int <<PK>>
+     --
+     * nombre : varchar(50)
+     descripcion : varchar(200)
+   }
+
+   entity Asignacion {
+     * asignacion_id : int <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * grupo_id : int <<FK>>
+     * fecha_alta : datetime
+     fecha_baja : datetime
+     asignado_por : int <<FK>>
+   }
+
+   Usuario ||--o{ Asignacion : "es asignado en"
+   Grupo ||--o{ Asignacion : "contiene"
+   @enduml
+
+Lectura del ERD:
+
+- ``Usuario`` y ``Grupo`` son las entidades
+  principales.
+- ``Asignacion`` es la **tabla de unión**:
+  resuelve la relación N:M en una base relacional.
+- Cada lado de la N:M se descompone en
+  **dos relaciones 1:N** hacia la tabla
+  intermedia.
+- ``Asignacion`` agrega información que **no está
+  en el modelo de dominio**: cuándo se hizo la
+  asignación, cuándo se dio de baja, quién la
+  asignó (auditoría a nivel del cluster).
+
+Por qué la tabla de unión no aparece en el dominio
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Volvemos al principio de § 17: **dominio ≠
+persistencia**. La tabla ``Asignacion`` es un
+artefacto **del schema relacional**, no del
+dominio. En el dominio:
+
+- Si la asignación es trivial (solo un par
+  usuario-grupo), la N:M se modela como
+  asociación bidireccional sin clase intermedia.
+- Si la asignación tiene datos propios
+  (auditoría, vigencia, vigencia SoD), aparece
+  como **clase de asociación** en el dominio
+  (ver § 9 de :doc:`relaciones-uml` "Clases de
+  asociación").
+
+En IACT la asignación tiene datos propios, así
+que **sí** aparece como clase de asociación en
+el dominio. Pero el nombre y el rol cambian: en
+el dominio se llama ``Asignacion`` y modela la
+política; en la BD se llama igual y modela la
+fila persistida. La distinción es de **foco**, no
+de existencia.
+
+Otros join tables canónicos en IACT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+ :widths: 32 32 36
+ :header-rows: 1
+
+ * - Relación N:M del dominio
+   - Tabla de unión en BD
+   - Datos adicionales que justifican la tabla
+ * - ``Usuario`` ↔ ``Grupo``
+   - ``Asignacion``
+   - Fechas de alta/baja, quién asignó.
+ * - ``Grupo`` ↔ ``Funcion``
+   - ``GrupoFuncion``
+   - Fecha de la asignación SoD, ADR de
+     aprobación.
+ * - ``Reporte`` ↔ ``Filtro``
+   - ``ReporteFiltro``
+     (si se persiste)
+   - Orden de aplicación, parámetros del filtro
+     en ese reporte.
+ * - ``ReglaSoD`` ↔ ``Funcion``
+   - ``ReglaSoDFuncion``
+   - Cuáles funciones forman la regla específica
+     de SoD (CNST_030 establece típicamente 2-3
+     funciones por regla).
+
+Política IACT — entidades de unión
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **N:M en BD relacional siempre va por tabla
+   de unión** — incluso cuando la N:M del
+   dominio no tiene clase de asociación.
+2. **Datos auditables (CNST_025) viven en la
+   tabla de unión** cuando aplican (quién, cuándo,
+   por qué).
+3. **Las dos FK** de la tabla de unión son
+   **obligatorias** (lado "uno" en ambos
+   extremos); la cardinalidad opcional vive en el
+   lado de las entidades principales (cero o más
+   asignaciones por usuario / por grupo).
+4. **Etiquetas claras** en ambas relaciones — no
+   asumir que el lector infiere "es asignado en"
+   y "contiene" desde la flecha.
+5. **Si la tabla de unión adquiere lógica
+   compleja** (estado, validaciones, ciclo de
+   vida propio), considerar elevarla a entidad
+   primaria del dominio — ya no es solo unión.
+
+Etiquetas con múltiples palabras
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML acepta etiquetas multipalabra
+directamente sin necesidad de comillas; solo
+requiere que estén bien delimitadas con ``:``:
+
+.. code-block:: plantuml
+
+   ' Funciona sin comillas:
+   Usuario ||--o{ Asignacion : es asignado en
+
+   ' Con comillas también funciona si hay
+   ' caracteres especiales:
+   Usuario ||--o{ Asignacion : "es asignado en (N:M)"
+
+La preferencia IACT: sin comillas para
+legibilidad, comillas solo cuando la etiqueta
+incluye caracteres reservados o apariencia que
+podría confundir al parser.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- Tipos de dato y restricciones de columna
+  (NOT NULL, UNIQUE, DEFAULT).
+- Atributos de identificación (PK, FK, índices).
+- Schemas canónicos IACT consolidados.
+
+17.5 Enriquecer el schema con claves y comentarios
+--------------------------------------------------
+
+Hasta aquí los ERD muestran columnas y relaciones,
+pero las **claves primarias** y **foráneas** son
+implícitas. Marcarlas explícitamente facilita la
+lectura y deja claro **qué hace única a una fila**
+y **cómo se enlazan las entidades**.
+
+PlantUML — sintaxis para claves
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML usa **estereotipos UML** entre dobles
+ángulos para anotar columnas:
+
+.. code-block:: plantuml
+
+   entity Asignacion {
+     * asignacion_id : int <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * grupo_id : int <<FK>>
+   }
+
+- ``<<PK>>`` — clave primaria.
+- ``<<FK>>`` — clave foránea.
+- ``<<UQ>>`` — unique constraint (cuando se quiere
+  destacar).
+- ``<<IDX>>`` — índice secundario.
+
+Ventaja sobre Mermaid: PlantUML soporta **múltiples
+estereotipos** en la misma columna, así que una
+columna que es **PK y FK** simultáneamente se puede
+declarar:
+
+.. code-block:: plantuml
+
+   entity GrupoFuncion {
+     * grupo_id : int <<PK>> <<FK>>
+     * funcion_id : int <<PK>> <<FK>>
+   }
+
+Esto resuelve la limitación que el libro citado
+menciona para Mermaid (que no admite ambos en el
+mismo parámetro y obliga a usar un comentario para
+señalar la FK).
+
+Comentarios en columnas
+~~~~~~~~~~~~~~~~~~~~~~~
+
+PlantUML permite **comentarios libres** después del
+tipo y los estereotipos, útiles para anotar:
+
+- Restricciones que no encajan en estereotipos
+  (``DEFAULT 0``, ``CHECK > 0``).
+- Referencias a tablas externas
+  (``FK -> Usuario.usuario_id``).
+- Notas auditables (``CNST_025: append-only``).
+
+.. code-block:: plantuml
+
+   entity EventoAuditoria {
+     * evento_id : bigint <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * timestamp : datetime <<IDX>>
+     * tipo_id : int <<FK>>
+     payload : text
+     ip_origen : varchar(45)
+   }
+   note right of EventoAuditoria
+     CNST_025: tabla append-only.
+     Triggers rechazan UPDATE y DELETE.
+     Indice por timestamp para consultas
+     de auditoria.
+   end note
+
+Convención IACT — orden de columnas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Recomendación operativa:
+
+1. **PKs primero** — el lector identifica de un
+   vistazo qué hace única la fila.
+2. **FKs a continuación** — agrupadas para
+   mostrar las dependencias estructurales.
+3. **Atributos del dominio** después.
+4. **Auditoría / metadatos** al final
+   (``creado_en``, ``actualizado_en``,
+   ``creado_por``).
+
+Ejemplo IACT consolidado
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+ERD del cluster RBAC (snapshot) con claves y
+estereotipos completos:
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title IACT — ERD snapshot: cluster RBAC
+
+   entity Usuario {
+     * usuario_id : int <<PK>>
+     --
+     * username : varchar(100) <<UQ>>
+     * email : varchar(150) <<UQ>>
+     activo : boolean
+     creado_en : datetime
+   }
+
+   entity Grupo {
+     * grupo_id : int <<PK>>
+     --
+     * nombre : varchar(50) <<UQ>>
+     descripcion : varchar(200)
+     creado_en : datetime
+   }
+
+   entity Funcion {
+     * funcion_id : varchar(100) <<PK>>
+     --
+     * nombre : varchar(150)
+     descripcion : varchar(300)
+     categoria : varchar(50) <<IDX>>
+   }
+
+   entity Asignacion {
+     * asignacion_id : int <<PK>>
+     --
+     * usuario_id : int <<FK>>
+     * grupo_id : int <<FK>>
+     * fecha_alta : datetime <<IDX>>
+     fecha_baja : datetime
+     asignado_por : int <<FK>>
+   }
+
+   entity GrupoFuncion {
+     * grupo_id : int <<PK>> <<FK>>
+     * funcion_id : varchar(100) <<PK>> <<FK>>
+     --
+     fecha_asignacion : datetime
+     adr_aprobacion : varchar(100)
+   }
+
+   Usuario ||--o{ Asignacion : es asignado en
+   Grupo ||--o{ Asignacion : contiene
+   Grupo ||--o{ GrupoFuncion : agrupa
+   Funcion ||--o{ GrupoFuncion : esta en
+   @enduml
+
+Lectura del schema:
+
+- ``GrupoFuncion`` tiene una **PK compuesta** —
+  el par ``(grupo_id, funcion_id)`` debe ser
+  único; ambas son FK también.
+- ``categoria`` en ``Funcion`` lleva ``<<IDX>>``
+  porque ``perm_app`` consulta funciones por
+  categoría con frecuencia.
+- ``adr_aprobacion`` en ``GrupoFuncion`` permite
+  rastrear la decisión que aprobó la asignación
+  SoD (CNST_030 + auditoría a nivel del cluster).
+- ``fecha_alta`` indexada en ``Asignacion``
+  facilita reportes de "asignaciones del periodo".
+
+Política IACT — claves en ERD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **PK explícita en toda entidad** — sin
+   excepción.
+2. **FK explícita** en toda columna que
+   referencie otra tabla.
+3. **PK + FK simultáneas** en tablas de unión —
+   PlantUML admite ambos estereotipos en la misma
+   columna.
+4. **UQ** explícito cuando aplica (username,
+   email, código de catálogo).
+5. **IDX** explícito cuando se sabe que la
+   columna se consulta o filtra con frecuencia
+   conocida.
+6. **Comentarios para CNST/BR** que no encajan en
+   estereotipos — ``audit_log`` append-only,
+   ventana temporal CNST_006/008, etc.
+7. **Orden canónico**: PK → FK → atributos del
+   dominio → metadatos de auditoría.
+
+Próximas subsecciones
+~~~~~~~~~~~~~~~~~~~~~
+
+- Relaciones N:M con cardinalidad opcional en
+  ambos extremos.
+- Tipos de dato canónicos en MySQL para IACT.
+- Schemas canónicos del cluster ETL y de
+  ``audit_log``.
+
 ----
 
 18. Trazabilidad
