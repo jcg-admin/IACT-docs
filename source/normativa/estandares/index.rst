@@ -65,6 +65,15 @@ Los estándares cubren:
  std-009-profesional-documentacion
 
 .. toctree::
+ :maxdepth: 1
+ :caption: ADRs sobre STD-007 (historia de decisiones)
+
+ adr-std-007-naming-heterogeneity-accepted
+ adr-std-007-naming-kebab-correction
+ adr-std-007-procedimientos-modulos-req-doc
+ adr-std-007-spec-gaps-fix
+
+.. toctree::
  :maxdepth: 2
  :caption: Plantillas
 
