@@ -2243,7 +2243,112 @@ clases UML** son el artefacto persistente del modelo.
 
 ----
 
-16. Trazabilidad
+16. Enriquecer el modelo de dominio
+===================================
+
+El § 15 estableció **lo básico** del modelado de dominio:
+identificar entidades, primera relación, los tres tipos
+de relación (asociación / agregación / composición) y
+cómo decidir entre ellos. Pero hay mucho más que el
+modelo puede decir.
+
+Esta sección introduce los **enriquecimientos** que
+elevan un modelo embrionario a un modelo operativo
+maduro, con información más rica para quien lo lea:
+
+- **Herencia** — para mostrar subtipos (variantes
+  específicas de una entidad genérica).
+- **Descripciones** — atributos y operaciones de cada
+  entidad, no solo el nombre y las relaciones.
+- **Multiplicidad** — la cardinalidad explícita de las
+  relaciones (uno, varios, exacto, rango).
+
+Estos tres enriquecimientos están ya cubiertos en
+profundidad en este cajón; esta sección los **encuadra
+desde la perspectiva del modelado de dominio** y los
+ancla a las secciones donde se desarrolla cada uno.
+
+16.1 Dónde vive cada enriquecimiento en el cajón
+------------------------------------------------
+
+.. list-table::
+ :widths: 25 30 45
+ :header-rows: 1
+
+ * - Enriquecimiento
+   - Documento principal
+   - Secciones relevantes
+ * - **Herencia / subtipos**
+   - :doc:`relaciones-uml`
+   - § 7 (herencia básica), §§ 14.1-14.4 (cuatro
+     tipos de herencia), § 15 (herencia vs
+     composición), § 16 (principios fundamentales y
+     guía de decisión).
+ * - **Atributos y operaciones**
+     (descripciones)
+   - Este documento (``analisis-dominio.rst``) y
+     :doc:`orientacion-objetos`.
+   - § 3 (sustantivos→clases), § 4 (verbos→
+     operaciones), § 5 (adjetivos→atributos), § 6
+     (clase ``Reporte`` completa) +
+     :doc:`orientacion-objetos` § 5
+     (Encapsulamiento).
+ * - **Multiplicidad**
+   - :doc:`relaciones-uml`
+   - § 3 (multiplicidades canónicas IACT) y § 2.7
+     (Aerolínea/Ruta como ejemplo N:M).
+
+16.2 Por qué importan en IACT
+-----------------------------
+
+Un modelo de dominio sin estos enriquecimientos es **un
+diagrama de cajas y líneas** — útil como punto de
+partida pero insuficiente para guiar la implementación.
+Con ellos:
+
+- **Herencia** permite distinguir entre ``Reporte``
+  base y sus variantes (``ReporteVolumen``,
+  ``ReporteAbandono``, ``ReporteSoDCompliance``) —
+  fundamental para aplicar Factory y Strategy
+  (:doc:`patrones-diseno`).
+- **Descripciones** capturan los atributos del dominio
+  (``Llamada.duracion_seg``, ``Sesion.creada_en``) y
+  las operaciones canónicas
+  (``Reporte.exportar(formato)``) — sin ellos los
+  consumidores del modelo deben inferir o suponer.
+- **Multiplicidad** distingue ``Llamada → 1 Segmento``
+  (BR_012) de ``Llamada → * Reporte``: la diferencia
+  es operativa, afecta validaciones y queries.
+
+16.3 Progresión recomendada
+---------------------------
+
+El orden natural para enriquecer un modelo:
+
+1. **Empezar simple** — entidades + asociaciones
+   (§ 15.7-15.8).
+2. **Identificar relaciones fuertes** — composiciones y
+   agregaciones (§§ 15.9-15.10).
+3. **Agregar multiplicidad** — sin números, las
+   relaciones son ambiguas
+   (:doc:`relaciones-uml` § 3).
+4. **Detectar subtipos** — donde varias entidades
+   compartan estructura, considerar herencia
+   (:doc:`relaciones-uml` § 7 y § 14.1).
+5. **Llenar atributos y operaciones** —
+   sustantivos→clases, verbos→operaciones (§§ 3-4 de
+   este documento).
+6. **Validar el modelo** con stakeholders y revisar
+   contra los UCs documentados.
+
+Los pasos 3, 4 y 5 son los **enriquecimientos** que el
+libro citado introduce en su segundo capítulo. Las
+subsecciones siguientes desarrollan cada uno cuando un
+mensaje del autor lo amerite.
+
+----
+
+17. Trazabilidad
 ================
 
 .. list-table::
