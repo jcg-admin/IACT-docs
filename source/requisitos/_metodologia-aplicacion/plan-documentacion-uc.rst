@@ -451,6 +451,73 @@ dominio** del modelo 5+1. El SAD definitivo decidirá
 entre 4+1 (más liviano) y 5+1 (con vista de dominio
 explícita) según el alcance final.
 
+Mapeo vista ↔ diagramas UML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Algunos diagramas aparecen en **varias vistas** porque se
+usan con distinto nivel de detalle o enfoque. Por ejemplo,
+el diagrama de clases aparece en *Domain Model* y en
+*Design View*: en la primera es más conceptual, en la
+segunda incluye detalles de implementación. Los diagramas
+de comportamiento e interacción típicamente cruzan vistas
+porque muestran aspectos distintos del mismo sistema.
+
+.. list-table::
+ :widths: 25 25 25 25
+ :header-rows: 1
+
+ * - Vista
+   - Foco
+   - Diagramas UML típicos
+   - Documentos IACT
+ * - **Domain Model / Logical View**
+   - Funcionalidad para usuarios finales; abstracciones y
+     mecanismos del dominio.
+   - Clases (conceptual), objetos, estados.
+   - :doc:`analisis-dominio`,
+     :doc:`orientacion-objetos`,
+     :doc:`relaciones-uml`,
+     :doc:`diagramas-estados`
+ * - **Design View**
+   - Cómo el sistema resuelve los requisitos
+     técnicamente; componentes y subsistemas.
+   - Clases (con detalles de diseño), secuencia,
+     colaboración, estados.
+   - :doc:`agregacion-interfaces`,
+     :doc:`diagramas-secuencias`,
+     :doc:`diagramas-colaboraciones`,
+     :doc:`patrones-diseno`
+ * - **Implementation View**
+   - Organización real del código; reutilización,
+     restricciones, gestión.
+   - Componentes, paquetes.
+   - :doc:`diagramas-componentes`
+ * - **Use Case View**
+   - Comportamiento del sistema; une todas las otras
+     vistas.
+   - Casos de uso, actividades.
+   - :doc:`casos-uso-especificacion`,
+     :doc:`casos-uso-diagramas`,
+     :doc:`diagramas-actividades`
+ * - **Process View**
+   - Concurrencia, sincronización, rendimiento,
+     escalabilidad, throughput.
+   - Actividades, secuencia, tiempo (cuando aplique).
+   - :doc:`diagramas-actividades`,
+     :doc:`diagramas-secuencias`,
+     :doc:`diagramas-tiempo` (preliminar)
+ * - **Deployment View** (a veces parte de Physical)
+   - Distribución física, comunicación, provisión.
+   - Despliegue.
+   - :doc:`diagramas-distribucion`
+
+Lectura: el SAD que se construya tras los 97 UCs no debe
+generar diagramas nuevos para cada vista; debe **integrar**
+los diagramas ya producidos en este cajón asignando cada
+uno a la vista que corresponda. Eso asegura coherencia y
+evita duplicación (DRY, ver § 13 de
+:doc:`orientacion-objetos`).
+
 Este SAD no es objeto de este plan; queda registrado como
 trabajo futuro recomendado tras el cierre de los 97 UCs.
 
