@@ -1281,6 +1281,101 @@ del rendering. Para cualquier modelo del proyecto,
 elegir el tipo según las políticas IACT de las
 subsecciones anteriores.
 
+Ejercicio: crear tu propio Container diagram
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como en los ejercicios de cierre de los capítulos
+anteriores
+(§§ 15.12 / 16.9 de :doc:`analisis-dominio`,
+§ 14 de :doc:`diagramas-secuencias`,
+§ 13.4 de :doc:`diagramas-componentes`), el cierre
+canónico del Container view es **construir el
+diagrama** del proyecto elegido a partir del Context
+existente.
+
+Aplicación a IACT
+^^^^^^^^^^^^^^^^^
+
+En este proyecto el ejercicio **ya está realizado**:
+las subsecciones de este documento desarrollan el
+Container view completo de IACT — desde el primer par
+de containers (Browser + ``iact.wsgi``), pasando por
+la frontera del sistema, los datastores
+(``Redis``, ``bd_analytics``, ``audit_log``), los
+sistemas externos (``ldap-corporativo``,
+``bd-operativa``, ``ivr-host``), hasta la
+distinción visual sync/async.
+
+Variantes para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quien quiere ejercitar la técnica antes de aplicarla
+en un cambio real:
+
+1. **Reproducir el Container completo desde cero**
+   sin mirar el código fuente PlantUML, validando
+   que se entiende cada decisión de layout y cada
+   etiqueta de protocolo.
+2. **Container alternativo** — qué pasaría si el
+   proyecto añadiera un broker de eventos in-process
+   (no Kafka, sino un equivalente Python in-process
+   más explícito): qué containers nuevos aparecen,
+   qué flechas cambian de sólida a punteada.
+3. **Container del cluster RBAC visto en aislado**
+   — solo ``perm_app``, ``Redis``, ``audit_log`` y
+   ``ldap-corporativo``, con foco en SoD CNST_030.
+4. **Container del cluster ETL** — ``etl_runner``
+   como container central, con ``bd-operativa``,
+   ``ivr-host`` y ``bd_analytics`` alrededor;
+   diagrama dominado por flechas read-only y
+   ventana CNST_006/008.
+
+Variantes para extender el modelo real
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cuando aparezca una iniciativa que **modifique los
+containers internos** (e.g., introducir un worker
+dedicado para export, separar
+``audit_log`` en su propia VM, agregar caché
+adicional):
+
+1. Abrir un WP en ``.thyrox/context/work/``.
+2. Bocetar el cambio en el Container view con
+   PlantUML (``planttext.com`` o editor con preview).
+3. Discutirlo con stakeholders técnicos y SRE.
+4. Actualizar este documento con el nuevo diagrama
+   final.
+5. Registrar la decisión en un ADR del subdominio
+   afectado, si la modificación es estructural.
+
+Plan recomendado para nuevos contribuidores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Leer el preludio + las subsecciones de este
+   capítulo.
+2. Reproducir el Container de IACT desde cero
+   (variante 1).
+3. Probar la variante 3 (cluster RBAC) para
+   ejercitar la frontera y el estereotipo
+   ``<<c4_externo>>``.
+4. Pasar a la variante 4 (cluster ETL) para
+   ejercitar la mezcla read-only + ventana temporal.
+5. Avanzar al siguiente nivel C4: **Component view**
+   (§§ 1-9 de :doc:`diagramas-componentes`).
+
+Próximo capítulo
+^^^^^^^^^^^^^^^^
+
+El siguiente nivel del modelo C4 es la vista
+**Component**, que detalla los **componentes
+internos** de cada container — las apps Django de
+``iact.wsgi`` y sus contratos
+(``ISecurity``, ``IAuditLog``, ``IReporte``,
+``IAlerta``, ``INotificacion``,
+``IDatosOperativos``, ``IDatosAnalytics``,
+``IETL``). En IACT eso vive en
+:doc:`diagramas-componentes` §§ 1-9.
+
 ----
 
 1. Nodo, dispositivo y conexión
