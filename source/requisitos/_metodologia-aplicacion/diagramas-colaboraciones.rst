@@ -600,7 +600,297 @@ concurrentes:**
 
 ----
 
-13. Trazabilidad
+13. Catálogo consolidado de notaciones
+======================================
+
+Tabla índice del documento — cada componente con
+sintaxis PlantUML, sección y caso IACT.
+
+.. list-table::
+ :widths: 24 30 16 30
+ :header-rows: 1
+
+ * - Componente
+   - Sintaxis PlantUML
+   - Sección
+   - Caso IACT
+ * - Objeto sin lifeline
+   - ``object ":Clase" as O``
+   - § 2
+   - ``:Sesion``, ``:Alerta``.
+ * - Enlace bidireccional
+   - ``A -- B``
+   - § 2
+   - ``Supervisor`` ↔ ``Browser``.
+ * - Self-link
+   - ``A -- A`` con auto-mensaje
+     numerado
+   - § 9
+   - ``EvaluadorAlertas`` revisando
+     umbrales.
+ * - Forward síncrono
+   - ``A -> B : "1: op()"``
+   - § 3
+   - ``Browser`` → ``auth_app``.
+ * - Forward asíncrono
+   - ``A ->> B : "1: op()"``
+   - § 3
+   - ``rpt_app`` → ``audit_log``.
+ * - Reverse stimulus
+   - ``B --> A : "2: ack"``
+   - § 3
+   - ``LDAP`` → ``auth_app``
+     respuesta.
+ * - Numeración anidada
+   - Etiqueta ``"N.M: op()"``
+   - § 4
+   - Sub-pasos en una operación.
+ * - Mensaje con guarda
+   - Etiqueta
+     ``"N: [cond] op()"``
+   - § 5
+   - Condicional inline.
+ * - Mensaje en bucle
+   - Etiqueta
+     ``"N: *[i:1..n] op()"``
+   - § 6
+   - Iteración sobre lote.
+ * - Cambio de estado
+   - Nota anclada al objeto
+   - § 7
+   - ``Sesion`` activa → caducada.
+ * - Valor de retorno
+   - Etiqueta
+     ``"N: r := op()"``
+   - § 8
+   - Resultado capturado.
+ * - Sincronización
+   - Mensajes con prefijo
+     compartido
+   - § 9
+   - Audit + notify completos
+     antes de cerrar.
+
+----
+
+14. Galería de ejemplos canónicos IACT
+======================================
+
+Mini-diagramas reutilizables, vocabulario IACT
+real. Copiar y adaptar al UC nuevo.
+
+14.1 Objetos y enlace bidireccional
+-----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":Supervisor" as S
+   object ":Browser" as B
+
+   S -- B : opera
+   @enduml
+
+14.2 Self-link
+--------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":EvaluadorAlertas" as E
+
+   E -- E : "1: revisar_umbrales()"
+   @enduml
+
+14.3 Forward síncrono numerado
+------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":Browser" as B
+   object ":auth_app" as Auth
+
+   B -> Auth : "1: POST /login"
+   @enduml
+
+14.4 Forward asíncrono
+----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":rpt_app" as Rpt
+   object ":audit_log" as Audit
+
+   Rpt ->> Audit : "1: registrar_evento()"
+   @enduml
+
+14.5 Reverse stimulus (request + respuesta)
+-------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":auth_app" as Auth
+   object ":ldap-corporativo" as LDAP
+
+   Auth -> LDAP : "1: authenticate(user, pass)"
+   LDAP --> Auth : "2: ok + atributos"
+   @enduml
+
+14.6 Numeración anidada
+-----------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":Browser" as B
+   object ":auth_app" as Auth
+   object ":Redis" as R
+
+   B -> Auth : "1: POST /login"
+   Auth -> R : "1.1: crear_sesion()"
+   R --> Auth : "1.2: session_id"
+   Auth --> B : "1.3: 302 panel"
+   @enduml
+
+14.7 Mensaje con guarda condicional
+-----------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":auth_app" as Auth
+   object ":audit_log" as Audit
+
+   Auth -> Audit : "1: [credenciales_validas] registrar_acceso()"
+   @enduml
+
+14.8 Mensaje en bucle
+---------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":etl_runner" as ETL
+   object ":bd_operativa" as BDO
+
+   ETL -> BDO : "1: *[i:1..n] leer_lote(i)"
+   @enduml
+
+14.9 Cambio de estado anotado
+-----------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":auth_app" as Auth
+   object ":Sesion" as S
+
+   Auth -> S : "1: caducar()"
+   note right of S
+     estado: activa → caducada
+     CNST_002
+   end note
+   @enduml
+
+14.10 Valor de retorno capturado
+--------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":rpt_app" as Rpt
+   object ":Reporte" as R
+
+   Rpt -> R : "1: tarea_id := exportar(req)"
+   @enduml
+
+14.11 Sincronización — UC_ALR_03
+--------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+
+   object ":Supervisor" as S
+   object ":alr_app" as Alr
+   object ":audit_log" as Audit
+   object ":log_app" as Log
+   object ":Alerta" as A
+
+   S -> Alr : "1: reconocer(alerta_id)"
+   Alr ->> Audit : "1.1: registrar(CNST_025)"
+   Alr ->> Log : "1.2: notificar(CNST_001)"
+   Alr -> A : "1.3: cambiar_estado(reconocida)"
+   note right of A
+     estado: publicada → reconocida
+   end note
+   @enduml
+
+14.12 Plantilla — UC nuevo en colaboración
+------------------------------------------
+
+.. uml::
+
+   @startuml
+   !include ../../_static/plantuml-styles.puml
+   title UC_XXX_NN — vista de colaboracion
+
+   object ":Actor" as Actor
+   object ":AppEmisora" as Emisor
+   object ":AppReceptora" as Receptor
+   object ":BD" as BD
+   object ":audit_log" as Audit
+
+   Actor -> Emisor : "1: disparador()"
+   Emisor -> Receptor : "1.1: operacion_principal(req)"
+   Receptor -> BD : "1.1.1: persistir(datos)"
+   BD --> Receptor : "1.1.2: ack"
+   Receptor --> Emisor : "1.1.3: ok"
+   Emisor ->> Audit : "1.2: registrar_evento(CNST_025)"
+   Emisor --> Actor : "1.3: exito"
+   @enduml
+
+14.13 Cómo usar la galería
+--------------------------
+
+1. Localizar el componente en § 13.
+2. Copiar el snippet correspondiente (§§
+   14.1-14.11) o usar la plantilla (§ 14.12).
+3. Adaptar nombres, mensajes, guardas, anclar
+   a CNST/BR.
+4. Integrar al documento del UC.
+
+Mantenimiento: al introducir un componente
+nuevo en § 13, agregar su mini-diagrama aquí.
+Mantener cada snippet ≤ 6 mensajes.
+
+----
+
+15. Trazabilidad
 ================
 
 .. list-table::
