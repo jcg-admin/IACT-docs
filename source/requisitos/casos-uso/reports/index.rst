@@ -32,7 +32,7 @@ Casos de Uso
  uc-rpt-10/index
  uc-rpt-11/index
  uc-rpt-12/index
- uc-rpt-13-ver-reporte-colas
+ uc-rpt-13/index
  uc-rpt-14-ver-reporte-campanas
  uc-rpt-15-reporte-transferencias-centro
  uc-rpt-16-reporte-menus-ivr
