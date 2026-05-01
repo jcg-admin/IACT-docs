@@ -22,10 +22,10 @@ Casos de Uso
 .. toctree::
  :maxdepth: 1
 
- uc-log-01-consultar-logs-sistema
- uc-log-02-consultar-logs-etl
- uc-log-03-buscar-logs
- uc-log-04-exportar-logs
- uc-log-05-ver-logs-infraestructura
- uc-log-06-ver-estado-sistema
- uc-log-07-ver-metricas-tecnicas
+ uc-log-01/index
+ uc-log-02/index
+ uc-log-03/index
+ uc-log-04/index
+ uc-log-05/index
+ uc-log-06/index
+ uc-log-07/index
