@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.5
-updated_at: 2026-05-01 15:45:30
+updated_at: 2026-05-01 17:03:07
 cold_boot: false
 current_epic: 14
 epic_name: std007-spec-gaps-cleanup (cerrada)
-current_work: .thyrox/context/work/2026-05-01-15-44-20-metodologia-base-cognitiva-mapeo
+current_work: .thyrox/context/work/2026-05-01-17-02-53-uc-usr-04-spec-completa
 stage: idle
 stage_number: —
 current_phase: —
