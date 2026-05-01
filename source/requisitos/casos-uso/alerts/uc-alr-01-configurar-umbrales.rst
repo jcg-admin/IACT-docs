@@ -43,14 +43,14 @@ UC_ALR_01: Configurar Umbrales
 
 Este caso de uso permite configurar los umbrales que disparan alertas
 automaticas cuando las metricas operativas superan valores criticos.
-Los umbrales se configuran por segmento (CNST_008) y los cambios
+Los umbrales se configuran por agrupador (AGR) (CNST_008) y los cambios
 se registran en auditoria (CNST_025).
 
 **Caracteristicas principales:**
 
 - Definir umbrales por metrica (TMO, abandono, espera, etc.)
 - Configurar niveles: advertencia y critico
-- Asociar umbrales a segmentos especificos
+- Asociar umbrales a agrupadores (AGR) especificos
 - Activar/desactivar umbrales individualmente
 - Registro de cambios en auditoria
 
@@ -76,7 +76,7 @@ se registran en auditoria (CNST_025).
  usecase "UC_ALR_01\nConfigurar Umbrales" as UC01
  usecase "Definir Valor\nAdvertencia" as WARN
  usecase "Definir Valor\nCritico" as CRIT
- usecase "Asignar a\nSegmento" as SEG
+ usecase "Asignar a\nAgrupador (AGR)" as SEG
  usecase "Registrar\nAuditoria" as AUD
  }
 
@@ -104,7 +104,7 @@ se registran en auditoria (CNST_025).
  * - PRE-02
    - Existen metricas definidas en el sistema
  * - PRE-03
-   - El usuario tiene acceso al segmento destino
+   - El usuario tiene acceso al agrupador (AGR) destino
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -147,7 +147,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Valida funcion ALR-002
  * - 3
    - Sistema
-   - Muestra umbrales existentes del segmento
+   - Muestra umbrales existentes del agrupador (AGR)
  * - 4
    - Gestor
    - Selecciona metrica a configurar
@@ -162,7 +162,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Define valor critico (critical)
  * - 8
    - Gestor
-   - Selecciona segmento destino
+   - Selecciona agrupador (AGR) destino
  * - 9
    - Gestor
    - Guarda configuracion
@@ -196,15 +196,15 @@ El gestor de alertas accede a la configuracion de umbrales.
  G -> FE: Accede a Umbrales
  FE -> AC: GET /api/alerts/thresholds
  AC -> AC: verify_function(ALR-002)
- AC -> TS: get_thresholds(segmento)
- TS -> DB: SELECT * FROM alert_thresholds\nWHERE segmento_id = ?
+ AC -> TS: get_thresholds(access_group)
+ TS -> DB: SELECT * FROM alert_thresholds\nWHERE access_group_id = ?
  DB --> TS: thresholds
  TS --> AC: thresholds
  AC --> FE: 200 OK
  FE --> G: Lista de umbrales
 
  G -> FE: Configura umbral
- G -> FE: metrica, warning, critical, segmento
+ G -> FE: metrica, warning, critical, access_group
  FE -> AC: POST /api/alerts/thresholds
  AC -> TS: configure_threshold(data)
 
@@ -216,7 +216,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  AC --> FE: 400 Bad Request
  end
 
- TS -> DB: INSERT/UPDATE alert_thresholds\nSET warning_value = ?,\ncritical_value = ?,\nsegmento_id = ?
+ TS -> DB: INSERT/UPDATE alert_thresholds\nSET warning_value = ?,\ncritical_value = ?,\naccess_group_id = ?
 
  TS -> UAL: record(THRESHOLD_CONFIG)
  note right of UAL
@@ -274,7 +274,7 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Sistema
    - Registra THRESHOLD_DISABLED en auditoria
 
-7.3 FA-03: Copiar Umbral a Otro Segmento
+7.3 FA-03: Copiar Umbral a Otro Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -289,10 +289,10 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Selecciona umbral y opcion Copiar
  * - 8a
    - Gestor
-   - Selecciona segmento destino diferente
+   - Selecciona agrupador (AGR) destino diferente
  * - 11a
    - Sistema
-   - Crea nuevo umbral en segmento destino
+   - Crea nuevo umbral en agrupador (AGR) destino
 
 8. Excepciones
 --------------
@@ -343,11 +343,11 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - **Paso de Origen**
    - 11
  * - **Condicion**
-   - Ya existe umbral activo para metrica y segmento
+   - Ya existe umbral activo para metrica y agrupador (AGR)
  * - **Accion Sistema**
    - Rechaza creacion
  * - **Mensaje Usuario**
-   - Ya existe un umbral para esta metrica en el segmento
+   - Ya existe un umbral para esta metrica en el agrupador (AGR)
  * - **Codigo Error**
    - ALR-003
 
@@ -367,7 +367,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  else (si)
  endif
 
- :Mostrar umbrales existentes del segmento;
+ :Mostrar umbrales existentes del agrupador (AGR);
 
  :Seleccionar metrica;
 
@@ -381,10 +381,10 @@ El gestor de alertas accede a la configuracion de umbrales.
  else (si)
  endif
 
- :Seleccionar segmento destino;
+ :Seleccionar agrupador (AGR) destino;
  note right: CNST_008
 
- if (Existe umbral para metrica/segmento?) then (si)
+ if (Existe umbral para metrica/agrupador (AGR)?) then (si)
  :Actualizar umbral existente;
  else (no)
  :Crear nuevo umbral;
@@ -412,11 +412,11 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Jerarquia de Valores
    - El valor critico siempre debe ser mayor que el valor de advertencia
  * - BR-ALR-02
-   - Umbral por Segmento
-   - Cada segmento puede tener umbrales diferentes para la misma metrica
+   - Umbral por Agrupador (AGR)
+   - Cada agrupador (AGR) puede tener umbrales diferentes para la misma metrica
  * - BR-ALR-03
    - Unicidad
-   - Solo puede existir un umbral activo por metrica por segmento
+   - Solo puede existir un umbral activo por metrica por agrupador (AGR)
  * - BR-ALR-04
    - Valores Positivos
    - Los valores de umbral deben ser numeros positivos
@@ -457,8 +457,8 @@ El gestor de alertas accede a la configuracion de umbrales.
    - Nombre
    - Aplicacion en este UC
  * - CNST_008
-   - Segmentos de Datos
-   - Umbrales se configuran por segmento. El gestor solo puede configurar umbrales para segmentos a los que tiene acceso.
+   - Agrupadores (AGR)
+   - Umbrales se configuran por agrupador (AGR). El gestor solo puede configurar umbrales para agrupadores (AGR) a los que tiene acceso.
  * - CNST_025
    - Auditoria Inmutable
    - Todo cambio de umbral se registra en UserActionLog con valores anteriores y nuevos.
@@ -474,7 +474,7 @@ El gestor de alertas accede a la configuracion de umbrales.
  result='SUCCESS',
  details={
  'metrica': metrica_id,
- 'segmento': segmento_id,
+ 'access_group': access_group_id,
  'old_warning': valor_anterior_warning,
  'new_warning': valor_nuevo_warning,
  'old_critical': valor_anterior_critical,
@@ -503,8 +503,8 @@ El gestor de alertas accede a la configuracion de umbrales.
    - El sistema debe auditar todos los cambios
    - Registro con valores anteriores y nuevos en auditoria
  * - FR-ALR-004
-   - El sistema debe aplicar umbrales por segmento
-   - Motor de alertas usa umbrales del segmento correspondiente
+   - El sistema debe aplicar umbrales por agrupador (AGR)
+   - Motor de alertas usa umbrales del agrupador (AGR) correspondiente
 
 13. Trazabilidad
 ----------------
@@ -518,9 +518,11 @@ El gestor de alertas accede a la configuracion de umbrales.
  * - **Reglas de Negocio**
    - BR-ALR-01 a BR-ALR-04
  * - **Restricciones**
-   - CNST_008 (Segmentos), CNST_025 (Auditoria)
+   - CNST_008 (Ventana ETL), CNST_025 (Auditoria)
  * - **UC Relacionados**
    - UC_ALR_02 (Ver Alertas), UC_ALR_03 (Reconocer)
+ * - **Clase de Dominio**
+   - ``Threshold`` (primaria), ``Metric`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-005: agr_gestor_alertas
  * - **Funcion RBAC**

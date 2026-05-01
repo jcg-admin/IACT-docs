@@ -42,14 +42,14 @@ UC_ALR_02: Ver Alertas Activas
 --------------
 
 Este caso de uso permite visualizar las alertas activas del sistema en
-tiempo real. Solo se muestran alertas del segmento del usuario (CNST_008).
+tiempo real. Solo se muestran alertas del perfil del usuario (AGR) (CNST_008).
 Los datos provienen de BD Analytics (CNST_007) y las notificaciones
 se envian via InternalMessage (CNST_001).
 
 **Caracteristicas principales:**
 
 - Ver alertas activas en tiempo real
-- Filtrado automatico por segmento del usuario
+- Filtrado automatico por perfil del usuario (AGR)
 - Indicadores visuales por nivel de severidad
 - Auto-refresh cada 30 segundos
 - Ordenamiento por severidad (criticas primero)
@@ -73,7 +73,7 @@ se envian via InternalMessage (CNST_001).
 
  rectangle "MOD_Alerts" {
  usecase "UC_ALR_02\nVer Alertas Activas" as UC02
- usecase "Filtrar por\nSegmento" as SEG
+ usecase "Filtrar por\nAgrupador (AGR)" as SEG
  usecase "Auto Refresh\n30s" as REF
  usecase "Notificar via\nInternalMessage" as NOT
  }
@@ -99,7 +99,7 @@ se envian via InternalMessage (CNST_001).
  * - PRE-01
    - El usuario tiene sesion activa con funcion ALR-001
  * - PRE-02
-   - El usuario tiene un segmento asignado
+   - El usuario tiene un agrupador (AGR) asignado
  * - PRE-03
    - El motor de alertas esta activo
 
@@ -118,7 +118,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestran alertas activas del segmento del usuario
+   - Se muestran alertas activas del perfil del usuario (AGR)
  * - POST-02
    - El panel se actualiza automaticamente cada 30 segundos
 
@@ -140,10 +140,10 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Valida funcion ALR-001
  * - 3
    - Sistema
-   - Obtiene segmento del usuario
+   - Obtiene perfil del usuario (AGR)
  * - 4
    - Sistema
-   - Consulta alertas activas del segmento en Analytics
+   - Consulta alertas activas del agrupador (AGR) en Analytics
  * - 5
    - Sistema
    - Ordena por severidad (CRITICAL > WARNING > INFO)
@@ -176,8 +176,8 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  AC -> AC: verify_function(ALR-001)
  AC -> AC: get_user_segment
 
- AC -> AS: get_active_alerts(segmento)
- AS -> DB: SELECT * FROM alerts\nWHERE segmento_id = ?\nAND status = 'ACTIVE'\nORDER BY severity DESC,\ncreated_at DESC
+ AC -> AS: get_active_alerts(access_group)
+ AS -> DB: SELECT * FROM alerts\nWHERE access_group_id = ?\nAND status = 'ACTIVE'\nORDER BY severity DESC,\ncreated_at DESC
  note right of DB: CNST_007 BD Analytics
  DB --> AS: alerts
  AS --> AC: alerts
@@ -194,7 +194,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
 
  participant "AlertEngine" as AE
 
- AE -> AS: create_alert(metrica, valor, segmento)
+ AE -> AS: create_alert(metrica, valor, access_group)
  AS -> DB: INSERT INTO alerts
  AS -> IM: notify(subscribers, alert)
  note right of IM
@@ -219,7 +219,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Accion
  * - 5a
    - Sistema
-   - No hay alertas activas para el segmento
+   - No hay alertas activas para el agrupador (AGR)
  * - 6a
    - Sistema
    - Muestra panel vacio con mensaje informativo
@@ -285,7 +285,7 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - **Codigo Error**
    - ALR-010
 
-8.2 EX-02: Usuario Sin Segmento
+8.2 EX-02: Usuario Sin Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -295,11 +295,11 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - **Paso de Origen**
    - 3
  * - **Condicion**
-   - Usuario no tiene segmento asignado
+   - Usuario no tiene agrupador (AGR) asignado
  * - **Accion Sistema**
    - Rechaza acceso
  * - **Mensaje Usuario**
-   - Usuario sin segmento asignado. Contacte al administrador.
+   - Usuario sin agrupador (AGR) asignado. Contacte al administrador.
  * - **Codigo Error**
    - ALR-011
 
@@ -319,11 +319,11 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  else (si)
  endif
 
- :Obtener segmento del usuario;
+ :Obtener perfil del usuario (AGR);
  note right: CNST_008
 
- if (Usuario tiene segmento?) then (no)
- :Mostrar error sin segmento;
+ if (Usuario tiene agrupador (AGR)?) then (no)
+ :Mostrar error sin agrupador (AGR);
  stop
  else (si)
  endif
@@ -364,8 +364,8 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - Regla
    - Descripcion
  * - BR-ALR-10
-   - Filtro por Segmento
-   - Usuario solo ve alertas de su segmento asignado
+   - Filtro por Agrupador (AGR)
+   - Usuario solo ve alertas de su agrupador (AGR) asignado
  * - BR-ALR-11
    - Orden por Severidad
    - Alertas criticas primero, luego advertencias, luego info
@@ -412,8 +412,8 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - BD Dual
    - Datos de alertas se leen de BD Analytics
  * - CNST_008
-   - Segmentos de Datos
-   - Filtro automatico por segmento del usuario
+   - Agrupadores (AGR)
+   - Filtro automatico por perfil del usuario (AGR)
 
 **Implementacion CNST_001:**
 
@@ -449,8 +449,8 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
    - El sistema debe mostrar alertas activas
    - Lista ordenada por severidad visible
  * - FR-ALR-011
-   - El sistema debe filtrar por segmento
-   - Solo alertas del segmento del usuario mostradas
+   - El sistema debe filtrar por agrupador (AGR)
+   - Solo alertas del perfil del usuario (AGR) mostradas
  * - FR-ALR-012
    - El sistema debe auto-refrescar
    - Actualizacion cada 30 segundos sin recargar
@@ -470,9 +470,11 @@ El usuario accede al panel de alertas o recibe una notificacion de alerta.
  * - **Reglas de Negocio**
    - BR-ALR-10 a BR-ALR-13
  * - **Restricciones**
-   - CNST_001 (InternalMessage), CNST_007 (BD Dual), CNST_008 (Segmentos)
+   - CNST_001 (InternalMessage), CNST_007 (BD Dual), CNST_008 (Ventana ETL)
  * - **UC Relacionados**
    - UC_ALR_01 (Umbrales), UC_ALR_03 (Reconocer), UC_ALR_04 (Historial)
+ * - **Clase de Dominio**
+   - ``Alert`` (primaria), ``Threshold`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-001: agr_operador_basico
  * - **Funcion RBAC**

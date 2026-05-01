@@ -100,7 +100,7 @@ al equipo via InternalMessage (CNST_001).
  * - PRE-02
    - La alerta existe y esta en estado ACTIVE
  * - PRE-03
-   - La alerta pertenece al segmento del usuario
+   - La alerta pertenece al perfil del usuario (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -457,6 +457,8 @@ El supervisor hace clic en el boton Reconocer de una alerta activa.
    - CNST_001 (InternalMessage), CNST_025 (Auditoria)
  * - **UC Relacionados**
    - UC_ALR_02 (Ver Alertas), UC_ALR_04 (Historial)
+ * - **Clase de Dominio**
+   - ``Alert`` (primaria, transicion ACTIVE→ACKNOWLEDGED per Z.2 D-02), ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

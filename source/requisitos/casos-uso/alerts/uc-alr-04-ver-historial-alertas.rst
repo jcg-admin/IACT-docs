@@ -50,7 +50,7 @@ tendencias y patrones de problemas operativos.
 - Consultar alertas historicas por rango de fechas
 - Maximo 2 anios de historial (CNST_015)
 - Filtrar por estado, severidad, metrica
-- Filtrado automatico por segmento (CNST_008)
+- Filtrado automatico por agrupador (AGR) (CNST_008)
 - Ver detalle completo de cada alerta
 - Exportar historial para analisis
 
@@ -111,7 +111,7 @@ El supervisor accede a la seccion de historial de alertas.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestra historial de alertas filtrado por segmento
+   - Se muestra historial de alertas filtrado por agrupador (AGR)
  * - POST-02
    - La consulta no modifica ningun dato (solo lectura)
 
@@ -142,7 +142,7 @@ El supervisor accede a la seccion de historial de alertas.
    - Valida rango no excede 2 anios (CNST_015)
  * - 6
    - Sistema
-   - Consulta alertas con filtro de segmento automatico
+   - Consulta alertas con filtro de agrupador (AGR) automatico
  * - 7
    - Sistema
    - Presenta lista paginada ordenada por fecha
@@ -168,8 +168,8 @@ El supervisor accede a la seccion de historial de alertas.
  AC -> AC: verify_function(ALR-006)
  AC -> AC: get_user_segment
 
- AC -> AHS: get_history(filters, segmento)
- AHS -> DB: SELECT * FROM alerts\nWHERE segmento_id = ?\nAND created_at >= NOW - INTERVAL '30 days'\nORDER BY created_at DESC
+ AC -> AHS: get_history(filters, access_group)
+ AHS -> DB: SELECT * FROM alerts\nWHERE access_group_id = ?\nAND created_at >= NOW - INTERVAL '30 days'\nORDER BY created_at DESC
  note right of DB: CNST_007 BD Analytics
  DB --> AHS: alerts
  AHS --> AC: paginated_alerts
@@ -188,7 +188,7 @@ El supervisor accede a la seccion de historial de alertas.
  FE --> S: Error: Rango maximo 2 anios
  end
 
- AHS -> DB: SELECT con filtros y segmento
+ AHS -> DB: SELECT con filtros y access_group
  DB --> AHS: filtered_alerts
  AHS --> AC: alerts
  AC --> FE: 200 OK
@@ -329,7 +329,7 @@ El supervisor accede a la seccion de historial de alertas.
  endif
  endif
 
- :Consultar alertas con filtro de segmento;
+ :Consultar alertas con filtro de agrupador (AGR);
  note right: CNST_008
 
  :Mostrar lista paginada;
@@ -360,8 +360,8 @@ El supervisor accede a la seccion de historial de alertas.
    - Retencion 2 Anios
    - Solo se pueden consultar alertas de los ultimos 2 anios (CNST_015)
  * - BR-ALR-31
-   - Filtro Segmento
-   - Solo alertas del segmento del usuario visibles (CNST_008)
+   - Filtro Agrupador (AGR)
+   - Solo alertas del perfil del usuario (AGR) visibles (CNST_008)
  * - BR-ALR-32
    - Paginacion
    - Maximo 100 alertas por pagina
@@ -402,8 +402,8 @@ El supervisor accede a la seccion de historial de alertas.
    - BD Dual
    - Datos historicos de BD Analytics
  * - CNST_008
-   - Segmentos
-   - Filtro automatico por segmento del usuario
+   - Agrupadores (AGR)
+   - Filtro automatico por perfil del usuario (AGR)
  * - CNST_015
    - Retencion
    - Maximo 2 anios de historial consultable
@@ -446,6 +446,8 @@ El supervisor accede a la seccion de historial de alertas.
    - CNST_007, CNST_008, CNST_015
  * - **UC Relacionados**
    - UC_ALR_02 (Ver Activas), UC_ALR_03 (Reconocer)
+ * - **Clase de Dominio**
+   - ``Alert`` (primaria), ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

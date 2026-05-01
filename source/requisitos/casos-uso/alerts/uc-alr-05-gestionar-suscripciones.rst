@@ -49,7 +49,7 @@ Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
 
 - Suscribir usuarios a tipos de alertas
 - Configurar nivel de severidad minimo para notificacion
-- Suscripcion por segmento (CNST_008)
+- Suscripcion por agrupador (AGR) (CNST_008)
 - Notificaciones SOLO via InternalMessage (CNST_001)
 - Registro de cambios en auditoria (CNST_025)
 
@@ -102,7 +102,7 @@ Las notificaciones son EXCLUSIVAMENTE via InternalMessage (CNST_001).
  * - PRE-02
    - El usuario destino existe y esta activo
  * - PRE-03
-   - El usuario destino pertenece al mismo segmento
+   - El usuario destino pertenece al mismo agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -146,7 +146,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Muestra usuarios y sus suscripciones actuales
  * - 4
    - Gestor
-   - Selecciona usuario del segmento
+   - Selecciona usuario del agrupador (AGR)
  * - 5
    - Sistema
    - Muestra suscripciones actuales del usuario
@@ -161,7 +161,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Guarda suscripcion
  * - 9
    - Sistema
-   - Valida usuario del mismo segmento
+   - Valida usuario del mismo agrupador (AGR)
  * - 10
    - Sistema
    - Crea/actualiza registro de suscripcion
@@ -189,8 +189,8 @@ El gestor de alertas accede a la gestion de suscripciones.
  G -> FE: Accede a Suscripciones
  FE -> AC: GET /api/alerts/subscriptions
  AC -> AC: verify_function(ALR-008/009/010 según flujo)
- AC -> SS: get_subscriptions(segmento)
- SS -> DB: SELECT * FROM alert_subscriptions\nJOIN users ON user_id\nWHERE segmento_id = ?
+ AC -> SS: get_subscriptions(access_group)
+ SS -> DB: SELECT * FROM alert_subscriptions\nJOIN users ON user_id\nWHERE access_group_id = ?
  DB --> SS: subscriptions
  SS --> AC: subscriptions
  AC --> FE: 200 OK
@@ -207,7 +207,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  SS -> SS: validate_same_segment
  note right: CNST_008
 
- alt usuario diferente segmento
+ alt usuario diferente agrupador
  SS --> AC: SegmentMismatchError
  AC --> FE: 403 Forbidden
  end
@@ -280,7 +280,7 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Accion
  * - 4a
    - Gestor
-   - Selecciona multiples usuarios del segmento
+   - Selecciona multiples usuarios del agrupador (AGR)
  * - 10a
    - Sistema
    - Crea suscripciones para todos los seleccionados
@@ -308,7 +308,7 @@ El gestor de alertas accede a la gestion de suscripciones.
 8. Excepciones
 --------------
 
-8.1 EX-01: Usuario de Otro Segmento
+8.1 EX-01: Usuario de Otro Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -318,11 +318,11 @@ El gestor de alertas accede a la gestion de suscripciones.
  * - **Paso de Origen**
    - 9
  * - **Condicion**
-   - Usuario destino pertenece a segmento diferente
+   - Usuario destino pertenece a agrupador (AGR) diferente
  * - **Accion Sistema**
    - Rechaza suscripcion
  * - **Mensaje Usuario**
-   - Solo puede suscribir usuarios de su mismo segmento
+   - Solo puede suscribir usuarios de su mismo agrupador (AGR)
  * - **Codigo Error**
    - ALR-040
 
@@ -376,11 +376,11 @@ El gestor de alertas accede a la gestion de suscripciones.
  else (si)
  endif
 
- :Mostrar usuarios y suscripciones del segmento;
+ :Mostrar usuarios y suscripciones del agrupador (AGR);
  :Seleccionar usuario;
 
- if (Usuario del mismo segmento?) then (no)
- :Mostrar error de segmento;
+ if (Usuario del mismo agrupador (AGR)?) then (no)
+ :Mostrar error de agrupador (AGR);
  note right: CNST_008
  stop
  else (si)
@@ -424,8 +424,8 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Solo InternalMessage
    - Las notificaciones se envian EXCLUSIVAMENTE via InternalMessage (CNST_001)
  * - BR-ALR-41
-   - Mismo Segmento
-   - Solo se pueden suscribir usuarios del mismo segmento (CNST_008)
+   - Mismo Agrupador (AGR)
+   - Solo se pueden suscribir usuarios del mismo agrupador (AGR) (CNST_008)
  * - BR-ALR-42
    - Nivel Minimo
    - El usuario solo recibe alertas de severidad >= nivel configurado
@@ -452,7 +452,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  * - OCUPACION_ALTA
    - Ocupacion de agentes sobre umbral
  * - TODAS
-   - Todas las alertas del segmento
+   - Todas las alertas del agrupador (AGR)
 
 **Niveles de Severidad:**
 
@@ -483,8 +483,8 @@ El gestor de alertas accede a la gestion de suscripciones.
    - Comunicacion Interna
    - Las notificaciones se envian SOLO via InternalMessage.notify. PROHIBIDO email/SMS/push.
  * - CNST_008
-   - Segmentos
-   - Solo usuarios del mismo segmento pueden suscribirse
+   - Agrupadores (AGR)
+   - Solo usuarios del mismo agrupador (AGR) pueden suscribirse
  * - CNST_025
    - Auditoria Inmutable
    - Registro de creacion, modificacion y eliminacion de suscripciones
@@ -497,7 +497,7 @@ El gestor de alertas accede a la gestion de suscripciones.
  class AlertNotifier:
  def notify_subscribers(self, alert):
  subscriptions = self.get_subscriptions(
- segmento=alert.segmento_id,
+ access_group=alert.access_group_id,
  alert_type=alert.type,
  min_severity=alert.severity
  )
@@ -553,6 +553,8 @@ El gestor de alertas accede a la gestion de suscripciones.
    - CNST_001 (critica), CNST_008, CNST_025
  * - **UC Relacionados**
    - UC_ALR_01 (Umbrales), UC_ALR_02 (Ver Alertas)
+ * - **Clase de Dominio**
+   - ``Subscription`` (primaria, split per Z.2 D-03), ``Alert``, ``User``, ``InternalMailbox`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-005: agr_gestor_alertas
  * - **Funcion RBAC**
