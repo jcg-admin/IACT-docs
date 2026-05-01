@@ -23,7 +23,7 @@ Casos de Uso
  :maxdepth: 1
 
  uc-rpt-01/index
- uc-rpt-02-ver-metricas-tiempo-real
+ uc-rpt-02/index
  uc-rpt-03-ver-reportes-historicos
  uc-rpt-04-exportar-reporte
  uc-rpt-07-programar-reporte
