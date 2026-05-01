@@ -41,7 +41,7 @@ UC_ACC_01: Asignar Funciones
  * - **Modulo**
    - MOD_Access
  * - **Funcion RBAC**
-   - ACC-001: asigna_funciones
+   - ACC-001: assign_functions
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -171,7 +171,7 @@ El administrador accede al modulo de control de acceso y selecciona
    - Accede al modulo de control de acceso
  * - 2
    - Sistema
-   - Valida funcion ACC-001 (asigna_funciones)
+   - Valida funcion ACC-001 (assign_functions)
  * - 3
    - Admin
    - Busca y selecciona usuario destino
@@ -611,10 +611,12 @@ El administrador accede al modulo de control de acceso y selecciona
    - FR-ACC-001 a FR-ACC-005
  * - **UC Relacionados**
    - UC_ACC_02 (Revocar), UC_ACC_03 (Consultar), UC_ACC_04 (Agrupador)
+ * - **Clase de Dominio**
+   - ``Assignment`` (primaria), ``Function``, ``User``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
-   - ACC-001: asigna_funciones
+   - ACC-001: assign_functions
 
 14. Historial de Cambios
 ------------------------

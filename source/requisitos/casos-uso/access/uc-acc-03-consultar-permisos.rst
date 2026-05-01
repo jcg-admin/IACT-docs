@@ -41,7 +41,7 @@ UC_ACC_03: Consultar Permisos
  * - **Modulo**
    - MOD_Access
  * - **Funcion RBAC**
-   - ACC-003: ve_asignaciones
+   - ACC-003: view_assignments
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -61,7 +61,6 @@ directamente, funciones de agrupadores y permisos temporales.
 - Ver funciones asignadas directamente
 - Ver funciones heredadas de agrupadores
 - Ver permisos temporales activos
-- Ver segmento asignado
 - Calcular permisos efectivos (union de todas las fuentes)
 - Detectar conflictos SoD potenciales
 
@@ -144,7 +143,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Accede al modulo de control de acceso
  * - 2
    - Sistema
-   - Valida funcion ACC-003 (ve_asignaciones)
+   - Valida funcion ACC-003 (view_assignments)
  * - 3
    - Admin
    - Busca y selecciona usuario
@@ -158,9 +157,6 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - Sistema
    - Consulta permisos temporales activos
  * - 7
-   - Sistema
-   - Consulta segmento asignado
- * - 8
    - Sistema
    - Calcula permisos efectivos (union)
  * - 9
@@ -208,10 +204,6 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  PS -> DB: SELECT * FROM permisos_temporales\nWHERE user_id = ?\nAND fecha_inicio <= now\nAND fecha_fin >= now
  DB --> PS: temp_permissions
 
- == Segmento ==
- PS -> DB: SELECT s.* FROM users u\nJOIN segmentos s ON u.segmento_id = s.id\nWHERE u.id = ?
- DB --> PS: segmento
-
  == Calcular Efectivos ==
  PS -> PS: merge_permissions(\ndirect, agrupador, temp)
  note right of PS
@@ -223,7 +215,7 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  PS -> SOD: check_potential_conflicts(effective_permissions)
  SOD --> PS: sod_warnings (if any)
 
- PS --> AC: {direct, agrupadores, temp,\nsegmento, effective, sod_warnings}
+ PS --> AC: {direct, agrupadores, temp,\neffective, sod_warnings}
  deactivate PS
 
  AC --> FE: 200 OK + permissions_detail
@@ -340,8 +332,6 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  :Consultar agrupadores;
  fork again
  :Consultar permisos temporales;
- fork again
- :Consultar segmento;
  end fork
 
  :Calcular permisos efectivos;
@@ -413,12 +403,9 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
  "source": "agrupador", "agrupador": "AGR-001"}
  ],
  "temp_permissions": [
- {"code": "RPT-004", "name": "exporta_csv",
+ {"code": "RPT-004", "name": "export_csv",
  "source": "temp", "expires": "2026-02-01"}
  ],
- "segmento": {
- "id": 1, "nombre": "Centro Norte"
- },
  "effective": ["RPT-001", "RPT-002", "RPT-004"],
  "sod_warnings": []
  }
@@ -466,10 +453,12 @@ El administrador selecciona un usuario y accede a "Ver Permisos".
    - FR-ACC-020 a FR-ACC-024
  * - **UC Relacionados**
    - UC_ACC_01 (Asignar), UC_ACC_02 (Revocar), UC_ACC_08 (Temporal)
+ * - **Clase de Dominio**
+   - ``Assignment`` (primaria), ``Function``, ``User`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
-   - ACC-003: ve_asignaciones
+   - ACC-003: view_assignments
 
 14. Historial de Cambios
 ------------------------

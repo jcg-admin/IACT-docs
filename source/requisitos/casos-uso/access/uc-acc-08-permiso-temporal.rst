@@ -435,6 +435,8 @@ El administrador selecciona asignar permiso temporal a un usuario.
    - CNST_029, CNST_025
  * - **UC Relacionados**
    - UC_ACC_01, UC_ACC_03
+ * - **Clase de Dominio**
+   - ``ExceptionalPermission`` (primaria), ``User``, ``Function``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**

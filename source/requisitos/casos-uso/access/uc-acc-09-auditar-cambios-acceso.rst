@@ -52,7 +52,7 @@ UC_ACC_09: Auditar Cambios Acceso
 
 Este caso de uso permite a un auditor (AGR-008) consultar el historial
 de cambios en el modelo de acceso: asignaciones, revocaciones, cambios
-de segmento y permisos temporales.
+de agrupador y permisos temporales.
 
 **Caracteristicas principales:**
 
@@ -340,8 +340,6 @@ El auditor accede al modulo de auditoria de acceso.
    - Asignacion de agrupador
  * - AGRUPADOR_REVOKE
    - Revocacion de agrupador
- * - SEGMENT_ASSIGN
-   - Cambio de segmento
  * - TEMP_PERMISSION_GRANT
    - Otorgar permiso temporal
  * - TEMP_PERMISSION_REVOKE
@@ -396,6 +394,8 @@ El auditor accede al modulo de auditoria de acceso.
    - CNST_025 (Auditoria Inmutable)
  * - **UC Relacionados**
    - UC_AUD_01, UC_AUD_02, UC_AUD_03
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria), ``User``, ``Assignment`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-008: agr_auditor
  * - **Funcion RBAC**

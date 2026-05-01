@@ -32,7 +32,7 @@ UC_ACC_05: Gestionar SoD
  * - **Modulo**
    - MOD_Access
  * - **Funcion RBAC**
-   - ACC-005: gestiona_sod
+   - ACC-005: view_separation_rules
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -148,7 +148,7 @@ El administrador accede al modulo de gestion de SoD.
    - Accede al modulo de gestion de SoD
  * - 2
    - Sistema
-   - Valida funcion ACC-005 (gestiona_sod)
+   - Valida funcion ACC-005 (view_separation_rules)
  * - 3
    - Sistema
    - Consulta las 3 reglas SoD predefinidas
@@ -505,10 +505,12 @@ El administrador accede al modulo de gestion de SoD.
    - FR-ACC-040 a FR-ACC-042
  * - **UC Relacionados**
    - UC_ACC_01, UC_ACC_02, UC_ACC_04
+ * - **Clase de Dominio**
+   - ``SeparationRule`` (primaria), ``Function``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
-   - ACC-005: gestiona_sod
+   - ACC-005: view_separation_rules
 
 14. Historial de Cambios
 ------------------------

@@ -41,7 +41,7 @@ UC_ACC_04: Asignar Agrupador
  * - **Modulo**
    - MOD_Access
  * - **Funcion RBAC**
-   - ACC-004: asigna_agrupadores
+   - ACC-004: assign_function_groups
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -166,7 +166,7 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - Accede al modulo de control de acceso
  * - 2
    - Sistema
-   - Valida funcion ACC-004 (asigna_agrupadores)
+   - Valida funcion ACC-004 (assign_function_groups)
  * - 3
    - Admin
    - Busca y selecciona usuario destino
@@ -560,10 +560,12 @@ El administrador selecciona un usuario y elige "Asignar Agrupador".
    - FR-ACC-030 a FR-ACC-033
  * - **UC Relacionados**
    - UC_ACC_01 (Asignar Funciones), UC_ACC_03 (Consultar)
+ * - **Clase de Dominio**
+   - ``Assignment`` (primaria), ``AccessGroup``, ``User``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_admin_acceso
  * - **Funcion RBAC**
-   - ACC-004: asigna_agrupadores
+   - ACC-004: assign_function_groups
 
 14. Historial de Cambios
 ------------------------
