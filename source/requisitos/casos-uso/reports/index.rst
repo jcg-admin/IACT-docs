@@ -36,4 +36,4 @@ Casos de Uso
  uc-rpt-14/index
  uc-rpt-15/index
  uc-rpt-16/index
- uc-rpt-17-reporte-clientes-unicos
+ uc-rpt-17/index
