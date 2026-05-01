@@ -30,7 +30,7 @@ UC_PIP_03: Consultar Disponibilidad
  * - **Modulo**
    - MOD_Pipeline
  * - **Funcion RBAC**
-   - PIP-003: ve_disponibilidad_datos
+   - PIP-003: check_availability
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -356,10 +356,12 @@ El administrador accede al modulo de disponibilidad de datos.
    - CNST_007 (BD Dual)
  * - **UC Relacionados**
    - UC_PIP_01, UC_PIP_04
+ * - **Clase de Dominio**
+   - ``ETLExecution`` (primaria, lectura de status) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
-   - PIP-003: ve_disponibilidad_datos
+   - PIP-003: check_availability
 
 14. Historial de Cambios
 ------------------------

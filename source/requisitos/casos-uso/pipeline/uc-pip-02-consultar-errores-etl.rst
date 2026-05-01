@@ -30,7 +30,7 @@ UC_PIP_02: Consultar Errores ETL
  * - **Modulo**
    - MOD_Pipeline
  * - **Funcion RBAC**
-   - PIP-002: ve_errores_etl
+   - PIP-002: view_etl_errors
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -368,10 +368,12 @@ El administrador accede al modulo de errores ETL o hace clic en una alerta.
    - CNST_007, CNST_025
  * - **UC Relacionados**
    - UC_PIP_01, UC_PIP_04
+ * - **Clase de Dominio**
+   - ``ETLError`` (primaria), ``ETLExecution`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
-   - PIP-002: ve_errores_etl
+   - PIP-002: view_etl_errors
 
 14. Historial de Cambios
 ------------------------

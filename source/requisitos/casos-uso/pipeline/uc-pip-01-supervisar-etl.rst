@@ -32,7 +32,7 @@ UC_PIP_01: Supervisar ETL
  * - **Modulo**
    - MOD_Pipeline
  * - **Funcion RBAC**
-   - PIP-001: ve_estado_etl
+   - PIP-001: view_etl_executions
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -451,10 +451,12 @@ El administrador accede al dashboard de supervision del pipeline.
    - CNST_007 (BD Dual), CNST_025
  * - **UC Relacionados**
    - UC_PIP_02, UC_PIP_03, UC_PIP_04
+ * - **Clase de Dominio**
+   - ``ETLExecution`` (primaria) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
-   - PIP-001: ve_estado_etl
+   - PIP-001: view_etl_executions
 
 14. Historial de Cambios
 ------------------------

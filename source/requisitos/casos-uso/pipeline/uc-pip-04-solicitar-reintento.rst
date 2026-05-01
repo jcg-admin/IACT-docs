@@ -32,7 +32,7 @@ UC_PIP_04: Solicitar Reintento
  * - **Modulo**
    - MOD_Pipeline
  * - **Funcion RBAC**
-   - PIP-004: solicita_reintento_etl
+   - PIP-004: request_retry
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -511,10 +511,12 @@ El administrador solicita reintento desde errores o disponibilidad.
    - CNST_007, CNST_025
  * - **UC Relacionados**
    - UC_PIP_01, UC_PIP_02, UC_PIP_03
+ * - **Clase de Dominio**
+   - ``ETLExecution`` (primaria, operacion retry), ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-009: agr_admin_pipeline
  * - **Funcion RBAC**
-   - PIP-004: solicita_reintento_etl
+   - PIP-004: request_retry
 
 14. Historial de Cambios
 ------------------------
