@@ -27,7 +27,7 @@ Casos de Uso
  uc-rpt-03/index
  uc-rpt-04/index
  uc-rpt-07/index
- uc-rpt-08-ver-reportes-programados
+ uc-rpt-08/index
  uc-rpt-09-configurar-filtros
  uc-rpt-10-guardar-vista
  uc-rpt-11-compartir-reporte
