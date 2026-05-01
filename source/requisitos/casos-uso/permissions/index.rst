@@ -28,7 +28,7 @@ Casos de Uso
  uc-perm-04/index
  uc-perm-05/index
  uc-perm-06/index
- uc-perm-07-verificar-permiso-usuario
+ uc-perm-07/index
  uc-perm-08-generar-menu-dinamico
  uc-perm-09-auditar-acceso
  uc-perm-10-consultar-auditoria-permisos
