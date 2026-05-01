@@ -684,6 +684,8 @@ El usuario accede a la pantalla de login e ingresa sus credenciales.
    - FR-AUTH-001 a FR-AUTH-007
  * - **UC Relacionados**
    - UC_AUTH_02 (Cerrar Sesion), UC_AUTH_03 (Recuperar Contrasena), UC_AUTH_04 (Cambiar Contrasena)
+ * - **Clase de Dominio**
+   - ``Session`` (primaria), ``User``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - Usuario (cualquier usuario registrado)
  * - **Funcion RBAC**

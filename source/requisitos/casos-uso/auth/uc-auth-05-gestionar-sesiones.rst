@@ -32,7 +32,7 @@ UC_AUTH_05: Gestionar Sesiones
  * - **Modulo**
    - MOD_Auth
  * - **Funcion RBAC**
-   - AUTH-001: ``manage_sessions``, AUTH-002: ``close_user_session``, AUTH-004: ``view_active_sessions``
+   - AUTH-001: ``view_own_sessions``, AUTH-002: ``close_user_session``, AUTH-004: ``view_all_active_sessions``
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -108,7 +108,7 @@ cerrar todas las sesiones de un usuario especifico.
  * - PRE-01
    - El administrador tiene sesion activa valida
  * - PRE-02
-   - El administrador tiene funcion AUTH-004 (``view_active_sessions``)
+   - El administrador tiene funcion AUTH-004 (``view_all_active_sessions``)
  * - PRE-03
    - Para cerrar sesiones, requiere AUTH-001 o AUTH-002
 
@@ -162,7 +162,7 @@ administracion.
    - Accede al modulo "Gestion de Sesiones"
  * - 2
    - Sistema
-   - Valida funcion AUTH-004 (``view_active_sessions``)
+   - Valida funcion AUTH-004 (``view_all_active_sessions``)
  * - 3
    - Sistema
    - Consulta sesiones activas en base de datos
@@ -324,7 +324,7 @@ administracion.
    - Selecciona "Cerrar todas las sesiones" de un usuario
  * - 10a
    - Sistema
-   - Valida funcion AUTH-001 (``manage_sessions``)
+   - Valida funcion AUTH-001 (``view_own_sessions``)
  * - 11a
    - Sistema
    - Muestra advertencia: "Cerrara N sesiones activas"
@@ -625,6 +625,8 @@ administracion.
    - FR-AUTH-040 a FR-AUTH-044
  * - **UC Relacionados**
    - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_02 (Cerrar Sesion)
+ * - **Clase de Dominio**
+   - ``Session`` (primaria), ``User``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**

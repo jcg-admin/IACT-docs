@@ -519,6 +519,8 @@ El usuario hace clic en el boton "Cerrar Sesion" o "Logout" en la interfaz.
    - FR-AUTH-010 a FR-AUTH-013
  * - **UC Relacionados**
    - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_05 (Gestionar Sesiones)
+ * - **Clase de Dominio**
+   - ``Session`` (primaria), ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - Usuario (cualquier usuario autenticado)
  * - **Funcion RBAC**

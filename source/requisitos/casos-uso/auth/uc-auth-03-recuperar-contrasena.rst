@@ -649,6 +649,8 @@ para un usuario especifico.
    - FR-AUTH-020 a FR-AUTH-024
  * - **UC Relacionados**
    - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_04 (Cambiar Contrasena), UC_USR_03 (Modificar Usuario)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``InternalMailbox``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**

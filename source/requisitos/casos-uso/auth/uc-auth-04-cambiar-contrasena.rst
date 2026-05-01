@@ -644,6 +644,8 @@ una nueva. Este UC se invoca obligatoriamente cuando:
    - FR-AUTH-030 a FR-AUTH-034
  * - **UC Relacionados**
    - UC_AUTH_01 (Iniciar Sesion), UC_AUTH_03 (Recuperar Contrasena)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - Usuario (cualquier usuario autenticado)
  * - **Funcion RBAC**
