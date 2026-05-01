@@ -34,3 +34,6 @@ Modulos
  pipeline/index
  audit/index
  logs/index
+ operator/index
+ supervision/index
+ caller/index
