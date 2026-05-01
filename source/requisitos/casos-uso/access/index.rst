@@ -20,9 +20,9 @@ Casos de Uso
 ------------
 
 .. toctree::
- :maxdepth: 1
+ :maxdepth: 2
 
- uc-acc-01-asignar-funciones
+ uc-acc-01/index
  uc-acc-02-revocar-funciones
  uc-acc-03-consultar-permisos
  uc-acc-04-asignar-agrupador
