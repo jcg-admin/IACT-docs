@@ -415,6 +415,8 @@ El operador accede a la busqueda de logs.
    - CNST_024
  * - **UC Relacionados**
    - UC_LOG_01, UC_LOG_04
+ * - **Clase de Dominio**
+   - ``ApplicationLog`` (primaria, operacion search) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
    - LOG-003: ``search_logs`` (NUEVA en modelo v5.3.0)
 

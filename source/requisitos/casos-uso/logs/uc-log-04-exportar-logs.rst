@@ -456,6 +456,8 @@ El operador hace clic en Exportar desde la vista de logs.
    - CNST_024, CNST_025
  * - **UC Relacionados**
    - UC_LOG_01, UC_LOG_03
+ * - **Clase de Dominio**
+   - ``ApplicationLog`` (primaria), ``ExportJob`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
    - LOG-002: ``export_logs`` (mapping correcto post-v5.3.0)
 

@@ -224,8 +224,10 @@ El sysadmin accede al visor de logs de infraestructura.
    - BRQ-LOG-005
  * - **Funcion RBAC**
    - LOG-005 ``view_infrastructure_logs`` (NUEVA v5.4.0)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-log-01 (app logs), uc-log-02 (ETL logs), uc-log-06 (health), uc-log-07 (métricas)
+ * - **Clase de Dominio**
+   - ``InfrastructureLog`` (primaria) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------

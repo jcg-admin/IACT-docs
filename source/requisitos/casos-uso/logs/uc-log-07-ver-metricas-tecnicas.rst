@@ -222,8 +222,10 @@ disponible con timestamp.
    - BRQ-LOG-007 (gap UC_083 ARQ-MOD-008)
  * - **Funcion RBAC**
    - LOG-007 ``view_technical_metrics`` (NUEVA v5.4.0)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-log-05 (logs infra), uc-log-06 (health)
+ * - **Clase de Dominio**
+   - ``TechnicalMetric`` (primaria; D-05: agregacion, distinta de Metric de negocio) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------

@@ -451,6 +451,8 @@ El operador accede al visor de logs ETL.
    - CNST_007, CNST_024
  * - **UC Relacionados**
    - UC_LOG_01, UC_PIP_01 (Monitorear ETL)
+ * - **Clase de Dominio**
+   - ``ETLLog`` (primaria), ``ETLExecution`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
    - LOG-004: ``view_etl_logs`` (NUEVA v5.4.0 — función dedicada, ya no instancia de LOG-001)
 

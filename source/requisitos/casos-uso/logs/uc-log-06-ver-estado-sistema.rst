@@ -224,8 +224,10 @@ con timestamp del último check exitoso.
    - BRQ-LOG-006 (gap UC_081 ARQ-MOD-008)
  * - **Funcion RBAC**
    - LOG-006 ``view_system_health`` (NUEVA v5.4.0)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-log-05 (logs infra), uc-log-07 (métricas técnicas)
+ * - **Clase de Dominio**
+   - ``SystemHealth`` (primaria; D-05: snapshot, no es log) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------

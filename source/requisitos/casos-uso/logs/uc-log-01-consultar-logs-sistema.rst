@@ -30,7 +30,7 @@ UC_LOG_01: Consultar Logs Sistema
  * - **Modulo**
    - MOD_Logs
  * - **Funcion RBAC**
-   - LOG-001: consulta_logs_sistema
+   - LOG-001: view_application_logs
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -453,10 +453,12 @@ El operador accede al visor de logs del sistema.
    - CNST_024 (Logs JSON)
  * - **UC Relacionados**
    - UC_LOG_02 (ETL), UC_LOG_03 (Buscar), UC_LOG_04 (Exportar)
+ * - **Clase de Dominio**
+   - ``ApplicationLog`` (primaria) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-007: agr_operador_logs
  * - **Funcion RBAC**
-   - LOG-001: consulta_logs_sistema
+   - LOG-001: view_application_logs
 
 14. Historial de Cambios
 ------------------------
