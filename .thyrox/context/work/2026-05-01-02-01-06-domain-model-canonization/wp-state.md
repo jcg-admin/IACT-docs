@@ -2,11 +2,12 @@
 project: IACT-docs
 work_package: 2026-05-01-02-01-06-domain-model-canonization
 created_at: 2026-05-01 02:01:06
-current_phase: Phase 9 — PILOT/VALIDATE
-status: Activo (Stages 1, 3, 7 cerrados; Stage 9 en curso)
+current_phase: Phase 11 — TRACK (closed)
+closed_at: 2026-05-01 04:30:00
+status: Cerrado v1.0.0 — modelo canónico publicado, build 0/0/0
 author: NestorMonroy
 flow: rm
-methodology_step: rm-validation
+methodology_step: cerrado
 language_convention: "Identifiers EN (NOM_001 § 2.3); prose, comments and PlantUML notes ES on integration to source/"
 ```
 
