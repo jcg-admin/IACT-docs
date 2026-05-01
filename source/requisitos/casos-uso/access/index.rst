@@ -23,7 +23,7 @@ Casos de Uso
  :maxdepth: 2
 
  uc-acc-01/index
- uc-acc-02-revocar-funciones
+ uc-acc-02/index
  uc-acc-03-consultar-permisos
  uc-acc-04-asignar-agrupador
  uc-acc-05-gestionar-sod
