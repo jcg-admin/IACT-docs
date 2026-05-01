@@ -25,7 +25,7 @@ Casos de Uso
  uc-perm-01/index
  uc-perm-02/index
  uc-perm-03/index
- uc-perm-04-revocar-permiso-excepcional
+ uc-perm-04/index
  uc-perm-05-crear-grupo-permisos
  uc-perm-06-asignar-funciones-grupo
  uc-perm-07-verificar-permiso-usuario
