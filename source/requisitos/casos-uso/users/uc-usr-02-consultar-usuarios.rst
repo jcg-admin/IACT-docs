@@ -45,13 +45,13 @@ UC_USR_02: Consultar Usuarios
 
 Este caso de uso permite a un administrador de usuarios (AGR-006) consultar,
 listar y buscar usuarios del sistema. Incluye capacidades de filtrado por
-estado, segmento, agrupador y busqueda por texto.
+estado, agrupador y busqueda por texto.
 
 **Caracteristicas principales:**
 
 - Listar todos los usuarios con paginacion
 - Filtrar por estado (ACTIVO, INACTIVO, BLOQUEADO, PENDIENTE, ELIMINADO)
-- Filtrar por segmento de datos
+- Filtrar por agrupador (perfil operativo)
 - Filtrar por agrupador asignado
 - Busqueda por texto (nombre, apellido, username, email)
 - Ver detalle completo de un usuario
@@ -142,7 +142,7 @@ El administrador accede al modulo de gestion de usuarios.
    - Consulta usuarios con paginacion (pagina 1, 20 por pagina)
  * - 4
    - Sistema
-   - Presenta tabla con: username, nombre, email, estado, segmento, ultimo acceso
+   - Presenta tabla con: username, nombre, email, estado, agrupador, ultimo acceso
  * - 5
    - Admin
    - Navega entre paginas si es necesario
@@ -188,7 +188,7 @@ El administrador accede al modulo de gestion de usuarios.
  UC -> US: list_users(page, size, filters)
  activate US
 
- US -> DB: SELECT u.*, s.nombre as segmento\nFROM users u\nJOIN segmentos s ON u.segmento_id = s.id\nORDER BY u.created_at DESC\nLIMIT 20 OFFSET 0
+ US -> DB: SELECT u.*, ag.nombre as agrupador\nFROM users u\nLEFT JOIN user_access_groups uag ON uag.user_id = u.id\nLEFT JOIN access_groups ag ON ag.id = uag.access_group_id\nORDER BY u.created_at DESC\nLIMIT 20 OFFSET 0
  DB --> US: users_list
 
  US -> DB: SELECT COUNT(*) FROM users
@@ -272,8 +272,8 @@ El administrador accede al modulo de gestion de usuarios.
    - Sistema
    - Muestra solo usuarios con ese estado
 
-7.2 FA-02: Filtrar por Segmento
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7.2 FA-02: Filtrar por Agrupador
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
  :widths: 10 20 70
@@ -284,13 +284,13 @@ El administrador accede al modulo de gestion de usuarios.
    - Accion
  * - 6a
    - Admin
-   - Selecciona segmento en filtro
+   - Selecciona agrupador en filtro (AGR-001..010)
  * - 7a
    - Sistema
-   - Agrega WHERE segmento_id = X a consulta
+   - Agrega JOIN user_access_groups + WHERE access_group_id = X
  * - 7b
    - Sistema
-   - Muestra solo usuarios de ese segmento
+   - Muestra solo usuarios con ese agrupador asignado
 
 7.3 FA-03: Ordenar por Columna
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -504,13 +504,13 @@ de acceso si se requiere por compliance.
    - Maximo 100 usuarios por pagina, navegacion funcional
  * - FR-USR-011
    - El sistema debe permitir filtros multiples
-   - Filtros por estado, segmento, agrupador combinables
+   - Filtros por estado, agrupador combinables
  * - FR-USR-012
    - El sistema debe permitir busqueda por texto
    - Busqueda en username, nombre, apellido, email
  * - FR-USR-013
    - El sistema debe mostrar detalle completo
-   - Incluye funciones asignadas, segmento, historial
+   - Incluye funciones asignadas, agrupador, historial
 
 13. Trazabilidad
 ----------------
@@ -529,6 +529,8 @@ de acceso si se requiere por compliance.
    - FR-USR-010 a FR-USR-013
  * - **UC Relacionados**
    - UC_USR_01 (Crear Usuario), UC_USR_03 (Modificar Usuario)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``Assignment``, ``AccessGroup`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**

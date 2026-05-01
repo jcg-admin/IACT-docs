@@ -32,7 +32,7 @@ UC_USR_04: Eliminar Usuario
  * - **Modulo**
    - MOD_Users
  * - **Funcion RBAC**
-   - USR-003: ``delete_users``
+   - USR-003: ``deactivate_users``
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -168,7 +168,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - Hace clic en "Eliminar Usuario"
  * - 3
    - Sistema
-   - Valida funcion USR-003 (``delete_users``)
+   - Valida funcion USR-003 (``deactivate_users``)
  * - 4
    - Sistema
    - Verifica que no sea auto-eliminacion
@@ -238,7 +238,7 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
  UC -> UC: verify_function(USR-003)
  note right
  Requiere funcion
- USR-003: ``delete_users``
+ USR-003: ``deactivate_users``
  end note
 
  alt sin permiso USR-003
@@ -618,10 +618,12 @@ El administrador selecciona un usuario y hace clic en "Eliminar Usuario".
    - FR-USR-030 a FR-USR-034
  * - **UC Relacionados**
    - UC_USR_02 (Consultar Usuarios), UC_USR_03 (Modificar Usuario), UC_AUTH_05 (Gestionar Sesiones)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``Session``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - USR-003: ``delete_users``
+   - USR-003: ``deactivate_users``
 
 14. Historial de Cambios
 ------------------------

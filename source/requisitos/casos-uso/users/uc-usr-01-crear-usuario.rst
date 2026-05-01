@@ -32,7 +32,7 @@ UC_USR_01: Crear Usuario
  * - **Modulo**
    - MOD_Users
  * - **Funcion RBAC**
-   - USR-001: crea_usuarios
+   - USR-001: create_users
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -169,7 +169,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Accede al modulo de gestion de usuarios
  * - 2
    - Sistema
-   - Valida que el admin tenga funcion USR-001 (crea_usuarios)
+   - Valida que el admin tenga funcion USR-001 (create_users)
  * - 3
    - Admin
    - Hace clic en "Crear Usuario"
@@ -247,17 +247,17 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  activate FE
 
  FE -> FE: Muestra formulario
- A -> FE: Ingresa datos + segmento + agrupador
+ A -> FE: Ingresa datos + agrupador
  A -> FE: Click "Crear"
 
- FE -> UC: POST /api/users\n{nombre, apellido, email, segmento_id, agrupador_id}
+ FE -> UC: POST /api/users\n{nombre, apellido, email, agrupador_id}
  activate UC
 
  == Validar Permisos ==
  UC -> UC: verify_function(USR-001)
  note right
  Requiere funcion
- USR-001: crea_usuarios
+ USR-001: create_users
  end note
 
  alt sin permiso USR-001
@@ -302,7 +302,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  US -> US: password_hash = bcrypt.hash(temp_password)
 
  == Crear Usuario ==
- US -> DB: INSERT INTO users\n(username, email, nombre, apellido,\npassword_hash, status, segmento_id,\ncreated_by, created_at)
+ US -> DB: INSERT INTO users\n(username, email, nombre, apellido,\npassword_hash, status,\ncreated_by, created_at)
  note right of DB
  status = PENDIENTE_CONFIGURACION
  end note
@@ -454,25 +454,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  * - **Codigo Error**
    - USR-002
 
-8.3 EX-03: Segmento No Valido
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
- :widths: 25 75
- :header-rows: 0
-
- * - **Paso de Origen**
-   - 6
- * - **Condicion**
-   - Segmento seleccionado no existe o esta inactivo
- * - **Accion Sistema**
-   - Rechaza creacion
- * - **Mensaje Usuario**
-   - "Segmento no valido o inactivo"
- * - **Codigo Error**
-   - USR-003
-
-8.4 EX-04: Datos Invalidos
+8.3 EX-03: Datos Invalidos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -512,8 +494,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
 
  :Admin ingresa datos del usuario;
 
- :Admin selecciona segmento;
-
  :Admin selecciona agrupador (opcional);
 
  if (Datos validos?) then (no)
@@ -542,8 +522,6 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  note right
  status = PENDIENTE_CONFIGURACION
  end note
-
- :Asignar segmento;
 
  if (Agrupador seleccionado?) then (si)
  :Asignar funciones del agrupador;
@@ -588,8 +566,8 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Email Unico
    - El email corporativo debe ser unico en todo el sistema.
  * - BR-USR-04
-   - Segmento Obligatorio
-   - Todo usuario debe pertenecer a exactamente un segmento de datos.
+   - Agrupador Inicial Opcional
+   - El usuario puede crearse con un agrupador (perfil operativo AGR-001..010) asignado o sin agrupador; el agrupador se puede asignar despues via UC_ACC_04.
  * - BR-USR-05
    - Password Temporal
    - La contrasena temporal debe tener minimo 12 caracteres con complejidad alta.
@@ -612,7 +590,7 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
    - Las credenciales (username y password temporal) se envian UNICAMENTE via InternalMessage.notify. Esta PROHIBIDO usar email, SMS, webhook o cualquier canal externo.
  * - CNST_029
    - RBAC Flat
-   - Username autogenerado, no editable por usuario. Estado inicial PENDIENTE_CONFIGURACION. Segmento obligatorio.
+   - Username autogenerado, no editable por usuario. Estado inicial PENDIENTE_CONFIGURACION.
  * - CNST_025
    - Auditoria Inmutable
    - Se registra evento USER_CREATE en UserActionLog incluyendo: admin creador, datos del nuevo usuario (SIN password). El registro es inmutable.
@@ -699,11 +677,13 @@ El administrador accede al modulo de usuarios y selecciona "Crear Usuario".
  * - **FR Derivados**
    - FR-USR-001 a FR-USR-005
  * - **UC Relacionados**
-   - UC_AUTH_01 (Iniciar Sesion), UC_ACC_01 (Asignar Funciones), UC_ACC_07 (Asignar Segmento)
+   - UC_AUTH_01 (Iniciar Sesion), UC_ACC_01 (Asignar Funciones), UC_ACC_04 (Asignar Agrupador)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``Assignment``, ``AccessGroup``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
-   - USR-001: crea_usuarios
+   - USR-001: create_users
 
 14. Historial de Cambios
 ------------------------

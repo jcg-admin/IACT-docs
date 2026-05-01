@@ -50,7 +50,7 @@ de estado criticos se notifican via buzon interno (CNST_001).
 **Caracteristicas principales:**
 
 - Modificar datos basicos (nombre, apellido, email)
-- Cambiar segmento asignado
+- Cambiar agrupador asignado
 - Bloquear usuario (USR-006)
 - Desbloquear usuario (USR-007)
 - Reactivar usuario inactivo (USR-008)
@@ -171,7 +171,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Modifica campos deseados (nombre, apellido, email)
  * - 6
    - Admin
-   - Opcionalmente cambia segmento
+   - Opcionalmente cambia agrupador
  * - 7
    - Admin
    - Presiona "Guardar Cambios"
@@ -218,7 +218,7 @@ especifica (bloquear, desbloquear, reactivar).
  A -> FE: Modifica campos
  A -> FE: Click "Guardar"
 
- FE -> UC: PUT /api/users/{id}\n{nombre, apellido, email, segmento_id}
+ FE -> UC: PUT /api/users/{id}\n{nombre, apellido, email, access_group_id}
  activate UC
 
  == Validar Permisos ==
@@ -244,7 +244,7 @@ especifica (bloquear, desbloquear, reactivar).
  US -> US: diff(current_user, new_data)
 
  == Actualizar Usuario ==
- US -> DB: UPDATE users SET\nnombre = ?, apellido = ?,\nemail = ?, segmento_id = ?,\nupdated_at = now, updated_by = ?
+ US -> DB: UPDATE users SET\nnombre = ?, apellido = ?,\nemail = ?,\nupdated_at = now, updated_by = ?
 
  == Registrar Auditoria (CNST_025) ==
  US -> UAL: record(USER_UPDATE, admin, user, changes)
@@ -602,7 +602,7 @@ especifica (bloquear, desbloquear, reactivar).
    - Criterio de Aceptacion
  * - FR-USR-020
    - El sistema debe permitir modificar datos basicos
-   - Nombre, apellido, email, segmento modificables
+   - Nombre, apellido, email, agrupador modificables
  * - FR-USR-021
    - El sistema debe impedir modificar username
    - Campo username readonly en formulario
@@ -633,6 +633,8 @@ especifica (bloquear, desbloquear, reactivar).
    - FR-USR-020 a FR-USR-024
  * - **UC Relacionados**
    - UC_USR_02 (Consultar Usuarios), UC_USR_04 (Eliminar Usuario), UC_AUTH_05 (Gestionar Sesiones)
+ * - **Clase de Dominio**
+   - ``User`` (primaria), ``Session``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_admin_usuarios
  * - **Funcion RBAC**
