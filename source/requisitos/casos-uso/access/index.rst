@@ -25,7 +25,7 @@ Casos de Uso
  uc-acc-01/index
  uc-acc-02/index
  uc-acc-03/index
- uc-acc-04-asignar-agrupador
+ uc-acc-04/index
  uc-acc-05-gestionar-sod
  uc-acc-08-permiso-temporal
  uc-acc-09-auditar-cambios-acceso
