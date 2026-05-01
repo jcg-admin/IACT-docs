@@ -20,9 +20,9 @@ Casos de Uso
 ------------
 
 .. toctree::
- :maxdepth: 1
+ :maxdepth: 2
 
- uc-auth-01-iniciar-sesion
+ uc-auth-01/index
  uc-auth-02-cerrar-sesion
  uc-auth-03-recuperar-contrasena
  uc-auth-04-cambiar-contrasena
