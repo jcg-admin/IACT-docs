@@ -83,31 +83,52 @@ ella.
 sistema). Es quien inicia la secuencia.
 
 Sub-tipos según el perfil operativo (AccessGroup
-del modelo de dominio):
+del modelo de dominio). Los nombres canónicos
+viven en
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+v5.4.0 catálogo de agrupadores (líneas 1090-1135):
 
-- ``AGR-001 agr_operador_basico`` — utiliza
+- ``AGR-001 basic_operator_group`` — utiliza
   IACT para tareas operativas básicas (ver
   dashboard, ver alertas activas).
-- ``AGR-002 agr_operador_reportes`` — maneja
+- ``AGR-002 report_viewer_group`` — maneja
   reportes históricos y vistas guardadas.
-- ``AGR-003 agr_supervisor`` — opera reportes
-  específicos, programa, comparte, reconoce
-  alertas.
+- ``AGR-003 quality_supervisor_group`` — opera
+  reportes específicos, programa, comparte,
+  reconoce alertas.
 - ``AGR-004 data_exporter_group`` — exporta
   datos.
-- ``AGR-005 agr_gestor_alertas`` — configura
+- ``AGR-005 alert_manager_group`` — configura
   umbrales y suscripciones.
-- ``AGR-006 agr_admin_usuarios`` /
-  ``agr_auditor`` — administra usuarios,
-  consulta auditoría.
-- ``AGR-007 agr_admin_acceso`` — administra
-  funciones RBAC.
-- ``AGR-008 agr_auditor`` — consulta auditoría
-  inmutable.
-- ``AGR-009 agr_admin_pipeline`` — supervisa
+- ``AGR-006 user_admin_group`` — administra
+  usuarios.
+- ``AGR-007 permission_admin_group`` —
+  administra funciones RBAC.
+- ``AGR-008 auditor_group`` — consulta
+  auditoría inmutable.
+- ``AGR-009 pipeline_admin_group`` — supervisa
   ETL.
 - ``AGR-010 system_admin_group`` — administra
   infraestructura y monitoreo técnico.
+
+> **Hallazgo H-A06-06 (OBSERVABLE) — deuda
+> técnica de naming en cuerpos de UCs**: el
+> cuerpo de varios UCs vigentes en
+> ``source/requisitos/casos-uso/`` cita los AGR
+> en español residual (``agr_operador_basico``,
+> ``agr_supervisor``, ``agr_admin_acceso``,
+> ``agr_admin_usuarios``, ``agr_admin_pipeline``,
+> etc.). Estos nombres son obsoletos respecto al
+> catálogo canónico inglés de
+> ``modelo-rbac-iact.rst`` v5.4.0. Es deuda
+> análoga a la que Z.1.C resolvió para nombres
+> de funciones RBAC (de ``crea_usuarios`` a
+> ``create_users``) pero **no aplicada** a los
+> nombres descriptivos de los agrupadores.
+> Recomendación: WP de saneamiento posterior
+> (similar a Z.1.C) que normalice todos los
+> cuerpos de UCs y artefactos relacionados al
+> catálogo canónico inglés.
 
 UC_AUTH_01 es **público en su acceso** (cualquier
 usuario registrado puede invocarlo). El AGR del
