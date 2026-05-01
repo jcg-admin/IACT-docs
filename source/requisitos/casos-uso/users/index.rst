@@ -20,9 +20,9 @@ Casos de Uso
 ------------
 
 .. toctree::
- :maxdepth: 1
+ :maxdepth: 2
 
- uc-usr-01-crear-usuario
+ uc-usr-01/index
  uc-usr-02-consultar-usuarios
  uc-usr-03-modificar-usuario
  uc-usr-04-eliminar-usuario
