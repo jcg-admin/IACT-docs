@@ -25,7 +25,7 @@ Casos de Uso
  uc-rpt-01/index
  uc-rpt-02/index
  uc-rpt-03/index
- uc-rpt-04-exportar-reporte
+ uc-rpt-04/index
  uc-rpt-07-programar-reporte
  uc-rpt-08-ver-reportes-programados
  uc-rpt-09-configurar-filtros
