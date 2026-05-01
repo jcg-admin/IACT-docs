@@ -30,7 +30,7 @@ UC_AUD_01: Consultar Auditoria
  * - **Modulo**
    - MOD_Audit
  * - **Funcion RBAC**
-   - AUD-001: consulta_auditoria
+   - AUD-001: view_audit_log
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -504,10 +504,12 @@ El auditor accede al modulo de auditoria.
    - CNST_025 (Inmutable), CNST_027 (SoD)
  * - **UC Relacionados**
    - UC_AUD_02 (Buscar), UC_AUD_03 (Exportar)
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria, CNST-025 inmutable) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-006: agr_auditor
  * - **Funcion RBAC**
-   - AUD-001: consulta_auditoria
+   - AUD-001: view_audit_log
 
 14. Historial de Cambios
 ------------------------

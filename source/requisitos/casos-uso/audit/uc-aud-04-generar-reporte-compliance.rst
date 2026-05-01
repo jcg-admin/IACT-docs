@@ -30,7 +30,7 @@ UC_AUD_04: Generar Reporte Compliance
  * - **Modulo**
    - MOD_Audit
  * - **Funcion RBAC**
-   - AUD-004: genera_compliance
+   - AUD-004: generate_compliance_report
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -465,8 +465,10 @@ El auditor accede a generacion de reportes de compliance.
    - CNST_025, CNST_027
  * - **UC Relacionados**
    - UC_AUD_01, UC_AUD_03
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria, CNST-025 inmutable) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
-   - AUD-004: genera_compliance
+   - AUD-004: generate_compliance_report
 
 14. Historial de Cambios
 ------------------------

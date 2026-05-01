@@ -30,7 +30,7 @@ UC_AUD_02: Buscar Auditoria
  * - **Modulo**
    - MOD_Audit
  * - **Funcion RBAC**
-   - AUD-002: busca_auditoria
+   - AUD-002: search_audit_log
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -417,8 +417,10 @@ El auditor accede a la busqueda avanzada de auditoria.
    - CNST_025, CNST_027
  * - **UC Relacionados**
    - UC_AUD_01, UC_AUD_03
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria, CNST-025 inmutable) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
-   - AUD-002: busca_auditoria
+   - AUD-002: search_audit_log
 
 14. Historial de Cambios
 ------------------------

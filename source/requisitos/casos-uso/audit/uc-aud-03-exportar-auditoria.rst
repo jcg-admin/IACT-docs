@@ -30,7 +30,7 @@ UC_AUD_03: Exportar Auditoria
  * - **Modulo**
    - MOD_Audit
  * - **Funcion RBAC**
-   - AUD-003: exporta_auditoria
+   - AUD-003: export_audit_log
  * - **Prioridad**
    - Media
  * - **Complejidad**
@@ -434,8 +434,10 @@ El auditor hace clic en Exportar desde la vista de auditoria.
    - CNST_017, CNST_025, CNST_027
  * - **UC Relacionados**
    - UC_AUD_01, UC_AUD_02
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria), ``ExportJob`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funcion RBAC**
-   - AUD-003: exporta_auditoria
+   - AUD-003: export_audit_log
 
 14. Historial de Cambios
 ------------------------
