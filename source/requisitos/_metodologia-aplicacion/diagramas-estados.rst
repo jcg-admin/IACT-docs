@@ -694,7 +694,7 @@ Otras ramas pueden continuar.
 PlantUML lo expresa con un estado coloreado
 distintivamente:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    state "AbortadoEtl" as ABT #FFAAAA
    ABT : entry / registrar abort en audit_log
@@ -718,7 +718,7 @@ al siguiente estado. Útil cuando varias rutas
 distintas terminan en el mismo destino sin
 sincronización.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    state j <<choice>>
    A --> j
@@ -733,7 +733,7 @@ Pseudo-estado de **decisión** que divide una
 transición de entrada en varias salidas según
 guardas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    state c <<choice>>
    Origen --> c
@@ -748,7 +748,7 @@ según las flechas.
 **Self-transition** es la flecha que sale y
 vuelve al mismo estado:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Procesando --> Procesando : siguiente lote
 
@@ -762,7 +762,7 @@ vuelve al mismo estado:
   subestado **más profundo** que estaba activo,
   incluso varios niveles abajo.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    state Procesando {
      state H <<history>>
@@ -783,7 +783,7 @@ estados** completo, modelado en su propio
 documento. Permite descomponer máquinas
 complejas en sub-máquinas.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    state Procesando {
      ' Detalles en sub-diagrama

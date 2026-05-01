@@ -719,7 +719,7 @@ clases (§ 10 de :doc:`relaciones-uml`).
 Sintaxis PlantUML
 ~~~~~~~~~~~~~~~~~
 
-.. code-block:: plantuml
+.. code-block:: text
 
    UC1 ..> UC2 : depende de
 

@@ -203,14 +203,14 @@ Igual que para el Context, con tres líneas de texto
 por nodo (título + tecnología en corchetes +
 descripción) más estereotipo de estilo:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    rectangle "Browser\n[Navegador del supervisor]\n\nCliente HTML+JS de la SPA" as B <<c4_container>>
    rectangle "iact.wsgi\n[Django + mod_wsgi]\n\nBackend de aplicacion" as WSGI <<c4_container>>
 
 Las flechas incluyen el protocolo:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    B --> WSGI : Renderiza UI y llama API\n[HTTPS intranet]
 
@@ -304,7 +304,7 @@ En la convención de Simon Brown se llama
 Sintaxis PlantUML
 ^^^^^^^^^^^^^^^^^
 
-.. code-block:: plantuml
+.. code-block:: text
 
    package "IACT" {
      rectangle "iact.wsgi\n[Django + mod_wsgi]" as WSGI <<c4_container>>
@@ -363,7 +363,7 @@ Forma de cilindro para datastores
 PlantUML soporta nativamente la forma de cilindro
 con la palabra ``database``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    database "bd_analytics\n[MySQL]" as BDA
 
@@ -648,7 +648,7 @@ Sintaxis PlantUML — flechas más largas
 PlantUML ofrece el mismo recurso que Mermaid: **más
 guiones = flecha más larga = más distancia visual**.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    A --> B    : flecha corta (rango siguiente)
    A ---> B   : flecha media
@@ -825,7 +825,7 @@ Sintaxis PlantUML
 PlantUML usa puntos en lugar de guiones para flechas
 punteadas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    A --> B    : sincrono
    A ..> B    : asincrono (linea punteada corta)
@@ -1381,11 +1381,6 @@ internos** de cada container — las apps Django de
 1. Nodo, dispositivo y conexión
 ===============================
 
-----
-
-1. Nodo, dispositivo y conexión
-===============================
-
 En UML un **nodo** es un recurso de cómputo donde se
 ejecutan componentes; un **dispositivo** es un recurso que
 no ejecuta artefactos pero participa en el sistema (lector,
@@ -1767,7 +1762,7 @@ deployment, los puertos típicos son:
 
 Sintaxis PlantUML:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    node "vm-iact" {
      port p_https

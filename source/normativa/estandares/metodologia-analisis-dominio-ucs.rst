@@ -58,10 +58,10 @@ Metodología de Análisis de Dominio para UCs
    - Atributos (propiedades)
    - ``- adjetivo : Boolean``
 
-  Para los fundamentos de esta técnica ver
-  :doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
-  § "Qué hacen las clases y cómo encontrarlas" (ejemplo del
-  entrenador de baloncesto).
+Para los fundamentos de esta técnica ver
+:doc:`/base-cognitiva/_uml/uml-03-uso-orientacion-objetos`
+§ "Qué hacen las clases y cómo encontrarlas" (ejemplo del
+entrenador de baloncesto).
 
 ----
 

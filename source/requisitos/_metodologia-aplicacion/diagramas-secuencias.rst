@@ -10,9 +10,9 @@
  :autor: NestorMonroy
  :clasificacion: Interno
 
-==================================================================
+=====================================================================
 Diagramas de secuencias — interacciones temporales aplicadas a IACT
-==================================================================
+=====================================================================
 
 .. note::
 
@@ -331,7 +331,7 @@ Sintaxis PlantUML
 PlantUML diferencia los dos tipos con palabras clave
 explícitas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -368,7 +368,7 @@ usuarios provienen del LDAP corporativo, ver § 16.7 de
 :doc:`analisis-dominio`). El flujo análogo más cercano
 es **UC_AUTH_01** (login del supervisor):
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -434,7 +434,7 @@ Aliases para legibilidad
 PlantUML soporta alias con la sintaxis ``as``, igual
 que Mermaid:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    participant "ExportarReporteFacade" as Facade
 
@@ -675,7 +675,7 @@ Sintaxis PlantUML — alt / else / end
 PlantUML usa **exactamente la misma sintaxis** que
 Mermaid para alternativas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    alt invalid input
        Sign_Up_Service --> Browser : Error
@@ -750,7 +750,7 @@ Múltiples alternativas
 PlantUML soporta varios ``else`` para flujos con más
 de dos ramas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    alt [caso 1]
      A -> B : caso 1
@@ -802,7 +802,7 @@ rama condicional** — un IF sin else — el fragmento
 canónico es ``opt`` (de "optional"). PlantUML lo
 soporta nativamente:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    opt [guarda]
      A -> B : mensaje condicional
@@ -1091,7 +1091,7 @@ PlantUML soporta dos formas, igual que Mermaid:
 
 **Forma explícita** — ``activate`` / ``deactivate``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Browser -> Auth : GET /login
    activate Auth
@@ -1101,7 +1101,7 @@ PlantUML soporta dos formas, igual que Mermaid:
 **Forma inline** — sufijo ``++`` para activar y
 ``--`` para desactivar:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Browser -> Auth ++ : GET /login
    Auth --> Browser -- : 200 OK
@@ -1253,7 +1253,7 @@ Sintaxis PlantUML
 
 PlantUML soporta tres formas de nota:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    note left of Auth : detalle a la izquierda
    note right of Auth : detalle a la derecha
@@ -1285,7 +1285,7 @@ Equivalencia con Mermaid del libro:
 PlantUML también admite notas multilínea con
 ``note ... end note`` y formato:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    note right of Auth
      Detalle de la operación.
@@ -1404,7 +1404,7 @@ Sintaxis PlantUML
 PlantUML usa la directiva ``autonumber`` igual que
 Mermaid:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -1536,13 +1536,13 @@ Sintaxis PlantUML
 
 Enlace simple en un participante:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    participant "auth_app" as Auth [[https://repo.iact.local/auth_app]]
 
 Con tooltip:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    participant "auth_app" as Auth [[https://repo.iact.local/auth_app{repositorio}]]
 
@@ -2011,7 +2011,7 @@ expandir cada función hasta llegar a las atómicas.
      deactivate SR
    end
 
-   SR --> [ : true (todas las atómicas\nestán autorizadas)
+   SR -->] : true (todas las atómicas\nestán autorizadas)
    deactivate SR
    @enduml
 
@@ -2046,7 +2046,7 @@ Un patrón frecuente: el cuerpo del loop contiene un
 representa una iteración interna sin desbordar a
 otros participantes. Sintaxis PlantUML:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    loop por cada filtro
      Facade -> Facade : validar(f)
@@ -2078,7 +2078,7 @@ Cuándo usar ``loop`` con guardia explícita
 PlantUML acepta una etiqueta tras ``loop`` que
 documenta la condición o el conjunto iterado:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    loop hasta exito o n=3 reintentos
      ...
@@ -2118,7 +2118,7 @@ Cuando varios mensajes ocurren **al mismo tiempo**
 con `alt`. PlantUML provee el bloque ``par`` para
 modelar **paralelismo explícito**:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    par
      A -> B : tarea 1
@@ -2177,11 +2177,9 @@ Diagrama de flujo de código (no UC) del facade
    Worker --> Facade -- : tarea_id
 
    par
-     Facade ->> Audit : registrar_evento(\
-"export_iniciado", tarea_id)
+     Facade ->> Audit : registrar_evento("export_iniciado", tarea_id)
    else
-     Facade ->> Notify : notificar(\
-destinatarios, tarea_id)
+     Facade ->> Notify : notificar(destinatarios, tarea_id)
    end
 
    Facade --> Facade : return tarea_id
@@ -2479,7 +2477,7 @@ código complejo** la próxima vez que aparezca, para
 verificar si la secuencia ayuda a entenderlo.
 
 Recomendación general
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 - Elegir un flujo con **elementos complejos**:
   bifurcaciones, mensajes asíncronos, varios
@@ -2490,7 +2488,7 @@ Recomendación general
   switching* entre empresas / dominios distintos.
 
 Aplicación a IACT
-~~~~~~~~~~~~~~~~~
+-----------------
 
 En este proyecto, como en los ejercicios de
 :doc:`analisis-dominio` (§§ 15.12 y 16.9), el
@@ -2541,7 +2539,7 @@ modelado para nuevos contribuidores):
      desde ``aud_app``.
 
 Plan recomendado para nuevos contribuidores
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 1. Leer este documento de principio a fin (§§ 1-13).
 2. Elegir **UC_AUTH_01** como primer ejercicio:
@@ -2559,7 +2557,7 @@ Plan recomendado para nuevos contribuidores
    y aplicar las § 2.1.bis-octies de este documento.
 
 Actividad bonus — diagramar código complejo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 Cuando aparezca una porción de código IACT que cuesta
 entender (típicamente: orquestaciones cross-app, hooks
@@ -2599,7 +2597,7 @@ publicarlo
   y se mantiene actualizado conforme el UC evoluciona.
 
 Cierre del capítulo
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Con §§ 1-14, el lector tiene los recursos para crear
 **cualquier diagrama de secuencia** relevante a IACT:
@@ -2668,7 +2666,7 @@ Síntesis sintáctica
 Un diagrama de secuencia se construye con piezas que
 se combinan:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -2770,9 +2768,9 @@ está cubierto en:
   desplegables y sus contratos.
 - :doc:`diagramas-distribucion` — nodos físicos y
   redes.
-- :doc:`/base-cognitiva/c4-model` (cuando se
-  redacte) — vistas Context / Container / Component /
-  Code complementarias.
+- Vistas C4 (Context / Container / Component / Code)
+  complementarias — pendientes de redactar como
+  documento propio en ``base-cognitiva/``.
 
 Ese es el siguiente capítulo conceptual del proyecto.
 

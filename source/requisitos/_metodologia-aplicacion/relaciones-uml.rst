@@ -2222,7 +2222,7 @@ IACT usa Python/Django (ver ADR_DEVOPS_001) — la excepción
 en este proyecto es un defecto.
 
 Ejemplo canónico — ``Documento`` y ``BaseDeDatos``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cuando una clase ``Documento`` hereda de ``BaseDeDatos``
 solo para obtener métodos de persistencia, hay herencia por
@@ -3111,7 +3111,7 @@ Sintaxis PlantUML
 PlantUML usa una sintaxis declarativa para clases,
 con marcadores de visibilidad estándar UML:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    class NombreClase {
      - atributo_privado : Tipo
@@ -3339,7 +3339,7 @@ Sintaxis PlantUML
 PlantUML expresa la dependencia con flecha
 **punteada** y cabeza abierta:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ClaseA ..> ClaseB : depende de
 
@@ -3851,7 +3851,7 @@ PlantUML acepta la palabra clave ``interface``
 nativamente, además de la posibilidad de marcar
 con estereotipos:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    interface IBus {
      + publicar(evento : Evento)
@@ -3882,7 +3882,7 @@ PlantUML también acepta estereotipos al estilo
 la convención del equipo prefiere marcar el rol
 explícitamente:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    class IBus <<Interface>> {
      + publicar(evento : Evento)

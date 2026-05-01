@@ -444,7 +444,7 @@ Para bocetos descartables ("explicar un flujo a un
 colega", "discutir un cambio en una llamada"), abrir
 ``planttext.com`` y pegar el siguiente esqueleto:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    skinparam shadowing false
@@ -529,7 +529,7 @@ Recomendación operativa para IACT
   la misma información).
 
 Historia de la diagramación, en perspectiva
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CI/CD — mantener los diagramas frescos automáticamente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -657,7 +657,7 @@ cajón: el diagrama no decora — **anticipa
 problemas y comunica intención**.
 
 Historia de la diagramación, en perspectiva
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La observación del autor citado en la sección anterior
 ("lo que antes tomaba horas hoy toma diez o quince
@@ -913,6 +913,7 @@ Owners / Analistas.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Supervisor
    object ":Alerta"        as A

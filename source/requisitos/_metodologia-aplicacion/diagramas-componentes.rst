@@ -977,7 +977,7 @@ modelar las interacciones entre los usuarios del
 sistema y los demás sistemas externos involucrados.
 
 Test de validación
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Una prueba operativa para saber si el nivel de detalle
 es el correcto: **mostrarlo a un PM o a alguien no
@@ -994,7 +994,7 @@ El diagrama Context responde de un vistazo:
   sus responsabilidades.
 
 Tres elementos canónicos
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 1. **Personas** (actores humanos) — quien interactúa
    con el sistema.
@@ -1004,7 +1004,7 @@ Tres elementos canónicos
    que interactúa.
 
 Notación libre — convención IACT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 C4 no impone notación canónica (ver § "C4 no impone
 una notación específica" en :doc:`diagramas-uml`). La
@@ -1022,7 +1022,7 @@ Brown:
   protocolo).
 
 Vista Context de IACT
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Aplicada al sistema completo de IACT, la vista
 Context muestra el sistema como una sola caja que
@@ -1060,7 +1060,7 @@ corporativos externos:
    @enduml
 
 Lectura del diagrama
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 - **Tres tipos de actor humano** — Supervisor (uso
   cotidiano), Auditor (revisión periódica), Operador
@@ -1076,7 +1076,7 @@ Lectura del diagrama
   pertenecen al nivel Container.
 
 Lo que el diagrama Context **no** muestra
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
 - Apps Django internas (eso es nivel 3 Component).
 - Stack canónico (mod_wsgi, MySQL, Redis) (nivel 2
@@ -1091,7 +1091,7 @@ Lo que el diagrama Context **no** muestra
   contexto** y a un PM le dicen algo.
 
 Usos del Context en IACT
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 1. **README del repositorio** — primera imagen para
    quien aterriza en el proyecto.
@@ -1107,7 +1107,7 @@ Usos del Context en IACT
    niveles inferiores.
 
 Cuándo crear o actualizar el diagrama Context
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 - Al inicio del proyecto (ya hecho).
 - Cuando aparece o desaparece un **actor humano**
@@ -1120,7 +1120,7 @@ Cuándo crear o actualizar el diagrama Context
   redefine.
 
 Política IACT
-~~~~~~~~~~~~~
+-------------
 
 1. **Una sola caja** para IACT — no descomponer en
    este nivel. Si la audiencia necesita ver apps
@@ -1138,7 +1138,7 @@ Política IACT
    cambie.
 
 Próximos niveles
-~~~~~~~~~~~~~~~~
+----------------
 
 - **C4 nivel 2 Container** → :doc:`diagramas-distribucion`
   detalla los nodos físicos y los protocolos.
@@ -1183,13 +1183,13 @@ PlantUML soporta texto multilínea con ``\n`` o con
 bloques explícitos. Para mantener legibilidad del
 código fuente, preferir ``\n``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    actor "Supervisor\n[Person]\n\nUsuario que monitorea\nllamadas y reportes" as Supervisor
 
 O con sintaxis multilínea de PlantUML:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    rectangle "IACT\n[Software System]\n\nPlataforma de analitica\nde call center" as IACT
 
@@ -1267,7 +1267,7 @@ PlantUML con ``as``) y reservar el texto largo para el
 contenido visible. Esto evita repetir frases largas al
 declarar las relaciones:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' Mejor:
    rectangle "Servicio de listados\n[Software System]" as LS
@@ -1309,7 +1309,7 @@ Sintaxis PlantUML para flechas etiquetadas
 PlantUML usa ``-->`` con la etiqueta separada por
 ``:``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Supervisor --> IACT : consulta dashboards,\nreconoce alertas
 
@@ -1363,7 +1363,7 @@ Etiquetas a evitar en Context:
   implementación).
 
 Construcción incremental — IACT (continuación)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Paso 4**: conectar el actor con el sistema en
 diseño.
@@ -1421,7 +1421,7 @@ Como en los diagramas de clases (§ 16.8 de
 :doc:`analisis-dominio`), los nodos del Context pueden
 llevar enlaces externos. PlantUML usa ``[[url]]``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    rectangle "LDAP corporativo\n[External System]" as LDAP [[https://corp.example/ldap-docs]]
 
@@ -1471,7 +1471,7 @@ PlantUML aplica estilos por **estereotipo**
 Esto es el equivalente directo del ``classDef`` +
 ``class`` de Mermaid descritos en el libro.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    skinparam rectangleBackgroundColor<<sistema>> #1168bd
    skinparam rectangleFontColor<<sistema>> #ffffff
@@ -1548,7 +1548,7 @@ dedicada del archivo de estilos:
 Una vez centralizado, los diagramas Context solo
 necesitan declarar los estereotipos:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -2138,7 +2138,7 @@ PlantUML acepta puertos con la palabra clave
 ``port`` dentro de un componente, o como
 elementos al borde:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    component RptApp {
      port p_audit

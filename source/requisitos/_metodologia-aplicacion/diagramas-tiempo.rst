@@ -82,23 +82,14 @@ responder en ≤ 10 s (CNST_017). Tres objetos relevantes:
    robust "Backend"  as B
    robust "BD analytics" as DB
 
-   N has ocioso, esperando, renderizando
-   B has ocioso, consulta, serializa
-   DB has ocioso, query
-
    @0
    N is ocioso
    B is ocioso
    DB is ocioso
 
-   @0 N -> B : GET /reporte
-   @0
+   @1
    N is esperando
-
-   @1
    B is consulta
-   B -> DB : SELECT
-   @1
    DB is query
 
    @5
@@ -106,7 +97,6 @@ responder en ≤ 10 s (CNST_017). Tres objetos relevantes:
    B is serializa
 
    @7
-   B -> N : 200 OK
    B is ocioso
    N is renderizando
 

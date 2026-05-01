@@ -143,9 +143,9 @@ actividad.
 
    start
    :Preparar mensaje;
-   :Enviar señal>
+   ->Enviar señal>
    :Esperar...;
-   <:Recibir señal;
+   ->Recibir señal<
    :Procesar respuesta;
    stop
    @enduml
@@ -323,13 +323,12 @@ que la recibe y la imprime.
 
    start
    :Guardar archivo;
-   :Enviar a impresora>
+   ->Enviar a impresora>
    stop
 
-   object Impresora
-   note right of Impresora
-     Recibe la señal y
-     ejecuta la impresión.
+   note right
+     La impresora recibe la señal
+     y ejecuta la impresión.
    end note
    @enduml
 
@@ -342,14 +341,15 @@ recibe una petición para ejecutar la operación:
    @startuml
    !include ../../_static/plantuml-styles.puml
 
+   allowmixing
    actor Usuario
    object Calculadora
    Usuario -> Calculadora : calcularFib(n)
    note right of Calculadora
      (interior)
-     start → Respuesta1 := 1 →
-     Contador := 1 → ... →
-     mostrar(Respuesta, Contador) → stop
+     start \n Respuesta1 := 1 \n
+     Contador := 1 \n ... \n
+     mostrar(Respuesta, Contador) \n stop
    end note
    @enduml
 

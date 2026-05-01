@@ -412,8 +412,8 @@ remoto (un receptor de rayos infrarrojos).
    !include ../../_static/plantuml-styles.puml
 
    actor Persona
-   object ControlRemoto
-   object Television
+   participant ControlRemoto
+   participant Television
 
    Persona        -> ControlRemoto : presionar botón
    ControlRemoto  -> Television    : señal IR (encender)

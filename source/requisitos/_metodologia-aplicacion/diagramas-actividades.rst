@@ -588,7 +588,7 @@ PlantUML usa la sintaxis ``->`` con
 ``send signal`` y ``receive signal`` para
 diferenciarlos:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    :tarea pre-señal;
    ->[señal X]
@@ -596,7 +596,7 @@ diferenciarlos:
 
 O con notación explícita:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    :emitir señal "AlertaCritica"; <<sdsend>>
    :recibir señal "AlertaCritica"; <<sdreceive>>
@@ -629,7 +629,7 @@ PlantUML lo expresa como una actividad simple en
 el diagrama padre, con un comentario o nota que
 remite al diagrama detallado:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    :Validar export;
    note right
@@ -660,7 +660,7 @@ dos actividades involucradas.
 
 PlantUML lo soporta con la sintaxis:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    :Generar reporte;
    :[Reporte serializado];

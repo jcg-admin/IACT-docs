@@ -71,10 +71,11 @@ interpreta como la duración de la activación.
    @startuml
    !include ../../_static/plantuml-styles.puml
 
+   participant Cliente as C
    participant ":Objeto" as O
-   activate O
+   C -> O ++ : mensaje
    ... actividad ...
-   deactivate O
+   return resultado
    @enduml
 
 Un **mensaje** que va de un objeto a otro pasa de la línea de

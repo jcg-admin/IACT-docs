@@ -12,9 +12,9 @@
 
 .. _uml-10:
 
-==================================
+===================================
 UML_10: Diagramas de colaboraciones
-==================================
+===================================
 
 .. note::
 
@@ -77,6 +77,7 @@ mediante dos puntos (``:``).
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Actor
    object ":ObjetoA" as A
@@ -105,6 +106,7 @@ Un actor inicia la secuencia al oprimir una tecla. Tal secuencia
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Usuario
    object ":GUI"          as GUI
@@ -139,6 +141,7 @@ discontinua* y etiquétela con un estereotipo ``«se toma»`` (o
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object "GUI [Inicialización]" as GUI1
    object "GUI [Operación]"      as GUI2
@@ -172,6 +175,7 @@ gaseosa"*:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Cliente
    object ":Fachada"     as F
@@ -209,6 +213,7 @@ número y se agrega ``.1`` (**anidación**):
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Cliente
    object ":Fachada"     as F
@@ -235,6 +240,7 @@ flujo y un estereotipo ``«transacción finalizada»``.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Cliente
    object ":Fachada"     as F
@@ -274,6 +280,7 @@ y *mientras* (``*[…]``) según corresponda.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Consultor
    object ":GUI"               as GUI
@@ -320,6 +327,7 @@ objetos.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Profesor" as P
    object ":Estudiante" as E1
@@ -344,6 +352,7 @@ conforme fue llegando a la fila. Esto se representa con un
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":EmpleadoBancario" as EB
    object ":Cliente" as C1
@@ -373,6 +382,7 @@ de ``:=``, luego el nombre de la operación y las cantidades:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Cliente"      as C
    object ":Calculadora"  as Calc
@@ -433,12 +443,10 @@ borde será grueso y más oscuro**.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
-   skinparam object {
-     BorderThickness<<active>> 4
-   }
-   object ":Bibliotecario" <<active>> as B1
-   object ":Bibliotecario " <<active>> as B2
+   object ":Bibliotecario1" as B1 <<active>>
+   object ":Bibliotecario2" as B2 <<active>>
    object ":BaseDeDatos"   as BD
    object ":Estante"       as E
 
@@ -493,6 +501,7 @@ antes (sintaxis: ``2,3 / mensaje()``).
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":VicepComerc"      as VC
    object ":VicepVentas"      as VV
@@ -527,6 +536,7 @@ comportamiento**.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    skinparam packageStyle rectangle
 

@@ -75,10 +75,10 @@ tienen **enfoques particulares** en diversos aspectos.
  * - Usuario
    - Experiencia (sólo quiere lavar su ropa)
 
-  El escrupuloso diseño de un sistema involucra **todas las
-  posibles perspectivas**, y cada diagrama UML le da una forma
-  de incorporar una perspectiva en particular. El objetivo es
-  satisfacer a cada persona implicada.
+El escrupuloso diseño de un sistema involucra **todas las
+posibles perspectivas**, y cada diagrama UML le da una forma
+de incorporar una perspectiva en particular. El objetivo es
+satisfacer a cada persona implicada.
 
 ----
 

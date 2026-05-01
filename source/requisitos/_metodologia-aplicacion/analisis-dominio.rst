@@ -733,7 +733,7 @@ naturaleza. Su valor en IACT:
   del sistema.
 
 Categorías clásicas y su lectura en IACT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
  :widths: 25 35 40
@@ -894,7 +894,7 @@ Beneficios en este proyecto
   propagan a través de la jerarquía.
 
 Integración con análisis del comportamiento
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 RDD y el análisis del comportamiento se integran de forma
 natural en tres niveles:
@@ -1712,7 +1712,7 @@ PlantUML usa ``*--`` con el diamante del lado del padre,
 exactamente igual que la convención Mermaid presentada
 en el libro:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    EjecucionETL "1" *-- "*" ErrorETL : produce
 
@@ -1803,7 +1803,7 @@ Esa relación se modela como **agregación**: diamante
 Sintaxis PlantUML
 ~~~~~~~~~~~~~~~~~
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Title o-- Actor
 
@@ -2199,7 +2199,7 @@ como **introducción al dominio**. La ruta recomendada:
    :doc:`agregacion-interfaces`.
 
 Continuidad con el resto de la documentación
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 El libro citado anuncia que cada capítulo siguiente
 **construye sobre el modelo de dominio** del primero.
@@ -2369,7 +2369,7 @@ Sintaxis PlantUML
 PlantUML acepta la etiqueta de la relación con dos
 puntos al final de la línea, igual que Mermaid:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Title --  Genre   : is associated with
    Title *-- Season  : has
@@ -2596,7 +2596,7 @@ Sintaxis PlantUML
 Idéntica a Mermaid: cardinalidad entre comillas a cada
 lado del operador.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Title "1" *-- "0..*" Season : has
    Title "1..*" -- "1..*" Genre : is associated with
@@ -2643,7 +2643,7 @@ elemento.
 
 Para el ejemplo del libro:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    Title "1" *-- "0..*" Season : has
 
@@ -2850,7 +2850,7 @@ Sintaxis PlantUML
 PlantUML acepta títulos directamente con la directiva
 ``title``, sin necesidad de bloque YAML como Mermaid:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    !include ../../_static/plantuml-styles.puml
@@ -2861,7 +2861,7 @@ PlantUML acepta títulos directamente con la directiva
 También admite títulos con varias líneas y formato
 básico:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    title Modelo de dominio IACT\nv1.0 — abril 2026
 
@@ -2999,7 +2999,7 @@ Política IACT
 4. **Ocultar compartimentos vacíos** en diagramas de
    dominio puro:
 
-   .. code-block:: plantuml
+   .. code-block:: text
 
       hide empty members
 
@@ -3133,13 +3133,13 @@ Sintaxis PlantUML
 
 PlantUML soporta enlaces con la directiva ``url``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    class Reporte [[https://example.com/reporte]]
 
 O con etiqueta y target:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    class Reporte [[https://example.com/reporte Doc]]
    url of Reporte is [[https://example.com/reporte{tooltip} target]]
@@ -3674,7 +3674,7 @@ PlantUML soporta ERD con la palabra clave
 ``entity`` (o ``class`` con estereotipo
 ``<<table>>``). La sintaxis básica:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    entity Title {
@@ -3841,7 +3841,7 @@ Sintaxis PlantUML
 PlantUML soporta crow's foot en ERD con la siguiente
 sintaxis:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    EntidadA ||--o{ EntidadB : etiqueta
 
@@ -3957,7 +3957,7 @@ Cardinalidad bidireccional
 La sintaxis se puede invertir sin cambiar el
 significado:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' Equivalentes:
    TipoEvento ||--o{ EventoAuditoria : clasifica
@@ -4005,7 +4005,7 @@ es decir, los registros relacionados son
 
 PlantUML:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    A ||--o{ B : etiqueta
 
@@ -4195,7 +4195,7 @@ PlantUML acepta etiquetas multipalabra
 directamente sin necesidad de comillas; solo
 requiere que estén bien delimitadas con ``:``:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' Funciona sin comillas:
    Usuario ||--o{ Asignacion : es asignado en
@@ -4232,7 +4232,7 @@ PlantUML — sintaxis para claves
 PlantUML usa **estereotipos UML** entre dobles
 ángulos para anotar columnas:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    entity Asignacion {
      * asignacion_id : int <<PK>>
@@ -4252,7 +4252,7 @@ estereotipos** en la misma columna, así que una
 columna que es **PK y FK** simultáneamente se puede
 declarar:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    entity GrupoFuncion {
      * grupo_id : int <<PK>> <<FK>>
@@ -4276,7 +4276,7 @@ tipo y los estereotipos, útiles para anotar:
   (``FK -> Usuario.usuario_id``).
 - Notas auditables (``CNST_025: append-only``).
 
-.. code-block:: plantuml
+.. code-block:: text
 
    entity EventoAuditoria {
      * evento_id : bigint <<PK>>
@@ -4429,7 +4429,7 @@ Sintaxis PlantUML
 PlantUML usa ``o|`` (o ``|o``) para denotar
 "cero o uno":
 
-.. code-block:: plantuml
+.. code-block:: text
 
    A ||--o| B : etiqueta
 
@@ -4688,7 +4688,7 @@ línea:
 - **Línea punteada** (``..``) — relación
   no-identificante.
 
-.. code-block:: plantuml
+.. code-block:: text
 
    ' Identificante (linea continua):
    Padre ||--o{ Hijo : etiqueta

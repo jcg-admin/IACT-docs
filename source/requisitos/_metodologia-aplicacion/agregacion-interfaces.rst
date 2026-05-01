@@ -67,6 +67,7 @@ partes pueden existir **independientemente**.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Grupo {
      - id : Integer
@@ -115,6 +116,7 @@ CNST_001):
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class AlertaCritica
    class CanalUrgente
@@ -313,6 +315,7 @@ Diagrama UML
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Universidad {
      - estudiantes : List<Estudiante>
@@ -484,6 +487,7 @@ todo** (relación de pertenencia exclusiva).
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class EjecucionETL {
      - id : Integer
@@ -744,6 +748,7 @@ Diagrama UML
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Documento {
      - parrafos : List<Parrafo>
@@ -938,6 +943,7 @@ sistema.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    package "EjecucionETL (composición)" {
      class Scheduler
@@ -964,6 +970,7 @@ sistema.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    package "IACT (contexto del sistema)" {
      class Usuario
@@ -1021,6 +1028,7 @@ públicas que una clase presenta a otras.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    interface IExportable <<interface>> {
      + exportar(formato : Enum) : Archivo
@@ -1073,6 +1081,7 @@ públicas que una clase presenta a otras.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    interface INotificable <<interface>> {
      + entregar(usuario : Usuario, mensaje : Mensaje) : Boolean
@@ -1107,6 +1116,7 @@ públicas que una clase presenta a otras.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    interface ISegmentable <<interface>> {
      + aplicarFiltroSegmento(s : SegmentoDatos)
@@ -1185,6 +1195,7 @@ operaciones.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Reporte {
      - segmento_aplicado : SegmentoDatos
@@ -1234,6 +1245,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class ConfiguracionSLA {
      {static} - sla_max_seg : Integer = 10
@@ -1266,6 +1278,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Funcion {
      - codigo : String
@@ -1298,6 +1311,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    class Grupo
    class Funcion
@@ -1324,6 +1338,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    interface IExportable <<interface>> {
      + exportar(formato)
@@ -1348,6 +1363,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    skinparam packageStyle rectangle
 
@@ -1407,6 +1423,7 @@ El **ámbito** determina si un atributo o operación es:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    skinparam packageStyle rectangle
    rectangle "Modelo UML completo (IACT)" as M {

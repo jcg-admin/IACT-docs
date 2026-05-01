@@ -199,6 +199,7 @@ rectángulos pequeños sobrepuestos en su lado izquierdo**.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    component "MiComponente" as C
    @enduml
@@ -212,12 +213,13 @@ clases que implementa.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    package "Editor" {
      component "Editor.exe" as Ed {
-       [Editor::Documento]
-       [Editor::Vista]
-       [Editor::Controlador]
+       component "Documento"    as Doc
+       component "Vista"        as Vis
+       component "Controlador"  as Ctrl
      }
    }
    @enduml
@@ -229,6 +231,7 @@ Otra forma de mostrar las clases que implementa un componente
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    component "Editor.exe" as Ed
    class Documento
@@ -254,6 +257,7 @@ discontinua y una punta de flecha de triángulo sin rellenar**
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    interface IEditable {
      + abrir()
@@ -272,6 +276,7 @@ Aquí la línea representa la realización:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    component "Editor.exe" as Ed
    () "IEditable" as I
@@ -289,6 +294,7 @@ Puede mostrar **realización y dependencia en el mismo diagrama**:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    component "Editor.exe"   as Ed
    component "Impresora.dll" as Imp
@@ -388,6 +394,7 @@ disposición están en el mismo directorio.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    package "Anim" {
      component "Anim.html" as HTML
@@ -437,6 +444,7 @@ archivo de ayuda generará un ``.GID``. Utilizar la característica
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    package "PowerToys" {
      component "TweakUI.exe"  as EXE
@@ -466,6 +474,7 @@ software del sistema**.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    skinparam packageStyle rectangle
    package "UML" {

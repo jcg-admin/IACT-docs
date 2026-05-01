@@ -2245,7 +2245,7 @@ Diseño deficiente — dependencia directa
    @enduml
 
 Diseño correcto — dependencia invertida sobre IAlarm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. uml::
 

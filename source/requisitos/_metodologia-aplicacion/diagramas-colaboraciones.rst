@@ -54,9 +54,9 @@ Diagramas de colaboraciones — contexto espacial aplicado a IACT
    - ¿En qué orden?
    - ¿Qué estructura?
 
-  Ambos diagramas representan **exactamente la misma
-  información**. Se puede convertir uno en el otro sin
-  perder nada — sólo cambia la presentación.
+Ambos diagramas representan **exactamente la misma
+información**. Se puede convertir uno en el otro sin
+perder nada — sólo cambia la presentación.
 
 ----
 
@@ -72,6 +72,7 @@ indican dirección.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object Objeto1
    object Objeto2
@@ -176,6 +177,7 @@ Ejemplos IACT:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Backend
    object ":SecRules"           as SR
@@ -222,6 +224,7 @@ Ejemplos IACT:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Scheduler"     as Sch
    object ":ReporteProg"   as RP
@@ -253,6 +256,7 @@ una línea discontinua etiquetada con el estereotipo
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object "sesion : Sesion\n[Anonima]"  as S1
    object ":AuthService"                as A
@@ -294,6 +298,7 @@ Ejemplos IACT:
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Reporte"      as R
    object ":Calculadora"  as C
@@ -332,15 +337,11 @@ Ejemplo IACT: ``Usuario``, ``Reporte``, ``EventoAuditoria``.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
-
-   skinparam object {
-     BorderThickness<<active>> 4
-   }
-
-   object ":Backend"          <<active>>  as B
-   object ":Scheduler"        <<active>>  as Sch
-   object ":EvaluadorAlertas" <<active>>  as EA
-   object ":SupervisorETL"    <<active>>  as Sup
+   allowmixing
+   object ":Backend" as B <<active>>
+   object ":Scheduler" as Sch <<active>>
+   object ":EvaluadorAlertas" as EA <<active>>
+   object ":SupervisorETL" as Sup <<active>>
    object ":BDAnalytics"                  as BD
    object ":AuditLog"                     as AL
    object ":BuzonInterno"                 as BI
@@ -409,6 +410,7 @@ Sólo después se publica el cierre en el panel general.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Supervisor
    object ":Alerta"        as A
@@ -447,18 +449,14 @@ sincronización, objetos activos / pasivos.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
-
-   skinparam object {
-     BorderThickness<<active>> 4
-   }
-
+   allowmixing
    actor Supervisor
 
-   object ":Backend"     <<active>> as B
+   object ":Backend" as B <<active>>
    object ":SecRules"               as SR
    object ":Reporte"                as R
    object ":BDAnalytics"            as BD
-   object ":ExportQueue" <<active>> as EQ
+   object ":ExportQueue" as EQ <<active>>
    object ":Archivo"                as F
    object ":BuzonInterno"           as BI
    object ":AuditLog"               as AL
@@ -529,6 +527,7 @@ sincronización, objetos activos / pasivos.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    actor Operador
    object ":Frontend"   as F
@@ -565,9 +564,9 @@ sincronización, objetos activos / pasivos.
  * - Comunicar *qué sucede cuándo*
    - Comunicar *cómo se conectan*
 
-  Recomendación: para los UCs **críticos** (UC_AUTH_01,
-  UC_RPT_04, UC_PIP_04, UC_PERM_07), usar **ambos** —
-  perspectivas complementarias para mejor comprensión.
+Recomendación: para los UCs **críticos** (UC_AUTH_01,
+UC_RPT_04, UC_PIP_04, UC_PERM_07), usar **ambos** —
+perspectivas complementarias para mejor comprensión.
 
 ----
 
@@ -633,7 +632,7 @@ sintaxis PlantUML, sección y caso IACT.
    - § 3
    - ``Browser`` → ``auth_app``.
  * - Forward asíncrono
-   - ``A ->> B : "1: op()"``
+   - ``A -> B : "1: op()"``
    - § 3
    - ``rpt_app`` → ``audit_log``.
  * - Reverse stimulus
@@ -686,6 +685,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Supervisor" as S
    object ":Browser" as B
@@ -700,6 +700,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":EvaluadorAlertas" as E
 
@@ -713,6 +714,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Browser" as B
    object ":auth_app" as Auth
@@ -727,11 +729,12 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":rpt_app" as Rpt
    object ":audit_log" as Audit
 
-   Rpt ->> Audit : "1: registrar_evento()"
+   Rpt -> Audit : "1: registrar_evento()"
    @enduml
 
 14.5 Reverse stimulus (request + respuesta)
@@ -741,6 +744,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":auth_app" as Auth
    object ":ldap-corporativo" as LDAP
@@ -756,6 +760,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Browser" as B
    object ":auth_app" as Auth
@@ -774,6 +779,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":auth_app" as Auth
    object ":audit_log" as Audit
@@ -788,6 +794,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":etl_runner" as ETL
    object ":bd_operativa" as BDO
@@ -802,6 +809,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":auth_app" as Auth
    object ":Sesion" as S
@@ -820,6 +828,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":rpt_app" as Rpt
    object ":Reporte" as R
@@ -834,6 +843,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
 
    object ":Supervisor" as S
    object ":alr_app" as Alr
@@ -842,8 +852,8 @@ real. Copiar y adaptar al UC nuevo.
    object ":Alerta" as A
 
    S -> Alr : "1: reconocer(alerta_id)"
-   Alr ->> Audit : "1.1: registrar(CNST_025)"
-   Alr ->> Log : "1.2: notificar(CNST_001)"
+   Alr -> Audit : "1.1: registrar(CNST_025)"
+   Alr -> Log : "1.2: notificar(CNST_001)"
    Alr -> A : "1.3: cambiar_estado(reconocida)"
    note right of A
      estado: publicada → reconocida
@@ -857,6 +867,7 @@ real. Copiar y adaptar al UC nuevo.
 
    @startuml
    !include ../../_static/plantuml-styles.puml
+   allowmixing
    title UC_XXX_NN — vista de colaboracion
 
    object ":Actor" as Actor
@@ -870,7 +881,7 @@ real. Copiar y adaptar al UC nuevo.
    Receptor -> BD : "1.1.1: persistir(datos)"
    BD --> Receptor : "1.1.2: ack"
    Receptor --> Emisor : "1.1.3: ok"
-   Emisor ->> Audit : "1.2: registrar_evento(CNST_025)"
+   Emisor -> Audit : "1.2: registrar_evento(CNST_025)"
    Emisor --> Actor : "1.3: exito"
    @enduml
 
