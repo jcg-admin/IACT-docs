@@ -86,7 +86,7 @@ metricas de cada cola y permite analizar tiempos de espera y abandono.
  * - PRE-01
    - Usuario tiene funcion RPT-013
  * - PRE-02
-   - Existen datos de colas en el segmento
+   - Existen datos de colas en el agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de colas.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestra reporte de colas del segmento
+   - Se muestra reporte de colas del agrupador
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -123,7 +123,7 @@ Usuario accede a reporte de colas.
    - Valida RPT-013
  * - 3
    - Sistema
-   - Consulta metricas de colas del segmento
+   - Consulta metricas de colas del agrupador
  * - 4
    - Sistema
    - Calcula nivel de servicio por cola
@@ -151,8 +151,8 @@ Usuario accede a reporte de colas.
  FE -> RC: GET /api/reports/queues
  RC -> RC: verify_function(RPT-013)
  RC -> RC: get_user_segment
- RC -> QRS: get_queue_metrics(segmento)
- QRS -> DB: SELECT cola, metricas\nFROM vista_colas\nWHERE segmento_id = ?
+ RC -> QRS: get_queue_metrics(access_group)
+ QRS -> DB: SELECT cola, metricas\nFROM vista_colas\nWHERE user_id = ?
  note right: CNST_007
  DB --> QRS: queue_data
  QRS -> QRS: calculate_sla
@@ -184,7 +184,7 @@ Usuario accede a reporte de colas.
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Colas en Segmento
+8.1 EX-01: Sin Colas en Agrupador (AGR)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -192,9 +192,9 @@ Usuario accede a reporte de colas.
  :header-rows: 0
 
  * - **Condicion**
-   - No hay colas en el segmento
+   - No hay colas en el agrupador (AGR)
  * - **Mensaje**
-   - No hay colas registradas en su segmento
+   - No hay colas registradas en su agrupador (AGR)
 
 9. Diagrama de Actividad
 ------------------------
@@ -208,7 +208,7 @@ Usuario accede a reporte de colas.
  stop
  else (si)
  endif
- :Consultar colas del segmento;
+ :Consultar colas del agrupador;
  note right: CNST_008
  if (Hay colas?) then (no)
  :Mostrar Sin colas;
@@ -235,8 +235,8 @@ Usuario accede a reporte de colas.
    - Regla
    - Descripcion
  * - BR-RPT-120
-   - Por Segmento
-   - Solo colas del segmento
+   - Por Agrupador (AGR)
+   - Solo colas del agrupador
  * - BR-RPT-121
    - SLA
    - Nivel de servicio = atendidas en umbral / total
@@ -274,8 +274,8 @@ Usuario accede a reporte de colas.
    - BD Dual
    - Datos de BD Analytics
  * - CNST_008
-   - Segmentos
-   - Solo colas del segmento
+   - Agrupadores (AGR)
+   - Solo colas del agrupador
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -306,7 +306,9 @@ Usuario accede a reporte de colas.
  * - **Restricciones**
    - CNST_007, CNST_008
  * - **UC Relacionados**
-   - UC_RPT_12, UC_RPT_14
+   - UC_RPT_12 (Agentes), UC_RPT_14 (Campanas)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=QUEUES), ``Call`` (lectura cola) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

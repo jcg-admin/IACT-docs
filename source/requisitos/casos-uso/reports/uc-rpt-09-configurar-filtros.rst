@@ -48,7 +48,7 @@ de reporte.
 **Caracteristicas principales:**
 
 - Definir filtros por defecto para reportes
-- Filtros aplicados dentro del segmento (CNST_008)
+- Filtros aplicados dentro del agrupador (CNST_008)
 - Guardar configuraciones de filtros
 - Registro de cambios en auditoria (CNST_025)
 
@@ -137,7 +137,7 @@ Usuario accede a configuracion de filtros.
    - Guarda configuracion
  * - 7
    - Sistema
-   - Valida filtros dentro del segmento
+   - Valida filtros dentro del agrupador
  * - 8
    - Sistema
    - Guarda configuracion
@@ -202,7 +202,7 @@ Usuario accede a configuracion de filtros.
 8. Excepciones
 --------------
 
-8.1 EX-01: Filtro Fuera de Segmento
+8.1 EX-01: Filtro Fuera de Agrupador (AGR)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -210,9 +210,9 @@ Usuario accede a configuracion de filtros.
  :header-rows: 0
 
  * - **Condicion**
-   - Filtro incluye datos fuera del segmento
+   - Filtro incluye datos fuera del agrupador
  * - **Mensaje**
-   - Filtros deben estar dentro del segmento
+   - Filtros deben estar dentro del agrupador
  * - **Codigo Error**
    - RPT-080
 
@@ -230,8 +230,8 @@ Usuario accede a configuracion de filtros.
  endif
  :Seleccionar reporte;
  :Definir filtros;
- if (Dentro del segmento?) then (no)
- :Error fuera de segmento;
+ if (Dentro del agrupador?) then (no)
+ :Error fuera de agrupador (AGR);
  stop
  else (si)
  endif
@@ -251,8 +251,8 @@ Usuario accede a configuracion de filtros.
    - Regla
    - Descripcion
  * - BR-RPT-80
-   - Segmento
-   - Filtros limitados al segmento del usuario
+   - Agrupador (AGR)
+   - Filtros limitados al perfil del usuario (AGR)
  * - BR-RPT-81
    - Persistencia
    - Filtros se aplican automaticamente al reporte
@@ -285,8 +285,8 @@ Usuario accede a configuracion de filtros.
    - Nombre
    - Aplicacion
  * - CNST_008
-   - Segmentos
-   - Filtros dentro del segmento
+   - Agrupadores (AGR)
+   - Filtros dentro del agrupador
  * - CNST_025
    - Auditoria
    - Registro de cambios
@@ -305,8 +305,8 @@ Usuario accede a configuracion de filtros.
    - Configurar filtros
    - Filtros guardados y aplicados
  * - FR-RPT-081
-   - Validar segmento
-   - Rechazo si fuera de segmento
+   - Validar agrupador (AGR)
+   - Rechazo si fuera de agrupador (AGR)
 
 13. Trazabilidad
 ----------------
@@ -319,6 +319,10 @@ Usuario accede a configuracion de filtros.
    - BRQ-RPT-009
  * - **Restricciones**
    - CNST_008, CNST_025
+ * - **UC Relacionados**
+   - UC_RPT_03 (Reportes Historicos), UC_RPT_10 (Guardar Vista)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, atributo filters) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

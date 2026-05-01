@@ -50,7 +50,7 @@ proxima ejecucion y historial de ejecuciones anteriores.
 - Ver estado de cada programacion
 - Ver proxima ejecucion programada
 - Ver historial de ejecuciones
-- Filtrado por segmento (CNST_008)
+- Filtrado por agrupador (AGR) (CNST_008)
 
 3. Diagrama de Caso de Uso
 --------------------------
@@ -119,7 +119,7 @@ Usuario accede a reportes programados.
    - Valida RPT-008
  * - 3
    - Sistema
-   - Consulta programaciones del segmento
+   - Consulta programaciones del agrupador (AGR)
  * - 4
    - Sistema
    - Muestra lista con estado y proxima ejecucion
@@ -143,8 +143,8 @@ Usuario accede a reportes programados.
  U -> FE: Accede a Programados
  FE -> SC: GET /api/reports/schedules
  SC -> SC: verify_function(RPT-008)
- SC -> SS: get_schedules(segmento)
- SS -> DB: SELECT * FROM report_schedules\nWHERE segmento_id = ?
+ SC -> SS: get_schedules(access_group)
+ SS -> DB: SELECT * FROM report_schedules\nWHERE user_id = ?
  DB --> SS: schedules
  SS --> SC: schedules
  SC --> FE: 200 OK
@@ -191,7 +191,7 @@ Usuario accede a reportes programados.
  :header-rows: 0
 
  * - **Condicion**
-   - No hay programaciones para el segmento
+   - No hay programaciones del agrupador (AGR)
  * - **Mensaje**
    - No hay reportes programados
 
@@ -207,7 +207,7 @@ Usuario accede a reportes programados.
  stop
  else (si)
  endif
- :Consultar programaciones del segmento;
+ :Consultar programaciones del agrupador (AGR);
  if (Hay programaciones?) then (no)
  :Mostrar Sin programaciones;
  else (si)
@@ -230,8 +230,8 @@ Usuario accede a reportes programados.
    - Regla
    - Descripcion
  * - BR-RPT-70
-   - Por Segmento
-   - Solo programaciones del segmento del usuario
+   - Por Agrupador (AGR)
+   - Solo programaciones del perfil del usuario (AGR)
  * - BR-RPT-71
    - Historial
    - Se conservan ultimas 30 ejecuciones
@@ -262,8 +262,8 @@ Usuario accede a reportes programados.
    - Nombre
    - Aplicacion
  * - CNST_008
-   - Segmentos
-   - Solo programaciones del segmento
+   - Agrupadores (AGR)
+   - Solo programaciones del agrupador (AGR)
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -294,7 +294,9 @@ Usuario accede a reportes programados.
  * - **Restricciones**
    - CNST_008
  * - **UC Relacionados**
-   - UC_RPT_07
+   - UC_RPT_07 (Programar Reporte)
+ * - **Clase de Dominio**
+   - ``ScheduledReport`` (primaria), ``Report`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

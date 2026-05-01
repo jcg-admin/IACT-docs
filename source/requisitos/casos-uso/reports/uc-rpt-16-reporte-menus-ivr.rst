@@ -62,7 +62,7 @@ opciones tienen mayor abandono, qué menús requieren rediseño.
   tasa de abandono, tasa de timeout.
 - Identificación automática de "menús problemáticos" (alta tasa
   de abandono o timeout).
-- Filtrado por segmento (CNST-008) y rango de fechas.
+- Filtrado por agrupador (AGR) (CNST-008) y rango de fechas.
 - Datos de BD Analytics (CNST-007).
 
 3. Diagrama de Caso de Uso
@@ -148,7 +148,7 @@ El usuario accede al reporte de menús IVR desde el menú.
    - Valida rango ≤ 2 años (CNST-015).
  * - 5
    - Sistema
-   - Consulta BD Analytics (CNST-007) con filtro de segmento.
+   - Consulta BD Analytics (CNST-007) con filtro de agrupador.
  * - 6
    - Sistema
    - Calcula métricas por nodo del árbol IVR.
@@ -165,7 +165,7 @@ El usuario accede al reporte de menús IVR desde el menú.
 6.1 EX-01: Sin Datos
 ^^^^^^^^^^^^^^^^^^^^
 
-Si no hay eventos para el rango/segmento, mostrar reporte vacío.
+Si no hay eventos para el rango y agrupador (AGR), mostrar reporte vacío.
 
 7. Reglas de Negocio
 --------------------
@@ -181,8 +181,8 @@ Si no hay eventos para el rango/segmento, mostrar reporte vacío.
    - Umbral problemático
    - Tasa de abandono > N% marca el nodo como problemático
  * - BR-RPT-161
-   - Filtro Segmento
-   - Datos por segmento del usuario
+   - Filtro Agrupador (AGR)
+   - Datos por perfil del usuario (AGR)
  * - BR-RPT-162
    - Origen
    - BD Analytics (CNST-007)
@@ -201,7 +201,7 @@ Si no hay eventos para el rango/segmento, mostrar reporte vacío.
    - BD Dual
    - Datos desde BD Analytics
  * - CNST_008
-   - Segmentos
+   - Agrupadores (AGR)
    - Filtro automático
  * - CNST_015
    - Retención
@@ -218,8 +218,10 @@ Si no hay eventos para el rango/segmento, mostrar reporte vacío.
    - BRQ-RPT-016
  * - **Funcion RBAC**
    - RPT-001 ``view_reports`` (instancia: scope=menus_ivr)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-rpt-03 (Históricos), uc-rpt-04 (Exportar)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=IVR_MENUS), ``Call`` (lectura) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------

@@ -86,7 +86,7 @@ Muestra metricas individuales y comparativas por agente.
  * - PRE-01
    - Usuario tiene funcion RPT-012
  * - PRE-02
-   - Existen datos de agentes en el segmento
+   - Existen datos de agentes en el agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de agentes.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestra reporte de agentes del segmento
+   - Se muestra reporte de agentes del agrupador
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -123,7 +123,7 @@ Usuario accede a reporte de agentes.
    - Valida RPT-012
  * - 3
    - Sistema
-   - Consulta metricas de agentes del segmento
+   - Consulta metricas de agentes del agrupador
  * - 4
    - Sistema
    - Calcula ranking por metricas
@@ -151,8 +151,8 @@ Usuario accede a reporte de agentes.
  FE -> RC: GET /api/reports/agents
  RC -> RC: verify_function(RPT-012)
  RC -> RC: get_user_segment
- RC -> ARS: get_agent_metrics(segmento)
- ARS -> DB: SELECT agente, metricas\nFROM vista_agentes\nWHERE segmento_id = ?
+ RC -> ARS: get_agent_metrics(access_group)
+ ARS -> DB: SELECT agente, metricas\nFROM vista_agentes\nWHERE user_id = ?
  note right: CNST_007
  DB --> ARS: agent_data
  ARS -> ARS: calculate_rankings
@@ -187,7 +187,7 @@ Usuario accede a reporte de agentes.
 8. Excepciones
 --------------
 
-8.1 EX-01: Sin Agentes en Segmento
+8.1 EX-01: Sin Agentes en Agrupador (AGR)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -195,9 +195,9 @@ Usuario accede a reporte de agentes.
  :header-rows: 0
 
  * - **Condicion**
-   - No hay agentes en el segmento
+   - No hay agentes en el agrupador (AGR)
  * - **Mensaje**
-   - No hay agentes registrados en su segmento
+   - No hay agentes registrados en su agrupador (AGR)
 
 9. Diagrama de Actividad
 ------------------------
@@ -211,7 +211,7 @@ Usuario accede a reporte de agentes.
  stop
  else (si)
  endif
- :Consultar agentes del segmento;
+ :Consultar agentes del agrupador;
  note right: CNST_008
  if (Hay agentes?) then (no)
  :Mostrar Sin agentes;
@@ -238,8 +238,8 @@ Usuario accede a reporte de agentes.
    - Regla
    - Descripcion
  * - BR-RPT-110
-   - Por Segmento
-   - Solo agentes del segmento
+   - Por Agrupador (AGR)
+   - Solo agentes del agrupador
  * - BR-RPT-111
    - Ranking
    - Ordenamiento por metrica seleccionada
@@ -275,8 +275,8 @@ Usuario accede a reporte de agentes.
    - BD Dual
    - Datos de BD Analytics
  * - CNST_008
-   - Segmentos
-   - Solo agentes del segmento
+   - Agrupadores (AGR)
+   - Solo agentes del agrupador
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -307,7 +307,9 @@ Usuario accede a reporte de agentes.
  * - **Restricciones**
    - CNST_007, CNST_008
  * - **UC Relacionados**
-   - UC_RPT_13, UC_RPT_14
+   - UC_RPT_13 (Colas), UC_RPT_14 (Campanas)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=AGENTS), ``Call`` (lectura agente_id) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

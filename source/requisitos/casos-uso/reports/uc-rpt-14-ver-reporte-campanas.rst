@@ -86,7 +86,7 @@ o entrantes especiales. Muestra metricas de efectividad y conversion.
  * - PRE-01
    - Usuario tiene funcion RPT-014
  * - PRE-02
-   - Existen campanas en el segmento
+   - Existen campanas en el agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -103,7 +103,7 @@ Usuario accede a reporte de campanas.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestra reporte de campanas del segmento
+   - Se muestra reporte de campanas del agrupador
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -123,7 +123,7 @@ Usuario accede a reporte de campanas.
    - Valida RPT-014
  * - 3
    - Sistema
-   - Consulta campanas del segmento
+   - Consulta campanas del agrupador
  * - 4
    - Sistema
    - Calcula metricas de efectividad
@@ -151,8 +151,8 @@ Usuario accede a reporte de campanas.
  FE -> RC: GET /api/reports/campaigns
  RC -> RC: verify_function(RPT-014)
  RC -> RC: get_user_segment
- RC -> CRS: get_campaign_metrics(segmento)
- CRS -> DB: SELECT campana, metricas\nFROM vista_campanas\nWHERE segmento_id = ?
+ RC -> CRS: get_campaign_metrics(access_group)
+ CRS -> DB: SELECT campana, metricas\nFROM vista_campanas\nWHERE user_id = ?
  note right: CNST_007
  DB --> CRS: campaign_data
  CRS -> CRS: calculate_conversion_rates
@@ -192,9 +192,9 @@ Usuario accede a reporte de campanas.
  :header-rows: 0
 
  * - **Condicion**
-   - No hay campanas en el segmento
+   - No hay campanas en el agrupador (AGR)
  * - **Mensaje**
-   - No hay campanas registradas en su segmento
+   - No hay campanas registradas en su agrupador (AGR)
 
 9. Diagrama de Actividad
 ------------------------
@@ -208,7 +208,7 @@ Usuario accede a reporte de campanas.
  stop
  else (si)
  endif
- :Consultar campanas del segmento;
+ :Consultar campanas del agrupador;
  note right: CNST_008
  if (Hay campanas?) then (no)
  :Mostrar Sin campanas;
@@ -235,8 +235,8 @@ Usuario accede a reporte de campanas.
    - Regla
    - Descripcion
  * - BR-RPT-130
-   - Por Segmento
-   - Solo campanas del segmento
+   - Por Agrupador (AGR)
+   - Solo campanas del agrupador
  * - BR-RPT-131
    - Conversion
    - Tasa = contactos exitosos / total intentos
@@ -274,8 +274,8 @@ Usuario accede a reporte de campanas.
    - BD Dual
    - Datos de BD Analytics
  * - CNST_008
-   - Segmentos
-   - Solo campanas del segmento
+   - Agrupadores (AGR)
+   - Solo campanas del agrupador
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -306,7 +306,9 @@ Usuario accede a reporte de campanas.
  * - **Restricciones**
    - CNST_007, CNST_008
  * - **UC Relacionados**
-   - UC_RPT_12, UC_RPT_13
+   - UC_RPT_12 (Agentes), UC_RPT_13 (Colas)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=CAMPAIGNS), ``Campaign``, ``Call`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

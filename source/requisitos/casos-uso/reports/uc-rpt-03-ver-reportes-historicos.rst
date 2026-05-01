@@ -51,7 +51,7 @@ informes para toma de decisiones.
 - Rango maximo de 2 anios (CNST_015)
 - Agregaciones por dia, semana, mes
 - Comparacion entre periodos
-- Filtrado por segmento automatico (CNST_008)
+- Filtrado por agrupador (AGR) automatico (CNST_008)
 - Multiples dimensiones de analisis
 
 3. Diagrama de Caso de Uso
@@ -115,7 +115,7 @@ El usuario accede a reportes historicos desde el menu.
  * - POST-01
    - Se muestran datos historicos del periodo seleccionado
  * - POST-02
-   - Los datos estan filtrados por segmento del usuario
+   - Los datos estan filtrados por perfil del usuario (AGR)
 
 5. Flujo Normal (Camino Feliz)
 ------------------------------
@@ -147,7 +147,7 @@ El usuario accede a reportes historicos desde el menu.
    - Selecciona tipo de agregacion (dia/semana/mes)
  * - 7
    - Sistema
-   - Consulta datos con filtro de segmento
+   - Consulta datos con filtro de agrupador
  * - 8
    - Sistema
    - Calcula agregaciones segun periodo
@@ -188,9 +188,9 @@ El usuario accede a reportes historicos desde el menu.
  FE --> U: Error: Rango maximo 2 anios
  end
 
- RC -> HS: get_historical_data(params, segmento)
+ RC -> HS: get_historical_data(params, access_group)
 
- HS -> DB: SELECT\n DATE_TRUNC(agregacion, fecha) as periodo,\n SUM(llamadas) as total,\n AVG(tmo) as tmo_prom\nFROM metricas_diarias\nWHERE segmento_id = ?\nAND fecha BETWEEN ? AND ?\nGROUP BY periodo\nORDER BY periodo
+ HS -> DB: SELECT\n DATE_TRUNC(agregacion, fecha) as periodo,\n SUM(llamadas) as total,\n AVG(tmo) as tmo_prom\nFROM metricas_diarias\nWHERE user_id = ?\nAND fecha BETWEEN ? AND ?\nGROUP BY periodo\nORDER BY periodo
  note right of DB: CNST_007 Analytics
  DB --> HS: historical_data
 
@@ -279,7 +279,7 @@ El usuario accede a reportes historicos desde el menu.
  * - **Paso de Origen**
    - 7
  * - **Condicion**
-   - No existen datos para el rango y segmento
+   - No existen datos para el rango y agrupador (AGR)
  * - **Accion Sistema**
    - Muestra reporte vacio
  * - **Mensaje Usuario**
@@ -320,7 +320,7 @@ El usuario accede a reportes historicos desde el menu.
  endif
 
  :Consultar datos historicos;
- note right: Filtro segmento CNST_008
+ note right: Filtro agrupador (AGR) CNST_008
 
  :Calcular agregaciones;
  :Calcular tendencias;
@@ -352,8 +352,8 @@ El usuario accede a reportes historicos desde el menu.
    - Agregaciones
    - Disponibles: diaria, semanal, mensual
  * - BR-RPT-22
-   - Segmento
-   - Datos siempre filtrados por segmento del usuario
+   - Agrupador (AGR)
+   - Datos siempre filtrados por perfil del usuario (AGR)
  * - BR-RPT-23
    - Comparacion
    - Permite comparar dos periodos de igual duracion
@@ -372,8 +372,8 @@ El usuario accede a reportes historicos desde el menu.
    - BD Dual
    - Datos historicos de BD Analytics exclusivamente
  * - CNST_008
-   - Segmentos
-   - Filtro automatico por segmento
+   - Agrupadores (AGR)
+   - Filtro automatico por agrupador (AGR)
  * - CNST_015
    - Retencion
    - Maximo 2 anios de datos historicos consultables
@@ -416,6 +416,8 @@ El usuario accede a reportes historicos desde el menu.
    - CNST_007, CNST_008, CNST_015
  * - **UC Relacionados**
    - UC_RPT_01, UC_RPT_04 (Exportar)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria), ``Metric``, ``Call`` (lectura) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**

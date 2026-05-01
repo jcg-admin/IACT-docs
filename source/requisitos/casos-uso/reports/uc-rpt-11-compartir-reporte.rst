@@ -42,7 +42,7 @@ UC_RPT_11: Compartir Reporte
 --------------
 
 Permite compartir un reporte generado con otros usuarios del mismo
-segmento. La notificacion se envia via InternalMessage (CNST_001).
+agrupador (AGR). La notificacion se envia via InternalMessage (CNST_001).
 
 **Restriccion CNST_001:** Notificaciones SOLO via InternalMessage.
 
@@ -80,7 +80,7 @@ segmento. La notificacion se envia via InternalMessage (CNST_001).
  * - PRE-02
    - Existe un reporte para compartir
  * - PRE-03
-   - Destinatarios del mismo segmento
+   - Destinatarios del mismo agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -119,7 +119,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Valida RPT-011
  * - 3
    - Sistema
-   - Muestra usuarios del segmento
+   - Muestra usuarios del agrupador
  * - 4
    - Usuario
    - Selecciona destinatarios
@@ -128,7 +128,7 @@ Usuario hace clic en Compartir desde un reporte.
    - Opcionalmente agrega mensaje
  * - 6
    - Sistema
-   - Valida destinatarios del segmento
+   - Valida destinatarios del agrupador (AGR)
  * - 7
    - Sistema
    - Envia notificacion via InternalMessage
@@ -190,7 +190,7 @@ Usuario hace clic en Compartir desde un reporte.
 8. Excepciones
 --------------
 
-8.1 EX-01: Destinatario Otro Segmento
+8.1 EX-01: Destinatario Otro Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -198,9 +198,9 @@ Usuario hace clic en Compartir desde un reporte.
  :header-rows: 0
 
  * - **Condicion**
-   - Destinatario de segmento diferente
+   - Destinatario de agrupador diferente
  * - **Mensaje**
-   - Solo puede compartir con usuarios del mismo segmento
+   - Solo puede compartir con usuarios del mismo agrupador (AGR)
  * - **Codigo Error**
    - RPT-100
 
@@ -217,8 +217,8 @@ Usuario hace clic en Compartir desde un reporte.
  else (si)
  endif
  :Seleccionar destinatarios;
- if (Mismo segmento?) then (no)
- :Error segmento;
+ if (Mismo agrupador?) then (no)
+ :Error agrupador;
  stop
  else (si)
  endif
@@ -239,8 +239,8 @@ Usuario hace clic en Compartir desde un reporte.
    - Regla
    - Descripcion
  * - BR-RPT-100
-   - Mismo Segmento
-   - Solo usuarios del mismo segmento
+   - Mismo Agrupador (AGR)
+   - Solo usuarios del mismo agrupador (AGR)
  * - BR-RPT-101
    - Notificacion
    - Via InternalMessage unicamente
@@ -259,8 +259,8 @@ Usuario hace clic en Compartir desde un reporte.
    - Comunicacion Interna
    - Solo InternalMessage
  * - CNST_008
-   - Segmentos
-   - Mismo segmento
+   - Agrupadores (AGR)
+   - Mismo agrupador (AGR)
  * - CNST_025
    - Auditoria
    - Registro REPORT_SHARE
@@ -279,8 +279,8 @@ Usuario hace clic en Compartir desde un reporte.
    - Compartir reportes
    - Notificacion enviada
  * - FR-RPT-101
-   - Validar segmento
-   - Solo mismo segmento
+   - Validar agrupador (AGR)
+   - Solo mismo agrupador (AGR)
 
 13. Trazabilidad
 ----------------
@@ -293,6 +293,10 @@ Usuario hace clic en Compartir desde un reporte.
    - BRQ-RPT-011
  * - **Restricciones**
    - CNST_001, CNST_008, CNST_025
+ * - **UC Relacionados**
+   - UC_RPT_01 (Dashboard), UC_RPT_03 (Historicos), UC_RPT_04 (Exportar)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, operacion share), ``InternalMailbox``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**

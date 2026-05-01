@@ -30,7 +30,7 @@ UC_RPT_01: Ver Dashboard
  * - **Modulo**
    - MOD_Reports
  * - **Funcion RBAC**
-   - RPT-001: ve_reportes
+   - RPT-001: view_reports
  * - **Prioridad**
    - Alta
  * - **Complejidad**
@@ -43,12 +43,12 @@ UC_RPT_01: Ver Dashboard
 
 Este caso de uso permite visualizar el dashboard principal con metricas
 consolidadas del call center. Los datos mostrados estan filtrados
-automaticamente por el segmento del usuario (CNST_008).
+automaticamente por el perfil del usuario (AGR) (CNST_008).
 
 **Caracteristicas principales:**
 
 - Vista consolidada de KPIs principales
-- Filtrado automatico por segmento del usuario
+- Filtrado automatico por perfil del usuario (AGR)
 - Datos leidos exclusivamente de BD Analytics (CNST_007)
 - Auto-refresh cada 30 segundos
 - Graficos de tendencia del dia
@@ -74,7 +74,7 @@ automaticamente por el segmento del usuario (CNST_008).
  rectangle "MOD_Reports" {
  usecase "UC_RPT_01\nVer Dashboard" as UC01
  usecase "Cargar KPIs" as KPI
- usecase "Filtrar por\nSegmento" as SEG
+ usecase "Filtrar por\nAgrupador (AGR)" as SEG
  usecase "Auto Refresh" as REF
  usecase "Ver Tendencias" as TEND
  }
@@ -101,9 +101,9 @@ automaticamente por el segmento del usuario (CNST_008).
  * - PRE-01
    - El usuario tiene sesion activa con funcion RPT-001
  * - PRE-02
-   - El usuario tiene un segmento asignado
+   - El usuario tiene un agrupador (AGR) asignado
  * - PRE-03
-   - Existen datos en BD Analytics para el segmento
+   - Existen datos en BD Analytics para el agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -120,7 +120,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestra dashboard con datos del segmento del usuario
+   - Se muestra dashboard con datos del perfil del usuario (AGR)
  * - POST-02
    - El dashboard se actualiza automaticamente cada 30 segundos
 
@@ -142,10 +142,10 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Valida funcion RPT-001
  * - 3
    - Sistema
-   - Obtiene segmento del usuario
+   - Obtiene perfil del usuario (AGR)
  * - 4
    - Sistema
-   - Consulta KPIs de BD Analytics con filtro de segmento
+   - Consulta KPIs de BD Analytics con filtro de agrupador
  * - 5
    - Sistema
    - Consulta tendencias del dia
@@ -178,18 +178,18 @@ El usuario accede al modulo de reportes o al dashboard principal.
  RC -> RC: verify_function(RPT-001)
 
  RC -> SF: get_user_segment(user)
- SF --> RC: segmento_id
+ SF --> RC: access_group_id
 
- RC -> DS: get_dashboard_data(segmento_id)
+ RC -> DS: get_dashboard_data(access_group_id)
 
- DS -> DB: SELECT\n COUNT(*) as total_llamadas,\n SUM(CASE WHEN atendida THEN 1 END) as atendidas,\n AVG(duracion) as tmo\nFROM llamadas\nWHERE segmento_id = ?\nAND fecha = CURRENT_DATE
+ DS -> DB: SELECT\n COUNT(*) as total_llamadas,\n SUM(CASE WHEN atendida THEN 1 END) as atendidas,\n AVG(duracion) as tmo\nFROM llamadas\nWHERE user_id = ?\nAND fecha = CURRENT_DATE
  note right of DB
  CNST_007: Solo lectura
  desde BD Analytics
  end note
  DB --> DS: kpis
 
- DS -> DB: SELECT hora, COUNT(*)\nFROM llamadas\nWHERE segmento_id = ?\nGROUP BY hora
+ DS -> DB: SELECT hora, COUNT(*)\nFROM llamadas\nWHERE user_id = ?\nGROUP BY hora
  DB --> DS: tendencias
 
  DS --> RC: dashboard_data
@@ -206,7 +206,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
 7. Flujos Alternos
 ------------------
 
-7.1 FA-01: Sin Datos para el Segmento
+7.1 FA-01: Sin Datos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -218,7 +218,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Accion
  * - 4a
    - Sistema
-   - No encuentra datos para el segmento del usuario
+   - No encuentra datos para el perfil del usuario (AGR)
  * - 4b
    - Sistema
    - Muestra dashboard con valores en cero
@@ -264,7 +264,7 @@ El usuario accede al modulo de reportes o al dashboard principal.
  * - **Codigo Error**
    - RPT-001
 
-8.2 EX-02: Usuario Sin Segmento
+8.2 EX-02: Usuario Sin Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -274,11 +274,11 @@ El usuario accede al modulo de reportes o al dashboard principal.
  * - **Paso de Origen**
    - 3
  * - **Condicion**
-   - Usuario no tiene segmento asignado
+   - Usuario no tiene agrupador (AGR) asignado
  * - **Accion Sistema**
    - Rechaza acceso
  * - **Mensaje Usuario**
-   - Usuario sin segmento asignado. Contacte al administrador.
+   - Usuario sin agrupador (AGR) asignado. Contacte al administrador.
  * - **Codigo Error**
    - RPT-002
 
@@ -298,11 +298,11 @@ El usuario accede al modulo de reportes o al dashboard principal.
  else (si)
  endif
 
- :Obtener segmento del usuario;
+ :Obtener perfil del usuario (AGR);
  note right: CNST_008
 
- if (Tiene segmento?) then (no)
- :Error sin segmento;
+ if (Tiene agrupador (AGR)?) then (no)
+ :Error sin agrupador (AGR);
  stop
  else (si)
  endif
@@ -334,8 +334,8 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - Regla
    - Descripcion
  * - BR-RPT-01
-   - Filtro por Segmento
-   - El usuario solo ve datos de su segmento asignado (CNST_008)
+   - Filtro por Agrupador (AGR)
+   - El usuario solo ve datos de su agrupador (AGR) asignado (CNST_008)
  * - BR-RPT-02
    - Auto Refresh
    - El dashboard se actualiza automaticamente cada 30 segundos
@@ -370,8 +370,8 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - BD Dual
    - Los datos del dashboard se leen exclusivamente de BD Analytics. No se accede a BD IVR.
  * - CNST_008
-   - Segmentos
-   - El filtro por segmento se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros segmentos.
+   - Agrupadores (AGR)
+   - El filtro por agrupador (AGR) se aplica automaticamente a todas las consultas. El usuario no puede ver datos de otros perfiles.
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -387,8 +387,8 @@ El usuario accede al modulo de reportes o al dashboard principal.
    - El sistema debe mostrar KPIs principales
    - Llamadas, TMO, abandono, nivel servicio visibles
  * - FR-RPT-002
-   - El sistema debe filtrar por segmento automaticamente
-   - Solo datos del segmento del usuario mostrados
+   - El sistema debe filtrar por agrupador (AGR) automaticamente
+   - Solo datos del perfil del usuario (AGR) mostrados
  * - FR-RPT-003
    - El sistema debe auto-refrescar cada 30s
    - Datos actualizados sin recargar pagina
@@ -408,13 +408,15 @@ El usuario accede al modulo de reportes o al dashboard principal.
  * - **Reglas de Negocio**
    - BR-RPT-01 a BR-RPT-04
  * - **Restricciones**
-   - CNST_007 (BD Dual), CNST_008 (Segmentos)
+   - CNST_007 (BD Dual), CNST_008 (Ventana ETL)
  * - **UC Relacionados**
    - UC_RPT_02 (Metricas RT), UC_RPT_03 (Historicos)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=GENERAL), ``Metric``, ``Call`` (lectura) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-001: agr_operador_basico
  * - **Funcion RBAC**
-   - RPT-001: ve_reportes
+   - RPT-001: view_reports
 
 14. Historial de Cambios
 ------------------------

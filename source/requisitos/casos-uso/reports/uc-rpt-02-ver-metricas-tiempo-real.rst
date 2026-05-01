@@ -43,7 +43,7 @@ UC_RPT_02: Ver Metricas Tiempo Real
 
 Este caso de uso permite visualizar metricas operativas en tiempo real
 con actualizacion frecuente. Muestra estado actual de colas, agentes
-y llamadas en curso filtrados por segmento (CNST_008).
+y llamadas en curso filtrados por agrupador (AGR) (CNST_008).
 
 **Caracteristicas principales:**
 
@@ -96,7 +96,7 @@ y llamadas en curso filtrados por segmento (CNST_008).
  * - PRE-01
    - El usuario tiene sesion activa con funcion RPT-002
  * - PRE-02
-   - El usuario tiene un segmento asignado
+   - El usuario tiene un agrupador (AGR) asignado
  * - PRE-03
    - Existen vistas materializadas de tiempo real en Analytics
 
@@ -115,7 +115,7 @@ El usuario accede a la vista de metricas en tiempo real.
  * - ID
    - Postcondicion
  * - POST-01
-   - Se muestran metricas RT del segmento del usuario
+   - Se muestran metricas RT del perfil del usuario (AGR)
  * - POST-02
    - Las metricas se actualizan cada 10 segundos
 
@@ -137,7 +137,7 @@ El usuario accede a la vista de metricas en tiempo real.
    - Valida funcion RPT-002
  * - 3
    - Sistema
-   - Obtiene segmento del usuario
+   - Obtiene perfil del usuario (AGR)
  * - 4
    - Sistema
    - Consulta estado actual de colas
@@ -176,20 +176,20 @@ El usuario accede a la vista de metricas en tiempo real.
  RC -> RC: verify_function(RPT-002)
  RC -> RC: get_user_segment
 
- RC -> RTS: get_realtime_metrics(segmento)
+ RC -> RTS: get_realtime_metrics(access_group)
 
- RTS -> DB: SELECT * FROM vista_colas_rt\nWHERE segmento_id = ?
+ RTS -> DB: SELECT * FROM vista_colas_rt\nWHERE user_id = ?
  note right of DB: CNST_007 Analytics
  DB --> RTS: colas_data
 
- RTS -> DB: SELECT * FROM vista_agentes_rt\nWHERE segmento_id = ?
+ RTS -> DB: SELECT * FROM vista_agentes_rt\nWHERE user_id = ?
  DB --> RTS: agentes_data
 
- RTS -> DB: SELECT * FROM vista_llamadas_rt\nWHERE segmento_id = ?
+ RTS -> DB: SELECT * FROM vista_llamadas_rt\nWHERE user_id = ?
  DB --> RTS: llamadas_data
 
- RC -> TS: evaluate_thresholds(metrics, segmento)
- TS -> DB: SELECT * FROM alert_thresholds\nWHERE segmento_id = ?
+ RC -> TS: evaluate_thresholds(metrics, access_group)
+ TS -> DB: SELECT * FROM alert_thresholds\nWHERE user_id = ?
  DB --> TS: thresholds
  TS -> TS: compare(metrics, thresholds)
  TS --> RC: alerts[]
@@ -305,7 +305,7 @@ El usuario accede a la vista de metricas en tiempo real.
  else (si)
  endif
 
- :Obtener segmento;
+ :Obtener agrupador (AGR);
  note right: CNST_008
 
  fork
@@ -348,14 +348,14 @@ El usuario accede a la vista de metricas en tiempo real.
    - Refresh 10s
    - Las metricas RT se actualizan cada 10 segundos
  * - BR-RPT-11
-   - Umbrales por Segmento
-   - Cada segmento puede tener umbrales diferentes
+   - Umbrales por Agrupador (AGR)
+   - Cada agrupador (AGR) puede tener umbrales diferentes
  * - BR-RPT-12
    - Indicadores Visuales
    - Verde (normal), Amarillo (advertencia), Rojo (critico)
  * - BR-RPT-13
-   - Solo Segmento
-   - Usuario solo ve datos de su segmento
+   - Solo Agrupador (AGR)
+   - Usuario solo ve datos de su agrupador
 
 **Metricas en Tiempo Real:**
 
@@ -392,8 +392,8 @@ El usuario accede a la vista de metricas en tiempo real.
    - BD Dual
    - Datos de vistas materializadas en BD Analytics que se refrescan frecuentemente desde IVR
  * - CNST_008
-   - Segmentos
-   - Filtro automatico por segmento del usuario
+   - Agrupadores (AGR)
+   - Filtro automatico por perfil del usuario (AGR)
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -433,6 +433,8 @@ El usuario accede a la vista de metricas en tiempo real.
    - CNST_007, CNST_008
  * - **UC Relacionados**
    - UC_RPT_01 (Dashboard), UC_ALR_01 (Umbrales), UC_ALR_02 (Alertas)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria), ``Metric`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-001: agr_operador_basico
  * - **Funcion RBAC**

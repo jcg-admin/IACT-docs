@@ -70,7 +70,7 @@ sistema).
 - Throttling anti-abuse por recursos (CNST-020): concurrent
   jobs por usuario, daily quota total, tamaño máximo del
   artefacto generado.
-- Filtrado automático por segmento del usuario (CNST-008).
+- Filtrado automático por perfil del usuario (AGR) (CNST-008).
 - Registro obligatorio en auditoría (CNST-025).
 - Notificación de finalización vía buzón interno (CNST-002)
   para exportaciones asíncronas.
@@ -186,7 +186,7 @@ selecciona un formato.
    - Valida función RBAC correspondiente al formato (RPT-004/005/006).
  * - 4
    - Sistema
-   - Aplica filtro de segmento (CNST-008).
+   - Aplica filtro de agrupador (CNST-008).
  * - 5
    - Sistema
    - Calcula tamaño estimado de la exportación.
@@ -419,8 +419,8 @@ selecciona un formato.
    - Nombre
    - Aplicación en este UC
  * - CNST_008
-   - Segmentos
-   - Filtro automático por segmento del usuario
+   - Agrupadores (AGR)
+   - Filtro automático por perfil del usuario (AGR)
  * - CNST_019
    - Async sobre umbral
    - Encolar job si registros > umbral declarado
@@ -441,11 +441,15 @@ selecciona un formato.
  * - **BReq Origen**
    - BRQ-RPT-004 (consolidado: incluye antiguos BRQ-RPT-005/006)
  * - **Restricciones**
-   - CNST_008, CNST_019, CNST_020, CNST_025
- * - **UCs relacionados**
+   - CNST_008 (Ventana ETL), CNST-019 v3.0.0 (cola asíncrona abstracta),
+     CNST-020 v3.0.0 (throttling abstracto por recursos),
+     BR-011 v2.0.0 (límites delegados a CNST), CNST_025 (auditoría)
+ * - **UC Relacionados**
    - uc-rpt-01 (Dashboard), uc-rpt-03 (Históricos), uc-rpt-15/16/17 (tipos de reporte específicos)
  * - **UCs eliminados al consolidar**
    - uc-rpt-05 Exportar Excel, uc-rpt-06 Exportar PDF (preservados en git history)
+ * - **Clase de Dominio**
+   - ``ExportJob`` (primaria), ``Report``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Funciones RBAC backing**
    - RPT-004 ``export_csv`` | RPT-005 ``export_excel`` | RPT-006 ``export_pdf`` (validación según formato)
 

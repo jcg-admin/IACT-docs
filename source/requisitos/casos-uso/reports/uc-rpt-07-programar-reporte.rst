@@ -49,7 +49,7 @@ InternalMessage (CNST_001).
 
 - Programar reportes periodicos (diario, semanal, mensual)
 - Definir hora de ejecucion
-- Seleccionar destinatarios del segmento
+- Seleccionar destinatarios del agrupador (AGR)
 - Notificacion via InternalMessage unicamente (CNST_001)
 - Registro de programacion en auditoria (CNST_025)
 
@@ -102,7 +102,7 @@ InternalMessage (CNST_001).
  * - PRE-02
    - El reporte base existe
  * - PRE-03
-   - Los destinatarios pertenecen al mismo segmento
+   - Los destinatarios pertenecen al mismo agrupador (AGR)
 
 4.2 Trigger
 ^^^^^^^^^^^
@@ -152,7 +152,7 @@ El usuario accede a programacion de reportes.
    - Define hora de ejecucion
  * - 6
    - Usuario
-   - Selecciona destinatarios del segmento
+   - Selecciona destinatarios del agrupador (AGR)
  * - 7
    - Usuario
    - Guarda programacion
@@ -243,7 +243,7 @@ El usuario accede a programacion de reportes.
 8. Excepciones
 --------------
 
-8.1 EX-01: Destinatario Otro Segmento
+8.1 EX-01: Destinatario Otro Agrupador
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -251,9 +251,9 @@ El usuario accede a programacion de reportes.
  :header-rows: 0
 
  * - **Condicion**
-   - Destinatario de segmento diferente
+   - Destinatario de agrupador diferente
  * - **Mensaje**
-   - Destinatarios deben ser del mismo segmento
+   - Destinatarios deben ser del mismo agrupador (AGR)
  * - **Codigo Error**
    - RPT-060
 
@@ -272,8 +272,8 @@ El usuario accede a programacion de reportes.
  :Seleccionar reporte;
  :Definir frecuencia;
  :Seleccionar destinatarios;
- if (Mismo segmento?) then (no)
- :Error segmento;
+ if (Mismo agrupador?) then (no)
+ :Error agrupador;
  stop
  else (si)
  endif
@@ -299,8 +299,8 @@ El usuario accede a programacion de reportes.
    - Notificacion
    - Solo via InternalMessage (CNST_001)
  * - BR-RPT-62
-   - Segmento
-   - Destinatarios del mismo segmento
+   - Agrupador (AGR)
+   - Destinatarios del mismo agrupador (AGR)
 
 11. Restricciones de Arquitectura
 ---------------------------------
@@ -316,8 +316,8 @@ El usuario accede a programacion de reportes.
    - Comunicacion Interna
    - Notificacion SOLO via InternalMessage
  * - CNST_008
-   - Segmentos
-   - Destinatarios del segmento
+   - Agrupadores (AGR)
+   - Destinatarios del agrupador
  * - CNST_025
    - Auditoria
    - Registro de programaciones
@@ -350,10 +350,14 @@ El usuario accede a programacion de reportes.
    - BRQ-RPT-007
  * - **Restricciones**
    - CNST_001, CNST_008, CNST_025
+ * - **UC Relacionados**
+   - UC_RPT_08 (Ver Reportes Programados), UC_RPT_04 (Exportar Reporte)
+ * - **Clase de Dominio**
+   - ``ScheduledReport`` (primaria), ``Report``, ``InternalMailbox``, ``AuditEvent`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-003: agr_supervisor
  * - **Funcion RBAC**
-   - RPT-009: ``schedule_report`` (RESTAURADA en modelo v5.3.0)
+   - RPT-009: ``schedule_report`` (RESTAURADA en modelo v5.4.0 per Z.2.A § Cat 3)
 
 14. Historial de Cambios
 ------------------------

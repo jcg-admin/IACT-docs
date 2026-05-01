@@ -271,8 +271,8 @@ Usuario hace clic en Guardar Vista.
    - Nombre
    - Aplicacion
  * - CNST_008
-   - Segmentos
-   - Vista respeta segmento del usuario
+   - Agrupadores (AGR)
+   - Vista respeta perfil del usuario (AGR)
 
 12. Requisitos Funcionales Derivados
 ------------------------------------
@@ -302,6 +302,10 @@ Usuario hace clic en Guardar Vista.
    - BRQ-RPT-010
  * - **Restricciones**
    - CNST_008
+ * - **UC Relacionados**
+   - UC_RPT_09 (Configurar Filtros), UC_RPT_03 (Historicos)
+ * - **Clase de Dominio**
+   - ``SavedView`` (primaria), ``Report`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
  * - **Actor Principal**
    - AGR-002: agr_operador_reportes
  * - **Funcion RBAC**

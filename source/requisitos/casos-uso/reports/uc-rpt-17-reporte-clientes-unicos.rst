@@ -63,7 +63,7 @@ recurrencia, distribución por horario, retorno tras transferencia.
 - Identificación de clientes con alta frecuencia (top callers).
 - PII enmascarada en visualización (CNST-026): se muestran
   identificadores opacos, no datos personales.
-- Filtrado por segmento (CNST-008).
+- Filtrado por agrupador (AGR) (CNST-008).
 - Rango máximo 2 años (CNST-015).
 - Datos desde BD Analytics (CNST-007).
 
@@ -150,7 +150,7 @@ El usuario accede al reporte de clientes únicos desde el menú.
    - Valida rango ≤ 2 años (CNST-015).
  * - 5
    - Sistema
-   - Consulta BD Analytics (CNST-007) con filtro segmento.
+   - Consulta BD Analytics (CNST-007) con filtro por agrupador (AGR).
  * - 6
    - Sistema
    - Calcula clientes únicos y distribución de recurrencia.
@@ -183,8 +183,8 @@ Reporte vacío con mensaje informativo.
    - PII enmascarada
    - Identificadores opacos en visualización (CNST-026)
  * - BR-RPT-171
-   - Filtro Segmento
-   - Datos por segmento del usuario
+   - Filtro Agrupador (AGR)
+   - Datos por perfil del usuario (AGR)
  * - BR-RPT-172
    - Rango Máximo
    - 2 años (CNST-015)
@@ -203,7 +203,7 @@ Reporte vacío con mensaje informativo.
    - BD Dual
    - Datos desde BD Analytics
  * - CNST_008
-   - Segmentos
+   - Agrupadores (AGR)
    - Filtro automático
  * - CNST_015
    - Retención
@@ -223,8 +223,10 @@ Reporte vacío con mensaje informativo.
    - BRQ-RPT-017
  * - **Funcion RBAC**
    - RPT-001 ``view_reports`` (instancia: scope=clientes_unicos)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-rpt-03 (Históricos), uc-rpt-04 (Exportar)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=UNIQUE_CLIENTS), ``Call`` (lectura) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------

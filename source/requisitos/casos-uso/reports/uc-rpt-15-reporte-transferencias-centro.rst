@@ -66,7 +66,7 @@ porcentaje de éxito tuvieron.
 - Métricas: volumen, tasa de éxito, tiempo promedio en cola
   post-transferencia.
 - Datos provenientes de BD Analytics (CNST-007).
-- Filtrado automático por segmento del usuario (CNST-008).
+- Filtrado automático por perfil del usuario (AGR) (CNST-008).
 - Rango máximo 2 años (CNST-015).
 
 3. Diagrama de Caso de Uso
@@ -146,7 +146,7 @@ El usuario accede al reporte de transferencias por centro desde el menú.
    - Valida función RPT-001.
  * - 3
    - Sistema
-   - Aplica filtro automático por segmento (CNST-008).
+   - Aplica filtro automatico por agrupador (AGR) (CNST-008).
  * - 4
    - Usuario
    - Selecciona centros origen / destino y rango de fechas.
@@ -187,8 +187,8 @@ Mostrar reporte vacío con mensaje informativo.
    - Rango Máximo
    - 2 años (CNST-015)
  * - BR-RPT-151
-   - Filtro Segmento
-   - Datos siempre filtrados por segmento del usuario
+   - Filtro Agrupador (AGR)
+   - Datos siempre filtrados por perfil del usuario (AGR)
  * - BR-RPT-152
    - Origen de datos
    - BD Analytics exclusivamente (CNST-007)
@@ -207,7 +207,7 @@ Mostrar reporte vacío con mensaje informativo.
    - BD Dual
    - Datos desde BD Analytics
  * - CNST_008
-   - Segmentos
+   - Agrupadores (AGR)
    - Filtro automático
  * - CNST_015
    - Retención
@@ -224,8 +224,10 @@ Mostrar reporte vacío con mensaje informativo.
    - BRQ-RPT-015 (cubre necesidad UC-019 histórico)
  * - **Funcion RBAC**
    - RPT-001 ``view_reports`` (instancia: scope=transferencias_por_centro)
- * - **UCs Relacionados**
+ * - **UC Relacionados**
    - uc-rpt-03 (Históricos), uc-rpt-04 (Exportar), uc-rpt-12/13/14 (otros tipos de reportes)
+ * - **Clase de Dominio**
+   - ``Report`` (primaria, scope=TRANSFERENCES), ``Call`` (lectura) (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
 
 10. Historial de Cambios
 ------------------------
