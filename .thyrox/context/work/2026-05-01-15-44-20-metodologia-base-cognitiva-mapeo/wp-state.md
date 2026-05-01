@@ -2,14 +2,52 @@
 project: IACT-docs
 work_package: 2026-05-01-15-44-20-metodologia-base-cognitiva-mapeo
 created_at: 2026-05-01 15:44:20
-current_phase: Phase 1 — DISCOVER
-status: Activo
+closed_at: 2026-05-01 16:15:00
+current_phase: CERRADO — alcance acotado completado
+status: Cerrado
 author: NestorMonroy
 flow: thyrox
-methodology_step: discover
+methodology_step: standardize
 predecessor_wp: 2026-05-01-15-42-45-business-requirements-backfill
 target: Mapear y aplicar la metodologia documentada en source/base-cognitiva/ al proyecto IACT
+artifacts_produced:
+  - source/requisitos/business-requirements/breq-002..008.rst (7 nuevos)
+  - source/requisitos/business-requirements/index.rst (actualizado v2.0.0)
+deferred_to_future_wps:
+  - perm-cluster-traceability-normalization (DEC-04)
+  - wp-fr-coverage-from-uc-derivation (DEC-10)
+  - wp-base-cognitiva-pedagogical-extension (DEC-10)
 ```
+
+# WP CERRADO — resumen ejecutivo
+
+## Estado al cierre
+
+- **Phase 1 DISCOVER**: completa (3 documentos en `discover/`).
+- **Decisiones**: 10 documentadas en `decisions-log.md`.
+- **Phase 10 EXECUTE**: completa para alcance acotado:
+  - 7 BReqs canonicos creados (BReq-002..008) siguiendo formato de
+    breq-001 vigente.
+  - Index v2.0.0 actualizado con toctree + tabla mapping
+    BRQ legacy → BReq canonico.
+- **Build verify**: 0 warnings introducidas en mis archivos.
+- **Hallazgos correctos**: TPL_TRZ_Matriz_RTM y procs ya existian
+  en source — survey inicial estaba incorrecto y fue corregido en
+  decisions-log.
+
+## Trabajo restante (WPs futuros, fuera de alcance)
+
+- Cluster PERM (9 UCs) usa convencion `PRIORIDAD/RNF/N` distinta —
+  normalizacion en WP futuro.
+- 393 FR estimados en `temp-holding/.../FR_Requisitos_Funcionales/` —
+  generacion en WP futuro.
+- PARTEs pedagogicas detalladas (Larman, UI Stakeholder) en
+  `temp-holding/.../Ingeniería de Requerimientos/` — integracion en
+  WP futuro.
+
+---
+
+# WP — Mapeo de Metodologia Base Cognitiva (contenido pre-cierre)
 
 # WP — Mapeo de Metodologia Base Cognitiva
 
