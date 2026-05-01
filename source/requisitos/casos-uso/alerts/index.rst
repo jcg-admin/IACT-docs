@@ -22,7 +22,7 @@ Casos de Uso
 .. toctree::
  :maxdepth: 1
 
- uc-alr-01-configurar-umbrales
+ uc-alr-01/index
  uc-alr-02-ver-alertas-activas
  uc-alr-03-reconocer-alerta
  uc-alr-04-ver-historial-alertas
