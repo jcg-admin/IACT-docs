@@ -104,40 +104,39 @@ los del ejemplo ecommerce.
   ``analyze/decisions-log.md`` — para entender
   qué UCs son Cat 1..5 (Z.2.A).
 
-## Estructura del entregable (12 partes)
+## Estructura del entregable (6 partes + conclusión)
 
-Adaptada al ejemplo del ejecutor (calidad
-profesional, partes COMPLETAS):
+Reestructurado al template visto en el segundo
+ejemplo del ejecutor (matriz-dependencias estilo
+analítico denso):
 
-1. **Parte 1**: Resumen ejecutivo + distribución
-   por criticidad + flujo crítico identificado.
-2. **Parte 2**: Definiciones y criterios de
-   criticidad (CRÍTICO/ALTO/MEDIO/BAJO).
-3. **Parte 3**: Matriz UC × UC — dependencias
-   entrantes y salientes por UC.
-4. **Parte 4**: Dependencias transversales
-   (Auth, RBAC check, Audit emission, ETL
-   upstream).
-5. **Parte 5**: Análisis intra-cluster por los 9
-   clusters (AUTH, USR, ACC, PERM, RPT, ALR, PIP,
-   AUD, LOG).
-6. **Parte 6**: Análisis cross-cluster y los 10
-   puentes estructurales identificados en el
-   modelo de dominio.
-7. **Parte 7**: Camino crítico (longest path) y
-   cuellos de botella.
-8. **Parte 8**: Riesgos por dependencia
-   (single-point-of-failure, dependencias
-   circulares, dependencias huérfanas).
-9. **Parte 9**: Implicaciones para
-   implementación (orden de desarrollo).
-10. **Parte 10**: Implicaciones para testing
-    (orden de validación + cobertura mínima).
-11. **Parte 11**: Implicaciones para deployment
-    (rollout sequence + feature flags).
-12. **Parte 12**: Visualizaciones PlantUML
-    (overview + camino crítico + matriz por
-    cluster).
+1. **Parte 1** — Resumen ejecutivo: distribución
+   por criticidad + flujo crítico + dependencias
+   transversales + densidad del grafo. (HECHO en
+   ``parte-01-resumen-ejecutivo.md``.)
+2. **Parte 2** — Tabla maestra: los 61 UCs con
+   ficha por UC (Criticidad, Complejidad
+   estimada, Actor, INCLUYE, EXTIENDE, Patrones,
+   Clase de Dominio, Función RBAC, Dependencias)
+   organizada por los 9 clusters.
+3. **Parte 3** — Matriz de dependencias en
+   formato compacto: una línea por UC con
+   ``UC_ID → INCLUYE [...] → EXTIENDE [...] →
+   REQUIERE [...]``.
+4. **Parte 4** — Dependencias críticas
+   detalladas: flujo transaccional + 3
+   dependencias transversales (T-01 sesión, T-02
+   permiso, T-03 audit) en profundidad.
+5. **Parte 5** — Matriz de criticidad y duración:
+   estimación de días por UC, totales por
+   criticidad, timeline.
+6. **Parte 6** — Patrones de diseño por UC
+   aplicados a IACT (decorador RBAC, observer
+   AuditEvent, state machine, async ETL,
+   throttling de exportación, etc.).
+
+**Conclusión** — métricas finales del proyecto +
+próximos pasos.
 
 ## Definición de éxito
 
