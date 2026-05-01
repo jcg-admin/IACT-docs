@@ -20,9 +20,9 @@ Casos de Uso
 ------------
 
 .. toctree::
- :maxdepth: 1
+ :maxdepth: 2
 
- uc-perm-01-asignar-grupo-a-usuario
+ uc-perm-01/index
  uc-perm-02-revocar-grupo-a-usuario
  uc-perm-03-conceder-permiso-excepcional
  uc-perm-04-revocar-permiso-excepcional
