@@ -162,6 +162,26 @@ Caso 2: Usuario sin funciones
 - Then: Retorna objeto vacío {}
 
 
+9. Trazabilidad
+---------------
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Vista**
+   - Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia
+     ACC <-> PERM declarada en ADR-GOB-008
+ * - **UC Relacionados**
+   - UC_PERM_07 (Verificar Permiso de Usuario)
+ * - **Clase de Dominio**
+   - ``Assignment`` (primaria), ``Function``
+     (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
+ * - **Funcion RBAC Backing**
+   - CNST-032 SQL ``get_user_menu`` (no es funcion RBAC; enforcement
+     automatico via SQL function)
+
+
 Changelog
 ---------
 

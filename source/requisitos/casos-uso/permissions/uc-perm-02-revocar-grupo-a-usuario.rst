@@ -592,6 +592,24 @@ Casos de Uso Relacionados
 - Si necesita permiso temporal → UC-PERM-003 (conceder excepcional)
 
 
+Clase de Dominio
+^^^^^^^^^^^^^^^^
+
+- ``Assignment`` (primaria), ``FunctionGroup``, ``User``, ``AuditEvent``
+  (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0).
+
+Vista
+^^^^^
+
+- Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia ACC <-> PERM
+  declarada en ADR-GOB-008.
+
+Funcion RBAC Backing
+^^^^^^^^^^^^^^^^^^^^
+
+- ACC-008 ``revoke_function_group`` (per modelo-rbac-iact v5.4.0).
+
+
 Changelog
 ---------
 

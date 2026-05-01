@@ -242,6 +242,25 @@ Alerta 2: Acceso a funciones críticas
 - Funciones críticas: *.usuarios.eliminar, *.permisos.*
 
 
+10. Trazabilidad
+----------------
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Vista**
+   - Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia
+     ACC <-> PERM declarada en ADR-GOB-008
+ * - **UC Relacionados**
+   - UC_PERM_10 (Consultar Auditoria de Permisos), UC_AUD_01..04
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria, CNST-025 inmutable)
+     (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
+ * - **Funcion RBAC Backing**
+   - AUD-001 ``view_audit_log`` (per modelo-rbac-iact v5.4.0)
+
+
 Changelog
 ---------
 

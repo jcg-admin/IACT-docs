@@ -252,6 +252,25 @@ Lógica de Verificación
  -- Sin importar grupos o concesiones
 
 
+10. Trazabilidad
+----------------
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Vista**
+   - Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia
+     ACC <-> PERM declarada en ADR-GOB-008
+ * - **UC Relacionados**
+   - UC_PERM_03 (Conceder Permiso Excepcional, caso inverso),
+     UC_PERM_07 (Verificar Permiso)
+ * - **Clase de Dominio**
+   - ``ExceptionalPermission`` (primaria), ``AuditEvent``
+     (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
+ * - **Funcion RBAC Backing**
+   - ACC-010 ``revoke_exceptional_permission`` (per modelo-rbac-iact v5.4.0)
+
 
 Changelog
 ---------

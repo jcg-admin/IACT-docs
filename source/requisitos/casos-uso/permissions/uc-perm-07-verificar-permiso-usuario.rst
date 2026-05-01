@@ -152,6 +152,25 @@ Este caso de uso es invocado por:
 - Middleware de auditoría
 
 
+9. Trazabilidad
+---------------
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Vista**
+   - Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia
+     ACC <-> PERM declarada en ADR-GOB-008
+ * - **UC Relacionados**
+   - UC_ACC_03 (Consultar Permisos), UC_PERM_08 (Generar Menu Dinamico)
+ * - **Clase de Dominio**
+   - ``Assignment`` (primaria), ``ExceptionalPermission``, ``User``,
+     ``Function`` (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
+ * - **Funcion RBAC Backing**
+   - ACC-003 ``view_assignments``
+
+
 Changelog
 ---------
 

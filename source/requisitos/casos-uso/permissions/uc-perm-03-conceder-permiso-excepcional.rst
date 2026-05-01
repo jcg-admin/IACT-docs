@@ -553,6 +553,25 @@ Related
 - **UC-PERM-007**: Verificar Permiso (incluye excepcionales)
 
 
+Clase de Dominio
+^^^^^^^^^^^^^^^^
+
+- ``ExceptionalPermission`` (primaria), ``User``, ``Function``, ``AuditEvent``
+  (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0).
+
+Vista
+^^^^^
+
+- Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia ACC <-> PERM
+  declarada en ADR-GOB-008.
+
+Funcion RBAC Backing
+^^^^^^^^^^^^^^^^^^^^
+
+- ACC-009 ``grant_exceptional_permission`` (per modelo-rbac-iact
+  v5.4.0; CNST-031 rango temporal).
+
+
 Changelog
 ---------
 

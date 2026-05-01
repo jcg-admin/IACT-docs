@@ -387,6 +387,25 @@ La tabla de auditoría puede integrarse con sistemas SIEM externos (Splunk, ELK,
  })
 
 
+15. Trazabilidad
+----------------
+
+.. list-table::
+ :widths: 25 75
+ :header-rows: 0
+
+ * - **Vista**
+   - Tecnica del RBAC (Cat 5 per Z.2.A); coexistencia
+     ACC <-> PERM declarada en ADR-GOB-008
+ * - **UC Relacionados**
+   - UC_PERM_09 (Auditar Acceso), UC_AUD_01..04
+ * - **Clase de Dominio**
+   - ``AuditEvent`` (primaria; CNST-025 inmutable)
+     (per :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0)
+ * - **Funcion RBAC Backing**
+   - AUD-002 ``search_audit_log`` (per modelo-rbac-iact v5.4.0).
+     Exportaciones respetan CNST-019 v3.0.0 y CNST-020 v3.0.0.
+
 
 Changelog
 ---------
