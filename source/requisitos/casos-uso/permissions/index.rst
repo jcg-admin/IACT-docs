@@ -30,5 +30,5 @@ Casos de Uso
  uc-perm-06/index
  uc-perm-07/index
  uc-perm-08/index
- uc-perm-09-auditar-acceso
+ uc-perm-09/index
  uc-perm-10-consultar-auditoria-permisos
