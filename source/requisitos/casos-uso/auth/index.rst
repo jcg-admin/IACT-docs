@@ -23,7 +23,7 @@ Casos de Uso
  :maxdepth: 2
 
  uc-auth-01/index
- uc-auth-02-cerrar-sesion
+ uc-auth-02/index
  uc-auth-03-recuperar-contrasena
  uc-auth-04-cambiar-contrasena
  uc-auth-05-gestionar-sesiones
