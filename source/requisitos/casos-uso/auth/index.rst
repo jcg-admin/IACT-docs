@@ -25,5 +25,5 @@ Casos de Uso
  uc-auth-01/index
  uc-auth-02/index
  uc-auth-03/index
- uc-auth-04-cambiar-contrasena
+ uc-auth-04/index
  uc-auth-05-gestionar-sesiones
