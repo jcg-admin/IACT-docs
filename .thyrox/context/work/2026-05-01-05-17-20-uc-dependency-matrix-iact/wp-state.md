@@ -2,11 +2,12 @@
 project: IACT-docs
 work_package: 2026-05-01-05-17-20-uc-dependency-matrix-iact
 created_at: 2026-05-01 05:17:20
-current_phase: Phase 3 — ANALYZE
-status: Activo
+current_phase: Phase 11 — TRACK (closed)
+closed_at: 2026-05-01 06:30:00
+status: Cerrado v1.0.0 — 6 partes + conclusión + lessons-learned
 author: NestorMonroy
 flow: rm
-methodology_step: rm-analysis
+methodology_step: cerrado
 predecessor_wp: 2026-05-01-03-29-03-uc-corrections-against-canonical-model
 ```
 
