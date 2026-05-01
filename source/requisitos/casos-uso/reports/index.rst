@@ -31,7 +31,7 @@ Casos de Uso
  uc-rpt-09/index
  uc-rpt-10/index
  uc-rpt-11/index
- uc-rpt-12-ver-reporte-agentes
+ uc-rpt-12/index
  uc-rpt-13-ver-reporte-colas
  uc-rpt-14-ver-reporte-campanas
  uc-rpt-15-reporte-transferencias-centro
