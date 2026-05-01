@@ -25,5 +25,5 @@ Casos de Uso
  uc-alr-01/index
  uc-alr-02/index
  uc-alr-03/index
- uc-alr-04-ver-historial-alertas
+ uc-alr-04/index
  uc-alr-05-gestionar-suscripciones
