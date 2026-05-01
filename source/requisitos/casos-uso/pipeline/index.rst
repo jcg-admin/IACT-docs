@@ -22,7 +22,7 @@ Casos de Uso
 .. toctree::
  :maxdepth: 1
 
- uc-pip-01-supervisar-etl
- uc-pip-02-consultar-errores-etl
- uc-pip-03-consultar-disponibilidad
- uc-pip-04-solicitar-reintento
+ uc-pip-01/index
+ uc-pip-02/index
+ uc-pip-03/index
+ uc-pip-04/index
