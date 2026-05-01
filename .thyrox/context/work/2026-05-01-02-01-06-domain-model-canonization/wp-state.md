@@ -2,11 +2,11 @@
 project: IACT-docs
 work_package: 2026-05-01-02-01-06-domain-model-canonization
 created_at: 2026-05-01 02:01:06
-current_phase: Phase 1 — DISCOVER
-status: Activo
+current_phase: Phase 3 — ANALYZE
+status: Activo (Stage 1 DISCOVER cerrado 2026-05-01)
 author: NestorMonroy
 flow: rm
-methodology_step: rm-elicitation
+methodology_step: rm-analysis
 ```
 
 # WP — Canonización del modelo de dominio IACT

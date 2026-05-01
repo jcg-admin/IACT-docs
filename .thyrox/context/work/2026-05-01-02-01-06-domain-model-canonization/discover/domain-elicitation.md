@@ -240,20 +240,29 @@ commit). No hay sesiones síncronas.
 Antes de cerrar Stage 1 DISCOVER, el ejecutor
 confirma:
 
-- [ ] Esta deviation es aceptable para este WP.
-- [ ] Los stakeholders sustitutos (programa Z +
+- [x] Esta deviation es aceptable para este WP.
+- [x] Los stakeholders sustitutos (programa Z +
   ejecutor) son fuente suficiente para el alcance.
-- [ ] La cifra correcta de UCs es **61** (no 49,
-  no 97); ``analisis-dominio.rst § 11`` debe
-  corregirse en otro WP o aquí.
-- [ ] El concepto ``SegmentoDatos`` (eliminado
+- [x] La cifra **vigente** de UCs es **61** (no
+  49, no 97). **Matización del ejecutor
+  (2026-05-01):** la cifra puede cambiar como
+  resultado de los análisis posteriores de UC
+  (Stage 3 ANALYZE en adelante) — si emergen
+  consolidaciones, divisiones o nuevos UCs, el
+  conteo se ajusta y el modelo de clases evoluciona
+  en consecuencia. ``analisis-dominio.rst § 11``
+  debe corregirse a la cifra final cuando se
+  estabilice.
+- [x] El concepto ``SegmentoDatos`` (eliminado
   por Z.1.C) **no aparece** en el modelo de
   clases que produzca este WP.
-- [ ] La validación final del modelo será por
+- [x] La validación final del modelo será por
   commit explícito, no por sesión externa.
 
-Sin estas confirmaciones, el WP permanece en
-Stage 1 hasta resolución.
+Confirmación registrada por el ejecutor el
+2026-05-01 vía mensaje de sesión + commit
+posterior. Stage 1 DISCOVER queda cerrado
+materialmente; el WP avanza a Stage 3 ANALYZE.
 
 ## 9. Limitaciones declaradas
 
