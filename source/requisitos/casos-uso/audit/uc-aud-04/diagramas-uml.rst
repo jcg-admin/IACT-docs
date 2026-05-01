@@ -39,9 +39,6 @@ Parte 8 — Diagramas UML
  :Encolar Worker;
  :Audit QUEUED;
  :202;
-
- ... background ...
-
  :Re-check permiso;
  :Ejecutar template queries;
  :Sanitize;
@@ -58,11 +55,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "Reporte raw" as R
- component "Sanitize" as S
- component "Hash sha256" as H
- component "HMAC con KMS key" as M
- component "Reporte firmado" as F
+ rectangle "ReporteRaw" as R
+ rectangle "Sanitize" as S
+ rectangle "HashSha256" as H
+ rectangle "HMACKMS" as M
+ rectangle "ReporteFirmado" as F
  R --> S
  S --> H
  H --> M

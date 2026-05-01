@@ -23,7 +23,7 @@ UC_AUTH_04 — Cambiar Contrasena
  Producida por el WP
  ``2026-05-01-07-52-23-uc-auth-04-spec-completa``.
  Reemplaza el monolitico
- ``uc-auth-04-cambiar-contrasena.rst`` v4.0.0.
+ ``uc-auth-04/index.rst`` v4.0.0.
 
 Resumen
 =======

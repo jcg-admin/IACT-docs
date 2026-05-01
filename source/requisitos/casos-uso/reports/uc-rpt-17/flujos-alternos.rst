@@ -5,7 +5,7 @@ Parte 4 — Flujos alternos
 ==========================
 
 FA-01: Volumen alto → HyperLogLog
-================================
+=================================
 
 Para periodos largos / alto volumen,
 COUNT(DISTINCT) puede ser caro. Usar

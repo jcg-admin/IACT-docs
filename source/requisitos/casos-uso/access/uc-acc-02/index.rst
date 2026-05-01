@@ -21,7 +21,7 @@ UC_ACC_02 — Revocar Funciones
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-acc-02-revocar-funciones.rst`` v4.0.0.
+ ``uc-acc-02/index.rst`` v4.0.0.
  Producida por el WP
  ``2026-05-01-18-07-06-uc-acc-02-spec-completa``.
 
@@ -70,7 +70,7 @@ Documentos vinculados
 - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
   (operacion inversa)
-- :doc:`/requisitos/casos-uso/access/uc-acc-04-asignar-agrupador`
+- :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
 
 Estructura de la spec
 =====================

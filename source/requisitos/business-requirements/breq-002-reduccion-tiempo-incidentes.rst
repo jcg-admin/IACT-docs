@@ -94,11 +94,11 @@ BReq-002 se considera satisfecho cuando:
 
 **Casos de Uso (UC) primarios (Nivel 3):**
 
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-01-configurar-umbrales`
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-02-ver-alertas-activas`
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-03-reconocer-alerta`
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-04-ver-historial-alertas`
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-05-gestionar-suscripciones`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-01/index`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-02/index`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-03/index`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-04/index`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-05/index`
 
 **BRQ legacy mapeados (Modelo C — Modelo D ver § 7):**
 

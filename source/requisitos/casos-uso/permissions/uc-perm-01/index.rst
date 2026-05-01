@@ -21,7 +21,7 @@ UC_PERM_01 — Asignar Grupo a Usuario
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-perm-01-asignar-grupo-a-usuario.rst``
+ ``uc-perm-01/index.rst``
  v4.0.0. Producida por el WP
  ``2026-05-01-18-50-27-uc-perm-01-spec-completa``.
 

@@ -1,8 +1,8 @@
 .. _uc-auth-01-parte-04:
 
-============================================
+==============================================
 Parte 4 — Flujos alternos (rutas alternativas)
-============================================
+==============================================
 
 Variaciones del flujo principal que **no son
 falla**, sino caminos distintos hacia el exito o

@@ -121,7 +121,7 @@ heterogeneidad). No es mitigación, es perpetuación.
    - ``std-002-nomenclatura-proyecto.rst``
  * - Caso de uso
    - ``uc-<MOD>-<NN>-<desc>.rst``
-   - ``uc-auth-01-iniciar-sesion.rst``
+   - ``uc-auth-01/index.rst``
  * - Procedimiento
    - ``proc-<MOD>-<NNN>-<desc>.rst``
    - ``proc-dev-001-pipeline.rst``

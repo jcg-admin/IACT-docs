@@ -1,8 +1,8 @@
 .. _uc-auth-01-parte-10:
 
-==================================
+========================================
 Parte 10 — Patrones de diseno aplicables
-==================================
+========================================
 
 Patrones de diseno (GoF / arquitectonicos / DDD)
 identificados como aplicables a UC_AUTH_01.

@@ -21,7 +21,7 @@ UC_ACC_04 — Asignar Agrupador
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-acc-04-asignar-agrupador.rst`` v4.0.0.
+ ``uc-acc-04/index.rst`` v4.0.0.
  Producida por el WP
  ``2026-05-01-18-22-43-uc-acc-04-spec-completa``.
 
@@ -67,7 +67,7 @@ Documentos vinculados
   (revocacion granular)
 - :doc:`/requisitos/casos-uso/access/uc-acc-03/index`
   (consultar permisos efectivos)
-- :doc:`/requisitos/casos-uso/access/uc-acc-05-gestionar-sod`
+- :doc:`/requisitos/casos-uso/access/uc-acc-05/index`
 
 Estructura de la spec
 =====================

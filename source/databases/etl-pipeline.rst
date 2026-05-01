@@ -53,10 +53,10 @@ Analytics del sistema IACT.
 3. Casos de uso relacionados
 =============================
 
-- :doc:`/requisitos/casos-uso/pipeline/uc-pip-01-supervisar-etl`
-- :doc:`/requisitos/casos-uso/pipeline/uc-pip-02-consultar-errores-etl`
-- :doc:`/requisitos/casos-uso/pipeline/uc-pip-03-consultar-disponibilidad`
-- :doc:`/requisitos/casos-uso/pipeline/uc-pip-04-solicitar-reintento`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-01/index`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-02/index`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-03/index`
+- :doc:`/requisitos/casos-uso/pipeline/uc-pip-04/index`
 
 4. Reglas de negocio
 ====================

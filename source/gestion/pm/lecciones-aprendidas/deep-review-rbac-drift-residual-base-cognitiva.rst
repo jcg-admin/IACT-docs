@@ -183,7 +183,7 @@ fix). Reservar para futuro WP.
 - ``source/base-cognitiva/_taxonomias-y-metamodelos/metamodelos/mtm-03-metamodelo-rbac.rst``
 - :doc:`/base-cognitiva/glosario`
 - ``source/base-cognitiva/_fundamentos-conceptuales/fnd-00-contexto-y-jerarquia.rst``
-- :doc:`/requisitos/casos-uso/access/uc-acc-01-asignar-funciones`
+- :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
 - ``source/requisitos/reglas-negocio/br-006-rbac-flat-nist.rst``
 - :doc:`/requisitos/reglas-negocio/index`
 - :doc:`/requisitos/requisitos-funcionales/index`

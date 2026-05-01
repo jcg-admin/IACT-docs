@@ -21,7 +21,7 @@ UC_ACC_03 — Consultar Permisos Efectivos
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-acc-03-consultar-permisos.rst`` v4.0.0.
+ ``uc-acc-03/index.rst`` v4.0.0.
  Producida por el WP
  ``2026-05-01-18-15-47-uc-acc-03-spec-completa``.
 
@@ -67,7 +67,7 @@ Documentos vinculados
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
 - :doc:`/requisitos/casos-uso/access/uc-acc-02/index`
-- :doc:`/requisitos/casos-uso/access/uc-acc-04-asignar-agrupador`
+- :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
 
 Estructura de la spec
 =====================

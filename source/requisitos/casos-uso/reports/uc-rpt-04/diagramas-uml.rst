@@ -63,9 +63,6 @@ Parte 8 — Diagramas UML
  :Encolar en worker;
  :Audit REPORT_EXPORT_QUEUED;
  :202 con job_id;
-
- ... background ...
-
  :Worker toma job;
  :Recheck permiso del User;
  if (Permiso revocado?) then (si)

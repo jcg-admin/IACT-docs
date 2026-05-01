@@ -97,7 +97,7 @@ confusión categorial: requisitos funcionales ≠ casos de uso.
 2.5 F-DR-5 (MEDIO) — UC_PERM_01 conserva vocabulario PERM granular
 ------------------------------------------------------------------
 
-``uc-perm-01-asignar-grupo-a-usuario.rst:115`` ("AuditoriaPermiso"),
+``uc-perm-01/index.rst:115`` ("AuditoriaPermiso"),
 :326 ("usuarios_grupos"), :433 ("auditoria_permisos") usan tablas
 PERM. Aunque el grep de "Capacidad" da 0 (Q-2 cerrado para ese
 término concreto), CNST_033 también canonifica
@@ -205,8 +205,8 @@ no fundamento de la decisión.
 - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
 - :doc:`/normativa/estandares/std-007-convencion-naming`
 - :doc:`/base-cognitiva/glosario`
-- :doc:`/requisitos/casos-uso/access/uc-acc-01-asignar-funciones`
-- :doc:`/requisitos/casos-uso/permissions/uc-perm-01-asignar-grupo-a-usuario`
+- :doc:`/requisitos/casos-uso/access/uc-acc-01/index`
+- :doc:`/requisitos/casos-uso/permissions/uc-perm-01/index`
 - :doc:`/requisitos/reglas-negocio/index`
 - :doc:`/requisitos/requisitos-funcionales/index`
 - (audit cross-WP) :doc:`/gestion/pm/audits/audit-cross-wp-source-rebuild`

@@ -118,7 +118,7 @@ Los nombres NO DEBEN contener:
 **Ejemplos CORRECTOS:**
 
 - ``diagramas-de-referencia.rst``
-- ``uc-acc-01-asignar-funciones.rst``
+- ``uc-acc-01/index.rst``
 - ``proc-dev-001-pipeline-trabajo-iact.rst``
 - ``arquitectura-tecnica/``
 - ``uc-001-iniciar-sesion/``
@@ -189,7 +189,7 @@ Los prefijos identifican la categoría sin cambiar la convención.
    - Ejemplo
  * - ``uc``
    - Caso de uso (con módulo)
-   - ``uc-acc-01-asignar-funciones.rst``
+   - ``uc-acc-01/index.rst``
  * - ``br``
    - Regla de negocio
    - ``br-001-fuente-operacional-inmutable.rst``
@@ -562,7 +562,7 @@ Nuevos archivos NO deben usar el schema legacy.
    - Ejemplo
  * - Caso de uso
    - ``uc-<mod>-<nn>-<desc>.rst``
-   - ``uc-acc-01-asignar-funciones.rst``
+   - ``uc-acc-01/index.rst``
  * - Regla de negocio
    - ``br-<nnn>-<desc>.rst``
    - ``br-001-fuente-operacional-inmutable.rst``

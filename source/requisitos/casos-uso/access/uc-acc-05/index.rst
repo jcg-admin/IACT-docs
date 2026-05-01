@@ -21,7 +21,7 @@ UC_ACC_05 — Gestionar Reglas SoD
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-acc-05-gestionar-sod.rst`` v4.0.0.
+ ``uc-acc-05/index.rst`` v4.0.0.
  Producida por el WP
  ``2026-05-01-18-29-22-uc-acc-05-spec-completa``.
 

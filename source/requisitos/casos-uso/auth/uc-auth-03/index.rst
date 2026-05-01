@@ -71,7 +71,7 @@ Documentos vinculados
   v5.4.0 (AGR-006)
 - :doc:`/requisitos/casos-uso/auth/uc-auth-01/index`
   (login con first_login)
-- :doc:`/requisitos/casos-uso/auth/uc-auth-04-cambiar-contrasena`
+- :doc:`/requisitos/casos-uso/auth/uc-auth-04/index`
   (cambio voluntario)
 
 Estructura de la spec

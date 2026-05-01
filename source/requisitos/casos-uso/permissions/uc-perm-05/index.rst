@@ -44,7 +44,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
-- :doc:`/requisitos/casos-uso/permissions/uc-perm-06-asignar-funciones-grupo`
+- :doc:`/requisitos/casos-uso/permissions/uc-perm-06/index`
   (gestionar composicion del AGR creado)
 
 Estructura de la spec

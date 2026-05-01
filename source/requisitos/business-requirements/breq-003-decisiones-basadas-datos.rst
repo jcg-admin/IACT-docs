@@ -91,10 +91,10 @@ BReq-003 se considera satisfecho cuando:
 
 **Casos de Uso (UC) primarios:**
 
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-01-ver-dashboard`
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-02-ver-metricas-tiempo-real`
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-03-ver-reportes-historicos`
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-04-exportar-reporte`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-01/index`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-02/index`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-03/index`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-04/index`
 
 **BRQ legacy mapeados:**
 

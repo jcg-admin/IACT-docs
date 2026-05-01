@@ -167,9 +167,9 @@ alerts, pipeline, audit, logs``.
 
 **Ejemplos**:
 
-- ``casos-uso/auth/uc-auth-01-iniciar-sesion.rst``
-- ``casos-uso/access/uc-acc-01-asignar-funciones.rst``
-- ``casos-uso/reports/uc-rpt-01-ver-dashboard.rst``
+- ``casos-uso/auth/uc-auth-01/index.rst``
+- ``casos-uso/access/uc-acc-01/index.rst``
+- ``casos-uso/reports/uc-rpt-01/index.rst``
 
 Nivel 4: Requerimientos Funcionales
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -273,7 +273,7 @@ Estructura de Directorios
  │   └── breq-001-visibilidad-metricas.rst
  ├── casos-uso/                               (Nivel 3: UC)
  │   ├── auth/
- │   │   ├── uc-auth-01-iniciar-sesion.rst
+ │   │   ├── uc-auth-01/index.rst
  │   │   └── ...
  │   ├── access/
  │   ├── reports/

@@ -416,7 +416,7 @@ toda documentación nueva del proyecto (formalizado en
    - Set de funciones asignables como bloque. Puede ser
      **predefinido** (system group AGR-001..010, inmutable) o
      **creable** dinámicamente por admin via
-     :doc:`/requisitos/casos-uso/permissions/uc-perm-05-crear-grupo-permisos`.
+     :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  * - **Agrupador**
    - Sinónimo de "Grupo predefinido AGR-001..010" (terminología
      del modelo legacy v5.2.1). Equivalente a system group.

@@ -23,7 +23,7 @@ UC_USR_01 — Crear Usuario
  Producida por el WP
  ``2026-05-01-16-36-56-uc-usr-01-spec-completa``.
  Reemplaza el monolitico
- ``uc-usr-01-crear-usuario.rst`` v4.0.0.
+ ``uc-usr-01/index.rst`` v4.0.0.
 
 Resumen
 =======

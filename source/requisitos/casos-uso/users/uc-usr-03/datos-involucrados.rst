@@ -85,8 +85,8 @@ Si state NO cambio, ``state_transition`` es
    - middleware estandar
  * - 403
    - FORBIDDEN (sin ``modify_users``)
-   - + AuditEvent
-     UNAUTHORIZED_ACCESS_ATTEMPT
+   - AuditEvent UNAUTHORIZED_ACCESS_ATTEMPT
+     emitido
  * - 404
    - USER_NOT_FOUND
    - target inexistente

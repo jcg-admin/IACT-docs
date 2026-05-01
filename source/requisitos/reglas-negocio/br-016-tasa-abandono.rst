@@ -91,9 +91,9 @@ Umbrales``.
 5. UCs relacionados
 -------------------
 
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-02-ver-metricas-tiempo-real`
-- :doc:`/requisitos/casos-uso/reports/uc-rpt-13-ver-reporte-colas`
-- :doc:`/requisitos/casos-uso/alerts/uc-alr-01-configurar-umbrales`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-02/index`
+- :doc:`/requisitos/casos-uso/reports/uc-rpt-13/index`
+- :doc:`/requisitos/casos-uso/alerts/uc-alr-01/index`
 
 6. CNSTs aplicables
 -------------------

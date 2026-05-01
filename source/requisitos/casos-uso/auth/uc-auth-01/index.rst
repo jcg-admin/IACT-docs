@@ -13,9 +13,9 @@
 
 .. _uc-auth-01:
 
-==========================
+===========================
 UC_AUTH_01 — Iniciar Sesion
-==========================
+===========================
 
 .. note::
 
@@ -26,7 +26,7 @@ UC_AUTH_01 — Iniciar Sesion
  (2026-05-01) — los 61 UCs adoptan estructura
  de 12 partes en archivos separados.
 
- Reemplaza al monolitico ``uc-auth-01-iniciar-sesion.rst``
+ Reemplaza al monolitico ``uc-auth-01/index.rst``
  v4.0.0 (eliminado).
 
 Resumen

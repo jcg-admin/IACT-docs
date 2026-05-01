@@ -23,7 +23,7 @@ UC_AUTH_02 — Cerrar Sesion
  Producida por el WP
  ``2026-05-01-07-17-48-uc-auth-02-spec-completa``.
  Reemplaza el monolitico
- ``uc-auth-02-cerrar-sesion.rst`` v4.0.0
+ ``uc-auth-02/index.rst`` v4.0.0
  (eliminado).
 
 Resumen

@@ -102,10 +102,10 @@ BReq-004 se considera satisfecho cuando:
   :doc:`/requisitos/casos-uso/auth/uc-auth-04/index`,
   :doc:`/requisitos/casos-uso/auth/uc-auth-05/index`
 - ACC cluster: UC_ACC_01..09
-- AUD cluster: :doc:`/requisitos/casos-uso/audit/uc-aud-01-consultar-auditoria`,
-  :doc:`/requisitos/casos-uso/audit/uc-aud-02-buscar-auditoria`,
-  :doc:`/requisitos/casos-uso/audit/uc-aud-03-exportar-auditoria`,
-  :doc:`/requisitos/casos-uso/audit/uc-aud-04-generar-reporte-compliance`
+- AUD cluster: :doc:`/requisitos/casos-uso/audit/uc-aud-01/index`,
+  :doc:`/requisitos/casos-uso/audit/uc-aud-02/index`,
+  :doc:`/requisitos/casos-uso/audit/uc-aud-03/index`,
+  :doc:`/requisitos/casos-uso/audit/uc-aud-04/index`
 
 **BRQ legacy mapeados:**
 

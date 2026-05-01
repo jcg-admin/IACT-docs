@@ -1,8 +1,8 @@
 .. _uc-auth-01-parte-05:
 
-==================================
+======================================
 Parte 5 — Excepciones (casos de error)
-==================================
+======================================
 
 Caminos hacia falla con diagnostico claro. A
 diferencia de los flujos alternos (Parte 4), las

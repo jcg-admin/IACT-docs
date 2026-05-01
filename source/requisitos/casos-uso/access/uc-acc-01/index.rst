@@ -21,7 +21,7 @@ UC_ACC_01 — Asignar Funciones
 
  **Especificacion completa de 12 partes** —
  reemplaza
- ``uc-acc-01-asignar-funciones.rst`` v4.0.0.
+ ``uc-acc-01/index.rst`` v4.0.0.
  Producida por el WP
  ``2026-05-01-17-55-31-uc-acc-01-spec-completa``.
 
@@ -79,11 +79,11 @@ Documentos vinculados
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
 - :doc:`/requisitos/reglas-negocio/br-007-separacion-funciones-sod`
 - :doc:`/requisitos/reglas-negocio/br-008-auditoria-accesos`
-- :doc:`/requisitos/casos-uso/access/uc-acc-02-revocar-funciones`
+- :doc:`/requisitos/casos-uso/access/uc-acc-02/index`
   (operacion inversa)
-- :doc:`/requisitos/casos-uso/access/uc-acc-04-asignar-agrupador`
+- :doc:`/requisitos/casos-uso/access/uc-acc-04/index`
   (asignacion masiva via AGR)
-- :doc:`/requisitos/casos-uso/access/uc-acc-05-gestionar-sod`
+- :doc:`/requisitos/casos-uso/access/uc-acc-05/index`
   (configuracion de las reglas SoD)
 
 Estructura de la spec
