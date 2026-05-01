@@ -23,6 +23,6 @@ Casos de Uso
  :maxdepth: 2
 
  uc-usr-01/index
- uc-usr-02-consultar-usuarios
+ uc-usr-02/index
  uc-usr-03-modificar-usuario
  uc-usr-04-eliminar-usuario
