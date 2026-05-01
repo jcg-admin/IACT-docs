@@ -575,8 +575,21 @@ Para cada UC del catálogo IACT, el análisis de dominio produce:
 
 ----
 
-11. Decisiones por aplicar a cada uno de los 97 UCs
+11. Decisiones por aplicar a cada uno de los 61 UCs
 ===================================================
+
+.. note::
+
+   El conteo vigente del catálogo es **61 UCs**
+   (verificado por
+   ``find source/requisitos/casos-uso/ -name 'uc-*.rst'``
+   y por el WP
+   ``2026-05-01-02-01-06-domain-model-canonization``).
+   La cifra "97" que aparecía en versiones previas
+   de este encabezado era estimación inflada sin
+   respaldo documental. Esta cifra puede evolucionar
+   en WPs posteriores si emergen consolidaciones,
+   divisiones o nuevos UCs.
 
 Para cada UC, ejecutar la metodología:
 
@@ -1250,14 +1263,43 @@ agregaciones, composiciones, generalización (ver
 15.4 Aplicación al proyecto IACT
 --------------------------------
 
-Este documento (``analisis-dominio.rst``) y sus
-hermanos forman el **modelo de dominio canónico de
-IACT**:
+.. note::
 
-- **§§ 1-7** — extracción del modelo desde el lenguaje
-  natural (sustantivos→clases / verbos→operaciones /
-  adjetivos→atributos).
-- **§ 7** — diagrama de clases consolidado del dominio.
+   **Modelo canónico vigente:**
+   :doc:`/arquitectura-tecnica/modelo-dominio-iact`
+   (publicado por el WP
+   ``2026-05-01-02-01-06-domain-model-canonization``).
+   Ese documento contiene las 25 clases canónicas
+   del dominio IACT en 7 bounded contexts, con
+   identificadores en inglés y constraints citadas
+   en versiones vigentes.
+
+Este documento (``analisis-dominio.rst``) y sus
+hermanos forman el **soporte metodológico** para
+construir y evolucionar el modelo de dominio. La
+relación entre los dos artefactos es:
+
+- ``analisis-dominio.rst`` (este archivo) — explica
+  **cómo se construye** un modelo de dominio:
+  sustantivos→clases, verbos→operaciones,
+  adjetivos→atributos, métodos de Abbott, RDD,
+  CRC, DDD.
+- ``modelo-dominio-iact.rst`` — declara **cuál es**
+  el modelo de dominio canónico del proyecto IACT
+  hoy.
+
+El § 7 de este documento contiene un diagrama de
+clases con 14 clases en español que se mantiene
+como **ejemplo pedagógico** (ilustra cómo aterrizar
+los seis pasos al dominio IACT). No es la versión
+canónica del modelo: para la referencia
+arquitectónica, consultar el documento canónico.
+
+- **§§ 1-7** — extracción pedagógica del modelo
+  desde el lenguaje natural (sustantivos→clases /
+  verbos→operaciones / adjetivos→atributos).
+- **§ 7** — ejemplo de diagrama de clases
+  consolidado del dominio (no canónico).
 - **§ 8** — responsabilidades canónicas (RDD).
 - **§§ 12-14** — métodos complementarios para
   identificar clases (Abbott, escuelas clásica /
@@ -1272,20 +1314,35 @@ IACT**:
 Ubiquitous language IACT
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-El vocabulario común del proyecto, capturado en este
-modelo, incluye:
+El vocabulario común del proyecto, capturado en el
+modelo canónico
+(:doc:`/arquitectura-tecnica/modelo-dominio-iact`),
+incluye:
 
 - **Llamada / IVR** — interacción telefónica capturada
-  por el conmutador.
-- **Segmento** (BR_012) — agrupación de campañas
-  atendidas.
+  por el conmutador. Clase canónica ``Call``.
 - **Ventana ETL** (CNST_006/008) — periodo nocturno de
-  carga read-only.
+  carga read-only. Clase canónica ``ETLExecution``.
 - **SoD** (CNST_030) — separación de responsabilidades
-  en el modelo RBAC.
+  en el modelo RBAC. Clase canónica ``SeparationRule``.
 - **Buzón interno** (CNST_001) — único canal de
-  notificación; no email.
+  notificación; no email. Clase canónica
+  ``InternalMailbox``.
 - **Audit** (CNST_025) — registro inmutable de eventos.
+  Clase canónica ``AuditEvent``.
+
+.. note::
+
+   El término **"Segmento"** (BR_012) que figuraba
+   en versiones previas del vocabulario común fue
+   **descartado** por el WP cerrado
+   ``2026-04-30-00-07-08-rbac-functions-count-audit``
+   (Z.1.C, Camino C). El concepto ya no existe en
+   el corpus vigente; la separación funcional que
+   pretendía cubrir queda resuelta por la
+   combinación AGR (perfil operativo) + MOD
+   (categoría de información) + Funcion (acción
+   específica).
 
 Cualquier conversación, ADR, UC o diagrama del proyecto
 **debe usar este vocabulario** — no sus equivalentes
