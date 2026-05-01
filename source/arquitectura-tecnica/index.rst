@@ -25,6 +25,12 @@ high-level, vistas, modelos de datos y diagramas.
 
 .. toctree::
  :maxdepth: 2
+ :caption: Analisis arquitectonicos
+
+ matriz-dependencias-uc-iact
+
+.. toctree::
+ :maxdepth: 2
  :caption: Modulos arquitectonicos
 
  modulos/index
