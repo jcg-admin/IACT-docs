@@ -26,4 +26,4 @@ Casos de Uso
  uc-alr-02/index
  uc-alr-03/index
  uc-alr-04/index
- uc-alr-05-gestionar-suscripciones
+ uc-alr-05/index
