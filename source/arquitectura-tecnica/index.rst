@@ -21,6 +21,7 @@ high-level, vistas, modelos de datos y diagramas.
  :caption: Modelos arquitectonicos
 
  rbac/index
+ modelo-dominio-iact
 
 .. toctree::
  :maxdepth: 2
