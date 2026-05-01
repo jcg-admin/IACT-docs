@@ -22,7 +22,7 @@ Casos de Uso
 .. toctree::
  :maxdepth: 1
 
- uc-aud-01-consultar-auditoria
- uc-aud-02-buscar-auditoria
- uc-aud-03-exportar-auditoria
- uc-aud-04-generar-reporte-compliance
+ uc-aud-01/index
+ uc-aud-02/index
+ uc-aud-03/index
+ uc-aud-04/index
