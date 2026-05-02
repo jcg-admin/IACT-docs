@@ -253,8 +253,32 @@ CASE
 END AS centro_transferencia
 ```
 
-**Implicación para ETL:** El ETL debe aplicar esta lógica de normalización en la fase
-Transform antes de cargar en `analytics_calls`.
+### 5.1 Causa raíz del LENGTH > 10 — Infraestructura NK90 (BR-ROUTING-001)
+
+**CONFIRMADO por el equipo.** El comportamiento `LENGTH > 10` tiene una causa
+arquitectónica documentada:
+
+La infraestructura de enrutamiento actual (**NK90**) está en proceso de migración
+a **IPVR**. Mientras NK90 esté activa, registra `cDID_Centro_Transferencia` como:
+
+```
+cDID_Centro_Transferencia = [numero_enrutamiento][cTelefono_Digitado]
+```
+
+**Ejemplo real:**
+
+| Campo | Valor |
+|---|---|
+| `cTelefono_Origen` | `4433772577` |
+| `cTelefono_Digitado` | `4433150875` |
+| `cDID_Centro_Transferencia` | `13090044433150875` |
+
+Descomposición: `1309004` (7 dígitos = VDN real) + `4433150875` (10 dígitos = teléfono)
+
+La normalización `LEFT(..., LENGTH - 10)` extrae el número de enrutamiento real.
+Post-migración a IPVR, `cDID_Centro_Transferencia` dejará de concatenar el teléfono.
+Los datos históricos en `tbl_historico_*` siempre tendrán el valor NK90 y
+la normalización se mantiene para ellos. Ver P-18 en business-rules-ivr.md.
 
 El valor `'cliente_colgo'` en `cDID_Centro_Transferencia` confirma que es otro
 indicador de llamada terminada por el cliente (abandono).

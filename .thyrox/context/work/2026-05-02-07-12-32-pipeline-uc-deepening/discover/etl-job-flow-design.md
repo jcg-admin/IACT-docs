@@ -187,14 +187,20 @@ CREATE TABLE base_ivr_clientes (
 
 ## Sentinels de calidad de datos (valores canonizados)
 
-| Sentinel | Condición de origen en `tbl_historico_*` | Columna en tabla base |
-|---|---|---|
-| `'CASO_NULL'` | `cDID_Centro_Transferencia` IS NULL o vacío | `centro_transferencia` |
-| `'CASO_ERROR_CEROS'` | `cDID_Centro_Transferencia REGEXP '^0+$'` | `centro_transferencia` |
-| `'CLIENTE_COLGO'` | `cDID_Centro_Transferencia = 'cliente_colgo'` | `centro_transferencia` |
-| `'SIN_MENU'` | `cMenu IS NULL` o `TRIM(cMenu) = ''` o `cMenu = 'sin cMenu'` | `menu` |
-| `'VACIO'` | `TRIM(cMenu) = ''` / `TRIM(cOpcion) = ''` | `menu`, `opcion` |
-| `'SIN_OPCION'` | `cOpcion IS NULL` o vacío | `opcion` |
+| Sentinel / Valor especial | Condición de origen en `tbl_historico_*` | Columna en tabla base | Nota |
+|---|---|---|---|
+| `'CASO_NULL'` | `cDID_Centro_Transferencia` IS NULL o vacío | `centro_transferencia` | — |
+| `'CASO_ERROR_CEROS'` | `cDID_Centro_Transferencia REGEXP '^0+$'` | `centro_transferencia` | — |
+| `'CLIENTE_COLGO'` | `cDID_Centro_Transferencia = 'cliente_colgo'` | `centro_transferencia` | Llamada terminada por cliente |
+| `'SIN_MENU'` | `cMenu IS NULL` o `TRIM(cMenu) = ''` o `cMenu = 'sin cMenu'` | `menu` | — |
+| `'VACIO'` | `TRIM(cMenu) = ''` / `TRIM(cOpcion) = ''` | `menu`, `opcion` | — |
+| `'SIN_OPCION'` | `cOpcion IS NULL` o vacío | `opcion` | — |
+| `'Desborde_Cabecera'` | `cMenu = 'Desborde_Cabecera'` (valor literal) | `menu` | **NO es sentinel** — valor válido. Indica enrutamiento por `cEtiquetacliente` (BR-ROUTING-002). No se normaliza. |
+
+**Nota NK90 (BR-ROUTING-001):** Cuando `LENGTH(cDID_Centro_Transferencia) > 10`,
+los últimos 10 dígitos son `cTelefono_Digitado` concatenado por la infraestructura
+NK90 (en migración a IPVR). El VDN real = `LEFT(..., LENGTH - 10)`. Esta
+normalización es permanente para datos históricos.
 
 ---
 

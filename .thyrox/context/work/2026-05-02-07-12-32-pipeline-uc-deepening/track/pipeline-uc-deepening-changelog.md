@@ -295,5 +295,51 @@ author: NestorMonroy
   del diagrama de flujo corregido de ELSEIF hardcodeado a cálculo dinámico
   con YEAR()/QUARTER().
 
+## Reglas de negocio IVR documentadas (2026-05-02)
+
+- discover/business-rules-ivr.md — documento nuevo con 4 BRs confirmadas
+  por el equipo:
+
+  - **BR-CLIENT-001:** Identificación del cliente por teléfono. Tres casos
+    mutuamente excluyentes: `cTelefono_Origen = cTelefono_Digitado` → misma
+    línea; `!=` → línea diferente; `cTelefono_Digitado IS NULL` → no digitó.
+    Confirma la implementación actual de `misma_linea`, `linea_diferente`,
+    `no_digito_telefono` en `base_ivr_detalle`.
+
+  - **BR-ROUTING-001:** NK90 → IPVR: cuando `LENGTH(cDID_Centro_Transferencia) > 10`,
+    los últimos 10 dígitos son `cTelefono_Digitado` concatenado por NK90.
+    El VDN real es `LEFT(..., LENGTH - 10)`. Explica la causa raíz de la
+    normalización ya implementada en `sp_etl_base_detalle`. La migración a IPVR
+    cambiará este comportamiento para nuevas tablas (P-18).
+
+  - **BR-MENU-001:** Múltiples menu+opcion pueden redirigir al mismo centro.
+    `GROUP_CONCAT(DISTINCT CONCAT(cMenu, ':', cOpcion))` por VDN muestra el
+    mapeo. Ejemplo: VDN `15070013` recibe de 6 combinaciones distintas. Este es
+    el comportamiento esperado — no una anomalía en `base_ivr_detalle`.
+
+  - **BR-ROUTING-002:** `cMenu = 'Desborde_Cabecera'` indica enrutamiento por
+    `cEtiquetacliente`, no por navegación del menú IVR. NO es un sentinel de
+    datos malos — es un valor semánticamente válido. No se normaliza en el ETL.
+    Impacto en `sp_rpt_llamadas_abandonadas` y `sp_rpt_menu_redirigidos`
+    pendiente de confirmar (P-16, P-17).
+
+- discover/real-db-schema-analysis.md — nueva sección 5.1: causa raíz del
+  `LENGTH > 10` en la normalización de centro. Documenta el comportamiento
+  NK90 con ejemplo real de concatenación (BR-ROUTING-001).
+
+- discover/etl-job-flow-design.md — tabla de sentinels ampliada:
+  - `Desborde_Cabecera` agregado como valor especial (no sentinel): no se
+    normaliza, requiere `cEtiquetacliente` para contexto completo.
+  - Nota NK90 agregada bajo la tabla explicando el LENGTH > 10.
+
+## Preguntas abiertas nuevas
+
+- **P-16 (ABIERTA):** `Desborde_Cabecera` en `sp_rpt_llamadas_abandonadas`:
+  ¿se excluye, se cuenta como abandono o se trata como categoría propia?
+- **P-17 (ABIERTA):** `Desborde_Cabecera` en `sp_rpt_menu_redirigidos`:
+  ¿se incluye o se filtra?
+- **P-18 (ABIERTA):** ¿Cuándo se espera que NK90 complete la migración a IPVR?
+  La normalización `LENGTH > 10` tendrá fecha de revisión post-migración.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
