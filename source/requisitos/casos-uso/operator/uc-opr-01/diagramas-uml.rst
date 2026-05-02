@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "manage_own_agent_state" as A
  actor "CallRouter" as CR
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado" as UC01
@@ -70,7 +70,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as AG
+ actor "manage_own_agent_state" as AG
  participant "Endpoint" as E
  database "AgentStateRepo" as R
  participant "AuditSvc" as A

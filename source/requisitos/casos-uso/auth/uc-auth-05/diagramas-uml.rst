@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "Admin\n(AGR-006)" as ADMIN
+ actor "manage_sessions" as ADMIN
  actor "User afectado" as USER <<beneficiario>>
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>

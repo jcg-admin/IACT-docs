@@ -180,6 +180,7 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - view_technical_metrics
    - uc-log-07
    - Logs
+ * - read_own_mailbox
+   - UC_OPR_10
+   - Operator
 
-
-----

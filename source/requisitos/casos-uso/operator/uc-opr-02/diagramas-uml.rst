@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  actor "CallRouter" as CR
  rectangle "MOD_Operator" {
    usecase "UC_OPR_02\nAnswer" as UC
@@ -58,7 +58,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  participant "Frontend" as FE
  participant "Router" as R
  participant "Endpoint" as E

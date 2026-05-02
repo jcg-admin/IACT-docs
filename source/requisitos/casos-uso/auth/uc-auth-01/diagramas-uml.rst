@@ -30,7 +30,7 @@ los sub-pasos viven en el diagrama de secuencia
 
  left to right direction
 
- actor "Usuario\n(registrado)"   as U
+ actor "User"                   as U
  actor "Sistema"                 as S <<system>>
  actor "Auditor"                 as A <<system>>
 

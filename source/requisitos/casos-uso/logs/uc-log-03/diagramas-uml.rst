@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nsearch_logs" as USR
+ actor "search_logs" as USR
  rectangle "MOD_Logs" {
    usecase "UC_LOG_03\nBuscar Logs" as UC03
  }

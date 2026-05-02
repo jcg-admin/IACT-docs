@@ -20,8 +20,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "Admin operacional" as OPS
- actor "Admin de seguridad\n/ Compliance" as SEC
+ actor "assign_function_groups" as OPS
+ actor "assign_function_groups" as SEC
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR\n(desde User)" as ACC04

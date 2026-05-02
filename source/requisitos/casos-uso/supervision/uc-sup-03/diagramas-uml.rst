@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor con funcion\nbroadcast_team_messages" as SUP
+ actor "broadcast_team_messages" as SUP
  actor "Agentes" as AG
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_03\nBroadcast" as UC
@@ -59,7 +59,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Supervisor" as S
+ actor "broadcast_team_messages" as S
  participant "Endpoint" as E
  queue "MailboxBus" as B
  actor "Agente" as A

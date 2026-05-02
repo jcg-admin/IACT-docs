@@ -450,32 +450,40 @@ consulta de estadisticas personales.
  @startuml
  left to right direction
 
- actor ":operator_profile\n(agente)" as AGT
- actor ":initiate_outbound_call" as IOC
+ actor ":manage_own_agent_state" as MGS
+ actor ":answer_inbound_calls" as AIC
+ actor ":make_outbound_calls" as MOC
+ actor ":hold_calls" as HC
+ actor ":transfer_calls" as TC
+ actor ":enter_call_disposition" as ECD
+ actor ":request_break" as RBK
+ actor ":view_own_performance_dashboard" as VOPD
+ actor ":view_own_call_history" as VOCH
+ actor ":read_own_mailbox" as ROM
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado\ndel Agente" as O01
    usecase "UC_OPR_02\nAtender Llamada\nEntrante" as O02
    usecase "UC_OPR_03\nIniciar Llamada\nOutbound" as O03
-   usecase "UC_OPR_04\nTransferir\nLlamada" as O04
-   usecase "UC_OPR_05\nConferencia de\nLlamada" as O05
+   usecase "UC_OPR_04\nHold/Unhold\nLlamada" as O04
+   usecase "UC_OPR_05\nTransferir\nLlamada" as O05
    usecase "UC_OPR_06\nDisposicion\npost-Llamada" as O06
    usecase "UC_OPR_07\nTomar Break" as O07
-   usecase "UC_OPR_08\nVer Estadisticas\ndel Agente" as O08
-   usecase "UC_OPR_09\nVer Historial\nde Sesion" as O09
+   usecase "UC_OPR_08\nVer Dashboard\nde Desempeno" as O08
+   usecase "UC_OPR_09\nVer Historial\nde Llamadas" as O09
    usecase "UC_OPR_10\nVer Buzon\nde Mensajes" as O10
  }
 
- AGT --> O01
- AGT --> O02
- IOC --> O03
- AGT --> O04
- AGT --> O05
- AGT --> O06
- AGT --> O07
- AGT --> O08
- AGT --> O09
- AGT --> O10
+ MGS --> O01
+ AIC --> O02
+ MOC --> O03
+ HC --> O04
+ TC --> O05
+ ECD --> O06
+ RBK --> O07
+ VOPD --> O08
+ VOCH --> O09
+ ROM --> O10
 
  O02 ..> O01 : <<include>>
  O06 ..> O02 : <<include>>
@@ -643,8 +651,16 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
  }
 
  package "MOD_Operator" {
-   artifact "initiate_outbound_call" as F_IOC
-   artifact "offer_csat_post_call" as F_CSAT
+   artifact "manage_own_agent_state" as F_MOAS
+   artifact "answer_inbound_calls" as F_AIC
+   artifact "make_outbound_calls" as F_MOC
+   artifact "hold_calls" as F_HC
+   artifact "transfer_calls" as F_TC
+   artifact "enter_call_disposition" as F_ECD
+   artifact "request_break" as F_RBK
+   artifact "view_own_performance_dashboard" as F_VOPD
+   artifact "view_own_call_history" as F_VOCH
+   artifact "read_own_mailbox" as F_ROM
  }
 
  @enduml

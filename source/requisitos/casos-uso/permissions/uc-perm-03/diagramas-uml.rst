@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "Admin operacional" as OPS
- actor "Admin de seguridad" as SEC
- actor "Auditor high-priority" as AUD
+ actor "grant_exceptional_permission" as OPS
+ actor "grant_exceptional_permission" as SEC
+ actor "view_audit_log" as AUD
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_08\nGrant excepcional" as ACC08

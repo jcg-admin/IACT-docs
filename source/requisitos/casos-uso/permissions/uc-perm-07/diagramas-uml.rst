@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "Decorator/Middleware" as DEC
- actor "User con funcion\nview_assignments" as ADMIN
+ actor "view_assignments" as ADMIN
  actor "UC_PERM_08" as MENU
 
  rectangle "MOD_Permissions (servicio)" {

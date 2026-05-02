@@ -11,8 +11,8 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Administrador\nde Pipeline" as USR
- actor "Disparador ETL" as DE
+ actor "retry_etl" as USR
+ actor "ETLScheduler" as DE
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_04\nReintentar ETL" as UC04
  }
@@ -59,7 +59,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Admin Pipeline" as O
+ actor "retry_etl" as O
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R
  participant "Disparador ETL" as DE

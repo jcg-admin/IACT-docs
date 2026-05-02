@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "User con funcion\nassign_functions" as INVOKER
+ actor "assign_functions" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>

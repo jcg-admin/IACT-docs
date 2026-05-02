@@ -91,7 +91,7 @@ Modelo RBAC IACT — Grupos de Funciones
 - Sufijo ``_group`` explícito
 
 **CAMBIO v5.5.0:**
-- AGR-011 ``call_center_operator_group`` (9 funciones OPR-001..009)
+- AGR-011 ``call_center_operator_group`` (10 funciones OPR-001..010)
 - AGR-012 ``call_center_supervisor_group`` (SUP-001..003 + AGR-003)
 
 
@@ -306,7 +306,7 @@ AGR-011 call_center_operator_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-**Funciones incluidas (9):**
+**Funciones incluidas (10):**
 
 .. code-block:: text
 
@@ -319,6 +319,7 @@ AGR-011 call_center_operator_group
  OPR-007: request_break
  OPR-008: view_own_performance_dashboard
  OPR-009: view_own_call_history
+ OPR-010: read_own_mailbox
 
 
 **Propósito:** Conjunto base de acciones para agentes del call center.

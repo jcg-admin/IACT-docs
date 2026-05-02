@@ -11,8 +11,8 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente A" as A
- actor "Agente B" as B
+ actor "transfer_calls" as A
+ actor "answer_inbound_calls" as B
  rectangle "MOD_Operator" {
    usecase "UC_OPR_05\nTransfer" as UC
    usecase "Warm" as W
@@ -65,10 +65,10 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "A" as A
+ actor "transfer_calls" as A
  participant "Caller" as C
  participant "Telephony" as T
- actor "B" as B
+ actor "answer_inbound_calls" as B
  A -> T: consult B
  T -> B: ring
  B -> T: answer

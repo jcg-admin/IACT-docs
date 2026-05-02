@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "User con funcion\nview_assignments" as INVOKER
+ actor "view_assignments" as INVOKER
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 

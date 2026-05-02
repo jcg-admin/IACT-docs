@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "User\n(AGR-006 / AGR-008)" as INVOKER
+ actor "read_users" as INVOKER
  actor "User consultado" as TARGET <<pasivo>>
  actor "Auditor" as AUD <<beneficiario>>
 

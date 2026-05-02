@@ -180,8 +180,7 @@ negra con sus entidades externas. Las entidades son los
 
  rectangle "Sistema IVR\n(Fuente de datos)" as IVR
  rectangle "view_etl_status\n/ view_alerts" as SUP
- rectangle "view_reports
-/ view_dashboard" as ANA
+ rectangle "view_reports\n/ view_dashboard" as ANA
  rectangle "APScheduler\n/ Cron" as SCH
 
  rectangle "  1\n  Sistema IACT\n  (Analisis IVR Calls)  " as IACT

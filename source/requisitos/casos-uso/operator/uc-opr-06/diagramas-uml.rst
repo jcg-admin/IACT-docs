@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "enter_call_disposition" as A
  rectangle "MOD_Operator" {
    usecase "UC_OPR_06\nDisposition" as UC
  }
@@ -60,7 +60,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "enter_call_disposition" as A
  participant "Endpoint" as E
  database "Repo" as R
  A -> E: POST disposition

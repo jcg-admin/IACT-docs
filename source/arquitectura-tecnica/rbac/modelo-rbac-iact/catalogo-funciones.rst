@@ -677,6 +677,11 @@ la granularidad permite restricciones futuras por servicio o turno.
    - operator:own_history
    - UC_OPR_09
    - Consulta historial personal de llamadas atendidas/realizadas
+ * - OPR-010
+   - `read_own_mailbox`
+   - operator:mailbox
+   - UC_OPR_10
+   - Consulta el buzón de mensajes internos del agente (InternalMailbox)
 
 
 **CNST aplicables:**

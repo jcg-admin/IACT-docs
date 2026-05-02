@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Owner User con funcion\nshare_reports" as O
+ actor "share_reports" as O
  actor "Receptor User" as R
  actor "MailboxService" as MB
 

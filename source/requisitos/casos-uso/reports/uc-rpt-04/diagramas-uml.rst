@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nexport_reports" as USR
+ actor "export_reports" as USR
  actor "ExportWorker" as W
  actor "MailboxService" as MB
 

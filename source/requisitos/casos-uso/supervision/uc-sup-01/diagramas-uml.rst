@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor con funcion\nmonitor_live_calls" as SUP
+ actor "monitor_live_calls" as SUP
  actor "Agente" as A
  actor "Caller" as C
  rectangle "MOD_Supervision" {
@@ -62,7 +62,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Supervisor" as S
+ actor "monitor_live_calls" as S
  participant "Endpoint" as E
  participant "Telephony" as T
  actor "Agente" as A

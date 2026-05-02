@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nview_access_audit" as INVOKER
+ actor "view_access_audit" as INVOKER
  actor "Sistema" as SYS
 
  rectangle "MOD_Access" {

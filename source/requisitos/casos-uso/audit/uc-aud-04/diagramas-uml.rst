@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Compliance Officer" as O
+ actor "generate_compliance_report" as O
  actor "ComplianceWorker" as W
  actor "HMAC Signer" as H
  actor "Mailbox" as MB

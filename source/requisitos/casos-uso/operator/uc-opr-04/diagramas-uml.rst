@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "hold_calls" as A
  rectangle "MOD_Operator" {
    usecase "UC_OPR_04\nHold/Unhold" as UC
  }
@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "hold_calls" as A
  participant "Endpoint" as E
  participant "Telephony" as T
  A -> E: POST hold

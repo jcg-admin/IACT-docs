@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor\nde Operaciones" as USR
+ actor "view_reports" as USR
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
    usecase "UC_RPT_13\nReporte Abandono" as UC13
@@ -63,7 +63,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Supervisor" as U
+ actor "view_reports" as U
  participant "View" as V
  participant "SegmentResolver" as SR
  database "Base Analitica IVR\n(sp_rpt_llamadas_abandonadas)" as DB

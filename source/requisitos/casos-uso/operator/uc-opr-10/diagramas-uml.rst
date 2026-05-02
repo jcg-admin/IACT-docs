@@ -11,8 +11,8 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
- actor "Supervisor" as S
+ actor "read_own_mailbox" as A
+ actor "read_own_mailbox" as S
  rectangle "MOD_Operator" {
    usecase "UC_OPR_10\nLeer Mailbox" as UC
    usecase "UC_SUP_03\nBroadcast" as B
@@ -56,7 +56,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "read_own_mailbox" as A
  participant "Frontend" as FE
  queue "MailboxBus" as B
  B -> FE: SSE urgent

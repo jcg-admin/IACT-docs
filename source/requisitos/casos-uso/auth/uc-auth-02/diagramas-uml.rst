@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "Usuario\n(autenticado)" as USER
+ actor "User" as USER
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 

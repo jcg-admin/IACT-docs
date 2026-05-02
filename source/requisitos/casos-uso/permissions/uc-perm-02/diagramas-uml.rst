@@ -14,8 +14,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "Admin operacional" as OPS
- actor "Admin de seguridad" as SEC
+ actor "revoke_function_groups" as OPS
+ actor "revoke_function_groups" as SEC
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_02\nRevocar\n(generico)" as ACC02

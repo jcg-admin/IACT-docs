@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nexport_logs" as USR
+ actor "export_logs" as USR
  actor "ExportWorker" as W
  actor "Mailbox" as MB
  rectangle "MOD_Logs" {

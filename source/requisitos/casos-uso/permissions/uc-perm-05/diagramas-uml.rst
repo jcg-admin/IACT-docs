@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nmanage_access_groups" as MGR
+ actor "manage_access_groups" as MGR
  actor "Auditor" as AUD
 
  rectangle "MOD_Permissions" {

@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Analista / Supervisor\n(actor del UC invocador)" as USR
+ actor "view_reports" as USR
  rectangle "MOD_Reports" {
    usecase "UC_RPT_NN\n(cualquier reporte)" as RPTNN
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC01

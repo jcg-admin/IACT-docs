@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor\nde Operaciones" as USR
+ actor "view_etl_status" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nSupervisar ETL" as UC01
    usecase "Ver errores ETL" as DR

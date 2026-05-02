@@ -1022,5 +1022,3 @@ Modelo RBAC IACT — Implementacion
  python manage.py initialize_function_groups # 10 grupos
  python manage.py initialize_separation_rules # 3 reglas SoD
 
-
-----

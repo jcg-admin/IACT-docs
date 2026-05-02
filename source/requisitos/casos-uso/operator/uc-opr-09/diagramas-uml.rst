@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "view_own_call_history" as A
  rectangle "MOD_Operator" {
    usecase "UC_OPR_09\nMy History" as UC
  }
@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "view_own_call_history" as A
  participant "Endpoint" as E
  database "Calls" as R
  A -> E: GET /me/calls

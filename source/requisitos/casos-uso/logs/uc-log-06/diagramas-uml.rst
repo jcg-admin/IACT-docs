@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nview_system_status" as USR
+ actor "view_system_status" as USR
  rectangle "MOD_Logs" {
    usecase "UC_LOG_06\nEstado Sistema" as UC06
    usecase "UC_PIP_01" as P

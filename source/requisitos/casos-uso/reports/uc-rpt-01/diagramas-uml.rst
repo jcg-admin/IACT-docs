@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nview_reports" as USR
+ actor "view_reports" as USR
  actor "Frontend" as FE
 
  rectangle "MOD_Reports" {

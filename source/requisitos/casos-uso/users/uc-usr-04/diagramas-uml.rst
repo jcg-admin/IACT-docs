@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "User con funcion\ndeactivate_users" as INVOKER
+ actor "deactivate_users" as INVOKER
  actor "User eliminado" as USER <<receptor>>
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>

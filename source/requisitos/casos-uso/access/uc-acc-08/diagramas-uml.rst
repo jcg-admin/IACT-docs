@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\ngrant_exceptional_permission" as INVOKER
+ actor "grant_exceptional_permission" as INVOKER
  actor "User destino" as TARGET
  actor "Auditor" as AUD
 

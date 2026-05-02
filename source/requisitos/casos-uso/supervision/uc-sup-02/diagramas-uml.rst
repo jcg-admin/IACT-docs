@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor con funcion\nbarge_in_calls" as SUP
+ actor "barge_in_calls" as SUP
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_02\nBarge-in" as UC
    usecase "Take over" as TO
@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Supervisor" as S
+ actor "barge_in_calls" as S
  participant "Telephony" as T
  actor "Agente" as A
  actor "Caller" as C

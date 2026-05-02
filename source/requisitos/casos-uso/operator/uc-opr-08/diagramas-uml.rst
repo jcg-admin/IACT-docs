@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Agente" as A
+ actor "view_own_performance_dashboard" as A
  rectangle "MOD_Operator" {
    usecase "UC_OPR_08\nMy Dashboard" as UC
  }
@@ -56,7 +56,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Agente" as A
+ actor "view_own_performance_dashboard" as A
  participant "Endpoint" as E
  database "Stats" as S
  A -> E: GET dashboard

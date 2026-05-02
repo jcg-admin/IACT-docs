@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Cliente Caller" as C
+ actor "Caller" as C
  actor "Telephony" as T
  rectangle "MOD_Caller" {
    usecase "UC_CLI_01\nIniciar llamada" as UC

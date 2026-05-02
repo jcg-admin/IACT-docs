@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nview_alert_history" as USR
+ actor "view_alert_history" as USR
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_04\nHistorial" as UC04
  }

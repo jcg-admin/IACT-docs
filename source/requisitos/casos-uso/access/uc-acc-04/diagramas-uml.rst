@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nassign_function_groups" as INVOKER
+ actor "assign_function_groups" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
  actor "Auditor" as AUD <<beneficiario>>
 

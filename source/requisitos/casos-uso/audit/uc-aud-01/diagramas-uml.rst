@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "User con funcion\nview_general_audit" as USR
+ actor "view_general_audit" as USR
  rectangle "MOD_Audit" {
    usecase "UC_AUD_01\nConsultar Auditoria" as UC01
    usecase "UC_PERM_09\nMeta-audit" as M

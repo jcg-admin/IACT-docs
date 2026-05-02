@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nview_audit_log" as AUD
+ actor "view_audit_log" as AUD
  actor "ExportWorker" as EW
 
  rectangle "MOD_Permissions / Audit" {

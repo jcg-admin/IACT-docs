@@ -23,7 +23,7 @@ conforme al catalogo de funciones del sistema.
 ----
 
 1. Especificacion de Actores (Funciones RBAC)
-===========================================
+=============================================
 
 **view_reports**
   Usuario con funcion ``view_reports`` y ``view_dashboard``. Puede
@@ -392,7 +392,7 @@ de sesion.
  :POST /api/auth/login — JWT;
 
  |view_reports|
- [view_reports / view_dashboard]
+ note right: funciones activas: view_reports / view_dashboard
 
  fork
 
@@ -461,7 +461,7 @@ credenciales son incorrectas se retorna 401.
    :Generar JWT con payload RBAC;
    |User|
    :Acceder al sistema;
-   :[[Autenticacion exitosa]];
+   :Autenticacion exitosa;
  else (no)
    :Retornar 401 Unauthorized;
    |User|
@@ -574,7 +574,7 @@ y ``opt`` permite el reintento.
 
  @startuml
 
- actor "User\n(RBAC group)" as USR
+ actor "User" as USR
  participant "AuthEndpoint" as AE
  participant "DashboardEndpoint" as DE
  participant "SegmentResolver" as SR
@@ -582,13 +582,13 @@ y ``opt`` permite el reintento.
  participant "DisparadorETL" as ETL
  actor "Sistema IVR\n(fuente)" as IVR
 
- par [para cualquier grupo RBAC]
+ alt [autenticacion exitosa: status=TRUE]
 
-   alt [Nueva sesion: status=TRUE]
+   alt [Nueva sesion]
      USR -> AE : 1: POST /api/auth/login()
      AE -> AE : 2: ValidarCredenciales()
      AE --> USR : 3: status := GenerarJWT(rbac_functions)
-   else [sesion existente con JWT valido]
+   else [JWT valido existente]
      USR -> DE : 4: GET /api/dashboard/ (JWT)
      DE -> DE : 5: ValidarJWT_RBAC(view_dashboard)
      DE --> USR : 6: sesion_confirmada
@@ -834,50 +834,41 @@ estado en ``etl_runs``.
 
  @startuml
 
- state "Ejecucion ETL\n[view_etl_status / retry_etl]" as ETL_EXEC {
-   entry/recibir trimestre + permisos RBAC validados
-   do/ejecutar cadena sp_etl_maestro
-   exit/estado final en etl_runs
+ state "Ejecucion ETL" as ETL_EXEC {
 
-   state "Recibir Solicitud ETL" as S1 {
-     entry/validar funcion view_etl_status en JWT
-     do/INSERT etl_runs (estado=en_ejecucion)
-     exit/ID de ejecucion asignado
-   }
+   state "Recibir Solicitud ETL" as S1
+   S1 : entry / validar funcion view_etl_status en JWT
+   S1 : do / INSERT etl_runs (estado=en_ejecucion)
+   S1 : exit / ID de ejecucion asignado
 
    state fork_etl <<fork>>
 
-   state "sp_etl_base_detalle" as S2A {
-     entry/leer tbl_historico_detalle (fuente IVR)
-     do/TRUNCATE + INSERT base_ivr_detalle
-     exit/rows_detalle registrados en etl_runs
-   }
+   state "sp_etl_base_detalle" as S2A
+   S2A : entry / leer tbl_historico_detalle (fuente IVR)
+   S2A : do / TRUNCATE + INSERT base_ivr_detalle
+   S2A : exit / rows_detalle registrados en etl_runs
 
-   state "sp_etl_base_clientes" as S2B {
-     entry/leer tbl_historico_clientes (fuente IVR)
-     do/TRUNCATE + INSERT base_ivr_clientes
-     exit/rows_clientes registrados en etl_runs
-   }
+   state "sp_etl_base_clientes" as S2B
+   S2B : entry / leer tbl_historico_clientes (fuente IVR)
+   S2B : do / TRUNCATE + INSERT base_ivr_clientes
+   S2B : exit / rows_clientes registrados en etl_runs
 
    state join_etl <<join>>
 
-   state "Verificar Resultado" as S3 {
-     entry/consolidar resultado de ambos sp_etl_*
-     do/UPDATE etl_runs SET estado, finalizado_en
-     exit/fin de cadena ETL
-   }
+   state "Verificar Resultado" as S3
+   S3 : entry / consolidar resultado de ambos sp_etl_*
+   S3 : do / UPDATE etl_runs SET estado, finalizado_en
+   S3 : exit / fin de cadena ETL
 
-   state "ETL Exitoso" as SUCC {
-     entry/estado = exitoso
-     do/notificar retry_etl
-     exit/datos disponibles en base_ivr_*
-   }
+   state "ETL Exitoso" as SUCC
+   SUCC : entry / estado = exitoso
+   SUCC : do / notificar retry_etl
+   SUCC : exit / datos disponibles en base_ivr_*
 
-   state "ETL Fallido" as FAIL {
-     entry/estado = fallido
-     do/generar alerta (BR-016 si aplica)
-     exit/reintento disponible via sp_etl_historico
-   }
+   state "ETL Fallido" as FAIL
+   FAIL : entry / estado = fallido
+   FAIL : do / generar alerta BR-016 si aplica
+   FAIL : exit / reintento disponible via sp_etl_historico
 
    [*] --> S1
    S1 --> fork_etl
@@ -912,56 +903,46 @@ paralela por segmento activo del usuario y la llamada al
 
  @startuml
 
- state "Consulta de Reporte IVR\n[view_reports]" as RPT_EXEC {
-   entry/recibir trimestre y tipo de reporte
-   do/UC_INC_RPT_01 + callproc(sp_rpt_*)
-   exit/datos del reporte mostrados al usuario
+ state "Consulta de Reporte IVR" as RPT_EXEC {
 
-   state "Solicitar Reporte" as R1 {
-     entry/validar funcion view_reports en JWT
-     do/enviar GET /api/reportes/?trimestre=
-     exit/solicitud aceptada por DashboardEndpoint
-   }
+   state "Solicitar Reporte" as R1
+   R1 : entry / validar funcion view_reports en JWT
+   R1 : do / enviar GET /api/reportes/?trimestre=
+   R1 : exit / solicitud aceptada por DashboardEndpoint
 
-   state "Resolver Segmento\nUC_INC_RPT_01" as R2 {
-     entry/leer DIDs RBAC del usuario en PostgreSQL
-     do/mapear DIDs via DID_MAP a segmentos IVR
-     exit/lista de segmentos activos disponible
-   }
+   state "Resolver Segmento\nUC_INC_RPT_01" as R2
+   R2 : entry / leer DIDs RBAC del usuario en PostgreSQL
+   R2 : do / mapear DIDs via DID_MAP a segmentos IVR
+   R2 : exit / lista de segmentos activos disponible
 
    state fork_seg <<fork>>
 
-   state "Segmento nacional_A\n(DID 19028031)" as R3A {
-     entry/Get User Id — DID 19028031
-     do/Get rows filtrados por nacional_A
-     exit/retrieve atributos del segmento
-   }
+   state "Segmento nacional_A\n(DID 19028031)" as R3A
+   R3A : entry / DID 19028031 activo en usuario
+   R3A : do / filtrar rows por nacional_A
+   R3A : exit / atributos de segmento disponibles
 
-   state "Segmento nacional_B\n(DID 19020001)" as R3B {
-     entry/Get User Id — DID 19020001
-     do/Get rows filtrados por nacional_B
-     exit/retrieve atributos del segmento
-   }
+   state "Segmento nacional_B\n(DID 19020001)" as R3B
+   R3B : entry / DID 19020001 activo en usuario
+   R3B : do / filtrar rows por nacional_B
+   R3B : exit / atributos de segmento disponibles
 
-   state "Segmento Puebla\n(DID 19020084)" as R3C {
-     entry/Get User Id — DID 19020084
-     do/Get rows filtrados por Puebla
-     exit/retrieve atributos del segmento
-   }
+   state "Segmento Puebla\n(DID 19020084)" as R3C
+   R3C : entry / DID 19020084 activo en usuario
+   R3C : do / filtrar rows por Puebla
+   R3C : exit / atributos de segmento disponibles
 
    state join_seg <<join>>
 
-   state "Llamar sp_rpt_*" as R4 {
-     entry/consolidar segmentos activos del usuario
-     do/cursor.callproc(sp_rpt_*, [trimestre, segmentos])
-     exit/Suggest Report to user
-   }
+   state "Llamar sp_rpt_*" as R4
+   R4 : entry / consolidar segmentos activos del usuario
+   R4 : do / cursor.callproc(sp_rpt_*, [trimestre, segmentos])
+   R4 : exit / rows de reporte disponibles
 
-   state "Renderizar Reporte" as R5 {
-     entry/Get report rows with attributes
-     do/Send report data to frontend
-     exit/Ensure rendered report reached user
-   }
+   state "Renderizar Reporte" as R5
+   R5 : entry / recibir rows del sp_rpt_*
+   R5 : do / enviar datos al frontend
+   R5 : exit / reporte renderizado al usuario
 
    [*] --> R1
    R1 --> R2

@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nview_separation_rules" as VIEWER
- actor "User con funcion\nmanage_separation_rules" as MANAGER
+ actor "view_separation_rules" as VIEWER
+ actor "manage_separation_rules" as MANAGER
  actor "Auditor" as AUD
  actor "Sistema (consumidores)" as SYS
 

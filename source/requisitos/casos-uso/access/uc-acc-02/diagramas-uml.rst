@@ -14,7 +14,7 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "User con funcion\nrevoke_functions" as INVOKER
+ actor "revoke_functions" as INVOKER
  actor "User destino" as TARGET <<receptor>>
  actor "Auditor" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>

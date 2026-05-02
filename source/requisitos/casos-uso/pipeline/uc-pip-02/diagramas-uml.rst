@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Supervisor\nde Operaciones" as USR
+ actor "view_etl_errors" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_02\nErrores ETL" as UC02
    usecase "Filtrar por trimestre" as FT
@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Supervisor" as U
+ actor "view_etl_errors" as U
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R
  U -> E: GET /api/v1/etl/errores/

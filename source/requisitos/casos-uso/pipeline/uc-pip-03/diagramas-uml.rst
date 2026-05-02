@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "Analista\nde Datos" as USR
+ actor "view_data_availability" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_03\nDisponibilidad\nde Datos" as UC03
  }

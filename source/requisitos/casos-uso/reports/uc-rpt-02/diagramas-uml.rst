@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "User con funcion\nview_realtime_metrics" as USR
+ actor "view_realtime_metrics" as USR
  actor "AnalyticsStream" as AS
 
  rectangle "MOD_Reports" {
