@@ -62,6 +62,9 @@ author: NestorMonroy
 - **D-04:** No existe tabla de tracking del ETL aún. Se diseñará junto con los SPs.
 - **D-05:** Los 14 UC_RPT de la referencia (Agentes/Colas/Campañas) deben
   reescribirse desde cero. Los reportes reales son IVR-específicos.
+- **D-06:** Triggers y Jobs se crearán en MySQL para mantener integridad
+  de las tablas limpias una vez que sean pobladas. Todo el ETL ocurre
+  exclusivamente en MySQL — sin componente Python ni proceso externo.
 
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

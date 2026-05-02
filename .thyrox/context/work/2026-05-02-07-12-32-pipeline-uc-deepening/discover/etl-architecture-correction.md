@@ -63,9 +63,13 @@ Django app
 |---|---|
 | **Stored Procedures (SP)** | Lógica principal de limpieza y transformación de datos |
 | **Functions** | Funciones de apoyo: `fn_es_dia_habil()`, `fn_agregar_dias_habiles()`, `fn_contar_dias_habiles()`, normalización `cDID_Centro_Transferencia`, etc. |
-| **Events / Jobs** | Scheduler interno MySQL — dispara los SPs en ventana programada |
-| **Triggers** | Posiblemente para mantener integridad en tablas limpias |
-| **Tablas limpias** | Una tabla por tipo de reporte — destino final del ETL |
+| **Events / Jobs** | Scheduler interno MySQL — dispara los SPs en ventana programada para poblar las tablas limpias |
+| **Triggers** | Se crearán para mantener integridad en las tablas limpias una vez pobladas (PROVEN — confirmado por el equipo 2026-05-02) |
+| **Tablas limpias** | Una tabla `rpt_*` por tipo de reporte — destino final del ETL (7 tablas en Scope 1) |
+
+> **DECISIÓN CONFIRMADA (2026-05-02):** Todo el ETL ocurre en MySQL.
+> Los triggers y jobs se crearán cuando se llenen las tablas limpias.
+> No existe ningún componente Python ni proceso externo involucrado.
 
 ---
 
