@@ -481,9 +481,11 @@ cDID_800Transfer, dFecha, dHoraInicio, dHoraFin
 
 `cEtiquetacliente` es adicional — solo para reportes que necesiten etiquetas.
 
-**G-31 (NUEVO):** Las tablas `tbl_historico_tN_YYYY` posiblemente no tienen índices en
-`(dFecha, cDID_800Transfer)`. Si no existen, los SPs del ETL harán full table scans
-sobre ~11-14M filas/trimestre. Verificar con el equipo antes de diseñar los SPs.
+**G-31 (CERRADO — PROVEN, confirmado por el equipo 2026-05-02):**
+Las tablas `tbl_historico_tN_YYYY` **NO tienen índices**. Full table scans confirmados
+sobre ~11-14M filas/quarter en cada ejecución del ETL. Ver CNST-ETL-005 en
+`etl-architecture-correction.md` para implicaciones de diseño de los SPs y la
+pregunta P-12 sobre coordinación de índices con el cliente.
 
 ---
 
@@ -523,3 +525,7 @@ sobre ~11-14M filas/trimestre. Verificar con el equipo antes de diseñar los SPs
 11. **El patrón de "tabla temporal + UNION ALL + indexar después" tarda ~1 día** para
     ~34M filas. Los SPs de producción deben agregar directamente en SELECT, nunca
     materializar la totalidad de datos brutos en tabla temporal.
+
+12. **Las tablas `tbl_historico_*` NO tienen índices** (PROVEN — confirmado 2026-05-02).
+    Cada acceso desde el ETL es un full table scan de ~11-14M filas/quarter. CNST-ETL-005.
+    Los SPs deben diseñarse para minimizar el número de pasadas por cada tabla fuente.

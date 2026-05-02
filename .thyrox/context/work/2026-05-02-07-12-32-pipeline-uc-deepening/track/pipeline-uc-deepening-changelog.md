@@ -145,15 +145,25 @@ author: NestorMonroy
 | Q1 empieza en febrero | `REPTRIM001-WS.sql` | `2025-02-01` | `2025-01-01` |
 | Q3 termina en julio | `REPTRIM001-WS.sql` | `2025-07-31` | `2025-09-30` |
 
-## Gaps adicionales
+## Gaps y decisiones adicionales
 
-- **G-29 (actualizado):** El problema de "campo de fecha" es `dHoraInicio`/`dHoraFin`
-  — registros donde `dHoraInicio > dHoraFin`. El workaround en los scripts (`ABS(fin-inicio)`)
-  produce resultados incorrectos para llamadas que cruzan medianoche.
+- **G-29 (actualizado):** El problema de "campo de fecha" es en realidad
+  `dHoraInicio`/`dHoraFin` — registros donde `dHoraInicio > dHoraFin`. `dFecha`
+  funciona correctamente. El workaround ABS() en scripts produce duraciones incorrectas
+  para llamadas que cruzan medianoche.
 - **G-30:** Bug en `@ONacionalB = 19028031` en `q_menu_centro_transferecia_010925.sql`.
-  Reportes generados con este script carecen de datos de Nacional B.
-- **G-31:** Posible ausencia de índices en `(dFecha, cDID_800Transfer)` en tablas
-  `tbl_historico_*`. Sin índices, los SPs harán full table scans sobre ~11-14M filas/quarter.
+  Nacional B nunca se consulta con este script.
+- **G-31 (CERRADO — confirmado 2026-05-02):** `tbl_historico_*` NO tienen índices.
+  Full table scans de ~11-14M filas/quarter en cada run del ETL. → CNST-ETL-005.
+- **P-12 (NUEVA):** ¿Es viable coordinar con el cliente la creación de un índice
+  compuesto `(cDID_800Transfer, dFecha)` en `tbl_historico_*`?
+
+## Nuevas restricciones de arquitectura
+
+- **CNST-ETL-005:** Las tablas `tbl_historico_tN_YYYY` no tienen índices. Todo acceso
+  del ETL implica full table scan. Los SPs deben: (a) hacer una sola pasada por tabla
+  por run, (b) cubrir todos los DIDs en un solo `WHERE IN`, (c) nunca materializar datos
+  brutos en tablas temporales intermedias.
 
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

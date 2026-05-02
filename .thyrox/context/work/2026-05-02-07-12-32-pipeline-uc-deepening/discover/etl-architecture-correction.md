@@ -350,9 +350,9 @@ en estado inválido:
 | `CLIENTE_COLGO` | `centro_transferencia` | cliente colgó antes de transferencia completa |
 
 **Distribución de `CASO_ERROR_CEROS`:** aparece en Q02_25 y Q03_25, NO en Q01_25.
-Esto es consistente con el problema reportado en `dFecha` de `tbl_historico_t3_2025`
-(y posiblemente `t2_2025`). La causa exacta del defecto en `dFecha` está pendiente
-de documentación formal (G-29).
+Esto es consistente con el problema documentado en `dHoraInicio`/`dHoraFin` de
+`tbl_historico_t2_2025` y `t3_2025` (G-29 — ver `real-db-schema-analysis.md`).
+El problema NO es en `dFecha` — esa columna funciona correctamente como DATE.
 
 ---
 
@@ -374,7 +374,9 @@ ALTER TABLE temp ADD INDEX idx_...;  -- reconstruir B-tree sobre 34M filas = len
 **Por qué es lento:**
 - INSERT masivo de ~34M filas en InnoDB (escritura en disco)
 - ALTER TABLE post-carga = O(N log N) sobre 34M filas
-- Full table scans si no hay índice en `(dFecha, cDID_800Transfer)` en las fuentes
+- **Full table scans CONFIRMADOS** — `tbl_historico_*` NO tienen índices (PROVEN,
+  confirmado por el equipo 2026-05-02). Cada SELECT sobre estas tablas escanea
+  la totalidad de ~11-14M filas/quarter sin reducción de I/O.
 
 ### Patrón correcto para los SPs de ETL:
 
@@ -406,6 +408,53 @@ El INSERT escribe ~3 filas (una por DID) — no 11M.
 | `@ONacionalB` ausente en Q2/Q3 | solo Q1 tiene 3 DIDs | todos los quarters: 3 DIDs |
 | `@Q1_inicio = '2025-02-01'` | falta enero | `'2025-01-01'` |
 | `@Q3_fin = '2025-07-31'` | solo julio | `'2025-09-30'` |
+
+---
+
+## 13. Restricción CNST-ETL-005 — Sin índices en tablas brutas (PROVEN)
+
+**Confirmado por el equipo (2026-05-02):** Las tablas `tbl_historico_tN_YYYY`
+NO tienen ningún índice.
+
+**CNST-ETL-005:** Todo acceso a `tbl_historico_tN_YYYY` desde los SPs del ETL
+implica un full table scan sobre ~11-14M filas por trimestre. Esta es una
+restricción arquitectónica conocida del sistema IVR del cliente — IACT no puede
+agregar índices a estas tablas sin coordinación con el proveedor del IVR.
+
+**Implicaciones de diseño obligatorias para los SPs:**
+
+1. **Una sola pasada por tabla por run del ETL.** Nunca hacer N queries separadas
+   sobre la misma `tbl_historico_*` en un mismo SP (N pasadas = N × 11-14M filas).
+
+2. **Cubrir todos los DIDs en un solo `WHERE IN`** — no queries separadas por DID:
+   ```sql
+   -- CORRECTO: un scan, 3 DIDs
+   WHERE cDID_800Transfer IN (19020084, 19028031, 19020001)
+   
+   -- INCORRECTO: 3 scans sobre la misma tabla
+   WHERE cDID_800Transfer = 19020084  -- scan 1
+   WHERE cDID_800Transfer = 19028031  -- scan 2
+   WHERE cDID_800Transfer = 19020001  -- scan 3
+   ```
+
+3. **Agregar todo en un solo SELECT+GROUP BY.** El resultado son centenas de filas
+   que se escriben directamente en la tabla limpia.
+
+4. **Programar el ETL en ventana nocturna de mínima carga IVR** — los full table scans
+   compiten con el I/O del sistema de grabación de llamadas en tiempo real.
+
+5. **No materializar datos brutos en tablas temporales intermedias** — el anti-patrón
+   de REPTRIM001-WS (que tardó 1 día) demuestra el costo de esta decisión.
+
+**Estimación de tiempo de scan por tabla** (INFERRED — sin benchmark real):
+- InnoDB full scan de ~11-14M filas: típicamente 30-120 segundos dependiendo del
+  hardware y carga concurrente
+- Con 7 tablas limpias × 3 tablas brutas posibles = hasta 21 scans si no se optimiza
+- Con el patrón correcto (una sola query por tabla por SP): 3 scans totales por run
+
+**P-12 (NUEVO):** ¿Es viable coordinar con el cliente la creación de al menos un
+índice compuesto `(cDID_800Transfer, dFecha)` en `tbl_historico_*`? Reduciría el
+costo de los full table scans de O(N) a O(log N + resultado).
 
 ---
 
