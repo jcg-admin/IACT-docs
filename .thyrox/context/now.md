@@ -1,20 +1,20 @@
 ```yml
 type: Estado de Sesión
 version: 3.5
-updated_at: 2026-05-02 07:15:26
+updated_at: 2026-05-02 15:30:00
 cold_boot: false
-current_epic: 14
-epic_name: std007-spec-gaps-cleanup (cerrada)
-current_work: .thyrox/context/work/2026-05-02-07-12-32-pipeline-uc-deepening
-stage: idle
-stage_number: —
-current_phase: —
+current_epic: 16
+epic_name: source-corrections-pipeline
+current_work: .thyrox/context/work/2026-05-02-09-54-55-source-corrections-pipeline
+stage: discover
+stage_number: 1
+current_phase: Phase 1 — DISCOVER
 flow: thyrox
-methodology_step: cerrado
+methodology_step: thyrox:discover
 blockers: []
-last_completed_phase: ÉPICA 14 cerrada (std007-spec-gaps-cleanup v2.0.2) — 2026-04-29 17:35
-next_decision_required: "Definir proxima iniciativa: continuar WPs diferidos (#10 infrastructure / #12 operations) o nueva direccion. Commitment STD_007 vigente hasta 2026-05-29."
-stage_sync_required: true
+last_completed_phase: ÉPICA 15 pipeline-uc-deepening — Stage 1 DISCOVER completado (2026-05-02)
+next_decision_required: "Q-01: ¿Existe BD PostgreSQL para tablas operacionales Django? Q-02: ¿Hay tabla de tracking de runs ETL en MariaDB? Estas respuestas determinan el contenido de las correcciones en modelo-dual.rst y uc-pip-01."
+stage_sync_required: false
 ```
 
 # IACT-docs — Estado de Sesión
