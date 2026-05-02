@@ -1318,7 +1318,7 @@ incluye:
 - **Llamada / IVR** — interacción telefónica capturada
   por el conmutador. Clase canónica ``Call``.
 - **Ventana ETL** (CNST_006/008) — periodo nocturno de
-  carga read-only. Clase canónica ``ETLExecution``.
+  carga read-only. Clase canónica ``ETLEjecucion``.
 - **SoD** (CNST_030) — separación de responsabilidades
   en el modelo RBAC. Clase canónica ``SeparationRule``.
 - **Buzón interno** (CNST_001) — único canal de
