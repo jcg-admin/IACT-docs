@@ -371,7 +371,37 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 
 ----
 
-11. Historial de Cambios
+11. Ciclo de Vida de una Alerta
+================================
+
+.. uml::
+ :caption: Estados de una alerta — desde el disparo hasta su resolución.
+
+ @startuml
+
+ [*] --> PENDIENTE : condición umbral detectada
+
+ PENDIENTE --> ACTIVA : sistema confirma condición\npersiste (evaluación periódica)
+ PENDIENTE --> [*] : condición ya no se cumple\n(falsa alarma)
+
+ ACTIVA --> RECONOCIDA : operador reconoce alerta\n(UC_ALR_03)
+ ACTIVA --> ACTIVA : suscriptores notificados\nvía buzón interno (CNST_001)
+
+ RECONOCIDA --> RESUELTA : operador marca como resuelta
+ RESUELTA --> [*] : alerta archivada\n(inmutable, CNST_025)
+
+ note right of ACTIVA
+   Si tiene suscriptores activos,
+   el sistema entrega mensaje
+   vía InternalMailbox —
+   nunca por email (CNST_001).
+ end note
+
+ @enduml
+
+----
+
+12. Historial de Cambios
 ========================
 
 .. list-table::

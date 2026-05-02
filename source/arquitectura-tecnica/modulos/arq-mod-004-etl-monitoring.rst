@@ -309,28 +309,31 @@ de transformacion.
 9. Flujo ETL (Solo Supervision)
 ===============================
 
-.. code-block:: text
+.. uml::
+ :caption: Flujo ETL nocturno — el Actor Tiempo dispara la ventana de carga (CNST-006/008).
 
- +----------------+ +------------------+
- | BD IVR | | BD Analytics |
- | (BD operativa) | | (BD analítica) |
- | SOLO LECTURA | | ESCRIBIBLE |
- +-------+--------+ +--------+---------+
- | ^
- .. list-table::
-    :header-rows: 1
+ @startuml
 
-    * - vw_llamadas (vista)
- v |
- .. list-table::
+ actor "Tiempo\n(ventana nocturna)" as T
+ participant "BD Operativa\n(solo lectura)" as BDO
+ participant "Proceso ETL\n(automático)" as ETL
+ participant "BD Analítica\n(escribible)" as BDA
+ participant "Módulo ETL\n(supervisión)" as MON
 
-    * - ETL NOCTURNO (Job automatizado, NO manual desde UI) 1. Extract: SELECT FROM vw_llamadas 2. Transform: Calcular metricas 3. Load: INSERT INTO analytics
- |
- | (registra ejecucion)
- v
- .. list-table::
+ T -> ETL : ventana de carga programada\n(CNST-006/008)
+ ETL -> BDO : extraer desde vista de llamadas\n(SELECT — sin escritura)
+ BDO --> ETL : registros del período
+ ETL -> ETL : transformar y calcular métricas
+ ETL -> BDA : cargar métricas calculadas\n(INSERT)
+ ETL -> MON : registrar ejecución\n{estado, filas, duración}
 
-    * - ETL_MONITORING (SUPERVISION)
+ note over MON
+   El módulo ETL solo supervisa.
+   No interviene en el proceso —
+   observa y reporta estado.
+ end note
+
+ @enduml
 
 ----
 

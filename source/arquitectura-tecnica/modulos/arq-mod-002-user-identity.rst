@@ -323,32 +323,28 @@ alta, modificacion, baja logica, y datos de perfil.
 9. Estados del Usuario
 ======================
 
-.. code-block:: text
+.. uml::
+ :caption: Ciclo de vida del usuario — estados y transiciones (BR-009 soft delete).
 
- .. list-table::
+ @startuml
 
-    * - PENDIENTE_CONFIGURACION
- |
- | (completa preguntas seguridad)
- v
- .. list-table::
+ [*] --> PENDIENTE_CONFIGURACION : alta en el sistema
 
-    * - ACTIVO
- |
- .. list-table::
+ PENDIENTE_CONFIGURACION --> ACTIVO : completa preguntas\nde seguridad
 
-    * - 
- v v
- +----+----+ +-----+-----+
- | INACTIVO| | BLOQUEADO |
- +---------+ +-----------+
- | |
- +-------+-------+
- |
- v
- +------------+-----------+
- | ACTIVO | (reactivacion)
- +------------------------+
+ ACTIVO --> INACTIVO : administrador desactiva\n(soft delete, BR-009)
+ ACTIVO --> BLOQUEADO : intentos fallidos exceden\numbral (ARQ_MOD_003)
+
+ INACTIVO --> ACTIVO : administrador reactiva
+ BLOQUEADO --> ACTIVO : administrador desbloquea
+
+ note right of BLOQUEADO
+   Solo ARQ_MOD_003 (RBAC)
+   puede desbloquear — no el
+   propio usuario.
+ end note
+
+ @enduml
 
 ----
 

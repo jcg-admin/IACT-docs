@@ -345,38 +345,67 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 9. Precedencia de Permisos
 ==========================
 
-.. code-block:: text
+.. uml::
+ :caption: Flujo de evaluación de permisos — precedencia Directo > Rol > Segmento.
 
- ORDEN DE PRECEDENCIA (mayor a menor):
- 
- 1. Permiso DIRECTO (asignado al usuario especificamente)
- - Tiene fecha de expiracion (max 6 meses)
- - Requiere justificacion obligatoria
- 
- 2. Permiso por ROL (heredado del rol asignado)
- - Usuario tiene rol R005
- - R005 tiene permiso reports.view
- - Usuario hereda reports.view
- 
- 3. Permiso por SEGMENTO (heredado del segmento de datos)
- - Usuario tiene segmento CENTRO_NORTE
- - CENTRO_NORTE tiene reports.view limitado
- - Usuario hereda con restriccion de datos
+ @startuml
+
+ start
+
+ :Solicitud de acceso\n(usuario, función);
+
+ if (¿Tiene permiso DIRECTO vigente?) then (sí)
+   :Aplicar permiso directo\n(vence en máx. 6 meses);
+   stop
+ else (no)
+   if (¿Tiene permiso por ROL?) then (sí)
+     :Aplicar permiso heredado\ndel rol asignado;
+     stop
+   else (no)
+     if (¿Tiene permiso por SEGMENTO?) then (sí)
+       :Aplicar permiso con\nrestricción de datos del segmento;
+       stop
+     else (no)
+       :Denegar acceso → 403;
+       stop
+     endif
+   endif
+ endif
+
+ @enduml
 
 ----
 
 10. Reglas SoD (Separation of Duties)
 =====================================
 
-.. code-block:: text
+.. uml::
+ :caption: Evaluación de conflicto SoD — antes de activar cualquier asignación.
 
- CONFLICTOS DEFINIDOS:
- 
- - USERS_CREATOR (R006) <-> AUDIT_VIEWER (R017)
-   Quien crea usuarios no puede ver auditoria completa
- 
- - REPORTS_ADMIN (R003) <-> EXPORT_UNLIMITED (R004)
-   Evita acumulacion de poder sobre datos
+ @startuml
+
+ start
+
+ :Solicitud de asignación\nde función F al usuario U;
+
+ :Obtener funciones activas del usuario U;
+
+ if (¿Alguna función activa entra\nen conflicto SoD con F?) then (sí)
+   :Rechazar asignación\n→ error SoD_VIOLATION;
+   stop
+ else (no)
+   :Registrar asignación;
+   :Emitir AuditEvent\n(PERMISSION_GRANT);
+   stop
+ endif
+
+ note right
+   Conflictos definidos:
+   - Creador de usuarios <-> Auditor
+   - Administrador de reportes <-> Exportación ilimitada
+ end note
+
+ @enduml
 
 ----
 

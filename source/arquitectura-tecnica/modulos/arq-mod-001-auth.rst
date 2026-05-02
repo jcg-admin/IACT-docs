@@ -365,51 +365,33 @@ inactividad.
 9. Flujo de Autenticacion
 =========================
 
-.. code-block:: text
+.. uml::
+ :caption: Flujo de autenticación — login exitoso (flujo principal).
 
- +-------------+ +-------------+ +----------------+
- | Cliente | | ARQ_MOD_001 | | ARQ_MOD_002 |
- | (Interfaz) | | AUTH | | USER_IDENTITY |
- +------+------+ +------+------+ +-------+--------+
- | | |
- | POST /login | |
- |------------------>| |
- | | Validar usuario |
- | |------------------->|
- | | Usuario activo |
- .. list-table::
-    :header-rows: 1
+ @startuml
 
-    * - \ 
-      - <-------------------
-    * - \ 
-      - Validar password
-    * - \ 
-      - ----+
-    * - \ 
-      - <---+
- | | |
- | | Crear sesion BD |
- | |----+ |
- | | | (UserSession) |
- .. list-table::
-    :header-rows: 1
+ participant "Interfaz\nde Usuario" as UI
+ participant "Servicio\nde Autenticación" as AUTH
+ participant "Repositorio\nde Usuarios" as USERS
+ participant "Repositorio\nde Sesiones" as SESSIONS
 
-    * - \ 
-      - <---+
-    * - \ 
-      - Generar token
-    * - \ 
-      - ----+
-    * - \ 
-      - <---+
- | | |
- | 200 + token | |
- .. list-table::
-    :header-rows: 1
+ UI -> AUTH ++ : POST /api/v1/auth/login\n{usuario, contraseña}
+ AUTH -> USERS ++ : verificar usuario activo
+ return usuario encontrado y activo
+ AUTH -> AUTH : validar contraseña contra hash almacenado
+ AUTH -> SESSIONS ++ : invalidar sesión previa (sesión única)
+ return sesión previa invalidada
+ AUTH -> SESSIONS : registrar nueva sesión\n{ip, user-agent, timestamp}
+ AUTH -> AUTH : generar token de autenticación\n(expiración 1 hora)
+ return 200 + token de autenticación
 
-    * - <------------------
-      - \ 
+ note right of AUTH
+   Timeout de 15 minutos por
+   inactividad aplicado por
+   middleware (Actor: Tiempo).
+ end note
+
+ @enduml
 
 ----
 
@@ -448,23 +430,21 @@ inactividad.
 11. Diagrama de Contexto
 ========================
 
-.. code-block:: text
+.. uml::
+ :caption: Dependencias del módulo AUTH — componentes que requiere y que lo requieren.
 
- .. list-table::
+ @startuml
 
-    * - ARQ_MOD_001 AUTH
- |
- .. list-table::
+ component "ARQ_MOD_001\nAutenticación" as AUTH
+ component "ARQ_MOD_002\nIdentidad de Usuario" as USR
+ component "ARQ_MOD_003\nControl de Acceso\n(RBAC)" as RBAC
+ component "ARQ_MOD_007\nAuditoría" as AUD
 
-    * - 
-      - 
- v v v
- +-------------+ +----------------+ +-------------+
- | ARQ_MOD_002 | | ARQ_MOD_003 | | ARQ_MOD_007 |
- | USER_IDENTITY| | RBAC_CORE | | AUDIT |
- | (validar | | (roles para | | (registrar |
- | usuario) | | claims del  | | eventos) |
- +-------------+ +----------------+ +-------------+
+ AUTH --> USR : verifica usuario activo
+ AUTH --> RBAC : obtiene roles para claims del token
+ AUTH --> AUD : emite evento login/logout
+
+ @enduml
 
 ----
 

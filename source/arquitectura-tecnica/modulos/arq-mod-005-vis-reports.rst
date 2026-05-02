@@ -185,26 +185,45 @@ aplica permisos de RBAC_CORE.
 4. Flujo de Acceso
 ==================
 
-.. code-block:: text
+.. uml::
+ :caption: Flujo de acceso a visualizaciones — consulta RBAC, segmentos y exportación.
 
- 1. Usuario entra a VIS_REPORTS
-    |
-    v
- 2. Sistema consulta RBAC_CORE
-    "¿Que dashboards/reportes puede ver?"
-    "¿Tiene permiso de exportacion?"
-    |
-    v
- 3. Aplicar filtro de segmentos
-    (Centro, Servicio, Region segun RBAC)
-    |
-    v
- 4. Mostrar interfaz filtrada:
- - Si tiene 'view' → ve tablas/graficas
- - Si tiene 'export' → ve botones CSV/Excel/PDF
-   |
-   v
- 5. Si exporta → validar limites diarios (CNST_007)
+ @startuml
+
+ start
+
+ :Usuario accede al módulo\nde visualizaciones;
+
+ :Consultar ARQ_MOD_003 RBAC\n¿Qué dashboards/reportes puede ver?\n¿Tiene permiso de exportación?;
+
+ :Aplicar filtro de segmentos de datos\n(Centro, Servicio, Región según RBAC);
+
+ if (¿Tiene permiso 'view'?) then (sí)
+   :Mostrar dashboards y tablas\nfiltradas por segmento;
+   if (¿Tiene permiso 'export'?) then (sí)
+     :Mostrar opciones de exportación\n(CSV / Excel / PDF);
+     if (¿Solicita exportación?) then (sí)
+       :Validar límites diarios (CNST_007);
+       if (¿Dentro del límite?) then (sí)
+         :Encolar job de exportación asíncrona;
+         :Notificar via buzón interno\ncuando esté listo;
+         stop
+       else (límite excedido)
+         :Rechazar → error de cuota;
+         stop
+       endif
+     else (no exporta)
+       stop
+     endif
+   else (sin permiso export)
+     stop
+   endif
+ else (sin permiso view)
+   :Mostrar pantalla vacía\n(sin datos, sin error);
+   stop
+ endif
+
+ @enduml
 
 ----
 
