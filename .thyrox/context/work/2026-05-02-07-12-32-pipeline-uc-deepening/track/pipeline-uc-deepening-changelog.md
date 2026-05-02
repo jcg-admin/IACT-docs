@@ -266,5 +266,34 @@ author: NestorMonroy
   `p_fin` se incrustan literalmente (no son input de usuario — no hay riesgo
   de inyección SQL).
 
+## Correcciones E05 v6.0 documentadas (2026-05-02)
+
+- discover/e05-extract-corrected.md — documento nuevo: E05 v6.0 corregido
+  con las 7 correcciones aplicadas (C-01..C-07). Mantiene la estructura
+  de secciones del original pero con arquitectura, SQL y restricciones
+  alineados al WP.
+
+  Correcciones aplicadas:
+  - C-01 (FATAL): Eliminada asunción de índices en `tbl_historico_*` — CNST-ETL-005
+  - C-02 (FATAL): Arquitectura diaria row-level → trimestral agregada.
+    `tbl_llamadas_limpias` eliminada. `base_ivr_detalle` + `base_ivr_clientes`
+    reemplazan toda la capa de destino.
+  - C-03 (FATAL): Columnas inexistentes eliminadas: `nidRegistro`,
+    `nTiempoEsperaSeg`, `id_CTransferencia` (esta última está en `llamadas_QN`,
+    no en `tbl_historico_*`).
+  - C-04 (IMPORTANTE): `LAG(...) OVER (...)` en Anexo B reemplazado por
+    `TIMESTAMPDIFF(MINUTE, start_time, end_time)` — compatible MariaDB 10.1.
+  - C-05 (IMPORTANTE): UNION ALL hardcodeado (3 tablas 2025) → PREPARE/EXECUTE
+    con tabla dinámica (`p_table` construido por sp_etl_maestro).
+  - C-06 (IMPORTANTE): `WHERE DATE(dFecha) = p_fecha` → `WHERE dFecha BETWEEN
+    p_inicio AND p_fin`. La forma original inhabilita índices incluso si existieran.
+  - C-07 (IMPORTANTE): `fn_corregir_timestamps`, `fn_determinar_estado`,
+    `fn_calcular_duracion` eliminadas — innecesarias en diseño agregado.
+    Solo `fn_extraer_codigo_centro` se conserva como lógica inline.
+
+- discover/etl-job-flow-design.md — **v2.2.0 (diagrama corregido)**: PASO 2
+  del diagrama de flujo corregido de ELSEIF hardcodeado a cálculo dinámico
+  con YEAR()/QUARTER().
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

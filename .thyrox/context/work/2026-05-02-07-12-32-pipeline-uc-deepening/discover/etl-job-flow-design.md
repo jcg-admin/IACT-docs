@@ -1,6 +1,6 @@
 ```yml
 created_at: 2026-05-02 08:44:41
-updated_at: 2026-05-02 11:00:00
+updated_at: 2026-05-02 09:30:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
@@ -218,24 +218,19 @@ CREATE TABLE base_ivr_clientes (
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
-│  PASO 2: DETERMINAR QUARTER Y TABLA FUENTE           │
+│  PASO 2: DETERMINAR QUARTER Y TABLA FUENTE (D-20)    │
 ├──────────────────────────────────────────────────────┤
+│  Cálculo dinámico — funciona para cualquier año.     │
 │  Solo se reprocesa el quarter ACTIVO.                │
-│  Los quarters anteriores no cambian en base_ivr_*.   │
 │                                                      │
-│  IF CURDATE() BETWEEN '2025-01-01' AND '2025-03-31' │
-│    @quarter = 'Q01_25'                               │
-│    @tabla   = 'tbl_historico_t1_2025'                │
-│    @inicio  = '2025-01-01'  @fin = '2025-03-31'      │
-│  ELSEIF ... '2025-04-01' AND '2025-06-30'            │
-│    @quarter = 'Q02_25'                               │
-│    @tabla   = 'tbl_historico_t2_2025'                │
-│    @inicio  = '2025-04-01'  @fin = '2025-06-30'      │
-│  ELSEIF ... '2025-07-01' AND '2025-09-30'            │
-│    @quarter = 'Q03_25'                               │
-│    @tabla   = 'tbl_historico_t3_2025'                │
-│    @inicio  = '2025-07-01'  @fin = '2025-09-30'      │
-│  END IF                                              │
+│  v_year    = YEAR(CURDATE())      -- ej: 2026        │
+│  v_qnum    = QUARTER(CURDATE())   -- ej: 2           │
+│  v_quarter = 'Q02_26'                                │
+│  v_table   = 'tbl_historico_t2_2026'                 │
+│  v_inicio  = '2026-04-01'                            │
+│  v_fin     = '2026-06-30'                            │
+│                                                      │
+│  Quarters pasados: sp_etl_historico(year, qnum)      │
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
