@@ -17,19 +17,15 @@ Parte 8 — Diagramas UML
  actor "Frontend" as FE
 
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_01\nVer Dashboard" as UC01
-   usecase "Cargar KPIs" as KPI
-   usecase "Filtro segmento\n(CNST-008)" as SEG
+   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_RPT_01\nVer Dashboard IVR" as UC01
    usecase "Auto-refresh" as REF
-   usecase "Cache lookup" as CACHE
  }
 
  USR --> FE
  FE --> UC01
- UC01 ..> KPI : <<include>>
- UC01 ..> SEG : <<include>>
+ UC01 ..> INC : <<include>>
  UC01 ..> REF : <<extend>>
- UC01 ..> CACHE : <<include>>
 
  note bottom of UC01
    Read-only Analytics (CNST-007).
@@ -65,7 +61,7 @@ Parte 8 — Diagramas UML
    stop
  else (no)
  endif
- :Query AnalyticsRepo agregada;
+ :Consultar Servicio de Reportes (sp_rpt_centros_xsegmento);
  :Calcular derivados (TMO, SL, abandono);
  :Construir response;
  :Cache write;
@@ -87,7 +83,7 @@ Parte 8 — Diagramas UML
  participant "DashboardEndpoint" as DE
  participant "SegmentResolver" as SR
  participant "MetricsCache" as MC
- participant "AnalyticsRepo" as AR
+ participant "ServicioReportes\n(sp_rpt_*)" as AR
  participant "KPICalculator" as KC
 
  U -> FE: abrir dashboard
@@ -97,7 +93,7 @@ Parte 8 — Diagramas UML
  SR --> DE: segments
  DE -> MC: get(key)
  MC --> DE: miss
- DE -> AR: aggregate(segments, period)
+ DE -> AR: cursor.callproc(sp_rpt_centros_xsegmento, [trimestre])
  AR --> DE: rows agregados
  DE -> KC: derive_kpis(rows)
  KC --> DE: kpis

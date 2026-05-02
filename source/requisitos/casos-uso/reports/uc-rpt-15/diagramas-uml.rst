@@ -10,16 +10,17 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_transfer_reports" as USR
+ actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_15\nReporte Transfers" as UC15
-   usecase "Heatmap" as HM
-   usecase "Drill agente/reason" as DR
+   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_RPT_15\nReporte Transferencias" as UC15
+   usecase "Ver por segmento" as SEG
  }
  USR --> UC15
- UC15 ..> HM : <<include>>
- UC15 ..> DR : <<extend>>
+ UC15 ..> INC : <<include>>
+ UC15 ..> SEG : <<extend>>
  @enduml
 
 8.2 Actividad
@@ -28,14 +29,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET con period;
- :JWT + RBAC + segmento;
+ :GET /api/v1/reportes/transferencias/?trimestre=;
+ :JWT + RBAC (view_transfer_reports);
+ :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
- :Query TransferEvent;
- :Computar totals + breakdowns;
- :Build heatmap;
- :Cache write;
+ :Consultar sp_rpt_centros_transferencia;
+ :Consultar sp_rpt_centros_xsegmento;
+ :Construir ReporteTransferencias;
+ :Cache write TTL 300s;
  :200;
  stop
  @enduml
@@ -46,26 +49,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- class TransferReportService
- class TransferEventRepo {
-   aggregate, build_heatmap
+ !include ../../_static/plantuml-styles.puml
+ class TransferenciasReportService {
+   + get(trimestre, invoker) : ReporteTransferencias
  }
- TransferReportService --> TransferEventRepo
- @enduml
-
-8.4 Heatmap (componente)
-========================
-
-.. uml::
-
- @startuml
- component "From Queues" as F
- component "Heatmap matrix" as H
- component "To Queues" as T
- F --> H
- T --> H
- note right of H
-   Cada celda: count(from→to)
-   Colores: bajo / medio / alto
- end note
+ class ServicioReportes {
+   + centros_transferencia(trimestre) : list[dict]
+   + centros_xsegmento(trimestre) : list[dict]
+ }
+ class SegmentResolver
+ TransferenciasReportService --> ServicioReportes
+ TransferenciasReportService --> SegmentResolver
  @enduml

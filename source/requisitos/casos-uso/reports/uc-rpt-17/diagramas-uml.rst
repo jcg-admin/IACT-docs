@@ -10,18 +10,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_unique_clients_reports" as USR
+ actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_17\nClientes Unicos" as UC17
-   usecase "Distinct count" as DC
-   usecase "Recurrence" as R
-   usecase "New vs returning" as NR
+   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_RPT_17\nClientes Unicos IVR" as UC17
  }
  USR --> UC17
- UC17 ..> DC : <<include>>
- UC17 ..> R : <<include>>
- UC17 ..> NR : <<include>>
+ UC17 ..> INC : <<include>>
  @enduml
 
 8.2 Actividad
@@ -30,54 +27,53 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET con period;
- :JWT + RBAC + segmento;
+ :GET /api/v1/reportes/clientes/?trimestre=;
+ :JWT + RBAC (view_unique_clients_reports);
+ :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
- if (Volumen > umbral?) then (si)
-   :HLL estimate;
- else (no)
-   :COUNT(DISTINCT) exacto;
- endif
- :Recurrence distribution;
- :New vs returning (prior period);
- :Top N anonimizado;
- :Cache write;
- :200;
+ :Consultar Servicio de Reportes (sp_rpt_clientes);
+ :Filtrar por segmentos del usuario;
+ :Cache write TTL 300s;
+ :200 con ReporteClientes (telefono_hashed);
  stop
  @enduml
 
-8.3 Hash flow
-=============
+8.3 Flujo de anonimizacion (ETL)
+==================================
 
 .. uml::
 
  @startuml
- component "ETL" as E
- component "client_id raw" as CR
- component "tenant_salt" as TS
- component "client_hash" as CH
- component "Analytics" as A
- CR --> E
- TS --> E
- E --> CH : sha256
- CH --> A
- note right of E
-   client_id raw NUNCA llega a
-   Analytics. Solo el hash.
+ !include ../../_static/plantuml-styles.puml
+ component "tbl_historico_*\n(cTelefono_Origen raw)" as SRC
+ component "sp_etl_base_clientes\n(hash unidireccional)" as ETL
+ component "base_ivr_clientes\n(telefono_hashed)" as DEST
+ component "sp_rpt_clientes\n(solo lee hash)" as RPT
+ SRC --> ETL
+ ETL --> DEST
+ DEST --> RPT
+ note right of ETL
+   PII nunca almacenada
+   en base analitica
  end note
  @enduml
 
-8.4 Distribucion
-================
+8.4 Clases
+==========
 
 .. uml::
 
  @startuml
- [*] --> singletons : 1 call
- [*] --> doublets : 2 calls
- [*] --> recurrent : 3+ calls
- singletons --> [*]
- doublets --> [*]
- recurrent --> [*]
+ !include ../../_static/plantuml-styles.puml
+ class ClientesReportService {
+   + get(trimestre, invoker) : ReporteClientes
+ }
+ class ServicioReportes {
+   + clientes(trimestre) : list[dict]
+ }
+ class SegmentResolver
+ ClientesReportService --> ServicioReportes
+ ClientesReportService --> SegmentResolver
  @enduml

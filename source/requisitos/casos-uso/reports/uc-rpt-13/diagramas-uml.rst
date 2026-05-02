@@ -10,14 +10,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_queue_reports" as USR
+ actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_13\nReporte Colas" as UC13
-   usecase "Detalle cola" as DET
+   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_RPT_13\nReporte Abandono" as UC13
  }
  USR --> UC13
- UC13 ..> DET : <<extend>>
+ UC13 ..> INC : <<include>>
  @enduml
 
 8.2 Actividad
@@ -26,14 +27,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET con period + filtros;
- :JWT + RBAC + segmento;
+ :GET /api/v1/reportes/abandono/?trimestre=;
+ :JWT + RBAC (view_queue_reports);
+ :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
- :Query QueueDailyStat;
- :Calcular ASA, SL, abandono;
- :Cache write;
- :200;
+ :Consultar Servicio de Reportes (sp_rpt_llamadas_abandonadas);
+ :Filtrar por segmentos del usuario;
+ :Cache write TTL 300s;
+ :200 con ReporteAbandono;
  stop
  @enduml
 
@@ -43,15 +46,18 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- class QueueReportService {
-   list, detail
+ !include ../../_static/plantuml-styles.puml
+ class AbandonoReportService {
+   + get(trimestre, invoker) : ReporteAbandono
  }
- class QueueDailyStatRepo {
-   aggregate, stream
+ class ServicioReportes {
+   + llamadas_abandonadas(trimestre) : list[dict]
  }
- class KPICalculator
- QueueReportService --> QueueDailyStatRepo
- QueueReportService --> KPICalculator
+ class SegmentResolver {
+   + resolve(user_id) : list[str]
+ }
+ AbandonoReportService --> ServicioReportes
+ AbandonoReportService --> SegmentResolver
  @enduml
 
 8.4 Secuencia
@@ -60,12 +66,16 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
- participant "Endpoint" as E
- database "Analytics" as A
- U -> E: GET /queues/
- E -> E: JWT + RBAC
- E -> A: aggregate
- A --> E: rows
- E --> U: 200 + items
+ !include ../../_static/plantuml-styles.puml
+ actor "Supervisor" as U
+ participant "View" as V
+ participant "SegmentResolver" as SR
+ database "Base Analitica IVR\n(sp_rpt_llamadas_abandonadas)" as DB
+ U -> V: GET /reportes/abandono/
+ V -> V: JWT + RBAC
+ V -> SR: resolve(user_id)
+ SR --> V: [nacional_A, ...]
+ V -> DB: cursor.callproc(sp_rpt_llamadas_abandonadas, [trimestre])
+ DB --> V: rows abandono por segmento
+ V --> U: 200 ReporteAbandono
  @enduml

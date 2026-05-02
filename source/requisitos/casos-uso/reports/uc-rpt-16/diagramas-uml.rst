@@ -10,16 +10,19 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_ivr_reports" as USR
+ actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
-   usecase "UC_RPT_16\nReporte IVR" as UC16
-   usecase "Path mining" as PM
-   usecase "Heatmap nodos" as HM
+   usecase "UC_INC_RPT_01\nResolver Segmento" as INC
+   usecase "UC_RPT_16\nReporte Menus IVR" as UC16
+   usecase "Ver menus redirigidos" as VR
+   usecase "Ver errores de menu" as VE
  }
  USR --> UC16
- UC16 ..> PM : <<include>>
- UC16 ..> HM : <<include>>
+ UC16 ..> INC : <<include>>
+ UC16 ..> VR : <<extend>>
+ UC16 ..> VE : <<extend>>
  @enduml
 
 8.2 Actividad
@@ -28,43 +31,55 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET con period;
- :JWT + RBAC + segmento;
+ :GET /api/v1/reportes/menus-ivr/?trimestre=&vista=;
+ :JWT + RBAC (view_ivr_reports);
+ :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
- :Query IVRSessionEvent;
- :Computar totals + distribucion;
- :Path mining (top N);
- :Heatmap drop-off;
- :Cache write;
- :200;
+ if (vista = 'redirigidos') then
+   :Consultar sp_rpt_menu_redirigidos;
+ elseif (vista = 'menu_centro') then
+   :Consultar sp_rpt_menu_centro;
+ else
+   :Consultar sp_rpt_cMENU_ERROR;
+ endif
+ :Filtrar por segmentos del usuario;
+ :Cache write TTL 300s;
+ :200 con ReporteMenuIVR;
  stop
  @enduml
 
-8.3 Path tree
-=============
-
-.. uml::
-
- @startuml
- (Entry) -> (Opcion 1) : 60%
- (Entry) -> (Opcion 2) : 25%
- (Entry) -> (Hangup) : 15%
- (Opcion 1) -> (Opcion 1.1) : 80%
- (Opcion 1) -> (Hangup) : 20%
- @enduml
-
-8.4 Componente path mining
+8.3 Distribucion de menus
 ==========================
 
 .. uml::
 
  @startuml
- component "Session events" as SE
- component "Path extractor" as PE
- component "Top-N counter" as TC
- component "Top paths report" as TP
- SE --> PE
- PE --> TC
- TC --> TP
+ !include ../../_static/plantuml-styles.puml
+ (Entry IVR) --> (Menu principal) : n llamadas
+ (Menu principal) --> (Opcion 1 - transferencia) : n
+ (Menu principal) --> (cliente_colgo) : n abandono
+ (Menu principal) --> (SinOpcion_Cabecera) : n abandono
+ (Menu principal) --> (VACIO) : n sin menu
+ @enduml
+
+8.4 Clases
+==========
+
+.. uml::
+
+ @startuml
+ !include ../../_static/plantuml-styles.puml
+ class MenuIVRReportService {
+   + get(trimestre, vista, invoker) : ReporteMenuIVR
+ }
+ class ServicioReportes {
+   + menu_redirigidos(trimestre) : list[dict]
+   + menu_centro(trimestre) : list[dict]
+   + cmenu_error(trimestre) : list[dict]
+ }
+ class SegmentResolver
+ MenuIVRReportService --> ServicioReportes
+ MenuIVRReportService --> SegmentResolver
  @enduml
