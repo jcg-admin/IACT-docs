@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Pipeline" {
@@ -27,7 +26,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/etl/supervision/;
  :JWT + RBAC (ver_estado_etl);
@@ -43,7 +41,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  [*] --> en_ejecucion : Disparador ETL invoca SP
  en_ejecucion --> exitoso : SP completa sin errores
  en_ejecucion --> fallido : SP lanza error
@@ -57,7 +54,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class SupervisionETLService
  class ETLEjecucionRepo
  class ResumenSaludBuilder

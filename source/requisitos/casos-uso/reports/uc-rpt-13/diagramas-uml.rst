@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Reports" {
@@ -27,7 +26,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/reportes/abandono/?trimestre=;
  :JWT + RBAC (view_queue_reports);
@@ -46,7 +44,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class AbandonoReportService {
    + get(trimestre, invoker) : ReporteAbandono
  }
@@ -66,7 +63,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  actor "Supervisor" as U
  participant "View" as V
  participant "SegmentResolver" as SR

@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Analista\nde Datos" as USR
  rectangle "MOD_Pipeline" {
@@ -25,7 +24,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/datos/disponibilidad/?trimestre=;
  :JWT + RBAC (ver_disponibilidad_datos);
@@ -46,7 +44,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  [*] --> fresco : ETL exitoso (< 12 hs)
  fresco --> degradado : > 12 hs sin actualizacion
  degradado --> vencido : > 24 hs sin actualizacion
@@ -60,7 +57,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  component "DisponibilidadDatosService" as S
  component "ETLEjecucionRepo" as R
  component "DisponibilidadBuilder" as B

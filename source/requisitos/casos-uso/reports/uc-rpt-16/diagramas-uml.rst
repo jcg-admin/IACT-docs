@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
@@ -31,7 +30,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/reportes/menus-ivr/?trimestre=&vista=;
  :JWT + RBAC (view_ivr_reports);
@@ -56,7 +54,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  (Entry IVR) --> (Menu principal) : n llamadas
  (Menu principal) --> (Opcion 1 - transferencia) : n
  (Menu principal) --> (cliente_colgo) : n abandono
@@ -70,7 +67,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class MenuIVRReportService {
    + get(trimestre, vista, invoker) : ReporteMenuIVR
  }

@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
@@ -27,7 +26,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/reportes/clientes/?trimestre=;
  :JWT + RBAC (view_unique_clients_reports);
@@ -46,7 +44,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  component "tbl_historico_*\n(cTelefono_Origen raw)" as SRC
  component "sp_etl_base_clientes\n(hash unidireccional)" as ETL
  component "base_ivr_clientes\n(telefono_hashed)" as DEST
@@ -66,7 +63,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class ClientesReportService {
    + get(trimestre, invoker) : ReporteClientes
  }

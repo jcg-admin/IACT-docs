@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Administrador\nde Pipeline" as USR
  actor "Disparador ETL" as DE
@@ -27,7 +26,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :POST /api/v1/etl/reintento/;
  :JWT + RBAC (reintentar_etl);
@@ -48,7 +46,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  [*] --> en_ejecucion : POST reintento aceptado
  en_ejecucion --> exitoso : SP completa sin errores
  en_ejecucion --> fallido : SP lanza error
@@ -62,7 +59,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  actor "Admin Pipeline" as O
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R

@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Pipeline" {
@@ -29,7 +28,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/etl/errores/ con filtros;
  :JWT + RBAC (ver_errores_etl);
@@ -45,7 +43,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class ErroresETLService
  class ETLEjecucionRepo
  ErroresETLService --> ETLEjecucionRepo
@@ -57,7 +54,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  actor "Supervisor" as U
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R

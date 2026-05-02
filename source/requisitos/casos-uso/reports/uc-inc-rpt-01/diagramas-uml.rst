@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Analista / Supervisor\n(actor del UC invocador)" as USR
  rectangle "MOD_Reports" {
@@ -27,7 +26,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :Leer DIDs RBAC del usuario;
  if (Es administrador global?) then (si)
@@ -49,7 +47,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class SegmentResolver {
    + resolve(user_id) : list[str]
  }

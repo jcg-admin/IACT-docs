@@ -10,7 +10,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  left to right direction
  actor "Analista\nde Datos" as USR
  rectangle "MOD_Reports" {
@@ -29,7 +28,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  start
  :GET /api/v1/reportes/transferencias/?trimestre=;
  :JWT + RBAC (view_transfer_reports);
@@ -49,7 +47,6 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- !include ../../_static/plantuml-styles.puml
  class TransferenciasReportService {
    + get(trimestre, invoker) : ReporteTransferencias
  }
