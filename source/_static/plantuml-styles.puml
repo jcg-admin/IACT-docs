@@ -11,8 +11,8 @@
 '   !include ../../../_static/plantuml-styles.puml          (from arquitectura/)
 '
 ' SPEC REFERENCE:
-'   - Phase A: plantuml-java-integration-impl-requirements-spec.md SPEC-002
-'   - Phase C: plantuml-mapping-consolidation-analysis.md OPTION B
+'   - Phase A: plantuml-java-integration-impl-requirements-spec SPEC-002
+'   - Phase C: plantuml-mapping-consolidation-analysis OPTION B
 ' =============================================================================
 
 ' =============================================================================

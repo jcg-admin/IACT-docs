@@ -81,3 +81,84 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'src'))
 - Check spelling of filenames
 - Make sure files are in same directory or use correct paths
 - Check extension: `.rst` or `.md`
+
+## Lessons Learned: Bulk RST File Generation
+
+### Lesson: Avoid Python heredoc to generate RST files
+
+**Anti-pattern:**
+
+Using a Python script with embedded heredocs/multi-line strings to
+batch-generate RST files. Example:
+
+```python
+content = make_meta(...) + heading('Title', '=') + ...
+Path('file.rst').write_text(content)
+```
+
+**Why it fails:**
+
+1. **Title underline accuracy.** Python `len()` counts characters
+   correctly (UTF-8 aware), but if the heading function has off-by-one
+   logic, every file gets the same bug. RST is strict — a title with
+   `=` underline shorter than the title text causes
+   `Title underline too short` warning.
+2. **String escaping fragility.** RST uses backticks heavily. Embedded
+   in Python heredocs (especially f-strings), backticks must be
+   escaped with backslashes, doubling complexity per artifact.
+3. **Whitespace sensitivity.** RST literal blocks (`::`),
+   list-table indentation, and `.. note::` directives all require
+   exact whitespace. Generating via Python concatenation creates
+   subtle whitespace bugs hard to debug.
+4. **No incremental feedback.** A single bad template multiplies
+   the bug across N generated files.
+
+**Correct pattern:**
+
+Use the Write tool directly per file. Each file gets:
+
+- Manual visual verification of the title underline length.
+- Direct RST authoring without escape complications.
+- Immediate Sphinx build feedback when problems exist.
+
+**When Python script DOES make sense:**
+
+- Bulk **renaming** of files (preserving content).
+- Bulk **find-and-replace** with regex (modifying existing files).
+- **Validation** scripts (read-only checks of underline lengths,
+  metadata presence, etc.).
+
+**Verification heuristic before saving an RST file:**
+
+```
+For each title heading in the file:
+    Title text length (in characters, UTF-8 aware) <= underline length
+    Underline character is one of: = - ^ " ~ ` * + #
+    Underline character is consistent for the same hierarchical level
+```
+
+**Recovery script for batch-generated files with title underline bugs:**
+
+```python
+from pathlib import Path
+
+UNDERLINE_CHARS = set('=-^"~`*+#')
+
+def fix_underlines(path):
+    text = path.read_text()
+    lines = text.split('\n')
+    for i in range(len(lines) - 1):
+        title, underline = lines[i], lines[i+1]
+        if (underline and len(set(underline)) == 1
+            and underline[0] in UNDERLINE_CHARS
+            and len(underline) >= 3 and len(title) > 0
+            and len(underline) < len(title)):
+            lines[i+1] = underline[0] * len(title)
+    path.write_text('\n'.join(lines))
+```
+
+This lesson was registered after generating the
+`source/base-cognitiva/_ejemplos-pedagogicos/ejemplo-dark-mode/`
+saga in the IACT-docs project (16 RST files), where Python heredoc
+generation introduced 6 title-underline bugs that had to be fixed
+post-hoc.

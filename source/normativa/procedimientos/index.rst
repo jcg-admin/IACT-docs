@@ -1,3 +1,15 @@
+.. meta::
+ :artefacto: Index_Procedimientos
+ :tipo: Indice
+ :dominio: normativa
+ :subdominio: procedimientos
+ :estado: Aprobado
+ :version: 2.0.0
+ :fecha_creacion: 2026-01-07
+ :ultimo_cambio: 2026-04-28
+ :autor: Equipo IACT
+ :clasificacion: Interno
+
 .. _procedimientos:
 
 ==============
@@ -7,102 +19,194 @@ Procedimientos
 Propósito
 =========
 
-Este subdominio contiene los **procedimientos operativos** del proyecto IACT, 
-estableciendo pasos auditables para ejecutar tareas de manera repetible y con calidad.
+Este subdominio agrupa los **procedimientos** del proyecto IACT:
+secuencias paso-a-paso que describen cómo se ejecutan las
+operaciones recurrentes en cada disciplina del proyecto
+(desarrollo, devops, operaciones, calidad, gobernanza,
+documentación).
 
-Contenido
-=========
+Categorización
+==============
 
-Los procedimientos documentan:
+- ``PROC-MOD-NNN-desc`` — procedimientos generales de un módulo
+  funcional (DEV, DEVOPS, OPS, QA, GOB).
+- ``PROCED-MOD-NNN-desc`` — procedimientos de gobernanza
+  (creación de artefactos, revisión, aprobación).
+- ``PROC_Desc`` — procedimientos de generación y derivación de
+  artefactos documentales (variante sin módulo, scope
+  transversal).
 
-* Elaboración y gestión de requisitos
-* Control de cambios
-* Gestión de trazabilidad
-* Versionamiento de artefactos
+----
 
-.. note::
-   Contenido en desarrollo. Los procedimientos se agregarán conforme se definan 
-   los procesos del proyecto.
-
+Procedimientos generales (PROC-MOD-NNN)
+=======================================
 
 .. toctree::
-   :hidden:
-   :maxdepth: 1
+ :maxdepth: 1
+ :caption: Desarrollo (DEV)
 
-   Deployment del Backend IACT- README
-   GAPS-CRITICOS-SOLUCIONADOS-PROCED-GOB-009
-   PROC-001-gobernanza_sdlc
-   PROC-DEV-001-pipeline_trabajo_iact
-   PROC-DEV-002-sdlc_process
-   PROC-DEVOPS-001-devops_automation
-   PROC-GOB-001-mapeo_procesos_templates
-   PROC-GOB-008-reorganizacion-estructura-documental
-   PROC-OPS-001-deployment
-   PROC-OPS-002-setup-entorno-desarrollo
-   PROC-QA-001-actividades_garantia_documental
-   PROC-QA-002-estrategia_qa
-   PROCED-DEV-001-crear_pull_request
-   PROCED-DEV-002-code_review
-   PROCED-DEV-003-resolver_conflictos_merge
-   PROCED-DEVOPS-001-deploy_staging
-   PROCED-GOB-001-crear_adr
-   PROCED-GOB-002-actualizar_documentacion
-   PROCED-GOB-003-documentar-regla-negocio
-   PROCED-GOB-004-crear-caso-uso
-   PROCED-GOB-005-analisis-impacto-cambios
-   PROCED-GOB-006-generar-diagrama-uml-plantuml
-   PROCED-GOB-007-consolidacion-ramas-git
-   PROCED-GOB-008-configurar-permisos-git-push
-   PROCED-GOB-009-refactorizaciones-codigo-tdd
-   PROCED-QA-001-ejecutar_tests
-   PROC_Actualizacion_Modelo_Documental_1_0_0
-   PROC_Aprobacion_Documentos_1_0_0
-   PROC_Auditoria_Documental_1_0_0
-   PROC_Cambio_Requisitos_1_0_0
-   PROC_Congelamiento_Subdominio_1_0_0
-   PROC_Crear_Estructura_Directorios_Tmp_1_0_0
-   PROC_Crear_Plan_Analisis_1_0_0
-   PROC_Derivacion_BR_UC_1_0_0
-   PROC_Derivacion_BReq_BR_1_0_0
-   PROC_Derivacion_FR_CODE_1_0_0
-   PROC_Derivacion_FR_TST_1_1_0
-   PROC_Derivacion_UC_FR_1_0_0
-   PROC_Descongelamiento_Subdominio_1_0_0
-   PROC_Generacion_ADR_1_0_0
-   PROC_Generacion_API_1_0_0
-   PROC_Generacion_BR_1_0_0
-   PROC_Generacion_BReq_1_0_0
-   PROC_Generacion_CNST_1_0_0
-   PROC_Generacion_FD_1_0_0
-   PROC_Generacion_FR_1_0_0
-   PROC_Generacion_Index_1_0_0
-   PROC_Generacion_MOD_1_0_0
-   PROC_Generacion_NFR_1_0_0
-   PROC_Generacion_POL_1_0_0
-   PROC_Generacion_RTM_1_0_0
-   PROC_Generacion_STD_1_0_0
-   PROC_Generacion_TST_1_0_0
-   PROC_Generacion_UC_1_0_0
-   PROC_Generacion_VIEW_1_0_0
-   PROC_Identificar_Gaps_Huerfanos_1_0_0
-   PROC_Publicacion_Documentacion_1_0_0
-   PROC_Revision_Artefactos_1_0_0
-   PROC_Revision_TPL_Previo_Generacion_1_0_0
-   PROC_Revision_UC_Previo_Derivacion_1_0_0
-   PROC_Validacion_Sphinx_1_0_0
-   PROC_Verificacion_Cobertura_1_0_0
-   PROC_Versionado_Semantico_1_0_0
-   Procedimientos - frontend-README
-   Procesos de Gobernanza-README
-   RESUMEN_SDLC_AI_DOCS
-   guia_completa_desarrollo_features
-   procedimiento_analisis_seguridad
-   procedimiento_desarrollo_local
-   procedimiento_diseno_tecnico
-   procedimiento_gestion_cambios
-   procedimiento_instalacion_entorno
-   procedimiento_qa
-   procedimiento_release
-   procedimiento_revision_documental
-   procedimiento_trazabilidad_requisitos
-   procedimientos operacionales-readme
+ proc-dev-001-pipeline-trabajo-iact
+ proc-dev-002-sdlc-process
+
+.. toctree::
+ :maxdepth: 1
+ :caption: DevOps
+
+ proc-devops-001-devops-automation
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Operaciones (OPS)
+
+ proc-ops-001-deployment
+ proc-ops-002-setup-entorno-desarrollo
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Calidad (QA)
+
+ proc-qa-001-actividades-garantia-documental
+ proc-qa-002-estrategia-qa
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Gobernanza (GOB)
+
+ proc-gob-001-mapeo-procesos-templates
+ proc-gob-002-gobernanza-sdlc
+ proc-gob-008-reorganizacion-estructura-documental
+
+----
+
+Procedimientos de gobernanza (PROCED-MOD-NNN)
+=============================================
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Desarrollo
+
+ proced-dev-001-crear-pull-request
+ proced-dev-002-code-review
+ proced-dev-003-resolver-conflictos-merge
+
+.. toctree::
+ :maxdepth: 1
+ :caption: DevOps
+
+ proced-devops-001-deploy-staging
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Gobernanza de excepciones
+
+ proc-req-015-excepciones-cnst
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Gobernanza
+
+ proced-gob-001-crear-adr
+ proced-gob-002-actualizar-documentacion
+ proced-gob-003-documentar-regla-negocio
+ proced-gob-004-crear-caso-uso
+ proced-gob-005-analisis-impacto-cambios
+ proced-gob-006-generar-diagrama-uml-plantuml
+ proced-gob-007-consolidacion-ramas-git
+ proced-gob-008-configurar-permisos-git-push
+ proced-gob-009-refactorizaciones-codigo-tdd
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Calidad
+
+ proced-qa-001-ejecutar-tests
+
+----
+
+Procedimientos de generación de artefactos (PROC_Desc)
+======================================================
+
+Procedimientos que rigen cómo se generan los artefactos del
+proyecto a partir de plantillas y reglas de derivación.
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Generación por tipo de artefacto
+
+ proc-req-001-generacion-breq
+ proc-req-003-generacion-br
+ proc-req-007-generacion-uc
+ proc-req-009-generacion-fr
+ proc-req-010-generacion-nfr
+ proc-req-004-generacion-cnst
+ proc-doc-004-generacion-mod
+ proc-doc-005-generacion-fd
+ proc-doc-006-generacion-view
+ proc-doc-008-generacion-api
+ proc-doc-002-generacion-adr
+ proc-doc-001-generacion-std
+ proc-doc-003-generacion-pol
+ proc-doc-009-generacion-tst
+ proc-doc-007-generacion-rtm
+ proc-doc-010-generacion-index
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Derivación entre niveles
+
+ proc-req-002-derivacion-breq-br
+ proc-req-005-derivacion-br-uc
+ proc-req-008-derivacion-uc-fr
+ proc-req-012-derivacion-fr-code
+ proc-req-011-derivacion-fr-tst
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Revisión y validación
+
+ proc-doc-011-revision-tpl-previo-generacion
+ proc-req-006-revision-uc-previo-derivacion
+ proc-doc-012-revision-artefactos
+ proc-doc-013-validacion-sphinx
+ proc-req-017-verificacion-cobertura
+ proc-req-016-identificar-gaps-huerfanos
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Lifecycle documental
+
+ proc-req-018-crear-plan-analisis
+ proc-doc-014-crear-estructura-directorios-tmp
+ proc-req-014-cambio-requisitos
+ proc-gob-003-aprobacion-documentos
+ proc-gob-006-actualizacion-modelo-documental
+ proc-gob-009-auditoria-documental
+ proc-gob-010-versionado-semantico
+ proc-gob-007-publicacion-documentacion
+ proc-gob-004-congelamiento-subdominio
+ proc-gob-005-descongelamiento-subdominio
+
+.. toctree::
+ :maxdepth: 1
+ :caption: Procedimiento integrador (meta-flujo)
+
+ proc-req-013-elaboracion-completa-requisitos
+
+----
+
+Guías y procedimientos transversales
+====================================
+
+.. toctree::
+ :maxdepth: 1
+
+ guia-completa-desarrollo-features
+ proc-qa-003-analisis-seguridad
+ proc-dev-003-desarrollo-local
+ proc-dev-004-diseno-tecnico
+ proc-gob-011-gestion-cambios
+ proc-ops-003-instalacion-entorno
+ proc-qa-004-qa
+ proc-devops-002-release
+ proc-gob-012-revision-documental
+ proc-req-019-trazabilidad-requisitos

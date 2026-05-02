@@ -1,79 +1,142 @@
-.. IACT - Sistema de Dashboard Analytics documentation master file
+.. IACT - Sistema de Dashboard Analytics — documentación raíz
 
 =====================================
-IACT - Sistema de Dashboard Analytics
+IACT — Sistema de Dashboard Analytics
 =====================================
 
 .. image:: _static/img/logo.svg
-   :alt: IACT Logo
-   :align: center
-   :width: 200px
+ :alt: IACT Logo
+ :align: center
+ :width: 200px
 
 ----
 
 Bienvenido a la Documentación del Proyecto IACT
 ===============================================
 
-El proyecto IACT es una solución de **Dashboard Analytics** que conecta datos operativos con necesidades de análisis de negocio mediante un proceso ETL robusto y trazable.
+El proyecto IACT es una solución de **Dashboard Analytics** que conecta
+datos operativos (origen MySQL, modo solo-lectura) con necesidades de
+análisis de negocio (destino PostgreSQL, optimizado) mediante un proceso
+ETL trazable. El frontend (React + Webpack) consume la API REST del
+backend (Django REST Framework) servido por Apache + mod_wsgi sobre
+Ubuntu.
 
-Arquitectura del Sistema
-------------------------
+Stack del producto
+==================
 
-* **Fuente de Datos:** MySQL (operativa, solo lectura)
-* **Destino Analítico:** PostgreSQL (optimizado para consultas)
-* **Backend:** Django REST Framework
-* **Frontend:** React (Dashboard)
+.. list-table::
+   :header-rows: 1
+   :widths: 25 75
 
-Estructura de la Documentación
-==============================
+   * - Capa
+     - Tecnología
+   * - Frontend
+     - React + Webpack
+   * - Backend
+     - Django REST Framework (Python 3.11+)
+   * - Infraestructura
+     - Ubuntu + Apache (mod_wsgi)
+   * - Bases de datos
+     - MySQL (operativa, RO) + PostgreSQL (analítica)
 
-Esta documentación sigue el **Modelo Documental IACT v2.0.0**, organizado en 5 Dominios Primarios que gobiernan 21 Subdominios especializados.
+Estado de la documentación
+==========================
+
+.. note::
+
+ La documentación del producto IACT está organizada en tres
+ capas ortogonales (ver :doc:`base-cognitiva/_metadata/meta-05-estructura-documental`):
+
+ - **Capa 1 — Methodology / Governance:** standards, plantillas,
+   procedimientos, restricciones, ADRs internos.
+ - **Capa 2 — Product spec + Tech implementation:** UCs, FRs,
+   NFRs, BRs + arquitectura + cajones por tier técnico.
+ - **Capa 3 — Project lifecycle:** charter, roadmap, OKRs,
+   épicas, releases, retrospectives, team.
+
+ La estructura se construye de forma **incremental dominio por
+ dominio**. Los cajones aparecen en la navegación cuando su
+ contenido inicial está disponible.
+
+Contenido publicado
+===================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Base Cognitiva
+ :maxdepth: 2
+ :caption: Base Cognitiva
 
-   base_cognitiva/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Normativa
-
-   normativa/index
+ base-cognitiva/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Requisitos
+ :maxdepth: 2
+ :caption: Normativa
 
-   requisitos/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Arquitectura Técnica
-
-   arquitectura_tecnica/index
+ normativa/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Gestión
+ :maxdepth: 2
+ :caption: Requisitos
 
-   gestion/index
+ requisitos/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: PlantUML Guide
+ :maxdepth: 2
+ :caption: Arquitectura Tecnica
 
-   plantuml-guide/index
+ arquitectura-tecnica/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Frontend
+
+ frontend/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Backend
+
+ backend/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Bases de Datos
+
+ databases/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Calidad
+
+ quality/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: DevOps
+
+ devops/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Riesgos y Deuda Tecnica
+
+ risks-technical-debt/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Onboarding
+
+ onboarding/index
+
+.. toctree::
+ :maxdepth: 2
+ :caption: Gestion del Proyecto
+
+ gestion/index
+
+----
 
 Índices y Búsqueda
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
-
-----
-
-.. note::
-   **Versión:** 1.0.0  
-   **Fecha:** 2025  
-   **Equipo:** IACT Development Team
