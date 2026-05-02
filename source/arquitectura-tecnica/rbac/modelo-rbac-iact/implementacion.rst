@@ -370,7 +370,7 @@ Modelo RBAC IACT — Implementacion
 
  """
  Modelos de control de acceso RBAC v5.2.1
- Sistema IACT - 42 funciones atómicas
+ Sistema IACT - 43 funciones atómicas
  """
  from django.db import models
  from django.contrib.auth import get_user_model
@@ -380,7 +380,7 @@ Modelo RBAC IACT — Implementacion
  
  class Function(models.Model):
  """
- Función atómica del sistema (42 funciones).
+ Función atómica del sistema (43 funciones).
  
  Una función representa una capacidad específica que puede 
  realizar un usuario. Ejemplos:
@@ -1018,7 +1018,7 @@ Modelo RBAC IACT — Implementacion
  python manage.py initialize_permissions
  
  # O paso a paso:
- python manage.py initialize_functions # 42 funciones
+ python manage.py initialize_functions # 43 funciones
  python manage.py initialize_function_groups # 10 grupos
  python manage.py initialize_separation_rules # 3 reglas SoD
 

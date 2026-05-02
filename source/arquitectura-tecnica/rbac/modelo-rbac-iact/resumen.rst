@@ -43,7 +43,7 @@ Modelo RBAC IACT — Resumen
 
 .. code-block:: sql
 
- -- Actualizar 42 funciones
+ -- Actualizar 43 funciones
  UPDATE functions SET name = 'manage_sessions' WHERE function_id = 'AUTH-001';
  UPDATE functions SET name = 'close_user_session' WHERE function_id = 'AUTH-002';
  UPDATE functions SET name = 'reset_password' WHERE function_id = 'AUTH-003';
