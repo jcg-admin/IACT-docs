@@ -630,4 +630,4 @@ Estado documentado como **referencia**, no compromiso inmutable:
  * - **ADR canónico**
    - :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo técnico**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`

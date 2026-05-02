@@ -25,7 +25,7 @@ AccessGroups custom**: crear, modificar, retirar
 AGRs. Los AGRs predefinidos AGR-001..010 NO se
 modifican via este UC (son inmutables; politica
 documentada en
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`).
 
 .. list-table::
  :widths: 25 75

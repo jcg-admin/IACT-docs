@@ -69,7 +69,7 @@ TPL_DJANGO_APP: Plantilla de Django App
 
 - [ ] Tests con coverage ≥ 80% (RNF-002).
 - [ ] Migrations son backwards-compatible.
-- [ ] Permisos RBAC declarados en :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+- [ ] Permisos RBAC declarados en :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 - [ ] Auditoría aplicada en operaciones críticas (CNST-025).
 - [ ] Queries respetan CNST-014 (paginación obligatoria).
 

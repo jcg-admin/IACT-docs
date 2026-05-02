@@ -164,7 +164,7 @@ el de la columna izquierda**.
    - Espanol
    - "El sistema permite..."
 
-Origen: `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`` § "ESTANDAR DE NOMENCLATURA
+Origen: `:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`` § "ESTANDAR DE NOMENCLATURA
 v5.2.1" (pendiente migracion a source en WP #7 arquitectura-tecnica).
 
 2.3 Tecnologias Involucradas

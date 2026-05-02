@@ -473,7 +473,7 @@ de arquitectura.
    - | :doc:`/gestion/evidencia/rbac-historia/decision-coexistencia-acc-perm`
      | :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
  * - **Modelo conceptual vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Origen documental**
    - | § 1, § 2: REF-GLOBAL líneas 11–658
      | § 3: ANL-RBAC § 6 líneas 421–502

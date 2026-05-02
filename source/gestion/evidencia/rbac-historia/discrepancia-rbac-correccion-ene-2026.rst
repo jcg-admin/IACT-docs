@@ -170,7 +170,7 @@ version vigente del corpus IACT-docs:
 
 **Materializacion vigente:**
 
-- Modelo conceptual: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- Modelo conceptual: :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - Vocabulario canonico: :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
 - Coexistencia ACC + PERM: :doc:`/normativa/gobernanza/adr-gob-008-rbac-coexistencia-acc-perm`
 

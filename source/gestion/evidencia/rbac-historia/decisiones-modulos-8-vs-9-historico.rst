@@ -26,7 +26,7 @@ Decisiones Modulares — Debate "8 vs 9 modulos" (Decision Log)
  con SEC_RULES integrado en RBAC_CORE.
 
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` y los 8
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` y los 8
  ARQ_MOD_001..008 en :doc:`/arquitectura-tecnica/modulos/index`.
 
 ----
@@ -232,14 +232,14 @@ Mapeo aproximado para SEC_RULES enforcers:
 
 **Cada ARQ_MOD individual:**
 
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-001-auth`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-002-user-identity`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-003-rbac-core`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-004-etl-monitoring`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-005-vis-reports`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-006-alerts`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-007-audit`
-- :doc:`/arquitectura-tecnica/modulos/arq-mod-008-sys-logs`
+- :doc:`/arquitectura-tecnica/modulos/auth/index`
+- :doc:`/arquitectura-tecnica/modulos/user-identity/index`
+- :doc:`/arquitectura-tecnica/modulos/rbac-core/index`
+- :doc:`/arquitectura-tecnica/modulos/etl-monitoring/index`
+- :doc:`/arquitectura-tecnica/modulos/vis-reports/index`
+- :doc:`/arquitectura-tecnica/modulos/alerts/index`
+- :doc:`/arquitectura-tecnica/modulos/audit/index`
+- :doc:`/arquitectura-tecnica/modulos/sys-logs/index`
 
 **Modelo conceptual RBAC vigente:**
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.

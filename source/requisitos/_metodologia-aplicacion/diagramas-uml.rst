@@ -1339,7 +1339,7 @@ Política IACT — UML por fase
  * - **Ejemplos OOP aplicados al dominio (compañero)**
    - :doc:`orientacion-objetos`
  * - **Modelo RBAC vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Restricciones citadas**
    - CNST_001 (no email), CNST_006/008 (ventana ETL 6-12h),
      CNST_019/020 (export async + throttling), CNST_025

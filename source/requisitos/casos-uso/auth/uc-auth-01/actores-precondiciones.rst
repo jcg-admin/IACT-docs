@@ -32,7 +32,7 @@ INACTIVE, BLOCKED}.
 
 Sub-tipos del Usuario por ``AccessGroup``
 asignado (catalogo canonico de
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 v5.4.0 lineas 1090-1135):
 
 .. list-table::

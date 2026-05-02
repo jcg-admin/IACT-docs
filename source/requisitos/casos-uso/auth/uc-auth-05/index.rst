@@ -65,7 +65,7 @@ Documentos vinculados
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
   v1.0.0
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
   v5.4.0
 - :doc:`/requisitos/casos-uso/auth/uc-auth-02/index`
   (cierre voluntario)

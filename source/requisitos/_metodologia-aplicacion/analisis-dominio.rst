@@ -5479,7 +5479,7 @@ adaptado a IACT, con cross-references.
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **Modelo RBAC vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Ejemplos hermanos aplicados a IACT**
    - :doc:`diagramas-uml`,
      :doc:`orientacion-objetos`

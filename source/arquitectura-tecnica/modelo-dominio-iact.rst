@@ -18,7 +18,7 @@ MODELO DOMINIO IACT
 .. note::
 
  **Modelo conceptual canonico del dominio IACT**, complementario a
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`. Producido por
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
  filtro de Abbott + IEEE 830 sobre el corpus vigente (61 UCs, 61
  funciones RBAC v5.4.0, BR/CNST en sus versiones vigentes).
@@ -1099,7 +1099,7 @@ para este modelo. Resumen de su impacto sobre las clases:
 7.3 Documentos relacionados
 ---------------------------
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` — modelo RBAC
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo RBAC
   v5.4.0 con las 61 funciones que operan sobre las clases
   declaradas aqui.
 - ``source/requisitos/_metodologia-aplicacion/analisis-dominio.rst``

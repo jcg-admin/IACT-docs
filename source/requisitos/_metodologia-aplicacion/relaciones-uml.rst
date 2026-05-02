@@ -4207,7 +4207,7 @@ Próximas subsecciones potenciales
  * - **Cheat-sheet de los 9 diagramas**
    - :doc:`/base-cognitiva/_uml/cuando-usar-cada-diagrama`
  * - **Modelo RBAC vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **Ejemplos hermanos aplicados a IACT**

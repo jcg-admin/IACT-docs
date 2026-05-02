@@ -26,7 +26,7 @@ Analisis de Errores — Modelo RBAC IACT v5.2.0 (Change Impact)
  tarde se formalizo en :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.
 
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`.
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`.
 
 ----
 
@@ -770,7 +770,7 @@ Accion materializada:
 (no publicado).
 
 **Documento de respuesta vigente:**
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1).
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1).
 
 **Restriccion normativa que canonizo el aprendizaje:**
 :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`.

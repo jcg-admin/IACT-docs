@@ -35,7 +35,7 @@ ADR-GOB-009: RBAC Modelo Conceptual (Supersede BACK-001/004)
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`
 - :doc:`/normativa/restricciones/cnst-033-vocabulario-unificado-rbac`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo v5.4.0)
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo v5.4.0)
 
 ----
 
@@ -151,7 +151,7 @@ naturaleza transversal.
 ---------------------------------------------------------------
 
 El modelo v5.4.0 (vigente, en
-:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`) declara:
+:doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`) declara:
 
 - **61 funciones** distribuidas en 8 modulos:
   Auth=4, Users=9, Access=12, Pipeline=4, Reports=11, Alerts=10,
@@ -248,7 +248,7 @@ para el analisis comparativo completo.
 La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 **matriz RACI** sobre las funciones del sistema. Esa propuesta
 **se materializo** en este WP — ver
-:doc:`/arquitectura-tecnica/rbac/raci-rbac-iact`.
+:doc:`/arquitectura-tecnica/rbac/raci-rbac-iact/index`.
 
 La matriz RACI:
 
@@ -296,7 +296,7 @@ Documentos historicos del subsistema RBAC en
 7. Spec vigente y normativa relacionada
 =======================================
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.4.0).
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.4.0).
 - :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 - :doc:`/normativa/restricciones/cnst-030-reglas-de-separacion-de-funciones-sod`.
 - :doc:`/normativa/restricciones/cnst-031-permisos-temporales-maximo-6-meses`.

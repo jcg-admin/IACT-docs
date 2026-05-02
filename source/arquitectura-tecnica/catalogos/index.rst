@@ -49,7 +49,7 @@ Por convenciones del corpus, algunos catálogos viven en otros
 lugares:
 
 - **Catálogo de funciones RBAC:** vive en
-  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (capítulo
+  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (capítulo
   3 — Catálogo de funciones).
 - **Catálogo de plantillas:**
   :doc:`/normativa/estandares/plantillas/index`.

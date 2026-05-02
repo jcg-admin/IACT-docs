@@ -65,7 +65,7 @@ Documentos vinculados
 =====================
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
 - :doc:`/requisitos/business-requirements/breq-004-cumplimiento-seguridad-auditoria`
 - :doc:`/requisitos/reglas-negocio/br-009-bajas-logicas`
 - :doc:`/requisitos/casos-uso/access/uc-acc-01/index`

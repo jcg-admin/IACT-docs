@@ -2900,7 +2900,7 @@ disciplina de formato:
  * - **Catálogo modular del dominio IACT**
    - :doc:`/gestion/evidencia/arquitectura-modular/analisis-catalogo-modular-iact`
  * - **Modelo RBAC vigente**
-   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact`
+   - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
  * - **Plan de documentación**
    - :doc:`plan-documentacion-uc`
  * - **Plantilla canónica de UC**

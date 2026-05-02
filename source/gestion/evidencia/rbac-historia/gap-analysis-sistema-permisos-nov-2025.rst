@@ -23,7 +23,7 @@ Gap Analysis — Sistema de Permisos Granular (Noviembre 2025)
  Resumen del gap analysis formal del Sistema de Permisos Granular
  realizado en noviembre 2025. Estado reportado: 75% completado.
  NO es spec vigente. Para spec vigente ver
- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (v5.2.1) +
+ :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (v5.2.1) +
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 
 ----
@@ -223,7 +223,7 @@ implementacion.
 
 **Documentos vigentes que reemplazan al gap analysis:**
 
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact` (modelo).
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` (modelo).
 - :doc:`/requisitos/casos-uso/permissions/index` (UCs).
 - :doc:`/requisitos/casos-uso/access/index` (UCs ACC).
 - :doc:`/requisitos/casos-uso/audit/index` (UCs AUD).
