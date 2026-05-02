@@ -28,28 +28,28 @@ Mapeo modulo ↔ casos de uso:
  * - Modulo arquitectonico
    - UCs en requisitos
    - # UCs
- * - ARQ_MOD_001 AUTH
+ * - :ref:`arq-mod-001` AUTH
    - :doc:`/requisitos/casos-uso/auth/index`
    - 5
- * - ARQ_MOD_002 USER_IDENTITY
+ * - :ref:`arq-mod-002` USER_IDENTITY
    - :doc:`/requisitos/casos-uso/users/index`
    - 4
- * - ARQ_MOD_003 RBAC_CORE
+ * - :ref:`arq-mod-003` RBAC_CORE
    - :doc:`/requisitos/casos-uso/access/index` + :doc:`/requisitos/casos-uso/permissions/index`
    - 19 (9 ACC + 10 PERM)
- * - ARQ_MOD_004 ETL_MONITORING
+ * - :ref:`arq-mod-004` ETL_MONITORING
    - :doc:`/requisitos/casos-uso/pipeline/index`
    - 4
- * - ARQ_MOD_005 VIS_REPORTS
+ * - :ref:`arq-mod-005` VIS_REPORTS
    - :doc:`/requisitos/casos-uso/reports/index`
    - 14
- * - ARQ_MOD_006 ALERTS
+ * - :ref:`arq-mod-006` ALERTS
    - :doc:`/requisitos/casos-uso/alerts/index`
    - 5
- * - ARQ_MOD_007 AUDIT
+ * - :ref:`arq-mod-007` AUDIT
    - :doc:`/requisitos/casos-uso/audit/index`
    - 4
- * - ARQ_MOD_008 SYS_LOGS
+ * - :ref:`arq-mod-008` SYS_LOGS
    - :doc:`/requisitos/casos-uso/logs/index`
    - 4
 
@@ -57,13 +57,13 @@ Catalogo
 --------
 
 .. toctree::
- :maxdepth: 1
+ :maxdepth: 2
 
- arq-mod-001-auth
- arq-mod-002-user-identity
- arq-mod-003-rbac-core
- arq-mod-004-etl-monitoring
- arq-mod-005-vis-reports
- arq-mod-006-alerts
- arq-mod-007-audit
- arq-mod-008-sys-logs
+ auth/index
+ user-identity/index
+ rbac-core/index
+ etl-monitoring/index
+ vis-reports/index
+ alerts/index
+ audit/index
+ sys-logs/index
