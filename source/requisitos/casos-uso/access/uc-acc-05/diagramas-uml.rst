@@ -164,8 +164,7 @@ en Parte 5 — Excepciones.
 
  ACTIVE --> ACTIVE : UC_ACC_05 PATCH
  ACTIVE --> RETIRED : UC_ACC_05 DELETE
- RETIRED --> [*] : (terminal — historial
-                   preservado)
+ RETIRED --> [*] : (terminal — historial\npreservado)
 
  note right of RETIRED
    retired_at, retired_by_admin_id,

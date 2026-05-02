@@ -133,7 +133,6 @@ el detalle de cada contexto ver § 4.
            contexts y puentes inter-contexto.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  skinparam package {
    BackgroundColor #F8F8F8
@@ -234,7 +233,6 @@ notificacion interno (sin email externo, CNST-001).
            interno.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class User {
    + user_id : UUID
@@ -320,7 +318,6 @@ mismas entidades; no introduce clases adicionales.
            basado en funciones atomicas.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class Function {
    + function_id : String   <<p.ej. RPT-001>>
@@ -402,9 +399,20 @@ mismas entidades; no introduce clases adicionales.
    LOG
  }
 
- enum AssignmentState { ACTIVE EXPIRED REVOKED }
- enum PermissionState { ACTIVE EXPIRED REVOKED }
- enum RuleState { ENABLED DISABLED }
+ enum AssignmentState {
+   ACTIVE
+   EXPIRED
+   REVOKED
+ }
+ enum PermissionState {
+   ACTIVE
+   EXPIRED
+   REVOKED
+ }
+ enum RuleState {
+   ENABLED
+   DISABLED
+ }
 
  FunctionGroup "*" -- "*" Function : contiene
  Assignment "*" -- "1" FunctionGroup : (cuando group_ref = grupo)
@@ -437,7 +445,6 @@ IACT no realiza operaciones de escritura sobre estas entidades.
            center (solo lectura).
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class Call {
    + call_id : String
@@ -480,7 +487,6 @@ con un atributo ``scope`` enumerado, no como subclases.
            vistas guardadas.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class Report {
    + report_id : UUID
@@ -558,11 +564,30 @@ con un atributo ``scope`` enumerado, no como subclases.
    CAMPAIGNS
  }
 
- enum ReportState { DRAFT PUBLISHED ARCHIVED }
- enum JobState { QUEUED PROCESSING DONE FAILED }
- enum ScheduleState { ACTIVE DISABLED }
- enum ViewState { ACTIVE INACTIVE }
- enum ExportFormat { CSV EXCEL PDF }
+ enum ReportState {
+   DRAFT
+   PUBLISHED
+   ARCHIVED
+ }
+ enum JobState {
+   QUEUED
+   PROCESSING
+   DONE
+   FAILED
+ }
+ enum ScheduleState {
+   ACTIVE
+   DISABLED
+ }
+ enum ViewState {
+   ACTIVE
+   INACTIVE
+ }
+ enum ExportFormat {
+   CSV
+   EXCEL
+   PDF
+ }
 
  enum MetricName {
    ABANDONMENT_RATE
@@ -610,7 +635,6 @@ ADR-DEVOPS-001).
            del proceso de carga.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class ETLExecution {
    + execution_id : UUID
@@ -648,7 +672,12 @@ ADR-DEVOPS-001).
    RETRYING
  }
 
- enum Severity { INFO WARN ERROR FATAL }
+ enum Severity {
+   INFO
+   WARN
+   ERROR
+   FATAL
+ }
 
  ETLExecution "1" *-- "0..*" ETLError
  ETLExecution -- ExecutionStatus
@@ -676,7 +705,6 @@ funciones RBAC distintas para permitir SoD.
            suscripciones.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class Alert {
    + alert_id : UUID
@@ -720,8 +748,18 @@ funciones RBAC distintas para permitir SoD.
    DISABLED
  }
 
- enum CompOp { GT GE LT LE EQ NE }
- enum SubscriptionState { ACTIVE INACTIVE }
+ enum CompOp {
+   GT
+   GE
+   LT
+   LE
+   EQ
+   NE
+ }
+ enum SubscriptionState {
+   ACTIVE
+   INACTIVE
+ }
 
  Alert "*" -- "1" Threshold
  Alert "1" -- "0..*" Subscription
@@ -752,7 +790,6 @@ se realizan como valores del enum ``event_type``, no como subclases.
  :caption: Bounded context Audit — registro inmutable de eventos.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class AuditEvent {
    + event_id : UUID                 <<inmutable>>
@@ -815,7 +852,6 @@ throughput, error rate, CPU, memoria); esta mide negocio
            tecnicas.
 
  @startuml
- !include ../_static/plantuml-styles.puml
 
  class ApplicationLog {
    + log_id : UUID
@@ -876,7 +912,14 @@ throughput, error rate, CPU, memoria); esta mide negocio
    + view()               <<LOG-007 view_technical_metrics>>
  }
 
- enum LogLevel { TRACE DEBUG INFO WARN ERROR FATAL }
+ enum LogLevel {
+   TRACE
+   DEBUG
+   INFO
+   WARN
+   ERROR
+   FATAL
+ }
 
  enum TechMetricName {
    RESPONSE_TIME

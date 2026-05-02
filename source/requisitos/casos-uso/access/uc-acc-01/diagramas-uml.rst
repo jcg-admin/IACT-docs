@@ -275,11 +275,9 @@ Parte 8 — Diagramas UML
 
  repeat
    :tomar siguiente rule;
-   :rule define {function_a, function_b}
-    o relacion compleja;
+   :rule define {function_a, function_b}\no relacion compleja;
    if (rule violada por effective_set?) then (si)
-     :raise SoDViolation
-      (rule_id, conflict_pair);
+     :raise SoDViolation\n(rule_id, conflict_pair);
      stop
    else (no)
    endif

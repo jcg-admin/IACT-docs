@@ -63,8 +63,7 @@ Parte 8 — Diagramas UML
    RV --> FE: 403
    RV -> AL: emit UNAUTHORIZED
  else
-   RV -> AS: revoke_exc(perm_id, reason,
-                          invoker)
+   RV -> AS: revoke_exc(perm_id, reason, invoker)
 
    AS -> DB: SELECT ExceptionalPermission
    alt No existe / EXPIRED / REVOKED
@@ -80,8 +79,7 @@ Parte 8 — Diagramas UML
          IM --> AS: MailboxFailure
          AS --> RV: error 500
        else Mailbox OK
-         AS -> AL: emit
-           EXCEPTIONAL_PERMISSION_REVOKED
+         AS -> AL: emit\nEXCEPTIONAL_PERMISSION_REVOKED
        end
      end
      AS -> PC: invalidate post-COMMIT
@@ -151,8 +149,7 @@ Parte 8 — Diagramas UML
    stop
  else (si)
  endif
- :INSERT AuditEvent
-  EXCEPTIONAL_PERMISSION_REVOKED;
+ :INSERT AuditEvent\nEXCEPTIONAL_PERMISSION_REVOKED;
  :Commit;
 
  :PermCache.invalidate post-COMMIT;

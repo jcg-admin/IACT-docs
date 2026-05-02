@@ -65,8 +65,7 @@ Parte 8 — Diagramas UML
  API -> BE: delega flujo UC_ACC_08
  BE -> DB: INSERT ExceptionalPermission
  BE -> DB: INSERT InternalMessage (HARD)
- BE -> DB: INSERT AuditEvent
-   EXCEPTIONAL_PERMISSION_GRANTED
+ BE -> DB: INSERT AuditEvent\nEXCEPTIONAL_PERMISSION_GRANTED
  BE -> DB: PermissionCache.invalidate
  BE --> API: 201 Created
  API --> UI: result

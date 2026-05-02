@@ -131,7 +131,8 @@ Parte 8 — Diagramas UML
  :PATCH /api/users/{id}/;
 
  if (JWT valido?) then (no)
-   :401 INVALID_TOKEN; stop
+   :401 INVALID_TOKEN;
+   stop
  else (si)
  endif
 
@@ -143,12 +144,14 @@ Parte 8 — Diagramas UML
  endif
 
  if (User existe?) then (no)
-   :404 USER_NOT_FOUND; stop
+   :404 USER_NOT_FOUND;
+   stop
  else (si)
  endif
 
  if (Datos validos?) then (no)
-   :400 VALIDATION_ERROR; stop
+   :400 VALIDATION_ERROR;
+   stop
  else (si)
  endif
 
@@ -160,7 +163,8 @@ Parte 8 — Diagramas UML
    else (no)
    endif
    if (transicion permitida?) then (no)
-     :400 INVALID_STATE_TRANSITION; stop
+     :400 INVALID_STATE_TRANSITION;
+   stop
    else (si)
    endif
  else (no)
@@ -168,15 +172,15 @@ Parte 8 — Diagramas UML
 
  if (patch incluye email cambiado?) then (si)
    if (email duplicado?) then (si)
-     :409 EMAIL_EXISTS; stop
+     :409 EMAIL_EXISTS;
+   stop
    else (no)
    endif
  else (no)
  endif
 
  partition "Transaccion atomica" {
-   :UPDATE User parcial
-    + last_modified_*;
+   :UPDATE User parcial\n+ last_modified_*;
    if (state -> BLOCKED?) then (si)
      :UPDATE Sessions ACTIVE -> CLOSED;
      :INSERT BlacklistedToken (N);
