@@ -4,29 +4,46 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``view_etl_supervision``
-- **ETLMetadataRepo**
+Actores
+-------
 
-Auth + RBAC.
+- **Supervisor de Operaciones** — usuario con permiso
+  ``ver_estado_etl``. Inicia el caso de uso consultando el
+  estado del Servicio ETL.
+- **Registro de Ejecuciones** — sistema secundario que
+  provee los datos de ejecucion del Servicio ETL.
+
+Precondiciones
+--------------
+
+- El usuario esta autenticado (JWT valido).
+- El usuario tiene el permiso ``ver_estado_etl`` (RBAC).
+- El Registro de Ejecuciones esta accesible.
+
+Postcondiciones
+---------------
+
+- El sistema retorna el resumen de salud del Servicio ETL con
+  la informacion de las ultimas ejecuciones.
+
+Endpoint de referencia:
 
 ::
 
-   GET /api/etl/supervision/
+   GET /api/v1/etl/supervision/
 
-Response:
+Respuesta esperada:
 
 ::
 
    {
-     summary: {
-       jobs_running, jobs_completed_24h,
-       jobs_failed_24h,
-       lag_max_seconds, total_throughput_rps
+     "estado_general": "ok | degradado | critico",
+     "ultima_ejecucion_exitosa": {
+       "trimestre": "Q3_25",
+       "finalizado_en": "<timestamp>",
+       "registros_base": 1234567
      },
-     by_pipeline: [
-       { pipeline_id, name,
-         last_run, status,
-         lag_seconds, throughput_rps,
-         next_run }, ...
-     ]
+     "ejecucion_en_curso": null,
+     "total_exitosas_24h": 2,
+     "total_fallidas_24h": 0
    }

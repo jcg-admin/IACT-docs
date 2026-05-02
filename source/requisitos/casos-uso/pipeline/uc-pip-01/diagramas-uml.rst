@@ -10,11 +10,12 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_etl_supervision" as USR
+ actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_01\nSupervisar ETL" as UC01
-   usecase "Drill errores" as DR
+   usecase "Ver errores ETL" as DR
  }
  USR --> UC01
  UC01 ..> DR : <<extend>>
@@ -26,29 +27,28 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET /etl/supervision/;
- :JWT + RBAC;
- :Cache lookup;
- :Query PipelineRun;
- :Build summary;
- :Cache write;
- :200;
+ :GET /api/v1/etl/supervision/;
+ :JWT + RBAC (ver_estado_etl);
+ :Consultar Registro de Ejecuciones;
+ :Construir ResumenSalud;
+ :200 con estado general;
  stop
  @enduml
 
-8.3 Estados pipeline
-====================
+8.3 Estados de ejecucion ETL
+=============================
 
 .. uml::
 
  @startuml
- [*] --> idle
- idle --> running : trigger
- running --> success : ok
- running --> failed : error
- success --> idle
- failed --> idle : reset
+ !include ../../_static/plantuml-styles.puml
+ [*] --> en_ejecucion : Disparador ETL invoca SP
+ en_ejecucion --> exitoso : SP completa sin errores
+ en_ejecucion --> fallido : SP lanza error
+ exitoso --> [*]
+ fallido --> [*]
  @enduml
 
 8.4 Clases
@@ -57,7 +57,10 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- class ETLSupervisionService
- class PipelineRunRepo
- ETLSupervisionService --> PipelineRunRepo
+ !include ../../_static/plantuml-styles.puml
+ class SupervisionETLService
+ class ETLEjecucionRepo
+ class ResumenSaludBuilder
+ SupervisionETLService --> ETLEjecucionRepo
+ SupervisionETLService --> ResumenSaludBuilder
  @enduml

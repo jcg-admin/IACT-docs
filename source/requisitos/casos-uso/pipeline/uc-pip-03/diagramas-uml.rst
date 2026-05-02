@@ -10,10 +10,11 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_data_availability" as USR
+ actor "Analista\nde Datos" as USR
  rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_03\nDisponibilidad" as UC03
+   usecase "UC_PIP_03\nDisponibilidad\nde Datos" as UC03
  }
  USR --> UC03
  @enduml
@@ -24,28 +25,33 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET /data/availability/;
- :JWT + RBAC;
- :Cache lookup;
- :Query DatasetMetadata;
- :Calcular lag + status;
- :Cache write;
- :200;
+ :GET /api/v1/datos/disponibilidad/?trimestre=;
+ :JWT + RBAC (ver_disponibilidad_datos);
+ :Consultar Registro de Ejecuciones (ultima exitosa);
+ if (Existe ejecucion exitosa?) then (no)
+   :Retornar estado_frescura=vencido;
+   stop
+ endif
+ :Calcular minutos_desde_etl;
+ :Asignar estado_frescura;
+ :200 con DisponibilidadDatos;
  stop
  @enduml
 
-8.3 Estado por dataset
-======================
+8.3 Estado de frescura de datos
+================================
 
 .. uml::
 
  @startuml
- [*] --> fresh : recien refresh
- fresh --> stale : > threshold
- stale --> critical_stale : > critical
- critical_stale --> stale : refresh
- stale --> fresh : refresh
+ !include ../../_static/plantuml-styles.puml
+ [*] --> fresco : ETL exitoso (< 12 hs)
+ fresco --> degradado : > 12 hs sin actualizacion
+ degradado --> vencido : > 24 hs sin actualizacion
+ vencido --> fresco : ETL exitoso
+ degradado --> fresco : ETL exitoso
  @enduml
 
 8.4 Componentes
@@ -54,9 +60,10 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- component "DatasetMetadata" as DM
- component "Service" as S
- component "Status calc" as SC
- DM --> S
- SC --> S
+ !include ../../_static/plantuml-styles.puml
+ component "DisponibilidadDatosService" as S
+ component "ETLEjecucionRepo" as R
+ component "DisponibilidadBuilder" as B
+ S --> R
+ S --> B
  @enduml

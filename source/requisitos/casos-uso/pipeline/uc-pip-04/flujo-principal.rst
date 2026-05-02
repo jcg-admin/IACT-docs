@@ -4,22 +4,39 @@
 Parte 3 — Flujo principal
 ==========================
 
-PASO 1 — POST.
-PASO 2 — JWT.
-PASO 3 — RBAC ``request_pipeline_retry``.
-PASO 4 — Validar:
+PASO 1 — El Administrador de Pipeline envia POST a
+          ``/api/v1/etl/reintento/`` con ``trimestre`` y
+          ``motivo``.
 
-- pipeline existe
-- reason ≥ 20 char
-- pipeline no esta en running (no se
-  re-encola sobre running)
-- ultimo run failed (o run_id especifico
-  failed)
+PASO 2 — El sistema valida el JWT y verifica que el usuario
+          tiene el permiso ``reintentar_etl`` (RBAC).
 
-PASO 5 — Encolar nuevo run con priority.
-PASO 6 — Audit ``PIPELINE_RETRY_REQUESTED``
-con actor + reason + run_id_origen.
-PASO 7 — 202 Accepted con nuevo run_id.
+PASO 3 — El sistema valida los parametros:
+
+  - ``trimestre`` en formato valido (ej: Q3_25).
+  - ``motivo`` con minimo 20 caracteres.
+
+PASO 4 — El sistema verifica que no hay ejecucion en curso:
+
+  - Consulta el Registro de Ejecuciones buscando registros
+    con ``estado = 'en_ejecucion'``.
+  - Si existe una ejecucion activa: retorna 409 Conflict.
+
+PASO 5 — El sistema registra el reintento en el Registro de
+          Ejecuciones con ``estado = 'en_ejecucion'`` y
+          ``ejecutado_por = 'manual'``.
+
+PASO 6 — El sistema invoca el Disparador ETL para el trimestre
+          indicado. El Disparador ETL llama al Servicio ETL
+          con el modo de reprocesamiento completo (equivalente
+          a un backfill del trimestre).
+
+PASO 7 — El sistema emite el evento de auditoria
+          ``ETL_REINTENTO_SOLICITADO`` con actor, motivo y
+          el identificador de la nueva ejecucion.
+
+PASO 8 — El sistema retorna 202 Accepted con el identificador
+          de la nueva ejecucion en curso.
 
 3.1 Resumen
 ===========
@@ -32,22 +49,26 @@ PASO 7 — 202 Accepted con nuevo run_id.
    - Componente
    - CNST
  * - 1-3
-   - POST + JWT + RBAC
-   - Endpoint
+   - POST + JWT + RBAC + validar
+   - Endpoint / Guard / Validator
    - 009
  * - 4
-   - Validar
-   - Validator
+   - Verificar no hay ejecucion activa
+   - ETLEjecucionRepo
    - —
  * - 5
-   - Encolar
-   - PipelineExecutor
+   - Registrar nuevo reintento
+   - ETLEjecucionRepo
    - —
  * - 6
-   - Audit P-39
-   - UC_PERM_09
-   - 025
+   - Invocar Disparador ETL (reproceso completo)
+   - DisparadorETL
+   - 008
  * - 7
-   - 202
+   - Auditoria
+   - AuditService
+   - 025
+ * - 8
+   - 202 Accepted
    - View
    - —

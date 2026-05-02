@@ -10,14 +10,15 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nrequest_pipeline_retry" as USR
- actor "PipelineExecutor" as PE
+ actor "Administrador\nde Pipeline" as USR
+ actor "Disparador ETL" as DE
  rectangle "MOD_Pipeline" {
-   usecase "UC_PIP_04\nReintento" as UC04
+   usecase "UC_PIP_04\nReintentar ETL" as UC04
  }
  USR --> UC04
- UC04 --> PE
+ UC04 --> DE
  @enduml
 
 8.2 Actividad
@@ -26,34 +27,33 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :POST retry con reason;
- :JWT + RBAC;
- :Validar;
- if (Already running?) then (si)
-   :409; stop
+ :POST /api/v1/etl/reintento/;
+ :JWT + RBAC (reintentar_etl);
+ :Validar trimestre y motivo (min 20 chars);
+ if (ETL en ejecucion?) then (si)
+   :409 Conflict; stop
  endif
- if (Reason missing?) then (si)
-   :400; stop
- endif
- :Encolar nuevo run;
- :Audit PIPELINE_RETRY_REQUESTED;
- :202 + run_id;
+ :Registrar nueva ejecucion (manual);
+ :Invocar Disparador ETL (reproceso completo);
+ :Emitir auditoria ETL_REINTENTO_SOLICITADO;
+ :202 Accepted con etl_run_id;
  stop
  @enduml
 
-8.3 Estado del retry
-====================
+8.3 Estado del reintento
+=========================
 
 .. uml::
 
  @startuml
- [*] --> queued
- queued --> running
- running --> success
- running --> failed
- success --> [*]
- failed --> queued : nuevo retry
+ !include ../../_static/plantuml-styles.puml
+ [*] --> en_ejecucion : POST reintento aceptado
+ en_ejecucion --> exitoso : SP completa sin errores
+ en_ejecucion --> fallido : SP lanza error
+ exitoso --> [*]
+ fallido --> [*] : requiere nuevo reintento
  @enduml
 
 8.4 Secuencia
@@ -62,14 +62,19 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "Operador" as O
+ !include ../../_static/plantuml-styles.puml
+ actor "Admin Pipeline" as O
  participant "Endpoint" as E
- participant "Executor" as EX
- participant "AuditSvc" as A
- O -> E: POST retry + reason
+ database "Registro de\nEjecuciones" as R
+ participant "Disparador ETL" as DE
+ participant "AuditService" as A
+ O -> E: POST /api/v1/etl/reintento/
  E -> E: JWT + RBAC + validar
- E -> EX: enqueue
- EX --> E: new_run_id
- E -> A: emit PIPELINE_RETRY_REQUESTED
- E --> O: 202
+ E -> R: get_activa()
+ R --> E: null (sin ejecucion activa)
+ E -> R: crear_manual(trimestre, manual)
+ R --> E: etl_run_id
+ E -> DE: ejecutar_historico(trimestre)
+ E -> A: emit ETL_REINTENTO_SOLICITADO
+ E --> O: 202 Accepted {etl_run_id}
  @enduml

@@ -10,16 +10,17 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  left to right direction
- actor "User con funcion\nview_etl_errors" as USR
+ actor "Supervisor\nde Operaciones" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_02\nErrores ETL" as UC02
-   usecase "Drill error" as DR
-   usecase "Group by type" as G
+   usecase "Filtrar por trimestre" as FT
+   usecase "Filtrar por period" as FP
  }
  USR --> UC02
- UC02 ..> DR : <<extend>>
- UC02 ..> G : <<extend>>
+ UC02 ..> FT : <<extend>>
+ UC02 ..> FP : <<extend>>
  @enduml
 
 8.2 Actividad
@@ -28,12 +29,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
+ !include ../../_static/plantuml-styles.puml
  start
- :GET con filtros + period;
- :JWT + RBAC;
- :Query ETLError;
- :Sanitize stack/payload;
- :200;
+ :GET /api/v1/etl/errores/ con filtros;
+ :JWT + RBAC (ver_errores_etl);
+ :Validar parametros;
+ :Consultar Registro de Ejecuciones (fallidas);
+ :200 con lista de ejecuciones fallidas;
  stop
  @enduml
 
@@ -43,11 +45,10 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- class ETLErrorService
- class ETLErrorRepo
- class PIIScanner
- ETLErrorService --> ETLErrorRepo
- ETLErrorService --> PIIScanner
+ !include ../../_static/plantuml-styles.puml
+ class ErroresETLService
+ class ETLEjecucionRepo
+ ErroresETLService --> ETLEjecucionRepo
  @enduml
 
 8.4 Secuencia
@@ -56,13 +57,13 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "User" as U
+ !include ../../_static/plantuml-styles.puml
+ actor "Supervisor" as U
  participant "Endpoint" as E
- database "ETLErrorRepo" as R
- U -> E: GET /etl/errors/
+ database "Registro de\nEjecuciones" as R
+ U -> E: GET /api/v1/etl/errores/
  E -> E: JWT + RBAC
- E -> R: query
- R --> E: rows
- E -> E: sanitize
- E --> U: 200
+ E -> R: query estado=fallido
+ R --> E: filas con mensaje_error
+ E --> U: 200 lista ejecuciones fallidas
  @enduml
