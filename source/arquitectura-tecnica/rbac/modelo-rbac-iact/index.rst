@@ -4,7 +4,7 @@
  :dominio: arquitectura_tecnica
  :subdominio: rbac/modelo-rbac-iact
  :estado: Vigente
- :version: 5.4.0
+ :version: 5.5.0
  :fecha_creacion: 2026-01-13
  :ultimo_cambio: 2026-05-02
  :autor: NestorMonroy
@@ -19,7 +19,9 @@ Modelo RBAC IACT
 Modelo conceptual canonico del control de acceso basado en funciones
 atomicas (RBAC) del sistema IACT — version 5.4.0.
 
-**Version:** 5.4.0 — SRP audit + 61 funciones.
+**Version:** 5.5.0 — Nuevos modulos MOD_Operator (9 funciones) y
+MOD_Supervision (3 funciones) derivados del analisis de UCs
+UC_OPR_01..10 y UC_SUP_01..03 → total 73 funciones.
 
 Las reglas operativas formales viven en:
 

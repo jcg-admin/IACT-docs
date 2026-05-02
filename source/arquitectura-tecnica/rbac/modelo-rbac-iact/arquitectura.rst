@@ -9,7 +9,7 @@ Modelo RBAC IACT — Arquitectura
 
 
 
-2.1 Distribución de 61 Funciones (v5.4.0)
+2.1 Distribución de 73 Funciones (v5.5.0)
 -----------------------------------------
 
 
@@ -26,46 +26,56 @@ Modelo RBAC IACT — Arquitectura
  * - MOD_Auth
    - AUTH
    - 4
-   - 6.6%
+   - 5.5%
    - Sesiones y autenticación
  * - MOD_Users
    - USR
    - 9
-   - 14.8%
+   - 12.3%
    - Gestión de identidades
  * - MOD_Access
    - ACC
    - 12
-   - 19.7%
+   - 16.4%
    - RBAC core + SEC_RULES
  * - MOD_Pipeline
    - PIP
    - 4
-   - 6.6%
+   - 5.5%
    - Supervisión ETL
  * - **MOD_Reports**
    - **RPT**
    - **11**
-   - **18.0%**
+   - **15.1%**
    - **Reportes/Dashboards**
  * - MOD_Alerts
    - ALR
    - 10
-   - 16.4%
+   - 13.7%
    - Alertas internas
  * - MOD_Audit
    - AUD
    - 4
-   - 6.6%
+   - 5.5%
    - Auditoría funcional
  * - MOD_Logs
    - LOG
    - 7
-   - 11.5%
+   - 9.6%
    - Logs técnicos + health + métricas
+ * - MOD_Operator
+   - OPR
+   - 9
+   - 12.3%
+   - Acciones de agentes call center
+ * - MOD_Supervision
+   - SUP
+   - 3
+   - 4.1%
+   - Supervisión en tiempo real
  * - **TOTAL**
    - -
-   - **61**
+   - **73**
    - **100%**
    - -
 

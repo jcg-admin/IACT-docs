@@ -4,7 +4,7 @@
 Modelo RBAC IACT — Catalogo de Funciones
 ==========================================
 
-3. CATÁLOGO DE 61 FUNCIONES
+3. CATÁLOGO DE 73 FUNCIONES
 ===========================
 
 
@@ -613,4 +613,128 @@ Modelo RBAC IACT — Catalogo de Funciones
 **Diferencia con MOD_Audit:**
 - **MOD_Audit:** Eventos de negocio (quién hizo qué)
 - **MOD_Logs:** Eventos técnicos (errores, performance)
+
+----
+
+3.9 MOD_Operator (9 funciones)
+-------------------------------
+
+Funciones de los agentes (operadores) del call center IACT.
+Estas funciones se auto-otorgan al activar el perfil de operador;
+la granularidad permite restricciones futuras por servicio o turno.
+
+.. list-table::
+ :widths: 15 30 25 10 20
+ :header-rows: 1
+
+ * - ID
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
+ * - OPR-001
+   - `manage_own_agent_state`
+   - operator:agent_state
+   - UC_OPR_01
+   - Cambia propio estado de disponibilidad (available/busy/break/offline)
+ * - OPR-002
+   - `answer_inbound_calls`
+   - operator:answer
+   - UC_OPR_02
+   - Atiende llamada entrante asignada por el enrutador
+ * - OPR-003
+   - `make_outbound_calls`
+   - operator:dial_out
+   - UC_OPR_03
+   - Realiza llamada saliente autorizada
+ * - OPR-004
+   - `hold_calls`
+   - operator:hold
+   - UC_OPR_04
+   - Pone en espera o retoma llamada activa
+ * - OPR-005
+   - `transfer_calls`
+   - operator:transfer
+   - UC_OPR_05
+   - Transfiere llamada a otro agente o cola
+ * - OPR-006
+   - `enter_call_disposition`
+   - operator:disposition
+   - UC_OPR_06
+   - Registra resultado de la llamada (disposition code)
+ * - OPR-007
+   - `request_break`
+   - operator:break
+   - UC_OPR_07
+   - Solicita pausa autorizada (break/lunch/training)
+ * - OPR-008
+   - `view_own_performance_dashboard`
+   - operator:own_dashboard
+   - UC_OPR_08
+   - Consulta propio dashboard de métricas de desempeño
+ * - OPR-009
+   - `view_own_call_history`
+   - operator:own_history
+   - UC_OPR_09
+   - Consulta historial personal de llamadas atendidas/realizadas
+
+
+**CNST aplicables:**
+- CNST-009: Autenticación requerida para toda acción operativa
+- CNST-025: Cambios de estado auditados
+- CNST-013: Manejo estándar de errores
+
+**Nota v5.5.0:**
+Módulo nuevo derivado del análisis de UC_OPR_01..10.
+Funciones implícitas en versiones anteriores — ahora formalizadas
+como atómicas para soporte de restricciones futuras por servicio.
+
+----
+
+3.10 MOD_Supervision (3 funciones)
+------------------------------------
+
+Funciones de supervisores que intervienen en tiempo real sobre
+agentes y llamadas activas. Requieren asignación explícita
+(no auto-otorgadas como MOD_Operator).
+
+.. list-table::
+ :widths: 15 30 25 10 20
+ :header-rows: 1
+
+ * - ID
+   - Función
+   - Capacidad
+   - UC
+   - Descripción
+ * - SUP-001
+   - `monitor_live_calls`
+   - supervision:monitor
+   - UC_SUP_01
+   - Escucha llamada activa en modo silent (sin intervención)
+     o whisper (habla solo al agente, cliente no oye)
+ * - SUP-002
+   - `barge_in_calls`
+   - supervision:barge_in
+   - UC_SUP_02
+   - Interviene en llamada activa habilitando canal tripartito
+ * - SUP-003
+   - `broadcast_team_messages`
+   - supervision:broadcast
+   - UC_SUP_03
+   - Envía mensaje de texto a todos los agentes del equipo
+
+
+**CNST aplicables:**
+- CNST-009: Autenticación requerida
+- CNST-025: Toda supervisión auditada (quién monitoreó qué llamada)
+- BR-009: Registros de supervisión inmutables
+
+**Nota legal:**
+SUP-001 (monitor_live_calls) y SUP-002 (barge_in_calls) generan
+notificación audible al agente (tono de supervisión) por obligación
+legal de compliance. El sistema emite el tono automáticamente.
+
+**Nota v5.5.0:**
+Módulo nuevo derivado del análisis de UC_SUP_01..03.
 

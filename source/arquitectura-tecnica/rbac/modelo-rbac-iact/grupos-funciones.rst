@@ -4,7 +4,7 @@
 Modelo RBAC IACT — Grupos de Funciones
 =======================================
 
-4. LOS 10 GRUPOS DE FUNCIONES
+4. LOS 12 GRUPOS DE FUNCIONES
 =============================
 
 
@@ -73,12 +73,26 @@ Modelo RBAC IACT — Grupos de Funciones
    - 6
    - Sysadmin
    - Administración completa
+ * - **AGR-011**
+   - `call_center_operator_group`
+   - 9
+   - Agente
+   - Acciones operativas del agente de call center
+ * - **AGR-012**
+   - `call_center_supervisor_group`
+   - 12
+   - Supervisor
+   - Supervision en tiempo real + todas las de AGR-003
 
 
 **CAMBIO v5.2.1:**
 - Todos los nombres en inglés
 - Sin prefijo redundante ``agr_``
 - Sufijo ``_group`` explícito
+
+**CAMBIO v5.5.0:**
+- AGR-011 ``call_center_operator_group`` (9 funciones OPR-001..009)
+- AGR-012 ``call_center_supervisor_group`` (SUP-001..003 + AGR-003)
 
 
 4.2 Detalle de Grupos
@@ -285,4 +299,50 @@ AGR-010 system_admin_group
 
 
 **Propósito:** Administración técnica del sistema.
+
+----
+
+AGR-011 call_center_operator_group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+**Funciones incluidas (9):**
+
+.. code-block:: text
+
+ OPR-001: manage_own_agent_state
+ OPR-002: answer_inbound_calls
+ OPR-003: make_outbound_calls
+ OPR-004: hold_calls
+ OPR-005: transfer_calls
+ OPR-006: enter_call_disposition
+ OPR-007: request_break
+ OPR-008: view_own_performance_dashboard
+ OPR-009: view_own_call_history
+
+
+**Propósito:** Conjunto base de acciones para agentes del call center.
+Auto-asignado al activar perfil de operador.
+
+----
+
+AGR-012 call_center_supervisor_group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+**Funciones incluidas (12):**
+
+.. code-block:: text
+
+ SUP-001: monitor_live_calls
+ SUP-002: barge_in_calls
+ SUP-003: broadcast_team_messages
+ Todas las funciones de AGR-003 (quality_supervisor_group)
+
+
+**Propósito:** Supervisores con capacidad de intervención en tiempo real.
+
+**SoD:** Los supervisores NO deben tener funciones de AGR-008 (auditoría)
+simultáneamente — aplica SOD-002 si también tienen funciones de gestión
+de usuarios.
 
