@@ -4,68 +4,53 @@
 Parte 11 — Implementacion tecnica
 =================================
 
-Componentes:
+11.1 Componentes
+================
 
-- UniqueClientsEndpoint
-- AuthorizationGuard
-- DistinctCounter (exact + HLL)
-- RecurrenceCalculator
-- ComparativeCalculator (new vs returning)
-- MetricsCache
+- ``ClientesReportView`` (DRF APIView)
+- ``AuthorizationGuard``
+- ``SegmentResolver`` (``<<include>>`` UC_INC_RPT_01)
+- ``ServicioReportes``
+- ``MetricsCache``
 
-Contrato:
-
-::
-
-   contract UniqueClientsService:
-     get(filters, period, invoker, ctx)
-       returns: UniqueClientsReport
-
-Pseudocodigo:
+11.2 Contrato
+=============
 
 ::
 
-   procedure get(filters, period,
-                  invoker, ctx):
-       require AuthorizationGuard.has(
-                 invoker,
-                 'view_unique_clients_reports')
-       segments = SegmentResolver.for(
-                    invoker.id)
-       cached = cache_get(...)
+   contract ClientesReportService:
+     get(trimestre, segmentos, invoker, ctx)
+       returns: ReporteClientes
+
+11.3 Pseudocodigo
+=================
+
+::
+
+   procedure get(trimestre, invoker, ctx):
+       require AuthorizationGuard.has(invoker,
+                   'view_unique_clients_reports')
+       segmentos = SegmentResolver.resolve(invoker.id)
+       cached = MetricsCache.get('clientes', trimestre, segmentos)
        if cached: return cached
+       data = ServicioReportes.clientes(trimestre)
+       reporte = filtrar_por_segmentos(data, segmentos)
+       MetricsCache.set('clientes', trimestre, segmentos,
+                        reporte, ttl=300)
+       return reporte
 
-       if estimated_volume(period) > 10M:
-           distinct_count =
-             HLL.estimate(segments, period)
-           method = 'hll'
-       else:
-           distinct_count =
-             SQLDistinct.count(
-               segments, period)
-           method = 'exact'
+11.4 Implementacion ServicioReportes
+=====================================
 
-       recurrence =
-         RecurrenceCalculator.compute(
-           segments, period)
-       comparative =
-         ComparativeCalculator.new_vs_returning(
-           segments, period, prior(period))
-       top = TopNAnonymized.compute(
-         segments, period, n=10)
+::
 
-       result = UniqueClientsReport(
-         period,
-         distinct_clients_count=distinct_count,
-         method=method,
-         recurrencia_distribution=recurrence,
-         new_vs_returning=comparative,
-         top_volume_anonymized=top)
-       cache_set(...)
-       return result
+   ServicioReportes.clientes(trimestre):
+       with connections['ivr'].cursor() as cursor:
+           cursor.callproc('sp_rpt_clientes', [trimestre])
+           columns = [col[0] for col in cursor.description]
+           return [dict(zip(columns, row))
+                   for row in cursor.fetchall()]
 
-Stack-agnostico:
-
-- Exact distinct: cualquier RDBMS.
-- HLL: nativo en PostgreSQL,
-  Redis, ClickHouse, BigQuery.
+El SP retorna ``telefono_hashed`` (no el numero raw). La capa
+de aplicacion NUNCA almacena ni loguea el numero de telefono
+original (CNST-001 — sin PII en logs).
