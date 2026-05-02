@@ -65,6 +65,21 @@ author: NestorMonroy
 - **D-06:** Triggers y Jobs se crearán en MySQL para mantener integridad
   de las tablas limpias una vez que sean pobladas. Todo el ETL ocurre
   exclusivamente en MySQL — sin componente Python ni proceso externo.
+- **D-07:** ETL diario usa TRUNCATE+INSERT dentro de transacción. Si el
+  SP falla, ROLLBACK automático conserva los datos del run anterior.
+- **D-08:** Events/Jobs MySQL se disparan diariamente.
+- **D-09:** Django es solo monitoreo — no puede disparar ni reiniciar el
+  ETL manualmente. UC_PIP_04 queda como notificación, no acción técnica.
+- **D-10:** Misma instancia MySQL para tablas IVR y tablas limpias `rpt_*`.
+  La única BD separada es PostgreSQL para datos de la aplicación Django
+  (usuarios, sesiones, permisos).
+- **D-11:** Todas las tablas limpias `rpt_*` incluyen columna `quarter_name`
+  ('Q01_25', 'Q02_25', 'Q03_25') para filtrado por trimestre.
+- **D-12:** Tabla `c_dias_festivos (fecha DATE, activo CHAR(1))` existe en
+  MySQL como soporte para `fn_es_dia_habil` y `fn_agregar_dias_habiles`.
+- **D-13:** Campo `etiquetas` en `llamadas_QN` es CSV separado por comas
+  (máx 6 posiciones observadas en Q3 2025). Función `fn_extraer_etiqueta`
+  lo parsea por posición.
 
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

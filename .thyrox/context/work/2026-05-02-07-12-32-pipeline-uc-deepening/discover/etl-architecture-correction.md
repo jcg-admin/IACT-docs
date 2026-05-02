@@ -212,16 +212,15 @@ separadas. Con la nueva arquitectura:
 |---|---|---|---|
 | P-01 | ¿Hay tabla de tracking del ETL? | No existe aún. Solo existen `tbl_historico_tN_YYYY`. Las tablas limpias se crearán. | 2026-05-02 |
 | P-02 | ¿Las tablas limpias usan prefijo `rpt_*`? | **Sí, prefijo `rpt_`** confirmado. 7 tablas: ver sección 6. | 2026-05-02 |
+| P-03 | ¿Los Events/Jobs son diarios o por trimestre? | **Diarios.** El ETL corre cada día. | 2026-05-02 |
+| P-04 | ¿TRUNCATE+INSERT o UPSERT? | **TRUNCATE+INSERT dentro de transacción.** ETL diario regenera el reporte completo. Si falla → ROLLBACK → tabla conserva datos del día anterior. | 2026-05-02 |
+| P-05 | ¿Las tablas limpias incluyen `quarter_name`? | **Sí.** Columna `quarter_name` ('Q01_25', 'Q02_25', 'Q03_25') en todas las tablas limpias para filtrar por trimestre. | 2026-05-02 |
+| P-06 | ¿Django puede triggear manualmente un SP? | **No.** Por el momento Django es solo monitoreo — no puede disparar ni reiniciar el ETL. UC_PIP_04 queda reducido a "solicitar reintento" como notificación, no como acción técnica. | 2026-05-02 |
+| P-07 | ¿BD IACT separada de BD IVR? | **Misma instancia MySQL.** La única BD separada es PostgreSQL para la aplicación Django (datos de la app: usuarios, sesiones, permisos). | 2026-05-02 |
 
 ### Pendientes
 
-| # | Pregunta | Impacto |
-|---|---|---|
-| P-03 | ¿Los Events/Jobs MySQL son diarios o por trimestre? ¿Se disparan manualmente? | Define BR_002 corrección |
-| P-04 | ¿Los SPs hacen TRUNCATE+INSERT o UPSERT en tablas limpias? | Implica idempotencia en UC_PIP_04 |
-| P-05 | ¿Las tablas limpias incluyen `quarter_name` ('Q01_25') para filtrar por trimestre? | Define queries de reportes en Django |
-| P-06 | ¿Django puede triggear manualmente un SP? (UC_PIP_04: solicitar reintento) | Define el flujo de "retry" |
-| P-07 | ¿Hay una BD IACT separada de la BD IVR del cliente, o es la misma instancia MySQL? | Crítico para CNST-006/007 |
+Todas las preguntas P-01..P-07 están resueltas.
 
 ---
 
@@ -241,7 +240,65 @@ Prioridad de correcciones una vez confirmadas las preguntas P-01..P-07:
 
 ---
 
-## 10. Lo que NO cambia con esta corrección
+## 10. Funciones de utilidad MySQL confirmadas (PROVEN — de scripts SQL)
+
+Además de las funciones ya documentadas, el equipo proporcionó funciones adicionales:
+
+### 10.1 Catálogo completo de funciones
+
+| Función | Firma | Propósito | Depende de |
+|---|---|---|---|
+| `fn_es_dia_habil` | `(p_fecha DATE) → BOOLEAN` | Verifica si la fecha es día hábil (lunes-viernes, no festivo) | Tabla `c_dias_festivos` |
+| `fn_agregar_dias_habiles` | `(p_fecha_inicio DATE, p_dias INT) → DATE` | Suma o resta días hábiles a una fecha (incluye festivos) | `fn_es_dia_habil`, `c_dias_festivos` |
+| `fn_contar_dias_habiles` | `(p_fecha_inicio DATE, p_fecha_fin DATE) → INT` | Cuenta días hábiles entre dos fechas | `fn_es_dia_habil` |
+| `fn_extraer_etiqueta` | `(p_etiquetas TEXT, p_posicion INT) → VARCHAR(100)` | Extrae etiqueta por posición de string CSV separado por comas | — |
+| `fn_contar_etiquetas` | `(p_etiquetas TEXT) → INT` | Cuenta el total de etiquetas en el CSV | — |
+| `fn_actividad_usuario` | `(p_numero_entrada VARCHAR, p_fecha DATE) → TEXT` | Resumen de actividad de un número en una fecha (primera/última llamada + menú) | `llamadas_QN` |
+
+### 10.2 Tabla de soporte: `c_dias_festivos` (PROVEN)
+
+Tabla de catálogo de festivos usada por `fn_es_dia_habil` y `fn_agregar_dias_habiles`:
+
+```sql
+c_dias_festivos (
+    fecha   DATE,
+    activo  CHAR(1)   -- 'S' = es festivo, 'N' = no es festivo
+)
+```
+
+### 10.3 Campo `etiquetas` — estructura interna (PROVEN)
+
+El campo `etiquetas` en `llamadas_QN` es un CSV separado por comas.
+Ejemplos reales del dataset:
+
+```
+'2L,ZMB,VSI,NVS,'
+'2L,ZMB,SEG_14,'
+'ZMB,WTS,'
+'2L,ZMB,WTS,NOBOT,PR_MA,'
+'ZMB,'
+'1L,ZMB,VSI,'
+```
+
+Etiquetas identificadas: `1L`, `2L`, `ZMB`, `VSI`, `NVS`, `SEG_14`, `WTS`, `NOBOT`, `PR_MA`, `ML`, `DG`
+
+Máximo de posiciones observado: 6 etiquetas (basado en datos de Q3 2025).
+
+### 10.4 Patrón ETL confirmado: TRUNCATE+INSERT en transacción (D-07)
+
+```sql
+-- Patrón estándar para todos los SPs del ETL
+START TRANSACTION;
+TRUNCATE TABLE rpt_<nombre>;
+INSERT INTO rpt_<nombre>
+    SELECT ... FROM llamadas_QN WHERE quarter_name = 'QNN_YY';
+COMMIT;
+-- Si falla: ROLLBACK automático → tabla conserva datos del run anterior
+```
+
+---
+
+## 12. Lo que NO cambia con esta corrección
 
 - El **módulo de monitoreo existe** — Django sí muestra estado del ETL (UC_PIP_01..04 siguen siendo válidos en concepto)
 - La **restricción de frecuencia** 6-12h sigue siendo válida
