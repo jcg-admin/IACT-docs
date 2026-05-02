@@ -159,7 +159,6 @@ Una clase tiene 4 áreas: **nombre**, **atributos**,
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Llamada {
      - id : Integer
@@ -219,7 +218,6 @@ Una clase tiene 4 áreas: **nombre**, **atributos**,
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Acceso & RBAC" as PA {
      class Usuario
@@ -375,7 +373,6 @@ De la conversación y restricciones canónicas:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Reporte {
      - id : Integer
@@ -414,7 +411,6 @@ paquetes):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Sesion
@@ -1562,7 +1558,6 @@ casi tan simple como en Mermaid:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class Llamada
    class Segmento
    Llamada -- Segmento
@@ -1596,7 +1591,6 @@ Llamada-Segmento en IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class Llamada {
      - id : Integer
      - duracion_seg : Integer
@@ -1625,7 +1619,6 @@ una línea por relación:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class Llamada
    class Segmento
    class EjecucionETL
@@ -1726,7 +1719,6 @@ tipo con sus vecinas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class EjecucionETL
    class VentanaETL
    class Llamada
@@ -1874,7 +1866,6 @@ Aplicado al ejemplo Streamy completo:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class Title
    class Genre
    class Season
@@ -1899,7 +1890,6 @@ agregaciones, no composiciones:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class Grupo
    class Funcion
    class Usuario
@@ -2444,7 +2434,6 @@ inheritance + Viewer:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Title
    class Genre
@@ -2523,7 +2512,6 @@ las descripciones precisas refuerzan la legibilidad:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Llamada
    class Segmento
@@ -2578,7 +2566,6 @@ Aplicado al cluster de reportes IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Reporte
    class ReporteVolumen
@@ -2737,7 +2724,6 @@ Reproducción del modelo cerrado del libro:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Title
    class Genre
@@ -2780,7 +2766,6 @@ reglas del dominio:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Llamada
    class Segmento
@@ -2910,7 +2895,6 @@ PlantUML acepta títulos directamente con la directiva
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Modelo de dominio IACT
    ...
    @enduml
@@ -2928,7 +2912,6 @@ Cómo se ve aplicado
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Modelo de dominio IACT — cluster RBAC
    class Usuario
    class Grupo
@@ -3078,7 +3061,6 @@ Aplicando ``hide empty members``:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Modelo de dominio IACT — vista compacta
 
    hide empty members
@@ -3110,7 +3092,6 @@ lectura:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Modelo de dominio IACT — clusters
 
    hide empty members
@@ -3254,7 +3235,6 @@ Ejemplo IACT — vinculación textual recomendada
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Modelo de dominio IACT — entidades de auditoria
    hide empty members
    class EventoAuditoria
@@ -3788,7 +3768,6 @@ canónica de IACT que merece un ERD es
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: EventoAuditoria
 
    entity EventoAuditoria {
@@ -3979,7 +3958,6 @@ RBAC, ejecución ETL, denegado SoD, etc.); un mismo
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: EventoAuditoria + TipoEvento
 
    entity TipoEvento {
@@ -4124,7 +4102,6 @@ Schema correspondiente:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: Usuario, Grupo y Asignacion
 
    entity Usuario {
@@ -4374,7 +4351,6 @@ estereotipos completos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: cluster RBAC
 
    entity Usuario {
@@ -4573,7 +4549,6 @@ autenticación pura, por ejemplo).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: EventoAuditoria con origenes opcionales
 
    entity EventoAuditoria {
@@ -4839,7 +4814,6 @@ identificantes y no-identificantes:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot: cluster ETL (mixto)
 
    entity VentanaETL {
@@ -5013,7 +4987,6 @@ ERD consolidado
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — ERD snapshot consolidado (2026-04-30)
 
    ' === RBAC ===

@@ -214,6 +214,13 @@ plantuml = _os.environ.get('PLANTUML_BIN') or (
 plantuml_output_format = 'png'
 plantuml_latex_output_format = 'pdf'
 
+# Global styles: sphinxcontrib-plantuml escribe diagramas a archivos temp en /tmp/,
+# por lo que !include con paths relativos en RST falla. plantuml_cfg_file prepend
+# los estilos a cada diagrama usando path absoluto, evitando la necesidad de !include.
+_styles_puml = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '_static', 'plantuml-styles.puml')
+if _os.path.isfile(_styles_puml):
+    plantuml_cfg_file = _styles_puml
+
 # Usar ubicación estándar de sphinxcontrib.plantuml (_images/)
 # El hook post-build reorganiza metadatos pero mantiene referencias HTML válidas
 # NO personalizar plantuml_output_dir para evitar mismatch con referencias HTML

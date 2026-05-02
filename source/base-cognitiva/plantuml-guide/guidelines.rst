@@ -203,7 +203,6 @@ Every PlantUML diagram must include the centralized style file at the top:
 .. code-block:: text
 
    @startuml diagram-name
-   !include ../_static/plantuml-styles.puml
 
    ' Your diagram code below
    actor "User" as user
@@ -232,7 +231,6 @@ Use when representing different roles or actors in use case diagrams:
 .. code-block:: text
 
    @startuml roles-example
-   !include ../_static/plantuml-styles.puml
 
    actor "Admin" as admin <<AGR_ADMIN>>
    actor "Operator" as op <<AGR_OPERADOR>>
@@ -247,7 +245,6 @@ Use in sequence and component diagrams to color elements by responsibility:
 .. code-block:: text
 
    @startuml architecture-sequence
-   !include ../_static/plantuml-styles.puml
 
    participant "Web App" as web <<Frontend>>
    participant "API Server" as api <<Backend>>
@@ -287,7 +284,6 @@ __________________________________
 .. code-block:: text
 
    @startuml simple-uc
-   !include ../_static/plantuml-styles.puml
 
    actor "Student" as student
    usecase "Submit Work" as submit
@@ -303,7 +299,6 @@ _________________________________________
 .. code-block:: text
 
    @startuml authentication-sequence
-   !include ../_static/plantuml-styles.puml
 
    participant "User" as user
    participant "AuthService" as auth
@@ -321,7 +316,6 @@ __________________________________
 .. code-block:: text
 
    @startuml system-architecture
-   !include ../_static/plantuml-styles.puml
 
    package "API" {
      component [UserAPI]
@@ -382,7 +376,6 @@ Anti-patterns
 
 .. code-block:: text
 
-   !include plantuml-styles.puml  ' WRONG! Full relative path required
 
 ----
 

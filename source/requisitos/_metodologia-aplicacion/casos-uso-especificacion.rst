@@ -292,7 +292,6 @@ equivalente a *"abrir la máquina"* del ejemplo del libro.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Operador
@@ -381,7 +380,6 @@ acotar el conjunto de filas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Supervisor

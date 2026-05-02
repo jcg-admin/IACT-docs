@@ -129,7 +129,6 @@ subclases heredan características de superclases.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class User {
      - id : Integer
@@ -190,7 +189,6 @@ diferente** según el objeto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Product {
      - precio_base : Decimal
@@ -283,7 +281,6 @@ métodos/endpoints).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant "UC_CAT_06\nVer Detalles"     as UC1
    participant "UC_CAR_01\nAgregar Carrito"  as UC2
@@ -310,7 +307,6 @@ Las asociaciones representan **relaciones formales** entre UCs.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    usecase "UC_ACC_02\nLogin"                  as A
@@ -418,7 +414,6 @@ Este ejemplo aplica las seis dimensiones a un UC crítico.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "INTERFAZ PÚBLICA (Frontend)" as Front {
      component "Formulario Checkout" as UI
@@ -453,7 +448,6 @@ Este ejemplo aplica las seis dimensiones a un UC crítico.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Cliente
    participant ":Frontend" as F
@@ -481,7 +475,6 @@ Este ejemplo aplica las seis dimensiones a un UC crítico.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Order {
      + calculateTotal() : Decimal

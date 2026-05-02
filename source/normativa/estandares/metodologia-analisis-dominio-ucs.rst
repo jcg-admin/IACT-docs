@@ -122,7 +122,6 @@ entrenador de baloncesto).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      - id : Integer
@@ -325,7 +324,6 @@ responsabilidades y restricciones**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      .. atributos básicos ..
@@ -402,7 +400,6 @@ responsabilidades y restricciones**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class User {
      - id : Integer
@@ -456,7 +453,6 @@ Eliminar, Agregar imagen, Crear variante.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Product {
      - id : Integer
@@ -525,7 +521,6 @@ Los **paquetes** organizan clases en grupos lógicos
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Authentication" {
      class User
@@ -614,7 +609,6 @@ Cada sustantivo es una clase candidata.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class User {
      - id : Integer
@@ -686,7 +680,6 @@ Cada sustantivo es una clase candidata.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Orden {
      - numero_orden : String

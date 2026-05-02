@@ -86,7 +86,6 @@ clase; es decir, podrá **crear nuevos objetos**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      - marca : String
@@ -126,7 +125,6 @@ y ``cronometrarCentrifugado``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      - marca : String
@@ -219,7 +217,6 @@ todas las demás.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Electrodomestico {
      - interruptor
@@ -252,7 +249,6 @@ es una subclase de ``ArticulosHogar``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class ArticulosHogar
    class Electrodomestico
@@ -286,7 +282,6 @@ acción, pero no se realiza de la misma forma.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Puerta {
      + abrir()
@@ -335,7 +330,6 @@ sin mostrarnos el proceso necesario para ello.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Television {
      - circuitos : Hardware
@@ -409,7 +403,6 @@ remoto (un receptor de rayos infrarrojos).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Persona
    participant ControlRemoto
@@ -434,7 +427,6 @@ usted enciende la televisión.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Persona
    class Television
@@ -452,7 +444,6 @@ ejemplo. Usted tendría una asociación "es amigo de", así como
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Persona
    Persona "1" -- "1" Persona : es amigo de
@@ -466,7 +457,6 @@ autobús.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Persona
    class Automovil
@@ -523,7 +513,6 @@ tipos de componentes.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Computadora
    class Gabinete
@@ -576,7 +565,6 @@ hojas morirán.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Camisa
    class Cuerpo
@@ -878,7 +866,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Cliente
    class Pedido
@@ -918,7 +905,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Biblioteca
    class Libro
@@ -951,7 +937,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Casa
    class Habitacion
@@ -1003,7 +988,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Cliente
    class CatalogoProductos
@@ -1048,7 +1032,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Animal
    class Perro
@@ -1086,7 +1069,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Profesor
    class Curso
@@ -1114,7 +1096,6 @@ Ejemplos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Empleado
    Empleado "1" -- "0..*" Empleado : supervisa

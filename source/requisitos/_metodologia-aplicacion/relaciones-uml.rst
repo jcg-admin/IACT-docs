@@ -422,7 +422,6 @@ queda corta — entonces se pasa a **agregación** o
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      - id : Integer
@@ -457,7 +456,6 @@ Un caso de roles aplicado a IACT: la relación entre
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    Usuario "1\n<<aprobador>>" -- "0..*\n<<ejecutor>>" Usuario : asigna_funciones
@@ -478,7 +476,6 @@ A veces la relación funciona en ambas direcciones:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Operador
    class Supervisor
@@ -665,7 +662,6 @@ Diagrama UML
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Aerolinea {
      - nombre : String
@@ -900,7 +896,6 @@ Reglas IACT para implementar asociaciones
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Sesion
@@ -950,7 +945,6 @@ la búsqueda → convierte 1:* en 1:1.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Reporte
    class Llamada
@@ -970,7 +964,6 @@ la búsqueda → convierte 1:* en 1:1.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Reporte
@@ -1006,7 +999,6 @@ Una clase se relaciona consigo misma.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    Usuario "1\n<<supervisor>>" -- "0..*\n<<supervisado>>" Usuario : supervisa
@@ -1030,7 +1022,6 @@ Algunas funciones del catálogo RBAC se componen de otras
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Funcion
    Funcion "0..*" -- "0..*" Funcion : implica
@@ -1059,7 +1050,6 @@ Símbolo: triángulo vacío apuntando a la superclase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      - id : Integer
@@ -1113,7 +1103,6 @@ Símbolo: triángulo vacío apuntando a la superclase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Reporte {
      - id : Integer
@@ -1201,7 +1190,6 @@ Símbolo: triángulo vacío apuntando a la superclase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Grupo
    class Funcion
@@ -1222,7 +1210,6 @@ Símbolo: triángulo vacío apuntando a la superclase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class EjecucionETL
    class ErrorETL
@@ -1283,7 +1270,6 @@ Símbolo: triángulo vacío apuntando a la superclase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class AuthService
    class IntentoLogin
@@ -1307,7 +1293,6 @@ función:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Grupo
@@ -1334,7 +1319,6 @@ propiedades propias (atributos / operaciones).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Alerta
@@ -1365,7 +1349,6 @@ propiedades propias (atributos / operaciones).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Funcion
@@ -1405,7 +1388,6 @@ discontinua con flecha hacia la clase usada.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class SecRules {
      + verificarPermiso(usuario : Usuario, funcion : Funcion) : Boolean
@@ -1429,7 +1411,6 @@ discontinua con flecha hacia la clase usada.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Reporte {
      + generar(filtros : Filtro) : Reporte
@@ -1958,7 +1939,6 @@ Ejemplo canónico — figuras geométricas
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Figura {
      - color : String
@@ -2008,7 +1988,6 @@ Ejemplo aplicado a IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    abstract class Reporte {
      + generar()
      + exportar(formato)
@@ -2093,7 +2072,6 @@ ejecutable".
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Documento {
      - contenido : String
@@ -2234,7 +2212,6 @@ Diseño incorrecto (herencia por construcción):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Diseno incorrecto — herencia por construccion
 
    class BaseDeDatos {
@@ -2262,7 +2239,6 @@ Diseño correcto (composición):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Diseno correcto — composicion
 
    class BaseDeDatos {
@@ -2397,7 +2373,6 @@ Diseño incorrecto:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Diseno incorrecto — herencia por limitacion
 
    class Ave {
@@ -2429,7 +2404,6 @@ Diseño correcto — interfaces para separar comportamientos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Diseno correcto — interfaces
 
    class Ave {
@@ -3198,7 +3172,6 @@ dependencias antes de un hipotético refactor:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Snapshot pre-refactor — ExportarReporteFacade
 
    class ExportarReporteFacade {
@@ -3381,7 +3354,6 @@ inyectadas, complementando § 17.1:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Snapshot dependencias — ExportarReporteFacade
 
    class ExportarReporteFacade
@@ -3708,7 +3680,6 @@ campos y aporta su validación canónica
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Snapshot post-refactor — ConsultaReporteRequest
 
    class ConsultaReporteRequest {
@@ -3912,7 +3883,6 @@ Refactor: introducir ``IBus`` y mover el
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Snapshot post-refactor — IBus
 
    interface IBus {

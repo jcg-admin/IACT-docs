@@ -239,7 +239,6 @@ Plantilla del bloque (siempre presente):
  .. uml::
 
     @startuml
-    !include ../../_static/plantuml-styles.puml
 
     left to right direction
     actor "[Actor]" as A
@@ -264,7 +263,6 @@ Sólo si el UC modifica estado.
  .. uml::
 
     @startuml
-    !include ../../_static/plantuml-styles.puml
 
     [*] --> Estado1
     Estado1 --> Estado2 : acción
@@ -285,7 +283,6 @@ Sólo si el flujo tiene decisiones o ramas.
  .. uml::
 
     @startuml
-    !include ../../_static/plantuml-styles.puml
 
     start
     :Actividad 1;
@@ -311,7 +308,6 @@ Sólo si interactúan más de 2 componentes.
  .. uml::
 
     @startuml
-    !include ../../_static/plantuml-styles.puml
 
     actor Usuario
     participant ":Frontend" as F
@@ -339,7 +335,6 @@ Sólo si introduce o modifica entidades.
  .. uml::
 
     @startuml
-    !include ../../_static/plantuml-styles.puml
 
     class Entidad1 {
       - id : Integer

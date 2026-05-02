@@ -102,7 +102,6 @@ y cómo se estructuran.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      - marca : String
@@ -134,7 +133,6 @@ o un ejemplo de cómo funciona una clase en la práctica.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object "miLavadora : Lavadora" as ml {
      marca = "Laundatorium"
@@ -166,7 +164,6 @@ usuario. Actor + caso de uso + relaciones.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Usuario
@@ -193,7 +190,6 @@ estado a lo largo del tiempo (ej.: orden pasando de *pendiente*
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Apagada
    Apagada --> Remojo : encender()
@@ -222,7 +218,6 @@ orden, qué se intercambian).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant Manguera as M
    participant Tambor   as T
@@ -251,7 +246,6 @@ complejos con decisiones** (similar a un diagrama de flujo).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Agregar ropa;
@@ -285,7 +279,6 @@ interacción** entre componentes (quién trabaja con quién).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object Cronometro
    object Manguera
@@ -313,7 +306,6 @@ unos de otros).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "Interfaz de Usuario" as UI
    component "Controlador Principal" as Ctrl
@@ -340,7 +332,6 @@ máquinas, cómo se conectan).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Cliente" <<dispositivo>> as C {
      component "Navegador"
@@ -371,7 +362,6 @@ Notación: carpeta con nombre.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Autenticación" {
      class User
@@ -389,7 +379,6 @@ discontinua.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Cliente
    note right of Cliente
@@ -405,7 +394,6 @@ Notación: nombre entre ``«…»`` (paréntesis angulares dobles).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    interface IAuthenticable <<interface>> {
      + login()

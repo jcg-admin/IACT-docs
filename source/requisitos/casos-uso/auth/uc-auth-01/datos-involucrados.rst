@@ -291,7 +291,6 @@ Para evitar confusion sobre el alcance:
  :caption: Clases tocadas por UC_AUTH_01
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  class User {
    + user_id : UUID

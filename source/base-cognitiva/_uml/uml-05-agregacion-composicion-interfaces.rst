@@ -50,7 +50,6 @@ todo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Computadora
    class Gabinete
@@ -92,7 +91,6 @@ todo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Comida
    class Sopa
@@ -131,7 +129,6 @@ rombo está relleno**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class MesaCafe
    class Superficie
@@ -173,7 +170,6 @@ atención en la camisa y sus componentes:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Camisa (composición)" {
      class Cuerpo
@@ -214,7 +210,6 @@ la clase ``Camisa`` se conecta con las clases ``Guardarropa`` y
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Guardarropa
    class Atuendo
@@ -291,7 +286,6 @@ puede ser realizada por más de una clase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    interface "ITecladoMaquinaEscribir" as ITME {
      + presionarTecla(t)
@@ -317,7 +311,6 @@ representar una clase y su interfaz es con un **pequeño círculo**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class TecladoComputadora
    () "ITecladoMaquinaEscribir" as ITME
@@ -362,7 +355,6 @@ protegida.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Television {
      - circuitos
@@ -427,7 +419,6 @@ Existen dos tipos de ámbito: el de **instancia** y el de
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Coche {
      - color : String

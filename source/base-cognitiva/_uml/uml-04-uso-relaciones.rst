@@ -42,7 +42,6 @@ Dicha línea indicará la dirección de la relación con un
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Jugador
    class Equipo
@@ -80,7 +79,6 @@ funciones asignadas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Equipo
    class Jugador
@@ -99,7 +97,6 @@ relleno que indique la dirección de cada asociación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Equipo
    class Jugador
@@ -169,7 +166,6 @@ como sus asociaciones con la clase ``Equipo``:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Equipo
    class Defensa
@@ -199,7 +195,6 @@ palabra ``ordenado`` entre llaves ``{}`` junto a la clase
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Cajero
    class Cliente
@@ -218,7 +213,6 @@ uno comercial.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Estudiante
    class CursoAcademico
@@ -254,7 +248,6 @@ clase ``DirectorGeneral``, que a su vez se asocia con
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Jugador
    class Equipo
@@ -290,7 +283,6 @@ deberá subrayar el nombre de un vínculo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object "michael : Jugador" as M
    object "bulls : Equipo" as B
@@ -310,7 +302,6 @@ correspondiente.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Equipo
    class Jugador
@@ -382,7 +373,6 @@ muchos a una multiplicidad de uno a uno**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Recepcionista
    class Reservacion
@@ -435,7 +425,6 @@ salas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Artwork {
      titulo : String
@@ -470,7 +459,6 @@ y la multiplicidad.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class OcupanteDeAutomovil
    OcupanteDeAutomovil "1\nconductor" -- "0..*\npasajero" OcupanteDeAutomovil : transporta
@@ -494,7 +482,6 @@ la relación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Empleado
    Empleado "1\n<<boss>>" -- "0..*\n<<subordinate>>" Empleado : supervisa
@@ -533,7 +520,6 @@ tipo de* ``Mamifero``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Animal
    class Mamifero
@@ -638,7 +624,6 @@ no serviría a ningún propósito, así como tampoco uno de la clase
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Jugador {
      nombre : String
@@ -691,7 +676,6 @@ clase de la que depende.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Sistema {
      mostrarFormulario(f : Form)

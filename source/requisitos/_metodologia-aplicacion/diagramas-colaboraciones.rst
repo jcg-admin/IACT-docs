@@ -71,7 +71,6 @@ indican dirección.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object Objeto1
@@ -176,7 +175,6 @@ Ejemplos IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Backend
@@ -223,7 +221,6 @@ Ejemplos IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Scheduler"     as Sch
@@ -255,7 +252,6 @@ una línea discontinua etiquetada con el estereotipo
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object "sesion : Sesion\n[Anonima]"  as S1
@@ -297,7 +293,6 @@ Ejemplos IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Reporte"      as R
@@ -336,7 +331,6 @@ Ejemplo IACT: ``Usuario``, ``Reporte``, ``EventoAuditoria``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
    object ":Backend" as B <<active>>
    object ":Scheduler" as Sch <<active>>
@@ -409,7 +403,6 @@ Sólo después se publica el cierre en el panel general.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Supervisor
@@ -448,7 +441,6 @@ sincronización, objetos activos / pasivos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
    actor Supervisor
 
@@ -526,7 +518,6 @@ sincronización, objetos activos / pasivos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Operador
@@ -684,7 +675,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Supervisor" as S
@@ -699,7 +689,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":EvaluadorAlertas" as E
@@ -713,7 +702,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Browser" as B
@@ -728,7 +716,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":rpt_app" as Rpt
@@ -743,7 +730,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":auth_app" as Auth
@@ -759,7 +745,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Browser" as B
@@ -778,7 +763,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":auth_app" as Auth
@@ -793,7 +777,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":etl_runner" as ETL
@@ -808,7 +791,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":auth_app" as Auth
@@ -827,7 +809,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":rpt_app" as Rpt
@@ -842,7 +823,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Supervisor" as S
@@ -866,7 +846,6 @@ real. Copiar y adaptar al UC nuevo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
    title UC_XXX_NN — vista de colaboracion
 

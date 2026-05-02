@@ -102,7 +102,6 @@ palabras — que podría etiquetar como **"Comprar gaseosa"**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Cliente
@@ -249,7 +248,6 @@ cerrar y poner el seguro a la máquina.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Cliente
@@ -317,7 +315,6 @@ De tal manera que *"Reabastecer"* y *"Recolectar dinero"*
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Proveedor
@@ -376,7 +373,6 @@ caso de uso**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Proveedor

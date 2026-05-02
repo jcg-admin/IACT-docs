@@ -27,7 +27,6 @@ los sub-pasos viven en el diagrama de secuencia
  :caption: UC_AUTH_01 — diagrama de caso de uso
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  left to right direction
 
@@ -65,7 +64,6 @@ participantes principales del backend.
  :caption: UC_AUTH_01 — secuencia del flujo principal
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  actor       Usuario as U
  participant "Frontend\n(React)" as F
@@ -137,7 +135,6 @@ las distintas excepciones y flujos alternos.
  :caption: UC_AUTH_01 — flujo de control con decisiones
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  start
 
@@ -223,7 +220,6 @@ consumen.
  :caption: Estados de la clase Session
 
  @startuml
- !include ../../../_static/plantuml-styles.puml
 
  [*] --> ACTIVE : UC_AUTH_01\n(crear)
 

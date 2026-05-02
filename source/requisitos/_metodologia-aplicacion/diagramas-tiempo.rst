@@ -76,7 +76,6 @@ responder en ≤ 10 s (CNST_017). Tres objetos relevantes:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    robust "Navegador" as N
    robust "Backend"  as B

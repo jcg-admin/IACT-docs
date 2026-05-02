@@ -49,7 +49,6 @@ recurso.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "ServidorWeb" <<procesador>> as SW
    node "Impresora"   <<dispositivo>> as P
@@ -64,7 +63,6 @@ información (componentes colocados en el nodo):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "ServidorWeb" as SW {
      component "Apache"        as Ap
@@ -79,7 +77,6 @@ en relaciones de **dependencia** con un nodo:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "ServidorWeb" as SW
    component "Apache"      as Ap
@@ -98,7 +95,6 @@ conexión:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Cliente"    as C
    node "Servidor"   as S
@@ -133,7 +129,6 @@ con el proveedor de servicios de Internet.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "PC Hogar"      <<procesador>> as PC
    node "Monitor"       <<dispositivo>> as MON
@@ -171,7 +166,6 @@ información puede ir por la red.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "MSAU 1" as M1
    node "MSAU 2" as M2
@@ -212,7 +206,6 @@ equipos se lo pasan entre sí.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Hub Activo"  <<dispositivo>> as HA
    node "Hub Pasivo"  <<dispositivo>> as HP
@@ -246,7 +239,6 @@ señal antes de transmitirla.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "PC 1" <<procesador>> as P1
    node "PC 2" <<procesador>> as P2
@@ -290,7 +282,6 @@ otro). La información se lleva del NIF a Internet.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Laptop" <<procesador>> as L
    node "Modem inalambrico" <<dispositivo>> as M
@@ -328,7 +319,6 @@ distribución.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
    package "UML — panorama completo" {

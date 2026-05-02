@@ -52,7 +52,6 @@ realizarse, se continúa con la siguiente.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Actividad 1;
@@ -82,7 +81,6 @@ a la ruta correspondiente.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Verificar valor;
@@ -110,7 +108,6 @@ línea gruesa.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    fork
@@ -139,7 +136,6 @@ actividad.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Preparar mensaje;
@@ -169,7 +165,6 @@ Variables: ``Contador`` (control), ``Respuesta`` (resultado),
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Respuesta1 := 1;
@@ -224,7 +219,6 @@ documento:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Abrir procesador de textos;
@@ -277,7 +271,6 @@ la parte superior y presenta sus actividades.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    |Vendedor|
    start
@@ -319,7 +312,6 @@ que la recibe y la imprime.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Guardar archivo;
@@ -339,7 +331,6 @@ recibe una petición para ejecutar la operación:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    allowmixing
    actor Usuario
@@ -361,7 +352,6 @@ Adiciones al panorama
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
    package "UML" {

@@ -198,7 +198,6 @@ rectángulos pequeños sobrepuestos en su lado izquierdo**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    component "MiComponente" as C
@@ -212,7 +211,6 @@ clases que implementa.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    package "Editor" {
@@ -230,7 +228,6 @@ Otra forma de mostrar las clases que implementa un componente
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    component "Editor.exe" as Ed
@@ -256,7 +253,6 @@ discontinua y una punta de flecha de triángulo sin rellenar**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    interface IEditable {
@@ -275,7 +271,6 @@ Aquí la línea representa la realización:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    component "Editor.exe" as Ed
@@ -293,7 +288,6 @@ Puede mostrar **realización y dependencia en el mismo diagrama**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    component "Editor.exe"   as Ed
@@ -339,7 +333,6 @@ un grupo de clases que muestran y controlan la GDI. Y
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Tirodedados" {
      component "Craps.html"  as HTML
@@ -393,7 +386,6 @@ disposición están en el mismo directorio.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    package "Anim" {
@@ -443,7 +435,6 @@ archivo de ayuda generará un ``.GID``. Utilizar la característica
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    package "PowerToys" {
@@ -473,7 +464,6 @@ software del sistema**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    skinparam packageStyle rectangle

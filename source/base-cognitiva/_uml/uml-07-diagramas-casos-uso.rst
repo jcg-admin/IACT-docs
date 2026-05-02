@@ -59,7 +59,6 @@ interconexión componen un **modelo de caso de uso**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor "ActorIniciador" as A
@@ -84,7 +83,6 @@ el ``Recolector``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Cliente
@@ -183,7 +181,6 @@ bordeada por dos pares de paréntesis angulares.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Proveedor
@@ -238,7 +235,6 @@ caso de uso.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Proveedor
@@ -283,7 +279,6 @@ apunta hacia el caso de uso primario.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Cliente
@@ -304,7 +299,6 @@ secundarios del ``AgenteProveedor``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor "AgenteProveedor" as AP
    actor "Reabastecedor"   as R1
@@ -388,7 +382,6 @@ El diagrama de clases podría incluir las siguientes clases:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Consultor
    class Cliente
@@ -422,7 +415,6 @@ generalización**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Empleado
    actor Consultor
@@ -465,7 +457,6 @@ funcionales** de la LAN.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Consultor
@@ -549,7 +540,6 @@ a ``"Crear una propuesta"``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Consultor
@@ -698,7 +688,6 @@ El panorama
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
 

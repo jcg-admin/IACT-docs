@@ -40,7 +40,6 @@ detergente*, *activarse* y *sacar ropa*.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      - marca : String
@@ -73,7 +72,6 @@ de los dos puntos (``:``), y el nombre de la clase a la derecha.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object "miLavadora : Lavadora" as ml {
      marca = "Laundatorium"
@@ -101,7 +99,6 @@ u otro sistema.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor "Usuario de la lavadora" as Usuario
@@ -133,7 +130,6 @@ final**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Remojo
    Remojo --> Lavado
@@ -192,7 +188,6 @@ superior del diagrama). El tiempo se da de arriba hacia abajo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant "Manguera\nde agua" as M
    participant "Tambor" as T
@@ -233,7 +228,6 @@ secuencia anterior con el diagrama de actividades UML.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Tambor gira de un lado a otro\n(15 min);
@@ -259,7 +253,6 @@ girar de un lado a otro.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object Cronometro
    object Manguera
@@ -285,7 +278,6 @@ software.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "Controlador\nde Lavado" as C {
      [Lógica de Ciclo]
@@ -309,7 +301,6 @@ líneas que conectan a los cubos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Servidor de Aplicación" as App {
      component [Backend API]
@@ -345,7 +336,6 @@ carpeta tabulada.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Subsistema Lavado" {
      class Tambor
@@ -368,7 +358,6 @@ diagrama mediante una línea discontinua.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Tambor {
      - capacidad : Float
@@ -402,7 +391,6 @@ elemento, podrá utilizar el símbolo de una clase con
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavable <<Interfaz>> {
      + iniciarCiclo()

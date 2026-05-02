@@ -76,7 +76,6 @@ mediante dos puntos (``:``).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Actor
@@ -105,7 +104,6 @@ Un actor inicia la secuencia al oprimir una tecla. Tal secuencia
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Usuario
@@ -140,7 +138,6 @@ discontinua* y etiquétela con un estereotipo ``«se toma»`` (o
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object "GUI [Inicialización]" as GUI1
@@ -174,7 +171,6 @@ gaseosa"*:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Cliente
@@ -212,7 +208,6 @@ número y se agrega ``.1`` (**anidación**):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Cliente
@@ -239,7 +234,6 @@ flujo y un estereotipo ``«transacción finalizada»``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Cliente
@@ -279,7 +273,6 @@ y *mientras* (``*[…]``) según corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Consultor
@@ -326,7 +319,6 @@ objetos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Profesor" as P
@@ -351,7 +343,6 @@ conforme fue llegando a la fila. Esto se representa con un
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":EmpleadoBancario" as EB
@@ -381,7 +372,6 @@ de ``:=``, luego el nombre de la operación y las cantidades:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Cliente"      as C
@@ -442,7 +432,6 @@ borde será grueso y más oscuro**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":Bibliotecario1" as B1 <<active>>
@@ -500,7 +489,6 @@ antes (sintaxis: ``2,3 / mensaje()``).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    object ":VicepComerc"      as VC
@@ -535,7 +523,6 @@ comportamiento**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    skinparam packageStyle rectangle

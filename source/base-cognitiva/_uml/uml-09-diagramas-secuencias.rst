@@ -69,7 +69,6 @@ interpreta como la duración de la activación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant Cliente as C
    participant ":Objeto" as O
@@ -105,7 +104,6 @@ El mensaje puede ser **simple**, **sincrónico** o **asincrónico**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant A
    participant B
@@ -128,7 +126,6 @@ El diagrama de secuencias tiene dos dimensiones:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Actor
    participant ":ObjetoA" as A
@@ -187,7 +184,6 @@ más.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    participant ":GUI"          as GUI
@@ -212,7 +208,6 @@ finaliza en el estado *Operativo* de la GUI.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    participant ":GUI" as GUI
@@ -246,7 +241,6 @@ uso dentro del sistema.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Usuario
@@ -296,7 +290,6 @@ Cada mensaje mueve el flujo de control de un objeto a otro
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Cliente
    participant ":Fachada"      as F
@@ -346,7 +339,6 @@ Escenario "Monto incorrecto":
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Cliente
    participant ":Fachada"     as F
@@ -390,7 +382,6 @@ Escenarios "Monto incorrecto" + "Sin marca":
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Cliente
    participant ":Fachada"     as F
@@ -484,7 +475,6 @@ antes del primer corchete.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Consultor
    participant ":AreaCentral" as A
@@ -538,7 +528,6 @@ que inició la recursividad.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant ":Calculadora" as C
    activate C
@@ -564,7 +553,6 @@ comportamiento**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
 

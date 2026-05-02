@@ -59,7 +59,6 @@ de palo) y **línea asociativa**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor "Actor\n(figura de palo)" as A
@@ -81,7 +80,6 @@ beneficia** a la derecha (puede ser el mismo).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor "Actor\niniciador" as A1
@@ -105,7 +103,6 @@ Diagrama clásico de Schmuller que sirve de base conceptual:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Cliente
@@ -138,7 +135,6 @@ internos y externos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
 
@@ -217,7 +213,6 @@ y elimina duplicación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Supervisor
@@ -268,7 +263,6 @@ y elimina duplicación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Supervisor
@@ -317,7 +311,6 @@ al caso primario.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Usuario
@@ -348,7 +341,6 @@ al caso primario.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor "Admin\nPipeline" as AP
@@ -383,7 +375,6 @@ para mostrar la jerarquía de roles del proyecto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    actor Operador
@@ -420,7 +411,6 @@ módulo del catálogo modular.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Operador
@@ -752,7 +742,6 @@ Ejemplo IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — dependency entre UCs (snapshot)
 
    left to right direction
@@ -966,7 +955,6 @@ clusters de UCs accesibles:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — Architecture flow (vista navegacional)
 
    start

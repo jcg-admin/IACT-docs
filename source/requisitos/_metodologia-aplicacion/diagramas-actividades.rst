@@ -59,7 +59,6 @@ Forma canónica en PlantUML
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :Actividad 1;
    :Actividad 2;
@@ -84,7 +83,6 @@ Ejemplo IACT — UC_AUTH_01 (Login)
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :Recibir credenciales;
    :Validar usuario en LDAP;
@@ -122,7 +120,6 @@ notificación al solicitante.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :Detectar fin de ventana ETL;
    :Cargar configuracion del reporte;
@@ -154,7 +151,6 @@ Ejemplo IACT — Alerta crítica (UC_ALR_03)
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :EvaluadorAlertas detecta umbral excedido;
    :Emitir senal "AlertaCritica";
@@ -169,7 +165,6 @@ Ejemplo IACT — Alerta crítica (UC_ALR_03)
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :Esperar senal "AlertaCritica";
    :Recibir senal;
@@ -192,7 +187,6 @@ Ejemplo IACT — UC_RPT_04 (Exportar reporte)
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    |Supervisor|
    start
    :Seleccionar reporte y rango (max 6 meses, CNST_031);
@@ -237,7 +231,6 @@ Ejemplo IACT — Carga ETL paginada (CNST_006/008)
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    start
    :Inicializar offset = 0;
    :Definir tamano_lote;

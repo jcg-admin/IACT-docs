@@ -66,7 +66,6 @@ partes pueden existir **independientemente**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Grupo {
@@ -115,7 +114,6 @@ CNST_001):
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class AlertaCritica
@@ -314,7 +312,6 @@ Diagrama UML
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Universidad {
@@ -486,7 +483,6 @@ todo** (relación de pertenencia exclusiva).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class EjecucionETL {
@@ -747,7 +743,6 @@ Diagrama UML
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Documento {
@@ -942,7 +937,6 @@ sistema.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    package "EjecucionETL (composición)" {
@@ -969,7 +963,6 @@ sistema.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    package "IACT (contexto del sistema)" {
@@ -1027,7 +1020,6 @@ públicas que una clase presenta a otras.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    interface IExportable <<interface>> {
@@ -1080,7 +1072,6 @@ públicas que una clase presenta a otras.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    interface INotificable <<interface>> {
@@ -1115,7 +1106,6 @@ públicas que una clase presenta a otras.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    interface ISegmentable <<interface>> {
@@ -1194,7 +1184,6 @@ operaciones.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Reporte {
@@ -1244,7 +1233,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class ConfiguracionSLA {
@@ -1277,7 +1265,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Funcion {
@@ -1310,7 +1297,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    class Grupo
@@ -1337,7 +1323,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    interface IExportable <<interface>> {
@@ -1362,7 +1347,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    skinparam packageStyle rectangle
@@ -1422,7 +1406,6 @@ El **ámbito** determina si un atributo o operación es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    skinparam packageStyle rectangle

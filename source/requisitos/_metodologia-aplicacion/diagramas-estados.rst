@@ -60,7 +60,6 @@ relleno), **estado** (rectángulo redondeado), **transición**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Estado1
    Estado1 --> Estado2 : transición
@@ -73,7 +72,6 @@ relleno), **estado** (rectángulo redondeado), **transición**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Inactiva
    Inactiva --> Activa : login()
@@ -126,7 +124,6 @@ relleno), **estado** (rectángulo redondeado), **transición**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Programada
 
@@ -216,7 +213,6 @@ relleno), **estado** (rectángulo redondeado), **transición**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Anonima
 
@@ -252,7 +248,6 @@ DEBE cumplirse para que ocurra la transición.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Solicitado
 
@@ -297,7 +292,6 @@ DEBE cumplirse para que ocurra la transición.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Programada
 
@@ -334,7 +328,6 @@ tiempo**, gestionando suscriptores.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Configurada
 
@@ -383,7 +376,6 @@ sistema vuelve al subestado donde estaba (no reinicia desde
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Programada
    Programada --> Procesando : horario_carga()
@@ -413,7 +405,6 @@ que pasa por varios estados a lo largo de su vida.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Programado
 
@@ -478,7 +469,6 @@ estado final.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Monitoreando
 
@@ -807,7 +797,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Activa : login (CNST_002)
    Activa --> Caducada : timeout
@@ -822,7 +811,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Procesando {
      Procesando : entry / inicializar contador
@@ -840,7 +828,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Procesando
 
@@ -853,7 +840,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state j <<choice>>
 
@@ -869,7 +855,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state c <<choice>>
 
@@ -885,7 +870,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state EjecucionETL {
      [*] --> Inicializada
@@ -905,7 +889,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Procesando {
      state H <<history>>
@@ -929,7 +912,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Procesando {
      state H_deep <<historyDeep>>
@@ -952,7 +934,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Inicializada
 
@@ -971,7 +952,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Inicializada
 
@@ -995,7 +975,6 @@ real. Copiar y adaptar al UC objetivo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Ciclo de vida — <Objeto IACT>
 
    [*] --> EstadoInicial : crear

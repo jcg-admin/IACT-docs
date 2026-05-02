@@ -676,7 +676,6 @@ envejecen.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Llamada {
      - id : Integer
@@ -709,7 +708,6 @@ integra ésta con todas las demás clases.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object "llamada_001 : Llamada" as L {
      id = 4732112
@@ -735,7 +733,6 @@ usar instancias concretas como ésta.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    left to right direction
    actor Operador
@@ -790,7 +787,6 @@ Owners / Analistas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Programada
 
@@ -829,7 +825,6 @@ Owners / Analistas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Operador
    participant ":Frontend\n(React)"   as F
@@ -868,7 +863,6 @@ Owners / Analistas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    start
    :Operador solicita exportar\n(formato: CSV / Excel / PDF);
@@ -912,7 +906,6 @@ Owners / Analistas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    allowmixing
 
    actor Supervisor
@@ -942,7 +935,6 @@ CNST_001.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Frontend (React + Webpack)" {
      component "UI Components\nDashboards, Reportes" as UI
@@ -1001,7 +993,6 @@ CNST_001.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "Cliente Web" <<dispositivo>> as Browser {
      component "Chrome / Firefox"

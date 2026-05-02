@@ -297,7 +297,6 @@ etiquetada), **tiempo** (eje vertical, arriba → abajo).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant Objeto1
    participant Objeto2
@@ -334,7 +333,6 @@ explícitas:
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title User Sign Up Flow
 
    actor Browser
@@ -371,7 +369,6 @@ es **UC_AUTH_01** (login del supervisor):
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — Login del supervisor
 
    actor Supervisor
@@ -550,7 +547,6 @@ página de login:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — primer intercambio
 
    actor Supervisor
@@ -634,7 +630,6 @@ CNST_017:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_RPT_01 — primer intercambio dashboard
 
    actor Supervisor
@@ -702,7 +697,6 @@ de credenciales:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — Login con bifurcacion happy/unhappy
 
    actor Supervisor
@@ -846,7 +840,6 @@ Ejemplo IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_RPT_04 — paso opcional de notificacion
 
    participant "rpt_app" as Rpt
@@ -1001,7 +994,6 @@ flujo principal espere acuse:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — registro auditable async (CNST_025)
 
    actor Supervisor
@@ -1150,7 +1142,6 @@ con activaciones encajadas:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — activaciones encajadas
 
    actor Supervisor
@@ -1320,7 +1311,6 @@ disparado desde una app es consumido por
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — fan-out auditable
 
    actor Supervisor
@@ -1407,7 +1397,6 @@ Mermaid:
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    autonumber
    B -> Auth : POST /login
    Auth -> LDAP : authenticate
@@ -1445,7 +1434,6 @@ Aplicado a UC_AUTH_01 con ``autonumber``:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — login con numeracion automatica
 
    autonumber
@@ -1689,7 +1677,6 @@ Para IACT, la combinación más robusta es:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Operador
    participant ":Frontend"   as F
@@ -1729,7 +1716,6 @@ condiciones alternativas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor "Admin\nPipeline" as AP
    participant ":SupervisorETL" as Sup
@@ -1781,7 +1767,6 @@ en uno solo, usando ``alt`` / ``else`` (condiciones) y
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    participant ":Frontend"     as F
@@ -1841,7 +1826,6 @@ La **altura** de la activación representa la **duración**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant ":Backend" as B
    participant ":CacheRedis" as C
@@ -1891,7 +1875,6 @@ vertical indica el momento de creación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    participant ":AuthService" as A
@@ -1939,7 +1922,6 @@ vida.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Usuario
    participant ":Frontend"     as F
@@ -1991,7 +1973,6 @@ expandir cada función hasta llegar a las atómicas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant ":SecRules"  as SR
    participant ":BDAnalytics" as BD
@@ -2154,7 +2135,6 @@ Diagrama de flujo de código (no UC) del facade
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Code flow — ExportarReporteFacade.ejecutar (snapshot)
 
    autonumber
@@ -2280,7 +2260,6 @@ Política IACT para ``par``
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor "Admin\nPipeline" as AP
    participant ":SupervisorETL" as Sup
@@ -2334,7 +2313,6 @@ loop + asincrónico + auditoría inmutable.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    actor Supervisor
    participant ":Frontend"      as F
@@ -2669,7 +2647,6 @@ se combinan:
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title <título>
    autonumber
 
@@ -2705,7 +2682,6 @@ El equivalente IACT del flujo cerrado del libro
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_AUTH_01 — flujo final con todos los recursos
 
    autonumber
@@ -3035,7 +3011,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    actor "Supervisor" as S
    participant "auth_app" as Auth
    S -> Auth : envia credenciales
@@ -3047,7 +3022,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "rpt_app" as Rpt
    participant "perm_app" as Perm
    Rpt -> Perm : verificar(user, "exportar")
@@ -3060,7 +3034,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "rpt_app" as Rpt
    database "bd_analytics" as BDA
    Rpt -> BDA : SELECT agregados
@@ -3073,7 +3046,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "etl_runner" as ETL
    boundary "ivr-host" as IVR
    ETL -> IVR : leer eventos del IVR
@@ -3090,7 +3062,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    actor Supervisor
    control "ExportarReporteFacade" as Facade
    participant "perm_app" as Perm
@@ -3107,7 +3078,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "alr_app" as Alr
    entity "Alerta" as A
    Alr -> A : reconocer(supervisor)
@@ -3120,7 +3090,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    actor S as Supervisor
    participant "auth_app" as Auth
    database "Redis" as R
@@ -3137,7 +3106,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "Browser" as B
    participant "rpt_app" as Rpt
 
@@ -3151,7 +3119,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "rpt_app" as Rpt
    database "audit_log" as Audit
    participant "log_app" as Log
@@ -3166,7 +3133,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "ExportarReporteFacade" as Facade
 
    loop por cada filtro
@@ -3180,7 +3146,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    autonumber
 
    actor Supervisor
@@ -3198,7 +3163,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "auth_app" as Auth
    database "ldap-corporativo" as LDAP
    database "audit_log" as Audit
@@ -3219,7 +3183,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "rpt_app" as Rpt
    participant "log_app" as Log
 
@@ -3236,7 +3199,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "etl_runner" as ETL
    database "bd_operativa" as BDO
    database "bd_analytics" as BDA
@@ -3254,7 +3216,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "ExportarReporteFacade" as Facade
    database "audit_log" as Audit
    participant "log_app" as Log
@@ -3274,7 +3235,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "etl_runner" as ETL
    database "bd_operativa" as BDO
 
@@ -3292,7 +3252,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "auth_app" as Auth
    database "Redis" as R
 
@@ -3310,7 +3269,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "Browser" as B
    participant "auth_app" as Auth
 
@@ -3328,7 +3286,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "auth_app" as Auth
 
    create participant ":Sesion" as S
@@ -3341,7 +3298,6 @@ el documento que corresponda.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    participant "auth_app" as Auth
    participant ":Sesion" as S
 
@@ -3359,7 +3315,6 @@ el UC objetivo:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title UC_XXX_NN — descripcion breve
 
    autonumber

@@ -238,7 +238,6 @@ métricas.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Llamada {
      - id : Integer
@@ -303,7 +302,6 @@ de su superclase. *"Es un tipo de"*.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario {
      - id : Integer
@@ -410,7 +408,6 @@ implementación según la clase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Metrica {
      - nombre : String
@@ -451,7 +448,6 @@ implementación según la clase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    abstract class Exportador {
      - reporte : Reporte
@@ -511,7 +507,6 @@ la interfaz pública.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Reporte {
      == interfaz pública ==
@@ -600,7 +595,6 @@ operación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant ":Operador"   as O
    participant ":Dashboard"  as D
@@ -624,7 +618,6 @@ operación.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    participant ":AdminPipeline" as AP
    participant ":SupervisorETL" as Sup
@@ -680,7 +673,6 @@ interfaces**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Usuario
    class Sesion
@@ -715,7 +707,6 @@ interfaces**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Grupo
    class Funcion
@@ -735,7 +726,6 @@ interfaces**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class EjecucionETL
    class ErrorETL
@@ -777,7 +767,6 @@ interfaces**:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
    rectangle "Orientación a Objetos en IACT" as OOP {
@@ -905,7 +894,6 @@ Contraste *pass-through* vs acceso directo
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Antipatron pass-through (evitar)
    class Vista
    class RptApp {
@@ -927,7 +915,6 @@ Contraste *pass-through* vs acceso directo
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Acceso directo (correcto)
    class Vista
    class AudApp {
@@ -2220,7 +2207,6 @@ Diseño deficiente — dependencia directa
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Mal diseno — dependencia directa concreta
 
    class Controlador {
@@ -2250,7 +2236,6 @@ Diseño correcto — dependencia invertida sobre IAlarm
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Buen diseno — dependencia invertida via abstraccion
 
    interface IAlarm {

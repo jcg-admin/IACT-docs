@@ -74,7 +74,6 @@ relleno dentro) representa a un punto final.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> EstadoA
    EstadoA --> EstadoB
@@ -120,7 +119,6 @@ muestra la fecha y la hora en una pantalla.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state "Inactividad" as INA {
      INA : do / mostrarFechaYHora
@@ -214,7 +212,6 @@ tres estados: **Inicialización**, **Operación**, **Apagado**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Inicializacion : encender / arrancar
    Inicializacion --> Operacion
@@ -244,7 +241,6 @@ entre corchetes ``[ ]``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    [*] --> Inicializacion : encender / arrancar
    Inicializacion --> Operacion
@@ -292,7 +288,6 @@ tercer estado, la GUI vuelve a iniciar *A la espera*.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Operacion {
      [*] --> Espera
@@ -324,7 +319,6 @@ entre las regiones concurrentes.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Operacion {
      state "Acciones del usuario" as RegionA {
@@ -371,7 +365,6 @@ una punta de flecha que apunta a tal subestado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    state Operacion {
      [*] --> Espera
@@ -458,7 +451,6 @@ panorama del UML.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    skinparam packageStyle rectangle
 

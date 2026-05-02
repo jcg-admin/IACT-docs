@@ -93,7 +93,6 @@ consistentes en toda la aplicación (BR_016/017/018).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class ConfiguracionAlertas {
      - {static} _instancia : ConfiguracionAlertas
      - umbrales : dict
@@ -140,7 +139,6 @@ agregador, pero comparte la interfaz ``IReporte``.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    interface IReporte {
      + generar() : Resultado
    }
@@ -235,7 +233,6 @@ expone atributos LDAP estándar (``cn``, ``mail``,
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class LDAPEntry {
      + cn : str
      + mail : str
@@ -281,7 +278,6 @@ que conocer todas las dependencias.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    class ExportarReporteFacade {
      - perm
      - rpt
@@ -363,7 +359,6 @@ duplicado, los eventos de dominio se publican y
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    interface Observer {
      + notificar(evento)
    }
@@ -417,7 +412,6 @@ algoritmo de serialización cambia, el resto del flujo no.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    interface FormatoExport {
      + serializar(datos) : bytes
    }

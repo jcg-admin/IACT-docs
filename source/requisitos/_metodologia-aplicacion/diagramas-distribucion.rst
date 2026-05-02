@@ -226,7 +226,6 @@ y el ``iact.wsgi`` que sirve la SPA.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Container view (paso 1)
 
    actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
@@ -401,7 +400,6 @@ Aplicación a IACT — Container view con frontera
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Container view con frontera
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -551,7 +549,6 @@ El equivalente IACT de la vista final del libro
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Container view (final)
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -692,7 +689,6 @@ flechas que cruzan la frontera:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Container view (rangos ajustados)
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -879,7 +875,6 @@ Container view IACT con sync vs async
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Container view (sync vs async)
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -1140,7 +1135,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A --> B
@@ -1151,7 +1145,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A --> B : text
@@ -1162,7 +1155,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A -- B
@@ -1173,7 +1165,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A -- B : text
@@ -1184,7 +1175,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A ..> B
@@ -1195,7 +1185,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A ..> B : text
@@ -1206,7 +1195,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A -[bold]-> B
@@ -1217,7 +1205,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A -[bold]-> B : text
@@ -1228,7 +1215,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    rectangle C
@@ -1241,7 +1227,6 @@ duda si la sintaxis produce el efecto esperado.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    rectangle C
@@ -1258,7 +1243,6 @@ rango**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A ---> B : flecha mas larga
@@ -1269,7 +1253,6 @@ rango**
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    rectangle A
    rectangle B
    A -right-> B : forzada a la derecha
@@ -1405,7 +1388,6 @@ arquitectura de despliegue es deliberadamente simple.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "puesto-supervisor\n<<computadora>>" as PS {
      artifact "Navegador (intranet)" as BR
@@ -1520,7 +1502,6 @@ contiene y a qué interfaz corresponden (cruce con H12).
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM {
      node "Apache + mod_wsgi" {
@@ -1796,7 +1777,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM
    @enduml
@@ -1807,7 +1787,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM {
      node "Apache + mod_wsgi" as Apache
@@ -1820,7 +1799,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" {
      node "Apache + mod_wsgi" {
@@ -1835,7 +1813,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" {
      database "bd_analytics" as BDA
@@ -1850,7 +1827,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "puesto-supervisor" as PS
    node "vm-iact" as VM
@@ -1864,7 +1840,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM
    node "ldap-corporativo" as LDAP
@@ -1878,7 +1853,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM
    database "bd-operativa\n(read-only)" as BDO
@@ -1892,7 +1866,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    node "vm-iact" as VM {
      port p_https
@@ -1911,7 +1884,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — Deployment minimalista
 
    actor Supervisor
@@ -1944,7 +1916,6 @@ En IACT:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Deployment — <ambito>
 
    actor "<Actor>" as A

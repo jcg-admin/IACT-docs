@@ -219,7 +219,6 @@ ORM o tablas de otra app rompen el contrato.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    skinparam componentStyle rectangle
 
    package "Cliente (navegador del supervisor)" {
@@ -281,7 +280,6 @@ Ejemplo: flujo de exportación de reporte UC_RPT_04.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    skinparam componentStyle rectangle
 
    [rpt_app] as RPT
@@ -1032,7 +1030,6 @@ corporativos externos:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — Vista Context (C4 nivel 1)
 
    skinparam actorBackgroundColor #E0E7FF
@@ -1219,7 +1216,6 @@ Construcción incremental — IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — paso 1: actor
 
    actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
@@ -1230,7 +1226,6 @@ Construcción incremental — IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — paso 2: actor + sistema
 
    actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
@@ -1243,7 +1238,6 @@ Construcción incremental — IACT
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — paso 3: con sistemas externos
 
    actor "Supervisor\n[Person]\n\nMonitorea llamadas\ny reportes" as Supervisor
@@ -1371,7 +1365,6 @@ diseño.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — paso 4: actor conectado al sistema
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -1386,7 +1379,6 @@ diseño hacia los sistemas externos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT — paso 5: con sistemas externos conectados
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -1551,7 +1543,6 @@ necesitan declarar los estereotipos:
 .. code-block:: text
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — System Context
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -1807,7 +1798,6 @@ de ``iact.wsgi`` en sus apps Django:
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title IACT C4 — Component view (iact.wsgi)
 
    actor "Supervisor\n[Person]" as Supervisor
@@ -2167,7 +2157,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    component "auth_app" as Auth
    @enduml
 
@@ -2177,7 +2166,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "perm_app" as Perm
    Perm -( ISecurity
@@ -2189,7 +2177,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "rpt_app" as Rpt
    interface ISecurity
@@ -2203,7 +2190,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "rpt_app" as Rpt {
      port p_audit
@@ -2222,7 +2208,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "iact.wsgi" {
      artifact "auth_app" as Auth
@@ -2237,7 +2222,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "Apache" as A
    component "mod_wsgi" as W
@@ -2251,7 +2235,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    interface ISecurity
    component "perm_app" as Perm
@@ -2265,7 +2248,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "rpt_app" as Rpt
    component "aud_app" as Aud
@@ -2279,7 +2261,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    component "perm_app" as Perm
    component "rpt_app" as Rpt
@@ -2295,7 +2276,6 @@ mostrar el punto de conexión exacto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
    title Vista de componentes — <subdominio>
 
    package "iact.wsgi" {

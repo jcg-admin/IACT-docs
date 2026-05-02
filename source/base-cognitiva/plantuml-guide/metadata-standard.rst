@@ -54,7 +54,6 @@ Ejemplo Completo
 
    .. uml::
 
-      !include ../_static/plantuml-styles.puml
 
       ' @IACT-DIAGRAM
       ' module: requisitos

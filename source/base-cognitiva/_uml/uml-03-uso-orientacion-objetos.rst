@@ -38,7 +38,6 @@ palabras, únalas e inicie cada una con mayúscula (como en
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora
    class LavadoraIndustrial
@@ -58,7 +57,6 @@ tabular** cuyo nombre es una cadena de texto.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    package "Electrodomesticos" {
      class Lavadora
@@ -81,7 +79,6 @@ relación padre-hijo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class "Electrodomesticos::Lavadora" as L
    @enduml
@@ -114,7 +111,6 @@ nombre de la clase.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca
@@ -136,7 +132,6 @@ pero también es posible tener una **instancia anónima**, como
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    object "miLavadora : Lavadora" as ml {
      marca = "Laundatorium"
@@ -162,7 +157,6 @@ nombre del atributo de su tipo. También podrá indicar un
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca : String
@@ -192,7 +186,6 @@ separa de los atributos**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca : String
@@ -225,7 +218,6 @@ conocen como la **firma de la operación**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca : String
@@ -245,7 +237,6 @@ sea el área de atributos o el de operaciones (o ambas) vacía.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora1 as "Lavadora"
    class Lavadora2 as "Lavadora" {
@@ -272,7 +263,6 @@ le conoce como **abreviar una clase**.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca
@@ -300,7 +290,6 @@ un subconjunto de atributos.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      <<identidad>>
@@ -338,7 +327,6 @@ contiene las operaciones.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca : String
@@ -367,7 +355,6 @@ varias reglas que sigue la clase. Para "restringir" el atributo
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      marca : String
@@ -404,7 +391,6 @@ ciertas reglas ya establecidas para la creación de un atributo.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Lavadora {
      numeroSerie : String
@@ -526,7 +512,6 @@ conversaciones con el entrenador para obtener mayor información.
 .. uml::
 
    @startuml
-   !include ../../_static/plantuml-styles.puml
 
    class Balon {
      volumen : Float
