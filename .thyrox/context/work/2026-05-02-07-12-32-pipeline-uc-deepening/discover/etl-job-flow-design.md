@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 08:44:41
-updated_at: 2026-05-02 10:15:00
+updated_at: 2026-05-02 11:00:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 2.1.0
+version: 2.2.0
 ```
 
 # Diagrama de Flujo del Proceso ETL — IACT
@@ -22,7 +22,10 @@ version: 2.1.0
 | **Proyecto** | IACT-2025-001 |
 | **Proceso** | ETL MySQL-interno: SPs + Events + Triggers |
 | **Tecnología** | **MariaDB 10.1.48** — Stored Procedures + MySQL Event Scheduler |
-| **Restricción SQL** | MariaDB 10.1 no tiene window functions — usar subconsultas correlacionadas |
+| **Restricción SQL** | MariaDB 10.1.48 no tiene window functions — usar subconsultas (CNST-ETL-007). **Actualización de MariaDB fuera de scope.** |
+| **Restricción SQL** | Tabla fuente es dinámica — requiere PREPARE/EXECUTE (CNST-ETL-008) |
+| **Carga diaria** | Solo quarter actual — calculado con YEAR()/QUARTER() (D-20, D-22) |
+| **Carga histórica** | `sp_etl_historico(year, quarter_num)` — ejecución manual una sola vez |
 | **Frecuencia** | Diaria (02:00 AM) — D-08 |
 | **Restricción crítica** | Solo lectura en tablas IVR — CNST-ETL-001, CNST-ETL-002 |
 | **Sin índices en fuente** | `tbl_historico_*` NO tienen índices — CNST-ETL-005 |
@@ -557,33 +560,44 @@ INSERT INTO job_config (job_name) VALUES
 
 ## Esqueleto del SP maestro
 
+El maestro calcula el quarter y el nombre de tabla **dinámicamente** a partir de
+`YEAR(CURDATE())` y `QUARTER(CURDATE())` — funciona para cualquier año sin
+modificación. Se elimina el ELSEIF hardcodeado por año.
+
 ```sql
 DELIMITER $$
 
 CREATE PROCEDURE sp_etl_maestro()
 sp_etl_maestro: BEGIN
-    DECLARE v_exec_id  INT;
-    DECLARE v_quarter  VARCHAR(10);
-    DECLARE v_inicio   DATE;
-    DECLARE v_fin      DATE;
+    DECLARE v_exec_id    INT;
+    DECLARE v_year       INT;
+    DECLARE v_year_short CHAR(2);
+    DECLARE v_qnum       TINYINT;
+    DECLARE v_quarter    VARCHAR(10);
+    DECLARE v_table      VARCHAR(50);
+    DECLARE v_inicio     DATE;
+    DECLARE v_fin        DATE;
 
-    -- Determinar quarter activo
-    IF CURDATE() BETWEEN '2025-01-01' AND '2025-03-31' THEN
-        SET v_quarter = 'Q01_25';
-        SET v_inicio  = '2025-01-01'; SET v_fin = '2025-03-31';
-    ELSEIF CURDATE() BETWEEN '2025-04-01' AND '2025-06-30' THEN
-        SET v_quarter = 'Q02_25';
-        SET v_inicio  = '2025-04-01'; SET v_fin = '2025-06-30';
-    ELSEIF CURDATE() BETWEEN '2025-07-01' AND '2025-09-30' THEN
-        SET v_quarter = 'Q03_25';
-        SET v_inicio  = '2025-07-01'; SET v_fin = '2025-09-30';
-    ELSE
-        INSERT INTO job_execution_log
-            (job_name, quarter_name, start_time, status, error_message)
-        VALUES ('sp_etl_maestro', 'UNKNOWN', NOW(), 'FAILED',
-                'Quarter no configurado para la fecha actual');
-        LEAVE sp_etl_maestro;
-    END IF;
+    -- Calcular quarter activo — válido para cualquier año (D-20)
+    SET v_year       = YEAR(CURDATE());
+    SET v_year_short = RIGHT(v_year, 2);
+    SET v_qnum       = QUARTER(CURDATE());  -- 1..4
+    -- Ejemplos: 'Q02_26', 'Q04_27'
+    SET v_quarter    = CONCAT('Q', LPAD(v_qnum, 2, '0'), '_', v_year_short);
+    -- Ejemplos: 'tbl_historico_t2_2026', 'tbl_historico_t4_2027'
+    SET v_table      = CONCAT('tbl_historico_t', v_qnum, '_', v_year);
+
+    -- Rango de fechas estándar (trimestres calendario)
+    CASE v_qnum
+        WHEN 1 THEN SET v_inicio = CONCAT(v_year,'-01-01');
+                    SET v_fin    = CONCAT(v_year,'-03-31');
+        WHEN 2 THEN SET v_inicio = CONCAT(v_year,'-04-01');
+                    SET v_fin    = CONCAT(v_year,'-06-30');
+        WHEN 3 THEN SET v_inicio = CONCAT(v_year,'-07-01');
+                    SET v_fin    = CONCAT(v_year,'-09-30');
+        WHEN 4 THEN SET v_inicio = CONCAT(v_year,'-10-01');
+                    SET v_fin    = CONCAT(v_year,'-12-31');
+    END CASE;
 
     -- Verificar concurrencia
     IF EXISTS (
@@ -604,9 +618,9 @@ sp_etl_maestro: BEGIN
     VALUES ('sp_etl_maestro', v_quarter, NOW(), 'RUNNING');
     SET v_exec_id = LAST_INSERT_ID();
 
-    -- Ejecutar los dos SPs de ETL
-    CALL sp_etl_base_detalle(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_base_clientes(v_quarter, v_inicio, v_fin);
+    -- Pasar nombre de tabla dinámico a los SPs ETL (D-21)
+    CALL sp_etl_base_detalle(v_quarter, v_inicio, v_fin, v_table);
+    CALL sp_etl_base_clientes(v_quarter, v_inicio, v_fin, v_table);
 
     -- Registrar éxito
     UPDATE job_execution_log
@@ -618,7 +632,8 @@ sp_etl_maestro: BEGIN
         (recipient_user_id, subject, body, message_type, created_at)
     SELECT user_id,
            CONCAT('ETL completado — ', v_quarter),
-           CONCAT('base_ivr_* actualizadas. Quarter: ', v_quarter),
+           CONCAT('base_ivr_* actualizadas. Quarter: ', v_quarter,
+                  '. Tabla fuente: ', v_table),
            'system', NOW()
     FROM   users WHERE role = 'SYSTEM_ADMIN';
 
@@ -631,30 +646,35 @@ DELIMITER ;
 
 ## Esqueleto de SP ETL — sp_etl_base_detalle
 
+El SP recibe el nombre de tabla como parámetro `p_table`. Como MariaDB 10.1 no
+permite usar una variable como identificador de tabla directamente, se usa
+`PREPARE/EXECUTE` con SQL dinámico (CNST-ETL-008).
+
 ```sql
 DELIMITER $$
 
 CREATE PROCEDURE sp_etl_base_detalle(
-    IN p_quarter  VARCHAR(10),
-    IN p_inicio   DATE,
-    IN p_fin      DATE
+    IN p_quarter  VARCHAR(10),  -- 'Q02_26'
+    IN p_inicio   DATE,         -- '2026-04-01'
+    IN p_fin      DATE,         -- '2026-06-30'
+    IN p_table    VARCHAR(50)   -- 'tbl_historico_t2_2026'
 )
 BEGIN
-    DECLARE v_exec_id        INT;
-    DECLARE v_count_raw      INT DEFAULT 0;
-    DECLARE v_count_loaded   INT DEFAULT 0;
+    DECLARE v_exec_id      INT;
+    DECLARE v_count_loaded INT DEFAULT 0;
 
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
         UPDATE job_execution_log
         SET    status = 'FAILED', end_time = NOW(),
-               error_message = 'SQLEXCEPTION en sp_etl_base_detalle'
+               error_message = CONCAT('SQLEXCEPTION — tabla: ', p_table)
         WHERE  execution_id = v_exec_id;
         INSERT INTO internal_messages
             (recipient_user_id, subject, body, message_type, created_at)
         SELECT user_id, 'ERROR ETL — base_ivr_detalle',
-               CONCAT('Falló ETL para ', p_quarter), 'alert', NOW()
+               CONCAT('Falló ETL para ', p_quarter, ', tabla: ', p_table),
+               'alert', NOW()
         FROM   users WHERE role = 'SYSTEM_ADMIN';
     END;
 
@@ -663,55 +683,58 @@ BEGIN
     VALUES ('sp_etl_base_detalle', p_quarter, NOW(), 'RUNNING');
     SET v_exec_id = LAST_INSERT_ID();
 
-    -- NOTA: nombres de tabla dinámicos requieren PREPARE/EXECUTE en MySQL.
-    -- El esqueleto usa la tabla del Q3 como ilustración.
-    -- La implementación real usa SQL dinámico o CASE para seleccionar la tabla.
-
     START TRANSACTION;
 
         DELETE FROM base_ivr_detalle
         WHERE  quarter_name = p_quarter;
 
-        INSERT INTO base_ivr_detalle
-            (quarter_name, fecha, segmento, centro_transferencia,
-             menu, opcion, total_llamadas, misma_linea,
-             linea_diferente, no_digito_telefono)
-        SELECT
-            p_quarter,
-            DATE_FORMAT(dFecha, '%Y%m'),
-            CASE cDID_800Transfer
-                WHEN 19020084 THEN 'Puebla'
-                WHEN 19028031 THEN 'nacional_A'
-                WHEN 19020001 THEN 'nacional_B'
-            END,
-            CASE
-                WHEN TRIM(cDID_Centro_Transferencia) IS NULL
-                  OR TRIM(cDID_Centro_Transferencia) = ''
-                    THEN 'CASO_NULL'
-                WHEN cDID_Centro_Transferencia = 'cliente_colgo'
-                    THEN 'CLIENTE_COLGO'
-                WHEN cDID_Centro_Transferencia REGEXP '^0+$'
-                    THEN 'CASO_ERROR_CEROS'
-                WHEN LENGTH(cDID_Centro_Transferencia) > 10
-                    THEN LEFT(cDID_Centro_Transferencia,
-                         LENGTH(cDID_Centro_Transferencia) - 10)
-                ELSE cDID_Centro_Transferencia
-            END,
-            CASE
-                WHEN cMenu IS NULL          THEN 'SIN_MENU'
-                WHEN TRIM(cMenu) = ''       THEN 'SIN_MENU'
-                WHEN cMenu = 'sin cMenu'    THEN 'SIN_MENU'
-                ELSE cMenu
-            END,
-            COALESCE(NULLIF(TRIM(cOpcion), ''), 'SIN_OPCION'),
-            COUNT(*),
-            SUM(cTelefono_Origen = cTelefono_Digitado),
-            SUM(cTelefono_Origen != cTelefono_Digitado),
-            SUM(cTelefono_Digitado IS NULL)
-        FROM   tbl_historico_t3_2025       -- tabla dinámica en implementación real
-        WHERE  dFecha BETWEEN p_inicio AND p_fin
-          AND  cDID_800Transfer IN (19020084, 19028031, 19020001)
-        GROUP BY 2, 3, 4, 5, 6;
+        -- PREPARE/EXECUTE requerido: el nombre de tabla es dinámico (CNST-ETL-008)
+        -- p_quarter/p_inicio/p_fin vienen de lógica interna — no hay riesgo de inyección
+        SET @sql = CONCAT('
+            INSERT INTO base_ivr_detalle
+                (quarter_name, fecha, segmento, centro_transferencia,
+                 menu, opcion, total_llamadas, misma_linea,
+                 linea_diferente, no_digito_telefono)
+            SELECT
+                ''', p_quarter, ''',
+                DATE_FORMAT(dFecha, ''%Y%m''),
+                CASE cDID_800Transfer
+                    WHEN 19020084 THEN ''Puebla''
+                    WHEN 19028031 THEN ''nacional_A''
+                    WHEN 19020001 THEN ''nacional_B''
+                END,
+                CASE
+                    WHEN TRIM(cDID_Centro_Transferencia) IS NULL
+                      OR TRIM(cDID_Centro_Transferencia) = ''''
+                        THEN ''CASO_NULL''
+                    WHEN cDID_Centro_Transferencia = ''cliente_colgo''
+                        THEN ''CLIENTE_COLGO''
+                    WHEN cDID_Centro_Transferencia REGEXP ''^0+$''
+                        THEN ''CASO_ERROR_CEROS''
+                    WHEN LENGTH(cDID_Centro_Transferencia) > 10
+                        THEN LEFT(cDID_Centro_Transferencia,
+                             LENGTH(cDID_Centro_Transferencia) - 10)
+                    ELSE cDID_Centro_Transferencia
+                END,
+                CASE
+                    WHEN cMenu IS NULL         THEN ''SIN_MENU''
+                    WHEN TRIM(cMenu) = ''''    THEN ''SIN_MENU''
+                    WHEN cMenu = ''sin cMenu'' THEN ''SIN_MENU''
+                    ELSE cMenu
+                END,
+                COALESCE(NULLIF(TRIM(cOpcion), ''''), ''SIN_OPCION''),
+                COUNT(*),
+                SUM(cTelefono_Origen = cTelefono_Digitado),
+                SUM(cTelefono_Origen != cTelefono_Digitado),
+                SUM(cTelefono_Digitado IS NULL)
+            FROM ', p_table, '
+            WHERE  dFecha BETWEEN ''', p_inicio, ''' AND ''', p_fin, '''
+              AND  cDID_800Transfer IN (19020084, 19028031, 19020001)
+            GROUP BY 2, 3, 4, 5, 6
+        ');
+        PREPARE stmt FROM @sql;
+        EXECUTE stmt;
+        DEALLOCATE PREPARE stmt;
 
     COMMIT;
 
@@ -721,14 +744,62 @@ BEGIN
     );
 
     UPDATE job_execution_log
-    SET    status           = IF(v_count_loaded > 0, 'SUCCESS', 'PARTIAL'),
-           end_time         = NOW(),
-           records_loaded   = v_count_loaded
+    SET    status         = IF(v_count_loaded > 0, 'SUCCESS', 'PARTIAL'),
+           end_time       = NOW(),
+           records_loaded = v_count_loaded
     WHERE  execution_id = v_exec_id;
 
 END$$
 
 DELIMITER ;
+```
+
+---
+
+## SP para carga histórica — sp_etl_historico
+
+Carga quarters pasados bajo demanda. El Event Scheduler solo procesa el quarter
+actual (D-22). Los quarters históricos (2025, años futuros ya cerrados) se cargan
+con este SP ejecutado manualmente una sola vez.
+
+```sql
+DELIMITER $$
+
+CREATE PROCEDURE sp_etl_historico(
+    IN p_year        INT,       -- año completo: 2025, 2026
+    IN p_quarter_num TINYINT    -- 1..4
+)
+BEGIN
+    DECLARE v_quarter VARCHAR(10);
+    DECLARE v_table   VARCHAR(50);
+    DECLARE v_inicio  DATE;
+    DECLARE v_fin     DATE;
+
+    SET v_quarter = CONCAT('Q', LPAD(p_quarter_num, 2, '0'), '_', RIGHT(p_year, 2));
+    SET v_table   = CONCAT('tbl_historico_t', p_quarter_num, '_', p_year);
+
+    CASE p_quarter_num
+        WHEN 1 THEN SET v_inicio = CONCAT(p_year,'-01-01');
+                    SET v_fin    = CONCAT(p_year,'-03-31');
+        WHEN 2 THEN SET v_inicio = CONCAT(p_year,'-04-01');
+                    SET v_fin    = CONCAT(p_year,'-06-30');
+        WHEN 3 THEN SET v_inicio = CONCAT(p_year,'-07-01');
+                    SET v_fin    = CONCAT(p_year,'-09-30');
+        WHEN 4 THEN SET v_inicio = CONCAT(p_year,'-10-01');
+                    SET v_fin    = CONCAT(p_year,'-12-31');
+    END CASE;
+
+    CALL sp_etl_base_detalle(v_quarter, v_inicio, v_fin, v_table);
+    CALL sp_etl_base_clientes(v_quarter, v_inicio, v_fin, v_table);
+END$$
+
+DELIMITER ;
+
+-- Carga inicial de datos históricos 2025:
+-- CALL sp_etl_historico(2025, 1);  -- Q01_25 (tbl_historico_t1_2025)
+-- CALL sp_etl_historico(2025, 2);  -- Q02_25 (tbl_historico_t2_2025)
+-- CALL sp_etl_historico(2025, 3);  -- Q03_25 (tbl_historico_t3_2025)
+-- CALL sp_etl_historico(2025, 4);  -- Q04_25 (tbl_historico_t4_2025)
 ```
 
 ---

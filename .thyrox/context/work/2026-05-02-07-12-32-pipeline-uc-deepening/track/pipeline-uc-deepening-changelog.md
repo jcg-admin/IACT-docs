@@ -218,9 +218,53 @@ author: NestorMonroy
 
 ## Preguntas abiertas nuevas
 
-- **P-15 (ABIERTA):** ¿El rango real de Q1 2025 es enero-marzo (01-Jan → 31-Mar)
-  o febrero-marzo (01-Feb → 31-Mar)? Determina `v_inicio` en `sp_etl_maestro`
-  para el branch ELSEIF Q01_25. Ver G-32.
+- **P-15 (CERRADA — 2026-05-02):** El maestro ahora usa `QUARTER(CURDATE())` y
+  trimestres calendario estándar (Q1=ene-mar, Q2=abr-jun, Q3=jul-sep, Q4=oct-dic).
+  La discrepancia en el AS-IS era el punto de inicio del sistema en 2025, no la
+  definición del trimestre. G-32 cerrado.
+
+## ETL dinámico y carga histórica (2026-05-02)
+
+- discover/etl-job-flow-design.md — **v2.2.0**: `sp_etl_maestro` reescrito sin
+  ELSEIF hardcodeado por año. Ahora usa `YEAR(CURDATE())` y `QUARTER(CURDATE())`
+  para calcular dinámicamente: `v_quarter` ('Q02_26'), `v_table`
+  ('tbl_historico_t2_2026'), `v_inicio`/`v_fin`. Funciona para cualquier año.
+
+- `sp_etl_base_detalle` actualizado con 4to parámetro `p_table VARCHAR(50)`.
+  Implementa PREPARE/EXECUTE para nombre de tabla dinámico (CNST-ETL-008).
+  Eliminado el comentario "tabla dinámica en implementación real" — ahora es real.
+
+- Nuevo SP `sp_etl_historico(p_year INT, p_quarter_num TINYINT)` para carga de
+  quarters históricos bajo demanda. Event Scheduler solo toca el quarter actual.
+  Ejemplo de uso para cargar Q1-Q4 2025 documentado en el SP.
+
+- **G-32 (CERRADO):** El sistema usa trimestres calendario estándar.
+  `QUARTER(CURDATE())` devuelve 1 para ene-mar, 2 para abr-jun, etc. La discrepancia
+  Feb-Mar en el AS-IS refleja el inicio de operaciones en 2025, no la definición
+  del trimestre.
+
+## Decisiones nuevas
+
+- **D-20:** Quarter y año se calculan dinámicamente con `YEAR(CURDATE())` y
+  `QUARTER(CURDATE())`. Ningún SP tiene años o fechas hardcodeadas.
+- **D-21:** El nombre de tabla `tbl_historico_tN_YYYY` se construye en
+  `sp_etl_maestro` con CONCAT y se pasa como parámetro `p_table` a los SPs ETL.
+- **D-22:** El Event Scheduler diario procesa **solo el quarter actual**. Los
+  quarters históricos se cargan con `sp_etl_historico(year, quarter_num)` —
+  ejecución manual, una sola vez por quarter ya cerrado.
+
+## Nuevas restricciones de arquitectura
+
+- **CNST-ETL-007:** MariaDB 10.1.48 (versión de producción, fuera de scope
+  actualizar). Sin window functions (`OVER`, `PARTITION BY`, `ROW_NUMBER`, etc.).
+  Todos los SPs usan subconsultas correlacionadas o JOINs a subconsultas como
+  alternativa. Esta restricción es permanente.
+
+- **CNST-ETL-008:** MariaDB 10.1 no permite usar una variable como identificador
+  de tabla. Los SPs ETL que reciben `p_table` como parámetro usan PREPARE/EXECUTE
+  con SQL dinámico construido via CONCAT. Los valores `p_quarter`, `p_inicio`,
+  `p_fin` se incrustan literalmente (no son input de usuario — no hay riesgo
+  de inyección SQL).
 
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
