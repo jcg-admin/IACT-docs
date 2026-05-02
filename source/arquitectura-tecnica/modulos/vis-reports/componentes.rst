@@ -19,34 +19,67 @@ Componentes de Aplicacion
 
  * - Componente
    - Descripcion
- * - apps.analytics
-   - Modelos de metricas, repositorios de consulta
- * - apps.reports
-   - Vistas y serializadores de reportes
- * - apps.exports
-   - Servicios de generacion CSV/Excel/PDF
+ * - ``apps.reports``
+   - Vistas DRF y serializadores de reportes IVR. Lee datos
+     via ``cursor.callproc()`` sobre la conexion MariaDB ``ivr``;
+     no usa modelos ORM para datos IVR analiticos.
+ * - ``apps.exports``
+   - Servicios de generacion CSV/Excel/PDF sobre los datasets
+     retornados por los SPs de reporte.
 
 ----
 
-Modelos de Datos
-================
+Patron de Consulta — cursor.callproc()
+=======================================
 
-**DSC_MOD_006_DailyMetrics** — Metricas diarias agregadas
+Los datos de reportes IVR no provienen de modelos Django ORM.
+Provienen de stored procedures en MariaDB, invocados via el cursor
+de la conexion ``ivr``:
 
 .. code-block:: python
 
- class DailyMetrics(models.Model):
-     date = models.DateField
-     center_code = models.CharField(max_length=50)
-     service_code = models.CharField(max_length=50)
-     total_calls = models.IntegerField
-     avg_duration = models.DecimalField
-     successful_calls = models.IntegerField
-     failed_calls = models.IntegerField
-     transfers = models.IntegerField
+ from django.db import connections
 
-     class Meta:
-         unique_together = ['date', 'center_code', 'service_code']
+ def get_centros_transferencia(quarter_name: str) -> list[dict]:
+     """Retorna filas del SP sp_rpt_centros_transferencia."""
+     with connections['ivr'].cursor() as cursor:
+         cursor.callproc('sp_rpt_centros_transferencia', [quarter_name])
+         columns = [col[0] for col in cursor.description]
+         return [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+Este patron se repite para cada uno de los 7 SPs de reporte.
+Las vistas DRF reciben el resultado como lista de diccionarios y
+lo serializan directamente.
+
+----
+
+Stored Procedures de Reporte
+==============================
+
+Los SPs de reporte son de lectura exclusiva sobre ``base_ivr_detalle``
+y ``base_ivr_clientes`` (tablas analiticas en MariaDB). El parametro
+principal de todos es ``quarter_name`` (ej: ``'Q3_25'``).
+
+.. list-table::
+ :widths: 45 55
+ :header-rows: 1
+
+ * - Stored Procedure
+   - Datos que retorna
+ * - ``sp_rpt_centros_transferencia(quarter)``
+   - Llamadas por centro de transferencia y segmento
+ * - ``sp_rpt_llamadas_abandonadas(quarter)``
+   - Conteo y tasa de abandonos por segmento
+ * - ``sp_rpt_menu_redirigidos(quarter)``
+   - Llamadas por menu y resultado de redireccion
+ * - ``sp_rpt_clientes(quarter)``
+   - Dimension de clientes IVR del trimestre
+ * - ``sp_rpt_centros_xsegmento(quarter)``
+   - Distribucion de centros por segmento
+ * - ``sp_rpt_menu_centro(quarter)``
+   - Cruze menu x centro de transferencia
+ * - ``sp_rpt_cMENU_ERROR(quarter)``
+   - Registros con cMenu en estado de error
 
 ----
 
@@ -70,13 +103,19 @@ APIs Expuestas
    - Widgets disponibles
  * - GET
    - /api/v1/reports/quarterly
-   - Reporte trimestral
+   - Reporte trimestral (llama sp_rpt_centros_transferencia)
+ * - GET
+   - /api/v1/reports/abandoned
+   - Reporte de abandonos (llama sp_rpt_llamadas_abandonadas)
+ * - GET
+   - /api/v1/reports/redirects
+   - Reporte de redireccionados (llama sp_rpt_menu_redirigidos)
  * - GET
    - /api/v1/reports/errors
-   - Reporte de errores
+   - Reporte de errores de menu (llama sp_rpt_cMENU_ERROR)
  * - GET
    - /api/v1/reports/transfers
-   - Reporte transferencias
+   - Reporte de transferencias por centro
  * - POST
    - /api/v1/exports/csv
    - Exportar CSV

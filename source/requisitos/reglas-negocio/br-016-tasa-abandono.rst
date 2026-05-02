@@ -4,9 +4,9 @@
  :dominio: requisitos
  :subdominio: reglas_negocio
  :estado: Vigente
- :version: 1.0.0
+ :version: 2.0.0
  :fecha_creacion: 2026-04-29
- :ultimo_cambio: 2026-04-29
+ :ultimo_cambio: 2026-05-02
  :autor: NestorMonroy
  :clasificacion: Alto
 
@@ -19,10 +19,9 @@ BR_016: Tasa de Abandono
 1. Definicion
 -------------
 
-La **Tasa de Abandono** es una metrica calculada que mide el
-porcentaje de llamadas que el cliente abandona antes de ser
-atendidas por un agente. Es uno de los KPI principales del sistema
-IVR/Call Center.
+La **Tasa de Abandono** mide el porcentaje de llamadas que el cliente
+abandona antes de ser atendidas por un agente. Es uno de los KPI
+principales del sistema IVR.
 
 **Formula:**
 
@@ -32,7 +31,9 @@ IVR/Call Center.
 
 Donde:
 
-- ``llamadas_abandonadas``: el cliente colgo antes de ser atendido.
+- ``llamadas_abandonadas``: llamadas en las que el cliente colgó
+  antes de recibir atencion (ver seccion 5 para implementacion
+  concreta en el sistema IVR IACT).
 - ``llamadas_recibidas``: total de llamadas que entraron al IVR
   durante la ventana de medicion.
 
@@ -63,10 +64,14 @@ BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
  * - Granularidad temporal
    - Hora, dia, semana, mes, trimestre
  * - Granularidad por dimension
-   - Total, por cola, por agente, por campana
+   - Total, por segmento, por centro de transferencia
 
 4. Umbrales operativos
 ----------------------
+
+Los umbrales estan calibrados para el perfil de trafico real del
+IVR IACT, donde un porcentaje estructural de llamadas abandona en
+el menu IVR antes de transferirse a un agente.
 
 .. list-table::
  :header-rows: 1
@@ -76,26 +81,74 @@ BR_017 Tiempo Promedio Espera y BR_018 Indice Eficiencia).
    - Rango
    - Significado
  * - Optimo
-   - < 5 %
-   - Performance dentro del SLA
+   - < 20 %
+   - Performance dentro del SLA del IVR IACT
  * - Aceptable
-   - 5 % - 10 %
-   - Monitoreo recomendado
+   - 20 % - 30 %
+   - Monitoreo recomendado; revisar causas
  * - Critico
-   - > 10 %
+   - > 30 %
    - Requiere intervencion inmediata (alerta automatica)
 
-Los umbrales son configurables por ``UC_ALR_01 Configurar
-Umbrales``.
+.. note::
 
-5. UCs relacionados
+ Los umbrales 5%/10% son valores tipicos de call centers con alta
+ tasa de resolucion en el menu IVR self-service. El IVR de IACT
+ tiene un perfil distinto: el ~70-80% de llamadas navega
+ exitosamente al menu y se transfiere; el porcentaje de abandono
+ estructural observable es del orden del 20-30%. Los umbrales se
+ definieron con los datos reales de Q3 2025.
+
+Los umbrales son configurables via ``UC_ALR_01 Configurar Umbrales``.
+
+5. Implementacion en el sistema IVR IACT
+-----------------------------------------
+
+El campo ``cMenu`` de la tabla fuente registra el ultimo menu al
+que llego la llamada antes de finalizar. El SP de ETL normaliza
+los valores vacios a ``'VACIO'``.
+
+**Tres tipos de abandono reconocidos:**
+
+.. list-table::
+ :header-rows: 1
+ :widths: 30 70
+
+ * - Valor de ``menu``
+   - Significado operativo
+ * - ``'VACIO'``
+   - La llamada nunca alcanzo un menu (``cMenu`` era NULL o vacio
+     en la tabla fuente). El cliente colgó en la bienvenida o
+     antes de llegar al arbol de opciones.
+ * - ``'cliente_colgo'``
+   - La llamada llego a un menu y el cliente colgó explicitamente
+     sin elegir opcion de transferencia.
+ * - ``'SinOpcion_Cabecera'``
+   - La llamada llego al menu pero no se seleccionó ninguna opcion
+     dentro del tiempo de espera de la cabecera.
+
+**Filtro SQL de implementacion:**
+
+.. code-block:: sql
+
+ -- dentro de sp_rpt_llamadas_abandonadas
+ WHERE menu IN ('VACIO', 'cliente_colgo', 'SinOpcion_Cabecera')
+
+**Volumenes de referencia (Q3 2025, Nacional A):**
+
+- ``VACIO``: ~8-9% del total de llamadas.
+- ``cliente_colgo``: ~18-19% del total de llamadas.
+- ``SinOpcion_Cabecera``: ~1% del total de llamadas.
+- **Total abandono**: ~27-28% del total de llamadas.
+
+6. UCs relacionados
 -------------------
 
 - :doc:`/requisitos/casos-uso/reports/uc-rpt-02/index`
 - :doc:`/requisitos/casos-uso/reports/uc-rpt-13/index`
 - :doc:`/requisitos/casos-uso/alerts/uc-alr-01/index`
 
-6. CNSTs aplicables
+7. CNSTs aplicables
 -------------------
 
 - :doc:`/normativa/restricciones/cnst-017-sla-de-tiempos-de-respuesta`
@@ -103,17 +156,18 @@ Umbrales``.
 - :doc:`/normativa/restricciones/cnst-018-rango-maximo-de-consulta-de-2-anos`
   — limite de ventana de medicion historica.
 
-7. BRs relacionadas
+8. BRs relacionadas
 -------------------
 
 - BR_017 Tiempo Promedio Espera (otra metrica de calidad de servicio).
 - BR_018 Indice Eficiencia (metrica complementaria).
 
-8. Origen
+9. Origen
 ---------
 
-- **Fuente:** SLA de negocio del sistema IVR
+- **Fuente:** SLA de negocio del sistema IVR; datos reales Q3 2025.
 - **Documento:** referenciado en
   :doc:`/base-cognitiva/_fundamentos-conceptuales/fnd-05-jerarquia-4-niveles`
   como ejemplo canonico de regla de calculo.
-- **Fecha:** 2026-04-29 (creacion formal del archivo tras gap detectado)
+- **Fecha:** 2026-04-29 (creacion); 2026-05-02 (implementacion
+  concreta y recalibracion de umbrales con datos reales Q3 2025).
