@@ -14,7 +14,7 @@
 Modulos Arquitectonicos
 =======================
 
-Definicion arquitectonica de los **8 modulos funcionales** del sistema
+Definicion arquitectonica de los **11 modulos funcionales** del sistema
 IACT. Cada ``ARQ_MOD_NNN`` documenta el proposito, responsabilidades,
 componentes internos, interfaces, dependencias y consideraciones
 tecnicas del modulo correspondiente.
@@ -51,7 +51,16 @@ Mapeo modulo ↔ casos de uso:
    - 4
  * - :ref:`arq-mod-008` SYS_LOGS
    - :doc:`/requisitos/casos-uso/logs/index`
-   - 4
+   - 7
+ * - :ref:`arq-mod-009` OPERATOR
+   - :doc:`/requisitos/casos-uso/operator/index`
+   - 10
+ * - :ref:`arq-mod-010` SUPERVISION
+   - :doc:`/requisitos/casos-uso/supervision/index`
+   - 3
+ * - :ref:`arq-mod-011` CALLER
+   - :doc:`/requisitos/casos-uso/caller/index`
+   - 5
 
 Catalogo
 --------
@@ -67,3 +76,6 @@ Catalogo
  alerts/index
  audit/index
  sys-logs/index
+ operator/index
+ supervision/index
+ caller/index
