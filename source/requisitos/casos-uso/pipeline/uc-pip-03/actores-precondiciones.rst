@@ -8,7 +8,7 @@ Actores
 -------
 
 - **Analista de Datos** — usuario con permiso
-  ``ver_disponibilidad_datos``. Consulta la frescura de
+  ``view_data_availability``. Consulta la frescura de
   los datos en la Base Analitica IVR.
 - **Registro de Ejecuciones** — sistema secundario que
   provee el timestamp de la ultima actualizacion exitosa.
@@ -17,7 +17,7 @@ Precondiciones
 --------------
 
 - El usuario esta autenticado (JWT valido).
-- El usuario tiene el permiso ``ver_disponibilidad_datos`` (RBAC).
+- El usuario tiene el permiso ``view_data_availability`` (RBAC).
 - El Registro de Ejecuciones esta accesible.
 
 Postcondiciones

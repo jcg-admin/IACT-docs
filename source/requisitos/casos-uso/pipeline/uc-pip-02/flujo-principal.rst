@@ -9,7 +9,7 @@ PASO 1 — El Supervisor de Operaciones envia GET a
           (period, trimestre, pagina).
 
 PASO 2 — El sistema valida el JWT y verifica que el usuario
-          tiene el permiso ``ver_errores_etl`` (RBAC).
+          tiene el permiso ``view_etl_errors`` (RBAC).
 
 PASO 3 — El sistema valida los filtros recibidos (period
           dentro de rango permitido por CNST_018, trimestre

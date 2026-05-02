@@ -26,7 +26,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/datos/disponibilidad/?trimestre=;
- :JWT + RBAC (ver_disponibilidad_datos);
+ :JWT + RBAC (view_data_availability);
  :Consultar Registro de Ejecuciones (ultima exitosa);
  if (Existe ejecucion exitosa?) then (no)
    :Retornar estado_frescura=vencido;

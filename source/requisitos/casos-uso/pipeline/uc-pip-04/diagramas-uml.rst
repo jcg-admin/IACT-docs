@@ -28,7 +28,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :POST /api/v1/etl/reintento/;
- :JWT + RBAC (reintentar_etl);
+ :JWT + RBAC (retry_etl);
  :Validar trimestre y motivo (min 20 chars);
  if (ETL en ejecucion?) then (si)
    :409 Conflict; stop

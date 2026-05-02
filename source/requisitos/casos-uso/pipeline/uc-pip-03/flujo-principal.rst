@@ -10,7 +10,7 @@ PASO 1 — El Analista de Datos envia GET a
           trimestre activo).
 
 PASO 2 — El sistema valida el JWT y verifica que el usuario
-          tiene el permiso ``ver_disponibilidad_datos`` (RBAC).
+          tiene el permiso ``view_data_availability`` (RBAC).
 
 PASO 3 — El sistema consulta el Registro de Ejecuciones:
           ultima ejecucion con ``estado = 'exitoso'`` para el

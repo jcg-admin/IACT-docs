@@ -21,7 +21,7 @@ Pseudocodigo:
 ::
 
    procedure retry(trimestre, motivo, invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'reintentar_etl')
+       require AuthorizationGuard.has(invoker, 'retry_etl')
        if len(motivo) < 20:
            raise ValidationError('motivo_muy_corto')
        ejecucion_activa = ETLEjecucionRepo.get_activa()

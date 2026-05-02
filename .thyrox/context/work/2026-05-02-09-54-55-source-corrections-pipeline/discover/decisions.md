@@ -214,6 +214,167 @@ literalmente en todos los flujos de reporte como PASO 4.
 
 ---
 
+---
+
+## D-UML-001 — Actores en diagramas UML usan nombres de grupos RBAC (inglés)
+
+**Decisión:** Los diagramas UML del sistema (diagramas-uml-sistema.rst,
+arquitectura-sistema.rst) nombran los actores con los nombres de los
+grupos RBAC en inglés (`report_viewer_group`, `quality_supervisor_group`,
+`pipeline_admin_group`, `user_admin_group`, `auditor_group`), no con
+títulos institucionales ("Administrador", "Analista de Datos",
+"Supervisor de Operaciones").
+
+**Justificación:** El RBAC del sistema es función-based (no role-based con
+títulos). Los grupos RBAC son el identificador canónico del actor en el
+sistema. Usar títulos institucionales desvincula los diagramas del modelo
+de permisos real y crea ambigüedad.
+
+**Impacto:** `arquitectura-sistema.rst` y `diagramas-uml-sistema.rst`
+actualizados con grupos RBAC como actores.
+
+---
+
+## D-MENU-001 — Sistema de menú controlado por funciones RBAC
+
+**Decisión:** Los ítems de menú visibles al usuario se determinan
+exclusivamente por las funciones RBAC activas en el JWT del usuario.
+Si el usuario no tiene la función requerida por un ítem de menú, ese
+ítem NO se renderiza en el frontend (hide, not disable).
+
+**Consecuencia:** No existe lógica de menú hardcodeada en el frontend.
+El frontend recibe la lista de menú desde el backend en la respuesta de
+autenticación.
+
+---
+
+## D-MENU-002 — Menú almacenado en tabla `iact_menu` (PostgreSQL)
+
+**Decisión:** Los ítems de menú se almaceran en la tabla `iact_menu`
+de PostgreSQL (base de datos operacional Django). Cada ítem referencia
+una función RBAC (`required_function`) del catálogo `AccessFunction`.
+
+**Esquema:**
+```sql
+CREATE TABLE iact_menu (
+    id                SERIAL PRIMARY KEY,
+    nombre            VARCHAR(100) NOT NULL UNIQUE,
+    url               VARCHAR(200) NOT NULL,
+    icono             VARCHAR(50),
+    orden             INT DEFAULT 0,
+    required_function VARCHAR(100) NOT NULL,
+    modulo            VARCHAR(50) NOT NULL,
+    activo            BOOLEAN DEFAULT TRUE
+);
+```
+
+**Justificación:** PostgreSQL es la base de datos operacional de Django.
+Los menús son configuración operacional que cambia con RBAC — pertenecen
+al mismo espacio que `AccessGroup` y `AccessFunction`.
+
+---
+
+## D-MENU-003 — UC_MENU_01 incluido por UC_AUTH_01 post-JWT
+
+**Decisión:** `UC_MENU_01` (Cargar Menu IACT) es un UC `<<include>>`
+ejecutado automáticamente al final de `UC_AUTH_01` (Autenticar JWT),
+después de generar el JWT con payload RBAC.
+
+**Flujo:**
+1. UC_AUTH_01 genera JWT con funciones RBAC.
+2. UC_MENU_01 consulta `iact_menu WHERE required_function IN (funciones_usuario)`.
+3. La lista de ítems de menú se incluye en la respuesta de autenticación.
+4. El frontend almacena y renderiza solo los ítems recibidos.
+
+**Justificación:** Centralizar la carga del menú en el momento de auth
+elimina round-trips adicionales y garantiza consistencia entre funciones
+RBAC y menú visible en toda la sesión.
+
+---
+
+## D-MENU-004 — Nueva función RBAC MGT-001: manage_menus
+
+**Decisión:** Se crea la función RBAC `manage_menus` (ID: MGT-001) para
+controlar el acceso a `UC_MENU_02` (Gestionar Menu IACT — CRUD sobre
+`iact_menu`).
+
+**Función:**
+- **ID:** MGT-001
+- **Nombre:** `manage_menus`
+- **Descripción:** Crear, editar, desactivar y reordenar ítems de menú
+  en la tabla `iact_menu`.
+- **Asignada a:** `user_admin_group` (AGR-006)
+- **SoD:** No hay restricción SoD para esta función.
+
+**Justificación:** Los administradores de usuarios (AGR-006) son los
+responsables naturales de la configuración de menús, ya que la
+configuración de menú extiende la gestión de RBAC.
+
+---
+
+## D-MENU-005 — Módulo UC menus/ creado en casos-uso/
+
+**Decisión:** Se crea el módulo `source/requisitos/casos-uso/menus/`
+con dos UCs:
+
+- `UC_MENU_01`: Cargar Menu IACT (<<include>> desde UC_AUTH_01)
+- `UC_MENU_02`: Gestionar Menu IACT (actor: user_admin_group con manage_menus)
+
+**Justificación:** El sistema de menú es un comportamiento funcional
+relevante para la trazabilidad de RBAC y la experiencia de usuario. No
+existía documentación de este comportamiento en `source/`. La omisión
+dejaba un gap entre la arquitectura técnica (RBAC function-based) y los
+requisitos documentados.
+
+---
+
+---
+
+## D-FUNC-001 — Renombrar funciones RBAC del Pipeline ETL a inglés
+
+**Decisión:** Las funciones RBAC del módulo Pipeline (PIP-*) estaban en
+español. Se renombran a inglés para mantener consistencia con el resto
+del catálogo de funciones.
+
+**Mapeo de renombrado:**
+
+| Anterior (español) | Nuevo (inglés) |
+|---|---|
+| `ver_estado_etl` | `view_etl_status` |
+| `ver_errores_etl` | `view_etl_errors` |
+| `ver_disponibilidad_datos` | `view_data_availability` |
+| `reintentar_etl` | `retry_etl` |
+
+**Justificación:** La convención del proyecto es que las funciones RBAC,
+clases y atributos son en inglés; los comentarios en español. Las funciones
+PIP eran la única excepción inconsistente en el catálogo.
+
+**Impacto:** `matriz-dependencias-uc-iact.rst`, `uc-pip-*/actores-precondiciones.rst`,
+`diagramas-uml-sistema.rst`, `diagramas-uc-por-modulo.rst`,
+`arquitectura-sistema.rst`.
+
+---
+
+## D-MENU-006 — UC_PERM_08 ya cubre "Generar Menu Dinamico" — sin UC duplicado
+
+**Decisión:** La funcionalidad de menú dinámico ya está documentada en
+`UC_PERM_08 — Generar Menu Dinamico` (módulo MOD_Permissions). No se
+crean UCs adicionales en un módulo separado `menus/`.
+
+**Arquitectura correcta del menú:**
+- Los ítems de menú vienen del catálogo de funciones (`FunctionRegistry`)
+- Cada función RBAC tiene metadata de menú: `domain`, `section`, `label_es`,
+  `label_en`, `icon`, `order`
+- El menú se construye en `GET /api/me/menu/` filtrado por `effective_set`
+  del usuario (UC_PERM_08)
+- La función implícita es `view_own_navigation`
+- El menú oculta opciones; la seguridad real está en UC_PERM_07 (decorators)
+
+**Consecuencia:** D-MENU-001 a D-MENU-005 son parcialmente corregidas
+por esta decisión. No se crea `iact_menu` como tabla separada.
+
+---
+
 ## D-ETL-011 — Entidades de reportes IVR mapean a Base Analítica IVR
 
 **Decisión:** Los UCs de reporte IVR (rpt-13, rpt-15, rpt-16, rpt-17)

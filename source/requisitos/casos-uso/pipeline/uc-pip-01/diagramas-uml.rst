@@ -28,7 +28,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/etl/supervision/;
- :JWT + RBAC (ver_estado_etl);
+ :JWT + RBAC (view_etl_status);
  :Consultar Registro de Ejecuciones;
  :Construir ResumenSalud;
  :200 con estado general;

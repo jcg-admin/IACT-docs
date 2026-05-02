@@ -80,6 +80,49 @@ author: NestorMonroy
 - analisis-catalogo-modular-iact.rst — ETLExecution + ETLError → ETLEjecucion.
 - analisis-dominio.rst — ETLExecution → ETLEjecucion.
 
+## Added (sesión 2)
+
+**arquitectura-tecnica/**
+- `arquitectura-sistema.rst` v1.0.0 — Arquitectura general del sistema IACT:
+  10 funcionalidades principales, Diagrama General (flujo autenticación→cierre
+  de sesión), DFD Nivel 0 (sistema como caja negra), DFD Nivel 1 (10
+  sub-procesos + 4 data stores). Actores nombrados por función RBAC en inglés.
+- `diagramas-uml-sistema.rst` v2.0.0 — 14 secciones de diagramas UML:
+  especificación de actores (funciones RBAC), UC general, clases, actividad
+  (flujo principal + sub-actividad auth), máquina de estados (sesión IACT +
+  sub-máquinas ETL y Reporte con fork/join), secuencia, comunicación,
+  componentes (<<System>> con artifacts), despliegue (multi-cliente).
+  Actores: funciones RBAC en inglés (D-UML-001).
+- `diagramas-uc-por-modulo.rst` v1.0.0 — 12 diagramas UC de módulo (Figuras
+  16-27) + mapa de funciones RBAC (Figura 28). Cubre los 80 UCs del sistema:
+  MOD_Auth, MOD_Users, MOD_Access, MOD_Permissions, MOD_Reports, MOD_Alerts,
+  MOD_Pipeline, MOD_Audit, MOD_Logs, MOD_Operator, MOD_Supervision, MOD_Caller.
+- `index.rst` — nueva sección toctree "Vista general del sistema" con los 3
+  archivos anteriores.
+
+## Changed (sesión 2)
+
+**arquitectura-tecnica/**
+- `arquitectura-sistema.rst` — Actores "Supervisor de Operaciones" y "Analista
+  de Datos" reemplazados por funciones RBAC en inglés (D-UML-001):
+  `view_etl_status / view_alerts` y `view_reports / view_dashboard`.
+
+**requisitos/casos-uso/pipeline/uc-pip-01..04/**
+- Todas las funciones RBAC del pipeline renombradas de español a inglés
+  (D-FUNC-001): `ver_estado_etl` → `view_etl_status`, `ver_errores_etl` →
+  `view_etl_errors`, `ver_disponibilidad_datos` → `view_data_availability`,
+  `reintentar_etl` → `retry_etl`. Afecta: actores-precondiciones, flujo-
+  principal, implementacion-tecnica, diagramas-uml, flujos-alternos, etc.
+
+**arquitectura-tecnica/matriz-dependencias-uc-iact.rst**
+- PIP-001..004 funciones renombradas a inglés (D-FUNC-001).
+
+**Decisiones documentadas (discover/decisions.md)**
+- D-UML-001: Actores en diagramas UML usan nombres de funciones RBAC (inglés).
+- D-MENU-001..D-MENU-005: Arquitectura de menú (UC_PERM_08 ya existe).
+- D-MENU-006: UC_PERM_08 cubre Generar Menu Dinamico — sin UC duplicado.
+- D-FUNC-001: Renombrar funciones pipeline de español a inglés.
+
 ## Status de promoción a CHANGELOG.md raíz
 
 Pendiente — el WP continúa con posibles correcciones adicionales.

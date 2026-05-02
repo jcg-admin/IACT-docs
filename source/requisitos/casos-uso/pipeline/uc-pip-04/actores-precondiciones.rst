@@ -8,7 +8,7 @@ Actores
 -------
 
 - **Administrador de Pipeline** — usuario con permiso
-  ``reintentar_etl``. Solicita el reprocesamiento de un
+  ``retry_etl``. Solicita el reprocesamiento de un
   trimestre del Servicio ETL.
 - **Disparador ETL** — sistema que ejecuta el reintento
   invocando el Servicio ETL para el trimestre indicado.
@@ -19,7 +19,7 @@ Precondiciones
 --------------
 
 - El usuario esta autenticado (JWT valido).
-- El usuario tiene el permiso ``reintentar_etl`` (RBAC).
+- El usuario tiene el permiso ``retry_etl`` (RBAC).
 - No hay una ejecucion del Servicio ETL en curso al momento
   de la solicitud.
 

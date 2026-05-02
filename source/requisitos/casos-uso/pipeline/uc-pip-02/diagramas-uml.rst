@@ -30,7 +30,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/etl/errores/ con filtros;
- :JWT + RBAC (ver_errores_etl);
+ :JWT + RBAC (view_etl_errors);
  :Validar parametros;
  :Consultar Registro de Ejecuciones (fallidas);
  :200 con lista de ejecuciones fallidas;

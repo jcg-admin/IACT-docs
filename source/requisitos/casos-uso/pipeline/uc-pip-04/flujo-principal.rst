@@ -9,7 +9,7 @@ PASO 1 — El Administrador de Pipeline envia POST a
           ``motivo``.
 
 PASO 2 — El sistema valida el JWT y verifica que el usuario
-          tiene el permiso ``reintentar_etl`` (RBAC).
+          tiene el permiso ``retry_etl`` (RBAC).
 
 PASO 3 — El sistema valida los parametros:
 

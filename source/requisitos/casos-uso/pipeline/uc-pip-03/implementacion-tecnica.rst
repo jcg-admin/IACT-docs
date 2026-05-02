@@ -21,7 +21,7 @@ Pseudocodigo:
 ::
 
    procedure get(trimestre, invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'ver_disponibilidad_datos')
+       require AuthorizationGuard.has(invoker, 'view_data_availability')
        ultima = ETLEjecucionRepo.get_ultima_exitosa(trimestre)
        if ultima is null:
            return DisponibilidadDatos(
