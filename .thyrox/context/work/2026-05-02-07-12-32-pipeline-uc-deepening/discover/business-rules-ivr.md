@@ -1,11 +1,12 @@
 ```yml
 created_at: 2026-05-02 09:45:00
+updated_at: 2026-05-02 10:30:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 1.0.0
+version: 1.1.0
 ```
 
 # Reglas de Negocio — Sistema IVR IACT
@@ -189,10 +190,109 @@ ELSE cMenu
 **Impacto en reportes:**
 - `sp_rpt_llamadas_abandonadas` — `Desborde_Cabecera` no es un abandono; debe
   excluirse del conteo de abandonos junto con `SIN_MENU`/`VACIO`, o tratarse
-  como categoría propia según criterio del equipo. **P-16: confirmar tratamiento.**
+  como categoría propia. **P-16: confirmar tratamiento.**
 - `sp_rpt_menu_redirigidos` — Llamadas con `Desborde_Cabecera` SÍ fueron
-  redirigidas, pero por etiqueta, no por opción de menú. Incluirlas puede
-  distorsionar el reporte. **P-17: confirmar si se incluyen o filtran.**
+  redirigidas, pero por etiqueta, no por opción de menú. **P-17: confirmar.**
+
+---
+
+## BR-ROUTING-003 — Desborde_Promocional: enrutamiento por evento promocional
+
+**Confirmado desde datos reales:** Aparece en ambos segmentos.
+
+| Segmento | Volumen | % del total |
+|---|---|---|
+| Nacional | 79,994 | 3.1% |
+| Puebla | 3,519 | 2.7% |
+
+**Comportamiento:** Similar a `Desborde_Cabecera` pero disparado por un evento
+promocional activo, no por `cEtiquetacliente`. La llamada fue enrutada
+automáticamente sin navegar el menú estándar.
+
+**Tratamiento en base_ivr_detalle:** Almacenado como `'Desborde_Promocional'` en
+`menu` sin normalización (pasa al ELSE del CASE — correcto).
+
+**P-19:** ¿`Desborde_Promocional` se incluye o excluye en `sp_rpt_llamadas_abandonadas`?
+**P-20:** ¿`Desborde_Promocional` entra en `sp_rpt_menu_redirigidos`?
+
+---
+
+## BR-MENU-002 — Catálogo real de valores cMenu por segmento
+
+Datos observados desde datos reales compartidos por el equipo (período: Q3 2025).
+
+### Nacional — 2,567,201 llamadas totales
+
+| cMenu | Total | % | Clasificación |
+|---|---|---|---|
+| *(vacío)* | 238,049 | 9.3% | → `SIN_MENU` |
+| `cliente_colgo` | 444,438 | 17.3% | Abandono — mayor grupo |
+| `Desborde_Cabecera` | 336,919 | 13.1% | Enrutamiento por etiqueta (BR-ROUTING-002) |
+| `NOTMX-SeguimientoInstalacion` | 264,883 | 10.3% | Menú de servicio |
+| `RES_FALLA_STOP` | 214,894 | 8.4% | Menú de servicio |
+| `RES-FallaInternet` | 162,925 | 6.3% | Menú de servicio |
+| `RES-MADT-Detalle` | 132,330 | 5.2% | Menú de servicio |
+| `RES-SaldooPagos` | 108,867 | 4.2% | Menú de servicio |
+| `SinOpcion_Cabecera` | 97,513 | 3.8% | Sin opción en cabecera |
+| `Desborde_Promocional` | 79,994 | 3.1% | Enrutamiento promocional (BR-ROUTING-003) |
+| *(otros ~33 menús)* | ~525,389 | 20.5% | Menús de servicio específicos |
+
+### Puebla — 132,473 llamadas totales
+
+| cMenu | Total | % | Clasificación |
+|---|---|---|---|
+| `Numero Telmex` | 16,909 | 12.8% | Identificación por número |
+| `cliente_colgo` | 12,075 | 9.1% | Abandono |
+| `Desborde_Cabecera` | 11,682 | 8.8% | Enrutamiento por etiqueta |
+| `RES-ContratacionInfinitum_2024` | 11,691 | 8.8% | Menú de servicio (versión 2024) |
+| *(vacío)* | 11,592 | 8.8% | → `SIN_MENU` |
+| `RES-Fallas_2024` | 10,115 | 7.6% | Menú de servicio (versión 2024) |
+| `RES_FALLA_STOP` | 9,738 | 7.4% | Menú de servicio |
+| `SinOpcion_Cabecera` | 9,346 | 7.1% | Sin opción en cabecera |
+| `RES-SaldosPagos_2024` | 7,945 | 6.0% | Menú de servicio (versión 2024) |
+| *(otros ~17 menús)* | ~43,380 | 32.7% | Menús de servicio específicos |
+
+### Hallazgos del catálogo
+
+**Los menús no son universales entre segmentos.** Nacional ~43 valores, Puebla ~25.
+Solo ~15 son comunes. Los SPs de reporte filtran por `segmento` — comportamiento correcto.
+
+**Puebla usa sufijo `_2024` en sus menús.** `RES-ContratacionInfinitum_2024`,
+`RES-Fallas_2024`, `RES-SaldosPagos_2024`, `RES-SegInst_2024`. Nacional tiene
+equivalentes sin sufijo. Los menús evolucionan: en 2025/2026 pueden aparecer
+`_2025`. El diseño de `base_ivr_detalle` almacena el nombre literal — no requiere
+cambios cuando aparecen nuevos nombres.
+
+**`SinOpcion_Cabecera` no es un sentinel.** Es un estado válido del menú (cliente
+llegó a la cabecera pero no presionó opción). Se almacena tal cual.
+
+**`ANI` como valor de cMenu.** 2,887 Nacional, 2,181 Puebla. La llamada fue
+identificada por ANI antes de navegar cualquier menú. Se almacena como `'ANI'`.
+
+**Proporción Nacional:Puebla ≈ 19:1.** nacional_A + nacional_B dominan ~95%
+del total consolidado. Los porcentajes de reportes globales reflejan Nacional.
+
+---
+
+## BR-MENU-003 — Definición de llamadas abandonadas
+
+La definición de "abandono" es más amplia que `SIN_MENU`/`VACIO`. El SP actual
+`sp_rpt_llamadas_abandonadas` usa solo esos dos valores, pero `cliente_colgo`
+es el grupo más grande de Nacional (444K = 17.3% del total).
+
+| cMenu | Volumen Nacional | Volumen Puebla | ¿Abandono? |
+|---|---|---|---|
+| *(vacío)* | 238,049 | 11,592 | Sí → `SIN_MENU` |
+| `cliente_colgo` | 444,438 | 12,075 | **Sí — mayor grupo, NO está en SP actual** |
+| `SinOpcion_Cabecera` | 97,513 | 9,346 | Parcial — sin opción pero llegó al menú |
+| `ANI` | 2,887 | 2,181 | Pendiente definición |
+| `Opción Invalida` | 77 | 185 | Parcial |
+| `Desborde_Cabecera` | 336,919 | 11,682 | No — fue enrutado (P-16) |
+| `Desborde_Promocional` | 79,994 | 3,519 | No — fue enrutado (P-19) |
+
+**P-21 (ABIERTA — URGENTE):** ¿Cuál es la definición oficial de "llamada abandonada"?
+El SP actual captura ~8-9% del total. Con `cliente_colgo` incluido, captaría ~26-27%.
+La diferencia es significativa para las métricas del negocio.
 
 ---
 
@@ -203,7 +303,10 @@ ELSE cMenu
 | BR-CLIENT-001 | `cTelefono_Origen`, `cTelefono_Digitado` | `misma_linea`, `linea_diferente`, `no_digito_telefono` | SUM de comparaciones |
 | BR-ROUTING-001 | `cDID_Centro_Transferencia` (NK90) | `centro_transferencia` | LEFT(..., LENGTH-10) cuando len > 10 |
 | BR-MENU-001 | `cMenu`, `cOpcion`, `cDID_Centro_Transferencia` | `menu`, `opcion`, `centro_transferencia` | Grain natural del GROUP BY |
-| BR-ROUTING-002 | `cMenu = 'Desborde_Cabecera'`, `cEtiquetacliente` | `menu = 'Desborde_Cabecera'` | Sin normalización; contexto requiere `cEtiquetacliente` |
+| BR-ROUTING-002 | `cMenu = 'Desborde_Cabecera'` | `menu = 'Desborde_Cabecera'` | Sin normalización |
+| BR-ROUTING-003 | `cMenu = 'Desborde_Promocional'` | `menu = 'Desborde_Promocional'` | Sin normalización |
+| BR-MENU-002 | `cMenu` (catálogo completo) | `menu` (nombre literal) | Almacenamiento directo; menús evolucionan |
+| BR-MENU-003 | `cMenu` (tipos de abandono) | `menu` | Impacta lógica de `sp_rpt_llamadas_abandonadas` |
 
 ---
 
@@ -211,6 +314,9 @@ ELSE cMenu
 
 | # | Pregunta | Impacto |
 |---|---|---|
-| P-16 | `Desborde_Cabecera` en `sp_rpt_llamadas_abandonadas`: ¿se excluye, se cuenta como abandono o categoría propia? | Lógica del SP de reporte |
-| P-17 | `Desborde_Cabecera` en `sp_rpt_menu_redirigidos`: ¿se incluye o se filtra? | Lógica del SP de reporte |
-| P-18 | Post-migración IPVR: ¿cuándo se espera que NK90 deje de concatenar teléfono en `cDID_Centro_Transferencia`? | La normalización LENGTH > 10 tendrá fecha de caducidad |
+| P-16 | `Desborde_Cabecera` en `sp_rpt_llamadas_abandonadas`: ¿excluir, contar o categoría propia? | Lógica del SP |
+| P-17 | `Desborde_Cabecera` en `sp_rpt_menu_redirigidos`: ¿incluir o filtrar? | Lógica del SP |
+| P-18 | ¿Cuándo completa migración NK90 → IPVR? | Normalización LENGTH > 10 tendrá revisión post-migración |
+| P-19 | `Desborde_Promocional` en `sp_rpt_llamadas_abandonadas`: ¿incluir o excluir? | Lógica del SP |
+| P-20 | `Desborde_Promocional` en `sp_rpt_menu_redirigidos`: ¿incluir o filtrar? | Lógica del SP |
+| P-21 | **¿Cuál es la definición oficial de "llamada abandonada"?** `cliente_colgo` (444K Nacional) no está en el SP actual. Diferencia entre definición mínima y amplia es ~18 puntos porcentuales. | Reescritura del SP si la definición es amplia |
