@@ -356,7 +356,60 @@ de documentación formal (G-29).
 
 ---
 
-## 12. Lo que NO cambia con esta corrección
+## 12. Anti-patrón de ETL documentado — REPTRIM001-WS.sql (PROVEN)
+
+Script ad-hoc de agosto 2025 que tardó **1 día completo** en ejecutar.
+Documenta el anti-patrón que los SPs de producción deben evitar.
+
+### Anti-patrón:
+
+```sql
+-- MAL: materializar ~34M filas en tabla temporal, luego indexar
+CREATE TEMPORARY TABLE temp ENGINE=InnoDB AS
+SELECT ... FROM tbl_historico_t1_2025 UNION ALL t2 UNION ALL t3;
+
+ALTER TABLE temp ADD INDEX idx_...;  -- reconstruir B-tree sobre 34M filas = lento
+```
+
+**Por qué es lento:**
+- INSERT masivo de ~34M filas en InnoDB (escritura en disco)
+- ALTER TABLE post-carga = O(N log N) sobre 34M filas
+- Full table scans si no hay índice en `(dFecha, cDID_800Transfer)` en las fuentes
+
+### Patrón correcto para los SPs de ETL:
+
+```sql
+-- BIEN: agregar en el SELECT, escribir solo el resultado en rpt_*
+-- Resultado de GROUP BY = centenas de filas (no millones)
+
+START TRANSACTION;
+TRUNCATE TABLE rpt_clientes_unicos;
+INSERT INTO rpt_clientes_unicos (trimestre, cDID_800Transfer, clientes_unicos)
+SELECT 
+    'Q01_25',
+    cDID_800Transfer,
+    COUNT(DISTINCT cTelefono_Digitado)
+FROM tbl_historico_t1_2025
+WHERE dFecha BETWEEN '2025-01-01' AND '2025-03-31'  -- ← fechas correctas
+  AND cDID_800Transfer IN (19020084, 19028031, 19020001)  -- ← DIDs correctos
+GROUP BY cDID_800Transfer;
+COMMIT;
+```
+
+El INSERT escribe ~3 filas (una por DID) — no 11M.
+
+### Bugs del script ad-hoc (a NO reproducir en SPs):
+
+| Bug | Script | Correcto |
+|---|---|---|
+| `@ONacional02 = 1902001` | 7 dígitos (inválido) | `19020001` |
+| `@ONacionalB` ausente en Q2/Q3 | solo Q1 tiene 3 DIDs | todos los quarters: 3 DIDs |
+| `@Q1_inicio = '2025-02-01'` | falta enero | `'2025-01-01'` |
+| `@Q3_fin = '2025-07-31'` | solo julio | `'2025-09-30'` |
+
+---
+
+## 14. Lo que NO cambia con esta corrección
 
 - El **módulo de monitoreo existe** — Django sí muestra estado del ETL (UC_PIP_01..04 siguen siendo válidos en concepto)
 - La **restricción de frecuencia** 6-12h sigue siendo válida

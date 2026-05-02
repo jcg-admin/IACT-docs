@@ -119,5 +119,41 @@ author: NestorMonroy
   no está documentada formalmente. Evidencia indirecta: `CASO_ERROR_CEROS` aparece
   en Q02/Q03 pero no en Q01, sugiriendo degradación de datos desde Q2 2025.
 
+## Análisis de scripts SQL de producción (2026-05-02)
+
+- discover/real-db-schema-analysis.md — análisis de dos scripts SQL:
+  `q_menu_centro_transferecia_010925.sql` y `REPTRIM001-WS.sql`. Hallazgos:
+  columnas `dHoraInicio`/`dHoraFin` (DATETIME) confirmadas en schema real;
+  bug en `@ONacionalB = 19028031` (debería ser `19020001`) en script de análisis;
+  `cEtiquetacliente` es el campo raw que `llamadas_QN` normaliza a `etiquetas`;
+  el problema reportado en "campo de fecha" es `dHoraInicio`/`dHoraFin`
+  (registros con inicio > fin), NO `dFecha`.
+
+- discover/etl-architecture-correction.md — sección 12 nueva: anti-patrón
+  documentado de REPTRIM001-WS.sql que tardó 1 día completo. El script materializa
+  ~34M filas en tabla temporal y luego indexa — patrón prohibido para SPs de ETL.
+  Corrección: agregar directamente en SELECT y escribir solo el resultado (~centenas
+  de filas) en la tabla rpt_*.
+
+## Bugs documentados en scripts de análisis (NO reproducir en SPs de producción)
+
+| Bug | Script | Valor incorrecto | Correcto |
+|---|---|---|---|
+| `@ONacionalB` mismo DID que A | `q_menu_centro_transferecia_010925.sql` | `19028031` | `19020001` |
+| `@ONacional02` dígito faltante | `REPTRIM001-WS.sql` | `1902001` | `19020001` |
+| `@ONacional02` ausente en Q2/Q3 | `REPTRIM001-WS.sql` | IN solo 2 DIDs | 3 DIDs en todos los quarters |
+| Q1 empieza en febrero | `REPTRIM001-WS.sql` | `2025-02-01` | `2025-01-01` |
+| Q3 termina en julio | `REPTRIM001-WS.sql` | `2025-07-31` | `2025-09-30` |
+
+## Gaps adicionales
+
+- **G-29 (actualizado):** El problema de "campo de fecha" es `dHoraInicio`/`dHoraFin`
+  — registros donde `dHoraInicio > dHoraFin`. El workaround en los scripts (`ABS(fin-inicio)`)
+  produce resultados incorrectos para llamadas que cruzan medianoche.
+- **G-30:** Bug en `@ONacionalB = 19028031` en `q_menu_centro_transferecia_010925.sql`.
+  Reportes generados con este script carecen de datos de Nacional B.
+- **G-31:** Posible ausencia de índices en `(dFecha, cDID_800Transfer)` en tablas
+  `tbl_historico_*`. Sin índices, los SPs harán full table scans sobre ~11-14M filas/quarter.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
