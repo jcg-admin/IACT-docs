@@ -215,21 +215,23 @@ completamente desalineados con los reportes reales de IACT. Los conceptos
 
 Basado en scripts SQL de producción y confirmación del equipo:
 
-| Reporte | Naming script producción | Tabla limpia (INFERRED) | SP ETL (INFERRED) | Estado |
-|---|---|---|---|---|
-| Transfer/Menu/Opción | `q_menu_centro_transferecia_010925.sql` | `rpt_menu_centro` o `menu_centro` | `sp_etl_menu_centro` | Planificado |
-| Clientes únicos por DID | (sin nombre confirmado) | `rpt_clientes_unicos` | `sp_etl_clientes_unicos` | Planificado |
-| Llamadas abandonadas | (sin nombre confirmado) | `rpt_llamadas_abandonadas` | `sp_etl_llamadas_abandonadas` | Planificado |
-| Centros transferencia + días hábiles | (sin nombre confirmado) | `rpt_centros_transferencia` | `sp_etl_centros_transferencia` | Planificado |
-| Análisis colgadas | (sin nombre confirmado) | `rpt_colgadas` | `sp_etl_colgadas` | Planificado |
-| Menús con número (error) | `q_cMENU_ERROR.sql` | `rpt_menu_error` o `cMENU_ERROR` | `sp_etl_menu_error` | Planificado |
-| Menús redirigidos | `q_menu_centro_transferecia_*.sql` | (mismo que Transfer/Menu?) | — | Incierto |
+Catálogo de tablas limpias (PROVEN — confirmado por el equipo, 2026-05-02):
 
-**Preguntas abiertas sobre naming (requieren confirmación del equipo):**
-- P-02 (ya registrada): ¿Las tablas limpias usan prefijo `rpt_` o sin prefijo?
-- **P-09 (NUEVA):** ¿El reporte de menús que redirigen es una tabla separada o una vista del mismo reporte Transfer/Menu/Opción?
-- **P-10 (NUEVA):** ¿Hay más reportes planificados además de los 7 identificados?
-- **P-11 (NUEVA):** ¿El naming de las tablas limpias sigue el naming de los scripts (`q_cMENU_ERROR`, `menu_centro`) o se define nuevo naming?
+| Reporte | Naming script producción | Tabla limpia | SP ETL (INFERRED) |
+|---|---|---|---|
+| Transfer/Menú/Opción | `q_menu_centro_transferecia_010925.sql` | `rpt_menu_centro` | `sp_etl_menu_centro` |
+| Clientes únicos por DID | — | `rpt_clientes_unicos` | `sp_etl_clientes_unicos` |
+| Llamadas abandonadas | — | `rpt_llamadas_abandonadas` | `sp_etl_llamadas_abandonadas` |
+| Centros transferencia + días hábiles | — | `rpt_centros_transferencia` | `sp_etl_centros_transferencia` |
+| Análisis colgadas | — | `rpt_colgadas` | `sp_etl_colgadas` |
+| Menús con número (error) | `q_cMENU_ERROR.sql` | `rpt_cMENU_ERROR` | `sp_etl_cMENU_ERROR` |
+| Menús redirigidos | — | `rpt_menu_redirigidos` | `sp_etl_menu_redirigidos` |
+
+**Notas confirmadas:**
+- Prefijo `rpt_` confirmado para todas las tablas limpias
+- `rpt_menu_redirigidos` es tabla **separada** de `rpt_menu_centro`
+- Scope 1 = 7 reportes. Reportes futuros en open clause (fuera de Scope 1)
+- Naming de tablas confirmado por el equipo (P-02, P-09, P-10, P-11: cerradas)
 
 ---
 
@@ -307,8 +309,8 @@ reescritos para la arquitectura MySQL-internal. Ver `etl-architecture-correction
 | Gap | Descripción | Impacto |
 |---|---|---|
 | G-23 | Los 14 UC_RPT de la referencia usan conceptos genéricos (Agentes/Colas/Campañas) incompatibles con IACT real | Reescritura completa de MOD_Reports UC |
-| G-24 | Las tablas limpias no tienen naming definitivo ni schema definido | No se puede escribir modelos Django ni UCs concretos |
-| G-25 | El número total de reportes reales (≥7) no está confirmado — puede haber más | El catálogo de tablas limpias está incompleto |
+| G-24 | ~~Las tablas limpias no tienen naming definitivo~~ | **CERRADO** — naming confirmado 2026-05-02 (ver sección 5) |
+| G-25 | ~~El número total de reportes reales no está confirmado~~ | **CERRADO** — 7 reportes Scope 1 confirmados 2026-05-02 |
 | G-26 | No existe documentación de cómo se calculan `hora_inicio`/`hora_fin` en la vista `llamadas_QN` | Impacta el cálculo de duración de llamadas en reportes |
 | G-27 | Los UCs de referencia usan `segmento_id` como filtro principal; el real usa `cDID_800Transfer` — conceptos distintos | Impacta todo el modelo de RBAC de reportes |
 

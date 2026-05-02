@@ -158,14 +158,21 @@ Implicaciones:
 - Django solo necesita hacer `SELECT * FROM rpt_transfer_menu_opcion WHERE ...`
 - La query compleja (con los CASE WHEN de normalización) está encapsulada en el SP, no en Django
 
-Ejemplo de naming para tablas limpias (INFERRED — pendiente confirmación):
+Naming de tablas limpias (PROVEN — confirmado por el equipo, 2026-05-02):
 
-| SP origen | Tabla limpia | Reporte que sirve |
+Prefijo `rpt_` confirmado. 7 tablas limpias para Scope 1:
+
+| SP origen (INFERRED) | Tabla limpia (PROVEN) | Reporte que sirve |
 |---|---|---|
-| `sp_etl_transfer_menu_opcion` | `rpt_transfer_menu_opcion` | Análisis transfer/menu/opción |
+| `sp_etl_menu_centro` | `rpt_menu_centro` | Análisis Transfer/Menú/Opción |
 | `sp_etl_clientes_unicos` | `rpt_clientes_unicos` | Clientes únicos por DID y trimestre |
 | `sp_etl_llamadas_abandonadas` | `rpt_llamadas_abandonadas` | Llamadas abandonadas por menú |
 | `sp_etl_centros_transferencia` | `rpt_centros_transferencia` | Centros de transferencia con métricas |
+| `sp_etl_colgadas` | `rpt_colgadas` | Análisis colgadas |
+| `sp_etl_cMENU_ERROR` | `rpt_cMENU_ERROR` | Menús con número de teléfono (anomalías) |
+| `sp_etl_menu_redirigidos` | `rpt_menu_redirigidos` | Menús que redirigen por centro (tabla separada) |
+
+Nota: hay reportes futuros planificados (open clause) pero fuera de Scope 1.
 
 ---
 
@@ -195,15 +202,22 @@ separadas. Con la nueva arquitectura:
 
 ## 8. Preguntas abiertas (requieren confirmación del equipo)
 
+### Resueltas
+
+| # | Pregunta | Respuesta | Fecha |
+|---|---|---|---|
+| P-01 | ¿Hay tabla de tracking del ETL? | No existe aún. Solo existen `tbl_historico_tN_YYYY`. Las tablas limpias se crearán. | 2026-05-02 |
+| P-02 | ¿Las tablas limpias usan prefijo `rpt_*`? | **Sí, prefijo `rpt_`** confirmado. 7 tablas: ver sección 6. | 2026-05-02 |
+
+### Pendientes
+
 | # | Pregunta | Impacto |
 |---|---|---|
-| P-01 | ¿Hay una tabla de tracking del ETL? ¿Qué nombre tiene? ¿Qué columnas? | Define el modelo Django de monitoreo |
-| P-02 | ¿Las tablas limpias siguen el naming `rpt_*`? ¿O tienen otra convención? | Define los modelos Django y las queries |
 | P-03 | ¿Los Events/Jobs MySQL son diarios o por trimestre? ¿Se disparan manualmente? | Define BR_002 corrección |
 | P-04 | ¿Los SPs hacen TRUNCATE+INSERT o UPSERT en tablas limpias? | Implica idempotencia en UC_PIP_04 |
-| P-05 | ¿Las tablas limpias incluyen `quarter_name` ('Q01_25') para filtrar? | Define queries de reportes en Django |
+| P-05 | ¿Las tablas limpias incluyen `quarter_name` ('Q01_25') para filtrar por trimestre? | Define queries de reportes en Django |
 | P-06 | ¿Django puede triggear manualmente un SP? (UC_PIP_04: solicitar reintento) | Define el flujo de "retry" |
-| P-07 | ¿Hay una base de datos IACT separada de la base IVR del cliente, aunque ambas sean MySQL? | Crítico para CNST-006/007 |
+| P-07 | ¿Hay una BD IACT separada de la BD IVR del cliente, o es la misma instancia MySQL? | Crítico para CNST-006/007 |
 
 ---
 

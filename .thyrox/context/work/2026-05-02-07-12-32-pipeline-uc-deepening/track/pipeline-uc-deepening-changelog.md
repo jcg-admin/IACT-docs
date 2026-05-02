@@ -51,5 +51,17 @@ author: NestorMonroy
   documentales (G-23..G-27). Agrega preguntas P-09..P-11 sobre naming
   definitivo de tablas limpias.
 
+## Decisiones (confirmadas por el equipo, 2026-05-02)
+
+- **D-01:** Prefijo `rpt_` para todas las tablas limpias MySQL.
+- **D-02:** Scope 1 = 7 reportes. Reportes futuros quedan en open clause.
+  Tablas: `rpt_menu_centro`, `rpt_clientes_unicos`, `rpt_llamadas_abandonadas`,
+  `rpt_centros_transferencia`, `rpt_colgadas`, `rpt_cMENU_ERROR`,
+  `rpt_menu_redirigidos`.
+- **D-03:** `rpt_menu_redirigidos` es tabla separada de `rpt_menu_centro`.
+- **D-04:** No existe tabla de tracking del ETL aún. Se diseñará junto con los SPs.
+- **D-05:** Los 14 UC_RPT de la referencia (Agentes/Colas/Campañas) deben
+  reescribirse desde cero. Los reportes reales son IVR-específicos.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
