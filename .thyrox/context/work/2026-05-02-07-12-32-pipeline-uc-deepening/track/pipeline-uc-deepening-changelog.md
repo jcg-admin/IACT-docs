@@ -444,5 +444,36 @@ Estas preguntas se resolvieron sin necesidad de confirmación del equipo:
 - discover/etl-job-flow-design.md — **v2.3.0**: D-23 documentada, VACIO
   sentinel corregido con nota de convención histórica y referencia a P-24.
 
+## Cierre de preguntas y decisión D-24 VACIO (2026-05-02)
+
+- **P-18 CERRADA:** No relevante — normalización `LENGTH > 10` cubre todos los
+  casos sin depender del estado de migración NK90→IPVR.
+- **P-22 CERRADA:** No relevante — `CASO_ERROR_CEROS` es un sentinel;
+  el reporte muestra el dato sin filtrar ni inferir causa raíz.
+- **P-23 CERRADA:** No relevante — VDNs con prefijo `2...` se almacenan y
+  muestran como vienen; no requieren tratamiento especial.
+- **D-24/P-24 CERRADA — VACIO:** Convención unificada definitiva para cMenu
+  vacío/NULL → `'VACIO'`. Eliminación completa de `'SIN_MENU'` del ETL.
+  Justificación: compatibilidad con el script de análisis histórico y con los
+  datos reales Q01-Q03 en producción. El SP ya no necesita `IN ('SIN_MENU','VACIO')`.
+
+### Archivos modificados
+
+- discover/etl-job-flow-design.md — **v2.4.0:**
+  - Sentinel `SIN_MENU` eliminado de la tabla. Solo `VACIO`.
+  - CASE cMenu: `THEN 'SIN_MENU'` → `THEN 'VACIO'` en todos los bloques
+    (flujo ASCII, código PREPARE/EXECUTE del SP completo).
+  - `sp_rpt_llamadas_abandonadas`: condición actualizada a
+    `IN ('VACIO','cliente_colgo','SinOpcion_Cabecera')` (D-21 + D-24).
+  - `sp_rpt_menu_redirigidos`: `SIN_MENU` eliminado del IN list.
+  - Comentario de columna `menu` actualizado.
+
+- discover/business-rules-ivr.md — **v1.4.0:**
+  - P-18, P-22, P-23, P-24 cerradas con resolución definitiva.
+  - Tabla de preguntas abiertas reemplazada por tabla de decisiones cerradas.
+  - Todas las referencias a `SIN_MENU` en textos y SQL actualizadas a `VACIO`.
+  - BR-ROUTING-002/003: P-16/P-17/P-19/P-20 reemplazadas por D-16..D-20.
+  - BR-MENU-003: SQL de abandono actualizado con definición D-21 + D-24.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

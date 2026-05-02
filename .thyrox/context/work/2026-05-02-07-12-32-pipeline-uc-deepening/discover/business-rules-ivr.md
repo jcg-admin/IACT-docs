@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 09:45:00
-updated_at: 2026-05-02 14:30:00
+updated_at: 2026-05-02 15:00:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 1.3.0
+version: 1.4.0
 ```
 
 # Reglas de Negocio — Sistema IVR IACT
@@ -175,24 +175,23 @@ en la posición correspondiente es la que determinó el destino.
 
 **Tratamiento en base_ivr_detalle:**
 `Desborde_Cabecera` se almacena como valor de `menu` sin normalización adicional
-— es un valor semánticamente válido y distinto de `SIN_MENU`. No se mapea a
+— es un valor semánticamente válido y distinto de `VACIO`. No se mapea a
 ningún sentinel.
 
 ```sql
 -- Desborde_Cabecera NO cae en estas reglas de normalización:
-WHEN cMenu IS NULL         THEN 'SIN_MENU'    -- NULL
-WHEN TRIM(cMenu) = ''      THEN 'SIN_MENU'    -- vacío
-WHEN cMenu = 'sin cMenu'   THEN 'SIN_MENU'    -- string sin valor
+WHEN cMenu IS NULL         THEN 'VACIO'    -- NULL
+WHEN TRIM(cMenu) = ''      THEN 'VACIO'    -- vacío
+WHEN cMenu = 'sin cMenu'   THEN 'VACIO'    -- string sin valor
 -- 'Desborde_Cabecera' → pasa al ELSE → se almacena como 'Desborde_Cabecera'
 ELSE cMenu
 ```
 
-**Impacto en reportes:**
-- `sp_rpt_llamadas_abandonadas` — `Desborde_Cabecera` no es un abandono; debe
-  excluirse del conteo de abandonos junto con `SIN_MENU`/`VACIO`, o tratarse
-  como categoría propia. **P-16: confirmar tratamiento.**
-- `sp_rpt_menu_redirigidos` — Llamadas con `Desborde_Cabecera` SÍ fueron
-  redirigidas, pero por etiqueta, no por opción de menú. **P-17: confirmar.**
+**Impacto en reportes (D-16, D-17 resueltas):**
+- `sp_rpt_llamadas_abandonadas` — **EXCLUIR** `Desborde_Cabecera`. Es una llamada
+  enrutada, no abandonada.
+- `sp_rpt_menu_redirigidos` — **INCLUIR** `Desborde_Cabecera`. Es exactamente
+  un evento de redirección.
 
 ---
 
@@ -212,8 +211,8 @@ automáticamente sin navegar el menú estándar.
 **Tratamiento en base_ivr_detalle:** Almacenado como `'Desborde_Promocional'` en
 `menu` sin normalización (pasa al ELSE del CASE — correcto).
 
-**P-19:** ¿`Desborde_Promocional` se incluye o excluye en `sp_rpt_llamadas_abandonadas`?
-**P-20:** ¿`Desborde_Promocional` entra en `sp_rpt_menu_redirigidos`?
+**D-19 (resuelta):** `Desborde_Promocional` → **EXCLUIR** de `sp_rpt_llamadas_abandonadas`.
+**D-20 (resuelta):** `Desborde_Promocional` → **INCLUIR** en `sp_rpt_menu_redirigidos`.
 
 ---
 
@@ -252,8 +251,7 @@ Datos confirmados desde dataset granular Q1-Q3 2025 compartido por el equipo.
 | `Desborde_Cabecera` | ~variable por mes | Enrutamiento por etiqueta (BR-ROUTING-002) |
 | `NOTMX-SeguimientoInstalacion` | segundo en volumen | Menú de servicio |
 | `RES_FALLA_STOP` | alto volumen (Q02 onward) | Menú de servicio |
-| `SIN_MENU` (generado) | ~9% | Normalizado desde vacío/NULL |
-| `VACIO` | ~800K-900K / trimestre | Generado por análisis histórico para cMenu vacío/NULL — misma semántica que `SIN_MENU`; ver P-24 |
+| `VACIO` | ~800K-900K / trimestre | Generado por ETL desde cMenu vacío/NULL (~9%) — convención unificada (D-24) |
 | `SinOpcion_Cabecera` | ~3-4% | Estado válido — sin opción en cabecera |
 | `Desborde_Promocional` | ~1-3% | Enrutamiento promocional (BR-ROUTING-003) |
 | `Marque3` | ~1% | Menú de tecla 3 |
@@ -266,7 +264,7 @@ Datos confirmados desde dataset granular Q1-Q3 2025 compartido por el equipo.
 |---|---|---|
 | `cliente_colgo` | ~52K (Q03) | Abandono |
 | `RES-ContratacionInfinitum_2024` | alto | Menú de servicio (versión 2024) |
-| `SIN_MENU` | ~8.8% | Normalizado desde vacío/NULL |
+| `VACIO` | ~8.8% | Generado por ETL desde vacío/NULL (D-24) |
 | `Numero Telmex` | persistente desde Q02 | Menú de identificación por número (BR-DATA-001) |
 | `RES-Fallas_2024` | variable | Menú de servicio (versión 2024) |
 | `SinOpcion_Cabecera` | ~7% | Estado válido |
@@ -312,13 +310,13 @@ diferente. Volumen pequeño. Confirmar si son DIDs nuevos o errores de datos (P-
 
 ## BR-MENU-003 — Definición de llamadas abandonadas
 
-La definición de "abandono" es más amplia que `SIN_MENU`/`VACIO`. El SP actual
-`sp_rpt_llamadas_abandonadas` usa solo esos dos valores, pero `cliente_colgo`
+La definición de "abandono" es más amplia que solo `VACIO`. El SP actual
+`sp_rpt_llamadas_abandonadas` usa solo ese valor, pero `cliente_colgo`
 es el grupo más grande de Nacional (444K = 17.3% del total).
 
 | cMenu | Volumen Nacional | Volumen Puebla | ¿Abandono? |
 |---|---|---|---|
-| *(vacío)* | 238,049 | 11,592 | Sí → `SIN_MENU` |
+| *(vacío)* | 238,049 | 11,592 | Sí → `VACIO` |
 | `cliente_colgo` | 444,438 | 12,075 | **Sí — mayor grupo, NO está en SP actual** |
 | `SinOpcion_Cabecera` | 97,513 | 9,346 | Parcial — sin opción pero llegó al menú |
 | `ANI` | 2,887 | 2,181 | Pendiente definición |
@@ -414,7 +412,7 @@ fue atendida por el sistema — no es un abandono.
 
 ```sql
 -- sp_rpt_llamadas_abandonadas: Desborde_Cabecera NO entra
-WHERE menu IN ('SIN_MENU','VACIO','cliente_colgo','SinOpcion_Cabecera')
+WHERE menu IN ('VACIO','cliente_colgo','SinOpcion_Cabecera')
   AND menu NOT IN ('Desborde_Cabecera','Desborde_Promocional')
 
 -- sp_rpt_menu_redirigidos: Desborde_Cabecera SÍ entra
@@ -437,15 +435,14 @@ La llamada fue enrutada, no abandonada.
 estaba en el menú IVR sin completar la transacción ni llegar a un agente. Semánticamente:
 el cliente inició la llamada, navegó el IVR, y abandonó antes de resolver su necesidad.
 
-**El SP `sp_rpt_llamadas_abandonadas` está incompleto.** Solo captura `SIN_MENU`/`VACIO`
+**El SP `sp_rpt_llamadas_abandonadas` está incompleto.** Solo captura `VACIO`
 (nunca llegó a un menú). Con `cliente_colgo` incluido, la cobertura sube de ~8-9% a ~26-27%.
 
 **Definición correcta para el SP:**
 
 ```sql
 WHERE menu IN (
-    'SIN_MENU',          -- nunca llegó a menú (NULL/vacío original)
-    'VACIO',             -- convencion histórica para lo mismo
+    'VACIO',             -- nunca llegó a menú (NULL/vacío/sin cMenu)
     'cliente_colgo',     -- llegó al menú y colgó → abandono explícito
     'SinOpcion_Cabecera' -- llegó al menú pero no eligió opción → abandono implícito
 )
@@ -458,18 +455,23 @@ a la cabecera pero no pulsó ninguna tecla. Incluirlo es consistente con la defi
 
 | cMenu | Volumen aprox | Tipo abandono |
 |---|---|---|
-| `SIN_MENU` / `VACIO` | ~792K-900K | Nunca llegó al menú |
+| `VACIO` | ~792K-900K | Nunca llegó al menú |
 | `cliente_colgo` | ~1,479K | Llegó y colgó |
 | `SinOpcion_Cabecera` | ~97K | Llegó pero no eligió |
 | **Total abandonos** | **~2,370K-2,480K** | **~27-28% del total** |
 
 ---
 
-## Preguntas abiertas derivadas de estas BRs
+## Decisiones y preguntas cerradas
 
-| # | Pregunta | Impacto |
-|---|---|---|
-| P-18 | ¿Cuándo completa migración NK90 → IPVR? | Normalización LENGTH > 10 tendrá revisión post-migración |
-| P-22 | **¿Causa raíz de `CASO_ERROR_CEROS` en Puebla?** ~20K-30K registros/mes Q02-Q03. ¿Problema de configuración IVR, pruebas internas, o enrutamiento específico? | Posible filtro adicional si es ruido |
-| P-23 | **VDN `2309004` y `230806646350495`** — ¿Son DIDs nuevos, variantes de NK90, o error de captura? Aparecen en Q02-Q03 con volumen pequeño pero creciente. | Normalización LENGTH > 10 podría no capturarlos si son legítimos |
-| P-24 | **Alinear naming `VACIO` vs `SIN_MENU`.** El análisis histórico usa `'VACIO'` para cMenu vacío/NULL; nuestro ETL usa `'SIN_MENU'`. El SP `sp_rpt_llamadas_abandonadas` ya maneja `IN ('SIN_MENU','VACIO')`. ¿Estandarizamos a `'VACIO'` (compatibilidad histórica) o mantenemos `'SIN_MENU'` (legibilidad)? | Consistencia entre ETL y análisis histórico; implica ajuste en ETL si se cambia |
+| # | Resolución |
+|---|---|
+| P-16 / D-16 | `Desborde_Cabecera` → **EXCLUIR** de abandonadas, **INCLUIR** en redirigidos |
+| P-17 / D-17 | Ídem P-16 |
+| P-18 | No relevante para el reporte — la normalización `LENGTH > 10` cubre todos los casos independientemente de la migración |
+| P-19 / D-19 | `Desborde_Promocional` → **EXCLUIR** de abandonadas |
+| P-20 / D-20 | `Desborde_Promocional` → **INCLUIR** en redirigidos |
+| P-21 / D-21 | Definición correcta de abandono: `VACIO` + `cliente_colgo` + `SinOpcion_Cabecera` |
+| P-22 | No relevante — `CASO_ERROR_CEROS` es un sentinel; el reporte lo muestra tal cual sin filtrar |
+| P-23 | No relevante — VDNs con prefijo `2...` se almacenan y muestran como vienen; sin filtro adicional |
+| P-24 / D-24 | **Convención unificada: `VACIO`** — igual al script de análisis histórico. `SIN_MENU` eliminado del ETL. |

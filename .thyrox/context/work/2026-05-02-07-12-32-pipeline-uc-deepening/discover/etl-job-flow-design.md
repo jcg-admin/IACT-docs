@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 08:44:41
-updated_at: 2026-05-02 11:00:00
+updated_at: 2026-05-02 15:00:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 2.3.0
+version: 2.4.0
 ```
 
 # Diagrama de Flujo del Proceso ETL — IACT
@@ -150,7 +150,7 @@ CREATE TABLE base_ivr_detalle (
     segmento              VARCHAR(20)   NOT NULL,  -- 'Puebla','nacional_A','nacional_B'
     centro_transferencia  VARCHAR(100)  NOT NULL,  -- normalizado: DID, 'CASO_NULL',
                                                    -- 'CASO_ERROR_CEROS','CLIENTE_COLGO'
-    menu                  VARCHAR(100)  NOT NULL,  -- normalizado: nombre, 'SIN_MENU','VACIO'
+    menu                  VARCHAR(100)  NOT NULL,  -- normalizado: nombre literal o 'VACIO'
     opcion                VARCHAR(100)  NOT NULL,  -- normalizado: nombre, 'SIN_OPCION'
     total_llamadas        INT           NOT NULL DEFAULT 0,
     misma_linea           INT           NOT NULL DEFAULT 0,  -- cTelefono_Origen = Digitado
@@ -192,8 +192,7 @@ CREATE TABLE base_ivr_clientes (
 | `'CASO_NULL'` | `cDID_Centro_Transferencia` IS NULL o vacío | `centro_transferencia` | — |
 | `'CASO_ERROR_CEROS'` | `cDID_Centro_Transferencia REGEXP '^0+$'` | `centro_transferencia` | — |
 | `'CLIENTE_COLGO'` | `cDID_Centro_Transferencia = 'cliente_colgo'` | `centro_transferencia` | Llamada terminada por cliente |
-| `'SIN_MENU'` | `cMenu IS NULL` o `TRIM(cMenu) = ''` o `cMenu = 'sin cMenu'` | `menu` | — |
-| `'VACIO'` | `cMenu IS NULL` / `TRIM(cMenu) = ''` / `cMenu = 'sin cMenu'` — campo sin valor real | `menu` | Generado por ETL. El análisis histórico (`Análisis LLamadas Menu`) también usa `'VACIO'` para los mismos casos. Nuestra ETL usa `'SIN_MENU'` — el SP `sp_rpt_llamadas_abandonadas` maneja `IN ('SIN_MENU','VACIO')` cubriendo ambas convenciones. Ver P-24 para alinear naming. |
+| `'VACIO'` | `cMenu IS NULL` / `TRIM(cMenu) = ''` / `cMenu = 'sin cMenu'` | `menu` | Generado por ETL. Mismo valor usado por el script de análisis histórico — convención unificada (D-24). |
 | `'SIN_OPCION'` | `cOpcion IS NULL` o vacío | `opcion` | — |
 | `'Desborde_Cabecera'` | `cMenu = 'Desborde_Cabecera'` (valor literal) | `menu` | **NO es sentinel** — valor válido. Indica enrutamiento por `cEtiquetacliente` (BR-ROUTING-002). No se normaliza. |
 
@@ -321,9 +320,9 @@ WHERE quarter_name = @quarter
 │    END,                                              │
 │    -- Normalización cMenu:                           │
 │    CASE                                              │
-│      WHEN cMenu IS NULL              THEN 'SIN_MENU' │
-│      WHEN TRIM(cMenu) = ''           THEN 'SIN_MENU' │
-│      WHEN cMenu = 'sin cMenu'        THEN 'SIN_MENU' │
+│      WHEN cMenu IS NULL              THEN 'VACIO'    │
+│      WHEN TRIM(cMenu) = ''           THEN 'VACIO'    │
+│      WHEN cMenu = 'sin cMenu'        THEN 'VACIO'    │
 │      ELSE cMenu                                      │
 │    END,                                              │
 │    -- Normalización cOpcion:                         │
@@ -457,10 +456,11 @@ SELECT
     quarter_name,
     menu,
     SUM(total_llamadas)                                         AS total_llamadas,
-    SUM(CASE WHEN menu IN ('SIN_MENU','VACIO') THEN total_llamadas ELSE 0 END)
-                                                                AS abandono,
+    SUM(CASE WHEN menu IN ('VACIO','cliente_colgo','SinOpcion_Cabecera')
+             THEN total_llamadas ELSE 0 END)                   AS abandono,
     ROUND(
-        SUM(CASE WHEN menu IN ('SIN_MENU','VACIO') THEN total_llamadas ELSE 0 END)
+        SUM(CASE WHEN menu IN ('VACIO','cliente_colgo','SinOpcion_Cabecera')
+                 THEN total_llamadas ELSE 0 END)
         / NULLIF(SUM(total_llamadas), 0) * 100, 2)             AS pct_abandono
 FROM   base_ivr_detalle
 WHERE  quarter_name = @quarter
@@ -513,7 +513,7 @@ SELECT quarter_name, menu, centro_transferencia,
 FROM   base_ivr_detalle
 WHERE  quarter_name = @quarter
   AND  centro_transferencia NOT IN
-       ('CASO_NULL','CASO_ERROR_CEROS','CLIENTE_COLGO','SIN_MENU')
+       ('CASO_NULL','CASO_ERROR_CEROS','VACIO')
 GROUP BY quarter_name, menu, centro_transferencia
 ORDER BY total_llamadas DESC;
 ```
@@ -762,9 +762,9 @@ BEGIN
                     ELSE cDID_Centro_Transferencia
                 END,
                 CASE
-                    WHEN cMenu IS NULL         THEN ''SIN_MENU''
-                    WHEN TRIM(cMenu) = ''''    THEN ''SIN_MENU''
-                    WHEN cMenu = ''sin cMenu'' THEN ''SIN_MENU''
+                    WHEN cMenu IS NULL         THEN ''VACIO''
+                    WHEN TRIM(cMenu) = ''''    THEN ''VACIO''
+                    WHEN cMenu = ''sin cMenu'' THEN ''VACIO''
                     ELSE cMenu
                 END,
                 COALESCE(NULLIF(TRIM(cOpcion), ''''), ''SIN_OPCION''),
