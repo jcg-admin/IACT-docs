@@ -449,12 +449,51 @@ agregar índices a estas tablas sin coordinación con el proveedor del IVR.
 **Estimación de tiempo de scan por tabla** (INFERRED — sin benchmark real):
 - InnoDB full scan de ~11-14M filas: típicamente 30-120 segundos dependiendo del
   hardware y carga concurrente
-- Con 7 tablas limpias × 3 tablas brutas posibles = hasta 21 scans si no se optimiza
 - Con el patrón correcto (una sola query por tabla por SP): 3 scans totales por run
+  (uno por `tbl_historico_t1`, `t2`, `t3`)
 
-**P-12 (NUEVO):** ¿Es viable coordinar con el cliente la creación de al menos un
-índice compuesto `(cDID_800Transfer, dFecha)` en `tbl_historico_*`? Reduciría el
-costo de los full table scans de O(N) a O(log N + resultado).
+**P-12 (CERRADA — PROVEN, confirmado 2026-05-02):** No es posible. IACT solo tiene
+acceso de lectura a las tablas del IVR. No puede agregar índices a `tbl_historico_*`
+ni coordinar cambios de schema con el cliente del IVR.
+
+**Compensación:** Los índices van en las tablas `rpt_*` que IACT crea y controla.
+Ver CNST-ETL-006 a continuación.
+
+---
+
+### CNST-ETL-006 — Las tablas rpt_* DEBEN tener índices (PROVEN)
+
+IACT crea y es dueño de las tablas `rpt_*`. Al ser las tablas que Django consulta
+para servir reportes, deben tener índices apropiados definidos en el `CREATE TABLE`.
+
+**Por qué TRUNCATE+INSERT NO destruye los índices:**
+- `TRUNCATE` elimina todas las filas pero conserva la definición del índice
+- El `INSERT` posterior reconstruye el índice sobre las nuevas filas (centenas de filas)
+- Reconstruir un índice sobre centenas de filas es trivialmente rápido (<1 segundo)
+- No se necesita `DROP INDEX` / `CREATE INDEX` durante el ETL
+
+**Índices mínimos por tabla limpia:**
+
+| Tabla | Índice recomendado | Justificación |
+|---|---|---|
+| `rpt_clientes_unicos` | `(trimestre)`, `(trimestre, cDID_800Transfer)` | Django filtra por trimestre y segmento |
+| `rpt_centros_transferencia` | `(trimestre)`, `(trimestre, 800_transfer)` | Filtros primarios en reporting |
+| `rpt_llamadas_abandonadas` | `(trimestre)`, `(trimestre, cMenu)` | Filtro por trimestre y menú |
+| `rpt_cMENU_ERROR` | `(trimestre)` | Tabla pequeña, índice simple suficiente |
+| `rpt_menu_centro` | `(trimestre)`, `(trimestre, 800_transfer, menu)` | Reporte más complejo |
+| `rpt_colgadas` | `(trimestre)` | Estructura por definir |
+| `rpt_menu_redirigidos` | `(trimestre)` | Estructura por definir |
+
+**Patrón de CREATE TABLE para todas las tablas limpias:**
+```sql
+CREATE TABLE rpt_<nombre> (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    trimestre       VARCHAR(10)  NOT NULL,   -- 'Q01_25', 'Q02_25', 'Q03_25'
+    ...columnas específicas del reporte...,
+    INDEX idx_trimestre (trimestre),
+    INDEX idx_trimestre_segment (trimestre, <columna_segmento>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
 
 ---
 

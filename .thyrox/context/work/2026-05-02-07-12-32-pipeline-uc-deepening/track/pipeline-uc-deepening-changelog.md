@@ -155,15 +155,20 @@ author: NestorMonroy
   Nacional B nunca se consulta con este script.
 - **G-31 (CERRADO — confirmado 2026-05-02):** `tbl_historico_*` NO tienen índices.
   Full table scans de ~11-14M filas/quarter en cada run del ETL. → CNST-ETL-005.
-- **P-12 (NUEVA):** ¿Es viable coordinar con el cliente la creación de un índice
-  compuesto `(cDID_800Transfer, dFecha)` en `tbl_historico_*`?
+- **P-12 (CERRADA — confirmado 2026-05-02):** No es posible. IACT solo tiene acceso
+  de lectura a `tbl_historico_*`. No puede agregar índices al sistema IVR del cliente.
 
 ## Nuevas restricciones de arquitectura
 
-- **CNST-ETL-005:** Las tablas `tbl_historico_tN_YYYY` no tienen índices. Todo acceso
-  del ETL implica full table scan. Los SPs deben: (a) hacer una sola pasada por tabla
-  por run, (b) cubrir todos los DIDs en un solo `WHERE IN`, (c) nunca materializar datos
-  brutos en tablas temporales intermedias.
+- **CNST-ETL-005:** Las tablas `tbl_historico_tN_YYYY` no tienen índices y IACT no
+  puede crearlos. Todo acceso del ETL es full table scan. Los SPs deben: (a) una sola
+  pasada por tabla por run, (b) todos los DIDs en un solo `WHERE IN`, (c) nunca
+  materializar datos brutos en tablas temporales intermedias.
+
+- **CNST-ETL-006:** Las tablas `rpt_*`, creadas y controladas por IACT, DEBEN tener
+  índices definidos en el `CREATE TABLE`. Mínimo: `INDEX(trimestre)` y
+  `INDEX(trimestre, <columna_segmento>)` en cada tabla. `TRUNCATE+INSERT` conserva
+  la definición de índices — no se necesita DROP/CREATE INDEX durante el ETL.
 
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
