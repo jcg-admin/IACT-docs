@@ -33,5 +33,14 @@ author: NestorMonroy
   con 13+ columnas incluyendo `id_CTransferencia`, `id_8T`, `division`,
   `area`, `nidMQ`, `etiquetas`. 7 nuevos gaps documentales (G-16..G-22).
 
+- discover/etl-architecture-correction.md — HALLAZGO CRÍTICO: la
+  arquitectura ETL documentada en source/ (Python ETL + PostgreSQL
+  Analytics) es incorrecta. La arquitectura real usa ETL MySQL-interno
+  (Stored Procedures + Functions + Events/Jobs + Triggers) que limpia
+  `tbl_historico_tN_YYYY` y escribe en tablas limpias (una por reporte).
+  Django consume SOLO las tablas limpias MySQL. Identifica 5 archivos
+  en source/ con BREAKING CHANGES, propone 4 nuevas CNST (CNST-ETL-001..004)
+  y 8 preguntas abiertas (P-01..P-08) pendientes de confirmación del equipo.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
