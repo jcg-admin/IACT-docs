@@ -1,0 +1,353 @@
+```yml
+created_at: 2026-05-02 08:02:28
+project: IACT-docs
+work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
+phase: Phase 1 — DISCOVER
+author: NestorMonroy
+status: Borrador
+```
+
+# Análisis de UCs de Reportes — Referencia vs Realidad
+
+> **HALLAZGO CRÍTICO:** Los 14 UCs de reportes en la referencia (`UC_RPT_01..14`)
+> están basados en una arquitectura genérica de call center con BD Analytics
+> (PostgreSQL). Los reportes reales de IACT son análisis específicos de IVR
+> que no tienen nada que ver con "agentes", "colas" ni "campañas".
+
+---
+
+## 1. Inventario de UCs de reportes en la referencia (PROVEN)
+
+Fuente: `temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/`
+
+| UC ID (referencia) | Nombre | Actor | Función RBAC |
+|---|---|---|---|
+| UC_RPT_01 | Ver Dashboard | AGR-001 agr_operador_basico | RPT-001: ve_reportes |
+| UC_RPT_02 | Ver Métricas Tiempo Real | AGR-001 | RPT-002 |
+| UC_RPT_03 | Ver Reportes Históricos | AGR-002 agr_operador_reportes | RPT-003: ve_historicos |
+| UC_RPT_04 | Exportar CSV | AGR-002 | RPT-004 |
+| UC_RPT_05 | Exportar Excel | AGR-002 | RPT-005 |
+| UC_RPT_06 | Exportar PDF | AGR-002 | RPT-006 |
+| UC_RPT_07 | Programar Reporte | AGR-002 | RPT-007 |
+| UC_RPT_08 | Ver Reportes Programados | AGR-002 | RPT-008 |
+| UC_RPT_09 | Configurar Filtros | AGR-002 | RPT-009 |
+| UC_RPT_10 | Guardar Vista | AGR-002 | RPT-010 |
+| UC_RPT_11 | Compartir Reporte | AGR-003 agr_supervisor | RPT-011 |
+| UC_RPT_12 | Ver Reporte Agentes | AGR-003 agr_supervisor | RPT-012: ve_agentes |
+| UC_RPT_13 | Ver Reporte Colas | AGR-003 agr_supervisor | RPT-013: ve_colas |
+| UC_RPT_14 | Ver Reporte Campañas | AGR-003 agr_supervisor | RPT-014: ve_campanas |
+
+---
+
+## 2. Arquitectura de datos en los UCs de referencia (PROVEN — incorrecta)
+
+### 2.1 Qué asumen los UCs de referencia
+
+Todos los 14 UCs referencian:
+
+```
+BD Analytics (PostgreSQL)
+├── metricas_diarias           -- tabla principal para históricos
+│     columns: segmento_id, fecha, llamadas, tmo, ...
+├── vista_agentes              -- vista para UC_RPT_12
+│     columns: agente, metricas, segmento_id
+├── vista_colas                -- vista para UC_RPT_13
+│     columns: cola, metricas, segmento_id
+└── vista_campanas             -- vista para UC_RPT_14
+      columns: campana, metricas, segmento_id
+```
+
+**Queries que aparecen en los diagramas de secuencia:**
+```sql
+-- UC_RPT_01 Dashboard
+SELECT COUNT(*) as total_llamadas,
+       SUM(CASE WHEN atendida THEN 1 END) as atendidas,
+       AVG(duracion) as tmo
+FROM llamadas
+WHERE segmento_id = ?
+AND fecha = CURRENT_DATE
+
+-- UC_RPT_03 Históricos
+SELECT DATE_TRUNC(agregacion, fecha) as periodo,
+       SUM(llamadas) as total,
+       AVG(tmo) as tmo_prom
+FROM metricas_diarias
+WHERE segmento_id = ?
+AND fecha BETWEEN ? AND ?
+GROUP BY periodo ORDER BY periodo
+
+-- UC_RPT_12 Agentes
+SELECT agente, metricas FROM vista_agentes WHERE segmento_id = ?
+
+-- UC_RPT_13 Colas
+SELECT cola, metricas FROM vista_colas WHERE segmento_id = ?
+
+-- UC_RPT_14 Campañas
+SELECT campana, metricas FROM vista_campanas WHERE segmento_id = ?
+```
+
+### 2.2 KPIs que muestran los UCs de referencia
+
+**Dashboard (UC_RPT_01):**
+- Total llamadas recibidas
+- Llamadas atendidas / abandonadas
+- TMO (Tiempo Medio de Operación)
+- Nivel de Servicio (%)
+- Tiempo promedio de espera
+
+**Agentes (UC_RPT_12):**
+- Llamadas atendidas, TMO, tiempo en pausa, disponibilidad, tasa resolución
+
+**Colas (UC_RPT_13):**
+- Llamadas recibidas/atendidas/abandonadas, tiempo espera, nivel servicio (SLA)
+
+**Campañas (UC_RPT_14):**
+- Intentos, contactos, exitosos, tasa conversión, duración
+
+---
+
+## 3. Reportes reales de IACT (PROVEN — de scripts SQL de producción)
+
+Fuente: scripts SQL compartidos por el equipo (sesión anterior).
+
+### 3.1 Análisis Transfer/Menu/Opción
+**Origen del script:** "Análisis detallado de Transfer, Menu y Opcion, SEPT/2025"
+
+Columnas resultantes de la vista `llamadas_QN`:
+```
+fecha, hora_inicio, hora_fin, id_CTransferencia, id_8T,
+menu, opcion, division, area, nidMQ, etiquetas,
+numero_digitado, cDID_800Transfer
+```
+
+Filtros DID aplicados:
+- `@OPuebla = 19020084`
+- `@ONacionalA = 19028031`
+- `@ONacionalB = 19020001`
+
+Tipo de análisis: conteo y % por combinación `(menu, opcion, id_CTransferencia)`
+
+### 3.2 Clientes Únicos por DID y Trimestre
+**Origen del script:** "Clientes Únicos por DID y Trimestre, AGOSTO/2025"
+
+Columnas clave:
+```
+quarter_name ('Q01_25', 'Q02_25', 'Q03_25'),
+cDID_800Transfer,
+COUNT(DISTINCT cTelefono_Digitado) AS clientes_unicos
+```
+
+Rangos de fechas por trimestre (reales de producción):
+- Q1 2025: 2025-01-01 a 2025-03-31
+- Q2 2025: 2025-04-01 a 2025-06-30
+- Q3 2025: 2025-07-01 a 2025-09-30
+
+### 3.3 Llamadas Abandonadas por Menú
+**Origen del script:** "Análisis Llamadas Abandonadas, AGOSTO/2025"
+
+Criterio de abandono: `cMenu IS NULL OR TRIM(cMenu) = '' OR cMenu IN ('', 'sin cMenu')`
+— NO existe campo `status` en las tablas reales.
+
+Columnas resultantes:
+```
+cMenu, quarter_name, total_llamadas, llamadas_abandono, pct_abandono
+```
+
+### 3.4 Centros de Transferencia con Días Hábiles
+**Origen del script:** "Centros de transferencia ID + días hábiles"
+
+Usa funciones MySQL:
+- `fn_es_dia_habil(fecha)` → BOOLEAN
+- `fn_agregar_dias_habiles(fecha, n)` → DATE
+- `fn_contar_dias_habiles(fecha_ini, fecha_fin)` → INT
+
+Columnas de la vista `llamadas_QN` usadas:
+```
+id_CTransferencia, hora_inicio, hora_fin,
+division, area, nidMQ, etiquetas
+```
+
+### 3.5 Análisis de Colgadas
+**Origen del script:** "Análisis colgadas, AGOSTO/2025"
+
+CTE `todos_los_menu` → análisis de llamadas que completaron el menú
+pero la llamada fue colgada sin transferir.
+
+### 3.6 Análisis cMENU_ERROR (Menús con número de teléfono)
+**Origen del script:** "Análisis Menu con numero"
+
+Detección: `cMenu REGEXP '^[0-9]+'` — registros donde `cMenu` contiene
+un número de teléfono en lugar de un nombre de menú (anomalía de datos).
+
+Naming del script de producción: `q_cMENU_ERROR.sql`
+
+### 3.7 Menús que Redirigen por Centro de Transferencia
+**Origen del script:** "Análisis de Menús que Redirigen por Centro de Transferencia"
+
+Usa columnas adicionales de la vista:
+```
+etiquetas, nidMQ, id_CTransferencia
+```
+
+Naming del script de producción: `q_menu_centro_transferecia_010925.sql`
+
+---
+
+## 4. Divergencia crítica: referencia vs realidad (PROVEN)
+
+| Dimensión | Referencia (temp-holding) | Realidad (scripts SQL) |
+|---|---|---|
+| **Base de datos** | PostgreSQL "BD Analytics" | MySQL — tablas limpias |
+| **Concepto de reporte** | Agentes, Colas, Campañas (call center genérico) | IVR: Transfer/Menu/Opción, DID, Centros |
+| **Filtro de datos** | `segmento_id` (OP/FI/VT/SP) | `cDID_800Transfer` (19020084, 19028031, 19020001) |
+| **Abandono** | Campo `status = 'ABANDONED'` | `cMenu IS NULL OR TRIM(cMenu) = ''` |
+| **Períodos** | Fechas arbitrarias + `DATE_TRUNC` | `quarter_name` = 'Q01_25', 'Q02_25', 'Q03_25' |
+| **Vistas/tablas** | `vista_agentes`, `vista_colas`, `vista_campanas` | Tablas limpias por reporte (a definir) |
+| **TMO / métricas** | `AVG(duracion)` directo | No existe campo `duracion` — se calcula de `hora_inicio`/`hora_fin` |
+
+**GAP G-23 (NUEVO):** Los 14 UCs de MOD_Reports de la referencia están
+completamente desalineados con los reportes reales de IACT. Los conceptos
+"Agentes", "Colas" y "Campañas" no existen en el IVR real.
+
+---
+
+## 5. Catálogo de reportes reales — estado y naming (INFERRED + PROVEN parcial)
+
+Basado en scripts SQL de producción y confirmación del equipo:
+
+| Reporte | Naming script producción | Tabla limpia (INFERRED) | SP ETL (INFERRED) | Estado |
+|---|---|---|---|---|
+| Transfer/Menu/Opción | `q_menu_centro_transferecia_010925.sql` | `rpt_menu_centro` o `menu_centro` | `sp_etl_menu_centro` | Planificado |
+| Clientes únicos por DID | (sin nombre confirmado) | `rpt_clientes_unicos` | `sp_etl_clientes_unicos` | Planificado |
+| Llamadas abandonadas | (sin nombre confirmado) | `rpt_llamadas_abandonadas` | `sp_etl_llamadas_abandonadas` | Planificado |
+| Centros transferencia + días hábiles | (sin nombre confirmado) | `rpt_centros_transferencia` | `sp_etl_centros_transferencia` | Planificado |
+| Análisis colgadas | (sin nombre confirmado) | `rpt_colgadas` | `sp_etl_colgadas` | Planificado |
+| Menús con número (error) | `q_cMENU_ERROR.sql` | `rpt_menu_error` o `cMENU_ERROR` | `sp_etl_menu_error` | Planificado |
+| Menús redirigidos | `q_menu_centro_transferecia_*.sql` | (mismo que Transfer/Menu?) | — | Incierto |
+
+**Preguntas abiertas sobre naming (requieren confirmación del equipo):**
+- P-02 (ya registrada): ¿Las tablas limpias usan prefijo `rpt_` o sin prefijo?
+- **P-09 (NUEVA):** ¿El reporte de menús que redirigen es una tabla separada o una vista del mismo reporte Transfer/Menu/Opción?
+- **P-10 (NUEVA):** ¿Hay más reportes planificados además de los 7 identificados?
+- **P-11 (NUEVA):** ¿El naming de las tablas limpias sigue el naming de los scripts (`q_cMENU_ERROR`, `menu_centro`) o se define nuevo naming?
+
+---
+
+## 6. Columnas conocidas por reporte (PROVEN de scripts SQL)
+
+### Reporte 1: Transfer/Menu/Opción
+
+Columnas que vendrán de la vista `llamadas_QN`:
+```
+fecha          DATE
+hora_inicio    TIME
+hora_fin       TIME
+id_CTransferencia  VARCHAR  -- normalización de cDID_Centro_Transferencia
+id_8T          VARCHAR  -- zona geográfica
+menu           VARCHAR  -- cMenu normalizado
+opcion         VARCHAR  -- cOpcion
+division       VARCHAR
+area           VARCHAR
+nidMQ          VARCHAR
+etiquetas      VARCHAR
+cDID_800Transfer  VARCHAR  -- DID de entrada
+quarter_name   VARCHAR(10)  -- 'Q01_25', 'Q02_25', 'Q03_25'
+```
+
+### Reporte 2: Clientes Únicos
+
+Columnas de la tabla limpia:
+```
+quarter_name   VARCHAR(10)
+cDID_800Transfer  VARCHAR
+clientes_unicos  INT  -- COUNT(DISTINCT cTelefono_Digitado)
+```
+
+### Reporte 3: Llamadas Abandonadas
+
+Columnas de la tabla limpia:
+```
+quarter_name    VARCHAR(10)
+cMenu           VARCHAR
+total_llamadas  INT
+abandono        INT
+pct_abandono    DECIMAL(5,2)
+```
+
+### Reporte 6: cMENU_ERROR
+
+Columnas de la tabla limpia:
+```
+quarter_name    VARCHAR(10)
+cMenu           VARCHAR  -- el valor numérico/telefónico en cMenu
+tipo_error      ENUM('numero_telefono', 'numerico', 'otro')
+total           INT
+```
+
+---
+
+## 7. UCs de Pipeline en la referencia (PROVEN)
+
+Fuente: `temp-holding/GENERACION_DOCUMENTACION/TMP_COMPLETO_IACT_2026-01-13_2/UC_PIP_*.rst`
+
+| UC | Nombre | FRs en referencia |
+|---|---|---|
+| UC_PIP_01 (UC_050) | Supervisar ETL | FR-050.01: estado actual, FR-050.02: métricas ejecución, FR-050.03: auto-actualizar |
+| UC_PIP_02 (UC_051) | Consultar Errores ETL | FR-051.01: listar errores, FR-051.02: detalle error, FR-051.03: exportar log |
+| UC_PIP_03 (UC_052) | Consultar Disponibilidad | FR-052.01: fecha último dato, FR-052.02: completitud de datos |
+| UC_PIP_04 (UC_053) | Solicitar Reintento (Reiniciar ETL) | FR-053.01: verificar ETL no activo, FR-053.02: iniciar ETL manual, FR-053.03: registrar ejecución manual |
+
+**Nota:** Estos 4 UCs siguen siendo válidos en CONCEPTO aunque deben ser
+reescritos para la arquitectura MySQL-internal. Ver `etl-architecture-correction.md`.
+
+---
+
+## 8. Gaps adicionales identificados en esta revisión
+
+| Gap | Descripción | Impacto |
+|---|---|---|
+| G-23 | Los 14 UC_RPT de la referencia usan conceptos genéricos (Agentes/Colas/Campañas) incompatibles con IACT real | Reescritura completa de MOD_Reports UC |
+| G-24 | Las tablas limpias no tienen naming definitivo ni schema definido | No se puede escribir modelos Django ni UCs concretos |
+| G-25 | El número total de reportes reales (≥7) no está confirmado — puede haber más | El catálogo de tablas limpias está incompleto |
+| G-26 | No existe documentación de cómo se calculan `hora_inicio`/`hora_fin` en la vista `llamadas_QN` | Impacta el cálculo de duración de llamadas en reportes |
+| G-27 | Los UCs de referencia usan `segmento_id` como filtro principal; el real usa `cDID_800Transfer` — conceptos distintos | Impacta todo el modelo de RBAC de reportes |
+
+---
+
+## 9. Conclusión: lo que existe vs lo que se necesita
+
+### Lo que existe en la referencia (temp-holding)
+
+- 14 UCs de MOD_Reports basados en arquitectura Python/PostgreSQL genérica
+- 4 UCs de MOD_Pipeline basados en la misma arquitectura incorrecta
+- FRs numerados (FR-050..053 para pipeline, FR-017..030 para reports)
+- Conceptos completamente desalineados con el IVR real
+
+### Lo que se necesita crear desde cero
+
+1. **Catálogo de tablas limpias** — nombre, schema, SP que las genera (P-02, P-09..P-11)
+2. **UCs de MOD_Reports reales** — basados en los 7+ reportes IVR identificados
+3. **ETL tracking table** — para el módulo de monitoreo (P-01)
+4. **UCs de MOD_Pipeline corregidos** — con arquitectura MySQL-internal
+
+### Lo que se puede reutilizar de la referencia
+
+- **Estructura de UCs** (14 secciones, formato RST) — el template es válido
+- **FRs de exportación** (CSV, Excel, PDF) — los UC_RPT_04..06 son reutilizables
+- **FRs de programación de reportes** — UC_RPT_07..08 son reutilizables
+- **RBAC básico** (RPT-001..014 como funciones) — las funciones existen, solo cambia el contenido
+- **Reglas de negocio de rango temporal** (máx 2 años, CNST-006) — siguen vigentes
+
+---
+
+## 10. Orden de acciones recomendado
+
+Antes de escribir cualquier UC real de MOD_Reports, confirmar con el equipo:
+
+1. **P-09:** ¿El reporte de menús redirigidos es tabla separada o parte del Transfer/Menu/Opción?
+2. **P-10:** ¿Hay más reportes planificados? Lista completa.
+3. **P-11:** ¿Naming final de tablas limpias?
+4. **P-02:** ¿Prefijo `rpt_` o sin prefijo?
+
+Una vez confirmados → crear `source/databases/mysql-clean-tables.rst` con el
+catálogo completo, luego reescribir los UCs de MOD_Reports.

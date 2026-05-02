@@ -42,5 +42,14 @@ author: NestorMonroy
   en source/ con BREAKING CHANGES, propone 4 nuevas CNST (CNST-ETL-001..004)
   y 8 preguntas abiertas (P-01..P-08) pendientes de confirmación del equipo.
 
+- discover/reports-uc-analysis.md — análisis de UCs de MOD_Reports en la
+  referencia vs los reportes reales del IVR. HALLAZGO CRÍTICO: los 14
+  UC_RPT de temp-holding usan conceptos genéricos (Agentes/Colas/Campañas)
+  incompatibles con IACT real. Documenta los 7 reportes IVR reales con
+  columnas conocidas de scripts SQL, naming de scripts de producción
+  (q_cMENU_ERROR.sql, q_menu_centro_transferecia_*.sql), y 5 nuevos gaps
+  documentales (G-23..G-27). Agrega preguntas P-09..P-11 sobre naming
+  definitivo de tablas limpias.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
