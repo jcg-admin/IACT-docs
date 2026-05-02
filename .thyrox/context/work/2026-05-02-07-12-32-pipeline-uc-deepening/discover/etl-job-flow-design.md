@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 08:44:41
-updated_at: 2026-05-02 09:30:00
+updated_at: 2026-05-02 11:00:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 2.2.0
+version: 2.3.0
 ```
 
 # Diagrama de Flujo del Proceso ETL — IACT
@@ -193,7 +193,7 @@ CREATE TABLE base_ivr_clientes (
 | `'CASO_ERROR_CEROS'` | `cDID_Centro_Transferencia REGEXP '^0+$'` | `centro_transferencia` | — |
 | `'CLIENTE_COLGO'` | `cDID_Centro_Transferencia = 'cliente_colgo'` | `centro_transferencia` | Llamada terminada por cliente |
 | `'SIN_MENU'` | `cMenu IS NULL` o `TRIM(cMenu) = ''` o `cMenu = 'sin cMenu'` | `menu` | — |
-| `'VACIO'` | `TRIM(cMenu) = ''` / `TRIM(cOpcion) = ''` | `menu`, `opcion` | — |
+| `'VACIO'` | `cMenu IS NULL` / `TRIM(cMenu) = ''` / `cMenu = 'sin cMenu'` — campo sin valor real | `menu` | Generado por ETL. El análisis histórico (`Análisis LLamadas Menu`) también usa `'VACIO'` para los mismos casos. Nuestra ETL usa `'SIN_MENU'` — el SP `sp_rpt_llamadas_abandonadas` maneja `IN ('SIN_MENU','VACIO')` cubriendo ambas convenciones. Ver P-24 para alinear naming. |
 | `'SIN_OPCION'` | `cOpcion IS NULL` o vacío | `opcion` | — |
 | `'Desborde_Cabecera'` | `cMenu = 'Desborde_Cabecera'` (valor literal) | `menu` | **NO es sentinel** — valor válido. Indica enrutamiento por `cEtiquetacliente` (BR-ROUTING-002). No se normaliza. |
 
@@ -201,6 +201,50 @@ CREATE TABLE base_ivr_clientes (
 los últimos 10 dígitos son `cTelefono_Digitado` concatenado por la infraestructura
 NK90 (en migración a IPVR). El VDN real = `LEFT(..., LENGTH - 10)`. Esta
 normalización es permanente para datos históricos.
+
+---
+
+## D-23 — "Total Nacional" en SPs de reporte requiere unión de nacional_A + nacional_B
+
+**Decisión:** Los SPs de reporte que muestren métricas "Nacional" como entidad
+consolidada DEBEN filtrar `WHERE segmento IN ('nacional_A', 'nacional_B')` y sumar.
+Nunca filtrar por un solo segmento cuando se quiere el total Nacional.
+
+**Razón:** Nacional tiene dos líneas físicas separadas con DIDs distintos:
+- `nacional_A` — DID 19028031 (línea principal, volumen dominante)
+- `nacional_B` — DID 19020001 (línea secundaria)
+
+Ambas se almacenan como filas independientes en `base_ivr_detalle`. Para reportes
+consolidados, el SP debe agregarlas. Los SPs que muestran por segmento individual
+(`sp_rpt_centros_transferencia`, `sp_rpt_menu_centro`) reciben `@segmento` como
+parámetro — si el usuario pide "Nacional" la capa Django debe pasar
+`@segmento = 'Nacional'` y el SP traducirlo al filtro correcto:
+
+```sql
+-- CORRECTO — Total Nacional consolidado
+WHERE quarter_name = @quarter
+  AND segmento IN ('nacional_A', 'nacional_B')
+
+-- INCORRECTO — solo una línea, volúmenes incompletos
+WHERE quarter_name = @quarter
+  AND segmento = 'nacional_A'
+```
+
+**Impacto en los 7 SPs de reporte:**
+
+| SP | Impacto de D-23 |
+|---|---|
+| `sp_rpt_centros_transferencia` | `@segmento = 'Nacional'` → `IN ('nacional_A','nacional_B')` |
+| `sp_rpt_menu_centro` | Ídem |
+| `sp_rpt_llamadas_abandonadas` | No usa `@segmento` — afecta si se filtra implícitamente |
+| `sp_rpt_cMENU_ERROR` | Sin filtro segmento — sin impacto directo |
+| `sp_rpt_colgadas` | Sin filtro segmento — sin impacto directo |
+| `sp_rpt_menu_redirigidos` | `@segmento` → ídem |
+| `sp_rpt_clientes_unicos` | `nacional_A + nacional_B` en `base_ivr_clientes` — sumar ambas filas |
+
+**Nota de proporciones observadas (Q2-Q3 2025):**
+- `nacional_A` domina (~93-99% del volumen Nacional)
+- `nacional_B` es residual en Q03_25 Sep 2025 (~95K vs ~8.8M de nacional_A)
 
 ---
 

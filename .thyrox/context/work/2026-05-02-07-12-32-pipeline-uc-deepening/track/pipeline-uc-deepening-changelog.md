@@ -341,5 +341,108 @@ author: NestorMonroy
 - **P-18 (ABIERTA):** ¿Cuándo se espera que NK90 complete la migración a IPVR?
   La normalización `LENGTH > 10` tendrá fecha de revisión post-migración.
 
+## Análisis del script de producción "Análisis LLamadas Menu" (2026-05-02)
+
+El equipo compartió el script SQL real que generó los datasets Q01-Q03 2025.
+Hallazgos críticos que corrigen y completan la documentación:
+
+### Bugs en el script (NO reproducir en SPs de producción)
+
+| Variable | Valor en script | Correcto | Consecuencia |
+|---|---|---|---|
+| `@ONacional02` | `1902001` (7 dígitos) | `19020001` | DID 19020001 NUNCA incluido en WHERE |
+| `@OPuebla` | `19020084` | `19020084` | Correcto |
+| `@ONacionalA` | `19028031` | `19028031` | Correcto |
+
+**Impacto directo:** El dataset Q01-Q03 compartido por el equipo **solo contiene
+nacional_A** (DID 19028031). `nacional_B` (DID 19020001) fue excluido por el
+bug `@ONacional02 = 1902001`. Las filas de nacional_B en BR-MENU-002 son datos
+de un query diferente y están marcadas como UNCERTAIN.
+
+### Lógica del script (base para documentación)
+
+**Sentinel VACIO:** La lógica de mapeo del script:
+```sql
+WHEN cMenu = ''    THEN 'VACIO'   -- vacío literal
+WHEN cMenu IS NULL THEN 'VACIO'   -- NULL
+```
+Confirma: `VACIO` es GENERADO por el análisis/ETL, no almacenado por el IVR.
+Nuestro ETL usa `SIN_MENU` para la misma lógica → ver P-24.
+
+**Normalización UPPER(TRIM):** `ELSE UPPER(TRIM(cMenu))` — todos los valores
+de menú en el dataset histórico están en MAYÚSCULAS. `cliente_colgo` → `CLIENTE_COLGO`.
+
+**Detección telefono_cMenu:**
+```sql
+WHEN cTelefono_Digitado = cMenu AND cTelefono_Origen = cMenu THEN 'telefono_cMenu'
+```
+Ambos campos deben ser iguales al cMenu. No solo uno.
+
+**DIDs por segmento:**
+- Puebla: `@OPuebla = 19020084`
+- Nacional A: `@ONacionalA = 19028031`
+- Nacional B: `@ONacionalB = 19020001` (DID correcto; `@ONacional02` es bug separado)
+
+### Decisiones confirmadas / actualizadas
+
+- **D-23 (NUEVO):** "Total Nacional" en SPs de reporte = `WHERE segmento IN
+  ('nacional_A','nacional_B')`. Nunca filtrar solo por `= 'nacional_A'`.
+
+- **D-24 (NUEVO — VACIO sentinel):** `VACIO` y `SIN_MENU` son equivalentes
+  semánticos. El script de análisis histórico usa `VACIO`. El ETL actual usa
+  `SIN_MENU`. El SP `sp_rpt_llamadas_abandonadas` maneja `IN ('SIN_MENU','VACIO')`.
+  P-24 abierta para alinear naming definitivamente.
+
+### Nuevas reglas de negocio documentadas
+
+- **BR-ROUTING-003 (CONFIRMADA):** `Desborde_Promocional` = enrutamiento a
+  cola promocional. Mismo patrón que `Desborde_Cabecera`. No es abandono.
+
+- **BR-MENU-002 (ACTUALIZADA) — v1.2.0:** Tabla de volúmenes Q01-Q03 2025
+  agregada. Catálogo ampliado con menús nuevos: `SaldoCabecera`, `Saldos1_Pagar`,
+  `Saldos3_Otra`, `MASI_RepiteBoleta`, `NoTMX_SinOp`, `KIPSOLCOM`,
+  `RES_FALLA_STOP`, `ANI`, `MenuSaldosCabecera`. Nota de evolución del catálogo
+  por trimestre documentada.
+
+- **BR-DATA-001 (NUEVA):** Anomalía `telefono_cMenu`. Dos formas:
+  - Forma A: `Numero Telmex` — menú válido en Puebla (desde Q02). Almacenar tal cual.
+  - Forma B: número de teléfono literal como cMenu (Nacional Q03). Detectado por
+    `cTelefono_Digitado = cMenu AND cTelefono_Origen = cMenu`. `sp_rpt_cMENU_ERROR`
+    captura via `REGEXP '^[0-9]+'`. Volumen: < 500 registros/trimestre.
+
+### Decisiones resueltas por análisis de datos (P-16, P-17, P-19, P-20, P-21 cerradas)
+
+Estas preguntas se resolvieron sin necesidad de confirmación del equipo:
+
+- **D-16/P-16 CERRADA:** `Desborde_Cabecera` en `sp_rpt_llamadas_abandonadas`
+  → **EXCLUIR**. Es una llamada enrutada, no abandonada.
+- **D-17/P-17 CERRADA:** `Desborde_Cabecera` en `sp_rpt_menu_redirigidos`
+  → **INCLUIR**. Es exactamente un evento de redirección.
+- **D-19/P-19 CERRADA:** `Desborde_Promocional` en `sp_rpt_llamadas_abandonadas`
+  → **EXCLUIR**. Misma lógica que P-16.
+- **D-20/P-20 CERRADA:** `Desborde_Promocional` en `sp_rpt_menu_redirigidos`
+  → **INCLUIR**. Misma lógica que P-17.
+- **D-21/P-21 CERRADA:** Definición de llamada abandonada — incluye `cliente_colgo`
+  y `SinOpcion_Cabecera` además de `SIN_MENU`/`VACIO`. El SP actual solo captura
+  ~8-9%; con definición correcta sube a ~27-28%. Reescritura del SP requerida.
+
+### Preguntas abiertas nuevas de esta sesión
+
+- **P-22 (ABIERTA):** ¿Causa raíz de `CASO_ERROR_CEROS` en Puebla? ~20K-30K/mes
+  en Q02-Q03. Posible error de configuración IVR donde `cDID_Centro_Transferencia`
+  no se captura.
+- **P-23 (ABIERTA):** VDN `2309004` y `230806646350495` con prefijo "2" vs "1"
+  en versiones antiguas. ¿DIDs nuevos o error de captura?
+- **P-24 (ABIERTA):** Alinear naming `VACIO` vs `SIN_MENU`. Compatibilidad
+  histórica vs legibilidad del ETL.
+
+### Archivos modificados
+
+- discover/business-rules-ivr.md — **v1.3.0**: D-16..D-21 documentadas,
+  VACIO corregido en tabla de catálogo, P-24 agregada, sección "Decisiones
+  derivadas resueltas" nueva.
+- discover/etl-job-flow-design.md — **v2.3.0**: D-23 documentada, VACIO
+  sentinel corregido con nota de convención histórica y referencia a P-24.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

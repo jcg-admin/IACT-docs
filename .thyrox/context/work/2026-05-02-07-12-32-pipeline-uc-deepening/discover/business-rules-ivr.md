@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 09:45:00
-updated_at: 2026-05-02 10:30:00
+updated_at: 2026-05-02 14:30:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 1.1.0
+version: 1.3.0
 ```
 
 # Reglas de Negocio — Sistema IVR IACT
@@ -219,58 +219,94 @@ automáticamente sin navegar el menú estándar.
 
 ## BR-MENU-002 — Catálogo real de valores cMenu por segmento
 
-Datos observados desde datos reales compartidos por el equipo (período: Q3 2025).
+Datos confirmados desde dataset granular Q1-Q3 2025 compartido por el equipo.
 
-### Nacional — 2,567,201 llamadas totales
+### Volúmenes totales por trimestre y segmento — Q1-Q3 2025 (PROVEN)
 
-| cMenu | Total | % | Clasificación |
+> Fuente: datos de producción compartidos directamente por el equipo.
+> nacional_A = DID 19028031 · nacional_B = DID 19020001 · Puebla = DID 19020084
+
+| Trimestre | Segmento | Total llamadas (aprox) | CLIENTE_COLGO (top abandono) |
 |---|---|---|---|
-| *(vacío)* | 238,049 | 9.3% | → `SIN_MENU` |
-| `cliente_colgo` | 444,438 | 17.3% | Abandono — mayor grupo |
-| `Desborde_Cabecera` | 336,919 | 13.1% | Enrutamiento por etiqueta (BR-ROUTING-002) |
-| `NOTMX-SeguimientoInstalacion` | 264,883 | 10.3% | Menú de servicio |
-| `RES_FALLA_STOP` | 214,894 | 8.4% | Menú de servicio |
-| `RES-FallaInternet` | 162,925 | 6.3% | Menú de servicio |
-| `RES-MADT-Detalle` | 132,330 | 5.2% | Menú de servicio |
-| `RES-SaldooPagos` | 108,867 | 4.2% | Menú de servicio |
-| `SinOpcion_Cabecera` | 97,513 | 3.8% | Sin opción en cabecera |
-| `Desborde_Promocional` | 79,994 | 3.1% | Enrutamiento promocional (BR-ROUTING-003) |
-| *(otros ~33 menús)* | ~525,389 | 20.5% | Menús de servicio específicos |
+| Q01_25 | Nacional (A+B combinado) | ~11,640,000 | 2,507,905 (21.6%) |
+| Q01_25 | Puebla | ~525,000 | 117,215 (22.3%) |
+| Q02_25 | Nacional A | ~13,600,000 | 1,867,260 (13.7%) |
+| Q02_25 | Nacional B | ~4,700,000 | 885,171 (18.8%) |
+| Q02_25 | Puebla | ~734,000 | ~123,000 (16.8%) |
+| Q03_25 | Nacional A | ~8,800,000 | 1,478,963 (16.8%) |
+| Q03_25 | Nacional B | ~95,000 | 30,201 (31.8%) |
+| Q03_25 | Puebla | ~409,000 | ~52,000 (12.7%) |
 
-### Puebla — 132,473 llamadas totales
+> **Nota Q01_25 Nacional:** El dataset de Q01 no separa nacional_A de nacional_B —
+> aparecen combinados con `800_transfer = 'Nacional'`. Solo Q02 y Q03 muestran la
+> separación. Ver D-23 para consolidación en reportes.
 
-| cMenu | Total | % | Clasificación |
-|---|---|---|---|
-| `Numero Telmex` | 16,909 | 12.8% | Identificación por número |
-| `cliente_colgo` | 12,075 | 9.1% | Abandono |
-| `Desborde_Cabecera` | 11,682 | 8.8% | Enrutamiento por etiqueta |
-| `RES-ContratacionInfinitum_2024` | 11,691 | 8.8% | Menú de servicio (versión 2024) |
-| *(vacío)* | 11,592 | 8.8% | → `SIN_MENU` |
-| `RES-Fallas_2024` | 10,115 | 7.6% | Menú de servicio (versión 2024) |
-| `RES_FALLA_STOP` | 9,738 | 7.4% | Menú de servicio |
-| `SinOpcion_Cabecera` | 9,346 | 7.1% | Sin opción en cabecera |
-| `RES-SaldosPagos_2024` | 7,945 | 6.0% | Menú de servicio (versión 2024) |
-| *(otros ~17 menús)* | ~43,380 | 32.7% | Menús de servicio específicos |
+> **Nota Q03_25 Nacional B:** Volumen dramáticamente reducido vs Q02 (~95K en Sep vs
+> ~4.7M en Q02). Probable evento operativo o migración de tráfico. Pendiente confirmar.
+
+### Nacional — Top cMenu (combinado nacional_A + B, Q3 2025 referencia)
+
+| cMenu | Total Q3 (aprox) | Clasificación |
+|---|---|---|
+| `cliente_colgo` | ~1,509,164 (combina A+B) | Abandono — mayor grupo |
+| `Desborde_Cabecera` | ~variable por mes | Enrutamiento por etiqueta (BR-ROUTING-002) |
+| `NOTMX-SeguimientoInstalacion` | segundo en volumen | Menú de servicio |
+| `RES_FALLA_STOP` | alto volumen (Q02 onward) | Menú de servicio |
+| `SIN_MENU` (generado) | ~9% | Normalizado desde vacío/NULL |
+| `VACIO` | ~800K-900K / trimestre | Generado por análisis histórico para cMenu vacío/NULL — misma semántica que `SIN_MENU`; ver P-24 |
+| `SinOpcion_Cabecera` | ~3-4% | Estado válido — sin opción en cabecera |
+| `Desborde_Promocional` | ~1-3% | Enrutamiento promocional (BR-ROUTING-003) |
+| `Marque3` | ~1% | Menú de tecla 3 |
+| `NoTMX_SinOp` | desde Q02 | Sin opción en flujo NOTMX |
+| `MASI_RepiteBoleta` | desde Q02 | Reimpresión de boleta |
+
+### Puebla — Top cMenu (Q3 2025 referencia)
+
+| cMenu | Aprox | Clasificación |
+|---|---|---|
+| `cliente_colgo` | ~52K (Q03) | Abandono |
+| `RES-ContratacionInfinitum_2024` | alto | Menú de servicio (versión 2024) |
+| `SIN_MENU` | ~8.8% | Normalizado desde vacío/NULL |
+| `Numero Telmex` | persistente desde Q02 | Menú de identificación por número (BR-DATA-001) |
+| `RES-Fallas_2024` | variable | Menú de servicio (versión 2024) |
+| `SinOpcion_Cabecera` | ~7% | Estado válido |
+| `ANI` | desde Q02 | Identificación por ANI antes del menú |
+| `SaldoCabecera` | nuevo en Q03 | Balance en cabecera |
+| *(CASO_ERROR_CEROS)* | ~20K-30K/mes en Q02-Q03 | Sentinel de error DID ceros (ver etl-job-flow-design.md) |
 
 ### Hallazgos del catálogo
 
-**Los menús no son universales entre segmentos.** Nacional ~43 valores, Puebla ~25.
-Solo ~15 son comunes. Los SPs de reporte filtran por `segmento` — comportamiento correcto.
+**Los menús no son universales entre segmentos.** Nacional ~50+ valores distintos,
+Puebla ~30. Solo ~15 son comunes. Los SPs de reporte filtran por `segmento`.
 
 **Puebla usa sufijo `_2024` en sus menús.** `RES-ContratacionInfinitum_2024`,
 `RES-Fallas_2024`, `RES-SaldosPagos_2024`, `RES-SegInst_2024`. Nacional tiene
-equivalentes sin sufijo. Los menús evolucionan: en 2025/2026 pueden aparecer
-`_2025`. El diseño de `base_ivr_detalle` almacena el nombre literal — no requiere
-cambios cuando aparecen nuevos nombres.
+equivalentes sin sufijo. Los menús evolucionan trimestralmente. El diseño de
+`base_ivr_detalle` almacena el nombre literal — no requiere cambios cuando
+aparecen nuevos nombres.
 
-**`SinOpcion_Cabecera` no es un sentinel.** Es un estado válido del menú (cliente
-llegó a la cabecera pero no presionó opción). Se almacena tal cual.
+**El catálogo IVR cambia entre trimestres.** Q02 introdujo `RES_FALLA_STOP`,
+`MASI_RepiteBoleta`, `NoTMX_SinOp`, renombres de IDs `QJA_DAT_ROJA`,
+`QJA_VSI_ROJA` (antes `QJA_AB_DAT_1`, `QJA_AB_VSI_1`). Q03 introdujo
+`SaldoCabecera`, `Saldos1_Pagar`, `Saldos3_Otra`, `MenuSaldosCabecera`,
+`KIPSOLCOM`. El ETL absorbe cambios automáticamente (ELSE cMenu).
 
-**`ANI` como valor de cMenu.** 2,887 Nacional, 2,181 Puebla. La llamada fue
-identificada por ANI antes de navegar cualquier menú. Se almacena como `'ANI'`.
+**`SinOpcion_Cabecera` no es un sentinel.** Es un estado válido del menú.
 
-**Proporción Nacional:Puebla ≈ 19:1.** nacional_A + nacional_B dominan ~95%
-del total consolidado. Los porcentajes de reportes globales reflejan Nacional.
+**`ANI` como valor de cMenu.** La llamada fue identificada por ANI antes de
+navegar cualquier menú. `misma_linea = total_llamadas` en estos registros
+(confirma que ANI = el número que llama es el mismo reconocido). Se almacena `'ANI'`.
+
+**Proporción Nacional:Puebla ≈ 22:1 en Q03** (8.9M Nacional vs ~409K Puebla).
+Los porcentajes de reportes globales reflejan Nacional de forma dominante.
+
+**`CASO_ERROR_CEROS` en Puebla Q02-Q03.** ~20K-30K registros/mes en Puebla donde
+`cDID_Centro_Transferencia` es todo ceros. Sentinel ya documentado en etl-job-flow-design.md.
+Impacto: representa ~3-4% del total Puebla. Necesita investigación de causa raíz (P-22).
+
+**Variantes de VDN en Q02-Q03.** Aparecen `2309004`, `230806646350495` como
+centro_transferencia — son variantes de `1309004`/`130806646350495` con prefijo
+diferente. Volumen pequeño. Confirmar si son DIDs nuevos o errores de datos (P-23).
 
 ---
 
@@ -296,6 +332,58 @@ La diferencia es significativa para las métricas del negocio.
 
 ---
 
+## BR-DATA-001 — Anomalía telefono_cMenu: números de teléfono en campo cMenu
+
+**Descripción:** En producción aparecen números de teléfono en el campo `cMenu` de
+`tbl_historico_*`. Esto no es comportamiento esperado del IVR. Se identifican dos
+formas distintas:
+
+### Forma A — "Numero Telmex" (Puebla, desde Q02_25)
+
+El IVR registra `cMenu = 'Numero Telmex'` cuando el cliente ingresa su número Telmex
+como método de identificación. **NO es una anomalía de datos** — es un menú IVR
+válido específico de Puebla. El nombre del menú es literalmente "Numero Telmex".
+
+| Trimestre | Segmento | Volumen | Nota |
+|---|---|---|---|
+| Q02_25 | Puebla | ~26K-43K/mes | Nuevo desde Q02; opcion = `SIN_OPCION` |
+| Q03_25 | Puebla | ~13K-17K/mes | Continúa |
+| Q03_25 | Nacional | ~18K/mes Sep | Aparece en Nacional desde Q03 (Sep 2025) |
+
+**Tratamiento en ETL:** Se almacena como `'Numero Telmex'` en `menu` (ELSE del CASE
+— correcto). **No requiere normalización especial.**
+
+**Distinción importante:** `misma_linea + linea_diferente` suma al total (no todos
+son `no_digito_telefono`), lo que confirma que los clientes sí tienen `cTelefono_Digitado`
+al usar este menú.
+
+### Forma B — Número de teléfono literal como cMenu (Nacional, Q03_25)
+
+El IVR almacena directamente el número de teléfono en `cMenu`. Esto SÍ es una
+anomalía — el número del cliente aparece donde debería estar el nombre del menú.
+
+**Ejemplos confirmados (Q03_25 Nacional 202509):**
+
+| cMenu (valor raw) | Total | Nota |
+|---|---|---|
+| `25519465555` | < 500 | Teléfono literal en cMenu |
+| `25511027599` | < 500 | Teléfono literal en cMenu |
+| `28183512172` | < 500 | Teléfono literal en cMenu |
+| `MENU_10_NUMEROS` | ~130 | Nombre de menú para entrada de 10 dígitos |
+| `MENU_11_NUMEROS` | ~20 | Nombre de menú para entrada de 11 dígitos |
+
+**Volumen total:** < 500 registros por trimestre. **Impacto mínimo en métricas.**
+
+**Tratamiento en ETL:** `sp_rpt_cMENU_ERROR` ya captura estos casos via
+`WHERE menu REGEXP '^[0-9]+'`. Los valores `MENU_10_NUMEROS` y `MENU_11_NUMEROS`
+(con prefijo alfabético) no caen en este filtro — se almacenan como menús válidos.
+
+**Tratamiento en base_ivr_detalle:** Los números literales pasan al ELSE del CASE
+de normalización → se almacenan tal cual en `menu`. `sp_rpt_cMENU_ERROR` los
+identifica y reporta como anomalía de calidad.
+
+---
+
 ## Resumen de impacto en tablas base
 
 | BR | Campo raw afectado | Campo en base_ivr_detalle | Tratamiento |
@@ -307,6 +395,73 @@ La diferencia es significativa para las métricas del negocio.
 | BR-ROUTING-003 | `cMenu = 'Desborde_Promocional'` | `menu = 'Desborde_Promocional'` | Sin normalización |
 | BR-MENU-002 | `cMenu` (catálogo completo) | `menu` (nombre literal) | Almacenamiento directo; menús evolucionan |
 | BR-MENU-003 | `cMenu` (tipos de abandono) | `menu` | Impacta lógica de `sp_rpt_llamadas_abandonadas` |
+| BR-DATA-001 | `cMenu` con valor numérico o 'Numero Telmex' | `menu` | Forma A: menú válido; Forma B: `sp_rpt_cMENU_ERROR` |
+
+---
+
+## Decisiones derivadas (resueltas por análisis de datos)
+
+### D-16 / D-17 — `Desborde_Cabecera` en SPs de reporte
+
+**`Desborde_Cabecera` = llamada enrutada a cola de desborde (overflow).** El IVR transfirió
+la llamada a un agente alternativo cuando la cola principal estaba saturada. La llamada SÍ
+fue atendida por el sistema — no es un abandono.
+
+| SP | Decisión | Justificación |
+|---|---|---|
+| `sp_rpt_llamadas_abandonadas` | **EXCLUIR** | La llamada fue enrutada, no abandonada |
+| `sp_rpt_menu_redirigidos` | **INCLUIR** | Es exactamente un evento de redirección |
+
+```sql
+-- sp_rpt_llamadas_abandonadas: Desborde_Cabecera NO entra
+WHERE menu IN ('SIN_MENU','VACIO','cliente_colgo','SinOpcion_Cabecera')
+  AND menu NOT IN ('Desborde_Cabecera','Desborde_Promocional')
+
+-- sp_rpt_menu_redirigidos: Desborde_Cabecera SÍ entra
+WHERE menu IN ('Desborde_Cabecera','Desborde_Promocional', ...)
+```
+
+### D-19 / D-20 — `Desborde_Promocional` en SPs de reporte
+
+Misma lógica que D-16/D-17. `Desborde_Promocional` = desborde hacia cola promocional.
+La llamada fue enrutada, no abandonada.
+
+| SP | Decisión |
+|---|---|
+| `sp_rpt_llamadas_abandonadas` | **EXCLUIR** |
+| `sp_rpt_menu_redirigidos` | **INCLUIR** |
+
+### D-21 — Definición de "llamada abandonada"
+
+**`cliente_colgo` ES una llamada abandonada.** "cliente_colgo" = el cliente colgó mientras
+estaba en el menú IVR sin completar la transacción ni llegar a un agente. Semánticamente:
+el cliente inició la llamada, navegó el IVR, y abandonó antes de resolver su necesidad.
+
+**El SP `sp_rpt_llamadas_abandonadas` está incompleto.** Solo captura `SIN_MENU`/`VACIO`
+(nunca llegó a un menú). Con `cliente_colgo` incluido, la cobertura sube de ~8-9% a ~26-27%.
+
+**Definición correcta para el SP:**
+
+```sql
+WHERE menu IN (
+    'SIN_MENU',          -- nunca llegó a menú (NULL/vacío original)
+    'VACIO',             -- convencion histórica para lo mismo
+    'cliente_colgo',     -- llegó al menú y colgó → abandono explícito
+    'SinOpcion_Cabecera' -- llegó al menú pero no eligió opción → abandono implícito
+)
+```
+
+`SinOpcion_Cabecera` (~97K Nacional / 9K Puebla) es abandono implícito: el cliente llegó
+a la cabecera pero no pulsó ninguna tecla. Incluirlo es consistente con la definición amplia.
+
+**Volúmenes bajo definición correcta (Q3 2025 Nacional A ~8.8M):**
+
+| cMenu | Volumen aprox | Tipo abandono |
+|---|---|---|
+| `SIN_MENU` / `VACIO` | ~792K-900K | Nunca llegó al menú |
+| `cliente_colgo` | ~1,479K | Llegó y colgó |
+| `SinOpcion_Cabecera` | ~97K | Llegó pero no eligió |
+| **Total abandonos** | **~2,370K-2,480K** | **~27-28% del total** |
 
 ---
 
@@ -314,9 +469,7 @@ La diferencia es significativa para las métricas del negocio.
 
 | # | Pregunta | Impacto |
 |---|---|---|
-| P-16 | `Desborde_Cabecera` en `sp_rpt_llamadas_abandonadas`: ¿excluir, contar o categoría propia? | Lógica del SP |
-| P-17 | `Desborde_Cabecera` en `sp_rpt_menu_redirigidos`: ¿incluir o filtrar? | Lógica del SP |
 | P-18 | ¿Cuándo completa migración NK90 → IPVR? | Normalización LENGTH > 10 tendrá revisión post-migración |
-| P-19 | `Desborde_Promocional` en `sp_rpt_llamadas_abandonadas`: ¿incluir o excluir? | Lógica del SP |
-| P-20 | `Desborde_Promocional` en `sp_rpt_menu_redirigidos`: ¿incluir o filtrar? | Lógica del SP |
-| P-21 | **¿Cuál es la definición oficial de "llamada abandonada"?** `cliente_colgo` (444K Nacional) no está en el SP actual. Diferencia entre definición mínima y amplia es ~18 puntos porcentuales. | Reescritura del SP si la definición es amplia |
+| P-22 | **¿Causa raíz de `CASO_ERROR_CEROS` en Puebla?** ~20K-30K registros/mes Q02-Q03. ¿Problema de configuración IVR, pruebas internas, o enrutamiento específico? | Posible filtro adicional si es ruido |
+| P-23 | **VDN `2309004` y `230806646350495`** — ¿Son DIDs nuevos, variantes de NK90, o error de captura? Aparecen en Q02-Q03 con volumen pequeño pero creciente. | Normalización LENGTH > 10 podría no capturarlos si son legítimos |
+| P-24 | **Alinear naming `VACIO` vs `SIN_MENU`.** El análisis histórico usa `'VACIO'` para cMenu vacío/NULL; nuestro ETL usa `'SIN_MENU'`. El SP `sp_rpt_llamadas_abandonadas` ya maneja `IN ('SIN_MENU','VACIO')`. ¿Estandarizamos a `'VACIO'` (compatibilidad histórica) o mantenemos `'SIN_MENU'` (legibilidad)? | Consistencia entre ETL y análisis histórico; implica ajuste en ETL si se cambia |
