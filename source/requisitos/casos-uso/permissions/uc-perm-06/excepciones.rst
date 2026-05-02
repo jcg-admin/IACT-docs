@@ -9,7 +9,7 @@ Parte 5 — Excepciones
 
 401.
 
-5.2 EX-02: Sin manage_access_group_composition
+5.2 EX-02: Sin assign_functions_to_group
 ==============================================
 
 403 + AuditEvent UNAUTHORIZED ALERTA.

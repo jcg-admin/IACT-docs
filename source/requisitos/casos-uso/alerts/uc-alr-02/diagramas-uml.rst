@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_active_alerts" as USR
+ actor "view_alerts" as USR
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_02\nAlertas Activas" as UC02
    usecase "UC_ALR_03\nAck inline" as UC03
@@ -59,7 +59,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_active_alerts" as S
+ actor "view_alerts" as S
  participant "Frontend" as FE
  participant "Endpoint" as E
  database "AlertRepo" as A

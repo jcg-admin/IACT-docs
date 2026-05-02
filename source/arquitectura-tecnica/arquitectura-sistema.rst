@@ -113,7 +113,7 @@ cuentas son creadas por el Administrador IACT.
  skinparam arrowColor #333333
 
  rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_etl_status\n/ view_alerts" as SUP
+ rectangle "view_pipeline_status\n/ view_alerts" as SUP
  rectangle "view_reports\n/ view_dashboard" as ANA
 
  rectangle "1\nAutenticacion\nJWT" as P1
@@ -179,7 +179,7 @@ negra con sus entidades externas. Las entidades son los
  skinparam arrowColor #333333
 
  rectangle "Sistema IVR\n(Fuente de datos)" as IVR
- rectangle "view_etl_status\n/ view_alerts" as SUP
+ rectangle "view_pipeline_status\n/ view_alerts" as SUP
  rectangle "view_reports\n/ view_dashboard" as ANA
  rectangle "APScheduler\n/ Cron" as SCH
 
@@ -221,7 +221,7 @@ datos (``etl_runs``, ``base_ivr_*``, ``audit_log``,
  skinparam arrowColor #333333
 
  rectangle "Sistema IVR" as IVR
- rectangle "view_etl_status" as SUP
+ rectangle "view_pipeline_status" as SUP
  rectangle "view_reports" as ANA
  rectangle "APScheduler" as SCH
 

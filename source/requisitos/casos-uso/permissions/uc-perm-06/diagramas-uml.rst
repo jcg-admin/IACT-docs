@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "manage_access_group_composition" as MGR
+ actor "assign_functions_to_group" as MGR
  actor "Users con AGR" as USERS
- actor "Auditor" as AUD
+ actor "view_audit_log" as AUD
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_06\nComposicion AGR" as UC06
@@ -57,7 +57,7 @@ Parte 8 — Diagramas UML
  else (si)
  endif
 
- if (manage_access_group_composition?) then (no)
+ if (assign_functions_to_group?) then (no)
    :403; :Audit UNAUTHORIZED;
    stop
  else (si)

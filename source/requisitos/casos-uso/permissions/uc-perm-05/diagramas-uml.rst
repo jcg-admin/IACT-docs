@@ -13,8 +13,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "manage_access_groups" as MGR
- actor "Auditor" as AUD
+ actor "create_function_group" as MGR
+ actor "view_audit_log" as AUD
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_05\nCreate AGR" as UCCRE
@@ -50,7 +50,7 @@ Parte 8 — Diagramas UML
  else (si)
  endif
 
- if (manage_access_groups?) then (no)
+ if (create_function_group?) then (no)
    :403; :Audit UNAUTHORIZED;
    stop
  else (si)

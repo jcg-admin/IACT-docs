@@ -5,7 +5,7 @@ Parte 1 — Informacion general
 ==============================
 
 ID: UC_LOG_06 · BReq-006 · Function:
-``view_system_status``.
+``view_system_health``.
 
 Vista de estado de salud agregada:
 

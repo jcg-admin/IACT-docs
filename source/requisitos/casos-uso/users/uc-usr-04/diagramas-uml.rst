@@ -16,7 +16,7 @@ Parte 8 — Diagramas UML
 
  actor "deactivate_users" as INVOKER
  actor "User eliminado" as USER <<receptor>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 
  rectangle "MOD_Users" {

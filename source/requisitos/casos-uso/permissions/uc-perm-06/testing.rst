@@ -228,7 +228,7 @@ Cambio exitoso con N Users.
 ------------------------------
 
 Invoker sin
-``manage_access_group_composition``.
+``assign_functions_to_group``.
 
 **ENTONCES**: 403 + audit UNAUTHORIZED.
 

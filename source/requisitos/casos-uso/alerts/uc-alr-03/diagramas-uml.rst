@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "acknowledge_alerts" as USR
+ actor "acknowledge_alert" as USR
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_03\nReconocer" as UC03
    usecase "Bulk ack" as BA
@@ -65,7 +65,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "acknowledge_alerts" as S
+ actor "acknowledge_alert" as S
  participant "Endpoint" as E
  database "AlertRepo" as A
  participant "AuditSvc" as AU

@@ -36,7 +36,7 @@ documentada en
  * - **Modulo**
    - MOD_Permissions
  * - **Funcion RBAC**
-   - ``manage_access_groups``
+   - ``create_function_group``
  * - **BReq satisfecho**
    - BReq-004
 

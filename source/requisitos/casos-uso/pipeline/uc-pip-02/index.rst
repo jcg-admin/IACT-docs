@@ -28,7 +28,7 @@ correlation id.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_etl_errors``
+   - ``view_pipeline_errors``
 
 Estructura de la spec
 =====================

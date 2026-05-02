@@ -8,7 +8,7 @@ Actores
 -------
 
 - **Supervisor de Operaciones** — usuario con permiso
-  ``view_etl_errors``. Inicia el caso de uso consultando el
+  ``view_pipeline_errors``. Inicia el caso de uso consultando el
   detalle de ejecuciones fallidas del Servicio ETL.
 - **Registro de Ejecuciones** — sistema secundario que
   provee los registros con ``estado = 'fallido'``.
@@ -17,7 +17,7 @@ Precondiciones
 --------------
 
 - El usuario esta autenticado (JWT valido).
-- El usuario tiene el permiso ``view_etl_errors`` (RBAC).
+- El usuario tiene el permiso ``view_pipeline_errors`` (RBAC).
 - El Registro de Ejecuciones esta accesible.
 
 Postcondiciones

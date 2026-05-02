@@ -20,7 +20,7 @@ Pseudocodigo:
 ::
 
    procedure get(filters, period, page, invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'view_etl_errors')
+       require AuthorizationGuard.has(invoker, 'view_pipeline_errors')
        ejecuciones = ETLEjecucionRepo.get_fallidas(
            period=period,
            trimestre=filters.trimestre,

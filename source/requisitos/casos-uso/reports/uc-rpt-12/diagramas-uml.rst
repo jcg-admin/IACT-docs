@@ -11,8 +11,8 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_agent_reports" as USR
- actor "view_agent_detail" as USRD
+ actor "view_reports" as USR
+ actor "view_reports" as USRD
  rectangle "MOD_Reports" {
    usecase "UC_RPT_12\nReporte Agentes" as UC12
    usecase "Detalle agente" as DET
@@ -83,7 +83,7 @@ Parte 8 — Diagramas UML
  participant "AuditSvc" as AU
  database "Analytics" as A
  U -> E: GET /agents/{id}/
- E -> E: JWT + view_agent_detail
+ E -> E: JWT + view_reports
  E -> E: verificar agent_id ∈ segmento
  E -> S: detail(agent_id)
  S -> A: query stats

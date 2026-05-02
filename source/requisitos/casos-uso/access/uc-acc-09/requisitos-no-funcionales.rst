@@ -19,7 +19,7 @@ Parte 6 — Requisitos no funcionales
 =============
 
 - HTTPS, JWT (CNST-009).
-- ``view_access_audit`` (P-15 granular).
+- ``view_audit_log`` (P-15 granular).
 - Whitelist anti-SQLi (P-20).
 - Throttling 200/min/invoker.
 

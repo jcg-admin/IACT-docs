@@ -125,7 +125,7 @@ Parte 8 — Diagramas UML
 
  @startuml
 
- actor "Auditor" as A
+ actor "view_audit_log" as A
  participant "ExportEndpoint" as EE
  participant "QueryService" as QS
  participant "ExportWorker" as EW

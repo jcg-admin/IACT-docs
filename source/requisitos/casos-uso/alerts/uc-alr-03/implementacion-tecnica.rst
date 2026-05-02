@@ -25,7 +25,7 @@ Pseudocodigo:
                   invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'acknowledge_alerts')
+                 'acknowledge_alert')
        alert = AlertRepo.get(alert_id)
        if alert is null:
            raise NotFound

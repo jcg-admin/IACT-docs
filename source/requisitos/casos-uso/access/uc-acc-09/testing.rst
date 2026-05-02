@@ -126,7 +126,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker con view_access_audit
+   GIVEN invoker con view_audit_log
    WHEN  GET /api/access/audit/
    THEN  status == 200
 
@@ -145,7 +145,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN invoker sin view_access_audit
+   GIVEN invoker sin view_audit_log
    WHEN  GET
    THEN  status == 403
 
@@ -253,7 +253,7 @@ Parte 12 — Testing
 
 ::
 
-   GIVEN user sin view_access_audit
+   GIVEN user sin view_audit_log
    WHEN  intenta navegar a /admin/audit-access
    THEN  vista oculta o 403
 

@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
  actor "monitor_live_calls" as SUP
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  actor "Caller" as C
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_01\nMonitor" as UC
@@ -65,7 +65,7 @@ Parte 8 — Diagramas UML
  actor "monitor_live_calls" as S
  participant "Endpoint" as E
  participant "Telephony" as T
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  S -> E: POST monitor
  E -> T: bridge listen
  T -> A: tono "monitor on"

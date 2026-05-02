@@ -16,7 +16,7 @@ Parte 8 — Diagramas UML
 
  actor "revoke_functions" as INVOKER
  actor "User destino" as TARGET <<receptor>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 
  rectangle "MOD_Access" {

@@ -16,7 +16,7 @@ Parte 8 — Diagramas UML
 
  actor "update_users" as ADMIN
  actor "User modificado" as USER <<beneficiario>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 
  rectangle "MOD_Users" {

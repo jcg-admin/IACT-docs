@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_system_logs" as USR
+ actor "view_application_logs" as USR
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nLogs Sistema" as UC01
    usecase "Tail SSE" as T

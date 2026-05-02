@@ -17,7 +17,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 5   POST /api/access-groups/{id}/
             functions/ (con add_ids + remove_ids)  (FE → BE)
    PASO 6   Validar JWT +
-            manage_access_group_composition         (Backend)
+            assign_functions_to_group         (Backend)
    PASO 7   Validar AGR existe + ACTIVE + custom    (Backend → BD)
    PASO 8   Validar functions add/remove existen
             ACTIVE                                   (Backend → BD)

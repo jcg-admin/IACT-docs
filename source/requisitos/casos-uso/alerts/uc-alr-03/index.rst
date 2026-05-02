@@ -28,7 +28,7 @@ Opcionalmente con nota.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``acknowledge_alerts``
+   - ``acknowledge_alert``
 
 Estructura de la spec
 =====================

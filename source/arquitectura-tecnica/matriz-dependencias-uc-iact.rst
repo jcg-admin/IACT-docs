@@ -550,12 +550,12 @@ Responsabilidad: supervision del pipeline ETL. **1 CRITICO + 3 ALTOS**.
  * - UC_PIP_01 Supervisar ETL
    - CRITICO
    - 4
-   - PIP-001 ``view_etl_status``
+   - PIP-001 ``view_pipeline_status``
    - ``ETLEjecucion``
  * - UC_PIP_02 Consultar Errores ETL
    - ALTO
    - 2
-   - PIP-002 ``view_etl_errors``
+   - PIP-002 ``view_pipeline_errors``
    - ``ETLEjecucion``
  * - UC_PIP_03 Consultar Disponibilidad
    - ALTO
@@ -565,7 +565,7 @@ Responsabilidad: supervision del pipeline ETL. **1 CRITICO + 3 ALTOS**.
  * - UC_PIP_04 Solicitar Reintento
    - ALTO
    - 3
-   - PIP-004 ``retry_etl``
+   - PIP-004 ``request_pipeline_retry``
    - ``ETLEjecucion``, ``AuditEvent``
 
 2.8 Cluster AUD (4 UCs)

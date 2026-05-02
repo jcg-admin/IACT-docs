@@ -36,7 +36,7 @@ externos / compliance officers.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_general_audit``
+   - ``view_audit_log``
 
 Estructura de la spec
 =====================

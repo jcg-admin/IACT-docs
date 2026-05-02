@@ -36,7 +36,7 @@ tengan ese AGR ACTIVE (cascade documentada).
  * - **Modulo**
    - MOD_Permissions
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
  * - **BReq satisfecho**
    - BReq-004
 

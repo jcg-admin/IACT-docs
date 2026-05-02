@@ -31,7 +31,7 @@ Flujo ETL Nocturno — sp_etl_maestro
  ETL -> LOG : UPDATE etl_runs SET estado=exitoso
 
  note over MON
-   view_etl_status consulta etl_runs.
+   view_pipeline_status consulta etl_runs.
    No interviene en el proceso ETL.
    Solo observa y reporta estado.
  end note
@@ -60,7 +60,7 @@ Sub-estados del proceso ETL
  en_ejecucion --> fallido : cualquier sp_etl_* lanza error
 
  exitoso --> [*] : datos disponibles en base_ivr_*
- fallido --> en_ejecucion : retry_etl manual (RBAC)
+ fallido --> en_ejecucion : request_pipeline_retry manual (RBAC)
  fallido --> [*] : sin reintento
 
  note right of fallido
@@ -82,7 +82,7 @@ Diagrama de componentes — MOD_Pipeline
  @startuml
 
  actor "APScheduler" as SCH
- actor "retry_etl" as USR
+ actor "request_pipeline_retry" as USR
 
  component "sp_etl_maestro\n(MariaDB SP)" as ETL_SP
  component "SupervisionEndpoint\n(/api/v1/etl/supervision/)" as SVC
@@ -94,7 +94,7 @@ Diagrama de componentes — MOD_Pipeline
  database "audit_log\n(PostgreSQL)" as AUDIT
 
  SCH --> SCHED : disparo automatico
- USR --> SVC : POST reintento (retry_etl)
+ USR --> SVC : POST reintento (request_pipeline_retry)
  SCHED --> ETL_SP : CALL sp_etl_maestro
  SVC --> ETL_SP : CALL sp_etl_maestro (reintento)
  ETL_SP --> HIST : SELECT (solo lectura)

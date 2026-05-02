@@ -82,7 +82,7 @@ Componentes vista PERM:
        require AuthenticationGuard.is_valid(invoker)
        require AuthorizationGuard
                  .has_function(invoker,
-                   'revoke_function_groups')
+                   'revoke_function_group')
        require ThrottlePolicy.is_allowed(invoker)
 
        PayloadValidator.validate_revoke_reason(

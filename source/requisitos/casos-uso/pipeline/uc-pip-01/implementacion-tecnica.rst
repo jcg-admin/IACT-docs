@@ -21,7 +21,7 @@ Pseudocodigo:
 ::
 
    procedure get(invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'view_etl_status')
+       require AuthorizationGuard.has(invoker, 'view_pipeline_status')
        runs = ETLEjecucionRepo.get_recientes(limit=20)
        return ResumenSaludBuilder.build(runs)
 

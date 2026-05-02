@@ -8,7 +8,7 @@ Parte 6 — Requisitos no funcionales
   evaluator ≤ 5 s.
 - Confiabilidad: ≥ 99.5%; reload sin
   perder rules en flight.
-- Seguridad: manage_alert_thresholds.
+- Seguridad: configure_team_alerts.
 - Auditabilidad: P-39 audit reforzado
   en cambios.
 - Usabilidad: editor visual de rules con

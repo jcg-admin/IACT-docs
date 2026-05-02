@@ -140,7 +140,7 @@ Modelo RBAC IACT — Resumen
 
 
 
-12.1 Métricas del Modelo v5.2.1
+12.1 Métricas del Modelo v5.5.0
 -------------------------------
 
 
@@ -154,11 +154,11 @@ Modelo RBAC IACT — Resumen
  * - **Filosofía**
    - Sin Pretensiones
  * - **Módulos IACT**
-   - 8
+   - 11
  * - **Funciones atómicas**
-   - 42
+   - 74
  * - **Grupos**
-   - 10
+   - 12
  * - **Restricciones SoD**
    - 3
  * - **Segmentos de datos**

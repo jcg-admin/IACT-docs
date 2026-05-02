@@ -29,7 +29,7 @@ severidad, scope, regla.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_active_alerts``
+   - ``view_alerts``
 
 Estructura de la spec
 =====================

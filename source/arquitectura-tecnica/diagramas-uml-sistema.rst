@@ -17,7 +17,7 @@ Diagramas UML del Sistema
 
 Coleccion de diagramas UML que documentan la arquitectura, comportamiento
 e interacciones del sistema IACT. Los actores se nombran por su grupo
-RBAC en ingles (``view_reports``, ``retry_etl``, etc.)
+RBAC en ingles (``view_reports``, ``request_pipeline_retry``, etc.)
 conforme al catalogo de funciones del sistema.
 
 ----
@@ -31,14 +31,14 @@ conforme al catalogo de funciones del sistema.
   Accede via ``GET /api/reportes/`` con filtrado automatico por
   segmento IVR (``UC_INC_RPT_01``).
 
-**view_etl_status**
+**view_pipeline_status**
   Usuario con funciones ``view_reports``, ``view_alerts`` y
-  ``view_etl_status``. Supervisa KPIs de calidad, alertas de umbral
+  ``view_pipeline_status``. Supervisa KPIs de calidad, alertas de umbral
   BR-016 y el estado del pipeline ETL en tiempo real.
 
-**retry_etl**
-  Usuario con funciones ``view_etl_status``, ``view_etl_errors``,
-  ``view_data_availability`` y ``retry_etl``. Dispara,
+**request_pipeline_retry**
+  Usuario con funciones ``view_pipeline_status``, ``view_pipeline_errors``,
+  ``view_data_availability`` y ``request_pipeline_retry``. Dispara,
   monitorea y reintenta el proceso ETL via ``sp_etl_maestro``.
 
 **assign_functions**
@@ -146,10 +146,10 @@ conforme al catalogo de funciones del sistema.
   ``en_ejecucion`` en ``etl_runs`` → ``sp_etl_maestro`` ejecuta
   → estado actualizado a ``exitoso`` o ``fallido``.
 
-  *Flujo alternativo:* Si falla: ``retry_etl`` (UC_PIP_04)
+  *Flujo alternativo:* Si falla: ``request_pipeline_retry`` (UC_PIP_04)
   via ``sp_etl_historico``.
 
-  *Precondicion:* Funcion ``view_etl_status`` o ``retry_etl``.
+  *Precondicion:* Funcion ``view_pipeline_status`` o ``request_pipeline_retry``.
 
   *Postcondicion:* Estado de ejecucion en ``etl_runs``.
 
@@ -191,11 +191,11 @@ conforme al catalogo de funciones del sistema.
  @startuml
  left to right direction
 
- actor ":view_reports\n(view_dashboard)" as RVG
- actor ":view_etl_status\n(view_alerts)" as QSG
- actor ":retry_etl" as PAG
- actor ":assign_functions\n(create_users)" as UAG
- actor ":view_audit_log" as AUG
+ actor "view_reports\n(view_dashboard)" as RVG
+ actor "view_pipeline_status\n(view_alerts)" as QSG
+ actor "request_pipeline_retry" as PAG
+ actor "assign_functions\n(create_users)" as UAG
+ actor "view_audit_log" as AUG
  actor "APScheduler\n/ Cron" as SCH
  actor "Sistema IVR\n(fuente datos)" as IVR
 
@@ -378,14 +378,14 @@ de sesion.
  |view_reports|
  start
 
- |retry_etl|
+ |request_pipeline_retry|
 
  |assign_functions|
 
  |view_reports|
  :POST /api/auth/login — JWT;
 
- |retry_etl|
+ |request_pipeline_retry|
  :POST /api/auth/login — JWT;
 
  |assign_functions|
@@ -404,7 +404,7 @@ de sesion.
 
  fork again
 
-   |retry_etl|
+   |request_pipeline_retry|
    :GET /api/dashboard/;
    :callproc(sp_rpt_centros_xsegmento);
    :Revisar KPIs;
@@ -427,7 +427,7 @@ de sesion.
 
  end fork
 
- |retry_etl|
+ |request_pipeline_retry|
  :DELETE /api/auth/logout/;
  :Registrar en audit_log;
  stop
@@ -514,7 +514,7 @@ final.
      exit/datos del reporte mostrados
    }
 
-   state "Gestion Pipeline ETL\n[view_etl_status / retry_etl]" as S_ETL {
+   state "Gestion Pipeline ETL\n[view_pipeline_status / request_pipeline_retry]" as S_ETL {
      entry/usuario selecciona pipeline
      do/CALL sp_etl_maestro(trimestre) via DisparadorETL
      exit/estado registrado en etl_runs
@@ -614,7 +614,7 @@ y ``opt`` permite el reintento.
        DE --> USR : 18: reporte mostrado
      end
 
-     opt [view_etl_status en JWT]
+     opt [view_pipeline_status en JWT]
        USR -> ETL : 19: POST /api/pipeline/ejecutar/
        ETL -> IVR : 20: leer tbl_historico_*
        ETL -> ETL : 21: CALL sp_etl_maestro(trimestre)
@@ -625,7 +625,7 @@ y ``opt`` permite el reintento.
          USR --> ETL : 24: error en ejecucion
        end
 
-       opt [retry_etl en JWT]
+       opt [request_pipeline_retry en JWT]
          par
            USR -> ETL : 25: reintentar(trimestre)
            ETL --> USR : 26: ejecucion_reintentada
@@ -681,10 +681,10 @@ indican guarda basada en funcion RBAC del JWT activo.
  DE --> SRP : 11 *[view_reports]: callproc(sp_rpt_*)
  SRP --> DE : 12: rows_reporte
  DE --> USR : 13: reporte_mostrado
- USR --> ETL : 14 *[view_etl_status]: disparar_etl(trimestre)
+ USR --> ETL : 14 *[view_pipeline_status]: disparar_etl(trimestre)
  ETL --> ETL : 15: CALL sp_etl_maestro(trimestre)
  ETL --> USR : 16: estado_ejecucion
- USR --> ETL : 17 *[retry_etl]: retry_etl()
+ USR --> ETL : 17 *[request_pipeline_retry]: request_pipeline_retry()
  ETL --> USR : 18 *[success==TRUE]: ejecucion_reintentada
  ETL --> USR : 19: receiptStatus := cancelar_reintento
  USR --> AE : 20 *[status==FALSE]: AutenticacionFallida() <<destroy>>
@@ -805,7 +805,7 @@ conexion nombrada ``ivr`` en ``DATABASES`` de Django settings.
    }
  }
 
- node "<<client>>\nretry_etl\n(PC / Navegador)" as NODE_PAG {
+ node "<<client>>\nrequest_pipeline_retry\n(PC / Navegador)" as NODE_PAG {
    node "<<app>>\nNavegador Web" as BROWSER_PAG {
      artifact "<<artifact>>\nJWT Token (LocalStorage)" as ART_JWT_PAG
    }
@@ -837,7 +837,7 @@ estado en ``etl_runs``.
  state "Ejecucion ETL" as ETL_EXEC {
 
    state "Recibir Solicitud ETL" as S1
-   S1 : entry / validar funcion view_etl_status en JWT
+   S1 : entry / validar funcion view_pipeline_status en JWT
    S1 : do / INSERT etl_runs (estado=en_ejecucion)
    S1 : exit / ID de ejecucion asignado
 
@@ -862,7 +862,7 @@ estado en ``etl_runs``.
 
    state "ETL Exitoso" as SUCC
    SUCC : entry / estado = exitoso
-   SUCC : do / notificar retry_etl
+   SUCC : do / notificar request_pipeline_retry
    SUCC : exit / datos disponibles en base_ivr_*
 
    state "ETL Fallido" as FAIL
@@ -993,9 +993,9 @@ con los artefactos correspondientes.
    }
  }
 
- node "retry_etl\nos WINDOWS / Linux" as CLI_PAG {
+ node "request_pipeline_retry\nos WINDOWS / Linux" as CLI_PAG {
    node "<<app>>\nNavegador (Chrome / Firefox)" as BR_PAG {
-     artifact "<<artifact>>\nUser_View\n(JWT + view_etl_status)" as ART_PAG
+     artifact "<<artifact>>\nUser_View\n(JWT + view_pipeline_status)" as ART_PAG
    }
  }
 
@@ -1012,7 +1012,7 @@ con los artefactos correspondientes.
      artifact "<<artifact>>\nsp_rpt_llamadas_abandonadas" as ART_S2
    }
 
-   node "MOD_Pipeline ETL\n(view_etl_status / retry_etl)" as MOD_ETL {
+   node "MOD_Pipeline ETL\n(view_pipeline_status / request_pipeline_retry)" as MOD_ETL {
      artifact "<<artifact>>\nsp_etl_maestro" as ART_E1
      artifact "<<artifact>>\netl_runs" as ART_E2
    }

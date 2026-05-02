@@ -7,7 +7,7 @@ Parte 2 — Actores, precondiciones y postcondiciones
 2.1 Actor Principal
 ===================
 
-**User con funcion** ``manage_access_groups``
+**User con funcion** ``create_function_group``
 (P-15).
 
 Audiencia tipica: admin de seguridad,
@@ -25,7 +25,7 @@ arquitecto RBAC, governance officer.
 
 - Backend respondiendo en
   ``/api/access-groups/`` (POST/PATCH/DELETE).
-- Invocante con ``manage_access_groups``.
+- Invocante con ``create_function_group``.
 
 Para crear:
 

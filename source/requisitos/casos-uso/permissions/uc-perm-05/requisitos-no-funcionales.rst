@@ -14,7 +14,7 @@ Parte 6 — Requisitos no funcionales
 =============
 
 - HTTPS, JWT (CNST-009).
-- ``manage_access_groups`` (P-15
+- ``create_function_group`` (P-15
   granular).
 - Validacion code formato anti-injection.
 - Throttling 30/hora (operaciones CRUD

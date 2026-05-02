@@ -6,7 +6,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — POST.
 PASO 2 — JWT.
-PASO 3 — RBAC ``acknowledge_alerts``.
+PASO 3 — RBAC ``acknowledge_alert``.
 PASO 4 — Cargar Alert.
 PASO 5 — Verificar scope ⊆ segmentos.
 PASO 6 — Validar state = firing.

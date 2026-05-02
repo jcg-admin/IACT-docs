@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "grant_exceptional_permission" as INVOKER
  actor "User destino" as TARGET
- actor "Auditor" as AUD
+ actor "view_audit_log" as AUD
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_08\nPermiso Temporal" as UC08

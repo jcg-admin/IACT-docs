@@ -16,7 +16,7 @@ Parte 1 — Informacion general de UC_PERM_06
  * - **Nombre**
    - Asignar Funciones a Grupo (composicion AGR)
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
 
 1.2 Proposito
 =============
@@ -89,7 +89,7 @@ Operacion de governance. Disparada por:
    - CNST-005 SoD enforcement,
      CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``manage_access_group_composition``
+   - ``assign_functions_to_group``
  * - **AGR de conveniencia**
    - AGR de seguridad / governance
  * - **UCs relacionados**

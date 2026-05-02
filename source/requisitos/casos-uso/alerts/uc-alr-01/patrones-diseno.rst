@@ -15,7 +15,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - manage_alert_thresholds
+   - configure_team_alerts
  * - **P-39**
    - Audit reforzado
    - cambios CRUD

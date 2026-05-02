@@ -36,7 +36,7 @@ recuperacion y cambio de contrasena, y gestion de sesiones activas.
 
  actor "User\n(no autenticado)" as UNAUTH
  actor "User\n(autenticado)" as AUTH
- actor ":view_all_active_sessions" as SESS_ADM
+ actor "view_all_active_sessions" as SESS_ADM
 
  rectangle "MOD_Auth" {
    usecase "UC_AUTH_01\nIniciar Sesion" as A01
@@ -70,10 +70,10 @@ Solo usuarios con ``create_users`` o ``update_users`` pueden modificar.
  @startuml
  left to right direction
 
- actor ":create_users" as CU
- actor ":update_users" as UU
- actor ":deactivate_users" as DU
- actor ":list_users" as LU
+ actor "create_users" as CU
+ actor "update_users" as UU
+ actor "deactivate_users" as DU
+ actor "list_users" as LU
 
  rectangle "MOD_Users" {
    usecase "UC_USR_01\nCrear Usuario" as U01
@@ -106,12 +106,12 @@ gestionar agrupadores y reglas SoD. Coexiste con MOD_Permissions
  @startuml
  left to right direction
 
- actor ":assign_functions" as AF
- actor ":revoke_functions" as RF
- actor ":view_assignments" as VA
- actor ":assign_function_groups" as AFG
- actor ":view_separation_rules" as VSR
- actor ":view_access_audit" as VAA
+ actor "assign_functions" as AF
+ actor "revoke_functions" as RF
+ actor "view_assignments" as VA
+ actor "assign_function_groups" as AFG
+ actor "view_separation_rules" as VSR
+ actor "view_audit_log" as VAA
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_01\nAsignar Funciones\na Usuario" as AC01
@@ -151,12 +151,12 @@ en ``effective_set``.
  @startuml
  left to right direction
 
- actor ":assign_function_groups" as AFG
- actor ":revoke_function_groups" as RFG
- actor ":manage_access_groups" as MAG
- actor ":manage_access_group_composition" as MAGC
- actor ":view_assignments" as VA
- actor ":view_audit_log" as AUD
+ actor "assign_function_groups" as AFG
+ actor "revoke_function_group" as RFG
+ actor "create_function_group" as MAG
+ actor "assign_functions_to_group" as MAGC
+ actor "view_assignments" as VA
+ actor "view_audit_log" as AUD
  actor "User\n(autenticado)" as AUTH
 
  rectangle "MOD_Permissions" {
@@ -206,19 +206,13 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
  @startuml
  left to right direction
 
- actor ":view_dashboard" as VD
- actor ":view_reports" as VR
- actor ":view_realtime_metrics" as VRT
- actor ":view_historical_reports" as VHR
- actor ":export_reports" as ER
- actor ":schedule_reports" as SR
- actor ":view_scheduled_reports" as VSR
- actor ":view_agent_reports" as VAR
- actor ":view_queue_reports" as VQR
- actor ":view_campaign_reports" as VCR
- actor ":view_transfer_reports" as VTR
- actor ":view_ivr_reports" as VIR
- actor ":view_unique_clients_reports" as VUC
+ actor "view_dashboard" as VD
+ actor "view_kpis" as VK
+ actor "view_reports" as VR
+ actor "export_csv\n(export_pdf/excel)" as EXP
+ actor "schedule_report" as SRPT
+ actor "save_view" as SV
+ actor "share_report" as SHR
 
  rectangle "MOD_Reports" {
    usecase "UC_INC_RPT_01\nResolver Segmento" as INC
@@ -239,19 +233,19 @@ por segmento IVR del usuario via ``UC_INC_RPT_01``.
  }
 
  VD --> R01
- VRT --> R02
- VHR --> R03
- ER --> R04
- SR --> R07
- VSR --> R08
- VR --> R10
- VR --> R11
- VAR --> R12
- VQR --> R13
- VCR --> R14
- VTR --> R15
- VIR --> R16
- VUC --> R17
+ VK --> R02
+ VR --> R03
+ EXP --> R04
+ SRPT --> R07
+ SRPT --> R08
+ SV --> R10
+ SHR --> R11
+ VR --> R12
+ VR --> R13
+ VR --> R14
+ VR --> R15
+ VR --> R16
+ VR --> R17
 
  R01 ..> INC : <<include>>
  R02 ..> INC : <<include>>
@@ -283,10 +277,10 @@ se generan automaticamente por el motor de alertas y por el ETL.
  @startuml
  left to right direction
 
- actor ":manage_alert_thresholds" as MAT
- actor ":view_active_alerts" as VAA
- actor ":acknowledge_alerts" as ACA
- actor ":view_alert_history" as VAH
+ actor "configure_team_alerts" as MAT
+ actor "view_alerts" as VAA
+ actor "acknowledge_alert" as ACA
+ actor "view_alert_history" as VAH
 
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales\nde Alertas" as AL01
@@ -324,10 +318,10 @@ via ``sp_etl_maestro``. El registro de ejecuciones vive en ``etl_runs``.
  @startuml
  left to right direction
 
- actor ":view_etl_status" as VEE
- actor ":view_etl_errors" as VEER
- actor ":view_data_availability" as VDD
- actor ":retry_etl" as RE
+ actor "view_pipeline_status" as VEE
+ actor "view_pipeline_errors" as VEER
+ actor "view_data_availability" as VDD
+ actor "request_pipeline_retry" as RE
  actor "APScheduler\n/ Cron" as SCH
 
  rectangle "MOD_Pipeline" {
@@ -365,10 +359,10 @@ RBAC, disparos de ETL y cualquier accion de escritura.
  @startuml
  left to right direction
 
- actor ":view_general_audit" as VGA
- actor ":search_audit" as SA
- actor ":export_audit" as EA
- actor ":generate_compliance_report" as GCR
+ actor "view_audit_log" as VGA
+ actor "search_audit_log" as SA
+ actor "export_audit_log" as EA
+ actor "generate_compliance_report" as GCR
 
  rectangle "MOD_Audit" {
    usecase "UC_AUD_01\nVer Auditoria\nGeneral" as A01
@@ -403,13 +397,13 @@ funciones RBAC controlan que tipo de log puede ver cada usuario.
  @startuml
  left to right direction
 
- actor ":view_system_logs" as VSL
- actor ":view_etl_logs" as VEL
- actor ":search_logs" as SL
- actor ":export_logs" as EL
- actor ":view_infrastructure_logs" as VIL
- actor ":view_system_status" as VSS
- actor ":view_technical_metrics" as VTM
+ actor "view_application_logs" as VSL
+ actor "view_etl_logs" as VEL
+ actor "search_logs" as SL
+ actor "export_logs" as EL
+ actor "view_infrastructure_logs" as VIL
+ actor "view_system_health" as VSS
+ actor "view_technical_metrics" as VTM
 
  rectangle "MOD_Logs" {
    usecase "UC_LOG_01\nVer Logs\ndel Sistema" as L01
@@ -450,16 +444,16 @@ consulta de estadisticas personales.
  @startuml
  left to right direction
 
- actor ":manage_own_agent_state" as MGS
- actor ":answer_inbound_calls" as AIC
- actor ":make_outbound_calls" as MOC
- actor ":hold_calls" as HC
- actor ":transfer_calls" as TC
- actor ":enter_call_disposition" as ECD
- actor ":request_break" as RBK
- actor ":view_own_performance_dashboard" as VOPD
- actor ":view_own_call_history" as VOCH
- actor ":read_own_mailbox" as ROM
+ actor "manage_own_agent_state" as MGS
+ actor "answer_inbound_calls" as AIC
+ actor "make_outbound_calls" as MOC
+ actor "hold_calls" as HC
+ actor "transfer_calls" as TC
+ actor "enter_call_disposition" as ECD
+ actor "request_break" as RBK
+ actor "view_own_performance_dashboard" as VOPD
+ actor "view_own_call_history" as VOCH
+ actor "read_own_mailbox" as ROM
 
  rectangle "MOD_Operator" {
    usecase "UC_OPR_01\nCambiar Estado\ndel Agente" as O01
@@ -507,9 +501,9 @@ funciones de supervision especificas.
  @startuml
  left to right direction
 
- actor ":monitor_live_calls" as MLC
- actor ":barge_in_calls" as BIC
- actor ":broadcast_team_messages" as BTM
+ actor "monitor_live_calls" as MLC
+ actor "barge_in_calls" as BIC
+ actor "broadcast_team_messages" as BTM
 
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_01\nMonitorear Llamadas\nen Vivo" as S01
@@ -592,11 +586,11 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
    artifact "revoke_functions" as F_RF
    artifact "view_assignments" as F_VA
    artifact "assign_function_groups" as F_AFG
-   artifact "revoke_function_groups" as F_RFG
-   artifact "manage_access_groups" as F_MAG
-   artifact "manage_access_group_composition" as F_MAGC
+   artifact "revoke_function_group" as F_RFG
+   artifact "create_function_group" as F_MAG
+   artifact "assign_functions_to_group" as F_MAGC
    artifact "view_separation_rules" as F_VSR
-   artifact "view_access_audit" as F_VAA
+   artifact "view_audit_log" as F_VAA
    artifact "view_own_navigation" as F_VON
  }
 
@@ -617,30 +611,30 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
  }
 
  package "MOD_Pipeline" {
-   artifact "view_etl_status" as F_VEE
-   artifact "view_etl_errors" as F_VEER
+   artifact "view_pipeline_status" as F_VEE
+   artifact "view_pipeline_errors" as F_VEER
    artifact "view_data_availability" as F_VDD
-   artifact "retry_etl" as F_RE
+   artifact "request_pipeline_retry" as F_RE
  }
 
  package "MOD_Alerts" {
-   artifact "manage_alert_thresholds" as F_MAT
-   artifact "view_active_alerts" as F_VAA2
-   artifact "acknowledge_alerts" as F_ACA
+   artifact "configure_team_alerts" as F_MAT
+   artifact "view_alerts" as F_VAA2
+   artifact "acknowledge_alert" as F_ACA
    artifact "view_alert_history" as F_VAH
  }
 
  package "MOD_Audit / MOD_Logs" {
-   artifact "view_general_audit" as F_VGA
-   artifact "search_audit" as F_SA
-   artifact "export_audit" as F_EA
+   artifact "view_audit_log" as F_VGA
+   artifact "search_audit_log" as F_SA
+   artifact "export_audit_log" as F_EA
    artifact "generate_compliance_report" as F_GCR
-   artifact "view_system_logs" as F_VSL
+   artifact "view_application_logs" as F_VSL
    artifact "view_etl_logs" as F_VEL
    artifact "search_logs" as F_SL
    artifact "export_logs" as F_EL
    artifact "view_infrastructure_logs" as F_VIL
-   artifact "view_system_status" as F_VSS
+   artifact "view_system_health" as F_VSS
    artifact "view_technical_metrics" as F_VTM
  }
 

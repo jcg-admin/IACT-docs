@@ -8,7 +8,7 @@ PASO 1 — El Supervisor de Operaciones envia GET a
           ``/api/v1/etl/supervision/``.
 
 PASO 2 — El sistema valida el JWT y verifica que el usuario
-          tiene el permiso ``view_etl_status`` (RBAC).
+          tiene el permiso ``view_pipeline_status`` (RBAC).
 
 PASO 3 — El sistema consulta el Registro de Ejecuciones:
           ultimas 20 ejecuciones ordenadas por ``iniciado_en``

@@ -50,7 +50,7 @@ Assignments AGR. Mismo backend, diferente UI.
  * - **UC backing**
    - UC_ACC_02 (sobre Assignment AGR)
  * - **Funcion RBAC**
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
  * - **BReq satisfecho**
    - BReq-004
  * - **Origen legacy**

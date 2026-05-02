@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "assign_function_groups" as INVOKER
  actor "User destino" as TARGET <<beneficiario>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
 
  rectangle "MOD_Access" {
    usecase "UC_ACC_04\nAsignar AGR" as UC04

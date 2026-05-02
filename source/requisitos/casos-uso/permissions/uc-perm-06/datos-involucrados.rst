@@ -10,7 +10,7 @@ Parte 7 — Datos involucrados
 POST
 ``/api/access-groups/{agr_id}/functions/``
 con funcion
-``manage_access_group_composition``.
+``assign_functions_to_group``.
 
 (Tambien GET para inspeccion — heredado de
 otros UCs de lectura).

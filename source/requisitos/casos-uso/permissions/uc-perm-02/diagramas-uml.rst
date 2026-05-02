@@ -14,8 +14,8 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "revoke_function_groups" as OPS
- actor "revoke_function_groups" as SEC
+ actor "revoke_function_group" as OPS
+ actor "revoke_function_group" as SEC
 
  rectangle "UI MOD_Access" {
    usecase "UC_ACC_02\nRevocar\n(generico)" as ACC02
@@ -33,7 +33,7 @@ Parte 8 — Diagramas UML
  PERM02 --> BE : delega
 
  note right of BE
-   Funcion: revoke_function_groups
+   Funcion: revoke_function_group
    AuditEvent: AGR_REVOKED
  end note
 

@@ -12,7 +12,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-005, BReq-006
  * - **Funcion RBAC**
-   - ``view_system_logs``
+   - ``view_application_logs``
 
 1.1 Diferencia con UC_AUD/PERM
 ==============================

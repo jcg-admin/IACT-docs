@@ -29,7 +29,7 @@ debugging.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_system_logs``
+   - ``view_application_logs``
 
 Estructura de la spec
 =====================

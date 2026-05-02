@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "view_access_audit" as INVOKER
+ actor "view_audit_log" as INVOKER
  actor "Sistema" as SYS
 
  rectangle "MOD_Access" {
@@ -58,7 +58,7 @@ Parte 8 — Diagramas UML
  FE -> AV: GET /api/access/audit/?...
 
  AV -> AV: Validar JWT (CNST-009)
- AV -> AV: Verificar view_access_audit
+ AV -> AV: Verificar view_audit_log
  alt Sin permiso
    AV --> FE: 403
    AV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT
@@ -97,7 +97,7 @@ Parte 8 — Diagramas UML
  else (si)
  endif
 
- if (view_access_audit?) then (no)
+ if (view_audit_log?) then (no)
    :403; :Audit UNAUTHORIZED;
    stop
  else (si)

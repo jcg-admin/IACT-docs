@@ -29,7 +29,7 @@ para SRE.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_system_status``
+   - ``view_system_health``
 
 .. toctree::
  :maxdepth: 1

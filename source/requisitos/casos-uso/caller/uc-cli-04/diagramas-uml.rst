@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
  actor "Caller" as C
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  rectangle "MOD_Caller" {
    usecase "UC_CLI_04\nCallback" as UC
    usecase "UC_OPR_03\nDial" as D
@@ -70,7 +70,7 @@ Parte 8 — Diagramas UML
  actor "Caller" as C
  participant "IVR" as I
  database "CallbackRepo" as R
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  I -> C: oferta callback
  C -> I: acepta + numero
  I -> R: INSERT pending

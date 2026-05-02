@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "view_assignments" as INVOKER
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 
  rectangle "MOD_Access" {

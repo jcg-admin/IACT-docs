@@ -14,8 +14,8 @@ Parte 8 — Diagramas UML
  left to right direction
 
  actor "view_separation_rules" as VIEWER
- actor "manage_separation_rules" as MANAGER
- actor "Auditor" as AUD
+ actor "view_separation_rules" as MANAGER
+ actor "view_audit_log" as AUD
  actor "Sistema (consumidores)" as SYS
 
  rectangle "MOD_Access" {
@@ -70,7 +70,7 @@ Parte 8 — Diagramas UML
  M -> FE: Define regla con functions
  FE -> CV: POST /api/access/sod-rules/
 
- CV -> CV: Validar JWT + manage_separation_rules
+ CV -> CV: Validar JWT + view_separation_rules
  alt Sin permiso
    CV --> FE: 403
    CV -> AL: emit UNAUTHORIZED_ACCESS_ATTEMPT

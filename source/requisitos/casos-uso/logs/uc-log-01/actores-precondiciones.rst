@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``view_system_logs``
+- **User con funcion** ``view_application_logs``
 - **LogStore** (Loki / Elasticsearch /
   CloudWatch / similar)
 

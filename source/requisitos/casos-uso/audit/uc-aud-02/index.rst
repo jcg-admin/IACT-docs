@@ -28,7 +28,7 @@ investigaciones por palabra clave.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``search_audit``
+   - ``search_audit_log``
 
 Estructura de la spec
 =====================

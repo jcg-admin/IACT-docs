@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "retry_etl" as USR
+ actor "request_pipeline_retry" as USR
  actor "ETLScheduler" as DE
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_04\nReintentar ETL" as UC04
@@ -28,7 +28,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :POST /api/v1/etl/reintento/;
- :JWT + RBAC (retry_etl);
+ :JWT + RBAC (request_pipeline_retry);
  :Validar trimestre y motivo (min 20 chars);
  if (ETL en ejecucion?) then (si)
    :409 Conflict; stop
@@ -59,7 +59,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "retry_etl" as O
+ actor "request_pipeline_retry" as O
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R
  participant "Disparador ETL" as DE

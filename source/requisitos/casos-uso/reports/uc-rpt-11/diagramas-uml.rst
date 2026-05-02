@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "share_reports" as O
+ actor "share_report" as O
  actor "Receptor User" as R
  actor "MailboxService" as MB
 
@@ -39,7 +39,7 @@ Parte 8 — Diagramas UML
  if (JWT?) then (no)
    :401; stop
  endif
- if (share_reports?) then (no)
+ if (share_report?) then (no)
    :403; stop
  endif
  :Validar view + owner + target;

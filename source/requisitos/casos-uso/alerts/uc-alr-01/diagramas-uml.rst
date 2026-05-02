@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "manage_alert_thresholds" as USR
+ actor "configure_team_alerts" as USR
  actor "AlertEvaluator" as AE
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_01\nConfigurar Umbrales" as UC01

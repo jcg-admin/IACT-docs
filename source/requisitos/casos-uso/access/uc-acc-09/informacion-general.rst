@@ -101,7 +101,7 @@ auditiva continua**. Disparado por:
  * - **CNST**
    - CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - **AGR de conveniencia**
    - AGR-008 auditor_group
  * - **UCs relacionados**

@@ -8,7 +8,7 @@ Actores
 -------
 
 - **Supervisor de Operaciones** — usuario con permiso
-  ``view_etl_status``. Inicia el caso de uso consultando el
+  ``view_pipeline_status``. Inicia el caso de uso consultando el
   estado del Servicio ETL.
 - **Registro de Ejecuciones** — sistema secundario que
   provee los datos de ejecucion del Servicio ETL.
@@ -17,7 +17,7 @@ Precondiciones
 --------------
 
 - El usuario esta autenticado (JWT valido).
-- El usuario tiene el permiso ``view_etl_status`` (RBAC).
+- El usuario tiene el permiso ``view_pipeline_status`` (RBAC).
 - El Registro de Ejecuciones esta accesible.
 
 Postcondiciones

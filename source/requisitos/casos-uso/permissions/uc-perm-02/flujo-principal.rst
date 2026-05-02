@@ -21,7 +21,7 @@ Parte 3 — Flujo principal (Camino feliz)
             access-groups/{agr_id}/               (FE → BE)
    ── flujo backend identico a UC_ACC_02
       sobre target_type=AGR ──
-   PASO 7   Validar JWT + revoke_function_groups
+   PASO 7   Validar JWT + revoke_function_group
    PASO 8   Validar User + Assignment AGR existe
    PASO 9   Calcular post-revoke + warnings
    PASO 10  UPDATE Assignment → REVOKED

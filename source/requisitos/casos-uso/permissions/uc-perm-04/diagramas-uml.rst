@@ -15,7 +15,7 @@ Parte 8 — Diagramas UML
 
  actor "revoke_exceptional_permission" as INVOKER
  actor "User destino" as TARGET
- actor "Auditor high-priority" as AUD
+ actor "view_audit_log" as AUD
 
  rectangle "MOD_Permissions" {
    usecase "UC_PERM_04\nRevocar\nExceptional" as UC04

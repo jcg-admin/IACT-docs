@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "export_reports" as USR
+ actor "export_csv" as USR
  actor "ExportWorker" as W
  actor "MailboxService" as MB
 
@@ -49,7 +49,7 @@ Parte 8 — Diagramas UML
  if (JWT?) then (no)
    :401; stop
  endif
- if (export_reports?) then (no)
+ if (export_csv?) then (no)
    :403 + audit; stop
  endif
  :Validar payload + estimacion;

@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-User con ``view_system_status``.
+User con ``view_system_health``.
 
 ::
 

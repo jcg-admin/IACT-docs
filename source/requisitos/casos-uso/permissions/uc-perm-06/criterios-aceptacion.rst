@@ -130,7 +130,7 @@ SoD violation para algun User,
 ===========================
 
 **DADO** invoker sin
-``manage_access_group_composition``,
+``assign_functions_to_group``,
 
 **ENTONCES**:
 

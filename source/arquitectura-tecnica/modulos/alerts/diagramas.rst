@@ -18,7 +18,7 @@ Ciclo de Vida de una Alerta
  PENDIENTE --> ACTIVA : sistema confirma condicion\npersiste (evaluacion periodica)
  PENDIENTE --> [*] : condicion ya no se cumple\n(falsa alarma)
 
- ACTIVA --> RECONOCIDA : acknowledge_alerts invoca UC_ALR_03
+ ACTIVA --> RECONOCIDA : acknowledge_alert invoca UC_ALR_03
  ACTIVA --> ACTIVA : suscriptores notificados\nvia InternalMailbox (CNST-001)
 
  RECONOCIDA --> RESUELTA : operador marca como resuelta
@@ -44,9 +44,9 @@ Secuencia de Disparo de Alerta BR-016
 
  participant "ETLMonitor" as ETL
  participant "AlertEvaluator" as AE
- database "AlertThreshold\n(manage_alert_thresholds)" as TH
+ database "AlertThreshold\n(configure_team_alerts)" as TH
  participant "InternalMailbox" as MB
- actor "view_active_alerts" as USR
+ actor "view_alerts" as USR
 
  ETL -> AE : notificar fin de ETL exitoso
  AE -> TH : consultar umbrales activos
@@ -74,9 +74,9 @@ Componentes del modulo de Alertas
  @startuml
 
  component "AlertEvaluator\n(evaluacion periodica)" as AE
- component "manage_alert_thresholds\n(configuracion)" as CFG
- component "view_active_alerts\n(consulta)" as VIEW
- component "acknowledge_alerts\n(reconocimiento)" as ACK
+ component "configure_team_alerts\n(configuracion)" as CFG
+ component "view_alerts\n(consulta)" as VIEW
+ component "acknowledge_alert\n(reconocimiento)" as ACK
  component "InternalMailbox\n(notificacion)" as MB
 
  database "AlertThreshold\n(umbrales configurados)" as TH

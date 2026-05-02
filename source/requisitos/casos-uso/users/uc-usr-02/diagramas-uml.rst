@@ -14,9 +14,9 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "read_users" as INVOKER
+ actor "view_users" as INVOKER
  actor "User consultado" as TARGET <<pasivo>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
 
  rectangle "MOD_Users" {
    usecase "UC_USR_02\nConsultar Usuarios" as UC02

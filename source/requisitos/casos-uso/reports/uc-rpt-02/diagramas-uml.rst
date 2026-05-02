@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "view_realtime_metrics" as USR
+ actor "view_kpis" as USR
  actor "AnalyticsStream" as AS
 
  rectangle "MOD_Reports" {
@@ -49,7 +49,7 @@ Parte 8 — Diagramas UML
  if (JWT?) then (no)
    :401; stop
  endif
- if (view_realtime_metrics?) then (no)
+ if (view_kpis?) then (no)
    :403 + audit; stop
  endif
  if (Sin segmento?) then (si)

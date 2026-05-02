@@ -29,7 +29,7 @@ UC_PERM_10/UC_RPT_04.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``export_audit``
+   - ``export_audit_log``
 
 Estructura de la spec
 =====================

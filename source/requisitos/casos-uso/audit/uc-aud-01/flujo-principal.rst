@@ -6,7 +6,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — GET con filtros + period.
 PASO 2 — JWT.
-PASO 3 — RBAC view_general_audit.
+PASO 3 — RBAC view_audit_log.
 PASO 4 — Validar.
 PASO 5 — Query AuditRepo + cursor.
 PASO 6 — Sanitize (truncar payload).

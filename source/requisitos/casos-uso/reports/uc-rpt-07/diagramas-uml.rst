@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "schedule_reports" as USR
+ actor "schedule_report" as USR
  actor "Scheduler" as SC
 
  rectangle "MOD_Reports" {

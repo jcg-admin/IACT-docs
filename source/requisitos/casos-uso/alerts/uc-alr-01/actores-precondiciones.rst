@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``manage_alert_thresholds``
+  ``configure_team_alerts``
 - **AlertRuleRepo**
 - **AlertEvaluator** (consume)
 

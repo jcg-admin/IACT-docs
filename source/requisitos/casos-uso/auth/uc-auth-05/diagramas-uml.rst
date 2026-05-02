@@ -14,9 +14,9 @@ Parte 8 — Diagramas UML
 
  left to right direction
 
- actor "manage_sessions" as ADMIN
+ actor "view_all_active_sessions" as ADMIN
  actor "User afectado" as USER <<beneficiario>>
- actor "Auditor" as AUD <<beneficiario>>
+ actor "view_audit_log" as AUD <<beneficiario>>
  actor "Sistema" as SYS <<sistema>>
 
  rectangle "MOD_Auth" {

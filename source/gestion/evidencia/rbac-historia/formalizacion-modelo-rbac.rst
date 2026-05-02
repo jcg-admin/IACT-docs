@@ -278,12 +278,12 @@ Distribución por módulo (de ``MODELO_RBAC_IACT_v5_2_1`` § 3):
  * - MOD_Audit
    - AUD-NNN
    - 4
-   - view_audit_log, search_audit_log, export_audit_log,
+   - view_audit_log, search_audit_log_log, export_audit_log_log,
      generate_compliance_report
  * - MOD_Logs
    - LOG-NNN
    - 2
-   - view_system_logs, search_logs
+   - view_application_logs, search_logs
  * - **TOTAL (estado actual)**
    -
    - **42** (v5.2.1)

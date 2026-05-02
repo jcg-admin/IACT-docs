@@ -19,7 +19,7 @@ Parte 1 — Informacion general de UC_PERM_02
    - UC_ACC_02 sobre Assignment(target_type=
      AccessGroup)
  * - **Funcion RBAC**
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
 
 1.2 Proposito
 =============
@@ -83,7 +83,7 @@ revoca AGRs de Users por:
    - CNST-009/013/025/026 (heredados de
      UC_ACC_02).
  * - **Funcion RBAC**
-   - ``revoke_function_groups``
+   - ``revoke_function_group``
  * - **AGR de conveniencia**
    - AGR-006 user_admin_group
  * - **UCs relacionados**

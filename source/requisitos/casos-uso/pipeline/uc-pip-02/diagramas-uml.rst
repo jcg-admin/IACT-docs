@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "view_etl_errors" as USR
+ actor "view_pipeline_errors" as USR
  rectangle "MOD_Pipeline" {
    usecase "UC_PIP_02\nErrores ETL" as UC02
    usecase "Filtrar por trimestre" as FT
@@ -30,7 +30,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/etl/errores/ con filtros;
- :JWT + RBAC (view_etl_errors);
+ :JWT + RBAC (view_pipeline_errors);
  :Validar parametros;
  :Consultar Registro de Ejecuciones (fallidas);
  :200 con lista de ejecuciones fallidas;
@@ -54,7 +54,7 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "view_etl_errors" as U
+ actor "view_pipeline_errors" as U
  participant "Endpoint" as E
  database "Registro de\nEjecuciones" as R
  U -> E: GET /api/v1/etl/errores/

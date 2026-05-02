@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
  actor "broadcast_team_messages" as SUP
- actor "Agentes" as AG
+ actor "answer_inbound_calls" as AG
  rectangle "MOD_Supervision" {
    usecase "UC_SUP_03\nBroadcast" as UC
  }
@@ -62,7 +62,7 @@ Parte 8 — Diagramas UML
  actor "broadcast_team_messages" as S
  participant "Endpoint" as E
  queue "MailboxBus" as B
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  S -> E: POST broadcast urgente
  E -> B: bulk insert
  B -> A: SSE push

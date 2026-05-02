@@ -11,7 +11,7 @@ Parte 8 — Diagramas UML
 
  @startuml
  left to right direction
- actor "export_audit" as USR
+ actor "export_audit_log" as USR
  actor "ExportWorker" as EW
  actor "InternalMailbox" as MB
  rectangle "MOD_Audit" {
@@ -34,7 +34,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :POST /audit/export/;
- :JWT + RBAC (export_audit);
+ :JWT + RBAC (export_audit_log);
  :Validar filtros (periodo, accion, user_id);
  if (Filtros invalidos?) then (si)
    :400 Bad Request; stop
@@ -71,14 +71,14 @@ Parte 8 — Diagramas UML
 .. uml::
 
  @startuml
- actor "export_audit" as U
+ actor "export_audit_log" as U
  participant "AuditExportEndpoint" as EP
  participant "ExportWorker" as W
  database "audit_log\n(PostgreSQL)" as DB
  participant "InternalMailbox" as MB
 
  U -> EP : POST /audit/export/ {filters}
- EP -> EP : JWT + RBAC (export_audit)
+ EP -> EP : JWT + RBAC (export_audit_log)
  alt sin permiso
    EP --> U : 403 Forbidden
  else con permiso

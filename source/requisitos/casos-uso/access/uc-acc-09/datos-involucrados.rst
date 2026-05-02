@@ -16,13 +16,13 @@ Parte 7 — Datos involucrados
    - RBAC
  * - ``/api/access/audit/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - ``/api/access/audit/{event_id}/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
  * - ``/api/access/audit/aggregations/``
    - GET
-   - ``view_access_audit``
+   - ``view_audit_log``
 
 7.2 Listado — Query params
 ==========================

@@ -25,7 +25,8 @@ Modelo RBAC IACT — Implementacion
  CONSTRAINT uk_function_name UNIQUE (name),
  CONSTRAINT chk_category CHECK (category IN (
  'auth', 'users', 'access', 'pipeline',
- 'reports', 'alerts', 'audit', 'logs'
+ 'reports', 'alerts', 'audit', 'logs',
+ 'operator', 'supervisor'
  ))
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
  

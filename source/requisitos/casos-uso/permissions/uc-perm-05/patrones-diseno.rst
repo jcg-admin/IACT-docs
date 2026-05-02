@@ -19,7 +19,7 @@ Parte 10 — Patrones de diseno
 - P-08 Fail-closed (atomic).
 - P-09 Audit-or-abort.
 - P-15 RBAC granular
-  (manage_access_groups distinta de assign).
+  (create_function_group distinta de assign).
 - P-23 Soft-delete (RETIRED).
 - P-29 Cache post-COMMIT.
 - P-32 Reason-required.

@@ -56,7 +56,7 @@ Parte 8 — Diagramas UML
  @startuml
  actor "barge_in_calls" as S
  participant "Telephony" as T
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  actor "Caller" as C
  S -> T: bridge 3way
  T -> A: announce

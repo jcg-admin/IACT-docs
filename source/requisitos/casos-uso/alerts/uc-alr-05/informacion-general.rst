@@ -14,7 +14,7 @@ Parte 1 — Informacion general
  * - **Funcion RBAC**
    - implícita
      ``manage_own_subscriptions``
-     o ``manage_user_subscriptions``
+     o ``subscribe_to_alert``
      (admin)
 
 1.1 Proposito

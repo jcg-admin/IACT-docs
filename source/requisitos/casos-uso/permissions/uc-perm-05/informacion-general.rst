@@ -16,7 +16,7 @@ Parte 1 — Informacion general de UC_PERM_05
  * - **Nombre**
    - Crear/Modificar/Retirar Grupo de Permisos
  * - **Funcion RBAC**
-   - ``manage_access_groups``
+   - ``create_function_group``
 
 1.2 Proposito
 =============
@@ -84,7 +84,7 @@ nuevo perfil organizacional.
  * - **CNST**
    - CNST-009/013/025/026
  * - **Funcion RBAC**
-   - ``manage_access_groups`` (P-15
+   - ``create_function_group`` (P-15
      distinta de assign / revoke / view)
  * - **AGR de conveniencia**
    - AGR de seguridad / governance

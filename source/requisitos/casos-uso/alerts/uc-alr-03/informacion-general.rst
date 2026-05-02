@@ -17,7 +17,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-006
  * - **Funcion RBAC**
-   - ``acknowledge_alerts``
+   - ``acknowledge_alert``
 
 1.2 Proposito
 =============

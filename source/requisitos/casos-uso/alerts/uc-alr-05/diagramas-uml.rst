@@ -12,7 +12,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
  actor "User" as USR
- actor "manage_user_subscriptions" as A
+ actor "subscribe_to_alert" as A
  rectangle "MOD_Alerts" {
    usecase "UC_ALR_05\nSubscriptions" as UC05
    usecase "Bulk add" as BA

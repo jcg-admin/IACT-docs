@@ -68,7 +68,7 @@ Parte 8 — Diagramas UML
  actor "Caller" as C
  participant "Queue" as Q
  participant "Router" as R
- actor "Agente" as A
+ actor "answer_inbound_calls" as A
  C -> Q: enter
  Q -> R: notify
  R -> A: offer

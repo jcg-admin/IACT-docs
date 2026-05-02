@@ -32,7 +32,7 @@ los sub-pasos viven en el diagrama de secuencia
 
  actor "User"                   as U
  actor "Sistema"                 as S <<system>>
- actor "Auditor"                 as A <<system>>
+ actor "view_audit_log"                 as A <<system>>
 
  rectangle "IACT — MOD_Auth" {
    usecase "UC_AUTH_01\nIniciar Sesion" as UC01
