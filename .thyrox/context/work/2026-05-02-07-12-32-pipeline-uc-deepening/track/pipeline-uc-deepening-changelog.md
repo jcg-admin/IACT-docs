@@ -170,5 +170,57 @@ author: NestorMonroy
   `INDEX(trimestre, <columna_segmento>)` en cada tabla. `TRUNCATE+INSERT` conserva
   la definición de índices — no se necesita DROP/CREATE INDEX durante el ETL.
 
+## Arquitectura ETL rediseñada — 2 tablas base (2026-05-02)
+
+- discover/etl-job-flow-design.md — **v2.0.0** (reescritura completa): nueva
+  arquitectura de 2 tablas base en lugar de 7 tablas `rpt_*`. Motivo: con
+  `tbl_historico_*` sin índices, 7 SPs ETL = 7 full table scans (~14M filas c/u).
+  2 tablas base = 2 scans totales. Tablas: `base_ivr_detalle` (grain:
+  quarter+fecha+segmento+centro+menu+opcion, 5 métricas) y `base_ivr_clientes`
+  (COUNT DISTINCT no aditivo, separado por diseño). 7 SPs de reporte READ-ONLY
+  llamados por Django bajo demanda.
+
+- **D-18:** `base_ivr_detalle` y `base_ivr_clientes` son las únicas tablas de
+  destino del ETL. Los 7 reportes se derivan de estas bases mediante SPs de lectura.
+- **D-19:** Los SPs `sp_rpt_*` son exclusivamente READ-ONLY y pueden ser llamados
+  por Django bajo demanda. Django NO puede llamar `sp_etl_*` (D-09 se mantiene).
+
+## Hallazgos del AS-IS COMPLETO (2026-05-02)
+
+- **CNST-ETL-007 (NUEVO):** El motor es **MariaDB 10.1.48** — versión legacy que
+  NO incluye window functions (`OVER`, `PARTITION BY`, `ROW_NUMBER`, `LAG`, etc.).
+  Window functions llegaron en MariaDB 10.2. Todos los SPs deben usar subconsultas
+  correlacionadas o JOINs a subconsultas en lugar de funciones de ventana.
+
+- discover/etl-job-flow-design.md — **v2.1.0**: dos SPs corregidos para MariaDB 10.1:
+  - `sp_rpt_centros_transferencia`: `OVER(PARTITION BY fecha, segmento)` reemplazado
+    por subconsulta correlacionada con alias `t`.
+  - `sp_rpt_menu_centro`: `OVER(PARTITION BY centro_transferencia)` reemplazado
+    por JOIN a subconsulta de totales por centro.
+  - Fila agregada en tabla de información: "MariaDB 10.1 no tiene window functions".
+
+- **G-32 (ABIERTO):** Conflicto en rango de Q1 2025. AS-IS COMPLETO define
+  Q1=01-Feb-2025→31-Mar-2025 (59 días). El WP y `sp_etl_maestro` usan
+  Q1=01-Jan-2025→31-Mar-2025 (90 días). El script REPTRIM001-WS.sql también
+  arrancaba en Feb (bug documentado en G-29). Pendiente confirmar con el equipo
+  cuál es el rango real de Q1 2025 en el sistema.
+
+- **Confirmación de G-29:** El AS-IS COMPLETO cuantifica la inversión
+  `dHoraInicio > dHoraFin` en **38.8% de los ~34.1M registros** (~13.2M afectados).
+  Confirma que `dFecha` (DATE) está correcto. El campo problemático es exclusivamente
+  el par de DATETIMEs de hora.
+
+- **Nuevas métricas del sistema (PROVEN desde AS-IS):**
+  - 96 centros de transferencia activos en Q3 2025
+  - 25 menús distintos activos
+  - `cTelefono_Digitado` NULL: 75.3% de registros (baseline para `no_digito_telefono`)
+  - Volumen total Q01-Q03 2025: 34,101,981 llamadas (ya documentado en D-16)
+
+## Preguntas abiertas nuevas
+
+- **P-15 (ABIERTA):** ¿El rango real de Q1 2025 es enero-marzo (01-Jan → 31-Mar)
+  o febrero-marzo (01-Feb → 31-Mar)? Determina `v_inicio` en `sp_etl_maestro`
+  para el branch ELSEIF Q01_25. Ver G-32.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.

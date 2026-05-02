@@ -1,12 +1,12 @@
 ```yml
 created_at: 2026-05-02 08:44:41
-updated_at: 2026-05-02 08:58:05
+updated_at: 2026-05-02 10:15:00
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 2.0.0
+version: 2.1.0
 ```
 
 # Diagrama de Flujo del Proceso ETL — IACT
@@ -21,7 +21,8 @@ version: 2.0.0
 |---|---|
 | **Proyecto** | IACT-2025-001 |
 | **Proceso** | ETL MySQL-interno: SPs + Events + Triggers |
-| **Tecnología** | MariaDB — Stored Procedures + MySQL Event Scheduler |
+| **Tecnología** | **MariaDB 10.1.48** — Stored Procedures + MySQL Event Scheduler |
+| **Restricción SQL** | MariaDB 10.1 no tiene window functions — usar subconsultas correlacionadas |
 | **Frecuencia** | Diaria (02:00 AM) — D-08 |
 | **Restricción crítica** | Solo lectura en tablas IVR — CNST-ETL-001, CNST-ETL-002 |
 | **Sin índices en fuente** | `tbl_historico_*` NO tienen índices — CNST-ETL-005 |
@@ -379,23 +380,29 @@ WHERE  quarter_name = @quarter
 ORDER BY segmento;
 
 -- sp_rpt_centros_transferencia(@quarter, @segmento)
+-- NOTA: MariaDB 10.1 no tiene window functions. Porcentaje se calcula
+-- via subconsulta correlacionada en lugar de OVER(PARTITION BY).
 SELECT
-    fecha,
-    segmento,
-    centro_transferencia,
-    menu,
-    opcion,
-    total_llamadas,
-    ROUND(total_llamadas /
-          SUM(total_llamadas) OVER (PARTITION BY fecha, segmento)
+    t.fecha,
+    t.segmento,
+    t.centro_transferencia,
+    t.menu,
+    t.opcion,
+    t.total_llamadas,
+    ROUND(t.total_llamadas /
+          (SELECT SUM(t2.total_llamadas)
+           FROM   base_ivr_detalle t2
+           WHERE  t2.quarter_name = t.quarter_name
+             AND  t2.fecha        = t.fecha
+             AND  t2.segmento     = t.segmento)
           * 100, 7)                  AS porcentaje,
-    misma_linea,
-    linea_diferente,
-    no_digito_telefono
-FROM   base_ivr_detalle
-WHERE  quarter_name = @quarter
-  AND  segmento     = @segmento
-ORDER BY fecha, total_llamadas DESC;
+    t.misma_linea,
+    t.linea_diferente,
+    t.no_digito_telefono
+FROM   base_ivr_detalle t
+WHERE  t.quarter_name = @quarter
+  AND  t.segmento     = @segmento
+ORDER BY t.fecha, t.total_llamadas DESC;
 
 -- sp_rpt_llamadas_abandonadas(@quarter)
 SELECT
@@ -428,21 +435,28 @@ GROUP BY quarter_name, menu, opcion
 ORDER BY total_llamadas DESC;
 
 -- sp_rpt_menu_centro(@quarter, @segmento)
+-- NOTA: MariaDB 10.1 no tiene window functions. El total por centro se
+-- obtiene con JOIN a subconsulta en lugar de OVER(PARTITION BY).
 SELECT
-    segmento,
-    centro_transferencia,
-    menu,
-    opcion,
-    SUM(total_llamadas)   AS ejecuciones,
-    -- porcentaje dentro del centro
-    ROUND(SUM(total_llamadas) /
-          SUM(SUM(total_llamadas)) OVER (PARTITION BY centro_transferencia)
-          * 100, 2)        AS pct_dentro_centro
-FROM   base_ivr_detalle
-WHERE  quarter_name = @quarter
-  AND  segmento     = @segmento
-GROUP BY segmento, centro_transferencia, menu, opcion
-ORDER BY centro_transferencia, ejecuciones DESC;
+    t.segmento,
+    t.centro_transferencia,
+    t.menu,
+    t.opcion,
+    SUM(t.total_llamadas)   AS ejecuciones,
+    ROUND(SUM(t.total_llamadas) /
+          tot.total_centro * 100, 2) AS pct_dentro_centro
+FROM   base_ivr_detalle t
+JOIN   (SELECT centro_transferencia,
+               SUM(total_llamadas) AS total_centro
+        FROM   base_ivr_detalle
+        WHERE  quarter_name = @quarter
+          AND  segmento     = @segmento
+        GROUP BY centro_transferencia) tot
+       ON tot.centro_transferencia = t.centro_transferencia
+WHERE  t.quarter_name = @quarter
+  AND  t.segmento     = @segmento
+GROUP BY t.segmento, t.centro_transferencia, t.menu, t.opcion
+ORDER BY t.centro_transferencia, ejecuciones DESC;
 
 -- sp_rpt_menu_redirigidos(@quarter)
 -- Estructura pendiente de confirmar con el equipo (P-13)
