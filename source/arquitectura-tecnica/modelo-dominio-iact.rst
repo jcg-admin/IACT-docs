@@ -168,8 +168,7 @@ el detalle de cada contexto ver § 4.
  }
 
  package "Pipeline ETL" as E {
-   class ETLExecution
-   class ETLError
+   class ETLEjecucion
  }
 
  package "Alerts" as L {
@@ -200,8 +199,7 @@ el detalle de cada contexto ver § 4.
  Report    "1" -- "*"   ScheduledReport
  Report    "1" -- "*"   SavedView
  Report    "*" .. "*"   Call                  : agrega
- ETLExecution "1" -- "*" ETLError
- ETLExecution "1" .. "*" Call                 : carga
+ ETLEjecucion "1" .. "*" Call                 : carga
  Alert     "*" -- "1"   Threshold
  Alert     "1" -- "*"   Subscription
  Subscription "*" -- "1" User
@@ -624,69 +622,48 @@ con un atributo ``scope`` enumerado, no como subclases.
 4.5 Pipeline ETL
 ----------------
 
-Dos clases: ``ETLExecution`` y ``ETLError``. La clase
-``LoadedRow`` que aparece en versiones historicas no es una clase
-del dominio — es dato operativo transitorio. ``Scheduler`` es
-infraestructura, no dominio (vive en el ADR de despliegue
-ADR-DEVOPS-001).
+Una clase de dominio: ``ETLEjecucion``. Cada ejecucion del Servicio
+ETL genera un registro en el Registro de Ejecuciones. Los errores
+no son entidades separadas: el campo ``mensaje_error`` en
+``ETLEjecucion`` captura la descripcion del fallo.
+``Scheduler`` es infraestructura, no dominio (vive en el ADR de
+despliegue ADR-DEVOPS-001).
 
 .. uml::
- :caption: Bounded context Pipeline ETL — ejecuciones y errores
-           del proceso de carga.
+ :caption: Bounded context Pipeline ETL — ejecuciones del Servicio
+           ETL registradas en el Registro de Ejecuciones.
 
  @startuml
 
- class ETLExecution {
-   + execution_id : UUID
-   + started_at : DateTime
-   + completed_at : DateTime
-   + status : ExecutionStatus
-   + source_window_start : DateTime
-   + source_window_end : DateTime
-   + rows_loaded : Integer
+ class ETLEjecucion {
+   + id : Integer
+   + tabla_origen : String
+   + trimestre : String
+   + iniciado_en : DateTime
+   + finalizado_en : DateTime
+   + estado : EstadoEjecucion
+   + registros_base : Integer
+   + mensaje_error : String
+   + ejecutado_por : String
    --
-   + start()
-   + complete()
-   + fail()
-   + retry()             <<PIP-004 request_retry>>
+   + es_exitosa() : Boolean
+   + es_fallida() : Boolean
+   + duracion_segundos() : Integer
  }
 
- class ETLError {
-   + error_id : UUID
-   + execution_id : UUID
-   + error_type : String
-   + error_message : String
-   + occurred_at : DateTime
-   + classified_severity : Severity
-   + resolved : Boolean
-   --
-   + record()
-   + classify()
-   + mark_resolved()
+ enum EstadoEjecucion {
+   en_ejecucion
+   exitoso
+   fallido
  }
 
- enum ExecutionStatus {
-   RUNNING
-   COMPLETED
-   FAILED
-   RETRYING
- }
+ ETLEjecucion -- EstadoEjecucion
 
- enum Severity {
-   INFO
-   WARN
-   ERROR
-   FATAL
- }
-
- ETLExecution "1" *-- "0..*" ETLError
- ETLExecution -- ExecutionStatus
-
- note right of ETLExecution
-   CNST-006: ventana de carga.
-   CNST-007: BD operativa de solo lectura.
-   CNST-008: BD analitica con ventana de
-   escritura.
+ note right of ETLEjecucion
+   CNST-007: tbl_historico_* es solo lectura.
+   CNST-008: ETL en ventana de 6-12 horas.
+   Persistida en Registro de Ejecuciones
+   (tabla etl_runs en MariaDB, propiedad IACT).
  end note
 
  @enduml
