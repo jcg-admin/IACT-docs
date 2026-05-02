@@ -13,7 +13,7 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "UC invocante\n(UC_AUTH/USR/ACC/PERM)" as CALLER
+ actor "write_audit_event" as CALLER
  actor "AlertEngine" as AE
  actor "AuditTable\n(append-only)" as DB
 

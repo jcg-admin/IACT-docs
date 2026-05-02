@@ -13,9 +13,9 @@ Parte 8 — Diagramas UML
  @startuml
  left to right direction
 
- actor "Decorator/Middleware" as DEC
+ actor "rbac_decorator" as DEC
  actor "view_assignments" as ADMIN
- actor "UC_PERM_08" as MENU
+ actor "view_own_navigation" as MENU
 
  rectangle "MOD_Permissions (servicio)" {
    usecase "UC_PERM_07\nVerificar Permiso" as UC07

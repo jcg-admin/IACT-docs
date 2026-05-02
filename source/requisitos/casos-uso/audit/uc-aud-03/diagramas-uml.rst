@@ -13,20 +13,82 @@ Parte 8 — Diagramas UML
  left to right direction
  actor "export_audit" as USR
  actor "ExportWorker" as EW
- actor "Mailbox" as MB
+ actor "InternalMailbox" as MB
  rectangle "MOD_Audit" {
-   usecase "UC_AUD_03\nExport" as UC03
+   usecase "UC_AUD_03\nExportar Audit Log" as UC03
+   usecase "Seleccionar\nperiodo y filtros" as SEL
+   usecase "Notificar\nvia Mailbox" as NOT
  }
  USR --> UC03
- UC03 --> EW
- EW --> MB
+ UC03 ..> SEL : <<extend>>
+ UC03 ..> EW : <<include>>
+ EW ..> NOT : <<include>>
+ NOT --> MB
  @enduml
 
-8.2 Actividad — identica a UC_RPT_04.
+8.2 Actividad
+=============
 
-8.3 Estado del job — identico a UC_RPT_04.
+.. uml::
 
-8.4 Secuencia — identica a UC_RPT_04.
+ @startuml
+ start
+ :POST /audit/export/;
+ :JWT + RBAC (export_audit);
+ :Validar filtros (periodo, accion, user_id);
+ if (Filtros invalidos?) then (si)
+   :400 Bad Request; stop
+ endif
+ :Encolar job de exportacion;
+ :Emitir audit AUDIT_EXPORT_QUEUED;
+ :202 Accepted + job_id;
+ fork
+   :ExportWorker procesa job;
+   :Leer audit_log por filtros;
+   :Generar CSV/JSON;
+   :Entregar a InternalMailbox;
+ endfork
+ stop
+ @enduml
 
-Para los diagramas detallados ver
-:doc:`/requisitos/casos-uso/reports/uc-rpt-04/diagramas-uml`.
+8.3 Estado del job de exportacion
+===================================
+
+.. uml::
+
+ @startuml
+ [*] --> Queued
+ Queued --> Processing : worker disponible
+ Processing --> Done : archivo generado
+ Processing --> Failed : error I/O
+ Done --> [*] : notificacion enviada
+ Failed --> Queued : reintento automatico
+ @enduml
+
+8.4 Secuencia de exportacion de audit log
+==========================================
+
+.. uml::
+
+ @startuml
+ actor "export_audit" as U
+ participant "AuditExportEndpoint" as EP
+ participant "ExportWorker" as W
+ database "audit_log\n(PostgreSQL)" as DB
+ participant "InternalMailbox" as MB
+
+ U -> EP : POST /audit/export/ {filters}
+ EP -> EP : JWT + RBAC (export_audit)
+ alt sin permiso
+   EP --> U : 403 Forbidden
+ else con permiso
+   EP -> EP : validar filtros
+   EP -> W : encolar job
+   EP --> U : 202 Accepted + job_id
+   W -> DB : SELECT FROM audit_log WHERE filters
+   DB --> W : rows
+   W -> W : formatear CSV/JSON
+   W -> MB : INSERT notificacion con adjunto
+   MB --> U : archivo disponible en buzón
+ end
+ @enduml
