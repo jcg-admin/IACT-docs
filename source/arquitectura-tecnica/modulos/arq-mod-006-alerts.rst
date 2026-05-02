@@ -225,14 +225,14 @@ El modulo ALERTS gestiona el **sistema de alertas operativas** y el
 7. Componentes Tecnicos
 =======================
 
-7.1 Apps Django
----------------
+7.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.common.notifications
    - InternalMessage, AlertConfig, servicios

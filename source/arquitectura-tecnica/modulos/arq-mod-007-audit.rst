@@ -264,14 +264,14 @@ en el sistema. Es la bitacora funcional para cumplimiento y gobernanza.
 7. Componentes Tecnicos
 =======================
 
-7.1 Apps Django
----------------
+7.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.common.audit
    - Modelo AuditLog, decoradores, servicios

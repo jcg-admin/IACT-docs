@@ -869,7 +869,7 @@ PARTE 4 — Dependencias transversales en detalle
 **Cobertura**: 59 / 61. Excepciones: UC_AUTH_01 (crea la Session) y
 UC_AUTH_03 (paso de validacion de token de recuperacion).
 
-**Mecanismo**: middleware HTTP que extrae JWT del header
+**Mecanismo**: middleware HTTP que extrae el token de autenticación del header
 ``Authorization``, valida firma + expiracion (CNST-002), resuelve
 Session, verifica ``state = ACTIVE``, aplica CNST-003 (sesion unica).
 Falla → 401.
@@ -1260,7 +1260,7 @@ C.3 Proximos pasos
 
 3. Stage 7 DESIGN para implementacion: usar el orden topologico de
    Parte 5 § 5.5 + los 5 componentes cross-cutting de § 6.3 como
-   guia de diseno tecnico (Django models / services / middleware).
+   guia de diseno tecnico (modelos / servicios / middleware).
 4. Materializar los 8 CRITICOS primero (sprints 1-3).
 5. Implementar el middleware T-02 / T-03 junto con UC_PERM_07.
 
@@ -1272,7 +1272,7 @@ C.3 Proximos pasos
 
 **Largo plazo:**
 
-9. WP de implementacion real: ADRs de implementacion (Django apps,
+9. WP de implementacion real: ADRs de implementacion (módulos de aplicación,
    modelos, vistas, tests) usando ADR-DEVOPS-001.
 10. Operacion y monitoreo: aplicar UCs LOG_05/06/07 como
     observabilidad del sistema en produccion.

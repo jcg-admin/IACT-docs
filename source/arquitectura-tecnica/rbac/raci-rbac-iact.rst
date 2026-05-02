@@ -90,7 +90,7 @@ stakeholder puede agrupar multiples Actores Tipicos.
  * - Tech Lead Backend
    - **TLB**
    - Owner tecnico de la spec del modelo RBAC + implementacion
-     backend (Django + SQL). Accountable global del modelo.
+     backend (framework web + base de datos). Accountable global del modelo.
    - Externo a los grupos AGR (rol de gobernanza tecnica)
  * - Equipo de Auditoria
    - **Aud**

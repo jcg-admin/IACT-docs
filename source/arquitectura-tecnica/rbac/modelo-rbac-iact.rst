@@ -499,7 +499,7 @@ TABLA DE CONTENIDO
 - CNST-001: NO email (recuperación por buzón interno)
 - CNST-002: Sesión única por usuario, timeout 15 min
 
-**Implementación Django:**
+**Implementación backend:**
 
 .. code-block:: python
 
@@ -584,7 +584,7 @@ TABLA DE CONTENIDO
 - CNST-005: Bajas siempre lógicas, nunca físicas
 - CNST-005: Username autogenerado
 
-**Implementación Django:**
+**Implementación backend:**
 
 .. code-block:: python
 

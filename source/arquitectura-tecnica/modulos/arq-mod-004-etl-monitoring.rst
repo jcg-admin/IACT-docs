@@ -160,14 +160,14 @@ de transformacion.
 5. Componentes Tecnicos
 =======================
 
-5.1 Apps Django
----------------
+5.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.etl
    - Modelos ETLExecution, vistas de supervision
@@ -313,7 +313,7 @@ de transformacion.
 
  +----------------+ +------------------+
  | BD IVR | | BD Analytics |
- | (MySQL) | | (PostgreSQL) |
+ | (BD operativa) | | (BD analítica) |
  | SOLO LECTURA | | ESCRIBIBLE |
  +-------+--------+ +--------+---------+
  | ^

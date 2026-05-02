@@ -246,14 +246,14 @@ aplica permisos de RBAC_CORE.
 6. Componentes Tecnicos
 =======================
 
-6.1 Apps Django
----------------
+6.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.analytics
    - Modelos de metricas, repositorios de consulta

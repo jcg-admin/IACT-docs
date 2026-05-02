@@ -162,7 +162,7 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
    - CNST_003: Bloquea WebSockets, SSE
  * - SessionDBEnforcer
    - Middleware
-   - CNST_002: Sesiones en PostgreSQL
+   - CNST_002: Sesiones en base de datos relacional
  * - ExportLimitEnforcer
    - Decorator
    - CNST_007: Limites de exportacion
@@ -212,14 +212,14 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
 6. Componentes Tecnicos
 =======================
 
-6.1 Apps Django
----------------
+6.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.common.permissions
    - Logica RBAC, enforcers, calculadores
@@ -301,8 +301,8 @@ Los enforcers aplican **automaticamente** las restricciones criticas:
  * - CNST
    - Descripcion y Aplicacion
  * - CNST_005
-   - **Seguridad DRF Checklist**: Implementa permisos DRF, 
-     IsAuthenticated, roles via JWT claims.
+   - **Seguridad API REST**: Implementa permisos de API,
+     autenticación requerida, roles via claims del token.
  * - CNST_001-010
    - **Todas**: Los enforcers aplican TODAS las restricciones criticas.
 

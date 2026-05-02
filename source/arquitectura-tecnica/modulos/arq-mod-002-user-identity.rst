@@ -172,14 +172,14 @@ alta, modificacion, baja logica, y datos de perfil.
 5. Componentes Tecnicos
 =======================
 
-5.1 Apps Django
----------------
+5.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.users
    - Modelos User, SecurityQuestion, vistas de gestion

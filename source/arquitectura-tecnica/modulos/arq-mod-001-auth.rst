@@ -37,7 +37,7 @@ de las sesiones** en el sistema IACT.
  *"¿Quien eres? ¿Tu sesion es valida?"*
 
 Este modulo es el punto de entrada al sistema. Valida credenciales, genera
-tokens JWT, gestiona sesiones en base de datos, y controla el timeout de
+tokens de autenticación, gestiona sesiones en base de datos, y controla el timeout de
 inactividad.
 
 **Lo demas lo decide:** ARQ_MOD_003_RBAC_CORE (permisos y accesos).
@@ -52,7 +52,7 @@ inactividad.
 
 - Login de usuario (validacion de credenciales)
 - Logout del sistema (invalidacion de sesion)
-- Generacion y validacion de tokens JWT
+- Generacion y validacion de tokens de autenticación
 - Gestion de refresh tokens
 - Sesion unica por usuario (CNST_002)
 - Timeout de sesion por inactividad (15 minutos)
@@ -87,7 +87,7 @@ inactividad.
  * - Validar credenciales (username + password)
    - UC_001
    - CNST_005
- * - Generar token JWT con claims basicos
+ * - Generar token de autenticación con claims básicos
    - UC_001
    - CNST_005
  * - Registrar sesion en base de datos
@@ -173,7 +173,7 @@ inactividad.
  * - ARQ_MOD_002_USER_IDENTITY
    - Necesita validar que el usuario existe y esta activo
  * - ARQ_MOD_003_RBAC_CORE
-   - Consulta roles basicos para incluir en claims JWT
+   - Consulta roles basicos para incluir en claims del token
 
 4.2 Es Requerido por
 --------------------
@@ -200,14 +200,14 @@ inactividad.
 5. Componentes Tecnicos
 =======================
 
-5.1 Apps Django
----------------
+5.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.users
    - Contiene vistas de login, logout, modelos de sesion
@@ -292,10 +292,10 @@ inactividad.
    - **Comunicaciones Prohibidas**: No enviar email para recuperacion. 
      Usar preguntas de seguridad + buzon interno.
  * - CNST_002
-   - **Gestion Sesiones BD**: Sesiones en PostgreSQL, no Redis. 
+   - **Gestion Sesiones BD**: Sesiones en base de datos relacional, no caché en memoria.
      Sesion unica por usuario. Timeout 15 min. Validar IP+UA.
  * - CNST_005
-   - **Seguridad DRF**: JWT con SimpleJWT. Blacklist de tokens. 
+   - **Seguridad API REST**: token de autenticación con librería de tokens. Lista negra de tokens.
      HTTPS obligatorio.
 
 ----
@@ -344,9 +344,9 @@ inactividad.
    - UC_001
    - Verificar username/password contra BD
  * - FR_002
-   - Generar_Token_JWT
+   - Generar_Token_Autenticacion
    - UC_001
-   - Crear JWT con claims de usuario
+   - Crear token de autenticación con claims de usuario
  * - FR_003
    - Registrar_Sesion_BD
    - UC_001
@@ -369,7 +369,7 @@ inactividad.
 
  +-------------+ +-------------+ +----------------+
  | Cliente | | ARQ_MOD_001 | | ARQ_MOD_002 |
- | (React) | | AUTH | | USER_IDENTITY |
+ | (Interfaz) | | AUTH | | USER_IDENTITY |
  +------+------+ +------+------+ +-------+--------+
  | | |
  | POST /login | |
@@ -398,13 +398,13 @@ inactividad.
     * - \ 
       - <---+
     * - \ 
-      - Generar JWT
+      - Generar token
     * - \ 
       - ----+
     * - \ 
       - <---+
  | | |
- | 200 + JWT | |
+ | 200 + token | |
  .. list-table::
     :header-rows: 1
 
@@ -419,8 +419,8 @@ inactividad.
 10.1 Validaciones Obligatorias
 ------------------------------
 
-- Password hasheado con bcrypt (minimo 12 rounds)
-- Token JWT firmado con HS256, expiracion 1 hora
+- Contraseña hasheada con algoritmo de hash de contraseña
+- Token de autenticación firmado con algoritmo de firma simétrica, expiración 1 hora
 - Refresh token con expiracion 24 horas
 - Validacion de IP en cada request
 - Validacion de User-Agent en cada request
@@ -441,7 +441,7 @@ inactividad.
  * - Token Theft
    - Blacklist de tokens, sesion unica
  * - CSRF
-   - Tokens JWT (no cookies de sesion)
+   - Tokens de autenticación (no cookies de sesión)
 
 ----
 
@@ -463,7 +463,7 @@ inactividad.
  | ARQ_MOD_002 | | ARQ_MOD_003 | | ARQ_MOD_007 |
  | USER_IDENTITY| | RBAC_CORE | | AUDIT |
  | (validar | | (roles para | | (registrar |
- | usuario) | | claims JWT) | | eventos) |
+ | usuario) | | claims del  | | eventos) |
  +-------------+ +----------------+ +-------------+
 
 ----

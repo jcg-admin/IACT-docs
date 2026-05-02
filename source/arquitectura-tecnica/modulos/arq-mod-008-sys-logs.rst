@@ -266,14 +266,14 @@ del sistema. Orientado a soporte, NOC y devops.
 8. Componentes Tecnicos
 =======================
 
-8.1 Apps Django
----------------
+8.1 Componentes de Aplicación
+------------------------------
 
 .. list-table::
  :widths: 30 70
  :header-rows: 1
 
- * - App
+ * - Componente
    - Descripcion
  * - apps.monitoring
    - Health checks, metricas, vistas de logs
