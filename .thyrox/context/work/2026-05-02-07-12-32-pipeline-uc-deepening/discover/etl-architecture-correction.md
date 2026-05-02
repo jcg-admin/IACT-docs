@@ -298,6 +298,64 @@ COMMIT;
 
 ---
 
+## 11. Volumen de datos — brutos vs limpios (PROVEN — 2026-05-02)
+
+Datos reales compartidos por el equipo en formato tabular.
+
+### 11.1 Volumen de tablas brutas
+
+| Fuente | Estimación |
+|---|---|
+| `tbl_historico_t1_2025` + `t2_2025` + `t3_2025` | **~34.1M llamadas** (Q01+Q02+Q03 2025) |
+| Por trimestre | ~11–14M llamadas/trimestre |
+| Por mes (estimado) | ~4–5M llamadas/mes |
+
+Fuente: suma de `total_llamadas` del reporte `llamadas_cmenu` = 34,101,981.
+
+### 11.2 Volumen de tablas limpias (tablas rpt_*)
+
+Las tablas limpias almacenan datos **AGREGADOS**, no registros individuales:
+
+| Tabla limpia | Filas Q01-Q03 2025 (PROVEN) |
+|---|---|
+| `rpt_clientes_unicos` | **8 filas** (tabla mínima — 2-3 filas/trimestre) |
+| `rpt_centros_transferencia` | Cientos de filas por trimestre/segmento |
+| `rpt_llamadas_cmenu` | ~20–30 filas por trimestre/segmento |
+| Demás tablas rpt_* | Estimación: decenas a pocos miles de filas/quarter |
+
+### 11.3 Implicación para D-07: TRUNCATE+INSERT — CONFIRMADO CORRECTO (PROVEN)
+
+**Error de interpretación previa:** Preocupación de que TRUNCATE+INSERT sería
+ineficiente para "millones de registros". Corrección: los millones de registros
+están en `tbl_historico_*` (tablas brutas). Los SPs del ETL **leen** esas tablas
+brutas, **agregan** los datos, y **escriben** los agregados en tablas limpias.
+
+```
+tbl_historico_* (~34M registros) → SP ETL (SELECT+GROUP BY) → rpt_* (~cientos filas)
+```
+
+TRUNCATE+INSERT sobre cientos de filas es trivialmente rápido (<1 segundo).
+D-07 queda CONFIRMADO sin ninguna reserva técnica.
+
+### 11.4 Calidad de datos en tablas limpias (PROVEN)
+
+Los SPs del ETL materializan valores sentinel cuando los campos raw están
+en estado inválido:
+
+| Sentinel | Aparece en | Origen en tabla bruta |
+|---|---|---|
+| `CASO_ERROR_CEROS` | `centro_transferencia`, `menu`, `opcion` | `cDID_Centro_Transferencia = 0` o vacío |
+| `CASO_NULL` | `centro_transferencia`, `menu`, `opcion` | campo raw = NULL |
+| `VACIO` | `menu`, `opcion`, `cMenu` | campo raw = cadena vacía |
+| `CLIENTE_COLGO` | `centro_transferencia` | cliente colgó antes de transferencia completa |
+
+**Distribución de `CASO_ERROR_CEROS`:** aparece en Q02_25 y Q03_25, NO en Q01_25.
+Esto es consistente con el problema reportado en `dFecha` de `tbl_historico_t3_2025`
+(y posiblemente `t2_2025`). La causa exacta del defecto en `dFecha` está pendiente
+de documentación formal (G-29).
+
+---
+
 ## 12. Lo que NO cambia con esta corrección
 
 - El **módulo de monitoreo existe** — Django sí muestra estado del ETL (UC_PIP_01..04 siguen siendo válidos en concepto)

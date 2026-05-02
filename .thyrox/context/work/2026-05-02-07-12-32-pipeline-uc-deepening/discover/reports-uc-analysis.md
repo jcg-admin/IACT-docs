@@ -353,3 +353,182 @@ Antes de escribir cualquier UC real de MOD_Reports, confirmar con el equipo:
 
 Una vez confirmados → crear `source/databases/mysql-clean-tables.rst` con el
 catálogo completo, luego reescribir los UCs de MOD_Reports.
+
+---
+
+## 11. Schemas confirmados desde datos reales (PROVEN — 2026-05-02)
+
+Fuente: reportes en formato Excel/tabular compartidos por el equipo el 2026-05-02.
+Los schemas de secciones 6 son INFERRED de scripts SQL. Esta sección los corrige
+y amplía con columnas observadas en los datos reales.
+
+### 11.1 rpt_centros_transferencia (PROVEN)
+
+Fuente: `DID_Centro_Transferencia_280825.xlsx`
+
+```
+trimestre             VARCHAR(10)   -- 'Q01_25', 'Q02_25', 'Q03_25'
+fecha                 INT o VARCHAR -- YYYYMM: 202501, 202502, ..., 202509
+                                    -- NO es tipo DATE (ver D-15)
+800_transfer          VARCHAR       -- 'Nacional', 'Puebla'
+centro_transferencia  VARCHAR       -- DID destino, o sentinel:
+                                    --   'CLIENTE_COLGO'
+                                    --   'CASO_ERROR_CEROS'  (ver 11.5)
+                                    --   'CASO_NULL'
+menu                  VARCHAR       -- e.g. 'RES-FallaInternet', 'cliente_colgo',
+                                    --   'SIN_MENU', 'CASO_NULL', 'VACIO'
+opcion                VARCHAR       -- e.g. 'DEFAULT', 'SIN_OPCION', 'TELVICOBRA',
+                                    --   'CASO_NULL', 'VACIO'
+total_llamadas        INT
+porcentaje            DECIMAL(15,7)
+misma_linea           INT
+linea_diferente       INT
+no_digito_telefono    INT
+```
+
+Corrección al schema INFERRED de sección 6: la tabla real tiene 11 columnas, NO 3.
+La sección 6 (Reporte 4/centros) no existía con schema completo — este es el primero.
+
+### 11.2 rpt_clientes_unicos (PROVEN)
+
+Fuente: reporte `clientes_unicos` compartido por el equipo.
+
+```
+trimestre         VARCHAR(10)  -- 'Q01_25', 'Q02_25', 'Q03_25'
+cDID_800Transfer  VARCHAR      -- 'nacional_A', 'nacional_B', 'puebla'
+                               -- NOTA: Nacional aparece como DOS filas separadas
+                               -- (ver D-17: nacional_A y nacional_B son DIDs distintos)
+clientes_unicos   INT          -- COUNT(DISTINCT cTelefono_Digitado)
+```
+
+**Volumen de la tabla:** 8 filas para Q01+Q02+Q03 2025 (tabla muy pequeña).
+Suma de `clientes_unicos` para todos los trimestres: **9,617,998** clientes únicos.
+
+Corrección al schema INFERRED de sección 6 (Reporte 2): el campo `quarter_name` se
+llamaba así en el script SQL, pero en la tabla limpia real la columna es `trimestre`.
+Pendiente confirmar naming definitivo de esta columna con el equipo.
+
+### 11.3 Reporte llamadas_cmenu (PROVEN — tabla destino pendiente de mapeo)
+
+Fuente: reporte `llamadas_cmenu` compartido por el equipo.
+
+```
+cDID_800Transfer  VARCHAR    -- 'Nacional', 'Puebla'
+                             -- Nacional aparece DOS veces (nacional_A + nacional_B
+                             -- están sumados o son filas separadas — confirmar)
+trimestre         VARCHAR    -- 'Q01_25', 'Q02_25', 'Q03_25'
+cMenu             VARCHAR    -- nombre del menú (mayúsculas en este reporte):
+                             -- 'CLIENTE_COLGO', 'RES-FALLAINTERNET',
+                             -- 'DESBORDE_CABECERA', 'VACIO', 'SIN_OPCION',
+                             -- 'RES-MADT-DETALLE', 'RES-SALDOOPAGOS',
+                             -- 'SINOPCION_CABECERA', 'DESBORDE_PROMOCIONAL',
+                             -- 'RES-FALLASLINEA', 'MARQUE3', 'RES_FALLA_STOP',
+                             -- 'MASI_REPITEBOLETA', 'NOTMX_SINOP',
+                             -- 'NUMERO TELMEX', 'ANI', 'KIPSOLCOM',
+                             -- 'TMX_SOMO', 'SALDOCABECERA', 'SALDOS3_OTRA',
+                             -- 'SALDOS1_PAGAR', 'MENUSALDOSCABECERA',
+                             -- 'telefono_cMenu', 'NOTMX-SEGUIMIENTOINSTALACION'
+total_llamadas    INT
+```
+
+**Volumen total:** suma `total_llamadas` = **34,101,981** llamadas en Q01+Q02+Q03 2025.
+
+**G-28 (NUEVO):** La tabla destino para este reporte en el catálogo D-02 no está clara.
+`rpt_cMENU_ERROR` es específicamente para menus con número de teléfono como anomalía
+(script `q_cMENU_ERROR.sql`). Este reporte muestra TODOS los menús incluyendo menús
+normales como `CLIENTE_COLGO`. Puede ser:
+- Una vista/aggregación de `rpt_menu_centro`
+- O un reporte distinto fuera del catálogo D-02 actual
+- O el reportee que da origen a `rpt_menu_centro` en su forma simplificada
+
+**Pendiente confirmar con el equipo:** ¿A qué tabla `rpt_*` del catálogo D-02 mapea
+el reporte `llamadas_cmenu`? ¿Es el origen de `rpt_menu_centro` o una tabla nueva?
+
+### 11.4 Menús observados en datos reales — catálogo (PROVEN)
+
+De los datos de `llamadas_cmenu`, menús reales identificados en producción Q01-Q03 2025:
+
+| cMenu (mayúsculas en reporte) | Tipo |
+|---|---|
+| `CLIENTE_COLGO` | Llamada colgada por cliente antes de menú |
+| `RES-FALLAINTERNET` / `RES-FallaInternet` | Menú de falla de internet |
+| `DESBORDE_CABECERA` | Desborde de cabecera |
+| `NOTMX-SEGUIMIENTOINSTALACION` | Seguimiento de instalación (NTX) |
+| `VACIO` | Valor vacío (sentinel) |
+| `SIN_MENU` | Sin menú seleccionado |
+| `RES-MADT-DETALLE` | Menú MADT detalle |
+| `RES-SALDOOPAGOS` | Saldos y pagos |
+| `SINOPCION_CABECERA` | Sin opción en cabecera |
+| `DESBORDE_PROMOCIONAL` | Desborde de promocional |
+| `RES-FALLASLINEA` | Fallas de línea |
+| `MARQUE3` | Marque 3 |
+| `RES_FALLA_STOP` | Falla stop |
+| `MASI_REPITEBOLETA` | MASI repite boleta |
+| `NOTMX_SINOP` | NTX sin opción |
+| `NUMERO TELMEX` | Número Telmex |
+| `ANI` | ANI (Automatic Number Identification) |
+| `KIPSOLCOM` | Kipsolcom |
+| `TMX_SOMO` | TMX SOMO |
+| `SALDOCABECERA` | Saldo cabecera |
+| `SALDOS3_OTRA` | Saldos S3 otro |
+| `SALDOS1_PAGAR` | Saldos S1 a pagar |
+| `MENUSALDOSCABECERA` | Menú saldos cabecera |
+| `telefono_cMenu` | Sentinel: número de teléfono como cMenu (anomalía — ver `rpt_cMENU_ERROR`) |
+
+**Nota sobre casing:** el mismo menú puede aparecer con casing diferente en reportes
+distintos (e.g. `RES-FallaInternet` vs `RES-FALLAINTERNET`). Los SPs de ETL deben
+normalizar el casing o el análisis debe ser case-insensitive.
+
+### 11.5 Sentinels de calidad de datos (PROVEN)
+
+En los datos reales de producción existen valores sentinel que representan condiciones
+de error o datos faltantes en dimensiones de las tablas limpias:
+
+| Sentinel | Aparece en | Significado |
+|---|---|---|
+| `CASO_ERROR_CEROS` | `centro_transferencia`, `menu`, `opcion` | El campo raw (`cDID_Centro_Transferencia`) era 0 o inválido |
+| `CASO_NULL` | `centro_transferencia`, `menu`, `opcion` | El campo raw era NULL |
+| `VACIO` | `menu`, `opcion`, `cMenu` | El campo raw era cadena vacía |
+| `CLIENTE_COLGO` | `centro_transferencia` | El cliente colgó antes de que se completara la transferencia |
+| `SIN_MENU` | `menu` | No hubo selección de menú (cliente no interactuó) |
+| `SIN_OPCION` | `opcion` | No hubo selección de opción |
+
+**Distribución de `CASO_ERROR_CEROS`:** Aparece en datos de Q02_25 y Q03_25,
+NO en Q01_25. Esto es consistente con el problema conocido en `dFecha` para
+`tbl_historico_t3_2025` (mencionado por el equipo). La degradación de datos
+comenzó en Q2 2025, no desde el inicio.
+
+**G-29 (NUEVO):** La causa exacta del problema `dFecha` en `tbl_historico_t3_2025`
+(y posiblemente `t2_2025`) no está documentada formalmente. El equipo mencionó
+"un problema en el campo de fecha que estaba mal". Evidencia indirecta:
+`CASO_ERROR_CEROS` surge en Q02/Q03 pero no en Q01. Pendiente documentación
+formal del defecto en campo `dFecha`.
+
+### 11.6 Volumen de datos — brutos vs agregados (PROVEN)
+
+| Nivel | Tabla/Fuente | Filas estimadas Q01-Q03 2025 |
+|---|---|---|
+| Bruto | `tbl_historico_t1_2025` + `t2_2025` + `t3_2025` | **~34.1M** llamadas totales |
+| Agregado | `rpt_clientes_unicos` | 8 filas (tabla mínima) |
+| Agregado | `rpt_centros_transferencia` (Q03 Puebla) | ~cientos de filas por trimestre/segmento |
+| Agregado | `rpt_llamadas_cmenu` (si separada) | ~20-30 filas por trimestre/segmento |
+
+**Implicación para D-07 (PROVEN):** Las tablas limpias almacenan datos AGREGADOS,
+no registros individuales de llamadas. TRUNCATE+INSERT sobre unas pocas centenas
+de filas es trivialmente rápido. La preocupación de eficiencia no aplica a las
+tablas limpias — aplica (si hubiera que hacerlo) solo sobre las tablas brutas,
+que el ETL NO toca con TRUNCATE. D-07 queda CONFIRMADO como correcto y eficiente.
+
+---
+
+## 12. Gaps adicionales identificados (acumulado)
+
+| Gap | Descripción | Estado |
+|---|---|---|
+| G-23 | 14 UC_RPT de referencia usan conceptos genéricos incompatibles con IACT real | Abierto |
+| G-24 | ~~Naming de tablas limpias~~ | **CERRADO** — D-01/D-02 confirmados |
+| G-25 | ~~Total de reportes reales~~ | **CERRADO** — 7 reportes Scope 1 confirmados |
+| G-26 | Cómo se calculan `hora_inicio`/`hora_fin` en vista `llamadas_QN` | Abierto |
+| G-27 | UCs usan `segmento_id`; real usa `cDID_800Transfer` — conceptos distintos | Abierto |
+| G-28 | Mapeo del reporte `llamadas_cmenu` al catálogo rpt_* (¿rpt_menu_centro o nuevo?) | **Abierto — confirmar con equipo** |
+| G-29 | Causa exacta del problema `dFecha` en `tbl_historico_t2/t3_2025` no documentada | **Abierto — confirmar con equipo** |

@@ -81,5 +81,43 @@ author: NestorMonroy
   (máx 6 posiciones observadas en Q3 2025). Función `fn_extraer_etiqueta`
   lo parsea por posición.
 
+## Schemas confirmados desde datos reales (2026-05-02)
+
+- discover/reports-uc-analysis.md — nueva sección 11 con schemas confirmados
+  desde reportes reales (Excel/tabular) compartidos por el equipo:
+  `rpt_centros_transferencia` (11 columnas), `rpt_clientes_unicos` (3 columnas),
+  reporte `llamadas_cmenu` (4 columnas, tabla destino pendiente de mapeo).
+  Volumen total confirmado: 34,101,981 llamadas Q01-Q03 2025.
+
+- discover/etl-architecture-correction.md — nueva sección 11 con volumen de
+  datos brutos (~34.1M registros en tbl_historico_*) vs datos limpios (cientos
+  de filas en rpt_*). Confirmación definitiva de D-07 (TRUNCATE+INSERT correcto
+  porque las tablas limpias son agregados, no registros individuales).
+
+## Decisiones nuevas (confirmadas por datos reales, 2026-05-02)
+
+- **D-14:** `rpt_centros_transferencia` tiene 11 columnas: `trimestre`, `fecha`,
+  `800_transfer`, `centro_transferencia`, `menu`, `opcion`, `total_llamadas`,
+  `porcentaje`, `misma_linea`, `linea_diferente`, `no_digito_telefono`.
+- **D-15:** La columna `fecha` en las tablas limpias almacena formato YYYYMM
+  (e.g. `202501`, `202502`), NO es tipo DATE de MySQL.
+- **D-16:** Las tablas limpias `rpt_*` almacenan datos AGREGADOS (decenas a
+  cientos de filas por quarter), no registros brutos. TRUNCATE+INSERT sobre
+  ellas es trivialmente rápido. D-07 CONFIRMADO definitivamente.
+- **D-17:** El segmento Nacional tiene dos sub-grupos físicamente distintos:
+  `nacional_A` (DID 19028031) y `nacional_B` (DID 19020001). En `rpt_clientes_unicos`
+  aparecen como dos filas separadas. En otros reportes pueden aparecer sumados
+  bajo `'Nacional'`.
+
+## Gaps nuevos identificados
+
+- **G-28:** El reporte `llamadas_cmenu` (cDID_800Transfer, trimestre, cMenu,
+  total_llamadas) no mapea claramente a ninguna tabla del catálogo D-02. ¿Es
+  el origen de `rpt_menu_centro` en forma simplificada, o es una tabla nueva?
+  Pendiente confirmar con el equipo.
+- **G-29:** La causa exacta del problema en `dFecha` de `tbl_historico_t2/t3_2025`
+  no está documentada formalmente. Evidencia indirecta: `CASO_ERROR_CEROS` aparece
+  en Q02/Q03 pero no en Q01, sugiriendo degradación de datos desde Q2 2025.
+
 ## Status de promoción a CHANGELOG.md raíz
 Pendiente — el WP está en Phase 1 DISCOVER.
