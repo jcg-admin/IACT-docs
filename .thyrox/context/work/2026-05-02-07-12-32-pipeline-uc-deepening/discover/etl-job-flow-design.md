@@ -1,11 +1,12 @@
 ```yml
 created_at: 2026-05-02 08:44:41
+updated_at: 2026-05-02 08:58:05
 project: IACT-docs
 work_package: 2026-05-02-07-12-32-pipeline-uc-deepening
 phase: Phase 1 — DISCOVER
 author: NestorMonroy
 status: Borrador
-version: 1.0.0
+version: 2.0.0
 ```
 
 # Diagrama de Flujo del Proceso ETL — IACT
@@ -24,86 +25,172 @@ version: 1.0.0
 | **Frecuencia** | Diaria (02:00 AM) — D-08 |
 | **Restricción crítica** | Solo lectura en tablas IVR — CNST-ETL-001, CNST-ETL-002 |
 | **Sin índices en fuente** | `tbl_historico_*` NO tienen índices — CNST-ETL-005 |
-| **Tablas destino** | 7 tablas `rpt_*` con índices definidos — D-01, D-02, CNST-ETL-006 |
+| **Tablas destino** | 2 tablas base con índices (D-18) — `base_ivr_detalle` + `base_ivr_clientes` |
+| **Reportes** | SPs de reporte llamados por Django bajo demanda (D-19) |
 
 ### DIDs de segmentos (valores únicos y correctos)
 
 | Variable | DID | Segmento |
 |---|---|---|
-| `@DID_Puebla` | `19020084` | Centro Puebla |
-| `@DID_NacionalA` | `19028031` | Centro Nacional (línea A) |
-| `@DID_NacionalB` | `19020001` | Centro Nacional (línea B) |
+| Puebla | `19020084` | Centro Puebla |
+| Nacional A | `19028031` | Centro Nacional (línea A) |
+| Nacional B | `19020001` | Centro Nacional (línea B) |
 
-> **Regla obligatoria:** Todo filtro sobre `cDID_800Transfer` debe incluir los 3 DIDs
+> **Regla obligatoria:** Todo filtro sobre `cDID_800Transfer` incluye los 3 DIDs
 > en un solo `WHERE IN (19020084, 19028031, 19020001)`. Nunca omitir uno.
 
 ---
 
-## Arquitectura general: un SP por tabla rpt_* + SP maestro
+## Por qué 2 tablas base en lugar de 7 tablas de reporte
+
+### El problema: millones de registros + sin índices
 
 ```
-EVENT: evt_etl_diario  (diariamente 02:00 AM — D-08)
-  └── CALL sp_etl_maestro(@quarter_name, @fecha_inicio, @fecha_fin)
-        │
-        ├── CALL sp_etl_rpt_clientes_unicos(...)
-        ├── CALL sp_etl_rpt_centros_transferencia(...)
-        ├── CALL sp_etl_rpt_llamadas_abandonadas(...)
-        ├── CALL sp_etl_rpt_colgadas(...)
-        ├── CALL sp_etl_rpt_menu_centro(...)
-        ├── CALL sp_etl_rpt_cMENU_ERROR(...)
-        └── CALL sp_etl_rpt_menu_redirigidos(...)
+tbl_historico_t3_2025
+  ~14M filas, sin índices (CNST-ETL-005)
+       │
+       │  Full table scan INEVITABLE en cada lectura
+       │  Tiempo estimado: 5-20 minutos por scan
+       │
+       ▼
+  Diseño anterior (7 tablas rpt_*):
+  7 SPs de ETL × 1 scan cada uno = 7 scans nocturnos
+  → mismos millones de registros procesados 7 veces
+
+  Diseño nuevo (2 tablas base):
+  1 SP de ETL × 1 scan = 1 scan nocturno
+  → millones de registros procesados 1 sola vez
 ```
 
-**Principios de cada SP individual (CNST-ETL-005):**
-- Una sola pasada sobre `tbl_historico_tN_YYYY` — sin queries secundarias sobre la misma tabla
-- Los 3 DIDs siempre en un único `WHERE IN`
-- Normalización y agregación en el mismo `SELECT` — sin tablas temporales de datos brutos
-- Patrón atómico: `DELETE WHERE quarter_name + INSERT` dentro de transacción (D-07)
+### La separación que resuelve el problema
+
+```
+ETL nocturno (caro — se paga una vez por noche):
+  tbl_historico_* (~14M filas, sin índice)
+       │
+       │  1 scan  →  GROUP BY de 14M filas
+       │              resultado: miles de filas
+       ▼
+  base_ivr_detalle  (miles de filas, CON índices)
+  base_ivr_clientes (filas mínimas, CON índices)
+       │
+Reporte bajo demanda (barato — milisegundos):
+       │  SELECT sobre miles de filas indexadas
+       ▼
+  sp_rpt_*(@quarter, @params)  →  Django  →  Usuario
+```
+
+### Ventajas del nuevo diseño
+
+| Dimensión | 7 tablas rpt_* | 2 tablas base |
+|---|---|---|
+| Scans de `tbl_historico_*` por noche | 7 scans | 1 scan |
+| Nuevo reporte necesario | Nuevo ETL SP + nueva tabla + datos | Solo nuevo SP de reporte |
+| Django lee | Tabla directamente (schema coupling) | Result set del SP (desacoplado) |
+| Parámetros dinámicos | No — tabla estática | Sí — SP recibe @quarter, @segmento, etc. |
+| Duplicación de datos | Alta — mismos datos en N tablas | Ninguna — fuente única |
 
 ---
 
-## Tablas de la fuente IVR (solo lectura)
+## Arquitectura general
 
-| Tabla | Quarter | Rango de fechas |
-|---|---|---|
-| `tbl_historico_t1_2025` | Q01_25 | 2025-01-01 → 2025-03-31 |
-| `tbl_historico_t2_2025` | Q02_25 | 2025-04-01 → 2025-06-30 |
-| `tbl_historico_t3_2025` | Q03_25 | 2025-07-01 → 2025-09-30 |
+```
+EVENT: evt_etl_diario  (diariamente 02:00 AM — D-08)
+  └── CALL sp_etl_maestro()
+        │
+        ├── CALL sp_etl_base_detalle(@quarter, @inicio, @fin)
+        │     └── 1 scan tbl_historico_tN_YYYY
+        │         → DELETE + INSERT base_ivr_detalle
+        │
+        └── CALL sp_etl_base_clientes(@quarter, @inicio, @fin)
+              └── 1 scan tbl_historico_tN_YYYY (COUNT DISTINCT)
+                  → DELETE + INSERT base_ivr_clientes
 
-**Columnas disponibles para el ETL:**
+SPs de reporte (llamados por Django bajo demanda — D-19):
+  sp_rpt_centros_transferencia(@quarter, @segmento)
+  sp_rpt_menu_centro(@quarter, @segmento)
+  sp_rpt_llamadas_abandonadas(@quarter)
+  sp_rpt_cMENU_ERROR(@quarter)
+  sp_rpt_colgadas(@quarter)
+  sp_rpt_menu_redirigidos(@quarter)
+  sp_rpt_clientes_unicos(@quarter)
+```
 
-| Columna | Tipo | Uso en ETL |
-|---|---|---|
-| `dFecha` | DATE | Filtro por rango del quarter |
-| `dHoraInicio` | DATETIME | Cálculo de duración (extraer con `TIME()`) |
-| `dHoraFin` | DATETIME | Cálculo de duración — **con registros donde inicio > fin** |
-| `cDID_800Transfer` | BIGINT | Filtro de segmento y dimensión de reporte |
-| `cDID_Centro_Transferencia` | VARCHAR | Requiere normalización compleja (ver Paso 3) |
-| `cMenu` | VARCHAR | NULLABLE — normalizar a sentinels |
-| `cOpcion` | VARCHAR | NULLABLE — normalizar a sentinels |
-| `cTelefono_Origen` | VARCHAR | Identidad del llamante |
-| `cTelefono_Digitado` | VARCHAR | Teléfono ingresado por el usuario en el IVR |
-| `cEtiquetacliente` | VARCHAR | Etiqueta individual (la vista agrega en CSV) |
+### Separación ETL SPs vs Reporting SPs
 
-> **ADVERTENCIA `dHoraInicio`/`dHoraFin`:** existen registros donde `dHoraInicio > dHoraFin`
-> (datos invertidos). Al calcular duración, usar `ABS(TIME_TO_SEC(TIME(dHoraFin)) -
-> TIME_TO_SEC(TIME(dHoraInicio)))` como workaround. Para llamadas que cruzan medianoche
-> este workaround produce resultados incorrectos — es un defecto conocido de la fuente.
+| Tipo | Nombre | Quién lo llama | Operación |
+|---|---|---|---|
+| **ETL SP** | `sp_etl_base_*` | MySQL Event (nocturno) | Lee `tbl_historico_*` → escribe tablas base |
+| **Reporting SP** | `sp_rpt_*` | Django (bajo demanda) | Lee tablas base → retorna result set |
+
+> D-09 aplica SOLO a ETL SPs — Django no puede disparar el ETL.
+> Los Reporting SPs son read-only y Django los llama libremente.
+
+---
+
+## Tablas base — schemas
+
+### base_ivr_detalle
+
+Grain: una fila por combinación única de
+`(quarter_name, fecha_mes, segmento, centro_transferencia, menu, opcion)`.
+
+Contiene todas las métricas aditivas (COUNT, SUM).
+Fuente para todos los reportes excepto `sp_rpt_clientes_unicos`.
+
+```sql
+CREATE TABLE base_ivr_detalle (
+    id                    INT AUTO_INCREMENT PRIMARY KEY,
+    quarter_name          VARCHAR(10)   NOT NULL,  -- 'Q01_25','Q02_25','Q03_25'
+    fecha                 VARCHAR(6)    NOT NULL,  -- YYYYMM: '202507'
+    segmento              VARCHAR(20)   NOT NULL,  -- 'Puebla','nacional_A','nacional_B'
+    centro_transferencia  VARCHAR(100)  NOT NULL,  -- normalizado: DID, 'CASO_NULL',
+                                                   -- 'CASO_ERROR_CEROS','CLIENTE_COLGO'
+    menu                  VARCHAR(100)  NOT NULL,  -- normalizado: nombre, 'SIN_MENU','VACIO'
+    opcion                VARCHAR(100)  NOT NULL,  -- normalizado: nombre, 'SIN_OPCION'
+    total_llamadas        INT           NOT NULL DEFAULT 0,
+    misma_linea           INT           NOT NULL DEFAULT 0,  -- cTelefono_Origen = Digitado
+    linea_diferente       INT           NOT NULL DEFAULT 0,
+    no_digito_telefono    INT           NOT NULL DEFAULT 0,  -- cTelefono_Digitado IS NULL
+
+    INDEX idx_quarter           (quarter_name),
+    INDEX idx_quarter_fecha     (quarter_name, fecha),
+    INDEX idx_quarter_segmento  (quarter_name, segmento),
+    INDEX idx_quarter_menu      (quarter_name, menu),
+    INDEX idx_quarter_centro    (quarter_name, centro_transferencia)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+### base_ivr_clientes
+
+Separada de `base_ivr_detalle` porque `COUNT(DISTINCT cTelefono_Digitado)` es
+**no aditivo** — no puede derivarse sumando filas de `base_ivr_detalle`.
+Requiere su propio scan sobre la fuente.
+
+```sql
+CREATE TABLE base_ivr_clientes (
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    quarter_name     VARCHAR(10)  NOT NULL,  -- 'Q01_25','Q02_25','Q03_25'
+    segmento         VARCHAR(20)  NOT NULL,  -- 'Puebla','nacional_A','nacional_B'
+    clientes_unicos  INT          NOT NULL DEFAULT 0,
+
+    INDEX idx_quarter           (quarter_name),
+    INDEX idx_quarter_segmento  (quarter_name, segmento)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
 
 ---
 
 ## Sentinels de calidad de datos (valores canonizados)
 
-Estos son los valores exactos que deben aparecer en las tablas `rpt_*`:
-
-| Sentinel | Condición de origen | Columnas que lo usan |
+| Sentinel | Condición de origen en `tbl_historico_*` | Columna en tabla base |
 |---|---|---|
-| `'CASO_NULL'` | Campo raw es NULL o cadena vacía | `centro_transferencia`, `menu`, `opcion` |
+| `'CASO_NULL'` | `cDID_Centro_Transferencia` IS NULL o vacío | `centro_transferencia` |
 | `'CASO_ERROR_CEROS'` | `cDID_Centro_Transferencia REGEXP '^0+$'` | `centro_transferencia` |
 | `'CLIENTE_COLGO'` | `cDID_Centro_Transferencia = 'cliente_colgo'` | `centro_transferencia` |
-| `'VACIO'` | `TRIM(cMenu) = ''` o `TRIM(cOpcion) = ''` | `menu`, `opcion` |
-| `'SIN_MENU'` | `cMenu IS NULL` o `cMenu = 'sin cMenu'` | `menu` |
-| `'SIN_OPCION'` | `cOpcion IS NULL` | `opcion` |
+| `'SIN_MENU'` | `cMenu IS NULL` o `TRIM(cMenu) = ''` o `cMenu = 'sin cMenu'` | `menu` |
+| `'VACIO'` | `TRIM(cMenu) = ''` / `TRIM(cOpcion) = ''` | `menu`, `opcion` |
+| `'SIN_OPCION'` | `cOpcion IS NULL` o vacío | `opcion` |
 
 ---
 
@@ -119,346 +206,294 @@ Estos son los valores exactos que deben aparecer en las tablas `rpt_*`:
 │  PASO 1: VALIDACIONES INICIALES                      │
 ├──────────────────────────────────────────────────────┤
 │  • ¿Hay otro Job ejecutándose?                       │
-│    SI: salir (no esperar — el Event dispara mañana)  │
+│    SI: registrar SKIP y salir                        │
 │    NO: continuar                                     │
 │  • Determinar quarter activo por CURDATE()           │
 │  • Registrar inicio en job_execution_log             │
-│    status = 'RUNNING'                                │
+│    (status = 'RUNNING')                              │
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
 │  PASO 2: DETERMINAR QUARTER Y TABLA FUENTE           │
 ├──────────────────────────────────────────────────────┤
-│  Lógica basada en CURDATE():                         │
+│  Solo se reprocesa el quarter ACTIVO.                │
+│  Los quarters anteriores no cambian en base_ivr_*.   │
 │                                                      │
 │  IF CURDATE() BETWEEN '2025-01-01' AND '2025-03-31' │
-│    SET @quarter = 'Q01_25'                           │
-│    SET @tabla   = 'tbl_historico_t1_2025'            │
-│    SET @inicio  = '2025-01-01'                       │
-│    SET @fin     = '2025-03-31'                       │
-│  ELSEIF CURDATE() BETWEEN '2025-04-01' AND '2025-06-30'│
-│    SET @quarter = 'Q02_25'                           │
-│    SET @tabla   = 'tbl_historico_t2_2025'            │
-│    SET @inicio  = '2025-04-01'                       │
-│    SET @fin     = '2025-06-30'                       │
-│  ELSEIF CURDATE() BETWEEN '2025-07-01' AND '2025-09-30'│
-│    SET @quarter = 'Q03_25'                           │
-│    SET @tabla   = 'tbl_historico_t3_2025'            │
-│    SET @inicio  = '2025-07-01'                       │
-│    SET @fin     = '2025-09-30'                       │
+│    @quarter = 'Q01_25'                               │
+│    @tabla   = 'tbl_historico_t1_2025'                │
+│    @inicio  = '2025-01-01'  @fin = '2025-03-31'      │
+│  ELSEIF ... '2025-04-01' AND '2025-06-30'            │
+│    @quarter = 'Q02_25'                               │
+│    @tabla   = 'tbl_historico_t2_2025'                │
+│    @inicio  = '2025-04-01'  @fin = '2025-06-30'      │
+│  ELSEIF ... '2025-07-01' AND '2025-09-30'            │
+│    @quarter = 'Q03_25'                               │
+│    @tabla   = 'tbl_historico_t3_2025'                │
+│    @inicio  = '2025-07-01'  @fin = '2025-09-30'      │
 │  END IF                                              │
-│                                                      │
-│  NOTA: Solo se reprocesa el quarter activo. Los      │
-│  quarters anteriores ya están en rpt_* y no cambian. │
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
-│  PASO 3: EXTRACCIÓN + NORMALIZACIÓN (por SP)         │
+│  PASO 3: sp_etl_base_detalle                         │
+│  (1 scan completo — el más costoso)                  │
 ├──────────────────────────────────────────────────────┤
-│  Columnas extraídas de tbl_historico_tN_YYYY:        │
-│    dFecha, dHoraInicio, dHoraFin,                    │
-│    cDID_800Transfer,                                 │
-│    cDID_Centro_Transferencia,                        │
-│    cMenu, cOpcion,                                   │
-│    cTelefono_Origen, cTelefono_Digitado              │
+│  START TRANSACTION;                                  │
 │                                                      │
-│  Filtro obligatorio:                                 │
-│    WHERE dFecha BETWEEN @inicio AND @fin             │
-│      AND cDID_800Transfer IN                         │
-│          (19020084, 19028031, 19020001)               │
+│  DELETE FROM base_ivr_detalle                        │
+│  WHERE quarter_name = @quarter;                      │
 │                                                      │
-│  Normalización inline (en el mismo SELECT):          │
+│  INSERT INTO base_ivr_detalle                        │
+│    (quarter_name, fecha, segmento,                   │
+│     centro_transferencia, menu, opcion,              │
+│     total_llamadas, misma_linea,                     │
+│     linea_diferente, no_digito_telefono)             │
+│  SELECT                                              │
+│    @quarter,                                         │
+│    DATE_FORMAT(dFecha, '%Y%m'),     -- YYYYMM        │
+│    CASE cDID_800Transfer                             │
+│      WHEN 19020084 THEN 'Puebla'                     │
+│      WHEN 19028031 THEN 'nacional_A'                 │
+│      WHEN 19020001 THEN 'nacional_B'                 │
+│    END,                                              │
+│    -- Normalización cDID_Centro_Transferencia:       │
+│    CASE                                              │
+│      WHEN TRIM(cDID_Centro_Transferencia) IS NULL    │
+│        OR TRIM(cDID_Centro_Transferencia) = ''       │
+│        THEN 'CASO_NULL'                              │
+│      WHEN cDID_Centro_Transferencia                  │
+│        = 'cliente_colgo' THEN 'CLIENTE_COLGO'        │
+│      WHEN cDID_Centro_Transferencia                  │
+│        REGEXP '^0+$' THEN 'CASO_ERROR_CEROS'         │
+│      WHEN LENGTH(cDID_Centro_Transferencia) > 10     │
+│        THEN LEFT(cDID_Centro_Transferencia,          │
+│             LENGTH(cDID_Centro_Transferencia) - 10)  │
+│      ELSE cDID_Centro_Transferencia                  │
+│    END,                                              │
+│    -- Normalización cMenu:                           │
+│    CASE                                              │
+│      WHEN cMenu IS NULL              THEN 'SIN_MENU' │
+│      WHEN TRIM(cMenu) = ''           THEN 'SIN_MENU' │
+│      WHEN cMenu = 'sin cMenu'        THEN 'SIN_MENU' │
+│      ELSE cMenu                                      │
+│    END,                                              │
+│    -- Normalización cOpcion:                         │
+│    COALESCE(NULLIF(TRIM(cOpcion),''),'SIN_OPCION'),  │
+│    COUNT(*),                                         │
+│    SUM(cTelefono_Origen = cTelefono_Digitado),       │
+│    SUM(cTelefono_Origen != cTelefono_Digitado),      │
+│    SUM(cTelefono_Digitado IS NULL)                   │
+│  FROM tbl_historico_tN_YYYY   -- tabla dinámica      │
+│  WHERE dFecha BETWEEN @inicio AND @fin               │
+│    AND cDID_800Transfer IN                           │
+│        (19020084, 19028031, 19020001)                 │
+│  GROUP BY 2,3,4,5,6;          -- miles de filas      │
 │                                                      │
-│  A) cDID_Centro_Transferencia:                       │
-│     CASE                                             │
-│       WHEN TRIM(cDID_Centro_Transferencia) IS NULL   │
-│         OR TRIM(cDID_Centro_Transferencia) = ''      │
-│         THEN 'CASO_NULL'                             │
-│       WHEN cDID_Centro_Transferencia                 │
-│         = 'cliente_colgo'  THEN 'CLIENTE_COLGO'      │
-│       WHEN cDID_Centro_Transferencia                 │
-│         REGEXP '^0+$'      THEN 'CASO_ERROR_CEROS'   │
-│       WHEN LENGTH(cDID_Centro_Transferencia) > 10    │
-│         THEN LEFT(cDID_Centro_Transferencia,         │
-│              LENGTH(cDID_Centro_Transferencia) - 10) │
-│       ELSE cDID_Centro_Transferencia                 │
-│     END AS centro_transferencia                      │
-│                                                      │
-│  B) cMenu:                                           │
-│     CASE                                             │
-│       WHEN cMenu IS NULL               THEN 'SIN_MENU'│
-│       WHEN TRIM(cMenu) = ''            THEN 'SIN_MENU'│
-│       WHEN cMenu = 'sin cMenu'         THEN 'SIN_MENU'│
-│       ELSE cMenu                                     │
-│     END AS menu                                      │
-│                                                      │
-│  C) cOpcion:                                         │
-│     COALESCE(NULLIF(TRIM(cOpcion), ''), 'SIN_OPCION')│
-│     AS opcion                                        │
-│                                                      │
-│  D) Segmento (label legible):                        │
-│     CASE cDID_800Transfer                            │
-│       WHEN 19020084 THEN 'Puebla'                    │
-│       WHEN 19028031 THEN 'nacional_A'                │
-│       WHEN 19020001 THEN 'nacional_B'                │
-│     END AS segmento                                  │
-│                                                      │
-│  E) Campos derivados:                                │
-│     (cTelefono_Origen = cTelefono_Digitado)          │
-│       AS es_misma_linea                              │
-│     (cTelefono_Digitado IS NOT NULL)                 │
-│       AS tiene_telefono_digitado                     │
-│                                                      │
-│  Timeout: 300 segundos máximo por SP                 │
-│  Registrar COUNT(*) leído                            │
+│  COMMIT;  -- fallo → ROLLBACK automático             │
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
-│  PASO 4: AGREGACIÓN (en el mismo SELECT del SP)      │
+│  PASO 4: sp_etl_base_clientes                        │
+│  (2do scan — COUNT DISTINCT no aditivo)              │
 ├──────────────────────────────────────────────────────┤
-│  Sin tablas temporales de datos brutos (anti-patrón  │
-│  documentado — CNST-ETL-005). La agregación ocurre   │
-│  dentro del SELECT que va directo a INSERT.          │
+│  START TRANSACTION;                                  │
 │                                                      │
-│  Por SP:                                             │
-│  ─────────────────────────────────────────────────   │
-│  sp_etl_rpt_clientes_unicos:                         │
-│    GROUP BY quarter_name, cDID_800Transfer           │
+│  DELETE FROM base_ivr_clientes                       │
+│  WHERE quarter_name = @quarter;                      │
+│                                                      │
+│  INSERT INTO base_ivr_clientes                       │
+│    (quarter_name, segmento, clientes_unicos)         │
+│  SELECT                                              │
+│    @quarter,                                         │
+│    CASE cDID_800Transfer                             │
+│      WHEN 19020084 THEN 'Puebla'                     │
+│      WHEN 19028031 THEN 'nacional_A'                 │
+│      WHEN 19020001 THEN 'nacional_B'                 │
+│    END,                                              │
 │    COUNT(DISTINCT cTelefono_Digitado)                │
-│    → ~3 filas por quarter                            │
+│  FROM tbl_historico_tN_YYYY                          │
+│  WHERE dFecha BETWEEN @inicio AND @fin               │
+│    AND cDID_800Transfer IN                           │
+│        (19020084, 19028031, 19020001)                 │
+│  GROUP BY 2;                  -- 3 filas resultado   │
 │                                                      │
-│  sp_etl_rpt_centros_transferencia:                   │
-│    GROUP BY quarter_name, fecha(YYYYMM),             │
-│             segmento, centro_transferencia,          │
-│             menu, opcion                             │
-│    COUNT(*), SUM(es_misma_linea),                    │
-│    SUM(linea_diferente),                             │
-│    SUM(no_digito_telefono),                          │
-│    ROUND(COUNT(*) / total_quarter * 100, 7)          │
-│    → cientos de filas por quarter                    │
-│                                                      │
-│  sp_etl_rpt_llamadas_abandonadas:                    │
-│    Criterio: cMenu IS NULL OR TRIM(cMenu) = ''       │
-│    GROUP BY quarter_name, menu                       │
-│    COUNT(*) as total, SUM(abandono), %               │
-│                                                      │
-│  sp_etl_rpt_cMENU_ERROR:                             │
-│    Criterio: cMenu REGEXP '^[0-9]+'                  │
-│    GROUP BY quarter_name, cMenu                      │
-│    COUNT(*)                                          │
-│                                                      │
-│  sp_etl_rpt_colgadas:                                │
-│    Criterio: cliente colgó sin completar flujo       │
-│    GROUP BY quarter_name, menu, opcion               │
-│                                                      │
-│  sp_etl_rpt_menu_centro:                             │
-│    GROUP BY quarter_name, segmento,                  │
-│             centro_transferencia, menu, opcion       │
-│    COUNT(*), usuarios_unicos, distribución horaria   │
-│                                                      │
-│  sp_etl_rpt_menu_redirigidos:                        │
-│    Usa columnas de vista llamadas_QN:                │
-│    etiquetas, nidMQ, id_CTransferencia               │
+│  COMMIT;                                             │
 └──────────────────────────────────────────────────────┘
                             ↓
-                   ¿Agregación exitosa?
+                   ¿Ambos SPs exitosos?
                             ↓
-                   NO ──────────────────┐
-                   │                    ↓
-                   SÍ       ┌───────────────────────┐
-                   ↓        │  MANEJO DE ERROR      │
-┌──────────────────────────┐│  • ROLLBACK           │
-│  PASO 5: CARGA ATÓMICA  ││  • status = 'FAILED'  │
-│  (DELETE + INSERT)       ││  • Registrar error    │
-├──────────────────────────┤│  • INSERT INTO        │
-│  Para cada SP:           ││    internal_messages  │
-│                          ││    (admin RBAC R016)  │
-│  START TRANSACTION;      │└───────────────────────┘
-│                          │          │
-│  DELETE FROM rpt_<tabla> │          │
-│  WHERE quarter_name      │          │
-│    = @quarter_name;      │◄─────────┘
-│                          │   (datos del run anterior
-│  INSERT INTO rpt_<tabla> │    conservados en rpt_*)
-│  SELECT                  │
-│    @quarter_name,        │
-│    ...columnas           │
-│    ...agregaciones       │
-│  FROM tbl_historico_tN   │
-│  WHERE dFecha BETWEEN    │
-│    @inicio AND @fin      │
-│  AND cDID_800Transfer IN │
-│    (19020084,19028031,   │
-│     19020001)            │
-│  GROUP BY ...;           │
-│                          │
-│  COMMIT;                 │
-│                          │
-│  Si hay error:           │
-│  EXIT HANDLER →          │
-│    ROLLBACK automático   │
-│    (datos anteriores     │
-│     conservados)         │
+                NO ─────────────────────┐
+                │                       ↓
+               SÍ            ┌──────────────────────┐
+                │             │  MANEJO DE ERROR     │
+                ↓             │  • ROLLBACK (auto)   │
+┌──────────────────────────┐  │  • status = 'FAILED' │
+│  PASO 5: VALIDACIÓN      │  │  • Datos anteriores  │
+├──────────────────────────┤  │    conservados       │
+│  • COUNT(*) en           │  │  • INSERT INTO       │
+│    base_ivr_detalle      │  │    internal_messages │
+│    WHERE quarter = @q    │  └──────────────────────┘
+│    debe ser > 0          │
+│  • COUNT(*) en           │
+│    base_ivr_clientes     │
+│    WHERE quarter = @q    │
+│    debe ser 3 filas       │
+│  • Si discrepancia:      │
+│    status = 'PARTIAL'    │
 └──────────────────────────┘
-                   ↓
+                ↓
 ┌──────────────────────────────────────────────────────┐
-│  PASO 6: VALIDACIÓN DE RESULTADOS                    │
-├──────────────────────────────────────────────────────┤
-│  • Contar registros en rpt_* para @quarter_name      │
-│  • Verificar que COUNT(*) > 0                        │
-│  • Comparar totales: SUM(total_llamadas) en rpt_*    │
-│    vs COUNT(*) extraído de tbl_historico_*           │
-│  • Si discrepancia > 5%: status = 'PARTIAL'          │
-│    y notificar al admin                              │
-│  • Registrar records_extracted y records_loaded      │
-│    en job_execution_log                              │
-└──────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────┐
-│  PASO 7: ACTUALIZAR CONTROL                          │
+│  PASO 6: ACTUALIZAR CONTROL                          │
 ├──────────────────────────────────────────────────────┤
 │  UPDATE job_execution_log                            │
-│  SET                                                 │
-│    end_time            = NOW(),                      │
-│    status              = 'SUCCESS',                  │
-│    records_extracted   = @count_extracted,           │
-│    records_loaded      = @count_loaded,              │
-│    quarter_name        = @quarter_name               │
-│  WHERE execution_id    = @exec_id;                   │
+│  SET status = 'SUCCESS', end_time = NOW(),           │
+│      records_extracted = @count_raw,                 │
+│      records_loaded    = @count_base                 │
+│  WHERE execution_id = @exec_id;                      │
 └──────────────────────────────────────────────────────┘
                             ↓
 ┌──────────────────────────────────────────────────────┐
-│  PASO 8: NOTIFICACIÓN (buzón interno)                │
+│  PASO 7: NOTIFICACIÓN (buzón interno)                │
 ├──────────────────────────────────────────────────────┤
-│  INSERT INTO internal_messages                       │
-│  (recipient_user_id, subject, body,                  │
-│   message_type, created_at)                          │
-│  SELECT user_id,                                     │
-│    CONCAT('ETL completado — ', @quarter_name),       │
-│    CONCAT('Registros cargados: ', @count_loaded),    │
-│    'system', NOW()                                   │
-│  FROM users WHERE role = 'SYSTEM_ADMIN';             │
-│                                                      │
+│  INSERT INTO internal_messages ...                   │
 │  ✅ Solo buzón interno                               │
-│  ❌ NO enviar email (D-09, BR-087)                   │
-│  ❌ NO Django puede disparar ni reiniciar el ETL     │
+│  ❌ NO email (D-09, BR-087)                          │
+│  ❌ Django NO dispara este SP (D-09)                 │
 └──────────────────────────────────────────────────────┘
                             ↓
-┌──────────────────────────────────────────────────────┐
-│                   FIN DEL JOB                        │
-│       (Event Scheduler programa siguiente run        │
-│        para mañana 02:00 AM automáticamente)         │
-└──────────────────────────────────────────────────────┘
+                       FIN DEL JOB
 ```
 
 ---
 
-## Diagrama de decisiones
+## SPs de reporte — llamados por Django
 
-```
-                  INICIO JOB
-                      │
-                      ▼
-            ┌─────────────────┐
-            │ ¿Job activo en  │
-            │ este momento?   │
-            └─────────────────┘
-                │         │
-               SÍ        NO
-                │         │
-                ▼         ▼
-          [SALIR:       [CONTINUAR]
-           log SKIP]        │
-                            ▼
-            ┌─────────────────┐
-            │ Determinar      │
-            │ quarter activo  │
-            │ por CURDATE()   │
-            └─────────────────┘
-                            │
-                            ▼
-            ┌─────────────────┐
-            │ Para cada SP    │◄────────────────────┐
-            │ (7 tablas rpt_*)│                     │
-            └─────────────────┘                     │
-                            │                       │
-                            ▼                       │
-            ┌─────────────────┐                     │
-            │ ¿SELECT+GROUP   │                     │
-            │ BY exitoso?     │                     │
-            └─────────────────┘                     │
-                │         │                         │
-               SÍ        NO                         │
-                │         │                         │
-                │         ▼                         │
-                │    [ROLLBACK]                      │
-                │    [status='FAILED']               │
-                │    [Notificar admin]               │
-                │    [Continuar con                  │
-                │     siguiente SP]──────────────────┘
-                │
-                ▼
-            ┌─────────────────┐
-            │ ¿COUNT(*)       │
-            │ cargado > 0?    │
-            └─────────────────┘
-                │         │
-               SÍ        NO
-                │         │
-                │         ▼
-                │    [status='PARTIAL']
-                │    [Notificar admin]
-                │         │
-                ▼         │
-         [Siguiente SP] ◄─┘
-                │
-    (todos los SPs completados)
-                │
-                ▼
-       [ACTUALIZAR LOG MAESTRO]
-                │
-                ▼
-          [NOTIFICAR]
-                │
-                ▼
-             [FIN]
+Todos read-only sobre `base_ivr_detalle` y `base_ivr_clientes`.
+Django llama estos SPs bajo demanda para servir cada vista de reporte.
+
+```sql
+-- sp_rpt_clientes_unicos(@quarter)
+SELECT quarter_name, segmento, clientes_unicos
+FROM   base_ivr_clientes
+WHERE  quarter_name = @quarter
+ORDER BY segmento;
+
+-- sp_rpt_centros_transferencia(@quarter, @segmento)
+SELECT
+    fecha,
+    segmento,
+    centro_transferencia,
+    menu,
+    opcion,
+    total_llamadas,
+    ROUND(total_llamadas /
+          SUM(total_llamadas) OVER (PARTITION BY fecha, segmento)
+          * 100, 7)                  AS porcentaje,
+    misma_linea,
+    linea_diferente,
+    no_digito_telefono
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+  AND  segmento     = @segmento
+ORDER BY fecha, total_llamadas DESC;
+
+-- sp_rpt_llamadas_abandonadas(@quarter)
+SELECT
+    quarter_name,
+    menu,
+    SUM(total_llamadas)                                         AS total_llamadas,
+    SUM(CASE WHEN menu IN ('SIN_MENU','VACIO') THEN total_llamadas ELSE 0 END)
+                                                                AS abandono,
+    ROUND(
+        SUM(CASE WHEN menu IN ('SIN_MENU','VACIO') THEN total_llamadas ELSE 0 END)
+        / NULLIF(SUM(total_llamadas), 0) * 100, 2)             AS pct_abandono
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+GROUP BY quarter_name, menu;
+
+-- sp_rpt_cMENU_ERROR(@quarter)
+SELECT quarter_name, menu, SUM(total_llamadas) AS total
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+  AND  menu REGEXP '^[0-9]+'
+GROUP BY quarter_name, menu
+ORDER BY total DESC;
+
+-- sp_rpt_colgadas(@quarter)
+SELECT quarter_name, menu, opcion, SUM(total_llamadas) AS total_llamadas
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+  AND  centro_transferencia = 'CLIENTE_COLGO'
+GROUP BY quarter_name, menu, opcion
+ORDER BY total_llamadas DESC;
+
+-- sp_rpt_menu_centro(@quarter, @segmento)
+SELECT
+    segmento,
+    centro_transferencia,
+    menu,
+    opcion,
+    SUM(total_llamadas)   AS ejecuciones,
+    -- porcentaje dentro del centro
+    ROUND(SUM(total_llamadas) /
+          SUM(SUM(total_llamadas)) OVER (PARTITION BY centro_transferencia)
+          * 100, 2)        AS pct_dentro_centro
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+  AND  segmento     = @segmento
+GROUP BY segmento, centro_transferencia, menu, opcion
+ORDER BY centro_transferencia, ejecuciones DESC;
+
+-- sp_rpt_menu_redirigidos(@quarter)
+-- Estructura pendiente de confirmar con el equipo (P-13)
+SELECT quarter_name, menu, centro_transferencia,
+       SUM(total_llamadas) AS total_llamadas
+FROM   base_ivr_detalle
+WHERE  quarter_name = @quarter
+  AND  centro_transferencia NOT IN
+       ('CASO_NULL','CASO_ERROR_CEROS','CLIENTE_COLGO','SIN_MENU')
+GROUP BY quarter_name, menu, centro_transferencia
+ORDER BY total_llamadas DESC;
 ```
 
 ---
 
-## Programación del Job
+## Cómo Django llama los SPs de reporte
 
-### EVENT en MariaDB
+```python
+# Django — llamada a SP de reporte (read-only)
+from django.db import connections
+
+def get_reporte_centros(quarter_name, segmento):
+    with connections['mysql_ivr'].cursor() as cursor:
+        cursor.callproc('sp_rpt_centros_transferencia',
+                        [quarter_name, segmento])
+        columns = [col[0] for col in cursor.description]
+        rows    = cursor.fetchall()
+    return [dict(zip(columns, row)) for row in rows]
+```
+
+Django recibe un result set — no tiene acoplamiento al schema de `base_ivr_detalle`.
+Si el SP cambia internamente (nuevo cálculo, nueva columna), Django solo ve el nuevo result set.
+
+---
+
+## Programación del ETL
 
 ```sql
 -- Habilitar el scheduler de eventos
 SET GLOBAL event_scheduler = ON;
 
--- Crear evento maestro: diariamente a las 02:00 AM
+-- Evento maestro: diariamente a las 02:00 AM
 CREATE EVENT IF NOT EXISTS evt_etl_diario
 ON SCHEDULE EVERY 1 DAY
 STARTS '2025-09-01 02:00:00'
 ON COMPLETION PRESERVE
 ENABLE
-COMMENT 'ETL diario IVR → rpt_*. D-08.'
+COMMENT 'ETL diario IVR → base_ivr_*. D-08.'
 DO
-  CALL sp_etl_maestro();
+    CALL sp_etl_maestro();
 ```
-
-### Frecuencia de actualización por tabla rpt_*
-
-Todas las tablas se procesan en el mismo run diario (D-08).
-No hay tablas con frecuencia distinta — el ETL es atómico y uniforme.
-
-| Tabla | Frecuencia | Ventana |
-|---|---|---|
-| `rpt_clientes_unicos` | Diaria | 02:00 AM |
-| `rpt_centros_transferencia` | Diaria | 02:00 AM |
-| `rpt_llamadas_abandonadas` | Diaria | 02:00 AM |
-| `rpt_colgadas` | Diaria | 02:00 AM |
-| `rpt_menu_centro` | Diaria | 02:00 AM |
-| `rpt_cMENU_ERROR` | Diaria | 02:00 AM |
-| `rpt_menu_redirigidos` | Diaria | 02:00 AM |
 
 ---
 
@@ -470,24 +505,20 @@ No hay tablas con frecuencia distinta — el ETL es atómico y uniforme.
 CREATE TABLE job_execution_log (
     execution_id       INT AUTO_INCREMENT PRIMARY KEY,
     job_name           VARCHAR(100)  NOT NULL,
-    quarter_name       VARCHAR(10)   NOT NULL,         -- 'Q01_25', 'Q02_25', 'Q03_25'
+    quarter_name       VARCHAR(10)   NOT NULL,
     start_time         DATETIME      NOT NULL,
     end_time           DATETIME,
     status             ENUM('RUNNING','SUCCESS','FAILED','PARTIAL','SKIP') NOT NULL,
-    records_extracted  INT           DEFAULT 0,        -- COUNT(*) de tbl_historico_*
-    records_loaded     INT           DEFAULT 0,        -- COUNT(*) insertado en rpt_*
+    records_extracted  INT           DEFAULT 0,   -- COUNT(*) de tbl_historico_*
+    records_loaded     INT           DEFAULT 0,   -- filas en base_ivr_detalle
     error_message      TEXT,
     created_at         TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
 
-    INDEX idx_job_status   (job_name, status),
-    INDEX idx_quarter      (quarter_name),
-    INDEX idx_start_time   (start_time)
+    INDEX idx_job_status  (job_name, status),
+    INDEX idx_quarter     (quarter_name),
+    INDEX idx_start_time  (start_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
-
-> **`SKIP`** se usa cuando el job detecta otro run activo y sale sin procesar.
-> `records_extracted` refleja el COUNT(*) leído de `tbl_historico_*`.
-> `records_loaded` refleja el COUNT(*) insertado en la tabla `rpt_*` correspondiente.
 
 ### job_config
 
@@ -497,71 +528,59 @@ CREATE TABLE job_config (
     job_name           VARCHAR(100)  NOT NULL UNIQUE,
     is_enabled         BOOLEAN       DEFAULT TRUE,
     timeout_seconds    INT           DEFAULT 300,
-    max_retries        INT           DEFAULT 0,       -- SPs no hacen retry automático
     notify_on_success  BOOLEAN       DEFAULT TRUE,
     notify_on_failure  BOOLEAN       DEFAULT TRUE,
     updated_at         TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
                        ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Configuración inicial
-INSERT INTO job_config (job_name, timeout_seconds) VALUES
-  ('sp_etl_rpt_clientes_unicos',        300),
-  ('sp_etl_rpt_centros_transferencia',  300),
-  ('sp_etl_rpt_llamadas_abandonadas',   300),
-  ('sp_etl_rpt_colgadas',               300),
-  ('sp_etl_rpt_menu_centro',            300),
-  ('sp_etl_rpt_cMENU_ERROR',            300),
-  ('sp_etl_rpt_menu_redirigidos',       300);
+INSERT INTO job_config (job_name) VALUES
+    ('sp_etl_base_detalle'),
+    ('sp_etl_base_clientes');
 ```
 
 ---
 
-## Esqueleto de SP maestro
+## Esqueleto del SP maestro
 
 ```sql
 DELIMITER $$
 
 CREATE PROCEDURE sp_etl_maestro()
-BEGIN
-    DECLARE v_exec_id       INT;
-    DECLARE v_quarter       VARCHAR(10);
-    DECLARE v_inicio        DATE;
-    DECLARE v_fin           DATE;
-    DECLARE v_error_msg     TEXT DEFAULT '';
+sp_etl_maestro: BEGIN
+    DECLARE v_exec_id  INT;
+    DECLARE v_quarter  VARCHAR(10);
+    DECLARE v_inicio   DATE;
+    DECLARE v_fin      DATE;
 
     -- Determinar quarter activo
     IF CURDATE() BETWEEN '2025-01-01' AND '2025-03-31' THEN
         SET v_quarter = 'Q01_25';
-        SET v_inicio  = '2025-01-01';
-        SET v_fin     = '2025-03-31';
+        SET v_inicio  = '2025-01-01'; SET v_fin = '2025-03-31';
     ELSEIF CURDATE() BETWEEN '2025-04-01' AND '2025-06-30' THEN
         SET v_quarter = 'Q02_25';
-        SET v_inicio  = '2025-04-01';
-        SET v_fin     = '2025-06-30';
+        SET v_inicio  = '2025-04-01'; SET v_fin = '2025-06-30';
     ELSEIF CURDATE() BETWEEN '2025-07-01' AND '2025-09-30' THEN
         SET v_quarter = 'Q03_25';
-        SET v_inicio  = '2025-07-01';
-        SET v_fin     = '2025-09-30';
+        SET v_inicio  = '2025-07-01'; SET v_fin = '2025-09-30';
     ELSE
-        -- Quarter no configurado — registrar y salir
         INSERT INTO job_execution_log
             (job_name, quarter_name, start_time, status, error_message)
         VALUES ('sp_etl_maestro', 'UNKNOWN', NOW(), 'FAILED',
                 'Quarter no configurado para la fecha actual');
-        LEAVE sp_etl_maestro;  -- usar label para salir de SP
+        LEAVE sp_etl_maestro;
     END IF;
 
-    -- Verificar concurrencia: ¿hay un run activo?
+    -- Verificar concurrencia
     IF EXISTS (
         SELECT 1 FROM job_execution_log
-        WHERE status = 'RUNNING'
-          AND start_time >= DATE_SUB(NOW(), INTERVAL 6 HOUR)
+        WHERE  status = 'RUNNING'
+          AND  start_time >= DATE_SUB(NOW(), INTERVAL 6 HOUR)
     ) THEN
         INSERT INTO job_execution_log
             (job_name, quarter_name, start_time, status, error_message)
         VALUES ('sp_etl_maestro', v_quarter, NOW(), 'SKIP',
-                'Job anterior aún activo — ejecución omitida');
+                'Job anterior aún activo');
         LEAVE sp_etl_maestro;
     END IF;
 
@@ -571,32 +590,23 @@ BEGIN
     VALUES ('sp_etl_maestro', v_quarter, NOW(), 'RUNNING');
     SET v_exec_id = LAST_INSERT_ID();
 
-    -- Ejecutar cada SP de reporte (en orden de menor a mayor complejidad)
-    CALL sp_etl_rpt_clientes_unicos(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_centros_transferencia(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_llamadas_abandonadas(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_colgadas(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_menu_centro(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_cMENU_ERROR(v_quarter, v_inicio, v_fin);
-    CALL sp_etl_rpt_menu_redirigidos(v_quarter, v_inicio, v_fin);
+    -- Ejecutar los dos SPs de ETL
+    CALL sp_etl_base_detalle(v_quarter, v_inicio, v_fin);
+    CALL sp_etl_base_clientes(v_quarter, v_inicio, v_fin);
 
     -- Registrar éxito
     UPDATE job_execution_log
-    SET    status   = 'SUCCESS',
-           end_time = NOW()
+    SET    status = 'SUCCESS', end_time = NOW()
     WHERE  execution_id = v_exec_id;
 
-    -- Notificar via buzón interno
+    -- Notificación buzón interno
     INSERT INTO internal_messages
         (recipient_user_id, subject, body, message_type, created_at)
     SELECT user_id,
            CONCAT('ETL completado — ', v_quarter),
-           CONCAT('Procesamiento exitoso. Quarter: ', v_quarter,
-                  '. Fin: ', NOW()),
-           'system',
-           NOW()
-    FROM   users
-    WHERE  role = 'SYSTEM_ADMIN';
+           CONCAT('base_ivr_* actualizadas. Quarter: ', v_quarter),
+           'system', NOW()
+    FROM   users WHERE role = 'SYSTEM_ADMIN';
 
 END$$
 
@@ -605,258 +615,135 @@ DELIMITER ;
 
 ---
 
-## Esqueleto de SP individual — ejemplo: rpt_clientes_unicos
+## Esqueleto de SP ETL — sp_etl_base_detalle
 
 ```sql
 DELIMITER $$
 
-CREATE PROCEDURE sp_etl_rpt_clientes_unicos(
-    IN p_quarter_name  VARCHAR(10),
-    IN p_fecha_inicio  DATE,
-    IN p_fecha_fin     DATE
+CREATE PROCEDURE sp_etl_base_detalle(
+    IN p_quarter  VARCHAR(10),
+    IN p_inicio   DATE,
+    IN p_fin      DATE
 )
 BEGIN
-    DECLARE v_exec_id          INT;
-    DECLARE v_count_extracted  INT DEFAULT 0;
-    DECLARE v_count_loaded     INT DEFAULT 0;
-    DECLARE v_tabla_fuente     VARCHAR(50);
+    DECLARE v_exec_id        INT;
+    DECLARE v_count_raw      INT DEFAULT 0;
+    DECLARE v_count_loaded   INT DEFAULT 0;
 
-    -- Determinar tabla fuente según quarter
-    SET v_tabla_fuente = CASE p_quarter_name
-        WHEN 'Q01_25' THEN 'tbl_historico_t1_2025'
-        WHEN 'Q02_25' THEN 'tbl_historico_t2_2025'
-        WHEN 'Q03_25' THEN 'tbl_historico_t3_2025'
-    END;
-
-    -- Handler de errores: ROLLBACK + log + notificación
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
         UPDATE job_execution_log
-        SET    status        = 'FAILED',
-               end_time      = NOW(),
-               error_message = 'SQLEXCEPTION en sp_etl_rpt_clientes_unicos'
-        WHERE  execution_id  = v_exec_id;
-
+        SET    status = 'FAILED', end_time = NOW(),
+               error_message = 'SQLEXCEPTION en sp_etl_base_detalle'
+        WHERE  execution_id = v_exec_id;
         INSERT INTO internal_messages
             (recipient_user_id, subject, body, message_type, created_at)
-        SELECT user_id,
-               'ERROR ETL — rpt_clientes_unicos',
-               CONCAT('Falló el SP para ', p_quarter_name),
-               'alert', NOW()
+        SELECT user_id, 'ERROR ETL — base_ivr_detalle',
+               CONCAT('Falló ETL para ', p_quarter), 'alert', NOW()
         FROM   users WHERE role = 'SYSTEM_ADMIN';
     END;
 
-    -- Registrar inicio de este SP
     INSERT INTO job_execution_log
         (job_name, quarter_name, start_time, status)
-    VALUES ('sp_etl_rpt_clientes_unicos', p_quarter_name, NOW(), 'RUNNING');
+    VALUES ('sp_etl_base_detalle', p_quarter, NOW(), 'RUNNING');
     SET v_exec_id = LAST_INSERT_ID();
 
-    -- Contar registros fuente (para validación posterior)
-    -- NOTA: este es un segundo scan — evaluar si el costo es aceptable.
-    -- Alternativa: usar el COUNT de la inserción como proxy.
-    SET v_count_extracted = (
-        SELECT COUNT(*)
-        FROM   tbl_historico_t1_2025      -- reemplazar dinámicamente por v_tabla_fuente
-        WHERE  dFecha BETWEEN p_fecha_inicio AND p_fecha_fin
-          AND  cDID_800Transfer IN (19020084, 19028031, 19020001)
-    );
+    -- NOTA: nombres de tabla dinámicos requieren PREPARE/EXECUTE en MySQL.
+    -- El esqueleto usa la tabla del Q3 como ilustración.
+    -- La implementación real usa SQL dinámico o CASE para seleccionar la tabla.
 
-    -- Carga atómica: DELETE quarter + INSERT agregado (D-07)
     START TRANSACTION;
 
-        DELETE FROM rpt_clientes_unicos
-        WHERE  quarter_name = p_quarter_name;
+        DELETE FROM base_ivr_detalle
+        WHERE  quarter_name = p_quarter;
 
-        INSERT INTO rpt_clientes_unicos
-            (quarter_name, cDID_800Transfer, clientes_unicos)
+        INSERT INTO base_ivr_detalle
+            (quarter_name, fecha, segmento, centro_transferencia,
+             menu, opcion, total_llamadas, misma_linea,
+             linea_diferente, no_digito_telefono)
         SELECT
-            p_quarter_name,
-            cDID_800Transfer,
-            COUNT(DISTINCT cTelefono_Digitado) AS clientes_unicos
-        FROM   tbl_historico_t1_2025          -- reemplazar dinámicamente por v_tabla_fuente
-        WHERE  dFecha BETWEEN p_fecha_inicio AND p_fecha_fin
+            p_quarter,
+            DATE_FORMAT(dFecha, '%Y%m'),
+            CASE cDID_800Transfer
+                WHEN 19020084 THEN 'Puebla'
+                WHEN 19028031 THEN 'nacional_A'
+                WHEN 19020001 THEN 'nacional_B'
+            END,
+            CASE
+                WHEN TRIM(cDID_Centro_Transferencia) IS NULL
+                  OR TRIM(cDID_Centro_Transferencia) = ''
+                    THEN 'CASO_NULL'
+                WHEN cDID_Centro_Transferencia = 'cliente_colgo'
+                    THEN 'CLIENTE_COLGO'
+                WHEN cDID_Centro_Transferencia REGEXP '^0+$'
+                    THEN 'CASO_ERROR_CEROS'
+                WHEN LENGTH(cDID_Centro_Transferencia) > 10
+                    THEN LEFT(cDID_Centro_Transferencia,
+                         LENGTH(cDID_Centro_Transferencia) - 10)
+                ELSE cDID_Centro_Transferencia
+            END,
+            CASE
+                WHEN cMenu IS NULL          THEN 'SIN_MENU'
+                WHEN TRIM(cMenu) = ''       THEN 'SIN_MENU'
+                WHEN cMenu = 'sin cMenu'    THEN 'SIN_MENU'
+                ELSE cMenu
+            END,
+            COALESCE(NULLIF(TRIM(cOpcion), ''), 'SIN_OPCION'),
+            COUNT(*),
+            SUM(cTelefono_Origen = cTelefono_Digitado),
+            SUM(cTelefono_Origen != cTelefono_Digitado),
+            SUM(cTelefono_Digitado IS NULL)
+        FROM   tbl_historico_t3_2025       -- tabla dinámica en implementación real
+        WHERE  dFecha BETWEEN p_inicio AND p_fin
           AND  cDID_800Transfer IN (19020084, 19028031, 19020001)
-        GROUP BY cDID_800Transfer;
+        GROUP BY 2, 3, 4, 5, 6;
 
     COMMIT;
 
-    -- Registrar registros cargados
     SET v_count_loaded = (
-        SELECT COUNT(*) FROM rpt_clientes_unicos
-        WHERE  quarter_name = p_quarter_name
+        SELECT COUNT(*) FROM base_ivr_detalle
+        WHERE  quarter_name = p_quarter
     );
 
-    -- Validar: si no se cargó nada, marcar como PARTIAL
-    IF v_count_loaded = 0 THEN
-        UPDATE job_execution_log
-        SET    status             = 'PARTIAL',
-               end_time           = NOW(),
-               records_extracted  = v_count_extracted,
-               records_loaded     = v_count_loaded,
-               error_message      = 'Sin registros cargados — verificar datos fuente'
-        WHERE  execution_id = v_exec_id;
-    ELSE
-        UPDATE job_execution_log
-        SET    status             = 'SUCCESS',
-               end_time           = NOW(),
-               records_extracted  = v_count_extracted,
-               records_loaded     = v_count_loaded
-        WHERE  execution_id = v_exec_id;
-    END IF;
+    UPDATE job_execution_log
+    SET    status           = IF(v_count_loaded > 0, 'SUCCESS', 'PARTIAL'),
+           end_time         = NOW(),
+           records_loaded   = v_count_loaded
+    WHERE  execution_id = v_exec_id;
 
 END$$
 
 DELIMITER ;
 ```
 
-> **Nota sobre tablas dinámicas:** MySQL Stored Procedures no admiten nombres de tabla
-> dinámicos en SQL estático. Para apuntar a `tbl_historico_t1_2025`, `t2_2025` o `t3_2025`
-> según el quarter, se requiere `PREPARE` / `EXECUTE` con SQL dinámico, o un `CASE` que
-> replique el SELECT para cada tabla. El esqueleto anterior asume tabla fija para simplificar
-> la ilustración — la implementación real debe manejar esto.
+---
+
+## Manejo de errores
+
+| Error | Acción | Notificación |
+|---|---|---|
+| SQLEXCEPTION | EXIT HANDLER → ROLLBACK → status='FAILED' | `internal_messages` → SYSTEM_ADMIN |
+| Count cargado = 0 | COMMIT, status='PARTIAL' | `internal_messages` → SYSTEM_ADMIN |
+| Job ya activo | Salir, status='SKIP' | Solo log en `job_execution_log` |
+| Quarter no configurado | Salir, status='FAILED' | Solo log en `job_execution_log` |
+
+**Retries:** No hay retry automático. Si un SP falla, los datos del quarter anterior
+se conservan intactos en `base_ivr_*` (ROLLBACK los protege). El Event retomará
+automáticamente al día siguiente.
 
 ---
 
-## CREATE TABLE para las tablas rpt_* (CNST-ETL-006)
-
-Patrón con índices obligatorios:
+## Métricas y monitoreo (para UC_PIP_01..03)
 
 ```sql
--- rpt_clientes_unicos
-CREATE TABLE rpt_clientes_unicos (
-    id                INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name      VARCHAR(10)   NOT NULL,
-    cDID_800Transfer  VARCHAR(20)   NOT NULL,
-    clientes_unicos   INT           NOT NULL DEFAULT 0,
-    INDEX idx_quarter         (quarter_name),
-    INDEX idx_quarter_did     (quarter_name, cDID_800Transfer)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_centros_transferencia
-CREATE TABLE rpt_centros_transferencia (
-    id                    INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name          VARCHAR(10)    NOT NULL,
-    fecha                 VARCHAR(6)     NOT NULL,  -- YYYYMM: '202501'
-    segmento              VARCHAR(20)    NOT NULL,  -- 'Puebla','nacional_A','nacional_B'
-    centro_transferencia  VARCHAR(100)   NOT NULL,
-    menu                  VARCHAR(100)   NOT NULL,
-    opcion                VARCHAR(100)   NOT NULL,
-    total_llamadas        INT            NOT NULL DEFAULT 0,
-    porcentaje            DECIMAL(15,7)  NOT NULL DEFAULT 0,
-    misma_linea           INT            NOT NULL DEFAULT 0,
-    linea_diferente       INT            NOT NULL DEFAULT 0,
-    no_digito_telefono    INT            NOT NULL DEFAULT 0,
-    INDEX idx_quarter             (quarter_name),
-    INDEX idx_quarter_segmento    (quarter_name, segmento),
-    INDEX idx_quarter_centro      (quarter_name, centro_transferencia)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_llamadas_abandonadas
-CREATE TABLE rpt_llamadas_abandonadas (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name    VARCHAR(10)   NOT NULL,
-    menu            VARCHAR(100)  NOT NULL,
-    total_llamadas  INT           NOT NULL DEFAULT 0,
-    abandono        INT           NOT NULL DEFAULT 0,
-    pct_abandono    DECIMAL(5,2)  NOT NULL DEFAULT 0,
-    INDEX idx_quarter      (quarter_name),
-    INDEX idx_quarter_menu (quarter_name, menu)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_cMENU_ERROR
-CREATE TABLE rpt_cMENU_ERROR (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name    VARCHAR(10)   NOT NULL,
-    cMenu           VARCHAR(100)  NOT NULL,
-    total           INT           NOT NULL DEFAULT 0,
-    INDEX idx_quarter  (quarter_name)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_colgadas (estructura pendiente de confirmar con el equipo)
-CREATE TABLE rpt_colgadas (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name    VARCHAR(10)   NOT NULL,
-    menu            VARCHAR(100)  NOT NULL,
-    opcion          VARCHAR(100)  NOT NULL,
-    total_llamadas  INT           NOT NULL DEFAULT 0,
-    INDEX idx_quarter      (quarter_name),
-    INDEX idx_quarter_menu (quarter_name, menu)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_menu_centro (estructura pendiente de confirmar con el equipo)
-CREATE TABLE rpt_menu_centro (
-    id                    INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name          VARCHAR(10)   NOT NULL,
-    segmento              VARCHAR(20)   NOT NULL,
-    centro_transferencia  VARCHAR(100)  NOT NULL,
-    menu                  VARCHAR(100)  NOT NULL,
-    opcion                VARCHAR(100)  NOT NULL,
-    ejecuciones           INT           NOT NULL DEFAULT 0,
-    usuarios_unicos       INT           NOT NULL DEFAULT 0,
-    ejecuciones_manana    INT           NOT NULL DEFAULT 0,
-    ejecuciones_tarde     INT           NOT NULL DEFAULT 0,
-    ejecuciones_noche     INT           NOT NULL DEFAULT 0,
-    INDEX idx_quarter             (quarter_name),
-    INDEX idx_quarter_segmento    (quarter_name, segmento),
-    INDEX idx_quarter_menu_centro (quarter_name, menu, centro_transferencia)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- rpt_menu_redirigidos (estructura pendiente de confirmar con el equipo)
-CREATE TABLE rpt_menu_redirigidos (
-    id                    INT AUTO_INCREMENT PRIMARY KEY,
-    quarter_name          VARCHAR(10)   NOT NULL,
-    menu                  VARCHAR(100)  NOT NULL,
-    centro_transferencia  VARCHAR(100)  NOT NULL,
-    total_llamadas        INT           NOT NULL DEFAULT 0,
-    INDEX idx_quarter      (quarter_name),
-    INDEX idx_quarter_menu (quarter_name, menu)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
-
----
-
-## Manejo de errores — tipos y acciones
-
-| Tipo de Error | Acción del SP | Notificación |
-|---|---|---|
-| **SQLEXCEPTION** | EXIT HANDLER → ROLLBACK → status='FAILED' | `internal_messages` al SYSTEM_ADMIN |
-| **Count cargado = 0** | COMMIT, status='PARTIAL' | `internal_messages` al SYSTEM_ADMIN |
-| **Job ya activo** | Salir sin procesar, status='SKIP' | Log en `job_execution_log` |
-| **Quarter no configurado** | Salir, status='FAILED' | Log en `job_execution_log` |
-| **Discrepancia fuente vs destino > 5%** | COMMIT, status='PARTIAL' | `internal_messages` al SYSTEM_ADMIN |
-
-**Retries:** Los SPs no implementan retry automático. Si un SP falla:
-1. El run diario marca el SP como FAILED en `job_execution_log`
-2. Los datos del quarter anterior se conservan en `rpt_*` (ROLLBACK los protege)
-3. Al día siguiente, el Event lo reintenta automáticamente
-4. Si el admin requiere un reintento manual, debe ejecutar el SP directamente en MySQL
-   — Django NO puede disparar SPs (D-09)
-
----
-
-## Métricas y monitoreo
-
-### KPIs del Job
-
-| Métrica | Objetivo | Alerta si |
-|---|---|---|
-| Tiempo de ejecución total | < 60 minutos | > 120 minutos |
-| Status del run | SUCCESS | FAILED o PARTIAL |
-| Registros cargados por tabla | > 0 | = 0 (tabla vacía) |
-| Tasa de éxito semanal | 100% | < 95% (5 de 7 días) |
-
-### Queries de monitoreo (para Django — UC_PIP_01, UC_PIP_02, UC_PIP_03)
-
-```sql
--- Ver últimas 10 ejecuciones
+-- Últimas 10 ejecuciones
 SELECT
     job_name,
     quarter_name,
     start_time,
     end_time,
-    TIMESTAMPDIFF(MINUTE, start_time, end_time) AS duracion_minutos,
+    TIMESTAMPDIFF(MINUTE, start_time, end_time) AS duracion_min,
     status,
     records_extracted,
     records_loaded,
@@ -865,39 +752,24 @@ FROM   job_execution_log
 ORDER BY start_time DESC
 LIMIT 10;
 
--- Estado del último run por SP
-SELECT
-    job_name,
-    quarter_name,
-    MAX(start_time)  AS ultimo_inicio,
-    status,
-    records_loaded
-FROM   job_execution_log
-WHERE  start_time >= DATE_SUB(NOW(), INTERVAL 48 HOUR)
-GROUP BY job_name, quarter_name, status
-ORDER BY job_name;
-
--- Disponibilidad de datos por quarter (UC_PIP_03)
+-- Estado actual de base_ivr_* por quarter (UC_PIP_03 — disponibilidad)
 SELECT
     quarter_name,
-    COUNT(DISTINCT job_name)                                       AS sps_ejecutados,
-    SUM(CASE WHEN status = 'SUCCESS'  THEN 1 ELSE 0 END)          AS exitosos,
-    SUM(CASE WHEN status = 'FAILED'   THEN 1 ELSE 0 END)          AS fallidos,
-    SUM(CASE WHEN status = 'PARTIAL'  THEN 1 ELSE 0 END)          AS parciales,
-    MAX(end_time)                                                  AS ultima_actualizacion
+    MAX(end_time)                                             AS ultima_actualizacion,
+    SUM(CASE WHEN status = 'SUCCESS' THEN 1 ELSE 0 END)      AS runs_exitosos,
+    SUM(CASE WHEN status = 'FAILED'  THEN 1 ELSE 0 END)      AS runs_fallidos
 FROM   job_execution_log
-WHERE  status IN ('SUCCESS', 'FAILED', 'PARTIAL')
+WHERE  job_name IN ('sp_etl_base_detalle','sp_etl_base_clientes')
 GROUP BY quarter_name
 ORDER BY quarter_name;
 
--- Estadísticas de la semana (UC_PIP_01 — panel de monitoreo)
+-- Estadísticas de la semana (UC_PIP_01 — panel monitoreo)
 SELECT
-    DATE(start_time)                                               AS fecha,
-    COUNT(*)                                                       AS ejecuciones,
-    SUM(CASE WHEN status = 'SUCCESS' THEN 1 ELSE 0 END)           AS exitosas,
-    SUM(CASE WHEN status = 'FAILED'  THEN 1 ELSE 0 END)           AS fallidas,
-    AVG(TIMESTAMPDIFF(MINUTE, start_time, end_time))               AS promedio_minutos,
-    SUM(records_loaded)                                            AS total_registros_cargados
+    DATE(start_time)                                          AS fecha,
+    COUNT(*)                                                  AS ejecuciones,
+    SUM(CASE WHEN status = 'SUCCESS' THEN 1 ELSE 0 END)      AS exitosas,
+    SUM(CASE WHEN status = 'FAILED'  THEN 1 ELSE 0 END)      AS fallidas,
+    AVG(TIMESTAMPDIFF(MINUTE, start_time, end_time))          AS promedio_min
 FROM   job_execution_log
 WHERE  start_time >= DATE_SUB(NOW(), INTERVAL 7 DAY)
 GROUP BY DATE(start_time)
@@ -910,7 +782,6 @@ ORDER BY fecha DESC;
 
 | # | Pregunta | Impacto |
 |---|---|---|
-| P-13 | ¿La tabla `rpt_menu_redirigidos` usa la vista `llamadas_QN` o directamente `tbl_historico_*`? | Diseño del SP |
-| P-14 | ¿`rpt_colgadas` agrupa por menu+opcion o hay más dimensiones? | Schema de la tabla |
-| P-15 | ¿`rpt_menu_centro` incluye distribución horaria (mañana/tarde/noche)? | Costo de compute + schema |
-| G-28 | ¿`llamadas_cmenu` mapea a `rpt_menu_centro` o es una tabla separada del catálogo D-02? | Catálogo definitivo |
+| P-13 | ¿`sp_rpt_menu_redirigidos` usa `base_ivr_detalle` o necesita columnas de `llamadas_QN` (etiquetas, nidMQ)? | Si usa `llamadas_QN`, requiere un 3er scan en el ETL |
+| P-14 | ¿`sp_rpt_colgadas` agrupa solo por menu+opcion o hay más dimensiones? | Schema de la query del SP |
+| G-28 | ¿`llamadas_cmenu` (cDID, trimestre, cMenu, total) es un reporte derivado de `base_ivr_detalle` o necesita tabla propia? | Si es derivado, no requiere cambios en el ETL |
