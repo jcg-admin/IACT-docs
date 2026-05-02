@@ -56,7 +56,7 @@ Esta matriz se actualiza cuando:
 Las asignaciones R/A/C/I de esta matriz se fundamentan en los
 "Actor Tipico" + "Proposito" de cada grupo AGR documentados en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` § 4.1
-(catalogo de los 10 grupos predefinidos del modelo v5.2.1):
+(catalogo de los 12 grupos predefinidos del modelo v5.5.0):
 
 .. list-table::
  :header-rows: 1
@@ -96,6 +96,12 @@ Las asignaciones R/A/C/I de esta matriz se fundamentan en los
  * - AGR-010
    - Sysadmin
    - Administracion tecnica del sistema.
+ * - AGR-011
+   - Operador Call Center
+   - Funciones de operacion de call center (OPR-001..010).
+ * - AGR-012
+   - Supervisor Call Center
+   - Supervision en tiempo real: SUP-001..003 + quality_supervisor_group.
 
 **Razones de la R/A elegida en este documento:**
 

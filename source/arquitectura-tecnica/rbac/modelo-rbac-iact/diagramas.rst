@@ -9,7 +9,7 @@ Modelo de Clases — Entidades RBAC
 ===================================
 
 .. uml::
- :caption: Entidades centrales del modelo RBAC IACT v5.4.0 — 61 funciones atomicas, 10 grupos, 3 reglas SoD.
+ :caption: Entidades centrales del modelo RBAC IACT v5.5.0 — 74 funciones atomicas, 12 grupos, 3 reglas SoD.
 
  @startuml
 

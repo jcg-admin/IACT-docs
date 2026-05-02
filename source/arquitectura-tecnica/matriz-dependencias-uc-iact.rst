@@ -27,8 +27,8 @@ MATRIZ DEPENDENCIAS UC IACT
 
  - :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0
    (25 clases canonicas, 7 bounded contexts).
- - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.4.0
-   (61 funciones RBAC).
+ - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.5.0
+   (74 funciones RBAC).
 
  **Convencion de nombres**: identificadores en ingles (clases,
  funciones, atributos); prosa, comentarios y notas en espanol.
@@ -199,7 +199,7 @@ Cada UC se documenta con:
 - **Incluye** — operaciones internas.
 - **Patrones** — patrones de diseno aplicables.
 - **Clase Dominio** — clases canonicas tocadas.
-- **Funcion RBAC** — funciones de modelo-rbac-iact v5.4.0.
+- **Funcion RBAC** — funciones de modelo-rbac-iact v5.5.0.
 - **Dependencias** — UCs que invoca o requiere.
 - **Cat Z.2.A** — categoria del programa Z.2.A (1..5).
 
@@ -1179,7 +1179,7 @@ C.1 Metricas globales
    Clusters funcionales:            9
    Clases canonicas de dominio:     25
    Bounded contexts:                7
-   Funciones RBAC:                  61 (v5.4.0)
+   Funciones RBAC:                  74 (v5.5.0)
 
    Distribucion criticidad:         8 / 27 / 18 / 8
 
@@ -1283,7 +1283,7 @@ C.4 Trazabilidad
 Anclajes verificados:
 
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact` v1.0.0.
-- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.4.0.
+- :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` v5.5.0.
 - WP fundacional: ``2026-05-01-02-01-06-domain-model-canonization``
   (cerrado).
 - WP de correcciones:

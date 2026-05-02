@@ -1077,7 +1077,7 @@ para este modelo. Resumen de su impacto sobre las clases:
 ---------------------------
 
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index` — modelo RBAC
-  v5.4.0 con las 61 funciones que operan sobre las clases
+  v5.5.0 con las 74 funciones que operan sobre las clases
   declaradas aqui.
 - ``source/requisitos/_metodologia-aplicacion/analisis-dominio.rst``
   — guia metodologica del modelado del dominio. La cifra "97 UCs"

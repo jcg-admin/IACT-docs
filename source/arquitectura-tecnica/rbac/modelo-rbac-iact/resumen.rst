@@ -43,7 +43,7 @@ Modelo RBAC IACT — Resumen
 
 .. code-block:: sql
 
- -- Actualizar 43 funciones
+ -- Actualizar 74 funciones
  UPDATE functions SET name = 'manage_sessions' WHERE function_id = 'AUTH-001';
  UPDATE functions SET name = 'close_user_session' WHERE function_id = 'AUTH-002';
  UPDATE functions SET name = 'reset_password' WHERE function_id = 'AUTH-003';
@@ -94,7 +94,7 @@ Modelo RBAC IACT — Resumen
  UPDATE functions SET name = 'view_technical_logs' WHERE function_id = 'LOG-001';
  UPDATE functions SET name = 'export_logs' WHERE function_id = 'LOG-002';
  
- -- Actualizar 10 grupos
+ -- Actualizar 12 grupos
  UPDATE function_groups SET name = 'basic_operator_group' WHERE group_id = 'AGR-001';
  UPDATE function_groups SET name = 'report_viewer_group' WHERE group_id = 'AGR-002';
  UPDATE function_groups SET name = 'quality_supervisor_group' WHERE group_id = 'AGR-003';

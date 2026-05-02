@@ -13,8 +13,8 @@ Modelo RBAC IACT — Modelo de Datos
 ----------
 
 
-1. **``functions``** - 43 funciones atómicas
-2. **``function_groups``** - 10 grupos predefinidos
+1. **``functions``** - 74 funciones atómicas
+2. **``function_groups``** - 12 grupos predefinidos
 3. **``function_group_membership``** - M2M funciones-grupos
 4. **``user_function_assignments``** - Asignaciones directas
 5. **``user_function_group_assignments``** - Asignaciones de grupos

@@ -182,7 +182,7 @@ Modelo RBAC IACT — Implementacion
 **CAMBIO v5.2.1:** ``rule_group`` (NO ``separation_group``, más conciso)
 
 
-8.8 Datos Iniciales - 61 Funciones (v5.4.0)
+8.8 Datos Iniciales - 74 Funciones (v5.5.0)
 -------------------------------------------
 
 
@@ -274,9 +274,28 @@ Modelo RBAC IACT — Implementacion
  ('LOG-006', 'view_system_health', 'Ve estado de salud del sistema y servicios', 'logs'),
  ('LOG-007', 'view_technical_metrics', 'Ve métricas técnicas agregadas (CPU, memoria)', 'logs');
 
+ -- MOD_Operator (10 funciones)
+ INSERT INTO functions (function_id, name, description, category) VALUES
+ ('OPR-001', 'manage_own_agent_state', 'Cambia propio estado de disponibilidad (available/busy/break/offline)', 'operator'),
+ ('OPR-002', 'answer_inbound_calls', 'Atiende llamada entrante asignada por el enrutador', 'operator'),
+ ('OPR-003', 'make_outbound_calls', 'Realiza llamada saliente autorizada', 'operator'),
+ ('OPR-004', 'hold_calls', 'Pone en espera o retoma llamada activa', 'operator'),
+ ('OPR-005', 'transfer_calls', 'Transfiere llamada a otro agente o cola', 'operator'),
+ ('OPR-006', 'enter_call_disposition', 'Registra resultado de la llamada (disposition code)', 'operator'),
+ ('OPR-007', 'request_break', 'Solicita pausa autorizada (break/lunch/training)', 'operator'),
+ ('OPR-008', 'view_own_performance_dashboard', 'Consulta propio dashboard de métricas de desempeño', 'operator'),
+ ('OPR-009', 'view_own_call_history', 'Consulta historial personal de llamadas atendidas/realizadas', 'operator'),
+ ('OPR-010', 'read_own_mailbox', 'Consulta el buzón de mensajes internos del agente (InternalMailbox)', 'operator');
+
+ -- MOD_Supervision (3 funciones)
+ INSERT INTO functions (function_id, name, description, category) VALUES
+ ('SUP-001', 'monitor_live_calls', 'Escucha llamada activa en modo silent o whisper', 'supervisor'),
+ ('SUP-002', 'barge_in_calls', 'Interviene en llamada activa habilitando canal tripartito', 'supervisor'),
+ ('SUP-003', 'broadcast_team_messages', 'Envía mensaje de texto a todos los agentes del equipo', 'supervisor');
 
 
-8.9 Datos Iniciales - 10 Grupos
+
+8.9 Datos Iniciales - 12 Grupos
 -------------------------------
 
 
@@ -293,7 +312,9 @@ Modelo RBAC IACT — Implementacion
  ('AGR-007', 'permission_admin_group', 'Administración de permisos RBAC'),
  ('AGR-008', 'auditor_group', 'Auditoría y compliance'),
  ('AGR-009', 'pipeline_admin_group', 'Administración del ETL'),
- ('AGR-010', 'system_admin_group', 'Administración técnica del sistema');
+ ('AGR-010', 'system_admin_group', 'Administración técnica del sistema'),
+ ('AGR-011', 'call_center_operator_group', 'Operador de call center — funciones OPR-001..010'),
+ ('AGR-012', 'call_center_supervisor_group', 'Supervisor de call center — SUP-001..003 + quality_supervisor_group');
 
 
 
@@ -369,8 +390,8 @@ Modelo RBAC IACT — Implementacion
 .. code-block:: python
 
  """
- Modelos de control de acceso RBAC v5.2.1
- Sistema IACT - 43 funciones atómicas
+ Modelos de control de acceso RBAC v5.5.0
+ Sistema IACT - 74 funciones atómicas
  """
  from django.db import models
  from django.contrib.auth import get_user_model
@@ -380,9 +401,9 @@ Modelo RBAC IACT — Implementacion
  
  class Function(models.Model):
  """
- Función atómica del sistema (43 funciones).
- 
- Una función representa una capacidad específica que puede 
+ Función atómica del sistema (74 funciones).
+
+ Una función representa una capacidad específica que puede
  realizar un usuario. Ejemplos:
  - view_reports
  - export_csv
@@ -411,6 +432,8 @@ Modelo RBAC IACT — Implementacion
    ('alerts', 'Alertas'),
    ('audit', 'Auditoría'),
    ('logs', 'Logs'),
+   ('operator', 'Operador'),
+   ('supervisor', 'Supervisor'),
    ],
    help_text="Módulo al que pertenece"
    )
@@ -427,7 +450,7 @@ Modelo RBAC IACT — Implementacion
  
  class FunctionGroup(models.Model):
  """
- Grupo de funciones que se asignan juntas (10 grupos).
+ Grupo de funciones que se asignan juntas (12 grupos).
  
  Un grupo agrupa múltiples funciones relacionadas. Ejemplos:
  - basic_operator_group (view_reports + view_dashboard)
@@ -436,7 +459,7 @@ Modelo RBAC IACT — Implementacion
    group_id = models.CharField(
    max_length=20,
    unique=True,
-   help_text="Identificador único (AGR-001 a AGR-010)"
+   help_text="Identificador único (AGR-001 a AGR-012)"
    )
    name = models.CharField(
    max_length=100,
@@ -1018,7 +1041,7 @@ Modelo RBAC IACT — Implementacion
  python manage.py initialize_permissions
  
  # O paso a paso:
- python manage.py initialize_functions # 43 funciones
- python manage.py initialize_function_groups # 10 grupos
+ python manage.py initialize_functions # 74 funciones
+ python manage.py initialize_function_groups # 12 grupos
  python manage.py initialize_separation_rules # 3 reglas SoD
 
