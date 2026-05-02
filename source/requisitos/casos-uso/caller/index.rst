@@ -9,9 +9,9 @@
  :ultimo_cambio: 2026-05-01
  :autor: NestorMonroy
 
-================================================
+==================================================
 MOD_Caller — Cliente / Caller (External User View)
-================================================
+==================================================
 
 UCs desde la perspectiva del cliente que llama al
 call center. El cliente NUNCA toca el sistema RBAC;

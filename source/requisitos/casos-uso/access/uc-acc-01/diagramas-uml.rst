@@ -38,7 +38,7 @@ Parte 8 — Diagramas UML
  UC01 ..> VSOD : <<include>>
  UC01 ..> INS : <<include>>
  UC01 ..> CACHE : <<include>>
- UC01 ..> NOT : <<extend (politica notify)>>
+ UC01 ..> NOT : <<extend>>
  UC01 ..> EMI : <<include>>
  NOT --> TARGET
  SYS --> EMI
@@ -263,6 +263,8 @@ Parte 8 — Diagramas UML
 
  @startuml
 
+ start
+
  :Recibir new_function_ids
   + current_function_ids del User;
 
@@ -281,8 +283,7 @@ Parte 8 — Diagramas UML
      stop
    else (no)
    endif
- repeat while (mas rules?) is (si)
- -> no;
+ repeat while (mas rules?) is (si) not (no)
 
  :return OK (set permitido);
  stop

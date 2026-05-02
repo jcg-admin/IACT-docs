@@ -99,21 +99,14 @@ iniciarla.
    - Validacion automatica + persistencia +
      auditoria
  * - **Responsabilidades**
-   - (1) Recibir el request HTTPS;
-     (2) Validar input via DRF Serializer
-     (CNST-012);
-     (3) Aplicar throttling (CNST-011);
-     (4) Buscar el ``User`` en BD;
-     (5) Verificar el password (bcrypt);
-     (6) Aplicar **CNST-004 sesion unica**:
-     invalidar Sessions previas del mismo
-     ``User``;
-     (7) Crear la ``Session`` nueva en BD
-     (CNST-003);
-     (8) Generar tokens JWT (access + refresh);
-     (9) Emitir ``AuditEvent LOGIN`` (CNST-025);
-     (10) Retornar la respuesta JSON estandar
-     (CNST-013).
+   - Recibir request HTTPS, validar via DRF
+     Serializer (CNST-012), aplicar throttling
+     (CNST-011), buscar ``User`` en BD, verificar
+     password (bcrypt), aplicar CNST-004 sesion
+     unica (invalidar Sessions previas del User),
+     crear ``Session`` (CNST-003), generar tokens
+     JWT, emitir AuditEvent LOGIN (CNST-025),
+     retornar respuesta JSON estandar (CNST-013).
 
 2.2.2 Base de datos analitica (MySQL)
 -------------------------------------
@@ -169,15 +162,13 @@ iniciarla.
    - UI del formulario de login + manejo de la
      respuesta
  * - **Responsabilidades**
-   - (1) Renderizar formulario en /login;
-     (2) Validar input cliente-side (formato,
-     completitud);
-     (3) Enviar request HTTPS POST a
-     ``/api/auth/login/``;
-     (4) Almacenar tokens en localStorage o
-     cookie httpOnly segun policy;
-     (5) Redirigir al landing del usuario segun
-     su AccessGroup principal.
+   - Renderizar formulario en /login, validar
+     input cliente-side (formato, completitud),
+     enviar request HTTPS POST a
+     ``/api/auth/login/``, almacenar tokens en
+     localStorage o cookie httpOnly segun policy,
+     redirigir al landing del usuario segun su
+     AccessGroup principal.
 
 2.2.5 Auditor (beneficiario indirecto)
 --------------------------------------

@@ -5,8 +5,7 @@ Parte 12 — Testing
 ==================
 
 UT-01: StateTransitionValidator OK.
-UT-02: Validator rechaza transicion
-       invalida.
+UT-02: Validator rechaza transicion invalida.
 UT-03: Reason missing detecta.
 
 IT-01: available → break con reason.
