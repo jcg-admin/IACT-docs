@@ -96,7 +96,7 @@ Decision
 
 Justificacion:
 
-1. Los 49 UCs canonicos del backup (8 modulos) son **fuente de verdad
+1. Los 80 UCs canonicos del catalogo (12 modulos) son **fuente de verdad
    confirmada** con metadata ``:version: 4.0.0`` declarada. No hay
    ADR previo que los invalide.
 2. Los 10 UC_PERM tienen contenido sustantivo (1 894 lineas en

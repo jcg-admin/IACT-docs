@@ -84,7 +84,7 @@ IACT implementa los 4 niveles completos de la jerarquia:
 
  Nivel 0 (BR): requisitos/reglas_negocio/ -> 20 BR
  Nivel 1 (BReq): requisitos/objetivos/ -> 5 BReq
- Nivel 2 (UC): requisitos/casos_uso/ -> 49 UC
+ Nivel 2 (UC): requisitos/casos_uso/ -> 80 UC
  Nivel 3 (FR): requisitos/funcionales/ -> ~400 FR (estimado)
 
 **Clarificacion sobre META_04:**
@@ -422,7 +422,7 @@ los Casos de Uso.
 
  Estimacion basada en ratio 1 UC : 8 FR
 
- 49 UC x 8 FR/UC = ~400 FR esperados
+ 80 UC x 8 FR/UC = ~640 FR esperados
 
  Distribucion por modulo:
  - MOD_Auth: 5 UC x 8 = ~40 FR
@@ -543,7 +543,7 @@ los Casos de Uso.
  5-20 BR -> 3-10 BReq -> 30-100 UC -> 200-1000 FR
 
  IACT:
- 20 BR -> 5 BReq -> 49 UC -> ~400 FR (estimado)
+ 20 BR -> 5 BReq -> 80 UC -> ~640 FR (estimado)
 
  Ratios IACT:
  BR:BReq = 4:1

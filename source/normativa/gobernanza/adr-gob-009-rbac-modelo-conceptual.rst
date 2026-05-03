@@ -79,12 +79,13 @@ El modelo RBAC del proyecto IACT es:
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
-3. **Catalogo cerrado** — **74 funciones atomicas** (modelo v5.4.0)
-   distribuidas en **8 modulos** funcionales (MOD_Auth,
+3. **Catalogo cerrado** — **74 funciones atomicas** (modelo v5.5.0)
+   distribuidas en **11 modulos** funcionales (MOD_Auth,
    MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
-   MOD_Audit, MOD_Logs). Bumps v5.2.1 → v5.3.0 → v5.4.0 (ver §6
+   MOD_Audit, MOD_Logs, MOD_Operator, MOD_Supervision + MOD_Caller).
+   Bumps v5.2.1 → v5.3.0 → v5.4.0 → v5.5.0 (ver §6
    Trazabilidad version del modelo).
-4. **10 grupos predefinidos** AGR-001..AGR-010 que agrupan
+4. **12 grupos predefinidos** AGR-001..AGR-012 que agrupan
    funciones tipicas para perfiles operativos.
 5. **Custom groups** creables por administradores tecnicos
    (D-RBAC-4) — distincion entre **system groups** (inmutables)
