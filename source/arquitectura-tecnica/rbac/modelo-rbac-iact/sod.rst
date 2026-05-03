@@ -57,7 +57,7 @@ SOD-002 user_audit_separation
 .. code-block:: text
 
  USR-001: create_users
- USR-003: delete_users
+ USR-003: deactivate_users
  USR-004: list_users
  USR-007: unblock_users
 
@@ -89,7 +89,7 @@ SOD-003 access_audit_separation
 
  ACC-001: assign_functions
  ACC-002: revoke_functions
- ACC-005: manage_separation_rules
+ ACC-005: view_separation_rules
 
 
 **Grupo B (Auditoría):**

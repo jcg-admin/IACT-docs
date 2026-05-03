@@ -108,8 +108,8 @@ AGR-001 basic_operator_group
 
 .. code-block:: text
 
- AUTH-001: manage_sessions (propias)
- AUTH-004: view_active_sessions (propias)
+ AUTH-001: view_own_sessions
+ AUTH-004: view_all_active_sessions
  RPT-001: view_reports
  RPT-002: view_dashboard
  RPT-007: view_kpis
@@ -185,7 +185,7 @@ AGR-005 alert_manager_group
  ALR-002: configure_alerts
  ALR-003: configure_team_alerts
  ALR-004: pause_alerts
- ALR-005: delete_alerts
+ ALR-005: disable_alerts
  ALR-006: view_alert_history
 
 
@@ -203,7 +203,7 @@ AGR-006 user_admin_group
 
  USR-001: create_users
  USR-002: update_users
- USR-003: delete_users
+ USR-003: deactivate_users
  USR-004: list_users
  USR-005: search_users
  USR-006: block_users
@@ -230,7 +230,7 @@ AGR-007 permission_admin_group
  ACC-002: revoke_functions
  ACC-003: view_assignments
  ACC-004: assign_function_groups
- ACC-005: manage_separation_rules
+ ACC-005: view_separation_rules
 
 
 **Propósito:** Administración de RBAC.
@@ -290,11 +290,11 @@ AGR-010 system_admin_group
 
 .. code-block:: text
 
- AUTH-001: manage_sessions (de todos)
+ AUTH-001: view_own_sessions
  AUTH-002: close_user_session
  AUTH-003: reset_password
- AUTH-004: view_active_sessions
- LOG-001: view_technical_logs
+ AUTH-004: view_all_active_sessions
+ LOG-001: view_application_logs
  LOG-002: export_logs
 
 
