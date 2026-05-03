@@ -184,3 +184,45 @@ Promover al merge a main con bump de versión.
 - D-DIAG-001: Regla actores en UML = nombres exactos de función RBAC.
 - D-DIAG-002: Bug de doble sustitución documentado como patrón a evitar.
 - D-UC-001: Catálogo IACT: 80 UCs en 12 clusters.
+
+## Added (sesión 4)
+
+**arquitectura-tecnica/uc/ — Vista 4+1 Kruchten (80 archivos)**
+- `index.rst` — índice de la vista arquitectónica UC con tabla del
+  modelo 4+1 (variante 5+1) y toctree de los 80 UCs por módulo.
+  Enlazado en `arquitectura-tecnica/index.rst`.
+- `uc-auth-01..05.rst` — 5 UCs MOD_Auth
+- `uc-usr-01..04.rst` — 4 UCs MOD_Users
+- `uc-acc-01..05, 08, 09.rst` — 7 UCs MOD_Access
+- `uc-perm-01..10.rst` — 10 UCs MOD_Permissions
+- `uc-inc-rpt-01.rst` + `uc-rpt-01..04, 07..17.rst` — 16 UCs MOD_Reports
+- `uc-alr-01..05.rst` — 5 UCs MOD_Alerts
+- `uc-pip-01..04.rst` — 4 UCs MOD_Pipeline
+- `uc-aud-01..04.rst` — 4 UCs MOD_Audit
+- `uc-log-01..07.rst` — 7 UCs MOD_Logs
+- `uc-opr-01..10.rst` — 10 UCs MOD_Operator
+- `uc-sup-01..03.rst` — 3 UCs MOD_Supervision
+- `uc-cli-01..05.rst` — 5 UCs MOD_Caller
+
+  Cada archivo documenta el UC con 6 vistas arquitectónicas:
+  1. Domain Model — clase conceptual + relaciones
+  2. Design View — secuencia flujo principal
+  3. Implementation View — componentes y paquetes
+  4. Use Case View — actores RBAC + relaciones
+  5. Process View — diagrama de actividades
+  6. Deployment View — nodos físicos
+
+  Convenciones aplicadas:
+  - Actores = nombres exactos de función RBAC (D-DIAG-001)
+  - Sin alias de una sola letra (regla clean code UML_07/UML_09)
+  - Alias descriptivos cuando se necesitan (e.g. `as Frontend`)
+
+## Decisiones documentadas (sesión 4)
+
+- **D-UC-002**: Vista arquitectónica 4+1 (5+1) es un archivo por UC,
+  separado de la especificación en `requisitos/casos-uso/`. El archivo
+  arquitectónico cubre las 6 perspectivas Kruchten; el archivo de
+  requisitos documenta el comportamiento funcional.
+- **D-DIAG-003**: Aliases en PlantUML deben ser palabras descriptivas,
+  nunca letras únicas (e.g. `as U`, `as A`). Regla extraída de
+  UML_07/UML_09 en `base-cognitiva/_uml/`.
