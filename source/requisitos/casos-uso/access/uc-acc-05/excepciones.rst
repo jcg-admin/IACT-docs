@@ -14,7 +14,7 @@ Parte 5 — Excepciones
 
 403 FORBIDDEN. Si lectura: sin
 ``view_separation_rules``. Si CRUD: sin
-``manage_separation_rules``. AuditEvent
+``view_separation_rules``. AuditEvent
 UNAUTHORIZED_ACCESS_ATTEMPT.
 
 5.3 EX-03: Regla no existe (lectura/PATCH/DELETE)

@@ -31,7 +31,7 @@ ACTIVE,
 ======================================
 
 **DADO** invoker con
-``manage_separation_rules`` y payload valido,
+``view_separation_rules`` y payload valido,
 
 **ENTONCES**:
 

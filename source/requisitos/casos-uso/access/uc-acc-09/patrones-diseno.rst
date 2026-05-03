@@ -20,7 +20,7 @@ Parte 10 — Patrones de diseno
 
 - P-15 RBAC granular: ``view_audit_log``
   (lectura) distinta de
-  ``manage_separation_rules``,
+  ``view_separation_rules``,
   ``view_assignments``.
 - P-16 Audit selectivo: solo se audita
   consultas focalizadas (target_user_id).

@@ -41,7 +41,7 @@ UC_ACC_05 tiene **4 sub-flujos**:
 ::
 
    PASO 1   POST /api/access/sod-rules/         (FE → BE)
-   PASO 2   Validar JWT + manage_separation_rules
+   PASO 2   Validar JWT + view_separation_rules
    PASO 3   Validar payload
             (functions, name, description)
    PASO 4   Validar funciones existen + ACTIVE
@@ -76,7 +76,7 @@ usuario.
 ::
 
    PASO 1   PATCH /api/access/sod-rules/{id}/   (FE → BE)
-   PASO 2   Validar JWT + manage_separation_rules
+   PASO 2   Validar JWT + view_separation_rules
    PASO 3   Validar payload (campos modificables)
    PASO 4   Localizar SoDRule
    PASO 5   Aplicar PATCH parcial
@@ -104,7 +104,7 @@ usuario.
 ::
 
    PASO 1   DELETE /api/access/sod-rules/{id}/  (FE → BE)
-   PASO 2   Validar JWT + manage_separation_rules
+   PASO 2   Validar JWT + view_separation_rules
    PASO 3   Validar regla existe + ACTIVE
    PASO 4   UPDATE state=RETIRED + metadata
             (retire_reason obligatorio)

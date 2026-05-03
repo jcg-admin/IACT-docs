@@ -8,7 +8,7 @@ Parte 2 — Actores, precondiciones y postcondiciones
 ===================
 
 **User con funcion** ``view_separation_rules``
-(lectura) o ``manage_separation_rules``
+(lectura) o ``view_separation_rules``
 (CRUD). P-15 RBAC granular: la lectura puede
 otorgarse sin la gestion (perfil auditor).
 
