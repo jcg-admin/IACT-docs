@@ -17,7 +17,7 @@ MATRIZ DEPENDENCIAS UC IACT
 
 .. note::
 
- **Analisis canonico de dependencias** entre los 61 casos de uso
+ **Analisis canonico de dependencias** entre los 80 casos de uso
  vigentes del catalogo IACT. Producido por el WP
  ``2026-05-01-05-17-20-uc-dependency-matrix-iact`` y promovido a
  ``source/`` por el WP
@@ -41,13 +41,13 @@ PARTE 1 — Resumen ejecutivo
 1.1 Resumen ejecutivo
 ---------------------
 
-El catalogo IACT esta formado por **61 casos de uso** agrupados en
-**9 clusters funcionales** (AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD,
-LOG) que operan sobre **25 clases de dominio** distribuidas en
+El catalogo IACT esta formado por **80 casos de uso** agrupados en
+**12 clusters funcionales** (AUTH, USR, ACC, PERM, RPT, ALR, PIP, AUD,
+LOG, OPR, SUP, CLI) que operan sobre **25 clases de dominio** distribuidas en
 **7 bounded contexts** (Auth, RBAC, Calls, Reports & Metrics,
 Pipeline ETL, Alerts, Audit, Logs).
 
-Esta matriz analiza las dependencias estructurales entre los 61 UCs
+Esta matriz analiza las dependencias estructurales entre los 80 UCs
 para identificar:
 
 - **Cuales UCs son criticos** — sin ellos el sistema no entrega su
@@ -72,23 +72,24 @@ para identificar:
    - UCs
    - Definicion operativa
  * - CRITICOS
-   - 8 (13%)
+   - 9 (11%)
    - Sin estos, IACT no opera. Bloquean cualquier ruta de valor.
  * - ALTOS
-   - 27 (44%)
+   - 34 (43%)
    - Esenciales operativos. Sin ellos el sistema funciona en modo
      degradado.
  * - MEDIOS
-   - 18 (30%)
+   - 24 (30%)
    - Funcionalidades importantes prescindibles en una primera
      version funcional.
  * - BAJOS
-   - 8 (13%)
+   - 13 (16%)
    - Opcionales / sub-features avanzadas.
 
-**Total verificado: 8 + 27 + 18 + 8 = 61 UCs.**
+**Total verificado: 9 + 34 + 24 + 13 = 80 UCs.**
+(Incluye 18 UCs nuevos: OPR=10, SUP=3, CLI=5; y UC_INC_RPT_01 add.)
 
-1.2.1 Los 8 UCs CRITICOS
+1.2.1 Los 9 UCs CRITICOS
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -101,6 +102,7 @@ para identificar:
    UC_PIP_01   Supervisar ETL        (sin ETL no hay analytics)
    UC_RPT_01   Ver Dashboard         (UI principal del producto)
    UC_AUD_01   Consultar Auditoria   (compliance mandatorio CNST-025)
+   UC_OPR_02   Atender Llamada       (flujo principal del call center)
 
 1.3 Flujo critico identificado
 ------------------------------
@@ -158,34 +160,37 @@ caminos.
    - Cobertura
  * - **T-01**
    - Sesion activa (CNST-003)
-   - 59 / 61 UCs (todos no publicos). Pre-condicion universal.
+   - 78 / 80 UCs (todos no publicos). Pre-condicion universal.
+     Excepciones: UC_AUTH_01 + UC_CLI_01..05 (actores publicos sin sesion).
  * - **T-02**
    - Verificar permiso (UC_PERM_07)
-   - 59 / 61 UCs. Invocado implicitamente en cada request.
+   - 78 / 80 UCs. Invocado implicitamente en cada request.
+     Excepciones: UC_AUTH_01 + UC_CLI_01..05 (sin RBAC propio).
  * - **T-03**
    - Emitir AuditEvent (CNST-025)
-   - 35 / 61 UCs (todas las operaciones de escritura).
+   - 39 / 80 UCs (todas las operaciones de escritura).
+     Incluye OPR-02/05/06 (call state changes) y SUP-02 (barge-in).
 
 1.5 Densidad del grafo
 ----------------------
 
 ::
 
-   Nodos:                       61 UCs
-   Aristas REQUIERE explicitas: ~70
-   Aristas T-01:                59
-   Aristas T-02:                59
+   Nodos:                       80 UCs
+   Aristas REQUIERE explicitas: ~90
+   Aristas T-01:                78
+   Aristas T-02:                78
    Aristas T-03:                35
-   UCs raiz (REQUIERE = none):  18
+   UCs raiz (REQUIERE = none):  23
    Camino critico minimo:       4 UCs
    Centralidad alta:            UC_AUTH_01, UC_PERM_07, UC_PIP_01
 
 ----
 
-PARTE 2 — Tabla maestra de los 61 UCs
+PARTE 2 — Tabla maestra de los 80 UCs
 =====================================
 
-Ficha por UC organizada por los 9 clusters. Cada ficha incluye los
+Ficha por UC organizada por los 12 clusters. Cada ficha incluye los
 campos clave para analisis de dependencias.
 
 2.0 Convenciones de la ficha
@@ -400,12 +405,12 @@ con ACC declarada en ADR-GOB-008. **1 CRITICO + 5 ALTOS + 2 MEDIOS +
    - AUD-002
    - ``AuditEvent``
 
-2.5 Cluster RPT (15 UCs)
+2.5 Cluster RPT (16 UCs)
 ------------------------
 
 Responsabilidad: visualizacion de metricas del call center,
 exportacion, programacion, vistas guardadas, instancias por scope.
-**1 CRITICO + 3 ALTOS + 9 MEDIOS + 2 BAJOS**.
+**1 CRITICO + 3 ALTOS + 10 MEDIOS + 2 BAJOS** (incl. UC_INC_RPT_01).
 
 .. list-table::
  :widths: 22 12 10 26 30
@@ -591,12 +596,12 @@ Responsabilidad: auditoria inmutable (CNST-025). **1 CRITICO +
  * - UC_AUD_02 Buscar Auditoria
    - ALTO
    - 3
-   - AUD-002 ``search_audit_log_log``
+   - AUD-002 ``search_audit_log``
    - ``AuditEvent``
  * - UC_AUD_03 Exportar Auditoria
    - ALTO
    - 3
-   - AUD-003 ``export_audit_log_log``
+   - AUD-003 ``export_audit_log``
    - ``AuditEvent``, ``ExportJob``
  * - UC_AUD_04 Generar Reporte Compliance
    - MEDIO
@@ -656,7 +661,148 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
    - LOG-007 ``view_technical_metrics`` (NUEVA)
    - ``TechnicalMetric``
 
-2.10 Verificacion cuantitativa
+2.10 Cluster OPR (10 UCs)
+--------------------------
+
+Responsabilidad: operacion del agente en el call center — ciclo de vida
+de estado, atencion de llamadas, transferencia, disposicion y
+autogestion. **1 CRITICO + 4 ALTOS + 3 MEDIOS + 2 BAJOS**.
+
+.. list-table::
+ :widths: 22 12 10 26 30
+ :header-rows: 1
+
+ * - UC
+   - Criticidad
+   - Dias
+   - Funcion RBAC
+   - Clase Dominio
+ * - UC_OPR_01 Cambiar Estado del Agente
+   - ALTO
+   - 2
+   - OPR-001 ``manage_own_agent_state``
+   - ``AgentState``, ``AgentSession``
+ * - UC_OPR_02 Atender Llamada Entrante
+   - CRITICO
+   - 2
+   - OPR-002 ``receive_inbound_calls``
+   - ``Call``, ``AgentSession``
+ * - UC_OPR_03 Realizar Llamada Saliente
+   - ALTO
+   - 3
+   - OPR-003 ``place_outbound_calls``
+   - ``Call``, ``AgentSession``
+ * - UC_OPR_04 Hold / Unhold Llamada
+   - MEDIO
+   - 2
+   - OPR-004 ``hold_resume_calls``
+   - ``Call``
+ * - UC_OPR_05 Transferir Llamada
+   - ALTO
+   - 2
+   - OPR-005 ``transfer_calls``
+   - ``Call``, ``TransferEvent``
+ * - UC_OPR_06 Ingresar Disposition
+   - ALTO
+   - 2
+   - OPR-006 ``submit_call_disposition``
+   - ``Call``, ``Disposition``
+ * - UC_OPR_07 Solicitar Break / Pausa
+   - MEDIO
+   - 2
+   - OPR-007 ``request_break``
+   - ``AgentState``
+ * - UC_OPR_08 Ver Propio Dashboard
+   - MEDIO
+   - 2
+   - OPR-008 ``view_own_performance``
+   - ``AgentDashboard``
+ * - UC_OPR_09 Ver Propio Historial de Llamadas
+   - BAJO
+   - 3
+   - OPR-009 ``view_own_call_history``
+   - ``Call``, ``AgentSession``
+ * - UC_OPR_10 Recibir Notificacion Supervisor
+   - BAJO
+   - 2
+   - OPR-010 ``read_own_mailbox``
+   - ``InternalMailbox``
+
+2.11 Cluster SUP (3 UCs)
+--------------------------
+
+Responsabilidad: supervision en tiempo real del equipo de agentes —
+monitoreo de llamadas activas, intervencion y comunicacion de equipo.
+**0 CRITICOS + 1 ALTO + 1 MEDIO + 1 BAJO**.
+
+.. list-table::
+ :widths: 22 12 10 26 30
+ :header-rows: 1
+
+ * - UC
+   - Criticidad
+   - Dias
+   - Funcion RBAC
+   - Clase Dominio
+ * - UC_SUP_01 Monitorear Llamada (Whisper)
+   - ALTO
+   - 3
+   - SUP-001 ``monitor_live_calls``
+   - ``Call``, ``AgentSession``
+ * - UC_SUP_02 Barge-in en Llamada
+   - MEDIO
+   - 3
+   - SUP-002 ``barge_in_calls``
+   - ``Call``, ``AgentSession``
+ * - UC_SUP_03 Mensaje Broadcast al Equipo
+   - BAJO
+   - 2
+   - SUP-003 ``broadcast_team_messages``
+   - ``InternalMailbox``
+
+2.12 Cluster CLI (5 UCs)
+--------------------------
+
+Responsabilidad: ciclo de vida del llamante externo — desde marcado
+hasta calificacion post-atencion. Actor sin RBAC; interactua con el
+PBX y el IVR. **0 CRITICOS + 2 ALTOS + 1 MEDIO + 2 BAJOS**.
+
+.. list-table::
+ :widths: 22 12 10 26 30
+ :header-rows: 1
+
+ * - UC
+   - Criticidad
+   - Dias
+   - Funcion RBAC
+   - Clase Dominio
+ * - UC_CLI_01 Iniciar Llamada al Call Center
+   - ALTO
+   - 1
+   - (ninguna — actor externo sin RBAC)
+   - ``Call``, ``tbl_historico_*``
+ * - UC_CLI_02 Navegar IVR
+   - ALTO
+   - 1
+   - (ninguna — actor externo sin RBAC)
+   - ``Call``, ``tbl_historico_*``
+ * - UC_CLI_03 Esperar en Cola
+   - MEDIO
+   - 1
+   - (ninguna — actor externo sin RBAC)
+   - ``Call``, ``AgentSession``
+ * - UC_CLI_04 Solicitar Callback
+   - BAJO
+   - 2
+   - (ninguna — actor externo sin RBAC)
+   - ``Call``
+ * - UC_CLI_05 Calificar Atencion (Post-Call)
+   - BAJO
+   - 1
+   - (ninguna — actor externo sin RBAC)
+   - ``Call``, ``base_ivr_*``
+
+2.13 Verificacion cuantitativa
 ------------------------------
 
 .. list-table::
@@ -696,9 +842,9 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
  * - RPT
    - 1
    - 3
-   - 9
+   - 10
    - 2
-   - 15
+   - 16
  * - ALR
    - 0
    - 3
@@ -723,12 +869,30 @@ Z.2 D-05). **0 CRITICOS + 2 ALTOS + 2 MEDIOS + 3 BAJOS**.
    - 2
    - 3
    - 7
+ * - OPR
+   - 1
+   - 4
+   - 3
+   - 2
+   - 10
+ * - SUP
+   - 0
+   - 1
+   - 1
+   - 1
+   - 3
+ * - CLI
+   - 0
+   - 2
+   - 1
+   - 2
+   - 5
  * - **Total**
-   - **8**
-   - **27**
-   - **18**
-   - **8**
-   - **61**
+   - **9**
+   - **34**
+   - **24**
+   - **13**
+   - **80**
 
 ----
 
@@ -741,7 +905,7 @@ T-02, T-03) se omiten aqui — viven en Parte 4.
 3.1 UCs raiz (REQUIERE = ninguno)
 ---------------------------------
 
-18 UCs no requieren otro UC explicito (solo transversales):
+23 UCs no requieren otro UC explicito (solo transversales):
 
 ::
 
@@ -866,7 +1030,7 @@ PARTE 4 — Dependencias transversales en detalle
 **Definicion**: cualquier UC operativo (no publico) requiere una
 ``Session.state = ACTIVE`` valida.
 
-**Cobertura**: 59 / 61. Excepciones: UC_AUTH_01 (crea la Session) y
+**Cobertura**: 78 / 80. Excepciones: UC_AUTH_01 + UC_CLI_01..05 y
 UC_AUTH_03 (paso de validacion de token de recuperacion).
 
 **Mecanismo**: middleware HTTP que extrae el token de autenticación del header
@@ -884,7 +1048,7 @@ TTL CNST-002, health check en UC_LOG_06.
 UC_PERM_07 con el par ``(user_id, function_id)`` antes de ejecutar
 su flujo.
 
-**Cobertura**: 59 / 61.
+**Cobertura**: 78 / 80.
 
 **Orden de precedencia interno** (UC_PERM_07):
 
@@ -910,7 +1074,7 @@ T-02 falla deniega — peor que T-01 pero mejor que bypass total RBAC.
 **Definicion**: toda operacion de **escritura** en cualquier cluster
 emite uno o mas ``AuditEvent`` inmutables (CNST-025).
 
-**Cobertura**: 35 / 61 UCs (los de escritura). Los 26 UCs restantes
+**Cobertura**: 39 / 80 UCs (los de escritura). Los 41 UCs restantes
 son lectura pura.
 
 **Mecanismo**: middleware "audit emitter" como observer de los
@@ -1215,7 +1379,7 @@ C.2 Hallazgos consolidados
      rutas criticas. Su fallo deja el sistema sin valor.
  * - H-M02
    - OBSERVABLE
-   - 59/61 UCs requieren T-01 + T-02. El middleware Auth + RBAC es
+   - 78/80 UCs requieren T-01 + T-02. El middleware Auth + RBAC es
      el componente con mayor leverage del proyecto.
  * - H-M03
    - OBSERVABLE
@@ -1288,7 +1452,7 @@ Anclajes verificados:
   (cerrado).
 - WP de correcciones:
   ``2026-05-01-03-29-03-uc-corrections-against-canonical-model``
-  (cerrado, 61/61 UCs).
+  (cerrado, 61/61 UCs base + 18 nuevos OPR/SUP/CLI en v5.5.0).
 - WP analitico:
   ``2026-05-01-05-17-20-uc-dependency-matrix-iact`` (cerrado, 6
   partes + conclusion).

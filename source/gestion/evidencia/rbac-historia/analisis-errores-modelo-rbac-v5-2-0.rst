@@ -370,11 +370,11 @@ Patron correcto:
    - Ingles + ``log`` explicito
  * - AUD-002
    - ``busca_auditoria``
-   - ``search_audit_log_log_log``
+   - ``search_audit_log``
    - Ingles + ``log`` explicito
  * - AUD-003
    - ``exporta_auditoria``
-   - ``export_audit_log_log_log``
+   - ``export_audit_log``
    - Ingles + ``log`` explicito
  * - AUD-004
    - ``genera_reporte_compliance``

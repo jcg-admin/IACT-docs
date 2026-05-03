@@ -51,7 +51,7 @@ normativo vigente:
 
 - ``ADR-BACK-001`` cita "**19 funciones**" y "**130+
   capacidades**" — cifras divergentes del modelo vigente
-  (61 funciones v5.4.0 + 10 grupos AGR-001..AGR-010).
+  (74 funciones v5.5.0 + 12 grupos AGR-001..AGR-012).
 - ``ADR-BACK-001/004`` usan vocabulario "**Capacidad**" que
   CNST-033 vigente PROHIBE explicitamente.
 - ``ADR-BACK-001 + ADR-BACK-004`` documentan **la misma
@@ -79,7 +79,7 @@ El modelo RBAC del proyecto IACT es:
    compleja. Per :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 2. **Granular** — la unidad asignable es la **Funcion atomica**
    (1 verbo + 1 sustantivo).
-3. **Catalogo cerrado** — **61 funciones atomicas** (modelo v5.4.0)
+3. **Catalogo cerrado** — **74 funciones atomicas** (modelo v5.4.0)
    distribuidas en **8 modulos** funcionales (MOD_Auth,
    MOD_Users, MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
    MOD_Audit, MOD_Logs). Bumps v5.2.1 → v5.3.0 → v5.4.0 (ver §6
@@ -150,13 +150,13 @@ naturaleza transversal.
 3.3 Por que cifras 61/10/3 (no 19/130+/0 ni 42/10/3 ni 51/10/3)
 ---------------------------------------------------------------
 
-El modelo v5.4.0 (vigente, en
+El modelo v5.5.0 (vigente, en
 :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`) declara:
 
-- **61 funciones** distribuidas en 8 modulos:
+- **74 funciones** distribuidas en 11 modulos:
   Auth=4, Users=9, Access=12, Pipeline=4, Reports=11, Alerts=10,
-  Audit=4, Logs=7.
-- **10 grupos** AGR-001..AGR-010.
+  Audit=4, Logs=7, Operator=10, Supervision=3 + Caller (sin RBAC).
+- **12 grupos** AGR-001..AGR-012.
 - **3 reglas SoD** SOD-001/002/003.
 
 Nota historica del bump v5.3.0 → v5.4.0:
@@ -252,7 +252,7 @@ La nota in-text de ADR-BACK-004 legacy sugeria documentar una
 
 La matriz RACI:
 
-- Cubre las 61 funciones por modulo (MOD_Auth, MOD_Users,
+- Cubre las 74 funciones por modulo (MOD_Auth, MOD_Users,
   MOD_Access, MOD_Pipeline, MOD_Reports, MOD_Alerts,
   MOD_Audit, MOD_Logs).
 - Cubre los 10 grupos predefinidos AGR-001..AGR-010.

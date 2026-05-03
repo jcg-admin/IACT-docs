@@ -527,7 +527,7 @@ RACI RBAC IACT — RACI por Modulo
    - R
    - C
  * - AUD-002
-   - ``search_audit_log_log``
+   - ``search_audit_log``
    - I
    - I
    - —
@@ -535,7 +535,7 @@ RACI RBAC IACT — RACI por Modulo
    - R
    - C
  * - AUD-003
-   - ``export_audit_log_log``
+   - ``export_audit_log``
    - I
    - C
    - —

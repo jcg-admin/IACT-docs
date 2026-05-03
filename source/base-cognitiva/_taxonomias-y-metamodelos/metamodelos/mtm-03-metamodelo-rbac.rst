@@ -160,7 +160,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
     * - <<primary key>> - role_id: SERIAL <<unique>> - codigo: VARCHAR(50) // ej. AGR-001..AGR-010 (system groups) <<attributes>> - nombre: VARCHAR(100) - descripcion: TEXT - categoria: CategoriaRol - is_active: BOOLEAN DEFAULT TRUE
     * - <<operations>> + containsPermission(permission): Boolean + isCompatibleWith(otherRole): Boolean + getPermissions: Set<Permission>
 
- CATALOGO DEL MODELO v5.2.x (vigente):
+ CATALOGO DEL MODELO v5.5.0 (vigente):
 
  El modelo v4.0 legacy (18 roles tipo USERS_FULL_MANAGER /
  SYSTEM_ADMIN basados en cargos) fue ABANDONADO en v5.0 a favor del
@@ -169,7 +169,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
 
  El catalogo vigente declara:
 
- - **42 funciones atomicas** (capabilities) en formato accion-recurso:
+ - **74 funciones atomicas** (capabilities) en formato accion-recurso:
    manage_sessions, view_reports, export_csv, etc.
  - **10 grupos predefinidos** (system groups, inmutables)
    AGR-001..AGR-010 que agrupan funciones por uso tipico.
@@ -195,7 +195,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
  :doc:`/requisitos/casos-uso/permissions/uc-perm-05/index`.
  Las 3 reglas SoD aplican TANTO a system como a custom groups.
 
- La materializacion concreta de este metamodelo (las 42 funciones,
+ La materializacion concreta de este metamodelo (las 74 funciones,
  los 10 grupos, las 3 reglas SoD, la politica de permisos
  temporales) esta documentada en la restriccion
  :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano` (cuyo
@@ -298,7 +298,7 @@ relaciones, cardinalidades y restricciones del modelo de seguridad.
     * - role_conflicts
     * - <<composite key>> - role_a: FK -> Rol - role_b: FK -> Rol <<attributes>> - razon: TEXT
 
- PARES CONFLICTIVOS IACT (modelo v5.2.x — 3 reglas SoD atomicas):
+ PARES CONFLICTIVOS IACT (modelo v5.5.0 — 3 reglas SoD atomicas):
  .. list-table::
 
     * - Grupo A
@@ -647,7 +647,7 @@ Modelo_RBAC_Completo_IACT y referenciado en los UC de gestion
 de usuarios (UC-005 a UC-011).
 
 **Catalogo poblado:** la materializacion concreta de este metamodelo
-(las 42 funciones, los 10 grupos, las 3 reglas SoD, la politica de
+(las 74 funciones, los 10 grupos, las 3 reglas SoD, la politica de
 permisos temporales) esta documentada como restricción
 :doc:`/normativa/restricciones/cnst-029-rbac-modelo-plano`.
 

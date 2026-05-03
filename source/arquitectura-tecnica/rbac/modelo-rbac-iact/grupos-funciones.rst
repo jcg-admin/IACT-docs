@@ -248,8 +248,8 @@ AGR-008 auditor_group
 .. code-block:: text
 
  AUD-001: view_audit_log
- AUD-002: search_audit_log_log
- AUD-003: export_audit_log_log
+ AUD-002: search_audit_log
+ AUD-003: export_audit_log
  AUD-004: generate_compliance_report
 
 

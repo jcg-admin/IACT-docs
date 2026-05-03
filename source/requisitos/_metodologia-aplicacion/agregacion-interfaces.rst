@@ -86,7 +86,7 @@ partes pueden existir **independientemente**.
      AGR-001..010 y/o creados via
      UC_PERM_05). Si un grupo se elimina,
      las funciones siguen vivas en el
-     catálogo de 42 funciones (CNST_029).
+     catálogo de 74 funciones (CNST_029).
    end note
    @enduml
 
@@ -1593,7 +1593,7 @@ debe quedar registrada en un ADR del subdominio afectado.
      CNST_017 (SLA tiempos),
      CNST_019/020 (export async + throttling),
      CNST_025 (auditoría inmutable),
-     CNST_029 (catálogo de 42 funciones),
+     CNST_029 (catálogo de 74 funciones),
      CNST_030 (SoD),
      BR_012 (segmento único).
  * - **Política de diagramación**

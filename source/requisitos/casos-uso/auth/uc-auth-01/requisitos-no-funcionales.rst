@@ -200,8 +200,8 @@ constraints que los gobiernan.
  * - **Acceso a la auditoria**
    - Solo via UCs del cluster AUD (UC_AUD_01
      ``view_audit_log``, UC_AUD_02
-     ``search_audit_log_log``, UC_AUD_03
-     ``export_audit_log_log``, UC_AUD_04
+     ``search_audit_log``, UC_AUD_03
+     ``export_audit_log``, UC_AUD_04
      ``generate_compliance_report``) por
      ``auditor_group`` (AGR-008).
 

@@ -509,12 +509,12 @@ Modelo RBAC IACT — Catalogo de Funciones
    - UC-061
    - Ve registros de auditoría
  * - AUD-002
-   - `search_audit_log_log`
+   - `search_audit_log`
    - audit:search
    - UC-061
    - Busca en auditoría
  * - AUD-003
-   - `export_audit_log_log`
+   - `export_audit_log`
    - audit:export
    - UC-063
    - Exporta registros de auditoría

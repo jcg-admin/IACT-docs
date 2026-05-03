@@ -150,10 +150,10 @@ Modelo RBAC IACT — Mapeo Funciones UC
  * - view_audit_log
    - UC-061
    - Audit
- * - search_audit_log_log
+ * - search_audit_log
    - UC-061
    - Audit
- * - export_audit_log_log
+ * - export_audit_log
    - UC-063
    - Audit
  * - generate_compliance_report

@@ -1027,7 +1027,7 @@ Algunas funciones del catálogo RBAC se componen de otras
    Funcion "0..*" -- "0..*" Funcion : implica
    note right of Funcion
      Reflexiva en el catálogo
-     de 42 funciones (CNST_029):
+     de 74 funciones (CNST_029):
        p.ej. ``manage_users``
        implica view_users +
        create_users +
@@ -1198,7 +1198,7 @@ Símbolo: triángulo vacío apuntando a la superclase.
      Agregación:
      si el Grupo se elimina,
      la Funcion sigue existiendo
-     en el catálogo de 42 funciones
+     en el catálogo de 74 funciones
      (CNST_029) y puede pertenecer
      a otros grupos.
    end note
@@ -4223,7 +4223,7 @@ Próximas subsecciones potenciales
      CNST_002 (sesión única),
      CNST_011 (throttling 5/5min),
      CNST_025 (auditoría inmutable),
-     CNST_029 (catálogo de 42 funciones),
+     CNST_029 (catálogo de 74 funciones),
      CNST_031 (permisos temporales ≤ 6 meses),
      BR_012 (segmento único).
  * - **Política de diagramación**

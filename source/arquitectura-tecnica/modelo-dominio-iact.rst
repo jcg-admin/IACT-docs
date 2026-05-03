@@ -1066,7 +1066,7 @@ para este modelo. Resumen de su impacto sobre las clases:
 - ``2026-04-30-00-07-08-rbac-functions-count-audit`` (Z.1.C):
   conteo de funciones reconciliado, concepto Segmento descartado.
 - ``2026-04-30-00-37-45-rbac-modelo-conceptual-cleanup`` (Z.2):
-  bump del modelo RBAC a v5.4.0 con 61 funciones, decisiones
+  bump del modelo RBAC a v5.5.0 con 74 funciones, decisiones
   D-01..D-11.
 - ``2026-04-30-00-44-07-rbac-missing-ucs-discovery`` (Z.2.A):
   clasificacion de los 61 UCs en cinco categorias.

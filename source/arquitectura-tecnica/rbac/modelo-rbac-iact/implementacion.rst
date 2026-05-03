@@ -261,8 +261,8 @@ Modelo RBAC IACT — Implementacion
  -- MOD_Audit (4 funciones)
  INSERT INTO functions (function_id, name, description, category) VALUES
  ('AUD-001', 'view_audit_log', 'Ve registros de auditoría', 'audit'),
- ('AUD-002', 'search_audit_log_log', 'Busca en auditoría', 'audit'),
- ('AUD-003', 'export_audit_log_log', 'Exporta registros de auditoría', 'audit'),
+ ('AUD-002', 'search_audit_log', 'Busca en auditoría', 'audit'),
+ ('AUD-003', 'export_audit_log', 'Exporta registros de auditoría', 'audit'),
  ('AUD-004', 'generate_compliance_report', 'Genera reporte de cumplimiento', 'audit');
 
  -- MOD_Logs (7 funciones)

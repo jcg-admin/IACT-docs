@@ -48,8 +48,8 @@ conforme al catalogo de funciones del sistema.
   ``AccessFunction`` en PostgreSQL.
 
 **view_audit_log**
-  Usuario con funciones ``view_audit_log``, ``search_audit_log_log``,
-  ``export_audit_log_log``. Solo lectura sobre ``audit_log``
+  Usuario con funciones ``view_audit_log``, ``search_audit_log``,
+  ``export_audit_log``. Solo lectura sobre ``audit_log``
   (PostgreSQL). SoD: no puede tener funciones de AGR-006.
 
 **Sistema IVR (Fuente de Datos)**

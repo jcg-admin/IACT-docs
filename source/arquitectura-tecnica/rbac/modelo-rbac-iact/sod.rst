@@ -35,8 +35,8 @@ SOD-001 pipeline_audit_separation
 .. code-block:: text
 
  AUD-001: view_audit_log
- AUD-002: search_audit_log_log
- AUD-003: export_audit_log_log
+ AUD-002: search_audit_log
+ AUD-003: export_audit_log
  AUD-004: generate_compliance_report
 
 
@@ -67,8 +67,8 @@ SOD-002 user_audit_separation
 .. code-block:: text
 
  AUD-001: view_audit_log
- AUD-002: search_audit_log_log
- AUD-003: export_audit_log_log
+ AUD-002: search_audit_log
+ AUD-003: export_audit_log
 
 
 **Razón:** Evitar que quien gestiona usuarios vea auditoría de sus acciones.
@@ -97,7 +97,7 @@ SOD-003 access_audit_separation
 .. code-block:: text
 
  AUD-001: view_audit_log
- AUD-002: search_audit_log_log
+ AUD-002: search_audit_log
 
 
 **Razón:** Separación de poderes entre quien asigna permisos y quien audita.

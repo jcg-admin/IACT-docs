@@ -360,8 +360,8 @@ RBAC, disparos de ETL y cualquier accion de escritura.
  left to right direction
 
  actor "view_audit_log" as VGA
- actor "search_audit_log_log" as SA
- actor "export_audit_log_log" as EA
+ actor "search_audit_log" as SA
+ actor "export_audit_log" as EA
  actor "generate_compliance_report" as GCR
 
  rectangle "MOD_Audit" {
@@ -624,8 +624,8 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
 
  package "MOD_Audit / MOD_Logs" {
    artifact "view_audit_log" as F_VGA
-   artifact "search_audit_log_log" as F_SA
-   artifact "export_audit_log_log" as F_EA
+   artifact "search_audit_log" as F_SA
+   artifact "export_audit_log" as F_EA
    artifact "generate_compliance_report" as F_GCR
    artifact "view_application_logs" as F_VSL
    artifact "view_etl_logs" as F_VEL
