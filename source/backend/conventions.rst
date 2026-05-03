@@ -60,7 +60,7 @@ URLs / API
 Estructura de apps
 ==================
 
-Por dominio funcional, alineado con los 8 modulos
+Por dominio funcional, alineado con los 12 modulos
 arquitectonicos:
 
 .. code-block:: text

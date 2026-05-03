@@ -181,7 +181,7 @@ Antes de iniciar este procedimiento, verificar:
  
  # Resultado
  UC_001, UC_002, ..., UC_073
- Total: 49 UC
+ Total: 80 UC
 
 - **Resultado**: Lista de origenes
 - **Verificacion**: Cantidad correcta

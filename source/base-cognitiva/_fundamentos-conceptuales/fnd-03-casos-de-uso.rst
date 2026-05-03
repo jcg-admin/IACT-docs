@@ -518,7 +518,7 @@ UC que provienen de necesidades explicitas no capturadas como BR.
       - 11 UC 20 UC 11 UC 5 UC 2 UC
     * - TOTAL
       - 100%
-      - 49 UC
+      - 80 UC
 
 ----
 
@@ -613,7 +613,7 @@ Los Casos de Uso en IACT siguen la convencion:
 
 ----
 
-8. Lista de UC Identificados en IACT (49 UC)
+8. Lista de UC Identificados en IACT (80 UC)
 --------------------------------------------
 
 Basado en el analisis del modelo RBAC v5.5.0, se han identificado 80 Casos de Uso

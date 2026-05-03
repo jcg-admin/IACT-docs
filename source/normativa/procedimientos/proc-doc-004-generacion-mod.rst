@@ -46,7 +46,7 @@ responsabilidades y componentes de cada modulo del sistema IACT.
 2. Alcance
 ----------
 
-**Aplica A:** Los 8 modulos IACT.
+**Aplica A:** Los 12 modulos IACT.
 
 **No Aplica A:** Componentes transversales (documentar en arquitectura).
 
