@@ -1032,7 +1032,7 @@ Algunas funciones del catálogo RBAC se componen de otras
        implica view_users +
        create_users +
        modify_users +
-       delete_users.
+       deactivate_users.
    end note
    @enduml
 

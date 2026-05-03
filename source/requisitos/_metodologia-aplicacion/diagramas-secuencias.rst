@@ -1982,7 +1982,7 @@ expandir cada función hasta llegar a las atómicas.
 
    SR -> BD : SELECT funciones_implicadas("manage_users")
    activate BD
-   BD --> SR : [view_users, create_users, modify_users, delete_users]
+   BD --> SR : [view_users, create_users, modify_users, deactivate_users]
    deactivate BD
 
    loop para cada función implicada
