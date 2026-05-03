@@ -23,6 +23,7 @@ high-level, vistas, modelos de datos y diagramas.
  arquitectura-sistema
  diagramas-uml-sistema
  diagramas-uc-por-modulo
+ uc/index
 
 .. toctree::
  :maxdepth: 2
