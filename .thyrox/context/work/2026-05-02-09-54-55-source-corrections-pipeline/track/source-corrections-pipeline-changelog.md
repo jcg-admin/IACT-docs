@@ -127,3 +127,60 @@ author: NestorMonroy
 
 Pendiente — el WP continúa con posibles correcciones adicionales.
 Promover al merge a main con bump de versión.
+
+## Added (sesión 3 — continuación)
+
+**arquitectura-tecnica/modulos/**
+- `operator/index.rst` — ARQ_MOD_009: 10 funciones OPR-001..010,
+  AGR-011. Estado del agente, llamadas, disposición, autogestion.
+- `operator/diagramas.rst` — State machine (offline→available→busy→
+  hold→on_break), secuencia llamada entrante con JWT+RBAC, componentes.
+- `supervision/index.rst` — ARQ_MOD_010: 3 funciones SUP-001..003,
+  AGR-012. Compliance tone obligatorio en barge-in.
+- `supervision/diagramas.rst` — Secuencia monitor_live_calls, state
+  canal_agente_cliente→supervision_activa, componentes.
+- `caller/index.rst` — ARQ_MOD_011: Caller externo, sin RBAC. PBX→IVR.
+- `caller/diagramas.rst` — Activity caller flow (dial→CSAT), componentes
+  PBX→tbl_historico_*→ETL→base_ivr_*→AlertEvaluator.
+
+## Changed (sesión 3)
+
+**source/ — corrección masiva nombres de función RBAC (D-DIAG-001)**
+- 62 colon-prefix actor declarations corregidas (`actor ":fn"` →
+  `actor "fn"`) en diagramas-uc-por-modulo.rst y diagramas-uml-sistema.rst.
+- 280 nombres de función incorrectos corregidos en ~80 archivos de
+  diagrama RST (view_etl_status→view_pipeline_status, retry_etl→
+  request_pipeline_retry, acknowledge_alerts→acknowledge_alert, etc.).
+- 148 nombres de función incorrectos corregidos en 110 archivos no-
+  diagrama RST (export_reports→export_csv, schedule_reports→
+  schedule_report, view_agent_reports→view_reports, etc.).
+- 51 instancias de doble sustitución corregidas en 29 archivos
+  (search_audit_log_log→search_audit_log, export_audit_log_log→
+  export_audit_log) — D-DIAG-002.
+
+**RBAC v5.5.0 — actualización de conteos (D-RBAC-001)**
+- 74 funciones (era 42/61/43), 12 grupos (era 10), 11 módulos (era 8/9).
+- Archivos actualizados: implementacion.rst, catalogo-funciones.rst,
+  grupos-funciones.rst, diagramas.rst, modelo-datos.rst, resumen.rst,
+  raci-modulo.rst, mapeo-uc.rst, sod.rst, convenciones.rst,
+  base-cognitiva (13 archivos), normativa/restricciones (2), normativa/
+  gobernanza (2), backend ADRs (2), requisitos (4), modelo-dominio-iact.
+
+**arquitectura-tecnica/modulos/index.rst**
+- "8 modulos funcionales" → "11 modulos funcionales"
+- Añadidas filas ARQ_MOD_009, ARQ_MOD_010, ARQ_MOD_011 con conteo de UCs.
+- toctree extendido: operator/index, supervision/index, caller/index.
+
+**arquitectura-tecnica/matriz-dependencias-uc-iact.rst**
+- 61 UCs → 80 UCs en 12 clusters (D-UC-001).
+- Criticality: 9C+34A+24M+13B=80 (era 8C+27A+18M+8B=61).
+- Nuevas secciones 2.10 OPR (10 UCs), 2.11 SUP (3 UCs), 2.12 CLI (5 UCs).
+- Verification table extendida con OPR/SUP/CLI y totales correctos.
+- Transversal deps: T-01/T-02=78/80, T-03=39/80, raíces=23.
+
+**Decisiones documentadas (discover/decisions.md)**
+- D-RBAC-001: RBAC v5.5.0 con 74 funciones y 12 grupos.
+- D-RBAC-002: Tres nuevos módulos ARQ_MOD_009/010/011.
+- D-DIAG-001: Regla actores en UML = nombres exactos de función RBAC.
+- D-DIAG-002: Bug de doble sustitución documentado como patrón a evitar.
+- D-UC-001: Catálogo IACT: 80 UCs en 12 clusters.

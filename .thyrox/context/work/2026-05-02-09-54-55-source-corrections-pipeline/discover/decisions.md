@@ -396,3 +396,127 @@ IVR consultada vía Servicio de Reportes.
 **Consecuencia:** Los datos-involucrados de estos UCs se corrigen
 para usar terminología abstracta alineada con D-ETL-005:
 "Base Analítica IVR" en lugar de nombres de entidades ficticias.
+
+---
+
+## D-RBAC-001 — RBAC v5.5.0: 74 funciones, 12 grupos, 11 módulos
+
+**Decisión:** El modelo RBAC canónico es v5.5.0 con 74 funciones
+atómicas distribuidas en 11 módulos funcionales:
+
+- **Base (61 funciones):** AUTH=4, USR=9, ACC=12, PIP=4, RPT=11, ALR=10,
+  AUD=4, LOG=7 — heredadas de v5.4.0.
+- **OPR - Operator (10 funciones):** OPR-001..010 — gestión del ciclo
+  de vida del agente en el call center (estado, llamadas, disposición,
+  pausa, autogestion).
+- **SUP - Supervision (3 funciones):** SUP-001..003 — supervisión en
+  tiempo real (monitor_live_calls, barge_in_calls,
+  broadcast_team_messages).
+
+**Grupos:** 12 grupos AGR-001..AGR-012 (AGR-011 = `operator_group`,
+AGR-012 = `supervision_group`).
+
+**Impacto:** Todos los archivos que decían "42/61/43 funciones" o
+"10 grupos" o "v5.2.x/v5.4.0 (vigente)" actualizados a v5.5.0 / 74 /
+12 grupos. Afecta: implementacion.rst, catalogo-funciones.rst,
+grupos-funciones.rst, diagramas.rst, modelo-datos.rst, resumen.rst,
+raci, base-cognitiva (13 archivos), normativa (4), backend ADRs (2),
+requisitos (4), arquitectura-tecnica modelo-dominio.
+
+---
+
+## D-RBAC-002 — Tres nuevos módulos arquitectónicos en v5.5.0
+
+**Decisión:** Se crean tres nuevos módulos de arquitectura:
+
+- **ARQ_MOD_009 OPERATOR** — módulo de operación del agente call center.
+  10 funciones OPR-001..010, grupo AGR-011. Componentes: AgentPanel,
+  TelephonyBridge, DispositionService, Redis agent-state cache.
+- **ARQ_MOD_010 SUPERVISION** — módulo de supervisión en tiempo real.
+  3 funciones SUP-001..003, grupo AGR-012. Compliance tone obligatorio
+  en barge-in (tono de beep cada 15s). Componentes: SupervisionEndpoint,
+  TelephonyBridge, ComplianceToneEmitter, InternalMailbox.
+- **ARQ_MOD_011 CALLER** — módulo del llamante externo (sin RBAC). Actor
+  externo que interactúa con PBX → IVR → tbl_historico_* → ETL →
+  base_ivr_* → Reportes. No tiene funciones RBAC propias.
+
+**Archivos creados:**
+- `source/arquitectura-tecnica/modulos/operator/index.rst`
+- `source/arquitectura-tecnica/modulos/operator/diagramas.rst`
+- `source/arquitectura-tecnica/modulos/supervision/index.rst`
+- `source/arquitectura-tecnica/modulos/supervision/diagramas.rst`
+- `source/arquitectura-tecnica/modulos/caller/index.rst`
+- `source/arquitectura-tecnica/modulos/caller/diagramas.rst`
+
+---
+
+## D-DIAG-001 — Actores en diagramas UML usan nombres de función RBAC exactos
+
+**Decisión:** Todos los actores en diagramas UML (PlantUML en RST)
+deben usar el nombre exacto de la función RBAC del catálogo. No se
+permiten nombres institucionales ("Admin", "Supervisor", "Auditor",
+"Agente", "Operador") ni variantes aproximadas.
+
+**Regla:**
+```
+CORRECTO:  actor "view_pipeline_status" as VPS
+CORRECTO:  actor "request_pipeline_retry" as RPR
+INCORRECTO: actor "view_etl_status" as VES
+INCORRECTO: actor "Supervisor" as SUP
+INCORRECTO: actor ":view_reports" as VR  ← colon prefix prohibido
+```
+
+**Alcance:** Aplica a `diagramas-uml-sistema.rst`, `diagramas-uc-por-
+modulo.rst`, y todos los archivos `diagramas-uml.rst` de cada UC.
+
+**Impacto:** ~62 colon-prefix actor declarations corregidas.
+~280 nombres de función incorrectos corregidos en archivos de diagrama.
+~148 nombres de función incorrectos corregidos en archivos no-diagrama.
+
+---
+
+## D-DIAG-002 — Bug de doble sustitución: search_audit_log → search_audit_log_log
+
+**Decisión (documentación de patrón de bug):** Cuando se aplica
+`str.replace('search_audit_log', 'search_audit_log_log')` sobre un
+archivo que ya contiene `search_audit_log_log` (de una corrección
+anterior), el resultado es `search_audit_log_log_log`. Este patrón
+de doble sustitución ocurrió dos veces:
+
+1. Primera vez: 10 archivos afectados — corregidos en sesión anterior.
+2. Segunda vez: 29 archivos afectados — corregidos en esta sesión (51
+   fixes totales: `search_audit_log_log` → `search_audit_log` y
+   `export_audit_log_log` → `export_audit_log`).
+
+**Prevención futura:** Cualquier script de sustitución masiva debe:
+(a) verificar que el string de reemplazo no contiene el string de
+búsqueda como substring, o (b) aplicar la sustitución solo si el
+archivo no contiene ya el valor correcto.
+
+---
+
+## D-UC-001 — Catálogo IACT: 80 UCs en 12 clusters (v5.5.0)
+
+**Decisión:** El catálogo canónico de UCs del sistema IACT es de
+**80 UCs** en **12 clusters**:
+
+| Cluster | UCs | Descripción |
+|---------|-----|-------------|
+| AUTH | 5 | Autenticación y gestión de sesión |
+| USR | 4 | CRUD de usuarios |
+| ACC | 7 | Asignación y consulta de permisos |
+| PERM | 10 | Gestión técnica del RBAC |
+| RPT | 16 | Reportes IVR + include segment |
+| ALR | 5 | Alertas y notificaciones |
+| PIP | 4 | Supervisión y control del pipeline ETL |
+| AUD | 4 | Auditoría y compliance |
+| LOG | 7 | Logs del sistema |
+| OPR | 10 | Operación del agente (nuevo v5.5.0) |
+| SUP | 3 | Supervisión en tiempo real (nuevo v5.5.0) |
+| CLI | 5 | Caller externo / IVR (nuevo v5.5.0) |
+| **Total** | **80** | |
+
+**Distribución por criticidad:** 9C + 34A + 24M + 13B = 80.
+
+**Impacto:** `matriz-dependencias-uc-iact.rst` actualizada de 61 → 80 UCs,
+incluyendo nuevas secciones 2.10 (OPR), 2.11 (SUP), 2.12 (CLI).
