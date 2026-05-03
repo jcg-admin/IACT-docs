@@ -32,7 +32,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/reportes/menus-ivr/?trimestre=&vista=;
- :JWT + RBAC (view_ivr_reports);
+ :JWT + RBAC (view_reports);
  :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
  if (vista = 'redirigidos') then

@@ -4,7 +4,7 @@
 Parte 2 — Actores y precondiciones
 =====================================
 
-- **User con funcion** ``export_audit_log``
+- **User con funcion** ``export_audit_log_log``
 - **ExportWorker**
 - **Storage**
 - **MailboxService**

@@ -30,7 +30,7 @@ Parte 11 — Implementacion tecnica
 ::
 
    procedure get(trimestre, vista, invoker, ctx):
-       require AuthorizationGuard.has(invoker, 'view_ivr_reports')
+       require AuthorizationGuard.has(invoker, 'view_reports')
        segmentos = SegmentResolver.resolve(invoker.id)
        cached = MetricsCache.get('menu_ivr', trimestre, vista, segmentos)
        if cached: return cached

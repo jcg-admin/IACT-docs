@@ -7,7 +7,7 @@ Parte 2 — Actores y precondiciones
 2.1 Actores
 ===========
 
-- **User con funcion** ``view_queue_reports``
+- **User con funcion** ``view_reports``
 - **AnalyticsRepo**
 
 2.2 Precondiciones

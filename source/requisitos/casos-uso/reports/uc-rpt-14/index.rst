@@ -29,7 +29,7 @@ calls/hour.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_campaign_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

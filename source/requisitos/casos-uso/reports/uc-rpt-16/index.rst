@@ -28,7 +28,7 @@ tiempo promedio en menu, paths recorridos.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_ivr_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

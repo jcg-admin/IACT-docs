@@ -29,7 +29,7 @@ individual.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_queue_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

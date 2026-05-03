@@ -31,7 +31,7 @@ paginacion, drill-down a detalle por dia.
  * - **ID**
    - UC_RPT_03
  * - **Funcion RBAC**
-   - ``view_historical_reports``
+   - ``view_reports``
  * - **BReq**
    - BReq-001 + BReq-003
 

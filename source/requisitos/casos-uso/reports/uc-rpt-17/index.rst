@@ -30,7 +30,7 @@ identificador hasheado del cliente
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_unique_clients_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

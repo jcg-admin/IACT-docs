@@ -54,7 +54,7 @@ Parte 11 — Implementacion tecnica
                               invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'view_historical_reports')
+                 'view_reports')
        segments = SegmentResolver.for(
                     invoker.id)
        if not segments:

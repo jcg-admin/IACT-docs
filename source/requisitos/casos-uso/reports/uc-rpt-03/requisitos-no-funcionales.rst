@@ -43,7 +43,7 @@ Parte 6 — Requisitos no funcionales
 6.3 Seguridad
 =============
 
-- ``view_historical_reports`` enforcement.
+- ``view_reports`` enforcement.
 - Filtro segmento.
 - Sin PII.
 

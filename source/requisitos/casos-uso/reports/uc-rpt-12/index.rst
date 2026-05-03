@@ -30,7 +30,7 @@ agentes del mismo segmento.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_agent_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

@@ -591,12 +591,12 @@ Responsabilidad: auditoria inmutable (CNST-025). **1 CRITICO +
  * - UC_AUD_02 Buscar Auditoria
    - ALTO
    - 3
-   - AUD-002 ``search_audit_log``
+   - AUD-002 ``search_audit_log_log``
    - ``AuditEvent``
  * - UC_AUD_03 Exportar Auditoria
    - ALTO
    - 3
-   - AUD-003 ``export_audit_log``
+   - AUD-003 ``export_audit_log_log``
    - ``AuditEvent``, ``ExportJob``
  * - UC_AUD_04 Generar Reporte Compliance
    - MEDIO

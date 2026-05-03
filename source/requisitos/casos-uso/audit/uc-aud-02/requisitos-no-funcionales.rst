@@ -6,5 +6,5 @@ Parte 6 — Requisitos no funcionales
 
 - Performance: search ≤ 1 s P95.
 - Confiabilidad: ≥ 99.5%.
-- Seguridad: search_audit_log; throttling.
+- Seguridad: search_audit_log_log; throttling.
 - Auditabilidad: meta-audit.

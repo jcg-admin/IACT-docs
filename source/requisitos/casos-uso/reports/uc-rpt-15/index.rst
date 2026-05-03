@@ -29,7 +29,7 @@ abandono.
  :widths: 25 75
 
  * - **Funcion RBAC**
-   - ``view_transfer_reports``
+   - ``view_reports``
 
 Estructura de la spec
 =====================

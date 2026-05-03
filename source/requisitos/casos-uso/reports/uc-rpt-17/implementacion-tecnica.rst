@@ -29,7 +29,7 @@ Parte 11 — Implementacion tecnica
 
    procedure get(trimestre, invoker, ctx):
        require AuthorizationGuard.has(invoker,
-                   'view_unique_clients_reports')
+                   'view_reports')
        segmentos = SegmentResolver.resolve(invoker.id)
        cached = MetricsCache.get('clientes', trimestre, segmentos)
        if cached: return cached

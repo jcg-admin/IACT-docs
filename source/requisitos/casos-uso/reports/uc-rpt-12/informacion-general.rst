@@ -17,7 +17,7 @@ Parte 1 — Informacion general
  * - **BReq**
    - BReq-001, BReq-003
  * - **Funcion RBAC**
-   - ``view_agent_reports``
+   - ``view_reports``
 
 1.2 Proposito
 =============
@@ -46,7 +46,7 @@ CNST-026 sin PII — el reporte usa agent_id
 y display_name (no SSN, telefono personal).
 Acceso al reporte controlado por:
 
-- ``view_agent_reports``: ver agregados
+- ``view_reports``: ver agregados
   del segmento.
 - ``view_agent_detail``: drill a 1 agente
   (P-44 audit reforzado).

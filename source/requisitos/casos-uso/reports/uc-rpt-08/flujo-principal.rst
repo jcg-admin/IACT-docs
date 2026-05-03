@@ -9,7 +9,7 @@ Parte 3 — Flujo principal
 
 PASO 1 — GET con filtros opcionales.
 PASO 2 — JWT.
-PASO 3 — RBAC ``view_scheduled_reports``.
+PASO 3 — RBAC ``view_reports``.
 PASO 4 — Query ScheduledReportRepo
 filtrado por actor_id (caller).
 PASO 5 — Aplicar filtros (status,

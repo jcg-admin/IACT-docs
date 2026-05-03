@@ -32,7 +32,7 @@ Flujo de Acceso a Visualizaciones
 
  :cursor.callproc(sp_rpt_*, [trimestre, segmentos]);
 
- if (Tiene permiso export_reports?) then (si)
+ if (Tiene permiso export_csv?) then (si)
    :Retornar datos + opciones exportacion;
    if (Solicita exportacion?) then (si)
      :Encolar job de exportacion asincrona;

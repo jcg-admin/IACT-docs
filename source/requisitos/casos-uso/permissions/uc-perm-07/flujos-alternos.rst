@@ -40,7 +40,7 @@ muestre cuenta regresiva.
 ===========================
 
 User esta en 3 AGRs distintos que coinciden
-en otorgar ``view_realtime_metrics``.
+en otorgar ``view_kpis``.
 
 Resultado: ``allowed = true``,
 ``origin = GRANTED_BY_AGR``,

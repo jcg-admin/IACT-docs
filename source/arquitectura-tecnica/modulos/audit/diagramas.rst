@@ -42,7 +42,7 @@ Estados del Proceso de Exportacion de Audit
 
  @startuml
 
- [*] --> Queued : export_audit_log solicita exportacion
+ [*] --> Queued : export_audit_log_log solicita exportacion
  Queued --> Processing : ExportWorker disponible
  Processing --> Done : archivo generado y firmado HMAC
  Processing --> Failed : error I/O o timeout
@@ -68,7 +68,7 @@ Diagrama de componentes — MOD_Audit
  @startuml
 
  actor "view_audit_log" as VGA
- actor "export_audit_log" as EA
+ actor "export_audit_log_log" as EA
  actor "generate_compliance_report" as GCR
 
  component "AuditQueryEndpoint\n(/api/audit/)" as QEP

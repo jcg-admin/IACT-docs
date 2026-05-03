@@ -7,7 +7,7 @@ Parte 3 — Flujo principal
 Identico a UC_RPT_04 / UC_PERM_10 export:
 
 PASO 1 — POST.
-PASO 2 — JWT + RBAC export_audit_log.
+PASO 2 — JWT + RBAC export_audit_log_log.
 PASO 3 — Validar (estimacion ≤ 5M filas).
 PASO 4 — Limite jobs simultaneos.
 PASO 5 — Crear ExportJob.

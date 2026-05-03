@@ -38,7 +38,7 @@ Parte 6 — Requisitos no funcionales
 6.3 Seguridad
 =================
 
-- ``export_reports`` enforcement.
+- ``export_csv`` enforcement.
 - Sin PII en archivo (sanitizer en
   worker).
 - URL firmado con TTL 24h.

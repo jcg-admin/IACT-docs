@@ -31,7 +31,7 @@ filtros guardados.
  :header-rows: 0
 
  * - **Funcion RBAC**
-   - ``schedule_reports``
+   - ``schedule_report``
 
 Estructura de la spec
 =====================

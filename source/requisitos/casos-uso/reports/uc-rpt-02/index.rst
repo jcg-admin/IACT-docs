@@ -34,7 +34,7 @@ sub-minuto, datos de stream Analytics
  * - **ID**
    - UC_RPT_02
  * - **Funcion RBAC**
-   - ``view_realtime_metrics``
+   - ``view_kpis``
  * - **BReq**
    - BReq-001 + BReq-006
 

@@ -24,7 +24,7 @@ Parte 6 — Requisitos no funcionales
 6.3 Seguridad
 =================
 
-- ``schedule_reports`` enforcement.
+- ``schedule_report`` enforcement.
 - Re-check al ejecutar (P-64).
 - Schedules limitados a segmento del User.
 

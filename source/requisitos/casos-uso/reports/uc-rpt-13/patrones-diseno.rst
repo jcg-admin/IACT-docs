@@ -15,7 +15,7 @@ Parte 10 — Patrones
    - Aplicacion
  * - **P-15**
    - RBAC granular
-   - view_queue_reports
+   - view_reports
  * - **P-25**
    - Read replicas
    -

@@ -5,7 +5,7 @@ Parte 5 — Excepciones
 ==========================
 
 5.1 EX-01: JWT — 401.
-5.2 EX-02: Sin export_reports — 403 + audit.
+5.2 EX-02: Sin export_csv — 403 + audit.
 5.3 EX-03: report_type invalido — 400.
 5.4 EX-04: format invalido — 400.
 5.5 EX-05: Estimacion > 1M — 400 ROW_LIMIT_EXCEEDED.

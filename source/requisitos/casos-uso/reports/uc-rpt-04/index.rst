@@ -31,7 +31,7 @@ descarga (P-57).
  :header-rows: 0
 
  * - **Funcion RBAC**
-   - ``export_reports``
+   - ``export_csv``
 
 Estructura de la spec
 =====================

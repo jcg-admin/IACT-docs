@@ -8,7 +8,7 @@ Parte 2 — Actores y precondiciones
 ===========
 
 - **User con funcion**
-  ``view_historical_reports``
+  ``view_reports``
 - **Frontend**
 - **AnalyticsRepo** (read replica)
 - **MetricsCache** (TTL adaptativo)
@@ -17,7 +17,7 @@ Parte 2 — Actores y precondiciones
 ==================
 
 - User autenticado.
-- ``view_historical_reports`` activa.
+- ``view_reports`` activa.
 - Segmento del User definido.
 
 2.3 Postcondiciones

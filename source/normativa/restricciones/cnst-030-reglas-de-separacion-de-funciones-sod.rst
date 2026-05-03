@@ -91,21 +91,21 @@ revisor humano.
    - Pipeline (PIP-001..004): view_pipeline_status,
      view_pipeline_errors, view_data_availability,
      request_pipeline_retry
-   - Audit (AUD-001..004): view_audit_log, search_audit_log_log,
-     export_audit_log_log, generate_compliance_report
+   - Audit (AUD-001..004): view_audit_log, search_audit_log_log_log,
+     export_audit_log_log_log, generate_compliance_report
    - CNST_030
  * - SOD-002
    - user_audit_separation
    - Gestion Users criticas (4 funciones): create_users,
      delete_users, list_users, unblock_users
    - Audit parcial (3 funciones): view_audit_log,
-     search_audit_log_log, export_audit_log_log
+     search_audit_log_log_log, export_audit_log_log_log
    - CNST_030
  * - SOD-003
    - access_audit_separation
    - Gestion Acceso (3 funciones): assign_functions,
      revoke_functions, manage_sod
-   - Audit (2 funciones): view_audit_log, search_audit_log_log
+   - Audit (2 funciones): view_audit_log, search_audit_log_log_log
    - CNST_030
 
 **Razon de cada regla:**

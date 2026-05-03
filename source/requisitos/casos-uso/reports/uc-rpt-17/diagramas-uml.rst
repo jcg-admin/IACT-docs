@@ -28,7 +28,7 @@ Parte 8 — Diagramas UML
  @startuml
  start
  :GET /api/v1/reportes/clientes/?trimestre=;
- :JWT + RBAC (view_unique_clients_reports);
+ :JWT + RBAC (view_reports);
  :Resolver segmento (<<include>> UC_INC_RPT_01);
  :Cache lookup;
  :Consultar Servicio de Reportes (sp_rpt_clientes);

@@ -33,7 +33,7 @@ Dimension: campaign_id.
                   invoker, ctx):
        require AuthorizationGuard.has(
                  invoker,
-                 'view_campaign_reports')
+                 'view_reports')
        segments = SegmentResolver.for(
                     invoker.id)
        rows = CampaignDailyStatRepo
