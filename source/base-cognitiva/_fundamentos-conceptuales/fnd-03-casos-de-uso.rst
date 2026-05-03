@@ -265,10 +265,10 @@ Puede ser una persona (rol), otro sistema, o el tiempo.
  - Proporciona informacion o recibe notificacion
  - Ejemplo: AGR-007 que recibe notificacion de cambio
 
-3.4 Actores en IACT (Agrupadores RBAC v5.2.x)
+3.4 Actores en IACT (Agrupadores RBAC v5.5.0)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Los actores en IACT corresponden a los 10 Agrupadores del modelo RBAC v5.2.x,
+Los actores en IACT corresponden a los 12 Agrupadores del modelo RBAC v5.5.0,
 siguiendo la filosofia Sin Pretensiones:
 
 .. code-block:: text
@@ -616,8 +616,8 @@ Los Casos de Uso en IACT siguen la convencion:
 8. Lista de UC Identificados en IACT (49 UC)
 --------------------------------------------
 
-Basado en el analisis del modelo RBAC v5.2.x, se han identificado 49 Casos de Uso
-distribuidos en 8 modulos funcionales.
+Basado en el analisis del modelo RBAC v5.5.0, se han identificado 80 Casos de Uso
+distribuidos en 12 modulos funcionales.
 
 8.1 Autenticacion - MOD_Auth (5 UC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

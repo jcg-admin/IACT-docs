@@ -66,7 +66,7 @@ Documentos vinculados
 - :doc:`/arquitectura-tecnica/modelo-dominio-iact`
   v1.0.0
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
-  v5.4.0
+  v5.5.0
 - :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`
   v1.0.0
 - :doc:`/requisitos/casos-uso/auth/uc-auth-01/index`

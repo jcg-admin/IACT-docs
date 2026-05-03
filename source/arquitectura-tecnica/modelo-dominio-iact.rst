@@ -20,12 +20,12 @@ MODELO DOMINIO IACT
  **Modelo conceptual canonico del dominio IACT**, complementario a
  :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`. Producido por
  el WP ``2026-05-01-02-01-06-domain-model-canonization`` aplicando el
- filtro de Abbott + IEEE 830 sobre el corpus vigente (61 UCs, 61
- funciones RBAC v5.4.0, BR/CNST en sus versiones vigentes).
+ filtro de Abbott + IEEE 830 sobre el corpus vigente (80 UCs, 74
+ funciones RBAC v5.5.0, BR/CNST en sus versiones vigentes).
 
  **Convencion de nombres**: identificadores (clases, atributos,
  operaciones, valores de enum) en **ingles** por consistencia con el
- modelo RBAC v5.4.0 y NOM_001 § 2.3. La prosa, los comentarios y las
+ modelo RBAC v5.5.0 y NOM_001 § 2.3. La prosa, los comentarios y las
  notas de los diagramas estan en **espanol**.
 
 ----
@@ -62,7 +62,7 @@ por Z.1.C (Camino C) y no aparece en este modelo.
   ``schedule_report``).
 - **Valores de enum** en UPPER_SNAKE (``ACTIVE``, ``ACKNOWLEDGED``).
 
-Justificacion: el modelo RBAC v5.4.0 ya usa ingles para nombres de
+Justificacion: el modelo RBAC v5.5.0 ya usa ingles para nombres de
 funciones tras la correccion aplicada por Z.1.C. Mantener una
 unica convencion idiomatica para todos los identificadores formales
 del dominio reduce el costo cognitivo y el riesgo de mismatches que
@@ -946,7 +946,7 @@ El WP que produjo este modelo verifico cobertura **bidireccional al
 La matriz detallada vive en el WP
 ``2026-05-01-02-01-06-domain-model-canonization/pilot/uc-vs-domain-validation.md``
 con mapeo completo (cluster por cluster, categoria Z.2.A por UC,
-funcion RBAC v5.4.0 por UC).
+funcion RBAC v5.5.0 por UC).
 
 Resumen de actividad por clase:
 

@@ -265,10 +265,10 @@ El proyecto IACT tiene los siguientes artefactos documentados:
  Inferencias 1 BR ( 5%)
  Cálculos 3 BR (15%)
 
- MODELO RBAC v5.2.x:
+ MODELO RBAC v5.5.0:
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Agrupadores (AGR) 10
- Funciones atómicas 42
+ Agrupadores (AGR) 12
+ Funciones atómicas 74
  Reglas SoD 3
 
 ----

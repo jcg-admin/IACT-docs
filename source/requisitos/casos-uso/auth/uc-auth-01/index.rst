@@ -70,7 +70,7 @@ Documentos vinculados
   v1.0.0 — clases ``User``, ``Session``,
   ``InternalMailbox``, ``AuditEvent``.
 - :doc:`/arquitectura-tecnica/rbac/modelo-rbac-iact/index`
-  v5.4.0 — funciones AUTH-001..004.
+  v5.5.0 — funciones AUTH-001..004.
 - :doc:`/arquitectura-tecnica/matriz-dependencias-uc-iact`
   v1.0.0 — criticidad, transversales T-01/02/03,
   patrones de diseno aplicables.
