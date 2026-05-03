@@ -597,17 +597,15 @@ las requieren. Referencia cruzada entre UC y funcion RBAC.
  package "MOD_Reports" {
    artifact "view_dashboard" as F_VD
    artifact "view_reports" as F_VR
-   artifact "view_realtime_metrics" as F_VRT
-   artifact "view_historical_reports" as F_VHR
-   artifact "export_reports" as F_ER
-   artifact "schedule_reports" as F_SCH
-   artifact "view_scheduled_reports" as F_VSR2
-   artifact "view_agent_reports" as F_VAR
-   artifact "view_queue_reports" as F_VQR
-   artifact "view_campaign_reports" as F_VCR
-   artifact "view_transfer_reports" as F_VTR
-   artifact "view_ivr_reports" as F_VIR
-   artifact "view_unique_clients_reports" as F_VUC
+   artifact "view_kpis" as F_VK
+   artifact "view_charts" as F_VCH
+   artifact "filter_reports" as F_FR
+   artifact "export_csv" as F_ECSV
+   artifact "export_excel" as F_EXL
+   artifact "export_pdf" as F_EPDF
+   artifact "schedule_report" as F_SCH
+   artifact "save_view" as F_SV
+   artifact "share_report" as F_SHR
  }
 
  package "MOD_Pipeline" {
