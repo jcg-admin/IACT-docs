@@ -76,5 +76,4 @@ Casos de uso relacionados:
  dependencias
  componentes
  restricciones
- casos-uso
  diagramas/index

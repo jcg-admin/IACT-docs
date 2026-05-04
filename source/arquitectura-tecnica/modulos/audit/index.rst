@@ -79,6 +79,5 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/audit/index`
  dependencias
  componentes
  restricciones
- casos-uso
  retencion
  diagramas/index

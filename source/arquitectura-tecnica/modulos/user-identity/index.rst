@@ -69,5 +69,4 @@ Casos de uso relacionados: :doc:`/requisitos/casos-uso/users/index`
  dependencias
  componentes
  restricciones
- casos-uso
  diagramas/index
