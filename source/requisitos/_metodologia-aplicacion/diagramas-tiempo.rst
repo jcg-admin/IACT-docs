@@ -123,7 +123,7 @@ Limitaciones de este ejemplo
   diagrama solo cubre el camino feliz.
 - No se establece convención IACT canónica para colores,
   resolución temporal, ni interacción con
-  :doc:`diagramas-secuencias` y :doc:`diagramas-estados`.
+  :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index` y :doc:`/requisitos/_metodologia-aplicacion/diagramas-estados/index`.
   Eso pertenece al WP.
 
 .. _wp-diagramas-tiempo:
@@ -160,10 +160,10 @@ Trazabilidad (preliminar)
    - Borrador (versión 0.1.0). No usar como referencia
      normativa.
  * - **Diagramas hermanos**
-   - :doc:`diagramas-estados`,
-     :doc:`diagramas-secuencias`,
-     :doc:`diagramas-colaboraciones`,
-     :doc:`diagramas-actividades`
+   - :doc:`/requisitos/_metodologia-aplicacion/diagramas-estados/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-secuencias/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-colaboraciones/index`,
+     :doc:`/requisitos/_metodologia-aplicacion/diagramas-actividades/index`
  * - **Restricciones potencialmente relevantes**
    - CNST_002, CNST_006, CNST_008, CNST_011, CNST_017
  * - **Política de diagramación**
