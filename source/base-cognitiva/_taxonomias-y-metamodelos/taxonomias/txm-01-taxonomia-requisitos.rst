@@ -260,8 +260,8 @@ negocio, independientes del sistema de software.
    - 5
    - UC-036 a UC-040
  * - Administracion
-   - 6
-   - UC-012 a UC-016, UC-043
+   - 8
+   - UC-012 a UC-016, UC_ADM_01, UC_ADM_02, UC_ADM_03
 
 ----
 

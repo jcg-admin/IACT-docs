@@ -314,20 +314,20 @@ especifican interacciones completas entre actores y sistema.
     BR_002 (ETL Nocturno) --genera--> UC-050 (Supervisar ETL)
 
  3. BR tipo Restriccion influye en UC:
-    BR_007 (SoD) --influye--> UC-043 (Configurar SoD)
+    BR_007 (SoD) --influye--> UC_ADM_01 (Gestionar Ciclo de Vida de Reglas SoD)
 
 4.4 Ejemplo
 ^^^^^^^^^^^
 
 ::
 
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
- Actor Primario: AGR-008 (admin_seguridad)
+ Actor Primario: AGR-009 (admin_sistema)
  Objetivo: Crear restricciones para prevenir conflictos de funciones
 
  Flujo Normal:
- 1. Admin Seguridad selecciona Gestionar SoD
+ 1. admin_sistema selecciona Gestionar Reglas SoD
  2. Sistema muestra lista de restricciones actuales
  3. Admin selecciona Crear nueva restriccion
  4. Sistema muestra formulario de configuracion
@@ -394,11 +394,11 @@ los Casos de Uso.
 
  Cada paso de UC deriva multiples FR:
 
- UC-043, Paso 2: Sistema muestra lista de restricciones actuales
+ UC_ADM_01, Paso 2: Sistema muestra lista de restricciones actuales
  |
- +---> FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
- +---> FR-043.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
- +---> FR-043.3: Lista DEBE estar ordenada por fecha de creacion
+ +---> FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
+ +---> FR-ADM-01.2: Lista DEBE incluir ID, Nombre, Grupo A, Grupo B
+ +---> FR-ADM-01.3: Lista DEBE estar ordenada por fecha de creacion
 
  Regla: Cada paso que dice Sistema [verbo] genera FR
 
@@ -407,9 +407,9 @@ los Casos de Uso.
 
 ::
 
- Derivados de UC-043:
+ Derivados de UC_ADM_01:
 
- FR-043.1: Sistema DEBE mostrar lista de restricciones SoD existentes
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD existentes
  FR-043.2: Sistema DEBE validar conflictos al crear nueva SoD
  FR-043.3: Sistema DEBE impedir asignacion que viole SoD
  FR-043.4: Sistema DEBE registrar en auditoria cambios SoD
@@ -630,12 +630,12 @@ los Casos de Uso.
 
  NIVEL 2 - UC:
  UC-025: Ver Dashboard Principal
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
  UC-050: Supervisar Estado ETL
 
  NIVEL 3 - FR:
  FR-025.1: Sistema DEBE mostrar grafico de llamadas por hora
- FR-043.1: Sistema DEBE mostrar lista de restricciones SoD
+ FR-ADM-01.1: Sistema DEBE mostrar lista de restricciones SoD
  FR-050.1: Sistema DEBE mostrar estado del ultimo job ETL
 
 ----

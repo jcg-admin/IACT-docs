@@ -120,7 +120,7 @@ FR-010.02: Validar SoD antes de asignar
 
 **Configuración SoD:**
 
-Las restricciones SoD se configuran en UC_043 y son mantenidas
+Las restricciones SoD se configuran en UC_ADM_01 y son mantenidas
 por el administrador de seguridad.
 
 ----
@@ -136,7 +136,7 @@ por el administrador de seguridad.
  * - **UC**
    - UC_010: Asignar Funciones
  * - **Depende de**
-   - FR-010.01, UC_043 (configuración SoD)
+   - FR-010.01, UC_ADM_01 (configuración SoD)
  * - **Requerido por**
    - FR-010.03
  * - **BR**

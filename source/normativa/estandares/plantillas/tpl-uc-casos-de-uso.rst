@@ -87,7 +87,7 @@ Nomenclatura
 
  Ejemplos:
  - UC_001_Iniciar_Sesion.rst
- - UC_043_Configurar_SoD.rst
+ - UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst
 
 ----
 

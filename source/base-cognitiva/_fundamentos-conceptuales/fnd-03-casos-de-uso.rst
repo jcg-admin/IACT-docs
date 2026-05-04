@@ -110,8 +110,8 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
    - Escenario end-to-end
    - Test unitario/aislado
  * - Ejemplo
-   - UC-043: Configurar SoD
-   - FR-043.1: Sistema DEBE mostrar lista SoD
+   - UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+   - FR-ADM-01.1: Sistema DEBE mostrar lista SoD
 
 **Analogia:**
 
@@ -170,12 +170,12 @@ Describe comportamientos del sistema desde la perspectiva del usuario.
 
 .. code-block:: text
 
- UC-043: Configurar SoD
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
 
  IDENTIFICACION:
- ID: UC-043
- Nombre: Configurar Segregacion de Funciones
- Actor Primario: AGR-008 (admin_seguridad)
+ ID: UC_ADM_01
+ Nombre: Gestionar Ciclo de Vida de Reglas SoD
+ Actor Primario: AGR-009 (admin_sistema)
  Actores Secundarios: AGR-007 (auditor)
 
  CONTEXTO:
@@ -282,7 +282,8 @@ siguiendo la filosofia Sin Pretensiones:
  AGR-005: gestor_alertas (view_alerts, ...) UC-036 a UC-040
  AGR-006: supervisor_equipo (search_users, block_users, view_reports) UC-009, UC-017
  AGR-007: auditor (view_audit_log, ...) UC-060 a UC-063
- AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC-043-047
+ AGR-008: admin_seguridad (assign_functions, ...) UC-010, UC_ACC_03, UC_ACC_05, UC_ACC_09
+ AGR-009: admin_sistema (...) UC_ADM_01, UC_ADM_02, UC_ADM_03
  AGR-009: admin_sistema (view_pipeline_status, ...) UC-050-053, UC-070-072
  AGR-010: operador_etl (view_pipeline_status, ...) UC-050 a UC-053
 
@@ -576,7 +577,7 @@ Los Casos de Uso en IACT siguen la convencion:
 
  Ejemplos:
  - UC_006_Crear_Usuario.rst
- - UC_043_Configurar_SoD.rst
+ - UC_ADM_01_Gestionar_Ciclo_Vida_SoD.rst
  - UC_050_Supervisar_ETL.rst
 
 7.2 Ubicacion en el Modelo IACT
@@ -655,13 +656,13 @@ distribuidos en 12 modulos funcionales.
  UC-011: Gestionar Permisos por Agrupador
  UC-041: Asignar Segmento de Datos
  UC-042: Asignar Permiso Directo
- UC-043: Configurar SoD
- UC-044: Consultar Permisos Efectivos
- UC-045: Gestionar Catalogo de Agrupadores
- UC-046: Gestionar Catalogo de Funciones
- UC-047: Auditar Cambios de Permisos
+ UC_ADM_01: Gestionar Ciclo de Vida de Reglas SoD
+ UC_ACC_03: Consultar Permisos Efectivos
+ UC_ADM_03: Gestionar Catalogo de Agrupadores del Sistema
+ UC_ADM_02: Gestionar Catalogo de Funciones
+ UC_ACC_09: Auditar Cambios de Permisos
 
- Actor Primario: AGR-008 (admin_seguridad)
+ Actor Primario: AGR-008 (admin_seguridad) para ACC; AGR-009 (admin_sistema) para ADM
  BR Relacionadas: BR_006 (RBAC Flat), BR_007 (SoD), BR_012 (Usuario-Segmento)
 
 8.4 Pipeline ETL - MOD_Pipeline (4 UC)
@@ -764,8 +765,11 @@ distribuidos en 12 modulos funcionales.
    - 4
    - UC-006 a UC-009
  * - MOD_Access
-   - 9
-   - UC-010, UC-011, UC-041 a UC-047
+   - 7
+   - UC-010, UC-011, UC_ACC_03, UC_ACC_05, UC_ACC_08, UC_ACC_09, UC-041..042
+ * - MOD_Admin
+   - 3
+   - UC_ADM_01, UC_ADM_02, UC_ADM_03
  * - MOD_Pipeline
    - 4
    - UC-050 a UC-053

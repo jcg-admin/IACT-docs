@@ -67,20 +67,20 @@ Modelo RBAC IACT — Mapeo Funciones UC
    - UC-010
    - Access
  * - view_assignments
-   - UC-011, UC-044
+   - UC-011, UC_ACC_03
    - Access
  * - assign_function_groups
    - UC-010
    - Access
  * - view_separation_rules
-   - UC-043
-   - Access
+   - UC_ADM_01
+   - Admin
  * - update_separation_rule
-   - UC-043
-   - Access
+   - UC_ADM_01
+   - Admin
  * - disable_separation_rule
-   - UC-043
-   - Access
+   - UC_ADM_01
+   - Admin
  * - view_pipeline_status
    - UC-050
    - Pipeline
