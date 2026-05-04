@@ -539,6 +539,47 @@ para 12 diagramas de módulo.
 de `implementation-view/` podrían consolidarse allí o vivir como archivos
 `implementation-view/mod-{nombre}.rst` (análogo a `uc-module-view/mod-{nombre}.rst`).
 
+### H-13 — modulos/ mezcla diagramas únicos valiosos con especificaciones textuales ARCH [ALTA]
+
+`arquitectura-tecnica/modulos/` tiene **11 módulos** con dos perfiles radicalmente distintos:
+
+**Perfil A — Solo diagramas (correcto): `caller/`, `operator/`, `supervision/`**
+Sin archivos textuales. Solo `diagramas/` con UML específico de dominio.
+Estos 3 módulos son el modelo correcto per la visión del usuario.
+
+**Perfil B — Diagramas + textuales (inconsistente): 8 módulos restantes**
+`alerts/`, `audit/`, `auth/`, `etl-monitoring/`, `rbac-core/`, `sys-logs/`,
+`user-identity/`, `vis-reports/` — cada uno con 5 archivos textuales estándar
+más posibles especiales (`retencion`, `metricas`, `enforcers`).
+
+**Los `diagramas/` (30 archivos) — todos únicos, CORRECTO:**
+Hash MD5 verificado: 30 hashes únicos, cero duplicados. Son los mejores
+diagramas de toda `arquitectura-tecnica/`: lógica de dominio real, específicos
+por módulo (ciclo de vida, secuencias con reglas de negocio, diagramas de clases).
+Deben quedarse donde están.
+
+**Los archivos textuales (43 archivos) — tipo ARCH, fuera de lugar si arq-tecnica es solo DIAG:**
+
+| Tipo | Contenido | Módulos | Observación |
+|---|---|---|---|
+| `responsabilidades.rst` (8) | PUEDE/NO PUEDE, UC, CNST | todos los B | Especificación de frontera de módulo |
+| `componentes.rst` (8) | Apps, modelos, servicios Django | todos los B | Especificación de implementación |
+| `dependencias.rst` (8) | Dependencias inter-módulo | todos los B | Topología del sistema |
+| `restricciones.rst` (8) | CNST aplicables al módulo | todos los B | Derivado de `normativa/` — potencialmente redundante |
+| `casos-uso.rst` (8) | Catálogo de UCs del módulo | todos los B | Info ya vive en `requisitos/casos-uso/` |
+| `retencion.rst` (1) | Política de retención | audit | Podría ir en `normativa/` |
+| `metricas.rst` (1) | Métricas de observabilidad | sys-logs | Específico técnico |
+| `enforcers.rst` (1) | Middleware de enforcement | rbac-core | Decisión de implementación |
+
+**Evidencia de que los textuales no son indispensables aquí:**
+`caller/`, `operator/`, `supervision/` no tienen ningún archivo textual y su
+documentación está completa solo con sus `diagramas/`. Esto prueba que los 43
+archivos textuales de los otros 8 módulos no son obligatorios en esta ubicación.
+
+**`casos-uso.rst` en particular es redundante:** cada archivo lista los UCs del
+módulo en una tabla, pero esa misma información ya vive en `requisitos/casos-uso/`
+con sus specs completas. Es duplicación de trazabilidad.
+
 ---
 
 ## 10. Preguntas de diseño para la fase STRATEGY
@@ -587,3 +628,5 @@ artefacto de requisitos (define funcionalidad requerida) o de arquitectura
 | `arquitectura-tecnica/deploy-view/` (80 archivos) | ⚠ 71/80 son copia idéntica del mismo diagrama | Reducir a 3 diagramas canónicos por variante de infra (H-10) |
 | `arquitectura-tecnica/design-view/` (160 archivos) | ⚠ 160/160 boilerplate genérico; 4 pasos idénticos en todos los archivos | Reducir a ~12 diagramas canónicos por módulo (H-11) |
 | `arquitectura-tecnica/implementation-view/` (80 archivos) | ⚠ 12 diagramas únicos reales; 68 redundantes — agrupación correcta es por módulo | Reducir a 12 archivos `mod-{nombre}.rst` (H-12) |
+| `arquitectura-tecnica/modulos/*/diagramas/` (30 archivos) | ✓ 30 únicos, dominio-específicos, alta calidad | Correcto — mantener (H-13) |
+| `arquitectura-tecnica/modulos/*/` textuales (43 archivos) | ⚠ ARCH textual en zona DIAG; `caller/operator/supervision/` prueban que son opcionales aquí | Decisión pendiente P-01 (H-13) |
