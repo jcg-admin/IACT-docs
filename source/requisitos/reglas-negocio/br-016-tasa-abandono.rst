@@ -129,11 +129,11 @@ los valores vacios a ``'VACIO'``.
 
 **Filtro SQL de implementacion:**
 
-.. code-block:: sql
+.. note::
 
- -- dentro de sp_rpt_llamadas_abandonadas
- WHERE menu IN ('VACIO', 'cliente_colgo', 'SinOpcion_Cabecera')
-
+ Los detalles de implementacion de esta operacion estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 **Volumenes de referencia (Q3 2025, Nacional A):**
 
 - ``VACIO``: ~8-9% del total de llamadas.

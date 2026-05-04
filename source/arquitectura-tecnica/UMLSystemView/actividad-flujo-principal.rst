@@ -82,7 +82,7 @@ de sesion.
  end fork
 
  |request_pipeline_retry|
- :DELETE /api/auth/logout/;
+ :eliminar /api/auth/logout/;
  :Registrar en audit_log;
  stop
 

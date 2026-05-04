@@ -54,9 +54,9 @@ PASO 8-10 — Atomicos en transaccion.
 ::
 
    BEGIN
-     UPDATE User SET (campos)... WHERE id = ?;
+     actualizar datos del usuario donde id = ?;
      IF state -> BLOCKED:
-       UPDATE Session SET state='CLOSED',
+       actualizar Session: state=CLOSED,
          close_reason='ADMIN_BLOCKED'
          WHERE user_id = ? AND state='ACTIVE';
        INSERT BlacklistedToken (...);

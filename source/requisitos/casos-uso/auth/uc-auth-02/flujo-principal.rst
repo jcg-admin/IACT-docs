@@ -244,13 +244,12 @@ atomica:
 ::
 
    BEGIN
-     UPDATE session SET state='CLOSED',
+     actualizar session: state='CLOSED',
        close_reason='USER_LOGOUT',
        closed_at=NOW()
        WHERE session_id=X;
-     INSERT INTO blacklisted_token (jti, ...);
-     INSERT INTO audit_event (
-       event_type='LOGOUT', ...);
+     registrar en blacklisted_token (...);
+     registrar en audit_event (...);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. La ``Session``

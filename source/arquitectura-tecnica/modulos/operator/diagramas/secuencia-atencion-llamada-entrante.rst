@@ -44,8 +44,8 @@ Secuencia de Atencion de Llamada Entrante
 
  answer_inbound_calls -> Agentpanel : POST /disposition {code, notes}
  Agentpanel -> Agentpanel : JWT + RBAC (enter_call_disposition)
- Agentpanel -> DISP : INSERT disposition record
- Agentpanel -> audit_log : INSERT AuditEvent CALL_DISPOSED
+ Agentpanel -> DISP : registrar disposition record
+ Agentpanel -> audit_log : registrar AuditEvent CALL_DISPOSED
  Agentpanel -> Telephonyrouter : liberar canal
  Telephonyrouter --> Agentpanel : agente disponible
  Agentpanel --> answer_inbound_calls : 200 OK, estado = available

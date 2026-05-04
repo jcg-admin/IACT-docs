@@ -15,4 +15,4 @@ ARQ_MOD_004 — Restricciones Aplicables
      Analytics es la unica BD escribible.
  * - CNST_004
    - **Actualizacion Datos ETL**: ETL nocturno, no manual.
-     Sin TRUNCATE, solo INSERT/UPDATE controlado.
+     Sin TRUNCATE, solo INSERT/actualizar controlado.

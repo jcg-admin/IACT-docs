@@ -36,12 +36,12 @@ Diagrama de componentes — MOD_Logs
  component "InternalMailbox" as Internalmailbox
 
  AppsDjango --> FluentBit : stdout logs estructurados
- FluentBit --> Logstore : INSERT logs
+ FluentBit --> Logstore : registrar logs
 
- view_application_logs --> Logstore : SELECT sistema
- view_etl_logs --> ETL_LOG : SELECT etl_runs
- search_logs --> Logstore : SELECT con filtros
- export_logs --> Logstore : SELECT rango + generar CSV
+ view_application_logs --> Logstore : consultar sistema
+ view_etl_logs --> ETL_LOG : consultar etl_runs
+ search_logs --> Logstore : consultar con filtros
+ export_logs --> Logstore : consultar rango + generar CSV
  export_logs --> Internalmailbox : notificar via buzon
 
  @enduml

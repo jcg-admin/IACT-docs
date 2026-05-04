@@ -34,26 +34,26 @@ estado en ``etl_runs``.
 
    state "Recibir Solicitud ETL" as S1
    S1 : entry / validar funcion view_pipeline_status en JWT
-   S1 : do / INSERT etl_runs (estado=en_ejecucion)
+   S1 : do / registrar etl_runs (estado=en_ejecucion)
    S1 : exit / ID de ejecucion asignado
 
    state fork_etl <<fork>>
 
    state "sp_etl_base_detalle" as S2A
    S2A : entry / leer tbl_historico_detalle (fuente IVR)
-   S2A : do / TRUNCATE + INSERT base_ivr_detalle
+   S2A : do / TRUNCATE + registrar base_ivr_detalle
    S2A : exit / rows_detalle registrados en etl_runs
 
    state "sp_etl_base_clientes" as S2B
    S2B : entry / leer tbl_historico_clientes (fuente IVR)
-   S2B : do / TRUNCATE + INSERT base_ivr_clientes
+   S2B : do / TRUNCATE + registrar base_ivr_clientes
    S2B : exit / rows_clientes registrados en etl_runs
 
    state join_etl <<join>>
 
    state "Verificar Resultado" as S3
    S3 : entry / consolidar resultado de ambos sp_etl_*
-   S3 : do / UPDATE etl_runs SET estado, finalizado_en
+   S3 : do / actualizar etl_runs SET estado, finalizado_en
    S3 : exit / fin de cadena ETL
 
    state "ETL Exitoso" as SUCC

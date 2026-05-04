@@ -44,7 +44,7 @@ o timing).
 
 **Justificacion**: la generacion no es atomica
 con el INSERT. Otro request paralelo puede haber
-creado el mismo username entre el SELECT COUNT
+creado el mismo username entre el consultar conteo
 y el INSERT.
 
 **Pasos:**

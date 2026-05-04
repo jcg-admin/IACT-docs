@@ -40,10 +40,10 @@ Diagrama de componentes — MOD_Pipeline
  request_pipeline_retry --> Supervisionendpoint : POST reintento (request_pipeline_retry)
  SCHED --> ETL_SP : CALL sp_etl_maestro
  Supervisionendpoint --> ETL_SP : CALL sp_etl_maestro (reintento)
- ETL_SP --> HIST : SELECT (solo lectura)
- ETL_SP --> ANAL : TRUNCATE + INSERT
- ETL_SP --> RUNS : INSERT/UPDATE ejecucion
- Supervisionendpoint --> AUDIT : INSERT auditoria
+ ETL_SP --> HIST : consultar (solo lectura)
+ ETL_SP --> ANAL : TRUNCATE + registrar
+ ETL_SP --> RUNS : registrar/actualizar ejecucion
+ Supervisionendpoint --> AUDIT : registrar auditoria
 
  @enduml
 

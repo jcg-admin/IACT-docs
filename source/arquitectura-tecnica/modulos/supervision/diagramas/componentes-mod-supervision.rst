@@ -37,8 +37,8 @@ Diagrama de componentes — MOD_Supervision
  monitor_live_calls --> Supervisionendpoint : HTTP requests
  Supervisionendpoint --> Telephonybridge : activar canal supervision/barge
  Supervisionendpoint --> TONE : emitir tono compliance
- Supervisionendpoint --> Internalmailbox : INSERT broadcast message
- Supervisionendpoint --> audit_log : INSERT SupervisionEvent
+ Supervisionendpoint --> Internalmailbox : registrar broadcast message
+ Supervisionendpoint --> audit_log : registrar SupervisionEvent
  Supervisionendpoint --> STATE : leer estado agentes activos
 
  @enduml

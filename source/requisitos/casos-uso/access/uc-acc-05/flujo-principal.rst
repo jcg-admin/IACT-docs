@@ -22,7 +22,7 @@ UC_ACC_05 tiene **4 sub-flujos**:
    PASO 1   GET /api/access/sod-rules/?...    (FE → BE)
    PASO 2   Validar JWT + view_separation_rules (Backend)
    PASO 3   Construir query (filter, paginate) (Backend)
-   PASO 4   SELECT SoDRule con paginacion      (BE → BD)
+   PASO 4   consultar SoDRule con paginacion      (BE → BD)
    PASO 5   Audit selectivo P-16 si rule_id    (BE → BD)
    PASO 6   200 OK con lista                   (BE → FE)
 

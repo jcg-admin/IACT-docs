@@ -37,10 +37,10 @@ Secuencia de Creacion de Usuario
  else con permiso
    Userendpoint -> Userendpoint : generar username (CNST-029)
    Userendpoint -> Userendpoint : generar password temporal
-   Userendpoint -> auth_user : INSERT auth_user (is_active=True)
+   Userendpoint -> auth_user : registrar auth_user (is_active=True)
    auth_user --> Userendpoint : user_id
-   Userendpoint -> Internalmailbox : INSERT bienvenida + password temporal
-   Userendpoint -> Auditlog : INSERT USER_CREATED
+   Userendpoint -> Internalmailbox : registrar bienvenida + password temporal
+   Userendpoint -> Auditlog : registrar USER_CREATED
    Userendpoint --> ADMIN : 201 Created + user_id
  end
 

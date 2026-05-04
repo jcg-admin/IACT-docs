@@ -136,9 +136,9 @@ politica de retencion (ver BR_018).
 5.2 UC Afectados
 ^^^^^^^^^^^^^^^^
 
-- UC-060: Registrar Evento (solo INSERT)
-- UC-061: Consultar Log (solo SELECT)
-- UC-063: Exportar Auditoria (solo SELECT)
+- UC-060: Registrar Evento (solo escritura)
+- UC-061: Consultar Log (solo lectura)
+- UC-063: Exportar Auditoria (solo lectura)
 
 ----
 

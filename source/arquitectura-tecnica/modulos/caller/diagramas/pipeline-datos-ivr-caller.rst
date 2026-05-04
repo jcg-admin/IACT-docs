@@ -36,10 +36,10 @@ Pipeline de Datos IVR — Caller a Analitica
  component "AlertEvaluator\n(BR-016 tasa abandono)" as ALERT
 
  CALLER --> PbxIvr : llamada telefonica
- PbxIvr --> HIST : INSERT/UPDATE registros PbxIvr
- sp_etl_maestro --> HIST : SELECT (ventana nocturna)
- sp_etl_maestro --> ANAL : TRUNCATE + INSERT
- sp_rpt_llamadas_abandonadas --> ANAL : SELECT (cursor.callproc)
+ PbxIvr --> HIST : registrar/actualizar registros PbxIvr
+ sp_etl_maestro --> HIST : consultar (ventana nocturna)
+ sp_etl_maestro --> ANAL : TRUNCATE + registrar
+ sp_rpt_llamadas_abandonadas --> ANAL : consultar (cursor.callproc)
  ALERT --> ANAL : evaluar tasa abandono > 30%%
 
  @enduml

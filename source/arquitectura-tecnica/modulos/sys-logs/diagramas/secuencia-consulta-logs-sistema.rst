@@ -33,7 +33,7 @@ Secuencia de Consulta de Logs del Sistema
  alt sin permiso
    Logendpoint --> view_application_logs : 403 Forbidden
  else con permiso
-   Logendpoint -> Logstore : SELECT WHERE level=ERROR AND ts > now()-1h
+   Logendpoint -> Logstore : consultar WHERE level=ERROR AND ts > now()-1h
    Logstore --> Logendpoint : entries
    Logendpoint -> Logendpoint : sanitizar (eliminar PII)
    Logendpoint --> view_application_logs : 200 + entries JSON

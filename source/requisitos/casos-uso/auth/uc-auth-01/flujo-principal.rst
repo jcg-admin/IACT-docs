@@ -398,16 +398,13 @@ atomica** en BD:
 
    BEGIN
      -- Paso 10: invalidar Sessions previas
-     UPDATE session SET state='CLOSED', ...
+     actualizar session: state=CLOSED ...;
        WHERE user_id=X AND state='ACTIVE';
      -- Paso 10b (por cada Session cerrada)
-     INSERT INTO audit_event (event_type='SESSION_CLOSED', ...);
-     -- Paso 11: crear Session nueva
-     INSERT INTO session (state='ACTIVE', ...) RETURNING id;
-     -- Paso 13: AuditEvent LOGIN
-     INSERT INTO audit_event (event_type='LOGIN', ...);
-     -- Paso 14: User.last_login_at
-     UPDATE "user" SET last_login_at=NOW() WHERE id=X;
+     registrar en audit_event (con datos correspondientes)
+     registrar en session (con datos correspondientes)
+     registrar en audit_event (con datos correspondientes)
+     actualizar usuario: last_login_at=marca_tiempo_actual ...;
    COMMIT
 
 Si cualquier paso 10-14 falla, ROLLBACK.

@@ -35,7 +35,7 @@ Flujo de Emision de Evento de Auditoria
    ya fue confirmada en BD.
    El audit no la bloquea.
  end note
- Middleware -> AREP : INSERT AuditEvent\n(transaccion separada)
+ Middleware -> AREP : registrar AuditEvent\n(transaccion separada)
 
  alt fallo en insercion de audit
    Middleware -> Middleware : registrar alarma interna\n(no abortar operacion original)

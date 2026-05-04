@@ -82,7 +82,7 @@ final.
  [*] --> AUTH
  AUTH --> DASH : [credenciales validas]
  AUTH --> FINAL : [3 intentos fallidos]
- DASH --> FINAL : [DELETE /api/auth/logout/]
+ DASH --> FINAL : [eliminar /api/auth/logout/]
  DASH --> FINAL : [JWT expirado]
  FINAL --> [*]
 

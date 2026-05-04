@@ -241,11 +241,10 @@ Pasos 10-13 dentro de una transaccion atomica:
 ::
 
    BEGIN
-     INSERT INTO user (username, email, ...,
-       first_login=true, ...);
-     INSERT INTO assignment (user_id, access_group_id, ...);  -- si aplica
-     INSERT INTO internal_message (recipient_id, body=...);
-     INSERT INTO audit_event (event_type='USER_CREATED', ...);
+     registrar en user (con datos correspondientes);
+     registrar en assignment (con datos correspondientes)
+     registrar en internal_message (con datos correspondientes);
+     registrar en audit_event (con datos correspondientes);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. **No se acepta

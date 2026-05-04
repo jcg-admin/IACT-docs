@@ -27,9 +27,9 @@ Flujo del Llamante en el IVR
  start
 
  :Caller marca numero IVR;
- :Sistema IVR contesta\n(UC_CLI_01 — tbl_historico_detalle INSERT);
+ :Sistema IVR contesta\n(UC_CLI_01 — tbl_historico_detalle registrar);
 
- :Navegar menu IVR\n(UC_CLI_02 — tbl_historico_detalle UPDATE menu_seleccion);
+ :Navegar menu IVR\n(UC_CLI_02 — tbl_historico_detalle actualizar menu_seleccion);
 
  if (Agente disponible?) then (si)
    :Conectar con agente\n(answer_inbound_calls);
@@ -41,7 +41,7 @@ Flujo del Llamante en el IVR
    :Encolar llamada\n(UC_CLI_03 — estado=en_cola);
    if (Tiempo espera > umbral?) then (si)
      :Caller cuelga\n(tasa abandono para BR-016);
-     :INSERT abandon en tbl_historico_detalle;
+     :registrar abandon en tbl_historico_detalle;
      stop
    else (espera aceptable)
      :Ofrecer callback\n(UC_CLI_04);

@@ -36,22 +36,11 @@ accedida via ``cursor.execute`` / ``cursor.callproc``.
 
 **DSC_MOD_005_etl_runs** — Tabla de registro de ejecuciones
 
-.. code-block:: sql
+.. note::
 
- -- Tabla etl_runs en Almacen de Datos (no Django ORM)
- CREATE TABLE etl_runs (
-     id            INT AUTO_INCREMENT PRIMARY KEY,
-     job_id        VARCHAR(50) UNIQUE NOT NULL,
-     started_at    DATETIME NOT NULL,
-     finished_at   DATETIME NULL,
-     estado        ENUM('en_ejecucion','exitoso','fallido') NOT NULL,
-     registros_extraidos   INT DEFAULT 0,
-     registros_cargados    INT DEFAULT 0,
-     error_mensaje TEXT NULL,
-     fecha_inicio  DATE NOT NULL,
-     fecha_fin     DATE NOT NULL
- );
-
+ Los detalles de implementacion de este componente estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 **ETLEjecucionRepo** — Repositorio Python sobre cursor
 
 .. note::

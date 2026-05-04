@@ -61,7 +61,7 @@ se realizan como valores del enum ``event_type``, no como subclases.
 
  note right of AuditEvent
    CNST-025: append-only, inmutable.
-   Sin UPDATE, sin DELETE.
+   Sin actualizar, sin eliminar.
    Toda operacion de escritura en el
    dominio emite uno o mas AuditEvent.
  end note

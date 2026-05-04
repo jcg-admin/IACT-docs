@@ -32,14 +32,14 @@ Flujo ETL Nocturno — sp_etl_maestro
  participant "SupervisionETLEndpoint\n(/api/v1/etl/supervision/)" as Supervisionetlendpoint
 
  Apscheduler -> sp_etl_maestro : CALL sp_etl_maestro(trimestre)\n(ventana nocturna CNST-006/008)
- sp_etl_maestro -> etl_runs : INSERT etl_runs (estado=en_ejecucion)
- sp_etl_maestro -> tbl_historico_detalle : SELECT tbl_historico_detalle\n(solo lectura CNST-007)
+ sp_etl_maestro -> etl_runs : registrar etl_runs (estado=en_ejecucion)
+ sp_etl_maestro -> tbl_historico_detalle : consultar tbl_historico_detalle\n(solo lectura CNST-007)
  tbl_historico_detalle --> sp_etl_maestro : registros IVR del trimestre
- sp_etl_maestro -> DEST : TRUNCATE + INSERT base_ivr_detalle
- sp_etl_maestro -> tbl_historico_detalle : SELECT tbl_historico_clientes
+ sp_etl_maestro -> DEST : TRUNCATE + registrar base_ivr_detalle
+ sp_etl_maestro -> tbl_historico_detalle : consultar tbl_historico_clientes
  tbl_historico_detalle --> sp_etl_maestro : datos clientes del trimestre
- sp_etl_maestro -> DEST : TRUNCATE + INSERT base_ivr_clientes
- sp_etl_maestro -> etl_runs : UPDATE etl_runs SET estado=exitoso
+ sp_etl_maestro -> DEST : TRUNCATE + registrar base_ivr_clientes
+ sp_etl_maestro -> etl_runs : actualizar etl_runs SET estado=exitoso
 
  note over Supervisionetlendpoint
    view_pipeline_status consulta etl_runs.

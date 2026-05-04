@@ -266,16 +266,16 @@ Pasos 10-13 dentro de transaccion atomica:
 ::
 
    BEGIN
-     UPDATE user SET password_hash=?,
+     actualizar user: password_hash=?,
        first_login=false, password_changed_at=NOW()
        WHERE id=user_id;
-     INSERT INTO password_history (...);
-     UPDATE session SET state='CLOSED',
+     registrar en password_history (...);
+     actualizar session: state='CLOSED',
        close_reason='PASSWORD_CHANGED'
        WHERE user_id=? AND state='ACTIVE'
        AND session_id != current;
-     INSERT INTO blacklisted_token (N rows);
-     INSERT INTO audit_event (PASSWORD_CHANGED);
+     registrar en blacklisted_token (N filas);
+     registrar en audit_event (PASSWORD_CHANGED);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. La purga de

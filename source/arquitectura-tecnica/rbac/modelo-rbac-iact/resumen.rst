@@ -41,98 +41,11 @@ Modelo RBAC IACT — Resumen
 
 
 
-.. code-block:: sql
+.. note::
 
- -- Actualizar 74 funciones
- UPDATE functions SET name = 'manage_sessions' WHERE function_id = 'AUTH-001';
- UPDATE functions SET name = 'close_user_session' WHERE function_id = 'AUTH-002';
- UPDATE functions SET name = 'reset_password' WHERE function_id = 'AUTH-003';
- UPDATE functions SET name = 'view_active_sessions' WHERE function_id = 'AUTH-004';
- 
- UPDATE functions SET name = 'create_users' WHERE function_id = 'USR-001';
- UPDATE functions SET name = 'update_users' WHERE function_id = 'USR-002';
- UPDATE functions SET name = 'delete_users' WHERE function_id = 'USR-003';
- UPDATE functions SET name = 'list_users' WHERE function_id = 'USR-004';
- UPDATE functions SET name = 'search_users' WHERE function_id = 'USR-005';
- UPDATE functions SET name = 'block_users' WHERE function_id = 'USR-006';
- UPDATE functions SET name = 'unblock_users' WHERE function_id = 'USR-007';
- UPDATE functions SET name = 'reactivate_users' WHERE function_id = 'USR-008';
- UPDATE functions SET name = 'view_users' WHERE function_id = 'USR-009';
- 
- UPDATE functions SET name = 'assign_functions' WHERE function_id = 'ACC-001';
- UPDATE functions SET name = 'revoke_functions' WHERE function_id = 'ACC-002';
- UPDATE functions SET name = 'view_assignments' WHERE function_id = 'ACC-003';
- UPDATE functions SET name = 'assign_function_groups' WHERE function_id = 'ACC-004';
- UPDATE functions SET name = 'manage_separation_rules' WHERE function_id = 'ACC-005';
- 
- UPDATE functions SET name = 'view_pipeline_status' WHERE function_id = 'PIP-001';
- UPDATE functions SET name = 'view_pipeline_errors' WHERE function_id = 'PIP-002';
- UPDATE functions SET name = 'view_data_availability' WHERE function_id = 'PIP-003';
- UPDATE functions SET name = 'request_pipeline_retry' WHERE function_id = 'PIP-004';
- 
- UPDATE functions SET name = 'view_reports' WHERE function_id = 'RPT-001';
- UPDATE functions SET name = 'view_dashboard' WHERE function_id = 'RPT-002';
- UPDATE functions SET name = 'filter_reports' WHERE function_id = 'RPT-003';
- UPDATE functions SET name = 'export_csv' WHERE function_id = 'RPT-004';
- UPDATE functions SET name = 'export_excel' WHERE function_id = 'RPT-005';
- UPDATE functions SET name = 'export_pdf' WHERE function_id = 'RPT-006';
- UPDATE functions SET name = 'view_kpis' WHERE function_id = 'RPT-007';
- UPDATE functions SET name = 'view_charts' WHERE function_id = 'RPT-008';
- 
- UPDATE functions SET name = 'view_alerts' WHERE function_id = 'ALR-001';
- UPDATE functions SET name = 'configure_alerts' WHERE function_id = 'ALR-002';
- UPDATE functions SET name = 'configure_team_alerts' WHERE function_id = 'ALR-003';
- UPDATE functions SET name = 'pause_alerts' WHERE function_id = 'ALR-004';
- UPDATE functions SET name = 'delete_alerts' WHERE function_id = 'ALR-005';
- UPDATE functions SET name = 'view_alert_history' WHERE function_id = 'ALR-006';
- 
- UPDATE functions SET name = 'view_audit_log' WHERE function_id = 'AUD-001';
- UPDATE functions SET name = 'search_audit_log' WHERE function_id = 'AUD-002';
- UPDATE functions SET name = 'export_audit_log' WHERE function_id = 'AUD-003';
- UPDATE functions SET name = 'generate_compliance_report' WHERE function_id = 'AUD-004';
- 
- UPDATE functions SET name = 'view_technical_logs' WHERE function_id = 'LOG-001';
- UPDATE functions SET name = 'export_logs' WHERE function_id = 'LOG-002';
- 
- -- Actualizar 12 grupos
- UPDATE function_groups SET name = 'basic_operator_group' WHERE group_id = 'AGR-001';
- UPDATE function_groups SET name = 'report_viewer_group' WHERE group_id = 'AGR-002';
- UPDATE function_groups SET name = 'quality_supervisor_group' WHERE group_id = 'AGR-003';
- UPDATE function_groups SET name = 'data_exporter_group' WHERE group_id = 'AGR-004';
- UPDATE function_groups SET name = 'alert_manager_group' WHERE group_id = 'AGR-005';
- UPDATE function_groups SET name = 'user_admin_group' WHERE group_id = 'AGR-006';
- UPDATE function_groups SET name = 'permission_admin_group' WHERE group_id = 'AGR-007';
- UPDATE function_groups SET name = 'auditor_group' WHERE group_id = 'AGR-008';
- UPDATE function_groups SET name = 'pipeline_admin_group' WHERE group_id = 'AGR-009';
- UPDATE function_groups SET name = 'system_admin_group' WHERE group_id = 'AGR-010';
- 
- -- Actualizar 3 reglas SoD
- UPDATE function_separation_rules 
- SET name = 'pipeline_audit_separation',
- description = 'Pipeline operations cannot audit themselves'
- WHERE restriction_id = 'SOD-001';
- 
- UPDATE function_separation_rules 
- SET name = 'user_audit_separation',
- description = 'User management cannot audit themselves'
- WHERE restriction_id = 'SOD-002';
- 
- UPDATE function_separation_rules 
- SET name = 'access_audit_separation',
- description = 'Permission management cannot audit themselves'
- WHERE restriction_id = 'SOD-003';
- 
- -- Renombrar columnas (si es necesario)
- ALTER TABLE user_function_assignments 
- CHANGE assigned_date assigned_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
- 
- ALTER TABLE user_function_group_assignments 
- CHANGE assigned_date assigned_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
- 
- ALTER TABLE function_separation_rule_details 
- CHANGE separation_group rule_group CHAR(1) NOT NULL;
-
-
+ Los detalles de implementacion de esta operacion estan en el
+ repositorio de codigo fuente. Esta especificacion describe el
+ comportamiento esperado, no la implementacion concreta.
 ----
 
 12. RESUMEN

@@ -35,10 +35,10 @@ Componentes del modulo de Alertas
 
  configure_team_alerts --> Alertthreshold : CRUD umbrales
  Alertevaluator --> Alertthreshold : leer umbrales
- Alertevaluator --> HIST : INSERT nueva alerta
+ Alertevaluator --> HIST : registrar nueva alerta
  Alertevaluator --> Internalmailbox : notificar suscriptores
- VIEW --> HIST : SELECT alertas activas
- acknowledge_alert --> HIST : UPDATE estado reconocida
+ VIEW --> HIST : consultar alertas activas
+ acknowledge_alert --> HIST : actualizar estado reconocida
 
  @enduml
 

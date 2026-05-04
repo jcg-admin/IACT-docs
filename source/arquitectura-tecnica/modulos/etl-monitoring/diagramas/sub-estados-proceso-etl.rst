@@ -28,8 +28,8 @@ Sub-estados del proceso ETL
 
  state en_ejecucion {
    [*] --> procesando_detalle : sp_etl_base_detalle
-   procesando_detalle --> procesando_clientes : INSERT exitoso
-   procesando_clientes --> [*] : INSERT exitoso
+   procesando_detalle --> procesando_clientes : registrar exitoso
+   procesando_clientes --> [*] : registrar exitoso
  }
 
  en_ejecucion --> exitoso : ambos sp_etl_* completan sin error

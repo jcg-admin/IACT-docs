@@ -38,11 +38,11 @@ Diagrama de componentes — MOD_Audit
  view_audit_log --> Auditqueryendpoint : GET /api/audit/
  export_audit_log --> Auditqueryendpoint : POST /api/audit/export/
  generate_compliance_report --> Auditqueryendpoint : POST /api/audit/compliance/
- Auditqueryendpoint --> audit_log : SELECT (lectura)
+ Auditqueryendpoint --> audit_log : consultar (lectura)
  Auditqueryendpoint --> Auditexportworker : encolar job export
  Auditqueryendpoint --> Complianceworker : encolar job compliance
- Auditexportworker --> audit_log : SELECT rango
- Complianceworker --> audit_log : SELECT periodo
+ Auditexportworker --> audit_log : consultar rango
+ Complianceworker --> audit_log : consultar periodo
  Auditexportworker --> Internalmailbox : archivo CSV/JSON
  Complianceworker --> Internalmailbox : archivo firmado HMAC
 

@@ -17,7 +17,7 @@ Parte 3 — Flujo principal (Camino feliz)
    PASO 5   Validar funcion view_audit_log        (Backend)
    PASO 6   Validar filtros (whitelist anti-SQLi)    (Backend)
    PASO 7   Construir query con filtros + ordering   (Backend)
-   PASO 8   SELECT AuditEvent paginado               (Backend → BD)
+   PASO 8   consultar AuditEvent paginado               (Backend → BD)
    PASO 9   Aplicar mascarado PII (CNST-026)         (Backend)
    PASO 10  Audit selectivo P-16 si target_user_id   (Backend → BD)
    PASO 11  200 OK con resultados                    (BE → FE)
@@ -54,7 +54,7 @@ Pre-filtro por
 el scope a eventos de MOD_Access (vs UC_AUD_*
 que muestra todos).
 
-PASO 8 — SELECT paginado
+PASO 8 — consultar paginado
 ------------------------
 
 Cursor-based pagination recomendado para

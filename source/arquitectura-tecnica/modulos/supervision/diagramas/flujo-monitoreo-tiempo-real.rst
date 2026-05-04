@@ -35,7 +35,7 @@ Flujo de Monitoreo en Tiempo Real
  Supervisionendpoint -> Telephonybridge : conectar canal supervision\n(mode: silent|whisper)
  Telephonybridge -> answer_inbound_calls : emitir tono de supervision\n(compliance obligatorio)
  Telephonybridge --> Supervisionendpoint : canal activo
- Supervisionendpoint -> Auditlog : INSERT SupervisionEvent {tipo, supervisor, call_id}
+ Supervisionendpoint -> Auditlog : registrar SupervisionEvent {tipo, supervisor, call_id}
  Supervisionendpoint --> monitor_live_calls : 200 OK
 
  note over monitor_live_calls, answer_inbound_calls

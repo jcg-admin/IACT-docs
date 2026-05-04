@@ -171,22 +171,11 @@ El TPE es un KPI crítico porque:
 4.1 SQL de Cálculo
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: sql
+.. note::
 
- -- BR_017: Cálculo de Tiempo Promedio de Espera
- SELECT 
- fecha,
- centro_id,
- ROUND(
- AVG(tiempo_espera_segundos)::DECIMAL,
- 2
- ) AS tiempo_promedio_espera
- FROM llamadas
- WHERE 
- fecha BETWEEN :fecha_inicio AND :fecha_fin
- AND estado = 'ATENDIDA' -- Solo llamadas atendidas
- GROUP BY fecha, centro_id;
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 4.2 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 

@@ -26,7 +26,7 @@ Ciclo de Vida de una Asignacion
 
  [*] --> PENDING_VALIDATION : assign_functions invocado
 
- PENDING_VALIDATION --> ACTIVE : SoD ok + INSERT exitoso
+ PENDING_VALIDATION --> ACTIVE : SoD ok + registrar exitoso
  PENDING_VALIDATION --> REJECTED : viola SoD (EX-07)
 
  ACTIVE --> EXPIRED : expires_at alcanzado\n(job nocturno)

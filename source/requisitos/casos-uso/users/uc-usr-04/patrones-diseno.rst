@@ -140,7 +140,7 @@ AuditEvent registra ``mailbox_failed=true``.
 10.3.1 DELETE fisico
 --------------------
 
-**No aplica**: BR-009 prohibe. ``DELETE FROM
+**No aplica**: BR-009 prohibe. ``eliminar de
 users WHERE id=?`` jamas se ejecuta. Solo
 UPDATE de state.
 

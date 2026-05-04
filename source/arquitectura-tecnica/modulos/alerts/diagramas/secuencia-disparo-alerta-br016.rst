@@ -37,7 +37,7 @@ Secuencia de Disparo de Alerta BR-016
  alt tasa > 30%
    Alertevaluator -> Alertevaluator : crear alerta PENDIENTE
    Alertevaluator -> Alertevaluator : confirmar condicion persiste
-   Alertevaluator -> Internalmailbox : INSERT notificacion\na suscriptores activos
+   Alertevaluator -> Internalmailbox : registrar notificacion\na suscriptores activos
    Internalmailbox --> view_alerts : mensaje en buzon
  else tasa <= 30%
    Alertevaluator -> Alertevaluator : no disparar alerta

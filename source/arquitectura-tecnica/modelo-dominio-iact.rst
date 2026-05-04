@@ -113,7 +113,7 @@ vigentes tras el programa Z (modelo-rbac-improvement):
    - Periodo de retencion para los logs y snapshots de salud
  * - CNST-025 — Auditoria inmutable
    - vigente
-   - Append-only en ``AuditEvent``; sin UPDATE ni DELETE
+   - Append-only en ``AuditEvent``; sin actualizar ni DELETE
  * - CNST-030 — Separacion de funciones (SoD)
    - vigente
    - Reglas de exclusion mutua entre funciones

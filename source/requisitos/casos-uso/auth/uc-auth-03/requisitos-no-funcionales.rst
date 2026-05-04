@@ -20,7 +20,7 @@ Parte 6 — Requisitos no funcionales
      frecuente)
  * - **Concurrencia**
    - Lock pesimista en User; concurrencia con
-     UC_USR_03 maneja via SELECT FOR UPDATE
+     UC_USR_03 maneja via consultar con bloqueo
 
 6.2 Seguridad
 =============

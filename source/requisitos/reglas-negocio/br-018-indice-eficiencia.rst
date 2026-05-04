@@ -169,21 +169,11 @@ El Índice de Eficiencia es importante porque:
 4.1 SQL de Cálculo
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: sql
+.. note::
 
- -- BR_018: Cálculo de Índice de Eficiencia
- SELECT 
- fecha,
- centro_id,
- ROUND(
- (SUM(CASE WHEN estado = 'ATENDIDA' THEN 1 ELSE 0 END)::DECIMAL / 
- COUNT(*)::DECIMAL) * 100, 
- 2
- ) AS indice_eficiencia
- FROM llamadas
- WHERE fecha BETWEEN :fecha_inicio AND :fecha_fin
- GROUP BY fecha, centro_id;
-
+ Los detalles de implementacion de esta regla estan delegados
+ al documento tecnico de la capa de persistencia y servicio.
+ Esta especificacion describe el QUE y el POR QUE, no el COMO.
 4.2 Modelo de datos
 ^^^^^^^^^^^^^^^^^
 

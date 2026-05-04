@@ -17,7 +17,7 @@ Politica de retencion de registros de auditoria (CNST_009).
  * - Retencion maxima
    - 5 anos (configurable)
  * - Inmutabilidad
-   - No UPDATE, no DELETE
+   - No actualizar, no DELETE
  * - Acceso
    - Solo rol R017 (AUDIT_VIEWER)
  * - Exportacion

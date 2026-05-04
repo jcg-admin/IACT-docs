@@ -289,19 +289,17 @@ atomica:
 ::
 
    BEGIN
-     UPDATE user SET
+     actualizar user:
        password_hash=?, first_login=true,
        password_changed_at=NOW()
        WHERE id=user_id;
-     UPDATE session SET state='CLOSED',
+     actualizar session: state='CLOSED',
        close_reason='PASSWORD_RESET',
        closed_at=NOW()
        WHERE user_id=user_id AND state='ACTIVE';
-     INSERT INTO blacklisted_token (jti, ...);
-     INSERT INTO internal_message (
-       recipient_id=user_id, body=...);
-     INSERT INTO audit_event (
-       event_type='PASSWORD_RESET', ...);
+     registrar en blacklisted_token (...);
+     registrar en internal_message (...);
+     registrar en audit_event (...);
    COMMIT
 
 Si cualquier paso falla, ROLLBACK. La operacion
