@@ -31,4 +31,5 @@ Dinamico, CNST_033 Vocabulario Unificado).
  :caption: Modelo RBAC
 
  modelo-rbac-iact/index
- raci-rbac-iact/index
+
+Ver tambien: :doc:`/normativa/gobernanza/raci-rbac/index` (matrices RACI — movidas a normativa/gobernanza/).
