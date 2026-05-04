@@ -185,19 +185,12 @@ conforme al catalogo de funciones del sistema.
 3. Diagramas UML (uno por archivo)
 ====================================
 
-.. toctree::
- :maxdepth: 1
- :caption: Diagramas del sistema IACT
+Los diagramas estan organizados en :doc:`system-view/index` (12 diagramas:
+casos de uso, clases, actividad, maquina de estados, secuencia, comunicacion,
+componentes, despliegue estandar, despliegue multi-cliente y sub-maquinas
+ETL/Reporte).
 
- system-view/casos-uso-sistema-iact
- system-view/clases-sistema-iact
- system-view/actividad-flujo-principal
- system-view/actividad-autenticacion
- system-view/maquina-estados-sistema-iact
- system-view/secuencia-sistema-iact
- system-view/comunicacion-sistema-iact
- system-view/componentes-sistema-iact
- system-view/despliegue-sistema-iact
- system-view/submaquina-etl
- system-view/submaquina-reporte
- system-view/despliegue-multicliente
+.. seealso::
+
+ :doc:`system-view/index`
+ :doc:`vistas-kruchten`

@@ -65,6 +65,13 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
    - Analisis de calidad transversal: Security (RBAC, JWT, IVR
      read-only), Regulation (auditoria append-only, CNST-025/030/031),
      Availability (ETL failure isolation P-04).
+ * - :doc:`system-view/index`
+   - System Overview (UML)
+   - Coleccion de diagramas UML a nivel sistema: casos de uso,
+     clases de servicio, actividad, maquina de estados, secuencia,
+     comunicacion, componentes, despliegue estandar, despliegue
+     multi-cliente y sub-maquinas ETL/Reporte. Granularidad sistema
+     (no por modulo) — coleccion pre-Kruchten integrada al modelo 5+1.
 
 ----
 
@@ -81,3 +88,4 @@ cubre un conjunto de concerns de stakeholders segun Rozanski & Woods.
  deploy-view/index
  operational-view/index
  perspectivas/index
+ system-view/index
