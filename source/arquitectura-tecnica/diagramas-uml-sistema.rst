@@ -191,12 +191,12 @@ conforme al catalogo de funciones del sistema.
  @startuml
  left to right direction
 
- actor "view_reports\n(view_dashboard)" as RVG
- actor "view_pipeline_status\n(view_alerts)" as QSG
- actor "request_pipeline_retry" as PAG
- actor "assign_functions\n(create_users)" as UAG
- actor "view_audit_log" as AUG
- actor "APScheduler\n/ Cron" as SCH
+ actor "view_reports\n(view_dashboard)" as view_reports
+ actor "view_pipeline_status\n(view_alerts)" as view_pipeline_status
+ actor "request_pipeline_retry" as request_pipeline_retry
+ actor "assign_functions\n(create_users)" as assign_functions
+ actor "view_audit_log" as view_audit_log
+ actor "APScheduler\n/ Cron" as APScheduler
  actor "Sistema IVR\n(fuente datos)" as IVR
 
  rectangle "Sistema IACT" {
@@ -216,12 +216,12 @@ conforme al catalogo de funciones del sistema.
    usecase "Cerrar Sesion" as UC_LOGOUT
  }
 
- RVG --> UC_AUTH
- QSG --> UC_AUTH
- PAG --> UC_AUTH
- UAG --> UC_AUTH
- AUG --> UC_AUTH
- SCH --> UC_PIP
+ view_reports --> UC_AUTH
+ view_pipeline_status --> UC_AUTH
+ request_pipeline_retry --> UC_AUTH
+ assign_functions --> UC_AUTH
+ view_audit_log --> UC_AUTH
+ APScheduler --> UC_PIP
  IVR --> UC_PIP
 
  UC_AUTH ..> UC_ACC : <<include>>
@@ -230,7 +230,7 @@ conforme al catalogo de funciones del sistema.
  UC_ACC ..> UC_PIP : <<extend>>
  UC_ACC ..> UC_LOG : <<extend>>
  UC_ACC ..> UC_LOGOUT : <<extend>>
- UAG --> UC_RBAC
+ assign_functions --> UC_RBAC
  UC_RBAC ..> UC_AUTH : <<include>>
 
  UC_RPT ..> UC_INC : <<include>>
@@ -574,64 +574,64 @@ y ``opt`` permite el reintento.
 
  @startuml
 
- actor "User" as USR
- participant "AuthEndpoint" as AE
- participant "DashboardEndpoint" as DE
- participant "SegmentResolver" as SR
- participant "ServicioReportes\n(sp_rpt_*)" as SRP
+ actor "view_reports" as view_reports
+ participant "AuthEndpoint" as AuthEndpoint
+ participant "DashboardEndpoint" as DashboardEndpoint
+ participant "SegmentResolver" as SegmentResolver
+ participant "ServicioReportes\n(sp_rpt_*)" as ServicioReportes
  participant "DisparadorETL" as ETL
  actor "Sistema IVR\n(fuente)" as IVR
 
  alt [autenticacion exitosa: status=TRUE]
 
    alt [Nueva sesion]
-     USR -> AE : 1: POST /api/auth/login()
-     AE -> AE : 2: ValidarCredenciales()
-     AE --> USR : 3: status := GenerarJWT(rbac_functions)
+     view_reports -> AuthEndpoint : 1: POST /api/auth/login()
+     AuthEndpoint -> AuthEndpoint : 2: ValidarCredenciales()
+     AuthEndpoint --> view_reports : 3: status := GenerarJWT(rbac_functions)
    else [JWT valido existente]
-     USR -> DE : 4: GET /api/dashboard/ (JWT)
-     DE -> DE : 5: ValidarJWT_RBAC(view_dashboard)
-     DE --> USR : 6: sesion_confirmada
+     view_reports -> DashboardEndpoint : 4: GET /api/dashboard/ (JWT)
+     DashboardEndpoint -> DashboardEndpoint : 5: ValidarJWT_RBAC(view_dashboard)
+     DashboardEndpoint --> view_reports : 6: sesion_confirmada
    end
 
    loop [sesion activa]
 
      opt [view_dashboard en JWT]
-       USR -> DE : 7: GET /api/dashboard/
-       DE -> SR : 8: segments_for(user_id)
-       SR --> DE : 9: segmentos
-       DE -> SRP : 10: callproc(sp_rpt_centros_xsegmento)
-       SRP --> DE : 11: KPIs IVR
-       DE --> USR : 12: dashboard mostrado
+       view_reports -> DashboardEndpoint : 7: GET /api/dashboard/
+       DashboardEndpoint -> SegmentResolver : 8: segments_for(user_id)
+       SegmentResolver --> DashboardEndpoint : 9: segmentos
+       DashboardEndpoint -> ServicioReportes : 10: callproc(sp_rpt_centros_xsegmento)
+       ServicioReportes --> DashboardEndpoint : 11: KPIs IVR
+       DashboardEndpoint --> view_reports : 12: dashboard mostrado
      end
 
      opt [view_reports en JWT]
-       USR -> DE : 13: GET /api/reportes/?trimestre=
-       DE -> SR : 14: segments_for(user_id)
-       SR --> DE : 15: segmentos
-       DE -> SRP : 16: callproc(sp_rpt_*, [trimestre])
-       SRP --> DE : 17: rows reporte
-       DE --> USR : 18: reporte mostrado
+       view_reports -> DashboardEndpoint : 13: GET /api/reportes/?trimestre=
+       DashboardEndpoint -> SegmentResolver : 14: segments_for(user_id)
+       SegmentResolver --> DashboardEndpoint : 15: segmentos
+       DashboardEndpoint -> ServicioReportes : 16: callproc(sp_rpt_*, [trimestre])
+       ServicioReportes --> DashboardEndpoint : 17: rows reporte
+       DashboardEndpoint --> view_reports : 18: reporte mostrado
      end
 
      opt [view_pipeline_status en JWT]
-       USR -> ETL : 19: POST /api/pipeline/ejecutar/
+       view_reports -> ETL : 19: POST /api/pipeline/ejecutar/
        ETL -> IVR : 20: leer tbl_historico_*
        ETL -> ETL : 21: CALL sp_etl_maestro(trimestre)
-       ETL --> USR : 22: estado_ejecucion
+       ETL --> view_reports : 22: estado_ejecucion
 
-       neg [ETL fallido]
-         ETL --> USR : 23: estado = fallido
-         USR --> ETL : 24: error en ejecucion
+       alt [ETL fallido]
+         ETL --> view_reports : 23: estado = fallido
+         view_reports --> ETL : 24: error en ejecucion
        end
 
        opt [request_pipeline_retry en JWT]
          par
-           USR -> ETL : 25: reintentar(trimestre)
-           ETL --> USR : 26: ejecucion_reintentada
+           view_reports -> ETL : 25: reintentar(trimestre)
+           ETL --> view_reports : 26: ejecucion_reintentada
          also
-           USR -> ETL : 27: cancelar_reintento()
-           ETL --> USR : 28: reintento_cancelado
+           view_reports -> ETL : 27: cancelar_reintento()
+           ETL --> view_reports : 28: reintento_cancelado
          end
        end
      end
@@ -639,8 +639,8 @@ y ``opt`` permite el reintento.
    end
 
  else [autenticacion fallida: status=FALSE]
-   USR -> AE : 29: login_fallido()
-   AE -->x USR : 30: <<destroy>> 401 Unauthorized
+   view_reports -> AuthEndpoint : 29: login_fallido()
+   AuthEndpoint -->x view_reports : 30: <<destroy>> 401 Unauthorized
  end
 
  @enduml
@@ -660,35 +660,35 @@ indican guarda basada en funcion RBAC del JWT activo.
 
  @startuml
 
- object ": User (RBAC group)" as USR
- object ": AuthEndpoint" as AE
- object ": DashboardEndpoint" as DE
- object ": SegmentResolver" as SR
- object ": ServicioReportes" as SRP
+ object ": User (RBAC group)" as UserRBAC
+ object ": AuthEndpoint" as AuthEndpoint
+ object ": DashboardEndpoint" as DashboardEndpoint
+ object ": SegmentResolver" as SegmentResolver
+ object ": ServicioReportes" as ServicioReportes
  object ": DisparadorETL" as ETL
- object "AutenticacionFallida" as FAIL
+ object "AutenticacionFallida" as AutenticacionFallida
 
- USR --> AE : 1: check_credentials()
- AE --> AE : 2: status := ValidarJWT(rbac_functions)
- AE --> USR : 3: [status==TRUE] GenerarJWT()
- AE --> DE : 4 *[status==TRUE]: dashboard_data()
- DE --> SR : 5 *[view_dashboard]: segments_for(user_id)
- SR --> DE : 6: segmentos
- DE --> SRP : 7 *[view_dashboard]: callproc(sp_rpt_centros_xsegmento)
- SRP --> DE : 8: KPIs IVR
- DE --> USR : 9: dashboard_mostrado
- USR --> DE : 10 *[view_reports]: reporte(trimestre)
- DE --> SRP : 11 *[view_reports]: callproc(sp_rpt_*)
- SRP --> DE : 12: rows_reporte
- DE --> USR : 13: reporte_mostrado
- USR --> ETL : 14 *[view_pipeline_status]: disparar_etl(trimestre)
+ UserRBAC --> AuthEndpoint : 1: check_credentials()
+ AuthEndpoint --> AuthEndpoint : 2: status := ValidarJWT(rbac_functions)
+ AuthEndpoint --> UserRBAC : 3: [status==TRUE] GenerarJWT()
+ AuthEndpoint --> DashboardEndpoint : 4 *[status==TRUE]: dashboard_data()
+ DashboardEndpoint --> SegmentResolver : 5 *[view_dashboard]: segments_for(user_id)
+ SegmentResolver --> DashboardEndpoint : 6: segmentos
+ DashboardEndpoint --> ServicioReportes : 7 *[view_dashboard]: callproc(sp_rpt_centros_xsegmento)
+ ServicioReportes --> DashboardEndpoint : 8: KPIs IVR
+ DashboardEndpoint --> UserRBAC : 9: dashboard_mostrado
+ UserRBAC --> DashboardEndpoint : 10 *[view_reports]: reporte(trimestre)
+ DashboardEndpoint --> ServicioReportes : 11 *[view_reports]: callproc(sp_rpt_*)
+ ServicioReportes --> DashboardEndpoint : 12: rows_reporte
+ DashboardEndpoint --> UserRBAC : 13: reporte_mostrado
+ UserRBAC --> ETL : 14 *[view_pipeline_status]: disparar_etl(trimestre)
  ETL --> ETL : 15: CALL sp_etl_maestro(trimestre)
- ETL --> USR : 16: estado_ejecucion
- USR --> ETL : 17 *[request_pipeline_retry]: request_pipeline_retry()
- ETL --> USR : 18 *[success==TRUE]: ejecucion_reintentada
- ETL --> USR : 19: receiptStatus := cancelar_reintento
- USR --> AE : 20 *[status==FALSE]: AutenticacionFallida() <<destroy>>
- FAIL --> USR : 21 *[status==FALSE]: AutenticacionFallida()
+ ETL --> UserRBAC : 16: estado_ejecucion
+ UserRBAC --> ETL : 17 *[request_pipeline_retry]: request_pipeline_retry()
+ ETL --> UserRBAC : 18 *[success==TRUE]: ejecucion_reintentada
+ ETL --> UserRBAC : 19: receiptStatus := cancelar_reintento
+ UserRBAC --> AuthEndpoint : 20 *[status==FALSE]: AutenticacionFallida() <<destroy>>
+ AutenticacionFallida --> UserRBAC : 21 *[status==FALSE]: AutenticacionFallida()
 
  @enduml
 
@@ -865,10 +865,10 @@ estado en ``etl_runs``.
    SUCC : do / notificar request_pipeline_retry
    SUCC : exit / datos disponibles en base_ivr_*
 
-   state "ETL Fallido" as FAIL
-   FAIL : entry / estado = fallido
-   FAIL : do / generar alerta BR-016 si aplica
-   FAIL : exit / reintento disponible via sp_etl_historico
+   state "ETL Fallido" as ETLFallido
+   ETLFallido : entry / estado = fallido
+   ETLFallido : do / generar alerta BR-016 si aplica
+   ETLFallido : exit / reintento disponible via sp_etl_historico
 
    [*] --> S1
    S1 --> fork_etl
@@ -878,9 +878,9 @@ estado en ``etl_runs``.
    S2B --> join_etl
    join_etl --> S3
    S3 --> SUCC : [sp_etl exitosos]
-   S3 --> FAIL : [sp_etl fallido]
+   S3 --> ETLFallido : [sp_etl fallido]
    SUCC --> [*]
-   FAIL --> [*]
+   ETLFallido --> [*]
  }
 
  [*] --> ETL_EXEC
