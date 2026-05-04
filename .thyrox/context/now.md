@@ -1,11 +1,11 @@
 ```yml
 type: Estado de Sesión
 version: 3.8
-updated_at: 2026-05-04 20:09:00
+updated_at: 2026-05-04 20:14:43
 cold_boot: false
 current_epic: 27
 epic_name: plantuml-syntax-fix
-current_work: .thyrox/context/work/2026-05-04-20-08-37-plantuml-syntax-fix
+current_work: .thyrox/context/work/2026-05-04-20-13-29-domain-model-per-class
 stage: track
 stage_number: 11
 current_phase: Phase 11 — TRACK
@@ -14,7 +14,7 @@ methodology_step: thyrox:track
 blockers: []
 last_completed_phase: "plantuml-syntax-fix — R-10 corregido. 3 archivos PlantUML sin errores. Build: 1 warning pre-existente."
 next_decision_required: "Clean build definitivo pendiente. Solicitud nueva: separar clases de clases-modulo-identidad.rst en domain-model/ (1 archivo por clase)."
-stage_sync_required: false
+stage_sync_required: true
 ```
 
 # IACT-docs — Estado de Sesión
